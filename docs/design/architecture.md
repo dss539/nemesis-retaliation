@@ -58,18 +58,26 @@
 ### High Priority
 - [ ] Item choice modal on search (currently auto-picks first)
 - [ ] Trade exchange modal (engine works, UI doesn't)
-- [ ] Full intruder pathfinding (BFS with tie-breaking)
+- [ ] Full intruder pathfinding (BFS with tie-breaking by corridor ID)
 - [ ] Proper corridor placement orientation from exploration cards
+- [ ] Corridor tiles rendered as proper tiles between rooms, not just lines between centers
+- [ ] Room layout should match physical game's grid positioning (3 sections, border pieces)
+- [ ] Privacy section in architecture.md is outdated — privacy is now UI-layer only, not state sanitization. Update this doc.
 
 ### Medium Priority
 - [ ] Card art / graphics
 - [ ] Expansion content (Sangrevore, Xyrians, etc.)
 - [ ] Solo/Coop mode objectives
 - [ ] Deadly mode (dual noise values)
-- [ ] Reconnection support
+- [ ] Reconnection support (player reclaiming their slot)
+- [ ] Host migration (if host disconnects, game is lost)
+- [ ] Noise roll should actually place intruders from bag (currently only Hazard result does)
+- [ ] Unjoined player slots should auto-pass turns (currently alive=true but not connected, engine skips them)
 
 ### Low Priority
 - [ ] Sound effects / music
 - [ ] Animations (dice rolls, card flips, intruder movement)
 - [ ] Spectator mode
 - [ ] Game replay / history
+- [ ] Contamination card scanning UI (scanner item)
+- [ ] Anti-aircraft token checking UI (Life Support Control B room)
