@@ -135,6 +135,43 @@ function switchToGameScreen() {
     }
 }
 
+function copyGameCode() {
+    const code = document.getElementById('host-code').textContent;
+    if (!code || code === 'Generating...') return;
+
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(code).then(() => {
+            const btn = document.getElementById('copy-code-btn');
+            const orig = btn.textContent;
+            btn.textContent = '✓ Copied!';
+            setTimeout(() => { btn.textContent = orig; }, 2000);
+        }).catch(() => {
+            fallbackCopy(code);
+        });
+    } else {
+        fallbackCopy(code);
+    }
+}
+
+function fallbackCopy(text) {
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.position = 'fixed';
+    ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.select();
+    try {
+        document.execCommand('copy');
+        const btn = document.getElementById('copy-code-btn');
+        if (btn) {
+            const orig = btn.textContent;
+            btn.textContent = '✓ Copied!';
+            setTimeout(() => { btn.textContent = orig; }, 2000);
+        }
+    } catch (e) {}
+    document.body.removeChild(ta);
+}
+
 // === INITIALIZATION ===
 window.addEventListener('DOMContentLoaded', () => {
     console.log('Nemesis: Retaliation - Digital Edition loaded');
