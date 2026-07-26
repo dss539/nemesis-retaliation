@@ -1,0 +1,101 @@
+version: 1
+scope: "Base game first; discovered campaign/expansion families retained as future slots"
+status_values: [covered, partial, missing, deferred]
+rights_policy: "Reference-only sources are not production licenses. Create original derivatives and clear rights before distribution."
+
+requirements:
+  # Characters: each needs board/token presentation plus tactical rendering.
+  - {id: char-officer, category: character, name: Officer, variants: [portrait, full-body, tactical-token, model-turnaround, dashboard, action-card-frame], priority: critical}
+  - {id: char-medic, category: character, name: Medical Support, aliases: [Medic, Yara], variants: [portrait, full-body, tactical-token, model-turnaround, dashboard, action-card-frame], priority: critical}
+  - {id: char-recon, category: character, name: Recon, variants: [portrait, full-body, tactical-token, model-turnaround, dashboard, action-card-frame], priority: critical}
+  - {id: char-engineer, category: character, name: Combat Engineer, variants: [portrait, full-body, tactical-token, model-turnaround, dashboard, action-card-frame], priority: critical}
+  - {id: char-bioexpert, category: character, name: Bioenhancement Expert, variants: [portrait, full-body, tactical-token, model-turnaround, dashboard, action-card-frame], priority: critical}
+  - {id: char-heavy-gunner, category: character, name: Heavy Gunner, variants: [portrait, full-body, tactical-token, model-turnaround, dashboard, action-card-frame], priority: critical}
+  - {id: char-uav, category: character, name: UAV Operator, variants: [portrait, full-body, tactical-token, model-turnaround, dashboard, action-card-frame, drone], priority: future}
+  - {id: char-sharpshooter, category: character, name: Sharpshooter, variants: [portrait, full-body, tactical-token, model-turnaround, dashboard, action-card-frame], priority: future}
+  - {id: char-legacy, category: character, name: Legacy and stretch-goal characters, variants: [portrait, tactical-token, dashboard, action-card-frame], priority: future}
+  - {id: char-state, category: character, name: Character tactical states, variants: [selected, active, moved, injured, heavily-injured, dead, escaped, disconnected, hidden], priority: critical}
+  - {id: player-color, category: character, name: Player identity colors, variants: [blue, green, red, yellow, purple], priority: critical}
+
+  # Hostiles and companions.
+  - {id: intruder-drone, category: entity, name: Primeblood Drone, variants: [model, top-down-token, silhouette, bag-token, wounded], priority: critical}
+  - {id: intruder-adult, category: entity, name: Primeblood Adult, aliases: [Warrior], variants: [model, top-down-token, silhouette, bag-token, wounded], priority: critical}
+  - {id: intruder-primeblood, category: entity, name: Prime Blood, aliases: [Primeblood], variants: [model, top-down-token, silhouette, bag-token, wounded], priority: critical}
+  - {id: intruder-queen, category: entity, name: Primeblood Queen, variants: [model, top-down-token, silhouette, bag-token, boss-health, wounded], priority: critical}
+  - {id: intruder-eggs, category: entity, name: Eggs and Nest, variants: [egg-token, egg-model, nest-room, nest-damage, destroyed-nest], priority: high}
+  - {id: robot, category: entity, name: Security Robot, variants: [model, top-down-token, portrait, active, inactive, destroyed], priority: high}
+  - {id: uav, category: entity, name: UAV, variants: [model, top-down-token, active, damaged], priority: future}
+  - {id: neoflesh, category: entity, name: Neoflesh Cult, variants: [cultist, twitchling, delver, ranged-delver, exploder, shield-robot-delver, queen, bag-tokens], priority: future}
+  - {id: xyrians, category: entity, name: Xyrians, variants: [race-models, queen, tokens, iconography], priority: future}
+  - {id: sangrevores, category: entity, name: Sangrevores, variants: [race-models, queen, tokens, iconography], priority: future}
+  - {id: insider, category: entity, name: Insider, variants: [character, infection-state, tokens, iconography], priority: future}
+  - {id: corpses, category: entity, name: Corpses and casualties, variants: [marine-corpses, intruder-corpses, body-token], priority: medium}
+
+  # Modular map and authored board information.
+  - {id: room-tiles-a, category: map, name: Section A room tiles, quantity: 3, variants: [unexplored, explored, selected, legal-target, disabled], priority: critical}
+  - {id: room-tiles-b, category: map, name: Section B room tiles, quantity: 3, variants: [unexplored, explored, selected, legal-target, disabled], priority: critical}
+  - {id: room-tiles-c, category: map, name: Section C room tiles, quantity: 3, variants: [unexplored, explored, selected, legal-target, disabled], priority: critical}
+  - {id: room-tiles-random, category: map, name: Random room tiles, quantity: 13, variants: [unexplored, explored, selected, legal-target, disabled], priority: critical}
+  - {id: landing-zone, category: map, name: Landing Zone, variants: [room-art, deployment-zones, lander-status, escape-status], priority: critical}
+  - {id: corridor-tiles, category: map, name: Corridor tiles, quantity: 40, variants: [straight, corner, junction, unexplored, explored, lit, dark, noisy, occupied, blocked], priority: critical}
+  - {id: room-floor-kit, category: map, name: Modular room floor material kit, variants: [metal-panels, grating, hazard-stripes, conduits, vents, stains, damage, decals], priority: critical}
+  - {id: corridor-floor-kit, category: map, name: Modular corridor material kit, variants: [metal-panels, grating, rails, hazard-stripes, conduits, damage], priority: critical}
+  - {id: room-walls, category: map, name: Room and corridor boundary treatment, variants: [wall, doorway, open-passage, closed-door, broken-door, sealed-door], priority: critical}
+  - {id: tactical-grid, category: map, name: Tactical placement information, variants: [octagonal-room-outline, corridor-gap, legal-move-highlight, legal-exploration-highlight, hover, selection, path-preview], priority: critical}
+  - {id: board-sectors, category: board-ui, name: Sector/Section overlays, variants: [A, B, C, inactive, oxygen-warning], priority: high}
+  - {id: item-search-area, category: board-ui, name: Room search/item areas, variants: [red, yellow, green, depleted], priority: high}
+  - {id: computer-room, category: board-ui, name: Computer terminal room indicator, variants: [available, used, offline, broken], priority: high}
+  - {id: room-security, category: board-ui, name: Secure and cannot-secure areas, variants: [secure, security-count, cannot-secure], priority: high}
+  - {id: room-destruction, category: board-ui, name: Room damage information, variants: [normal, malfunction, destroyed, cannot-break], priority: high}
+  - {id: life-support, category: board-ui, name: Section life support and oxygen, variants: [active, inactive, oxygen-track, suffocation], priority: critical}
+  - {id: reactor, category: board-ui, name: Reactor/autodestruction area, variants: [normal, overheating, autodestruction-active, countdown], priority: high}
+  - {id: anti-aircraft, category: board-ui, name: Anti-aircraft/lander area, variants: [AA-state, lander-arrival, available, unavailable, launch, escaped], priority: high}
+  - {id: time-track, category: board-ui, name: Round/time track, variants: [round-marker, event-phase, lander-window, end-state], priority: critical}
+  - {id: objective-track, category: board-ui, name: Objective choice/progress track, variants: [choice-position, progress, locked, resolved], priority: high}
+  - {id: intruder-board, category: board-ui, name: Intruder and Queen board, variants: [bag-development, health, weaknesses, Queen-health, pool], priority: high}
+
+  # Cards and dashboards.
+  - {id: card-action, category: card, name: Character action cards, quantity: 60, variants: [six-class-frames, card-back, cost, basic-action, special-action], priority: critical}
+  - {id: card-starting-item, category: card, name: Starting item cards, variants: [weapon, equipment, one-use, heavy, tactical-belt], priority: critical}
+  - {id: card-item-red, category: card, name: Red item cards, quantity: 30, variants: [card-front, card-back, weapon, ammo, heavy, one-use], priority: critical}
+  - {id: card-item-yellow, category: card, name: Yellow item cards, quantity: 30, variants: [card-front, card-back, equipment, tactical-belt, one-use], priority: critical}
+  - {id: card-item-green, category: card, name: Green item cards, quantity: 30, variants: [card-front, card-back, medical, tactical-belt, one-use], priority: critical}
+  - {id: card-event, category: card, name: Event cards, quantity: 20, variants: [card-front, card-back, movement-routing, room-effects], priority: critical}
+  - {id: card-exploration, category: card, name: Exploration cards, quantity: 12, variants: [room-type, corridor-layout, entrance-effect, card-back], priority: critical}
+  - {id: card-intruder-attack, category: card, name: Intruder attack cards, variants: [drone, adult, primeblood, queen, card-back], priority: critical}
+  - {id: card-objective-mission, category: card, name: Mission objective/task cards, variants: [objective, task, player-count, card-back, resolved], priority: high}
+  - {id: card-objective-private, category: card, name: Private objective cards, variants: [objective, player-count, card-back, hidden, chosen, rejected], priority: high}
+  - {id: card-wound, category: card, name: Serious wound cards, quantity: 27, variants: [body-location, card-back, active, treated], priority: high}
+  - {id: card-contamination, category: card, name: Contamination cards, variants: [clean, infected-code, scanned, hidden, card-back], priority: high}
+  - {id: card-weakness, category: card, name: Intruder weakness cards, variants: [face-down, revealed, three-weakness-types], priority: medium}
+  - {id: card-help, category: card, name: Player help/phase cards, variants: [player-phase, intruder-phase, event-phase, cleanup, player-number], priority: high}
+  - {id: dashboard-character, category: dashboard, name: Character dashboard, variants: [portrait, health-track, hand-slots, tactical-belt, backpack, ammo, oxygen, wounds], priority: critical}
+  - {id: dashboard-team, category: dashboard, name: Shared mission/board dashboard, variants: [phase, round, objectives, lander, reactor, life-support], priority: high}
+
+  # Icons, tokens, markers, and dice.
+  - {id: icon-actions, category: icon, name: Action and cost symbols, variants: [move, cautious-move, shoot, melee, search, room-action, pass, discard-card, cost-1, cost-2], priority: critical}
+  - {id: icon-health, category: icon, name: Health and injury symbols, variants: [health, injured, heavily-injured, serious-wound, heal, death], priority: critical}
+  - {id: icon-resources, category: icon, name: Resource symbols, variants: [ammo, oxygen, search, computer, tactical-belt, backpack, heavy, one-use], priority: critical}
+  - {id: icon-hazards, category: icon, name: Hazard symbols, variants: [fire, malfunction, contamination, infected, noise, darkness, suffocation, autodestruction], priority: critical}
+  - {id: icon-map, category: icon, name: Map symbols, variants: [room-types-A-B-C-random, corridor-directions, door, broken-door, secure, cannot-secure, cannot-break], priority: critical}
+  - {id: icon-entities, category: icon, name: Entity silhouettes, variants: [character, drone, adult, primeblood, queen, robot, egg, corpse], priority: critical}
+  - {id: icon-objectives, category: icon, name: Objective and mission symbols, variants: [mission, private, task, success, failure, escape, survival], priority: high}
+  - {id: token-noise, category: token, name: Noise markers, variants: [single, accumulated, corridor-placement], priority: critical}
+  - {id: token-fire, category: token, name: Fire markers, variants: [normal, spreading, room-placement], priority: critical}
+  - {id: token-malfunction, category: token, name: Malfunction markers, variants: [normal, room-placement], priority: critical}
+  - {id: token-secure, category: token, name: Secure markers, variants: [single, stacked], priority: high}
+  - {id: token-ammo, category: token, name: Ammo markers, variants: [ammo-types, empty, loaded], priority: high}
+  - {id: token-health, category: token, name: Health/hit markers, variants: [character-health, intruder-hit, queen-health], priority: high}
+  - {id: token-bag, category: token, name: Intruder bag tokens, variants: [blank, drone, adult, primeblood, queen, values], priority: critical}
+  - {id: token-round, category: token, name: Round/phase/first-player markers, variants: [round, phase, first-player-robot], priority: high}
+  - {id: token-objective, category: token, name: Objective/mission markers, variants: [choice, progress, mission-task], priority: high}
+  - {id: token-doors, category: token, name: Door components, variants: [open, closed, broken, sealed], priority: critical}
+  - {id: dice-noise, category: dice, name: Noise die, variants: [all faces, roll-animation], priority: critical}
+  - {id: dice-combat, category: dice, name: Combat dice, variants: [all faces, hit, miss, special, roll-animation], priority: critical}
+
+  # General visual system and discovered production needs.
+  - {id: ui-panels, category: ui, name: HUD and panel surfaces, variants: [marine-terminal, cards, players, log, modal, tooltip, phase-banner], priority: critical}
+  - {id: ui-legibility, category: ui, name: Accessibility overlays, variants: [text-labels, high-contrast, colorblind-redundancy, focus, disabled], priority: critical}
+  - {id: fx-combat, category: fx, name: Combat effects, variants: [muzzle-flash, impact, blood, acid, explosion, repel, death], priority: medium}
+  - {id: fx-environment, category: fx, name: Environmental effects, variants: [fire, smoke, sparks, darkness, emergency-lighting, oxygen-failure], priority: medium}
+  - {id: branding, category: presentation, name: Game presentation, variants: [logo, title-screen, loading, box-art-inspired-key-art, credits], priority: medium}
