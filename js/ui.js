@@ -4,6 +4,7 @@ const UI = {
     state: null,
     selectedCard: null,
     currentTab: 'board',
+    movementMode: null,
 
     switchTab(tab) {
         this.currentTab = tab;
@@ -49,6 +50,13 @@ const UI = {
 
     updateState(state) {
         this.state = state;
+        if (this.movementMode && (
+            NemesisNetwork.playerId !== state.currentPlayer ||
+            state.actionsRemaining <= 0 ||
+            !state.players[NemesisNetwork.playerId]?.alive
+        )) {
+            this.cancelTacticalAction(false);
+        }
         this.renderPlayerBoards();
         this.renderCardArea();
         this.renderGameInfo();
@@ -73,18 +81,22 @@ const UI = {
                                this.isInjured(player) ? 'injured' : '';
 
             const charData = GAME_DATA.CHARACTERS[player.character] || {};
+            const characterColor = GameArt.characterColors[player.character] || '#d65a61';
 
             div.innerHTML = `
-                <div class="char-name">${player.name} - ${charData.name || '?'}</div>
-                <div class="stat-row"><span>HP: ${player.health}/${player.maxHealth}</span><span>O2: ${player.oxygen}</span></div>
-                <div class="health-bar"><div class="health-fill ${healthClass}" style="width:${healthPercent}%"></div></div>
-                <div class="stat-row">
-                    <span>Cards: ${player.actionHand.length}</span>
-                    <span>Contam: ${player.contaminationInHand.length}</span>
+                <div class="player-identity" style="--character-color:${characterColor}">
+                    <img class="character-portrait" src="${GameArt.url('character', player.character)}" alt="">
+                    <div><div class="char-name">${player.name}</div><div class="char-class">${charData.name || '?'}</div></div>
                 </div>
-                <div class="stat-row">
-                    <span>Wounds: ${player.seriousWounds.length}</span>
-                    <span>Larva: ${player.larva ? 'Yes' : 'No'}</span>
+                <div class="stat-row icon-stat"><span>${GameArt.iconMarkup('health')} HP ${player.health}/${player.maxHealth}</span><span>${GameArt.iconMarkup('oxygen')} O₂ ${player.oxygen}</span></div>
+                <div class="health-bar"><div class="health-fill ${healthClass}" style="width:${healthPercent}%"></div></div>
+                <div class="stat-row icon-stat">
+                    <span>${GameArt.iconMarkup('cards')} ${player.actionHand.length}</span>
+                    <span>${GameArt.iconMarkup('contamination')} ${player.contaminationInHand.length}</span>
+                </div>
+                <div class="stat-row icon-stat">
+                    <span>${GameArt.iconMarkup('wound')} ${player.seriousWounds.length}</span>
+                    <span>${GameArt.iconMarkup('larva')} ${player.larva ? 'INFECTED' : 'Clear'}</span>
                 </div>
                 <div class="stat-row">
                     <span>Items: ${player.backpack.length}</span>
@@ -113,7 +125,9 @@ const UI = {
             const cardDiv = document.createElement('div');
             cardDiv.className = 'hand-card action-card';
             if (this.selectedCard === i) cardDiv.classList.add('selected');
-            cardDiv.textContent = card.action || 'Action';
+            const actionName = card.action || 'Action';
+            cardDiv.innerHTML = `${GameArt.cardArtwork(GameArt.actionIcon(card.action), 'ACTION', 'action')}<span class="hand-card-title">${actionName}</span>`;
+            cardDiv.setAttribute('aria-label', actionName + ' action card');
             cardDiv.onclick = () => {
                 this.selectedCard = i;
                 this.renderCardArea();
@@ -125,7 +139,8 @@ const UI = {
         myPlayer.contaminationInHand.forEach((card, i) => {
             const cardDiv = document.createElement('div');
             cardDiv.className = 'hand-card contamination-card';
-            cardDiv.textContent = 'Contam';
+            cardDiv.innerHTML = `${GameArt.cardArtwork('contamination', 'CONTAMINATION', 'contamination')}<span class="hand-card-title">Contamination</span>`;
+            cardDiv.setAttribute('aria-label', 'Contamination card');
             handCards.appendChild(cardDiv);
         });
 
@@ -143,9 +158,10 @@ const UI = {
                 const mtDiv = document.createElement('div');
                 mtDiv.className = 'card-display';
                 mtDiv.innerHTML = `
-                    <div class="card-name">${this.state.missionTask.name}</div>
+                    ${GameArt.cardArtwork('objective', 'MISSION', 'objective')}
+                    <div class="card-copy"><div class="card-name">${this.state.missionTask.name}</div>
                     <div class="card-type">Mission Task</div>
-                    <div style="margin-top:4px">${this.state.missionTask.text}</div>
+                    <div class="card-text">${this.state.missionTask.text}</div></div>
                 `;
                 objDiv.appendChild(mtDiv);
             }
@@ -157,9 +173,10 @@ const UI = {
                 const isSelected = myPlayer.chosenObjective === obj.id;
                 if (isSelected) oDiv.style.borderColor = '#ff4444';
                 oDiv.innerHTML = `
-                    <div class="card-name">${obj.name}</div>
+                    ${GameArt.cardArtwork('objective', i === 0 ? 'MISSION' : 'PRIVATE', 'objective')}
+                    <div class="card-copy"><div class="card-name">${obj.name}</div>
                     <div class="card-type">${i === 0 ? 'Mission' : 'Private'} Objective</div>
-                    <div style="margin-top:4px">${obj.text}</div>
+                    <div class="card-text">${obj.text}</div></div>
                     ${!myPlayer.chosenObjective ? `<button class="action-btn" style="margin-top:4px;width:100%" onclick="UI.chooseObjective('${obj.id}')">Choose</button>` : ''}
                 `;
                 objDiv.appendChild(oDiv);
@@ -178,7 +195,8 @@ const UI = {
                 const itemData = GAME_DATA.ITEMS[itemId];
                 const div = document.createElement('div');
                 div.className = 'card-display';
-                div.innerHTML = `<div class="card-name">${itemData?.name || itemId}</div><div class="card-type">Hand ${i+1}</div>`;
+                const itemVariant = itemData?.type || 'neutral';
+                div.innerHTML = `${GameArt.cardArtwork(GameArt.itemIcon(itemData), 'EQUIPPED', itemVariant)}<div class="card-copy"><div class="card-name">${itemData?.name || itemId}</div><div class="card-type">Hand ${i+1}</div></div>`;
                 itemsDiv.appendChild(div);
             });
             container.appendChild(itemsDiv);
@@ -193,7 +211,8 @@ const UI = {
                 const itemData = GAME_DATA.ITEMS[itemId];
                 const div = document.createElement('div');
                 div.className = 'card-display';
-                div.innerHTML = `<div class="card-name">${itemData?.name || itemId}</div>`;
+                const itemVariant = itemData?.type || 'neutral';
+                div.innerHTML = `${GameArt.cardArtwork(GameArt.itemIcon(itemData), 'PACK', itemVariant)}<div class="card-copy"><div class="card-name">${itemData?.name || itemId}</div></div>`;
                 bpDiv.appendChild(div);
             });
             container.appendChild(bpDiv);
@@ -221,33 +240,35 @@ const UI = {
         if (!myPlayer || !myPlayer.alive) return;
 
         const actions = [
-            { id: 'move', label: 'Move', icon: '↗' },
-            { id: 'cautiousMove', label: 'Cautious Move', icon: '↗+' },
-            { id: 'shoot', label: 'Shoot', icon: '🎯' },
-            { id: 'burst', label: 'Burst', icon: '💥' },
-            { id: 'melee', label: 'Melee', icon: '⚔' },
-            { id: 'useItem', label: 'Use Item', icon: '📦' },
-            { id: 'useTacticalGear', label: 'Use Gear', icon: '⚙' },
-            { id: 'useRoom', label: 'Use Room', icon: '🏠' },
-            { id: 'search', label: 'Search', icon: '🔍' },
-            { id: 'trade', label: 'Trade', icon: '🤝' },
-            { id: 'activateRobot', label: 'Robot', icon: '🤖' },
-            { id: 'pass', label: 'Pass', icon: '⏭' }
+            { id: 'move', label: 'Move' },
+            { id: 'cautiousMove', label: 'Cautious Move' },
+            { id: 'shoot', label: 'Shoot' },
+            { id: 'burst', label: 'Burst' },
+            { id: 'melee', label: 'Melee' },
+            { id: 'useItem', label: 'Use Item' },
+            { id: 'useTacticalGear', label: 'Use Gear' },
+            { id: 'useRoom', label: 'Use Room' },
+            { id: 'search', label: 'Search' },
+            { id: 'trade', label: 'Trade' },
+            { id: 'activateRobot', label: 'Robot' },
+            { id: 'pass', label: 'Pass' }
         ];
 
         // Character-specific actions
-        if (myPlayer.character === 'recon') actions.push({ id: 'sprint', label: 'Sprint', icon: '🏃' });
-        if (myPlayer.character === 'medicalSupport') actions.push({ id: 'rest', label: 'Rest', icon: '💤' });
+        if (myPlayer.character === 'recon') actions.push({ id: 'sprint', label: 'Sprint' });
+        if (myPlayer.character === 'medicalSupport') actions.push({ id: 'rest', label: 'Rest' });
         if (myPlayer.character === 'combatEngineer') {
-            actions.push({ id: 'reinforce', label: 'Reinforce', icon: '🛡' });
-            actions.push({ id: 'drill', label: 'Drill', icon: '⛏' });
+            actions.push({ id: 'reinforce', label: 'Reinforce' });
+            actions.push({ id: 'drill', label: 'Drill' });
         }
-        if (myPlayer.character === 'officer') actions.push({ id: 'command', label: 'Command', icon: '📢' });
+        if (myPlayer.character === 'officer') actions.push({ id: 'command', label: 'Command' });
 
         actions.forEach(action => {
             const btn = document.createElement('button');
             btn.className = 'action-btn';
-            btn.textContent = action.icon + ' ' + action.label;
+            if (this.movementMode?.action === action.id) btn.classList.add('active');
+            btn.innerHTML = GameArt.iconMarkup(GameArt.actionIcon(action.id)) + `<span>${action.label}</span>`;
+            btn.setAttribute('aria-label', action.label);
             btn.disabled = !isMyTurn || this.state.actionsRemaining <= 0;
             btn.onclick = () => this.handleActionClick(action.id);
             container.appendChild(btn);
@@ -330,51 +351,90 @@ const UI = {
         const state = this.state;
         const myPlayer = state.players[NemesisNetwork.playerId];
         const currentRoom = state.rooms[myPlayer.location];
-        if (!currentRoom) return;
+        if (!currentRoom?.position) return;
 
-        // Find adjacent rooms via corridors
-        const adjacentCorridors = state.corridors.filter(c => c.room1 === myPlayer.location || c.room2 === myPlayer.location);
-        const adjacentRooms = adjacentCorridors.map(c => ({
-            roomId: c.room1 === myPlayer.location ? c.room2 : c.room1,
-            corridor: c
-        })).filter(r => r.roomId);
-
-        let content = '<h2>Move</h2>';
-        if (cautious) content += '<p>Cautious movement: places a Secure token in the destination room.</p>';
-
-        // Connected rooms (discovered corridors)
-        if (adjacentRooms.length > 0) {
-            content += '<p style="margin-bottom:8px;color:var(--text-secondary)">Connected rooms:</p>';
-            content += '<div class="modal-card-list">';
-            adjacentRooms.forEach(({ roomId, corridor }) => {
-                const room = state.rooms[roomId];
-                const roomData = GAME_DATA.ROOMS[roomId] || {};
-                const doorStatus = corridor.door === 'closed' ? ' [Door Closed]' : corridor.door === 'destroyed' ? ' [Door Destroyed]' : '';
-                const intruders = state.intruders.filter(i => i.location.type === 'corridor' && i.location.id === corridor.id);
-                const intruderWarning = intruders.length > 0 ? ` ⚠ ${intruders.length} intruder(s)` : '';
-                content += `
-                    <div class="modal-card" onclick="UI.executeMove('${roomId}', ${cautious})">
-                        <div class="mc-name">${roomData.name || roomId}${doorStatus}</div>
-                        <div class="mc-text">${room?.discovered ? 'Discovered' : 'Undiscovered'}${corridor.noise ? ' | Noise!' : ''}${intruderWarning}</div>
-                    </div>
-                `;
-            });
-            content += '</div>';
+        const action = sprint ? 'sprint' : cautious ? 'cautiousMove' : 'move';
+        if (this.movementMode?.action === action) {
+            this.cancelTacticalAction();
+            return;
         }
 
-        // Exploration directions — compass layout
-        content += '<p style="margin:12px 0 8px;color:var(--text-secondary)">Explore new direction:</p>';
-        content += '<div class="compass-picker">';
-        content += `  <div class="compass-slot compass-n" onclick="UI.executeExplore(0, ${cautious})"><span>N</span><small>North</small></div>`;
-        content += `  <div class="compass-slot compass-w" onclick="UI.executeExplore(3, ${cautious})"><span>W</span><small>West</small></div>`;
-        content += `  <div class="compass-center">You are here</div>`;
-        content += `  <div class="compass-slot compass-e" onclick="UI.executeExplore(1, ${cautious})"><span>E</span><small>East</small></div>`;
-        content += `  <div class="compass-slot compass-s" onclick="UI.executeExplore(2, ${cautious})"><span>S</span><small>South</small></div>`;
-        content += '</div>';
+        // Discovered destinations are legal only through open adjacent corridors.
+        const connectedTargets = state.corridors
+            .filter(corridor =>
+                (corridor.room1 === myPlayer.location || corridor.room2 === myPlayer.location) &&
+                corridor.door !== 'closed'
+            )
+            .map(corridor => {
+                const roomId = corridor.room1 === myPlayer.location ? corridor.room2 : corridor.room1;
+                return state.rooms[roomId] ? { kind: 'room', roomId, corridorId: corridor.id } : null;
+            })
+            .filter(Boolean);
 
-        content += '<button class="btn btn-secondary" style="margin-top:12px" onclick="UI.closeModal()">Cancel</button>';
+        // Empty nodes in all eight compass directions become exploration targets.
+        // Off-board and occupied slots are omitted rather than shown as disabled.
+        // slots are omitted completely rather than shown as disabled choices.
+        const bounds = GAME_DATA.CONFIG.boardBounds;
+        const directions = GAME_DATA.CONFIG.directions;
+        const explorationTargets = directions.map(direction => ({
+            kind: 'explore',
+            direction: direction.id,
+            position: {
+                x: currentRoom.position.x + direction.dx,
+                y: currentRoom.position.y + direction.dy
+            }
+        })).filter(target => {
+            const { x, y } = target.position;
+            if (x < bounds.minX || x > bounds.maxX || y < bounds.minY || y > bounds.maxY) return false;
+            return !Object.values(state.rooms).some(room => room.position?.x === x && room.position?.y === y);
+        });
 
-        this.showModal(content);
+        const targets = [...connectedTargets, ...explorationTargets];
+        if (targets.length === 0) {
+            this.showModal('<h2>No Legal Moves</h2><p>There are no open corridors or unexplored board spaces adjacent to this room.</p><button class="btn btn-secondary" onclick="UI.closeModal()">OK</button>');
+            return;
+        }
+
+        this.movementMode = { action, cautious: !!cautious, sprint: !!sprint };
+        Renderer.setMovementTargets(targets, target => this.executeTacticalMove(target));
+        const prompt = document.getElementById('tactical-prompt');
+        if (prompt) {
+            prompt.classList.remove('hidden');
+            prompt.innerHTML = `<span><strong>${cautious ? 'CAUTIOUS MOVE' : sprint ? 'SPRINT' : 'MOVE'}</strong> — Select a highlighted destination</span><button onclick="UI.cancelTacticalAction()">Cancel</button>`;
+        }
+        this.renderActionBar();
+    },
+
+    executeTacticalMove(target) {
+        if (!this.movementMode) return;
+        const action = this.movementMode.action;
+        const params = target.kind === 'room'
+            ? { targetRoom: target.roomId }
+            : {
+                targetRoom: 'explore_' + Date.now(),
+                position: target.position,
+                explore: true,
+                direction: target.direction
+            };
+        this.cancelTacticalAction();
+        NemesisNetwork.sendAction(action, params);
+    },
+
+    cancelTacticalAction(renderActions = true) {
+        this.movementMode = null;
+        Renderer.clearMovementTargets();
+        const prompt = document.getElementById('tactical-prompt');
+        if (prompt) {
+            prompt.classList.add('hidden');
+            prompt.innerHTML = '';
+        }
+        if (renderActions && this.state) this.renderActionBar();
+    },
+
+    handleBoardClick(click) {
+        // Room selection remains available for inspection; tactical actions are
+        // handled directly by Renderer and accept highlighted targets only.
+        if (click.type === 'room') Renderer.selectedRoom = click.room;
     },
 
     executeMove(roomId, cautious) {
@@ -386,9 +446,11 @@ const UI = {
     executeExplore(direction, cautious) {
         const myPlayer = this.state.players[NemesisNetwork.playerId];
         const currentRoom = this.state.rooms[myPlayer.location];
+        const offset = GAME_DATA.CONFIG.directions.find(candidate => candidate.id === direction);
+        if (!offset || !currentRoom?.position) return;
         const newPos = {
-            x: (currentRoom.position?.x || 0) + (direction === 1 ? 1 : direction === 3 ? -1 : 0),
-            y: (currentRoom.position?.y || 0) + (direction === 2 ? 1 : direction === 0 ? -1 : 0)
+            x: currentRoom.position.x + offset.dx,
+            y: currentRoom.position.y + offset.dy
         };
         const action = cautious ? 'cautiousMove' : 'move';
         NemesisNetwork.sendAction(action, {

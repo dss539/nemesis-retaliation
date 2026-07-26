@@ -11,8 +11,11 @@
     --green: #4a9;
     --yellow: #da3;
     --blue: #49c;
-    --border: #2a3540;
-    --border-light: #3a4550;
+    --tactical: #66d9ef;
+    --tactical-green: #78e6a2;
+    --panel-glass: rgba(14, 24, 32, 0.94);
+    --border: #263944;
+    --border-light: #3b5662;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -123,20 +126,28 @@ body {
 
 .side-panel {
     width: 280px;
-    background: var(--bg-panel);
+    background: var(--panel-glass);
     border-right: 1px solid var(--border);
+    box-shadow: 8px 0 24px rgba(0,0,0,0.22);
     overflow-y: auto;
     padding: 8px;
+    z-index: 2;
 }
 
-#right-panel { border-right: none; border-left: 1px solid var(--border); }
+#right-panel { border-right: none; border-left: 1px solid var(--border); box-shadow: -8px 0 24px rgba(0,0,0,0.22); }
 
 #center-panel {
     flex: 1;
+    min-width: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 10px;
+    background:
+        linear-gradient(rgba(18,31,39,0.42) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(18,31,39,0.42) 1px, transparent 1px),
+        radial-gradient(circle at 50% 35%, #17242c 0%, #080d12 72%);
+    background-size: 32px 32px, 32px 32px, auto;
 }
 
 #game-info-bar {
@@ -144,10 +155,55 @@ body {
     gap: 20px;
     width: 100%;
     padding: 8px 16px;
-    background: var(--bg-panel);
-    border-radius: 4px;
+    background: linear-gradient(90deg, rgba(15,27,35,0.96), rgba(25,43,52,0.88), rgba(15,27,35,0.96));
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--tactical);
+    border-radius: 2px;
     margin-bottom: 8px;
-    font-size: 0.9em;
+    font-size: 0.82em;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+#canvas-wrapper {
+    width: 100%;
+    min-height: 0;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+}
+
+#tactical-prompt {
+    width: min(620px, 92%);
+    min-height: 38px;
+    margin: 0 auto 8px;
+    padding: 8px 10px 8px 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    background: linear-gradient(90deg, rgba(13,33,40,0.98), rgba(18,47,55,0.94));
+    border: 1px solid var(--tactical);
+    border-left-width: 5px;
+    color: #cfeef3;
+    box-shadow: 0 0 18px rgba(102,217,239,0.14);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-size: 0.78em;
+}
+
+#tactical-prompt strong { color: var(--tactical); }
+#tactical-prompt button {
+    padding: 5px 11px;
+    border: 1px solid var(--border-light);
+    background: #111c23;
+    color: var(--text-secondary);
+    cursor: pointer;
+    text-transform: uppercase;
+    font-size: 0.85em;
 }
 
 #game-info-bar > div {
@@ -160,10 +216,11 @@ body {
 #game-info-bar .value { font-weight: bold; color: var(--accent); }
 
 #game-canvas {
-    border: 1px solid var(--border);
-    border-radius: 4px;
+    border: 1px solid #243a45;
+    border-radius: 2px;
     background: #0d1117;
-    cursor: pointer;
+    box-shadow: 0 14px 38px rgba(0,0,0,0.48), inset 0 0 28px rgba(36,85,100,0.08);
+    cursor: default;
 }
 
 #action-bar {
@@ -176,19 +233,23 @@ body {
 }
 
 .action-btn {
-    padding: 8px 16px;
-    background: var(--bg-card);
+    padding: 9px 17px;
+    background: linear-gradient(180deg, #1b2b34, #111b22);
     border: 1px solid var(--border-light);
-    border-radius: 4px;
+    border-radius: 0;
+    clip-path: polygon(7px 0, 100% 0, 100% calc(100% - 7px), calc(100% - 7px) 100%, 0 100%, 0 7px);
     color: var(--text-primary);
     cursor: pointer;
-    font-size: 0.85em;
+    font-size: 0.78em;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
     transition: all 0.15s;
 }
 
-.action-btn:hover { border-color: var(--accent); background: var(--border); }
+.action-btn:hover { border-color: var(--tactical); color: #d9f8ff; background: #203741; }
 .action-btn:disabled { opacity: 0.3; cursor: not-allowed; }
-.action-btn.active { border-color: var(--accent); background: var(--accent-dim); }
+.action-btn.active { border-color: var(--tactical); color: var(--tactical); background: #183640; box-shadow: inset 0 -3px 0 var(--tactical); }
 
 /* Player board mini */
 .player-board-mini {
@@ -350,6 +411,138 @@ body {
 .hand-card.action-card { border-top: 3px solid var(--blue); }
 .hand-card.contamination-card { border-top: 3px solid var(--green); opacity: 0.7; }
 .hand-card.selected { border-color: var(--accent); box-shadow: 0 0 6px rgba(255,68,68,0.5); }
+
+/* Generated visual asset system */
+.game-icon {
+    width: 1.15em;
+    height: 1.15em;
+    display: inline-block;
+    vertical-align: -0.18em;
+    flex: 0 0 auto;
+    color: currentColor;
+}
+
+.action-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+}
+.action-btn .game-icon { width: 17px; height: 17px; color: var(--tactical); }
+
+.player-board-mini {
+    background: linear-gradient(125deg, rgba(77,142,158,0.08), transparent 48%), linear-gradient(180deg, #1b2830, #121a20);
+    border-radius: 2px;
+    overflow: hidden;
+    position: relative;
+}
+.player-board-mini::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 38px;
+    height: 3px;
+    background: var(--character-color, var(--border-light));
+    opacity: .8;
+}
+.player-identity {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding-bottom: 7px;
+    margin-bottom: 6px;
+    border-bottom: 1px solid rgba(126,168,182,.16);
+}
+.character-portrait {
+    width: 48px;
+    height: 48px;
+    flex: 0 0 48px;
+    filter: drop-shadow(0 0 7px rgba(91,183,203,.25));
+}
+.player-board-mini .char-name { margin-bottom: 1px; }
+.player-board-mini .char-class {
+    color: var(--text-secondary);
+    font-size: .72em;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+}
+.player-board-mini .icon-stat span {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+.player-board-mini .icon-stat .game-icon { color: #7fc0cf; }
+.player-board-mini.current-player {
+    border-color: var(--tactical);
+    box-shadow: 0 0 12px rgba(102,217,239,0.22), inset 3px 0 var(--tactical);
+}
+
+.card-display {
+    background: linear-gradient(145deg, #1d2931, #141c22);
+    border-radius: 3px;
+    padding: 7px;
+    display: grid;
+    grid-template-columns: 58px minmax(0, 1fr);
+    gap: 9px;
+    overflow: hidden;
+}
+.card-display > .action-btn { grid-column: 1 / -1; }
+.card-copy { min-width: 0; }
+.card-text { margin-top: 5px; color: #b9c5cb; line-height: 1.35; }
+.card-art {
+    min-height: 58px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px), radial-gradient(circle at 50% 42%, rgba(73,156,182,.24), rgba(9,15,19,.9));
+    background-size: 10px 10px, 10px 10px, auto;
+    border: 1px solid #3c5965;
+    clip-path: polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px);
+}
+.card-art::after {
+    content: '';
+    position: absolute;
+    inset: 4px;
+    border: 1px solid rgba(157,205,215,.12);
+    pointer-events: none;
+}
+.card-art .game-icon { width: 31px; height: 31px; color: #86cad8; }
+.card-art span {
+    position: absolute;
+    left: 5px;
+    right: 5px;
+    bottom: 4px;
+    color: rgba(224,238,241,.76);
+    font-size: 7px;
+    font-weight: 800;
+    letter-spacing: .09em;
+    text-align: center;
+}
+.card-art-action { border-color: #4381a1; }
+.card-art-contamination { border-color: #4b9870; background-color: #14271f; }
+.card-art-objective { border-color: #a24c5a; background-color: #2a171d; }
+.card-art-red { border-color: #bd4f56; }
+.card-art-yellow { border-color: #b5943f; }
+.card-art-green, .card-art-support { border-color: #4d956b; }
+.hand-card {
+    width: 76px;
+    min-height: 108px;
+    background: linear-gradient(160deg, #1a2730, #0e151a);
+    border-radius: 3px;
+    padding: 5px;
+    font-size: 0.72em;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+.hand-card .card-art { min-height: 68px; width: 100%; }
+.hand-card .card-art .game-icon { width: 34px; height: 34px; }
+.hand-card-title { line-height: 1.15; overflow-wrap: anywhere; color: #d7e1e4; }
+.hand-card.contamination-card { opacity: 0.86; }
 
 /* Dice display */
 .dice-display {

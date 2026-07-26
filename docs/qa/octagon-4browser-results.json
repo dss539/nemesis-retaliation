@@ -1,0 +1,596 @@
+{
+  "players": [
+    "Alpha",
+    "Bravo",
+    "Charlie",
+    "Delta"
+  ],
+  "actions": [
+    {
+      "round": 1,
+      "player": 0,
+      "location": "landingZone",
+      "rooms": 1,
+      "target": {
+        "index": 1,
+        "kind": "explore",
+        "direction": "SE",
+        "roomId": null,
+        "position": {
+          "x": 1,
+          "y": 1
+        },
+        "cx": 269,
+        "cy": 277
+      },
+      "newLocation": "gunneryRoom",
+      "roomsAfter": 2,
+      "aliveAfter": true
+    },
+    {
+      "round": 1,
+      "player": 1,
+      "location": "landingZone",
+      "rooms": 2,
+      "target": {
+        "index": 1,
+        "kind": "explore",
+        "direction": "E",
+        "roomId": null,
+        "position": {
+          "x": 1,
+          "y": 0
+        },
+        "cx": 269,
+        "cy": 125
+      },
+      "newLocation": "drillingRoom",
+      "roomsAfter": 3,
+      "aliveAfter": true
+    },
+    {
+      "round": 1,
+      "player": 2,
+      "location": "landingZone",
+      "rooms": 3,
+      "target": {
+        "index": 2,
+        "kind": "explore",
+        "direction": "S",
+        "roomId": null,
+        "position": {
+          "x": 0,
+          "y": 1
+        },
+        "cx": 117,
+        "cy": 277
+      },
+      "newLocation": "technicalCorridorEntrance",
+      "roomsAfter": 4,
+      "aliveAfter": true
+    },
+    {
+      "round": 1,
+      "player": 3,
+      "location": "landingZone",
+      "rooms": 4,
+      "target": {
+        "index": 0,
+        "kind": "room",
+        "direction": null,
+        "roomId": "gunneryRoom",
+        "position": {
+          "x": 1,
+          "y": 1
+        },
+        "cx": 269,
+        "cy": 277
+      },
+      "newLocation": "gunneryRoom",
+      "roomsAfter": 4,
+      "aliveAfter": true
+    },
+    {
+      "round": 2,
+      "player": 1,
+      "location": "drillingRoom",
+      "rooms": 4,
+      "target": {
+        "index": 2,
+        "kind": "explore",
+        "direction": "SE",
+        "roomId": null,
+        "position": {
+          "x": 2,
+          "y": 1
+        },
+        "cx": 421,
+        "cy": 277
+      },
+      "newLocation": "sprinklersControl",
+      "roomsAfter": 5,
+      "aliveAfter": true
+    },
+    {
+      "round": 2,
+      "player": 2,
+      "location": "technicalCorridorEntrance",
+      "rooms": 5,
+      "target": {
+        "index": 1,
+        "kind": "explore",
+        "direction": "SE",
+        "roomId": null,
+        "position": {
+          "x": 1,
+          "y": 2
+        },
+        "cx": 269,
+        "cy": 429
+      },
+      "newLocation": "engineRoom",
+      "roomsAfter": 6,
+      "aliveAfter": true
+    },
+    {
+      "round": 2,
+      "player": 3,
+      "location": "gunneryRoom",
+      "rooms": 6,
+      "target": {
+        "index": 3,
+        "kind": "explore",
+        "direction": "SW",
+        "roomId": null,
+        "position": {
+          "x": 0,
+          "y": 2
+        },
+        "cx": 117,
+        "cy": 429
+      },
+      "newLocation": "storageRoom",
+      "roomsAfter": 7,
+      "aliveAfter": true
+    },
+    {
+      "round": 2,
+      "player": 0,
+      "location": "gunneryRoom",
+      "rooms": 7,
+      "target": {
+        "index": 2,
+        "kind": "explore",
+        "direction": "NE",
+        "roomId": null,
+        "position": {
+          "x": 2,
+          "y": 0
+        },
+        "cx": 421,
+        "cy": 125
+      },
+      "newLocation": "surgeryRoom",
+      "roomsAfter": 8,
+      "aliveAfter": true
+    }
+  ],
+  "sync_checks": [
+    {
+      "label": "game start",
+      "round": 1,
+      "currentPlayer": 0
+    },
+    {
+      "label": "round 1 player 0 move",
+      "round": 1,
+      "currentPlayer": 0
+    },
+    {
+      "label": "round 1 player 0 pass",
+      "round": 1,
+      "currentPlayer": 1
+    },
+    {
+      "label": "round 1 player 1 move",
+      "round": 1,
+      "currentPlayer": 1
+    },
+    {
+      "label": "round 1 player 1 pass",
+      "round": 1,
+      "currentPlayer": 2
+    },
+    {
+      "label": "round 1 player 2 move",
+      "round": 1,
+      "currentPlayer": 2
+    },
+    {
+      "label": "round 1 player 2 pass",
+      "round": 1,
+      "currentPlayer": 3
+    },
+    {
+      "label": "round 1 player 3 move",
+      "round": 1,
+      "currentPlayer": 3
+    },
+    {
+      "label": "round 1 player 3 pass",
+      "round": 2,
+      "currentPlayer": 1
+    },
+    {
+      "label": "round 2 player 1 move",
+      "round": 2,
+      "currentPlayer": 1
+    },
+    {
+      "label": "round 2 player 1 pass",
+      "round": 2,
+      "currentPlayer": 2
+    },
+    {
+      "label": "round 2 player 2 move",
+      "round": 2,
+      "currentPlayer": 2
+    },
+    {
+      "label": "round 2 player 2 pass",
+      "round": 2,
+      "currentPlayer": 3
+    },
+    {
+      "label": "round 2 player 3 move",
+      "round": 2,
+      "currentPlayer": 3
+    },
+    {
+      "label": "round 2 player 3 pass",
+      "round": 2,
+      "currentPlayer": 0
+    },
+    {
+      "label": "round 2 player 0 move",
+      "round": 2,
+      "currentPlayer": 0
+    },
+    {
+      "label": "round 2 player 0 pass",
+      "round": 3,
+      "currentPlayer": 2
+    },
+    {
+      "label": "final",
+      "round": 3,
+      "currentPlayer": 2
+    }
+  ],
+  "invariants": [
+    {
+      "label": "game start",
+      "rooms": 1,
+      "corridors": 0
+    },
+    {
+      "label": "round 1 player 0 move",
+      "rooms": 2,
+      "corridors": 1
+    },
+    {
+      "label": "round 1 player 0 pass",
+      "rooms": 2,
+      "corridors": 1
+    },
+    {
+      "label": "round 1 player 1 move",
+      "rooms": 3,
+      "corridors": 2
+    },
+    {
+      "label": "round 1 player 1 pass",
+      "rooms": 3,
+      "corridors": 2
+    },
+    {
+      "label": "round 1 player 2 move",
+      "rooms": 4,
+      "corridors": 3
+    },
+    {
+      "label": "round 1 player 2 pass",
+      "rooms": 4,
+      "corridors": 3
+    },
+    {
+      "label": "round 1 player 3 move",
+      "rooms": 4,
+      "corridors": 3
+    },
+    {
+      "label": "round 1 player 3 pass",
+      "rooms": 4,
+      "corridors": 3
+    },
+    {
+      "label": "round 2 player 1 move",
+      "rooms": 5,
+      "corridors": 4
+    },
+    {
+      "label": "round 2 player 1 pass",
+      "rooms": 5,
+      "corridors": 4
+    },
+    {
+      "label": "round 2 player 2 move",
+      "rooms": 6,
+      "corridors": 5
+    },
+    {
+      "label": "round 2 player 2 pass",
+      "rooms": 6,
+      "corridors": 5
+    },
+    {
+      "label": "round 2 player 3 move",
+      "rooms": 7,
+      "corridors": 6
+    },
+    {
+      "label": "round 2 player 3 pass",
+      "rooms": 7,
+      "corridors": 6
+    },
+    {
+      "label": "round 2 player 0 move",
+      "rooms": 8,
+      "corridors": 7
+    },
+    {
+      "label": "round 2 player 0 pass",
+      "rooms": 8,
+      "corridors": 7
+    },
+    {
+      "label": "final",
+      "rooms": 8,
+      "corridors": 7
+    }
+  ],
+  "errors": [],
+  "host_code_length": 6,
+  "regular_octagons": [
+    {
+      "browser": 0,
+      "spread": 7.105427357601002e-15
+    },
+    {
+      "browser": 1,
+      "spread": 7.105427357601002e-15
+    },
+    {
+      "browser": 2,
+      "spread": 7.105427357601002e-15
+    },
+    {
+      "browser": 3,
+      "spread": 7.105427357601002e-15
+    }
+  ],
+  "initial_corner_targets": [
+    "E",
+    "SE",
+    "S"
+  ],
+  "final_state": {
+    "round": 3,
+    "phase": "playerPhase",
+    "currentPlayer": 2,
+    "actionsRemaining": 2,
+    "players": [
+      {
+        "id": 0,
+        "name": "Alpha",
+        "alive": true,
+        "connected": true,
+        "location": "surgeryRoom",
+        "passed": false,
+        "health": 9,
+        "hand": 5
+      },
+      {
+        "id": 1,
+        "name": "Bravo",
+        "alive": true,
+        "connected": true,
+        "location": "sprinklersControl",
+        "passed": false,
+        "health": 9,
+        "hand": 5
+      },
+      {
+        "id": 2,
+        "name": "Charlie",
+        "alive": true,
+        "connected": true,
+        "location": "engineRoom",
+        "passed": false,
+        "health": 9,
+        "hand": 5
+      },
+      {
+        "id": 3,
+        "name": "Delta",
+        "alive": true,
+        "connected": true,
+        "location": "storageRoom",
+        "passed": false,
+        "health": 9,
+        "hand": 5
+      }
+    ],
+    "rooms": [
+      {
+        "id": "drillingRoom",
+        "position": {
+          "x": 1,
+          "y": 0
+        },
+        "exits": {
+          "W": "corridor_1785102024491_0.42132170549280223",
+          "SE": "corridor_1785102025004_0.6218898327956842"
+        }
+      },
+      {
+        "id": "engineRoom",
+        "position": {
+          "x": 1,
+          "y": 2
+        },
+        "exits": {
+          "NW": "corridor_1785102025154_0.33077869249421177"
+        }
+      },
+      {
+        "id": "gunneryRoom",
+        "position": {
+          "x": 1,
+          "y": 1
+        },
+        "exits": {
+          "NW": "corridor_1785102024356_0.8619120660021364",
+          "SW": "corridor_1785102025304_0.37343809107565695",
+          "NE": "corridor_1785102025453_0.3871424149403633"
+        }
+      },
+      {
+        "id": "landingZone",
+        "position": {
+          "x": 0,
+          "y": 0
+        },
+        "exits": {
+          "SE": "corridor_1785102024356_0.8619120660021364",
+          "E": "corridor_1785102024491_0.42132170549280223",
+          "S": "corridor_1785102024656_0.9073724666880462"
+        }
+      },
+      {
+        "id": "sprinklersControl",
+        "position": {
+          "x": 2,
+          "y": 1
+        },
+        "exits": {
+          "NW": "corridor_1785102025004_0.6218898327956842"
+        }
+      },
+      {
+        "id": "storageRoom",
+        "position": {
+          "x": 0,
+          "y": 2
+        },
+        "exits": {
+          "NE": "corridor_1785102025304_0.37343809107565695"
+        }
+      },
+      {
+        "id": "surgeryRoom",
+        "position": {
+          "x": 2,
+          "y": 0
+        },
+        "exits": {
+          "SW": "corridor_1785102025453_0.3871424149403633"
+        }
+      },
+      {
+        "id": "technicalCorridorEntrance",
+        "position": {
+          "x": 0,
+          "y": 1
+        },
+        "exits": {
+          "N": "corridor_1785102024656_0.9073724666880462",
+          "SE": "corridor_1785102025154_0.33077869249421177"
+        }
+      }
+    ],
+    "corridors": [
+      {
+        "id": "corridor_1785102024356_0.8619120660021364",
+        "room1": "landingZone",
+        "room2": "gunneryRoom",
+        "directionFromRoom1": "SE",
+        "directionFromRoom2": "NW",
+        "door": "open",
+        "noise": false,
+        "reinforced": false
+      },
+      {
+        "id": "corridor_1785102024491_0.42132170549280223",
+        "room1": "landingZone",
+        "room2": "drillingRoom",
+        "directionFromRoom1": "E",
+        "directionFromRoom2": "W",
+        "door": "open",
+        "noise": false,
+        "reinforced": false
+      },
+      {
+        "id": "corridor_1785102024656_0.9073724666880462",
+        "room1": "landingZone",
+        "room2": "technicalCorridorEntrance",
+        "directionFromRoom1": "S",
+        "directionFromRoom2": "N",
+        "door": "open",
+        "noise": false,
+        "reinforced": false
+      },
+      {
+        "id": "corridor_1785102025004_0.6218898327956842",
+        "room1": "drillingRoom",
+        "room2": "sprinklersControl",
+        "directionFromRoom1": "SE",
+        "directionFromRoom2": "NW",
+        "door": "open",
+        "noise": false,
+        "reinforced": false
+      },
+      {
+        "id": "corridor_1785102025154_0.33077869249421177",
+        "room1": "technicalCorridorEntrance",
+        "room2": "engineRoom",
+        "directionFromRoom1": "SE",
+        "directionFromRoom2": "NW",
+        "door": "open",
+        "noise": false,
+        "reinforced": false
+      },
+      {
+        "id": "corridor_1785102025304_0.37343809107565695",
+        "room1": "gunneryRoom",
+        "room2": "storageRoom",
+        "directionFromRoom1": "SW",
+        "directionFromRoom2": "NE",
+        "door": "open",
+        "noise": false,
+        "reinforced": false
+      },
+      {
+        "id": "corridor_1785102025453_0.3871424149403633",
+        "room1": "gunneryRoom",
+        "room2": "surgeryRoom",
+        "directionFromRoom1": "NE",
+        "directionFromRoom2": "SW",
+        "door": "closed",
+        "noise": false,
+        "reinforced": false
+      }
+    ]
+  },
+  "result": "PASS"
+}

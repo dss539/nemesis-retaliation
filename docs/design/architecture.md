@@ -15,9 +15,24 @@
 - Each client receives a different sanitized view of the same state
 
 ### Exploration System
-- Current: player picks a cardinal direction, engine draws exploration card, places room at that position
-- Simplified from physical game: doesn't handle corridor placement orientation precisely
-- Future: should use actual exploration card layout for corridor placement
+- Current: player selects a highlighted legal destination directly on the tactical map. Exploration targets are empty neighboring nodes in all eight compass directions (`N`, `NE`, `E`, `SE`, `S`, `SW`, `W`, `NW`) within the fixed 7x5 board boundary.
+- Invalid targets are omitted by the UI and independently rejected by the authoritative engine (off-board, occupied, direction mismatch, or more than one grid step away).
+- Every room has an `exits` index keyed by compass direction. Every corridor stores `directionFromRoom1` and `directionFromRoom2`, which are always opposites.
+- Simplified from physical game: exploration currently creates only the edge used to enter the new room. Future rule work should apply authored exploration-card exit layouts and edge-count restrictions.
+
+### Tactical Board Rendering
+- The complete 7x5 graph layout is visible from game start as 35 subdued empty octagonal slots. Exploration fills a slot; it never creates or repositions the grid.
+- Rooms and empty slots are regular 110px octagons. Their corner cut is `size / (2 + sqrt(2))`, so horizontal, vertical, and diagonal sides have equal length. Inner walls, status overlays, movement highlights, and hit testing derive from the same size-dependent geometry.
+- Fixed 42px cardinal spacing also leaves open corner-to-corner space for diagonal corridors, even when no graph edge exists.
+- Existing cardinal and diagonal corridors render beneath rooms and only remain visible between room boundaries; absent corridors leave the reserved gap empty.
+- Movement uses direct map highlights instead of a compass modal.
+
+### Production Art Layer
+- Game-facing art is independently generated SVG under `assets/generated/`; the gitignored research library is never loaded at runtime.
+- `js/assets.js` is the semantic registry for board, room, character, intruder, card, marker, and control art. Game data IDs select assets rather than UI call sites hard-coding file names.
+- The canvas preloads 35 mapped images and retains procedural fallbacks. Loading art does not alter room geometry, movement highlighting, hit testing, or authoritative game state.
+- Cards and dashboards use external SVG symbols plus visible text labels. Color reinforces type and state but is not the only identifier.
+- Regenerate with `scripts/generate_game_art.py`; validate with `docs/qa/art_asset_qa.py` and the existing multiplayer QA.
 
 ### Intruder AI
 - Current: simplified shortest-path toward closest character
@@ -60,12 +75,12 @@
 - [ ] Trade exchange modal (engine works, UI doesn't)
 - [ ] Full intruder pathfinding (BFS with tie-breaking by corridor ID)
 - [ ] Proper corridor placement orientation from exploration cards
-- [ ] Corridor tiles rendered as proper tiles between rooms, not just lines between centers
 - [ ] Room layout should match physical game's grid positioning (3 sections, border pieces)
 - [ ] Privacy section in architecture.md is outdated — privacy is now UI-layer only, not state sanitization. Update this doc.
 
 ### Medium Priority
-- [ ] Card art / graphics
+- [x] Functional original card art, room surfaces, unit tokens, dashboard art, and semantic graphics
+- [ ] Unique authored illustrations and state variants listed in `docs/art-reference/production-assets.md`
 - [ ] Expansion content (Sangrevore, Xyrians, etc.)
 - [ ] Solo/Coop mode objectives
 - [ ] Deadly mode (dual noise values)

@@ -7,15 +7,22 @@ const Renderer = {
     hoveredElement: null,
     selectedRoom: null,
     clickHandler: null,
+    movementTargets: [],
+    movementTargetHandler: null,
 
-    // Grid layout constants — scaled up for readability
-    ROOM_SIZE: 120,
-    CORRIDOR_WIDTH: 45,
-    GRID_PADDING: 50,
+    // Fixed tactical-grid geometry. The 42px void between every 110px room
+    // remains visible even where no corridor tile has been discovered.
+    ROOM_SIZE: 110,
+    CORRIDOR_WIDTH: 42,
+    GRID_PADDING_X: 62,
+    GRID_PADDING_Y: 70,
+    // For a regular octagon in a square: side = size - 2*cut = cut*sqrt(2).
+    OCTAGON_CUT: 110 / (2 + Math.SQRT2),
 
     init(canvasId) {
         this.canvas = document.getElementById(canvasId);
         this.ctx = this.canvas.getContext('2d');
+        GameArt.preload(() => this.render());
         this.canvas.addEventListener('click', (e) => this.handleClick(e));
         this.canvas.addEventListener('mousemove', (e) => this.handleMouseMove(e));
 
@@ -92,22 +99,29 @@ const Renderer = {
         // Clear in base coordinate space
         ctx.clearRect(0, 0, this._baseW || 1200, this._baseH || 900);
 
-        // Draw background
+        // Original generated facility surface. A flat fill remains as a robust
+        // fallback while SVG assets load or if an asset request fails.
+        const boardArt = GameArt.get('board');
         ctx.fillStyle = '#0d1117';
         ctx.fillRect(0, 0, this._baseW || 1200, this._baseH || 900);
+        if (boardArt) ctx.drawImage(boardArt, 0, 0, this._baseW || 1200, this._baseH || 900);
 
-        // Draw sections (3 columns: A, B, C)
+        // Draw a low-contrast tactical floor plan beneath placed tiles.
         this.drawSections(ctx);
+        this.drawGrid(ctx);
 
-        // Draw rooms
+        // Corridor tiles sit in the reserved gaps and never pass through rooms.
+        this.state.corridors.forEach(corridor => {
+            this.drawCorridor(ctx, corridor);
+        });
+
+        // Draw rooms above corridor thresholds.
         Object.values(this.state.rooms).forEach(room => {
             this.drawRoom(ctx, room);
         });
 
-        // Draw corridors
-        this.state.corridors.forEach(corridor => {
-            this.drawCorridor(ctx, corridor);
-        });
+        // Draw legal tactical destinations last so they read like XCOM targets.
+        this.drawMovementTargets(ctx);
 
         // Draw intruders
         this.state.intruders.forEach(intruder => {
@@ -131,84 +145,180 @@ const Renderer = {
     },
 
     drawSections(ctx) {
-        const baseW = this._baseW || 1200;
         const baseH = this._baseH || 900;
+        const step = this.ROOM_SIZE + this.CORRIDOR_WIDTH;
         const sections = [
-            { name: 'A', x: 0, color: 'rgba(60,80,40,0.15)' },
-            { name: 'B', x: baseW / 3, color: 'rgba(60,60,80,0.15)' },
-            { name: 'C', x: baseW * 2/3, color: 'rgba(80,40,40,0.15)' }
+            { name: 'SECTOR A', start: 0, columns: 3, color: 'rgba(45,116,93,0.055)' },
+            { name: 'SECTOR B', start: 3, columns: 3, color: 'rgba(65,98,145,0.055)' },
+            { name: 'SECTOR C', start: 6, columns: 1, color: 'rgba(143,67,67,0.065)' }
         ];
 
-        sections.forEach(s => {
-            ctx.fillStyle = s.color;
-            ctx.fillRect(s.x, 0, baseW / 3, baseH);
-
-            // Section label
-            ctx.fillStyle = 'rgba(100,120,140,0.3)';
-            ctx.font = '64px sans-serif';
-            ctx.textAlign = 'center';
-            ctx.fillText(s.name, s.x + baseW / 6, 55);
+        sections.forEach(section => {
+            const x = this.GRID_PADDING_X + section.start * step - this.CORRIDOR_WIDTH / 2;
+            const width = section.columns * step;
+            ctx.fillStyle = section.color;
+            ctx.fillRect(x, 42, width, baseH - 105);
+            ctx.fillStyle = 'rgba(154,184,202,0.32)';
+            ctx.font = '600 13px sans-serif';
+            ctx.textAlign = 'left';
+            ctx.fillText(section.name, x + 10, 58);
         });
+    },
+
+    drawGrid(ctx) {
+        const bounds = GAME_DATA.CONFIG.boardBounds;
+        const step = this.ROOM_SIZE + this.CORRIDOR_WIDTH;
+        ctx.save();
+        for (let gy = bounds.minY; gy <= bounds.maxY; gy++) {
+            for (let gx = bounds.minX; gx <= bounds.maxX; gx++) {
+                const x = this.GRID_PADDING_X + gx * step;
+                const y = this.GRID_PADDING_Y + gy * step;
+
+                // Every graph node is visible before exploration. The room itself
+                // later replaces this subdued empty-slot floor without moving it.
+                this.octagonPath(ctx, x, y, this.ROOM_SIZE);
+                ctx.fillStyle = 'rgba(12,25,33,0.68)';
+                ctx.fill();
+                ctx.strokeStyle = 'rgba(105,150,166,0.36)';
+                ctx.lineWidth = 2;
+                ctx.setLineDash([6, 6]);
+                ctx.stroke();
+
+                this.octagonPath(ctx, x + 6, y + 6, this.ROOM_SIZE - 12);
+                ctx.strokeStyle = 'rgba(74,108,121,0.17)';
+                ctx.lineWidth = 1;
+                ctx.setLineDash([]);
+                ctx.stroke();
+            }
+        }
+        ctx.restore();
+    },
+
+    roomGeometry(roomOrPosition) {
+        const position = roomOrPosition?.position || roomOrPosition;
+        if (!position) return null;
+        const step = this.ROOM_SIZE + this.CORRIDOR_WIDTH;
+        return {
+            x: this.GRID_PADDING_X + position.x * step,
+            y: this.GRID_PADDING_Y + position.y * step,
+            w: this.ROOM_SIZE,
+            h: this.ROOM_SIZE,
+            cx: this.GRID_PADDING_X + position.x * step + this.ROOM_SIZE / 2,
+            cy: this.GRID_PADDING_Y + position.y * step + this.ROOM_SIZE / 2
+        };
+    },
+
+    regularOctagonCut(size) {
+        return size / (2 + Math.SQRT2);
+    },
+
+    octagonVertices(x, y, size) {
+        const cut = this.regularOctagonCut(size);
+        return [
+            { x: x + cut, y },
+            { x: x + size - cut, y },
+            { x: x + size, y: y + cut },
+            { x: x + size, y: y + size - cut },
+            { x: x + size - cut, y: y + size },
+            { x: x + cut, y: y + size },
+            { x, y: y + size - cut },
+            { x, y: y + cut }
+        ];
+    },
+
+    octagonPath(ctx, x, y, size) {
+        const vertices = this.octagonVertices(x, y, size);
+        ctx.beginPath();
+        ctx.moveTo(vertices[0].x, vertices[0].y);
+        vertices.slice(1).forEach(vertex => ctx.lineTo(vertex.x, vertex.y));
+        ctx.closePath();
     },
 
     drawRoom(ctx, room) {
         if (!room.position) return;
-        const x = this.GRID_PADDING + room.position.x * (this.ROOM_SIZE + this.CORRIDOR_WIDTH);
-        const y = this.GRID_PADDING + room.position.y * (this.ROOM_SIZE + this.CORRIDOR_WIDTH);
-        const w = this.ROOM_SIZE;
-        const h = this.ROOM_SIZE;
+        const geometry = this.roomGeometry(room);
+        const { x, y, w, h } = geometry;
 
-        // Room background
         const roomData = GAME_DATA.ROOMS[room.id];
         if (!roomData) return;
 
-        // Color by section
-        let bgColor = '#2a3540';
-        if (room.section === 'A') bgColor = '#2a3a28';
-        if (room.section === 'B') bgColor = '#2a2a38';
-        if (room.section === 'C') bgColor = '#3a2828';
+        // Section-tinted tactical flooring.
+        let bgColor = '#17242a';
+        let edgeColor = '#4b6a73';
+        if (room.section === 'A') { bgColor = '#172a27'; edgeColor = '#3f7568'; }
+        if (room.section === 'B') { bgColor = '#182530'; edgeColor = '#426b88'; }
+        if (room.section === 'C') { bgColor = '#2b1d22'; edgeColor = '#86505c'; }
 
-        if (this.selectedRoom === room.id) {
-            ctx.strokeStyle = '#ff4444';
-            ctx.lineWidth = 3;
-        } else {
-            ctx.strokeStyle = '#3a4550';
-            ctx.lineWidth = 1;
-        }
+        const isCurrentRoom = this.state.players.some((player, index) =>
+            index === this.state.currentPlayer && player.alive && player.location === room.id
+        );
+        if (this.selectedRoom === room.id) edgeColor = '#f36b5e';
+        if (isCurrentRoom) edgeColor = '#64d8e8';
 
-        // Draw room
-        ctx.fillStyle = bgColor;
-        ctx.beginPath();
-        ctx.roundRect(x, y, w, h, 6);
+        // Heavy outer wall, inner bevel, then a faint floor grid.
+        ctx.save();
+        this.octagonPath(ctx, x, y, w);
+        ctx.fillStyle = '#080d12';
         ctx.fill();
+        ctx.strokeStyle = edgeColor;
+        ctx.lineWidth = isCurrentRoom ? 4 : 3;
         ctx.stroke();
+
+        this.octagonPath(ctx, x + 5, y + 5, w - 10);
+        ctx.fillStyle = bgColor;
+        ctx.fill();
+        ctx.strokeStyle = 'rgba(185,216,224,0.18)';
+        ctx.lineWidth = 1;
+        ctx.stroke();
+        ctx.clip();
+        const roomArt = GameArt.get('room:' + room.id);
+        if (roomArt) {
+            ctx.globalAlpha = 0.68;
+            ctx.drawImage(roomArt, x + 4, y + 4, w - 8, h - 8);
+            ctx.globalAlpha = 1;
+        } else {
+            ctx.strokeStyle = 'rgba(135,174,185,0.07)';
+            for (let line = 18; line < w; line += 18) {
+                ctx.beginPath();
+                ctx.moveTo(x + line, y + 5);
+                ctx.lineTo(x + line, y + h - 5);
+                ctx.stroke();
+                ctx.beginPath();
+                ctx.moveTo(x + 5, y + line);
+                ctx.lineTo(x + w - 5, y + line);
+                ctx.stroke();
+            }
+        }
+        ctx.restore();
 
         // Fire marker — icon + label
         if (room.markers?.fire) {
-            ctx.fillStyle = 'rgba(255,80,0,0.3)';
-            ctx.beginPath();
-            ctx.roundRect(x, y, w, h, 8);
+            ctx.fillStyle = 'rgba(255,80,0,0.28)';
+            this.octagonPath(ctx, x + 3, y + 3, w - 6);
             ctx.fill();
-            ctx.fillStyle = '#ff6600';
-            ctx.font = 'bold 13px sans-serif';
+            GameArt.drawCanvasIcon(ctx, 'fire', x + 15, y + 15, 18, '#ff7a3d');
+            ctx.fillStyle = '#ff9a62';
+            ctx.font = 'bold 11px sans-serif';
             ctx.textAlign = 'left';
-            ctx.fillText('FIRE', x + 6, y + 20);
+            ctx.fillText('FIRE', x + 27, y + 19);
         }
 
         // Malfunction marker — icon + label
         if (room.markers?.malfunction) {
-            ctx.fillStyle = '#cc8800';
-            ctx.font = 'bold 14px sans-serif';
+            GameArt.drawCanvasIcon(ctx, 'malfunction', x + w - 16, y + 15, 18, '#f0b94e');
+            ctx.fillStyle = '#f0c66d';
+            ctx.font = 'bold 10px sans-serif';
             ctx.textAlign = 'right';
-            ctx.fillText('🔧BROKEN', x + w - 6, y + 20);
+            ctx.fillText('FAULT', x + w - 27, y + 19);
         }
 
         // Secure tokens — show count as text
         if (room.markers?.secure?.length > 0) {
-            ctx.fillStyle = '#4488cc';
+            GameArt.drawCanvasIcon(ctx, 'secure', x + 15, y + h - 15, 17, '#5fa6dc');
+            ctx.fillStyle = '#8ac5ed';
             ctx.font = 'bold 12px sans-serif';
             ctx.textAlign = 'left';
-            ctx.fillText('🔒x' + room.markers.secure.length, x + 6, y + h - 8);
+            ctx.fillText('x' + room.markers.secure.length, x + 27, y + h - 11);
         }
 
         // Room name
@@ -238,18 +348,14 @@ const Renderer = {
 
         // Computer icon
         if (roomData.computer) {
-            ctx.fillStyle = '#49c';
-            ctx.font = 'bold 14px sans-serif';
-            ctx.textAlign = 'left';
-            ctx.fillText('C', x + w - 18, y + 18);
+            GameArt.drawCanvasIcon(ctx, 'computer', x + w - 15, y + h - 15, 18, '#65b8df');
         }
 
         // Intruder count — text label with type breakdown
         const intrudersInRoom = this.state.intruders.filter(i => i.location.type === 'room' && i.location.id === room.id);
         if (intrudersInRoom.length > 0) {
-            ctx.fillStyle = 'rgba(255,50,50,0.15)';
-            ctx.beginPath();
-            ctx.roundRect(x, y, w, h, 8);
+            ctx.fillStyle = 'rgba(255,50,50,0.14)';
+            this.octagonPath(ctx, x + 3, y + 3, w - 6);
             ctx.fill();
             // Label with intruder types
             const typeCounts = {};
@@ -261,146 +367,258 @@ const Renderer = {
             ctx.fillText(label, x + w - 6, y + h - 8);
         }
 
-        // Characters — show player initials with color
-        const playersInRoom = this.state.players.filter(p => p.alive && p.location === room.id);
-        if (playersInRoom.length > 0) {
-            playersInRoom.forEach((p, i) => {
-                const colors = { blue:'#4499cc', green:'#44aa66', red:'#cc4444', yellow:'#daa333', purple:'#9944cc' };
-                const cx = x + 8 + i * 22;
-                const cy = y + h - 12;
-                ctx.fillStyle = colors[p.color] || '#fff';
-                ctx.beginPath();
-                ctx.arc(cx, cy, 10, 0, Math.PI * 2);
-                ctx.fill();
-                ctx.strokeStyle = '#000';
-                ctx.lineWidth = 1;
-                ctx.stroke();
-                // Player initial
-                ctx.fillStyle = '#fff';
-                ctx.font = 'bold 10px sans-serif';
-                ctx.textAlign = 'center';
-                const initial = (p.name || '?').charAt(0).toUpperCase();
-                ctx.fillText(initial, cx, cy + 4);
-            });
-        }
+    },
+
+    corridorGeometry(corridor) {
+        const room1 = this.state.rooms[corridor.room1];
+        const room2 = this.state.rooms[corridor.room2];
+        if (!room1?.position || !room2?.position) return null;
+        const g1 = this.roomGeometry(room1);
+        const g2 = this.roomGeometry(room2);
+        const deltaX = g2.cx - g1.cx;
+        const deltaY = g2.cy - g1.cy;
+        const length = Math.hypot(deltaX, deltaY) || 1;
+        const ux = deltaX / length;
+        const uy = deltaY / length;
+        const roomRadius = this.ROOM_SIZE / 2 - 1;
+        const x1 = g1.cx + ux * roomRadius;
+        const y1 = g1.cy + uy * roomRadius;
+        const x2 = g2.cx - ux * roomRadius;
+        const y2 = g2.cy - uy * roomRadius;
+        return { x1, y1, x2, y2, mx:(x1+x2)/2, my:(y1+y2)/2, ux, uy, px:-uy, py:ux };
     },
 
     drawCorridor(ctx, corridor) {
-        if (!corridor.position) return;
-        // Corridors are drawn between rooms - simplified
-        const room1 = this.state.rooms[corridor.room1];
-        const room2 = this.state.rooms[corridor.room2];
-        if (!room1?.position || !room2?.position) return;
+        const geometry = this.corridorGeometry(corridor);
+        if (!geometry) return;
+        const { x1, y1, x2, y2, mx, my, px, py } = geometry;
 
-        const x1 = this.GRID_PADDING + room1.position.x * (this.ROOM_SIZE + this.CORRIDOR_WIDTH) + this.ROOM_SIZE/2;
-        const y1 = this.GRID_PADDING + room1.position.y * (this.ROOM_SIZE + this.CORRIDOR_WIDTH) + this.ROOM_SIZE/2;
-        const x2 = this.GRID_PADDING + room2.position.x * (this.ROOM_SIZE + this.CORRIDOR_WIDTH) + this.ROOM_SIZE/2;
-        const y2 = this.GRID_PADDING + room2.position.y * (this.ROOM_SIZE + this.CORRIDOR_WIDTH) + this.ROOM_SIZE/2;
-
-        // Draw corridor line
-        ctx.strokeStyle = corridor.reinforced ? '#4a8' : '#556';
-        ctx.lineWidth = corridor.reinforced ? 6 : 4;
+        // A proper corridor floor tile occupies only the reserved gap.
+        ctx.save();
+        ctx.lineCap = 'butt';
+        ctx.strokeStyle = corridor.reinforced ? '#315b58' : '#0a1117';
+        ctx.lineWidth = 36;
         ctx.beginPath();
         ctx.moveTo(x1, y1);
         ctx.lineTo(x2, y2);
         ctx.stroke();
 
+        ctx.strokeStyle = corridor.reinforced ? '#3d7770' : '#253943';
+        ctx.lineWidth = 28;
+        ctx.beginPath();
+        ctx.moveTo(x1, y1);
+        ctx.lineTo(x2, y2);
+        ctx.stroke();
+
+        ctx.strokeStyle = corridor.reinforced ? 'rgba(117,220,199,0.55)' : 'rgba(130,170,184,0.32)';
+        ctx.lineWidth = 1;
+        ctx.setLineDash([7, 5]);
+        ctx.beginPath();
+        ctx.moveTo(x1, y1);
+        ctx.lineTo(x2, y2);
+        ctx.stroke();
+        ctx.setLineDash([]);
+        ctx.restore();
+
         // Noise marker — yellow circle with "!" and label
         if (corridor.noise) {
-            const mx = (x1 + x2) / 2;
-            const my = (y1 + y2) / 2;
             ctx.fillStyle = '#ffcc00';
             ctx.beginPath();
             ctx.arc(mx, my, 10, 0, Math.PI * 2);
             ctx.fill();
-            ctx.fillStyle = '#000';
-            ctx.font = 'bold 13px sans-serif';
-            ctx.textAlign = 'center';
-            ctx.fillText('!', mx, my + 5);
+            GameArt.drawCanvasIcon(ctx, 'noise', mx, my, 15, '#111820');
             // Label below
             ctx.fillStyle = '#ffcc00';
             ctx.font = 'bold 10px sans-serif';
             ctx.fillText('NOISE', mx, my - 14);
         }
 
-        // Door
+        // Door bulkhead spans the corridor perpendicular to travel.
         if (corridor.door === 'closed') {
-            const mx = (x1 + x2) / 2;
-            const my = (y1 + y2) / 2;
-            ctx.strokeStyle = '#aa4444';
+            ctx.strokeStyle = '#dc5a54';
             ctx.lineWidth = 7;
             ctx.beginPath();
-            ctx.moveTo(mx - 12, my);
-            ctx.lineTo(mx + 12, my);
+            ctx.moveTo(mx - px * 15, my - py * 15);
+            ctx.lineTo(mx + px * 15, my + py * 15);
             ctx.stroke();
         } else if (corridor.door === 'destroyed') {
-            const mx = (x1 + x2) / 2;
-            const my = (y1 + y2) / 2;
-            ctx.strokeStyle = '#666';
+            ctx.strokeStyle = '#778088';
             ctx.lineWidth = 3;
             ctx.setLineDash([4, 4]);
             ctx.beginPath();
-            ctx.moveTo(mx - 12, my);
-            ctx.lineTo(mx + 12, my);
+            ctx.moveTo(mx - px * 15, my - py * 15);
+            ctx.lineTo(mx + px * 15, my + py * 15);
             ctx.stroke();
             ctx.setLineDash([]);
         }
 
         // Value label
-        ctx.fillStyle = '#888';
-        ctx.font = '12px sans-serif';
+        ctx.fillStyle = '#a9bec7';
+        ctx.font = 'bold 11px sans-serif';
         ctx.textAlign = 'center';
-        const mx = (x1 + x2) / 2;
-        const my = (y1 + y2) / 2 - 8;
         if (!corridor.reinforced) {
-            ctx.fillText(corridor.value || '?', mx, my);
+            ctx.fillText(corridor.value || '?', mx, my - 9);
         }
 
-        // Intruders in corridor — colored circles with type labels
-        const intrudersInCorridor = this.state.intruders.filter(i => i.location.type === 'corridor' && i.location.id === corridor.id);
-        const labels = { drone: 'D', adult: 'A', larva: 'L', queen: 'Q' };
-        intrudersInCorridor.forEach((intruder, i) => {
-            const colors = { drone:'#cc6600', adult:'#cc3333', larva:'#66cc33', queen:'#ff00ff' };
-            ctx.fillStyle = colors[intruder.type] || '#fff';
-            const ox = mx - 12 + (i % 4) * 16;
-            const oy = my + 16 + Math.floor(i / 4) * 16;
-            ctx.beginPath();
-            ctx.arc(ox, oy, 8, 0, Math.PI * 2);
+    },
+
+    drawMovementTargets(ctx) {
+        if (!this.movementTargets.length) return;
+        this.movementTargets.forEach(target => {
+            const geometry = target.kind === 'room'
+                ? this.roomGeometry(this.state.rooms[target.roomId])
+                : this.roomGeometry(target.position);
+            if (!geometry) return;
+            const color = target.kind === 'room' ? '#78e6a2' : '#66d9ef';
+
+            ctx.save();
+            this.octagonPath(ctx, geometry.x - 4, geometry.y - 4, geometry.w + 8);
+            ctx.fillStyle = target.kind === 'room' ? 'rgba(72,210,126,0.10)' : 'rgba(70,194,224,0.13)';
             ctx.fill();
-            ctx.strokeStyle = '#000';
-            ctx.lineWidth = 1;
+            ctx.strokeStyle = color;
+            ctx.lineWidth = 4;
+            ctx.setLineDash(target.kind === 'explore' ? [9, 5] : []);
             ctx.stroke();
-            ctx.fillStyle = '#fff';
-            ctx.font = 'bold 9px sans-serif';
+            ctx.setLineDash([]);
+
+            const label = target.kind === 'room' ? 'MOVE' : 'EXPLORE';
+            ctx.font = 'bold 11px sans-serif';
+            const labelWidth = ctx.measureText(label).width + 18;
+            const labelX = geometry.cx - labelWidth / 2;
+            const labelY = geometry.y + geometry.h - 25;
+            ctx.fillStyle = '#071014';
+            ctx.fillRect(labelX, labelY, labelWidth, 20);
+            ctx.strokeStyle = color;
+            ctx.lineWidth = 1;
+            ctx.strokeRect(labelX, labelY, labelWidth, 20);
+            ctx.fillStyle = color;
             ctx.textAlign = 'center';
-            ctx.fillText(labels[intruder.type] || '?', ox, oy + 3);
+            ctx.fillText(label, geometry.cx, labelY + 14);
+            ctx.restore();
         });
     },
 
+    setMovementTargets(targets, handler) {
+        this.movementTargets = targets || [];
+        this.movementTargetHandler = handler || null;
+        this.render();
+    },
+
+    clearMovementTargets() {
+        this.movementTargets = [];
+        this.movementTargetHandler = null;
+        this.render();
+    },
+
+    getMovementTargetAtPoint(x, y) {
+        for (const target of this.movementTargets) {
+            const geometry = target.kind === 'room'
+                ? this.roomGeometry(this.state.rooms[target.roomId])
+                : this.roomGeometry(target.position);
+            if (geometry && this.pointInOctagon(x, y, geometry)) return target;
+        }
+        return null;
+    },
+
+    pointInOctagon(x, y, geometry) {
+        const localX = x - geometry.x;
+        const localY = y - geometry.y;
+        const size = geometry.w;
+        const cut = this.regularOctagonCut(size);
+        if (localX < 0 || localY < 0 || localX > size || localY > size) return false;
+        return localX + localY >= cut &&
+            (size - localX) + localY >= cut &&
+            localX + (size - localY) >= cut &&
+            (size - localX) + (size - localY) >= cut;
+    },
+
     drawIntruder(ctx, intruder) {
-        // Intruders are drawn at their room/corridor location
-        // Already handled in drawRoom/drawCorridor via indicators
+        let cx, cy;
+        const sameLocation = this.state.intruders.filter(candidate =>
+            candidate.location?.type === intruder.location?.type && candidate.location?.id === intruder.location?.id
+        );
+        const index = Math.max(0, sameLocation.findIndex(candidate => candidate.id === intruder.id));
+        if (intruder.location?.type === 'room') {
+            const room = this.state.rooms[intruder.location.id];
+            const geometry = this.roomGeometry(room);
+            if (!geometry) return;
+            cx = geometry.x + geometry.w - 21 - (index % 3) * 23;
+            cy = geometry.y + 23 + Math.floor(index / 3) * 23;
+        } else if (intruder.location?.type === 'corridor') {
+            const corridor = this.state.corridors.find(candidate => candidate.id === intruder.location.id);
+            const geometry = corridor && this.corridorGeometry(corridor);
+            if (!geometry) return;
+            cx = geometry.mx + geometry.px * (16 + Math.floor(index / 3) * 15) + geometry.ux * ((index % 3) - 1) * 16;
+            cy = geometry.my + geometry.py * (16 + Math.floor(index / 3) * 15) + geometry.uy * ((index % 3) - 1) * 16;
+        } else return;
+        const radius = intruder.type === 'queen' ? 23 : intruder.type === 'drone' ? 17 : 15;
+        this.drawAssetToken(ctx, GameArt.get('intruder:' + intruder.type), cx, cy, radius,
+            GameArt.intruderColors[intruder.type] || '#d65a61', (intruder.type || '?').charAt(0).toUpperCase());
     },
 
     drawCharacter(ctx, player) {
-        // Characters are shown as colored dots in rooms
-        // Already handled in drawRoom
+        const room = this.state.rooms[player.location];
+        const geometry = this.roomGeometry(room);
+        if (!geometry) return;
+        const players = this.state.players.filter(candidate => candidate.alive && candidate.location === player.location);
+        const index = Math.max(0, players.findIndex(candidate => candidate.id === player.id));
+        const cx = geometry.x + 20 + (index % 4) * 23;
+        const cy = geometry.y + geometry.h - 21 - Math.floor(index / 4) * 23;
+        const ring = GameArt.playerColors[player.color] || GameArt.characterColors[player.character] || '#dbe9ec';
+        this.drawAssetToken(ctx, GameArt.get('character:' + player.character), cx, cy, 18, ring,
+            (player.name || '?').charAt(0).toUpperCase(), player.id === this.state.currentPlayer);
+    },
+
+    drawAssetToken(ctx, image, cx, cy, radius, ringColor, label, active = false) {
+        ctx.save();
+        if (active) {
+            ctx.shadowColor = ringColor;
+            ctx.shadowBlur = 12;
+        }
+        ctx.fillStyle = '#071015';
+        ctx.beginPath();
+        ctx.arc(cx, cy, radius + 2, 0, Math.PI * 2);
+        ctx.fill();
+        if (image) {
+            ctx.drawImage(image, cx - radius, cy - radius, radius * 2, radius * 2);
+        } else {
+            ctx.fillStyle = ringColor;
+            ctx.beginPath();
+            ctx.arc(cx, cy, radius - 2, 0, Math.PI * 2);
+            ctx.fill();
+        }
+        ctx.shadowBlur = 0;
+        ctx.strokeStyle = ringColor;
+        ctx.lineWidth = active ? 4 : 2;
+        ctx.beginPath();
+        ctx.arc(cx, cy, radius + 1, 0, Math.PI * 2);
+        ctx.stroke();
+        ctx.fillStyle = '#061014';
+        ctx.beginPath();
+        ctx.arc(cx + radius * 0.72, cy + radius * 0.72, 7, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.strokeStyle = ringColor;
+        ctx.lineWidth = 1;
+        ctx.stroke();
+        ctx.fillStyle = '#fff';
+        ctx.font = 'bold 8px sans-serif';
+        ctx.textAlign = 'center';
+        ctx.fillText(label || '?', cx + radius * 0.72, cy + radius * 0.72 + 3);
+        ctx.restore();
     },
 
     drawRobot(ctx) {
         const robotRoom = this.state.rooms[this.state.robot.location];
         if (!robotRoom?.position) return;
-        const x = this.GRID_PADDING + robotRoom.position.x * (this.ROOM_SIZE + this.CORRIDOR_WIDTH) + this.ROOM_SIZE - 18;
-        const y = this.GRID_PADDING + robotRoom.position.y * (this.ROOM_SIZE + this.CORRIDOR_WIDTH) + this.ROOM_SIZE - 18;
+        const geometry = this.roomGeometry(robotRoom);
+        const x = geometry.x + geometry.w - 24;
+        const y = geometry.y + geometry.h - 24;
 
-        ctx.fillStyle = '#88ccff';
+        ctx.fillStyle = '#071015';
         ctx.beginPath();
-        ctx.roundRect(x, y, 14, 14, 3);
+        ctx.arc(x + 7, y + 7, 11, 0, Math.PI * 2);
         ctx.fill();
-        ctx.fillStyle = '#000';
-        ctx.font = 'bold 11px sans-serif';
-        ctx.textAlign = 'center';
-        ctx.fillText('R', x + 7, y + 11);
+        GameArt.drawCanvasIcon(ctx, 'robot', x + 7, y + 7, 18, '#88ccff');
     },
 
     drawRoundTrack(ctx) {
@@ -460,6 +678,13 @@ const Renderer = {
         const x = (e.clientX - rect.left) * scaleX;
         const y = (e.clientY - rect.top) * scaleY;
 
+        // Tactical actions consume only highlighted legal targets.
+        const movementTarget = this.getMovementTargetAtPoint(x, y);
+        if (movementTarget && this.movementTargetHandler) {
+            this.movementTargetHandler(movementTarget);
+            return;
+        }
+
         // Find clicked room
         const room = this.getRoomAtPoint(x, y);
         if (room) {
@@ -482,9 +707,10 @@ const Renderer = {
         const scaleY = (this._baseH || 900) / rect.height;
         const x = (e.clientX - rect.left) * scaleX;
         const y = (e.clientY - rect.top) * scaleY;
+        const movementTarget = this.getMovementTargetAtPoint(x, y);
         const room = this.getRoomAtPoint(x, y);
 
-        if (room) {
+        if (movementTarget || room) {
             this.canvas.style.cursor = 'pointer';
         } else {
             this.canvas.style.cursor = 'default';
@@ -495,9 +721,8 @@ const Renderer = {
         if (!this.state) return null;
         for (const room of Object.values(this.state.rooms)) {
             if (!room.position) continue;
-            const rx = this.GRID_PADDING + room.position.x * (this.ROOM_SIZE + this.CORRIDOR_WIDTH);
-            const ry = this.GRID_PADDING + room.position.y * (this.ROOM_SIZE + this.CORRIDOR_WIDTH);
-            if (x >= rx && x <= rx + this.ROOM_SIZE && y >= ry && y <= ry + this.ROOM_SIZE) {
+            const geometry = this.roomGeometry(room);
+            if (this.pointInOctagon(x, y, geometry)) {
                 return room;
             }
         }

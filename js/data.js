@@ -387,6 +387,20 @@ QUEEN_HEALTH_CARDS: [
 CONFIG: {
     maxRounds: 14,
     maxPlayers: 5,
+    // Fixed tactical map. Every node is pre-drawn as a regular octagonal slot.
+    // A room may connect to any immediately neighboring node through one of
+    // these eight compass-direction graph edges.
+    boardBounds: { minX: 0, maxX: 6, minY: 0, maxY: 4 },
+    directions: [
+        { id: 'N',  dx:  0, dy: -1, opposite: 'S' },
+        { id: 'NE', dx:  1, dy: -1, opposite: 'SW' },
+        { id: 'E',  dx:  1, dy:  0, opposite: 'W' },
+        { id: 'SE', dx:  1, dy:  1, opposite: 'NW' },
+        { id: 'S',  dx:  0, dy:  1, opposite: 'N' },
+        { id: 'SW', dx: -1, dy:  1, opposite: 'NE' },
+        { id: 'W',  dx: -1, dy:  0, opposite: 'E' },
+        { id: 'NW', dx: -1, dy: -1, opposite: 'SE' }
+    ],
     startingOxygen: 7,
     oxygenSuffocateThreshold: 0,
     corridorMaxIntruders: 6,

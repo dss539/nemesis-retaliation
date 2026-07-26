@@ -133,9 +133,9 @@ function switchToGameScreen() {
     const stateSource = engine ? engine.getState() : NemesisNetwork.state || { players: [], log: [], round: 1, maxRounds: 14, currentPlayer: 0, actionsRemaining: 2, phase: 'setup' };
     UI.updateState(stateSource);
 
-    // Set up canvas click handler
+    // Route tactical board interactions through the UI controller.
     Renderer.setClickHandler((click) => {
-        console.log('Canvas click:', click);
+        UI.handleBoardClick(click);
     });
 
     // Resize canvas to fit screen and detect mobile

@@ -25,9 +25,9 @@ A faithful web-based digital adaptation of the board game Nemesis: Retaliation b
 
 ## Key Design Decisions
 - Privacy: display-layer only, NOT state sanitization. Host needs full state for engine. Each browser's UI only renders its own player's private info.
-- Canvas: renders at devicePixelRatio for crisp text. Base coordinate space 1200x900, rooms 120px. Click handler maps screen coords to base coords.
+- Canvas: renders at devicePixelRatio for crisp text. Base coordinate space 1200x900. All 35 nodes of the fixed 7x5 tactical grid are pre-drawn as regular 110px octagons; the corner cut is `size / (2 + sqrt(2))`, making all eight sides equal. Fixed spacing reserves room for cardinal and diagonal corridors. Click handling uses the same regular-octagon geometry.
 - Mobile: bottom tab navigation (Board/Players/Cards/Log), touch support, responsive canvas
-- Exploration: compass/cross layout picker (N/E/S/W) matching map directions
+- Exploration: XCOM-style board targeting. Legal connected rooms and in-bounds empty nodes in `N`, `NE`, `E`, `SE`, `S`, `SW`, `W`, and `NW` highlight directly on the map; invalid, occupied, closed-door, and off-board destinations are omitted. Rooms index exits by compass direction, and corridors store their direction from both endpoints.
 - Text labels for all game state (fire, broken, secure count, intruder types, noise) — never color alone
 
 ## Game Content Status
@@ -43,10 +43,9 @@ A faithful web-based digital adaptation of the board game Nemesis: Retaliation b
 - Trade UI needs exchange modal (engine supports it)
 - Item selection on search is auto-pick (should present choice)
 - Intruder movement AI is simplified (shortest path, not full BFS)
-- Corridor rendering: lines drawn between room centers, not properly positioned tiles
-- Room connections visible as lines but corridors don't show as tiles between rooms
+- The fixed 7x5 tactical grid is a gameplay boundary, but the room arrangement still does not reproduce the physical board's authored layout.
 
-## Bugs Fixed (7 total)
+## Bugs Fixed (10 total)
 1. Unjoined player slots started alive=false (broke solo/bot games) → changed to alive=true
 2. Dead players could win → endGame now skips dead non-escaped players
 3. No intruders appeared → event cards now draw from bag (Infestation=2, Surge=3, Nest Defense=Drone)
@@ -54,10 +53,17 @@ A faithful web-based digital adaptation of the board game Nemesis: Retaliation b
 5. Queen never moved/attacked → now places in discovered room if Nest not on board
 6. Exploration blocked by corridor adjacency → exploration moves bypass adjacency entirely
 7. Host saw all players' objectives → moved to UI-layer privacy (display only)
+8. Exploration could redraw and overwrite the already-placed Landing Zone, creating a self-loop corridor → removed Landing Zone from the undiscovered Section A pool
+9. A character killed during an action retained the active turn forever → lethal action resolution now immediately advances to the next eligible player
+10. Nest events could place a Drone or Queen at an undiscovered, nonexistent room ID → hidden Nest occupants are reserved and materialized when the Nest is discovered
 
 ## QA
 - 4-browser Playwright test: host + 3 clients, 3 rounds, all synced, no errors
-- Full 13-round single-engine test: found and fixed all 7 bugs above
+- 4-browser tactical gameplay test: 11 canvas-selected moves across 3 rounds, 23 four-way sync checks, 8 rooms/7 corridors explored, 2 legitimate player deaths advanced correctly, no browser errors (`docs/qa/tactical-4browser-results.json`)
+- 8-direction octagon QA: regular-side geometry, all eight center targets, corner boundary filtering, real NE canvas click, diagonal corridor pixel separation, and explicit bidirectional exit indexes passed (`docs/qa/octagon-grid-8dir.png`).
+- 4-browser octagon gameplay QA: 8 real canvas moves through round 3, including NE/SE/SW exploration and movement through a diagonal corridor; 18 sync checks and 18 graph/map invariant checks passed with no browser errors (`docs/qa/octagon-4browser-results.json`).
+- Full 14-round four-browser game: 60 recorded actions, 61 sync checks, 61 graph/topology checks, five representative screenshots, and no browser errors after the hidden-Nest fix (`docs/qa/full-game-report.md`)
+- Full action trace and rule/FAQ deviation audit: `docs/qa/full-game-action-log.md`, `docs/qa/full-game-action-log.json`, and `docs/qa/full-game-rules-audit.md`
 - Test scripts in docs/qa/ (4browser_qa.py is reusable, others gitignored)
 - Playwright installed on smithers for multi-browser testing
 
@@ -92,5 +98,4 @@ All official PDFs and extracted text are in `docs/rulebooks/` (gitignored):
 - Sound/music
 - Proper intruder pathfinding (BFS)
 - Reconnection support (player reclaiming their slot)
-- Corridor tiles rendered as proper tiles between rooms, not just lines
 - Room layout should match physical game's grid positioning

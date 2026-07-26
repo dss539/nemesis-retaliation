@@ -80,7 +80,7 @@ class NemesisEngine {
             },
 
             // Nest
-            nest: { eggs: GAME_DATA.CONFIG.nestEggs, destroyed: false },
+            nest: { eggs: GAME_DATA.CONFIG.nestEggs, destroyed: false, pendingDrones: 0 },
 
             // Robot
             robot: {
@@ -112,7 +112,8 @@ class NemesisEngine {
 
             // Available rooms to place
             undiscoveredRooms: {
-                A: ['landingZone','drillingRoom','lifeSupportControlA'],
+                // Landing Zone is placed below during setup and must never be drawn again.
+                A: ['drillingRoom','lifeSupportControlA'],
                 B: ['hibernatorium','coolingSystem','lifeSupportControlB','serverRoom'],
                 C: ['lifeSupportControlC','nest','reactor','escapeShuttle'],
                 '?': shuffle(['armory','surgeryRoom','laboratory','gunneryRoom','shelter','technicalCorridorEntrance','sprinklersControl','engineRoom','storageRoom','commsRoom','wasteDisposal','airlock','powerGenerator'])
@@ -228,6 +229,7 @@ class NemesisEngine {
             section: 'A',
             discovered: true,
             position: { x: 0, y: 0 },
+            exits: {},
             markers: { fire: false, malfunction: false, secure: [] },
             intruders: []
         };
@@ -384,6 +386,16 @@ class NemesisEngine {
             case 'drill': result = this.actionDrill(player, params); break;
             case 'command': result = this.actionCommand(player, params); break;
             default: return { success: false, error: 'Unknown action' };
+        }
+
+        // Opportunity attacks, noise rolls, melee responses, and other action
+        // effects can kill the acting player. A dead player cannot take another
+        // action or Pass, so relinquish the turn immediately even when the
+        // action itself returned a failure.
+        if (!player.alive) {
+            s.actionsRemaining = 0;
+            this.nextPlayerOrPhase();
+            return result;
         }
 
         if (result.success && actionType !== 'pass') {
@@ -669,23 +681,32 @@ class NemesisEngine {
                 state.players.forEach(p => { if (p.alive) this.gainContamination(state, p); });
                 break;
             case 'ev19': // Nest Defense
-                // Add 1 Drone to the Nest room if not destroyed
+                // The physical game always has a Nest space, but this digital map
+                // assigns the Nest to a slot only when it is explored. Reserve the
+                // Drone while hidden rather than creating an off-map entity.
                 if (!state.nest.destroyed && state.intruderPool.drone > 0) {
-                    state.intruders.push({
-                        id: 'intruder_ev19_' + Date.now(),
-                        type: 'drone',
-                        location: { type: 'room', id: 'nest' },
-                        hits: 0
-                    });
                     state.intruderPool.drone--;
-                    this.log('Drone appears in the Nest!');
+                    if (state.rooms.nest) {
+                        state.nest.pendingDrones++;
+                        this.materializePendingNestOccupants(state);
+                    } else {
+                        state.nest.pendingDrones++;
+                        this.log('A Drone is waiting in the undiscovered Nest');
+                    }
                 }
                 break;
             case 'ev20': // Queen Awakening
                 if (!state.queen.inPlay) {
                     state.queen.inPlay = true;
-                    state.queen.location = { type: 'room', id: 'nest' };
-                    this.log('The Queen has awakened in the Nest!');
+                    state.queen.location = { type: 'pending', id: 'nest' };
+                    if (state.rooms.nest) {
+                        this.materializePendingNestOccupants(state);
+                        this.log('The Queen has awakened in the Nest!');
+                    } else {
+                        this.log('The Queen awakens in the undiscovered Nest');
+                    }
+                } else if (state.queen.location?.type === 'pending') {
+                    this.log('The Queen remains in the undiscovered Nest');
                 } else {
                     this.activateQueen(state);
                 }
@@ -693,6 +714,39 @@ class NemesisEngine {
             // Other events: just the standard movement already handled
         }
         this.notify('eventResolved', { event: event.id });
+    }
+
+    materializePendingNestOccupants(state) {
+        if (!state.rooms.nest) return;
+
+        const pendingDrones = state.nest.pendingDrones || 0;
+        for (let i = 0; i < pendingDrones; i++) {
+            state.intruders.push({
+                id: 'intruder_nest_' + Date.now() + '_' + i + '_' + Math.random(),
+                type: 'drone',
+                location: { type: 'room', id: 'nest' },
+                hits: 0
+            });
+        }
+        if (pendingDrones > 0) {
+            state.nest.pendingDrones = 0;
+            this.log((pendingDrones === 1 ? 'A Drone appears' : pendingDrones + ' Drones appear') + ' in the Nest!');
+        }
+
+        const queenPending = state.queen.inPlay && !state.queen.dead &&
+            state.queen.location?.type === 'pending';
+        if (queenPending) {
+            state.queen.location = { type: 'room', id: 'nest' };
+            if (!state.intruders.some(intruder => intruder.type === 'queen')) {
+                state.intruders.push({
+                    id: 'queen_intruder',
+                    type: 'queen',
+                    location: { type: 'room', id: 'nest' },
+                    hits: state.queen.hits || 0
+                });
+            }
+            this.log('The Queen appears in the Nest!');
+        }
     }
 
     // Place a random intruder from the bag into a random corridor or room with a character
@@ -869,6 +923,34 @@ class NemesisEngine {
 
         // Check if this is an exploration move (to an undiscovered area)
         const isExploration = params.explore || targetRoomId.startsWith('explore_');
+
+        // Exploration must follow one of the eight compass edges into an empty,
+        // in-bounds room slot. The UI filters targets, but the host is authoritative.
+        // The UI filters these targets, but the authoritative engine also enforces it.
+        if (isExploration) {
+            const position = params.position;
+            const bounds = GAME_DATA.CONFIG.boardBounds;
+            const isIntegerPosition = Number.isInteger(position?.x) && Number.isInteger(position?.y);
+            const isInBounds = isIntegerPosition &&
+                position.x >= bounds.minX && position.x <= bounds.maxX &&
+                position.y >= bounds.minY && position.y <= bounds.maxY;
+            if (!isInBounds) return { success: false, error: 'Destination is off the board' };
+
+            const dx = position.x - currentRoom.position.x;
+            const dy = position.y - currentRoom.position.y;
+            const direction = GAME_DATA.CONFIG.directions.find(candidate =>
+                candidate.dx === dx && candidate.dy === dy
+            );
+            if (!direction) return { success: false, error: 'Destination is not adjacent' };
+            if (params.direction && params.direction !== direction.id) {
+                return { success: false, error: 'Exit direction does not match destination' };
+            }
+
+            const occupied = Object.values(s.rooms).some(room =>
+                room.position?.x === position.x && room.position?.y === position.y
+            );
+            if (occupied) return { success: false, error: 'Map space is already occupied' };
+        }
         
         // For non-exploration moves, check corridor adjacency
         if (!isExploration) {
@@ -951,22 +1033,39 @@ class NemesisEngine {
             section: section,
             discovered: true,
             position: params.position || { x: 0, y: 0 },
+            exits: {},
             markers: { fire: false, malfunction: false, secure: [] },
             intruders: []
         };
+        state.mapGrid[params.position.x + ',' + params.position.y] = { type: 'room', id: newRoomId };
+        if (newRoomId === 'nest') {
+            this.materializePendingNestOccupants(state);
+        }
 
-        // Set up corridors (simplified - just connect to the room we came from)
+        // Add a graph edge. Each room records the edge under the compass-facing
+        // side of its octagon; the corridor preserves both orientations.
+        const sourceRoomId = player.location;
+        const sourceRoom = state.rooms[sourceRoomId];
+        const exitDirection = GAME_DATA.CONFIG.directions.find(candidate =>
+            candidate.dx === params.position.x - sourceRoom.position.x &&
+            candidate.dy === params.position.y - sourceRoom.position.y
+        );
         const newCorridor = {
             id: 'corridor_' + Date.now() + '_' + Math.random(),
             value: 1 + Math.floor(Math.random() * 4),
-            room1: player.location,
+            room1: sourceRoomId,
             room2: newRoomId,
+            directionFromRoom1: exitDirection.id,
+            directionFromRoom2: exitDirection.opposite,
             door: 'open',
             noise: false,
             intruders: [],
             reinforced: false
         };
         state.corridors.push(newCorridor);
+        sourceRoom.exits ||= {};
+        sourceRoom.exits[exitDirection.id] = newCorridor.id;
+        state.rooms[newRoomId].exits[exitDirection.opposite] = newCorridor.id;
 
         // Move player
         player.location = newRoomId;
