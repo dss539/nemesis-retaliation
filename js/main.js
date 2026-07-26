@@ -31,10 +31,10 @@ function createHost() {
         engine.state.players[0].name = name;
         window.nemesisEngine = engine;
 
-        // Subscribe to engine events
+        // Subscribe to engine events (host only broadcasts, doesn't update UI here
+        // — broadcastState handles host UI update)
         engine.subscribe((event, data, state) => {
             NemesisNetwork.broadcastState();
-            UI.updateState(state);
         });
 
         // Set up state update handler for client messages

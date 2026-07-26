@@ -108,16 +108,20 @@ const NemesisNetwork = {
 
     handleDisconnect(peerId) {
         if (this.isHost && window.nemesisEngine) {
-            // Find player by peer ID and handle disconnect
+            // Find player by peer ID and mark as disconnected
             const state = window.nemesisEngine.getState();
             const player = state?.players?.find(p => p.peerId === peerId);
             if (player) {
-                this.broadcastMessage({
-                    type: 'playerDisconnected',
-                    playerId: player.id
-                });
+                player.connected = false;
+                player.peerId = null;
+                this.log(`${player.name || 'Player'} disconnected`);
+                this.broadcastState();
             }
         }
+    },
+
+    log(msg) {
+        console.log('[Network] ' + msg);
     },
 
     // === MESSAGE HANDLING ===
@@ -144,10 +148,19 @@ const NemesisNetwork = {
                 conn.send({
                     type: 'joinAccepted',
                     playerId: freeSlot,
-                    state: this.serializeState(state)
+                    state: this.serializeStateForPlayer(state, freeSlot)
                 });
 
-                // Broadcast updated player list
+                // Update host's own lobby UI
+                if (typeof updateLobbyPlayers === 'function') {
+                    const lobbyData = {
+                        players: state.players.filter(p => p.connected).map(p => ({ name: p.name, character: p.character, connected: p.connected })),
+                        numPlayers: state.numPlayers
+                    };
+                    updateLobbyPlayers(lobbyData);
+                }
+
+                // Broadcast updated player list to all clients
                 this.broadcastLobbyState();
                 this.broadcastState();
                 break;
@@ -223,8 +236,22 @@ const NemesisNetwork = {
 
     broadcastState() {
         if (!this.isHost || !window.nemesisEngine) return;
-        const state = this.serializeState(window.nemesisEngine.getState());
-        this.broadcastMessage({ type: 'stateUpdate', state: state });
+        const state = window.nemesisEngine.getState();
+        
+        // Send host's own state locally (full access)
+        if (typeof UI !== 'undefined' && UI.updateState) {
+            UI.updateState(state);
+        }
+        
+        // Send sanitized state to each connected client
+        Object.entries(this.connections).forEach(([peerId, conn]) => {
+            if (!conn.open) return;
+            // Find which player this connection belongs to
+            const player = state.players.find(p => p.peerId === peerId);
+            if (!player) return;
+            const sanitizedState = this.serializeStateForPlayer(state, player.id);
+            conn.send({ type: 'stateUpdate', state: sanitizedState });
+        });
     },
 
     broadcastLobbyState() {
@@ -240,8 +267,79 @@ const NemesisNetwork = {
 
     serializeState(state) {
         // Deep clone state for transmission
-        // In production, could optimize by sending deltas
         return JSON.parse(JSON.stringify(state));
+    },
+
+    // Serialize state for a specific player, hiding other players' private info
+    serializeStateForPlayer(state, playerId) {
+        const cloned = JSON.parse(JSON.stringify(state));
+        
+        // Hide private info from other players
+        if (cloned.players) {
+            cloned.players.forEach((p, i) => {
+                if (i !== playerId) {
+                    // Hide objectives, hand, backpack, contamination details
+                    p.objectives = p.chosenObjective ? [{ id: p.chosenObjective }] : [];
+                    p.actionHand = p.actionHand ? new Array(p.actionHand.length).fill({ type: 'hidden' }) : [];
+                    p.backpack = p.backpack ? new Array(p.backpack.length).fill('hidden') : [];
+                    p.contaminationInHand = p.contaminationInHand ? new Array(p.contaminationInHand.length).fill('hidden') : [];
+                    p.handSlots = p.handSlots ? p.handSlots.map(h => h ? 'hidden' : null) : [];
+                    p.tacticalBelt = p.tacticalBelt ? p.tacticalBelt.map(t => t ? 'hidden' : null) : [];
+                    p.seriousWounds = p.seriousWounds ? p.seriousWounds.map(() => 'hidden') : [];
+                }
+            });
+        }
+        
+        // Hide contamination card infected status (only visible when scanned)
+        if (cloned.contaminationDeck) {
+            cloned.contaminationDeck = cloned.contaminationDeck.map(() => 'hidden');
+        }
+        
+        // Hide event deck top card (only visible when resolved)
+        if (cloned.eventDeck) {
+            cloned.eventDeck = cloned.eventDeck.map(() => 'hidden');
+        }
+        
+        // Hide intruder attack deck
+        if (cloned.intruderAttackDeck) {
+            cloned.intruderAttackDeck = cloned.intruderAttackDeck.map(() => 'hidden');
+        }
+        
+        // Hide serious wound deck
+        if (cloned.seriousWoundDeck) {
+            cloned.seriousWoundDeck = cloned.seriousWoundDeck.map(() => 'hidden');
+        }
+        
+        // Hide queen health deck
+        if (cloned.queenHealthDeck) {
+            cloned.queenHealthDeck = cloned.queenHealthDeck.map(() => 'hidden');
+        }
+        
+        // Hide intruder bag contents (players shouldn't know what's coming)
+        if (cloned.intruderBag) {
+            cloned.intruderBag = cloned.intruderBag.map(() => ({ type: 'hidden' }));
+        }
+        
+        // Hide item decks
+        if (cloned.itemDecks) {
+            cloned.itemDecks = {
+                red: cloned.itemDecks.red ? new Array(cloned.itemDecks.red.length).fill('hidden') : [],
+                yellow: cloned.itemDecks.yellow ? new Array(cloned.itemDecks.yellow.length).fill('hidden') : [],
+                green: cloned.itemDecks.green ? new Array(cloned.itemDecks.green.length).fill('hidden') : []
+            };
+        }
+        
+        // Hide anti-aircraft token order (secret until resolved)
+        if (cloned.antiAircraft && cloned.antiAircraft.tokens) {
+            cloned.antiAircraft.tokens = cloned.antiAircraft.tokens.map(() => 'hidden');
+        }
+        
+        // Hide robot card (secret until revealed)
+        if (cloned.robot && !cloned.robot.revealed) {
+            cloned.robot.card = 'hidden';
+        }
+        
+        return cloned;
     },
 
     // === SENDING ACTIONS (client to host) ===

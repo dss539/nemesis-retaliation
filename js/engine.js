@@ -328,7 +328,7 @@ class NemesisEngine {
         const s = this.state;
         const player = s.players[s.currentPlayer];
 
-        if (!player.alive || player.hasEscaped || player.hasHibernated || player.inLander) {
+        if (!player.alive || player.hasEscaped || player.hasHibernated || player.inLander || !player.connected) {
             this.nextPlayerOrPhase();
             return;
         }
@@ -438,7 +438,7 @@ class NemesisEngine {
         for (let i = 1; i <= s.players.length; i++) {
             next = (s.currentPlayer + i) % s.players.length;
             const p = s.players[next];
-            if (p.alive && !p.passed && !p.hasEscaped && !p.hasHibernated && !p.inLander) {
+            if (p.alive && !p.passed && !p.hasEscaped && !p.hasHibernated && !p.inLander && p.connected) {
                 found = true;
                 break;
             }
@@ -756,9 +756,9 @@ class NemesisEngine {
 
         // 1. Starting player change
         s.startingPlayer = (s.startingPlayer + 1) % s.players.length;
-        // Find next alive player
+        // Find next alive, connected player
         let attempts = 0;
-        while (!s.players[s.startingPlayer].alive && attempts < s.players.length) {
+        while ((!s.players[s.startingPlayer].alive || !s.players[s.startingPlayer].connected) && attempts < s.players.length) {
             s.startingPlayer = (s.startingPlayer + 1) % s.players.length;
             attempts++;
         }
