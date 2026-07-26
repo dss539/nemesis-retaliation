@@ -124,24 +124,59 @@ class NemesisEngine {
             winners: []
         };
 
-        // Create players
+        // Create host player only — others join via network
         const charIds = Object.keys(GAME_DATA.CHARACTERS);
-        for (let i = 0; i < numPlayers; i++) {
-            const charId = charIds[i];
-            const charData = GAME_DATA.CHARACTERS[charId];
+        const charData = GAME_DATA.CHARACTERS[charIds[0]];
+        state.players.push({
+            id: 0,
+            name: playerNames[0] || 'Host',
+            character: charIds[0],
+            characterData: charData,
+            color: GAME_DATA.CHARACTER_COLORS[0],
+            alive: true,
+            location: 'landingZone',
+            health: charData.health,
+            maxHealth: charData.health,
+            oxygen: GAME_DATA.CONFIG.startingOxygen,
+            suffocating: false,
+            actionDeck: this.createActionDeck(charIds[0]),
+            actionHand: [],
+            actionDiscard: [],
+            contaminationInHand: [],
+            contaminationDiscard: [],
+            backpack: [],
+            handSlots: [null, null],
+            armor: null,
+            tacticalBelt: [null, null, null, null],
+            seriousWounds: [],
+            larva: false,
+            hasDataToken: false,
+            hasEscaped: false,
+            hasHibernated: false,
+            inLander: false,
+            objectives: [],
+            chosenObjective: null,
+            passed: false,
+            actionCardsDrawn: 0,
+            peerId: null,
+            connected: true
+        });
+
+        // Reserve remaining slots as placeholders (not yet joined)
+        for (let i = 1; i < numPlayers; i++) {
             state.players.push({
                 id: i,
-                name: playerNames[i] || ('Player ' + (i+1)),
-                character: charId,
-                characterData: charData,
+                name: null, // null = not yet joined
+                character: charIds[i],
+                characterData: GAME_DATA.CHARACTERS[charIds[i]],
                 color: GAME_DATA.CHARACTER_COLORS[i],
-                alive: true,
-                location: 'landingZone', // start at Landing Zone
-                health: charData.health,
-                maxHealth: charData.health,
+                alive: false, // not active until joined
+                location: 'landingZone',
+                health: GAME_DATA.CHARACTERS[charIds[i]].health,
+                maxHealth: GAME_DATA.CHARACTERS[charIds[i]].health,
                 oxygen: GAME_DATA.CONFIG.startingOxygen,
                 suffocating: false,
-                actionDeck: this.createActionDeck(charId),
+                actionDeck: this.createActionDeck(charIds[i]),
                 actionHand: [],
                 actionDiscard: [],
                 contaminationInHand: [],
@@ -159,11 +194,13 @@ class NemesisEngine {
                 objectives: [],
                 chosenObjective: null,
                 passed: false,
-                actionCardsDrawn: 0
+                actionCardsDrawn: 0,
+                peerId: null,
+                connected: false
             });
         }
 
-        // Draw initial hands
+        // Draw initial hands and objectives for all players (including unjoined)
         state.players.forEach(p => {
             for (let i = 0; i < GAME_DATA.CONFIG.handSize; i++) {
                 this.drawActionCard(p);

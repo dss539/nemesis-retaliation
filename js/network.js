@@ -128,26 +128,28 @@ const NemesisNetwork = {
 
         switch(data.type) {
             case 'join':
-                // Assign player ID
+                // Find first unjoined player slot
                 const state = engine.getState();
-                const playerCount = state.players.length;
-                if (playerCount >= state.numPlayers) {
+                const freeSlot = state.players.findIndex(p => !p.connected);
+                if (freeSlot === -1) {
                     conn.send({ type: 'joinRejected', reason: 'Game is full' });
                     return;
                 }
-                // Assign player to existing slot
-                const playerId = playerCount;
-                state.players[playerId].name = data.name;
-                state.players[playerId].peerId = conn.peer;
+                // Assign player to the free slot
+                state.players[freeSlot].name = data.name;
+                state.players[freeSlot].peerId = conn.peer;
+                state.players[freeSlot].connected = true;
+                state.players[freeSlot].alive = true;
 
                 conn.send({
                     type: 'joinAccepted',
-                    playerId: playerId,
+                    playerId: freeSlot,
                     state: this.serializeState(state)
                 });
 
                 // Broadcast updated player list
                 this.broadcastLobbyState();
+                this.broadcastState();
                 break;
 
             case 'action':
@@ -230,7 +232,7 @@ const NemesisNetwork = {
         const state = window.nemesisEngine.getState();
         if (!state) return;
         const lobbyData = {
-            players: state.players.map(p => ({ name: p.name, character: p.character, connected: !!p.peerId || p.id === 0 })),
+            players: state.players.filter(p => p.connected).map(p => ({ name: p.name, character: p.character, connected: p.connected })),
             numPlayers: state.numPlayers
         };
         this.broadcastMessage({ type: 'lobbyState', lobby: lobbyData });
