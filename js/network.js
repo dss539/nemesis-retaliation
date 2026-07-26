@@ -238,9 +238,10 @@ const NemesisNetwork = {
         if (!this.isHost || !window.nemesisEngine) return;
         const state = window.nemesisEngine.getState();
         
-        // Send host's own state locally (full access)
+        // Send host's own state locally — sanitized so host doesn't see other players' private info
+        const hostState = this.serializeStateForPlayer(state, 0);
         if (typeof UI !== 'undefined' && UI.updateState) {
-            UI.updateState(state);
+            UI.updateState(hostState);
         }
         
         // Send sanitized state to each connected client

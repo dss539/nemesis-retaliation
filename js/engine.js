@@ -170,7 +170,7 @@ class NemesisEngine {
                 character: charIds[i],
                 characterData: GAME_DATA.CHARACTERS[charIds[i]],
                 color: GAME_DATA.CHARACTER_COLORS[i],
-                alive: false, // not active until joined
+                alive: true, // alive but not connected — will be skipped until joined
                 location: 'landingZone',
                 health: GAME_DATA.CHARACTERS[charIds[i]].health,
                 maxHealth: GAME_DATA.CHARACTERS[charIds[i]].health,
@@ -416,7 +416,10 @@ class NemesisEngine {
                     player.suffocating = true;
                     this.log(player.name + ' is suffocating!');
                 } else if (player.suffocating) {
+                    // Already suffocating — next oxygen loss kills
                     this.killPlayer(player, 'suffocation');
+                    this.nextPlayerOrPhase();
+                    return;
                 }
             }
             // Lose health if in room with fire
@@ -625,7 +628,7 @@ class NemesisEngine {
         // 2. Move intruders in rooms to corridors
         this.moveRoomIntruders(state);
 
-        // Specific event effects (simplified - just handle the special part)
+        // Specific event effects
         switch(event.id) {
             case 'ev1': // Reactor Overheating
                 if (state.rooms.coolingSystem?.markers.fire || state.rooms.reactor?.markers.fire) {
@@ -650,8 +653,33 @@ class NemesisEngine {
             case 'ev10': // Nest Awakening
                 if (!state.nest.destroyed) state.nest.eggs = Math.min(state.nest.eggs + 1, 5);
                 break;
+            case 'ev12': // Infestation
+                // Draw 2 intruder tokens and place in random corridors
+                for (let i = 0; i < 2; i++) {
+                    this.placeRandomIntruder(state);
+                }
+                break;
+            case 'ev14': // Intruder Surge
+                // Draw 3 intruder tokens and place them
+                for (let i = 0; i < 3; i++) {
+                    this.placeRandomIntruder(state);
+                }
+                break;
             case 'ev16': // Contamination Leak
                 state.players.forEach(p => { if (p.alive) this.gainContamination(state, p); });
+                break;
+            case 'ev19': // Nest Defense
+                // Add 1 Drone to the Nest room if not destroyed
+                if (!state.nest.destroyed && state.intruderPool.drone > 0) {
+                    state.intruders.push({
+                        id: 'intruder_ev19_' + Date.now(),
+                        type: 'drone',
+                        location: { type: 'room', id: 'nest' },
+                        hits: 0
+                    });
+                    state.intruderPool.drone--;
+                    this.log('Drone appears in the Nest!');
+                }
                 break;
             case 'ev20': // Queen Awakening
                 if (!state.queen.inPlay) {
@@ -665,6 +693,43 @@ class NemesisEngine {
             // Other events: just the standard movement already handled
         }
         this.notify('eventResolved', { event: event.id });
+    }
+
+    // Place a random intruder from the bag into a random corridor or room with a character
+    placeRandomIntruder(state) {
+        const token = this.drawFromBag(state);
+        if (!token) return;
+        
+        // Try to place in a corridor with noise, or near a character
+        const corridorsWithNoise = state.corridors.filter(c => c.noise);
+        const roomsWithChars = Object.keys(state.rooms).filter(rid =>
+            state.players.some(p => p.alive && p.location === rid)
+        );
+        
+        let location, locationType;
+        if (corridorsWithNoise.length > 0) {
+            const c = corridorsWithNoise[Math.floor(Math.random() * corridorsWithNoise.length)];
+            location = c.id;
+            locationType = 'corridor';
+            c.noise = false; // Resolve noise marker
+            state.tokenPool.noise++;
+        } else if (roomsWithChars.length > 0) {
+            location = roomsWithChars[Math.floor(Math.random() * roomsWithChars.length)];
+            locationType = 'room';
+        } else {
+            // Place in a random corridor
+            if (state.corridors.length > 0) {
+                const c = state.corridors[Math.floor(Math.random() * state.corridors.length)];
+                location = c.id;
+                locationType = 'corridor';
+            } else {
+                // No corridors yet — place at landing zone
+                location = 'landingZone';
+                locationType = 'room';
+            }
+        }
+        
+        this.resolveIntruderToken(state, token, location, locationType);
     }
 
     moveCorridorIntruders(state) {
@@ -799,31 +864,30 @@ class NemesisEngine {
         const targetRoomId = params.targetRoom;
         if (!targetRoomId) return { success: false, error: 'No target room' };
 
-        // Check adjacency
         const currentRoom = s.rooms[player.location];
         if (!currentRoom) return { success: false, error: 'Not in a room' };
 
-        const corridor = s.corridors.find(c =>
-            (c.room1 === player.location && c.room2 === targetRoomId) ||
-            (c.room2 === player.location && c.room1 === targetRoomId)
-        );
+        // Check if this is an exploration move (to an undiscovered area)
+        const isExploration = params.explore || targetRoomId.startsWith('explore_');
         
-        // If no corridor exists and this is an exploration, allow it
-        if (!corridor && !params.secretPassage) {
-            if (params.explore || targetRoomId.startsWith('explore_')) {
-                // This is an exploration move - no corridor needed
-                // Skip opportunity attacks since no corridor
-            } else {
+        // For non-exploration moves, check corridor adjacency
+        if (!isExploration) {
+            const corridor = s.corridors.find(c =>
+                (c.room1 === player.location && c.room2 === targetRoomId) ||
+                (c.room2 === player.location && c.room1 === targetRoomId)
+            );
+            if (!corridor && !params.secretPassage) {
                 return { success: false, error: 'Rooms not adjacent' };
+            }
+            // Check for closed doors
+            if (corridor && corridor.door === 'closed') {
+                return { success: false, error: 'Door is closed' };
             }
         }
 
-        // Check for closed doors
-        if (corridor && corridor.door === 'closed') {
-            return { success: false, error: 'Door is closed' };
-        }
+        // For exploration, skip opportunity attacks (no corridor exists yet)
 
-        // Resolve opportunity attacks from intruders in current room and corridor
+        // Resolve opportunity attacks from intruders in current room
         let attacks = 0;
         s.intruders.filter(i => i.location.type === 'room' && i.location.id === player.location).forEach(intruder => {
             if (attacks < 3) {
@@ -831,13 +895,20 @@ class NemesisEngine {
                 attacks++;
             }
         });
-        if (corridor) {
-            s.intruders.filter(i => i.location.type === 'corridor' && i.location.id === corridor.id).forEach(intruder => {
-                if (attacks < 3) {
-                    this.resolveIntruderAttack(s, intruder, player);
-                    attacks++;
-                }
-            });
+        // Only check corridor attacks for non-exploration moves
+        if (!isExploration) {
+            const corridor = s.corridors.find(c =>
+                (c.room1 === player.location && c.room2 === targetRoomId) ||
+                (c.room2 === player.location && c.room1 === targetRoomId)
+            );
+            if (corridor) {
+                s.intruders.filter(i => i.location.type === 'corridor' && i.location.id === corridor.id).forEach(intruder => {
+                    if (attacks < 3) {
+                        this.resolveIntruderAttack(s, intruder, player);
+                        attacks++;
+                    }
+                });
+            }
         }
 
         if (!player.alive) return { success: false, error: 'Player died during movement' };
@@ -1040,28 +1111,48 @@ class NemesisEngine {
     }
 
     activateQueen(state) {
-        const queenIntruder = state.intruders.find(i => i.type === 'queen');
+        // Ensure Queen is in the intruders array
+        let queenIntruder = state.intruders.find(i => i.type === 'queen');
         if (!queenIntruder && state.queen.inPlay) {
-            // Queen not on board but in play - place her
-            state.intruders.push({
+            // Place Queen — prefer the Nest room if discovered, else a random discovered room
+            let queenRoom = 'nest';
+            if (!state.rooms.nest) {
+                const discoveredRooms = Object.keys(state.rooms).filter(r => r !== 'landingZone');
+                if (discoveredRooms.length > 0) {
+                    queenRoom = discoveredRooms[Math.floor(Math.random() * discoveredRooms.length)];
+                }
+            }
+            state.queen.location = { type: 'room', id: queenRoom };
+            queenIntruder = {
                 id: 'queen_intruder',
                 type: 'queen',
-                location: state.queen.location,
+                location: { type: 'room', id: queenRoom },
                 hits: 0
-            });
+            };
+            state.intruders.push(queenIntruder);
+            this.log('The Queen appears in ' + queenRoom + '!');
         }
 
-        const queen = state.intruders.find(i => i.type === 'queen');
-        if (queen) {
+        if (queenIntruder) {
             // Attack or move
-            const charsInRoom = state.players.filter(p => p.alive && p.location === queen.location.id);
-            if (charsInRoom.length > 0 && queen.location.type === 'room') {
-                this.resolveIntruderAttack(state, queen, charsInRoom[0]);
+            const charsInRoom = state.players.filter(p => p.alive && p.location === queenIntruder.location.id);
+            if (charsInRoom.length > 0 && queenIntruder.location.type === 'room') {
+                const room = state.rooms[queenIntruder.location.id];
+                if (room && room.markers.secure && room.markers.secure.length > 0) {
+                    room.markers.secure.pop();
+                    this.log('Secure token absorbs Queen attack');
+                } else {
+                    this.resolveIntruderAttack(state, queenIntruder, charsInRoom[0]);
+                }
             } else {
                 // Move toward closest character
-                const targetCorridor = this.findClosestCharacterCorridor(state, state.rooms[queen.location.id]);
-                if (targetCorridor) {
-                    queen.location = { type: 'corridor', id: targetCorridor };
+                const currentRoom = state.rooms[queenIntruder.location.id];
+                if (currentRoom) {
+                    const targetCorridor = this.findClosestCharacterCorridor(state, currentRoom);
+                    if (targetCorridor) {
+                        queenIntruder.location = { type: 'corridor', id: targetCorridor };
+                        this.log('The Queen moves toward the crew');
+                    }
                 }
             }
         }
@@ -1775,15 +1866,16 @@ class NemesisEngine {
             }
         });
 
-        // Check objectives
+        // Check objectives — only for players who are alive, escaped, or hibernated
         s.players.forEach(player => {
-            if (player.chosenObjective) {
-                const obj = [...GAME_DATA.MISSION_OBJECTIVES, ...GAME_DATA.PRIVATE_OBJECTIVES]
-                    .find(o => o.id === player.chosenObjective);
-                if (obj && this.checkObjective(s, player, obj)) {
-                    s.winners.push(player.id);
-                    this.log(player.name + ' wins! Objective: ' + obj.name);
-                }
+            if (!player.chosenObjective) return;
+            // Dead players who didn't escape/hibernate cannot win
+            if (!player.alive && !player.hasEscaped && !player.hasHibernated) return;
+            const obj = [...GAME_DATA.MISSION_OBJECTIVES, ...GAME_DATA.PRIVATE_OBJECTIVES]
+                .find(o => o.id === player.chosenObjective);
+            if (obj && this.checkObjective(s, player, obj)) {
+                s.winners.push(player.id);
+                this.log(player.name + ' wins! Objective: ' + obj.name);
             }
         });
 
@@ -1826,7 +1918,7 @@ class NemesisEngine {
                        state.undiscoveredRooms.B.length === 0 &&
                        state.undiscoveredRooms.C.length === 0;
             case 'Eradication':
-                return state.queen.dead && !state.gameOver;
+                return state.queen.dead;
             default:
                 return false;
         }
