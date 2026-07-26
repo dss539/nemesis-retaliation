@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nemesis: Retaliation - Digital Edition</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://unpkg.com/peerjs@1.5.4/dist/peerjs.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- Lobby Screen -->
+        <div id="lobby-screen" class="screen active">
+            <div class="lobby-container">
+                <h1 class="title">NEMESIS: RETALIATION</h1>
+                <p class="subtitle">Digital Edition</p>
+                <div class="lobby-actions">
+                    <button id="btn-host" class="btn btn-primary" onclick="showHostPanel()">Host Game</button>
+                    <button id="btn-join" class="btn btn-secondary" onclick="showJoinPanel()">Join Game</button>
+                </div>
+                <div id="host-panel" class="hidden panel">
+                    <h2>Host Game</h2>
+                    <p>Share this code with your friends:</p>
+                    <div id="host-code" class="code-display">Generating...</div>
+                    <div id="player-list">
+                        <h3>Players (0/5)</h3>
+                        <ul id="lobby-players"></ul>
+                    </div>
+                    <label for="num-players">Number of players:</label>
+                    <select id="num-players">
+                        <option value="1">1 (Solo)</option>
+                        <option value="2" selected>2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                    <button class="btn btn-primary" onclick="startGame()">Start Game</button>
+                </div>
+                <div id="join-panel" class="hidden panel">
+                    <h2>Join Game</h2>
+                    <label for="join-code">Enter host code:</label>
+                    <input type="text" id="join-code" placeholder="Enter code" maxlength="8">
+                    <label for="player-name">Your name:</label>
+                    <input type="text" id="player-name" placeholder="Enter your name" maxlength="12">
+                    <button class="btn btn-primary" onclick="joinGame()">Connect</button>
+                    <div id="join-status"></div>
+                </div>
+                <div id="host-name-panel" class="hidden panel">
+                    <h2>Host Game</h2>
+                    <label for="host-name">Your name:</label>
+                    <input type="text" id="host-name" placeholder="Enter your name" maxlength="12">
+                    <button class="btn btn-primary" onclick="createHost()">Create Game</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Game Screen -->
+        <div id="game-screen" class="screen">
+            <div id="game-layout">
+                <!-- Left panel: Player boards -->
+                <div id="left-panel" class="side-panel">
+                    <div id="player-boards"></div>
+                </div>
+
+                <!-- Center: Game board -->
+                <div id="center-panel">
+                    <div id="game-info-bar">
+                        <div id="round-info"></div>
+                        <div id="phase-info"></div>
+                        <div id="turn-info"></div>
+                    </div>
+                    <canvas id="game-canvas" width="800" height="600"></canvas>
+                    <div id="action-bar"></div>
+                </div>
+
+                <!-- Right panel: Cards and log -->
+                <div id="right-panel" class="side-panel">
+                    <div id="card-area"></div>
+                    <div id="game-log"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Overlay for modals (card selection, dice rolls, etc.) -->
+        <div id="modal-overlay" class="hidden">
+            <div id="modal-content"></div>
+        </div>
+    </div>
+
+    <script src="js/data.js"></script>
+    <script src="js/engine.js"></script>
+    <script src="js/network.js"></script>
+    <script src="js/render.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
