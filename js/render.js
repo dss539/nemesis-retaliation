@@ -183,30 +183,32 @@ const Renderer = {
         ctx.fill();
         ctx.stroke();
 
-        // Fire marker
+        // Fire marker — icon + label
         if (room.markers?.fire) {
-            ctx.fillStyle = 'rgba(255,80,0,0.4)';
+            ctx.fillStyle = 'rgba(255,80,0,0.3)';
             ctx.beginPath();
-            ctx.roundRect(x, y, w, h, 6);
+            ctx.roundRect(x, y, w, h, 8);
             ctx.fill();
+            ctx.fillStyle = '#ff6600';
+            ctx.font = 'bold 13px sans-serif';
+            ctx.textAlign = 'left';
+            ctx.fillText('FIRE', x + 6, y + 20);
         }
 
-        // Malfunction marker
+        // Malfunction marker — icon + label
         if (room.markers?.malfunction) {
             ctx.fillStyle = '#cc8800';
-            ctx.font = 'bold 18px sans-serif';
-            ctx.textAlign = 'center';
-            ctx.fillText('M', x + w - 14, y + 20);
+            ctx.font = 'bold 14px sans-serif';
+            ctx.textAlign = 'right';
+            ctx.fillText('🔧BROKEN', x + w - 6, y + 20);
         }
 
-        // Secure tokens
+        // Secure tokens — show count as text
         if (room.markers?.secure?.length > 0) {
             ctx.fillStyle = '#4488cc';
-            for (let i = 0; i < room.markers.secure.length; i++) {
-                ctx.beginPath();
-                ctx.arc(x + 12 + i * 18, y + h - 12, 7, 0, Math.PI * 2);
-                ctx.fill();
-            }
+            ctx.font = 'bold 12px sans-serif';
+            ctx.textAlign = 'left';
+            ctx.fillText('🔒x' + room.markers.secure.length, x + 6, y + h - 8);
         }
 
         // Room name
@@ -242,27 +244,43 @@ const Renderer = {
             ctx.fillText('C', x + w - 18, y + 18);
         }
 
-        // Intruder count indicator
+        // Intruder count — text label with type breakdown
         const intrudersInRoom = this.state.intruders.filter(i => i.location.type === 'room' && i.location.id === room.id);
         if (intrudersInRoom.length > 0) {
-            ctx.fillStyle = 'rgba(255,50,50,0.2)';
+            ctx.fillStyle = 'rgba(255,50,50,0.15)';
             ctx.beginPath();
             ctx.roundRect(x, y, w, h, 8);
             ctx.fill();
+            // Label with intruder types
+            const typeCounts = {};
+            intrudersInRoom.forEach(i => { typeCounts[i.type] = (typeCounts[i.type] || 0) + 1; });
+            const label = Object.entries(typeCounts).map(([t, c]) => c > 1 ? c + 'x' + t : t).join(' ');
+            ctx.fillStyle = '#ff4444';
+            ctx.font = 'bold 11px sans-serif';
+            ctx.textAlign = 'right';
+            ctx.fillText(label, x + w - 6, y + h - 8);
         }
 
-        // Characters indicator
+        // Characters — show player initials with color
         const playersInRoom = this.state.players.filter(p => p.alive && p.location === room.id);
         if (playersInRoom.length > 0) {
             playersInRoom.forEach((p, i) => {
                 const colors = { blue:'#4499cc', green:'#44aa66', red:'#cc4444', yellow:'#daa333', purple:'#9944cc' };
+                const cx = x + 8 + i * 22;
+                const cy = y + h - 12;
                 ctx.fillStyle = colors[p.color] || '#fff';
                 ctx.beginPath();
-                ctx.arc(x + w/2 - 20 + i * 14, y + h - 12, 7, 0, Math.PI * 2);
+                ctx.arc(cx, cy, 10, 0, Math.PI * 2);
                 ctx.fill();
                 ctx.strokeStyle = '#000';
                 ctx.lineWidth = 1;
                 ctx.stroke();
+                // Player initial
+                ctx.fillStyle = '#fff';
+                ctx.font = 'bold 10px sans-serif';
+                ctx.textAlign = 'center';
+                const initial = (p.name || '?').charAt(0).toUpperCase();
+                ctx.fillText(initial, cx, cy + 4);
             });
         }
     },
@@ -287,18 +305,22 @@ const Renderer = {
         ctx.lineTo(x2, y2);
         ctx.stroke();
 
-        // Noise marker
+        // Noise marker — yellow circle with "!" and label
         if (corridor.noise) {
             const mx = (x1 + x2) / 2;
             const my = (y1 + y2) / 2;
             ctx.fillStyle = '#ffcc00';
             ctx.beginPath();
-            ctx.arc(mx, my, 9, 0, Math.PI * 2);
+            ctx.arc(mx, my, 10, 0, Math.PI * 2);
             ctx.fill();
             ctx.fillStyle = '#000';
-            ctx.font = 'bold 12px sans-serif';
+            ctx.font = 'bold 13px sans-serif';
             ctx.textAlign = 'center';
-            ctx.fillText('!', mx, my + 4);
+            ctx.fillText('!', mx, my + 5);
+            // Label below
+            ctx.fillStyle = '#ffcc00';
+            ctx.font = 'bold 10px sans-serif';
+            ctx.fillText('NOISE', mx, my - 14);
         }
 
         // Door
@@ -334,16 +356,24 @@ const Renderer = {
             ctx.fillText(corridor.value || '?', mx, my);
         }
 
-        // Intruders in corridor
+        // Intruders in corridor — colored circles with type labels
         const intrudersInCorridor = this.state.intruders.filter(i => i.location.type === 'corridor' && i.location.id === corridor.id);
+        const labels = { drone: 'D', adult: 'A', larva: 'L', queen: 'Q' };
         intrudersInCorridor.forEach((intruder, i) => {
             const colors = { drone:'#cc6600', adult:'#cc3333', larva:'#66cc33', queen:'#ff00ff' };
             ctx.fillStyle = colors[intruder.type] || '#fff';
-            const ox = mx - 5 + (i % 3) * 8;
-            const oy = my + 8 + Math.floor(i / 3) * 8;
+            const ox = mx - 12 + (i % 4) * 16;
+            const oy = my + 16 + Math.floor(i / 4) * 16;
             ctx.beginPath();
-            ctx.arc(ox, oy, 4, 0, Math.PI * 2);
+            ctx.arc(ox, oy, 8, 0, Math.PI * 2);
             ctx.fill();
+            ctx.strokeStyle = '#000';
+            ctx.lineWidth = 1;
+            ctx.stroke();
+            ctx.fillStyle = '#fff';
+            ctx.font = 'bold 9px sans-serif';
+            ctx.textAlign = 'center';
+            ctx.fillText(labels[intruder.type] || '?', ox, oy + 3);
         });
     },
 

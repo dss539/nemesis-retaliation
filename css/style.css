@@ -366,6 +366,40 @@ body {
     margin: 4px;
 }
 
+/* Compass direction picker */
+.compass-picker {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto auto auto;
+    gap: 6px;
+    width: 240px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.compass-slot {
+    background: var(--bg-card);
+    border: 2px solid var(--border-light);
+    border-radius: 8px;
+    padding: 12px 8px;
+    cursor: pointer;
+    transition: all 0.15s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+}
+
+.compass-slot:hover { border-color: var(--accent); background: var(--border); }
+.compass-slot span { font-weight: bold; font-size: 1.3em; color: var(--accent); }
+.compass-slot small { font-size: 0.75em; color: var(--text-secondary); }
+
+.compass-n { grid-column: 2; grid-row: 1; }
+.compass-w { grid-column: 1; grid-row: 2; }
+.compass-center { grid-column: 2; grid-row: 2; display: flex; align-items: center; justify-content: center; font-size: 0.75em; color: var(--text-secondary); background: var(--bg-dark); border-radius: 8px; }
+.compass-e { grid-column: 3; grid-row: 2; }
+.compass-s { grid-column: 2; grid-row: 3; }
+
 /* Responsive */
 
 /* Desktop: side panels visible */

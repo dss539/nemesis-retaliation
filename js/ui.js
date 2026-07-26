@@ -332,39 +332,44 @@ const UI = {
         const currentRoom = state.rooms[myPlayer.location];
         if (!currentRoom) return;
 
-        // Find adjacent rooms (simplified - show all discovered rooms and undiscovered directions)
+        // Find adjacent rooms via corridors
         const adjacentCorridors = state.corridors.filter(c => c.room1 === myPlayer.location || c.room2 === myPlayer.location);
-        const adjacentRooms = adjacentCorridors.map(c => c.room1 === myPlayer.location ? c.room2 : c.room1).filter(r => r);
-
-        // Also show unexplored directions (from current room)
-        // For now, allow exploring in 4 directions
-        const directions = ['North', 'East', 'South', 'West'];
+        const adjacentRooms = adjacentCorridors.map(c => ({
+            roomId: c.room1 === myPlayer.location ? c.room2 : c.room1,
+            corridor: c
+        })).filter(r => r.roomId);
 
         let content = '<h2>Move</h2>';
         if (cautious) content += '<p>Cautious movement: places a Secure token in the destination room.</p>';
 
-        content += '<div class="modal-card-list">';
-        adjacentRooms.forEach(roomId => {
-            const room = state.rooms[roomId];
-            const roomData = GAME_DATA.ROOMS[roomId] || {};
-            content += `
-                <div class="modal-card" onclick="UI.executeMove('${roomId}', ${cautious})">
-                    <div class="mc-name">${roomData.name || roomId}</div>
-                    <div class="mc-text">${room?.discovered ? 'Discovered' : 'Undiscovered'}</div>
-                </div>
-            `;
-        });
+        // Connected rooms (discovered corridors)
+        if (adjacentRooms.length > 0) {
+            content += '<p style="margin-bottom:8px;color:var(--text-secondary)">Connected rooms:</p>';
+            content += '<div class="modal-card-list">';
+            adjacentRooms.forEach(({ roomId, corridor }) => {
+                const room = state.rooms[roomId];
+                const roomData = GAME_DATA.ROOMS[roomId] || {};
+                const doorStatus = corridor.door === 'closed' ? ' [Door Closed]' : corridor.door === 'destroyed' ? ' [Door Destroyed]' : '';
+                const intruders = state.intruders.filter(i => i.location.type === 'corridor' && i.location.id === corridor.id);
+                const intruderWarning = intruders.length > 0 ? ` ⚠ ${intruders.length} intruder(s)` : '';
+                content += `
+                    <div class="modal-card" onclick="UI.executeMove('${roomId}', ${cautious})">
+                        <div class="mc-name">${roomData.name || roomId}${doorStatus}</div>
+                        <div class="mc-text">${room?.discovered ? 'Discovered' : 'Undiscovered'}${corridor.noise ? ' | Noise!' : ''}${intruderWarning}</div>
+                    </div>
+                `;
+            });
+            content += '</div>';
+        }
 
-        // Exploration directions
-        content += '<div style="margin-top:12px;font-size:0.85em;color:#8899aa">Explore new direction:</div>';
-        directions.forEach((dir, i) => {
-            content += `
-                <div class="modal-card" onclick="UI.executeExplore(${i}, ${cautious})">
-                    <div class="mc-name">${dir}</div>
-                    <div class="mc-text">Unexplored</div>
-                </div>
-            `;
-        });
+        // Exploration directions — compass layout
+        content += '<p style="margin:12px 0 8px;color:var(--text-secondary)">Explore new direction:</p>';
+        content += '<div class="compass-picker">';
+        content += `  <div class="compass-slot compass-n" onclick="UI.executeExplore(0, ${cautious})"><span>N</span><small>North</small></div>`;
+        content += `  <div class="compass-slot compass-w" onclick="UI.executeExplore(3, ${cautious})"><span>W</span><small>West</small></div>`;
+        content += `  <div class="compass-center">You are here</div>`;
+        content += `  <div class="compass-slot compass-e" onclick="UI.executeExplore(1, ${cautious})"><span>E</span><small>East</small></div>`;
+        content += `  <div class="compass-slot compass-s" onclick="UI.executeExplore(2, ${cautious})"><span>S</span><small>South</small></div>`;
         content += '</div>';
 
         content += '<button class="btn btn-secondary" style="margin-top:12px" onclick="UI.closeModal()">Cancel</button>';
