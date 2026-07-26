@@ -40,6 +40,12 @@ function createHost() {
         // Set up state update handler for client messages
         NemesisNetwork.onStateUpdate = (state) => {
             UI.updateState(state);
+            // Auto-switch to game screen when game starts
+            if (state.phase && state.phase !== 'setup' && !NemesisNetwork.isHost) {
+                if (!document.getElementById('game-screen').classList.contains('active')) {
+                    switchToGameScreen();
+                }
+            }
         };
 
         NemesisNetwork.onMessage = (type, data) => {
@@ -77,9 +83,12 @@ function joinGame() {
     );
 
     NemesisNetwork.onStateUpdate = (state) => {
+        NemesisNetwork.state = state; // Store for switchToGameScreen
         UI.updateState(state);
-        if (state.phase !== 'setup') {
-            switchToGameScreen();
+        if (state.phase && state.phase !== 'setup') {
+            if (!document.getElementById('game-screen').classList.contains('active')) {
+                switchToGameScreen();
+            }
         }
     };
 
