@@ -125,6 +125,14 @@ function switchToGameScreen() {
     Renderer.setClickHandler((click) => {
         console.log('Canvas click:', click);
     });
+
+    // Resize canvas to fit screen and detect mobile
+    Renderer.resizeCanvas();
+
+    // On mobile, start on board tab
+    if (window.innerWidth <= 900) {
+        UI.switchTab('board');
+    }
 }
 
 // === INITIALIZATION ===

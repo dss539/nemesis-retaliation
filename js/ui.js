@@ -3,6 +3,49 @@
 const UI = {
     state: null,
     selectedCard: null,
+    currentTab: 'board',
+
+    switchTab(tab) {
+        this.currentTab = tab;
+        const leftPanel = document.getElementById('left-panel');
+        const rightPanel = document.getElementById('right-panel');
+        const centerPanel = document.getElementById('center-panel');
+        const navBtns = document.querySelectorAll('.mobile-nav-btn');
+
+        // Hide all
+        leftPanel?.classList.remove('mobile-active');
+        rightPanel?.classList.remove('mobile-active');
+        centerPanel?.classList.remove('mobile-active');
+
+        // Deactivate all nav buttons
+        navBtns.forEach(btn => btn.classList.remove('active'));
+
+        // Show selected
+        switch(tab) {
+            case 'board':
+                centerPanel?.classList.add('mobile-active');
+                navBtns[0]?.classList.add('active');
+                break;
+            case 'players':
+                leftPanel?.classList.add('mobile-active');
+                navBtns[1]?.classList.add('active');
+                break;
+            case 'cards':
+                rightPanel?.classList.add('mobile-active');
+                navBtns[2]?.classList.add('active');
+                break;
+            case 'log':
+                rightPanel?.classList.add('mobile-active');
+                navBtns[3]?.classList.add('active');
+                // Scroll log into view
+                const log = document.getElementById('game-log');
+                if (log) log.scrollIntoView();
+                break;
+        }
+
+        // Resize canvas after tab switch
+        setTimeout(() => Renderer.resizeCanvas(), 100);
+    },
 
     updateState(state) {
         this.state = state;

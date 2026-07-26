@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Nemesis: Retaliation - Digital Edition</title>
     <link rel="stylesheet" href="css/style.css">
     <script src="https://unpkg.com/peerjs@1.5.4/dist/peerjs.min.js"></script>
@@ -69,7 +69,9 @@
                         <div id="phase-info"></div>
                         <div id="turn-info"></div>
                     </div>
-                    <canvas id="game-canvas" width="800" height="600"></canvas>
+                    <div id="canvas-wrapper">
+                        <canvas id="game-canvas" width="800" height="600"></canvas>
+                    </div>
                     <div id="action-bar"></div>
                 </div>
 
@@ -78,6 +80,14 @@
                     <div id="card-area"></div>
                     <div id="game-log"></div>
                 </div>
+            </div>
+
+            <!-- Mobile bottom navigation -->
+            <div id="mobile-nav" class="mobile-only">
+                <button class="mobile-nav-btn active" data-tab="board" onclick="UI.switchTab('board')">Board</button>
+                <button class="mobile-nav-btn" data-tab="players" onclick="UI.switchTab('players')">Players</button>
+                <button class="mobile-nav-btn" data-tab="cards" onclick="UI.switchTab('cards')">Cards</button>
+                <button class="mobile-nav-btn" data-tab="log" onclick="UI.switchTab('log')">Log</button>
             </div>
         </div>
 

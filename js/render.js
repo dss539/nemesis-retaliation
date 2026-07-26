@@ -18,6 +18,48 @@ const Renderer = {
         this.ctx = this.canvas.getContext('2d');
         this.canvas.addEventListener('click', (e) => this.handleClick(e));
         this.canvas.addEventListener('mousemove', (e) => this.handleMouseMove(e));
+
+        // Touch support
+        this.canvas.addEventListener('touchstart', (e) => {
+            e.preventDefault();
+            const touch = e.touches[0];
+            const rect = this.canvas.getBoundingClientRect();
+            const scaleX = this.canvas.width / rect.width;
+            const scaleY = this.canvas.height / rect.height;
+            this.handleClick({
+                clientX: touch.clientX,
+                clientY: touch.clientY
+            });
+        }, { passive: false });
+
+        // Responsive resize
+        window.addEventListener('resize', () => this.resizeCanvas());
+        window.addEventListener('orientationchange', () => setTimeout(() => this.resizeCanvas(), 200));
+    },
+
+    resizeCanvas() {
+        if (!this.canvas) return;
+        const wrapper = document.getElementById('canvas-wrapper');
+        if (!wrapper) return;
+
+        const wrapperWidth = wrapper.clientWidth;
+        const wrapperHeight = wrapper.clientHeight;
+
+        // Maintain aspect ratio but fit within wrapper
+        const aspectRatio = 800 / 600; // original canvas aspect
+        let width = wrapperWidth;
+        let height = width / aspectRatio;
+
+        if (height > wrapperHeight) {
+            height = wrapperHeight;
+            width = height * aspectRatio;
+        }
+
+        // Only update CSS dimensions, keep internal resolution at 800x600
+        this.canvas.style.width = Math.floor(width) + 'px';
+        this.canvas.style.height = Math.floor(height) + 'px';
+
+        this.render();
     },
 
     setState(state) {
