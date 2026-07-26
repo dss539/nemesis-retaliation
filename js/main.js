@@ -129,11 +129,8 @@ function switchToGameScreen() {
     document.getElementById('game-screen').classList.add('active');
     Renderer.init('game-canvas');
     
-    // For host: use sanitized state (hide other players' private info)
-    // For client: use the state received from network
-    const stateSource = NemesisNetwork.isHost && window.nemesisEngine
-        ? NemesisNetwork.serializeStateForPlayer(window.nemesisEngine.getState(), NemesisNetwork.playerId)
-        : (NemesisNetwork.state || (engine ? engine.getState() : { players: [], log: [], round: 1, maxRounds: 14, currentPlayer: 0, actionsRemaining: 2, phase: 'setup' }));
+    // Use full state everywhere — privacy is handled in UI rendering
+    const stateSource = engine ? engine.getState() : NemesisNetwork.state || { players: [], log: [], round: 1, maxRounds: 14, currentPlayer: 0, actionsRemaining: 2, phase: 'setup' };
     UI.updateState(stateSource);
 
     // Set up canvas click handler

@@ -148,7 +148,7 @@ const NemesisNetwork = {
                 conn.send({
                     type: 'joinAccepted',
                     playerId: freeSlot,
-                    state: this.serializeStateForPlayer(state, freeSlot)
+                    state: this.serializeState(state)
                 });
 
                 // Update host's own lobby UI
@@ -238,20 +238,15 @@ const NemesisNetwork = {
         if (!this.isHost || !window.nemesisEngine) return;
         const state = window.nemesisEngine.getState();
         
-        // Send host's own state locally — sanitized so host doesn't see other players' private info
-        const hostState = this.serializeStateForPlayer(state, 0);
+        // Host gets full state (needed for engine)
         if (typeof UI !== 'undefined' && UI.updateState) {
-            UI.updateState(hostState);
+            UI.updateState(state);
         }
         
-        // Send sanitized state to each connected client
+        // Send full state to each connected client — privacy is handled in UI rendering
         Object.entries(this.connections).forEach(([peerId, conn]) => {
             if (!conn.open) return;
-            // Find which player this connection belongs to
-            const player = state.players.find(p => p.peerId === peerId);
-            if (!player) return;
-            const sanitizedState = this.serializeStateForPlayer(state, player.id);
-            conn.send({ type: 'stateUpdate', state: sanitizedState });
+            conn.send({ type: 'stateUpdate', state: this.serializeState(state) });
         });
     },
 
