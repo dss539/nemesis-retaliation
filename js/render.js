@@ -8,10 +8,10 @@ const Renderer = {
     selectedRoom: null,
     clickHandler: null,
 
-    // Grid layout constants
-    ROOM_SIZE: 80,
-    CORRIDOR_WIDTH: 30,
-    GRID_PADDING: 40,
+    // Grid layout constants — scaled up for readability
+    ROOM_SIZE: 120,
+    CORRIDOR_WIDTH: 45,
+    GRID_PADDING: 50,
 
     init(canvasId) {
         this.canvas = document.getElementById(canvasId);
@@ -45,19 +45,38 @@ const Renderer = {
         const wrapperWidth = wrapper.clientWidth;
         const wrapperHeight = wrapper.clientHeight;
 
-        // Maintain aspect ratio but fit within wrapper
-        const aspectRatio = 800 / 600; // original canvas aspect
-        let width = wrapperWidth;
-        let height = width / aspectRatio;
+        // Base virtual size — the coordinate system the game uses
+        const BASE_W = 1200;
+        const BASE_H = 900;
+        const aspectRatio = BASE_W / BASE_H;
 
-        if (height > wrapperHeight) {
-            height = wrapperHeight;
-            width = height * aspectRatio;
+        let displayWidth = wrapperWidth;
+        let displayHeight = displayWidth / aspectRatio;
+
+        if (displayHeight > wrapperHeight) {
+            displayHeight = wrapperHeight;
+            displayWidth = displayHeight * aspectRatio;
         }
 
-        // Only update CSS dimensions, keep internal resolution at 800x600
-        this.canvas.style.width = Math.floor(width) + 'px';
-        this.canvas.style.height = Math.floor(height) + 'px';
+        // Set CSS display size
+        this.canvas.style.width = Math.floor(displayWidth) + 'px';
+        this.canvas.style.height = Math.floor(displayHeight) + 'px';
+
+        // Set internal resolution to match display * devicePixelRatio for crisp text
+        const dpr = window.devicePixelRatio || 1;
+        this.canvas.width = Math.floor(displayWidth * dpr);
+        this.canvas.height = Math.floor(displayHeight * dpr);
+
+        // Scale the drawing context so game coordinates map correctly
+        const scaleX = this.canvas.width / BASE_W;
+        const scaleY = this.canvas.height / BASE_H;
+        this.ctx.setTransform(scaleX, 0, 0, scaleY, 0, 0);
+
+        // Store for click coordinate mapping
+        this._displayWidth = displayWidth;
+        this._displayHeight = displayHeight;
+        this._baseW = BASE_W;
+        this._baseH = BASE_H;
 
         this.render();
     },
@@ -70,11 +89,12 @@ const Renderer = {
     render() {
         if (!this.ctx || !this.state) return;
         const ctx = this.ctx;
-        ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+        // Clear in base coordinate space
+        ctx.clearRect(0, 0, this._baseW || 1200, this._baseH || 900);
 
         // Draw background
         ctx.fillStyle = '#0d1117';
-        ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
+        ctx.fillRect(0, 0, this._baseW || 1200, this._baseH || 900);
 
         // Draw sections (3 columns: A, B, C)
         this.drawSections(ctx);
@@ -111,21 +131,23 @@ const Renderer = {
     },
 
     drawSections(ctx) {
+        const baseW = this._baseW || 1200;
+        const baseH = this._baseH || 900;
         const sections = [
             { name: 'A', x: 0, color: 'rgba(60,80,40,0.15)' },
-            { name: 'B', x: this.canvas.width / 3, color: 'rgba(60,60,80,0.15)' },
-            { name: 'C', x: this.canvas.width * 2/3, color: 'rgba(80,40,40,0.15)' }
+            { name: 'B', x: baseW / 3, color: 'rgba(60,60,80,0.15)' },
+            { name: 'C', x: baseW * 2/3, color: 'rgba(80,40,40,0.15)' }
         ];
 
         sections.forEach(s => {
             ctx.fillStyle = s.color;
-            ctx.fillRect(s.x, 0, this.canvas.width / 3, this.canvas.height);
+            ctx.fillRect(s.x, 0, baseW / 3, baseH);
 
             // Section label
             ctx.fillStyle = 'rgba(100,120,140,0.3)';
-            ctx.font = '48px sans-serif';
+            ctx.font = '64px sans-serif';
             ctx.textAlign = 'center';
-            ctx.fillText(s.name, s.x + this.canvas.width / 6, 40);
+            ctx.fillText(s.name, s.x + baseW / 6, 55);
         });
     },
 
@@ -172,9 +194,9 @@ const Renderer = {
         // Malfunction marker
         if (room.markers?.malfunction) {
             ctx.fillStyle = '#cc8800';
-            ctx.font = '14px sans-serif';
+            ctx.font = 'bold 18px sans-serif';
             ctx.textAlign = 'center';
-            ctx.fillText('M', x + w - 10, y + 14);
+            ctx.fillText('M', x + w - 14, y + 20);
         }
 
         // Secure tokens
@@ -182,23 +204,23 @@ const Renderer = {
             ctx.fillStyle = '#4488cc';
             for (let i = 0; i < room.markers.secure.length; i++) {
                 ctx.beginPath();
-                ctx.arc(x + 8 + i * 12, y + h - 8, 5, 0, Math.PI * 2);
+                ctx.arc(x + 12 + i * 18, y + h - 12, 7, 0, Math.PI * 2);
                 ctx.fill();
             }
         }
 
         // Room name
         ctx.fillStyle = '#e0e6ed';
-        ctx.font = 'bold 10px sans-serif';
+        ctx.font = 'bold 14px sans-serif';
         ctx.textAlign = 'center';
         const name = roomData.name || room.id;
-        ctx.fillText(this.truncate(name, 12), x + w/2, y + h/2 - 5);
+        ctx.fillText(this.truncate(name, 14), x + w/2, y + h/2 - 8);
 
         // Room type badge
         if (roomData.type && roomData.type !== '?') {
             ctx.fillStyle = '#ff4444';
-            ctx.font = 'bold 9px sans-serif';
-            ctx.fillText('[' + roomData.type + ']', x + w/2, y + h/2 + 10);
+            ctx.font = 'bold 12px sans-serif';
+            ctx.fillText('[' + roomData.type + ']', x + w/2, y + h/2 + 12);
         }
 
         // Item icons
@@ -207,7 +229,7 @@ const Renderer = {
             roomData.itemIcons.forEach((type, i) => {
                 ctx.fillStyle = colors[type] || '#888';
                 ctx.beginPath();
-                ctx.arc(x + 8 + i * 10, y + 8, 4, 0, Math.PI * 2);
+                ctx.arc(x + 12 + i * 14, y + 12, 6, 0, Math.PI * 2);
                 ctx.fill();
             });
         }
@@ -215,9 +237,9 @@ const Renderer = {
         // Computer icon
         if (roomData.computer) {
             ctx.fillStyle = '#49c';
-            ctx.font = '10px sans-serif';
+            ctx.font = 'bold 14px sans-serif';
             ctx.textAlign = 'left';
-            ctx.fillText('C', x + w - 12, y + 12);
+            ctx.fillText('C', x + w - 18, y + 18);
         }
 
         // Intruder count indicator
@@ -225,19 +247,18 @@ const Renderer = {
         if (intrudersInRoom.length > 0) {
             ctx.fillStyle = 'rgba(255,50,50,0.2)';
             ctx.beginPath();
-            ctx.roundRect(x, y, w, h, 6);
+            ctx.roundRect(x, y, w, h, 8);
             ctx.fill();
         }
 
         // Characters indicator
         const playersInRoom = this.state.players.filter(p => p.alive && p.location === room.id);
         if (playersInRoom.length > 0) {
-            // Draw colored dots for each player
             playersInRoom.forEach((p, i) => {
                 const colors = { blue:'#4499cc', green:'#44aa66', red:'#cc4444', yellow:'#daa333', purple:'#9944cc' };
                 ctx.fillStyle = colors[p.color] || '#fff';
                 ctx.beginPath();
-                ctx.arc(x + w/2 - 15 + i * 10, y + h - 8, 5, 0, Math.PI * 2);
+                ctx.arc(x + w/2 - 20 + i * 14, y + h - 12, 7, 0, Math.PI * 2);
                 ctx.fill();
                 ctx.strokeStyle = '#000';
                 ctx.lineWidth = 1;
@@ -260,7 +281,7 @@ const Renderer = {
 
         // Draw corridor line
         ctx.strokeStyle = corridor.reinforced ? '#4a8' : '#556';
-        ctx.lineWidth = corridor.reinforced ? 4 : 3;
+        ctx.lineWidth = corridor.reinforced ? 6 : 4;
         ctx.beginPath();
         ctx.moveTo(x1, y1);
         ctx.lineTo(x2, y2);
@@ -272,12 +293,12 @@ const Renderer = {
             const my = (y1 + y2) / 2;
             ctx.fillStyle = '#ffcc00';
             ctx.beginPath();
-            ctx.arc(mx, my, 6, 0, Math.PI * 2);
+            ctx.arc(mx, my, 9, 0, Math.PI * 2);
             ctx.fill();
             ctx.fillStyle = '#000';
-            ctx.font = 'bold 8px sans-serif';
+            ctx.font = 'bold 12px sans-serif';
             ctx.textAlign = 'center';
-            ctx.fillText('!', mx, my + 3);
+            ctx.fillText('!', mx, my + 4);
         }
 
         // Door
@@ -285,27 +306,27 @@ const Renderer = {
             const mx = (x1 + x2) / 2;
             const my = (y1 + y2) / 2;
             ctx.strokeStyle = '#aa4444';
-            ctx.lineWidth = 5;
+            ctx.lineWidth = 7;
             ctx.beginPath();
-            ctx.moveTo(mx - 8, my);
-            ctx.lineTo(mx + 8, my);
+            ctx.moveTo(mx - 12, my);
+            ctx.lineTo(mx + 12, my);
             ctx.stroke();
         } else if (corridor.door === 'destroyed') {
             const mx = (x1 + x2) / 2;
             const my = (y1 + y2) / 2;
             ctx.strokeStyle = '#666';
-            ctx.lineWidth = 2;
-            ctx.setLineDash([3, 3]);
+            ctx.lineWidth = 3;
+            ctx.setLineDash([4, 4]);
             ctx.beginPath();
-            ctx.moveTo(mx - 8, my);
-            ctx.lineTo(mx + 8, my);
+            ctx.moveTo(mx - 12, my);
+            ctx.lineTo(mx + 12, my);
             ctx.stroke();
             ctx.setLineDash([]);
         }
 
         // Value label
         ctx.fillStyle = '#888';
-        ctx.font = '9px sans-serif';
+        ctx.font = '12px sans-serif';
         ctx.textAlign = 'center';
         const mx = (x1 + x2) / 2;
         const my = (y1 + y2) / 2 - 8;
@@ -339,39 +360,40 @@ const Renderer = {
     drawRobot(ctx) {
         const robotRoom = this.state.rooms[this.state.robot.location];
         if (!robotRoom?.position) return;
-        const x = this.GRID_PADDING + robotRoom.position.x * (this.ROOM_SIZE + this.CORRIDOR_WIDTH) + this.ROOM_SIZE - 12;
-        const y = this.GRID_PADDING + robotRoom.position.y * (this.ROOM_SIZE + this.CORRIDOR_WIDTH) + this.ROOM_SIZE - 12;
+        const x = this.GRID_PADDING + robotRoom.position.x * (this.ROOM_SIZE + this.CORRIDOR_WIDTH) + this.ROOM_SIZE - 18;
+        const y = this.GRID_PADDING + robotRoom.position.y * (this.ROOM_SIZE + this.CORRIDOR_WIDTH) + this.ROOM_SIZE - 18;
 
         ctx.fillStyle = '#88ccff';
         ctx.beginPath();
-        ctx.roundRect(x, y, 10, 10, 2);
+        ctx.roundRect(x, y, 14, 14, 3);
         ctx.fill();
         ctx.fillStyle = '#000';
-        ctx.font = '8px sans-serif';
+        ctx.font = 'bold 11px sans-serif';
         ctx.textAlign = 'center';
-        ctx.fillText('R', x + 5, y + 8);
+        ctx.fillText('R', x + 7, y + 11);
     },
 
     drawRoundTrack(ctx) {
-        // Draw at bottom of canvas
-        const y = this.canvas.height - 25;
-        const startX = 20;
-        const spacing = 30;
+        // Draw at bottom of canvas in base coordinate space
+        const baseH = this._baseH || 900;
+        const y = baseH - 35;
+        const startX = 30;
+        const spacing = 44;
 
         ctx.fillStyle = '#1a2030';
-        ctx.fillRect(10, y - 5, 14 * spacing + 10, 20);
+        ctx.fillRect(15, y - 8, 14 * spacing + 15, 28);
         ctx.strokeStyle = '#3a4550';
         ctx.lineWidth = 1;
-        ctx.strokeRect(10, y - 5, 14 * spacing + 10, 20);
+        ctx.strokeRect(15, y - 8, 14 * spacing + 15, 28);
 
         for (let i = 1; i <= 14; i++) {
-            const x = startX + (i - 1) * spacing + 5;
+            const x = startX + (i - 1) * spacing + 7;
 
             // Round marker
             if (i === this.state.round) {
                 ctx.fillStyle = '#ff4444';
                 ctx.beginPath();
-                ctx.arc(x, y + 5, 8, 0, Math.PI * 2);
+                ctx.arc(x, y + 7, 11, 0, Math.PI * 2);
                 ctx.fill();
             }
 
@@ -379,7 +401,7 @@ const Renderer = {
             if (this.state.autodestruction.active && i === this.state.autodestruction.token) {
                 ctx.fillStyle = '#ff8800';
                 ctx.beginPath();
-                ctx.arc(x, y + 5, 6, 0, Math.PI * 2);
+                ctx.arc(x, y + 7, 8, 0, Math.PI * 2);
                 ctx.fill();
             }
 
@@ -387,23 +409,26 @@ const Renderer = {
             if (i === this.state.landerRound) {
                 ctx.fillStyle = '#44cc44';
                 ctx.beginPath();
-                ctx.arc(x, y + 5, 5, 0, Math.PI * 2);
+                ctx.arc(x, y + 7, 7, 0, Math.PI * 2);
                 ctx.fill();
             }
 
             // Round number
             ctx.fillStyle = '#666';
-            ctx.font = '8px sans-serif';
+            ctx.font = '11px sans-serif';
             ctx.textAlign = 'center';
-            ctx.fillText(i, x, y + 18);
+            ctx.fillText(i, x, y + 25);
         }
     },
 
     // === INTERACTION ===
     handleClick(e) {
         const rect = this.canvas.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
+        // Map screen coordinates to base coordinate space
+        const scaleX = (this._baseW || 1200) / rect.width;
+        const scaleY = (this._baseH || 900) / rect.height;
+        const x = (e.clientX - rect.left) * scaleX;
+        const y = (e.clientY - rect.top) * scaleY;
 
         // Find clicked room
         const room = this.getRoomAtPoint(x, y);
@@ -423,8 +448,10 @@ const Renderer = {
 
     handleMouseMove(e) {
         const rect = this.canvas.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
+        const scaleX = (this._baseW || 1200) / rect.width;
+        const scaleY = (this._baseH || 900) / rect.height;
+        const x = (e.clientX - rect.left) * scaleX;
+        const y = (e.clientY - rect.top) * scaleY;
         const room = this.getRoomAtPoint(x, y);
 
         if (room) {
