@@ -15,6 +15,7 @@ const Renderer = {
     MAP_ZOOM_STEP: 0.1,
     _pinchGesture: null,
     _mousePan: null,
+    _mapViewInitialized: false,
     _suppressClickUntil: 0,
 
     // Fixed tactical-grid geometry. The 42px void between every 110px room
@@ -29,6 +30,7 @@ const Renderer = {
     init(canvasId) {
         this.canvas = document.getElementById(canvasId);
         this.ctx = this.canvas.getContext('2d');
+        this._mapViewInitialized = false;
         GameArt.preload(() => this.render());
         this.canvas.addEventListener('click', (e) => {
             if (Date.now() < this._suppressClickUntil) return;
@@ -161,6 +163,20 @@ const Renderer = {
         this.canvas.style.width = Math.floor(displayWidth) + 'px';
         this.canvas.style.height = Math.floor(displayHeight) + 'px';
 
+        // Give the camera room to travel beyond every board edge while keeping
+        // a recovery strip visible at the most distant legal scroll position.
+        const panSurface = document.getElementById('map-pan-surface');
+        if (panSurface) {
+            const recoveryX = Math.min(96, Math.max(56, wrapperWidth * 0.18));
+            const recoveryY = Math.min(96, Math.max(56, wrapperHeight * 0.18));
+            const gutterX = Math.max(0, wrapperWidth - recoveryX);
+            const gutterY = Math.max(0, wrapperHeight - recoveryY);
+            this.canvas.style.left = Math.floor(gutterX) + 'px';
+            this.canvas.style.top = Math.floor(gutterY) + 'px';
+            panSurface.style.width = Math.ceil(displayWidth + gutterX * 2) + 'px';
+            panSurface.style.height = Math.ceil(displayHeight + gutterY * 2) + 'px';
+        }
+
         // Render sharply without allowing large desktop zooms to allocate an
         // unbounded bitmap.
         const dpr = Math.min(window.devicePixelRatio || 1, 2);
@@ -181,6 +197,19 @@ const Renderer = {
 
         this.updateMapZoomControls();
         this.render();
+        if (!this._mapViewInitialized) {
+            this.centerMap();
+            this._mapViewInitialized = true;
+        }
+    },
+
+    centerMap() {
+        const wrapper = document.getElementById('canvas-wrapper');
+        if (!wrapper || !this.canvas) return;
+        wrapper.scrollLeft = this.canvas.offsetLeft
+            + this.canvas.offsetWidth / 2 - wrapper.clientWidth / 2;
+        wrapper.scrollTop = this.canvas.offsetTop
+            + this.canvas.offsetHeight / 2 - wrapper.clientHeight / 2;
     },
 
     adjustMapZoom(delta) {
@@ -229,11 +258,7 @@ const Renderer = {
     resetMapView() {
         this.mapZoom = 1;
         this.resizeCanvas();
-        const wrapper = document.getElementById('canvas-wrapper');
-        if (wrapper) {
-            wrapper.scrollLeft = 0;
-            wrapper.scrollTop = 0;
-        }
+        this.centerMap();
         this.updateMapZoomControls();
     },
 
