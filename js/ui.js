@@ -92,8 +92,8 @@ const UI = {
                 <div class="stat-row icon-stat"><span>${GameArt.iconMarkup('health')} HP ${player.health}/${player.maxHealth}</span><span>${GameArt.iconMarkup('oxygen')} O₂ ${player.oxygen}</span></div>
                 <div class="health-bar"><div class="health-fill ${healthClass}" style="width:${healthPercent}%"></div></div>
                 <div class="stat-row icon-stat">
-                    <span>${GameArt.iconMarkup('cards')} ${player.actionHand.length}</span>
-                    <span>${GameArt.iconMarkup('contamination')} ${player.contaminationInHand.length}</span>
+                    <span>${GameArt.iconMarkup('cards')} ${player.actionHand.filter(c => c.type !== 'contamination').length}</span>
+                    <span>${GameArt.iconMarkup('contamination')} ${player.actionHand.filter(c => c.type === 'contamination').length}</span>
                 </div>
                 <div class="stat-row icon-stat">
                     <span>${GameArt.iconMarkup('wound')} ${player.seriousWounds.length}</span>
@@ -124,24 +124,21 @@ const UI = {
 
         myPlayer.actionHand.forEach((card, i) => {
             const cardDiv = document.createElement('div');
-            cardDiv.className = 'hand-card action-card';
+            const isContamination = card.type === 'contamination';
+            cardDiv.className = isContamination ? 'hand-card contamination-card' : 'hand-card action-card';
             if (this.selectedCard === i) cardDiv.classList.add('selected');
-            const actionName = card.action || 'Action';
-            cardDiv.innerHTML = `${GameArt.cardArtwork(GameArt.actionIcon(card.action), 'ACTION', 'action')}<span class="hand-card-title">${actionName}</span>`;
-            cardDiv.setAttribute('aria-label', actionName + ' action card');
-            cardDiv.onclick = () => {
-                this.selectedCard = i;
-                this.renderCardArea();
-            };
-            handCards.appendChild(cardDiv);
-        });
-
-        // Contamination cards
-        myPlayer.contaminationInHand.forEach((card, i) => {
-            const cardDiv = document.createElement('div');
-            cardDiv.className = 'hand-card contamination-card';
-            cardDiv.innerHTML = `${GameArt.cardArtwork('contamination', 'CONTAMINATION', 'contamination')}<span class="hand-card-title">Contamination</span>`;
-            cardDiv.setAttribute('aria-label', 'Contamination card');
+            if (isContamination) {
+                cardDiv.innerHTML = `${GameArt.cardArtwork('contamination', 'CONTAMINATION', 'contamination')}<span class="hand-card-title">Contamination</span>`;
+                cardDiv.setAttribute('aria-label', 'Contamination card — cannot be used for Actions');
+            } else {
+                const actionName = card.action || 'Action';
+                cardDiv.innerHTML = `${GameArt.cardArtwork(GameArt.actionIcon(card.action), 'ACTION', 'action')}<span class="hand-card-title">${actionName}</span>`;
+                cardDiv.setAttribute('aria-label', actionName + ' action card');
+                cardDiv.onclick = () => {
+                    this.selectedCard = i;
+                    this.renderCardArea();
+                };
+            }
             handCards.appendChild(cardDiv);
         });
 

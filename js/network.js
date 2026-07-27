@@ -274,11 +274,10 @@ const NemesisNetwork = {
         if (cloned.players) {
             cloned.players.forEach((p, i) => {
                 if (i !== playerId) {
-                    // Hide objectives, hand, backpack, contamination details
+                    // Hide objectives, hand, backpack details
                     p.objectives = p.chosenObjective ? [{ id: p.chosenObjective }] : [];
                     p.actionHand = p.actionHand ? new Array(p.actionHand.length).fill({ type: 'hidden' }) : [];
                     p.backpack = p.backpack ? new Array(p.backpack.length).fill('hidden') : [];
-                    p.contaminationInHand = p.contaminationInHand ? new Array(p.contaminationInHand.length).fill('hidden') : [];
                     p.handSlots = p.handSlots ? p.handSlots.map(h => h ? 'hidden' : null) : [];
                     p.tacticalBelt = p.tacticalBelt ? p.tacticalBelt.map(t => t ? 'hidden' : null) : [];
                     p.seriousWounds = p.seriousWounds ? p.seriousWounds.map(() => 'hidden') : [];

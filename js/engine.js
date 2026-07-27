@@ -143,8 +143,6 @@ class NemesisEngine {
             actionDeck: this.createActionDeck(charIds[0]),
             actionHand: [],
             actionDiscard: [],
-            contaminationInHand: [],
-            contaminationDiscard: [],
             backpack: [],
             handSlots: [null, null],
             armor: null,
@@ -180,8 +178,6 @@ class NemesisEngine {
                 actionDeck: this.createActionDeck(charIds[i]),
                 actionHand: [],
                 actionDiscard: [],
-                contaminationInHand: [],
-                contaminationDiscard: [],
                 backpack: [],
                 handSlots: [null, null],
                 armor: null,
@@ -361,7 +357,15 @@ class NemesisEngine {
             }
             // Discard the card (or a specific card if selected)
             const cardIndex = params.cardIndex !== undefined ? params.cardIndex : player.actionHand.length - 1;
-            const card = player.actionHand.splice(cardIndex, 1)[0];
+            const card = player.actionHand[cardIndex];
+            if (!card) {
+                return { success: false, error: 'Invalid card selection' };
+            }
+            // Contamination cards CANNOT be discarded to pay for Actions (rulebook p.36)
+            if (card.type === 'contamination') {
+                return { success: false, error: 'Contamination cards cannot be used for Actions' };
+            }
+            player.actionHand.splice(cardIndex, 1);
             player.actionDiscard.push(card);
         }
 
@@ -882,10 +886,14 @@ class NemesisEngine {
             attempts++;
         }
 
-        // 2. Draw action cards (each player draws 1)
+        // 2. Draw action cards — each player draws until they have 5 in hand
+        // (rulebook p.15: "Each player draws Action cards from their deck
+        //  until they have 5 cards in hand.")
         s.players.forEach(p => {
             if (p.alive && !p.hasEscaped && !p.hasHibernated) {
-                this.drawActionCard(p);
+                while (p.actionHand.length < GAME_DATA.CONFIG.handSize) {
+                    this.drawActionCard(p);
+                }
             }
         });
 
@@ -1556,6 +1564,22 @@ class NemesisEngine {
                 Object.values(s.rooms).forEach(r => { r.markers.fire = false; });
                 this.log('Sprinklers put out all fires');
                 break;
+            case 'shelter':
+                // Per rulebook: Only if you are not infected with a Larva:
+                // Take all Contaminations from your hand and remove them
+                // from the game without scanning.
+                if (!player.larva) {
+                    const removed = player.actionHand.filter(c => c.type === 'contamination');
+                    player.actionHand = player.actionHand.filter(c => c.type !== 'contamination');
+                    // Remove from game — return to the contamination discard
+                    // (not the player's discard pile) so they never re-enter
+                    // the Action deck.
+                    removed.forEach(c => s.contaminationDiscard.push(c.id));
+                    if (removed.length > 0) {
+                        this.log(this.charName(player) + ' removes ' + removed.length + ' Contamination(s) at the Shelter');
+                    }
+                }
+                break;
         }
 
         return { success: true };
@@ -1613,11 +1637,11 @@ class NemesisEngine {
     actionPass(player) {
         const s = this.state;
         player.passed = true;
-        // Can discard contamination cards
-        player.contaminationInHand.forEach(c => {
-            player.contaminationDiscard.push(c);
-        });
-        player.contaminationInHand = [];
+        // Per rulebook p.14: on Pass, may discard any number of cards from
+        // hand (Action cards and Contamination cards). All cards in hand go
+        // to the action discard pile.
+        player.actionHand.forEach(c => player.actionDiscard.push(c));
+        player.actionHand = [];
         this.log(this.charName(player) + ' passes');
         this.notify('playerPassed', { player: player.id });
         return { success: true };
@@ -1742,9 +1766,13 @@ class NemesisEngine {
             state.contaminationDeck = shuffle([...state.contaminationDiscard]);
             state.contaminationDiscard = [];
         }
-        const card = state.contaminationDeck.pop();
-        if (card) {
-            player.contaminationInHand.push(card);
+        const cardId = state.contaminationDeck.pop();
+        if (cardId) {
+            // Per rulebook p.36: gained Contamination cards are placed in the
+            // Character's discard pile. They share the back with Action cards
+            // and get shuffled into the Action deck on reshuffle.
+            player.actionDiscard.push({ id: cardId, type: 'contamination' });
+            this.log(this.charName(player) + ' gains 1 Contamination');
             this.notify('contaminationGained', { player: player.id });
         }
     }
@@ -1895,18 +1923,26 @@ class NemesisEngine {
 
     // === INFECTION / ECLOSION ===
     infectionProcedure(state, player) {
-        // Scan all contamination cards in hand
-        const infected = player.contaminationInHand.some(cardId => {
-            const card = GAME_DATA.CONTAMINATION_CARDS.find(c => c.id === cardId);
-            return card && card.infected;
+        // Per rulebook p.38: scan all Contamination cards in hand.
+        const contaminationInHand = player.actionHand.filter(c => c.type === 'contamination');
+        const infected = contaminationInHand.some(card => {
+            const cardData = GAME_DATA.CONTAMINATION_CARDS.find(c => c.id === card.id);
+            return cardData && cardData.infected;
         });
         if (infected && !player.larva) {
             player.larva = true;
             this.log(this.charName(player) + ' is infected with a Larva!');
         }
-        // Move all contamination to discard
-        player.contaminationInHand.forEach(c => player.contaminationDiscard.push(c));
-        player.contaminationInHand = [];
+        // Place all Contaminations in hand on top of discard pile (p.38 step 3)
+        const remaining = [];
+        player.actionHand.forEach(c => {
+            if (c.type === 'contamination') {
+                player.actionDiscard.push(c);
+            } else {
+                remaining.push(c);
+            }
+        });
+        player.actionHand = remaining;
     }
 
     eclosionProcedure(state, player) {
@@ -1951,15 +1987,23 @@ class NemesisEngine {
             if (!player.alive && !player.hasEscaped) return;
 
             if (player.hasEscaped || player.hasHibernated) {
-                // Infection procedure for those without larva
                 if (!player.larva) {
+                    // Step 1: Draw all cards from Action deck and discard pile to hand,
+                    // then perform Infection Procedure (rulebook p.39)
+                    player.actionDeck.forEach(c => player.actionHand.push(c));
+                    player.actionDiscard.forEach(c => player.actionHand.push(c));
+                    player.actionDeck = [];
+                    player.actionDiscard = [];
                     this.infectionProcedure(s, player);
                 } else {
-                    // Eclosion procedure for those with larva
-                    player.contaminationInHand.push(s.contaminationDeck.pop() || 'contam_extra');
-                    // Reshuffle deck
-                    player.actionDeck = shuffle([...player.actionDeck, ...player.actionDiscard]);
+                    // Step 2: Gain 1 Contamination, reshuffle whole deck (including
+                    // hand and discard pile), then perform Eclosion Procedure (p.39)
+                    this.gainContamination(s, player);
+                    player.actionDeck = shuffle([
+                        ...player.actionDeck, ...player.actionDiscard, ...player.actionHand
+                    ]);
                     player.actionDiscard = [];
+                    player.actionHand = [];
                     this.eclosionProcedure(s, player);
                 }
             }
