@@ -21,14 +21,14 @@
 - Host migration is not implemented: if the host disconnects, the authoritative state is unavailable. This is a distinct limitation from client reconnection.
 
 ### Exploration System
-- Current: player selects a highlighted legal destination directly on the tactical map. Exploration targets are empty neighboring room slots in the six flat-top hex directions (`NE`, `E`, `SE`, `SW`, `W`, `NW`) within the fixed mat-derived slot set. Odd rows use half-slot horizontal offsets.
+- Current: player selects a highlighted legal destination directly on the tactical map. Exploration targets are empty neighboring room slots in the six pointy-top hex directions (`NE`, `E`, `SE`, `SW`, `W`, `NW`) within the fixed mat-derived slot set. Odd rows use half-slot horizontal offsets.
 - Invalid targets are omitted by the UI and independently rejected by the authoritative engine (off-board, occupied, direction mismatch, or more than one grid step away).
 - Every room has an `exits` index keyed by hex direction. Every corridor stores `directionFromRoom1` and `directionFromRoom2`, which are always opposites.
 - Simplified from physical game: exploration currently creates only the edge used to enter the new room. Future rule work should apply authored exploration-card exit layouts and edge-count restrictions.
 
 ### Tactical Board Rendering
-- The complete 23-room-slot mat layout is visible from game start as subdued empty flat-top hexagonal slots: five slots on even rows and four centered slots on odd rows. Exploration fills a slot; it never creates or repositions the field.
-- Rooms and empty slots are regular 160px-wide flat-top hexagons, with height `width × sqrt(3) / 2`. Inner walls, status overlays, movement highlights, and hit testing derive from the same geometry.
+- The complete 23-room-slot mat layout is visible from game start as subdued empty pointy-top hexagonal slots: five slots on even rows and four centered slots on odd rows. Exploration fills a slot; it never creates or repositions the field.
+- Rooms and empty slots are regular 160px-wide pointy-top hexagons, with vertical E/W sides and height `2 × width / sqrt(3)`. Inner walls, status overlays, movement highlights, and hit testing derive from the same geometry.
 - Fixed 42px spacing leaves an open gap at each of the six hex edges, even when no graph edge exists.
 - Corridors render beneath rooms and only remain visible between their neighboring hex boundaries; absent corridors leave the reserved gap empty.
 - Movement uses direct map highlights instead of a compass modal.

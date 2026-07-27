@@ -96,8 +96,8 @@ def room_svg(room_id: str, section: str, label: str, kind: str) -> str:
 <radialGradient id="g"><stop stop-color="{edge}" stop-opacity=".34"/><stop offset="1" stop-color="{bg}" stop-opacity=".96"/></radialGradient>
 <pattern id="grid" width="18" height="18" patternUnits="userSpaceOnUse"><path d="M18 0H0V18" fill="none" stroke="{ink}" stroke-opacity=".08"/></pattern>
 </defs>
-<path d="M64 5h128l59 123-59 123H64L5 128z" fill="url(#g)" stroke="{edge}" stroke-width="8"/>
-<path d="M69 13h118l56 115-56 115H69L13 128z" fill="url(#grid)"/>
+<path d="M128 5l123 59v128l-123 59L5 192V64z" fill="url(#g)" stroke="{edge}" stroke-width="8"/>
+<path d="M128 13l115 56v118l-115 56L13 187V69z" fill="url(#grid)"/>
 <g fill="none" stroke="{ink}" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" opacity=".42">{motif}</g>
 <path d="M35 211h186" stroke="{edge}" stroke-width="22" opacity=".78"/>
 <text x="128" y="218" fill="#e8f0f2" font-family="system-ui,sans-serif" font-size="16" font-weight="700" text-anchor="middle" letter-spacing="2">{safe}</text>''')

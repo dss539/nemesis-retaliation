@@ -730,10 +730,10 @@ Machine-readable version: [art-inventory.csv](art-inventory.csv)
 | req-room-tiles-random-unexplored | Random room tiles | unexplored | base-game | critical | complete | no | [art](../../js/render.js) | Shared tactical room-state rendering. |
 | req-room-walls-broken-door | Room and corridor boundary treatment | broken-door | base-game | critical | missing | yes | — | Dedicated door-state art is missing. |
 | req-room-walls-closed-door | Room and corridor boundary treatment | closed-door | base-game | critical | missing | yes | — | Dedicated door-state art is missing. |
-| req-room-walls-doorway | Room and corridor boundary treatment | doorway | base-game | critical | complete | no | [art](../../js/render.js) | Procedural flat-top hexagonal boundaries and passages. |
-| req-room-walls-open-passage | Room and corridor boundary treatment | open-passage | base-game | critical | complete | no | [art](../../js/render.js) | Procedural flat-top hexagonal boundaries and passages. |
+| req-room-walls-doorway | Room and corridor boundary treatment | doorway | base-game | critical | complete | no | [art](../../js/render.js) | Procedural pointy-top hexagonal boundaries and passages. |
+| req-room-walls-open-passage | Room and corridor boundary treatment | open-passage | base-game | critical | complete | no | [art](../../js/render.js) | Procedural pointy-top hexagonal boundaries and passages. |
 | req-room-walls-sealed-door | Room and corridor boundary treatment | sealed-door | base-game | critical | missing | yes | — | Dedicated door-state art is missing. |
-| req-room-walls-wall | Room and corridor boundary treatment | wall | base-game | critical | complete | no | [art](../../js/render.js) | Procedural flat-top hexagonal boundaries and passages. |
+| req-room-walls-wall | Room and corridor boundary treatment | wall | base-game | critical | complete | no | [art](../../js/render.js) | Procedural pointy-top hexagonal boundaries and passages. |
 | game-room-airlock | Room plates | Airlock | base-game | critical | complete | no | [art](../../assets/generated/rooms/airlock.svg) | Concrete room plate from current game data. |
 | game-room-armory | Room plates | Armory | base-game | critical | complete | no | [art](../../assets/generated/rooms/armory.svg) | Concrete room plate from current game data. |
 | game-room-commsRoom | Room plates | Communications Room | base-game | critical | complete | no | [art](../../assets/generated/rooms/commsRoom.svg) | Concrete room plate from current game data. |

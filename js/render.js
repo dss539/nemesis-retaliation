@@ -18,14 +18,15 @@ const Renderer = {
     _mapViewInitialized: false,
     _suppressClickUntil: 0,
 
-    // Fixed mat-derived geometry. The 5/4/5/4/5 field is centered and scaled
-    // to occupy the canvas height while retaining regular flat-top hexes and
-    // a 42px void between room slots for corridors.
+    // Fixed mat-derived geometry. Pointy-top hexes have vertical E/W sides,
+    // matching the NE/E/SE/SW/W/NW movement topology. The 5/4/5/4/5 field
+    // fills the canvas height while retaining 42px corridor gaps.
     ROOM_SIZE: 160,
-    ROOM_HEIGHT: 160 * Math.sqrt(3) / 2,
+    ROOM_HEIGHT: 2 * 160 / Math.sqrt(3),
     CORRIDOR_WIDTH: 42,
+    ROW_STEP_Y: Math.sqrt(3) / 2 * (160 + 42),
     GRID_PADDING_X: (1200 - (5 * 160 + 4 * 42)) / 2,
-    GRID_PADDING_Y: (900 - (5 * (160 * Math.sqrt(3) / 2) + 4 * 42)) / 2,
+    GRID_PADDING_Y: (900 - (2 * 160 / Math.sqrt(3) + 4 * (Math.sqrt(3) / 2 * (160 + 42)))) / 2,
 
     init(canvasId) {
         this.canvas = document.getElementById(canvasId);
@@ -383,7 +384,7 @@ const Renderer = {
         const position = roomOrPosition?.position || roomOrPosition;
         if (!position) return null;
         const stepX = this.ROOM_SIZE + this.CORRIDOR_WIDTH;
-        const stepY = this.ROOM_HEIGHT + this.CORRIDOR_WIDTH;
+        const stepY = this.ROW_STEP_Y;
         const rowOffsetX = Math.abs(position.y) % 2 === 1 ? stepX / 2 : 0;
         return {
             x: this.GRID_PADDING_X + position.x * stepX + rowOffsetX,
@@ -395,18 +396,18 @@ const Renderer = {
         };
     },
 
-    hexagonVertices(x, y, width, height = width * Math.sqrt(3) / 2) {
+    hexagonVertices(x, y, width, height = 2 * width / Math.sqrt(3)) {
         return [
-            { x: x + width / 4, y },
-            { x: x + width * 3 / 4, y },
-            { x: x + width, y: y + height / 2 },
-            { x: x + width * 3 / 4, y: y + height },
-            { x: x + width / 4, y: y + height },
-            { x, y: y + height / 2 }
+            { x: x + width / 2, y },
+            { x: x + width, y: y + height / 4 },
+            { x: x + width, y: y + height * 3 / 4 },
+            { x: x + width / 2, y: y + height },
+            { x, y: y + height * 3 / 4 },
+            { x, y: y + height / 4 }
         ];
     },
 
-    hexagonPath(ctx, x, y, width, height = width * Math.sqrt(3) / 2) {
+    hexagonPath(ctx, x, y, width, height = 2 * width / Math.sqrt(3)) {
         const vertices = this.hexagonVertices(x, y, width, height);
         ctx.beginPath();
         ctx.moveTo(vertices[0].x, vertices[0].y);

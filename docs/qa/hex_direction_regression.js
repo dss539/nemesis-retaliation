@@ -1,4 +1,4 @@
-// Hex-topology regression: six flat-top directions, odd-row offsets, and engine enforcement.
+// Hex-topology regression: six pointy-top directions, odd-row offsets, and engine enforcement.
 const fs = require('fs');
 const vm = require('vm');
 
@@ -22,6 +22,12 @@ const mapRight = Math.max(...slotGeometry.map(geometry => geometry.x + geometry.
 const mapBottom = Math.max(...slotGeometry.map(geometry => geometry.y + geometry.h));
 if (mapRight - mapLeft < 960 || mapBottom - mapTop < 850 || mapLeft < 0 || mapTop < 0 || mapRight > 1200 || mapBottom > 900) {
     throw new Error(`Map should fill the 1200×900 board safely; got ${mapLeft},${mapTop} to ${mapRight},${mapBottom}`);
+}
+const orientationVertices = Renderer.hexagonVertices(0, 0, Renderer.ROOM_SIZE, Renderer.ROOM_HEIGHT);
+if (orientationVertices[0].y === orientationVertices[1].y ||
+    orientationVertices[1].x !== orientationVertices[2].x ||
+    orientationVertices[4].x !== orientationVertices[5].x) {
+    throw new Error('Expected pointy-top hexes with vertical E/W sides');
 }
 
 const expectedDirections = ['NE', 'E', 'SE', 'SW', 'W', 'NW'];

@@ -961,7 +961,7 @@ class NemesisEngine {
         // Check if this is an exploration move (to an undiscovered area)
         const isExploration = params.explore || targetRoomId.startsWith('explore_');
 
-        // Exploration must follow one of the six flat-top hex edges into an
+        // Exploration must follow one of the six pointy-top hex edges into an
         // empty, valid room slot. The UI filters targets, but the host is authoritative.
         if (isExploration) {
             const position = params.position;

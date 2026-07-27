@@ -25,7 +25,7 @@ A faithful web-based digital adaptation of the board game Nemesis: Retaliation b
 
 ## Key Design Decisions
 - Privacy: display-layer only, NOT state sanitization. Host needs full state for engine. Each browser's UI only renders its own player's private info.
-- Canvas: renders at devicePixelRatio for crisp text. Base coordinate space 1200x900. The fixed, mat-derived field has 23 valid room slots arranged 5/4/5/4/5 by row; each slot holds a regular 160px-wide flat-top hexagonal Room. Odd rows are offset by half a slot; fixed spacing reserves room for all six hex-edge Corridors. Click handling uses the same hexagonal geometry.
+- Canvas: renders at devicePixelRatio for crisp text. Base coordinate space 1200x900. The fixed, mat-derived field has 23 valid room slots arranged 5/4/5/4/5 by row; each slot holds a regular 160px-wide pointy-top hexagonal Room with vertical E/W sides. Odd rows are offset by half a slot; fixed spacing reserves room for all six hex-edge Corridors. Click handling uses the same hexagonal geometry.
 - Map interaction: continuous mobile pinch zoom; 10%-step buttons and desktop wheel zoom; mobile/desktop camera panning includes generous off-board slack while retaining a recovery strip; independently scrollable board/card/player/log panels
 - Exploration: XCOM-style board targeting. Legal connected rooms and in-bounds empty hex neighbors in `NE`, `E`, `SE`, `SW`, `W`, and `NW` highlight directly on the map; invalid, occupied, closed-door, and off-board destinations are omitted. Rooms index exits by hex direction, and corridors store their direction from both endpoints.
 - Text labels for all game state (fire, broken, secure count, intruder types, noise) — never color alone
@@ -61,7 +61,7 @@ A faithful web-based digital adaptation of the board game Nemesis: Retaliation b
 - 4-browser Playwright test: host + 3 clients, 3 rounds, all synced, no errors
 - 4-browser tactical gameplay test: 11 canvas-selected moves across 3 rounds, 23 four-way sync checks, 8 rooms/7 corridors explored, 2 legitimate player deaths advanced correctly, no browser errors (`docs/qa/tactical-4browser-results.json`)
 - Hex-direction regression: six reciprocal `NE`/`E`/`SE`/`SW`/`W`/`NW` neighbors across even and odd rows; deprecated `S` rejected; valid `SE` accepted; E and NE corridors terminate exactly at their hex boundaries (`docs/qa/hex_direction_regression.js`).
-- Earlier octagon/8-direction QA artifacts are historical only and superseded by the flat-top hex renderer and the hex-direction regression above.
+- Earlier octagon/8-direction QA artifacts are historical only and superseded by the pointy-top hex renderer and the hex-direction regression above.
 - Full 14-round four-browser game: 60 recorded actions, 61 sync checks, 61 graph/topology checks, five representative screenshots, and no browser errors after the hidden-Nest fix (`docs/qa/full-game-report.md`)
 - Full action trace and rule/FAQ deviation audit: `docs/qa/full-game-action-log.md`, `docs/qa/full-game-action-log.json`, and `docs/qa/full-game-rules-audit.md`
 - Mobile portrait/landscape QA dispatches real two-point pinch-in/pinch-out gestures and verifies map zoom, two-axis pan, touch target coordinates after panning, Fit reset, and oversized board/panel scrolling (`docs/qa/mobile_layout_qa.py`)

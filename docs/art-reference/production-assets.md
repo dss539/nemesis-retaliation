@@ -20,7 +20,7 @@ The physical playmat reference informed only high-level usability: a dark low-gl
 | Family | Current production form | Coverage |
 | --- | --- | --- |
 | Play surface | Original 23-room-slot 5/4 alternating-row facility field, sector bands, telemetry rails, deck grid | Complete for current board |
-| Rooms | 24 ID-specific flat-top hexagonal floor plates with family glyphs and color coding | Complete for current data |
+| Rooms | 24 ID-specific pointy-top hexagonal floor plates with family glyphs and color coding | Complete for current data |
 | Corridors and empty slots | Procedural deck corridors, noise symbol, legal-slot and movement overlays | Complete for current renderer |
 | Player characters | Six class-coded vector portraits/top-down tokens and color rings | Complete for current roster |
 | Primeblood intruders | Larva, Drone, Adult, and Queen tactical tokens | Complete for current roster |
