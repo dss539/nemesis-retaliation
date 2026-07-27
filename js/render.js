@@ -377,12 +377,13 @@ const Renderer = {
         if (!position) return null;
         const stepX = this.ROOM_SIZE + this.CORRIDOR_WIDTH;
         const stepY = this.ROOM_HEIGHT + this.CORRIDOR_WIDTH;
+        const rowOffsetX = Math.abs(position.y) % 2 === 1 ? stepX / 2 : 0;
         return {
-            x: this.GRID_PADDING_X + position.x * stepX,
+            x: this.GRID_PADDING_X + position.x * stepX + rowOffsetX,
             y: this.GRID_PADDING_Y + position.y * stepY,
             w: this.ROOM_SIZE,
             h: this.ROOM_HEIGHT,
-            cx: this.GRID_PADDING_X + position.x * stepX + this.ROOM_SIZE / 2,
+            cx: this.GRID_PADDING_X + position.x * stepX + rowOffsetX + this.ROOM_SIZE / 2,
             cy: this.GRID_PADDING_Y + position.y * stepY + this.ROOM_HEIGHT / 2
         };
     },
@@ -404,6 +405,27 @@ const Renderer = {
         ctx.moveTo(vertices[0].x, vertices[0].y);
         vertices.slice(1).forEach(vertex => ctx.lineTo(vertex.x, vertex.y));
         ctx.closePath();
+    },
+
+    hexBoundaryDistance(geometry, ux, uy) {
+        const center = { x: geometry.cx, y: geometry.cy };
+        const vertices = this.hexagonVertices(geometry.x, geometry.y, geometry.w, geometry.h);
+        let nearest = Infinity;
+        const cross = (ax, ay, bx, by) => ax * by - ay * bx;
+        for (let index = 0; index < vertices.length; index++) {
+            const start = vertices[index];
+            const end = vertices[(index + 1) % vertices.length];
+            const edgeX = end.x - start.x;
+            const edgeY = end.y - start.y;
+            const fromCenterX = start.x - center.x;
+            const fromCenterY = start.y - center.y;
+            const denominator = cross(ux, uy, edgeX, edgeY);
+            if (Math.abs(denominator) < 1e-8) continue;
+            const distance = cross(fromCenterX, fromCenterY, edgeX, edgeY) / denominator;
+            const alongEdge = cross(fromCenterX, fromCenterY, ux, uy) / denominator;
+            if (distance >= 0 && alongEdge >= 0 && alongEdge <= 1) nearest = Math.min(nearest, distance);
+        }
+        return Number.isFinite(nearest) ? nearest : 0;
     },
 
     drawRoom(ctx, room) {
@@ -552,11 +574,12 @@ const Renderer = {
         const length = Math.hypot(deltaX, deltaY) || 1;
         const ux = deltaX / length;
         const uy = deltaY / length;
-        const roomRadius = this.ROOM_HEIGHT / 2 - 1;
-        const x1 = g1.cx + ux * roomRadius;
-        const y1 = g1.cy + uy * roomRadius;
-        const x2 = g2.cx - ux * roomRadius;
-        const y2 = g2.cy - uy * roomRadius;
+        const room1Boundary = this.hexBoundaryDistance(g1, ux, uy);
+        const room2Boundary = this.hexBoundaryDistance(g2, -ux, -uy);
+        const x1 = g1.cx + ux * room1Boundary;
+        const y1 = g1.cy + uy * room1Boundary;
+        const x2 = g2.cx - ux * room2Boundary;
+        const y2 = g2.cy - uy * room2Boundary;
         return { x1, y1, x2, y2, mx:(x1+x2)/2, my:(y1+y2)/2, ux, uy, px:-uy, py:ux };
     },
 

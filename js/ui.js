@@ -371,17 +371,13 @@ const UI = {
             })
             .filter(Boolean);
 
-        // Empty nodes in all eight compass directions become exploration targets.
+        // Empty hex-neighbor bays become exploration targets.
         // Off-board and occupied slots are omitted rather than shown as disabled.
-        // slots are omitted completely rather than shown as disabled choices.
         const directions = GAME_DATA.CONFIG.directions;
         const explorationTargets = directions.map(direction => ({
             kind: 'explore',
             direction: direction.id,
-            position: {
-                x: currentRoom.position.x + direction.dx,
-                y: currentRoom.position.y + direction.dy
-            }
+            position: GAME_DATA.CONFIG.neighborPosition(currentRoom.position, direction.id)
         })).filter(target => {
             const { x, y } = target.position;
             if (!GAME_DATA.CONFIG.boardSlots.some(slot => slot.x === x && slot.y === y)) return false;
@@ -445,12 +441,9 @@ const UI = {
     executeExplore(direction, cautious) {
         const myPlayer = this.state.players[NemesisNetwork.playerId];
         const currentRoom = this.state.rooms[myPlayer.location];
-        const offset = GAME_DATA.CONFIG.directions.find(candidate => candidate.id === direction);
-        if (!offset || !currentRoom?.position) return;
-        const newPos = {
-            x: currentRoom.position.x + offset.dx,
-            y: currentRoom.position.y + offset.dy
-        };
+        if (!currentRoom?.position) return;
+        const newPos = GAME_DATA.CONFIG.neighborPosition(currentRoom.position, direction);
+        if (!newPos) return;
         const action = cautious ? 'cautiousMove' : 'move';
         NemesisNetwork.sendAction(action, {
             targetRoom: 'explore_' + Date.now(),

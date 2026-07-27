@@ -400,16 +400,37 @@ CONFIG: {
         { x: 0, y: 3 }, { x: 1, y: 3 }, { x: 2, y: 3 }, { x: 3, y: 3 }, { x: 4, y: 3 }, { x: 5, y: 3 }, { x: 6, y: 3 },
         { x: 1, y: 4 }, { x: 2, y: 4 }, { x: 3, y: 4 }, { x: 4, y: 4 }, { x: 5, y: 4 }
     ],
+    // Hex-grid directions. Flat-top hexes have no direct north or south neighbor.
     directions: [
-        { id: 'N',  dx:  0, dy: -1, opposite: 'S' },
-        { id: 'NE', dx:  1, dy: -1, opposite: 'SW' },
-        { id: 'E',  dx:  1, dy:  0, opposite: 'W' },
-        { id: 'SE', dx:  1, dy:  1, opposite: 'NW' },
-        { id: 'S',  dx:  0, dy:  1, opposite: 'N' },
-        { id: 'SW', dx: -1, dy:  1, opposite: 'NE' },
-        { id: 'W',  dx: -1, dy:  0, opposite: 'E' },
-        { id: 'NW', dx: -1, dy: -1, opposite: 'SE' }
+        { id: 'NE', opposite: 'SW' },
+        { id: 'E',  opposite: 'W' },
+        { id: 'SE', opposite: 'NW' },
+        { id: 'SW', opposite: 'NE' },
+        { id: 'W',  opposite: 'E' },
+        { id: 'NW', opposite: 'SE' }
     ],
+    // Odd-row offset coordinates: odd rows are shifted half a cell right in the
+    // renderer. This is the sole topology definition used by UI and engine.
+    neighborPosition(position, directionId) {
+        if (!position || !Number.isInteger(position.x) || !Number.isInteger(position.y)) return null;
+        const oddRow = Math.abs(position.y) % 2 === 1;
+        const offsets = {
+            NE: { x: oddRow ? 1 : 0, y: -1 },
+            E:  { x: 1, y: 0 },
+            SE: { x: oddRow ? 1 : 0, y: 1 },
+            SW: { x: oddRow ? 0 : -1, y: 1 },
+            W:  { x: -1, y: 0 },
+            NW: { x: oddRow ? 0 : -1, y: -1 }
+        };
+        const offset = offsets[directionId];
+        return offset ? { x: position.x + offset.x, y: position.y + offset.y } : null;
+    },
+    directionBetween(source, destination) {
+        return this.directions.find(direction => {
+            const neighbor = this.neighborPosition(source, direction.id);
+            return neighbor?.x === destination?.x && neighbor?.y === destination?.y;
+        }) || null;
+    },
     startingOxygen: 7,
     oxygenSuffocateThreshold: 0,
     corridorMaxIntruders: 6,

@@ -961,9 +961,8 @@ class NemesisEngine {
         // Check if this is an exploration move (to an undiscovered area)
         const isExploration = params.explore || targetRoomId.startsWith('explore_');
 
-        // Exploration must follow one of the eight compass edges into an empty,
-        // in-bounds room slot. The UI filters targets, but the host is authoritative.
-        // The UI filters these targets, but the authoritative engine also enforces it.
+        // Exploration must follow one of the six flat-top hex edges into an
+        // empty, valid room bay. The UI filters targets, but the host is authoritative.
         if (isExploration) {
             const position = params.position;
             const isIntegerPosition = Number.isInteger(position?.x) && Number.isInteger(position?.y);
@@ -972,11 +971,7 @@ class NemesisEngine {
             );
             if (!isInBounds) return { success: false, error: 'Destination is off the board' };
 
-            const dx = position.x - currentRoom.position.x;
-            const dy = position.y - currentRoom.position.y;
-            const direction = GAME_DATA.CONFIG.directions.find(candidate =>
-                candidate.dx === dx && candidate.dy === dy
-            );
+            const direction = GAME_DATA.CONFIG.directionBetween(currentRoom.position, position);
             if (!direction) return { success: false, error: 'Destination is not adjacent' };
             if (params.direction && params.direction !== direction.id) {
                 return { success: false, error: 'Exit direction does not match destination' };
@@ -1082,10 +1077,7 @@ class NemesisEngine {
         // edge of its hexagon; the corridor preserves both orientations.
         const sourceRoomId = player.location;
         const sourceRoom = state.rooms[sourceRoomId];
-        const exitDirection = GAME_DATA.CONFIG.directions.find(candidate =>
-            candidate.dx === params.position.x - sourceRoom.position.x &&
-            candidate.dy === params.position.y - sourceRoom.position.y
-        );
+        const exitDirection = GAME_DATA.CONFIG.directionBetween(sourceRoom.position, params.position);
         const newCorridor = {
             id: 'corridor_' + Date.now() + '_' + Math.random(),
             value: 1 + Math.floor(Math.random() * 4),

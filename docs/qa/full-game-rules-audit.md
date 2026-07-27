@@ -96,7 +96,7 @@ Observed: the final map had 13 Rooms and exactly 12 Corridors—a tree containin
 
 Engine cause: `explorationSequence` creates only the edge traversed by the Character.
 
-This differs from the intentional fixed tactical presentation. Fixed slots and eight-direction targeting can remain while still honoring each card’s legal outgoing edges.
+This differs from the intentional fixed tactical presentation. Fixed slots and six-direction hex targeting can remain while still honoring each card’s legal outgoing edges.
 
 ### High — Search is a generic basic action rather than the Search Action card
 
