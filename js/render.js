@@ -18,15 +18,13 @@ const Renderer = {
     _mapViewInitialized: false,
     _suppressClickUntil: 0,
 
-    // Fixed mat-derived geometry. The 42px void between each 110px room remains
-    // available for corridors without turning the stepped outer mat void into
-    // fake room slots.
+    // Fixed mat-derived geometry. Regular flat-top hexes match the playmat;
+    // the 42px void between room bays remains available for corridors.
     ROOM_SIZE: 110,
+    ROOM_HEIGHT: 110 * Math.sqrt(3) / 2,
     CORRIDOR_WIDTH: 42,
     GRID_PADDING_X: 62,
     GRID_PADDING_Y: 70,
-    // For a regular octagon in a square: side = size - 2*cut = cut*sqrt(2).
-    OCTAGON_CUT: 110 / (2 + Math.SQRT2),
 
     init(canvasId) {
         this.canvas = document.getElementById(canvasId);
@@ -357,7 +355,7 @@ const Renderer = {
 
                 // Every Room slot is visible before exploration. The room itself
                 // later replaces this subdued empty-slot floor without moving it.
-                this.octagonPath(ctx, x, y, this.ROOM_SIZE);
+                this.hexagonPath(ctx, x, y, this.ROOM_SIZE);
                 ctx.fillStyle = 'rgba(12,25,33,0.68)';
                 ctx.fill();
                 ctx.strokeStyle = 'rgba(105,150,166,0.36)';
@@ -365,7 +363,7 @@ const Renderer = {
                 ctx.setLineDash([6, 6]);
                 ctx.stroke();
 
-                this.octagonPath(ctx, x + 6, y + 6, this.ROOM_SIZE - 12);
+                this.hexagonPath(ctx, x + 6, y + 6, this.ROOM_SIZE - 12);
                 ctx.strokeStyle = 'rgba(74,108,121,0.17)';
                 ctx.lineWidth = 1;
                 ctx.setLineDash([]);
@@ -377,37 +375,31 @@ const Renderer = {
     roomGeometry(roomOrPosition) {
         const position = roomOrPosition?.position || roomOrPosition;
         if (!position) return null;
-        const step = this.ROOM_SIZE + this.CORRIDOR_WIDTH;
+        const stepX = this.ROOM_SIZE + this.CORRIDOR_WIDTH;
+        const stepY = this.ROOM_HEIGHT + this.CORRIDOR_WIDTH;
         return {
-            x: this.GRID_PADDING_X + position.x * step,
-            y: this.GRID_PADDING_Y + position.y * step,
+            x: this.GRID_PADDING_X + position.x * stepX,
+            y: this.GRID_PADDING_Y + position.y * stepY,
             w: this.ROOM_SIZE,
-            h: this.ROOM_SIZE,
-            cx: this.GRID_PADDING_X + position.x * step + this.ROOM_SIZE / 2,
-            cy: this.GRID_PADDING_Y + position.y * step + this.ROOM_SIZE / 2
+            h: this.ROOM_HEIGHT,
+            cx: this.GRID_PADDING_X + position.x * stepX + this.ROOM_SIZE / 2,
+            cy: this.GRID_PADDING_Y + position.y * stepY + this.ROOM_HEIGHT / 2
         };
     },
 
-    regularOctagonCut(size) {
-        return size / (2 + Math.SQRT2);
-    },
-
-    octagonVertices(x, y, size) {
-        const cut = this.regularOctagonCut(size);
+    hexagonVertices(x, y, width, height = width * Math.sqrt(3) / 2) {
         return [
-            { x: x + cut, y },
-            { x: x + size - cut, y },
-            { x: x + size, y: y + cut },
-            { x: x + size, y: y + size - cut },
-            { x: x + size - cut, y: y + size },
-            { x: x + cut, y: y + size },
-            { x, y: y + size - cut },
-            { x, y: y + cut }
+            { x: x + width / 4, y },
+            { x: x + width * 3 / 4, y },
+            { x: x + width, y: y + height / 2 },
+            { x: x + width * 3 / 4, y: y + height },
+            { x: x + width / 4, y: y + height },
+            { x, y: y + height / 2 }
         ];
     },
 
-    octagonPath(ctx, x, y, size) {
-        const vertices = this.octagonVertices(x, y, size);
+    hexagonPath(ctx, x, y, width, height = width * Math.sqrt(3) / 2) {
+        const vertices = this.hexagonVertices(x, y, width, height);
         ctx.beginPath();
         ctx.moveTo(vertices[0].x, vertices[0].y);
         vertices.slice(1).forEach(vertex => ctx.lineTo(vertex.x, vertex.y));
@@ -437,14 +429,14 @@ const Renderer = {
 
         // Heavy outer wall, inner bevel, then a faint floor grid.
         ctx.save();
-        this.octagonPath(ctx, x, y, w);
+        this.hexagonPath(ctx, x, y, w, h);
         ctx.fillStyle = '#080d12';
         ctx.fill();
         ctx.strokeStyle = edgeColor;
         ctx.lineWidth = isCurrentRoom ? 4 : 3;
         ctx.stroke();
 
-        this.octagonPath(ctx, x + 5, y + 5, w - 10);
+        this.hexagonPath(ctx, x + 5, y + 5, w - 10, h - 10);
         ctx.fillStyle = bgColor;
         ctx.fill();
         ctx.strokeStyle = 'rgba(185,216,224,0.18)';
@@ -474,7 +466,7 @@ const Renderer = {
         // Fire marker — icon + label
         if (room.markers?.fire) {
             ctx.fillStyle = 'rgba(255,80,0,0.28)';
-            this.octagonPath(ctx, x + 3, y + 3, w - 6);
+            this.hexagonPath(ctx, x + 3, y + 3, w - 6, h - 6);
             ctx.fill();
             GameArt.drawCanvasIcon(ctx, 'fire', x + 15, y + 15, 18, '#ff7a3d');
             ctx.fillStyle = '#ff9a62';
@@ -535,7 +527,7 @@ const Renderer = {
         const intrudersInRoom = this.state.intruders.filter(i => i.location.type === 'room' && i.location.id === room.id);
         if (intrudersInRoom.length > 0) {
             ctx.fillStyle = 'rgba(255,50,50,0.14)';
-            this.octagonPath(ctx, x + 3, y + 3, w - 6);
+            this.hexagonPath(ctx, x + 3, y + 3, w - 6, h - 6);
             ctx.fill();
             // Label with intruder types
             const typeCounts = {};
@@ -560,7 +552,7 @@ const Renderer = {
         const length = Math.hypot(deltaX, deltaY) || 1;
         const ux = deltaX / length;
         const uy = deltaY / length;
-        const roomRadius = this.ROOM_SIZE / 2 - 1;
+        const roomRadius = this.ROOM_HEIGHT / 2 - 1;
         const x1 = g1.cx + ux * roomRadius;
         const y1 = g1.cy + uy * roomRadius;
         const x2 = g2.cx - ux * roomRadius;
@@ -652,7 +644,7 @@ const Renderer = {
             const color = target.kind === 'room' ? '#78e6a2' : '#66d9ef';
 
             ctx.save();
-            this.octagonPath(ctx, geometry.x - 4, geometry.y - 4, geometry.w + 8);
+            this.hexagonPath(ctx, geometry.x - 4, geometry.y - 4, geometry.w + 8, geometry.h + 8);
             ctx.fillStyle = target.kind === 'room' ? 'rgba(72,210,126,0.10)' : 'rgba(70,194,224,0.13)';
             ctx.fill();
             ctx.strokeStyle = color;
@@ -695,21 +687,21 @@ const Renderer = {
             const geometry = target.kind === 'room'
                 ? this.roomGeometry(this.state.rooms[target.roomId])
                 : this.roomGeometry(target.position);
-            if (geometry && this.pointInOctagon(x, y, geometry)) return target;
+            if (geometry && this.pointInHexagon(x, y, geometry)) return target;
         }
         return null;
     },
 
-    pointInOctagon(x, y, geometry) {
-        const localX = x - geometry.x;
-        const localY = y - geometry.y;
-        const size = geometry.w;
-        const cut = this.regularOctagonCut(size);
-        if (localX < 0 || localY < 0 || localX > size || localY > size) return false;
-        return localX + localY >= cut &&
-            (size - localX) + localY >= cut &&
-            localX + (size - localY) >= cut &&
-            (size - localX) + (size - localY) >= cut;
+    pointInHexagon(x, y, geometry) {
+        const vertices = this.hexagonVertices(geometry.x, geometry.y, geometry.w, geometry.h);
+        let inside = false;
+        for (let index = 0, previous = vertices.length - 1; index < vertices.length; previous = index++) {
+            const current = vertices[index];
+            const prior = vertices[previous];
+            if ((current.y > y) !== (prior.y > y) &&
+                x < (prior.x - current.x) * (y - current.y) / (prior.y - current.y) + current.x) inside = !inside;
+        }
+        return inside;
     },
 
     drawIntruder(ctx, intruder) {
@@ -903,7 +895,7 @@ const Renderer = {
         for (const room of Object.values(this.state.rooms)) {
             if (!room.position) continue;
             const geometry = this.roomGeometry(room);
-            if (this.pointInOctagon(x, y, geometry)) {
+            if (this.pointInHexagon(x, y, geometry)) {
                 return room;
             }
         }

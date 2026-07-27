@@ -1079,7 +1079,7 @@ class NemesisEngine {
         }
 
         // Add a graph edge. Each room records the edge under the compass-facing
-        // side of its octagon; the corridor preserves both orientations.
+        // edge of its hexagon; the corridor preserves both orientations.
         const sourceRoomId = player.location;
         const sourceRoom = state.rooms[sourceRoomId];
         const exitDirection = GAME_DATA.CONFIG.directions.find(candidate =>

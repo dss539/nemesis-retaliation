@@ -27,8 +27,8 @@
 - Simplified from physical game: exploration currently creates only the edge used to enter the new room. Future rule work should apply authored exploration-card exit layouts and edge-count restrictions.
 
 ### Tactical Board Rendering
-- The complete 32-bay mat layout is visible from game start as subdued empty octagonal slots. Its stepped outer perimeter deliberately omits the physical mat's outer voids. Exploration fills a slot; it never creates or repositions the field.
-- Rooms and empty slots are regular 110px octagons. Their corner cut is `size / (2 + sqrt(2))`, so horizontal, vertical, and diagonal sides have equal length. Inner walls, status overlays, movement highlights, and hit testing derive from the same size-dependent geometry.
+- The complete 32-bay mat layout is visible from game start as subdued empty flat-top hexagonal slots. Its stepped outer perimeter deliberately omits the physical mat's outer voids. Exploration fills a slot; it never creates or repositions the field.
+- Rooms and empty slots are regular 110px-wide flat-top hexagons, with height `width × sqrt(3) / 2`. Inner walls, status overlays, movement highlights, and hit testing derive from the same geometry.
 - Fixed 42px cardinal spacing also leaves open corner-to-corner space for diagonal corridors, even when no graph edge exists.
 - Existing cardinal and diagonal corridors render beneath rooms and only remain visible between room boundaries; absent corridors leave the reserved gap empty.
 - Movement uses direct map highlights instead of a compass modal.

@@ -23,7 +23,7 @@ The base-game production set includes:
 
 1. Six player characters: portrait, full body, top-down tactical token/model, dashboard, action-card treatment, and state variants.
 2. Primeblood Drone, Adult/Warrior, Prime Blood, Queen, Eggs/Nest, Robot, corpses, and entity state variants.
-3. All modular room/corridor families, octagonal room boundaries, door states, room-floor/corridor material kits, and legal tactical targeting overlays.
+3. All modular room/corridor families, flat-top hexagonal room boundaries, door states, room-floor/corridor material kits, and legal tactical targeting overlays.
 4. Informational board regions: sectors, life support/oxygen, reactor/autodestruction, lander/anti-aircraft, time/round, objective progress, intruder/Queen state, item search, terminals, room damage, and security.
 5. Every major card family: six character action decks, starting items, three item colors, events, exploration, intruder attacks, mission/private objectives, wounds, contamination, weaknesses, and help cards.
 6. Dashboards, dice, tokens, markers, icons, HUD surfaces, accessibility states, effects, and presentation art.
