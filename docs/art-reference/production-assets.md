@@ -19,7 +19,7 @@ The physical playmat reference informed only high-level usability: a dark low-gl
 
 | Family | Current production form | Coverage |
 | --- | --- | --- |
-| Play surface | Original 7x5 facility mat, sector bands, telemetry rails, deck grid | Complete for current board |
+| Play surface | Original stepped 32-bay facility field, sector bands, telemetry rails, deck grid | Complete for current board |
 | Rooms | 24 ID-specific octagonal floor plates with family glyphs and color coding | Complete for current data |
 | Corridors and empty slots | Procedural deck corridors, noise symbol, legal-slot and movement overlays | Complete for current renderer |
 | Player characters | Six class-coded vector portraits/top-down tokens and color rings | Complete for current roster |

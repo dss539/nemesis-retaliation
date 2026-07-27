@@ -374,7 +374,6 @@ const UI = {
         // Empty nodes in all eight compass directions become exploration targets.
         // Off-board and occupied slots are omitted rather than shown as disabled.
         // slots are omitted completely rather than shown as disabled choices.
-        const bounds = GAME_DATA.CONFIG.boardBounds;
         const directions = GAME_DATA.CONFIG.directions;
         const explorationTargets = directions.map(direction => ({
             kind: 'explore',
@@ -385,7 +384,7 @@ const UI = {
             }
         })).filter(target => {
             const { x, y } = target.position;
-            if (x < bounds.minX || x > bounds.maxX || y < bounds.minY || y > bounds.maxY) return false;
+            if (!GAME_DATA.CONFIG.boardSlots.some(slot => slot.x === x && slot.y === y)) return false;
             return !Object.values(state.rooms).some(room => room.position?.x === x && room.position?.y === y);
         });
 

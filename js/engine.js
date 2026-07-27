@@ -966,11 +966,10 @@ class NemesisEngine {
         // The UI filters these targets, but the authoritative engine also enforces it.
         if (isExploration) {
             const position = params.position;
-            const bounds = GAME_DATA.CONFIG.boardBounds;
             const isIntegerPosition = Number.isInteger(position?.x) && Number.isInteger(position?.y);
-            const isInBounds = isIntegerPosition &&
-                position.x >= bounds.minX && position.x <= bounds.maxX &&
-                position.y >= bounds.minY && position.y <= bounds.maxY;
+            const isInBounds = isIntegerPosition && GAME_DATA.CONFIG.boardSlots.some(slot =>
+                slot.x === position.x && slot.y === position.y
+            );
             if (!isInBounds) return { success: false, error: 'Destination is off the board' };
 
             const dx = position.x - currentRoom.position.x;

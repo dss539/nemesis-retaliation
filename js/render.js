@@ -18,8 +18,9 @@ const Renderer = {
     _mapViewInitialized: false,
     _suppressClickUntil: 0,
 
-    // Fixed tactical-grid geometry. The 42px void between every 110px room
-    // remains visible even where no corridor tile has been discovered.
+    // Fixed mat-derived geometry. The 42px void between each 110px room remains
+    // available for corridors without turning the stepped outer mat void into
+    // fake room slots.
     ROOM_SIZE: 110,
     CORRIDOR_WIDTH: 42,
     GRID_PADDING_X: 62,
@@ -349,13 +350,10 @@ const Renderer = {
     },
 
     drawGrid(ctx) {
-        const bounds = GAME_DATA.CONFIG.boardBounds;
-        const step = this.ROOM_SIZE + this.CORRIDOR_WIDTH;
         ctx.save();
-        for (let gy = bounds.minY; gy <= bounds.maxY; gy++) {
-            for (let gx = bounds.minX; gx <= bounds.maxX; gx++) {
-                const x = this.GRID_PADDING_X + gx * step;
-                const y = this.GRID_PADDING_Y + gy * step;
+        GAME_DATA.CONFIG.boardSlots.forEach(slot => {
+                const geometry = this.roomGeometry(slot);
+                const { x, y } = geometry;
 
                 // Every Room slot is visible before exploration. The room itself
                 // later replaces this subdued empty-slot floor without moving it.
@@ -372,8 +370,7 @@ const Renderer = {
                 ctx.lineWidth = 1;
                 ctx.setLineDash([]);
                 ctx.stroke();
-            }
-        }
+        });
         ctx.restore();
     },
 
