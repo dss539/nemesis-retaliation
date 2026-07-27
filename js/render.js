@@ -181,7 +181,9 @@ const Renderer = {
         const wrapper = document.getElementById('canvas-wrapper');
         if (!wrapper || !this.canvas) return;
 
-        this.mapZoom = this.normalizeMapZoom(nextZoom);
+        // Pinch zoom follows finger distance continuously; discrete controls
+        // use setMapZoom(), which snaps to MAP_ZOOM_STEP.
+        this.mapZoom = Math.max(this.MIN_MAP_ZOOM, Math.min(this.MAX_MAP_ZOOM, nextZoom));
         this.resizeCanvas();
 
         wrapper.scrollLeft = this.canvas.offsetLeft

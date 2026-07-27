@@ -166,8 +166,8 @@ def exercise_viewport(browser, name, width, height):
               f"{name}: two-finger pinch does not zoom the tactical map", failures)
         check(pinch_metrics["label"] != "100%",
               f"{name}: pinch zoom does not update its visible zoom level", failures)
-        check(abs(pinch_metrics["zoom"] * 10 - round(pinch_metrics["zoom"] * 10)) < 0.001,
-              f"{name}: pinch zoom does not snap to 10% levels", failures)
+        check(abs(pinch_metrics["zoom"] * 10 - round(pinch_metrics["zoom"] * 10)) > 0.01,
+              f"{name}: pinch zoom is incorrectly snapping to 10% levels", failures)
 
         pinch_map(context, page, start_distance=170, end_distance=80)
         pinch_out_zoom = page.evaluate("() => Renderer.mapZoom")
