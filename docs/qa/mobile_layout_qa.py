@@ -15,6 +15,35 @@ def check(condition, message, failures):
         failures.append(message)
 
 
+def pinch_map(context, page, start_distance=80, end_distance=170):
+    """Dispatch a real two-point touch gesture through Chromium's input stack."""
+    box = page.evaluate("""() => {
+        const wrapper = document.getElementById('canvas-wrapper').getBoundingClientRect();
+        const canvas = document.getElementById('game-canvas').getBoundingClientRect();
+        return {
+            x: (Math.max(wrapper.left, canvas.left) + Math.min(wrapper.right, canvas.right)) / 2,
+            y: (Math.max(wrapper.top, canvas.top) + Math.min(wrapper.bottom, canvas.bottom)) / 2
+        };
+    }""")
+    cdp = context.new_cdp_session(page)
+
+    def points(distance):
+        return [
+            {"x": box["x"] - distance / 2, "y": box["y"], "radiusX": 4, "radiusY": 4, "id": 0},
+            {"x": box["x"] + distance / 2, "y": box["y"], "radiusX": 4, "radiusY": 4, "id": 1},
+        ]
+
+    cdp.send("Input.dispatchTouchEvent", {
+        "type": "touchStart", "touchPoints": points(start_distance)
+    })
+    for step in range(1, 4):
+        distance = start_distance + (end_distance - start_distance) * step / 3
+        cdp.send("Input.dispatchTouchEvent", {"type": "touchMove", "touchPoints": points(distance)})
+        page.wait_for_timeout(30)
+    cdp.send("Input.dispatchTouchEvent", {"type": "touchEnd", "touchPoints": []})
+    page.wait_for_timeout(100)
+
+
 def exercise_viewport(browser, name, width, height):
     context = browser.new_context(
         viewport={"width": width, "height": height},
@@ -111,6 +140,23 @@ def exercise_viewport(browser, name, width, height):
         check(fit_metrics == {"zoom": 1, "label": "100%", "left": 0, "top": 0},
               f"{name}: Fit does not restore the complete map view", failures)
 
+        pinch_map(context, page)
+        pinch_metrics = page.evaluate("""() => ({
+            zoom: Renderer.mapZoom,
+            label: document.getElementById('map-zoom-level').textContent
+        })""")
+        check(pinch_metrics["zoom"] > 1.5,
+              f"{name}: two-finger pinch does not zoom the tactical map", failures)
+        check(pinch_metrics["label"] != "100%",
+              f"{name}: pinch zoom does not update its visible zoom level", failures)
+
+        pinch_map(context, page, start_distance=170, end_distance=80)
+        pinch_out_zoom = page.evaluate("() => Renderer.mapZoom")
+        check(pinch_out_zoom < pinch_metrics["zoom"] - 0.5,
+              f"{name}: inward pinch does not zoom the tactical map out", failures)
+
+        fit.click()
+
         if CAPTURE_SCREENSHOTS:
             screenshot = ROOT / "docs" / "qa" / f"mobile-layout-{name}.png"
             page.screenshot(path=str(screenshot), full_page=True)
@@ -165,7 +211,7 @@ def main():
         for failure in all_failures:
             print(f"- {failure}")
         raise SystemExit(1)
-    print("mobile layout QA passed: portrait + landscape zoom, pan, and overflow scrolling")
+    print("mobile layout QA passed: portrait + landscape pinch zoom, pan, and overflow scrolling")
 
 
 if __name__ == "__main__":

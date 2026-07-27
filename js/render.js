@@ -12,6 +12,8 @@ const Renderer = {
     mapZoom: 1,
     MIN_MAP_ZOOM: 0.5,
     MAX_MAP_ZOOM: 3,
+    _pinchGesture: null,
+    _suppressClickUntil: 0,
 
     // Fixed tactical-grid geometry. The 42px void between every 110px room
     // remains visible even where no corridor tile has been discovered.
@@ -26,7 +28,10 @@ const Renderer = {
         this.canvas = document.getElementById(canvasId);
         this.ctx = this.canvas.getContext('2d');
         GameArt.preload(() => this.render());
-        this.canvas.addEventListener('click', (e) => this.handleClick(e));
+        this.canvas.addEventListener('click', (e) => {
+            if (Date.now() < this._suppressClickUntil) return;
+            this.handleClick(e);
+        });
         this.canvas.addEventListener('mousemove', (e) => this.handleMouseMove(e));
 
         // Browser-synthesized clicks handle taps. Avoid preventing touchstart:
@@ -37,6 +42,57 @@ const Renderer = {
             e.preventDefault();
             this.adjustMapZoom(e.deltaY < 0 ? 0.5 : -0.5);
         }, { passive: false });
+
+        const touchDistance = (touches) => Math.hypot(
+            touches[1].clientX - touches[0].clientX,
+            touches[1].clientY - touches[0].clientY
+        );
+        const touchMidpoint = (touches) => ({
+            x: (touches[0].clientX + touches[1].clientX) / 2,
+            y: (touches[0].clientY + touches[1].clientY) / 2
+        });
+
+        wrapper?.addEventListener('touchstart', (e) => {
+            if (e.touches.length !== 2) return;
+            const midpoint = touchMidpoint(e.touches);
+            const canvasRect = this.canvas.getBoundingClientRect();
+            const distance = touchDistance(e.touches);
+            if (!distance || !canvasRect.width || !canvasRect.height) return;
+
+            this._pinchGesture = {
+                startDistance: distance,
+                startZoom: this.mapZoom,
+                canvasX: Math.max(0, Math.min(1, (midpoint.x - canvasRect.left) / canvasRect.width)),
+                canvasY: Math.max(0, Math.min(1, (midpoint.y - canvasRect.top) / canvasRect.height))
+            };
+            this._suppressClickUntil = Date.now() + 500;
+            e.preventDefault();
+        }, { passive: false });
+
+        wrapper?.addEventListener('touchmove', (e) => {
+            if (!this._pinchGesture || e.touches.length !== 2) return;
+            const midpoint = touchMidpoint(e.touches);
+            const wrapperRect = wrapper.getBoundingClientRect();
+            const scale = touchDistance(e.touches) / this._pinchGesture.startDistance;
+
+            this.setMapZoomAt(this._pinchGesture.startZoom * scale, {
+                canvasX: this._pinchGesture.canvasX,
+                canvasY: this._pinchGesture.canvasY,
+                localX: midpoint.x - wrapperRect.left,
+                localY: midpoint.y - wrapperRect.top
+            });
+            this._suppressClickUntil = Date.now() + 500;
+            e.preventDefault();
+        }, { passive: false });
+
+        const finishPinch = (e) => {
+            if (!this._pinchGesture || e.touches.length >= 2) return;
+            this._pinchGesture = null;
+            this._suppressClickUntil = Date.now() + 500;
+            e.preventDefault();
+        };
+        wrapper?.addEventListener('touchend', finishPinch, { passive: false });
+        wrapper?.addEventListener('touchcancel', finishPinch, { passive: false });
 
         // Responsive resize
         window.addEventListener('resize', () => this.resizeCanvas());
@@ -111,6 +167,20 @@ const Renderer = {
 
         wrapper.scrollLeft = centerX * wrapper.scrollWidth - wrapper.clientWidth / 2;
         wrapper.scrollTop = centerY * wrapper.scrollHeight - wrapper.clientHeight / 2;
+        this.updateMapZoomControls();
+    },
+
+    setMapZoomAt(nextZoom, anchor) {
+        const wrapper = document.getElementById('canvas-wrapper');
+        if (!wrapper || !this.canvas) return;
+
+        this.mapZoom = Math.max(this.MIN_MAP_ZOOM, Math.min(this.MAX_MAP_ZOOM, nextZoom));
+        this.resizeCanvas();
+
+        wrapper.scrollLeft = this.canvas.offsetLeft
+            + anchor.canvasX * this.canvas.offsetWidth - anchor.localX;
+        wrapper.scrollTop = this.canvas.offsetTop
+            + anchor.canvasY * this.canvas.offsetHeight - anchor.localY;
         this.updateMapZoomControls();
     },
 

@@ -26,7 +26,7 @@ A faithful web-based digital adaptation of the board game Nemesis: Retaliation b
 ## Key Design Decisions
 - Privacy: display-layer only, NOT state sanitization. Host needs full state for engine. Each browser's UI only renders its own player's private info.
 - Canvas: renders at devicePixelRatio for crisp text. Base coordinate space 1200x900. All 35 nodes of the fixed 7x5 tactical grid are pre-drawn as regular 110px octagons; the corner cut is `size / (2 + sqrt(2))`, making all eight sides equal. Fixed spacing reserves room for cardinal and diagonal corridors. Click handling uses the same regular-octagon geometry.
-- Mobile: bottom tab navigation (Board/Players/Cards/Log), browser pinch zoom, 50–300% map zoom controls, native one-finger map panning, and independently scrollable board/card/player/log panels
+- Mobile: bottom tab navigation (Board/Players/Cards/Log), real two-finger 50–300% map pinch zoom, matching zoom controls, native one-finger map panning, and independently scrollable board/card/player/log panels
 - Exploration: XCOM-style board targeting. Legal connected rooms and in-bounds empty nodes in `N`, `NE`, `E`, `SE`, `S`, `SW`, `W`, and `NW` highlight directly on the map; invalid, occupied, closed-door, and off-board destinations are omitted. Rooms index exits by compass direction, and corridors store their direction from both endpoints.
 - Text labels for all game state (fire, broken, secure count, intruder types, noise) — never color alone
 
@@ -64,7 +64,7 @@ A faithful web-based digital adaptation of the board game Nemesis: Retaliation b
 - 4-browser octagon gameplay QA: 8 real canvas moves through round 3, including NE/SE/SW exploration and movement through a diagonal corridor; 18 sync checks and 18 graph/map invariant checks passed with no browser errors (`docs/qa/octagon-4browser-results.json`).
 - Full 14-round four-browser game: 60 recorded actions, 61 sync checks, 61 graph/topology checks, five representative screenshots, and no browser errors after the hidden-Nest fix (`docs/qa/full-game-report.md`)
 - Full action trace and rule/FAQ deviation audit: `docs/qa/full-game-action-log.md`, `docs/qa/full-game-action-log.json`, and `docs/qa/full-game-rules-audit.md`
-- Mobile portrait/landscape QA verifies map zoom, two-axis pan, touch target coordinates after panning, Fit reset, and oversized board/panel scrolling (`docs/qa/mobile_layout_qa.py`)
+- Mobile portrait/landscape QA dispatches real two-point pinch-in/pinch-out gestures and verifies map zoom, two-axis pan, touch target coordinates after panning, Fit reset, and oversized board/panel scrolling (`docs/qa/mobile_layout_qa.py`)
 - Test scripts in docs/qa/ (4browser_qa.py is reusable, others gitignored)
 - Playwright installed on smithers for multi-browser testing
 

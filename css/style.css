@@ -183,6 +183,8 @@ body {
     position: relative;
     overscroll-behavior: contain;
     -webkit-overflow-scrolling: touch;
+    /* One finger pans natively; Renderer consumes two-finger pinches. */
+    touch-action: pan-x pan-y;
 }
 
 #map-zoom-controls {
