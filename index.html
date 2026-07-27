@@ -21,30 +21,36 @@
                 </div>
                 <div id="host-panel" class="hidden panel">
                     <h2>Host Game</h2>
-                    <p>Share this code with your friends:</p>
-                    <div id="host-code" class="code-display">Generating...</div>
-                    <button id="copy-code-btn" class="btn btn-secondary" style="margin-bottom:12px;width:100%" onclick="copyGameCode()">📋 Copy Code</button>
-                    <div id="join-qr-panel" class="join-qr-panel" aria-live="polite">
-                        <p>Scan to join this game:</p>
-                        <div id="join-qr-code" aria-label="QR code for joining this game"></div>
+                    <div class="host-section">
+                        <p class="host-section-label">Share this code with your friends:</p>
+                        <div id="host-code" class="code-display" title="Click to copy">Generating...</div>
+                        <button id="copy-code-btn" class="btn btn-secondary host-copy-btn" onclick="copyGameCode()">📋 Copy Code</button>
+                        <div id="join-qr-panel" class="join-qr-panel" aria-live="polite">
+                            <p>Scan to join this game:</p>
+                            <div id="join-qr-code" aria-label="QR code for joining this game"></div>
+                        </div>
+                        <div class="share-url-row">
+                            <input type="text" id="join-url" class="share-url-input" readonly aria-label="Shareable join URL">
+                            <button id="copy-url-btn" class="btn btn-secondary" onclick="copyJoinUrl()">📋 Copy URL</button>
+                        </div>
                     </div>
-                    <div class="share-url-row">
-                        <input type="text" id="join-url" class="share-url-input" readonly aria-label="Shareable join URL">
-                        <button id="copy-url-btn" class="btn btn-secondary" onclick="copyJoinUrl()">📋 Copy URL</button>
+                    <div class="host-section">
+                        <div class="host-players-header">
+                            <label for="num-players">Number of players:</label>
+                            <select id="num-players">
+                                <option value="1">1 (Solo)</option>
+                                <option value="2" selected>2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                        </div>
+                        <div id="player-list">
+                            <h3>Players (0/5)</h3>
+                            <ul id="lobby-players"></ul>
+                        </div>
                     </div>
-                    <div id="player-list">
-                        <h3>Players (0/5)</h3>
-                        <ul id="lobby-players"></ul>
-                    </div>
-                    <label for="num-players">Number of players:</label>
-                    <select id="num-players">
-                        <option value="1">1 (Solo)</option>
-                        <option value="2" selected>2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                    </select>
-                    <button class="btn btn-primary" onclick="startGame()">Start Game</button>
+                    <button class="btn btn-primary host-start-btn" onclick="startGame()">Start Game</button>
                 </div>
                 <div id="join-panel" class="hidden panel">
                     <h2>Join Game</h2>

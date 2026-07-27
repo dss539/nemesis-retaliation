@@ -183,6 +183,55 @@ body {
 
 .hidden { display: none !important; }
 
+/* Host panel layout */
+#host-panel h2 { margin-bottom: 20px; }
+
+.host-section {
+    padding: 16px 0;
+    border-top: 1px solid var(--border);
+}
+
+.host-section:first-of-type {
+    border-top: none;
+    padding-top: 0;
+}
+
+.host-section-label {
+    color: var(--text-secondary);
+    font-size: 0.9em;
+    margin-bottom: 8px;
+}
+
+.host-copy-btn {
+    width: 100%;
+    margin: 8px 0 16px;
+}
+
+#host-panel .join-qr-panel { margin: 0 0 12px; }
+
+.host-players-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.host-players-header label { margin: 0; flex-shrink: 0; }
+
+.host-players-header select {
+    width: auto;
+    flex: 1;
+    margin: 0;
+    max-width: 160px;
+}
+
+.host-start-btn {
+    width: 100%;
+    margin-top: 20px;
+    padding: 14px 32px;
+    font-size: 1.1em;
+}
+
 /* Game layout */
 #game-layout {
     display: flex;

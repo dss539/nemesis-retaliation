@@ -56,6 +56,10 @@ function createHost() {
             }
         };
 
+        // Wire click-to-copy on the code display
+        const hostCodeEl = document.getElementById('host-code');
+        hostCodeEl.onclick = () => copyGameCode();
+
         updateLobbyPlayers({
             players: [{ name: name, character: engine.state.players[0].character, connected: true }],
             numPlayers: numPlayers
