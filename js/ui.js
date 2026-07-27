@@ -87,7 +87,7 @@ const UI = {
             div.innerHTML = `
                 <div class="player-identity" style="--character-color:${characterColor}">
                     <img class="character-portrait" src="${GameArt.url('character', player.character)}" alt="">
-                    <div><div class="char-name">${player.name}</div><div class="char-class">${charData.name || '?'}</div></div>
+                    <div><div class="player-name">${player.name}</div><div class="character-name">${charData.name || '?'}</div></div>
                 </div>
                 <div class="stat-row icon-stat"><span>${GameArt.iconMarkup('health')} HP ${player.health}/${player.maxHealth}</span><span>${GameArt.iconMarkup('oxygen')} O₂ ${player.oxygen}</span></div>
                 <div class="health-bar"><div class="health-fill ${healthClass}" style="width:${healthPercent}%"></div></div>
@@ -226,7 +226,7 @@ const UI = {
         infoBar.innerHTML = `
             <div><span class="label">Round:</span><span class="value">${this.state.round}/${this.state.maxRounds}</span></div>
             <div><span class="label">Phase:</span><span class="value">${this.state.phase}</span></div>
-            <div><span class="label">Turn:</span><span class="value">${this.state.players[this.state.currentPlayer]?.name || '-'}</span></div>
+            <div><span class="label">Turn:</span><span class="value">${GAME_DATA.CHARACTERS[this.state.players[this.state.currentPlayer]?.character]?.name || '-'}</span></div>
             <div><span class="label">Actions:</span><span class="value">${this.state.actionsRemaining}</span></div>
         `;
     },

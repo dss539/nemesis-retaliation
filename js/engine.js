@@ -337,7 +337,7 @@ class NemesisEngine {
 
         s.actionsRemaining = GAME_DATA.CONFIG.actionsPerTurn;
         s.turnStep = 'action1';
-        this.log(player.name + "'s turn begins");
+        this.log(this.charName(player) + "'s turn begins");
         this.notify('turnStart', { player: s.currentPlayer });
     }
 
@@ -426,7 +426,7 @@ class NemesisEngine {
                 }
                 if (player.oxygen === 0 && !player.suffocating) {
                     player.suffocating = true;
-                    this.log(player.name + ' is suffocating!');
+                    this.log(this.charName(player) + ' is suffocating!');
                 } else if (player.suffocating) {
                     // Already suffocating — next oxygen loss kills
                     this.killPlayer(player, 'suffocation');
@@ -437,7 +437,7 @@ class NemesisEngine {
             // Lose health if in room with fire
             if (room.markers.fire) {
                 this.damagePlayer(player, 1, 'fire');
-                this.log(player.name + ' takes 1 damage from fire');
+                this.log(this.charName(player) + ' takes 1 damage from fire');
             }
         }
 
@@ -547,7 +547,7 @@ class NemesisEngine {
             this.gainContamination(state, target);
             if (!target.larva) {
                 target.larva = true;
-                this.log(target.name + ' is infected with a Larva!');
+                this.log(this.charName(target) + ' is infected with a Larva!');
             }
             return;
         }
@@ -558,7 +558,7 @@ class NemesisEngine {
         if (!attackCard) return;
 
         const attack = attackCard[intruder.type] || attackCard.adult;
-        this.log(intruder.type + ' attacks ' + target.name + ': ' + attack.text);
+        this.log(intruder.type + ' attacks ' + this.charName(target) + ': ' + attack.text);
 
         // Resolve attack effect
         switch(attack.effect) {
@@ -596,7 +596,7 @@ class NemesisEngine {
                 this.gainContamination(state, target);
                 if (!target.larva) {
                     target.larva = true;
-                    this.log(target.name + ' is infected with a Larva!');
+                    this.log(this.charName(target) + ' is infected with a Larva!');
                 }
                 break;
         }
@@ -1009,7 +1009,7 @@ class NemesisEngine {
             this.explorationSequence(s, player, targetRoomId, params);
         }
 
-        this.log(player.name + ' moves to ' + (targetRoom ? targetRoom.id || targetRoomId : targetRoomId));
+        this.log(this.charName(player) + ' moves to ' + (targetRoom ? targetRoom.id || targetRoomId : targetRoomId));
         this.notify('playerMoved', { player: player.id, room: targetRoomId });
         return { success: true };
     }
@@ -1092,7 +1092,7 @@ class NemesisEngine {
         }
 
         state.explorationDiscard.push(exCardId);
-        this.log(player.name + ' discovers ' + newRoomId);
+        this.log(this.charName(player) + ' discovers ' + newRoomId);
         this.notify('roomDiscovered', { room: newRoomId, position: params.position });
     }
 
@@ -1271,7 +1271,7 @@ class NemesisEngine {
 
         // Roll shoot die (d8)
         const roll = 1 + Math.floor(Math.random() * 8);
-        this.log(player.name + ' shoots! Roll: ' + roll);
+        this.log(this.charName(player) + ' shoots! Roll: ' + roll);
 
         if (roll === 8 || roll <= targetIntruder.hits) {
             // Critical or enough hits
@@ -1306,7 +1306,7 @@ class NemesisEngine {
         // Roll burst die (d6)
         const roll = 1 + Math.floor(Math.random() * 6);
         const hits = roll === 6 ? 4 : roll; // 6 is both 4 hits + special
-        this.log(player.name + ' bursts! Roll: ' + roll + ' (' + hits + ' hits)');
+        this.log(this.charName(player) + ' bursts! Roll: ' + roll + ' (' + hits + ' hits)');
 
         // Apply hits to intruders in corridor
         const intrudersInCorridor = s.intruders.filter(i => i.location.type === 'corridor' && i.location.id === corridor.id);
@@ -1345,7 +1345,7 @@ class NemesisEngine {
 
         // Roll
         const roll = 1 + Math.floor(Math.random() * 8);
-        this.log(player.name + ' melee attacks! Roll: ' + roll);
+        this.log(this.charName(player) + ' melee attacks! Roll: ' + roll);
 
         if (roll === 8 || (roll >= 2 && roll <= 5 && roll <= target.hits)) {
             if (target.type === 'drone' && target.hits < 2) {
@@ -1398,7 +1398,7 @@ class NemesisEngine {
             s.itemDiscards[item.type].push(item.id);
         });
 
-        this.log(player.name + ' searches and finds ' + (GAME_DATA.ITEMS[picked.id]?.name || picked.id));
+        this.log(this.charName(player) + ' searches and finds ' + (GAME_DATA.ITEMS[picked.id]?.name || picked.id));
         return { success: true };
     }
 
@@ -1411,7 +1411,7 @@ class NemesisEngine {
         const itemData = GAME_DATA.ITEMS[item];
         if (!itemData) return { success: false, error: 'Unknown item' };
 
-        this.log(player.name + ' uses ' + itemData.name);
+        this.log(this.charName(player) + ' uses ' + itemData.name);
         this.notify('itemUsed', { player: player.id, item: item });
 
         // Simplified item effects
@@ -1421,7 +1421,7 @@ class NemesisEngine {
             player.oxygen = Math.min(player.oxygen + 3, 7);
         } else if (itemData.name === 'Duct Tape') {
             // Discard malfunction - UI will need to specify where
-            this.log(player.name + ' uses Duct Tape to discard a Malfunction');
+            this.log(this.charName(player) + ' uses Duct Tape to discard a Malfunction');
         }
 
         // Discard one-use items
@@ -1438,15 +1438,15 @@ class NemesisEngine {
         // Use a tactical gear token
         if (params.tokenType === 'medpack') {
             this.healPlayer(player, 2);
-            this.log(player.name + ' uses Medpack token');
+            this.log(this.charName(player) + ' uses Medpack token');
         } else if (params.tokenType === 'oxygen') {
             player.oxygen = Math.min(player.oxygen + 3, 7);
-            this.log(player.name + ' uses Oxygen token');
+            this.log(this.charName(player) + ' uses Oxygen token');
         } else if (params.tokenType === 'grenade') {
             // Roll burst + 2 on adjacent corridor
             const s = this.state;
             const roll = 1 + Math.floor(Math.random() * 6) + 2;
-            this.log(player.name + ' throws Grenade (' + roll + ' hits)');
+            this.log(this.charName(player) + ' throws Grenade (' + roll + ' hits)');
             // Apply to corridor (UI will specify)
         }
         return { success: true };
@@ -1467,7 +1467,7 @@ class NemesisEngine {
 
         // Resolve room effect
         const effect = GAME_DATA.ROOM_EFFECTS[room.id];
-        this.log(player.name + ' uses ' + roomData.name);
+        this.log(this.charName(player) + ' uses ' + roomData.name);
         this.notify('roomUsed', { player: player.id, room: room.id });
 
         // Simplified room effects
@@ -1476,7 +1476,7 @@ class NemesisEngine {
                 if (s.antiAircraft.lander.status === 'landed') {
                     player.inLander = true;
                     s.antiAircraft.lander.characters.push(player.id);
-                    this.log(player.name + ' boards the Lander');
+                    this.log(this.charName(player) + ' boards the Lander');
                 } else {
                     // Gain tactical gear tokens
                     if (s.tokenPool.ammo > 0) { this.addTacticalGear(player, 'ammo'); s.tokenPool.ammo--; }
@@ -1491,10 +1491,10 @@ class NemesisEngine {
             case 'surgeryRoom':
                 if (player.seriousWounds.length > 0) {
                     player.seriousWounds.pop();
-                    this.log(player.name + ' discards a Serious Wound');
+                    this.log(this.charName(player) + ' discards a Serious Wound');
                 } else if (player.larva) {
                     player.larva = false;
-                    this.log(player.name + ' removes Larva');
+                    this.log(this.charName(player) + ' removes Larva');
                 }
                 break;
             case 'lifeSupportControlA':
@@ -1506,13 +1506,13 @@ class NemesisEngine {
                 break;
             case 'serverRoom':
                 player.hasDataToken = true;
-                this.log(player.name + ' gains a Data token');
+                this.log(this.charName(player) + ' gains a Data token');
                 break;
             case 'nest':
                 if (s.nest.eggs > 0 && !s.nest.destroyed) {
                     s.nest.eggs--;
                     this.addItemToPlayer(player, 'egg');
-                    this.log(player.name + ' takes an Egg');
+                    this.log(this.charName(player) + ' takes an Egg');
                     if (s.nest.eggs === 0) {
                         s.nest.destroyed = true;
                         this.log('The Nest is destroyed!');
@@ -1536,7 +1536,7 @@ class NemesisEngine {
                 const intrudersInRoom = s.intruders.filter(i => i.location.type === 'room' && i.location.id === 'escapeShuttle');
                 if (intrudersInRoom.length === 0) {
                     player.hasEscaped = true;
-                    this.log(player.name + ' escapes via Escape Shuttle!');
+                    this.log(this.charName(player) + ' escapes via Escape Shuttle!');
                 }
                 break;
             case 'hibernatorium':
@@ -1545,7 +1545,7 @@ class NemesisEngine {
                     const intruders = s.intruders.filter(i => i.location.type === 'room' && i.location.id === 'hibernatorium');
                     if (intruders.length === 0) {
                         player.hasHibernated = true;
-                        this.log(player.name + ' Hibernates');
+                        this.log(this.charName(player) + ' Hibernates');
                     }
                 }
                 break;
@@ -1568,7 +1568,7 @@ class NemesisEngine {
             return { success: false, error: 'Target not in same room' };
         }
         // Trade is handled by UI - engine just confirms
-        this.log(player.name + ' trades with ' + targetPlayer.name);
+        this.log(this.charName(player) + ' trades with ' + this.charName(targetPlayer));
         this.notify('tradeInitiated', { player: player.id, target: params.targetPlayer });
         return { success: true };
     }
@@ -1600,7 +1600,7 @@ class NemesisEngine {
         // Execute robot action
         const robotCard = GAME_DATA.ROBOTS.find(r => r.id === s.robot.card);
         if (robotCard) {
-            this.log(player.name + ' activates Robot: ' + robotCard.name);
+            this.log(this.charName(player) + ' activates Robot: ' + robotCard.name);
             // Simplified - just move robot or perform effect
             if (params.moveTo) {
                 s.robot.location = params.moveTo;
@@ -1618,7 +1618,7 @@ class NemesisEngine {
             player.contaminationDiscard.push(c);
         });
         player.contaminationInHand = [];
-        this.log(player.name + ' passes');
+        this.log(this.charName(player) + ' passes');
         this.notify('playerPassed', { player: player.id });
         return { success: true };
     }
@@ -1638,7 +1638,7 @@ class NemesisEngine {
         const s = this.state;
         this.drawActionCard(player);
         this.drawActionCard(player);
-        this.log(player.name + ' rests and draws 2 cards');
+        this.log(this.charName(player) + ' rests and draws 2 cards');
         // Infection check
         this.infectionProcedure(s, player);
         return { success: true };
@@ -1653,7 +1653,7 @@ class NemesisEngine {
         corridor.reinforced = true;
         corridor.value = 0; // Reinforced corridors have value 0
         if (corridor.noise) { corridor.noise = false; s.tokenPool.noise++; }
-        this.log(player.name + ' reinforces a corridor');
+        this.log(this.charName(player) + ' reinforces a corridor');
         return { success: true };
     }
 
@@ -1661,7 +1661,7 @@ class NemesisEngine {
         // Combat Engineer: drill a new corridor
         const s = this.state;
         // Simplified - create a new exploration opportunity
-        this.log(player.name + ' drills a new corridor');
+        this.log(this.charName(player) + ' drills a new corridor');
         this.notify('drillComplete', { player: player.id });
         return { success: true };
     }
@@ -1677,7 +1677,7 @@ class NemesisEngine {
             return { success: false, error: 'Target must be lower rank' };
         }
         // Target performs an extra move action
-        this.log(player.name + ' commands ' + target.name + ' to move');
+        this.log(this.charName(player) + ' commands ' + this.charName(target) + ' to move');
         this.actionMove(target, { targetRoom: params.targetRoom });
         return { success: true };
     }
@@ -1701,7 +1701,7 @@ class NemesisEngine {
                 // Armor absorbs - discard armor and reduce damage
                 player.armor = null;
                 // Armor prevents damage to the heavily injured section
-                this.log(player.name + "'s armor breaks");
+                this.log(this.charName(player) + "'s armor breaks");
                 // Continue applying remaining damage
             }
         }
@@ -1725,7 +1725,7 @@ class NemesisEngine {
         player.handSlots = [null, null];
         player.armor = null;
         player.tacticalBelt = [null, null, null, null];
-        this.log(player.name + ' dies (' + cause + ')');
+        this.log(this.charName(player) + ' dies (' + cause + ')');
         this.notify('playerDied', { player: player.id, cause });
     }
 
@@ -1753,7 +1753,7 @@ class NemesisEngine {
         const woundId = this.drawSeriousWound(state);
         if (woundId) {
             player.seriousWounds.push(woundId);
-            this.log(player.name + ' gains a Serious Wound');
+            this.log(this.charName(player) + ' gains a Serious Wound');
         }
     }
 
@@ -1902,7 +1902,7 @@ class NemesisEngine {
         });
         if (infected && !player.larva) {
             player.larva = true;
-            this.log(player.name + ' is infected with a Larva!');
+            this.log(this.charName(player) + ' is infected with a Larva!');
         }
         // Move all contamination to discard
         player.contaminationInHand.forEach(c => player.contaminationDiscard.push(c));
@@ -1974,7 +1974,7 @@ class NemesisEngine {
                 .find(o => o.id === player.chosenObjective);
             if (obj && this.checkObjective(s, player, obj)) {
                 s.winners.push(player.id);
-                this.log(player.name + ' wins! Objective: ' + obj.name);
+                this.log(this.charName(player) + ' wins! Objective: ' + obj.name);
             }
         });
 
@@ -2021,6 +2021,11 @@ class NemesisEngine {
             default:
                 return false;
         }
+    }
+
+    charName(player) {
+        const cd = GAME_DATA.CHARACTERS[player.character];
+        return cd?.name || player.character || player.name || '?';
     }
 
     log(message) {

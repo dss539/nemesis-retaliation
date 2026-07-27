@@ -192,12 +192,6 @@ body {
     cursor: grabbing;
 }
 
-#map-pan-surface {
-    position: relative;
-    min-width: 100%;
-    min-height: 100%;
-}
-
 #map-zoom-controls {
     display: flex;
     align-items: center;
@@ -269,13 +263,12 @@ body {
 
 #game-canvas {
     display: block;
-    position: absolute;
-    margin: 0;
+    margin: auto;
     border: 1px solid #243a45;
     border-radius: 2px;
     background: #0d1117;
     box-shadow: 0 14px 38px rgba(0,0,0,0.48), inset 0 0 28px rgba(36,85,100,0.08);
-    cursor: inherit;
+    cursor: default;
     touch-action: pan-x pan-y;
 }
 
@@ -316,7 +309,7 @@ body {
     margin-bottom: 8px;
 }
 
-.player-board-mini .char-name {
+.player-board-mini .player-name {
     font-weight: bold;
     color: var(--accent);
     font-size: 1em;
@@ -516,8 +509,8 @@ body {
     flex: 0 0 48px;
     filter: drop-shadow(0 0 7px rgba(91,183,203,.25));
 }
-.player-board-mini .char-name { margin-bottom: 1px; }
-.player-board-mini .char-class {
+.player-board-mini .player-name { margin-bottom: 1px; }
+.player-board-mini .character-name {
     color: var(--text-secondary);
     font-size: .72em;
     font-weight: 700;
@@ -866,7 +859,7 @@ body {
     .modal-card { min-width: 120px; padding: 12px; }
 
     .player-board-mini { min-width: 180px; }
-    .player-board-mini .char-name { font-size: 0.85em; }
+    .player-board-mini .player-name { font-size: 0.85em; }
     .player-board-mini .stat-row { font-size: 0.75em; }
 
     #game-log { font-size: 0.75em; max-height: 250px; }
