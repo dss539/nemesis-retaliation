@@ -6,6 +6,7 @@
     <title>Nemesis: Retaliation - Digital Edition</title>
     <link rel="stylesheet" href="css/style.css">
     <script src="https://unpkg.com/peerjs@1.5.4/dist/peerjs.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 </head>
 <body>
     <div id="app">
@@ -23,6 +24,10 @@
                     <p>Share this code with your friends:</p>
                     <div id="host-code" class="code-display">Generating...</div>
                     <button id="copy-code-btn" class="btn btn-secondary" style="margin-bottom:12px;width:100%" onclick="copyGameCode()">📋 Copy Code</button>
+                    <div id="join-qr-panel" class="join-qr-panel" aria-live="polite">
+                        <p>Scan to join this game:</p>
+                        <div id="join-qr-code" aria-label="QR code for joining this game"></div>
+                    </div>
                     <div id="player-list">
                         <h3>Players (0/5)</h3>
                         <ul id="lobby-players"></ul>

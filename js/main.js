@@ -21,6 +21,7 @@ function createHost() {
         document.getElementById('host-name-panel').classList.add('hidden');
         document.getElementById('host-panel').classList.remove('hidden');
         document.getElementById('host-code').textContent = code;
+        renderJoinQrCode(code);
 
         // Create engine and game state (lobby state)
         engine = new NemesisEngine();
@@ -189,8 +190,38 @@ function fallbackCopy(text) {
     document.body.removeChild(ta);
 }
 
+function gameJoinUrl(code) {
+    const url = new URL(window.location.href);
+    url.search = '';
+    url.searchParams.set('code', code);
+    return url.toString();
+}
+
+function renderJoinQrCode(code) {
+    const target = document.getElementById('join-qr-code');
+    if (!target) return;
+    target.replaceChildren();
+    if (typeof QRCode === 'undefined') {
+        target.textContent = 'QR code unavailable';
+        return;
+    }
+    new QRCode(target, {
+        text: gameJoinUrl(code),
+        width: 176,
+        height: 176,
+        colorDark: '#e7edf2',
+        colorLight: '#0b1117',
+        correctLevel: QRCode.CorrectLevel.M
+    });
+}
+
 // === INITIALIZATION ===
 window.addEventListener('DOMContentLoaded', () => {
     console.log('Nemesis: Retaliation - Digital Edition loaded');
-    // Entry point
+    const code = new URLSearchParams(window.location.search).get('code')?.trim().toUpperCase();
+    if (code) {
+        showJoinPanel();
+        document.getElementById('join-code').value = code;
+        document.getElementById('player-name').focus();
+    }
 });
