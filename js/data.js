@@ -387,18 +387,15 @@ QUEEN_HEALTH_CARDS: [
 CONFIG: {
     maxRounds: 14,
     maxPlayers: 5,
-    // Fixed tactical map. Room slots follow the physical mat's stepped central
-    // field rather than filling a rectangular 7×5 grid. A room may connect to
-    // an immediately neighboring valid slot through any compass graph edge.
-    boardBounds: { minX: 0, maxX: 6, minY: 0, maxY: 4 },
+    // Fixed tactical map: five bays on each even row, four centered bays on
+    // each odd row. The five rows therefore expose exactly 23 room slots.
+    boardBounds: { minX: 0, maxX: 4, minY: 0, maxY: 4 },
     boardSlots: [
-        // The Landing Zone occupies the original upper-left entry bay; the
-        // remaining perimeter steps inward rather than forming a full rectangle.
-        { x: 0, y: 0 }, { x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 }, { x: 5, y: 0 },
-        { x: 0, y: 1 }, { x: 1, y: 1 }, { x: 2, y: 1 }, { x: 3, y: 1 }, { x: 4, y: 1 }, { x: 5, y: 1 }, { x: 6, y: 1 },
-        { x: 0, y: 2 }, { x: 1, y: 2 }, { x: 2, y: 2 }, { x: 3, y: 2 }, { x: 4, y: 2 }, { x: 5, y: 2 }, { x: 6, y: 2 },
-        { x: 0, y: 3 }, { x: 1, y: 3 }, { x: 2, y: 3 }, { x: 3, y: 3 }, { x: 4, y: 3 }, { x: 5, y: 3 }, { x: 6, y: 3 },
-        { x: 1, y: 4 }, { x: 2, y: 4 }, { x: 3, y: 4 }, { x: 4, y: 4 }, { x: 5, y: 4 }
+        { x: 0, y: 0 }, { x: 1, y: 0 }, { x: 2, y: 0 }, { x: 3, y: 0 }, { x: 4, y: 0 },
+        { x: 0, y: 1 }, { x: 1, y: 1 }, { x: 2, y: 1 }, { x: 3, y: 1 },
+        { x: 0, y: 2 }, { x: 1, y: 2 }, { x: 2, y: 2 }, { x: 3, y: 2 }, { x: 4, y: 2 },
+        { x: 0, y: 3 }, { x: 1, y: 3 }, { x: 2, y: 3 }, { x: 3, y: 3 },
+        { x: 0, y: 4 }, { x: 1, y: 4 }, { x: 2, y: 4 }, { x: 3, y: 4 }, { x: 4, y: 4 }
     ],
     // Hex-grid directions. Flat-top hexes have no direct north or south neighbor.
     directions: [

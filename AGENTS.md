@@ -25,7 +25,7 @@ A faithful web-based digital adaptation of the board game Nemesis: Retaliation b
 
 ## Key Design Decisions
 - Privacy: display-layer only, NOT state sanitization. Host needs full state for engine. Each browser's UI only renders its own player's private info.
-- Canvas: renders at devicePixelRatio for crisp text. Base coordinate space 1200x900. The fixed, mat-derived field has 32 valid room bays in a stepped perimeter rather than a full rectangle; each bay is a regular 110px-wide flat-top hexagon. Odd rows are offset by half a bay; fixed spacing reserves room for all six hex-edge corridors. Click handling uses the same hexagonal geometry.
+- Canvas: renders at devicePixelRatio for crisp text. Base coordinate space 1200x900. The fixed, mat-derived field has 23 valid room bays arranged 5/4/5/4/5 by row; each bay is a regular 110px-wide flat-top hexagon. Odd rows are offset by half a bay; fixed spacing reserves room for all six hex-edge corridors. Click handling uses the same hexagonal geometry.
 - Map interaction: continuous mobile pinch zoom; 10%-step buttons and desktop wheel zoom; mobile/desktop camera panning includes generous off-board slack while retaining a recovery strip; independently scrollable board/card/player/log panels
 - Exploration: XCOM-style board targeting. Legal connected rooms and in-bounds empty hex neighbors in `NE`, `E`, `SE`, `SW`, `W`, and `NW` highlight directly on the map; invalid, occupied, closed-door, and off-board destinations are omitted. Rooms index exits by hex direction, and corridors store their direction from both endpoints.
 - Text labels for all game state (fire, broken, secure count, intruder types, noise) — never color alone

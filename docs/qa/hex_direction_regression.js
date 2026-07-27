@@ -6,6 +6,16 @@ vm.runInThisContext(fs.readFileSync('js/data.js', 'utf8') + ';globalThis.GAME_DA
 vm.runInThisContext(fs.readFileSync('js/engine.js', 'utf8') + ';globalThis.NemesisEngine = NemesisEngine;');
 vm.runInThisContext(fs.readFileSync('js/render.js', 'utf8') + ';globalThis.Renderer = Renderer;');
 
+const slotRows = new Map();
+for (const slot of GAME_DATA.CONFIG.boardSlots) {
+    slotRows.set(slot.y, (slotRows.get(slot.y) || 0) + 1);
+}
+const expectedRowCounts = [5, 4, 5, 4, 5];
+if (GAME_DATA.CONFIG.boardSlots.length !== 23 ||
+    JSON.stringify([...slotRows.values()]) !== JSON.stringify(expectedRowCounts)) {
+    throw new Error('Expected a 5/4/5/4/5 map (23 slots); got ' + JSON.stringify([...slotRows.entries()]));
+}
+
 const expectedDirections = ['NE', 'E', 'SE', 'SW', 'W', 'NW'];
 const directions = GAME_DATA.CONFIG.directions.map(direction => direction.id);
 if (JSON.stringify(directions) !== JSON.stringify(expectedDirections)) {
@@ -39,6 +49,12 @@ const rejectedSouth = engine.actionMove(player, {
 });
 if (rejectedSouth.success || !rejectedSouth.error?.includes('direction')) {
     throw new Error('Deprecated S direction was not rejected: ' + JSON.stringify(rejectedSouth));
+}
+const rejectedOmittedOddSlot = engine.actionMove(player, {
+    targetRoom: 'explore_omitted_odd_slot', explore: true, position: { x: 4, y: 1 }, direction: 'SE'
+});
+if (rejectedOmittedOddSlot.success || !rejectedOmittedOddSlot.error?.includes('off the board')) {
+    throw new Error('Omitted fifth odd-row slot was not rejected: ' + JSON.stringify(rejectedOmittedOddSlot));
 }
 const acceptedSE = engine.actionMove(player, {
     targetRoom: 'explore_valid_se', explore: true, position: { x: 0, y: 1 }, direction: 'SE'
