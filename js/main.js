@@ -57,9 +57,10 @@ function createHost() {
             }
         };
 
-        // Wire click-to-copy on the code display
+        // Wire lobby controls
         const hostCodeEl = document.getElementById('host-code');
         hostCodeEl.onclick = () => copyGameCode();
+        document.getElementById('num-players').onchange = updateHostPlayerCount;
 
         updateLobbyPlayers({
             players: [{ name: name, character: engine.state.players[0].character, connected: true }],
@@ -110,6 +111,25 @@ function joinGame() {
     };
 }
 
+function updateHostPlayerCount() {
+    if (!engine || engine.state.phase !== 'setup') return;
+    const joinedPlayers = engine.state.players.filter(player => player.hasJoined);
+    const select = document.getElementById('num-players');
+    if (joinedPlayers.length > 1) {
+        select.value = String(engine.state.numPlayers);
+        return;
+    }
+
+    const numPlayers = Number(select.value);
+    const hostName = engine.state.players[0].name;
+    engine.createGame([hostName], numPlayers);
+    updateLobbyPlayers({
+        players: [{ name: hostName, character: engine.state.players[0].character, connected: true }],
+        numPlayers
+    });
+    NemesisNetwork.broadcastLobbyState();
+}
+
 function updateLobbyPlayers(lobby) {
     const list = document.getElementById('lobby-players');
     if (!list) return;
@@ -117,46 +137,31 @@ function updateLobbyPlayers(lobby) {
     const count = lobby.players.length;
     const total = lobby.numPlayers;
     const rosterCount = document.getElementById('roster-count');
-    const statusCopy = document.getElementById('roster-status-copy');
-    if (rosterCount) rosterCount.textContent = `${count} / ${total}`;
-    if (statusCopy) statusCopy.textContent = count < total ? `Waiting for ${total - count} operator${total - count === 1 ? '' : 's'}` : 'Fireteam ready';
+    const playerCountSelect = document.getElementById('num-players');
+    if (rosterCount) rosterCount.textContent = `${count}/${total}`;
+    if (playerCountSelect) playerCountSelect.disabled = count > 1;
 
-    lobby.players.forEach((p, index) => {
+    lobby.players.forEach((player, index) => {
         const li = document.createElement('li');
-        const characterName = p.character ? (GAME_DATA.CHARACTERS[p.character]?.name || p.character) : 'Role pending';
-        li.innerHTML = `<span><strong>${escapeLobbyText(p.name)}</strong><small>${escapeLobbyText(characterName)}${index === 0 ? ' · Host' : ''}</small></span>`;
+        const characterName = player.character ? (GAME_DATA.CHARACTERS[player.character]?.name || player.character) : '';
+        const details = [characterName, index === 0 ? 'Host' : ''].filter(Boolean).join(' · ');
+        li.innerHTML = `<span><strong>${escapeLobbyText(player.name)}</strong>${details ? `<small>${escapeLobbyText(details)}</small>` : ''}</span>`;
         list.appendChild(li);
     });
 
     for (let index = count; index < total; index++) {
         const li = document.createElement('li');
         li.className = 'empty-slot';
-        li.innerHTML = `<span><strong>Open slot ${index + 1}</strong><small>Waiting for connection</small></span>`;
+        li.textContent = 'Waiting…';
         list.appendChild(li);
     }
 
     const startBtn = document.getElementById('host-start-btn');
-    const readiness = document.getElementById('launch-readiness');
     if (startBtn) {
-        if (count < total) {
-            startBtn.textContent = 'Waiting for players...';
-            startBtn.classList.add('waiting');
-            if (readiness) {
-                readiness.classList.remove('ready');
-                readiness.querySelector('.readiness-icon').textContent = '!';
-                readiness.querySelector('strong').textContent = 'Awaiting fireteam';
-                readiness.querySelector('small').textContent = 'The mission can begin once every slot is filled.';
-            }
-        } else {
-            startBtn.textContent = 'Launch Mission';
-            startBtn.classList.remove('waiting');
-            if (readiness) {
-                readiness.classList.add('ready');
-                readiness.querySelector('.readiness-icon').textContent = '✓';
-                readiness.querySelector('strong').textContent = 'Fireteam ready';
-                readiness.querySelector('small').textContent = 'All operators are connected and standing by.';
-            }
-        }
+        const waiting = count < total;
+        startBtn.disabled = waiting;
+        startBtn.classList.toggle('waiting', waiting);
+        startBtn.textContent = 'Start Game';
     }
 }
 

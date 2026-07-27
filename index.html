@@ -28,86 +28,42 @@
                 </div>
                 <div id="host-panel" class="hidden panel glass-panel">
                     <header class="host-panel-header">
-                        <div>
-                            <p class="host-eyebrow">Multiplayer deployment</p>
-                            <h2>Host Game</h2>
-                            <p class="host-intro">Invite your fireteam, confirm the roster, and launch when every operator is connected.</p>
-                        </div>
-                        <div class="host-network-status" role="status">
-                            <span class="status-pulse" aria-hidden="true"></span>
-                            Lobby online
-                        </div>
+                        <h2>Host Game</h2>
+                        <span class="host-network-status" role="status" aria-label="Connected" title="Connected"></span>
                     </header>
 
                     <div class="host-panel-grid">
-                        <section class="host-section host-invite-section" aria-labelledby="invite-heading">
-                            <div class="host-section-heading">
-                                <span class="section-index">01</span>
-                                <div>
-                                    <h3 id="invite-heading">Invite your squad</h3>
-                                    <p>Share the access code or scan locally.</p>
-                                </div>
+                        <section class="host-invite-section" aria-labelledby="game-code-label">
+                            <span id="game-code-label" class="field-label">Game code</span>
+                            <div class="code-row">
+                                <div id="host-code" class="code-display" title="Click to copy">Generating...</div>
+                                <button id="copy-code-btn" class="icon-copy-btn" onclick="copyGameCode()" title="Copy code" aria-label="Copy game code">⧉</button>
                             </div>
-
-                            <div class="invite-layout">
-                                <div class="invite-details">
-                                    <span class="field-label">Access code</span>
-                                    <div class="code-row">
-                                        <div id="host-code" class="code-display" title="Click to copy">Generating...</div>
-                                        <button id="copy-code-btn" class="icon-copy-btn" onclick="copyGameCode()" title="Copy code" aria-label="Copy access code"><span aria-hidden="true">⧉</span><span class="copy-label">Copy</span></button>
-                                    </div>
-                                    <span class="field-label">Direct link</span>
-                                    <div class="share-url-row">
-                                        <a id="join-url" class="share-url-link" href="#" target="_blank" rel="noopener">Generating...</a>
-                                        <button id="copy-url-btn" class="icon-copy-btn compact" onclick="copyJoinUrl()" title="Copy URL" aria-label="Copy invitation URL">⧉</button>
-                                    </div>
-                                    <p class="invite-note"><span aria-hidden="true">⌁</span> No account required. Players connect directly to this host.</p>
-                                </div>
+                            <div class="join-options">
                                 <div id="join-qr-panel" class="join-qr-panel" aria-live="polite">
                                     <div id="join-qr-code" aria-label="QR code for joining this game"></div>
-                                    <div>
-                                        <strong>Scan to join</strong>
-                                        <span>Open on a second device</span>
-                                    </div>
+                                    <span>Scan to join</span>
                                 </div>
+                                <button id="copy-url-btn" class="copy-link-btn" onclick="copyJoinUrl()">Copy link</button>
+                                <a id="join-url" class="hidden" href="#" target="_blank" rel="noopener">Generating...</a>
                             </div>
                         </section>
 
-                        <section class="host-section host-roster-section" aria-labelledby="roster-heading">
-                            <div class="host-section-heading roster-heading-row">
-                                <span class="section-index">02</span>
-                                <div>
-                                    <h3 id="roster-heading">Fireteam roster</h3>
-                                    <p id="roster-status-copy">Waiting for operators</p>
-                                </div>
-                                <div class="squad-size-control">
-                                    <label for="num-players">Squad size</label>
-                                    <select id="num-players">
-                                        <option value="1">1 · Solo</option>
-                                        <option value="2" selected>2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                    </select>
-                                </div>
+                        <section class="host-roster-section" aria-labelledby="roster-heading">
+                            <div class="roster-header">
+                                <h3 id="roster-heading">Players <span id="roster-count">0/2</span></h3>
+                                <select id="num-players" aria-label="Number of players">
+                                    <option value="2" selected>2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
                             </div>
-                            <div id="player-list">
-                                <div class="roster-meta">
-                                    <h4>Connected operators</h4>
-                                    <span id="roster-count">0 / 2</span>
-                                </div>
-                                <ul id="lobby-players"></ul>
-                            </div>
+                            <ul id="lobby-players"></ul>
                         </section>
                     </div>
 
-                    <footer class="host-panel-footer">
-                        <div class="launch-readiness" id="launch-readiness">
-                            <span class="readiness-icon" aria-hidden="true">!</span>
-                            <span><strong>Awaiting fireteam</strong><small>The mission can begin once every slot is filled.</small></span>
-                        </div>
-                        <button id="host-start-btn" class="btn btn-primary host-start-btn" onclick="startGame()">Waiting for players...</button>
-                    </footer>
+                    <button id="host-start-btn" class="btn btn-primary host-start-btn" onclick="startGame()" disabled>Start Game</button>
                 </div>
                 <div id="join-panel" class="hidden panel glass-panel">
                     <h2>Join Game</h2>

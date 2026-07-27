@@ -746,6 +746,192 @@ body {
     filter: saturate(0.45);
 }
 
+/* Minimal Host Game layout */
+.lobby-container.host-active { max-width: 680px; }
+.lobby-container.host-active .lobby-header { margin-bottom: 20px; }
+
+#host-panel {
+    width: 100%;
+    padding: 24px;
+    overflow: hidden;
+    border: 1px solid rgba(95, 184, 212, 0.16);
+    border-radius: 12px;
+    background: rgba(10, 17, 28, 0.94);
+    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.42);
+}
+
+#host-panel::before { width: 64px; }
+
+.host-panel-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 0 20px;
+    border-bottom: 1px solid var(--border);
+}
+
+#host-panel .host-panel-header h2 {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    color: var(--text-primary);
+    font-size: 1rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.host-network-status {
+    width: 8px;
+    height: 8px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: var(--green);
+    box-shadow: 0 0 10px rgba(62, 180, 134, 0.55);
+}
+
+.host-panel-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 210px;
+    gap: 28px;
+    padding: 24px 0;
+}
+
+.host-invite-section {
+    min-width: 0;
+    padding: 0 28px 0 0;
+    border-right: 1px solid var(--border);
+}
+
+.field-label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--text-secondary);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.code-row {
+    display: flex;
+    gap: 8px;
+    margin: 0;
+}
+
+.code-display {
+    flex: 1;
+    min-width: 0;
+    margin: 0;
+    padding: 14px 12px;
+    border: 1px solid rgba(62, 180, 134, 0.26);
+    border-radius: 6px;
+    background: rgba(2, 7, 12, 0.7);
+    color: #6ce0b4;
+    font: 800 1.75rem/1 'Courier New', monospace;
+    letter-spacing: 0.18em;
+    text-align: center;
+}
+
+.icon-copy-btn {
+    width: 48px;
+    min-width: 48px;
+    padding: 0;
+    border: 1px solid var(--border-light);
+    border-radius: 6px;
+    background: transparent;
+    color: var(--text-secondary);
+    font-size: 1rem;
+}
+
+.join-options {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-top: 18px;
+}
+
+#host-panel .join-qr-panel {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: var(--text-secondary);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+#join-qr-code { padding: 4px; }
+#join-qr-code img,
+#join-qr-code canvas { width: 68px !important; height: 68px !important; }
+
+.copy-link-btn {
+    padding: 8px 0;
+    border: 0;
+    border-bottom: 1px solid var(--border-light);
+    background: transparent;
+    color: var(--text-secondary);
+    font: inherit;
+    font-size: 0.72rem;
+    cursor: pointer;
+}
+.copy-link-btn:hover { color: var(--tactical); border-color: var(--tactical); }
+
+.host-roster-section { min-width: 0; }
+.roster-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+}
+.roster-header h3 {
+    color: var(--text-primary);
+    font-size: 0.76rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+#roster-count { margin-left: 5px; color: var(--text-dim); font: inherit; }
+#host-panel .roster-header select {
+    width: 56px;
+    margin: 0;
+    padding: 6px 8px;
+    font-size: 0.78rem;
+}
+
+#lobby-players li {
+    min-height: 42px;
+    margin: 0 0 6px;
+    padding: 8px 10px;
+    border: 1px solid var(--border);
+    border-left: 0;
+    border-radius: 5px;
+    background: rgba(20, 29, 46, 0.36);
+}
+#lobby-players li::before { width: 6px; height: 6px; box-shadow: none; }
+#lobby-players li.empty-slot {
+    justify-content: center;
+    border-style: dashed;
+    background: transparent;
+    color: var(--text-dim);
+    font-size: 0.72rem;
+}
+#lobby-players li.empty-slot::before { display: none; }
+
+.host-start-btn {
+    width: 100%;
+    min-width: 0;
+    margin: 0;
+    padding: 13px 24px;
+    font-size: 0.8rem;
+}
+.host-start-btn.waiting { opacity: 0.32; filter: grayscale(0.5); }
+
 /* Game layout */
 #game-layout {
     display: flex;
@@ -1412,11 +1598,11 @@ body {
         max-width: 95vw;
     }
 
-    .lobby-container.host-active { max-width: 720px; }
+    .lobby-container.host-active { max-width: 680px; }
     .lobby-container.host-active .lobby-header { margin-bottom: 18px; }
-    .host-panel-grid { grid-template-columns: 1fr; }
-    .host-invite-section { border-right: 0; border-bottom: 1px solid rgba(95, 184, 212, 0.12); }
-    .host-panel-header, .host-section, .host-panel-footer { padding-left: 22px; padding-right: 22px; }
+    .host-panel-grid { grid-template-columns: minmax(0, 1fr) 210px; }
+    .host-invite-section { border-right: 1px solid var(--border); border-bottom: 0; }
+    .host-panel-header { padding: 0 0 20px; }
 
     .title { font-size: 2.2em; letter-spacing: 6px; }
     .subtitle { font-size: 1em; letter-spacing: 8px; }
@@ -1430,12 +1616,21 @@ body {
     .btn { padding: 14px 24px; font-size: 1em; }
 
     .panel { padding: 16px; }
-    #host-panel { padding: 0; }
+    #host-panel { padding: 24px; }
 
     .code-display { font-size: 1.65rem; letter-spacing: 0.17em; padding: 15px 8px; }
 
     /* Game log: taller on mobile */
     #game-log { max-height: 300px; }
+}
+
+@media (max-width: 650px) {
+    .host-panel-grid { grid-template-columns: 1fr; gap: 22px; }
+    .host-invite-section {
+        padding: 0 0 22px;
+        border-right: 0;
+        border-bottom: 1px solid var(--border);
+    }
 }
 
 /* Small phones */
@@ -1444,20 +1639,13 @@ body {
     .lobby-container { padding: 0; max-width: 100%; }
     .lobby-header { margin-bottom: 26px; }
     .lobby-container.host-active .lobby-header { margin-bottom: 14px; }
-    .host-panel-header { padding-top: 22px; flex-direction: column; gap: 14px; }
-    .host-network-status { margin-top: 0; }
-    .host-intro { font-size: 0.8rem; }
-    .host-section { padding-top: 22px; padding-bottom: 24px; }
-    .invite-layout { grid-template-columns: 1fr; }
-    #host-panel .join-qr-panel { flex-direction: row; justify-content: flex-start; text-align: left; }
-    #join-qr-code img, #join-qr-code canvas { width: 92px !important; height: 92px !important; }
-    .roster-heading-row { flex-wrap: wrap; }
-    .squad-size-control { width: 100%; margin: 8px 0 0 39px; }
-    #host-panel .squad-size-control select { width: 100%; }
-    .host-panel-footer { align-items: stretch; flex-direction: column; gap: 16px; }
+    #host-panel { padding: 20px; }
+    .host-panel-header { padding: 0 0 18px; flex-direction: row; gap: 0; }
+    .host-panel-grid { padding: 20px 0; }
+    #host-panel .join-qr-panel { justify-content: flex-start; text-align: left; }
+    #join-qr-code img, #join-qr-code canvas { width: 68px !important; height: 68px !important; }
     .host-start-btn { width: 100%; min-width: 0; }
-    .copy-label { display: none; }
-    .icon-copy-btn { min-width: 44px; padding: 0 10px; }
+    .icon-copy-btn { min-width: 46px; padding: 0; }
 
     #game-info-bar { font-size: 0.7em; gap: 4px; }
 
