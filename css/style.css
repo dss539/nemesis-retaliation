@@ -209,9 +209,16 @@ body {
     position: relative;
     overscroll-behavior: contain;
     -webkit-overflow-scrolling: touch;
+    /* Preserve panning without drawing scrollbar chrome. */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
     /* One finger pans natively; Renderer consumes two-finger pinches. */
     touch-action: pan-x pan-y;
     cursor: grab;
+}
+
+#canvas-wrapper::-webkit-scrollbar {
+    display: none;
 }
 
 #canvas-wrapper.is-mouse-panning {
