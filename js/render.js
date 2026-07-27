@@ -39,9 +39,79 @@ const Renderer = {
         });
         this.canvas.addEventListener('mousemove', (e) => this.handleMouseMove(e));
 
-        // Browser-synthesized clicks handle taps. Avoid preventing touchstart:
-        // one-finger drags must remain available to pan the overflow canvas.
+        // Touch tap detection: distinguish a tap (select target) from a pan
+        // (scroll the board). The browser's synthesized click is unreliable
+        // when touch-action allows panning — we detect taps manually.
         const wrapper = document.getElementById('canvas-wrapper');
+        this._touchSession = null;
+        this._lastTapTime = 0;
+        this._lastTapPos = null;
+
+        const onTouchStart = (e) => {
+            if (e.touches.length !== 1) {
+                this._touchSession = null;
+                return;
+            }
+            const t = e.touches[0];
+            this._touchSession = {
+                startX: t.clientX,
+                startY: t.clientY,
+                startScrollX: wrapper.scrollLeft,
+                startScrollY: wrapper.scrollTop,
+                moved: false,
+                startTime: Date.now()
+            };
+        };
+
+        const onTouchMove = (e) => {
+            if (!this._touchSession || e.touches.length !== 1) return;
+            const t = e.touches[0];
+            const dx = t.clientX - this._touchSession.startX;
+            const dy = t.clientY - this._touchSession.startY;
+            if (Math.hypot(dx, dy) >= 8) {
+                this._touchSession.moved = true;
+            }
+        };
+
+        const onTouchEnd = (e) => {
+            if (!this._touchSession) return;
+            const session = this._touchSession;
+            this._touchSession = null;
+
+            // If the finger moved >8px it was a pan, not a tap
+            if (session.moved) return;
+            // If too much time elapsed, it was a long-press, not a tap
+            if (Date.now() - session.startTime > 400) return;
+
+            // Double-tap detection (within 300ms and 40px of last tap)
+            const now = Date.now();
+            if (this._lastTapPos && now - this._lastTapTime < 300 &&
+                Math.hypot(session.startX - this._lastTapPos.x,
+                           session.startY - this._lastTapPos.y) < 40) {
+                // Double tap — zoom in
+                this._lastTapTime = 0;
+                this._lastTapPos = null;
+                this._handleDoubleTap(session.startX, session.startY);
+                this._suppressClickUntil = Date.now() + 500;
+                return;
+            }
+
+            // Single tap — process immediately. Double-tap zoom is handled
+            // separately and cancels the single-tap effect if it fires within
+            // 300ms by re-zooming (which visually overrides the selection).
+            this._lastTapTime = now;
+            this._lastTapPos = { x: session.startX, y: session.startY };
+            this._handleTap(session.startX, session.startY);
+
+            // Suppress the browser-synthesized click
+            this._suppressClickUntil = Date.now() + 500;
+        };
+
+        this.canvas.addEventListener('touchstart', onTouchStart, { passive: true });
+        this.canvas.addEventListener('touchmove', onTouchMove, { passive: true });
+        this.canvas.addEventListener('touchend', onTouchEnd, { passive: true });
+        this.canvas.addEventListener('touchcancel', () => { this._touchSession = null; }, { passive: true });
+
         wrapper?.addEventListener('wheel', (e) => {
             e.preventDefault();
             this.adjustMapZoom(e.deltaY < 0 ? this.MAP_ZOOM_STEP : -this.MAP_ZOOM_STEP);
@@ -91,6 +161,8 @@ const Renderer = {
 
         wrapper?.addEventListener('touchstart', (e) => {
             if (e.touches.length !== 2) return;
+            // Cancel any pending touch session when pinch starts
+            this._touchSession = null;
             const midpoint = touchMidpoint(e.touches);
             const canvasRect = this.canvas.getBoundingClientRect();
             const distance = touchDistance(e.touches);
@@ -134,6 +206,50 @@ const Renderer = {
         // Responsive resize
         window.addEventListener('resize', () => this.resizeCanvas());
         window.addEventListener('orientationchange', () => setTimeout(() => this.resizeCanvas(), 200));
+    },
+
+    // Handle a single tap on the canvas at screen coordinates (clientX, clientY)
+    _handleTap(clientX, clientY) {
+        const rect = this.canvas.getBoundingClientRect();
+        const scaleX = (this._baseW || 1200) / rect.width;
+        const scaleY = (this._baseH || 900) / rect.height;
+        const x = (clientX - rect.left) * scaleX;
+        const y = (clientY - rect.top) * scaleY;
+
+        // Check movement targets first (same as handleClick)
+        const movementTarget = this.getMovementTargetAtPoint(x, y);
+        if (movementTarget && this.movementTargetHandler) {
+            this.movementTargetHandler(movementTarget);
+            return;
+        }
+
+        // Room selection
+        const room = this.getRoomAtPoint(x, y);
+        if (room) {
+            if (this.clickHandler) this.clickHandler({ type: 'room', room: room.id, x, y });
+            this.selectedRoom = room.id;
+        }
+        this.render();
+    },
+
+    // Handle double-tap: zoom in centered on tap location
+    _handleDoubleTap(clientX, clientY) {
+        const wrapper = document.getElementById('canvas-wrapper');
+        if (!wrapper || !this.canvas) return;
+
+        // Cycle zoom: if at or below 1x, go to 2x; if above 1x, go to 1x
+        const targetZoom = this.mapZoom <= 1.0 ? 2.0 : 1.0;
+        const rect = this.canvas.getBoundingClientRect();
+        const canvasX = Math.max(0, Math.min(1, (clientX - rect.left) / rect.width));
+        const canvasY = Math.max(0, Math.min(1, (clientY - rect.top) / rect.height));
+        const wrapperRect = wrapper.getBoundingClientRect();
+
+        this.setMapZoomAt(targetZoom, {
+            canvasX,
+            canvasY,
+            localX: clientX - wrapperRect.left,
+            localY: clientY - wrapperRect.top
+        });
     },
 
     resizeCanvas() {

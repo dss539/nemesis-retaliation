@@ -1597,11 +1597,14 @@ body {
     /* Canvas responsive */
     #canvas-wrapper {
         width: 100%;
-        min-height: 240px;
-        flex: 1 0 240px;
+        min-height: 0;
+        flex: 1;
         display: block;
         overflow: auto;
     }
+
+    /* Remove desktop hand-bar padding on mobile — hand bar sits above nav */
+    #center-panel { padding-bottom: 10px; }
 
     #game-canvas {
         max-width: none;
