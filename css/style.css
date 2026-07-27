@@ -184,39 +184,72 @@ body {
 .hidden { display: none !important; }
 
 /* Host panel layout */
-#host-panel h2 { margin-bottom: 20px; }
+#host-panel {
+    text-align: left;
+}
+
+#host-panel h2 {
+    margin-bottom: 20px;
+    text-align: center;
+}
 
 .host-section {
-    padding: 16px 0;
-    border-top: 1px solid var(--border);
+    padding: 18px 16px;
+    border-radius: 6px;
+    background: rgba(0, 0, 0, 0.18);
+    margin-bottom: 14px;
 }
 
 .host-section:first-of-type {
-    border-top: none;
-    padding-top: 0;
+    border: 1px solid var(--border);
+}
+
+.host-section:last-of-type {
+    border: 1px solid var(--border);
 }
 
 .host-section-label {
     color: var(--text-secondary);
-    font-size: 0.9em;
-    margin-bottom: 8px;
+    font-size: 0.82em;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 10px;
+}
+
+#host-code {
+    text-align: center;
+    font-size: 2.2em;
+    letter-spacing: 8px;
+    padding: 18px 8px;
+    border: 1px solid var(--border-light);
+    border-radius: 6px;
+    background: linear-gradient(180deg, var(--bg-dark), #060a0e);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.03), 0 2px 12px rgba(0,0,0,0.3);
 }
 
 .host-copy-btn {
     width: 100%;
-    margin: 8px 0 16px;
+    margin: 10px 0 14px;
+    padding: 10px;
 }
 
-#host-panel .join-qr-panel { margin: 0 0 12px; }
+#host-panel .join-qr-panel {
+    margin: 0 0 12px;
+    text-align: center;
+}
+
+#host-panel .join-qr-panel p { margin-bottom: 8px; }
+
+#join-qr-code { margin: 0 auto; }
 
 .host-players-header {
     display: flex;
     align-items: center;
     gap: 12px;
-    margin-bottom: 12px;
+    margin-bottom: 14px;
 }
 
-.host-players-header label { margin: 0; flex-shrink: 0; }
+.host-players-header label { margin: 0; flex-shrink: 0; font-size: 0.9em; }
 
 .host-players-header select {
     width: auto;
@@ -225,11 +258,32 @@ body {
     max-width: 160px;
 }
 
+#player-list h3 {
+    font-size: 0.82em;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+}
+
+#lobby-players { margin: 0; }
+
+#lobby-players li {
+    padding: 8px 14px;
+    background: var(--bg-card);
+    margin: 0 0 4px;
+    border-radius: 4px;
+    border-left: 3px solid var(--accent);
+    font-size: 0.95em;
+}
+
 .host-start-btn {
     width: 100%;
-    margin-top: 20px;
+    margin-top: 16px;
     padding: 14px 32px;
     font-size: 1.1em;
+    border-radius: 6px;
+    letter-spacing: 0.04em;
 }
 
 /* Game layout */
