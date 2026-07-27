@@ -28,6 +28,10 @@
                         <p>Scan to join this game:</p>
                         <div id="join-qr-code" aria-label="QR code for joining this game"></div>
                     </div>
+                    <div class="share-url-row">
+                        <input type="text" id="join-url" class="share-url-input" readonly aria-label="Shareable join URL">
+                        <button id="copy-url-btn" class="btn btn-secondary" onclick="copyJoinUrl()">📋 Copy URL</button>
+                    </div>
                     <div id="player-list">
                         <h3>Players (0/5)</h3>
                         <ul id="lobby-players"></ul>

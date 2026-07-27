@@ -213,6 +213,25 @@ function renderJoinQrCode(code) {
         colorLight: '#0b1117',
         correctLevel: QRCode.CorrectLevel.M
     });
+
+    const urlInput = document.getElementById('join-url');
+    if (urlInput) urlInput.value = gameJoinUrl(code);
+}
+
+function copyJoinUrl() {
+    const urlInput = document.getElementById('join-url');
+    if (!urlInput || !urlInput.value) return;
+    const url = urlInput.value;
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(url).then(() => {
+            const btn = document.getElementById('copy-url-btn');
+            const orig = btn.textContent;
+            btn.textContent = '✓ Copied!';
+            setTimeout(() => { btn.textContent = orig; }, 2000);
+        }).catch(() => { fallbackCopy(url); });
+    } else {
+        fallbackCopy(url);
+    }
 }
 
 // === INITIALIZATION ===

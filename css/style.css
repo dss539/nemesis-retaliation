@@ -144,6 +144,37 @@ body {
     display: block;
 }
 
+.share-url-row {
+    display: flex;
+    align-items: stretch;
+    gap: 8px;
+    margin: 12px 0 16px;
+}
+
+.share-url-input {
+    flex: 1;
+    min-width: 0;
+    background: var(--bg-dark);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 8px 10px;
+    color: var(--text-secondary);
+    font-size: 0.85em;
+    font-family: monospace;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.share-url-input:focus {
+    outline: none;
+    border-color: var(--accent, #4a9);
+}
+
+#copy-url-btn {
+    flex-shrink: 0;
+    white-space: nowrap;
+}
+
 #lobby-players { list-style: none; margin: 12px 0; }
 #lobby-players li {
     padding: 8px 12px; background: var(--bg-card); margin: 4px 0;
