@@ -219,6 +219,80 @@ def exercise_viewport(browser, name, width, height):
     return failures, errors
 
 
+def exercise_desktop(browser):
+    context = browser.new_context(viewport={"width": 1280, "height": 900})
+    page = context.new_page()
+    errors = []
+    page.on("pageerror", lambda exc: errors.append(str(exc)))
+    page.goto(BASE_URL, wait_until="networkidle")
+    page.evaluate("""() => {
+        document.getElementById('lobby-screen').classList.remove('active');
+        document.getElementById('game-screen').classList.add('active');
+        Renderer.init('game-canvas');
+        Renderer.setState({
+            corridors: [], rooms: {}, intruders: [], players: [],
+            robot: { revealed: false }, round: 1,
+            autodestruction: { active: false, token: null }, landerRound: 8
+        });
+        window.__desktopClickCount = 0;
+        const originalHandleClick = Renderer.handleClick.bind(Renderer);
+        Renderer.handleClick = event => {
+            window.__desktopClickCount += 1;
+            originalHandleClick(event);
+        };
+    }""")
+    page.wait_for_timeout(200)
+
+    failures = []
+    wrapper = page.locator('#canvas-wrapper')
+    wrapper.hover()
+    page.mouse.wheel(0, -100)
+    page.wait_for_timeout(100)
+    wheel_zoom = page.evaluate("() => Renderer.mapZoom")
+    check(abs(wheel_zoom - 1.1) < 0.001,
+          "desktop: ordinary mouse-wheel scrolling does not zoom by 10%", failures)
+
+    drag_start = page.evaluate("""() => {
+        Renderer.setMapZoom(3);
+        const wrapper = document.getElementById('canvas-wrapper');
+        wrapper.scrollLeft = 200;
+        wrapper.scrollTop = 150;
+        const rect = wrapper.getBoundingClientRect();
+        return {
+            x: rect.left + rect.width / 2,
+            y: rect.top + rect.height / 2,
+            left: wrapper.scrollLeft,
+            top: wrapper.scrollTop
+        };
+    }""")
+    page.mouse.move(drag_start["x"], drag_start["y"])
+    page.mouse.down(button="left")
+    page.mouse.move(drag_start["x"] - 90, drag_start["y"] - 70, steps=5)
+    page.mouse.up(button="left")
+    page.wait_for_timeout(100)
+    drag_result = page.evaluate("""() => {
+        const wrapper = document.getElementById('canvas-wrapper');
+        return {
+            left: wrapper.scrollLeft,
+            top: wrapper.scrollTop,
+            clicks: window.__desktopClickCount
+        };
+    }""")
+    check(drag_result["left"] > drag_start["left"] and drag_result["top"] > drag_start["top"],
+          "desktop: left-click dragging does not pan the map", failures)
+    check(drag_result["clicks"] == 0,
+          "desktop: map drag dispatches an accidental tactical click", failures)
+
+    page.wait_for_timeout(550)
+    page.mouse.click(drag_start["x"], drag_start["y"], button="left")
+    click_count = page.evaluate("() => window.__desktopClickCount")
+    check(click_count == 1,
+          "desktop: stationary left click no longer reaches tactical hit handling", failures)
+
+    context.close()
+    return failures, errors
+
+
 def main():
     all_failures = []
     all_errors = []
@@ -228,6 +302,9 @@ def main():
             failures, errors = exercise_viewport(browser, name, width, height)
             all_failures.extend(failures)
             all_errors.extend(f"{name}: {error}" for error in errors)
+        failures, errors = exercise_desktop(browser)
+        all_failures.extend(failures)
+        all_errors.extend(f"desktop: {error}" for error in errors)
         browser.close()
 
     if all_errors:
@@ -237,7 +314,7 @@ def main():
         for failure in all_failures:
             print(f"- {failure}")
         raise SystemExit(1)
-    print("mobile layout QA passed: portrait + landscape pinch zoom, pan, and overflow scrolling")
+    print("interaction QA passed: mobile pinch/pan/scroll + desktop wheel zoom/drag pan")
 
 
 if __name__ == "__main__":

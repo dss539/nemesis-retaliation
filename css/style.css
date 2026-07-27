@@ -185,6 +185,11 @@ body {
     -webkit-overflow-scrolling: touch;
     /* One finger pans natively; Renderer consumes two-finger pinches. */
     touch-action: pan-x pan-y;
+    cursor: grab;
+}
+
+#canvas-wrapper.is-mouse-panning {
+    cursor: grabbing;
 }
 
 #map-zoom-controls {

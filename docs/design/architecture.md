@@ -31,6 +31,7 @@
 - The viewport permits normal browser accessibility zoom outside the map; mobile accessibility is not locked with `user-scalable=no` or `maximum-scale=1`.
 - A custom two-finger gesture and explicit controls scale the tactical map from 50% to 300% relative to its fitted size. Pinch is continuous and anchored under the gesture midpoint; button and mouse-wheel zoom use 10% steps. `Fit` restores the complete-board view.
 - A zoomed canvas overflows inside `#canvas-wrapper`; native horizontal/vertical scrolling provides one-finger panning without changing renderer hit-test coordinates.
+- On desktop, ordinary wheel input over the map zooms by 10%, while left-button dragging pans the overflow viewport. A drag threshold suppresses the synthetic tactical click on release.
 - Board, player, card, and log tabs own their scrolling. Oversized content scrolls inside the active panel rather than being clipped by a fixed `100vh` layout.
 - `docs/qa/mobile_layout_qa.py` exercises portrait and landscape phone viewports with real CDP two-point pinch-in/pinch-out input, map pan, touch selection after panning, Fit reset, and oversized-content reachability.
 

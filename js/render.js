@@ -14,6 +14,7 @@ const Renderer = {
     MAX_MAP_ZOOM: 3,
     MAP_ZOOM_STEP: 0.1,
     _pinchGesture: null,
+    _mousePan: null,
     _suppressClickUntil: 0,
 
     // Fixed tactical-grid geometry. The 42px void between every 110px room
@@ -39,10 +40,42 @@ const Renderer = {
         // one-finger drags must remain available to pan the overflow canvas.
         const wrapper = document.getElementById('canvas-wrapper');
         wrapper?.addEventListener('wheel', (e) => {
-            if (!e.ctrlKey && !e.metaKey) return;
             e.preventDefault();
             this.adjustMapZoom(e.deltaY < 0 ? this.MAP_ZOOM_STEP : -this.MAP_ZOOM_STEP);
         }, { passive: false });
+
+        wrapper?.addEventListener('mousedown', (e) => {
+            if (e.button !== 0) return;
+            this._mousePan = {
+                startX: e.clientX,
+                startY: e.clientY,
+                scrollLeft: wrapper.scrollLeft,
+                scrollTop: wrapper.scrollTop,
+                moved: false
+            };
+            wrapper.classList.add('is-mouse-panning');
+            e.preventDefault();
+        });
+
+        window.addEventListener('mousemove', (e) => {
+            if (!this._mousePan) return;
+            const deltaX = e.clientX - this._mousePan.startX;
+            const deltaY = e.clientY - this._mousePan.startY;
+            if (Math.hypot(deltaX, deltaY) >= 4) this._mousePan.moved = true;
+            if (!this._mousePan.moved) return;
+
+            wrapper.scrollLeft = this._mousePan.scrollLeft - deltaX;
+            wrapper.scrollTop = this._mousePan.scrollTop - deltaY;
+            this._suppressClickUntil = Date.now() + 500;
+            e.preventDefault();
+        });
+
+        window.addEventListener('mouseup', (e) => {
+            if (e.button !== 0 || !this._mousePan) return;
+            if (this._mousePan.moved) this._suppressClickUntil = Date.now() + 500;
+            this._mousePan = null;
+            wrapper.classList.remove('is-mouse-panning');
+        });
 
         const touchDistance = (touches) => Math.hypot(
             touches[1].clientX - touches[0].clientX,
