@@ -15,6 +15,14 @@ if (GAME_DATA.CONFIG.boardSlots.length !== 23 ||
     JSON.stringify([...slotRows.values()]) !== JSON.stringify(expectedRowCounts)) {
     throw new Error('Expected a 5/4/5/4/5 map (23 slots); got ' + JSON.stringify([...slotRows.entries()]));
 }
+const slotGeometry = GAME_DATA.CONFIG.boardSlots.map(slot => Renderer.roomGeometry(slot));
+const mapLeft = Math.min(...slotGeometry.map(geometry => geometry.x));
+const mapTop = Math.min(...slotGeometry.map(geometry => geometry.y));
+const mapRight = Math.max(...slotGeometry.map(geometry => geometry.x + geometry.w));
+const mapBottom = Math.max(...slotGeometry.map(geometry => geometry.y + geometry.h));
+if (mapRight - mapLeft < 960 || mapBottom - mapTop < 850 || mapLeft < 0 || mapTop < 0 || mapRight > 1200 || mapBottom > 900) {
+    throw new Error(`Map should fill the 1200×900 board safely; got ${mapLeft},${mapTop} to ${mapRight},${mapBottom}`);
+}
 
 const expectedDirections = ['NE', 'E', 'SE', 'SW', 'W', 'NW'];
 const directions = GAME_DATA.CONFIG.directions.map(direction => direction.id);

@@ -28,7 +28,7 @@
 
 ### Tactical Board Rendering
 - The complete 23-room-slot mat layout is visible from game start as subdued empty flat-top hexagonal slots: five slots on even rows and four centered slots on odd rows. Exploration fills a slot; it never creates or repositions the field.
-- Rooms and empty slots are regular 110px-wide flat-top hexagons, with height `width × sqrt(3) / 2`. Inner walls, status overlays, movement highlights, and hit testing derive from the same geometry.
+- Rooms and empty slots are regular 160px-wide flat-top hexagons, with height `width × sqrt(3) / 2`. Inner walls, status overlays, movement highlights, and hit testing derive from the same geometry.
 - Fixed 42px spacing leaves an open gap at each of the six hex edges, even when no graph edge exists.
 - Corridors render beneath rooms and only remain visible between their neighboring hex boundaries; absent corridors leave the reserved gap empty.
 - Movement uses direct map highlights instead of a compass modal.

@@ -18,13 +18,14 @@ const Renderer = {
     _mapViewInitialized: false,
     _suppressClickUntil: 0,
 
-    // Fixed mat-derived geometry. Regular flat-top hexes match the playmat;
-    // the 42px void between room slots remains available for corridors.
-    ROOM_SIZE: 110,
-    ROOM_HEIGHT: 110 * Math.sqrt(3) / 2,
+    // Fixed mat-derived geometry. The 5/4/5/4/5 field is centered and scaled
+    // to occupy the canvas height while retaining regular flat-top hexes and
+    // a 42px void between room slots for corridors.
+    ROOM_SIZE: 160,
+    ROOM_HEIGHT: 160 * Math.sqrt(3) / 2,
     CORRIDOR_WIDTH: 42,
-    GRID_PADDING_X: 62,
-    GRID_PADDING_Y: 70,
+    GRID_PADDING_X: (1200 - (5 * 160 + 4 * 42)) / 2,
+    GRID_PADDING_Y: (900 - (5 * (160 * Math.sqrt(3) / 2) + 4 * 42)) / 2,
 
     init(canvasId) {
         this.canvas = document.getElementById(canvasId);
@@ -205,10 +206,16 @@ const Renderer = {
     centerMap() {
         const wrapper = document.getElementById('canvas-wrapper');
         if (!wrapper || !this.canvas) return;
-        wrapper.scrollLeft = this.canvas.offsetLeft
-            + this.canvas.offsetWidth / 2 - wrapper.clientWidth / 2;
-        wrapper.scrollTop = this.canvas.offsetTop
-            + this.canvas.offsetHeight / 2 - wrapper.clientHeight / 2;
+        const center = () => {
+            wrapper.scrollLeft = this.canvas.offsetLeft
+                + this.canvas.offsetWidth / 2 - wrapper.clientWidth / 2;
+            wrapper.scrollTop = this.canvas.offsetTop
+                + this.canvas.offsetHeight / 2 - wrapper.clientHeight / 2;
+        };
+        center();
+        // The initial flex layout can finalize after the canvas is resized.
+        // Repeat on the next frame so Fit cannot strand the board in a gutter.
+        requestAnimationFrame(center);
     },
 
     adjustMapZoom(delta) {
@@ -330,9 +337,9 @@ const Renderer = {
         const baseH = this._baseH || 900;
         const step = this.ROOM_SIZE + this.CORRIDOR_WIDTH;
         const sections = [
-            { name: 'SECTION A', start: 0, columns: 3, color: 'rgba(45,116,93,0.055)' },
-            { name: 'SECTION B', start: 3, columns: 3, color: 'rgba(65,98,145,0.055)' },
-            { name: 'SECTION C', start: 6, columns: 1, color: 'rgba(143,67,67,0.065)' }
+            { name: 'SECTION A', start: 0, columns: 2, color: 'rgba(45,116,93,0.055)' },
+            { name: 'SECTION B', start: 2, columns: 2, color: 'rgba(65,98,145,0.055)' },
+            { name: 'SECTION C', start: 4, columns: 1, color: 'rgba(143,67,67,0.065)' }
         ];
 
         sections.forEach(section => {
