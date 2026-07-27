@@ -114,7 +114,7 @@ class NemesisEngine {
             undiscoveredRooms: {
                 // Landing Zone is placed below during setup and must never be drawn again.
                 A: ['drillingRoom','lifeSupportControlA'],
-                B: ['hibernatorium','coolingSystem','lifeSupportControlB','serverRoom'],
+                B: ['coolingSystem','lifeSupportControlB','serverRoom'],
                 C: ['lifeSupportControlC','nest','reactor','escapeShuttle'],
                 '?': shuffle(['armory','surgeryRoom','laboratory','gunneryRoom','shelter','technicalCorridorEntrance','sprinklersControl','engineRoom','storageRoom','commsRoom','wasteDisposal','airlock','powerGenerator'])
             },
@@ -229,12 +229,25 @@ class NemesisEngine {
             type: 'A',
             section: 'A',
             discovered: true,
-            position: { x: 0, y: 0 },
+            position: { x: 0, y: 2 },
             exits: {},
             markers: { fire: false, malfunction: false, secure: [] },
             intruders: []
         };
-        state.mapGrid['0,0'] = { type: 'room', id: 'landingZone' };
+        state.mapGrid['0,2'] = { type: 'room', id: 'landingZone' };
+
+        // Place Hibernatorium at top center hex — pre-discovered
+        state.rooms.hibernatorium = {
+            id: 'hibernatorium',
+            type: 'B',
+            section: 'B',
+            discovered: true,
+            position: { x: 2, y: 0 },
+            exits: {},
+            markers: { fire: false, malfunction: false, secure: [] },
+            intruders: []
+        };
+        state.mapGrid['2,0'] = { type: 'room', id: 'hibernatorium' };
 
         // Set Lander round (random between 3-8)
         state.landerRound = 3 + Math.floor(Math.random() * 6);

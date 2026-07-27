@@ -110,46 +110,44 @@ const UI = {
     },
 
     renderCardArea() {
-        const container = document.getElementById('card-area');
-        if (!container || !this.state) return;
-        container.innerHTML = '';
-
+        if (!this.state) return;
         const myPlayer = this.state.players[NemesisNetwork.playerId] || this.state.players[0];
         if (!myPlayer) return;
 
-        // Hand cards
-        const handDiv = document.createElement('div');
-        handDiv.innerHTML = '<div style="font-size:0.8em;color:#8899aa;margin-bottom:4px">Your Hand (' + myPlayer.actionHand.length + '):</div>';
-        const handCards = document.createElement('div');
-        handCards.id = 'hand-cards';
+        // === Hand cards: fanned bottom bar ===
+        const handBar = document.getElementById('hand-bar');
+        if (handBar) {
+            handBar.innerHTML = '';
+            myPlayer.actionHand.forEach((card, i) => {
+                const cardDiv = document.createElement('div');
+                const isContamination = card.type === 'contamination';
+                cardDiv.className = isContamination ? 'hand-card contamination-card' : 'hand-card action-card';
+                if (this.selectedCard === i) cardDiv.classList.add('selected');
+                if (isContamination) {
+                    cardDiv.innerHTML = `${GameArt.cardArtwork('contamination', 'CONTAMINATION', 'contamination')}<span class="hand-card-title">Contamination</span>`;
+                    cardDiv.setAttribute('aria-label', 'Contamination card — cannot be used for Actions');
+                } else {
+                    const actionName = card.action || 'Action';
+                    cardDiv.innerHTML = `${GameArt.cardArtwork(GameArt.actionIcon(card.action), 'ACTION', 'action')}<span class="hand-card-title">${actionName}</span>`;
+                    cardDiv.setAttribute('aria-label', actionName + ' action card');
+                    cardDiv.onclick = () => {
+                        this.selectedCard = i;
+                        this.renderCardArea();
+                    };
+                }
+                handBar.appendChild(cardDiv);
+            });
+        }
 
-        myPlayer.actionHand.forEach((card, i) => {
-            const cardDiv = document.createElement('div');
-            const isContamination = card.type === 'contamination';
-            cardDiv.className = isContamination ? 'hand-card contamination-card' : 'hand-card action-card';
-            if (this.selectedCard === i) cardDiv.classList.add('selected');
-            if (isContamination) {
-                cardDiv.innerHTML = `${GameArt.cardArtwork('contamination', 'CONTAMINATION', 'contamination')}<span class="hand-card-title">Contamination</span>`;
-                cardDiv.setAttribute('aria-label', 'Contamination card — cannot be used for Actions');
-            } else {
-                const actionName = card.action || 'Action';
-                cardDiv.innerHTML = `${GameArt.cardArtwork(GameArt.actionIcon(card.action), 'ACTION', 'action')}<span class="hand-card-title">${actionName}</span>`;
-                cardDiv.setAttribute('aria-label', actionName + ' action card');
-                cardDiv.onclick = () => {
-                    this.selectedCard = i;
-                    this.renderCardArea();
-                };
-            }
-            handCards.appendChild(cardDiv);
-        });
-
-        handDiv.appendChild(handCards);
-        container.appendChild(handDiv);
+        // === Right panel: objectives, equipped items, backpack ===
+        const container = document.getElementById('card-area');
+        if (!container) return;
+        container.innerHTML = '';
 
         // Objectives
         if (myPlayer.objectives && myPlayer.objectives.length > 0) {
             const objDiv = document.createElement('div');
-            objDiv.style.marginTop = '12px';
+            objDiv.style.marginBottom = '12px';
             objDiv.innerHTML = '<div style="font-size:0.8em;color:#8899aa;margin-bottom:4px">Objectives:</div>';
 
             // Mission Task
@@ -231,7 +229,7 @@ const UI = {
     },
 
     renderActionBar() {
-        const container = document.getElementById('action-bar');
+        const container = document.getElementById('action-panel');
         if (!container || !this.state) return;
         container.innerHTML = '';
 

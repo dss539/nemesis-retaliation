@@ -146,7 +146,66 @@ def card_back(name: str, color: str, icon: str) -> str:
 
 
 def board_svg() -> str:
-    return doc('''<defs>
+    import math
+    # Hex geometry constants — must match js/render.js exactly
+    ROOM_SIZE = 160
+    ROOM_HEIGHT = 2 * ROOM_SIZE / math.sqrt(3)
+    CORRIDOR_WIDTH = 42
+    ROW_STEP_Y = math.sqrt(3) / 2 * (ROOM_SIZE + CORRIDOR_WIDTH)
+    GRID_PADDING_X = (1200 - (5 * ROOM_SIZE + 4 * CORRIDOR_WIDTH)) / 2
+    GRID_PADDING_Y = (900 - (2 * ROOM_SIZE / math.sqrt(3) + 4 * (math.sqrt(3) / 2 * (ROOM_SIZE + CORRIDOR_WIDTH)))) / 2
+    STEP_X = ROOM_SIZE + CORRIDOR_WIDTH
+
+    # boardSlots from js/data.js: 5/4/5/4/5 row layout
+    slots = []
+    for y in range(5):
+        cols = 4 if y % 2 == 1 else 5
+        for x in range(cols):
+            slots.append((x, y))
+
+    def hex_vertices(x, y, w, h):
+        return [
+            (x + w / 2, y),
+            (x + w, y + h / 4),
+            (x + w, y + h * 3 / 4),
+            (x + w / 2, y + h),
+            (x, y + h * 3 / 4),
+            (x, y + h / 4),
+        ]
+
+    def slot_xy(sx, sy):
+        row_offset = (STEP_X / 2) if sy % 2 == 1 else 0
+        return GRID_PADDING_X + sx * STEP_X + row_offset, GRID_PADDING_Y + sy * ROW_STEP_Y
+
+    # Section tints: A=cols 0-1, B=cols 2-3, C=col 4 (matching drawSections in render.js)
+    sections = [
+        ("SECTION A", 0, 2, "rgba(45,116,93,0.055)"),
+        ("SECTION B", 2, 2, "rgba(65,98,145,0.055)"),
+        ("SECTION C", 4, 1, "rgba(143,67,67,0.065)"),
+    ]
+    base_h = 900
+    section_rects = []
+    section_labels = []
+    for name, start, cols, color in sections:
+        sx = GRID_PADDING_X + start * STEP_X - CORRIDOR_WIDTH / 2
+        sw = cols * STEP_X
+        section_rects.append(f'<rect x="{sx:.2f}" y="42" width="{sw:.2f}" height="{base_h - 105:.2f}" fill="{color}"/>')
+        section_labels.append(f'<text x="{sx + 10:.2f}" y="58" fill="rgba(154,184,202,0.32)" font-family="system-ui,sans-serif" font-size="13" font-weight="600" text-anchor="start">SECTION {name.split()[-1]}</text>')
+
+    # Hex slot outlines matching drawGrid()
+    hex_paths = []
+    inner_hex_paths = []
+    for (sx, sy) in slots:
+        px, py = slot_xy(sx, sy)
+        verts = hex_vertices(px, py, ROOM_SIZE, ROOM_HEIGHT)
+        d = "M" + "L".join(f"{vx:.2f} {vy:.2f}" for vx, vy in verts) + "Z"
+        hex_paths.append(f'<path d="{d}" fill="rgba(12,25,33,0.68)" stroke="rgba(105,150,166,0.36)" stroke-width="2" stroke-dasharray="6 6"/>')
+        # Inner hex (6px inset)
+        inner_verts = hex_vertices(px + 6, py + 6, ROOM_SIZE - 12, ROOM_HEIGHT - 12)
+        d2 = "M" + "L".join(f"{vx:.2f} {vy:.2f}" for vx, vy in inner_verts) + "Z"
+        inner_hex_paths.append(f'<path d="{d2}" fill="none" stroke="rgba(74,108,121,0.17)" stroke-width="1"/>')
+
+    return doc(f'''<defs>
 <radialGradient id="bg"><stop stop-color="#172932"/><stop offset=".56" stop-color="#0c151b"/><stop offset="1" stop-color="#05090c"/></radialGradient>
 <pattern id="deck" width="48" height="48" patternUnits="userSpaceOnUse"><path d="M0 24h48M24 0v48" stroke="#6e9cac" stroke-opacity=".045"/><circle cx="24" cy="24" r="2" fill="#89bac8" fill-opacity=".1"/></pattern>
 <linearGradient id="rail" x2="0" y2="1"><stop stop-color="#243d47"/><stop offset=".5" stop-color="#0a1116"/><stop offset="1" stop-color="#1e343d"/></linearGradient>
@@ -154,8 +213,13 @@ def board_svg() -> str:
 <rect width="1200" height="900" fill="url(#bg)"/>
 <rect width="1200" height="900" fill="url(#deck)"/>
 <path d="M16 16h1168v868H16z" fill="none" stroke="url(#rail)" stroke-width="24"/>
-<path d="M38 40h1124M38 820h1124" stroke="#78bfd0" stroke-opacity=".18" stroke-width="2" stroke-dasharray="18 12"/>
-<g fill="#83b8c5" fill-opacity=".16"><path d="M55 34h170l-18 13H73z"/><path d="M975 34h170l-18 13H993z"/><path d="M55 853h170l-18 13H73z"/><path d="M975 853h170l-18 13H993z"/></g>
+<!-- Section background tints (matching drawSections) -->
+{chr(10).join(section_rects)}
+<!-- Hex slot outlines (matching drawGrid) -->
+{chr(10).join(hex_paths)}
+{chr(10).join(inner_hex_paths)}
+<!-- Section labels -->
+{chr(10).join(section_labels)}
 <text x="600" y="32" fill="#9bc6cf" fill-opacity=".28" font-family="system-ui,sans-serif" font-size="13" font-weight="700" text-anchor="middle" letter-spacing="8">FACILITY TACTICAL DISPLAY</text>''', "0 0 1200 900")
 
 

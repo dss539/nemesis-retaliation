@@ -74,6 +74,30 @@
                     <button class="btn btn-primary" onclick="joinGame()">Connect</button>
                     <div id="join-status"></div>
                 </div>
+                <div id="guest-lobby-panel" class="hidden panel glass-panel">
+                    <header class="host-panel-header">
+                        <h2>Game Lobby</h2>
+                        <span class="host-network-status" role="status" aria-label="Connected" title="Connected"></span>
+                    </header>
+                    <div class="host-panel-grid">
+                        <section class="host-invite-section" aria-labelledby="guest-game-code-label">
+                            <span id="guest-game-code-label" class="field-label">Game code</span>
+                            <div class="code-row">
+                                <div id="guest-code" class="code-display" title="Share this code">...</div>
+                            </div>
+                            <p class="guest-share-hint" style="font-size:0.85em;color:#8a9aaa;margin-top:8px;">Share this code with other players</p>
+                        </section>
+                        <section class="host-roster-section" aria-labelledby="guest-roster-heading">
+                            <div class="roster-header">
+                                <h3 id="guest-roster-heading">Players <span id="guest-roster-count">0/2</span></h3>
+                            </div>
+                            <ul id="guest-lobby-players"></ul>
+                        </section>
+                    </div>
+                    <div id="guest-waiting-status" class="guest-waiting-status" style="text-align:center;padding:12px 16px;color:#4a9;font-style:italic;">
+                        Waiting for host to start the game...
+                    </div>
+                </div>
                 <div id="host-name-panel" class="hidden panel glass-panel">
                     <h2>Host Game</h2>
                     <label for="host-name">Your name:</label>
@@ -110,15 +134,20 @@
                             <canvas id="game-canvas" width="1200" height="900"></canvas>
                         </div>
                     </div>
-                    <div id="action-bar"></div>
                 </div>
 
-                <!-- Right panel: Cards and log -->
+                <!-- Right panel: Objectives, items, log -->
                 <div id="right-panel" class="side-panel">
                     <div id="card-area"></div>
                     <div id="game-log"></div>
                 </div>
             </div>
+
+            <!-- Action choices overlay (upper right, vertical list) -->
+            <div id="action-panel" class="action-panel-overlay"></div>
+
+            <!-- Hand of cards overlay (bottom, fanned) -->
+            <div id="hand-bar" class="hand-bar-overlay"></div>
 
             <!-- Mobile bottom navigation -->
             <div id="mobile-nav" class="mobile-only">

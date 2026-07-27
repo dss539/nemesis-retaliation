@@ -7,6 +7,7 @@ const NemesisNetwork = {
     hostId: null,
     isHost: false,
     playerId: -1,
+    gameCode: null,
     onStateUpdate: null,
     onMessage: null,
 
@@ -26,6 +27,7 @@ const NemesisNetwork = {
         this.playerId = 0;
         const code = this.generateCode();
         const peerId = 'nemesis-rt-' + code;
+        this.gameCode = code;
 
         this.peer = new Peer(peerId, { debug: 1 });
 
@@ -52,6 +54,7 @@ const NemesisNetwork = {
     // === JOIN ===
     joinGame(code, playerName, onConnected, onError) {
         this.isHost = false;
+        this.gameCode = code.toUpperCase();
         this.hostId = 'nemesis-rt-' + code.toUpperCase();
         const myId = 'nemesis-rt-' + code.toUpperCase() + '-' + Math.random().toString(36).substr(2, 6);
 
@@ -161,18 +164,23 @@ const NemesisNetwork = {
                     engine.log(`${joiningPlayer.name || 'Player'} filled the disconnected seat — game resumed`);
                 }
 
+                // Build lobby data once and include it in the joinAccepted message
+                // so the joining client can render the guest lobby immediately.
+                const lobbyData = {
+                    players: state.players.filter(p => p.hasJoined).map(p => ({ name: p.name, character: p.character, connected: p.connected })),
+                    numPlayers: state.numPlayers
+                };
+                const gameCode = this.gameCode || '';
                 conn.send({
                     type: 'joinAccepted',
                     playerId: slot,
-                    state: this.serializeState(state)
+                    state: this.serializeState(state),
+                    lobby: lobbyData,
+                    gameCode: gameCode
                 });
 
                 // Update host's own lobby UI
                 if (typeof updateLobbyPlayers === 'function') {
-                    const lobbyData = {
-                        players: state.players.filter(p => p.hasJoined).map(p => ({ name: p.name, character: p.character, connected: p.connected })),
-                        numPlayers: state.numPlayers
-                    };
                     updateLobbyPlayers(lobbyData);
                 }
 
@@ -211,6 +219,7 @@ const NemesisNetwork = {
         switch(data.type) {
             case 'joinAccepted':
                 this.playerId = data.playerId;
+                if (data.gameCode) this.gameCode = data.gameCode;
                 if (this.onMessage) this.onMessage('joinAccepted', data);
                 if (this.onStateUpdate) this.onStateUpdate(data.state);
                 break;
@@ -398,5 +407,6 @@ const NemesisNetwork = {
         this.peer = null;
         this.isHost = false;
         this.playerId = -1;
+        this.gameCode = null;
     }
 };

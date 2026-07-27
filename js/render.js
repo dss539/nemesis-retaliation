@@ -332,6 +332,9 @@ const Renderer = {
 
         // Draw round track
         this.drawRoundTrack(ctx);
+
+        // Draw objective panel
+        this.drawObjective(ctx);
     },
 
     drawSections(ctx) {
@@ -870,6 +873,90 @@ const Renderer = {
             ctx.font = '11px sans-serif';
             ctx.textAlign = 'center';
             ctx.fillText(i, x, y + 25);
+        }
+    },
+
+    drawObjective(ctx) {
+        const baseH = this._baseH || 900;
+        const panelX = 15;
+        const panelY = baseH - 120;
+        const panelW = 280;
+        const panelH = 95;
+
+        // Dark background panel with border (consistent with drawRoundTrack styling)
+        ctx.fillStyle = '#1a2030';
+        ctx.fillRect(panelX, panelY, panelW, panelH);
+        ctx.strokeStyle = '#3a4550';
+        ctx.lineWidth = 1;
+        ctx.strokeRect(panelX, panelY, panelW, panelH);
+
+        const task = this.state.missionTask;
+        if (!task) return;
+
+        // Mission task name in accent color
+        ctx.fillStyle = '#c56069';
+        ctx.font = '700 13px sans-serif';
+        ctx.textAlign = 'left';
+        ctx.fillText(task.name, panelX + 10, panelY + 20);
+
+        // Mission task text in secondary text color (truncated)
+        ctx.fillStyle = '#8899aa';
+        ctx.font = '11px sans-serif';
+        const maxTextWidth = panelW - 20;
+        let text = task.text || '';
+        if (ctx.measureText(text).width > maxTextWidth) {
+            while (text.length > 0 && ctx.measureText(text + '…').width > maxTextWidth) {
+                text = text.slice(0, -1);
+            }
+            text += '…';
+        }
+        // Wrap text across up to 3 lines
+        const words = text.split(' ');
+        const lines = [];
+        let line = '';
+        for (const word of words) {
+            const test = line ? line + ' ' + word : word;
+            if (ctx.measureText(test).width > maxTextWidth && line) {
+                lines.push(line);
+                line = word;
+            } else {
+                line = test;
+            }
+        }
+        if (line) lines.push(line);
+        const maxLines = 3;
+        const displayLines = lines.length > maxLines ? lines.slice(0, maxLines) : lines;
+        displayLines.forEach((l, i) => {
+            ctx.fillText(l, panelX + 10, panelY + 38 + i * 14);
+        });
+
+        // Objective Discard Track
+        const trackY = panelY + panelH - 18;
+        ctx.fillStyle = '#667788';
+        ctx.font = '10px sans-serif';
+        ctx.textAlign = 'left';
+        ctx.fillText('Discard Track: ' + (this.state.objectiveChoiceTrack || 0), panelX + 10, trackY);
+
+        // Visual row of small circles
+        const trackVal = this.state.objectiveChoiceTrack || 0;
+        const pipStartX = panelX + 120;
+        const pipSpacing = 14;
+        const maxPips = 10;
+        for (let i = 0; i < maxPips; i++) {
+            const px = pipStartX + i * pipSpacing;
+            const py = trackY - 4;
+            ctx.beginPath();
+            ctx.arc(px, py, 4, 0, Math.PI * 2);
+            if (i < trackVal) {
+                ctx.fillStyle = '#c56069';
+                ctx.fill();
+            } else {
+                ctx.fillStyle = '#1a2030';
+                ctx.fill();
+                ctx.strokeStyle = '#445566';
+                ctx.lineWidth = 1;
+                ctx.stroke();
+            }
         }
     },
 

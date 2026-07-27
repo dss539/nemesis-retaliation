@@ -81,7 +81,9 @@ function joinGame() {
 
     NemesisNetwork.joinGame(code, name,
         () => {
-            // Connected
+            // Connected to host — keep the join panel visible (showing
+            // "Connected! Waiting for host...") until joinAccepted arrives
+            // with the lobby data, at which point we switch to the guest lobby.
             document.getElementById('join-status').innerHTML = '<p style="color:#4a9">Connected! Waiting for host...</p>';
         },
         (error) => {
@@ -102,13 +104,60 @@ function joinGame() {
     NemesisNetwork.onMessage = (type, data) => {
         console.log('Message:', type, data);
         if (type === 'joinAccepted') {
-            document.getElementById('join-status').innerHTML = '<p style="color:#4a9">Joined game as Player ' + (data.playerId + 1) + '</p>';
+            // Switch from the join form to the read-only guest lobby view.
+            showGuestLobby(data.lobby, data.gameCode || code);
         } else if (type === 'joinRejected') {
             document.getElementById('join-status').innerHTML = '<p style="color:#ff4444">' + data.reason + '</p>';
         } else if (type === 'lobbyState') {
-            updateLobbyPlayers(data.lobby);
+            // Live-update the guest lobby roster while waiting for the host.
+            updateGuestLobbyPlayers(data.lobby);
         }
     };
+}
+
+// Render the read-only guest lobby panel (no start button, no player-count
+// selector). Mirrors the host lobby layout using the same CSS classes.
+function showGuestLobby(lobbyData, gameCode) {
+    const joinPanel = document.getElementById('join-panel');
+    if (joinPanel) joinPanel.classList.add('hidden');
+
+    const guestPanel = document.getElementById('guest-lobby-panel');
+    if (guestPanel) guestPanel.classList.remove('hidden');
+
+    const codeEl = document.getElementById('guest-code');
+    if (codeEl) codeEl.textContent = gameCode || '';
+
+    if (lobbyData) updateGuestLobbyPlayers(lobbyData);
+}
+
+// Update the guest lobby player roster (read-only). Reuses the same roster
+// styling as the host lobby but targets the guest-specific element IDs.
+function updateGuestLobbyPlayers(lobby) {
+    if (!lobby) return;
+    const list = document.getElementById('guest-lobby-players');
+    if (!list) return;
+
+    list.innerHTML = '';
+    const count = lobby.players.length;
+    const total = lobby.numPlayers;
+
+    const rosterCount = document.getElementById('guest-roster-count');
+    if (rosterCount) rosterCount.textContent = `${count}/${total}`;
+
+    lobby.players.forEach((player, index) => {
+        const li = document.createElement('li');
+        const characterName = player.character ? (GAME_DATA.CHARACTERS[player.character]?.name || player.character) : '';
+        const details = [characterName, index === 0 ? 'Host' : ''].filter(Boolean).join(' · ');
+        li.innerHTML = `<span><strong>${escapeLobbyText(player.name)}</strong>${details ? `<small>${escapeLobbyText(details)}</small>` : ''}</span>`;
+        list.appendChild(li);
+    });
+
+    for (let index = count; index < total; index++) {
+        const li = document.createElement('li');
+        li.className = 'empty-slot';
+        li.textContent = 'Waiting…';
+        list.appendChild(li);
+    }
 }
 
 function updateHostPlayerCount() {
