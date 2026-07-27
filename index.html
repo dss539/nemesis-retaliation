@@ -10,16 +10,23 @@
 </head>
 <body>
     <div id="app">
+        <!-- Atmospheric background -->
+        <div id="bg-atmosphere"></div>
+
         <!-- Lobby Screen -->
         <div id="lobby-screen" class="screen active">
             <div class="lobby-container">
-                <h1 class="title">NEMESIS: RETALIATION</h1>
-                <p class="subtitle">Digital Edition</p>
+                <header class="lobby-header">
+                    <h1 class="title">NEMESIS</h1>
+                    <div class="title-bar"></div>
+                    <h2 class="subtitle">RETALIATION</h2>
+                    <p class="tagline">Digital Edition</p>
+                </header>
                 <div class="lobby-actions">
                     <button id="btn-host" class="btn btn-primary" onclick="showHostPanel()">Host Game</button>
                     <button id="btn-join" class="btn btn-secondary" onclick="showJoinPanel()">Join Game</button>
                 </div>
-                <div id="host-panel" class="hidden panel">
+                <div id="host-panel" class="hidden panel glass-panel">
                     <h2>Host Game</h2>
                     <div class="host-section">
                         <p class="host-section-label">Share this code with your friends:</p>
@@ -52,7 +59,7 @@
                     </div>
                     <button class="btn btn-primary host-start-btn" onclick="startGame()">Start Game</button>
                 </div>
-                <div id="join-panel" class="hidden panel">
+                <div id="join-panel" class="hidden panel glass-panel">
                     <h2>Join Game</h2>
                     <label for="join-code">Enter host code:</label>
                     <input type="text" id="join-code" placeholder="Enter code" maxlength="8">
@@ -61,7 +68,7 @@
                     <button class="btn btn-primary" onclick="joinGame()">Connect</button>
                     <div id="join-status"></div>
                 </div>
-                <div id="host-name-panel" class="hidden panel">
+                <div id="host-name-panel" class="hidden panel glass-panel">
                     <h2>Host Game</h2>
                     <label for="host-name">Your name:</label>
                     <input type="text" id="host-name" placeholder="Enter your name" maxlength="12">
