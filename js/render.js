@@ -19,7 +19,7 @@ const Renderer = {
     _suppressClickUntil: 0,
 
     // Fixed mat-derived geometry. Regular flat-top hexes match the playmat;
-    // the 42px void between room bays remains available for corridors.
+    // the 42px void between room slots remains available for corridors.
     ROOM_SIZE: 110,
     ROOM_HEIGHT: 110 * Math.sqrt(3) / 2,
     CORRIDOR_WIDTH: 42,

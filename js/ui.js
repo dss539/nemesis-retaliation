@@ -371,7 +371,7 @@ const UI = {
             })
             .filter(Boolean);
 
-        // Empty hex-neighbor bays become exploration targets.
+        // Empty neighboring room slots become exploration targets.
         // Off-board and occupied slots are omitted rather than shown as disabled.
         const directions = GAME_DATA.CONFIG.directions;
         const explorationTargets = directions.map(direction => ({

@@ -387,7 +387,7 @@ QUEEN_HEALTH_CARDS: [
 CONFIG: {
     maxRounds: 14,
     maxPlayers: 5,
-    // Fixed tactical map: five bays on each even row, four centered bays on
+    // Fixed tactical map: five room slots on each even row, four centered slots on
     // each odd row. The five rows therefore expose exactly 23 room slots.
     boardBounds: { minX: 0, maxX: 4, minY: 0, maxY: 4 },
     boardSlots: [
