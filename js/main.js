@@ -20,6 +20,7 @@ function createHost() {
     NemesisNetwork.hostGame(name, (code) => {
         document.getElementById('host-name-panel').classList.add('hidden');
         document.getElementById('host-panel').classList.remove('hidden');
+        document.querySelector('.lobby-container')?.classList.add('host-active');
         document.getElementById('host-code').textContent = code;
         renderJoinQrCode(code);
 
@@ -114,24 +115,55 @@ function updateLobbyPlayers(lobby) {
     if (!list) return;
     list.innerHTML = '';
     const count = lobby.players.length;
-    document.getElementById('player-list').querySelector('h3').textContent = `Players (${count}/${lobby.numPlayers})`;
-    lobby.players.forEach(p => {
+    const total = lobby.numPlayers;
+    const rosterCount = document.getElementById('roster-count');
+    const statusCopy = document.getElementById('roster-status-copy');
+    if (rosterCount) rosterCount.textContent = `${count} / ${total}`;
+    if (statusCopy) statusCopy.textContent = count < total ? `Waiting for ${total - count} operator${total - count === 1 ? '' : 's'}` : 'Fireteam ready';
+
+    lobby.players.forEach((p, index) => {
         const li = document.createElement('li');
-        li.textContent = p.name + (p.character ? ' - ' + (GAME_DATA.CHARACTERS[p.character]?.name || p.character) : '');
+        const characterName = p.character ? (GAME_DATA.CHARACTERS[p.character]?.name || p.character) : 'Role pending';
+        li.innerHTML = `<span><strong>${escapeLobbyText(p.name)}</strong><small>${escapeLobbyText(characterName)}${index === 0 ? ' · Host' : ''}</small></span>`;
         list.appendChild(li);
     });
 
-    // Update start button state
+    for (let index = count; index < total; index++) {
+        const li = document.createElement('li');
+        li.className = 'empty-slot';
+        li.innerHTML = `<span><strong>Open slot ${index + 1}</strong><small>Waiting for connection</small></span>`;
+        list.appendChild(li);
+    }
+
     const startBtn = document.getElementById('host-start-btn');
+    const readiness = document.getElementById('launch-readiness');
     if (startBtn) {
-        if (count < lobby.numPlayers) {
+        if (count < total) {
             startBtn.textContent = 'Waiting for players...';
             startBtn.classList.add('waiting');
+            if (readiness) {
+                readiness.classList.remove('ready');
+                readiness.querySelector('.readiness-icon').textContent = '!';
+                readiness.querySelector('strong').textContent = 'Awaiting fireteam';
+                readiness.querySelector('small').textContent = 'The mission can begin once every slot is filled.';
+            }
         } else {
-            startBtn.textContent = 'Start Game';
+            startBtn.textContent = 'Launch Mission';
             startBtn.classList.remove('waiting');
+            if (readiness) {
+                readiness.classList.add('ready');
+                readiness.querySelector('.readiness-icon').textContent = '✓';
+                readiness.querySelector('strong').textContent = 'Fireteam ready';
+                readiness.querySelector('small').textContent = 'All operators are connected and standing by.';
+            }
         }
     }
+}
+
+function escapeLobbyText(value) {
+    const span = document.createElement('span');
+    span.textContent = String(value ?? '');
+    return span.innerHTML;
 }
 
 function startGame() {
