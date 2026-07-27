@@ -299,38 +299,6 @@ body {
     display: block;
 }
 
-/* Share URL row */
-.share-url-row {
-    display: flex;
-    align-items: stretch;
-    gap: 8px;
-    margin: 12px 0 16px;
-}
-
-.share-url-input {
-    flex: 1;
-    min-width: 0;
-    background: rgba(6, 9, 15, 0.5);
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    padding: 8px 10px;
-    color: var(--text-secondary);
-    font-size: 0.82em;
-    font-family: 'Courier New', monospace;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-.share-url-input:focus {
-    outline: none;
-    border-color: var(--tactical);
-}
-
-#copy-url-btn {
-    flex-shrink: 0;
-    white-space: nowrap;
-}
-
 /* Player list */
 #lobby-players { list-style: none; margin: 8px 0 0; }
 #lobby-players li {
@@ -363,20 +331,74 @@ body {
     padding-top: 0;
 }
 
-.host-section-label {
+/* Code + inline copy button */
+.code-row {
+    display: flex;
+    align-items: stretch;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.code-row .code-display {
+    flex: 1;
+    margin: 0;
+}
+
+/* Icon copy button */
+.icon-copy-btn {
+    flex-shrink: 0;
+    width: 44px;
+    min-width: 44px;
+    border: 1px solid var(--border-light);
+    border-radius: 8px;
+    background: rgba(6, 9, 15, 0.5);
     color: var(--text-secondary);
-    font-size: 0.78em;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    margin-bottom: 10px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.host-copy-btn {
-    width: 100%;
-    margin: 10px 0 0;
-    padding: 10px;
+.icon-copy-btn:hover {
+    border-color: var(--tactical);
+    color: var(--tactical);
+    background: rgba(95, 184, 212, 0.08);
 }
 
+.icon-copy-btn:active {
+    transform: scale(0.95);
+}
+
+/* Share URL as a clickable link, not a text box */
+.share-url-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0 0 16px;
+}
+
+.share-url-link {
+    flex: 1;
+    min-width: 0;
+    color: var(--tactical);
+    font-size: 0.82em;
+    font-family: 'Courier New', monospace;
+    text-decoration: none;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding: 8px 0;
+    transition: color 0.2s;
+}
+
+.share-url-link:hover {
+    color: var(--text-primary);
+    text-decoration: underline;
+}
+
+/* QR panel */
 #host-panel .join-qr-panel { margin: 16px 0; }
 
 .host-players-header {
@@ -410,6 +432,12 @@ body {
     font-size: 1.05em;
     border-radius: 6px;
     letter-spacing: 0.06em;
+}
+
+.host-start-btn.waiting {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
 }
 
 /* Game layout */

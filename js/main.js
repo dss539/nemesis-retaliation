@@ -120,13 +120,24 @@ function updateLobbyPlayers(lobby) {
         li.textContent = p.name + (p.character ? ' - ' + (GAME_DATA.CHARACTERS[p.character]?.name || p.character) : '');
         list.appendChild(li);
     });
+
+    // Update start button state
+    const startBtn = document.getElementById('host-start-btn');
+    if (startBtn) {
+        if (count < lobby.numPlayers) {
+            startBtn.textContent = 'Waiting for players...';
+            startBtn.classList.add('waiting');
+        } else {
+            startBtn.textContent = 'Start Game';
+            startBtn.classList.remove('waiting');
+        }
+    }
 }
 
 function startGame() {
     if (!engine) return;
     const missingPlayers = engine.state.players.filter(p => !p.connected);
     if (missingPlayers.length > 0) {
-        alert('All player slots must be filled before the game can begin.');
         return;
     }
     // Start the first round
@@ -165,7 +176,7 @@ function copyGameCode() {
         navigator.clipboard.writeText(code).then(() => {
             const btn = document.getElementById('copy-code-btn');
             const orig = btn.textContent;
-            btn.textContent = '✓ Copied!';
+            btn.textContent = '✓';
             setTimeout(() => { btn.textContent = orig; }, 2000);
         }).catch(() => {
             fallbackCopy(code);
@@ -187,7 +198,7 @@ function fallbackCopy(text) {
         const btn = document.getElementById('copy-code-btn');
         if (btn) {
             const orig = btn.textContent;
-            btn.textContent = '✓ Copied!';
+            btn.textContent = '✓';
             setTimeout(() => { btn.textContent = orig; }, 2000);
         }
     } catch (e) {}
@@ -218,19 +229,23 @@ function renderJoinQrCode(code) {
         correctLevel: QRCode.CorrectLevel.M
     });
 
-    const urlInput = document.getElementById('join-url');
-    if (urlInput) urlInput.value = gameJoinUrl(code);
+    const urlLink = document.getElementById('join-url');
+    if (urlLink) {
+        const url = gameJoinUrl(code);
+        urlLink.textContent = url;
+        urlLink.href = url;
+    }
 }
 
 function copyJoinUrl() {
-    const urlInput = document.getElementById('join-url');
-    if (!urlInput || !urlInput.value) return;
-    const url = urlInput.value;
+    const urlLink = document.getElementById('join-url');
+    if (!urlLink || !urlLink.textContent) return;
+    const url = urlLink.textContent;
     if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(url).then(() => {
             const btn = document.getElementById('copy-url-btn');
             const orig = btn.textContent;
-            btn.textContent = '✓ Copied!';
+            btn.textContent = '✓';
             setTimeout(() => { btn.textContent = orig; }, 2000);
         }).catch(() => { fallbackCopy(url); });
     } else {
