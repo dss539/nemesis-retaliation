@@ -26,7 +26,7 @@ A faithful web-based digital adaptation of the board game Nemesis: Retaliation b
 ## Key Design Decisions
 - Privacy: display-layer only, NOT state sanitization. Host needs full state for engine. Each browser's UI only renders its own player's private info.
 - Canvas: renders at devicePixelRatio for crisp text. Base coordinate space 1200x900. All 35 nodes of the fixed 7x5 tactical grid are pre-drawn as regular 110px octagons; the corner cut is `size / (2 + sqrt(2))`, making all eight sides equal. Fixed spacing reserves room for cardinal and diagonal corridors. Click handling uses the same regular-octagon geometry.
-- Map interaction: continuous mobile pinch zoom; 10%-step buttons and desktop wheel zoom; native one-finger mobile panning and left-button desktop drag panning; independently scrollable board/card/player/log panels
+- Map interaction: continuous mobile pinch zoom; 10%-step buttons and desktop wheel zoom; mobile/desktop camera panning includes generous off-board slack while retaining a recovery strip; independently scrollable board/card/player/log panels
 - Exploration: XCOM-style board targeting. Legal connected rooms and in-bounds empty nodes in `N`, `NE`, `E`, `SE`, `S`, `SW`, `W`, and `NW` highlight directly on the map; invalid, occupied, closed-door, and off-board destinations are omitted. Rooms index exits by compass direction, and corridors store their direction from both endpoints.
 - Text labels for all game state (fire, broken, secure count, intruder types, noise) — never color alone
 

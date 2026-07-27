@@ -192,6 +192,12 @@ body {
     cursor: grabbing;
 }
 
+#map-pan-surface {
+    position: relative;
+    min-width: 100%;
+    min-height: 100%;
+}
+
 #map-zoom-controls {
     display: flex;
     align-items: center;
@@ -263,12 +269,13 @@ body {
 
 #game-canvas {
     display: block;
-    margin: auto;
+    position: absolute;
+    margin: 0;
     border: 1px solid #243a45;
     border-radius: 2px;
     background: #0d1117;
     box-shadow: 0 14px 38px rgba(0,0,0,0.48), inset 0 0 28px rgba(36,85,100,0.08);
-    cursor: default;
+    cursor: inherit;
     touch-action: pan-x pan-y;
 }
 
