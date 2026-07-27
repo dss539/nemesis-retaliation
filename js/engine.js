@@ -40,9 +40,9 @@ class NemesisEngine {
 
             // Decks
             itemDecks: {
-                red: shuffle([...Array(30).keys()].map(i => 'red_gen_' + i)),
-                yellow: shuffle([...Array(30).keys()].map(i => 'yellow_gen_' + i)),
-                green: shuffle([...Array(30).keys()].map(i => 'green_gen_' + i))
+                red: shuffle(Object.keys(GAME_DATA.ITEMS).filter(id => GAME_DATA.ITEMS[id].type === 'red')),
+                yellow: shuffle(Object.keys(GAME_DATA.ITEMS).filter(id => GAME_DATA.ITEMS[id].type === 'yellow')),
+                green: shuffle(Object.keys(GAME_DATA.ITEMS).filter(id => GAME_DATA.ITEMS[id].type === 'green'))
             },
             itemDiscards: { red: [], yellow: [], green: [] },
             eventDeck: shuffle([...GAME_DATA.EVENTS.map(e => e.id)]),
@@ -122,6 +122,9 @@ class NemesisEngine {
             // Lander position on round track
             landerRound: null,
             gameOver: false,
+            paused: false,
+            pauseReason: null,
+            pausedPlayerId: null,
             winners: []
         };
 
@@ -158,7 +161,8 @@ class NemesisEngine {
             passed: false,
             actionCardsDrawn: 0,
             peerId: null,
-            connected: true
+            connected: true,
+            hasJoined: true
         });
 
         // Reserve remaining slots as placeholders (not yet joined)
@@ -193,7 +197,8 @@ class NemesisEngine {
                 passed: false,
                 actionCardsDrawn: 0,
                 peerId: null,
-                connected: false
+                connected: false,
+                hasJoined: false
             });
         }
 
@@ -309,6 +314,11 @@ class NemesisEngine {
     // === GAME ROUND ===
     startRound() {
         const s = this.state;
+        if (s.phase === 'setup' && s.players.some(p => !p.connected)) {
+            this.log('Cannot start: every configured player slot must be filled');
+            return false;
+        }
+        if (s.paused) return false;
         s.phase = 'playerPhase';
         s.currentPlayer = s.startingPlayer;
         s.actionsRemaining = GAME_DATA.CONFIG.actionsPerTurn;
@@ -324,9 +334,10 @@ class NemesisEngine {
 
     startPlayerTurn() {
         const s = this.state;
+        if (s.paused) return;
         const player = s.players[s.currentPlayer];
 
-        if (!player.alive || player.hasEscaped || player.hasHibernated || player.inLander || !player.connected) {
+        if (!player.alive || player.hasEscaped || player.hasHibernated || player.inLander) {
             this.nextPlayerOrPhase();
             return;
         }
@@ -342,6 +353,9 @@ class NemesisEngine {
         const s = this.state;
         const player = s.players[playerIndex];
 
+        if (s.paused) {
+            return { success: false, error: s.pauseReason || 'Game is paused while waiting for a player to rejoin' };
+        }
         if (s.phase !== 'playerPhase' || s.currentPlayer !== playerIndex || !player.alive) {
             return { success: false, error: 'Not your turn' };
         }
@@ -350,23 +364,28 @@ class NemesisEngine {
             return { success: false, error: 'No actions remaining' };
         }
 
-        // Discard an action card to pay for the action (unless it's Pass)
-        if (actionType !== 'pass') {
-            if (player.actionHand.length === 0) {
-                return { success: false, error: 'No cards in hand' };
+        const actionCosts = { cautiousMove: 2, useRoom: 2 };
+        const actionCost = actionType === 'pass' ? 0 : (actionCosts[actionType] || 1);
+        const handBeforeAction = player.actionHand.slice();
+        const discardBeforeAction = player.actionDiscard.slice();
+        if (actionCost > 0) {
+            const requested = Array.isArray(params.cardIndices) ? params.cardIndices :
+                (params.cardIndex !== undefined ? [params.cardIndex] : []);
+            const cardIndices = requested.length ? requested : player.actionHand
+                .map((card, index) => ({ card, index }))
+                .filter(({ card }) => card.type !== 'contamination')
+                .slice(-actionCost)
+                .map(({ index }) => index);
+            if (cardIndices.length !== actionCost || new Set(cardIndices).size !== actionCost) {
+                return { success: false, error: `Select ${actionCost} Action card${actionCost === 1 ? '' : 's'} to pay this action's cost` };
             }
-            // Discard the card (or a specific card if selected)
-            const cardIndex = params.cardIndex !== undefined ? params.cardIndex : player.actionHand.length - 1;
-            const card = player.actionHand[cardIndex];
-            if (!card) {
-                return { success: false, error: 'Invalid card selection' };
+            const cards = cardIndices.map(index => player.actionHand[index]);
+            if (cards.some(card => !card || card.type === 'contamination')) {
+                return { success: false, error: 'Only Action cards can pay an action cost' };
             }
-            // Contamination cards CANNOT be discarded to pay for Actions (rulebook p.36)
-            if (card.type === 'contamination') {
-                return { success: false, error: 'Contamination cards cannot be used for Actions' };
-            }
-            player.actionHand.splice(cardIndex, 1);
-            player.actionDiscard.push(card);
+            cardIndices.slice().sort((a, b) => b - a).forEach(index => {
+                player.actionDiscard.push(player.actionHand.splice(index, 1)[0]);
+            });
         }
 
         let result = { success: true };
@@ -383,13 +402,20 @@ class NemesisEngine {
             case 'search': result = this.actionSearch(player); break;
             case 'trade': result = this.actionTrade(player, params); break;
             case 'activateRobot': result = this.actionActivateRobot(player, params); break;
-            case 'pass': result = this.actionPass(player); break;
+            case 'pass': result = this.actionPass(player, params); break;
             case 'sprint': result = this.actionSprint(player, params); break;
             case 'rest': result = this.actionRest(player); break;
             case 'reinforce': result = this.actionReinforce(player, params); break;
             case 'drill': result = this.actionDrill(player, params); break;
             case 'command': result = this.actionCommand(player, params); break;
             default: return { success: false, error: 'Unknown action' };
+        }
+
+        // An illegal/impossible action must not consume its payment. Do not
+        // refund an action that resolved far enough to kill its actor.
+        if (!result.success && player.alive) {
+            player.actionHand = handBeforeAction;
+            player.actionDiscard = discardBeforeAction;
         }
 
         // Opportunity attacks, noise rolls, melee responses, and other action
@@ -450,6 +476,7 @@ class NemesisEngine {
 
     nextPlayerOrPhase() {
         const s = this.state;
+        if (s.paused) return;
 
         // Find next player who hasn't passed
         let next = s.currentPlayer;
@@ -457,7 +484,7 @@ class NemesisEngine {
         for (let i = 1; i <= s.players.length; i++) {
             next = (s.currentPlayer + i) % s.players.length;
             const p = s.players[next];
-            if (p.alive && !p.passed && !p.hasEscaped && !p.hasHibernated && !p.inLander && p.connected) {
+            if (p.alive && !p.passed && !p.hasEscaped && !p.hasHibernated && !p.inLander) {
                 found = true;
                 break;
             }
@@ -874,14 +901,16 @@ class NemesisEngine {
     // === CLEANUP PHASE ===
     cleanupPhase() {
         const s = this.state;
+        if (s.paused) return;
         this.log('-- Cleanup Phase --');
         this.notify('phaseChange', { phase: 'cleanup' });
 
         // 1. Starting player change
         s.startingPlayer = (s.startingPlayer + 1) % s.players.length;
-        // Find next alive, connected player
+        // Find next eligible player. A live game cannot advance while a joined
+        // player is disconnected, so connectivity is not a turn-order filter.
         let attempts = 0;
-        while ((!s.players[s.startingPlayer].alive || !s.players[s.startingPlayer].connected) && attempts < s.players.length) {
+        while (!s.players[s.startingPlayer].alive && attempts < s.players.length) {
             s.startingPlayer = (s.startingPlayer + 1) % s.players.length;
             attempts++;
         }
@@ -1443,6 +1472,11 @@ class NemesisEngine {
     }
 
     actionUseTacticalGear(player, params) {
+        const beltIndex = player.tacticalBelt.findIndex(token => token === params.tokenType);
+        if (beltIndex === -1) return { success: false, error: 'Tactical Gear token not owned' };
+        player.tacticalBelt[beltIndex] = null;
+        const s = this.state;
+        if (s.tokenPool[params.tokenType] !== undefined) s.tokenPool[params.tokenType]++;
         // Use a tactical gear token
         if (params.tokenType === 'medpack') {
             this.healPlayer(player, 2);
@@ -1452,7 +1486,6 @@ class NemesisEngine {
             this.log(this.charName(player) + ' uses Oxygen token');
         } else if (params.tokenType === 'grenade') {
             // Roll burst + 2 on adjacent corridor
-            const s = this.state;
             const roll = 1 + Math.floor(Math.random() * 6) + 2;
             this.log(this.charName(player) + ' throws Grenade (' + roll + ' hits)');
             // Apply to corridor (UI will specify)
@@ -1591,9 +1624,23 @@ class NemesisEngine {
         if (!targetPlayer || targetPlayer.location !== player.location) {
             return { success: false, error: 'Target not in same room' };
         }
-        // Trade is handled by UI - engine just confirms
+        const itemId = params.itemId;
+        const isBackpackItem = player.backpack.includes(itemId);
+        const handIndex = player.handSlots.indexOf(itemId);
+        if (!isBackpackItem && handIndex === -1) {
+            return { success: false, error: 'Item not owned by trading Character' };
+        }
+        const itemData = GAME_DATA.ITEMS[itemId];
+        if (!itemData) return { success: false, error: 'Unknown item' };
+        if (isBackpackItem) player.backpack.splice(player.backpack.indexOf(itemId), 1);
+        else player.handSlots[handIndex] = null;
+        if (!this.addItemToPlayer(targetPlayer, itemId)) {
+            if (isBackpackItem) player.backpack.push(itemId);
+            else player.handSlots[handIndex] = itemId;
+            return { success: false, error: 'Recipient cannot carry that item' };
+        }
         this.log(this.charName(player) + ' trades with ' + this.charName(targetPlayer));
-        this.notify('tradeInitiated', { player: player.id, target: params.targetPlayer });
+        this.notify('tradeCompleted', { player: player.id, target: params.targetPlayer, item: itemId });
         return { success: true };
     }
 
@@ -1634,14 +1681,18 @@ class NemesisEngine {
         return { success: true };
     }
 
-    actionPass(player) {
+    actionPass(player, params = {}) {
         const s = this.state;
+        // On Pass, the Character may discard any chosen subset of Action and
+        // Contamination cards. Omitted selection means discard none.
+        const selected = Array.isArray(params.cardIndices) ? params.cardIndices : [];
+        if (new Set(selected).size !== selected.length || selected.some(index => !Number.isInteger(index) || index < 0 || index >= player.actionHand.length)) {
+            return { success: false, error: 'Invalid Pass discard selection' };
+        }
         player.passed = true;
-        // Per rulebook p.14: on Pass, may discard any number of cards from
-        // hand (Action cards and Contamination cards). All cards in hand go
-        // to the action discard pile.
-        player.actionHand.forEach(c => player.actionDiscard.push(c));
-        player.actionHand = [];
+        selected.slice().sort((a, b) => b - a).forEach(index => {
+            player.actionDiscard.push(player.actionHand.splice(index, 1)[0]);
+        });
         this.log(this.charName(player) + ' passes');
         this.notify('playerPassed', { player: player.id });
         return { success: true };
@@ -1860,14 +1911,13 @@ class NemesisEngine {
 
     addItemToPlayer(player, itemId) {
         const itemData = GAME_DATA.ITEMS[itemId];
-        if (!itemData) return;
+        if (!itemData) return false;
 
         if (itemData.traits?.includes('HEAVY')) {
             // Place in hand slot
             const emptySlot = player.handSlots.indexOf(null);
             if (emptySlot === -1) {
-                // Can't carry - discard
-                return;
+                return false;
             }
             player.handSlots[emptySlot] = itemId;
         } else if (itemData.traits?.includes('ARMOR')) {
@@ -1876,6 +1926,7 @@ class NemesisEngine {
             // Regular item goes to backpack
             player.backpack.push(itemId);
         }
+        return true;
     }
 
     activateAutodestruction(state) {

@@ -54,7 +54,8 @@ const UI = {
         if (this.movementMode && (
             NemesisNetwork.playerId !== state.currentPlayer ||
             state.actionsRemaining <= 0 ||
-            !state.players[NemesisNetwork.playerId]?.alive
+            !state.players[NemesisNetwork.playerId]?.alive ||
+            state.paused
         )) {
             this.cancelTacticalAction(false);
         }
@@ -225,6 +226,7 @@ const UI = {
             <div><span class="label">Phase:</span><span class="value">${this.state.phase}</span></div>
             <div><span class="label">Turn:</span><span class="value">${GAME_DATA.CHARACTERS[this.state.players[this.state.currentPlayer]?.character]?.name || '-'}</span></div>
             <div><span class="label">Actions:</span><span class="value">${this.state.actionsRemaining}</span></div>
+            ${this.state.paused ? `<div><span class="label">Status:</span><span class="value">PAUSED — ${this.state.pauseReason || 'Waiting for a player'}</span></div>` : ''}
         `;
     },
 
@@ -267,7 +269,7 @@ const UI = {
             if (this.movementMode?.action === action.id) btn.classList.add('active');
             btn.innerHTML = GameArt.iconMarkup(GameArt.actionIcon(action.id)) + `<span>${action.label}</span>`;
             btn.setAttribute('aria-label', action.label);
-            btn.disabled = !isMyTurn || this.state.actionsRemaining <= 0;
+            btn.disabled = this.state.paused || !isMyTurn || this.state.actionsRemaining <= 0;
             btn.onclick = () => this.handleActionClick(action.id);
             container.appendChild(btn);
         });
@@ -581,17 +583,20 @@ const UI = {
         const state = this.state;
         const myPlayer = state.players[NemesisNetwork.playerId];
         const playersInRoom = state.players.filter(p => p.id !== NemesisNetwork.playerId && p.alive && p.location === myPlayer.location);
+        const items = [...myPlayer.backpack, ...myPlayer.handSlots.filter(Boolean)];
 
         let content = '<h2>Trade</h2>';
-        if (playersInRoom.length === 0) {
-            content += '<p>No other Characters in your Room.</p>';
+        if (playersInRoom.length === 0 || items.length === 0) {
+            content += `<p>${playersInRoom.length === 0 ? 'No other Characters in your Room.' : 'No items available to trade.'}</p>`;
         } else {
             content += '<div class="modal-card-list">';
-            playersInRoom.forEach(p => {
+            items.forEach(itemId => {
+                const item = GAME_DATA.ITEMS[itemId];
+                if (!item) return;
                 content += `
-                    <div class="modal-card" onclick="UI.executeTrade(${p.id})">
-                        <div class="mc-name">${p.name}</div>
-                        <div class="mc-text">${GAME_DATA.CHARACTERS[p.character]?.name || ''}</div>
+                    <div class="modal-card" onclick="UI.showTradeRecipientModal('${itemId}')">
+                        <div class="mc-name">${item.name}</div>
+                        <div class="mc-text">Choose recipient</div>
                     </div>
                 `;
             });
@@ -601,8 +606,20 @@ const UI = {
         this.showModal(content);
     },
 
-    executeTrade(targetPlayer) {
-        NemesisNetwork.sendAction('trade', { targetPlayer });
+    showTradeRecipientModal(itemId) {
+        const state = this.state;
+        const myPlayer = state.players[NemesisNetwork.playerId];
+        const playersInRoom = state.players.filter(p => p.id !== NemesisNetwork.playerId && p.alive && p.location === myPlayer.location);
+        let content = '<h2>Give item to</h2><div class="modal-card-list">';
+        playersInRoom.forEach(p => {
+            content += `<div class="modal-card" onclick="UI.executeTrade(${p.id}, '${itemId}')"><div class="mc-name">${p.name}</div><div class="mc-text">${GAME_DATA.CHARACTERS[p.character]?.name || ''}</div></div>`;
+        });
+        content += '</div><button class="btn btn-secondary" style="margin-top:12px" onclick="UI.showTradeModal()">Back</button>';
+        this.showModal(content);
+    },
+
+    executeTrade(targetPlayer, itemId) {
+        NemesisNetwork.sendAction('trade', { targetPlayer, itemId });
         this.closeModal();
     },
 

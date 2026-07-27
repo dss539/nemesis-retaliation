@@ -20,7 +20,7 @@ A faithful web-based digital adaptation of the board game Nemesis: Retaliation b
 - Host-authoritative: host runs the engine, clients send actions via WebRTC
 - PeerJS for P2P (no server needed, just PeerJS broker for signaling)
 - Full state sent to all clients — privacy is UI-layer only (renderCardArea only shows local player's hand/objectives/backpack)
-- Disconnected players are skipped in turn order
+- A disconnected joined player pauses the game; their slot can be reclaimed without changing state, and turn/phase progression cannot continue until it is filled.
 - `serializeStateForPlayer()` exists in network.js but is no longer used (kept for reference)
 
 ## Key Design Decisions
@@ -76,18 +76,26 @@ All official PDFs and extracted text are in `docs/rulebooks/` (gitignored):
 - `faq_text.txt` — extracted text from FAQ
 - Plus expansion rulebooks (Sangrevore, Xyrians, Contractors, Insider, SG, SS)
 
+## Rules Corpus
+- `docs/rules/` is the human-facing, semi-formal interpretation corpus for the base game. Start with `docs/rules/README.md`.
+- Authority is explicit: official FAQ/errata overrides the official rulebook; project interpretations and any deliberate digital adaptations must be visibly labeled and may not silently change tabletop rules.
+- `docs/rules/00-foundations.md` through `03-intruders-and-survival.md` provide source-backed operational rules. `open-questions.md` records genuine unresolved source ambiguities.
+- `docs/rules/bug-tracker.md` tracks confirmed implementation failures. Bugs and QA failures are never intentional deviations and must be repaired, not normalized.
+- `docs/rules/deviations.md` is reserved exclusively for deliberate, remaining digital adaptations.
+
 ## Git
 - Identity: Derrick Southerland <dss539@users.noreply.github.com>
 - Branch: main
 - GitHub Pages: enabled, auto-deploys from main
 
 ## How to Resume Work
-1. Read this file (AGENTS.md) for full project context
-2. Read `docs/design/architecture.md` for design decisions and TODO
-3. Read `docs/qa/full-game-report.md` for QA findings
-4. Rulebook PDFs in `docs/rulebooks/` for rules reference
-5. To test multiplayer: use Playwright (installed on smithers), write a Python script that launches multiple headless Chromium instances. See `docs/qa/4browser_qa.py` for pattern.
-6. To test locally: `python3 -m http.server 8889` then open http://localhost:8889
+1. Read this file (`AGENTS.md`) for project context
+2. Read `docs/rules/README.md` and the relevant source-backed rules record before changing game mechanics
+3. Read `docs/rules/bug-tracker.md` and `docs/qa/full-game-rules-audit.md` for known rules failures
+4. Read `docs/design/architecture.md` for design decisions and TODO
+5. Rulebook PDFs and extracted text in `docs/rulebooks/` are the primary official source; FAQ/errata takes precedence
+6. To test multiplayer: use Playwright (installed on smithers), write a Python script that launches multiple headless Chromium instances. See `docs/qa/4browser_qa.py` for pattern.
+7. To test locally: `python3 -m http.server 8889` then open http://localhost:8889
 
 ## Future Work
 - Card art/graphics

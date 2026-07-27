@@ -119,6 +119,11 @@ function updateLobbyPlayers(lobby) {
 
 function startGame() {
     if (!engine) return;
+    const missingPlayers = engine.state.players.filter(p => !p.connected);
+    if (missingPlayers.length > 0) {
+        alert('All player slots must be filled before the game can begin.');
+        return;
+    }
     // Start the first round
     engine.startRound();
     switchToGameScreen();

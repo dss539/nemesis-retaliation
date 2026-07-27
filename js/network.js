@@ -114,7 +114,10 @@ const NemesisNetwork = {
             if (player) {
                 player.connected = false;
                 player.peerId = null;
-                this.log(`${player.name || 'Player'} disconnected`);
+                state.paused = true;
+                state.pausedPlayerId = player.id;
+                state.pauseReason = `Waiting for ${player.name || 'a player'} to rejoin`;
+                window.nemesisEngine.log(`${player.name || 'Player'} disconnected — game paused until their slot is reclaimed`);
                 this.broadcastState();
             }
         }
@@ -132,29 +135,42 @@ const NemesisNetwork = {
 
         switch(data.type) {
             case 'join':
-                // Find first unjoined player slot
                 const state = engine.getState();
-                const freeSlot = state.players.findIndex(p => !p.connected);
-                if (freeSlot === -1) {
+                // Reclaim a dropped player's seat before assigning an unjoined
+                // lobby slot. Reclaiming preserves the character and all state.
+                const reclaimSlot = state.players.findIndex(p => p.hasJoined && !p.connected);
+                const openLobbySlot = state.phase === 'setup'
+                    ? state.players.findIndex(p => !p.hasJoined)
+                    : -1;
+                const slot = reclaimSlot !== -1 ? reclaimSlot : openLobbySlot;
+                if (slot === -1) {
                     conn.send({ type: 'joinRejected', reason: 'Game is full' });
                     return;
                 }
-                // Assign player to the free slot
-                state.players[freeSlot].name = data.name;
-                state.players[freeSlot].peerId = conn.peer;
-                state.players[freeSlot].connected = true;
-                state.players[freeSlot].alive = true;
+                const joiningPlayer = state.players[slot];
+                joiningPlayer.name = data.name || joiningPlayer.name;
+                joiningPlayer.peerId = conn.peer;
+                joiningPlayer.connected = true;
+                joiningPlayer.hasJoined = true;
+
+                const disconnectedJoinedPlayers = state.players.filter(p => p.hasJoined && !p.connected);
+                if (state.paused && disconnectedJoinedPlayers.length === 0) {
+                    state.paused = false;
+                    state.pauseReason = null;
+                    state.pausedPlayerId = null;
+                    engine.log(`${joiningPlayer.name || 'Player'} filled the disconnected seat — game resumed`);
+                }
 
                 conn.send({
                     type: 'joinAccepted',
-                    playerId: freeSlot,
+                    playerId: slot,
                     state: this.serializeState(state)
                 });
 
                 // Update host's own lobby UI
                 if (typeof updateLobbyPlayers === 'function') {
                     const lobbyData = {
-                        players: state.players.filter(p => p.connected).map(p => ({ name: p.name, character: p.character, connected: p.connected })),
+                        players: state.players.filter(p => p.hasJoined).map(p => ({ name: p.name, character: p.character, connected: p.connected })),
                         numPlayers: state.numPlayers
                     };
                     updateLobbyPlayers(lobbyData);
@@ -255,7 +271,7 @@ const NemesisNetwork = {
         const state = window.nemesisEngine.getState();
         if (!state) return;
         const lobbyData = {
-            players: state.players.filter(p => p.connected).map(p => ({ name: p.name, character: p.character, connected: p.connected })),
+            players: state.players.filter(p => p.hasJoined).map(p => ({ name: p.name, character: p.character, connected: p.connected })),
             numPlayers: state.numPlayers
         };
         this.broadcastMessage({ type: 'lobbyState', lobby: lobbyData });

@@ -14,6 +14,12 @@
 - Hides: intruder bag contents, anti-aircraft token order, robot card (until revealed)
 - Each client receives a different sanitized view of the same state
 
+### Multiplayer Continuity
+- A disconnected joined player pauses the game immediately. Their character, cards, objectives, and all other slot state remain intact.
+- The game cannot start until every configured seat is filled. During a game, a connection may reclaim a disconnected joined seat; once every joined seat is connected, the game resumes from exactly the paused state.
+- Disconnected players are never skipped in turn order, phase progression, or Starting Player rotation.
+- Host migration is not implemented: if the host disconnects, the authoritative state is unavailable. This is a distinct limitation from client reconnection.
+
 ### Exploration System
 - Current: player selects a highlighted legal destination directly on the tactical map. Exploration targets are empty neighboring nodes in all eight compass directions (`N`, `NE`, `E`, `SE`, `S`, `SW`, `W`, `NW`) within the fixed 7x5 board boundary.
 - Invalid targets are omitted by the UI and independently rejected by the authoritative engine (off-board, occupied, direction mismatch, or more than one grid step away).
