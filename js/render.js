@@ -9,6 +9,9 @@ const Renderer = {
     clickHandler: null,
     movementTargets: [],
     movementTargetHandler: null,
+    mapZoom: 1,
+    MIN_MAP_ZOOM: 0.5,
+    MAX_MAP_ZOOM: 3,
 
     // Fixed tactical-grid geometry. The 42px void between every 110px room
     // remains visible even where no corridor tile has been discovered.
@@ -26,17 +29,13 @@ const Renderer = {
         this.canvas.addEventListener('click', (e) => this.handleClick(e));
         this.canvas.addEventListener('mousemove', (e) => this.handleMouseMove(e));
 
-        // Touch support
-        this.canvas.addEventListener('touchstart', (e) => {
+        // Browser-synthesized clicks handle taps. Avoid preventing touchstart:
+        // one-finger drags must remain available to pan the overflow canvas.
+        const wrapper = document.getElementById('canvas-wrapper');
+        wrapper?.addEventListener('wheel', (e) => {
+            if (!e.ctrlKey && !e.metaKey) return;
             e.preventDefault();
-            const touch = e.touches[0];
-            const rect = this.canvas.getBoundingClientRect();
-            const scaleX = this.canvas.width / rect.width;
-            const scaleY = this.canvas.height / rect.height;
-            this.handleClick({
-                clientX: touch.clientX,
-                clientY: touch.clientY
-            });
+            this.adjustMapZoom(e.deltaY < 0 ? 0.5 : -0.5);
         }, { passive: false });
 
         // Responsive resize
@@ -57,35 +56,82 @@ const Renderer = {
         const BASE_H = 900;
         const aspectRatio = BASE_W / BASE_H;
 
-        let displayWidth = wrapperWidth;
-        let displayHeight = displayWidth / aspectRatio;
+        let fitWidth = wrapperWidth;
+        let fitHeight = fitWidth / aspectRatio;
 
-        if (displayHeight > wrapperHeight) {
-            displayHeight = wrapperHeight;
-            displayWidth = displayHeight * aspectRatio;
+        if (fitHeight > wrapperHeight) {
+            fitHeight = wrapperHeight;
+            fitWidth = fitHeight * aspectRatio;
         }
 
-        // Set CSS display size
+        const displayWidth = Math.max(1, fitWidth * this.mapZoom);
+        const displayHeight = Math.max(1, fitHeight * this.mapZoom);
+
+        // Map zoom changes CSS size, making the wrapper a native pan surface.
         this.canvas.style.width = Math.floor(displayWidth) + 'px';
         this.canvas.style.height = Math.floor(displayHeight) + 'px';
 
-        // Set internal resolution to match display * devicePixelRatio for crisp text
-        const dpr = window.devicePixelRatio || 1;
-        this.canvas.width = Math.floor(displayWidth * dpr);
-        this.canvas.height = Math.floor(displayHeight * dpr);
+        // Render sharply without allowing large desktop zooms to allocate an
+        // unbounded bitmap.
+        const dpr = Math.min(window.devicePixelRatio || 1, 2);
+        const resolutionScale = Math.min(dpr, 4096 / displayWidth, 4096 / displayHeight);
+        this.canvas.width = Math.max(1, Math.floor(displayWidth * resolutionScale));
+        this.canvas.height = Math.max(1, Math.floor(displayHeight * resolutionScale));
 
-        // Scale the drawing context so game coordinates map correctly
+        // Scale the drawing context so game coordinates map correctly.
         const scaleX = this.canvas.width / BASE_W;
         const scaleY = this.canvas.height / BASE_H;
         this.ctx.setTransform(scaleX, 0, 0, scaleY, 0, 0);
 
-        // Store for click coordinate mapping
+        // Store for click coordinate mapping.
         this._displayWidth = displayWidth;
         this._displayHeight = displayHeight;
         this._baseW = BASE_W;
         this._baseH = BASE_H;
 
+        this.updateMapZoomControls();
         this.render();
+    },
+
+    adjustMapZoom(delta) {
+        this.setMapZoom(this.mapZoom + delta);
+    },
+
+    setMapZoom(nextZoom) {
+        const wrapper = document.getElementById('canvas-wrapper');
+        if (!wrapper || !this.canvas) return;
+
+        const oldScrollWidth = Math.max(wrapper.scrollWidth, 1);
+        const oldScrollHeight = Math.max(wrapper.scrollHeight, 1);
+        const centerX = (wrapper.scrollLeft + wrapper.clientWidth / 2) / oldScrollWidth;
+        const centerY = (wrapper.scrollTop + wrapper.clientHeight / 2) / oldScrollHeight;
+
+        this.mapZoom = Math.max(this.MIN_MAP_ZOOM, Math.min(this.MAX_MAP_ZOOM, nextZoom));
+        this.resizeCanvas();
+
+        wrapper.scrollLeft = centerX * wrapper.scrollWidth - wrapper.clientWidth / 2;
+        wrapper.scrollTop = centerY * wrapper.scrollHeight - wrapper.clientHeight / 2;
+        this.updateMapZoomControls();
+    },
+
+    resetMapView() {
+        this.mapZoom = 1;
+        this.resizeCanvas();
+        const wrapper = document.getElementById('canvas-wrapper');
+        if (wrapper) {
+            wrapper.scrollLeft = 0;
+            wrapper.scrollTop = 0;
+        }
+        this.updateMapZoomControls();
+    },
+
+    updateMapZoomControls() {
+        const level = document.getElementById('map-zoom-level');
+        const zoomIn = document.querySelector('[data-map-zoom="in"]');
+        const zoomOut = document.querySelector('[data-map-zoom="out"]');
+        if (level) level.textContent = Math.round(this.mapZoom * 100) + '%';
+        if (zoomIn) zoomIn.disabled = this.mapZoom >= this.MAX_MAP_ZOOM;
+        if (zoomOut) zoomOut.disabled = this.mapZoom <= this.MIN_MAP_ZOOM;
     },
 
     setState(state) {

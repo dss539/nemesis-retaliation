@@ -34,13 +34,14 @@ const UI = {
             case 'cards':
                 rightPanel?.classList.add('mobile-active');
                 navBtns[2]?.classList.add('active');
+                if (rightPanel) rightPanel.scrollTop = 0;
                 break;
             case 'log':
                 rightPanel?.classList.add('mobile-active');
                 navBtns[3]?.classList.add('active');
-                // Scroll log into view
+                // Scroll within the tab panel rather than moving the fixed page.
                 const log = document.getElementById('game-log');
-                if (log) log.scrollIntoView();
+                if (rightPanel && log) rightPanel.scrollTop = log.offsetTop - 10;
                 break;
         }
 

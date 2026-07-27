@@ -27,6 +27,13 @@
 - Existing cardinal and diagonal corridors render beneath rooms and only remain visible between room boundaries; absent corridors leave the reserved gap empty.
 - Movement uses direct map highlights instead of a compass modal.
 
+### Mobile Interaction
+- The viewport permits normal browser pinch zoom; mobile accessibility is not locked with `user-scalable=no` or `maximum-scale=1`.
+- Explicit map controls scale the canvas from 50% to 300% relative to its fitted size. `Fit` restores the complete-board view.
+- A zoomed canvas overflows inside `#canvas-wrapper`; native horizontal/vertical scrolling provides one-finger panning without changing renderer hit-test coordinates.
+- Board, player, card, and log tabs own their scrolling. Oversized content scrolls inside the active panel rather than being clipped by a fixed `100vh` layout.
+- `docs/qa/mobile_layout_qa.py` exercises portrait and landscape phone viewports, map zoom/pan, touch selection after panning, Fit reset, and oversized-content reachability.
+
 ### Production Art Layer
 - Game-facing art is independently generated SVG under `assets/generated/`; the gitignored research library is never loaded at runtime.
 - `js/assets.js` is the semantic registry for board, room, character, intruder, card, marker, and control art. Game data IDs select assets rather than UI call sites hard-coding file names.

@@ -20,17 +20,26 @@
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
+html, body, #app { min-height: 100%; }
+
 body {
     background: var(--bg-dark);
     color: var(--text-primary);
     font-family: 'Segoe UI', Tahoma, sans-serif;
     font-size: 15px;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
     user-select: none;
 }
 
-.screen { display: none; width: 100vw; height: 100vh; }
+.screen { display: none; width: 100%; min-height: 100vh; min-height: 100dvh; }
 .screen.active { display: flex; }
+
+#game-screen {
+    height: 100vh;
+    height: 100dvh;
+    overflow: hidden;
+}
 
 /* Lobby */
 #lobby-screen {
@@ -169,12 +178,42 @@ body {
     width: 100%;
     min-height: 0;
     flex: 1;
+    display: block;
+    overflow: auto;
+    position: relative;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+}
+
+#map-zoom-controls {
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: hidden;
-    position: relative;
+    gap: 6px;
+    flex: 0 0 auto;
+    margin: 0 0 6px;
+    padding: 4px 6px;
+    background: rgba(10, 19, 25, 0.9);
+    border: 1px solid var(--border);
+    border-radius: 4px;
 }
+
+#map-zoom-controls button {
+    min-width: 42px;
+    min-height: 36px;
+    padding: 6px 11px;
+    color: var(--text-primary);
+    background: #17242c;
+    border: 1px solid var(--border-light);
+    border-radius: 3px;
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+    touch-action: manipulation;
+}
+
+#map-zoom-controls button:disabled { opacity: 0.35; cursor: default; }
+#map-zoom-level { min-width: 48px; color: var(--tactical); font-size: 0.82em; text-align: center; }
 
 #tactical-prompt {
     width: min(620px, 92%);
@@ -216,11 +255,14 @@ body {
 #game-info-bar .value { font-weight: bold; color: var(--accent); }
 
 #game-canvas {
+    display: block;
+    margin: auto;
     border: 1px solid #243a45;
     border-radius: 2px;
     background: #0d1117;
     box-shadow: 0 14px 38px rgba(0,0,0,0.48), inset 0 0 28px rgba(36,85,100,0.08);
     cursor: default;
+    touch-action: pan-x pan-y;
 }
 
 #action-bar {
@@ -615,8 +657,9 @@ body {
         background: var(--bg-panel);
         border-top: 1px solid var(--border);
         z-index: 100;
-        padding: 4px 0;
-        max-height: 60px;
+        padding: 4px 0 env(safe-area-inset-bottom);
+        min-height: 54px;
+        max-height: none;
     }
 
     .mobile-nav-btn {
@@ -638,8 +681,11 @@ body {
     /* Stack layout vertically */
     #game-layout {
         flex-direction: column;
-        height: calc(100vh - 50px);
-        padding-bottom: 50px;
+        height: 100vh;
+        height: 100dvh;
+        min-height: 0;
+        padding-bottom: calc(54px + env(safe-area-inset-bottom));
+        overflow: hidden;
     }
 
     /* All panels full width, tab-controlled */
@@ -648,11 +694,13 @@ body {
         max-height: none;
         position: absolute;
         top: 0; left: 0; right: 0;
-        bottom: 50px;
+        bottom: calc(54px + env(safe-area-inset-bottom));
         z-index: 10;
         background: var(--bg-dark);
         display: none;
         overflow-y: auto;
+        overscroll-behavior: contain;
+        -webkit-overflow-scrolling: touch;
         padding: 10px;
     }
 
@@ -662,9 +710,14 @@ body {
 
     #center-panel {
         flex: 1;
+        min-height: 0;
         display: flex;
         flex-direction: column;
         align-items: center;
+        overflow-x: hidden;
+        overflow-y: auto;
+        overscroll-behavior-y: contain;
+        -webkit-overflow-scrolling: touch;
     }
 
     /* When board tab active, hide panels */
@@ -675,18 +728,24 @@ body {
     /* Canvas responsive */
     #canvas-wrapper {
         width: 100%;
-        flex: 1;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        overflow: hidden;
+        min-height: 240px;
+        flex: 1 0 240px;
+        display: block;
+        overflow: auto;
     }
 
     #game-canvas {
+        max-width: none;
+        max-height: none;
+    }
+
+    #map-zoom-controls {
+        position: sticky;
+        top: 0;
+        z-index: 5;
+        width: max-content;
         max-width: 100%;
-        max-height: 100%;
-        width: auto;
-        height: auto;
+        margin-bottom: 5px;
     }
 
     /* Info bar compact */
