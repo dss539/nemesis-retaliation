@@ -331,9 +331,9 @@ const Renderer = {
         const baseH = this._baseH || 900;
         const step = this.ROOM_SIZE + this.CORRIDOR_WIDTH;
         const sections = [
-            { name: 'SECTOR A', start: 0, columns: 3, color: 'rgba(45,116,93,0.055)' },
-            { name: 'SECTOR B', start: 3, columns: 3, color: 'rgba(65,98,145,0.055)' },
-            { name: 'SECTOR C', start: 6, columns: 1, color: 'rgba(143,67,67,0.065)' }
+            { name: 'SECTION A', start: 0, columns: 3, color: 'rgba(45,116,93,0.055)' },
+            { name: 'SECTION B', start: 3, columns: 3, color: 'rgba(65,98,145,0.055)' },
+            { name: 'SECTION C', start: 6, columns: 1, color: 'rgba(143,67,67,0.065)' }
         ];
 
         sections.forEach(section => {
@@ -357,7 +357,7 @@ const Renderer = {
                 const x = this.GRID_PADDING_X + gx * step;
                 const y = this.GRID_PADDING_Y + gy * step;
 
-                // Every graph node is visible before exploration. The room itself
+                // Every Room slot is visible before exploration. The room itself
                 // later replaces this subdued empty-slot floor without moving it.
                 this.octagonPath(ctx, x, y, this.ROOM_SIZE);
                 ctx.fillStyle = 'rgba(12,25,33,0.68)';
@@ -492,7 +492,7 @@ const Renderer = {
             ctx.fillStyle = '#f0c66d';
             ctx.font = 'bold 10px sans-serif';
             ctx.textAlign = 'right';
-            ctx.fillText('FAULT', x + w - 27, y + 19);
+            ctx.fillText('MALT', x + w - 27, y + 19);
         }
 
         // Secure tokens — show count as text

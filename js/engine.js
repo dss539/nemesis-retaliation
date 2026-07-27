@@ -441,7 +441,7 @@ class NemesisEngine {
             // Lose health if in room with fire
             if (room.markers.fire) {
                 this.damagePlayer(player, 1, 'fire');
-                this.log(this.charName(player) + ' takes 1 damage from fire');
+                this.log(this.charName(player) + ' loses 1 Health from Fire');
             }
         }
 
@@ -512,7 +512,7 @@ class NemesisEngine {
             const nestRoom = s.rooms.nest;
             if (nestRoom && nestRoom.markers.fire) {
                 s.nest.eggs--;
-                this.log('Fire destroys 1 Egg in the Nest');
+                this.log('Fire discards 1 Egg in the Nest');
                 if (s.nest.eggs === 0) {
                     s.nest.destroyed = true;
                     this.log('The Nest is destroyed!');
@@ -533,7 +533,7 @@ class NemesisEngine {
                         // Check for secure tokens
                         if (room.markers.secure && room.markers.secure.length > 0) {
                             room.markers.secure.pop();
-                            this.log('Secure token absorbs attack in ' + room.id);
+                            this.log('Secure token prevents Intruder Attack in ' + room.id);
                             return;
                         }
                         // Attack first character in turn order
@@ -1247,7 +1247,7 @@ class NemesisEngine {
                 const room = state.rooms[queenIntruder.location.id];
                 if (room && room.markers.secure && room.markers.secure.length > 0) {
                     room.markers.secure.pop();
-                    this.log('Secure token absorbs Queen attack');
+                    this.log('Secure token prevents Queen Attack');
                 } else {
                     this.resolveIntruderAttack(state, queenIntruder, charsInRoom[0]);
                 }
@@ -1484,7 +1484,7 @@ class NemesisEngine {
                 if (s.antiAircraft.lander.status === 'landed') {
                     player.inLander = true;
                     s.antiAircraft.lander.characters.push(player.id);
-                    this.log(this.charName(player) + ' boards the Lander');
+                    this.log(this.charName(player) + ' gets into the Lander');
                 } else {
                     // Gain tactical gear tokens
                     if (s.tokenPool.ammo > 0) { this.addTacticalGear(player, 'ammo'); s.tokenPool.ammo--; }
@@ -1502,7 +1502,7 @@ class NemesisEngine {
                     this.log(this.charName(player) + ' discards a Serious Wound');
                 } else if (player.larva) {
                     player.larva = false;
-                    this.log(this.charName(player) + ' removes Larva');
+                    this.log(this.charName(player) + ' discards Larva from Character board');
                 }
                 break;
             case 'lifeSupportControlA':
@@ -1520,7 +1520,7 @@ class NemesisEngine {
                 if (s.nest.eggs > 0 && !s.nest.destroyed) {
                     s.nest.eggs--;
                     this.addItemToPlayer(player, 'egg');
-                    this.log(this.charName(player) + ' takes an Egg');
+                    this.log(this.charName(player) + ' picks up an Egg');
                     if (s.nest.eggs === 0) {
                         s.nest.destroyed = true;
                         this.log('The Nest is destroyed!');
@@ -1677,7 +1677,7 @@ class NemesisEngine {
         corridor.reinforced = true;
         corridor.value = 0; // Reinforced corridors have value 0
         if (corridor.noise) { corridor.noise = false; s.tokenPool.noise++; }
-        this.log(this.charName(player) + ' reinforces a corridor');
+        this.log(this.charName(player) + ' reinforces an empty Corridor');
         return { success: true };
     }
 
@@ -1798,7 +1798,7 @@ class NemesisEngine {
 
     damageQueen(state, hits) {
         state.queen.hits += hits;
-        this.log('Queen takes ' + hits + ' hits (total: ' + state.queen.hits + ')');
+        this.log('Queen takes ' + hits + ' Hits (total: ' + state.queen.hits + ')');
         while (state.queen.hits >= GAME_DATA.CONFIG.queenHitsMax) {
             state.queen.hits -= GAME_DATA.CONFIG.queenHitsMax;
             // Draw queen health card
@@ -1881,7 +1881,7 @@ class NemesisEngine {
     activateAutodestruction(state) {
         state.autodestruction.active = true;
         state.autodestruction.token = state.round + 5;
-        this.log('Autodestruction activated! Facility will be destroyed in 5 rounds!');
+        this.log('Autodestruction Procedure activated! Facility will be destroyed in 5 rounds!');
         this.notify('autodestruction', { round: state.autodestruction.token });
     }
 

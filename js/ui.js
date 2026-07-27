@@ -101,7 +101,7 @@ const UI = {
                 </div>
                 <div class="stat-row">
                     <span>Items: ${player.backpack.length}</span>
-                    <span>${player.hasEscaped ? 'Escaped' : player.hasHibernated ? 'Hibernating' : player.alive ? 'Active' : 'Dead'}</span>
+                    <span>${player.hasEscaped ? 'Escaped' : player.hasHibernated ? 'Hibernated' : player.alive ? 'Active' : 'Dead'}</span>
                 </div>
             `;
             container.appendChild(div);
@@ -389,7 +389,7 @@ const UI = {
 
         const targets = [...connectedTargets, ...explorationTargets];
         if (targets.length === 0) {
-            this.showModal('<h2>No Legal Moves</h2><p>There are no open corridors or unexplored board spaces adjacent to this room.</p><button class="btn btn-secondary" onclick="UI.closeModal()">OK</button>');
+            this.showModal('<h2>No Legal Moves</h2><p>There are no open Corridors or empty Room slots adjacent to this Room.</p><button class="btn btn-secondary" onclick="UI.closeModal()">OK</button>');
             return;
         }
 
@@ -496,15 +496,15 @@ const UI = {
         const myPlayer = state.players[NemesisNetwork.playerId];
         const adjacentCorridors = state.corridors.filter(c => c.room1 === myPlayer.location || c.room2 === myPlayer.location);
 
-        let content = '<h2>Burst Fire</h2>';
+        let content = '<h2>Burst</h2>';
         content += '<p>Choose a corridor to burst at:</p>';
         content += '<div class="modal-card-list">';
         adjacentCorridors.forEach(c => {
             const intruderCount = state.intruders.filter(i => i.location.type === 'corridor' && i.location.id === c.id).length;
             content += `
                 <div class="modal-card" onclick="UI.executeBurst('${c.id}')">
-                    <div class="mc-name">Corridor (Value: ${c.value})</div>
-                    <div class="mc-text">${intruderCount} intruder(s) ${c.noise ? '| Noise!' : ''}</div>
+                    <div class="mc-name">Corridor (Noise Value: ${c.value})</div>
+                    <div class="mc-text">${intruderCount} Intruder(s) ${c.noise ? '| Noise marker' : ''}</div>
                 </div>
             `;
         });
@@ -584,7 +584,7 @@ const UI = {
 
         let content = '<h2>Trade</h2>';
         if (playersInRoom.length === 0) {
-            content += '<p>No other players in your room.</p>';
+            content += '<p>No other Characters in your Room.</p>';
         } else {
             content += '<div class="modal-card-list">';
             playersInRoom.forEach(p => {
@@ -637,7 +637,7 @@ const UI = {
             c.intruders.filter(i => i).length === 0
         );
 
-        let content = '<h2>Reinforce Corridor</h2>';
+        let content = '<h2>Reinforce an Empty Corridor</h2>';
         if (adjacentCorridors.length === 0) {
             content += '<p>No corridors available to reinforce.</p>';
         } else {
@@ -645,8 +645,8 @@ const UI = {
             adjacentCorridors.forEach(c => {
                 content += `
                     <div class="modal-card" onclick="UI.executeReinforce('${c.id}')">
-                        <div class="mc-name">Corridor (Value: ${c.value})</div>
-                        <div class="mc-text">${c.noise ? 'Has noise' : 'Empty'}</div>
+                        <div class="mc-name">Corridor (Noise Value: ${c.value})</div>
+                        <div class="mc-text">${c.noise ? 'Has Noise marker' : 'Empty Corridor'}</div>
                     </div>
                 `;
             });
@@ -669,7 +669,7 @@ const UI = {
 
         let content = '<h2>Command</h2>';
         if (lowerRank.length === 0) {
-            content += '<p>No lower-rank players to command.</p>';
+            content += '<p>No lower-rank Characters to command.</p>';
         } else {
             content += '<div class="modal-card-list">';
             lowerRank.forEach(p => {

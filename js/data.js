@@ -348,7 +348,7 @@ PRIVATE_OBJECTIVES: [
     { id: 'po6', name: 'Sabotage', minPlayers: 2, text: 'The Facility must be destroyed.', effect: 'progressObjectiveTrack' },
     { id: 'po7', name: 'Lone Wolf', minPlayers: 2, text: 'You must Escape and at least 1 other Character must die.', effect: 'progressObjectiveTrack' },
     { id: 'po8', name: 'Survivor', minPlayers: 2, text: 'You must Survive and Escape.', effect: 'progressObjectiveTrack' },
-    { id: 'po9', name: '标本 Collector', minPlayers: 2, text: 'You must Escape carrying 1 Egg.', effect: 'progressObjectiveTrack' },
+    { id: 'po9', name: 'Specimen Collector', minPlayers: 2, text: 'You must Escape carrying 1 Egg.', effect: 'progressObjectiveTrack' },
     { id: 'po10', name: 'Data Thief', minPlayers: 2, text: 'You must Escape with a Data token.', effect: 'progressObjectiveTrack' },
     { id: 'po11', name: 'Firebug', minPlayers: 3, text: 'At least 3 Rooms must have Fire markers at game end.', effect: 'progressObjectiveTrack' },
     { id: 'po12', name: 'Pacifist', minPlayers: 2, text: 'You must Escape without having killed any Intruders.', effect: 'progressObjectiveTrack' },
@@ -387,8 +387,8 @@ QUEEN_HEALTH_CARDS: [
 CONFIG: {
     maxRounds: 14,
     maxPlayers: 5,
-    // Fixed tactical map. Every node is pre-drawn as a regular octagonal slot.
-    // A room may connect to any immediately neighboring node through one of
+    // Fixed tactical map. Every Room slot is pre-drawn as a regular octagonal slot.
+    // A room may connect to any immediately neighboring Room slot through one of
     // these eight compass-direction graph edges.
     boardBounds: { minX: 0, maxX: 6, minY: 0, maxY: 4 },
     directions: [

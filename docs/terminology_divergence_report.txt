@@ -1,0 +1,1614 @@
+================================================================================
+NEMESIS: RETALIATION — TERMINOLOGY DIVERGENCE REPORT
+Source Code vs. Official Rulebook/FAQ Terminology
+Generated: 2026-07-27
+================================================================================
+
+This report catalogs every divergence between the terminology used in the
+codebase (js/*.js, index.html, css/style.css) and the canonical terminology
+from the official rulebook (rulebook_text.txt) and FAQ (faq_text.txt).
+
+Findings are grouped by category. For each item:
+  1. Codebase term (exact identifier/string as used in code)
+  2. Location (file + line number, or "throughout" if pervasive)
+  3. Canonical rulebook/FAQ term
+  4. Suggested revision
+  5. UNRESOLVED flag if applicable
+
+================================================================================
+CATEGORY 1: MAP / BOARD
+================================================================================
+
+1.1  "node" / "graph node"
+  Location: data.js:390 (comment), render.js:19 (comment), render.js:303
+    (comment), engine.js:928 (comment), ui.js:375 (comment), AGENTS.md
+  Canonical: "Room slot" / "empty Room slot"
+  Note: The rulebook uses "empty Room slot" or "Room slot" for positions
+    where a Room tile may be placed. The codebase pervasively calls these
+    "nodes" (from graph theory), and "empty nodes" or "empty space."
+  Suggested: Replace "node" with "roomSlot" in identifiers and "Room slot"
+    in comments/UI strings. Replace "empty node" with "empty Room slot."
+
+1.2  "mapGrid"
+  Location: engine.js:111 (state.mapGrid), engine.js:236, engine.js:1040
+  Canonical: "Facility" (the overall map/board is called the Facility)
+  Note: The state property `mapGrid` stores the spatial index of rooms and
+    corridors. The rulebook calls the entire playing surface "the Facility"
+    or "the Map." There is no single "mapGrid" concept — rooms and corridors
+    occupy slots within the Facility.
+  Suggested: Rename to `facilityGrid` or `boardLayout`. The concept it
+    represents (spatial index of placed tiles) has no direct rulebook
+    analogue — UNRESOLVED whether a rename is strictly necessary since it
+    is an internal data structure, but `facilityGrid` better aligns with
+    rulebook language.
+
+1.3  "SECTOR A" / "SECTOR B" / "SECTOR C"
+  Location: render.js:276-278 (section labels drawn on canvas)
+  Canonical: "Section A" / "Section B" / "Section C"
+  Note: The rulebook consistently uses "Section" (capitalized) — e.g.,
+    "Section A," "Section B," "Section C." The renderer draws "SECTOR A"
+    etc. on the canvas, which is a different word entirely.
+  Suggested: Change the canvas label strings from 'SECTOR A' to
+    'SECTION A' (and B, C).
+
+1.4  "sections" (state.sections)
+  Location: engine.js:35 (state.sections object)
+  Canonical: "Sections" — the rulebook calls these "Sections" (A, B, C)
+  Note: The state property `sections` is acceptable as an identifier.
+    No divergence in meaning — this is a correct usage.
+  Suggested: No change needed (internal identifier matches rulebook
+    concept).
+
+1.5  "drawGrid" / "drawSections"
+  Location: render.js:236, render.js:272
+  Canonical: The rulebook refers to the visual map as "the Map" or
+    "the Facility." The grid of Room slots is implicit.
+  Note: These are internal renderer function names. "Grid" is a code-
+    level concept not used in the rulebook. The rulebook shows "slots
+    in which Rooms and Corridors may appear" but never calls it a "grid."
+  Suggested: UNRESOLVED — these are internal function names with no
+    player-facing impact. Could rename to `drawRoomSlots` and
+    `drawSectionBackgrounds` for alignment, but low priority.
+
+1.6  "boardBounds"
+  Location: data.js:393 (CONFIG.boardBounds)
+  Canonical: "Facility" borders — the rulebook says "No Room and no
+    Corridor can ever be placed on those pieces or outside of those
+    borders" referring to Section border pieces and Round track border
+    pieces.
+  Note: Internal config property. The concept of board boundaries is
+    implied by the Facility's physical border pieces.
+  Suggested: Could rename to `facilityBounds` for terminology
+    alignment, but low priority as it is internal.
+
+1.7  "ROOM_SIZE" / "CORRIDOR_WIDTH" / "GRID_PADDING_X/Y"
+  Location: render.js:21-24
+  Canonical: No rulebook equivalent — these are rendering constants.
+  Suggested: No change needed (pure rendering geometry).
+
+1.8  "OCTAGON_CUT" / "octagonPath" / "octagonVertices"
+  Location: render.js:26, render.js:340-360
+  Canonical: No rulebook term — the rulebook shows rectangular Room
+    tiles and Corridor tiles, not octagons.
+  Note: The octagonal shape is a digital edition design choice, not
+    a rulebook term. No divergence to report.
+  Suggested: No change needed.
+
+================================================================================
+CATEGORY 2: ROOMS AND CORRIDORS
+================================================================================
+
+2.1  "corridors" (state.corridors array)
+  Location: engine.js:34 (state.corridors)
+  Canonical: "Corridors" — correct usage. Each entry represents a
+    Corridor tile.
+  Note: The state property name is correct. However, individual corridor
+    objects use `value` for the Noise value and `door` for the door state,
+    which are appropriate.
+  Suggested: No change needed.
+
+2.2  "room1" / "room2" (corridor properties)
+  Location: engine.js:1055-1058 (newCorridor object), render.js:498-500
+  Canonical: The rulebook describes Corridors as connecting "two Rooms"
+    and being "adjacent to" Rooms. Corridors are identified by which
+    Rooms they connect.
+  Note: These are internal property names. The rulebook doesn't
+    prescribe specific identifiers. Acceptable.
+  Suggested: No change needed.
+
+2.3  "door" (corridor.door property with values 'open', 'closed', 'destroyed')
+  Location: engine.js:1060 (door: 'open'), engine.js:965 (door === 'closed'),
+    render.js:562-569
+  Canonical: "Door" / "Door slot" / "Open" / "Closed" / "Destroyed"
+  Note: The rulebook uses "Door slot" for the slot on a Corridor tile
+    where Doors can be placed. Door states are "Open," "Closed," and
+    "Destroyed." The codebase uses 'open', 'closed', 'destroyed' — these
+    match the rulebook states.
+  Suggested: No change needed (states match).
+
+2.4  "reinforced" (corridor.reinforced)
+  Location: engine.js:1063, engine.js:1653
+  Canonical: "Reinforced Corridor" — the rulebook uses "Reinforce" and
+    "Reinforced Corridors."
+  Suggested: No change needed (correct usage).
+
+2.5  "undiscoveredRooms" (state.undiscoveredRooms)
+  Location: engine.js:114 (state.undiscoveredRooms)
+  Canonical: "Undiscovered Rooms" — the rulebook uses "Undiscovered
+    Rooms" and "pool of Undiscovered Rooms."
+  Suggested: No change needed (correct usage).
+
+2.6  "discovered" (room.discovered property)
+  Location: engine.js:233 (room.discovered = true), throughout
+  Canonical: "Discovered" / "Discovered Room" — the rulebook uses
+    "Discovered" for rooms that have been explored and placed.
+  Suggested: No change needed (correct usage).
+
+2.7  "directionFromRoom1" / "directionFromRoom2"
+  Location: engine.js:1058-1059
+  Canonical: No rulebook term — the rulebook describes corridors by
+    their orientation and the Rooms they connect, using cardinal
+    directions implicitly through the Exploration card layout.
+  Note: Internal data structure for the 8-directional grid. Not a
+    rulebook term but a necessary implementation detail.
+  Suggested: UNRESOLVED — no direct rulebook term exists for this
+    concept. Acceptable as internal naming.
+
+2.8  "exits" (room.exits)
+  Location: engine.js:233 (exits: {}), engine.js:1066-1068
+  Canonical: The rulebook refers to Corridors leading out of Rooms and
+    Door slots on Corridors. It does not use "exits" as a Room property.
+  Note: Internal data structure mapping directions to corridor IDs.
+  Suggested: UNRESOLVED — no direct rulebook term. Could use
+    "corridorSlots" but "exits" is reasonable for a digital adaptation.
+
+2.9  "itemIcons" (room.itemIcons)
+  Location: data.js:78-107 (ROOMS definitions)
+  Canonical: "Item Icons" — the rulebook calls these "Item Icons"
+    (showing which types of Items can be found in a given Room).
+  Suggested: No change needed (correct usage).
+
+2.10  "cannotSecure" / "cannotBreak" (room properties)
+  Location: data.js:78, 91, 90, 92 (ROOMS definitions)
+  Canonical: The rulebook says some Rooms "are never Secured and can
+    never have Secure tokens placed on them" and some "can never be
+    broken. A Malfunction marker is never placed on them."
+  Note: "cannotBreak" is an informal phrasing. The rulebook says
+    "can never be broken." The property name is an internal identifier.
+  Suggested: Could rename `cannotBreak` to `cannotMalfunction` for
+    closer alignment with the rulebook's "Malfunction marker" 
+    terminology, since "break" is not the rulebook's word. Low priority
+    as it is internal.
+
+2.11  "computer" (room.computer property)
+  Location: data.js:78-107 (ROOMS definitions)
+  Canonical: "Computer Icon" — the rulebook calls this the "Computer
+    Icon" showing "whether the Room contains a connection to the
+    server."
+  Suggested: No change needed (acceptable abbreviation).
+
+2.12  "startsInactive" / "startsUndiscovered"
+  Location: data.js:83 (hibernatorium definition)
+  Canonical: The rulebook describes the Hibernatorium as "Undiscovered
+    and turned off (Inactive) at the start."
+  Suggested: No change needed (correct concept, acceptable internal
+    naming).
+
+================================================================================
+CATEGORY 3: INTRUDERS
+================================================================================
+
+3.1  "intruders" (state.intruders array)
+  Location: engine.js:65 (state.intruders)
+  Canonical: "Intruders" — correct usage. The rulebook uses "Intruders"
+    as the generic term for all alien enemies.
+  Suggested: No change needed.
+
+3.2  "intruderBag" (state.intruderBag)
+  Location: engine.js:61 (state.intruderBag)
+  Canonical: "Intruder bag" — the rulebook calls it the "Intruder bag."
+  Suggested: No change needed (correct usage).
+
+3.3  "INTRUDER_ATTACKS" / "intruderAttackDeck" / "intruderAttackDiscard"
+  Location: data.js:163 (INTRUDER_ATTACKS), engine.js:52-53
+  Canonical: "Intruder Attack" / "Intruder Attack deck"
+  Note: The rulebook uses "Intruder Attack" for the attack cards and
+    "Intruder Attack deck" for the deck. The codebase uses
+    "INTRUDER_ATTACKS" (data) and "intruderAttackDeck" (state) — both
+    align with rulebook terminology.
+  Suggested: No change needed.
+
+3.4  "intruderPool" (state.intruderPool)
+  Location: engine.js:63 (state.intruderPool)
+  Canonical: "Intruder pool" — the rulebook refers to placing killed
+    Intruders "back in the Intruder pool" and drawing from "Intruder
+    token piles."
+  Note: The rulebook sometimes says "Intruder pool" and sometimes
+    "Intruder token piles." The codebase uses "intruderPool" as a single
+    object with per-type counts.
+  Suggested: No change needed (acceptable — "pool" is used in the
+    rulebook).
+
+3.5  "blanks" / "drones" / "adults" / "larvae" / "queen"
+  Location: data.js:153-158 (INTRUDER_BAG)
+  Canonical: "Blank token" / "Drone" / "Adult" / "Larva" / "Queen"
+  Note: The rulebook uses "Blank token" (singular), not "blanks."
+    The codebase uses "blanks" as a property name. "Larvae" (plural) is
+    used in the codebase as "larvae" while the rulebook uses "Larva"
+    (singular) for the type and "Larvae" for the plural.
+  Suggested: "blanks" → "blankTokens" for closer alignment. "larvae"
+    → "larvae" is fine as a count (the rulebook uses "Larvae" as plural).
+    Low priority.
+
+3.6  "corridorHits" / "roomHits" / "models" (INTRUDER_TYPES)
+  Location: data.js:145-148
+  Canonical: The rulebook describes Intruder health in terms of Hits
+    needed to kill in Corridors vs. Rooms. "models" refers to the
+    physical component count.
+  Note: "corridorHits" and "roomHits" are internal data representing
+    the Hits needed to kill each type. The rulebook describes this
+    qualitatively, not with these exact property names.
+  Suggested: UNRESOLVED — no direct rulebook term for these properties.
+    Acceptable as internal data.
+
+3.7  "size" (intruder size property)
+  Location: data.js:145-148 (INTRUDER_TYPES.size)
+  Canonical: The rulebook refers to Intruder size implicitly through
+    "the largest Intruder" and the Corridor limit ("the Queen counting
+    as 4 Intruders").
+  Note: "size" maps to the Queen counting as 4, Drone as 2, others as 1.
+    This is an internal representation of the rulebook's "counting as N
+    Intruders" concept.
+  Suggested: Could rename to `corridorSlotCount` for closer alignment
+    with "counting as N Intruders" but low priority.
+
+3.8  "hits" (intruder.hits property)
+  Location: engine.js:65 (intruder hits), throughout
+  Canonical: "Hits" / "Hit markers" / "Universal markers"
+  Note: The rulebook uses "Hits" and "Universal markers" placed next
+    to Intruder models. The codebase uses "hits" as a numeric counter.
+  Suggested: No change needed (acceptable — "hits" matches "Hits").
+
+3.9  "larva" (player.larva property — boolean)
+  Location: engine.js:153 (player.larva = false)
+  Canonical: "Infected with a Larva" / "Larva on your Character board"
+  Note: The rulebook says a Larva is "placed on the Character board"
+    when a Character is infected. The codebase uses a boolean `larva`
+    flag. The log messages say "infected with a Larva" which matches.
+  Suggested: No change needed for the boolean flag. The UI label
+    "INFECTED" (ui.js:100) matches the rulebook's "Infected" terminology.
+
+3.10  "queen" (state.queen object)
+  Location: engine.js:74-80
+  Canonical: "The Queen" — the rulebook consistently uses "the Queen"
+    or "Queen."
+  Suggested: No change needed.
+
+3.11  "queenHitsMax" (CONFIG.queenHitsMax)
+  Location: data.js:411
+  Canonical: The rulebook describes the Queen's Hits track with a
+    maximum space. The Queen Health card is drawn when the marker
+    "reaches the final space."
+  Note: The rulebook doesn't name this maximum explicitly as a config
+    value. The codebase uses 6 (matching the physical Hits track).
+  Suggested: No change needed.
+
+================================================================================
+CATEGORY 4: PLAYER STATE / CHARACTER
+================================================================================
+
+4.1  "players" (state.players array)
+  Location: engine.js:25 (state.players)
+  Canonical: "Characters" — the rulebook calls player miniatures/
+    standees "Characters." The codebase stores them as "players."
+  Note: This is a significant pervasive divergence. The rulebook says
+    "Each player assumes the role of a marine squad member" and calls
+    the miniatures "Characters." The codebase uses "players" throughout
+    for what the rulebook calls "Characters."
+  Suggested: This is the most impactful divergence. However, "players"
+    is a common game-development term and changing it would be a large
+    refactor. At minimum, player-facing strings should use "Character"
+    rather than "player" where the rulebook would. UNRESOLVED — a full
+    rename of `players` → `characters` in the state would be extensive.
+    Player-facing UI text should at minimum use "Character."
+
+4.2  "health" / "maxHealth" (player properties)
+  Location: engine.js:139-140
+  Canonical: "Health" / "Health Points" / "Health track"
+  Note: The rulebook uses "Health Points" and "Health track." The
+    codebase uses "health" and "maxHealth" — acceptable.
+  Suggested: No change needed.
+
+4.3  "oxygen" (player.oxygen)
+  Location: engine.js:141
+  Canonical: "Oxygen" — the rulebook uses "Oxygen" and "Oxygen Counter."
+  Suggested: No change needed.
+
+4.4  "suffocating" (player.suffocating)
+  Location: engine.js:142
+  Canonical: "Suffocating" / "Suffocation" / "Suffocating token"
+  Note: The rulebook uses "Suffocating token" — when Oxygen reaches 0,
+    the Character "gains a Suffocating token." The codebase uses a
+    boolean `suffocating` flag, which is equivalent.
+  Suggested: No change needed (correct concept and term).
+
+4.5  "actionDeck" / "actionHand" / "actionDiscard"
+  Location: engine.js:143-145
+  Canonical: "Action deck" / "Action cards" (in hand) / "Action card
+    discard pile"
+  Note: The rulebook uses "Action deck," "Action cards" (in hand),
+    and "Action card discard pile." The codebase uses "actionDeck,"
+    "actionHand," "actionDiscard" — all align.
+  Suggested: No change needed.
+
+4.6  "contaminationInHand" / "contaminationDiscard"
+  Location: engine.js:146-147
+  Canonical: "Contamination cards" — the rulebook says Contamination
+    cards go to the "discard pile" (they share the Action card back
+    but form a separate deck conceptually).
+  Note: The rulebook says "When a Contamination card is gained, it is
+    always placed in a Character's discard pile." So Contamination
+    cards go to the Action discard, not a separate contamination
+    discard. The codebase separates them into "contaminationInHand"
+    and "contaminationDiscard" which diverges from the rulebook's
+    model where Contamination cards go into the Action discard pile.
+  Suggested: UNRESOLVED — the codebase models Contamination as a
+    separate hand/discard, but the rulebook says they go into the
+    Action discard pile. This is a rules-modeling divergence, not
+    just terminology. The property names "contaminationInHand" and
+    "contaminationDiscard" don't match the rulebook's model where
+    Contamination cards are in the Action discard. Consider merging
+    into the Action discard or renaming to clarify the relationship.
+
+4.7  "backpack" (player.backpack)
+  Location: engine.js:148
+  Canonical: "Backpack" — the rulebook uses "Backpack" and "Backpack
+    card holder."
+  Suggested: No change needed.
+
+4.8  "handSlots" (player.handSlots)
+  Location: engine.js:149
+  Canonical: "Hand slots" — the rulebook uses "Hand slots" (2 per
+    Character, 1 if carrying a Heavy Item in the other).
+  Suggested: No change needed (correct usage).
+
+4.9  "tacticalBelt" (player.tacticalBelt)
+  Location: engine.js:151
+  Canonical: "Tactical Belt" — the rulebook uses "Tactical Belt" with
+    4 "Tactical Gear slots."
+  Suggested: No change needed.
+
+4.10  "seriousWounds" (player.seriousWounds)
+  Location: engine.js:152
+  Canonical: "Serious Wounds" / "Serious Wound cards"
+  Suggested: No change needed.
+
+4.11  "hasDataToken" (player.hasDataToken)
+  Location: engine.js:154
+  Canonical: "Data token" — the rulebook uses "Data token."
+  Suggested: No change needed.
+
+4.12  "hasEscaped" / "hasHibernated" / "inLander"
+  Location: engine.js:155-157
+  Canonical: "Escaped" / "Hibernated" / "in the Lander"
+  Note: "hasEscaped" and "hasHibernated" match rulebook concepts. "inLander"
+    represents being inside the Lander, which the rulebook describes as
+    Characters being "in the Lander."
+  Suggested: No change needed.
+
+4.13  "armor" (player.armor)
+  Location: engine.js:150
+  Canonical: "Armor" / "Armor Item" — the rulebook uses "Armor" as a
+    trait and "Armor Items" for the category.
+  Suggested: No change needed.
+
+4.14  "actionCardsDrawn" (player.actionCardsDrawn)
+  Location: engine.js:161
+  Canonical: No direct rulebook term — this tracks cards drawn for
+    the Objective Choice track mechanic.
+  Suggested: UNRESOLVED — internal tracking property with no direct
+    rulebook name. Acceptable.
+
+4.15  "passed" (player.passed)
+  Location: engine.js:159
+  Canonical: "Passed" / "Pass" — the rulebook uses "Pass" as an Action
+    and says players who have "Passed" are skipped.
+  Suggested: No change needed.
+
+4.16  "connected" (player.connected)
+  Location: engine.js:163
+  Canonical: No rulebook term — this is a networking property for
+    online multiplayer, tracking whether a player's browser is
+    connected.
+  Suggested: No change needed (networking concept, not a rulebook
+    term).
+
+4.17  "isHeavilyInjured" / "isInjured" (helper methods)
+  Location: engine.js:1732-1737, ui.js:716-721
+  Canonical: "Heavily Injured" / "Injured" — the rulebook divides the
+    Health track into "Healthy," "Injured," and "Heavily Injured."
+  Suggested: No change needed (correct usage).
+
+4.18  "heavily-injured" / "injured" (CSS classes)
+  Location: style.css:337, ui.js:81-82
+  Canonical: "Heavily Injured" / "Injured"
+  Suggested: No change needed (CSS class names match rulebook states).
+
+4.19  "player-board-mini" (CSS class)
+  Location: style.css:299, ui.js:76
+  Canonical: "Character board" — the rulebook calls these "Character
+    boards."
+  Note: The CSS class "player-board-mini" uses "player" instead of
+    "character." The rulebook says "Character board."
+  Suggested: Rename to "character-board-mini" for terminology
+    alignment. Low priority as it is CSS-only.
+
+4.20  "player-boards" (HTML element ID)
+  Location: index.html:63, ui.js:70
+  Canonical: "Character boards"
+  Suggested: Could rename to "character-boards" for alignment.
+
+4.21  "current-player" (CSS class)
+  Location: style.css:339, ui.js:77
+  Canonical: The rulebook refers to the "Starting Player" and "Turn
+    order," not "current player."
+  Note: "Current player" is a common UI term for whose turn it is.
+    The rulebook uses "Starting Player" for the first player and
+    describes turns in order. There's no "current player" concept
+    per se, but it's a reasonable UI label.
+  Suggested: UNRESOLVED — no direct rulebook term for "the player
+    whose turn it is." Acceptable as UI terminology.
+
+4.22  "char-name" / "char-class" (CSS classes)
+  Location: style.css:307, ui.js:90
+  Canonical: The rulebook uses "Character" for the name and the
+    Character's name (e.g., "Medical Support"). "Class" is not a
+    rulebook term.
+  Note: "char-class" displays the character name (e.g., "Medical
+    Support"), which the rulebook calls the "Character" name. "Class"
+    is an RPG term not used in the rulebook.
+  Suggested: Rename "char-class" to "char-type" or "character-name"
+    for clarity. Low priority.
+
+================================================================================
+CATEGORY 5: CARDS / DECKS
+================================================================================
+
+5.1  "SERIOUS_WOUNDS" / "seriousWoundDeck" / "seriousWoundDiscard"
+  Location: data.js:229, engine.js:54-55
+  Canonical: "Serious Wound" / "Serious Wound deck" / "Serious Wound
+    cards"
+  Suggested: No change needed (correct usage).
+
+5.2  "CONTAMINATION_CARDS" / "contaminationDeck" / "contaminationDiscard"
+  Location: data.js:262, engine.js:57-58
+  Canonical: "Contamination cards" / "Contamination deck"
+  Note: See item 4.6 for the modeling divergence about where
+    Contamination cards are stored.
+  Suggested: No change needed for naming (see 4.6 for the modeling
+    issue).
+
+5.3  "EVENTS" / "eventDeck" / "eventDiscard"
+  Location: data.js:280, engine.js:48-49
+  Canonical: "Event cards" / "Event deck"
+  Suggested: No change needed.
+
+5.4  "EXPLORATION_CARDS" / "explorationDeck" / "explorationDiscard"
+  Location: data.js:304, engine.js:50-51
+  Canonical: "Exploration cards" / "Exploration deck"
+  Suggested: No change needed.
+
+5.5  "QUEEN_HEALTH_CARDS" / "queenHealthDeck"
+  Location: data.js:371, engine.js:56
+  Canonical: "Queen Health cards" / "Queen Health deck"
+  Suggested: No change needed.
+
+5.6  "ROBOTS" / "robot.card"
+  Location: data.js:361, engine.js:86-91
+  Canonical: "Robot cards" / "Robot card"
+  Suggested: No change needed.
+
+5.7  "ITEMS" / "itemDecks" / "itemDiscards"
+  Location: data.js:187, engine.js:42-47
+  Canonical: "Items" / "Item decks" (red, green, yellow)
+  Suggested: No change needed.
+
+5.8  "SUPPORT_EQUIPMENT"
+  Location: data.js:218
+  Canonical: "Support Equipment" — the rulebook uses "Support
+    Equipment" and "Support Equipment deck."
+  Suggested: No change needed.
+
+5.9  "MISSION_TASKS" / "missionTask"
+  Location: data.js:320, engine.js:104
+  Canonical: "Mission Task" / "Mission Task card" / "Mission Task deck"
+  Suggested: No change needed.
+
+5.10  "MISSION_OBJECTIVES" / "PRIVATE_OBJECTIVES"
+  Location: data.js:332, 342
+  Canonical: "Mission Objectives" / "Private Objectives" — the
+    rulebook uses "Mission Objectives" and "Private Objectives."
+  Suggested: No change needed.
+
+5.11  "chosenObjective" (player.chosenObjective)
+  Location: engine.js:159
+  Canonical: The rulebook says players "choose an Objective" and "keep"
+    one. The kept Objective is the one to fulfill.
+  Note: "chosenObjective" is acceptable for the kept/selected objective.
+  Suggested: No change needed.
+
+5.12  "objectiveChoiceTrack" (state.objectiveChoiceTrack)
+  Location: engine.js:105
+  Canonical: "Objective Choice track" — the rulebook uses "Objective
+    Choice track" and mentions moving a marker on it.
+  Suggested: No change needed.
+
+5.13  "actionCard" / "action-card" (CSS classes)
+  Location: style.css:455, ui.js:127
+  Canonical: "Action card"
+  Suggested: No change needed.
+
+5.14  "contamination-card" (CSS class)
+  Location: style.css:456, ui.js:142
+  Canonical: "Contamination card"
+  Suggested: No change needed.
+
+5.15  "card-display" / "card-name" / "card-type" / "card-text" (CSS)
+  Location: style.css:347-367, ui.js throughout
+  Canonical: Generic UI terms, no rulebook conflict.
+  Suggested: No change needed.
+
+5.16  "hand-card" / "hand-cards" (CSS/HTML)
+  Location: style.css:441-435, ui.js:123
+  Canonical: The rulebook refers to "cards in hand" or "Action cards"
+    in the player's hand.
+  Note: "hand-card" as a CSS class for cards displayed in the hand is
+    acceptable UI terminology.
+  Suggested: No change needed.
+
+================================================================================
+CATEGORY 6: ACTIONS
+================================================================================
+
+6.1  "move" (action type)
+  Location: data.js:15, engine.js:371, ui.js:244
+  Canonical: "Make a Move" / "Move" — the rulebook uses "Make a Move"
+    as the Action name and "Move" informally.
+  Suggested: No change needed (acceptable abbreviation).
+
+6.2  "cautiousMove" (action type)
+  Location: data.js:15, engine.js:372, ui.js:246
+  Canonical: "Move Cautiously" / "Cautious Move" / "Cautious Movement"
+  Note: The rulebook uses "Make a Move Cautiously" and "Moving
+    Cautiously." The UI label is "Cautious Move" (ui.js:246). The
+    rulebook's action list says "Make a Move Cautiously." The Serious
+    Wound text says "Cautious Move Action" (data.js:252) which matches
+    the UI label.
+  Suggested: The UI label "Cautious Move" is acceptable. The
+    identifier "cautiousMove" is fine internally.
+
+6.3  "shoot" (action type)
+  Location: data.js:15, engine.js:373, ui.js:247
+  Canonical: "Shoot" / "Fire a Shot" — the rulebook uses "Shooting" and
+    "Fire a Shot in a Room." The action list says "Fire a Shot."
+  Note: The UI label "Shoot" matches the rulebook's section heading
+    "Shooting" and informal usage. The formal action name is "Fire a
+    Shot" but "Shoot" is used throughout the rulebook informally.
+  Suggested: No change needed.
+
+6.4  "burst" (action type)
+  Location: data.js:15, engine.js:374, ui.js:248
+  Canonical: "Burst" / "Fire a Burst" — the rulebook uses "Bursting"
+    and "Fire a Burst at a Corridor."
+  Suggested: No change needed.
+
+6.5  "melee" (action type)
+  Location: data.js:15, engine.js:375, ui.js:249
+  Canonical: "Melee Attack" / "Perform a Melee Attack"
+  Note: The UI label is "Melee" — the rulebook uses "Melee Attack."
+  Suggested: UI label could be "Melee Attack" for full alignment, but
+    "Melee" is a reasonable abbreviation.
+
+6.6  "useItem" (action type)
+  Location: data.js:15, engine.js:376, ui.js:250
+  Canonical: "Use an Item" — the rulebook says "Use an Item."
+  Note: UI label is "Use Item" (ui.js:250) — close to "Use an Item."
+  Suggested: Minor — could change UI label to "Use an Item" but
+    "Use Item" is acceptable.
+
+6.7  "useTacticalGear" (action type)
+  Location: data.js:15, engine.js:377, ui.js:251
+  Canonical: "Use any Tactical Gear" — the rulebook says "Use any
+    Tactical Gear."
+  Note: UI label is "Use Gear" (ui.js:251) — abbreviated from
+    "Use Tactical Gear."
+  Suggested: Could change to "Use Tactical Gear" for alignment, but
+    "Use Gear" is a reasonable abbreviation.
+
+6.8  "useRoom" (action type)
+  Location: data.js:15, engine.js:378, ui.js:252
+  Canonical: "Use the Room" — the rulebook says "Use the Room."
+  Note: UI label is "Use Room" (ui.js:252) — missing "the."
+  Suggested: Minor — could change to "Use the Room" but "Use Room" is
+    acceptable.
+
+6.9  "search" (action type)
+  Location: data.js:15, engine.js:379, ui.js:253
+  Canonical: "Search" — the rulebook references the "Search Action card"
+    and "Search" as an action.
+  Suggested: No change needed.
+
+6.10  "trade" (action type)
+  Location: data.js:15, engine.js:380, ui.js:254
+  Canonical: "Trade" — the rulebook uses "Trade."
+  Suggested: No change needed.
+
+6.11  "activateRobot" (action type)
+  Location: data.js:15, engine.js:381, ui.js:255
+  Canonical: "Activate the Robot" — the rulebook says "Activate the
+    Robot."
+  Note: UI label is "Robot" (ui.js:255) — heavily abbreviated.
+  Suggested: Could change to "Activate Robot" or "Activate the Robot"
+    for clarity.
+
+6.12  "pass" (action type)
+  Location: data.js:15, engine.js:382, ui.js:256
+  Canonical: "Pass" — the rulebook uses "Pass" as an action.
+  Suggested: No change needed.
+
+6.13  "sprint" (action type — Recon ability)
+  Location: data.js:25, engine.js:383, ui.js:259
+  Canonical: "Sprint" — the rulebook describes the Recon's "Sprint"
+    Action card: "Move. Then, you may spend 1 [Oxygen] to Move again."
+  Suggested: No change needed.
+
+6.14  "rest" (action type — Medical Support ability)
+  Location: data.js:45, engine.js:384, ui.js:260
+  Canonical: "Rest" — the rulebook references "the Rest Action" in
+    Serious Wound text (data.js:233: "You cannot use the Rest Action").
+  Suggested: No change needed.
+
+6.15  "reinforce" (action type — Combat Engineer ability)
+  Location: data.js:65, engine.js:385, ui.js:262
+  Canonical: "Reinforce" — the rulebook uses "Reinforce" and "Reinforced
+    Corridors."
+  Suggested: No change needed.
+
+6.16  "drill" (action type — Combat Engineer ability)
+  Location: data.js:65, engine.js:386, ui.js:263
+  Canonical: The rulebook describes the Drilling Room as allowing
+    "drilling new Corridors." The action is implied by the Room effect.
+  Suggested: No change needed.
+
+6.17  "command" (action type — Officer ability)
+  Location: data.js:35, engine.js:387, ui.js:265
+  Canonical: "Command" — the rulebook's narrative says the "Officer
+    Commands the team" and references commanding lower-rank
+    Characters.
+  Suggested: No change needed.
+
+6.18  "actionsRemaining" (state.actionsRemaining)
+  Location: engine.js:30
+  Canonical: The rulebook says players "Perform 2 Actions" per Turn.
+  Suggested: No change needed.
+
+6.19  "turnStep" (state.turnStep — 'action1', 'action2', 'endTurn')
+  Location: engine.js:29
+  Canonical: No direct rulebook term — this tracks which of the 2
+    Actions is being performed.
+  Suggested: UNRESOLVED — internal state tracking, no rulebook term.
+    Acceptable.
+
+6.20  "Opportunity Attack" / "opportunity attacks"
+  Location: engine.js:391 (comment), engine.js:972
+  Canonical: "Opportunity Attack" — the rulebook uses "Opportunity
+    Attacks" in the Movement Sequence ("Resolve Opportunity Attacks").
+  Note: The codebase comment at engine.js:391 says "Opportunity attacks"
+    and the code at engine.js:972 resolves them. This matches.
+  Suggested: No change needed.
+
+================================================================================
+CATEGORY 7: TOKENS / MARKERS
+================================================================================
+
+7.1  "Noise marker" / "noise" (corridor.noise property)
+  Location: engine.js:1062, data.js:406, render.js:549-558
+  Canonical: "Noise marker" / "Noise roll"
+  Note: The codebase uses "noise" as a boolean property on corridors
+    and "Noise" in the render label (render.js:558: 'NOISE'). The
+    rulebook uses "Noise marker."
+  Suggested: The render label "NOISE" could be "NOISE MARKER" for
+    full alignment. The boolean property "noise" is acceptable
+    internally.
+
+7.2  "Fire marker" / "fire" (room.markers.fire)
+  Location: engine.js:233, render.js:420-428
+  Canonical: "Fire marker" / "Fire"
+  Note: The render label says "FIRE" (render.js:428) matching the
+    rulebook's "Fire marker." The boolean property "fire" is
+    acceptable.
+  Suggested: No change needed.
+
+7.3  "Malfunction marker" / "malfunction" (room.markers.malfunction)
+  Location: engine.js:233, render.js:432-437
+  Canonical: "Malfunction marker"
+  Note: The render label says "FAULT" (render.js:437) instead of
+    "MALFUNCTION." The rulebook consistently uses "Malfunction marker."
+  Suggested: Change render label from "FAULT" to "MALFUNCTION" or
+    "MALFUNCTION MARKER" for alignment with rulebook terminology.
+
+7.4  "Secure token" / "secure" (room.markers.secure)
+  Location: engine.js:233, render.js:440-446
+  Canonical: "Secure token"
+  Note: The render shows a secure icon with a count "xN" (render.js:446).
+    The property "secure" is an array of booleans. The rulebook uses
+    "Secure token(s)."
+  Suggested: No change needed for the property. The visual
+    representation is acceptable.
+
+7.5  "tokenPool" (state.tokenPool)
+  Location: engine.js:68-71
+  Canonical: "pool" — the rulebook refers to returning markers/tokens
+    "back to the pool" and components being "from the insert" or "from
+    the pool."
+  Note: The state property "tokenPool" tracks available markers and
+    Tactical Gear tokens. This is an internal concept.
+  Suggested: No change needed (acceptable internal naming).
+
+7.6  "ammo" / "grenade" / "oxygen" / "medpack" (tactical gear types)
+  Location: data.js:70, engine.js:1809-1818, ui.js:564
+  Canonical: "Ammo token" / "Grenade token" / "Oxygen token" / "Medpack
+    token" — collectively "Tactical Gear tokens"
+  Note: The codebase uses lowercase type identifiers (ammo, grenade,
+    oxygen, medpack) which match the rulebook's token names. The UI
+    labels (ui.js:564) use "Ammo", "Grenade", "Oxygen", "Medpack" —
+    matching the rulebook.
+  Suggested: No change needed.
+
+7.7  "ammo_half" (tactical gear state)
+  Location: engine.js:1813
+  Canonical: "Half-full Ammo token" / "Half Ammo token"
+  Note: The rulebook says "Ammo tokens are 2-sided. One side shows a
+    Full Ammo token, and the other shows a Half-full Ammo token." The
+    codebase uses "ammo" (full) and "ammo_half" (half-full).
+  Suggested: The UI label "Ammo (half)" (ui.js:564) is acceptable. The
+    identifier "ammo_half" could be "ammoHalfFull" but is fine as-is.
+
+7.8  "tacticalBelt" (player.tacticalBelt)
+  Location: engine.js:151
+  Canonical: "Tactical Belt" — see item 4.9.
+  Suggested: No change needed.
+
+7.9  "Tactical Gear" / "Tactical Gear tokens" (in comments and UI)
+  Location: data.js:112, engine.js:1437, ui.js:556
+  Canonical: "Tactical Gear" / "Tactical Gear tokens"
+  Note: The codebase uses "Tactical Gear" in comments and "Use
+    Tactical Gear" in UI text (ui.js:556). This matches the rulebook.
+  Suggested: No change needed.
+
+7.10  "Egg" / "eggs" / "nestEggs"
+  Location: data.js:412 (CONFIG.nestEggs), engine.js:83 (nest.eggs)
+  Canonical: "Egg" / "Egg token" / "Eggs"
+  Suggested: No change needed.
+
+7.11  "autodestruction" (state.autodestruction)
+  Location: engine.js:101
+  Canonical: "Autodestruction" / "Autodestruction Procedure" /
+    "Autodestruction token"
+  Suggested: No change needed.
+
+7.12  "antiAircraft" (state.antiAircraft)
+  Location: engine.js:94
+  Canonical: "Anti-Aircraft" / "Anti-Aircraft tokens" / "Anti-Aircraft
+    system"
+  Note: The codebase uses "antiAircraft" (camelCase) — acceptable
+    identifier.
+  Suggested: No change needed.
+
+7.13  "Data token" / "hasDataToken"
+  Location: engine.js:154, data.js:323 (mission task text)
+  Canonical: "Data token"
+  Suggested: No change needed.
+
+7.14  "Universal marker" / "Universal markers"
+  Location: rulebook throughout — not used in codebase
+  Canonical: "Universal marker" — used for Health track, Queen's Hits
+    track, Objective Choice track, and as Hit markers next to
+    Intruders.
+  Note: The codebase does not use the term "Universal marker" at all.
+    It uses "hits" for Intruder hit counters, "health"/"maxHealth" for
+    the Health track, "objectiveChoiceTrack" for the Objective Choice
+    track, and "queen.hits" for the Queen's Hits track. The rulebook
+    uses "Universal marker" as the physical component placed on all
+    these tracks.
+  Suggested: UNRESOLVED — "Universal marker" is a physical component
+    name that doesn't have a direct digital equivalent. The codebase
+    tracks these values numerically, which is reasonable. No change
+    needed, but documentation could mention the mapping.
+
+================================================================================
+CATEGORY 8: UI LABELS / DISPLAY TEXT
+================================================================================
+
+8.1  "Your Hand" (UI label)
+  Location: ui.js:121
+  Canonical: The rulebook refers to "cards in hand" or "Action cards"
+    in hand. "Your Hand" is standard card game UI.
+  Suggested: No change needed.
+
+8.2  "Equipped" (UI label)
+  Location: ui.js:193
+  Canonical: The rulebook refers to Items in "Hand slots" as being
+    "carried in Hands" or "held." "Equipped" is a common digital game
+    term not used in the rulebook.
+  Suggested: Could change to "Hand Slots" or "In Hand" for rulebook
+    alignment, but "Equipped" is clear to players.
+
+8.3  "Backpack" (UI label)
+  Location: ui.js:210
+  Canonical: "Backpack" — matches rulebook.
+  Suggested: No change needed.
+
+8.4  "Objectives" (UI label)
+  Location: ui.js:155
+  Canonical: "Objectives" — the rulebook uses "Objectives" (Mission
+    and Private).
+  Suggested: No change needed.
+
+8.5  "Mission Task" (UI label)
+  Location: ui.js:164
+  Canonical: "Mission Task" — matches rulebook.
+  Suggested: No change needed.
+
+8.6  "Mission Objective" / "Private Objective" (UI labels)
+  Location: ui.js:179
+  Canonical: "Mission Objective" / "Private Objective" — matches
+    rulebook.
+  Suggested: No change needed.
+
+8.7  "Burst Fire" (modal title)
+  Location: ui.js:502
+  Canonical: "Burst" / "Bursting" — the rulebook uses "Burst" and
+    "Fire a Burst." "Burst Fire" is a reasonable combination.
+  Suggested: No change needed.
+
+8.8  "Choose" (button text for objective selection)
+  Location: ui.js:181
+  Canonical: The rulebook says players "choose an Objective" and "keep"
+    one. "Choose" is appropriate.
+  Suggested: No change needed.
+
+8.9  "Escaped" / "Hibernating" / "Active" / "Dead" (player status labels)
+  Location: ui.js:104
+  Canonical: "Escaped" / "Hibernated" / (alive) / "dead"
+  Note: "Hibernating" vs "Hibernated" — the rulebook uses "Hibernated"
+    (past tense: "Characters who have Hibernated"). The UI uses
+    "Hibernating" (present participle). Minor grammatical difference.
+  Suggested: Could change "Hibernating" to "Hibernated" for rulebook
+    alignment, but "Hibernating" reads naturally as a current state.
+
+8.10  "INFECTED" (player board label)
+  Location: ui.js:100
+  Canonical: "Infected" — the rulebook uses "Infected" for Characters
+    with a Larva or infected Contamination cards.
+  Suggested: No change needed (uppercase styling is a UI choice).
+
+8.11  "HP" / "O₂" (player board stat labels)
+  Location: ui.js:92
+  Canonical: "Health Points" / "Oxygen"
+  Note: "HP" is a common abbreviation for "Health Points." "O₂" is the
+    chemical symbol for Oxygen. The rulebook uses "Health Points" and
+    "Oxygen."
+  Suggested: No change needed (standard abbreviations).
+
+8.12  "Items" (player board label)
+  Location: ui.js:103
+  Canonical: "Items" — the rulebook uses "Items" and "Backpack."
+  Note: The label "Items: N" shows the backpack count. The rulebook
+    distinguishes between "Items" (general) and "Backpack" (the card
+    holder). Showing "Items: N" for backpack count is acceptable.
+  Suggested: No change needed.
+
+8.13  "Round" / "Phase" / "Turn" / "Actions" (info bar labels)
+  Location: ui.js:227-230
+  Canonical: "Round" / "Phase" / "Turn" / "Actions"
+  Note: "Round" matches "Round" and "Round track." "Phase" matches
+    (Player Phase, Intruder Phase, etc.). "Turn" matches (players take
+    Turns). "Actions" matches (2 Actions per Turn).
+  Suggested: No change needed.
+
+8.14  "MOVE" / "EXPLORE" (canvas labels for movement targets)
+  Location: render.js:609
+  Canonical: The rulebook uses "Make a Move" for movement and
+    "Exploration Sequence" for exploring new rooms.
+  Note: "MOVE" and "EXPLORE" are concise UI labels for the two types of
+    movement destinations (discovered rooms vs. unexplored Room slots).
+  Suggested: No change needed (concise UI labels, acceptable).
+
+8.15  "FACTION" / "NOISE" / "FIRE" / "FAULT" (canvas labels)
+  Location: render.js:428 ('FIRE'), render.js:437 ('FAULT'),
+    render.js:558 ('NOISE')
+  Canonical: "Fire marker" / "Malfunction marker" / "Noise marker"
+  Note: "FIRE" matches "Fire marker." "NOISE" matches "Noise marker."
+    "FAULT" does NOT match "Malfunction marker" — see item 7.3.
+  Suggested: Change "FAULT" to "MALT" or "MALFUNCTION" on the canvas.
+
+8.16  "No Legal Moves" (modal text)
+  Location: ui.js:395
+  Canonical: No direct rulebook text — this is a UI-only message.
+  Note: The message says "no open corridors or unexplored board spaces."
+    "Board spaces" should be "Room slots" per rulebook terminology.
+  Suggested: Change "unexplored board spaces" to "empty Room slots" for
+    rulebook alignment.
+
+8.17  "No Targets" (modal text)
+  Location: ui.js:472
+  Canonical: No direct rulebook text — UI message.
+  Note: Says "No intruders in your room." The rulebook uses "Intruders"
+    and "Room" — this matches.
+  Suggested: No change needed.
+
+8.18  "No Tactical Gear" (modal text)
+  Location: ui.js:560
+  Canonical: "Tactical Gear" / "Tactical Gear tokens"
+  Suggested: Could say "No Tactical Gear tokens available" for full
+    alignment, but current text is clear.
+
+8.19  "Activate Robot" (modal title)
+  Location: ui.js:613
+  Canonical: "Activate the Robot" — the rulebook says "Activate the
+    Robot" (with "the").
+  Suggested: Minor — could add "the" but "Activate Robot" is clear.
+
+8.20  "Reinforce Corridor" (modal title)
+  Location: ui.js:643
+  Canonical: "Reinforce an empty Corridor" — the rulebook says
+    "Reinforce an empty Corridor."
+  Suggested: Could change to "Reinforce an Empty Corridor" but
+    "Reinforce Corridor" is acceptable.
+
+8.21  "Use Tactical Gear" (modal title)
+  Location: ui.js:556
+  Canonical: "Use any Tactical Gear" — the rulebook says "Use any
+    Tactical Gear."
+  Suggested: Could change to "Use Any Tactical Gear" but current
+    text is acceptable.
+
+8.22  "Use Item" (modal title)
+  Location: ui.js:526
+  Canonical: "Use an Item" — the rulebook says "Use an Item."
+  Suggested: Minor — could add "an" but "Use Item" is clear.
+
+8.23  "Burst Fire" modal text: "Choose a corridor to burst at:"
+  Location: ui.js:503
+  Canonical: "choose an adjacent Corridor to Burst at" — the rulebook
+    uses "Corridor" (capitalized) and "Burst at."
+  Note: The modal uses lowercase "corridor" and "burst at" — matches
+    informally.
+  Suggested: No change needed.
+
+8.24  "Corridor (Value: N)" (modal card text)
+  Location: ui.js:509, ui.js:651
+  Canonical: "Corridor" with a "Noise value" — the rulebook calls the
+    number on a Corridor tile its "Noise value" or "Corridor Noise
+    value."
+  Note: The UI says "Value: N" which could be "Noise Value: N" for
+    full alignment.
+  Suggested: Could change to "Corridor (Noise Value: N)" for
+    alignment, but "Value" is clear in context.
+
+8.25  "intruder(s)" / "Noise!" (modal card text)
+  Location: ui.js:510
+  Canonical: "Intruders" / "Noise marker"
+  Note: Uses lowercase "intruder(s)" — the rulebook capitalizes
+    "Intruders." "Noise!" should be "Noise marker!" for full alignment.
+  Suggested: Capitalize "Intruder(s)" and change "Noise!" to "Noise
+    marker!" for consistency.
+
+8.26  "Has noise" / "Empty" (reinforce modal text)
+  Location: ui.js:653
+  Canonical: "Noise marker" / "Empty Corridor"
+  Note: "Has noise" should be "Has Noise marker" and "Empty" should be
+    "Empty Corridor" for full alignment.
+  Suggested: Change to "Has Noise marker" / "Empty Corridor."
+
+8.27  "Tactical Gear" (modal card text)
+  Location: ui.js:569
+  Canonical: "Tactical Gear token"
+  Suggested: Could say "Tactical Gear token" for precision.
+
+================================================================================
+CATEGORY 9: LOG MESSAGES (engine.js)
+================================================================================
+
+9.1  "moves to" (log message)
+  Location: engine.js:1012
+  Canonical: "Move" / "Moves" — acceptable.
+  Suggested: No change needed.
+
+9.2  "discovers" (log message)
+  Location: engine.js:1095
+  Canonical: "Discover" / "Discovered" — the rulebook uses "Discover"
+    for exploring new Rooms.
+  Suggested: No change needed.
+
+9.3  "shoots!" / "bursts!" / "melee attacks!" (log messages)
+  Location: engine.js:1274, 1309, 1348
+  Canonical: "Shoot" / "Burst" / "Melee Attack" — acceptable log text.
+  Suggested: No change needed.
+
+9.4  "is suffocating!" (log message)
+  Location: engine.js:429
+  Canonical: "Suffocating" — the rulebook uses "Suffocating token" and
+    "Suffocating."
+  Suggested: No change needed.
+
+9.5  "takes 1 damage from fire" (log message)
+  Location: engine.js:440
+  Canonical: "lose 1 Health" / "lose 1 Health Point" — the rulebook
+    says "lose 1 Health point" not "take damage."
+  Suggested: Change "takes 1 damage from fire" to "loses 1 Health from
+    Fire" for rulebook alignment.
+
+9.6  "takes N hits" (log message, Queen)
+  Location: engine.js:1773
+  Canonical: "dealt Hits" / "advance the Universal marker" — the
+    rulebook says "for each Hit dealt to the Queen, advance the
+    Universal marker on the Queen's Hits track by 1."
+  Note: "takes N hits" is a reasonable informal log message.
+  Suggested: Could change to "Queen takes N Hits" (capitalize "Hits")
+    for consistency.
+
+9.7  "killed!" (log message)
+  Location: engine.js:1282, 1355
+  Canonical: "dies" / "the Intruder dies" — the rulebook says "the
+    Intruder dies" or "place it back in the Intruder pool."
+  Note: "killed!" is acceptable informal log text.
+  Suggested: No change needed.
+
+9.8  "dies" (log message)
+  Location: engine.js:1728
+  Canonical: "dies" / "the Character dies" — matches rulebook.
+  Suggested: No change needed.
+
+9.9  "gains a Serious Wound" (log message)
+  Location: engine.js:1756
+  Canonical: "gain 1 Serious Wound" / "gains a Serious Wound" —
+    matches rulebook.
+  Suggested: No change needed.
+
+9.10  "is infected with a Larva!" (log message)
+  Location: engine.js:550, 1905
+  Canonical: "Infected with a Larva" / "place 1 Larva on your Character
+    board" — the rulebook says "the Character is now Infected with a
+    Larva."
+  Suggested: No change needed (matches rulebook phrasing).
+
+9.11  "Autodestruction activated!" (log message)
+  Location: engine.js:1856
+  Canonical: "Activate the Autodestruction Procedure" — the rulebook
+    uses "Autodestruction Procedure" and "Activate."
+  Note: The log says "Facility will be destroyed in 5 rounds!" — the
+    rulebook places the token "5 spaces ahead on the Round track."
+  Suggested: Could say "Autodestruction Procedure activated!" for full
+    alignment.
+
+9.12  "Facility destroyed!" (log message)
+  Location: engine.js:1888
+  Canonical: "the Facility is destroyed" / "Facility Destruction"
+  Suggested: No change needed.
+
+9.13  "passes" (log message)
+  Location: engine.js:1621
+  Canonical: "Pass" / "Passes" — matches.
+  Suggested: No change needed.
+
+9.14  "rests and draws 2 cards" (log message)
+  Location: engine.js:1641
+  Canonical: The Rest action isn't fully described in the rulebook text
+    available, but "Rest" is referenced in Serious Wound cards.
+  Suggested: No change needed.
+
+9.15  "reinforces a corridor" (log message)
+  Location: engine.js:1656
+  Canonical: "Reinforce an empty Corridor" — acceptable.
+  Suggested: Could say "reinforces an empty Corridor" for full
+    alignment.
+
+9.16  "drills a new corridor" (log message)
+  Location: engine.js:1664
+  Canonical: "drilling new Corridors" — the Drilling Room allows
+    "drilling new Corridors."
+  Suggested: No change needed.
+
+9.17  "boards the Lander" (log message)
+  Location: engine.js:1479
+  Canonical: "get into the Lander" — the rulebook says "Make a Noise
+    roll to get into the Lander."
+  Suggested: Could say "gets into the Lander" for rulebook alignment.
+
+9.18  "escapes via Escape Shuttle!" (log message)
+  Location: engine.js:1539
+  Canonical: "Escape the Facility" / "Escaping the Facility through
+    the Escape Shuttle" — matches conceptually.
+  Suggested: No change needed.
+
+9.19  "Hibernates" (log message)
+  Location: engine.js:1548
+  Canonical: "Hibernate" / "Hibernating" — the rulebook uses
+    "Hibernate" as the action.
+  Suggested: No change needed.
+
+9.20  "Secure token absorbs attack" (log message)
+  Location: engine.js:532
+  Canonical: "1 Secure token is discarded instead of resolving the
+    Intruder Attack" — the rulebook describes Secure tokens being
+    "discarded" to absorb attacks.
+  Note: "absorbs attack" is a reasonable paraphrase.
+  Suggested: Could say "Secure token prevents Intruder Attack" for
+    closer alignment.
+
+9.21  "Lander destroyed by Anti-Aircraft system!" (log message)
+  Location: engine.js:1864
+  Canonical: "the Lander is destroyed" / "the Lander gets destroyed" —
+    matches.
+  Suggested: No change needed.
+
+9.22  "Lander has landed safely!" (log message)
+  Location: engine.js:1873
+  Canonical: "the Lander lands successfully" — matches conceptually.
+  Suggested: No change needed.
+
+9.23  "Reactor shut down!" (log message)
+  Location: engine.js:1531
+  Canonical: "Shutting down the Reactor" / "shut down the Reactor" —
+    matches.
+  Suggested: No change needed.
+
+9.24  "Sprinklers put out all fires" (log message)
+  Location: engine.js:1557
+  Canonical: "Discard all [Fire markers] from a chosen Section" — the
+    rulebook describes the Sprinklers Control effect.
+  Note: The codebase applies to ALL rooms, but the rulebook says "a
+    chosen Section." This is a rules implementation issue, not just
+    terminology. The log message "put out all fires" is acceptable.
+  Suggested: UNRESOLVED — the implementation differs from the rulebook
+    (all rooms vs. one Section). The log message terminology is fine.
+
+9.25  "The Queen has awakened in the Nest!" (log message)
+  Location: engine.js:704
+  Canonical: "Queen Awakening" / "Queen activates" — the rulebook
+    uses "Queen Awakening" as the Event name and "Activate" for the
+    Queen's behavior.
+  Suggested: No change needed (thematic and clear).
+
+9.26  "The Queen appears in the Nest!" (log message)
+  Location: engine.js:748, 1171
+  Canonical: "place her in the Nest" — the rulebook says to place the
+    Queen in the Nest.
+  Suggested: No change needed.
+
+9.27  "Queen activates!" (log message)
+  Location: engine.js:1258
+  Canonical: "Activate the Queen" / "Queen Activation" — matches.
+  Suggested: No change needed.
+
+9.28  "The Queen is dead!" (log message)
+  Location: engine.js:1764, 1779
+  Canonical: "The Queen is considered dead" / "QUEEN IS DEAD" —
+    matches.
+  Suggested: No change needed.
+
+9.29  "The Nest is destroyed!" (log message)
+  Location: engine.js:514, 1518
+  Canonical: "The Nest is now destroyed" / "NEST IS DESTROYED" —
+    matches.
+  Suggested: No change needed.
+
+9.30  "Fire destroys 1 Egg in the Nest" (log message)
+  Location: engine.js:511
+  Canonical: "If Fire is in the Nest, 1 Egg is discarded from there" —
+    the rulebook says "discarded" not "destroyed."
+  Suggested: Change "destroys" to "discards" for rulebook alignment:
+    "Fire discards 1 Egg in the Nest."
+
+9.31  "takes an Egg" (log message)
+  Location: engine.js:1515
+  Canonical: "Pick up or Destroy 1 Egg" — the rulebook Nest Room
+    effect says "Pick up or Destroy 1 Egg (Heavy Item)."
+  Suggested: Could say "picks up an Egg" for alignment with "Pick up."
+
+9.32  "gains a Data token" (log message)
+  Location: engine.js:1509
+  Canonical: "Gain a Data token" — matches.
+  Suggested: No change needed.
+
+9.33  "discards a Serious Wound" (log message)
+  Location: engine.js:1494
+  Canonical: "Discard 1 Serious Wound" — matches.
+  Suggested: No change needed.
+
+9.34  "removes Larva" (log message)
+  Location: engine.js:1497
+  Canonical: "Discard 1 Larva from your Character board" — the
+    rulebook says "Discard" not "remove."
+  Suggested: Change "removes Larva" to "discards Larva from Character
+    board" for alignment.
+
+9.35  "uses Medpack token" / "uses Oxygen token" (log messages)
+  Location: engine.js:1441, 1444
+  Canonical: "use a Medpack token" / "use an Oxygen token" — matches.
+  Suggested: No change needed.
+
+9.36  "throws Grenade" (log message)
+  Location: engine.js:1449
+  Canonical: "rolls a Burst die, and adds 2 to the result" — the
+    rulebook describes the Grenade mechanic without using "throws."
+  Suggested: No change needed (acceptable informal log text).
+
+================================================================================
+CATEGORY 10: HTML / CSS IDENTIFIERS
+================================================================================
+
+10.1  "player-boards" (HTML div ID)
+  Location: index.html:63
+  Canonical: "Character boards"
+  Suggested: Could rename to "character-boards" for alignment.
+
+10.2  "player-board-mini" (CSS class)
+  Location: style.css:299, ui.js:76
+  Canonical: "Character board"
+  Suggested: See item 4.19.
+
+10.3  "left-panel" / "right-panel" / "center-panel" (HTML IDs)
+  Location: index.html:62, 87, 67
+  Canonical: No rulebook terms — these are layout panels.
+  Suggested: No change needed.
+
+10.4  "game-info-bar" / "round-info" / "phase-info" / "turn-info"
+  Location: index.html:68-71
+  Canonical: "Round track" for the round tracker. "Phase" for game
+    phases. "Turn" for player turns.
+  Note: "round-info" could be "round-track" but it's an info bar, not
+    the actual Round track.
+  Suggested: No change needed.
+
+10.5  "action-bar" (HTML ID)
+  Location: index.html:83
+  Canonical: "Actions" — the rulebook lists "Basic Actions List."
+  Suggested: No change needed.
+
+10.6  "game-log" (HTML ID)
+  Location: index.html:89
+  Canonical: No rulebook term — this is a digital-only UI element.
+  Suggested: No change needed.
+
+10.7  "card-area" (HTML ID)
+  Location: index.html:88
+  Canonical: No rulebook term — digital UI panel.
+  Suggested: No change needed.
+
+10.8  "canvas-wrapper" / "game-canvas" (HTML IDs)
+  Location: index.html:80-81
+  Canonical: No rulebook term — digital rendering surface.
+  Suggested: No change needed.
+
+10.9  "mobile-nav-btn" / "mobile-nav" (CSS/HTML)
+  Location: index.html:94-99, style.css:655-681
+  Canonical: No rulebook term — mobile navigation.
+  Suggested: No change needed.
+
+10.10  "tactical-prompt" (HTML ID)
+  Location: index.html:73
+  Canonical: No rulebook term — UI prompt for tactical actions.
+  Suggested: No change needed.
+
+10.11  "map-zoom-controls" / "map-zoom-level" (HTML IDs)
+  Location: index.html:74-78
+  Canonical: No rulebook term — digital zoom controls.
+  Note: "map" is used for the board, which the rulebook calls "the Map"
+    or "the Facility." Using "map" is acceptable.
+  Suggested: No change needed.
+
+10.12  "compass-picker" / "compass-slot" / "compass-n/w/e/s" (CSS)
+  Location: style.css:607-638
+  Canonical: No rulebook term — the rulebook uses cardinal directions
+    implicitly through Exploration card layout, not a "compass."
+  Note: This CSS exists for a compass-direction picker UI that appears
+    to be unused in the current code (the movement UI uses canvas
+    targets instead). Leftover from an earlier design.
+  Suggested: UNRESOLVED — appears to be dead CSS from a previous
+    design iteration. Could be removed.
+
+10.13  "dice-display" (CSS class)
+  Location: style.css:592-604
+  Canonical: The rulebook uses "Shoot dice" (d8), "Burst dice" (d6),
+    and "Noise dice" (d10).
+  Note: This CSS class appears unused in the current code (dice are
+    shown in log messages, not as visual dice elements). Leftover.
+  Suggested: UNRESOLVED — appears to be dead CSS. Could be removed.
+
+10.14  "card-art" / "card-art-action" / "card-art-contamination" etc. (CSS)
+  Location: style.css:538-574
+  Canonical: No rulebook terms — digital card art styling.
+  Suggested: No change needed.
+
+10.15  "modal-card" / "modal-card-list" / "mc-name" / "mc-text" (CSS)
+  Location: style.css:418-432
+  Canonical: No rulebook terms — modal UI components.
+  Suggested: No change needed.
+
+================================================================================
+CATEGORY 11: MISCELLANEOUS / PERVASIVE PATTERNS
+================================================================================
+
+11.1  "player" vs "Character" (pervasive)
+  Location: Throughout engine.js, ui.js, network.js, main.js
+  Canonical: "Character" — the rulebook consistently uses "Character"
+    for player miniatures/standees and "player" for the real-world
+    person playing the game.
+  Note: This is the single most pervasive divergence. The codebase
+    uses "player" for both the real-world person AND the in-game
+    Character, while the rulebook distinguishes them. Player-facing
+    text (UI labels, log messages) should use "Character" where
+    referring to the in-game entity.
+  Examples of divergence:
+    - "player.name" should conceptually be "character.name" (but the
+      player's display name is separate from the Character type)
+    - Log messages like "player.name + ' moves to'" should say
+      "Character moves to" per rulebook style
+    - UI "player-boards" should be "character-boards"
+  Suggested: UNRESOLVED — a full rename would be extensive. Prioritize
+    player-facing strings (UI labels, log messages) to use "Character"
+    where the rulebook would. Internal identifiers can remain "player"
+    as a pragmatic choice.
+
+11.2  "Lander" / "lander" (state.antiAircraft.lander)
+  Location: engine.js:97, throughout
+  Canonical: "Lander" / "Lander token" — matches rulebook.
+  Suggested: No change needed.
+
+11.3  "Landing Zone" / "landingZone"
+  Location: data.js:78, throughout
+  Canonical: "Landing Zone" — matches rulebook.
+  Suggested: No change needed.
+
+11.4  "Hibernatorium" / "hibernatorium"
+  Location: data.js:83, throughout
+  Canonical: "Hibernatorium" — matches rulebook.
+  Suggested: No change needed.
+
+11.5  "Escape Shuttle" / "escapeShuttle"
+  Location: data.js:92
+  Canonical: "Escape Shuttle" — matches rulebook.
+  Suggested: No change needed.
+
+11.6  "Reactor" / "reactor"
+  Location: data.js:91
+  Canonical: "Reactor" / "the Reactor" — matches rulebook.
+  Suggested: No change needed.
+
+11.7  "Nest" / "nest"
+  Location: data.js:90, engine.js:83
+  Canonical: "Nest" / "the Nest" — matches rulebook.
+  Suggested: No change needed.
+
+11.8  "Facility" / "facility"
+  Location: data.js:114 (ROOM_EFFECTS text), engine.js:1888
+  Canonical: "Facility" — the rulebook uses "Facility" for the overall
+    map. The codebase uses "Facility" in log messages and ROOM_EFFECTS
+    text, which matches.
+  Suggested: No change needed.
+
+11.9  "Robot" / "robot"
+  Location: data.js:361, engine.js:86
+  Canonical: "Robot" — matches rulebook.
+  Suggested: No change needed.
+
+11.10  "Surgery Room" / "surgeryRoom"
+  Location: data.js:96
+  Canonical: "Surgery Room" — matches rulebook.
+  Suggested: No change needed.
+
+11.11  "Armory" / "armory"
+  Location: data.js:95
+  Canonical: "Armory" — matches rulebook.
+  Suggested: No change needed.
+
+11.12  "Laboratory" / "laboratory"
+  Location: data.js:97
+  Canonical: "Laboratory" — matches rulebook ("Analyze 1 Object").
+  Suggested: No change needed.
+
+11.13  "Shelter" / "shelter"
+  Location: data.js:99
+  Canonical: "Shelter" — matches rulebook ("always Secured, safe
+    room").
+  Suggested: No change needed.
+
+11.14  "Server Room" / "serverRoom"
+  Location: data.js:86
+  Canonical: "Server Room" — matches rulebook.
+  Suggested: No change needed.
+
+11.15  "Cooling System" / "coolingSystem"
+  Location: data.js:84
+  Canonical: "Cooling System" — matches rulebook.
+  Suggested: No change needed.
+
+11.16  "Life Support Control" / "lifeSupportControlA/B/C"
+  Location: data.js:80, 85, 89
+  Canonical: "Life Support Control 'A'/'B'/'C'" — matches rulebook.
+  Suggested: No change needed.
+
+11.17  "Technical Corridor Entrance" / "technicalCorridorEntrance"
+  Location: data.js:100
+  Canonical: "Technical Corridor Entrance" — matches rulebook.
+  Suggested: No change needed.
+
+11.18  "Sprinklers Control" / "sprinklersControl"
+  Location: data.js:101
+  Canonical: "Sprinklers Control" — matches rulebook.
+  Suggested: No change needed.
+
+11.19  "Engine Room" / "engineRoom"
+  Location: data.js:102
+  Canonical: "Engine Room" — matches rulebook.
+  Suggested: No change needed.
+
+11.20  "Storage Room" / "storageRoom"
+  Location: data.js:103
+  Canonical: "Storage Room" — the rulebook says "Draw 2 Items of any
+    type, keep 1, discard the other."
+  Suggested: No change needed.
+
+11.21  "Communications Room" / "commsRoom"
+  Location: data.js:104
+  Canonical: "Communications Room" — the rulebook uses
+    "Communications Room" (abbreviated "Comms Room" is acceptable).
+  Suggested: No change needed.
+
+11.22  "Waste Disposal" / "wasteDisposal"
+  Location: data.js:105
+  Canonical: "Waste Disposal" — matches rulebook.
+  Suggested: No change needed.
+
+11.23  "Airlock" / "airlock"
+  Location: data.js:106
+  Canonical: "Airlock" — matches rulebook.
+  Suggested: No change needed.
+
+11.24  "Power Generator" / "powerGenerator"
+  Location: data.js:107
+  Canonical: "Power Generator" — matches rulebook.
+  Suggested: No change needed.
+
+11.25  "Gunnery Room" / "gunneryRoom"
+  Location: data.js:98
+  Canonical: "Gunnery Room" — matches rulebook.
+  Suggested: No change needed.
+
+11.26  "Drilling Room" / "drillingRoom"
+  Location: data.js:79
+  Canonical: "Drilling Room" — matches rulebook ("A Room which allows
+    drilling new Corridors").
+  Suggested: No change needed.
+
+11.27  "Primeblood" (in Queen Health card text)
+  Location: data.js:374, 381
+  Canonical: "Primeblood" — the rulebook mentions "PRIMEBLOOD" on
+    Queen Health cards and says "Primebloods are Intruders."
+  Suggested: No change needed.
+
+11.28  "Infected" / "infected" (contamination card property)
+  Location: data.js:272
+  Canonical: "INFECTED" / "Infected" — the rulebook uses "INFECTED" as
+    the hidden text on Contamination cards.
+  Suggested: No change needed.
+
+11.29  "Heavily Injured" (log/UI terminology)
+  Location: engine.js:1732, ui.js:81, style.css:337
+  Canonical: "Heavily Injured" — the rulebook uses "Heavily Injured" as
+    a Health track state.
+  Suggested: No change needed.
+
+11.30  "Injured" (log/UI terminology)
+  Location: engine.js:1737, ui.js:82, style.css:336
+  Canonical: "Injured" — the rulebook uses "Injured" as a Health track
+    state.
+  Suggested: No change needed.
+
+11.31  "Specimen Collector" (private objective name)
+  Location: data.js:351
+  Canonical: The rulebook doesn't list this exact objective name in the
+    extracted text. The private objective about carrying Eggs is listed
+    but the name may differ.
+  Suggested: UNRESOLVED — the OCR text is garbled in this area. The
+    objective name "标本 Collector" contains a Chinese character
+    (标本 = "specimen"), which appears to be an encoding artifact. 
+    Should be "Specimen Collector" in English. Verify against the
+    physical card.
+
+11.32  "Contamination" (capitalization in card text)
+  Location: data.js:273
+  Canonical: The rulebook uses "Contamination" (the OCR shows
+    "ContAmination" which is an OCR artifact, but the actual word is
+    "Contamination").
+  Suggested: No change needed.
+
+================================================================================
+CATEGORY 12: NETWORK / MULTIPLAYER (Non-rulebook terms)
+================================================================================
+
+These are digital-edition-only concepts with no rulebook equivalent.
+No divergences to report — they are implementation details.
+
+12.1  "peer" / "connections" / "hostId" / "isHost" / "playerId"
+  Location: network.js throughout
+  Canonical: N/A (networking concepts)
+  Suggested: No change needed.
+
+12.2  "serializeState" / "serializeStateForPlayer" / "broadcastState"
+  Location: network.js throughout
+  Canonical: N/A
+  Suggested: No change needed.
+
+12.3  "joinAccepted" / "joinRejected" / "lobbyState" / "actionResult"
+  Location: network.js throughout
+  Canonical: N/A
+  Suggested: No change needed.
+
+================================================================================
+SUMMARY OF HIGH-PRIORITY DIVERGENCES
+================================================================================
+
+The following are the most impactful divergences that should be
+prioritized for revision:
+
+1. "node" → "Room slot" (pervasive in comments and UI logic)
+   - Files: data.js, render.js, engine.js, ui.js
+   - Impact: Fundamental map terminology mismatch
+
+2. "SECTOR" → "SECTION" (canvas labels)
+   - File: render.js:276-278
+   - Impact: Player-visible label mismatch
+
+3. "FAULT" → "MALFUNCTION" (canvas label)
+   - File: render.js:437
+   - Impact: Player-visible label uses wrong term
+
+4. "player" vs "Character" (pervasive)
+   - Files: engine.js, ui.js, network.js, main.js, index.html, style.css
+   - Impact: Most pervasive divergence; rulebook distinguishes
+     "player" (real person) from "Character" (in-game entity)
+
+5. "board spaces" → "Room slots" (UI text)
+   - File: ui.js:395
+   - Impact: Player-visible terminology mismatch
+
+6. "takes 1 damage" → "loses 1 Health" (log message)
+   - File: engine.js:440
+   - Impact: Rulebook says "lose Health" not "take damage"
+
+7. "destroys 1 Egg" → "discards 1 Egg" (log message, Fire in Nest)
+   - File: engine.js:511
+   - Impact: Rulebook says "discarded" not "destroyed" for Fire
+     removing Eggs
+
+8. "removes Larva" → "discards Larva" (log message)
+   - File: engine.js:1497
+   - Impact: Rulebook uses "Discard" for Larva removal
+
+9. "contaminationInHand" / "contaminationDiscard" modeling
+   - File: engine.js:146-147
+   - Impact: Rulebook says Contamination cards go into the Action
+     discard pile, not a separate discard. UNRESOLVED — rules modeling
+     issue, not just naming.
+
+10. Dead CSS: "compass-picker" / "dice-display" classes
+    - File: style.css:592-638
+    - Impact: Unused CSS from previous design iterations
+
+================================================================================
+END OF REPORT
+================================================================================
