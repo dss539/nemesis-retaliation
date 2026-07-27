@@ -12,6 +12,7 @@ const Renderer = {
     mapZoom: 1,
     MIN_MAP_ZOOM: 0.5,
     MAX_MAP_ZOOM: 3,
+    MAP_ZOOM_STEP: 0.1,
     _pinchGesture: null,
     _suppressClickUntil: 0,
 
@@ -40,7 +41,7 @@ const Renderer = {
         wrapper?.addEventListener('wheel', (e) => {
             if (!e.ctrlKey && !e.metaKey) return;
             e.preventDefault();
-            this.adjustMapZoom(e.deltaY < 0 ? 0.5 : -0.5);
+            this.adjustMapZoom(e.deltaY < 0 ? this.MAP_ZOOM_STEP : -this.MAP_ZOOM_STEP);
         }, { passive: false });
 
         const touchDistance = (touches) => Math.hypot(
@@ -153,6 +154,12 @@ const Renderer = {
         this.setMapZoom(this.mapZoom + delta);
     },
 
+    normalizeMapZoom(nextZoom) {
+        const stepped = Math.round(nextZoom / this.MAP_ZOOM_STEP) * this.MAP_ZOOM_STEP;
+        const clamped = Math.max(this.MIN_MAP_ZOOM, Math.min(this.MAX_MAP_ZOOM, stepped));
+        return Number(clamped.toFixed(2));
+    },
+
     setMapZoom(nextZoom) {
         const wrapper = document.getElementById('canvas-wrapper');
         if (!wrapper || !this.canvas) return;
@@ -162,7 +169,7 @@ const Renderer = {
         const centerX = (wrapper.scrollLeft + wrapper.clientWidth / 2) / oldScrollWidth;
         const centerY = (wrapper.scrollTop + wrapper.clientHeight / 2) / oldScrollHeight;
 
-        this.mapZoom = Math.max(this.MIN_MAP_ZOOM, Math.min(this.MAX_MAP_ZOOM, nextZoom));
+        this.mapZoom = this.normalizeMapZoom(nextZoom);
         this.resizeCanvas();
 
         wrapper.scrollLeft = centerX * wrapper.scrollWidth - wrapper.clientWidth / 2;
@@ -174,7 +181,7 @@ const Renderer = {
         const wrapper = document.getElementById('canvas-wrapper');
         if (!wrapper || !this.canvas) return;
 
-        this.mapZoom = Math.max(this.MIN_MAP_ZOOM, Math.min(this.MAX_MAP_ZOOM, nextZoom));
+        this.mapZoom = this.normalizeMapZoom(nextZoom);
         this.resizeCanvas();
 
         wrapper.scrollLeft = this.canvas.offsetLeft

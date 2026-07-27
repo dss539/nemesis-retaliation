@@ -81,7 +81,24 @@ def exercise_viewport(browser, name, width, height):
           f"{name}: map zoom controls are missing", failures)
 
     if zoom_in.count() == 1:
-        for _ in range(4):
+        zoom_in.click()
+        first_step = page.evaluate("""() => ({
+            zoom: Renderer.mapZoom,
+            label: document.getElementById('map-zoom-level').textContent
+        })""")
+        check(abs(first_step["zoom"] - 1.1) < 0.001 and first_step["label"] == "110%",
+              f"{name}: zoom controls do not step by 10%", failures)
+
+        zoom_out.click()
+        zoom_out.click()
+        zoom_out_step = page.evaluate("() => Renderer.mapZoom")
+        check(abs(zoom_out_step - 0.9) < 0.001,
+              f"{name}: zoom-out control does not step by 10%", failures)
+        fit.click()
+
+        for _ in range(30):
+            if zoom_in.is_disabled():
+                break
             zoom_in.click()
         page.wait_for_timeout(100)
         map_metrics = page.evaluate("""() => {
@@ -149,12 +166,21 @@ def exercise_viewport(browser, name, width, height):
               f"{name}: two-finger pinch does not zoom the tactical map", failures)
         check(pinch_metrics["label"] != "100%",
               f"{name}: pinch zoom does not update its visible zoom level", failures)
+        check(abs(pinch_metrics["zoom"] * 10 - round(pinch_metrics["zoom"] * 10)) < 0.001,
+              f"{name}: pinch zoom does not snap to 10% levels", failures)
 
         pinch_map(context, page, start_distance=170, end_distance=80)
         pinch_out_zoom = page.evaluate("() => Renderer.mapZoom")
         check(pinch_out_zoom < pinch_metrics["zoom"] - 0.5,
               f"{name}: inward pinch does not zoom the tactical map out", failures)
 
+        fit.click()
+        page.locator('#canvas-wrapper').dispatch_event(
+            "wheel", {"deltaY": -100, "ctrlKey": True}
+        )
+        wheel_step = page.evaluate("() => Renderer.mapZoom")
+        check(abs(wheel_step - 1.1) < 0.001,
+              f"{name}: wheel/trackpad zoom does not step by 10%", failures)
         fit.click()
 
         if CAPTURE_SCREENSHOTS:
