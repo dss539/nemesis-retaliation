@@ -266,4 +266,4 @@ The proposed boundary is:
 - Sometimes: full wording, contextual choices, transient resolutions, finite-supply warnings, history, and reference.
 - Never: information the physical rules keep secret or unrevealed.
 
-The next design step should place the Always groups into a mobile viewport budget, then define automatic presentation rules for each Sometimes group.
+The next design step should place the remaining Always groups into a mobile viewport budget, then define automatic presentation rules for each Sometimes group. The map-specific interaction and semantic-zoom model is defined in [mobile-tactical-map-interaction.md](mobile-tactical-map-interaction.md).
