@@ -74,6 +74,21 @@ def exercise_viewport(browser, name, width, height):
     check("user-scalable=no" not in viewport and "maximum-scale=1" not in viewport,
           f"{name}: browser pinch zoom is disabled", failures)
 
+    initial_map_metrics = page.evaluate("""() => {
+        const wrapper = document.getElementById('canvas-wrapper');
+        const canvas = document.getElementById('game-canvas');
+        const rect = canvas.getBoundingClientRect();
+        return {
+            wrapperWidth: wrapper.clientWidth,
+            canvasWidth: rect.width,
+            canvasHeight: rect.height
+        };
+    }""")
+    check(initial_map_metrics["canvasWidth"] >= initial_map_metrics["wrapperWidth"] - 2,
+          f"{name}: fitted map is squeezed narrower than its mobile panel", failures)
+    check(abs(initial_map_metrics["canvasWidth"] / initial_map_metrics["canvasHeight"] - 1500 / 1050) < 0.01,
+          f"{name}: fitted map does not preserve its aspect ratio", failures)
+
     zoom_in = page.locator('[data-map-zoom="in"]')
     zoom_out = page.locator('[data-map-zoom="out"]')
     fit = page.locator('[data-map-zoom="fit"]')
@@ -130,16 +145,19 @@ def exercise_viewport(browser, name, width, height):
         # A tap after zoom/pan must still map to the renderer's base coordinates.
         tap_point = page.evaluate("""() => {
             const wrapper = document.getElementById('canvas-wrapper');
-            wrapper.scrollLeft = 0;
-            wrapper.scrollTop = 0;
+            const canvas = document.getElementById('game-canvas');
+            wrapper.scrollLeft = canvas.offsetLeft;
+            wrapper.scrollTop = canvas.offsetTop;
             window.__mobileTarget = null;
+            const targetPosition = { x: 0, y: 0 };
             Renderer.setMovementTargets([
-                { kind: 'explore', direction: 'SE', position: { x: 0, y: 0 } }
+                { kind: 'explore', direction: 'SE', position: targetPosition }
             ], target => { window.__mobileTarget = target; });
-            const rect = document.getElementById('game-canvas').getBoundingClientRect();
+            const geometry = Renderer.roomGeometry(targetPosition);
+            const rect = canvas.getBoundingClientRect();
             return {
-                x: rect.left + (117 / 1200) * rect.width,
-                y: rect.top + (125 / 900) * rect.height
+                x: rect.left + (geometry.cx / 1500) * rect.width,
+                y: rect.top + (geometry.cy / 1050) * rect.height
             };
         }""")
         page.touchscreen.tap(tap_point["x"], tap_point["y"])
@@ -148,14 +166,26 @@ def exercise_viewport(browser, name, width, height):
               f"{name}: map tap coordinates break after zoom/pan", failures)
 
         fit.click()
-        fit_metrics = page.evaluate("""() => ({
-            zoom: Renderer.mapZoom,
-            label: document.getElementById('map-zoom-level').textContent,
-            left: document.getElementById('canvas-wrapper').scrollLeft,
-            top: document.getElementById('canvas-wrapper').scrollTop
-        })""")
-        check(fit_metrics == {"zoom": 1, "label": "100%", "left": 0, "top": 0},
-              f"{name}: Fit does not restore the complete map view", failures)
+        fit_metrics = page.evaluate("""() => {
+            const wrapper = document.getElementById('canvas-wrapper');
+            const canvas = document.getElementById('game-canvas');
+            return {
+                zoom: Renderer.mapZoom,
+                label: document.getElementById('map-zoom-level').textContent,
+                centerDeltaX: Math.abs(
+                    canvas.offsetLeft + canvas.offsetWidth / 2
+                    - wrapper.scrollLeft - wrapper.clientWidth / 2
+                ),
+                centerDeltaY: Math.abs(
+                    canvas.offsetTop + canvas.offsetHeight / 2
+                    - wrapper.scrollTop - wrapper.clientHeight / 2
+                )
+            };
+        }""")
+        check(fit_metrics["zoom"] == 1 and fit_metrics["label"] == "100%",
+              f"{name}: Fit does not restore 100% map scale", failures)
+        check(fit_metrics["centerDeltaX"] <= 2 and fit_metrics["centerDeltaY"] <= 2,
+              f"{name}: Fit does not recenter the map", failures)
 
         pinch_map(context, page)
         pinch_metrics = page.evaluate("""() => ({
@@ -298,7 +328,11 @@ def main():
     all_errors = []
     with sync_playwright() as playwright:
         browser = playwright.chromium.launch(headless=True)
-        for name, width, height in (("portrait", 390, 844), ("landscape", 844, 390)):
+        for name, width, height in (
+            ("portrait", 390, 844),
+            ("landscape", 844, 390),
+            ("pixel-landscape", 915, 412),
+        ):
             failures, errors = exercise_viewport(browser, name, width, height)
             all_failures.extend(failures)
             all_errors.extend(f"{name}: {error}" for error in errors)

@@ -251,7 +251,7 @@ function switchToGameScreen() {
     Renderer.resizeCanvas();
 
     // On mobile, start on board tab
-    if (window.innerWidth <= 900) {
+    if (window.innerWidth <= 1024) {
         UI.switchTab('board');
     }
 }

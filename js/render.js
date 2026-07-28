@@ -268,7 +268,11 @@ const Renderer = {
         let fitWidth = wrapperWidth;
         let fitHeight = fitWidth / aspectRatio;
 
-        if (fitHeight > wrapperHeight) {
+        // Mobile uses a width-fit map. Fitting both dimensions in landscape
+        // shrinks the board into a narrow strip because the navigation and HUD
+        // leave little vertical space; vertical overflow remains pannable.
+        const isMobileLayout = window.innerWidth <= 1024;
+        if (!isMobileLayout && fitHeight > wrapperHeight) {
             fitHeight = wrapperHeight;
             fitWidth = fitHeight * aspectRatio;
         }
