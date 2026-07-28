@@ -14,7 +14,7 @@ This report documents a complete mobile-first UI concept for a 100%-faithful dig
 
 Automated QA results are at:
 
-`docs/qa/mobile_concept_qa.py` (14 scenes × 6 viewport classes plus semantic and interaction checks; latest run: 369 passed, 0 failed, 0 warnings)
+`docs/qa/mobile_concept_qa.py` (14 scenes × 6 viewport classes plus semantic and interaction checks; latest run: 374 passed, 0 failed, 0 warnings)
 
 Earlier design documents — `mobile-information-classification.md` and `mobile-tactical-map-interaction.md` — established the information architecture and map interaction model. This report synthesizes those into the complete UI concept and adds the remaining surfaces, flows, and citations.
 
@@ -160,6 +160,8 @@ The concept uses a three-zone vertical layout that adapts by scene:
 
 The map is the dominant interactive surface. It uses semantic zoom (three levels) as specified in `mobile-tactical-map-interaction.md`:
 
+**Room-geometry fidelity invariant:** every Room is a regular pointy-top hexagon with exactly six edge directions: NE, E, SE, SW, W, and NW. The prototype preserves visible space at all six edges for possible Corridors. Hex proximity never invents adjacency; only a legal Corridor makes a destination reachable. Octagonal or eight-direction Room renderings are fidelity defects. See `docs/rules/00-foundations.md` FND-005.
+
 - **Facility Overview** (< ~72 px Room size): full topology, Security, Fire, Malfunction, Characters, Robot, Corridors, Doors, Noise, Intruders, Hits, legal targets. Room prose removed.
 - **Tactical Neighborhood** (~72–150 px): selected Room plus connected Corridors and neighbors. Room name, icons, function summary, statuses, occupants, available actions.
 - **Room Detail** (> ~150 px): full Room function, every status and occupant, complete Corridor info. No separate modal.
@@ -196,7 +198,7 @@ When a decision requires the player's full attention, the map is replaced by a t
 ### 3.4 Command dock
 
 **Elements (top to bottom):**
-1. **Vitals row:** Character portrait (octagonal clip-path) + player name + Character name + active wound modifiers → Health (number + segment bar) + Oxygen (number + segment bar).
+1. **Vitals row:** Character portrait (faceted clip-path) + player name + Character name + active wound modifiers → Health (number + segment bar) + Oxygen (number + segment bar).
 2. **Action row:** Four buttons — Map, Play card, Basic action, Private. The active button has a double-border outline.
 3. **Hand rail:** Horizontally scrollable private hand cards. Each production card shows its exact official face, type, name, and cost. Contamination cards use hatched fill and double borders to distinguish without color. The structural prototype deliberately uses “Official card face” placeholders where verified face transcription is not yet present; it does not invent replacement card names or effects.
 
@@ -416,7 +418,7 @@ The user's core requirement: "if this were viewed on a black and white screen, i
 
 **Latest verified command:** `python3 docs/qa/mobile_concept_qa.py`
 
-**Result: 369 passed, 0 failed, 0 warnings across 84 scene/viewport combinations.**
+**Result: 374 passed, 0 failed, 0 warnings across 84 scene/viewport combinations.**
 
 ### Viewport matrix
 
@@ -437,6 +439,7 @@ For every combination, the harness verifies scene construction, absence of page-
 |---|---|---|
 | Non-color state contract | Life Support words/symbols; Fire hatch; Malfunction crosshatch; Secure double border; Noise dashed border; Current/MOVE labels; numeric segmented vitals; labeled, double-border Contamination | PASS |
 | Public roster privacy | Total hand count is present; private composition, Backpack, and Objective terms are absent | PASS |
+| Room geometry | Every rendered Room has the canonical six-vertex pointy-top polygon and regular-hex ratio; neighbors and Corridors use only NE/E/SE/SW/W/NW axes; every edge retains visible Corridor spacing | PASS |
 | Room focus | Tapping Armory focuses Armory while the Officer remains in Life Support Control B | PASS |
 | Legal targeting | Exactly the two fixture-legal connected Rooms are interactive; all invalid Rooms are out of focus order and have no action data | PASS |
 | Card inspection | A hand card opens the private card-inspection state instead of acting as a dead control | PASS |

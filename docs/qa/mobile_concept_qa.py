@@ -183,6 +183,72 @@ async def semantic_and_interaction_checks(browser):
     forbidden_public = [term for term in ("Contamination", "Backpack", "Objective", "Action card") if term.lower() in non_color["roster"].lower()]
     record("Public roster is privacy-safe", not forbidden_public and "cards" in non_color["roster"], f"forbidden={forbidden_public}; roster={non_color['roster']}")
 
+    # Room geometry is a rules-fidelity invariant, not a decorative choice. Check
+    # the rendered polygon, regular pointy-top proportions, six axes, and the
+    # visible space reserved for Corridors between adjacent hex edges.
+    geometry = await page.evaluate(r"""() => {
+      const shells = [...document.querySelectorAll('.room-shell')];
+      const expectedPoints = [[50,0],[100,25],[100,75],[50,100],[0,75],[0,25]];
+      const parsePolygon = value => {
+        const body = value.match(/^polygon\((.*)\)$/)?.[1] || '';
+        return body.split(',').map(pair => pair.trim().split(/\s+/).map(v => parseFloat(v)));
+      };
+      const polygons = shells.map(shell => parsePolygon(getComputedStyle(shell).clipPath));
+      const exactPointyHexes = polygons.every(points =>
+        points.length === 6 && points.every((point, i) =>
+          point.length === 2 && point.every((value, axis) => Math.abs(value - expectedPoints[i][axis]) < .01)
+        )
+      );
+      const shellRect = shells[0].getBoundingClientRect();
+      const ratio = shellRect.width / shellRect.height;
+      const directionNames = [...document.querySelectorAll('.corridor[data-direction]')]
+        .map(path => path.dataset.direction).sort();
+      const center = document.querySelector('.r-life').getBoundingClientRect();
+      const centerPoint = {x:center.left + center.width/2, y:center.top + center.height/2};
+      const neighbors = {NW:'.r-landing',NE:'.r-server',E:'.r-storage',SE:'.r-nest',SW:'.r-reactor',W:'.r-armory'};
+      const expectedAngles = {NW:-120,NE:-60,E:0,SE:60,SW:120,W:180};
+      const axes = Object.entries(neighbors).map(([direction, selector]) => {
+        const rect = document.querySelector(selector).getBoundingClientRect();
+        const dx = rect.left + rect.width/2 - centerPoint.x;
+        const dy = rect.top + rect.height/2 - centerPoint.y;
+        let angle = Math.atan2(dy, dx) * 180 / Math.PI;
+        if (direction === 'W' && angle < 0) angle += 360;
+        return {
+          direction,
+          angle,
+          expected:expectedAngles[direction],
+          gap:Math.hypot(dx,dy) - shellRect.width
+        };
+      });
+      return {polygons, exactPointyHexes, ratio, directionNames, axes};
+    }""")
+    expected_directions = ["E", "NE", "NW", "SE", "SW", "W"]
+    record(
+        "Every Room boundary has six pointy-top vertices",
+        geometry["exactPointyHexes"] and all(len(points) == 6 for points in geometry["polygons"]),
+        f"polygons={geometry['polygons']}",
+    )
+    record(
+        "Room proportions form regular pointy-top hexagons",
+        abs(geometry["ratio"] - (3 ** 0.5 / 2)) < 0.01,
+        f"width/height={geometry['ratio']:.5f}; expected={3 ** 0.5 / 2:.5f}",
+    )
+    record(
+        "Corridors use exactly the six canonical directions",
+        geometry["directionNames"] == expected_directions,
+        f"directions={geometry['directionNames']}",
+    )
+    record(
+        "Neighbor Rooms align to the six hex axes",
+        all(abs(axis["angle"] - axis["expected"]) < 0.25 for axis in geometry["axes"]),
+        f"axes={geometry['axes']}",
+    )
+    record(
+        "All six Room edges preserve visible Corridor gaps",
+        all(axis["gap"] >= 20 for axis in geometry["axes"]),
+        f"gaps={[round(axis['gap'], 2) for axis in geometry['axes']]}",
+    )
+
     # Room focus: choosing Armory must focus Armory without moving the Character.
     await page.locator('[data-room="armory"]').click()
     await page.wait_for_timeout(80)
