@@ -35,9 +35,7 @@ function createHost() {
 
         // Subscribe to engine events (host only broadcasts, doesn't update UI here
         // — broadcastState handles host UI update)
-        engine.subscribe((event, data, state) => {
-            NemesisNetwork.broadcastState();
-        });
+        try { engine.subscribe((event, data, state) => { NemesisNetwork.broadcastState(); }); } catch(e) { console.error('subscribe failed:', e); }
 
         // Set up state update handler for client messages
         NemesisNetwork.onStateUpdate = (state) => {
@@ -227,6 +225,7 @@ function startGame() {
     if (!engine) return;
     const missingPlayers = engine.state.players.filter(p => !p.connected);
     if (missingPlayers.length > 0) {
+        console.log('Cannot start: ' + missingPlayers.length + ' players not connected');
         return;
     }
     // Start the first round

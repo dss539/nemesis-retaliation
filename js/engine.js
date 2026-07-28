@@ -222,8 +222,9 @@ class NemesisEngine {
             p.objectives = [missionObj, privateObj];
         });
 
-        // Assign Mission Task
-        const validTasks = GAME_DATA.MISSION_TASKS.filter(t => t.minPlayers <= numPlayers);
+        // Assign Mission Task (solo uses 2-player minimums)
+        const effectiveMin = Math.max(2, numPlayers);
+        const validTasks = GAME_DATA.MISSION_TASKS.filter(t => t.minPlayers <= effectiveMin);
         state.missionTask = validTasks[Math.floor(Math.random() * validTasks.length)];
 
         // Assign random robot card
