@@ -203,7 +203,8 @@ const NemesisNetwork = {
 
             case 'chooseObjective':
                 if (data.playerId !== undefined && engine.state) {
-                    engine.state.players[data.playerId].chosenObjective = data.objectiveId;
+                    const result = engine.chooseObjective(data.playerId, data.objectiveId);
+                    conn.send({ type: 'actionResult', requestId: data.requestId, result });
                     this.broadcastState();
                 }
                 break;
@@ -385,7 +386,7 @@ const NemesisNetwork = {
 
     sendChooseObjective(objectiveId) {
         if (this.isHost) {
-            window.nemesisEngine.state.players[this.playerId].chosenObjective = objectiveId;
+            window.nemesisEngine.chooseObjective(this.playerId, objectiveId);
             this.broadcastState();
         } else {
             const conn = this.connections[this.hostId];

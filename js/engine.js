@@ -162,7 +162,9 @@ class NemesisEngine {
             actionCardsDrawn: 0,
             peerId: null,
             connected: true,
-            hasJoined: true
+            hasJoined: true,
+            killedAnyIntruders: false,
+            dataToken: false
         });
 
         // Reserve remaining slots as placeholders (not yet joined)
@@ -198,7 +200,9 @@ class NemesisEngine {
                 actionCardsDrawn: 0,
                 peerId: null,
                 connected: false,
-                hasJoined: false
+                hasJoined: false,
+                killedAnyIntruders: false,
+                dataToken: false
             });
         }
 
@@ -378,7 +382,8 @@ class NemesisEngine {
         }
 
         const actionCosts = { cautiousMove: 2, useRoom: 2 };
-        const actionCost = actionType === 'pass' ? 0 : (actionCosts[actionType] || 1);
+        const noCostActions = ['pass', 'chooseSearchItem'];
+        const actionCost = noCostActions.includes(actionType) ? 0 : (actionCosts[actionType] || 1);
         const handBeforeAction = player.actionHand.slice();
         const discardBeforeAction = player.actionDiscard.slice();
         if (actionCost > 0) {
@@ -421,6 +426,7 @@ class NemesisEngine {
             case 'reinforce': result = this.actionReinforce(player, params); break;
             case 'drill': result = this.actionDrill(player, params); break;
             case 'command': result = this.actionCommand(player, params); break;
+            case 'chooseSearchItem': result = this.actionChooseSearchItem(player, params); break;
             default: return { success: false, error: 'Unknown action' };
         }
 
@@ -1320,6 +1326,7 @@ class NemesisEngine {
                 // Drone needs 2 hits in room
             } else {
                 this.killIntruder(s, targetIntruder);
+                player.killedAnyIntruders = true;
                 this.log(targetIntruder.type + ' killed!');
             }
         } else if (roll === 1) {
@@ -1357,10 +1364,12 @@ class NemesisEngine {
             const intruderData = GAME_DATA.INTRUDER_TYPES[intruder.type];
             if (intruder.type === 'adult' || intruder.type === 'larva') {
                 this.killIntruder(s, intruder);
+                player.killedAnyIntruders = true;
                 remainingHits--;
             } else if (intruder.type === 'drone') {
                 if (remainingHits >= 2) {
                     this.killIntruder(s, intruder);
+                    player.killedAnyIntruders = true;
                     remainingHits -= 2;
                 }
             } else if (intruder.type === 'queen') {
@@ -1388,22 +1397,47 @@ class NemesisEngine {
         const roll = 1 + Math.floor(Math.random() * 8);
         this.log(this.charName(player) + ' melee attacks! Roll: ' + roll);
 
+        // Check for weapon that can prevent retaliation (e.g. Tactical Hatchet)
+        const meleeWeapon = player.handSlots.find(id => {
+            if (!id) return false;
+            const item = GAME_DATA.ITEMS[id];
+            return item?.traits?.some(t => t.includes('MELEE'));
+        });
+
         if (roll === 8 || (roll >= 2 && roll <= 5 && roll <= target.hits)) {
             if (target.type === 'drone' && target.hits < 2) {
                 // Drone needs 2 hits
             } else {
                 this.killIntruder(s, target);
+                player.killedAnyIntruders = true;
                 this.log(target.type + ' killed!');
             }
         } else if (roll <= 1) {
             // Ineffective - nothing happens
         }
 
-        // Intruder response if not dead
+        // Intruder response if not dead — player may prevent by placing
+        // malfunction on their melee weapon (rulebook p.16)
         if (s.intruders.includes(target)) {
-            // Player can prevent by placing malfunction on weapon
-            // For now, resolve attack
-            this.resolveIntruderAttack(s, target, player);
+            // If the player used a melee weapon with malfunction-on-prevent
+            // and chose to prevent, place malfunction and skip retaliation.
+            // For now: if the weapon already has malfunction, retaliation proceeds.
+            // If the weapon doesn't have malfunction, the player can prevent
+            // by accepting a malfunction on the weapon.
+            if (meleeWeapon && !params.skipRetaliationPrevention) {
+                // Auto-prevent if weapon can take malfunction (simplification:
+                // places malfunction on weapon, prevents retaliation)
+                const weaponData = GAME_DATA.ITEMS[meleeWeapon];
+                if (weaponData && !player.itemMalfunctions?.includes(meleeWeapon)) {
+                    if (!player.itemMalfunctions) player.itemMalfunctions = [];
+                    player.itemMalfunctions.push(meleeWeapon);
+                    this.log(this.charName(player) + ' places a Malfunction on ' + weaponData.name + ' to prevent retaliation');
+                } else {
+                    this.resolveIntruderAttack(s, target, player);
+                }
+            } else {
+                this.resolveIntruderAttack(s, target, player);
+            }
         }
 
         return { success: true };
@@ -1429,17 +1463,40 @@ class NemesisEngine {
 
         if (drawnItems.length === 0) return { success: false, error: 'No searchable items in this room' };
 
-        // For now, auto-keep the first item (UI should present choice)
-        this.notify('searchResult', { player: player.id, items: drawnItems, room: room.id });
+        // If only one item was drawn, keep it automatically
+        if (drawnItems.length === 1) {
+            const picked = drawnItems[0];
+            this.addItemToPlayer(player, picked.id);
+            this.log(this.charName(player) + ' searches and finds ' + (GAME_DATA.ITEMS[picked.id]?.name || picked.id));
+            this.notify('searchResult', { player: player.id, items: [picked], room: room.id, autoPicked: true });
+            return { success: true };
+        }
 
-        // Auto-pick first for simplicity - UI will handle choice
-        const picked = drawnItems[0];
+        // Multiple items: store as pending search for UI to present choice
+        player.pendingSearch = { items: drawnItems, room: room.id };
+        this.notify('searchResult', { player: player.id, items: drawnItems, room: room.id, requiresChoice: true });
+        this.log(this.charName(player) + ' searches and finds ' + drawnItems.length + ' items — choose one');
+        return { success: true, requiresChoice: true, items: drawnItems };
+    }
+
+    actionChooseSearchItem(player, params) {
+        const s = this.state;
+        if (!player.pendingSearch) return { success: false, error: 'No pending search' };
+        const { items, room } = player.pendingSearch;
+        const picked = items.find(i => i.id === params.itemId);
+        if (!picked) return { success: false, error: 'Invalid item choice' };
+
         this.addItemToPlayer(player, picked.id);
-        drawnItems.slice(1).forEach(item => {
-            s.itemDiscards[item.type].push(item.id);
+        // Return unchosen items to the bottom of their respective decks
+        items.forEach(item => {
+            if (item.id !== picked.id) {
+                s.itemDecks[item.type].unshift(item.id);
+            }
         });
 
-        this.log(this.charName(player) + ' searches and finds ' + (GAME_DATA.ITEMS[picked.id]?.name || picked.id));
+        this.log(this.charName(player) + ' keeps ' + (GAME_DATA.ITEMS[picked.id]?.name || picked.id) + ' from search');
+        player.pendingSearch = null;
+        this.notify('searchResolved', { player: player.id, picked: picked.id, room });
         return { success: true };
     }
 
@@ -2037,12 +2094,20 @@ class NemesisEngine {
         s.gameOver = true;
         this.log('=== Game Over ===');
 
-        // End of game checks
+        // Per rulebook: at end of round 14, all Characters still on the
+        // Facility (not escaped or hibernated) die. They cannot win.
         s.players.forEach(player => {
-            if (!player.alive && !player.hasEscaped) return;
+            if (player.alive && !player.hasEscaped && !player.hasHibernated) {
+                this.killPlayer(player, 'left behind');
+                this.log(this.charName(player) + ' is left behind and dies');
+            }
+        });
 
-            if (player.hasEscaped || player.hasHibernated) {
-                if (!player.larva) {
+        // End of game checks — only for escaped or hibernated players
+        s.players.forEach(player => {
+            if (!player.hasEscaped && !player.hasHibernated) return;
+
+            if (!player.larva) {
                     // Step 1: Draw all cards from Action deck and discard pile to hand,
                     // then perform Infection Procedure (rulebook p.39)
                     player.actionDeck.forEach(c => player.actionHand.push(c));
@@ -2061,7 +2126,6 @@ class NemesisEngine {
                     player.actionHand = [];
                     this.eclosionProcedure(s, player);
                 }
-            }
         });
 
         // Check objectives — only for players who are alive, escaped, or hibernated
@@ -2081,7 +2145,6 @@ class NemesisEngine {
     }
 
     checkObjective(state, player, objective) {
-        // Simplified objective checking
         switch(objective.name) {
             case 'Self-Serving':
                 return player.alive && state.players.filter(p => p.alive).length === 1;
@@ -2099,6 +2162,20 @@ class NemesisEngine {
                 return this.checkMissionTask(state);
             case 'Ulterior Motive':
                 return !this.checkMissionTask(state);
+            case 'Lone Wolf':
+                return player.hasEscaped && state.players.some(p => !p.alive && p.id !== player.id);
+            case 'Specimen Collector':
+                return player.hasEscaped && player.backpack.some(id => GAME_DATA.ITEMS[id]?.name?.toLowerCase().includes('egg'));
+            case 'Data Thief':
+                return player.hasEscaped && player.dataToken;
+            case 'Pacifist':
+                return player.hasEscaped && !player.killedAnyIntruders;
+            case 'Explorer':
+                return Object.values(state.rooms).every(r => r.discovered);
+            case 'Tomb Raider':
+                return player.hasEscaped && player.backpack.filter(id => GAME_DATA.ITEMS[id]?.name?.toLowerCase().includes('egg')).length >= 2;
+            case 'Last Stand':
+                return state.players.every(p => p.hasEscaped || !p.alive) && !state.players.some(p => p.hasHibernated);
             default:
                 return false;
         }
@@ -2117,9 +2194,94 @@ class NemesisEngine {
                        state.undiscoveredRooms.C.length === 0;
             case 'Eradication':
                 return state.queen.dead;
+            case 'Escort Mission':
+                // Robot must reach Reactor AND a Character with Data token must Escape
+                const robotAtReactor = state.rooms.reactor && state.robot.location === 'reactor';
+                const dataEscaped = state.players.some(p => p.hasEscaped && p.dataToken);
+                return robotAtReactor && dataEscaped;
+            case 'Perimeter Clearing':
+                // Reactor shut down AND all 3 Section A rooms discovered
+                const reactorOff = state.sections.C && state.sections.C.lifeSupport === false && state.reactorShutdown;
+                const allADiscovered = state.undiscoveredRooms.A.length === 0;
+                return reactorOff && allADiscovered;
+            case 'Essential Data':
+                // Character with Data token escapes via Lander AND no unexplored corridors in Section A
+                const dataEscapedLander = state.players.some(p => p.hasEscaped && p.dataToken && p.escapedVia === 'lander');
+                const noUnexplosedA = state.corridors.every(c => {
+                    const r1 = state.rooms[c.room1];
+                    const r2 = state.rooms[c.room2];
+                    return !(r1?.section === 'A' || r2?.section === 'A') || c.door !== undefined;
+                });
+                return dataEscapedLander && noUnexplosedA;
+            case 'Facility Restart':
+                // Hibernatorium activated AND Reactor shut down
+                const hibernatoriumActive = state.sections.B && state.rooms.hibernatorium && state.hibernatoriumActive;
+                const reactorShutdown = state.reactorShutdown;
+                return hibernatoriumActive && reactorShutdown;
+            case 'The Supply Route':
+                // Continuous path of reinforced corridors from Landing Zone to Life Support C AND facility not destroyed
+                if (state.facilityDestroyed) return false;
+                return this.hasReinforcedPath(state, 'landingZone', 'lifeSupportControlC');
             default:
                 return false;
         }
+    }
+
+    // Check if there's a path of reinforced corridors between two rooms (BFS)
+    hasReinforcedPath(state, startRoomId, endRoomId) {
+        const visited = new Set([startRoomId]);
+        const queue = [startRoomId];
+        while (queue.length > 0) {
+            const roomId = queue.shift();
+            if (roomId === endRoomId) return true;
+            const reinforced = state.corridors.filter(c =>
+                c.reinforced &&
+                (c.room1 === roomId || c.room2 === roomId) &&
+                c.door !== 'closed'
+            );
+            for (const c of reinforced) {
+                const next = c.room1 === roomId ? c.room2 : c.room1;
+                if (!visited.has(next) && state.rooms[next]) {
+                    visited.add(next);
+                    queue.push(next);
+                }
+            }
+        }
+        return false;
+    }
+
+    // === OBJECTIVE CHOICE ===
+    // Rulebook: A player may choose their objective once per turn during
+    // their turn. When they choose, they advance the objective choice track
+    // and draw Action cards: 3 for the first choice, 2 for the second,
+    // 2 for the third, 1 for the fourth and beyond.
+    chooseObjective(playerId, objectiveId) {
+        const s = this.state;
+        const player = s.players[playerId];
+        if (!player) return { success: false, error: 'Invalid player' };
+        if (player.chosenObjective) return { success: false, error: 'Already chosen an objective' };
+        if (s.currentPlayer !== playerId) return { success: false, error: 'Can only choose during your turn' };
+        if (s.phase !== 'playerPhase') return { success: false, error: 'Can only choose during the player phase' };
+
+        // Validate objective is one the player was dealt
+        const valid = player.objectives.some(o => o.id === objectiveId);
+        if (!valid) return { success: false, error: 'Invalid objective' };
+
+        player.chosenObjective = objectiveId;
+
+        // Advance the track and draw cards
+        const track = s.objectiveChoiceTrack || 0;
+        const drawCount = [3, 2, 2, 1][Math.min(track, 3)];
+        for (let i = 0; i < drawCount; i++) {
+            this.drawActionCard(player);
+        }
+        s.objectiveChoiceTrack = track + 1;
+
+        const obj = [...GAME_DATA.MISSION_OBJECTIVES, ...GAME_DATA.PRIVATE_OBJECTIVES]
+            .find(o => o.id === objectiveId);
+        this.log(this.charName(player) + ' chooses objective: ' + (obj?.name || objectiveId) + ' (draws ' + drawCount + ' cards)');
+        this.notify('objectiveChosen', { player: playerId, objectiveId, drawCount });
+        return { success: true };
     }
 
     charName(player) {
