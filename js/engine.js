@@ -1053,7 +1053,12 @@ class NemesisEngine {
             this.explorationSequence(s, player, targetRoomId, params);
         }
 
-        this.log(this.charName(player) + ' moves to ' + (targetRoom ? targetRoom.id || targetRoomId : targetRoomId));
+        // BUG-015: log the real room name, not a synthetic explore_* id
+        const finalRoom = s.rooms[targetRoomId];
+        const logRoomName = (finalRoom && finalRoom.discovered)
+            ? (GAME_DATA.ROOMS[targetRoomId]?.name || targetRoomId)
+            : targetRoomId;
+        this.log(this.charName(player) + ' moves to ' + logRoomName);
         this.notify('playerMoved', { player: player.id, room: targetRoomId });
         return { success: true };
     }
@@ -1086,7 +1091,40 @@ class NemesisEngine {
             this.materializePendingNestOccupants(state);
         }
 
-        // Add a graph edge. Each room records the edge under the compass-facing
+        // Backfill corridors from previously-placed rooms that recorded
+        // unexplored exits toward this slot (BUG-006). When a room was
+        // discovered earlier with a card corridor pointing at a still-empty
+        // slot, it recorded exits[dir] = true. Now that we're filling that
+        // slot, connect those pending exits with real corridors.
+        const newRoom = state.rooms[newRoomId];
+        for (const dir of GAME_DATA.CONFIG.directions) {
+            const neighborPos = GAME_DATA.CONFIG.neighborPosition(params.position, dir.id);
+            if (!neighborPos) continue;
+            const neighborRoom = Object.values(state.rooms).find(r =>
+                r.position?.x === neighborPos.x && r.position?.y === neighborPos.y
+            );
+            if (!neighborRoom) continue;
+            if (neighborRoom.exits[dir.opposite] === true) {
+                const corridor = {
+                    id: 'corridor_' + Date.now() + '_' + Math.random(),
+                    value: 1 + Math.floor(Math.random() * 4),
+                    room1: neighborRoom.id,
+                    room2: newRoomId,
+                    directionFromRoom1: dir.opposite,
+                    directionFromRoom2: dir.id,
+                    door: 'open',
+                    noise: false,
+                    intruders: [],
+                    reinforced: false
+                };
+                state.corridors.push(corridor);
+                neighborRoom.exits[dir.opposite] = corridor.id;
+                newRoom.exits[dir.id] = corridor.id;
+            }
+        }
+
+        // Add a graph edge for the incoming corridor (the edge the character
+        // moved through). Each room records the edge under the compass-facing
         // edge of its hexagon; the corridor preserves both orientations.
         const sourceRoomId = player.location;
         const sourceRoom = state.rooms[sourceRoomId];
@@ -1106,7 +1144,58 @@ class NemesisEngine {
         state.corridors.push(newCorridor);
         sourceRoom.exits ||= {};
         sourceRoom.exits[exitDirection.id] = newCorridor.id;
-        state.rooms[newRoomId].exits[exitDirection.opposite] = newCorridor.id;
+        newRoom.exits[exitDirection.opposite] = newCorridor.id;
+
+        // Process additional corridors from the exploration card (BUG-006).
+        // Card corridor directions use N/E/S/W; map to hex grid directions:
+        // N → NW + NE, E → E, S → SE + SW, W → W.
+        if (exCard.corridors) {
+            const cardDirMap = { N: ['NW', 'NE'], E: ['E'], S: ['SE', 'SW'], W: ['W'] };
+            for (const [cardDir, hexDirs] of Object.entries(cardDirMap)) {
+                if (!exCard.corridors[cardDir]) continue;
+                for (const hexDir of hexDirs) {
+                    // Skip the incoming corridor direction (already created above)
+                    if (hexDir === exitDirection.opposite) continue;
+                    // Skip if this exit already has a real corridor (from backfill)
+                    if (newRoom.exits[hexDir] && newRoom.exits[hexDir] !== true) continue;
+                    const dirConfig = GAME_DATA.CONFIG.directions.find(d => d.id === hexDir);
+                    if (!dirConfig) continue;
+                    const neighborPos = GAME_DATA.CONFIG.neighborPosition(params.position, hexDir);
+                    if (!neighborPos) continue;
+                    const neighborRoom = Object.values(state.rooms).find(r =>
+                        r.position?.x === neighborPos.x && r.position?.y === neighborPos.y
+                    );
+                    if (neighborRoom) {
+                        // Avoid duplicate corridors between the same pair of rooms
+                        const corridorExists = state.corridors.some(c =>
+                            (c.room1 === newRoomId && c.room2 === neighborRoom.id) ||
+                            (c.room1 === neighborRoom.id && c.room2 === newRoomId)
+                        );
+                        if (!corridorExists) {
+                            const corridor = {
+                                id: 'corridor_' + Date.now() + '_' + Math.random(),
+                                value: 1 + Math.floor(Math.random() * 4),
+                                room1: newRoomId,
+                                room2: neighborRoom.id,
+                                directionFromRoom1: hexDir,
+                                directionFromRoom2: dirConfig.opposite,
+                                door: 'open',
+                                noise: false,
+                                intruders: [],
+                                reinforced: false
+                            };
+                            state.corridors.push(corridor);
+                            newRoom.exits[hexDir] = corridor.id;
+                            neighborRoom.exits ||= {};
+                            neighborRoom.exits[dirConfig.opposite] = corridor.id;
+                        }
+                    } else {
+                        // No room yet — record the unexplored exit for later connection
+                        newRoom.exits[hexDir] = true;
+                    }
+                }
+            }
+        }
 
         // Move player
         player.location = newRoomId;
@@ -1114,7 +1203,13 @@ class NemesisEngine {
             this.placeSecureToken(state, newRoomId);
         }
 
-        // Entrance effect
+        // BUG-005: Movement always produces a Noise roll — the character moved
+        // through an unexplored corridor into a new room. The entrance effect
+        // from the exploration card is an ADDITIONAL effect on top of this
+        // standard movement noise roll.
+        this.makeNoiseRoll(state, player);
+
+        // Entrance effect (additional, per exploration card)
         if (exCard.entrance === 'noiseRoll') {
             this.makeNoiseRoll(state, player);
         } else if (exCard.entrance === 'closeDoors') {
@@ -1125,6 +1220,7 @@ class NemesisEngine {
                 }
             });
         }
+        // entrance === 'none': no additional entrance effect
 
         // Reveal robot if hibernatorium is connected
         if (newRoomId === 'hibernatorium' && !state.robot.revealed) {
@@ -1133,7 +1229,8 @@ class NemesisEngine {
         }
 
         state.explorationDiscard.push(exCardId);
-        this.log(this.charName(player) + ' discovers ' + newRoomId);
+        const discoveredRoomName = GAME_DATA.ROOMS[newRoomId]?.name || newRoomId;
+        this.log(this.charName(player) + ' discovers ' + discoveredRoomName);
         this.notify('roomDiscovered', { room: newRoomId, position: params.position });
     }
 
