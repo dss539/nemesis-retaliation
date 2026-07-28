@@ -81,13 +81,19 @@ def exercise_viewport(browser, name, width, height):
         return {
             wrapperWidth: wrapper.clientWidth,
             canvasWidth: rect.width,
-            canvasHeight: rect.height
+            canvasHeight: rect.height,
+            centerWidth: document.getElementById('center-panel').getBoundingClientRect().width,
+            mobileNavDisplay: getComputedStyle(document.getElementById('mobile-nav')).display
         };
     }""")
     check(initial_map_metrics["canvasWidth"] >= initial_map_metrics["wrapperWidth"] - 2,
-          f"{name}: fitted map is squeezed narrower than its mobile panel", failures)
+          f"{name}: fitted map is squeezed narrower than its panel", failures)
     check(abs(initial_map_metrics["canvasWidth"] / initial_map_metrics["canvasHeight"] - 1500 / 1050) < 0.01,
           f"{name}: fitted map does not preserve its aspect ratio", failures)
+    check(initial_map_metrics["mobileNavDisplay"] != "none",
+          f"{name}: touch-first viewport did not activate the tabbed layout", failures)
+    check(initial_map_metrics["centerWidth"] >= width - 2,
+          f"{name}: tabbed board does not use the viewport width", failures)
 
     zoom_in = page.locator('[data-map-zoom="in"]')
     zoom_out = page.locator('[data-map-zoom="out"]')
@@ -249,6 +255,61 @@ def exercise_viewport(browser, name, width, height):
     return failures, errors
 
 
+def exercise_layout_mode(browser, name, width, height, expected_tabbed):
+    context = browser.new_context(viewport={"width": width, "height": height})
+    page = context.new_page()
+    errors = []
+    page.on("pageerror", lambda exc: errors.append(str(exc)))
+    page.goto(BASE_URL, wait_until="networkidle")
+    page.evaluate("""() => {
+        document.getElementById('lobby-screen').classList.remove('active');
+        document.getElementById('game-screen').classList.add('active');
+        Renderer.init('game-canvas');
+        Renderer.setState({
+            corridors: [], rooms: {}, intruders: [], players: [],
+            robot: { revealed: false }, round: 1,
+            autodestruction: { active: false, token: null }, landerRound: 8
+        });
+        UI.switchTab('board');
+    }""")
+    page.wait_for_timeout(150)
+
+    metrics = page.evaluate("""() => {
+        const center = document.getElementById('center-panel');
+        const left = document.getElementById('left-panel');
+        const right = document.getElementById('right-panel');
+        const wrapper = document.getElementById('canvas-wrapper');
+        const canvas = document.getElementById('game-canvas');
+        return {
+            navDisplay: getComputedStyle(document.getElementById('mobile-nav')).display,
+            centerWidth: center.getBoundingClientRect().width,
+            leftDisplay: getComputedStyle(left).display,
+            rightDisplay: getComputedStyle(right).display,
+            wrapperWidth: wrapper.clientWidth,
+            canvasWidth: canvas.getBoundingClientRect().width
+        };
+    }""")
+
+    failures = []
+    if expected_tabbed:
+        check(metrics["navDisplay"] != "none", f"{name}: compact viewport did not activate tabs", failures)
+        check(metrics["leftDisplay"] == "none" and metrics["rightDisplay"] == "none",
+              f"{name}: compact viewport still shows desktop side panels", failures)
+        check(metrics["centerWidth"] >= width - 2,
+              f"{name}: compact board does not use the viewport width", failures)
+    else:
+        check(metrics["navDisplay"] == "none", f"{name}: wide desktop incorrectly shows tabs", failures)
+        check(metrics["leftDisplay"] != "none" and metrics["rightDisplay"] != "none",
+              f"{name}: wide desktop incorrectly hides side panels", failures)
+        check(metrics["centerWidth"] < width,
+              f"{name}: wide desktop lost its side-panel layout", failures)
+    check(metrics["canvasWidth"] >= metrics["wrapperWidth"] - 2,
+          f"{name}: board is squeezed narrower than its panel", failures)
+
+    context.close()
+    return failures, errors
+
+
 def exercise_desktop(browser):
     context = browser.new_context(viewport={"width": 1280, "height": 900})
     page = context.new_page()
@@ -329,11 +390,20 @@ def main():
     with sync_playwright() as playwright:
         browser = playwright.chromium.launch(headless=True)
         for name, width, height in (
-            ("portrait", 390, 844),
-            ("landscape", 844, 390),
-            ("pixel-landscape", 915, 412),
+            ("narrow-touch-portrait", 390, 844),
+            ("narrow-touch-landscape", 844, 390),
+            ("wide-touch-landscape", 1180, 600),
         ):
             failures, errors = exercise_viewport(browser, name, width, height)
+            all_failures.extend(failures)
+            all_errors.extend(f"{name}: {error}" for error in errors)
+        for name, width, height, expected_tabbed in (
+            ("narrow-fine-pointer", 1000, 800, True),
+            ("wide-fine-pointer", 1280, 900, False),
+        ):
+            failures, errors = exercise_layout_mode(
+                browser, name, width, height, expected_tabbed
+            )
             all_failures.extend(failures)
             all_errors.extend(f"{name}: {error}" for error in errors)
         failures, errors = exercise_desktop(browser)

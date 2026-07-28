@@ -250,8 +250,10 @@ function switchToGameScreen() {
     // Resize canvas to fit screen and detect mobile
     Renderer.resizeCanvas();
 
-    // On mobile, start on board tab
-    if (window.innerWidth <= 1024) {
+    // In the CSS-selected tabbed layout, start on the board tab. Reading the
+    // rendered navigation keeps JavaScript independent of breakpoint details.
+    const mobileNav = document.getElementById('mobile-nav');
+    if (mobileNav && getComputedStyle(mobileNav).display !== 'none') {
         UI.switchTab('board');
     }
 }

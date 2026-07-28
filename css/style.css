@@ -1711,17 +1711,16 @@ body {
 }
 
 /* Responsive */
-@media (min-width: 1025px) {
-    #mobile-nav { display: none; }
-    .mobile-only { display: none; }
-}
+#mobile-nav { display: none; }
 
 /* Tablet and mobile */
 @media (max-width: 1200px) {
     .side-panel { width: 220px; }
 }
 
-@media (max-width: 1024px) {
+/* Use tabs when side panels cannot leave a useful board width, or whenever
+   the primary input is touch. This is layout/capability based, not device based. */
+@media (max-width: 1024px), (hover: none) and (pointer: coarse) {
     /* Show mobile nav */
     #mobile-nav {
         display: flex !important;

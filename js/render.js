@@ -268,14 +268,8 @@ const Renderer = {
         let fitWidth = wrapperWidth;
         let fitHeight = fitWidth / aspectRatio;
 
-        // Mobile uses a width-fit map. Fitting both dimensions in landscape
-        // shrinks the board into a narrow strip because the navigation and HUD
-        // leave little vertical space; vertical overflow remains pannable.
-        const isMobileLayout = window.innerWidth <= 1024;
-        if (!isMobileLayout && fitHeight > wrapperHeight) {
-            fitHeight = wrapperHeight;
-            fitWidth = fitHeight * aspectRatio;
-        }
+        // Width is authoritative on every layout. A short viewport may require
+        // vertical panning, but must never squeeze the board into a narrow strip.
 
         const displayWidth = Math.max(1, fitWidth * this.mapZoom);
         const displayHeight = Math.max(1, fitHeight * this.mapZoom);
