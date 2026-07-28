@@ -20,13 +20,13 @@ const Renderer = {
 
     // Fixed mat-derived geometry. Pointy-top hexes have vertical E/W sides,
     // matching the NE/E/SE/SW/W/NW movement topology. The 5/4/5/4/5 field
-    // fills the canvas height while retaining 42px corridor gaps.
+    // uses generous corridor gaps for clear visual separation.
     ROOM_SIZE: 160,
     ROOM_HEIGHT: 2 * 160 / Math.sqrt(3),
-    CORRIDOR_WIDTH: 42,
-    ROW_STEP_Y: Math.sqrt(3) / 2 * (160 + 42),
-    GRID_PADDING_X: (1200 - (5 * 160 + 4 * 42)) / 2,
-    GRID_PADDING_Y: (900 - (2 * 160 / Math.sqrt(3) + 4 * (Math.sqrt(3) / 2 * (160 + 42)))) / 2,
+    CORRIDOR_WIDTH: 84,
+    ROW_STEP_Y: Math.sqrt(3) / 2 * (160 + 84),
+    GRID_PADDING_X: (1500 - (5 * 160 + 4 * 84)) / 2,
+    GRID_PADDING_Y: (1050 - (2 * 160 / Math.sqrt(3) + 4 * (Math.sqrt(3) / 2 * (160 + 84)))) / 2,
 
     init(canvasId) {
         this.canvas = document.getElementById(canvasId);
@@ -211,8 +211,8 @@ const Renderer = {
     // Handle a single tap on the canvas at screen coordinates (clientX, clientY)
     _handleTap(clientX, clientY) {
         const rect = this.canvas.getBoundingClientRect();
-        const scaleX = (this._baseW || 1200) / rect.width;
-        const scaleY = (this._baseH || 900) / rect.height;
+        const scaleX = (this._baseW || 1500) / rect.width;
+        const scaleY = (this._baseH || 1050) / rect.height;
         const x = (clientX - rect.left) * scaleX;
         const y = (clientY - rect.top) * scaleY;
 
@@ -261,8 +261,8 @@ const Renderer = {
         const wrapperHeight = wrapper.clientHeight;
 
         // Base virtual size — the coordinate system the game uses
-        const BASE_W = 1200;
-        const BASE_H = 900;
+        const BASE_W = 1500;
+        const BASE_H = 1050;
         const aspectRatio = BASE_W / BASE_H;
 
         let fitWidth = wrapperWidth;
@@ -1080,8 +1080,8 @@ const Renderer = {
     handleClick(e) {
         const rect = this.canvas.getBoundingClientRect();
         // Map screen coordinates to base coordinate space
-        const scaleX = (this._baseW || 1200) / rect.width;
-        const scaleY = (this._baseH || 900) / rect.height;
+        const scaleX = (this._baseW || 1500) / rect.width;
+        const scaleY = (this._baseH || 1050) / rect.height;
         const x = (e.clientX - rect.left) * scaleX;
         const y = (e.clientY - rect.top) * scaleY;
 
@@ -1110,8 +1110,8 @@ const Renderer = {
 
     handleMouseMove(e) {
         const rect = this.canvas.getBoundingClientRect();
-        const scaleX = (this._baseW || 1200) / rect.width;
-        const scaleY = (this._baseH || 900) / rect.height;
+        const scaleX = (this._baseW || 1500) / rect.width;
+        const scaleY = (this._baseH || 1050) / rect.height;
         const x = (e.clientX - rect.left) * scaleX;
         const y = (e.clientY - rect.top) * scaleY;
         const movementTarget = this.getMovementTargetAtPoint(x, y);

@@ -150,10 +150,10 @@ def board_svg() -> str:
     # Hex geometry constants — must match js/render.js exactly
     ROOM_SIZE = 160
     ROOM_HEIGHT = 2 * ROOM_SIZE / math.sqrt(3)
-    CORRIDOR_WIDTH = 42
+    CORRIDOR_WIDTH = 84
     ROW_STEP_Y = math.sqrt(3) / 2 * (ROOM_SIZE + CORRIDOR_WIDTH)
-    GRID_PADDING_X = (1200 - (5 * ROOM_SIZE + 4 * CORRIDOR_WIDTH)) / 2
-    GRID_PADDING_Y = (900 - (2 * ROOM_SIZE / math.sqrt(3) + 4 * (math.sqrt(3) / 2 * (ROOM_SIZE + CORRIDOR_WIDTH)))) / 2
+    GRID_PADDING_X = (1500 - (5 * ROOM_SIZE + 4 * CORRIDOR_WIDTH)) / 2
+    GRID_PADDING_Y = (1050 - (2 * ROOM_SIZE / math.sqrt(3) + 4 * (math.sqrt(3) / 2 * (ROOM_SIZE + CORRIDOR_WIDTH)))) / 2
     STEP_X = ROOM_SIZE + CORRIDOR_WIDTH
 
     # boardSlots from js/data.js: 5/4/5/4/5 row layout
@@ -183,7 +183,7 @@ def board_svg() -> str:
         ("SECTION B", 2, 2, "rgba(65,98,145,0.055)"),
         ("SECTION C", 4, 1, "rgba(143,67,67,0.065)"),
     ]
-    base_h = 900
+    base_h = 1050
     section_rects = []
     section_labels = []
     for name, start, cols, color in sections:
@@ -210,9 +210,9 @@ def board_svg() -> str:
 <pattern id="deck" width="48" height="48" patternUnits="userSpaceOnUse"><path d="M0 24h48M24 0v48" stroke="#6e9cac" stroke-opacity=".045"/><circle cx="24" cy="24" r="2" fill="#89bac8" fill-opacity=".1"/></pattern>
 <linearGradient id="rail" x2="0" y2="1"><stop stop-color="#243d47"/><stop offset=".5" stop-color="#0a1116"/><stop offset="1" stop-color="#1e343d"/></linearGradient>
 </defs>
-<rect width="1200" height="900" fill="url(#bg)"/>
-<rect width="1200" height="900" fill="url(#deck)"/>
-<path d="M16 16h1168v868H16z" fill="none" stroke="url(#rail)" stroke-width="24"/>
+<rect width="1500" height="1050" fill="url(#bg)"/>
+<rect width="1500" height="1050" fill="url(#deck)"/>
+<path d="M16 16h1468v1018H16z" fill="none" stroke="url(#rail)" stroke-width="24"/>
 <!-- Section background tints (matching drawSections) -->
 {chr(10).join(section_rects)}
 <!-- Hex slot outlines (matching drawGrid) -->
@@ -220,7 +220,7 @@ def board_svg() -> str:
 {chr(10).join(inner_hex_paths)}
 <!-- Section labels -->
 {chr(10).join(section_labels)}
-<text x="600" y="32" fill="#9bc6cf" fill-opacity=".28" font-family="system-ui,sans-serif" font-size="13" font-weight="700" text-anchor="middle" letter-spacing="8">FACILITY TACTICAL DISPLAY</text>''', "0 0 1200 900")
+<text x="750" y="32" fill="#9bc6cf" fill-opacity=".28" font-family="system-ui,sans-serif" font-size="13" font-weight="700" text-anchor="middle" letter-spacing="8">FACILITY TACTICAL DISPLAY</text>''', "0 0 1500 1050")
 
 
 def symbol(symbol_id: str, body: str) -> str:

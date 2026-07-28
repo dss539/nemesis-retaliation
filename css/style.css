@@ -1141,7 +1141,7 @@ body {
     flex-direction: column;
     align-items: center;
     padding: 10px;
-    padding-bottom: 120px;
+    padding-bottom: 180px;
     background:
         linear-gradient(rgba(18,31,39,0.42) 1px, transparent 1px),
         linear-gradient(90deg, rgba(18,31,39,0.42) 1px, transparent 1px),
@@ -1597,26 +1597,20 @@ body {
 .hand-card-title { line-height: 1.15; overflow-wrap: anywhere; color: #d7e1e4; }
 .hand-card.contamination-card { opacity: 0.86; }
 
-/* ===== ACTION PANEL (upper right vertical list) ===== */
+/* ===== ACTION PANEL (vertical list, inside right panel) ===== */
 .action-panel-overlay {
-    position: fixed;
-    top: 10px;
-    right: 10px;
-    width: 190px;
-    max-height: calc(100vh - 200px);
-    max-height: calc(100dvh - 200px);
+    width: 100%;
+    max-height: none;
     overflow-y: auto;
-    z-index: 50;
+    z-index: 2;
     display: flex;
     flex-direction: column;
     gap: 6px;
-    padding: 10px;
-    background: rgba(10, 17, 28, 0.88);
-    border: 1px solid rgba(95, 184, 212, 0.2);
+    padding: 8px;
+    background: rgba(10, 17, 28, 0.6);
+    border: 1px solid var(--border);
     border-radius: 6px;
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    box-shadow: -4px 0 24px rgba(0, 0, 0, 0.4);
+    margin-bottom: 10px;
     scrollbar-width: thin;
     scrollbar-color: var(--border-light) transparent;
 }
@@ -1650,43 +1644,70 @@ body {
 .action-panel-overlay .action-btn:disabled { opacity: 0.3; cursor: not-allowed; }
 .action-panel-overlay .action-btn.active { border-color: var(--tactical); color: var(--tactical); background: #183640; box-shadow: inset -3px 0 0 var(--tactical); }
 
-/* ===== HAND BAR (bottom, fanned cards) ===== */
+/* ===== HAND BAR (bottom, flat row of cards) ===== */
 .hand-bar-overlay {
     position: fixed;
     bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
+    left: 0;
+    right: 0;
     z-index: 50;
     display: flex;
     align-items: flex-end;
     justify-content: center;
-    padding: 0 0 8px;
+    gap: 6px;
+    padding: 8px 12px 10px;
     pointer-events: none;
-    max-width: 70vw;
+    background: linear-gradient(180deg, transparent 0%, rgba(6, 9, 15, 0.85) 40%, rgba(6, 9, 15, 0.95) 100%);
 }
 
 .hand-bar-overlay .hand-card {
     pointer-events: auto;
-    margin-left: -42px;
-    transition: transform 0.2s ease, margin-bottom 0.2s ease;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.05);
+    margin-left: 0;
+    width: 110px;
+    min-height: 168px;
+    opacity: 1;
+    background: linear-gradient(160deg, #1a2730, #0e151a);
+    border: 1px solid var(--border-light);
+    border-radius: 6px;
+    padding: 6px;
+    font-size: 0.8em;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex-shrink: 0;
+    transition: transform 0.15s ease, border-color 0.15s;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.05);
 }
 
-.hand-bar-overlay .hand-card:first-child { margin-left: 0; }
+.hand-bar-overlay .hand-card .card-art { min-height: 90px; width: 100%; }
+.hand-bar-overlay .hand-card .card-art .game-icon { width: 44px; height: 44px; }
 
 .hand-bar-overlay .hand-card:hover {
-    transform: translateY(-20px) scale(1.06);
+    transform: translateY(-8px);
+    border-color: var(--accent);
     z-index: 10;
-    box-shadow: 0 12px 36px rgba(0,0,0,0.6), 0 0 12px rgba(255,68,68,0.2);
 }
 
 .hand-bar-overlay .hand-card.selected {
-    transform: translateY(-14px) scale(1.03);
+    border-color: var(--accent);
+    box-shadow: 0 0 12px rgba(255,68,68,0.4);
     z-index: 9;
 }
 
 .hand-bar-overlay .hand-card.contamination-card {
-    opacity: 0.8;
+    opacity: 1;
+    border-top: 3px solid var(--green);
+}
+
+.hand-bar-overlay .hand-card.action-card {
+    border-top: 3px solid var(--blue);
+}
+
+.hand-bar-overlay .hand-card-title {
+    font-size: 0.85em;
+    line-height: 1.2;
+    overflow-wrap: anywhere;
+    color: #d7e1e4;
 }
 
 /* Responsive */
@@ -1811,12 +1832,9 @@ body {
         gap: 8px;
     }
 
-    /* Action panel: compact on mobile */
+    /* Action panel: in right panel on mobile too */
     .action-panel-overlay {
-        top: auto;
-        bottom: calc(54px + env(safe-area-inset-bottom));
-        right: 4px;
-        width: 150px;
+        width: 100%;
         max-height: 200px;
         padding: 6px;
         gap: 4px;
@@ -1829,18 +1847,19 @@ body {
 
     /* Hand bar: compact on mobile */
     .hand-bar-overlay {
-        max-width: 96vw;
         padding-bottom: calc(54px + env(safe-area-inset-bottom));
     }
 
     .hand-bar-overlay .hand-card {
-        width: 60px;
-        min-height: 80px;
-        margin-left: -32px;
+        width: 72px;
+        min-height: 110px;
     }
 
+    .hand-bar-overlay .hand-card .card-art { min-height: 56px; }
+    .hand-bar-overlay .hand-card .card-art .game-icon { width: 28px; height: 28px; }
+
     .hand-bar-overlay .hand-card:hover {
-        transform: translateY(-14px) scale(1.04);
+        transform: translateY(-6px);
     }
 
     /* Player boards: horizontal scroll */
@@ -1947,7 +1966,7 @@ body {
         font-size: 0.75em;
     }
 
-    .hand-card { width: 60px; min-height: 80px; }
+    .hand-bar-overlay .hand-card { width: 60px; min-height: 90px; }
 
     .modal-card { min-width: 120px; padding: 12px; }
 
@@ -1960,7 +1979,7 @@ body {
 
 /* Prevent text selection on touch */
 @media (hover: none) {
-    .action-btn:hover, .hand-card:hover, .modal-card:hover {
+    .action-btn:hover, .modal-card:hover {
         transform: none;
     }
     body { -webkit-tap-highlight-color: transparent; }
