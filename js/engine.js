@@ -160,6 +160,7 @@ class NemesisEngine {
             chosenObjective: null,
             passed: false,
             actionCardsDrawn: 0,
+            malfunctioningItems: [],
             peerId: null,
             connected: true,
             hasJoined: true
@@ -196,6 +197,7 @@ class NemesisEngine {
                 chosenObjective: null,
                 passed: false,
                 actionCardsDrawn: 0,
+                malfunctioningItems: [],
                 peerId: null,
                 connected: false,
                 hasJoined: false
@@ -695,19 +697,161 @@ class NemesisEngine {
                 state.eventDeck = shuffle([...state.eventDeck, ...state.eventDiscard]);
                 state.eventDiscard = [];
                 break;
+            case 'ev2': { // Scent of Prey
+                // Each Intruder adjacent to a Character resolves an attack.
+                // After corridor+room movement, "adjacent" = intruders in the
+                // same Room as a Character, or in a Corridor connected to the
+                // Character's Room. Resolve in turn order.
+                state.players.filter(p => p.alive).forEach(player => {
+                    const roomId = player.location;
+                    // Intruders in the same room
+                    state.intruders
+                        .filter(i => i.location.type === 'room' && i.location.id === roomId)
+                        .forEach(intruder => {
+                            const room = state.rooms[roomId];
+                            if (room?.markers.secure?.length > 0) {
+                                room.markers.secure.pop();
+                            } else {
+                                this.resolveIntruderAttack(state, intruder, player);
+                            }
+                        });
+                    // Intruders in adjacent corridors
+                    const adjCorridors = state.corridors.filter(c =>
+                        c.door !== 'closed' && c.door !== 'destroyed' &&
+                        (c.room1 === roomId || c.room2 === roomId));
+                    adjCorridors.forEach(corridor => {
+                        state.intruders
+                            .filter(i => i.location.type === 'corridor' && i.location.id === corridor.id)
+                            .forEach(intruder => this.resolveIntruderAttack(state, intruder, player));
+                    });
+                });
+                // Then each Character makes a Noise roll
+                state.players.forEach(p => { if (p.alive) this.makeNoiseRoll(state, p); });
+                break;
+            }
+            case 'ev3': { // Short Circuit
+                // In Sections with Inactive Life Support: place Malfunction in
+                // each Room with a Computer.
+                ['A','B','C'].forEach(sec => {
+                    if (!state.sections[sec].lifeSupport) {
+                        Object.values(state.rooms)
+                            .filter(r => r.discovered && r.section === sec && GAME_DATA.ROOMS[r.id]?.computer)
+                            .forEach(r => {
+                                r.markers.malfunction = true;
+                                this.log('Malfunction placed in ' + r.id);
+                            });
+                    }
+                });
+                // Each Character in a Room without Fire resolves a Noise roll
+                state.players.forEach(p => {
+                    if (!p.alive) return;
+                    const room = state.rooms[p.location];
+                    if (room && !room.markers.fire) this.makeNoiseRoll(state, p);
+                });
+                break;
+            }
+            case 'ev4': { // Fire Outbreak
+                // Place 1 Fire marker in 2 random Rooms in the Section with the
+                // most Fire markers (random if tied).
+                const sectionFire = { A: 0, B: 0, C: 0 };
+                Object.values(state.rooms).forEach(r => {
+                    if (r.discovered && r.section && r.markers.fire) sectionFire[r.section]++;
+                });
+                let maxFire = -1;
+                let candidateSections = [];
+                ['A','B','C'].forEach(sec => {
+                    if (sectionFire[sec] > maxFire) {
+                        maxFire = sectionFire[sec];
+                        candidateSections = [sec];
+                    } else if (sectionFire[sec] === maxFire) {
+                        candidateSections.push(sec);
+                    }
+                });
+                const targetSection = candidateSections[Math.floor(Math.random() * candidateSections.length)];
+                const sectionRooms = Object.values(state.rooms)
+                    .filter(r => r.discovered && r.section === targetSection);
+                for (let i = 0; i < 2 && sectionRooms.length > 0; i++) {
+                    const idx = Math.floor(Math.random() * sectionRooms.length);
+                    const room = sectionRooms.splice(idx, 1)[0];
+                    room.markers.fire = true;
+                    this.log('Fire placed in ' + room.id);
+                }
+                break;
+            }
+            case 'ev5': { // System Failure
+                // Place 1 Malfunction marker on a random Heavy Item in each
+                // Character's possession.
+                state.players.forEach(p => {
+                    if (!p.alive) return;
+                    const heavyItems = [
+                        ...(p.handSlots || []).filter(id => id && GAME_DATA.ITEMS[id]?.traits?.includes('HEAVY')),
+                        ...(p.backpack || []).filter(id => GAME_DATA.ITEMS[id]?.traits?.includes('HEAVY'))
+                    ];
+                    if (heavyItems.length === 0) return;
+                    const broken = heavyItems[Math.floor(Math.random() * heavyItems.length)];
+                    if (!p.malfunctioningItems) p.malfunctioningItems = [];
+                    if (!p.malfunctioningItems.includes(broken)) {
+                        p.malfunctioningItems.push(broken);
+                        this.log(this.charName(p) + "'s " + (GAME_DATA.ITEMS[broken]?.name || broken) + ' malfunctions');
+                    }
+                });
+                break;
+            }
+            case 'ev6': { // Breeding
+                // Add 1 Larva to each Room with a Character and without a Fire.
+                const roomsWithChars = {};
+                state.players.forEach(p => {
+                    if (p.alive) roomsWithChars[p.location] = true;
+                });
+                Object.keys(roomsWithChars).forEach(rid => {
+                    const room = state.rooms[rid];
+                    if (room && !room.markers.fire) {
+                        if (state.intruderPool.larva > 0) {
+                            state.intruders.push({
+                                id: 'intruder_larva_' + Date.now() + '_' + Math.random(),
+                                type: 'larva',
+                                location: { type: 'room', id: rid },
+                                hits: 0
+                            });
+                            state.intruderPool.larva--;
+                            this.log('A Larva appears in ' + rid);
+                        }
+                    }
+                });
+                break;
+            }
+            case 'ev7': // Alarm
+                // Each Character in a Room with a Computer makes a Noise roll
+                state.players.forEach(p => {
+                    if (!p.alive) return;
+                    const room = state.rooms[p.location];
+                    if (room && GAME_DATA.ROOMS[room.id]?.computer) {
+                        this.makeNoiseRoll(state, p);
+                    }
+                });
+                break;
             case 'ev8': // Hull Breach
                 state.players.forEach(p => { if (p.alive) { if (p.oxygen > 0) p.oxygen--; } });
                 break;
             case 'ev9': // Power Surge
-                const sections = ['A','B','C'];
+                {const sections = ['A','B','C'];
                 const randSection = sections[Math.floor(Math.random() * 3)];
                 if (state.sections[randSection].lifeSupport) {
                     state.sections[randSection].lifeSupport = false;
                     this.log('Life Support in Section ' + randSection + ' turned off');
                 }
-                break;
+                break;}
             case 'ev10': // Nest Awakening
                 if (!state.nest.destroyed) state.nest.eggs = Math.min(state.nest.eggs + 1, 5);
+                break;
+            case 'ev11': // Malfunction
+                // Place 1 Malfunction marker in each Room with a Computer
+                Object.values(state.rooms)
+                    .filter(r => r.discovered && GAME_DATA.ROOMS[r.id]?.computer)
+                    .forEach(r => {
+                        r.markers.malfunction = true;
+                        this.log('Malfunction placed in ' + r.id);
+                    });
                 break;
             case 'ev12': // Infestation
                 // Draw 2 intruder tokens and place in random corridors
@@ -715,14 +859,58 @@ class NemesisEngine {
                     this.placeRandomIntruder(state);
                 }
                 break;
+            case 'ev13': { // Heat Wave
+                // Place 1 Fire marker in a random Room in each Section (A, B, C)
+                ['A','B','C'].forEach(sec => {
+                    const sectionRooms = Object.values(state.rooms)
+                        .filter(r => r.discovered && r.section === sec);
+                    if (sectionRooms.length === 0) return;
+                    const room = sectionRooms[Math.floor(Math.random() * sectionRooms.length)];
+                    room.markers.fire = true;
+                    this.log('Fire placed in ' + room.id + ' (Section ' + sec + ')');
+                });
+                break;
+            }
             case 'ev14': // Intruder Surge
                 // Draw 3 intruder tokens and place them
                 for (let i = 0; i < 3; i++) {
                     this.placeRandomIntruder(state);
                 }
                 break;
+            case 'ev15': { // Blocked Passage
+                // Close 1 random Door in each Section.
+                ['A','B','C'].forEach(sec => {
+                    // Corridors don't carry a section; derive from connected rooms.
+                    const sectionCorridors = state.corridors.filter(c => {
+                        if (c.door === 'closed' || c.door === 'destroyed') return false;
+                        const r1 = state.rooms[c.room1];
+                        const r2 = state.rooms[c.room2];
+                        return (r1 && r1.section === sec) || (r2 && r2.section === sec);
+                    });
+                    if (sectionCorridors.length === 0) return;
+                    const corridor = sectionCorridors[Math.floor(Math.random() * sectionCorridors.length)];
+                    corridor.door = 'closed';
+                    this.log('Door closed between ' + corridor.room1 + ' and ' + corridor.room2);
+                });
+                break;
+            }
             case 'ev16': // Contamination Leak
                 state.players.forEach(p => { if (p.alive) this.gainContamination(state, p); });
+                break;
+            case 'ev17': // Emergency Lighting
+                // Each Character in a Room with Fire loses 1 Health
+                state.players.forEach(p => {
+                    if (!p.alive) return;
+                    const room = state.rooms[p.location];
+                    if (room && room.markers.fire) {
+                        this.damagePlayer(p, 1, 'fire');
+                        this.log(this.charName(p) + ' loses 1 Health from Emergency Lighting');
+                    }
+                });
+                break;
+            case 'ev18': // Tremor
+                // Each Character makes a Noise roll
+                state.players.forEach(p => { if (p.alive) this.makeNoiseRoll(state, p); });
                 break;
             case 'ev19': // Nest Defense
                 // The physical game always has a Nest space, but this digital map
@@ -755,7 +943,6 @@ class NemesisEngine {
                     this.activateQueen(state);
                 }
                 break;
-            // Other events: just the standard movement already handled
         }
         this.notify('eventResolved', { event: event.id });
     }
@@ -831,48 +1018,79 @@ class NemesisEngine {
     }
 
     moveCorridorIntruders(state) {
-        state.intruders.forEach(intruder => {
-            if (intruder.location.type === 'corridor') {
+        // BUG-014: resolve in top-left to bottom-right order (row by row).
+        // Corridor position is derived from its connected rooms' positions;
+        // use the topmost (min y), then leftmost (min x) of the pair.
+        const corridorIntruders = state.intruders
+            .filter(i => i.location.type === 'corridor')
+            .map(intruder => {
                 const corridor = state.corridors.find(c => c.id === intruder.location.id);
+                let y = Infinity, x = Infinity;
                 if (corridor) {
-                    // Move to adjacent room with closest character
-                    const targetRoom = this.findClosestCharacterRoom(state, corridor);
-                    if (targetRoom) {
-                        intruder.location = { type: 'room', id: targetRoom };
-                        intruder.hits = 0; // Clear hits when entering room
-                        // Check for surprise attack
-                        const charsInRoom = state.players.filter(p => p.alive && p.location === targetRoom);
-                        if (charsInRoom.length > 0) {
-                            const room = state.rooms[targetRoom];
-                            if (room.markers.secure && room.markers.secure.length > 0) {
-                                room.markers.secure.pop();
-                            } else {
-                                this.resolveIntruderAttack(state, intruder, charsInRoom[0]);
+                    for (const rid of [corridor.room1, corridor.room2]) {
+                        const r = state.rooms[rid];
+                        if (r && r.position) {
+                            if (r.position.y < y || (r.position.y === y && r.position.x < x)) {
+                                y = r.position.y;
+                                x = r.position.x;
                             }
                         }
                     }
                 }
-            }
-        });
-    }
+                return { intruder, y, x };
+            })
+            .sort((a, b) => a.y - b.y || a.x - b.x);
 
-    moveRoomIntruders(state) {
-        state.intruders.forEach(intruder => {
-            if (intruder.location.type === 'room') {
-                const room = state.rooms[intruder.location.id];
-                if (room) {
-                    const charsInRoom = state.players.filter(p => p.alive && p.location === intruder.location.id);
-                    // Intruders stay in combat
-                    if (charsInRoom.length === 0) {
-                        // Move to adjacent corridor toward closest character
-                        const targetCorridor = this.findClosestCharacterCorridor(state, room);
-                        if (targetCorridor) {
-                            intruder.location = { type: 'corridor', id: targetCorridor };
+        for (const { intruder } of corridorIntruders) {
+            const corridor = state.corridors.find(c => c.id === intruder.location.id);
+            if (corridor) {
+                // Move to adjacent room with closest character
+                const targetRoom = this.findClosestCharacterRoom(state, corridor);
+                if (targetRoom) {
+                    intruder.location = { type: 'room', id: targetRoom };
+                    intruder.hits = 0; // Clear hits when entering room
+                    // Check for surprise attack
+                    const charsInRoom = state.players.filter(p => p.alive && p.location === targetRoom);
+                    if (charsInRoom.length > 0) {
+                        const room = state.rooms[targetRoom];
+                        if (room.markers.secure && room.markers.secure.length > 0) {
+                            room.markers.secure.pop();
+                        } else {
+                            this.resolveIntruderAttack(state, intruder, charsInRoom[0]);
                         }
                     }
                 }
             }
-        });
+        }
+    }
+
+    moveRoomIntruders(state) {
+        // BUG-014: resolve in top-left to bottom-right order (row by row),
+        // sorted by room position y then x.
+        const roomIntruders = state.intruders
+            .filter(i => i.location.type === 'room')
+            .map(intruder => {
+                const room = state.rooms[intruder.location.id];
+                const y = room?.position?.y ?? Infinity;
+                const x = room?.position?.x ?? Infinity;
+                return { intruder, y, x };
+            })
+            .sort((a, b) => a.y - b.y || a.x - b.x);
+
+        for (const { intruder } of roomIntruders) {
+            const room = state.rooms[intruder.location.id];
+            if (room) {
+                const charsInRoom = state.players.filter(p => p.alive && p.location === intruder.location.id);
+                // Intruders stay in combat
+                if (charsInRoom.length === 0) {
+                    // Move to adjacent corridor toward closest character
+                    const targetCorridor = this.findClosestCharacterCorridor(state, room);
+                    if (targetCorridor) {
+                        intruder.location = { type: 'corridor', id: targetCorridor };
+                    }
+                }
+            }
+        }
     }
 
     findClosestCharacterRoom(state, corridor) {
