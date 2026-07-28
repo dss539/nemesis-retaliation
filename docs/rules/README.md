@@ -41,7 +41,7 @@ The wording “must,” “may,” and “cannot” is deliberate:
 
 ## Corpus map
 
-- `00-foundations.md` — scope, terminology, and cross-cutting conventions (FND-001–004).
+- `00-foundations.md` — scope, terminology, Room geometry, and cross-cutting conventions (FND-001–005).
 - `01-round-and-turns.md` — round sequence, phases, turns, pass, actions, cleanup, death, endgame triggers (RT-001–015, 7 examples).
 - `02-character-actions.md` — all player action procedures: move, explore, search, shoot, burst, melee, trade, doors, noise (ACT-*-001, 8 examples).
 - `03-intruders-and-survival.md` — intruder bag, movement, attacks, health, contamination, eclosion, escape, endgame resolution (INT-001–011, 6 examples).
