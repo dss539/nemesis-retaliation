@@ -121,6 +121,9 @@ function showGuestLobby(lobbyData, gameCode) {
     const joinPanel = document.getElementById('join-panel');
     if (joinPanel) joinPanel.classList.add('hidden');
 
+    // Widen the lobby container to match the host layout
+    document.querySelector('.lobby-container')?.classList.add('host-active');
+
     const guestPanel = document.getElementById('guest-lobby-panel');
     if (guestPanel) guestPanel.classList.remove('hidden');
 

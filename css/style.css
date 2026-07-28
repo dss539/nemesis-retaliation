@@ -932,6 +932,189 @@ body {
 }
 .host-start-btn.waiting { opacity: 0.32; filter: grayscale(0.5); }
 
+/* ===== GUEST LOBBY PANEL ===== */
+/* Mirrors the host panel layout but without start button or player-count selector */
+#guest-lobby-panel {
+    position: relative;
+    width: 100%;
+    padding: 24px;
+    overflow: hidden;
+    border: 1px solid rgba(95, 184, 212, 0.16);
+    border-radius: 12px;
+    background: rgba(10, 17, 28, 0.94);
+    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.42);
+}
+
+#guest-lobby-panel::before {
+    content: '';
+    position: absolute;
+    inset: 0 auto auto 0;
+    width: 64px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent), rgba(224, 64, 80, 0));
+}
+
+#guest-lobby-panel .host-panel-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 0 20px;
+    border-bottom: 1px solid var(--border);
+}
+
+#guest-lobby-panel .host-panel-header h2 {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    color: var(--text-primary);
+    font-size: 1rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+#guest-lobby-panel .host-network-status {
+    width: 8px;
+    height: 8px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: var(--green);
+    box-shadow: 0 0 10px rgba(62, 180, 134, 0.55);
+}
+
+#guest-lobby-panel .host-panel-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 210px;
+    gap: 28px;
+    padding: 24px 0;
+}
+
+#guest-lobby-panel .host-invite-section {
+    min-width: 0;
+    padding: 0 28px 0 0;
+    border-right: 1px solid var(--border);
+}
+
+#guest-lobby-panel .code-display {
+    flex: 1;
+    min-width: 0;
+    margin: 0;
+    padding: 14px 12px;
+    border: 1px solid rgba(62, 180, 134, 0.26);
+    border-radius: 6px;
+    background: rgba(2, 7, 12, 0.7);
+    color: #6ce0b4;
+    font: 800 1.75rem/1 'Courier New', monospace;
+    letter-spacing: 0.18em;
+    text-align: center;
+}
+
+#guest-lobby-panel .code-row {
+    display: flex;
+    gap: 8px;
+    margin: 0;
+}
+
+#guest-lobby-panel .host-roster-section { min-width: 0; }
+
+#guest-lobby-panel .roster-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+}
+
+#guest-lobby-panel .roster-header h3 {
+    color: var(--text-primary);
+    font-size: 0.76rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+#guest-lobby-panel #guest-roster-count {
+    margin-left: 5px;
+    color: var(--text-dim);
+    font: inherit;
+}
+
+#guest-lobby-panel #guest-lobby-players { list-style: none; margin: 0; }
+
+#guest-lobby-panel #guest-lobby-players li {
+    min-height: 42px;
+    margin: 0 0 6px;
+    padding: 8px 10px;
+    border: 1px solid var(--border);
+    border-left: 0;
+    border-radius: 5px;
+    background: rgba(20, 29, 46, 0.36);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.78rem;
+    color: var(--text-primary);
+}
+
+#guest-lobby-panel #guest-lobby-players li::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    flex: none;
+    border-radius: 50%;
+    background: var(--green);
+    box-shadow: none;
+}
+
+#guest-lobby-panel #guest-lobby-players li strong,
+#guest-lobby-panel #guest-lobby-players li small { display: block; }
+#guest-lobby-panel #guest-lobby-players li strong {
+    overflow: hidden;
+    color: #dbe5eb;
+    font-size: 0.78rem;
+    font-weight: 600;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+#guest-lobby-panel #guest-lobby-players li small {
+    margin-top: 2px;
+    color: var(--text-dim);
+    font-size: 0.64rem;
+}
+
+#guest-lobby-panel #guest-lobby-players li.empty-slot {
+    justify-content: center;
+    border-style: dashed;
+    background: transparent;
+    color: var(--text-dim);
+    font-size: 0.72rem;
+}
+#guest-lobby-panel #guest-lobby-players li.empty-slot::before {
+    display: none;
+}
+
+.guest-waiting-status {
+    border-top: 1px solid var(--border);
+    padding: 16px 0;
+    text-align: center;
+    color: var(--green);
+    font-size: 0.82rem;
+    font-style: italic;
+    letter-spacing: 0.04em;
+}
+
+/* Mobile responsive for guest lobby */
+@media (max-width: 650px) {
+    #guest-lobby-panel .host-panel-grid {
+        grid-template-columns: 1fr;
+        gap: 22px;
+    }
+    #guest-lobby-panel .host-invite-section {
+        padding: 0 0 22px;
+        border-right: 0;
+        border-bottom: 1px solid var(--border);
+    }
+}
+
 /* Game layout */
 #game-layout {
     display: flex;
