@@ -17,8 +17,8 @@ Source: `docs/qa/full-game-rules-audit.md` (original audit), verified against cu
 | BUG-002 | Cleanup draw-to-five | Fixed | `engine.js:906-915` now loops while `actionHand.length < handSize`. |
 | BUG-003 | Objective choice timing/rewards | Confirmed | `network.js:196-200` directly assigns chosenObjective; no turn-window, once-per-turn, track, or 3/2/2/1 card draw validation. |
 | BUG-004 | 11 of 20 Event cards perform no main effect | Confirmed | `engine.js:663-732` implements 9 of 20. Missing: Scent of Prey, Short Circuit, Fire Outbreak, System Failure, Breeding, Alarm, Malfunction, Heat Wave, Blocked Passage, Emergency Lighting, Tremor. |
-| BUG-005 | Exploration does not always roll Movement Noise | Confirmed | `engine.js:1101-1111` rolls only when `exCard.entrance === 'noiseRoll'`. Rulebook requires noise after every movement. |
-| BUG-006 | Exploration ignores additional corridors on cards | Confirmed | `engine.js:1070-1093` creates only the incoming edge. Card corridor layouts in `data.js:305-316` are never read. |
+| BUG-005 | Exploration does not always roll Movement Noise | Fixed | `engine.js` explorationSequence now always calls `makeNoiseRoll` after placing the room and creating the incoming corridor. The card entrance effect (`noiseRoll`/`closeDoors`) is applied as an additional effect on top of the standard movement noise. |
+| BUG-006 | Exploration ignores additional corridors on cards | Fixed | `engine.js` explorationSequence now reads `exCard.corridors` (N/E/S/W mapped to hex dirs: N→NW+NE, E→E, S→SE+SW, W→W). For each active direction, it creates a corridor if the neighbor slot has a room, or records `exits[dir] = true` for later backfill. Previously-placed rooms with pending exits are connected when the new room fills their target slot. |
 | BUG-007 | Search is generic action, not Search Action card | Confirmed | `engine.js:1396-1427` auto-keeps `drawnItems[0]`; unchosen cards go to discard, not deck bottoms. |
 | BUG-008 | Item decks contain invalid IDs | Fixed | Item decks are now constructed from defined `GAME_DATA.ITEMS` IDs by type. |
 
@@ -37,7 +37,7 @@ Source: `docs/qa/full-game-rules-audit.md` (original audit), verified against cu
 
 | ID | Area | Status | Evidence |
 |----|------|--------|----------|
-| BUG-015 | Exploration log uses synthetic target ID | Confirmed | `engine.js:1023-1039` logs `explore_*` instead of the discovered room name. |
+| BUG-015 | Exploration log uses synthetic target ID | Fixed | `engine.js` now logs the discovered room's display name from `GAME_DATA.ROOMS[id].name` instead of the synthetic `explore_*` id, both in the move log and the discovery log. |
 
 ## Latent / survival / endgame
 
@@ -53,7 +53,7 @@ Source: `docs/qa/full-game-rules-audit.md` (original audit), verified against cu
 
 ## Summary
 
-22 audited bugs: 8 fixed, 2 partial, 12 confirmed.
+22 audited bugs: 11 fixed, 2 partial, 9 confirmed.
 
 Recommended repair order (from QA audit, still valid):
 1. Objective choice timing and 3/2/2/1 rewards (BUG-003)
