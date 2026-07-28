@@ -14,7 +14,7 @@ This report documents a complete mobile-first UI concept for a 100%-faithful dig
 
 Automated QA results are at:
 
-`docs/qa/mobile_concept_qa.py` (36 tests, all passing)
+`docs/qa/mobile_concept_qa.py` (14 scenes × 6 viewport classes plus semantic and interaction checks; latest run: 369 passed, 0 failed, 0 warnings)
 
 Earlier design documents — `mobile-information-classification.md` and `mobile-tactical-map-interaction.md` — established the information architecture and map interaction model. This report synthesizes those into the complete UI concept and adds the remaining surfaces, flows, and citations.
 
@@ -93,7 +93,7 @@ Earlier design documents — `mobile-information-classification.md` and `mobile-
 — W3C WAI, "Understanding Success Criterion 2.5.8: Target Size (Minimum)."
   https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html
 
-**Implication:** Treat 24 CSS px as a compliance floor. Design to 44 pt / 48 dp. All prototype interactive elements meet or exceed 44 px minimum height.
+**Implication:** Treat 24 CSS px as a compliance floor. Design primary controls to at least 44 × 44 CSS px in this browser prototype, while retaining the larger 48 dp Android target as the production-platform goal. The QA matrix measures every visible prototype control in every scene and tested viewport at a minimum of 44 × 44 CSS px.
 
 ### 2.8 Contrast
 
@@ -148,9 +148,9 @@ The concept uses a three-zone vertical layout that adapts by scene:
 
 ### 3.1 Status stack
 
-**Elements:** Menu button → Round number → Phase label + Starting Player → Turn badge (YOUR TURN / SPECTATING / RESOLVING) → Life Support A/B/C pills → Autodestruction countdown → Mission Task one-line summary.
+**Elements:** Log/reference button → Round number → Phase label + Starting Player → Turn badge (YOUR TURN / SPECTATING / RESOLVING) → Life Support A/B/C pills → Autodestruction countdown → Mission Task one-line summary → Objective Choice track position → privacy-safe public roster.
 
-**Reasoning:** Visibility of system status (Nielsen #1) requires the most important global state to be persistent and compact. The player should never wonder "what round is it?" or "whose turn is it?" Life Support and Autodestruction are survival-critical and time-critical; they earn always-visible positions. Mission Task is shared and immutable, so its one-line summary stays visible without occupying map space.
+**Reasoning:** Visibility of system status (Nielsen #1) requires the most important global state to be persistent and compact. The player should never wonder "what round is it?" or "whose turn is it?" Life Support and Autodestruction are survival-critical and time-critical; they earn always-visible positions. Mission Task is shared and immutable, so its one-line summary stays visible without occupying map space. The roster exposes only public Character state and total hand counts—not the Action/Contamination split, Backpack contents, or Objective faces.
 
 **Non-color encoding:** Life Support pills use shape symbols: checkmark (✓) for Active, triangle/exclamation (!) for Damaged, X with hatching pattern for Inactive. Autodestruction uses an hourglass symbol (⌛). Turn badge uses text labels and a double-border clip-path shape.
 
@@ -198,7 +198,7 @@ When a decision requires the player's full attention, the map is replaced by a t
 **Elements (top to bottom):**
 1. **Vitals row:** Character portrait (octagonal clip-path) + player name + Character name + active wound modifiers → Health (number + segment bar) + Oxygen (number + segment bar).
 2. **Action row:** Four buttons — Map, Play card, Basic action, Private. The active button has a double-border outline.
-3. **Hand rail:** Horizontally scrollable private hand cards. Each card shows type (ACTION / REACTION / CONTAMINATION), name, and cost. Contamination cards use hatched fill and double borders to distinguish without color.
+3. **Hand rail:** Horizontally scrollable private hand cards. Each production card shows its exact official face, type, name, and cost. Contamination cards use hatched fill and double borders to distinguish without color. The structural prototype deliberately uses “Official card face” placeholders where verified face transcription is not yet present; it does not invent replacement card names or effects.
 
 **Reasoning:** Recognition over recall means the player's own survival state and available actions are always visible. The hand rail is private — other players see only total card-back count. The dock is hidden in setup, dead, and endgame scenes where it has no function.
 
@@ -235,57 +235,64 @@ When a decision requires the player's full attention, the map is replaced by a t
 **Fidelity notes:** Navigation and targeting are separate. Invalid destinations are omitted (per AGENTS.md: "don't show invalid moves"). Pan/pinch remain available to reach off-screen legal targets.
 **Transition:** Tap legal target → payment scene. Cancel → overview.
 
-### 4.5 Pay action cost
+### 4.5 Card inspection
+
+**Scene:** `hand`
+**Elements:** A large, opaque, flat card face; printed timing/cost/effect region; private-state label; Close and begin-effect controls.
+**Fidelity notes:** Production must reproduce the verified publisher face exactly. Beginning an effect opens only its legal printed choices; closing makes no game change. The prototype uses an explicit structural placeholder rather than inventing missing publisher text.
+**Transition:** Tap a hand card or Play card → hand scene. Close → overview. Begin effect → its rule-defined target/choice state.
+
+### 4.6 Pay action cost
 
 **Scene:** `payment`
 **Elements:** Task surface with payment grid showing all hand cards. Each card has type mark (A/R/C), name, eligibility label. Confirm enabled only when exactly the required number of eligible cards are selected.
 **Fidelity notes:** Contamination cannot pay Action-card costs (RB p. 17). Cards discarded as cost do not resolve their effects (RB p. 13). The player chooses which cards — the engine must not auto-discard.
 **Transition:** Confirm → resolution scene. Cancel → prior scene.
 
-### 4.6 Search choice
+### 4.7 Search choice
 
 **Scene:** `search`
 **Elements:** Task surface with drawn Item cards. Choose one. Unchosen cards return to deck bottoms — never to discards, never broadcast.
 **Fidelity notes:** Search is a Search Action-card effect, not a generic Basic Action (RB p. 28). The current engine incorrectly auto-picks (BUG-007); the concept presents the choice explicitly.
 **Transition:** Confirm → resolution scene. Cancel → overview.
 
-### 4.7 Resolution
+### 4.8 Resolution
 
 **Scene:** `resolution`
 **Elements:** Task surface showing the ordered resolution sequence — dice result, bag token, card drawn, effects applied. Each step visible until acknowledged. "Continue" returns to play.
 **Fidelity notes:** Every random input and consequence remains visible until acknowledged. No silent damage, movement, or marker exhaustion.
 
-### 4.8 Intruder phase
+### 4.9 Intruder phase
 
 **Scene:** `intruder`
 **Elements:** Map with phase agenda overlay (Burning → Attacks) + reaction tray at bottom ("Reaction window: 1 condition currently met" + Inspect Reaction button).
 **Fidelity notes:** Reactions may be played at any point (RB p. 17). A passed player may still react (RT-003). The UI must not skip the reaction window.
 
-### 4.9 Private state
+### 4.10 Private state
 
 **Scene:** `private`
 **Elements:** Privacy banner + tabbed view (Objectives / Hand / Items / Wounds). Objective faces and fulfillment text are owner-only. Objective Choice has an explicit "Begin objective choice" button.
 **Fidelity notes:** Other players receive only total hand size and public Character-board state. Objective faces, Action/Contamination identities, Contamination count, Backpack contents, scan results, and unrevealed components never enter another player's view model.
 
-### 4.10 Log and reference
+### 4.11 Log and reference
 
 **Scene:** `reference`
 **Elements:** Searchable reference + tabbed view (Recent log / Rules / Cards / Settings). Log entries use timestamp + description. Rules entries cite source (Rulebook page numbers).
 **Fidelity notes:** The log explains what happened; reference reproduces official terminology. Neither invents legal options.
 
-### 4.11 Reconnect
+### 4.12 Reconnect
 
 **Scene:** `reconnect`
 **Elements:** Blocking state with connection-lost symbol, explanation ("No automatic Pass, replacement, or rollback"), Retry button, and diagnostic code.
 **Fidelity notes:** Network disconnection is a digital policy, not a publisher rule (no official rulebook/FAQ rule exists). The concept pauses and preserves state without introducing an unofficial gameplay decision.
 
-### 4.12 Death / spectator
+### 4.13 Death / spectator
 
 **Scene:** `dead`
 **Elements:** Map with "CHARACTER DEAD" + "SPECTATOR VIEW" phase agenda. No command dock. Public state and log remain available.
 **Fidelity notes:** A dead Character "no longer takes part" (RB p. 18). The spectator sees public information only.
 
-### 4.13 End of game
+### 4.14 End of game
 
 **Scene:** `end`
 **Elements:** Blocking state with "14" or explosion symbol + ordered procedure list:
@@ -351,7 +358,7 @@ The following are documented in `docs/rules/open-questions.md` and are not resol
 - FAQ "Open Corridor" undefined term
 - Concurrent Reaction timing priority
 
-The concept never chooses an interpretation for these. Where a prototype state touches one, it presents the decision to the player with a "resolve per group adjudication" label.
+The concept never chooses an interpretation for these. A future implementation state that touches one must stop at the unresolved boundary and surface the recorded source conflict; this prototype does not fabricate a group ruling.
 
 ---
 
@@ -374,7 +381,7 @@ No separate desktop information architecture is invented. The mobile hierarchy i
 
 The user's core requirement: "if this were viewed on a black and white screen, is it still understandable?"
 
-**Prototype grayscale toggle:** The prototype includes a CSS `.grayscale` class that applies `filter: grayscale(1)` to the entire concept app. The QA harness verifies that critical state (Round number, Life Support pills, turn badge) remains legible in grayscale.
+**Prototype grayscale toggle:** The prototype includes a CSS `.grayscale` class that applies `filter: grayscale(1)` to the entire concept app. The QA harness verifies that Life Support status, current-Room status, and legal-target status retain words/symbols/patterns; it also checks the captured image pixel-by-pixel and found a maximum RGB channel spread of 0.
 
 **Verified non-color encodings in the prototype:**
 
@@ -405,40 +412,72 @@ The user's core requirement: "if this were viewed on a black and white screen, i
 
 ## 9. QA results
 
-**Harness:** `docs/qa/mobile_concept_qa.py` — Playwright-based, 36 automated tests.
+**Harness:** `docs/qa/mobile_concept_qa.py` — Playwright browser QA.
 
-**Result: 36 passed, 0 failed, 0 warnings.**
+**Latest verified command:** `python3 docs/qa/mobile_concept_qa.py`
 
-### Test coverage
+**Result: 369 passed, 0 failed, 0 warnings across 84 scene/viewport combinations.**
 
-| Test | What it verifies | Result |
+### Viewport matrix
+
+Every one of the 14 scenes was exercised at all six sizes:
+
+- 320 × 568 tiny portrait
+- 360 × 800 compact portrait
+- 390 × 844 standard portrait
+- 412 × 915 large portrait
+- 844 × 390 phone landscape
+- 1180 × 600 large touch landscape / compact desktop adaptation
+
+For every combination, the harness verifies scene construction, absence of page-level horizontal overflow, main-stage fit to the device content box, a usable main-stage height, visible controls of at least 44 × 44 CSS px, and absence of JavaScript errors.
+
+### Interaction and semantic coverage
+
+| Check | What it verifies | Result |
 |---|---|---|
-| Scene render (×13) | All 13 scenes load and set data-scene correctly | PASS |
-| JS errors | No JavaScript errors during scene loading | PASS |
-| Horizontal overflow (×6) | No overflow at 375, 390, 393, 360, 320, 844×390 | PASS |
-| Touch targets | All visible interactive elements ≥ 36 px min dimension | PASS |
-| Grayscale toggle | Toggle activates; critical state remains visible | PASS |
-| Hash navigation | URL hash loads correct scene | PASS |
-| Payment flow | Selecting 2 cards enables confirm button | PASS |
-| Search flow | Selecting an Item enables confirm button | PASS |
-| Live region | aria-live region announces scene changes | PASS |
-| Text/shape redundancy | All critical-state elements have text content | PASS |
-| Keyboard focus | Tab moves focus to a visible button | PASS |
-| Panel hidden on mobile | Prototype control panel is display:none at mobile width | PASS |
-| Intruder scene | Phase agenda and reaction tray present | PASS |
-| Private scene | Privacy banner with "PRIVATE" text present | PASS |
-| Setup scene | Command dock hidden during setup | PASS |
-| End scene | Ordered procedure list with ≥ 3 steps | PASS |
-| Map pan | Pointer drag changes facility transform | PASS |
-| Reduced motion | `@media (prefers-reduced-motion: reduce)` rule present | PASS |
+| Non-color state contract | Life Support words/symbols; Fire hatch; Malfunction crosshatch; Secure double border; Noise dashed border; Current/MOVE labels; numeric segmented vitals; labeled, double-border Contamination | PASS |
+| Public roster privacy | Total hand count is present; private composition, Backpack, and Objective terms are absent | PASS |
+| Room focus | Tapping Armory focuses Armory while the Officer remains in Life Support Control B | PASS |
+| Legal targeting | Exactly the two fixture-legal connected Rooms are interactive; all invalid Rooms are out of focus order and have no action data | PASS |
+| Card inspection | A hand card opens the private card-inspection state instead of acting as a dead control | PASS |
+| Payment | Confirm begins disabled, enables at exactly two selected eligible Action cards, and excludes Contamination | PASS |
+| Search | Confirm begins disabled and enables only after the player chooses an Item | PASS |
+| Navigation gestures | Drag pans without tactical selection; a true two-point Chromium touch gesture changes free map scale | PASS |
+| Keyboard | Tab reaches a named control with a visible focus outline | PASS |
+| Status feedback | Scene change is announced through `aria-live` without moving focus | PASS |
+| Grayscale audit mode | Grayscale filter is active while MOVE, CURRENT, Damaged, patterns, and labels remain present | PASS |
+| Grayscale capture pixels | Every pixel in the targeting capture is neutral grayscale (maximum RGB channel spread 0) | PASS |
+| Reduced motion | Emulated `prefers-reduced-motion: reduce` suppresses the map transition | PASS |
+| Captures | Five representative screenshots are written to `docs/qa/mobile-concept-captures/` | PASS |
+
+### Defects found and fixed during this pass
+
+1. A JavaScript nullish-coalescing expression initially prevented every scene from rendering. Fixed and syntax-checked.
+2. The prototype-only scenario panel intruded at 844 × 390. The compact-shell breakpoint now includes phone landscape.
+3. At 320–412 px widths, intrinsic grid sizing made the stage 379–550 px wide and silently clipped it inside the device. Explicit zero-minimum grid widths now make stage width equal the device content width.
+4. Pointer capture on Room press swallowed Room taps. Capture is now deferred for Room-originating gestures until movement begins, preserving tap-to-focus and drag-to-pan.
+5. The first hand controls were dead and used unverified sample card names. They now open a real inspection state and use explicit official-face placeholders until verified publisher transcription exists.
+6. The public zero-tap roster was missing. It now displays only permitted public state and total hand counts, with turn/passed status encoded by text and border/text treatment.
 
 ### QA limitations (recorded as blockers)
 
-- **No real-device testing:** Playwright simulates touch but does not replicate real finger physics. Semantic-zoom thresholds (72 px, 150 px) remain prototype hypotheses requiring real-device validation.
-- **No screen-reader testing:** The harness checks for aria-live and focusability but does not run VoiceOver/TalkBack. A dedicated assistive-technology audit is needed.
-- **No multi-player privacy test:** The prototype is single-viewer. The production privacy boundary (per-viewer state sanitization) requires a multi-client test harness.
-- **No rules-engine integration:** The prototype demonstrates UI states with deterministic fixtures, not live engine output. Rules-fidelity testing against the engine is a separate workstream.
-- **State matrix coverage:** The subagent-recommended 32-scenario state matrix (S01–S32) is documented but not all are individually tested in the automated harness. The current 36 tests cover the highest-risk scenarios.
+- **No real-device testing:** Playwright exercises Chromium touch input but does not reproduce finger occlusion, OS edge gestures, browser toolbar changes, or hardware safe areas. The proposed 72 px / 150 px semantic-zoom thresholds remain hypotheses until real-device testing.
+- **No VoiceOver/TalkBack certification:** The harness checks names, focus, and live regions but does not run a mobile screen reader.
+- **No visual-understanding proof:** The grayscale capture and structural assertions verify redundant channels, but human review on a true monochrome display is still required for crowded states.
+- **No multi-client privacy proof:** The prototype is single-viewer. Production requires sanitized per-viewer network fixtures and adversarial multi-browser tests.
+- **No rules-engine integration:** The prototype demonstrates UI state transitions with deterministic fixtures; it does not prove the current engine resolves publisher rules correctly.
+- **Representative, not exhaustive game-state fixtures:** The 14 scenes cover the complete UI architecture and highest-risk interactions, not every possible card, Room, Intruder, wound, Event, simultaneous Reaction, or crowded-Room permutation.
+
+### Existing runtime/harness checks observed during final verification
+
+These results are reported separately because the concept changes do not modify `index.html`, `css/`, or `js/` runtime game files:
+
+- `MOBILE_QA_SCREENSHOTS=0 python3 docs/qa/mobile_layout_qa.py`: **PASS** — current-game mobile pinch, pan, overflow scrolling, desktop wheel zoom, and drag pan.
+- `node docs/qa/hex_direction_regression.js`: **FAIL / existing investigation needed** — the script expects rendered bounds inside 1200 × 900, while current geometry reports `(182, 10.0036)` through `(1318, 1039.9964)`.
+- `node docs/qa/nest_event_regression.js`: **FAIL / existing fixture or engine investigation needed** — the expected valid discovery Move returns unsuccessful at the script's line 47.
+- `python3 docs/qa/art_asset_qa.py`: **BLOCKED by current lobby contract** — the harness requests five players but creates only the host; Start Game remains disabled, so its art assertions never run.
+
+No passing claim in this report includes those three unresolved checks.
 
 ---
 
@@ -451,6 +490,7 @@ The user's core requirement: "if this were viewed on a black and white screen, i
 5. **Card data transcription:** Full Rest-card, Room Help-sheet, Robot-card, Intruder Help Sheet, and all card-specific text must be transcribed from official PDFs before the UI can display real card content.
 6. **Open questions (OQ-001 through OQ-009):** These remain unresolved and must not be silently interpreted.
 7. **Concurrent Reaction timing:** No priority protocol exists for simultaneous remote reactions. The UI should queue and present them, not resolve by network arrival order.
+8. **Existing regression/harness failures:** Reconcile the hex geometry expectation, hidden-Nest fixture, and five-player art-harness setup described in the QA section before treating the whole repository as green.
 
 ---
 
@@ -458,8 +498,9 @@ The user's core requirement: "if this were viewed on a black and white screen, i
 
 | File | Purpose |
 |---|---|
-| `docs/design/prototypes/mobile-first-ui-concept.html` | Interactive prototype (13 scenes, grayscale toggle, pan/pinch/zoom) |
-| `docs/qa/mobile_concept_qa.py` | Playwright QA harness (36 tests) |
+| `docs/design/prototypes/mobile-first-ui-concept.html` | Interactive prototype (14 scenes, grayscale toggle, pan/pinch/zoom) |
+| `docs/qa/mobile_concept_qa.py` | Playwright QA harness (84 scene/viewport combinations plus semantic and interaction checks) |
+| `docs/qa/mobile-concept-captures/` | Five representative browser captures, including a grayscale targeting view |
 | `docs/design/mobile-first-ui-report.md` | This report |
 | `docs/design/mobile-information-classification.md` | Information inventory and Always/Sometimes classification |
 | `docs/design/mobile-tactical-map-interaction.md` | Semantic zoom, Room focus, targeting separation specification |
@@ -467,6 +508,8 @@ The user's core requirement: "if this were viewed on a black and white screen, i
 ---
 
 ## 12. Bibliography
+
+Web sources were checked on 2026-07-28. Local rule citations use the repository's official Awaken Realms PDFs and extracted text.
 
 1. Norman, D. A. (2013). *The Design of Everyday Things: Revised and Expanded Edition*. Basic Books. ISBN 978-0-465-05065-9.
    https://jnd.org/books/the-design-of-everyday-things-revised-and-expanded-edition

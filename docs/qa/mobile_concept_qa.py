@@ -1,302 +1,364 @@
 #!/usr/bin/env python3
-"""
-QA harness for the mobile-first UI concept prototype.
+"""Browser QA for the mobile-first concept prototype.
 
-Tests:
-  1. All 13 scenes render without JS errors
-  2. No horizontal overflow at 360x800, 390x844, 412x915, 320x568
-  3. Touch targets >= 44px for primary interactive elements
-  4. Grayscale toggle works and does not hide critical state
-  5. Scene navigation via hash works
-  6. Payment flow: select 2 cards -> confirm enabled
-  7. Search flow: select item -> confirm enabled
-  8. aria-live region announces scene changes
-  9. No color-only state: check that critical markers have text/shapes
- 10. Keyboard focus visible on buttons
- 11. Landscape 844x390 no overflow
- 12. Private scene: no Objective text visible to non-owner (simulate)
- 13. Prototype panel hidden on mobile width
+The harness exercises every scene at six touch viewport classes, then checks the
+highest-risk interactions and the non-color information contract. It does not
+claim rules-engine, real-device, or assistive-technology certification.
 """
-import asyncio, json, os, sys
+
+import asyncio
+import json
+import os
+import sys
+from pathlib import Path
+from typing import cast
+
 from playwright.async_api import async_playwright
+from PIL import Image, ImageChops
 
-PROTO = "file://" + os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "design", "prototypes", "mobile-first-ui-concept.html"))
+ROOT = Path(__file__).resolve().parents[2]
+PROTO_PATH = ROOT / "docs" / "design" / "prototypes" / "mobile-first-ui-concept.html"
+PROTO = PROTO_PATH.as_uri()
+CAPTURE_DIR = ROOT / "docs" / "qa" / "mobile-concept-captures"
+CAPTURE = os.environ.get("MOBILE_CONCEPT_SCREENSHOTS", "1") != "0"
 
 VIEWPORTS = [
-    {"name": "iPhone SE", "width": 375, "height": 667},
-    {"name": "iPhone 12 Pro", "width": 390, "height": 844},
-    {"name": "Pixel 5", "width": 393, "height": 851},
-    {"name": "Galaxy S20", "width": 360, "height": 800},
-    {"name": "iPhone 5 SE (tiny)", "width": 320, "height": 568},
-    {"name": "landscape", "width": 844, "height": 390},
+    {"name": "tiny-portrait", "width": 320, "height": 568},
+    {"name": "compact-portrait", "width": 360, "height": 800},
+    {"name": "standard-portrait", "width": 390, "height": 844},
+    {"name": "large-portrait", "width": 412, "height": 915},
+    {"name": "phone-landscape", "width": 844, "height": 390},
+    {"name": "large-touch-landscape", "width": 1180, "height": 600},
 ]
 
 SCENES = [
-    "setup", "overview", "room", "targeting",
-    "payment", "search", "resolution", "intruder",
-    "private", "reference", "reconnect", "dead", "end"
+    "setup", "overview", "room", "targeting", "hand", "payment", "search",
+    "resolution", "intruder", "private", "reference", "reconnect", "dead", "end",
 ]
 
-results = {"passed": [], "failed": [], "warnings": []}
+results = {"passed": [], "failed": [], "warnings": [], "matrix_cases": 0}
 
-def record(test_name, passed, detail=""):
-    if passed:
-        results["passed"].append(f"{test_name}: PASS — {detail}")
-    else:
-        results["failed"].append(f"{test_name}: FAIL — {detail}")
 
-def warn(test_name, detail):
-    results["warnings"].append(f"{test_name}: WARN — {detail}")
+def record(name, passed, detail=""):
+    entry = f"{name}: {'PASS' if passed else 'FAIL'}"
+    if detail:
+        entry += f" — {detail}"
+    results["passed" if passed else "failed"].append(entry)
+
+
+def warning(name, detail):
+    results["warnings"].append(f"{name}: WARN — {detail}")
+
+
+async def matrix_checks(browser):
+    """Render each scene in every viewport and catch layout regressions."""
+    for vp in VIEWPORTS:
+        context = await browser.new_context(
+            viewport={"width": vp["width"], "height": vp["height"]},
+            device_scale_factor=1,
+            is_mobile=vp["width"] <= 844,
+            has_touch=True,
+        )
+        page = await context.new_page()
+        errors = []
+        page.on("pageerror", lambda exc, bucket=errors: bucket.append(str(exc)))
+        page.on(
+            "console",
+            lambda msg, bucket=errors: bucket.append(f"console.{msg.type}: {msg.text}")
+            if msg.type == "error" else None,
+        )
+
+        for scene in SCENES:
+            results["matrix_cases"] += 1
+            await page.goto(f"{PROTO}#{scene}", wait_until="domcontentloaded")
+            await page.wait_for_timeout(60)
+            metrics = await page.evaluate("""() => {
+                const app = document.getElementById('concept-app');
+                const stage = document.getElementById('main-stage');
+                const doc = document.documentElement;
+                const body = document.body;
+                const stageStyle = getComputedStyle(stage);
+                const device = document.querySelector('.device');
+                const actions = [...document.querySelectorAll('button,input,[role="tab"]')]
+                  .filter(el => {
+                    const r = el.getBoundingClientRect();
+                    const s = getComputedStyle(el);
+                    return r.width > 0 && r.height > 0 && s.visibility !== 'hidden' && s.display !== 'none';
+                  })
+                  .map(el => {
+                    const r = el.getBoundingClientRect();
+                    return {
+                      label: el.getAttribute('aria-label') || el.textContent.trim().slice(0,40) || el.tagName,
+                      width: Math.round(r.width * 10) / 10,
+                      height: Math.round(r.height * 10) / 10
+                    };
+                  });
+                return {
+                  scene: app?.dataset.scene,
+                  docScrollW: doc.scrollWidth,
+                  bodyScrollW: body.scrollWidth,
+                  clientW: doc.clientWidth,
+                  stageWidth: stage?.getBoundingClientRect().width || 0,
+                  stageHeight: stage?.getBoundingClientRect().height || 0,
+                  deviceWidth: device?.clientWidth || 0,
+                  stageScrollHeight: stage?.scrollHeight || 0,
+                  stageClientHeight: stage?.clientHeight || 0,
+                  stageOverflowY: stageStyle.overflowY,
+                  actions
+                };
+            }""")
+
+            prefix = f"{vp['name']} {vp['width']}x{vp['height']} [{scene}]"
+            record(f"Matrix render {prefix}", metrics["scene"] == scene, f"scene={metrics['scene']}")
+            record(
+                f"No page overflow {prefix}",
+                max(metrics["docScrollW"], metrics["bodyScrollW"]) <= metrics["clientW"] + 1,
+                f"scroll={max(metrics['docScrollW'], metrics['bodyScrollW'])}, client={metrics['clientW']}",
+            )
+            record(
+                f"Usable main stage {prefix}",
+                abs(metrics["stageWidth"] - metrics["deviceWidth"]) <= 1 and metrics["stageHeight"] >= 90,
+                f"stage={metrics['stageWidth']:.0f}x{metrics['stageHeight']:.0f}; device={metrics['deviceWidth']:.0f}",
+            )
+            too_small = [
+                a for a in metrics["actions"]
+                if a["width"] < 44 or a["height"] < 44
+            ]
+            record(
+                f"44px primary targets {prefix}",
+                not too_small,
+                "all visible controls >=44x44" if not too_small else f"undersized={too_small[:4]}",
+            )
+
+        record(
+            f"No browser errors [{vp['name']}]",
+            not errors,
+            "none" if not errors else str(errors[:4]),
+        )
+        await context.close()
+
+
+async def semantic_and_interaction_checks(browser):
+    context = await browser.new_context(viewport={"width": 390, "height": 844}, has_touch=True)
+    page = await context.new_page()
+    errors = []
+    page.on("pageerror", lambda exc: errors.append(str(exc)))
+
+    await page.goto(f"{PROTO}#overview", wait_until="domcontentloaded")
+    await page.wait_for_timeout(100)
+
+    # Non-color contract: each status must carry a visible word/symbol and a
+    # distinguishable pattern, border, or shape in addition to decorative hue.
+    non_color = await page.evaluate("""() => {
+      const style = sel => getComputedStyle(document.querySelector(sel));
+      const text = sel => document.querySelector(sel)?.textContent.trim() || '';
+      return {
+        systemWords: [...document.querySelectorAll('.system-pill')].map(x => x.textContent.trim()),
+        fire: {text:text('.marker.fire'), image:style('.marker.fire').backgroundImage},
+        malfunction: {text:text('.marker.malfunction'), image:style('.marker.malfunction').backgroundImage},
+        secure: {text:text('.marker.secure'), border:style('.marker.secure').borderTopStyle},
+        noise: {text:text('.marker.noise'), border:style('.marker.noise').borderTopStyle},
+        currentText: getComputedStyle(document.querySelector('.room-shell.current .room'),'::before').content,
+        health: text('.vitals'),
+        contamination: text('.hand-card.contamination'),
+        contaminationBorder: style('.hand-card.contamination').borderTopStyle,
+        roster: text('.roster-line')
+      };
+    }""")
+    record(
+        "Life Support has text and symbol redundancy",
+        all(any(word in item for word in ("Active", "Damaged", "Inactive")) for item in non_color["systemWords"][:3])
+        and all(any(mark in item for mark in ("✓", "!", "×")) for item in non_color["systemWords"][:3]),
+        str(non_color["systemWords"][:3]),
+    )
+    record("Fire has symbol and hatch", bool(non_color["fire"]["text"]) and "gradient" in non_color["fire"]["image"], str(non_color["fire"]))
+    record("Malfunction has symbol and crosshatch", bool(non_color["malfunction"]["text"]) and non_color["malfunction"]["image"].count("gradient") >= 2, str(non_color["malfunction"]))
+    record("Secure has symbol and double border", bool(non_color["secure"]["text"]) and non_color["secure"]["border"] == "double", str(non_color["secure"]))
+    record("Noise has symbol and dashed border", bool(non_color["noise"]["text"]) and non_color["noise"]["border"] == "dashed", str(non_color["noise"]))
+    record("Current Room has explicit label", "CURRENT" in non_color["currentText"], non_color["currentText"])
+    record("Vitals use numbers and segments", "HP" in non_color["health"] and "O₂" in non_color["health"], non_color["health"])
+    record("Contamination has text and double border", "CONTAMINATION" in non_color["contamination"] and non_color["contaminationBorder"] == "double", non_color["contaminationBorder"])
+
+    # Public roster may expose total card count, but not private composition or Backpack/Objectives.
+    forbidden_public = [term for term in ("Contamination", "Backpack", "Objective", "Action card") if term.lower() in non_color["roster"].lower()]
+    record("Public roster is privacy-safe", not forbidden_public and "cards" in non_color["roster"], f"forbidden={forbidden_public}; roster={non_color['roster']}")
+
+    # Room focus: choosing Armory must focus Armory without moving the Character.
+    await page.locator('[data-room="armory"]').click()
+    await page.wait_for_timeout(80)
+    focus_state = await page.evaluate("""() => ({
+      scene: document.getElementById('concept-app').dataset.scene,
+      armoryFocused: document.querySelector('.r-armory')?.classList.contains('focused'),
+      lifeCurrent: document.querySelector('.r-life')?.classList.contains('current'),
+      context: document.querySelector('.context-copy strong')?.textContent.trim(),
+      armoryLabel: document.querySelector('.r-armory .room')?.getAttribute('aria-label')
+    })""")
+    record(
+        "One-tap Room focus preserves Character position",
+        focus_state == {
+            "scene": "room", "armoryFocused": True, "lifeCurrent": True,
+            "context": "Armory", "armoryLabel": "Focused. Armory. Unassigned Room. ♨",
+        },
+        str(focus_state),
+    )
+
+    # Legal targeting: only two connected destinations are actionable.
+    await page.goto(f"{PROTO}#targeting", wait_until="domcontentloaded")
+    targeting = await page.evaluate("""() => ({
+      targets: [...document.querySelectorAll('.room-shell.target')].map(x => x.querySelector('.room').dataset.room),
+      targetLabels: [...document.querySelectorAll('.room-shell.target .room')].map(x => x.getAttribute('aria-label')),
+      invalidInteractive: [...document.querySelectorAll('.room-shell.invalid .room')].filter(x => x.hasAttribute('data-room') || x.tabIndex >= 0).length,
+      moveText: [...document.querySelectorAll('.room-shell.target .room')].map(x => getComputedStyle(x,'::after').content)
+    })""")
+    record(
+        "Targeting exposes only legal destinations",
+        set(targeting["targets"]) == {"armory", "storage"} and targeting["invalidInteractive"] == 0,
+        str(targeting),
+    )
+    record(
+        "Legal targets remain explicit without color",
+        all("Legal Move destination" in x for x in targeting["targetLabels"]) and all("MOVE" in x for x in targeting["moveText"]),
+        str(targeting["moveText"]),
+    )
+
+    # Hand card controls lead to a real inspection state instead of a dead control.
+    await page.goto(f"{PROTO}#overview", wait_until="domcontentloaded")
+    await page.locator('.hand-card').first.click()
+    scene = await page.locator('#concept-app').get_attribute('data-scene')
+    record("Hand card opens inspection", scene == "hand", f"scene={scene}")
+
+    # Payment preserves exact choice and does not accept Contamination.
+    await page.goto(f"{PROTO}#payment", wait_until="domcontentloaded")
+    confirm = page.locator('[data-pay-confirm]')
+    record("Payment starts uncommitted", await confirm.is_disabled(), "confirm disabled")
+    pay_cards = page.locator('[data-pay-card]')
+    await pay_cards.nth(0).click()
+    await pay_cards.nth(1).click()
+    record("Exactly two eligible Action cards enable payment", not await confirm.is_disabled(), "confirm enabled")
+    contamination = page.locator('.payment-card.contam')
+    record("Contamination is excluded from Action-card payment", await contamination.get_attribute('aria-disabled') == 'true' and await contamination.get_attribute('tabindex') == '-1', "aria-disabled=true")
+
+    # Search requires an explicit choice.
+    await page.goto(f"{PROTO}#search", wait_until="domcontentloaded")
+    search_confirm = page.locator('[data-search-confirm]')
+    record("Search starts uncommitted", await search_confirm.is_disabled(), "confirm disabled")
+    await page.locator('[data-choice]').first.click()
+    record("Search choice enables explicit gain", not await search_confirm.is_disabled(), "confirm enabled")
+
+    # Pan and pinch are navigation and must update the map without selecting a Room.
+    await page.goto(f"{PROTO}#overview", wait_until="domcontentloaded")
+    viewport = page.locator('#map-viewport')
+    box = await viewport.bounding_box()
+    before_scene = await page.locator('#concept-app').get_attribute('data-scene')
+    await page.mouse.move(box["x"] + 170, box["y"] + 150)
+    await page.mouse.down()
+    await page.mouse.move(box["x"] + 215, box["y"] + 176, steps=5)
+    await page.mouse.up()
+    pan = await page.evaluate("() => getComputedStyle(document.getElementById('facility')).getPropertyValue('--map-x').trim()")
+    after_scene = await page.locator('#concept-app').get_attribute('data-scene')
+    record("Map drag pans without tactical selection", pan not in ("", "0px") and before_scene == after_scene == "overview", f"x={pan}, scene={after_scene}")
+
+    cdp = await context.new_cdp_session(page)
+    center_x, center_y = box["x"] + box["width"] / 2, box["y"] + box["height"] / 2
+    def touch_points(distance):
+        return [
+            {"x": center_x - distance / 2, "y": center_y, "radiusX": 4, "radiusY": 4, "id": 0},
+            {"x": center_x + distance / 2, "y": center_y, "radiusX": 4, "radiusY": 4, "id": 1},
+        ]
+    await cdp.send("Input.dispatchTouchEvent", {"type": "touchStart", "touchPoints": touch_points(80)})
+    for distance in (100, 125, 150):
+        await cdp.send("Input.dispatchTouchEvent", {"type": "touchMove", "touchPoints": touch_points(distance)})
+        await page.wait_for_timeout(25)
+    await cdp.send("Input.dispatchTouchEvent", {"type": "touchEnd", "touchPoints": []})
+    scale = await page.evaluate("() => getComputedStyle(document.getElementById('facility')).getPropertyValue('--map-scale').trim()")
+    record("Two-point pinch changes free map scale", scale not in ("", ".49", "0.49", ".5", "0.5"), f"scale={scale}")
+
+    # Keyboard and live status feedback.
+    await page.goto(f"{PROTO}#overview", wait_until="domcontentloaded")
+    await page.keyboard.press("Tab")
+    focus = await page.evaluate("""() => {
+      const el=document.activeElement, s=getComputedStyle(el); return {tag:el.tagName,label:el.getAttribute('aria-label')||el.textContent.trim(),outline:s.outlineStyle};
+    }""")
+    record("Keyboard focus is visible and named", focus["tag"] in ("BUTTON", "INPUT") and bool(focus["label"]) and focus["outline"] != "none", str(focus))
+    await page.goto(f"{PROTO}#overview", wait_until="domcontentloaded")
+    await page.evaluate("() => render('payment')")
+    live = await page.locator('#live-region').inner_text()
+    record("Scene changes announce without focus theft", "Pay action cost" in live, live)
+
+    # Grayscale itself is a developer audit mode; test content remains present.
+    await page.goto(f"{PROTO}#targeting", wait_until="domcontentloaded")
+    await page.evaluate("() => document.getElementById('prototype-page').classList.add('grayscale')")
+    gray = await page.evaluate("""() => ({
+      filter:getComputedStyle(document.getElementById('concept-app')).filter,
+      target:getComputedStyle(document.querySelector('.room-shell.target .room'),'::after').content,
+      damaged:document.querySelector('.system-pill.damaged').textContent.trim(),
+      current:getComputedStyle(document.querySelector('.room-shell.current .room'),'::before').content
+    })""")
+    record("Grayscale mode retains labels and patterns", gray["filter"] != "none" and "MOVE" in gray["target"] and "Damaged" in gray["damaged"] and "CURRENT" in gray["current"], str(gray))
+
+    record("No semantic-test browser errors", not errors, "none" if not errors else str(errors[:4]))
+    await context.close()
+
+    # Reduced-motion behavior in a dedicated emulated context.
+    reduced = await browser.new_context(viewport={"width": 390, "height": 844}, reduced_motion="reduce")
+    reduced_page = await reduced.new_page()
+    await reduced_page.goto(f"{PROTO}#overview", wait_until="domcontentloaded")
+    duration = await reduced_page.evaluate("() => getComputedStyle(document.getElementById('facility')).transitionDuration")
+    record("Reduced-motion preference suppresses map transition", duration in ("0s", "1e-06s", "0.001ms"), f"duration={duration}")
+    await reduced.close()
+
+
+async def capture_screens(browser):
+    if not CAPTURE:
+        return
+    CAPTURE_DIR.mkdir(parents=True, exist_ok=True)
+    shots = [
+        ("overview-390x844.png", 390, 844, "overview", False),
+        ("targeting-grayscale-390x844.png", 390, 844, "targeting", True),
+        ("payment-320x568.png", 320, 568, "payment", False),
+        ("room-landscape-844x390.png", 844, 390, "room", False),
+        ("prototype-desktop-1280x900.png", 1280, 900, "overview", False),
+    ]
+    for filename, width, height, scene, grayscale in shots:
+        context = await browser.new_context(viewport={"width": width, "height": height})
+        page = await context.new_page()
+        await page.goto(f"{PROTO}#{scene}", wait_until="domcontentloaded")
+        if grayscale:
+            await page.evaluate("() => document.getElementById('prototype-page').classList.add('grayscale')")
+        await page.screenshot(path=str(CAPTURE_DIR / filename), full_page=True)
+        await context.close()
+    record("Representative screenshots captured", True, f"{len(shots)} files in {CAPTURE_DIR.relative_to(ROOT)}")
+    grayscale_path = CAPTURE_DIR / "targeting-grayscale-390x844.png"
+    with Image.open(grayscale_path).convert("RGB") as image:
+        red, green, blue = image.split()
+        max_channel_spread = max(
+            cast(tuple[int, int], ImageChops.difference(red, green).getextrema())[1],
+            cast(tuple[int, int], ImageChops.difference(green, blue).getextrema())[1],
+            cast(tuple[int, int], ImageChops.difference(red, blue).getextrema())[1],
+        )
+    record(
+        "Grayscale capture contains neutral RGB pixels only",
+        max_channel_spread <= 1,
+        f"maximum channel spread={max_channel_spread}",
+    )
 
 
 async def run():
+    if not PROTO_PATH.exists():
+        raise SystemExit(f"prototype missing: {PROTO_PATH}")
     async with async_playwright() as p:
         browser = await p.chromium.launch(headless=True)
-
-        # === Test 1: Scene rendering + JS errors ===
-        page = await browser.new_page(viewport=VIEWPORTS[1])
-        errors = []
-        page.on("pageerror", lambda e: errors.append(str(e)))
-        page.on("console", lambda m: errors.append(f"console.{m.type}: {m.text}") if m.type == "error" else None)
-
-        for scene in SCENES:
-            await page.goto(f"{PROTO}#{scene}", wait_until="domcontentloaded")
-            await page.wait_for_timeout(200)
-            app = await page.query_selector("#concept-app")
-            dataset_scene = await app.get_attribute("data-scene") if app else None
-            record(f"Scene render [{scene}]", dataset_scene == scene, f"data-scene={dataset_scene}")
-
-        record("No JS errors during scene load", len(errors) == 0, f"{len(errors)} errors: {errors[:3]}")
-        await page.close()
-
-        # === Test 2: No horizontal overflow per viewport ===
-        for vp in VIEWPORTS:
-            pg = await browser.new_page(viewport=vp)
-            await pg.goto(f"{PROTO}#overview", wait_until="domcontentloaded")
-            await pg.wait_for_timeout(300)
-            overflow = await pg.evaluate("""() => {
-                const doc = document.documentElement;
-                return {scrollW: doc.scrollWidth, clientW: doc.clientWidth, scrollH: doc.scrollHeight, clientH: doc.clientHeight};
-            }""")
-            has_h_overflow = overflow["scrollW"] > overflow["clientW"] + 1
-            record(f"No horizontal overflow [{vp['name']} {vp['width']}x{vp['height']}]", not has_h_overflow,
-                  f"scrollW={overflow['scrollW']} clientW={overflow['clientW']}")
-            await pg.close()
-
-        # === Test 3: Touch target sizes >= 44px ===
-        pg = await browser.new_page(viewport=VIEWPORTS[1])
-        await pg.goto(f"{PROTO}#overview", wait_until="domcontentloaded")
-        await pg.wait_for_timeout(300)
-        # Check dock buttons and hand cards
-        targets = await pg.evaluate("""() => {
-            const els = document.querySelectorAll('.dock-button, .hand-card, .icon-button, .zoom-button, .primary-button, .secondary-button, .payment-card, .choice-card');
-            return Array.from(els).filter(el => {
-                const r = el.getBoundingClientRect();
-                return r.width > 0 && r.height > 0;
-            }).map(el => {
-                const r = el.getBoundingClientRect();
-                return {tag: el.className.split(' ')[0], w: Math.round(r.width), h: Math.round(r.height), min: Math.round(Math.min(r.width, r.height))};
-            });
-        }""")
-        all_small = [t for t in targets if t["min"] < 36]
-        record("Touch targets >= 36px", len(all_small) == 0,
-               f"{len(all_small)} targets below 36px: {all_small[:3]}")
-        await pg.close()
-
-        # === Test 4: Grayscale toggle ===
-        pg = await browser.new_page(viewport={"width": 1280, "height": 900})
-        await pg.goto(f"{PROTO}#overview", wait_until="domcontentloaded")
-        await pg.wait_for_timeout(200)
-        await pg.click("#grayscale-toggle")
-        await pg.wait_for_timeout(100)
-        is_grayscale = await pg.evaluate("() => document.getElementById('prototype-page').classList.contains('grayscale')")
-        record("Grayscale toggle activates", is_grayscale, "class added")
-        # Check critical state still visible in grayscale
-        round_num = await pg.query_selector(".round-number")
-        round_text = await round_num.inner_text() if round_num else ""
-        record("Critical state visible in grayscale", round_text.strip() != "", f"round={round_text}")
-        await pg.close()
-
-        # === Test 5: Hash navigation ===
-        pg = await browser.new_page(viewport=VIEWPORTS[1])
-        await pg.goto(f"{PROTO}#payment", wait_until="domcontentloaded")
-        await pg.wait_for_timeout(200)
-        scene = await pg.evaluate("() => document.getElementById('concept-app').dataset.scene")
-        record("Hash navigation [payment]", scene == "payment", f"scene={scene}")
-        await pg.close()
-
-        # === Test 6: Payment flow ===
-        pg = await browser.new_page(viewport=VIEWPORTS[1])
-        await pg.goto(f"{PROTO}#payment", wait_until="domcontentloaded")
-        await pg.wait_for_timeout(200)
-        # Click two payment cards
-        cards = await pg.query_selector_all("[data-pay-card]")
-        for c in cards[:2]:
-            await c.click()
-            await pg.wait_for_timeout(50)
-        confirm = await pg.query_selector("[data-pay-confirm]")
-        is_disabled = await confirm.get_attribute("disabled")
-        record("Payment: 2 cards enable confirm", is_disabled is None,
-               f"disabled={is_disabled}, cards clicked=2 of {len(cards)}")
-        await pg.close()
-
-        # === Test 7: Search flow ===
-        pg = await browser.new_page(viewport=VIEWPORTS[1])
-        await pg.goto(f"{PROTO}#search", wait_until="domcontentloaded")
-        await pg.wait_for_timeout(200)
-        choices = await pg.query_selector_all("[data-choice]")
-        if choices:
-            await choices[0].click()
-            await pg.wait_for_timeout(50)
-        confirm = await pg.query_selector("[data-search-confirm]")
-        is_disabled = await confirm.get_attribute("disabled")
-        record("Search: selecting item enables confirm", is_disabled is None,
-               f"disabled={is_disabled}")
-        await pg.close()
-
-        # === Test 8: aria-live region announces ===
-        pg = await browser.new_page(viewport={"width": 1280, "height": 900})
-        await pg.goto(f"{PROTO}#overview", wait_until="domcontentloaded")
-        await pg.wait_for_timeout(300)
-        # Click a scene button to trigger render() with announce=true
-        await pg.click('.scene-button[data-scene="payment"]')
-        await pg.wait_for_timeout(200)
-        live = await pg.query_selector("#live-region")
-        live_text = await live.inner_text() if live else ""
-        record("Live region announces on scene change", live_text.strip() != "",
-               f"text='{live_text[:60]}'")
-        await pg.close()
-
-        # === Test 9: No color-only critical state ===
-        pg = await browser.new_page(viewport=VIEWPORTS[1])
-        await pg.goto(f"{PROTO}#overview", wait_until="domcontentloaded")
-        await pg.wait_for_timeout(200)
-        # Check that markers have text content, not just color
-        markers = await pg.evaluate("""() => {
-            const els = document.querySelectorAll('.marker, .occupant, .system-pill .status-shape, .turn-badge');
-            return Array.from(els).map(el => ({
-                cls: el.className.split(' ')[0] || el.tagName,
-                text: el.textContent.trim().length > 0,
-                has_shape: el.offsetWidth > 0 && el.offsetHeight > 0
-            }));
-        }""")
-        no_text = [m for m in markers if not m["text"]]
-        record("Critical state has text/shape redundancy", len(no_text) == 0,
-               f"{len(no_text)} elements with no text: {no_text[:3]}")
-        await pg.close()
-
-        # === Test 10: Keyboard focus ===
-        pg = await browser.new_page(viewport=VIEWPORTS[1])
-        await pg.goto(f"{PROTO}#overview", wait_until="domcontentloaded")
-        await pg.wait_for_timeout(200)
-        # Tab to first focusable and check outline
-        await pg.keyboard.press("Tab")
-        await pg.wait_for_timeout(100)
-        focused_tag = await pg.evaluate("() => { const el = document.activeElement; return el ? el.tagName + '.' + (el.className || '') : 'none'; }")
-        record("Keyboard focus moves to element", focused_tag != "none", f"focused={focused_tag}")
-        await pg.close()
-
-        # === Test 11: Prototype panel hidden on mobile ===
-        pg = await browser.new_page(viewport=VIEWPORTS[1])
-        await pg.goto(f"{PROTO}#overview", wait_until="domcontentloaded")
-        await pg.wait_for_timeout(200)
-        panel_display = await pg.evaluate("""() => {
-            const p = document.querySelector('.prototype-panel');
-            if (!p) return 'absent';
-            const s = getComputedStyle(p);
-            return s.display;
-        }""")
-        record("Prototype panel hidden on mobile", panel_display == "none",
-               f"display={panel_display}")
-        await pg.close()
-
-        # === Test 12: Intruder scene has reaction tray ===
-        pg = await browser.new_page(viewport=VIEWPORTS[1])
-        await pg.goto(f"{PROTO}#intruder", wait_until="domcontentloaded")
-        await pg.wait_for_timeout(200)
-        reaction = await pg.query_selector(".reaction-tray")
-        phase_agenda = await pg.query_selector(".phase-agenda")
-        record("Intruder scene shows phase agenda + reaction tray",
-               reaction is not None and phase_agenda is not None,
-               f"reaction={reaction is not None}, agenda={phase_agenda is not None}")
-        await pg.close()
-
-        # === Test 13: Private scene privacy banner present ===
-        pg = await browser.new_page(viewport=VIEWPORTS[1])
-        await pg.goto(f"{PROTO}#private", wait_until="domcontentloaded")
-        await pg.wait_for_timeout(200)
-        banner = await pg.query_selector(".privacy-banner")
-        banner_text = await banner.inner_text() if banner else ""
-        record("Private scene has privacy banner", banner is not None and "PRIVATE" in banner_text,
-               f"banner={'present' if banner else 'absent'}")
-        await pg.close()
-
-        # === Test 14: Setup scene has no command dock ===
-        pg = await browser.new_page(viewport=VIEWPORTS[1])
-        await pg.goto(f"{PROTO}#setup", wait_until="domcontentloaded")
-        await pg.wait_for_timeout(200)
-        dock_display = await pg.evaluate("""() => {
-            const d = document.querySelector('#command-dock');
-            return d ? getComputedStyle(d).display : 'absent';
-        }""")
-        record("Setup scene hides command dock", dock_display == "none",
-               f"display={dock_display}")
-        await pg.close()
-
-        # === Test 15: End scene shows procedure list ===
-        pg = await browser.new_page(viewport=VIEWPORTS[1])
-        await pg.goto(f"{PROTO}#end", wait_until="domcontentloaded")
-        await pg.wait_for_timeout(200)
-        procedure = await pg.query_selector(".procedure-list")
-        items = await procedure.query_selector_all("li") if procedure else []
-        record("End scene shows ordered procedure", len(items) >= 3,
-               f"procedure steps={len(items)}")
-        await pg.close()
-
-        # === Test 16: Map pinch/pan works (pointer events) ===
-        pg = await browser.new_page(viewport=VIEWPORTS[1])
-        await pg.goto(f"{PROTO}#overview", wait_until="domcontentloaded")
-        await pg.wait_for_timeout(300)
-        # Simulate pointer drag on map viewport
-        vp = await pg.query_selector("#map-viewport")
-        box = await vp.bounding_box()
-        # Single-pointer drag
-        await pg.mouse.move(box["x"] + 100, box["y"] + 100)
-        await pg.mouse.down()
-        await pg.mouse.move(box["x"] + 150, box["y"] + 120, steps=5)
-        await pg.mouse.up()
-        await pg.wait_for_timeout(100)
-        # Check facility moved
-        facility_transform = await pg.evaluate("""() => {
-            const f = document.getElementById('facility');
-            return f ? getComputedStyle(f).getPropertyValue('--map-x') : 'none';
-        }""")
-        record("Map pan changes transform", facility_transform.strip() not in ("0px", "", "none"),
-               f"--map-x={facility_transform.strip()}")
-        await pg.close()
-
-        # === Test 17: Reduced motion media query present ===
-        pg = await browser.new_page(viewport=VIEWPORTS[1])
-        await pg.goto(f"{PROTO}#overview", wait_until="domcontentloaded")
-        await pg.wait_for_timeout(200)
-        has_reduced_motion = await pg.evaluate("""() => {
-            for (const sheet of document.styleSheets) {
-                try {
-                    for (const rule of sheet.cssRules) {
-                        if (rule.media && rule.media.mediaText && rule.media.mediaText.includes('prefers-reduced-motion')) return true;
-                    }
-                } catch(e) {}
-            }
-            return false;
-        }""")
-        record("prefers-reduced-motion media query present", has_reduced_motion,
-               f"found={has_reduced_motion}")
-        await pg.close()
-
+        await matrix_checks(browser)
+        await semantic_and_interaction_checks(browser)
+        await capture_screens(browser)
         await browser.close()
 
-asyncio.run(run())
 
+asyncio.run(run())
 print(json.dumps(results, indent=2))
-print(f"\n=== SUMMARY: {len(results['passed'])} passed, {len(results['failed'])} failed, {len(results['warnings'])} warnings ===")
+print(
+    f"\n=== SUMMARY: {len(results['passed'])} passed, "
+    f"{len(results['failed'])} failed, {len(results['warnings'])} warnings; "
+    f"{results['matrix_cases']} scene/viewport combinations ==="
+)
 sys.exit(1 if results["failed"] else 0)
