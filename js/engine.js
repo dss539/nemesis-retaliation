@@ -355,6 +355,31 @@ class NemesisEngine {
             return;
         }
 
+        // === Serious Wound start-of-turn effects ===
+        // sw13 Deep Wound: Lose 1 Health at start of each turn.
+        if (this.hasSeriousWound(player, 'sw13')) {
+            this.damagePlayer(player, 1, 'deep wound');
+            this.log(this.charName(player) + ' loses 1 Health (Deep Wound)');
+            if (!player.alive) {
+                this.nextPlayerOrPhase();
+                return;
+            }
+        }
+        // sw19 Ruptured Spleen: Lose 2 Health at start of each turn.
+        if (this.hasSeriousWound(player, 'sw19')) {
+            this.damagePlayer(player, 2, 'ruptured spleen');
+            this.log(this.charName(player) + ' loses 2 Health (Ruptured Spleen)');
+            if (!player.alive) {
+                this.nextPlayerOrPhase();
+                return;
+            }
+        }
+        // sw23 Punctured Lung: Lose 1 Oxygen at start of each turn.
+        if (this.hasSeriousWound(player, 'sw23')) {
+            this.loseOxygen(player, 1);
+            this.log(this.charName(player) + ' loses 1 Oxygen (Punctured Lung)');
+        }
+
         s.actionsRemaining = GAME_DATA.CONFIG.actionsPerTurn;
         s.turnStep = 'action1';
         this.log(this.charName(player) + "'s turn begins");
@@ -402,6 +427,46 @@ class NemesisEngine {
         }
 
         let result = { success: true };
+
+        // === Serious Wound action restrictions ===
+        // Check before dispatching so the action (and its cost) never starts.
+        const sw = (id) => this.hasSeriousWound(player, id);
+        if (actionType === 'search' && sw('sw1')) {
+            return { success: false, error: 'Blindness: cannot perform Search action' };
+        }
+        if (actionType === 'melee' && sw('sw2')) {
+            return { success: false, error: 'Broken Ribs: cannot perform Melee Attack' };
+        }
+        if (actionType === 'rest' && sw('sw4')) {
+            return { success: false, error: 'Internal Bleeding: cannot use Rest action' };
+        }
+        if (actionType === 'sprint' && sw('sw6')) {
+            return { success: false, error: 'Sprained Ankle: cannot use Sprint action' };
+        }
+        if (actionType === 'useTacticalGear' && sw('sw9')) {
+            return { success: false, error: 'Nerve Damage: cannot use Tactical Gear tokens' };
+        }
+        if (actionType === 'useRoom' && sw('sw10')) {
+            return { success: false, error: 'Loss of Vision: cannot use Room actions' };
+        }
+        if (actionType === 'burst' && sw('sw17')) {
+            return { success: false, error: 'Dislocated Shoulder: cannot perform Burst action' };
+        }
+        if (actionType === 'trade' && sw('sw18')) {
+            return { success: false, error: 'Crushed Fingers: cannot perform Trade action' };
+        }
+        if (actionType === 'activateRobot' && sw('sw20')) {
+            return { success: false, error: 'Spinal Injury: cannot perform Activate Robot action' };
+        }
+        if (actionType === 'cautiousMove' && sw('sw22')) {
+            return { success: false, error: 'Severed Tendon: cannot perform Cautious Move action' };
+        }
+        if (actionType === 'command' && sw('sw24')) {
+            return { success: false, error: 'Broken Jaw: cannot use Command action' };
+        }
+        if (actionType === 'drill' && sw('sw26')) {
+            return { success: false, error: 'Torn Ligament: cannot perform Drill action' };
+        }
 
         switch(actionType) {
             case 'move': result = this.actionMove(player, params); break;
@@ -459,13 +524,35 @@ class NemesisEngine {
     endPlayerTurn(player) {
         const s = this.state;
 
+        // === Serious Wound end-of-turn effects ===
+        // sw7 Cracked Skull: Discard 1 Action card from hand at end of turn.
+        if (this.hasSeriousWound(player, 'sw7') && player.actionHand.length > 0) {
+            const card = player.actionHand.pop();
+            player.actionDiscard.push(card);
+            this.log(this.charName(player) + ' discards 1 Action card (Cracked Skull)');
+        }
+        // sw8 Collapsed Lung: Lose 1 additional Oxygen at end of each turn.
+        if (this.hasSeriousWound(player, 'sw8')) {
+            this.loseOxygen(player, 1);
+            this.log(this.charName(player) + ' loses 1 Oxygen (Collapsed Lung)');
+            if (player.oxygen === 0 && !player.suffocating) {
+                player.suffocating = true;
+                this.log(this.charName(player) + ' is suffocating!');
+            } else if (player.suffocating && player.oxygen === 0) {
+                // Already suffocating — additional oxygen loss kills
+                this.killPlayer(player, 'suffocation');
+                this.nextPlayerOrPhase();
+                return;
+            }
+        }
+
         // Lose oxygen if in section with inactive life support
         const room = s.rooms[player.location];
         if (room) {
             const section = s.sections[room.section];
             if (section && !section.lifeSupport) {
                 if (player.oxygen > 0) {
-                    player.oxygen--;
+                    this.loseOxygen(player, 1);
                 }
                 if (player.oxygen === 0 && !player.suffocating) {
                     player.suffocating = true;
@@ -530,18 +617,22 @@ class NemesisEngine {
 
     intrudersBurning() {
         const s = this.state;
-        // Each intruder in a room with fire takes 1 hit
+        // Each intruder in a room with fire takes 1 hit.
+        // Rulebook: "Since no die is rolled, this Hit can never kill an
+        // Intruder (except for a Larva)." Fire hits accumulate on all
+        // intruders, but the death check only applies to Larva.
         s.intruders.forEach(intruder => {
             if (intruder.location.type === 'room') {
                 const room = s.rooms[intruder.location.id];
                 if (room && room.markers.fire) {
                     intruder.hits = (intruder.hits || 0) + 1;
-                    // Check if intruder dies from fire
-                    const intruderData = GAME_DATA.INTRUDER_TYPES[intruder.type];
-                    if (intruder.type === 'adult' || intruder.type === 'larva') {
-                        if (intruder.hits >= 1) this.killIntruder(s, intruder);
-                    } else if (intruder.type === 'drone') {
-                        if (intruder.hits >= 2) this.killIntruder(s, intruder);
+                    // Only Larva can be killed by fire (size 1, 1 hit kills).
+                    // Drones, Adults, and the Queen accumulate hits but are
+                    // not killed by fire — only by combat (shooting, melee,
+                    // burst) where a die roll confirms the kill.
+                    if (intruder.type === 'larva') {
+                        this.killIntruder(s, intruder);
+                        this.log('Larva killed by Fire');
                     }
                 }
             }
@@ -971,6 +1062,35 @@ class NemesisEngine {
         const currentRoom = s.rooms[player.location];
         if (!currentRoom) return { success: false, error: 'Not in a room' };
 
+        // === Serious Wound move effects ===
+        // sw15 Torn Muscle: Each Move Action costs 1 additional Action card.
+        if (this.hasSeriousWound(player, 'sw15')) {
+            const nonContam = player.actionHand
+                .map((card, index) => ({ card, index }))
+                .filter(({ card }) => card.type !== 'contamination');
+            if (nonContam.length === 0) {
+                return { success: false, error: 'Torn Muscle: no Action card to pay extra Move cost' };
+            }
+            const extra = nonContam[nonContam.length - 1];
+            player.actionDiscard.push(player.actionHand.splice(extra.index, 1)[0]);
+            this.log(this.charName(player) + ' discards 1 extra Action card (Torn Muscle)');
+        }
+
+        // sw3 Concussion: When performing Move action, make a Noise roll with
+        // 1 additional Noise marker. We place an extra noise marker on a
+        // random adjacent corridor before the normal noise roll.
+        if (this.hasSeriousWound(player, 'sw3')) {
+            const adjacentCorridors = s.corridors.filter(c =>
+                (c.room1 === player.location || c.room2 === player.location) && !c.noise && !c.reinforced
+            );
+            if (adjacentCorridors.length > 0 && s.tokenPool.noise > 0) {
+                const pick = adjacentCorridors[Math.floor(Math.random() * adjacentCorridors.length)];
+                pick.noise = true;
+                s.tokenPool.noise--;
+                this.log(this.charName(player) + ' (Concussion) places 1 additional Noise marker');
+            }
+        }
+
         // Check if this is an exploration move (to an undiscovered area)
         const isExploration = params.explore || targetRoomId.startsWith('explore_');
 
@@ -1055,6 +1175,16 @@ class NemesisEngine {
 
         this.log(this.charName(player) + ' moves to ' + (targetRoom ? targetRoom.id || targetRoomId : targetRoomId));
         this.notify('playerMoved', { player: player.id, room: targetRoomId });
+
+        // sw16 Severe Burns: Lose 1 Health whenever entering a Room with Fire.
+        if (this.hasSeriousWound(player, 'sw16')) {
+            const destRoom = s.rooms[player.location];
+            if (destRoom && destRoom.markers.fire) {
+                this.damagePlayer(player, 1, 'severe burns');
+                this.log(this.charName(player) + ' loses 1 Health (Severe Burns from Fire)');
+            }
+        }
+
         return { success: true };
     }
 
@@ -1149,6 +1279,11 @@ class NemesisEngine {
         const room = state.rooms[player.location];
         if (!room) return;
 
+        // sw21 Perforated Eardrum: Ignore Noise markers in adjacent Corridors.
+        // When the noise roll would resolve a noise marker (not an intruder)
+        // in an adjacent corridor, it is simply skipped for this player.
+        const ignoreNoiseMarkers = this.hasSeriousWound(player, 'sw21');
+
         if (roll <= 4) {
             // Find corridors with this value adjacent to the room
             const matchingCorridors = state.corridors.filter(c =>
@@ -1168,8 +1303,12 @@ class NemesisEngine {
                         this.resolveIntruderAttack(state, intruder, player);
                     }
                 } else if (corridor.noise) {
-                    // Resolve noise marker
-                    this.resolveNoise(state, corridor);
+                    // Resolve noise marker (unless sw21 Perforated Eardrum)
+                    if (ignoreNoiseMarkers) {
+                        this.log(this.charName(player) + ' (Perforated Eardrum) ignores Noise marker in adjacent corridor');
+                    } else {
+                        this.resolveNoise(state, corridor);
+                    }
                 } else {
                     // Place noise marker
                     if (state.tokenPool.noise > 0) {
@@ -1307,8 +1446,10 @@ class NemesisEngine {
         const targetIntruder = s.intruders.find(i => i.location.type === 'room' && i.location.id === player.location && i.id === params.targetId);
         if (!targetIntruder) return { success: false, error: 'No valid target in room' };
 
-        // Deal 1 hit
-        targetIntruder.hits = (targetIntruder.hits || 0) + 1;
+        // Deal 1 hit (+1 if sw11 EYES: +1 to all Shoot results)
+        const eyesBonus = this.hasSeriousWound(player, 'sw11') ? 1 : 0;
+        targetIntruder.hits = (targetIntruder.hits || 0) + 1 + eyesBonus;
+        if (eyesBonus) this.log(this.charName(player) + ' (EYES) deals +1 Hit');
 
         // Roll shoot die (d8)
         const roll = 1 + Math.floor(Math.random() * 8);
@@ -1452,6 +1593,11 @@ class NemesisEngine {
         const itemData = GAME_DATA.ITEMS[item];
         if (!itemData) return { success: false, error: 'Unknown item' };
 
+        // sw14 Fractured Arm: Cannot use Heavy Items.
+        if (this.hasSeriousWound(player, 'sw14') && itemData.traits?.includes('HEAVY')) {
+            return { success: false, error: 'Fractured Arm: cannot use Heavy Items' };
+        }
+
         this.log(this.charName(player) + ' uses ' + itemData.name);
         this.notify('itemUsed', { player: player.id, item: item });
 
@@ -1535,8 +1681,7 @@ class NemesisEngine {
                 break;
             case 'surgeryRoom':
                 if (player.seriousWounds.length > 0) {
-                    player.seriousWounds.pop();
-                    this.log(this.charName(player) + ' discards a Serious Wound');
+                    this.removeSeriousWound(player, player.seriousWounds[player.seriousWounds.length - 1]);
                 } else if (player.larva) {
                     player.larva = false;
                     this.log(this.charName(player) + ' discards Larva from Character board');
@@ -1832,11 +1977,82 @@ class NemesisEngine {
         }
     }
 
+    // === SERIOUS WOUND HELPERS ===
+
+    /**
+     * Check if a player has a specific Serious Wound.
+     * @param player  the player object
+     * @param woundId e.g. 'sw1', 'sw14'
+     */
+    hasSeriousWound(player, woundId) {
+        return player.seriousWounds.includes(woundId);
+    }
+
+    /**
+     * Gain a specific Serious Wound. Reduces maxHealth by 1 (the health
+     * slot covered by the wound may never be used). If current health
+     * exceeds the new maxHealth, it is reduced accordingly.
+     * Also handles one-time wound effects (e.g. Weak Spot / sw12).
+     */
+    applySeriousWound(player, woundId) {
+        const s = this.state;
+        player.seriousWounds.push(woundId);
+        // Each serious wound reduces maxHealth by 1
+        player.maxHealth = Math.max(1, player.maxHealth - 1);
+        if (player.health > player.maxHealth) {
+            player.health = player.maxHealth;
+        }
+        const woundData = GAME_DATA.SERIOUS_WOUNDS.find(w => w.id === woundId);
+        this.log(this.charName(player) + ' gains Serious Wound: ' + (woundData?.name || woundId));
+        this.notify('seriousWoundGained', { player: player.id, wound: woundId });
+
+        // One-time wound effects:
+        // sw12 Weak Spot: immediately deal 1 Hit to an Intruder in the
+        // player's room (simplified — no mandatory follow-up attack).
+        if (woundId === 'sw12') {
+            const intruderInRoom = s.intruders.find(i =>
+                i.location.type === 'room' && i.location.id === player.location);
+            if (intruderInRoom) {
+                intruderInRoom.hits = (intruderInRoom.hits || 0) + 1;
+                this.log(this.charName(player) + " (Weak Spot) deals 1 Hit to " + intruderInRoom.type);
+            } else {
+                this.log(this.charName(player) + " (Weak Spot) — no Intruder in room to hit");
+            }
+        }
+    }
+
+    /**
+     * Remove (discard) a specific Serious Wound. Restores maxHealth by 1
+     * (the freed health slot becomes available again), but does NOT
+     * increase current health — healing is separate.
+     */
+    removeSeriousWound(player, woundId) {
+        const idx = player.seriousWounds.indexOf(woundId);
+        if (idx === -1) return;
+        player.seriousWounds.splice(idx, 1);
+        player.maxHealth += 1;
+        const woundData = GAME_DATA.SERIOUS_WOUNDS.find(w => w.id === woundId);
+        this.log(this.charName(player) + ' discards Serious Wound: ' + (woundData?.name || woundId));
+        this.notify('seriousWoundDiscarded', { player: player.id, wound: woundId });
+    }
+
+    /**
+     * Lose oxygen. sw25 (Crushed Windpipe) causes 1 additional oxygen
+     * loss whenever the player would lose oxygen.
+     */
+    loseOxygen(player, amount = 1) {
+        const totalLoss = this.hasSeriousWound(player, 'sw25') ? amount + 1 : amount;
+        player.oxygen = Math.max(0, player.oxygen - totalLoss);
+        if (totalLoss > amount) {
+            this.log(this.charName(player) + ' loses ' + totalLoss + ' Oxygen (+' + (totalLoss - amount) + ' from Crushed Windpipe)');
+        }
+        return totalLoss;
+    }
+
     gainSeriousWound(state, player) {
         const woundId = this.drawSeriousWound(state);
         if (woundId) {
-            player.seriousWounds.push(woundId);
-            this.log(this.charName(player) + ' gains a Serious Wound');
+            this.applySeriousWound(player, woundId);
         }
     }
 
@@ -1921,6 +2137,11 @@ class NemesisEngine {
             // Place in hand slot
             const emptySlot = player.handSlots.indexOf(null);
             if (emptySlot === -1) {
+                return false;
+            }
+            // sw5 Shattered Hand: can only use 1 Hand slot (index 0).
+            // If the first slot is occupied, the second is unavailable.
+            if (this.hasSeriousWound(player, 'sw5') && emptySlot > 0) {
                 return false;
             }
             player.handSlots[emptySlot] = itemId;
