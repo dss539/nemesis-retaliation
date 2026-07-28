@@ -2323,9 +2323,10 @@ class NemesisEngine {
 
         // End of game checks — only for escaped or hibernated players
         s.players.forEach(player => {
-            if (!player.hasEscaped && !player.hasHibernated) return;
+            if (!player.alive && !player.hasEscaped) return;
 
-            if (!player.larva) {
+            if (player.hasEscaped || player.hasHibernated) {
+                if (!player.larva) {
                     // Step 1: Draw all cards from Action deck and discard pile to hand,
                     // then perform Infection Procedure (rulebook p.39)
                     player.actionDeck.forEach(c => player.actionHand.push(c));
@@ -2344,6 +2345,7 @@ class NemesisEngine {
                     player.actionHand = [];
                     this.eclosionProcedure(s, player);
                 }
+            }
         });
 
         // Check objectives — only for players who are alive, escaped, or hibernated
