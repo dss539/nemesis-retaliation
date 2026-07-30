@@ -1,0 +1,66 @@
+/* ---------- shared hex map ---------- */
+.stage{position:relative;min-height:0;overflow:hidden;
+  background:
+    radial-gradient(circle at 50% 40%,#16232b 0,#0a1014 58%,#070a0c 100%),
+    linear-gradient(rgba(255,255,255,.02) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.02) 1px,transparent 1px);
+  background-size:auto,20px 20px,20px 20px}
+.field{position:absolute;left:50%;top:50%;
+  transform:translate(-50%,-50%) scale(var(--z,.52));transform-origin:50% 50%}
+.cor{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.cor .ln{stroke:#8e989d;stroke-width:34;stroke-linecap:butt}
+.cor .ln.un{stroke:#4d585e;stroke-width:30;stroke-dasharray:9 8}
+.cor .cr{stroke:#0d1215;stroke-width:24;stroke-dasharray:6 7}
+.cor .door{stroke-width:9}
+.cor .door.open{stroke:#cdd3d4;stroke-dasharray:5 5}
+.cor .door.closed{stroke:#fff;stroke-width:13}
+.cor .dlbl{fill:#e6eaea;font:800 10px var(--d);letter-spacing:.06em;
+  paint-order:stroke;stroke:#0a0e10;stroke-width:3px}
+.cor .citr{fill:#12181c;stroke:#fff;stroke-width:2}
+.cor .citrt{fill:#fff;font:800 11px var(--d)}
+.cor .no{fill:#0b0f11;stroke:#fff;stroke-width:1.5}
+.cor .nt{fill:#fff;font:800 11px var(--d)}
+
+/* pointy-top hexagon rooms — sized inline from map.js */
+.hex{position:absolute;padding:3px;background:#b9c0c2;
+  clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%)}
+.hex>button{width:100%;height:100%;border:0;background:#141b1f;color:var(--ink);clip-path:inherit;
+  padding:24px 10px 22px;display:flex;flex-direction:column;justify-content:space-between;text-align:left}
+.hex .nm{font:800 12px/1.05 var(--d);text-transform:uppercase;letter-spacing:.03em}
+.hex .ty{font-size:8.5px;color:#b3babd;margin-top:2px;display:block}
+.hex .tok{display:flex;gap:4px;flex-wrap:wrap;align-items:center;min-height:24px}
+.tk{min-width:21px;height:21px;border:1.5px solid #e6e9e7;display:grid;place-items:center;padding:0 3px;
+  font:800 9px var(--d);background:#0f1418}
+.tk.fire{background:repeating-linear-gradient(135deg,#0f1418 0 3px,#7d858a 3px 5px)}
+.tk.mal{background:repeating-linear-gradient(45deg,#0f1418 0 3px,#6d757a 3px 4px)}
+.tk.sec{border:3px double #fff}
+.oc{min-width:24px;height:24px;border-radius:50%;border:2px solid #fff;background:#222c31;
+  display:grid;place-items:center;font:800 9px var(--d)}
+.oc.you{background:#f0ede3;color:#0a0d0f}
+.oc.itr{border-radius:2px;transform:rotate(45deg);background:repeating-linear-gradient(45deg,#181818 0 3px,#6f7679 3px 4px)}
+.oc.itr span{transform:rotate(-45deg)}
+.hex.here{background:#fff;filter:drop-shadow(0 0 7px rgba(255,255,255,.55))}
+.hex.tgt{background:#e0bd6a;filter:drop-shadow(0 0 9px rgba(224,189,106,.6))}
+.hex.tgt>button{background:repeating-linear-gradient(135deg,#1a2226 0 9px,#314046 9px 12px)}
+.hex.tgt .go{border:1px solid var(--gold);color:var(--gold);padding:2px 4px;font:800 8px var(--d);letter-spacing:.1em}
+.hex.dark>button{background:#0c1114;color:#7d868b}
+.hex.dark .nm{text-align:center;font-size:15px}
+.hex.mute{opacity:.34}
+
+.zoom{position:absolute;right:7px;display:grid;grid-template-columns:38px 38px;gap:4px;z-index:4}
+.zoom button{border:1.5px solid #b9c0c2;background:#0e1418;min-height:38px;padding:0;font:800 15px var(--d)}
+.zoom button.w{grid-column:span 2;font:800 9px var(--d);letter-spacing:.1em;min-height:30px}
+
+/* ---------- OPTION 1 — Command Deck ---------- */
+.o1 .app{grid-template-rows:auto minmax(0,1fr) auto}
+.o1 .zoom{bottom:7px}
+.ctx{border-top:1px solid var(--edge);background:#182126;padding:8px 9px;
+  display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;align-items:center}
+.ctx.act{border-top:3px double var(--gold);background:repeating-linear-gradient(135deg,#182126 0 11px,#222e34 11px 13px)}
+.ctx i{display:block;font:800 11px var(--d);letter-spacing:.08em;text-transform:uppercase;font-style:normal}
+.ctx s{display:block;font-size:10.5px;color:var(--mut);text-decoration:none;line-height:1.35;margin-top:2px}
+.ctx .bb{display:flex;gap:5px;flex:0 0 auto}
+.bt{border:1px solid var(--edge);background:#141c20;min-height:42px;padding:8px 9px;
+  font:800 10px var(--d);letter-spacing:.06em;text-transform:uppercase;white-space:nowrap}
+.bt.pri{background:#efece2;color:#0a0d0f;border-color:#fff}
+.dock{background:#0b1013;border-top:1px solid var(--edge);min-width:0}

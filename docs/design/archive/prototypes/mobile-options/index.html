@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Nemesis: Retaliation — Mobile UI options</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="map.css">
+<link rel="stylesheet" href="opts.css">
+</head>
+<body>
+<div class="page" id="page">
+
+  <header class="masthead">
+    <span class="tag">DESIGN OPTIONS · NOT IMPLEMENTED</span>
+    <h1>Mobile UI — three competing architectures</h1>
+    <p>All three keep the <b>full Basic Action list always visible and scrollable</b> &mdash; actions
+    are what the player does, so nothing is hidden. Costs are the real rulebook values (p.13) and
+    blocked actions state why. Geometry is corrected: corridors join <b>only immediately adjacent
+    hexes</b>, and each gap is wide enough for a Door token plus Intruders standing in the corridor
+    (the rulebook allows up to 6).</p>
+  </header>
+
+  <section class="diagnosis">
+    <div class="dx"><h4>Problem 1 — Three-column desktop skeleton</h4>
+      <p>The shipping layout is left panel / canvas / right panel. On a 390px phone two of the three
+      columns must collapse, so player boards, action panel, card area and log all become
+      off-screen tabs. Turn-critical facts end up behind navigation.</p></div>
+    <div class="dx"><h4>Problem 2 — Map and decision compete for the same space</h4>
+      <p>Choosing a Move needs the destinations AND the board visible. The fix is a panel that
+      shrinks during targeting, not one that disappears.</p></div>
+    <div class="dx"><h4>Problem 3 — Canvas map, DOM everything else</h4>
+      <p>Room state lives in a 1500&times;1050 canvas, so tokens cannot be tapped as real controls,
+      focused, or given accessible names. Every hex below is a real button.</p></div>
+    <div class="dx"><h4>Problem 4 — Action deck is a placeholder in the engine</h4>
+      <p><code>createActionDeck()</code> builds cards literally named <code>move</code>,
+      <code>shoot</code>, <code>useRoom</code> &mdash; the same strings as Basic Actions. That is the
+      real source of the card/action confusion. Only <b>Sprint</b> and <b>Duck and Cover</b> are
+      confirmed from official sources; other faces are marked UNVERIFIED rather than invented.</p></div>
+  </section>
+
+  <div class="ctl">
+    <button id="t-normal" class="on">State: Your turn</button>
+    <button id="t-target">State: Move targeting</button>
+    <button id="t-gray">Grayscale check</button>
+    <button id="t-collapse">Opt 3: collapse sheet</button>
+  </div>
+
+  <div class="rack">
+
+    <section class="opt o1">
+      <div class="opt-head"><span class="num">OPTION 1</span>
+        <h2>Command Deck<span class="rec">MY PICK</span></h2>
+        <p class="one">Fixed bottom deck. Full scrollable Action list with real costs, then the card
+        rail. Map never covered.</p></div>
+      <div class="phone" id="ph1"></div>
+      <div class="notes"><h4>Trade-offs</h4><ul>
+        <li><b>Wins:</b> actions are permanently primary and never behind navigation. Every row shows
+        its true cost (0/1/2 cards) and blocked rows say why.</li>
+        <li><b>Wins:</b> nothing overlaps the board, so the map never shifts under your thumb.</li>
+        <li><b>Costs:</b> deck takes ~47% of height, giving the smallest map. Long action list needs
+        internal scrolling.</li>
+      </ul><p class="cost">Effort: moderate. CSS grid rewrite plus promoting the action panel out of
+      the right column.</p></div>
+    </section>
+
+    <section class="opt o2">
+      <div class="opt-head"><span class="num">OPTION 2</span>
+        <h2>Floating Action Panel</h2>
+        <p class="one">Map is full-bleed edge to edge. The Action panel floats over it as a rounded
+        card, so the board extends behind it.</p></div>
+      <div class="phone" id="ph2"></div>
+      <div class="notes"><h4>Trade-offs</h4><ul>
+        <li><b>Wins:</b> largest usable map, because the board fills the whole stage instead of being
+        squeezed above a fixed deck.</li>
+        <li><b>Wins:</b> same always-visible action list as Option 1, so nothing is hidden.</li>
+        <li><b>Costs:</b> the panel covers part of the board. You may need to pan to see hexes behind
+        it, and the covered strip is unpredictable.</li>
+        <li><b>Costs:</b> translucency over a busy map hurts text contrast in the worst case.</li>
+      </ul><p class="cost">Effort: moderate. Same markup as Option 1, different positioning.</p></div>
+    </section>
+
+    <section class="opt o3">
+      <div class="opt-head"><span class="num">OPTION 3</span>
+        <h2>Two-Surface Sheet</h2>
+        <p class="one">Map above, one draggable sheet below. The sheet auto-sizes to the current
+        decision and lists choices as full-width rows with reasons.</p></div>
+      <div class="phone" id="ph3"></div>
+      <div class="notes"><h4>Trade-offs</h4><ul>
+        <li><b>Wins:</b> best at explaining <em>why</em>. Every action row can carry cost and a reason
+        it is legal or blocked ("Door CLOSED, must open first") &mdash; exactly what the
+        classification doc asks for.</li>
+        <li><b>Wins:</b> map area is elastic. Sheet shrinks during targeting, grows for log and crew.</li>
+        <li><b>Costs:</b> the sheet is still a panel over the map when expanded, and a resizing
+        viewport can make the board jump under your thumb.</li>
+        <li><b>Costs:</b> HAND / CREW / LOG behind tabs re-introduces the navigation problem, just
+        less severely than today.</li>
+      </ul><p class="cost">Effort: moderate-high. Needs a real sheet gesture layer and a per-state
+      height policy.</p></div>
+    </section>
+
+  </div>
+</div>
+
+<script src="map.js"></script>
+<script src="options.js"></script>
+<script>
+let mode = 'normal', collapsed = false;
+function draw() {
+  document.getElementById('ph1').innerHTML = optionOne(mode);
+  document.getElementById('ph2').innerHTML = optionTwo(mode);
+  document.getElementById('ph3').innerHTML = optionThree(mode, collapsed);
+}
+function setBtn(id, on) { document.getElementById(id).classList.toggle('on', on); }
+document.getElementById('t-normal').onclick = () => {
+  mode = 'normal'; setBtn('t-normal', true); setBtn('t-target', false); draw();
+};
+document.getElementById('t-target').onclick = () => {
+  mode = 'target'; setBtn('t-target', true); setBtn('t-normal', false); draw();
+};
+document.getElementById('t-gray').onclick = e => {
+  const on = document.getElementById('page').classList.toggle('gray');
+  e.currentTarget.classList.toggle('on', on);
+};
+document.getElementById('t-collapse').onclick = e => {
+  collapsed = !collapsed; e.currentTarget.classList.toggle('on', collapsed); draw();
+};
+draw();
+</script>
+</body>
+</html>

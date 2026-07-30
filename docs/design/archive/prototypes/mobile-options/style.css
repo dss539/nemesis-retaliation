@@ -1,0 +1,82 @@
+:root{
+  color-scheme:dark;
+  --ink:#f3f0e8; --mut:#a8b1b6; --dim:#778085;
+  --bg:#07090b; --p1:#101619; --p2:#182126; --p3:#233036;
+  --line:#3a464c; --edge:#75828a;
+  --hot:#e8836d; --ok:#8fc79c; --gold:#e0bd6a; --cool:#87b6cf;
+  --d:"Arial Narrow","Roboto Condensed",Impact,sans-serif;
+  --b:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:#050708;color:var(--ink);font-family:var(--b)}
+button{font:inherit;color:inherit;cursor:pointer;touch-action:manipulation}
+h1,h2,h3,h4{margin:0}
+
+/* ---------- page shell ---------- */
+.page{padding:26px 20px 60px;max-width:1500px;margin:0 auto}
+.masthead{border-bottom:1px solid var(--line);padding-bottom:18px;margin-bottom:26px}
+.masthead h1{font:800 30px/1 var(--d);letter-spacing:.1em;text-transform:uppercase}
+.masthead p{color:var(--mut);font-size:13.5px;line-height:1.55;max-width:86ch;margin:10px 0 0}
+.masthead .tag{display:inline-block;border:1px solid var(--edge);padding:3px 7px;font:800 9px var(--d);
+  letter-spacing:.14em;margin-bottom:10px;color:var(--gold)}
+
+.diagnosis{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px;margin-bottom:32px}
+.dx{border:1px solid var(--line);border-left:3px solid var(--hot);background:var(--p1);padding:12px 14px}
+.dx h4{font:800 11px var(--d);letter-spacing:.1em;text-transform:uppercase;color:var(--hot)}
+.dx p{font-size:12px;line-height:1.5;color:var(--mut);margin:6px 0 0}
+
+.rack{display:grid;grid-template-columns:repeat(3,minmax(340px,1fr));gap:26px;align-items:start}
+@media(max-width:1180px){.rack{grid-template-columns:1fr;justify-items:center}}
+
+.opt{width:100%;max-width:412px}
+.opt-head{margin-bottom:12px}
+.opt-head .num{font:800 10px var(--d);letter-spacing:.16em;color:var(--gold)}
+.opt-head h2{font:800 21px/1.1 var(--d);letter-spacing:.05em;text-transform:uppercase;margin:3px 0 6px}
+.opt-head .one{font-size:12.5px;line-height:1.5;color:var(--mut)}
+.opt-head .rec{display:inline-block;background:var(--gold);color:#0a0d0f;font:800 9px var(--d);
+  letter-spacing:.12em;padding:3px 6px;margin-left:6px;vertical-align:2px}
+
+/* ---------- phone ---------- */
+.phone{position:relative;width:100%;aspect-ratio:390/812;border:1px solid #5b666c;border-radius:30px;
+  background:var(--bg);overflow:hidden;box-shadow:0 22px 60px rgba(0,0,0,.75)}
+.app{position:absolute;inset:0;display:grid;grid-template-columns:minmax(0,1fr);overflow:hidden}
+
+/* status bar shared by all three */
+.hud{background:#0b1013;border-bottom:1px solid var(--edge);z-index:6}
+.hud-top{display:grid;grid-template-columns:minmax(0,auto) minmax(0,1fr) auto;align-items:center;gap:8px;padding:7px 9px;min-height:44px}
+.rnd{display:flex;align-items:center;gap:8px;min-width:0}
+.rnd b{font:800 22px/1 var(--d);flex:0 0 auto}
+.rnd .sub{min-width:0;overflow:hidden}
+.rnd .sub i{display:block;font:800 10px var(--d);letter-spacing:.12em;font-style:normal;white-space:nowrap;
+  overflow:hidden;text-overflow:ellipsis}
+.rnd .sub s{display:block;font-size:9.5px;color:var(--mut);text-decoration:none;white-space:nowrap;margin-top:2px;
+  overflow:hidden;text-overflow:ellipsis}
+.clockrow{display:flex;gap:5px;justify-content:flex-end;min-width:0;overflow:hidden}
+.chip{border:1px solid var(--edge);padding:3px 5px;font:800 8.5px var(--d);letter-spacing:.08em;white-space:nowrap}
+.chip.warn{border-color:var(--hot);color:var(--hot)}
+.chip.good{border-color:var(--ok);color:var(--ok)}
+.chip.dead{border-style:dashed;color:var(--dim)}
+.mine{border:2px solid #fff;background:#1d262b;padding:4px 7px;text-align:center;min-width:88px}
+.mine i{display:block;font:800 10px var(--d);letter-spacing:.1em;font-style:normal}
+.mine s{display:block;font-size:9px;color:var(--mut);text-decoration:none}
+.hud-sys{display:flex;border-top:1px solid #263035;font-size:9px}
+.hud-sys span{flex:1;padding:4px 6px;border-right:1px solid #263035;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hud-sys span:last-child{border-right:0}
+.hud-sys b{font:800 9px var(--d);letter-spacing:.07em}
+
+/* vitals strip */
+.vit{display:grid;grid-template-columns:auto 1fr auto;gap:8px;align-items:center;padding:6px 9px;
+  background:#0d1316;border-top:1px solid #263035}
+.face{width:30px;height:34px;border:1px solid #fff;background:var(--p3);display:grid;place-items:center;
+  font:800 11px var(--d);clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%)}
+.vit .who{min-width:0}
+.vit .who i{display:block;font:800 10.5px var(--d);letter-spacing:.07em;font-style:normal}
+.vit .who s{display:block;font-size:9px;color:var(--mut);text-decoration:none;margin-top:1px}
+.gauges{display:flex;gap:9px;text-align:right}
+.g{font-size:8.5px;color:var(--mut)}
+.g b{display:block;font:800 12.5px var(--d);color:var(--ink)}
+.g.low b{color:var(--hot)}
+.pips{display:flex;gap:2px;margin-top:2px;justify-content:flex-end}
+.pips i{width:6px;height:4px;background:var(--ink)}
+.pips i.e{background:transparent;border:1px solid var(--dim)}
+.pips.low i{background:var(--hot)}

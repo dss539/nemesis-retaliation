@@ -1,0 +1,85 @@
+/* ---------- OPTION 1 — Command Deck ---------- */
+.o1 .app{grid-template-rows:auto minmax(0,1fr) minmax(0,46%)}
+.o1 .zoom{bottom:7px}
+.o1 .dock{display:grid;grid-template-rows:auto minmax(0,1fr) auto;min-height:0}
+.acts-scroll{overflow-y:auto;padding:6px 8px 2px;min-height:0}
+
+/* ---------- OPTION 2 — Action panel over full-bleed map ---------- */
+.o2 .app{grid-template-rows:auto minmax(0,1fr)}
+.o2 .zoom{top:7px}
+.floatpanel{position:absolute;left:8px;right:8px;bottom:8px;max-height:46%;
+  background:rgba(11,16,19,.96);border:1px solid var(--edge);border-radius:6px;
+  box-shadow:0 14px 34px rgba(0,0,0,.7);z-index:5;
+  display:grid;grid-template-rows:auto minmax(0,1fr) auto}
+.fp-head{display:flex;align-items:baseline;gap:8px;padding:7px 9px;border-bottom:1px solid var(--line)}
+.fp-head i{font:800 11px var(--d);letter-spacing:.12em;font-style:normal}
+.fp-head s{font-size:10px;color:var(--gold);text-decoration:none;margin-left:auto}
+.fp-body{overflow-y:auto;padding:6px 8px 2px;min-height:0}
+.fp-foot{border-top:1px solid var(--line);padding:6px 8px 8px}
+
+/* ---------- OPTION 3 — Two-Surface Sheet ---------- */
+.o3 .app{grid-template-rows:auto minmax(0,1fr)}
+.o3 .zoom{top:7px}
+.o3 .field{top:32%}
+.sheet{position:absolute;left:0;right:0;bottom:0;background:#0d1316;border-top:1px solid var(--edge);
+  box-shadow:0 -14px 34px rgba(0,0,0,.6);z-index:5;display:grid;
+  grid-template-rows:auto auto minmax(0,1fr);max-height:60%}
+.grab{display:grid;place-items:center;padding:6px 0 3px}
+.grab i{width:44px;height:4px;border-radius:2px;background:#6c767b;display:block}
+.sheet-tabs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:3px;padding:0 8px 6px}
+.sheet-tabs button{min-height:38px;border:1px solid var(--line);background:#141c20;
+  font:800 9px var(--d);letter-spacing:.05em;padding:5px 2px}
+.sheet-tabs button.on{border:2px solid #fff;background:var(--p3)}
+.sheet-tabs button .bdg{display:block;font-size:8px;color:var(--gold);margin-top:2px}
+.sheet-body{overflow-y:auto;padding:0 8px 10px;min-width:0}
+.collapsed .sheet-body{display:none}
+.collapsed .sheet-tabs{padding-bottom:8px}
+
+/* ---------- action rows (shared by all three) ---------- */
+.turnhead{border:1px solid var(--gold);background:#1d1a10;padding:7px 9px;margin-bottom:7px}
+.turnhead i{display:block;font:800 10px var(--d);letter-spacing:.1em;color:var(--gold);font-style:normal}
+.turnhead s{display:block;font-size:10.5px;color:var(--mut);text-decoration:none;margin-top:3px;line-height:1.35}
+.arow{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:8px;align-items:center;width:100%;
+  min-height:44px;border:1px solid var(--line);background:#141c20;padding:5px 8px;margin-bottom:4px;text-align:left}
+.arow .ic{width:22px;height:22px;border:1px solid var(--edge);display:grid;place-items:center;
+  font:800 10px var(--d);flex:0 0 auto}
+.arow .tx{min-width:0}
+.arow .tx i{display:block;font:800 11px var(--d);letter-spacing:.04em;font-style:normal;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.arow .tx s{display:block;font-size:9.5px;color:var(--mut);text-decoration:none;margin-top:1px;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.arow .cost{border:1px solid var(--edge);padding:2px 5px;font:800 8.5px var(--d);white-space:nowrap;flex:0 0 auto}
+.arow[disabled]{opacity:.34}
+.arow[disabled] .cost{text-decoration:line-through}
+.arow.hot{border-color:var(--gold)}
+.arow.hot .cost{border-color:var(--gold);color:var(--gold)}
+
+/* ---------- card rail ---------- */
+.rail,.mini{display:flex;gap:6px;overflow-x:auto;padding:2px 8px 8px}
+.mini{padding:0}
+.card{flex:0 0 118px;min-height:84px;border:1.5px solid #a9b1b3;background:#1d262b;padding:6px;
+  text-align:left;position:relative;border-radius:3px;display:flex;flex-direction:column}
+.mini .card{flex:0 0 108px;min-height:74px}
+.card .k{font:800 7.5px var(--d);letter-spacing:.1em;border-bottom:1px solid #7f888c;
+  padding-bottom:3px;display:block;color:var(--cool)}
+.card .n{font:800 11px/1.1 var(--d);text-transform:uppercase;margin-top:5px;display:block}
+.card .ce{font-size:8px;line-height:1.3;color:var(--mut);margin-top:4px;display:block}
+.card.con{background:repeating-linear-gradient(135deg,#1a2124 0 7px,#313a3e 7px 10px);border:3px double #b9c0c2}
+.card.con .k{color:var(--hot)}
+.card.unv{border-style:dashed;opacity:.72}
+.card.unv .n{color:var(--dim)}
+
+/* ---------- annotations ---------- */
+.notes{margin-top:12px;border:1px solid var(--line);background:var(--p1);padding:12px 14px}
+.notes h4{font:800 10px var(--d);letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:7px}
+.notes ul{margin:0;padding-left:16px}
+.notes li{font-size:11.5px;line-height:1.55;color:var(--mut);margin-bottom:5px}
+.notes li b{color:var(--ink);font-weight:700}
+.notes .cost{margin-top:9px;padding-top:8px;border-top:1px solid var(--line);font-size:11px;color:var(--dim)}
+.ctl{display:flex;gap:6px;margin-bottom:10px;flex-wrap:wrap}
+.ctl button{border:1px solid var(--edge);background:#141c20;padding:7px 10px;font:800 9.5px var(--d);letter-spacing:.07em}
+.ctl button.on{background:#efece2;color:#0a0d0f;border-color:#fff}
+.gray .phone{filter:grayscale(1)}
+.toast{position:absolute;left:9px;right:92px;top:9px;border:1px solid var(--edge);background:rgba(12,17,20,.95);
+  padding:7px 9px;font-size:10.5px;line-height:1.4;color:var(--mut);z-index:5}
+.toast b{display:block;font:800 10px var(--d);letter-spacing:.08em;color:var(--ink);text-transform:uppercase}

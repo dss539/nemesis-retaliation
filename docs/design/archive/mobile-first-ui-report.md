@@ -1,5 +1,8 @@
 # Mobile-First UI Design Report — Nemesis: Retaliation Digital Edition
 
+> **ARCHIVED (2026-07-30).** Superseded by `../play-area-design.md`, the active design authority. Kept for citations and QA methodology only. Do not implement from this document.
+
+
 **Date:** 2026-07-28
 **Status:** Concept stage — prototype and automated QA complete
 **Authority:** Official rulebook and FAQ v1.2 are the sole rules authority. Existing engine behavior is not.

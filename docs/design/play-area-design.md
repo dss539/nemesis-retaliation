@@ -8,9 +8,17 @@
 
 - `mobile-information-classification.md` — **valid and foundational.** Its Always / Sometimes / Not-visible inventory and privacy boundary definitions are inputs to this document.
 - `mobile-tactical-map-interaction.md` — **largely compatible.** Its continuous camera + semantic zoom levels + room-focus model remains adopted. Where it implies urgency promotion (principle 6, "urgent global danger must remain visible" as elevated emphasis), the Equal Weighting principle below overrides: urgent state must remain *visible*, never *amplified*.
-- `mobile-first-ui-report.md` — **historical concept, not binding.** Consult for citations and viewport QA methodology only. Its specific screen layouts do not constrain this design.
+- `mobile-first-ui-report.md` — **archived** to `archive/mobile-first-ui-report.md`. Historical concept, not binding. Consult for citations and viewport QA methodology only. Its specific screen layouts do not constrain this design.
 - `architecture.md` — engineering record; unchanged by this document.
 - `docs/rules/` — rules authority for *what* is tracked. This document only decides *how* it is shown.
+
+## Relationship to the existing implementation
+
+The current code (`js/render.js`, `js/ui.js`, and related) predates this design and **is not evidence of design intent**. When this document and the implementation disagree, the implementation is wrong or merely legacy.
+
+- **Keep:** the rules engine (`js/engine.js`), networking model, hex geometry/fixed 23-slot field, and the invalid-targets-omitted targeting rule — these are compatible with this design or governed by `docs/rules/`.
+- **Do not preserve for its own sake:** existing panel/tab layout, compass picker remnants, current card area, current status presentation, or any UI structure. Rebuild these surfaces from this document, reusing code only where it happens to fit.
+- **Never** infer a design decision from what the current UI does. Design questions are answered by this document, the rules corpus, and the physical game — in that order of proximity, with the rules corpus authoritative on rules.
 
 ## Core principle: decompose the mat, don't replicate it
 
