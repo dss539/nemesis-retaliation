@@ -75,6 +75,17 @@ The pileup problem: one hex may hold identity, fire, malfunction, per-edge doors
 - **Actions:** the actions list is always visible and primary; cards are secondary in a drawer that peeks its top edge (established preference). 
 - **Piles/decks:** behind one gesture (drawer or tab), consistent with the classification doc's "Sometimes" tier.
 
+## Focused room view (tap-to-truth)
+
+The authoritative detail view for a single room. Decisions:
+
+1. **Renders in place.** Camera zooms to the room; the hex itself becomes the detail canvas. No floating overlay (adopted from the map-interaction spec).
+2. **Inspector only.** Read-only. Actions stay in the persistent action bar with map targeting; "look" and "do" never share a tap.
+3. **Any explored room, any time.** Matches leaning over the table. Privacy boundary holds: backpacks hidden, open-carried items shown.
+4. **Contents:** full occupant list (exact intruder types, carried items incl. eggs), floor items, fire/malfunction/secure, egg/nest state, per-edge door states, and full room-effect wording (rules-corpus text, labeled if interpretation) — the home of "Sometimes"-tier reference info.
+5. **One grammar, two densities.** Same fixed-zone layout as the small glyph, expanded — occupants center with labels, hazards in their corner, effect text along the bottom, doors on their edges. The focused view is the glyph magnified, not a new vocabulary.
+6. **Adjacent noise shown.** Noise values on the six adjacent corridors render in the focused view (player-confirmed) — equivalent to reading physically adjacent tiles while leaning in; not assistance.
+
 ## Decisions log (this session)
 
 | # | Decision |
