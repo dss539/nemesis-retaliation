@@ -41,12 +41,12 @@ The wording “must,” “may,” and “cannot” is deliberate:
 
 ## Corpus map
 
-- `00-foundations.md` — scope, terminology, Room geometry, and cross-cutting conventions (FND-001–005).
+- `00-foundations.md` — scope, terminology, Room geometry, Corridor spacing/extent, and cross-cutting conventions (FND-001–005).
 - `01-round-and-turns.md` — round sequence, phases, turns, pass, actions, cleanup, death, endgame triggers (RT-001–015, 7 examples).
-- `02-character-actions.md` — all player action procedures: move, explore, search, shoot, burst, melee, trade, doors, noise (ACT-*-001, 8 examples).
+- `02-character-actions.md` — all player action procedures: move, explore, search, shoot, burst, melee, trade, doors, noise, plus Action card identity (ACT-*-001, ACT-CARD-001–002, 8 examples).
 - `03-intruders-and-survival.md` — intruder bag, movement, attacks, health, contamination, eclosion, escape, endgame resolution (INT-001–011, 6 examples).
 - `deviations.md` — intentional digital adaptations and 17 known deviations cross-referenced to rule records.
-- `open-questions.md` — 8 unresolved ambiguities from the source material.
+- `open-questions.md` — 10 unresolved ambiguities from the source material.
 - `sources.md` — source editions and citation conventions.
 
 ## Rule ID conventions
@@ -54,6 +54,7 @@ The wording “must,” “may,” and “cannot” is deliberate:
 - FND-### — foundations and conventions
 - RT-### — round, phase, and turn rules
 - ACT-NAME-### — character action rules
+- ACT-CARD-### — Action card object rules (distinct from Basic Actions)
 - INT-### — intruder and resolution-critical system rules
 - EX-TYPE-### — worked examples
 - KNOWN-DEV-### — known deviations from official rules

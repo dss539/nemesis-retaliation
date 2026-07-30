@@ -94,3 +94,11 @@ Use this ledger for ambiguities that the official rulebook and FAQ do not settle
 - **Sources checked:** Current extracted rulebook text did not yield the relevant event-card resolution. The official event card and any FAQ clarification must be inspected directly.
 - **Candidate readings:** None adopted. The physical-game procedure is authoritative.
 - **Status:** Open, pending transcription of the relevant official event card/rule/FAQ text.
+
+### OQ-010 — Action card faces are not recoverable from extracted text
+
+- **Question:** What are the named Action card faces in each Character's 10-card deck, and each face's printed effect, Reaction, and Not-in-Combat state?
+- **Why it matters:** Action cards are the player's primary resource and the only way to resolve the zero-cost `Play an Action card` Basic Action. Without real faces, the engine cannot resolve card effects and the UI cannot display a hand faithfully. See ACT-CARD-001 and BUG-023.
+- **Sources checked:** `docs/rulebooks/rulebook_text.txt` — the rulebook pictures only a few example card faces rather than listing decks. Only **Sprint** (Recon) and **Duck and Cover** (Contractor: Consultant) are recoverable, plus the anatomy diagram on p. 14. The component list gives a total of 60 Action cards (line 528) with no per-Character breakdown. Web search returned no authoritative Retaliation-specific card list; results were paywalled or covered the earlier *Nemesis* game, whose card list must not be substituted.
+- **Candidate readings:** None adopted. Inventing card faces is explicitly forbidden by the corpus coverage discipline.
+- **Status:** Open. Requires transcription from the physical cards or an official card-list export. Until then, unverified faces must be labelled as unverified in prototypes and must not be committed to `data.js` as if authoritative.

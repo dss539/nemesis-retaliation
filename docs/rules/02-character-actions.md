@@ -196,6 +196,11 @@
 - **Source:** Rulebook pp. 22–23, “Doors” / “Interacting with Doors.”
 - **Blocking rule:** A Closed Door blocks access to every object/effect on the other side except Noise markers. Characters cannot move, Burst, reinforce a Corridor, command another Character, throw grenades, or otherwise affect objects through it. Noise markers may still be placed or discarded through Closed Doors.
   - **Source:** Rulebook p. 22, “Blocking Path”; FAQ v1.2, “General rules” #8 (lines 52–57).
+- **Adjacency is preserved:** A Room and a Corridor joined by a Closed Door are still considered adjacent, and two Rooms with a Door between them are still considered neighboring. A Closed Door removes permission, not adjacency. Any rule that keys on “adjacent” or “neighboring” still applies across a Closed Door unless that rule is itself an access/effect the Door blocks.
+  - **Source:** Rulebook p. 22, “Doors” (extracted text lines 4244–4252).
+  - **Consequence for UI:** A Closed-Door destination must be presented as blocked-with-reason, not as non-adjacent. Omitting it entirely would misrepresent the map topology; see FND-005’s legal-target invariant, which excludes it from *Move choices* specifically.
+- **Door slot placement:** A Door slot sits at the end of a Corridor, against a Room, not at the Corridor’s midpoint. When a Corridor is placed during Exploration, orient its Door slot toward the newly Explored Room.
+  - **Source:** Rulebook p. 22, “Doors” note (line 4253–4255); Rulebook p. 24, “Exploration Sequence” (lines 4505–4508).
 - **Intruder movement:** Intruders attempting to move through a Closed Door destroy the Door instead and do not move in that movement attempt.
   - **Source:** Rulebook p. 31, “Intruders Moving Through Doors.”
 - **Fire:** Closed Doors prevent fire spreading between the blocked Rooms.
@@ -241,6 +246,36 @@
   2. For each card containing “INFECTED,” treat it as Infected; if the Character has no Larva, place one Larva on their Character board.
   3. Move all Contamination cards from hand to the top of the discard pile.
 - **Open issue:** The complete printed Rest card should be visually inspected before formalizing its full effect, cost, or restrictions.
+
+## ACT-CARD-001 — Action card identity and anatomy
+
+- **Classification:** Source-backed rule record. Added from the rulebook’s Action-card anatomy passage and card images.
+- **Source:** Rulebook p. 14, “Action cards” anatomy list A–E (extracted text lines 3161–3179); Rulebook p. 12, “Basic Actions List” (lines 2870–2900).
+- **Plain rule:** An Action card is a distinct game object from a Basic Action. A Basic Action is a always-available option printed on the Character board and paid for by discarding Action cards. An Action card is a named, Character-specific card with its own printed effect, resolved only through the zero-cost `Play an Action card` Basic Action.
+- **Card anatomy:** Each Action card has these printed parts:
+  1. **Not In Combat** symbol, when present — the card cannot be used in a Room with an Intruder.
+  2. **Title** — the card’s name.
+  3. **Action Card’s Effects** — the effect resolved when the card is played.
+  4. **Reaction Effect**, when present — see RT-003; a Reaction is not an Action.
+  5. **Character** — the Character whose deck the card belongs to.
+- **Dual roles of one card:** The same physical card may be spent two different ways, and only one of them resolves its printed text:
+  - Discarded as *payment* for a Basic Action cost — its printed effect is **not** resolved (see the shared action framework, “Cost in Action Cards”).
+  - Played via `Play an Action card` — its printed effect **is** resolved, then it goes to the discard pile.
+- **Invariant:** An Action card’s Title must never be presented as if it were a Basic Action, and a Basic Action must never be presented as if it were a card in hand. A player choosing what to do selects a Basic Action; a player choosing what to spend or play selects a card.
+- **Naming invariant:** Action card identifiers must not reuse Basic Action names (`move`, `shoot`, `useRoom`, and similar). Reusing them makes the two categories indistinguishable in state, logs, and UI. See BUG-023.
+- **Confirmed card faces:** Only these base-box Action card faces are currently confirmed from official sources. All other faces are unverified and must not be invented:
+  - **Sprint** (Recon) — “Move. Then, you may spend 1 to Move again.” Source: Rulebook Recon card image (extracted text lines ~332–338).
+  - **Duck and Cover** (Contractor: Consultant) — “Discard 1 Action card to Move. During that Movement, Prevent 1 Intruder Attack.” Has a Reaction effect. Source: Rulebook pp. 14 and 13 card image (lines 3118–3127, 3190–3196).
+- **Deck size:** Each Character has their own Action deck; the project currently models 10 cards per Character. The rulebook lists 60 Action cards as a component total (line 528). The per-Character composition of named faces is not established by the extracted text.
+- **Open interpretation:** The full per-Character list of Action card faces, and each face’s printed cost/effect/Reaction/Not-In-Combat state, is not recoverable from the extracted rulebook text. Recorded as OQ-009.
+
+## ACT-CARD-002 — Contamination cards cannot pay Action costs
+
+- **Classification:** Source-backed rule record.
+- **Source:** Rulebook Contamination card face (extracted text lines ~352–360, “Can’t be discarded for Actions. You may discard this card when you Pass.”); Rulebook p. 14, “Passing.”
+- **Plain rule:** A Contamination card in hand cannot be discarded to pay a Basic Action’s Action-card cost.
+- **Exception:** When a player Passes, they may discard any number of Action **and** Contamination cards (see RT-007).
+- **Invariant:** Contamination cards share a common card back with Action cards specifically so other players cannot tell them apart. A player’s own hand may distinguish them; another player’s view must show only total hand size.
 
 ## Examples
 

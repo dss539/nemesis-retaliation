@@ -8,7 +8,7 @@
 
 - `mobile-information-classification.md` — **valid and foundational.** Its Always / Sometimes / Not-visible inventory and privacy boundary definitions are inputs to this document.
 - `mobile-tactical-map-interaction.md` — **largely compatible.** Its continuous camera + semantic zoom levels + room-focus model remains adopted. Where it implies urgency promotion (principle 6, "urgent global danger must remain visible" as elevated emphasis), the Equal Weighting principle below overrides: urgent state must remain *visible*, never *amplified*.
-- `mobile-first-ui-report.md` — **archived** to `archive/mobile-first-ui-report.md`. Historical concept, not binding. Consult for citations and viewport QA methodology only. Its specific screen layouts do not constrain this design.
+- `mobile-first-ui-report.md` — **archived** to `/archive/design/mobile-first-ui-report.md`. Historical concept, not binding. Consult for citations and viewport QA methodology only. Its specific screen layouts do not constrain this design.
 - `architecture.md` — engineering record; unchanged by this document.
 - `docs/rules/` — rules authority for *what* is tracked. This document only decides *how* it is shown.
 

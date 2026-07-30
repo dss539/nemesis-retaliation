@@ -50,10 +50,11 @@ Source: `docs/qa/full-game-rules-audit.md` (original audit), verified against cu
 | BUG-020 | Fire kills non-Larva Intruders | Confirmed | `engine.js:506-523` kills Adults at 1 Fire hit, Drones at 2. Rulebook: Fire cannot kill any Intruder except Larva. |
 | BUG-021 | Drone Room health uses Corridor rules | Confirmed | `actionShoot` at `engine.js:1301-1306` and `actionMelee` at `1375-1380` require 2 Drone hits regardless of location. Rulebook: Drone resilience applies only in corridors. |
 | BUG-022 | Queen bag token placed at undiscovered Nest room | Partial | Hidden-Nest event handling works for ev19/ev20. But `resolveIntruderToken()` at `engine.js:1191-1200` sets queen.location to room `nest` even while undiscovered. |
+| BUG-023 | Action deck is a placeholder that reuses Basic Action names | Confirmed | `createActionDeck()` in `engine.js` builds 10 cards from the literal strings `move`, `shoot`, `search`, `cautiousMove`, `useRoom`, `special`. These are Basic Action identifiers, not Action card faces, so cards are indistinguishable from actions in state, log, and UI, and no card has a printed effect to resolve. Violates ACT-CARD-001. Real faces are blocked on OQ-010. |
 
 ## Summary
 
-22 audited bugs: 11 fixed, 2 partial, 9 confirmed.
+23 audited bugs: 11 fixed, 2 partial, 10 confirmed.
 
 Recommended repair order (from QA audit, still valid):
 1. Objective choice timing and 3/2/2/1 rewards (BUG-003)
