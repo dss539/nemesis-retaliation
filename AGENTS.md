@@ -93,9 +93,10 @@ All official PDFs and extracted text are in `docs/rulebooks/` (gitignored):
 2. Read `docs/rules/README.md` and the relevant source-backed rules record before changing game mechanics
 3. Read `docs/rules/bug-tracker.md` and `docs/qa/full-game-rules-audit.md` for known rules failures
 4. Read `docs/design/architecture.md` for design decisions and TODO
-5. Rulebook PDFs and extracted text in `docs/rulebooks/` are the primary official source; FAQ/errata takes precedence
-6. To test multiplayer: use Playwright (installed on smithers), write a Python script that launches multiple headless Chromium instances. See `docs/qa/4browser_qa.py` for pattern.
-7. To test locally: `python3 -m http.server 8889` then open http://localhost:8889
+5. Read `docs/design/play-area-design.md` — the ACTIVE design authority for the play area surface (map, sections, room state, equal-weighting principle); it states its precedence over the older mobile-* design docs
+6. Rulebook PDFs and extracted text in `docs/rulebooks/` are the primary official source; FAQ/errata takes precedence
+7. To test multiplayer: use Playwright (installed on smithers), write a Python script that launches multiple headless Chromium instances. See `docs/qa/4browser_qa.py` for pattern.
+8. To test locally: `python3 -m http.server 8889` then open http://localhost:8889
 
 ## Future Work
 - Card art/graphics
