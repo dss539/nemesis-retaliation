@@ -86,6 +86,18 @@ The authoritative detail view for a single room. Decisions:
 5. **One grammar, two densities.** Same fixed-zone layout as the small glyph, expanded — occupants center with labels, hazards in their corner, effect text along the bottom, doors on their edges. The focused view is the glyph magnified, not a new vocabulary.
 6. **Adjacent noise shown.** Noise values on the six adjacent corridors render in the focused view (player-confirmed) — equivalent to reading physically adjacent tiles while leaning in; not assistance.
 
+## Character dashboard (decomposed)
+
+Physical board reference: `art-references/community-bgg/9017222-dashboards.jpg` — character tile center, hand slots top corners, tactical belt left edge, printed basic-actions list with discard costs right side, action discard + oxygen dial right edge, health track along the bottom split into Healthy / Injured / Heavily Injured sections with serious-wound slots.
+
+Decisions:
+
+1. **Split by lifecycle.** Body state (health section, oxygen, wounds, statuses) → always-on HUD strip. Equipment (hands, belt) → HUD silhouettes, tap to expand. Basic-actions list → the persistent action bar, costs inline. Backpack/discard → card drawer. No single dashboard screen in normal play.
+2. **Health as sections, not a number.** Three labeled segments (Healthy/Injured/Heavily Injured) with the marker in one and wounds occupying section slots — rules operate on sections (wound placement, armor), so a bare HP number misrepresents the mechanic.
+3. **Full-body view on tap.** Tapping own HUD strip opens the complete dashboard: expanded health track, named serious wounds, oxygen dial, statuses, hands, belt, backpack. Other players tapping your roster chip see the same layout privacy-filtered (no backpack, no hand cards). One layout, two privacy levels — same pattern as glyph vs focused room.
+4. **Oxygen always visible** (0–7 dial value) on own strip, next to health.
+5. **Printed actions reference preserved** (player-confirmed): the full basic-actions list with discard costs appears as static reference inside the expanded dashboard view, mimicking the physical board's teaching role. The action bar remains the contextual/legal-actions surface.
+
 ## Decisions log (this session)
 
 | # | Decision |
