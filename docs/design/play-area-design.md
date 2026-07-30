@@ -98,6 +98,19 @@ Decisions:
 4. **Oxygen always visible** (0–7 dial value) on own strip, next to health.
 5. **Printed actions reference preserved** (player-confirmed): the full basic-actions list with discard costs appears as static reference inside the expanded dashboard view, mimicking the physical board's teaching role. The action bar remains the contextual/legal-actions surface.
 
+## Action/card loop
+
+Card presentation rules (established preference): flat, opaque, large, no fanning; actions list always visible and primary; cards secondary in a peeking drawer.
+
+Decisions:
+
+1. **Two entry points, converging.** Action bar = basic/room/item actions (legal only, costs inline). Card drawer = play a card for its printed card action. Both feed the same resolution flow.
+2. **Declare → target → pay → confirm, one cancellable transaction.** Tap action; aim on the map (legal targets only); drawer rises with the hand flat and large; player picks exactly which cards to discard. Nothing reaches the engine until confirm; cancel rewinds cleanly. **Never auto-pay** — every card has dual use, so which card to burn is always the player's decision.
+3. **Pay-last ordering (deliberate deviation in sequence, not in rules outcome).** Targeting before payment prevents paying for an action with no valid target; cost is still fully paid before any effect resolves, matching tabletop resolution.
+4. **Skip ceremony when nothing to decide.** Costless, untargeted actions resolve on one tap, no confirm step. The transaction flow appears only when there is a target or a payment choice.
+5. **Action pips.** Two dots by the HUD strip showing actions remaining this turn — public, table-visible state.
+6. **Deck context while paying** (player-confirmed): the payment drawer shows the player's own action-deck and discard-pile counts alongside the hand — own info, printed on the physical board.
+
 ## Decisions log (this session)
 
 | # | Decision |
