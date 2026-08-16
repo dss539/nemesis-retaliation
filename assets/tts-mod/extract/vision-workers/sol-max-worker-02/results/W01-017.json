@@ -1,0 +1,100 @@
+{
+  "schemaVersion": 1,
+  "assetId": "W01-017",
+  "batchId": "batch-002",
+  "completedAt": "2026-08-15T21:23:45Z",
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/bags/queenBag-005.png",
+  "sourceSha256": "ff48a32deb7352b0b0f7f64244ea30c11fb02895f74c2fe98af6b9f783a013ce",
+  "sourceMetadata": {
+    "width": 344,
+    "height": 344,
+    "format": "PNG",
+    "mode": "RGBA",
+    "byteSize": 192929,
+    "frames": 1,
+    "decodeVerified": true
+  },
+  "runtimeProvenance": {
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "reasoningEffort": "max",
+    "platform": "subagent",
+    "workerId": "sol-max-worker-02",
+    "sessionId": "20260815_210607_461cc1",
+    "persistentSession": true,
+    "nativeVision": true,
+    "auxiliaryVisionUsed": false,
+    "qwenUsed": false
+  },
+  "orientation": {
+    "status": "upright",
+    "evidence": "QUEEN reads horizontally left-to-right along the lower edge.",
+    "transformApplied": null,
+    "stagingDerivative": null
+  },
+  "blindPixelObservations": [
+    "A circular green-teal emblem fills nearly the entire square canvas, with transparent corner margins and a pale outer rim.",
+    "At center is a symmetrical pale metallic creature-like head or mask with dark eye cavities and multiple hooked, serrated crescent blades curving upward on both sides.",
+    "The background resembles a green-lit chamber or dome with darker textured panels.",
+    "Large bold white uppercase text is centered across the bottom of the circle."
+  ],
+  "visibleText": [
+    {
+      "text": "QUEEN",
+      "location": "bottom center",
+      "structure": "large bold white uppercase word",
+      "confidence": "high"
+    }
+  ],
+  "iconMorphology": [
+    {
+      "location": "center of circular emblem",
+      "silhouette": "symmetrical pale creature-like head/mask framed by paired upward-curving serrated crescents",
+      "internalMarks": "dark eye-like cavities and layered pale/dark facial plates",
+      "colors": "pale gray-white and dark green-black on teal",
+      "claimedToken": null,
+      "closestPlausibleCanonicalAlternative": "intruder",
+      "visibleDiscriminatingFeature": "The glossary intruder is a single white organic curled silhouette with a spined back and tail; this is detailed metallic bespoke art with paired blade crescents and the printed word QUEEN, so no glossary token is claimed."
+    }
+  ],
+  "evidenceConsulted": {
+    "blindPixelRecord": "raw/W01-017.json",
+    "metadataJoin": "metadata/provenance/W01-017.json",
+    "tts": {
+      "consultedAfterBlindRecord": true,
+      "manifestUrl": "https://steamusercontent-a.akamaihd.net/ugc/11923313302657546/9A2C57FB945D0342FCE66C6D0734688FDC3339B5/",
+      "finding": "The URL is the DiffuseURL of base Custom_Model_Bag 52ae01 with Lua role queenBag and enemybag gmnotes, and the ImageURL of nine contained base Custom_Tile objects tagged queenToken."
+    },
+    "official": {
+      "consulted": false,
+      "reason": "The central emblem is retained as bespoke literal art; no canonical glossary token or rules text is claimed, and TTS provenance is internally consistent."
+    }
+  },
+  "proposedClassification": "Non-card base-game Queen token/bag emblem shared as the queenBag DiffuseURL and nine contained queenToken ImageURLs.",
+  "proposedPath": "assets/tts-mod/extract/v2-dl/tree/bags/queenBag-005.png (retain unchanged; no move or canonical sidecar proposed)",
+  "readConfidence": {
+    "level": "high",
+    "reason": "QUEEN, the round-emblem layout, and the central bespoke artwork are clearly visible."
+  },
+  "classificationConfidence": {
+    "level": "high",
+    "reason": "Visible QUEEN text and emblem morphology independently agree with the explicit queenBag/queenToken TTS references."
+  },
+  "uncertainties": [],
+  "promotionDecision": "non-card-complete",
+  "decisionReasons": [
+    "This is non-card token/container artwork and requires no card-text sidecar.",
+    "The exact visible label QUEEN is unambiguous, and all ten TTS references consistently identify queen bag/token use.",
+    "The central bespoke art is not forced into the canonical icon glossary."
+  ],
+  "stagedCandidateSidecarPath": null,
+  "validationPerformed": [
+    "Preflight recomputed the source SHA-256 immediately before native attachment and matched the live assignment.",
+    "Pillow decoded and verified the 344x344 one-frame PNG.",
+    "The image was attached and inspected natively as W01-017 in batch-002 through the verified Sol Max route.",
+    "Blind observations were persisted before TTS metadata was consulted.",
+    "All ten matching TTS URL references and the queenBag Lua role were reconciled.",
+    "No source, canonical sidecar, shared ledger, manifest, catalog, or prior-worker file was modified."
+  ],
+  "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-worker-02/raw/W01-017.json"
+}

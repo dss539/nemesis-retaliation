@@ -1,0 +1,90 @@
+{
+  "schemaVersion": 1,
+  "assetId": "W01-001",
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/bags/adult-007.png",
+  "sourceSha256": "f9f39f99fba8199f4124b72ffe82c95e4660143f4cef486c430021a9cf314d08",
+  "sourceMetadata": {
+    "width": 385,
+    "height": 300,
+    "format": "PNG",
+    "mode": "RGBA",
+    "byteSize": 166879
+  },
+  "runtimeProvenance": {
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "reasoningEffort": "max",
+    "platform": "subagent",
+    "workerId": "sol-max-worker-01",
+    "sessionProvenanceHandle": "hermes_rpc_dfba82c30cd846b6bc4eced43002e707.sock",
+    "persistentSession": true,
+    "nativeVision": true,
+    "auxiliaryVisionUsed": false
+  },
+  "orientation": {
+    "status": "upright",
+    "evidence": "Feet/ground haze align with the lower edge; no rotation applied.",
+    "transformApplied": null,
+    "stagingDerivative": null
+  },
+  "blindPixelObservations": [
+    "Irregular teal mist backing with transparent margins.",
+    "Detailed gray-black left-facing creature in a low lunge, with red-orange exposed grooves, long clawed limbs, tall dorsal spines, and a thin tail curling right.",
+    "Painterly isolated artwork; no card frame or printed rules panel."
+  ],
+  "visibleText": [],
+  "iconMorphology": [],
+  "evidenceConsulted": {
+    "tts": {
+      "consultedAfterBlindRecord": true,
+      "trigger": "Pixels established creature art but not the exact TTS component role.",
+      "manifestUrl": "https://steamusercontent-a.akamaihd.net/ugc/11923313306143091/9FB4699C9C15617EF54192FE5C145B91A17560B0/",
+      "objectReferences": [
+        {
+          "guid": "d85f3b",
+          "type": "Bag",
+          "nickname": "Adult",
+          "urlRole": "ImageURL"
+        },
+        {
+          "guid": "3a5470",
+          "type": "Figurine_Custom",
+          "gmnotes": "adult",
+          "parentGuid": "d85f3b",
+          "urlRole": "ImageURL"
+        }
+      ]
+    },
+    "official": {
+      "consulted": false,
+      "reason": "No rules text, glossary-token claim, ambiguity, or source conflict required official escalation."
+    }
+  },
+  "proposedClassification": "Non-card Adult creature artwork shared by a TTS Bag image and a contained Figurine_Custom image.",
+  "proposedPath": "assets/tts-mod/extract/v2-dl/tree/bags/adult-007.png (retain unchanged; no canonical move proposed)",
+  "readConfidence": {
+    "level": "high",
+    "reason": "The artwork contains no text and its visible morphology is clear at native resolution."
+  },
+  "classificationConfidence": {
+    "level": "high",
+    "reason": "Blind creature-art observations align with explicit TTS Bag nickname and contained figurine gmnotes."
+  },
+  "uncertainties": [],
+  "promotionDecision": "non-card-complete",
+  "decisionReasons": [
+    "This is not a rules-card face and needs no card-text sidecar.",
+    "Pixel content and TTS role agree on Adult creature/container artwork.",
+    "No icon identifier or unreadable material is being promoted."
+  ],
+  "stagedCandidateSidecarPath": null,
+  "validationPerformed": [
+    "Assignment SHA-256 matched source bytes.",
+    "Pillow decoded and verified the 385x300 PNG.",
+    "Native vision attachment was inspected independently as W01-001.",
+    "Blind observations were persisted before TTS metadata was consulted.",
+    "Manifest URL and both matching object URL roles were resolved.",
+    "No source file or canonical/shared ledger was modified."
+  ],
+  "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-worker-01/raw/W01-001.json"
+}

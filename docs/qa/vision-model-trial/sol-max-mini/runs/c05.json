@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "caseId": "c05",
+  "tier": "human-approved-card",
+  "sourceSha256": "ef45f7b5fc21026faa0af8413abf2d35539938484415d1c3fb84e2c0ff0133fe",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "reasoning": "max",
+  "nativeImageAttachment": true,
+  "safeMode": true,
+  "promptSha256": "49aaf5b24a0cf146faf915b3dff26a370629dc205f337a296644c004550d6b80",
+  "startedAtEpoch": 1786781392.703329,
+  "endedAtEpoch": 1786781491.444681,
+  "durationSeconds": 98.741,
+  "returnCode": 0,
+  "sessionId": "20260815_080953_335c25",
+  "stdout": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Parsing card text and icons**\n\n**Identifying shoot die and ammo icons**\n\n**Clarifying ammo token versus slot morphology**\n\n**Inspecting tactical gear token slot**\n\n**Confirming ammo slot morphology and placement**\n\n**Identifying ammo token and ammo loss icons**\n\n**Identifying shootDieAmmoLoss icon**\n\n**Verifying shoot text formatting and ammoSlot icon**\n\n**Distinguishing ammoToken from similar red icons**\n\n**Categorizing item as ranged weapon card**\n\n**Defining sidecar keys for ranged weapon card**\n\n**Confirming ranged weapon rifle classification**\n\n**Analyzing shotgun rule icon details**\n\n**Identifying ammo slot and tactical gear icons**\n\n**Verifying skull versus flame icon details**\n\n**Clarifying ammo loss icon meaning**\n\n**Confirming damage and ammo icon details**\n\n**Identifying ammoSlot as red gear shape**\n\n**Finalizing card category and formatting**\n\n**Promoting automatic-shotgun image with layout notes**\n\n**Confirming final JSON structure****Parsing card text and icons**\n**Identifying shoot die and ammo icons**\n**Clarifying ammo token versus slot morphology**\n\n**Inspecting tactical gear token slot**\n**Confirming ammo slot morphology and placement**\n**Identifying ammo token and ammo loss icons**\n\n**Identifying shootDieAmmoLoss icon**\n**Verifying shoot text formatting and ammoSlot icon**\n**Distinguishing ammoToken from similar red icons**\n\n**Categorizing item as ranged weapon card**\n**Defining sidecar keys for ranged weapon card**\n**Confirming ranged weapon rifle classification**\n\n**Analyzing shotgun rule icon details**\n**Identifying ammo slot and tactical gear icons**\n**Verifying skull versus flame icon details**\n\n**Clarifying ammo loss icon meaning**\n**Confirming damage and ammo icon details**\n**Identifying ammoSlot as red gear shape**\n\n**Finalizing card category and formatting**\n**Promoting automatic-shotgun image with layout notes**\n{\n  \"orientation\": \"upright\",\n  \"componentType\": \"card\",\n  \"title\": \"AUTOMATIC SHOTGUN\",\n  \"typeLine\": \"RANGED WEAPON, RIFLE\",\n  \"body\": \"Shoot: On Hit deal 1 more.\\n[shootDieAmmoLoss]: Spend [ammoToken]\",\n  \"footer\": null,\n  \"standaloneSymbols\": {\n    \"lowerCenter\": \"ammoSlot\"\n  },\n  \"visibleOtherText\": [],\n  \"layoutNotes\": [\n    \"Title and yellow type line are centered above a firearm illustration.\",\n    \"Rules text is centered in the black lower panel.\",\n    \"The large red lower-center slot extends beyond the bottom image edge.\"\n  ],\n  \"categoryProposal\": \"ranged weapon / rifle\",\n  \"filenameProposal\": \"automatic-shotgun.png\",\n  \"sidecarCandidate\": {\n    \"typeLine\": \"RANGED WEAPON, RIFLE\",\n    \"body\": \"Shoot: On Hit deal 1 more.\\n[shootDieAmmoLoss]: Spend [ammoToken]\",\n    \"lowerCenter\": \"ammoSlot\"\n  },\n  \"uncertainties\": [],\n  \"confidence\": {\n    \"orientation\": \"high\",\n    \"text\": \"high\",\n    \"icons\": \"high\",\n    \"identity\": \"high\",\n    \"category\": \"high\",\n    \"overall\": \"high\"\n  },\n  \"decision\": \"promote\"\n}\n",
+  "stderr": "\nsession_id: 20260815_080953_335c25\n",
+  "parsedJson": {
+    "orientation": "upright",
+    "componentType": "card",
+    "title": "AUTOMATIC SHOTGUN",
+    "typeLine": "RANGED WEAPON, RIFLE",
+    "body": "Shoot: On Hit deal 1 more.\n[shootDieAmmoLoss]: Spend [ammoToken]",
+    "footer": null,
+    "standaloneSymbols": {
+      "lowerCenter": "ammoSlot"
+    },
+    "visibleOtherText": [],
+    "layoutNotes": [
+      "Title and yellow type line are centered above a firearm illustration.",
+      "Rules text is centered in the black lower panel.",
+      "The large red lower-center slot extends beyond the bottom image edge."
+    ],
+    "categoryProposal": "ranged weapon / rifle",
+    "filenameProposal": "automatic-shotgun.png",
+    "sidecarCandidate": {
+      "typeLine": "RANGED WEAPON, RIFLE",
+      "body": "Shoot: On Hit deal 1 more.\n[shootDieAmmoLoss]: Spend [ammoToken]",
+      "lowerCenter": "ammoSlot"
+    },
+    "uncertainties": [],
+    "confidence": {
+      "orientation": "high",
+      "text": "high",
+      "icons": "high",
+      "identity": "high",
+      "category": "high",
+      "overall": "high"
+    },
+    "decision": "promote"
+  },
+  "parseError": null
+}

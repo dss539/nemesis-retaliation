@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "frozenAt": "2026-08-15",
+  "model": "gpt-5.6-sol",
+  "provider": "openai-codex",
+  "reasoning": "high",
+  "cases": [
+    {
+      "id": "c03",
+      "tier": "human-approved-card",
+      "source": "cards/character/officer/action/chain-of-command.png",
+      "sourceSha256": "ac03ac0e56b1ec80da6113e1bd76bd82b8fc4bf323dc1a542db868437c35dc5d",
+      "goldSidecar": "cards/character/officer/action/chain-of-command.json",
+      "goldSidecarSha256": "716c0d2b4920c13a574229478e6e3cdfca11c9f321573e2f18a257d0fe367e1d",
+      "expected": {
+        "title": "CHAIN OF COMMAND",
+        "decision": "promote"
+      }
+    },
+    {
+      "id": "c05",
+      "tier": "human-approved-card",
+      "source": "cards/character/heavy-gun-operator/starting-item/automatic-shotgun.png",
+      "sourceSha256": "ef45f7b5fc21026faa0af8413abf2d35539938484415d1c3fb84e2c0ff0133fe",
+      "goldSidecar": "cards/character/heavy-gun-operator/starting-item/automatic-shotgun.json",
+      "goldSidecarSha256": "d7a6ea0bbfeea7e7ec5f0ca14f7f173de9f07421dde04d8fae16a7379dc64cbd",
+      "expected": {
+        "title": "AUTOMATIC SHOTGUN",
+        "decision": "promote"
+      }
+    }
+  ]
+}

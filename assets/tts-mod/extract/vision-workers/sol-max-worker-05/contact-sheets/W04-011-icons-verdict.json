@@ -1,0 +1,84 @@
+{
+  "schemaVersion": 1,
+  "createdAt": "2026-08-15T22:38:25Z",
+  "assetId": "W04-011",
+  "sourceState": {
+    "assetId": "W04-011",
+    "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-13.png",
+    "absoluteSourcePath": "/home/smithers/nemesis-retaliation/assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-13.png",
+    "sourceSha256": "b3b209538a4ac8554ae6e5230f4a98b1fa1ff3bd8f89b3ccfbee53d115997e9e",
+    "sourceMetadata": {
+      "width": 1052,
+      "height": 1433,
+      "format": "PNG",
+      "mode": "RGB",
+      "frames": 1,
+      "byteSize": 1637974,
+      "decodeVerified": true
+    }
+  },
+  "runtimeProvenance": {
+    "sessionId": "20260815_222507_ce8f8a",
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "reasoningEffort": "max",
+    "nativeImageRoute": {
+      "required": true,
+      "transport": "functions.vision_analyze direct local-path attachment to the active session model",
+      "auxiliaryVisionUsed": false,
+      "qwenUsed": false,
+      "ocrCanonicalEvidenceUsed": false,
+      "exerciseStatus": "exercised-and-sealed",
+      "verified": true,
+      "verificationStatus": "verified by successful direct native attachment of W04-009 to active session model",
+      "verificationEvidence": [
+        {
+          "assetId": "W04-009",
+          "exactSourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-11.png",
+          "transportResult": "functions.vision_analyze: Image loaded into your context — you can see it natively now",
+          "activeSessionId": "20260815_222507_ce8f8a",
+          "postAttachmentSessionDbModel": "gpt-5.6-sol",
+          "postAttachmentUsageProvider": "openai-codex",
+          "postAttachmentReasoningEffort": "max"
+        }
+      ]
+    }
+  },
+  "nativeCall": {
+    "submittedAssetIds": [
+      "W04-011-contact-icons"
+    ],
+    "returnedAssetIds": [
+      "W04-011-contact-icons"
+    ],
+    "submittedCount": 1,
+    "returnedCount": 1,
+    "idCountReconciled": true,
+    "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-worker-05/contact-sheets/W04-011-icons.png",
+    "contactSheetSha256": "57db268a9a38d1e9c3c7dfcf4676d9a6e147d57b41c79d61297b11f9388e1770",
+    "authoritativeCropCount": 49
+  },
+  "sourceCropComplete": true,
+  "sourceCropCompletenessBasis": "The tight crop visibly retains every tooth and the complete central hole; only neighboring text fragments appear in the outer margin.",
+  "verdict": {
+    "acceptedToken": "malfunction",
+    "confidence": "high direct morphology match",
+    "location": "second effect line between ‘a’ and ‘in’",
+    "sourceOuterSilhouette": "Light-gray cog with eight broad, unevenly oriented teeth around a circular body.",
+    "sourceInternalMarks": "One large dark circular center hole; no additional internal mark.",
+    "sourceColors": [
+      "light gray gear",
+      "dark center and surrounding field"
+    ],
+    "authoritativeMatchFeatures": [
+      "same light-gray cog color",
+      "same eight-tooth perimeter profile and tooth spacing",
+      "same large circular central negative space"
+    ],
+    "closestPlausibleAlternative": "autodestruction",
+    "visibleDiscriminatingFeature": "The source is one continuous toothed ring with eight perimeter teeth; autodestruction has three separated rounded lobes around a central circle and no cog teeth.",
+    "abstentionRequired": false
+  },
+  "all49AuthoritativeCropsDirectlyCompared": true,
+  "semanticContextUsedAsDiscriminator": false
+}

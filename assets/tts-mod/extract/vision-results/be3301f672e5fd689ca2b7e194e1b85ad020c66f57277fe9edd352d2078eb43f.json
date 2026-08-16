@@ -1,0 +1,101 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-083.jpg",
+  "sourceSha256": "be3301f672e5fd689ca2b7e194e1b85ad020c66f57277fe9edd352d2078eb43f",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_060447_4b77d0",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:41:14Z",
+  "completedAt": "2026-08-15T06:04:59Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "item card",
+    "cardSide": "face",
+    "title": "RPG LAUNCHER",
+    "typeLine": "ONE USE ONLY, HEAVY",
+    "body": "In a neighboring Room of your choice and all Corridors\nadjacent to that Room:\nDestroy all Doors, deal [ICON: white skull with three impact marks] to all [intruder],\nand each [character] loses 3[characterHealth].",
+    "footer": "",
+    "upperRight": "",
+    "lowerCenter": "",
+    "visibleText": "",
+    "confidentlyVisible": [
+      "White title above a yellow type line",
+      "Large illustration of a shoulder-fired launcher",
+      "Rules text occupies the lower portion",
+      "White curled exoskeleton glyph confidently matches [intruder]",
+      "White astronaut glyph confidently matches [character]",
+      "White cross with EKG glyph confidently matches [characterHealth]"
+    ],
+    "proposedCategory": "cards/game/item/weapon",
+    "proposedSlug": "rpg-launcher",
+    "confidence": "medium",
+    "uncertainties": [
+      "The white skull-with-impact-marks action/effect glyph is not in the supplied canonical glossary, so it is transcribed literally rather than assigned a meaning."
+    ]
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Planning image analysis approach****Planning image analysis approach****Analyzing image rotation effects on text orientation**\n\n\n**Planning text transcription after rotation****Analyzing image rotation effects on text orientation**\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Planning text transcription after rotation****Analyzing image rotation effects**\n\n\n{\"orientation\":\"rotate90ccw\",\"componentType\":\"item card\",\"cardSide\":\"face\",\"title\":\"RPG LAUNCHER\",\"typeLine\":\"ONE USE ONLY, HEAVY\",\"body\":\"In a neighboring Room of your choice and all Corridors\\nadjacent to that Room:\\nDestroy all Doors; deal [ICON: white skull-like glyph] to all [intruder],\\nand each [character] loses 3[characterHealth].\",\"footer\":\"\",\"upperRight\":\"\",\"lowerCenter\":\"\",\"visibleText\":\"\",\"confidentlyVisible\":[\"White title above a yellow uppercase type line\",\"Artwork depicts a large red, white, and black launcher\",\"Rules specify a neighboring Room and all Corridors adjacent to that Room\",\"The curled white exoskeleton glyph matches [intruder]\",\"The final cross-and-EKG glyph matches [characterHealth]\"],\"proposedCategory\":\"cards/game/item/heavy\",\"proposedSlug\":\"rpg-launcher\",\"confidence\":\"medium\",\"uncertainties\":[\"The white skull-like glyph after “deal” is not confidently represented in the supplied canonical glossary, so its meaning is not guessed.\",\"The astronaut-like glyph before “loses” is mapped to [character], but its small size and stylization introduce minor morphology uncertainty.\",\"The exact semantic subtype beyond the visibly printed HEAVY trait is uncertain.\"]}\n\nsession_id: 20260815_054114_be77fb\n",
+  "initialParsed": {
+    "orientation": "rotate90ccw",
+    "componentType": "item card",
+    "cardSide": "face",
+    "title": "RPG LAUNCHER",
+    "typeLine": "ONE USE ONLY, HEAVY",
+    "body": "In a neighboring Room of your choice and all Corridors\nadjacent to that Room:\nDestroy all Doors; deal [ICON: white skull-like glyph] to all [intruder],\nand each [character] loses 3[characterHealth].",
+    "footer": "",
+    "upperRight": "",
+    "lowerCenter": "",
+    "visibleText": "",
+    "confidentlyVisible": [
+      "White title above a yellow uppercase type line",
+      "Artwork depicts a large red, white, and black launcher",
+      "Rules specify a neighboring Room and all Corridors adjacent to that Room",
+      "The curled white exoskeleton glyph matches [intruder]",
+      "The final cross-and-EKG glyph matches [characterHealth]"
+    ],
+    "proposedCategory": "cards/game/item/heavy",
+    "proposedSlug": "rpg-launcher",
+    "confidence": "medium",
+    "uncertainties": [
+      "The white skull-like glyph after “deal” is not confidently represented in the supplied canonical glossary, so its meaning is not guessed.",
+      "The astronaut-like glyph before “loses” is mapped to [character], but its small size and stylization introduce minor morphology uncertainty.",
+      "The exact semantic subtype beyond the visibly printed HEAVY trait is uncertain."
+    ]
+  },
+  "initialSessionId": "20260815_054114_be77fb",
+  "orientationCorrection": "rotate90ccw",
+  "uprightRead": {
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "sessionId": "20260815_060447_4b77d0",
+    "completedAt": "2026-08-15T06:04:59Z",
+    "parsed": {
+      "orientation": "upright",
+      "componentType": "item card",
+      "cardSide": "face",
+      "title": "RPG LAUNCHER",
+      "typeLine": "ONE USE ONLY, HEAVY",
+      "body": "In a neighboring Room of your choice and all Corridors\nadjacent to that Room:\nDestroy all Doors, deal [ICON: white skull with three impact marks] to all [intruder],\nand each [character] loses 3[characterHealth].",
+      "footer": "",
+      "upperRight": "",
+      "lowerCenter": "",
+      "visibleText": "",
+      "confidentlyVisible": [
+        "White title above a yellow type line",
+        "Large illustration of a shoulder-fired launcher",
+        "Rules text occupies the lower portion",
+        "White curled exoskeleton glyph confidently matches [intruder]",
+        "White astronaut glyph confidently matches [character]",
+        "White cross with EKG glyph confidently matches [characterHealth]"
+      ],
+      "proposedCategory": "cards/game/item/weapon",
+      "proposedSlug": "rpg-launcher",
+      "confidence": "medium",
+      "uncertainties": [
+        "The white skull-with-impact-marks action/effect glyph is not in the supplied canonical glossary, so it is transcribed literally rather than assigned a meaning."
+      ]
+    },
+    "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Transcribing game card icons and text****Transcribing game card icons and text**\n\nsession_id: 20260815_060447_4b77d0\n{\"orientation\":\"upright\",\"componentType\":\"item card\",\"cardSide\":\"face\",\"title\":\"RPG LAUNCHER\",\"typeLine\":\"ONE USE ONLY, HEAVY\",\"body\":\"In a neighboring Room of your choice and all Corridors\\nadjacent to that Room:\\nDestroy all Doors, deal [ICON: white skull with three impact marks] to all [intruder],\\nand each [character] loses 3[characterHealth].\",\"footer\":\"\",\"upperRight\":\"\",\"lowerCenter\":\"\",\"visibleText\":\"\",\"confidentlyVisible\":[\"White title above a yellow type line\",\"Large illustration of a shoulder-fired launcher\",\"Rules text occupies the lower portion\",\"White curled exoskeleton glyph confidently matches [intruder]\",\"White astronaut glyph confidently matches [character]\",\"White cross with EKG glyph confidently matches [characterHealth]\"],\"proposedCategory\":\"cards/game/item/weapon\",\"proposedSlug\":\"rpg-launcher\",\"confidence\":\"medium\",\"uncertainties\":[\"The white skull-with-impact-marks action/effect glyph is not in the supplied canonical glossary, so it is transcribed literally rather than assigned a meaning.\"]}\n"
+  }
+}

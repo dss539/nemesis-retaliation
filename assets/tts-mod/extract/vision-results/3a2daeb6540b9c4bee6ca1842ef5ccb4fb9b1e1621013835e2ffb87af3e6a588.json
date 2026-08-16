@@ -1,0 +1,84 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/recon-007.png",
+  "sourceSha256": "3a2daeb6540b9c4bee6ca1842ef5ccb4fb9b1e1621013835e2ffb87af3e6a588",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_051351_73345d",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:13:50Z",
+  "completedAt": "2026-08-15T05:14:52Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "character action card",
+    "cardSide": "face",
+    "title": "SECURE",
+    "typeLine": "",
+    "body": "Place 2 [secure].\n\nOR\n\nDiscard 1 [actionCard]. Reinforce 1 empty Corridor that leads\nto a Room with a Character or [robot].",
+    "footer": "RECON",
+    "upperRight": "notInCombat",
+    "lowerCenter": "",
+    "visibleText": "",
+    "confidentlyVisible": [
+      "Upright white typography within a magenta science-fiction frame",
+      "Armored humanoid holding a large firearm in the central artwork",
+      "Small red multi-rotor flying device above the humanoid",
+      "Red X over a white firearm-like symbol in the upper-right corner",
+      "SECURE appears as the large centered title",
+      "RECON appears centered at the bottom"
+    ],
+    "proposedCategory": "cards/character/recon/action",
+    "proposedSlug": "secure",
+    "confidence": "high",
+    "uncertainties": []
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Loading and analyzing image icons**\n\n**Zooming in to inspect icon pixels****Loading and analyzing image icons**\n**Zooming in to inspect icon pixels****Deciding shield icon mapping as secure**\n\n**Confirming canonical icon mappings for text**\n\n**Categorizing card as character recon action**\n\n**Planning high-resolution icon cropping****Deciding shield icon mapping as secure**\n**Confirming canonical icon mappings for text**\n**Categorizing card as character recon action**\n\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Planning high-resolution icon cropping****Identifying secure shield icon morphology**\n\n\n**Confirming icon assignments and layout structure**\n\n**Noting punctuation after icons in text**\n\n**Identifying game token icons**\n\n{\"orientation\":\"upright\",\"componentType\":\"character action card\",\"cardSide\":\"face\",\"title\":\"SECURE\",\"typeLine\":\"\",\"body\":\"Place 2 [secure].\\n\\nOR\\n\\nDiscard 1 [actionCard]. Reinforce 1 empty Corridor that leads\\nto a Room with a Character or [robot].\",\"footer\":\"RECON\",\"upperRight\":\"notInCombat\",\"lowerCenter\":\"\",\"visibleText\":\"\",\"confidentlyVisible\":[\"Upright white typography within a magenta science-fiction frame\",\"Armored humanoid holding a large firearm in the central artwork\",\"Small red multi-rotor flying device above the humanoid\",\"Red X over a white firearm-like symbol in the upper-right corner\",\"SECURE appears as the large centered title\",\"RECON appears centered at the bottom\"],\"proposedCategory\":\"cards/character/recon/action\",\"proposedSlug\":\"secure\",\"confidence\":\"high\",\"uncertainties\":[]}\n\nsession_id: 20260815_051351_73345d\n",
+  "iconVerification": {
+    "status": "passed",
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "sessionId": "20260815_060738_1255aa",
+    "promptVersion": 1,
+    "completedAt": "2026-08-15T06:07:51Z",
+    "claimed": [
+      "actionCard",
+      "notInCombat",
+      "robot",
+      "secure"
+    ],
+    "parsed": {
+      "claims": [
+        {
+          "claimed": "actionCard",
+          "verdict": "match",
+          "actual": "actionCard",
+          "evidence": "One occurrence: black capital A centered in a white square with dark outline, matching the glossary glyph."
+        },
+        {
+          "claimed": "notInCombat",
+          "verdict": "match",
+          "actual": "notInCombat",
+          "evidence": "One occurrence: red diagonal cross over a white gun; this is the documented official variant of the glossary's crossed-out Intruder glyph."
+        },
+        {
+          "claimed": "robot",
+          "verdict": "match",
+          "actual": "robot",
+          "evidence": "One occurrence: white rounded robot head with two circular eyes, central lower notch, and small top stem, matching the glossary crop."
+        },
+        {
+          "claimed": "secure",
+          "verdict": "match",
+          "actual": "secure",
+          "evidence": "One occurrence: white angular shield with split upper shoulders and a pointed segmented lower half, matching the glossary crop."
+        }
+      ],
+      "allClaimsMatch": true,
+      "confidence": "high",
+      "uncertainties": []
+    },
+    "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Loading image skill resources****Loading image skill resources****Extracting and summarizing actionCard occurrences**\n\nsession_id: 20260815_060738_1255aa\n{\"claims\":[{\"claimed\":\"actionCard\",\"verdict\":\"match\",\"actual\":\"actionCard\",\"evidence\":\"One occurrence: black capital A centered in a white square with dark outline, matching the glossary glyph.\"},{\"claimed\":\"notInCombat\",\"verdict\":\"match\",\"actual\":\"notInCombat\",\"evidence\":\"One occurrence: red diagonal cross over a white gun; this is the documented official variant of the glossary's crossed-out Intruder glyph.\"},{\"claimed\":\"robot\",\"verdict\":\"match\",\"actual\":\"robot\",\"evidence\":\"One occurrence: white rounded robot head with two circular eyes, central lower notch, and small top stem, matching the glossary crop.\"},{\"claimed\":\"secure\",\"verdict\":\"match\",\"actual\":\"secure\",\"evidence\":\"One occurrence: white angular shield with split upper shoulders and a pointed segmented lower half, matching the glossary crop.\"}],\"allClaimsMatch\":true,\"confidence\":\"high\",\"uncertainties\":[]}\n",
+    "evidencePath": null
+  }
+}

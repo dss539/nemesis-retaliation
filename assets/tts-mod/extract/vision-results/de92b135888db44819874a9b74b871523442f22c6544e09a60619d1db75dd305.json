@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoopCustomDeck-008.jpg",
+  "sourceSha256": "de92b135888db44819874a9b74b871523442f22c6544e09a60619d1db75dd305",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_053540_5e9557",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:35:40Z",
+  "completedAt": "2026-08-15T05:36:01Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "cooperative objective card",
+    "cardSide": "face",
+    "title": "ONE FOR ALL",
+    "typeLine": "",
+    "body": "At least 1 [character] must Survive\nwith no Contamination.",
+    "footer": "SOLO / COOP",
+    "upperRight": "",
+    "lowerCenter": "",
+    "visibleText": "QUARANTINE",
+    "confidentlyVisible": [
+      "Portrait-oriented card face",
+      "Title and rules typography are upright",
+      "Artwork depicts a sealed doorway crossed by yellow quarantine tape",
+      "A yellow triangular biohazard warning sign appears on the doorway",
+      "The inline white glyph is an astronaut figure matching [character]",
+      "Title occupies a separate framed panel above the rules text",
+      "Footer is printed in green"
+    ],
+    "proposedCategory": "cards/game/objective",
+    "proposedSlug": "one-for-all",
+    "confidence": "medium",
+    "uncertainties": [
+      "The artwork contains multiple repeated, overlapping, clipped, and partially obscured instances of QUARANTINE; visibleText records only the confidently legible word without reconstructing or counting incomplete repetitions.",
+      "Small biohazard symbols in the artwork and on the tape are not glossary icons and are decorative rather than transcribed as rules glyphs."
+    ]
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Planning image inspection with vision tool****Planning image inspection with vision tool**\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Clarifying visibleText transcription criteria**\n\n{\"orientation\":\"upright\",\"componentType\":\"cooperative objective card\",\"cardSide\":\"face\",\"title\":\"ONE FOR ALL\",\"typeLine\":\"\",\"body\":\"At least 1 [character] must Survive\\nwith no Contamination.\",\"footer\":\"SOLO / COOP\",\"upperRight\":\"\",\"lowerCenter\":\"\",\"visibleText\":\"QUARANTINE\",\"confidentlyVisible\":[\"Portrait-oriented card face\",\"Title and rules typography are upright\",\"Artwork depicts a sealed doorway crossed by yellow quarantine tape\",\"A yellow triangular biohazard warning sign appears on the doorway\",\"The inline white glyph is an astronaut figure matching [character]\",\"Title occupies a separate framed panel above the rules text\",\"Footer is printed in green\"],\"proposedCategory\":\"cards/game/objective\",\"proposedSlug\":\"one-for-all\",\"confidence\":\"medium\",\"uncertainties\":[\"The artwork contains multiple repeated, overlapping, clipped, and partially obscured instances of QUARANTINE; visibleText records only the confidently legible word without reconstructing or counting incomplete repetitions.\",\"Small biohazard symbols in the artwork and on the tape are not glossary icons and are decorative rather than transcribed as rules glyphs.\"]}\n\nsession_id: 20260815_053540_5e9557\n"
+}

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nemesis: Retaliation — play-area map mockups</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h1>Play-area map mockups — per docs/design/play-area-design.md
+  <small>Standalone design mockups. No production code touched. Fixed 23-slot field (5/4/5/4/5),
+  regular pointy-top hexes, jigsaw sockets, printed seams + section labels + Life Support border
+  spots. Corridor proportions measured from the official rulebook map (page 19): centre step =
+  1.68× hex width, corridor body = 0.78× hex width — corridors are room-scale passages with
+  printed Noise values (1–4), not connector lines. Equal weighting: nothing pulses, nothing is
+  promoted.</small>
+</h1>
+
+<div class="controls" role="group" aria-label="View toggles">
+  <button id="btn-gray" aria-pressed="false">Grayscale (SC 1.4.1 check)</button>
+</div>
+
+<figure>
+  <div class="phone" id="p1"><p class="phone-cap">1 — FAR ZOOM · whole facility</p></div>
+  <figcaption>Semantic zoom, far: survival-critical set only — hazard badges, intruder count,
+  character dots (diamond dot = carrying Egg). Corridors at measured mat proportions with printed
+  Noise values always visible; N = a placed Noise marker (distinct fact). Sockets show jigsaw
+  nubs; seams + SECTION/LS row at top. Names appear at near zoom.</figcaption>
+</figure>
+
+<figure>
+  <div class="phone" id="p2"><p class="phone-cap">2 — NEAR ZOOM · congested room (pan/scroll)</p></div>
+  <figcaption>Same grammar, more density: names, section, door states (OPEN/SHUT text),
+  floor items, egg markers. Storage Room is the deliberate worst case: fire + malfunction +
+  3 characters + 2 intruder groups + 3 floor items — occupant cap 3 + "+N" overflow.</figcaption>
+</figure>
+
+<figure>
+  <div class="phone" id="p3"><p class="phone-cap">3 — MOVE TARGETING · legal only</p></div>
+  <figcaption>Move declared from Storage Room. Legal destinations highlighted (incl. one
+  exploration socket via unexplored corridor). The Nest is muted, not marked — SHUT door;
+  invalid targets omitted per established rule. Action list stays primary below the map.</figcaption>
+</figure>
+
+<figure>
+  <div class="phone" id="p4"><p class="phone-cap">4 — FOCUSED ROOM · tap-to-truth</p></div>
+  <figcaption>The hex becomes the detail canvas in place (no floating overlay): full occupant
+  list with carried Egg, exact intruder types, floor items, hazards, room-effect wording,
+  adjacent corridor noise. Read-only inspector; actions remain in the bar.</figcaption>
+</figure>
+
+<p class="note"><b>Fixed-zone proposal</b> (answers the open question in play-area-design.md):
+hazards top, occupants center, markers below center, name/section bottom — identical in every
+tile and in the focused view. <b>Sections verified:</b> the official playmat photo
+(art-references/official-gamefound/update-35/003…jpg) shows two long bright near-vertical seams
+at ≈0.38 and ≈0.63 of the mat width — the seams are straight vertical lines dividing the field
+into thirds (A west, B middle, C east), matching the engine's fixed placements (Landing Zone→A
+at 0,2; Hibernatorium→B at 2,0). All room names, effects, and occupant codes are verbatim from
+js/data.js. Corridor proportions measured from the rulebook map (page 19).</p>
+
+<script src="geometry.js"></script>
+<script src="render.js"></script>
+<script src="page.js"></script>
+</body>
+</html>

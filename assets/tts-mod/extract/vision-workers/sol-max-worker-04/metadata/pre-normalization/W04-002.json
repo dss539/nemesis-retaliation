@@ -1,0 +1,122 @@
+{
+  "schemaVersion": 1,
+  "assetId": "W04-002",
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-02.png",
+  "sourceSha256": "4718ad2194859f3f1d1ecb72e52481616156dcacad27f46e4969c98cd64eddab",
+  "sourceMetadata": {
+    "width": 1052,
+    "height": 1433,
+    "format": "PNG",
+    "mode": "RGB",
+    "frames": 1,
+    "byteSize": 1439449,
+    "decodeVerified": true
+  },
+  "batchId": "W04-B01",
+  "completedAt": "2026-08-15T22:02:51Z",
+  "runtimeProvenance": {
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "reasoningEffort": "max",
+    "platform": "subagent",
+    "sessionId": "20260815_215426_fac7ff",
+    "nativeImageRoute": "active-session native image attachment via functions.vision_analyze"
+  },
+  "orientation": {
+    "displayed": "upright portrait",
+    "final": "upright",
+    "rotationRequired": false
+  },
+  "blindPixelObservations": [
+    "Dark purple/orange portrait card showing an armed figure in a fiery industrial corridor.",
+    "White DEMOLITION title in a black angular magenta-framed banner.",
+    "Two short effect lines separated by OR; one pale toothed-ring glyph occurs inline in the second line.",
+    "No neighboring-cell text or artwork is visible."
+  ],
+  "visibleText": {
+    "title": "DEMOLITION",
+    "typeLine": "",
+    "body": "Remove 1 Door.\n\nOR\n\nPlace a [malfunction] in your Room.",
+    "footer": "RECON",
+    "upperRight": "",
+    "lowerCenter": "",
+    "edgeContamination": ""
+  },
+  "iconMorphology": [
+    {
+      "location": "second effect line between “a” and “in”",
+      "outerSilhouette": "pale broken gear ring with multiple blunt radial teeth and an upper-right opening/extended arm",
+      "internalMarks": "large dark circular center",
+      "colors": [
+        "light gray",
+        "white",
+        "dark background through center"
+      ],
+      "neighboringPrintedText": "Place a [glyph] in your Room.",
+      "closestPlausibleAlternative": "secure",
+      "visibleDiscriminatingFeature": "The source and malfunction crop share a broken toothed circular ring with a large hollow center; secure is a solid angular shield without teeth or a circular hole.",
+      "proposedToken": "malfunction",
+      "tokenVerification": "verified by exact same-session native comparison against worker-local direct source/glossary contact sheet",
+      "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-worker-04/contact-sheets/W04-002-inline-glyph.png",
+      "verdictPath": "assets/tts-mod/extract/vision-workers/sol-max-worker-04/contact-sheets/W04-002-inline-glyph-verdict.json"
+    }
+  ],
+  "evidenceConsulted": [
+    {
+      "kind": "blindNativeImage",
+      "path": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-02.png",
+      "timing": "before metadata/provenance"
+    },
+    {
+      "kind": "ttsProvenance",
+      "path": "assets/tts-mod/extract/vision-workers/sol-max-worker-04/provenance/W04-002.json",
+      "finding": "Generated cell 2 of a shared FaceURL sheet; no exact CardID % 100 == 2 object ref; common action back is generic."
+    },
+    {
+      "kind": "authoritativeGlossaryContactSheet",
+      "path": "assets/tts-mod/extract/vision-workers/sol-max-worker-04/contact-sheets/W04-002-inline-glyph.png",
+      "finding": "Exact broken gear-ring morphology establishes malfunction."
+    },
+    {
+      "kind": "canonicalTargetExistenceCheck",
+      "path": "cards/character/recon/action/demolition",
+      "finding": "No existing image or sidecar target."
+    }
+  ],
+  "proposedClassification": "individual portrait action-card face for the printed owner RECON, sourced from a shared FaceURL sheet",
+  "proposedPath": "cards/character/recon/action/demolition.png",
+  "canonicalTarget": "cards/character/recon/action/demolition.png",
+  "cardData": {
+    "cardSide": "face",
+    "title": "DEMOLITION",
+    "typeLine": "",
+    "body": "Remove 1 Door.\n\nOR\n\nPlace a [malfunction] in your Room.",
+    "footer": "RECON",
+    "upperRight": "",
+    "lowerCenter": "",
+    "category": "cards/character/recon/action",
+    "slug": "demolition"
+  },
+  "readConfidence": "high",
+  "classificationConfidence": "medium",
+  "uncertainties": [
+    "No parsed TTS Card object selects shared-sheet cell index 2, preventing an exact GUID/CardID-to-cell join.",
+    "Paired-side evidence is only the generic action-card BackURL used by other objects on the shared sheet, not an exact cell-specific pair."
+  ],
+  "promotionDecision": "defer",
+  "decisionReasons": [
+    "Strict promotion requires resolved individual card-index and paired-side provenance with no material uncertainty.",
+    "Text and icon are clear, but parsed TTS records do not select this source-sheet cell."
+  ],
+  "stagedCandidateSidecarPath": null,
+  "validationPerformed": [
+    "worker_utils.source_state hash/decode preflight before original and contact-sheet native attachments",
+    "raw blind record persisted before metadata access",
+    "manifest/classification/lua_roles provenance derived without predecessor output",
+    "same-session direct source-to-authoritative-glossary comparison completed",
+    "submitted/returned ID and count reconciled 1/1",
+    "canonical target checked and absent",
+    "result identity recomputed by worker_utils.write_result"
+  ],
+  "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-worker-04/raw/W04-002.json"
+}

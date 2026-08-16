@@ -1,0 +1,104 @@
+{
+  "schemaVersion": 1,
+  "assetId": "W01-015",
+  "batchId": "batch-001",
+  "completedAt": "2026-08-15T21:16:47Z",
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/bags/oxygenBag-031.jpg",
+  "sourceSha256": "2346e414c155836c1a2b5f6c1923770af88dc1b2f1f960950a57442f318039c2",
+  "sourceMetadata": {
+    "width": 305,
+    "height": 305,
+    "format": "JPEG",
+    "mode": "RGB",
+    "byteSize": 81927,
+    "frames": 1,
+    "decodeVerified": true
+  },
+  "runtimeProvenance": {
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "reasoningEffort": "max",
+    "platform": "subagent",
+    "workerId": "sol-max-worker-02",
+    "sessionId": "20260815_210607_461cc1",
+    "persistentSession": true,
+    "nativeVision": true,
+    "auxiliaryVisionUsed": false,
+    "qwenUsed": false
+  },
+  "orientation": {
+    "status": "upright",
+    "evidence": "The large +3 is horizontal and reads left-to-right, while the pictured canister stands vertically.",
+    "transformApplied": null,
+    "stagingDerivative": null
+  },
+  "blindPixelObservations": [
+    "A square black background has a dark embossed rectangular-panel texture.",
+    "Centered on it is an irregular amber-orange translucent beveled plaque with clipped/chamfered corners and a bright yellow-orange edge.",
+    "At the plaque's left is a vertical rounded metallic cylinder or canister with yellow caps/hardware and a bright cyan-blue central label or window.",
+    "A large white +3 with a dark outline overlays the center-right of the plaque."
+  ],
+  "visibleText": [
+    {
+      "text": "+3",
+      "location": "center-right",
+      "structure": "large white signed numeral with dark outline",
+      "confidence": "high"
+    }
+  ],
+  "iconMorphology": [
+    {
+      "location": "left side of the amber plaque",
+      "silhouette": "upright rounded cylindrical canister with capped ends and side framing",
+      "internalMarks": "bright cyan rectangular center panel/window; no legible letters",
+      "colors": "yellow-gold metal, cyan-blue center, dark shadows",
+      "claimedToken": null,
+      "closestPlausibleCanonicalAlternative": "oxygenToken",
+      "visibleDiscriminatingFeature": "The pixels show a shaded three-dimensional canister embedded in a large rectangular +3 texture, not an isolated compact Tactical Gear token glyph; no glossary token is claimed."
+    }
+  ],
+  "evidenceConsulted": {
+    "blindPixelRecord": "raw/W01-015.json",
+    "metadataJoin": "metadata/provenance/W01-015.json",
+    "tts": {
+      "consultedAfterBlindRecord": true,
+      "manifestUrl": "https://steamusercontent-a.akamaihd.net/ugc/2468613527880247093/862A1D630B1B975AA9CA1272162A56727C6F7496/",
+      "finding": "The URL is the DiffuseURL of base Custom_Model_Bag d2f7a3, whose explicit Lua role is oxygenBag."
+    },
+    "official": {
+      "consulted": false,
+      "reason": "No canonical glossary token is claimed and no source conflict or rules text requires official escalation."
+    },
+    "priorWorkerSemanticOutput": {
+      "consulted": false,
+      "reason": "W01-015 is a clean-context retry of an invalidated predecessor result."
+    }
+  },
+  "proposedClassification": "Non-card base-game oxygen infinite-bag/container DiffuseURL texture, visibly depicting a canister and +3.",
+  "proposedPath": "assets/tts-mod/extract/v2-dl/tree/bags/oxygenBag-031.jpg (retain unchanged; no move or canonical sidecar proposed)",
+  "readConfidence": {
+    "level": "high",
+    "reason": "The +3 and canister morphology are plainly visible with no small or clipped text."
+  },
+  "classificationConfidence": {
+    "level": "high",
+    "reason": "The non-card container-texture morphology aligns with the sole TTS Custom_Model_Bag DiffuseURL reference and explicit oxygenBag Lua role."
+  },
+  "uncertainties": [],
+  "promotionDecision": "non-card-complete",
+  "decisionReasons": [
+    "This is a TTS bag/container texture, not a rules-card face, so no card-text sidecar applies.",
+    "The exact visible modifier is transcribed as +3 without inferring an unsupported rules meaning.",
+    "The pictured canister is not forced into the icon glossary; its component role is corroborated by current TTS metadata."
+  ],
+  "stagedCandidateSidecarPath": null,
+  "validationPerformed": [
+    "Current source SHA-256 exactly matched the recovered live assignment tuple.",
+    "Pillow decoded and verified the 305x305 JPEG with one frame.",
+    "The image was attached and inspected natively as W01-015 in batch-001 through the verified Sol Max route.",
+    "Blind observations were persisted before TTS metadata was consulted.",
+    "The sole matching DiffuseURL reference and oxygenBag Lua role were resolved.",
+    "No source, canonical sidecar, shared ledger, manifest, catalog, or prior-worker file was modified."
+  ],
+  "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-worker-02/raw/W01-015.json"
+}

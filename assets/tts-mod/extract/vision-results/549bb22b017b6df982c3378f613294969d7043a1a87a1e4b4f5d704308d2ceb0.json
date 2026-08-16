@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/exploration-031.png",
+  "sourceSha256": "549bb22b017b6df982c3378f613294969d7043a1a87a1e4b4f5d704308d2ceb0",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_052632_f12018",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:26:31Z",
+  "completedAt": "2026-08-15T05:27:28Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "exploration instruction card",
+    "cardSide": "face",
+    "title": "",
+    "typeLine": "",
+    "body": "Place A/B/C Room\ndepending on your Section.\n\nReminder:\nPlace 1 [ICON: white faceted shield-shaped glyph] if you are Moving with [ICON: white faceted shield-shaped glyph].\n\nClose all doors around this room.\n\nMake a Noise roll.",
+    "footer": "",
+    "upperRight": "",
+    "lowerCenter": "",
+    "visibleText": "",
+    "confidentlyVisible": [
+      "White typography is upright and horizontally readable.",
+      "A central outlined hexagonal room contains a white [character] icon and a white [malfunction] icon.",
+      "The corridor branching right contains a yellow [noise] icon.",
+      "The two inline reminder glyphs are visually identical white faceted shield-like symbols.",
+      "Green divider lines separate the instruction, reminder, and final-effect panels.",
+      "The lower panel has an orange-brown background glow."
+    ],
+    "proposedCategory": "cards/game/exploration",
+    "proposedSlug": null,
+    "confidence": "medium",
+    "uncertainties": [
+      "The two identical inline white faceted glyphs do not confidently match any supplied canonical glossary icon, so their meaning is not assigned.",
+      "No explicit printed title is visible, so no semantic filename stem is proposed."
+    ]
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Planning parallel image analysis and viewing****Planning parallel image analysis and viewing**\n**Determining icon morphology and map token meanings**\n\n**Planning image cropping for icon inspection****Determining icon morphology and map token meanings**\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Planning image cropping for icon inspection****Interpreting exploration card details**\n\n\n**Confirming noise and movement icons**\n\n**Classifying card as exploration instruction**\n\n**Determining component identity from visible text**\n\n**Mapping yellow noise icon to card description**\n\n{\"orientation\":\"upright\",\"componentType\":\"exploration instruction card\",\"cardSide\":\"face\",\"title\":\"\",\"typeLine\":\"\",\"body\":\"Place A/B/C Room\\ndepending on your Section.\\n\\nReminder:\\nPlace 1 [ICON: white faceted shield-shaped glyph] if you are Moving with [ICON: white faceted shield-shaped glyph].\\n\\nClose all doors around this room.\\n\\nMake a Noise roll.\",\"footer\":\"\",\"upperRight\":\"\",\"lowerCenter\":\"\",\"visibleText\":\"\",\"confidentlyVisible\":[\"White typography is upright and horizontally readable.\",\"A central outlined hexagonal room contains a white [character] icon and a white [malfunction] icon.\",\"The corridor branching right contains a yellow [noise] icon.\",\"The two inline reminder glyphs are visually identical white faceted shield-like symbols.\",\"Green divider lines separate the instruction, reminder, and final-effect panels.\",\"The lower panel has an orange-brown background glow.\"],\"proposedCategory\":\"cards/game/exploration\",\"proposedSlug\":null,\"confidence\":\"medium\",\"uncertainties\":[\"The two identical inline white faceted glyphs do not confidently match any supplied canonical glossary icon, so their meaning is not assigned.\",\"No explicit printed title is visible, so no semantic filename stem is proposed.\"]}\n\nsession_id: 20260815_052632_f12018\n"
+}

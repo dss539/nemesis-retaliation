@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/action/rest.png",
+  "sourceSha256": "69eee8ba31616f20ac8859c7cd8dc908445ed85808004cfdedeeeb9968b473e3",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_051724_46a9ec",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:17:23Z",
+  "completedAt": "2026-08-15T05:17:57Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "character action card",
+    "cardSide": "face",
+    "title": "REST",
+    "typeLine": "",
+    "body": "Resolve the Infection Procedure.\nRemove all Uninfected cards from the game.\nInfection Procedure:\nScan all Contamination cards in hand.\nIf any of them are Infected, place a Larva\non your Character board.",
+    "footer": "CONTRACTOR",
+    "upperRight": "notInCombat",
+    "lowerCenter": "",
+    "visibleText": "",
+    "confidentlyVisible": [
+      "All typography is upright in the file.",
+      "The upper-right corner shows a white firearm crossed out by a red X.",
+      "The artwork depicts a seated person resting in a dim technological interior.",
+      "The title and rules text appear within metallic science-fiction framing."
+    ],
+    "proposedCategory": "cards/character/contractor/action",
+    "proposedSlug": "rest",
+    "confidence": "high",
+    "uncertainties": []
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Loading image analysis workflow skill****Loading image analysis workflow skill**\n**Designing precise character action card layout**\n\n**Finalizing character action card JSON structure**\n\n**Confirming illustrated character action card format****Designing precise character action card layout**\n**Finalizing character action card JSON structure**\n{\"orientation\":\"upright\",\"componentType\":\"character action card\",\"cardSide\":\"face\",\"title\":\"REST\",\"typeLine\":\"\",\"body\":\"Resolve the Infection Procedure.\\nRemove all Uninfected cards from the game.\\nInfection Procedure:\\nScan all Contamination cards in hand.\\nIf any of them are Infected, place a Larva\\non your Character board.\",\"footer\":\"CONTRACTOR\",\"upperRight\":\"notInCombat\",\"lowerCenter\":\"\",\"visibleText\":\"\",\"confidentlyVisible\":[\"All typography is upright in the file.\",\"The upper-right corner shows a white firearm crossed out by a red X.\",\"The artwork depicts a seated person resting in a dim technological interior.\",\"The title and rules text appear within metallic science-fiction framing.\"],\"proposedCategory\":\"cards/character/contractor/action\",\"proposedSlug\":\"rest\",\"confidence\":\"high\",\"uncertainties\":[]}\n\nsession_id: 20260815_051724_46a9ec\n",
+  "iconVerification": {
+    "status": "passed",
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "sessionId": "20260815_060746_e58347",
+    "promptVersion": 1,
+    "completedAt": "2026-08-15T06:07:54Z",
+    "claimed": [
+      "notInCombat"
+    ],
+    "parsed": {
+      "claims": [
+        {
+          "claimed": "notInCombat",
+          "verdict": "match",
+          "actual": "notInCombat",
+          "evidence": "The card contains one crossed-out white gun glyph with a red diagonal X; this matches the documented official notInCombat artwork variant of the glossary's crossed-out Intruder."
+        }
+      ],
+      "allClaimsMatch": true,
+      "confidence": "high",
+      "uncertainties": []
+    },
+    "cliOutput": "\nsession_id: 20260815_060746_e58347\n{\"claims\":[{\"claimed\":\"notInCombat\",\"verdict\":\"match\",\"actual\":\"notInCombat\",\"evidence\":\"The card contains one crossed-out white gun glyph with a red diagonal X; this matches the documented official notInCombat artwork variant of the glossary's crossed-out Intruder.\"}],\"allClaimsMatch\":true,\"confidence\":\"high\",\"uncertainties\":[]}\n",
+    "evidencePath": null
+  }
+}

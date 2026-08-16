@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "assetId": "W01-015",
+  "batchId": "batch-001",
+  "capturedAt": "2026-08-15T21:10:19Z",
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/bags/oxygenBag-031.jpg",
+  "sourceSha256": "2346e414c155836c1a2b5f6c1923770af88dc1b2f1f960950a57442f318039c2",
+  "runtimeProvenanceRef": "../metadata/runtime.json",
+  "blindAnalysis": true,
+  "metadataExcludedDuringPixelPass": [
+    "filename semantics",
+    "directory semantics",
+    "prior vision reads",
+    "TTS object metadata",
+    "game-context expectations"
+  ],
+  "orientationObservation": "The large +3 is horizontal and reads left-to-right, while the pictured cylinder stands vertically; the image is upright as displayed.",
+  "blindPixelObservations": [
+    "A square black background has a dark embossed rectangular-panel texture.",
+    "Centered on it is an irregular amber-orange translucent beveled plaque with clipped/chamfered corners and a bright yellow-orange edge.",
+    "At the plaque's left is a vertical rounded metallic cylinder or canister with yellow caps/hardware and a bright cyan-blue central label or window.",
+    "A large white +3 with a dark outline overlays the center-right of the plaque."
+  ],
+  "visibleText": [
+    {
+      "text": "+3",
+      "location": "center-right",
+      "structure": "large white signed numeral with dark outline",
+      "confidence": "high"
+    }
+  ],
+  "iconObservations": [
+    {
+      "location": "left side of amber plaque",
+      "silhouette": "upright rounded cylindrical canister with capped ends and side framing",
+      "internalMarks": "bright cyan rectangular center panel/window; no legible letters",
+      "colors": "yellow-gold metal, cyan-blue center, dark shadows",
+      "semanticLabel": null
+    }
+  ],
+  "rawNativeModelOutput": {
+    "orientation": "upright",
+    "text": ["+3"],
+    "literalSummary": "Amber beveled plaque showing a yellow-and-cyan vertical canister and the large modifier +3."
+  },
+  "uncertainties": [
+    "The canister is pictorial artwork; pixels alone do not establish whether it denotes a glossary token, a resource, or only container decoration.",
+    "The image does not state what quantity the +3 modifies."
+  ]
+}

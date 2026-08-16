@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/seriouswound-149_cards/card-01.png",
+  "sourceSha256": "42980fa5cef70e8ed40649d1495fc75c015c43f60ebb52961031d18f8f3e1564",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_054013_845b2c",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:40:12Z",
+  "completedAt": "2026-08-15T05:40:37Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "serious wound card",
+    "cardSide": "face",
+    "title": "LUNGS",
+    "typeLine": "",
+    "body": "Whenever you Pass:\nlose 1 [oxygenToken] (even in Section\nwith [oxygen supply]).\nIf you already have 0 [oxygenToken],\nlose 2 [characterHealth] instead.",
+    "footer": "",
+    "upperRight": "",
+    "lowerCenter": "",
+    "visibleText": "TEMP.\n39.0°\n[ICON: red glowing horseshoe-shaped glyph]\n[ICON: orange glowing horseshoe-shaped glyph]\n[ICON: yellow glowing horseshoe-shaped glyph]",
+    "confidentlyVisible": [
+      "Upright human anatomical scan with brightly illuminated lungs",
+      "White uppercase title LUNGS",
+      "Two yellow canister icons match the oxygen token morphology",
+      "Cyan paired-cylinder icon represents oxygen supply",
+      "White cross with EKG line represents character health",
+      "Three colored horseshoe-shaped diagnostic glyphs appear around the torso"
+    ],
+    "proposedCategory": "cards/game/serious-wound",
+    "proposedSlug": "lungs",
+    "confidence": "medium",
+    "uncertainties": [
+      "Three red, orange, and yellow horseshoe-shaped glyphs in the anatomical display are not confidently matched to the canonical glossary.",
+      "Faint vertical diagnostic-interface lettering along the left edge is too indistinct to transcribe confidently."
+    ]
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Planning image analysis implementation****Planning image analysis implementation**\n**Calling vision tool for image inspection****Calling vision tool for image inspection**\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Identifying map icon meanings**\n\n{\"orientation\":\"upright\",\"componentType\":\"serious wound card\",\"cardSide\":\"face\",\"title\":\"LUNGS\",\"typeLine\":\"\",\"body\":\"Whenever you Pass:\\nlose 1 [oxygenToken] (even in Section\\nwith [oxygen supply]).\\nIf you already have 0 [oxygenToken],\\nlose 2 [characterHealth] instead.\",\"footer\":\"\",\"upperRight\":\"\",\"lowerCenter\":\"\",\"visibleText\":\"TEMP.\\n39.0°\\n[ICON: red glowing horseshoe-shaped glyph]\\n[ICON: orange glowing horseshoe-shaped glyph]\\n[ICON: yellow glowing horseshoe-shaped glyph]\",\"confidentlyVisible\":[\"Upright human anatomical scan with brightly illuminated lungs\",\"White uppercase title LUNGS\",\"Two yellow canister icons match the oxygen token morphology\",\"Cyan paired-cylinder icon represents oxygen supply\",\"White cross with EKG line represents character health\",\"Three colored horseshoe-shaped diagnostic glyphs appear around the torso\"],\"proposedCategory\":\"cards/game/serious-wound\",\"proposedSlug\":\"lungs\",\"confidence\":\"medium\",\"uncertainties\":[\"Three red, orange, and yellow horseshoe-shaped glyphs in the anatomical display are not confidently matched to the canonical glossary.\",\"Faint vertical diagnostic-interface lettering along the left edge is too indistinct to transcribe confidently.\"]}\n\nsession_id: 20260815_054013_845b2c\n"
+}

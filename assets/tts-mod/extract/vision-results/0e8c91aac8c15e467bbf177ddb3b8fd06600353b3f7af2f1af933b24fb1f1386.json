@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/robotDeck-173.jpg",
+  "sourceSha256": "0e8c91aac8c15e467bbf177ddb3b8fd06600353b3f7af2f1af933b24fb1f1386",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_054003_dd46ca",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:40:02Z",
+  "completedAt": "2026-08-15T05:40:22Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "robot action card",
+    "cardSide": "face",
+    "title": "SECURING ROBOT",
+    "typeLine": "",
+    "body": "Move the [robot] up to 3 times.\nOR\nOpen or Close 1 Door\naccessible to the [robot].\nOR\nPlace 2 [ICON: white outlined three-dimensional cube glyph] in a Room\nwith the [robot].",
+    "footer": "",
+    "upperRight": "",
+    "lowerCenter": "",
+    "visibleText": "",
+    "confidentlyVisible": [
+      "Typography is upright in the file.",
+      "Title reads “SECURING ROBOT”.",
+      "Artwork depicts a wheeled utility robot with articulated equipment and illuminated screens.",
+      "The canonical white robot glyph appears three times in the rules text.",
+      "The rules contain three alternatives separated by “OR”."
+    ],
+    "proposedCategory": "cards/game/robot",
+    "proposedSlug": "securing-robot",
+    "confidence": "medium",
+    "uncertainties": [
+      "The white outlined three-dimensional cube glyph after “Place 2” is not present in the supplied canonical glossary, so its meaning is not inferred.",
+      "The exact formal deck subtype or card taxonomy is not explicitly printed on the visible face."
+    ]
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Planning image analysis setup****Planning image analysis setup****Invoking vision tool for pixel inspection**\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Invoking vision tool for pixel inspection****Defining robot action card component**\n{\"orientation\":\"upright\",\"componentType\":\"robot action card\",\"cardSide\":\"face\",\"title\":\"SECURING ROBOT\",\"typeLine\":\"\",\"body\":\"Move the [robot] up to 3 times.\\nOR\\nOpen or Close 1 Door\\naccessible to the [robot].\\nOR\\nPlace 2 [ICON: white outlined three-dimensional cube glyph] in a Room\\nwith the [robot].\",\"footer\":\"\",\"upperRight\":\"\",\"lowerCenter\":\"\",\"visibleText\":\"\",\"confidentlyVisible\":[\"Typography is upright in the file.\",\"Title reads “SECURING ROBOT”.\",\"Artwork depicts a wheeled utility robot with articulated equipment and illuminated screens.\",\"The canonical white robot glyph appears three times in the rules text.\",\"The rules contain three alternatives separated by “OR”.\"],\"proposedCategory\":\"cards/game/robot\",\"proposedSlug\":\"securing-robot\",\"confidence\":\"medium\",\"uncertainties\":[\"The white outlined three-dimensional cube glyph after “Place 2” is not present in the supplied canonical glossary, so its meaning is not inferred.\",\"The exact formal deck subtype or card taxonomy is not explicitly printed on the visible face.\"]}\n\nsession_id: 20260815_054003_dd46ca\n"
+}

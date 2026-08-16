@@ -1,0 +1,195 @@
+{
+  "schemaVersion": 1,
+  "validatedAt": "2026-08-15T22:31:13.150807Z",
+  "workerId": "sol-max-worker-05",
+  "frozenAssignment": {
+    "ids": [
+      "W05-001",
+      "W05-002",
+      "W05-003",
+      "W05-004"
+    ],
+    "assignedCount": 4,
+    "assignmentSha256": "1f2fc1037263f47ebe05fd908adccbe1304a8260c029ec343ea62817081999bb",
+    "orderedTupleSha256": "19e08552dfa28aa477cae0f5cdaad69cc82093222145edd244dd231dbc0d07a2",
+    "processedExactlyOnce": true
+  },
+  "counts": {
+    "submitted": 4,
+    "returned": 4,
+    "raw": 4,
+    "results": 4,
+    "promotable": 0,
+    "deferred": 4,
+    "nonCardComplete": 0,
+    "missing": 0,
+    "duplicates": 0
+  },
+  "sourceChecks": [
+    {
+      "assetId": "W05-001",
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-01.png",
+      "sha256": "d293abad16af07498d8f485bd1ab67426be66a64d78c2fbd085ec4bac7dc0f4f",
+      "dimensions": [
+        1052,
+        1433
+      ],
+      "format": "PNG",
+      "mode": "RGB",
+      "decodeVerified": true,
+      "rawPath": "assets/tts-mod/extract/vision-workers/sol-max-worker-05/raw/W05-001.json",
+      "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-worker-05/results/W05-001.json",
+      "passed": true
+    },
+    {
+      "assetId": "W05-002",
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-02.png",
+      "sha256": "4718ad2194859f3f1d1ecb72e52481616156dcacad27f46e4969c98cd64eddab",
+      "dimensions": [
+        1052,
+        1433
+      ],
+      "format": "PNG",
+      "mode": "RGB",
+      "decodeVerified": true,
+      "rawPath": "assets/tts-mod/extract/vision-workers/sol-max-worker-05/raw/W05-002.json",
+      "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-worker-05/results/W05-002.json",
+      "passed": true
+    },
+    {
+      "assetId": "W05-003",
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-05.png",
+      "sha256": "27a5c1a5959ed93f93d508e0f0a8d07999e0d929a0b9874848c2c10b3accf4e7",
+      "dimensions": [
+        1052,
+        1433
+      ],
+      "format": "PNG",
+      "mode": "RGB",
+      "decodeVerified": true,
+      "rawPath": "assets/tts-mod/extract/vision-workers/sol-max-worker-05/raw/W05-003.json",
+      "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-worker-05/results/W05-003.json",
+      "passed": true
+    },
+    {
+      "assetId": "W05-004",
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-06.png",
+      "sha256": "90cb405743269046b530add3108500d2e0eaefbd66fb9d55d7b42dd0cbbffa30",
+      "dimensions": [
+        1052,
+        1433
+      ],
+      "format": "PNG",
+      "mode": "RGB",
+      "decodeVerified": true,
+      "rawPath": "assets/tts-mod/extract/vision-workers/sol-max-worker-05/raw/W05-004.json",
+      "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-worker-05/results/W05-004.json",
+      "passed": true
+    }
+  ],
+  "runtimeProvenance": {
+    "schemaVersion": 1,
+    "capturedAt": "2026-08-15T22:03:20.262495Z",
+    "sessionId": "20260815_215936_fea298",
+    "sessionSource": "subagent",
+    "parentSessionId": "b01cf4bb4120",
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "reasoningEffort": "max",
+    "nativeImageRoute": {
+      "required": true,
+      "transport": "functions.vision_analyze direct local-path attachment to the active session model",
+      "auxiliaryVisionUsed": false,
+      "qwenUsed": false,
+      "ocrCanonicalEvidenceUsed": false,
+      "verified": true,
+      "verificationStatus": "verified by successful direct native attachment of W05-001 to active session model",
+      "verificationEvidence": [
+        {
+          "assetId": "W05-001",
+          "exactSourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-01.png",
+          "transportResult": "functions.vision_analyze: Image loaded into your context \u2014 you can see it natively now",
+          "activeSessionId": "20260815_215936_fea298",
+          "postAttachmentSessionDbModel": "gpt-5.6-sol",
+          "postAttachmentUsageProvider": "openai-codex",
+          "postAttachmentReasoningEffort": "max"
+        }
+      ]
+    },
+    "evidence": {
+      "environmentSessionId": "HERMES_SESSION_ID queried in live terminal environment",
+      "sessionDb": "/home/smithers/.hermes/state.db",
+      "sessionsRow": {
+        "id": "20260815_215936_fea298",
+        "source": "subagent",
+        "model": "gpt-5.6-sol",
+        "parentSessionId": "b01cf4bb4120",
+        "startedAtUnix": 1786831176.7134857
+      },
+      "modelConfig": {
+        "max_iterations": 80,
+        "reasoning_config": {
+          "enabled": true,
+          "effort": "max"
+        },
+        "max_tokens": null,
+        "_delegate_from": "b01cf4bb4120"
+      },
+      "usageRow": {
+        "session_id": "20260815_215936_fea298",
+        "model": "gpt-5.6-sol",
+        "billing_provider": "openai-codex",
+        "billing_base_url": "https://chatgpt.com/backend-api/codex",
+        "billing_mode": "subscription_included",
+        "api_call_count": 10,
+        "first_seen": 1786831185.0011802,
+        "last_seen": 1786831400.1570232
+      },
+      "systemRuntimeContract": "active delegated system runtime names Model gpt-5.6-sol, Provider openai-codex, Platform subagent",
+      "postFirstAttachmentUsageRow": {
+        "session_id": "20260815_215936_fea298",
+        "model": "gpt-5.6-sol",
+        "billing_provider": "openai-codex",
+        "billing_base_url": "https://chatgpt.com/backend-api/codex",
+        "billing_mode": "subscription_included",
+        "api_call_count": 26,
+        "first_seen": 1786831185.0011802,
+        "last_seen": 1786831703.8723106
+      }
+    },
+    "routeVerifiedAt": "2026-08-15T22:08:23.918675Z"
+  },
+  "checks": {
+    "allFrozenIdsProcessedExactlyOnce": true,
+    "allHashesMatch": true,
+    "allDecodesPass": true,
+    "allJsonParses": true,
+    "allRequiredFieldsPresent": true,
+    "runtimeCopiesIdentical": true,
+    "nativeSolMaxMaxEffortVerified": true,
+    "noAuxiliaryOrQwenOrOcrOnlyEvidence": true,
+    "submittedReturnedCountsReconciled": true,
+    "noCandidateSidecarWritten": true,
+    "currentAssignmentClosureMatchesFrozenScope": false,
+    "sessionMutationAuditPending": false,
+    "allRecordedMutationTargetsUnderAssignedWorkerRoot": true
+  },
+  "nextPendingAssetId": null,
+  "nextPendingSourcePath": null,
+  "replacementAssignment": {
+    "assetIds": [
+      "W04-009",
+      "W04-010",
+      "W04-011"
+    ],
+    "nextPendingAssetId": "W04-009",
+    "nextPendingSourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-11.png",
+    "processedByThisRun": false
+  },
+  "passedFrozenShardValidation": true,
+  "passedAssignmentClosureValidation": false,
+  "blocker": "assignment.json and metadata/runtime.json were overwritten by a new active W04-009..W04-011 run in the same worker root after this frozen shard completed",
+  "sessionMutationAuditPath": "assets/tts-mod/extract/vision-workers/sol-max-worker-05/metadata/session-mutation-audit-W05-001-W05-004.json",
+  "passedFinalSessionMutationAudit": true,
+  "finalValidationStatus": "frozen shard validated; assignment closure failed because the active worker root was reused"
+}

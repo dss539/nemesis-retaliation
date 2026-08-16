@@ -1,0 +1,77 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/greenitem-181_cards/card-07.png",
+  "sourceSha256": "16941a0010c6dca8e2114c2c3a091649df27d88ab4b52883e9a7b8326cd3de57",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_052951_f054bb",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:29:51Z",
+  "completedAt": "2026-08-15T05:30:30Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "green one-use item card",
+    "cardSide": "face",
+    "title": "STIMULANTS",
+    "typeLine": "ONE USE ONLY",
+    "body": "Restore 2 [characterHealth].\n\nOR\n\nDraw 2 [actionCard].",
+    "footer": "",
+    "upperRight": "notInCombat",
+    "lowerCenter": "",
+    "visibleText": "",
+    "confidentlyVisible": [
+      "All typography is upright and reads left-to-right.",
+      "The artwork depicts three cylindrical containers against a dark background.",
+      "The card frame and rules panels are green.",
+      "The upper-right icon is a white gun crossed by a red prohibition mark.",
+      "The Restore effect contains a white cross with an EKG line.",
+      "The Draw effect contains a white vertical card-shaped glyph."
+    ],
+    "proposedCategory": "cards/game/item/green",
+    "proposedSlug": "stimulants",
+    "confidence": "high",
+    "uncertainties": []
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Loading vision tool for pixel inspection****Loading vision tool for pixel inspection**\n**Designing STIMULANTS card JSON**\n\n**Proposing green item card classification**\n\n**Confirming vial count and art details**\n\n**Confirming identity card design details**\n\n**Validating item card JSON structure****Designing STIMULANTS card JSON**\n**Proposing green item card classification**\n**Confirming vial count and art details**\n\n**Confirming identity card design details**\n{\"orientation\":\"upright\",\"componentType\":\"green one-use item card\",\"cardSide\":\"face\",\"title\":\"STIMULANTS\",\"typeLine\":\"ONE USE ONLY\",\"body\":\"Restore 2 [characterHealth].\\n\\nOR\\n\\nDraw 2 [actionCard].\",\"footer\":\"\",\"upperRight\":\"notInCombat\",\"lowerCenter\":\"\",\"visibleText\":\"\",\"confidentlyVisible\":[\"All typography is upright and reads left-to-right.\",\"The artwork depicts three cylindrical containers against a dark background.\",\"The card frame and rules panels are green.\",\"The upper-right icon is a white gun crossed by a red prohibition mark.\",\"The Restore effect contains a white cross with an EKG line.\",\"The Draw effect contains a white vertical card-shaped glyph.\"],\"proposedCategory\":\"cards/game/item/green\",\"proposedSlug\":\"stimulants\",\"confidence\":\"high\",\"uncertainties\":[]}\n\nsession_id: 20260815_052951_f054bb\n",
+  "iconVerification": {
+    "status": "failed",
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "sessionId": "20260815_060822_e3fef5",
+    "promptVersion": 1,
+    "completedAt": "2026-08-15T06:08:41Z",
+    "claimed": [
+      "actionCard",
+      "characterHealth",
+      "notInCombat"
+    ],
+    "parsed": {
+      "claims": [
+        {
+          "claimed": "actionCard",
+          "verdict": "mismatch",
+          "actual": "",
+          "evidence": "One occurrence after “Draw 2”: a blank vertical white rounded card glyph with dark outline; it lacks the glossary crop’s black square frame and internal capital A."
+        },
+        {
+          "claimed": "characterHealth",
+          "verdict": "match",
+          "actual": "characterHealth",
+          "evidence": "One occurrence after “Restore 2”: white medical cross with a central dark ECG zigzag and horizontal side bars, matching the glossary glyph."
+        },
+        {
+          "claimed": "notInCombat",
+          "verdict": "match",
+          "actual": "notInCombat",
+          "evidence": "One occurrence beside the title: a red diagonal X over a white gun; this is the documented official artwork variant of the glossary’s crossed-out Intruder."
+        }
+      ],
+      "allClaimsMatch": false,
+      "confidence": "high",
+      "uncertainties": []
+    },
+    "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Planning image analysis approach****Planning image analysis approach****Identifying action card mismatch**\n\n\n**Confirming single action card mismatch occurrence****Identifying action card mismatch**\n\nsession_id: 20260815_060822_e3fef5\n{\"claims\":[{\"claimed\":\"actionCard\",\"verdict\":\"mismatch\",\"actual\":\"\",\"evidence\":\"One occurrence after “Draw 2”: a blank vertical white rounded card glyph with dark outline; it lacks the glossary crop’s black square frame and internal capital A.\"},{\"claimed\":\"characterHealth\",\"verdict\":\"match\",\"actual\":\"characterHealth\",\"evidence\":\"One occurrence after “Restore 2”: white medical cross with a central dark ECG zigzag and horizontal side bars, matching the glossary glyph.\"},{\"claimed\":\"notInCombat\",\"verdict\":\"match\",\"actual\":\"notInCombat\",\"evidence\":\"One occurrence beside the title: a red diagonal X over a white gun; this is the documented official artwork variant of the glossary’s crossed-out Intruder.\"}],\"allClaimsMatch\":false,\"confidence\":\"high\",\"uncertainties\":[]}\n",
+    "evidencePath": "docs/qa/card-icon-comparisons/auto-16941a0010c6dca8e2114c2c3a091649df27d88ab4b52883e9a7b8326cd3de57.png"
+  }
+}

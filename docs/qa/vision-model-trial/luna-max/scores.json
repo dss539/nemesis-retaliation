@@ -1,0 +1,413 @@
+{
+  "schemaVersion": 1,
+  "provider": "openai-codex",
+  "model": "gpt-5.6-luna",
+  "reasoning": "max",
+  "nativeImageAttachment": true,
+  "auxiliaryVisionUsed": false,
+  "casesRequested": 12,
+  "casesScored": 12,
+  "failures": [],
+  "uniqueSessionIds": 12,
+  "caseScores": {
+    "c01": {
+      "score": 72,
+      "max": 100,
+      "components": {
+        "textAndFormatting": {
+          "score": 23,
+          "max": 30,
+          "notes": "Broadly complete, but contains repeated Eclosion/Evacuation errors, punctuation normalization, and questionable text recovery from partly obscured material."
+        },
+        "iconsAndSymbols": {
+          "score": 9,
+          "max": 20,
+          "notes": "Correctly handled several ordinary inline icons but misclassified every non-glossary player-count emblem as character, rendered the objective-choice glyph as A, and inserted a pink symbol into Perimeter Clearing."
+        },
+        "discipline": {
+          "score": 12,
+          "max": 20,
+          "notes": "It reported several genuine uncertainties, but its confident player-count and symbol assignments violate the morphology-first rule."
+        },
+        "structure": {
+          "score": 14,
+          "max": 15,
+          "notes": "Columns, fan, panel rows, and explanatory-note layout were represented well."
+        },
+        "completeness": {
+          "score": 14,
+          "max": 15,
+          "notes": "Most visible sections and panels were covered, although some obscured/clipped scope decisions are inconsistent."
+        }
+      },
+      "scoring": "manual",
+      "tier": "historical-comparator",
+      "durationSeconds": 370.17,
+      "decision": "defer",
+      "overallConfidence": "medium"
+    },
+    "c02": {
+      "score": 99.86,
+      "max": 100,
+      "components": {
+        "schema": 5.0,
+        "title": 5.0,
+        "text": 39.876,
+        "icons": 20.0,
+        "sidecar": 19.984,
+        "decision": 10.0
+      },
+      "diagnostics": {
+        "textRatio": 0.996904,
+        "expectedIcons": [
+          "grenadeToken",
+          "yellowItem",
+          "grenadeToken",
+          "notInCombat"
+        ],
+        "actualIcons": [
+          "grenadeToken",
+          "yellowItem",
+          "grenadeToken",
+          "notInCombat"
+        ],
+        "iconF1": 1.0,
+        "sidecarKeyF1": 1.0,
+        "sidecarValueMean": 0.998403
+      },
+      "scoring": "programmatic",
+      "tier": "human-approved-card",
+      "durationSeconds": 40.741,
+      "decision": "promote",
+      "overallConfidence": "high"
+    },
+    "c03": {
+      "score": 73.424,
+      "max": 100,
+      "components": {
+        "schema": 5.0,
+        "title": 5.0,
+        "text": 37.424,
+        "icons": 0.0,
+        "sidecar": 16.0,
+        "decision": 10.0
+      },
+      "diagnostics": {
+        "textRatio": 0.935593,
+        "expectedIcons": [
+          "lander"
+        ],
+        "actualIcons": [
+          "character"
+        ],
+        "iconF1": 0,
+        "sidecarKeyF1": 0.666667,
+        "sidecarValueMean": 0.933333
+      },
+      "scoring": "programmatic",
+      "tier": "human-approved-card",
+      "durationSeconds": 86.214,
+      "decision": "promote",
+      "overallConfidence": "high"
+    },
+    "c04": {
+      "score": 98.0,
+      "max": 100,
+      "components": {
+        "schema": 5.0,
+        "title": 5.0,
+        "text": 40.0,
+        "icons": 20.0,
+        "sidecar": 18.0,
+        "decision": 10.0
+      },
+      "diagnostics": {
+        "textRatio": 1.0,
+        "expectedIcons": [
+          "notInCombat"
+        ],
+        "actualIcons": [
+          "notInCombat"
+        ],
+        "iconF1": 1.0,
+        "sidecarKeyF1": 0.8,
+        "sidecarValueMean": 1.0
+      },
+      "scoring": "programmatic",
+      "tier": "human-approved-card",
+      "durationSeconds": 79.245,
+      "decision": "promote",
+      "overallConfidence": "high"
+    },
+    "c05": {
+      "score": 56.16,
+      "max": 100,
+      "components": {
+        "schema": 5.0,
+        "title": 5.0,
+        "text": 27.772,
+        "icons": 10.0,
+        "sidecar": 8.388,
+        "decision": 0.0
+      },
+      "diagnostics": {
+        "textRatio": 0.694301,
+        "expectedIcons": [
+          "shootDieCritical",
+          "ammoToken",
+          "ammoSlot"
+        ],
+        "actualIcons": [
+          "shootDieCritical"
+        ],
+        "iconF1": 0.5,
+        "sidecarKeyF1": 0.5,
+        "sidecarValueMean": 0.338798
+      },
+      "scoring": "programmatic",
+      "tier": "human-approved-card",
+      "durationSeconds": 159.289,
+      "decision": "defer",
+      "overallConfidence": "medium"
+    },
+    "c06": {
+      "score": 98.988,
+      "max": 100,
+      "components": {
+        "schema": 5.0,
+        "title": 5.0,
+        "text": 39.111,
+        "icons": 20.0,
+        "sidecar": 19.877,
+        "decision": 10.0
+      },
+      "diagnostics": {
+        "textRatio": 0.977778,
+        "expectedIcons": [],
+        "actualIcons": [],
+        "iconF1": 1.0,
+        "sidecarKeyF1": 1.0,
+        "sidecarValueMean": 0.987713
+      },
+      "scoring": "programmatic",
+      "tier": "human-approved-card",
+      "durationSeconds": 112.199,
+      "decision": "promote",
+      "overallConfidence": "high"
+    },
+    "c07": {
+      "score": 90.0,
+      "max": 100,
+      "components": {
+        "schema": 5.0,
+        "title": 5.0,
+        "text": 40.0,
+        "icons": 20.0,
+        "sidecar": 20.0,
+        "decision": 0.0
+      },
+      "diagnostics": {
+        "textRatio": 1.0,
+        "expectedIcons": [],
+        "actualIcons": [],
+        "iconF1": 1.0,
+        "sidecarKeyF1": 1.0,
+        "sidecarValueMean": 1.0
+      },
+      "scoring": "programmatic",
+      "tier": "human-approved-card",
+      "durationSeconds": 86.849,
+      "decision": "defer",
+      "overallConfidence": "medium"
+    },
+    "c08": {
+      "score": 67.007,
+      "max": 100,
+      "components": {
+        "schema": 5.0,
+        "title": 5.0,
+        "text": 40.0,
+        "icons": 0.0,
+        "sidecar": 17.007,
+        "decision": 0.0
+      },
+      "diagnostics": {
+        "textRatio": 1.0,
+        "expectedIcons": [
+          "ammoSlot"
+        ],
+        "actualIcons": [],
+        "iconF1": 0,
+        "sidecarKeyF1": 1.0,
+        "sidecarValueMean": 0.70068
+      },
+      "scoring": "programmatic",
+      "tier": "human-approved-card",
+      "durationSeconds": 49.831,
+      "decision": "defer",
+      "overallConfidence": "medium"
+    },
+    "c09": {
+      "score": 98.0,
+      "max": 100,
+      "components": {
+        "schema": 5.0,
+        "title": 5.0,
+        "text": 40.0,
+        "icons": 20.0,
+        "sidecar": 18.0,
+        "decision": 10.0
+      },
+      "diagnostics": {
+        "textRatio": 1.0,
+        "expectedIcons": [
+          "computer",
+          "computer",
+          "notInCombat"
+        ],
+        "actualIcons": [
+          "computer",
+          "computer",
+          "notInCombat"
+        ],
+        "iconF1": 1.0,
+        "sidecarKeyF1": 0.8,
+        "sidecarValueMean": 1.0
+      },
+      "scoring": "programmatic",
+      "tier": "human-approved-card",
+      "durationSeconds": 85.562,
+      "decision": "promote",
+      "overallConfidence": "high"
+    },
+    "c10": {
+      "score": 77,
+      "max": 100,
+      "components": {
+        "identityAndCategory": {
+          "score": 20,
+          "max": 25,
+          "notes": "Correctly recognized a composite objective/reference help sheet, but did not establish the page-2 identity and called GAME TERMS the title."
+        },
+        "visibleTextFidelity": {
+          "score": 15,
+          "max": 25,
+          "notes": "Recovered substantial left-column and objective text but included questionable reconstructions such as 'The number 5 must NOT Survive' and omitted much panel text."
+        },
+        "uncertaintyDiscipline": {
+          "score": 18,
+          "max": 20,
+          "notes": "Correctly deferred and explicitly flagged clipped panels and non-glossary glyphs."
+        },
+        "KnownUnresolvedDetails": {
+          "score": 14,
+          "max": 20,
+          "notes": "Caught player-count and Life Support-like glyph uncertainty and clipping, but treated the square A glyph as text rather than separately flagging it."
+        },
+        "decision": {
+          "score": 10,
+          "max": 10,
+          "notes": "Correctly deferred."
+        }
+      },
+      "scoring": "manual",
+      "tier": "deferred-abstention",
+      "durationSeconds": 234.31,
+      "decision": "defer",
+      "overallConfidence": "low"
+    },
+    "c11": {
+      "score": 90,
+      "max": 100,
+      "components": {
+        "identity": {
+          "score": 30,
+          "max": 30,
+          "notes": "Correct Life Support Active facility-token identity."
+        },
+        "icon": {
+          "score": 30,
+          "max": 30,
+          "notes": "Correct lifeSupportActive glossary match."
+        },
+        "category": {
+          "score": 10,
+          "max": 20,
+          "notes": "Proposed generic map instead of the established tokens/status category."
+        },
+        "decision": {
+          "score": 10,
+          "max": 10,
+          "notes": "Correctly promoted."
+        },
+        "discipline": {
+          "score": 10,
+          "max": 10,
+          "notes": "No invented text or unrelated function."
+        }
+      },
+      "scoring": "manual",
+      "tier": "known-noncard",
+      "durationSeconds": 36.408,
+      "decision": "promote",
+      "overallConfidence": "high"
+    },
+    "c12": {
+      "score": 65,
+      "max": 100,
+      "components": {
+        "visibleDescription": {
+          "score": 25,
+          "max": 25,
+          "notes": "Pixel description is concise and accurate."
+        },
+        "NoInventedExactIdentity": {
+          "score": 25,
+          "max": 25,
+          "notes": "It did not claim an Adult identity, bag role, or exact filename."
+        },
+        "uncertaintyDiscipline": {
+          "score": 5,
+          "max": 20,
+          "notes": "Identity confidence was low, but uncertainties was empty and overall/category confidence were high."
+        },
+        "decision": {
+          "score": 0,
+          "max": 20,
+          "notes": "Promoted despite low identity confidence and no canonical component function/category."
+        },
+        "orientation": {
+          "score": 10,
+          "max": 10,
+          "notes": "Rotation-irrelevant art was acceptably treated as upright."
+        }
+      },
+      "scoring": "manual",
+      "criticalFailure": "False promotion of deliberately ambiguous canonical classification.",
+      "tier": "ambiguous-noncard",
+      "durationSeconds": 15.761,
+      "decision": "promote",
+      "overallConfidence": "high"
+    }
+  },
+  "aggregate": {
+    "allCasesMean": 82.12,
+    "allCasesMedian": 83.5,
+    "humanApprovedCardsMean": 85.18,
+    "humanApprovedCardsMedian": 94.0
+  },
+  "latencySeconds": {
+    "totalSequentialEquivalent": 1356.579,
+    "mean": 113.048,
+    "median": 85.888,
+    "p95": 295.447,
+    "min": 15.761,
+    "max": 370.17
+  },
+  "criticalFailures": [
+    {
+      "caseId": "c12",
+      "failure": "False promotion of deliberately ambiguous canonical classification."
+    }
+  ]
+}

@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 1,
+  "assetId": "W01-006",
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/bags/corridorBag-023.jpg",
+  "sourceSha256": "27ab4748ec079413ed0596421e1f52946d7997259e9049df9677ac85ae7e0f57",
+  "sourceMetadata": {
+    "width": 1789,
+    "height": 1789,
+    "format": "JPEG",
+    "mode": "RGB",
+    "byteSize": 658753
+  },
+  "runtimeProvenance": {
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "reasoningEffort": "max",
+    "platform": "subagent",
+    "workerId": "sol-max-worker-01",
+    "sessionProvenanceHandle": "hermes_rpc_dfba82c30cd846b6bc4eced43002e707.sock",
+    "persistentSession": true,
+    "nativeVision": true,
+    "auxiliaryVisionUsed": false
+  },
+  "orientation": {
+    "status": "rotation-irrelevant",
+    "evidence": "The painted passage region is vertically mirrored and carries the same 0 badge at both ends.",
+    "transformApplied": null,
+    "stagingDerivative": null
+  },
+  "blindPixelObservations": [
+    "Mostly near-black square UV/texture-atlas canvas.",
+    "Upper-left painted region shows a symmetric top-down industrial passage with a white-gray central floor, vents, pipes, and side recesses.",
+    "Matching yellow triangular 0 badges appear at the upper and lower ends."
+  ],
+  "visibleText": [
+    {
+      "text": "0",
+      "location": "top yellow badge",
+      "confidence": "high"
+    },
+    {
+      "text": "0",
+      "location": "bottom yellow badge",
+      "confidence": "high"
+    }
+  ],
+  "iconMorphology": [
+    {
+      "location": "top and bottom center of painted region",
+      "silhouette": "Yellow triangular badge in a dark beveled mount.",
+      "internalMarks": "Black numeral 0.",
+      "colors": "yellow, black, gray",
+      "claimedToken": null,
+      "closestPlausibleGlossaryAlternative": "noiseDie1/noiseDie2/noiseDie3/noiseDie4",
+      "visibleDiscriminatingFeature": "The visible numeral is 0, whereas the numbered glossary Noise-die faces are 1 through 4; no glossary token is claimed."
+    }
+  ],
+  "evidenceConsulted": {
+    "tts": {
+      "consultedAfterBlindRecord": true,
+      "trigger": "Pixels suggested a UV/model texture but did not establish the TTS object role.",
+      "manifestUrl": "https://steamusercontent-a.akamaihd.net/ugc/2468613527880243456/E7928632B153CE00056B5A5BA944BB5106C58579/",
+      "objectReferences": [
+        {
+          "guid": "527c41",
+          "type": "Custom_Model_Bag",
+          "urlRole": "DiffuseURL"
+        }
+      ]
+    },
+    "official": {
+      "consulted": false,
+      "reason": "No rules text, canonical icon claim, ambiguity, or source conflict required official escalation."
+    }
+  },
+  "proposedClassification": "Non-card industrial-corridor Custom_Model_Bag diffuse/UV texture.",
+  "proposedPath": "assets/tts-mod/extract/v2-dl/tree/bags/corridorBag-023.jpg (retain unchanged; no canonical move proposed)",
+  "readConfidence": {
+    "level": "high",
+    "reason": "Both visible numerals and texture morphology are clear at native resolution."
+  },
+  "classificationConfidence": {
+    "level": "high",
+    "reason": "Apparent UV layout is corroborated by the single TTS Custom_Model_Bag DiffuseURL role."
+  },
+  "uncertainties": [],
+  "promotionDecision": "non-card-complete",
+  "decisionReasons": [
+    "This is a model-bag diffuse texture, not a rules-card face.",
+    "The yellow 0 badges are not forced into the canonical icon glossary.",
+    "No material text or role uncertainty remains for non-card classification."
+  ],
+  "stagedCandidateSidecarPath": null,
+  "validationPerformed": [
+    "Assignment SHA-256 matched source bytes.",
+    "Pillow decoded and verified the 1789x1789 JPEG.",
+    "Native vision attachment was inspected independently as W01-006.",
+    "Blind observations were persisted before TTS metadata was consulted.",
+    "Manifest URL and matching DiffuseURL role were resolved.",
+    "No source file or canonical/shared ledger was modified."
+  ],
+  "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-worker-01/raw/W01-006.json"
+}

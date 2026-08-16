@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoopCustomDeck-011.jpg",
+  "sourceSha256": "5f0a1dc38e2aec5bdd902112fb2cecd44cc4b3a495ff1c43f25dfb8ed075c5db",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_053558_7635b0",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:35:58Z",
+  "completedAt": "2026-08-15T05:36:18Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "cooperative objective card",
+    "cardSide": "face",
+    "title": "FIREWALL",
+    "typeLine": "",
+    "body": "All [character] who Escaped / Hibernated must not\nhave more than 3 Contaminations each\nin their deck (no matter if they Survive).",
+    "footer": "SOLO / COOP",
+    "upperRight": "",
+    "lowerCenter": "",
+    "visibleText": "QUARANTINE",
+    "confidentlyVisible": [
+      "Upright white title FIREWALL",
+      "Rules text appears in a dark framed panel",
+      "White astronaut glyph inline after “All” matches [character]",
+      "Green footer text reads SOLO / COOP",
+      "Artwork shows a sealed doorway crossed by yellow quarantine tape",
+      "Yellow triangular biohazard sign appears on the doorway"
+    ],
+    "proposedCategory": "cards/game/objective",
+    "proposedSlug": "firewall",
+    "confidence": "medium",
+    "uncertainties": [
+      "Several repetitions of QUARANTINE in the background artwork are partially obscured, overlapped, or clipped; visibleText records only the clearly readable complete word rather than reconstructing every tape label."
+    ]
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Requiring vision skill usage****Requiring vision skill usage****Clarifying JSON structure and footer details**\n\n\n**Evaluating repeated background text inclusion****Clarifying JSON structure and footer details**\n{\"orientation\":\"upright\",\"componentType\":\"cooperative objective card\",\"cardSide\":\"face\",\"title\":\"FIREWALL\",\"typeLine\":\"\",\"body\":\"All [character] who Escaped / Hibernated must not\\nhave more than 3 Contaminations each\\nin their deck (no matter if they Survive).\",\"footer\":\"SOLO / COOP\",\"upperRight\":\"\",\"lowerCenter\":\"\",\"visibleText\":\"QUARANTINE\",\"confidentlyVisible\":[\"Upright white title FIREWALL\",\"Rules text appears in a dark framed panel\",\"White astronaut glyph inline after “All” matches [character]\",\"Green footer text reads SOLO / COOP\",\"Artwork shows a sealed doorway crossed by yellow quarantine tape\",\"Yellow triangular biohazard sign appears on the doorway\"],\"proposedCategory\":\"cards/game/objective\",\"proposedSlug\":\"firewall\",\"confidence\":\"medium\",\"uncertainties\":[\"Several repetitions of QUARANTINE in the background artwork are partially obscured, overlapped, or clipped; visibleText records only the clearly readable complete word rather than reconstructing every tape label.\"]}\n\nsession_id: 20260815_053558_7635b0\n"
+}

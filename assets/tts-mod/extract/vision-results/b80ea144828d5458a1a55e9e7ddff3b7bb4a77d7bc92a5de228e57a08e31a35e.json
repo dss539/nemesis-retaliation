@@ -1,0 +1,65 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-42.png",
+  "sourceSha256": "b80ea144828d5458a1a55e9e7ddff3b7bb4a77d7bc92a5de228e57a08e31a35e",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_051135_1b229e",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:11:35Z",
+  "completedAt": "2026-08-15T05:12:11Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "character action card",
+    "cardSide": "face",
+    "title": "DEMOLITION",
+    "typeLine": "",
+    "body": "Remove 1 Door.\n\nOR\n\nPlace a [malfunction] in your Room.",
+    "footer": "MEDICAL SUPPORT",
+    "upperRight": "",
+    "lowerCenter": "",
+    "visibleText": "",
+    "confidentlyVisible": [
+      "All meaningful typography is upright in the file.",
+      "The title reads “DEMOLITION” in white uppercase letters.",
+      "The first effect reads “Remove 1 Door.”",
+      "A separate centered panel reads “OR”.",
+      "The second effect reads “Place a [malfunction] in your Room.”",
+      "The inline glyph is a light-grey cog matching the malfunction icon.",
+      "The footer reads “MEDICAL SUPPORT” in pink uppercase letters.",
+      "The artwork depicts an armed woman in protective gear with a red cross patch."
+    ],
+    "proposedCategory": "cards/character/medical-support/action",
+    "proposedSlug": "demolition",
+    "confidence": "high",
+    "uncertainties": []
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Planning pixel inspection via vision tool****Planning pixel inspection via vision tool**\n**Analyzing game card icon morphology**\n\n**Extracting icon region for analysis****Analyzing game card icon morphology**\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Extracting icon region for analysis****Defining demolition card JSON schema**\n\n{\"orientation\":\"upright\",\"componentType\":\"character action card\",\"cardSide\":\"face\",\"title\":\"DEMOLITION\",\"typeLine\":\"\",\"body\":\"Remove 1 Door.\\n\\nOR\\n\\nPlace a [malfunction] in your Room.\",\"footer\":\"MEDICAL SUPPORT\",\"upperRight\":\"\",\"lowerCenter\":\"\",\"visibleText\":\"\",\"confidentlyVisible\":[\"All meaningful typography is upright in the file.\",\"The title reads “DEMOLITION” in white uppercase letters.\",\"The first effect reads “Remove 1 Door.”\",\"A separate centered panel reads “OR”.\",\"The second effect reads “Place a [malfunction] in your Room.”\",\"The inline glyph is a light-grey cog matching the malfunction icon.\",\"The footer reads “MEDICAL SUPPORT” in pink uppercase letters.\",\"The artwork depicts an armed woman in protective gear with a red cross patch.\"],\"proposedCategory\":\"cards/character/medical-support/action\",\"proposedSlug\":\"demolition\",\"confidence\":\"high\",\"uncertainties\":[]}\n\nsession_id: 20260815_051135_1b229e\n",
+  "iconVerification": {
+    "status": "passed",
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "sessionId": "20260815_060721_8b48bf",
+    "promptVersion": 1,
+    "completedAt": "2026-08-15T06:07:34Z",
+    "claimed": [
+      "malfunction"
+    ],
+    "parsed": {
+      "claims": [
+        {
+          "claimed": "malfunction",
+          "verdict": "match",
+          "actual": "malfunction",
+          "evidence": "The single card glyph is a light-gray cog with eight broad teeth and a dark circular center, matching the labeled malfunction glossary crop."
+        }
+      ],
+      "allClaimsMatch": true,
+      "confidence": "high",
+      "uncertainties": []
+    },
+    "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Loading image analysis module****Loading image analysis module****Identifying gear icon occurrences**\n\nsession_id: 20260815_060721_8b48bf\n{\"claims\":[{\"claimed\":\"malfunction\",\"verdict\":\"match\",\"actual\":\"malfunction\",\"evidence\":\"The single card glyph is a light-gray cog with eight broad teeth and a dark circular center, matching the labeled malfunction glossary crop.\"}],\"allClaimsMatch\":true,\"confidence\":\"high\",\"uncertainties\":[]}\n",
+    "evidencePath": null
+  }
+}

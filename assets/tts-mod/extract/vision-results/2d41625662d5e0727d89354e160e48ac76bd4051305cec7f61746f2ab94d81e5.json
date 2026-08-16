@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-025.png",
+  "sourceSha256": "2d41625662d5e0727d89354e160e48ac76bd4051305cec7f61746f2ab94d81e5",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_050711_406c47",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:07:11Z",
+  "completedAt": "2026-08-15T05:08:02Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "ranged-weapon item card with two ammunition slots",
+    "cardSide": "face",
+    "title": "BE GUN",
+    "typeLine": "RANGED WEAPON, RIFLE",
+    "body": "Burst: Treat [burstDie1] as [burstDie2].\n[ICON: purple square with white exclamation mark]: Place a [ICON: light-grey cog with dark circular center] on this Weapon.",
+    "footer": "",
+    "upperRight": "",
+    "lowerCenter": "",
+    "visibleText": "",
+    "confidentlyVisible": [
+      "All meaningful typography is already upright.",
+      "A large illustrated rifle spans the card face.",
+      "The first rule contains purple square dice faces numbered 1 and 2.",
+      "The second rule begins with a purple square containing a white exclamation mark.",
+      "A light-grey cog-like glyph with a dark circular center appears after “Place a”.",
+      "A large white polygonal area is clipped by the top image boundary.",
+      "Two red slot-shaped panels with dark inset openings are clipped by the bottom image boundary."
+    ],
+    "proposedCategory": "cards/game/item/rifle",
+    "proposedSlug": "be-gun",
+    "confidence": "medium",
+    "uncertainties": [
+      "The purple square with a white exclamation mark is not in the supplied canonical glossary; it may be a card-local action or ability glyph.",
+      "The light-grey cog-like glyph is not in the supplied canonical glossary, so its meaning is not inferred.",
+      "The top white polygon and two bottom red slot-shaped panels are clipped by the image boundaries; their complete forms are not visible.",
+      "The visibly printed title reads “BE GUN”; its unusual wording may be a source-art oddity, but no unseen or intended character is reconstructed."
+    ]
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Loading image analysis skill****Loading image analysis skill****Inspecting image with vision_analyze and OCR**\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Inspecting image with vision_analyze and OCR****Analyzing card image details**\n\n**Transcribing burst and slot glyphs**\n\n**Confirming red slot icon positions**\n\n**Verifying weapon card text accuracy**\n\n**Confirming visible weapon card title**\n\n**Classifying weapon card with medium confidence**\n\n**Deciding precise resource path**\n\n**Mapping visual elements to canonical slots**\n\n{\"orientation\":\"upright\",\"componentType\":\"ranged-weapon item card with two ammunition slots\",\"cardSide\":\"face\",\"title\":\"BE GUN\",\"typeLine\":\"RANGED WEAPON, RIFLE\",\"body\":\"Burst: Treat [burstDie1] as [burstDie2].\\n[ICON: purple square with white exclamation mark]: Place a [ICON: light-grey cog with dark circular center] on this Weapon.\",\"footer\":\"\",\"upperRight\":\"\",\"lowerCenter\":\"\",\"visibleText\":\"\",\"confidentlyVisible\":[\"All meaningful typography is already upright.\",\"A large illustrated rifle spans the card face.\",\"The first rule contains purple square dice faces numbered 1 and 2.\",\"The second rule begins with a purple square containing a white exclamation mark.\",\"A light-grey cog-like glyph with a dark circular center appears after “Place a”.\",\"A large white polygonal area is clipped by the top image boundary.\",\"Two red slot-shaped panels with dark inset openings are clipped by the bottom image boundary.\"],\"proposedCategory\":\"cards/game/item/rifle\",\"proposedSlug\":\"be-gun\",\"confidence\":\"medium\",\"uncertainties\":[\"The purple square with a white exclamation mark is not in the supplied canonical glossary; it may be a card-local action or ability glyph.\",\"The light-grey cog-like glyph is not in the supplied canonical glossary, so its meaning is not inferred.\",\"The top white polygon and two bottom red slot-shaped panels are clipped by the image boundaries; their complete forms are not visible.\",\"The visibly printed title reads “BE GUN”; its unusual wording may be a source-art oddity, but no unseen or intended character is reconstructed.\"]}\n\nsession_id: 20260815_050711_406c47\n"
+}

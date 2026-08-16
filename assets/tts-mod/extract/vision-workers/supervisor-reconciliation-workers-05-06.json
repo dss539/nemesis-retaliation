@@ -1,0 +1,115 @@
+{
+  "schemaVersion": 1,
+  "kind": "workers-05-06-overlap-reconciliation",
+  "recordedAt": "2026-08-16T03:20:33Z",
+  "primaryWorker": {
+    "workerId": "sol-max-worker-06",
+    "sessionId": "20260815_224527_5f5db3",
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "reasoningEffort": "max",
+    "nativeVision": true,
+    "mergedAssetIds": [
+      "W06-001",
+      "W06-002",
+      "W06-003",
+      "W06-004"
+    ]
+  },
+  "corroboratingWorker": {
+    "workerId": "sol-max-worker-05",
+    "sessionId": "20260815_222507_ce8f8a",
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "reasoningEffort": "max",
+    "nativeVision": true,
+    "corroboratingAssetIds": [
+      "W04-009",
+      "W04-010",
+      "W04-011"
+    ]
+  },
+  "comparisons": [
+    {
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-11.png",
+      "sourceSha256": "6dc254bf10b41c217cdfe6c4d3d3ca3a8bedd7eded6f7ae6e0a07b9f71d6a19e",
+      "worker05AssetId": "W04-009",
+      "worker06AssetId": "W06-001",
+      "title": "CHAIN OF COMMAND",
+      "sourceTupleMatched": true,
+      "titleAndOwnerMatched": true,
+      "materialTextMatched": true,
+      "decisionMatched": true,
+      "selectedSharedLedgerLineage": "sol-max-worker-06",
+      "worker05Use": "corroborating direct icon-crop evidence",
+      "combinedDecision": "defer",
+      "remainingReason": "Exact generated-cell GUID/selector and unique cell-specific paired-side provenance remain unresolved; the existing canonical target differs from this TTS source and cannot be overwritten without approval."
+    },
+    {
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-12.png",
+      "sourceSha256": "071501844b55d42daa48430786b944d8cf1fea711ad6994abf6d3a9c61b18245",
+      "worker05AssetId": "W04-010",
+      "worker06AssetId": "W06-002",
+      "title": "CONTINUOUS FIRE",
+      "sourceTupleMatched": true,
+      "titleAndOwnerMatched": true,
+      "materialTextMatched": true,
+      "decisionMatched": true,
+      "selectedSharedLedgerLineage": "sol-max-worker-06",
+      "worker05Use": "corroborating direct icon-crop evidence",
+      "combinedDecision": "defer",
+      "remainingReason": "Exact generated-cell GUID/selector and unique cell-specific paired-side provenance remain unresolved."
+    },
+    {
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-13.png",
+      "sourceSha256": "b3b209538a4ac8554ae6e5230f4a98b1fa1ff3bd8f89b3ccfbee53d115997e9e",
+      "worker05AssetId": "W04-011",
+      "worker06AssetId": "W06-003",
+      "title": "DEMOLITION",
+      "sourceTupleMatched": true,
+      "titleAndOwnerMatched": true,
+      "materialTextMatched": true,
+      "decisionMatched": true,
+      "selectedSharedLedgerLineage": "sol-max-worker-06",
+      "worker05Use": "corroborating direct icon-crop evidence",
+      "combinedDecision": "defer",
+      "remainingReason": "Exact generated-cell GUID/selector and unique cell-specific paired-side provenance remain unresolved; the existing canonical sidecar wording conflicts with this TTS source and cannot be overwritten without approval."
+    }
+  ],
+  "primaryOnly": {
+    "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-15.png",
+    "assetId": "W06-004",
+    "title": "FORCING FIRE",
+    "decision": "defer",
+    "remainingReason": "The red inline glyph remains unresolved between ammoToken and ammoSlot; exact generated-cell GUID/selector and unique cell-specific paired-side provenance also remain unresolved."
+  },
+  "result": {
+    "reexamined": 4,
+    "newlyCompleted": 0,
+    "stillDeferred": 4,
+    "sidecarsCreated": 0,
+    "assetsCategorizedOrRenamed": 0,
+    "canonicalWrites": false,
+    "sourceFilesChanged": false,
+    "postMergeCounts": {
+      "complete": 134,
+      "deferred": 398,
+      "unaccounted": 0
+    },
+    "queueEntries": 398,
+    "nextReexaminationPath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-16.png"
+  },
+  "beforeHashes": {
+    "assets/tts-mod/extract/vision-progress.json": "020afa19f23ed3d66b4cd549dad5e1e600135f740669155af5be32d6e9b3f667",
+    "assets/tts-mod/extract/low-confidence-review.json": "34bddeaa812338c8d869b0410e3e016e811deb8232ee5ba73557a487e6340bbf",
+    "assets/tts-mod/extract/vision-workers/sol-max-worker-05/assignment.json": "755b86584927ce6c43a833480b87d1e63426bddc381fdc4987f49f13a28bcdd3",
+    "assets/tts-mod/extract/vision-workers/sol-max-worker-06/assignment.json": "cb22fdca5aac259ae5c2faed3118558387d899e33d0aa4c836d6d80c204dfbd6"
+  },
+  "afterHashes": {
+    "assets/tts-mod/extract/vision-progress.json": "a396046ef03ad6ee56f6ade5cc3c3dda7f1df2134d51437ebfca00786aa91116",
+    "assets/tts-mod/extract/low-confidence-review.json": "580fa6a17849ffa4d207370ddf5e865952658d65de4e13a95ea4087b86b5be20",
+    "assets/tts-mod/extract/vision-workers/sol-max-worker-05/assignment.json": "9a380a6f7311596ddcc7b54b52d4c2df804d37b304a37dec5c2a109b01dd51c0",
+    "assets/tts-mod/extract/vision-workers/sol-max-worker-06/assignment.json": "f21a632f730947ea75a6447bc8807b144e0a2282b972370c2cccf7a1b334e63f"
+  },
+  "mergeEvidencePath": "assets/tts-mod/extract/vision-workers/sol-max-worker-06/supervisor-merges/merge-001.json"
+}

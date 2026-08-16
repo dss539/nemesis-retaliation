@@ -1,0 +1,78 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-03.png",
+  "sourceSha256": "7fcd46223405ea191339e3968e50dcc2063e52aac4476768743f5685993433d7",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_050759_241b51",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:07:59Z",
+  "completedAt": "2026-08-15T05:08:30Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "character action card",
+    "cardSide": "face",
+    "title": "REPAIRS",
+    "typeLine": "",
+    "body": "Discard 1 [actionCard].\nDiscard a [malfunction].\n\nOR\n\nOpen or Close 1 Door.",
+    "footer": "RECON",
+    "upperRight": "notInCombat",
+    "lowerCenter": "",
+    "visibleText": "",
+    "confidentlyVisible": [
+      "All meaningful typography is upright in the file.",
+      "The title reads “REPAIRS”.",
+      "The upper-right icon is a white gun crossed out by a red X.",
+      "The first effect contains a white card-shaped A icon.",
+      "The second effect contains a white gear-shaped malfunction icon.",
+      "Dark science-fiction artwork shows a suited figure facing a mechanical apparatus.",
+      "The footer reads “RECON” in magenta."
+    ],
+    "proposedCategory": "cards/character/recon/action",
+    "proposedSlug": "repairs",
+    "confidence": "high",
+    "uncertainties": []
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Planning image analysis integration****Planning image analysis integration****Identifying canonical icons for JSON mapping**\n\n\n**Confirming action card JSON structure and details****Identifying canonical icons for JSON mapping**\n{\"orientation\":\"upright\",\"componentType\":\"character action card\",\"cardSide\":\"face\",\"title\":\"REPAIRS\",\"typeLine\":\"\",\"body\":\"Discard 1 [actionCard].\\nDiscard a [malfunction].\\n\\nOR\\n\\nOpen or Close 1 Door.\",\"footer\":\"RECON\",\"upperRight\":\"notInCombat\",\"lowerCenter\":\"\",\"visibleText\":\"\",\"confidentlyVisible\":[\"All meaningful typography is upright in the file.\",\"The title reads “REPAIRS”.\",\"The upper-right icon is a white gun crossed out by a red X.\",\"The first effect contains a white card-shaped A icon.\",\"The second effect contains a white gear-shaped malfunction icon.\",\"Dark science-fiction artwork shows a suited figure facing a mechanical apparatus.\",\"The footer reads “RECON” in magenta.\"],\"proposedCategory\":\"cards/character/recon/action\",\"proposedSlug\":\"repairs\",\"confidence\":\"high\",\"uncertainties\":[]}\n\nsession_id: 20260815_050759_241b51\n",
+  "iconVerification": {
+    "status": "passed",
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "sessionId": "20260815_060721_71672a",
+    "promptVersion": 1,
+    "completedAt": "2026-08-15T06:07:37Z",
+    "claimed": [
+      "actionCard",
+      "malfunction",
+      "notInCombat"
+    ],
+    "parsed": {
+      "claims": [
+        {
+          "claimed": "actionCard",
+          "verdict": "match",
+          "actual": "actionCard",
+          "evidence": "One boxed capital A after “Discard 1”; same rectangular frame and internal A morphology as the glossary crop."
+        },
+        {
+          "claimed": "malfunction",
+          "verdict": "match",
+          "actual": "malfunction",
+          "evidence": "One gear after “Discard a”; same eight-toothed cog silhouette and circular center as the glossary crop, differing only in color."
+        },
+        {
+          "claimed": "notInCombat",
+          "verdict": "match",
+          "actual": "notInCombat",
+          "evidence": "One red diagonal cross over a white gun at the card’s upper right; this is the documented official gun-artwork variant of the glossary’s crossed-out Intruder icon."
+        }
+      ],
+      "allClaimsMatch": true,
+      "confidence": "high",
+      "uncertainties": []
+    },
+    "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Preparing skill for image analysis****Preparing skill for image analysis****Matching card icons to glossary entries**\n\nsession_id: 20260815_060721_71672a\n{\"claims\":[{\"claimed\":\"actionCard\",\"verdict\":\"match\",\"actual\":\"actionCard\",\"evidence\":\"One boxed capital A after “Discard 1”; same rectangular frame and internal A morphology as the glossary crop.\"},{\"claimed\":\"malfunction\",\"verdict\":\"match\",\"actual\":\"malfunction\",\"evidence\":\"One gear after “Discard a”; same eight-toothed cog silhouette and circular center as the glossary crop, differing only in color.\"},{\"claimed\":\"notInCombat\",\"verdict\":\"match\",\"actual\":\"notInCombat\",\"evidence\":\"One red diagonal cross over a white gun at the card’s upper right; this is the documented official gun-artwork variant of the glossary’s crossed-out Intruder icon.\"}],\"allClaimsMatch\":true,\"confidence\":\"high\",\"uncertainties\":[]}\n",
+    "evidencePath": null
+  }
+}

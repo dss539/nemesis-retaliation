@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/tiles/room/escape-shuttle-003.png",
+  "sourceSha256": "db3a96201d7c767d5f4c1271ab03e5c1faa74f60550d10d84b4920c1a9591e0d",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_054741_1aa948",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:47:40Z",
+  "completedAt": "2026-08-15T05:48:13Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "punchboard texture sheet containing multiple room-tile faces",
+    "cardSide": "notCard",
+    "title": "ESCAPE SHUTTLE",
+    "typeLine": "",
+    "body": "Make a Noise roll.\nGet into the Escape Shuttle.",
+    "footer": "",
+    "upperRight": "[ICON: grey outlined hexagonal badge with angular white-grey glyph]",
+    "lowerCenter": "",
+    "visibleText": "C\n\nC",
+    "confidentlyVisible": [
+      "The main tile shows a metallic room with a central marked walkway and several bench-like structures.",
+      "A large magenta C appears near the upper-left of the main tile.",
+      "A green badge with a white cross and a red badge with three white cartridge-like shapes appear along the main tile's left edge.",
+      "An outlined grey hexagonal badge with an angular white-grey glyph appears near the main tile's upper-right.",
+      "A separate lower-right tile face has a large white C over a circular industrial structure.",
+      "Parts of additional illustrated components are visible behind the two prominent tiles."
+    ],
+    "proposedCategory": "tiles/room",
+    "proposedSlug": "escape-shuttle",
+    "confidence": "medium",
+    "uncertainties": [
+      "The grey upper-right badge glyph is not confidently matched to any canonical glossary icon.",
+      "The file contains multiple overlapping component faces rather than one isolated tile, so the component boundary and singular identity are not fully unambiguous.",
+      "The green cross badge and red cartridge badge resemble greenItem and redItem, but they are embedded along the tile edge rather than occupying requested bare-corner position fields.",
+      "The two visible C glyphs belong to separate depicted components or panels; their exact gameplay meaning is not established from pixels alone.",
+      "The tile artwork is diagonally positioned within the file; no allowed 90-degree rotation would align its typography horizontally better than the current orientation."
+    ]
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Loading image analysis skill****Loading image analysis skill****Analyzing image rotation and typography orientation**\n\n\n{\"orientation\":\"upright\",\"componentType\":\"punchboard texture sheet containing multiple room-tile faces\",\"cardSide\":\"notCard\",\"title\":\"ESCAPE SHUTTLE\",\"typeLine\":\"\",\"body\":\"Make a Noise roll.\\nGet into the Escape Shuttle.\",\"footer\":\"\",\"upperRight\":\"[ICON: grey outlined hexagonal badge with angular white-grey glyph]\",\"lowerCenter\":\"\",\"visibleText\":\"C\\n\\nC\",\"confidentlyVisible\":[\"The main tile shows a metallic room with a central marked walkway and several bench-like structures.\",\"A large magenta C appears near the upper-left of the main tile.\",\"A green badge with a white cross and a red badge with three white cartridge-like shapes appear along the main tile's left edge.\",\"An outlined grey hexagonal badge with an angular white-grey glyph appears near the main tile's upper-right.\",\"A separate lower-right tile face has a large white C over a circular industrial structure.\",\"Parts of additional illustrated components are visible behind the two prominent tiles.\"],\"proposedCategory\":\"tiles/room\",\"proposedSlug\":\"escape-shuttle\",\"confidence\":\"medium\",\"uncertainties\":[\"The grey upper-right badge glyph is not confidently matched to any canonical glossary icon.\",\"The file contains multiple overlapping component faces rather than one isolated tile, so the component boundary and singular identity are not fully unambiguous.\",\"The green cross badge and red cartridge badge resemble greenItem and redItem, but they are embedded along the tile edge rather than occupying requested bare-corner position fields.\",\"The two visible C glyphs belong to separate depicted components or panels; their exact gameplay meaning is not established from pixels alone.\",\"The tile artwork is diagonally positioned within the file; no allowed 90-degree rotation would align its typography horizontally better than the current orientation.\"]}\n\nsession_id: 20260815_054741_1aa948\n"
+}

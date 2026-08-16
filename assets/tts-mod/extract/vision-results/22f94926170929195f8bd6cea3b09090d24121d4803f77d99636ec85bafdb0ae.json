@@ -1,0 +1,93 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/event-052.png",
+  "sourceSha256": "22f94926170929195f8bd6cea3b09090d24121d4803f77d99636ec85bafdb0ae",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_052023_7e498e",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:20:23Z",
+  "completedAt": "2026-08-15T05:22:25Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "game event card",
+    "cardSide": "face",
+    "title": "FIRE BREATH",
+    "typeLine": "",
+    "body": "All [intruder] in each [corridorEW] move.\nThen, all [intruder] in every Room move.\n\nFrom each Room with a [fire],\nspread [fire] to the neighboring\nRooms in Sections with [lifeSupportActive].\n\nEach [character] makes a Noise roll.",
+    "footer": "",
+    "upperRight": "",
+    "lowerCenter": "",
+    "visibleText": "",
+    "confidentlyVisible": [
+      "All meaningful typography is upright and reads left to right.",
+      "The title is printed in white uppercase letters.",
+      "The artwork shows bright orange flames in a dark industrial interior.",
+      "The rules are divided into three framed text panels.",
+      "Two curled white exoskeleton glyphs match the canonical intruder icon.",
+      "Two orange flame glyphs match the canonical fire icon.",
+      "The lower white astronaut glyph matches the canonical character icon.",
+      "The cyan-and-white uncrossed system glyph matches the canonical lifeSupportActive icon."
+    ],
+    "proposedCategory": "cards/game/event",
+    "proposedSlug": "fire-breath",
+    "confidence": "high",
+    "uncertainties": []
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Planning parallel image analysis****Planning parallel image analysis****Identifying event card icons and elements**\n\n\n**Cropping and analyzing icon regions****Identifying event card icons and elements**\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Cropping and analyzing icon regions****Planning map icon inferences**\n\n**Clarifying map icon identifications**\n\n**Confirming lifeSupportActive icon match**\n\n**Analyzing unknown icon morphology**\n\n**Confirming corridorEW icon identification**\n\n**Interpreting cyan life support icon**\n\n**Mapping glyph meanings and movement rules**\n\n**Refining card text and icon mapping**\n\n**Deciding conservative literal icon mapping**\n\n**Confirming corridorEW icon mapping**\n\n**Verifying icon and event semantics**\n\n**Reevaluating corridor icon categorization**\n\n**Confirming high-confidence icon classification**\n\n{\"orientation\":\"upright\",\"componentType\":\"game event card\",\"cardSide\":\"face\",\"title\":\"FIRE BREATH\",\"typeLine\":\"\",\"body\":\"All [intruder] in each [corridorEW] move.\\nThen, all [intruder] in every Room move.\\n\\nFrom each Room with a [fire],\\nspread [fire] to the neighboring\\nRooms in Sections with [lifeSupportActive].\\n\\nEach [character] makes a Noise roll.\",\"footer\":\"\",\"upperRight\":\"\",\"lowerCenter\":\"\",\"visibleText\":\"\",\"confidentlyVisible\":[\"All meaningful typography is upright and reads left to right.\",\"The title is printed in white uppercase letters.\",\"The artwork shows bright orange flames in a dark industrial interior.\",\"The rules are divided into three framed text panels.\",\"Two curled white exoskeleton glyphs match the canonical intruder icon.\",\"Two orange flame glyphs match the canonical fire icon.\",\"The lower white astronaut glyph matches the canonical character icon.\",\"The cyan-and-white uncrossed system glyph matches the canonical lifeSupportActive icon.\"],\"proposedCategory\":\"cards/game/event\",\"proposedSlug\":\"fire-breath\",\"confidence\":\"high\",\"uncertainties\":[]}\n\nsession_id: 20260815_052023_7e498e\n",
+  "iconVerification": {
+    "status": "passed",
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "sessionId": "20260815_060752_afd6b5",
+    "promptVersion": 1,
+    "completedAt": "2026-08-15T06:08:08Z",
+    "claimed": [
+      "character",
+      "corridorEW",
+      "fire",
+      "intruder",
+      "lifeSupportActive"
+    ],
+    "parsed": {
+      "claims": [
+        {
+          "claimed": "character",
+          "verdict": "match",
+          "actual": "character",
+          "evidence": "One occurrence: white frontal suited astronaut with round helmet and segmented torso, matching the glossary glyph."
+        },
+        {
+          "claimed": "corridorEW",
+          "verdict": "match",
+          "actual": "corridorEW",
+          "evidence": "One occurrence: horizontal white outlined corridor with symmetric stepped ends, matching corridorEW."
+        },
+        {
+          "claimed": "fire",
+          "verdict": "match",
+          "actual": "fire",
+          "evidence": "Two occurrences: identical orange curled flames with pointed upper tongues, both matching the fire crop."
+        },
+        {
+          "claimed": "intruder",
+          "verdict": "match",
+          "actual": "intruder",
+          "evidence": "Two occurrences: identical white curled creatures with open jaws and serrated dorsal spines, both matching the intruder crop."
+        },
+        {
+          "claimed": "lifeSupportActive",
+          "verdict": "match",
+          "actual": "lifeSupportActive",
+          "evidence": "One occurrence: cyan horizontal capsule with white central chamber, top tabs, and right-side protrusions, matching lifeSupportActive."
+        }
+      ],
+      "allClaimsMatch": true,
+      "confidence": "high",
+      "uncertainties": []
+    },
+    "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Preparing image analysis****Preparing image analysis****Verifying icon-label matches in JSON**\n\nsession_id: 20260815_060752_afd6b5\n{\"claims\":[{\"claimed\":\"character\",\"verdict\":\"match\",\"actual\":\"character\",\"evidence\":\"One occurrence: white frontal suited astronaut with round helmet and segmented torso, matching the glossary glyph.\"},{\"claimed\":\"corridorEW\",\"verdict\":\"match\",\"actual\":\"corridorEW\",\"evidence\":\"One occurrence: horizontal white outlined corridor with symmetric stepped ends, matching corridorEW.\"},{\"claimed\":\"fire\",\"verdict\":\"match\",\"actual\":\"fire\",\"evidence\":\"Two occurrences: identical orange curled flames with pointed upper tongues, both matching the fire crop.\"},{\"claimed\":\"intruder\",\"verdict\":\"match\",\"actual\":\"intruder\",\"evidence\":\"Two occurrences: identical white curled creatures with open jaws and serrated dorsal spines, both matching the intruder crop.\"},{\"claimed\":\"lifeSupportActive\",\"verdict\":\"match\",\"actual\":\"lifeSupportActive\",\"evidence\":\"One occurrence: cyan horizontal capsule with white central chamber, top tabs, and right-side protrusions, matching lifeSupportActive.\"}],\"allClaimsMatch\":true,\"confidence\":\"high\",\"uncertainties\":[]}\n",
+    "evidencePath": null
+  }
+}

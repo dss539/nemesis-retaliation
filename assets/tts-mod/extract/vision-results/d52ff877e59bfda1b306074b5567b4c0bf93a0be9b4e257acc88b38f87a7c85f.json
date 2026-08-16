@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/exploration-087.png",
+  "sourceSha256": "d52ff877e59bfda1b306074b5567b4c0bf93a0be9b4e257acc88b38f87a7c85f",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_052747_51c888",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:27:46Z",
+  "completedAt": "2026-08-15T05:29:09Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "room-exploration instruction card",
+    "cardSide": "face",
+    "title": "",
+    "typeLine": "",
+    "body": "Place a “?” Room tile.\n\nReminder:\nPlace 1 [ICON: white vertically elongated faceted shield-like glyph with concave upper corners, a central seam, and a pointed lower tip] if you are Moving with [ICON: white vertically elongated faceted shield-like glyph with concave upper corners, a central seam, and a pointed lower tip].\n\nEntrance Effect:\nClose all Doors around this Room.\nRemove this card from the game.",
+    "footer": "",
+    "upperRight": "",
+    "lowerCenter": "",
+    "visibleText": "[character] [malfunction]\n[ICON: yellow trapezoidal badge with black pointed vertical glyph, angular wave lines, and central dot] ×4\n[ICON: visible portion of a teal partial concentric-ring emblem with a dark-green filled circle at the lower-right edge]",
+    "confidentlyVisible": [
+      "All meaningful typography is already upright.",
+      "A white-outlined hexagonal room diagram occupies the center.",
+      "The central diagram contains a white astronaut glyph matching [character].",
+      "The central diagram contains a gray gear glyph matching [malfunction].",
+      "Four identical yellow-and-black glyphs appear around the central room, one along each depicted branch.",
+      "The Reminder line contains two matching white faceted glyphs.",
+      "The lower rules panel has an orange-brown background.",
+      "The card has rounded corners and a dark green-black circuit-patterned background."
+    ],
+    "proposedCategory": "cards/game/exploration",
+    "proposedSlug": null,
+    "confidence": "medium",
+    "uncertainties": [
+      "The two inline white faceted glyphs do not confidently match any supplied canonical icon and are therefore described literally.",
+      "The four yellow-and-black branch glyphs do not confidently match the supplied glossary and are therefore described literally rather than assigned a meaning.",
+      "The teal lower-right emblem is absent from the glossary and is partially cut off by the card/image edge.",
+      "No distinct printed title is visible, so the opening instruction is transcribed in body and proposedSlug is null."
+    ]
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Loading vision and image analysis skills****Loading vision and image analysis skills**\n**Identifying exploration card components**\n\n**Planning high-resolution icon analysis****Identifying exploration card components**\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Planning high-resolution icon analysis****Determining component type and layout**\n\n\n**Cataloging uncertain icon descriptions**\n\n**Describing white door-like glyphs**\n\n**Identifying canonical icons in visibleText**\n\n**Confirming canonical noise icon identification**\n\n**Evaluating yellow icons as door markers**\n\n**Clarifying door icon meaning**\n\n**Analyzing card icon and categorization**\n\n**Defining exact icon description format**\n\n**Clarifying icon positions and labels**\n\n**Documenting footer and icon transcription details**\n\n{\"orientation\":\"upright\",\"componentType\":\"room-exploration instruction card\",\"cardSide\":\"face\",\"title\":\"\",\"typeLine\":\"\",\"body\":\"Place a “?” Room tile.\\n\\nReminder:\\nPlace 1 [ICON: white vertically elongated faceted shield-like glyph with concave upper corners, a central seam, and a pointed lower tip] if you are Moving with [ICON: white vertically elongated faceted shield-like glyph with concave upper corners, a central seam, and a pointed lower tip].\\n\\nEntrance Effect:\\nClose all Doors around this Room.\\nRemove this card from the game.\",\"footer\":\"\",\"upperRight\":\"\",\"lowerCenter\":\"\",\"visibleText\":\"[character] [malfunction]\\n[ICON: yellow trapezoidal badge with black pointed vertical glyph, angular wave lines, and central dot] ×4\\n[ICON: visible portion of a teal partial concentric-ring emblem with a dark-green filled circle at the lower-right edge]\",\"confidentlyVisible\":[\"All meaningful typography is already upright.\",\"A white-outlined hexagonal room diagram occupies the center.\",\"The central diagram contains a white astronaut glyph matching [character].\",\"The central diagram contains a gray gear glyph matching [malfunction].\",\"Four identical yellow-and-black glyphs appear around the central room, one along each depicted branch.\",\"The Reminder line contains two matching white faceted glyphs.\",\"The lower rules panel has an orange-brown background.\",\"The card has rounded corners and a dark green-black circuit-patterned background.\"],\"proposedCategory\":\"cards/game/exploration\",\"proposedSlug\":null,\"confidence\":\"medium\",\"uncertainties\":[\"The two inline white faceted glyphs do not confidently match any supplied canonical icon and are therefore described literally.\",\"The four yellow-and-black branch glyphs do not confidently match the supplied glossary and are therefore described literally rather than assigned a meaning.\",\"The teal lower-right emblem is absent from the glossary and is partially cut off by the card/image edge.\",\"No distinct printed title is visible, so the opening instruction is transcribed in body and proposedSlug is null.\"]}\n\nsession_id: 20260815_052747_51c888\n"
+}

@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/attack-151_cards/card-15.png",
+  "sourceSha256": "20ced3626bd007e388acda4ccc96dfcd59e72bcf3cf7ae84ad1693e5ba0a924d",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_051752_d45cc8",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:17:51Z",
+  "completedAt": "2026-08-15T05:18:42Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "creature attack card",
+    "cardSide": "face",
+    "title": "SCRATCH",
+    "typeLine": "",
+    "body": "Lose 1 [characterHealth].",
+    "footer": "",
+    "upperRight": "",
+    "lowerCenter": "",
+    "visibleText": "[ICON: blue circular curled creature silhouette]\n[ICON: blue circular upright creature silhouette]\n[ICON: blue circular broad creature silhouette]",
+    "confidentlyVisible": [
+      "Portrait card face with upright horizontal typography",
+      "White uppercase title “SCRATCH” in the top panel",
+      "Central artwork depicts a large clawed creature lunging forward",
+      "Three vertically stacked blue circular creature glyphs appear at lower left",
+      "A red vertical divider separates the three glyphs from the effect text",
+      "The effect text reads “Lose 1” followed by a white cross-with-EKG glyph and a period"
+    ],
+    "proposedCategory": "cards/game/attack",
+    "proposedSlug": "scratch",
+    "confidence": "medium",
+    "uncertainties": [
+      "The three lower-left circular creature glyphs are distinct card-local symbols not confidently matched to the canonical glossary; their exact identities are uncertain.",
+      "The attack-card classification is strongly suggested by the hostile artwork and damage effect but is not explicitly printed as a type line."
+    ]
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Planning image loading before analysis****Planning image loading before analysis**\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Inspecting image pixels****Inspecting image pixels****Inspecting JSON component details**\n\n\n**Defining precise icon descriptions**\n\n{\"orientation\":\"upright\",\"componentType\":\"creature attack card\",\"cardSide\":\"face\",\"title\":\"SCRATCH\",\"typeLine\":\"\",\"body\":\"Lose 1 [characterHealth].\",\"footer\":\"\",\"upperRight\":\"\",\"lowerCenter\":\"\",\"visibleText\":\"[ICON: blue circular curled creature silhouette]\\n[ICON: blue circular upright creature silhouette]\\n[ICON: blue circular broad creature silhouette]\",\"confidentlyVisible\":[\"Portrait card face with upright horizontal typography\",\"White uppercase title “SCRATCH” in the top panel\",\"Central artwork depicts a large clawed creature lunging forward\",\"Three vertically stacked blue circular creature glyphs appear at lower left\",\"A red vertical divider separates the three glyphs from the effect text\",\"The effect text reads “Lose 1” followed by a white cross-with-EKG glyph and a period\"],\"proposedCategory\":\"cards/game/attack\",\"proposedSlug\":\"scratch\",\"confidence\":\"medium\",\"uncertainties\":[\"The three lower-left circular creature glyphs are distinct card-local symbols not confidently matched to the canonical glossary; their exact identities are uncertain.\",\"The attack-card classification is strongly suggested by the hostile artwork and damage effect but is not explicitly printed as a type line.\"]}\n\nsession_id: 20260815_051752_d45cc8\n"
+}

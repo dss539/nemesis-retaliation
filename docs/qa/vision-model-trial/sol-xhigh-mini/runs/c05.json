@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "caseId": "c05",
+  "tier": "human-approved-card",
+  "sourceSha256": "ef45f7b5fc21026faa0af8413abf2d35539938484415d1c3fb84e2c0ff0133fe",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "reasoning": "xhigh",
+  "nativeImageAttachment": true,
+  "safeMode": true,
+  "promptSha256": "49aaf5b24a0cf146faf915b3dff26a370629dc205f337a296644c004550d6b80",
+  "startedAtEpoch": 1786781392.6339042,
+  "endedAtEpoch": 1786781472.5444095,
+  "durationSeconds": 79.911,
+  "returnCode": 0,
+  "sessionId": "20260815_080952_dbd7b2",
+  "stdout": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Transcribing and analyzing card icons**\n\n**Distinguishing ammo token and glyph details**\n\n**Confirming shootDieAmmoLoss triangle icon**\n\n**Analyzing ammo token depiction**\n\n**Interpreting card design elements**\n\n**Transcribing card body text with icons**\n\n**Examining ammoSlot versus ammoToken icon**\n\n**Differentiating ammoToken and ammoSlot icons**\n\n**Identifying skull in shootDieCritical icon**\n\n**Identifying critical hit skull icon**\n\n**Analyzing shootDieCritical and ammo-loss icons**\n\n**Flagging icon uncertainty with literal description**\n\n**Interpreting critical icon meaning**\n\n**Confirming ammo loss icon interpretation**\n\n**Identifying tactical gear ammo slot design**\n\n**Distinguishing ammo token from slot**\n\n**Confirming lowerCenter ammoSlot placement**\n\n**Adding canonical lowerCenter ammoSlot symbol**\n\n**Assessing category confidence for ranged weapon**\n\n**Confirming icon details for ammo indicators****Transcribing and analyzing card icons**\n**Distinguishing ammo token and glyph details**\n**Confirming shootDieAmmoLoss triangle icon**\n\n**Analyzing ammo token depiction**\n**Interpreting card design elements**\n**Transcribing card body text with icons**\n\n**Examining ammoSlot versus ammoToken icon**\n**Differentiating ammoToken and ammoSlot icons**\n**Identifying skull in shootDieCritical icon**\n\n**Identifying critical hit skull icon**\n**Analyzing shootDieCritical and ammo-loss icons**\n**Flagging icon uncertainty with literal description**\n\n**Interpreting critical icon meaning**\n**Confirming ammo loss icon interpretation**\n**Identifying tactical gear ammo slot design**\n\n**Distinguishing ammo token from slot**\n**Confirming lowerCenter ammoSlot placement**\n**Adding canonical lowerCenter ammoSlot symbol**\n\n**Assessing category confidence for ranged weapon**\n{\n  \"orientation\": \"upright\",\n  \"componentType\": \"weapon card\",\n  \"title\": \"AUTOMATIC SHOTGUN\",\n  \"typeLine\": \"RANGED WEAPON, RIFLE\",\n  \"body\": \"Shoot: On Hit deal 1 more.\\n[shootDieAmmoLoss]: Spend [ammoToken]\",\n  \"footer\": null,\n  \"standaloneSymbols\": {\n    \"lower center\": \"ammoSlot\"\n  },\n  \"visibleOtherText\": [],\n  \"layoutNotes\": [\n    \"A large firearm illustration occupies the center of the card.\",\n    \"The title and type line are centered above the firearm illustration.\",\n    \"The rules text is centered in a black lower panel.\",\n    \"A red Tactical Gear slot is centered on the lower edge and is partially cut off by the image boundary.\",\n    \"A large white trapezoidal cutout or blank area is visible at the top edge.\"\n  ],\n  \"categoryProposal\": \"ranged-weapon\",\n  \"filenameProposal\": \"automatic-shotgun.png\",\n  \"sidecarCandidate\": {\n    \"typeLine\": \"RANGED WEAPON, RIFLE\",\n    \"body\": \"Shoot: On Hit deal 1 more.\\n[shootDieAmmoLoss]: Spend [ammoToken]\",\n    \"lowerCenter\": \"ammoSlot\"\n  },\n  \"uncertainties\": [],\n  \"confidence\": {\n    \"orientation\": \"high\",\n    \"text\": \"high\",\n    \"icons\": \"medium\",\n    \"identity\": \"high\",\n    \"category\": \"high\",\n    \"overall\": \"high\"\n  },\n  \"decision\": \"promote\"\n}\n",
+  "stderr": "\nsession_id: 20260815_080952_dbd7b2\n",
+  "parsedJson": {
+    "orientation": "upright",
+    "componentType": "weapon card",
+    "title": "AUTOMATIC SHOTGUN",
+    "typeLine": "RANGED WEAPON, RIFLE",
+    "body": "Shoot: On Hit deal 1 more.\n[shootDieAmmoLoss]: Spend [ammoToken]",
+    "footer": null,
+    "standaloneSymbols": {
+      "lower center": "ammoSlot"
+    },
+    "visibleOtherText": [],
+    "layoutNotes": [
+      "A large firearm illustration occupies the center of the card.",
+      "The title and type line are centered above the firearm illustration.",
+      "The rules text is centered in a black lower panel.",
+      "A red Tactical Gear slot is centered on the lower edge and is partially cut off by the image boundary.",
+      "A large white trapezoidal cutout or blank area is visible at the top edge."
+    ],
+    "categoryProposal": "ranged-weapon",
+    "filenameProposal": "automatic-shotgun.png",
+    "sidecarCandidate": {
+      "typeLine": "RANGED WEAPON, RIFLE",
+      "body": "Shoot: On Hit deal 1 more.\n[shootDieAmmoLoss]: Spend [ammoToken]",
+      "lowerCenter": "ammoSlot"
+    },
+    "uncertainties": [],
+    "confidence": {
+      "orientation": "high",
+      "text": "high",
+      "icons": "medium",
+      "identity": "high",
+      "category": "high",
+      "overall": "high"
+    },
+    "decision": "promote"
+  },
+  "parseError": null
+}

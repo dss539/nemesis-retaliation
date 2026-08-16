@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/queenHealthDeck-040.png",
+  "sourceSha256": "ce7a5fba88dd56f5de2ae77e5fe1647324bdfa9a99ae7f55485cca35eb72b062",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_053853_e8de3e",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:38:52Z",
+  "completedAt": "2026-08-15T05:39:15Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "health-resolution instruction card",
+    "cardSide": "face",
+    "title": "",
+    "typeLine": "",
+    "body": "Discard\n0\nadditional cards.\n\nIf the card was drawn by a [character]:\n\nPlace the Queen back in the pool.",
+    "footer": "",
+    "upperRight": "",
+    "lowerCenter": "",
+    "visibleText": "",
+    "confidentlyVisible": [
+      "All typography is upright in the file.",
+      "A large white 0 appears inside a green octagonal outline.",
+      "A white astronaut glyph appears inline after “by a” and matches [character].",
+      "The artwork depicts an armored humanoid facing a large creature.",
+      "The lower rules text is contained in a dark bordered panel."
+    ],
+    "proposedCategory": "cards/game/queen-health",
+    "proposedSlug": "discard-0-additional-cards",
+    "confidence": "medium",
+    "uncertainties": [
+      "The exact deck/category role is not explicitly labeled; “health-resolution instruction card” and cards/game/queen-health are inferred from the visible instruction mentioning the Queen.",
+      "The card has no clearly distinct printed title, so “Discard 0 additional cards.” is transcribed as body text rather than assigned as a title."
+    ]
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Loading vision skill for image analysis****Loading vision skill for image analysis**\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Clarifying discard card details**\n\n{\"orientation\":\"upright\",\"componentType\":\"health-resolution instruction card\",\"cardSide\":\"face\",\"title\":\"\",\"typeLine\":\"\",\"body\":\"Discard\\n0\\nadditional cards.\\n\\nIf the card was drawn by a [character]:\\n\\nPlace the Queen back in the pool.\",\"footer\":\"\",\"upperRight\":\"\",\"lowerCenter\":\"\",\"visibleText\":\"\",\"confidentlyVisible\":[\"All typography is upright in the file.\",\"A large white 0 appears inside a green octagonal outline.\",\"A white astronaut glyph appears inline after “by a” and matches [character].\",\"The artwork depicts an armored humanoid facing a large creature.\",\"The lower rules text is contained in a dark bordered panel.\"],\"proposedCategory\":\"cards/game/queen-health\",\"proposedSlug\":\"discard-0-additional-cards\",\"confidence\":\"medium\",\"uncertainties\":[\"The exact deck/category role is not explicitly labeled; “health-resolution instruction card” and cards/game/queen-health are inferred from the visible instruction mentioning the Queen.\",\"The card has no clearly distinct printed title, so “Discard 0 additional cards.” is transcribed as body text rather than assigned as a title.\"]}\n\nsession_id: 20260815_053853_e8de3e\n"
+}

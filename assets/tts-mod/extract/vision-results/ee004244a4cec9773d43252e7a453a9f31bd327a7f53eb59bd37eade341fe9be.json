@@ -1,0 +1,95 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-030.png",
+  "sourceSha256": "ee004244a4cec9773d43252e7a453a9f31bd327a7f53eb59bd37eade341fe9be",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_060431_70eeed",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:40:44Z",
+  "completedAt": "2026-08-15T06:04:53Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "landscape rules/effect card",
+    "cardSide": "face",
+    "title": "COMBAT MOTION\nTRACKER",
+    "typeLine": "",
+    "body": "Whenever you discover a new Room,\nignore all [noiseDieHazard] results from all sources.",
+    "footer": "",
+    "upperRight": "",
+    "lowerCenter": "",
+    "visibleText": "",
+    "confidentlyVisible": [
+      "White uppercase title appears in two centered lines.",
+      "A handheld electronic device is depicted in the central artwork.",
+      "The effect text appears in two centered lines near the bottom.",
+      "A yellow triangular hazard-symbol glyph appears inline between “all” and “results”."
+    ],
+    "proposedCategory": "cards/game/item",
+    "proposedSlug": "combat-motion-tracker",
+    "confidence": "medium",
+    "uncertainties": [
+      "The pixels establish a titled rules/effect card but do not explicitly print an item type or category, so the proposed item category is uncertain."
+    ]
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Planning image workflow inspection****Planning image workflow inspection****Analyzing image rotation orientation**\n\n\n**Confirming 90-degree CCW rotation and identifying hazard icon**\n\n**Classifying image as game item card****Analyzing image rotation orientation**\n**Confirming 90-degree CCW rotation and identifying hazard icon**\n{\"orientation\":\"rotate90ccw\",\"componentType\":\"game item card\",\"cardSide\":\"face\",\"title\":\"COMBAT MOTION\\nTRACKER\",\"typeLine\":\"\",\"body\":\"Whenever you discover a new Room,\\nignore all [noiseDieHazard] results from all sources.\",\"footer\":\"\",\"upperRight\":\"\",\"lowerCenter\":\"\",\"visibleText\":\"\",\"confidentlyVisible\":[\"White uppercase title over dark equipment artwork\",\"Artwork depicts a handheld electronic tracker with a green display\",\"Rules text contains one yellow hazard symbol inline\",\"A large white polygonal area is clipped by the file edge\"],\"proposedCategory\":\"cards/game/item\",\"proposedSlug\":\"combat-motion-tracker\",\"confidence\":\"medium\",\"uncertainties\":[\"The specific item subtype is not printed visibly.\",\"The large clipped white polygonal area appears to be part of the source composition or crop, but its intended content is uncertain.\"]}\n\nsession_id: 20260815_054045_4515bf\n",
+  "initialParsed": {
+    "orientation": "rotate90ccw",
+    "componentType": "game item card",
+    "cardSide": "face",
+    "title": "COMBAT MOTION\nTRACKER",
+    "typeLine": "",
+    "body": "Whenever you discover a new Room,\nignore all [noiseDieHazard] results from all sources.",
+    "footer": "",
+    "upperRight": "",
+    "lowerCenter": "",
+    "visibleText": "",
+    "confidentlyVisible": [
+      "White uppercase title over dark equipment artwork",
+      "Artwork depicts a handheld electronic tracker with a green display",
+      "Rules text contains one yellow hazard symbol inline",
+      "A large white polygonal area is clipped by the file edge"
+    ],
+    "proposedCategory": "cards/game/item",
+    "proposedSlug": "combat-motion-tracker",
+    "confidence": "medium",
+    "uncertainties": [
+      "The specific item subtype is not printed visibly.",
+      "The large clipped white polygonal area appears to be part of the source composition or crop, but its intended content is uncertain."
+    ]
+  },
+  "initialSessionId": "20260815_054045_4515bf",
+  "orientationCorrection": "rotate90ccw",
+  "uprightRead": {
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "sessionId": "20260815_060431_70eeed",
+    "completedAt": "2026-08-15T06:04:53Z",
+    "parsed": {
+      "orientation": "upright",
+      "componentType": "landscape rules/effect card",
+      "cardSide": "face",
+      "title": "COMBAT MOTION\nTRACKER",
+      "typeLine": "",
+      "body": "Whenever you discover a new Room,\nignore all [noiseDieHazard] results from all sources.",
+      "footer": "",
+      "upperRight": "",
+      "lowerCenter": "",
+      "visibleText": "",
+      "confidentlyVisible": [
+        "White uppercase title appears in two centered lines.",
+        "A handheld electronic device is depicted in the central artwork.",
+        "The effect text appears in two centered lines near the bottom.",
+        "A yellow triangular hazard-symbol glyph appears inline between “all” and “results”."
+      ],
+      "proposedCategory": "cards/game/item",
+      "proposedSlug": "combat-motion-tracker",
+      "confidence": "medium",
+      "uncertainties": [
+        "The pixels establish a titled rules/effect card but do not explicitly print an item type or category, so the proposed item category is uncertain."
+      ]
+    },
+    "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Planning image analysis skill loading****Planning image analysis skill loading**\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Assessing Combat Motion Tracker card type**\n\n\nsession_id: 20260815_060431_70eeed\n{\"orientation\":\"upright\",\"componentType\":\"landscape rules/effect card\",\"cardSide\":\"face\",\"title\":\"COMBAT MOTION\\nTRACKER\",\"typeLine\":\"\",\"body\":\"Whenever you discover a new Room,\\nignore all [noiseDieHazard] results from all sources.\",\"footer\":\"\",\"upperRight\":\"\",\"lowerCenter\":\"\",\"visibleText\":\"\",\"confidentlyVisible\":[\"White uppercase title appears in two centered lines.\",\"A handheld electronic device is depicted in the central artwork.\",\"The effect text appears in two centered lines near the bottom.\",\"A yellow triangular hazard-symbol glyph appears inline between “all” and “results”.\"],\"proposedCategory\":\"cards/game/item\",\"proposedSlug\":\"combat-motion-tracker\",\"confidence\":\"medium\",\"uncertainties\":[\"The pixels establish a titled rules/effect card but do not explicitly print an item type or category, so the proposed item category is uncertain.\"]}\n"
+  }
+}

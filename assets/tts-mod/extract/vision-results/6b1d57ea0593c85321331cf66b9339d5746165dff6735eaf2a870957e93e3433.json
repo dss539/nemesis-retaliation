@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-26.png",
+  "sourceSha256": "6b1d57ea0593c85321331cf66b9339d5746165dff6735eaf2a870957e93e3433",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_051015_5c200f",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:10:15Z",
+  "completedAt": "2026-08-15T05:10:48Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "character action card",
+    "cardSide": "face",
+    "title": "REST",
+    "typeLine": "",
+    "body": "Resolve the Infection Procedure.\nRemove all Uninfected cards from the game..\n\nInfection Procedure:\nScan all Contamination cards in hand.\nIf any of them are Infected, place a Larva\non your Character board.",
+    "footer": "COMBAT ENGINEER",
+    "upperRight": "notInCombat",
+    "lowerCenter": "",
+    "visibleText": "",
+    "confidentlyVisible": [
+      "All typography is upright in the file.",
+      "The title REST is centered in a framed panel.",
+      "The upper-right corner shows a red prohibition cross over a gun glyph.",
+      "The artwork depicts one seated armored figure and one standing figure in a dim industrial interior.",
+      "COMBAT ENGINEER is printed at the bottom."
+    ],
+    "proposedCategory": "cards/character/combat-engineer/action",
+    "proposedSlug": "rest",
+    "confidence": "high",
+    "uncertainties": []
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Planning image analysis for card details**\n\n**Preparing to transcribe image text with line breaks****Planning image analysis for card details**\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Preparing to transcribe image text with line breaks****Clarifying notInCombat icon description**\n\n\n**Transcribing Infection Procedure text precisely**\n\n{\"orientation\":\"upright\",\"componentType\":\"character action card\",\"cardSide\":\"face\",\"title\":\"REST\",\"typeLine\":\"\",\"body\":\"Resolve the Infection Procedure.\\nRemove all Uninfected cards from the game..\\n\\nInfection Procedure:\\nScan all Contamination cards in hand.\\nIf any of them are Infected, place a Larva\\non your Character board.\",\"footer\":\"COMBAT ENGINEER\",\"upperRight\":\"notInCombat\",\"lowerCenter\":\"\",\"visibleText\":\"\",\"confidentlyVisible\":[\"All typography is upright in the file.\",\"The title REST is centered in a framed panel.\",\"The upper-right corner shows a red prohibition cross over a gun glyph.\",\"The artwork depicts one seated armored figure and one standing figure in a dim industrial interior.\",\"COMBAT ENGINEER is printed at the bottom.\"],\"proposedCategory\":\"cards/character/combat-engineer/action\",\"proposedSlug\":\"rest\",\"confidence\":\"high\",\"uncertainties\":[]}\n\nsession_id: 20260815_051015_5c200f\n",
+  "iconVerification": {
+    "status": "passed",
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "sessionId": "20260815_060721_190907",
+    "promptVersion": 1,
+    "completedAt": "2026-08-15T06:07:35Z",
+    "claimed": [
+      "notInCombat"
+    ],
+    "parsed": {
+      "claims": [
+        {
+          "claimed": "notInCombat",
+          "verdict": "match",
+          "actual": "notInCombat",
+          "evidence": "One occurrence at the card art's upper right: a white side-profile gun crossed by a red X; this is the documented official notInCombat artwork variant of the glossary's crossed-out Intruder glyph."
+        }
+      ],
+      "allClaimsMatch": true,
+      "confidence": "high",
+      "uncertainties": []
+    },
+    "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Loading image inspection skill****Loading image inspection skill****Extracting notInCombat occurrences**\n\nsession_id: 20260815_060721_190907\n{\"claims\":[{\"claimed\":\"notInCombat\",\"verdict\":\"match\",\"actual\":\"notInCombat\",\"evidence\":\"One occurrence at the card art's upper right: a white side-profile gun crossed by a red X; this is the documented official notInCombat artwork variant of the glossary's crossed-out Intruder glyph.\"}],\"allClaimsMatch\":true,\"confidence\":\"high\",\"uncertainties\":[]}\n",
+    "evidencePath": null
+  }
+}

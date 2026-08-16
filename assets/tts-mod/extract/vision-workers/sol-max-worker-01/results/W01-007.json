@@ -1,0 +1,124 @@
+{
+  "schemaVersion": 1,
+  "assetId": "W01-007",
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/bags/dataTokenBag-010.png",
+  "sourceSha256": "f6041ee330ed0d70515b5bd7f687c3e7e093cc425586411cca9c641003e7cd35",
+  "sourceMetadata": {
+    "width": 269,
+    "height": 250,
+    "format": "PNG",
+    "mode": "RGBA",
+    "byteSize": 86921
+  },
+  "runtimeProvenance": {
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "reasoningEffort": "max",
+    "platform": "subagent",
+    "workerId": "sol-max-worker-01",
+    "sessionProvenanceHandle": "hermes_rpc_dfba82c30cd846b6bc4eced43002e707.sock",
+    "persistentSession": true,
+    "nativeVision": true,
+    "auxiliaryVisionUsed": false
+  },
+  "orientation": {
+    "status": "upright",
+    "evidence": "DATA reads left-to-right on the chip package.",
+    "transformApplied": null,
+    "stagingDerivative": null
+  },
+  "blindPixelObservations": [
+    "Centered dark square integrated-circuit package on a mottled green-black background.",
+    "Dense pale metallic pins project from all four sides.",
+    "Low-contrast uppercase DATA is printed on the package."
+  ],
+  "visibleText": [
+    {
+      "text": "DATA",
+      "location": "center of chip",
+      "structure": "single uppercase word",
+      "confidence": "high"
+    }
+  ],
+  "iconMorphology": [
+    {
+      "location": "center",
+      "silhouette": "Detailed square microchip with pins on all four sides.",
+      "internalMarks": "Printed DATA word across the package.",
+      "colors": "dark green-black package, pale metallic pins",
+      "claimedToken": null,
+      "closestPlausibleGlossaryAlternative": "computer",
+      "visibleDiscriminatingFeature": "This is a shaded physical microchip with many pins and printed DATA text, not the glossary computer-system access glyph; no glossary token is claimed."
+    }
+  ],
+  "evidenceConsulted": {
+    "tts": {
+      "consultedAfterBlindRecord": true,
+      "trigger": "Pixels did not establish which specific token/container reused this generic DATA art.",
+      "manifestUrl": "https://steamusercontent-a.akamaihd.net/ugc/11923313308031205/D67F3B4FBA7A1CCFA7B5C6DC5B6A2AE0E8B4B729/",
+      "objectReferenceSummary": {
+        "referenceCount": 5,
+        "typeCounts": {
+          "Custom_Token": 4,
+          "Custom_Model_Infinite_Bag": 1
+        },
+        "tokenDescriptions": [
+          "Adrenaline Chip",
+          "Endorphins Chip",
+          "Cortisol Chip",
+          ""
+        ],
+        "notableParent": "Bioenhancment Expert / older",
+        "bagGuid": "dbc018",
+        "urlRoles": [
+          "ImageURL",
+          "DiffuseURL"
+        ]
+      }
+    },
+    "official": {
+      "consulted": true,
+      "trigger": "The same URL had conflicting/multiple TTS token descriptions and expansion-like parent provenance.",
+      "sourcePath": "docs/rulebooks/Nemesis_RT_Contractors_Rulebook.pdf",
+      "sourceSha256": "29aba26dc2be64d1fb397656727e86c243917fb6165a7cafca94950787e10d45",
+      "renderedPages": [
+        "assets/tts-mod/extract/vision-workers/sol-max-worker-01/official/contractors-rulebook-200dpi-1.png",
+        "assets/tts-mod/extract/vision-workers/sol-max-worker-01/official/contractors-rulebook-200dpi-2.png"
+      ],
+      "finding": "The two-page Contractors Rules Sheet visibly lists Contractor components and setup but does not name DATA chips, Adrenaline Chip, Endorphins Chip, Cortisol Chip, or Bioenhancement Expert; it does not resolve the multi-use provenance."
+    }
+  },
+  "proposedClassification": "Generic non-card DATA microchip artwork reused as multiple TTS Custom_Token ImageURLs and one infinite-bag DiffuseURL; exact component ownership is unresolved.",
+  "proposedPath": null,
+  "readConfidence": {
+    "level": "high",
+    "reason": "DATA and the chip morphology are clearly visible."
+  },
+  "classificationConfidence": {
+    "level": "medium",
+    "reason": "Generic token/bag use is established, but one artwork maps to multiple named chips plus a blank token and an expansion-like parent hierarchy."
+  },
+  "uncertainties": [
+    "The pixels do not discriminate Adrenaline, Endorphins, or Cortisol chip identity.",
+    "The TTS record set reuses this art across multiple descriptions and a generic infinite bag.",
+    "The available official Contractors rules sheet does not mention these chips or resolve ownership/applicability.",
+    "A path/category correction could constitute reclassification of extracted content and therefore remains a supervisor/human gate."
+  ],
+  "promotionDecision": "defer",
+  "decisionReasons": [
+    "Exact component identity and base-versus-expansion ownership are not uniquely established.",
+    "Directory/filename semantics cannot resolve the multi-use URL conflict.",
+    "False completion would collapse several distinct TTS descriptions into one unsupported identity."
+  ],
+  "stagedCandidateSidecarPath": null,
+  "validationPerformed": [
+    "Assignment SHA-256 matched source bytes.",
+    "Pillow decoded and verified the 269x250 PNG.",
+    "Native vision attachment was inspected independently as W01-007.",
+    "Blind observations were persisted before TTS and official evidence were consulted.",
+    "All five TTS object references and both URL roles were reconciled.",
+    "Both official Contractors rule-sheet pages were rendered and inspected natively at 200 DPI.",
+    "No source file or canonical/shared ledger was modified."
+  ],
+  "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-worker-01/raw/W01-007.json"
+}

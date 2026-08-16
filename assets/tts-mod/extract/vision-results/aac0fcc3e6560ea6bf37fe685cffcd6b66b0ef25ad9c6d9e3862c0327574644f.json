@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/tiles/tile-008.jpg",
+  "sourceSha256": "aac0fcc3e6560ea6bf37fe685cffcd6b66b0ef25ad9c6d9e3862c0327574644f",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_054935_6bdc0c",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:49:35Z",
+  "completedAt": "2026-08-15T05:50:09Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "sci-fi player dashboard/board texture atlas",
+    "cardSide": "notCard",
+    "title": "",
+    "typeLine": "",
+    "body": "",
+    "footer": "",
+    "upperRight": "",
+    "lowerCenter": "",
+    "visibleText": "PLAYER\nSERIOUS\nSERIOUS\nSERIOUS\nDRAW\nNEMESIS\nRETALIATION\nDISCARD\nACTION\nACTION\nAVAILABLE\nITEM\nBACKPACK\nOBJECTIVE\nITEM\nITEM\nITEM\nITEM\nITEM\nITEM\nITEM",
+    "confidentlyVisible": [
+      "All meaningful typography is upright in the file.",
+      "Dark monochrome science-fiction interface artwork covers the image.",
+      "A PLAYER area is visible at upper left.",
+      "Three separate slots are labeled SERIOUS.",
+      "DRAW and DISCARD areas appear on opposite sides.",
+      "Two large slots are labeled ACTION.",
+      "A row contains seven visible ITEM labels.",
+      "OBJECTIVE, AVAILABLE, ITEM, and BACKPACK areas are visible.",
+      "The central NEMESIS RETALIATION branding is partly intersected by surrounding layout elements and image boundaries."
+    ],
+    "proposedCategory": "models/texture",
+    "proposedSlug": "nemesis-retaliation-player-dashboard",
+    "confidence": "medium",
+    "uncertainties": [
+      "This appears to be a texture atlas or rendered player-dashboard surface rather than a standalone physical card, but its exact implementation role cannot be established from pixels alone.",
+      "Some dashboard artwork and frames are clipped by the image boundaries.",
+      "The exact count and full extent of slots extending beyond the image boundaries cannot be determined.",
+      "The semantic filename stem includes “player-dashboard” based on unmistakable visible interface labels and layout, but no complete printed component title explicitly says “PLAYER DASHBOARD.”"
+    ]
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Loading vision tool for pixel inspection****Loading vision tool for pixel inspection**\n⚠️  Reached maximum iterations (2). Requesting summary...\n{\"orientation\":\"upright\",\"componentType\":\"sci-fi player dashboard/board texture atlas\",\"cardSide\":\"notCard\",\"title\":\"\",\"typeLine\":\"\",\"body\":\"\",\"footer\":\"\",\"upperRight\":\"\",\"lowerCenter\":\"\",\"visibleText\":\"PLAYER\\nSERIOUS\\nSERIOUS\\nSERIOUS\\nDRAW\\nNEMESIS\\nRETALIATION\\nDISCARD\\nACTION\\nACTION\\nAVAILABLE\\nITEM\\nBACKPACK\\nOBJECTIVE\\nITEM\\nITEM\\nITEM\\nITEM\\nITEM\\nITEM\\nITEM\",\"confidentlyVisible\":[\"All meaningful typography is upright in the file.\",\"Dark monochrome science-fiction interface artwork covers the image.\",\"A PLAYER area is visible at upper left.\",\"Three separate slots are labeled SERIOUS.\",\"DRAW and DISCARD areas appear on opposite sides.\",\"Two large slots are labeled ACTION.\",\"A row contains seven visible ITEM labels.\",\"OBJECTIVE, AVAILABLE, ITEM, and BACKPACK areas are visible.\",\"The central NEMESIS RETALIATION branding is partly intersected by surrounding layout elements and image boundaries.\"],\"proposedCategory\":\"models/texture\",\"proposedSlug\":\"nemesis-retaliation-player-dashboard\",\"confidence\":\"medium\",\"uncertainties\":[\"This appears to be a texture atlas or rendered player-dashboard surface rather than a standalone physical card, but its exact implementation role cannot be established from pixels alone.\",\"Some dashboard artwork and frames are clipped by the image boundaries.\",\"The exact count and full extent of slots extending beyond the image boundaries cannot be determined.\",\"The semantic filename stem includes “player-dashboard” based on unmistakable visible interface labels and layout, but no complete printed component title explicitly says “PLAYER DASHBOARD.”\"]}\n\nsession_id: 20260815_054935_6bdc0c\n"
+}

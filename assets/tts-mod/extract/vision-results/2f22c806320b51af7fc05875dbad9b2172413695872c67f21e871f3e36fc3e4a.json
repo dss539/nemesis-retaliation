@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/medical-support-024.jpg",
+  "sourceSha256": "2f22c806320b51af7fc05875dbad9b2172413695872c67f21e871f3e36fc3e4a",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_060353_6d417e",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:12:06Z",
+  "completedAt": "2026-08-15T06:04:14Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "ranged weapon item card",
+    "cardSide": "face",
+    "title": "CARBINE",
+    "typeLine": "RANGED WEAPON, HEAVY",
+    "body": "Shoot: After you don't kill the [intruder], deal 1 Hit.",
+    "footer": "",
+    "upperRight": "",
+    "lowerCenter": "ammoSlot",
+    "visibleText": "",
+    "confidentlyVisible": [
+      "White title CARBINE at the top center",
+      "Orange type line RANGED WEAPON, HEAVY",
+      "Artwork depicts a large futuristic firearm",
+      "The word Shoot is printed in red",
+      "A curled white exoskeleton icon appears inline in the effect text",
+      "A red slot is partially visible at the lower center"
+    ],
+    "proposedCategory": "cards/game/item/ranged-weapon",
+    "proposedSlug": "carbine",
+    "confidence": "medium",
+    "uncertainties": [
+      "The lower-center red slot is clipped by the image boundary; its ammoSlot identification is based on the visible red slot morphology.",
+      "Any marking or number inside the clipped lower-center slot is not fully legible and has not been transcribed."
+    ]
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Loading image analysis workflows****Loading image analysis workflows****Analyzing image text orientation**\n\n\n**Confirming image rotation direction**\n\n**Verifying title and typeline punctuation**\n\n**Confirming icon as intruder**\n\n**Analyzing red badge and icon details****Analyzing image text orientation**\n**Confirming image rotation direction**\n**Verifying title and typeline punctuation**\n\n**Confirming icon as intruder**\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Analyzing red badge and icon details****Analyzing text orientation in image crop**\n\n\n**Confirming 90° CCW image rotation and layout**\n\n**Identifying black glyph as cartridge in red tab**\n\n**Transcribing Nemesis Retaliation action card icon**\n\n**Categorizing card as character action**\n\n**Confirming card face and tab details**\n\n**Describing rotated icon morphology**\n\n**Finalizing icon and card description**\n\n**Assessing card category and type**\n\n**Analyzing red tab icon meaning**\n\n{\"orientation\":\"rotate90ccw\",\"componentType\":\"character weapon action card\",\"cardSide\":\"face\",\"title\":\"CARBINE\",\"typeLine\":\"RANGED WEAPON, HEAVY\",\"body\":\"Shoot: After you don't kill the [intruder], deal 1 Hit.\",\"footer\":\"\",\"upperRight\":\"\",\"lowerCenter\":\"[ICON: red rectangular tab with black elongated hexagonal glyph]\",\"visibleText\":\"\",\"confidentlyVisible\":[\"Typography becomes upright and reads left-to-right after rotating the file 90° counterclockwise.\",\"The title is printed in white uppercase letters.\",\"The type line is printed in orange uppercase letters.\",\"The central artwork depicts a futuristic firearm.\",\"A curled white exoskeleton glyph appears inline between “the” and the comma.\",\"A red tab with a black elongated hexagonal glyph is visible at lower center after rotation.\"],\"proposedCategory\":\"cards/character/action\",\"proposedSlug\":\"carbine\",\"confidence\":\"medium\",\"uncertainties\":[\"The black glyph within the lower-center red tab does not confidently match any supplied canonical icon.\",\"No character owner is visibly identified, so an owner-specific category cannot be assigned from the pixels alone.\"]}\n\nsession_id: 20260815_051206_84a43a\n",
+  "initialParsed": {
+    "orientation": "rotate90ccw",
+    "componentType": "character weapon action card",
+    "cardSide": "face",
+    "title": "CARBINE",
+    "typeLine": "RANGED WEAPON, HEAVY",
+    "body": "Shoot: After you don't kill the [intruder], deal 1 Hit.",
+    "footer": "",
+    "upperRight": "",
+    "lowerCenter": "[ICON: red rectangular tab with black elongated hexagonal glyph]",
+    "visibleText": "",
+    "confidentlyVisible": [
+      "Typography becomes upright and reads left-to-right after rotating the file 90° counterclockwise.",
+      "The title is printed in white uppercase letters.",
+      "The type line is printed in orange uppercase letters.",
+      "The central artwork depicts a futuristic firearm.",
+      "A curled white exoskeleton glyph appears inline between “the” and the comma.",
+      "A red tab with a black elongated hexagonal glyph is visible at lower center after rotation."
+    ],
+    "proposedCategory": "cards/character/action",
+    "proposedSlug": "carbine",
+    "confidence": "medium",
+    "uncertainties": [
+      "The black glyph within the lower-center red tab does not confidently match any supplied canonical icon.",
+      "No character owner is visibly identified, so an owner-specific category cannot be assigned from the pixels alone."
+    ]
+  },
+  "initialSessionId": "20260815_051206_84a43a",
+  "orientationCorrection": "rotate90ccw",
+  "uprightRead": {
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "sessionId": "20260815_060353_6d417e",
+    "completedAt": "2026-08-15T06:04:14Z",
+    "parsed": {
+      "orientation": "upright",
+      "componentType": "ranged weapon item card",
+      "cardSide": "face",
+      "title": "CARBINE",
+      "typeLine": "RANGED WEAPON, HEAVY",
+      "body": "Shoot: After you don't kill the [intruder], deal 1 Hit.",
+      "footer": "",
+      "upperRight": "",
+      "lowerCenter": "ammoSlot",
+      "visibleText": "",
+      "confidentlyVisible": [
+        "White title CARBINE at the top center",
+        "Orange type line RANGED WEAPON, HEAVY",
+        "Artwork depicts a large futuristic firearm",
+        "The word Shoot is printed in red",
+        "A curled white exoskeleton icon appears inline in the effect text",
+        "A red slot is partially visible at the lower center"
+      ],
+      "proposedCategory": "cards/game/item/ranged-weapon",
+      "proposedSlug": "carbine",
+      "confidence": "medium",
+      "uncertainties": [
+        "The lower-center red slot is clipped by the image boundary; its ammoSlot identification is based on the visible red slot morphology.",
+        "Any marking or number inside the clipped lower-center slot is not fully legible and has not been transcribed."
+      ]
+    },
+    "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Planning image analysis approach****Planning image analysis approach****Identifying clipped red ammo slot in image**\n\n\n**Confirming red ammo slot with medium confidence****Identifying clipped red ammo slot in image**\n\nsession_id: 20260815_060353_6d417e\n{\"orientation\":\"upright\",\"componentType\":\"ranged weapon item card\",\"cardSide\":\"face\",\"title\":\"CARBINE\",\"typeLine\":\"RANGED WEAPON, HEAVY\",\"body\":\"Shoot: After you don't kill the [intruder], deal 1 Hit.\",\"footer\":\"\",\"upperRight\":\"\",\"lowerCenter\":\"ammoSlot\",\"visibleText\":\"\",\"confidentlyVisible\":[\"White title CARBINE at the top center\",\"Orange type line RANGED WEAPON, HEAVY\",\"Artwork depicts a large futuristic firearm\",\"The word Shoot is printed in red\",\"A curled white exoskeleton icon appears inline in the effect text\",\"A red slot is partially visible at the lower center\"],\"proposedCategory\":\"cards/game/item/ranged-weapon\",\"proposedSlug\":\"carbine\",\"confidence\":\"medium\",\"uncertainties\":[\"The lower-center red slot is clipped by the image boundary; its ammoSlot identification is based on the visible red slot morphology.\",\"Any marking or number inside the clipped lower-center slot is not fully legible and has not been transcribed.\"]}\n"
+  }
+}

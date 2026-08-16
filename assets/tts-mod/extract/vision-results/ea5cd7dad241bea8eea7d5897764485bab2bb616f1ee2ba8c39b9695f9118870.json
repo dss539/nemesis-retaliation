@@ -1,0 +1,106 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-131.png",
+  "sourceSha256": "ea5cd7dad241bea8eea7d5897764485bab2bb616f1ee2ba8c39b9695f9118870",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_060508_ca18f0",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:41:29Z",
+  "completedAt": "2026-08-15T06:05:49Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "ranged weapon item card",
+    "cardSide": "face",
+    "title": "GATLING GUN",
+    "typeLine": "RANGED WEAPON, RIFLE",
+    "body": "Burst: After Bursting, you may Burst a second time at the\nsame Corridor without spending [ICON: red rounded-square badge with black rectangular center and three short black marks along top].\n[ICON: purple square with white exclamation mark]: Place [ICON: light gray cog with black center] on this Weapon.",
+    "footer": "",
+    "upperRight": "",
+    "lowerCenter": "",
+    "visibleText": "",
+    "confidentlyVisible": [
+      "Typography is upright in the file.",
+      "Artwork depicts a large multi-barrel gun with a linked ammunition belt.",
+      "Two large red slot-like shapes are partially clipped by the bottom edge.",
+      "The first ability heading, “Burst:”, is purple.",
+      "The second line begins with a purple square bearing a white exclamation mark."
+    ],
+    "proposedCategory": "cards/game/item/weapon",
+    "proposedSlug": "gatling-gun",
+    "confidence": "medium",
+    "uncertainties": [
+      "The inline red badge after “spending” is not confidently distinguishable among the supplied canonical red item/ammo-related icons from morphology alone.",
+      "The purple exclamation-mark glyph is a card-local action/ability glyph absent from the supplied glossary.",
+      "The light gray cog glyph is not confidently identifiable as a canonical glossary icon and may be a card-local marker symbol.",
+      "The two bottom red slot-like elements are clipped and cannot be confidently assigned canonical slot identifiers."
+    ]
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Loading image analysis workflow****Loading image analysis workflow****Analyzing text rotation and layout**\n\n\n**Identifying malfunction and ammo icons**\n\n{\"orientation\":\"rotate90ccw\",\"componentType\":\"weapon item card\",\"cardSide\":\"face\",\"title\":\"GATLING GUN\",\"typeLine\":\"RANGED WEAPON, RIFLE\",\"body\":\"Burst: After Bursting, you may Burst a second time at the\\nsame Corridor without spending [ICON: red square with black center].\\n[ICON: purple square with white exclamation mark]: Place [malfunction] on this Weapon.\",\"footer\":\"\",\"upperRight\":\"\",\"lowerCenter\":\"\",\"visibleText\":\"\",\"confidentlyVisible\":[\"Typography becomes upright after rotating the file 90 degrees counterclockwise.\",\"Artwork depicts a large multi-barrel firearm with an ammunition belt.\",\"Two large red slot-like panels are partially clipped by the file edge.\",\"The title is printed in white uppercase letters.\",\"The type line is printed in yellow uppercase letters.\",\"A white cog-shaped glyph appears before the words “on this Weapon.”\"],\"proposedCategory\":\"cards/game/item/weapon\",\"proposedSlug\":\"gatling-gun\",\"confidence\":\"medium\",\"uncertainties\":[\"The red square glyph with a black center is not confidently matched to the supplied canonical glossary.\",\"The purple square glyph with a white exclamation mark appears to be a card-local action or ability glyph and is not in the supplied canonical glossary.\",\"Two red slot-like panels are clipped at the edge, so their complete shapes and meanings cannot be determined from visible pixels alone.\"]}\n\nsession_id: 20260815_054129_9a6f35\n",
+  "initialParsed": {
+    "orientation": "rotate90ccw",
+    "componentType": "weapon item card",
+    "cardSide": "face",
+    "title": "GATLING GUN",
+    "typeLine": "RANGED WEAPON, RIFLE",
+    "body": "Burst: After Bursting, you may Burst a second time at the\nsame Corridor without spending [ICON: red square with black center].\n[ICON: purple square with white exclamation mark]: Place [malfunction] on this Weapon.",
+    "footer": "",
+    "upperRight": "",
+    "lowerCenter": "",
+    "visibleText": "",
+    "confidentlyVisible": [
+      "Typography becomes upright after rotating the file 90 degrees counterclockwise.",
+      "Artwork depicts a large multi-barrel firearm with an ammunition belt.",
+      "Two large red slot-like panels are partially clipped by the file edge.",
+      "The title is printed in white uppercase letters.",
+      "The type line is printed in yellow uppercase letters.",
+      "A white cog-shaped glyph appears before the words “on this Weapon.”"
+    ],
+    "proposedCategory": "cards/game/item/weapon",
+    "proposedSlug": "gatling-gun",
+    "confidence": "medium",
+    "uncertainties": [
+      "The red square glyph with a black center is not confidently matched to the supplied canonical glossary.",
+      "The purple square glyph with a white exclamation mark appears to be a card-local action or ability glyph and is not in the supplied canonical glossary.",
+      "Two red slot-like panels are clipped at the edge, so their complete shapes and meanings cannot be determined from visible pixels alone."
+    ]
+  },
+  "initialSessionId": "20260815_054129_9a6f35",
+  "orientationCorrection": "rotate90ccw",
+  "uprightRead": {
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "sessionId": "20260815_060508_ca18f0",
+    "completedAt": "2026-08-15T06:05:49Z",
+    "parsed": {
+      "orientation": "upright",
+      "componentType": "ranged weapon item card",
+      "cardSide": "face",
+      "title": "GATLING GUN",
+      "typeLine": "RANGED WEAPON, RIFLE",
+      "body": "Burst: After Bursting, you may Burst a second time at the\nsame Corridor without spending [ICON: red rounded-square badge with black rectangular center and three short black marks along top].\n[ICON: purple square with white exclamation mark]: Place [ICON: light gray cog with black center] on this Weapon.",
+      "footer": "",
+      "upperRight": "",
+      "lowerCenter": "",
+      "visibleText": "",
+      "confidentlyVisible": [
+        "Typography is upright in the file.",
+        "Artwork depicts a large multi-barrel gun with a linked ammunition belt.",
+        "Two large red slot-like shapes are partially clipped by the bottom edge.",
+        "The first ability heading, “Burst:”, is purple.",
+        "The second line begins with a purple square bearing a white exclamation mark."
+      ],
+      "proposedCategory": "cards/game/item/weapon",
+      "proposedSlug": "gatling-gun",
+      "confidence": "medium",
+      "uncertainties": [
+        "The inline red badge after “spending” is not confidently distinguishable among the supplied canonical red item/ammo-related icons from morphology alone.",
+        "The purple exclamation-mark glyph is a card-local action/ability glyph absent from the supplied glossary.",
+        "The light gray cog glyph is not confidently identifiable as a canonical glossary icon and may be a card-local marker symbol.",
+        "The two bottom red slot-like elements are clipped and cannot be confidently assigned canonical slot identifiers."
+      ]
+    },
+    "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Preparing to load image skill****Preparing to load image skill****Inspecting image with vision tool**\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Inspecting image with vision tool****Interpreting game iconography and slots**\n\n**Clarifying red icon as ammo token**\n\n\nsession_id: 20260815_060508_ca18f0\n{\"orientation\":\"upright\",\"componentType\":\"ranged weapon item card\",\"cardSide\":\"face\",\"title\":\"GATLING GUN\",\"typeLine\":\"RANGED WEAPON, RIFLE\",\"body\":\"Burst: After Bursting, you may Burst a second time at the\\nsame Corridor without spending [ICON: red rounded-square badge with black rectangular center and three short black marks along top].\\n[ICON: purple square with white exclamation mark]: Place [ICON: light gray cog with black center] on this Weapon.\",\"footer\":\"\",\"upperRight\":\"\",\"lowerCenter\":\"\",\"visibleText\":\"\",\"confidentlyVisible\":[\"Typography is upright in the file.\",\"Artwork depicts a large multi-barrel gun with a linked ammunition belt.\",\"Two large red slot-like shapes are partially clipped by the bottom edge.\",\"The first ability heading, “Burst:”, is purple.\",\"The second line begins with a purple square bearing a white exclamation mark.\"],\"proposedCategory\":\"cards/game/item/weapon\",\"proposedSlug\":\"gatling-gun\",\"confidence\":\"medium\",\"uncertainties\":[\"The inline red badge after “spending” is not confidently distinguishable among the supplied canonical red item/ammo-related icons from morphology alone.\",\"The purple exclamation-mark glyph is a card-local action/ability glyph absent from the supplied glossary.\",\"The light gray cog glyph is not confidently identifiable as a canonical glossary icon and may be a card-local marker symbol.\",\"The two bottom red slot-like elements are clipped and cannot be confidently assigned canonical slot identifiers.\"]}\n"
+  }
+}

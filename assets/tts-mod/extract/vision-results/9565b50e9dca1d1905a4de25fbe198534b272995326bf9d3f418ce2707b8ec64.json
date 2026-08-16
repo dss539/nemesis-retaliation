@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/tiles/room/sprinklers-control-023.jpg",
+  "sourceSha256": "9565b50e9dca1d1905a4de25fbe198534b272995326bf9d3f418ce2707b8ec64",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_054847_8fc2f5",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:48:46Z",
+  "completedAt": "2026-08-15T05:49:31Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "texture atlas containing interlocking room tiles",
+    "cardSide": "notCard",
+    "title": "SPRINKLERS CONTROL",
+    "typeLine": "",
+    "body": "Remove all [fire]\nfrom a chosen Section.",
+    "footer": "",
+    "upperRight": "[ICON: grey outlined hexagon with segmented angular glyph]",
+    "lowerCenter": "",
+    "visibleText": "?",
+    "confidentlyVisible": [
+      "One prominent interlocking room tile is shown at a diagonal.",
+      "The main tile depicts an industrial room with pipes, machinery, a tiled floor, and a computer terminal.",
+      "A blue-and-white computer icon appears near the upper-right area of the main tile.",
+      "A green badge with a white cross and a yellow badge with a white wrench appear along the left side.",
+      "An orange flame icon appears inline in the effect text.",
+      "A large cream question mark appears near the upper-left of the main tile.",
+      "Additional interlocking tiles are partially visible around the main tile, including a large dark tile with a question mark."
+    ],
+    "proposedCategory": "models/texture",
+    "proposedSlug": "sprinklers-control",
+    "confidence": "medium",
+    "uncertainties": [
+      "The typography is diagonally oriented within the file; no available 90-degree rotation makes its baseline exactly horizontal, but the glyphs are most naturally readable in the current orientation.",
+      "The grey outlined hexagonal icon above the computer does not confidently match a canonical glossary icon.",
+      "The image is a texture atlas containing one prominent room-tile face plus portions of other tiles, rather than a clean isolated component.",
+      "The green cross and yellow wrench badges visually match greenItem and yellowItem morphology, but no dedicated output fields exist for their positions.",
+      "The partially visible surrounding tiles prevent a fully isolated face/back classification for the entire image."
+    ]
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Planning pixel-level image analysis****Planning pixel-level image analysis****Preparing to analyze image with vision tool**\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Preparing to analyze image with vision tool****Assessing tile rotation for text orientation**\n\n\n**Interpreting tile icons and text positioning**\n\n{\"orientation\":\"upright\",\"componentType\":\"texture atlas containing interlocking room tiles\",\"cardSide\":\"notCard\",\"title\":\"SPRINKLERS CONTROL\",\"typeLine\":\"\",\"body\":\"Remove all [fire]\\nfrom a chosen Section.\",\"footer\":\"\",\"upperRight\":\"[ICON: grey outlined hexagon with segmented angular glyph]\",\"lowerCenter\":\"\",\"visibleText\":\"?\",\"confidentlyVisible\":[\"One prominent interlocking room tile is shown at a diagonal.\",\"The main tile depicts an industrial room with pipes, machinery, a tiled floor, and a computer terminal.\",\"A blue-and-white computer icon appears near the upper-right area of the main tile.\",\"A green badge with a white cross and a yellow badge with a white wrench appear along the left side.\",\"An orange flame icon appears inline in the effect text.\",\"A large cream question mark appears near the upper-left of the main tile.\",\"Additional interlocking tiles are partially visible around the main tile, including a large dark tile with a question mark.\"],\"proposedCategory\":\"models/texture\",\"proposedSlug\":\"sprinklers-control\",\"confidence\":\"medium\",\"uncertainties\":[\"The typography is diagonally oriented within the file; no available 90-degree rotation makes its baseline exactly horizontal, but the glyphs are most naturally readable in the current orientation.\",\"The grey outlined hexagonal icon above the computer does not confidently match a canonical glossary icon.\",\"The image is a texture atlas containing one prominent room-tile face plus portions of other tiles, rather than a clean isolated component.\",\"The green cross and yellow wrench badges visually match greenItem and yellowItem morphology, but no dedicated output fields exist for their positions.\",\"The partially visible surrounding tiles prevent a fully isolated face/back classification for the entire image.\"]}\n\nsession_id: 20260815_054847_8fc2f5\n"
+}

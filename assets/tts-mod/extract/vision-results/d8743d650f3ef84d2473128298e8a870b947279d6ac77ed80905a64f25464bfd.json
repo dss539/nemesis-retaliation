@@ -1,0 +1,78 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/yellowitem-145_cards/card-01.png",
+  "sourceSha256": "d8743d650f3ef84d2473128298e8a870b947279d6ac77ed80905a64f25464bfd",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_054322_7f9c85",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:43:21Z",
+  "completedAt": "2026-08-15T05:43:41Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "yellow item card",
+    "cardSide": "face",
+    "title": "OXYGEN TANK",
+    "typeLine": "ONE USE ONLY,\nSPECIAL WEAPON",
+    "body": "You can use this Item for free\nimmediately after gaining it.\n\nGain 3 [oxygenToken].\n\nOR\n\nGain 1 [oxygen].",
+    "footer": "",
+    "upperRight": "notInCombat",
+    "lowerCenter": "",
+    "visibleText": "",
+    "confidentlyVisible": [
+      "Portrait-oriented card face with upright typography",
+      "Artwork depicts a metal oxygen tank in a dark industrial environment",
+      "Title is OXYGEN TANK",
+      "Upper-right icon is a crossed-out gun matching notInCombat",
+      "First effect contains a yellow oxygenToken icon",
+      "Second effect contains an oxygen supply icon",
+      "Two effect panels are separated by OR"
+    ],
+    "proposedCategory": "cards/game/item/yellow",
+    "proposedSlug": "oxygen-tank",
+    "confidence": "high",
+    "uncertainties": []
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Planning image inspection workflow****Planning image inspection workflow****Identifying oxygen token details**\n\n\n**Confirming oxygen token and type line details****Identifying oxygen token details**\n{\"orientation\":\"upright\",\"componentType\":\"yellow item card\",\"cardSide\":\"face\",\"title\":\"OXYGEN TANK\",\"typeLine\":\"ONE USE ONLY,\\nSPECIAL WEAPON\",\"body\":\"You can use this Item for free\\nimmediately after gaining it.\\n\\nGain 3 [oxygenToken].\\n\\nOR\\n\\nGain 1 [oxygen].\",\"footer\":\"\",\"upperRight\":\"notInCombat\",\"lowerCenter\":\"\",\"visibleText\":\"\",\"confidentlyVisible\":[\"Portrait-oriented card face with upright typography\",\"Artwork depicts a metal oxygen tank in a dark industrial environment\",\"Title is OXYGEN TANK\",\"Upper-right icon is a crossed-out gun matching notInCombat\",\"First effect contains a yellow oxygenToken icon\",\"Second effect contains an oxygen supply icon\",\"Two effect panels are separated by OR\"],\"proposedCategory\":\"cards/game/item/yellow\",\"proposedSlug\":\"oxygen-tank\",\"confidence\":\"high\",\"uncertainties\":[]}\n\nsession_id: 20260815_054322_7f9c85\n",
+  "iconVerification": {
+    "status": "passed",
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "sessionId": "20260815_060845_cc6fde",
+    "promptVersion": 1,
+    "completedAt": "2026-08-15T06:08:54Z",
+    "claimed": [
+      "notInCombat",
+      "oxygen",
+      "oxygenToken"
+    ],
+    "parsed": {
+      "claims": [
+        {
+          "claimed": "notInCombat",
+          "verdict": "match",
+          "actual": "notInCombat",
+          "evidence": "One occurrence beside the title: white gun crossed by a red diagonal X; this matches the documented official crossed-gun variant of the glossary's crossed-out Intruder icon."
+        },
+        {
+          "claimed": "oxygen",
+          "verdict": "match",
+          "actual": "oxygen",
+          "evidence": "One occurrence after “Gain 3”: small upright yellow-and-blue cylindrical canister matching the glossary oxygen crop's bottle silhouette and internal blue body."
+        },
+        {
+          "claimed": "oxygenToken",
+          "verdict": "match",
+          "actual": "oxygenToken",
+          "evidence": "One occurrence after “Gain 1”: blue outlined vertical cylinder paired with a yellow block, matching the glossary crop's distinctive two-part morphology."
+        }
+      ],
+      "allClaimsMatch": true,
+      "confidence": "high",
+      "uncertainties": []
+    },
+    "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Inspecting oxygen item inconsistencies****Inspecting oxygen item inconsistencies**\n\nsession_id: 20260815_060845_cc6fde\n{\"claims\":[{\"claimed\":\"notInCombat\",\"verdict\":\"match\",\"actual\":\"notInCombat\",\"evidence\":\"One occurrence beside the title: white gun crossed by a red diagonal X; this matches the documented official crossed-gun variant of the glossary's crossed-out Intruder icon.\"},{\"claimed\":\"oxygen\",\"verdict\":\"match\",\"actual\":\"oxygen\",\"evidence\":\"One occurrence after “Gain 3”: small upright yellow-and-blue cylindrical canister matching the glossary oxygen crop's bottle silhouette and internal blue body.\"},{\"claimed\":\"oxygenToken\",\"verdict\":\"match\",\"actual\":\"oxygenToken\",\"evidence\":\"One occurrence after “Gain 1”: blue outlined vertical cylinder paired with a yellow block, matching the glossary crop's distinctive two-part morphology.\"}],\"allClaimsMatch\":true,\"confidence\":\"high\",\"uncertainties\":[]}\n",
+    "evidencePath": null
+  }
+}

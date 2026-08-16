@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/tokens/character/contractor-006.png",
+  "sourceSha256": "ad529b6bc230adb87def90a62523207965d90ddd129b10d3fa01a69f4eeb5b41",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_054953_f83bfb",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:49:52Z",
+  "completedAt": "2026-08-15T05:50:26Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "character dashboard board",
+    "cardSide": "face",
+    "title": "CONTRACTOR",
+    "typeLine": "",
+    "body": "BASIC ACTIONS\n▸PLAY AN ACTION CARD\n▸PASS\n\nDISCARD A\n▸MAKE A MOVE\n▸PLACE 1 [ICON: white angular three-faced glyph]\n▸FIRE A SHOT\n▸FIRE A BURST\n▸MELEE ATTACK\n▸USE ITEM OR ROBOT\n▸REORGANIZE BACKPACK\n& TRADE\n▸USE YOUR TACTICAL BELT\n\nDISCARD A A\n▸USE THE ROOM\n▸MAKE A MOVE WITH [ICON: white angular three-faced glyph]",
+    "footer": "LEFT HAND\nRIGHT HAND",
+    "upperRight": "characterHealth",
+    "lowerCenter": "",
+    "visibleText": "HEAVILY INJURED\nINJURED\nHEALTHY\nTACTICAL BELT\nACTION CARDS DISCARD\n[ICON: white skull]\n[ICON: small white upward-pointing triangle above yellow-and-blue device]",
+    "confidentlyVisible": [
+      "Typography is predominantly horizontal and readable in the file's current orientation.",
+      "Central artwork depicts a dark-haired woman holding a large firearm.",
+      "Three labeled health regions run across the top: HEAVILY INJURED, INJURED, and HEALTHY.",
+      "The upper-right green health region bears a white cross/EKG glyph.",
+      "A BASIC ACTIONS reference panel occupies the right side.",
+      "Six empty outlined slots run vertically along the left edge beneath the TACTICAL BELT label.",
+      "Three red-bordered and six dark/green-bordered square spaces form the top health tracks.",
+      "ACTION CARDS DISCARD is printed vertically along the right edge.",
+      "The title CONTRACTOR is centered along the bottom."
+    ],
+    "proposedCategory": "tokens/character",
+    "proposedSlug": "contractor",
+    "confidence": "medium",
+    "uncertainties": [
+      "The white angular three-faced glyph after PLACE 1 and MAKE A MOVE WITH is a card-local action glyph not confidently present in the supplied glossary.",
+      "The standalone white skull in the upper-left is not mapped to shootDieCritical because no red triangular die morphology is visible.",
+      "The small yellow-and-blue device near the lower-right edge and the white triangle above it are not confidently represented by canonical glossary identifiers.",
+      "The component is visually a character dashboard rather than a conventional card; the closest allowed cardSide value is face."
+    ]
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Identifying need for vision tool****Identifying need for vision tool****Planning pixel inspection via vision**\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Planning pixel inspection via vision****Defining exact component layout and labels**\n\n\n{\"orientation\":\"upright\",\"componentType\":\"character dashboard board\",\"cardSide\":\"face\",\"title\":\"CONTRACTOR\",\"typeLine\":\"\",\"body\":\"BASIC ACTIONS\\n▸PLAY AN ACTION CARD\\n▸PASS\\n\\nDISCARD A\\n▸MAKE A MOVE\\n▸PLACE 1 [ICON: white angular three-faced glyph]\\n▸FIRE A SHOT\\n▸FIRE A BURST\\n▸MELEE ATTACK\\n▸USE ITEM OR ROBOT\\n▸REORGANIZE BACKPACK\\n& TRADE\\n▸USE YOUR TACTICAL BELT\\n\\nDISCARD A A\\n▸USE THE ROOM\\n▸MAKE A MOVE WITH [ICON: white angular three-faced glyph]\",\"footer\":\"LEFT HAND\\nRIGHT HAND\",\"upperRight\":\"characterHealth\",\"lowerCenter\":\"\",\"visibleText\":\"HEAVILY INJURED\\nINJURED\\nHEALTHY\\nTACTICAL BELT\\nACTION CARDS DISCARD\\n[ICON: white skull]\\n[ICON: small white upward-pointing triangle above yellow-and-blue device]\",\"confidentlyVisible\":[\"Typography is predominantly horizontal and readable in the file's current orientation.\",\"Central artwork depicts a dark-haired woman holding a large firearm.\",\"Three labeled health regions run across the top: HEAVILY INJURED, INJURED, and HEALTHY.\",\"The upper-right green health region bears a white cross/EKG glyph.\",\"A BASIC ACTIONS reference panel occupies the right side.\",\"Six empty outlined slots run vertically along the left edge beneath the TACTICAL BELT label.\",\"Three red-bordered and six dark/green-bordered square spaces form the top health tracks.\",\"ACTION CARDS DISCARD is printed vertically along the right edge.\",\"The title CONTRACTOR is centered along the bottom.\"],\"proposedCategory\":\"tokens/character\",\"proposedSlug\":\"contractor\",\"confidence\":\"medium\",\"uncertainties\":[\"The white angular three-faced glyph after PLACE 1 and MAKE A MOVE WITH is a card-local action glyph not confidently present in the supplied glossary.\",\"The standalone white skull in the upper-left is not mapped to shootDieCritical because no red triangular die morphology is visible.\",\"The small yellow-and-blue device near the lower-right edge and the white triangle above it are not confidently represented by canonical glossary identifiers.\",\"The component is visually a character dashboard rather than a conventional card; the closest allowed cardSide value is face.\"]}\n\nsession_id: 20260815_054953_f83bfb\n"
+}

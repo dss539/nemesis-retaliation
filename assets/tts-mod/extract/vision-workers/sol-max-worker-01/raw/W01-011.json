@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "assetId": "W01-011",
+  "batchId": "batch-003",
+  "capturedAt": "2026-08-15T20:43:07Z",
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/bags/grenadeBag-012.png",
+  "sourceSha256": "cbb3a72167f1dae74ee230a9ab12e3b3af8129f6cbc562d6c50bd86a6bad7af6",
+  "runtimeProvenanceRef": "../metadata/runtime.json",
+  "blindAnalysis": true,
+  "metadataExcludedDuringPixelPass": [
+    "filename semantics",
+    "directory semantics",
+    "prior vision reads",
+    "TTS object metadata",
+    "game-context expectations"
+  ],
+  "orientationObservation": "Upright as displayed; +2 is level and the illustrated grenade's top/handle is above its body.",
+  "blindPixelObservations": [
+    "Dark embossed industrial wall background.",
+    "Centered glossy translucent purple clipped-corner rectangular housing with a smaller right compartment.",
+    "A detailed orange-tan segmented hand grenade appears in the main compartment.",
+    "Large white +2 with black outline overlays the grenade; a pale vertical purple-white mark/reflection sits in the right compartment."
+  ],
+  "visibleText": [
+    {
+      "text": "+2",
+      "location": "center over grenade",
+      "structure": "plus sign followed by numeral",
+      "confidence": "high"
+    }
+  ],
+  "iconObservations": [
+    {
+      "location": "center-left",
+      "literalMorphology": "Detailed segmented orange-tan hand grenade with top cap/handle beneath a large +2 overlay.",
+      "colors": "orange-tan, white, black, purple",
+      "closestPlausibleGlossaryAlternative": "grenadeToken",
+      "visibleDiscriminatingFeature": "The mark is a detailed physical grenade rendering with numeric overlay in a rectangular housing, not the compact purple canonical Grenade Tactical Gear token glyph; no glossary token is claimed."
+    }
+  ],
+  "uncertainties": [
+    "The exact component/container role is not visible without provenance metadata."
+  ]
+}

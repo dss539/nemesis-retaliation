@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectivePersonalDeck-156.jpg",
+  "sourceSha256": "e5400e99d8671d21bdb4e16506a4533e4f4405e0a402217b039ba3326fcf178b",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_053827_5c91d6",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:38:26Z",
+  "completedAt": "2026-08-15T05:38:52Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "personal objective card",
+    "cardSide": "face",
+    "title": "TRAITOR IN PLAIN SIGHT",
+    "typeLine": "",
+    "body": "Player 7’s Character cannot survive.\n\nOR\n\nYour Character is the only survivor.\n\n- What the fuck is going on?\n- You bitch.",
+    "footer": "CORPORATE",
+    "upperRight": "",
+    "lowerCenter": "",
+    "visibleText": "[intruder] 7+\nPRO\nOT\nTYPE",
+    "confidentlyVisible": [
+      "Portrait-format card with all primary typography upright",
+      "Spacecraft artwork fills the upper portion",
+      "A curled white exoskeleton glyph on a blue circular field appears above the title",
+      "The title is printed in uppercase white text",
+      "Two objective conditions are separated by an OR panel",
+      "Two pale-yellow italic lines appear beneath the conditions",
+      "CORPORATE is centered along the bottom edge",
+      "A large diagonal white watermark is partially obscured by artwork and card panels"
+    ],
+    "proposedCategory": "cards/game/objective",
+    "proposedSlug": "traitor-in-plain-sight",
+    "confidence": "medium",
+    "uncertainties": [
+      "The diagonal watermark is heavily obscured; only the separately visible fragments “PRO”, “OT”, and “TYPE” are transcribed rather than reconstructing hidden letters.",
+      "The curled white glyph confidently matches [intruder], but it appears on a card-local blue circular field not described by the canonical glossary.",
+      "The exact semantic role of the adjacent “7+” is not established from pixels alone."
+    ]
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Loading image analysis workflow****Loading image analysis workflow****Identifying card layout and text elements**\n\n\n{\"orientation\":\"upright\",\"componentType\":\"personal objective card\",\"cardSide\":\"face\",\"title\":\"TRAITOR IN PLAIN SIGHT\",\"typeLine\":\"\",\"body\":\"Player 7’s Character cannot survive.\\n\\nOR\\n\\nYour Character is the only survivor.\\n\\n- What the fuck is going on?\\n- You bitch.\",\"footer\":\"CORPORATE\",\"upperRight\":\"\",\"lowerCenter\":\"\",\"visibleText\":\"[intruder] 7+\\nPRO\\nOT\\nTYPE\",\"confidentlyVisible\":[\"Portrait-format card with all primary typography upright\",\"Spacecraft artwork fills the upper portion\",\"A curled white exoskeleton glyph on a blue circular field appears above the title\",\"The title is printed in uppercase white text\",\"Two objective conditions are separated by an OR panel\",\"Two pale-yellow italic lines appear beneath the conditions\",\"CORPORATE is centered along the bottom edge\",\"A large diagonal white watermark is partially obscured by artwork and card panels\"],\"proposedCategory\":\"cards/game/objective\",\"proposedSlug\":\"traitor-in-plain-sight\",\"confidence\":\"medium\",\"uncertainties\":[\"The diagonal watermark is heavily obscured; only the separately visible fragments “PRO”, “OT”, and “TYPE” are transcribed rather than reconstructing hidden letters.\",\"The curled white glyph confidently matches [intruder], but it appears on a card-local blue circular field not described by the canonical glossary.\",\"The exact semantic role of the adjacent “7+” is not established from pixels alone.\"]}\n\nsession_id: 20260815_053827_5c91d6\n"
+}

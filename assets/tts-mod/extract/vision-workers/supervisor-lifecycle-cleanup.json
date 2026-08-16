@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-08-16T02:43:34Z",
+  "purpose": "Close stale worker lifecycle records without changing canonical semantic state.",
+  "livenessEvidence": {
+    "currentConversationSubagents": 0,
+    "relatedWorkerProcessesObserved": 0
+  },
+  "workerClosures": [
+    {
+      "workerId": "sol-max-worker-03",
+      "assignmentBeforeSha256": "f4a2fd2c388d1109dd7e413207d8dd49fb498073be99b26906a7fed6e3542afa",
+      "assignmentAfterSha256": "797a24713a95664a98464e9f3b473859806ade0dec64a84f75ce6b89b7f09a48",
+      "dispatchBeforeSha256": "8ee9af13b72ee3693dfd660cb817136317acd54e7df1d818cbef2529d7da1b25",
+      "dispatchAfterSha256": "78edbca021a0b0047433d827ee86ec7999dd59e9a7baca3c843686b419cfa0f9",
+      "finalStatusPath": "assets/tts-mod/extract/vision-workers/sol-max-worker-03/supervisor-final-status.json"
+    },
+    {
+      "workerId": "sol-max-worker-04",
+      "assignmentBeforeSha256": "de95d4d0fa7aa7304867aea4042d3cdd5c236b7de3a4dbc369e77e5fa29f724e",
+      "assignmentAfterSha256": "9cd32bfabc2f9132614a69bb86c6df9ce96b0707a331b5aedfad65be9ba06862",
+      "dispatchBeforeSha256": "14ebf401dddeaef25222e44101f952c75aae1c3e7bec32670af0303d30f9a92b",
+      "dispatchAfterSha256": "0ce18d6ea38b058574ec004c9a75bbaf47df05726b4ee216c3b960afcbfb346e",
+      "finalStatusPath": "assets/tts-mod/extract/vision-workers/sol-max-worker-04/supervisor-final-status.json"
+    },
+    {
+      "workerId": "sol-max-worker-05",
+      "assignmentBeforeSha256": "06334362838c812e431912405d8fcd9ad21de70748cb6a5463088494f790f0ad",
+      "assignmentAfterSha256": "755b86584927ce6c43a833480b87d1e63426bddc381fdc4987f49f13a28bcdd3",
+      "dispatchBeforeSha256": "72d753ce1b575e2c4c93f5b6fd00cab639a97842d76758a3e61bf6942800d57d",
+      "dispatchAfterSha256": "be383fdb6b79972d262cb615ca52c2ad39c36ab57c2f7412e42d50e48c8d41a2",
+      "finalStatusPath": "assets/tts-mod/extract/vision-workers/sol-max-worker-05/supervisor-final-status.json"
+    },
+    {
+      "workerId": "sol-max-worker-06",
+      "assignmentBeforeSha256": "65b7660154b1f5cf994398f21349f20384af0210893df81a6550d8aaf2aa6a75",
+      "assignmentAfterSha256": "8dc8d65e90e696b45b859f8fc18a8c0104fad865c4dd788fd595305758e11928",
+      "dispatchBeforeSha256": "ddb0a7e10546eadf4b28f6364e8226fa3bb7aeffeca7b0c57ed65d1b081c1c66",
+      "dispatchAfterSha256": "d6a792ba247c0801d57242a5d8c7a891fff484953995b565af31541972336d01",
+      "finalStatusPath": "assets/tts-mod/extract/vision-workers/sol-max-worker-06/supervisor-final-status.json"
+    }
+  ],
+  "removedGeneratedCaches": [
+    "assets/tts-mod/extract/vision-workers/sol-max-worker-02/__pycache__/worker_utils.cpython-313.pyc",
+    "assets/tts-mod/extract/vision-workers/sol-max-worker-04/__pycache__/worker_utils.cpython-313.pyc",
+    "assets/tts-mod/extract/vision-workers/sol-max-worker-05/__pycache__/worker_utils.cpython-313.pyc"
+  ],
+  "heldUnmergedWorkers": [
+    "sol-max-worker-05",
+    "sol-max-worker-06"
+  ],
+  "canonicalFilesChanged": false,
+  "sharedProgressOrQueueChanged": false,
+  "verification": {
+    "workerJsonFilesParsed": 294,
+    "activeAssignmentCount": 0,
+    "activeDispatchCount": 0,
+    "generatedCacheOrTempFileCount": 0,
+    "visionValidationPassed": true,
+    "visionValidationFailureCount": 0,
+    "inScopeAssets": 532,
+    "completeAssets": 134,
+    "deferredAssets": 398,
+    "unaccountedAssets": 0,
+    "validCanonicalSidecarPairs": 64,
+    "manifestAndCatalogEntries": 444
+  },
+  "notes": [
+    "Historical assignment snapshots and worker evidence were preserved.",
+    "No staged result was deleted, merged, promoted, or reclassified."
+  ]
+}

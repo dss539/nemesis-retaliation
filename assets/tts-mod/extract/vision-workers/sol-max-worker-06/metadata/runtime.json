@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "workerId": "sol-max-worker-06",
+  "delegationId": "deleg_547cfe00",
+  "runId": "sol-max-deferred-reexamination-2026-08-15",
+  "createdAt": "2026-08-15T22:46:44.422239462Z",
+  "sealedAt": "2026-08-15T22:49:36.567633018Z",
+  "sealed": true,
+  "session": {
+    "sessionId": "20260815_224527_5f5db3",
+    "parentSessionId": "b01cf4bb4120",
+    "source": "subagent",
+    "platform": "api_server",
+    "sessionIdExposure": "HERMES_SESSION_ID and read-only Hermes state.db sessions.id",
+    "delegationStateAtPreflight": "running"
+  },
+  "requestedRuntime": {
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "reasoningEffort": "max",
+    "nativeVisionRequired": true
+  },
+  "actualRuntime": {
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "reasoningEffort": "max",
+    "providerEvidence": "read-only Hermes state.db sessions.billing_provider for session 20260815_224527_5f5db3",
+    "modelEvidence": "read-only Hermes state.db sessions.model for session 20260815_224527_5f5db3",
+    "reasoningEvidence": "active delegated runtime declaration plus assignment runtime contract; reasoning effort is not separately exposed by the sessions table",
+    "verificationState": "verified"
+  },
+  "nativeImageRoute": {
+    "mechanism": "active-model native image attachment via functions.vision_analyze",
+    "toolContract": "with native vision, the image is attached directly to the active model context",
+    "state": "exercisedVerified",
+    "firstExerciseAssetId": "W06-001",
+    "firstExerciseSourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-11.png",
+    "exerciseEvidence": "functions.vision_analyze returned: Image loaded into your context — you can see it natively now",
+    "exercisedAt": "2026-08-15T22:49:36.567633018Z"
+  },
+  "forbiddenRoutes": {
+    "auxiliaryVisionUsed": false,
+    "qwenUsed": false,
+    "ocrCanonicalEvidenceUsed": false,
+    "modelDowngradeUsed": false,
+    "sharedProviderConfigurationModified": false
+  },
+  "provenanceEvidence": [
+    "assignment.json model and routingContract",
+    "supervisor-dispatch.json delegationId and scope",
+    "process HERMES_SESSION_ID",
+    "read-only Hermes state.db session and async_delegations rows",
+    "active Hermes runtime header"
+  ]
+}

@@ -1,0 +1,109 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/reditem-117.png",
+  "sourceSha256": "9eb1ddc91a26bc4581a12f685edce6d1858b93770f576c3be3062a30f293d2db",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_060430_1f812c",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:39:19Z",
+  "completedAt": "2026-08-15T06:04:52Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "game item card",
+    "cardSide": "face",
+    "title": "REMOTE DETONATOR",
+    "typeLine": "ONE USE ONLY, HEAVY",
+    "body": "Discard 1 [actionCard] from any Room in the same Section\nto deal [ICON: white skull with surrounding burst marks] to all [intruder] in that Room.\nEach [character] there lose 3 [characterHealth].",
+    "footer": "",
+    "upperRight": "notInCombat",
+    "lowerCenter": "",
+    "visibleText": "FRONT\nTOWARD ENEMY",
+    "confidentlyVisible": [
+      "Landscape rectangular card face with red angular top border",
+      "Title is white uppercase text",
+      "Type line is yellow uppercase text",
+      "Artwork depicts a strapped rectangular case",
+      "Upper-right icon is a red prohibition circle over a black firearm",
+      "Body text is white and arranged across three centered lines",
+      "The case artwork visibly bears the words “FRONT TOWARD ENEMY”"
+    ],
+    "proposedCategory": "cards/game/item",
+    "proposedSlug": "remote-detonator",
+    "confidence": "medium",
+    "uncertainties": [
+      "The white skull-and-burst body glyph is absent from the supplied canonical glossary, so it is transcribed literally rather than assigned a meaning.",
+      "The exact internal morphology of the [actionCard] glyph is very small, though its card-like outline is a confident glossary match.",
+      "The proposed item category is supported by the title, trait line, and effect presentation, but no explicit printed item-type label is visible."
+    ]
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Analyzing vertical title rotation**\n\n**Confirming 90° CCW rotation for horizonal text****Analyzing vertical title rotation**\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Confirming 90° CCW rotation for horizonal text****Analyzing image text rotation**\n\n\n**Determining correct text rotation and icons**\n\n{\"orientation\":\"rotate90ccw\",\"componentType\":\"item card\",\"cardSide\":\"face\",\"title\":\"REMOTE DETONATOR\",\"typeLine\":\"ONE-USE ONLY: HEAVY\",\"body\":\"Discard 1 [actionCard] from any Room in the same Section\\nto deal [ICON: white explosion glyph] to all [intruder] in that Room.\\nEach [robot] there loses 3 [characterHealth].\",\"footer\":\"\",\"upperRight\":\"notInCombat\",\"lowerCenter\":\"\",\"visibleText\":\"FRONT\\nTOWARD ENEMY\",\"confidentlyVisible\":[\"White title REMOTE DETONATOR\",\"Yellow type line ONE-USE ONLY: HEAVY\",\"Artwork depicts a military-style crate\",\"Crate bears the text FRONT TOWARD ENEMY\",\"Red prohibition badge with a crossed-out creature appears in the upper-right after rotation\",\"Body includes a white action-card glyph, curled white Intruder glyph, robot glyph, and EKG-cross health glyph\"],\"proposedCategory\":\"cards/game/item/red\",\"proposedSlug\":\"remote-detonator\",\"confidence\":\"medium\",\"uncertainties\":[\"The white explosion-like glyph after “deal” is not confidently matched to the supplied canonical glossary and is therefore recorded literally.\",\"The exact internal detail or numerical value, if any, within the explosion-like glyph is not legible enough to transcribe.\",\"The proposed red-item category is based on the card’s red visual frame; no canonical redItem badge is clearly visible.\",\"The small crate lettering is distressed by the artwork texture, though FRONT / TOWARD ENEMY is visibly readable.\"]}\n\nsession_id: 20260815_053919_a7e90b\n",
+  "initialParsed": {
+    "orientation": "rotate90ccw",
+    "componentType": "item card",
+    "cardSide": "face",
+    "title": "REMOTE DETONATOR",
+    "typeLine": "ONE-USE ONLY: HEAVY",
+    "body": "Discard 1 [actionCard] from any Room in the same Section\nto deal [ICON: white explosion glyph] to all [intruder] in that Room.\nEach [robot] there loses 3 [characterHealth].",
+    "footer": "",
+    "upperRight": "notInCombat",
+    "lowerCenter": "",
+    "visibleText": "FRONT\nTOWARD ENEMY",
+    "confidentlyVisible": [
+      "White title REMOTE DETONATOR",
+      "Yellow type line ONE-USE ONLY: HEAVY",
+      "Artwork depicts a military-style crate",
+      "Crate bears the text FRONT TOWARD ENEMY",
+      "Red prohibition badge with a crossed-out creature appears in the upper-right after rotation",
+      "Body includes a white action-card glyph, curled white Intruder glyph, robot glyph, and EKG-cross health glyph"
+    ],
+    "proposedCategory": "cards/game/item/red",
+    "proposedSlug": "remote-detonator",
+    "confidence": "medium",
+    "uncertainties": [
+      "The white explosion-like glyph after “deal” is not confidently matched to the supplied canonical glossary and is therefore recorded literally.",
+      "The exact internal detail or numerical value, if any, within the explosion-like glyph is not legible enough to transcribe.",
+      "The proposed red-item category is based on the card’s red visual frame; no canonical redItem badge is clearly visible.",
+      "The small crate lettering is distressed by the artwork texture, though FRONT / TOWARD ENEMY is visibly readable."
+    ]
+  },
+  "initialSessionId": "20260815_053919_a7e90b",
+  "orientationCorrection": "rotate90ccw",
+  "uprightRead": {
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "sessionId": "20260815_060430_1f812c",
+    "completedAt": "2026-08-15T06:04:52Z",
+    "parsed": {
+      "orientation": "upright",
+      "componentType": "game item card",
+      "cardSide": "face",
+      "title": "REMOTE DETONATOR",
+      "typeLine": "ONE USE ONLY, HEAVY",
+      "body": "Discard 1 [actionCard] from any Room in the same Section\nto deal [ICON: white skull with surrounding burst marks] to all [intruder] in that Room.\nEach [character] there lose 3 [characterHealth].",
+      "footer": "",
+      "upperRight": "notInCombat",
+      "lowerCenter": "",
+      "visibleText": "FRONT\nTOWARD ENEMY",
+      "confidentlyVisible": [
+        "Landscape rectangular card face with red angular top border",
+        "Title is white uppercase text",
+        "Type line is yellow uppercase text",
+        "Artwork depicts a strapped rectangular case",
+        "Upper-right icon is a red prohibition circle over a black firearm",
+        "Body text is white and arranged across three centered lines",
+        "The case artwork visibly bears the words “FRONT TOWARD ENEMY”"
+      ],
+      "proposedCategory": "cards/game/item",
+      "proposedSlug": "remote-detonator",
+      "confidence": "medium",
+      "uncertainties": [
+        "The white skull-and-burst body glyph is absent from the supplied canonical glossary, so it is transcribed literally rather than assigned a meaning.",
+        "The exact internal morphology of the [actionCard] glyph is very small, though its card-like outline is a confident glossary match.",
+        "The proposed item category is supported by the title, trait line, and effect presentation, but no explicit printed item-type label is visible."
+      ]
+    },
+    "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Preparing image inspection skill****Preparing image inspection skill****Inspecting icon details on card image**\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Inspecting icon details on card image****Identifying card icons and health effects**\n\n\n\nsession_id: 20260815_060430_1f812c\n{\"orientation\":\"upright\",\"componentType\":\"game item card\",\"cardSide\":\"face\",\"title\":\"REMOTE DETONATOR\",\"typeLine\":\"ONE USE ONLY, HEAVY\",\"body\":\"Discard 1 [actionCard] from any Room in the same Section\\nto deal [ICON: white skull with surrounding burst marks] to all [intruder] in that Room.\\nEach [character] there lose 3 [characterHealth].\",\"footer\":\"\",\"upperRight\":\"notInCombat\",\"lowerCenter\":\"\",\"visibleText\":\"FRONT\\nTOWARD ENEMY\",\"confidentlyVisible\":[\"Landscape rectangular card face with red angular top border\",\"Title is white uppercase text\",\"Type line is yellow uppercase text\",\"Artwork depicts a strapped rectangular case\",\"Upper-right icon is a red prohibition circle over a black firearm\",\"Body text is white and arranged across three centered lines\",\"The case artwork visibly bears the words “FRONT TOWARD ENEMY”\"],\"proposedCategory\":\"cards/game/item\",\"proposedSlug\":\"remote-detonator\",\"confidence\":\"medium\",\"uncertainties\":[\"The white skull-and-burst body glyph is absent from the supplied canonical glossary, so it is transcribed literally rather than assigned a meaning.\",\"The exact internal morphology of the [actionCard] glyph is very small, though its card-like outline is a confident glossary match.\",\"The proposed item category is supported by the title, trait line, and effect presentation, but no explicit printed item-type label is visible.\"]}\n"
+  }
+}

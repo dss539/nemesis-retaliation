@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/bags/corridorBag-023.jpg",
+  "sourceSha256": "27ab4748ec079413ed0596421e1f52946d7997259e9049df9677ac85ae7e0f57",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_050439_1d8891",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:04:38Z",
+  "completedAt": "2026-08-15T05:05:57Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "top-down science-fiction corridor tile artwork",
+    "cardSide": "notCard",
+    "title": "",
+    "typeLine": "",
+    "body": "",
+    "footer": "",
+    "upperRight": "",
+    "lowerCenter": "[ICON: yellow downward-pointing triangle 0]",
+    "visibleText": "[ICON: yellow upward-pointing triangle 0]",
+    "confidentlyVisible": [
+      "An irregular dark metallic component occupies the upper-left portion of a square black canvas.",
+      "A bright rectangular corridor floor runs horizontally through the component's center.",
+      "The corridor has white metal panels, rectangular grilles, pipes, and illuminated ceiling or wall fixtures.",
+      "Recessed openings are visible along both the left and right edges.",
+      "A yellow upward-pointing triangular marker is centered at the top.",
+      "A yellow downward-pointing triangular marker is centered at the bottom.",
+      "Each yellow marker contains the same black oval glyph."
+    ],
+    "proposedCategory": "tiles/corridor",
+    "proposedSlug": null,
+    "confidence": "medium",
+    "uncertainties": [
+      "The black oval glyphs visually resemble the numeral 0, but the pixels alone do not distinguish 0 from a similarly drawn capital O with complete certainty.",
+      "The yellow triangular markers are local glyphs not confidently matched to any canonical glossary icon.",
+      "The component and its typography are effectively symmetric under a 180-degree rotation; the file already presents both oval glyphs on their vertical axes, but upright versus rotate180 cannot be uniquely distinguished.",
+      "No visible title identifies a specific corridor variant, so a semantic filename slug is materially uncertain.",
+      "The large black area to the right and below the component may be intentional texture-canvas padding or a source-art layout oddity."
+    ]
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Loading and analyzing image pixels****Loading and analyzing image pixels****Planning vision path analysis**\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Planning vision path analysis****Inspecting image orientation symmetry**\n\n**Determining upright orientation for tile texture**\n\n**Refining visibleText with line breaks and icons**\n\n**Clarifying icon transcription guidelines**\n\n**Assessing icon ambiguity and categorization**\n\n**Refining tile component classification**\n\n**Assessing corridor tile orientation**\n\n**Setting rotation and icon positions**\n\n**Clarifying marker placement and symmetry**\n\n**Identifying source art padding oddity**\n\n**Clarifying ambiguous corridor slug**\n\n{\"orientation\":\"upright\",\"componentType\":\"top-down science-fiction corridor tile artwork\",\"cardSide\":\"notCard\",\"title\":\"\",\"typeLine\":\"\",\"body\":\"\",\"footer\":\"\",\"upperRight\":\"\",\"lowerCenter\":\"[ICON: yellow downward-pointing triangle 0]\",\"visibleText\":\"[ICON: yellow upward-pointing triangle 0]\",\"confidentlyVisible\":[\"An irregular dark metallic component occupies the upper-left portion of a square black canvas.\",\"A bright rectangular corridor floor runs horizontally through the component's center.\",\"The corridor has white metal panels, rectangular grilles, pipes, and illuminated ceiling or wall fixtures.\",\"Recessed openings are visible along both the left and right edges.\",\"A yellow upward-pointing triangular marker is centered at the top.\",\"A yellow downward-pointing triangular marker is centered at the bottom.\",\"Each yellow marker contains the same black oval glyph.\"],\"proposedCategory\":\"tiles/corridor\",\"proposedSlug\":null,\"confidence\":\"medium\",\"uncertainties\":[\"The black oval glyphs visually resemble the numeral 0, but the pixels alone do not distinguish 0 from a similarly drawn capital O with complete certainty.\",\"The yellow triangular markers are local glyphs not confidently matched to any canonical glossary icon.\",\"The component and its typography are effectively symmetric under a 180-degree rotation; the file already presents both oval glyphs on their vertical axes, but upright versus rotate180 cannot be uniquely distinguished.\",\"No visible title identifies a specific corridor variant, so a semantic filename slug is materially uncertain.\",\"The large black area to the right and below the component may be intentional texture-canvas padding or a source-art layout oddity.\"]}\n\nsession_id: 20260815_050439_1d8891\n"
+}

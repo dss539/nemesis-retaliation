@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "caseId": "c12",
+  "tier": "ambiguous-noncard",
+  "sourceSha256": "f9f39f99fba8199f4124b72ffe82c95e4660143f4cef486c430021a9cf314d08",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-luna",
+  "reasoning": "max",
+  "nativeImageAttachment": true,
+  "safeMode": true,
+  "promptSha256": "49aaf5b24a0cf146faf915b3dff26a370629dc205f337a296644c004550d6b80",
+  "startedAtEpoch": 1786777793.5984266,
+  "endedAtEpoch": 1786777809.3592963,
+  "durationSeconds": 15.761,
+  "returnCode": 0,
+  "sessionId": "20260815_070953_b61b9f",
+  "stdout": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Classifying alien creature art**\n\n**Formulating JSON schema for creature art**\n\n**Confirming componentType as creature illustration****Classifying alien creature art**\n**Formulating JSON schema for creature art**\n{\"orientation\":\"upright\",\"componentType\":\"creature illustration\",\"title\":null,\"typeLine\":null,\"body\":null,\"footer\":null,\"standaloneSymbols\":{},\"visibleOtherText\":[],\"layoutNotes\":[\"Single isolated creature centered in the image.\",\"Creature has elongated limbs, dorsal spines, a long tail, and dark gray-black body textures with red markings.\",\"Teal translucent atmospheric or ground-like backdrop surrounds the creature.\",\"No card frame, panels, text, or canonical glossary icons are visible.\"],\"categoryProposal\":\"non-card creature artwork\",\"filenameProposal\":null,\"sidecarCandidate\":null,\"uncertainties\":[],\"confidence\":{\"orientation\":\"high\",\"text\":\"high\",\"icons\":\"high\",\"identity\":\"low\",\"category\":\"high\",\"overall\":\"high\"},\"decision\":\"promote\"}\n",
+  "stderr": "\nsession_id: 20260815_070953_b61b9f\n",
+  "parsedJson": {
+    "orientation": "upright",
+    "componentType": "creature illustration",
+    "title": null,
+    "typeLine": null,
+    "body": null,
+    "footer": null,
+    "standaloneSymbols": {},
+    "visibleOtherText": [],
+    "layoutNotes": [
+      "Single isolated creature centered in the image.",
+      "Creature has elongated limbs, dorsal spines, a long tail, and dark gray-black body textures with red markings.",
+      "Teal translucent atmospheric or ground-like backdrop surrounds the creature.",
+      "No card frame, panels, text, or canonical glossary icons are visible."
+    ],
+    "categoryProposal": "non-card creature artwork",
+    "filenameProposal": null,
+    "sidecarCandidate": null,
+    "uncertainties": [],
+    "confidence": {
+      "orientation": "high",
+      "text": "high",
+      "icons": "high",
+      "identity": "low",
+      "category": "high",
+      "overall": "high"
+    },
+    "decision": "promote"
+  },
+  "parseError": null
+}

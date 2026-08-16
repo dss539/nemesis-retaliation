@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/greenitem-029.png",
+  "sourceSha256": "10a73a40826de71ecab5b5cae848de1083bb8466e50a3db927db61fdc89aa546",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_052758_be30cb",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:27:57Z",
+  "completedAt": "2026-08-15T05:28:41Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "green-bordered item card",
+    "cardSide": "face",
+    "title": "HEAVY OXYGEN TANK",
+    "typeLine": "ONE USE ONLY, SPECIAL WEAPON",
+    "body": "Gain 7 [oxygenToken].",
+    "footer": "",
+    "upperRight": "notInCombat",
+    "lowerCenter": "oxygenToken",
+    "visibleText": "",
+    "confidentlyVisible": [
+      "Landscape card with upright left-to-right typography",
+      "Large white title inside a luminous green frame",
+      "Yellow uppercase type line beneath the title",
+      "Upper-right white gun silhouette crossed out by a red X",
+      "Artwork depicts a large cylindrical tank in a dark industrial setting",
+      "Lower black panel reads “Gain 7”, followed by a yellow canister-shaped icon and a period"
+    ],
+    "proposedCategory": "cards/game/item/special-weapon",
+    "proposedSlug": "heavy-oxygen-tank",
+    "confidence": "high",
+    "uncertainties": []
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Loading image analysis skill****Loading image analysis skill****Planning pixel-based image analysis**\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Planning pixel-based image analysis****Confirming item card details and icon positions**\n\n\n**Verifying card type and icon field assignments**\n\n{\"orientation\":\"upright\",\"componentType\":\"green-bordered item card\",\"cardSide\":\"face\",\"title\":\"HEAVY OXYGEN TANK\",\"typeLine\":\"ONE USE ONLY, SPECIAL WEAPON\",\"body\":\"Gain 7 [oxygenToken].\",\"footer\":\"\",\"upperRight\":\"notInCombat\",\"lowerCenter\":\"oxygenToken\",\"visibleText\":\"\",\"confidentlyVisible\":[\"Landscape card with upright left-to-right typography\",\"Large white title inside a luminous green frame\",\"Yellow uppercase type line beneath the title\",\"Upper-right white gun silhouette crossed out by a red X\",\"Artwork depicts a large cylindrical tank in a dark industrial setting\",\"Lower black panel reads “Gain 7”, followed by a yellow canister-shaped icon and a period\"],\"proposedCategory\":\"cards/game/item/special-weapon\",\"proposedSlug\":\"heavy-oxygen-tank\",\"confidence\":\"high\",\"uncertainties\":[]}\n\nsession_id: 20260815_052758_be30cb\n",
+  "iconVerification": {
+    "status": "failed",
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "sessionId": "20260815_060806_26c991",
+    "promptVersion": 1,
+    "completedAt": "2026-08-15T06:08:21Z",
+    "claimed": [
+      "notInCombat",
+      "oxygenToken"
+    ],
+    "parsed": {
+      "claims": [
+        {
+          "claimed": "notInCombat",
+          "verdict": "match",
+          "actual": "notInCombat",
+          "evidence": "One occurrence at the card’s upper right: a white gun crossed by a red X; this is the documented official artwork variant of the glossary’s crossed-out Intruder icon."
+        },
+        {
+          "claimed": "oxygenToken",
+          "verdict": "mismatch",
+          "actual": "oxygen",
+          "evidence": "One occurrence after “Gain 7”: a narrow vertical yellow-framed canister with a cyan center, matching the glossary crop labeled oxygen, not the square yellow oxygenToken glyph with cyan tank and white panel."
+        }
+      ],
+      "allClaimsMatch": false,
+      "confidence": "high",
+      "uncertainties": []
+    },
+    "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Loading vision skill****Loading vision skill****Verifying oxygenToken image matching**\n\nsession_id: 20260815_060806_26c991\n{\"claims\":[{\"claimed\":\"notInCombat\",\"verdict\":\"match\",\"actual\":\"notInCombat\",\"evidence\":\"One occurrence at the card’s upper right: a white gun crossed by a red X; this is the documented official artwork variant of the glossary’s crossed-out Intruder icon.\"},{\"claimed\":\"oxygenToken\",\"verdict\":\"mismatch\",\"actual\":\"oxygen\",\"evidence\":\"One occurrence after “Gain 7”: a narrow vertical yellow-framed canister with a cyan center, matching the glossary crop labeled oxygen, not the square yellow oxygenToken glyph with cyan tank and white panel.\"}],\"allClaimsMatch\":false,\"confidence\":\"high\",\"uncertainties\":[]}\n",
+    "evidencePath": "docs/qa/card-icon-comparisons/auto-10a73a40826de71ecab5b5cae848de1083bb8466e50a3db927db61fdc89aa546.png"
+  }
+}

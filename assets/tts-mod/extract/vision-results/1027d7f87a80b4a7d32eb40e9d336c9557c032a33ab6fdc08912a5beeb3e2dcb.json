@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/seriouswound-149_cards/card-06.png",
+  "sourceSha256": "1027d7f87a80b4a7d32eb40e9d336c9557c032a33ab6fdc08912a5beeb3e2dcb",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_054028_f22e7c",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:40:27Z",
+  "completedAt": "2026-08-15T05:41:00Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "serious wound card",
+    "cardSide": "face",
+    "title": "KNEE",
+    "typeLine": "",
+    "body": "Using “Make a Move”\nor “Make a Move with [actionCard]”\nas your first Action in a Round\ncosts you 1 [ICON: white outlined rectangular A glyph] more.",
+    "footer": "",
+    "upperRight": "",
+    "lowerCenter": "",
+    "visibleText": "TEMP.\n39.0°\nTISSUE DAMAGE",
+    "confidentlyVisible": [
+      "Upright white typography on a black card",
+      "Central medical scan depicts a bent knee joint",
+      "Three colored callout lines point to circled regions around the knee",
+      "Title reads KNEE",
+      "Body contains a white card-shaped action glyph",
+      "Body contains a boxed capital A glyph",
+      "Vertical text at lower left reads TISSUE DAMAGE"
+    ],
+    "proposedCategory": "cards/game/serious-wound",
+    "proposedSlug": "knee",
+    "confidence": "medium",
+    "uncertainties": [
+      "The boxed A is a card-local glyph absent from the supplied glossary, so it is described literally rather than assigned a canonical meaning.",
+      "The three yellow, orange, and red callout glyphs are decorative/card-local symbols and are not confidently matched to the glossary.",
+      "Faint vertical text near the upper-left edge is not fully legible and has not been transcribed."
+    ]
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Loading image analysis workflows****Loading image analysis workflows****Planning image analysis with vision_analyze**\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Planning image analysis with vision_analyze****Identifying serious wound card**\n\n\n{\"orientation\":\"upright\",\"componentType\":\"serious wound card\",\"cardSide\":\"face\",\"title\":\"KNEE\",\"typeLine\":\"\",\"body\":\"Using “Make a Move”\\nor “Make a Move with [actionCard]”\\nas your first Action in a Round\\ncosts you 1 [ICON: white outlined rectangular A glyph] more.\",\"footer\":\"\",\"upperRight\":\"\",\"lowerCenter\":\"\",\"visibleText\":\"TEMP.\\n39.0°\\nTISSUE DAMAGE\",\"confidentlyVisible\":[\"Upright white typography on a black card\",\"Central medical scan depicts a bent knee joint\",\"Three colored callout lines point to circled regions around the knee\",\"Title reads KNEE\",\"Body contains a white card-shaped action glyph\",\"Body contains a boxed capital A glyph\",\"Vertical text at lower left reads TISSUE DAMAGE\"],\"proposedCategory\":\"cards/game/serious-wound\",\"proposedSlug\":\"knee\",\"confidence\":\"medium\",\"uncertainties\":[\"The boxed A is a card-local glyph absent from the supplied glossary, so it is described literally rather than assigned a canonical meaning.\",\"The three yellow, orange, and red callout glyphs are decorative/card-local symbols and are not confidently matched to the glossary.\",\"Faint vertical text near the upper-left edge is not fully legible and has not been transcribed.\"]}\n\nsession_id: 20260815_054028_f22e7c\n"
+}

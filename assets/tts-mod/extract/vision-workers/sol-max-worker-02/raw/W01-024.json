@@ -1,0 +1,79 @@
+{
+  "schemaVersion": 1,
+  "assetId": "W01-024",
+  "batchId": "batch-004",
+  "capturedAt": "2026-08-15T21:32:59Z",
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-00.png",
+  "sourceSha256": "de97374d9cc8ed9f9141a4539386fd6b8979b4230f4eee8ae04925622fc07fed",
+  "runtimeProvenanceRef": "../metadata/runtime.json",
+  "blindAnalysis": true,
+  "metadataExcludedDuringPixelPass": [
+    "filename semantics",
+    "directory semantics",
+    "prior vision reads",
+    "TTS object metadata",
+    "game-context expectations"
+  ],
+  "orientationObservation": "Upright portrait card: all title, body, and footer text reads horizontally left-to-right.",
+  "blindPixelObservations": [
+    "Portrait-format illustrated card with a dark blue-violet science-fiction room occupying the upper two-thirds and magenta interface borders around the lower text area.",
+    "At left-center, a bulky suited figure is shown mostly from behind facing a dark equipment box or console at right; the figure carries several red circular packs on the upper back, and red indicator lights glow on the equipment.",
+    "Black cables arc across the ceiling and run around the equipment; bright cream light spills from a doorway or opening in the center-right background.",
+    "A small white horizontally elongated emblem in the upper-right is covered by a large red diagonal X.",
+    "The title is large bold uppercase white text in a black beveled plaque with magenta edging.",
+    "The rules block is centered white mixed-case text on a dark maroon-to-black panel; one solid white polygonal icon interrupts the third rules line.",
+    "A spaced magenta uppercase category word is centered at the bottom."
+  ],
+  "visibleText": [
+    {
+      "text": "ANYTHING USEFUL?",
+      "location": "title plaque above rules block",
+      "structure": "large bold uppercase white text",
+      "confidence": "high"
+    },
+    {
+      "text": "Move.\nIf you Explored a new Room, draw 1 Item for\neach [icon: solid white polygon] in that Room.\nKeep 1 and discard the rest.",
+      "location": "centered rules block",
+      "structure": "four displayed lines, with a printed non-text icon between each and in",
+      "confidence": "high"
+    },
+    {
+      "text": "RECON",
+      "location": "bottom center",
+      "structure": "spaced uppercase magenta text",
+      "confidence": "high"
+    }
+  ],
+  "iconObservations": [
+    {
+      "location": "upper-right over illustration",
+      "silhouette": "small white horizontally elongated wing/bar-like emblem mostly obscured by a large red X",
+      "internalMarks": "visible red or dark horizontal stripe through the white emblem; two thick red diagonal strokes cross over it",
+      "colors": "white and dark/red details under a bright red X",
+      "semanticLabel": null
+    },
+    {
+      "location": "third rules line, between each and in",
+      "silhouette": "solid white near-regular polygon, wider than tall, with flat top/bottom and clipped/slanted corners",
+      "internalMarks": "none visible",
+      "colors": "solid white",
+      "semanticLabel": null
+    }
+  ],
+  "rawNativeModelOutput": {
+    "orientation": "upright portrait",
+    "text": [
+      "ANYTHING USEFUL?",
+      "Move.",
+      "If you Explored a new Room, draw 1 Item for",
+      "each [solid white polygon icon] in that Room.",
+      "Keep 1 and discard the rest.",
+      "RECON"
+    ],
+    "literalSummary": "Upright illustrated action-like card with sci-fi exploration art, a crossed-out white emblem at top-right, a solid white polygon embedded in rules text, and clearly readable title/body/footer text."
+  },
+  "uncertainties": [
+    "The top-right emblem is partly occluded by the printed red X, so its unoccluded internal silhouette cannot be reconstructed from this card alone.",
+    "The solid white rules icon has no visible internal marks; its canonical identity cannot be assigned from this card alone."
+  ]
+}

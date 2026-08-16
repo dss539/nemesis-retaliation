@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "assetId": "W01-016",
+  "batchId": "batch-001",
+  "completedAt": "2026-08-15T21:16:47Z",
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/bags/queen-008.png",
+  "sourceSha256": "63a323718019dd85f9fca5d5e144c4a99373e0a5567e24e396809a590d0b8095",
+  "sourceMetadata": {
+    "width": 470,
+    "height": 845,
+    "format": "PNG",
+    "mode": "RGBA",
+    "byteSize": 535930,
+    "frames": 1,
+    "decodeVerified": true
+  },
+  "runtimeProvenance": {
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "reasoningEffort": "max",
+    "platform": "subagent",
+    "workerId": "sol-max-worker-02",
+    "sessionId": "20260815_210607_461cc1",
+    "persistentSession": true,
+    "nativeVision": true,
+    "auxiliaryVisionUsed": false,
+    "qwenUsed": false
+  },
+  "orientation": {
+    "status": "upright",
+    "evidence": "The humanoid figure stands vertically on a horizontal display base with its head above its feet.",
+    "transformApplied": null,
+    "stagingDerivative": null
+  },
+  "blindPixelObservations": [
+    "A tall symmetrical humanoid creature stands front-facing on a low oval display base, against an irregular turquoise striped backing with transparent margins.",
+    "Its head is pale and helmet-like with side horns or flanges; the torso has a smooth pale central shell surrounded by dark black-brown and red sinewy armor.",
+    "Two extremely long serrated crescent appendages arc upward and inward from behind the shoulders, framing the head and upper body.",
+    "Long arms end in elaborate blade-like claws, while several pale ribbon-like tendrils and a thicker segmented tail curl behind the legs and around the base.",
+    "The image is isolated painterly creature/miniature artwork with no card frame or printed rules panel."
+  ],
+  "visibleText": [],
+  "iconMorphology": [],
+  "iconMorphologyEmptyReason": "No discrete printed icon is present; the entire image is creature/miniature artwork rather than an icon-bearing card or token face.",
+  "evidenceConsulted": {
+    "blindPixelRecord": "raw/W01-016.json",
+    "metadataJoin": "metadata/provenance/W01-016.json",
+    "tts": {
+      "consultedAfterBlindRecord": true,
+      "manifestUrl": "https://steamusercontent-a.akamaihd.net/ugc/11923313303416697/9B3267E7B15BA79753FB3964C3822C4B8A3EB5F5/",
+      "finding": "The URL is the ImageURL for Bag bf3dc5 nicknamed Queen and a contained Figurine_Custom 68d9e4 tagged queen; both are base-classified, and the bag has Lua role queenFBag."
+    },
+    "official": {
+      "consulted": false,
+      "reason": "No rules text, glossary-token claim, or conflicting source evidence required official escalation."
+    },
+    "priorWorkerSemanticOutput": {
+      "consulted": false,
+      "reason": "W01-016 is a clean-context retry of an invalidated predecessor result."
+    }
+  },
+  "proposedClassification": "Non-card base-game Queen creature artwork shared by a TTS Bag ImageURL and its contained Figurine_Custom ImageURL.",
+  "proposedPath": "assets/tts-mod/extract/v2-dl/tree/bags/queen-008.png (retain unchanged; no move or canonical sidecar proposed)",
+  "readConfidence": {
+    "level": "high",
+    "reason": "There is no printed text, and the creature artwork, upright presentation, and lack of card anatomy are clear at native resolution."
+  },
+  "classificationConfidence": {
+    "level": "high",
+    "reason": "Blind creature/miniature observations align with explicit Queen bag/figurine TTS provenance and the queenFBag Lua role."
+  },
+  "uncertainties": [],
+  "promotionDecision": "non-card-complete",
+  "decisionReasons": [
+    "This is not a rules-card face and requires no card-text sidecar.",
+    "The native pixel read and current TTS object roles independently agree on Queen creature/container artwork.",
+    "No canonical icon token, unreadable text, move, rename, or source-role inference is being promoted."
+  ],
+  "stagedCandidateSidecarPath": null,
+  "validationPerformed": [
+    "Current source SHA-256 exactly matched the recovered live assignment tuple.",
+    "Pillow decoded and verified the 470x845 PNG with one frame.",
+    "The image was attached and inspected natively as W01-016 in batch-001 through the verified Sol Max route.",
+    "Blind observations were persisted before TTS metadata was consulted.",
+    "Both matching TTS ImageURL references and the base/Lua-role corroboration were resolved.",
+    "No source, canonical sidecar, shared ledger, manifest, catalog, or prior-worker file was modified."
+  ],
+  "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-worker-02/raw/W01-016.json"
+}

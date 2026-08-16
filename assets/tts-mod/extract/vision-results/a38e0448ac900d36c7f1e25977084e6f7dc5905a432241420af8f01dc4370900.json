@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/tokens/character/medical-support-003.png",
+  "sourceSha256": "a38e0448ac900d36c7f1e25977084e6f7dc5905a432241420af8f01dc4370900",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_054958_c4272b",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:49:58Z",
+  "completedAt": "2026-08-15T05:50:35Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "character dashboard",
+    "cardSide": "face",
+    "title": "MEDICAL SUPPORT",
+    "typeLine": "",
+    "body": "BASIC ACTIONS\n[ICON: white right-pointing triangular bullet]PLAY AN ACTION CARD\n[ICON: white right-pointing triangular bullet]PASS\n\nDISCARD A\n[ICON: white right-pointing triangular bullet]MAKE A MOVE\n[ICON: white right-pointing triangular bullet]PLACE 1 [ICON: white angular shield-like glyph]\n[ICON: white right-pointing triangular bullet]FIRE A SHOT\n[ICON: white right-pointing triangular bullet]FIRE A BURST\n[ICON: white right-pointing triangular bullet]MELEE ATTACK\n[ICON: white right-pointing triangular bullet]USE ITEM OR ROBOT\n[ICON: white right-pointing triangular bullet]REORGANIZE BACKPACK\n& TRADE\n[ICON: white right-pointing triangular bullet]USE YOUR TACTICAL BELT\n\nDISCARD A A\n[ICON: white right-pointing triangular bullet]USE THE ROOM\n[ICON: white right-pointing triangular bullet]MAKE A MOVE WITH [ICON: white angular shield-like glyph]",
+    "footer": "",
+    "upperRight": "characterHealth",
+    "lowerCenter": "[ICON: pair of white narrow three-pointed triangular glyphs]",
+    "visibleText": "HEAVILY INJURED\nINJURED\nHEALTHY\nTACTICAL BELT\nACTION CARDS DISCARD\nLEFT HAND\nRIGHT HAND",
+    "confidentlyVisible": [
+      "Typography is upright in the file.",
+      "The component is a large character dashboard with portrait art and equipment/card slots.",
+      "MEDICAL SUPPORT is printed prominently at the lower center.",
+      "Three health-state headings read HEAVILY INJURED, INJURED, and HEALTHY.",
+      "A white cross-and-EKG glyph appears in the upper-right health area.",
+      "A white skull glyph appears in the upper-left heavily injured area.",
+      "The right panel is headed BASIC ACTIONS.",
+      "SHOT is printed in red and BURST in purple.",
+      "Vertical labels read TACTICAL BELT and ACTION CARDS DISCARD.",
+      "Bottom labels read LEFT HAND and RIGHT HAND."
+    ],
+    "proposedCategory": "boards/character/dashboard",
+    "proposedSlug": "medical-support",
+    "confidence": "medium",
+    "uncertainties": [
+      "The repeated line-leading white triangular bullet is a local action-list glyph absent from the glossary, so it is described literally.",
+      "The white angular glyph after PLACE 1 and at the end of MAKE A MOVE WITH is not confidently matched to the supplied glossary.",
+      "The paired white glyphs below MEDICAL SUPPORT are not confidently matched to the supplied glossary.",
+      "Very faint low-contrast typography overlays the central portrait, but it is not fully legible and has therefore not been transcribed.",
+      "The skull in the upper-left has no confident canonical match in the supplied glossary and has only been recorded as a visible pixel fact.",
+      "The semantic category is visually a character dashboard, but that exact category was not among the example paths."
+    ]
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Planning pixel-level image inspection****Planning pixel-level image inspection**\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Planning pixel extraction****Planning pixel extraction****Classifying character dashboard components**\n\n\n{\"orientation\":\"upright\",\"componentType\":\"character dashboard\",\"cardSide\":\"face\",\"title\":\"MEDICAL SUPPORT\",\"typeLine\":\"\",\"body\":\"BASIC ACTIONS\\n[ICON: white right-pointing triangular bullet]PLAY AN ACTION CARD\\n[ICON: white right-pointing triangular bullet]PASS\\n\\nDISCARD A\\n[ICON: white right-pointing triangular bullet]MAKE A MOVE\\n[ICON: white right-pointing triangular bullet]PLACE 1 [ICON: white angular shield-like glyph]\\n[ICON: white right-pointing triangular bullet]FIRE A SHOT\\n[ICON: white right-pointing triangular bullet]FIRE A BURST\\n[ICON: white right-pointing triangular bullet]MELEE ATTACK\\n[ICON: white right-pointing triangular bullet]USE ITEM OR ROBOT\\n[ICON: white right-pointing triangular bullet]REORGANIZE BACKPACK\\n& TRADE\\n[ICON: white right-pointing triangular bullet]USE YOUR TACTICAL BELT\\n\\nDISCARD A A\\n[ICON: white right-pointing triangular bullet]USE THE ROOM\\n[ICON: white right-pointing triangular bullet]MAKE A MOVE WITH [ICON: white angular shield-like glyph]\",\"footer\":\"\",\"upperRight\":\"characterHealth\",\"lowerCenter\":\"[ICON: pair of white narrow three-pointed triangular glyphs]\",\"visibleText\":\"HEAVILY INJURED\\nINJURED\\nHEALTHY\\nTACTICAL BELT\\nACTION CARDS DISCARD\\nLEFT HAND\\nRIGHT HAND\",\"confidentlyVisible\":[\"Typography is upright in the file.\",\"The component is a large character dashboard with portrait art and equipment/card slots.\",\"MEDICAL SUPPORT is printed prominently at the lower center.\",\"Three health-state headings read HEAVILY INJURED, INJURED, and HEALTHY.\",\"A white cross-and-EKG glyph appears in the upper-right health area.\",\"A white skull glyph appears in the upper-left heavily injured area.\",\"The right panel is headed BASIC ACTIONS.\",\"SHOT is printed in red and BURST in purple.\",\"Vertical labels read TACTICAL BELT and ACTION CARDS DISCARD.\",\"Bottom labels read LEFT HAND and RIGHT HAND.\"],\"proposedCategory\":\"boards/character/dashboard\",\"proposedSlug\":\"medical-support\",\"confidence\":\"medium\",\"uncertainties\":[\"The repeated line-leading white triangular bullet is a local action-list glyph absent from the glossary, so it is described literally.\",\"The white angular glyph after PLACE 1 and at the end of MAKE A MOVE WITH is not confidently matched to the supplied glossary.\",\"The paired white glyphs below MEDICAL SUPPORT are not confidently matched to the supplied glossary.\",\"Very faint low-contrast typography overlays the central portrait, but it is not fully legible and has therefore not been transcribed.\",\"The skull in the upper-left has no confident canonical match in the supplied glossary and has only been recorded as a visible pixel fact.\",\"The semantic category is visually a character dashboard, but that exact category was not among the example paths.\"]}\n\nsession_id: 20260815_054958_c4272b\n"
+}

@@ -1,0 +1,125 @@
+{
+  "schemaVersion": 1,
+  "createdAt": "2026-08-15T22:35:34Z",
+  "assetId": "W04-010",
+  "sourceState": {
+    "assetId": "W04-010",
+    "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-12.png",
+    "absoluteSourcePath": "/home/smithers/nemesis-retaliation/assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-12.png",
+    "sourceSha256": "071501844b55d42daa48430786b944d8cf1fea711ad6994abf6d3a9c61b18245",
+    "sourceMetadata": {
+      "width": 1052,
+      "height": 1433,
+      "format": "PNG",
+      "mode": "RGB",
+      "frames": 1,
+      "byteSize": 1599917,
+      "decodeVerified": true
+    }
+  },
+  "runtimeProvenance": {
+    "sessionId": "20260815_222507_ce8f8a",
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "reasoningEffort": "max",
+    "nativeImageRoute": {
+      "required": true,
+      "transport": "functions.vision_analyze direct local-path attachment to the active session model",
+      "auxiliaryVisionUsed": false,
+      "qwenUsed": false,
+      "ocrCanonicalEvidenceUsed": false,
+      "exerciseStatus": "exercised-and-sealed",
+      "verified": true,
+      "verificationStatus": "verified by successful direct native attachment of W04-009 to active session model",
+      "verificationEvidence": [
+        {
+          "assetId": "W04-009",
+          "exactSourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-11.png",
+          "transportResult": "functions.vision_analyze: Image loaded into your context — you can see it natively now",
+          "activeSessionId": "20260815_222507_ce8f8a",
+          "postAttachmentSessionDbModel": "gpt-5.6-sol",
+          "postAttachmentUsageProvider": "openai-codex",
+          "postAttachmentReasoningEffort": "max"
+        }
+      ]
+    }
+  },
+  "nativeCall": {
+    "submittedAssetIds": [
+      "W04-010-contact-icons"
+    ],
+    "returnedAssetIds": [
+      "W04-010-contact-icons"
+    ],
+    "submittedCount": 1,
+    "returnedCount": 1,
+    "idCountReconciled": true,
+    "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-worker-05/contact-sheets/W04-010-icons.png",
+    "contactSheetSha256": "de4fa50c0aa1cb8cafad89b2e3ef2ade5f9f5ffc5c5bb878e354c59919f51865",
+    "authoritativeCropCount": 49
+  },
+  "sourceCropCompleteness": {
+    "redGlyph": true,
+    "actionCardGlyph1": true,
+    "actionCardGlyph2": true,
+    "basis": "Each tight crop visibly retains the complete colored/outlined glyph on all sides; partial neighboring text in crop margins does not clip the glyphs."
+  },
+  "verdicts": [
+    {
+      "iconIds": [
+        "W04-010-glyph-01"
+      ],
+      "acceptedToken": "ammoToken",
+      "confidence": "high direct morphology match",
+      "locations": [
+        "first body line after ‘Rifle with’"
+      ],
+      "sourceOuterSilhouette": "Compact red cuboid token with a rectangular front face and a darker projecting right-side face.",
+      "sourceInternalMarks": "Black inset with multiple narrow red vertical cartridge-like bars/teeth.",
+      "sourceColors": [
+        "bright red body",
+        "black inset",
+        "dark red side face"
+      ],
+      "authoritativeMatchFeatures": [
+        "same red cuboid outer body and projecting dark-red right face",
+        "same black rectangular inset",
+        "same repeated narrow red vertical internal bars"
+      ],
+      "closestPlausibleAlternative": "medpackToken",
+      "visibleDiscriminatingFeature": "The source is red with a black barred inset; medpackToken has the same token-body family but is green with a large white cross and no barred inset.",
+      "sourceCropComplete": true,
+      "abstentionRequired": false
+    },
+    {
+      "iconIds": [
+        "W04-010-glyph-02",
+        "W04-010-glyph-03"
+      ],
+      "acceptedToken": "actionCard",
+      "confidence": "high direct morphology match for both instances",
+      "locations": [
+        "after ‘any number of’",
+        "between ‘For each’ and ‘discarded’"
+      ],
+      "sourceOuterSilhouette": "Small upright light card/tile with rounded corners and a thick dark outline/shadow.",
+      "sourceInternalMarks": "Centered black uppercase A.",
+      "sourceColors": [
+        "white/light-gray face",
+        "black A and border"
+      ],
+      "authoritativeMatchFeatures": [
+        "same upright rounded rectangular card contour",
+        "same centered black uppercase A",
+        "same light face with dark edge/shadow"
+      ],
+      "closestPlausibleAlternative": "anySlot",
+      "visibleDiscriminatingFeature": "Each source glyph has a large centered black A; anySlot is a wide horizontal gray slot with a black top recess and no letter.",
+      "sourceCropComplete": true,
+      "abstentionRequired": false
+    }
+  ],
+  "sourceCropComplete": true,
+  "all49AuthoritativeCropsDirectlyCompared": true,
+  "semanticContextUsedAsDiscriminator": false
+}

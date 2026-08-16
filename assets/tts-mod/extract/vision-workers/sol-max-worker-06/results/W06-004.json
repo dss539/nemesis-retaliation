@@ -1,0 +1,188 @@
+{
+  "schemaVersion": 1,
+  "assetId": "W06-004",
+  "status": "deferred",
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-15.png",
+  "sourceSha256": "e063664e4e786d66092f347f444c9a9184ae0a9f51547158f98e8b25e300b39a",
+  "sourceMetadata": {
+    "width": 1052,
+    "height": 1433,
+    "format": "PNG",
+    "mode": "RGB",
+    "frames": 1,
+    "bytes": 1771394,
+    "decode": true
+  },
+  "runtimeProvenance": {
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "reasoningEffort": "max",
+    "sessionId": "20260815_224527_5f5db3",
+    "parentSessionId": "b01cf4bb4120",
+    "delegationId": "deleg_547cfe00",
+    "nativeImageRoute": "functions.vision_analyze active-model native attachment",
+    "nativeImageRouteState": "exercisedVerified",
+    "runtimeVerificationState": "verified",
+    "auxiliaryVisionUsed": false,
+    "qwenUsed": false,
+    "ocrCanonicalEvidenceUsed": false,
+    "modelDowngradeUsed": false,
+    "normalizedRecordPath": "assets/tts-mod/extract/vision-workers/sol-max-worker-06/metadata/runtime.json",
+    "normalizedRecordSha256": "5709c0040a1e706d0607c953c58cd0e8bdbdfa840623fd197385d6e2fda74999"
+  },
+  "orientation": {
+    "observed": "upright",
+    "rotationRequired": false,
+    "basis": "All material typography is natively upright in the assigned pixels."
+  },
+  "blindPixelObservations": [
+    "Portrait red/black science-fiction rules card with fiery industrial corridor artwork and a distant armored figure.",
+    "One-line white title in a dark lower-middle plaque.",
+    "Single effect panel has three centered text lines and one red inline glyph; five words in the latter lines are visibly heavier/bolder.",
+    "Spaced red all-caps footer is visible; no standalone upper-right glyph, reaction panel, edge contamination, or clipped text is visible."
+  ],
+  "visibleText": {
+    "title": "FORCING FIRE",
+    "body": "Spend [ICON: red notched rectangular token-or-slot shape with dark center] from your Rifle.\nThe Queen OR all Adults and Drones Escape\nfrom your Room.",
+    "emphasizedWords": ["Queen", "OR", "Adults", "Drones", "Escape"],
+    "footer": "HEAVY GUN OPERATOR",
+    "illegibleSpans": [],
+    "clippedSpans": []
+  },
+  "iconMorphology": [
+    {
+      "location": "body line 1, after ‘Spend’",
+      "outerSilhouette": "red compact upright rectangular form with a small offset red-outlined projection at right and a slightly notched upper contour",
+      "internalMarks": "dark/black central field with several narrow vertical divisions or bars near its upper portion; exact count is not secure",
+      "colors": ["red", "dark red", "black"],
+      "neighboringText": "Spend [glyph] from your Rifle.",
+      "tentativeCanonicalCandidate": null,
+      "closestPlausibleCanonicalAlternatives": ["ammoToken", "ammoSlot"],
+      "visibleFeatureRulingAlternativeOut": null,
+      "alternativeRuledOut": false,
+      "semanticIdentityEstablished": false,
+      "canonicalTokenEmitted": false,
+      "uncertainty": "Full-card morphology does not distinguish the two plausible red ammo token/slot artworks; no direct authoritative crop comparison occurred."
+    }
+  ],
+  "evidenceConsulted": [
+    {
+      "kind": "native pixels",
+      "path": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-15.png",
+      "timing": "blind read before current-cell semantic metadata join"
+    },
+    {
+      "kind": "assignment control plane",
+      "path": "assets/tts-mod/extract/vision-workers/sol-max-worker-06/assignment.json",
+      "sha256": "65b7660154b1f5cf994398f21349f20384af0210893df81a6550d8aaf2aa6a75"
+    },
+    {
+      "kind": "canonical icon glossary text",
+      "path": "docs/rules/icon-glossary.md",
+      "use": "candidate vocabulary only; no crop-level canonical match claimed"
+    },
+    {
+      "kind": "source-sheet manifest exact-key lookup",
+      "path": "assets/tts-mod/extract/v2-dl/tree/manifest.json",
+      "sourceSheetFile": "cards/character/heavy-gun-operator-045.jpg",
+      "sourceSheetUrl": "https://steamusercontent-a.akamaihd.net/ugc/2468613527880241742/F6B1605A2ED018B39F0BE82DD120FBFC08C5EF65/"
+    },
+    {
+      "kind": "parsed TTS object exact-URL lookup",
+      "path": "assets/tts-mod/extract/v2/objects.json",
+      "matchingObjectCount": 20,
+      "matchingCardRecordCount": 16
+    },
+    {
+      "kind": "lookup-isolation audit",
+      "priorWorkerOrPriorResultSemanticsConsulted": false,
+      "preBlindSharedMetadataExposure": "Only generic shared-sheet provenance learned after earlier W06 reads was known; no W06-004 text, icon label, or cell identity had been exposed or used as pixel evidence."
+    }
+  ],
+  "sourceProvenance": {
+    "sourceKind": "generated",
+    "generatedCellIndex": 15,
+    "cellIndexBasis": "card-15.png decimal filename suffix",
+    "sourceSheet": {
+      "path": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045.jpg",
+      "sha256": "8ee81f19d0a79af393d0a11dd6a309d7a0d4e8beb0483e03af08d566cf0cd647",
+      "bytes": 38432421,
+      "width": 9468,
+      "height": 7165,
+      "format": "JPEG",
+      "decode": true,
+      "gridColumns": 9,
+      "gridRows": 5,
+      "gridDivisionExact": true,
+      "urlRole": "FaceURL"
+    },
+    "sourceSheetDeckGuids": ["c8f207", "d7e854", "a8e6a4", "8b2d1b"],
+    "selectorTest": {
+      "rule": "CardID % 100 equals generated cell index, used only after source-sheet relationship is established",
+      "observedSelectorIndices": [3, 4, 6, 9, 14, 16, 17, 18, 24, 26, 27, 28, 33, 35, 36, 37],
+      "exactCellSelectorMatches": [],
+      "exactCellGuid": null,
+      "gatePassed": false
+    },
+    "pairedSide": {
+      "uniqueCellSpecificBackUrl": null,
+      "genericSharedSheetBackUrl": "https://steamusercontent-a.akamaihd.net/ugc/10207952820401286363/045849F3D9E78090494EBF29460723DFD3BF642F/",
+      "genericSharedSheetBackPath": "assets/tts-mod/extract/v2-dl/tree/cards/game/action/back.jpg",
+      "visuallyInspected": false,
+      "gatePassed": false,
+      "reason": "The records prove only a generic shared action back; no concrete Card/CardCustom record selects cell 15, so there is no unique cell-specific pair to inspect or claim."
+    }
+  },
+  "proposedClassification": {
+    "family": "card-family",
+    "componentType": "action card",
+    "printedTitle": "FORCING FIRE",
+    "printedOwner": "HEAVY GUN OPERATOR",
+    "exactCanonicalComponent": "deferred",
+    "basis": "Visible action-card anatomy, title, effect text, and footer."
+  },
+  "readConfidence": {
+    "overall": "high",
+    "materialText": "high",
+    "punctuation": "high",
+    "iconMorphology": "medium-high",
+    "canonicalIconIdentity": "low"
+  },
+  "classificationConfidence": {
+    "cardFamily": "high",
+    "actionCardFamily": "high",
+    "printedTitleAndOwner": "high",
+    "exactCanonicalCellIdentity": "low"
+  },
+  "uncertainties": [
+    "The red glyph remains unresolved between the closest plausible ammoToken and ammoSlot alternatives; no canonical token is emitted.",
+    "No parsed Card/CardCustom record selects generated cell 15; exact cell GUID provenance is unresolved.",
+    "No unique cell-specific paired side is established; only a generic shared action back is evidenced."
+  ],
+  "promotionDecision": "defer",
+  "decisionReasons": [
+    "Material icon identity remains unresolved.",
+    "Generated-cell selector and exact GUID gate failed.",
+    "Unique paired-side provenance gate failed.",
+    "Card-family classification alone does not satisfy canonical sidecar promotion gates."
+  ],
+  "validationPerformed": {
+    "preAttachmentSourceHashMatchedAssignment": true,
+    "sourceDecodePassed": true,
+    "assignmentTupleUnchanged": true,
+    "submittedCount": 1,
+    "returnedCount": 1,
+    "idCountReconciled": true,
+    "orientationCheckedFromPixels": true,
+    "blindRawPersistedBeforeCurrentCellMetadataJoin": true,
+    "materialTextContainsNoReconstructedIllegibleSpan": true,
+    "directGlossaryCropComparisonPassed": false,
+    "exactGeneratedCellSelectorPassed": false,
+    "uniquePairedSidePassed": false,
+    "candidateSidecarCreated": false
+  },
+  "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-worker-06/raw/W06-004.json",
+  "normalizedAt": "2026-08-15T23:00:07.899774945Z",
+  "nextPendingAssetId": null,
+  "nextPendingSourcePath": null
+}

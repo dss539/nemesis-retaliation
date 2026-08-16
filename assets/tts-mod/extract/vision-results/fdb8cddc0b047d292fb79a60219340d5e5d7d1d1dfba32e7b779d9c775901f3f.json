@@ -1,0 +1,104 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-114.jpg",
+  "sourceSha256": "fdb8cddc0b047d292fb79a60219340d5e5d7d1d1dfba32e7b779d9c775901f3f",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_060500_ddee2f",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:41:22Z",
+  "completedAt": "2026-08-15T06:05:27Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "weapon item card",
+    "cardSide": "face",
+    "title": "PLASMA GUN",
+    "typeLine": "RANGED WEAPON, REQUIRES NO AMMO, HEAVY",
+    "body": "[burstDieAdditionalEffects], [shootDieAmmoLoss]: Lose 2[characterHealth] for each Universal marker\non this Weapon, and then place\n1 Universal marker there.",
+    "footer": "",
+    "upperRight": "",
+    "lowerCenter": "",
+    "visibleText": "",
+    "confidentlyVisible": [
+      "White title centered near the top",
+      "Yellow uppercase type line beneath the title",
+      "Artwork depicts a large futuristic gun with a glowing red-orange chamber",
+      "Purple square icon with four white corner marks begins the effect line",
+      "Red triangular icon containing three white cartridges follows",
+      "White cross-shaped EKG health icon appears after the numeral 2",
+      "Bottom edge of the card is outside the image frame"
+    ],
+    "proposedCategory": "cards/game/item/weapon",
+    "proposedSlug": "plasma-gun",
+    "confidence": "medium",
+    "uncertainties": [
+      "The image is a close crop and does not show the complete card boundary or any content that may exist below the visible effect text.",
+      "The exact punctuation spacing around the two line-leading die icons is visually tight, though a comma after the purple icon and a colon after the red icon are visible."
+    ]
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Planning skill and image loading****Planning skill and image loading****Assessing image rotation effects**\n\n\n**Mapping icon positions after rotation**\n\n**Identifying card image artifacts and uncertainty****Assessing image rotation effects**\n**Mapping icon positions after rotation**\n{\"orientation\":\"rotate90ccw\",\"componentType\":\"ranged weapon item card\",\"cardSide\":\"face\",\"title\":\"PLASMA GUN\",\"typeLine\":\"RANGED WEAPON, REQUIRES NO AMMO, HEAVY\",\"body\":\"[burstDieAdditionalEffects] [shootDieAmmoLoss]: Lose 2 [characterHealth] for each Universal marker\\non this Weapon, and then place\\n1 Universal marker there.\",\"footer\":\"\",\"upperRight\":\"\",\"lowerCenter\":\"\",\"visibleText\":\"\",\"confidentlyVisible\":[\"The typography is sideways in the file and becomes upright after a 90-degree counterclockwise rotation.\",\"The title reads “PLASMA GUN”.\",\"The artwork depicts a large futuristic gun with a glowing red section.\",\"A purple square with four white corner marks precedes a red triangle containing three cartridge shapes.\",\"A white cross with an EKG line appears inline after the number 2.\"],\"proposedCategory\":\"cards/game/item/ranged-weapon\",\"proposedSlug\":\"plasma-gun\",\"confidence\":\"medium\",\"uncertainties\":[\"The photographed card is tightly cropped at its edges, so any content outside the visible image cannot be assessed.\",\"The image has perspective distortion, surface texture, and glare, though the represented text and mapped icons remain legible.\"]}\n\nsession_id: 20260815_054123_029c64\n",
+  "initialParsed": {
+    "orientation": "rotate90ccw",
+    "componentType": "ranged weapon item card",
+    "cardSide": "face",
+    "title": "PLASMA GUN",
+    "typeLine": "RANGED WEAPON, REQUIRES NO AMMO, HEAVY",
+    "body": "[burstDieAdditionalEffects] [shootDieAmmoLoss]: Lose 2 [characterHealth] for each Universal marker\non this Weapon, and then place\n1 Universal marker there.",
+    "footer": "",
+    "upperRight": "",
+    "lowerCenter": "",
+    "visibleText": "",
+    "confidentlyVisible": [
+      "The typography is sideways in the file and becomes upright after a 90-degree counterclockwise rotation.",
+      "The title reads “PLASMA GUN”.",
+      "The artwork depicts a large futuristic gun with a glowing red section.",
+      "A purple square with four white corner marks precedes a red triangle containing three cartridge shapes.",
+      "A white cross with an EKG line appears inline after the number 2."
+    ],
+    "proposedCategory": "cards/game/item/ranged-weapon",
+    "proposedSlug": "plasma-gun",
+    "confidence": "medium",
+    "uncertainties": [
+      "The photographed card is tightly cropped at its edges, so any content outside the visible image cannot be assessed.",
+      "The image has perspective distortion, surface texture, and glare, though the represented text and mapped icons remain legible."
+    ]
+  },
+  "initialSessionId": "20260815_054123_029c64",
+  "orientationCorrection": "rotate90ccw",
+  "uprightRead": {
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "sessionId": "20260815_060500_ddee2f",
+    "completedAt": "2026-08-15T06:05:27Z",
+    "parsed": {
+      "orientation": "upright",
+      "componentType": "weapon item card",
+      "cardSide": "face",
+      "title": "PLASMA GUN",
+      "typeLine": "RANGED WEAPON, REQUIRES NO AMMO, HEAVY",
+      "body": "[burstDieAdditionalEffects], [shootDieAmmoLoss]: Lose 2[characterHealth] for each Universal marker\non this Weapon, and then place\n1 Universal marker there.",
+      "footer": "",
+      "upperRight": "",
+      "lowerCenter": "",
+      "visibleText": "",
+      "confidentlyVisible": [
+        "White title centered near the top",
+        "Yellow uppercase type line beneath the title",
+        "Artwork depicts a large futuristic gun with a glowing red-orange chamber",
+        "Purple square icon with four white corner marks begins the effect line",
+        "Red triangular icon containing three white cartridges follows",
+        "White cross-shaped EKG health icon appears after the numeral 2",
+        "Bottom edge of the card is outside the image frame"
+      ],
+      "proposedCategory": "cards/game/item/weapon",
+      "proposedSlug": "plasma-gun",
+      "confidence": "medium",
+      "uncertainties": [
+        "The image is a close crop and does not show the complete card boundary or any content that may exist below the visible effect text.",
+        "The exact punctuation spacing around the two line-leading die icons is visually tight, though a comma after the purple icon and a colon after the red icon are visible."
+      ]
+    },
+    "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Planning image analysis approach****Planning image analysis approach****Planning vision tool usage**\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Planning vision tool usage****Interpreting game icon syntax**\n\n\nsession_id: 20260815_060500_ddee2f\n{\"orientation\":\"upright\",\"componentType\":\"weapon item card\",\"cardSide\":\"face\",\"title\":\"PLASMA GUN\",\"typeLine\":\"RANGED WEAPON, REQUIRES NO AMMO, HEAVY\",\"body\":\"[burstDieAdditionalEffects], [shootDieAmmoLoss]: Lose 2[characterHealth] for each Universal marker\\non this Weapon, and then place\\n1 Universal marker there.\",\"footer\":\"\",\"upperRight\":\"\",\"lowerCenter\":\"\",\"visibleText\":\"\",\"confidentlyVisible\":[\"White title centered near the top\",\"Yellow uppercase type line beneath the title\",\"Artwork depicts a large futuristic gun with a glowing red-orange chamber\",\"Purple square icon with four white corner marks begins the effect line\",\"Red triangular icon containing three white cartridges follows\",\"White cross-shaped EKG health icon appears after the numeral 2\",\"Bottom edge of the card is outside the image frame\"],\"proposedCategory\":\"cards/game/item/weapon\",\"proposedSlug\":\"plasma-gun\",\"confidence\":\"medium\",\"uncertainties\":[\"The image is a close crop and does not show the complete card boundary or any content that may exist below the visible effect text.\",\"The exact punctuation spacing around the two line-leading die icons is visually tight, though a comma after the purple icon and a colon after the red icon are visible.\"]}\n"
+  }
+}

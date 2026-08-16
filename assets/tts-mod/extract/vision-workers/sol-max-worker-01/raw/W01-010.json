@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "assetId": "W01-010",
+  "batchId": "batch-003",
+  "capturedAt": "2026-08-15T20:43:07Z",
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/bags/egg-tokens-038.png",
+  "sourceSha256": "170e44a03e2aa729a00834b9ea4e6afd20c962db7cfcf06005c03a3fa78275dc",
+  "runtimeProvenanceRef": "../metadata/runtime.json",
+  "blindAnalysis": true,
+  "metadataExcludedDuringPixelPass": [
+    "filename semantics",
+    "directory semantics",
+    "prior vision reads",
+    "TTS object metadata",
+    "game-context expectations"
+  ],
+  "orientationObservation": "Upright as displayed; EGG reads left-to-right beneath the central image.",
+  "blindPixelObservations": [
+    "Square texture atlas with a mostly black background.",
+    "Upper-left/central region contains a dark hexagonal panel with circular red, blue, and black HUD rings.",
+    "A luminous ice-blue translucent egg-shaped object with cracked/faceted internal texture fills the panel center.",
+    "A short white uppercase label appears beneath the egg.",
+    "A separate small horizontal rectangle at right contains two cyan-white curved highlights on black."
+  ],
+  "visibleText": [
+    {
+      "text": "EGG",
+      "location": "beneath egg within hexagonal panel",
+      "structure": "single uppercase label",
+      "confidence": "high"
+    }
+  ],
+  "iconObservations": [
+    {
+      "location": "hexagonal panel center",
+      "literalMorphology": "Detailed luminous blue translucent egg with faceted/cracked interior and HUD rings.",
+      "colors": "ice blue, white, black, dark red accents",
+      "closestPlausibleGlossaryAlternative": "none; the canonical glossary has no egg icon",
+      "visibleDiscriminatingFeature": "This is a detailed labeled egg illustration in a model texture, not a listed glossary glyph; no glossary token is claimed."
+    }
+  ],
+  "uncertainties": [
+    "Pixels suggest a texture atlas but do not establish the exact TTS model/container role."
+  ]
+}

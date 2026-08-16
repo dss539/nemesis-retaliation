@@ -1,0 +1,1192 @@
+{
+  "schemaVersion": 1,
+  "createdAt": "2026-08-15T22:17:57.830996Z",
+  "assetId": "W05-004",
+  "sourceGlyphCropBox": [
+    557,
+    1058,
+    619,
+    1120
+  ],
+  "sourceObservation": {
+    "outerShape": "solid white octagon",
+    "foregroundPixels": 3214,
+    "cropPixels": 3844,
+    "internalMarksVisible": false,
+    "internalNegativeComponents": 0
+  },
+  "method": "Source: bright near-neutral mask. Canonical crops: foreground segmented by RGB distance from modal border background, preserving colored and white icon silhouettes. Tight boxes normalized to 256x256; shape IoU/Dice computed against all 49 authoritative icon PNGs.",
+  "candidateCount": 49,
+  "topMatches": [
+    {
+      "path": "assets/icons/map/yellow-item.png",
+      "sha256": "77db14d4f9419d4961595b184d53fc89e5bf9ac6564e906f09ba530066d50334",
+      "estimatedBackgroundRgb": [
+        41,
+        53,
+        66
+      ],
+      "foregroundMaskTightBox": [
+        4,
+        4,
+        60,
+        61
+      ],
+      "shapeIou": 0.987078,
+      "shapeDice": 0.993497
+    },
+    {
+      "path": "assets/icons/map/green-item.png",
+      "sha256": "3d5a9719f3021b40bbb69ee3508bcfac02633287f371e440cba4b625293fdec0",
+      "estimatedBackgroundRgb": [
+        41,
+        53,
+        67
+      ],
+      "foregroundMaskTightBox": [
+        4,
+        5,
+        60,
+        61
+      ],
+      "shapeIou": 0.986512,
+      "shapeDice": 0.99321
+    },
+    {
+      "path": "assets/icons/map/red-item.png",
+      "sha256": "b8d3d9c6f48ba0ebfd599c81df5a54a95994d1ac228bba9d2111906e977ef05d",
+      "estimatedBackgroundRgb": [
+        40,
+        52,
+        66
+      ],
+      "foregroundMaskTightBox": [
+        4,
+        4,
+        61,
+        61
+      ],
+      "shapeIou": 0.972552,
+      "shapeDice": 0.986085
+    },
+    {
+      "path": "assets/icons/map/life-support-active.png",
+      "sha256": "9650e14cabf08d395ce1382192ca120e449d40b838100e3a197e272beed251cb",
+      "estimatedBackgroundRgb": [
+        37,
+        48,
+        60
+      ],
+      "foregroundMaskTightBox": [
+        4,
+        4,
+        128,
+        58
+      ],
+      "shapeIou": 0.907698,
+      "shapeDice": 0.951616
+    },
+    {
+      "path": "assets/icons/map/hibernatorium-active.png",
+      "sha256": "6d4dd5532468015b4b15322abc220069e76652534535800d2b42de958f486b15",
+      "estimatedBackgroundRgb": [
+        35,
+        44,
+        55
+      ],
+      "foregroundMaskTightBox": [
+        4,
+        4,
+        129,
+        57
+      ],
+      "shapeIou": 0.903521,
+      "shapeDice": 0.949315
+    },
+    {
+      "path": "assets/icons/tactical-gear/grenade-token.png",
+      "sha256": "cc3ba41e85369ce9e25ee49caaff2d6d40864f08043ce2783a6314795459cb24",
+      "estimatedBackgroundRgb": [
+        35,
+        44,
+        55
+      ],
+      "foregroundMaskTightBox": [
+        4,
+        4,
+        61,
+        60
+      ],
+      "shapeIou": 0.844849,
+      "shapeDice": 0.9159
+    },
+    {
+      "path": "assets/icons/tactical-gear/oxygen-token.png",
+      "sha256": "350f5d753e9d86713d31a410e5458f84bfa33f12b259c2b927b1509ceae7a985",
+      "estimatedBackgroundRgb": [
+        35,
+        44,
+        55
+      ],
+      "foregroundMaskTightBox": [
+        4,
+        4,
+        61,
+        60
+      ],
+      "shapeIou": 0.844479,
+      "shapeDice": 0.915683
+    },
+    {
+      "path": "assets/icons/dice/burst-die-1.png",
+      "sha256": "13f52e37183ba45c99056617bb1a4afdcfeb547801806c626b43494d4120514b",
+      "estimatedBackgroundRgb": [
+        41,
+        53,
+        67
+      ],
+      "foregroundMaskTightBox": [
+        3,
+        3,
+        61,
+        61
+      ],
+      "shapeIou": 0.84152,
+      "shapeDice": 0.913941
+    },
+    {
+      "path": "assets/icons/dice/burst-die-2.png",
+      "sha256": "573d5c3b8435f874e9c34eec5434cbf668b6f8c6e1c2ebd9b0a34d57e57a4735",
+      "estimatedBackgroundRgb": [
+        41,
+        53,
+        66
+      ],
+      "foregroundMaskTightBox": [
+        4,
+        3,
+        62,
+        61
+      ],
+      "shapeIou": 0.84152,
+      "shapeDice": 0.913941
+    },
+    {
+      "path": "assets/icons/dice/burst-die-4.png",
+      "sha256": "9c99c3bbf36b61693a8f1e0a68ee7874ea76e80568c4d2e08faddc1000a97d7f",
+      "estimatedBackgroundRgb": [
+        38,
+        50,
+        61
+      ],
+      "foregroundMaskTightBox": [
+        3,
+        3,
+        61,
+        61
+      ],
+      "shapeIou": 0.84152,
+      "shapeDice": 0.913941
+    },
+    {
+      "path": "assets/icons/dice/burst-die-3.png",
+      "sha256": "953125804d12b7b438e5d1effe75a72c4b283a41f99273d33f1a5de92aae68ea",
+      "estimatedBackgroundRgb": [
+        40,
+        52,
+        66
+      ],
+      "foregroundMaskTightBox": [
+        4,
+        3,
+        62,
+        61
+      ],
+      "shapeIou": 0.841262,
+      "shapeDice": 0.913788
+    },
+    {
+      "path": "assets/icons/dice/burst-die-additional-effects.png",
+      "sha256": "c005be30dc42ad68ff8986a4cce97c25d5478167d398c5ad8b1e0b400ba3324e",
+      "estimatedBackgroundRgb": [
+        40,
+        49,
+        62
+      ],
+      "foregroundMaskTightBox": [
+        4,
+        3,
+        62,
+        61
+      ],
+      "shapeIou": 0.841262,
+      "shapeDice": 0.913788
+    },
+    {
+      "path": "assets/icons/general/not-in-combat.png",
+      "sha256": "768f61dc7cac2fe6a084bab396926cd3e6e16a8a0951c7d09955724c251e92c3",
+      "estimatedBackgroundRgb": [
+        31,
+        40,
+        50
+      ],
+      "foregroundMaskTightBox": [
+        4,
+        4,
+        67,
+        67
+      ],
+      "shapeIou": 0.788467,
+      "shapeDice": 0.881724
+    },
+    {
+      "path": "assets/icons/tactical-gear-slots/oxygen-slot.png",
+      "sha256": "4bef341a4e8ad6b0fa7cbf6c75042de01dabb2d7da31917eb506e8a2b8e1c8eb",
+      "estimatedBackgroundRgb": [
+        31,
+        40,
+        50
+      ],
+      "foregroundMaskTightBox": [
+        0,
+        3,
+        112,
+        59
+      ],
+      "shapeIou": 0.775683,
+      "shapeDice": 0.873673
+    },
+    {
+      "path": "assets/icons/tactical-gear-slots/medpack-slot.png",
+      "sha256": "7a31935c0cf5c31df059cbadd3393a373a476e74d2a6a411d86a7c4391f63813",
+      "estimatedBackgroundRgb": [
+        32,
+        41,
+        51
+      ],
+      "foregroundMaskTightBox": [
+        2,
+        4,
+        110,
+        56
+      ],
+      "shapeIou": 0.775052,
+      "shapeDice": 0.873273
+    }
+  ],
+  "itemBadgeAlternatives": [
+    {
+      "rank": 3,
+      "path": "assets/icons/map/red-item.png",
+      "sha256": "b8d3d9c6f48ba0ebfd599c81df5a54a95994d1ac228bba9d2111906e977ef05d",
+      "estimatedBackgroundRgb": [
+        40,
+        52,
+        66
+      ],
+      "foregroundMaskTightBox": [
+        4,
+        4,
+        61,
+        61
+      ],
+      "shapeIou": 0.972552,
+      "shapeDice": 0.986085
+    },
+    {
+      "rank": 1,
+      "path": "assets/icons/map/yellow-item.png",
+      "sha256": "77db14d4f9419d4961595b184d53fc89e5bf9ac6564e906f09ba530066d50334",
+      "estimatedBackgroundRgb": [
+        41,
+        53,
+        66
+      ],
+      "foregroundMaskTightBox": [
+        4,
+        4,
+        60,
+        61
+      ],
+      "shapeIou": 0.987078,
+      "shapeDice": 0.993497
+    },
+    {
+      "rank": 2,
+      "path": "assets/icons/map/green-item.png",
+      "sha256": "3d5a9719f3021b40bbb69ee3508bcfac02633287f371e440cba4b625293fdec0",
+      "estimatedBackgroundRgb": [
+        41,
+        53,
+        67
+      ],
+      "foregroundMaskTightBox": [
+        4,
+        5,
+        60,
+        61
+      ],
+      "shapeIou": 0.986512,
+      "shapeDice": 0.99321
+    }
+  ],
+  "secureAlternative": {
+    "rank": 22,
+    "path": "assets/icons/map/secure.png",
+    "sha256": "68668c12a22c6873ccc93500f704814dbb08e4e1c9eccf28c124fb020834c425",
+    "estimatedBackgroundRgb": [
+      39,
+      51,
+      62
+    ],
+    "foregroundMaskTightBox": [
+      12,
+      6,
+      53,
+      66
+    ],
+    "shapeIou": 0.704807,
+    "shapeDice": 0.826847
+  },
+  "allCandidates": [
+    {
+      "path": "assets/icons/map/yellow-item.png",
+      "sha256": "77db14d4f9419d4961595b184d53fc89e5bf9ac6564e906f09ba530066d50334",
+      "estimatedBackgroundRgb": [
+        41,
+        53,
+        66
+      ],
+      "foregroundMaskTightBox": [
+        4,
+        4,
+        60,
+        61
+      ],
+      "shapeIou": 0.987078,
+      "shapeDice": 0.993497
+    },
+    {
+      "path": "assets/icons/map/green-item.png",
+      "sha256": "3d5a9719f3021b40bbb69ee3508bcfac02633287f371e440cba4b625293fdec0",
+      "estimatedBackgroundRgb": [
+        41,
+        53,
+        67
+      ],
+      "foregroundMaskTightBox": [
+        4,
+        5,
+        60,
+        61
+      ],
+      "shapeIou": 0.986512,
+      "shapeDice": 0.99321
+    },
+    {
+      "path": "assets/icons/map/red-item.png",
+      "sha256": "b8d3d9c6f48ba0ebfd599c81df5a54a95994d1ac228bba9d2111906e977ef05d",
+      "estimatedBackgroundRgb": [
+        40,
+        52,
+        66
+      ],
+      "foregroundMaskTightBox": [
+        4,
+        4,
+        61,
+        61
+      ],
+      "shapeIou": 0.972552,
+      "shapeDice": 0.986085
+    },
+    {
+      "path": "assets/icons/map/life-support-active.png",
+      "sha256": "9650e14cabf08d395ce1382192ca120e449d40b838100e3a197e272beed251cb",
+      "estimatedBackgroundRgb": [
+        37,
+        48,
+        60
+      ],
+      "foregroundMaskTightBox": [
+        4,
+        4,
+        128,
+        58
+      ],
+      "shapeIou": 0.907698,
+      "shapeDice": 0.951616
+    },
+    {
+      "path": "assets/icons/map/hibernatorium-active.png",
+      "sha256": "6d4dd5532468015b4b15322abc220069e76652534535800d2b42de958f486b15",
+      "estimatedBackgroundRgb": [
+        35,
+        44,
+        55
+      ],
+      "foregroundMaskTightBox": [
+        4,
+        4,
+        129,
+        57
+      ],
+      "shapeIou": 0.903521,
+      "shapeDice": 0.949315
+    },
+    {
+      "path": "assets/icons/tactical-gear/grenade-token.png",
+      "sha256": "cc3ba41e85369ce9e25ee49caaff2d6d40864f08043ce2783a6314795459cb24",
+      "estimatedBackgroundRgb": [
+        35,
+        44,
+        55
+      ],
+      "foregroundMaskTightBox": [
+        4,
+        4,
+        61,
+        60
+      ],
+      "shapeIou": 0.844849,
+      "shapeDice": 0.9159
+    },
+    {
+      "path": "assets/icons/tactical-gear/oxygen-token.png",
+      "sha256": "350f5d753e9d86713d31a410e5458f84bfa33f12b259c2b927b1509ceae7a985",
+      "estimatedBackgroundRgb": [
+        35,
+        44,
+        55
+      ],
+      "foregroundMaskTightBox": [
+        4,
+        4,
+        61,
+        60
+      ],
+      "shapeIou": 0.844479,
+      "shapeDice": 0.915683
+    },
+    {
+      "path": "assets/icons/dice/burst-die-1.png",
+      "sha256": "13f52e37183ba45c99056617bb1a4afdcfeb547801806c626b43494d4120514b",
+      "estimatedBackgroundRgb": [
+        41,
+        53,
+        67
+      ],
+      "foregroundMaskTightBox": [
+        3,
+        3,
+        61,
+        61
+      ],
+      "shapeIou": 0.84152,
+      "shapeDice": 0.913941
+    },
+    {
+      "path": "assets/icons/dice/burst-die-2.png",
+      "sha256": "573d5c3b8435f874e9c34eec5434cbf668b6f8c6e1c2ebd9b0a34d57e57a4735",
+      "estimatedBackgroundRgb": [
+        41,
+        53,
+        66
+      ],
+      "foregroundMaskTightBox": [
+        4,
+        3,
+        62,
+        61
+      ],
+      "shapeIou": 0.84152,
+      "shapeDice": 0.913941
+    },
+    {
+      "path": "assets/icons/dice/burst-die-4.png",
+      "sha256": "9c99c3bbf36b61693a8f1e0a68ee7874ea76e80568c4d2e08faddc1000a97d7f",
+      "estimatedBackgroundRgb": [
+        38,
+        50,
+        61
+      ],
+      "foregroundMaskTightBox": [
+        3,
+        3,
+        61,
+        61
+      ],
+      "shapeIou": 0.84152,
+      "shapeDice": 0.913941
+    },
+    {
+      "path": "assets/icons/dice/burst-die-3.png",
+      "sha256": "953125804d12b7b438e5d1effe75a72c4b283a41f99273d33f1a5de92aae68ea",
+      "estimatedBackgroundRgb": [
+        40,
+        52,
+        66
+      ],
+      "foregroundMaskTightBox": [
+        4,
+        3,
+        62,
+        61
+      ],
+      "shapeIou": 0.841262,
+      "shapeDice": 0.913788
+    },
+    {
+      "path": "assets/icons/dice/burst-die-additional-effects.png",
+      "sha256": "c005be30dc42ad68ff8986a4cce97c25d5478167d398c5ad8b1e0b400ba3324e",
+      "estimatedBackgroundRgb": [
+        40,
+        49,
+        62
+      ],
+      "foregroundMaskTightBox": [
+        4,
+        3,
+        62,
+        61
+      ],
+      "shapeIou": 0.841262,
+      "shapeDice": 0.913788
+    },
+    {
+      "path": "assets/icons/general/not-in-combat.png",
+      "sha256": "768f61dc7cac2fe6a084bab396926cd3e6e16a8a0951c7d09955724c251e92c3",
+      "estimatedBackgroundRgb": [
+        31,
+        40,
+        50
+      ],
+      "foregroundMaskTightBox": [
+        4,
+        4,
+        67,
+        67
+      ],
+      "shapeIou": 0.788467,
+      "shapeDice": 0.881724
+    },
+    {
+      "path": "assets/icons/tactical-gear-slots/oxygen-slot.png",
+      "sha256": "4bef341a4e8ad6b0fa7cbf6c75042de01dabb2d7da31917eb506e8a2b8e1c8eb",
+      "estimatedBackgroundRgb": [
+        31,
+        40,
+        50
+      ],
+      "foregroundMaskTightBox": [
+        0,
+        3,
+        112,
+        59
+      ],
+      "shapeIou": 0.775683,
+      "shapeDice": 0.873673
+    },
+    {
+      "path": "assets/icons/tactical-gear-slots/medpack-slot.png",
+      "sha256": "7a31935c0cf5c31df059cbadd3393a373a476e74d2a6a411d86a7c4391f63813",
+      "estimatedBackgroundRgb": [
+        32,
+        41,
+        51
+      ],
+      "foregroundMaskTightBox": [
+        2,
+        4,
+        110,
+        56
+      ],
+      "shapeIou": 0.775052,
+      "shapeDice": 0.873273
+    },
+    {
+      "path": "assets/icons/tactical-gear-slots/any-slot.png",
+      "sha256": "a272055b36c3d61b0482e74fd451ad15140ad8e15e265ebcfc5a302fd81fa372",
+      "estimatedBackgroundRgb": [
+        32,
+        41,
+        51
+      ],
+      "foregroundMaskTightBox": [
+        0,
+        4,
+        112,
+        57
+      ],
+      "shapeIou": 0.774947,
+      "shapeDice": 0.873206
+    },
+    {
+      "path": "assets/icons/tactical-gear-slots/ammo-slot.png",
+      "sha256": "bb3bf220102be1660e955cb870d8b612528a1d8369497de781d4d21bf988e262",
+      "estimatedBackgroundRgb": [
+        32,
+        42,
+        52
+      ],
+      "foregroundMaskTightBox": [
+        0,
+        4,
+        112,
+        57
+      ],
+      "shapeIou": 0.773984,
+      "shapeDice": 0.872594
+    },
+    {
+      "path": "assets/icons/tactical-gear-slots/grenade-slot.png",
+      "sha256": "590b563d66761c047dce2fbb62b270aa9ba6ca585541a75e12c8d61fde0fb8ac",
+      "estimatedBackgroundRgb": [
+        32,
+        42,
+        52
+      ],
+      "foregroundMaskTightBox": [
+        0,
+        3,
+        106,
+        58
+      ],
+      "shapeIou": 0.766135,
+      "shapeDice": 0.867584
+    },
+    {
+      "path": "assets/icons/map/hibernatorium-inactive.png",
+      "sha256": "7101366e2722167b6b4f63db6b3e5205834a738845d82c0a1ec09260f30ba439",
+      "estimatedBackgroundRgb": [
+        35,
+        44,
+        55
+      ],
+      "foregroundMaskTightBox": [
+        3,
+        3,
+        127,
+        56
+      ],
+      "shapeIou": 0.737778,
+      "shapeDice": 0.849105
+    },
+    {
+      "path": "assets/icons/tactical-gear/medpack-token.png",
+      "sha256": "7fa488a4b533cc4b43d40394102bee217454f2dca346c02a741bcb22a204481d",
+      "estimatedBackgroundRgb": [
+        35,
+        45,
+        56
+      ],
+      "foregroundMaskTightBox": [
+        4,
+        4,
+        61,
+        61
+      ],
+      "shapeIou": 0.737639,
+      "shapeDice": 0.849013
+    },
+    {
+      "path": "assets/icons/map/life-support-inactive.png",
+      "sha256": "3c3fe781e8fdf8fee677f8afbcca34c25ad72820635dad4ed238fa762ff5e7dd",
+      "estimatedBackgroundRgb": [
+        35,
+        47,
+        58
+      ],
+      "foregroundMaskTightBox": [
+        4,
+        4,
+        128,
+        58
+      ],
+      "shapeIou": 0.736272,
+      "shapeDice": 0.848107
+    },
+    {
+      "path": "assets/icons/map/secure.png",
+      "sha256": "68668c12a22c6873ccc93500f704814dbb08e4e1c9eccf28c124fb020834c425",
+      "estimatedBackgroundRgb": [
+        39,
+        51,
+        62
+      ],
+      "foregroundMaskTightBox": [
+        12,
+        6,
+        53,
+        66
+      ],
+      "shapeIou": 0.704807,
+      "shapeDice": 0.826847
+    },
+    {
+      "path": "assets/icons/general/robot.png",
+      "sha256": "0930ee441dbfcf08a7a075219fb26d8ec88ca8d3b4c5587ca2fc3e79be4b6fd6",
+      "estimatedBackgroundRgb": [
+        31,
+        40,
+        50
+      ],
+      "foregroundMaskTightBox": [
+        4,
+        4,
+        61,
+        51
+      ],
+      "shapeIou": 0.7032,
+      "shapeDice": 0.82574
+    },
+    {
+      "path": "assets/icons/general/action-card.png",
+      "sha256": "267df4077aaa61dd0a3ed977caf4030d94f698e7649772eef9dad8f9114d1d3b",
+      "estimatedBackgroundRgb": [
+        31,
+        40,
+        50
+      ],
+      "foregroundMaskTightBox": [
+        13,
+        3,
+        51,
+        57
+      ],
+      "shapeIou": 0.690089,
+      "shapeDice": 0.81663
+    },
+    {
+      "path": "assets/icons/tactical-gear/ammo-token.png",
+      "sha256": "a39a72aa5f0a5d6bb3a10342e06d0e205725953d4271e8906edc6b61475fe6d5",
+      "estimatedBackgroundRgb": [
+        35,
+        44,
+        55
+      ],
+      "foregroundMaskTightBox": [
+        4,
+        3,
+        61,
+        60
+      ],
+      "shapeIou": 0.630007,
+      "shapeDice": 0.773011
+    },
+    {
+      "path": "assets/icons/map/computer.png",
+      "sha256": "68376a046bb386accc00eb64c0a702a0687e771dcb7d0ea5fefa3c2cef8e7914",
+      "estimatedBackgroundRgb": [
+        60,
+        70,
+        82
+      ],
+      "foregroundMaskTightBox": [
+        1,
+        0,
+        63,
+        56
+      ],
+      "shapeIou": 0.608581,
+      "shapeDice": 0.756668
+    },
+    {
+      "path": "assets/icons/map/fire.png",
+      "sha256": "9436550c389085d9649a2373aafc215a412c81c793f7dd9a6519b4fbf4d58ae0",
+      "estimatedBackgroundRgb": [
+        41,
+        53,
+        66
+      ],
+      "foregroundMaskTightBox": [
+        4,
+        4,
+        62,
+        64
+      ],
+      "shapeIou": 0.595831,
+      "shapeDice": 0.746735
+    },
+    {
+      "path": "assets/icons/general/character-health.png",
+      "sha256": "5a671d680cce93d43325c9c8472fcb6a9f34fb249f288d8544d0b4f5be22957d",
+      "estimatedBackgroundRgb": [
+        32,
+        41,
+        51
+      ],
+      "foregroundMaskTightBox": [
+        7,
+        4,
+        62,
+        60
+      ],
+      "shapeIou": 0.595495,
+      "shapeDice": 0.746471
+    },
+    {
+      "path": "assets/icons/dice/noise-die-1.png",
+      "sha256": "404fc25ce0dd0b373adf4ec6fa822d6e81edc2a8103b05b2bc0b5c2d6e93d2a1",
+      "estimatedBackgroundRgb": [
+        40,
+        52,
+        66
+      ],
+      "foregroundMaskTightBox": [
+        4,
+        4,
+        63,
+        57
+      ],
+      "shapeIou": 0.572066,
+      "shapeDice": 0.727789
+    },
+    {
+      "path": "assets/icons/dice/noise-die-3.png",
+      "sha256": "ae442a546c25b478349fb7663a6519a551a9fccc10ddc8033bcf50a11f0c638c",
+      "estimatedBackgroundRgb": [
+        40,
+        52,
+        65
+      ],
+      "foregroundMaskTightBox": [
+        4,
+        4,
+        62,
+        57
+      ],
+      "shapeIou": 0.54261,
+      "shapeDice": 0.703496
+    },
+    {
+      "path": "assets/icons/dice/noise-die-2.png",
+      "sha256": "53eb4bcee29d2ea8ee000a7e0b77366141c01266e47342616fc15cd18473c25f",
+      "estimatedBackgroundRgb": [
+        40,
+        52,
+        66
+      ],
+      "foregroundMaskTightBox": [
+        4,
+        4,
+        63,
+        57
+      ],
+      "shapeIou": 0.538143,
+      "shapeDice": 0.699731
+    },
+    {
+      "path": "assets/icons/dice/noise-die-4.png",
+      "sha256": "2e9a9f8dc8a7bb109ae4059702b9395e52afd2c947baab2b0564f67927d0b64f",
+      "estimatedBackgroundRgb": [
+        40,
+        52,
+        65
+      ],
+      "foregroundMaskTightBox": [
+        4,
+        4,
+        63,
+        57
+      ],
+      "shapeIou": 0.537744,
+      "shapeDice": 0.699393
+    },
+    {
+      "path": "assets/icons/map/malfunction.png",
+      "sha256": "ed9c6aa3f4b6e770257161c01aa75e64fdf30de505b481c50883e71f376b386d",
+      "estimatedBackgroundRgb": [
+        40,
+        53,
+        65
+      ],
+      "foregroundMaskTightBox": [
+        4,
+        3,
+        61,
+        62
+      ],
+      "shapeIou": 0.533946,
+      "shapeDice": 0.696173
+    },
+    {
+      "path": "assets/icons/general/intruder.png",
+      "sha256": "c8b19886035af43b870d39bc800e1724098be735a649d21e8b87d20fc93fe034",
+      "estimatedBackgroundRgb": [
+        33,
+        42,
+        53
+      ],
+      "foregroundMaskTightBox": [
+        4,
+        3,
+        61,
+        61
+      ],
+      "shapeIou": 0.525361,
+      "shapeDice": 0.688835
+    },
+    {
+      "path": "assets/icons/dice/shoot-die-ammo-loss.png",
+      "sha256": "7b06bb84d31642b09912ead898944e3410f49324ec77bc74d944ca568527a88b",
+      "estimatedBackgroundRgb": [
+        39,
+        48,
+        62
+      ],
+      "foregroundMaskTightBox": [
+        4,
+        4,
+        66,
+        51
+      ],
+      "shapeIou": 0.509528,
+      "shapeDice": 0.675083
+    },
+    {
+      "path": "assets/icons/dice/shoot-die-3.png",
+      "sha256": "22d4e02ea5f9a5a1fc4fc34c581ef87e45678d2c3f74c887273df100f04b2d8a",
+      "estimatedBackgroundRgb": [
+        40,
+        52,
+        66
+      ],
+      "foregroundMaskTightBox": [
+        4,
+        4,
+        67,
+        52
+      ],
+      "shapeIou": 0.508593,
+      "shapeDice": 0.674262
+    },
+    {
+      "path": "assets/icons/dice/shoot-die-2.png",
+      "sha256": "32184b9b256f7e560b92fcd4a1b22eb8e740647b310f50b24d9d9ecf584418a8",
+      "estimatedBackgroundRgb": [
+        41,
+        53,
+        66
+      ],
+      "foregroundMaskTightBox": [
+        4,
+        4,
+        67,
+        52
+      ],
+      "shapeIou": 0.508388,
+      "shapeDice": 0.674082
+    },
+    {
+      "path": "assets/icons/dice/shoot-die-5.png",
+      "sha256": "e14c1459e8f7872f83cf6ef43aa931b4c25eaf0bc34ff4438d0b14b059eb822b",
+      "estimatedBackgroundRgb": [
+        39,
+        51,
+        64
+      ],
+      "foregroundMaskTightBox": [
+        4,
+        4,
+        67,
+        52
+      ],
+      "shapeIou": 0.507492,
+      "shapeDice": 0.673293
+    },
+    {
+      "path": "assets/icons/dice/shoot-die-4.png",
+      "sha256": "15caee1fc50681253d5aca152ca3117dd5ee22a1beb0317f41dcd1c52af3cd4f",
+      "estimatedBackgroundRgb": [
+        40,
+        52,
+        66
+      ],
+      "foregroundMaskTightBox": [
+        4,
+        4,
+        67,
+        52
+      ],
+      "shapeIou": 0.507361,
+      "shapeDice": 0.673178
+    },
+    {
+      "path": "assets/icons/dice/shoot-die-critical.png",
+      "sha256": "fad864567106d905f73166db4f3ca248175f89ab7f9c053e2faf7b2db3f95e1b",
+      "estimatedBackgroundRgb": [
+        39,
+        49,
+        60
+      ],
+      "foregroundMaskTightBox": [
+        4,
+        3,
+        66,
+        52
+      ],
+      "shapeIou": 0.507171,
+      "shapeDice": 0.67301
+    },
+    {
+      "path": "assets/icons/map/autodestruction.png",
+      "sha256": "fede4aa4aa2a1b824fddfb065764574ee4cec93beedadfa7fe51ed31dd03f658",
+      "estimatedBackgroundRgb": [
+        32,
+        41,
+        51
+      ],
+      "foregroundMaskTightBox": [
+        4,
+        3,
+        67,
+        60
+      ],
+      "shapeIou": 0.481235,
+      "shapeDice": 0.649775
+    },
+    {
+      "path": "assets/icons/dice/noise-die-hazard.png",
+      "sha256": "ca9907e5d7d4f8773a9fe2b9a77ba88e0ca4d77e65da04ad12f6a9af17a14eff",
+      "estimatedBackgroundRgb": [
+        37,
+        49,
+        61
+      ],
+      "foregroundMaskTightBox": [
+        4,
+        4,
+        63,
+        57
+      ],
+      "shapeIou": 0.446986,
+      "shapeDice": 0.617817
+    },
+    {
+      "path": "assets/icons/map/lander.png",
+      "sha256": "52a1b9ebe3951613c3d954e70949187ec53e8d05ab5c84dc61552a64234f146d",
+      "estimatedBackgroundRgb": [
+        33,
+        42,
+        53
+      ],
+      "foregroundMaskTightBox": [
+        4,
+        4,
+        57,
+        56
+      ],
+      "shapeIou": 0.438132,
+      "shapeDice": 0.609307
+    },
+    {
+      "path": "assets/icons/map/noise.png",
+      "sha256": "365e922c2bb82d4ec9f78ad2c5d11bc92af0750e62e6392b83e456ea5c55c1ce",
+      "estimatedBackgroundRgb": [
+        40,
+        52,
+        64
+      ],
+      "foregroundMaskTightBox": [
+        4,
+        4,
+        65,
+        56
+      ],
+      "shapeIou": 0.435486,
+      "shapeDice": 0.606743
+    },
+    {
+      "path": "assets/icons/general/character.png",
+      "sha256": "7afcdf26cacdd33aa4f4515d9937a6553cbe843ab26eb2ded43ed0cee99b5623",
+      "estimatedBackgroundRgb": [
+        33,
+        42,
+        53
+      ],
+      "foregroundMaskTightBox": [
+        3,
+        4,
+        62,
+        67
+      ],
+      "shapeIou": 0.409518,
+      "shapeDice": 0.581076
+    },
+    {
+      "path": "assets/icons/general/oxygen.png",
+      "sha256": "4a3cb2477a918120482763464387dad3d521e28190f76c2f913a13ed46aa290a",
+      "estimatedBackgroundRgb": [
+        32,
+        41,
+        51
+      ],
+      "foregroundMaskTightBox": [
+        1,
+        1,
+        64,
+        62
+      ],
+      "shapeIou": 0.399754,
+      "shapeDice": 0.571178
+    },
+    {
+      "path": "assets/icons/map/corridor-e-w.png",
+      "sha256": "cb75e0ac980539fdfea7d7a2751eeca94a9cd63a5a2b082cbad0a4614d3eb5e9",
+      "estimatedBackgroundRgb": [
+        39,
+        49,
+        61
+      ],
+      "foregroundMaskTightBox": [
+        3,
+        6,
+        63,
+        46
+      ],
+      "shapeIou": 0.298639,
+      "shapeDice": 0.459926
+    },
+    {
+      "path": "assets/icons/map/corridor-ne-sw.png",
+      "sha256": "cd14c0778813e8d6ddf1ddab76dbd214f67498019ff9a5a639c801dce700a384",
+      "estimatedBackgroundRgb": [
+        37,
+        47,
+        58
+      ],
+      "foregroundMaskTightBox": [
+        4,
+        0,
+        57,
+        52
+      ],
+      "shapeIou": 0.210474,
+      "shapeDice": 0.347754
+    },
+    {
+      "path": "assets/icons/map/corridor-nw-se.png",
+      "sha256": "30d9ec8965319dedfcdfa6d58dee9bc70525851142309ac08af776265f4dcc52",
+      "estimatedBackgroundRgb": [
+        35,
+        44,
+        55
+      ],
+      "foregroundMaskTightBox": [
+        4,
+        0,
+        57,
+        52
+      ],
+      "shapeIou": 0.210415,
+      "shapeDice": 0.347674
+    }
+  ],
+  "adjudication": {
+    "canonicalTokenAccepted": false,
+    "literalMorphology": "solid white eight-sided polygon with no internal mark",
+    "reason": "The outer silhouette strongly matches the shared octagonal border of redItem, yellowItem, and greenItem, but the source has none of their discriminating red/yellow/green color or cartridges/wrench/cross internal mark. The three canonical badges are therefore equally plausible by outline and individually ruled out by visible missing features. No generic blank-octagon token exists in the canonical glossary; semantic context cannot supply one.",
+    "falsePromotionWorseThanDeferral": true
+  }
+}

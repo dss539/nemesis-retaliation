@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "workerId": "sol-max-worker-04",
+  "recordedAt": "2026-08-15T21:55:47Z",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "reasoningEffort": "max",
+  "platform": "subagent",
+  "sessionId": "20260815_215426_fac7ff",
+  "sessionHandleKind": "HERMES_SESSION_ID",
+  "nativeImageRoute": {
+    "required": true,
+    "route": "active-session native image attachment via functions.vision_analyze",
+    "auxiliaryVisionAllowed": false,
+    "qwenAllowed": false,
+    "verificationStatus": "verified-pre-analysis",
+    "verificationBasis": [
+      "active runtime header injected into this session states Model gpt-5.6-sol and Provider openai-codex",
+      "read-only delegation config pins provider=openai-codex, model=gpt-5.6-sol, reasoning_effort=max",
+      "vision tool contract routes vision-capable active models by native attachment rather than auxiliary fallback"
+    ],
+    "firstNativeAttachmentExercised": true,
+    "firstNativeAttachmentExercisedAt": "2026-08-15T22:00:18Z",
+    "exerciseEvidence": "functions.vision_analyze returned Image loaded into your context \u2014 you can see it natively now; active model performed the pixel read in-session."
+  },
+  "readOnlyDelegationConfig": {
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "reasoningEffort": "max",
+    "maxIterations": 80,
+    "maxSpawnDepth": 1,
+    "smartModelRoutingEnabled": false,
+    "configSha256": "e7f959c30feb2df89266c404bd3da42250c976f8621ecbbc49e59d7a0922fac1"
+  },
+  "runtimeHeader": {
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "platform": "subagent"
+  },
+  "normalizationNote": "Per-result runtimeProvenance must mechanically deep-copy provider/model/reasoningEffort/platform/sessionId/nativeImageRoute.route from this record."
+}

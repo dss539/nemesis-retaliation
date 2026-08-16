@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/tiles/room/life-support-control-009.png",
+  "sourceSha256": "f24a9f6a38971c000b0103da10ffbb5ccd73e4be2450e688674be778e22381d1",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_054806_378493",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:48:06Z",
+  "completedAt": "2026-08-15T05:48:45Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "room-tile texture atlas showing two hexagonal tile faces",
+    "cardSide": "notCard",
+    "title": "LIFE SUPPORT CONTROL \"A\"",
+    "typeLine": "",
+    "body": "Flip [ICON: blue capsule-shaped system glyph][ICON: gray capsule-shaped system glyph] in section \"A\"\nOR\nRemove 1 [fire] from any\nRoom in the Facility.",
+    "footer": "",
+    "upperRight": "secure",
+    "lowerCenter": "",
+    "visibleText": "A\nA",
+    "confidentlyVisible": [
+      "The upper-left tile depicts a circular electrical machine surrounded by six modules.",
+      "The title LIFE SUPPORT CONTROL \"A\" is fully visible.",
+      "A blue screen-shaped [computer] icon appears beside the title.",
+      "A green badge with a white cross and a red badge with three white cartridges appear along the left edge.",
+      "A gray hexagonal shield-like icon appears near the upper-right of the illustrated room tile.",
+      "The lower-right tile face has a large white A and no visible rules text.",
+      "Both tile faces have dark protruding connector tabs around their edges."
+    ],
+    "proposedCategory": "tiles/room",
+    "proposedSlug": "life-support-control-a",
+    "confidence": "medium",
+    "uncertainties": [
+      "The two capsule-shaped glyphs after “Flip” are clearly visible but cannot be confidently matched to the supplied canonical glossary; their exact canonical meanings are uncertain.",
+      "The gray upper-right shield-like icon is mapped to secure from its morphology, but this mapping is less certain than the computer, fire, and item-badge matches.",
+      "The image is a texture atlas containing two tile faces rather than one isolated physical tile, making a face/back role inapplicable.",
+      "The red and green item badges and blue computer icon are represented as pixel facts rather than in positional output fields because the requested schema provides no corresponding fields for their locations.",
+      "The typography is intentionally diagonal within the square texture, but the letterforms themselves are upright; no 90-degree rotation improves all meaningful text."
+    ]
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Planning vision tool integration****Planning vision tool integration****Assessing tile rotation for upright text**\n\n\n**Identifying glyphs and icons in tile texture**\n\n{\"orientation\":\"upright\",\"componentType\":\"room-tile texture atlas showing two hexagonal tile faces\",\"cardSide\":\"notCard\",\"title\":\"LIFE SUPPORT CONTROL \\\"A\\\"\",\"typeLine\":\"\",\"body\":\"Flip [ICON: blue capsule-shaped system glyph][ICON: gray capsule-shaped system glyph] in section \\\"A\\\"\\nOR\\nRemove 1 [fire] from any\\nRoom in the Facility.\",\"footer\":\"\",\"upperRight\":\"secure\",\"lowerCenter\":\"\",\"visibleText\":\"A\\nA\",\"confidentlyVisible\":[\"The upper-left tile depicts a circular electrical machine surrounded by six modules.\",\"The title LIFE SUPPORT CONTROL \\\"A\\\" is fully visible.\",\"A blue screen-shaped [computer] icon appears beside the title.\",\"A green badge with a white cross and a red badge with three white cartridges appear along the left edge.\",\"A gray hexagonal shield-like icon appears near the upper-right of the illustrated room tile.\",\"The lower-right tile face has a large white A and no visible rules text.\",\"Both tile faces have dark protruding connector tabs around their edges.\"],\"proposedCategory\":\"tiles/room\",\"proposedSlug\":\"life-support-control-a\",\"confidence\":\"medium\",\"uncertainties\":[\"The two capsule-shaped glyphs after “Flip” are clearly visible but cannot be confidently matched to the supplied canonical glossary; their exact canonical meanings are uncertain.\",\"The gray upper-right shield-like icon is mapped to secure from its morphology, but this mapping is less certain than the computer, fire, and item-badge matches.\",\"The image is a texture atlas containing two tile faces rather than one isolated physical tile, making a face/back role inapplicable.\",\"The red and green item badges and blue computer icon are represented as pixel facts rather than in positional output fields because the requested schema provides no corresponding fields for their locations.\",\"The typography is intentionally diagonal within the square texture, but the letterforms themselves are upright; no 90-degree rotation improves all meaningful text.\"]}\n\nsession_id: 20260815_054806_378493\n"
+}

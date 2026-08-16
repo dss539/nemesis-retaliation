@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 1,
+  "capturedAt": "2026-08-15T22:03:20.262495Z",
+  "sessionId": "20260815_215936_fea298",
+  "sessionSource": "subagent",
+  "parentSessionId": "b01cf4bb4120",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "reasoningEffort": "max",
+  "nativeImageRoute": {
+    "required": true,
+    "transport": "functions.vision_analyze direct local-path attachment to the active session model",
+    "auxiliaryVisionUsed": false,
+    "qwenUsed": false,
+    "ocrCanonicalEvidenceUsed": false,
+    "verified": true,
+    "verificationStatus": "verified by successful direct native attachment of W05-001 to active session model",
+    "verificationEvidence": [
+      {
+        "assetId": "W05-001",
+        "exactSourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-01.png",
+        "transportResult": "functions.vision_analyze: Image loaded into your context — you can see it natively now",
+        "activeSessionId": "20260815_215936_fea298",
+        "postAttachmentSessionDbModel": "gpt-5.6-sol",
+        "postAttachmentUsageProvider": "openai-codex",
+        "postAttachmentReasoningEffort": "max"
+      }
+    ]
+  },
+  "evidence": {
+    "environmentSessionId": "HERMES_SESSION_ID queried in live terminal environment",
+    "sessionDb": "/home/smithers/.hermes/state.db",
+    "sessionsRow": {
+      "id": "20260815_215936_fea298",
+      "source": "subagent",
+      "model": "gpt-5.6-sol",
+      "parentSessionId": "b01cf4bb4120",
+      "startedAtUnix": 1786831176.7134857
+    },
+    "modelConfig": {
+      "max_iterations": 80,
+      "reasoning_config": {
+        "enabled": true,
+        "effort": "max"
+      },
+      "max_tokens": null,
+      "_delegate_from": "b01cf4bb4120"
+    },
+    "usageRow": {
+      "session_id": "20260815_215936_fea298",
+      "model": "gpt-5.6-sol",
+      "billing_provider": "openai-codex",
+      "billing_base_url": "https://chatgpt.com/backend-api/codex",
+      "billing_mode": "subscription_included",
+      "api_call_count": 10,
+      "first_seen": 1786831185.0011802,
+      "last_seen": 1786831400.1570232
+    },
+    "systemRuntimeContract": "active delegated system runtime names Model gpt-5.6-sol, Provider openai-codex, Platform subagent",
+    "postFirstAttachmentUsageRow": {
+      "session_id": "20260815_215936_fea298",
+      "model": "gpt-5.6-sol",
+      "billing_provider": "openai-codex",
+      "billing_base_url": "https://chatgpt.com/backend-api/codex",
+      "billing_mode": "subscription_included",
+      "api_call_count": 26,
+      "first_seen": 1786831185.0011802,
+      "last_seen": 1786831703.8723106
+    }
+  },
+  "routeVerifiedAt": "2026-08-15T22:08:23.918675Z"
+}

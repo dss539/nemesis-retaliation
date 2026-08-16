@@ -1,0 +1,112 @@
+{
+  "schemaVersion": 1,
+  "assetId": "W04-007",
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-09.png",
+  "sourceSha256": "958a914c17883be687d15197b0ff85ff7a3b2dbf5d3e6bddb4dac881fb41cfc0",
+  "sourceMetadata": {
+    "width": 1052,
+    "height": 1433,
+    "format": "PNG",
+    "mode": "RGB",
+    "frames": 1,
+    "byteSize": 1622465,
+    "decodeVerified": true
+  },
+  "batchId": "W04-B04",
+  "completedAt": "2026-08-15T22:14:28Z",
+  "runtimeProvenance": {
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "reasoningEffort": "max",
+    "platform": "subagent",
+    "sessionId": "20260815_215426_fac7ff",
+    "nativeImageRoute": "active-session native image attachment via functions.vision_analyze",
+    "workerId": "sol-max-worker-04",
+    "nativeVision": true,
+    "auxiliaryVisionUsed": false,
+    "ocrUsedAsCanonicalEvidence": false,
+    "qwenUsed": false,
+    "runtimeMetadataPath": "assets/tts-mod/extract/vision-workers/sol-max-worker-04/metadata/runtime.json"
+  },
+  "orientation": {
+    "displayed": "upright portrait",
+    "final": "upright",
+    "rotationRequired": false
+  },
+  "blindPixelObservations": [
+    "Purple/blue corridor illustration of an armed figure aiming at a pale creature.",
+    "TAKING AIM title in a black translucent magenta angular frame.",
+    "Two centered rule sentences; magenta RECON footer.",
+    "No rules glyphs, standalone corner symbols, clipping, or neighboring-card contamination."
+  ],
+  "visibleText": {
+    "title": "TAKING AIM",
+    "typeLine": "",
+    "body": "Shoot or Burst.\nYou can reroll the first result.",
+    "footer": "RECON",
+    "upperRight": "",
+    "lowerCenter": "",
+    "edgeContamination": ""
+  },
+  "iconMorphology": [],
+  "iconMorphologyEmptyReason": "No apparent rules icon or standalone positional icon is printed; arrows/signage in the illustration are not card-rule glyphs.",
+  "evidenceConsulted": [
+    {
+      "kind": "blindNativeImage",
+      "path": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-09.png",
+      "timing": "before metadata"
+    },
+    {
+      "kind": "ttsProvenance",
+      "path": "assets/tts-mod/extract/vision-workers/sol-max-worker-04/provenance/W04-007.json",
+      "finding": "Exact FaceURL cell 9 join to Card GUID bb47f4, CardID 567409, GMNotes action, parent Recon deck; direct paired action BackURL."
+    },
+    {
+      "kind": "canonicalTargetExistenceCheck",
+      "path": "cards/character/recon/action/taking-aim",
+      "finding": "No existing .png/.jpg/.jpeg image or .json sidecar."
+    },
+    {
+      "kind": "establishedSidecarSchemaValidation",
+      "path": "assets/tts-mod/extract/vision_adjudicate.py::sidecar_for",
+      "finding": "Minimal candidate {body} accepted with no error."
+    }
+  ],
+  "proposedClassification": "individual portrait RECON action-card face with exact shared-sheet FaceURL/CardID/parent and paired BackURL provenance",
+  "proposedPath": "cards/character/recon/action/taking-aim.png",
+  "canonicalTarget": "cards/character/recon/action/taking-aim.png",
+  "cardData": {
+    "cardSide": "face",
+    "title": "TAKING AIM",
+    "typeLine": "",
+    "body": "Shoot or Burst.\nYou can reroll the first result.",
+    "footer": "RECON",
+    "upperRight": "",
+    "lowerCenter": "",
+    "category": "cards/character/recon/action",
+    "slug": "taking-aim"
+  },
+  "readConfidence": "high",
+  "classificationConfidence": "high",
+  "uncertainties": [],
+  "promotionDecision": "promote",
+  "decisionReasons": [
+    "All meaningful title/body/footer text is sharp and exact; no icon or punctuation ambiguity remains.",
+    "Exact CardID 567409 selects FaceURL cell 9 under the Recon parent deck and provides a direct action-card BackURL.",
+    "Canonical target is unique and absent.",
+    "Worker-local minimal sidecar is schema-valid under sidecar_for().",
+    "This is staging only; supervisor acceptance is still required before any canonical write."
+  ],
+  "stagedCandidateSidecarPath": "assets/tts-mod/extract/vision-workers/sol-max-worker-04/candidate-sidecars/cards/character/recon/action/taking-aim.json",
+  "validationPerformed": [
+    "source hash/decode preflight immediately before native attachment",
+    "blind raw persisted before metadata",
+    "submitted/returned ID and count reconciled 1/1",
+    "exact GUID/CardID/FaceURL/parent and paired BackURL derived independently",
+    "no icon claim; explicit empty icon reason recorded",
+    "canonical image/sidecar target checked absent",
+    "candidate sidecar parsed and validated through vision_adjudicate.sidecar_for()",
+    "result identity recomputed by worker_utils.write_result"
+  ],
+  "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-worker-04/raw/W04-007.json"
+}

@@ -1,0 +1,229 @@
+{
+  "schemaVersion": 1,
+  "assetId": "W01-024",
+  "batchId": "batch-001",
+  "completedAt": "2026-08-15T21:46:48Z",
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-00.png",
+  "sourceSha256": "de97374d9cc8ed9f9141a4539386fd6b8979b4230f4eee8ae04925622fc07fed",
+  "sourceMetadata": {
+    "width": 1052,
+    "height": 1433,
+    "format": "PNG",
+    "mode": "RGB",
+    "byteSize": 1576034,
+    "frames": 1,
+    "magicHex": "89504e470d0a1a0a",
+    "decodeVerified": true
+  },
+  "runtimeProvenance": {
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "reasoningEffort": "max",
+    "platform": "subagent",
+    "workerId": "sol-max-worker-03",
+    "sessionId": "20260815_213825_14ef69",
+    "persistentSession": true,
+    "nativeVision": true,
+    "nativeImageToolMessageId": 86277,
+    "nativeImageTurns": 1,
+    "auxiliaryVisionUsed": false,
+    "ocrUsedAsCanonicalEvidence": false,
+    "qwenUsed": false,
+    "runtimeMetadataPath": "assets/tts-mod/extract/vision-workers/sol-max-worker-03/metadata/runtime.json"
+  },
+  "orientation": {
+    "status": "upright",
+    "evidence": "All title, rules, and footer text reads left-to-right; the title and rules panels are above the bottom footer in a coherent portrait layout.",
+    "transformApplied": null,
+    "stagingDerivative": null
+  },
+  "blindPixelObservations": [
+    "A portrait-format illustrated card uses a dark black, blue, violet, and magenta interface frame.",
+    "The upper artwork shows a human-shaped figure in bulky dark equipment, viewed mostly from behind/side, facing a large rectangular machine or crate in a dim industrial interior.",
+    "Several red circular objects project from the figure's upper back; red indicator lights and loose cables are visible around the machine and room.",
+    "A black title plaque with a thin magenta border spans the card below the artwork.",
+    "The rules text is centered in white on a dark translucent lower panel.",
+    "A magenta uppercase footer appears centered near the bottom.",
+    "No text is clipped by the source boundaries, and no neighboring-card text is visible."
+  ],
+  "visibleText": {
+    "title": "ANYTHING USEFUL?",
+    "body": "Move.\nIf you Explored a new Room, draw 1 Item for\neach [ICON: solid white chamfered eight-sided polygon with no visible internal mark] in that Room.\nKeep 1 and discard the rest.",
+    "printedLines": [
+      "Move.",
+      "If you Explored a new Room, draw 1 Item for",
+      "each [ICON: solid white chamfered eight-sided polygon with no visible internal mark] in that Room.",
+      "Keep 1 and discard the rest."
+    ],
+    "footer": "RECON",
+    "upperRightLiteral": "[ICON: large red X over a mostly occluded short white horizontal blocky silhouette with small dark/red horizontal details]",
+    "punctuation": {
+      "titleTerminal": "?",
+      "moveTerminal": ".",
+      "roomTerminal": ".",
+      "restTerminal": "."
+    },
+    "illegibleSpans": [],
+    "clippedSpans": []
+  },
+  "iconMorphology": [
+    {
+      "observationId": "glyph-upper-right",
+      "location": "upper right over the artwork",
+      "silhouette": "A large diagonal red X overlays a short, horizontally elongated white blocky silhouette with stepped or protruding ends; the underlying center is hidden.",
+      "internalMarks": "Only short dark and red horizontal strokes remain visible inside the white form at the left and right sides of the X.",
+      "colors": [
+        "red",
+        "white",
+        "dark outline/shadow",
+        "small red/dark details"
+      ],
+      "neighboringPrintedText": null,
+      "canonicalIdentity": null,
+      "nearestPlausibleCanonicalAlternative": "notInCombat",
+      "visibleFeatureRulingAlternativeOut": null,
+      "verificationStatus": "unresolved",
+      "verificationReason": "The red crossing mark is compatible with the glossary's described Action-card artwork variant, but the underlying horizontal object is substantially occluded. The authoritative page-40 crop depicts the glossary variant rather than proving this card-local crossed horizontal form, and no independently verified crop of the specific card variant was available in the permitted one-image turn."
+    },
+    {
+      "observationId": "glyph-inline-rules",
+      "location": "rules text between 'each' and 'in that Room.'",
+      "silhouette": "A solid white chamfered polygon that appears eight-sided: short horizontal top and bottom edges, short vertical left and right edges, and four diagonal corner edges.",
+      "internalMarks": "None visible; the shape is uniformly white.",
+      "colors": [
+        "solid white"
+      ],
+      "neighboringPrintedText": "each [glyph] in that Room.",
+      "canonicalIdentity": null,
+      "nearestPlausibleCanonicalAlternative": "redItem / yellowItem / greenItem badges",
+      "visibleFeatureRulingAlternativeOut": "The glyph is uniformly white and lacks the red/yellow/green badge fill and the cartridges, wrench, or cross required by those three glossary morphologies.",
+      "verificationStatus": "unresolved-local-or-unglossed-glyph",
+      "verificationReason": "No matching solid blank polygon is defined by the authoritative 49-icon glossary. Rules semantics were not used to invent an identity."
+    }
+  ],
+  "semanticIconTokensClaimed": [],
+  "evidenceConsulted": {
+    "blindPixelRecord": {
+      "path": "assets/tts-mod/extract/vision-workers/sol-max-worker-03/raw/W01-024.json",
+      "persistedBeforeMetadataJoin": true
+    },
+    "nativeSource": {
+      "absolutePath": "/home/smithers/nemesis-retaliation/assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-00.png",
+      "attachedDirectly": true,
+      "sourceHashMatchedAssignmentImmediatelyBeforeAttachment": true
+    },
+    "authoritativeGlossary": {
+      "path": "docs/rules/icon-glossary.md",
+      "authority": "Official rulebook page 40; 49 project identifiers",
+      "assetCount": 49,
+      "decodedAssetCount": 49,
+      "decodeFailures": 0,
+      "relevantCandidateAssets": [
+        {
+          "path": "assets/icons/general/not-in-combat.png",
+          "sha256": "768f61dc7cac2fe6a084bab396926cd3e6e16a8a0951c7d09955724c251e92c3"
+        },
+        {
+          "path": "assets/icons/map/red-item.png",
+          "sha256": "b8d3d9c6f48ba0ebfd599c81df5a54a95994d1ac228bba9d2111906e977ef05d"
+        },
+        {
+          "path": "assets/icons/map/yellow-item.png",
+          "sha256": "77db14d4f9419d4961595b184d53fc89e5bf9ac6564e906f09ba530066d50334"
+        },
+        {
+          "path": "assets/icons/map/green-item.png",
+          "sha256": "3d5a9719f3021b40bbb69ee3508bcfac02633287f371e440cba4b625293fdec0"
+        }
+      ],
+      "directIdentityMatchesEstablished": [],
+      "finding": "The glossary rules out the three colored Item badges for the blank white inline polygon, but it does not independently establish either card-local glyph."
+    },
+    "ttsProvenance": {
+      "consultedAfterBlindRecord": true,
+      "sourceKind": "generated sprite cell",
+      "sourceSheetPath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045.jpg",
+      "sourceSheetUrl": "https://steamusercontent-a.akamaihd.net/ugc/2468613527880241742/F6B1605A2ED018B39F0BE82DD120FBFC08C5EF65/",
+      "cellIndex": 0,
+      "sourceUrlRole": "FaceURL",
+      "sheetUse": "Shared FaceURL sheet referenced by Heavy Gun Operator, Combat Engineer, Recon, and Officer Action decks/cards.",
+      "relevantVisibleOwnerCorroboration": "The printed RECON footer agrees with Recon bag/deck provenance, including Action deck GUID a8e6a4.",
+      "pairedBack": {
+        "urlRole": "BackURL",
+        "path": "assets/tts-mod/extract/v2-dl/tree/cards/game/action/back.jpg",
+        "url": "https://steamusercontent-a.akamaihd.net/ugc/10207952820401286363/045849F3D9E78090494EBF29460723DFD3BF642F/"
+      },
+      "exactPerCardTtsGuidResolved": false,
+      "exactPerCardTtsGuidNote": "The shared sheet has multiple object references and the project explicitly warns that CardID-to-cell inference is unreliable; no GUID was guessed for cell 0."
+    },
+    "priorWorkerEvidence": {
+      "consultedAfterBlindRecord": true,
+      "rawPath": "assets/tts-mod/extract/vision-workers/sol-max-worker-02/raw/W01-024.json",
+      "provenancePath": "assets/tts-mod/extract/vision-workers/sol-max-worker-02/metadata/provenance/W01-024.json",
+      "useRestriction": "Prior raw was treated only as attempt/failure provenance after the fresh blind record; it was not used to corroborate pixel facts, assign semantic labels, or change the decision.",
+      "finding": "A predecessor raw-only attempt exists for the same hash. This worker's transcription, morphology, classification, uncertainties, and defer decision stand entirely on the fresh native read plus non-vision source provenance."
+    },
+    "priorQueueClaimAudit": {
+      "path": "assets/tts-mod/extract/low-confidence-review.json",
+      "finding": "An older queue record named the upper-right glyph notInCombat but recorded iconVerification as null; that unsupported label was not accepted here."
+    },
+    "officialTextSearch": {
+      "scope": "local official rulebook/FAQ extracted text and existing canonical card sidecars",
+      "queries": [
+        "ANYTHING USEFUL",
+        "If you Explored a new Room, draw 1 Item"
+      ],
+      "matchingOfficialText": false,
+      "finding": "No independent official text/component transcription was found locally to resolve the card-local glyphs."
+    }
+  },
+  "proposedClassification": {
+    "componentType": "character Action card",
+    "cardSide": "face",
+    "printedOwner": "RECON",
+    "title": "ANYTHING USEFUL?",
+    "candidateSlug": "anything-useful",
+    "confidenceBasis": "Portrait Action-card anatomy, exact printed title/body/footer, FaceURL sheet provenance, common Action-card BackURL, and Recon deck corroboration.",
+    "sourcePathCaveat": "The heavy-gun-operator sheet directory is extraction provenance for a multi-owner sheet and does not override the printed RECON footer."
+  },
+  "readConfidence": {
+    "level": "mixed",
+    "titleBodyFooter": "high",
+    "punctuation": "high",
+    "orientation": "high",
+    "literalGlyphMorphology": "high",
+    "semanticGlyphIdentity": "unresolved",
+    "reason": "All printed text and visible shape boundaries are clear at native resolution, but neither glyph has sufficient authoritative morphology evidence for a semantic token."
+  },
+  "classificationConfidence": {
+    "level": "high for component family and printed owner; medium for exact TTS object mapping",
+    "reason": "Card anatomy, footer, FaceURL role, Recon deck reference, and Action back are consistent; the shared sprite sheet does not uniquely map cell 0 to one TTS Card GUID."
+  },
+  "uncertainties": [
+    "The semantic identity of the crossed and substantially occluded upper-right glyph is unresolved.",
+    "The semantic identity of the solid white inline octagonal/chamfered polygon is unresolved and is not defined by the authoritative 49-icon glossary.",
+    "The exact per-card TTS GUID for sprite-sheet cell 0 is unresolved; no CardID-to-cell guess was made.",
+    "No independent official component transcription was found locally for this title/body."
+  ],
+  "promotionDecision": "defer",
+  "decisionReasons": [
+    "The upper-right glyph has not passed direct authoritative identity verification.",
+    "The inline rules glyph has no canonical glossary match and remains a literal unknown.",
+    "Approval-sensitive promotion requires every material icon identity and provenance gate to be resolved; false promotion is worse than deferral.",
+    "The unsupported historical notInCombat label was not propagated.",
+    "No canonical image, sidecar, manifest, ledger, catalog, queue, source, or prior-worker file was changed."
+  ],
+  "candidateCanonicalPath": null,
+  "stagedCandidateSidecarPath": null,
+  "canonicalWritesPerformed": false,
+  "validationPerformed": [
+    "The live assignment was hashed and parsed before attachment; its single ordered tuple was snapshotted.",
+    "The source SHA-256 was recomputed immediately before attachment and exactly matched the assigned immutable hash.",
+    "Pillow decoded and verified the 1052x1433 one-frame RGB PNG with valid PNG magic.",
+    "Exactly one native image turn submitted and returned W01-024 in verified openai-codex:gpt-5.6-sol max session 20260815_213825_14ef69.",
+    "Blind observations were persisted before prior-worker, queue, TTS, or canonical metadata was consulted.",
+    "All 49 authoritative glossary PNGs exist and decode; no semantic identity was claimed without a direct match.",
+    "The generated cell was traced to source sheet cell 0, FaceURL use, relevant Recon deck provenance, and the common Action BackURL without guessing a per-card GUID."
+  ],
+  "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-worker-03/raw/W01-024.json"
+}

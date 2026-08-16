@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-162_cards/card-00.png",
+  "sourceSha256": "10357f3fdbce0dd9b6bfd9f297c965234e6cfbad9427d917a7b6b29384952a7d",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_053718_c09140",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:37:18Z",
+  "completedAt": "2026-08-15T05:37:43Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "objective card",
+    "cardSide": "face",
+    "title": "OFFICIAL ORDER",
+    "typeLine": "",
+    "body": "If you have 2 Objective Cards,\nyou may during your Turn:\n\nChoose 1 of the Objective cards and remove\nthe other one from the game. Then, draw\ncards according to the Objective choice track\nand move the marker on that Track by 1.\n\nThe Mission Task must be fulfilled.",
+    "footer": "MISSION OBJECTIVE",
+    "upperRight": "",
+    "lowerCenter": "",
+    "visibleText": "[character] 2+",
+    "confidentlyVisible": [
+      "Upright portrait-format card",
+      "Black rules panel across the top",
+      "White astronaut-shaped character icon above the title",
+      "The character icon is followed by “2+”",
+      "Title reads “OFFICIAL ORDER”",
+      "Footer reads “MISSION OBJECTIVE” in orange",
+      "Background art shows a damaged illuminated display in a dark industrial interior"
+    ],
+    "proposedCategory": "cards/game/objective",
+    "proposedSlug": "official-order",
+    "confidence": "medium",
+    "uncertainties": [
+      "Tiny diegetic text on the background display is too small, distorted, and obscured to transcribe reliably.",
+      "The central [character] 2+ requirement is represented in visibleText because the schema has no field for an icon positioned above the title."
+    ]
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Planning image pixel inspection****Planning image pixel inspection****Analyzing attached image pixels**\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Analyzing attached image pixels****Designing official-order JSON schema**\n\n{\"orientation\":\"upright\",\"componentType\":\"objective card\",\"cardSide\":\"face\",\"title\":\"OFFICIAL ORDER\",\"typeLine\":\"\",\"body\":\"If you have 2 Objective Cards,\\nyou may during your Turn:\\n\\nChoose 1 of the Objective cards and remove\\nthe other one from the game. Then, draw\\ncards according to the Objective choice track\\nand move the marker on that Track by 1.\\n\\nThe Mission Task must be fulfilled.\",\"footer\":\"MISSION OBJECTIVE\",\"upperRight\":\"\",\"lowerCenter\":\"\",\"visibleText\":\"[character] 2+\",\"confidentlyVisible\":[\"Upright portrait-format card\",\"Black rules panel across the top\",\"White astronaut-shaped character icon above the title\",\"The character icon is followed by “2+”\",\"Title reads “OFFICIAL ORDER”\",\"Footer reads “MISSION OBJECTIVE” in orange\",\"Background art shows a damaged illuminated display in a dark industrial interior\"],\"proposedCategory\":\"cards/game/objective\",\"proposedSlug\":\"official-order\",\"confidence\":\"medium\",\"uncertainties\":[\"Tiny diegetic text on the background display is too small, distorted, and obscured to transcribe reliably.\",\"The central [character] 2+ requirement is represented in visibleText because the schema has no field for an icon positioned above the title.\"]}\n\nsession_id: 20260815_053718_c09140\n"
+}

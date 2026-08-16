@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "workerId": "sol-max-worker-03",
+  "updatedAt": "2026-08-15T21:48:23.875254Z",
+  "status": "completed-delegated-one-asset-scope",
+  "delegatedScopeCount": 1,
+  "liveAssignmentCountAtClose": 12,
+  "completedCount": 1,
+  "completedAssetIds": [
+    "W01-024"
+  ],
+  "nextPendingAssetId": null,
+  "nextPendingSourcePath": null,
+  "batchCount": 1,
+  "latestBatchId": "batch-001",
+  "counts": {
+    "promote": 0,
+    "defer": 1,
+    "nonCardComplete": 0
+  },
+  "promotionBlockers": [
+    "Upper-right crossed/occluded glyph lacks independently established canonical identity.",
+    "Inline solid white chamfered polygon lacks a canonical glossary identity."
+  ],
+  "runtimeBlockers": [],
+  "assignmentDrift": {
+    "detected": true,
+    "recordPath": "../metadata/assignment-drift-001.json",
+    "adjudicationPath": "../metadata/assignment-drift-adjudication-001.json",
+    "addedAssetsProcessed": false,
+    "reason": "Explicit delegated task says process exactly W01-024 and stop."
+  },
+  "runtimeMetadataPath": "../metadata/runtime.json",
+  "rawResultPath": "../raw/W01-024.json",
+  "normalizedResultPath": "../results/W01-024.json"
+}

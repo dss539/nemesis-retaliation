@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/yellowitem-143.jpg",
+  "sourceSha256": "4a4be058786fcf3e2195ef66a4052ebbf721946ed5d4b4bb3b624f3c4d5fbf6a",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_054312_46028b",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:43:12Z",
+  "completedAt": "2026-08-15T05:43:36Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "texture atlas containing three item card backs",
+    "cardSide": "back",
+    "title": "",
+    "typeLine": "",
+    "body": "",
+    "footer": "",
+    "upperRight": "",
+    "lowerCenter": "",
+    "visibleText": "[redItem]\nITEM\n\n[yellowItem]\nITEM\n\n[yellowItem]\nITEM",
+    "confidentlyVisible": [
+      "Three upright rectangular card-back designs are visible.",
+      "The upper-left design has a red octagonal badge with three white cartridges, matching [redItem].",
+      "The upper-right and lower-left designs each have a yellow octagonal badge with a white wrench, matching [yellowItem].",
+      "ITEM is printed once beneath each badge.",
+      "The lower-right quadrant is solid black and contains no visible card design or typography."
+    ],
+    "proposedCategory": "models/texture",
+    "proposedSlug": "item-card-backs-texture",
+    "confidence": "medium",
+    "uncertainties": [
+      "The file contains a multi-component texture atlas rather than one isolated card.",
+      "The two yellow item backs are visually duplicated.",
+      "The unused solid-black lower-right quadrant is a source-art/layout oddity."
+    ]
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Planning image pixel inspection****Planning image pixel inspection****Defining card backs texture atlas**\n\n\n{\"orientation\":\"upright\",\"componentType\":\"texture atlas containing three item card backs\",\"cardSide\":\"back\",\"title\":\"\",\"typeLine\":\"\",\"body\":\"\",\"footer\":\"\",\"upperRight\":\"\",\"lowerCenter\":\"\",\"visibleText\":\"[redItem]\\nITEM\\n\\n[yellowItem]\\nITEM\\n\\n[yellowItem]\\nITEM\",\"confidentlyVisible\":[\"Three upright rectangular card-back designs are visible.\",\"The upper-left design has a red octagonal badge with three white cartridges, matching [redItem].\",\"The upper-right and lower-left designs each have a yellow octagonal badge with a white wrench, matching [yellowItem].\",\"ITEM is printed once beneath each badge.\",\"The lower-right quadrant is solid black and contains no visible card design or typography.\"],\"proposedCategory\":\"models/texture\",\"proposedSlug\":\"item-card-backs-texture\",\"confidence\":\"medium\",\"uncertainties\":[\"The file contains a multi-component texture atlas rather than one isolated card.\",\"The two yellow item backs are visually duplicated.\",\"The unused solid-black lower-right quadrant is a source-art/layout oddity.\"]}\n\nsession_id: 20260815_054312_46028b\n"
+}

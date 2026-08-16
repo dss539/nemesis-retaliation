@@ -1,0 +1,105 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-118.jpg",
+  "sourceSha256": "42adf5a01f1bdb0ab7ef892fc91c29c33403b97f4e03537c33c8f8f0e413a96e",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_060500_3fce01",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:41:24Z",
+  "completedAt": "2026-08-15T06:05:23Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "weapon item card",
+    "cardSide": "face",
+    "title": "ASSAULT SHOTGUN",
+    "typeLine": "RANGED WEAPON, HEAVY",
+    "body": "Whenever you would be Attacked by an [intruder], you may\nspend all [ammoToken] from this Weapon. If you do, deal 1 Hit to\nthat [intruder] and Prevent the Intruder Attack.",
+    "footer": "",
+    "upperRight": "",
+    "lowerCenter": "[ICON: partially visible red rectangular slot with black trapezoidal inset]",
+    "visibleText": "",
+    "confidentlyVisible": [
+      "Typography is upright in the file.",
+      "The title reads “ASSAULT SHOTGUN”.",
+      "The yellow type line reads “RANGED WEAPON, HEAVY”.",
+      "Artwork depicts a futuristic firearm.",
+      "Two matching white curled-exoskeleton glyphs appear inline in the rules text.",
+      "A three-cartridge red glyph appears inline after “spend all”.",
+      "A red slot-like graphic at the lower center is clipped by the image boundary."
+    ],
+    "proposedCategory": "cards/game/item/weapon",
+    "proposedSlug": "assault-shotgun",
+    "confidence": "medium",
+    "uncertainties": [
+      "The lower-center red graphic is substantially clipped, so it cannot be confidently mapped to a canonical slot icon.",
+      "The card's outer edges and any content below the lower image boundary are not visible."
+    ]
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Loading vision skill for pixel inspection****Loading vision skill for pixel inspection**\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Planning pixel-level vision analysis****Planning pixel-level vision analysis****Confirming image rotation and ammo slot identification**\n\n\n{\"orientation\":\"rotate90ccw\",\"componentType\":\"ranged weapon item card\",\"cardSide\":\"face\",\"title\":\"ASSAULT SHOTGUN\",\"typeLine\":\"RANGED WEAPON, HEAVY\",\"body\":\"Whenever you would be Attacked by an [intruder], you may\\nspend all [ICON: three red cartridges] from this Weapon. If you do, deal 1 Hit to\\nthat [intruder] and Prevent the Intruder Attack.\",\"footer\":\"\",\"upperRight\":\"\",\"lowerCenter\":\"ammoSlot\",\"visibleText\":\"\",\"confidentlyVisible\":[\"A futuristic shotgun is depicted in the card art.\",\"The title is printed in white uppercase letters.\",\"The type line is printed in yellow uppercase letters.\",\"Two curled white exoskeleton Intruder icons appear inline in the rules text.\",\"Three red cartridge shapes appear inline after “spend all”.\",\"A red slot with a black horizontal mark is centered below the rules text.\"],\"proposedCategory\":\"cards/game/item/weapon\",\"proposedSlug\":\"assault-shotgun\",\"confidence\":\"medium\",\"uncertainties\":[\"The three red cartridge glyph is not enclosed by the red triangle required for shootDieAmmoLoss and does not match the listed red ammoToken morphology, so it is transcribed literally rather than assigned a canonical identifier.\",\"The red lower-center slot is partly clipped by the file boundary, though its visible morphology is consistent with ammoSlot.\"]}\n\nsession_id: 20260815_054124_8749fc\n",
+  "initialParsed": {
+    "orientation": "rotate90ccw",
+    "componentType": "ranged weapon item card",
+    "cardSide": "face",
+    "title": "ASSAULT SHOTGUN",
+    "typeLine": "RANGED WEAPON, HEAVY",
+    "body": "Whenever you would be Attacked by an [intruder], you may\nspend all [ICON: three red cartridges] from this Weapon. If you do, deal 1 Hit to\nthat [intruder] and Prevent the Intruder Attack.",
+    "footer": "",
+    "upperRight": "",
+    "lowerCenter": "ammoSlot",
+    "visibleText": "",
+    "confidentlyVisible": [
+      "A futuristic shotgun is depicted in the card art.",
+      "The title is printed in white uppercase letters.",
+      "The type line is printed in yellow uppercase letters.",
+      "Two curled white exoskeleton Intruder icons appear inline in the rules text.",
+      "Three red cartridge shapes appear inline after “spend all”.",
+      "A red slot with a black horizontal mark is centered below the rules text."
+    ],
+    "proposedCategory": "cards/game/item/weapon",
+    "proposedSlug": "assault-shotgun",
+    "confidence": "medium",
+    "uncertainties": [
+      "The three red cartridge glyph is not enclosed by the red triangle required for shootDieAmmoLoss and does not match the listed red ammoToken morphology, so it is transcribed literally rather than assigned a canonical identifier.",
+      "The red lower-center slot is partly clipped by the file boundary, though its visible morphology is consistent with ammoSlot."
+    ]
+  },
+  "initialSessionId": "20260815_054124_8749fc",
+  "orientationCorrection": "rotate90ccw",
+  "uprightRead": {
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "sessionId": "20260815_060500_3fce01",
+    "completedAt": "2026-08-15T06:05:23Z",
+    "parsed": {
+      "orientation": "upright",
+      "componentType": "weapon item card",
+      "cardSide": "face",
+      "title": "ASSAULT SHOTGUN",
+      "typeLine": "RANGED WEAPON, HEAVY",
+      "body": "Whenever you would be Attacked by an [intruder], you may\nspend all [ammoToken] from this Weapon. If you do, deal 1 Hit to\nthat [intruder] and Prevent the Intruder Attack.",
+      "footer": "",
+      "upperRight": "",
+      "lowerCenter": "[ICON: partially visible red rectangular slot with black trapezoidal inset]",
+      "visibleText": "",
+      "confidentlyVisible": [
+        "Typography is upright in the file.",
+        "The title reads “ASSAULT SHOTGUN”.",
+        "The yellow type line reads “RANGED WEAPON, HEAVY”.",
+        "Artwork depicts a futuristic firearm.",
+        "Two matching white curled-exoskeleton glyphs appear inline in the rules text.",
+        "A three-cartridge red glyph appears inline after “spend all”.",
+        "A red slot-like graphic at the lower center is clipped by the image boundary."
+      ],
+      "proposedCategory": "cards/game/item/weapon",
+      "proposedSlug": "assault-shotgun",
+      "confidence": "medium",
+      "uncertainties": [
+        "The lower-center red graphic is substantially clipped, so it cannot be confidently mapped to a canonical slot icon.",
+        "The card's outer edges and any content below the lower image boundary are not visible."
+      ]
+    },
+    "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Planning to inspect with image-analysis skills****Planning to inspect with image-analysis skills**\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Planning vision tool inspection****Planning vision tool inspection****Identifying clipped tactical gear card details**\n\nsession_id: 20260815_060500_3fce01\n{\"orientation\":\"upright\",\"componentType\":\"weapon item card\",\"cardSide\":\"face\",\"title\":\"ASSAULT SHOTGUN\",\"typeLine\":\"RANGED WEAPON, HEAVY\",\"body\":\"Whenever you would be Attacked by an [intruder], you may\\nspend all [ammoToken] from this Weapon. If you do, deal 1 Hit to\\nthat [intruder] and Prevent the Intruder Attack.\",\"footer\":\"\",\"upperRight\":\"\",\"lowerCenter\":\"[ICON: partially visible red rectangular slot with black trapezoidal inset]\",\"visibleText\":\"\",\"confidentlyVisible\":[\"Typography is upright in the file.\",\"The title reads “ASSAULT SHOTGUN”.\",\"The yellow type line reads “RANGED WEAPON, HEAVY”.\",\"Artwork depicts a futuristic firearm.\",\"Two matching white curled-exoskeleton glyphs appear inline in the rules text.\",\"A three-cartridge red glyph appears inline after “spend all”.\",\"A red slot-like graphic at the lower center is clipped by the image boundary.\"],\"proposedCategory\":\"cards/game/item/weapon\",\"proposedSlug\":\"assault-shotgun\",\"confidence\":\"medium\",\"uncertainties\":[\"The lower-center red graphic is substantially clipped, so it cannot be confidently mapped to a canonical slot icon.\",\"The card's outer edges and any content below the lower image boundary are not visible.\"]}\n"
+  }
+}

@@ -1,0 +1,174 @@
+{
+  "schemaVersion": 1,
+  "validatedAt": "2026-08-15T22:38:36Z",
+  "operation": "supervisor-merge-frozen-W05-001-W05-004",
+  "workerId": "sol-max-worker-05",
+  "decision": "accepted-as-four-deferred-superseding-reviews",
+  "scope": {
+    "assetIds": [
+      "W05-001",
+      "W05-002",
+      "W05-003",
+      "W05-004"
+    ],
+    "sourcePaths": [
+      "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-01.png",
+      "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-02.png",
+      "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-05.png",
+      "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-06.png"
+    ],
+    "resultPaths": [
+      "assets/tts-mod/extract/vision-workers/sol-max-worker-05/results/W05-001.json",
+      "assets/tts-mod/extract/vision-workers/sol-max-worker-05/results/W05-002.json",
+      "assets/tts-mod/extract/vision-workers/sol-max-worker-05/results/W05-003.json",
+      "assets/tts-mod/extract/vision-workers/sol-max-worker-05/results/W05-004.json"
+    ]
+  },
+  "sourceChecks": [
+    {
+      "assetId": "W05-001",
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-01.png",
+      "sha256": "d293abad16af07498d8f485bd1ab67426be66a64d78c2fbd085ec4bac7dc0f4f",
+      "dimensions": [
+        1052,
+        1433
+      ],
+      "format": "PNG",
+      "mode": "RGB",
+      "decodeVerified": true,
+      "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-worker-05/results/W05-001.json"
+    },
+    {
+      "assetId": "W05-002",
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-02.png",
+      "sha256": "4718ad2194859f3f1d1ecb72e52481616156dcacad27f46e4969c98cd64eddab",
+      "dimensions": [
+        1052,
+        1433
+      ],
+      "format": "PNG",
+      "mode": "RGB",
+      "decodeVerified": true,
+      "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-worker-05/results/W05-002.json"
+    },
+    {
+      "assetId": "W05-003",
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-05.png",
+      "sha256": "27a5c1a5959ed93f93d508e0f0a8d07999e0d929a0b9874848c2c10b3accf4e7",
+      "dimensions": [
+        1052,
+        1433
+      ],
+      "format": "PNG",
+      "mode": "RGB",
+      "decodeVerified": true,
+      "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-worker-05/results/W05-003.json"
+    },
+    {
+      "assetId": "W05-004",
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-06.png",
+      "sha256": "90cb405743269046b530add3108500d2e0eaefbd66fb9d55d7b42dd0cbbffa30",
+      "dimensions": [
+        1052,
+        1433
+      ],
+      "format": "PNG",
+      "mode": "RGB",
+      "decodeVerified": true,
+      "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-worker-05/results/W05-004.json"
+    }
+  ],
+  "priorSharedPointers": {
+    "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-01.png": {
+      "workerId": "sol-max-worker-04",
+      "assetId": "W04-001",
+      "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-worker-04/results/W04-001.json",
+      "rawResultPath": null,
+      "sessionId": "20260815_215426_fac7ff",
+      "confidence": "medium"
+    },
+    "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-02.png": {
+      "workerId": "sol-max-worker-04",
+      "assetId": "W04-002",
+      "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-worker-04/results/W04-002.json",
+      "rawResultPath": null,
+      "sessionId": "20260815_215426_fac7ff",
+      "confidence": "medium"
+    },
+    "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-05.png": {
+      "workerId": "sol-max-worker-04",
+      "assetId": "W04-003",
+      "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-worker-04/results/W04-003.json",
+      "rawResultPath": null,
+      "sessionId": "20260815_215426_fac7ff",
+      "confidence": "medium"
+    },
+    "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-06.png": {
+      "workerId": "sol-max-worker-04",
+      "assetId": "W04-004",
+      "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-worker-04/results/W04-004.json",
+      "rawResultPath": null,
+      "sessionId": "20260815_215426_fac7ff",
+      "confidence": "high"
+    }
+  },
+  "runtime": {
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "reasoningEffort": "max",
+    "sessionId": "20260815_215936_fea298",
+    "directNativeAttachmentsVerified": true,
+    "attachmentTrace": {
+      "logPath": "/home/smithers/.hermes/cache/delegation/live/deleg_8bbef128/task-0.log",
+      "visionAnalyzeCallLines": {
+        "W05-001": 69,
+        "W05-002": 111,
+        "W05-003": 125,
+        "W05-004": 141
+      }
+    },
+    "perResultRuntimeEvidenceReuseCaveat": true
+  },
+  "collisionAdjudication": {
+    "status": "resolved",
+    "selectedLineage": "W05 for the four exact overlapping tuples",
+    "foreignReplacementAssetIds": [
+      "W04-009",
+      "W04-010",
+      "W04-011"
+    ],
+    "foreignReplacementProcessedByW05": false,
+    "evidencePath": "assets/tts-mod/extract/vision-workers/sol-max-worker-05/metadata/assignment-drift.json"
+  },
+  "countsBeforeAndAfter": {
+    "before": {
+      "complete": 134,
+      "deferred": 398,
+      "queueEntries": 398
+    },
+    "after": {
+      "complete": 134,
+      "deferred": 398,
+      "queueEntries": 398
+    }
+  },
+  "effects": {
+    "candidateSidecarsCreated": 0,
+    "canonicalImagesCreated": 0,
+    "sourceFilesMovedOrRenamed": 0,
+    "sharedWorkerWritesByW05": false
+  },
+  "sharedLedgerHashes": {
+    "before": {
+      "assets/tts-mod/extract/vision-progress.json": "5f0693c8b2ffcfbf75d96b2f7ca1f7e0493c466086c54c09e6be35792fe0fe41",
+      "assets/tts-mod/extract/low-confidence-review.json": "a45c7446b911dc4c1888e1ff15055313e9c18553b87b7a7f6e09afd21e9fca48",
+      "assets/tts-mod/extract/vision-validation.json": "d539634311c1f53feb79b62082ddcaec99516bdbccc11732b1bbdd7db969ace8"
+    },
+    "after": {
+      "assets/tts-mod/extract/vision-progress.json": "943571212442552b2a68db6f6ec777a9b4222e3fe2ec365a49ce115d30cb01d4",
+      "assets/tts-mod/extract/low-confidence-review.json": "799cf3033c369422d1d8c30b8c9373f5ae405f25c94c2c4640f26225e31d0d35",
+      "assets/tts-mod/extract/vision-validation.json": "08e3b40615e4c104767c72929c0cd32f7c3aa9b536d58041343d07a8550291f0"
+    }
+  },
+  "passed": true
+}

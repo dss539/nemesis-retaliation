@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/action/action-003.png",
+  "sourceSha256": "01c14b5b4e853c3efb923c37b1540661291f7abf1362d987e91993eb6453f2d6",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_051627_dfe20a",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:16:26Z",
+  "completedAt": "2026-08-15T05:17:02Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "character action card",
+    "cardSide": "face",
+    "title": "WEAK SPOTS",
+    "typeLine": "",
+    "body": "Deal 1 Hit to a chosen [intruder] in your Room,\nand then Shoot or Melee Attack it.",
+    "footer": "CONTRACTOR",
+    "upperRight": "",
+    "lowerCenter": "",
+    "visibleText": "",
+    "confidentlyVisible": [
+      "Typography is upright and reads left to right.",
+      "Large illustrated scene shows a woman leaning over a prone armored figure amid machinery and cables.",
+      "A white curled exoskeleton icon appears inline between “chosen” and “in your Room”.",
+      "Title, rules panel, and owner footer are fully visible."
+    ],
+    "proposedCategory": "cards/character/contractor/action",
+    "proposedSlug": "weak-spots",
+    "confidence": "high",
+    "uncertainties": []
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Preparing for image analysis****Preparing for image analysis****Planning image pixel analysis**\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Planning image pixel analysis****Identifying map icon for action card**\n\n{\"orientation\":\"upright\",\"componentType\":\"character action card\",\"cardSide\":\"face\",\"title\":\"WEAK SPOTS\",\"typeLine\":\"\",\"body\":\"Deal 1 Hit to a chosen [intruder] in your Room,\\nand then Shoot or Melee Attack it.\",\"footer\":\"CONTRACTOR\",\"upperRight\":\"\",\"lowerCenter\":\"\",\"visibleText\":\"\",\"confidentlyVisible\":[\"Typography is upright and reads left to right.\",\"Large illustrated scene shows a woman leaning over a prone armored figure amid machinery and cables.\",\"A white curled exoskeleton icon appears inline between “chosen” and “in your Room”.\",\"Title, rules panel, and owner footer are fully visible.\"],\"proposedCategory\":\"cards/character/contractor/action\",\"proposedSlug\":\"weak-spots\",\"confidence\":\"high\",\"uncertainties\":[]}\n\nsession_id: 20260815_051627_dfe20a\n",
+  "iconVerification": {
+    "status": "passed",
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "sessionId": "20260815_060746_3546c2",
+    "promptVersion": 1,
+    "completedAt": "2026-08-15T06:08:04Z",
+    "claimed": [
+      "intruder"
+    ],
+    "parsed": {
+      "claims": [
+        {
+          "claimed": "intruder",
+          "verdict": "match",
+          "actual": "intruder",
+          "evidence": "One occurrence in the card text; its white curled creature silhouette matches the glossary glyph's hooked head, open central curl, and radiating serrated spine/tail."
+        }
+      ],
+      "allClaimsMatch": true,
+      "confidence": "high",
+      "uncertainties": []
+    },
+    "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Preparing skill loading for image analysis****Preparing skill loading for image analysis**\n⚠️  Reached maximum iterations (2). Requesting summary...\n\nsession_id: 20260815_060746_3546c2\n{\"claims\":[{\"claimed\":\"intruder\",\"verdict\":\"match\",\"actual\":\"intruder\",\"evidence\":\"One occurrence in the card text; its white curled creature silhouette matches the glossary glyph's hooked head, open central curl, and radiating serrated spine/tail.\"}],\"allClaimsMatch\":true,\"confidence\":\"high\",\"uncertainties\":[]}\n",
+    "evidencePath": null
+  }
+}

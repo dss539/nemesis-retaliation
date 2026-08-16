@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/tiles/room/drilling-station-010.jpg",
+  "sourceSha256": "eaed17280cc88aaaeaddc6a270c0496f22f9b8ae4f1a725a450363fe6fbadd68",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_054735_de5014",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:47:34Z",
+  "completedAt": "2026-08-15T05:48:06Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "rotationIrrelevant",
+    "componentType": "room-tile texture atlas",
+    "cardSide": "notCard",
+    "title": "DRILLING STATION",
+    "typeLine": "",
+    "body": "Place a new Corridor\nfrom the Room\nwith the [ICON: white three-node corridor glyph].",
+    "footer": "",
+    "upperRight": "",
+    "lowerCenter": "",
+    "visibleText": "A",
+    "confidentlyVisible": [
+      "A large irregular room tile shows an industrial drilling shaft.",
+      "The title DRILLING STATION is clearly visible.",
+      "Three yellow hexagonal wrench symbols appear along the tile's left edge.",
+      "A blue computer symbol appears near the tile's upper-right area.",
+      "A large teal letter A is printed near the tile's upper-left area.",
+      "Other partially visible components surround the central tile on a black texture-atlas background."
+    ],
+    "proposedCategory": "tiles/room",
+    "proposedSlug": "drilling-station",
+    "confidence": "medium",
+    "uncertainties": [
+      "The file is a packed texture atlas with components at differing angles, so no single cardinal rotation makes the whole file upright.",
+      "The white line-ending glyph after “the” is clearly visible but does not confidently match a supplied canonical icon; it is preserved literally rather than assigned a corridor identifier.",
+      "Only the large teal “A” is transcribed from the surrounding partial components; no identity is inferred from those clipped components.",
+      "The three yellow wrench glyphs resemble item-type symbols but their yellow hexagonal framing does not confidently match the canonical yellowItem morphology described as a yellow badge."
+    ]
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Planning image analysis approach****Planning image analysis approach****Analyzing image rotation and typography angles**\n\n\n**Evaluating texture atlas rotation relevance****Analyzing image rotation and typography angles**\n{\"orientation\":\"rotationIrrelevant\",\"componentType\":\"room-tile texture atlas\",\"cardSide\":\"notCard\",\"title\":\"DRILLING STATION\",\"typeLine\":\"\",\"body\":\"Place a new Corridor\\nfrom the Room\\nwith the [ICON: white three-node corridor glyph].\",\"footer\":\"\",\"upperRight\":\"\",\"lowerCenter\":\"\",\"visibleText\":\"A\",\"confidentlyVisible\":[\"A large irregular room tile shows an industrial drilling shaft.\",\"The title DRILLING STATION is clearly visible.\",\"Three yellow hexagonal wrench symbols appear along the tile's left edge.\",\"A blue computer symbol appears near the tile's upper-right area.\",\"A large teal letter A is printed near the tile's upper-left area.\",\"Other partially visible components surround the central tile on a black texture-atlas background.\"],\"proposedCategory\":\"tiles/room\",\"proposedSlug\":\"drilling-station\",\"confidence\":\"medium\",\"uncertainties\":[\"The file is a packed texture atlas with components at differing angles, so no single cardinal rotation makes the whole file upright.\",\"The white line-ending glyph after “the” is clearly visible but does not confidently match a supplied canonical icon; it is preserved literally rather than assigned a corridor identifier.\",\"Only the large teal “A” is transcribed from the surrounding partial components; no identity is inferred from those clipped components.\",\"The three yellow wrench glyphs resemble item-type symbols but their yellow hexagonal framing does not confidently match the canonical yellowItem morphology described as a yellow badge.\"]}\n\nsession_id: 20260815_054735_de5014\n"
+}

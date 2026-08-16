@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "caseId": "c02",
+  "tier": "human-approved-card",
+  "sourceSha256": "c747f2bb764568d14320fba4ad9bb9b8ff8ba1390c915282104f1cb9146e3583",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-luna",
+  "reasoning": "max",
+  "nativeImageAttachment": true,
+  "safeMode": true,
+  "promptSha256": "49aaf5b24a0cf146faf915b3dff26a370629dc205f337a296644c004550d6b80",
+  "startedAtEpoch": 1786776407.3789117,
+  "endedAtEpoch": 1786776448.120108,
+  "durationSeconds": 40.741,
+  "returnCode": 0,
+  "sessionId": "20260815_064647_07194b",
+  "stdout": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Interpreting card image components**\n\n**Transcribing card text with icons**\n\n**Finalizing card metadata structure**\n\n**Assessing sidecarCandidate object structure**\n\n**Proposing Combat Engineer action category**\n\n**Verifying top-right icon meaning**\n\n**Refining icon JSON structure and text formatting**\n\n**Clarifying card text layout and metadata**\n\n**Confirming visibleOtherText empty with OR separator**\n\n**Refining minimal sidecar keys selection**\n\n**Preparing final JSON output****Interpreting card image components**\n**Transcribing card text with icons**\n**Finalizing card metadata structure**\n\n**Assessing sidecarCandidate object structure**\n**Proposing Combat Engineer action category**\n**Verifying top-right icon meaning**\n\n**Refining icon JSON structure and text formatting**\n**Clarifying card text layout and metadata**\n**Confirming visibleOtherText empty with OR separator**\n\n**Refining minimal sidecar keys selection**\n{\"orientation\":\"upright\",\"componentType\":\"action card\",\"title\":\"EXPLOSIVES\",\"typeLine\":null,\"body\":\"Discard 1 [grenadeToken].\\nPlace a new Corridor between your Room\\nand another Explored Room.\\n\\nOR\\n\\nIf you are in a Room with [yellowItem]: Gain 1 [grenadeToken]\",\"footer\":\"COMBAT ENGINEER\",\"standaloneSymbols\":{\"upperRight\":\"notInCombat\"},\"visibleOtherText\":[],\"layoutNotes\":[\"Full-frame illustrated card with a large central explosion and armored figures.\",\"The title appears in a large black-and-gold plaque above the rules text.\",\"Rules text is arranged as two alternatives separated by a centered OR divider.\",\"A white weapon-like symbol crossed by a red X appears in the upper-right corner.\",\"The footer label is centered at the bottom.\"],\"categoryProposal\":\"Combat Engineer action\",\"filenameProposal\":null,\"sidecarCandidate\":{\"body\":\"Discard 1 [grenadeToken].\\nPlace a new Corridor between your Room\\nand another Explored Room.\\n\\nOR\\n\\nIf you are in a Room with [yellowItem]: Gain 1 [grenadeToken]\",\"upperRight\":\"notInCombat\"},\"uncertainties\":[],\"confidence\":{\"orientation\":\"high\",\"text\":\"high\",\"icons\":\"high\",\"identity\":\"high\",\"category\":\"high\",\"overall\":\"high\"},\"decision\":\"promote\"}\n",
+  "stderr": "\nsession_id: 20260815_064647_07194b\n",
+  "parsedJson": {
+    "orientation": "upright",
+    "componentType": "action card",
+    "title": "EXPLOSIVES",
+    "typeLine": null,
+    "body": "Discard 1 [grenadeToken].\nPlace a new Corridor between your Room\nand another Explored Room.\n\nOR\n\nIf you are in a Room with [yellowItem]: Gain 1 [grenadeToken]",
+    "footer": "COMBAT ENGINEER",
+    "standaloneSymbols": {
+      "upperRight": "notInCombat"
+    },
+    "visibleOtherText": [],
+    "layoutNotes": [
+      "Full-frame illustrated card with a large central explosion and armored figures.",
+      "The title appears in a large black-and-gold plaque above the rules text.",
+      "Rules text is arranged as two alternatives separated by a centered OR divider.",
+      "A white weapon-like symbol crossed by a red X appears in the upper-right corner.",
+      "The footer label is centered at the bottom."
+    ],
+    "categoryProposal": "Combat Engineer action",
+    "filenameProposal": null,
+    "sidecarCandidate": {
+      "body": "Discard 1 [grenadeToken].\nPlace a new Corridor between your Room\nand another Explored Room.\n\nOR\n\nIf you are in a Room with [yellowItem]: Gain 1 [grenadeToken]",
+      "upperRight": "notInCombat"
+    },
+    "uncertainties": [],
+    "confidence": {
+      "orientation": "high",
+      "text": "high",
+      "icons": "high",
+      "identity": "high",
+      "category": "high",
+      "overall": "high"
+    },
+    "decision": "promote"
+  },
+  "parseError": null
+}

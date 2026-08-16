@@ -1,0 +1,101 @@
+{
+  "schemaVersion": 1,
+  "assetId": "W01-015",
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/bags/oxygenBag-031.jpg",
+  "sourceSha256": "00086974543621c1feb8f5d51fc81bfa81751ebbe1bf03362029892ef643a71d",
+  "sourceMetadata": {
+    "width": 305,
+    "height": 305,
+    "format": "JPEG",
+    "mode": "RGB",
+    "byteSize": 81927
+  },
+  "runtimeProvenance": {
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "reasoningEffort": "max",
+    "platform": "subagent",
+    "workerId": "sol-max-worker-01",
+    "sessionProvenanceHandle": "hermes_rpc_dfba82c30cd846b6bc4eced43002e707.sock",
+    "persistentSession": true,
+    "nativeVision": true,
+    "auxiliaryVisionUsed": false
+  },
+  "orientation": {
+    "status": "upright",
+    "evidence": "+3 is level and the illustrated canister stands cap-up.",
+    "transformApplied": null,
+    "stagingDerivative": null
+  },
+  "blindPixelObservations": [
+    "Dark embossed industrial background.",
+    "Glossy amber-orange clipped-corner rectangular housing with smaller right compartment.",
+    "Tall yellow-gold canister with gray cap, oval highlights, cyan middle panel, rounded base, and a large white black-outlined +3 overlay."
+  ],
+  "visibleText": [
+    {
+      "text": "+3",
+      "location": "center over canister",
+      "structure": "plus sign followed by numeral",
+      "confidence": "high"
+    }
+  ],
+  "iconMorphology": [
+    {
+      "location": "center-left",
+      "silhouette": "Vertical cylindrical canister with cap/valve and rounded lower end.",
+      "internalMarks": "Two bright oval highlights and a cyan rectangular middle panel.",
+      "colors": "yellow-gold, cyan, gray, white, amber",
+      "claimedToken": null,
+      "closestPlausibleGlossaryAlternative": "none; no oxygen/canister icon exists in the canonical glossary",
+      "visibleDiscriminatingFeature": "This is detailed object artwork rather than a listed flat gameplay glyph; no glossary icon is claimed."
+    }
+  ],
+  "evidenceConsulted": {
+    "tts": {
+      "consultedAfterBlindRecord": true,
+      "trigger": "Pixels established canister-themed art but not the TTS role.",
+      "manifestUrl": "https://steamusercontent-a.akamaihd.net/ugc/2468613527880247093/862A1D630B1B975AA9CA1272162A56727C6F7496/",
+      "objectReferences": [
+        {
+          "guid": "d2f7a3",
+          "type": "Custom_Model_Bag",
+          "urlRole": "DiffuseURL"
+        }
+      ]
+    },
+    "official": {
+      "consulted": false,
+      "reason": "No rules text, promoted glossary icon, ambiguity, or provenance conflict required escalation."
+    }
+  },
+  "proposedClassification": "Non-card +3 canister artwork used as a TTS Custom_Model_Bag diffuse; no exact substance/item name is asserted.",
+  "proposedPath": "assets/tts-mod/extract/v2-dl/tree/bags/oxygenBag-031.jpg (retain unchanged; no canonical move proposed)",
+  "readConfidence": {
+    "level": "high",
+    "reason": "+3 and canister morphology are unobscured."
+  },
+  "classificationConfidence": {
+    "level": "high",
+    "reason": "Pixels establish generic canister art and TTS establishes the non-card bag-diffuse role."
+  },
+  "uncertainties": [
+    "The TTS record is unnamed and the canister has no legible label, so the exact official item/substance is not established; the classification deliberately remains generic."
+  ],
+  "promotionDecision": "non-card-complete",
+  "decisionReasons": [
+    "This is a model-bag diffuse, not a rules-card face.",
+    "The visible +3 and generic canister art are fully recorded.",
+    "No semantic filename dependence or unsupported item/icon claim is needed."
+  ],
+  "stagedCandidateSidecarPath": null,
+  "validationPerformed": [
+    "Assignment SHA-256 matched source bytes.",
+    "Pillow decoded and verified the 305x305 JPEG.",
+    "Native vision attachment was inspected independently as W01-015.",
+    "Blind observations were persisted before TTS metadata was consulted.",
+    "Manifest URL and matching TTS DiffuseURL role were resolved.",
+    "No source file or canonical/shared ledger was modified."
+  ],
+  "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-worker-01/raw/W01-015.json"
+}

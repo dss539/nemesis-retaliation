@@ -1,0 +1,99 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-144_cards/card-02.png",
+  "sourceSha256": "5800849bb493d6000460ccf76c31d4cbc94c70a9a42586f13f606193b6afa6b8",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_060526_d39883",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:41:55Z",
+  "completedAt": "2026-08-15T06:05:43Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "ranged weapon item card",
+    "cardSide": "face",
+    "title": "DRUM RIFLE",
+    "typeLine": "RANGED WEAPON, RIFLE",
+    "body": "No special rules.",
+    "footer": "",
+    "upperRight": "",
+    "lowerCenter": "ammoSlot",
+    "visibleText": "",
+    "confidentlyVisible": [
+      "White title centered above the weapon artwork",
+      "Yellow uppercase type line beneath the title",
+      "Artwork depicts a rifle with a drum magazine",
+      "Three red slot shapes are partially visible along the bottom edge",
+      "The centered bottom slot matches [ammoSlot]"
+    ],
+    "proposedCategory": "cards/game/item/weapon",
+    "proposedSlug": "drum-rifle",
+    "confidence": "medium",
+    "uncertainties": [
+      "All three red slot shapes are clipped by the bottom image boundary; only the centered one is represented by the available lowerCenter field."
+    ]
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Analyzing image text orientation**\n\n**Confirming card image rotation and layout**\n\n**Verifying ammo slot icon interpretation****Analyzing image text orientation**\n**Confirming card image rotation and layout**\n{\"orientation\":\"rotate90ccw\",\"componentType\":\"item card\",\"cardSide\":\"face\",\"title\":\"DRUM RIFLE\",\"typeLine\":\"RANGED WEAPON, RIFLE\",\"body\":\"No special rules.\",\"footer\":\"\",\"upperRight\":\"\",\"lowerCenter\":\"\",\"visibleText\":\"[ICON: three red notched rectangular markers with black hexagonal centers]\",\"confidentlyVisible\":[\"Dark weapon artwork depicts a large rifle with a drum magazine.\",\"Three matching red markers are partially clipped by the file's left edge.\",\"The title is printed in white uppercase letters.\",\"The type line is printed in yellow uppercase letters.\",\"The rules text is printed in white.\"],\"proposedCategory\":\"cards/game/item/weapon\",\"proposedSlug\":\"drum-rifle\",\"confidence\":\"medium\",\"uncertainties\":[\"The three partially clipped red edge markers do not confidently match any canonical glossary icon and may be card-local counters or slots.\",\"The exact subtype beyond a weapon item card is not explicitly labeled as a category.\",\"No owner or footer label is visible.\"]}\n\nsession_id: 20260815_054155_a8b71e\n",
+  "initialParsed": {
+    "orientation": "rotate90ccw",
+    "componentType": "item card",
+    "cardSide": "face",
+    "title": "DRUM RIFLE",
+    "typeLine": "RANGED WEAPON, RIFLE",
+    "body": "No special rules.",
+    "footer": "",
+    "upperRight": "",
+    "lowerCenter": "",
+    "visibleText": "[ICON: three red notched rectangular markers with black hexagonal centers]",
+    "confidentlyVisible": [
+      "Dark weapon artwork depicts a large rifle with a drum magazine.",
+      "Three matching red markers are partially clipped by the file's left edge.",
+      "The title is printed in white uppercase letters.",
+      "The type line is printed in yellow uppercase letters.",
+      "The rules text is printed in white."
+    ],
+    "proposedCategory": "cards/game/item/weapon",
+    "proposedSlug": "drum-rifle",
+    "confidence": "medium",
+    "uncertainties": [
+      "The three partially clipped red edge markers do not confidently match any canonical glossary icon and may be card-local counters or slots.",
+      "The exact subtype beyond a weapon item card is not explicitly labeled as a category.",
+      "No owner or footer label is visible."
+    ]
+  },
+  "initialSessionId": "20260815_054155_a8b71e",
+  "orientationCorrection": "rotate90ccw",
+  "uprightRead": {
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "sessionId": "20260815_060526_d39883",
+    "completedAt": "2026-08-15T06:05:43Z",
+    "parsed": {
+      "orientation": "upright",
+      "componentType": "ranged weapon item card",
+      "cardSide": "face",
+      "title": "DRUM RIFLE",
+      "typeLine": "RANGED WEAPON, RIFLE",
+      "body": "No special rules.",
+      "footer": "",
+      "upperRight": "",
+      "lowerCenter": "ammoSlot",
+      "visibleText": "",
+      "confidentlyVisible": [
+        "White title centered above the weapon artwork",
+        "Yellow uppercase type line beneath the title",
+        "Artwork depicts a rifle with a drum magazine",
+        "Three red slot shapes are partially visible along the bottom edge",
+        "The centered bottom slot matches [ammoSlot]"
+      ],
+      "proposedCategory": "cards/game/item/weapon",
+      "proposedSlug": "drum-rifle",
+      "confidence": "medium",
+      "uncertainties": [
+        "All three red slot shapes are clipped by the bottom image boundary; only the centered one is represented by the available lowerCenter field."
+      ]
+    },
+    "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Detailing component item card design**\n\n**Clarifying ammoSlot positioning and appearance****Detailing component item card design**\n\nsession_id: 20260815_060526_d39883\n{\"orientation\":\"upright\",\"componentType\":\"ranged weapon item card\",\"cardSide\":\"face\",\"title\":\"DRUM RIFLE\",\"typeLine\":\"RANGED WEAPON, RIFLE\",\"body\":\"No special rules.\",\"footer\":\"\",\"upperRight\":\"\",\"lowerCenter\":\"ammoSlot\",\"visibleText\":\"\",\"confidentlyVisible\":[\"White title centered above the weapon artwork\",\"Yellow uppercase type line beneath the title\",\"Artwork depicts a rifle with a drum magazine\",\"Three red slot shapes are partially visible along the bottom edge\",\"The centered bottom slot matches [ammoSlot]\"],\"proposedCategory\":\"cards/game/item/weapon\",\"proposedSlug\":\"drum-rifle\",\"confidence\":\"medium\",\"uncertainties\":[\"All three red slot shapes are clipped by the bottom image boundary; only the centered one is represented by the available lowerCenter field.\"]}\n"
+  }
+}

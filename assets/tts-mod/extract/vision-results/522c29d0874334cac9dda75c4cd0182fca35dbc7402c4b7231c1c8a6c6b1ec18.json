@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/seriouswound-149_cards/card-04.png",
+  "sourceSha256": "522c29d0874334cac9dda75c4cd0182fca35dbc7402c4b7231c1c8a6c6b1ec18",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_054021_35db2a",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:40:21Z",
+  "completedAt": "2026-08-15T05:40:44Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "serious wound card",
+    "cardSide": "face",
+    "title": "LEG",
+    "typeLine": "",
+    "body": "Using the “Make a Move” Action\nfrom a Room with an [intruder]\nor through a Corridor\nwith an [intruder] costs you 1 A more.",
+    "footer": "",
+    "upperRight": "",
+    "lowerCenter": "",
+    "visibleText": "LEG STATUS\nTEMP.\n39.0°\nTISSUE DAMAGE",
+    "confidentlyVisible": [
+      "Upright anatomical scan of two human legs",
+      "Both knee regions are highlighted in orange and yellow",
+      "Three colored diagnostic callouts point toward the legs",
+      "Two identical curled white exoskeleton glyphs appear inline in the rules text",
+      "The letter A is printed inside a white rectangular outline"
+    ],
+    "proposedCategory": "cards/game/serious-wound",
+    "proposedSlug": "leg",
+    "confidence": "medium",
+    "uncertainties": [
+      "The tiny vertical diagnostic labels are low-resolution; “LEG STATUS” and “TISSUE DAMAGE” are the best visible readings.",
+      "The superscript mark after “39.0” appears to be a degree symbol but is very small.",
+      "The boxed A is transcribed literally because it is not a canonical glossary icon."
+    ]
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Planning image analysis workflow****Planning image analysis workflow****Identifying visible UI text elements**\n\n\n{\"orientation\":\"upright\",\"componentType\":\"serious wound card\",\"cardSide\":\"face\",\"title\":\"LEG\",\"typeLine\":\"\",\"body\":\"Using the “Make a Move” Action\\nfrom a Room with an [intruder]\\nor through a Corridor\\nwith an [intruder] costs you 1 A more.\",\"footer\":\"\",\"upperRight\":\"\",\"lowerCenter\":\"\",\"visibleText\":\"LEG STATUS\\nTEMP.\\n39.0°\\nTISSUE DAMAGE\",\"confidentlyVisible\":[\"Upright anatomical scan of two human legs\",\"Both knee regions are highlighted in orange and yellow\",\"Three colored diagnostic callouts point toward the legs\",\"Two identical curled white exoskeleton glyphs appear inline in the rules text\",\"The letter A is printed inside a white rectangular outline\"],\"proposedCategory\":\"cards/game/serious-wound\",\"proposedSlug\":\"leg\",\"confidence\":\"medium\",\"uncertainties\":[\"The tiny vertical diagnostic labels are low-resolution; “LEG STATUS” and “TISSUE DAMAGE” are the best visible readings.\",\"The superscript mark after “39.0” appears to be a degree symbol but is very small.\",\"The boxed A is transcribed literally because it is not a canonical glossary icon.\"]}\n\nsession_id: 20260815_054021_35db2a\n"
+}

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/tiles/room/decontamination-room-019.jpg",
+  "sourceSha256": "39ad31fb5f727230e9b53e992f7bae4fcc5cf4e4f4da214cdd18cab52b2ad744",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_054723_2c4920",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:47:23Z",
+  "completedAt": "2026-08-15T05:48:00Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "double-sided room tile face",
+    "cardSide": "face",
+    "title": "DECONTAMINATION ROOM",
+    "typeLine": "",
+    "body": "Discard all [ICON: white square] and lose 2 [oxygenToken].\nRemove all Contamination\ncards from your deck.",
+    "footer": "",
+    "upperRight": "",
+    "lowerCenter": "",
+    "visibleText": "?",
+    "confidentlyVisible": [
+      "Large irregular room tile with interlocking edge cutouts",
+      "Title reads DECONTAMINATION ROOM",
+      "Three green badge icons with white crosses appear along the left side",
+      "Two large white question marks are visible in separate room areas",
+      "Central room artwork shows a yellow marked floor area around a rectangular apparatus",
+      "A small yellow-and-blue cylinder icon follows “lose 2”",
+      "The reverse or adjacent depicted area has a dark hexagonal mechanical floor"
+    ],
+    "proposedCategory": "tiles/room",
+    "proposedSlug": "decontamination-room",
+    "confidence": "medium",
+    "uncertainties": [
+      "The file is slightly diagonally oriented, but no available quarter-turn rotation would make the typography more upright; it is readable in the current orientation.",
+      "The solid white square after “Discard all” is not confidently identifiable from the supplied glossary and is transcribed literally.",
+      "The three green badges with white crosses match greenItem morphology, but they are freestanding map symbols rather than inline text and have no dedicated position field.",
+      "The image appears to show multiple connected or overlapping room-tile regions, making the exact physical component boundaries and face/back relationship somewhat uncertain."
+    ]
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Preparing image analysis setup****Preparing image analysis setup****Planning pixel extraction approach**\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Planning pixel extraction approach****Analyzing tilted image text orientation**\n\n\n{\"orientation\":\"upright\",\"componentType\":\"double-sided room tile face\",\"cardSide\":\"face\",\"title\":\"DECONTAMINATION ROOM\",\"typeLine\":\"\",\"body\":\"Discard all [ICON: white square] and lose 2 [oxygenToken].\\nRemove all Contamination\\ncards from your deck.\",\"footer\":\"\",\"upperRight\":\"\",\"lowerCenter\":\"\",\"visibleText\":\"?\",\"confidentlyVisible\":[\"Large irregular room tile with interlocking edge cutouts\",\"Title reads DECONTAMINATION ROOM\",\"Three green badge icons with white crosses appear along the left side\",\"Two large white question marks are visible in separate room areas\",\"Central room artwork shows a yellow marked floor area around a rectangular apparatus\",\"A small yellow-and-blue cylinder icon follows “lose 2”\",\"The reverse or adjacent depicted area has a dark hexagonal mechanical floor\"],\"proposedCategory\":\"tiles/room\",\"proposedSlug\":\"decontamination-room\",\"confidence\":\"medium\",\"uncertainties\":[\"The file is slightly diagonally oriented, but no available quarter-turn rotation would make the typography more upright; it is readable in the current orientation.\",\"The solid white square after “Discard all” is not confidently identifiable from the supplied glossary and is transcribed literally.\",\"The three green badges with white crosses match greenItem morphology, but they are freestanding map symbols rather than inline text and have no dedicated position field.\",\"The image appears to show multiple connected or overlapping room-tile regions, making the exact physical component boundaries and face/back relationship somewhat uncertain.\"]}\n\nsession_id: 20260815_054723_2c4920\n"
+}

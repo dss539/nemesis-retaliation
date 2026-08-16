@@ -1,0 +1,104 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-033.png",
+  "sourceSha256": "7f1de79bbc5d8b86dae03d33deede52be56bfbc3a3c400a39b0bb5b03d8df2c3",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_060433_c63a71",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:40:49Z",
+  "completedAt": "2026-08-15T06:04:56Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "weapon item card",
+    "cardSide": "face",
+    "title": "GRENADE LAUNCHER\nRIFLE",
+    "typeLine": "RANGED WEAPON, RIFLE",
+    "body": "Burst: You may use any numbers of [ICON: purple square with white grenade-like glyph] from this weapon\nbefore or instead of a normal Burst.",
+    "footer": "",
+    "upperRight": "",
+    "lowerCenter": "",
+    "visibleText": "",
+    "confidentlyVisible": [
+      "Typography is upright and reads left to right.",
+      "Artwork depicts a large futuristic firearm.",
+      "The title is printed in two centered lines.",
+      "The type line is yellow.",
+      "The rules text begins with the purple heading “Burst:”.",
+      "One red and two purple large slot-like shapes are partially clipped by the bottom edge."
+    ],
+    "proposedCategory": "cards/game/item/weapon",
+    "proposedSlug": "grenade-launcher-rifle",
+    "confidence": "medium",
+    "uncertainties": [
+      "The inline purple glyph is not a confident morphology match for any supplied canonical icon and is recorded literally.",
+      "The lower portions of all three large bottom slot-like shapes are outside the image and cannot be fully identified.",
+      "The card's outer boundary and possible additional lower content are clipped by the image edges."
+    ]
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Planning skill for image analysis****Planning skill for image analysis****Confirming image text orientation**\n\n\n**Analyzing burst icon morphology**\n\n**Evaluating slot marker bleed effect****Confirming image text orientation**\n**Analyzing burst icon morphology**\n{\"orientation\":\"rotate90ccw\",\"componentType\":\"starting item card\",\"cardSide\":\"face\",\"title\":\"GRENADE LAUNCHER\",\"typeLine\":\"RIFLE\",\"body\":\"Burst: You may use any numbers of [burstDieAdditionalEffects] from this weapon\\nbefore or instead of a normal Burst.\",\"footer\":\"\",\"upperRight\":\"\",\"lowerCenter\":\"\",\"visibleText\":\"RANGER WEAPON-RIFLE\",\"confidentlyVisible\":[\"Dark science-fiction weapon artwork depicts a large grenade launcher.\",\"Three large charge/slot-shaped markers appear along one edge: one red and two purple.\",\"The rules panel has a purple “Burst:” heading.\",\"A purple square die icon appears inline in the rules text.\"],\"proposedCategory\":\"cards/game/item/rifle\",\"proposedSlug\":\"grenade-launcher\",\"confidence\":\"medium\",\"uncertainties\":[\"The small inline purple glyph is low-resolution, but its visible morphology is most consistent with burstDieAdditionalEffects.\",\"“RANGER WEAPON-RIFLE” is printed on the illustrated weapon rather than in a standard card text field.\",\"The three large edge markers are partially cut by the image boundary and are not mapped because their exact function is not established by the supplied glossary.\"]}\n\nsession_id: 20260815_054049_d02081\n",
+  "initialParsed": {
+    "orientation": "rotate90ccw",
+    "componentType": "starting item card",
+    "cardSide": "face",
+    "title": "GRENADE LAUNCHER",
+    "typeLine": "RIFLE",
+    "body": "Burst: You may use any numbers of [burstDieAdditionalEffects] from this weapon\nbefore or instead of a normal Burst.",
+    "footer": "",
+    "upperRight": "",
+    "lowerCenter": "",
+    "visibleText": "RANGER WEAPON-RIFLE",
+    "confidentlyVisible": [
+      "Dark science-fiction weapon artwork depicts a large grenade launcher.",
+      "Three large charge/slot-shaped markers appear along one edge: one red and two purple.",
+      "The rules panel has a purple “Burst:” heading.",
+      "A purple square die icon appears inline in the rules text."
+    ],
+    "proposedCategory": "cards/game/item/rifle",
+    "proposedSlug": "grenade-launcher",
+    "confidence": "medium",
+    "uncertainties": [
+      "The small inline purple glyph is low-resolution, but its visible morphology is most consistent with burstDieAdditionalEffects.",
+      "“RANGER WEAPON-RIFLE” is printed on the illustrated weapon rather than in a standard card text field.",
+      "The three large edge markers are partially cut by the image boundary and are not mapped because their exact function is not established by the supplied glossary."
+    ]
+  },
+  "initialSessionId": "20260815_054049_d02081",
+  "orientationCorrection": "rotate90ccw",
+  "uprightRead": {
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "sessionId": "20260815_060433_c63a71",
+    "completedAt": "2026-08-15T06:04:56Z",
+    "parsed": {
+      "orientation": "upright",
+      "componentType": "weapon item card",
+      "cardSide": "face",
+      "title": "GRENADE LAUNCHER\nRIFLE",
+      "typeLine": "RANGED WEAPON, RIFLE",
+      "body": "Burst: You may use any numbers of [ICON: purple square with white grenade-like glyph] from this weapon\nbefore or instead of a normal Burst.",
+      "footer": "",
+      "upperRight": "",
+      "lowerCenter": "",
+      "visibleText": "",
+      "confidentlyVisible": [
+        "Typography is upright and reads left to right.",
+        "Artwork depicts a large futuristic firearm.",
+        "The title is printed in two centered lines.",
+        "The type line is yellow.",
+        "The rules text begins with the purple heading “Burst:”.",
+        "One red and two purple large slot-like shapes are partially clipped by the bottom edge."
+      ],
+      "proposedCategory": "cards/game/item/weapon",
+      "proposedSlug": "grenade-launcher-rifle",
+      "confidence": "medium",
+      "uncertainties": [
+        "The inline purple glyph is not a confident morphology match for any supplied canonical icon and is recorded literally.",
+        "The lower portions of all three large bottom slot-like shapes are outside the image and cannot be fully identified.",
+        "The card's outer boundary and possible additional lower content are clipped by the image edges."
+      ]
+    },
+    "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Planning image skill implementation****Planning image skill implementation****Initiating pixel inspection with vision tool**\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Initiating pixel inspection with vision tool****Verifying exact JSON icon details**\n\nsession_id: 20260815_060433_c63a71\n{\"orientation\":\"upright\",\"componentType\":\"weapon item card\",\"cardSide\":\"face\",\"title\":\"GRENADE LAUNCHER\\nRIFLE\",\"typeLine\":\"RANGED WEAPON, RIFLE\",\"body\":\"Burst: You may use any numbers of [ICON: purple square with white grenade-like glyph] from this weapon\\nbefore or instead of a normal Burst.\",\"footer\":\"\",\"upperRight\":\"\",\"lowerCenter\":\"\",\"visibleText\":\"\",\"confidentlyVisible\":[\"Typography is upright and reads left to right.\",\"Artwork depicts a large futuristic firearm.\",\"The title is printed in two centered lines.\",\"The type line is yellow.\",\"The rules text begins with the purple heading “Burst:”.\",\"One red and two purple large slot-like shapes are partially clipped by the bottom edge.\"],\"proposedCategory\":\"cards/game/item/weapon\",\"proposedSlug\":\"grenade-launcher-rifle\",\"confidence\":\"medium\",\"uncertainties\":[\"The inline purple glyph is not a confident morphology match for any supplied canonical icon and is recorded literally.\",\"The lower portions of all three large bottom slot-like shapes are outside the image and cannot be fully identified.\",\"The card's outer boundary and possible additional lower content are clipped by the image edges.\"]}\n"
+  }
+}

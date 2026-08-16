@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "assetId": "W01-003",
+  "batchId": "batch-001",
+  "capturedAt": "2026-08-15T20:30:50Z",
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/bags/ammoBag-028.jpg",
+  "sourceSha256": "32b841816025f13395d3951c7c708f34bee130158406a95cb742fd5a30eb85f1",
+  "runtimeProvenanceRef": "../metadata/runtime.json",
+  "blindAnalysis": true,
+  "metadataExcludedDuringPixelPass": [
+    "filename semantics",
+    "directory semantics",
+    "prior vision reads",
+    "TTS object metadata",
+    "game-context expectations"
+  ],
+  "orientationObservation": "Upright as displayed; six cartridge tips point upward. Rotation is otherwise not text-dependent.",
+  "blindPixelObservations": [
+    "A nearly square dark embossed/industrial wall texture forms the background.",
+    "Centered on it is a glossy translucent red rectangular object with clipped/stepped corners and a smaller protruding compartment at right.",
+    "Six upright detailed cartridges are aligned across the left/main compartment, each with a bright pale pointed tip and red casing.",
+    "A pale vertical rounded rectangle or reflection appears in the right compartment."
+  ],
+  "visibleText": [],
+  "iconObservations": [
+    {
+      "location": "center",
+      "literalMorphology": "Red rectangular physical-object rendering containing six upright detailed cartridges.",
+      "colors": "red translucent housing, red casings, pale/white cartridge tips, black background",
+      "closestPlausibleGlossaryAlternative": "ammoToken or redItem",
+      "visibleDiscriminatingFeature": "The artwork has six individually rendered cartridges in a rectangular housing; the glossary redItem badge has three white cartridges and the ammoToken is a compact token glyph, so neither glossary icon is asserted."
+    }
+  ],
+  "uncertainties": [
+    "The exact component/container role is not visible without provenance metadata."
+  ]
+}

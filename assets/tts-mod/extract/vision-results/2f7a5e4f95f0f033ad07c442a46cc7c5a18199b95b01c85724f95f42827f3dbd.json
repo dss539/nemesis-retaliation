@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/tiles/room/emergency-room-017.jpg",
+  "sourceSha256": "2f7a5e4f95f0f033ad07c442a46cc7c5a18199b95b01c85724f95f42827f3dbd",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_054738_a05a34",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:47:38Z",
+  "completedAt": "2026-08-15T05:48:19Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "texture atlas containing two hexagonal room-tile sides",
+    "cardSide": "notCard",
+    "title": "EMERGENCY ROOM",
+    "typeLine": "",
+    "body": "Restore 2 [characterHealth]\nOR\nDiscard 1 chosen\nSerious Wound.",
+    "footer": "",
+    "upperRight": "[ICON: gray hexagonal badge with angular three-lobed glyph]",
+    "lowerCenter": "",
+    "visibleText": "?\n?",
+    "confidentlyVisible": [
+      "The upper-left tile depicts a clinical room with an orange examination chair.",
+      "Three green octagonal badges with white crosses appear along the left edge of the upper-left tile.",
+      "A large pale question mark appears near the upper-left of the room artwork.",
+      "A second dark hexagonal tile side bears a large white question mark.",
+      "Black rounded connector/tab shapes surround both hexagonal tile images."
+    ],
+    "proposedCategory": "models/texture",
+    "proposedSlug": "emergency-room",
+    "confidence": "medium",
+    "uncertainties": [
+      "The file is a texture atlas containing multiple tile sides rather than one isolated component.",
+      "The upper-left tile is placed at a non-cardinal diagonal angle; none of the permitted 90-degree rotation choices makes its typography perfectly horizontal, so upright records the closest readable file orientation.",
+      "The gray upper-right badge glyph is not confidently matched to the supplied canonical glossary.",
+      "The three green cross badges resemble the canonical greenItem morphology, but they are repeated bare room-edge markers and are not mapped because their exact function is uncertain.",
+      "The second hexagonal tile side has no visible identifying text beyond a question mark."
+    ]
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Analyzing pixel orientation and icons**\n\n**Identifying multi-tile texture atlas components****Analyzing pixel orientation and icons**\n**Identifying multi-tile texture atlas components****Defining component as room tile texture atlas**\n\n\n**Analyzing characterHealth and EKG overlap****Defining component as room tile texture atlas**\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Analyzing characterHealth and EKG overlap****Assessing text orientation challenges in texture atlas**\n\n\n{\"orientation\":\"upright\",\"componentType\":\"texture atlas containing two hexagonal room-tile sides\",\"cardSide\":\"notCard\",\"title\":\"EMERGENCY ROOM\",\"typeLine\":\"\",\"body\":\"Restore 2 [characterHealth]\\nOR\\nDiscard 1 chosen\\nSerious Wound.\",\"footer\":\"\",\"upperRight\":\"[ICON: gray hexagonal badge with angular three-lobed glyph]\",\"lowerCenter\":\"\",\"visibleText\":\"?\\n?\",\"confidentlyVisible\":[\"The upper-left tile depicts a clinical room with an orange examination chair.\",\"Three green octagonal badges with white crosses appear along the left edge of the upper-left tile.\",\"A large pale question mark appears near the upper-left of the room artwork.\",\"A second dark hexagonal tile side bears a large white question mark.\",\"Black rounded connector/tab shapes surround both hexagonal tile images.\"],\"proposedCategory\":\"models/texture\",\"proposedSlug\":\"emergency-room\",\"confidence\":\"medium\",\"uncertainties\":[\"The file is a texture atlas containing multiple tile sides rather than one isolated component.\",\"The upper-left tile is placed at a non-cardinal diagonal angle; none of the permitted 90-degree rotation choices makes its typography perfectly horizontal, so upright records the closest readable file orientation.\",\"The gray upper-right badge glyph is not confidently matched to the supplied canonical glossary.\",\"The three green cross badges resemble the canonical greenItem morphology, but they are repeated bare room-edge markers and are not mapped because their exact function is uncertain.\",\"The second hexagonal tile side has no visible identifying text beyond a question mark.\"]}\n\nsession_id: 20260815_054738_a05a34\n"
+}

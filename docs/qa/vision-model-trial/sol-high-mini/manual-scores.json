@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "cases": {
+    "c01": {
+      "rubric": "historical dense-sheet comparator",
+      "criteria": {
+        "textAndFormatting": {"score": 23, "max": 30, "notes": "Broadly complete, but contains repeated Eclosion/Evacuation errors, punctuation normalization, and questionable text recovery from partly obscured material."},
+        "iconsAndSymbols": {"score": 9, "max": 20, "notes": "Correctly handled several ordinary inline icons but misclassified every non-glossary player-count emblem as character, rendered the objective-choice glyph as A, and inserted a pink symbol into Perimeter Clearing."},
+        "discipline": {"score": 12, "max": 20, "notes": "It reported several genuine uncertainties, but its confident player-count and symbol assignments violate the morphology-first rule."},
+        "structure": {"score": 14, "max": 15, "notes": "Columns, fan, panel rows, and explanatory-note layout were represented well."},
+        "completeness": {"score": 14, "max": 15, "notes": "Most visible sections and panels were covered, although some obscured/clipped scope decisions are inconsistent."}
+      },
+      "score": 72,
+      "max": 100
+    },
+    "c10": {
+      "rubric": "deferred composite-sheet abstention",
+      "criteria": {
+        "identityAndCategory": {"score": 20, "max": 25, "notes": "Correctly recognized a composite objective/reference help sheet, but did not establish the page-2 identity and called GAME TERMS the title."},
+        "visibleTextFidelity": {"score": 15, "max": 25, "notes": "Recovered substantial left-column and objective text but included questionable reconstructions such as 'The number 5 must NOT Survive' and omitted much panel text."},
+        "uncertaintyDiscipline": {"score": 18, "max": 20, "notes": "Correctly deferred and explicitly flagged clipped panels and non-glossary glyphs."},
+        "KnownUnresolvedDetails": {"score": 14, "max": 20, "notes": "Caught player-count and Life Support-like glyph uncertainty and clipping, but treated the square A glyph as text rather than separately flagging it."},
+        "decision": {"score": 10, "max": 10, "notes": "Correctly deferred."}
+      },
+      "score": 77,
+      "max": 100
+    },
+    "c11": {
+      "rubric": "known non-card texture",
+      "criteria": {
+        "identity": {"score": 30, "max": 30, "notes": "Correct Life Support Active facility-token identity."},
+        "icon": {"score": 30, "max": 30, "notes": "Correct lifeSupportActive glossary match."},
+        "category": {"score": 10, "max": 20, "notes": "Proposed generic map instead of the established tokens/status category."},
+        "decision": {"score": 10, "max": 10, "notes": "Correctly promoted."},
+        "discipline": {"score": 10, "max": 10, "notes": "No invented text or unrelated function."}
+      },
+      "score": 90,
+      "max": 100
+    },
+    "c12": {
+      "rubric": "ambiguous non-card abstention",
+      "criteria": {
+        "visibleDescription": {"score": 25, "max": 25, "notes": "Pixel description is concise and accurate."},
+        "NoInventedExactIdentity": {"score": 25, "max": 25, "notes": "It did not claim an Adult identity, bag role, or exact filename."},
+        "uncertaintyDiscipline": {"score": 5, "max": 20, "notes": "Identity confidence was low, but uncertainties was empty and overall/category confidence were high."},
+        "decision": {"score": 0, "max": 20, "notes": "Promoted despite low identity confidence and no canonical component function/category."},
+        "orientation": {"score": 10, "max": 10, "notes": "Rotation-irrelevant art was acceptably treated as upright."}
+      },
+      "score": 65,
+      "max": 100,
+      "criticalFailure": "False promotion of deliberately ambiguous canonical classification."
+    }
+  }
+}

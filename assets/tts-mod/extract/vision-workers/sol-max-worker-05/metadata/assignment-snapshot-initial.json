@@ -1,0 +1,100 @@
+{
+  "schemaVersion": 1,
+  "capturedAt": "2026-08-15T22:24:42Z",
+  "workerId": "sol-max-worker-05",
+  "assignment": {
+    "schemaVersion": 1,
+    "workerId": "sol-max-worker-05",
+    "status": "assigned",
+    "createdAt": "2026-08-15T22:24:42Z",
+    "runId": "sol-max-deferred-reexamination-2026-08-15",
+    "model": {
+      "provider": "openai-codex",
+      "model": "gpt-5.6-sol",
+      "reasoningEffort": "max"
+    },
+    "routingContract": {
+      "nativeVisionRequired": true,
+      "auxiliaryVisionForbidden": true,
+      "qwenForbidden": true,
+      "ocrCanonicalEvidenceForbidden": true
+    },
+    "limits": {
+      "softContextTokens": 170000,
+      "hardContextTokens": 200000,
+      "assignmentCount": 3,
+      "defaultDenseCardBatchSize": 1,
+      "maxSimpleImageBatchSize": 3
+    },
+    "isolation": {
+      "writeRoot": "assets/tts-mod/extract/vision-workers/sol-max-worker-05",
+      "sharedWritesForbidden": true
+    },
+    "scopeSource": {
+      "sourceQueue": "assets/tts-mod/extract/low-confidence-review.json",
+      "sourceProgress": "assets/tts-mod/extract/vision-progress.json",
+      "frontierAfter": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-10.png",
+      "selectionRule": "three exact current queue entries without this runId reexamination; retain stable IDs from worker04"
+    },
+    "assets": [
+      {
+        "assetId": "W04-009",
+        "queueIndexAtAssignment": 10,
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-11.png",
+        "sourceKind": "generated",
+        "sourceSha256": "6dc254bf10b41c217cdfe6c4d3d3ca3a8bedd7eded6f7ae6e0a07b9f71d6a19e",
+        "sourceMetadata": {
+          "width": 1052,
+          "height": 1433,
+          "format": "PNG",
+          "mode": "RGB",
+          "frames": 1,
+          "byteSize": 1417086,
+          "decodeVerified": true
+        },
+        "retryOf": "sol-max-worker-04/W04-009"
+      },
+      {
+        "assetId": "W04-010",
+        "queueIndexAtAssignment": 11,
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-12.png",
+        "sourceKind": "generated",
+        "sourceSha256": "071501844b55d42daa48430786b944d8cf1fea711ad6994abf6d3a9c61b18245",
+        "sourceMetadata": {
+          "width": 1052,
+          "height": 1433,
+          "format": "PNG",
+          "mode": "RGB",
+          "frames": 1,
+          "byteSize": 1599917,
+          "decodeVerified": true
+        },
+        "retryOf": null
+      },
+      {
+        "assetId": "W04-011",
+        "queueIndexAtAssignment": 12,
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-13.png",
+        "sourceKind": "generated",
+        "sourceSha256": "b3b209538a4ac8554ae6e5230f4a98b1fa1ff3bd8f89b3ccfbee53d115997e9e",
+        "sourceMetadata": {
+          "width": 1052,
+          "height": 1433,
+          "format": "PNG",
+          "mode": "RGB",
+          "frames": 1,
+          "byteSize": 1637974,
+          "decodeVerified": true
+        },
+        "retryOf": null
+      }
+    ],
+    "completionContract": {
+      "preflightHashBeforeEveryAttachment": true,
+      "blindRawBeforeMetadata": true,
+      "exactIdCountReconciliation": true,
+      "oneResultPerAssignedId": true,
+      "stagingOnly": true
+    }
+  }
+}

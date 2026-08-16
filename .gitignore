@@ -5,11 +5,32 @@ docs/rulebooks/*.txt
 # Copyrighted visual references (local research library; do not redistribute)
 art-references/
 
-# QA artifacts
-docs/qa/*.png
-docs/qa/*.json
+# TTS mod extraction: copyrighted card art + save file (local only, not in git)
+assets/archive/
+assets/icons/
+assets/tts-mod/extract/v2-dl/
+assets/tts-mod/extract/nemesis_script_mod.bin
+assets/tts-mod/extract/download_results.json
+assets/tts-mod/extract/manifest.json
+assets/tts-mod/**/*.png
+assets/tts-mod/**/*.jpg
+assets/tts-mod/**/*.jpeg
+cards/**/*.png
+cards/**/*.jpg
+cards/**/*.jpeg
+
+# QA artifacts: retain text/JSON evidence, keep generated/source pixels local
+docs/qa/**/*.png
+docs/qa/**/*.jpg
+docs/qa/**/*.jpeg
+docs/qa/**/*.pdf
+docs/qa/tmp-rulebook-pages/
 docs/qa/full_game_qa.py
 docs/qa/full_game_qa2.py
+
+# Generated Python caches
+__pycache__/
+*.pyc
 
 # OS files
 .DS_Store

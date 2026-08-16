@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoop/objectiveCoop-113.jpg",
+  "sourceSha256": "62bc7df50a5d5b5075561f5b63c11603086aa3f3e335d05d346a10dfd797fa9c",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_053330_dd0953",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:33:30Z",
+  "completedAt": "2026-08-15T05:34:31Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "solo/cooperative objective card",
+    "cardSide": "face",
+    "title": "ENTRANCE INSPECTION",
+    "typeLine": "",
+    "body": "There must be no Unexplored\nCorridors in Section A.",
+    "footer": "SOLO / COOP",
+    "upperRight": "",
+    "lowerCenter": "",
+    "visibleText": "[ICON: yellow triangular warning sign with black biohazard glyph]\n[ICON: black biohazard glyph] QUARANTINE\n[ICON: black biohazard glyph] QUARANTINE\n[ICON: black biohazard glyph] QUARANTINE\n[ICON: black biohazard glyph] QUARANTINE",
+    "confidentlyVisible": [
+      "Portrait-format card face with upright typography",
+      "Artwork depicts sealed doors crossed by yellow quarantine tape",
+      "Title reads ENTRANCE INSPECTION",
+      "Body consists of one sentence across two printed lines",
+      "Green footer label reads SOLO / COOP",
+      "No bare upper-right or lower-center canonical icon is visible"
+    ],
+    "proposedCategory": "cards/game/objective",
+    "proposedSlug": "entrance-inspection",
+    "confidence": "medium",
+    "uncertainties": [
+      "Several additional QUARANTINE inscriptions in the artwork are partly obscured, overlapped, or clipped and are not transcribed.",
+      "The biohazard warning glyphs are not represented in the supplied canonical glossary, so they are recorded as literal icon descriptions.",
+      "The exact number of fully legible repeated QUARANTINE inscriptions is somewhat ambiguous because the tape strips overlap."
+    ]
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Loading image analysis skill and initializing vision tool**\n\n**Planning detailed pixel-level transcription of visible tape text****Loading image analysis skill and initializing vision tool**\n**Planning detailed pixel-level transcription of visible tape text****Planning pixel inspection and OCR**\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Planning pixel inspection and OCR****Planning precise visibleText transcription**\n\n\n**Evaluating visible partial and full text occurrences**\n\n**Confirming inclusion of biohazard icons in text**\n\n**Defining literal uncertain icon recording**\n\n**Mapping repeated quarantine tape text positioning**\n\n**Deciding transcription confidence approach**\n\n**Assessing OCR text representation and slug**\n\n**Verifying text visibility and placement**\n\n**Clarifying visible QUARANTINE text with icons**\n\n{\"orientation\":\"upright\",\"componentType\":\"solo/cooperative objective card\",\"cardSide\":\"face\",\"title\":\"ENTRANCE INSPECTION\",\"typeLine\":\"\",\"body\":\"There must be no Unexplored\\nCorridors in Section A.\",\"footer\":\"SOLO / COOP\",\"upperRight\":\"\",\"lowerCenter\":\"\",\"visibleText\":\"[ICON: yellow triangular warning sign with black biohazard glyph]\\n[ICON: black biohazard glyph] QUARANTINE\\n[ICON: black biohazard glyph] QUARANTINE\\n[ICON: black biohazard glyph] QUARANTINE\\n[ICON: black biohazard glyph] QUARANTINE\",\"confidentlyVisible\":[\"Portrait-format card face with upright typography\",\"Artwork depicts sealed doors crossed by yellow quarantine tape\",\"Title reads ENTRANCE INSPECTION\",\"Body consists of one sentence across two printed lines\",\"Green footer label reads SOLO / COOP\",\"No bare upper-right or lower-center canonical icon is visible\"],\"proposedCategory\":\"cards/game/objective\",\"proposedSlug\":\"entrance-inspection\",\"confidence\":\"medium\",\"uncertainties\":[\"Several additional QUARANTINE inscriptions in the artwork are partly obscured, overlapped, or clipped and are not transcribed.\",\"The biohazard warning glyphs are not represented in the supplied canonical glossary, so they are recorded as literal icon descriptions.\",\"The exact number of fully legible repeated QUARANTINE inscriptions is somewhat ambiguous because the tape strips overlap.\"]}\n\nsession_id: 20260815_053330_dd0953\n"
+}

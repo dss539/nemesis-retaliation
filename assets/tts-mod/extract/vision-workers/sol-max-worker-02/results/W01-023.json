@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "assetId": "W01-023",
+  "batchId": "batch-003",
+  "completedAt": "2026-08-15T21:30:16Z",
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/bags/trap-bag-013.png",
+  "sourceSha256": "12d9ff87e2a07fa4b5632d91f199492b97c07ef5b46372172d386f642cc5377f",
+  "sourceMetadata": {
+    "width": 820,
+    "height": 820,
+    "format": "PNG",
+    "mode": "RGBA",
+    "byteSize": 1117744,
+    "frames": 1,
+    "decodeVerified": true
+  },
+  "runtimeProvenance": {
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "reasoningEffort": "max",
+    "platform": "subagent",
+    "workerId": "sol-max-worker-02",
+    "sessionId": "20260815_210607_461cc1",
+    "persistentSession": true,
+    "nativeVision": true,
+    "auxiliaryVisionUsed": false,
+    "qwenUsed": false
+  },
+  "orientation": {
+    "status": "rotation-irrelevant",
+    "evidence": "The mechanism is predominantly radial; a chain emerging at the bottom distinguishes the displayed orientation but no text or card-face rotation applies.",
+    "transformApplied": null,
+    "stagingDerivative": null
+  },
+  "blindPixelObservations": [
+    "A circular red-and-black metal mechanism fills nearly the entire square canvas, with transparent corners outside the circle.",
+    "Two concentric rings of large triangular inward-facing teeth form serrated jaws around the upper and lower perimeter.",
+    "A broad horizontal metal bar and narrower vertical bar cross through a large rusted circular center plate held by visible rivets.",
+    "The background and metal are heavily textured in deep red, black, and rusty copper.",
+    "Bright yellow-green liquid splashes or stains appear across the center and around several joints, and a dark chain emerges from the bottom."
+  ],
+  "visibleText": [],
+  "iconMorphology": [],
+  "iconMorphologyEmptyReason": "No discrete icon or glyph is present; the entire image is detailed pictorial mechanism artwork.",
+  "evidenceConsulted": {
+    "blindPixelRecord": "raw/W01-023.json",
+    "metadataJoin": "metadata/provenance/W01-023.json",
+    "tts": {
+      "consultedAfterBlindRecord": true,
+      "manifestUrl": "https://steamusercontent-a.akamaihd.net/ugc/15562059000887894705/441F5346C781DE37EEAACA5AFE105F4732D69FEB/",
+      "finding": "The URL is the DiffuseURL of base Custom_Model_Infinite_Bag 0987e4 (nickname Trap bag; Lua role trapBag) and the ImageSecondaryURL of its contained base Custom_Tile 51f80a (nickname Trap; gmnotes trap)."
+    },
+    "official": {
+      "consulted": false,
+      "reason": "No rules text, canonical icon claim, or source conflict required official escalation."
+    }
+  },
+  "proposedClassification": "Non-card base-game Trap infinite-bag diffuse artwork, also used as the contained Trap tile's secondary image.",
+  "proposedPath": "assets/tts-mod/extract/v2-dl/tree/bags/trap-bag-013.png (retain unchanged; no move or canonical sidecar proposed)",
+  "readConfidence": {
+    "level": "high",
+    "reason": "The toothed circular mechanism, chain, and surface details are clear at native resolution; no text is present."
+  },
+  "classificationConfidence": {
+    "level": "high",
+    "reason": "The literal toothed mechanism is independently corroborated by two consistent TTS uses labeled Trap bag/trapBag and Trap/trap."
+  },
+  "uncertainties": [],
+  "promotionDecision": "non-card-complete",
+  "decisionReasons": [
+    "This is non-card container/tile artwork and requires no rules-card text sidecar.",
+    "Both TTS references independently and consistently identify the trap role.",
+    "No icon or text is invented from the pictorial mechanism."
+  ],
+  "stagedCandidateSidecarPath": null,
+  "validationPerformed": [
+    "Preflight recomputed the source SHA-256 immediately before native attachment and matched the live assignment.",
+    "Pillow decoded and verified the 820x820 one-frame PNG.",
+    "The image was attached and inspected natively as W01-023 in batch-003 through the verified Sol Max route.",
+    "Blind observations were persisted before TTS metadata was consulted.",
+    "Both matching URL references and the trapBag Lua role were reconciled.",
+    "No source, canonical sidecar, shared ledger, manifest, catalog, or prior-worker file was modified."
+  ],
+  "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-worker-02/raw/W01-023.json"
+}

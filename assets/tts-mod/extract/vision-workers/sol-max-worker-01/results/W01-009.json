@@ -1,0 +1,110 @@
+{
+  "schemaVersion": 1,
+  "assetId": "W01-009",
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/bags/drone-011.png",
+  "sourceSha256": "a6da273d9f18da7907ad488ecfc15e0acd5d5cddc3b742aaf08170865a697b2b",
+  "sourceMetadata": {
+    "width": 537,
+    "height": 391,
+    "format": "PNG",
+    "mode": "RGBA",
+    "byteSize": 300889
+  },
+  "runtimeProvenance": {
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "reasoningEffort": "max",
+    "platform": "subagent",
+    "workerId": "sol-max-worker-01",
+    "sessionProvenanceHandle": "hermes_rpc_dfba82c30cd846b6bc4eced43002e707.sock",
+    "persistentSession": true,
+    "nativeVision": true,
+    "auxiliaryVisionUsed": false
+  },
+  "orientation": {
+    "status": "upright",
+    "evidence": "All visible feet meet a horizontal ground line along the lower edge.",
+    "transformApplied": null,
+    "stagingDerivative": null
+  },
+  "blindPixelObservations": [
+    "Irregular teal mist backing with transparent margins.",
+    "Detailed crouched left-facing creature with pale jagged horned/spined head, coral-red/orange armored shoulder and forelimb, dark gray legs/torso, large arcing dorsal spines, long claws, and a tail curving right.",
+    "Painterly isolated creature artwork; no printed rules panel."
+  ],
+  "visibleText": [],
+  "iconMorphology": [
+    {
+      "location": "entire central artwork",
+      "silhouette": "Low crouch with towering paired head/back spines, long forelimbs and hind limbs, and curved tail.",
+      "internalMarks": "Pale jagged facial armor, coral shoulder/forelimb plates, ribbed dark torso.",
+      "colors": "pale bone, coral red-orange, dark gray, teal",
+      "claimedToken": null,
+      "closestPlausibleGlossaryAlternative": "intruder",
+      "visibleDiscriminatingFeature": "This is detailed multi-tone creature art rather than the flat white glossary intruder glyph; no glossary token is claimed.",
+      "componentClassComparison": {
+        "closestAlternative": "Adult",
+        "visibleDiscriminator": "Official p.30 DRONE repeats the tall multi-pronged horn/spine silhouette and low crouch; official ADULT has a much smoother low quadrupedal silhouette without the towering head/back spines."
+      }
+    }
+  ],
+  "evidenceConsulted": {
+    "tts": {
+      "consultedAfterBlindRecord": true,
+      "trigger": "Pixels established creature art but exact class needed provenance; Bag nickname and contained figurine gmnotes disagreed.",
+      "manifestUrl": "https://steamusercontent-a.akamaihd.net/ugc/11923313306143358/50BA52316FDD8F063F7675677766933011796F97/",
+      "objectReferences": [
+        {
+          "guid": "31f65c",
+          "type": "Bag",
+          "nickname": "Drone",
+          "urlRole": "ImageURL"
+        },
+        {
+          "guid": "7dda00",
+          "type": "Figurine_Custom",
+          "gmnotes": "breeder",
+          "parentGuid": "31f65c",
+          "urlRole": "ImageURL"
+        }
+      ]
+    },
+    "official": {
+      "consulted": true,
+      "trigger": "TTS Bag nickname Drone conflicted with contained figurine gmnotes breeder.",
+      "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
+      "sourceSha256": "e3cda0d7a91bd090cec45dbc8ce89e2015e2202173357c374ff49365f9c29ddd",
+      "renderedPage": "assets/tts-mod/extract/vision-workers/sol-max-worker-01/official/base-rulebook-200dpi-30.png",
+      "printedPage": 30,
+      "contactSheet": "assets/tts-mod/extract/vision-workers/sol-max-worker-01/contact-sheets/W01-009-official-drone-v-adult.png",
+      "finding": "The official p.30 token labeled DRONE matches the assigned creature's tall horn/spine silhouette and crouched anatomy; the labeled ADULT token visibly differs. The official page lists no Breeder class."
+    }
+  },
+  "proposedClassification": "Non-card Drone creature artwork shared by a TTS Bag image and a contained Figurine_Custom image; contained gmnotes breeder is not supported as the current official class label.",
+  "proposedPath": "assets/tts-mod/extract/v2-dl/tree/bags/drone-011.png (retain unchanged; no canonical move proposed)",
+  "readConfidence": {
+    "level": "high",
+    "reason": "Creature morphology is clear and no text is present."
+  },
+  "classificationConfidence": {
+    "level": "high",
+    "reason": "Official labeled morphology and Bag nickname independently support Drone and visibly rule out Adult; the stale/alternate breeder tag does not control."
+  },
+  "uncertainties": [],
+  "promotionDecision": "non-card-complete",
+  "decisionReasons": [
+    "This is creature/container artwork, not a rules-card face.",
+    "A direct assigned-art versus official DRONE/ADULT morphology comparison resolved the TTS metadata conflict.",
+    "No semantic glossary icon or unreadable text is promoted."
+  ],
+  "stagedCandidateSidecarPath": null,
+  "validationPerformed": [
+    "Assignment SHA-256 matched source bytes.",
+    "Pillow decoded and verified the 537x391 PNG.",
+    "Native vision attachment was inspected independently as W01-009.",
+    "Blind observations were persisted before TTS and official evidence were consulted.",
+    "Official PDF pages 30-32 were rendered at 200 DPI and inspected; p.30 token crops were compared in a focused contact sheet.",
+    "No source file or canonical/shared ledger was modified."
+  ],
+  "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-worker-01/raw/W01-009.json"
+}

@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 1,
+  "assetId": "W05-004",
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-06.png",
+  "sourceSha256": "90cb405743269046b530add3108500d2e0eaefbd66fb9d55d7b42dd0cbbffa30",
+  "nativeAttachment": {
+    "submittedAssetId": "W05-004",
+    "submittedCount": 1,
+    "returnedAssetId": "W05-004",
+    "returnedCount": 1,
+    "exactAbsolutePathAttached": "/home/smithers/nemesis-retaliation/assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-06.png",
+    "routeObservation": "functions.vision_analyze returned 'Image loaded into your context — you can see it natively now' to the active session model"
+  },
+  "orientation": {
+    "pixelOrientation": "upright",
+    "requiredTransform": "none",
+    "basis": "The title, two body lines, and footer read left-to-right in a vertically ordered portrait layout."
+  },
+  "blindPixelObservations": [
+    "A portrait-format illustrated rules card fills the image.",
+    "The upper artwork uses black, dark blue, violet, cyan, pink, and red; an armed figure moves through a chain-filled industrial corridor.",
+    "One standalone white-and-red crossed pictogram appears near the upper-right corner of the artwork.",
+    "A magenta-and-black title frame overlays the lower edge of the artwork.",
+    "Below the title are two centered instruction lines; the first line contains one solid white polygonal pictogram.",
+    "The footer is black with widely spaced magenta letters."
+  ],
+  "visibleText": {
+    "title": "SEARCH",
+    "body": "Draw 1 Item for each [ICON: solid white eight-sided polygon] in your Room.\nKeep 1 and discard the rest.",
+    "footer": "RECON"
+  },
+  "iconMorphology": [
+    {
+      "iconId": "W05-004-glyph-01",
+      "location": "upper-right corner of the artwork, standalone",
+      "neighboringText": "No adjacent printed text; it is spatially separate from the title and body.",
+      "outerSilhouette": "A white horizontal gun- or tool-like silhouette crossed by a large red diagonal X; the red X has two broad strokes and extends beyond the white shape.",
+      "internalMarks": "A thin red horizontal detail is visible inside the white horizontal silhouette; dark edging/shadow separates the red X from parts of the white form.",
+      "colors": [
+        "white horizontal foreground shape",
+        "bright red X and red inner line",
+        "dark outline/shadow"
+      ],
+      "closestPlausibleCanonicalAlternatives": [
+        "notInCombat",
+        "literal no-shooting or crossed-out-weapon glyph not independently named in the glossary"
+      ],
+      "alternativeFalsification": {
+        "notInCombat": "The source pixels alone do not establish whether the crossed weapon means the canonical notInCombat concept or a narrower no-shooting concept; no semantic alternative is ruled out by the X itself.",
+        "literal no-shooting or crossed-out-weapon glyph not independently named in the glossary": "No visible pixel feature rules this literal alternative out in the blind stage."
+      },
+      "semanticIdentity": "unresolved literal morphology",
+      "canonicalTokenClaimed": false
+    },
+    {
+      "iconId": "W05-004-glyph-02",
+      "location": "first body line, between the printed words 'each' and 'in'",
+      "neighboringText": "Draw 1 Item for each [glyph] in your Room.",
+      "outerSilhouette": "A solid, nearly regular white octagon: short horizontal top and bottom edges, vertical left and right edges, and four clipped diagonal corners.",
+      "internalMarks": "No internal mark, letter, colored center, border, or negative-space symbol is visibly present; the interior appears uniformly white.",
+      "colors": [
+        "uniform white foreground",
+        "dark magenta/black surrounding card background"
+      ],
+      "closestPlausibleCanonicalAlternatives": [
+        "secure",
+        "an unresolved card-local placeholder or printing/rendering omission"
+      ],
+      "alternativeFalsification": {
+        "secure": "The visible polygon lacks the secure crop's dark Y-shaped internal division and pointed lower profile, so the visible source feature rules out an exact secure-icon morphology match.",
+        "an unresolved card-local placeholder or printing/rendering omission": "No visible feature rules this alternative out; the absence of any internal mark is itself the material uncertainty."
+      },
+      "semanticIdentity": "unresolved literal morphology",
+      "canonicalTokenClaimed": false
+    }
+  ],
+  "blindReadConfidence": {
+    "orientation": "high",
+    "materialText": "high except the semantic content represented by the blank polygon",
+    "punctuation": "high",
+    "upperRightIconMorphology": "high",
+    "inlineIconMorphology": "high as a blank polygon",
+    "iconSemanticIdentity": "low before authoritative comparison"
+  },
+  "blindUncertainties": [
+    "The upper-right crossed-weapon glyph has clear morphology but its game meaning cannot be inferred safely from pixels alone.",
+    "The inline polygon is visibly blank; assigning any glossary token would require an internal feature that is absent from the source pixels.",
+    "The semantic noun represented by the blank inline polygon cannot be transcribed without guessing."
+  ],
+  "metadataUsedForSemanticReading": false,
+  "rawStage": "blind-pixel-observation-before-provenance-join"
+}

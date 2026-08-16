@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/tiles/room/pressure-control-007.jpg",
+  "sourceSha256": "bb0c5cc9439d3c571d95df61e89269a1b5002b061f9552cd415e819968a90115",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_054824_645729",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:48:24Z",
+  "completedAt": "2026-08-15T05:48:55Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "room tile face within a texture atlas",
+    "cardSide": "face",
+    "title": "PRESSURE CONTROL",
+    "typeLine": "",
+    "body": "Move 1 [ICON: white spiky circular glyph] anywhere\nin the Facility.",
+    "footer": "",
+    "upperRight": "computer",
+    "lowerCenter": "",
+    "visibleText": "?",
+    "confidentlyVisible": [
+      "The main component is an irregular room tile with connector tabs.",
+      "The title reads PRESSURE CONTROL.",
+      "The room art depicts an overgrown control-room or office interior with tables, chairs, consoles, and equipment.",
+      "A blue computer icon appears to the right of the room art.",
+      "Three yellow wrench badges appear in a vertical row along the left edge.",
+      "A large white question mark appears near the upper-left of the room art.",
+      "A separate partially visible tile back bears a large white question mark."
+    ],
+    "proposedCategory": "tiles/room",
+    "proposedSlug": "pressure-control",
+    "confidence": "medium",
+    "uncertainties": [
+      "The white spiky circular glyph after “Move 1” is not confidently matched to any canonical glossary icon and may be a room-local action/effect glyph.",
+      "The file is a texture atlas containing the complete room-tile face plus portions of neighboring components, rather than a tightly cropped standalone tile.",
+      "The tile typography is diagonally positioned within the atlas, but it already reads left-to-right without a 90-degree or 180-degree file rotation.",
+      "The exact semantic role of the three visible yellow wrench badges is not stated in text; their morphology matches yellowItem, but they are not represented in a dedicated output position field."
+    ]
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Planning image pixel inspection****Planning image pixel inspection****Analyzing tile and text rotation angles**\n\n\n{\"orientation\":\"upright\",\"componentType\":\"room tile face within a texture atlas\",\"cardSide\":\"face\",\"title\":\"PRESSURE CONTROL\",\"typeLine\":\"\",\"body\":\"Move 1 [ICON: white spiky circular glyph] anywhere\\nin the Facility.\",\"footer\":\"\",\"upperRight\":\"computer\",\"lowerCenter\":\"\",\"visibleText\":\"?\",\"confidentlyVisible\":[\"The main component is an irregular room tile with connector tabs.\",\"The title reads PRESSURE CONTROL.\",\"The room art depicts an overgrown control-room or office interior with tables, chairs, consoles, and equipment.\",\"A blue computer icon appears to the right of the room art.\",\"Three yellow wrench badges appear in a vertical row along the left edge.\",\"A large white question mark appears near the upper-left of the room art.\",\"A separate partially visible tile back bears a large white question mark.\"],\"proposedCategory\":\"tiles/room\",\"proposedSlug\":\"pressure-control\",\"confidence\":\"medium\",\"uncertainties\":[\"The white spiky circular glyph after “Move 1” is not confidently matched to any canonical glossary icon and may be a room-local action/effect glyph.\",\"The file is a texture atlas containing the complete room-tile face plus portions of neighboring components, rather than a tightly cropped standalone tile.\",\"The tile typography is diagonally positioned within the atlas, but it already reads left-to-right without a 90-degree or 180-degree file rotation.\",\"The exact semantic role of the three visible yellow wrench badges is not stated in text; their morphology matches yellowItem, but they are not represented in a dedicated output position field.\"]}\n\nsession_id: 20260815_054824_645729\n"
+}

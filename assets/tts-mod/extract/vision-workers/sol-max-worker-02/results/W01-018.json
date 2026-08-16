@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 1,
+  "assetId": "W01-018",
+  "batchId": "batch-002",
+  "completedAt": "2026-08-15T21:23:45Z",
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/bags/roomIABag-016.jpg",
+  "sourceSha256": "6fe158efe4fa10e8bc229b0696507422c1894b8ea7bacd8d460bb9a43ab99aa6",
+  "sourceMetadata": {
+    "width": 2458,
+    "height": 2458,
+    "format": "JPEG",
+    "mode": "RGB",
+    "byteSize": 1226400,
+    "frames": 1,
+    "decodeVerified": true
+  },
+  "runtimeProvenance": {
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "reasoningEffort": "max",
+    "platform": "subagent",
+    "workerId": "sol-max-worker-02",
+    "sessionId": "20260815_210607_461cc1",
+    "persistentSession": true,
+    "nativeVision": true,
+    "auxiliaryVisionUsed": false,
+    "qwenUsed": false
+  },
+  "orientation": {
+    "status": "rotation-irrelevant",
+    "evidence": "The asset is a sparse UV/diffuse texture with an intentionally diagonal mechanical region; the letter A is readable and no card-face orientation applies.",
+    "transformApplied": null,
+    "stagingDerivative": null
+  },
+  "blindPixelObservations": [
+    "Most of the square canvas is near-black, especially the entire right half and lower region.",
+    "A large diagonally oriented mechanical object occupies the upper-left quadrant, with a dark rusty metal central plate, rounded protrusions around its perimeter, four recessed vent-like openings, and bright white bar lights near the openings.",
+    "Small orange indicator points and rust-orange scuffs dot the metal surface.",
+    "A large white capital letter overlays the center of the metal plate at a slight angle.",
+    "A second darker teal-black rectangular plane is partly visible behind the mechanical object."
+  ],
+  "visibleText": [
+    {
+      "text": "A",
+      "location": "center of mechanical plate",
+      "structure": "large white uppercase letter, slightly angled",
+      "confidence": "high"
+    }
+  ],
+  "iconMorphology": [],
+  "iconMorphologyEmptyReason": "No discrete glossary-like icon is present; the illuminated recesses and mechanical plate are diffuse-texture artwork, while A is transcribed as text.",
+  "evidenceConsulted": {
+    "blindPixelRecord": "raw/W01-018.json",
+    "metadataJoin": "metadata/provenance/W01-018.json",
+    "tts": {
+      "consultedAfterBlindRecord": true,
+      "manifestUrl": "https://steamusercontent-a.akamaihd.net/ugc/2468613527880237834/BA24B324C93931606EB89FA3B369D3DB493DE9D0/",
+      "finding": "The URL is the sole DiffuseURL of base Custom_Model_Bag 4b5bf1, whose explicit Lua role is roomIABag."
+    },
+    "official": {
+      "consulted": false,
+      "reason": "No rules text, canonical icon claim, or source conflict required official escalation."
+    }
+  },
+  "proposedClassification": "Non-card base-game Room I-A Custom_Model_Bag diffuse/UV texture labeled A.",
+  "proposedPath": "assets/tts-mod/extract/v2-dl/tree/bags/roomIABag-016.jpg (retain unchanged; no move or canonical sidecar proposed)",
+  "readConfidence": {
+    "level": "high",
+    "reason": "The letter A and diffuse-texture morphology are clear at native resolution."
+  },
+  "classificationConfidence": {
+    "level": "high",
+    "reason": "The sparse diagonal UV layout and A label are corroborated by the sole TTS Custom_Model_Bag DiffuseURL and roomIABag Lua role."
+  },
+  "uncertainties": [],
+  "promotionDecision": "non-card-complete",
+  "decisionReasons": [
+    "This is a model-bag diffuse texture, not a rules-card face.",
+    "The visible letter A is preserved literally without inferring rules text.",
+    "No material text, icon, role, or orientation uncertainty remains for non-card classification."
+  ],
+  "stagedCandidateSidecarPath": null,
+  "validationPerformed": [
+    "Preflight recomputed the source SHA-256 immediately before native attachment and matched the live assignment.",
+    "Pillow decoded and verified the 2458x2458 one-frame JPEG.",
+    "The image was attached and inspected natively as W01-018 in batch-002 through the verified Sol Max route.",
+    "Blind observations were persisted before TTS metadata was consulted.",
+    "The sole matching DiffuseURL reference and roomIABag Lua role were resolved.",
+    "No source, canonical sidecar, shared ledger, manifest, catalog, or prior-worker file was modified."
+  ],
+  "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-worker-02/raw/W01-018.json"
+}

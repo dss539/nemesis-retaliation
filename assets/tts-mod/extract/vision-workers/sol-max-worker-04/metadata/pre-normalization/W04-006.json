@@ -1,0 +1,121 @@
+{
+  "schemaVersion": 1,
+  "assetId": "W04-006",
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-08.png",
+  "sourceSha256": "3857d50481da9f212645e101932cfc3658beb376d3d599cd76954f32736cfd3b",
+  "sourceMetadata": {
+    "width": 1052,
+    "height": 1433,
+    "format": "PNG",
+    "mode": "RGB",
+    "frames": 1,
+    "byteSize": 1551926,
+    "decodeVerified": true
+  },
+  "batchId": "W04-B03",
+  "completedAt": "2026-08-15T22:12:57Z",
+  "runtimeProvenance": {
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "reasoningEffort": "max",
+    "platform": "subagent",
+    "sessionId": "20260815_215426_fac7ff",
+    "nativeImageRoute": "active-session native image attachment via functions.vision_analyze"
+  },
+  "orientation": {
+    "displayed": "upright portrait",
+    "final": "upright",
+    "rotationRequired": false
+  },
+  "blindPixelObservations": [
+    "Bright yellow portal/explosion behind a pale creature and armed figure.",
+    "SHOOT FIRST title; Move. plus conditional/timing rules.",
+    "One inline white curled-spined creature glyph; no corner glyph.",
+    "No neighboring-cell contamination."
+  ],
+  "visibleText": {
+    "title": "SHOOT FIRST",
+    "typeLine": "",
+    "body": "Move.\nIf there is an [intruder] in your Room or an adjacent\nCorridor, you may Shoot or Burst.\nResolve it before that Intruder Attacks.",
+    "footer": "RECON",
+    "upperRight": "",
+    "lowerCenter": "",
+    "edgeContamination": ""
+  },
+  "iconMorphology": [
+    {
+      "location": "conditional sentence after “an”",
+      "outerSilhouette": "white creature curled into a near-circle with dorsal spines and head at upper left",
+      "internalMarks": "two dark eye holes, dark curled center, and toothed inner lower arc",
+      "colors": [
+        "white",
+        "dark negative spaces"
+      ],
+      "neighboringPrintedText": "If there is an [glyph] in your Room or an adjacent Corridor",
+      "closestPlausibleAlternative": "lander",
+      "visibleDiscriminatingFeature": "Eye holes, curled circular body, dorsal spines, and toothed inner arc exactly match intruder; lander is symmetric spire/horns/base.",
+      "proposedToken": "intruder",
+      "tokenVerification": "same-session exact direct source/glossary contact-sheet match",
+      "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-worker-04/contact-sheets/W04-006-inline-glyph.png",
+      "verdictPath": "assets/tts-mod/extract/vision-workers/sol-max-worker-04/contact-sheets/W04-006-inline-glyph-verdict.json"
+    }
+  ],
+  "evidenceConsulted": [
+    {
+      "kind": "blindNativeImage",
+      "path": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-08.png",
+      "timing": "before metadata"
+    },
+    {
+      "kind": "ttsProvenance",
+      "path": "assets/tts-mod/extract/vision-workers/sol-max-worker-04/provenance/W04-006.json",
+      "finding": "Shared FaceURL sheet cell 8 has no exact CardID selector; paired action back only generic."
+    },
+    {
+      "kind": "authoritativeGlossaryContactSheet",
+      "path": "assets/tts-mod/extract/vision-workers/sol-max-worker-04/contact-sheets/W04-006-inline-glyph.png",
+      "finding": "Exact intruder morphology verified against lander and other alternatives."
+    },
+    {
+      "kind": "canonicalTargetExistenceCheck",
+      "path": "cards/character/recon/action/shoot-first",
+      "finding": "No existing image or sidecar."
+    }
+  ],
+  "proposedClassification": "individual portrait action-card face for printed owner RECON, from shared FaceURL sheet",
+  "proposedPath": "cards/character/recon/action/shoot-first.png",
+  "canonicalTarget": "cards/character/recon/action/shoot-first.png",
+  "cardData": {
+    "cardSide": "face",
+    "title": "SHOOT FIRST",
+    "typeLine": "",
+    "body": "Move.\nIf there is an [intruder] in your Room or an adjacent\nCorridor, you may Shoot or Burst.\nResolve it before that Intruder Attacks.",
+    "footer": "RECON",
+    "upperRight": "",
+    "lowerCenter": "",
+    "category": "cards/character/recon/action",
+    "slug": "shoot-first"
+  },
+  "readConfidence": "high",
+  "classificationConfidence": "medium",
+  "uncertainties": [
+    "No parsed TTS Card object selects shared-sheet cell index 8, preventing exact GUID/CardID and cell-specific paired-side resolution.",
+    "Only a generic action-card BackURL is associated through other shared-sheet card records."
+  ],
+  "promotionDecision": "defer",
+  "decisionReasons": [
+    "Pixel text and icon are clear, but strict promotion requires resolved individual FaceURL/card-index and paired-side provenance.",
+    "This source-sheet cell is unselected in parsed TTS object records."
+  ],
+  "stagedCandidateSidecarPath": null,
+  "validationPerformed": [
+    "source preflight before original/contact-sheet attachments",
+    "raw blind persisted before metadata",
+    "independent provenance derivation",
+    "same-session direct glossary comparison",
+    "ID/count reconciled 1/1",
+    "target checked absent",
+    "identity recomputed by worker_utils.write_result"
+  ],
+  "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-worker-04/raw/W04-006.json"
+}

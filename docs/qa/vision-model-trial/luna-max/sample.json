@@ -1,0 +1,109 @@
+{
+  "schemaVersion": 1,
+  "frozenAt": "2026-08-15",
+  "model": "gpt-5.6-luna",
+  "provider": "openai-codex",
+  "reasoning": "max",
+  "cases": [
+    {
+      "id": "c01",
+      "tier": "historical-comparator",
+      "source": "assets/tts-mod/extract/v2-dl/tree/cards/reference/objectives-help-sheet.jpg",
+      "sourceSha256": "28317a0970fac1894ede5772f6fe93e0a861fa25658878b0553c1a055cea8511",
+      "expected": {"identity": "Objectives Help Sheet", "decision": "promote", "priorSolScore": 88, "priorReport": "docs/qa/vision-model-trial/report.md"}
+    },
+    {
+      "id": "c02",
+      "tier": "human-approved-card",
+      "source": "cards/character/combat-engineer/action/explosives.png",
+      "sourceSha256": "c747f2bb764568d14320fba4ad9bb9b8ff8ba1390c915282104f1cb9146e3583",
+      "goldSidecar": "cards/character/combat-engineer/action/explosives.json",
+      "goldSidecarSha256": "2db0d21e52847ca52e790765e1f896977f5aabe0ec25f64511db8f9c7fcd932c",
+      "expected": {"title": "EXPLOSIVES", "decision": "promote"}
+    },
+    {
+      "id": "c03",
+      "tier": "human-approved-card",
+      "source": "cards/character/officer/action/chain-of-command.png",
+      "sourceSha256": "ac03ac0e56b1ec80da6113e1bd76bd82b8fc4bf323dc1a542db868437c35dc5d",
+      "goldSidecar": "cards/character/officer/action/chain-of-command.json",
+      "goldSidecarSha256": "716c0d2b4920c13a574229478e6e3cdfca11c9f321573e2f18a257d0fe367e1d",
+      "expected": {"title": "CHAIN OF COMMAND", "decision": "promote"}
+    },
+    {
+      "id": "c04",
+      "tier": "human-approved-card",
+      "source": "cards/character/contractor/consultant/action/move-quietly.jpg",
+      "sourceSha256": "37996ec30873469ca855e68b36795db9a7ea20bd89ae53b417263a0be9623ae2",
+      "goldSidecar": "cards/character/contractor/consultant/action/move-quietly.json",
+      "goldSidecarSha256": "ee368728fe52da70d24329b3215ad78758c1c5df3f1b54ce854a0d28e155bee9",
+      "expected": {"title": "MOVE QUIETLY", "decision": "promote"}
+    },
+    {
+      "id": "c05",
+      "tier": "human-approved-card",
+      "source": "cards/character/heavy-gun-operator/starting-item/automatic-shotgun.png",
+      "sourceSha256": "ef45f7b5fc21026faa0af8413abf2d35539938484415d1c3fb84e2c0ff0133fe",
+      "goldSidecar": "cards/character/heavy-gun-operator/starting-item/automatic-shotgun.json",
+      "goldSidecarSha256": "d7a6ea0bbfeea7e7ec5f0ca14f7f173de9f07421dde04d8fae16a7379dc64cbd",
+      "expected": {"title": "AUTOMATIC SHOTGUN", "decision": "promote"}
+    },
+    {
+      "id": "c06",
+      "tier": "human-approved-card",
+      "source": "cards/reference/help-card-player-6.png",
+      "sourceSha256": "1a3767cbe3ae3743a989a9455051b3bd7b29acdf64f5239f74ba4069366482f9",
+      "goldSidecar": "cards/reference/help-card-player-6.json",
+      "goldSidecarSha256": "f4561de6a18fae6d13e9289070103ee45701ee200ef64afe07870a64467cfb0f",
+      "expected": {"title": null, "decision": "promote"}
+    },
+    {
+      "id": "c07",
+      "tier": "human-approved-card",
+      "source": "cards/character/contractor/starting-item/bulletproof-vest.png",
+      "sourceSha256": "9dadff4f512b39b2856c3573411b127029a9968e896c167d97c87dd11f7d0ed6",
+      "goldSidecar": "cards/character/contractor/starting-item/bulletproof-vest.json",
+      "goldSidecarSha256": "479382d9647da0d3b257b9dcc23b4ee89231d3aa07503e8973bf7e1f88abff64",
+      "expected": {"title": "BULLETPROOF VEST", "decision": "promote"}
+    },
+    {
+      "id": "c08",
+      "tier": "human-approved-card",
+      "source": "cards/character/contractor/starting-item/handgun.jpg",
+      "sourceSha256": "c08f501ff13cb2f219c2283a94db57d6efe29f071835a39565d839f378bf9146",
+      "goldSidecar": "cards/character/contractor/starting-item/handgun.json",
+      "goldSidecarSha256": "784883107d94e408137fbf1053a9a327663d5977c7c850a41566bc792ab748f8",
+      "expected": {"title": "HANDGUN", "decision": "promote"}
+    },
+    {
+      "id": "c09",
+      "tier": "human-approved-card",
+      "source": "cards/character/contractor/consultant/action/computer-skills.jpg",
+      "sourceSha256": "31d0467ff29f0c4ea848d7eef47fa130741509f49bde2d1abf6e9d2685830d71",
+      "goldSidecar": "cards/character/contractor/consultant/action/computer-skills.json",
+      "goldSidecarSha256": "011b476b5f3b5058d97b5185ff55deb68f92d90c0d64c7a4b24c6a45a3312c9c",
+      "expected": {"title": "COMPUTER SKILLS", "decision": "promote"}
+    },
+    {
+      "id": "c10",
+      "tier": "deferred-abstention",
+      "source": "assets/tts-mod/extract/v2-dl/tree/cards/reference/objectives-help-sheet-page-2.jpg",
+      "sourceSha256": "9e718874d8be865a160dfebd6766a7809c6e94951fdfed62a348f72e69620b7e",
+      "expected": {"identity": "Objectives Help Sheet page 2", "decision": "defer", "materialUncertainties": ["non-glossary player-count emblem", "unresolved square A glyph", "clipped portions of two objective cards"]}
+    },
+    {
+      "id": "c11",
+      "tier": "known-noncard",
+      "source": "assets/tts-mod/extract/v2-dl/tree/tokens/status/life-support-active.png",
+      "sourceSha256": "b2dd2d34b1bc2782bebc2dd455a9627acf4e4fa7fbb448a444e05c2706f64dc2",
+      "expected": {"identity": "Life Support Active status texture", "icon": "lifeSupportActive", "category": "tokens/status", "decision": "promote"}
+    },
+    {
+      "id": "c12",
+      "tier": "ambiguous-noncard",
+      "source": "assets/tts-mod/extract/v2-dl/tree/bags/adult-007.png",
+      "sourceSha256": "f9f39f99fba8199f4124b72ffe82c95e4660143f4cef486c430021a9cf314d08",
+      "expected": {"decision": "defer", "requiredDiscipline": "Describe the alien creature pixels but do not claim a canonical component function, bag role, or exact filename from pixels alone."}
+    }
+  ]
+}

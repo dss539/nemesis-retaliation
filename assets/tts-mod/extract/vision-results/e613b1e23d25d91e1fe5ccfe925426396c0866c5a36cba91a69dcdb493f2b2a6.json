@@ -1,0 +1,77 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/robotDeck-068.jpg",
+  "sourceSha256": "e613b1e23d25d91e1fe5ccfe925426396c0866c5a36cba91a69dcdb493f2b2a6",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_053953_0aaa9d",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:39:53Z",
+  "completedAt": "2026-08-15T05:40:18Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "robot command card",
+    "cardSide": "face",
+    "title": "SERVER ROBOT",
+    "typeLine": "",
+    "body": "Move the [robot] up to 3 times.\n\nOR\n\nIf the [robot] is in a [computer] Room, use\nthe Room (even with a [malfunction]).",
+    "footer": "",
+    "upperRight": "",
+    "lowerCenter": "",
+    "visibleText": "",
+    "confidentlyVisible": [
+      "Upright white title at the top",
+      "Artwork depicts a wheeled industrial robot carrying strapped cargo",
+      "Rules appear in a bordered lower panel",
+      "Two white robot icons appear inline in the rules",
+      "One blue computer icon appears inline before “Room”",
+      "One pale malfunction icon appears inline in parentheses"
+    ],
+    "proposedCategory": "cards/game/robot",
+    "proposedSlug": "server-robot",
+    "confidence": "high",
+    "uncertainties": []
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Loading image analysis skill****Loading image analysis skill****Preparing to use vision tool**\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Preparing to use vision tool****Identifying icon meanings and text formatting**\n{\"orientation\":\"upright\",\"componentType\":\"robot command card\",\"cardSide\":\"face\",\"title\":\"SERVER ROBOT\",\"typeLine\":\"\",\"body\":\"Move the [robot] up to 3 times.\\n\\nOR\\n\\nIf the [robot] is in a [computer] Room, use\\nthe Room (even with a [malfunction]).\",\"footer\":\"\",\"upperRight\":\"\",\"lowerCenter\":\"\",\"visibleText\":\"\",\"confidentlyVisible\":[\"Upright white title at the top\",\"Artwork depicts a wheeled industrial robot carrying strapped cargo\",\"Rules appear in a bordered lower panel\",\"Two white robot icons appear inline in the rules\",\"One blue computer icon appears inline before “Room”\",\"One pale malfunction icon appears inline in parentheses\"],\"proposedCategory\":\"cards/game/robot\",\"proposedSlug\":\"server-robot\",\"confidence\":\"high\",\"uncertainties\":[]}\n\nsession_id: 20260815_053953_0aaa9d\n",
+  "iconVerification": {
+    "status": "passed",
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "sessionId": "20260815_060827_c114f9",
+    "promptVersion": 1,
+    "completedAt": "2026-08-15T06:08:41Z",
+    "claimed": [
+      "computer",
+      "malfunction",
+      "robot"
+    ],
+    "parsed": {
+      "claims": [
+        {
+          "claimed": "computer",
+          "verdict": "match",
+          "actual": "computer",
+          "evidence": "One occurrence: cyan rounded monitor outline with dark blue screen and short base, matching the glossary computer glyph."
+        },
+        {
+          "claimed": "malfunction",
+          "verdict": "match",
+          "actual": "malfunction",
+          "evidence": "One occurrence: cogwheel with a dark circular center and evenly spaced teeth, matching the glossary malfunction glyph despite color variation."
+        },
+        {
+          "claimed": "robot",
+          "verdict": "match",
+          "actual": "robot",
+          "evidence": "Two occurrences: both show the same rounded robot head with top antenna, paired circular eyes, side tabs, and narrow base as the glossary robot glyph."
+        }
+      ],
+      "allClaimsMatch": true,
+      "confidence": "high",
+      "uncertainties": []
+    },
+    "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n\nsession_id: 20260815_060827_c114f9\n{\"claims\":[{\"claimed\":\"computer\",\"verdict\":\"match\",\"actual\":\"computer\",\"evidence\":\"One occurrence: cyan rounded monitor outline with dark blue screen and short base, matching the glossary computer glyph.\"},{\"claimed\":\"malfunction\",\"verdict\":\"match\",\"actual\":\"malfunction\",\"evidence\":\"One occurrence: cogwheel with a dark circular center and evenly spaced teeth, matching the glossary malfunction glyph despite color variation.\"},{\"claimed\":\"robot\",\"verdict\":\"match\",\"actual\":\"robot\",\"evidence\":\"Two occurrences: both show the same rounded robot head with top antenna, paired circular eyes, side tabs, and narrow base as the glossary robot glyph.\"}],\"allClaimsMatch\":true,\"confidence\":\"high\",\"uncertainties\":[]}\n",
+    "evidencePath": null
+  }
+}

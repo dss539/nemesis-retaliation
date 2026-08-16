@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/reditem-128.png",
+  "sourceSha256": "3eef2e9fb435151291841b16a1785b5ac98f999c09bcb9f9c5a03b7b61d83ab1",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_053922_1b747d",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:39:22Z",
+  "completedAt": "2026-08-15T05:39:51Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "item card",
+    "cardSide": "face",
+    "title": "GRENADE",
+    "typeLine": "ONE USE ONLY,\nSPECIAL WEAPON",
+    "body": "You can use this Item for free\nimmediately after gaining it.\n\nResolve a [grenadeToken] effect in\nan adjacent Corridor.\n\nOR\n\nGain 1 [grenadeToken].",
+    "footer": "",
+    "upperRight": "",
+    "lowerCenter": "",
+    "visibleText": "",
+    "confidentlyVisible": [
+      "Upright portrait card",
+      "Large grenade depicted in the upper artwork",
+      "Title and type line appear below the artwork",
+      "Two red-framed effect panels are separated by an OR divider",
+      "The same purple grenade glyph appears once in each effect panel"
+    ],
+    "proposedCategory": "cards/game/item/red",
+    "proposedSlug": "grenade",
+    "confidence": "high",
+    "uncertainties": []
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Planning pixel inspection strategy****Planning pixel inspection strategy****Identifying purple grenade icons**\n\n\n**Confirming grenade token icon details****Identifying purple grenade icons**\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Confirming grenade token icon details****Confirming grenadeToken JSON details**\n{\"orientation\":\"upright\",\"componentType\":\"item card\",\"cardSide\":\"face\",\"title\":\"GRENADE\",\"typeLine\":\"ONE USE ONLY,\\nSPECIAL WEAPON\",\"body\":\"You can use this Item for free\\nimmediately after gaining it.\\n\\nResolve a [grenadeToken] effect in\\nan adjacent Corridor.\\n\\nOR\\n\\nGain 1 [grenadeToken].\",\"footer\":\"\",\"upperRight\":\"\",\"lowerCenter\":\"\",\"visibleText\":\"\",\"confidentlyVisible\":[\"Upright portrait card\",\"Large grenade depicted in the upper artwork\",\"Title and type line appear below the artwork\",\"Two red-framed effect panels are separated by an OR divider\",\"The same purple grenade glyph appears once in each effect panel\"],\"proposedCategory\":\"cards/game/item/red\",\"proposedSlug\":\"grenade\",\"confidence\":\"high\",\"uncertainties\":[]}\n\nsession_id: 20260815_053922_1b747d\n",
+  "iconVerification": {
+    "status": "passed",
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "sessionId": "20260815_060824_29636f",
+    "promptVersion": 1,
+    "completedAt": "2026-08-15T06:08:38Z",
+    "claimed": [
+      "grenadeToken"
+    ],
+    "parsed": {
+      "claims": [
+        {
+          "claimed": "grenadeToken",
+          "verdict": "match",
+          "actual": "grenadeToken",
+          "evidence": "Both card occurrences show the same white segmented grenade silhouette attached to a right-facing purple token block as the labeled glossary crop."
+        }
+      ],
+      "allClaimsMatch": true,
+      "confidence": "high",
+      "uncertainties": []
+    },
+    "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Starting image analysis****Starting image analysis****Comparing grenade glyph occurrences**\n\nsession_id: 20260815_060824_29636f\n{\"claims\":[{\"claimed\":\"grenadeToken\",\"verdict\":\"match\",\"actual\":\"grenadeToken\",\"evidence\":\"Both card occurrences show the same white segmented grenade silhouette attached to a right-facing purple token block as the labeled glossary crop.\"}],\"allClaimsMatch\":true,\"confidence\":\"high\",\"uncertainties\":[]}\n",
+    "evidencePath": null
+  }
+}

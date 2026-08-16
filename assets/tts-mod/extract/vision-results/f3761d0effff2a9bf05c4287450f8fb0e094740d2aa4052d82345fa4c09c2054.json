@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-042.png",
+  "sourceSha256": "f3761d0effff2a9bf05c4287450f8fb0e094740d2aa4052d82345fa4c09c2054",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_054051_7ca85f",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:40:51Z",
+  "completedAt": "2026-08-15T05:41:14Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "armor item card",
+    "cardSide": "face",
+    "title": "HEAVY ARMOR",
+    "typeLine": "ARMOR",
+    "body": "Whenever you would gain\na Serious Wound, you may lose\n2[characterHealth] instead.",
+    "footer": "",
+    "upperRight": "[ICON: black square with metallic silver X]",
+    "lowerCenter": "[ICON: green tab with black horizontal hexagonal slot]",
+    "visibleText": "[ICON: three black squares with metallic silver X marks]",
+    "confidentlyVisible": [
+      "Typography is upright in the file.",
+      "Three black square symbols with metallic silver X marks appear across the top.",
+      "Artwork depicts a helmeted armored figure.",
+      "The rules text contains a white cross-and-EKG glyph matching [characterHealth].",
+      "A green tab with a black horizontal hexagonal shape is partially clipped by the bottom edge."
+    ],
+    "proposedCategory": "cards/game/item/armor",
+    "proposedSlug": "heavy-armor",
+    "confidence": "medium",
+    "uncertainties": [
+      "The meaning of the three top X-marked square symbols is not provided by the canonical glossary.",
+      "The green lower-center symbol is not a confident match for any canonical icon and is clipped by the bottom edge.",
+      "Any content continuing below the clipped green tab is not visible."
+    ]
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Planning pixel inspection with vision tool****Planning pixel inspection with vision tool**\n**Identifying item card slot markers and effects**\n\n**Formulating JSON with literal unknown icon descriptions****Identifying item card slot markers and effects**\n{\"orientation\":\"upright\",\"componentType\":\"armor item card\",\"cardSide\":\"face\",\"title\":\"HEAVY ARMOR\",\"typeLine\":\"ARMOR\",\"body\":\"Whenever you would gain\\na Serious Wound, you may lose\\n2[characterHealth] instead.\",\"footer\":\"\",\"upperRight\":\"[ICON: black square with metallic silver X]\",\"lowerCenter\":\"[ICON: green tab with black horizontal hexagonal slot]\",\"visibleText\":\"[ICON: three black squares with metallic silver X marks]\",\"confidentlyVisible\":[\"Typography is upright in the file.\",\"Three black square symbols with metallic silver X marks appear across the top.\",\"Artwork depicts a helmeted armored figure.\",\"The rules text contains a white cross-and-EKG glyph matching [characterHealth].\",\"A green tab with a black horizontal hexagonal shape is partially clipped by the bottom edge.\"],\"proposedCategory\":\"cards/game/item/armor\",\"proposedSlug\":\"heavy-armor\",\"confidence\":\"medium\",\"uncertainties\":[\"The meaning of the three top X-marked square symbols is not provided by the canonical glossary.\",\"The green lower-center symbol is not a confident match for any canonical icon and is clipped by the bottom edge.\",\"Any content continuing below the clipped green tab is not visible.\"]}\n\nsession_id: 20260815_054051_7ca85f\n"
+}

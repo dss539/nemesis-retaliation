@@ -1,0 +1,101 @@
+{
+  "schemaVersion": 1,
+  "assetId": "W01-014",
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/bags/medpackBag-030.jpg",
+  "sourceSha256": "ce452a38b0db1da57af9feb78e904186ebc5cde0715c89c06aa924417007d42e",
+  "sourceMetadata": {
+    "width": 305,
+    "height": 305,
+    "format": "JPEG",
+    "mode": "RGB",
+    "byteSize": 73605
+  },
+  "runtimeProvenance": {
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "reasoningEffort": "max",
+    "platform": "subagent",
+    "workerId": "sol-max-worker-01",
+    "sessionProvenanceHandle": "hermes_rpc_dfba82c30cd846b6bc4eced43002e707.sock",
+    "persistentSession": true,
+    "nativeVision": true,
+    "auxiliaryVisionUsed": false
+  },
+  "orientation": {
+    "status": "upright",
+    "evidence": "+2 is level and the illustrated hard-case handle is above its body.",
+    "transformApplied": null,
+    "stagingDerivative": null
+  },
+  "blindPixelObservations": [
+    "Dark embossed industrial background.",
+    "Translucent green clipped-corner rectangular housing with a smaller right compartment.",
+    "White-and-green handled hard case with a white cross on a dark purple side panel; large white black-outlined +2 overlay."
+  ],
+  "visibleText": [
+    {
+      "text": "+2",
+      "location": "center over hard case",
+      "structure": "plus sign followed by numeral",
+      "confidence": "high"
+    }
+  ],
+  "iconMorphology": [
+    {
+      "location": "left face of illustrated hard case",
+      "silhouette": "Straight equal-armed cross in a square panel.",
+      "internalMarks": "Solid white cross with no internal detail.",
+      "colors": "white and dark purple",
+      "claimedToken": null,
+      "closestPlausibleGlossaryAlternative": "injury",
+      "visibleDiscriminatingFeature": "The mark is a clean medical-style cross in a square; glossary injury is an irregular yellow wound/burst mark, so no glossary icon is claimed."
+    }
+  ],
+  "evidenceConsulted": {
+    "tts": {
+      "consultedAfterBlindRecord": true,
+      "trigger": "Pixels established medical-case-themed art but not the TTS role.",
+      "manifestUrl": "https://steamusercontent-a.akamaihd.net/ugc/2468613527880247030/C55F92DD0C1A435AEA235196D9033DA6768B97C0/",
+      "objectReferences": [
+        {
+          "guid": "c218a3",
+          "type": "Custom_Model_Bag",
+          "urlRole": "DiffuseURL"
+        }
+      ]
+    },
+    "official": {
+      "consulted": false,
+      "reason": "No rules text, promoted glossary icon, ambiguity, or provenance conflict required escalation."
+    }
+  },
+  "proposedClassification": "Non-card +2 medical-supply-case artwork used as a TTS Custom_Model_Bag diffuse; no narrower official item name is asserted.",
+  "proposedPath": "assets/tts-mod/extract/v2-dl/tree/bags/medpackBag-030.jpg (retain unchanged; no canonical move proposed)",
+  "readConfidence": {
+    "level": "high",
+    "reason": "+2, case morphology, and cross are unobscured."
+  },
+  "classificationConfidence": {
+    "level": "high",
+    "reason": "Pixels establish generic medical-supply art and TTS establishes the non-card bag-diffuse role."
+  },
+  "uncertainties": [
+    "The TTS record is unnamed, so the exact official item name is not established; the classification deliberately remains generic."
+  ],
+  "promotionDecision": "non-card-complete",
+  "decisionReasons": [
+    "This is a model-bag diffuse, not a rules-card face.",
+    "The visible +2 and generic medical-case art are fully recorded.",
+    "No semantic filename dependence or unsupported canonical icon claim is needed."
+  ],
+  "stagedCandidateSidecarPath": null,
+  "validationPerformed": [
+    "Assignment SHA-256 matched source bytes.",
+    "Pillow decoded and verified the 305x305 JPEG.",
+    "Native vision attachment was inspected independently as W01-014.",
+    "Blind observations were persisted before TTS metadata was consulted.",
+    "Manifest URL and matching TTS DiffuseURL role were resolved.",
+    "No source file or canonical/shared ledger was modified."
+  ],
+  "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-worker-01/raw/W01-014.json"
+}

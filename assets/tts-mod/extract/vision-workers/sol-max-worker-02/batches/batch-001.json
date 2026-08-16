@@ -1,0 +1,73 @@
+{
+  "schemaVersion": 1,
+  "batchId": "batch-001",
+  "workerId": "sol-max-worker-02",
+  "completedAt": "2026-08-15T21:18:52Z",
+  "runtimeProvenanceRef": "../metadata/runtime.json",
+  "sessionId": "20260815_210607_461cc1",
+  "nativeVisionTurn": true,
+  "assignmentTupleSha256": "ac7e1559d7be35058141834532b27967df2d51c62a4336d902a55c326dbf1873",
+  "currentRecoveredAssignmentFileSha256": "56b9b811a45937c791e6eda91943177be1477bb4cec63db16ccba50a0c177ef5",
+  "assignmentControlPlaneAdjudication": "../metadata/assignment-drift-adjudication-001.json",
+  "submittedCount": 4,
+  "submittedAssetIds": [
+    "W01-013",
+    "W01-014",
+    "W01-015",
+    "W01-016"
+  ],
+  "returnedCount": 4,
+  "returnedAssetIds": [
+    "W01-013",
+    "W01-014",
+    "W01-015",
+    "W01-016"
+  ],
+  "analyzedCount": 4,
+  "analyzedAssetIds": [
+    "W01-013",
+    "W01-014",
+    "W01-015",
+    "W01-016"
+  ],
+  "persistedRawCount": 4,
+  "persistedRawAssetIds": [
+    "W01-013",
+    "W01-014",
+    "W01-015",
+    "W01-016"
+  ],
+  "persistedResultCount": 4,
+  "persistedResultAssetIds": [
+    "W01-013",
+    "W01-014",
+    "W01-015",
+    "W01-016"
+  ],
+  "idAndCountReconciliation": "exact-match",
+  "orderedTupleReconciliation": "exact-match-to-initial-and-recovered-assignment",
+  "retryAssetIds": [],
+  "decisions": {
+    "promote": 0,
+    "defer": 0,
+    "non-card-complete": 4
+  },
+  "rawPaths": [
+    "raw/W01-013.json",
+    "raw/W01-014.json",
+    "raw/W01-015.json",
+    "raw/W01-016.json"
+  ],
+  "resultPaths": [
+    "results/W01-013.json",
+    "results/W01-014.json",
+    "results/W01-015.json",
+    "results/W01-016.json"
+  ],
+  "validationNotes": [
+    "Every source hash was recomputed from current bytes before the metadata join and matched the live recovered assignment.",
+    "Every native attachment returned under its explicit stable ID; no omission, merge, reorder, or cross-image contamination was observed.",
+    "Raw blind records were persisted before any TTS metadata was consulted.",
+    "No predecessor semantic conclusion was read or reused for W01-013 through W01-016."
+  ]
+}

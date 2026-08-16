@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "assetId": "W01-019",
+  "batchId": "batch-002",
+  "capturedAt": "2026-08-15T21:20:58Z",
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/bags/roomIBBag-018.jpg",
+  "sourceSha256": "a1ca4881920379193023f4668e055c94c73ab1d4faa14b906371620beb58271c",
+  "runtimeProvenanceRef": "../metadata/runtime.json",
+  "blindAnalysis": true,
+  "metadataExcludedDuringPixelPass": [
+    "filename semantics",
+    "directory semantics",
+    "prior vision reads",
+    "TTS object metadata",
+    "game-context expectations"
+  ],
+  "orientationObservation": "The central letter B remains readable despite the whole mechanical object being intentionally diagonal; no single conventional card-face rotation is implied.",
+  "blindPixelObservations": [
+    "Most of the square canvas is near-black, especially the right and lower regions.",
+    "A large diagonally oriented mechanical object occupies the left half, with a dark rusty metal central plate, rounded protrusions around its perimeter, four recessed vent-like openings, and bright white bar lights near the openings.",
+    "Small orange indicator points and rust-orange scuffs dot the metal surface.",
+    "A large white capital letter overlays the center of the metal plate at a slight angle.",
+    "A cyan-teal rectangular plane with pale edge lighting and faint decorative linework projects behind the object toward the upper-right."
+  ],
+  "visibleText": [
+    {
+      "text": "B",
+      "location": "center of mechanical plate",
+      "structure": "large white uppercase letter, slightly angled",
+      "confidence": "high"
+    }
+  ],
+  "iconObservations": [],
+  "rawNativeModelOutput": {
+    "orientation": "diagonal composition; rotation not established as necessary",
+    "text": ["B"],
+    "literalSummary": "Mostly black square with a diagonal rusted mechanical panel on the left, four lit recesses, a large white B, and a cyan backing plane."
+  },
+  "uncertainties": [
+    "Pixels alone do not establish whether the image is a standalone component face, a model texture, or a container thumbnail.",
+    "No semantic meaning beyond the literal letter B is inferred."
+  ]
+}

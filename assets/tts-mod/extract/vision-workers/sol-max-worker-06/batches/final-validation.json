@@ -1,0 +1,79 @@
+{
+  "schemaVersion": 1,
+  "workerId": "sol-max-worker-06",
+  "validationStage": "final-post-report",
+  "validatedAt": "2026-08-15T23:06:17.843025790Z",
+  "overallPassed": true,
+  "assignment": {
+    "baselineSha256": "65b7660154b1f5cf994398f21349f20384af0210893df81a6550d8aaf2aa6a75",
+    "finalSha256": "65b7660154b1f5cf994398f21349f20384af0210893df81a6550d8aaf2aa6a75",
+    "orderedTupleDigest": "40e776e3419ca82bff78329336f6c28ecb62f6ca6fb415a6e12be45ef8c0c851",
+    "driftDetected": false
+  },
+  "counts": {
+    "assigned": 4,
+    "processed": 4,
+    "submitted": 4,
+    "returned": 4,
+    "raw": 4,
+    "results": 4,
+    "promotable": 0,
+    "deferred": 4,
+    "nonCardComplete": 0,
+    "candidateSidecars": 0
+  },
+  "processedIds": ["W06-001", "W06-002", "W06-003", "W06-004"],
+  "sourceChecks": [
+    {"assetId": "W06-001", "sha256": "6dc254bf10b41c217cdfe6c4d3d3ca3a8bedd7eded6f7ae6e0a07b9f71d6a19e", "decode": true},
+    {"assetId": "W06-002", "sha256": "071501844b55d42daa48430786b944d8cf1fea711ad6994abf6d3a9c61b18245", "decode": true},
+    {"assetId": "W06-003", "sha256": "b3b209538a4ac8554ae6e5230f4a98b1fa1ff3bd8f89b3ccfbee53d115997e9e", "decode": true},
+    {"assetId": "W06-004", "sha256": "e063664e4e786d66092f347f444c9a9184ae0a9f51547158f98e8b25e300b39a", "decode": true}
+  ],
+  "runtime": {
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "reasoningEffort": "max",
+    "sessionId": "20260815_224527_5f5db3",
+    "nativeImageRouteState": "exercisedVerified",
+    "nativeVisionCallCount": 4,
+    "exactOrderedPathsAndStableIds": true,
+    "nativeAttachmentConfirmations": 4,
+    "auxiliaryVisionUsed": false,
+    "qwenUsed": false,
+    "ocrCanonicalEvidenceUsed": false,
+    "modelDowngradeUsed": false
+  },
+  "artifactValidation": {
+    "jsonFilesParsedBeforeWritingThisRecord": 19,
+    "jsonParseFailures": [],
+    "requiredResultFieldsPresent": true,
+    "duplicateRawIds": [],
+    "duplicateResultIds": [],
+    "missingRawIds": [],
+    "missingResultIds": [],
+    "allFinalOrientationsUpright": true,
+    "nextPendingAssetId": null,
+    "nextPendingSourcePath": null
+  },
+  "writeScope": {
+    "recordedMutationTargetsAtPostReportValidation": 22,
+    "allRecordedMutationTargetsWithinWorkerRoot": true,
+    "terminalWritePatternFlags": [],
+    "gitStatusFingerprintUnchanged": true,
+    "unstagedDiffFingerprintUnchanged": true,
+    "stagedDiffFingerprintUnchanged": true,
+    "sharedWritesByThisWorker": false
+  },
+  "closureSelfCheck": {
+    "status": "passed",
+    "allJsonParsed": true,
+    "jsonFilesParsed": 21,
+    "assignmentStillUnchanged": true,
+    "allMutationTargetsWithinWorkerRoot": true,
+    "recordedMutationTargets": 26,
+    "gitFingerprintsUnchanged": true
+  },
+  "errors": [],
+  "warnings": [],
+  "validatorPath": "assets/tts-mod/extract/vision-workers/sol-max-worker-06/metadata/validate_worker.py"
+}

@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoopCustomDeck-124.jpg",
+  "sourceSha256": "33b4d988858b45215a8de460c1cf0ff8ec24aa5343e09c698b913f0b83443e3c",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_053647_68dad4",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:36:47Z",
+  "completedAt": "2026-08-15T05:37:24Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "cooperative objective card",
+    "cardSide": "face",
+    "title": "RESCUE",
+    "typeLine": "SOLO / COOP",
+    "body": "2 Bodies from Hibernatorium\nmust be in the Landing Zone\n(Bodies work like downed [character]).",
+    "footer": "",
+    "upperRight": "",
+    "lowerCenter": "",
+    "visibleText": "[ICON: yellow triangular black biohazard glyph]\nQUARANTINE",
+    "confidentlyVisible": [
+      "Portrait-oriented card face",
+      "Typography is upright without rotation",
+      "Artwork depicts a sealed doorway covered with yellow quarantine tape",
+      "Blood-like red stains appear on the doorway and tape",
+      "A white astronaut-shaped character glyph appears after the word “downed”",
+      "Green framed rules panel occupies the lower portion"
+    ],
+    "proposedCategory": "cards/game/objective",
+    "proposedSlug": "rescue",
+    "confidence": "medium",
+    "uncertainties": [
+      "The quarantine-tape artwork contains numerous repeated, overlapping, clipped, and partly illegible instances of “QUARANTINE”; only one fully readable instance is represented in visibleText.",
+      "The biohazard symbols in the artwork are not included in the supplied canonical glossary and are therefore described literally.",
+      "The white glyph after “downed” confidently matches the supplied astronaut morphology for [character], although its specific contextual meaning is not inferred beyond that mapping.",
+      "The printed term “Hibernatorium” is transcribed exactly as visible despite being an unusual word."
+    ]
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Inspecting image tool capabilities****Inspecting image tool capabilities****Clarifying visible text transcription criteria**\n\n\n**Defining visibleText with icon literals and uncertainty**\n\n**Confirming inclusion of fully legible visible text****Clarifying visible text transcription criteria**\n**Defining visibleText with icon literals and uncertainty**\n{\"orientation\":\"upright\",\"componentType\":\"cooperative objective card\",\"cardSide\":\"face\",\"title\":\"RESCUE\",\"typeLine\":\"SOLO / COOP\",\"body\":\"2 Bodies from Hibernatorium\\nmust be in the Landing Zone\\n(Bodies work like downed [character]).\",\"footer\":\"\",\"upperRight\":\"\",\"lowerCenter\":\"\",\"visibleText\":\"[ICON: yellow triangular black biohazard glyph]\\nQUARANTINE\",\"confidentlyVisible\":[\"Portrait-oriented card face\",\"Typography is upright without rotation\",\"Artwork depicts a sealed doorway covered with yellow quarantine tape\",\"Blood-like red stains appear on the doorway and tape\",\"A white astronaut-shaped character glyph appears after the word “downed”\",\"Green framed rules panel occupies the lower portion\"],\"proposedCategory\":\"cards/game/objective\",\"proposedSlug\":\"rescue\",\"confidence\":\"medium\",\"uncertainties\":[\"The quarantine-tape artwork contains numerous repeated, overlapping, clipped, and partly illegible instances of “QUARANTINE”; only one fully readable instance is represented in visibleText.\",\"The biohazard symbols in the artwork are not included in the supplied canonical glossary and are therefore described literally.\",\"The white glyph after “downed” confidently matches the supplied astronaut morphology for [character], although its specific contextual meaning is not inferred beyond that mapping.\",\"The printed term “Hibernatorium” is transcribed exactly as visible despite being an unusual word.\"]}\n\nsession_id: 20260815_053647_68dad4\n"
+}

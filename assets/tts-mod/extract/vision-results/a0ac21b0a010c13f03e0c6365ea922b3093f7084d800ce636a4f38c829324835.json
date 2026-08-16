@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoopCustomDeck-168.jpg",
+  "sourceSha256": "a0ac21b0a010c13f03e0c6365ea922b3093f7084d800ce636a4f38c829324835",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_053654_4f0db8",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:36:54Z",
+  "completedAt": "2026-08-15T05:37:18Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "cooperative objective card",
+    "cardSide": "face",
+    "title": "EXPLODING SOLUTION",
+    "typeLine": "",
+    "body": "Number of [grenadeToken] used\nmust equal twice the Squad size.",
+    "footer": "SOLO / COOP",
+    "upperRight": "",
+    "lowerCenter": "",
+    "visibleText": "QUARANTINE",
+    "confidentlyVisible": [
+      "Portrait-format card face",
+      "Title reads EXPLODING SOLUTION",
+      "Rules text spans two centered lines",
+      "Footer reads SOLO / COOP in green",
+      "Artwork shows a sealed doorway crossed by yellow quarantine tape",
+      "Artwork includes a yellow triangular biohazard sign",
+      "Purple rules icon contains a white grenade silhouette and the numeral 1"
+    ],
+    "proposedCategory": "cards/game/objective",
+    "proposedSlug": "exploding-solution",
+    "confidence": "medium",
+    "uncertainties": [
+      "The inline purple grenade glyph also contains a visible numeral 1; it is mapped to grenadeToken by its purple color and grenade morphology, but the glossary does not explicitly describe this numbered variant.",
+      "The artwork contains numerous repeated, overlapping, partially obscured QUARANTINE tape labels; only the fully readable word is transcribed rather than reconstructing clipped instances."
+    ]
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Planning image loading capability****Planning image loading capability****Planning image path inspection**\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Planning image path inspection****Clarifying grenade icon morphology**\n\n{\"orientation\":\"upright\",\"componentType\":\"cooperative objective card\",\"cardSide\":\"face\",\"title\":\"EXPLODING SOLUTION\",\"typeLine\":\"\",\"body\":\"Number of [grenadeToken] used\\nmust equal twice the Squad size.\",\"footer\":\"SOLO / COOP\",\"upperRight\":\"\",\"lowerCenter\":\"\",\"visibleText\":\"QUARANTINE\",\"confidentlyVisible\":[\"Portrait-format card face\",\"Title reads EXPLODING SOLUTION\",\"Rules text spans two centered lines\",\"Footer reads SOLO / COOP in green\",\"Artwork shows a sealed doorway crossed by yellow quarantine tape\",\"Artwork includes a yellow triangular biohazard sign\",\"Purple rules icon contains a white grenade silhouette and the numeral 1\"],\"proposedCategory\":\"cards/game/objective\",\"proposedSlug\":\"exploding-solution\",\"confidence\":\"medium\",\"uncertainties\":[\"The inline purple grenade glyph also contains a visible numeral 1; it is mapped to grenadeToken by its purple color and grenade morphology, but the glossary does not explicitly describe this numbered variant.\",\"The artwork contains numerous repeated, overlapping, partially obscured QUARANTINE tape labels; only the fully readable word is transcribed rather than reconstructing clipped instances.\"]}\n\nsession_id: 20260815_053654_4f0db8\n"
+}

@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/greenitem-181_cards/card-01.png",
+  "sourceSha256": "612e58e8d7efb308d09796e5ebb446cc2cd8b3ca94f8896a5e430756c1895b7d",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_052908_0c4d13",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:29:07Z",
+  "completedAt": "2026-08-15T05:29:42Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "one-use item card",
+    "cardSide": "face",
+    "title": "ANTISEPTIC",
+    "typeLine": "ONE USE ONLY",
+    "body": "Remove 1 Contamination\ncard from your hand\nwithout scanning it.",
+    "footer": "",
+    "upperRight": "notInCombat",
+    "lowerCenter": "",
+    "visibleText": "",
+    "confidentlyVisible": [
+      "Portrait-oriented card face with upright typography",
+      "Artwork depicts sealed cylindrical containers in a dark blue-green environment",
+      "Green-framed title and rules panels",
+      "Upper-right symbol is a white gun silhouette crossed out by a red X",
+      "Title reads ANTI­SEPTIC",
+      "Type line reads ONE USE ONLY",
+      "Rules text is fully visible and ends with a period"
+    ],
+    "proposedCategory": "cards/game/item/one-use",
+    "proposedSlug": "antiseptic",
+    "confidence": "high",
+    "uncertainties": []
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Loading vision skill for image analysis****Loading vision skill for image analysis**\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Inspecting game item card details**\n\n**Mapping icon to notInCombat status**\n\n**Categorizing card as one-use item**\n\n**Confirming transcription details and categorization**\n\n{\"orientation\":\"upright\",\"componentType\":\"one-use item card\",\"cardSide\":\"face\",\"title\":\"ANTISEPTIC\",\"typeLine\":\"ONE USE ONLY\",\"body\":\"Remove 1 Contamination\\ncard from your hand\\nwithout scanning it.\",\"footer\":\"\",\"upperRight\":\"notInCombat\",\"lowerCenter\":\"\",\"visibleText\":\"\",\"confidentlyVisible\":[\"Portrait-oriented card face with upright typography\",\"Artwork depicts sealed cylindrical containers in a dark blue-green environment\",\"Green-framed title and rules panels\",\"Upper-right symbol is a white gun silhouette crossed out by a red X\",\"Title reads ANTI­SEPTIC\",\"Type line reads ONE USE ONLY\",\"Rules text is fully visible and ends with a period\"],\"proposedCategory\":\"cards/game/item/one-use\",\"proposedSlug\":\"antiseptic\",\"confidence\":\"high\",\"uncertainties\":[]}\n\nsession_id: 20260815_052908_0c4d13\n",
+  "iconVerification": {
+    "status": "passed",
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "sessionId": "20260815_060819_deb359",
+    "promptVersion": 1,
+    "completedAt": "2026-08-15T06:08:25Z",
+    "claimed": [
+      "notInCombat"
+    ],
+    "parsed": {
+      "claims": [
+        {
+          "claimed": "notInCombat",
+          "verdict": "match",
+          "actual": "notInCombat",
+          "evidence": "Card shows a white firearm silhouette crossed by a red X; glossary shows a white Intruder silhouette crossed by the same red prohibition mark, matching the documented official artwork variant."
+        }
+      ],
+      "allClaimsMatch": true,
+      "confidence": "high",
+      "uncertainties": []
+    },
+    "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Inspecting image claim with exception****Inspecting image claim with exception**\n\nsession_id: 20260815_060819_deb359\n{\"claims\":[{\"claimed\":\"notInCombat\",\"verdict\":\"match\",\"actual\":\"notInCombat\",\"evidence\":\"Card shows a white firearm silhouette crossed by a red X; glossary shows a white Intruder silhouette crossed by the same red prohibition mark, matching the documented official artwork variant.\"}],\"allClaimsMatch\":true,\"confidence\":\"high\",\"uncertainties\":[]}\n",
+    "evidencePath": null
+  }
+}

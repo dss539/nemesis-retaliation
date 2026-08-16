@@ -102,3 +102,25 @@ Use this ledger for ambiguities that the official rulebook and FAQ do not settle
 - **Sources checked:** `docs/rulebooks/rulebook_text.txt` — the rulebook pictures only a few example card faces rather than listing decks. Only **Sprint** (Recon) and **Duck and Cover** (Contractor: Consultant) are recoverable, plus the anatomy diagram on p. 14. The component list gives a total of 60 Action cards (line 528) with no per-Character breakdown. Web search returned no authoritative Retaliation-specific card list; results were paywalled or covered the earlier *Nemesis* game, whose card list must not be substituted.
 - **Candidate readings:** None adopted. Inventing card faces is explicitly forbidden by the corpus coverage discipline.
 - **Status:** Open. Requires transcription from the physical cards or an official card-list export. Until then, unverified faces must be labelled as unverified in prototypes and must not be committed to `data.js` as if authoritative.
+
+### OQ-011 — Blue Item Icon
+
+- **Question:** Is there a fourth, blue Item Icon on Room tiles, and if so what Item type does it correspond to?
+- **Why it matters:** The rulebook's Search mechanic (ITM-006) defines green/yellow/red Item Icons. The archived `data.js` room definitions used a `blue` icon on several rooms (Life Support Control A/B/C, Server Room, Surgery Room, Storage Room, Communications Room, Power Generator, Technical Corridor Entrance). If a blue icon exists on the physical tiles, the Search mechanic must account for a fourth deck/type; if not, the archived data was wrong.
+- **Sources checked:** Rulebook p. 20 (Room tiles, lines 4022–4023) lists Item Icons but the extracted text does not enumerate the colors. The TTS mod does not model the icon→deck mapping. The archived `data.js` (now in `archive/obsolete/`) used `blue`. On 2026-08-14, native GPT-5.6 independently read the extracted `server-room-001.png` and `technical-corridor-entrance-006.jpg` pixels; the latter was repeated in a separate blind verification because it contradicted the earlier Qwen read. See `docs/qa/qwen-derived-vision-cleanup.md`.
+- **Candidate readings:**
+  - (a) A blue Item Icon exists and maps to a fourth Item type/deck.
+  - (b) The `blue` in archived data was a mislabel; only green/yellow/red exist.
+- **Status:** Resolved; supporting evidence corrected 2026-08-14. Native GPT-5.6 confirms no fourth blue Item Icon. The Server Room carries red + yellow Item icons plus cyan/blue **Computer** icons. The Technical Corridor Entrance carries **three yellow wrench Item icons**, not zero Item icons; two independent GPT-5.6 reads agree, so the earlier Qwen-derived “no item icons” claim is rejected. Its cyan/blue areas are decorative lighting, not discrete Item badges. The archived `blue` conflated Computer/decorative cyan elements with Item icons. Only green/yellow/red Item Icons exist. Reading (b) remains adopted.
+
+---
+
+### OQ-012 — Not In Combat icon identification
+
+- **Question:** What does the crossed-out gun/weapon symbol mean?
+- **Why it matters:** It appears on Action cards such as EXPLOSIVES.
+- **Sources checked:** Official rulebook p. 40 icon glossary; card extraction (combat-engineer-010.png); `assets/tts-mod/notes/card-extraction.md`.
+- **Candidate readings:**
+  - (a) “Not In Combat” restriction
+  - (b) Other combat-related restriction
+- **Status:** RESOLVED — page 40 labels its crossed-out-Intruder symbol **Not In Combat**: an Action with this icon cannot be performed in a Room with Intruders. Printed Action cards may instead use a white-gun/red-X symbol; the user confirmed that card-art variant has the same meaning. Reading (a) adopted; canonical identifier `[notInCombat]`.

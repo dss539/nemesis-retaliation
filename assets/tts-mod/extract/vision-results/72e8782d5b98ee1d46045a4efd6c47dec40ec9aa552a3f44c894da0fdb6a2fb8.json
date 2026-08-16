@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/attack-151_cards/card-00.png",
+  "sourceSha256": "72e8782d5b98ee1d46045a4efd6c47dec40ec9aa552a3f44c894da0fdb6a2fb8",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_051724_ffebe5",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:17:23Z",
+  "completedAt": "2026-08-15T05:18:17Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "creature attack card",
+    "cardSide": "face",
+    "title": "BITE",
+    "typeLine": "",
+    "body": "If you are Heavily Injured,\nyou die.\n\nOtherwise, you get\n1 Serious Wound and\n1 Contamination card.",
+    "footer": "",
+    "upperRight": "",
+    "lowerCenter": "",
+    "visibleText": "[ICON: cyan curled creature glyph in blue circular field]\n[ICON: cyan crouched creature glyph in blue circular field]\n[ICON: cyan frontal spined creature-head glyph in blue circular field]",
+    "confidentlyVisible": [
+      "White uppercase title centered in a red-framed top panel",
+      "Large dark alien creature depicted lunging forward",
+      "Rules text appears in a lower black panel",
+      "Three vertically stacked blue circular creature glyphs appear left of the rules text",
+      "All meaningful typography is already upright"
+    ],
+    "proposedCategory": "cards/game/attack",
+    "proposedSlug": "bite",
+    "confidence": "medium",
+    "uncertainties": [
+      "The identities and meanings of the three blue circular creature glyphs are not confidently represented in the supplied canonical glossary, so they are described literally rather than mapped.",
+      "The depicted creature's specific canonical identity cannot be established from pixels alone."
+    ]
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Loading image analysis skill****Loading image analysis skill****Planning vision_analyze local call**\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Planning vision_analyze local call****Analyzing image components and icons**\n\n**Identifying and describing icon glyphs with uncertainty**\n\n**Extracting precise card text and categorizing**\n\n**Describing uncertain creature icons**\n\n{\"orientation\":\"upright\",\"componentType\":\"creature attack card\",\"cardSide\":\"face\",\"title\":\"BITE\",\"typeLine\":\"\",\"body\":\"If you are Heavily Injured,\\nyou die.\\n\\nOtherwise, you get\\n1 Serious Wound and\\n1 Contamination card.\",\"footer\":\"\",\"upperRight\":\"\",\"lowerCenter\":\"\",\"visibleText\":\"[ICON: cyan curled creature glyph in blue circular field]\\n[ICON: cyan crouched creature glyph in blue circular field]\\n[ICON: cyan frontal spined creature-head glyph in blue circular field]\",\"confidentlyVisible\":[\"White uppercase title centered in a red-framed top panel\",\"Large dark alien creature depicted lunging forward\",\"Rules text appears in a lower black panel\",\"Three vertically stacked blue circular creature glyphs appear left of the rules text\",\"All meaningful typography is already upright\"],\"proposedCategory\":\"cards/game/attack\",\"proposedSlug\":\"bite\",\"confidence\":\"medium\",\"uncertainties\":[\"The identities and meanings of the three blue circular creature glyphs are not confidently represented in the supplied canonical glossary, so they are described literally rather than mapped.\",\"The depicted creature's specific canonical identity cannot be established from pixels alone.\"]}\n\nsession_id: 20260815_051724_ffebe5\n"
+}

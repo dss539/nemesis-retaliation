@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/event-064.png",
+  "sourceSha256": "93bd00726c0683feb10a47c85c86055438114c3a8c5fbb33500325fa195d2158",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_052105_f7dd0f",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:21:04Z",
+  "completedAt": "2026-08-15T05:22:09Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "event card",
+    "cardSide": "face",
+    "title": "LIFE SUPPORT FAILURE",
+    "typeLine": "",
+    "body": "All [intruder] in each [ICON: white outlined linked angular glyph] move.\nThen, all [intruder] in every Room move.\n\nFlip all [lifeSupportActive] to [lifeSupportInactive]. Place a [malfunction]\nin each Life Support Control Room.\n\nPlace a [noise] in each Unexplored\nCorridor without [noise].",
+    "footer": "",
+    "upperRight": "",
+    "lowerCenter": "",
+    "visibleText": "",
+    "confidentlyVisible": [
+      "White uppercase title above orange-toned artwork",
+      "Artwork depicts a suited figure beside illuminated control equipment",
+      "Three distinct rules panels appear beneath the artwork",
+      "Two curled white exoskeleton glyphs match the canonical intruder icon",
+      "Active and crossed-out life-support icons appear consecutively in the second panel",
+      "A gray gear-shaped malfunction icon appears in the second panel",
+      "Two identical yellow noise glyphs appear in the third panel"
+    ],
+    "proposedCategory": "cards/game/event",
+    "proposedSlug": "life-support-failure",
+    "confidence": "medium",
+    "uncertainties": [
+      "The white outlined linked angular glyph after “each” is clearly visible but cannot be confidently matched to corridorEW, corridorNESW, corridorNWSE, or another canonical glossary identifier."
+    ]
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Planning image analysis skill loading****Planning image analysis skill loading**\n**Requesting pixel inspection from vision tool****Requesting pixel inspection from vision tool**\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Clarifying corridor icon meaning**\n\n**Identifying unexplored corridor and noise icons**\n\n**Verifying yellow noise marker details**\n\n**Identifying noise marker iconography**\n\n**Confirming noise and corridor icons**\n\n**Mapping intruder and noise icons**\n\n**Clarifying noise token icon identification**\n\n**Transcribing Life Support Failure event text**\n\n{\"orientation\":\"upright\",\"componentType\":\"event card\",\"cardSide\":\"face\",\"title\":\"LIFE SUPPORT FAILURE\",\"typeLine\":\"\",\"body\":\"All [intruder] in each [ICON: white outlined linked angular glyph] move.\\nThen, all [intruder] in every Room move.\\n\\nFlip all [lifeSupportActive] to [lifeSupportInactive]. Place a [malfunction]\\nin each Life Support Control Room.\\n\\nPlace a [noise] in each Unexplored\\nCorridor without [noise].\",\"footer\":\"\",\"upperRight\":\"\",\"lowerCenter\":\"\",\"visibleText\":\"\",\"confidentlyVisible\":[\"White uppercase title above orange-toned artwork\",\"Artwork depicts a suited figure beside illuminated control equipment\",\"Three distinct rules panels appear beneath the artwork\",\"Two curled white exoskeleton glyphs match the canonical intruder icon\",\"Active and crossed-out life-support icons appear consecutively in the second panel\",\"A gray gear-shaped malfunction icon appears in the second panel\",\"Two identical yellow noise glyphs appear in the third panel\"],\"proposedCategory\":\"cards/game/event\",\"proposedSlug\":\"life-support-failure\",\"confidence\":\"medium\",\"uncertainties\":[\"The white outlined linked angular glyph after “each” is clearly visible but cannot be confidently matched to corridorEW, corridorNESW, corridorNWSE, or another canonical glossary identifier.\"]}\n\nsession_id: 20260815_052105_f7dd0f\n"
+}

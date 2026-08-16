@@ -1,0 +1,91 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/medical-support-039.jpg",
+  "sourceSha256": "fff2d4e05861cf518ef43deb85733f9bc0caa6fb315d86c74337f1e4bfc2c76c",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_051225_050ce7",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:12:24Z",
+  "completedAt": "2026-08-15T05:13:05Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "character action card",
+    "cardSide": "face",
+    "title": "SECURE",
+    "typeLine": "",
+    "body": "Place 2 [secure].\n\nOR\n\nDiscard 1 [actionCard] to Reinforce 1 empty, adjacent\nCorridor that leads to a Room\nwith a [character] or the [robot].",
+    "footer": "MEDICAL SUPPORT",
+    "upperRight": "notInCombat",
+    "lowerCenter": "",
+    "visibleText": "",
+    "confidentlyVisible": [
+      "Upright white and magenta typography on a portrait-format card face.",
+      "Artwork depicts an armored astronaut inside a dark industrial corridor.",
+      "Upper-right corner shows a red prohibition circle and slash over a curled white exoskeletal creature.",
+      "The first effect contains a white shield-like secure glyph.",
+      "The second effect contains a card marked “A,” an astronaut glyph, and a rounded robot-head glyph.",
+      "The card has a magenta interface-style frame and footer."
+    ],
+    "proposedCategory": "cards/character/medical-support/action",
+    "proposedSlug": "secure",
+    "confidence": "high",
+    "uncertainties": []
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Loading vision image skill for analysis****Loading vision image skill for analysis**\n**Planning visual inspection for orientation and icons****Planning visual inspection for orientation and icons**\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Documenting character action card details**\n\n**Validating secure icon morphology**\n\n**Confirming notInCombat icon placement**\n\n**Verifying actionCard icon and footer details**\n\n{\"orientation\":\"upright\",\"componentType\":\"character action card\",\"cardSide\":\"face\",\"title\":\"SECURE\",\"typeLine\":\"\",\"body\":\"Place 2 [secure].\\n\\nOR\\n\\nDiscard 1 [actionCard] to Reinforce 1 empty, adjacent\\nCorridor that leads to a Room\\nwith a [character] or the [robot].\",\"footer\":\"MEDICAL SUPPORT\",\"upperRight\":\"notInCombat\",\"lowerCenter\":\"\",\"visibleText\":\"\",\"confidentlyVisible\":[\"Upright white and magenta typography on a portrait-format card face.\",\"Artwork depicts an armored astronaut inside a dark industrial corridor.\",\"Upper-right corner shows a red prohibition circle and slash over a curled white exoskeletal creature.\",\"The first effect contains a white shield-like secure glyph.\",\"The second effect contains a card marked “A,” an astronaut glyph, and a rounded robot-head glyph.\",\"The card has a magenta interface-style frame and footer.\"],\"proposedCategory\":\"cards/character/medical-support/action\",\"proposedSlug\":\"secure\",\"confidence\":\"high\",\"uncertainties\":[]}\n\nsession_id: 20260815_051225_050ce7\n",
+  "iconVerification": {
+    "status": "passed",
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "sessionId": "20260815_060730_f6b507",
+    "promptVersion": 1,
+    "completedAt": "2026-08-15T06:07:46Z",
+    "claimed": [
+      "actionCard",
+      "character",
+      "notInCombat",
+      "robot",
+      "secure"
+    ],
+    "parsed": {
+      "claims": [
+        {
+          "claimed": "actionCard",
+          "verdict": "match",
+          "actual": "actionCard",
+          "evidence": "One occurrence in “Discard 1”: white rectangular card with black capital A, matching the glossary crop."
+        },
+        {
+          "claimed": "character",
+          "verdict": "match",
+          "actual": "character",
+          "evidence": "One rules-text occurrence near the bottom: front-facing suited astronaut with helmet, shoulders, torso panels, and separated limbs, matching the glossary glyph."
+        },
+        {
+          "claimed": "notInCombat",
+          "verdict": "match",
+          "actual": "notInCombat",
+          "evidence": "One occurrence at the card’s upper right: white curled Intruder silhouette inside a red circle with diagonal slash, directly matching the glossary crop."
+        },
+        {
+          "claimed": "robot",
+          "verdict": "match",
+          "actual": "robot",
+          "evidence": "One rules-text occurrence beside the character icon: rounded robot head with top stem, circular eyes, and dark central mouth, matching the glossary glyph."
+        },
+        {
+          "claimed": "secure",
+          "verdict": "match",
+          "actual": "secure",
+          "evidence": "One occurrence after “Place 2”: angular white shield outline with a forked internal division, matching the glossary crop."
+        }
+      ],
+      "allClaimsMatch": true,
+      "confidence": "high",
+      "uncertainties": []
+    },
+    "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n\nsession_id: 20260815_060730_f6b507\n{\"claims\":[{\"claimed\":\"actionCard\",\"verdict\":\"match\",\"actual\":\"actionCard\",\"evidence\":\"One occurrence in “Discard 1”: white rectangular card with black capital A, matching the glossary crop.\"},{\"claimed\":\"character\",\"verdict\":\"match\",\"actual\":\"character\",\"evidence\":\"One rules-text occurrence near the bottom: front-facing suited astronaut with helmet, shoulders, torso panels, and separated limbs, matching the glossary glyph.\"},{\"claimed\":\"notInCombat\",\"verdict\":\"match\",\"actual\":\"notInCombat\",\"evidence\":\"One occurrence at the card’s upper right: white curled Intruder silhouette inside a red circle with diagonal slash, directly matching the glossary crop.\"},{\"claimed\":\"robot\",\"verdict\":\"match\",\"actual\":\"robot\",\"evidence\":\"One rules-text occurrence beside the character icon: rounded robot head with top stem, circular eyes, and dark central mouth, matching the glossary glyph.\"},{\"claimed\":\"secure\",\"verdict\":\"match\",\"actual\":\"secure\",\"evidence\":\"One occurrence after “Place 2”: angular white shield outline with a forked internal division, matching the glossary crop.\"}],\"allClaimsMatch\":true,\"confidence\":\"high\",\"uncertainties\":[]}\n",
+    "evidencePath": null
+  }
+}

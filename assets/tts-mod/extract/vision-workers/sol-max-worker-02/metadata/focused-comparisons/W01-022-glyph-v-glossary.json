@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "assetId": "W01-022",
+  "comparisonId": "W01-022-glyph-v-glossary",
+  "completedAt": "2026-08-15T21:29:48Z",
+  "runtimeProvenanceRef": "../runtime.json",
+  "sessionId": "20260815_210607_461cc1",
+  "nativeVision": true,
+  "contactSheetPath": "contact-sheets/W01-022-glyph-v-glossary.png",
+  "candidates": [
+    "secure",
+    "autodestruction",
+    "malfunction",
+    "computer",
+    "robot"
+  ],
+  "morphology": {
+    "source": "Vertically symmetrical white shield/helmet-like silhouette with a broad notched crown, sloped shoulders, paired inward diagonal seams, a narrow central stem, and a pointed V lower tip; pale blue edging/glow is contextual styling.",
+    "explicitMatch": "secure",
+    "closestPlausibleAlternative": "secure",
+    "visibleDiscriminatingFeature": "The source and secure crop share the same notched crown, outer shoulder angles, Y-like internal split, narrow center stem, and pointed lower V in the same proportions."
+  },
+  "candidateVerdicts": [
+    {
+      "candidate": "secure",
+      "verdict": "explicit-match",
+      "visibleFeature": "Outer contour and both internal seam paths align point-for-point; only source rendering adds blue glow and badge texture."
+    },
+    {
+      "candidate": "autodestruction",
+      "verdict": "no-match",
+      "visibleFeature": "Autodestruction has three detached lobes around a central ring, absent from the source."
+    },
+    {
+      "candidate": "malfunction",
+      "verdict": "no-match",
+      "visibleFeature": "Malfunction is a broken gear/cog surrounding a circular opening, absent from the source."
+    },
+    {
+      "candidate": "computer",
+      "verdict": "no-match",
+      "visibleFeature": "Computer is a rectangular screen/terminal silhouette with no crown or V-point."
+    },
+    {
+      "candidate": "robot",
+      "verdict": "no-match",
+      "visibleFeature": "Robot is a broad head outline with two circular eye holes and a top tab, absent from the source."
+    }
+  ],
+  "conclusion": "The central source glyph is an explicit visual match for the authoritative secure glossary icon; record secure only for the glyph, without promoting or creating a sidecar for the surrounding non-card texture.",
+  "confidence": "high",
+  "promotionEffect": "Icon identity may be recorded as secure. The asset itself remains a non-card DiffuseURL texture and is not a canonical sidecar promotion."
+}

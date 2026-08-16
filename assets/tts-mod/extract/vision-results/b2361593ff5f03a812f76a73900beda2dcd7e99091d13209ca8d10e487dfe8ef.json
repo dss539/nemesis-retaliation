@@ -1,0 +1,69 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/recon-019.png",
+  "sourceSha256": "b2361593ff5f03a812f76a73900beda2dcd7e99091d13209ca8d10e487dfe8ef",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_051411_0889d0",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:14:11Z",
+  "completedAt": "2026-08-15T05:15:02Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "character action card with reaction panel",
+    "cardSide": "face",
+    "title": "CHAIN\nOF COMMAND",
+    "typeLine": "",
+    "body": "Move the [intruder] by 1 space in any direction.\n\nOR\n\nCOMMAND\nChoose a lower ranking [character] in your Room or\nneighbouring one. Make the chosen [character]\nMove, Shoot, or Burst. (you make all choices).\n\nREACTION\nWhen a [character] with a higher Rank plays a\nCommand on you:\nCancel the effect of that Command.\nThat [character] must still pay the Action's cost.",
+    "footer": "RECON",
+    "upperRight": "",
+    "lowerCenter": "",
+    "visibleText": "",
+    "confidentlyVisible": [
+      "Portrait-oriented card with upright title and rules typography.",
+      "One curled white exoskeleton glyph appears in the first effect and matches [intruder].",
+      "Four white astronaut glyphs appear within the Command and Reaction text and match [character].",
+      "REACTION is printed vertically along the left edge of a distinct white rules panel.",
+      "RECON is printed in magenta at the bottom center."
+    ],
+    "proposedCategory": "cards/character/recon/action",
+    "proposedSlug": "chain-of-command",
+    "confidence": "high",
+    "uncertainties": []
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Loading image analysis skill****Loading image analysis skill****Planning image analysis approach**\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Planning image analysis approach****Analyzing character action card details**\n\n**Preserving exact card text formatting**\n\n**Assigning card title and body structure**\n\n**Verifying character action card formatting**\n\n**Confirming card text layout and typography**\n\n**Confirming icon counts and panel layout**\n\n**Identifying card as character action/reaction type**\n\n{\n  \"orientation\": \"upright\",\n  \"componentType\": \"character action card with reaction panel\",\n  \"cardSide\": \"face\",\n  \"title\": \"CHAIN\\nOF COMMAND\",\n  \"typeLine\": \"\",\n  \"body\": \"Move the [intruder] by 1 space in any direction.\\n\\nOR\\n\\nCOMMAND\\nChoose a lower ranking [character] in your Room or\\nneighbouring one. Make the chosen [character]\\nMove, Shoot, or Burst. (you make all choices).\\n\\nREACTION\\nWhen a [character] with a higher Rank plays a\\nCommand on you:\\nCancel the effect of that Command.\\nThat [character] must still pay the Action's cost.\",\n  \"footer\": \"RECON\",\n  \"upperRight\": \"\",\n  \"lowerCenter\": \"\",\n  \"visibleText\": \"\",\n  \"confidentlyVisible\": [\n    \"Portrait-oriented card with upright title and rules typography.\",\n    \"One curled white exoskeleton glyph appears in the first effect and matches [intruder].\",\n    \"Four white astronaut glyphs appear within the Command and Reaction text and match [character].\",\n    \"REACTION is printed vertically along the left edge of a distinct white rules panel.\",\n    \"RECON is printed in magenta at the bottom center.\"\n  ],\n  \"proposedCategory\": \"cards/character/recon/action\",\n  \"proposedSlug\": \"chain-of-command\",\n  \"confidence\": \"high\",\n  \"uncertainties\": []\n}\n\nsession_id: 20260815_051411_0889d0\n",
+  "iconVerification": {
+    "status": "failed",
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "sessionId": "20260815_060745_63bc9a",
+    "promptVersion": 1,
+    "completedAt": "2026-08-15T06:08:11Z",
+    "claimed": [
+      "character",
+      "intruder"
+    ],
+    "parsed": {
+      "claims": [
+        {
+          "claimed": "character",
+          "verdict": "match",
+          "actual": "character",
+          "evidence": "Four card occurrences share the glossary character's helmeted humanoid silhouette, shoulder projections, segmented torso, and bent arms."
+        },
+        {
+          "claimed": "intruder",
+          "verdict": "mismatch",
+          "actual": "lander",
+          "evidence": "The claimed card glyph has the lander crop's three-peaked white silhouette with a broad central spire; it lacks the intruder crop's curled, toothed creature morphology."
+        }
+      ],
+      "allClaimsMatch": false,
+      "confidence": "high",
+      "uncertainties": []
+    },
+    "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Analyzing image glyph occurrences****Analyzing image glyph occurrences****Evaluating vision tool necessity**\n⚠️  Reached maximum iterations (2). Requesting summary...\n\nsession_id: 20260815_060745_63bc9a\n{\"claims\":[{\"claimed\":\"character\",\"verdict\":\"match\",\"actual\":\"character\",\"evidence\":\"Four card occurrences share the glossary character's helmeted humanoid silhouette, shoulder projections, segmented torso, and bent arms.\"},{\"claimed\":\"intruder\",\"verdict\":\"mismatch\",\"actual\":\"lander\",\"evidence\":\"The claimed card glyph has the lander crop's three-peaked white silhouette with a broad central spire; it lacks the intruder crop's curled, toothed creature morphology.\"}],\"allClaimsMatch\":false,\"confidence\":\"high\",\"uncertainties\":[]}\n",
+    "evidencePath": "docs/qa/card-icon-comparisons/auto-b2361593ff5f03a812f76a73900beda2dcd7e99091d13209ca8d10e487dfe8ef.png"
+  }
+}

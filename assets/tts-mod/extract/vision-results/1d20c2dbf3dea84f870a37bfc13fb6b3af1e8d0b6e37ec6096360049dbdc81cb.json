@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/tokens/character/recon-005.png",
+  "sourceSha256": "1d20c2dbf3dea84f870a37bfc13fb6b3af1e8d0b6e37ec6096360049dbdc81cb",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_055009_e1b062",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:50:09Z",
+  "completedAt": "2026-08-15T05:50:43Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "character dashboard/player board",
+    "cardSide": "notCard",
+    "title": "RECON",
+    "typeLine": "",
+    "body": "BASIC ACTIONS\n▶PLAY AN ACTION CARD\n▶PASS\n\nDISCARD A\n▶MAKE A MOVE\n▶PLACE 1 [ICON: white outlined faceted shield/cube glyph]\n▶FIRE A SHOT\n▶FIRE A BURST\n▶MELEE ATTACK\n▶USE ITEM OR ROBOT\n▶REORGANIZE BACKPACK\n& TRADE\n▶USE YOUR TACTICAL BELT\n\nDISCARD A A\n▶USE THE ROOM\n▶MAKE A MOVE WITH [ICON: white outlined faceted shield/cube glyph]",
+    "footer": "",
+    "upperRight": "characterHealth",
+    "lowerCenter": "[ICON: six white triangular glyphs, first four on a rounded white panel]",
+    "visibleText": "HEAVILY INJURED\nINJURED\nHEALTHY\nTACTICAL BELT\nACTION CARDS DISCARD\nLEFT HAND\nRIGHT HAND",
+    "confidentlyVisible": [
+      "Typography is upright in the file.",
+      "The component is a large character dashboard with equipment slots, an injury/health track, character art, and a basic-actions reference panel.",
+      "A helmeted armed human figure is depicted in the central artwork.",
+      "RECON is printed prominently at the lower center.",
+      "A white cross-with-EKG icon appears in the upper-right health area.",
+      "A bare white skull glyph appears near the upper-left corner.",
+      "SHOT is printed in red and BURST in purple.",
+      "Three labeled health states are visible across the top: HEAVILY INJURED, INJURED, and HEALTHY."
+    ],
+    "proposedCategory": "boards/character",
+    "proposedSlug": "recon",
+    "confidence": "medium",
+    "uncertainties": [
+      "The repeated white outlined faceted glyph after PLACE 1 and MAKE A MOVE WITH is not confidently matched to the supplied canonical glossary.",
+      "The six lower-center triangular glyphs, including the rounded white panel behind the first four, are not confidently matched to the supplied canonical glossary.",
+      "The bare upper-left skull glyph is not confidently matched to a canonical icon because it is not inside the red triangular shoot-die morphology.",
+      "The small left-pointing chevrons and upward white triangles around tracks appear to be interface markers rather than typography; their specific meanings are uncertain.",
+      "The exact formal product term for this non-card component may be character dashboard, player board, or character board."
+    ]
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Loading image analysis skill****Loading image analysis skill****Specifying JSON layout details**\n\n\n**Defining character dashboard JSON structure****Specifying JSON layout details**\n{\"orientation\":\"upright\",\"componentType\":\"character dashboard/player board\",\"cardSide\":\"notCard\",\"title\":\"RECON\",\"typeLine\":\"\",\"body\":\"BASIC ACTIONS\\n▶PLAY AN ACTION CARD\\n▶PASS\\n\\nDISCARD A\\n▶MAKE A MOVE\\n▶PLACE 1 [ICON: white outlined faceted shield/cube glyph]\\n▶FIRE A SHOT\\n▶FIRE A BURST\\n▶MELEE ATTACK\\n▶USE ITEM OR ROBOT\\n▶REORGANIZE BACKPACK\\n& TRADE\\n▶USE YOUR TACTICAL BELT\\n\\nDISCARD A A\\n▶USE THE ROOM\\n▶MAKE A MOVE WITH [ICON: white outlined faceted shield/cube glyph]\",\"footer\":\"\",\"upperRight\":\"characterHealth\",\"lowerCenter\":\"[ICON: six white triangular glyphs, first four on a rounded white panel]\",\"visibleText\":\"HEAVILY INJURED\\nINJURED\\nHEALTHY\\nTACTICAL BELT\\nACTION CARDS DISCARD\\nLEFT HAND\\nRIGHT HAND\",\"confidentlyVisible\":[\"Typography is upright in the file.\",\"The component is a large character dashboard with equipment slots, an injury/health track, character art, and a basic-actions reference panel.\",\"A helmeted armed human figure is depicted in the central artwork.\",\"RECON is printed prominently at the lower center.\",\"A white cross-with-EKG icon appears in the upper-right health area.\",\"A bare white skull glyph appears near the upper-left corner.\",\"SHOT is printed in red and BURST in purple.\",\"Three labeled health states are visible across the top: HEAVILY INJURED, INJURED, and HEALTHY.\"],\"proposedCategory\":\"boards/character\",\"proposedSlug\":\"recon\",\"confidence\":\"medium\",\"uncertainties\":[\"The repeated white outlined faceted glyph after PLACE 1 and MAKE A MOVE WITH is not confidently matched to the supplied canonical glossary.\",\"The six lower-center triangular glyphs, including the rounded white panel behind the first four, are not confidently matched to the supplied canonical glossary.\",\"The bare upper-left skull glyph is not confidently matched to a canonical icon because it is not inside the red triangular shoot-die morphology.\",\"The small left-pointing chevrons and upward white triangles around tracks appear to be interface markers rather than typography; their specific meanings are uncertain.\",\"The exact formal product term for this non-card component may be character dashboard, player board, or character board.\"]}\n\nsession_id: 20260815_055009_e1b062\n"
+}

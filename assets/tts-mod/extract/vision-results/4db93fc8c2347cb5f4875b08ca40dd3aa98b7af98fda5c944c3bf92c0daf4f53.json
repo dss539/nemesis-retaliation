@@ -1,0 +1,84 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/action/action-002.png",
+  "sourceSha256": "4db93fc8c2347cb5f4875b08ca40dd3aa98b7af98fda5c944c3bf92c0daf4f53",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_051610_b161b7",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:16:09Z",
+  "completedAt": "2026-08-15T05:16:57Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "character action card",
+    "cardSide": "face",
+    "title": "BASIC SECURE",
+    "typeLine": "",
+    "body": "Discard 1 [actionCard]. Place 2 [secure].\n\nOR\n\nDiscard 1 [actionCard]. Reinforce 1 empty Corridor\nthat leads to a Room with a Character or [robot].",
+    "footer": "CONTRACTOR",
+    "upperRight": "notInCombat",
+    "lowerCenter": "",
+    "visibleText": "",
+    "confidentlyVisible": [
+      "Upright white typography on a dark sci-fi card frame",
+      "A person holding a large firearm stands in a smoky corridor",
+      "Red-orange sparks and fire appear beside a damaged wall device",
+      "The upper-right corner shows a firearm crossed out with a red X",
+      "The first option contains an A-in-a-card glyph and an outlined angular shield glyph",
+      "The second option contains an A-in-a-card glyph and a white robot glyph"
+    ],
+    "proposedCategory": "cards/character/contractor/action",
+    "proposedSlug": "basic-secure",
+    "confidence": "high",
+    "uncertainties": []
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Planning parallel image analysis****Planning parallel image analysis****Deciding canonical icons for actions**\n\n\n**Confirming morphology for secure icon**\n\n**Mapping robot icon confidently**\n\n**Assessing action card transcription**\n\n**Confirming action card identity and details**\n\n**Verifying card text and artwork details****Deciding canonical icons for actions**\n**Confirming morphology for secure icon**\n**Mapping robot icon confidently**\n\n**Assessing action card transcription**\n**Confirming action card identity and details**\n{\"orientation\":\"upright\",\"componentType\":\"character action card\",\"cardSide\":\"face\",\"title\":\"BASIC SECURE\",\"typeLine\":\"\",\"body\":\"Discard 1 [actionCard]. Place 2 [secure].\\n\\nOR\\n\\nDiscard 1 [actionCard]. Reinforce 1 empty Corridor\\nthat leads to a Room with a Character or [robot].\",\"footer\":\"CONTRACTOR\",\"upperRight\":\"notInCombat\",\"lowerCenter\":\"\",\"visibleText\":\"\",\"confidentlyVisible\":[\"Upright white typography on a dark sci-fi card frame\",\"A person holding a large firearm stands in a smoky corridor\",\"Red-orange sparks and fire appear beside a damaged wall device\",\"The upper-right corner shows a firearm crossed out with a red X\",\"The first option contains an A-in-a-card glyph and an outlined angular shield glyph\",\"The second option contains an A-in-a-card glyph and a white robot glyph\"],\"proposedCategory\":\"cards/character/contractor/action\",\"proposedSlug\":\"basic-secure\",\"confidence\":\"high\",\"uncertainties\":[]}\n\nsession_id: 20260815_051610_b161b7\n",
+  "iconVerification": {
+    "status": "passed",
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "sessionId": "20260815_060745_372c12",
+    "promptVersion": 1,
+    "completedAt": "2026-08-15T06:08:00Z",
+    "claimed": [
+      "actionCard",
+      "notInCombat",
+      "robot",
+      "secure"
+    ],
+    "parsed": {
+      "claims": [
+        {
+          "claimed": "actionCard",
+          "verdict": "match",
+          "actual": "actionCard",
+          "evidence": "Two occurrences: both are white capital A glyphs centered in dark-bordered white square fields, matching the glossary crop."
+        },
+        {
+          "claimed": "notInCombat",
+          "verdict": "match",
+          "actual": "notInCombat",
+          "evidence": "One occurrence at upper right: red diagonal cross over a white gun; this is the documented official artwork variant of the glossary's crossed-out Intruder."
+        },
+        {
+          "claimed": "robot",
+          "verdict": "match",
+          "actual": "robot",
+          "evidence": "One occurrence at the end of the lower instruction: white rounded robot head with two circular eyes, small top antenna, and side tabs, matching the glossary crop."
+        },
+        {
+          "claimed": "secure",
+          "verdict": "match",
+          "actual": "secure",
+          "evidence": "One occurrence after 'Place 2': white angular shield containing the same narrow central Y-like panel and pointed bottom as the glossary crop."
+        }
+      ],
+      "allClaimsMatch": true,
+      "confidence": "high",
+      "uncertainties": []
+    },
+    "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Loading image workflow skill****Loading image workflow skill****Extracting multiple keyword occurrences**\n\nsession_id: 20260815_060745_372c12\n{\"claims\":[{\"claimed\":\"actionCard\",\"verdict\":\"match\",\"actual\":\"actionCard\",\"evidence\":\"Two occurrences: both are white capital A glyphs centered in dark-bordered white square fields, matching the glossary crop.\"},{\"claimed\":\"notInCombat\",\"verdict\":\"match\",\"actual\":\"notInCombat\",\"evidence\":\"One occurrence at upper right: red diagonal cross over a white gun; this is the documented official artwork variant of the glossary's crossed-out Intruder.\"},{\"claimed\":\"robot\",\"verdict\":\"match\",\"actual\":\"robot\",\"evidence\":\"One occurrence at the end of the lower instruction: white rounded robot head with two circular eyes, small top antenna, and side tabs, matching the glossary crop.\"},{\"claimed\":\"secure\",\"verdict\":\"match\",\"actual\":\"secure\",\"evidence\":\"One occurrence after 'Place 2': white angular shield containing the same narrow central Y-like panel and pointed bottom as the glossary crop.\"}],\"allClaimsMatch\":true,\"confidence\":\"high\",\"uncertainties\":[]}\n",
+    "evidencePath": null
+  }
+}

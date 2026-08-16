@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/medical-support-040.jpg",
+  "sourceSha256": "d1bacfc5e1fc4d26394b41dc2d3e43c08f98f28d01f58af5a9b671aa0f7837f3",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_051238_547d44",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:12:38Z",
+  "completedAt": "2026-08-15T05:13:04Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "character action card",
+    "cardSide": "face",
+    "title": "HIPPOCRATIC OATH",
+    "typeLine": "",
+    "body": "If there is another [character]\nwith at least 1 Serious Wound in your Room:\nDeal 2 Hits to an [intruder]. Then, Shoot\nor Melee Attack it.",
+    "footer": "MEDICAL SUPPORT",
+    "upperRight": "",
+    "lowerCenter": "",
+    "visibleText": "",
+    "confidentlyVisible": [
+      "All meaningful typography is upright.",
+      "Large white title reads “HIPPOCRATIC OATH”.",
+      "Rules text contains a white astronaut glyph matching [character].",
+      "Rules text contains a curled white exoskeleton glyph matching [intruder].",
+      "Magenta footer label reads “MEDICAL SUPPORT”.",
+      "Artwork depicts an armored figure firing a weapon in a dark corridor above fallen creatures."
+    ],
+    "proposedCategory": "cards/character/medical-support/action",
+    "proposedSlug": "hippocratic-oath",
+    "confidence": "high",
+    "uncertainties": []
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Planning image analysis workflow****Planning image analysis workflow****Formulating exact JSON for card text**\n\n\n**Confirming card visual details and JSON structure****Formulating exact JSON for card text**\n{\"orientation\":\"upright\",\"componentType\":\"character action card\",\"cardSide\":\"face\",\"title\":\"HIPPOCRATIC OATH\",\"typeLine\":\"\",\"body\":\"If there is another [character]\\nwith at least 1 Serious Wound in your Room:\\nDeal 2 Hits to an [intruder]. Then, Shoot\\nor Melee Attack it.\",\"footer\":\"MEDICAL SUPPORT\",\"upperRight\":\"\",\"lowerCenter\":\"\",\"visibleText\":\"\",\"confidentlyVisible\":[\"All meaningful typography is upright.\",\"Large white title reads “HIPPOCRATIC OATH”.\",\"Rules text contains a white astronaut glyph matching [character].\",\"Rules text contains a curled white exoskeleton glyph matching [intruder].\",\"Magenta footer label reads “MEDICAL SUPPORT”.\",\"Artwork depicts an armored figure firing a weapon in a dark corridor above fallen creatures.\"],\"proposedCategory\":\"cards/character/medical-support/action\",\"proposedSlug\":\"hippocratic-oath\",\"confidence\":\"high\",\"uncertainties\":[]}\n\nsession_id: 20260815_051238_547d44\n",
+  "iconVerification": {
+    "status": "passed",
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "sessionId": "20260815_060735_cc06ba",
+    "promptVersion": 1,
+    "completedAt": "2026-08-15T06:07:46Z",
+    "claimed": [
+      "character",
+      "intruder"
+    ],
+    "parsed": {
+      "claims": [
+        {
+          "claimed": "character",
+          "verdict": "match",
+          "actual": "character",
+          "evidence": "Single card occurrence is the same front-facing astronaut: rounded helmet, narrow shoulders, segmented torso, and bent arms."
+        },
+        {
+          "claimed": "intruder",
+          "verdict": "match",
+          "actual": "intruder",
+          "evidence": "Single card occurrence matches the curled white alien silhouette with a left-facing head, open jaw, central dark eye, and dense clockwise dorsal spines."
+        }
+      ],
+      "allClaimsMatch": true,
+      "confidence": "high",
+      "uncertainties": []
+    },
+    "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Identifying character and intruder occurrences****Identifying character and intruder occurrences**\n\nsession_id: 20260815_060735_cc06ba\n{\"claims\":[{\"claimed\":\"character\",\"verdict\":\"match\",\"actual\":\"character\",\"evidence\":\"Single card occurrence is the same front-facing astronaut: rounded helmet, narrow shoulders, segmented torso, and bent arms.\"},{\"claimed\":\"intruder\",\"verdict\":\"match\",\"actual\":\"intruder\",\"evidence\":\"Single card occurrence matches the curled white alien silhouette with a left-facing head, open jaw, central dark eye, and dense clockwise dorsal spines.\"}],\"allClaimsMatch\":true,\"confidence\":\"high\",\"uncertainties\":[]}\n",
+    "evidencePath": null
+  }
+}

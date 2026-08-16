@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "assetId": "W01-014",
+  "batchId": "batch-001",
+  "capturedAt": "2026-08-15T21:10:19Z",
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/bags/medpackBag-030.jpg",
+  "sourceSha256": "5e4339a7829e764d92a7f0840e0739bc97119617e824f2bd13d5f688ed2e5733",
+  "runtimeProvenanceRef": "../metadata/runtime.json",
+  "blindAnalysis": true,
+  "metadataExcludedDuringPixelPass": [
+    "filename semantics",
+    "directory semantics",
+    "prior vision reads",
+    "TTS object metadata",
+    "game-context expectations"
+  ],
+  "orientationObservation": "The large +2 is horizontal and reads left-to-right; the image is upright as displayed.",
+  "blindPixelObservations": [
+    "A square black background has a dark embossed rectangular-panel texture.",
+    "Centered on it is an irregular green translucent beveled plaque with clipped/chamfered corners and a brighter green edge.",
+    "At the plaque's left is a small dark hard-sided case with green trim, a pale handle/top, and white cross marks on visible faces.",
+    "A large white +2 with a dark outline overlays the center-right of the plaque."
+  ],
+  "visibleText": [
+    {
+      "text": "+2",
+      "location": "center-right",
+      "structure": "large white signed numeral with dark outline",
+      "confidence": "high"
+    }
+  ],
+  "iconObservations": [
+    {
+      "location": "left side of green plaque",
+      "silhouette": "small rectangular handled case in three-quarter view",
+      "internalMarks": "white equal-armed cross marks on its front/side panels",
+      "colors": "dark gray and green case, white crosses",
+      "semanticLabel": null
+    }
+  ],
+  "rawNativeModelOutput": {
+    "orientation": "upright",
+    "text": ["+2"],
+    "literalSummary": "Green beveled plaque showing a cross-marked handled case and the large modifier +2."
+  },
+  "uncertainties": [
+    "The cross-marked case is pictorial artwork; pixels alone do not establish whether it denotes a glossary token, a resource, or only container decoration.",
+    "The image does not state what quantity the +2 modifies."
+  ]
+}

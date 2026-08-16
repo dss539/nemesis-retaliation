@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "caseId": "c03",
+  "tier": "human-approved-card",
+  "sourceSha256": "ac03ac0e56b1ec80da6113e1bd76bd82b8fc4bf323dc1a542db868437c35dc5d",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-luna",
+  "reasoning": "max",
+  "nativeImageAttachment": true,
+  "safeMode": true,
+  "promptSha256": "49aaf5b24a0cf146faf915b3dff26a370629dc205f337a296644c004550d6b80",
+  "startedAtEpoch": 1786776837.7697477,
+  "endedAtEpoch": 1786776923.9838877,
+  "durationSeconds": 86.214,
+  "returnCode": 0,
+  "sessionId": "20260815_065358_13f89e",
+  "stdout": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Analyzing card text and icons**\n\n**Identifying card layout and schema fields**\n\n**Confirming white character icon identification**\n\n**Inspecting white silhouette icon**\n\n**Confirming character icon as action card**\n\n**Distinguishing COMMAND as panel label**\n\n**Analyzing card sidecar key requirements**\n\n**Refining card schema for multi-action layout**\n\n**Confirming card footer and symbols**\n\n**Determining category as officer based on footer and pixels**\n\n**Proposing null filename due to lack of pixel support**\n\n**Planning sidecarCandidate with canonical keys**\n\n**Preserving line breaks in JSON text**\n\n**Identifying icon as character silhouette**\n\n**Modeling card fields with typeLine and body**\n\n**Clarifying card extraction fields**\n\n**Defining comprehensive extraction schema**\n\n**Deciding title formatting with line breaks**\n\n**Separating typeLine from body content**\n\n**Analyzing sidecar file structure for card**\n\n**Proposing lowerCenter key for footer text**\n\n**Assessing image metadata roles**\n\n**Classifying typeLine as COMMAND**\n\n**Extracting card layout details**\n\n**Confirming icon rendering details****Analyzing card text and icons**\n**Identifying card layout and schema fields**\n**Confirming white character icon identification**\n\n**Inspecting white silhouette icon**\n**Confirming character icon as action card**\n**Distinguishing COMMAND as panel label**\n\n**Analyzing card sidecar key requirements**\n**Refining card schema for multi-action layout**\n**Confirming card footer and symbols**\n\n**Determining category as officer based on footer and pixels**\n**Proposing null filename due to lack of pixel support**\n**Planning sidecarCandidate with canonical keys**\n\n**Preserving line breaks in JSON text**\n**Identifying icon as character silhouette**\n**Modeling card fields with typeLine and body**\n\n**Clarifying card extraction fields**\n**Defining comprehensive extraction schema**\n**Deciding title formatting with line breaks**\n\n**Separating typeLine from body content**\n**Analyzing sidecar file structure for card**\n**Proposing lowerCenter key for footer text**\n\n**Assessing image metadata roles**\n**Classifying typeLine as COMMAND**\n**Extracting card layout details**\n\n{\"orientation\":\"upright\",\"componentType\":\"action card\",\"title\":\"CHAIN\\nOF COMMAND\",\"typeLine\":\"COMMAND\",\"body\":\"Move the [character] by 1 space in any direction.\\n\\nOR\\n\\nChoose a character with a lower Rank.\\nThen, Move, Shoot, or Burst using this\\nCharacter.\",\"footer\":\"OFFICER\",\"standaloneSymbols\":{},\"visibleOtherText\":[],\"layoutNotes\":[\"Portrait-oriented action card with full-bleed sci-fi combat artwork.\",\"The title is centered across two lines in an upper framed panel.\",\"The first effect appears above a centered OR separator.\",\"The second effect has a centered COMMAND heading followed by centered multiline text.\",\"A white human-shaped icon appears inline after “the” in the first effect.\",\"OFFICER appears centered near the bottom.\"],\"categoryProposal\":\"officer\",\"filenameProposal\":null,\"sidecarCandidate\":{\"typeLine\":\"COMMAND\",\"body\":\"Move the [character] by 1 space in any direction.\\n\\nOR\\n\\nChoose a character with a lower Rank.\\nThen, Move, Shoot, or Burst using this\\nCharacter.\"},\"uncertainties\":[],\"confidence\":{\"orientation\":\"high\",\"text\":\"high\",\"icons\":\"high\",\"identity\":\"high\",\"category\":\"high\",\"overall\":\"high\"},\"decision\":\"promote\"}\n",
+  "stderr": "\nsession_id: 20260815_065358_13f89e\n",
+  "parsedJson": {
+    "orientation": "upright",
+    "componentType": "action card",
+    "title": "CHAIN\nOF COMMAND",
+    "typeLine": "COMMAND",
+    "body": "Move the [character] by 1 space in any direction.\n\nOR\n\nChoose a character with a lower Rank.\nThen, Move, Shoot, or Burst using this\nCharacter.",
+    "footer": "OFFICER",
+    "standaloneSymbols": {},
+    "visibleOtherText": [],
+    "layoutNotes": [
+      "Portrait-oriented action card with full-bleed sci-fi combat artwork.",
+      "The title is centered across two lines in an upper framed panel.",
+      "The first effect appears above a centered OR separator.",
+      "The second effect has a centered COMMAND heading followed by centered multiline text.",
+      "A white human-shaped icon appears inline after “the” in the first effect.",
+      "OFFICER appears centered near the bottom."
+    ],
+    "categoryProposal": "officer",
+    "filenameProposal": null,
+    "sidecarCandidate": {
+      "typeLine": "COMMAND",
+      "body": "Move the [character] by 1 space in any direction.\n\nOR\n\nChoose a character with a lower Rank.\nThen, Move, Shoot, or Burst using this\nCharacter."
+    },
+    "uncertainties": [],
+    "confidence": {
+      "orientation": "high",
+      "text": "high",
+      "icons": "high",
+      "identity": "high",
+      "category": "high",
+      "overall": "high"
+    },
+    "decision": "promote"
+  },
+  "parseError": null
+}

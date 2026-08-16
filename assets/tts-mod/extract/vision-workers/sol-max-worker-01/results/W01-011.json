@@ -1,0 +1,99 @@
+{
+  "schemaVersion": 1,
+  "assetId": "W01-011",
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/bags/grenadeBag-012.png",
+  "sourceSha256": "cbb3a72167f1dae74ee230a9ab12e3b3af8129f6cbc562d6c50bd86a6bad7af6",
+  "sourceMetadata": {
+    "width": 305,
+    "height": 305,
+    "format": "PNG",
+    "mode": "RGBA",
+    "byteSize": 147906
+  },
+  "runtimeProvenance": {
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "reasoningEffort": "max",
+    "platform": "subagent",
+    "workerId": "sol-max-worker-01",
+    "sessionProvenanceHandle": "hermes_rpc_dfba82c30cd846b6bc4eced43002e707.sock",
+    "persistentSession": true,
+    "nativeVision": true,
+    "auxiliaryVisionUsed": false
+  },
+  "orientation": {
+    "status": "upright",
+    "evidence": "+2 is level and the grenade cap/handle is above its body.",
+    "transformApplied": null,
+    "stagingDerivative": null
+  },
+  "blindPixelObservations": [
+    "Dark embossed industrial background.",
+    "Glossy translucent purple clipped-corner rectangular housing with a smaller right compartment.",
+    "Detailed orange-tan segmented hand grenade under a large white +2 black-outlined overlay; pale vertical reflection at right."
+  ],
+  "visibleText": [
+    {
+      "text": "+2",
+      "location": "center over grenade",
+      "structure": "plus sign followed by numeral",
+      "confidence": "high"
+    }
+  ],
+  "iconMorphology": [
+    {
+      "location": "center-left",
+      "silhouette": "Detailed hand grenade with neck/cap and faceted body.",
+      "internalMarks": "Orange segmented panels beneath a +2 overlay.",
+      "colors": "orange-tan, white, black, purple",
+      "claimedToken": null,
+      "closestPlausibleGlossaryAlternative": "grenadeToken",
+      "visibleDiscriminatingFeature": "This is a detailed physical grenade rendering with numeric overlay in a rectangular housing, not the compact purple canonical Grenade Tactical Gear token glyph; no glossary token is claimed."
+    }
+  ],
+  "evidenceConsulted": {
+    "tts": {
+      "consultedAfterBlindRecord": true,
+      "trigger": "Pixels established grenade-themed art but not the TTS container role.",
+      "manifestUrl": "https://steamusercontent-a.akamaihd.net/ugc/11927200050393250/F801070F8D390122DB90F51BC563DB50EC83D32F/",
+      "objectReferences": [
+        {
+          "guid": "0a9a06",
+          "type": "Custom_Model_Bag",
+          "urlRole": "DiffuseURL"
+        }
+      ]
+    },
+    "official": {
+      "consulted": false,
+      "reason": "No rules text, promoted glossary token, ambiguity, or source conflict required official escalation."
+    }
+  },
+  "proposedClassification": "Non-card +2 grenade-container artwork used as a TTS Custom_Model_Bag diffuse texture.",
+  "proposedPath": "assets/tts-mod/extract/v2-dl/tree/bags/grenadeBag-012.png (retain unchanged; no canonical move proposed)",
+  "readConfidence": {
+    "level": "high",
+    "reason": "+2 and the grenade morphology are clearly visible."
+  },
+  "classificationConfidence": {
+    "level": "high",
+    "reason": "Pixel content identifies a grenade-themed container image and TTS metadata establishes the bag diffuse role."
+  },
+  "uncertainties": [],
+  "promotionDecision": "non-card-complete",
+  "decisionReasons": [
+    "This is a model-bag diffuse, not a rules-card face.",
+    "The decorative grenade is not asserted as the canonical grenadeToken glyph.",
+    "No material text or component-role uncertainty remains."
+  ],
+  "stagedCandidateSidecarPath": null,
+  "validationPerformed": [
+    "Assignment SHA-256 matched source bytes.",
+    "Pillow decoded and verified the 305x305 PNG.",
+    "Native vision attachment was inspected independently as W01-011.",
+    "Blind observations were persisted before TTS metadata was consulted.",
+    "Manifest URL and matching DiffuseURL role were resolved.",
+    "No source file or canonical/shared ledger was modified."
+  ],
+  "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-worker-01/raw/W01-011.json"
+}

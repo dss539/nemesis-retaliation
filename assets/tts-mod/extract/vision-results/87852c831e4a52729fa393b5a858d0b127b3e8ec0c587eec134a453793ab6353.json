@@ -1,0 +1,77 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/greenitem-181_cards/card-03.png",
+  "sourceSha256": "87852c831e4a52729fa393b5a858d0b127b3e8ec0c587eec134a453793ab6353",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_052909_45397d",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:29:09Z",
+  "completedAt": "2026-08-15T05:29:58Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "green one-use item card",
+    "cardSide": "face",
+    "title": "CONTAMINATION\nCODES",
+    "typeLine": "ONE USE ONLY",
+    "body": "Only in a [computer] Room without [malfunction].\nChoose any Room in the Facility\nand place a closed Door in\neach adjacent Corridor.",
+    "footer": "",
+    "upperRight": "notInCombat",
+    "lowerCenter": "",
+    "visibleText": "",
+    "confidentlyVisible": [
+      "All meaningful typography is upright in the file.",
+      "The card has a green frame and a distinct lower rules panel.",
+      "The artwork depicts a rectangular electronic device with a red-lit panel.",
+      "A red X overlays a white gun silhouette at the upper right.",
+      "A blue computer-terminal icon appears immediately before “Room.”",
+      "A grey gear-like malfunction icon appears immediately after “without.”"
+    ],
+    "proposedCategory": "cards/game/item/green",
+    "proposedSlug": "contamination-codes",
+    "confidence": "high",
+    "uncertainties": []
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Preparing image-analysis skill for pixel inspection****Preparing image-analysis skill for pixel inspection**\n**Requesting image analysis with prompt****Requesting image analysis with prompt**\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Identifying map icons and morphology**\n\n**Confirming malfunction icon and item card details**\n\n**Analyzing crossed-out action card icon**\n\n**Identifying card as notInCombat item**\n\n**Verifying exact body text punctuation**\n\n**Confirming period punctuation after icon**\n\n**Confirming icon punctuation and title formatting**\n\n**Verifying card typography and category identity**\n\n{\"orientation\":\"upright\",\"componentType\":\"green one-use item card\",\"cardSide\":\"face\",\"title\":\"CONTAMINATION\\nCODES\",\"typeLine\":\"ONE USE ONLY\",\"body\":\"Only in a [computer] Room without [malfunction].\\nChoose any Room in the Facility\\nand place a closed Door in\\neach adjacent Corridor.\",\"footer\":\"\",\"upperRight\":\"notInCombat\",\"lowerCenter\":\"\",\"visibleText\":\"\",\"confidentlyVisible\":[\"All meaningful typography is upright in the file.\",\"The card has a green frame and a distinct lower rules panel.\",\"The artwork depicts a rectangular electronic device with a red-lit panel.\",\"A red X overlays a white gun silhouette at the upper right.\",\"A blue computer-terminal icon appears immediately before “Room.”\",\"A grey gear-like malfunction icon appears immediately after “without.”\"],\"proposedCategory\":\"cards/game/item/green\",\"proposedSlug\":\"contamination-codes\",\"confidence\":\"high\",\"uncertainties\":[]}\n\nsession_id: 20260815_052909_45397d\n",
+  "iconVerification": {
+    "status": "passed",
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "sessionId": "20260815_060820_b10977",
+    "promptVersion": 1,
+    "completedAt": "2026-08-15T06:08:28Z",
+    "claimed": [
+      "computer",
+      "malfunction",
+      "notInCombat"
+    ],
+    "parsed": {
+      "claims": [
+        {
+          "claimed": "computer",
+          "verdict": "match",
+          "actual": "computer",
+          "evidence": "One occurrence: cyan monitor with rectangular screen, bright inner display, and short centered base matches the computer crop."
+        },
+        {
+          "claimed": "malfunction",
+          "verdict": "match",
+          "actual": "malfunction",
+          "evidence": "One occurrence: gray gear with eight broad teeth and dark circular hub matches the malfunction crop."
+        },
+        {
+          "claimed": "notInCombat",
+          "verdict": "match",
+          "actual": "notInCombat",
+          "evidence": "One occurrence: white gun crossed by a red X; this is the documented official artwork variant of the glossary's crossed-out Intruder icon."
+        }
+      ],
+      "allClaimsMatch": true,
+      "confidence": "high",
+      "uncertainties": []
+    },
+    "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Identifying key terms for JSON extraction****Identifying key terms for JSON extraction**\n\nsession_id: 20260815_060820_b10977\n{\"claims\":[{\"claimed\":\"computer\",\"verdict\":\"match\",\"actual\":\"computer\",\"evidence\":\"One occurrence: cyan monitor with rectangular screen, bright inner display, and short centered base matches the computer crop.\"},{\"claimed\":\"malfunction\",\"verdict\":\"match\",\"actual\":\"malfunction\",\"evidence\":\"One occurrence: gray gear with eight broad teeth and dark circular hub matches the malfunction crop.\"},{\"claimed\":\"notInCombat\",\"verdict\":\"match\",\"actual\":\"notInCombat\",\"evidence\":\"One occurrence: white gun crossed by a red X; this is the documented official artwork variant of the glossary's crossed-out Intruder icon.\"}],\"allClaimsMatch\":true,\"confidence\":\"high\",\"uncertainties\":[]}\n",
+    "evidencePath": null
+  }
+}

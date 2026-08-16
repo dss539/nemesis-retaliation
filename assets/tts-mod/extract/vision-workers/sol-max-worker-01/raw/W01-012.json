@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "assetId": "W01-012",
+  "batchId": "batch-003",
+  "capturedAt": "2026-08-15T20:43:07Z",
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/bags/intruderBag-026.jpg",
+  "sourceSha256": "03ac468fb9d283d79ec4cf674de4388468e6c9c801d5127e7c027df567af2d12",
+  "runtimeProvenanceRef": "../metadata/runtime.json",
+  "blindAnalysis": true,
+  "metadataExcludedDuringPixelPass": [
+    "filename semantics",
+    "directory semantics",
+    "prior vision reads",
+    "TTS object metadata",
+    "game-context expectations"
+  ],
+  "orientationObservation": "Two repeated white logos are rotated 90 degrees clockwise in the source. Rotate the FILE 90 degrees CCW in a lossless staging derivative before accepting transcription; this first pass is orientation detection only.",
+  "blindPixelObservations": [
+    "Square, almost entirely black canvas with a subtle woven/fabric texture concentrated on the left half.",
+    "Two identical distressed white wordmark pairs are repeated vertically on the textured region, both sideways in the source orientation.",
+    "The right half is nearly uniform black, consistent with a texture-atlas/UV layout rather than a standalone card."
+  ],
+  "visibleText": [
+    {
+      "text": "NEMESIS\nRETALIATION",
+      "location": "two repeated sideways wordmark pairs on left half",
+      "structure": "large uppercase word above smaller widely spaced uppercase word after rotation",
+      "confidence": "high",
+      "provisionalUntilUprightReread": true
+    }
+  ],
+  "iconObservations": [],
+  "uncertainties": [
+    "Final transcription and texture classification are withheld until the lossless upright staging derivative is reread."
+  ]
+}

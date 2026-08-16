@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/queenHealthDeck-039.png",
+  "sourceSha256": "648b81223c8c8b65b96a4304645bfe738f2ca64ecf989c0a826111d6bf6bd506",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_053851_6470c5",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:38:51Z",
+  "completedAt": "2026-08-15T05:39:06Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "Queen health effect card",
+    "cardSide": "face",
+    "title": "Discard",
+    "typeLine": "",
+    "body": "0\nadditional cards.\n\nIf the card was drawn by a [character]:\n\nRepel the Queen.",
+    "footer": "",
+    "upperRight": "",
+    "lowerCenter": "",
+    "visibleText": "",
+    "confidentlyVisible": [
+      "All typography is upright in the file.",
+      "A large white 0 appears inside a glowing green octagonal frame.",
+      "The lower panel contains a white astronaut-shaped character icon.",
+      "Artwork depicts an armored human figure facing a large red-and-white alien creature."
+    ],
+    "proposedCategory": "cards/game/queen-health",
+    "proposedSlug": "discard-0-additional-cards",
+    "confidence": "high",
+    "uncertainties": []
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Loading image analysis skill****Loading image analysis skill****Identifying card details for discard action**\n\n\n**Confirming template guide presence****Identifying card details for discard action**\n{\"orientation\":\"upright\",\"componentType\":\"Queen health effect card\",\"cardSide\":\"face\",\"title\":\"Discard\",\"typeLine\":\"\",\"body\":\"0\\nadditional cards.\\n\\nIf the card was drawn by a [character]:\\n\\nRepel the Queen.\",\"footer\":\"\",\"upperRight\":\"\",\"lowerCenter\":\"\",\"visibleText\":\"\",\"confidentlyVisible\":[\"All typography is upright in the file.\",\"A large white 0 appears inside a glowing green octagonal frame.\",\"The lower panel contains a white astronaut-shaped character icon.\",\"Artwork depicts an armored human figure facing a large red-and-white alien creature.\"],\"proposedCategory\":\"cards/game/queen-health\",\"proposedSlug\":\"discard-0-additional-cards\",\"confidence\":\"high\",\"uncertainties\":[]}\n\nsession_id: 20260815_053851_6470c5\n",
+  "iconVerification": {
+    "status": "passed",
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "sessionId": "20260815_060824_606c10",
+    "promptVersion": 1,
+    "completedAt": "2026-08-15T06:08:40Z",
+    "claimed": [
+      "character"
+    ],
+    "parsed": {
+      "claims": [
+        {
+          "claimed": "character",
+          "verdict": "match",
+          "actual": "character",
+          "evidence": "One card occurrence; matches the glossary astronaut glyph with rounded helmet, dark visor band, segmented shoulder/arm contours, rectangular chest panel, and split lower torso."
+        }
+      ],
+      "allClaimsMatch": true,
+      "confidence": "high",
+      "uncertainties": []
+    },
+    "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Planning image inspection workflow****Planning image inspection workflow****Verifying character icon with vision tool**\n⚠️  Reached maximum iterations (2). Requesting summary...\n\nsession_id: 20260815_060824_606c10\n{\"claims\":[{\"claimed\":\"character\",\"verdict\":\"match\",\"actual\":\"character\",\"evidence\":\"One card occurrence; matches the glossary astronaut glyph with rounded helmet, dark visor band, segmented shoulder/arm contours, rectangular chest panel, and split lower torso.\"}],\"allClaimsMatch\":true,\"confidence\":\"high\",\"uncertainties\":[]}\n",
+    "evidencePath": null
+  }
+}

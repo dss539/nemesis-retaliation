@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-30.png",
+  "sourceSha256": "ac03ac0e56b1ec80da6113e1bd76bd82b8fc4bf323dc1a542db868437c35dc5d",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_051027_20e211",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:10:27Z",
+  "completedAt": "2026-08-15T05:11:07Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "character action card",
+    "cardSide": "face",
+    "title": "CHAIN\nOF COMMAND",
+    "typeLine": "",
+    "body": "Move the [lander] by 1 space in any direction.\n\nOR\n\nCOMMAND\nChoose a Character with a lower Rank.\nThen, Move, Shoot, or Burst using this\nCharacter.",
+    "footer": "OFFICER",
+    "upperRight": "",
+    "lowerCenter": "",
+    "visibleText": "",
+    "confidentlyVisible": [
+      "Blue-toned artwork depicts two armed, armored human figures.",
+      "The title is printed in large white uppercase text across two lines.",
+      "A white symmetrical lander-shaped glyph appears inline between “the” and “by.”",
+      "The rules area contains two alternatives separated by “OR.”",
+      "“OFFICER” is printed in spaced blue uppercase letters at the bottom."
+    ],
+    "proposedCategory": "cards/character/officer/action",
+    "proposedSlug": "chain-of-command",
+    "confidence": "high",
+    "uncertainties": []
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Planning image analysis with vision_analyze****Planning image analysis with vision_analyze**\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Planning direct image inspection****Planning direct image inspection****Inspecting icon placement and morphology**\n\n\n**Identifying icon as lander silhouette**\n\n**Confirming lander icon usage on action card**\n\n**Defining chain-of-command card content**\n\n**Confirming officer card text and icon**\n\n{\"orientation\":\"upright\",\"componentType\":\"character action card\",\"cardSide\":\"face\",\"title\":\"CHAIN\\nOF COMMAND\",\"typeLine\":\"\",\"body\":\"Move the [lander] by 1 space in any direction.\\n\\nOR\\n\\nCOMMAND\\nChoose a Character with a lower Rank.\\nThen, Move, Shoot, or Burst using this\\nCharacter.\",\"footer\":\"OFFICER\",\"upperRight\":\"\",\"lowerCenter\":\"\",\"visibleText\":\"\",\"confidentlyVisible\":[\"Blue-toned artwork depicts two armed, armored human figures.\",\"The title is printed in large white uppercase text across two lines.\",\"A white symmetrical lander-shaped glyph appears inline between “the” and “by.”\",\"The rules area contains two alternatives separated by “OR.”\",\"“OFFICER” is printed in spaced blue uppercase letters at the bottom.\"],\"proposedCategory\":\"cards/character/officer/action\",\"proposedSlug\":\"chain-of-command\",\"confidence\":\"high\",\"uncertainties\":[]}\n\nsession_id: 20260815_051027_20e211\n",
+  "iconVerification": {
+    "status": "passed",
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "sessionId": "20260815_051804_d6c8a3",
+    "promptVersion": 1,
+    "completedAt": "2026-08-15T05:18:46Z",
+    "claimed": [
+      "lander"
+    ],
+    "parsed": {
+      "claims": [
+        {
+          "claimed": "lander",
+          "verdict": "match",
+          "actual": "lander",
+          "evidence": "One occurrence after “Move the”; it matches the glossary’s broad basin silhouette with twin upturned side horns, tall narrow central spire, and small vertical oval cutout."
+        }
+      ],
+      "allClaimsMatch": true,
+      "confidence": "high",
+      "uncertainties": []
+    },
+    "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Loading and inspecting lander icon images****Loading and inspecting lander icon images**\n**Planning dual image cropping and analysis**\n\n**Finalizing cropping strategy with parallel calls****Planning dual image cropping and analysis**\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Finalizing cropping strategy with parallel calls****Comparing lander glyph occurrences**\n\n\n\nsession_id: 20260815_051804_d6c8a3\n{\"claims\":[{\"claimed\":\"lander\",\"verdict\":\"match\",\"actual\":\"lander\",\"evidence\":\"One occurrence after “Move the”; it matches the glossary’s broad basin silhouette with twin upturned side horns, tall narrow central spire, and small vertical oval cutout.\"}],\"allClaimsMatch\":true,\"confidence\":\"high\",\"uncertainties\":[]}\n",
+    "evidencePath": null
+  }
+}

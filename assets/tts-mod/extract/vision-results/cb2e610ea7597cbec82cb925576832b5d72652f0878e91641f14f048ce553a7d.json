@@ -1,0 +1,77 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/medical-support-048.jpg",
+  "sourceSha256": "cb2e610ea7597cbec82cb925576832b5d72652f0878e91641f14f048ce553a7d",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_051254_7bad4f",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:12:54Z",
+  "completedAt": "2026-08-15T05:13:23Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "character action card",
+    "cardSide": "face",
+    "title": "REPAIRS",
+    "typeLine": "",
+    "body": "Discard 1 [actionCard] to discard a [malfunction].\n\nOR\n\nOpen or Close 1 accessible Door.",
+    "footer": "MEDICAL SUPPORT",
+    "upperRight": "notInCombat",
+    "lowerCenter": "",
+    "visibleText": "",
+    "confidentlyVisible": [
+      "Upright white and magenta typography",
+      "Artwork depicts an armored figure operating equipment beside an open mechanical structure",
+      "Upper-right red prohibition symbol overlays a curled white creature",
+      "Title reads “REPAIRS”",
+      "Rules are divided into two alternatives by “OR”",
+      "Footer reads “MEDICAL SUPPORT”"
+    ],
+    "proposedCategory": "cards/character/medical-support/action",
+    "proposedSlug": "repairs",
+    "confidence": "high",
+    "uncertainties": []
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Planning pixel inspection with image analysis**\n\n**Identifying malfunction and notInCombat icons****Planning pixel inspection with image analysis**\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Identifying malfunction and notInCombat icons****Interpreting action card visuals and text**\n\n\n{\"orientation\":\"upright\",\"componentType\":\"character action card\",\"cardSide\":\"face\",\"title\":\"REPAIRS\",\"typeLine\":\"\",\"body\":\"Discard 1 [actionCard] to discard a [malfunction].\\n\\nOR\\n\\nOpen or Close 1 accessible Door.\",\"footer\":\"MEDICAL SUPPORT\",\"upperRight\":\"notInCombat\",\"lowerCenter\":\"\",\"visibleText\":\"\",\"confidentlyVisible\":[\"Upright white and magenta typography\",\"Artwork depicts an armored figure operating equipment beside an open mechanical structure\",\"Upper-right red prohibition symbol overlays a curled white creature\",\"Title reads “REPAIRS”\",\"Rules are divided into two alternatives by “OR”\",\"Footer reads “MEDICAL SUPPORT”\"],\"proposedCategory\":\"cards/character/medical-support/action\",\"proposedSlug\":\"repairs\",\"confidence\":\"high\",\"uncertainties\":[]}\n\nsession_id: 20260815_051254_7bad4f\n",
+  "iconVerification": {
+    "status": "passed",
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "sessionId": "20260815_060736_971769",
+    "promptVersion": 1,
+    "completedAt": "2026-08-15T06:07:45Z",
+    "claimed": [
+      "actionCard",
+      "malfunction",
+      "notInCombat"
+    ],
+    "parsed": {
+      "claims": [
+        {
+          "claimed": "actionCard",
+          "verdict": "match",
+          "actual": "actionCard",
+          "evidence": "One occurrence: white rectangular card with a black capital A, matching the labeled glossary glyph."
+        },
+        {
+          "claimed": "malfunction",
+          "verdict": "match",
+          "actual": "malfunction",
+          "evidence": "One occurrence: white cogwheel with a dark circular hub and small lower-right cog extension, matching the labeled glossary crop."
+        },
+        {
+          "claimed": "notInCombat",
+          "verdict": "match",
+          "actual": "notInCombat",
+          "evidence": "One occurrence at the card's upper right: red prohibition circle and slash over the same white curled Intruder silhouette shown in the glossary crop."
+        }
+      ],
+      "allClaimsMatch": true,
+      "confidence": "high",
+      "uncertainties": []
+    },
+    "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n\nsession_id: 20260815_060736_971769\n{\"claims\":[{\"claimed\":\"actionCard\",\"verdict\":\"match\",\"actual\":\"actionCard\",\"evidence\":\"One occurrence: white rectangular card with a black capital A, matching the labeled glossary glyph.\"},{\"claimed\":\"malfunction\",\"verdict\":\"match\",\"actual\":\"malfunction\",\"evidence\":\"One occurrence: white cogwheel with a dark circular hub and small lower-right cog extension, matching the labeled glossary crop.\"},{\"claimed\":\"notInCombat\",\"verdict\":\"match\",\"actual\":\"notInCombat\",\"evidence\":\"One occurrence at the card's upper right: red prohibition circle and slash over the same white curled Intruder silhouette shown in the glossary crop.\"}],\"allClaimsMatch\":true,\"confidence\":\"high\",\"uncertainties\":[]}\n",
+    "evidencePath": null
+  }
+}

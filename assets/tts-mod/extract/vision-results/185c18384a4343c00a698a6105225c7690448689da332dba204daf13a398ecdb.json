@@ -1,0 +1,99 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-144_cards/card-15.png",
+  "sourceSha256": "185c18384a4343c00a698a6105225c7690448689da332dba204daf13a398ecdb",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_060602_e9e2e8",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:42:39Z",
+  "completedAt": "2026-08-15T06:06:17Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "character ability card",
+    "cardSide": "face",
+    "title": "SUPPORTING ROBOT\nCONTROLLER",
+    "typeLine": "",
+    "body": "At the start of the game choose a [robot] card\nand place the [robot] in the Landing Zone.\nDiscard A.\nActivate [robot] from anywhere in the Facility.",
+    "footer": "",
+    "upperRight": "notInCombat",
+    "lowerCenter": "",
+    "visibleText": "",
+    "confidentlyVisible": [
+      "White two-line uppercase title",
+      "Background art depicts a humanoid robot in a dark blue facility",
+      "Upper-right icon is a white gun crossed out in red",
+      "Three robot glyphs appear within the rules text",
+      "The letter A is printed inside a white rectangular outline"
+    ],
+    "proposedCategory": "cards/character/ability",
+    "proposedSlug": "supporting-robot-controller",
+    "confidence": "medium",
+    "uncertainties": [
+      "The card's owner or associated character is not visibly identified.",
+      "The outlined A may be a card-local action glyph, but its precise canonical meaning is not provided in the glossary.",
+      "The exact formal subtype within character cards is not explicitly printed."
+    ]
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Inspecting image with vision tools****Inspecting image with vision tools****Analyzing image text orientation**\n\n\n**Transcribing card text and icons**\n\n**Classifying card as equipment controller****Analyzing image text orientation**\n**Transcribing card text and icons**\n{\"orientation\":\"rotate90ccw\",\"componentType\":\"supporting-robot controller card\",\"cardSide\":\"face\",\"title\":\"SUPPORTING ROBOT\",\"typeLine\":\"CONTROLLER\",\"body\":\"At the start of the game choose a [robot] card\\nand place the [robot] in the Landing Zone.\\n\\nDiscard [actionCard].\\nActivate [robot] from anywhere in the Facility.\",\"footer\":\"\",\"upperRight\":\"notInCombat\",\"lowerCenter\":\"\",\"visibleText\":\"\",\"confidentlyVisible\":[\"White title and type line over artwork of a humanoid robot\",\"Two robot icons appear within the first effect\",\"A card-shaped A icon follows “Discard”\",\"A robot icon appears in the activation effect\",\"A red crossed-out gun icon occupies the upper-right corner after rotation\"],\"proposedCategory\":\"cards/game/item/controller\",\"proposedSlug\":\"supporting-robot\",\"confidence\":\"high\",\"uncertainties\":[]}\n\nsession_id: 20260815_054240_69686a\n",
+  "initialParsed": {
+    "orientation": "rotate90ccw",
+    "componentType": "supporting-robot controller card",
+    "cardSide": "face",
+    "title": "SUPPORTING ROBOT",
+    "typeLine": "CONTROLLER",
+    "body": "At the start of the game choose a [robot] card\nand place the [robot] in the Landing Zone.\n\nDiscard [actionCard].\nActivate [robot] from anywhere in the Facility.",
+    "footer": "",
+    "upperRight": "notInCombat",
+    "lowerCenter": "",
+    "visibleText": "",
+    "confidentlyVisible": [
+      "White title and type line over artwork of a humanoid robot",
+      "Two robot icons appear within the first effect",
+      "A card-shaped A icon follows “Discard”",
+      "A robot icon appears in the activation effect",
+      "A red crossed-out gun icon occupies the upper-right corner after rotation"
+    ],
+    "proposedCategory": "cards/game/item/controller",
+    "proposedSlug": "supporting-robot",
+    "confidence": "high",
+    "uncertainties": []
+  },
+  "initialSessionId": "20260815_054240_69686a",
+  "orientationCorrection": "rotate90ccw",
+  "uprightRead": {
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "sessionId": "20260815_060602_e9e2e8",
+    "completedAt": "2026-08-15T06:06:17Z",
+    "parsed": {
+      "orientation": "upright",
+      "componentType": "character ability card",
+      "cardSide": "face",
+      "title": "SUPPORTING ROBOT\nCONTROLLER",
+      "typeLine": "",
+      "body": "At the start of the game choose a [robot] card\nand place the [robot] in the Landing Zone.\nDiscard A.\nActivate [robot] from anywhere in the Facility.",
+      "footer": "",
+      "upperRight": "notInCombat",
+      "lowerCenter": "",
+      "visibleText": "",
+      "confidentlyVisible": [
+        "White two-line uppercase title",
+        "Background art depicts a humanoid robot in a dark blue facility",
+        "Upper-right icon is a white gun crossed out in red",
+        "Three robot glyphs appear within the rules text",
+        "The letter A is printed inside a white rectangular outline"
+      ],
+      "proposedCategory": "cards/character/ability",
+      "proposedSlug": "supporting-robot-controller",
+      "confidence": "medium",
+      "uncertainties": [
+        "The card's owner or associated character is not visibly identified.",
+        "The outlined A may be a card-local action glyph, but its precise canonical meaning is not provided in the glossary.",
+        "The exact formal subtype within character cards is not explicitly printed."
+      ]
+    },
+    "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Inspecting robot card pixel details**\n\n**Refining card category to character ability****Inspecting robot card pixel details**\n\nsession_id: 20260815_060602_e9e2e8\n{\"orientation\":\"upright\",\"componentType\":\"character ability card\",\"cardSide\":\"face\",\"title\":\"SUPPORTING ROBOT\\nCONTROLLER\",\"typeLine\":\"\",\"body\":\"At the start of the game choose a [robot] card\\nand place the [robot] in the Landing Zone.\\nDiscard A.\\nActivate [robot] from anywhere in the Facility.\",\"footer\":\"\",\"upperRight\":\"notInCombat\",\"lowerCenter\":\"\",\"visibleText\":\"\",\"confidentlyVisible\":[\"White two-line uppercase title\",\"Background art depicts a humanoid robot in a dark blue facility\",\"Upper-right icon is a white gun crossed out in red\",\"Three robot glyphs appear within the rules text\",\"The letter A is printed inside a white rectangular outline\"],\"proposedCategory\":\"cards/character/ability\",\"proposedSlug\":\"supporting-robot-controller\",\"confidence\":\"medium\",\"uncertainties\":[\"The card's owner or associated character is not visibly identified.\",\"The outlined A may be a card-local action glyph, but its precise canonical meaning is not provided in the glossary.\",\"The exact formal subtype within character cards is not explicitly printed.\"]}\n"
+  }
+}

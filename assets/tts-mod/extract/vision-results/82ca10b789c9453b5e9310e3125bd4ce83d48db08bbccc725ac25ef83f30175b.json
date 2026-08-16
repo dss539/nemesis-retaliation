@@ -1,0 +1,94 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-144_cards/card-12.png",
+  "sourceSha256": "82ca10b789c9453b5e9310e3125bd4ce83d48db08bbccc725ac25ef83f30175b",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_060551_2f4e7b",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:42:28Z",
+  "completedAt": "2026-08-15T06:06:12Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "illustrated item card",
+    "cardSide": "face",
+    "title": "PORTABLE DEVICE",
+    "typeLine": "",
+    "body": "You may treat your Room as a [computer] Room.",
+    "footer": "",
+    "upperRight": "",
+    "lowerCenter": "",
+    "visibleText": "",
+    "confidentlyVisible": [
+      "Landscape card face with a white recessed top edge",
+      "Title centered above artwork",
+      "Artwork depicts a portable electronic device",
+      "Body text is centered near the bottom",
+      "Blue monitor glyph confidently matches [computer]"
+    ],
+    "proposedCategory": "cards/game/item",
+    "proposedSlug": "portable-device",
+    "confidence": "medium",
+    "uncertainties": [
+      "The exact item-card subtype or ownership is not visibly printed."
+    ]
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Planning pixel inspection approach****Planning pixel inspection approach****Analyzing image text orientation for rotation**\n\n\n**Classifying image as game item card****Analyzing image text orientation for rotation**\n{\"orientation\":\"rotate90ccw\",\"componentType\":\"game item card\",\"cardSide\":\"face\",\"title\":\"PORTABLE DEVICE\",\"typeLine\":\"\",\"body\":\"You may treat your Room as a [computer] Room.\",\"footer\":\"\",\"upperRight\":\"\",\"lowerCenter\":\"\",\"visibleText\":\"\",\"confidentlyVisible\":[\"White uppercase title over device artwork\",\"Rules text appears as a single line\",\"A cyan computer icon appears inline between “a” and “Room.”\",\"Artwork depicts a portable electronic device\"],\"proposedCategory\":\"cards/game/item\",\"proposedSlug\":\"portable-device\",\"confidence\":\"high\",\"uncertainties\":[]}\n\nsession_id: 20260815_054229_ad99e1\n",
+  "initialParsed": {
+    "orientation": "rotate90ccw",
+    "componentType": "game item card",
+    "cardSide": "face",
+    "title": "PORTABLE DEVICE",
+    "typeLine": "",
+    "body": "You may treat your Room as a [computer] Room.",
+    "footer": "",
+    "upperRight": "",
+    "lowerCenter": "",
+    "visibleText": "",
+    "confidentlyVisible": [
+      "White uppercase title over device artwork",
+      "Rules text appears as a single line",
+      "A cyan computer icon appears inline between “a” and “Room.”",
+      "Artwork depicts a portable electronic device"
+    ],
+    "proposedCategory": "cards/game/item",
+    "proposedSlug": "portable-device",
+    "confidence": "high",
+    "uncertainties": []
+  },
+  "initialSessionId": "20260815_054229_ad99e1",
+  "orientationCorrection": "rotate90ccw",
+  "uprightRead": {
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "sessionId": "20260815_060551_2f4e7b",
+    "completedAt": "2026-08-15T06:06:12Z",
+    "parsed": {
+      "orientation": "upright",
+      "componentType": "illustrated item card",
+      "cardSide": "face",
+      "title": "PORTABLE DEVICE",
+      "typeLine": "",
+      "body": "You may treat your Room as a [computer] Room.",
+      "footer": "",
+      "upperRight": "",
+      "lowerCenter": "",
+      "visibleText": "",
+      "confidentlyVisible": [
+        "Landscape card face with a white recessed top edge",
+        "Title centered above artwork",
+        "Artwork depicts a portable electronic device",
+        "Body text is centered near the bottom",
+        "Blue monitor glyph confidently matches [computer]"
+      ],
+      "proposedCategory": "cards/game/item",
+      "proposedSlug": "portable-device",
+      "confidence": "medium",
+      "uncertainties": [
+        "The exact item-card subtype or ownership is not visibly printed."
+      ]
+    },
+    "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Preparing for pixel inspection****Preparing for pixel inspection****Analyzing item card details**\n\n\n**Refining equipment card classification****Analyzing item card details**\n\nsession_id: 20260815_060551_2f4e7b\n{\"orientation\":\"upright\",\"componentType\":\"illustrated item card\",\"cardSide\":\"face\",\"title\":\"PORTABLE DEVICE\",\"typeLine\":\"\",\"body\":\"You may treat your Room as a [computer] Room.\",\"footer\":\"\",\"upperRight\":\"\",\"lowerCenter\":\"\",\"visibleText\":\"\",\"confidentlyVisible\":[\"Landscape card face with a white recessed top edge\",\"Title centered above artwork\",\"Artwork depicts a portable electronic device\",\"Body text is centered near the bottom\",\"Blue monitor glyph confidently matches [computer]\"],\"proposedCategory\":\"cards/game/item\",\"proposedSlug\":\"portable-device\",\"confidence\":\"medium\",\"uncertainties\":[\"The exact item-card subtype or ownership is not visibly printed.\"]}\n"
+  }
+}

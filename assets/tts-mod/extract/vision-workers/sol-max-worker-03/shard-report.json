@@ -1,0 +1,117 @@
+{
+  "schemaVersion": 1,
+  "workerId": "sol-max-worker-03",
+  "status": "completed-delegated-one-asset-scope",
+  "completedAt": "2026-08-15T21:51:57Z",
+  "processed": 1,
+  "processedAssetIds": [
+    "W01-024"
+  ],
+  "promotionDecision": "defer",
+  "decisionCounts": {
+    "promote": 0,
+    "defer": 1,
+    "nonCardComplete": 0
+  },
+  "asset": {
+    "assetId": "W01-024",
+    "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-00.png",
+    "absoluteSourcePath": "/home/smithers/nemesis-retaliation/assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-00.png",
+    "sha256": "de97374d9cc8ed9f9141a4539386fd6b8979b4230f4eee8ae04925622fc07fed",
+    "sourceMetadata": {
+      "width": 1052,
+      "height": 1433,
+      "format": "PNG",
+      "mode": "RGB",
+      "frames": 1,
+      "byteSize": 1576034,
+      "decodeVerified": true
+    },
+    "orientation": "upright",
+    "title": "ANYTHING USEFUL?",
+    "body": "Move.\nIf you Explored a new Room, draw 1 Item for\neach [ICON: solid white chamfered eight-sided polygon with no visible internal mark] in that Room.\nKeep 1 and discard the rest.",
+    "footer": "RECON",
+    "proposedClassification": "Recon character Action-card face",
+    "semanticIconTokensClaimed": []
+  },
+  "promotionBlockers": [
+    "The crossed and substantially occluded upper-right glyph has no independently established canonical identity.",
+    "The solid white inline chamfered polygon has no canonical match in the authoritative 49-icon glossary.",
+    "The exact per-card TTS GUID for shared sprite-sheet cell 0 is unresolved; no CardID-to-cell guess was made."
+  ],
+  "runtimeBlockers": [],
+  "provenance": {
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "reasoningEffort": "max",
+    "nativeVision": true,
+    "nativeImageTurns": 1,
+    "sessionId": "20260815_213825_14ef69",
+    "nativeImageToolMessageId": 86277,
+    "auxiliaryVisionUsed": false,
+    "ocrCanonicalEvidenceUsed": false,
+    "qwenUsed": false,
+    "runtimeMetadataPath": "/home/smithers/nemesis-retaliation/assets/tts-mod/extract/vision-workers/sol-max-worker-03/metadata/runtime.json"
+  },
+  "assignment": {
+    "baselineFileSha256": "ab5b454fd14cf40a1d8465d3d33d28aa0ef2a499fb4a313001c2bdda1f40fd03",
+    "baselineOrderedTupleSha256": "64ea536d21b870acfb52c36e25d99a29e6186f473aa81db8e1b6fcd16fe2fc88",
+    "closingFileSha256": "f4a2fd2c388d1109dd7e413207d8dd49fb498073be99b26906a7fed6e3542afa",
+    "closingOrderedTupleSha256": "56f53499a1c63da769879f3266e407a1a9b1e73ae38eff1b53c66f205498a150",
+    "closingStatus": "stopped-partial",
+    "closingMergedResultCount": 1,
+    "closingRemainingAssetCount": 11,
+    "supersededBy": "sol-max-worker-04",
+    "driftClassification": "scope expansion from 1 to 12 assets",
+    "W01024TupleUnchanged": true,
+    "addedAssetsProcessed": false,
+    "scopeDecision": "Retain W01-024 and stop because the delegated task explicitly requires exactly one asset.",
+    "driftRecordPath": "/home/smithers/nemesis-retaliation/assets/tts-mod/extract/vision-workers/sol-max-worker-03/metadata/assignment-drift-001.json",
+    "metadataOnlyFinalDriftPath": "/home/smithers/nemesis-retaliation/assets/tts-mod/extract/vision-workers/sol-max-worker-03/metadata/assignment-drift-002.json",
+    "adjudicationPath": "/home/smithers/nemesis-retaliation/assets/tts-mod/extract/vision-workers/sol-max-worker-03/metadata/assignment-drift-adjudication-001.json"
+  },
+  "validation": {
+    "preReportArtifactValidation": "passed",
+    "jsonFilesParsedBeforeReports": 12,
+    "jsonParseFailures": 0,
+    "sourceHashMatches": true,
+    "sourceDecodeVerified": true,
+    "exactVisibleTextCheck": true,
+    "noSemanticIconTokensCheck": true,
+    "submittedReturnedCountReconciled": true,
+    "runtimeContractCheck": true,
+    "allSessionMutationTargetsWorkerLocal": true,
+    "trackedAndCachedGitDiffHashesUnchanged": true,
+    "externalConcurrentWritesObserved": "Supervisor updated shared ledgers and worker-02 files during this run; session mutation audit proves none were written by worker-03.",
+    "finalReportSelfValidation": "passed: 16 JSON files parsed; final assignment hash/tuple/status, source hash/decode, defer invariants, report existence, and worker-local mutation confinement all matched"
+  },
+  "canonicalOrSharedWrites": {
+    "performed": false,
+    "canonicalSidecarsCreated": 0,
+    "moves": 0,
+    "renames": 0,
+    "sharedLedgersEdited": 0,
+    "sourceFilesEdited": 0,
+    "priorWorkerFilesEdited": 0
+  },
+  "workerArtifacts": [
+    "/home/smithers/nemesis-retaliation/assets/tts-mod/extract/vision-workers/sol-max-worker-03/metadata/preflight.json",
+    "/home/smithers/nemesis-retaliation/assets/tts-mod/extract/vision-workers/sol-max-worker-03/metadata/runtime.json",
+    "/home/smithers/nemesis-retaliation/assets/tts-mod/extract/vision-workers/sol-max-worker-03/metadata/assignment-drift-001.json",
+    "/home/smithers/nemesis-retaliation/assets/tts-mod/extract/vision-workers/sol-max-worker-03/metadata/assignment-drift-002.json",
+    "/home/smithers/nemesis-retaliation/assets/tts-mod/extract/vision-workers/sol-max-worker-03/metadata/assignment-drift-adjudication-001.json",
+    "/home/smithers/nemesis-retaliation/assets/tts-mod/extract/vision-workers/sol-max-worker-03/raw/W01-024.json",
+    "/home/smithers/nemesis-retaliation/assets/tts-mod/extract/vision-workers/sol-max-worker-03/results/W01-024.json",
+    "/home/smithers/nemesis-retaliation/assets/tts-mod/extract/vision-workers/sol-max-worker-03/batches/batch-001.json",
+    "/home/smithers/nemesis-retaliation/assets/tts-mod/extract/vision-workers/sol-max-worker-03/checkpoints/checkpoint-001.json",
+    "/home/smithers/nemesis-retaliation/assets/tts-mod/extract/vision-workers/sol-max-worker-03/checkpoint.json",
+    "/home/smithers/nemesis-retaliation/assets/tts-mod/extract/vision-workers/sol-max-worker-03/shard-report.json",
+    "/home/smithers/nemesis-retaliation/assets/tts-mod/extract/vision-workers/sol-max-worker-03/shard-report.md"
+  ],
+  "reportPaths": {
+    "json": "/home/smithers/nemesis-retaliation/assets/tts-mod/extract/vision-workers/sol-max-worker-03/shard-report.json",
+    "markdown": "/home/smithers/nemesis-retaliation/assets/tts-mod/extract/vision-workers/sol-max-worker-03/shard-report.md",
+    "result": "/home/smithers/nemesis-retaliation/assets/tts-mod/extract/vision-workers/sol-max-worker-03/results/W01-024.json",
+    "raw": "/home/smithers/nemesis-retaliation/assets/tts-mod/extract/vision-workers/sol-max-worker-03/raw/W01-024.json"
+  }
+}

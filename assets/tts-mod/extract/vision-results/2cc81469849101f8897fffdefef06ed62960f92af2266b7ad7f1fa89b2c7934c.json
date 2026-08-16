@@ -1,0 +1,90 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/greenitem-140.png",
+  "sourceSha256": "2cc81469849101f8897fffdefef06ed62960f92af2266b7ad7f1fa89b2c7934c",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_052842_85faec",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:28:41Z",
+  "completedAt": "2026-08-15T05:29:49Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "green item card",
+    "cardSide": "face",
+    "title": "EMERGENCY LIFE\nSUPPORT CODES",
+    "typeLine": "ONE USE ONLY",
+    "body": "Only in [computer] Room without [malfunction]:\nFlip an [lifeSupportActive] / [lifeSupportInactive]\nin any Section.",
+    "footer": "",
+    "upperRight": "notInCombat",
+    "lowerCenter": "",
+    "visibleText": "",
+    "confidentlyVisible": [
+      "All meaningful typography reads upright in the file's current orientation.",
+      "The upper artwork depicts an illuminated rectangular electronic device.",
+      "A red prohibition circle overlays a curled white exoskeleton icon at the upper right of the title area.",
+      "The rules appear inside a green framed lower panel.",
+      "The computer, malfunction, active life-support, and crossed-out inactive life-support icons are clearly visible."
+    ],
+    "proposedCategory": "cards/game/item/green",
+    "proposedSlug": "emergency-life-support-codes",
+    "confidence": "high",
+    "uncertainties": []
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Inspecting image pixels for icon analysis**\n\n**Planning parallel loading of skills and image****Inspecting image pixels for icon analysis**\n**Planning parallel loading of skills and image****Defining green item card typography and icon placement**\n\n\n**Preserving precise body text with inline icons and line breaks****Defining green item card typography and icon placement**\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Preserving precise body text with inline icons and line breaks****Mapping exact JSON icons and formatting**\n\n\n**Classifying green item card with exact text formatting**\n\n**Confirming card category and icon mappings**\n\n**Clarifying life support and hibernatorium icons**\n\n**Confirming life support icon identity and function**\n\n**Verifying card color and category details**\n\n**Defining item type and prohibition semantics**\n\n{\"orientation\":\"upright\",\"componentType\":\"green item card\",\"cardSide\":\"face\",\"title\":\"EMERGENCY LIFE\\nSUPPORT CODES\",\"typeLine\":\"ONE USE ONLY\",\"body\":\"Only in [computer] Room without [malfunction]:\\nFlip an [lifeSupportActive] / [lifeSupportInactive]\\nin any Section.\",\"footer\":\"\",\"upperRight\":\"notInCombat\",\"lowerCenter\":\"\",\"visibleText\":\"\",\"confidentlyVisible\":[\"All meaningful typography reads upright in the file's current orientation.\",\"The upper artwork depicts an illuminated rectangular electronic device.\",\"A red prohibition circle overlays a curled white exoskeleton icon at the upper right of the title area.\",\"The rules appear inside a green framed lower panel.\",\"The computer, malfunction, active life-support, and crossed-out inactive life-support icons are clearly visible.\"],\"proposedCategory\":\"cards/game/item/green\",\"proposedSlug\":\"emergency-life-support-codes\",\"confidence\":\"high\",\"uncertainties\":[]}\n\nsession_id: 20260815_052842_85faec\n",
+  "iconVerification": {
+    "status": "passed",
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "sessionId": "20260815_060811_c1b85e",
+    "promptVersion": 1,
+    "completedAt": "2026-08-15T06:08:22Z",
+    "claimed": [
+      "computer",
+      "lifeSupportActive",
+      "lifeSupportInactive",
+      "malfunction",
+      "notInCombat"
+    ],
+    "parsed": {
+      "claims": [
+        {
+          "claimed": "computer",
+          "verdict": "match",
+          "actual": "computer",
+          "evidence": "One occurrence: cyan rounded monitor with bright inner screen and dark base matches glossary crop."
+        },
+        {
+          "claimed": "lifeSupportActive",
+          "verdict": "match",
+          "actual": "lifeSupportActive",
+          "evidence": "One occurrence: uncrossed cyan horizontal capsule/tank with white piping and right-end fixture matches glossary crop."
+        },
+        {
+          "claimed": "lifeSupportInactive",
+          "verdict": "match",
+          "actual": "lifeSupportInactive",
+          "evidence": "One occurrence: same cyan capsule/tank crossed by a black diagonal slash matches glossary crop."
+        },
+        {
+          "claimed": "malfunction",
+          "verdict": "match",
+          "actual": "malfunction",
+          "evidence": "One occurrence: gray gear with dark circular hub and eight projecting teeth matches glossary crop."
+        },
+        {
+          "claimed": "notInCombat",
+          "verdict": "match",
+          "actual": "notInCombat",
+          "evidence": "One occurrence: white Intruder silhouette inside a red prohibition circle with diagonal slash directly matches the glossary crop."
+        }
+      ],
+      "allClaimsMatch": true,
+      "confidence": "high",
+      "uncertainties": []
+    },
+    "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n\nsession_id: 20260815_060811_c1b85e\n{\"claims\":[{\"claimed\":\"computer\",\"verdict\":\"match\",\"actual\":\"computer\",\"evidence\":\"One occurrence: cyan rounded monitor with bright inner screen and dark base matches glossary crop.\"},{\"claimed\":\"lifeSupportActive\",\"verdict\":\"match\",\"actual\":\"lifeSupportActive\",\"evidence\":\"One occurrence: uncrossed cyan horizontal capsule/tank with white piping and right-end fixture matches glossary crop.\"},{\"claimed\":\"lifeSupportInactive\",\"verdict\":\"match\",\"actual\":\"lifeSupportInactive\",\"evidence\":\"One occurrence: same cyan capsule/tank crossed by a black diagonal slash matches glossary crop.\"},{\"claimed\":\"malfunction\",\"verdict\":\"match\",\"actual\":\"malfunction\",\"evidence\":\"One occurrence: gray gear with dark circular hub and eight projecting teeth matches glossary crop.\"},{\"claimed\":\"notInCombat\",\"verdict\":\"match\",\"actual\":\"notInCombat\",\"evidence\":\"One occurrence: white Intruder silhouette inside a red prohibition circle with diagonal slash directly matches the glossary crop.\"}],\"allClaimsMatch\":true,\"confidence\":\"high\",\"uncertainties\":[]}\n",
+    "evidencePath": null
+  }
+}

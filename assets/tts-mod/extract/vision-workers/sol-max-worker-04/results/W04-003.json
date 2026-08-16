@@ -1,0 +1,149 @@
+{
+  "schemaVersion": 1,
+  "assetId": "W04-003",
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-05.png",
+  "sourceSha256": "27a5c1a5959ed93f93d508e0f0a8d07999e0d929a0b9874848c2c10b3accf4e7",
+  "sourceMetadata": {
+    "width": 1052,
+    "height": 1433,
+    "format": "PNG",
+    "mode": "RGB",
+    "frames": 1,
+    "byteSize": 1410676,
+    "decodeVerified": true
+  },
+  "batchId": "W04-B02",
+  "completedAt": "2026-08-15T22:05:44Z",
+  "runtimeProvenance": {
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "reasoningEffort": "max",
+    "platform": "subagent",
+    "sessionId": "20260815_215426_fac7ff",
+    "nativeImageRoute": "active-session native image attachment via functions.vision_analyze",
+    "workerId": "sol-max-worker-04",
+    "nativeVision": true,
+    "auxiliaryVisionUsed": false,
+    "ocrUsedAsCanonicalEvidence": false,
+    "qwenUsed": false,
+    "runtimeMetadataPath": "assets/tts-mod/extract/vision-workers/sol-max-worker-04/metadata/runtime.json"
+  },
+  "orientation": {
+    "displayed": "upright portrait",
+    "final": "upright",
+    "rotationRequired": false
+  },
+  "blindPixelObservations": [
+    "Purple/black smoky corridor scene with an armed figure.",
+    "Standalone white horizontal object crossed by a red X in the upper right.",
+    "SCOUTING title, short Move sentence, then a two-line instruction with a white pointed shield glyph.",
+    "No neighboring-cell contamination."
+  ],
+  "visibleText": {
+    "title": "SCOUTING",
+    "typeLine": "",
+    "body": "Move.\nBefore the Noise roll, place 1 [secure]\nin the Room you are Moving to.",
+    "footer": "RECON",
+    "upperRight": "notInCombat",
+    "lowerCenter": "",
+    "edgeContamination": ""
+  },
+  "iconMorphology": [
+    {
+      "location": "upper right, standalone",
+      "outerSilhouette": "white horizontal gun silhouette under two thick red diagonal bars forming an X",
+      "internalMarks": "red/dark rail details remain visible on the white gun",
+      "colors": [
+        "white",
+        "red",
+        "dark outline"
+      ],
+      "neighboringPrintedText": "none",
+      "closestPlausibleAlternative": "intruder",
+      "visibleDiscriminatingFeature": "Long horizontal gun plus red X; no curled creature, teeth, spines, eye holes, or enclosing circle.",
+      "proposedToken": "notInCombat",
+      "tokenVerification": "The authoritative glossary explicitly documents this white-gun/red-X printed Action-card artwork variant; same-session contact-sheet reread confirmed the visible variant morphology.",
+      "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-worker-04/contact-sheets/W04-003-icons.png",
+      "verdictPath": "assets/tts-mod/extract/vision-workers/sol-max-worker-04/contact-sheets/W04-003-icons-verdict.json"
+    },
+    {
+      "location": "body after “place 1”",
+      "outerSilhouette": "white angular pointed shield/badge with broad notched top",
+      "internalMarks": "dark Y-shaped channels converge into a vertical stem",
+      "colors": [
+        "white",
+        "dark background through channels"
+      ],
+      "neighboringPrintedText": "Before the Noise roll, place 1 [glyph] in the Room you are Moving to.",
+      "closestPlausibleAlternative": "malfunction",
+      "visibleDiscriminatingFeature": "Exact pointed shield and internal Y-channel match to secure; malfunction is a toothed hollow gear.",
+      "proposedToken": "secure",
+      "tokenVerification": "exact same-session direct source/glossary crop match",
+      "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-worker-04/contact-sheets/W04-003-icons.png",
+      "verdictPath": "assets/tts-mod/extract/vision-workers/sol-max-worker-04/contact-sheets/W04-003-icons-verdict.json"
+    }
+  ],
+  "evidenceConsulted": [
+    {
+      "kind": "blindNativeImage",
+      "path": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-05.png",
+      "timing": "before metadata/provenance"
+    },
+    {
+      "kind": "ttsProvenance",
+      "path": "assets/tts-mod/extract/vision-workers/sol-max-worker-04/provenance/W04-003.json",
+      "finding": "Generated cell 5 on shared FaceURL sheet; no exact CardID % 100 == 5 ref; common action back is generic."
+    },
+    {
+      "kind": "authoritativeGlossaryContactSheet",
+      "path": "assets/tts-mod/extract/vision-workers/sol-max-worker-04/contact-sheets/W04-003-icons.png",
+      "finding": "Secure exact match; upper-right source matches the glossary-documented gun/X artwork variant of notInCombat."
+    },
+    {
+      "kind": "authoritativeGlossaryText",
+      "path": "docs/rules/icon-glossary.md",
+      "finding": "Line 109 explicitly documents the white gun crossed by a red X as a printed-card variant of notInCombat."
+    },
+    {
+      "kind": "canonicalTargetExistenceCheck",
+      "path": "cards/character/recon/action/scouting",
+      "finding": "No existing image or sidecar."
+    }
+  ],
+  "proposedClassification": "individual portrait action-card face for printed owner RECON, from shared FaceURL sheet",
+  "proposedPath": "cards/character/recon/action/scouting.png",
+  "canonicalTarget": "cards/character/recon/action/scouting.png",
+  "cardData": {
+    "cardSide": "face",
+    "title": "SCOUTING",
+    "typeLine": "",
+    "body": "Move.\nBefore the Noise roll, place 1 [secure]\nin the Room you are Moving to.",
+    "footer": "RECON",
+    "upperRight": "notInCombat",
+    "lowerCenter": "",
+    "category": "cards/character/recon/action",
+    "slug": "scouting"
+  },
+  "readConfidence": "high",
+  "classificationConfidence": "medium",
+  "uncertainties": [
+    "No parsed TTS Card object selects shared-sheet cell index 5, so there is no exact GUID/CardID-to-cell join.",
+    "Paired-side evidence is only a generic action-card BackURL shared by other records, not an exact cell-specific pair."
+  ],
+  "promotionDecision": "defer",
+  "decisionReasons": [
+    "Text and both icon claims are high-confidence, but strict promotion requires resolved individual card-index and paired-side provenance.",
+    "The shared-sheet cell is not selected by any parsed TTS Card object."
+  ],
+  "stagedCandidateSidecarPath": null,
+  "validationPerformed": [
+    "source hash/decode preflight before original and contact-sheet attachments",
+    "blind raw persisted before metadata",
+    "provenance derived from manifest/classification/lua_roles without prior worker output",
+    "combined direct source-to-authoritative-glossary native reread completed",
+    "ID/count reconciled 1/1",
+    "canonical target checked absent",
+    "identity recomputed by worker_utils.write_result"
+  ],
+  "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-worker-04/raw/W04-003.json"
+}

@@ -1,0 +1,328 @@
+{
+  "schemaVersion": 1,
+  "createdAt": "2026-08-15T22:10:38.955358Z",
+  "assetId": "W05-002",
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-02.png",
+  "sourceSha256": "4718ad2194859f3f1d1ecb72e52481616156dcacad27f46e4969c98cd64eddab",
+  "sourceMetadata": {
+    "dimensions": {
+      "width": 1052,
+      "height": 1433
+    },
+    "format": "PNG",
+    "mode": "RGB",
+    "frames": 1,
+    "bytes": 1439449,
+    "decode": {
+      "verified": true,
+      "method": "PIL.Image.verify"
+    },
+    "hashVerifiedAgainstAssignment": true,
+    "assignmentExpectedSha256": "4718ad2194859f3f1d1ecb72e52481616156dcacad27f46e4969c98cd64eddab"
+  },
+  "runtimeProvenance": {
+    "schemaVersion": 1,
+    "capturedAt": "2026-08-15T22:03:20.262495Z",
+    "sessionId": "20260815_215936_fea298",
+    "sessionSource": "subagent",
+    "parentSessionId": "b01cf4bb4120",
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "reasoningEffort": "max",
+    "nativeImageRoute": {
+      "required": true,
+      "transport": "functions.vision_analyze direct local-path attachment to the active session model",
+      "auxiliaryVisionUsed": false,
+      "qwenUsed": false,
+      "ocrCanonicalEvidenceUsed": false,
+      "verified": true,
+      "verificationStatus": "verified by successful direct native attachment of W05-001 to active session model",
+      "verificationEvidence": [
+        {
+          "assetId": "W05-001",
+          "exactSourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-01.png",
+          "transportResult": "functions.vision_analyze: Image loaded into your context — you can see it natively now",
+          "activeSessionId": "20260815_215936_fea298",
+          "postAttachmentSessionDbModel": "gpt-5.6-sol",
+          "postAttachmentUsageProvider": "openai-codex",
+          "postAttachmentReasoningEffort": "max"
+        }
+      ]
+    },
+    "evidence": {
+      "environmentSessionId": "HERMES_SESSION_ID queried in live terminal environment",
+      "sessionDb": "/home/smithers/.hermes/state.db",
+      "sessionsRow": {
+        "id": "20260815_215936_fea298",
+        "source": "subagent",
+        "model": "gpt-5.6-sol",
+        "parentSessionId": "b01cf4bb4120",
+        "startedAtUnix": 1786831176.7134857
+      },
+      "modelConfig": {
+        "max_iterations": 80,
+        "reasoning_config": {
+          "enabled": true,
+          "effort": "max"
+        },
+        "max_tokens": null,
+        "_delegate_from": "b01cf4bb4120"
+      },
+      "usageRow": {
+        "session_id": "20260815_215936_fea298",
+        "model": "gpt-5.6-sol",
+        "billing_provider": "openai-codex",
+        "billing_base_url": "https://chatgpt.com/backend-api/codex",
+        "billing_mode": "subscription_included",
+        "api_call_count": 10,
+        "first_seen": 1786831185.0011802,
+        "last_seen": 1786831400.1570232
+      },
+      "systemRuntimeContract": "active delegated system runtime names Model gpt-5.6-sol, Provider openai-codex, Platform subagent",
+      "postFirstAttachmentUsageRow": {
+        "session_id": "20260815_215936_fea298",
+        "model": "gpt-5.6-sol",
+        "billing_provider": "openai-codex",
+        "billing_base_url": "https://chatgpt.com/backend-api/codex",
+        "billing_mode": "subscription_included",
+        "api_call_count": 26,
+        "first_seen": 1786831185.0011802,
+        "last_seen": 1786831703.8723106
+      }
+    },
+    "routeVerifiedAt": "2026-08-15T22:08:23.918675Z"
+  },
+  "orientation": {
+    "pixelOrientation": "upright",
+    "requiredTransform": "none",
+    "basis": "The title, two instruction alternatives, and footer all read left-to-right in a vertically ordered portrait layout."
+  },
+  "blindPixelObservations": [
+    "A portrait-format illustrated rules card fills the image.",
+    "The upper artwork uses dark violet, orange, yellow, and black; an armed figure stands in a burning industrial interior.",
+    "A magenta-and-black title frame overlays the lower edge of the artwork.",
+    "Below the title is one centered sentence, a centered OR divider, and a second centered sentence containing one white pictogram.",
+    "The footer is black with widely spaced magenta letters.",
+    "No other non-decorative standalone pictogram is visibly established."
+  ],
+  "visibleText": {
+    "title": "DEMOLITION",
+    "body": "Remove 1 Door.\n\nOR\n\nPlace a [malfunction] in your Room.",
+    "footer": "RECON",
+    "materialTextComplete": true,
+    "punctuationPreserved": true,
+    "lineStructurePreserved": true
+  },
+  "iconMorphology": [
+    {
+      "iconId": "W05-002-glyph-01",
+      "location": "second instruction line, between the printed words 'a' and 'in'",
+      "neighboringText": "Place a [glyph] in your Room.",
+      "outerSilhouette": "A nearly circular white/light-gray cog or toothed ring with multiple blunt rectangular teeth around its perimeter.",
+      "internalMarks": "A large dark circular opening occupies the center; small uneven white projections are visible along the inner edge, but fine details are too small to resolve confidently.",
+      "colors": [
+        "white to light gray foreground",
+        "dark burgundy/black center and surrounding card background"
+      ],
+      "closestPlausibleCanonicalAlternatives": [
+        "malfunction",
+        "secure"
+      ],
+      "alternativeFalsification": {
+        "secure": "The visible outer edge is a toothed mechanical cog rather than a smooth badge/token outline; this rules out a plain smooth secure-token silhouette but does not establish the exact cog semantics.",
+        "malfunction": "The source pixels do not rule this alternative out; no direct authoritative crop comparison is part of this blind record."
+      },
+      "semanticIdentity": "malfunction",
+      "canonicalTokenClaimed": true,
+      "directGlossaryVerification": {
+        "sourceGlyphCropBox": [
+          434,
+          1110,
+          494,
+          1172
+        ],
+        "candidateSet": "all 34 authoritative glossary PNGs with extractable bright near-neutral foreground masks",
+        "method": "tight-mask normalization to 256x256 followed by pixel IoU and Dice",
+        "bestMatch": {
+          "path": "assets/icons/map/malfunction.png",
+          "sha256": "ed9c6aa3f4b6e770257161c01aa75e64fdf30de505b481c50883e71f376b386d",
+          "iou": 0.851715,
+          "dice": 0.91992,
+          "rank": 1
+        },
+        "closestCompetingCanonicalMatches": [
+          {
+            "path": "assets/icons/general/character-health.png",
+            "iou": 0.477001,
+            "dice": 0.645905,
+            "rank": 2
+          },
+          {
+            "path": "assets/icons/map/secure.png",
+            "iou": 0.458949,
+            "dice": 0.62915,
+            "rank": 4
+          }
+        ],
+        "visibleDiscriminator": "The source and malfunction crop share the toothed cog ring and dark circular center; secure lacks the matched toothed perimeter and scored materially lower.",
+        "evidencePath": "assets/tts-mod/extract/vision-workers/sol-max-worker-05/batches/W05-002-glossary-comparison.json"
+      }
+    }
+  ],
+  "evidenceConsulted": [
+    {
+      "kind": "blindNativeImage",
+      "path": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-02.png",
+      "timing": "before metadata/provenance"
+    },
+    {
+      "kind": "assignment",
+      "path": "assets/tts-mod/extract/vision-workers/sol-max-worker-05/assignment.json",
+      "purpose": "exact tuple only, not semantics"
+    },
+    {
+      "kind": "canonicalIconGlossary",
+      "path": "docs/rules/icon-glossary.md"
+    },
+    {
+      "kind": "canonicalIconCrop",
+      "path": "assets/icons/map/malfunction.png",
+      "sha256": "ed9c6aa3f4b6e770257161c01aa75e64fdf30de505b481c50883e71f376b386d"
+    },
+    {
+      "kind": "allGlossaryCropMaskComparison",
+      "path": "assets/tts-mod/extract/vision-workers/sol-max-worker-05/batches/W05-002-glossary-comparison.json"
+    },
+    {
+      "kind": "manifest",
+      "path": "assets/tts-mod/extract/v2-dl/tree/manifest.json",
+      "timing": "after blind raw persisted"
+    },
+    {
+      "kind": "parsedTtsObjects",
+      "path": "assets/tts-mod/extract/v2/objects.json",
+      "timing": "after blind raw persisted"
+    },
+    {
+      "kind": "cardProvenanceInventory",
+      "path": "assets/tts-mod/extract/card-provenance-inventory.json",
+      "timing": "after blind raw persisted"
+    },
+    {
+      "kind": "workflowReference",
+      "path": "assets/tts-mod/notes/card-extraction.md"
+    },
+    {
+      "kind": "priorWorkerSemanticOutput",
+      "consulted": false
+    }
+  ],
+  "sourceProvenance": {
+    "sourceKind": "generated sprite-sheet cell",
+    "cellIndex": 2,
+    "sourceSheetPath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045.jpg",
+    "sourceSheetUrl": "https://steamusercontent-a.akamaihd.net/ugc/2468613527880241742/F6B1605A2ED018B39F0BE82DD120FBFC08C5EF65/",
+    "sourceSheetUrlRole": "FaceURL",
+    "sourceSheetManifestBytes": 38432421,
+    "sheetReferenceCount": 20,
+    "referencingDeckGuids": [
+      "8b2d1b",
+      "a8e6a4",
+      "c8f207",
+      "d7e854"
+    ],
+    "referencedCardIds": [
+      567403,
+      567404,
+      567406,
+      567409,
+      567414,
+      567416,
+      567417,
+      567418,
+      567424,
+      567426,
+      567427,
+      567428,
+      567433,
+      567435,
+      567436,
+      567437
+    ],
+    "expectedCardIdForCellIfDirectlyReferenced": 567402,
+    "exactCellGuid": null,
+    "exactCellGuidStatus": "unresolved: parsed TTS references contain no CardID 567402 for generated cell index 2",
+    "pairedSide": {
+      "urlRole": "BackURL",
+      "url": "https://steamusercontent-a.akamaihd.net/ugc/10207952820401286363/045849F3D9E78090494EBF29460723DFD3BF642F/",
+      "path": "assets/tts-mod/extract/v2-dl/tree/cards/game/action/back.jpg",
+      "manifestBytes": 249584,
+      "pixelInspectionPerformed": false,
+      "reasonNotInspected": "No promotion attempted because the exact generated-cell GUID/provenance gate is unresolved; bounded worker scope reserves one source-image turn per assigned asset."
+    }
+  },
+  "proposedClassification": {
+    "componentFamily": "Action card",
+    "sideType": "card face (generated from a FaceURL sheet)",
+    "title": "Demolition",
+    "printedOwner": "Recon",
+    "proposedCanonicalSlug": "demolition",
+    "familyStatus": "classified",
+    "exactGuidStatus": "deferred",
+    "basis": [
+      "portrait action-card anatomy visible in pixels",
+      "printed RECON footer",
+      "source is cell 2 of a shared FaceURL action-card sheet"
+    ]
+  },
+  "readConfidence": {
+    "orientation": "high",
+    "materialText": "high",
+    "punctuation": "high",
+    "iconMorphology": "high",
+    "iconIdentity": "high after direct glossary-mask comparison"
+  },
+  "classificationConfidence": {
+    "componentFamily": "high",
+    "printedOwner": "high from visible footer",
+    "sideRole": "high at source-sheet level",
+    "exactCellGuid": "low/unresolved",
+    "overall": "medium-high with material provenance gap"
+  },
+  "uncertainties": [
+    "No parsed TTS Card object directly references CardID 567402, so an exact object GUID cannot be bound to generated cell 2.",
+    "The shared FaceURL sheet is referenced across Heavy Gun Operator, Combat Engineer, Recon, and Officer decks; the printed RECON footer establishes visible ownership but not an exact TTS object GUID.",
+    "The paired BackURL path was resolved but its pixels were not opened because the unresolved GUID gate already forces deferral and the bounded assignment allows one native-image turn per assigned source."
+  ],
+  "promotionDecision": "defer",
+  "decisionReasons": [
+    "Exact cell-to-TTS-object GUID provenance is unresolved.",
+    "The paired side was not visually inspected, so the documented pair-level pre-catalog gate is not complete.",
+    "False promotion is worse than deferral; clear text and a verified malfunction icon do not override the provenance gate."
+  ],
+  "validationPerformed": {
+    "assignmentTupleReRead": true,
+    "sourceHashMatchedAssignment": true,
+    "sourceDecodePassed": true,
+    "nativeRouteVerified": true,
+    "submittedAssetIds": [
+      "W05-002"
+    ],
+    "returnedAssetIds": [
+      "W05-002"
+    ],
+    "submittedCount": 1,
+    "returnedCount": 1,
+    "idCountReconciled": true,
+    "rawPersistedBeforeMetadataJoin": true,
+    "rawJsonParsed": true,
+    "allMaterialTextRead": true,
+    "canonicalIconClaimsDirectlyCompared": true,
+    "faceBackRoleResolvedAtSheetLevel": true,
+    "pairedSidePixelInspected": false,
+    "candidateSidecarWritten": false
+  },
+  "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-worker-05/raw/W05-002.json",
+  "nextPendingAssetId": "W05-003",
+  "nextPendingSourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-05.png"
+}

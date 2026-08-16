@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/exploration-026.png",
+  "sourceSha256": "08445a3d8b18081d7396756f407ac058c383c3aee05bde76e80393b0af4b741d",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_052620_801d44",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:26:19Z",
+  "completedAt": "2026-08-15T05:27:12Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "exploration instruction card",
+    "cardSide": "face",
+    "title": "",
+    "typeLine": "",
+    "body": "Place A/B/C Room\ndepending on your Section.\n\n[character] [fire]\n\nReminder:\nPlace 1 [ICON: white vertically elongated shield-like glyph with a notched top and internal chevron lines] if you are Moving with [ICON: white vertically elongated shield-like glyph with a notched top and internal chevron lines].\n\nClose all doors around this room.\n\nMake a Noise roll.",
+    "footer": "",
+    "upperRight": "",
+    "lowerCenter": "",
+    "visibleText": "",
+    "confidentlyVisible": [
+      "All typography is upright in the file as shown.",
+      "The central diagram contains a white astronaut glyph matching [character].",
+      "The central diagram contains an orange flame glyph matching [fire].",
+      "The astronaut and flame appear inside a white hexagonal room outline.",
+      "Two white corridor-like outlines extend from the room toward the right and lower right.",
+      "The two inline white glyphs in the Reminder sentence appear morphologically identical."
+    ],
+    "proposedCategory": "cards/game/exploration",
+    "proposedSlug": null,
+    "confidence": "medium",
+    "uncertainties": [
+      "The two inline white glyphs in the Reminder sentence do not confidently match any supplied canonical glossary icon; they are therefore transcribed literally.",
+      "No distinct printed title is visible, so a semantic filename stem cannot be established from a title or unmistakable depicted identity.",
+      "The precise printed product term for this component type is not visible; “exploration instruction card” is inferred from its face layout and instructions."
+    ]
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Loading image analysis workflows****Loading image analysis workflows****Analyzing game card image elements**\n\n\n**Identifying and tokenizing card icon placeholders****Analyzing game card image elements**\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Identifying and tokenizing card icon placeholders****Deciding exact exploration card layout**\n\n\n**Designing exploration card body with inline icons**\n\n{\"orientation\":\"upright\",\"componentType\":\"exploration instruction card\",\"cardSide\":\"face\",\"title\":\"\",\"typeLine\":\"\",\"body\":\"Place A/B/C Room\\ndepending on your Section.\\n\\n[character] [fire]\\n\\nReminder:\\nPlace 1 [ICON: white vertically elongated shield-like glyph with a notched top and internal chevron lines] if you are Moving with [ICON: white vertically elongated shield-like glyph with a notched top and internal chevron lines].\\n\\nClose all doors around this room.\\n\\nMake a Noise roll.\",\"footer\":\"\",\"upperRight\":\"\",\"lowerCenter\":\"\",\"visibleText\":\"\",\"confidentlyVisible\":[\"All typography is upright in the file as shown.\",\"The central diagram contains a white astronaut glyph matching [character].\",\"The central diagram contains an orange flame glyph matching [fire].\",\"The astronaut and flame appear inside a white hexagonal room outline.\",\"Two white corridor-like outlines extend from the room toward the right and lower right.\",\"The two inline white glyphs in the Reminder sentence appear morphologically identical.\"],\"proposedCategory\":\"cards/game/exploration\",\"proposedSlug\":null,\"confidence\":\"medium\",\"uncertainties\":[\"The two inline white glyphs in the Reminder sentence do not confidently match any supplied canonical glossary icon; they are therefore transcribed literally.\",\"No distinct printed title is visible, so a semantic filename stem cannot be established from a title or unmistakable depicted identity.\",\"The precise printed product term for this component type is not visible; “exploration instruction card” is inferred from its face layout and instructions.\"]}\n\nsession_id: 20260815_052620_801d44\n"
+}

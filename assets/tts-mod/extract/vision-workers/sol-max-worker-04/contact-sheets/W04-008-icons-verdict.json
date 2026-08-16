@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "assetId": "W04-008",
+  "verifiedAt": "2026-08-15T22:16:17Z",
+  "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-worker-04/contact-sheets/W04-008-icons.png",
+  "claims": [
+    {
+      "location": "upperRight",
+      "claimedToken": "notInCombat",
+      "verdict": "high-confidence documented printed-card variant",
+      "closestAlternative": "intruder",
+      "discriminatingFeature": "Long horizontal white gun under red X, with no curled creature/enclosing circle."
+    },
+    {
+      "location": "inline after with",
+      "claimedToken": "ammoToken",
+      "verdict": "high-confidence exact morphology match",
+      "sourceMorphology": "Red rectangular/stepped token with a black left inset containing multiple narrow vertical cartridge bars and a dark red right block.",
+      "closestAlternative": "redItem",
+      "discriminatingFeature": "Source matches ammoToken\u2019s black multi-cartridge inset plus dark right block; redItem is a red octagon with three white cartridges."
+    }
+  ],
+  "runtimeSessionId": "20260815_215426_fac7ff",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "reasoningEffort": "max"
+}

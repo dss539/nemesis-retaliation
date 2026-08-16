@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/robotDeck-004.jpg",
+  "sourceSha256": "c78d2a69189749dcd4578ee7e270b83c6115510988286431943ba6039b2abc56",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_053953_72182f",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:39:53Z",
+  "completedAt": "2026-08-15T05:40:09Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "robot action card",
+    "cardSide": "face",
+    "title": "EXPLORATION ROBOT",
+    "typeLine": "",
+    "body": "Move the [robot] up to 2 times.\nOR\nMove the [robot] through\nan Unexplored Corridor\nand resolve an Exploration\nSequence. Do not resolve\nthe Entrance effect.",
+    "footer": "",
+    "upperRight": "",
+    "lowerCenter": "",
+    "visibleText": "",
+    "confidentlyVisible": [
+      "Upright white title at the top",
+      "Tracked exploration robot depicted in the central artwork",
+      "Two white robot icons appear inline in the rules text",
+      "Rules text is fully visible and legible"
+    ],
+    "proposedCategory": "cards/game/robot",
+    "proposedSlug": "exploration-robot",
+    "confidence": "high",
+    "uncertainties": []
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Inspecting attached pixels****Inspecting attached pixels****Designing precise robot action card JSON**\n{\"orientation\":\"upright\",\"componentType\":\"robot action card\",\"cardSide\":\"face\",\"title\":\"EXPLORATION ROBOT\",\"typeLine\":\"\",\"body\":\"Move the [robot] up to 2 times.\\nOR\\nMove the [robot] through\\nan Unexplored Corridor\\nand resolve an Exploration\\nSequence. Do not resolve\\nthe Entrance effect.\",\"footer\":\"\",\"upperRight\":\"\",\"lowerCenter\":\"\",\"visibleText\":\"\",\"confidentlyVisible\":[\"Upright white title at the top\",\"Tracked exploration robot depicted in the central artwork\",\"Two white robot icons appear inline in the rules text\",\"Rules text is fully visible and legible\"],\"proposedCategory\":\"cards/game/robot\",\"proposedSlug\":\"exploration-robot\",\"confidence\":\"high\",\"uncertainties\":[]}\n\nsession_id: 20260815_053953_72182f\n",
+  "iconVerification": {
+    "status": "passed",
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "sessionId": "20260815_060826_90ce83",
+    "promptVersion": 1,
+    "completedAt": "2026-08-15T06:08:37Z",
+    "claimed": [
+      "robot"
+    ],
+    "parsed": {
+      "claims": [
+        {
+          "claimed": "robot",
+          "verdict": "match",
+          "actual": "robot",
+          "evidence": "Two occurrences; both show the glossary robot’s white rounded head, central top antenna, paired side tabs, and two dark circular eyes."
+        }
+      ],
+      "allClaimsMatch": true,
+      "confidence": "high",
+      "uncertainties": []
+    },
+    "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Planning direct image analysis****Planning direct image analysis****Confirming robot icon details**\n\nsession_id: 20260815_060826_90ce83\n{\"claims\":[{\"claimed\":\"robot\",\"verdict\":\"match\",\"actual\":\"robot\",\"evidence\":\"Two occurrences; both show the glossary robot’s white rounded head, central top antenna, paired side tabs, and two dark circular eyes.\"}],\"allClaimsMatch\":true,\"confidence\":\"high\",\"uncertainties\":[]}\n",
+    "evidencePath": null
+  }
+}

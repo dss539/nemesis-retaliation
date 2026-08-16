@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/reditem-148_cards/card-02.png",
+  "sourceSha256": "441834df437ddff13e8fe8d485e615df7b67730aa1903610fbd474ee73d0161c",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_053931_4585a4",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:39:31Z",
+  "completedAt": "2026-08-15T05:39:53Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "item card",
+    "cardSide": "face",
+    "title": "CLAYMORE\nMINE",
+    "typeLine": "ONE USE ONLY",
+    "body": "Place 1 [ICON: red hexagonal badge with white mine-shaped glyph] in an empty Corridor.\nWhen any number of [intruder]\nare placed in that Corridor,\nremove the [ICON: red hexagonal badge with white mine-shaped glyph] and resolve\nthe token effect there.",
+    "footer": "",
+    "upperRight": "notInCombat",
+    "lowerCenter": "",
+    "visibleText": "FRONT\nTOWARD ENEMY",
+    "confidentlyVisible": [
+      "Upright white title centered over the rules panel",
+      "Yellow ONE USE ONLY type line",
+      "Upper-right white crossed-out gun icon",
+      "Two matching red badge icons with white mine-shaped glyphs in the body",
+      "One white curled exoskeleton Intruder icon in the body",
+      "Artwork depicts a directional explosive device",
+      "FRONT and TOWARD ENEMY are embossed on the depicted device"
+    ],
+    "proposedCategory": "cards/game/item/weapon",
+    "proposedSlug": "claymore-mine",
+    "confidence": "medium",
+    "uncertainties": [
+      "The repeated red card-local mine glyph is absent from the supplied canonical glossary, so it is described literally rather than mapped.",
+      "The embossed artwork text is stylized; no punctuation is confidently visible between FRONT and TOWARD ENEMY.",
+      "The exact item subtype/category is not explicitly printed; weapon is inferred from the visible title, crossed-out gun icon, and explosive-device artwork."
+    ]
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Preparing for pixel inspection****Preparing for pixel inspection****Extracting precise card JSON details**\n\n\n**Confirming item card category and details****Extracting precise card JSON details**\n{\"orientation\":\"upright\",\"componentType\":\"item card\",\"cardSide\":\"face\",\"title\":\"CLAYMORE\\nMINE\",\"typeLine\":\"ONE USE ONLY\",\"body\":\"Place 1 [ICON: red hexagonal badge with white mine-shaped glyph] in an empty Corridor.\\nWhen any number of [intruder]\\nare placed in that Corridor,\\nremove the [ICON: red hexagonal badge with white mine-shaped glyph] and resolve\\nthe token effect there.\",\"footer\":\"\",\"upperRight\":\"notInCombat\",\"lowerCenter\":\"\",\"visibleText\":\"FRONT\\nTOWARD ENEMY\",\"confidentlyVisible\":[\"Upright white title centered over the rules panel\",\"Yellow ONE USE ONLY type line\",\"Upper-right white crossed-out gun icon\",\"Two matching red badge icons with white mine-shaped glyphs in the body\",\"One white curled exoskeleton Intruder icon in the body\",\"Artwork depicts a directional explosive device\",\"FRONT and TOWARD ENEMY are embossed on the depicted device\"],\"proposedCategory\":\"cards/game/item/weapon\",\"proposedSlug\":\"claymore-mine\",\"confidence\":\"medium\",\"uncertainties\":[\"The repeated red card-local mine glyph is absent from the supplied canonical glossary, so it is described literally rather than mapped.\",\"The embossed artwork text is stylized; no punctuation is confidently visible between FRONT and TOWARD ENEMY.\",\"The exact item subtype/category is not explicitly printed; weapon is inferred from the visible title, crossed-out gun icon, and explosive-device artwork.\"]}\n\nsession_id: 20260815_053931_4585a4\n"
+}

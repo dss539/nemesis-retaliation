@@ -1,0 +1,93 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/recon-046_cards/card-01.png",
+  "sourceSha256": "92588406b8d6cc30883c955e78a645a029cbf2a0878cc1a05cdd1352e1008c52",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_060409_e4205a",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:14:44Z",
+  "completedAt": "2026-08-15T06:04:27Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "character selection screen artwork",
+    "cardSide": "notCard",
+    "title": "PICK COMBAT ENGINEER",
+    "typeLine": "",
+    "body": "",
+    "footer": "",
+    "upperRight": "",
+    "lowerCenter": "",
+    "visibleText": "",
+    "confidentlyVisible": [
+      "Landscape-format digital artwork",
+      "Armored human figure holding a small rectangular object",
+      "Orange illuminated mechanical equipment on the figure's back",
+      "Large black-and-orange framed interface panel across the lower portion",
+      "White uppercase typography reads left to right"
+    ],
+    "proposedCategory": null,
+    "proposedSlug": "pick-combat-engineer",
+    "confidence": "high",
+    "uncertainties": []
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Loading image analysis workflows****Loading image analysis workflows****Confirming use of local vision_analyze path**\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Confirming use of local vision_analyze path****Analyzing image text rotation direction**\n\n\n**Deciding 90° CCW image rotation**\n\n**Confirming character selection card identity**\n\n**Analyzing image pixel details**\n\n**Refining semantic category for card**\n\n**Assigning uncertain card side classification**\n\n**Confirming character card orientation**\n\n{\"orientation\":\"rotate90ccw\",\"componentType\":\"character selection card\",\"cardSide\":\"uncertain\",\"title\":\"PICK COMBAT ENGINEER\",\"typeLine\":\"\",\"body\":\"\",\"footer\":\"\",\"upperRight\":\"\",\"lowerCenter\":\"\",\"visibleText\":\"\",\"confidentlyVisible\":[\"Large white uppercase title inside an amber-edged black panel\",\"Armored human figure holding a small translucent rectangular object\",\"Large mechanical or armored form with orange glowing lights behind the human figure\",\"No canonical glossary icons are visibly present\",\"No rules or effect text is visible\"],\"proposedCategory\":\"cards/character/combat-engineer/selection\",\"proposedSlug\":\"pick-combat-engineer\",\"confidence\":\"medium\",\"uncertainties\":[\"The pixels do not establish whether this illustrated, title-only side is formally the face or back of the card.\"]}\n\nsession_id: 20260815_051444_cee0be\n",
+  "initialParsed": {
+    "orientation": "rotate90ccw",
+    "componentType": "character selection card",
+    "cardSide": "uncertain",
+    "title": "PICK COMBAT ENGINEER",
+    "typeLine": "",
+    "body": "",
+    "footer": "",
+    "upperRight": "",
+    "lowerCenter": "",
+    "visibleText": "",
+    "confidentlyVisible": [
+      "Large white uppercase title inside an amber-edged black panel",
+      "Armored human figure holding a small translucent rectangular object",
+      "Large mechanical or armored form with orange glowing lights behind the human figure",
+      "No canonical glossary icons are visibly present",
+      "No rules or effect text is visible"
+    ],
+    "proposedCategory": "cards/character/combat-engineer/selection",
+    "proposedSlug": "pick-combat-engineer",
+    "confidence": "medium",
+    "uncertainties": [
+      "The pixels do not establish whether this illustrated, title-only side is formally the face or back of the card."
+    ]
+  },
+  "initialSessionId": "20260815_051444_cee0be",
+  "orientationCorrection": "rotate90ccw",
+  "uprightRead": {
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "sessionId": "20260815_060409_e4205a",
+    "completedAt": "2026-08-15T06:04:27Z",
+    "parsed": {
+      "orientation": "upright",
+      "componentType": "character selection screen artwork",
+      "cardSide": "notCard",
+      "title": "PICK COMBAT ENGINEER",
+      "typeLine": "",
+      "body": "",
+      "footer": "",
+      "upperRight": "",
+      "lowerCenter": "",
+      "visibleText": "",
+      "confidentlyVisible": [
+        "Landscape-format digital artwork",
+        "Armored human figure holding a small rectangular object",
+        "Orange illuminated mechanical equipment on the figure's back",
+        "Large black-and-orange framed interface panel across the lower portion",
+        "White uppercase typography reads left to right"
+      ],
+      "proposedCategory": null,
+      "proposedSlug": "pick-combat-engineer",
+      "confidence": "high",
+      "uncertainties": []
+    },
+    "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n⚠️  Reached maximum iterations (2). Requesting summary...\n\nsession_id: 20260815_060409_e4205a\n{\"orientation\":\"upright\",\"componentType\":\"character selection screen artwork\",\"cardSide\":\"notCard\",\"title\":\"PICK COMBAT ENGINEER\",\"typeLine\":\"\",\"body\":\"\",\"footer\":\"\",\"upperRight\":\"\",\"lowerCenter\":\"\",\"visibleText\":\"\",\"confidentlyVisible\":[\"Landscape-format digital artwork\",\"Armored human figure holding a small rectangular object\",\"Orange illuminated mechanical equipment on the figure's back\",\"Large black-and-orange framed interface panel across the lower portion\",\"White uppercase typography reads left to right\"],\"proposedCategory\":null,\"proposedSlug\":\"pick-combat-engineer\",\"confidence\":\"high\",\"uncertainties\":[]}\n"
+  }
+}

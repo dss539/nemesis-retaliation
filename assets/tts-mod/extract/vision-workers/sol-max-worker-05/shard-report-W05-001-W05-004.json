@@ -1,0 +1,138 @@
+{
+  "schemaVersion": 1,
+  "workerId": "sol-max-worker-05",
+  "completedAt": "2026-08-15T22:31:13.150807Z",
+  "status": "completed-frozen-four; stopped-on-active-root-reuse",
+  "summary": {
+    "processed": 4,
+    "promotable": 0,
+    "deferred": 4,
+    "nonCardComplete": 0,
+    "nextPending": null
+  },
+  "processedAssetIds": [
+    "W05-001",
+    "W05-002",
+    "W05-003",
+    "W05-004"
+  ],
+  "perAsset": [
+    {
+      "assetId": "W05-001",
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-01.png",
+      "title": "Chain of Command",
+      "printedOwner": "Recon",
+      "iconIdentities": [
+        "lander"
+      ],
+      "exactCellGuid": null,
+      "promotionDecision": "defer",
+      "decisionReasons": [
+        "Exact cell-to-TTS-object GUID provenance is unresolved.",
+        "The paired side was not visually inspected, so the documented pair-level pre-catalog gate is not complete.",
+        "False promotion is worse than deferral; clear text and a verified lander icon do not override the provenance gate."
+      ],
+      "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-worker-05/results/W05-001.json"
+    },
+    {
+      "assetId": "W05-002",
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-02.png",
+      "title": "Demolition",
+      "printedOwner": "Recon",
+      "iconIdentities": [
+        "malfunction"
+      ],
+      "exactCellGuid": null,
+      "promotionDecision": "defer",
+      "decisionReasons": [
+        "Exact cell-to-TTS-object GUID provenance is unresolved.",
+        "The paired side was not visually inspected, so the documented pair-level pre-catalog gate is not complete.",
+        "False promotion is worse than deferral; clear text and a verified malfunction icon do not override the provenance gate."
+      ],
+      "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-worker-05/results/W05-002.json"
+    },
+    {
+      "assetId": "W05-003",
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-05.png",
+      "title": "Scouting",
+      "printedOwner": "Recon",
+      "iconIdentities": [
+        "notInCombat",
+        "secure"
+      ],
+      "exactCellGuid": null,
+      "promotionDecision": "defer",
+      "decisionReasons": [
+        "Exact cell-to-TTS-object GUID provenance is unresolved.",
+        "The paired side was not visually inspected, so the documented pair-level pre-catalog gate is not complete.",
+        "False promotion is worse than deferral; complete text and resolved icon identities do not override the provenance gate."
+      ],
+      "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-worker-05/results/W05-003.json"
+    },
+    {
+      "assetId": "W05-004",
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-06.png",
+      "title": "Search",
+      "printedOwner": "Recon",
+      "iconIdentities": [
+        "notInCombat",
+        "unresolved literal morphology"
+      ],
+      "exactCellGuid": "59dea3",
+      "promotionDecision": "defer",
+      "decisionReasons": [
+        "A material inline icon has no defensible canonical token after direct comparison against all 49 glossary crops.",
+        "The paired side was not visually inspected, so the pair-level pre-catalog gate is not complete.",
+        "False promotion is worse than deferral; exact card-family/GUID provenance does not permit inventing the missing icon semantics."
+      ],
+      "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-worker-05/results/W05-004.json"
+    }
+  ],
+  "provenance": {
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "reasoningEffort": "max",
+    "sessionId": "20260815_215936_fea298",
+    "sessionSource": "subagent",
+    "nativeImageRouteVerified": true,
+    "nativeImageTurns": 4,
+    "submittedCount": 4,
+    "returnedCount": 4,
+    "auxiliaryVisionUsed": false,
+    "qwenUsed": false,
+    "ocrCanonicalEvidenceUsed": false
+  },
+  "reportPaths": {
+    "json": "assets/tts-mod/extract/vision-workers/sol-max-worker-05/shard-report-W05-001-W05-004.json",
+    "markdown": "assets/tts-mod/extract/vision-workers/sol-max-worker-05/shard-report-W05-001-W05-004.md",
+    "runtime": "assets/tts-mod/extract/vision-workers/sol-max-worker-05/metadata/runtime-W05-001-W05-004.json",
+    "assignmentDrift": "assets/tts-mod/extract/vision-workers/sol-max-worker-05/metadata/assignment-drift.json",
+    "collision": "assets/tts-mod/extract/vision-workers/sol-max-worker-05/metadata/sibling-write-collision.json",
+    "mutationAudit": "assets/tts-mod/extract/vision-workers/sol-max-worker-05/metadata/session-mutation-audit-W05-001-W05-004.json",
+    "validation": "assets/tts-mod/extract/vision-workers/sol-max-worker-05/batches/W05-001-W05-004-final-validation.json",
+    "checkpoint": "assets/tts-mod/extract/vision-workers/sol-max-worker-05/checkpoints/checkpoint-005-W05-001-W05-004-stop.json"
+  },
+  "blockers": [
+    {
+      "type": "active-root-reuse",
+      "detail": "A replacement run rewrote assignment.json to W04-009..W04-011 and metadata/runtime.json to session 20260815_222507_ce8f8a while this run was closing. This run stopped without processing those assets.",
+      "evidencePath": "assets/tts-mod/extract/vision-workers/sol-max-worker-05/metadata/assignment-drift.json"
+    },
+    {
+      "type": "asset-gates",
+      "detail": "W05-001..003 lack exact cell GUID and paired-side inspection; W05-004 has GUID 59dea3 but an unresolved material blank-white-octagon glyph and no paired-side inspection."
+    }
+  ],
+  "writeScope": {
+    "sharedOrCanonicalWritesByThisRun": false,
+    "candidateSidecarsWritten": 0,
+    "sourceFilesModified": 0,
+    "sessionMutationAuditPassed": true
+  },
+  "validation": {
+    "frozenShardPassed": true,
+    "assignmentClosurePassed": false,
+    "mutationAuditPassed": true,
+    "path": "assets/tts-mod/extract/vision-workers/sol-max-worker-05/batches/W05-001-W05-004-final-validation.json"
+  }
+}

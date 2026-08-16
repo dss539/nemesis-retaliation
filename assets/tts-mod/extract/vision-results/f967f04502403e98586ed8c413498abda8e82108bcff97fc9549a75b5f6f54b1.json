@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/tiles/room/life-support-control-022.jpg",
+  "sourceSha256": "f967f04502403e98586ed8c413498abda8e82108bcff97fc9549a75b5f6f54b1",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_054817_8b414c",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:48:17Z",
+  "completedAt": "2026-08-15T05:48:57Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "rotationIrrelevant",
+    "componentType": "texture atlas containing an angled room-tile face, a room-tile back, and a rules/reference panel",
+    "cardSide": "notCard",
+    "title": "LIFE SUPPORT CONTROL \"B\"",
+    "typeLine": "",
+    "body": "Flip [ICON: four overlapping circular token glyphs alternating cyan and white] in section \"B\"\nOR\nLook at both Anti-aircraft tokens\nand place them\nin a chosen order.",
+    "footer": "",
+    "upperRight": "autodestruction",
+    "lowerCenter": "",
+    "visibleText": "B\nB",
+    "confidentlyVisible": [
+      "The texture contains multiple overlapping component regions rather than one isolated card.",
+      "The main illustrated panel shows a circular electrified machine.",
+      "A large purple B appears near the upper-left of the main panel.",
+      "A green badge with a white cross and a red badge with three white cartridges appear along the left side.",
+      "A grey three-lobed symbol inside an outlined badge appears near the upper-right.",
+      "A separate lower component shows a large white B.",
+      "Large black rounded masks obscure substantial portions of the texture."
+    ],
+    "proposedCategory": "tiles/room",
+    "proposedSlug": "life-support-control-b",
+    "confidence": "medium",
+    "uncertainties": [
+      "The file is a diagonally arranged texture atlas, so no available 90-degree rotation makes every component axis-aligned; the readable typography itself is already upright relative to its angled panel.",
+      "The four inline circular glyphs after “Flip” are not confidently represented in the supplied glossary and are therefore described literally.",
+      "The exact face/back/reference role of each overlapping atlas region is partly obscured by black masks.",
+      "The grey three-lobed upper-right glyph matches the canonical autodestruction morphology, but its muted rendering makes the mapping slightly less certain.",
+      "Some atlas components and artwork are clipped by the image boundaries or obscured by masks."
+    ]
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Loading image analysis skill****Loading image analysis skill****Planning vision analysis usage**\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Planning vision analysis usage****Analyzing image rotation and text orientation**\n\n\n**Interpreting text with inline icons and tokens**\n\n**Identifying glossary badge meanings**\n\n**Identifying tile atlas components**\n\n{\"orientation\":\"rotationIrrelevant\",\"componentType\":\"texture atlas containing an angled room-tile face, a room-tile back, and a rules/reference panel\",\"cardSide\":\"notCard\",\"title\":\"LIFE SUPPORT CONTROL \\\"B\\\"\",\"typeLine\":\"\",\"body\":\"Flip [ICON: four overlapping circular token glyphs alternating cyan and white] in section \\\"B\\\"\\nOR\\nLook at both Anti-aircraft tokens\\nand place them\\nin a chosen order.\",\"footer\":\"\",\"upperRight\":\"autodestruction\",\"lowerCenter\":\"\",\"visibleText\":\"B\\nB\",\"confidentlyVisible\":[\"The texture contains multiple overlapping component regions rather than one isolated card.\",\"The main illustrated panel shows a circular electrified machine.\",\"A large purple B appears near the upper-left of the main panel.\",\"A green badge with a white cross and a red badge with three white cartridges appear along the left side.\",\"A grey three-lobed symbol inside an outlined badge appears near the upper-right.\",\"A separate lower component shows a large white B.\",\"Large black rounded masks obscure substantial portions of the texture.\"],\"proposedCategory\":\"tiles/room\",\"proposedSlug\":\"life-support-control-b\",\"confidence\":\"medium\",\"uncertainties\":[\"The file is a diagonally arranged texture atlas, so no available 90-degree rotation makes every component axis-aligned; the readable typography itself is already upright relative to its angled panel.\",\"The four inline circular glyphs after “Flip” are not confidently represented in the supplied glossary and are therefore described literally.\",\"The exact face/back/reference role of each overlapping atlas region is partly obscured by black masks.\",\"The grey three-lobed upper-right glyph matches the canonical autodestruction morphology, but its muted rendering makes the mapping slightly less certain.\",\"Some atlas components and artwork are clipped by the image boundaries or obscured by masks.\"]}\n\nsession_id: 20260815_054817_8b414c\n"
+}

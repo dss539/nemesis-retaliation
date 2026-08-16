@@ -1,0 +1,69 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/officer-014.png",
+  "sourceSha256": "2227cfc5384d21fd8457d8c840c616630cdd7a634e41006ff8c681ecc5bd35f9",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_051323_3fafdd",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:13:23Z",
+  "completedAt": "2026-08-15T05:13:58Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "character action card",
+    "cardSide": "face",
+    "title": "FIRE AT WILL",
+    "typeLine": "",
+    "body": "Move the [intruder] by 1 in any direction.\n\nOR\n\nCOMMAND\nChoose your Room or a neighbouring one, each [character] in\nthat Room Burst at an adjacent Corridor of your choice.",
+    "footer": "OFFICER",
+    "upperRight": "",
+    "lowerCenter": "",
+    "visibleText": "",
+    "confidentlyVisible": [
+      "Portrait-oriented card with all typography upright",
+      "Blue-black science-fiction frame surrounding illustrated armed figures and creatures",
+      "White curled-exoskeleton glyph appears inline after “Move the”",
+      "White astronaut glyph appears inline between “each” and “in”",
+      "OFFICER is centered at the bottom in blue capitals"
+    ],
+    "proposedCategory": "cards/character/officer/action",
+    "proposedSlug": "fire-at-will",
+    "confidence": "high",
+    "uncertainties": []
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Loading image analysis skill****Loading image analysis skill****Planning image analysis with vision tool**\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Planning image analysis with vision tool****Identifying glyph as intruder**\n\n**Mapping intruder and astronaut icons**\n\n**Confirming canonical intruder icon**\n\n**Identifying Intruder icon morphology**\n\n{\"orientation\":\"upright\",\"componentType\":\"character action card\",\"cardSide\":\"face\",\"title\":\"FIRE AT WILL\",\"typeLine\":\"\",\"body\":\"Move the [intruder] by 1 in any direction.\\n\\nOR\\n\\nCOMMAND\\nChoose your Room or a neighbouring one, each [character] in\\nthat Room Burst at an adjacent Corridor of your choice.\",\"footer\":\"OFFICER\",\"upperRight\":\"\",\"lowerCenter\":\"\",\"visibleText\":\"\",\"confidentlyVisible\":[\"Portrait-oriented card with all typography upright\",\"Blue-black science-fiction frame surrounding illustrated armed figures and creatures\",\"White curled-exoskeleton glyph appears inline after “Move the”\",\"White astronaut glyph appears inline between “each” and “in”\",\"OFFICER is centered at the bottom in blue capitals\"],\"proposedCategory\":\"cards/character/officer/action\",\"proposedSlug\":\"fire-at-will\",\"confidence\":\"high\",\"uncertainties\":[]}\n\nsession_id: 20260815_051323_3fafdd\n",
+  "iconVerification": {
+    "status": "failed",
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "sessionId": "20260815_060736_fc3213",
+    "promptVersion": 1,
+    "completedAt": "2026-08-15T06:07:52Z",
+    "claimed": [
+      "character",
+      "intruder"
+    ],
+    "parsed": {
+      "claims": [
+        {
+          "claimed": "character",
+          "verdict": "match",
+          "actual": "character",
+          "evidence": "One rules-text glyph; helmeted astronaut silhouette with rounded helmet, shoulder/arm forms, torso panel, and legs matches the labeled character crop."
+        },
+        {
+          "claimed": "intruder",
+          "verdict": "mismatch",
+          "actual": "lander",
+          "evidence": "The other rules-text glyph is a white crown/flame-like silhouette with a tall central spike and two lower side peaks, matching lander; it lacks the intruder crop's curled serpentine body and toothed head."
+        }
+      ],
+      "allClaimsMatch": false,
+      "confidence": "high",
+      "uncertainties": []
+    },
+    "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Planning image analysis****Planning image analysis****Correcting icon identification to lander**\n\nsession_id: 20260815_060736_fc3213\n{\"claims\":[{\"claimed\":\"character\",\"verdict\":\"match\",\"actual\":\"character\",\"evidence\":\"One rules-text glyph; helmeted astronaut silhouette with rounded helmet, shoulder/arm forms, torso panel, and legs matches the labeled character crop.\"},{\"claimed\":\"intruder\",\"verdict\":\"mismatch\",\"actual\":\"lander\",\"evidence\":\"The other rules-text glyph is a white crown/flame-like silhouette with a tall central spike and two lower side peaks, matching lander; it lacks the intruder crop's curled serpentine body and toothed head.\"}],\"allClaimsMatch\":false,\"confidence\":\"high\",\"uncertainties\":[]}\n",
+    "evidencePath": "docs/qa/card-icon-comparisons/auto-2227cfc5384d21fd8457d8c840c616630cdd7a634e41006ff8c681ecc5bd35f9.png"
+  }
+}

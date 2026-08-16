@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "reasoning": "high",
+  "nativeImageAttachment": true,
+  "auxiliaryVisionUsed": false,
+  "casesRequested": 2,
+  "casesScored": 2,
+  "failures": [],
+  "uniqueSessionIds": 2,
+  "caseScores": {
+    "c03": {
+      "score": 52.868,
+      "max": 100,
+      "components": {
+        "schema": 5.0,
+        "title": 5.0,
+        "text": 29.018,
+        "icons": 0.0,
+        "sidecar": 13.85,
+        "decision": 0.0
+      },
+      "diagnostics": {
+        "textRatio": 0.725441,
+        "expectedIcons": [
+          "lander"
+        ],
+        "actualIcons": [],
+        "iconF1": 0,
+        "sidecarKeyF1": 0.666667,
+        "sidecarValueMean": 0.718346
+      },
+      "scoring": "programmatic",
+      "tier": "human-approved-card",
+      "durationSeconds": 31.748,
+      "decision": "defer",
+      "overallConfidence": "medium"
+    },
+    "c05": {
+      "score": 84.85,
+      "max": 100,
+      "components": {
+        "schema": 5.0,
+        "title": 5.0,
+        "text": 34.286,
+        "icons": 13.333,
+        "sidecar": 17.231,
+        "decision": 10.0
+      },
+      "diagnostics": {
+        "textRatio": 0.857143,
+        "expectedIcons": [
+          "shootDieCritical",
+          "ammoToken",
+          "ammoSlot"
+        ],
+        "actualIcons": [
+          "shootDieAmmoLoss",
+          "ammoToken",
+          "ammoSlot"
+        ],
+        "iconF1": 0.666667,
+        "sidecarKeyF1": 0.8,
+        "sidecarValueMean": 0.923077
+      },
+      "scoring": "programmatic",
+      "tier": "human-approved-card",
+      "durationSeconds": 34.367,
+      "decision": "promote",
+      "overallConfidence": "high"
+    }
+  },
+  "aggregate": {
+    "allCasesMean": 68.859,
+    "allCasesMedian": 68.859,
+    "humanApprovedCardsMean": 68.859,
+    "humanApprovedCardsMedian": 68.859
+  },
+  "latencySeconds": {
+    "totalSequentialEquivalent": 66.115,
+    "mean": 33.057,
+    "median": 33.057,
+    "p95": 34.236,
+    "min": 31.748,
+    "max": 34.367
+  },
+  "criticalFailures": []
+}

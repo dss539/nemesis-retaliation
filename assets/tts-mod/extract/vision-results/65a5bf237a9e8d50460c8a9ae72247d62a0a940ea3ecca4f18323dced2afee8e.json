@@ -1,0 +1,101 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/recon-046_cards/card-00.png",
+  "sourceSha256": "65a5bf237a9e8d50460c8a9ae72247d62a0a940ea3ecca4f18323dced2afee8e",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_060407_d4220f",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:14:26Z",
+  "completedAt": "2026-08-15T06:04:22Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "illustrated character selection card",
+    "cardSide": "face",
+    "title": "PICK OFFICER",
+    "typeLine": "",
+    "body": "",
+    "footer": "",
+    "upperRight": "",
+    "lowerCenter": "",
+    "visibleText": "",
+    "confidentlyVisible": [
+      "Landscape-format science-fiction illustration",
+      "A mustached man in armored gear holds a rifle",
+      "The man has a blue-lit eyepiece over his right eye",
+      "A large dark interface panel spans the lower portion",
+      "White uppercase text reads “PICK OFFICER”",
+      "No canonical icons are visibly present"
+    ],
+    "proposedCategory": "cards/character/officer/selection",
+    "proposedSlug": "pick-officer",
+    "confidence": "medium",
+    "uncertainties": [
+      "The pixels do not establish whether this is a physical card, a digital character-selection screen, or another illustrated interface component.",
+      "The exact game-component subtype and face/back role are not explicitly labeled beyond the visible selection prompt."
+    ]
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Analyzing image orientation and text rotation**\n\n**Mapping letter orientation to confirm rotation****Analyzing image orientation and text rotation**\n**Mapping letter orientation to confirm rotation****Planning image dimension analysis**\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Planning image dimension analysis****Analyzing image text orientation**\n\n**Deciding on 90-degree CCW rotation**\n\n**Confirming selection card orientation**\n\n**Proposing officer selection card category**\n\n**Clarifying card art orientation and icon absence**\n\n{\"orientation\":\"rotate90ccw\",\"componentType\":\"character selection card\",\"cardSide\":\"face\",\"title\":\"PICK OFFICER\",\"typeLine\":\"\",\"body\":\"\",\"footer\":\"\",\"upperRight\":\"\",\"lowerCenter\":\"\",\"visibleText\":\"\",\"confidentlyVisible\":[\"White uppercase title “PICK OFFICER” appears inside a dark cyan-outlined panel.\",\"The file must rotate 90 degrees counterclockwise for the title and illustrated person to be upright.\",\"Full-bleed science-fiction artwork depicts a human officer in an armored spacesuit.\",\"No confidently matched canonical icons are visible.\",\"No rules text, type line, or footer text is visible.\"],\"proposedCategory\":\"cards/character/officer/selection\",\"proposedSlug\":\"pick-officer\",\"confidence\":\"medium\",\"uncertainties\":[\"The pixels strongly suggest a character-selection card, but the exact game-defined subtype cannot be established from the image alone.\"]}\n\nsession_id: 20260815_051427_d8d5ab\n",
+  "initialParsed": {
+    "orientation": "rotate90ccw",
+    "componentType": "character selection card",
+    "cardSide": "face",
+    "title": "PICK OFFICER",
+    "typeLine": "",
+    "body": "",
+    "footer": "",
+    "upperRight": "",
+    "lowerCenter": "",
+    "visibleText": "",
+    "confidentlyVisible": [
+      "White uppercase title “PICK OFFICER” appears inside a dark cyan-outlined panel.",
+      "The file must rotate 90 degrees counterclockwise for the title and illustrated person to be upright.",
+      "Full-bleed science-fiction artwork depicts a human officer in an armored spacesuit.",
+      "No confidently matched canonical icons are visible.",
+      "No rules text, type line, or footer text is visible."
+    ],
+    "proposedCategory": "cards/character/officer/selection",
+    "proposedSlug": "pick-officer",
+    "confidence": "medium",
+    "uncertainties": [
+      "The pixels strongly suggest a character-selection card, but the exact game-defined subtype cannot be established from the image alone."
+    ]
+  },
+  "initialSessionId": "20260815_051427_d8d5ab",
+  "orientationCorrection": "rotate90ccw",
+  "uprightRead": {
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "sessionId": "20260815_060407_d4220f",
+    "completedAt": "2026-08-15T06:04:22Z",
+    "parsed": {
+      "orientation": "upright",
+      "componentType": "illustrated character selection card",
+      "cardSide": "face",
+      "title": "PICK OFFICER",
+      "typeLine": "",
+      "body": "",
+      "footer": "",
+      "upperRight": "",
+      "lowerCenter": "",
+      "visibleText": "",
+      "confidentlyVisible": [
+        "Landscape-format science-fiction illustration",
+        "A mustached man in armored gear holds a rifle",
+        "The man has a blue-lit eyepiece over his right eye",
+        "A large dark interface panel spans the lower portion",
+        "White uppercase text reads “PICK OFFICER”",
+        "No canonical icons are visibly present"
+      ],
+      "proposedCategory": "cards/character/officer/selection",
+      "proposedSlug": "pick-officer",
+      "confidence": "medium",
+      "uncertainties": [
+        "The pixels do not establish whether this is a physical card, a digital character-selection screen, or another illustrated interface component.",
+        "The exact game-component subtype and face/back role are not explicitly labeled beyond the visible selection prompt."
+      ]
+    },
+    "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Planning image analysis workflow****Planning image analysis workflow****Identifying character selection card**\n\nsession_id: 20260815_060407_d4220f\n{\"orientation\":\"upright\",\"componentType\":\"illustrated character selection card\",\"cardSide\":\"face\",\"title\":\"PICK OFFICER\",\"typeLine\":\"\",\"body\":\"\",\"footer\":\"\",\"upperRight\":\"\",\"lowerCenter\":\"\",\"visibleText\":\"\",\"confidentlyVisible\":[\"Landscape-format science-fiction illustration\",\"A mustached man in armored gear holds a rifle\",\"The man has a blue-lit eyepiece over his right eye\",\"A large dark interface panel spans the lower portion\",\"White uppercase text reads “PICK OFFICER”\",\"No canonical icons are visibly present\"],\"proposedCategory\":\"cards/character/officer/selection\",\"proposedSlug\":\"pick-officer\",\"confidence\":\"medium\",\"uncertainties\":[\"The pixels do not establish whether this is a physical card, a digital character-selection screen, or another illustrated interface component.\",\"The exact game-component subtype and face/back role are not explicitly labeled beyond the visible selection prompt.\"]}\n"
+  }
+}

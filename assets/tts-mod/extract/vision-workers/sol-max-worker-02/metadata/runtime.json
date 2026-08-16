@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-08-15T21:09:42.383910Z",
+  "workerId": "sol-max-worker-02",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "reasoningEffort": "max",
+  "platform": "subagent",
+  "nativeVisionRoute": "Hermes vision_analyze image attachment delivered directly to the active native multimodal model",
+  "persistentWorker": true,
+  "auxiliaryVisionUsed": false,
+  "ocrUsedAsCanonicalEvidence": false,
+  "qwenUsed": false,
+  "runtimeVerification": {
+    "activeSystemRuntimeHeader": {
+      "provider": "openai-codex",
+      "model": "gpt-5.6-sol",
+      "platform": "subagent",
+      "source": "active delegated child system runtime header"
+    },
+    "delegationConfigReadOnlyCheck": {
+      "provider": "openai-codex",
+      "model": "gpt-5.6-sol",
+      "reasoningEffort": "max",
+      "maxIterations": 80
+    },
+    "delegatedChildContextEnvironment": true,
+    "sessionId": "20260815_210607_461cc1",
+    "sessionIdSource": "HERMES_SESSION_ID environment variable",
+    "nativeImageRouteStatus": "verified-native-attachment",
+    "nativeImageRouteVerifiedAt": "2026-08-15T21:10:19.639436Z",
+    "nativeImageRouteEvidence": "The vision_analyze tool contract detected native vision on the active model and attached the submitted image(s) directly to this same delegated Sol Max conversation; no auxiliary model response was invoked."
+  },
+  "assignmentModelContractMatchesRuntime": true,
+  "runtimeContractVerified": true,
+  "assignmentRevisionAtRouteVerification": 2,
+  "scopedAssignmentPath": "/home/smithers/nemesis-retaliation/assets/tts-mod/extract/vision-workers/sol-max-worker-02/metadata/scope-lock.json"
+}

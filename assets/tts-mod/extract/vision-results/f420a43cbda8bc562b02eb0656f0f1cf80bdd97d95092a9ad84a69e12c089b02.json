@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectivePersonalDeck-157.jpg",
+  "sourceSha256": "f420a43cbda8bc562b02eb0656f0f1cf80bdd97d95092a9ad84a69e12c089b02",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_053828_30d13b",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:38:27Z",
+  "completedAt": "2026-08-15T05:38:56Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "personal objective card",
+    "cardSide": "face",
+    "title": "STOLEN VALOR",
+    "typeLine": "",
+    "body": "Player 8’s Character cannot survive.\n\nOR\n\nYour Character is the only survivor.",
+    "footer": "CORPORATE",
+    "upperRight": "",
+    "lowerCenter": "",
+    "visibleText": "[character] 8+\n\nAnybody ever tell you\nyou look dead, man?\n\nDiagonal translucent watermark text is partially obscured and clipped.",
+    "confidentlyVisible": [
+      "Typography is upright in the file.",
+      "Spacecraft appear above the text panels.",
+      "A white astronaut-like character silhouette inside a blue circular emblem appears beside “8+”.",
+      "The title reads “STOLEN VALOR”.",
+      "Two objective conditions are separated by an “OR” panel.",
+      "The flavor text is yellow and italicized.",
+      "The footer label reads “CORPORATE”.",
+      "A large diagonal translucent watermark crosses the artwork and text panels."
+    ],
+    "proposedCategory": "cards/game/objective",
+    "proposedSlug": "stolen-valor",
+    "confidence": "medium",
+    "uncertainties": [
+      "The diagonal translucent watermark is clipped and obscured, so its wording is not transcribed.",
+      "The emblem beside “8+” is mapped to [character] based on its visible astronaut-like silhouette, but surrounding blue circular ornamentation may be card-local styling rather than part of the canonical icon.",
+      "It is uncertain whether “CORPORATE” is an owner label, objective-deck subtype, or affiliation label."
+    ]
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Planning image analysis approach****Planning image analysis approach****Inspecting image pixels with vision tool**\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Inspecting image pixels with vision tool****Clarifying visibleText and watermark handling**\n\n\n{\"orientation\":\"upright\",\"componentType\":\"personal objective card\",\"cardSide\":\"face\",\"title\":\"STOLEN VALOR\",\"typeLine\":\"\",\"body\":\"Player 8’s Character cannot survive.\\n\\nOR\\n\\nYour Character is the only survivor.\",\"footer\":\"CORPORATE\",\"upperRight\":\"\",\"lowerCenter\":\"\",\"visibleText\":\"[character] 8+\\n\\nAnybody ever tell you\\nyou look dead, man?\\n\\nDiagonal translucent watermark text is partially obscured and clipped.\",\"confidentlyVisible\":[\"Typography is upright in the file.\",\"Spacecraft appear above the text panels.\",\"A white astronaut-like character silhouette inside a blue circular emblem appears beside “8+”.\",\"The title reads “STOLEN VALOR”.\",\"Two objective conditions are separated by an “OR” panel.\",\"The flavor text is yellow and italicized.\",\"The footer label reads “CORPORATE”.\",\"A large diagonal translucent watermark crosses the artwork and text panels.\"],\"proposedCategory\":\"cards/game/objective\",\"proposedSlug\":\"stolen-valor\",\"confidence\":\"medium\",\"uncertainties\":[\"The diagonal translucent watermark is clipped and obscured, so its wording is not transcribed.\",\"The emblem beside “8+” is mapped to [character] based on its visible astronaut-like silhouette, but surrounding blue circular ornamentation may be card-local styling rather than part of the canonical icon.\",\"It is uncertain whether “CORPORATE” is an owner label, objective-deck subtype, or affiliation label.\"]}\n\nsession_id: 20260815_053828_30d13b\n"
+}

@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/seriouswound-149_cards/card-02.png",
+  "sourceSha256": "e6ec34b2dde06f1cd76e958af3d24ee1bcc4fa177e4d214b086c70d82a8a2322",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_054017_e2dab1",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:40:16Z",
+  "completedAt": "2026-08-15T05:40:51Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "serious wound card",
+    "cardSide": "face",
+    "title": "HAND",
+    "typeLine": "",
+    "body": "“Use Item” Action costs\nyou 1 [ICON: white capital A in a black square with white border] more.",
+    "footer": "",
+    "upperRight": "",
+    "lowerCenter": "",
+    "visibleText": "TEMP.\n39.0°",
+    "confidentlyVisible": [
+      "Upright white typography on a black card",
+      "X-ray-style image of an injured hand and forearm",
+      "Red/orange highlights mark injuries at the hand, wrist, and forearm",
+      "Three colored scan lines connect injury points to small circular diagnostic glyphs",
+      "Gold angular frame surrounds the rules panel"
+    ],
+    "proposedCategory": "cards/game/serious-wound",
+    "proposedSlug": "hand",
+    "confidence": "medium",
+    "uncertainties": [
+      "The boxed capital A is a card-local action/cost glyph not confidently matched to the canonical glossary, so it is described literally.",
+      "Tiny vertical interface text along the left edge is too faint to transcribe confidently.",
+      "The three small circular diagnostic glyphs are not confidently matched to the canonical glossary."
+    ]
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Planning image analysis approach****Planning image analysis approach****Confirming image-based response approach**\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Confirming image-based response approach****Deciding boxed A action glyph rendering**\n\n\n{\"orientation\":\"upright\",\"componentType\":\"serious wound card\",\"cardSide\":\"face\",\"title\":\"HAND\",\"typeLine\":\"\",\"body\":\"“Use Item” Action costs\\nyou 1 [ICON: white capital A in a black square with white border] more.\",\"footer\":\"\",\"upperRight\":\"\",\"lowerCenter\":\"\",\"visibleText\":\"TEMP.\\n39.0°\",\"confidentlyVisible\":[\"Upright white typography on a black card\",\"X-ray-style image of an injured hand and forearm\",\"Red/orange highlights mark injuries at the hand, wrist, and forearm\",\"Three colored scan lines connect injury points to small circular diagnostic glyphs\",\"Gold angular frame surrounds the rules panel\"],\"proposedCategory\":\"cards/game/serious-wound\",\"proposedSlug\":\"hand\",\"confidence\":\"medium\",\"uncertainties\":[\"The boxed capital A is a card-local action/cost glyph not confidently matched to the canonical glossary, so it is described literally.\",\"Tiny vertical interface text along the left edge is too faint to transcribe confidently.\",\"The three small circular diagnostic glyphs are not confidently matched to the canonical glossary.\"]}\n\nsession_id: 20260815_054017_e2dab1\n"
+}

@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "assetId": "W01-014",
+  "batchId": "batch-004",
+  "capturedAt": "2026-08-15T20:54:46Z",
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/bags/medpackBag-030.jpg",
+  "sourceSha256": "ce452a38b0db1da57af9feb78e904186ebc5cde0715c89c06aa924417007d42e",
+  "runtimeProvenanceRef": "../metadata/runtime.json",
+  "blindAnalysis": true,
+  "metadataExcludedDuringPixelPass": [
+    "filename semantics",
+    "directory semantics",
+    "prior vision reads",
+    "TTS object metadata",
+    "game-context expectations"
+  ],
+  "orientationObservation": "Upright as displayed; +2 is level and the illustrated case handle is above the case body.",
+  "blindPixelObservations": [
+    "Dark embossed industrial wall background.",
+    "Centered translucent green clipped-corner rectangular housing with a smaller right compartment.",
+    "A white-and-green hard case with top handle and a dark purple side panel bearing a white cross sits in the main compartment.",
+    "Large white +2 with black outline overlays the case; a pale vertical green-white reflection sits in the right compartment."
+  ],
+  "visibleText": [
+    {
+      "text": "+2",
+      "location": "center over hard case",
+      "structure": "plus sign followed by numeral",
+      "confidence": "high"
+    }
+  ],
+  "iconObservations": [
+    {
+      "location": "left face of illustrated hard case",
+      "literalMorphology": "Straight white equal-armed cross centered in a dark purple square panel.",
+      "colors": "white and dark purple",
+      "closestPlausibleGlossaryAlternative": "injury",
+      "visibleDiscriminatingFeature": "The visible mark is a clean medical-style cross in a square; the glossary injury mark is an irregular yellow wound/burst shape, so no glossary icon is claimed."
+    }
+  ],
+  "uncertainties": [
+    "The exact component/container role is not visible without provenance metadata."
+  ]
+}

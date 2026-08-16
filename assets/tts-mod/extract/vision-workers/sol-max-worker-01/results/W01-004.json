@@ -1,0 +1,91 @@
+{
+  "schemaVersion": 1,
+  "assetId": "W01-004",
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/bags/carcass-bag-014.jpg",
+  "sourceSha256": "5dd60c59064daa513327f5b79e28b5a9e36b7021f3b4d43b43661a6b165324d7",
+  "sourceMetadata": {
+    "width": 270,
+    "height": 270,
+    "format": "JPEG",
+    "mode": "RGB",
+    "byteSize": 52094
+  },
+  "runtimeProvenance": {
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "reasoningEffort": "max",
+    "platform": "subagent",
+    "workerId": "sol-max-worker-01",
+    "sessionProvenanceHandle": "hermes_rpc_dfba82c30cd846b6bc4eced43002e707.sock",
+    "persistentSession": true,
+    "nativeVision": true,
+    "auxiliaryVisionUsed": false
+  },
+  "orientation": {
+    "status": "upright",
+    "evidence": "The prone body lies horizontally while blood trails downward; no rotation applied.",
+    "transformApplied": null,
+    "stagingDerivative": null
+  },
+  "blindPixelObservations": [
+    "Circular crop of a pale human body lying horizontally on a dark metallic surface.",
+    "Head at right with closed eyes and heavy blood around the face/head; pale garment or armor extends left toward a metallic machine/table edge.",
+    "Dark red blood streaks descend toward the lower edge."
+  ],
+  "visibleText": [],
+  "iconMorphology": [],
+  "evidenceConsulted": {
+    "tts": {
+      "consultedAfterBlindRecord": true,
+      "trigger": "Pixels established corpse/carcass art but not the TTS bag/tile role.",
+      "manifestUrl": "https://steamusercontent-a.akamaihd.net/ugc/1754696108797736776/2283109C4CE08FB1B79FE9707252853A237FC555/",
+      "objectReferences": [
+        {
+          "guid": "25585f",
+          "type": "Custom_Model_Infinite_Bag",
+          "nickname": "Carcass bag",
+          "urlRole": "DiffuseURL"
+        },
+        {
+          "guid": "0083fe",
+          "type": "Custom_Tile",
+          "nickname": "Carcass",
+          "gmnotes": "carcass",
+          "parentGuid": "25585f",
+          "urlRole": "ImageURL"
+        }
+      ]
+    },
+    "official": {
+      "consulted": false,
+      "reason": "No rules text, glossary-token claim, ambiguity, or source conflict required official escalation."
+    }
+  },
+  "proposedClassification": "Non-card Carcass tile face and Carcass infinite-bag diffuse texture.",
+  "proposedPath": "assets/tts-mod/extract/v2-dl/tree/bags/carcass-bag-014.jpg (retain unchanged; no canonical move proposed)",
+  "readConfidence": {
+    "level": "high",
+    "reason": "The corpse/carcass illustration is clear and contains no text."
+  },
+  "classificationConfidence": {
+    "level": "high",
+    "reason": "Pixel content agrees with explicit Carcass bag/tile TTS metadata and URL roles."
+  },
+  "uncertainties": [],
+  "promotionDecision": "non-card-complete",
+  "decisionReasons": [
+    "This is a tile/container texture, not a rules-card face.",
+    "Pixel content and TTS role agree without conflict.",
+    "No icon identifier or unreadable material is promoted."
+  ],
+  "stagedCandidateSidecarPath": null,
+  "validationPerformed": [
+    "Assignment SHA-256 matched source bytes.",
+    "Pillow decoded and verified the 270x270 JPEG.",
+    "Native vision attachment was inspected independently as W01-004.",
+    "Blind observations were persisted before TTS metadata was consulted.",
+    "Manifest URL and both matching object URL roles were resolved.",
+    "No source file or canonical/shared ledger was modified."
+  ],
+  "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-worker-01/raw/W01-004.json"
+}

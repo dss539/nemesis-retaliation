@@ -1,0 +1,77 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/event-179.png",
+  "sourceSha256": "72a3270de96356e8ea1e64b9bf1d2b90e189a7ae6f1031d03b6db453d3f93eab",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_052529_3f6fa4",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:25:29Z",
+  "completedAt": "2026-08-15T05:26:25Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "event card",
+    "cardSide": "face",
+    "title": "EGG PROTECTION",
+    "typeLine": "",
+    "body": "All [intruder] in each [corridorNWSE] move.\n\nPlace 2 Drones in the Nest - they\nimmediately Attack if any [robot] is there.\nPlace 1 Drone in each Unexplored\nCorridor in section C.\n\nEach [robot] makes a Noise roll.",
+    "footer": "",
+    "upperRight": "",
+    "lowerCenter": "",
+    "visibleText": "",
+    "confidentlyVisible": [
+      "White uppercase title at the top",
+      "Artwork shows an armed humanoid facing a tall curled alien-like creature",
+      "Three separate green-bordered rules panels",
+      "A curled white exoskeleton glyph appears in the first panel",
+      "A white outlined northwest-to-southeast corridor glyph appears in the first panel",
+      "White robot glyphs appear in the second and third panels"
+    ],
+    "proposedCategory": "cards/game/event",
+    "proposedSlug": "egg-protection",
+    "confidence": "high",
+    "uncertainties": []
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Preparing image analysis with vision skill****Preparing image analysis with vision skill**\n**Identifying icons on event card**\n\n**Distinguishing character and corridor icons**\n\n**Planning image cropping for analysis****Identifying icons on event card**\n**Distinguishing character and corridor icons**\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Planning image cropping for analysis****Analyzing corridor icon shapes**\n\n**Confirming corridorNWSE icon mapping**\n\n{\"orientation\":\"upright\",\"componentType\":\"event card\",\"cardSide\":\"face\",\"title\":\"EGG PROTECTION\",\"typeLine\":\"\",\"body\":\"All [intruder] in each [corridorNWSE] move.\\n\\nPlace 2 Drones in the Nest - they\\nimmediately Attack if any [robot] is there.\\nPlace 1 Drone in each Unexplored\\nCorridor in section C.\\n\\nEach [robot] makes a Noise roll.\",\"footer\":\"\",\"upperRight\":\"\",\"lowerCenter\":\"\",\"visibleText\":\"\",\"confidentlyVisible\":[\"White uppercase title at the top\",\"Artwork shows an armed humanoid facing a tall curled alien-like creature\",\"Three separate green-bordered rules panels\",\"A curled white exoskeleton glyph appears in the first panel\",\"A white outlined northwest-to-southeast corridor glyph appears in the first panel\",\"White robot glyphs appear in the second and third panels\"],\"proposedCategory\":\"cards/game/event\",\"proposedSlug\":\"egg-protection\",\"confidence\":\"high\",\"uncertainties\":[]}\n\nsession_id: 20260815_052529_3f6fa4\n",
+  "iconVerification": {
+    "status": "failed",
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "sessionId": "20260815_060805_203390",
+    "promptVersion": 1,
+    "completedAt": "2026-08-15T06:08:23Z",
+    "claimed": [
+      "corridorNWSE",
+      "intruder",
+      "robot"
+    ],
+    "parsed": {
+      "claims": [
+        {
+          "claimed": "corridorNWSE",
+          "verdict": "match",
+          "actual": "corridorNWSE",
+          "evidence": "Single card occurrence has the same upper-left-to-lower-right irregular corridor outline and central constriction as the labeled crop."
+        },
+        {
+          "claimed": "intruder",
+          "verdict": "match",
+          "actual": "intruder",
+          "evidence": "Single card occurrence matches the curled, left-facing creature with open jaws, dorsal spikes, and spiral tail."
+        },
+        {
+          "claimed": "robot",
+          "verdict": "mismatch",
+          "actual": "character",
+          "evidence": "Both card occurrences depict the same full-body suited humanoid with rounded helmet, shoulder projections, chest panel, arms, and legs as character; neither resembles robot's rounded rectangular head with antenna and two circular eyes."
+        }
+      ],
+      "allClaimsMatch": false,
+      "confidence": "high",
+      "uncertainties": []
+    },
+    "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Loading image workflow****Loading image workflow****Correcting robot occurrences to characters**\n\n\n**Summarizing card glyph counts and claims****Correcting robot occurrences to characters**\n\nsession_id: 20260815_060805_203390\n{\"claims\":[{\"claimed\":\"corridorNWSE\",\"verdict\":\"match\",\"actual\":\"corridorNWSE\",\"evidence\":\"Single card occurrence has the same upper-left-to-lower-right irregular corridor outline and central constriction as the labeled crop.\"},{\"claimed\":\"intruder\",\"verdict\":\"match\",\"actual\":\"intruder\",\"evidence\":\"Single card occurrence matches the curled, left-facing creature with open jaws, dorsal spikes, and spiral tail.\"},{\"claimed\":\"robot\",\"verdict\":\"mismatch\",\"actual\":\"character\",\"evidence\":\"Both card occurrences depict the same full-body suited humanoid with rounded helmet, shoulder projections, chest panel, arms, and legs as character; neither resembles robot's rounded rectangular head with antenna and two circular eyes.\"}],\"allClaimsMatch\":false,\"confidence\":\"high\",\"uncertainties\":[]}\n",
+    "evidencePath": "docs/qa/card-icon-comparisons/auto-72a3270de96356e8ea1e64b9bf1d2b90e189a7ae6f1031d03b6db453d3f93eab.png"
+  }
+}

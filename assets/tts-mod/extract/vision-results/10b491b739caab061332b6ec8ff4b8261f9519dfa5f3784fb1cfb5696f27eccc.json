@@ -1,0 +1,110 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-144_cards/card-11.png",
+  "sourceSha256": "10b491b739caab061332b6ec8ff4b8261f9519dfa5f3784fb1cfb5696f27eccc",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_060550_e373c5",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:42:28Z",
+  "completedAt": "2026-08-15T06:06:17Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "ranged weapon card",
+    "cardSide": "face",
+    "title": "PLASMA GUN",
+    "typeLine": "RANGED WEAPON, REQUIRES NO AMMO",
+    "body": "This Weapon can be used even\nwith a [ICON: grey gear shape with black horizontal capsule] on it and is not discarded\nwhen another [ICON: grey gear shape with black horizontal capsule] is placed.\n[ICON: purple square with white exclamation mark], [ICON: red triangle with white abstract glyph]: Place a [ICON: grey gear shape with black horizontal capsule] on this Weapon\nand then lose 2 [characterHealth] for each [ICON: grey gear shape with black horizontal capsule].",
+    "footer": "",
+    "upperRight": "",
+    "lowerCenter": "",
+    "visibleText": "",
+    "confidentlyVisible": [
+      "Typography is upright in the file.",
+      "The title reads “PLASMA GUN”.",
+      "The yellow type line reads “RANGED WEAPON, REQUIRES NO AMMO”.",
+      "Artwork depicts a red, grey, and orange-glowing science-fiction gun.",
+      "Four matching grey gear-shaped glyphs with black horizontal centers appear in the rules text.",
+      "A white EKG/cross health glyph follows the numeral 2."
+    ],
+    "proposedCategory": "cards/game/item/weapon",
+    "proposedSlug": "plasma-gun",
+    "confidence": "medium",
+    "uncertainties": [
+      "The repeated grey gear-shaped glyph with a black horizontal capsule is not confidently matched to the supplied canonical glossary.",
+      "The purple square exclamation-mark glyph and red triangle with white abstract glyph appear to be card-local action/ability glyphs and are not confidently canonicalized.",
+      "The exact identity of the white glyph inside the red triangle is materially uncertain.",
+      "A large white polygonal area at the top appears to be part of or beyond the component artwork/template, but its intended source-art role is uncertain."
+    ]
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Planning pixel inspection and image analysis****Planning pixel inspection and image analysis**\n**Determining correct image rotation**\n\n**Transcribing and identifying weapon icons****Determining correct image rotation**\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Transcribing and identifying weapon icons****Analyzing image orientation and icon meanings**\n\n\n{\"orientation\":\"rotate90ccw\",\"componentType\":\"weapon item card\",\"cardSide\":\"face\",\"title\":\"PLASMA GUN\",\"typeLine\":\"RANGED WEAPON, REQUIRES NO AMMO\",\"body\":\"This Weapon can be used even\\nwith a [ICON: grey cog] on it, and is not discarded\\nwhen another [ICON: grey cog] is placed.\\n\\n[ICON: purple square with white exclamation mark], [shootDieAmmoLoss]: Place a [ICON: grey cog] on this Weapon\\nand then lose 2 [actionCard] for each [ICON: grey cog]\",\"footer\":\"\",\"upperRight\":\"\",\"lowerCenter\":\"\",\"visibleText\":\"\",\"confidentlyVisible\":[\"The file must rotate 90 degrees counterclockwise for the typography to read upright.\",\"The title is printed in large white uppercase letters.\",\"The type line is printed in yellow uppercase letters.\",\"The artwork depicts a long metallic gun with a glowing orange chamber.\",\"A purple square contains a white exclamation mark.\",\"A red triangular die icon contains three white cartridge-like marks.\",\"Three grey cog glyphs occur within the rules text.\",\"A white overlapping-card glyph occurs after the numeral 2.\"],\"proposedCategory\":\"cards/game/item/weapon\",\"proposedSlug\":\"plasma-gun\",\"confidence\":\"medium\",\"uncertainties\":[\"The grey cog is a card-local glyph absent from the supplied canonical glossary, so it is described literally rather than assigned a meaning.\",\"The purple square with a white exclamation mark is absent from the supplied canonical glossary and may be a local ability or timing glyph.\",\"The white glyph after “lose 2” is mapped to actionCard based on its overlapping-card morphology, but its small size makes that mapping slightly uncertain.\"]}\n\nsession_id: 20260815_054228_e4f15f\n",
+  "initialParsed": {
+    "orientation": "rotate90ccw",
+    "componentType": "weapon item card",
+    "cardSide": "face",
+    "title": "PLASMA GUN",
+    "typeLine": "RANGED WEAPON, REQUIRES NO AMMO",
+    "body": "This Weapon can be used even\nwith a [ICON: grey cog] on it, and is not discarded\nwhen another [ICON: grey cog] is placed.\n\n[ICON: purple square with white exclamation mark], [shootDieAmmoLoss]: Place a [ICON: grey cog] on this Weapon\nand then lose 2 [actionCard] for each [ICON: grey cog]",
+    "footer": "",
+    "upperRight": "",
+    "lowerCenter": "",
+    "visibleText": "",
+    "confidentlyVisible": [
+      "The file must rotate 90 degrees counterclockwise for the typography to read upright.",
+      "The title is printed in large white uppercase letters.",
+      "The type line is printed in yellow uppercase letters.",
+      "The artwork depicts a long metallic gun with a glowing orange chamber.",
+      "A purple square contains a white exclamation mark.",
+      "A red triangular die icon contains three white cartridge-like marks.",
+      "Three grey cog glyphs occur within the rules text.",
+      "A white overlapping-card glyph occurs after the numeral 2."
+    ],
+    "proposedCategory": "cards/game/item/weapon",
+    "proposedSlug": "plasma-gun",
+    "confidence": "medium",
+    "uncertainties": [
+      "The grey cog is a card-local glyph absent from the supplied canonical glossary, so it is described literally rather than assigned a meaning.",
+      "The purple square with a white exclamation mark is absent from the supplied canonical glossary and may be a local ability or timing glyph.",
+      "The white glyph after “lose 2” is mapped to actionCard based on its overlapping-card morphology, but its small size makes that mapping slightly uncertain."
+    ]
+  },
+  "initialSessionId": "20260815_054228_e4f15f",
+  "orientationCorrection": "rotate90ccw",
+  "uprightRead": {
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "sessionId": "20260815_060550_e373c5",
+    "completedAt": "2026-08-15T06:06:17Z",
+    "parsed": {
+      "orientation": "upright",
+      "componentType": "ranged weapon card",
+      "cardSide": "face",
+      "title": "PLASMA GUN",
+      "typeLine": "RANGED WEAPON, REQUIRES NO AMMO",
+      "body": "This Weapon can be used even\nwith a [ICON: grey gear shape with black horizontal capsule] on it and is not discarded\nwhen another [ICON: grey gear shape with black horizontal capsule] is placed.\n[ICON: purple square with white exclamation mark], [ICON: red triangle with white abstract glyph]: Place a [ICON: grey gear shape with black horizontal capsule] on this Weapon\nand then lose 2 [characterHealth] for each [ICON: grey gear shape with black horizontal capsule].",
+      "footer": "",
+      "upperRight": "",
+      "lowerCenter": "",
+      "visibleText": "",
+      "confidentlyVisible": [
+        "Typography is upright in the file.",
+        "The title reads “PLASMA GUN”.",
+        "The yellow type line reads “RANGED WEAPON, REQUIRES NO AMMO”.",
+        "Artwork depicts a red, grey, and orange-glowing science-fiction gun.",
+        "Four matching grey gear-shaped glyphs with black horizontal centers appear in the rules text.",
+        "A white EKG/cross health glyph follows the numeral 2."
+      ],
+      "proposedCategory": "cards/game/item/weapon",
+      "proposedSlug": "plasma-gun",
+      "confidence": "medium",
+      "uncertainties": [
+        "The repeated grey gear-shaped glyph with a black horizontal capsule is not confidently matched to the supplied canonical glossary.",
+        "The purple square exclamation-mark glyph and red triangle with white abstract glyph appear to be card-local action/ability glyphs and are not confidently canonicalized.",
+        "The exact identity of the white glyph inside the red triangle is materially uncertain.",
+        "A large white polygonal area at the top appears to be part of or beyond the component artwork/template, but its intended source-art role is uncertain."
+      ]
+    },
+    "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Preparing image analysis tools****Preparing image analysis tools****Transcribing icon descriptions with punctuation**\n\n\n\nsession_id: 20260815_060550_e373c5\n{\"orientation\":\"upright\",\"componentType\":\"ranged weapon card\",\"cardSide\":\"face\",\"title\":\"PLASMA GUN\",\"typeLine\":\"RANGED WEAPON, REQUIRES NO AMMO\",\"body\":\"This Weapon can be used even\\nwith a [ICON: grey gear shape with black horizontal capsule] on it and is not discarded\\nwhen another [ICON: grey gear shape with black horizontal capsule] is placed.\\n[ICON: purple square with white exclamation mark], [ICON: red triangle with white abstract glyph]: Place a [ICON: grey gear shape with black horizontal capsule] on this Weapon\\nand then lose 2 [characterHealth] for each [ICON: grey gear shape with black horizontal capsule].\",\"footer\":\"\",\"upperRight\":\"\",\"lowerCenter\":\"\",\"visibleText\":\"\",\"confidentlyVisible\":[\"Typography is upright in the file.\",\"The title reads “PLASMA GUN”.\",\"The yellow type line reads “RANGED WEAPON, REQUIRES NO AMMO”.\",\"Artwork depicts a red, grey, and orange-glowing science-fiction gun.\",\"Four matching grey gear-shaped glyphs with black horizontal centers appear in the rules text.\",\"A white EKG/cross health glyph follows the numeral 2.\"],\"proposedCategory\":\"cards/game/item/weapon\",\"proposedSlug\":\"plasma-gun\",\"confidence\":\"medium\",\"uncertainties\":[\"The repeated grey gear-shaped glyph with a black horizontal capsule is not confidently matched to the supplied canonical glossary.\",\"The purple square exclamation-mark glyph and red triangle with white abstract glyph appear to be card-local action/ability glyphs and are not confidently canonicalized.\",\"The exact identity of the white glyph inside the red triangle is materially uncertain.\",\"A large white polygonal area at the top appears to be part of or beyond the component artwork/template, but its intended source-art role is uncertain.\"]}\n"
+  }
+}

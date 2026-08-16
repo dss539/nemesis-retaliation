@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-15T21:16:23.360975Z",
+  "assetId": "W01-016",
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/bags/queen-008.png",
+  "sourceSha256": "63a323718019dd85f9fca5d5e144c4a99373e0a5567e24e396809a590d0b8095",
+  "rawBlindRecordPath": "raw/W01-016.json",
+  "metadataConsultedOnlyAfterRawPersisted": true,
+  "sourceKind": "manifest",
+  "manifest": {
+    "sourceUrl": "https://steamusercontent-a.akamaihd.net/ugc/11923313303416697/9B3267E7B15BA79753FB3964C3822C4B8A3EB5F5/",
+    "manifestFile": "bags/queen-008.png",
+    "manifestByteSize": 535930
+  },
+  "generatedSource": null,
+  "objectReferenceCount": 2,
+  "objectReferences": [
+    {
+      "guid": "bf3dc5",
+      "type": "Bag",
+      "nickname": "Queen",
+      "description": "",
+      "gmnotes": "",
+      "cardId": "",
+      "parent": [],
+      "urlRoles": [
+        "ImageURL"
+      ],
+      "luaRoles": [
+        "queenFBag"
+      ],
+      "classificationVerdict": "base",
+      "classificationReason": "Lua base/mech GUID",
+      "classificationGroup": null
+    },
+    {
+      "guid": "68d9e4",
+      "type": "Figurine_Custom",
+      "nickname": "",
+      "description": "",
+      "gmnotes": "queen",
+      "cardId": "",
+      "parent": [
+        [
+          "Bag",
+          "bf3dc5",
+          "Queen"
+        ]
+      ],
+      "urlRoles": [
+        "ImageURL"
+      ],
+      "luaRoles": [],
+      "classificationVerdict": "base",
+      "classificationReason": "contained in Queen: Lua base/mech GUID",
+      "classificationGroup": null
+    }
+  ],
+  "priorSemanticVisionEvidenceRead": false
+}

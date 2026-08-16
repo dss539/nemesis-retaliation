@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/models/model-005.jpg",
+  "sourceSha256": "cd038c3398b49a8b79b500edd109b31c8794f73fea689a2a9b96f85c06d1dba2",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_054600_b82ff5",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:46:00Z",
+  "completedAt": "2026-08-15T05:46:21Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "texture atlas containing two illustrated science-fiction room tiles",
+    "cardSide": "notCard",
+    "title": "",
+    "typeLine": "",
+    "body": "",
+    "footer": "",
+    "upperRight": "",
+    "lowerCenter": "",
+    "visibleText": "4\n4\n0\n0",
+    "confidentlyVisible": [
+      "The upper-left tile depicts a damaged metallic room with rubble, exposed cables, gridded flooring, and four open doorway connections.",
+      "The upper-left tile has yellow triangular edge panels marked 4 at its top and bottom; the bottom numeral is intentionally inverted relative to the top numeral.",
+      "The lower-right tile depicts a cleaner metallic room with a bright central gridded floor and four open doorway connections.",
+      "The lower-right tile has yellow triangular edge panels marked 0 at its top and bottom; the bottom numeral is intentionally inverted relative to the top numeral.",
+      "The lower-right tile is clipped by the file boundaries.",
+      "Large black unused regions separate and surround the tile artwork."
+    ],
+    "proposedCategory": "models/texture",
+    "proposedSlug": null,
+    "confidence": "medium",
+    "uncertainties": [
+      "The texture contains two distinct room-tile artworks rather than one isolated component.",
+      "The lower-right room tile is partially outside the image boundaries.",
+      "No visible title or unmistakable depicted identity supports a semantic filename slug.",
+      "The opposing edge numerals are printed in opposite directions by design, so no rotation can make every numeral upright simultaneously; upright is assigned from the top-edge numerals and overall tile presentation."
+    ]
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Planning image pixel inspection workflow****Planning image pixel inspection workflow**\n**Planning pixel inspection using vision****Planning pixel inspection using vision**\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Clarifying texture atlas orientation**\n\n{\"orientation\":\"upright\",\"componentType\":\"texture atlas containing two illustrated science-fiction room tiles\",\"cardSide\":\"notCard\",\"title\":\"\",\"typeLine\":\"\",\"body\":\"\",\"footer\":\"\",\"upperRight\":\"\",\"lowerCenter\":\"\",\"visibleText\":\"4\\n4\\n0\\n0\",\"confidentlyVisible\":[\"The upper-left tile depicts a damaged metallic room with rubble, exposed cables, gridded flooring, and four open doorway connections.\",\"The upper-left tile has yellow triangular edge panels marked 4 at its top and bottom; the bottom numeral is intentionally inverted relative to the top numeral.\",\"The lower-right tile depicts a cleaner metallic room with a bright central gridded floor and four open doorway connections.\",\"The lower-right tile has yellow triangular edge panels marked 0 at its top and bottom; the bottom numeral is intentionally inverted relative to the top numeral.\",\"The lower-right tile is clipped by the file boundaries.\",\"Large black unused regions separate and surround the tile artwork.\"],\"proposedCategory\":\"models/texture\",\"proposedSlug\":null,\"confidence\":\"medium\",\"uncertainties\":[\"The texture contains two distinct room-tile artworks rather than one isolated component.\",\"The lower-right room tile is partially outside the image boundaries.\",\"No visible title or unmistakable depicted identity supports a semantic filename slug.\",\"The opposing edge numerals are printed in opposite directions by design, so no rotation can make every numeral upright simultaneously; upright is assigned from the top-edge numerals and overall tile presentation.\"]}\n\nsession_id: 20260815_054600_b82ff5\n"
+}

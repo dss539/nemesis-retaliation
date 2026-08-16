@@ -1,0 +1,96 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-144_cards/card-03.png",
+  "sourceSha256": "91857d78dd2e2dabd20dce496309d854c921a846db8708f24477189a8f3f4ac1",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_060527_a4ad5e",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:41:58Z",
+  "completedAt": "2026-08-15T06:05:50Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "equipment item card",
+    "cardSide": "face",
+    "title": "ENGINEERING\nEQUIPMENT",
+    "typeLine": "",
+    "body": "Remove a [malfunction].\nOR\nRemove this Item and Reinforce an empty Corridor.",
+    "footer": "",
+    "upperRight": "notInCombat",
+    "lowerCenter": "",
+    "visibleText": "",
+    "confidentlyVisible": [
+      "Landscape-format card face",
+      "White two-line title centered near the top",
+      "Artwork depicts an open engineering tool case",
+      "Upper-right icon is a white gun crossed out by a red X",
+      "Rules text is centered in the lower half",
+      "A white malfunction gear icon appears inline after “Remove a”"
+    ],
+    "proposedCategory": "cards/game/item/equipment",
+    "proposedSlug": "engineering-equipment",
+    "confidence": "high",
+    "uncertainties": []
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Preparing for pixel inspection****Preparing for pixel inspection****Verifying image text orientation**\n\n\n**Mapping icon positions and identifying card type****Verifying image text orientation**\n{\"orientation\":\"rotate90ccw\",\"componentType\":\"item card\",\"cardSide\":\"face\",\"title\":\"ENGINEERING\\nEQUIPMENT\",\"typeLine\":\"\",\"body\":\"Remove a [ICON: white gear]\\nOR\\nRemove this Item and Reinforce an empty Corridor.\",\"footer\":\"\",\"upperRight\":\"notInCombat\",\"lowerCenter\":\"[ICON: white gear]\",\"visibleText\":\"\",\"confidentlyVisible\":[\"White two-line title reading “ENGINEERING” and “EQUIPMENT”\",\"Central illustration depicts mechanical engineering equipment\",\"A white gear glyph follows “Remove a”\",\"The word “OR” separates two effects\",\"Upper-right icon is a white gun crossed out by a red X\"],\"proposedCategory\":\"cards/game/item/equipment\",\"proposedSlug\":\"engineering-equipment\",\"confidence\":\"medium\",\"uncertainties\":[\"The white gear is a card-local action glyph not included in the canonical glossary; it is transcribed literally.\",\"The crossed-out gun confidently matches notInCombat morphology, but its exact card-specific rules meaning is not independently stated by visible text.\"]}\n\nsession_id: 20260815_054158_7c7da5\n",
+  "initialParsed": {
+    "orientation": "rotate90ccw",
+    "componentType": "item card",
+    "cardSide": "face",
+    "title": "ENGINEERING\nEQUIPMENT",
+    "typeLine": "",
+    "body": "Remove a [ICON: white gear]\nOR\nRemove this Item and Reinforce an empty Corridor.",
+    "footer": "",
+    "upperRight": "notInCombat",
+    "lowerCenter": "[ICON: white gear]",
+    "visibleText": "",
+    "confidentlyVisible": [
+      "White two-line title reading “ENGINEERING” and “EQUIPMENT”",
+      "Central illustration depicts mechanical engineering equipment",
+      "A white gear glyph follows “Remove a”",
+      "The word “OR” separates two effects",
+      "Upper-right icon is a white gun crossed out by a red X"
+    ],
+    "proposedCategory": "cards/game/item/equipment",
+    "proposedSlug": "engineering-equipment",
+    "confidence": "medium",
+    "uncertainties": [
+      "The white gear is a card-local action glyph not included in the canonical glossary; it is transcribed literally.",
+      "The crossed-out gun confidently matches notInCombat morphology, but its exact card-specific rules meaning is not independently stated by visible text."
+    ]
+  },
+  "initialSessionId": "20260815_054158_7c7da5",
+  "orientationCorrection": "rotate90ccw",
+  "uprightRead": {
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "sessionId": "20260815_060527_a4ad5e",
+    "completedAt": "2026-08-15T06:05:50Z",
+    "parsed": {
+      "orientation": "upright",
+      "componentType": "equipment item card",
+      "cardSide": "face",
+      "title": "ENGINEERING\nEQUIPMENT",
+      "typeLine": "",
+      "body": "Remove a [malfunction].\nOR\nRemove this Item and Reinforce an empty Corridor.",
+      "footer": "",
+      "upperRight": "notInCombat",
+      "lowerCenter": "",
+      "visibleText": "",
+      "confidentlyVisible": [
+        "Landscape-format card face",
+        "White two-line title centered near the top",
+        "Artwork depicts an open engineering tool case",
+        "Upper-right icon is a white gun crossed out by a red X",
+        "Rules text is centered in the lower half",
+        "A white malfunction gear icon appears inline after “Remove a”"
+      ],
+      "proposedCategory": "cards/game/item/equipment",
+      "proposedSlug": "engineering-equipment",
+      "confidence": "high",
+      "uncertainties": []
+    },
+    "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Planning image workflow inspection****Planning image workflow inspection****Confirming card type and status icons**\n\n\n**Determining exact card title and body text****Confirming card type and status icons**\n\nsession_id: 20260815_060527_a4ad5e\n{\"orientation\":\"upright\",\"componentType\":\"equipment item card\",\"cardSide\":\"face\",\"title\":\"ENGINEERING\\nEQUIPMENT\",\"typeLine\":\"\",\"body\":\"Remove a [malfunction].\\nOR\\nRemove this Item and Reinforce an empty Corridor.\",\"footer\":\"\",\"upperRight\":\"notInCombat\",\"lowerCenter\":\"\",\"visibleText\":\"\",\"confidentlyVisible\":[\"Landscape-format card face\",\"White two-line title centered near the top\",\"Artwork depicts an open engineering tool case\",\"Upper-right icon is a white gun crossed out by a red X\",\"Rules text is centered in the lower half\",\"A white malfunction gear icon appears inline after “Remove a”\"],\"proposedCategory\":\"cards/game/item/equipment\",\"proposedSlug\":\"engineering-equipment\",\"confidence\":\"high\",\"uncertainties\":[]}\n"
+  }
+}

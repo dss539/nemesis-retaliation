@@ -1,0 +1,102 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/officer-008.png",
+  "sourceSha256": "9abf6adef8b951c43bfbc87e39992792ece70357167dc588d8c5641fad78a0f0",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_060353_8dcca9",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:13:06Z",
+  "completedAt": "2026-08-15T06:04:24Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "cropped character starting-item card face",
+    "cardSide": "face",
+    "title": "STARTING ITEM\nOFFICER",
+    "typeLine": "",
+    "body": "",
+    "footer": "",
+    "upperRight": "",
+    "lowerCenter": "",
+    "visibleText": "",
+    "confidentlyVisible": [
+      "White “STARTING ITEM” heading above blue “OFFICER” text",
+      "Blue science-fiction frame surrounds the heading area",
+      "Upper artwork depicts a metallic illuminated device or case",
+      "The component continues beyond the bottom image edge"
+    ],
+    "proposedCategory": "cards/character/officer/starting-item",
+    "proposedSlug": "starting-item-officer",
+    "confidence": "medium",
+    "uncertainties": [
+      "The card is substantially clipped at the bottom, so any lower text, icons, or panels are not visible and cannot be transcribed.",
+      "Faint markings on the illustrated device are stylized, inverted relative to the main heading, and not confidently legible.",
+      "The exact distinction between title and owner/type line is visually ambiguous; “STARTING ITEM” and “OFFICER” may form one combined heading.",
+      "The face role and precise category are inferred from the clearly visible heading but cannot be fully confirmed from the cropped component."
+    ]
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Analyzing image text orientation**\n\n**Determining correct image rotation**\n\n**Confirming visible text transcription****Analyzing image text orientation**\n**Determining correct image rotation**\n**Confirming visible text transcription****Planning image rotation and text extraction**\n\n\n**Using vision_analyze crop for microtext****Planning image rotation and text extraction**\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Using vision_analyze crop for microtext****Assessing text rotation direction**\n\n**Determining card back orientation**\n\n**Confirming card back title as STARTING ITEM**\n\n**Determining filename slug from visible title**\n\n**Verifying visible text and card back identity**\n\n**Confirming decorative markings as non-text**\n\n**Clarifying slug naming and schema details**\n\n{\"orientation\":\"rotate90ccw\",\"componentType\":\"character starting-item card back\",\"cardSide\":\"back\",\"title\":\"STARTING ITEM\",\"typeLine\":\"\",\"body\":\"\",\"footer\":\"OFFICER\",\"upperRight\":\"\",\"lowerCenter\":\"\",\"visibleText\":\"\",\"confidentlyVisible\":[\"STARTING ITEM appears in white uppercase typography.\",\"OFFICER appears beneath it in blue uppercase typography.\",\"The artwork depicts a rectangular science-fiction equipment case with cyan illuminated strips.\",\"No canonical glossary icon or bare corner icon is visible.\",\"The component has a full-art framed back design and no visible rules text.\"],\"proposedCategory\":\"cards/character/officer/starting-item\",\"proposedSlug\":\"officer-starting-item-back\",\"confidence\":\"medium\",\"uncertainties\":[\"Small markings on the illustrated equipment case resemble decorative or fictional interface text but are not confidently legible as meaningful typography.\",\"The back-side classification is strongly suggested by the generic owner/category labeling and absence of rules text, but no explicit word identifies it as a card back.\"]}\n\nsession_id: 20260815_051306_77e07d\n",
+  "initialParsed": {
+    "orientation": "rotate90ccw",
+    "componentType": "character starting-item card back",
+    "cardSide": "back",
+    "title": "STARTING ITEM",
+    "typeLine": "",
+    "body": "",
+    "footer": "OFFICER",
+    "upperRight": "",
+    "lowerCenter": "",
+    "visibleText": "",
+    "confidentlyVisible": [
+      "STARTING ITEM appears in white uppercase typography.",
+      "OFFICER appears beneath it in blue uppercase typography.",
+      "The artwork depicts a rectangular science-fiction equipment case with cyan illuminated strips.",
+      "No canonical glossary icon or bare corner icon is visible.",
+      "The component has a full-art framed back design and no visible rules text."
+    ],
+    "proposedCategory": "cards/character/officer/starting-item",
+    "proposedSlug": "officer-starting-item-back",
+    "confidence": "medium",
+    "uncertainties": [
+      "Small markings on the illustrated equipment case resemble decorative or fictional interface text but are not confidently legible as meaningful typography.",
+      "The back-side classification is strongly suggested by the generic owner/category labeling and absence of rules text, but no explicit word identifies it as a card back."
+    ]
+  },
+  "initialSessionId": "20260815_051306_77e07d",
+  "orientationCorrection": "rotate90ccw",
+  "uprightRead": {
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "sessionId": "20260815_060353_8dcca9",
+    "completedAt": "2026-08-15T06:04:24Z",
+    "parsed": {
+      "orientation": "upright",
+      "componentType": "cropped character starting-item card face",
+      "cardSide": "face",
+      "title": "STARTING ITEM\nOFFICER",
+      "typeLine": "",
+      "body": "",
+      "footer": "",
+      "upperRight": "",
+      "lowerCenter": "",
+      "visibleText": "",
+      "confidentlyVisible": [
+        "White “STARTING ITEM” heading above blue “OFFICER” text",
+        "Blue science-fiction frame surrounds the heading area",
+        "Upper artwork depicts a metallic illuminated device or case",
+        "The component continues beyond the bottom image edge"
+      ],
+      "proposedCategory": "cards/character/officer/starting-item",
+      "proposedSlug": "starting-item-officer",
+      "confidence": "medium",
+      "uncertainties": [
+        "The card is substantially clipped at the bottom, so any lower text, icons, or panels are not visible and cannot be transcribed.",
+        "Faint markings on the illustrated device are stylized, inverted relative to the main heading, and not confidently legible.",
+        "The exact distinction between title and owner/type line is visually ambiguous; “STARTING ITEM” and “OFFICER” may form one combined heading.",
+        "The face role and precise category are inferred from the clearly visible heading but cannot be fully confirmed from the cropped component."
+      ]
+    },
+    "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Loading image for analysis****Loading image for analysis****Planning image analysis using vision tool**\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Planning image analysis using vision tool****Analyzing card face orientation and purpose**\n\n\n\nsession_id: 20260815_060353_8dcca9\n{\"orientation\":\"upright\",\"componentType\":\"cropped character starting-item card face\",\"cardSide\":\"face\",\"title\":\"STARTING ITEM\\nOFFICER\",\"typeLine\":\"\",\"body\":\"\",\"footer\":\"\",\"upperRight\":\"\",\"lowerCenter\":\"\",\"visibleText\":\"\",\"confidentlyVisible\":[\"White “STARTING ITEM” heading above blue “OFFICER” text\",\"Blue science-fiction frame surrounds the heading area\",\"Upper artwork depicts a metallic illuminated device or case\",\"The component continues beyond the bottom image edge\"],\"proposedCategory\":\"cards/character/officer/starting-item\",\"proposedSlug\":\"starting-item-officer\",\"confidence\":\"medium\",\"uncertainties\":[\"The card is substantially clipped at the bottom, so any lower text, icons, or panels are not visible and cannot be transcribed.\",\"Faint markings on the illustrated device are stylized, inverted relative to the main heading, and not confidently legible.\",\"The exact distinction between title and owner/type line is visually ambiguous; “STARTING ITEM” and “OFFICER” may form one combined heading.\",\"The face role and precise category are inferred from the clearly visible heading but cannot be fully confirmed from the cropped component.\"]}\n"
+  }
+}

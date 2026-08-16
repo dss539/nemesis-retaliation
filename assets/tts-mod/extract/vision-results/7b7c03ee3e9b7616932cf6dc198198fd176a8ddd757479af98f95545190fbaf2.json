@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/tiles/room/shelter-015.jpg",
+  "sourceSha256": "7b7c03ee3e9b7616932cf6dc198198fd176a8ddd757479af98f95545190fbaf2",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_054845_937499",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:48:45Z",
+  "completedAt": "2026-08-15T05:49:18Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "room tile",
+    "cardSide": "face",
+    "title": "SHELTER",
+    "typeLine": "",
+    "body": "Only if you don't have a Larva\non your Character board:\nRemove all Contamination cards\nfrom your hand\nwithout scanning.",
+    "footer": "",
+    "upperRight": "[ICON: white angular segmented glyph inside a dark hexagonal badge]",
+    "lowerCenter": "",
+    "visibleText": "?",
+    "confidentlyVisible": [
+      "The foreground component is an irregular-edged room tile.",
+      "The title SHELTER is clearly visible.",
+      "A green badge with a white cross matches [greenItem].",
+      "A red badge with three white cartridges matches [redItem].",
+      "The room artwork depicts beds or reclining stations surrounding a central mechanical structure.",
+      "A pale question mark appears near the upper-left.",
+      "Several overlapping components and large black masked regions are visible around the foreground tile."
+    ],
+    "proposedCategory": "tiles/room",
+    "proposedSlug": "shelter",
+    "confidence": "medium",
+    "uncertainties": [
+      "The upper-right white angular segmented glyph is not confidently matched to the supplied canonical glossary.",
+      "The source image is an atlas-like composite with overlapping components and black masked regions rather than an isolated tile.",
+      "The foreground tile is diagonally placed in the file; its typography is readable without a cardinal rotation, but no available orientation value expresses its smaller non-cardinal tilt.",
+      "The precise gameplay meaning of the pale question mark is uncertain."
+    ]
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Loading image inspection skill****Loading image inspection skill****Analyzing typography rotation and baseline slope**\n\n\n**Identifying text readability and icon positions**\n\n{\"orientation\":\"upright\",\"componentType\":\"room tile\",\"cardSide\":\"face\",\"title\":\"SHELTER\",\"typeLine\":\"\",\"body\":\"Only if you don't have a Larva\\non your Character board:\\nRemove all Contamination cards\\nfrom your hand\\nwithout scanning.\",\"footer\":\"\",\"upperRight\":\"[ICON: white angular segmented glyph inside a dark hexagonal badge]\",\"lowerCenter\":\"\",\"visibleText\":\"?\",\"confidentlyVisible\":[\"The foreground component is an irregular-edged room tile.\",\"The title SHELTER is clearly visible.\",\"A green badge with a white cross matches [greenItem].\",\"A red badge with three white cartridges matches [redItem].\",\"The room artwork depicts beds or reclining stations surrounding a central mechanical structure.\",\"A pale question mark appears near the upper-left.\",\"Several overlapping components and large black masked regions are visible around the foreground tile.\"],\"proposedCategory\":\"tiles/room\",\"proposedSlug\":\"shelter\",\"confidence\":\"medium\",\"uncertainties\":[\"The upper-right white angular segmented glyph is not confidently matched to the supplied canonical glossary.\",\"The source image is an atlas-like composite with overlapping components and black masked regions rather than an isolated tile.\",\"The foreground tile is diagonally placed in the file; its typography is readable without a cardinal rotation, but no available orientation value expresses its smaller non-cardinal tilt.\",\"The precise gameplay meaning of the pale question mark is uncertain.\"]}\n\nsession_id: 20260815_054845_937499\n"
+}

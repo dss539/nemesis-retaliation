@@ -1,0 +1,102 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-144_cards/card-06.png",
+  "sourceSha256": "4ceab051ce520564a2a1dd312b65f665f76bf29b4a0a6eb94c2a7fbf37943478",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_060534_b5dc2f",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:42:03Z",
+  "completedAt": "2026-08-15T06:06:01Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "ranged weapon item card",
+    "cardSide": "face",
+    "title": "GATLING GUN",
+    "typeLine": "RANGED WEAPON, RIFLE",
+    "body": "Burst: You may burst twice to the same Corridor\nspending only 1 [actionCard].\n[ICON: purple square with white exclamation mark]: Place [ICON: white gear] on this Weapon.",
+    "footer": "",
+    "upperRight": "",
+    "lowerCenter": "",
+    "visibleText": "",
+    "confidentlyVisible": [
+      "Dark card face with artwork of a multi-barrel gun and ammunition belt",
+      "Title and type line are centered above the artwork",
+      "The word “Burst:” is printed in purple",
+      "Two large red panels with black recessed shapes are partially clipped by the bottom edge"
+    ],
+    "proposedCategory": "cards/game/item/weapon",
+    "proposedSlug": "gatling-gun",
+    "confidence": "medium",
+    "uncertainties": [
+      "The purple square exclamation-mark glyph is not present in the canonical glossary and is transcribed literally.",
+      "The white gear-shaped glyph is not confidently identifiable from the canonical glossary and is transcribed literally.",
+      "Two red bottom panels are clipped by the image boundary, so any content below or within their unseen portions cannot be transcribed."
+    ]
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Planning image analysis approach****Planning image analysis approach****Determining correct image rotation direction**\n\n\n**Identifying and verifying weapon icon details**\n\n**Confirming coordinate mapping after rotation****Determining correct image rotation direction**\n**Identifying and verifying weapon icon details**\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Confirming coordinate mapping after rotation****Confirming counterclockwise rotation mapping**\n\n\n{\"orientation\":\"rotate90ccw\",\"componentType\":\"ranged weapon item card\",\"cardSide\":\"face\",\"title\":\"GATLING GUN\",\"typeLine\":\"RANGED WEAPON, RIFLE\",\"body\":\"Burst: You may burst twice to the same Corridor,\\nspending only 1 [ammoToken].\\n[ICON: purple square with white exclamation mark]: Place [malfunction] on this Weapon.\",\"footer\":\"\",\"upperRight\":\"\",\"lowerCenter\":\"[ICON: two partially clipped red outlined slot shapes with black centers]\",\"visibleText\":\"\",\"confidentlyVisible\":[\"Dark card art depicts a large multi-barrel firearm with an ammunition belt.\",\"Title is printed in white uppercase letters.\",\"Type line is printed in yellow uppercase letters.\",\"“Burst:” is printed in purple.\",\"A red ammunition token glyph follows the numeral 1.\",\"A white gear-shaped malfunction glyph appears before “on this Weapon.”\",\"Two large red slot-like symbols are partially clipped by the file edge.\"],\"proposedCategory\":\"cards/game/item/weapon\",\"proposedSlug\":\"gatling-gun\",\"confidence\":\"medium\",\"uncertainties\":[\"The purple square with a white exclamation mark is a card-local action/ability glyph not present in the canonical glossary.\",\"The two large red symbols at the lower edge after rotation are partially clipped; their canonical identity and exact role are uncertain.\"]}\n\nsession_id: 20260815_054203_b757b0\n",
+  "initialParsed": {
+    "orientation": "rotate90ccw",
+    "componentType": "ranged weapon item card",
+    "cardSide": "face",
+    "title": "GATLING GUN",
+    "typeLine": "RANGED WEAPON, RIFLE",
+    "body": "Burst: You may burst twice to the same Corridor,\nspending only 1 [ammoToken].\n[ICON: purple square with white exclamation mark]: Place [malfunction] on this Weapon.",
+    "footer": "",
+    "upperRight": "",
+    "lowerCenter": "[ICON: two partially clipped red outlined slot shapes with black centers]",
+    "visibleText": "",
+    "confidentlyVisible": [
+      "Dark card art depicts a large multi-barrel firearm with an ammunition belt.",
+      "Title is printed in white uppercase letters.",
+      "Type line is printed in yellow uppercase letters.",
+      "“Burst:” is printed in purple.",
+      "A red ammunition token glyph follows the numeral 1.",
+      "A white gear-shaped malfunction glyph appears before “on this Weapon.”",
+      "Two large red slot-like symbols are partially clipped by the file edge."
+    ],
+    "proposedCategory": "cards/game/item/weapon",
+    "proposedSlug": "gatling-gun",
+    "confidence": "medium",
+    "uncertainties": [
+      "The purple square with a white exclamation mark is a card-local action/ability glyph not present in the canonical glossary.",
+      "The two large red symbols at the lower edge after rotation are partially clipped; their canonical identity and exact role are uncertain."
+    ]
+  },
+  "initialSessionId": "20260815_054203_b757b0",
+  "orientationCorrection": "rotate90ccw",
+  "uprightRead": {
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "sessionId": "20260815_060534_b5dc2f",
+    "completedAt": "2026-08-15T06:06:01Z",
+    "parsed": {
+      "orientation": "upright",
+      "componentType": "ranged weapon item card",
+      "cardSide": "face",
+      "title": "GATLING GUN",
+      "typeLine": "RANGED WEAPON, RIFLE",
+      "body": "Burst: You may burst twice to the same Corridor\nspending only 1 [actionCard].\n[ICON: purple square with white exclamation mark]: Place [ICON: white gear] on this Weapon.",
+      "footer": "",
+      "upperRight": "",
+      "lowerCenter": "",
+      "visibleText": "",
+      "confidentlyVisible": [
+        "Dark card face with artwork of a multi-barrel gun and ammunition belt",
+        "Title and type line are centered above the artwork",
+        "The word “Burst:” is printed in purple",
+        "Two large red panels with black recessed shapes are partially clipped by the bottom edge"
+      ],
+      "proposedCategory": "cards/game/item/weapon",
+      "proposedSlug": "gatling-gun",
+      "confidence": "medium",
+      "uncertainties": [
+        "The purple square exclamation-mark glyph is not present in the canonical glossary and is transcribed literally.",
+        "The white gear-shaped glyph is not confidently identifiable from the canonical glossary and is transcribed literally.",
+        "Two red bottom panels are clipped by the image boundary, so any content below or within their unseen portions cannot be transcribed."
+      ]
+    },
+    "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Planning pixel inspection approach****Planning pixel inspection approach****Confirming iconography details for weapon card**\n\n\n**Clarifying weapon card icon descriptions**\n\n**Formatting weapon card text with icons****Confirming iconography details for weapon card**\n**Clarifying weapon card icon descriptions**\n\nsession_id: 20260815_060534_b5dc2f\n{\"orientation\":\"upright\",\"componentType\":\"ranged weapon item card\",\"cardSide\":\"face\",\"title\":\"GATLING GUN\",\"typeLine\":\"RANGED WEAPON, RIFLE\",\"body\":\"Burst: You may burst twice to the same Corridor\\nspending only 1 [actionCard].\\n[ICON: purple square with white exclamation mark]: Place [ICON: white gear] on this Weapon.\",\"footer\":\"\",\"upperRight\":\"\",\"lowerCenter\":\"\",\"visibleText\":\"\",\"confidentlyVisible\":[\"Dark card face with artwork of a multi-barrel gun and ammunition belt\",\"Title and type line are centered above the artwork\",\"The word “Burst:” is printed in purple\",\"Two large red panels with black recessed shapes are partially clipped by the bottom edge\"],\"proposedCategory\":\"cards/game/item/weapon\",\"proposedSlug\":\"gatling-gun\",\"confidence\":\"medium\",\"uncertainties\":[\"The purple square exclamation-mark glyph is not present in the canonical glossary and is transcribed literally.\",\"The white gear-shaped glyph is not confidently identifiable from the canonical glossary and is transcribed literally.\",\"Two red bottom panels are clipped by the image boundary, so any content below or within their unseen portions cannot be transcribed.\"]}\n"
+  }
+}

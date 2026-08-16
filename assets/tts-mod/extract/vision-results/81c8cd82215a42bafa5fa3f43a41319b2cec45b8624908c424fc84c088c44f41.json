@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-36.png",
+  "sourceSha256": "81c8cd82215a42bafa5fa3f43a41319b2cec45b8624908c424fc84c088c44f41",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_051107_917fab",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:11:07Z",
+  "completedAt": "2026-08-15T05:11:29Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "character action card",
+    "cardSide": "face",
+    "title": "REST",
+    "typeLine": "",
+    "body": "Resolve the Infection Procedure.\nRemove all Uninfected cards from the game.\nInfection Procedure:\nScan all Contamination cards in hand.\nIf any of them are Infected, place a Larva\non your Character board.",
+    "footer": "OFFICER",
+    "upperRight": "notInCombat",
+    "lowerCenter": "",
+    "visibleText": "",
+    "confidentlyVisible": [
+      "Portrait-oriented card face with upright typography",
+      "Armored human figure holding a firearm in blue-lit industrial artwork",
+      "Upper-right icon depicts a white firearm crossed out by a red X",
+      "Title REST appears in a framed central panel",
+      "Rules text appears below the title",
+      "OFFICER appears centered at the bottom"
+    ],
+    "proposedCategory": "cards/character/officer/action",
+    "proposedSlug": "rest",
+    "confidence": "high",
+    "uncertainties": []
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Planning parallel image analysis workflows****Planning parallel image analysis workflows**\n**Identifying card transcription and category**\n\n**Finalizing JSON structure for card transcription****Identifying card transcription and category**\n{\"orientation\":\"upright\",\"componentType\":\"character action card\",\"cardSide\":\"face\",\"title\":\"REST\",\"typeLine\":\"\",\"body\":\"Resolve the Infection Procedure.\\nRemove all Uninfected cards from the game.\\nInfection Procedure:\\nScan all Contamination cards in hand.\\nIf any of them are Infected, place a Larva\\non your Character board.\",\"footer\":\"OFFICER\",\"upperRight\":\"notInCombat\",\"lowerCenter\":\"\",\"visibleText\":\"\",\"confidentlyVisible\":[\"Portrait-oriented card face with upright typography\",\"Armored human figure holding a firearm in blue-lit industrial artwork\",\"Upper-right icon depicts a white firearm crossed out by a red X\",\"Title REST appears in a framed central panel\",\"Rules text appears below the title\",\"OFFICER appears centered at the bottom\"],\"proposedCategory\":\"cards/character/officer/action\",\"proposedSlug\":\"rest\",\"confidence\":\"high\",\"uncertainties\":[]}\n\nsession_id: 20260815_051107_917fab\n",
+  "iconVerification": {
+    "status": "passed",
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "sessionId": "20260815_060721_510d57",
+    "promptVersion": 1,
+    "completedAt": "2026-08-15T06:07:35Z",
+    "claimed": [
+      "notInCombat"
+    ],
+    "parsed": {
+      "claims": [
+        {
+          "claimed": "notInCombat",
+          "verdict": "match",
+          "actual": "notInCombat",
+          "evidence": "One occurrence at the card’s upper right: a white gun silhouette crossed by a red diagonal X; this is the documented official artwork variant of the glossary’s crossed-out Intruder icon."
+        }
+      ],
+      "allClaimsMatch": true,
+      "confidence": "high",
+      "uncertainties": []
+    },
+    "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Preparing image analysis setup****Preparing image analysis setup****Analyzing top-right icon occurrences**\n\nsession_id: 20260815_060721_510d57\n{\"claims\":[{\"claimed\":\"notInCombat\",\"verdict\":\"match\",\"actual\":\"notInCombat\",\"evidence\":\"One occurrence at the card’s upper right: a white gun silhouette crossed by a red diagonal X; this is the documented official artwork variant of the glossary’s crossed-out Intruder icon.\"}],\"allClaimsMatch\":true,\"confidence\":\"high\",\"uncertainties\":[]}\n",
+    "evidencePath": null
+  }
+}

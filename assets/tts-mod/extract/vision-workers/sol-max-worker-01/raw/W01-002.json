@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "assetId": "W01-002",
+  "batchId": "batch-001",
+  "capturedAt": "2026-08-15T20:30:50Z",
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/bags/adultBag-003.png",
+  "sourceSha256": "3855130275715c375c946da7580e2b3e91139b62f2685aebca3fc515c7ffebb1",
+  "runtimeProvenanceRef": "../metadata/runtime.json",
+  "blindAnalysis": true,
+  "metadataExcludedDuringPixelPass": [
+    "filename semantics",
+    "directory semantics",
+    "prior vision reads",
+    "TTS object metadata",
+    "game-context expectations"
+  ],
+  "orientationObservation": "Upright as displayed; the word at the bottom reads left-to-right and the overhead light cones descend from the top.",
+  "blindPixelObservations": [
+    "A circular teal-and-black industrial-corridor graphic fills the canvas.",
+    "Two pale overhead light cones descend from the top toward a centered pale gray-white skeletal creature.",
+    "The creature is shown in profile facing left, with an open jaw, multiple jointed limbs or protrusions, and a tail curled beneath/behind it.",
+    "Large bold white uppercase text is centered along the lower portion."
+  ],
+  "visibleText": [
+    {
+      "text": "ADULT",
+      "location": "lower center",
+      "structure": "single bold uppercase label",
+      "confidence": "high"
+    }
+  ],
+  "iconObservations": [
+    {
+      "location": "center",
+      "literalMorphology": "Detailed shaded full-body pale creature illustration with jaws, limbs, and curled tail.",
+      "colors": "pale gray-white with dark shading on teal background",
+      "closestPlausibleGlossaryAlternative": "intruder",
+      "visibleDiscriminatingFeature": "This is a large detailed multi-tone creature illustration, not the glossary's small flat white curled-exoskeleton glyph; no canonical glossary token is claimed."
+    }
+  ],
+  "uncertainties": [
+    "Pixels establish the printed label but not whether this circular graphic is a bag face, token face, or another container texture."
+  ]
+}

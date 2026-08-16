@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/queenHealthDeck-045.png",
+  "sourceSha256": "133a975dc072a169ceed85615ab2e5a6cde0f80a23f18e61948f0a963c9e98e2",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_053902_fecde8",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:39:02Z",
+  "completedAt": "2026-08-15T05:39:22Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "game instruction card",
+    "cardSide": "face",
+    "title": "Discard",
+    "typeLine": "",
+    "body": "3\nadditional cards.\n\nIf the card was drawn by a [character]:\n\nActivate the Queen.",
+    "footer": "",
+    "upperRight": "",
+    "lowerCenter": "",
+    "visibleText": "",
+    "confidentlyVisible": [
+      "All typography is upright in the file.",
+      "A large white numeral 3 appears inside a glowing green octagonal frame.",
+      "The upper artwork shows an astronaut-like figure confronted by a large red-and-white creature.",
+      "A white astronaut glyph appears inline after the words “drawn by a”.",
+      "The lower rules text appears in a dark rounded rectangular panel."
+    ],
+    "proposedCategory": "cards/game/event",
+    "proposedSlug": "discard",
+    "confidence": "medium",
+    "uncertainties": [
+      "The exact game-defined subtype is not visibly printed; “game instruction card” and cards/game/event are inferred from the displayed effect text and card layout.",
+      "The large creature is called “Queen” by the visible rules text, but its broader identity is not independently labeled in the artwork."
+    ]
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Loading image analysis skill****Loading image analysis skill****Mapping astronaut to character in card text**\n\n\n**Confirming discard event card identity****Mapping astronaut to character in card text**\n{\"orientation\":\"upright\",\"componentType\":\"game instruction card\",\"cardSide\":\"face\",\"title\":\"Discard\",\"typeLine\":\"\",\"body\":\"3\\nadditional cards.\\n\\nIf the card was drawn by a [character]:\\n\\nActivate the Queen.\",\"footer\":\"\",\"upperRight\":\"\",\"lowerCenter\":\"\",\"visibleText\":\"\",\"confidentlyVisible\":[\"All typography is upright in the file.\",\"A large white numeral 3 appears inside a glowing green octagonal frame.\",\"The upper artwork shows an astronaut-like figure confronted by a large red-and-white creature.\",\"A white astronaut glyph appears inline after the words “drawn by a”.\",\"The lower rules text appears in a dark rounded rectangular panel.\"],\"proposedCategory\":\"cards/game/event\",\"proposedSlug\":\"discard\",\"confidence\":\"medium\",\"uncertainties\":[\"The exact game-defined subtype is not visibly printed; “game instruction card” and cards/game/event are inferred from the displayed effect text and card layout.\",\"The large creature is called “Queen” by the visible rules text, but its broader identity is not independently labeled in the artwork.\"]}\n\nsession_id: 20260815_053902_fecde8\n"
+}

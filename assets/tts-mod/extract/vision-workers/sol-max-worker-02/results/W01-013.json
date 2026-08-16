@@ -1,0 +1,88 @@
+{
+  "schemaVersion": 1,
+  "assetId": "W01-013",
+  "batchId": "batch-001",
+  "completedAt": "2026-08-15T21:16:47Z",
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/bags/larva-009.png",
+  "sourceSha256": "baf89008c428e5bf87595029a440b2eb2bb84b06704f2ada46083d7fd2f0720c",
+  "sourceMetadata": {
+    "width": 322,
+    "height": 239,
+    "format": "PNG",
+    "mode": "RGBA",
+    "byteSize": 117520,
+    "frames": 1,
+    "decodeVerified": true
+  },
+  "runtimeProvenance": {
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "reasoningEffort": "max",
+    "platform": "subagent",
+    "workerId": "sol-max-worker-02",
+    "sessionId": "20260815_210607_461cc1",
+    "persistentSession": true,
+    "nativeVision": true,
+    "auxiliaryVisionUsed": false,
+    "qwenUsed": false
+  },
+  "orientation": {
+    "status": "upright",
+    "evidence": "The feet contact a floor-like lower region and the body rises above them.",
+    "transformApplied": null,
+    "stagingDerivative": null
+  },
+  "blindPixelObservations": [
+    "An irregular turquoise-green backing shape occupies most of a transparent rectangular canvas.",
+    "A dark gray-black creature faces left in a low lunging stance, with a large angular head, exposed teeth, and several red glowing fissures or grooves across the face and upper torso.",
+    "Multiple long blade-like spines project backward from the upper body, the forelimbs end in thin claws, and a segmented tail tapers toward the lower right.",
+    "The image is isolated painterly creature artwork with no border, card anatomy, or rules panel."
+  ],
+  "visibleText": [],
+  "iconMorphology": [],
+  "iconMorphologyEmptyReason": "No discrete printed icon is present; the entire image is creature artwork rather than an icon-bearing card or token face.",
+  "evidenceConsulted": {
+    "blindPixelRecord": "raw/W01-013.json",
+    "metadataJoin": "metadata/provenance/W01-013.json",
+    "tts": {
+      "consultedAfterBlindRecord": true,
+      "manifestUrl": "https://steamusercontent-a.akamaihd.net/ugc/11923313306143539/F572F0A1A92477BEA4C6C7195041BA055FCFA7BF/",
+      "finding": "The URL is the ImageURL for Bag 978afc nicknamed Larva and a contained Figurine_Custom a01036 tagged larvae; both are base-classified, and the bag has Lua roles creeperFBag and larvaeFBag."
+    },
+    "official": {
+      "consulted": false,
+      "reason": "No rules text, glossary-token claim, or conflicting source evidence required official escalation."
+    },
+    "priorWorkerSemanticOutput": {
+      "consulted": false,
+      "reason": "W01-013 is a clean-context retry of an invalidated predecessor result."
+    }
+  },
+  "proposedClassification": "Non-card base-game Larva creature artwork shared by a TTS Bag ImageURL and its contained Figurine_Custom ImageURL.",
+  "proposedPath": "assets/tts-mod/extract/v2-dl/tree/bags/larva-009.png (retain unchanged; no move or canonical sidecar proposed)",
+  "readConfidence": {
+    "level": "high",
+    "reason": "There is no printed text, and the creature artwork and lack of card anatomy are clear at native resolution."
+  },
+  "classificationConfidence": {
+    "level": "high",
+    "reason": "Blind creature morphology is consistent with explicit Larva bag/figurine TTS provenance and base Lua roles."
+  },
+  "uncertainties": [],
+  "promotionDecision": "non-card-complete",
+  "decisionReasons": [
+    "This is not a rules-card face and requires no card-text sidecar.",
+    "The native pixel read and current TTS object roles independently agree on Larva creature/container artwork.",
+    "No canonical icon token, unreadable text, move, rename, or source-role inference is being promoted."
+  ],
+  "stagedCandidateSidecarPath": null,
+  "validationPerformed": [
+    "Current source SHA-256 exactly matched the recovered live assignment tuple.",
+    "Pillow decoded and verified the 322x239 PNG with one frame.",
+    "The image was attached and inspected natively as W01-013 in batch-001 through the verified Sol Max route.",
+    "Blind observations were persisted before TTS metadata was consulted.",
+    "Both matching TTS ImageURL references and the base/Lua-role corroboration were resolved.",
+    "No source, canonical sidecar, shared ledger, manifest, catalog, or prior-worker file was modified."
+  ],
+  "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-worker-02/raw/W01-013.json"
+}

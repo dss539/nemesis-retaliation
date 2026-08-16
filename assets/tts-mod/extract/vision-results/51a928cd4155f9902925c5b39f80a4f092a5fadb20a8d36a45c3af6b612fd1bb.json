@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/tiles/room/server-room-001.png",
+  "sourceSha256": "51a928cd4155f9902925c5b39f80a4f092a5fadb20a8d36a45c3af6b612fd1bb",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_054842_6d5613",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:48:41Z",
+  "completedAt": "2026-08-15T05:49:15Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "illustrated room tile on an overlapping punchboard/source-art layout",
+    "cardSide": "notCard",
+    "title": "SERVER ROOM",
+    "typeLine": "",
+    "body": "Use an explored [computer] Room\nwithout [malfunction].\nOR\nGain a Data token\n(if you don't have one).",
+    "footer": "",
+    "upperRight": "[ICON: gray hexagonal badge with white three-branched angular glyph]",
+    "lowerCenter": "",
+    "visibleText": "B",
+    "confidentlyVisible": [
+      "The main component is an irregular room tile with projecting connector tabs.",
+      "The title reads “SERVER ROOM”.",
+      "A large purple letter “B” appears near the upper-left.",
+      "A cyan computer-screen symbol appears beside “explored” and another larger matching symbol appears above the rules area.",
+      "A gray gear-like malfunction symbol follows “without”.",
+      "A red badge with three white cartridges and a yellow badge with a white wrench appear along the left edge.",
+      "The room artwork depicts illuminated server racks, floor cables, and blue lighting.",
+      "Other overlapping components are visible around and beneath the main tile, including a separate large tile marked “B” at lower-right."
+    ],
+    "proposedCategory": "tiles/room",
+    "proposedSlug": "server-room",
+    "confidence": "medium",
+    "uncertainties": [
+      "The component is tilted within a composite image, but no 90-degree file rotation would make its typography more upright; “upright” denotes the closest supported orientation.",
+      "The gray upper-right badge does not confidently match any supplied canonical icon and is therefore described literally.",
+      "The image contains overlapping component/source-art elements rather than an isolated clean tile.",
+      "The standalone cyan computer icon above the rules text is visible but is not represented by a dedicated positional output field.",
+      "The redItem and yellowItem icons are confidently recognizable on the left edge but are not represented by dedicated positional output fields."
+    ]
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Planning pixel extraction approach****Planning pixel extraction approach****Analyzing tilted typography orientation**\n\n\n{\"orientation\":\"upright\",\"componentType\":\"illustrated room tile on an overlapping punchboard/source-art layout\",\"cardSide\":\"notCard\",\"title\":\"SERVER ROOM\",\"typeLine\":\"\",\"body\":\"Use an explored [computer] Room\\nwithout [malfunction].\\nOR\\nGain a Data token\\n(if you don't have one).\",\"footer\":\"\",\"upperRight\":\"[ICON: gray hexagonal badge with white three-branched angular glyph]\",\"lowerCenter\":\"\",\"visibleText\":\"B\",\"confidentlyVisible\":[\"The main component is an irregular room tile with projecting connector tabs.\",\"The title reads “SERVER ROOM”.\",\"A large purple letter “B” appears near the upper-left.\",\"A cyan computer-screen symbol appears beside “explored” and another larger matching symbol appears above the rules area.\",\"A gray gear-like malfunction symbol follows “without”.\",\"A red badge with three white cartridges and a yellow badge with a white wrench appear along the left edge.\",\"The room artwork depicts illuminated server racks, floor cables, and blue lighting.\",\"Other overlapping components are visible around and beneath the main tile, including a separate large tile marked “B” at lower-right.\"],\"proposedCategory\":\"tiles/room\",\"proposedSlug\":\"server-room\",\"confidence\":\"medium\",\"uncertainties\":[\"The component is tilted within a composite image, but no 90-degree file rotation would make its typography more upright; “upright” denotes the closest supported orientation.\",\"The gray upper-right badge does not confidently match any supplied canonical icon and is therefore described literally.\",\"The image contains overlapping component/source-art elements rather than an isolated clean tile.\",\"The standalone cyan computer icon above the rules text is visible but is not represented by a dedicated positional output field.\",\"The redItem and yellowItem icons are confidently recognizable on the left edge but are not represented by dedicated positional output fields.\"]}\n\nsession_id: 20260815_054842_6d5613\n"
+}

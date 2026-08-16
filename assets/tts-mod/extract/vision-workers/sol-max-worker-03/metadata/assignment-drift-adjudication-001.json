@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "workerId": "sol-max-worker-03",
+  "adjudicatedAt": "2026-08-15T21:48:23.875254Z",
+  "driftRecordPath": "metadata/assignment-drift-001.json",
+  "decision": "retain-W01-024-and-stop-at-explicit-one-asset-boundary",
+  "authority": "The delegated task explicitly requires processing exactly W01-024 and then stopping; it forbids processing additional assets.",
+  "retentionChecks": {
+    "assetIdUnchanged": true,
+    "sourcePathUnchanged": true,
+    "expectedSha256Unchanged": true,
+    "liveSha256MatchesExpected": true,
+    "sourceDecodeVerifiedAfterDrift": true,
+    "submittedReturnedIdCountExact": true,
+    "freshNativeReadCompletedBeforePriorEvidenceConsultation": true
+  },
+  "artifactsRetained": [
+    "raw/W01-024.json",
+    "results/W01-024.json"
+  ],
+  "artifactsInvalidated": [],
+  "assetsRetried": [],
+  "addedAssetsDisposition": {
+    "status": "not-processed-outside-delegated-scope",
+    "assetIds": [
+      "W03-002",
+      "W03-003",
+      "W03-004",
+      "W03-005",
+      "W03-006",
+      "W03-007",
+      "W03-008",
+      "W03-009",
+      "W03-010",
+      "W03-011",
+      "W03-012"
+    ]
+  },
+  "assignmentModifiedByWorker": false,
+  "sharedFilesModifiedByWorker": false,
+  "note": "Completion is 1/1 for the explicitly delegated shard, not 12/12 for the later expanded control-plane file."
+}

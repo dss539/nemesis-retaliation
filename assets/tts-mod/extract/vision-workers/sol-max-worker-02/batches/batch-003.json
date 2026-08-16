@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 1,
+  "batchId": "batch-003",
+  "workerId": "sol-max-worker-02",
+  "completedAt": "2026-08-15T21:31:40Z",
+  "runtimeProvenanceRef": "../metadata/runtime.json",
+  "sessionId": "20260815_210607_461cc1",
+  "nativeVisionTurn": true,
+  "preflightPath": "preflight-batch-003.json",
+  "assignmentFileSha256AtPreflight": "56b9b811a45937c791e6eda91943177be1477bb4cec63db16ccba50a0c177ef5",
+  "assignmentTupleSha256": "ac7e1559d7be35058141834532b27967df2d51c62a4336d902a55c326dbf1873",
+  "submittedCount": 3,
+  "submittedAssetIds": [
+    "W01-021",
+    "W01-022",
+    "W01-023"
+  ],
+  "returnedCount": 3,
+  "returnedAssetIds": [
+    "W01-021",
+    "W01-022",
+    "W01-023"
+  ],
+  "analyzedCount": 3,
+  "analyzedAssetIds": [
+    "W01-021",
+    "W01-022",
+    "W01-023"
+  ],
+  "persistedRawCount": 3,
+  "persistedRawAssetIds": [
+    "W01-021",
+    "W01-022",
+    "W01-023"
+  ],
+  "persistedResultCount": 3,
+  "persistedResultAssetIds": [
+    "W01-021",
+    "W01-022",
+    "W01-023"
+  ],
+  "idAndCountReconciliation": "exact-match",
+  "retryAssetIds": [],
+  "focusedFollowups": [
+    {
+      "assetId": "W01-022",
+      "reason": "direct central-glyph morphology comparison",
+      "nativeVisionCallCount": 1,
+      "resultPath": "metadata/focused-comparisons/W01-022-glyph-v-glossary.json",
+      "contactSheetPath": "contact-sheets/W01-022-glyph-v-glossary.png"
+    }
+  ],
+  "decisions": {
+    "promote": 0,
+    "defer": 0,
+    "non-card-complete": 3
+  },
+  "rawPaths": [
+    "raw/W01-021.json",
+    "raw/W01-022.json",
+    "raw/W01-023.json"
+  ],
+  "resultPaths": [
+    "results/W01-021.json",
+    "results/W01-022.json",
+    "results/W01-023.json"
+  ],
+  "validationNotes": [
+    "The live assignment and all three current source hashes/decodes were re-read immediately before attachment.",
+    "Every native attachment returned under its explicit stable ID; no omission, merge, reorder, or cross-image contamination was observed.",
+    "Raw blind records were persisted before any TTS metadata was consulted.",
+    "The W01-022 focused follow-up directly compared the source glyph with authoritative glossary crops and did not add or replace an assigned asset result."
+  ]
+}

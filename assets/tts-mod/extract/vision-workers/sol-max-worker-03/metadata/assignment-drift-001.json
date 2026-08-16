@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "workerId": "sol-max-worker-03",
+  "detectedAt": "2026-08-15T21:48:23.875254Z",
+  "classification": "scope-expansion",
+  "baselineAssignment": {
+    "path": "assets/tts-mod/extract/vision-workers/sol-max-worker-03/assignment.json",
+    "fileSha256": "ab5b454fd14cf40a1d8465d3d33d28aa0ef2a499fb4a313001c2bdda1f40fd03",
+    "orderedTupleSha256": "64ea536d21b870acfb52c36e25d99a29e6186f473aa81db8e1b6fcd16fe2fc88",
+    "assetCount": 1
+  },
+  "currentAssignment": {
+    "path": "assets/tts-mod/extract/vision-workers/sol-max-worker-03/assignment.json",
+    "fileSha256": "7cd22a4a6ba817c2ae63e274d4a4a3e131efcceb9df2a0eb87bd89b5abd7a2b3",
+    "orderedTupleSha256": "56f53499a1c63da769879f3266e407a1a9b1e73ae38eff1b53c66f205498a150",
+    "assetCount": 12
+  },
+  "tupleDiff": {
+    "retainedUnchanged": [
+      {
+        "assetId": "W01-024",
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-00.png",
+        "expectedSha256": "de97374d9cc8ed9f9141a4539386fd6b8979b4230f4eee8ae04925622fc07fed",
+        "liveSha256": "de97374d9cc8ed9f9141a4539386fd6b8979b4230f4eee8ae04925622fc07fed",
+        "sourceDecodeVerifiedAfterDrift": true
+      }
+    ],
+    "addedAssetIds": [
+      "W03-002",
+      "W03-003",
+      "W03-004",
+      "W03-005",
+      "W03-006",
+      "W03-007",
+      "W03-008",
+      "W03-009",
+      "W03-010",
+      "W03-011",
+      "W03-012"
+    ],
+    "removedAssetIds": [],
+    "reboundAssetIds": [],
+    "reorderedRetainedAssetIds": []
+  },
+  "visionImpact": {
+    "W01-024": "retain-pending-adjudication; tuple and live bytes unchanged",
+    "addedAssets": "not attached or analyzed"
+  },
+  "assignmentModifiedByWorker": false
+}

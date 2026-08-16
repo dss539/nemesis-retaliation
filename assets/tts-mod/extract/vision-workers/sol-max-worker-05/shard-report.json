@@ -1,0 +1,132 @@
+{
+  "schemaVersion": 1,
+  "createdAt": "2026-08-15T22:41:08Z",
+  "workerId": "sol-max-worker-05",
+  "runId": "sol-max-deferred-reexamination-2026-08-15",
+  "scope": {
+    "orderedAssetIds": [
+      "W04-009",
+      "W04-010",
+      "W04-011"
+    ],
+    "assignmentCount": 3,
+    "retryIds": [
+      "W04-009"
+    ],
+    "untouchedAtAssignmentIds": [
+      "W04-010",
+      "W04-011"
+    ]
+  },
+  "runtime": {
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "reasoningEffort": "max",
+    "sessionId": "20260815_222507_ce8f8a",
+    "nativeRouteVerified": true,
+    "auxiliaryVisionUsed": false,
+    "qwenUsed": false,
+    "ocrCanonicalEvidenceUsed": false,
+    "finalUsageRow": {
+      "session_id": "20260815_222507_ce8f8a",
+      "model": "gpt-5.6-sol",
+      "billing_provider": "openai-codex",
+      "billing_base_url": "https://chatgpt.com/backend-api/codex",
+      "billing_mode": "subscription_included",
+      "api_call_count": 53,
+      "first_seen": 1786832715.0872903,
+      "last_seen": 1786833668.3576202
+    }
+  },
+  "reconciliation": {
+    "submittedAssignedIds": [
+      "W04-009",
+      "W04-010",
+      "W04-011"
+    ],
+    "returnedAssignedIds": [
+      "W04-009",
+      "W04-010",
+      "W04-011"
+    ],
+    "rawIds": [
+      "W04-009",
+      "W04-010",
+      "W04-011"
+    ],
+    "resultIds": [
+      "W04-009",
+      "W04-010",
+      "W04-011"
+    ],
+    "exact": true,
+    "nativeAttachments": {
+      "assignedBlindReads": 3,
+      "focusedContactSheetReads": 3,
+      "total": 6,
+      "allCallIdsReconciled": true
+    }
+  },
+  "assets": [
+    {
+      "assetId": "W04-009",
+      "title": "CHAIN OF COMMAND",
+      "printedOwner": "HEAVY GUN OPERATOR",
+      "verifiedTokens": [
+        "lander"
+      ],
+      "decision": "defer",
+      "basis": [
+        "no concrete CardID selector for cell 11 or unique cell-specific pair",
+        "existing canonical target differs and blocks overwrite"
+      ]
+    },
+    {
+      "assetId": "W04-010",
+      "title": "CONTINUOUS FIRE",
+      "printedOwner": "HEAVY GUN OPERATOR",
+      "verifiedTokens": [
+        "ammoToken",
+        "actionCard"
+      ],
+      "decision": "defer",
+      "basis": [
+        "no concrete CardID selector for cell 12 or unique cell-specific pair",
+        "canonical target absent, but individual FaceURL/pairing promotion gate is not met"
+      ]
+    },
+    {
+      "assetId": "W04-011",
+      "title": "DEMOLITION",
+      "printedOwner": "HEAVY GUN OPERATOR",
+      "verifiedTokens": [
+        "malfunction"
+      ],
+      "decision": "defer",
+      "basis": [
+        "no concrete CardID selector for cell 13 or unique cell-specific pair",
+        "existing canonical target says ‘Destroy 1 accessible Door.’ while assigned pixels say ‘Remove 1 Door.’"
+      ]
+    }
+  ],
+  "summary": {
+    "processed": 3,
+    "stagedResults": 3,
+    "promote": 0,
+    "defer": 3,
+    "candidateSidecars": 0,
+    "canonicalWrites": 0,
+    "sourceHashesAndDecodesPassed": true,
+    "requireCompleteValidationPassed": true,
+    "all49ContactSheetComparisons": 3
+  },
+  "issues": [
+    "All three cells are from a multi-owner FaceURL sheet but have no concrete CardID selector at indices 11–13; only a generic shared action-card BackURL is known.",
+    "W04-009 and W04-011 collide with existing canonical targets and have material wording/source differences; no overwrite was attempted.",
+    "After W04-009 raw persistence, a broad search accidentally exposed brief worker-04 snippets for another ID. No worker-04 semantics were used; the blind transcription was already persisted and icon resolution used the independent all-49 authoritative contact sheet."
+  ],
+  "nextPendingAssetId": null,
+  "nextPendingSourcePath": null,
+  "validationPath": "assets/tts-mod/extract/vision-workers/sol-max-worker-05/validation.json",
+  "auditPath": "assets/tts-mod/extract/vision-workers/sol-max-worker-05/metadata/final-audit.json"
+}

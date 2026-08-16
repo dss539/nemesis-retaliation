@@ -1,0 +1,79 @@
+{
+  "schemaVersion": 1,
+  "recordType": "blindNativePixelRead",
+  "assetId": "W06-003",
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-13.png",
+  "sourceSha256": "b3b209538a4ac8554ae6e5230f4a98b1fa1ff3bd8f89b3ccfbee53d115997e9e",
+  "readAt": "2026-08-15T22:56:49.644987992Z",
+  "runtimeProvenancePath": "assets/tts-mod/extract/vision-workers/sol-max-worker-06/metadata/runtime.json",
+  "attachment": {
+    "exactSourcePathUsed": "/home/smithers/nemesis-retaliation/assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-13.png",
+    "nativeImageRoute": true,
+    "submittedAssetIds": ["W06-003"],
+    "returnedAssetIds": ["W06-003"],
+    "submittedCount": 1,
+    "returnedCount": 1,
+    "countReconciled": true
+  },
+  "orientation": {
+    "observed": "upright",
+    "rotationRequired": false,
+    "basis": "Title, both effect alternatives, OR divider, and footer read left-to-right in the supplied portrait orientation."
+  },
+  "blindPixelObservations": [
+    "Portrait card with a dark red/black science-fiction frame and bright red-orange explosion artwork.",
+    "Upper artwork shows a large armed figure at right and a much smaller human figure near the lower center.",
+    "A dark title plaque in the lower-middle contains one centered white all-caps title.",
+    "The rules area has one short sentence, a centered OR divider, and a second short sentence containing one light-grey inline glyph.",
+    "The bottom footer is spaced red all-caps text on a dark background.",
+    "No standalone upper-right icon, reaction panel, neighboring-card text, or visibly clipped material text is present."
+  ],
+  "visibleText": {
+    "title": "DEMOLITION",
+    "firstEffect": "Remove 1 Door.",
+    "divider": "OR",
+    "secondEffect": "Place a [ICON: light-grey cog-like ring with dark center] in your Room.",
+    "footer": "HEAVY GUN OPERATOR",
+    "illegibleSpans": [],
+    "clippedSpans": []
+  },
+  "iconMorphology": [
+    {
+      "location": "second effect line, between ‘a’ and ‘in’",
+      "outerSilhouette": "light-grey/white circular gear or cog ring with multiple evenly spaced rectangular teeth",
+      "internalMarks": "dark roughly circular center; no smaller internal symbol can be securely separated at the attached full-card scale",
+      "colors": ["light grey", "white", "dark grey", "black"],
+      "neighboringText": "Place a [glyph] in your Room.",
+      "tentativeCanonicalCandidate": "malfunction",
+      "closestPlausibleCanonicalAlternative": "autodestruction",
+      "visibleFeatureRulingAlternativeOut": "The perimeter has many evenly spaced cog teeth rather than three broad rounded lobes.",
+      "semanticIdentityEstablished": false,
+      "deferralReason": "No direct side-by-side comparison with the authoritative labeled malfunction crop occurred; surrounding room semantics were not used to promote the label."
+    }
+  ],
+  "proposedClassification": {
+    "family": "card-family",
+    "componentType": "action/rules card",
+    "basis": "Visible title, two alternative effects separated by OR, and character-style footer."
+  },
+  "readConfidence": {
+    "overall": "high",
+    "materialText": "high",
+    "punctuation": "high",
+    "iconMorphology": "high",
+    "canonicalIconIdentity": "low"
+  },
+  "classificationConfidence": {
+    "cardFamily": "high",
+    "exactCanonicalComponent": "medium"
+  },
+  "uncertainties": [
+    "Canonical identity of the cog-like inline glyph has not passed authoritative-crop comparison.",
+    "Exact generated-cell selector, GUID, FaceURL/BackURL role, and paired side have not yet been evaluated in this blind record."
+  ],
+  "promotionDecision": "defer",
+  "decisionReasons": [
+    "The material icon gate is unresolved.",
+    "Generated-cell and paired-side provenance gates have not yet been evaluated."
+  ]
+}

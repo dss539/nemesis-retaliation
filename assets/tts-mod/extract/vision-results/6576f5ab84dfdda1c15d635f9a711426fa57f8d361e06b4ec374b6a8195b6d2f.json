@@ -1,0 +1,117 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-144_cards/card-04.png",
+  "sourceSha256": "6576f5ab84dfdda1c15d635f9a711426fa57f8d361e06b4ec374b6a8195b6d2f",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_060533_04a01c",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:41:59Z",
+  "completedAt": "2026-08-15T06:05:45Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "melee weapon item card",
+    "cardSide": "face",
+    "title": "ENTRENCHING TOOL",
+    "typeLine": "MELEE WEAPON",
+    "body": "Destroy 1 Door.\nOR\nPlace a [malfunction] in your Room.",
+    "footer": "",
+    "upperRight": "",
+    "lowerCenter": "",
+    "visibleText": "",
+    "confidentlyVisible": [
+      "Landscape-format card face",
+      "Title reads “ENTRENCHING TOOL”",
+      "Type line reads “MELEE WEAPON” in yellow",
+      "Artwork depicts a closed futuristic equipment case",
+      "White gear-shaped malfunction icon appears inline in the final effect"
+    ],
+    "proposedCategory": "cards/game/item/melee-weapon",
+    "proposedSlug": "entrenching-tool",
+    "confidence": "high",
+    "uncertainties": []
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Planning image pixel inspection****Planning image pixel inspection****Determining counterclockwise rotation for title alignment**\n\n\n{\"orientation\":\"rotate90ccw\",\"componentType\":\"melee weapon item card\",\"cardSide\":\"face\",\"title\":\"ENTRENCHING TOOL\",\"typeLine\":\"MELEE WEAPON\",\"body\":\"Destroy 1 Door.\\n\\nOR\\n\\nPlace a [malfunction] in your Room.\",\"footer\":\"\",\"upperRight\":\"\",\"lowerCenter\":\"\",\"visibleText\":\"\",\"confidentlyVisible\":[\"White uppercase title over equipment artwork\",\"Yellow uppercase type line beneath the title\",\"Two effects separated by the heading OR\",\"White gear-shaped malfunction glyph appears inline after “Place a”\",\"Typography becomes upright after rotating the file 90 degrees counterclockwise\"],\"proposedCategory\":\"cards/game/item/melee-weapon\",\"proposedSlug\":\"entrenching-tool\",\"confidence\":\"high\",\"uncertainties\":[]}\n\nsession_id: 20260815_054159_e52480\n",
+  "initialParsed": {
+    "orientation": "rotate90ccw",
+    "componentType": "melee weapon item card",
+    "cardSide": "face",
+    "title": "ENTRENCHING TOOL",
+    "typeLine": "MELEE WEAPON",
+    "body": "Destroy 1 Door.\n\nOR\n\nPlace a [malfunction] in your Room.",
+    "footer": "",
+    "upperRight": "",
+    "lowerCenter": "",
+    "visibleText": "",
+    "confidentlyVisible": [
+      "White uppercase title over equipment artwork",
+      "Yellow uppercase type line beneath the title",
+      "Two effects separated by the heading OR",
+      "White gear-shaped malfunction glyph appears inline after “Place a”",
+      "Typography becomes upright after rotating the file 90 degrees counterclockwise"
+    ],
+    "proposedCategory": "cards/game/item/melee-weapon",
+    "proposedSlug": "entrenching-tool",
+    "confidence": "high",
+    "uncertainties": []
+  },
+  "initialSessionId": "20260815_054159_e52480",
+  "orientationCorrection": "rotate90ccw",
+  "uprightRead": {
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "sessionId": "20260815_060533_04a01c",
+    "completedAt": "2026-08-15T06:05:45Z",
+    "parsed": {
+      "orientation": "upright",
+      "componentType": "melee weapon item card",
+      "cardSide": "face",
+      "title": "ENTRENCHING TOOL",
+      "typeLine": "MELEE WEAPON",
+      "body": "Destroy 1 Door.\nOR\nPlace a [malfunction] in your Room.",
+      "footer": "",
+      "upperRight": "",
+      "lowerCenter": "",
+      "visibleText": "",
+      "confidentlyVisible": [
+        "Landscape-format card face",
+        "Title reads “ENTRENCHING TOOL”",
+        "Type line reads “MELEE WEAPON” in yellow",
+        "Artwork depicts a closed futuristic equipment case",
+        "White gear-shaped malfunction icon appears inline in the final effect"
+      ],
+      "proposedCategory": "cards/game/item/melee-weapon",
+      "proposedSlug": "entrenching-tool",
+      "confidence": "high",
+      "uncertainties": []
+    },
+    "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Identifying malfunction gear icon on item card**\n\n**Verifying exact body text formatting****Identifying malfunction gear icon on item card**\n\nsession_id: 20260815_060533_04a01c\n{\"orientation\":\"upright\",\"componentType\":\"melee weapon item card\",\"cardSide\":\"face\",\"title\":\"ENTRENCHING TOOL\",\"typeLine\":\"MELEE WEAPON\",\"body\":\"Destroy 1 Door.\\nOR\\nPlace a [malfunction] in your Room.\",\"footer\":\"\",\"upperRight\":\"\",\"lowerCenter\":\"\",\"visibleText\":\"\",\"confidentlyVisible\":[\"Landscape-format card face\",\"Title reads “ENTRENCHING TOOL”\",\"Type line reads “MELEE WEAPON” in yellow\",\"Artwork depicts a closed futuristic equipment case\",\"White gear-shaped malfunction icon appears inline in the final effect\"],\"proposedCategory\":\"cards/game/item/melee-weapon\",\"proposedSlug\":\"entrenching-tool\",\"confidence\":\"high\",\"uncertainties\":[]}\n"
+  },
+  "iconVerification": {
+    "status": "passed",
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "sessionId": "20260815_060841_9dae20",
+    "promptVersion": 1,
+    "completedAt": "2026-08-15T06:08:54Z",
+    "claimed": [
+      "malfunction"
+    ],
+    "parsed": {
+      "claims": [
+        {
+          "claimed": "malfunction",
+          "verdict": "match",
+          "actual": "malfunction",
+          "evidence": "One occurrence after “Place a”; gray eight-tooth cog with a dark circular hub matches the glossary malfunction cog morphology."
+        }
+      ],
+      "allClaimsMatch": true,
+      "confidence": "high",
+      "uncertainties": []
+    },
+    "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Loading image inspection skill****Loading image inspection skill****Comparing gear morphology highlighting minor differences**\n\nsession_id: 20260815_060841_9dae20\n{\"claims\":[{\"claimed\":\"malfunction\",\"verdict\":\"match\",\"actual\":\"malfunction\",\"evidence\":\"One occurrence after “Place a”; gray eight-tooth cog with a dark circular hub matches the glossary malfunction cog morphology.\"}],\"allClaimsMatch\":true,\"confidence\":\"high\",\"uncertainties\":[]}\n",
+    "evidencePath": null
+  }
+}

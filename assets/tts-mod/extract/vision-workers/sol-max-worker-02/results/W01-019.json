@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 1,
+  "assetId": "W01-019",
+  "batchId": "batch-002",
+  "completedAt": "2026-08-15T21:23:45Z",
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/bags/roomIBBag-018.jpg",
+  "sourceSha256": "a1ca4881920379193023f4668e055c94c73ab1d4faa14b906371620beb58271c",
+  "sourceMetadata": {
+    "width": 2458,
+    "height": 2458,
+    "format": "JPEG",
+    "mode": "RGB",
+    "byteSize": 1344652,
+    "frames": 1,
+    "decodeVerified": true
+  },
+  "runtimeProvenance": {
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "reasoningEffort": "max",
+    "platform": "subagent",
+    "workerId": "sol-max-worker-02",
+    "sessionId": "20260815_210607_461cc1",
+    "persistentSession": true,
+    "nativeVision": true,
+    "auxiliaryVisionUsed": false,
+    "qwenUsed": false
+  },
+  "orientation": {
+    "status": "rotation-irrelevant",
+    "evidence": "The asset is a sparse UV/diffuse texture with an intentionally diagonal mechanical region; the letter B is readable and no card-face orientation applies.",
+    "transformApplied": null,
+    "stagingDerivative": null
+  },
+  "blindPixelObservations": [
+    "Most of the square canvas is near-black, especially the right and lower regions.",
+    "A large diagonally oriented mechanical object occupies the left half, with a dark rusty metal central plate, rounded protrusions around its perimeter, four recessed vent-like openings, and bright white bar lights near the openings.",
+    "Small orange indicator points and rust-orange scuffs dot the metal surface.",
+    "A large white capital letter overlays the center of the metal plate at a slight angle.",
+    "A cyan-teal rectangular plane with pale edge lighting and faint decorative linework projects behind the object toward the upper-right."
+  ],
+  "visibleText": [
+    {
+      "text": "B",
+      "location": "center of mechanical plate",
+      "structure": "large white uppercase letter, slightly angled",
+      "confidence": "high"
+    }
+  ],
+  "iconMorphology": [],
+  "iconMorphologyEmptyReason": "No discrete glossary-like icon is present; the illuminated recesses and mechanical plate are diffuse-texture artwork, while B is transcribed as text.",
+  "evidenceConsulted": {
+    "blindPixelRecord": "raw/W01-019.json",
+    "metadataJoin": "metadata/provenance/W01-019.json",
+    "tts": {
+      "consultedAfterBlindRecord": true,
+      "manifestUrl": "https://steamusercontent-a.akamaihd.net/ugc/2468613527880238158/BD48E34089301D835889E5488A49A624910C849A/",
+      "finding": "The URL is the sole DiffuseURL of base Custom_Model_Bag 40de95, whose explicit Lua role is roomIBBag."
+    },
+    "official": {
+      "consulted": false,
+      "reason": "No rules text, canonical icon claim, or source conflict required official escalation."
+    }
+  },
+  "proposedClassification": "Non-card base-game Room I-B Custom_Model_Bag diffuse/UV texture labeled B.",
+  "proposedPath": "assets/tts-mod/extract/v2-dl/tree/bags/roomIBBag-018.jpg (retain unchanged; no move or canonical sidecar proposed)",
+  "readConfidence": {
+    "level": "high",
+    "reason": "The letter B and diffuse-texture morphology are clear at native resolution."
+  },
+  "classificationConfidence": {
+    "level": "high",
+    "reason": "The sparse diagonal UV layout and B label are corroborated by the sole TTS Custom_Model_Bag DiffuseURL and roomIBBag Lua role."
+  },
+  "uncertainties": [],
+  "promotionDecision": "non-card-complete",
+  "decisionReasons": [
+    "This is a model-bag diffuse texture, not a rules-card face.",
+    "The visible letter B is preserved literally without inferring rules text.",
+    "No material text, icon, role, or orientation uncertainty remains for non-card classification."
+  ],
+  "stagedCandidateSidecarPath": null,
+  "validationPerformed": [
+    "Preflight recomputed the source SHA-256 immediately before native attachment and matched the live assignment.",
+    "Pillow decoded and verified the 2458x2458 one-frame JPEG.",
+    "The image was attached and inspected natively as W01-019 in batch-002 through the verified Sol Max route.",
+    "Blind observations were persisted before TTS metadata was consulted.",
+    "The sole matching DiffuseURL reference and roomIBBag Lua role were resolved.",
+    "No source, canonical sidecar, shared ledger, manifest, catalog, or prior-worker file was modified."
+  ],
+  "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-worker-02/raw/W01-019.json"
+}

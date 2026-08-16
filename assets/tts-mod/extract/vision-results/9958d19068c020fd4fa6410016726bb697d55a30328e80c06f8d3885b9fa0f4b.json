@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectivePersonalDeck-091.jpg",
+  "sourceSha256": "9958d19068c020fd4fa6410016726bb697d55a30328e80c06f8d3885b9fa0f4b",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_053824_d164ca",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:38:24Z",
+  "completedAt": "2026-08-15T05:38:51Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "personal objective card",
+    "cardSide": "face",
+    "title": "THE GREAT HUNT",
+    "typeLine": "PRIVATE OBJECTIVE",
+    "body": "The Queen must be dead.",
+    "footer": "",
+    "upperRight": "",
+    "lowerCenter": "[ICON: white flame-like figure on blue concentric oval base]",
+    "visibleText": "Remove the other Objective from the game to:\nProgress the Objective Choice track once\nand draw A accordingly.\n\n2+",
+    "confidentlyVisible": [
+      "All meaningful typography is upright in the file.",
+      "The upper instruction occupies three centered lines.",
+      "The letter A is printed inside a white square.",
+      "Dark science-fiction artwork depicts several armored figures facing a green-lit screen.",
+      "A white flame-like figure on a blue concentric oval base appears above the title beside “2+”.",
+      "The title is printed in uppercase within a framed panel.",
+      "The objective condition is printed beneath the title.",
+      "The blue uppercase type line reads “PRIVATE OBJECTIVE”."
+    ],
+    "proposedCategory": "cards/game/objective",
+    "proposedSlug": "the-great-hunt",
+    "confidence": "medium",
+    "uncertainties": [
+      "The white flame-like figure on a blue concentric oval base is not confidently matched to any supplied canonical icon.",
+      "The semantic meaning of “2+” and its adjacent icon is uncertain.",
+      "The boxed “A” may be a card-local track or deck glyph, but only the visibly printed letter is transcribed."
+    ]
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Inspecting image with vision tool**\n\n**Transcribing glyph as literal icon description****Inspecting image with vision tool**\n**Transcribing glyph as literal icon description****Planning vision analysis call**\n⚠️  Reached maximum iterations (2). Requesting summary...\n{\"orientation\":\"upright\",\"componentType\":\"personal objective card\",\"cardSide\":\"face\",\"title\":\"THE GREAT HUNT\",\"typeLine\":\"PRIVATE OBJECTIVE\",\"body\":\"The Queen must be dead.\",\"footer\":\"\",\"upperRight\":\"\",\"lowerCenter\":\"[ICON: white flame-like figure on blue concentric oval base]\",\"visibleText\":\"Remove the other Objective from the game to:\\nProgress the Objective Choice track once\\nand draw A accordingly.\\n\\n2+\",\"confidentlyVisible\":[\"All meaningful typography is upright in the file.\",\"The upper instruction occupies three centered lines.\",\"The letter A is printed inside a white square.\",\"Dark science-fiction artwork depicts several armored figures facing a green-lit screen.\",\"A white flame-like figure on a blue concentric oval base appears above the title beside “2+”.\",\"The title is printed in uppercase within a framed panel.\",\"The objective condition is printed beneath the title.\",\"The blue uppercase type line reads “PRIVATE OBJECTIVE”.\"],\"proposedCategory\":\"cards/game/objective\",\"proposedSlug\":\"the-great-hunt\",\"confidence\":\"medium\",\"uncertainties\":[\"The white flame-like figure on a blue concentric oval base is not confidently matched to any supplied canonical icon.\",\"The semantic meaning of “2+” and its adjacent icon is uncertain.\",\"The boxed “A” may be a card-local track or deck glyph, but only the visibly printed letter is transcribed.\"]}\n\nsession_id: 20260815_053824_d164ca\n"
+}

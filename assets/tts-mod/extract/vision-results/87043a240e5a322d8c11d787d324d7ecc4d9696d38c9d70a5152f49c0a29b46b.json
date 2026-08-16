@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/tiles/room/supply-room-008.jpg",
+  "sourceSha256": "87043a240e5a322d8c11d787d324d7ecc4d9696d38c9d70a5152f49c0a29b46b",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_054855_6c0c88",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:48:55Z",
+  "completedAt": "2026-08-15T05:49:25Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "room-tile texture atlas containing a face and partially visible adjacent tile artwork",
+    "cardSide": "notCard",
+    "title": "SUPPLY ROOM",
+    "typeLine": "",
+    "body": "Draw 1 Item from each Item deck.\nKeep 2\nand discard 1 of them.",
+    "footer": "",
+    "upperRight": "[ICON: gray fist or hand inside red prohibition circle]",
+    "lowerCenter": "",
+    "visibleText": "?\n[greenItem]\n[redItem]\n[yellowItem]\n?",
+    "confidentlyVisible": [
+      "The main component is an irregular room tile with an industrial storage-room illustration.",
+      "SUPPLY ROOM is printed in white uppercase letters.",
+      "Three item badges appear in a vertical group: green with a white cross, red with white cartridges, and yellow with a white wrench.",
+      "A large question mark appears near the upper-left of the main tile.",
+      "A gray hand-or-fist glyph inside a red prohibition circle appears near the upper-right.",
+      "A second, partially visible component bears a large white question mark.",
+      "Large black masked regions and partial neighboring artwork surround the components."
+    ],
+    "proposedCategory": "tiles/room",
+    "proposedSlug": "supply-room",
+    "confidence": "medium",
+    "uncertainties": [
+      "The upper-right prohibited gray hand-or-fist glyph is not confidently represented by the supplied canonical glossary.",
+      "The image appears to be a composite texture atlas rather than a clean isolated physical component.",
+      "The main tile is diagonally arranged within the file, but its typography already reads left-to-right; none of the allowed 90-degree rotations would make the angled design perfectly level.",
+      "A partially visible neighboring question-mark tile is present, making component boundaries and face/back role for that secondary artwork uncertain."
+    ]
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Planning image skill inspection****Planning image skill inspection****Analyzing tile orientation and texture details**\n\n\n{\"orientation\":\"upright\",\"componentType\":\"room-tile texture atlas containing a face and partially visible adjacent tile artwork\",\"cardSide\":\"notCard\",\"title\":\"SUPPLY ROOM\",\"typeLine\":\"\",\"body\":\"Draw 1 Item from each Item deck.\\nKeep 2\\nand discard 1 of them.\",\"footer\":\"\",\"upperRight\":\"[ICON: gray fist or hand inside red prohibition circle]\",\"lowerCenter\":\"\",\"visibleText\":\"?\\n[greenItem]\\n[redItem]\\n[yellowItem]\\n?\",\"confidentlyVisible\":[\"The main component is an irregular room tile with an industrial storage-room illustration.\",\"SUPPLY ROOM is printed in white uppercase letters.\",\"Three item badges appear in a vertical group: green with a white cross, red with white cartridges, and yellow with a white wrench.\",\"A large question mark appears near the upper-left of the main tile.\",\"A gray hand-or-fist glyph inside a red prohibition circle appears near the upper-right.\",\"A second, partially visible component bears a large white question mark.\",\"Large black masked regions and partial neighboring artwork surround the components.\"],\"proposedCategory\":\"tiles/room\",\"proposedSlug\":\"supply-room\",\"confidence\":\"medium\",\"uncertainties\":[\"The upper-right prohibited gray hand-or-fist glyph is not confidently represented by the supplied canonical glossary.\",\"The image appears to be a composite texture atlas rather than a clean isolated physical component.\",\"The main tile is diagonally arranged within the file, but its typography already reads left-to-right; none of the allowed 90-degree rotations would make the angled design perfectly level.\",\"A partially visible neighboring question-mark tile is present, making component boundaries and face/back role for that secondary artwork uncertain.\"]}\n\nsession_id: 20260815_054855_6c0c88\n"
+}

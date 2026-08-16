@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-41.png",
+  "sourceSha256": "3ba7bb25d52420edc6dcd5fc8d3c95fcd2fcb9789a782f1628c7f740d9bd0c46",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_051129_17425e",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:11:29Z",
+  "completedAt": "2026-08-15T05:11:57Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "character action card",
+    "cardSide": "face",
+    "title": "COMBAT DRUGS",
+    "typeLine": "",
+    "body": "Discard 1 [greenItem].\nA chosen Character (or you) draws up to 4 [actionCard].",
+    "footer": "MEDICAL SUPPORT",
+    "upperRight": "notInCombat",
+    "lowerCenter": "",
+    "visibleText": "",
+    "confidentlyVisible": [
+      "Typography is upright in the file.",
+      "Upper-right corner shows a red X over a white gun glyph.",
+      "Card art depicts an armed woman wearing dark tactical gear with a red medical cross on her upper sleeve.",
+      "Rules text contains a green badge with a white cross.",
+      "Rules text contains a white card-shaped glyph."
+    ],
+    "proposedCategory": "cards/character/medical-support/action",
+    "proposedSlug": "combat-drugs",
+    "confidence": "high",
+    "uncertainties": []
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Loading image analysis skills****Loading image analysis skills****Analyzing combat drugs card details**\n\n\n**Confirming card text and category details**\n\n**Identifying card component type and ownership**\n\n**Finalizing JSON icon metadata**\n\n**Confirming component category for cards****Analyzing combat drugs card details**\n**Confirming card text and category details**\n**Identifying card component type and ownership**\n\n**Finalizing JSON icon metadata**\n{\"orientation\":\"upright\",\"componentType\":\"character action card\",\"cardSide\":\"face\",\"title\":\"COMBAT DRUGS\",\"typeLine\":\"\",\"body\":\"Discard 1 [greenItem].\\nA chosen Character (or you) draws up to 4 [actionCard].\",\"footer\":\"MEDICAL SUPPORT\",\"upperRight\":\"notInCombat\",\"lowerCenter\":\"\",\"visibleText\":\"\",\"confidentlyVisible\":[\"Typography is upright in the file.\",\"Upper-right corner shows a red X over a white gun glyph.\",\"Card art depicts an armed woman wearing dark tactical gear with a red medical cross on her upper sleeve.\",\"Rules text contains a green badge with a white cross.\",\"Rules text contains a white card-shaped glyph.\"],\"proposedCategory\":\"cards/character/medical-support/action\",\"proposedSlug\":\"combat-drugs\",\"confidence\":\"high\",\"uncertainties\":[]}\n\nsession_id: 20260815_051129_17425e\n",
+  "iconVerification": {
+    "status": "failed",
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "sessionId": "20260815_060721_99072c",
+    "promptVersion": 1,
+    "completedAt": "2026-08-15T06:07:35Z",
+    "claimed": [
+      "actionCard",
+      "greenItem",
+      "notInCombat"
+    ],
+    "parsed": {
+      "claims": [
+        {
+          "claimed": "actionCard",
+          "verdict": "mismatch",
+          "actual": "",
+          "evidence": "One card glyph appears after “draws up to 4”: a plain vertical white rounded rectangle with dark outline, lacking the glossary actionCard’s black square frame and central black A; likely a local draw-card glyph."
+        },
+        {
+          "claimed": "greenItem",
+          "verdict": "mismatch",
+          "actual": "medpackToken",
+          "evidence": "One green glyph appears after “Discard 1”: a white medical cross on a green octagonal face with a dark-green projecting right side, matching medpackToken rather than the flat greenItem octagon."
+        },
+        {
+          "claimed": "notInCombat",
+          "verdict": "match",
+          "actual": "notInCombat",
+          "evidence": "One occurrence at the card’s upper right is a white gun crossed by a red diagonal X; this is the documented official artwork variant of the glossary’s crossed-out Intruder icon."
+        }
+      ],
+      "allClaimsMatch": false,
+      "confidence": "high",
+      "uncertainties": []
+    },
+    "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Verifying actionCard and token identities**\n\n**Clarifying medpackToken and actionCard distinctions****Verifying actionCard and token identities**\n\nsession_id: 20260815_060721_99072c\n{\"claims\":[{\"claimed\":\"actionCard\",\"verdict\":\"mismatch\",\"actual\":\"\",\"evidence\":\"One card glyph appears after “draws up to 4”: a plain vertical white rounded rectangle with dark outline, lacking the glossary actionCard’s black square frame and central black A; likely a local draw-card glyph.\"},{\"claimed\":\"greenItem\",\"verdict\":\"mismatch\",\"actual\":\"medpackToken\",\"evidence\":\"One green glyph appears after “Discard 1”: a white medical cross on a green octagonal face with a dark-green projecting right side, matching medpackToken rather than the flat greenItem octagon.\"},{\"claimed\":\"notInCombat\",\"verdict\":\"match\",\"actual\":\"notInCombat\",\"evidence\":\"One occurrence at the card’s upper right is a white gun crossed by a red diagonal X; this is the documented official artwork variant of the glossary’s crossed-out Intruder icon.\"}],\"allClaimsMatch\":false,\"confidence\":\"high\",\"uncertainties\":[]}\n",
+    "evidencePath": "docs/qa/card-icon-comparisons/auto-3ba7bb25d52420edc6dcd5fc8d3c95fcd2fcb9789a782f1628c7f740d9bd0c46.png"
+  }
+}

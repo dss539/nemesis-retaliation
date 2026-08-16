@@ -1,0 +1,97 @@
+{
+  "schemaVersion": 1,
+  "assetId": "W01-022",
+  "batchId": "batch-003",
+  "completedAt": "2026-08-15T21:30:16Z",
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/bags/secureBag-029.jpg",
+  "sourceSha256": "6b4a9edf63805bfb130b0abefd482a7eab93c3e68d3cf7e154a49b8f2f1cb2ca",
+  "sourceMetadata": {
+    "width": 305,
+    "height": 305,
+    "format": "JPEG",
+    "mode": "RGB",
+    "byteSize": 59425,
+    "frames": 1,
+    "decodeVerified": true
+  },
+  "runtimeProvenance": {
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "reasoningEffort": "max",
+    "platform": "subagent",
+    "workerId": "sol-max-worker-02",
+    "sessionId": "20260815_210607_461cc1",
+    "persistentSession": true,
+    "nativeVision": true,
+    "auxiliaryVisionUsed": false,
+    "qwenUsed": false
+  },
+  "orientation": {
+    "status": "upright",
+    "evidence": "The matched secure glyph has its broad notched crown at top and pointed V stem at bottom.",
+    "transformApplied": null,
+    "stagingDerivative": null
+  },
+  "blindPixelObservations": [
+    "A square black background has a dark embossed rectangular-panel texture.",
+    "Centered on it is a small rounded dark blue-black badge or stone with faint blue honeycomb cells.",
+    "The badge bears one luminous white geometric mark outlined and shadowed in electric blue.",
+    "The mark has a broad notched top/crown, two upper shoulder blocks, inward diagonal seams, a narrow central vertical stem, and a V-shaped point at the bottom."
+  ],
+  "visibleText": [],
+  "iconMorphology": [
+    {
+      "location": "center",
+      "silhouette": "vertically symmetrical shield/helmet-like form with a broad notched crown, sloped shoulders, narrow center stem, and pointed lower V",
+      "internalMarks": "paired inward diagonal seams form a Y-like division around the central stem",
+      "colors": "white with pale/electric-blue outline and glow on dark blue honeycomb",
+      "claimedToken": "secure",
+      "closestPlausibleCanonicalAlternative": "secure",
+      "visibleDiscriminatingFeature": "The source and authoritative secure crop share the same outer crown/shoulder/V contour and both internal seam paths point-for-point; autodestruction, malfunction, computer, and robot have visibly different rings, holes, cogs, screens, or face contours."
+    }
+  ],
+  "evidenceConsulted": {
+    "blindPixelRecord": "raw/W01-022.json",
+    "metadataJoin": "metadata/provenance/W01-022.json",
+    "focusedIconComparison": "metadata/focused-comparisons/W01-022-glyph-v-glossary.json",
+    "contactSheet": "contact-sheets/W01-022-glyph-v-glossary.png",
+    "tts": {
+      "consultedAfterBlindRecord": true,
+      "manifestUrl": "https://steamusercontent-a.akamaihd.net/ugc/2468613527880247212/8A66A8A568F41B456900DF6FE22EFAD333875E8A/",
+      "finding": "The URL is the sole DiffuseURL of base Custom_Model_Bag 162108, whose explicit Lua role is secureBag."
+    },
+    "official": {
+      "consulted": true,
+      "scope": "Direct morphology comparison against authoritative secure, autodestruction, malfunction, computer, and robot glossary crops.",
+      "finding": "The central white glyph is an explicit visual match for secure; all four alternatives are ruled out by visible structure."
+    }
+  },
+  "proposedClassification": "Non-card base-game secureBag Custom_Model_Bag diffuse texture containing the canonical secure glyph.",
+  "proposedPath": "assets/tts-mod/extract/v2-dl/tree/bags/secureBag-029.jpg (retain unchanged; no move or canonical sidecar proposed)",
+  "readConfidence": {
+    "level": "high",
+    "reason": "The compact central glyph is clear at native resolution and in direct focused comparison."
+  },
+  "classificationConfidence": {
+    "level": "high",
+    "reason": "The secure icon match is pixel-explicit and the non-card role is independently corroborated by the sole TTS DiffuseURL and secureBag Lua role."
+  },
+  "uncertainties": [],
+  "promotionDecision": "non-card-complete",
+  "decisionReasons": [
+    "This is a model-bag diffuse texture, not a rules-card face.",
+    "The embedded glyph directly matches the authoritative secure crop and alternatives were visibly ruled out.",
+    "Recording the icon identity does not promote the surrounding source asset or create a canonical sidecar."
+  ],
+  "stagedCandidateSidecarPath": null,
+  "validationPerformed": [
+    "Preflight recomputed the source SHA-256 immediately before native attachment and matched the live assignment.",
+    "Pillow decoded and verified the 305x305 one-frame JPEG.",
+    "The image was attached and inspected natively as W01-022 in batch-003 through the verified Sol Max route.",
+    "Blind observations were persisted before TTS metadata was consulted.",
+    "The sole matching DiffuseURL reference and secureBag Lua role were resolved.",
+    "A worker-local focused contact sheet confirmed the secure glyph and ruled out four alternatives.",
+    "No source, canonical sidecar, shared ledger, manifest, catalog, or prior-worker file was modified."
+  ],
+  "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-worker-02/raw/W01-022.json"
+}

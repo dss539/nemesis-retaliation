@@ -1,0 +1,144 @@
+{
+  "schemaVersion": 1,
+  "assetId": "W04-008",
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-10.png",
+  "sourceSha256": "d8e12e0209d014f6a18e716b3bf0aa7b75f8c49b61b6d7579c36fdb5dc9b805d",
+  "sourceMetadata": {
+    "width": 1052,
+    "height": 1433,
+    "format": "PNG",
+    "mode": "RGB",
+    "frames": 1,
+    "byteSize": 1525700,
+    "decodeVerified": true
+  },
+  "batchId": "W04-B04",
+  "completedAt": "2026-08-15T22:16:45Z",
+  "runtimeProvenance": {
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "reasoningEffort": "max",
+    "platform": "subagent",
+    "sessionId": "20260815_215426_fac7ff",
+    "nativeImageRoute": "active-session native image attachment via functions.vision_analyze"
+  },
+  "orientation": {
+    "displayed": "upright portrait",
+    "final": "upright",
+    "rotationRequired": false
+  },
+  "blindPixelObservations": [
+    "Red/orange industrial corridor with large dark armed figure and smaller figure in lit doorway.",
+    "Upper-right white gun-like silhouette crossed by red X.",
+    "BREAKTHROUGH title; one red stepped token glyph inline in body.",
+    "HEAVY GUN OPERATOR footer; no neighboring-card contamination."
+  ],
+  "visibleText": {
+    "title": "BREAKTHROUGH",
+    "typeLine": "",
+    "body": "Choose a Rifle with [ammoToken] and Burst using it.\nThen, you may Move through the Corridor\nyou have Bursted at.",
+    "footer": "HEAVY GUN OPERATOR",
+    "upperRight": "notInCombat",
+    "lowerCenter": "",
+    "edgeContamination": ""
+  },
+  "iconMorphology": [
+    {
+      "location": "upper right",
+      "outerSilhouette": "white long horizontal gun under two thick red crossing bars",
+      "internalMarks": "small red/dark rail details",
+      "colors": [
+        "white",
+        "red"
+      ],
+      "neighboringPrintedText": "none",
+      "closestPlausibleAlternative": "intruder",
+      "visibleDiscriminatingFeature": "Long gun plus X, no curled creature/spines/eyes or enclosing circle.",
+      "proposedToken": "notInCombat",
+      "tokenVerification": "same-session contact sheet plus authoritative variant note",
+      "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-worker-04/contact-sheets/W04-008-icons.png",
+      "verdictPath": "assets/tts-mod/extract/vision-workers/sol-max-worker-04/contact-sheets/W04-008-icons-verdict.json"
+    },
+    {
+      "location": "body between “with” and “and Burst”",
+      "outerSilhouette": "red rectangular/stepped token with clipped corners and a protruding/right compartment",
+      "internalMarks": "black left inset with multiple narrow vertical cartridge bars; dark red right block",
+      "colors": [
+        "bright red",
+        "black",
+        "dark red"
+      ],
+      "neighboringPrintedText": "Choose a Rifle with [glyph] and Burst using it.",
+      "closestPlausibleAlternative": "redItem",
+      "visibleDiscriminatingFeature": "Exact ammoToken black multi-cartridge inset and dark right block; redItem is an octagon with three white bullets.",
+      "proposedToken": "ammoToken",
+      "tokenVerification": "same-session exact direct source/glossary match",
+      "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-worker-04/contact-sheets/W04-008-icons.png",
+      "verdictPath": "assets/tts-mod/extract/vision-workers/sol-max-worker-04/contact-sheets/W04-008-icons-verdict.json"
+    }
+  ],
+  "evidenceConsulted": [
+    {
+      "kind": "blindNativeImage",
+      "path": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-10.png",
+      "timing": "before metadata"
+    },
+    {
+      "kind": "ttsProvenance",
+      "path": "assets/tts-mod/extract/vision-workers/sol-max-worker-04/provenance/W04-008.json",
+      "finding": "Shared FaceURL cell 10 has no exact CardID selector; only generic shared action BackURL."
+    },
+    {
+      "kind": "authoritativeGlossaryContactSheet",
+      "path": "assets/tts-mod/extract/vision-workers/sol-max-worker-04/contact-sheets/W04-008-icons.png",
+      "finding": "notInCombat artwork variant and exact ammoToken morphology verified."
+    },
+    {
+      "kind": "officialRulebookSearch",
+      "path": "docs/rulebooks/rulebook_text.txt",
+      "finding": "No exact BREAKTHROUGH/Choose a Rifle phrase found; only general Bursted-at rules, so no official text was used to rewrite the source."
+    },
+    {
+      "kind": "canonicalTargetExistenceCheck",
+      "path": "cards/character/heavy-gun-operator/action/breakthrough",
+      "finding": "Canonical image and sidecar already exist; overwrite forbidden."
+    }
+  ],
+  "proposedClassification": "portrait HEAVY GUN OPERATOR action-card face art from shared FaceURL sheet; likely duplicate/alternate source for existing canonical target",
+  "proposedPath": "cards/character/heavy-gun-operator/action/breakthrough.png",
+  "canonicalTarget": "cards/character/heavy-gun-operator/action/breakthrough.png",
+  "cardData": {
+    "cardSide": "face",
+    "title": "BREAKTHROUGH",
+    "typeLine": "",
+    "body": "Choose a Rifle with [ammoToken] and Burst using it.\nThen, you may Move through the Corridor\nyou have Bursted at.",
+    "footer": "HEAVY GUN OPERATOR",
+    "upperRight": "notInCombat",
+    "lowerCenter": "",
+    "category": "cards/character/heavy-gun-operator/action",
+    "slug": "breakthrough"
+  },
+  "readConfidence": "high",
+  "classificationConfidence": "medium",
+  "uncertainties": [
+    "No parsed TTS Card object selects source-sheet cell index 10, so exact GUID/CardID and cell-specific paired-side provenance are absent.",
+    "Canonical target already exists; this worker did not read, compare, or alter approved canonical content."
+  ],
+  "promotionDecision": "defer",
+  "decisionReasons": [
+    "Promotion requires a unique non-existing canonical target; image and sidecar already exist.",
+    "Exact cell selection/paired-side provenance is unresolved."
+  ],
+  "stagedCandidateSidecarPath": null,
+  "validationPerformed": [
+    "source preflight before original/contact-sheet attachments",
+    "blind raw persisted before metadata",
+    "independent TTS provenance derived",
+    "same-session direct icon comparison",
+    "ID/count reconciled 1/1",
+    "target existence confirmed image+sidecar",
+    "approved canonical files not read or modified",
+    "identity recomputed by worker_utils.write_result"
+  ],
+  "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-worker-04/raw/W04-008.json"
+}

@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/exploration-032.png",
+  "sourceSha256": "9c521a0ca8f9303363e69266962c20bee13b7a03cc8d05410399755ea42c684b",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_052643_c48cc7",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:26:42Z",
+  "completedAt": "2026-08-15T05:27:53Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "exploration instruction card",
+    "cardSide": "face",
+    "title": "",
+    "typeLine": "",
+    "body": "Place A/B/C Room\ndepending on your Section.\n\nReminder:\nPlace 1 [ICON: white shield/book-shaped glyph with central vertical seam] if you are Moving with [ICON: white shield/book-shaped glyph with central vertical seam].\n\nPlace 4 Adults in the Corridor\nyou have just passed through.\nThen, make a Noise roll as normal.",
+    "footer": "",
+    "upperRight": "",
+    "lowerCenter": "",
+    "visibleText": "",
+    "confidentlyVisible": [
+      "All meaningful typography is upright in the file.",
+      "A white room-and-corridor diagram occupies the center.",
+      "A yellow [noise] icon appears in the diagram's upper branch.",
+      "A white [character] icon appears inside the central hexagonal room.",
+      "Two matching white shield/book-shaped glyphs appear inline in the Reminder sentence.",
+      "The final three-line instruction is printed over an orange-brown lower panel."
+    ],
+    "proposedCategory": "cards/game/exploration",
+    "proposedSlug": null,
+    "confidence": "medium",
+    "uncertainties": [
+      "The two inline white shield/book-shaped glyphs do not confidently match any supplied canonical icon and are therefore transcribed literally.",
+      "No explicit title, type line, or footer is visible; the upper wording is treated as an instruction rather than a title.",
+      "The exploration-card category is supported by the visible room-placement diagram and instructions, but no explicit component-type label is printed.",
+      "No unambiguous title or depicted identity supports a semantic filename slug."
+    ]
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Planning image analysis workflow****Planning image analysis workflow****Clarifying exact path requirement**\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Clarifying exact path requirement****Inspecting game map icons**\n\n**Classifying map reminder icons**\n\n**Defining exploration card structure**\n\n**Clarifying icon embedding rules**\n\n**Designing instruction card structure**\n\n**Validating category and icon classification**\n\n**Interpreting noise and character symbols**\n\n**Deciphering movement token mechanics**\n\n**Confirming noise roll and icon diagram usage**\n\n**Clarifying icon embedding requirements**\n\n**Assessing instruction card details**\n\n**Refining icon literal descriptions**\n\n{\"orientation\":\"upright\",\"componentType\":\"exploration instruction card\",\"cardSide\":\"face\",\"title\":\"\",\"typeLine\":\"\",\"body\":\"Place A/B/C Room\\ndepending on your Section.\\n\\nReminder:\\nPlace 1 [ICON: white shield/book-shaped glyph with central vertical seam] if you are Moving with [ICON: white shield/book-shaped glyph with central vertical seam].\\n\\nPlace 4 Adults in the Corridor\\nyou have just passed through.\\nThen, make a Noise roll as normal.\",\"footer\":\"\",\"upperRight\":\"\",\"lowerCenter\":\"\",\"visibleText\":\"\",\"confidentlyVisible\":[\"All meaningful typography is upright in the file.\",\"A white room-and-corridor diagram occupies the center.\",\"A yellow [noise] icon appears in the diagram's upper branch.\",\"A white [character] icon appears inside the central hexagonal room.\",\"Two matching white shield/book-shaped glyphs appear inline in the Reminder sentence.\",\"The final three-line instruction is printed over an orange-brown lower panel.\"],\"proposedCategory\":\"cards/game/exploration\",\"proposedSlug\":null,\"confidence\":\"medium\",\"uncertainties\":[\"The two inline white shield/book-shaped glyphs do not confidently match any supplied canonical icon and are therefore transcribed literally.\",\"No explicit title, type line, or footer is visible; the upper wording is treated as an instruction rather than a title.\",\"The exploration-card category is supported by the visible room-placement diagram and instructions, but no explicit component-type label is printed.\",\"No unambiguous title or depicted identity supports a semantic filename slug.\"]}\n\nsession_id: 20260815_052643_c48cc7\n"
+}

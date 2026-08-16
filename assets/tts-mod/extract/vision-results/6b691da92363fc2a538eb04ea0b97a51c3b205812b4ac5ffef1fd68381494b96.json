@@ -1,0 +1,95 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-085.jpg",
+  "sourceSha256": "6b691da92363fc2a538eb04ea0b97a51c3b205812b4ac5ffef1fd68381494b96",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_060453_0be66e",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:41:14Z",
+  "completedAt": "2026-08-15T06:05:16Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "weapon item card",
+    "cardSide": "face",
+    "title": "DRUM MAG RIFLE",
+    "typeLine": "RANGED WEAPON,HEAVY",
+    "body": "No special rules.",
+    "footer": "",
+    "upperRight": "",
+    "lowerCenter": "",
+    "visibleText": "",
+    "confidentlyVisible": [
+      "White uppercase title above a yellow uppercase type line",
+      "Detailed illustration of a scoped rifle with a drum magazine",
+      "Three red slot-like panels are partially visible along the cropped lower edge",
+      "The card continues beyond the bottom edge of the image"
+    ],
+    "proposedCategory": "cards/game/item/weapon",
+    "proposedSlug": "drum-mag-rifle",
+    "confidence": "medium",
+    "uncertainties": [
+      "The lower portion of the card is clipped, so the three partially visible red panels cannot be fully inspected or confidently mapped to canonical icons.",
+      "Any content below the image boundary is not visible and has not been reconstructed."
+    ]
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Analyzing image text rotation and orientation**\n\n**Identifying ammo slot icons on item card****Analyzing image text rotation and orientation**\n{\"orientation\":\"rotate90ccw\",\"componentType\":\"ranged weapon item card\",\"cardSide\":\"face\",\"title\":\"DRUM MAG. RIFLE\",\"typeLine\":\"RANGED WEAPON, HEAVY\",\"body\":\"No special rules.\",\"footer\":\"\",\"upperRight\":\"\",\"lowerCenter\":\"\",\"visibleText\":\"[ammoSlot] [ammoSlot] [ammoSlot]\",\"confidentlyVisible\":[\"White title text reads “DRUM MAG. RIFLE”.\",\"Yellow type line reads “RANGED WEAPON, HEAVY”.\",\"A scoped rifle is depicted centrally.\",\"Rules text reads “No special rules.”\",\"Three red ammo-slot shapes are visible along the lower edge after rotation.\"],\"proposedCategory\":\"cards/game/item/weapon\",\"proposedSlug\":\"drum-mag-rifle\",\"confidence\":\"high\",\"uncertainties\":[]}\n\nsession_id: 20260815_054114_046e96\n",
+  "initialParsed": {
+    "orientation": "rotate90ccw",
+    "componentType": "ranged weapon item card",
+    "cardSide": "face",
+    "title": "DRUM MAG. RIFLE",
+    "typeLine": "RANGED WEAPON, HEAVY",
+    "body": "No special rules.",
+    "footer": "",
+    "upperRight": "",
+    "lowerCenter": "",
+    "visibleText": "[ammoSlot] [ammoSlot] [ammoSlot]",
+    "confidentlyVisible": [
+      "White title text reads “DRUM MAG. RIFLE”.",
+      "Yellow type line reads “RANGED WEAPON, HEAVY”.",
+      "A scoped rifle is depicted centrally.",
+      "Rules text reads “No special rules.”",
+      "Three red ammo-slot shapes are visible along the lower edge after rotation."
+    ],
+    "proposedCategory": "cards/game/item/weapon",
+    "proposedSlug": "drum-mag-rifle",
+    "confidence": "high",
+    "uncertainties": []
+  },
+  "initialSessionId": "20260815_054114_046e96",
+  "orientationCorrection": "rotate90ccw",
+  "uprightRead": {
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "sessionId": "20260815_060453_0be66e",
+    "completedAt": "2026-08-15T06:05:16Z",
+    "parsed": {
+      "orientation": "upright",
+      "componentType": "weapon item card",
+      "cardSide": "face",
+      "title": "DRUM MAG RIFLE",
+      "typeLine": "RANGED WEAPON,HEAVY",
+      "body": "No special rules.",
+      "footer": "",
+      "upperRight": "",
+      "lowerCenter": "",
+      "visibleText": "",
+      "confidentlyVisible": [
+        "White uppercase title above a yellow uppercase type line",
+        "Detailed illustration of a scoped rifle with a drum magazine",
+        "Three red slot-like panels are partially visible along the cropped lower edge",
+        "The card continues beyond the bottom edge of the image"
+      ],
+      "proposedCategory": "cards/game/item/weapon",
+      "proposedSlug": "drum-mag-rifle",
+      "confidence": "medium",
+      "uncertainties": [
+        "The lower portion of the card is clipped, so the three partially visible red panels cannot be fully inspected or confidently mapped to canonical icons.",
+        "Any content below the image boundary is not visible and has not been reconstructed."
+      ]
+    },
+    "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Planning parallel image-analysis loading****Planning parallel image-analysis loading**\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Deciding to use vision pixels****Deciding to use vision pixels****Clarifying item card slot details**\n\nsession_id: 20260815_060453_0be66e\n{\"orientation\":\"upright\",\"componentType\":\"weapon item card\",\"cardSide\":\"face\",\"title\":\"DRUM MAG RIFLE\",\"typeLine\":\"RANGED WEAPON,HEAVY\",\"body\":\"No special rules.\",\"footer\":\"\",\"upperRight\":\"\",\"lowerCenter\":\"\",\"visibleText\":\"\",\"confidentlyVisible\":[\"White uppercase title above a yellow uppercase type line\",\"Detailed illustration of a scoped rifle with a drum magazine\",\"Three red slot-like panels are partially visible along the cropped lower edge\",\"The card continues beyond the bottom edge of the image\"],\"proposedCategory\":\"cards/game/item/weapon\",\"proposedSlug\":\"drum-mag-rifle\",\"confidence\":\"medium\",\"uncertainties\":[\"The lower portion of the card is clipped, so the three partially visible red panels cannot be fully inspected or confidently mapped to canonical icons.\",\"Any content below the image boundary is not visible and has not been reconstructed.\"]}\n"
+  }
+}

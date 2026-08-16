@@ -1,0 +1,91 @@
+{
+  "schemaVersion": 1,
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "reasoning": "max",
+  "nativeImageAttachment": true,
+  "auxiliaryVisionUsed": false,
+  "casesRequested": 2,
+  "casesScored": 2,
+  "failures": [],
+  "uniqueSessionIds": 2,
+  "caseScores": {
+    "c03": {
+      "score": 74.549,
+      "max": 100,
+      "components": {
+        "schema": 5.0,
+        "title": 5.0,
+        "text": 38.317,
+        "icons": 0.0,
+        "sidecar": 16.232,
+        "decision": 10.0
+      },
+      "diagnostics": {
+        "textRatio": 0.957929,
+        "expectedIcons": [
+          "lander"
+        ],
+        "actualIcons": [
+          "autodestruction"
+        ],
+        "iconF1": 0,
+        "sidecarKeyF1": 0.666667,
+        "sidecarValueMean": 0.956522
+      },
+      "scoring": "programmatic",
+      "tier": "human-approved-card",
+      "durationSeconds": 76.733,
+      "decision": "promote",
+      "overallConfidence": "high"
+    },
+    "c05": {
+      "score": 85.782,
+      "max": 100,
+      "components": {
+        "schema": 5.0,
+        "title": 5.0,
+        "text": 35.108,
+        "icons": 13.333,
+        "sidecar": 17.341,
+        "decision": 10.0
+      },
+      "diagnostics": {
+        "textRatio": 0.877698,
+        "expectedIcons": [
+          "shootDieCritical",
+          "ammoToken",
+          "ammoSlot"
+        ],
+        "actualIcons": [
+          "shootDieAmmoLoss",
+          "ammoToken",
+          "ammoSlot"
+        ],
+        "iconF1": 0.666667,
+        "sidecarKeyF1": 0.8,
+        "sidecarValueMean": 0.934109
+      },
+      "scoring": "programmatic",
+      "tier": "human-approved-card",
+      "durationSeconds": 98.741,
+      "decision": "promote",
+      "overallConfidence": "high"
+    }
+  },
+  "aggregate": {
+    "allCasesMean": 80.166,
+    "allCasesMedian": 80.166,
+    "humanApprovedCardsMean": 80.166,
+    "humanApprovedCardsMedian": 80.166
+  },
+  "latencySeconds": {
+    "totalSequentialEquivalent": 175.474,
+    "mean": 87.737,
+    "median": 87.737,
+    "p95": 97.641,
+    "min": 76.733,
+    "max": 98.741
+  },
+  "criticalFailures": []
+}

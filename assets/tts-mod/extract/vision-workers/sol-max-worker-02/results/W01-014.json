@@ -1,0 +1,104 @@
+{
+  "schemaVersion": 1,
+  "assetId": "W01-014",
+  "batchId": "batch-001",
+  "completedAt": "2026-08-15T21:16:47Z",
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/bags/medpackBag-030.jpg",
+  "sourceSha256": "5e4339a7829e764d92a7f0840e0739bc97119617e824f2bd13d5f688ed2e5733",
+  "sourceMetadata": {
+    "width": 305,
+    "height": 305,
+    "format": "JPEG",
+    "mode": "RGB",
+    "byteSize": 73605,
+    "frames": 1,
+    "decodeVerified": true
+  },
+  "runtimeProvenance": {
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "reasoningEffort": "max",
+    "platform": "subagent",
+    "workerId": "sol-max-worker-02",
+    "sessionId": "20260815_210607_461cc1",
+    "persistentSession": true,
+    "nativeVision": true,
+    "auxiliaryVisionUsed": false,
+    "qwenUsed": false
+  },
+  "orientation": {
+    "status": "upright",
+    "evidence": "The large +2 is horizontal and reads left-to-right.",
+    "transformApplied": null,
+    "stagingDerivative": null
+  },
+  "blindPixelObservations": [
+    "A square black background has a dark embossed rectangular-panel texture.",
+    "Centered on it is an irregular green translucent beveled plaque with clipped/chamfered corners and a brighter green edge.",
+    "At the plaque's left is a small dark hard-sided case with green trim, a pale handle/top, and white cross marks on visible faces.",
+    "A large white +2 with a dark outline overlays the center-right of the plaque."
+  ],
+  "visibleText": [
+    {
+      "text": "+2",
+      "location": "center-right",
+      "structure": "large white signed numeral with dark outline",
+      "confidence": "high"
+    }
+  ],
+  "iconMorphology": [
+    {
+      "location": "left side of the green plaque",
+      "silhouette": "small rectangular handled hard case rendered in three-quarter view",
+      "internalMarks": "white equal-armed cross marks on the visible front and side panels",
+      "colors": "dark gray and green case with white crosses",
+      "claimedToken": null,
+      "closestPlausibleCanonicalAlternative": "medpackToken",
+      "visibleDiscriminatingFeature": "The pixels show a shaded three-dimensional handled case embedded in a large rectangular +2 texture, not an isolated round Tactical Gear token glyph; no glossary token is claimed."
+    }
+  ],
+  "evidenceConsulted": {
+    "blindPixelRecord": "raw/W01-014.json",
+    "metadataJoin": "metadata/provenance/W01-014.json",
+    "tts": {
+      "consultedAfterBlindRecord": true,
+      "manifestUrl": "https://steamusercontent-a.akamaihd.net/ugc/2468613527880247030/C55F92DD0C1A435AEA235196D9033DA6768B97C0/",
+      "finding": "The URL is the DiffuseURL of base Custom_Model_Bag c218a3, whose explicit Lua role is medpackBag."
+    },
+    "official": {
+      "consulted": false,
+      "reason": "No canonical glossary token is claimed and no source conflict or rules text requires official escalation."
+    },
+    "priorWorkerSemanticOutput": {
+      "consulted": false,
+      "reason": "W01-014 is a clean-context retry of an invalidated predecessor result."
+    }
+  },
+  "proposedClassification": "Non-card base-game medpack infinite-bag/container DiffuseURL texture, visibly depicting a cross-marked case and +2.",
+  "proposedPath": "assets/tts-mod/extract/v2-dl/tree/bags/medpackBag-030.jpg (retain unchanged; no move or canonical sidecar proposed)",
+  "readConfidence": {
+    "level": "high",
+    "reason": "The +2 and case/cross morphology are plainly visible with no small or clipped text."
+  },
+  "classificationConfidence": {
+    "level": "high",
+    "reason": "The non-card container-texture morphology aligns with the sole TTS Custom_Model_Bag DiffuseURL reference and explicit medpackBag Lua role."
+  },
+  "uncertainties": [],
+  "promotionDecision": "non-card-complete",
+  "decisionReasons": [
+    "This is a TTS bag/container texture, not a rules-card face, so no card-text sidecar applies.",
+    "The exact visible modifier is transcribed as +2 without inferring an unsupported rules meaning.",
+    "The pictured case is not forced into the icon glossary; its component role is corroborated by current TTS metadata."
+  ],
+  "stagedCandidateSidecarPath": null,
+  "validationPerformed": [
+    "Current source SHA-256 exactly matched the recovered live assignment tuple.",
+    "Pillow decoded and verified the 305x305 JPEG with one frame.",
+    "The image was attached and inspected natively as W01-014 in batch-001 through the verified Sol Max route.",
+    "Blind observations were persisted before TTS metadata was consulted.",
+    "The sole matching DiffuseURL reference and medpackBag Lua role were resolved.",
+    "No source, canonical sidecar, shared ledger, manifest, catalog, or prior-worker file was modified."
+  ],
+  "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-worker-02/raw/W01-014.json"
+}

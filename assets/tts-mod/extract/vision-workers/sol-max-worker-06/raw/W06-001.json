@@ -1,0 +1,94 @@
+{
+  "schemaVersion": 1,
+  "recordType": "blindNativePixelRead",
+  "assetId": "W06-001",
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-11.png",
+  "sourceSha256": "6dc254bf10b41c217cdfe6c4d3d3ca3a8bedd7eded6f7ae6e0a07b9f71d6a19e",
+  "readAt": "2026-08-15T22:49:36.567633018Z",
+  "runtimeProvenancePath": "assets/tts-mod/extract/vision-workers/sol-max-worker-06/metadata/runtime.json",
+  "attachment": {
+    "exactSourcePathUsed": "/home/smithers/nemesis-retaliation/assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-11.png",
+    "nativeImageRoute": true,
+    "submittedAssetIds": ["W06-001"],
+    "returnedAssetIds": ["W06-001"],
+    "submittedCount": 1,
+    "returnedCount": 1,
+    "countReconciled": true
+  },
+  "orientation": {
+    "observed": "upright",
+    "rotationRequired": false,
+    "basis": "All title, effect, reaction-panel, and footer typography reads left-to-right and top-to-bottom in the supplied portrait pixels."
+  },
+  "blindPixelObservations": [
+    "Portrait rectangular card with a dark red, black, orange, and grey science-fiction frame.",
+    "Upper half contains an armored human figure holding a large firearm against red/orange industrial artwork.",
+    "A black translucent title plaque spans the upper-middle area and contains two centered white title lines.",
+    "Below the title is a red effect panel with one sentence containing a white inline glyph, followed by a centered OR divider.",
+    "A second red effect panel has a centered all-caps heading and three centered lines of effect text.",
+    "A light-grey lower panel has a vertical left tab and four centered lines of dark text.",
+    "The bottom footer is spaced red all-caps text on a very dark background.",
+    "No standalone upper-right glyph is visible.",
+    "No neighboring-card text or visibly clipped material text is present at the image edges."
+  ],
+  "visibleText": {
+    "title": {
+      "lines": ["CHAIN", "OF COMMAND"],
+      "verbatim": "CHAIN\nOF COMMAND"
+    },
+    "firstEffect": {
+      "verbatim": "Move the [ICON: white broad low silhouette with one tall central spike] by 1 space in any direction."
+    },
+    "divider": "OR",
+    "commandPanel": {
+      "heading": "COMMAND",
+      "verbatim": "COMMAND\nChoose a Character with a lower Rank.\nThen, Move, Shoot, or Burst using this\nCharacter."
+    },
+    "reactionPanel": {
+      "verticalHeading": "REACTION",
+      "verbatim": "REACTION\nWhen a Character with a higher Rank plays\na Command on you:\nCancel the effect of that Command. That\nCharacter must still pay the Action’s cost."
+    },
+    "footer": "HEAVY GUN OPERATOR",
+    "illegibleSpans": [],
+    "clippedSpans": []
+  },
+  "iconMorphology": [
+    {
+      "location": "first effect line, inline between ‘the’ and ‘by’",
+      "outerSilhouette": "opaque white, broad and low at the base, with an irregular scalloped lower edge and one narrow tall central spike",
+      "internalMarks": "no clearly separable internal linework at this displayed scale; the glyph reads chiefly as a filled silhouette",
+      "colors": ["white"],
+      "neighboringText": "Move the [glyph] by 1 space in any direction.",
+      "tentativeCanonicalCandidate": "lander",
+      "closestPlausibleCanonicalAlternative": "autodestruction",
+      "visibleFeatureRulingAlternativeOut": "The printed glyph has one dominant narrow vertical spire rising from a broad low base rather than three similarly sized rounded lobes.",
+      "semanticIdentityEstablished": false,
+      "deferralReason": "No direct side-by-side comparison with the authoritative labeled glossary crop occurred in this one-source native-image turn."
+    }
+  ],
+  "proposedClassification": {
+    "family": "card-family",
+    "componentType": "action/rules card",
+    "basis": "Visible title, effect alternatives, COMMAND section, REACTION panel, and character footer."
+  },
+  "readConfidence": {
+    "overall": "high",
+    "materialText": "high",
+    "punctuation": "high",
+    "iconMorphology": "medium",
+    "canonicalIconIdentity": "low"
+  },
+  "classificationConfidence": {
+    "cardFamily": "high",
+    "exactCanonicalComponent": "medium"
+  },
+  "uncertainties": [
+    "Canonical identity of the single inline white glyph is not independently established from authoritative crop pixels.",
+    "Exact generated-cell selector, GUID, FaceURL/BackURL role, and paired side have not yet been consulted in this blind record."
+  ],
+  "promotionDecision": "defer",
+  "decisionReasons": [
+    "The icon gate is unresolved.",
+    "Generated-cell and paired-side provenance gates have not yet been evaluated."
+  ]
+}

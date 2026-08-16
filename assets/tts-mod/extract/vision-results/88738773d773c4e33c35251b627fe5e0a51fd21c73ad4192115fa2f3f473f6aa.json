@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/action/action-001.png",
+  "sourceSha256": "88738773d773c4e33c35251b627fe5e0a51fd21c73ad4192115fa2f3f473f6aa",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_051608_c2d0f5",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:16:07Z",
+  "completedAt": "2026-08-15T05:16:56Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "character action card",
+    "cardSide": "face",
+    "title": "SEARCH",
+    "typeLine": "",
+    "body": "Draw 1 Item for each [ICON: white octagonal glyph] in your Room.\nKeep 1 and discard the rest.",
+    "footer": "CONTRACTOR",
+    "upperRight": "notInCombat",
+    "lowerCenter": "",
+    "visibleText": "",
+    "confidentlyVisible": [
+      "Typography is upright and reads left to right.",
+      "The title is SEARCH.",
+      "The upper-right icon depicts a white gun crossed out by a red X.",
+      "The body contains a solid white octagonal glyph.",
+      "The footer reads CONTRACTOR.",
+      "The artwork depicts a figure in a dark, damaged industrial environment."
+    ],
+    "proposedCategory": "cards/character/contractor/action",
+    "proposedSlug": "search",
+    "confidence": "medium",
+    "uncertainties": [
+      "The solid white octagonal body glyph has no visible internal detail and cannot be confidently matched to a canonical glossary icon.",
+      "The apparently blank glyph may be a source-art or rendering oddity."
+    ]
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Loading vision and image-analysis skills****Loading vision and image-analysis skills**\n**Formulating exact JSON structure**\n\n**Identifying upper-right crossed-out gun icon****Formulating exact JSON structure**\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Identifying upper-right crossed-out gun icon****Clarifying visual component types**\n\n\n**Recording icon uncertainty and position**\n\n{\"orientation\":\"upright\",\"componentType\":\"character action card\",\"cardSide\":\"face\",\"title\":\"SEARCH\",\"typeLine\":\"\",\"body\":\"Draw 1 Item for each [ICON: white octagonal glyph] in your Room.\\nKeep 1 and discard the rest.\",\"footer\":\"CONTRACTOR\",\"upperRight\":\"notInCombat\",\"lowerCenter\":\"\",\"visibleText\":\"\",\"confidentlyVisible\":[\"Typography is upright and reads left to right.\",\"The title is SEARCH.\",\"The upper-right icon depicts a white gun crossed out by a red X.\",\"The body contains a solid white octagonal glyph.\",\"The footer reads CONTRACTOR.\",\"The artwork depicts a figure in a dark, damaged industrial environment.\"],\"proposedCategory\":\"cards/character/contractor/action\",\"proposedSlug\":\"search\",\"confidence\":\"medium\",\"uncertainties\":[\"The solid white octagonal body glyph has no visible internal detail and cannot be confidently matched to a canonical glossary icon.\",\"The apparently blank glyph may be a source-art or rendering oddity.\"]}\n\nsession_id: 20260815_051608_c2d0f5\n"
+}

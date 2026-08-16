@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "assetId": "W01-017",
+  "batchId": "batch-002",
+  "capturedAt": "2026-08-15T21:20:58Z",
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/bags/queenBag-005.png",
+  "sourceSha256": "ff48a32deb7352b0b0f7f64244ea30c11fb02895f74c2fe98af6b9f783a013ce",
+  "runtimeProvenanceRef": "../metadata/runtime.json",
+  "blindAnalysis": true,
+  "metadataExcludedDuringPixelPass": [
+    "filename semantics",
+    "directory semantics",
+    "prior vision reads",
+    "TTS object metadata",
+    "game-context expectations"
+  ],
+  "orientationObservation": "QUEEN reads horizontally left-to-right along the lower edge, so the image is upright as displayed.",
+  "blindPixelObservations": [
+    "A circular green-teal emblem fills nearly the entire square canvas, with transparent corner margins and a pale outer rim.",
+    "At center is a symmetrical pale metallic creature-like head or mask with dark eye cavities and multiple hooked, serrated crescent blades curving upward on both sides.",
+    "The background resembles a green-lit chamber or dome with darker textured panels.",
+    "Large bold white uppercase text is centered across the bottom of the circle."
+  ],
+  "visibleText": [
+    {
+      "text": "QUEEN",
+      "location": "bottom center",
+      "structure": "large bold white uppercase word",
+      "confidence": "high"
+    }
+  ],
+  "iconObservations": [
+    {
+      "location": "center of circular emblem",
+      "silhouette": "symmetrical pale creature-like head/mask framed by paired upward-curving serrated crescents",
+      "internalMarks": "dark eye-like cavities and layered pale/dark facial plates",
+      "colors": "pale gray-white and dark green-black on teal",
+      "semanticLabel": null
+    }
+  ],
+  "rawNativeModelOutput": {
+    "orientation": "upright",
+    "text": ["QUEEN"],
+    "literalSummary": "Round teal emblem with a central pale bladed creature-mask and the word QUEEN."
+  },
+  "uncertainties": [
+    "Pixels alone do not establish whether the central creature-mask is a canonical glossary symbol, bespoke component art, or a container emblem."
+  ]
+}

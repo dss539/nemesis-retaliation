@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/event-006.jpg",
+  "sourceSha256": "50f71404b19fc4c65f970fffb229f8b92b2db6b73fa2daea73d90d522f12f9fc",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_052023_bf3baa",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:20:23Z",
+  "completedAt": "2026-08-15T05:21:24Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "portrait event card",
+    "cardSide": "face",
+    "title": "REACTOR OVERHEATING",
+    "typeLine": "",
+    "body": "All [intruder] in each [corridorNWSE], [corridorEW], and [corridorNESW] move.\nThen, all [intruder] in every Room move.\n\nIf a [malfunction] is in the Cooling System\nRoom or the Reactor Room, Activate\nthe Autodestruction Procedure.\nThen, place a [malfunction] in each of these Rooms.\n\nReshuffle the Event deck.",
+    "footer": "",
+    "upperRight": "",
+    "lowerCenter": "",
+    "visibleText": "",
+    "confidentlyVisible": [
+      "All typography is upright in the file.",
+      "The title is printed in uppercase white text at the top.",
+      "The artwork depicts an orange-lit industrial chamber behind cracked glass.",
+      "Two curled white exoskeleton glyphs match the canonical intruder icon.",
+      "The three outlined corridor glyphs run NW–SE, east–west, and NE–SW from left to right.",
+      "Two white cog-shaped glyphs match the canonical malfunction icon.",
+      "Rules text is divided across three bordered panels."
+    ],
+    "proposedCategory": "cards/game/event",
+    "proposedSlug": "reactor-overheating",
+    "confidence": "high",
+    "uncertainties": []
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Planning detailed pixel inspection**\n\n**Coordinating skill and vision loading****Planning detailed pixel inspection**\n**Coordinating skill and vision loading****Mapping corridor icons to directions**\n\n\n**Confirming corridor icon orientations and malfunction icon**\n\n**Deciding to preserve exact printed line breaks**\n\n**Verifying event card layout and text flow**\n\n**Confirming event card identity and icon details****Mapping corridor icons to directions**\n**Confirming corridor icon orientations and malfunction icon**\n**Deciding to preserve exact printed line breaks**\n\n**Verifying event card layout and text flow**\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Confirming event card identity and icon details****Analyzing and identifying corridor and gear icons**\n\n\n**Confirming malfunction icon and preserving card layout**\n\n**Confirming card identity and analyzing glyph coordinates**\n\n**Analyzing glyph patterns and corridor layout**\n\n{\"orientation\":\"upright\",\"componentType\":\"portrait event card\",\"cardSide\":\"face\",\"title\":\"REACTOR OVERHEATING\",\"typeLine\":\"\",\"body\":\"All [intruder] in each [corridorNWSE], [corridorEW], and [corridorNESW] move.\\nThen, all [intruder] in every Room move.\\n\\nIf a [malfunction] is in the Cooling System\\nRoom or the Reactor Room, Activate\\nthe Autodestruction Procedure.\\nThen, place a [malfunction] in each of these Rooms.\\n\\nReshuffle the Event deck.\",\"footer\":\"\",\"upperRight\":\"\",\"lowerCenter\":\"\",\"visibleText\":\"\",\"confidentlyVisible\":[\"All typography is upright in the file.\",\"The title is printed in uppercase white text at the top.\",\"The artwork depicts an orange-lit industrial chamber behind cracked glass.\",\"Two curled white exoskeleton glyphs match the canonical intruder icon.\",\"The three outlined corridor glyphs run NW–SE, east–west, and NE–SW from left to right.\",\"Two white cog-shaped glyphs match the canonical malfunction icon.\",\"Rules text is divided across three bordered panels.\"],\"proposedCategory\":\"cards/game/event\",\"proposedSlug\":\"reactor-overheating\",\"confidence\":\"high\",\"uncertainties\":[]}\n\nsession_id: 20260815_052023_bf3baa\n",
+  "iconVerification": {
+    "status": "passed",
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "sessionId": "20260815_060747_199cec",
+    "promptVersion": 1,
+    "completedAt": "2026-08-15T06:08:50Z",
+    "claimed": [
+      "corridorEW",
+      "corridorNESW",
+      "corridorNWSE",
+      "intruder",
+      "malfunction"
+    ],
+    "parsed": {
+      "claims": [
+        {
+          "claimed": "corridorEW",
+          "verdict": "match",
+          "actual": "corridorEW",
+          "evidence": "One occurrence: horizontal corridor with symmetric left/right necks, matching the glossary crop."
+        },
+        {
+          "claimed": "corridorNESW",
+          "verdict": "match",
+          "actual": "corridorNESW",
+          "evidence": "One occurrence: diagonal corridor running northeast–southwest with the same stepped internal outline as the labeled crop."
+        },
+        {
+          "claimed": "corridorNWSE",
+          "verdict": "match",
+          "actual": "corridorNWSE",
+          "evidence": "One occurrence: diagonal corridor running northwest–southeast with the same opposing stepped outline as the labeled crop."
+        },
+        {
+          "claimed": "intruder",
+          "verdict": "match",
+          "actual": "intruder",
+          "evidence": "Two occurrences; both show the same curled circular creature silhouette, pointed head, and dorsal spikes as the glossary glyph."
+        },
+        {
+          "claimed": "malfunction",
+          "verdict": "match",
+          "actual": "malfunction",
+          "evidence": "Two occurrences; both are the same cogwheel morphology with eight outer teeth and a circular center as the glossary crop."
+        }
+      ],
+      "allClaimsMatch": true,
+      "confidence": "high",
+      "uncertainties": []
+    },
+    "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Confirming corridor symbol orientations**\n\n**Identifying glyph and gear occurrences****Confirming corridor symbol orientations**\n**Identifying glyph and gear occurrences****Planning direct image loading tool****Planning direct image loading tool**\n⚠️  Reached maximum iterations (2). Requesting summary...\n\nsession_id: 20260815_060747_199cec\n{\"claims\":[{\"claimed\":\"corridorEW\",\"verdict\":\"match\",\"actual\":\"corridorEW\",\"evidence\":\"One occurrence: horizontal corridor with symmetric left/right necks, matching the glossary crop.\"},{\"claimed\":\"corridorNESW\",\"verdict\":\"match\",\"actual\":\"corridorNESW\",\"evidence\":\"One occurrence: diagonal corridor running northeast–southwest with the same stepped internal outline as the labeled crop.\"},{\"claimed\":\"corridorNWSE\",\"verdict\":\"match\",\"actual\":\"corridorNWSE\",\"evidence\":\"One occurrence: diagonal corridor running northwest–southeast with the same opposing stepped outline as the labeled crop.\"},{\"claimed\":\"intruder\",\"verdict\":\"match\",\"actual\":\"intruder\",\"evidence\":\"Two occurrences; both show the same curled circular creature silhouette, pointed head, and dorsal spikes as the glossary glyph.\"},{\"claimed\":\"malfunction\",\"verdict\":\"match\",\"actual\":\"malfunction\",\"evidence\":\"Two occurrences; both are the same cogwheel morphology with eight outer teeth and a circular center as the glossary crop.\"}],\"allClaimsMatch\":true,\"confidence\":\"high\",\"uncertainties\":[]}\n",
+    "evidencePath": null
+  }
+}

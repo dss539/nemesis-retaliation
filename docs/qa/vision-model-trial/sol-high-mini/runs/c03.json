@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "caseId": "c03",
+  "tier": "human-approved-card",
+  "sourceSha256": "ac03ac0e56b1ec80da6113e1bd76bd82b8fc4bf323dc1a542db868437c35dc5d",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "reasoning": "high",
+  "nativeImageAttachment": true,
+  "safeMode": true,
+  "promptSha256": "49aaf5b24a0cf146faf915b3dff26a370629dc205f337a296644c004550d6b80",
+  "startedAtEpoch": 1786780983.4140725,
+  "endedAtEpoch": 1786781015.1621938,
+  "durationSeconds": 31.748,
+  "returnCode": 0,
+  "sessionId": "20260815_080303_46a94e",
+  "stdout": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Analyzing icon morphology visually**\n\n**Comparing icon morphology to glossary terms**\n\n**Determining card component type and category**\n\n**Preserving multiline title formatting**\n\n**Determining card metadata and sidecar keys**\n\n**Marking icon identification as uncertain****Analyzing icon morphology visually**\n**Comparing icon morphology to glossary terms**\n**Determining card component type and category**\n\n**Preserving multiline title formatting**\n**Determining card metadata and sidecar keys**\n{\n  \"orientation\": \"upright\",\n  \"componentType\": \"card\",\n  \"title\": \"CHAIN\\nOF COMMAND\",\n  \"typeLine\": null,\n  \"body\": \"Move the [ICON: white silhouette with a tall narrow central spike, rounded central body, and low side protrusions] by 1 space in any direction.\\n\\nOR\\n\\nCOMMAND\\nChoose a Character with a lower Rank.\\nThen, Move, Shoot, or Burst using this\\nCharacter.\",\n  \"footer\": \"OFFICER\",\n  \"standaloneSymbols\": {},\n  \"visibleOtherText\": [],\n  \"layoutNotes\": [\n    \"Portrait-oriented card with illustrated artwork in the upper portion.\",\n    \"The title appears in a framed panel below the artwork.\",\n    \"The rules area presents two alternatives separated by a centered OR label.\",\n    \"COMMAND is a centered subsection heading.\",\n    \"OFFICER is centered at the bottom.\"\n  ],\n  \"categoryProposal\": \"officer\",\n  \"filenameProposal\": \"chain-of-command.png\",\n  \"sidecarCandidate\": {\n    \"body\": \"Move the [ICON: white silhouette with a tall narrow central spike, rounded central body, and low side protrusions] by 1 space in any direction.\\n\\nOR\\n\\nCOMMAND\\nChoose a Character with a lower Rank.\\nThen, Move, Shoot, or Burst using this\\nCharacter.\",\n    \"lowerCenter\": \"OFFICER\"\n  },\n  \"uncertainties\": [\n    \"UNCERTAIN: The inline white icon cannot be confidently matched to a canonical identifier from morphology alone.\"\n  ],\n  \"confidence\": {\n    \"orientation\": \"high\",\n    \"text\": \"high\",\n    \"icons\": \"low\",\n    \"identity\": \"high\",\n    \"category\": \"high\",\n    \"overall\": \"medium\"\n  },\n  \"decision\": \"defer\"\n}\n",
+  "stderr": "\nsession_id: 20260815_080303_46a94e\n",
+  "parsedJson": {
+    "orientation": "upright",
+    "componentType": "card",
+    "title": "CHAIN\nOF COMMAND",
+    "typeLine": null,
+    "body": "Move the [ICON: white silhouette with a tall narrow central spike, rounded central body, and low side protrusions] by 1 space in any direction.\n\nOR\n\nCOMMAND\nChoose a Character with a lower Rank.\nThen, Move, Shoot, or Burst using this\nCharacter.",
+    "footer": "OFFICER",
+    "standaloneSymbols": {},
+    "visibleOtherText": [],
+    "layoutNotes": [
+      "Portrait-oriented card with illustrated artwork in the upper portion.",
+      "The title appears in a framed panel below the artwork.",
+      "The rules area presents two alternatives separated by a centered OR label.",
+      "COMMAND is a centered subsection heading.",
+      "OFFICER is centered at the bottom."
+    ],
+    "categoryProposal": "officer",
+    "filenameProposal": "chain-of-command.png",
+    "sidecarCandidate": {
+      "body": "Move the [ICON: white silhouette with a tall narrow central spike, rounded central body, and low side protrusions] by 1 space in any direction.\n\nOR\n\nCOMMAND\nChoose a Character with a lower Rank.\nThen, Move, Shoot, or Burst using this\nCharacter.",
+      "lowerCenter": "OFFICER"
+    },
+    "uncertainties": [
+      "UNCERTAIN: The inline white icon cannot be confidently matched to a canonical identifier from morphology alone."
+    ],
+    "confidence": {
+      "orientation": "high",
+      "text": "high",
+      "icons": "low",
+      "identity": "high",
+      "category": "high",
+      "overall": "medium"
+    },
+    "decision": "defer"
+  },
+  "parseError": null
+}

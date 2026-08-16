@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "caseId": "c08",
+  "tier": "human-approved-card",
+  "sourceSha256": "c08f501ff13cb2f219c2283a94db57d6efe29f071835a39565d839f378bf9146",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-luna",
+  "reasoning": "max",
+  "nativeImageAttachment": true,
+  "safeMode": true,
+  "promptSha256": "49aaf5b24a0cf146faf915b3dff26a370629dc205f337a296644c004550d6b80",
+  "startedAtEpoch": 1786777380.1682448,
+  "endedAtEpoch": 1786777429.998942,
+  "durationSeconds": 49.831,
+  "returnCode": 0,
+  "sessionId": "20260815_070300_f72681",
+  "stdout": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Analyzing game card image orientation**\n\n**Transcribing card text and identifying icons**\n\n**Identifying red icon as ammo slot marker**\n\n**Analyzing die icon shape and colors**\n\n**Describing uncertain red die icon with black shape**\n\n**Proposing category as ranged weapon**\n\n**Deciding sidecar candidate with exact transcription**\n\n**Documenting card layout and deferring uncertain icon identification**\n\n**Confirming high-confidence typeLine and category**\n\n**Analyzing standaloneSymbols icon details**\n\n**Defining sidecarCandidate JSON structure**\n\n**Correcting card orientation to landscape**\n\n**Planning item card layout adjustments****Analyzing game card image orientation**\n**Transcribing card text and identifying icons**\n**Identifying red icon as ammo slot marker**\n\n**Analyzing die icon shape and colors**\n**Describing uncertain red die icon with black shape**\n**Proposing category as ranged weapon**\n\n**Deciding sidecar candidate with exact transcription**\n**Documenting card layout and deferring uncertain icon identification**\n**Confirming high-confidence typeLine and category**\n\n**Analyzing standaloneSymbols icon details**\n**Defining sidecarCandidate JSON structure**\n**Correcting card orientation to landscape**\n\n{\n  \"orientation\": \"upright\",\n  \"componentType\": \"card\",\n  \"title\": \"HANDGUN\",\n  \"typeLine\": \"RANGED WEAPON, HEAVY\",\n  \"body\": \"Burst: -1 to Burst results.\",\n  \"footer\": null,\n  \"standaloneSymbols\": {\n    \"lowerCenter\": \"[ICON: partially visible red rounded-octagonal symbol with a black trapezoid-shaped glyph]\"\n  },\n  \"visibleOtherText\": [],\n  \"layoutNotes\": [\n    \"Centered uppercase title near the top.\",\n    \"Yellow uppercase type line directly below the title.\",\n    \"Large handgun illustration occupies the central panel.\",\n    \"Rules text appears near the lower portion.\",\n    \"A red symbol is partially cut off at the bottom image edge.\"\n  ],\n  \"categoryProposal\": \"ranged weapon\",\n  \"filenameProposal\": null,\n  \"sidecarCandidate\": {\n    \"typeLine\": \"RANGED WEAPON, HEAVY\",\n    \"body\": \"Burst: -1 to Burst results.\",\n    \"lowerCenter\": \"[ICON: partially visible red rounded-octagonal symbol with a black trapezoid-shaped glyph]\"\n  },\n  \"uncertainties\": [\n    \"The lower-center symbol is partially cropped and cannot be confidently matched to a canonical icon.\"\n  ],\n  \"confidence\": {\n    \"orientation\": \"high\",\n    \"text\": \"high\",\n    \"icons\": \"low\",\n    \"identity\": \"high\",\n    \"category\": \"high\",\n    \"overall\": \"medium\"\n  },\n  \"decision\": \"defer\"\n}\n",
+  "stderr": "\nsession_id: 20260815_070300_f72681\n",
+  "parsedJson": {
+    "orientation": "upright",
+    "componentType": "card",
+    "title": "HANDGUN",
+    "typeLine": "RANGED WEAPON, HEAVY",
+    "body": "Burst: -1 to Burst results.",
+    "footer": null,
+    "standaloneSymbols": {
+      "lowerCenter": "[ICON: partially visible red rounded-octagonal symbol with a black trapezoid-shaped glyph]"
+    },
+    "visibleOtherText": [],
+    "layoutNotes": [
+      "Centered uppercase title near the top.",
+      "Yellow uppercase type line directly below the title.",
+      "Large handgun illustration occupies the central panel.",
+      "Rules text appears near the lower portion.",
+      "A red symbol is partially cut off at the bottom image edge."
+    ],
+    "categoryProposal": "ranged weapon",
+    "filenameProposal": null,
+    "sidecarCandidate": {
+      "typeLine": "RANGED WEAPON, HEAVY",
+      "body": "Burst: -1 to Burst results.",
+      "lowerCenter": "[ICON: partially visible red rounded-octagonal symbol with a black trapezoid-shaped glyph]"
+    },
+    "uncertainties": [
+      "The lower-center symbol is partially cropped and cannot be confidently matched to a canonical icon."
+    ],
+    "confidence": {
+      "orientation": "high",
+      "text": "high",
+      "icons": "low",
+      "identity": "high",
+      "category": "high",
+      "overall": "medium"
+    },
+    "decision": "defer"
+  },
+  "parseError": null
+}

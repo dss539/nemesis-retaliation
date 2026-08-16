@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-144_cards/card-08.png",
+  "sourceSha256": "dcca8ddf8c75047dd93d61660d237b5460c0566331e2d29fdd1cd26f61853f7b",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_060543_e06392",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:42:10Z",
+  "completedAt": "2026-08-15T06:06:13Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "ranged weapon item card",
+    "cardSide": "face",
+    "title": "HEAVY HANDGUN",
+    "typeLine": "RANGED WEAPON",
+    "body": "Burst: Reduce Burst roll values by 1.\nShoot: Reduce Shoot roll values by 1.",
+    "footer": "",
+    "upperRight": "",
+    "lowerCenter": "[ICON: red tab with black hexagonal cutout]",
+    "visibleText": "",
+    "confidentlyVisible": [
+      "White title centered above the weapon artwork",
+      "Yellow type line directly below the title",
+      "Artwork depicts a large futuristic handgun",
+      "Two color-coded rules lines appear below the artwork",
+      "A red tab-like symbol is centered at the bottom"
+    ],
+    "proposedCategory": "cards/game/item/ranged-weapon",
+    "proposedSlug": "heavy-handgun",
+    "confidence": "medium",
+    "uncertainties": [
+      "The lower-center red tab with a black hexagonal cutout does not confidently match any canonical glossary icon.",
+      "The lower-center symbol is clipped by the bottom image edge.",
+      "The component's outer boundary is cropped at the top and bottom."
+    ]
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Planning image loading implementation****Planning image loading implementation**\n**Analyzing image text orientation**\n\n**Mapping redItem badge position**\n\n**Reclassifying icon as ammoSlot**\n\n**Identifying central ammo slot on item card**\n\n**Assessing confidence in ranged-weapon card category****Analyzing image text orientation**\n**Mapping redItem badge position**\n**Reclassifying icon as ammoSlot**\n\n**Identifying central ammo slot on item card**\n{\"orientation\":\"rotate90ccw\",\"componentType\":\"ranged weapon item card\",\"cardSide\":\"face\",\"title\":\"HEAVY HANDGUN\",\"typeLine\":\"RANGED WEAPON\",\"body\":\"Burst: Reduce Burst roll values by 1.\\nShoot: Reduce Shoot roll values by 1.\",\"footer\":\"\",\"upperRight\":\"\",\"lowerCenter\":\"ammoSlot\",\"visibleText\":\"\",\"confidentlyVisible\":[\"Dark card face with an illustrated futuristic handgun\",\"Blood is visible across the handgun artwork\",\"Title is printed in white uppercase letters\",\"Type line is printed in yellow uppercase letters\",\"Burst is printed in purple\",\"Shoot is printed in red\",\"A red slot-like corner element contains a black capsule-shaped glyph\"],\"proposedCategory\":\"cards/game/item/ranged-weapon\",\"proposedSlug\":\"heavy-handgun\",\"confidence\":\"medium\",\"uncertainties\":[\"The red lower-center icon extends beyond the visible image boundary; its ammoSlot mapping is based on the visible red slot morphology and black capsule-shaped glyph, but the complete outline is clipped.\"]}\n\nsession_id: 20260815_054211_2366b4\n",
+  "initialParsed": {
+    "orientation": "rotate90ccw",
+    "componentType": "ranged weapon item card",
+    "cardSide": "face",
+    "title": "HEAVY HANDGUN",
+    "typeLine": "RANGED WEAPON",
+    "body": "Burst: Reduce Burst roll values by 1.\nShoot: Reduce Shoot roll values by 1.",
+    "footer": "",
+    "upperRight": "",
+    "lowerCenter": "ammoSlot",
+    "visibleText": "",
+    "confidentlyVisible": [
+      "Dark card face with an illustrated futuristic handgun",
+      "Blood is visible across the handgun artwork",
+      "Title is printed in white uppercase letters",
+      "Type line is printed in yellow uppercase letters",
+      "Burst is printed in purple",
+      "Shoot is printed in red",
+      "A red slot-like corner element contains a black capsule-shaped glyph"
+    ],
+    "proposedCategory": "cards/game/item/ranged-weapon",
+    "proposedSlug": "heavy-handgun",
+    "confidence": "medium",
+    "uncertainties": [
+      "The red lower-center icon extends beyond the visible image boundary; its ammoSlot mapping is based on the visible red slot morphology and black capsule-shaped glyph, but the complete outline is clipped."
+    ]
+  },
+  "initialSessionId": "20260815_054211_2366b4",
+  "orientationCorrection": "rotate90ccw",
+  "uprightRead": {
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "sessionId": "20260815_060543_e06392",
+    "completedAt": "2026-08-15T06:06:13Z",
+    "parsed": {
+      "orientation": "upright",
+      "componentType": "ranged weapon item card",
+      "cardSide": "face",
+      "title": "HEAVY HANDGUN",
+      "typeLine": "RANGED WEAPON",
+      "body": "Burst: Reduce Burst roll values by 1.\nShoot: Reduce Shoot roll values by 1.",
+      "footer": "",
+      "upperRight": "",
+      "lowerCenter": "[ICON: red tab with black hexagonal cutout]",
+      "visibleText": "",
+      "confidentlyVisible": [
+        "White title centered above the weapon artwork",
+        "Yellow type line directly below the title",
+        "Artwork depicts a large futuristic handgun",
+        "Two color-coded rules lines appear below the artwork",
+        "A red tab-like symbol is centered at the bottom"
+      ],
+      "proposedCategory": "cards/game/item/ranged-weapon",
+      "proposedSlug": "heavy-handgun",
+      "confidence": "medium",
+      "uncertainties": [
+        "The lower-center red tab with a black hexagonal cutout does not confidently match any canonical glossary icon.",
+        "The lower-center symbol is clipped by the bottom image edge.",
+        "The component's outer boundary is cropped at the top and bottom."
+      ]
+    },
+    "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Planning image analysis workflow****Planning image analysis workflow****Describing weapon card face details**\n\n\n**Identifying clipped card bottom symbol****Describing weapon card face details**\n\nsession_id: 20260815_060543_e06392\n{\"orientation\":\"upright\",\"componentType\":\"ranged weapon item card\",\"cardSide\":\"face\",\"title\":\"HEAVY HANDGUN\",\"typeLine\":\"RANGED WEAPON\",\"body\":\"Burst: Reduce Burst roll values by 1.\\nShoot: Reduce Shoot roll values by 1.\",\"footer\":\"\",\"upperRight\":\"\",\"lowerCenter\":\"[ICON: red tab with black hexagonal cutout]\",\"visibleText\":\"\",\"confidentlyVisible\":[\"White title centered above the weapon artwork\",\"Yellow type line directly below the title\",\"Artwork depicts a large futuristic handgun\",\"Two color-coded rules lines appear below the artwork\",\"A red tab-like symbol is centered at the bottom\"],\"proposedCategory\":\"cards/game/item/ranged-weapon\",\"proposedSlug\":\"heavy-handgun\",\"confidence\":\"medium\",\"uncertainties\":[\"The lower-center red tab with a black hexagonal cutout does not confidently match any canonical glossary icon.\",\"The lower-center symbol is clipped by the bottom image edge.\",\"The component's outer boundary is cropped at the top and bottom.\"]}\n"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoopCustomDeck-082.jpg",
+  "sourceSha256": "6fc50e739e56f4d1245f6f603a57dc69c3045f77de594925b54dd55c94e00c3e",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_053618_f1f42a",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:36:18Z",
+  "completedAt": "2026-08-15T05:36:30Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "objective card",
+    "cardSide": "face",
+    "title": "HQ TAKE BACK",
+    "typeLine": "",
+    "body": "The Facility must not be destroyed.",
+    "footer": "SOLO / COOP",
+    "upperRight": "",
+    "lowerCenter": "",
+    "visibleText": "[ICON: black biohazard glyph on yellow triangle]\nQUARANTINE",
+    "confidentlyVisible": [
+      "Portrait-format card face",
+      "Title reads “HQ TAKE BACK”",
+      "Rule text reads “The Facility must not be destroyed.”",
+      "Footer reads “SOLO / COOP” in green",
+      "Artwork depicts a sealed doorway crossed by yellow quarantine tape",
+      "A yellow triangular biohazard sign is visible on the doorway"
+    ],
+    "proposedCategory": "cards/game/objective",
+    "proposedSlug": "hq-take-back",
+    "confidence": "medium",
+    "uncertainties": [
+      "The artwork contains multiple repeated, partially obscured or clipped QUARANTINE labels; only the fully legible word is transcribed once.",
+      "The black biohazard glyph is not present in the supplied canonical icon glossary and is therefore described literally."
+    ]
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Planning JSON extraction with visibleText details**\n\n**Confirming icon morphology with medium confidence****Planning JSON extraction with visibleText details**\n{\"orientation\":\"upright\",\"componentType\":\"objective card\",\"cardSide\":\"face\",\"title\":\"HQ TAKE BACK\",\"typeLine\":\"\",\"body\":\"The Facility must not be destroyed.\",\"footer\":\"SOLO / COOP\",\"upperRight\":\"\",\"lowerCenter\":\"\",\"visibleText\":\"[ICON: black biohazard glyph on yellow triangle]\\nQUARANTINE\",\"confidentlyVisible\":[\"Portrait-format card face\",\"Title reads “HQ TAKE BACK”\",\"Rule text reads “The Facility must not be destroyed.”\",\"Footer reads “SOLO / COOP” in green\",\"Artwork depicts a sealed doorway crossed by yellow quarantine tape\",\"A yellow triangular biohazard sign is visible on the doorway\"],\"proposedCategory\":\"cards/game/objective\",\"proposedSlug\":\"hq-take-back\",\"confidence\":\"medium\",\"uncertainties\":[\"The artwork contains multiple repeated, partially obscured or clipped QUARANTINE labels; only the fully legible word is transcribed once.\",\"The black biohazard glyph is not present in the supplied canonical icon glossary and is therefore described literally.\"]}\n\nsession_id: 20260815_053618_f1f42a\n"
+}

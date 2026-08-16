@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "assetId": "W01-005",
+  "batchId": "batch-002",
+  "capturedAt": "2026-08-15T20:36:18Z",
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/bags/characterDraftDeck-027.jpg",
+  "sourceSha256": "8efe728f6363075041bf666a270206618bc141d8b34daeb2d72154b8b21c6ff7",
+  "runtimeProvenanceRef": "../metadata/runtime.json",
+  "blindAnalysis": true,
+  "metadataExcludedDuringPixelPass": [
+    "filename semantics",
+    "directory semantics",
+    "prior vision reads",
+    "TTS object metadata",
+    "game-context expectations"
+  ],
+  "orientationObservation": "The source is rotated 90 degrees clockwise relative to readable typography; rotate the FILE 90 degrees CCW to make the words horizontal and the helmet upright. This first pass is orientation detection only and requires a lossless staging reread.",
+  "blindPixelObservations": [
+    "Dark blue-black portrait canvas with a large detailed futuristic helmet/visor assembly dominating the center.",
+    "Cold white-blue rim light outlines the helmet; sparse red/pink reflections and floating particles punctuate the background.",
+    "Two large white uppercase words are printed sideways along the current left-central region."
+  ],
+  "visibleText": [
+    {
+      "text": "CHARACTER\nDRAFT",
+      "location": "sideways left-central in source orientation",
+      "structure": "two uppercase lines",
+      "confidence": "high",
+      "provisionalUntilUprightReread": true
+    }
+  ],
+  "iconObservations": [],
+  "uncertainties": [
+    "Final transcription and component classification are withheld until the lossless upright staging derivative is reread."
+  ]
+}

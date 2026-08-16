@@ -1,0 +1,69 @@
+{
+  "schemaVersion": 1,
+  "detectedAt": "2026-08-15T22:28:59.469194Z",
+  "assignmentPath": "assets/tts-mod/extract/vision-workers/sol-max-worker-05/assignment.json",
+  "classification": "hard mid-run assignment replacement after the frozen four-asset scope was processed",
+  "initial": {
+    "assignmentSha256": "1f2fc1037263f47ebe05fd908adccbe1304a8260c029ec343ea62817081999bb",
+    "orderedTupleSha256": "19e08552dfa28aa477cae0f5cdaad69cc82093222145edd244dd231dbc0d07a2",
+    "capturedAt": "2026-08-15T22:03:20.262495Z",
+    "assets": [
+      {
+        "assetId": "W05-001",
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-01.png",
+        "sourceSha256": "d293abad16af07498d8f485bd1ab67426be66a64d78c2fbd085ec4bac7dc0f4f"
+      },
+      {
+        "assetId": "W05-002",
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-02.png",
+        "sourceSha256": "4718ad2194859f3f1d1ecb72e52481616156dcacad27f46e4969c98cd64eddab"
+      },
+      {
+        "assetId": "W05-003",
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-05.png",
+        "sourceSha256": "27a5c1a5959ed93f93d508e0f0a8d07999e0d929a0b9874848c2c10b3accf4e7"
+      },
+      {
+        "assetId": "W05-004",
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-06.png",
+        "sourceSha256": "90cb405743269046b530add3108500d2e0eaefbd66fb9d55d7b42dd0cbbffa30"
+      }
+    ]
+  },
+  "current": {
+    "assignmentSha256": "06334362838c812e431912405d8fcd9ad21de70748cb6a5463088494f790f0ad",
+    "createdAt": "2026-08-15T22:24:42Z",
+    "assets": [
+      {
+        "assetId": "W04-009",
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-11.png",
+        "sourceSha256": "6dc254bf10b41c217cdfe6c4d3d3ca3a8bedd7eded6f7ae6e0a07b9f71d6a19e"
+      },
+      {
+        "assetId": "W04-010",
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-12.png",
+        "sourceSha256": "071501844b55d42daa48430786b944d8cf1fea711ad6994abf6d3a9c61b18245"
+      },
+      {
+        "assetId": "W04-011",
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-13.png",
+        "sourceSha256": "b3b209538a4ac8554ae6e5230f4a98b1fa1ff3bd8f89b3ccfbee53d115997e9e"
+      }
+    ],
+    "nextPendingAssetId": "W04-009",
+    "nextPendingSourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-11.png"
+  },
+  "workerAction": {
+    "processedOnlyFrozenInitialScope": true,
+    "processedInitialAssetIds": [
+      "W05-001",
+      "W05-002",
+      "W05-003",
+      "W05-004"
+    ],
+    "processedReplacementAssets": false,
+    "stoppedWithoutClaimingReplacement": true,
+    "reason": "User-delegated scope was exactly W05-001..W05-004 and collision workflow forbids silently accepting a rewritten assignment in the same active worker root."
+  },
+  "resolutionRequired": "Do not launch or merge a replacement sol-max-worker-05 run in this directory until the W05-001..W05-004 shard is ingested or moved to a distinct worker root."
+}

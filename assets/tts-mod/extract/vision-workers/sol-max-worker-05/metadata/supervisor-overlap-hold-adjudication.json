@@ -1,0 +1,84 @@
+{
+  "schemaVersion": 1,
+  "kind": "supervisor-overlap-hold-adjudication",
+  "recordedAt": "2026-08-15T22:52:45Z",
+  "workerId": "sol-max-worker-05",
+  "workerStatus": "completed",
+  "heldAssetIds": [
+    "W04-009",
+    "W04-010",
+    "W04-011"
+  ],
+  "heldResults": [
+    {
+      "assetId": "W04-009",
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-11.png",
+      "sourceSha256": "6dc254bf10b41c217cdfe6c4d3d3ca3a8bedd7eded6f7ae6e0a07b9f71d6a19e",
+      "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-worker-05/results/W04-009.json",
+      "resultSha256": "92d66c5e99801c2ea1a140c1609e441e0888c4bc2892948ddb2691552d7bca70",
+      "rawPath": "assets/tts-mod/extract/vision-workers/sol-max-worker-05/raw/W04-009.json",
+      "rawSha256": "674461e440c0b2437e0c3c899c62cbc363e2d5895010b570b69d47de6fbfdd14",
+      "decision": "defer"
+    },
+    {
+      "assetId": "W04-010",
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-12.png",
+      "sourceSha256": "071501844b55d42daa48430786b944d8cf1fea711ad6994abf6d3a9c61b18245",
+      "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-worker-05/results/W04-010.json",
+      "resultSha256": "bf35d481dd2146ce93ea2bf85856bba7ea0d7cdf2ef94be08d3376533c26d42d",
+      "rawPath": "assets/tts-mod/extract/vision-workers/sol-max-worker-05/raw/W04-010.json",
+      "rawSha256": "84efcdcb2e6e2866bb888eb706fa8d2208c981b471344667e62ca50c5e73b87c",
+      "decision": "defer"
+    },
+    {
+      "assetId": "W04-011",
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-13.png",
+      "sourceSha256": "b3b209538a4ac8554ae6e5230f4a98b1fa1ff3bd8f89b3ccfbee53d115997e9e",
+      "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-worker-05/results/W04-011.json",
+      "resultSha256": "07c1c68103988656dad567dbd22cc7ed1e8b53e52f750438500be1d3123c7647",
+      "rawPath": "assets/tts-mod/extract/vision-workers/sol-max-worker-05/raw/W04-011.json",
+      "rawSha256": "82d2e87acdbf33b9075c4bb3f3c0f276b22fa71043c61858304b415db23ac076",
+      "decision": "defer"
+    }
+  ],
+  "overlap": {
+    "selectedAuthoritativeWorker": "sol-max-worker-06",
+    "selectedDelegationId": "deleg_547cfe00",
+    "selectedSessionId": "20260815_224527_5f5db3",
+    "selectedAssignmentPath": "assets/tts-mod/extract/vision-workers/sol-max-worker-06/assignment.json",
+    "selectedAssignmentIds": [
+      "W06-001",
+      "W06-002",
+      "W06-003",
+      "W06-004"
+    ],
+    "overlappingSourcePaths": [
+      "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-11.png",
+      "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-12.png",
+      "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-13.png"
+    ],
+    "sourceTupleMatch": true,
+    "globalDelegationState": {
+      "delegation_id": "deleg_547cfe00",
+      "state": "running",
+      "dispatched_at": 1786833927.0364592,
+      "completed_at": null,
+      "owner_pid": 750842
+    },
+    "reason": "A later clean sibling worker owns the same exact source tuples in a separate root and has begun blind native processing; do not serialize both lineages into the canonical ledger.",
+    "resolution": "Worker 06 is the sole shared-ledger lineage; worker 05 is retained as corroborating direct icon-crop evidence for the three overlaps."
+  },
+  "stalePreexistingArtifactsExcluded": [
+    "W05-001",
+    "W05-002",
+    "W05-003",
+    "W05-004"
+  ],
+  "mergeAttempted": true,
+  "mergeApplied": true,
+  "canonicalWrites": false,
+  "sharedLedgersChanged": true,
+  "nextAction": "Resume at assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-16.png.",
+  "resolvedAt": "2026-08-16T03:20:33Z",
+  "reconciliationAuditPath": "assets/tts-mod/extract/vision-workers/supervisor-reconciliation-workers-05-06.json"
+}

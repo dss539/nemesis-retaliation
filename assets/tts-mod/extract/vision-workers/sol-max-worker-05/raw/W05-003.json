@@ -1,0 +1,91 @@
+{
+  "schemaVersion": 1,
+  "assetId": "W05-003",
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-05.png",
+  "sourceSha256": "27a5c1a5959ed93f93d508e0f0a8d07999e0d929a0b9874848c2c10b3accf4e7",
+  "nativeAttachment": {
+    "submittedAssetId": "W05-003",
+    "submittedCount": 1,
+    "returnedAssetId": "W05-003",
+    "returnedCount": 1,
+    "exactAbsolutePathAttached": "/home/smithers/nemesis-retaliation/assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-05.png",
+    "routeObservation": "functions.vision_analyze returned 'Image loaded into your context — you can see it natively now' to the active session model"
+  },
+  "orientation": {
+    "pixelOrientation": "upright",
+    "requiredTransform": "none",
+    "basis": "The title, body text, and footer read left-to-right in a vertically ordered portrait layout."
+  },
+  "blindPixelObservations": [
+    "A portrait-format illustrated rules card fills the image.",
+    "The upper artwork uses dark violet, blue, pink, orange, and black; an armed figure moves through a smoky industrial interior.",
+    "One standalone white-and-red crossed pictogram appears near the upper-right corner of the artwork.",
+    "A magenta-and-black title frame overlays the lower edge of the artwork.",
+    "Below the title is a short centered sentence followed by a two-line centered instruction containing one white pictogram.",
+    "The footer is black with widely spaced magenta letters."
+  ],
+  "visibleText": {
+    "title": "SCOUTING",
+    "firstLine": "Move.",
+    "body": "Before the Noise roll, place 1 [ICON: white downward-pointing faceted badge with dark Y-shaped internal divisions]\nin the Room you are Moving to.",
+    "footer": "RECON"
+  },
+  "iconMorphology": [
+    {
+      "iconId": "W05-003-glyph-01",
+      "location": "upper-right corner of the artwork, standalone",
+      "neighboringText": "No adjacent printed text; it is spatially separate from the title and body.",
+      "outerSilhouette": "A white horizontal gun- or tool-like silhouette crossed by a large red diagonal X; the red X has two broad strokes and extends beyond the white shape.",
+      "internalMarks": "A thin red horizontal detail is visible inside the white horizontal silhouette; dark edging/shadow separates the red X from parts of the white form.",
+      "colors": [
+        "white horizontal foreground shape",
+        "bright red X and red inner line",
+        "dark outline/shadow"
+      ],
+      "closestPlausibleCanonicalAlternatives": [
+        "notInCombat",
+        "literal no-shooting or crossed-out-weapon glyph not independently named in the glossary"
+      ],
+      "alternativeFalsification": {
+        "notInCombat": "The source pixels alone do not establish whether the crossed weapon means the canonical notInCombat concept or a narrower no-shooting concept; no semantic alternative is ruled out by the X itself.",
+        "literal no-shooting or crossed-out-weapon glyph not independently named in the glossary": "No visible pixel feature rules this literal alternative out in the blind stage."
+      },
+      "semanticIdentity": "unresolved literal morphology",
+      "canonicalTokenClaimed": false
+    },
+    {
+      "iconId": "W05-003-glyph-02",
+      "location": "body instruction, immediately after the printed numeral '1' and before the line break",
+      "neighboringText": "Before the Noise roll, place 1 [glyph]\nin the Room you are Moving to.",
+      "outerSilhouette": "A compact white badge or marker with a broad, shallow top and two sloping lower sides that meet at a downward point.",
+      "internalMarks": "Dark lines form a central vertical stem that forks upward into a Y or V, dividing the white shape into three faceted regions.",
+      "colors": [
+        "white foreground",
+        "dark purple/black internal Y-shaped lines and surrounding card background"
+      ],
+      "closestPlausibleCanonicalAlternatives": [
+        "noise",
+        "secure"
+      ],
+      "alternativeFalsification": {
+        "secure": "The visible dark Y-shaped internal division and pointed faceted lower profile differ from a plain undivided badge; however, source pixels alone do not establish the exact canonical token.",
+        "noise": "The source pixels do not rule this alternative out; no direct authoritative crop comparison is part of this blind record."
+      },
+      "semanticIdentity": "unresolved literal morphology",
+      "canonicalTokenClaimed": false
+    }
+  ],
+  "blindReadConfidence": {
+    "orientation": "high",
+    "materialText": "high",
+    "punctuation": "high",
+    "iconMorphology": "high for both silhouettes",
+    "iconSemanticIdentity": "low before authoritative comparison"
+  },
+  "blindUncertainties": [
+    "The upper-right crossed-weapon glyph has clear morphology but its game meaning cannot be inferred safely from pixels alone.",
+    "The inline faceted marker is visually clear, but a canonical token requires direct glossary comparison rather than contextual inference from the word Noise."
+  ],
+  "metadataUsedForSemanticReading": false,
+  "rawStage": "blind-pixel-observation-before-provenance-join"
+}

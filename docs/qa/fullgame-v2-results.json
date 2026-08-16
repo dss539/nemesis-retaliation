@@ -1,0 +1,1639 @@
+{
+  "result": "PASS",
+  "showstoppers": [],
+  "rounds_played": 15,
+  "game_over": true,
+  "winners": [
+    2
+  ],
+  "final_state": {
+    "round": 15,
+    "phase": "playerPhase",
+    "gameOver": true,
+    "currentPlayer": 3,
+    "actionsRemaining": 1,
+    "players": [
+      {
+        "id": 0,
+        "name": "Alpha",
+        "alive": false,
+        "connected": true,
+        "health": 3,
+        "maxHealth": 9,
+        "oxygen": 0,
+        "location": "sprinklersControl",
+        "backpack": 0,
+        "hand": 0,
+        "contam": 0,
+        "wounds": 0,
+        "larva": false,
+        "escaped": false,
+        "hibernated": false,
+        "suffocating": true,
+        "chosenObj": "mo4",
+        "inLander": false,
+        "passed": false
+      },
+      {
+        "id": 1,
+        "name": "Bravo",
+        "alive": false,
+        "connected": true,
+        "health": 3,
+        "maxHealth": 9,
+        "oxygen": 0,
+        "location": "surgeryRoom",
+        "backpack": 0,
+        "hand": 0,
+        "contam": 0,
+        "wounds": 0,
+        "larva": false,
+        "escaped": false,
+        "hibernated": false,
+        "suffocating": true,
+        "chosenObj": "mo2",
+        "inLander": false,
+        "passed": false
+      },
+      {
+        "id": 2,
+        "name": "Charlie",
+        "alive": true,
+        "connected": true,
+        "health": 6,
+        "maxHealth": 9,
+        "oxygen": 7,
+        "location": "hibernatorium",
+        "backpack": 0,
+        "hand": 1,
+        "contam": 0,
+        "wounds": 1,
+        "larva": false,
+        "escaped": false,
+        "hibernated": false,
+        "suffocating": false,
+        "chosenObj": "mo5",
+        "inLander": false,
+        "passed": true
+      },
+      {
+        "id": 3,
+        "name": "Delta",
+        "alive": true,
+        "connected": true,
+        "health": 6,
+        "maxHealth": 9,
+        "oxygen": 7,
+        "location": "commsRoom",
+        "backpack": 1,
+        "hand": 1,
+        "contam": 0,
+        "wounds": 0,
+        "larva": false,
+        "escaped": false,
+        "hibernated": false,
+        "suffocating": false,
+        "chosenObj": "mo3",
+        "inLander": false,
+        "passed": true
+      }
+    ],
+    "rooms": [
+      {
+        "id": "landingZone",
+        "position": {
+          "x": 0,
+          "y": 0
+        },
+        "section": "A",
+        "discovered": true,
+        "fire": false,
+        "malfunction": false,
+        "secure": 0,
+        "exits": {
+          "S": "corridor_1785106890674_0.5222816961822466",
+          "E": "corridor_1785106890802_0.28057673189621424",
+          "SE": "corridor_1785106890949_0.888159734197964"
+        }
+      },
+      {
+        "id": "airlock",
+        "position": {
+          "x": 0,
+          "y": 1
+        },
+        "section": "A",
+        "discovered": true,
+        "fire": false,
+        "malfunction": false,
+        "secure": 1,
+        "exits": {
+          "N": "corridor_1785106890674_0.5222816961822466",
+          "SE": "corridor_1785106891481_0.7043696607450441"
+        }
+      },
+      {
+        "id": "laboratory",
+        "position": {
+          "x": 1,
+          "y": 0
+        },
+        "section": "A",
+        "discovered": true,
+        "fire": false,
+        "malfunction": false,
+        "secure": 0,
+        "exits": {
+          "W": "corridor_1785106890802_0.28057673189621424",
+          "E": "corridor_1785106891071_0.8803700953705357"
+        }
+      },
+      {
+        "id": "technicalCorridorEntrance",
+        "position": {
+          "x": 1,
+          "y": 1
+        },
+        "section": "A",
+        "discovered": true,
+        "fire": false,
+        "malfunction": false,
+        "secure": 2,
+        "exits": {
+          "NW": "corridor_1785106890949_0.888159734197964",
+          "SW": "corridor_1785106891195_0.26229399336452264",
+          "SE": "corridor_1785106892168_0.7712498284285818"
+        }
+      },
+      {
+        "id": "shelter",
+        "position": {
+          "x": 2,
+          "y": 0
+        },
+        "section": "A",
+        "discovered": true,
+        "fire": false,
+        "malfunction": false,
+        "secure": 0,
+        "exits": {
+          "W": "corridor_1785106891071_0.8803700953705357",
+          "E": "corridor_1785106893026_0.12892673333434324"
+        }
+      },
+      {
+        "id": "drillingRoom",
+        "position": {
+          "x": 0,
+          "y": 2
+        },
+        "section": "A",
+        "discovered": true,
+        "fire": false,
+        "malfunction": false,
+        "secure": 1,
+        "exits": {
+          "NE": "corridor_1785106891195_0.26229399336452264",
+          "SE": "corridor_1785106891808_0.557012513808998"
+        }
+      },
+      {
+        "id": "lifeSupportControlA",
+        "position": {
+          "x": 1,
+          "y": 2
+        },
+        "section": "A",
+        "discovered": true,
+        "fire": false,
+        "malfunction": false,
+        "secure": 0,
+        "exits": {
+          "NW": "corridor_1785106891481_0.7043696607450441",
+          "NE": "corridor_1785106891979_0.1585749038817279"
+        }
+      },
+      {
+        "id": "sprinklersControl",
+        "position": {
+          "x": 1,
+          "y": 3
+        },
+        "section": "A",
+        "discovered": true,
+        "fire": false,
+        "malfunction": false,
+        "secure": 0,
+        "exits": {
+          "NW": "corridor_1785106891808_0.557012513808998"
+        }
+      },
+      {
+        "id": "surgeryRoom",
+        "position": {
+          "x": 2,
+          "y": 1
+        },
+        "section": "A",
+        "discovered": true,
+        "fire": false,
+        "malfunction": false,
+        "secure": 0,
+        "exits": {
+          "SW": "corridor_1785106891979_0.1585749038817279"
+        }
+      },
+      {
+        "id": "wasteDisposal",
+        "position": {
+          "x": 2,
+          "y": 2
+        },
+        "section": "A",
+        "discovered": true,
+        "fire": false,
+        "malfunction": false,
+        "secure": 0,
+        "exits": {
+          "NW": "corridor_1785106892168_0.7712498284285818",
+          "S": "corridor_1785106892310_0.7875590624134956"
+        }
+      },
+      {
+        "id": "gunneryRoom",
+        "position": {
+          "x": 2,
+          "y": 3
+        },
+        "section": "A",
+        "discovered": true,
+        "fire": false,
+        "malfunction": false,
+        "secure": 1,
+        "exits": {
+          "N": "corridor_1785106892310_0.7875590624134956",
+          "NE": "corridor_1785106892826_0.17842002991142347"
+        }
+      },
+      {
+        "id": "hibernatorium",
+        "position": {
+          "x": 3,
+          "y": 2
+        },
+        "section": "B",
+        "discovered": true,
+        "fire": false,
+        "malfunction": false,
+        "secure": 0,
+        "exits": {
+          "SW": "corridor_1785106892826_0.17842002991142347"
+        }
+      },
+      {
+        "id": "commsRoom",
+        "position": {
+          "x": 3,
+          "y": 0
+        },
+        "section": "B",
+        "discovered": true,
+        "fire": false,
+        "malfunction": false,
+        "secure": 0,
+        "exits": {
+          "W": "corridor_1785106893026_0.12892673333434324"
+        }
+      }
+    ],
+    "corridors": [
+      {
+        "id": "corridor_1785106890674_0.5222816961822466",
+        "room1": "landingZone",
+        "room2": "airlock",
+        "dir1": "S",
+        "dir2": "N",
+        "door": "closed",
+        "noise": false,
+        "reinforced": false,
+        "value": 1
+      },
+      {
+        "id": "corridor_1785106890802_0.28057673189621424",
+        "room1": "landingZone",
+        "room2": "laboratory",
+        "dir1": "E",
+        "dir2": "W",
+        "door": "open",
+        "noise": false,
+        "reinforced": false,
+        "value": 1
+      },
+      {
+        "id": "corridor_1785106890949_0.888159734197964",
+        "room1": "landingZone",
+        "room2": "technicalCorridorEntrance",
+        "dir1": "SE",
+        "dir2": "NW",
+        "door": "open",
+        "noise": true,
+        "reinforced": false,
+        "value": 1
+      },
+      {
+        "id": "corridor_1785106891071_0.8803700953705357",
+        "room1": "laboratory",
+        "room2": "shelter",
+        "dir1": "E",
+        "dir2": "W",
+        "door": "open",
+        "noise": false,
+        "reinforced": false,
+        "value": 2
+      },
+      {
+        "id": "corridor_1785106891195_0.26229399336452264",
+        "room1": "technicalCorridorEntrance",
+        "room2": "drillingRoom",
+        "dir1": "SW",
+        "dir2": "NE",
+        "door": "closed",
+        "noise": false,
+        "reinforced": false,
+        "value": 2
+      },
+      {
+        "id": "corridor_1785106891481_0.7043696607450441",
+        "room1": "airlock",
+        "room2": "lifeSupportControlA",
+        "dir1": "SE",
+        "dir2": "NW",
+        "door": "open",
+        "noise": false,
+        "reinforced": false,
+        "value": 3
+      },
+      {
+        "id": "corridor_1785106891808_0.557012513808998",
+        "room1": "drillingRoom",
+        "room2": "sprinklersControl",
+        "dir1": "SE",
+        "dir2": "NW",
+        "door": "open",
+        "noise": false,
+        "reinforced": false,
+        "value": 3
+      },
+      {
+        "id": "corridor_1785106891979_0.1585749038817279",
+        "room1": "lifeSupportControlA",
+        "room2": "surgeryRoom",
+        "dir1": "NE",
+        "dir2": "SW",
+        "door": "open",
+        "noise": false,
+        "reinforced": false,
+        "value": 3
+      },
+      {
+        "id": "corridor_1785106892168_0.7712498284285818",
+        "room1": "technicalCorridorEntrance",
+        "room2": "wasteDisposal",
+        "dir1": "SE",
+        "dir2": "NW",
+        "door": "open",
+        "noise": false,
+        "reinforced": false,
+        "value": 2
+      },
+      {
+        "id": "corridor_1785106892310_0.7875590624134956",
+        "room1": "wasteDisposal",
+        "room2": "gunneryRoom",
+        "dir1": "S",
+        "dir2": "N",
+        "door": "open",
+        "noise": false,
+        "reinforced": false,
+        "value": 2
+      },
+      {
+        "id": "corridor_1785106892826_0.17842002991142347",
+        "room1": "gunneryRoom",
+        "room2": "hibernatorium",
+        "dir1": "NE",
+        "dir2": "SW",
+        "door": "open",
+        "noise": false,
+        "reinforced": false,
+        "value": 4
+      },
+      {
+        "id": "corridor_1785106893026_0.12892673333434324",
+        "room1": "shelter",
+        "room2": "commsRoom",
+        "dir1": "E",
+        "dir2": "W",
+        "door": "closed",
+        "noise": false,
+        "reinforced": false,
+        "value": 4
+      }
+    ],
+    "intruders": [
+      {
+        "id": "intruder_1785106890608_0.47010512720461617",
+        "type": "adult",
+        "loc": "corridor_1785106890674_0.5222816961822466",
+        "locType": "corridor",
+        "hits": 0
+      },
+      {
+        "id": "intruder_1785106890608_0.5732657896398105",
+        "type": "adult",
+        "loc": "corridor_1785106890674_0.5222816961822466",
+        "locType": "corridor",
+        "hits": 0
+      },
+      {
+        "id": "intruder_ev19_1785106891412",
+        "type": "drone",
+        "loc": "nest",
+        "locType": "room",
+        "hits": 0
+      },
+      {
+        "id": "intruder_1785106891481_0.9421864747159093",
+        "type": "adult",
+        "loc": "corridor_1785106890674_0.5222816961822466",
+        "locType": "corridor",
+        "hits": 0
+      },
+      {
+        "id": "intruder_1785106896222_0.9547711286549917",
+        "type": "drone",
+        "loc": "corridor_1785106890674_0.5222816961822466",
+        "locType": "corridor",
+        "hits": 0
+      },
+      {
+        "id": "intruder_1785106896232_0.929775871451408",
+        "type": "adult",
+        "loc": "corridor_1785106890674_0.5222816961822466",
+        "locType": "corridor",
+        "hits": 0
+      }
+    ],
+    "queen": {
+      "inPlay": false,
+      "dead": false,
+      "hits": 0,
+      "healthCards": 12
+    },
+    "nest": {
+      "eggs": 5,
+      "destroyed": false
+    },
+    "autodestruction": {
+      "active": false,
+      "token": null
+    },
+    "eventDeck": 16,
+    "eventDiscard": 4,
+    "intruderBag": 70,
+    "intruderPool": {
+      "drone": 6,
+      "adult": 12,
+      "larva": 6,
+      "queen": 1
+    },
+    "winners": [
+      2
+    ],
+    "log": [
+      "Charlie's turn begins",
+      "Charlie moves to explore_312",
+      "Charlie passes",
+      "Delta's turn begins",
+      "Delta moves to explore_318",
+      "Delta passes",
+      "-- Intruder Phase --",
+      "-- Event Phase --",
+      "Event: Nest Awakening",
+      "-- Cleanup Phase --",
+      "=== Game Over ===",
+      "Charlie wins! Objective: Ulterior Motive"
+    ]
+  },
+  "round_summaries": [
+    {
+      "round": 2,
+      "players": [
+        {
+          "name": "Alpha",
+          "alive": true,
+          "hp": 3,
+          "oxy": 7,
+          "loc": "drillingRoom",
+          "escaped": false,
+          "hibernated": false,
+          "larva": false,
+          "wounds": 0,
+          "contam": 0,
+          "hand": 1
+        },
+        {
+          "name": "Bravo",
+          "alive": true,
+          "hp": 6,
+          "oxy": 7,
+          "loc": "airlock",
+          "escaped": false,
+          "hibernated": false,
+          "larva": false,
+          "wounds": 0,
+          "contam": 0,
+          "hand": 3
+        },
+        {
+          "name": "Charlie",
+          "alive": true,
+          "hp": 7,
+          "oxy": 7,
+          "loc": "landingZone",
+          "escaped": false,
+          "hibernated": false,
+          "larva": false,
+          "wounds": 0,
+          "contam": 1,
+          "hand": 6
+        },
+        {
+          "name": "Delta",
+          "alive": true,
+          "hp": 6,
+          "oxy": 7,
+          "loc": "shelter",
+          "escaped": false,
+          "hibernated": false,
+          "larva": false,
+          "wounds": 0,
+          "contam": 0,
+          "hand": 1
+        }
+      ],
+      "rooms": 6,
+      "corridors": 5,
+      "intruders": 3,
+      "intruder_types": [
+        "adult",
+        "adult",
+        "drone"
+      ],
+      "queen": {
+        "inPlay": false,
+        "dead": false,
+        "hits": 0,
+        "healthCards": 12
+      },
+      "nest": {
+        "eggs": 5,
+        "destroyed": false
+      },
+      "bag_size": 45,
+      "events": [
+        "-- Intruder Phase --",
+        "-- Event Phase --",
+        "Event: Nest Defense",
+        "-- Cleanup Phase --",
+        "=== Round 2 ==="
+      ]
+    },
+    {
+      "round": 3,
+      "players": [
+        {
+          "name": "Alpha",
+          "alive": true,
+          "hp": 3,
+          "oxy": 7,
+          "loc": "sprinklersControl",
+          "escaped": false,
+          "hibernated": false,
+          "larva": false,
+          "wounds": 0,
+          "contam": 0,
+          "hand": 1
+        },
+        {
+          "name": "Bravo",
+          "alive": true,
+          "hp": 3,
+          "oxy": 7,
+          "loc": "surgeryRoom",
+          "escaped": false,
+          "hibernated": false,
+          "larva": false,
+          "wounds": 0,
+          "contam": 0,
+          "hand": 1
+        },
+        {
+          "name": "Charlie",
+          "alive": true,
+          "hp": 6,
+          "oxy": 7,
+          "loc": "gunneryRoom",
+          "escaped": false,
+          "hibernated": false,
+          "larva": false,
+          "wounds": 1,
+          "contam": 0,
+          "hand": 1
+        },
+        {
+          "name": "Delta",
+          "alive": true,
+          "hp": 6,
+          "oxy": 7,
+          "loc": "shelter",
+          "escaped": false,
+          "hibernated": false,
+          "larva": false,
+          "wounds": 0,
+          "contam": 0,
+          "hand": 1
+        }
+      ],
+      "rooms": 11,
+      "corridors": 10,
+      "intruders": 4,
+      "intruder_types": [
+        "adult",
+        "adult",
+        "drone",
+        "adult"
+      ],
+      "queen": {
+        "inPlay": false,
+        "dead": false,
+        "hits": 0,
+        "healthCards": 12
+      },
+      "nest": {
+        "eggs": 5,
+        "destroyed": false
+      },
+      "bag_size": 45,
+      "events": [
+        "-- Intruder Phase --",
+        "-- Event Phase --",
+        "Event: Nest Awakening",
+        "-- Cleanup Phase --",
+        "=== Round 3 ==="
+      ]
+    },
+    {
+      "round": 4,
+      "players": [
+        {
+          "name": "Alpha",
+          "alive": true,
+          "hp": 3,
+          "oxy": 7,
+          "loc": "sprinklersControl",
+          "escaped": false,
+          "hibernated": false,
+          "larva": false,
+          "wounds": 0,
+          "contam": 0,
+          "hand": 1
+        },
+        {
+          "name": "Bravo",
+          "alive": true,
+          "hp": 3,
+          "oxy": 7,
+          "loc": "surgeryRoom",
+          "escaped": false,
+          "hibernated": false,
+          "larva": false,
+          "wounds": 0,
+          "contam": 0,
+          "hand": 1
+        },
+        {
+          "name": "Charlie",
+          "alive": true,
+          "hp": 6,
+          "oxy": 7,
+          "loc": "hibernatorium",
+          "escaped": false,
+          "hibernated": false,
+          "larva": false,
+          "wounds": 1,
+          "contam": 0,
+          "hand": 1
+        },
+        {
+          "name": "Delta",
+          "alive": true,
+          "hp": 6,
+          "oxy": 7,
+          "loc": "commsRoom",
+          "escaped": false,
+          "hibernated": false,
+          "larva": false,
+          "wounds": 0,
+          "contam": 0,
+          "hand": 1
+        }
+      ],
+      "rooms": 13,
+      "corridors": 12,
+      "intruders": 4,
+      "intruder_types": [
+        "adult",
+        "adult",
+        "drone",
+        "adult"
+      ],
+      "queen": {
+        "inPlay": false,
+        "dead": false,
+        "hits": 0,
+        "healthCards": 12
+      },
+      "nest": {
+        "eggs": 5,
+        "destroyed": false
+      },
+      "bag_size": 46,
+      "events": [
+        "-- Intruder Phase --",
+        "-- Event Phase --",
+        "Event: Malfunction",
+        "-- Cleanup Phase --",
+        "=== Round 4 ==="
+      ]
+    },
+    {
+      "round": 5,
+      "players": [
+        {
+          "name": "Alpha",
+          "alive": true,
+          "hp": 3,
+          "oxy": 7,
+          "loc": "sprinklersControl",
+          "escaped": false,
+          "hibernated": false,
+          "larva": false,
+          "wounds": 0,
+          "contam": 0,
+          "hand": 1
+        },
+        {
+          "name": "Bravo",
+          "alive": true,
+          "hp": 3,
+          "oxy": 7,
+          "loc": "surgeryRoom",
+          "escaped": false,
+          "hibernated": false,
+          "larva": false,
+          "wounds": 0,
+          "contam": 0,
+          "hand": 1
+        },
+        {
+          "name": "Charlie",
+          "alive": true,
+          "hp": 6,
+          "oxy": 7,
+          "loc": "hibernatorium",
+          "escaped": false,
+          "hibernated": false,
+          "larva": false,
+          "wounds": 1,
+          "contam": 0,
+          "hand": 1
+        },
+        {
+          "name": "Delta",
+          "alive": true,
+          "hp": 6,
+          "oxy": 7,
+          "loc": "commsRoom",
+          "escaped": false,
+          "hibernated": false,
+          "larva": false,
+          "wounds": 0,
+          "contam": 0,
+          "hand": 1
+        }
+      ],
+      "rooms": 13,
+      "corridors": 12,
+      "intruders": 4,
+      "intruder_types": [
+        "adult",
+        "adult",
+        "drone",
+        "adult"
+      ],
+      "queen": {
+        "inPlay": false,
+        "dead": false,
+        "hits": 0,
+        "healthCards": 12
+      },
+      "nest": {
+        "eggs": 5,
+        "destroyed": false
+      },
+      "bag_size": 47,
+      "events": [
+        "-- Intruder Phase --",
+        "-- Event Phase --",
+        "Event: Emergency Lighting",
+        "-- Cleanup Phase --",
+        "=== Round 5 ==="
+      ]
+    },
+    {
+      "round": 6,
+      "players": [
+        {
+          "name": "Alpha",
+          "alive": true,
+          "hp": 3,
+          "oxy": 7,
+          "loc": "sprinklersControl",
+          "escaped": false,
+          "hibernated": false,
+          "larva": false,
+          "wounds": 0,
+          "contam": 0,
+          "hand": 1
+        },
+        {
+          "name": "Bravo",
+          "alive": true,
+          "hp": 3,
+          "oxy": 7,
+          "loc": "surgeryRoom",
+          "escaped": false,
+          "hibernated": false,
+          "larva": false,
+          "wounds": 0,
+          "contam": 0,
+          "hand": 1
+        },
+        {
+          "name": "Charlie",
+          "alive": true,
+          "hp": 6,
+          "oxy": 7,
+          "loc": "hibernatorium",
+          "escaped": false,
+          "hibernated": false,
+          "larva": false,
+          "wounds": 1,
+          "contam": 0,
+          "hand": 1
+        },
+        {
+          "name": "Delta",
+          "alive": true,
+          "hp": 6,
+          "oxy": 7,
+          "loc": "commsRoom",
+          "escaped": false,
+          "hibernated": false,
+          "larva": false,
+          "wounds": 0,
+          "contam": 0,
+          "hand": 1
+        }
+      ],
+      "rooms": 13,
+      "corridors": 12,
+      "intruders": 4,
+      "intruder_types": [
+        "adult",
+        "adult",
+        "drone",
+        "adult"
+      ],
+      "queen": {
+        "inPlay": false,
+        "dead": false,
+        "hits": 0,
+        "healthCards": 12
+      },
+      "nest": {
+        "eggs": 5,
+        "destroyed": false
+      },
+      "bag_size": 49,
+      "events": [
+        "-- Intruder Phase --",
+        "-- Event Phase --",
+        "Event: Power Surge",
+        "-- Cleanup Phase --",
+        "=== Round 6 ==="
+      ]
+    },
+    {
+      "round": 7,
+      "players": [
+        {
+          "name": "Alpha",
+          "alive": true,
+          "hp": 3,
+          "oxy": 6,
+          "loc": "sprinklersControl",
+          "escaped": false,
+          "hibernated": false,
+          "larva": false,
+          "wounds": 0,
+          "contam": 0,
+          "hand": 1
+        },
+        {
+          "name": "Bravo",
+          "alive": true,
+          "hp": 3,
+          "oxy": 6,
+          "loc": "surgeryRoom",
+          "escaped": false,
+          "hibernated": false,
+          "larva": false,
+          "wounds": 0,
+          "contam": 0,
+          "hand": 1
+        },
+        {
+          "name": "Charlie",
+          "alive": true,
+          "hp": 6,
+          "oxy": 7,
+          "loc": "hibernatorium",
+          "escaped": false,
+          "hibernated": false,
+          "larva": false,
+          "wounds": 1,
+          "contam": 0,
+          "hand": 1
+        },
+        {
+          "name": "Delta",
+          "alive": true,
+          "hp": 6,
+          "oxy": 7,
+          "loc": "commsRoom",
+          "escaped": false,
+          "hibernated": false,
+          "larva": false,
+          "wounds": 0,
+          "contam": 0,
+          "hand": 1
+        }
+      ],
+      "rooms": 13,
+      "corridors": 12,
+      "intruders": 6,
+      "intruder_types": [
+        "adult",
+        "adult",
+        "drone",
+        "adult",
+        "drone",
+        "adult"
+      ],
+      "queen": {
+        "inPlay": false,
+        "dead": false,
+        "hits": 0,
+        "healthCards": 12
+      },
+      "nest": {
+        "eggs": 5,
+        "destroyed": false
+      },
+      "bag_size": 49,
+      "events": [
+        "-- Intruder Phase --",
+        "-- Event Phase --",
+        "Event: Infestation",
+        "-- Cleanup Phase --",
+        "=== Round 7 ==="
+      ]
+    },
+    {
+      "round": 8,
+      "players": [
+        {
+          "name": "Alpha",
+          "alive": true,
+          "hp": 3,
+          "oxy": 5,
+          "loc": "sprinklersControl",
+          "escaped": false,
+          "hibernated": false,
+          "larva": false,
+          "wounds": 0,
+          "contam": 0,
+          "hand": 1
+        },
+        {
+          "name": "Bravo",
+          "alive": true,
+          "hp": 3,
+          "oxy": 5,
+          "loc": "surgeryRoom",
+          "escaped": false,
+          "hibernated": false,
+          "larva": false,
+          "wounds": 0,
+          "contam": 0,
+          "hand": 1
+        },
+        {
+          "name": "Charlie",
+          "alive": true,
+          "hp": 6,
+          "oxy": 7,
+          "loc": "hibernatorium",
+          "escaped": false,
+          "hibernated": false,
+          "larva": false,
+          "wounds": 1,
+          "contam": 0,
+          "hand": 1
+        },
+        {
+          "name": "Delta",
+          "alive": true,
+          "hp": 6,
+          "oxy": 7,
+          "loc": "commsRoom",
+          "escaped": false,
+          "hibernated": false,
+          "larva": false,
+          "wounds": 0,
+          "contam": 0,
+          "hand": 1
+        }
+      ],
+      "rooms": 13,
+      "corridors": 12,
+      "intruders": 6,
+      "intruder_types": [
+        "adult",
+        "adult",
+        "drone",
+        "adult",
+        "drone",
+        "adult"
+      ],
+      "queen": {
+        "inPlay": false,
+        "dead": false,
+        "hits": 0,
+        "healthCards": 12
+      },
+      "nest": {
+        "eggs": 5,
+        "destroyed": false
+      },
+      "bag_size": 51,
+      "events": [
+        "-- Intruder Phase --",
+        "-- Event Phase --",
+        "Event: Breeding",
+        "-- Cleanup Phase --",
+        "=== Round 8 ==="
+      ]
+    },
+    {
+      "round": 9,
+      "players": [
+        {
+          "name": "Alpha",
+          "alive": true,
+          "hp": 3,
+          "oxy": 4,
+          "loc": "sprinklersControl",
+          "escaped": false,
+          "hibernated": false,
+          "larva": false,
+          "wounds": 0,
+          "contam": 0,
+          "hand": 1
+        },
+        {
+          "name": "Bravo",
+          "alive": true,
+          "hp": 3,
+          "oxy": 4,
+          "loc": "surgeryRoom",
+          "escaped": false,
+          "hibernated": false,
+          "larva": false,
+          "wounds": 0,
+          "contam": 0,
+          "hand": 1
+        },
+        {
+          "name": "Charlie",
+          "alive": true,
+          "hp": 6,
+          "oxy": 7,
+          "loc": "hibernatorium",
+          "escaped": false,
+          "hibernated": false,
+          "larva": false,
+          "wounds": 1,
+          "contam": 0,
+          "hand": 1
+        },
+        {
+          "name": "Delta",
+          "alive": true,
+          "hp": 6,
+          "oxy": 7,
+          "loc": "commsRoom",
+          "escaped": false,
+          "hibernated": false,
+          "larva": false,
+          "wounds": 0,
+          "contam": 0,
+          "hand": 1
+        }
+      ],
+      "rooms": 13,
+      "corridors": 12,
+      "intruders": 6,
+      "intruder_types": [
+        "adult",
+        "adult",
+        "drone",
+        "adult",
+        "drone",
+        "adult"
+      ],
+      "queen": {
+        "inPlay": false,
+        "dead": false,
+        "hits": 0,
+        "healthCards": 12
+      },
+      "nest": {
+        "eggs": 5,
+        "destroyed": false
+      },
+      "bag_size": 53,
+      "events": [
+        "-- Intruder Phase --",
+        "-- Event Phase --",
+        "Event: Fire Outbreak",
+        "-- Cleanup Phase --",
+        "=== Round 9 ==="
+      ]
+    },
+    {
+      "round": 10,
+      "players": [
+        {
+          "name": "Alpha",
+          "alive": true,
+          "hp": 3,
+          "oxy": 3,
+          "loc": "sprinklersControl",
+          "escaped": false,
+          "hibernated": false,
+          "larva": false,
+          "wounds": 0,
+          "contam": 1,
+          "hand": 1
+        },
+        {
+          "name": "Bravo",
+          "alive": true,
+          "hp": 3,
+          "oxy": 3,
+          "loc": "surgeryRoom",
+          "escaped": false,
+          "hibernated": false,
+          "larva": false,
+          "wounds": 0,
+          "contam": 1,
+          "hand": 1
+        },
+        {
+          "name": "Charlie",
+          "alive": true,
+          "hp": 6,
+          "oxy": 7,
+          "loc": "hibernatorium",
+          "escaped": false,
+          "hibernated": false,
+          "larva": false,
+          "wounds": 1,
+          "contam": 1,
+          "hand": 1
+        },
+        {
+          "name": "Delta",
+          "alive": true,
+          "hp": 6,
+          "oxy": 7,
+          "loc": "commsRoom",
+          "escaped": false,
+          "hibernated": false,
+          "larva": false,
+          "wounds": 0,
+          "contam": 1,
+          "hand": 1
+        }
+      ],
+      "rooms": 13,
+      "corridors": 12,
+      "intruders": 6,
+      "intruder_types": [
+        "adult",
+        "adult",
+        "drone",
+        "adult",
+        "drone",
+        "adult"
+      ],
+      "queen": {
+        "inPlay": false,
+        "dead": false,
+        "hits": 0,
+        "healthCards": 12
+      },
+      "nest": {
+        "eggs": 5,
+        "destroyed": false
+      },
+      "bag_size": 55,
+      "events": [
+        "-- Intruder Phase --",
+        "-- Event Phase --",
+        "Event: Contamination Leak",
+        "-- Cleanup Phase --",
+        "=== Round 10 ==="
+      ]
+    },
+    {
+      "round": 11,
+      "players": [
+        {
+          "name": "Alpha",
+          "alive": true,
+          "hp": 3,
+          "oxy": 2,
+          "loc": "sprinklersControl",
+          "escaped": false,
+          "hibernated": false,
+          "larva": false,
+          "wounds": 0,
+          "contam": 0,
+          "hand": 1
+        },
+        {
+          "name": "Bravo",
+          "alive": true,
+          "hp": 3,
+          "oxy": 2,
+          "loc": "surgeryRoom",
+          "escaped": false,
+          "hibernated": false,
+          "larva": false,
+          "wounds": 0,
+          "contam": 0,
+          "hand": 1
+        },
+        {
+          "name": "Charlie",
+          "alive": true,
+          "hp": 6,
+          "oxy": 7,
+          "loc": "hibernatorium",
+          "escaped": false,
+          "hibernated": false,
+          "larva": false,
+          "wounds": 1,
+          "contam": 0,
+          "hand": 1
+        },
+        {
+          "name": "Delta",
+          "alive": true,
+          "hp": 6,
+          "oxy": 7,
+          "loc": "commsRoom",
+          "escaped": false,
+          "hibernated": false,
+          "larva": false,
+          "wounds": 0,
+          "contam": 0,
+          "hand": 1
+        }
+      ],
+      "rooms": 13,
+      "corridors": 12,
+      "intruders": 6,
+      "intruder_types": [
+        "adult",
+        "adult",
+        "drone",
+        "adult",
+        "drone",
+        "adult"
+      ],
+      "queen": {
+        "inPlay": false,
+        "dead": false,
+        "hits": 0,
+        "healthCards": 12
+      },
+      "nest": {
+        "eggs": 5,
+        "destroyed": false
+      },
+      "bag_size": 58,
+      "events": [
+        "-- Intruder Phase --",
+        "-- Event Phase --",
+        "Event: Alarm",
+        "-- Cleanup Phase --",
+        "=== Round 11 ==="
+      ]
+    },
+    {
+      "round": 12,
+      "players": [
+        {
+          "name": "Alpha",
+          "alive": true,
+          "hp": 3,
+          "oxy": 1,
+          "loc": "sprinklersControl",
+          "escaped": false,
+          "hibernated": false,
+          "larva": false,
+          "wounds": 0,
+          "contam": 0,
+          "hand": 1
+        },
+        {
+          "name": "Bravo",
+          "alive": true,
+          "hp": 3,
+          "oxy": 1,
+          "loc": "surgeryRoom",
+          "escaped": false,
+          "hibernated": false,
+          "larva": false,
+          "wounds": 0,
+          "contam": 0,
+          "hand": 1
+        },
+        {
+          "name": "Charlie",
+          "alive": true,
+          "hp": 6,
+          "oxy": 7,
+          "loc": "hibernatorium",
+          "escaped": false,
+          "hibernated": false,
+          "larva": false,
+          "wounds": 1,
+          "contam": 0,
+          "hand": 1
+        },
+        {
+          "name": "Delta",
+          "alive": true,
+          "hp": 6,
+          "oxy": 7,
+          "loc": "commsRoom",
+          "escaped": false,
+          "hibernated": false,
+          "larva": false,
+          "wounds": 0,
+          "contam": 0,
+          "hand": 1
+        }
+      ],
+      "rooms": 13,
+      "corridors": 12,
+      "intruders": 6,
+      "intruder_types": [
+        "adult",
+        "adult",
+        "drone",
+        "adult",
+        "drone",
+        "adult"
+      ],
+      "queen": {
+        "inPlay": false,
+        "dead": false,
+        "hits": 0,
+        "healthCards": 12
+      },
+      "nest": {
+        "eggs": 5,
+        "destroyed": false
+      },
+      "bag_size": 61,
+      "events": [
+        "-- Intruder Phase --",
+        "-- Event Phase --",
+        "Event: Reactor Overheating",
+        "-- Cleanup Phase --",
+        "=== Round 12 ==="
+      ]
+    },
+    {
+      "round": 13,
+      "players": [
+        {
+          "name": "Alpha",
+          "alive": true,
+          "hp": 3,
+          "oxy": 0,
+          "loc": "sprinklersControl",
+          "escaped": false,
+          "hibernated": false,
+          "larva": false,
+          "wounds": 0,
+          "contam": 0,
+          "hand": 1
+        },
+        {
+          "name": "Bravo",
+          "alive": true,
+          "hp": 3,
+          "oxy": 0,
+          "loc": "surgeryRoom",
+          "escaped": false,
+          "hibernated": false,
+          "larva": false,
+          "wounds": 0,
+          "contam": 0,
+          "hand": 1
+        },
+        {
+          "name": "Charlie",
+          "alive": true,
+          "hp": 6,
+          "oxy": 7,
+          "loc": "hibernatorium",
+          "escaped": false,
+          "hibernated": false,
+          "larva": false,
+          "wounds": 1,
+          "contam": 0,
+          "hand": 1
+        },
+        {
+          "name": "Delta",
+          "alive": true,
+          "hp": 6,
+          "oxy": 7,
+          "loc": "commsRoom",
+          "escaped": false,
+          "hibernated": false,
+          "larva": false,
+          "wounds": 0,
+          "contam": 0,
+          "hand": 1
+        }
+      ],
+      "rooms": 13,
+      "corridors": 12,
+      "intruders": 6,
+      "intruder_types": [
+        "adult",
+        "adult",
+        "drone",
+        "adult",
+        "drone",
+        "adult"
+      ],
+      "queen": {
+        "inPlay": false,
+        "dead": false,
+        "hits": 0,
+        "healthCards": 12
+      },
+      "nest": {
+        "eggs": 5,
+        "destroyed": false
+      },
+      "bag_size": 64,
+      "events": [
+        "-- Intruder Phase --",
+        "-- Event Phase --",
+        "Event: Fire Outbreak",
+        "-- Cleanup Phase --",
+        "=== Round 13 ==="
+      ]
+    },
+    {
+      "round": 14,
+      "players": [
+        {
+          "name": "Alpha",
+          "alive": false,
+          "hp": 3,
+          "oxy": 0,
+          "loc": "sprinklersControl",
+          "escaped": false,
+          "hibernated": false,
+          "larva": false,
+          "wounds": 0,
+          "contam": 0,
+          "hand": 0
+        },
+        {
+          "name": "Bravo",
+          "alive": false,
+          "hp": 3,
+          "oxy": 0,
+          "loc": "surgeryRoom",
+          "escaped": false,
+          "hibernated": false,
+          "larva": false,
+          "wounds": 0,
+          "contam": 0,
+          "hand": 0
+        },
+        {
+          "name": "Charlie",
+          "alive": true,
+          "hp": 6,
+          "oxy": 7,
+          "loc": "hibernatorium",
+          "escaped": false,
+          "hibernated": false,
+          "larva": false,
+          "wounds": 1,
+          "contam": 0,
+          "hand": 1
+        },
+        {
+          "name": "Delta",
+          "alive": true,
+          "hp": 6,
+          "oxy": 7,
+          "loc": "commsRoom",
+          "escaped": false,
+          "hibernated": false,
+          "larva": false,
+          "wounds": 0,
+          "contam": 0,
+          "hand": 1
+        }
+      ],
+      "rooms": 13,
+      "corridors": 12,
+      "intruders": 6,
+      "intruder_types": [
+        "adult",
+        "adult",
+        "drone",
+        "adult",
+        "drone",
+        "adult"
+      ],
+      "queen": {
+        "inPlay": false,
+        "dead": false,
+        "hits": 0,
+        "healthCards": 12
+      },
+      "nest": {
+        "eggs": 5,
+        "destroyed": false
+      },
+      "bag_size": 67,
+      "events": [
+        "-- Intruder Phase --",
+        "-- Event Phase --",
+        "Event: Blocked Passage",
+        "-- Cleanup Phase --",
+        "=== Round 14 ==="
+      ]
+    }
+  ],
+  "console_errors": [],
+  "total_actions": 325
+}

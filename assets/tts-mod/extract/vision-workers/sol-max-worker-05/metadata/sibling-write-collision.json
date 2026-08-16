@@ -1,0 +1,447 @@
+{
+  "schemaVersion": 1,
+  "detectedAt": "2026-08-15T22:21:20.715087Z",
+  "event": "concurrent-sibling-worker-write-and-overlapping-assignment-detected",
+  "severity": "hard ownership collision; supervisor adjudication required before merge",
+  "w05WorkerId": "sol-max-worker-05",
+  "w05SessionId": "20260815_215936_fea298",
+  "baselineCapturedAt": "2026-08-15T22:03:20.262495Z",
+  "siblingWorker": {
+    "workerId": "sol-max-worker-04",
+    "sessionId": "20260815_215426_fac7ff",
+    "delegationId": "deleg_021aea91",
+    "subagentId": "sa-0-b526773f",
+    "originSupervisorSessionId": "774f5e10d9af",
+    "dispatchStatus": "running",
+    "checkpointStatus": "in_progress",
+    "checkpointUpdatedAt": "2026-08-15T22:16:50Z",
+    "completedCount": 8,
+    "pendingCount": 3
+  },
+  "exactTupleOverlap": [
+    {
+      "w05AssetId": "W05-001",
+      "w04AssetId": "W04-001",
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-01.png",
+      "sourceSha256": "d293abad16af07498d8f485bd1ab67426be66a64d78c2fbd085ec4bac7dc0f4f",
+      "exactTupleOverlap": true
+    },
+    {
+      "w05AssetId": "W05-002",
+      "w04AssetId": "W04-002",
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-02.png",
+      "sourceSha256": "4718ad2194859f3f1d1ecb72e52481616156dcacad27f46e4969c98cd64eddab",
+      "exactTupleOverlap": true
+    },
+    {
+      "w05AssetId": "W05-003",
+      "w04AssetId": "W04-003",
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-05.png",
+      "sourceSha256": "27a5c1a5959ed93f93d508e0f0a8d07999e0d929a0b9874848c2c10b3accf4e7",
+      "exactTupleOverlap": true
+    },
+    {
+      "w05AssetId": "W05-004",
+      "w04AssetId": "W04-004",
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-06.png",
+      "sourceSha256": "90cb405743269046b530add3108500d2e0eaefbd66fb9d55d7b42dd0cbbffa30",
+      "exactTupleOverlap": true
+    }
+  ],
+  "filesystemDeltaSinceW05Baseline": {
+    "changedExistingFiles": [
+      {
+        "path": "assets/tts-mod/extract/vision-workers/sol-max-worker-04/batches/W04-B01.json",
+        "baselineSha256": "ae1acf6e6061bb6cc19734abafcbc1e2f79ebfc4c50ae27c456bb1ef8da37347",
+        "currentSha256": "5c61910a8e55ba913f92882b339ebf5741a2893f3350c4426b65e20ed514abdf",
+        "byteSize": 1520,
+        "mtimeNs": 1786831410749188566
+      },
+      {
+        "path": "assets/tts-mod/extract/vision-workers/sol-max-worker-04/results/W04-001.json",
+        "baselineSha256": "a09f6c2a48aa8cc6f256a763e8a968d04250f9bf1a49bad362b0b0355ad114ab",
+        "currentSha256": "cf7516ab680a66f78ad17f258774806e128d24f354451be78e8139cc21f3af42",
+        "byteSize": 6815,
+        "mtimeNs": 1786832480541219276
+      },
+      {
+        "path": "assets/tts-mod/extract/vision-workers/sol-max-worker-04/results/W04-002.json",
+        "baselineSha256": "940453da79cdcd1f49f0f5c237ced4212cdef90d22dc84eefa32bbceca9ff726",
+        "currentSha256": "00cd76409e50bef80152de91f973f63e4b08ca8cb562098a8e87083ce8b694cf",
+        "byteSize": 5684,
+        "mtimeNs": 1786832480542766572
+      },
+      {
+        "path": "assets/tts-mod/extract/vision-workers/sol-max-worker-04/validation.json",
+        "baselineSha256": "7fdd8c64596c7fd21ba07e82585dfb321db786219be768451529781490c626f9",
+        "currentSha256": "d67da5b64f39d6fb59c26c59ab3f1a6e63cbb336430e18a382b028c4265f256c",
+        "byteSize": 356,
+        "mtimeNs": 1786832210798919448
+      }
+    ],
+    "addedFiles": [
+      {
+        "path": "assets/tts-mod/extract/vision-workers/sol-max-worker-04/batches/W04-B02.json",
+        "sha256": "7930503314c92da0c29d89d483111c1f86724b484002f6bba6638ace153394ea",
+        "byteSize": 1731,
+        "mtimeNs": 1786831736771561921
+      },
+      {
+        "path": "assets/tts-mod/extract/vision-workers/sol-max-worker-04/batches/W04-B03.json",
+        "sha256": "0f3b44b2c1f86f777bb13dccf6af3f0dea3088fc7cc5c6644cf18b007d112c95",
+        "byteSize": 1663,
+        "mtimeNs": 1786831984620747890
+      },
+      {
+        "path": "assets/tts-mod/extract/vision-workers/sol-max-worker-04/batches/W04-B04.json",
+        "sha256": "f67fe29a63adac11e7a923e2ec1df7504043625b0359fb0bef53037fa230216d",
+        "byteSize": 1597,
+        "mtimeNs": 1786832210800844293
+      },
+      {
+        "path": "assets/tts-mod/extract/vision-workers/sol-max-worker-04/candidate-sidecars/cards/character/recon/action/taking-aim.json",
+        "sha256": "9b5c8a65335097d20c0acefbb2e6e7018884633321124aa00d74950f7f53f5c9",
+        "byteSize": 66,
+        "mtimeNs": 1786832044330724409
+      },
+      {
+        "path": "assets/tts-mod/extract/vision-workers/sol-max-worker-04/checkpoint.json",
+        "sha256": "c121bf8aa8154f8033106ca7398021018217a1a749b480ebde691c3be9ad1aa6",
+        "byteSize": 957,
+        "mtimeNs": 1786832210802376661
+      },
+      {
+        "path": "assets/tts-mod/extract/vision-workers/sol-max-worker-04/checkpoint_batch.py",
+        "sha256": "31cc42352a1d9675b227f9a0d4acbbbe43fc3d859b8bd60025511066547a4fba",
+        "byteSize": 5453,
+        "mtimeNs": 1786831731793294619
+      },
+      {
+        "path": "assets/tts-mod/extract/vision-workers/sol-max-worker-04/checkpoints/checkpoint-001.json",
+        "sha256": "b42361e7972b985ef424629f661c2d037758478994e32e9708d54b61e3a453f7",
+        "byteSize": 867,
+        "mtimeNs": 1786831410759451133
+      },
+      {
+        "path": "assets/tts-mod/extract/vision-workers/sol-max-worker-04/checkpoints/checkpoint-002.json",
+        "sha256": "719623d7ad78cb69b7ba83fa021e46d2504b17f8d2f0cce97df5c250d025c837",
+        "byteSize": 897,
+        "mtimeNs": 1786831736774411919
+      },
+      {
+        "path": "assets/tts-mod/extract/vision-workers/sol-max-worker-04/checkpoints/checkpoint-003.json",
+        "sha256": "ea7ae66b0ebdec1a95d3b4f3c4df7360329ed6b91be804c88c5ab5808a7338ca",
+        "byteSize": 927,
+        "mtimeNs": 1786831984623546823
+      },
+      {
+        "path": "assets/tts-mod/extract/vision-workers/sol-max-worker-04/checkpoints/checkpoint-004.json",
+        "sha256": "c121bf8aa8154f8033106ca7398021018217a1a749b480ebde691c3be9ad1aa6",
+        "byteSize": 957,
+        "mtimeNs": 1786832210803751457
+      },
+      {
+        "path": "assets/tts-mod/extract/vision-workers/sol-max-worker-04/contact-sheets/W04-003-icons-verdict.json",
+        "sha256": "f25abda7c6cd8ad05801d0ecaa906415c48544cc9793ad117870f30782eb79eb",
+        "byteSize": 1409,
+        "mtimeNs": 1786831518825146874
+      },
+      {
+        "path": "assets/tts-mod/extract/vision-workers/sol-max-worker-04/contact-sheets/W04-003-icons.json",
+        "sha256": "483c8c03e9460f9edcf3f618b1d587d22653bb858593f5409c4bbb4e8e9654e2",
+        "byteSize": 2140,
+        "mtimeNs": 1786831490490936921
+      },
+      {
+        "path": "assets/tts-mod/extract/vision-workers/sol-max-worker-04/contact-sheets/W04-003-icons.png",
+        "sha256": "f2a59801209d9687f9ae37f031d34bfa6a57281b00eeca2ba213de3399bad39a",
+        "byteSize": 381801,
+        "mtimeNs": 1786831490487734369
+      },
+      {
+        "path": "assets/tts-mod/extract/vision-workers/sol-max-worker-04/contact-sheets/W04-004-icons-verdict.json",
+        "sha256": "d84703f16ae0fee869070855902a099917d28c983500daa82028964568d1774e",
+        "byteSize": 1402,
+        "mtimeNs": 1786831664226377015
+      },
+      {
+        "path": "assets/tts-mod/extract/vision-workers/sol-max-worker-04/contact-sheets/W04-004-icons.json",
+        "sha256": "530d0ffddee86839da11205681dd0c05ad9ff6052df6223aac678a9e5a1a0b2b",
+        "byteSize": 2132,
+        "mtimeNs": 1786831619792393496
+      },
+      {
+        "path": "assets/tts-mod/extract/vision-workers/sol-max-worker-04/contact-sheets/W04-004-icons.png",
+        "sha256": "a249795fa4aab78a24727a839344dbb5cf0cb3926ccc03c74d4443927e39f973",
+        "byteSize": 366512,
+        "mtimeNs": 1786831619790498509
+      },
+      {
+        "path": "assets/tts-mod/extract/vision-workers/sol-max-worker-04/contact-sheets/W04-005-icons-verdict.json",
+        "sha256": "3ac8ba3ff39b898ba17de74389206d7bb884d9481839e3d35dd7ef4e7ef53879",
+        "byteSize": 1184,
+        "mtimeNs": 1786831839004831643
+      },
+      {
+        "path": "assets/tts-mod/extract/vision-workers/sol-max-worker-04/contact-sheets/W04-005-icons.json",
+        "sha256": "d862609821e0c6fc904ce17ecf6e9b999503d1ae28d1604f6a9ff97a1811755f",
+        "byteSize": 2383,
+        "mtimeNs": 1786831808144243979
+      },
+      {
+        "path": "assets/tts-mod/extract/vision-workers/sol-max-worker-04/contact-sheets/W04-005-icons.png",
+        "sha256": "bfc00a3dfc72c03dc9601a2c2703badeeae2f089745b43dc924242fee6125cdc",
+        "byteSize": 465923,
+        "mtimeNs": 1786831808142328201
+      },
+      {
+        "path": "assets/tts-mod/extract/vision-workers/sol-max-worker-04/contact-sheets/W04-006-inline-glyph-verdict.json",
+        "sha256": "34059e5524a6af21e45b6ac45688c8023675c4dd371ad5b5575257df7f196040",
+        "byteSize": 800,
+        "mtimeNs": 1786831951437897932
+      },
+      {
+        "path": "assets/tts-mod/extract/vision-workers/sol-max-worker-04/contact-sheets/W04-006-inline-glyph.json",
+        "sha256": "e6431aeec847d8b43a90799835619553146cf4d0ad622f8201d46f4c76f251f1",
+        "byteSize": 1237,
+        "mtimeNs": 1786831925830347354
+      },
+      {
+        "path": "assets/tts-mod/extract/vision-workers/sol-max-worker-04/contact-sheets/W04-006-inline-glyph.png",
+        "sha256": "de5aceb8a650c1d1414b458fed06b84bb4846911afbaa01da6e8722b68603457",
+        "byteSize": 181514,
+        "mtimeNs": 1786831925828472924
+      },
+      {
+        "path": "assets/tts-mod/extract/vision-workers/sol-max-worker-04/contact-sheets/W04-008-icons-verdict.json",
+        "sha256": "0b6c1894e70cd0f3fcba84b28e9d74d663ab96c5d4bd530d9f271b1f38db5488",
+        "byteSize": 1174,
+        "mtimeNs": 1786832177410098114
+      },
+      {
+        "path": "assets/tts-mod/extract/vision-workers/sol-max-worker-04/contact-sheets/W04-008-icons.json",
+        "sha256": "0f4130d690d82e810ecadd26461f27bc69bdf5fe58b16a023bf10f17ef7d7909",
+        "byteSize": 2203,
+        "mtimeNs": 1786832146960411792
+      },
+      {
+        "path": "assets/tts-mod/extract/vision-workers/sol-max-worker-04/contact-sheets/W04-008-icons.png",
+        "sha256": "3766d2152513ec61f270c78aadfd6ae4ddfb0b5c66025bca22fcc0f20b1ab08e",
+        "byteSize": 366338,
+        "mtimeNs": 1786832146958228829
+      },
+      {
+        "path": "assets/tts-mod/extract/vision-workers/sol-max-worker-04/metadata/pre-normalization/W04-001.json",
+        "sha256": "a09f6c2a48aa8cc6f256a763e8a968d04250f9bf1a49bad362b0b0355ad114ab",
+        "byteSize": 6546,
+        "mtimeNs": 1786831253560195056
+      },
+      {
+        "path": "assets/tts-mod/extract/vision-workers/sol-max-worker-04/metadata/pre-normalization/W04-002.json",
+        "sha256": "940453da79cdcd1f49f0f5c237ced4212cdef90d22dc84eefa32bbceca9ff726",
+        "byteSize": 5415,
+        "mtimeNs": 1786831371398635666
+      },
+      {
+        "path": "assets/tts-mod/extract/vision-workers/sol-max-worker-04/metadata/pre-normalization/W04-003.json",
+        "sha256": "9ca26629ec091be4d2ba30b9b29fb2deff8d969ed46ff13ee84ed431f4220730",
+        "byteSize": 6477,
+        "mtimeNs": 1786831544548077759
+      },
+      {
+        "path": "assets/tts-mod/extract/vision-workers/sol-max-worker-04/metadata/pre-normalization/W04-004.json",
+        "sha256": "bbb66b88f3792325937fad8799ae7b67a5693cfbd0efea53398cfb40c5e10357",
+        "byteSize": 6842,
+        "mtimeNs": 1786831694372531467
+      },
+      {
+        "path": "assets/tts-mod/extract/vision-workers/sol-max-worker-04/metadata/pre-normalization/W04-005.json",
+        "sha256": "e738d55d2a1dacbbf3fed97bae2ca7a23289ab8231f402b9d2c2243d3e2c4307",
+        "byteSize": 6686,
+        "mtimeNs": 1786831868184291499
+      },
+      {
+        "path": "assets/tts-mod/extract/vision-workers/sol-max-worker-04/metadata/pre-normalization/W04-006.json",
+        "sha256": "634029a3413ad987cfb2b1f08511595e72829d0cfeb89ac2f8f7641815f15448",
+        "byteSize": 5188,
+        "mtimeNs": 1786831977932892977
+      },
+      {
+        "path": "assets/tts-mod/extract/vision-workers/sol-max-worker-04/metadata/pre-normalization/W04-007.json",
+        "sha256": "833ecb34427954701d59b9e20bafe864a5b80e07bc3f72daa3214101cf7a77b2",
+        "byteSize": 4513,
+        "mtimeNs": 1786832068917911851
+      },
+      {
+        "path": "assets/tts-mod/extract/vision-workers/sol-max-worker-04/metadata/pre-normalization/W04-008.json",
+        "sha256": "2e0a785618ffab3778499acfe8407d0db95ddd2cf4d6dc6524e892d1a2d71719",
+        "byteSize": 6462,
+        "mtimeNs": 1786832205213625722
+      },
+      {
+        "path": "assets/tts-mod/extract/vision-workers/sol-max-worker-04/metadata/supervisor-runtime-normalization.json",
+        "sha256": "19bb0cd768d2b269d30b9b7024628a270e600b98db487a23ee84c9f5ae2c9a18",
+        "byteSize": 5809,
+        "mtimeNs": 1786832480552370207
+      },
+      {
+        "path": "assets/tts-mod/extract/vision-workers/sol-max-worker-04/provenance/W04-003.json",
+        "sha256": "f21dc98d1da75c5699a16a0c505e21a943df6289bc936affa23b5aabb179ae5d",
+        "byteSize": 11992,
+        "mtimeNs": 1786831490190744098
+      },
+      {
+        "path": "assets/tts-mod/extract/vision-workers/sol-max-worker-04/provenance/W04-004.json",
+        "sha256": "709994a16bd671cbceaf8977c5772d74ceb83b487fe22a3fa945561776b79512",
+        "byteSize": 12486,
+        "mtimeNs": 1786831619492597262
+      },
+      {
+        "path": "assets/tts-mod/extract/vision-workers/sol-max-worker-04/provenance/W04-005.json",
+        "sha256": "24b1f8044b33c2830d1ccf9b9aca5d0b85b3e84945b05cdcd4fdf62caca63afc",
+        "byteSize": 11992,
+        "mtimeNs": 1786831807801249219
+      },
+      {
+        "path": "assets/tts-mod/extract/vision-workers/sol-max-worker-04/provenance/W04-006.json",
+        "sha256": "34f02f8f60c2ee304bab6e4732653ebc02e963063a41f8d51cd056e22d1098f5",
+        "byteSize": 11992,
+        "mtimeNs": 1786831925611848376
+      },
+      {
+        "path": "assets/tts-mod/extract/vision-workers/sol-max-worker-04/provenance/W04-007.json",
+        "sha256": "7f7bcc29705e21738e57790e392736043cb9f6f095a31020ecb858e0008cc0dd",
+        "byteSize": 12486,
+        "mtimeNs": 1786832032606519328
+      },
+      {
+        "path": "assets/tts-mod/extract/vision-workers/sol-max-worker-04/provenance/W04-008.json",
+        "sha256": "04ebcc8fcbc27d7f4c966cf64512552443d280d14d95ee876aa610480126048d",
+        "byteSize": 11993,
+        "mtimeNs": 1786832146639239279
+      },
+      {
+        "path": "assets/tts-mod/extract/vision-workers/sol-max-worker-04/raw/W04-003.json",
+        "sha256": "de023404da416f11b98bd0abdffe6168eb849ddc4d7c6714dabb073b31aca97b",
+        "byteSize": 4804,
+        "mtimeNs": 1786831452054829863
+      },
+      {
+        "path": "assets/tts-mod/extract/vision-workers/sol-max-worker-04/raw/W04-004.json",
+        "sha256": "f536a9ff205760d0fa3b81c944e98f51d06c71e8aea36ae9075478094fcfdb1a",
+        "byteSize": 4388,
+        "mtimeNs": 1786831585142873106
+      },
+      {
+        "path": "assets/tts-mod/extract/vision-workers/sol-max-worker-04/raw/W04-005.json",
+        "sha256": "6e9e6274fd80e25a13da90e6f3157266072507f3a1edb0e791b1202a8e389a59",
+        "byteSize": 4904,
+        "mtimeNs": 1786831775367947358
+      },
+      {
+        "path": "assets/tts-mod/extract/vision-workers/sol-max-worker-04/raw/W04-006.json",
+        "sha256": "573b134a05cdd2b273d1458b730ab8119e48150dac1aaec7540bab4904ea95ea",
+        "byteSize": 3495,
+        "mtimeNs": 1786831901276520329
+      },
+      {
+        "path": "assets/tts-mod/extract/vision-workers/sol-max-worker-04/raw/W04-007.json",
+        "sha256": "ee99e0be558c493f6462cf7a68c30a73b60cd2e2c16972ad36d1360d1820e446",
+        "byteSize": 2546,
+        "mtimeNs": 1786832015937950824
+      },
+      {
+        "path": "assets/tts-mod/extract/vision-workers/sol-max-worker-04/raw/W04-008.json",
+        "sha256": "d8c24d0851c773a0cbeb6d705b13b64d874aff269178fe84083f760930993e91",
+        "byteSize": 4572,
+        "mtimeNs": 1786832112927343657
+      },
+      {
+        "path": "assets/tts-mod/extract/vision-workers/sol-max-worker-04/results/W04-003.json",
+        "sha256": "196db2579b5e7649a48e6861505f9c10d921a83ea484e575637f76c8a14bf3b8",
+        "byteSize": 6746,
+        "mtimeNs": 1786832480544242095
+      },
+      {
+        "path": "assets/tts-mod/extract/vision-workers/sol-max-worker-04/results/W04-004.json",
+        "sha256": "9b347637e8698910af4db945561c2ee085e5056e8ca4e888d85d6b26aea89e6c",
+        "byteSize": 7111,
+        "mtimeNs": 1786832480545618012
+      },
+      {
+        "path": "assets/tts-mod/extract/vision-workers/sol-max-worker-04/results/W04-005.json",
+        "sha256": "a118c5c59be771ebb379e652c27adf95bfb784a89c3e0bad6e545e548a01dcfc",
+        "byteSize": 6955,
+        "mtimeNs": 1786832480547030579
+      },
+      {
+        "path": "assets/tts-mod/extract/vision-workers/sol-max-worker-04/results/W04-006.json",
+        "sha256": "906149a134fdcaec88e81ee159e34b2b964c9bb91120a3faab9b607e00fddd01",
+        "byteSize": 5457,
+        "mtimeNs": 1786832480548501593
+      },
+      {
+        "path": "assets/tts-mod/extract/vision-workers/sol-max-worker-04/results/W04-007.json",
+        "sha256": "e294ce307476edbd62df03f1ffc30906698b571a34bce6ed4a6e4ef473e140a0",
+        "byteSize": 4782,
+        "mtimeNs": 1786832480549791201
+      },
+      {
+        "path": "assets/tts-mod/extract/vision-workers/sol-max-worker-04/results/W04-008.json",
+        "sha256": "40edba9ef63d62719c6def888f1c0b63ba88e0b1b9f528091cfbb18ee2fa444e",
+        "byteSize": 6731,
+        "mtimeNs": 1786832480551142093
+      }
+    ],
+    "removedFiles": []
+  },
+  "semanticComparison": {
+    "w04RawOrResultSemanticsConsulted": false,
+    "w04SemanticConclusionsUsed": false,
+    "note": "Only control-plane/runtime/checkpoint/validation records were inspected to establish liveness and overlap."
+  },
+  "processInspection": {
+    "status": "not established",
+    "reason": "A read-only /proc scan command was blocked by the gateway lifecycle guard; durable in-progress checkpoint writes at 2026-08-15T22:16:50Z independently establish concurrent activity during W05."
+  },
+  "w05Response": {
+    "newImageProcessingStopped": true,
+    "assignedFourAlreadyCompletedBeforeCollisionAudit": true,
+    "canonicalOrSharedMergeAttempted": false,
+    "w05ArtifactsRemainWorkerLocal": true,
+    "requiredSupervisorAction": "Ownership already adjudicated by W04 stopped-partial/supersededBy=sol-max-worker-05 metadata. Merge W05 results at most once and do not merge W04 duplicates for the overlapping tuples.",
+    "automaticMergeCollisionBlockerResolved": true
+  },
+  "resolutionObservedAt": "2026-08-15T22:24:39.485912Z",
+  "resolution": {
+    "status": "resolved-by-supervisor-closure-metadata",
+    "w04AssignmentStatus": "stopped-partial",
+    "w04CheckpointStatus": "stopped-partial",
+    "mergedResultCount": 7,
+    "remainingAssetCount": 4,
+    "supersededBy": "sol-max-worker-05",
+    "updatedAt": "2026-08-15T22:22:15Z",
+    "effect": "W05 is the selected lineage for the four exact overlapping tuples; W04 must not be merged for those tuples."
+  },
+  "sharedControlPlaneChangesObservedDuringClosure": {
+    "changes": [
+      {
+        "path": "assets/tts-mod/extract/vision-progress.json",
+        "baselineSha256": "5e7d4ed82048ba09e593531a9e9279e00bd9688e81362df69496467e285f6870",
+        "currentSha256": "5f0693c8b2ffcfbf75d96b2f7ca1f7e0493c466086c54c09e6be35792fe0fe41"
+      },
+      {
+        "path": "assets/tts-mod/extract/low-confidence-review.json",
+        "baselineSha256": "dcdf93b9256880fb568a730989cf3030142c0490df6736999dce7c478a5bc88a",
+        "currentSha256": "a45c7446b911dc4c1888e1ff15055313e9c18553b87b7a7f6e09afd21e9fca48"
+      },
+      {
+        "path": "assets/tts-mod/extract/vision-validation.json",
+        "baselineSha256": "97a8269c28f50117f8edbe6d870013f6e667808af07f2099d9f3bfaabb59936d",
+        "currentSha256": "d539634311c1f53feb79b62082ddcaec99516bdbccc11732b1bbdd7db969ace8"
+      }
+    ],
+    "attribution": "concurrent supervisor merge/closure activity; W05 issued no write to these paths",
+    "w05SharedWrite": false
+  }
+}

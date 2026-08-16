@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/tokens/character/officer-002.png",
+  "sourceSha256": "8fb13fe5f76533532c06a18ccffd9bb8c0b1048201500c2a6312c694e67a454d",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_055002_0d8882",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:50:02Z",
+  "completedAt": "2026-08-15T05:50:41Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "character dashboard board",
+    "cardSide": "referenceSheet",
+    "title": "OFFICER",
+    "typeLine": "",
+    "body": "BASIC ACTIONS\n[ICON: white right-pointing triangle]PLAY AN ACTION CARD\n[ICON: white right-pointing triangle]PASS\n\nDISCARD A\n[ICON: white right-pointing triangle]MAKE A MOVE\n[ICON: white right-pointing triangle]PLACE 1 [ICON: white angular shield-like glyph]\n[ICON: white right-pointing triangle]FIRE A SHOT\n[ICON: white right-pointing triangle]FIRE A BURST\n[ICON: white right-pointing triangle]MELEE ATTACK\n[ICON: white right-pointing triangle]USE ITEM OR ROBOT\n[ICON: white right-pointing triangle]REORGANIZE BACKPACK\n& TRADE\n[ICON: white right-pointing triangle]USE YOUR TACTICAL BELT\n\nDISCARD A A\n[ICON: white right-pointing triangle]USE THE ROOM\n[ICON: white right-pointing triangle]MAKE A MOVE WITH [ICON: white angular shield-like glyph]",
+    "footer": "",
+    "upperRight": "characterHealth",
+    "lowerCenter": "[ICON: nine dark teal triangular glyphs arranged as four inside a white capsule, four inside a second white capsule, and one standalone]",
+    "visibleText": "HEAVILY INJURED\nINJURED\nHEALTHY\n\nTACTICAL BELT\nACTION CARDS DISCARD\n\nLEFT HAND\nRIGHT HAND\n\n[ICON: white skull]\n[ICON: white upward-pointing triangle]",
+    "confidentlyVisible": [
+      "Typography is upright in the file.",
+      "The central artwork depicts an armed human soldier raising one clenched fist.",
+      "OFFICER is printed prominently at the lower center.",
+      "Three health-state headings appear across the top: HEAVILY INJURED, INJURED, and HEALTHY.",
+      "A white cross with an EKG line appears in the upper-right health panel.",
+      "The right panel lists basic actions and discard-cost actions.",
+      "Equipment areas are labeled LEFT HAND, RIGHT HAND, and TACTICAL BELT.",
+      "A vertical area is labeled ACTION CARDS DISCARD."
+    ],
+    "proposedCategory": "boards/character",
+    "proposedSlug": "officer",
+    "confidence": "medium",
+    "uncertainties": [
+      "The recurring white right-pointing line-leading glyph is not present in the supplied canonical glossary and is therefore described literally.",
+      "The white angular shield-like glyph following PLACE 1 and MAKE A MOVE WITH is not confidently matched to the supplied glossary.",
+      "The nine lower-center triangular glyphs are not confidently matched to the supplied glossary.",
+      "The upper-left skull and nearby chevron-like artwork are not confidently identified as canonical icons.",
+      "The component behaves as a character dashboard/reference board rather than a conventional card, so the closest cardSide classification is referenceSheet."
+    ]
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Planning image analysis skill loading****Planning image analysis skill loading**\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Planning pixel-level vision analysis****Planning pixel-level vision analysis****Clarifying character board components**\n\n\n**Defining character board glyph semantics**\n\n{\"orientation\":\"upright\",\"componentType\":\"character dashboard board\",\"cardSide\":\"referenceSheet\",\"title\":\"OFFICER\",\"typeLine\":\"\",\"body\":\"BASIC ACTIONS\\n[ICON: white right-pointing triangle]PLAY AN ACTION CARD\\n[ICON: white right-pointing triangle]PASS\\n\\nDISCARD A\\n[ICON: white right-pointing triangle]MAKE A MOVE\\n[ICON: white right-pointing triangle]PLACE 1 [ICON: white angular shield-like glyph]\\n[ICON: white right-pointing triangle]FIRE A SHOT\\n[ICON: white right-pointing triangle]FIRE A BURST\\n[ICON: white right-pointing triangle]MELEE ATTACK\\n[ICON: white right-pointing triangle]USE ITEM OR ROBOT\\n[ICON: white right-pointing triangle]REORGANIZE BACKPACK\\n& TRADE\\n[ICON: white right-pointing triangle]USE YOUR TACTICAL BELT\\n\\nDISCARD A A\\n[ICON: white right-pointing triangle]USE THE ROOM\\n[ICON: white right-pointing triangle]MAKE A MOVE WITH [ICON: white angular shield-like glyph]\",\"footer\":\"\",\"upperRight\":\"characterHealth\",\"lowerCenter\":\"[ICON: nine dark teal triangular glyphs arranged as four inside a white capsule, four inside a second white capsule, and one standalone]\",\"visibleText\":\"HEAVILY INJURED\\nINJURED\\nHEALTHY\\n\\nTACTICAL BELT\\nACTION CARDS DISCARD\\n\\nLEFT HAND\\nRIGHT HAND\\n\\n[ICON: white skull]\\n[ICON: white upward-pointing triangle]\",\"confidentlyVisible\":[\"Typography is upright in the file.\",\"The central artwork depicts an armed human soldier raising one clenched fist.\",\"OFFICER is printed prominently at the lower center.\",\"Three health-state headings appear across the top: HEAVILY INJURED, INJURED, and HEALTHY.\",\"A white cross with an EKG line appears in the upper-right health panel.\",\"The right panel lists basic actions and discard-cost actions.\",\"Equipment areas are labeled LEFT HAND, RIGHT HAND, and TACTICAL BELT.\",\"A vertical area is labeled ACTION CARDS DISCARD.\"],\"proposedCategory\":\"boards/character\",\"proposedSlug\":\"officer\",\"confidence\":\"medium\",\"uncertainties\":[\"The recurring white right-pointing line-leading glyph is not present in the supplied canonical glossary and is therefore described literally.\",\"The white angular shield-like glyph following PLACE 1 and MAKE A MOVE WITH is not confidently matched to the supplied glossary.\",\"The nine lower-center triangular glyphs are not confidently matched to the supplied glossary.\",\"The upper-left skull and nearby chevron-like artwork are not confidently identified as canonical icons.\",\"The component behaves as a character dashboard/reference board rather than a conventional card, so the closest cardSide classification is referenceSheet.\"]}\n\nsession_id: 20260815_055002_0d8882\n"
+}

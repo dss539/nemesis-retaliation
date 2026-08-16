@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/tiles/room/alarm-room-002.png",
+  "sourceSha256": "766c761ee1e7407d6d7cf744e89c9eabac226bedac6fccfcdc9b6c3062f7d2f9",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_054710_6fc3f3",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:47:10Z",
+  "completedAt": "2026-08-15T05:47:40Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "room tile texture atlas showing a room-tile face and back",
+    "cardSide": "notCard",
+    "title": "ALARM ROOM",
+    "typeLine": "",
+    "body": "Resolve\nOR\nRemove a chosen [noise] in the Facility",
+    "footer": "",
+    "upperRight": "[ICON: gray outlined hexagonal badge with white angular corridor-like glyph]",
+    "lowerCenter": "",
+    "visibleText": "?",
+    "confidentlyVisible": [
+      "The room face depicts a red-lit control room with desks and computer equipment.",
+      "A blue [computer] icon is visible on the right side of the room face.",
+      "A green [greenItem] icon and red [redItem] icon are visible along the left side.",
+      "A large question mark appears near the upper-left of the room face.",
+      "A separate dark hexagonal tile back bears a large white question mark.",
+      "Black rounded connector tabs surround the hexagonal components."
+    ],
+    "proposedCategory": "tiles/room",
+    "proposedSlug": "alarm-room",
+    "confidence": "medium",
+    "uncertainties": [
+      "The gray upper-right badge contains an angular white glyph that cannot be confidently matched to a canonical corridor icon.",
+      "The yellow glyph embedded in the effect text appears to be the canonical noise icon, but its small size and stylization introduce slight mapping uncertainty.",
+      "The file contains multiple component surfaces and partial surrounding artwork rather than one isolated tile."
+    ]
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Loading image analysis workflow****Loading image analysis workflow****Analyzing text rotation and icon noise**\n\n\n{\"orientation\":\"upright\",\"componentType\":\"room tile texture atlas showing a room-tile face and back\",\"cardSide\":\"notCard\",\"title\":\"ALARM ROOM\",\"typeLine\":\"\",\"body\":\"Resolve\\nOR\\nRemove a chosen [noise] in the Facility\",\"footer\":\"\",\"upperRight\":\"[ICON: gray outlined hexagonal badge with white angular corridor-like glyph]\",\"lowerCenter\":\"\",\"visibleText\":\"?\",\"confidentlyVisible\":[\"The room face depicts a red-lit control room with desks and computer equipment.\",\"A blue [computer] icon is visible on the right side of the room face.\",\"A green [greenItem] icon and red [redItem] icon are visible along the left side.\",\"A large question mark appears near the upper-left of the room face.\",\"A separate dark hexagonal tile back bears a large white question mark.\",\"Black rounded connector tabs surround the hexagonal components.\"],\"proposedCategory\":\"tiles/room\",\"proposedSlug\":\"alarm-room\",\"confidence\":\"medium\",\"uncertainties\":[\"The gray upper-right badge contains an angular white glyph that cannot be confidently matched to a canonical corridor icon.\",\"The yellow glyph embedded in the effect text appears to be the canonical noise icon, but its small size and stylization introduce slight mapping uncertainty.\",\"The file contains multiple component surfaces and partial surrounding artwork rather than one isolated tile.\"]}\n\nsession_id: 20260815_054710_6fc3f3\n"
+}

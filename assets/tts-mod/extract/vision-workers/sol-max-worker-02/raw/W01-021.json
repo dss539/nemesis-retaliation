@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "assetId": "W01-021",
+  "batchId": "batch-003",
+  "capturedAt": "2026-08-15T21:26:58Z",
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/bags/roomIIBag-019.jpg",
+  "sourceSha256": "7756007cb7fc9d78003c2323888c5aef8b326e914410cbde1eef8398255a3aaf",
+  "runtimeProvenanceRef": "../metadata/runtime.json",
+  "blindAnalysis": true,
+  "metadataExcludedDuringPixelPass": [
+    "filename semantics",
+    "directory semantics",
+    "prior vision reads",
+    "TTS object metadata",
+    "game-context expectations"
+  ],
+  "orientationObservation": "The large question mark is upright, but the image is a sparse diagonal mechanical composition rather than a conventional card face.",
+  "blindPixelObservations": [
+    "Most of the square canvas is near-black, especially the right and lower regions.",
+    "A large dark mechanical panel occupies the left half, with a roughly hexagonal/radial layout, rounded protrusions around its perimeter, perforated mesh sections, and several narrow white bar lights.",
+    "The metal is mottled black, violet, teal, and rusty red with small pink-red indicator lights.",
+    "A dark central hexagonal inset bears a large white punctuation mark.",
+    "A cyan-teal rectangular plane with faint industrial linework projects diagonally behind the panel toward the right."
+  ],
+  "visibleText": [
+    {
+      "text": "?",
+      "location": "center of dark hexagonal inset",
+      "structure": "large white question mark",
+      "confidence": "high"
+    }
+  ],
+  "iconObservations": [],
+  "rawNativeModelOutput": {
+    "orientation": "question mark upright; diagonal sparse composition",
+    "text": ["?"],
+    "literalSummary": "Mostly black square with a diagonal dark perforated mechanical panel, white light bars, and a large white question mark in the center."
+  },
+  "uncertainties": [
+    "Pixels alone do not establish whether the image is a standalone component face, a model texture, or a container thumbnail.",
+    "No semantic meaning beyond the literal question mark is inferred."
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/tokens/boarderTile-002.png",
+  "sourceSha256": "b3f6694e56943a95525dc14b8c432a1509e243aea43764ab677e26734bab26ba",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_060248_67e474",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T06:02:48Z",
+  "completedAt": "2026-08-15T06:03:33Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "rotationIrrelevant",
+    "componentType": "board/dashboard texture atlas containing multiple printed game-board panels",
+    "cardSide": "notCard",
+    "title": "",
+    "typeLine": "",
+    "body": "If token is [robot] and you are\nin a [computer] Room, you may use\nthe Robot.\n\nWhen you remove the last card from this deck\nQueen is dead. Remove her Miniature and all\nthe tokens from the discard from the game.\n\nWhen you draw a Queen token from the bag\nnothing happens and remove that token from\nthe game.\n\nMake a Noise Roll\nand Hibernate.",
+    "footer": "",
+    "upperRight": "",
+    "lowerCenter": "",
+    "visibleText": "ESCAPE SHUTTLE\nROBOT CARDS\nROBOT MODEL\nSLOT\nA\nLIFE SUPPORT\nHIBERNATORIUM\nB\nLIFE SUPPORT\nQUEEN'S HEALTH CARDS\nQUEEN'S HITS\nEGGS\nLIFE SUPPORT\nC\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\nMISSION TASK\nOBJECTIVE CHOICE\nDRAW CARDS:\n+3  >  +2  >  +2  >  +1",
+    "confidentlyVisible": [
+      "The file is a sparse texture atlas with disconnected science-fiction board panels on a transparent or black field.",
+      "Most labels are upright in the file, while the OBJECTIVE CHOICE panel near the lower-left edge is rotated sideways.",
+      "A vertical numbered track visibly runs from 1 through 14.",
+      "The central chamber is labeled HIBERNATORIUM and contains six radial corridor branches.",
+      "Large region letters A, B, and C are visible.",
+      "A red-bordered panel is headed QUEEN'S HEALTH CARDS.",
+      "Separate labeled areas read QUEEN'S HITS and EGGS.",
+      "Several LIFE SUPPORT labels and machinery symbols are visible.",
+      "A robot-shaped white glyph and a cyan computer-screen glyph appear in the Robot instruction panel.",
+      "MISSION TASK labels a large empty rectangular slot."
+    ],
+    "proposedCategory": "models/texture",
+    "proposedSlug": null,
+    "confidence": "medium",
+    "uncertainties": [
+      "This is a multi-component texture atlas rather than one conventional card, so no single semantic title, card face, or card back applies.",
+      "No single rotation makes every meaningful text panel upright: most typography is upright, but the OBJECTIVE CHOICE panel is rotated 90 degrees relative to the rest.",
+      "The exact visual identity of several board-local symbols is outside the supplied canonical glossary, including the orange three-lobed symbol, radial arrows, yellow numbered triangles, and objective-choice comparison glyphs; they are not semantically mapped.",
+      "The purple glyph in the Robot instruction is mapped to [robot] and the cyan monitor glyph to [computer] based on confident morphology, but the purple background treatment is component-local.",
+      "Some texture elements extend to or are clipped by the image boundaries.",
+      "The atlas as a whole has no unambiguous semantic filename stem supported by one visible title."
+    ]
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Loading image-analysis skill and vision tool****Loading image-analysis skill and vision tool**\n**Identifying game board texture orientation**\n\n**Planning original region cropping****Identifying game board texture orientation**\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Planning original region cropping****Assessing texture atlas orientation and content**\n\n\n\nsession_id: 20260815_060248_67e474\n{\"orientation\":\"rotationIrrelevant\",\"componentType\":\"board/dashboard texture atlas containing multiple printed game-board panels\",\"cardSide\":\"notCard\",\"title\":\"\",\"typeLine\":\"\",\"body\":\"If token is [robot] and you are\\nin a [computer] Room, you may use\\nthe Robot.\\n\\nWhen you remove the last card from this deck\\nQueen is dead. Remove her Miniature and all\\nthe tokens from the discard from the game.\\n\\nWhen you draw a Queen token from the bag\\nnothing happens and remove that token from\\nthe game.\\n\\nMake a Noise Roll\\nand Hibernate.\",\"footer\":\"\",\"upperRight\":\"\",\"lowerCenter\":\"\",\"visibleText\":\"ESCAPE SHUTTLE\\nROBOT CARDS\\nROBOT MODEL\\nSLOT\\nA\\nLIFE SUPPORT\\nHIBERNATORIUM\\nB\\nLIFE SUPPORT\\nQUEEN'S HEALTH CARDS\\nQUEEN'S HITS\\nEGGS\\nLIFE SUPPORT\\nC\\n1\\n2\\n3\\n4\\n5\\n6\\n7\\n8\\n9\\n10\\n11\\n12\\n13\\n14\\nMISSION TASK\\nOBJECTIVE CHOICE\\nDRAW CARDS:\\n+3  >  +2  >  +2  >  +1\",\"confidentlyVisible\":[\"The file is a sparse texture atlas with disconnected science-fiction board panels on a transparent or black field.\",\"Most labels are upright in the file, while the OBJECTIVE CHOICE panel near the lower-left edge is rotated sideways.\",\"A vertical numbered track visibly runs from 1 through 14.\",\"The central chamber is labeled HIBERNATORIUM and contains six radial corridor branches.\",\"Large region letters A, B, and C are visible.\",\"A red-bordered panel is headed QUEEN'S HEALTH CARDS.\",\"Separate labeled areas read QUEEN'S HITS and EGGS.\",\"Several LIFE SUPPORT labels and machinery symbols are visible.\",\"A robot-shaped white glyph and a cyan computer-screen glyph appear in the Robot instruction panel.\",\"MISSION TASK labels a large empty rectangular slot.\"],\"proposedCategory\":\"models/texture\",\"proposedSlug\":null,\"confidence\":\"medium\",\"uncertainties\":[\"This is a multi-component texture atlas rather than one conventional card, so no single semantic title, card face, or card back applies.\",\"No single rotation makes every meaningful text panel upright: most typography is upright, but the OBJECTIVE CHOICE panel is rotated 90 degrees relative to the rest.\",\"The exact visual identity of several board-local symbols is outside the supplied canonical glossary, including the orange three-lobed symbol, radial arrows, yellow numbered triangles, and objective-choice comparison glyphs; they are not semantically mapped.\",\"The purple glyph in the Robot instruction is mapped to [robot] and the cyan monitor glyph to [computer] based on confident morphology, but the purple background treatment is component-local.\",\"Some texture elements extend to or are clipped by the image boundaries.\",\"The atlas as a whole has no unambiguous semantic filename stem supported by one visible title.\"]}\n",
+  "visionInputTransform": {
+    "transform": "high-quality 4096px-bounded staging derivative for provider upload",
+    "sourceDimensions": [
+      9895,
+      9264
+    ],
+    "uploadedDimensions": [
+      4096,
+      3835
+    ],
+    "sourcePreservedUnchanged": true
+  }
+}

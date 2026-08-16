@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-15T21:16:23.358842Z",
+  "assetId": "W01-013",
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/bags/larva-009.png",
+  "sourceSha256": "baf89008c428e5bf87595029a440b2eb2bb84b06704f2ada46083d7fd2f0720c",
+  "rawBlindRecordPath": "raw/W01-013.json",
+  "metadataConsultedOnlyAfterRawPersisted": true,
+  "sourceKind": "manifest",
+  "manifest": {
+    "sourceUrl": "https://steamusercontent-a.akamaihd.net/ugc/11923313306143539/F572F0A1A92477BEA4C6C7195041BA055FCFA7BF/",
+    "manifestFile": "bags/larva-009.png",
+    "manifestByteSize": 117520
+  },
+  "generatedSource": null,
+  "objectReferenceCount": 2,
+  "objectReferences": [
+    {
+      "guid": "978afc",
+      "type": "Bag",
+      "nickname": "Larva",
+      "description": "",
+      "gmnotes": "",
+      "cardId": "",
+      "parent": [],
+      "urlRoles": [
+        "ImageURL"
+      ],
+      "luaRoles": [
+        "creeperFBag",
+        "larvaeFBag"
+      ],
+      "classificationVerdict": "base",
+      "classificationReason": "Lua base/mech GUID",
+      "classificationGroup": null
+    },
+    {
+      "guid": "a01036",
+      "type": "Figurine_Custom",
+      "nickname": "",
+      "description": "",
+      "gmnotes": "larvae",
+      "cardId": "",
+      "parent": [
+        [
+          "Bag",
+          "978afc",
+          "Larva"
+        ]
+      ],
+      "urlRoles": [
+        "ImageURL"
+      ],
+      "luaRoles": [],
+      "classificationVerdict": "base",
+      "classificationReason": "contained in Larva: Lua base/mech GUID",
+      "classificationGroup": null
+    }
+  ],
+  "priorSemanticVisionEvidenceRead": false
+}

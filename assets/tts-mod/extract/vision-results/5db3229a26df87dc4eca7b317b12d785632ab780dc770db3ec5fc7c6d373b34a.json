@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/greenitem-120.png",
+  "sourceSha256": "5db3229a26df87dc4eca7b317b12d785632ab780dc770db3ec5fc7c6d373b34a",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_052823_5da0f3",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:28:23Z",
+  "completedAt": "2026-08-15T05:29:51Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "green medical item card",
+    "cardSide": "face",
+    "title": "MEDKIT",
+    "typeLine": "ONE USE ONLY",
+    "body": "You can use this Item for free\nimmediately after gaining it.\n\nRestore 2 [characterHealth].\nOR\nGain 1 [medpackToken].",
+    "footer": "",
+    "upperRight": "notInCombat",
+    "lowerCenter": "",
+    "visibleText": "MEDICAL\nKIT\n99\n67",
+    "confidentlyVisible": [
+      "Portrait-oriented green-framed card face",
+      "Artwork depicts a handled medical bag with a cross emblem",
+      "Upper-right icon is a red prohibition mark over a white curled exoskeleton figure",
+      "The first lower panel contains a white cross-and-EKG health glyph",
+      "The second lower panel contains a green medical-token glyph",
+      "The title, type line, italic instruction, and two alternative effects are upright"
+    ],
+    "proposedCategory": "cards/game/item/green",
+    "proposedSlug": "medkit",
+    "confidence": "medium",
+    "uncertainties": [
+      "Tiny lettering and symbols on the illustrated monitor, apart from the visible digits 99 and 67, are illegible.",
+      "The lower green medical glyph is mapped to medpackToken from its color and medical morphology; its small size prevents a fully definitive distinction from the visually similar greenItem badge."
+    ]
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Analyzing medkit card image components**\n\n**Identifying card icons and text details****Analyzing medkit card image components**\n**Identifying card icons and text details****Planning image analysis and cropping**\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Planning image analysis and cropping****Defining MEDKIT item card details**\n\n**Clarifying medpackToken and greenItem icon distinctions**\n\n**Identifying medpackToken icon components and placement**\n\n**Clarifying visible text transcription for item card**\n\n**Transcribing item text and icon details**\n\n**Identifying canonical greenItem icon detail**\n\n**Identifying green medpack token features**\n\n**Confirming green badge as greenItem icon**\n\n**Distinguishing greenItem from medpackToken**\n\n**Clarifying medpackToken icon design**\n\n**Distinguishing medpackToken visual details**\n\n**Evaluating medkit icon transcription confidence**\n\n**Detailing medkit card design**\n\n{\"orientation\":\"upright\",\"componentType\":\"green medical item card\",\"cardSide\":\"face\",\"title\":\"MEDKIT\",\"typeLine\":\"ONE USE ONLY\",\"body\":\"You can use this Item for free\\nimmediately after gaining it.\\n\\nRestore 2 [characterHealth].\\nOR\\nGain 1 [medpackToken].\",\"footer\":\"\",\"upperRight\":\"notInCombat\",\"lowerCenter\":\"\",\"visibleText\":\"MEDICAL\\nKIT\\n99\\n67\",\"confidentlyVisible\":[\"Portrait-oriented green-framed card face\",\"Artwork depicts a handled medical bag with a cross emblem\",\"Upper-right icon is a red prohibition mark over a white curled exoskeleton figure\",\"The first lower panel contains a white cross-and-EKG health glyph\",\"The second lower panel contains a green medical-token glyph\",\"The title, type line, italic instruction, and two alternative effects are upright\"],\"proposedCategory\":\"cards/game/item/green\",\"proposedSlug\":\"medkit\",\"confidence\":\"medium\",\"uncertainties\":[\"Tiny lettering and symbols on the illustrated monitor, apart from the visible digits 99 and 67, are illegible.\",\"The lower green medical glyph is mapped to medpackToken from its color and medical morphology; its small size prevents a fully definitive distinction from the visually similar greenItem badge.\"]}\n\nsession_id: 20260815_052823_5da0f3\n"
+}

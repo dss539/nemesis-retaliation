@@ -1,0 +1,954 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-15T22:33:24.229970Z",
+  "sessionId": "20260815_215936_fea298",
+  "auditSource": "read-only /home/smithers/.hermes/state.db messages.tool_calls",
+  "toolCallCountObserved": 161,
+  "toolNameCounts": {
+    "execute_code": 68,
+    "read_file": 31,
+    "search_files": 19,
+    "skill_view": 7,
+    "terminal": 10,
+    "todo": 11,
+    "vision_analyze": 7,
+    "web_extract": 1,
+    "write_file": 7
+  },
+  "explicitWriteFileCalls": [
+    {
+      "messageId": 86985,
+      "path": "/home/smithers/nemesis-retaliation/assets/tts-mod/extract/vision-workers/sol-max-worker-05/raw/W05-001.json",
+      "withinWorkerRoot": true
+    },
+    {
+      "messageId": 87074,
+      "path": "/home/smithers/nemesis-retaliation/assets/tts-mod/extract/vision-workers/sol-max-worker-05/raw/W05-002.json",
+      "withinWorkerRoot": true
+    },
+    {
+      "messageId": 87108,
+      "path": "/home/smithers/nemesis-retaliation/assets/tts-mod/extract/vision-workers/sol-max-worker-05/raw/W05-003.json",
+      "withinWorkerRoot": true
+    },
+    {
+      "messageId": 87158,
+      "path": "/home/smithers/nemesis-retaliation/assets/tts-mod/extract/vision-workers/sol-max-worker-05/raw/W05-004.json",
+      "withinWorkerRoot": true
+    },
+    {
+      "messageId": 87343,
+      "path": "/home/smithers/nemesis-retaliation/assets/tts-mod/extract/vision-workers/sol-max-worker-05/raw/W05-002.json",
+      "withinWorkerRoot": true
+    },
+    {
+      "messageId": 87357,
+      "path": "/home/smithers/nemesis-retaliation/assets/tts-mod/extract/vision-workers/sol-max-worker-05/raw/W05-003.json",
+      "withinWorkerRoot": true
+    },
+    {
+      "messageId": 87373,
+      "path": "/home/smithers/nemesis-retaliation/assets/tts-mod/extract/vision-workers/sol-max-worker-05/raw/W05-004.json",
+      "withinWorkerRoot": true
+    }
+  ],
+  "mutatingOrUnparseableExecuteCodeCalls": [
+    {
+      "messageId": 86955,
+      "codeSha256": "3e479577d9e946626bf9f2251b030e7a8652cf4e3b61fc9ed88a5f518ab5d34e",
+      "workerRootLiteralPresent": true,
+      "parseError": null,
+      "writePrimitives": [
+        {
+          "primitive": "write_text",
+          "receiver": "root / 'metadata/runtime.json'",
+          "line": 87,
+          "staticallyWorkerRootDerived": true
+        },
+        {
+          "primitive": "write_text",
+          "receiver": "root / 'metadata/assignment-baseline.json'",
+          "line": 94,
+          "staticallyWorkerRootDerived": true
+        },
+        {
+          "primitive": "write_text",
+          "receiver": "root / 'metadata/protected-baseline.json'",
+          "line": 131,
+          "staticallyWorkerRootDerived": true
+        },
+        {
+          "primitive": "write_text",
+          "receiver": "root / 'checkpoints/checkpoint-000-preflight.json'",
+          "line": 137,
+          "staticallyWorkerRootDerived": true
+        },
+        {
+          "primitive": "mkdir",
+          "receiver": "root / rel",
+          "line": 12,
+          "staticallyWorkerRootDerived": true
+        }
+      ]
+    },
+    {
+      "messageId": 86961,
+      "codeSha256": "f65d6bf959949e442f46d32acb8a4a7f30dce741fcd75d35e8c4a1156fe6caf2",
+      "workerRootLiteralPresent": true,
+      "parseError": null,
+      "writePrimitives": [
+        {
+          "primitive": "write_text",
+          "receiver": "root / 'metadata/runtime.json'",
+          "line": 87,
+          "staticallyWorkerRootDerived": true
+        },
+        {
+          "primitive": "write_text",
+          "receiver": "root / 'metadata/assignment-baseline.json'",
+          "line": 94,
+          "staticallyWorkerRootDerived": true
+        },
+        {
+          "primitive": "write_text",
+          "receiver": "root / 'metadata/protected-baseline.json'",
+          "line": 114,
+          "staticallyWorkerRootDerived": true
+        },
+        {
+          "primitive": "write_text",
+          "receiver": "root / 'checkpoints/checkpoint-000-preflight.json'",
+          "line": 116,
+          "staticallyWorkerRootDerived": true
+        },
+        {
+          "primitive": "mkdir",
+          "receiver": "root / rel",
+          "line": 12,
+          "staticallyWorkerRootDerived": true
+        }
+      ]
+    },
+    {
+      "messageId": 86970,
+      "codeSha256": "dc2442d4a33f96f2a0d343a237bcc46afe3491d35f1a5a4e5e7f1694a01111c3",
+      "workerRootLiteralPresent": true,
+      "parseError": null,
+      "writePrimitives": [
+        {
+          "primitive": "write_text",
+          "receiver": "root / 'batches/W05-001-preflight.json'",
+          "line": 19,
+          "staticallyWorkerRootDerived": true
+        }
+      ]
+    },
+    {
+      "messageId": 87038,
+      "codeSha256": "f3dceb595f9ccbf438f21b3c7c4b539b5417816c73ff09927a0c5412045ac6e8",
+      "workerRootLiteralPresent": true,
+      "parseError": null,
+      "writePrimitives": [
+        {
+          "primitive": "mkdir",
+          "receiver": "(root := (repo / 'assets/tts-mod/extract/vision-workers/sol-max-worker-05/batches'))",
+          "line": 33,
+          "staticallyWorkerRootDerived": true
+        },
+        {
+          "primitive": "write_text",
+          "receiver": "root / 'W05-001-glossary-comparison.json'",
+          "line": 34,
+          "staticallyWorkerRootDerived": true
+        }
+      ]
+    },
+    {
+      "messageId": 87057,
+      "codeSha256": "e868a3443da8fc07e0814bba56cf01979b893e92b1c281ec2b6e369053a82403",
+      "workerRootLiteralPresent": true,
+      "parseError": null,
+      "writePrimitives": [
+        {
+          "primitive": "write_text",
+          "receiver": "runtime_path",
+          "line": 24,
+          "staticallyWorkerRootDerived": true
+        },
+        {
+          "primitive": "write_text",
+          "receiver": "result_path",
+          "line": 120,
+          "staticallyWorkerRootDerived": true
+        },
+        {
+          "primitive": "write_text",
+          "receiver": "root / 'checkpoints/checkpoint-001-W05-001.json'",
+          "line": 124,
+          "staticallyWorkerRootDerived": true
+        }
+      ]
+    },
+    {
+      "messageId": 87061,
+      "codeSha256": "7825acea7ba2ef901997617f866c4735166010b23bf57c8f5916dd94af3c0e3a",
+      "workerRootLiteralPresent": true,
+      "parseError": null,
+      "writePrimitives": [
+        {
+          "primitive": "write_text",
+          "receiver": "root / 'batches/W05-002-preflight.json'",
+          "line": 13,
+          "staticallyWorkerRootDerived": true
+        }
+      ]
+    },
+    {
+      "messageId": 87080,
+      "codeSha256": "4aeb80407190c70ebff656301fb9cc16f191184f183fdc040f557d4c34549657",
+      "workerRootLiteralPresent": true,
+      "parseError": null,
+      "writePrimitives": [
+        {
+          "primitive": "write_text",
+          "receiver": "root / 'W05-002-glossary-comparison.json'",
+          "line": 25,
+          "staticallyWorkerRootDerived": true
+        }
+      ]
+    },
+    {
+      "messageId": 87090,
+      "codeSha256": "f2595e684c5354ffb8b4f84e425d5bc294dd5a93ea44c24927ea43cfd674862d",
+      "workerRootLiteralPresent": true,
+      "parseError": null,
+      "writePrimitives": [
+        {
+          "primitive": "write_text",
+          "receiver": "result_path",
+          "line": 26,
+          "staticallyWorkerRootDerived": true
+        },
+        {
+          "primitive": "write_text",
+          "receiver": "root / 'checkpoints/checkpoint-002-W05-002.json'",
+          "line": 27,
+          "staticallyWorkerRootDerived": true
+        }
+      ]
+    },
+    {
+      "messageId": 87096,
+      "codeSha256": "a3dbae6a8edc6f48dc9e7cd9fde2d4a3cdde16ee5ff36ffa05e0fd2474778f98",
+      "workerRootLiteralPresent": true,
+      "parseError": null,
+      "writePrimitives": [
+        {
+          "primitive": "write_text",
+          "receiver": "root / 'batches/W05-003-preflight.json'",
+          "line": 7,
+          "staticallyWorkerRootDerived": true
+        }
+      ]
+    },
+    {
+      "messageId": 87117,
+      "codeSha256": "6c8ef05aff1aeb26ba96cc5fbee576b0fb42e718984b2b087776e2eda3397e9f",
+      "workerRootLiteralPresent": true,
+      "parseError": null,
+      "writePrimitives": [
+        {
+          "primitive": "write_text",
+          "receiver": "root / 'W05-003-inline-glossary-comparison.json'",
+          "line": 23,
+          "staticallyWorkerRootDerived": true
+        }
+      ]
+    },
+    {
+      "messageId": 87124,
+      "codeSha256": "da87675962c269c6c99873f22876c797fd1a6b9c0a7a01872763e0bdfee80154",
+      "workerRootLiteralPresent": true,
+      "parseError": null,
+      "writePrimitives": [
+        {
+          "primitive": "write_text",
+          "receiver": "root / 'W05-003-upper-right-glossary-comparison.json'",
+          "line": 23,
+          "staticallyWorkerRootDerived": true
+        }
+      ]
+    },
+    {
+      "messageId": 87144,
+      "codeSha256": "2e6d6dd16527bce006e7ecb3a0343fd748f01238d2b3b30a1fde5b6d33ecc89d",
+      "workerRootLiteralPresent": true,
+      "parseError": null,
+      "writePrimitives": [
+        {
+          "primitive": "write_text",
+          "receiver": "result_path",
+          "line": 21,
+          "staticallyWorkerRootDerived": true
+        },
+        {
+          "primitive": "write_text",
+          "receiver": "root / 'checkpoints/checkpoint-003-W05-003.json'",
+          "line": 22,
+          "staticallyWorkerRootDerived": true
+        }
+      ]
+    },
+    {
+      "messageId": 87152,
+      "codeSha256": "cc402458a8f377c74892d8da0416d3e5a0fc9248ed4369cef6f047ce53ee782b",
+      "workerRootLiteralPresent": true,
+      "parseError": null,
+      "writePrimitives": [
+        {
+          "primitive": "write_text",
+          "receiver": "root / 'batches/W05-004-preflight.json'",
+          "line": 7,
+          "staticallyWorkerRootDerived": true
+        }
+      ]
+    },
+    {
+      "messageId": 87171,
+      "codeSha256": "b35d78ce63522177061f46b2fc299677236c1468b53ec77cd6cf9a9dddcbfc9f",
+      "workerRootLiteralPresent": true,
+      "parseError": null,
+      "writePrimitives": [
+        {
+          "primitive": "write_text",
+          "receiver": "root / 'W05-004-inline-glossary-comparison.json'",
+          "line": 23,
+          "staticallyWorkerRootDerived": true
+        }
+      ]
+    },
+    {
+      "messageId": 87175,
+      "codeSha256": "e6aa8f4edac68e6c98c2eb39990ba84ac83e1eeb3f9f679314ed8eb0959e64a8",
+      "workerRootLiteralPresent": true,
+      "parseError": null,
+      "writePrimitives": [
+        {
+          "primitive": "write_text",
+          "receiver": "root / 'W05-004-upper-right-glossary-comparison.json'",
+          "line": 22,
+          "staticallyWorkerRootDerived": true
+        }
+      ]
+    },
+    {
+      "messageId": 87193,
+      "codeSha256": "aa2559bec024628e05ea9d4651adff800f67b1821f4de3f0eb33d5ce555c5256",
+      "workerRootLiteralPresent": true,
+      "parseError": null,
+      "writePrimitives": [
+        {
+          "primitive": "write_text",
+          "receiver": "root / 'W05-004-inline-glossary-comparison.json'",
+          "line": 34,
+          "staticallyWorkerRootDerived": true
+        }
+      ]
+    },
+    {
+      "messageId": 87213,
+      "codeSha256": "216b3ba230ed115e9210f29a5a34a4879b7fa4b4153cee719a672de08336bd04",
+      "workerRootLiteralPresent": true,
+      "parseError": null,
+      "writePrimitives": [
+        {
+          "primitive": "write_text",
+          "receiver": "result_path",
+          "line": 21,
+          "staticallyWorkerRootDerived": true
+        },
+        {
+          "primitive": "write_text",
+          "receiver": "root / 'checkpoints/checkpoint-004-W05-complete.json'",
+          "line": 22,
+          "staticallyWorkerRootDerived": true
+        }
+      ]
+    },
+    {
+      "messageId": 87244,
+      "codeSha256": "3b62fe1211e21e7d1b11c55577f26bf284420026e2d57a1016e06063b4c0408b",
+      "workerRootLiteralPresent": true,
+      "parseError": null,
+      "writePrimitives": [
+        {
+          "primitive": "write_text",
+          "receiver": "path",
+          "line": 23,
+          "staticallyWorkerRootDerived": true
+        }
+      ]
+    },
+    {
+      "messageId": 87262,
+      "codeSha256": "4728079cae8ca62a967c724acd13950ccfc8af9b50412c0727e1ae4d2aac8ab5",
+      "workerRootLiteralPresent": true,
+      "parseError": "f-string: invalid syntax (<unknown>, line 46)",
+      "writePrimitives": []
+    },
+    {
+      "messageId": 87266,
+      "codeSha256": "65861805fec98636f992957dd931c3a7df8d9a21e65ee36fdd1de13632872c31",
+      "workerRootLiteralPresent": true,
+      "parseError": null,
+      "writePrimitives": [
+        {
+          "primitive": "write_text",
+          "receiver": "root / 'metadata/assignment-final.json'",
+          "line": 34,
+          "staticallyWorkerRootDerived": true
+        },
+        {
+          "primitive": "write_text",
+          "receiver": "val_path",
+          "line": 36,
+          "staticallyWorkerRootDerived": true
+        },
+        {
+          "primitive": "write_text",
+          "receiver": "report_path",
+          "line": 38,
+          "staticallyWorkerRootDerived": true
+        },
+        {
+          "primitive": "write_text",
+          "receiver": "root / 'shard-report.md'",
+          "line": 61,
+          "staticallyWorkerRootDerived": true
+        },
+        {
+          "primitive": "write_text",
+          "receiver": "root / 'checkpoints/checkpoint-005-collision-stop.json'",
+          "line": 62,
+          "staticallyWorkerRootDerived": true
+        }
+      ]
+    },
+    {
+      "messageId": 87279,
+      "codeSha256": "325bc43025f3d984408bff88ecc5a3c0af27648710c1e36c46dfa540e0e82476",
+      "workerRootLiteralPresent": true,
+      "parseError": null,
+      "writePrimitives": [
+        {
+          "primitive": "write_text",
+          "receiver": "path",
+          "line": 17,
+          "staticallyWorkerRootDerived": true
+        }
+      ]
+    },
+    {
+      "messageId": 87339,
+      "codeSha256": "490515746ba48ade77270f3db8643af94a0d34e645508d1cb144bcfaa1daa237",
+      "workerRootLiteralPresent": false,
+      "parseError": "unterminated string literal (detected at line 5) (<unknown>, line 5)",
+      "writePrimitives": []
+    },
+    {
+      "messageId": 87345,
+      "codeSha256": "d27e2f99a074132cab073c62d9487c3bd435aa85fa03d0c13a7c573ce7841e23",
+      "workerRootLiteralPresent": false,
+      "parseError": "invalid syntax (<unknown>, line 4)",
+      "writePrimitives": []
+    },
+    {
+      "messageId": 87349,
+      "codeSha256": "ff2f68ef296a63dbd7d555218c461c52ccbb072ea2b71c6a8ef1b75fae26e80e",
+      "workerRootLiteralPresent": false,
+      "parseError": "unterminated string literal (detected at line 5) (<unknown>, line 5)",
+      "writePrimitives": []
+    },
+    {
+      "messageId": 87353,
+      "codeSha256": "490515746ba48ade77270f3db8643af94a0d34e645508d1cb144bcfaa1daa237",
+      "workerRootLiteralPresent": false,
+      "parseError": "unterminated string literal (detected at line 5) (<unknown>, line 5)",
+      "writePrimitives": []
+    },
+    {
+      "messageId": 87359,
+      "codeSha256": "0e41be13465aebf60ea683a140166837ead13ea432db501cc63ab15776f8e361",
+      "workerRootLiteralPresent": false,
+      "parseError": "invalid syntax (<unknown>, line 4)",
+      "writePrimitives": []
+    },
+    {
+      "messageId": 87361,
+      "codeSha256": "0cd637c0cff3479516331d17022eee3a16087b1fd5ccbdd76cf383fb3302543c",
+      "workerRootLiteralPresent": true,
+      "parseError": "invalid syntax (<unknown>, line 4)",
+      "writePrimitives": []
+    },
+    {
+      "messageId": 87363,
+      "codeSha256": "0cd637c0cff3479516331d17022eee3a16087b1fd5ccbdd76cf383fb3302543c",
+      "workerRootLiteralPresent": true,
+      "parseError": "invalid syntax (<unknown>, line 4)",
+      "writePrimitives": []
+    },
+    {
+      "messageId": 87365,
+      "codeSha256": "ff2f68ef296a63dbd7d555218c461c52ccbb072ea2b71c6a8ef1b75fae26e80e",
+      "workerRootLiteralPresent": false,
+      "parseError": "unterminated string literal (detected at line 5) (<unknown>, line 5)",
+      "writePrimitives": []
+    },
+    {
+      "messageId": 87369,
+      "codeSha256": "490515746ba48ade77270f3db8643af94a0d34e645508d1cb144bcfaa1daa237",
+      "workerRootLiteralPresent": false,
+      "parseError": "unterminated string literal (detected at line 5) (<unknown>, line 5)",
+      "writePrimitives": []
+    },
+    {
+      "messageId": 87375,
+      "codeSha256": "80578f68ff99617ffdac8ba10a07604a35cd5df8e380fb8629450df04fb84dca",
+      "workerRootLiteralPresent": false,
+      "parseError": "invalid syntax (<unknown>, line 4)",
+      "writePrimitives": []
+    },
+    {
+      "messageId": 87377,
+      "codeSha256": "0cd637c0cff3479516331d17022eee3a16087b1fd5ccbdd76cf383fb3302543c",
+      "workerRootLiteralPresent": true,
+      "parseError": "invalid syntax (<unknown>, line 4)",
+      "writePrimitives": []
+    },
+    {
+      "messageId": 87379,
+      "codeSha256": "f8f2bbc70c8823c085521d5be63813ffe142044610d75f5aa5b40dfb18ef2421",
+      "workerRootLiteralPresent": true,
+      "parseError": "unterminated string literal (detected at line 4) (<unknown>, line 4)",
+      "writePrimitives": []
+    },
+    {
+      "messageId": 87381,
+      "codeSha256": "f2fdb117b9319a75d102a3c5bcb5b6b152188b7b0e45fa71f6529bb794aa1421",
+      "workerRootLiteralPresent": false,
+      "parseError": "unterminated string literal (detected at line 5) (<unknown>, line 5)",
+      "writePrimitives": []
+    },
+    {
+      "messageId": 87383,
+      "codeSha256": "e0b1934afc76f501cf6653f009c716ec3321829f8631b5ff2ed2c67478df25a4",
+      "workerRootLiteralPresent": false,
+      "parseError": "unterminated string literal (detected at line 5) (<unknown>, line 5)",
+      "writePrimitives": []
+    },
+    {
+      "messageId": 87385,
+      "codeSha256": "aa2559bec024628e05ea9d4651adff800f67b1821f4de3f0eb33d5ce555c5256",
+      "workerRootLiteralPresent": true,
+      "parseError": null,
+      "writePrimitives": [
+        {
+          "primitive": "write_text",
+          "receiver": "root / 'W05-004-inline-glossary-comparison.json'",
+          "line": 34,
+          "staticallyWorkerRootDerived": true
+        }
+      ]
+    },
+    {
+      "messageId": 87387,
+      "codeSha256": "216b3ba230ed115e9210f29a5a34a4879b7fa4b4153cee719a672de08336bd04",
+      "workerRootLiteralPresent": true,
+      "parseError": null,
+      "writePrimitives": [
+        {
+          "primitive": "write_text",
+          "receiver": "result_path",
+          "line": 21,
+          "staticallyWorkerRootDerived": true
+        },
+        {
+          "primitive": "write_text",
+          "receiver": "root / 'checkpoints/checkpoint-004-W05-complete.json'",
+          "line": 22,
+          "staticallyWorkerRootDerived": true
+        }
+      ]
+    },
+    {
+      "messageId": 87404,
+      "codeSha256": "3b62fe1211e21e7d1b11c55577f26bf284420026e2d57a1016e06063b4c0408b",
+      "workerRootLiteralPresent": true,
+      "parseError": null,
+      "writePrimitives": [
+        {
+          "primitive": "write_text",
+          "receiver": "path",
+          "line": 23,
+          "staticallyWorkerRootDerived": true
+        }
+      ]
+    },
+    {
+      "messageId": 87406,
+      "codeSha256": "4728079cae8ca62a967c724acd13950ccfc8af9b50412c0727e1ae4d2aac8ab5",
+      "workerRootLiteralPresent": true,
+      "parseError": "f-string: invalid syntax (<unknown>, line 46)",
+      "writePrimitives": []
+    },
+    {
+      "messageId": 87408,
+      "codeSha256": "65861805fec98636f992957dd931c3a7df8d9a21e65ee36fdd1de13632872c31",
+      "workerRootLiteralPresent": true,
+      "parseError": null,
+      "writePrimitives": [
+        {
+          "primitive": "write_text",
+          "receiver": "root / 'metadata/assignment-final.json'",
+          "line": 34,
+          "staticallyWorkerRootDerived": true
+        },
+        {
+          "primitive": "write_text",
+          "receiver": "val_path",
+          "line": 36,
+          "staticallyWorkerRootDerived": true
+        },
+        {
+          "primitive": "write_text",
+          "receiver": "report_path",
+          "line": 38,
+          "staticallyWorkerRootDerived": true
+        },
+        {
+          "primitive": "write_text",
+          "receiver": "root / 'shard-report.md'",
+          "line": 61,
+          "staticallyWorkerRootDerived": true
+        },
+        {
+          "primitive": "write_text",
+          "receiver": "root / 'checkpoints/checkpoint-005-collision-stop.json'",
+          "line": 62,
+          "staticallyWorkerRootDerived": true
+        }
+      ]
+    },
+    {
+      "messageId": 87417,
+      "codeSha256": "325bc43025f3d984408bff88ecc5a3c0af27648710c1e36c46dfa540e0e82476",
+      "workerRootLiteralPresent": true,
+      "parseError": null,
+      "writePrimitives": [
+        {
+          "primitive": "write_text",
+          "receiver": "path",
+          "line": 17,
+          "staticallyWorkerRootDerived": true
+        }
+      ]
+    },
+    {
+      "messageId": 87436,
+      "codeSha256": "d804f30d08158086b39f8bb948f176534ecc2b4853113ddd0f7c13acafd0627d",
+      "workerRootLiteralPresent": true,
+      "parseError": null,
+      "writePrimitives": [
+        {
+          "primitive": "write_text",
+          "receiver": "root / 'metadata/assignment-final.json'",
+          "line": 30,
+          "staticallyWorkerRootDerived": true
+        },
+        {
+          "primitive": "write_text",
+          "receiver": "root / 'batches/final-validation.json'",
+          "line": 31,
+          "staticallyWorkerRootDerived": true
+        },
+        {
+          "primitive": "write_text",
+          "receiver": "root / 'shard-report.json'",
+          "line": 33,
+          "staticallyWorkerRootDerived": true
+        },
+        {
+          "primitive": "write_text",
+          "receiver": "root / 'shard-report.md'",
+          "line": 56,
+          "staticallyWorkerRootDerived": true
+        },
+        {
+          "primitive": "write_text",
+          "receiver": "root / 'checkpoints/checkpoint-005-complete.json'",
+          "line": 57,
+          "staticallyWorkerRootDerived": true
+        }
+      ]
+    },
+    {
+      "messageId": 87442,
+      "codeSha256": "7f205512fcfa0d36d9a4fb0aa4f97b2a4279a69c9b62dc8d8a7af1ada588e66e",
+      "workerRootLiteralPresent": true,
+      "parseError": null,
+      "writePrimitives": [
+        {
+          "primitive": "write_text",
+          "receiver": "root / 'metadata/assignment-drift.json'",
+          "line": 4,
+          "staticallyWorkerRootDerived": true
+        },
+        {
+          "primitive": "write_text",
+          "receiver": "root / 'metadata/runtime-W05-001-W05-004.json'",
+          "line": 4,
+          "staticallyWorkerRootDerived": true
+        }
+      ]
+    },
+    {
+      "messageId": 87453,
+      "codeSha256": "2008d9df7d9ced686805c75298145b79347c4f1e1268cfb41bcebb7b13d0a2a2",
+      "workerRootLiteralPresent": true,
+      "parseError": null,
+      "writePrimitives": [
+        {
+          "primitive": "write_text",
+          "receiver": "root / 'metadata/assignment-drift.json'",
+          "line": 4,
+          "staticallyWorkerRootDerived": true
+        },
+        {
+          "primitive": "write_text",
+          "receiver": "root / 'metadata/runtime-W05-001-W05-004.json'",
+          "line": 4,
+          "staticallyWorkerRootDerived": true
+        }
+      ]
+    },
+    {
+      "messageId": 87463,
+      "codeSha256": "0fcc6b92add78ce9ec1a16903839e74e01c929d09c0dff1fe502a820eb306a10",
+      "workerRootLiteralPresent": true,
+      "parseError": null,
+      "writePrimitives": [
+        {
+          "primitive": "write_text",
+          "receiver": "root / 'checkpoints/checkpoint-005-W05-001-W05-004-stop.json'",
+          "line": 37,
+          "staticallyWorkerRootDerived": true
+        },
+        {
+          "primitive": "write_text",
+          "receiver": "root / name",
+          "line": 17,
+          "staticallyWorkerRootDerived": true
+        },
+        {
+          "primitive": "write_text",
+          "receiver": "root / name",
+          "line": 35,
+          "staticallyWorkerRootDerived": true
+        },
+        {
+          "primitive": "write_text",
+          "receiver": "root / name",
+          "line": 36,
+          "staticallyWorkerRootDerived": true
+        }
+      ]
+    },
+    {
+      "messageId": 87473,
+      "codeSha256": "d330e85caa4a8bee61fb6dcab579b1a1590907352cc412a5803aa9133b9e0b1a",
+      "workerRootLiteralPresent": true,
+      "parseError": null,
+      "writePrimitives": [
+        {
+          "primitive": "write_text",
+          "receiver": "root / 'metadata/runtime-W05-001-W05-004.json'",
+          "line": 3,
+          "staticallyWorkerRootDerived": true
+        }
+      ]
+    },
+    {
+      "messageId": 87484,
+      "codeSha256": "ff45f31fd0cca072f0d3a809be2603470b67063e4e8c55c29e73db4c2a739421",
+      "workerRootLiteralPresent": true,
+      "parseError": null,
+      "writePrimitives": [
+        {
+          "primitive": "write_text",
+          "receiver": "vp",
+          "line": 14,
+          "staticallyWorkerRootDerived": true
+        },
+        {
+          "primitive": "write_text",
+          "receiver": "rp",
+          "line": 16,
+          "staticallyWorkerRootDerived": true
+        },
+        {
+          "primitive": "write_text",
+          "receiver": "root / 'shard-report-W05-001-W05-004.md'",
+          "line": 27,
+          "staticallyWorkerRootDerived": true
+        },
+        {
+          "primitive": "write_text",
+          "receiver": "root / 'checkpoints/checkpoint-005-W05-001-W05-004-stop.json'",
+          "line": 27,
+          "staticallyWorkerRootDerived": true
+        }
+      ]
+    },
+    {
+      "messageId": 87494,
+      "codeSha256": "7ad754b5c1a737c17b81fe5a1d1e8877aac70f5c5a0d040f58326d772d806c17",
+      "workerRootLiteralPresent": true,
+      "parseError": null,
+      "writePrimitives": [
+        {
+          "primitive": "write_text",
+          "receiver": "audit_path",
+          "line": 37,
+          "staticallyWorkerRootDerived": true
+        },
+        {
+          "primitive": "write_text",
+          "receiver": "vp",
+          "line": 38,
+          "staticallyWorkerRootDerived": true
+        },
+        {
+          "primitive": "write_text",
+          "receiver": "rp",
+          "line": 39,
+          "staticallyWorkerRootDerived": true
+        },
+        {
+          "primitive": "write_text",
+          "receiver": "cp_path",
+          "line": 40,
+          "staticallyWorkerRootDerived": true
+        }
+      ]
+    },
+    {
+      "messageId": 87506,
+      "codeSha256": "c2b016e0228794095ed3482aa657b45ddffc4b9ab3f41791241dda9714fc7b8d",
+      "workerRootLiteralPresent": true,
+      "parseError": null,
+      "writePrimitives": [
+        {
+          "primitive": "write_text",
+          "receiver": "audit_path",
+          "line": 31,
+          "staticallyWorkerRootDerived": true
+        },
+        {
+          "primitive": "write_text",
+          "receiver": "vp",
+          "line": 31,
+          "staticallyWorkerRootDerived": true
+        },
+        {
+          "primitive": "write_text",
+          "receiver": "rp",
+          "line": 31,
+          "staticallyWorkerRootDerived": true
+        },
+        {
+          "primitive": "write_text",
+          "receiver": "cp_path",
+          "line": 31,
+          "staticallyWorkerRootDerived": true
+        }
+      ]
+    }
+  ],
+  "terminalCalls": [
+    {
+      "messageId": 86911,
+      "commandSha256": "e3d381b506859f41e2218622ccd4932c83ca49b18bc1a4618d33af02b9abf8be",
+      "classification": "read-only git/config/SQLite/process inspection",
+      "preview": "git status --short && git rev-parse --show-toplevel && git diff --binary | sha256sum && git diff --cached --binary | sha256sum"
+    },
+    {
+      "messageId": 86911,
+      "commandSha256": "e54bbac96bbc2e507161c3b6f02c0890588247da723e0cb4e27e9daf978fc1ce",
+      "classification": "read-only git/config/SQLite/process inspection",
+      "preview": "python3 -c 'import os,json; keys=[k for k in os.environ if any(x in k.lower() for x in (\"hermes\",\"model\",\"provider\",\"reason\"))]; print(json.dumps({k:os.environ[k] for k in sorted(k"
+    },
+    {
+      "messageId": 86918,
+      "commandSha256": "9f25b0cd41b6317541d4cfc36f7ee312b3342ffbefec007fe7938109a89e8835",
+      "classification": "read-only git/config/SQLite/process inspection",
+      "preview": "hermes --version && hermes config get model.default && hermes config get model.provider"
+    },
+    {
+      "messageId": 86929,
+      "commandSha256": "e8272e62f6a00ce9d197f4213926e866d74393e2a85ecb22a94869cb896e10f5",
+      "classification": "read-only git/config/SQLite/process inspection",
+      "preview": "python3 -c 'import sqlite3,json; p=\"/home/smithers/.hermes/state.db\"; c=sqlite3.connect(\"file:\"+p+\"?mode=ro\",uri=True); print(json.dumps([r[0] for r in c.execute(\"select name from "
+    },
+    {
+      "messageId": 86934,
+      "commandSha256": "e54127f57943a279fe5e3528d90992330b6cc7aa3e00e8c859fa93aea1ff14b4",
+      "classification": "read-only git/config/SQLite/process inspection",
+      "preview": "python3 -c 'import sqlite3,json,os; sid=os.environ[\"HERMES_SESSION_ID\"]; c=sqlite3.connect(\"file:/home/smithers/.hermes/state.db?mode=ro\",uri=True); c.row_factory=sqlite3.Row; prin"
+    },
+    {
+      "messageId": 86941,
+      "commandSha256": "cc144ca6f9451e310183f6233f11eb9dfd477f56ebccfc34b68d020d6ea0a14d",
+      "classification": "read-only git/config/SQLite/process inspection",
+      "preview": "python3 -c 'import sqlite3,json,os; sid=os.environ[\"HERMES_SESSION_ID\"]; c=sqlite3.connect(\"file:/home/smithers/.hermes/state.db?mode=ro\",uri=True); c.row_factory=sqlite3.Row; cols"
+    },
+    {
+      "messageId": 87229,
+      "commandSha256": "d3e815b599455f82701bab5279ae06b80bf50483e5059cdaa2cb38b4798676d3",
+      "classification": "read-only git/config/SQLite/process inspection",
+      "preview": "python3 -c 'import os,json; hits=[]\nfor n in os.listdir(\"/proc\"):\n  if not n.isdigit(): continue\n  try:\n    cmd=open(f\"/proc/{n}/cmdline\",\"rb\").read().replace(b\"\\\\0\",b\" \").decode(\""
+    },
+    {
+      "messageId": 87283,
+      "commandSha256": "c30aab0ca67637efa8c1e2f2675f32425a88d6c4988b2989794ec8aac685f39c",
+      "classification": "read-only git/config/SQLite/process inspection",
+      "preview": "python3 -c 'import sqlite3,json,os; c=sqlite3.connect(\"file:/home/smithers/.hermes/state.db?mode=ro\",uri=True); c.row_factory=sqlite3.Row; print(json.dumps([dict(r) for r in c.exec"
+    },
+    {
+      "messageId": 87393,
+      "commandSha256": "d3e815b599455f82701bab5279ae06b80bf50483e5059cdaa2cb38b4798676d3",
+      "classification": "read-only git/config/SQLite/process inspection",
+      "preview": "python3 -c 'import os,json; hits=[]\nfor n in os.listdir(\"/proc\"):\n  if not n.isdigit(): continue\n  try:\n    cmd=open(f\"/proc/{n}/cmdline\",\"rb\").read().replace(b\"\\\\0\",b\" \").decode(\""
+    },
+    {
+      "messageId": 87419,
+      "commandSha256": "c30aab0ca67637efa8c1e2f2675f32425a88d6c4988b2989794ec8aac685f39c",
+      "classification": "read-only git/config/SQLite/process inspection",
+      "preview": "python3 -c 'import sqlite3,json,os; c=sqlite3.connect(\"file:/home/smithers/.hermes/state.db?mode=ro\",uri=True); c.row_factory=sqlite3.Row; print(json.dumps([dict(r) for r in c.exec"
+    }
+  ],
+  "forbiddenPatchOrSkillMutationCalls": [],
+  "outsideWorkerRootMutationTargets": [],
+  "plannedSelfFinalizationTargets": [
+    "/home/smithers/nemesis-retaliation/assets/tts-mod/extract/vision-workers/sol-max-worker-05/metadata/session-mutation-audit-W05-001-W05-004.json",
+    "/home/smithers/nemesis-retaliation/assets/tts-mod/extract/vision-workers/sol-max-worker-05/batches/W05-001-W05-004-final-validation.json",
+    "/home/smithers/nemesis-retaliation/assets/tts-mod/extract/vision-workers/sol-max-worker-05/shard-report-W05-001-W05-004.json",
+    "/home/smithers/nemesis-retaliation/assets/tts-mod/extract/vision-workers/sol-max-worker-05/checkpoints/checkpoint-005-W05-001-W05-004-stop.json"
+  ],
+  "verdict": {
+    "allRecordedRepositoryMutationTargetsWorkerLocal": true,
+    "sharedOrCanonicalWritesByThisSession": false,
+    "sourceFilesModifiedByThisSession": false,
+    "replacementAssignmentProcessedByThisSession": false,
+    "note": "Distinct session 20260815_222507_ce8f8a concurrently overwrote assignment.json/runtime.json in the same directory; those foreign writes are documented in assignment-drift.json and are not attributed to this audited session."
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "assetId": "W01-008",
+  "batchId": "batch-002",
+  "capturedAt": "2026-08-15T20:36:18Z",
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/bags/doors-034.png",
+  "sourceSha256": "2c64d8108df1788bd1100321621940b1c142cc1d201096d6d39921beb107981f",
+  "runtimeProvenanceRef": "../metadata/runtime.json",
+  "blindAnalysis": true,
+  "metadataExcludedDuringPixelPass": [
+    "filename semantics",
+    "directory semantics",
+    "prior vision reads",
+    "TTS object metadata",
+    "game-context expectations"
+  ],
+  "orientationObservation": "Upright as displayed: overhead rail is above the door, keypad and side lights are vertical, and the door meets a bottom threshold.",
+  "blindPixelObservations": [
+    "Large transparent/black margins surround an isolated frontal science-fiction bulkhead door.",
+    "The door has a heavy gray-blue metal frame, central circular locking hub with diagonal braces, cyan edge lights, a small red lamp above, and a blue-lit keypad at right.",
+    "A detached horizontal rail/header with cyan lamps floats directly above the door assembly.",
+    "Tiny decorative red and white stencil-like marks occur on the central door panel."
+  ],
+  "visibleText": [
+    {
+      "text": "[illegible]",
+      "location": "tiny red stencil on left-central door panel",
+      "structure": "decorative microtext",
+      "confidence": "low"
+    },
+    {
+      "text": "[illegible]",
+      "location": "tiny white stencil right of the locking brace",
+      "structure": "decorative microtext",
+      "confidence": "low"
+    }
+  ],
+  "iconObservations": [],
+  "uncertainties": [
+    "Two tiny stencil-like text spans are not safely readable from the full image; a focused crop is required before deciding whether they remain illegible.",
+    "Pixels establish door artwork but not the exact TTS component role."
+  ]
+}

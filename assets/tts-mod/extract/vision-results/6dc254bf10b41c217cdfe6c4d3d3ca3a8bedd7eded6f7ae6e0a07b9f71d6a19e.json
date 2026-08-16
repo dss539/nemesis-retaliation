@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-11.png",
+  "sourceSha256": "6dc254bf10b41c217cdfe6c4d3d3ca3a8bedd7eded6f7ae6e0a07b9f71d6a19e",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_050847_2f6017",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:08:47Z",
+  "completedAt": "2026-08-15T05:09:33Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "character action card",
+    "cardSide": "face",
+    "title": "CHAIN\nOF COMMAND",
+    "typeLine": "",
+    "body": "Move the [intruder] by 1 space in any direction.\n\nOR\n\nCOMMAND\nChoose a Character with a lower Rank.\nThen, Move, Shoot, or Burst using this\nCharacter.\n\nREACTION\nWhen a Character with a higher Rank plays\na Command on you:\nCancel the effect of that Command. That\nCharacter must still pay the Action’s cost.",
+    "footer": "HEAVY GUN OPERATOR",
+    "upperRight": "",
+    "lowerCenter": "",
+    "visibleText": "",
+    "confidentlyVisible": [
+      "All meaningful typography is upright in the file.",
+      "The title is printed in white uppercase across two centered lines.",
+      "A white curled-creature silhouette appears inline between “the” and “by.”",
+      "The main effect and COMMAND option occupy separate red-framed panels.",
+      "REACTION is printed vertically on the left edge of a white rules panel.",
+      "The footer owner label is printed in widely spaced red uppercase letters.",
+      "The artwork depicts an armored figure carrying a large firearm."
+    ],
+    "proposedCategory": "cards/character/heavy-gun-operator/action",
+    "proposedSlug": "chain-of-command",
+    "confidence": "high",
+    "uncertainties": []
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Loading image-analysis workflows****Loading image-analysis workflows****Identifying and cropping intruder glyph**\n\n\n**Mapping heavy gun operator card fields****Identifying and cropping intruder glyph**\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Mapping heavy gun operator card fields****Assessing JSON structure for action card**\n\n\n**Clarifying card title and formatting details**\n\n**Confirming icon identity and punctuation**\n\n**Assessing icon morphology confidence**\n\n**Confirming intruder icon identification**\n\n{\"orientation\":\"upright\",\"componentType\":\"character action card\",\"cardSide\":\"face\",\"title\":\"CHAIN\\nOF COMMAND\",\"typeLine\":\"\",\"body\":\"Move the [intruder] by 1 space in any direction.\\n\\nOR\\n\\nCOMMAND\\nChoose a Character with a lower Rank.\\nThen, Move, Shoot, or Burst using this\\nCharacter.\\n\\nREACTION\\nWhen a Character with a higher Rank plays\\na Command on you:\\nCancel the effect of that Command. That\\nCharacter must still pay the Action’s cost.\",\"footer\":\"HEAVY GUN OPERATOR\",\"upperRight\":\"\",\"lowerCenter\":\"\",\"visibleText\":\"\",\"confidentlyVisible\":[\"All meaningful typography is upright in the file.\",\"The title is printed in white uppercase across two centered lines.\",\"A white curled-creature silhouette appears inline between “the” and “by.”\",\"The main effect and COMMAND option occupy separate red-framed panels.\",\"REACTION is printed vertically on the left edge of a white rules panel.\",\"The footer owner label is printed in widely spaced red uppercase letters.\",\"The artwork depicts an armored figure carrying a large firearm.\"],\"proposedCategory\":\"cards/character/heavy-gun-operator/action\",\"proposedSlug\":\"chain-of-command\",\"confidence\":\"high\",\"uncertainties\":[]}\n\nsession_id: 20260815_050847_2f6017\n",
+  "iconVerification": {
+    "status": "failed",
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "sessionId": "20260815_051852_9cf10a",
+    "promptVersion": 1,
+    "completedAt": "2026-08-15T05:19:25Z",
+    "claimed": [
+      "intruder"
+    ],
+    "parsed": {
+      "claims": [
+        {
+          "claimed": "intruder",
+          "verdict": "mismatch",
+          "actual": "lander",
+          "evidence": "The sole card glyph is a broad basin-like silhouette with a tall central spire and raised side peaks, matching lander exactly; intruder is a curled, toothed creature forming a circular profile."
+        }
+      ],
+      "allClaimsMatch": false,
+      "confidence": "high",
+      "uncertainties": []
+    },
+    "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Preparing image analysis workflow and vision skill****Preparing image analysis workflow and vision skill**\n**Comparing glyph and lander shapes**\n\n**Planning glyph occurrence extraction****Comparing glyph and lander shapes**\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Planning glyph occurrence extraction****Mapping glyphs to glossary entries**\n\n\nsession_id: 20260815_051852_9cf10a\n{\"claims\":[{\"claimed\":\"intruder\",\"verdict\":\"mismatch\",\"actual\":\"lander\",\"evidence\":\"The sole card glyph is a broad basin-like silhouette with a tall central spire and raised side peaks, matching lander exactly; intruder is a curled, toothed creature forming a circular profile.\"}],\"allClaimsMatch\":false,\"confidence\":\"high\",\"uncertainties\":[]}\n",
+    "evidencePath": "docs/qa/card-icon-comparisons/auto-6dc254bf10b41c217cdfe6c4d3d3ca3a8bedd7eded6f7ae6e0a07b9f71d6a19e.png"
+  }
+}

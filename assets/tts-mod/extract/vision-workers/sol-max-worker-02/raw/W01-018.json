@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "assetId": "W01-018",
+  "batchId": "batch-002",
+  "capturedAt": "2026-08-15T21:20:58Z",
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/bags/roomIABag-016.jpg",
+  "sourceSha256": "6fe158efe4fa10e8bc229b0696507422c1894b8ea7bacd8d460bb9a43ab99aa6",
+  "runtimeProvenanceRef": "../metadata/runtime.json",
+  "blindAnalysis": true,
+  "metadataExcludedDuringPixelPass": [
+    "filename semantics",
+    "directory semantics",
+    "prior vision reads",
+    "TTS object metadata",
+    "game-context expectations"
+  ],
+  "orientationObservation": "The central letter A remains readable despite the whole mechanical object being intentionally diagonal; no single conventional card-face rotation is implied.",
+  "blindPixelObservations": [
+    "Most of the square canvas is near-black, especially the entire right half and lower region.",
+    "A large diagonally oriented mechanical object occupies the upper-left quadrant, with a dark rusty metal central plate, rounded protrusions around its perimeter, four recessed vent-like openings, and bright white bar lights near the openings.",
+    "Small orange indicator points and rust-orange scuffs dot the metal surface.",
+    "A large white capital letter overlays the center of the metal plate at a slight angle.",
+    "A second darker teal-black rectangular plane is partly visible behind the mechanical object."
+  ],
+  "visibleText": [
+    {
+      "text": "A",
+      "location": "center of mechanical plate",
+      "structure": "large white uppercase letter, slightly angled",
+      "confidence": "high"
+    }
+  ],
+  "iconObservations": [],
+  "rawNativeModelOutput": {
+    "orientation": "diagonal composition; rotation not established as necessary",
+    "text": ["A"],
+    "literalSummary": "Mostly black square with a diagonal rusted mechanical panel in the upper-left, four lit recesses, and a large white A."
+  },
+  "uncertainties": [
+    "Pixels alone do not establish whether the image is a standalone component face, a model texture, or a container thumbnail.",
+    "No semantic meaning beyond the literal letter A is inferred."
+  ]
+}

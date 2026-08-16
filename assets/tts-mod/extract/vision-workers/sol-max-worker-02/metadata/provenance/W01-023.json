@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-15T21:27:44.033639Z",
+  "assetId": "W01-023",
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/bags/trap-bag-013.png",
+  "sourceSha256": "12d9ff87e2a07fa4b5632d91f199492b97c07ef5b46372172d386f642cc5377f",
+  "rawBlindRecordPath": "raw/W01-023.json",
+  "metadataConsultedOnlyAfterRawPersisted": true,
+  "sourceKind": "manifest",
+  "manifest": {
+    "sourceUrl": "https://steamusercontent-a.akamaihd.net/ugc/15562059000887894705/441F5346C781DE37EEAACA5AFE105F4732D69FEB/",
+    "manifestFile": "bags/trap-bag-013.png",
+    "manifestByteSize": 1117744
+  },
+  "generatedSource": null,
+  "objectReferenceCount": 2,
+  "objectReferences": [
+    {
+      "guid": "0987e4",
+      "type": "Custom_Model_Infinite_Bag",
+      "nickname": "Trap bag",
+      "description": "",
+      "gmnotes": "",
+      "cardId": "",
+      "parent": [],
+      "urlRoles": [
+        "DiffuseURL"
+      ],
+      "luaRoles": [
+        "trapBag"
+      ],
+      "classificationVerdict": "base",
+      "classificationReason": "Lua base/mech GUID",
+      "classificationGroup": null
+    },
+    {
+      "guid": "51f80a",
+      "type": "Custom_Tile",
+      "nickname": "Trap",
+      "description": "",
+      "gmnotes": "trap",
+      "cardId": "",
+      "parent": [
+        [
+          "Custom_Model_Infinite_Bag",
+          "0987e4",
+          "Trap bag"
+        ]
+      ],
+      "urlRoles": [
+        "ImageSecondaryURL"
+      ],
+      "luaRoles": [],
+      "classificationVerdict": "base",
+      "classificationReason": "contained in Trap bag: Lua base/mech GUID",
+      "classificationGroup": null
+    }
+  ],
+  "priorSemanticVisionEvidenceRead": false
+}

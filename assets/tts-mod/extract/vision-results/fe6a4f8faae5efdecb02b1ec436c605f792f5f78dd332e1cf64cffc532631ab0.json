@@ -1,0 +1,86 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/event-086.png",
+  "sourceSha256": "fe6a4f8faae5efdecb02b1ec436c605f792f5f78dd332e1cf64cffc532631ab0",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_052358_aae591",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:23:57Z",
+  "completedAt": "2026-08-15T05:25:09Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "portrait-format game event card",
+    "cardSide": "face",
+    "title": "BREAKING IN",
+    "typeLine": "",
+    "body": "All [intruder] in each [corridorNWSE] move.\nThen, all [intruder] in every Room move.\n\nRemove 1 [secure] from each Room.\n\nResolve each [noiseDieHazard] in\nUnexplored Corridors.",
+    "footer": "",
+    "upperRight": "",
+    "lowerCenter": "",
+    "visibleText": "",
+    "confidentlyVisible": [
+      "Typography is upright in the file.",
+      "White uppercase title appears above the illustration.",
+      "Artwork depicts a humanoid figure surrounded by multiple pale, spiked creatures in a damaged industrial interior.",
+      "Rules are divided among three green-bordered panels.",
+      "Two curled white exoskeleton glyphs are visible inline.",
+      "A white outlined corridor glyph runs northwest to southeast.",
+      "A white shield-shaped secure glyph is visible inline.",
+      "A yellow hazard glyph is visible inline."
+    ],
+    "proposedCategory": "cards/game/event",
+    "proposedSlug": "breaking-in",
+    "confidence": "high",
+    "uncertainties": []
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Loading image analysis skill****Loading image analysis skill****Analyzing full image for orientation and glyphs**\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Analyzing full image for orientation and glyphs****Parsing icon morphology and glossary**\n\n\n**Confirming secure shield and evaluating yellow hazard icon**\n\n**Validating noise die hazard icon morphology**\n\n**Identifying corridorNWSE icon orientation**\n\n**Clarifying corridor icon and secure token meanings**\n\n**Planning event card text layout**\n\n**Analyzing corridor glyph morphology**\n\n**Confirming corridorNWSE orientation and identity**\n\n**Considering corridor icon rotation implications**\n\n**Classifying corridor icons by orientation**\n\n**Mapping corridor icons with uncertainty**\n\n**Confirming event card title formatting**\n\n{\"orientation\":\"upright\",\"componentType\":\"portrait-format game event card\",\"cardSide\":\"face\",\"title\":\"BREAKING IN\",\"typeLine\":\"\",\"body\":\"All [intruder] in each [corridorNWSE] move.\\nThen, all [intruder] in every Room move.\\n\\nRemove 1 [secure] from each Room.\\n\\nResolve each [noiseDieHazard] in\\nUnexplored Corridors.\",\"footer\":\"\",\"upperRight\":\"\",\"lowerCenter\":\"\",\"visibleText\":\"\",\"confidentlyVisible\":[\"Typography is upright in the file.\",\"White uppercase title appears above the illustration.\",\"Artwork depicts a humanoid figure surrounded by multiple pale, spiked creatures in a damaged industrial interior.\",\"Rules are divided among three green-bordered panels.\",\"Two curled white exoskeleton glyphs are visible inline.\",\"A white outlined corridor glyph runs northwest to southeast.\",\"A white shield-shaped secure glyph is visible inline.\",\"A yellow hazard glyph is visible inline.\"],\"proposedCategory\":\"cards/game/event\",\"proposedSlug\":\"breaking-in\",\"confidence\":\"high\",\"uncertainties\":[]}\n\nsession_id: 20260815_052358_aae591\n",
+  "iconVerification": {
+    "status": "failed",
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "sessionId": "20260815_060755_8c2936",
+    "promptVersion": 1,
+    "completedAt": "2026-08-15T06:08:19Z",
+    "claimed": [
+      "corridorNWSE",
+      "intruder",
+      "noiseDieHazard",
+      "secure"
+    ],
+    "parsed": {
+      "claims": [
+        {
+          "claimed": "corridorNWSE",
+          "verdict": "match",
+          "actual": "corridorNWSE",
+          "evidence": "One occurrence; identical diagonal irregular corridor outline with opposing stepped notches."
+        },
+        {
+          "claimed": "intruder",
+          "verdict": "match",
+          "actual": "intruder",
+          "evidence": "Two occurrences; both show the same curled creature silhouette with toothed circular body and projecting head."
+        },
+        {
+          "claimed": "noiseDieHazard",
+          "verdict": "mismatch",
+          "actual": "noise",
+          "evidence": "No hazard-die triangle occurs; the card has one yellow noise glyph with central black capsule and nested radiating stripes, matching noise."
+        },
+        {
+          "claimed": "secure",
+          "verdict": "match",
+          "actual": "secure",
+          "evidence": "One occurrence; identical white angular shield containing the narrow forked central emblem."
+        }
+      ],
+      "allClaimsMatch": false,
+      "confidence": "high",
+      "uncertainties": []
+    },
+    "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Verifying glyph occurrences and matching icons****Verifying glyph occurrences and matching icons**\n**Analyzing hazard icon details**\n\n**Clarifying noise icon versus hazard****Analyzing hazard icon details**\n\nsession_id: 20260815_060755_8c2936\n{\"claims\":[{\"claimed\":\"corridorNWSE\",\"verdict\":\"match\",\"actual\":\"corridorNWSE\",\"evidence\":\"One occurrence; identical diagonal irregular corridor outline with opposing stepped notches.\"},{\"claimed\":\"intruder\",\"verdict\":\"match\",\"actual\":\"intruder\",\"evidence\":\"Two occurrences; both show the same curled creature silhouette with toothed circular body and projecting head.\"},{\"claimed\":\"noiseDieHazard\",\"verdict\":\"mismatch\",\"actual\":\"noise\",\"evidence\":\"No hazard-die triangle occurs; the card has one yellow noise glyph with central black capsule and nested radiating stripes, matching noise.\"},{\"claimed\":\"secure\",\"verdict\":\"match\",\"actual\":\"secure\",\"evidence\":\"One occurrence; identical white angular shield containing the narrow forked central emblem.\"}],\"allClaimsMatch\":false,\"confidence\":\"high\",\"uncertainties\":[]}\n",
+    "evidencePath": "docs/qa/card-icon-comparisons/auto-fe6a4f8faae5efdecb02b1ec436c605f792f5f78dd332e1cf64cffc532631ab0.png"
+  }
+}

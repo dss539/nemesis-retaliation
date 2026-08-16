@@ -1,0 +1,104 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-074.jpg",
+  "sourceSha256": "4dbee4ea11d5f223eca9a58cced91f37bab63f4296910cd0cbc0838acfc487e3",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_060446_c8552b",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:41:13Z",
+  "completedAt": "2026-08-15T06:05:08Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "item card",
+    "cardSide": "face",
+    "title": "ENTRENCHING TOOL",
+    "typeLine": "MELEE WEAPON, HEAVY",
+    "body": "Destroy 1 accessible Door\nOR\nPlace 2 [ICON: white angular shield-like glyph with split top and downward-pointing center].",
+    "footer": "",
+    "upperRight": "",
+    "lowerCenter": "",
+    "visibleText": "",
+    "confidentlyVisible": [
+      "Landscape rectangular card face with rounded corners",
+      "All typography is already upright",
+      "Title is printed in large white uppercase letters",
+      "Type line is printed in yellow uppercase letters",
+      "Artwork depicts a heavy handheld mechanical tool",
+      "Rules text is centered in three lines near the bottom",
+      "A white angular glyph follows “Place 2”"
+    ],
+    "proposedCategory": "cards/game/item/melee-weapon",
+    "proposedSlug": "entrenching-tool",
+    "confidence": "medium",
+    "uncertainties": [
+      "The white angular glyph after “Place 2” does not confidently match any supplied canonical icon and is transcribed literally.",
+      "The exact semantic subtype of the item card is inferred from the visible type line rather than a dedicated category marker."
+    ]
+  },
+  "cliOutput": "{\"orientation\":\"rotate90ccw\",\"componentType\":\"game item card\",\"cardSide\":\"face\",\"title\":\"ENTRENCHING TOOL\",\"typeLine\":\"MELEE WEAPON, HEAVY\",\"body\":\"Destroy 1 accessible Door.\\nOR\\nPlace 2 [ICON: white angular shield-like glyph].\",\"footer\":\"\",\"upperRight\":\"\",\"lowerCenter\":\"\",\"visibleText\":\"\",\"confidentlyVisible\":[\"White uppercase title ENTRENCHING TOOL\",\"Yellow uppercase type line MELEE WEAPON, HEAVY\",\"Artwork depicts a folding entrenching tool\",\"Rules text contains two alternatives separated by OR\",\"A white angular glyph follows the number 2\"],\"proposedCategory\":\"cards/game/item/weapon\",\"proposedSlug\":\"entrenching-tool\",\"confidence\":\"medium\",\"uncertainties\":[\"The white line-ending glyph after “Place 2” is not confidently matched to any canonical glossary icon and is transcribed literally.\",\"The precise subtype/category beyond a melee weapon item card is not explicitly printed.\"]}\n\nsession_id: 20260815_054114_72af8a\n",
+  "initialParsed": {
+    "orientation": "rotate90ccw",
+    "componentType": "game item card",
+    "cardSide": "face",
+    "title": "ENTRENCHING TOOL",
+    "typeLine": "MELEE WEAPON, HEAVY",
+    "body": "Destroy 1 accessible Door.\nOR\nPlace 2 [ICON: white angular shield-like glyph].",
+    "footer": "",
+    "upperRight": "",
+    "lowerCenter": "",
+    "visibleText": "",
+    "confidentlyVisible": [
+      "White uppercase title ENTRENCHING TOOL",
+      "Yellow uppercase type line MELEE WEAPON, HEAVY",
+      "Artwork depicts a folding entrenching tool",
+      "Rules text contains two alternatives separated by OR",
+      "A white angular glyph follows the number 2"
+    ],
+    "proposedCategory": "cards/game/item/weapon",
+    "proposedSlug": "entrenching-tool",
+    "confidence": "medium",
+    "uncertainties": [
+      "The white line-ending glyph after “Place 2” is not confidently matched to any canonical glossary icon and is transcribed literally.",
+      "The precise subtype/category beyond a melee weapon item card is not explicitly printed."
+    ]
+  },
+  "initialSessionId": "20260815_054114_72af8a",
+  "orientationCorrection": "rotate90ccw",
+  "uprightRead": {
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "sessionId": "20260815_060446_c8552b",
+    "completedAt": "2026-08-15T06:05:08Z",
+    "parsed": {
+      "orientation": "upright",
+      "componentType": "item card",
+      "cardSide": "face",
+      "title": "ENTRENCHING TOOL",
+      "typeLine": "MELEE WEAPON, HEAVY",
+      "body": "Destroy 1 accessible Door\nOR\nPlace 2 [ICON: white angular shield-like glyph with split top and downward-pointing center].",
+      "footer": "",
+      "upperRight": "",
+      "lowerCenter": "",
+      "visibleText": "",
+      "confidentlyVisible": [
+        "Landscape rectangular card face with rounded corners",
+        "All typography is already upright",
+        "Title is printed in large white uppercase letters",
+        "Type line is printed in yellow uppercase letters",
+        "Artwork depicts a heavy handheld mechanical tool",
+        "Rules text is centered in three lines near the bottom",
+        "A white angular glyph follows “Place 2”"
+      ],
+      "proposedCategory": "cards/game/item/melee-weapon",
+      "proposedSlug": "entrenching-tool",
+      "confidence": "medium",
+      "uncertainties": [
+        "The white angular glyph after “Place 2” does not confidently match any supplied canonical icon and is transcribed literally.",
+        "The exact semantic subtype of the item card is inferred from the visible type line rather than a dedicated category marker."
+      ]
+    },
+    "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Planning image analysis approach****Planning image analysis approach****Identifying JSON structure for item card glyph**\n\nsession_id: 20260815_060446_c8552b\n{\"orientation\":\"upright\",\"componentType\":\"item card\",\"cardSide\":\"face\",\"title\":\"ENTRENCHING TOOL\",\"typeLine\":\"MELEE WEAPON, HEAVY\",\"body\":\"Destroy 1 accessible Door\\nOR\\nPlace 2 [ICON: white angular shield-like glyph with split top and downward-pointing center].\",\"footer\":\"\",\"upperRight\":\"\",\"lowerCenter\":\"\",\"visibleText\":\"\",\"confidentlyVisible\":[\"Landscape rectangular card face with rounded corners\",\"All typography is already upright\",\"Title is printed in large white uppercase letters\",\"Type line is printed in yellow uppercase letters\",\"Artwork depicts a heavy handheld mechanical tool\",\"Rules text is centered in three lines near the bottom\",\"A white angular glyph follows “Place 2”\"],\"proposedCategory\":\"cards/game/item/melee-weapon\",\"proposedSlug\":\"entrenching-tool\",\"confidence\":\"medium\",\"uncertainties\":[\"The white angular glyph after “Place 2” does not confidently match any supplied canonical icon and is transcribed literally.\",\"The exact semantic subtype of the item card is inferred from the visible type line rather than a dedicated category marker.\"]}\n"
+  }
+}

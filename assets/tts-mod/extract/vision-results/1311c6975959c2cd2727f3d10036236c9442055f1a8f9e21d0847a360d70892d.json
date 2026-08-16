@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/models/model-018.jpg",
+  "sourceSha256": "1311c6975959c2cd2727f3d10036236c9442055f1a8f9e21d0847a360d70892d",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_054630_fe2b60",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:46:30Z",
+  "completedAt": "2026-08-15T05:46:53Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "rotationIrrelevant",
+    "componentType": "3D model texture atlas containing two sci-fi room-surface panels",
+    "cardSide": "notCard",
+    "title": "",
+    "typeLine": "",
+    "body": "",
+    "footer": "",
+    "upperRight": "",
+    "lowerCenter": "",
+    "visibleText": "3\n3\n0\n0",
+    "confidentlyVisible": [
+      "Two distinct rectangular sci-fi room panels appear on a mostly black texture atlas.",
+      "The upper-left panel has a bloodstained central floor and dark industrial walls.",
+      "The lower-right panel has a clean white central floor and dark industrial walls.",
+      "Each panel has yellow triangular end markers bearing black numerals.",
+      "The upper-left panel shows 3 at both opposite ends, with one numeral upright and one inverted in the file.",
+      "The lower-right panel shows 0 at both opposite ends, with one numeral upright and one inverted in the file.",
+      "No words or rules text are visible."
+    ],
+    "proposedCategory": "models/texture",
+    "proposedSlug": null,
+    "confidence": "medium",
+    "uncertainties": [
+      "The image is a texture atlas with deliberately opposed numeral orientations, so no single file rotation makes all meaningful typography upright.",
+      "Faint partially overlaid triangular details near the upper panel's numbered markers are texture artifacts or secondary mapped elements; their apparent glyphs are not confidently legible.",
+      "The depicted room identities and a semantic filename stem cannot be determined from visible pixels alone.",
+      "The exact intended 3D model geometry and mapping role are not visible in the flat texture."
+    ]
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Planning image analysis implementation****Planning image analysis implementation**\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Analyzing texture atlas rotations and translucency**\n\n{\"orientation\":\"rotationIrrelevant\",\"componentType\":\"3D model texture atlas containing two sci-fi room-surface panels\",\"cardSide\":\"notCard\",\"title\":\"\",\"typeLine\":\"\",\"body\":\"\",\"footer\":\"\",\"upperRight\":\"\",\"lowerCenter\":\"\",\"visibleText\":\"3\\n3\\n0\\n0\",\"confidentlyVisible\":[\"Two distinct rectangular sci-fi room panels appear on a mostly black texture atlas.\",\"The upper-left panel has a bloodstained central floor and dark industrial walls.\",\"The lower-right panel has a clean white central floor and dark industrial walls.\",\"Each panel has yellow triangular end markers bearing black numerals.\",\"The upper-left panel shows 3 at both opposite ends, with one numeral upright and one inverted in the file.\",\"The lower-right panel shows 0 at both opposite ends, with one numeral upright and one inverted in the file.\",\"No words or rules text are visible.\"],\"proposedCategory\":\"models/texture\",\"proposedSlug\":null,\"confidence\":\"medium\",\"uncertainties\":[\"The image is a texture atlas with deliberately opposed numeral orientations, so no single file rotation makes all meaningful typography upright.\",\"Faint partially overlaid triangular details near the upper panel's numbered markers are texture artifacts or secondary mapped elements; their apparent glyphs are not confidently legible.\",\"The depicted room identities and a semantic filename stem cannot be determined from visible pixels alone.\",\"The exact intended 3D model geometry and mapping role are not visible in the flat texture.\"]}\n\nsession_id: 20260815_054630_fe2b60\n"
+}

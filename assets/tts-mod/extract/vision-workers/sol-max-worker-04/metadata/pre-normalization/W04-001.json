@@ -1,0 +1,120 @@
+{
+  "schemaVersion": 1,
+  "assetId": "W04-001",
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-01.png",
+  "sourceSha256": "d293abad16af07498d8f485bd1ab67426be66a64d78c2fbd085ec4bac7dc0f4f",
+  "sourceMetadata": {
+    "width": 1052,
+    "height": 1433,
+    "format": "PNG",
+    "mode": "RGB",
+    "frames": 1,
+    "byteSize": 1266909,
+    "decodeVerified": true
+  },
+  "batchId": "W04-B01",
+  "completedAt": "2026-08-15T22:00:53Z",
+  "runtimeProvenance": {
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "reasoningEffort": "max",
+    "platform": "subagent",
+    "sessionId": "20260815_215426_fac7ff",
+    "nativeImageRoute": "active-session native image attachment via functions.vision_analyze"
+  },
+  "orientation": {
+    "displayed": "upright portrait",
+    "final": "upright",
+    "rotationRequired": false
+  },
+  "blindPixelObservations": [
+    "Dark blue/black/magenta portrait card with a crouched armored figure at upper left and a weapon-bearing figure near the title band.",
+    "Large white uppercase title in an angular magenta frame; effect text below; a white lower REACTION panel; magenta owner/footer at bottom.",
+    "No neighboring-card text or art is visible; the left REACTION tab reaches the cell boundary as designed."
+  ],
+  "visibleText": {
+    "title": "CHAIN OF COMMAND",
+    "typeLine": "",
+    "body": "Move the [lander] by 1 space in any direction.\n\nOR\n\nCOMMAND\nChoose a Character with a lower Rank.\nThen, Move, Shoot, or Burst using this Character.\n\nREACTION\nWhen a Character with a higher Rank plays a Command on you:\nCancel the effect of that Command. That Character must still pay the Action’s cost.",
+    "footer": "RECON",
+    "upperRight": "",
+    "lowerCenter": "",
+    "edgeContamination": ""
+  },
+  "iconMorphology": [
+    {
+      "location": "first effect line between “the” and “by”",
+      "outerSilhouette": "white symmetric tall central spire with two raised lateral horns and a broad three-scallop lower base",
+      "internalMarks": "No dark internal slit is resolved in the card raster; otherwise the outer contour directly tracks the authoritative lander crop.",
+      "colors": [
+        "white"
+      ],
+      "neighboringPrintedText": "Move the [glyph] by 1 space in any direction.",
+      "closestPlausibleAlternative": "intruder",
+      "visibleDiscriminatingFeature": "The source has a symmetric spire-and-two-horns contour with low scallops, while the authoritative intruder is a curled circular creature with dorsal spines, eye holes, and a toothed inner arc.",
+      "proposedToken": "lander",
+      "tokenVerification": "verified by same-session native reread of worker-local direct source/glossary contact sheet",
+      "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-worker-04/contact-sheets/W04-001-inline-glyph.png",
+      "verdictPath": "assets/tts-mod/extract/vision-workers/sol-max-worker-04/contact-sheets/W04-001-inline-glyph-verdict.json"
+    }
+  ],
+  "evidenceConsulted": [
+    {
+      "kind": "blindNativeImage",
+      "path": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-01.png",
+      "timing": "before metadata/provenance"
+    },
+    {
+      "kind": "ttsProvenance",
+      "path": "assets/tts-mod/extract/vision-workers/sol-max-worker-04/provenance/W04-001.json",
+      "finding": "Generated cell 1 of a shared sheet used only as FaceURL; no exact CardID % 100 == 1 object ref; common action-card back is generic rather than cell-specific."
+    },
+    {
+      "kind": "authoritativeGlossaryContactSheet",
+      "path": "assets/tts-mod/extract/vision-workers/sol-max-worker-04/contact-sheets/W04-001-inline-glyph.png",
+      "finding": "Direct outer-contour match supports lander over all compared alternatives."
+    },
+    {
+      "kind": "canonicalTargetExistenceCheck",
+      "path": "cards/character/recon/action/chain-of-command",
+      "finding": "No existing .png/.jpg/.jpeg/.json target."
+    }
+  ],
+  "proposedClassification": "individual portrait action-card face for the printed owner RECON, sourced from a shared FaceURL sheet",
+  "proposedPath": "cards/character/recon/action/chain-of-command.png",
+  "canonicalTarget": "cards/character/recon/action/chain-of-command.png",
+  "cardData": {
+    "cardSide": "face",
+    "title": "CHAIN OF COMMAND",
+    "typeLine": "",
+    "body": "Move the [lander] by 1 space in any direction.\n\nOR\n\nCOMMAND\nChoose a Character with a lower Rank.\nThen, Move, Shoot, or Burst using this Character.\n\nREACTION\nWhen a Character with a higher Rank plays a Command on you:\nCancel the effect of that Command. That Character must still pay the Action’s cost.",
+    "footer": "RECON",
+    "upperRight": "",
+    "lowerCenter": "",
+    "category": "cards/character/recon/action",
+    "slug": "chain-of-command"
+  },
+  "readConfidence": "high",
+  "classificationConfidence": "medium",
+  "uncertainties": [
+    "No parsed TTS Card object selects shared-sheet cell index 1; this prevents an exact GUID/CardID-to-cell join.",
+    "The only paired-side evidence is a generic action-card BackURL used by other objects on the shared sheet, not an exact cell-specific pairing.",
+    "The card-rendered glyph lacks the tiny dark vertical slit visible in the authoritative lander crop, although its distinctive outer contour matches; this is recorded as a likely artwork/raster variant rather than silently ignored."
+  ],
+  "promotionDecision": "defer",
+  "decisionReasons": [
+    "Strict promotion requires resolved individual FaceURL/card-index and paired-side provenance with no material uncertainty.",
+    "Pixel transcription and glossary comparison are strong, but the exact cell is unselected in parsed TTS object records and its paired side is not uniquely established."
+  ],
+  "stagedCandidateSidecarPath": null,
+  "validationPerformed": [
+    "worker_utils.source_state hash/decode preflight before the original native attachment",
+    "raw blind record persisted before manifest/object metadata was consulted",
+    "manifest/classification/lua_roles provenance derived without reading prior worker output",
+    "same-session native direct crop-to-authoritative-glossary comparison completed",
+    "submitted/returned asset ID and count reconciled 1/1",
+    "canonical target existence checked and found absent",
+    "result identity fields recomputed by worker_utils.write_result"
+  ],
+  "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-worker-04/raw/W04-001.json"
+}

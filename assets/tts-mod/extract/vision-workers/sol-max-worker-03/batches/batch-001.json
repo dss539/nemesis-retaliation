@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "batchId": "batch-001",
+  "workerId": "sol-max-worker-03",
+  "completedAt": "2026-08-15T21:48:23.875254Z",
+  "runtimeProvenanceRef": "../metadata/runtime.json",
+  "sessionId": "20260815_213825_14ef69",
+  "nativeVisionTurn": true,
+  "nativeImageTurns": 1,
+  "oneImageExceptionReason": "Strict approval-sensitive clean-context retry for exactly W01-024.",
+  "preflightPath": "../metadata/preflight.json",
+  "baselineAssignmentFileSha256": "ab5b454fd14cf40a1d8465d3d33d28aa0ef2a499fb4a313001c2bdda1f40fd03",
+  "baselineAssignmentTupleSha256": "64ea536d21b870acfb52c36e25d99a29e6186f473aa81db8e1b6fcd16fe2fc88",
+  "closingAssignmentFileSha256": "f4a2fd2c388d1109dd7e413207d8dd49fb498073be99b26906a7fed6e3542afa",
+  "closingAssignmentTupleSha256": "56f53499a1c63da769879f3266e407a1a9b1e73ae38eff1b53c66f205498a150",
+  "assignmentDrift": {
+    "detected": true,
+    "classification": "scope-expansion",
+    "retainedTupleUnchanged": true,
+    "addedAssetCount": 11,
+    "recordPath": "../metadata/assignment-drift-001.json",
+    "adjudicationPath": "../metadata/assignment-drift-adjudication-001.json",
+    "action": "Retain W01-024 and stop at the explicit one-asset delegated boundary."
+  },
+  "submittedCount": 1,
+  "submittedAssetIds": [
+    "W01-024"
+  ],
+  "returnedCount": 1,
+  "returnedAssetIds": [
+    "W01-024"
+  ],
+  "analyzedCount": 1,
+  "analyzedAssetIds": [
+    "W01-024"
+  ],
+  "persistedRawCount": 1,
+  "persistedRawAssetIds": [
+    "W01-024"
+  ],
+  "persistedResultCount": 1,
+  "persistedResultAssetIds": [
+    "W01-024"
+  ],
+  "idAndCountReconciliation": "exact-match-for-delegated-scope",
+  "retryAssetIds": [],
+  "priorWorkerRawUse": "Attempt/failure provenance only after fresh blind persistence; not pixel or semantic evidence.",
+  "decisions": {
+    "promote": 0,
+    "defer": 1,
+    "nonCardComplete": 0
+  },
+  "rawPaths": [
+    "../raw/W01-024.json"
+  ],
+  "resultPaths": [
+    "../results/W01-024.json"
+  ],
+  "promotionBlockers": [
+    "Unresolved crossed/occluded upper-right glyph identity.",
+    "Unresolved solid white inline polygon identity."
+  ],
+  "validationNotes": [
+    "The exact baseline assignment tuple and source bytes were verified immediately before attachment.",
+    "One native source image returned under the explicit W01-024 ID with no omission or context stripping.",
+    "Blind text and morphology were persisted before any prior-worker or TTS evidence was read.",
+    "No semantic icon tokens were assigned.",
+    "The later 11-asset scope expansion did not alter W01-024's tuple or live bytes and was not processed."
+  ]
+}

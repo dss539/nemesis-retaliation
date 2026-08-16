@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/medical-support-049.jpg",
+  "sourceSha256": "8b21eac1a4c1a2697c8f0184703e32f3984a25b847f14869c73cf7aa63645aa6",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_051259_e1e527",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:12:59Z",
+  "completedAt": "2026-08-15T05:13:35Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "character action card",
+    "cardSide": "face",
+    "title": "DEMOLITION",
+    "typeLine": "",
+    "body": "Destroy 1 accessible Door.\n\nOR\n\nPlace a [malfunction] in your Room.",
+    "footer": "MEDICAL SUPPORT",
+    "upperRight": "",
+    "lowerCenter": "",
+    "visibleText": "",
+    "confidentlyVisible": [
+      "Portrait-oriented card face with upright typography",
+      "Large explosion artwork occupies the upper portion",
+      "The inline glyph is a light grey cog with a dark circular center, matching [malfunction]",
+      "Magenta and black framed rules panels",
+      "Owner label MEDICAL SUPPORT appears beneath the effect text"
+    ],
+    "proposedCategory": "cards/character/medical-support/action",
+    "proposedSlug": "demolition",
+    "confidence": "medium",
+    "uncertainties": [
+      "Small text displayed on a screen within the artwork is too blurred to transcribe confidently."
+    ]
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Loading image analysis skill****Loading image analysis skill****Classifying componentType as malfunction icon**\n\n\n**Planning visual crop inspection for error text****Classifying componentType as malfunction icon**\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Planning visual crop inspection for error text****Deciding on visible pixel transcription**\n\n\n**Transcribing malfunction action card details**\n\n{\"orientation\":\"upright\",\"componentType\":\"character action card\",\"cardSide\":\"face\",\"title\":\"DEMOLITION\",\"typeLine\":\"\",\"body\":\"Destroy 1 accessible Door.\\n\\nOR\\n\\nPlace a [malfunction] in your Room.\",\"footer\":\"MEDICAL SUPPORT\",\"upperRight\":\"\",\"lowerCenter\":\"\",\"visibleText\":\"\",\"confidentlyVisible\":[\"Portrait-oriented card face with upright typography\",\"Large explosion artwork occupies the upper portion\",\"The inline glyph is a light grey cog with a dark circular center, matching [malfunction]\",\"Magenta and black framed rules panels\",\"Owner label MEDICAL SUPPORT appears beneath the effect text\"],\"proposedCategory\":\"cards/character/medical-support/action\",\"proposedSlug\":\"demolition\",\"confidence\":\"medium\",\"uncertainties\":[\"Small text displayed on a screen within the artwork is too blurred to transcribe confidently.\"]}\n\nsession_id: 20260815_051259_e1e527\n"
+}

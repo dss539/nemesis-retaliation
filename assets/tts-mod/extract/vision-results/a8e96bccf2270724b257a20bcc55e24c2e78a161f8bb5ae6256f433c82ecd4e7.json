@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/seriouswound-104.png",
+  "sourceSha256": "a8e96bccf2270724b257a20bcc55e24c2e78a161f8bb5ae6256f433c82ecd4e7",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_054009_c194a6",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:40:09Z",
+  "completedAt": "2026-08-15T05:40:36Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "serious wound card",
+    "cardSide": "face",
+    "title": "LEG",
+    "typeLine": "",
+    "body": "Using the “Make a Move” Action\nfrom a Room with an [intruder]\ncosts you 1 [actionCard] more.",
+    "footer": "",
+    "upperRight": "",
+    "lowerCenter": "",
+    "visibleText": "TEMP.\n39.0°\nTISSUE DAMAGE",
+    "confidentlyVisible": [
+      "Upright medical scan artwork depicting both legs",
+      "The knee regions are highlighted in yellow, orange, and red",
+      "Title LEG is centered above a bordered rules panel",
+      "A curled white exoskeleton glyph appears inline after “an”",
+      "A boxed capital A glyph appears inline after “1”",
+      "Small colored diagnostic markers and connecting lines overlay the scan"
+    ],
+    "proposedCategory": "cards/game/serious-wound",
+    "proposedSlug": "leg",
+    "confidence": "medium",
+    "uncertainties": [
+      "Several tiny background diagnostic labels are too faint or stylized to transcribe confidently and were omitted.",
+      "The boxed A glyph is mapped to [actionCard] from its clear morphology, but the card does not provide an on-component legend confirming that mapping."
+    ]
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Loading image-analysis skill****Loading image-analysis skill****Identifying icon as literal action glyph**\n\n\n**Examining panel text line breaks****Identifying icon as literal action glyph**\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Examining panel text line breaks****Confirming actionCard icon identification**\n\n\n{\"orientation\":\"upright\",\"componentType\":\"serious wound card\",\"cardSide\":\"face\",\"title\":\"LEG\",\"typeLine\":\"\",\"body\":\"Using the “Make a Move” Action\\nfrom a Room with an [intruder]\\ncosts you 1 [actionCard] more.\",\"footer\":\"\",\"upperRight\":\"\",\"lowerCenter\":\"\",\"visibleText\":\"TEMP.\\n39.0°\\nTISSUE DAMAGE\",\"confidentlyVisible\":[\"Upright medical scan artwork depicting both legs\",\"The knee regions are highlighted in yellow, orange, and red\",\"Title LEG is centered above a bordered rules panel\",\"A curled white exoskeleton glyph appears inline after “an”\",\"A boxed capital A glyph appears inline after “1”\",\"Small colored diagnostic markers and connecting lines overlay the scan\"],\"proposedCategory\":\"cards/game/serious-wound\",\"proposedSlug\":\"leg\",\"confidence\":\"medium\",\"uncertainties\":[\"Several tiny background diagnostic labels are too faint or stylized to transcribe confidently and were omitted.\",\"The boxed A glyph is mapped to [actionCard] from its clear morphology, but the card does not provide an on-component legend confirming that mapping.\"]}\n\nsession_id: 20260815_054009_c194a6\n"
+}

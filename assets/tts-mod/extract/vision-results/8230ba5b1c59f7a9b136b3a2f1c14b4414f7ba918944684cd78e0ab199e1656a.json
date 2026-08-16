@@ -1,0 +1,113 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-144_cards/card-05.png",
+  "sourceSha256": "8230ba5b1c59f7a9b136b3a2f1c14b4414f7ba918944684cd78e0ab199e1656a",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_060533_7bf46b",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:41:59Z",
+  "completedAt": "2026-08-15T06:06:01Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "weapon item card",
+    "cardSide": "face",
+    "title": "FLAMETHROWER",
+    "typeLine": "RANGED WEAPON, REQUIRES NO AMMO",
+    "body": "Shoot and Burst:\nIf you are in a Section with [ICON: white horizontal capsule-shaped section glyph], lose 1 [oxygenToken].\n[ICON: purple square with white exclamation mark], [ICON: red triangle with white flame-like glyph]: Place a [fire].",
+    "footer": "",
+    "upperRight": "",
+    "lowerCenter": "",
+    "visibleText": "",
+    "confidentlyVisible": [
+      "Landscape-oriented card face with upright typography",
+      "Large firearm artwork emits a bright orange-yellow flame",
+      "Title reads FLAMETHROWER",
+      "Type line reads RANGED WEAPON, REQUIRES NO AMMO",
+      "Rules heading reads Shoot and Burst:",
+      "Orange circular flame icon follows “Place a”"
+    ],
+    "proposedCategory": "cards/game/item/weapon",
+    "proposedSlug": "flamethrower",
+    "confidence": "medium",
+    "uncertainties": [
+      "The white horizontal glyph after “Section with” is not confidently matched to a canonical glossary icon.",
+      "The purple square exclamation-mark glyph is absent from the supplied canonical glossary and may be a card-local action or die-result glyph.",
+      "The red triangle’s internal white glyph is not clear enough to match confidently to a canonical Shoot die face.",
+      "The yellow-and-blue canister glyph after “lose 1” appears to be an oxygen token, but its morphology is small and could instead represent the general oxygen-supply icon."
+    ]
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Planning image loading skill****Planning image loading skill****Analyzing image text orientation**\n\n\n**Confirming rotated text content and icons****Analyzing image text orientation**\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Confirming rotated text content and icons****Analyzing text rotation orientation**\n\n\n**Mapping icon meanings and item classification**\n\n{\"orientation\":\"rotate90ccw\",\"componentType\":\"ranged weapon item card\",\"cardSide\":\"face\",\"title\":\"FLAMETHROWER\",\"typeLine\":\"RANGED WEAPON, REQUIRES NO AMMO\",\"body\":\"Shoot and Burst!\\nIf you are in a Section with [ICON: white circle with three connected rectangular compartments], lose 1 [oxygenToken].\\n\\n[ICON: purple square with white exclamation mark], [ICON: red triangle with white flame-like glyph]: Place a [ICON: orange circular flame-like glyph].\",\"footer\":\"\",\"upperRight\":\"\",\"lowerCenter\":\"\",\"visibleText\":\"\",\"confidentlyVisible\":[\"The card is sideways in the file and becomes upright after a 90-degree counterclockwise rotation.\",\"A large mechanical flamethrower emits a bright orange-yellow flame.\",\"The title FLAMETHROWER is printed in white uppercase letters.\",\"The type line is printed in yellow uppercase letters.\",\"Shoot is red and Burst! is purple.\",\"A small yellow-and-blue canister glyph follows “lose 1”.\",\"Two line-leading colored glyphs precede the instruction “Place a”.\",\"No footer or owner label is visibly printed.\"],\"proposedCategory\":\"cards/game/item/weapon\",\"proposedSlug\":\"flamethrower\",\"confidence\":\"medium\",\"uncertainties\":[\"The white circular Section glyph is not confidently matched to the supplied canonical glossary and is transcribed literally.\",\"The purple square with a white exclamation mark is not a canonical burst-die morphology from the supplied glossary and is transcribed literally.\",\"The white glyph inside the red triangle is too small to identify confidently and is transcribed literally.\",\"The orange circular flame-like glyph after “Place a” is not confidently matched to the canonical fire icon because its morphology is unclear at this resolution.\",\"The yellow-and-blue canister is mapped to [oxygenToken] from its visible canister morphology and sentence context, but its printed appearance is more detailed than the glossary's simple color description.\",\"The precise item subtype/category is inferred from the visible “RANGED WEAPON” type line; no canonical item badge is visibly present.\"]}\n\nsession_id: 20260815_054200_b4738b\n",
+  "initialParsed": {
+    "orientation": "rotate90ccw",
+    "componentType": "ranged weapon item card",
+    "cardSide": "face",
+    "title": "FLAMETHROWER",
+    "typeLine": "RANGED WEAPON, REQUIRES NO AMMO",
+    "body": "Shoot and Burst!\nIf you are in a Section with [ICON: white circle with three connected rectangular compartments], lose 1 [oxygenToken].\n\n[ICON: purple square with white exclamation mark], [ICON: red triangle with white flame-like glyph]: Place a [ICON: orange circular flame-like glyph].",
+    "footer": "",
+    "upperRight": "",
+    "lowerCenter": "",
+    "visibleText": "",
+    "confidentlyVisible": [
+      "The card is sideways in the file and becomes upright after a 90-degree counterclockwise rotation.",
+      "A large mechanical flamethrower emits a bright orange-yellow flame.",
+      "The title FLAMETHROWER is printed in white uppercase letters.",
+      "The type line is printed in yellow uppercase letters.",
+      "Shoot is red and Burst! is purple.",
+      "A small yellow-and-blue canister glyph follows “lose 1”.",
+      "Two line-leading colored glyphs precede the instruction “Place a”.",
+      "No footer or owner label is visibly printed."
+    ],
+    "proposedCategory": "cards/game/item/weapon",
+    "proposedSlug": "flamethrower",
+    "confidence": "medium",
+    "uncertainties": [
+      "The white circular Section glyph is not confidently matched to the supplied canonical glossary and is transcribed literally.",
+      "The purple square with a white exclamation mark is not a canonical burst-die morphology from the supplied glossary and is transcribed literally.",
+      "The white glyph inside the red triangle is too small to identify confidently and is transcribed literally.",
+      "The orange circular flame-like glyph after “Place a” is not confidently matched to the canonical fire icon because its morphology is unclear at this resolution.",
+      "The yellow-and-blue canister is mapped to [oxygenToken] from its visible canister morphology and sentence context, but its printed appearance is more detailed than the glossary's simple color description.",
+      "The precise item subtype/category is inferred from the visible “RANGED WEAPON” type line; no canonical item badge is visibly present."
+    ]
+  },
+  "initialSessionId": "20260815_054200_b4738b",
+  "orientationCorrection": "rotate90ccw",
+  "uprightRead": {
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "sessionId": "20260815_060533_7bf46b",
+    "completedAt": "2026-08-15T06:06:01Z",
+    "parsed": {
+      "orientation": "upright",
+      "componentType": "weapon item card",
+      "cardSide": "face",
+      "title": "FLAMETHROWER",
+      "typeLine": "RANGED WEAPON, REQUIRES NO AMMO",
+      "body": "Shoot and Burst:\nIf you are in a Section with [ICON: white horizontal capsule-shaped section glyph], lose 1 [oxygenToken].\n[ICON: purple square with white exclamation mark], [ICON: red triangle with white flame-like glyph]: Place a [fire].",
+      "footer": "",
+      "upperRight": "",
+      "lowerCenter": "",
+      "visibleText": "",
+      "confidentlyVisible": [
+        "Landscape-oriented card face with upright typography",
+        "Large firearm artwork emits a bright orange-yellow flame",
+        "Title reads FLAMETHROWER",
+        "Type line reads RANGED WEAPON, REQUIRES NO AMMO",
+        "Rules heading reads Shoot and Burst:",
+        "Orange circular flame icon follows “Place a”"
+      ],
+      "proposedCategory": "cards/game/item/weapon",
+      "proposedSlug": "flamethrower",
+      "confidence": "medium",
+      "uncertainties": [
+        "The white horizontal glyph after “Section with” is not confidently matched to a canonical glossary icon.",
+        "The purple square exclamation-mark glyph is absent from the supplied canonical glossary and may be a card-local action or die-result glyph.",
+        "The red triangle’s internal white glyph is not clear enough to match confidently to a canonical Shoot die face.",
+        "The yellow-and-blue canister glyph after “lose 1” appears to be an oxygen token, but its morphology is small and could instead represent the general oxygen-supply icon."
+      ]
+    },
+    "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Planning image analysis inspection****Planning image analysis inspection****Selecting vision tool for pixel inspection**\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Selecting vision tool for pixel inspection****Parsing weapon description with icons**\n\n\n\nsession_id: 20260815_060533_7bf46b\n{\"orientation\":\"upright\",\"componentType\":\"weapon item card\",\"cardSide\":\"face\",\"title\":\"FLAMETHROWER\",\"typeLine\":\"RANGED WEAPON, REQUIRES NO AMMO\",\"body\":\"Shoot and Burst:\\nIf you are in a Section with [ICON: white horizontal capsule-shaped section glyph], lose 1 [oxygenToken].\\n[ICON: purple square with white exclamation mark], [ICON: red triangle with white flame-like glyph]: Place a [fire].\",\"footer\":\"\",\"upperRight\":\"\",\"lowerCenter\":\"\",\"visibleText\":\"\",\"confidentlyVisible\":[\"Landscape-oriented card face with upright typography\",\"Large firearm artwork emits a bright orange-yellow flame\",\"Title reads FLAMETHROWER\",\"Type line reads RANGED WEAPON, REQUIRES NO AMMO\",\"Rules heading reads Shoot and Burst:\",\"Orange circular flame icon follows “Place a”\"],\"proposedCategory\":\"cards/game/item/weapon\",\"proposedSlug\":\"flamethrower\",\"confidence\":\"medium\",\"uncertainties\":[\"The white horizontal glyph after “Section with” is not confidently matched to a canonical glossary icon.\",\"The purple square exclamation-mark glyph is absent from the supplied canonical glossary and may be a card-local action or die-result glyph.\",\"The red triangle’s internal white glyph is not clear enough to match confidently to a canonical Shoot die face.\",\"The yellow-and-blue canister glyph after “lose 1” appears to be an oxygen token, but its morphology is small and could instead represent the general oxygen-supply icon.\"]}\n"
+  }
+}

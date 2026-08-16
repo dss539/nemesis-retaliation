@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/medical-support-028.jpg",
+  "sourceSha256": "72b34b7b800a2109094cca515eb22e69fff016edded20ace0f15857296712180",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_051211_a46bda",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:12:11Z",
+  "completedAt": "2026-08-15T05:12:48Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "character action card",
+    "cardSide": "face",
+    "title": "FIRST AID",
+    "typeLine": "",
+    "body": "Restore 1 [characterHealth].\n\nOR\n\nIf you are in a Room with a [greenItem]:\nGain 1 [medpackToken].",
+    "footer": "MEDICAL SUPPORT",
+    "upperRight": "notInCombat",
+    "lowerCenter": "",
+    "visibleText": "",
+    "confidentlyVisible": [
+      "All meaningful typography is upright in the file.",
+      "The upper-right corner shows a red prohibition mark over a curled white exoskeletal creature.",
+      "The artwork shows an armored figure tending to another figure in a purple-lit interior.",
+      "The title is printed in white uppercase text.",
+      "The rules panel presents two alternatives separated by “OR”.",
+      "The footer is printed in magenta uppercase text."
+    ],
+    "proposedCategory": "cards/character/medical-support/action",
+    "proposedSlug": "first-aid",
+    "confidence": "high",
+    "uncertainties": []
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Planning pixel inspection for image analysis**\n\n**Confirming medpack token and notInCombat icon****Planning pixel inspection for image analysis**\n**Confirming medpack token and notInCombat icon****Planning pixel-level vision analysis**\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Planning pixel-level vision analysis****Identifying medical action card icons**\n\n\n{\"orientation\":\"upright\",\"componentType\":\"character action card\",\"cardSide\":\"face\",\"title\":\"FIRST AID\",\"typeLine\":\"\",\"body\":\"Restore 1 [characterHealth].\\n\\nOR\\n\\nIf you are in a Room with a [greenItem]:\\nGain 1 [medpackToken].\",\"footer\":\"MEDICAL SUPPORT\",\"upperRight\":\"notInCombat\",\"lowerCenter\":\"\",\"visibleText\":\"\",\"confidentlyVisible\":[\"All meaningful typography is upright in the file.\",\"The upper-right corner shows a red prohibition mark over a curled white exoskeletal creature.\",\"The artwork shows an armored figure tending to another figure in a purple-lit interior.\",\"The title is printed in white uppercase text.\",\"The rules panel presents two alternatives separated by “OR”.\",\"The footer is printed in magenta uppercase text.\"],\"proposedCategory\":\"cards/character/medical-support/action\",\"proposedSlug\":\"first-aid\",\"confidence\":\"high\",\"uncertainties\":[]}\n\nsession_id: 20260815_051211_a46bda\n"
+}

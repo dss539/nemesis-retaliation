@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-10.png",
+  "sourceSha256": "d8e12e0209d014f6a18e716b3bf0aa7b75f8c49b61b6d7579c36fdb5dc9b805d",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_050836_7ee7f1",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:08:36Z",
+  "completedAt": "2026-08-15T05:09:33Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "character action card",
+    "cardSide": "face",
+    "title": "BREAKTHROUGH",
+    "typeLine": "",
+    "body": "Choose a Rifle with [ammoSlot] and Burst using it.\nThen, you may Move through the Corridor\nyou have Bursted at.",
+    "footer": "HEAVY GUN OPERATOR",
+    "upperRight": "notInCombat",
+    "lowerCenter": "",
+    "visibleText": "RUN",
+    "confidentlyVisible": [
+      "White uppercase title inside a black, red-framed title panel",
+      "Upper-right white gun silhouette crossed out by a red X",
+      "Inline red recessed rectangular slot glyph between “with” and “and”",
+      "Red-lit industrial corridor artwork with a large silhouetted armed figure",
+      "Smaller armed figure visible in a brightly lit doorway",
+      "Red uppercase owner label at the bottom"
+    ],
+    "proposedCategory": "cards/character/heavy-gun-operator/action",
+    "proposedSlug": "breakthrough",
+    "confidence": "medium",
+    "uncertainties": [
+      "Additional tiny, oblique environmental stencil text in the artwork is illegible and has not been reconstructed."
+    ]
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Loading vision skill and inspecting image**\n\n**Examining ammo slot pixels****Loading vision skill and inspecting image**\n**Examining ammo slot pixels****Planning image cropping and analysis****Planning image cropping and analysis**\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Identifying ammoSlot icon and preserving text formatting**\n\n**Confirming notInCombat icon and examining visible text**\n\n**Rejecting reconstruction of illegible text**\n\n**Analyzing typography orientations for transcription**\n\n**Confirming visible text elements and confidence level**\n\n{\"orientation\":\"upright\",\"componentType\":\"character action card\",\"cardSide\":\"face\",\"title\":\"BREAKTHROUGH\",\"typeLine\":\"\",\"body\":\"Choose a Rifle with [ammoSlot] and Burst using it.\\nThen, you may Move through the Corridor\\nyou have Bursted at.\",\"footer\":\"HEAVY GUN OPERATOR\",\"upperRight\":\"notInCombat\",\"lowerCenter\":\"\",\"visibleText\":\"RUN\",\"confidentlyVisible\":[\"White uppercase title inside a black, red-framed title panel\",\"Upper-right white gun silhouette crossed out by a red X\",\"Inline red recessed rectangular slot glyph between “with” and “and”\",\"Red-lit industrial corridor artwork with a large silhouetted armed figure\",\"Smaller armed figure visible in a brightly lit doorway\",\"Red uppercase owner label at the bottom\"],\"proposedCategory\":\"cards/character/heavy-gun-operator/action\",\"proposedSlug\":\"breakthrough\",\"confidence\":\"medium\",\"uncertainties\":[\"Additional tiny, oblique environmental stencil text in the artwork is illegible and has not been reconstructed.\"]}\n\nsession_id: 20260815_050836_7ee7f1\n"
+}

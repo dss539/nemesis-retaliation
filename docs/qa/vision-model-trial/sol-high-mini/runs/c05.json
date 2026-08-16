@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "caseId": "c05",
+  "tier": "human-approved-card",
+  "sourceSha256": "ef45f7b5fc21026faa0af8413abf2d35539938484415d1c3fb84e2c0ff0133fe",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "reasoning": "high",
+  "nativeImageAttachment": true,
+  "safeMode": true,
+  "promptSha256": "49aaf5b24a0cf146faf915b3dff26a370629dc205f337a296644c004550d6b80",
+  "startedAtEpoch": 1786781015.2759552,
+  "endedAtEpoch": 1786781049.6432922,
+  "durationSeconds": 34.367,
+  "returnCode": 0,
+  "sessionId": "20260815_080335_f23e48",
+  "stdout": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Analyzing weapon card iconography**\n\n**Identifying ammo token icon morphology**\n\n**Confirming ammo slot morphology and card components**\n\n**Analyzing icon details for schema verification**\n\n**Confirming glyph as ammo loss cartridges**\n\n**Confirming red slot as ammoSlot**\n\n**Deciding card classification and formatting**\n\n**Specifying minimal JSON layout details****Analyzing weapon card iconography**\n**Identifying ammo token icon morphology**\n**Confirming ammo slot morphology and card components**\n\n**Analyzing icon details for schema verification**\n**Confirming glyph as ammo loss cartridges**\n**Confirming red slot as ammoSlot**\n\n**Deciding card classification and formatting**\n{\"orientation\":\"upright\",\"componentType\":\"weapon card\",\"title\":\"AUTOMATIC SHOTGUN\",\"typeLine\":\"RANGED WEAPON, RIFLE\",\"body\":\"Shoot: On Hit deal 1 more.\\n[shootDieAmmoLoss] · Spend [ammoToken]\",\"footer\":null,\"standaloneSymbols\":{\"lowerCenter\":\"ammoSlot\"},\"visibleOtherText\":[],\"layoutNotes\":[\"Landscape-format card with a large white trapezoidal area at the upper center.\",\"Title and type line are centered above a large firearm illustration.\",\"Rules text is centered in the lower black panel.\",\"A large red slot symbol is centered at the bottom and cropped by the lower edge.\"],\"categoryProposal\":\"ranged-weapon-rifle\",\"filenameProposal\":\"automatic-shotgun.png\",\"sidecarCandidate\":{\"typeLine\":\"RANGED WEAPON, RIFLE\",\"body\":\"Shoot: On Hit deal 1 more.\\n[shootDieAmmoLoss] · Spend [ammoToken]\",\"lowerCenter\":\"ammoSlot\"},\"uncertainties\":[],\"confidence\":{\"orientation\":\"high\",\"text\":\"high\",\"icons\":\"high\",\"identity\":\"high\",\"category\":\"high\",\"overall\":\"high\"},\"decision\":\"promote\"}\n",
+  "stderr": "\nsession_id: 20260815_080335_f23e48\n",
+  "parsedJson": {
+    "orientation": "upright",
+    "componentType": "weapon card",
+    "title": "AUTOMATIC SHOTGUN",
+    "typeLine": "RANGED WEAPON, RIFLE",
+    "body": "Shoot: On Hit deal 1 more.\n[shootDieAmmoLoss] · Spend [ammoToken]",
+    "footer": null,
+    "standaloneSymbols": {
+      "lowerCenter": "ammoSlot"
+    },
+    "visibleOtherText": [],
+    "layoutNotes": [
+      "Landscape-format card with a large white trapezoidal area at the upper center.",
+      "Title and type line are centered above a large firearm illustration.",
+      "Rules text is centered in the lower black panel.",
+      "A large red slot symbol is centered at the bottom and cropped by the lower edge."
+    ],
+    "categoryProposal": "ranged-weapon-rifle",
+    "filenameProposal": "automatic-shotgun.png",
+    "sidecarCandidate": {
+      "typeLine": "RANGED WEAPON, RIFLE",
+      "body": "Shoot: On Hit deal 1 more.\n[shootDieAmmoLoss] · Spend [ammoToken]",
+      "lowerCenter": "ammoSlot"
+    },
+    "uncertainties": [],
+    "confidence": {
+      "orientation": "high",
+      "text": "high",
+      "icons": "high",
+      "identity": "high",
+      "category": "high",
+      "overall": "high"
+    },
+    "decision": "promote"
+  },
+  "parseError": null
+}

@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "assetId": "W05-002",
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-02.png",
+  "sourceSha256": "4718ad2194859f3f1d1ecb72e52481616156dcacad27f46e4969c98cd64eddab",
+  "nativeAttachment": {
+    "submittedAssetId": "W05-002",
+    "submittedCount": 1,
+    "returnedAssetId": "W05-002",
+    "returnedCount": 1,
+    "exactAbsolutePathAttached": "/home/smithers/nemesis-retaliation/assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-02.png",
+    "routeObservation": "functions.vision_analyze returned 'Image loaded into your context — you can see it natively now' to the active session model"
+  },
+  "orientation": {
+    "pixelOrientation": "upright",
+    "requiredTransform": "none",
+    "basis": "The title, two instruction alternatives, and footer all read left-to-right in a vertically ordered portrait layout."
+  },
+  "blindPixelObservations": [
+    "A portrait-format illustrated rules card fills the image.",
+    "The upper artwork uses dark violet, orange, yellow, and black; an armed figure stands in a burning industrial interior.",
+    "A magenta-and-black title frame overlays the lower edge of the artwork.",
+    "Below the title is one centered sentence, a centered OR divider, and a second centered sentence containing one white pictogram.",
+    "The footer is black with widely spaced magenta letters.",
+    "No other non-decorative standalone pictogram is visibly established."
+  ],
+  "visibleText": {
+    "title": "DEMOLITION",
+    "firstAlternative": "Remove 1 Door.",
+    "divider": "OR",
+    "secondAlternative": "Place a [ICON: white cog-like ring with a dark circular center] in your Room.",
+    "footer": "RECON"
+  },
+  "iconMorphology": [
+    {
+      "iconId": "W05-002-glyph-01",
+      "location": "second instruction line, between the printed words 'a' and 'in'",
+      "neighboringText": "Place a [glyph] in your Room.",
+      "outerSilhouette": "A nearly circular white/light-gray cog or toothed ring with multiple blunt rectangular teeth around its perimeter.",
+      "internalMarks": "A large dark circular opening occupies the center; small uneven white projections are visible along the inner edge, but fine details are too small to resolve confidently.",
+      "colors": [
+        "white to light gray foreground",
+        "dark burgundy/black center and surrounding card background"
+      ],
+      "closestPlausibleCanonicalAlternatives": [
+        "malfunction",
+        "secure"
+      ],
+      "alternativeFalsification": {
+        "secure": "The visible outer edge is a toothed mechanical cog rather than a smooth badge/token outline; this rules out a plain smooth secure-token silhouette but does not establish the exact cog semantics.",
+        "malfunction": "The source pixels do not rule this alternative out; no direct authoritative crop comparison is part of this blind record."
+      },
+      "semanticIdentity": "unresolved literal morphology",
+      "canonicalTokenClaimed": false
+    }
+  ],
+  "blindReadConfidence": {
+    "orientation": "high",
+    "materialText": "high",
+    "punctuation": "high",
+    "iconMorphology": "medium-high",
+    "iconSemanticIdentity": "low before direct comparison"
+  },
+  "blindUncertainties": [
+    "The cog-like gameplay pictogram is visually clear at silhouette level but its canonical semantic token is not established by this blind source-only read.",
+    "Fine inner-edge marks in the pictogram are too small to characterize exactly from the full-card turn."
+  ],
+  "metadataUsedForSemanticReading": false,
+  "rawStage": "blind-pixel-observation-before-provenance-join"
+}

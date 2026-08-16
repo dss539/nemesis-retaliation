@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/attack-151_cards/card-02.png",
+  "sourceSha256": "088924b9742db513130b51fd8750cf80ab95fd3a0f33f150287b33fcf82fe501",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_051724_552b54",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:17:23Z",
+  "completedAt": "2026-08-15T05:18:11Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "attack card",
+    "cardSide": "face",
+    "title": "BITE",
+    "typeLine": "",
+    "body": "If you are Heavily Injured,\nyou die.\nOtherwise, you get\n1 Serious Wound and\n1 Contamination card.",
+    "footer": "",
+    "upperRight": "",
+    "lowerCenter": "",
+    "visibleText": "[ICON: cyan circular curled small creature glyph]\n[ICON: cyan circular upright spined creature glyph]\n[ICON: cyan circular horned many-limbed creature glyph]",
+    "confidentlyVisible": [
+      "Typography is upright in the file.",
+      "BITE is printed in white at the upper center.",
+      "The center depicts a dark, red-highlighted, multi-limbed creature.",
+      "Three cyan circular creature glyphs are stacked vertically at the lower left.",
+      "The rules text occupies the lower-right panel.",
+      "Red angular borders frame the title, artwork, and rules panel."
+    ],
+    "proposedCategory": "cards/game/attack",
+    "proposedSlug": "bite",
+    "confidence": "medium",
+    "uncertainties": [
+      "The three lower-left cyan circular creature glyphs do not confidently match any supplied canonical icon morphology; they are recorded literally rather than assigned meanings.",
+      "The exact identities represented by the three creature glyphs are uncertain."
+    ]
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Loading vision skill for pixel analysis****Loading vision skill for pixel analysis**\n**Inspecting attack card image details**\n\n**Transcribing uncertain blue icons literally****Inspecting attack card image details**\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Transcribing uncertain blue icons literally****Defining attack card JSON structure**\n\n\n**Detailing glyph descriptions and visible text**\n\n{\"orientation\":\"upright\",\"componentType\":\"attack card\",\"cardSide\":\"face\",\"title\":\"BITE\",\"typeLine\":\"\",\"body\":\"If you are Heavily Injured,\\nyou die.\\nOtherwise, you get\\n1 Serious Wound and\\n1 Contamination card.\",\"footer\":\"\",\"upperRight\":\"\",\"lowerCenter\":\"\",\"visibleText\":\"[ICON: cyan circular curled small creature glyph]\\n[ICON: cyan circular upright spined creature glyph]\\n[ICON: cyan circular horned many-limbed creature glyph]\",\"confidentlyVisible\":[\"Typography is upright in the file.\",\"BITE is printed in white at the upper center.\",\"The center depicts a dark, red-highlighted, multi-limbed creature.\",\"Three cyan circular creature glyphs are stacked vertically at the lower left.\",\"The rules text occupies the lower-right panel.\",\"Red angular borders frame the title, artwork, and rules panel.\"],\"proposedCategory\":\"cards/game/attack\",\"proposedSlug\":\"bite\",\"confidence\":\"medium\",\"uncertainties\":[\"The three lower-left cyan circular creature glyphs do not confidently match any supplied canonical icon morphology; they are recorded literally rather than assigned meanings.\",\"The exact identities represented by the three creature glyphs are uncertain.\"]}\n\nsession_id: 20260815_051724_552b54\n"
+}

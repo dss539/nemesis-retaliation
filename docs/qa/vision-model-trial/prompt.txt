@@ -1,0 +1,15 @@
+Examine exactly this image with vision_analyze:
+/home/smithers/nemesis-retaliation/assets/tts-mod/extract/v2-dl/tree/unsorted/card-176.jpg
+
+Do not read project notes, JSON, neighboring files, prior transcripts, rulebooks, or web sources. Use only the pixels in this one image. Do not infer obscured or unreadable text.
+
+Return a pixel-faithful structured extraction with these fields:
+ORIENTATION
+COMPONENT_TYPE
+TITLE
+ALL_PRINTED_TEXT (verbatim, preserving headings, capitalization, punctuation, and visible ordering)
+ICONS_AND_SYMBOLS (describe each and its location; name it only when visually certain)
+LAYOUT_NOTES
+UNCERTAIN_OR_ILLEGIBLE (quote partial text where possible; never guess)
+
+After extraction, include a short SELF_CONFIDENCE note. Do not modify any files.

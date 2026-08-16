@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/tokens/table/dice-003.jpg",
+  "sourceSha256": "7d79c34802a613d8c016ccdb2b56c30ec6ad9f54cc9480b17c975aeb8a48267c",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_055114_d38339",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:51:13Z",
+  "completedAt": "2026-08-15T05:51:32Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "six-face die texture atlas",
+    "cardSide": "notCard",
+    "title": "",
+    "typeLine": "",
+    "body": "",
+    "footer": "",
+    "upperRight": "",
+    "lowerCenter": "",
+    "visibleText": "1    2    3\n1    1    4+!",
+    "confidentlyVisible": [
+      "Square purple field",
+      "Six white text panels arranged in two rows of three",
+      "Top row reads 1, 2, 3",
+      "Bottom row reads 1, 1, 4+!",
+      "All typography is upright in the file"
+    ],
+    "proposedCategory": "models/texture",
+    "proposedSlug": null,
+    "confidence": "medium",
+    "uncertainties": [
+      "The pixels support a six-panel texture atlas, but its exact intended object or game function is not visibly identified.",
+      "No semantic filename stem is supported by visible pixels alone."
+    ]
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Preparing image analysis capabilities****Preparing image analysis capabilities**\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Identifying six-face die texture atlas**\n\n{\"orientation\":\"upright\",\"componentType\":\"six-face die texture atlas\",\"cardSide\":\"notCard\",\"title\":\"\",\"typeLine\":\"\",\"body\":\"\",\"footer\":\"\",\"upperRight\":\"\",\"lowerCenter\":\"\",\"visibleText\":\"1    2    3\\n1    1    4+!\",\"confidentlyVisible\":[\"Square purple field\",\"Six white text panels arranged in two rows of three\",\"Top row reads 1, 2, 3\",\"Bottom row reads 1, 1, 4+!\",\"All typography is upright in the file\"],\"proposedCategory\":\"models/texture\",\"proposedSlug\":null,\"confidence\":\"medium\",\"uncertainties\":[\"The pixels support a six-panel texture atlas, but its exact intended object or game function is not visibly identified.\",\"No semantic filename stem is supported by visible pixels alone.\"]}\n\nsession_id: 20260815_055114_d38339\n"
+}

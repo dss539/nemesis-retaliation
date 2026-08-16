@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-17.png",
+  "sourceSha256": "822d3a69d4539a3b9a5e1de1c23b4f1ee96a837faec0cd923bde98137dc78bda",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_050928_3c9251",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:09:28Z",
+  "completedAt": "2026-08-15T05:09:54Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "character action card",
+    "cardSide": "face",
+    "title": "REST",
+    "typeLine": "",
+    "body": "Resolve the Infection Procedure.\nRemove all Uninfected cards from the game.\n\nInfection Procedure:\nScan all Contamination cards in hand.\nIf any of them are Infected, place a Larva\non your Character board.",
+    "footer": "HEAVY GUN OPERATOR",
+    "upperRight": "notInCombat",
+    "lowerCenter": "",
+    "visibleText": "",
+    "confidentlyVisible": [
+      "All typography is upright in the file as shown.",
+      "The title REST appears in large white uppercase letters.",
+      "The upper-right corner shows a white gun crossed out by a red X.",
+      "The artwork depicts a human figure from behind facing a brightly illuminated red circular chamber.",
+      "HEAVY GUN OPERATOR is printed in spaced red uppercase letters at the bottom."
+    ],
+    "proposedCategory": "cards/character/heavy-gun-operator/action",
+    "proposedSlug": "rest",
+    "confidence": "high",
+    "uncertainties": []
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Loading image-analysis skill****Loading image-analysis skill****Inspecting image pixels with vision tool**\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Inspecting image pixels with vision tool****Analyzing notInCombat icon and card body formatting**\n\n\n{\"orientation\":\"upright\",\"componentType\":\"character action card\",\"cardSide\":\"face\",\"title\":\"REST\",\"typeLine\":\"\",\"body\":\"Resolve the Infection Procedure.\\nRemove all Uninfected cards from the game.\\n\\nInfection Procedure:\\nScan all Contamination cards in hand.\\nIf any of them are Infected, place a Larva\\non your Character board.\",\"footer\":\"HEAVY GUN OPERATOR\",\"upperRight\":\"notInCombat\",\"lowerCenter\":\"\",\"visibleText\":\"\",\"confidentlyVisible\":[\"All typography is upright in the file as shown.\",\"The title REST appears in large white uppercase letters.\",\"The upper-right corner shows a white gun crossed out by a red X.\",\"The artwork depicts a human figure from behind facing a brightly illuminated red circular chamber.\",\"HEAVY GUN OPERATOR is printed in spaced red uppercase letters at the bottom.\"],\"proposedCategory\":\"cards/character/heavy-gun-operator/action\",\"proposedSlug\":\"rest\",\"confidence\":\"high\",\"uncertainties\":[]}\n\nsession_id: 20260815_050928_3c9251\n",
+  "iconVerification": {
+    "status": "passed",
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "sessionId": "20260815_060721_26d8ee",
+    "promptVersion": 1,
+    "completedAt": "2026-08-15T06:07:37Z",
+    "claimed": [
+      "notInCombat"
+    ],
+    "parsed": {
+      "claims": [
+        {
+          "claimed": "notInCombat",
+          "verdict": "match",
+          "actual": "notInCombat",
+          "evidence": "One occurrence at the card’s upper right: a white gun silhouette crossed by a red diagonal X; this is the documented official notInCombat artwork variant corresponding to the glossary’s crossed-out Intruder."
+        }
+      ],
+      "allClaimsMatch": true,
+      "confidence": "high",
+      "uncertainties": []
+    },
+    "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Identifying image skill necessity****Identifying image skill necessity****Confirming exception match with glossary**\n\nsession_id: 20260815_060721_26d8ee\n{\"claims\":[{\"claimed\":\"notInCombat\",\"verdict\":\"match\",\"actual\":\"notInCombat\",\"evidence\":\"One occurrence at the card’s upper right: a white gun silhouette crossed by a red diagonal X; this is the documented official notInCombat artwork variant corresponding to the glossary’s crossed-out Intruder.\"}],\"allClaimsMatch\":true,\"confidence\":\"high\",\"uncertainties\":[]}\n",
+    "evidencePath": null
+  }
+}

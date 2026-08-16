@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/greenitem-181_cards/card-05.png",
+  "sourceSha256": "a342222859d525d1b38440578ff50d890ddc76070dc1c5fd463e307c50c01da5",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_052943_397514",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:29:42Z",
+  "completedAt": "2026-08-15T05:30:14Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "green item card",
+    "cardSide": "face",
+    "title": "MEDICAL\nSTAPLER",
+    "typeLine": "ONE USE ONLY",
+    "body": "Discard 1 Serious Wound.\n\nOR\n\nRestore 2 [characterHealth].",
+    "footer": "",
+    "upperRight": "",
+    "lowerCenter": "",
+    "visibleText": "",
+    "confidentlyVisible": [
+      "All typography is upright in the file.",
+      "Green-framed card face with medical-device artwork.",
+      "The title is printed on two lines.",
+      "Two effects are separated by a centered OR panel.",
+      "A white cross with an EKG line follows the number 2."
+    ],
+    "proposedCategory": "cards/game/item/green",
+    "proposedSlug": "medical-stapler",
+    "confidence": "high",
+    "uncertainties": []
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Loading medical image skill**\n\n**Refining medical item card parsing****Loading medical image skill**\n**Refining medical item card parsing****Finalizing JSON card details**\n\n**Confirming card category as green item****Finalizing JSON card details**\n{\"orientation\":\"upright\",\"componentType\":\"green item card\",\"cardSide\":\"face\",\"title\":\"MEDICAL\\nSTAPLER\",\"typeLine\":\"ONE USE ONLY\",\"body\":\"Discard 1 Serious Wound.\\n\\nOR\\n\\nRestore 2 [characterHealth].\",\"footer\":\"\",\"upperRight\":\"\",\"lowerCenter\":\"\",\"visibleText\":\"\",\"confidentlyVisible\":[\"All typography is upright in the file.\",\"Green-framed card face with medical-device artwork.\",\"The title is printed on two lines.\",\"Two effects are separated by a centered OR panel.\",\"A white cross with an EKG line follows the number 2.\"],\"proposedCategory\":\"cards/game/item/green\",\"proposedSlug\":\"medical-stapler\",\"confidence\":\"high\",\"uncertainties\":[]}\n\nsession_id: 20260815_052943_397514\n",
+  "iconVerification": {
+    "status": "passed",
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "sessionId": "20260815_060822_1905d9",
+    "promptVersion": 1,
+    "completedAt": "2026-08-15T06:08:29Z",
+    "claimed": [
+      "characterHealth"
+    ],
+    "parsed": {
+      "claims": [
+        {
+          "claimed": "characterHealth",
+          "verdict": "match",
+          "actual": "characterHealth",
+          "evidence": "One occurrence after “Restore 2”: white horizontal medical cross with the same central ECG spike and block-ended arms as the labeled glossary glyph."
+        }
+      ],
+      "allClaimsMatch": true,
+      "confidence": "high",
+      "uncertainties": []
+    },
+    "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Inspecting characterHealth symbol occurrences****Inspecting characterHealth symbol occurrences**\n\nsession_id: 20260815_060822_1905d9\n{\"claims\":[{\"claimed\":\"characterHealth\",\"verdict\":\"match\",\"actual\":\"characterHealth\",\"evidence\":\"One occurrence after “Restore 2”: white horizontal medical cross with the same central ECG spike and block-ended arms as the labeled glossary glyph.\"}],\"allClaimsMatch\":true,\"confidence\":\"high\",\"uncertainties\":[]}\n",
+    "evidencePath": null
+  }
+}

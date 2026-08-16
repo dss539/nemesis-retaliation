@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "assetId": "W01-006",
+  "batchId": "batch-002",
+  "capturedAt": "2026-08-15T20:36:18Z",
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/bags/corridorBag-023.jpg",
+  "sourceSha256": "27ab4748ec079413ed0596421e1f52946d7997259e9049df9677ac85ae7e0f57",
+  "runtimeProvenanceRef": "../metadata/runtime.json",
+  "blindAnalysis": true,
+  "metadataExcludedDuringPixelPass": [
+    "filename semantics",
+    "directory semantics",
+    "prior vision reads",
+    "TTS object metadata",
+    "game-context expectations"
+  ],
+  "orientationObservation": "Rotation is functionally irrelevant: the visible corridor-like texture is vertically mirrored and presents the same yellow 0 badge at top and bottom.",
+  "blindPixelObservations": [
+    "A large square texture atlas is mostly near-black on the right and lower portions.",
+    "The upper-left region contains a top-down industrial passage or rectangular white-gray floor, surrounded by dark pipes, vents, and symmetrical side recesses.",
+    "Matching yellow triangular badges sit at the upper and lower ends of the passage, each containing a black numeral.",
+    "The visible art appears to be a model diffuse/UV texture rather than a standalone card or board tile crop."
+  ],
+  "visibleText": [
+    {
+      "text": "0",
+      "location": "yellow triangular badge at top center of painted region",
+      "structure": "single numeral",
+      "confidence": "high"
+    },
+    {
+      "text": "0",
+      "location": "yellow triangular badge at bottom center of painted region",
+      "structure": "single numeral",
+      "confidence": "high"
+    }
+  ],
+  "iconObservations": [
+    {
+      "location": "top and bottom center",
+      "literalMorphology": "Yellow upward/downward triangular badges with black 0, dark beveled frame.",
+      "colors": "yellow, black, gray",
+      "closestPlausibleGlossaryAlternative": "noiseDie1/noiseDie2/noiseDie3/noiseDie4",
+      "visibleDiscriminatingFeature": "Both badges visibly contain 0, while the glossary Noise-die numbered faces contain 1 through 4; no glossary token is claimed."
+    }
+  ],
+  "uncertainties": [
+    "Pixels do not by themselves establish the exact model/container using this apparent UV texture."
+  ]
+}

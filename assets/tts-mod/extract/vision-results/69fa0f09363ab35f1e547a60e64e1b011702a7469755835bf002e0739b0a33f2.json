@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/seriouswound-149_cards/card-05.png",
+  "sourceSha256": "69fa0f09363ab35f1e547a60e64e1b011702a7469755835bf002e0739b0a33f2",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_054022_48d50f",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:40:22Z",
+  "completedAt": "2026-08-15T05:40:54Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "serious wound card",
+    "cardSide": "face",
+    "title": "BODY",
+    "typeLine": "",
+    "body": "Your Hand Size is 1 lower.",
+    "footer": "",
+    "upperRight": "[ICON: orange U-shaped glyph with detached oval mark above]",
+    "lowerCenter": "",
+    "visibleText": "ECG STATUS\nTEMP.\n39.8°\nTISSUE DAMAGES\n[ICON: yellow U-shaped glyph with detached oval mark above]\n[ICON: pink U-shaped glyph with detached oval mark above]",
+    "confidentlyVisible": [
+      "Upright anatomical scan of a human torso",
+      "Bright damaged areas are highlighted on the right shoulder, forearm, and thigh",
+      "Three colored callout lines connect body regions to orange, yellow, and pink glyphs",
+      "Title and effect text are enclosed in an amber-framed lower panel"
+    ],
+    "proposedCategory": "cards/game/serious-wound",
+    "proposedSlug": "body",
+    "confidence": "medium",
+    "uncertainties": [
+      "The three colored U-shaped callout glyphs are not confidently matched to any canonical glossary icon.",
+      "Tiny vertical interface labels are low-resolution; “ECG STATUS” and “TISSUE DAMAGES” are the best visible readings.",
+      "The exact small symbol following “39.8” is difficult to distinguish, though it appears to be a degree mark."
+    ]
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Preparing image analysis setup****Preparing image analysis setup****Classifying wound severity and icon details**\n\n\n**Inspecting image text elements and layout****Classifying wound severity and icon details**\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Inspecting image text elements and layout****Planning JSON layout and labels**\n\n{\"orientation\":\"upright\",\"componentType\":\"serious wound card\",\"cardSide\":\"face\",\"title\":\"BODY\",\"typeLine\":\"\",\"body\":\"Your Hand Size is 1 lower.\",\"footer\":\"\",\"upperRight\":\"[ICON: orange U-shaped glyph with detached oval mark above]\",\"lowerCenter\":\"\",\"visibleText\":\"ECG STATUS\\nTEMP.\\n39.8°\\nTISSUE DAMAGES\\n[ICON: yellow U-shaped glyph with detached oval mark above]\\n[ICON: pink U-shaped glyph with detached oval mark above]\",\"confidentlyVisible\":[\"Upright anatomical scan of a human torso\",\"Bright damaged areas are highlighted on the right shoulder, forearm, and thigh\",\"Three colored callout lines connect body regions to orange, yellow, and pink glyphs\",\"Title and effect text are enclosed in an amber-framed lower panel\"],\"proposedCategory\":\"cards/game/serious-wound\",\"proposedSlug\":\"body\",\"confidence\":\"medium\",\"uncertainties\":[\"The three colored U-shaped callout glyphs are not confidently matched to any canonical glossary icon.\",\"Tiny vertical interface labels are low-resolution; “ECG STATUS” and “TISSUE DAMAGES” are the best visible readings.\",\"The exact small symbol following “39.8” is difficult to distinguish, though it appears to be a degree mark.\"]}\n\nsession_id: 20260815_054022_48d50f\n"
+}

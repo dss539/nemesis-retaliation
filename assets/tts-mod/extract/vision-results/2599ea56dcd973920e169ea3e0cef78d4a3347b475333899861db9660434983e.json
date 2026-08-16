@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-04.png",
+  "sourceSha256": "2599ea56dcd973920e169ea3e0cef78d4a3347b475333899861db9660434983e",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_050802_917f90",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:08:02Z",
+  "completedAt": "2026-08-15T05:08:36Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "character action card",
+    "cardSide": "face",
+    "title": "REST",
+    "typeLine": "",
+    "body": "Resolve the Infection Procedure.\nRemove all Uninfected cards from the game.\n\nInfection Procedure:\nScan all Contamination cards in hand.\nIf any of them are Infected, place a Larva\non your Character board.",
+    "footer": "RECON",
+    "upperRight": "notInCombat",
+    "lowerCenter": "",
+    "visibleText": "",
+    "confidentlyVisible": [
+      "White REST title in a bordered central panel",
+      "Upper-right white firearm glyph crossed out by a red X",
+      "Rules text is fully visible and legible",
+      "RECON is printed in purple at the bottom",
+      "Artwork depicts an armed armored figure in a science-fiction industrial environment"
+    ],
+    "proposedCategory": "cards/character/recon/action",
+    "proposedSlug": "rest",
+    "confidence": "high",
+    "uncertainties": []
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Preparing image analysis with vision skill**\n\n**Confirming card categorization and text details****Preparing image analysis with vision skill**\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Confirming card categorization and text details****Defining card classification and layout elements**\n\n\n{\"orientation\":\"upright\",\"componentType\":\"character action card\",\"cardSide\":\"face\",\"title\":\"REST\",\"typeLine\":\"\",\"body\":\"Resolve the Infection Procedure.\\nRemove all Uninfected cards from the game.\\n\\nInfection Procedure:\\nScan all Contamination cards in hand.\\nIf any of them are Infected, place a Larva\\non your Character board.\",\"footer\":\"RECON\",\"upperRight\":\"notInCombat\",\"lowerCenter\":\"\",\"visibleText\":\"\",\"confidentlyVisible\":[\"White REST title in a bordered central panel\",\"Upper-right white firearm glyph crossed out by a red X\",\"Rules text is fully visible and legible\",\"RECON is printed in purple at the bottom\",\"Artwork depicts an armed armored figure in a science-fiction industrial environment\"],\"proposedCategory\":\"cards/character/recon/action\",\"proposedSlug\":\"rest\",\"confidence\":\"high\",\"uncertainties\":[]}\n\nsession_id: 20260815_050802_917f90\n",
+  "iconVerification": {
+    "status": "passed",
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "sessionId": "20260815_060721_ecc61a",
+    "promptVersion": 1,
+    "completedAt": "2026-08-15T06:07:29Z",
+    "claimed": [
+      "notInCombat"
+    ],
+    "parsed": {
+      "claims": [
+        {
+          "claimed": "notInCombat",
+          "verdict": "match",
+          "actual": "notInCombat",
+          "evidence": "One occurrence: upper-right card glyph is a white gun silhouette crossed by a red X, matching the documented official notInCombat artwork variant of the glossary's crossed-out Intruder."
+        }
+      ],
+      "allClaimsMatch": true,
+      "confidence": "high",
+      "uncertainties": []
+    },
+    "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Inspecting card icon exception in JSON****Inspecting card icon exception in JSON**\n\nsession_id: 20260815_060721_ecc61a\n{\"claims\":[{\"claimed\":\"notInCombat\",\"verdict\":\"match\",\"actual\":\"notInCombat\",\"evidence\":\"One occurrence: upper-right card glyph is a white gun silhouette crossed by a red X, matching the documented official notInCombat artwork variant of the glossary's crossed-out Intruder.\"}],\"allClaimsMatch\":true,\"confidence\":\"high\",\"uncertainties\":[]}\n",
+    "evidencePath": null
+  }
+}

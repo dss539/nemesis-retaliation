@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoopCustomDeck-071.jpg",
+  "sourceSha256": "0fe579f8c7d045db65c4c8b44b954417ac93a7c10ef6268d273878bfb2a4bc87",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_053602_b252e0",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:36:01Z",
+  "completedAt": "2026-08-15T05:36:21Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "objective card",
+    "cardSide": "face",
+    "title": "ELITE SHOOTERS",
+    "typeLine": "",
+    "body": "At least 3 [ICON: white skull-like glyph with three radiating marks] must be rolled.",
+    "footer": "SOLO / COOP",
+    "upperRight": "",
+    "lowerCenter": "",
+    "visibleText": "QUARANTINE\nQUARANTINE\nQUARANTINE\nQUARANTINE\nQUARANTINE",
+    "confidentlyVisible": [
+      "Portrait-oriented card face",
+      "Title reads ELITE SHOOTERS",
+      "Body requires at least 3 of a depicted white skull-like roll result",
+      "Footer reads SOLO / COOP in green",
+      "Artwork shows a sealed doorway crossed by yellow quarantine tape",
+      "Yellow triangular biohazard sign appears on the doorway"
+    ],
+    "proposedCategory": "cards/game/objective",
+    "proposedSlug": "elite-shooters",
+    "confidence": "medium",
+    "uncertainties": [
+      "The white skull-like glyph in the body lacks the red triangular surround required for a confident shootDieCritical match, so it is recorded literally.",
+      "Several QUARANTINE inscriptions in the artwork are partly obscured, cropped, distorted, or illegible and are not reconstructed; visibleText includes only confidently complete instances.",
+      "The yellow triangular biohazard sign and quarantine-tape biohazard marks are artwork symbols, not confidently identifiable canonical gameplay icons."
+    ]
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Loading and inspecting image-analysis skill****Loading and inspecting image-analysis skill**\n**Identifying glyph and transcribing visible text**\n\n**Counting visible quarantine instances****Identifying glyph and transcribing visible text**\n{\"orientation\":\"upright\",\"componentType\":\"objective card\",\"cardSide\":\"face\",\"title\":\"ELITE SHOOTERS\",\"typeLine\":\"\",\"body\":\"At least 3 [ICON: white skull-like glyph with three radiating marks] must be rolled.\",\"footer\":\"SOLO / COOP\",\"upperRight\":\"\",\"lowerCenter\":\"\",\"visibleText\":\"QUARANTINE\\nQUARANTINE\\nQUARANTINE\\nQUARANTINE\\nQUARANTINE\",\"confidentlyVisible\":[\"Portrait-oriented card face\",\"Title reads ELITE SHOOTERS\",\"Body requires at least 3 of a depicted white skull-like roll result\",\"Footer reads SOLO / COOP in green\",\"Artwork shows a sealed doorway crossed by yellow quarantine tape\",\"Yellow triangular biohazard sign appears on the doorway\"],\"proposedCategory\":\"cards/game/objective\",\"proposedSlug\":\"elite-shooters\",\"confidence\":\"medium\",\"uncertainties\":[\"The white skull-like glyph in the body lacks the red triangular surround required for a confident shootDieCritical match, so it is recorded literally.\",\"Several QUARANTINE inscriptions in the artwork are partly obscured, cropped, distorted, or illegible and are not reconstructed; visibleText includes only confidently complete instances.\",\"The yellow triangular biohazard sign and quarantine-tape biohazard marks are artwork symbols, not confidently identifiable canonical gameplay icons.\"]}\n\nsession_id: 20260815_053602_b252e0\n"
+}

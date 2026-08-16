@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 1,
+  "assetId": "W01-003",
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/bags/ammoBag-028.jpg",
+  "sourceSha256": "32b841816025f13395d3951c7c708f34bee130158406a95cb742fd5a30eb85f1",
+  "sourceMetadata": {
+    "width": 305,
+    "height": 305,
+    "format": "JPEG",
+    "mode": "RGB",
+    "byteSize": 74767
+  },
+  "runtimeProvenance": {
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "reasoningEffort": "max",
+    "platform": "subagent",
+    "workerId": "sol-max-worker-01",
+    "sessionProvenanceHandle": "hermes_rpc_dfba82c30cd846b6bc4eced43002e707.sock",
+    "persistentSession": true,
+    "nativeVision": true,
+    "auxiliaryVisionUsed": false
+  },
+  "orientation": {
+    "status": "upright",
+    "evidence": "Six cartridge tips point upward; no rotation applied.",
+    "transformApplied": null,
+    "stagingDerivative": null
+  },
+  "blindPixelObservations": [
+    "Dark embossed industrial background.",
+    "Centered glossy translucent red clipped-corner rectangular housing with a smaller right compartment.",
+    "Six upright detailed cartridges fill the main compartment; a pale vertical rounded mark/reflection occupies the right compartment."
+  ],
+  "visibleText": [],
+  "iconMorphology": [
+    {
+      "location": "center",
+      "silhouette": "Rectangular red physical-object rendering containing six upright cartridges.",
+      "internalMarks": "Six separate pointed pale tips and red casings; pale vertical mark at right.",
+      "colors": "translucent red, pale white highlights, black background",
+      "claimedToken": null,
+      "closestPlausibleGlossaryAlternative": "ammoToken or redItem",
+      "visibleDiscriminatingFeature": "It contains six rendered cartridges in a rectangular housing; redItem uses three white cartridges and ammoToken is a compact token glyph, so no glossary token is asserted."
+    }
+  ],
+  "evidenceConsulted": {
+    "tts": {
+      "consultedAfterBlindRecord": true,
+      "trigger": "Pixels established ammunition-themed artwork but not its TTS container role.",
+      "manifestUrl": "https://steamusercontent-a.akamaihd.net/ugc/2468613527880247153/AA65927D0F4F7F042FD033222F328CA0B4A21027/",
+      "objectReferences": [
+        {
+          "guid": "ed4a41",
+          "type": "Custom_Model_Bag",
+          "urlRole": "DiffuseURL"
+        }
+      ]
+    },
+    "official": {
+      "consulted": false,
+      "reason": "No rules text, canonical icon claim, ambiguity, or source conflict required official escalation."
+    }
+  },
+  "proposedClassification": "Non-card ammunition-container artwork used as a TTS Custom_Model_Bag diffuse texture.",
+  "proposedPath": "assets/tts-mod/extract/v2-dl/tree/bags/ammoBag-028.jpg (retain unchanged; no canonical move proposed)",
+  "readConfidence": {
+    "level": "high",
+    "reason": "The six-cartridge object is clearly visible; there is no text to reconstruct."
+  },
+  "classificationConfidence": {
+    "level": "high",
+    "reason": "Pixel morphology identifies ammunition artwork and TTS metadata establishes a bag diffuse role."
+  },
+  "uncertainties": [],
+  "promotionDecision": "non-card-complete",
+  "decisionReasons": [
+    "This is a TTS model-bag diffuse, not a rules-card face.",
+    "No semantic glossary icon is promoted from the decorative artwork.",
+    "No material text or role uncertainty remains for non-card classification."
+  ],
+  "stagedCandidateSidecarPath": null,
+  "validationPerformed": [
+    "Assignment SHA-256 matched source bytes.",
+    "Pillow decoded and verified the 305x305 JPEG.",
+    "Native vision attachment was inspected independently as W01-003.",
+    "Blind observations were persisted before TTS metadata was consulted.",
+    "Manifest URL and the matching DiffuseURL role were resolved.",
+    "No source file or canonical/shared ledger was modified."
+  ],
+  "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-worker-01/raw/W01-003.json"
+}

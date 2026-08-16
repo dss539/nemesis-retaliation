@@ -1,0 +1,101 @@
+{
+  "schemaVersion": 1,
+  "assetId": "W01-005",
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/bags/characterDraftDeck-027.jpg",
+  "sourceSha256": "8efe728f6363075041bf666a270206618bc141d8b34daeb2d72154b8b21c6ff7",
+  "sourceMetadata": {
+    "width": 827,
+    "height": 1110,
+    "format": "JPEG",
+    "mode": "RGB",
+    "byteSize": 504436
+  },
+  "runtimeProvenance": {
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "reasoningEffort": "max",
+    "platform": "subagent",
+    "workerId": "sol-max-worker-01",
+    "sessionProvenanceHandle": "hermes_rpc_dfba82c30cd846b6bc4eced43002e707.sock",
+    "persistentSession": true,
+    "nativeVision": true,
+    "auxiliaryVisionUsed": false
+  },
+  "orientation": {
+    "sourceStatus": "rotated-90-degrees-clockwise",
+    "finalReadStatus": "upright-in-staging",
+    "transformApplied": "rotate source pixels 90 degrees CCW into a lossless PNG derivative",
+    "stagingDerivative": "assets/tts-mod/extract/vision-workers/sol-max-worker-01/crops/W01-005-upright-rotate-90ccw.png",
+    "stagingDerivativeSha256": "7107f618b0be55f65f1ad06ba90f8163f76596a7489cac7c6121273c84cbbbd7",
+    "stagingDimensions": {
+      "width": 1110,
+      "height": 827,
+      "format": "PNG"
+    },
+    "sourceModified": false
+  },
+  "blindPixelObservations": [
+    "Dark blue-black artwork centered on a heavily armored futuristic helmet and glossy black visor, with cold rim lighting and sparse red reflections.",
+    "On the upright staging reread, two bold white uppercase lines are centered below the helmet.",
+    "No rules panel, body effect text, or icon glyph is present."
+  ],
+  "visibleText": [
+    {
+      "text": "CHARACTER\nDRAFT",
+      "location": "lower center after upright rotation",
+      "structure": "two bold uppercase lines",
+      "confidence": "high"
+    }
+  ],
+  "iconMorphology": [],
+  "evidenceConsulted": {
+    "tts": {
+      "consultedAfterBlindRecord": true,
+      "trigger": "Pixels identified art and title but not FaceURL/BackURL/container role.",
+      "manifestUrl": "https://steamusercontent-a.akamaihd.net/ugc/2468613527880245929/ABC15208A12113676459521A04F75B6DC035A8FB/",
+      "objectReferenceSummary": {
+        "referenceCount": 31,
+        "backUrlReferences": 30,
+        "diffuseUrlReferences": 1,
+        "typeCounts": {
+          "Deck": 2,
+          "CardCustom": 20,
+          "Card": 8,
+          "Custom_Model_Bag": 1
+        },
+        "bagGuid": "2abdf6"
+      }
+    },
+    "official": {
+      "consulted": false,
+      "reason": "The complete title and explicit TTS BackURL/container roles resolved classification without conflict."
+    }
+  },
+  "proposedClassification": "Shared CHARACTER DRAFT card back and Character Draft Custom_Model_Bag diffuse; not an independent rules-card face.",
+  "proposedPath": "assets/tts-mod/extract/v2-dl/tree/bags/characterDraftDeck-027.jpg (retain source unchanged; use worker-local upright derivative only for audit)",
+  "readConfidence": {
+    "level": "high",
+    "reason": "The upright lossless reread makes both title lines large and unambiguous."
+  },
+  "classificationConfidence": {
+    "level": "high",
+    "reason": "Thirty BackURL references and one bag DiffuseURL reference establish the shared-back/container role."
+  },
+  "uncertainties": [],
+  "promotionDecision": "non-card-complete",
+  "decisionReasons": [
+    "The asset is a shared card back/container texture, not a standalone card face.",
+    "Its only visible text is complete after the required upright reread.",
+    "No card-text sidecar applies."
+  ],
+  "stagedCandidateSidecarPath": null,
+  "validationPerformed": [
+    "Assignment SHA-256 matched source bytes.",
+    "Pillow decoded and verified the original 827x1110 JPEG.",
+    "Initial native read was treated only as orientation detection.",
+    "Lossless 1110x827 PNG derivative was reread natively and verified upright.",
+    "Manifest URL and all 31 matching TTS URL-role references were reconciled.",
+    "Original source and canonical/shared files were not modified."
+  ],
+  "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-worker-01/raw/W01-005.json"
+}

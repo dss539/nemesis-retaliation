@@ -1,0 +1,106 @@
+{
+  "schemaVersion": 1,
+  "assetId": "W01-020",
+  "batchId": "batch-002",
+  "completedAt": "2026-08-15T21:23:45Z",
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/bags/roomICBag-039.jpg",
+  "sourceSha256": "87500c8dda440e53486d4047add2886cd9e88a464b0d0af189d521ecc7cb7c6c",
+  "sourceMetadata": {
+    "width": 2458,
+    "height": 2458,
+    "format": "JPEG",
+    "mode": "RGB",
+    "byteSize": 1202576,
+    "frames": 1,
+    "decodeVerified": true
+  },
+  "runtimeProvenance": {
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "reasoningEffort": "max",
+    "platform": "subagent",
+    "workerId": "sol-max-worker-02",
+    "sessionId": "20260815_210607_461cc1",
+    "persistentSession": true,
+    "nativeVision": true,
+    "auxiliaryVisionUsed": false,
+    "qwenUsed": false
+  },
+  "orientation": {
+    "status": "rotation-irrelevant",
+    "evidence": "The asset is a sparse UV/diffuse texture with an intentionally diagonal mechanical region; the letter C is readable and no card-face orientation applies.",
+    "transformApplied": null,
+    "stagingDerivative": null
+  },
+  "blindPixelObservations": [
+    "Most of the square canvas is near-black, especially the right and lower regions.",
+    "A large diagonally oriented mechanical object occupies the left half, with a dark rusty metal central plate, rounded protrusions around its perimeter, four recessed vent-like openings, and bright white bar lights near the openings.",
+    "Small orange indicator points and rust-orange scuffs dot the metal surface.",
+    "A large white capital letter overlays the center of the metal plate.",
+    "A separate small dark square or plate near the mid-right contains a luminous white three-pronged geometric mark outlined in pale blue over a faint blue honeycomb pattern."
+  ],
+  "visibleText": [
+    {
+      "text": "C",
+      "location": "center of mechanical plate",
+      "structure": "large white uppercase letter",
+      "confidence": "high"
+    }
+  ],
+  "iconMorphology": [
+    {
+      "location": "mid-right on a small dark square plate",
+      "silhouette": "compact connected three-panel/faceted form: a broad upper-left polygon, tall narrow right polygon, and lower polygon",
+      "internalMarks": "dark bevel seams separate the three connected faces; no central ring, holes, organic spines, or screen rectangle",
+      "colors": "white with pale blue edging/glow on a dark blue-black honeycomb field",
+      "claimedToken": null,
+      "closestPlausibleCanonicalAlternative": "autodestruction",
+      "visibleDiscriminatingFeature": "Autodestruction has three detached rounded lobes around a conspicuous central ring; this source mark is one connected beveled tri-panel form with no ring. Focused comparison also ruled out lander, intruder, robot, and computer."
+    }
+  ],
+  "evidenceConsulted": {
+    "blindPixelRecord": "raw/W01-020.json",
+    "metadataJoin": "metadata/provenance/W01-020.json",
+    "focusedIconComparison": "metadata/focused-comparisons/W01-020-small-glyph-v-glossary.json",
+    "contactSheet": "contact-sheets/W01-020-small-glyph-v-glossary.png",
+    "tts": {
+      "consultedAfterBlindRecord": true,
+      "manifestUrl": "https://steamusercontent-a.akamaihd.net/ugc/2468613527880238492/4E16B238307976B22E0B805373BF1A08F97B7FC5/",
+      "finding": "The URL is the sole DiffuseURL of base Custom_Model_Bag 94cb25, whose explicit Lua role is roomICBag."
+    },
+    "official": {
+      "consulted": true,
+      "scope": "Direct morphology comparison against the authoritative glossary crops for autodestruction, lander, intruder, robot, and computer.",
+      "finding": "No compared glossary token matches; the small mark remains literal bespoke texture art and is not assigned a semantic token."
+    }
+  },
+  "proposedClassification": "Non-card base-game Room I-C Custom_Model_Bag diffuse/UV texture labeled C, with a bespoke white-blue faceted emblem that is not a matched glossary token.",
+  "proposedPath": "assets/tts-mod/extract/v2-dl/tree/bags/roomICBag-039.jpg (retain unchanged; no move or canonical sidecar proposed)",
+  "readConfidence": {
+    "level": "high",
+    "reason": "The letter C, diffuse-texture morphology, and small emblem's visible structure are clear at native resolution and in a focused crop."
+  },
+  "classificationConfidence": {
+    "level": "high",
+    "reason": "The sparse diagonal UV layout and C label are corroborated by the sole TTS Custom_Model_Bag DiffuseURL and roomICBag Lua role."
+  },
+  "uncertainties": [],
+  "promotionDecision": "non-card-complete",
+  "decisionReasons": [
+    "This is a model-bag diffuse texture, not a rules-card face.",
+    "The visible letter C is preserved literally without inferring rules text.",
+    "The separate white-blue mark was directly compared and is not promoted as any plausible glossary token.",
+    "No material role or orientation uncertainty remains for non-card classification."
+  ],
+  "stagedCandidateSidecarPath": null,
+  "validationPerformed": [
+    "Preflight recomputed the source SHA-256 immediately before native attachment and matched the live assignment.",
+    "Pillow decoded and verified the 2458x2458 one-frame JPEG.",
+    "The image was attached and inspected natively as W01-020 in batch-002 through the verified Sol Max route.",
+    "Blind observations were persisted before TTS metadata was consulted.",
+    "The sole matching DiffuseURL reference and roomICBag Lua role were resolved.",
+    "A worker-local focused crop/contact sheet ruled out five plausible canonical glossary alternatives by visible morphology.",
+    "No source, canonical sidecar, shared ledger, manifest, catalog, or prior-worker file was modified."
+  ],
+  "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-worker-02/raw/W01-020.json"
+}

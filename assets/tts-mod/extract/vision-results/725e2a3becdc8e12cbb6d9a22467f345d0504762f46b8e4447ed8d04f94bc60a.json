@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/models/model-003.jpg",
+  "sourceSha256": "725e2a3becdc8e12cbb6d9a22467f345d0504762f46b8e4447ed8d04f94bc60a",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_054553_186ea4",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:45:53Z",
+  "completedAt": "2026-08-15T05:46:31Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "rotationIrrelevant",
+    "componentType": "3D model texture atlas depicting two industrial sci-fi room surfaces",
+    "cardSide": "notCard",
+    "title": "",
+    "typeLine": "",
+    "body": "",
+    "footer": "",
+    "upperRight": "",
+    "lowerCenter": "",
+    "visibleText": "2\n1\n1\n2\n0\n0",
+    "confidentlyVisible": [
+      "Two separate room-like texture regions appear on a black background.",
+      "The larger upper-left region has a dark, worn metallic interior with pipes, cables, wall panels, and four side lights.",
+      "The smaller lower-right region has a cleaner white central wall panel with vents and four side lights.",
+      "Yellow triangular markers contain black numerals.",
+      "The larger region shows a 2 upright at its top and another 2 inverted at its bottom.",
+      "Two smaller, partially overlaid yellow triangles on the larger region each visibly contain 1, with opposite orientations.",
+      "The smaller region shows a 0 upright at its top and another 0 inverted at its bottom.",
+      "Opposing duplicated numerals cannot all be made upright by one whole-file rotation."
+    ],
+    "proposedCategory": "models/texture",
+    "proposedSlug": null,
+    "confidence": "medium",
+    "uncertainties": [
+      "The file is a texture atlas with deliberately opposed or mirrored typography, so no single file rotation makes every numeral upright.",
+      "The specific identity or name of either depicted room is not visibly printed.",
+      "The two smaller 1 markers are partially overlaid or obscured and may be texture-layout artifacts.",
+      "A semantic filename stem cannot be established from the visible pixels alone."
+    ]
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Loading skill image analysis tool****Loading skill image analysis tool****Requesting actual pixel data for vision call**\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Requesting actual pixel data for vision call****Analyzing texture atlas typography orientations**\n\n\n{\"orientation\":\"rotationIrrelevant\",\"componentType\":\"3D model texture atlas depicting two industrial sci-fi room surfaces\",\"cardSide\":\"notCard\",\"title\":\"\",\"typeLine\":\"\",\"body\":\"\",\"footer\":\"\",\"upperRight\":\"\",\"lowerCenter\":\"\",\"visibleText\":\"2\\n1\\n1\\n2\\n0\\n0\",\"confidentlyVisible\":[\"Two separate room-like texture regions appear on a black background.\",\"The larger upper-left region has a dark, worn metallic interior with pipes, cables, wall panels, and four side lights.\",\"The smaller lower-right region has a cleaner white central wall panel with vents and four side lights.\",\"Yellow triangular markers contain black numerals.\",\"The larger region shows a 2 upright at its top and another 2 inverted at its bottom.\",\"Two smaller, partially overlaid yellow triangles on the larger region each visibly contain 1, with opposite orientations.\",\"The smaller region shows a 0 upright at its top and another 0 inverted at its bottom.\",\"Opposing duplicated numerals cannot all be made upright by one whole-file rotation.\"],\"proposedCategory\":\"models/texture\",\"proposedSlug\":null,\"confidence\":\"medium\",\"uncertainties\":[\"The file is a texture atlas with deliberately opposed or mirrored typography, so no single file rotation makes every numeral upright.\",\"The specific identity or name of either depicted room is not visibly printed.\",\"The two smaller 1 markers are partially overlaid or obscured and may be texture-layout artifacts.\",\"A semantic filename stem cannot be established from the visible pixels alone.\"]}\n\nsession_id: 20260815_054553_186ea4\n"
+}

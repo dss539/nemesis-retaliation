@@ -1,0 +1,77 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/robotDeck-137.jpg",
+  "sourceSha256": "db583cb973497fd2fba3b588d233d7c79db48e30d51e3cb0a4483524aa89fbbb",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_053955_d2b516",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:39:54Z",
+  "completedAt": "2026-08-15T05:40:11Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "robot command card",
+    "cardSide": "face",
+    "title": "TECHNICAL ROBOT",
+    "typeLine": "",
+    "body": "Move the [robot] up to 2 times.\nOR\nDiscard a [malfunction] or a [fire]\nfrom the Room with the [robot].",
+    "footer": "",
+    "upperRight": "",
+    "lowerCenter": "",
+    "visibleText": "",
+    "confidentlyVisible": [
+      "White uppercase title at the top",
+      "Artwork depicts a yellow-and-black wheeled robot",
+      "Rules text appears in a framed lower panel",
+      "Three white robot icons appear inline in the rules text",
+      "A white cog-shaped malfunction icon appears inline",
+      "An orange-red flame icon appears inline"
+    ],
+    "proposedCategory": "cards/game/robot",
+    "proposedSlug": "technical-robot",
+    "confidence": "high",
+    "uncertainties": []
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Inspecting image pixels****Inspecting image pixels****Identifying robot and malfunction glyphs**\n{\"orientation\":\"upright\",\"componentType\":\"robot command card\",\"cardSide\":\"face\",\"title\":\"TECHNICAL ROBOT\",\"typeLine\":\"\",\"body\":\"Move the [robot] up to 2 times.\\nOR\\nDiscard a [malfunction] or a [fire]\\nfrom the Room with the [robot].\",\"footer\":\"\",\"upperRight\":\"\",\"lowerCenter\":\"\",\"visibleText\":\"\",\"confidentlyVisible\":[\"White uppercase title at the top\",\"Artwork depicts a yellow-and-black wheeled robot\",\"Rules text appears in a framed lower panel\",\"Three white robot icons appear inline in the rules text\",\"A white cog-shaped malfunction icon appears inline\",\"An orange-red flame icon appears inline\"],\"proposedCategory\":\"cards/game/robot\",\"proposedSlug\":\"technical-robot\",\"confidence\":\"high\",\"uncertainties\":[]}\n\nsession_id: 20260815_053955_d2b516\n",
+  "iconVerification": {
+    "status": "passed",
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "sessionId": "20260815_060830_e66026",
+    "promptVersion": 1,
+    "completedAt": "2026-08-15T06:08:42Z",
+    "claimed": [
+      "fire",
+      "malfunction",
+      "robot"
+    ],
+    "parsed": {
+      "claims": [
+        {
+          "claimed": "fire",
+          "verdict": "match",
+          "actual": "fire",
+          "evidence": "One occurrence: orange right-leaning outer flame with matching dark curled inner flame."
+        },
+        {
+          "claimed": "malfunction",
+          "verdict": "match",
+          "actual": "malfunction",
+          "evidence": "One occurrence: eight-toothed gear with the same round dark central opening."
+        },
+        {
+          "claimed": "robot",
+          "verdict": "match",
+          "actual": "robot",
+          "evidence": "Two occurrences: both show the same white rounded robot head, short top antenna, side tabs, two circular eyes, and narrow base."
+        }
+      ],
+      "allClaimsMatch": true,
+      "confidence": "high",
+      "uncertainties": []
+    },
+    "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Planning to load image analysis skills****Planning to load image analysis skills**\n**Confirming card glyph matches and order****Confirming card glyph matches and order**\n\nsession_id: 20260815_060830_e66026\n{\"claims\":[{\"claimed\":\"fire\",\"verdict\":\"match\",\"actual\":\"fire\",\"evidence\":\"One occurrence: orange right-leaning outer flame with matching dark curled inner flame.\"},{\"claimed\":\"malfunction\",\"verdict\":\"match\",\"actual\":\"malfunction\",\"evidence\":\"One occurrence: eight-toothed gear with the same round dark central opening.\"},{\"claimed\":\"robot\",\"verdict\":\"match\",\"actual\":\"robot\",\"evidence\":\"Two occurrences: both show the same white rounded robot head, short top antenna, side tabs, two circular eyes, and narrow base.\"}],\"allClaimsMatch\":true,\"confidence\":\"high\",\"uncertainties\":[]}\n",
+    "evidencePath": null
+  }
+}

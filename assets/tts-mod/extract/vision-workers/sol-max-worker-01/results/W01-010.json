@@ -1,0 +1,106 @@
+{
+  "schemaVersion": 1,
+  "assetId": "W01-010",
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/bags/egg-tokens-038.png",
+  "sourceSha256": "170e44a03e2aa729a00834b9ea4e6afd20c962db7cfcf06005c03a3fa78275dc",
+  "sourceMetadata": {
+    "width": 1024,
+    "height": 1024,
+    "format": "PNG",
+    "mode": "RGBA",
+    "byteSize": 292913
+  },
+  "runtimeProvenance": {
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "reasoningEffort": "max",
+    "platform": "subagent",
+    "workerId": "sol-max-worker-01",
+    "sessionProvenanceHandle": "hermes_rpc_dfba82c30cd846b6bc4eced43002e707.sock",
+    "persistentSession": true,
+    "nativeVision": true,
+    "auxiliaryVisionUsed": false
+  },
+  "orientation": {
+    "status": "upright",
+    "evidence": "EGG reads left-to-right beneath the central egg image.",
+    "transformApplied": null,
+    "stagingDerivative": null
+  },
+  "blindPixelObservations": [
+    "Mostly black square texture atlas.",
+    "Dark hexagonal panel contains circular HUD rings and a luminous ice-blue translucent, faceted/cracked egg-shaped object.",
+    "White uppercase label beneath the egg; separate small horizontal side-texture rectangle with cyan arcs at right."
+  ],
+  "visibleText": [
+    {
+      "text": "EGG",
+      "location": "beneath egg within hexagonal panel",
+      "structure": "single uppercase label",
+      "confidence": "high"
+    }
+  ],
+  "iconMorphology": [
+    {
+      "location": "hexagonal panel center",
+      "silhouette": "Large upright oval egg.",
+      "internalMarks": "Luminous faceted/cracked translucent texture inside HUD rings.",
+      "colors": "ice blue, white, black, dark red accents",
+      "claimedToken": null,
+      "closestPlausibleGlossaryAlternative": "none; no egg icon exists in the canonical glossary",
+      "visibleDiscriminatingFeature": "It is detailed labeled egg artwork in a UV texture, not a canonical glossary glyph."
+    }
+  ],
+  "evidenceConsulted": {
+    "tts": {
+      "consultedAfterBlindRecord": true,
+      "trigger": "Pixels suggested a texture atlas but did not establish the TTS object role.",
+      "manifestUrl": "https://steamusercontent-a.akamaihd.net/ugc/979981833840996296/78ADB5901E0AACFCF70F252DA3C2A15740D96C44/",
+      "objectReferences": [
+        {
+          "guid": "05fd7c",
+          "type": "Custom_Model_Infinite_Bag",
+          "nickname": "Egg Tokens",
+          "urlRole": "DiffuseURL"
+        },
+        {
+          "guid": "da6c44",
+          "type": "Custom_Model_Bag",
+          "nickname": "Egg Tokens",
+          "urlRole": "DiffuseURL"
+        }
+      ]
+    },
+    "official": {
+      "consulted": false,
+      "reason": "Visible EGG label and two consistent TTS Egg Tokens roles resolved classification without conflict."
+    }
+  },
+  "proposedClassification": "Non-card Egg Tokens model-bag diffuse/UV texture shared by finite and infinite TTS bag objects.",
+  "proposedPath": "assets/tts-mod/extract/v2-dl/tree/bags/egg-tokens-038.png (retain unchanged; no canonical move proposed)",
+  "readConfidence": {
+    "level": "high",
+    "reason": "EGG is large and unobscured; the texture layout is clear."
+  },
+  "classificationConfidence": {
+    "level": "high",
+    "reason": "Printed label and both TTS Egg Tokens DiffuseURL records agree."
+  },
+  "uncertainties": [],
+  "promotionDecision": "non-card-complete",
+  "decisionReasons": [
+    "This is a bag/model UV texture, not a rules-card face.",
+    "The only text is complete and high-confidence.",
+    "Detailed egg art is not forced into an absent glossary token."
+  ],
+  "stagedCandidateSidecarPath": null,
+  "validationPerformed": [
+    "Assignment SHA-256 matched source bytes.",
+    "Pillow decoded and verified the 1024x1024 PNG.",
+    "Native vision attachment was inspected independently as W01-010.",
+    "Blind observations were persisted before TTS metadata was consulted.",
+    "Manifest URL and both matching DiffuseURL roles were resolved.",
+    "No source file or canonical/shared ledger was modified."
+  ],
+  "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-worker-01/raw/W01-010.json"
+}

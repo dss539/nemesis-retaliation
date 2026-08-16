@@ -1,0 +1,100 @@
+{
+  "schemaVersion": 1,
+  "assetId": "W01-016",
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/bags/queen-008.png",
+  "sourceSha256": "87e75ef6e93e0c161815bf56346e80790966e9684383c645376b148039429d50",
+  "sourceMetadata": {
+    "width": 500,
+    "height": 844,
+    "format": "PNG",
+    "mode": "RGBA",
+    "byteSize": 535930
+  },
+  "runtimeProvenance": {
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "reasoningEffort": "max",
+    "platform": "subagent",
+    "workerId": "sol-max-worker-01",
+    "sessionProvenanceHandle": "hermes_rpc_dfba82c30cd846b6bc4eced43002e707.sock",
+    "persistentSession": true,
+    "nativeVision": true,
+    "auxiliaryVisionUsed": false
+  },
+  "orientation": {
+    "status": "upright",
+    "evidence": "The tall figure stands on a horizontal oval base at the lower edge.",
+    "transformApplied": null,
+    "stagingDerivative": null
+  },
+  "blindPixelObservations": [
+    "Irregular teal mist backing with transparent margins.",
+    "Tall upright humanoid creature with elongated pale head and torso, black-red exoskeletal limbs, long clawed hands, two enormous serrated scythe-like appendages arcing upward around its body, pale ribbon-like tendrils, and a thick segmented tail.",
+    "Detailed isolated creature artwork on a display base; no card frame or rules panel."
+  ],
+  "visibleText": [],
+  "iconMorphology": [
+    {
+      "location": "entire central artwork",
+      "silhouette": "Very tall upright humanoid framed by two giant symmetrical arcing scythe appendages.",
+      "internalMarks": "Pale central armor, black-red limb armor, long claws, tendrils, and segmented tail.",
+      "colors": "pale ivory, charcoal, black, dark red, teal",
+      "claimedToken": null,
+      "closestPlausibleGlossaryAlternative": "intruder",
+      "visibleDiscriminatingFeature": "This is detailed multi-tone full-body creature art rather than the flat white glossary intruder glyph; no glossary token is claimed."
+    }
+  ],
+  "evidenceConsulted": {
+    "tts": {
+      "consultedAfterBlindRecord": true,
+      "trigger": "Pixels established creature art but not official class or TTS role.",
+      "manifestUrl": "https://steamusercontent-a.akamaihd.net/ugc/11923313303416697/9B3267E7B15BA79753FB3964C3822C4B8A3EB5F5/",
+      "objectReferences": [
+        {
+          "guid": "bf3dc5",
+          "type": "Bag",
+          "nickname": "Queen",
+          "urlRole": "ImageURL"
+        },
+        {
+          "guid": "68d9e4",
+          "type": "Figurine_Custom",
+          "gmnotes": "queen",
+          "parentGuid": "bf3dc5",
+          "urlRole": "ImageURL"
+        }
+      ]
+    },
+    "official": {
+      "consulted": false,
+      "reason": "Bag nickname Queen and contained figurine gmnotes queen are consistent; no source conflict remained."
+    }
+  },
+  "proposedClassification": "Non-card Queen creature artwork shared by a TTS Bag image and its contained Figurine_Custom image.",
+  "proposedPath": "assets/tts-mod/extract/v2-dl/tree/bags/queen-008.png (retain unchanged; no canonical move proposed)",
+  "readConfidence": {
+    "level": "high",
+    "reason": "Artwork morphology is clear and no text is present."
+  },
+  "classificationConfidence": {
+    "level": "high",
+    "reason": "Two nested TTS records consistently identify Queen and use the URL as ImageURL."
+  },
+  "uncertainties": [],
+  "promotionDecision": "non-card-complete",
+  "decisionReasons": [
+    "This is creature/container artwork, not a rules-card face.",
+    "Consistent TTS records resolve the exact non-card class and role.",
+    "No glossary glyph is forced from detailed artwork."
+  ],
+  "stagedCandidateSidecarPath": null,
+  "validationPerformed": [
+    "Assignment SHA-256 matched source bytes.",
+    "Pillow decoded and verified the 500x844 PNG.",
+    "Native vision attachment was inspected independently as W01-016.",
+    "Blind observations were persisted before TTS metadata was consulted.",
+    "Manifest URL and both nested ImageURL roles were resolved.",
+    "No source file or canonical/shared ledger was modified."
+  ],
+  "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-worker-01/raw/W01-016.json"
+}

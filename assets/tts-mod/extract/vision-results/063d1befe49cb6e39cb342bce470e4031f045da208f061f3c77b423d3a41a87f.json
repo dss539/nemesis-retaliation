@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/tiles/room/life-support-control-013.jpg",
+  "sourceSha256": "063d1befe49cb6e39cb342bce470e4031f045da208f061f3c77b423d3a41a87f",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_054813_15704b",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:48:13Z",
+  "completedAt": "2026-08-15T05:48:46Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "texture atlas containing multiple interlocking room-tile faces",
+    "cardSide": "notCard",
+    "title": "LIFE SUPPORT CONTROL “C”",
+    "typeLine": "",
+    "body": "Flip [ICON: cyan-and-white paired capsule glyphs] in section “C”.\nOR\nFlip [ICON: gray wing-like glyph].",
+    "footer": "",
+    "upperRight": "[ICON: gray hexagonal badge with wrench glyph]",
+    "lowerCenter": "",
+    "visibleText": "C\nC",
+    "confidentlyVisible": [
+      "The dominant component is a dark, irregular interlocking tile with science-fiction machinery artwork.",
+      "The title LIFE SUPPORT CONTROL “C” is fully visible in white uppercase text.",
+      "A large magenta C appears near the dominant tile's upper-left area.",
+      "A green hexagonal badge with a white cross and a red hexagonal badge with three white cartridges appear along the dominant tile's left edge.",
+      "A separate partial rusty tile bears a large white C.",
+      "Several additional tile shapes and artwork fragments are clipped by the image boundaries."
+    ],
+    "proposedCategory": "models/texture",
+    "proposedSlug": null,
+    "confidence": "medium",
+    "uncertainties": [
+      "The file is a composite texture atlas rather than one isolated component, so a single semantic filename identity is materially uncertain.",
+      "The dominant tile is placed diagonally within the atlas; its typography is readable left-to-right and not orthogonally sideways or inverted, so orientation is classified as upright.",
+      "The cyan-and-white paired capsule glyphs in the first instruction are not confidently matched to the supplied glossary.",
+      "The gray wing-like glyph in the second instruction is not confidently matched to the supplied glossary.",
+      "The gray upper-right wrench badge resembles an item-type badge but its gray color does not confidently match canonical yellowItem.",
+      "Some neighboring tile components are clipped, and their identities cannot be determined from visible pixels alone."
+    ]
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Loading image inspection skill****Loading image inspection skill****Assessing text baseline orientation**\n\n\n**Clarifying texture atlas orientation and content**\n\n**Identifying icons and text details**\n\n**Assessing texture atlas categorization****Assessing text baseline orientation**\n**Clarifying texture atlas orientation and content**\n**Identifying icons and text details**\n\n{\"orientation\":\"upright\",\"componentType\":\"texture atlas containing multiple interlocking room-tile faces\",\"cardSide\":\"notCard\",\"title\":\"LIFE SUPPORT CONTROL “C”\",\"typeLine\":\"\",\"body\":\"Flip [ICON: cyan-and-white paired capsule glyphs] in section “C”.\\nOR\\nFlip [ICON: gray wing-like glyph].\",\"footer\":\"\",\"upperRight\":\"[ICON: gray hexagonal badge with wrench glyph]\",\"lowerCenter\":\"\",\"visibleText\":\"C\\nC\",\"confidentlyVisible\":[\"The dominant component is a dark, irregular interlocking tile with science-fiction machinery artwork.\",\"The title LIFE SUPPORT CONTROL “C” is fully visible in white uppercase text.\",\"A large magenta C appears near the dominant tile's upper-left area.\",\"A green hexagonal badge with a white cross and a red hexagonal badge with three white cartridges appear along the dominant tile's left edge.\",\"A separate partial rusty tile bears a large white C.\",\"Several additional tile shapes and artwork fragments are clipped by the image boundaries.\"],\"proposedCategory\":\"models/texture\",\"proposedSlug\":null,\"confidence\":\"medium\",\"uncertainties\":[\"The file is a composite texture atlas rather than one isolated component, so a single semantic filename identity is materially uncertain.\",\"The dominant tile is placed diagonally within the atlas; its typography is readable left-to-right and not orthogonally sideways or inverted, so orientation is classified as upright.\",\"The cyan-and-white paired capsule glyphs in the first instruction are not confidently matched to the supplied glossary.\",\"The gray wing-like glyph in the second instruction is not confidently matched to the supplied glossary.\",\"The gray upper-right wrench badge resembles an item-type badge but its gray color does not confidently match canonical yellowItem.\",\"Some neighboring tile components are clipped, and their identities cannot be determined from visible pixels alone.\"]}\n\nsession_id: 20260815_054813_15704b\n"
+}

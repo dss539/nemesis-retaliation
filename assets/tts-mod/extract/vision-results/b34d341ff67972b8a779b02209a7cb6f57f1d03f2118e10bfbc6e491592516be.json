@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/medical-support-047.jpg",
+  "sourceSha256": "b34d341ff67972b8a779b02209a7cb6f57f1d03f2118e10bfbc6e491592516be",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_051248_2b02e1",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:12:48Z",
+  "completedAt": "2026-08-15T05:13:11Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "character action card",
+    "cardSide": "face",
+    "title": "SEARCH",
+    "typeLine": "",
+    "body": "For each Item Icon in your Room\ndraw 1 Item of the corresponding type.\nYou may keep 1 of them and discard the rest.",
+    "footer": "MEDICAL SUPPORT",
+    "upperRight": "notInCombat",
+    "lowerCenter": "",
+    "visibleText": "",
+    "confidentlyVisible": [
+      "All meaningful typography is upright and reads left to right.",
+      "SEARCH appears in large white capitals within a centered black title panel.",
+      "A red prohibition symbol overlays a white curled exoskeleton glyph in the upper-right corner.",
+      "The artwork shows an armored humanoid figure carrying equipment in a purple-lit technological interior.",
+      "MEDICAL SUPPORT appears in magenta capitals beneath the rules text."
+    ],
+    "proposedCategory": "cards/character/medical-support/action",
+    "proposedSlug": "search",
+    "confidence": "high",
+    "uncertainties": []
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Initiating vision skill image analysis****Initiating vision skill image analysis**\n**Crafting precise JSON for card details**\n\n**Confirming card text and icon details**\n\n**Validating JSON structure****Crafting precise JSON for card details**\n**Confirming card text and icon details**\n{\"orientation\":\"upright\",\"componentType\":\"character action card\",\"cardSide\":\"face\",\"title\":\"SEARCH\",\"typeLine\":\"\",\"body\":\"For each Item Icon in your Room\\ndraw 1 Item of the corresponding type.\\nYou may keep 1 of them and discard the rest.\",\"footer\":\"MEDICAL SUPPORT\",\"upperRight\":\"notInCombat\",\"lowerCenter\":\"\",\"visibleText\":\"\",\"confidentlyVisible\":[\"All meaningful typography is upright and reads left to right.\",\"SEARCH appears in large white capitals within a centered black title panel.\",\"A red prohibition symbol overlays a white curled exoskeleton glyph in the upper-right corner.\",\"The artwork shows an armored humanoid figure carrying equipment in a purple-lit technological interior.\",\"MEDICAL SUPPORT appears in magenta capitals beneath the rules text.\"],\"proposedCategory\":\"cards/character/medical-support/action\",\"proposedSlug\":\"search\",\"confidence\":\"high\",\"uncertainties\":[]}\n\nsession_id: 20260815_051248_2b02e1\n",
+  "iconVerification": {
+    "status": "passed",
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "sessionId": "20260815_060735_2d6b59",
+    "promptVersion": 1,
+    "completedAt": "2026-08-15T06:07:44Z",
+    "claimed": [
+      "notInCombat"
+    ],
+    "parsed": {
+      "claims": [
+        {
+          "claimed": "notInCombat",
+          "verdict": "match",
+          "actual": "notInCombat",
+          "evidence": "Card shows the same red prohibition circle and diagonal slash over a white curled Intruder silhouette as the labeled glossary crop."
+        }
+      ],
+      "allClaimsMatch": true,
+      "confidence": "high",
+      "uncertainties": []
+    },
+    "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Inspecting top-right crossed-out card****Inspecting top-right crossed-out card**\n\nsession_id: 20260815_060735_2d6b59\n{\"claims\":[{\"claimed\":\"notInCombat\",\"verdict\":\"match\",\"actual\":\"notInCombat\",\"evidence\":\"Card shows the same red prohibition circle and diagonal slash over a white curled Intruder silhouette as the labeled glossary crop.\"}],\"allClaimsMatch\":true,\"confidence\":\"high\",\"uncertainties\":[]}\n",
+    "evidencePath": null
+  }
+}

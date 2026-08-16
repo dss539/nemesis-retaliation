@@ -1,0 +1,100 @@
+{
+  "schemaVersion": 1,
+  "assetId": "W01-013",
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/bags/larva-009.png",
+  "sourceSha256": "b37084c432327309717e4816b3826521004966b15d8a2ea8f52f8ccff8edbf82",
+  "sourceMetadata": {
+    "width": 322,
+    "height": 239,
+    "format": "PNG",
+    "mode": "RGBA",
+    "byteSize": 117520
+  },
+  "runtimeProvenance": {
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "reasoningEffort": "max",
+    "platform": "subagent",
+    "workerId": "sol-max-worker-01",
+    "sessionProvenanceHandle": "hermes_rpc_dfba82c30cd846b6bc4eced43002e707.sock",
+    "persistentSession": true,
+    "nativeVision": true,
+    "auxiliaryVisionUsed": false
+  },
+  "orientation": {
+    "status": "upright",
+    "evidence": "Feet and tail meet a horizontal lower ground line.",
+    "transformApplied": null,
+    "stagingDerivative": null
+  },
+  "blindPixelObservations": [
+    "Irregular teal mist backing with transparent margins.",
+    "Dark left-facing crouched creature with a large armored head, open toothy mouth, red glowing fissures around head/neck, long blade-like spines sweeping backward, bent limbs, and a tapering/forked tail.",
+    "Isolated detailed creature artwork with no card frame."
+  ],
+  "visibleText": [],
+  "iconMorphology": [
+    {
+      "location": "entire central artwork",
+      "silhouette": "Compact low quadrupedal creature with oversized spined head and long trailing tail.",
+      "internalMarks": "Layered dark carapace and bright red fissure-like facial/neck accents.",
+      "colors": "charcoal gray, black, red, teal",
+      "claimedToken": null,
+      "closestPlausibleGlossaryAlternative": "intruder",
+      "visibleDiscriminatingFeature": "This is detailed multi-tone creature art rather than the flat white glossary intruder glyph; no glossary token is claimed."
+    }
+  ],
+  "evidenceConsulted": {
+    "tts": {
+      "consultedAfterBlindRecord": true,
+      "trigger": "Pixels established creature art but not its official class or TTS role.",
+      "manifestUrl": "https://steamusercontent-a.akamaihd.net/ugc/11923313306143539/F572F0A1A92477BEA4C6C7195041BA055FCFA7BF/",
+      "objectReferences": [
+        {
+          "guid": "978afc",
+          "type": "Bag",
+          "nickname": "Larva",
+          "urlRole": "ImageURL"
+        },
+        {
+          "guid": "a01036",
+          "type": "Figurine_Custom",
+          "gmnotes": "larvae",
+          "parentGuid": "978afc",
+          "urlRole": "ImageURL"
+        }
+      ]
+    },
+    "official": {
+      "consulted": false,
+      "reason": "Bag nickname Larva and contained figurine gmnotes larvae are consistent; no source conflict remained."
+    }
+  },
+  "proposedClassification": "Non-card Larva creature artwork shared by a TTS Bag image and its contained Figurine_Custom image.",
+  "proposedPath": "assets/tts-mod/extract/v2-dl/tree/bags/larva-009.png (retain unchanged; no canonical move proposed)",
+  "readConfidence": {
+    "level": "high",
+    "reason": "Artwork morphology is clear and no text is present."
+  },
+  "classificationConfidence": {
+    "level": "high",
+    "reason": "Two nested TTS records consistently identify Larva/larvae and use the URL as ImageURL."
+  },
+  "uncertainties": [],
+  "promotionDecision": "non-card-complete",
+  "decisionReasons": [
+    "This is creature/container artwork, not a rules-card face.",
+    "Consistent TTS records resolve the exact non-card class and role.",
+    "No glossary glyph is forced from detailed artwork."
+  ],
+  "stagedCandidateSidecarPath": null,
+  "validationPerformed": [
+    "Assignment SHA-256 matched source bytes.",
+    "Pillow decoded and verified the 322x239 PNG.",
+    "Native vision attachment was inspected independently as W01-013.",
+    "Blind observations were persisted before TTS metadata was consulted.",
+    "Manifest URL and both nested ImageURL roles were resolved.",
+    "No source file or canonical/shared ledger was modified."
+  ],
+  "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-worker-01/raw/W01-013.json"
+}

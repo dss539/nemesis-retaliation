@@ -1,0 +1,108 @@
+{
+  "schemaVersion": 1,
+  "assetId": "W01-008",
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/bags/doors-034.png",
+  "sourceSha256": "2c64d8108df1788bd1100321621940b1c142cc1d201096d6d39921beb107981f",
+  "sourceMetadata": {
+    "width": 1024,
+    "height": 1024,
+    "format": "PNG",
+    "mode": "RGB",
+    "byteSize": 445571
+  },
+  "runtimeProvenance": {
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "reasoningEffort": "max",
+    "platform": "subagent",
+    "workerId": "sol-max-worker-01",
+    "sessionProvenanceHandle": "hermes_rpc_dfba82c30cd846b6bc4eced43002e707.sock",
+    "persistentSession": true,
+    "nativeVision": true,
+    "auxiliaryVisionUsed": false
+  },
+  "orientation": {
+    "status": "upright",
+    "evidence": "Overhead rail sits above the vertical door, keypad, and bottom threshold.",
+    "transformApplied": null,
+    "stagingDerivative": null
+  },
+  "blindPixelObservations": [
+    "Isolated frontal gray-blue science-fiction bulkhead door with large transparent/black margins.",
+    "Central circular lock hub and diagonal braces, cyan edge lamps, red lamp above, and blue-lit keypad at right.",
+    "Detached horizontal illuminated rail/header directly above the door."
+  ],
+  "visibleText": [
+    {
+      "text": "CAUTION",
+      "location": "small red stencil left of the central locking hub",
+      "structure": "single uppercase word",
+      "confidence": "high after focused crop"
+    },
+    {
+      "text": "[illegible]",
+      "location": "tiny white stencil right of the locking brace",
+      "structure": "short decorative alphanumeric code; individual I/1-like marks do not visibly discriminate",
+      "confidence": "low after focused crop"
+    }
+  ],
+  "iconMorphology": [],
+  "evidenceConsulted": {
+    "tts": {
+      "consultedAfterBlindRecord": true,
+      "trigger": "Pixels established door art but not whether it was a standalone image or model diffuse.",
+      "manifestUrl": "https://steamusercontent-a.akamaihd.net/ugc/947328846222012995/98A312A9E393B6BD9BEC6DE2B661B81B28873FDF/",
+      "objectReferenceSummary": {
+        "referenceCount": 15,
+        "container": {
+          "guid": "435a9a",
+          "type": "Custom_Model_Bag",
+          "nickname": "Doors",
+          "urlRole": "DiffuseURL"
+        },
+        "containedModels": {
+          "count": 14,
+          "type": "Custom_Model",
+          "nickname": "Closed",
+          "description": "door",
+          "urlRole": "DiffuseURL",
+          "parentGuid": "435a9a"
+        }
+      }
+    },
+    "official": {
+      "consulted": false,
+      "reason": "TTS role and visible model texture were consistent; decorative microtext is not a rules claim or source conflict."
+    }
+  },
+  "proposedClassification": "Non-card closed-door model diffuse shared by a Doors Custom_Model_Bag and fourteen contained Custom_Model records.",
+  "proposedPath": "assets/tts-mod/extract/v2-dl/tree/bags/doors-034.png (retain unchanged; no canonical move proposed)",
+  "readConfidence": {
+    "level": "medium",
+    "reason": "Door morphology and CAUTION are clear, but a tiny decorative white code remains honestly illegible even after a focused 4x crop."
+  },
+  "classificationConfidence": {
+    "level": "high",
+    "reason": "Pixel morphology and explicit Doors/Closed door TTS model metadata agree."
+  },
+  "uncertainties": [
+    "The tiny white decorative alphanumeric stencil cannot be transcribed without guessing; this is non-material to model-texture classification."
+  ],
+  "promotionDecision": "non-card-complete",
+  "decisionReasons": [
+    "This is a closed-door model diffuse, not a rules-card face.",
+    "The unresolved stencil is incidental decorative microtext and is retained as [illegible], not reconstructed.",
+    "No structured card sidecar or semantic icon claim applies."
+  ],
+  "stagedCandidateSidecarPath": null,
+  "validationPerformed": [
+    "Assignment SHA-256 matched source bytes.",
+    "Pillow decoded and verified the 1024x1024 PNG.",
+    "Native full-image attachment was inspected independently as W01-008.",
+    "Focused source crop [400,480,680,660] and 4x Lanczos derivative were created under the worker directory and reread natively.",
+    "Blind observations were persisted before TTS metadata was consulted.",
+    "Manifest URL and all 15 matching DiffuseURL references were reconciled.",
+    "No source file or canonical/shared ledger was modified."
+  ],
+  "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-worker-01/raw/W01-008.json"
+}

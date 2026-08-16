@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/tiles/room/cooling-system-012.jpg",
+  "sourceSha256": "2d50416ab5ea4120a5c93b26b3ab105ac19e8865bcea118ade196ad40860869a",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_054721_56c68e",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:47:20Z",
+  "completedAt": "2026-08-15T05:48:24Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "room-tile texture atlas with one complete readable room tile and partially visible neighboring tiles",
+    "cardSide": "notCard",
+    "title": "COOLING SYSTEM",
+    "typeLine": "",
+    "body": "Activate the Autodestruction\nProcedure.",
+    "footer": "",
+    "upperRight": "autodestruction",
+    "lowerCenter": "",
+    "visibleText": "B\n[yellowItem]\n[yellowItem]\n[yellowItem]\n[computer]\nB",
+    "confidentlyVisible": [
+      "The complete room tile is irregularly shaped with rounded connector tabs.",
+      "The main artwork depicts a blue-lit industrial room with a bright outlined central chamber.",
+      "A large purple B appears near the main tile's upper-left area.",
+      "Three yellow badges with white wrench glyphs run down the left side.",
+      "A cyan computer glyph appears on the right side.",
+      "A grey three-lobed warning glyph appears in a bordered hexagonal area at the upper right.",
+      "A partially visible neighboring tile has a large white B.",
+      "Several neighboring tile fragments and black masking regions surround the complete tile."
+    ],
+    "proposedCategory": "tiles/room",
+    "proposedSlug": "cooling-system",
+    "confidence": "medium",
+    "uncertainties": [
+      "The file is a composite texture atlas rather than an isolated component image.",
+      "Neighboring components are heavily clipped and cannot be identified or fully transcribed.",
+      "The complete tile is printed at an oblique angle within the file; no available quarter-turn rotation makes its typography exactly horizontal, though the file's present orientation is closest to upright.",
+      "The grey upper-right glyph is matched to autodestruction by its visible three-lobed morphology, but its muted rendering makes the match less than maximally certain.",
+      "Partial magenta corner graphics on neighboring components are clipped and not identifiable."
+    ]
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Loading image processing skill****Loading image processing skill****Analyzing tile rotation for upright text**\n\n\n**Identifying texture atlas and icon semantics**\n\n**Planning icon representation in visible text**\n\n**Analyzing composite image elements**\n\n**Clarifying icon positions and visible text****Analyzing tile rotation for upright text**\n**Identifying texture atlas and icon semantics**\n**Planning icon representation in visible text**\n\n**Analyzing composite image elements**\n{\"orientation\":\"upright\",\"componentType\":\"room-tile texture atlas with one complete readable room tile and partially visible neighboring tiles\",\"cardSide\":\"notCard\",\"title\":\"COOLING SYSTEM\",\"typeLine\":\"\",\"body\":\"Activate the Autodestruction\\nProcedure.\",\"footer\":\"\",\"upperRight\":\"autodestruction\",\"lowerCenter\":\"\",\"visibleText\":\"B\\n[yellowItem]\\n[yellowItem]\\n[yellowItem]\\n[computer]\\nB\",\"confidentlyVisible\":[\"The complete room tile is irregularly shaped with rounded connector tabs.\",\"The main artwork depicts a blue-lit industrial room with a bright outlined central chamber.\",\"A large purple B appears near the main tile's upper-left area.\",\"Three yellow badges with white wrench glyphs run down the left side.\",\"A cyan computer glyph appears on the right side.\",\"A grey three-lobed warning glyph appears in a bordered hexagonal area at the upper right.\",\"A partially visible neighboring tile has a large white B.\",\"Several neighboring tile fragments and black masking regions surround the complete tile.\"],\"proposedCategory\":\"tiles/room\",\"proposedSlug\":\"cooling-system\",\"confidence\":\"medium\",\"uncertainties\":[\"The file is a composite texture atlas rather than an isolated component image.\",\"Neighboring components are heavily clipped and cannot be identified or fully transcribed.\",\"The complete tile is printed at an oblique angle within the file; no available quarter-turn rotation makes its typography exactly horizontal, though the file's present orientation is closest to upright.\",\"The grey upper-right glyph is matched to autodestruction by its visible three-lobed morphology, but its muted rendering makes the match less than maximally certain.\",\"Partial magenta corner graphics on neighboring components are clipped and not identifiable.\"]}\n\nsession_id: 20260815_054721_56c68e\n"
+}

@@ -1,0 +1,68 @@
+{
+  "schemaVersion": 1,
+  "workerId": "sol-max-worker-06",
+  "validationStage": "pre-report",
+  "validatedAt": "2026-08-15T23:04:38.701440241Z",
+  "overallPassed": true,
+  "assignment": {
+    "sha256": "65b7660154b1f5cf994398f21349f20384af0210893df81a6550d8aaf2aa6a75",
+    "orderedTupleDigest": "40e776e3419ca82bff78329336f6c28ecb62f6ca6fb415a6e12be45ef8c0c851",
+    "driftDetected": false,
+    "assignedIds": ["W06-001", "W06-002", "W06-003", "W06-004"]
+  },
+  "reconciliation": {
+    "assigned": 4,
+    "processed": 4,
+    "submitted": 4,
+    "returned": 4,
+    "rawPersisted": 4,
+    "resultsPersisted": 4,
+    "duplicateIds": [],
+    "missingIds": [],
+    "promotable": 0,
+    "deferred": 4,
+    "nonCardComplete": 0,
+    "nextPendingAssetId": null,
+    "nextPendingSourcePath": null
+  },
+  "sourceValidation": {
+    "allLiveHashesMatchAssignment": true,
+    "allDecodesPassed": true,
+    "allDimensionsFormatsModesFramesAndBytesMatch": true
+  },
+  "jsonValidation": {
+    "workerJsonFilesParsedAtPreReport": 17,
+    "parseFailures": [],
+    "allRequiredResultFieldsPresent": true
+  },
+  "runtimeValidation": {
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "reasoningEffort": "max",
+    "sessionId": "20260815_224527_5f5db3",
+    "nativeImageRouteState": "exercisedVerified",
+    "nativeVisionCalls": 4,
+    "exactOrderedAttachmentPaths": true,
+    "allNativeAttachmentToolResultsConfirmed": true,
+    "auxiliaryVisionUsed": false,
+    "qwenUsed": false,
+    "ocrCanonicalEvidenceUsed": false,
+    "modelDowngradeUsed": false
+  },
+  "promotionValidation": {
+    "candidateSidecarsCreated": 0,
+    "allFinalOrientationsUpright": true,
+    "allDecisionsDeferred": true
+  },
+  "writeScopeValidation": {
+    "allRecordedWriteFileAndPatchTargetsUnderWorkerRoot": true,
+    "potentialTerminalWritePatterns": [],
+    "gitStatusFingerprintUnchanged": true,
+    "unstagedDiffFingerprintUnchanged": true,
+    "stagedDiffFingerprintUnchanged": true,
+    "sharedWritesByThisWorker": false
+  },
+  "errors": [],
+  "warnings": [],
+  "validatorPath": "assets/tts-mod/extract/vision-workers/sol-max-worker-06/metadata/validate_worker.py"
+}

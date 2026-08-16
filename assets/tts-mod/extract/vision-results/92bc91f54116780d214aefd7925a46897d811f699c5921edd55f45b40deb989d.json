@@ -1,0 +1,77 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/event-009.png",
+  "sourceSha256": "92bc91f54116780d214aefd7925a46897d811f699c5921edd55f45b40deb989d",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_052023_7614ff",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:20:23Z",
+  "completedAt": "2026-08-15T05:21:04Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "game event card",
+    "cardSide": "face",
+    "title": "NO WAY OUT",
+    "typeLine": "",
+    "body": "All [intruder] in each [corridorNESW] move.\nThen, all [intruder] in every Room move.\n\nPlace 4 Adults\nin each non-Reinforced Corridor\nadjacent to the Landing Zone.\n\nEach [character] makes a Noise roll.",
+    "footer": "",
+    "upperRight": "",
+    "lowerCenter": "",
+    "visibleText": "",
+    "confidentlyVisible": [
+      "White uppercase title centered above battle artwork",
+      "Green illuminated sci-fi frame around the artwork and three rules panels",
+      "Artwork depicts armored figures fighting multiple alien creatures",
+      "Two inline curled white exoskeleton glyphs match the canonical intruder icon",
+      "One inline white outlined corridor glyph runs northeast–southwest",
+      "One inline white astronaut glyph matches the canonical character icon"
+    ],
+    "proposedCategory": "cards/game/event",
+    "proposedSlug": "no-way-out",
+    "confidence": "high",
+    "uncertainties": []
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Planning parallel skill and vision loading****Planning parallel skill and vision loading**\n**Determining icons and map orientation**\n\n**Confirming corridorNESW icon orientation**\n\n**Verifying icon presence and glossary mapping****Determining icons and map orientation**\n**Confirming corridorNESW icon orientation**\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Verifying icon presence and glossary mapping****Defining corridor orientation and movement rules**\n\n\n{\"orientation\":\"upright\",\"componentType\":\"game event card\",\"cardSide\":\"face\",\"title\":\"NO WAY OUT\",\"typeLine\":\"\",\"body\":\"All [intruder] in each [corridorNESW] move.\\nThen, all [intruder] in every Room move.\\n\\nPlace 4 Adults\\nin each non-Reinforced Corridor\\nadjacent to the Landing Zone.\\n\\nEach [character] makes a Noise roll.\",\"footer\":\"\",\"upperRight\":\"\",\"lowerCenter\":\"\",\"visibleText\":\"\",\"confidentlyVisible\":[\"White uppercase title centered above battle artwork\",\"Green illuminated sci-fi frame around the artwork and three rules panels\",\"Artwork depicts armored figures fighting multiple alien creatures\",\"Two inline curled white exoskeleton glyphs match the canonical intruder icon\",\"One inline white outlined corridor glyph runs northeast–southwest\",\"One inline white astronaut glyph matches the canonical character icon\"],\"proposedCategory\":\"cards/game/event\",\"proposedSlug\":\"no-way-out\",\"confidence\":\"high\",\"uncertainties\":[]}\n\nsession_id: 20260815_052023_7614ff\n",
+  "iconVerification": {
+    "status": "passed",
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "sessionId": "20260815_060751_e50c26",
+    "promptVersion": 1,
+    "completedAt": "2026-08-15T06:08:05Z",
+    "claimed": [
+      "character",
+      "corridorNESW",
+      "intruder"
+    ],
+    "parsed": {
+      "claims": [
+        {
+          "claimed": "character",
+          "verdict": "match",
+          "actual": "character",
+          "evidence": "One occurrence at bottom: helmeted astronaut with rounded visor, shoulder loops, segmented torso, and splayed legs matches the glossary glyph."
+        },
+        {
+          "claimed": "corridorNESW",
+          "verdict": "match",
+          "actual": "corridorNESW",
+          "evidence": "One occurrence after 'in each': diagonal southwest-to-northeast corridor with the same bent outline, narrow waist, and opposing squared ends as the labeled crop."
+        },
+        {
+          "claimed": "intruder",
+          "verdict": "match",
+          "actual": "intruder",
+          "evidence": "Two occurrences in the movement instructions: both show the same curled alien profile, open jaws, dorsal spikes, and spiral body/tail as the glossary crop."
+        }
+      ],
+      "allClaimsMatch": true,
+      "confidence": "high",
+      "uncertainties": []
+    },
+    "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Preparing image analysis setup****Preparing image analysis setup****Confirming card occurrences and morphology**\n\nsession_id: 20260815_060751_e50c26\n{\"claims\":[{\"claimed\":\"character\",\"verdict\":\"match\",\"actual\":\"character\",\"evidence\":\"One occurrence at bottom: helmeted astronaut with rounded visor, shoulder loops, segmented torso, and splayed legs matches the glossary glyph.\"},{\"claimed\":\"corridorNESW\",\"verdict\":\"match\",\"actual\":\"corridorNESW\",\"evidence\":\"One occurrence after 'in each': diagonal southwest-to-northeast corridor with the same bent outline, narrow waist, and opposing squared ends as the labeled crop.\"},{\"claimed\":\"intruder\",\"verdict\":\"match\",\"actual\":\"intruder\",\"evidence\":\"Two occurrences in the movement instructions: both show the same curled alien profile, open jaws, dorsal spikes, and spiral body/tail as the glossary crop.\"}],\"allClaimsMatch\":true,\"confidence\":\"high\",\"uncertainties\":[]}\n",
+    "evidencePath": null
+  }
+}

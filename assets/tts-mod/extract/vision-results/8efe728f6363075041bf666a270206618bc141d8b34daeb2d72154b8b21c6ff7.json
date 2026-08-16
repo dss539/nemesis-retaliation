@@ -1,0 +1,98 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/bags/characterDraftDeck-027.jpg",
+  "sourceSha256": "8efe728f6363075041bf666a270206618bc141d8b34daeb2d72154b8b21c6ff7",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_060353_6b59bf",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:04:38Z",
+  "completedAt": "2026-08-15T06:04:06Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "character draft artwork/title component",
+    "cardSide": "artOnly",
+    "title": "CHARACTER\nDRAFT",
+    "typeLine": "",
+    "body": "",
+    "footer": "",
+    "upperRight": "",
+    "lowerCenter": "",
+    "visibleText": "",
+    "confidentlyVisible": [
+      "White uppercase title centered in two lines",
+      "Front-facing armored astronaut with a dark reflective helmet visor",
+      "Large mechanical equipment or weapon extends to the viewer's right",
+      "Dark blue-black smoky background with red accent lighting"
+    ],
+    "proposedCategory": "cards/character/draft",
+    "proposedSlug": "character-draft",
+    "confidence": "medium",
+    "uncertainties": [
+      "The pixels do not establish whether this is a physical card, a card back, or a digital draft-selection tile; classified as artOnly because no rules or traits are visible.",
+      "The astronaut's specific identity or owner is not visibly established."
+    ]
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Planning image analysis sequence****Planning image analysis sequence****Analyzing text orientation direction**\n\n\n**Determining correct 90° CCW rotation**\n\n**Mapping coordinates for CCW rotation**\n\n**Determining character draft card design**\n\n**Clarifying image orientation and type**\n\n**Confirming landscape card orientation**\n\n**Inspecting bag texture dimensions****Analyzing text orientation direction**\n**Determining correct 90° CCW rotation**\n**Mapping coordinates for CCW rotation**\n\n**Determining character draft card design**\n**Clarifying image orientation and type**\n**Confirming landscape card orientation**\n\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Inspecting bag texture dimensions****Analyzing text rotation orientation**\n\n**Determining correct 90 CCW rotation**\n\n**Classifying image as bag texture panel**\n\n**Classifying card side as bag texture**\n\n**Confirming exact visible title and orientation**\n\n{\"orientation\":\"rotate90ccw\",\"componentType\":\"full-bleed landscape title/cover artwork\",\"cardSide\":\"uncertain\",\"title\":\"CHARACTER\\nDRAFT\",\"typeLine\":\"\",\"body\":\"\",\"footer\":\"\",\"upperRight\":\"\",\"lowerCenter\":\"\",\"visibleText\":\"\",\"confidentlyVisible\":[\"White uppercase title printed on two lines\",\"Large dark science-fiction helmet centered in the artwork\",\"Blue-grey smoky background with white highlights and red accents\",\"No rules text, footer text, or confidently matched canonical icons are visible\",\"Artwork extends to the rectangular image edges without a visible card border\"],\"proposedCategory\":\"bags/texture\",\"proposedSlug\":\"character-draft\",\"confidence\":\"medium\",\"uncertainties\":[\"Pixels do not conclusively distinguish a deck/card back from a non-card cover or bag texture.\",\"The proposed bags/texture category is based only on the full-bleed labeled-cover presentation and remains uncertain.\"]}\n\nsession_id: 20260815_050439_dcbc34\n",
+  "initialParsed": {
+    "orientation": "rotate90ccw",
+    "componentType": "full-bleed landscape title/cover artwork",
+    "cardSide": "uncertain",
+    "title": "CHARACTER\nDRAFT",
+    "typeLine": "",
+    "body": "",
+    "footer": "",
+    "upperRight": "",
+    "lowerCenter": "",
+    "visibleText": "",
+    "confidentlyVisible": [
+      "White uppercase title printed on two lines",
+      "Large dark science-fiction helmet centered in the artwork",
+      "Blue-grey smoky background with white highlights and red accents",
+      "No rules text, footer text, or confidently matched canonical icons are visible",
+      "Artwork extends to the rectangular image edges without a visible card border"
+    ],
+    "proposedCategory": "bags/texture",
+    "proposedSlug": "character-draft",
+    "confidence": "medium",
+    "uncertainties": [
+      "Pixels do not conclusively distinguish a deck/card back from a non-card cover or bag texture.",
+      "The proposed bags/texture category is based only on the full-bleed labeled-cover presentation and remains uncertain."
+    ]
+  },
+  "initialSessionId": "20260815_050439_dcbc34",
+  "orientationCorrection": "rotate90ccw",
+  "uprightRead": {
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "sessionId": "20260815_060353_6b59bf",
+    "completedAt": "2026-08-15T06:04:06Z",
+    "parsed": {
+      "orientation": "upright",
+      "componentType": "character draft artwork/title component",
+      "cardSide": "artOnly",
+      "title": "CHARACTER\nDRAFT",
+      "typeLine": "",
+      "body": "",
+      "footer": "",
+      "upperRight": "",
+      "lowerCenter": "",
+      "visibleText": "",
+      "confidentlyVisible": [
+        "White uppercase title centered in two lines",
+        "Front-facing armored astronaut with a dark reflective helmet visor",
+        "Large mechanical equipment or weapon extends to the viewer's right",
+        "Dark blue-black smoky background with red accent lighting"
+      ],
+      "proposedCategory": "cards/character/draft",
+      "proposedSlug": "character-draft",
+      "confidence": "medium",
+      "uncertainties": [
+        "The pixels do not establish whether this is a physical card, a card back, or a digital draft-selection tile; classified as artOnly because no rules or traits are visible.",
+        "The astronaut's specific identity or owner is not visibly established."
+      ]
+    },
+    "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Clarifying card draft classification**\n\n**Assessing cardSide as artOnly****Clarifying card draft classification**\n\nsession_id: 20260815_060353_6b59bf\n{\"orientation\":\"upright\",\"componentType\":\"character draft artwork/title component\",\"cardSide\":\"artOnly\",\"title\":\"CHARACTER\\nDRAFT\",\"typeLine\":\"\",\"body\":\"\",\"footer\":\"\",\"upperRight\":\"\",\"lowerCenter\":\"\",\"visibleText\":\"\",\"confidentlyVisible\":[\"White uppercase title centered in two lines\",\"Front-facing armored astronaut with a dark reflective helmet visor\",\"Large mechanical equipment or weapon extends to the viewer's right\",\"Dark blue-black smoky background with red accent lighting\"],\"proposedCategory\":\"cards/character/draft\",\"proposedSlug\":\"character-draft\",\"confidence\":\"medium\",\"uncertainties\":[\"The pixels do not establish whether this is a physical card, a card back, or a digital draft-selection tile; classified as artOnly because no rules or traits are visible.\",\"The astronaut's specific identity or owner is not visibly established.\"]}\n"
+  }
+}

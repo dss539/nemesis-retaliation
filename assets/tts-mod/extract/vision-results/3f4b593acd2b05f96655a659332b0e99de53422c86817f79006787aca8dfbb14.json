@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/recon-006.png",
+  "sourceSha256": "3f4b593acd2b05f96655a659332b0e99de53422c86817f79006787aca8dfbb14",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_051344_bbe20a",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:13:44Z",
+  "completedAt": "2026-08-15T05:14:26Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "character action card",
+    "cardSide": "face",
+    "title": "SPRINT",
+    "typeLine": "Move.",
+    "body": "You may lose 1 [oxygenToken] to Move again.",
+    "footer": "RECON",
+    "upperRight": "notInCombat",
+    "lowerCenter": "",
+    "visibleText": "",
+    "confidentlyVisible": [
+      "All meaningful typography is upright in the file.",
+      "The title reads “SPRINT”.",
+      "The upper-right icon is a red prohibition symbol over an Intruder silhouette.",
+      "A yellow oxygen token appears inline after “1”.",
+      "The footer reads “RECON”.",
+      "The artwork depicts an armed astronaut moving through a smoky industrial corridor."
+    ],
+    "proposedCategory": "cards/character/recon/action",
+    "proposedSlug": "sprint",
+    "confidence": "high",
+    "uncertainties": []
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Loading image-analysis skill**\n\n**Identifying oxygen token icon****Loading image-analysis skill**\n**Identifying oxygen token icon****Planning image analysis for icon extraction****Planning image analysis for icon extraction**\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Mapping oxygen token icon morphology**\n\n**Differentiating oxygen token and supply icons**\n\n**Confirming card text and layout details**\n\n**Confirming icon and text mapping confidence**\n\n{\"orientation\":\"upright\",\"componentType\":\"character action card\",\"cardSide\":\"face\",\"title\":\"SPRINT\",\"typeLine\":\"Move.\",\"body\":\"You may lose 1 [oxygenToken] to Move again.\",\"footer\":\"RECON\",\"upperRight\":\"notInCombat\",\"lowerCenter\":\"\",\"visibleText\":\"\",\"confidentlyVisible\":[\"All meaningful typography is upright in the file.\",\"The title reads “SPRINT”.\",\"The upper-right icon is a red prohibition symbol over an Intruder silhouette.\",\"A yellow oxygen token appears inline after “1”.\",\"The footer reads “RECON”.\",\"The artwork depicts an armed astronaut moving through a smoky industrial corridor.\"],\"proposedCategory\":\"cards/character/recon/action\",\"proposedSlug\":\"sprint\",\"confidence\":\"high\",\"uncertainties\":[]}\n\nsession_id: 20260815_051344_bbe20a\n",
+  "iconVerification": {
+    "status": "failed",
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "sessionId": "20260815_060738_136dce",
+    "promptVersion": 1,
+    "completedAt": "2026-08-15T06:07:46Z",
+    "claimed": [
+      "notInCombat",
+      "oxygenToken"
+    ],
+    "parsed": {
+      "claims": [
+        {
+          "claimed": "notInCombat",
+          "verdict": "match",
+          "actual": "notInCombat",
+          "evidence": "One card occurrence: red prohibition circle and slash over the same curled white Intruder silhouette as the labeled glossary crop."
+        },
+        {
+          "claimed": "oxygenToken",
+          "verdict": "mismatch",
+          "actual": "oxygen",
+          "evidence": "One card occurrence: narrow vertical yellow-framed canister with cyan center, matching the labeled oxygen crop; it lacks oxygenToken's yellow square, cyan bottle outline, and white side panel."
+        }
+      ],
+      "allClaimsMatch": false,
+      "confidence": "high",
+      "uncertainties": []
+    },
+    "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Inspecting oxygen token inconsistencies****Inspecting oxygen token inconsistencies**\n\nsession_id: 20260815_060738_136dce\n{\"claims\":[{\"claimed\":\"notInCombat\",\"verdict\":\"match\",\"actual\":\"notInCombat\",\"evidence\":\"One card occurrence: red prohibition circle and slash over the same curled white Intruder silhouette as the labeled glossary crop.\"},{\"claimed\":\"oxygenToken\",\"verdict\":\"mismatch\",\"actual\":\"oxygen\",\"evidence\":\"One card occurrence: narrow vertical yellow-framed canister with cyan center, matching the labeled oxygen crop; it lacks oxygenToken's yellow square, cyan bottle outline, and white side panel.\"}],\"allClaimsMatch\":false,\"confidence\":\"high\",\"uncertainties\":[]}\n",
+    "evidencePath": "docs/qa/card-icon-comparisons/auto-3f4b593acd2b05f96655a659332b0e99de53422c86817f79006787aca8dfbb14.png"
+  }
+}

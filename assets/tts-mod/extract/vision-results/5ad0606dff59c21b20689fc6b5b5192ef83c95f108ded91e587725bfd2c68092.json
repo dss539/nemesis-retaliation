@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/queenHealthDeck-013.png",
+  "sourceSha256": "5ad0606dff59c21b20689fc6b5b5192ef83c95f108ded91e587725bfd2c68092",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_053842_ab53e5",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:38:42Z",
+  "completedAt": "2026-08-15T05:39:02Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "Queen activation/discard instruction card",
+    "cardSide": "face",
+    "title": "",
+    "typeLine": "",
+    "body": "Discard\n0\nadditional cards.\n\nIf the card was drawn by a [character]:\nActivate the Queen.",
+    "footer": "",
+    "upperRight": "",
+    "lowerCenter": "",
+    "visibleText": "",
+    "confidentlyVisible": [
+      "White typography is upright on a dark illustrated background.",
+      "A large white 0 appears inside a green outlined octagonal frame.",
+      "The inline astronaut glyph confidently matches the canonical character icon.",
+      "The artwork depicts an astronaut confronted by red-and-black alien creatures."
+    ],
+    "proposedCategory": "cards/game/queen-health",
+    "proposedSlug": "discard-0-additional-cards",
+    "confidence": "medium",
+    "uncertainties": [
+      "The exact deck/card subtype is inferred from the visible Queen activation effect and discard instruction rather than an explicit printed type line.",
+      "The card has no distinct printed title; “Discard 0 additional cards.” is treated as body text.",
+      "The semantic slug is derived from the prominently printed effect rather than a formal title."
+    ]
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Loading skill image analysis****Loading skill image analysis****Inspecting card pixel details**\n\n\n**Defining card JSON structure**\n\n**Assigning card identity slug****Inspecting card pixel details**\n**Defining card JSON structure**\n{\"orientation\":\"upright\",\"componentType\":\"Queen activation/discard instruction card\",\"cardSide\":\"face\",\"title\":\"\",\"typeLine\":\"\",\"body\":\"Discard\\n0\\nadditional cards.\\n\\nIf the card was drawn by a [character]:\\nActivate the Queen.\",\"footer\":\"\",\"upperRight\":\"\",\"lowerCenter\":\"\",\"visibleText\":\"\",\"confidentlyVisible\":[\"White typography is upright on a dark illustrated background.\",\"A large white 0 appears inside a green outlined octagonal frame.\",\"The inline astronaut glyph confidently matches the canonical character icon.\",\"The artwork depicts an astronaut confronted by red-and-black alien creatures.\"],\"proposedCategory\":\"cards/game/queen-health\",\"proposedSlug\":\"discard-0-additional-cards\",\"confidence\":\"medium\",\"uncertainties\":[\"The exact deck/card subtype is inferred from the visible Queen activation effect and discard instruction rather than an explicit printed type line.\",\"The card has no distinct printed title; “Discard 0 additional cards.” is treated as body text.\",\"The semantic slug is derived from the prominently printed effect rather than a formal title.\"]}\n\nsession_id: 20260815_053842_ab53e5\n"
+}

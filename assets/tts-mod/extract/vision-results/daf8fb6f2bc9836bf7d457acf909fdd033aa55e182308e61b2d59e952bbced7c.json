@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/exploration-107.png",
+  "sourceSha256": "daf8fb6f2bc9836bf7d457acf909fdd033aa55e182308e61b2d59e952bbced7c",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_052755_e0678f",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:27:55Z",
+  "completedAt": "2026-08-15T05:29:06Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "room-placement and entrance-effect instruction card",
+    "cardSide": "face",
+    "title": "",
+    "typeLine": "",
+    "body": "Place A/B/C Room\ndepending on your Section.\n\nReminder:\nPlace 1 [ICON: white vertically split downward-pointing shield glyph] if you are Moving with [ICON: white vertically split downward-pointing shield glyph].\n\nEntrance Effect:\nPlace 2 Adults in the Corridor\nyou have just passed through.\nThen, make a Noise roll.",
+    "footer": "",
+    "upperRight": "",
+    "lowerCenter": "",
+    "visibleText": "",
+    "confidentlyVisible": [
+      "All meaningful typography is upright in the file.",
+      "A white outlined hexagonal room contains a white [character] icon.",
+      "Grey corridor branches extend from the central room.",
+      "Two yellow angular badges on diagonal corridors contain matching black insect-like glyphs.",
+      "The Reminder line contains two matching white vertically split downward-pointing glyphs.",
+      "A partially clipped green concentric circular graphic appears at the lower-right edge."
+    ],
+    "proposedCategory": "cards/game/exploration",
+    "proposedSlug": null,
+    "confidence": "medium",
+    "uncertainties": [
+      "The two yellow corridor glyphs do not confidently match any supplied canonical icon; their meaning is unknown.",
+      "The two white inline Reminder glyphs do not confidently match any supplied canonical icon; they are transcribed literally.",
+      "The partially clipped lower-right green circular graphic may be decorative or a logo, but its identity cannot be determined from the visible pixels.",
+      "The exact named card subtype is not printed; room-placement and entrance-effect content supports an exploration/instruction-card classification.",
+      "No distinct card title is visibly identified; the opening room-placement instruction is treated as body text rather than a title."
+    ]
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Loading image-analysis and vision skills****Loading image-analysis and vision skills**\n**Analyzing image pixels and dimensions****Analyzing image pixels and dimensions**\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Classifying visual components and icons**\n\n**Identifying instructional reference card type**\n\n**Assigning slug based on heading**\n\n**Clarifying text capitalization and symbols**\n\n**Identifying graphic elements and glyph meanings**\n\n**Interpreting white reminder glyph as intruder icon**\n\n**Finalizing exploration card JSON structure**\n\n**Categorizing exploration instruction card details**\n\n{\"orientation\":\"upright\",\"componentType\":\"room-placement and entrance-effect instruction card\",\"cardSide\":\"face\",\"title\":\"\",\"typeLine\":\"\",\"body\":\"Place A/B/C Room\\ndepending on your Section.\\n\\nReminder:\\nPlace 1 [ICON: white vertically split downward-pointing shield glyph] if you are Moving with [ICON: white vertically split downward-pointing shield glyph].\\n\\nEntrance Effect:\\nPlace 2 Adults in the Corridor\\nyou have just passed through.\\nThen, make a Noise roll.\",\"footer\":\"\",\"upperRight\":\"\",\"lowerCenter\":\"\",\"visibleText\":\"\",\"confidentlyVisible\":[\"All meaningful typography is upright in the file.\",\"A white outlined hexagonal room contains a white [character] icon.\",\"Grey corridor branches extend from the central room.\",\"Two yellow angular badges on diagonal corridors contain matching black insect-like glyphs.\",\"The Reminder line contains two matching white vertically split downward-pointing glyphs.\",\"A partially clipped green concentric circular graphic appears at the lower-right edge.\"],\"proposedCategory\":\"cards/game/exploration\",\"proposedSlug\":null,\"confidence\":\"medium\",\"uncertainties\":[\"The two yellow corridor glyphs do not confidently match any supplied canonical icon; their meaning is unknown.\",\"The two white inline Reminder glyphs do not confidently match any supplied canonical icon; they are transcribed literally.\",\"The partially clipped lower-right green circular graphic may be decorative or a logo, but its identity cannot be determined from the visible pixels.\",\"The exact named card subtype is not printed; room-placement and entrance-effect content supports an exploration/instruction-card classification.\",\"No distinct card title is visibly identified; the opening room-placement instruction is treated as body text rather than a title.\"]}\n\nsession_id: 20260815_052755_e0678f\n"
+}

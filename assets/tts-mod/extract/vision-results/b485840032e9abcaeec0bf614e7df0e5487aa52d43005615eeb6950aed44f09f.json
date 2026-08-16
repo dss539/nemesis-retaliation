@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/seriouswound-149_cards/card-07.png",
+  "sourceSha256": "b485840032e9abcaeec0bf614e7df0e5487aa52d43005615eeb6950aed44f09f",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_054034_186753",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:40:33Z",
+  "completedAt": "2026-08-15T05:40:54Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "serious wound card",
+    "cardSide": "face",
+    "title": "GUTS",
+    "typeLine": "",
+    "body": "Whenever you Pass:\nget 1 Contamination card.",
+    "footer": "",
+    "upperRight": "",
+    "lowerCenter": "",
+    "visibleText": "CELSIUS\nTEMP.\n39.0°\nTISSUE DAMAGE\n[ICON: orange horseshoe-shaped glyph with a dot above each tip]\n[ICON: yellow horseshoe-shaped glyph with a dot above each tip]\n[ICON: magenta horseshoe-shaped glyph with a dot above each tip]",
+    "confidentlyVisible": [
+      "Upright human anatomical scan with skeleton and internal organs",
+      "Torso and abdominal region glow red, orange, and yellow",
+      "Three colored callout lines terminate near horseshoe-shaped glyphs",
+      "Title and effect text are printed in separate black panels with amber borders"
+    ],
+    "proposedCategory": "cards/game/serious-wound",
+    "proposedSlug": "guts",
+    "confidence": "medium",
+    "uncertainties": [
+      "The three horseshoe-shaped callout glyphs are not confidently matched to any canonical glossary icon.",
+      "The small vertical interface label “TISSUE DAMAGE” is low-resolution but appears legible as transcribed.",
+      "The tiny diagnostic-interface text is embedded in the artwork rather than the card's primary rules panel."
+    ]
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Loading image analysis workflow****Loading image analysis workflow****Determining JSON structure for wound card**\n\n\n{\"orientation\":\"upright\",\"componentType\":\"serious wound card\",\"cardSide\":\"face\",\"title\":\"GUTS\",\"typeLine\":\"\",\"body\":\"Whenever you Pass:\\nget 1 Contamination card.\",\"footer\":\"\",\"upperRight\":\"\",\"lowerCenter\":\"\",\"visibleText\":\"CELSIUS\\nTEMP.\\n39.0°\\nTISSUE DAMAGE\\n[ICON: orange horseshoe-shaped glyph with a dot above each tip]\\n[ICON: yellow horseshoe-shaped glyph with a dot above each tip]\\n[ICON: magenta horseshoe-shaped glyph with a dot above each tip]\",\"confidentlyVisible\":[\"Upright human anatomical scan with skeleton and internal organs\",\"Torso and abdominal region glow red, orange, and yellow\",\"Three colored callout lines terminate near horseshoe-shaped glyphs\",\"Title and effect text are printed in separate black panels with amber borders\"],\"proposedCategory\":\"cards/game/serious-wound\",\"proposedSlug\":\"guts\",\"confidence\":\"medium\",\"uncertainties\":[\"The three horseshoe-shaped callout glyphs are not confidently matched to any canonical glossary icon.\",\"The small vertical interface label “TISSUE DAMAGE” is low-resolution but appears legible as transcribed.\",\"The tiny diagnostic-interface text is embedded in the artwork rather than the card's primary rules panel.\"]}\n\nsession_id: 20260815_054034_186753\n"
+}

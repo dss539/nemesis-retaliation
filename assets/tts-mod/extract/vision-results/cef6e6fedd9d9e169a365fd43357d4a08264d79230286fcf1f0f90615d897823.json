@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/tokens/table/dice-001.png",
+  "sourceSha256": "cef6e6fedd9d9e169a365fd43357d4a08264d79230286fcf1f0f90615d897823",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_055112_2d4d9b",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:51:12Z",
+  "completedAt": "2026-08-15T05:51:45Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "rotationIrrelevant",
+    "componentType": "shoot-die UV texture atlas",
+    "cardSide": "notCard",
+    "title": "",
+    "typeLine": "",
+    "body": "",
+    "footer": "",
+    "upperRight": "shootDie4",
+    "lowerCenter": "shootDie2",
+    "visibleText": "5    [ICON: white curved magazine-like glyph]    [shootDie4]\n        3\n5    [shootDie4]    2    [shootDieCritical]",
+    "confidentlyVisible": [
+      "Solid red square background",
+      "Two white numeral 5 glyphs appear along the left side",
+      "A white numeral 3 appears near the center",
+      "A white numeral 2 appears in the lower center-right",
+      "Two white 4 glyphs appear inverted relative to the 2, 3, and 5 glyphs",
+      "A white skull glyph appears at lower right",
+      "A white curved magazine-like glyph appears above center-left",
+      "The mixed glyph orientations are consistent with a texture atlas rather than a single readable panel"
+    ],
+    "proposedCategory": "models/texture",
+    "proposedSlug": null,
+    "confidence": "medium",
+    "uncertainties": [
+      "No single file rotation makes every numeral upright because the two 4 glyphs are oppositely oriented relative to the 2, 3, and 5 glyphs.",
+      "The curved white glyph resembles a magazine or ammunition component but does not confidently match shootDieAmmoLoss, which is defined as three cartridges.",
+      "Although the skull confidently matches shootDieCritical and the numbered marks correspond visually to shoot-die values, several numbers are printed without independently visible triangular boundaries.",
+      "No visible title establishes a materially unambiguous semantic filename stem."
+    ]
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Loading vision skill before image****Loading vision skill before image****Planning vision tool usage**\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Planning vision tool usage****Mapping die face textures precisely**\n\n**Analyzing icon placement and morphology**\n\n**Confirming mixed texture orientations on die faces**\n\n{\"orientation\":\"rotationIrrelevant\",\"componentType\":\"shoot-die UV texture atlas\",\"cardSide\":\"notCard\",\"title\":\"\",\"typeLine\":\"\",\"body\":\"\",\"footer\":\"\",\"upperRight\":\"shootDie4\",\"lowerCenter\":\"shootDie2\",\"visibleText\":\"5    [ICON: white curved magazine-like glyph]    [shootDie4]\\n        3\\n5    [shootDie4]    2    [shootDieCritical]\",\"confidentlyVisible\":[\"Solid red square background\",\"Two white numeral 5 glyphs appear along the left side\",\"A white numeral 3 appears near the center\",\"A white numeral 2 appears in the lower center-right\",\"Two white 4 glyphs appear inverted relative to the 2, 3, and 5 glyphs\",\"A white skull glyph appears at lower right\",\"A white curved magazine-like glyph appears above center-left\",\"The mixed glyph orientations are consistent with a texture atlas rather than a single readable panel\"],\"proposedCategory\":\"models/texture\",\"proposedSlug\":null,\"confidence\":\"medium\",\"uncertainties\":[\"No single file rotation makes every numeral upright because the two 4 glyphs are oppositely oriented relative to the 2, 3, and 5 glyphs.\",\"The curved white glyph resembles a magazine or ammunition component but does not confidently match shootDieAmmoLoss, which is defined as three cartridges.\",\"Although the skull confidently matches shootDieCritical and the numbered marks correspond visually to shoot-die values, several numbers are printed without independently visible triangular boundaries.\",\"No visible title establishes a materially unambiguous semantic filename stem.\"]}\n\nsession_id: 20260815_055112_2d4d9b\n"
+}

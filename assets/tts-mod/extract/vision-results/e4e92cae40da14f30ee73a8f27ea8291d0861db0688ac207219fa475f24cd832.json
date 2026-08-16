@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/exploration-076.png",
+  "sourceSha256": "e4e92cae40da14f30ee73a8f27ea8291d0861db0688ac207219fa475f24cd832",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_052728_00bc88",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:27:28Z",
+  "completedAt": "2026-08-15T05:28:51Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "room-placement exploration instruction card",
+    "cardSide": "face",
+    "title": "",
+    "typeLine": "",
+    "body": "Place A/B/C Room\ndepending on your Section.\n\n[character]\n\nReminder:\nPlace 1 [ICON: white vertically split angular shield-chevron glyph] if you are Moving with [ICON: white vertically split angular shield-chevron glyph].\n\nEntrance Effect:\nClose all Doors around this Room.\nResolve [ICON: yellow irregular starburst with black branching center].",
+    "footer": "",
+    "upperRight": "",
+    "lowerCenter": "",
+    "visibleText": "",
+    "confidentlyVisible": [
+      "All meaningful typography is upright and reads horizontally.",
+      "A white astronaut-shaped [character] icon appears inside a large white hexagonal outline.",
+      "Four horizontal white connector lines extend from the sides of the central hexagon.",
+      "The upper panel has two centered lines ending with a period.",
+      "The lower green-bordered panel is headed “Reminder:”.",
+      "The orange lower panel is headed “Entrance Effect:”.",
+      "The two Reminder-line glyphs share the same white angular morphology.",
+      "The glyph after “Resolve” is yellow and irregularly starburst-shaped with a black central mark; it is not triangular."
+    ],
+    "proposedCategory": "cards/game/exploration",
+    "proposedSlug": null,
+    "confidence": "medium",
+    "uncertainties": [
+      "The two repeated white Reminder-line glyphs do not confidently match any supplied canonical icon and are recorded literally.",
+      "The yellow-and-black glyph after “Resolve” does not confidently match any supplied canonical icon; specifically, it lacks the triangular morphology required for noiseDieHazard.",
+      "No explicit printed card title or owner label is visible, so a semantic filename identity and slug cannot be established confidently.",
+      "The exploration category is inferred from the visibly printed room-placement instruction and Entrance Effect structure rather than an explicit type label."
+    ]
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Loading image vision skill****Loading image vision skill****Identifying and describing icons in UI**\n\n\n**Analyzing yellow hazard icon crop****Identifying and describing icons in UI**\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Analyzing yellow hazard icon crop****Clarifying visual element interpretations**\n\n\n**Structuring room card body with icons**\n\n**Confirming exact punctuation and capitalization**\n\n**Analyzing icon shapes for doorway interpretation**\n\n**Classifying exploration instruction card**\n\n**Refining card text and icon embedding**\n\n**Clarifying diagram icon roles**\n\n{\"orientation\":\"upright\",\"componentType\":\"room-placement exploration instruction card\",\"cardSide\":\"face\",\"title\":\"\",\"typeLine\":\"\",\"body\":\"Place A/B/C Room\\ndepending on your Section.\\n\\n[character]\\n\\nReminder:\\nPlace 1 [ICON: white vertically split angular shield-chevron glyph] if you are Moving with [ICON: white vertically split angular shield-chevron glyph].\\n\\nEntrance Effect:\\nClose all Doors around this Room.\\nResolve [ICON: yellow irregular starburst with black branching center].\",\"footer\":\"\",\"upperRight\":\"\",\"lowerCenter\":\"\",\"visibleText\":\"\",\"confidentlyVisible\":[\"All meaningful typography is upright and reads horizontally.\",\"A white astronaut-shaped [character] icon appears inside a large white hexagonal outline.\",\"Four horizontal white connector lines extend from the sides of the central hexagon.\",\"The upper panel has two centered lines ending with a period.\",\"The lower green-bordered panel is headed “Reminder:”.\",\"The orange lower panel is headed “Entrance Effect:”.\",\"The two Reminder-line glyphs share the same white angular morphology.\",\"The glyph after “Resolve” is yellow and irregularly starburst-shaped with a black central mark; it is not triangular.\"],\"proposedCategory\":\"cards/game/exploration\",\"proposedSlug\":null,\"confidence\":\"medium\",\"uncertainties\":[\"The two repeated white Reminder-line glyphs do not confidently match any supplied canonical icon and are recorded literally.\",\"The yellow-and-black glyph after “Resolve” does not confidently match any supplied canonical icon; specifically, it lacks the triangular morphology required for noiseDieHazard.\",\"No explicit printed card title or owner label is visible, so a semantic filename identity and slug cannot be established confidently.\",\"The exploration category is inferred from the visibly printed room-placement instruction and Entrance Effect structure rather than an explicit type label.\"]}\n\nsession_id: 20260815_052728_00bc88\n"
+}

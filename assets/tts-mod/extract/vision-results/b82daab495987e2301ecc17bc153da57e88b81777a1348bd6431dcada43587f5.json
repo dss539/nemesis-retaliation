@@ -1,0 +1,96 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/recon-046_cards/card-03.png",
+  "sourceSha256": "b82daab495987e2301ecc17bc153da57e88b81777a1348bd6431dcada43587f5",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_060414_a5a803",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:14:53Z",
+  "completedAt": "2026-08-15T06:04:39Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "character-selection screen artwork",
+    "cardSide": "notCard",
+    "title": "PICK H. GUN OPERATOR",
+    "typeLine": "",
+    "body": "",
+    "footer": "",
+    "upperRight": "",
+    "lowerCenter": "",
+    "visibleText": "",
+    "confidentlyVisible": [
+      "Large white uppercase selection prompt inside a red-and-black interface frame",
+      "Armored human figure holding and firing a large gun",
+      "Red illumination dominates the left side; pale blue illumination appears behind the figure on the right",
+      "No confidently matched canonical glossary icons are visible"
+    ],
+    "proposedCategory": null,
+    "proposedSlug": "pick-h-gun-operator",
+    "confidence": "medium",
+    "uncertainties": [
+      "Small painted markings on the gun resemble typography but are too stylized and obscured to transcribe confidently.",
+      "The image is a selection-screen or interface graphic rather than a card, so no game-component category is supported by the pixels alone."
+    ]
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Loading image analysis skill****Loading image analysis skill****Planning pixel analysis with vision_analyze**\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Planning pixel analysis with vision_analyze****Analyzing text orientation in portrait image**\n\n\n**Determining correct 90° CCW rotation for text**\n\n**Finalizing slug as pick-h-gun-operator**\n\n**Verifying art orientation by rotation**\n\n**Confirming text orientation and transcription details**\n\n{\"orientation\":\"rotate90ccw\",\"componentType\":\"character selection card\",\"cardSide\":\"face\",\"title\":\"PICK H. GUN OPERATOR\",\"typeLine\":\"\",\"body\":\"\",\"footer\":\"\",\"upperRight\":\"\",\"lowerCenter\":\"\",\"visibleText\":\"\",\"confidentlyVisible\":[\"White title text appears inside a red-outlined black panel.\",\"Artwork depicts an armored human holding a large firearm amid red lighting and smoke.\",\"No canonical glossary icons are visibly present.\"],\"proposedCategory\":\"cards/character/h-gun-operator/selection\",\"proposedSlug\":\"pick-h-gun-operator\",\"confidence\":\"medium\",\"uncertainties\":[\"Tiny markings on the firearm are too indistinct to transcribe.\",\"The abbreviation “H.” is visible but its expanded meaning cannot be established from the pixels alone.\"]}\n\nsession_id: 20260815_051454_a2bb38\n",
+  "initialParsed": {
+    "orientation": "rotate90ccw",
+    "componentType": "character selection card",
+    "cardSide": "face",
+    "title": "PICK H. GUN OPERATOR",
+    "typeLine": "",
+    "body": "",
+    "footer": "",
+    "upperRight": "",
+    "lowerCenter": "",
+    "visibleText": "",
+    "confidentlyVisible": [
+      "White title text appears inside a red-outlined black panel.",
+      "Artwork depicts an armored human holding a large firearm amid red lighting and smoke.",
+      "No canonical glossary icons are visibly present."
+    ],
+    "proposedCategory": "cards/character/h-gun-operator/selection",
+    "proposedSlug": "pick-h-gun-operator",
+    "confidence": "medium",
+    "uncertainties": [
+      "Tiny markings on the firearm are too indistinct to transcribe.",
+      "The abbreviation “H.” is visible but its expanded meaning cannot be established from the pixels alone."
+    ]
+  },
+  "initialSessionId": "20260815_051454_a2bb38",
+  "orientationCorrection": "rotate90ccw",
+  "uprightRead": {
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "sessionId": "20260815_060414_a5a803",
+    "completedAt": "2026-08-15T06:04:39Z",
+    "parsed": {
+      "orientation": "upright",
+      "componentType": "character-selection screen artwork",
+      "cardSide": "notCard",
+      "title": "PICK H. GUN OPERATOR",
+      "typeLine": "",
+      "body": "",
+      "footer": "",
+      "upperRight": "",
+      "lowerCenter": "",
+      "visibleText": "",
+      "confidentlyVisible": [
+        "Large white uppercase selection prompt inside a red-and-black interface frame",
+        "Armored human figure holding and firing a large gun",
+        "Red illumination dominates the left side; pale blue illumination appears behind the figure on the right",
+        "No confidently matched canonical glossary icons are visible"
+      ],
+      "proposedCategory": null,
+      "proposedSlug": "pick-h-gun-operator",
+      "confidence": "medium",
+      "uncertainties": [
+        "Small painted markings on the gun resemble typography but are too stylized and obscured to transcribe confidently.",
+        "The image is a selection-screen or interface graphic rather than a card, so no game-component category is supported by the pixels alone."
+      ]
+    },
+    "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Loading image-analysis workflow****Loading image-analysis workflow****Clarifying JSON fields and confidence levels**\n\n\n\nsession_id: 20260815_060414_a5a803\n{\"orientation\":\"upright\",\"componentType\":\"character-selection screen artwork\",\"cardSide\":\"notCard\",\"title\":\"PICK H. GUN OPERATOR\",\"typeLine\":\"\",\"body\":\"\",\"footer\":\"\",\"upperRight\":\"\",\"lowerCenter\":\"\",\"visibleText\":\"\",\"confidentlyVisible\":[\"Large white uppercase selection prompt inside a red-and-black interface frame\",\"Armored human figure holding and firing a large gun\",\"Red illumination dominates the left side; pale blue illumination appears behind the figure on the right\",\"No confidently matched canonical glossary icons are visible\"],\"proposedCategory\":null,\"proposedSlug\":\"pick-h-gun-operator\",\"confidence\":\"medium\",\"uncertainties\":[\"Small painted markings on the gun resemble typography but are too stylized and obscured to transcribe confidently.\",\"The image is a selection-screen or interface graphic rather than a card, so no game-component category is supported by the pixels alone.\"]}\n"
+  }
+}

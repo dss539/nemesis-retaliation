@@ -1,0 +1,35 @@
+Analyze the single attached image directly. Do not use tools. You have no access to and must not consult filenames, project files, sidecars, notes, neighboring images, prior transcripts, rulebooks, or web sources. Use only the attached pixels and the canonical icon glossary included below.
+
+Do not infer obscured or unreadable text. Transcribe visible text verbatim, preserving capitalization, punctuation, meaningful line breaks, headings, and panel ordering. Embed confidently matched canonical inline icons as [identifier]. For any icon not confidently matched by morphology, write [ICON: literal color/shape/glyph description] and flag it UNCERTAIN; never infer an icon from surrounding rules text. Name a component, owner, category, or filename only when the pixels support it. A material uncertainty requires decision="defer".
+
+Return exactly one JSON object and no Markdown fence. Use this schema:
+{
+  "orientation": "upright|rotate90cw|rotate90ccw|rotate180|rotationIrrelevant|uncertain",
+  "componentType": "string or null",
+  "title": "string or null",
+  "typeLine": "string or null",
+  "body": "verbatim string with inline [icons], or null",
+  "footer": "string or null",
+  "standaloneSymbols": {"position": "canonicalIdentifier or [ICON: literal description]"},
+  "visibleOtherText": ["verbatim strings not belonging in body"],
+  "layoutNotes": ["pixel-supported structural observations"],
+  "categoryProposal": "string or null",
+  "filenameProposal": "lowercase-kebab-case.ext or null",
+  "sidecarCandidate": {"only minimal canonical sidecar keys such as typeLine/body/upperRight/lowerCenter": "value"},
+  "uncertainties": ["material uncertainties only"],
+  "confidence": {
+    "orientation": "high|medium|low",
+    "text": "high|medium|low",
+    "icons": "high|medium|low",
+    "identity": "high|medium|low",
+    "category": "high|medium|low",
+    "overall": "high|medium|low"
+  },
+  "decision": "promote|defer"
+}
+
+For non-card art, set text/card fields and sidecarCandidate to null as appropriate. Do not force card semantics onto textures, tokens, boards, models, or decorative art.
+
+CANONICAL ICON GLOSSARY FOLLOWS
+
+{{ICON_GLOSSARY}}

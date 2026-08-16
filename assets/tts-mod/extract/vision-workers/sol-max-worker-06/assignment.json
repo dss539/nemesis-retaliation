@@ -1,0 +1,119 @@
+{
+  "schemaVersion": 1,
+  "workerId": "sol-max-worker-06",
+  "status": "completed",
+  "createdAt": "2026-08-15T22:45:00.359712Z",
+  "runId": "sol-max-deferred-reexamination-2026-08-15",
+  "model": {
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "reasoningEffort": "max"
+  },
+  "routingContract": {
+    "nativeVisionRequired": true,
+    "auxiliaryVisionForbidden": true,
+    "qwenForbidden": true,
+    "ocrCanonicalEvidenceForbidden": true
+  },
+  "limits": {
+    "softContextTokens": 170000,
+    "hardContextTokens": 200000,
+    "assignmentCount": 4,
+    "defaultDenseCardBatchSize": 1,
+    "maxSimpleImageBatchSize": 3
+  },
+  "isolation": {
+    "writeRoot": "assets/tts-mod/extract/vision-workers/sol-max-worker-06",
+    "sharedWritesForbidden": true
+  },
+  "scopeSource": {
+    "sourceQueue": "assets/tts-mod/extract/low-confidence-review.json",
+    "sourceProgress": "assets/tts-mod/extract/vision-progress.json",
+    "frontierAfter": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-10.png",
+    "selectionRule": "four exact current deferred queue entries at the documented frontier; use new worker root to avoid prior worker-root collision"
+  },
+  "assets": [
+    {
+      "assetId": "W06-001",
+      "queueIndexAtAssignment": 9,
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-11.png",
+      "sourceKind": "generated",
+      "sourceSha256": "6dc254bf10b41c217cdfe6c4d3d3ca3a8bedd7eded6f7ae6e0a07b9f71d6a19e",
+      "sourceMetadata": {
+        "width": 1052,
+        "height": 1433,
+        "format": "PNG",
+        "mode": "RGB",
+        "frames": 1,
+        "byteSize": 1417086,
+        "decodeVerified": true
+      },
+      "priorResultPath": "assets/tts-mod/extract/vision-results/6dc254bf10b41c217cdfe6c4d3d3ca3a8bedd7eded6f7ae6e0a07b9f71d6a19e.json"
+    },
+    {
+      "assetId": "W06-002",
+      "queueIndexAtAssignment": 10,
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-12.png",
+      "sourceKind": "generated",
+      "sourceSha256": "071501844b55d42daa48430786b944d8cf1fea711ad6994abf6d3a9c61b18245",
+      "sourceMetadata": {
+        "width": 1052,
+        "height": 1433,
+        "format": "PNG",
+        "mode": "RGB",
+        "frames": 1,
+        "byteSize": 1599917,
+        "decodeVerified": true
+      },
+      "priorResultPath": "assets/tts-mod/extract/vision-results/071501844b55d42daa48430786b944d8cf1fea711ad6994abf6d3a9c61b18245.json"
+    },
+    {
+      "assetId": "W06-003",
+      "queueIndexAtAssignment": 11,
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-13.png",
+      "sourceKind": "generated",
+      "sourceSha256": "b3b209538a4ac8554ae6e5230f4a98b1fa1ff3bd8f89b3ccfbee53d115997e9e",
+      "sourceMetadata": {
+        "width": 1052,
+        "height": 1433,
+        "format": "PNG",
+        "mode": "RGB",
+        "frames": 1,
+        "byteSize": 1637974,
+        "decodeVerified": true
+      },
+      "priorResultPath": "assets/tts-mod/extract/vision-results/b3b209538a4ac8554ae6e5230f4a98b1fa1ff3bd8f89b3ccfbee53d115997e9e.json"
+    },
+    {
+      "assetId": "W06-004",
+      "queueIndexAtAssignment": 12,
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-15.png",
+      "sourceKind": "generated",
+      "sourceSha256": "e063664e4e786d66092f347f444c9a9184ae0a9f51547158f98e8b25e300b39a",
+      "sourceMetadata": {
+        "width": 1052,
+        "height": 1433,
+        "format": "PNG",
+        "mode": "RGB",
+        "frames": 1,
+        "byteSize": 1771394,
+        "decodeVerified": true
+      },
+      "priorResultPath": "assets/tts-mod/extract/vision-results/e063664e4e786d66092f347f444c9a9184ae0a9f51547158f98e8b25e300b39a.json"
+    }
+  ],
+  "completionContract": {
+    "preflightHashBeforeEveryAttachment": true,
+    "blindRawBeforeMetadata": true,
+    "exactIdCountReconciliation": true,
+    "oneResultPerAssignedId": true,
+    "stagingOnly": true
+  },
+  "lifecycleClosedAt": "2026-08-16T02:43:34Z",
+  "mergedResultCount": 4,
+  "remainingAssetCount": 0,
+  "supersededBy": null,
+  "lifecycleClosureReason": "All four validated deferred results were merged into the shared ledgers; three overlapping worker-05 results remain linked as corroborating evidence.",
+  "updatedAt": "2026-08-16T03:17:29Z",
+  "reconciledAt": "2026-08-16T03:20:33Z"
+}

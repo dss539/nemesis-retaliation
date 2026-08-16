@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/tokens/table/dice-002.jpg",
+  "sourceSha256": "2992465cbc5ffefdfa7d8f393c7836f8609eae7de1f67d4af619f60ce40db7af",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_055112_185350",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:51:12Z",
+  "completedAt": "2026-08-15T05:51:38Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "rotationIrrelevant",
+    "componentType": "dice model texture atlas",
+    "cardSide": "notCard",
+    "title": "",
+    "typeLine": "",
+    "body": "",
+    "footer": "",
+    "upperRight": "",
+    "lowerCenter": "",
+    "visibleText": "4\n2    3\n4    2    1\n[ICON: black spiked circular emblem with yellow hand-like center]    4    3\n[ICON: black spiked circular emblem with yellow hand-like center]",
+    "confidentlyVisible": [
+      "Mustard-yellow square background",
+      "Eight black numerals are distributed across the texture",
+      "Two matching black spiked circular emblems have yellow hand-like centers",
+      "Numerals and emblems use differing orientations across the layout",
+      "No title, rules text, footer, or canonical glossary icon is visible"
+    ],
+    "proposedCategory": "models/texture",
+    "proposedSlug": null,
+    "confidence": "medium",
+    "uncertainties": [
+      "The numerals and emblems intentionally have multiple orientations, so no single file rotation makes all glyphs upright.",
+      "The spiked circular emblem with a hand-like center is not confidently matched to the supplied canonical glossary.",
+      "The depicted texture's specific identity is not unambiguously established by visible pixels alone.",
+      "Some rotated numeral glyphs could be read differently in isolation, particularly 1/4-like forms, but their visible shapes are transcribed according to their clearest orientation."
+    ]
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Planning image analysis approach****Planning image analysis approach****Planning actual path usage**\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Planning actual path usage****Analyzing dice texture orientation challenges**\n\n{\"orientation\":\"rotationIrrelevant\",\"componentType\":\"dice model texture atlas\",\"cardSide\":\"notCard\",\"title\":\"\",\"typeLine\":\"\",\"body\":\"\",\"footer\":\"\",\"upperRight\":\"\",\"lowerCenter\":\"\",\"visibleText\":\"4\\n2    3\\n4    2    1\\n[ICON: black spiked circular emblem with yellow hand-like center]    4    3\\n[ICON: black spiked circular emblem with yellow hand-like center]\",\"confidentlyVisible\":[\"Mustard-yellow square background\",\"Eight black numerals are distributed across the texture\",\"Two matching black spiked circular emblems have yellow hand-like centers\",\"Numerals and emblems use differing orientations across the layout\",\"No title, rules text, footer, or canonical glossary icon is visible\"],\"proposedCategory\":\"models/texture\",\"proposedSlug\":null,\"confidence\":\"medium\",\"uncertainties\":[\"The numerals and emblems intentionally have multiple orientations, so no single file rotation makes all glyphs upright.\",\"The spiked circular emblem with a hand-like center is not confidently matched to the supplied canonical glossary.\",\"The depicted texture's specific identity is not unambiguously established by visible pixels alone.\",\"Some rotated numeral glyphs could be read differently in isolation, particularly 1/4-like forms, but their visible shapes are transcribed according to their clearest orientation.\"]}\n\nsession_id: 20260815_055112_185350\n"
+}

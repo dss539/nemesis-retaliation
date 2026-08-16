@@ -1,0 +1,77 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/action/repairs.png",
+  "sourceSha256": "502270edf106357e993edbbfc3055cd684671b694e756da219c2fdcdf5aa25e3",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_051724_7d248b",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:17:23Z",
+  "completedAt": "2026-08-15T05:18:09Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "character action card",
+    "cardSide": "face",
+    "title": "REPAIRS",
+    "typeLine": "",
+    "body": "Discard 1 [actionCard].\nDiscard a [malfunction].\n\nOR\n\nOpen or Close 1 Door.",
+    "footer": "CONTRACTOR",
+    "upperRight": "notInCombat",
+    "lowerCenter": "",
+    "visibleText": "",
+    "confidentlyVisible": [
+      "Portrait-format card with upright typography",
+      "Artwork depicts a woman using repair equipment in an industrial interior",
+      "Upper-right corner shows a white gun crossed out by a red X",
+      "Title appears in a framed black panel",
+      "Rules present two alternatives separated by OR",
+      "Footer reads CONTRACTOR"
+    ],
+    "proposedCategory": "cards/character/contractor/action",
+    "proposedSlug": "repairs",
+    "confidence": "high",
+    "uncertainties": []
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Preparing image analysis setup****Preparing image analysis setup****Planning direct image analysis with vision tool**\n\n\n**Clarifying ambiguous card icon interpretations**\n\n**Verifying punctuation via pixel inspection****Planning direct image analysis with vision tool**\n**Clarifying ambiguous card icon interpretations**\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Verifying punctuation via pixel inspection****Mapping actionCard icons and elements**\n\n\n**Confirming card layout and icon details**\n\n**Finalizing action card text formatting**\n\n**Mapping malfunction icon confidently**\n\n{\"orientation\":\"upright\",\"componentType\":\"character action card\",\"cardSide\":\"face\",\"title\":\"REPAIRS\",\"typeLine\":\"\",\"body\":\"Discard 1 [actionCard].\\nDiscard a [malfunction].\\n\\nOR\\n\\nOpen or Close 1 Door.\",\"footer\":\"CONTRACTOR\",\"upperRight\":\"notInCombat\",\"lowerCenter\":\"\",\"visibleText\":\"\",\"confidentlyVisible\":[\"Portrait-format card with upright typography\",\"Artwork depicts a woman using repair equipment in an industrial interior\",\"Upper-right corner shows a white gun crossed out by a red X\",\"Title appears in a framed black panel\",\"Rules present two alternatives separated by OR\",\"Footer reads CONTRACTOR\"],\"proposedCategory\":\"cards/character/contractor/action\",\"proposedSlug\":\"repairs\",\"confidence\":\"high\",\"uncertainties\":[]}\n\nsession_id: 20260815_051724_7d248b\n",
+  "iconVerification": {
+    "status": "passed",
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "sessionId": "20260815_060746_9b14a9",
+    "promptVersion": 1,
+    "completedAt": "2026-08-15T06:08:04Z",
+    "claimed": [
+      "actionCard",
+      "malfunction",
+      "notInCombat"
+    ],
+    "parsed": {
+      "claims": [
+        {
+          "claimed": "actionCard",
+          "verdict": "match",
+          "actual": "actionCard",
+          "evidence": "One occurrence: boxed capital A after “Discard 1”; same square frame and internal A morphology as glossary crop."
+        },
+        {
+          "claimed": "malfunction",
+          "verdict": "match",
+          "actual": "malfunction",
+          "evidence": "One occurrence: gear below the second “Discard a”; same toothed cog silhouette and circular center as glossary crop."
+        },
+        {
+          "claimed": "notInCombat",
+          "verdict": "match",
+          "actual": "notInCombat",
+          "evidence": "One occurrence in upper-right artwork: white gun crossed by a red X; documented official variant of the glossary’s crossed-out Intruder icon."
+        }
+      ],
+      "allClaimsMatch": true,
+      "confidence": "high",
+      "uncertainties": []
+    },
+    "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Planning image skill loading****Planning image skill loading****Inspecting gear card morphology**\n\nsession_id: 20260815_060746_9b14a9\n{\"claims\":[{\"claimed\":\"actionCard\",\"verdict\":\"match\",\"actual\":\"actionCard\",\"evidence\":\"One occurrence: boxed capital A after “Discard 1”; same square frame and internal A morphology as glossary crop.\"},{\"claimed\":\"malfunction\",\"verdict\":\"match\",\"actual\":\"malfunction\",\"evidence\":\"One occurrence: gear below the second “Discard a”; same toothed cog silhouette and circular center as glossary crop.\"},{\"claimed\":\"notInCombat\",\"verdict\":\"match\",\"actual\":\"notInCombat\",\"evidence\":\"One occurrence in upper-right artwork: white gun crossed by a red X; documented official variant of the glossary’s crossed-out Intruder icon.\"}],\"allClaimsMatch\":true,\"confidence\":\"high\",\"uncertainties\":[]}\n",
+    "evidencePath": null
+  }
+}

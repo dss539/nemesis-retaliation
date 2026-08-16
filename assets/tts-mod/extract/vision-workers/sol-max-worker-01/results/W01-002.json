@@ -1,0 +1,108 @@
+{
+  "schemaVersion": 1,
+  "assetId": "W01-002",
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/bags/adultBag-003.png",
+  "sourceSha256": "3855130275715c375c946da7580e2b3e91139b62f2685aebca3fc515c7ffebb1",
+  "sourceMetadata": {
+    "width": 344,
+    "height": 344,
+    "format": "PNG",
+    "mode": "RGBA",
+    "byteSize": 178912
+  },
+  "runtimeProvenance": {
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "reasoningEffort": "max",
+    "platform": "subagent",
+    "workerId": "sol-max-worker-01",
+    "sessionProvenanceHandle": "hermes_rpc_dfba82c30cd846b6bc4eced43002e707.sock",
+    "persistentSession": true,
+    "nativeVision": true,
+    "auxiliaryVisionUsed": false
+  },
+  "orientation": {
+    "status": "upright",
+    "evidence": "ADULT reads left-to-right at the bottom and light cones descend from the top.",
+    "transformApplied": null,
+    "stagingDerivative": null
+  },
+  "blindPixelObservations": [
+    "Circular teal industrial-corridor graphic with two pale overhead light cones.",
+    "Centered pale skeletal multi-limbed creature in left-facing profile, with open jaw and curled tail.",
+    "Large bold white uppercase label at lower center."
+  ],
+  "visibleText": [
+    {
+      "text": "ADULT",
+      "location": "lower center",
+      "structure": "single bold uppercase label",
+      "confidence": "high"
+    }
+  ],
+  "iconMorphology": [
+    {
+      "location": "center",
+      "silhouette": "Detailed full-body creature with jaws, limbs, and curled tail.",
+      "internalMarks": "Multi-tone skeletal ridges and shaded anatomy.",
+      "colors": "pale gray-white over teal",
+      "claimedToken": null,
+      "closestPlausibleGlossaryAlternative": "intruder",
+      "visibleDiscriminatingFeature": "The mark is a large detailed multi-tone illustration rather than the small flat white curled-exoskeleton glossary glyph; no glossary token is claimed."
+    }
+  ],
+  "evidenceConsulted": {
+    "tts": {
+      "consultedAfterBlindRecord": true,
+      "trigger": "Pixels established the ADULT artwork but not whether it serves as a bag diffuse or token face.",
+      "manifestUrl": "https://steamusercontent-a.akamaihd.net/ugc/11923313302657096/199C7D435D05D156A4E30C1F83B63F2D0AF86B7E/",
+      "objectReferenceSummary": {
+        "referenceCount": 17,
+        "container": {
+          "guid": "1a0e0c",
+          "type": "Custom_Model_Bag",
+          "gmnotes": "enemybag",
+          "urlRole": "DiffuseURL"
+        },
+        "containedTiles": {
+          "count": 16,
+          "type": "Custom_Tile",
+          "gmnotes": "adultToken",
+          "urlRole": "ImageURL",
+          "parentGuid": "1a0e0c"
+        }
+      }
+    },
+    "official": {
+      "consulted": false,
+      "reason": "Visible text and component role were resolved without a source conflict or rules/icon claim."
+    }
+  },
+  "proposedClassification": "Non-card Adult token face and enemy-bag diffuse texture used by one TTS Custom_Model_Bag and sixteen contained Custom_Tile records.",
+  "proposedPath": "assets/tts-mod/extract/v2-dl/tree/bags/adultBag-003.png (retain unchanged; no canonical move proposed)",
+  "readConfidence": {
+    "level": "high",
+    "reason": "The only text is large, unobscured, and exactly readable as ADULT."
+  },
+  "classificationConfidence": {
+    "level": "high",
+    "reason": "Printed label, creature art, and explicit adultToken/enemybag TTS roles agree."
+  },
+  "uncertainties": [],
+  "promotionDecision": "non-card-complete",
+  "decisionReasons": [
+    "This is a token/container texture, not a rules-card face.",
+    "The only visible text is complete and high-confidence.",
+    "The creature illustration is not forced into a glossary token."
+  ],
+  "stagedCandidateSidecarPath": null,
+  "validationPerformed": [
+    "Assignment SHA-256 matched source bytes.",
+    "Pillow decoded and verified the 344x344 PNG.",
+    "Native vision attachment was inspected independently as W01-002.",
+    "Blind observations were persisted before TTS metadata was consulted.",
+    "Manifest URL and all 17 matching TTS object references were reconciled.",
+    "No source file or canonical/shared ledger was modified."
+  ],
+  "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-worker-01/raw/W01-002.json"
+}

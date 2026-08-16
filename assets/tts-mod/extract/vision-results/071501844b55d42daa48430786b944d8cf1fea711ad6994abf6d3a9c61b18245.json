@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-12.png",
+  "sourceSha256": "071501844b55d42daa48430786b944d8cf1fea711ad6994abf6d3a9c61b18245",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_050853_c3d7a1",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:08:52Z",
+  "completedAt": "2026-08-15T05:09:51Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "character action card",
+    "cardSide": "face",
+    "title": "CONTINUOUS FIRE",
+    "typeLine": "",
+    "body": "Choose a Rifle with [ICON: red outlined rectangular glyph with short vertical tabs and a smaller right-hand polygon], a Corridor, and discard\nany number of [actionCard].\nFor each [actionCard] discarded, deal 1 Hit in that Corridor.\nThen, Burst (even at a different Corridor).",
+    "footer": "HEAVY GUN OPERATOR",
+    "upperRight": "",
+    "lowerCenter": "",
+    "visibleText": "",
+    "confidentlyVisible": [
+      "All typography is upright in the file.",
+      "The title reads “CONTINUOUS FIRE” in white uppercase letters.",
+      "The rules occupy a single red-framed text panel.",
+      "Two white rounded-square glyphs containing a black capital A match the actionCard icon.",
+      "The footer reads “HEAVY GUN OPERATOR” in red uppercase letters.",
+      "The artwork shows an armored figure firing a large weapon amid bright red-orange explosions."
+    ],
+    "proposedCategory": "cards/character/heavy-gun-operator/action",
+    "proposedSlug": "continuous-fire",
+    "confidence": "medium",
+    "uncertainties": [
+      "The red inline glyph after “Rifle with” is clearly visible, but its morphology cannot be confidently distinguished among redItem, ammoToken, and ammoSlot from the supplied glossary; it is therefore transcribed literally rather than assigned a canonical identifier."
+    ]
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Planning parallel skill and vision loading****Planning parallel skill and vision loading**\n**Extracting red icon crop for analysis****Extracting red icon crop for analysis**\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Inspecting red ammo icon morphology**\n\n**Clarifying red ammo token uncertainty**\n\n**Preserving action card text line breaks**\n\n**Classifying card as character action**\n\n**Analyzing icon morphology for redItem mapping**\n\n**Confirming red badge as redItem icon**\n\n**Analyzing ammo icon distinctions**\n\n**Clarifying Nemesis icon morphology**\n\n{\"orientation\":\"upright\",\"componentType\":\"character action card\",\"cardSide\":\"face\",\"title\":\"CONTINUOUS FIRE\",\"typeLine\":\"\",\"body\":\"Choose a Rifle with [ICON: red outlined rectangular glyph with short vertical tabs and a smaller right-hand polygon], a Corridor, and discard\\nany number of [actionCard].\\nFor each [actionCard] discarded, deal 1 Hit in that Corridor.\\nThen, Burst (even at a different Corridor).\",\"footer\":\"HEAVY GUN OPERATOR\",\"upperRight\":\"\",\"lowerCenter\":\"\",\"visibleText\":\"\",\"confidentlyVisible\":[\"All typography is upright in the file.\",\"The title reads “CONTINUOUS FIRE” in white uppercase letters.\",\"The rules occupy a single red-framed text panel.\",\"Two white rounded-square glyphs containing a black capital A match the actionCard icon.\",\"The footer reads “HEAVY GUN OPERATOR” in red uppercase letters.\",\"The artwork shows an armored figure firing a large weapon amid bright red-orange explosions.\"],\"proposedCategory\":\"cards/character/heavy-gun-operator/action\",\"proposedSlug\":\"continuous-fire\",\"confidence\":\"medium\",\"uncertainties\":[\"The red inline glyph after “Rifle with” is clearly visible, but its morphology cannot be confidently distinguished among redItem, ammoToken, and ammoSlot from the supplied glossary; it is therefore transcribed literally rather than assigned a canonical identifier.\"]}\n\nsession_id: 20260815_050853_c3d7a1\n"
+}

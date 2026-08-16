@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoopCustomDeck-122.jpg",
+  "sourceSha256": "de4d97fbae3b2bd3514fae4d51bad194d461f6df9d8d26ac9c34ea2328d92548",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_053645_c24761",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:36:45Z",
+  "completedAt": "2026-08-15T05:37:11Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "cooperative objective card",
+    "cardSide": "face",
+    "title": "TACTICAL DECISION",
+    "typeLine": "",
+    "body": "At least 6 Doors must be Closed by a [character]",
+    "footer": "SOLO / COOP",
+    "upperRight": "",
+    "lowerCenter": "",
+    "visibleText": "QUARANTINE",
+    "confidentlyVisible": [
+      "Portrait-oriented card with all gameplay typography upright",
+      "Artwork depicts a sealed doorway covered with yellow quarantine tape",
+      "A yellow triangular biohazard warning sign appears on the doorway",
+      "The sentence-ending white astronaut glyph confidently matches the canonical character icon",
+      "Title and objective text occupy separate framed panels"
+    ],
+    "proposedCategory": "cards/game/objective",
+    "proposedSlug": "tactical-decision",
+    "confidence": "medium",
+    "uncertainties": [
+      "The artwork repeats QUARANTINE across several strips of tape, but many instances are partially obscured or clipped; visibleText records the clearly legible wording without reconstructing every partial repetition.",
+      "The yellow triangular biohazard sign and biohazard marks on the tape are artwork rather than confidently matched canonical glossary icons."
+    ]
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Planning pixel inspection with vision tool****Planning pixel inspection with vision tool**\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Clarifying visible text extraction rules**\n\n{\"orientation\":\"upright\",\"componentType\":\"cooperative objective card\",\"cardSide\":\"face\",\"title\":\"TACTICAL DECISION\",\"typeLine\":\"\",\"body\":\"At least 6 Doors must be Closed by a [character]\",\"footer\":\"SOLO / COOP\",\"upperRight\":\"\",\"lowerCenter\":\"\",\"visibleText\":\"QUARANTINE\",\"confidentlyVisible\":[\"Portrait-oriented card with all gameplay typography upright\",\"Artwork depicts a sealed doorway covered with yellow quarantine tape\",\"A yellow triangular biohazard warning sign appears on the doorway\",\"The sentence-ending white astronaut glyph confidently matches the canonical character icon\",\"Title and objective text occupy separate framed panels\"],\"proposedCategory\":\"cards/game/objective\",\"proposedSlug\":\"tactical-decision\",\"confidence\":\"medium\",\"uncertainties\":[\"The artwork repeats QUARANTINE across several strips of tape, but many instances are partially obscured or clipped; visibleText records the clearly legible wording without reconstructing every partial repetition.\",\"The yellow triangular biohazard sign and biohazard marks on the tape are artwork rather than confidently matched canonical glossary icons.\"]}\n\nsession_id: 20260815_053645_c24761\n"
+}

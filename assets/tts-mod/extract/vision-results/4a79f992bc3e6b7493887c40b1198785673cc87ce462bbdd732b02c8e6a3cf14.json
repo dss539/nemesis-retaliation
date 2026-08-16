@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/queenHealthDeck-164.png",
+  "sourceSha256": "4a79f992bc3e6b7493887c40b1198785673cc87ce462bbdd732b02c8e6a3cf14",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_053907_6a8322",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:39:06Z",
+  "completedAt": "2026-08-15T05:39:32Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "game effect card",
+    "cardSide": "face",
+    "title": "Discard",
+    "typeLine": "",
+    "body": "1\nadditional cards.\n\nIf the card was drawn by a [character]:\nEach [character] in the Room with the Queen\nDraws 2 [actionCard].",
+    "footer": "",
+    "upperRight": "",
+    "lowerCenter": "",
+    "visibleText": "",
+    "confidentlyVisible": [
+      "All typography is upright in the file.",
+      "The upper panel reads “Discard” above a large numeral “1” and “additional cards.”",
+      "The lower rules panel contains two white astronaut glyphs matching [character].",
+      "A boxed capital A follows the numeral 2, matching [actionCard].",
+      "The artwork depicts an astronaut facing a large pale creature with red-tipped appendages."
+    ],
+    "proposedCategory": "cards/game/event",
+    "proposedSlug": "discard-1-additional-cards",
+    "confidence": "medium",
+    "uncertainties": [
+      "The pixels establish a game effect card but do not unambiguously identify its formal deck or subtype, so cards/game/event is provisional.",
+      "The semantic filename stem combines the visible heading and effect rather than a uniquely printed full card title."
+    ]
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Planning pixel-level image analysis****Planning pixel-level image analysis****Planning vision tool integration**\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Planning vision tool integration****Mapping astronaut action card details**\n\n{\"orientation\":\"upright\",\"componentType\":\"game effect card\",\"cardSide\":\"face\",\"title\":\"Discard\",\"typeLine\":\"\",\"body\":\"1\\nadditional cards.\\n\\nIf the card was drawn by a [character]:\\nEach [character] in the Room with the Queen\\nDraws 2 [actionCard].\",\"footer\":\"\",\"upperRight\":\"\",\"lowerCenter\":\"\",\"visibleText\":\"\",\"confidentlyVisible\":[\"All typography is upright in the file.\",\"The upper panel reads “Discard” above a large numeral “1” and “additional cards.”\",\"The lower rules panel contains two white astronaut glyphs matching [character].\",\"A boxed capital A follows the numeral 2, matching [actionCard].\",\"The artwork depicts an astronaut facing a large pale creature with red-tipped appendages.\"],\"proposedCategory\":\"cards/game/event\",\"proposedSlug\":\"discard-1-additional-cards\",\"confidence\":\"medium\",\"uncertainties\":[\"The pixels establish a game effect card but do not unambiguously identify its formal deck or subtype, so cards/game/event is provisional.\",\"The semantic filename stem combines the visible heading and effect rather than a uniquely printed full card title.\"]}\n\nsession_id: 20260815_053907_6a8322\n"
+}

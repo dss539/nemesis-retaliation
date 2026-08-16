@@ -77,7 +77,7 @@ All official PDFs and extracted text are in `docs/rulebooks/` (gitignored):
 - Plus expansion rulebooks (Sangrevore, Xyrians, Contractors, Insider, SG, SS)
 
 ## Rules Corpus
-- `docs/rules/` is the human-facing, semi-formal interpretation corpus for the base game. Start with `docs/rules/README.md`.
+- `docs/rules/` is the human-facing, semi-formal interpretation corpus for the base game. Start with `docs/rules/readme.md`.
 - Authority is explicit: official FAQ/errata overrides the official rulebook; project interpretations and any deliberate digital adaptations must be visibly labeled and may not silently change tabletop rules.
 - `docs/rules/00-foundations.md` through `03-intruders-and-survival.md` provide source-backed operational rules. `open-questions.md` records genuine unresolved source ambiguities.
 - `docs/rules/bug-tracker.md` tracks confirmed implementation failures. Bugs and QA failures are never intentional deviations and must be repaired, not normalized.
@@ -89,8 +89,8 @@ All official PDFs and extracted text are in `docs/rulebooks/` (gitignored):
 - GitHub Pages: enabled, auto-deploys from main
 
 ## How to Resume Work
-1. Read this file (`AGENTS.md`) for project context
-2. Read `docs/rules/README.md` and the relevant source-backed rules record before changing game mechanics
+1. Read this file (`AGENTS.md`) for project context, then `AGENTS-SUPPLEMENT.md` for documentation and note-placement rules
+2. Read `docs/rules/readme.md` and the relevant source-backed rules record before changing game mechanics
 3. Read `docs/rules/bug-tracker.md` and `docs/qa/full-game-rules-audit.md` for known rules failures
 4. Read `docs/design/architecture.md` for design decisions and TODO
 5. Read `docs/design/play-area-design.md` — the ACTIVE design authority for the play area surface (map, sections, room state, equal-weighting principle); it states its precedence over the older mobile-* design docs

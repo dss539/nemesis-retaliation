@@ -1,0 +1,154 @@
+{
+  "schemaVersion": 1,
+  "assetId": "W04-005",
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-07.png",
+  "sourceSha256": "b10da0bc490a8433e1061c77d4d45fce0cabf818fc81af1dd301f969c91d27ba",
+  "sourceMetadata": {
+    "width": 1052,
+    "height": 1433,
+    "format": "PNG",
+    "mode": "RGB",
+    "frames": 1,
+    "byteSize": 1408577,
+    "decodeVerified": true
+  },
+  "batchId": "W04-B03",
+  "completedAt": "2026-08-15T22:11:08Z",
+  "runtimeProvenance": {
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "reasoningEffort": "max",
+    "platform": "subagent",
+    "sessionId": "20260815_215426_fac7ff",
+    "nativeImageRoute": "active-session native image attachment via functions.vision_analyze"
+  },
+  "orientation": {
+    "displayed": "upright portrait",
+    "final": "upright",
+    "rotationRequired": false
+  },
+  "blindPixelObservations": [
+    "Purple/blue industrial scene with armored armed figure.",
+    "Upper-right white gun-like silhouette crossed by red X.",
+    "SECURE action with two options; pointed shield glyph in first and robot-head glyph in second.",
+    "No neighboring-card contamination."
+  ],
+  "visibleText": {
+    "title": "SECURE",
+    "typeLine": "",
+    "body": "Place 2 [secure].\n\nOR\n\nReinforce 1 empty Corridor that leads\nto a Room with a Character or [robot].",
+    "footer": "RECON",
+    "upperRight": "notInCombat",
+    "lowerCenter": "",
+    "edgeContamination": ""
+  },
+  "iconMorphology": [
+    {
+      "location": "upper right",
+      "outerSilhouette": "white long horizontal gun under two thick red crossing bars",
+      "internalMarks": "small red/dark rail marks",
+      "colors": [
+        "white",
+        "red"
+      ],
+      "neighboringPrintedText": "none",
+      "closestPlausibleAlternative": "intruder",
+      "visibleDiscriminatingFeature": "No curled creature/spines/eyes or circle; explicit gun/X printed-card variant.",
+      "proposedToken": "notInCombat",
+      "tokenVerification": "same-session direct contact-sheet comparison plus authoritative variant note",
+      "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-worker-04/contact-sheets/W04-005-icons.png",
+      "verdictPath": "assets/tts-mod/extract/vision-workers/sol-max-worker-04/contact-sheets/W04-005-icons-verdict.json"
+    },
+    {
+      "location": "after Place 2",
+      "outerSilhouette": "white pointed shield/badge with notched top",
+      "internalMarks": "dark Y channels",
+      "colors": [
+        "white",
+        "dark channels"
+      ],
+      "neighboringPrintedText": "Place 2 [glyph].",
+      "closestPlausibleAlternative": "malfunction",
+      "visibleDiscriminatingFeature": "Exact pointed shield/Y-channel morphology, unlike toothed hollow gear.",
+      "proposedToken": "secure",
+      "tokenVerification": "same-session exact direct glossary match",
+      "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-worker-04/contact-sheets/W04-005-icons.png",
+      "verdictPath": "assets/tts-mod/extract/vision-workers/sol-max-worker-04/contact-sheets/W04-005-icons-verdict.json"
+    },
+    {
+      "location": "end of second effect",
+      "outerSilhouette": "white domed block-like robot head with side shoulders, lower tab, and top antenna",
+      "internalMarks": "two dark circular eyes",
+      "colors": [
+        "white",
+        "dark eyes"
+      ],
+      "neighboringPrintedText": "Character or [glyph].",
+      "closestPlausibleAlternative": "character",
+      "visibleDiscriminatingFeature": "Head-only face with two round eyes and antenna; character candidate is a full astronaut body.",
+      "proposedToken": "robot",
+      "tokenVerification": "same-session exact direct glossary match",
+      "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-worker-04/contact-sheets/W04-005-icons.png",
+      "verdictPath": "assets/tts-mod/extract/vision-workers/sol-max-worker-04/contact-sheets/W04-005-icons-verdict.json"
+    }
+  ],
+  "evidenceConsulted": [
+    {
+      "kind": "blindNativeImage",
+      "path": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-07.png",
+      "timing": "before metadata"
+    },
+    {
+      "kind": "ttsProvenance",
+      "path": "assets/tts-mod/extract/vision-workers/sol-max-worker-04/provenance/W04-005.json",
+      "finding": "Shared FaceURL cell 7 has no exact CardID selector; only generic paired action back."
+    },
+    {
+      "kind": "authoritativeGlossaryContactSheet",
+      "path": "assets/tts-mod/extract/vision-workers/sol-max-worker-04/contact-sheets/W04-005-icons.png",
+      "finding": "notInCombat variant, secure, and robot all verified."
+    },
+    {
+      "kind": "canonicalTargetExistenceCheck",
+      "path": "cards/character/recon/action/secure",
+      "finding": "Canonical image and sidecar already exist; overwrite forbidden."
+    }
+  ],
+  "proposedClassification": "portrait RECON action-card face art from a shared FaceURL sheet; likely duplicate/alternate source for an already-existing canonical target",
+  "proposedPath": "cards/character/recon/action/secure.png",
+  "canonicalTarget": "cards/character/recon/action/secure.png",
+  "cardData": {
+    "cardSide": "face",
+    "title": "SECURE",
+    "typeLine": "",
+    "body": "Place 2 [secure].\n\nOR\n\nReinforce 1 empty Corridor that leads\nto a Room with a Character or [robot].",
+    "footer": "RECON",
+    "upperRight": "notInCombat",
+    "lowerCenter": "",
+    "category": "cards/character/recon/action",
+    "slug": "secure"
+  },
+  "readConfidence": "high",
+  "classificationConfidence": "medium",
+  "uncertainties": [
+    "No parsed TTS Card record selects shared-sheet cell index 7; exact GUID/CardID and cell-specific paired side are absent.",
+    "The proposed canonical target already exists; this staged worker did not compare, replace, or reinterpret approved canonical content."
+  ],
+  "promotionDecision": "defer",
+  "decisionReasons": [
+    "Promotion gate requires a unique non-existing target; both canonical image and sidecar already exist.",
+    "Exact cell-level TTS selection provenance is unresolved."
+  ],
+  "stagedCandidateSidecarPath": null,
+  "validationPerformed": [
+    "source preflight before original/contact-sheet attachments",
+    "blind raw persisted before metadata",
+    "provenance derived independently",
+    "same-session direct icon contact sheet reread",
+    "ID/count reconciled 1/1",
+    "target existence confirmed image+sidecar",
+    "no canonical file read or modified",
+    "identity recomputed by worker_utils.write_result"
+  ],
+  "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-worker-04/raw/W04-005.json"
+}

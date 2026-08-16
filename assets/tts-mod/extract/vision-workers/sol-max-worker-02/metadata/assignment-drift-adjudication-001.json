@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "adjudicationId": "assignment-drift-adjudication-001",
+  "recordedAt": "2026-08-15T21:14:11Z",
+  "supersedes": "metadata/assignment-drift-001.json",
+  "status": "resolved-no-source-tuple-drift",
+  "initialAssignmentFileSha256": "6c2e4aa116a22a05f716693d7f1a213754f7e85e75b720e08f36856983e6d86c",
+  "currentAssignmentFileSha256": "56b9b811a45937c791e6eda91943177be1477bb4cec63db16ccba50a0c177ef5",
+  "initialOrderedTupleSha256": "ac7e1559d7be35058141834532b27967df2d51c62a4336d902a55c326dbf1873",
+  "currentOrderedTupleSha256": "ac7e1559d7be35058141834532b27967df2d51c62a4336d902a55c326dbf1873",
+  "assignmentCount": 12,
+  "finding": "The assignment file changed only in control/status fields after the supervisor recovered it from the immutable initial snapshot. All 12 ordered (assetId, sourcePath, sourceSha256) tuples are byte-for-byte identical to the initial snapshot.",
+  "supervisorRecoveryEvidence": {
+    "assignmentRevision": 2,
+    "updatedAt": "2026-08-15T21:12:56Z",
+    "reason": "supervisor collision recovery; preserve the already-running clean worker exact 12-item shard",
+    "snapshotPath": "assets/tts-mod/extract/vision-workers/sol-max-worker-02/metadata/assignment-snapshot-initial.json"
+  },
+  "rawDisposition": {
+    "W01-013": "valid-current-tuple; restored to raw/W01-013.json",
+    "W01-014": "valid-current-tuple; restored to raw/W01-014.json",
+    "W01-015": "valid-current-tuple; restored to raw/W01-015.json",
+    "W01-016": "valid-current-tuple; restored to raw/W01-016.json"
+  },
+  "freshReadRequired": false,
+  "reason": "The native batch prompts, submitted source paths, computed source hashes, stable IDs, and the recovered live assignment tuples all agree exactly. No semantic output from predecessor worker-01 was used."
+}

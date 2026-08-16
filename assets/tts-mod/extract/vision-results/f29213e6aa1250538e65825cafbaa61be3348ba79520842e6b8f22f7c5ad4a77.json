@@ -1,0 +1,101 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-144_cards/card-14.png",
+  "sourceSha256": "f29213e6aa1250538e65825cafbaa61be3348ba79520842e6b8f22f7c5ad4a77",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_060601_6f8ce8",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:42:39Z",
+  "completedAt": "2026-08-15T06:06:30Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "ranged weapon card",
+    "cardSide": "face",
+    "title": "SUBMACHINE GUN",
+    "typeLine": "RANGED WEAPON",
+    "body": "[shootDieAmmoLoss]: treat this result as a [shootDieCritical]\nand spend 1 [ammoToken] as normal.",
+    "footer": "",
+    "upperRight": "notInCombat",
+    "lowerCenter": "[ICON: red tab-shaped slot with black hexagonal opening]",
+    "visibleText": "",
+    "confidentlyVisible": [
+      "Landscape card face with a submachine-gun illustration",
+      "White title above a yellow type line",
+      "Upper-right white gun glyph crossed out in red",
+      "Rules text contains two red triangular die-result icons",
+      "Rules text contains a small red ammunition-related glyph",
+      "Large red tab-shaped graphic is clipped by the lower edge"
+    ],
+    "proposedCategory": "cards/game/item/weapon",
+    "proposedSlug": "submachine-gun",
+    "confidence": "medium",
+    "uncertainties": [
+      "The lower-center red tab-shaped graphic is partially clipped and does not confidently match a canonical glossary icon.",
+      "The small red glyph after “spend 1” appears ammunition-related and is mapped as ammoToken, but its internal morphology is small and stylized."
+    ]
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Loading image inspection workflow****Loading image inspection workflow****Inspecting card image orientation and icons**\n\n\n**Identifying card icons and ammo slot details****Inspecting card image orientation and icons**\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Identifying card icons and ammo slot details****Analyzing icon rotations and labels**\n\n\n{\"orientation\":\"rotate90ccw\",\"componentType\":\"item card\",\"cardSide\":\"face\",\"title\":\"SUBMACHINE GUN\",\"typeLine\":\"RANGED WEAPON\",\"body\":\"[shootDieAmmoLoss]: treat this result as a [shootDieAmmoLoss]\\nand spend 1 [ammoSlot] as normal.\",\"footer\":\"\",\"upperRight\":\"notInCombat\",\"lowerCenter\":\"redItem\",\"visibleText\":\"\",\"confidentlyVisible\":[\"A dark firearm illustration fills the card.\",\"The title is printed in large white uppercase letters.\",\"The type line is printed in yellow uppercase letters.\",\"Two red triangular shoot-die glyphs each contain three white cartridge shapes.\",\"A red ammo-slot glyph appears inline after “spend 1”.\",\"A white gun crossed by a red X appears in the upper-right after rotation.\",\"A large red item badge with a black cartridge shape appears at the lower center after rotation.\"],\"proposedCategory\":\"cards/game/item/ranged-weapon\",\"proposedSlug\":\"submachine-gun\",\"confidence\":\"high\",\"uncertainties\":[]}\n\nsession_id: 20260815_054240_e6fc5a\n",
+  "initialParsed": {
+    "orientation": "rotate90ccw",
+    "componentType": "item card",
+    "cardSide": "face",
+    "title": "SUBMACHINE GUN",
+    "typeLine": "RANGED WEAPON",
+    "body": "[shootDieAmmoLoss]: treat this result as a [shootDieAmmoLoss]\nand spend 1 [ammoSlot] as normal.",
+    "footer": "",
+    "upperRight": "notInCombat",
+    "lowerCenter": "redItem",
+    "visibleText": "",
+    "confidentlyVisible": [
+      "A dark firearm illustration fills the card.",
+      "The title is printed in large white uppercase letters.",
+      "The type line is printed in yellow uppercase letters.",
+      "Two red triangular shoot-die glyphs each contain three white cartridge shapes.",
+      "A red ammo-slot glyph appears inline after “spend 1”.",
+      "A white gun crossed by a red X appears in the upper-right after rotation.",
+      "A large red item badge with a black cartridge shape appears at the lower center after rotation."
+    ],
+    "proposedCategory": "cards/game/item/ranged-weapon",
+    "proposedSlug": "submachine-gun",
+    "confidence": "high",
+    "uncertainties": []
+  },
+  "initialSessionId": "20260815_054240_e6fc5a",
+  "orientationCorrection": "rotate90ccw",
+  "uprightRead": {
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "sessionId": "20260815_060601_6f8ce8",
+    "completedAt": "2026-08-15T06:06:30Z",
+    "parsed": {
+      "orientation": "upright",
+      "componentType": "ranged weapon card",
+      "cardSide": "face",
+      "title": "SUBMACHINE GUN",
+      "typeLine": "RANGED WEAPON",
+      "body": "[shootDieAmmoLoss]: treat this result as a [shootDieCritical]\nand spend 1 [ammoToken] as normal.",
+      "footer": "",
+      "upperRight": "notInCombat",
+      "lowerCenter": "[ICON: red tab-shaped slot with black hexagonal opening]",
+      "visibleText": "",
+      "confidentlyVisible": [
+        "Landscape card face with a submachine-gun illustration",
+        "White title above a yellow type line",
+        "Upper-right white gun glyph crossed out in red",
+        "Rules text contains two red triangular die-result icons",
+        "Rules text contains a small red ammunition-related glyph",
+        "Large red tab-shaped graphic is clipped by the lower edge"
+      ],
+      "proposedCategory": "cards/game/item/weapon",
+      "proposedSlug": "submachine-gun",
+      "confidence": "medium",
+      "uncertainties": [
+        "The lower-center red tab-shaped graphic is partially clipped and does not confidently match a canonical glossary icon.",
+        "The small red glyph after “spend 1” appears ammunition-related and is mapped as ammoToken, but its internal morphology is small and stylized."
+      ]
+    },
+    "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Planning image analysis approach****Planning image analysis approach****Analyzing weapon icon details**\n\n\n**Classifying ammoSlot and icon components**\n\n**Determining ammoSlot JSON classification****Analyzing weapon icon details**\n**Classifying ammoSlot and icon components**\n\nsession_id: 20260815_060601_6f8ce8\n{\"orientation\":\"upright\",\"componentType\":\"ranged weapon card\",\"cardSide\":\"face\",\"title\":\"SUBMACHINE GUN\",\"typeLine\":\"RANGED WEAPON\",\"body\":\"[shootDieAmmoLoss]: treat this result as a [shootDieCritical]\\nand spend 1 [ammoToken] as normal.\",\"footer\":\"\",\"upperRight\":\"notInCombat\",\"lowerCenter\":\"[ICON: red tab-shaped slot with black hexagonal opening]\",\"visibleText\":\"\",\"confidentlyVisible\":[\"Landscape card face with a submachine-gun illustration\",\"White title above a yellow type line\",\"Upper-right white gun glyph crossed out in red\",\"Rules text contains two red triangular die-result icons\",\"Rules text contains a small red ammunition-related glyph\",\"Large red tab-shaped graphic is clipped by the lower edge\"],\"proposedCategory\":\"cards/game/item/weapon\",\"proposedSlug\":\"submachine-gun\",\"confidence\":\"medium\",\"uncertainties\":[\"The lower-center red tab-shaped graphic is partially clipped and does not confidently match a canonical glossary icon.\",\"The small red glyph after “spend 1” appears ammunition-related and is mapped as ammoToken, but its internal morphology is small and stylized.\"]}\n"
+  }
+}

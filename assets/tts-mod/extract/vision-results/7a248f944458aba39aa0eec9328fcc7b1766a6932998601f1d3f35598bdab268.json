@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/tiles/room/surgery-room-011.jpg",
+  "sourceSha256": "7a248f944458aba39aa0eec9328fcc7b1766a6932998601f1d3f35598bdab268",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_054857_212d0a",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:48:57Z",
+  "completedAt": "2026-08-15T05:49:31Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "room-tile texture atlas containing one complete face and partial neighboring tile faces",
+    "cardSide": "notCard",
+    "title": "SURGERY ROOM",
+    "typeLine": "",
+    "body": "Discard all [ICON: solid white square]. Remove Larva from\nyour Character board. Scan all Contamination cards\nin your deck and discard, remove Infected ones,\nand discard the rest.\nOR\nDiscard 1 chosen\nSerious Wound.",
+    "footer": "",
+    "upperRight": "[ICON: gray hexagonal badge with white three-lobed glyph]",
+    "lowerCenter": "",
+    "visibleText": "A\nA",
+    "confidentlyVisible": [
+      "The complete tile has an irregular tabbed perimeter.",
+      "The complete tile depicts a green-lit medical room with an operating table and equipment.",
+      "Three green hexagonal badges with plain white crosses run along the left edge.",
+      "A large teal letter A appears near the upper-left of the complete tile.",
+      "A gray hexagonal badge containing a white three-lobed glyph appears near the upper-right.",
+      "A separate partial tile at lower right bears a large white letter A.",
+      "The image contains large black unused regions and portions of additional components."
+    ],
+    "proposedCategory": "tiles/room",
+    "proposedSlug": "surgery-room",
+    "confidence": "low",
+    "uncertainties": [
+      "The room tile and its typography are oblique within the file rather than aligned to a cardinal axis; no offered 90-degree rotation would make the text exactly horizontal, so orientation is marked upright because the letterforms themselves are upright and readable.",
+      "The solid white square in the first sentence is not confidently identifiable from the supplied glossary and may be a card-local action glyph.",
+      "The gray upper-right badge glyph is not confidently identifiable from the supplied glossary.",
+      "The three green badges have plain white crosses but do not visibly show the EKG detail specified for characterHealth, so they are not canonicalized.",
+      "The file is a texture atlas containing one complete room tile and clipped neighboring components, creating ambiguity between describing the whole file and the principal complete component.",
+      "The second visible A belongs to a partially shown neighboring component."
+    ]
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Loading image analysis tools****Loading image analysis tools****Clarifying diagonal typography orientation**\n\n\n**Identifying texture atlas for room tiles**\n\n**Refining room tile texture atlas details**\n\n**Verifying component text and formatting****Clarifying diagonal typography orientation**\n**Identifying texture atlas for room tiles**\n**Refining room tile texture atlas details**\n\n{\"orientation\":\"upright\",\"componentType\":\"room-tile texture atlas containing one complete face and partial neighboring tile faces\",\"cardSide\":\"notCard\",\"title\":\"SURGERY ROOM\",\"typeLine\":\"\",\"body\":\"Discard all [ICON: solid white square]. Remove Larva from\\nyour Character board. Scan all Contamination cards\\nin your deck and discard, remove Infected ones,\\nand discard the rest.\\nOR\\nDiscard 1 chosen\\nSerious Wound.\",\"footer\":\"\",\"upperRight\":\"[ICON: gray hexagonal badge with white three-lobed glyph]\",\"lowerCenter\":\"\",\"visibleText\":\"A\\nA\",\"confidentlyVisible\":[\"The complete tile has an irregular tabbed perimeter.\",\"The complete tile depicts a green-lit medical room with an operating table and equipment.\",\"Three green hexagonal badges with plain white crosses run along the left edge.\",\"A large teal letter A appears near the upper-left of the complete tile.\",\"A gray hexagonal badge containing a white three-lobed glyph appears near the upper-right.\",\"A separate partial tile at lower right bears a large white letter A.\",\"The image contains large black unused regions and portions of additional components.\"],\"proposedCategory\":\"tiles/room\",\"proposedSlug\":\"surgery-room\",\"confidence\":\"low\",\"uncertainties\":[\"The room tile and its typography are oblique within the file rather than aligned to a cardinal axis; no offered 90-degree rotation would make the text exactly horizontal, so orientation is marked upright because the letterforms themselves are upright and readable.\",\"The solid white square in the first sentence is not confidently identifiable from the supplied glossary and may be a card-local action glyph.\",\"The gray upper-right badge glyph is not confidently identifiable from the supplied glossary.\",\"The three green badges have plain white crosses but do not visibly show the EKG detail specified for characterHealth, so they are not canonicalized.\",\"The file is a texture atlas containing one complete room tile and clipped neighboring components, creating ambiguity between describing the whole file and the principal complete component.\",\"The second visible A belongs to a partially shown neighboring component.\"]}\n\nsession_id: 20260815_054857_212d0a\n"
+}

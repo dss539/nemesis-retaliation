@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-07.png",
+  "sourceSha256": "b10da0bc490a8433e1061c77d4d45fce0cabf818fc81af1dd301f969c91d27ba",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_050818_bf4867",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:08:18Z",
+  "completedAt": "2026-08-15T05:09:29Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "character action card",
+    "cardSide": "face",
+    "title": "SECURE",
+    "typeLine": "",
+    "body": "Place 2 [secure].\n\nOR\n\nReinforce 1 empty Corridor that leads\nto a Room with a Character or [robot].",
+    "footer": "RECON",
+    "upperRight": "notInCombat",
+    "lowerCenter": "",
+    "visibleText": "",
+    "confidentlyVisible": [
+      "White uppercase title “SECURE”",
+      "Upper-right white gun crossed out by a red X",
+      "First effect contains a white secure icon",
+      "Second effect contains a white robot-head icon",
+      "Artwork depicts an armored rifle-bearing figure in a dark science-fiction corridor",
+      "Magenta uppercase footer “RECON”"
+    ],
+    "proposedCategory": "cards/character/recon/action",
+    "proposedSlug": "secure",
+    "confidence": "medium",
+    "uncertainties": [
+      "Tiny display-like markings within the background artwork are too blurred and stylized to determine whether they are meaningful text, so they are not transcribed."
+    ]
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Loading image analysis workflows****Loading image analysis workflows****Identifying notInCombat and Secure icons**\n\n\n**Confirming secure and robot icon formatting**\n\n**Assigning RECON footer label**\n\n**Inspecting panel icon regions****Identifying notInCombat and Secure icons**\n**Confirming secure and robot icon formatting**\n**Assigning RECON footer label**\n\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Inspecting panel icon regions****Deciding canonical corridor and secure icons**\n\n\n**Confirming secure icon as shield token**\n\n**Verifying secure icon placement and position**\n\n**Assessing transcription uncertainty for blurry text**\n\n**Defining visual components with transcription confidence**\n\n{\"orientation\":\"upright\",\"componentType\":\"character action card\",\"cardSide\":\"face\",\"title\":\"SECURE\",\"typeLine\":\"\",\"body\":\"Place 2 [secure].\\n\\nOR\\n\\nReinforce 1 empty Corridor that leads\\nto a Room with a Character or [robot].\",\"footer\":\"RECON\",\"upperRight\":\"notInCombat\",\"lowerCenter\":\"\",\"visibleText\":\"\",\"confidentlyVisible\":[\"White uppercase title “SECURE”\",\"Upper-right white gun crossed out by a red X\",\"First effect contains a white secure icon\",\"Second effect contains a white robot-head icon\",\"Artwork depicts an armored rifle-bearing figure in a dark science-fiction corridor\",\"Magenta uppercase footer “RECON”\"],\"proposedCategory\":\"cards/character/recon/action\",\"proposedSlug\":\"secure\",\"confidence\":\"medium\",\"uncertainties\":[\"Tiny display-like markings within the background artwork are too blurred and stylized to determine whether they are meaningful text, so they are not transcribed.\"]}\n\nsession_id: 20260815_050818_bf4867\n"
+}

@@ -1,0 +1,30 @@
+{
+  "recordedAt": "2026-08-15T20:30:07.246557Z",
+  "workerId": "sol-max-worker-01",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "reasoningEffort": "max",
+  "platform": "subagent",
+  "nativeVisionRoute": "Hermes vision_analyze attachment delivered to the active native multimodal model",
+  "persistentWorker": true,
+  "auxiliaryVisionUsed": false,
+  "ocrUsedAsCanonicalEvidence": false,
+  "qwenUsed": false,
+  "runtimeVerification": {
+    "activeSystemRuntimeHeader": {
+      "provider": "openai-codex",
+      "model": "gpt-5.6-sol",
+      "platform": "subagent"
+    },
+    "delegationConfigReadOnlyCheck": {
+      "provider": "openai-codex",
+      "model": "gpt-5.6-sol",
+      "reasoningEffort": "max"
+    },
+    "delegatedChildContextEnvironment": true,
+    "rpcSocketHandle": "unexposed",
+    "sessionId": null,
+    "sessionIdNote": "Hermes did not expose a canonical session ID inside this delegated child; the worker ID, single persistent conversation, and unique RPC socket handle are retained as the session-provenance handle."
+  },
+  "assignmentModelContractMatchesRuntime": true
+}

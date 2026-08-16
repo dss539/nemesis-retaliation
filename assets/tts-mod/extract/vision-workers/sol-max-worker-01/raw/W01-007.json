@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "assetId": "W01-007",
+  "batchId": "batch-002",
+  "capturedAt": "2026-08-15T20:36:18Z",
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/bags/dataTokenBag-010.png",
+  "sourceSha256": "f6041ee330ed0d70515b5bd7f687c3e7e093cc425586411cca9c641003e7cd35",
+  "runtimeProvenanceRef": "../metadata/runtime.json",
+  "blindAnalysis": true,
+  "metadataExcludedDuringPixelPass": [
+    "filename semantics",
+    "directory semantics",
+    "prior vision reads",
+    "TTS object metadata",
+    "game-context expectations"
+  ],
+  "orientationObservation": "Upright as displayed; DATA reads left-to-right.",
+  "blindPixelObservations": [
+    "A small square dark integrated-circuit package sits centered on a mottled green-black background.",
+    "Rows of pale metallic pins project from all four sides of the chip.",
+    "A low-contrast uppercase word is printed across the center of the chip."
+  ],
+  "visibleText": [
+    {
+      "text": "DATA",
+      "location": "center of chip",
+      "structure": "single uppercase word",
+      "confidence": "high"
+    }
+  ],
+  "iconObservations": [
+    {
+      "location": "center",
+      "literalMorphology": "Detailed square microchip with dense metallic pins on all four sides and DATA printed on its package.",
+      "colors": "dark green-black package, pale metallic pins",
+      "closestPlausibleGlossaryAlternative": "computer",
+      "visibleDiscriminatingFeature": "The image is a shaded physical microchip with many pins and printed DATA text, not the glossary computer-system access glyph; no glossary token is claimed."
+    }
+  ],
+  "uncertainties": [
+    "The exact component/container role is not visible without provenance metadata."
+  ]
+}

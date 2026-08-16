@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/seriouswound-149_cards/card-08.png",
+  "sourceSha256": "2316dd24439f588422fce16da610e59e2609973f968bf0cb7dfb18b8d8f21f40",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_054036_06a74e",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:40:36Z",
+  "completedAt": "2026-08-15T05:40:56Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "serious wound card",
+    "cardSide": "face",
+    "title": "BLEEDING",
+    "typeLine": "",
+    "body": "Whenever you Pass:\nlose 1 [characterHealth].",
+    "footer": "",
+    "upperRight": "",
+    "lowerCenter": "",
+    "visibleText": "ECO SUITS\nTEMP.\n39.0°\nTISSUE DAMAGE",
+    "confidentlyVisible": [
+      "Upright white title BLEEDING",
+      "Rules text appears in a bordered lower panel",
+      "Human anatomical scan shows a bright wound across the abdomen",
+      "The inline white cross with EKG trace confidently matches characterHealth"
+    ],
+    "proposedCategory": "cards/game/serious-wound",
+    "proposedSlug": "bleeding",
+    "confidence": "medium",
+    "uncertainties": [
+      "The small vertical green interface labels are faint; \"ECO SUITS\" and \"TISSUE DAMAGE\" are the best visible readings but not fully certain.",
+      "The degree symbol after 39.0 is very small but appears visible."
+    ]
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Planning image analysis for pixel inspection****Planning image analysis for pixel inspection**\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Inspecting visuals with vision tool****Inspecting visuals with vision tool****Preserving decorative text on wound card**\n{\"orientation\":\"upright\",\"componentType\":\"serious wound card\",\"cardSide\":\"face\",\"title\":\"BLEEDING\",\"typeLine\":\"\",\"body\":\"Whenever you Pass:\\nlose 1 [characterHealth].\",\"footer\":\"\",\"upperRight\":\"\",\"lowerCenter\":\"\",\"visibleText\":\"ECO SUITS\\nTEMP.\\n39.0°\\nTISSUE DAMAGE\",\"confidentlyVisible\":[\"Upright white title BLEEDING\",\"Rules text appears in a bordered lower panel\",\"Human anatomical scan shows a bright wound across the abdomen\",\"The inline white cross with EKG trace confidently matches characterHealth\"],\"proposedCategory\":\"cards/game/serious-wound\",\"proposedSlug\":\"bleeding\",\"confidence\":\"medium\",\"uncertainties\":[\"The small vertical green interface labels are faint; \\\"ECO SUITS\\\" and \\\"TISSUE DAMAGE\\\" are the best visible readings but not fully certain.\",\"The degree symbol after 39.0 is very small but appears visible.\"]}\n\nsession_id: 20260815_054036_06a74e\n"
+}

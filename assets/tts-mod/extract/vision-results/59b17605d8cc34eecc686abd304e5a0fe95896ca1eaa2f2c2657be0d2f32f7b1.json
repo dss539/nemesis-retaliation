@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/models/model-038.jpg",
+  "sourceSha256": "59b17605d8cc34eecc686abd304e5a0fe95896ca1eaa2f2c2657be0d2f32f7b1",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_054656_19e324",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:46:56Z",
+  "completedAt": "2026-08-15T05:47:26Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "rotationIrrelevant",
+    "componentType": "texture atlas containing two illustrated sci-fi corridor/room tile surfaces",
+    "cardSide": "notCard",
+    "title": "",
+    "typeLine": "",
+    "body": "",
+    "footer": "",
+    "upperRight": "",
+    "lowerCenter": "",
+    "visibleText": "1\n4\n4\n1\n0\n0",
+    "confidentlyVisible": [
+      "Two separate dark metallic corridor-like tile surfaces appear on a black texture-atlas background.",
+      "The upper-left surface contains green-yellow organic contamination across a bright grated central floor.",
+      "The lower-right surface has a clean bright grated central floor.",
+      "Yellow triangular markers contain black numerals.",
+      "The upper-left surface shows opposing 1 markers and two smaller, dimmer 4 markers.",
+      "The lower-right surface shows opposing 0 markers.",
+      "Opposing edge numerals are printed in opposite orientations, so no single file rotation makes every numeral upright."
+    ],
+    "proposedCategory": "models/texture",
+    "proposedSlug": null,
+    "confidence": "medium",
+    "uncertainties": [
+      "The image is a texture atlas rather than a conventionally oriented standalone component, making global orientation irrelevant.",
+      "The two small dim yellow 4 markers overlap or sit behind the prominent 1 markers and may represent texture-layer artifacts, but the glyphs are visibly legible as 4.",
+      "The depicted component's canonical identity and a semantic filename stem cannot be established from visible pixels alone."
+    ]
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Preparing image analysis with vision skill****Preparing image analysis with vision skill**\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Analyzing texture atlas typography orientation**\n\n{\"orientation\":\"rotationIrrelevant\",\"componentType\":\"texture atlas containing two illustrated sci-fi corridor/room tile surfaces\",\"cardSide\":\"notCard\",\"title\":\"\",\"typeLine\":\"\",\"body\":\"\",\"footer\":\"\",\"upperRight\":\"\",\"lowerCenter\":\"\",\"visibleText\":\"1\\n4\\n4\\n1\\n0\\n0\",\"confidentlyVisible\":[\"Two separate dark metallic corridor-like tile surfaces appear on a black texture-atlas background.\",\"The upper-left surface contains green-yellow organic contamination across a bright grated central floor.\",\"The lower-right surface has a clean bright grated central floor.\",\"Yellow triangular markers contain black numerals.\",\"The upper-left surface shows opposing 1 markers and two smaller, dimmer 4 markers.\",\"The lower-right surface shows opposing 0 markers.\",\"Opposing edge numerals are printed in opposite orientations, so no single file rotation makes every numeral upright.\"],\"proposedCategory\":\"models/texture\",\"proposedSlug\":null,\"confidence\":\"medium\",\"uncertainties\":[\"The image is a texture atlas rather than a conventionally oriented standalone component, making global orientation irrelevant.\",\"The two small dim yellow 4 markers overlap or sit behind the prominent 1 markers and may represent texture-layer artifacts, but the glyphs are visibly legible as 4.\",\"The depicted component's canonical identity and a semantic filename stem cannot be established from visible pixels alone.\"]}\n\nsession_id: 20260815_054656_19e324\n"
+}

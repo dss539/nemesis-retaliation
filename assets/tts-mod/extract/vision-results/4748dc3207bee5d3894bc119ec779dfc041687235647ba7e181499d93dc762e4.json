@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/tokens/robotToken-007.png",
+  "sourceSha256": "4748dc3207bee5d3894bc119ec779dfc041687235647ba7e181499d93dc762e4",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_055056_ec6a99",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:50:56Z",
+  "completedAt": "2026-08-15T05:51:14Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "rotationIrrelevant",
+    "componentType": "robot token face/texture",
+    "cardSide": "notCard",
+    "title": "",
+    "typeLine": "",
+    "body": "",
+    "footer": "",
+    "upperRight": "",
+    "lowerCenter": "",
+    "visibleText": "",
+    "confidentlyVisible": [
+      "White robot-head silhouette with a short rectangular antenna",
+      "Two circular eye holes reveal the grey background",
+      "Grey diagonally scratched metallic background",
+      "Large rounded white shape is clipped by the left edge",
+      "No meaningful typography is visible"
+    ],
+    "proposedCategory": "tokens/status",
+    "proposedSlug": "robot-token",
+    "confidence": "medium",
+    "uncertainties": [
+      "The clipped rounded white shape at the left edge cannot be identified from visible pixels alone.",
+      "The exact physical role of the rectangular asset—standalone token face versus a texture containing token artwork—is uncertain.",
+      "The centered robot silhouette confidently matches [robot], but the schema provides no general center-icon position field, so it is not assigned to upperRight or lowerCenter."
+    ]
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Planning to load image skill****Planning to load image skill****Identifying robot token image details**\n\n\n**Clarifying robot icon positioning and category****Identifying robot token image details**\n{\"orientation\":\"rotationIrrelevant\",\"componentType\":\"robot token face/texture\",\"cardSide\":\"notCard\",\"title\":\"\",\"typeLine\":\"\",\"body\":\"\",\"footer\":\"\",\"upperRight\":\"\",\"lowerCenter\":\"\",\"visibleText\":\"\",\"confidentlyVisible\":[\"White robot-head silhouette with a short rectangular antenna\",\"Two circular eye holes reveal the grey background\",\"Grey diagonally scratched metallic background\",\"Large rounded white shape is clipped by the left edge\",\"No meaningful typography is visible\"],\"proposedCategory\":\"tokens/status\",\"proposedSlug\":\"robot-token\",\"confidence\":\"medium\",\"uncertainties\":[\"The clipped rounded white shape at the left edge cannot be identified from visible pixels alone.\",\"The exact physical role of the rectangular asset—standalone token face versus a texture containing token artwork—is uncertain.\",\"The centered robot silhouette confidently matches [robot], but the schema provides no general center-icon position field, so it is not assigned to upperRight or lowerCenter.\"]}\n\nsession_id: 20260815_055056_ec6a99\n"
+}

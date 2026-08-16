@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/tiles/scanner-007.png",
+  "sourceSha256": "a4526a40076da30444101397e9bad508f5fa45de124cf54c89ee0bf2086b49a0",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_054905_45621e",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:49:05Z",
+  "completedAt": "2026-08-15T05:49:35Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "sci-fi scanner room tile with a central contamination-card placement area",
+    "cardSide": "notCard",
+    "title": "",
+    "typeLine": "",
+    "body": "",
+    "footer": "",
+    "upperRight": "",
+    "lowerCenter": "",
+    "visibleText": "INSERT CONTAMINATION CARD HERE\n\nSerial no S06-S33\nOrdered by genotype NF\n\nTesting...\n056222\n\nSector A\nValue detected\n\nSector B...\n\nAnalysing Genotypes...\n\nSCANNER\n\nSerial no S06-S33",
+    "confidentlyVisible": [
+      "Large square mechanical room tile viewed straight-on",
+      "Orange illuminated scanner interface occupies the center",
+      "Top instruction reads “INSERT CONTAMINATION CARD HERE”",
+      "Central display reads “Analysing Genotypes...”",
+      "Large vertical decorative label reads “SCANNER”",
+      "No canonical glossary icon is confidently visible",
+      "Typography is predominantly upright in the file"
+    ],
+    "proposedCategory": "tiles/room",
+    "proposedSlug": "scanner",
+    "confidence": "medium",
+    "uncertainties": [
+      "The two occurrences of the tiny serial-number label appear to read “Serial no S06-S33”, but some characters are near the pixel-resolution limit.",
+      "The tiny line “Ordered by genotype NF” is difficult to resolve completely; capitalization and the final two letters may be imperfectly transcribed.",
+      "The tiny numeric string under “Testing...” appears to be “056222” but is not fully unambiguous.",
+      "The central panel may function as a card placement scanner rather than representing a conventional named room tile; exact game-component subtype is uncertain."
+    ]
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Loading vision skill for image analysis****Loading vision skill for image analysis**\n**Planning vision-based cropping analysis****Planning vision-based cropping analysis**\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Planning contamination card layout**\n\n{\"orientation\":\"upright\",\"componentType\":\"sci-fi scanner room tile with a central contamination-card placement area\",\"cardSide\":\"notCard\",\"title\":\"\",\"typeLine\":\"\",\"body\":\"\",\"footer\":\"\",\"upperRight\":\"\",\"lowerCenter\":\"\",\"visibleText\":\"INSERT CONTAMINATION CARD HERE\\n\\nSerial no S06-S33\\nOrdered by genotype NF\\n\\nTesting...\\n056222\\n\\nSector A\\nValue detected\\n\\nSector B...\\n\\nAnalysing Genotypes...\\n\\nSCANNER\\n\\nSerial no S06-S33\",\"confidentlyVisible\":[\"Large square mechanical room tile viewed straight-on\",\"Orange illuminated scanner interface occupies the center\",\"Top instruction reads “INSERT CONTAMINATION CARD HERE”\",\"Central display reads “Analysing Genotypes...”\",\"Large vertical decorative label reads “SCANNER”\",\"No canonical glossary icon is confidently visible\",\"Typography is predominantly upright in the file\"],\"proposedCategory\":\"tiles/room\",\"proposedSlug\":\"scanner\",\"confidence\":\"medium\",\"uncertainties\":[\"The two occurrences of the tiny serial-number label appear to read “Serial no S06-S33”, but some characters are near the pixel-resolution limit.\",\"The tiny line “Ordered by genotype NF” is difficult to resolve completely; capitalization and the final two letters may be imperfectly transcribed.\",\"The tiny numeric string under “Testing...” appears to be “056222” but is not fully unambiguous.\",\"The central panel may function as a card placement scanner rather than representing a conventional named room tile; exact game-component subtype is uncertain.\"]}\n\nsession_id: 20260815_054905_45621e\n"
+}

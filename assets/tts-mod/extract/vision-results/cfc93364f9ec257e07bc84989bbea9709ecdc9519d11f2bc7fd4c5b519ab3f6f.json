@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/seriouswound-028.png",
+  "sourceSha256": "cfc93364f9ec257e07bc84989bbea9709ecdc9519d11f2bc7fd4c5b519ab3f6f",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_054009_4dea76",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:40:09Z",
+  "completedAt": "2026-08-15T05:40:33Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "serious wound card",
+    "cardSide": "face",
+    "title": "KNEE",
+    "typeLine": "",
+    "body": "“Make a Move with [ICON: white angular movement glyph]”\ncosts you 1 [actionCard] more.",
+    "footer": "",
+    "upperRight": "",
+    "lowerCenter": "",
+    "visibleText": "CELSIUS\nTEMP.\n39.0°\nTISSUE DAMAGE",
+    "confidentlyVisible": [
+      "Typography is upright in the file as shown.",
+      "The title KNEE appears in white uppercase letters.",
+      "The artwork depicts a medical scan of a bent knee with three colored callouts.",
+      "The effect is printed inside a black panel with an amber border.",
+      "A boxed white A glyph confidently matches [actionCard]."
+    ],
+    "proposedCategory": "cards/game/serious-wound",
+    "proposedSlug": "knee",
+    "confidence": "medium",
+    "uncertainties": [
+      "The white line-local glyph after “with” is not in the supplied canonical glossary; it is transcribed morphologically rather than assigned a meaning.",
+      "Faint decorative interface text and marks elsewhere in the artwork may be too indistinct to transcribe completely."
+    ]
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Planning pixel inspection with vision tool****Planning pixel inspection with vision tool**\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Identifying precise JSON components and typography details**\n\n{\"orientation\":\"upright\",\"componentType\":\"serious wound card\",\"cardSide\":\"face\",\"title\":\"KNEE\",\"typeLine\":\"\",\"body\":\"“Make a Move with [ICON: white angular movement glyph]”\\ncosts you 1 [actionCard] more.\",\"footer\":\"\",\"upperRight\":\"\",\"lowerCenter\":\"\",\"visibleText\":\"CELSIUS\\nTEMP.\\n39.0°\\nTISSUE DAMAGE\",\"confidentlyVisible\":[\"Typography is upright in the file as shown.\",\"The title KNEE appears in white uppercase letters.\",\"The artwork depicts a medical scan of a bent knee with three colored callouts.\",\"The effect is printed inside a black panel with an amber border.\",\"A boxed white A glyph confidently matches [actionCard].\"],\"proposedCategory\":\"cards/game/serious-wound\",\"proposedSlug\":\"knee\",\"confidence\":\"medium\",\"uncertainties\":[\"The white line-local glyph after “with” is not in the supplied canonical glossary; it is transcribed morphologically rather than assigned a meaning.\",\"Faint decorative interface text and marks elsewhere in the artwork may be too indistinct to transcribe completely.\"]}\n\nsession_id: 20260815_054009_4dea76\n"
+}

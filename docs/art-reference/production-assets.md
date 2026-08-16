@@ -29,7 +29,7 @@ The physical playmat reference informed only high-level usability: a dark low-gl
 | Action controls | Semantic vector icon plus retained text for all current actions | Complete for current actions |
 | Hand cards | Action and contamination visual treatments with semantic icons | Complete as functional card art |
 | Objectives and items | Mission/private objective treatments and red/yellow/green/support item frames | Complete as functional card art |
-| Other card families | No game-facing event, exploration, intruder-attack, or wound frames yet | Missing; requirements are itemized in `ART-INVENTORY.md` |
+| Other card families | No game-facing event, exploration, intruder-attack, or wound frames yet | Missing; requirements are itemized in `art-inventory.md` |
 
 ## Remaining authored-art gaps
 

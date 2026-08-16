@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/tiles/room/gunnery-room-021.jpg",
+  "sourceSha256": "4ecb55d9444ef974bd33565db02e5fffe5dccbc3ccaa5ef2a156f757675f9dcb",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_054801_dbb888",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:48:00Z",
+  "completedAt": "2026-08-15T05:48:31Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "rotationIrrelevant",
+    "componentType": "room-tile texture atlas containing face and reverse artwork",
+    "cardSide": "notCard",
+    "title": "GUNNERY ROOM",
+    "typeLine": "",
+    "body": "Choose a Room with [redItem] and without [ICON: white gear/cog glyph].\nResolve a Burst roll\nin a Corridor adjacent\nto that Room.",
+    "footer": "",
+    "upperRight": "",
+    "lowerCenter": "",
+    "visibleText": "?\n[ICON: grey hexagonal badge with angular white glyph]\n[computer]\n[redItem]\n[redItem]\n[redItem]\n?",
+    "confidentlyVisible": [
+      "The texture contains multiple irregular UV islands rather than one rectangular card.",
+      "The titled room face depicts a dark control room with a chair, consoles, and red illumination.",
+      "GUNNERY ROOM is clearly legible in white uppercase typography.",
+      "Three separate red badges each contain the same white three-cartridge morphology.",
+      "A blue badge contains a white computer-monitor morphology.",
+      "A large question mark appears on the room face.",
+      "A second large question mark appears on a separate metallic reverse-art island.",
+      "The rules panel includes a red cartridge badge and a white gear/cog glyph."
+    ],
+    "proposedCategory": "tiles/room",
+    "proposedSlug": "gunnery-room",
+    "confidence": "medium",
+    "uncertainties": [
+      "The typography is placed diagonally within a UV texture atlas, so no available 90-degree rotation makes it geometrically horizontal; rotationIrrelevant is used because the file is a model texture rather than a standalone oriented tile image.",
+      "The white gear/cog glyph is absent from the supplied canonical glossary and is therefore recorded literally rather than assigned a meaning.",
+      "The grey hexagonal badge's angular white glyph does not confidently match any supplied canonical icon.",
+      "The separate question-mark artwork appears to be reverse-side art, but its exact physical mapping to the titled face cannot be established from pixels alone.",
+      "The source texture has UV-island seams, black masked regions, and clipped peripheral artwork by design."
+    ]
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Planning vision tool integration****Planning vision tool integration****Assessing texture rotation constraints**\n\n\n{\"orientation\":\"rotationIrrelevant\",\"componentType\":\"room-tile texture atlas containing face and reverse artwork\",\"cardSide\":\"notCard\",\"title\":\"GUNNERY ROOM\",\"typeLine\":\"\",\"body\":\"Choose a Room with [redItem] and without [ICON: white gear/cog glyph].\\nResolve a Burst roll\\nin a Corridor adjacent\\nto that Room.\",\"footer\":\"\",\"upperRight\":\"\",\"lowerCenter\":\"\",\"visibleText\":\"?\\n[ICON: grey hexagonal badge with angular white glyph]\\n[computer]\\n[redItem]\\n[redItem]\\n[redItem]\\n?\",\"confidentlyVisible\":[\"The texture contains multiple irregular UV islands rather than one rectangular card.\",\"The titled room face depicts a dark control room with a chair, consoles, and red illumination.\",\"GUNNERY ROOM is clearly legible in white uppercase typography.\",\"Three separate red badges each contain the same white three-cartridge morphology.\",\"A blue badge contains a white computer-monitor morphology.\",\"A large question mark appears on the room face.\",\"A second large question mark appears on a separate metallic reverse-art island.\",\"The rules panel includes a red cartridge badge and a white gear/cog glyph.\"],\"proposedCategory\":\"tiles/room\",\"proposedSlug\":\"gunnery-room\",\"confidence\":\"medium\",\"uncertainties\":[\"The typography is placed diagonally within a UV texture atlas, so no available 90-degree rotation makes it geometrically horizontal; rotationIrrelevant is used because the file is a model texture rather than a standalone oriented tile image.\",\"The white gear/cog glyph is absent from the supplied canonical glossary and is therefore recorded literally rather than assigned a meaning.\",\"The grey hexagonal badge's angular white glyph does not confidently match any supplied canonical icon.\",\"The separate question-mark artwork appears to be reverse-side art, but its exact physical mapping to the titled face cannot be established from pixels alone.\",\"The source texture has UV-island seams, black masked regions, and clipped peripheral artwork by design.\"]}\n\nsession_id: 20260815_054801_dbb888\n"
+}

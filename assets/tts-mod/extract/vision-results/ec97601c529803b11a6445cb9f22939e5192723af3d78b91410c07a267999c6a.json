@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoopCustomDeck-102.jpg",
+  "sourceSha256": "ec97601c529803b11a6445cb9f22939e5192723af3d78b91410c07a267999c6a",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_053623_467361",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:36:23Z",
+  "completedAt": "2026-08-15T05:36:45Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "cooperative/solo objective card",
+    "cardSide": "face",
+    "title": "COLLECTORS",
+    "typeLine": "SOLO / COOP",
+    "body": "At least 1 Item of each color\nmust Escape the Facility.",
+    "footer": "",
+    "upperRight": "",
+    "lowerCenter": "",
+    "visibleText": "QUARANTINE",
+    "confidentlyVisible": [
+      "Portrait-format card face",
+      "Title COLLECTORS appears in large white uppercase text",
+      "Objective text appears in two centered white lines",
+      "SOLO / COOP appears in green uppercase text below the objective",
+      "Artwork shows a sealed doorway crossed by yellow quarantine tape",
+      "A yellow triangular biohazard warning sign appears on the doorway",
+      "Dark science-fiction frame has green illuminated accents"
+    ],
+    "proposedCategory": "cards/game/objective",
+    "proposedSlug": "collectors",
+    "confidence": "medium",
+    "uncertainties": [
+      "The quarantine tape contains multiple repeated, overlapping, partially obscured instances of QUARANTINE; only the clearly readable word is transcribed once in visibleText.",
+      "Several biohazard glyphs appear as environmental artwork and are not present in the supplied canonical icon glossary, so no gameplay icon mapping is assigned.",
+      "Some decorative quarantine-tape lettering is clipped or obscured and is intentionally not reconstructed."
+    ]
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Inspecting visible image pixels****Inspecting visible image pixels****Planning pixel-level vision call**\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Planning pixel-level vision call****Refining JSON transcription approach**\n\n{\"orientation\":\"upright\",\"componentType\":\"cooperative/solo objective card\",\"cardSide\":\"face\",\"title\":\"COLLECTORS\",\"typeLine\":\"SOLO / COOP\",\"body\":\"At least 1 Item of each color\\nmust Escape the Facility.\",\"footer\":\"\",\"upperRight\":\"\",\"lowerCenter\":\"\",\"visibleText\":\"QUARANTINE\",\"confidentlyVisible\":[\"Portrait-format card face\",\"Title COLLECTORS appears in large white uppercase text\",\"Objective text appears in two centered white lines\",\"SOLO / COOP appears in green uppercase text below the objective\",\"Artwork shows a sealed doorway crossed by yellow quarantine tape\",\"A yellow triangular biohazard warning sign appears on the doorway\",\"Dark science-fiction frame has green illuminated accents\"],\"proposedCategory\":\"cards/game/objective\",\"proposedSlug\":\"collectors\",\"confidence\":\"medium\",\"uncertainties\":[\"The quarantine tape contains multiple repeated, overlapping, partially obscured instances of QUARANTINE; only the clearly readable word is transcribed once in visibleText.\",\"Several biohazard glyphs appear as environmental artwork and are not present in the supplied canonical icon glossary, so no gameplay icon mapping is assigned.\",\"Some decorative quarantine-tape lettering is clipped or obscured and is intentionally not reconstructed.\"]}\n\nsession_id: 20260815_053623_467361\n"
+}

@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/officer-016.png",
+  "sourceSha256": "6b2af9761f5e92a08103a6f5ed94d339beaa510231e111634cdf6ed9fe0bb000",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_051336_f2bc2c",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:13:35Z",
+  "completedAt": "2026-08-15T05:14:11Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "character action card",
+    "cardSide": "face",
+    "title": "CHAIN\nOF COMMAND",
+    "typeLine": "",
+    "body": "Move the [intruder] by 1 space in any direction.\n\nOR\n\nCOMMAND\nChoose a lower ranking [character] in your Room or\nneighbouring one. Make the chosen [character]\nMove, Shoot, or Burst. (you make all choices).",
+    "footer": "OFFICER",
+    "upperRight": "",
+    "lowerCenter": "",
+    "visibleText": "",
+    "confidentlyVisible": [
+      "All meaningful typography is upright in the file.",
+      "Blue science-fiction artwork depicts armored figures carrying firearms.",
+      "The title is printed in two centered lines.",
+      "The upper effect contains a curled white exoskeleton glyph matching [intruder].",
+      "The COMMAND effect contains two astronaut glyphs matching [character].",
+      "OFFICER is printed at the bottom in blue capitals."
+    ],
+    "proposedCategory": "cards/character/officer/action",
+    "proposedSlug": "chain-of-command",
+    "confidence": "high",
+    "uncertainties": []
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Loading image inspection skill****Loading image inspection skill****Planning detailed image inspection**\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Planning detailed image inspection****Examining glyph shape for intruder identification**\n\n\n**Confirming card text layout and icon confidence**\n\n**Preserving line breaks in card title and headings**\n\n{\"orientation\":\"upright\",\"componentType\":\"character action card\",\"cardSide\":\"face\",\"title\":\"CHAIN\\nOF COMMAND\",\"typeLine\":\"\",\"body\":\"Move the [intruder] by 1 space in any direction.\\n\\nOR\\n\\nCOMMAND\\nChoose a lower ranking [character] in your Room or\\nneighbouring one. Make the chosen [character]\\nMove, Shoot, or Burst. (you make all choices).\",\"footer\":\"OFFICER\",\"upperRight\":\"\",\"lowerCenter\":\"\",\"visibleText\":\"\",\"confidentlyVisible\":[\"All meaningful typography is upright in the file.\",\"Blue science-fiction artwork depicts armored figures carrying firearms.\",\"The title is printed in two centered lines.\",\"The upper effect contains a curled white exoskeleton glyph matching [intruder].\",\"The COMMAND effect contains two astronaut glyphs matching [character].\",\"OFFICER is printed at the bottom in blue capitals.\"],\"proposedCategory\":\"cards/character/officer/action\",\"proposedSlug\":\"chain-of-command\",\"confidence\":\"high\",\"uncertainties\":[]}\n\nsession_id: 20260815_051336_f2bc2c\n",
+  "iconVerification": {
+    "status": "failed",
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "sessionId": "20260815_060736_3a38a7",
+    "promptVersion": 1,
+    "completedAt": "2026-08-15T06:07:46Z",
+    "claimed": [
+      "character",
+      "intruder"
+    ],
+    "parsed": {
+      "claims": [
+        {
+          "claimed": "character",
+          "verdict": "match",
+          "actual": "character",
+          "evidence": "Two card occurrences; both show the same front-facing helmeted astronaut with broad shoulders, bent arms, torso panel, and separated legs as the character crop."
+        },
+        {
+          "claimed": "intruder",
+          "verdict": "mismatch",
+          "actual": "lander",
+          "evidence": "No curled, toothed alien-head intruder glyph appears. The claimed card glyph has three tall white spires with a low curved base, matching the lander crop."
+        }
+      ],
+      "allClaimsMatch": false,
+      "confidence": "high",
+      "uncertainties": []
+    },
+    "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Verifying character and glyph occurrences****Verifying character and glyph occurrences**\n\nsession_id: 20260815_060736_3a38a7\n{\"claims\":[{\"claimed\":\"character\",\"verdict\":\"match\",\"actual\":\"character\",\"evidence\":\"Two card occurrences; both show the same front-facing helmeted astronaut with broad shoulders, bent arms, torso panel, and separated legs as the character crop.\"},{\"claimed\":\"intruder\",\"verdict\":\"mismatch\",\"actual\":\"lander\",\"evidence\":\"No curled, toothed alien-head intruder glyph appears. The claimed card glyph has three tall white spires with a low curved base, matching the lander crop.\"}],\"allClaimsMatch\":false,\"confidence\":\"high\",\"uncertainties\":[]}\n",
+    "evidencePath": "docs/qa/card-icon-comparisons/auto-6b2af9761f5e92a08103a6f5ed94d339beaa510231e111634cdf6ed9fe0bb000.png"
+  }
+}

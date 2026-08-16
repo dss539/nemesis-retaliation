@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "caseId": "c09",
+  "tier": "human-approved-card",
+  "sourceSha256": "31d0467ff29f0c4ea848d7eef47fa130741509f49bde2d1abf6e9d2685830d71",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-luna",
+  "reasoning": "max",
+  "nativeImageAttachment": true,
+  "safeMode": true,
+  "promptSha256": "49aaf5b24a0cf146faf915b3dff26a370629dc205f337a296644c004550d6b80",
+  "startedAtEpoch": 1786777430.1643615,
+  "endedAtEpoch": 1786777515.7261791,
+  "durationSeconds": 85.562,
+  "returnCode": 0,
+  "sessionId": "20260815_070350_206000",
+  "stdout": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Planning direct image transcription**\n\n**Transcribing card text and icons**\n\n**Defining card schema fields**\n\n**Analyzing footer and panel text structure**\n\n**Refining sidecarCandidate field conventions**\n\n**Identifying card image naming pattern**\n\n**Assigning card typeLine and footer**\n\n**Finalizing card text capitalization and layout**\n\n**Confirming top-right symbol as notInCombat**\n\n**Identifying notInCombat icon on action cards**\n\n**Classifying as action card with contractor footer**\n\n**Confirming upright orientation and actionCard type**\n\n**Confirming contractor consultant card details**\n\n**Documenting conditional body panel text**\n\n**Refining line break placement around OR**\n\n**Verifying image text capitalization and icon placement**\n\n**Classifying card components and confidence levels**\n\n**Confirming category and ignoring filename**\n\n**Determining sidecarCandidate keys and componentType format**\n\n**Assigning componentType and categoryProposal from visual cues**\n\n**Proposing detailed category path from footer text**\n\n**Refining component categorization approach**\n\n**Verifying card layout element roles**\n\n**Confirming typeLine as role subtitle****Planning direct image transcription**\n**Transcribing card text and icons**\n**Defining card schema fields**\n\n**Analyzing footer and panel text structure**\n**Refining sidecarCandidate field conventions**\n**Identifying card image naming pattern**\n\n**Assigning card typeLine and footer**\n**Finalizing card text capitalization and layout**\n**Confirming top-right symbol as notInCombat**\n\n**Identifying notInCombat icon on action cards**\n**Classifying as action card with contractor footer**\n**Confirming upright orientation and actionCard type**\n\n**Confirming contractor consultant card details**\n**Documenting conditional body panel text**\n**Refining line break placement around OR**\n\n**Verifying image text capitalization and icon placement**\n**Classifying card components and confidence levels**\n**Confirming category and ignoring filename**\n\n**Determining sidecarCandidate keys and componentType format**\n**Assigning componentType and categoryProposal from visual cues**\n**Proposing detailed category path from footer text**\n\n**Refining component categorization approach**\n**Verifying card layout element roles**\n{\"orientation\":\"upright\",\"componentType\":\"action card\",\"title\":\"COMPUTER SKILLS\",\"typeLine\":\"CONTRACTOR: CONSULTANT\",\"body\":\"If you are in a [computer] Room, use the Room.\\n\\nOR\\n\\nIf you are in a [computer] Room,\\nOpen or Close 1 Door in the Facility.\",\"footer\":null,\"standaloneSymbols\":{\"upperRight\":\"notInCombat\"},\"visibleOtherText\":[],\"layoutNotes\":[\"Upright card-like composition with a large science-fiction control-room illustration above framed rules text.\",\"The title appears in a large central beveled banner.\",\"Two rule panels are separated by a centered OR divider.\",\"A red prohibition-style symbol appears in the upper-right area.\",\"CONTRACTOR: CONSULTANT appears in a separate lower attribution/type band.\"],\"categoryProposal\":\"contractor action\",\"filenameProposal\":null,\"sidecarCandidate\":{\"typeLine\":\"CONTRACTOR: CONSULTANT\",\"body\":\"If you are in a [computer] Room, use the Room.\\n\\nOR\\n\\nIf you are in a [computer] Room,\\nOpen or Close 1 Door in the Facility.\",\"upperRight\":\"notInCombat\"},\"uncertainties\":[],\"confidence\":{\"orientation\":\"high\",\"text\":\"high\",\"icons\":\"high\",\"identity\":\"high\",\"category\":\"medium\",\"overall\":\"high\"},\"decision\":\"promote\"}\n",
+  "stderr": "\nsession_id: 20260815_070350_206000\n",
+  "parsedJson": {
+    "orientation": "upright",
+    "componentType": "action card",
+    "title": "COMPUTER SKILLS",
+    "typeLine": "CONTRACTOR: CONSULTANT",
+    "body": "If you are in a [computer] Room, use the Room.\n\nOR\n\nIf you are in a [computer] Room,\nOpen or Close 1 Door in the Facility.",
+    "footer": null,
+    "standaloneSymbols": {
+      "upperRight": "notInCombat"
+    },
+    "visibleOtherText": [],
+    "layoutNotes": [
+      "Upright card-like composition with a large science-fiction control-room illustration above framed rules text.",
+      "The title appears in a large central beveled banner.",
+      "Two rule panels are separated by a centered OR divider.",
+      "A red prohibition-style symbol appears in the upper-right area.",
+      "CONTRACTOR: CONSULTANT appears in a separate lower attribution/type band."
+    ],
+    "categoryProposal": "contractor action",
+    "filenameProposal": null,
+    "sidecarCandidate": {
+      "typeLine": "CONTRACTOR: CONSULTANT",
+      "body": "If you are in a [computer] Room, use the Room.\n\nOR\n\nIf you are in a [computer] Room,\nOpen or Close 1 Door in the Facility.",
+      "upperRight": "notInCombat"
+    },
+    "uncertainties": [],
+    "confidence": {
+      "orientation": "high",
+      "text": "high",
+      "icons": "high",
+      "identity": "high",
+      "category": "medium",
+      "overall": "high"
+    },
+    "decision": "promote"
+  },
+  "parseError": null
+}

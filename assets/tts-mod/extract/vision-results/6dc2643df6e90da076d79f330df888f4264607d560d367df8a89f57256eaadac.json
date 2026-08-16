@@ -1,0 +1,98 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/yellowitem-146_cards/card-02.png",
+  "sourceSha256": "6dc2643df6e90da076d79f330df888f4264607d560d367df8a89f57256eaadac",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_060622_dc30ad",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:43:30Z",
+  "completedAt": "2026-08-15T06:06:44Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "landscape game card",
+    "cardSide": "face",
+    "title": "ROBOT CONTROLLER",
+    "typeLine": "",
+    "body": "Use the [robot] from anywhere in the Facility.\n\nOR\n\nIf [robot] is not on the board yet, place it in your Room.",
+    "footer": "",
+    "upperRight": "notInCombat",
+    "lowerCenter": "",
+    "visibleText": "",
+    "confidentlyVisible": [
+      "White uppercase title across the top",
+      "Upper-right crossed-out gun icon",
+      "Artwork depicts a computer terminal with two green screens",
+      "Two white robot icons appear inline in the rules text",
+      "Rules text is fully visible and upright"
+    ],
+    "proposedCategory": "cards/game/action",
+    "proposedSlug": "robot-controller",
+    "confidence": "medium",
+    "uncertainties": [
+      "The precise game-defined card subtype is not explicitly printed; cards/game/action is inferred from the visible effect layout and not-in-combat icon."
+    ]
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Inspecting image pixels workflow****Inspecting image pixels workflow****Planning image inspection**\n⚠️  Reached maximum iterations (2). Requesting summary...\n{\"orientation\":\"rotate90ccw\",\"componentType\":\"item card\",\"cardSide\":\"face\",\"title\":\"ROBOT CONTROLLER\",\"typeLine\":\"\",\"body\":\"Use the [robot] from anywhere in the Facility.\\n\\nOR\\n\\nIf [robot] is not on the board yet, place it in your Room.\",\"footer\":\"\",\"upperRight\":\"notInCombat\",\"lowerCenter\":\"\",\"visibleText\":\"\",\"confidentlyVisible\":[\"White title inside an angular yellow frame\",\"Artwork depicts a wired control console with two green screens\",\"Two white robot icons appear inline in the rules text\",\"Upper-right icon is a white robot crossed by a red diagonal slash\",\"All printed text becomes upright after rotating the file 90 degrees counterclockwise\"],\"proposedCategory\":\"cards/game/item\",\"proposedSlug\":\"robot-controller\",\"confidence\":\"medium\",\"uncertainties\":[\"The crossed-out robot icon is mapped to notInCombat by its red prohibition morphology, but the glossary examples specifically mention a crossed-out gun or Intruder rather than a robot.\",\"No printed item subtype or trait line is visible, so a more specific item category is not supported by the pixels.\"]}\n\nsession_id: 20260815_054331_506633\n",
+  "initialParsed": {
+    "orientation": "rotate90ccw",
+    "componentType": "item card",
+    "cardSide": "face",
+    "title": "ROBOT CONTROLLER",
+    "typeLine": "",
+    "body": "Use the [robot] from anywhere in the Facility.\n\nOR\n\nIf [robot] is not on the board yet, place it in your Room.",
+    "footer": "",
+    "upperRight": "notInCombat",
+    "lowerCenter": "",
+    "visibleText": "",
+    "confidentlyVisible": [
+      "White title inside an angular yellow frame",
+      "Artwork depicts a wired control console with two green screens",
+      "Two white robot icons appear inline in the rules text",
+      "Upper-right icon is a white robot crossed by a red diagonal slash",
+      "All printed text becomes upright after rotating the file 90 degrees counterclockwise"
+    ],
+    "proposedCategory": "cards/game/item",
+    "proposedSlug": "robot-controller",
+    "confidence": "medium",
+    "uncertainties": [
+      "The crossed-out robot icon is mapped to notInCombat by its red prohibition morphology, but the glossary examples specifically mention a crossed-out gun or Intruder rather than a robot.",
+      "No printed item subtype or trait line is visible, so a more specific item category is not supported by the pixels."
+    ]
+  },
+  "initialSessionId": "20260815_054331_506633",
+  "orientationCorrection": "rotate90ccw",
+  "uprightRead": {
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "sessionId": "20260815_060622_dc30ad",
+    "completedAt": "2026-08-15T06:06:44Z",
+    "parsed": {
+      "orientation": "upright",
+      "componentType": "landscape game card",
+      "cardSide": "face",
+      "title": "ROBOT CONTROLLER",
+      "typeLine": "",
+      "body": "Use the [robot] from anywhere in the Facility.\n\nOR\n\nIf [robot] is not on the board yet, place it in your Room.",
+      "footer": "",
+      "upperRight": "notInCombat",
+      "lowerCenter": "",
+      "visibleText": "",
+      "confidentlyVisible": [
+        "White uppercase title across the top",
+        "Upper-right crossed-out gun icon",
+        "Artwork depicts a computer terminal with two green screens",
+        "Two white robot icons appear inline in the rules text",
+        "Rules text is fully visible and upright"
+      ],
+      "proposedCategory": "cards/game/action",
+      "proposedSlug": "robot-controller",
+      "confidence": "medium",
+      "uncertainties": [
+        "The precise game-defined card subtype is not explicitly printed; cards/game/action is inferred from the visible effect layout and not-in-combat icon."
+      ]
+    },
+    "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Loading image for pixel inspection****Loading image for pixel inspection****Verifying Robot Controller card details**\n\n\n**Confirming card category as action card****Verifying Robot Controller card details**\n\nsession_id: 20260815_060622_dc30ad\n{\"orientation\":\"upright\",\"componentType\":\"landscape game card\",\"cardSide\":\"face\",\"title\":\"ROBOT CONTROLLER\",\"typeLine\":\"\",\"body\":\"Use the [robot] from anywhere in the Facility.\\n\\nOR\\n\\nIf [robot] is not on the board yet, place it in your Room.\",\"footer\":\"\",\"upperRight\":\"notInCombat\",\"lowerCenter\":\"\",\"visibleText\":\"\",\"confidentlyVisible\":[\"White uppercase title across the top\",\"Upper-right crossed-out gun icon\",\"Artwork depicts a computer terminal with two green screens\",\"Two white robot icons appear inline in the rules text\",\"Rules text is fully visible and upright\"],\"proposedCategory\":\"cards/game/action\",\"proposedSlug\":\"robot-controller\",\"confidence\":\"medium\",\"uncertainties\":[\"The precise game-defined card subtype is not explicitly printed; cards/game/action is inferred from the visible effect layout and not-in-combat icon.\"]}\n"
+  }
+}

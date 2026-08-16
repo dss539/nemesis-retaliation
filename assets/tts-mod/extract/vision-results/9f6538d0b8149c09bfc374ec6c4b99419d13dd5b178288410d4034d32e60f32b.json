@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-23.png",
+  "sourceSha256": "9f6538d0b8149c09bfc374ec6c4b99419d13dd5b178288410d4034d32e60f32b",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_050954_9b30c5",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:09:54Z",
+  "completedAt": "2026-08-15T05:10:41Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "character action card",
+    "cardSide": "face",
+    "title": "EXPLOSIVES",
+    "typeLine": "",
+    "body": "Discard 1 [ICON: red badge with white grenade-like glyph]\nPlace a new Corridor between your Room\nand another Explored Room.\n\nOR\n\nIf you are in a Room with [yellowItem]: Gain 1 [ICON: red badge with white grenade-like glyph].",
+    "footer": "COMBAT ENGINEER",
+    "upperRight": "notInCombat",
+    "lowerCenter": "",
+    "visibleText": "",
+    "confidentlyVisible": [
+      "All meaningful typography is already upright.",
+      "The title reads “EXPLOSIVES”.",
+      "The upper-right icon is a white firearm crossed out by a red X.",
+      "The yellow badge contains a white wrench and confidently matches yellowItem.",
+      "The two red badges visibly match each other.",
+      "Each red badge contains a white grenade-like object rather than clearly visible cartridges.",
+      "The footer reads “COMBAT ENGINEER”.",
+      "The artwork depicts an armored humanoid beside an explosion."
+    ],
+    "proposedCategory": "cards/character/combat-engineer/action",
+    "proposedSlug": "explosives",
+    "confidence": "medium",
+    "uncertainties": [
+      "The repeated red badge does not confidently match a canonical glossary icon: its white interior graphic resembles a grenade, but canonical grenade tokens and slots are purple, while the canonical redItem requires visible cartridges."
+    ]
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Analyzing game card icons**\n\n**Confirming grenade icon details****Analyzing game card icons**\n**Confirming grenade icon details****Planning image analysis with crops****Planning image analysis with crops**\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Analyzing card image details**\n\n**Verifying icon colors and morphology**\n\n**Clarifying red icon as grenade glyph**\n\n**Identifying character action card**\n\n**Analyzing red grenade icon ambiguity**\n\n{\n  \"orientation\": \"upright\",\n  \"componentType\": \"character action card\",\n  \"cardSide\": \"face\",\n  \"title\": \"EXPLOSIVES\",\n  \"typeLine\": \"\",\n  \"body\": \"Discard 1 [ICON: red badge with white grenade-like glyph]\\nPlace a new Corridor between your Room\\nand another Explored Room.\\n\\nOR\\n\\nIf you are in a Room with [yellowItem]: Gain 1 [ICON: red badge with white grenade-like glyph].\",\n  \"footer\": \"COMBAT ENGINEER\",\n  \"upperRight\": \"notInCombat\",\n  \"lowerCenter\": \"\",\n  \"visibleText\": \"\",\n  \"confidentlyVisible\": [\n    \"All meaningful typography is already upright.\",\n    \"The title reads “EXPLOSIVES”.\",\n    \"The upper-right icon is a white firearm crossed out by a red X.\",\n    \"The yellow badge contains a white wrench and confidently matches yellowItem.\",\n    \"The two red badges visibly match each other.\",\n    \"Each red badge contains a white grenade-like object rather than clearly visible cartridges.\",\n    \"The footer reads “COMBAT ENGINEER”.\",\n    \"The artwork depicts an armored humanoid beside an explosion.\"\n  ],\n  \"proposedCategory\": \"cards/character/combat-engineer/action\",\n  \"proposedSlug\": \"explosives\",\n  \"confidence\": \"medium\",\n  \"uncertainties\": [\n    \"The repeated red badge does not confidently match a canonical glossary icon: its white interior graphic resembles a grenade, but canonical grenade tokens and slots are purple, while the canonical redItem requires visible cartridges.\"\n  ]\n}\n\nsession_id: 20260815_050954_9b30c5\n"
+}

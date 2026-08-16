@@ -1,0 +1,107 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/event-172.jpg",
+  "sourceSha256": "33625882c8388c183850eaf236af6c6ffd22368d06d1875681db607bce5be07c",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_052519_c6ab4a",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:25:19Z",
+  "completedAt": "2026-08-15T05:26:19Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "game event card",
+    "cardSide": "face",
+    "title": "GENERATORS OVERHEAT",
+    "typeLine": "",
+    "body": "All [intruder] in each [corridorNWSE] move.\nThen, all [intruder] in every Room move.\n\nIn Sections with an [lifeSupportActive]:\nPlace a [fire] in each\nLife Support Control Room.\n\nIn Sections with an [lifeSupportInactive]:\nPlace a [malfunction] in each\nLife Support Control Room.\n\nEach [character] makes a Noise roll.",
+    "footer": "",
+    "upperRight": "",
+    "lowerCenter": "",
+    "visibleText": "",
+    "confidentlyVisible": [
+      "All typography is upright in the file.",
+      "The title is printed in white uppercase lettering.",
+      "The artwork depicts red-hot industrial machinery.",
+      "A curled white exoskeleton glyph appears twice.",
+      "The outlined corridor glyph runs northwest to southeast.",
+      "The active and crossed-out inactive life-support glyphs are visibly distinct.",
+      "Fire, malfunction, and astronaut glyphs appear inline with the rules.",
+      "The rules are divided among three green framed panels."
+    ],
+    "proposedCategory": "cards/game/event",
+    "proposedSlug": "generators-overheat",
+    "confidence": "high",
+    "uncertainties": []
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Planning image analysis with vision_analyze****Planning image analysis with vision_analyze**\n**Planning detailed pixel inspection**\n\n**Confirming icon shapes with pixel analysis****Planning detailed pixel inspection**\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Confirming icon shapes with pixel analysis****Identifying diagonal corridor icon**\n\n\n**Confirming corridorNWSE icon and event text formatting**\n\n**Assessing medium confidence for corridorNWSE icon**\n\n**Confirming corridor orientations and event card details**\n\n{\"orientation\":\"upright\",\"componentType\":\"game event card\",\"cardSide\":\"face\",\"title\":\"GENERATORS OVERHEAT\",\"typeLine\":\"\",\"body\":\"All [intruder] in each [corridorNWSE] move.\\nThen, all [intruder] in every Room move.\\n\\nIn Sections with an [lifeSupportActive]:\\nPlace a [fire] in each\\nLife Support Control Room.\\n\\nIn Sections with an [lifeSupportInactive]:\\nPlace a [malfunction] in each\\nLife Support Control Room.\\n\\nEach [character] makes a Noise roll.\",\"footer\":\"\",\"upperRight\":\"\",\"lowerCenter\":\"\",\"visibleText\":\"\",\"confidentlyVisible\":[\"All typography is upright in the file.\",\"The title is printed in white uppercase lettering.\",\"The artwork depicts red-hot industrial machinery.\",\"A curled white exoskeleton glyph appears twice.\",\"The outlined corridor glyph runs northwest to southeast.\",\"The active and crossed-out inactive life-support glyphs are visibly distinct.\",\"Fire, malfunction, and astronaut glyphs appear inline with the rules.\",\"The rules are divided among three green framed panels.\"],\"proposedCategory\":\"cards/game/event\",\"proposedSlug\":\"generators-overheat\",\"confidence\":\"high\",\"uncertainties\":[]}\n\nsession_id: 20260815_052519_c6ab4a\n",
+  "iconVerification": {
+    "status": "passed",
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "sessionId": "20260815_060804_00e507",
+    "promptVersion": 1,
+    "completedAt": "2026-08-15T06:08:23Z",
+    "claimed": [
+      "character",
+      "corridorNWSE",
+      "fire",
+      "intruder",
+      "lifeSupportActive",
+      "lifeSupportInactive",
+      "malfunction"
+    ],
+    "parsed": {
+      "claims": [
+        {
+          "claimed": "character",
+          "verdict": "match",
+          "actual": "character",
+          "evidence": "One occurrence at card bottom; white front-facing suited figure with rounded helmet, shoulder loops, and segmented torso matches glossary."
+        },
+        {
+          "claimed": "corridorNWSE",
+          "verdict": "match",
+          "actual": "corridorNWSE",
+          "evidence": "One occurrence after 'in each'; diagonal NW–SE irregular corridor outline with the same opposing notches and stepped ends as glossary."
+        },
+        {
+          "claimed": "fire",
+          "verdict": "match",
+          "actual": "fire",
+          "evidence": "One occurrence after 'Place a'; curled flame with pointed upper tongue and dark hooked inner void matches glossary morphology."
+        },
+        {
+          "claimed": "intruder",
+          "verdict": "match",
+          "actual": "intruder",
+          "evidence": "Two occurrences, one in each movement instruction; both show the same curled creature silhouette, spined arc, head, and tail as glossary."
+        },
+        {
+          "claimed": "lifeSupportActive",
+          "verdict": "match",
+          "actual": "lifeSupportActive",
+          "evidence": "One occurrence after 'Sections with an'; cyan horizontal capsule with white inner chamber, top tabs, and right-side projection matches glossary."
+        },
+        {
+          "claimed": "lifeSupportInactive",
+          "verdict": "match",
+          "actual": "lifeSupportInactive",
+          "evidence": "One occurrence in the second section condition; same cyan life-support capsule crossed by a black diagonal slash, matching glossary."
+        },
+        {
+          "claimed": "malfunction",
+          "verdict": "match",
+          "actual": "malfunction",
+          "evidence": "One occurrence after 'Place a' in the inactive section; pale gear with eight teeth and dark circular hub matches glossary."
+        }
+      ],
+      "allClaimsMatch": true,
+      "confidence": "high",
+      "uncertainties": []
+    },
+    "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Inspecting corridor glyph discrepancies****Inspecting corridor glyph discrepancies**\n\nsession_id: 20260815_060804_00e507\n{\"claims\":[{\"claimed\":\"character\",\"verdict\":\"match\",\"actual\":\"character\",\"evidence\":\"One occurrence at card bottom; white front-facing suited figure with rounded helmet, shoulder loops, and segmented torso matches glossary.\"},{\"claimed\":\"corridorNWSE\",\"verdict\":\"match\",\"actual\":\"corridorNWSE\",\"evidence\":\"One occurrence after 'in each'; diagonal NW–SE irregular corridor outline with the same opposing notches and stepped ends as glossary.\"},{\"claimed\":\"fire\",\"verdict\":\"match\",\"actual\":\"fire\",\"evidence\":\"One occurrence after 'Place a'; curled flame with pointed upper tongue and dark hooked inner void matches glossary morphology.\"},{\"claimed\":\"intruder\",\"verdict\":\"match\",\"actual\":\"intruder\",\"evidence\":\"Two occurrences, one in each movement instruction; both show the same curled creature silhouette, spined arc, head, and tail as glossary.\"},{\"claimed\":\"lifeSupportActive\",\"verdict\":\"match\",\"actual\":\"lifeSupportActive\",\"evidence\":\"One occurrence after 'Sections with an'; cyan horizontal capsule with white inner chamber, top tabs, and right-side projection matches glossary.\"},{\"claimed\":\"lifeSupportInactive\",\"verdict\":\"match\",\"actual\":\"lifeSupportInactive\",\"evidence\":\"One occurrence in the second section condition; same cyan life-support capsule crossed by a black diagonal slash, matching glossary.\"},{\"claimed\":\"malfunction\",\"verdict\":\"match\",\"actual\":\"malfunction\",\"evidence\":\"One occurrence after 'Place a' in the inactive section; pale gear with eight teeth and dark circular hub matches glossary.\"}],\"allClaimsMatch\":true,\"confidence\":\"high\",\"uncertainties\":[]}\n",
+    "evidencePath": null
+  }
+}

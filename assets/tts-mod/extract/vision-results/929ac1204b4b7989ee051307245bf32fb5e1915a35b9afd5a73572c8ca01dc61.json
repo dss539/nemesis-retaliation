@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/queenHealthDeck-041.png",
+  "sourceSha256": "929ac1204b4b7989ee051307245bf32fb5e1915a35b9afd5a73572c8ca01dc61",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_053856_b77ed5",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:38:56Z",
+  "completedAt": "2026-08-15T05:39:15Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "Queen Health card",
+    "cardSide": "face",
+    "title": "Discard",
+    "typeLine": "",
+    "body": "3\nadditional cards.\n\nIf the card was drawn by a [character]:\nPlace a [ICON: gray cogwheel] in the Queen's Room.\nOR\nUnreinforce Queen's Corridor.",
+    "footer": "",
+    "upperRight": "",
+    "lowerCenter": "",
+    "visibleText": "",
+    "confidentlyVisible": [
+      "All typography is upright in the file.",
+      "The upper panel reads “Discard” above a large numeral 3 and “additional cards.”",
+      "The lower rules panel contains a white astronaut glyph matching [character].",
+      "A gray cogwheel glyph appears between “a” and “in the Queen's Room.”",
+      "The card has rounded corners, teal interface framing, and artwork depicting an astronaut confronted by a large creature."
+    ],
+    "proposedCategory": "cards/game/queen-health",
+    "proposedSlug": "discard-3-additional-cards",
+    "confidence": "medium",
+    "uncertainties": [
+      "The gray cogwheel is not confidently matched to any supplied canonical icon and is transcribed literally.",
+      "“Discard” visually functions as a heading, but the complete effect phrase also includes the separately printed large “3” and “additional cards.”"
+    ]
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Loading image skill module****Loading image skill module****Inspecting queen health card structure**\n\n\n**Clarifying gear icon uncertainty****Inspecting queen health card structure**\n{\"orientation\":\"upright\",\"componentType\":\"Queen Health card\",\"cardSide\":\"face\",\"title\":\"Discard\",\"typeLine\":\"\",\"body\":\"3\\nadditional cards.\\n\\nIf the card was drawn by a [character]:\\nPlace a [ICON: gray cogwheel] in the Queen's Room.\\nOR\\nUnreinforce Queen's Corridor.\",\"footer\":\"\",\"upperRight\":\"\",\"lowerCenter\":\"\",\"visibleText\":\"\",\"confidentlyVisible\":[\"All typography is upright in the file.\",\"The upper panel reads “Discard” above a large numeral 3 and “additional cards.”\",\"The lower rules panel contains a white astronaut glyph matching [character].\",\"A gray cogwheel glyph appears between “a” and “in the Queen's Room.”\",\"The card has rounded corners, teal interface framing, and artwork depicting an astronaut confronted by a large creature.\"],\"proposedCategory\":\"cards/game/queen-health\",\"proposedSlug\":\"discard-3-additional-cards\",\"confidence\":\"medium\",\"uncertainties\":[\"The gray cogwheel is not confidently matched to any supplied canonical icon and is transcribed literally.\",\"“Discard” visually functions as a heading, but the complete effect phrase also includes the separately printed large “3” and “additional cards.”\"]}\n\nsession_id: 20260815_053856_b77ed5\n"
+}

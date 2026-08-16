@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "batchId": "batch-002",
+  "workerId": "sol-max-worker-01",
+  "completedAt": "2026-08-15T20:42:00Z",
+  "runtimeProvenanceRef": "../metadata/runtime.json",
+  "submittedCount": 4,
+  "submittedAssetIds": [
+    "W01-005",
+    "W01-006",
+    "W01-007",
+    "W01-008"
+  ],
+  "analyzedCount": 4,
+  "analyzedAssetIds": [
+    "W01-005",
+    "W01-006",
+    "W01-007",
+    "W01-008"
+  ],
+  "nativeVisionAttachmentCount": 8,
+  "supportingRereads": [
+    {
+      "assetId": "W01-005",
+      "purpose": "lossless upright orientation reread"
+    },
+    {
+      "assetId": "W01-008",
+      "purpose": "focused microtext reread"
+    },
+    {
+      "assetId": "W01-007",
+      "purpose": "two-page official-source applicability check"
+    }
+  ],
+  "persistedRawCount": 4,
+  "persistedResultCount": 4,
+  "idAndCountReconciliation": "exact-match",
+  "retryAssetIds": [],
+  "decisions": {
+    "promote": 0,
+    "defer": 1,
+    "non-card-complete": 3
+  },
+  "rawPaths": [
+    "raw/W01-005.json",
+    "raw/W01-006.json",
+    "raw/W01-007.json",
+    "raw/W01-008.json"
+  ],
+  "resultPaths": [
+    "results/W01-005.json",
+    "results/W01-006.json",
+    "results/W01-007.json",
+    "results/W01-008.json"
+  ]
+}

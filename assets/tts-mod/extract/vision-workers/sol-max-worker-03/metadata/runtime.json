@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-08-15T21:41:25.070031Z",
+  "workerId": "sol-max-worker-03",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "reasoningEffort": "max",
+  "platform": "subagent",
+  "sessionId": "20260815_213825_14ef69",
+  "persistentWorker": true,
+  "nativeVisionRoute": "Hermes vision_analyze direct image attachment to the active native multimodal model",
+  "nativeImageRouteStatus": "verified-native-attachment",
+  "nativeImageRouteVerifiedAt": "2026-08-15T21:42:17.130289Z",
+  "nativeImageToolMessageId": 86277,
+  "successfulNativeImageTurns": 1,
+  "auxiliaryVisionUsed": false,
+  "ocrUsedAsCanonicalEvidence": false,
+  "qwenUsed": false,
+  "runtimeVerification": {
+    "activeSystemRuntimeHeader": {
+      "provider": "openai-codex",
+      "model": "gpt-5.6-sol",
+      "platform": "subagent",
+      "source": "active delegated child system runtime header"
+    },
+    "sessionDatabase": {
+      "path": "/home/smithers/.hermes/state.db",
+      "sessionId": "20260815_213825_14ef69",
+      "source": "subagent",
+      "model": "gpt-5.6-sol",
+      "billingProvider": "openai-codex",
+      "reasoningConfig": {
+        "enabled": true,
+        "effort": "max"
+      },
+      "parentSessionId": "b01cf4bb4120",
+      "maxIterations": 80,
+      "verifiedBeforeImageAttachment": true
+    },
+    "delegatedChildContextEnvironment": true,
+    "sessionIdSource": "Hermes state database match to the current delegated W01-024 task; HERMES_SESSION_ID was not exposed in the tool environment",
+    "nativeImageRouteEvidence": {
+      "toolContract": "vision_analyze detected native vision on the active model and attached the submitted local image directly to this conversation; it did not invoke an auxiliary model response.",
+      "observedDelivery": "The original 1052x1433 source pixels appeared in this active Sol Max context and were read without OCR.",
+      "sessionDatabase": "Tool message 86277 records vision_analyze in session 20260815_213825_14ef69."
+    }
+  },
+  "assignmentModelContractMatchesRuntime": true,
+  "runtimeContractVerified": true,
+  "assignmentFileSha256AtVerification": "ab5b454fd14cf40a1d8465d3d33d28aa0ef2a499fb4a313001c2bdda1f40fd03",
+  "assignmentTupleSha256AtVerification": "64ea536d21b870acfb52c36e25d99a29e6186f473aa81db8e1b6fcd16fe2fc88"
+}

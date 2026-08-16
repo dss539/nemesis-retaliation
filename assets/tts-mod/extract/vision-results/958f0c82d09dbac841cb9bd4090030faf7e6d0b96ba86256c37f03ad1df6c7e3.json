@@ -1,0 +1,93 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-171.jpg",
+  "sourceSha256": "958f0c82d09dbac841cb9bd4090030faf7e6d0b96ba86256c37f03ad1df6c7e3",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_060613_6b511a",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:42:48Z",
+  "completedAt": "2026-08-15T06:06:36Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "equipment item card",
+    "cardSide": "face",
+    "title": "ENGINEERING\nEQUIPMENT",
+    "typeLine": "",
+    "body": "Remove a [malfunction] or a [fire].\n\nOR\n\nRemove this Item and Reinforce an empty Corridor.",
+    "footer": "",
+    "upperRight": "notInCombat",
+    "lowerCenter": "",
+    "visibleText": "",
+    "confidentlyVisible": [
+      "All typography is upright in the file.",
+      "The title is printed in two centered lines.",
+      "A crossed-out curled white exoskeleton icon appears in the upper-right corner.",
+      "A grey gear-shaped malfunction icon and an orange flame icon appear inline in the first effect.",
+      "The background art depicts an open equipment case with tools."
+    ],
+    "proposedCategory": "cards/game/item/equipment",
+    "proposedSlug": "engineering-equipment",
+    "confidence": "high",
+    "uncertainties": []
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Planning skill image analysis****Planning skill image analysis****Deciding to rotate image 90 degrees counterclockwise**\n\n\n**Mapping icon positions after image rotation****Deciding to rotate image 90 degrees counterclockwise**\n{\"orientation\":\"rotate90ccw\",\"componentType\":\"equipment item card\",\"cardSide\":\"face\",\"title\":\"ENGINEERING\\nEQUIPMENT\",\"typeLine\":\"\",\"body\":\"Remove a [ICON: grey gear glyph] or a [ICON: orange flame-shaped glyph].\\nOR\\nRemove this Item and Reinforce an empty Corridor.\",\"footer\":\"\",\"upperRight\":\"notInCombat\",\"lowerCenter\":\"\",\"visibleText\":\"\",\"confidentlyVisible\":[\"White title text reads “ENGINEERING EQUIPMENT”.\",\"Card art depicts an open equipment case in a dark industrial setting.\",\"A red prohibition symbol overlays a white curled exoskeleton Intruder glyph.\",\"Two icon-led alternatives are separated by “OR”.\"],\"proposedCategory\":\"cards/game/item/equipment\",\"proposedSlug\":\"engineering-equipment\",\"confidence\":\"medium\",\"uncertainties\":[\"The grey gear and orange flame-shaped glyphs are card-local action/ability glyphs absent from the supplied canonical glossary; their meanings are not inferred.\",\"The pixels do not establish whether this card belongs specifically to a starting-item deck.\"]}\n\nsession_id: 20260815_054249_6adb6c\n",
+  "initialParsed": {
+    "orientation": "rotate90ccw",
+    "componentType": "equipment item card",
+    "cardSide": "face",
+    "title": "ENGINEERING\nEQUIPMENT",
+    "typeLine": "",
+    "body": "Remove a [ICON: grey gear glyph] or a [ICON: orange flame-shaped glyph].\nOR\nRemove this Item and Reinforce an empty Corridor.",
+    "footer": "",
+    "upperRight": "notInCombat",
+    "lowerCenter": "",
+    "visibleText": "",
+    "confidentlyVisible": [
+      "White title text reads “ENGINEERING EQUIPMENT”.",
+      "Card art depicts an open equipment case in a dark industrial setting.",
+      "A red prohibition symbol overlays a white curled exoskeleton Intruder glyph.",
+      "Two icon-led alternatives are separated by “OR”."
+    ],
+    "proposedCategory": "cards/game/item/equipment",
+    "proposedSlug": "engineering-equipment",
+    "confidence": "medium",
+    "uncertainties": [
+      "The grey gear and orange flame-shaped glyphs are card-local action/ability glyphs absent from the supplied canonical glossary; their meanings are not inferred.",
+      "The pixels do not establish whether this card belongs specifically to a starting-item deck."
+    ]
+  },
+  "initialSessionId": "20260815_054249_6adb6c",
+  "orientationCorrection": "rotate90ccw",
+  "uprightRead": {
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "sessionId": "20260815_060613_6b511a",
+    "completedAt": "2026-08-15T06:06:36Z",
+    "parsed": {
+      "orientation": "upright",
+      "componentType": "equipment item card",
+      "cardSide": "face",
+      "title": "ENGINEERING\nEQUIPMENT",
+      "typeLine": "",
+      "body": "Remove a [malfunction] or a [fire].\n\nOR\n\nRemove this Item and Reinforce an empty Corridor.",
+      "footer": "",
+      "upperRight": "notInCombat",
+      "lowerCenter": "",
+      "visibleText": "",
+      "confidentlyVisible": [
+        "All typography is upright in the file.",
+        "The title is printed in two centered lines.",
+        "A crossed-out curled white exoskeleton icon appears in the upper-right corner.",
+        "A grey gear-shaped malfunction icon and an orange flame icon appear inline in the first effect.",
+        "The background art depicts an open equipment case with tools."
+      ],
+      "proposedCategory": "cards/game/item/equipment",
+      "proposedSlug": "engineering-equipment",
+      "confidence": "high",
+      "uncertainties": []
+    },
+    "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Loading vision skill for image inspection****Loading vision skill for image inspection**\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Directing vision analysis to image****Directing vision analysis to image****Mapping card symbols to exact JSON**\n\nsession_id: 20260815_060613_6b511a\n{\"orientation\":\"upright\",\"componentType\":\"equipment item card\",\"cardSide\":\"face\",\"title\":\"ENGINEERING\\nEQUIPMENT\",\"typeLine\":\"\",\"body\":\"Remove a [malfunction] or a [fire].\\n\\nOR\\n\\nRemove this Item and Reinforce an empty Corridor.\",\"footer\":\"\",\"upperRight\":\"notInCombat\",\"lowerCenter\":\"\",\"visibleText\":\"\",\"confidentlyVisible\":[\"All typography is upright in the file.\",\"The title is printed in two centered lines.\",\"A crossed-out curled white exoskeleton icon appears in the upper-right corner.\",\"A grey gear-shaped malfunction icon and an orange flame icon appear inline in the first effect.\",\"The background art depicts an open equipment case with tools.\"],\"proposedCategory\":\"cards/game/item/equipment\",\"proposedSlug\":\"engineering-equipment\",\"confidence\":\"high\",\"uncertainties\":[]}\n"
+  }
+}

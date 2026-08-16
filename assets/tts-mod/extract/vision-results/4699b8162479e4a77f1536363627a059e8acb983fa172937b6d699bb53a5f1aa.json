@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/tiles/room/security-robot-room-005.jpg",
+  "sourceSha256": "4699b8162479e4a77f1536363627a059e8acb983fa172937b6d699bb53a5f1aa",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_054831_90c617",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:48:31Z",
+  "completedAt": "2026-08-15T05:49:01Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "hexagonal room tile",
+    "cardSide": "face",
+    "title": "SECURITY ROBOT ROOM",
+    "typeLine": "",
+    "body": "Place 1 [ICON: white angular container glyph] in a Room with the [robot].\nOR\nReinforce 1 empty Corridor adjacent\nto the Room with the [robot].",
+    "footer": "",
+    "upperRight": "computer",
+    "lowerCenter": "",
+    "visibleText": "?",
+    "confidentlyVisible": [
+      "The main component is an illustrated hexagonal room tile with connector tabs.",
+      "The title reads “SECURITY ROBOT ROOM”.",
+      "A cyan computer icon appears near the upper-right edge of the room.",
+      "A redItem icon and a yellowItem icon appear along the left edge.",
+      "Two robot icons occur in the rules text.",
+      "A pale yellow question mark appears in the upper-left portion.",
+      "The room artwork depicts computer screens, machinery, chairs, and a lit central table."
+    ],
+    "proposedCategory": "tiles/room",
+    "proposedSlug": "security-robot-room",
+    "confidence": "medium",
+    "uncertainties": [
+      "The file is an atlas-like composite containing portions of overlapping neighboring components around the main tile.",
+      "The whole main tile and its typography are diagonally tilted; none of the permitted 90-degree rotation choices would make the text exactly horizontal, so “upright” denotes the nearest meaningful orientation.",
+      "The white angular glyph following “Place 1” is not confidently matched to the supplied canonical glossary and is transcribed literally.",
+      "The pale yellow question mark may function as a room-specific icon rather than ordinary text.",
+      "The redItem and yellowItem icons are confidently visible but have no dedicated positional output fields in the requested schema."
+    ]
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Planning image analysis approach****Planning image analysis approach****Assessing image rotation for cropping**\n\n\n**Decoding text orientation and icon details**\n\n**Identifying question mark icon on tile****Assessing image rotation for cropping**\n**Decoding text orientation and icon details**\n{\"orientation\":\"upright\",\"componentType\":\"hexagonal room tile\",\"cardSide\":\"face\",\"title\":\"SECURITY ROBOT ROOM\",\"typeLine\":\"\",\"body\":\"Place 1 [ICON: white angular container glyph] in a Room with the [robot].\\nOR\\nReinforce 1 empty Corridor adjacent\\nto the Room with the [robot].\",\"footer\":\"\",\"upperRight\":\"computer\",\"lowerCenter\":\"\",\"visibleText\":\"?\",\"confidentlyVisible\":[\"The main component is an illustrated hexagonal room tile with connector tabs.\",\"The title reads “SECURITY ROBOT ROOM”.\",\"A cyan computer icon appears near the upper-right edge of the room.\",\"A redItem icon and a yellowItem icon appear along the left edge.\",\"Two robot icons occur in the rules text.\",\"A pale yellow question mark appears in the upper-left portion.\",\"The room artwork depicts computer screens, machinery, chairs, and a lit central table.\"],\"proposedCategory\":\"tiles/room\",\"proposedSlug\":\"security-robot-room\",\"confidence\":\"medium\",\"uncertainties\":[\"The file is an atlas-like composite containing portions of overlapping neighboring components around the main tile.\",\"The whole main tile and its typography are diagonally tilted; none of the permitted 90-degree rotation choices would make the text exactly horizontal, so “upright” denotes the nearest meaningful orientation.\",\"The white angular glyph following “Place 1” is not confidently matched to the supplied canonical glossary and is transcribed literally.\",\"The pale yellow question mark may function as a room-specific icon rather than ordinary text.\",\"The redItem and yellowItem icons are confidently visible but have no dedicated positional output fields in the requested schema.\"]}\n\nsession_id: 20260815_054831_90c617\n"
+}

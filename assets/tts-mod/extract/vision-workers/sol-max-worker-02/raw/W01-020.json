@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "assetId": "W01-020",
+  "batchId": "batch-002",
+  "capturedAt": "2026-08-15T21:20:58Z",
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/bags/roomICBag-039.jpg",
+  "sourceSha256": "87500c8dda440e53486d4047add2886cd9e88a464b0d0af189d521ecc7cb7c6c",
+  "runtimeProvenanceRef": "../metadata/runtime.json",
+  "blindAnalysis": true,
+  "metadataExcludedDuringPixelPass": [
+    "filename semantics",
+    "directory semantics",
+    "prior vision reads",
+    "TTS object metadata",
+    "game-context expectations"
+  ],
+  "orientationObservation": "The central letter C remains readable despite the whole mechanical object being intentionally diagonal; no single conventional card-face rotation is implied.",
+  "blindPixelObservations": [
+    "Most of the square canvas is near-black, especially the right and lower regions.",
+    "A large diagonally oriented mechanical object occupies the left half, with a dark rusty metal central plate, rounded protrusions around its perimeter, four recessed vent-like openings, and bright white bar lights near the openings.",
+    "Small orange indicator points and rust-orange scuffs dot the metal surface.",
+    "A large white capital letter overlays the center of the metal plate.",
+    "A separate small dark square or plate near the mid-right contains a luminous white three-pronged geometric mark outlined in pale blue over a faint blue honeycomb pattern."
+  ],
+  "visibleText": [
+    {
+      "text": "C",
+      "location": "center of mechanical plate",
+      "structure": "large white uppercase letter",
+      "confidence": "high"
+    }
+  ],
+  "iconObservations": [
+    {
+      "location": "mid-right on a small dark square plate",
+      "silhouette": "compact three-pronged or three-lobed angular white form",
+      "internalMarks": "one lower segment is separated by a dark diagonal seam; pale blue outline/glow",
+      "colors": "white with pale blue edging on a dark blue-black honeycomb field",
+      "semanticLabel": null
+    }
+  ],
+  "rawNativeModelOutput": {
+    "orientation": "diagonal composition; rotation not established as necessary",
+    "text": ["C"],
+    "literalSummary": "Mostly black square with a diagonal rusted mechanical panel on the left, four lit recesses, a large white C, and a separate glowing three-pronged mark at right."
+  },
+  "uncertainties": [
+    "Pixels alone do not establish whether the image is a standalone component face, a model texture, or a container thumbnail.",
+    "The semantic identity of the small white-and-blue three-pronged mark is unresolved; no glossary token is assigned from context."
+  ]
+}

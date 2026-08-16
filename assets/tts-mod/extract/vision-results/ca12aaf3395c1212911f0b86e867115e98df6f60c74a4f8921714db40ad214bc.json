@@ -1,0 +1,128 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/greenitem-035.png",
+  "sourceSha256": "ca12aaf3395c1212911f0b86e867115e98df6f60c74a4f8921714db40ad214bc",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_060428_61da46",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:28:08Z",
+  "completedAt": "2026-08-15T06:04:45Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "item card",
+    "cardSide": "face",
+    "title": "MEDKIT",
+    "typeLine": "ONE USE ONLY",
+    "body": "Discard 1 Serious Wound and/or restore 3 [characterHealth].",
+    "footer": "",
+    "upperRight": "notInCombat",
+    "lowerCenter": "",
+    "visibleText": "",
+    "confidentlyVisible": [
+      "Landscape card with rounded corners",
+      "Typography is upright in the file",
+      "White MEDKIT title above yellow ONE USE ONLY type line",
+      "Artwork depicts a rectangular medical case marked with a red cross",
+      "Upper-right icon is a red prohibition circle over a black firearm",
+      "Single rules line appears along the bottom",
+      "Rules text ends with a white cross-and-EKG glyph"
+    ],
+    "proposedCategory": "cards/game/item/green",
+    "proposedSlug": "medkit",
+    "confidence": "high",
+    "uncertainties": []
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Preparing image analysis with vision skill****Preparing image analysis with vision skill**\n**Analyzing image rotation and text orientation**\n\n**Planning text transcription with rotated image**\n\n**Identifying red circle prohibition icon**\n\n**Identifying notInCombat icon placement**\n\n**Confirming green item card categorization**\n\n**Planning temporary image processing steps****Analyzing image rotation and text orientation**\n**Planning text transcription with rotated image**\n**Identifying red circle prohibition icon**\n\n**Identifying notInCombat icon placement**\n**Confirming green item card categorization**\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Planning temporary image processing steps****Analyzing text orientation in portrait image**\n\n\n**Confirming 90° CCW rotation for text alignment**\n\n**Identifying medical pulse icon as characterHealth**\n\n**Analyzing icon details for intruder status**\n\n**Confirming notInCombat icon interpretation**\n\n**Identifying one-use medkit card details**\n\n**Verifying punctuation after icon in body text**\n\n**Confirming no period after health icon**\n\n**Assigning item category and slug**\n\n**Mapping UI elements after rotation**\n\n**Confirming notInCombat icon and card details**\n\n{\"orientation\":\"rotate90ccw\",\"componentType\":\"one-use item card\",\"cardSide\":\"face\",\"title\":\"MEDKIT\",\"typeLine\":\"ONE USE ONLY\",\"body\":\"Discard 1 Serious Wound and/or restore 3 [characterHealth]\",\"footer\":\"\",\"upperRight\":\"notInCombat\",\"lowerCenter\":\"\",\"visibleText\":\"\",\"confidentlyVisible\":[\"All meaningful typography reads upright after rotating the file 90° counterclockwise.\",\"Green angular frame along the upright top edge.\",\"Artwork depicts a medical case marked with a red cross.\",\"The upright upper-right corner contains a red prohibition emblem over an Intruder.\",\"A white character-health glyph follows the number 3 in the rules text.\"],\"proposedCategory\":\"cards/game/item/medical\",\"proposedSlug\":\"medkit\",\"confidence\":\"high\",\"uncertainties\":[]}\n\nsession_id: 20260815_052808_deaa2f\n",
+  "initialParsed": {
+    "orientation": "rotate90ccw",
+    "componentType": "one-use item card",
+    "cardSide": "face",
+    "title": "MEDKIT",
+    "typeLine": "ONE USE ONLY",
+    "body": "Discard 1 Serious Wound and/or restore 3 [characterHealth]",
+    "footer": "",
+    "upperRight": "notInCombat",
+    "lowerCenter": "",
+    "visibleText": "",
+    "confidentlyVisible": [
+      "All meaningful typography reads upright after rotating the file 90° counterclockwise.",
+      "Green angular frame along the upright top edge.",
+      "Artwork depicts a medical case marked with a red cross.",
+      "The upright upper-right corner contains a red prohibition emblem over an Intruder.",
+      "A white character-health glyph follows the number 3 in the rules text."
+    ],
+    "proposedCategory": "cards/game/item/medical",
+    "proposedSlug": "medkit",
+    "confidence": "high",
+    "uncertainties": []
+  },
+  "initialSessionId": "20260815_052808_deaa2f",
+  "orientationCorrection": "rotate90ccw",
+  "uprightRead": {
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "sessionId": "20260815_060428_61da46",
+    "completedAt": "2026-08-15T06:04:45Z",
+    "parsed": {
+      "orientation": "upright",
+      "componentType": "item card",
+      "cardSide": "face",
+      "title": "MEDKIT",
+      "typeLine": "ONE USE ONLY",
+      "body": "Discard 1 Serious Wound and/or restore 3 [characterHealth].",
+      "footer": "",
+      "upperRight": "notInCombat",
+      "lowerCenter": "",
+      "visibleText": "",
+      "confidentlyVisible": [
+        "Landscape card with rounded corners",
+        "Typography is upright in the file",
+        "White MEDKIT title above yellow ONE USE ONLY type line",
+        "Artwork depicts a rectangular medical case marked with a red cross",
+        "Upper-right icon is a red prohibition circle over a black firearm",
+        "Single rules line appears along the bottom",
+        "Rules text ends with a white cross-and-EKG glyph"
+      ],
+      "proposedCategory": "cards/game/item/green",
+      "proposedSlug": "medkit",
+      "confidence": "high",
+      "uncertainties": []
+    },
+    "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Loading image analysis workflow****Loading image analysis workflow****Using vision_analyze to inspect pixels**\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Using vision_analyze to inspect pixels****Designing item card JSON for medkit**\n\nsession_id: 20260815_060428_61da46\n{\"orientation\":\"upright\",\"componentType\":\"item card\",\"cardSide\":\"face\",\"title\":\"MEDKIT\",\"typeLine\":\"ONE USE ONLY\",\"body\":\"Discard 1 Serious Wound and/or restore 3 [characterHealth].\",\"footer\":\"\",\"upperRight\":\"notInCombat\",\"lowerCenter\":\"\",\"visibleText\":\"\",\"confidentlyVisible\":[\"Landscape card with rounded corners\",\"Typography is upright in the file\",\"White MEDKIT title above yellow ONE USE ONLY type line\",\"Artwork depicts a rectangular medical case marked with a red cross\",\"Upper-right icon is a red prohibition circle over a black firearm\",\"Single rules line appears along the bottom\",\"Rules text ends with a white cross-and-EKG glyph\"],\"proposedCategory\":\"cards/game/item/green\",\"proposedSlug\":\"medkit\",\"confidence\":\"high\",\"uncertainties\":[]}\n"
+  },
+  "iconVerification": {
+    "status": "passed",
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "sessionId": "20260815_060808_3cafc0",
+    "promptVersion": 1,
+    "completedAt": "2026-08-15T06:08:27Z",
+    "claimed": [
+      "characterHealth",
+      "notInCombat"
+    ],
+    "parsed": {
+      "claims": [
+        {
+          "claimed": "characterHealth",
+          "verdict": "match",
+          "actual": "characterHealth",
+          "evidence": "One footer occurrence: white ECG/heartbeat zigzag crossing a horizontal white bar, matching the glossary glyph."
+        },
+        {
+          "claimed": "notInCombat",
+          "verdict": "match",
+          "actual": "notInCombat",
+          "evidence": "One upper-right occurrence: red prohibition circle and diagonal slash over a white gun, matching the documented official artwork variant of the crossed-out Intruder glossary icon."
+        }
+      ],
+      "allClaimsMatch": true,
+      "confidence": "high",
+      "uncertainties": []
+    },
+    "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Loading image analysis skill****Loading image analysis skill****Inspecting health and combat glyphs**\n⚠️  Reached maximum iterations (2). Requesting summary...\n\nsession_id: 20260815_060808_3cafc0\n{\"claims\":[{\"claimed\":\"characterHealth\",\"verdict\":\"match\",\"actual\":\"characterHealth\",\"evidence\":\"One footer occurrence: white ECG/heartbeat zigzag crossing a horizontal white bar, matching the glossary glyph.\"},{\"claimed\":\"notInCombat\",\"verdict\":\"match\",\"actual\":\"notInCombat\",\"evidence\":\"One upper-right occurrence: red prohibition circle and diagonal slash over a white gun, matching the documented official artwork variant of the crossed-out Intruder glossary icon.\"}],\"allClaimsMatch\":true,\"confidence\":\"high\",\"uncertainties\":[]}\n",
+    "evidencePath": null
+  }
+}

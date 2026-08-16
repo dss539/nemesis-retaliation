@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/models/model-027.jpg",
+  "sourceSha256": "9a7c4c0e33e884c7d88774996cbd4a741062e714ab8c25fa4ecae3fb1d6e722c",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_054653_438658",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:46:53Z",
+  "completedAt": "2026-08-15T05:47:20Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "sci-fi room/tile texture atlas",
+    "cardSide": "notCard",
+    "title": "",
+    "typeLine": "",
+    "body": "",
+    "footer": "",
+    "upperRight": "",
+    "lowerCenter": "",
+    "visibleText": "[ICON: yellow triangle 2]\n[ICON: yellow triangle 2]\n[ICON: yellow triangle 0]\n[ICON: yellow triangle 0]",
+    "confidentlyVisible": [
+      "Two separate industrial sci-fi room surfaces appear on a black texture-atlas background.",
+      "The larger upper-left surface has two yellow triangular numeral badges marked 2 on opposing ends.",
+      "The partially clipped lower-right surface has two yellow triangular numeral badges marked 0 on opposing ends.",
+      "The opposing numeral badges are deliberately oriented in opposite directions around their respective room surfaces.",
+      "The upper-left room shows metal panels, pipes, cables, lights, grime, and green residue.",
+      "The lower-right room shows a bright central wall panel with multiple rectangular grilles."
+    ],
+    "proposedCategory": "models/texture",
+    "proposedSlug": null,
+    "confidence": "medium",
+    "uncertainties": [
+      "No single file rotation makes both opposing 2 glyphs upright simultaneously; upright is assigned from the readable upper 2 and the apparent presentation of the larger room surface.",
+      "The yellow triangular numeral badges are not confidently canonical noise-die icons because they appear embedded as room-edge labels rather than die faces.",
+      "The lower-right room surface is clipped by the image boundaries, so its full shape and identity are not visible.",
+      "The depicted rooms have no visible title or unmistakable named identity, so no semantic slug is proposed."
+    ]
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Planning image analysis approach****Planning image analysis approach****Analyzing texture atlas orientation constraints**\n\n\n**Confirming upright texture atlas orientation despite label conflicts**\n\n**Assigning literal icons in visibleText due to uncertainty****Analyzing texture atlas orientation constraints**\n**Confirming upright texture atlas orientation despite label conflicts**\n{\"orientation\":\"upright\",\"componentType\":\"sci-fi room/tile texture atlas\",\"cardSide\":\"notCard\",\"title\":\"\",\"typeLine\":\"\",\"body\":\"\",\"footer\":\"\",\"upperRight\":\"\",\"lowerCenter\":\"\",\"visibleText\":\"[ICON: yellow triangle 2]\\n[ICON: yellow triangle 2]\\n[ICON: yellow triangle 0]\\n[ICON: yellow triangle 0]\",\"confidentlyVisible\":[\"Two separate industrial sci-fi room surfaces appear on a black texture-atlas background.\",\"The larger upper-left surface has two yellow triangular numeral badges marked 2 on opposing ends.\",\"The partially clipped lower-right surface has two yellow triangular numeral badges marked 0 on opposing ends.\",\"The opposing numeral badges are deliberately oriented in opposite directions around their respective room surfaces.\",\"The upper-left room shows metal panels, pipes, cables, lights, grime, and green residue.\",\"The lower-right room shows a bright central wall panel with multiple rectangular grilles.\"],\"proposedCategory\":\"models/texture\",\"proposedSlug\":null,\"confidence\":\"medium\",\"uncertainties\":[\"No single file rotation makes both opposing 2 glyphs upright simultaneously; upright is assigned from the readable upper 2 and the apparent presentation of the larger room surface.\",\"The yellow triangular numeral badges are not confidently canonical noise-die icons because they appear embedded as room-edge labels rather than die faces.\",\"The lower-right room surface is clipped by the image boundaries, so its full shape and identity are not visible.\",\"The depicted rooms have no visible title or unmistakable named identity, so no semantic slug is proposed.\"]}\n\nsession_id: 20260815_054653_438658\n"
+}

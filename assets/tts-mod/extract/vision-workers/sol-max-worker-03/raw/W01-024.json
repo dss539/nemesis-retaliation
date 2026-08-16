@@ -1,0 +1,102 @@
+{
+  "schemaVersion": 1,
+  "assetId": "W01-024",
+  "batchId": "batch-001",
+  "capturedAt": "2026-08-15T21:43:09Z",
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-00.png",
+  "sourceSha256": "de97374d9cc8ed9f9141a4539386fd6b8979b4230f4eee8ae04925622fc07fed",
+  "runtimeProvenanceRef": "../metadata/runtime.json",
+  "blindAnalysis": true,
+  "submittedCount": 1,
+  "returnedCount": 1,
+  "returnedAssetIds": [
+    "W01-024"
+  ],
+  "metadataExcludedDuringPixelPass": [
+    "filename semantics",
+    "directory semantics",
+    "prior worker-02 raw read and semantic labels",
+    "TTS object metadata",
+    "canonical sidecars",
+    "expected game logic"
+  ],
+  "orientationObservation": "Upright portrait presentation: all title, rules, and footer text reads left-to-right, the title panel is above the rules panel, and the footer is at the bottom.",
+  "blindPixelObservations": [
+    "A portrait-format illustrated card uses a dark black, blue, violet, and magenta interface frame.",
+    "The upper artwork shows a human-shaped figure in bulky dark equipment, viewed mostly from behind/side, facing a large rectangular machine or crate in a dim industrial interior.",
+    "Several red circular objects project from the figure's upper back; red indicator lights and loose cables are visible around the machine and room.",
+    "A black title plaque with a thin magenta border spans the card below the artwork.",
+    "The rules text is centered in white on a dark translucent lower panel.",
+    "A magenta uppercase footer appears centered near the bottom.",
+    "No text is clipped by the source boundaries, and no neighboring-card text is visible."
+  ],
+  "visibleText": {
+    "title": "ANYTHING USEFUL?",
+    "bodyVerbatimWithLiteralGlyph": "Move.\nIf you Explored a new Room, draw 1 Item for\neach [ICON: solid white chamfered eight-sided polygon with no visible internal mark] in that Room.\nKeep 1 and discard the rest.",
+    "bodyPrintedLineBreaks": [
+      "Move.",
+      "If you Explored a new Room, draw 1 Item for",
+      "each [ICON: solid white chamfered eight-sided polygon with no visible internal mark] in that Room.",
+      "Keep 1 and discard the rest."
+    ],
+    "footer": "RECON",
+    "punctuationObserved": [
+      "question mark after USEFUL",
+      "period after Move",
+      "period after Room",
+      "period after rest"
+    ],
+    "illegibleSpans": [],
+    "clippedSpans": []
+  },
+  "iconObservations": [
+    {
+      "observationId": "glyph-upper-right",
+      "location": "upper right over the artwork",
+      "outerSilhouette": "A large diagonal red X overlays a short, horizontally elongated white blocky silhouette; the white form has stepped or protruding ends but is mostly occluded by the X.",
+      "internalMarks": "Only short dark and red horizontal strokes remain visible inside the white form on the left and right sides of the X; the center is hidden.",
+      "colors": [
+        "red X",
+        "white underlying silhouette",
+        "dark outline/shadow",
+        "small red/dark horizontal details"
+      ],
+      "neighboringPrintedText": null,
+      "semanticLabel": null,
+      "nearestPlausibleCanonicalAlternative": "notInCombat",
+      "visibleFeatureRulingAlternativeOut": null,
+      "comparisonOutcome": "unresolved",
+      "reasonUnresolved": "The red crossing mark is compatible with the glossary's described Action-card artwork variant, but the underlying horizontal object is substantially occluded and no authoritative crop of that specific variant was present in this one-image turn. No visible discriminating feature independently proves the canonical identity."
+    },
+    {
+      "observationId": "glyph-inline-rules",
+      "location": "rules text, between the printed words 'each' and 'in that Room.'",
+      "outerSilhouette": "A solid white chamfered polygon that appears eight-sided: short horizontal top and bottom edges, short vertical left and right edges, and four diagonal corner edges.",
+      "internalMarks": "None visible; the shape is uniformly white.",
+      "colors": [
+        "solid white"
+      ],
+      "neighboringPrintedText": "each [glyph] in that Room.",
+      "semanticLabel": null,
+      "nearestPlausibleCanonicalAlternative": "redItem / yellowItem / greenItem badges",
+      "visibleFeatureRulingAlternativeOut": "The printed glyph is uniformly white and has no cartridges, wrench, cross, or red/yellow/green badge fill, which rules out the three glossary Item-type badge morphologies.",
+      "comparisonOutcome": "unresolved-local-or-unglossed-glyph",
+      "reasonUnresolved": "No matching solid blank polygon appears in the authoritative 49-icon glossary, and surrounding rules semantics cannot supply an identity."
+    }
+  ],
+  "rawNativeModelOutput": {
+    "orientation": "upright portrait",
+    "literalSummary": "Portrait illustrated rules card titled ANYTHING USEFUL?, with centered movement/search text, an unresolved crossed upper-right glyph, an unresolved solid white inline polygon, and footer RECON.",
+    "semanticIconTokensAssigned": []
+  },
+  "readConfidence": {
+    "text": "high",
+    "glyphMorphology": "high for the visible shapes; insufficient for semantic identity"
+  },
+  "classificationConfidence": "not evaluated during blind pixel pass",
+  "uncertainties": [
+    "The semantic identity of the crossed upper-right glyph is unresolved.",
+    "The semantic identity of the solid white inline polygon is unresolved."
+  ],
+  "promotionDecision": "defer"
+}

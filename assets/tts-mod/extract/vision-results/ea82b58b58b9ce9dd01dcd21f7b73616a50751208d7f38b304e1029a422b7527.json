@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/medical-support-022.jpg",
+  "sourceSha256": "ea82b58b58b9ce9dd01dcd21f7b73616a50751208d7f38b304e1029a422b7527",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_051206_12ce1a",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:12:05Z",
+  "completedAt": "2026-08-15T05:12:59Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "character action card",
+    "cardSide": "face",
+    "title": "REST",
+    "typeLine": "",
+    "body": "Resolve the Infection Procedure.\n\nRemove all non-Infected cards from the game\ninstead of discarding them.\n\nInfection Procedure:\nScan all Contaminations in hand.\nIf any of them are Infected, place a Larva\non your Character board. Then, discard all\nContaminations from your hand.",
+    "footer": "MEDICAL SUPPOR",
+    "upperRight": "notInCombat",
+    "lowerCenter": "",
+    "visibleText": "",
+    "confidentlyVisible": [
+      "All meaningful typography is upright in the file.",
+      "The title REST appears in a framed panel.",
+      "The upper-right corner shows a red prohibition circle and slash over a curled white exoskeleton creature.",
+      "Artwork shows an armored person supporting or examining a slumped person in a clinical-looking room.",
+      "The card has a magenta-purple rules panel and character-label footer."
+    ],
+    "proposedCategory": "cards/character/action",
+    "proposedSlug": "rest",
+    "confidence": "medium",
+    "uncertainties": [
+      "The footer is visibly obscured after \"MEDICAL SUPPOR\" by a bright card-art/design element; no hidden or clipped final letter is transcribed.",
+      "The complete owner label cannot be established solely from the visible footer fragment."
+    ]
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Analyzing image icons with vision tool**\n\n**Inspecting footer text with vision tool****Analyzing image icons with vision tool**\n**Inspecting footer text with vision tool****Preserving line breaks in infection procedure text**\n\n\n**Analyzing footer crop for full text****Preserving line breaks in infection procedure text**\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Analyzing footer crop for full text****Determining exact visible card fields**\n\n**Extracting exact visible footer and body text**\n\n**Confirming footer text with clipping uncertainty**\n\n**Clarifying image description and JSON formatting**\n\n**Refining card categorization and footer transcription**\n\n{\"orientation\":\"upright\",\"componentType\":\"character action card\",\"cardSide\":\"face\",\"title\":\"REST\",\"typeLine\":\"\",\"body\":\"Resolve the Infection Procedure.\\n\\nRemove all non-Infected cards from the game\\ninstead of discarding them.\\n\\nInfection Procedure:\\nScan all Contaminations in hand.\\nIf any of them are Infected, place a Larva\\non your Character board. Then, discard all\\nContaminations from your hand.\",\"footer\":\"MEDICAL SUPPOR\",\"upperRight\":\"notInCombat\",\"lowerCenter\":\"\",\"visibleText\":\"\",\"confidentlyVisible\":[\"All meaningful typography is upright in the file.\",\"The title REST appears in a framed panel.\",\"The upper-right corner shows a red prohibition circle and slash over a curled white exoskeleton creature.\",\"Artwork shows an armored person supporting or examining a slumped person in a clinical-looking room.\",\"The card has a magenta-purple rules panel and character-label footer.\"],\"proposedCategory\":\"cards/character/action\",\"proposedSlug\":\"rest\",\"confidence\":\"medium\",\"uncertainties\":[\"The footer is visibly obscured after \\\"MEDICAL SUPPOR\\\" by a bright card-art/design element; no hidden or clipped final letter is transcribed.\",\"The complete owner label cannot be established solely from the visible footer fragment.\"]}\n\nsession_id: 20260815_051206_12ce1a\n"
+}

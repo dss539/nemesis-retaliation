@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "recordType": "blindNativePixelRead",
+  "assetId": "W06-004",
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-15.png",
+  "sourceSha256": "e063664e4e786d66092f347f444c9a9184ae0a9f51547158f98e8b25e300b39a",
+  "readAt": "2026-08-15T22:59:20.607147461Z",
+  "runtimeProvenancePath": "assets/tts-mod/extract/vision-workers/sol-max-worker-06/metadata/runtime.json",
+  "attachment": {
+    "exactSourcePathUsed": "/home/smithers/nemesis-retaliation/assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-15.png",
+    "nativeImageRoute": true,
+    "submittedAssetIds": ["W06-004"],
+    "returnedAssetIds": ["W06-004"],
+    "submittedCount": 1,
+    "returnedCount": 1,
+    "countReconciled": true
+  },
+  "orientation": {
+    "observed": "upright",
+    "rotationRequired": false,
+    "basis": "Title, three body lines, and footer read left-to-right in the supplied portrait orientation."
+  },
+  "blindPixelObservations": [
+    "Portrait card with a dark red/black science-fiction frame and red-orange industrial fire artwork.",
+    "Upper artwork shows a distant armored figure in a corridor-like space with fires and hanging cables.",
+    "A dark title plaque in the lower-middle contains one centered white all-caps title line.",
+    "One dark red effect panel contains three centered text lines and one red inline glyph in the first line.",
+    "Several words in the second body line are heavier/bolder than the surrounding text, but the wording remains fully legible.",
+    "The bottom footer is spaced red all-caps text on a dark background.",
+    "No standalone upper-right icon, reaction panel, OR divider panel, neighboring-card text, or visibly clipped material text is present."
+  ],
+  "visibleText": {
+    "title": "FORCING FIRE",
+    "body": {
+      "verbatim": "Spend [ICON: red notched rectangular token-or-slot shape with dark center] from your Rifle.\nThe Queen OR all Adults and Drones Escape\nfrom your Room.",
+      "emphasizedWords": ["Queen", "OR", "Adults", "Drones", "Escape"]
+    },
+    "footer": "HEAVY GUN OPERATOR",
+    "illegibleSpans": [],
+    "clippedSpans": []
+  },
+  "iconMorphology": [
+    {
+      "location": "body line 1, immediately after ‘Spend’ and before ‘from’",
+      "outerSilhouette": "red compact upright rectangular form with a small offset red-outlined projection on the right and a slightly notched upper contour",
+      "internalMarks": "dark/black central field with several narrow vertical divisions or bars near its upper portion; exact count is not secure at full-card scale",
+      "colors": ["red", "dark red", "black"],
+      "neighboringText": "Spend [glyph] from your Rifle.",
+      "tentativeCanonicalCandidate": null,
+      "closestPlausibleCanonicalAlternatives": ["ammoToken", "ammoSlot"],
+      "visibleFeatureRulingAlternativeOut": null,
+      "alternativeRuledOut": false,
+      "semanticIdentityEstablished": false,
+      "deferralReason": "The full-card pixels do not visibly discriminate token from slot artwork, and no authoritative labeled crop was directly compared."
+    }
+  ],
+  "proposedClassification": {
+    "family": "card-family",
+    "componentType": "action/rules card",
+    "basis": "Visible title, rules-effect panel, action terminology, and character-style footer."
+  },
+  "readConfidence": {
+    "overall": "high",
+    "materialText": "high",
+    "punctuation": "high",
+    "iconMorphology": "medium-high",
+    "canonicalIconIdentity": "low"
+  },
+  "classificationConfidence": {
+    "cardFamily": "high",
+    "exactCanonicalComponent": "medium"
+  },
+  "uncertainties": [
+    "The red inline glyph cannot be distinguished between the closest plausible ammo token/slot alternatives from these pixels alone.",
+    "Exact generated-cell selector, GUID, FaceURL/BackURL role, and paired side have not yet been evaluated in this blind record."
+  ],
+  "promotionDecision": "defer",
+  "decisionReasons": [
+    "The material icon gate is unresolved.",
+    "Generated-cell and paired-side provenance gates have not yet been evaluated."
+  ]
+}

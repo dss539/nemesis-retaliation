@@ -1,0 +1,77 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-35.png",
+  "sourceSha256": "fdd8e0d9d9b1dba19bc5625a412ca9be6c924cb55e569e8307a8168f7f6920e5",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_051104_3e6c12",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:11:04Z",
+  "completedAt": "2026-08-15T05:11:50Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "character action card",
+    "cardSide": "face",
+    "title": "REPAIRS",
+    "typeLine": "",
+    "body": "Discard 1 [actionCard].\nDiscard a [malfunction].\n\nOR\n\nOpen or Close 1 Door.",
+    "footer": "OFFICER",
+    "upperRight": "notInCombat",
+    "lowerCenter": "",
+    "visibleText": "",
+    "confidentlyVisible": [
+      "Upright white title REPAIRS",
+      "Two discard instructions above an OR divider",
+      "White gear-shaped malfunction glyph after “Discard a”",
+      "Red X over a white gun silhouette in the upper-right corner",
+      "Blue OFFICER owner label at the bottom",
+      "Artwork depicts an armed seated figure in a blue-lit industrial interior"
+    ],
+    "proposedCategory": "cards/character/officer/action",
+    "proposedSlug": "repairs",
+    "confidence": "high",
+    "uncertainties": []
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Preparing image analysis with vision and image skill****Preparing image analysis with vision and image skill**\n**Analyzing icon for notInCombat meaning**\n\n**Confirming icon identities and meanings****Analyzing icon for notInCombat meaning**\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Confirming icon identities and meanings****Analyzing card iconography and morphology**\n\n\n**Confirming icon mappings and text formatting**\n\n{\"orientation\":\"upright\",\"componentType\":\"character action card\",\"cardSide\":\"face\",\"title\":\"REPAIRS\",\"typeLine\":\"\",\"body\":\"Discard 1 [actionCard].\\nDiscard a [malfunction].\\n\\nOR\\n\\nOpen or Close 1 Door.\",\"footer\":\"OFFICER\",\"upperRight\":\"notInCombat\",\"lowerCenter\":\"\",\"visibleText\":\"\",\"confidentlyVisible\":[\"Upright white title REPAIRS\",\"Two discard instructions above an OR divider\",\"White gear-shaped malfunction glyph after “Discard a”\",\"Red X over a white gun silhouette in the upper-right corner\",\"Blue OFFICER owner label at the bottom\",\"Artwork depicts an armed seated figure in a blue-lit industrial interior\"],\"proposedCategory\":\"cards/character/officer/action\",\"proposedSlug\":\"repairs\",\"confidence\":\"high\",\"uncertainties\":[]}\n\nsession_id: 20260815_051104_3e6c12\n",
+  "iconVerification": {
+    "status": "passed",
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "sessionId": "20260815_060721_8997bf",
+    "promptVersion": 1,
+    "completedAt": "2026-08-15T06:07:35Z",
+    "claimed": [
+      "actionCard",
+      "malfunction",
+      "notInCombat"
+    ],
+    "parsed": {
+      "claims": [
+        {
+          "claimed": "actionCard",
+          "verdict": "match",
+          "actual": "actionCard",
+          "evidence": "One occurrence after “Discard 1”: black square with a white inset panel and bold black A, matching the glossary glyph."
+        },
+        {
+          "claimed": "malfunction",
+          "verdict": "match",
+          "actual": "malfunction",
+          "evidence": "One occurrence after “Discard a”: white eight-toothed gear with a dark circular hub, matching the glossary crop’s gear morphology."
+        },
+        {
+          "claimed": "notInCombat",
+          "verdict": "match",
+          "actual": "notInCombat",
+          "evidence": "One occurrence at the card art’s upper right: a white gun crossed by a red X; this is the documented official artwork variant of the glossary’s crossed-out Intruder icon."
+        }
+      ],
+      "allClaimsMatch": true,
+      "confidence": "high",
+      "uncertainties": []
+    },
+    "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Planning image processing workflow****Planning image processing workflow****Documenting card A icon occurrences**\n\nsession_id: 20260815_060721_8997bf\n{\"claims\":[{\"claimed\":\"actionCard\",\"verdict\":\"match\",\"actual\":\"actionCard\",\"evidence\":\"One occurrence after “Discard 1”: black square with a white inset panel and bold black A, matching the glossary glyph.\"},{\"claimed\":\"malfunction\",\"verdict\":\"match\",\"actual\":\"malfunction\",\"evidence\":\"One occurrence after “Discard a”: white eight-toothed gear with a dark circular hub, matching the glossary crop’s gear morphology.\"},{\"claimed\":\"notInCombat\",\"verdict\":\"match\",\"actual\":\"notInCombat\",\"evidence\":\"One occurrence at the card art’s upper right: a white gun crossed by a red X; this is the documented official artwork variant of the glossary’s crossed-out Intruder icon.\"}],\"allClaimsMatch\":true,\"confidence\":\"high\",\"uncertainties\":[]}\n",
+    "evidencePath": null
+  }
+}

@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-136.jpg",
+  "sourceSha256": "a763510f880bdd497fa9d3fb625a7fbab88294e32b9a638a702b4ac96e372401",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_060516_202a49",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:41:37Z",
+  "completedAt": "2026-08-15T06:05:33Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "ranged weapon item card",
+    "cardSide": "face",
+    "title": "SUBMACHINE GUN",
+    "typeLine": "RANGED WEAPON, HEAVY",
+    "body": "[shootDieAmmoLoss]: Deal [ICON: white skull with vertical split/exclamation-like mark].",
+    "footer": "",
+    "upperRight": "",
+    "lowerCenter": "",
+    "visibleText": "",
+    "confidentlyVisible": [
+      "White uppercase title near the top",
+      "Yellow uppercase type line below the title",
+      "Illustration of a submachine gun",
+      "Red triangular die glyph containing three white cartridges",
+      "The rules line begins with the die glyph followed by a colon and “Deal”",
+      "A white skull-like glyph follows “Deal”",
+      "The lower portion of the card is clipped by the image boundary"
+    ],
+    "proposedCategory": "cards/game/item/weapon",
+    "proposedSlug": "submachine-gun",
+    "confidence": "medium",
+    "uncertainties": [
+      "The white skull-like rules glyph is not present in the supplied canonical glossary and is therefore recorded literally rather than assigned a meaning.",
+      "The card continues below the image boundary; any hidden or clipped lower text and effects cannot be transcribed."
+    ]
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Planning image analysis implementation****Planning image analysis implementation**\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Verifying image rotation and icon interpretation**\n\n{\"orientation\":\"rotate90ccw\",\"componentType\":\"heavy ranged weapon item card\",\"cardSide\":\"face\",\"title\":\"SUBMACHINE GUN\",\"typeLine\":\"RANGED WEAPON, HEAVY\",\"body\":\"[shootDieAmmoLoss]: Deal [ICON: white impact glyph].\",\"footer\":\"\",\"upperRight\":\"\",\"lowerCenter\":\"\",\"visibleText\":\"\",\"confidentlyVisible\":[\"White uppercase title above a yellow uppercase type line\",\"Artwork depicts a compact firearm\",\"Red triangular die icon contains three white cartridge shapes\",\"A red framed panel is partially clipped by the image boundary\"],\"proposedCategory\":\"cards/game/item/red\",\"proposedSlug\":\"submachine-gun\",\"confidence\":\"medium\",\"uncertainties\":[\"The white glyph after “Deal” is not confidently matched to the supplied canonical glossary.\",\"The red lower panel is clipped by the image boundary, so any content beyond its visible empty portion cannot be transcribed.\"]}\n\nsession_id: 20260815_054137_de4340\n",
+  "initialParsed": {
+    "orientation": "rotate90ccw",
+    "componentType": "heavy ranged weapon item card",
+    "cardSide": "face",
+    "title": "SUBMACHINE GUN",
+    "typeLine": "RANGED WEAPON, HEAVY",
+    "body": "[shootDieAmmoLoss]: Deal [ICON: white impact glyph].",
+    "footer": "",
+    "upperRight": "",
+    "lowerCenter": "",
+    "visibleText": "",
+    "confidentlyVisible": [
+      "White uppercase title above a yellow uppercase type line",
+      "Artwork depicts a compact firearm",
+      "Red triangular die icon contains three white cartridge shapes",
+      "A red framed panel is partially clipped by the image boundary"
+    ],
+    "proposedCategory": "cards/game/item/red",
+    "proposedSlug": "submachine-gun",
+    "confidence": "medium",
+    "uncertainties": [
+      "The white glyph after “Deal” is not confidently matched to the supplied canonical glossary.",
+      "The red lower panel is clipped by the image boundary, so any content beyond its visible empty portion cannot be transcribed."
+    ]
+  },
+  "initialSessionId": "20260815_054137_de4340",
+  "orientationCorrection": "rotate90ccw",
+  "uprightRead": {
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "sessionId": "20260815_060516_202a49",
+    "completedAt": "2026-08-15T06:05:33Z",
+    "parsed": {
+      "orientation": "upright",
+      "componentType": "ranged weapon item card",
+      "cardSide": "face",
+      "title": "SUBMACHINE GUN",
+      "typeLine": "RANGED WEAPON, HEAVY",
+      "body": "[shootDieAmmoLoss]: Deal [ICON: white skull with vertical split/exclamation-like mark].",
+      "footer": "",
+      "upperRight": "",
+      "lowerCenter": "",
+      "visibleText": "",
+      "confidentlyVisible": [
+        "White uppercase title near the top",
+        "Yellow uppercase type line below the title",
+        "Illustration of a submachine gun",
+        "Red triangular die glyph containing three white cartridges",
+        "The rules line begins with the die glyph followed by a colon and “Deal”",
+        "A white skull-like glyph follows “Deal”",
+        "The lower portion of the card is clipped by the image boundary"
+      ],
+      "proposedCategory": "cards/game/item/weapon",
+      "proposedSlug": "submachine-gun",
+      "confidence": "medium",
+      "uncertainties": [
+        "The white skull-like rules glyph is not present in the supplied canonical glossary and is therefore recorded literally rather than assigned a meaning.",
+        "The card continues below the image boundary; any hidden or clipped lower text and effects cannot be transcribed."
+      ]
+    },
+    "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Assessing vision skill for image analysis****Assessing vision skill for image analysis**\n**Identifying card icons and type**\n\n**Assessing card image completeness and orientation****Identifying card icons and type**\n\nsession_id: 20260815_060516_202a49\n{\"orientation\":\"upright\",\"componentType\":\"ranged weapon item card\",\"cardSide\":\"face\",\"title\":\"SUBMACHINE GUN\",\"typeLine\":\"RANGED WEAPON, HEAVY\",\"body\":\"[shootDieAmmoLoss]: Deal [ICON: white skull with vertical split/exclamation-like mark].\",\"footer\":\"\",\"upperRight\":\"\",\"lowerCenter\":\"\",\"visibleText\":\"\",\"confidentlyVisible\":[\"White uppercase title near the top\",\"Yellow uppercase type line below the title\",\"Illustration of a submachine gun\",\"Red triangular die glyph containing three white cartridges\",\"The rules line begins with the die glyph followed by a colon and “Deal”\",\"A white skull-like glyph follows “Deal”\",\"The lower portion of the card is clipped by the image boundary\"],\"proposedCategory\":\"cards/game/item/weapon\",\"proposedSlug\":\"submachine-gun\",\"confidence\":\"medium\",\"uncertainties\":[\"The white skull-like rules glyph is not present in the supplied canonical glossary and is therefore recorded literally rather than assigned a meaning.\",\"The card continues below the image boundary; any hidden or clipped lower text and effects cannot be transcribed.\"]}\n"
+  }
+}

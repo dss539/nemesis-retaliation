@@ -1,0 +1,151 @@
+{
+  "schemaVersion": 1,
+  "assetId": "W04-004",
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-06.png",
+  "sourceSha256": "90cb405743269046b530add3108500d2e0eaefbd66fb9d55d7b42dd0cbbffa30",
+  "sourceMetadata": {
+    "width": 1052,
+    "height": 1433,
+    "format": "PNG",
+    "mode": "RGB",
+    "frames": 1,
+    "byteSize": 1593008,
+    "decodeVerified": true
+  },
+  "batchId": "W04-B02",
+  "completedAt": "2026-08-15T22:08:14Z",
+  "runtimeProvenance": {
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "reasoningEffort": "max",
+    "platform": "subagent",
+    "sessionId": "20260815_215426_fac7ff",
+    "nativeImageRoute": "active-session native image attachment via functions.vision_analyze",
+    "workerId": "sol-max-worker-04",
+    "nativeVision": true,
+    "auxiliaryVisionUsed": false,
+    "ocrUsedAsCanonicalEvidence": false,
+    "qwenUsed": false,
+    "runtimeMetadataPath": "assets/tts-mod/extract/vision-workers/sol-max-worker-04/metadata/runtime.json"
+  },
+  "orientation": {
+    "displayed": "upright portrait",
+    "final": "upright",
+    "rotationRequired": false
+  },
+  "blindPixelObservations": [
+    "Blue/purple corridor with hanging chains and a distant armed figure.",
+    "Upper-right white horizontal gun-like object crossed by a red X.",
+    "SEARCH title and two-line body; inline source glyph is a featureless white octagon.",
+    "No neighboring-cell contamination."
+  ],
+  "visibleText": {
+    "title": "SEARCH",
+    "typeLine": "",
+    "body": "Draw 1 Item for each [ICON: solid white octagonal badge with no visible interior mark] in your Room.\nKeep 1 and discard the rest.",
+    "footer": "RECON",
+    "upperRight": "notInCombat",
+    "lowerCenter": "",
+    "edgeContamination": ""
+  },
+  "iconMorphology": [
+    {
+      "location": "upper right",
+      "outerSilhouette": "white horizontal gun silhouette beneath two thick red diagonal bars forming an X",
+      "internalMarks": "small red/dark rail details",
+      "colors": [
+        "white",
+        "red",
+        "dark outline"
+      ],
+      "neighboringPrintedText": "none",
+      "closestPlausibleAlternative": "intruder",
+      "visibleDiscriminatingFeature": "Long gun plus red X, without curled creature, spines, teeth, eye holes, or enclosing circle.",
+      "proposedToken": "notInCombat",
+      "tokenVerification": "same-session direct contact-sheet comparison plus authoritative glossary’s explicit printed-card variant note",
+      "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-worker-04/contact-sheets/W04-004-icons.png",
+      "verdictPath": "assets/tts-mod/extract/vision-workers/sol-max-worker-04/contact-sheets/W04-004-icons-verdict.json"
+    },
+    {
+      "location": "body between “each” and “in”",
+      "outerSilhouette": "solid regular-ish octagonal item-badge field",
+      "internalMarks": "none visible",
+      "colors": [
+        "white"
+      ],
+      "neighboringPrintedText": "Draw 1 Item for each [glyph] in your Room.",
+      "closestPlausibleAlternative": "redItem, yellowItem, or greenItem",
+      "visibleDiscriminatingFeature": "No discriminator among those item badges is visible: source lacks their respective color and cartridges/wrench/cross marks. Its octagonal outline rules out secure but does not select an item token.",
+      "proposedToken": null,
+      "tokenVerification": "focused native contact-sheet comparison remained unresolved",
+      "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-worker-04/contact-sheets/W04-004-icons.png",
+      "verdictPath": "assets/tts-mod/extract/vision-workers/sol-max-worker-04/contact-sheets/W04-004-icons-verdict.json"
+    }
+  ],
+  "evidenceConsulted": [
+    {
+      "kind": "blindNativeImage",
+      "path": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-06.png",
+      "timing": "before metadata/provenance"
+    },
+    {
+      "kind": "ttsProvenance",
+      "path": "assets/tts-mod/extract/vision-workers/sol-max-worker-04/provenance/W04-004.json",
+      "finding": "Exact FaceURL cell 6 join to Card GUID 59dea3, CardID 567406, parent Recon deck; direct paired action BackURL."
+    },
+    {
+      "kind": "authoritativeGlossaryContactSheet",
+      "path": "assets/tts-mod/extract/vision-workers/sol-max-worker-04/contact-sheets/W04-004-icons.png",
+      "finding": "Upper-right variant supports notInCombat; inline white octagon cannot be distinguished among redItem/yellowItem/greenItem and is not secure."
+    },
+    {
+      "kind": "officialRulebookText",
+      "path": "docs/rulebooks/rulebook_text.txt",
+      "location": "lines 4850-4859",
+      "finding": "Official rulebook describes Search as drawing one card for each Item Icon, but extracted prose omits the icon graphics and cannot repair or identify the featureless source glyph."
+    },
+    {
+      "kind": "canonicalTargetExistenceCheck",
+      "path": "cards/character/recon/action/search",
+      "finding": "No existing image or sidecar."
+    }
+  ],
+  "proposedClassification": "individual portrait RECON action-card face with exact FaceURL/CardID/parent join",
+  "proposedPath": "cards/character/recon/action/search.png",
+  "canonicalTarget": "cards/character/recon/action/search.png",
+  "cardData": {
+    "cardSide": "face",
+    "title": "SEARCH",
+    "typeLine": "",
+    "body": "Draw 1 Item for each [ICON: solid white octagonal badge with no visible interior mark] in your Room.\nKeep 1 and discard the rest.",
+    "footer": "RECON",
+    "upperRight": "notInCombat",
+    "lowerCenter": "",
+    "category": "cards/character/recon/action",
+    "slug": "search"
+  },
+  "readConfidence": "medium",
+  "classificationConfidence": "high",
+  "uncertainties": [
+    "The inline octagonal glyph is featureless white in the source and cannot be assigned to redItem, yellowItem, greenItem, or any generic non-glossary Item Icon without inference.",
+    "Official prose establishes the rule concept “Item Icon” but does not make the missing source color/internal symbol visible; source fidelity therefore remains unresolved."
+  ],
+  "promotionDecision": "defer",
+  "decisionReasons": [
+    "Material inline glyph is unresolved, so exact body transcription cannot use a canonical glossary token and minimal sidecar validation would fail.",
+    "False promotion is worse than repairing the source from expected Search semantics."
+  ],
+  "stagedCandidateSidecarPath": null,
+  "validationPerformed": [
+    "source preflight before original/contact-sheet attachments",
+    "blind raw persisted before metadata",
+    "exact GUID/CardID/FaceURL/parent and paired side derived independently",
+    "same-session focused contact-sheet comparison performed",
+    "official rulebook consulted only after concrete glyph ambiguity",
+    "ID/count reconciled 1/1",
+    "target checked absent",
+    "candidate sidecar withheld because body contains unresolved literal icon",
+    "identity recomputed by worker_utils.write_result"
+  ],
+  "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-worker-04/raw/W04-004.json"
+}

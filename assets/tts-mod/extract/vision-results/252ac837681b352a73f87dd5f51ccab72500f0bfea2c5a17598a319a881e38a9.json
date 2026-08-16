@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/tiles/room/door-control-room-020.jpg",
+  "sourceSha256": "252ac837681b352a73f87dd5f51ccab72500f0bfea2c5a17598a319a881e38a9",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_054726_d478fc",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:47:26Z",
+  "completedAt": "2026-08-15T05:47:56Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "room tile texture atlas containing one dominant room-tile face and partial adjacent components",
+    "cardSide": "notCard",
+    "title": "DOOR CONTROL ROOM",
+    "typeLine": "",
+    "body": "Open and/or Close any number\nof Doors in the Facility.",
+    "footer": "",
+    "upperRight": "",
+    "lowerCenter": "",
+    "visibleText": "?\n[ICON: grey outlined badge with bent path-like glyph]\n[computer]\n[redItem]\n[yellowItem]\n?",
+    "confidentlyVisible": [
+      "The dominant component is an irregular interlocking room tile.",
+      "The title and effect text are fully visible on the dominant tile.",
+      "The room artwork depicts a blue-lit control room with consoles, chairs, debris, and blood stains.",
+      "A cyan computer-monitor icon matches [computer].",
+      "A red badge with three white cartridges matches [redItem].",
+      "A yellow badge with a white wrench matches [yellowItem].",
+      "A separate partial component shows a large white question mark."
+    ],
+    "proposedCategory": "tiles/room",
+    "proposedSlug": "door-control-room",
+    "confidence": "medium",
+    "uncertainties": [
+      "The dominant tile is placed obliquely within the file rather than aligned to a 90-degree canvas orientation; no quarter-turn would make its typography exactly horizontal, so the file is retained upright.",
+      "The grey outlined badge near the dominant tile's upper edge is not confidently represented in the supplied glossary.",
+      "The large question marks appear on separate or partially visible component areas and their exact component roles are uncertain.",
+      "The file contains multiple component regions rather than a clean crop of only the dominant room tile."
+    ]
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Inspecting mandatory skill image analysis****Inspecting mandatory skill image analysis**\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Assessing tile text rotation angles**\n\n{\"orientation\":\"upright\",\"componentType\":\"room tile texture atlas containing one dominant room-tile face and partial adjacent components\",\"cardSide\":\"notCard\",\"title\":\"DOOR CONTROL ROOM\",\"typeLine\":\"\",\"body\":\"Open and/or Close any number\\nof Doors in the Facility.\",\"footer\":\"\",\"upperRight\":\"\",\"lowerCenter\":\"\",\"visibleText\":\"?\\n[ICON: grey outlined badge with bent path-like glyph]\\n[computer]\\n[redItem]\\n[yellowItem]\\n?\",\"confidentlyVisible\":[\"The dominant component is an irregular interlocking room tile.\",\"The title and effect text are fully visible on the dominant tile.\",\"The room artwork depicts a blue-lit control room with consoles, chairs, debris, and blood stains.\",\"A cyan computer-monitor icon matches [computer].\",\"A red badge with three white cartridges matches [redItem].\",\"A yellow badge with a white wrench matches [yellowItem].\",\"A separate partial component shows a large white question mark.\"],\"proposedCategory\":\"tiles/room\",\"proposedSlug\":\"door-control-room\",\"confidence\":\"medium\",\"uncertainties\":[\"The dominant tile is placed obliquely within the file rather than aligned to a 90-degree canvas orientation; no quarter-turn would make its typography exactly horizontal, so the file is retained upright.\",\"The grey outlined badge near the dominant tile's upper edge is not confidently represented in the supplied glossary.\",\"The large question marks appear on separate or partially visible component areas and their exact component roles are uncertain.\",\"The file contains multiple component regions rather than a clean crop of only the dominant room tile.\"]}\n\nsession_id: 20260815_054726_d478fc\n"
+}

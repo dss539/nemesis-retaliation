@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoopCustomDeck-075.jpg",
+  "sourceSha256": "1aeaa05448d03a083f8c585a4ccaaf2bef716c21cfe0b44c86d169583e3599c1",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_053604_179e04",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:36:04Z",
+  "completedAt": "2026-08-15T05:36:27Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "cooperative objective card",
+    "cardSide": "face",
+    "title": "NOT TAKING ANY CHANCE",
+    "typeLine": "",
+    "body": "All Tactical Gear tokens from the Landing Zone\nAND\nfrom the [lander] must be taken.",
+    "footer": "SOLO / COOP",
+    "upperRight": "",
+    "lowerCenter": "",
+    "visibleText": "QUARANTINE",
+    "confidentlyVisible": [
+      "Portrait-format card with upright typography",
+      "Artwork depicts a sealed doorway crossed by yellow quarantine tape",
+      "A yellow triangular biohazard sign appears on the doorway",
+      "White lander-shaped glyph appears inline in the final rules line",
+      "Title is printed in white uppercase text",
+      "Footer is printed in green uppercase text"
+    ],
+    "proposedCategory": "cards/game/objective",
+    "proposedSlug": "not-taking-any-chance",
+    "confidence": "medium",
+    "uncertainties": [
+      "The artwork contains numerous repeated, overlapping, partially obscured, or clipped instances of QUARANTINE; visibleText includes only the clearly legible complete word and does not reconstruct the fragments.",
+      "The inline white glyph is confidently matched to the canonical lander icon, though its simplified silhouette contains no identifying text."
+    ]
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Planning image inspection workflow****Planning image inspection workflow****Planning pixel inspection**\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Planning pixel inspection****Clarifying visible text transcription**\n\n{\"orientation\":\"upright\",\"componentType\":\"cooperative objective card\",\"cardSide\":\"face\",\"title\":\"NOT TAKING ANY CHANCE\",\"typeLine\":\"\",\"body\":\"All Tactical Gear tokens from the Landing Zone\\nAND\\nfrom the [lander] must be taken.\",\"footer\":\"SOLO / COOP\",\"upperRight\":\"\",\"lowerCenter\":\"\",\"visibleText\":\"QUARANTINE\",\"confidentlyVisible\":[\"Portrait-format card with upright typography\",\"Artwork depicts a sealed doorway crossed by yellow quarantine tape\",\"A yellow triangular biohazard sign appears on the doorway\",\"White lander-shaped glyph appears inline in the final rules line\",\"Title is printed in white uppercase text\",\"Footer is printed in green uppercase text\"],\"proposedCategory\":\"cards/game/objective\",\"proposedSlug\":\"not-taking-any-chance\",\"confidence\":\"medium\",\"uncertainties\":[\"The artwork contains numerous repeated, overlapping, partially obscured, or clipped instances of QUARANTINE; visibleText includes only the clearly legible complete word and does not reconstruct the fragments.\",\"The inline white glyph is confidently matched to the canonical lander icon, though its simplified silhouette contains no identifying text.\"]}\n\nsession_id: 20260815_053604_179e04\n"
+}

@@ -1,0 +1,102 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/officer-041.png",
+  "sourceSha256": "581971896f6f57752bbce32814ef9ac88ac0a1cd5c1ba2069cef9aa918d9fe6d",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_060353_b57092",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:23:57Z",
+  "completedAt": "2026-08-15T06:04:14Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "ranged weapon item card",
+    "cardSide": "face",
+    "title": "SAWED-OFF SHOTGUN",
+    "typeLine": "RANGED WEAPON",
+    "body": "Shoot: Instead of a normal Shoot, you may spend [ICON: red outlined rectangular glyph with right-side double-lobed protrusion]\nto Repel 1 Adult from the Room.",
+    "footer": "",
+    "upperRight": "",
+    "lowerCenter": "ammoSlot",
+    "visibleText": "",
+    "confidentlyVisible": [
+      "White uppercase title centered above the weapon art",
+      "Yellow uppercase type line beneath the title",
+      "Large futuristic sawed-off shotgun depicted across the center",
+      "The word “Shoot:” is printed in red",
+      "Red slot with a black hexagonal opening at the lower center"
+    ],
+    "proposedCategory": "cards/game/item/weapon",
+    "proposedSlug": "sawed-off-shotgun",
+    "confidence": "medium",
+    "uncertainties": [
+      "The red inline glyph after “spend” is not confidently identifiable from the supplied canonical glossary and is therefore described literally.",
+      "The lower-center red slot is mapped to ammoSlot from its color and slot morphology, but no identifying glyph is visible inside it."
+    ]
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Planning image orientation analysis**\n\n**Determining correct image rotation direction****Planning image orientation analysis**\n**Determining correct image rotation direction****Planning image rotation and pixel inspection**\n\n\n**Mapping icon positions after rotation**\n\n**Preparing region crops for icon analysis**\n\n**Planning parallel vision analysis on cropped icons**\n\n**Deciding on contact sheet creation method****Planning image rotation and pixel inspection**\n**Mapping icon positions after rotation**\n**Preparing region crops for icon analysis**\n\n**Planning parallel vision analysis on cropped icons**\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Deciding on contact sheet creation method****Analyzing image text orientation**\n\n\n**Mapping glyph to ammoSlot icon**\n\n**Calculating rotated icon coordinates**\n\n**Verifying red badge shape details**\n\n**Distinguishing ammoSlot from ammoToken icons**\n\n**Confirming redItem icon labeling**\n\n**Refining weapon card categorization**\n\n**Extracting rotated multiline card text**\n\n**Noting icon clipping near image edge**\n\n**Confirming clipped lower-center badge inclusion**\n\n**Analyzing ammo token iconography and confidence**\n\n**Interpreting rotated ammo magazine glyph**\n\n**Refining icon shape description**\n\n**Classifying red item card icon**\n\n**Noting icon clipping and transcription uncertainties**\n\n**Setting medium confidence due to icon uncertainty**\n\n{\"orientation\":\"rotate90ccw\",\"componentType\":\"ranged weapon item card\",\"cardSide\":\"face\",\"title\":\"SAWED-OFF SHOTGUN\",\"typeLine\":\"RANGED WEAPON\",\"body\":\"Shoot: Instead of a normal Shoot, you may spend [ICON: red outlined rectangle with black center and rounded right tab]\\nto Repel 1 Adult from the Room.\",\"footer\":\"\",\"upperRight\":\"\",\"lowerCenter\":\"redItem\",\"visibleText\":\"\",\"confidentlyVisible\":[\"Typography becomes upright after rotating the file 90° counterclockwise.\",\"The title is printed in white uppercase letters.\",\"The type line is printed in yellow uppercase letters.\",\"“Shoot:” is red; the remaining effect text is white.\",\"The artwork depicts a short firearm with a yellow upper section.\",\"A red badge with a black cartridge-shaped cutout appears at lower center after rotation.\",\"A smaller red outlined glyph follows the word “spend” in the body text.\"],\"proposedCategory\":\"cards/game/item/red\",\"proposedSlug\":\"sawed-off-shotgun\",\"confidence\":\"medium\",\"uncertainties\":[\"The inline red glyph after “spend” cannot be confidently distinguished among the supplied token/slot identifiers, so it is transcribed literally rather than assigned a canonical meaning.\",\"The lower-center redItem badge extends beyond and is partially clipped by the file edge.\"]}\n\nsession_id: 20260815_052358_a2953b\n",
+  "initialParsed": {
+    "orientation": "rotate90ccw",
+    "componentType": "ranged weapon item card",
+    "cardSide": "face",
+    "title": "SAWED-OFF SHOTGUN",
+    "typeLine": "RANGED WEAPON",
+    "body": "Shoot: Instead of a normal Shoot, you may spend [ICON: red outlined rectangle with black center and rounded right tab]\nto Repel 1 Adult from the Room.",
+    "footer": "",
+    "upperRight": "",
+    "lowerCenter": "redItem",
+    "visibleText": "",
+    "confidentlyVisible": [
+      "Typography becomes upright after rotating the file 90° counterclockwise.",
+      "The title is printed in white uppercase letters.",
+      "The type line is printed in yellow uppercase letters.",
+      "“Shoot:” is red; the remaining effect text is white.",
+      "The artwork depicts a short firearm with a yellow upper section.",
+      "A red badge with a black cartridge-shaped cutout appears at lower center after rotation.",
+      "A smaller red outlined glyph follows the word “spend” in the body text."
+    ],
+    "proposedCategory": "cards/game/item/red",
+    "proposedSlug": "sawed-off-shotgun",
+    "confidence": "medium",
+    "uncertainties": [
+      "The inline red glyph after “spend” cannot be confidently distinguished among the supplied token/slot identifiers, so it is transcribed literally rather than assigned a canonical meaning.",
+      "The lower-center redItem badge extends beyond and is partially clipped by the file edge."
+    ]
+  },
+  "initialSessionId": "20260815_052358_a2953b",
+  "orientationCorrection": "rotate90ccw",
+  "uprightRead": {
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "sessionId": "20260815_060353_b57092",
+    "completedAt": "2026-08-15T06:04:14Z",
+    "parsed": {
+      "orientation": "upright",
+      "componentType": "ranged weapon item card",
+      "cardSide": "face",
+      "title": "SAWED-OFF SHOTGUN",
+      "typeLine": "RANGED WEAPON",
+      "body": "Shoot: Instead of a normal Shoot, you may spend [ICON: red outlined rectangular glyph with right-side double-lobed protrusion]\nto Repel 1 Adult from the Room.",
+      "footer": "",
+      "upperRight": "",
+      "lowerCenter": "ammoSlot",
+      "visibleText": "",
+      "confidentlyVisible": [
+        "White uppercase title centered above the weapon art",
+        "Yellow uppercase type line beneath the title",
+        "Large futuristic sawed-off shotgun depicted across the center",
+        "The word “Shoot:” is printed in red",
+        "Red slot with a black hexagonal opening at the lower center"
+      ],
+      "proposedCategory": "cards/game/item/weapon",
+      "proposedSlug": "sawed-off-shotgun",
+      "confidence": "medium",
+      "uncertainties": [
+        "The red inline glyph after “spend” is not confidently identifiable from the supplied canonical glossary and is therefore described literally.",
+        "The lower-center red slot is mapped to ammoSlot from its color and slot morphology, but no identifying glyph is visible inside it."
+      ]
+    },
+    "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Analyzing red ammo icon morphology**\n\n**Identifying sawed-off shotgun card components****Analyzing red ammo icon morphology**\n\nsession_id: 20260815_060353_b57092\n{\"orientation\":\"upright\",\"componentType\":\"ranged weapon item card\",\"cardSide\":\"face\",\"title\":\"SAWED-OFF SHOTGUN\",\"typeLine\":\"RANGED WEAPON\",\"body\":\"Shoot: Instead of a normal Shoot, you may spend [ICON: red outlined rectangular glyph with right-side double-lobed protrusion]\\nto Repel 1 Adult from the Room.\",\"footer\":\"\",\"upperRight\":\"\",\"lowerCenter\":\"ammoSlot\",\"visibleText\":\"\",\"confidentlyVisible\":[\"White uppercase title centered above the weapon art\",\"Yellow uppercase type line beneath the title\",\"Large futuristic sawed-off shotgun depicted across the center\",\"The word “Shoot:” is printed in red\",\"Red slot with a black hexagonal opening at the lower center\"],\"proposedCategory\":\"cards/game/item/weapon\",\"proposedSlug\":\"sawed-off-shotgun\",\"confidence\":\"medium\",\"uncertainties\":[\"The red inline glyph after “spend” is not confidently identifiable from the supplied canonical glossary and is therefore described literally.\",\"The lower-center red slot is mapped to ammoSlot from its color and slot morphology, but no identifying glyph is visible inside it.\"]}\n"
+  }
+}

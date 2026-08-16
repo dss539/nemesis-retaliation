@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "assetId": "W01-015",
+  "batchId": "batch-004",
+  "capturedAt": "2026-08-15T20:54:46Z",
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/bags/oxygenBag-031.jpg",
+  "sourceSha256": "00086974543621c1feb8f5d51fc81bfa81751ebbe1bf03362029892ef643a71d",
+  "runtimeProvenanceRef": "../metadata/runtime.json",
+  "blindAnalysis": true,
+  "metadataExcludedDuringPixelPass": [
+    "filename semantics",
+    "directory semantics",
+    "prior vision reads",
+    "TTS object metadata",
+    "game-context expectations"
+  ],
+  "orientationObservation": "Upright as displayed; +3 is level and the illustrated canister stands vertically with cap above rounded base.",
+  "blindPixelObservations": [
+    "Dark embossed industrial wall background.",
+    "Centered glossy amber-orange clipped-corner rectangular housing with a smaller right compartment.",
+    "A tall yellow-gold cylindrical canister with gray cap assembly, bright oval highlights, and a cyan rectangular middle panel sits in the main compartment.",
+    "Large white +3 with black outline overlays the canister; a pale vertical yellow-white reflection sits at right."
+  ],
+  "visibleText": [
+    {
+      "text": "+3",
+      "location": "center over canister",
+      "structure": "plus sign followed by numeral",
+      "confidence": "high"
+    }
+  ],
+  "iconObservations": [
+    {
+      "location": "center-left",
+      "literalMorphology": "Detailed cylindrical yellow-gold canister with top valve/cap, two oval highlights, cyan rectangular panel, and rounded lower end.",
+      "colors": "yellow-gold, cyan, gray, white, amber",
+      "closestPlausibleGlossaryAlternative": "none; no oxygen/canister icon exists in the canonical glossary",
+      "visibleDiscriminatingFeature": "This is detailed object artwork rather than a listed flat gameplay glyph; no glossary icon is claimed."
+    }
+  ],
+  "uncertainties": [
+    "Pixels alone do not establish the canister's official item name or TTS container role."
+  ]
+}

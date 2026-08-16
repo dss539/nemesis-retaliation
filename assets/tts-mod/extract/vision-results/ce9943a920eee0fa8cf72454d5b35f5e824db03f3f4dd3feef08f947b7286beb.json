@@ -1,0 +1,94 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/recon-046_cards/card-05.png",
+  "sourceSha256": "ce9943a920eee0fa8cf72454d5b35f5e824db03f3f4dd3feef08f947b7286beb",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_060417_d1e891",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:15:08Z",
+  "completedAt": "2026-08-15T06:04:32Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "digital character-selection screen",
+    "cardSide": "notCard",
+    "title": "PICK CONTRACTOR",
+    "typeLine": "",
+    "body": "",
+    "footer": "",
+    "upperRight": "",
+    "lowerCenter": "",
+    "visibleText": "",
+    "confidentlyVisible": [
+      "Landscape-format digital artwork",
+      "A woman wearing a headset holds a large firearm",
+      "A metallic interface panel spans the lower portion",
+      "White uppercase typography is upright",
+      "No canonical glossary icons are visible"
+    ],
+    "proposedCategory": null,
+    "proposedSlug": "pick-contractor",
+    "confidence": "high",
+    "uncertainties": []
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Planning pixel-level image analysis**\n\n**Analyzing image rotation and glyph orientation**\n\n**Confirming image rotation as 90° counterclockwise****Planning pixel-level image analysis**\n**Analyzing image rotation and glyph orientation**\n**Confirming image rotation as 90° counterclockwise****Inspecting vision with blind prompt**\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Inspecting vision with blind prompt****Assessing text rotation direction**\n\n**Confirming 90° CCW text rotation**\n\n**Classifying component as instruction card face**\n\n**Clarifying card face/back ambiguity**\n\n**Classifying card as contractor selection back**\n\n{\"orientation\":\"rotate90ccw\",\"componentType\":\"contractor selection card back\",\"cardSide\":\"back\",\"title\":\"PICK CONTRACTOR\",\"typeLine\":\"\",\"body\":\"\",\"footer\":\"\",\"upperRight\":\"\",\"lowerCenter\":\"\",\"visibleText\":\"\",\"confidentlyVisible\":[\"White all-capital title inside a dark metallic framed panel\",\"Science-fiction artwork depicts a human woman wearing a headset and holding a firearm\",\"Red and cyan glitch-like streaks cross the artwork\",\"No canonical glossary icons are visible\",\"No rules text, type line, or footer is visible\"],\"proposedCategory\":\"cards/character/contractor-selection\",\"proposedSlug\":\"pick-contractor\",\"confidence\":\"medium\",\"uncertainties\":[\"The deck-label-like presentation suggests a card back, but the face/back role cannot be proven from this side's pixels alone.\",\"The exact card taxonomy beyond contractor selection is not printed on the component.\"]}\n\nsession_id: 20260815_051509_cf86df\n",
+  "initialParsed": {
+    "orientation": "rotate90ccw",
+    "componentType": "contractor selection card back",
+    "cardSide": "back",
+    "title": "PICK CONTRACTOR",
+    "typeLine": "",
+    "body": "",
+    "footer": "",
+    "upperRight": "",
+    "lowerCenter": "",
+    "visibleText": "",
+    "confidentlyVisible": [
+      "White all-capital title inside a dark metallic framed panel",
+      "Science-fiction artwork depicts a human woman wearing a headset and holding a firearm",
+      "Red and cyan glitch-like streaks cross the artwork",
+      "No canonical glossary icons are visible",
+      "No rules text, type line, or footer is visible"
+    ],
+    "proposedCategory": "cards/character/contractor-selection",
+    "proposedSlug": "pick-contractor",
+    "confidence": "medium",
+    "uncertainties": [
+      "The deck-label-like presentation suggests a card back, but the face/back role cannot be proven from this side's pixels alone.",
+      "The exact card taxonomy beyond contractor selection is not printed on the component."
+    ]
+  },
+  "initialSessionId": "20260815_051509_cf86df",
+  "orientationCorrection": "rotate90ccw",
+  "uprightRead": {
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "sessionId": "20260815_060417_d1e891",
+    "completedAt": "2026-08-15T06:04:32Z",
+    "parsed": {
+      "orientation": "upright",
+      "componentType": "digital character-selection screen",
+      "cardSide": "notCard",
+      "title": "PICK CONTRACTOR",
+      "typeLine": "",
+      "body": "",
+      "footer": "",
+      "upperRight": "",
+      "lowerCenter": "",
+      "visibleText": "",
+      "confidentlyVisible": [
+        "Landscape-format digital artwork",
+        "A woman wearing a headset holds a large firearm",
+        "A metallic interface panel spans the lower portion",
+        "White uppercase typography is upright",
+        "No canonical glossary icons are visible"
+      ],
+      "proposedCategory": null,
+      "proposedSlug": "pick-contractor",
+      "confidence": "high",
+      "uncertainties": []
+    },
+    "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Planning vision skill integration****Planning vision skill integration****Refining UI component identification**\n\nsession_id: 20260815_060417_d1e891\n{\"orientation\":\"upright\",\"componentType\":\"digital character-selection screen\",\"cardSide\":\"notCard\",\"title\":\"PICK CONTRACTOR\",\"typeLine\":\"\",\"body\":\"\",\"footer\":\"\",\"upperRight\":\"\",\"lowerCenter\":\"\",\"visibleText\":\"\",\"confidentlyVisible\":[\"Landscape-format digital artwork\",\"A woman wearing a headset holds a large firearm\",\"A metallic interface panel spans the lower portion\",\"White uppercase typography is upright\",\"No canonical glossary icons are visible\"],\"proposedCategory\":null,\"proposedSlug\":\"pick-contractor\",\"confidence\":\"high\",\"uncertainties\":[]}\n"
+  }
+}

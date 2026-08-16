@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 1,
+  "assetId": "W05-001",
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-01.png",
+  "sourceSha256": "d293abad16af07498d8f485bd1ab67426be66a64d78c2fbd085ec4bac7dc0f4f",
+  "nativeAttachment": {
+    "submittedAssetId": "W05-001",
+    "submittedCount": 1,
+    "returnedAssetId": "W05-001",
+    "returnedCount": 1,
+    "exactAbsolutePathAttached": "/home/smithers/nemesis-retaliation/assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-01.png",
+    "routeObservation": "functions.vision_analyze returned 'Image loaded into your context — you can see it natively now' to the active session model"
+  },
+  "orientation": {
+    "pixelOrientation": "upright",
+    "requiredTransform": "none",
+    "basis": "All title, body, reaction-panel, and footer text reads left-to-right; the portrait card layout is vertically ordered without mental rotation."
+  },
+  "blindPixelObservations": [
+    "A portrait-format illustrated rules card fills the image.",
+    "The upper half contains dark blue, cyan, magenta, and black science-fiction artwork; a dark figure occupies the left and a smaller armed figure appears at lower right of the art.",
+    "A magenta-and-black framed title panel overlays the lower part of the artwork.",
+    "Below the title is one centered instruction line containing one white pictogram, followed by a centered OR divider.",
+    "A COMMAND heading and a three-line instruction occupy the next dark panel.",
+    "A white REACTION panel spans the lower middle; REACTION is printed vertically on a white tab at left, while five centered text lines appear in the panel.",
+    "The footer is black with widely spaced magenta letters.",
+    "No other non-decorative standalone pictogram is visibly established."
+  ],
+  "visibleText": {
+    "title": "CHAIN\nOF COMMAND",
+    "primaryLine": "Move the [ICON: white low-bodied silhouette with a tall narrow central spire] by 1 space in any direction.",
+    "divider": "OR",
+    "commandHeading": "COMMAND",
+    "commandBody": "Choose a Character with a lower Rank.\nThen, Move, Shoot, or Burst using this\nCharacter.",
+    "reactionHeading": "REACTION",
+    "reactionBody": "When a Character with a higher Rank plays\na Command on you:\nCancel the effect of that Command. That\nCharacter must still pay the Action’s cost.",
+    "footer": "RECON"
+  },
+  "iconMorphology": [
+    {
+      "iconId": "W05-001-glyph-01",
+      "location": "primary instruction line, between the printed words 'the' and 'by'",
+      "neighboringText": "Move the [glyph] by 1 space in any direction.",
+      "outerSilhouette": "A horizontally broad, low white body with an uneven rounded base and a tall, narrow central spire rising well above it.",
+      "internalMarks": "The glyph is predominantly solid white; small dark notches or gaps are visible near the lower left and lower middle, but their exact shape is too small to resolve confidently.",
+      "colors": [
+        "white foreground",
+        "dark magenta/black card background visible through small notches"
+      ],
+      "closestPlausibleCanonicalAlternatives": [
+        "lander",
+        "autodestruction"
+      ],
+      "alternativeFalsification": {
+        "autodestruction": "The visible glyph has one conspicuously tall central spire and a squat platform-like lower body rather than the glossary description's three-lobed warning-symbol silhouette.",
+        "lander": "The source pixels alone do not rule this alternative out; no direct authoritative crop comparison is part of this blind record."
+      },
+      "semanticIdentity": "unresolved literal morphology",
+      "canonicalTokenClaimed": false
+    }
+  ],
+  "blindReadConfidence": {
+    "orientation": "high",
+    "materialText": "high",
+    "punctuation": "high except exact apostrophe glyph style is read as a right single quotation mark",
+    "iconMorphology": "medium",
+    "iconSemanticIdentity": "low"
+  },
+  "blindUncertainties": [
+    "The sole gameplay pictogram is too small for a defensible semantic token from the card pixels alone.",
+    "The tiny negative-space notches inside the pictogram cannot be described more precisely without a focused comparison, which this one-image blind turn intentionally did not perform."
+  ],
+  "metadataUsedForSemanticReading": false,
+  "rawStage": "blind-pixel-observation-before-provenance-join"
+}

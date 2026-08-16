@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/greenitem-181_cards/card-06.png",
+  "sourceSha256": "3ed05ec380152f89ac3af2f4a648327d369a7a94db456f801e328027c81482f1",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_052950_86a73a",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:29:49Z",
+  "completedAt": "2026-08-15T05:31:07Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "green-framed one-use item card",
+    "cardSide": "face",
+    "title": "MEDKIT",
+    "typeLine": "ONE USE ONLY",
+    "body": "Discard 1 Serious Wound.\n\nOR\n\nMove your [characterHealth] marker\nback to the first space\nof the Injured Health section.",
+    "footer": "",
+    "upperRight": "notInCombat",
+    "lowerCenter": "",
+    "visibleText": "MEDICAL\nKIT\n99\n67",
+    "confidentlyVisible": [
+      "Typography is upright in the file.",
+      "The artwork depicts a green-and-white medical kit with a cross emblem.",
+      "The title reads MEDKIT.",
+      "The yellow type line reads ONE USE ONLY.",
+      "An upper-right white firearm silhouette is crossed out by a red X.",
+      "The inline body glyph is a cross containing an EKG waveform.",
+      "The card has green illuminated framing."
+    ],
+    "proposedCategory": "cards/game/item/green",
+    "proposedSlug": "medkit",
+    "confidence": "medium",
+    "uncertainties": [
+      "Tiny labels and markings on the kit's electronic display are illegible; only the prominent digits appearing as 99 and 67 are transcribed.",
+      "The display digits are small and stylized, so their transcription is less certain than the card rules text."
+    ]
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Planning skill loading and image analysis****Planning skill loading and image analysis**\n**Inspecting map icon details**\n\n**Cropping medical kit text area****Inspecting map icon details**\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Cropping medical kit text area****Inspecting card icon details**\n\n**Transcribing visible card text and symbols**\n\n**Clarifying card type and category**\n\n**Refining green-framed item card details**\n\n**Identifying upper-right icon as notInCombat**\n\n**Clarifying medkit title and usage line**\n\n**Clarifying uncertain image text and icons**\n\n**Confirming icon mapping and card categorization**\n\n**Noting uncertainty in small numeric labels**\n\n**Defining visible text extraction criteria**\n\n**Assigning semantic card type and category**\n\n{\"orientation\":\"upright\",\"componentType\":\"green-framed one-use item card\",\"cardSide\":\"face\",\"title\":\"MEDKIT\",\"typeLine\":\"ONE USE ONLY\",\"body\":\"Discard 1 Serious Wound.\\n\\nOR\\n\\nMove your [characterHealth] marker\\nback to the first space\\nof the Injured Health section.\",\"footer\":\"\",\"upperRight\":\"notInCombat\",\"lowerCenter\":\"\",\"visibleText\":\"MEDICAL\\nKIT\\n99\\n67\",\"confidentlyVisible\":[\"Typography is upright in the file.\",\"The artwork depicts a green-and-white medical kit with a cross emblem.\",\"The title reads MEDKIT.\",\"The yellow type line reads ONE USE ONLY.\",\"An upper-right white firearm silhouette is crossed out by a red X.\",\"The inline body glyph is a cross containing an EKG waveform.\",\"The card has green illuminated framing.\"],\"proposedCategory\":\"cards/game/item/green\",\"proposedSlug\":\"medkit\",\"confidence\":\"medium\",\"uncertainties\":[\"Tiny labels and markings on the kit's electronic display are illegible; only the prominent digits appearing as 99 and 67 are transcribed.\",\"The display digits are small and stylized, so their transcription is less certain than the card rules text.\"]}\n\nsession_id: 20260815_052950_86a73a\n"
+}

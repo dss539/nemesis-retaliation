@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/tiles/room/reactor-016.jpg",
+  "sourceSha256": "8d2b5d95b159a24aff86a2eeab429db4edacd93f72d19f723abb7335537365ae",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_054829_69fb4b",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:48:29Z",
+  "completedAt": "2026-08-15T05:49:05Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "texture atlas containing multiple room-tile graphics",
+    "cardSide": "notCard",
+    "title": "REACTOR",
+    "typeLine": "",
+    "body": "Remove from the game\nall [ICON: cyan rounded cluster of three linked canisters], [ICON: white rounded cluster of three linked canisters], [ICON: white three-lobed circular symbol],\nand both Anti-aircraft tokens.",
+    "footer": "",
+    "upperRight": "[ICON: grey hexagonal badge with white three-pronged glyph]",
+    "lowerCenter": "",
+    "visibleText": "C",
+    "confidentlyVisible": [
+      "The file contains portions of multiple dark, irregularly edged tile graphics.",
+      "The upper-left tile bears the title “REACTOR” in white uppercase letters.",
+      "A large magenta C appears near the upper-left tile's top edge.",
+      "A red badge with three white cartridges appears along the left edge of the REACTOR tile.",
+      "A yellow badge with a white wrench appears below the red badge.",
+      "A separate lower-right tile has a large white C over a circular mechanical structure.",
+      "The meaningful typography is readable left-to-right in the file without a cardinal rotation."
+    ],
+    "proposedCategory": "models/texture",
+    "proposedSlug": null,
+    "confidence": "low",
+    "uncertainties": [
+      "The file is a composite texture atlas rather than one isolated component, so assigning the REACTOR title and fields to the whole image is structurally ambiguous.",
+      "The three inline effect glyphs are not confidently matched to the supplied canonical glossary and are therefore described literally.",
+      "The grey upper-right badge glyph is not confidently identified.",
+      "The large magenta C and the large white C may be local tile markings, but their precise meanings are not established by visible pixels alone.",
+      "Several neighboring tile graphics are clipped by the image boundaries.",
+      "A semantic filename stem for the entire composite image cannot be determined confidently from the pixels."
+    ]
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Loading image analysis skills****Loading image analysis skills****Planning precise image inspection**\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Planning precise image inspection****Analyzing text orientation and tile rotation**\n\n\n{\"orientation\":\"upright\",\"componentType\":\"texture atlas containing multiple room-tile graphics\",\"cardSide\":\"notCard\",\"title\":\"REACTOR\",\"typeLine\":\"\",\"body\":\"Remove from the game\\nall [ICON: cyan rounded cluster of three linked canisters], [ICON: white rounded cluster of three linked canisters], [ICON: white three-lobed circular symbol],\\nand both Anti-aircraft tokens.\",\"footer\":\"\",\"upperRight\":\"[ICON: grey hexagonal badge with white three-pronged glyph]\",\"lowerCenter\":\"\",\"visibleText\":\"C\",\"confidentlyVisible\":[\"The file contains portions of multiple dark, irregularly edged tile graphics.\",\"The upper-left tile bears the title “REACTOR” in white uppercase letters.\",\"A large magenta C appears near the upper-left tile's top edge.\",\"A red badge with three white cartridges appears along the left edge of the REACTOR tile.\",\"A yellow badge with a white wrench appears below the red badge.\",\"A separate lower-right tile has a large white C over a circular mechanical structure.\",\"The meaningful typography is readable left-to-right in the file without a cardinal rotation.\"],\"proposedCategory\":\"models/texture\",\"proposedSlug\":null,\"confidence\":\"low\",\"uncertainties\":[\"The file is a composite texture atlas rather than one isolated component, so assigning the REACTOR title and fields to the whole image is structurally ambiguous.\",\"The three inline effect glyphs are not confidently matched to the supplied canonical glossary and are therefore described literally.\",\"The grey upper-right badge glyph is not confidently identified.\",\"The large magenta C and the large white C may be local tile markings, but their precise meanings are not established by visible pixels alone.\",\"Several neighboring tile graphics are clipped by the image boundaries.\",\"A semantic filename stem for the entire composite image cannot be determined confidently from the pixels.\"]}\n\nsession_id: 20260815_054829_69fb4b\n"
+}

@@ -1,0 +1,104 @@
+{
+  "schemaVersion": 1,
+  "assetId": "W01-012",
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/bags/intruderBag-026.jpg",
+  "sourceSha256": "03ac468fb9d283d79ec4cf674de4388468e6c9c801d5127e7c027df567af2d12",
+  "sourceMetadata": {
+    "width": 1024,
+    "height": 1024,
+    "format": "JPEG",
+    "mode": "RGB",
+    "byteSize": 82423
+  },
+  "runtimeProvenance": {
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "reasoningEffort": "max",
+    "platform": "subagent",
+    "workerId": "sol-max-worker-01",
+    "sessionProvenanceHandle": "hermes_rpc_dfba82c30cd846b6bc4eced43002e707.sock",
+    "persistentSession": true,
+    "nativeVision": true,
+    "auxiliaryVisionUsed": false
+  },
+  "orientation": {
+    "sourceStatus": "two wordmarks rotated 90 degrees clockwise",
+    "finalReadStatus": "upright-in-staging",
+    "transformApplied": "rotate source pixels 90 degrees CCW into a lossless PNG derivative",
+    "stagingDerivative": "assets/tts-mod/extract/vision-workers/sol-max-worker-01/crops/W01-012-upright-rotate-90ccw.png",
+    "stagingDerivativeSha256": "1e3c1f4bf4c91e3e1dd077bc61acbea31f9f4126130ff770bcc85b17c611c2a2",
+    "stagingDimensions": {
+      "width": 1024,
+      "height": 1024,
+      "format": "PNG"
+    },
+    "sourceModified": false
+  },
+  "blindPixelObservations": [
+    "Almost entirely black square UV/texture-atlas canvas.",
+    "After upright staging rotation, the upper half is nearly uniform black and the lower half has subtle woven texture.",
+    "Two identical distressed white wordmark pairs sit side-by-side across the lower textured half."
+  ],
+  "visibleText": [
+    {
+      "text": "NEMESIS\nRETALIATION",
+      "location": "lower-left after upright rotation",
+      "structure": "large uppercase word above smaller widely spaced uppercase word",
+      "confidence": "high"
+    },
+    {
+      "text": "NEMESIS\nRETALIATION",
+      "location": "lower-right after upright rotation",
+      "structure": "identical repeated wordmark pair",
+      "confidence": "high"
+    }
+  ],
+  "iconMorphology": [],
+  "evidenceConsulted": {
+    "tts": {
+      "consultedAfterBlindRecord": true,
+      "trigger": "Pixels established a branded UV texture but not the TTS object role.",
+      "manifestUrl": "https://steamusercontent-a.akamaihd.net/ugc/2468613527880245313/00EA1E6423A5DE64D472C66094AB58F965582D4A/",
+      "objectReferences": [
+        {
+          "guid": "1283e4",
+          "type": "Custom_Model_Bag",
+          "urlRole": "DiffuseURL"
+        }
+      ]
+    },
+    "official": {
+      "consulted": false,
+      "reason": "Exact generic branded bag-diffuse classification is sufficient; no narrower semantic bag role is asserted from the filename."
+    }
+  },
+  "proposedClassification": "Non-card NEMESIS RETALIATION branded Custom_Model_Bag diffuse/UV texture; exact functional bag subtype is not asserted from path semantics.",
+  "proposedPath": "assets/tts-mod/extract/v2-dl/tree/bags/intruderBag-026.jpg (retain source unchanged; no canonical move proposed)",
+  "readConfidence": {
+    "level": "high",
+    "reason": "Both repeated wordmark pairs are clear after lossless upright reread."
+  },
+  "classificationConfidence": {
+    "level": "high",
+    "reason": "UV layout and a single TTS Custom_Model_Bag DiffuseURL role establish the non-card component family without requiring a semantic bag subtype."
+  },
+  "uncertainties": [
+    "The TTS record has no nickname/gmnotes establishing which functional bag uses the generic branded diffuse; no narrower claim is made."
+  ],
+  "promotionDecision": "non-card-complete",
+  "decisionReasons": [
+    "This is a model-bag diffuse/UV texture, not a rules-card face.",
+    "The exact visible branding is complete after upright reread.",
+    "Non-card completion does not rely on the semantic filename or an unsupported functional subtype."
+  ],
+  "stagedCandidateSidecarPath": null,
+  "validationPerformed": [
+    "Assignment SHA-256 matched source bytes.",
+    "Pillow decoded and verified the original 1024x1024 JPEG.",
+    "Initial native read was treated only as orientation detection.",
+    "Lossless 1024x1024 PNG derivative was reread natively and verified upright.",
+    "Manifest URL and matching TTS DiffuseURL role were resolved.",
+    "Original source and canonical/shared files were not modified."
+  ],
+  "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-worker-01/raw/W01-012.json"
+}

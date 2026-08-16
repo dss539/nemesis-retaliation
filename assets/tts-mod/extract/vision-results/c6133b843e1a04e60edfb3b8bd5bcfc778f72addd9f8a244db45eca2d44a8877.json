@@ -1,0 +1,101 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/tiles/airlocktoken-010.png",
+  "sourceSha256": "c6133b843e1a04e60edfb3b8bd5bcfc778f72addd9f8a244db45eca2d44a8877",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_060630_8ebf17",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:47:03Z",
+  "completedAt": "2026-08-15T06:06:55Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "circular illustrated token",
+    "cardSide": "notCard",
+    "title": "",
+    "typeLine": "",
+    "body": "",
+    "footer": "",
+    "upperRight": "",
+    "lowerCenter": "",
+    "visibleText": "SAFETY\nUNIFORM\nLOCKER\n[ICON: red information symbol with white outline]",
+    "confidentlyVisible": [
+      "Circular component on a black background",
+      "Blue illuminated sign at top reads SAFETY / UNIFORM / LOCKER",
+      "Large red lowercase information symbol with a white outline overlays the center",
+      "Industrial interior artwork shows a locker or equipment station, worn flooring, lights, and yellow-black hazard stripes"
+    ],
+    "proposedCategory": "tokens/status",
+    "proposedSlug": "safety-uniform-locker",
+    "confidence": "medium",
+    "uncertainties": [
+      "The central red information glyph is not present in the supplied canonical glossary, so it is described literally rather than assigned a meaning.",
+      "Additional pale floor markings behind the central symbol are obscured and illegible.",
+      "The exact gameplay role of the circular component cannot be established from visible pixels alone."
+    ]
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Planning pixel inspection with image analysis****Planning pixel inspection with image analysis**\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Planning image rotation and analysis****Planning image rotation and analysis****Assessing image text orientation**\n\n\n{\"orientation\":\"rotate180\",\"componentType\":\"circular illustrated token\",\"cardSide\":\"notCard\",\"title\":\"\",\"typeLine\":\"\",\"body\":\"\",\"footer\":\"\",\"upperRight\":\"\",\"lowerCenter\":\"\",\"visibleText\":\"LOCKER\",\"confidentlyVisible\":[\"Circular component with a black transparent exterior\",\"Industrial metallic interior scene\",\"Large central red exclamation-mark glyph outlined in white\",\"Blue illuminated panel with white uppercase typography\",\"Typography is upside down in the file\"],\"proposedCategory\":\"tokens/status\",\"proposedSlug\":null,\"confidence\":\"low\",\"uncertainties\":[\"A second line of typography is clipped by the circular image boundary and cannot be transcribed confidently.\",\"The central exclamation-mark glyph is not represented in the supplied canonical glossary and may be a component-local warning symbol.\",\"The token's specific identity and semantic category cannot be established unambiguously from the visible pixels alone.\"]}\n\nsession_id: 20260815_054703_ec8cae\n",
+  "initialParsed": {
+    "orientation": "rotate180",
+    "componentType": "circular illustrated token",
+    "cardSide": "notCard",
+    "title": "",
+    "typeLine": "",
+    "body": "",
+    "footer": "",
+    "upperRight": "",
+    "lowerCenter": "",
+    "visibleText": "LOCKER",
+    "confidentlyVisible": [
+      "Circular component with a black transparent exterior",
+      "Industrial metallic interior scene",
+      "Large central red exclamation-mark glyph outlined in white",
+      "Blue illuminated panel with white uppercase typography",
+      "Typography is upside down in the file"
+    ],
+    "proposedCategory": "tokens/status",
+    "proposedSlug": null,
+    "confidence": "low",
+    "uncertainties": [
+      "A second line of typography is clipped by the circular image boundary and cannot be transcribed confidently.",
+      "The central exclamation-mark glyph is not represented in the supplied canonical glossary and may be a component-local warning symbol.",
+      "The token's specific identity and semantic category cannot be established unambiguously from the visible pixels alone."
+    ]
+  },
+  "initialSessionId": "20260815_054703_ec8cae",
+  "orientationCorrection": "rotate180",
+  "uprightRead": {
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "sessionId": "20260815_060630_8ebf17",
+    "completedAt": "2026-08-15T06:06:55Z",
+    "parsed": {
+      "orientation": "upright",
+      "componentType": "circular illustrated token",
+      "cardSide": "notCard",
+      "title": "",
+      "typeLine": "",
+      "body": "",
+      "footer": "",
+      "upperRight": "",
+      "lowerCenter": "",
+      "visibleText": "SAFETY\nUNIFORM\nLOCKER\n[ICON: red information symbol with white outline]",
+      "confidentlyVisible": [
+        "Circular component on a black background",
+        "Blue illuminated sign at top reads SAFETY / UNIFORM / LOCKER",
+        "Large red lowercase information symbol with a white outline overlays the center",
+        "Industrial interior artwork shows a locker or equipment station, worn flooring, lights, and yellow-black hazard stripes"
+      ],
+      "proposedCategory": "tokens/status",
+      "proposedSlug": "safety-uniform-locker",
+      "confidence": "medium",
+      "uncertainties": [
+        "The central red information glyph is not present in the supplied canonical glossary, so it is described literally rather than assigned a meaning.",
+        "Additional pale floor markings behind the central symbol are obscured and illegible.",
+        "The exact gameplay role of the circular component cannot be established from visible pixels alone."
+      ]
+    },
+    "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Loading vision skill for image analysis****Loading vision skill for image analysis**\n⚠️  Reached maximum iterations (2). Requesting summary...\n**Planning pixel-level image analysis****Planning pixel-level image analysis****Assessing circular token identification**\n\nsession_id: 20260815_060630_8ebf17\n{\"orientation\":\"upright\",\"componentType\":\"circular illustrated token\",\"cardSide\":\"notCard\",\"title\":\"\",\"typeLine\":\"\",\"body\":\"\",\"footer\":\"\",\"upperRight\":\"\",\"lowerCenter\":\"\",\"visibleText\":\"SAFETY\\nUNIFORM\\nLOCKER\\n[ICON: red information symbol with white outline]\",\"confidentlyVisible\":[\"Circular component on a black background\",\"Blue illuminated sign at top reads SAFETY / UNIFORM / LOCKER\",\"Large red lowercase information symbol with a white outline overlays the center\",\"Industrial interior artwork shows a locker or equipment station, worn flooring, lights, and yellow-black hazard stripes\"],\"proposedCategory\":\"tokens/status\",\"proposedSlug\":\"safety-uniform-locker\",\"confidence\":\"medium\",\"uncertainties\":[\"The central red information glyph is not present in the supplied canonical glossary, so it is described literally rather than assigned a meaning.\",\"Additional pale floor markings behind the central symbol are obscured and illegible.\",\"The exact gameplay role of the circular component cannot be established from visible pixels alone.\"]}\n"
+  }
+}

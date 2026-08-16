@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/robotDeck-130.jpg",
+  "sourceSha256": "40751b42f461036517fa1ebc098de646dcf3a58d3407a288e54bb0da0a091dfb",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "sessionId": "20260815_053955_617a04",
+  "promptVersion": 1,
+  "startedAt": "2026-08-15T05:39:54Z",
+  "completedAt": "2026-08-15T05:40:04Z",
+  "attempt": 1,
+  "parsed": {
+    "orientation": "upright",
+    "componentType": "robot effect card",
+    "cardSide": "face",
+    "title": "MEDICAL ROBOT",
+    "typeLine": "",
+    "body": "Move the [robot] up to 2 times.\nOR\nA [character] of your choice\nin a Room with the [robot]\ndiscards 1 Serious Wound\nor restores 2 [characterHealth].",
+    "footer": "",
+    "upperRight": "",
+    "lowerCenter": "",
+    "visibleText": "",
+    "confidentlyVisible": [
+      "White uppercase title in a green header",
+      "Artwork depicts a small wheeled medical robot",
+      "Green rules panel contains two effects separated by OR",
+      "Robot, character, and character-health glyphs confidently match the canonical glossary"
+    ],
+    "proposedCategory": "cards/game/robot",
+    "proposedSlug": "medical-robot",
+    "confidence": "high",
+    "uncertainties": []
+  },
+  "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Inspecting robot and character JSON mapping****Inspecting robot and character JSON mapping**\n{\"orientation\":\"upright\",\"componentType\":\"robot effect card\",\"cardSide\":\"face\",\"title\":\"MEDICAL ROBOT\",\"typeLine\":\"\",\"body\":\"Move the [robot] up to 2 times.\\nOR\\nA [character] of your choice\\nin a Room with the [robot]\\ndiscards 1 Serious Wound\\nor restores 2 [characterHealth].\",\"footer\":\"\",\"upperRight\":\"\",\"lowerCenter\":\"\",\"visibleText\":\"\",\"confidentlyVisible\":[\"White uppercase title in a green header\",\"Artwork depicts a small wheeled medical robot\",\"Green rules panel contains two effects separated by OR\",\"Robot, character, and character-health glyphs confidently match the canonical glossary\"],\"proposedCategory\":\"cards/game/robot\",\"proposedSlug\":\"medical-robot\",\"confidence\":\"high\",\"uncertainties\":[]}\n\nsession_id: 20260815_053955_617a04\n",
+  "iconVerification": {
+    "status": "passed",
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "sessionId": "20260815_060829_d27f39",
+    "promptVersion": 1,
+    "completedAt": "2026-08-15T06:08:44Z",
+    "claimed": [
+      "character",
+      "characterHealth",
+      "robot"
+    ],
+    "parsed": {
+      "claims": [
+        {
+          "claimed": "character",
+          "verdict": "match",
+          "actual": "character",
+          "evidence": "One occurrence; astronaut silhouette matches the glossary helmet, shoulders, arms, torso, and leg contours."
+        },
+        {
+          "claimed": "characterHealth",
+          "verdict": "match",
+          "actual": "characterHealth",
+          "evidence": "One occurrence; horizontal bar with central angular heartbeat spike matches the glossary glyph."
+        },
+        {
+          "claimed": "robot",
+          "verdict": "match",
+          "actual": "robot",
+          "evidence": "Two occurrences; both match the glossary robot head with top antenna, rounded side tabs, and two circular eyes."
+        }
+      ],
+      "allClaimsMatch": true,
+      "confidence": "high",
+      "uncertainties": []
+    },
+    "cliOutput": "\n┌─ Reasoning ──────────────────────────────────────────────────────────────────┐\n**Loading image analysis skill****Loading image analysis skill****Summarizing card occurrences with crops**\n\nsession_id: 20260815_060829_d27f39\n{\"claims\":[{\"claimed\":\"character\",\"verdict\":\"match\",\"actual\":\"character\",\"evidence\":\"One occurrence; astronaut silhouette matches the glossary helmet, shoulders, arms, torso, and leg contours.\"},{\"claimed\":\"characterHealth\",\"verdict\":\"match\",\"actual\":\"characterHealth\",\"evidence\":\"One occurrence; horizontal bar with central angular heartbeat spike matches the glossary glyph.\"},{\"claimed\":\"robot\",\"verdict\":\"match\",\"actual\":\"robot\",\"evidence\":\"Two occurrences; both match the glossary robot head with top antenna, rounded side tabs, and two circular eyes.\"}],\"allClaimsMatch\":true,\"confidence\":\"high\",\"uncertainties\":[]}\n",
+    "evidencePath": null
+  }
+}

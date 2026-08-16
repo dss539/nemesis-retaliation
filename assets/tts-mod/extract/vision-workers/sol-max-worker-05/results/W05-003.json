@@ -1,0 +1,390 @@
+{
+  "schemaVersion": 1,
+  "createdAt": "2026-08-15T22:14:32.383029Z",
+  "assetId": "W05-003",
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-05.png",
+  "sourceSha256": "27a5c1a5959ed93f93d508e0f0a8d07999e0d929a0b9874848c2c10b3accf4e7",
+  "sourceMetadata": {
+    "dimensions": {
+      "width": 1052,
+      "height": 1433
+    },
+    "format": "PNG",
+    "mode": "RGB",
+    "frames": 1,
+    "bytes": 1410676,
+    "decode": {
+      "verified": true,
+      "method": "PIL.Image.verify"
+    },
+    "hashVerifiedAgainstAssignment": true,
+    "assignmentExpectedSha256": "27a5c1a5959ed93f93d508e0f0a8d07999e0d929a0b9874848c2c10b3accf4e7"
+  },
+  "runtimeProvenance": {
+    "schemaVersion": 1,
+    "capturedAt": "2026-08-15T22:03:20.262495Z",
+    "sessionId": "20260815_215936_fea298",
+    "sessionSource": "subagent",
+    "parentSessionId": "b01cf4bb4120",
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "reasoningEffort": "max",
+    "nativeImageRoute": {
+      "required": true,
+      "transport": "functions.vision_analyze direct local-path attachment to the active session model",
+      "auxiliaryVisionUsed": false,
+      "qwenUsed": false,
+      "ocrCanonicalEvidenceUsed": false,
+      "verified": true,
+      "verificationStatus": "verified by successful direct native attachment of W05-001 to active session model",
+      "verificationEvidence": [
+        {
+          "assetId": "W05-001",
+          "exactSourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-01.png",
+          "transportResult": "functions.vision_analyze: Image loaded into your context — you can see it natively now",
+          "activeSessionId": "20260815_215936_fea298",
+          "postAttachmentSessionDbModel": "gpt-5.6-sol",
+          "postAttachmentUsageProvider": "openai-codex",
+          "postAttachmentReasoningEffort": "max"
+        }
+      ]
+    },
+    "evidence": {
+      "environmentSessionId": "HERMES_SESSION_ID queried in live terminal environment",
+      "sessionDb": "/home/smithers/.hermes/state.db",
+      "sessionsRow": {
+        "id": "20260815_215936_fea298",
+        "source": "subagent",
+        "model": "gpt-5.6-sol",
+        "parentSessionId": "b01cf4bb4120",
+        "startedAtUnix": 1786831176.7134857
+      },
+      "modelConfig": {
+        "max_iterations": 80,
+        "reasoning_config": {
+          "enabled": true,
+          "effort": "max"
+        },
+        "max_tokens": null,
+        "_delegate_from": "b01cf4bb4120"
+      },
+      "usageRow": {
+        "session_id": "20260815_215936_fea298",
+        "model": "gpt-5.6-sol",
+        "billing_provider": "openai-codex",
+        "billing_base_url": "https://chatgpt.com/backend-api/codex",
+        "billing_mode": "subscription_included",
+        "api_call_count": 10,
+        "first_seen": 1786831185.0011802,
+        "last_seen": 1786831400.1570232
+      },
+      "systemRuntimeContract": "active delegated system runtime names Model gpt-5.6-sol, Provider openai-codex, Platform subagent",
+      "postFirstAttachmentUsageRow": {
+        "session_id": "20260815_215936_fea298",
+        "model": "gpt-5.6-sol",
+        "billing_provider": "openai-codex",
+        "billing_base_url": "https://chatgpt.com/backend-api/codex",
+        "billing_mode": "subscription_included",
+        "api_call_count": 26,
+        "first_seen": 1786831185.0011802,
+        "last_seen": 1786831703.8723106
+      }
+    },
+    "routeVerifiedAt": "2026-08-15T22:08:23.918675Z"
+  },
+  "orientation": {
+    "pixelOrientation": "upright",
+    "requiredTransform": "none",
+    "basis": "The title, body text, and footer read left-to-right in a vertically ordered portrait layout."
+  },
+  "blindPixelObservations": [
+    "A portrait-format illustrated rules card fills the image.",
+    "The upper artwork uses dark violet, blue, pink, orange, and black; an armed figure moves through a smoky industrial interior.",
+    "One standalone white-and-red crossed pictogram appears near the upper-right corner of the artwork.",
+    "A magenta-and-black title frame overlays the lower edge of the artwork.",
+    "Below the title is a short centered sentence followed by a two-line centered instruction containing one white pictogram.",
+    "The footer is black with widely spaced magenta letters."
+  ],
+  "visibleText": {
+    "title": "SCOUTING",
+    "body": "Move.\nBefore the Noise roll, place 1 [secure]\nin the Room you are Moving to.",
+    "footer": "RECON",
+    "upperRight": "notInCombat",
+    "materialTextComplete": true,
+    "punctuationPreserved": true,
+    "lineStructurePreserved": true
+  },
+  "iconMorphology": [
+    {
+      "iconId": "W05-003-glyph-01",
+      "location": "upper-right corner of the artwork, standalone",
+      "neighboringText": "No adjacent printed text; it is spatially separate from the title and body.",
+      "outerSilhouette": "A white horizontal gun- or tool-like silhouette crossed by a large red diagonal X; the red X has two broad strokes and extends beyond the white shape.",
+      "internalMarks": "A thin red horizontal detail is visible inside the white horizontal silhouette; dark edging/shadow separates the red X from parts of the white form.",
+      "colors": [
+        "white horizontal foreground shape",
+        "bright red X and red inner line",
+        "dark outline/shadow"
+      ],
+      "closestPlausibleCanonicalAlternatives": [
+        "notInCombat",
+        "literal no-shooting or crossed-out-weapon glyph not independently named in the glossary"
+      ],
+      "alternativeFalsification": {
+        "notInCombat": "The source pixels alone do not establish whether the crossed weapon means the canonical notInCombat concept or a narrower no-shooting concept; no semantic alternative is ruled out by the X itself.",
+        "literal no-shooting or crossed-out-weapon glyph not independently named in the glossary": "No visible pixel feature rules this literal alternative out in the blind stage."
+      },
+      "semanticIdentity": "notInCombat",
+      "canonicalTokenClaimed": true,
+      "directGlossaryVerification": {
+        "sourceGlyphCropBox": [
+          859,
+          102,
+          955,
+          187
+        ],
+        "canonicalCrop": {
+          "path": "assets/icons/general/not-in-combat.png",
+          "sha256": "768f61dc7cac2fe6a084bab396926cd3e6e16a8a0951c7d09955724c251e92c3",
+          "maskIou": 0.47918,
+          "maskDice": 0.647899,
+          "rank": 5
+        },
+        "exactCropIdentityMatch": false,
+        "variantResolution": "docs/rules/icon-glossary.md explicitly states that page 40 shows a prohibited Intruder while printed Action cards may instead show a white gun crossed by a red X; the source visibly has that described card-art variant in the upper-right action-card position.",
+        "closestLiteralAlternative": "a narrower no-shooting/crossed-out-weapon symbol",
+        "visibleDiscriminator": "The visible white horizontal weapon crossed by a broad red X matches every stated artwork feature of the documented printed-card variant; the page-40 crop is deliberately a different Intruder-in-prohibition rendering.",
+        "evidencePath": "assets/tts-mod/extract/vision-workers/sol-max-worker-05/batches/W05-003-upper-right-glossary-comparison.json"
+      }
+    },
+    {
+      "iconId": "W05-003-glyph-02",
+      "location": "body instruction, immediately after the printed numeral '1' and before the line break",
+      "neighboringText": "Before the Noise roll, place 1 [glyph]\nin the Room you are Moving to.",
+      "outerSilhouette": "A compact white badge or marker with a broad, shallow top and two sloping lower sides that meet at a downward point.",
+      "internalMarks": "Dark lines form a central vertical stem that forks upward into a Y or V, dividing the white shape into three faceted regions.",
+      "colors": [
+        "white foreground",
+        "dark purple/black internal Y-shaped lines and surrounding card background"
+      ],
+      "closestPlausibleCanonicalAlternatives": [
+        "noise",
+        "secure"
+      ],
+      "alternativeFalsification": {
+        "secure": "The visible dark Y-shaped internal division and pointed faceted lower profile differ from a plain undivided badge; however, source pixels alone do not establish the exact canonical token.",
+        "noise": "The source pixels do not rule this alternative out; no direct authoritative crop comparison is part of this blind record."
+      },
+      "semanticIdentity": "secure",
+      "canonicalTokenClaimed": true,
+      "directGlossaryVerification": {
+        "sourceGlyphCropBox": [
+          764,
+          1061,
+          806,
+          1123
+        ],
+        "candidateSet": "all 36 authoritative glossary PNGs with extractable bright near-neutral foreground masks",
+        "method": "tight-mask normalization to 256x256 followed by pixel IoU and Dice",
+        "bestMatch": {
+          "path": "assets/icons/map/secure.png",
+          "sha256": "68668c12a22c6873ccc93500f704814dbb08e4e1c9eccf28c124fb020834c425",
+          "iou": 0.906131,
+          "dice": 0.950754,
+          "rank": 1
+        },
+        "closestCompetingCanonicalMatches": [
+          {
+            "path": "assets/icons/map/computer.png",
+            "iou": 0.725866,
+            "dice": 0.841161,
+            "rank": 2
+          },
+          {
+            "path": "assets/icons/general/oxygen.png",
+            "iou": 0.72583,
+            "dice": 0.841137,
+            "rank": 3
+          }
+        ],
+        "visibleDiscriminator": "The source and secure crop share the same pointed faceted badge and dark Y-shaped internal division; the alternatives do not reproduce that full silhouette.",
+        "evidencePath": "assets/tts-mod/extract/vision-workers/sol-max-worker-05/batches/W05-003-inline-glossary-comparison.json"
+      }
+    }
+  ],
+  "evidenceConsulted": [
+    {
+      "kind": "blindNativeImage",
+      "path": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-05.png",
+      "timing": "before metadata/provenance"
+    },
+    {
+      "kind": "assignment",
+      "path": "assets/tts-mod/extract/vision-workers/sol-max-worker-05/assignment.json",
+      "purpose": "exact tuple only, not semantics"
+    },
+    {
+      "kind": "canonicalIconGlossary",
+      "path": "docs/rules/icon-glossary.md",
+      "relevantFacts": [
+        "secure token identifier",
+        "notInCombat printed-card crossed-out-gun artwork variant"
+      ]
+    },
+    {
+      "kind": "canonicalIconCrop",
+      "path": "assets/icons/map/secure.png",
+      "sha256": "68668c12a22c6873ccc93500f704814dbb08e4e1c9eccf28c124fb020834c425"
+    },
+    {
+      "kind": "canonicalIconCrop",
+      "path": "assets/icons/general/not-in-combat.png",
+      "sha256": "768f61dc7cac2fe6a084bab396926cd3e6e16a8a0951c7d09955724c251e92c3",
+      "finding": "different officially documented artwork variant"
+    },
+    {
+      "kind": "glossaryComparison",
+      "path": "assets/tts-mod/extract/vision-workers/sol-max-worker-05/batches/W05-003-inline-glossary-comparison.json"
+    },
+    {
+      "kind": "glossaryComparison",
+      "path": "assets/tts-mod/extract/vision-workers/sol-max-worker-05/batches/W05-003-upper-right-glossary-comparison.json"
+    },
+    {
+      "kind": "manifest",
+      "path": "assets/tts-mod/extract/v2-dl/tree/manifest.json",
+      "timing": "after blind raw persisted"
+    },
+    {
+      "kind": "parsedTtsObjects",
+      "path": "assets/tts-mod/extract/v2/objects.json",
+      "timing": "after blind raw persisted"
+    },
+    {
+      "kind": "cardProvenanceInventory",
+      "path": "assets/tts-mod/extract/card-provenance-inventory.json",
+      "timing": "after blind raw persisted"
+    },
+    {
+      "kind": "workflowReference",
+      "path": "assets/tts-mod/notes/card-extraction.md"
+    },
+    {
+      "kind": "priorWorkerSemanticOutput",
+      "consulted": false
+    }
+  ],
+  "sourceProvenance": {
+    "sourceKind": "generated sprite-sheet cell",
+    "cellIndex": 5,
+    "sourceSheetPath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045.jpg",
+    "sourceSheetUrl": "https://steamusercontent-a.akamaihd.net/ugc/2468613527880241742/F6B1605A2ED018B39F0BE82DD120FBFC08C5EF65/",
+    "sourceSheetUrlRole": "FaceURL",
+    "sourceSheetManifestBytes": 38432421,
+    "sheetReferenceCount": 20,
+    "referencingDeckGuids": [
+      "8b2d1b",
+      "a8e6a4",
+      "c8f207",
+      "d7e854"
+    ],
+    "referencedCardIds": [
+      567403,
+      567404,
+      567406,
+      567409,
+      567414,
+      567416,
+      567417,
+      567418,
+      567424,
+      567426,
+      567427,
+      567428,
+      567433,
+      567435,
+      567436,
+      567437
+    ],
+    "expectedCardIdForCellIfDirectlyReferenced": 567405,
+    "exactCellGuid": null,
+    "exactCellGuidStatus": "unresolved: parsed TTS references contain no CardID 567405 for generated cell index 5",
+    "pairedSide": {
+      "urlRole": "BackURL",
+      "url": "https://steamusercontent-a.akamaihd.net/ugc/10207952820401286363/045849F3D9E78090494EBF29460723DFD3BF642F/",
+      "path": "assets/tts-mod/extract/v2-dl/tree/cards/game/action/back.jpg",
+      "manifestBytes": 249584,
+      "pixelInspectionPerformed": false,
+      "reasonNotInspected": "No promotion attempted because the exact generated-cell GUID/provenance gate is unresolved; bounded worker scope reserves one source-image turn per assigned asset."
+    }
+  },
+  "proposedClassification": {
+    "componentFamily": "Action card",
+    "sideType": "card face (generated from a FaceURL sheet)",
+    "title": "Scouting",
+    "printedOwner": "Recon",
+    "proposedCanonicalSlug": "scouting",
+    "familyStatus": "classified",
+    "exactGuidStatus": "deferred",
+    "basis": [
+      "portrait action-card anatomy visible in pixels",
+      "printed RECON footer",
+      "upper-right documented notInCombat artwork variant",
+      "source is cell 5 of a shared FaceURL action-card sheet"
+    ]
+  },
+  "readConfidence": {
+    "orientation": "high",
+    "materialText": "high",
+    "punctuation": "high",
+    "inlineIconMorphology": "high",
+    "inlineIconIdentity": "high after direct secure-crop comparison",
+    "upperRightIconMorphology": "high",
+    "upperRightIconIdentity": "high from exact authoritative variant description despite non-identical page-40 crop"
+  },
+  "classificationConfidence": {
+    "componentFamily": "high",
+    "printedOwner": "high from visible footer",
+    "sideRole": "high at source-sheet level",
+    "exactCellGuid": "low/unresolved",
+    "overall": "medium-high with material provenance gap"
+  },
+  "uncertainties": [
+    "No parsed TTS Card object directly references CardID 567405, so an exact object GUID cannot be bound to generated cell 5.",
+    "The shared FaceURL sheet is referenced across Heavy Gun Operator, Combat Engineer, Recon, and Officer decks; the printed RECON footer establishes visible ownership but not an exact TTS object GUID.",
+    "The paired BackURL path was resolved but its pixels were not opened because the unresolved GUID gate already forces deferral and the bounded assignment allows one native-image turn per assigned source.",
+    "The upper-right source glyph is the documented crossed-out-gun notInCombat artwork variant, not an exact pixel match to the page-40 crossed-out-Intruder crop; this artwork difference is preserved explicitly."
+  ],
+  "promotionDecision": "defer",
+  "decisionReasons": [
+    "Exact cell-to-TTS-object GUID provenance is unresolved.",
+    "The paired side was not visually inspected, so the documented pair-level pre-catalog gate is not complete.",
+    "False promotion is worse than deferral; complete text and resolved icon identities do not override the provenance gate."
+  ],
+  "validationPerformed": {
+    "assignmentTupleReRead": true,
+    "sourceHashMatchedAssignment": true,
+    "sourceDecodePassed": true,
+    "nativeRouteVerified": true,
+    "submittedAssetIds": [
+      "W05-003"
+    ],
+    "returnedAssetIds": [
+      "W05-003"
+    ],
+    "submittedCount": 1,
+    "returnedCount": 1,
+    "idCountReconciled": true,
+    "rawPersistedBeforeMetadataJoin": true,
+    "rawJsonParsed": true,
+    "allMaterialTextRead": true,
+    "canonicalIconClaimsDirectlyCompared": true,
+    "officialArtworkVariantDifferenceRecorded": true,
+    "faceBackRoleResolvedAtSheetLevel": true,
+    "pairedSidePixelInspected": false,
+    "candidateSidecarWritten": false
+  },
+  "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-worker-05/raw/W05-003.json",
+  "nextPendingAssetId": "W05-004",
+  "nextPendingSourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-06.png"
+}
