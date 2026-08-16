@@ -8,9 +8,12 @@ import json
 import re
 from pathlib import Path
 
+import card_text_evidence_registry as selected_evidence
+
 REPO = Path(__file__).resolve().parents[3]
 EXTRACT = REPO / "assets/tts-mod/extract"
 CORPUS = EXTRACT / "card-text-corpus.json"
+REGISTRY = EXTRACT / "selected-card-text-evidence.json"
 PROGRESS = EXTRACT / "vision-progress.json"
 QUEUE = EXTRACT / "low-confidence-review.json"
 GLOSSARY = REPO / "docs/rules/icon-glossary.md"
@@ -40,6 +43,11 @@ def main() -> None:
     queue = load(QUEUE)
     known = {m.group(1) for line in GLOSSARY.read_text().splitlines() if (m := ICON_ID_RE.match(line))}
     failures = []
+    try:
+        registry = selected_evidence.load_registry(REGISTRY)
+    except selected_evidence.RegistryError as exc:
+        registry = None
+        failures.append({"check": "selected evidence registry schema", "error": str(exc)})
     rows = corpus.get("records", [])
     paths = [row.get("sourcePath") for row in rows]
     ledger_cards = [row for row in progress["records"] if "/tree/cards/" in row["sourcePath"]]
@@ -108,6 +116,54 @@ def main() -> None:
         failures.append({"check": "canonical sidecar coverage", "missing": sorted(expected_sidecars-canonical_sidecars), "extra": sorted(canonical_sidecars-expected_sidecars)})
     if deferred_corpus_paths != queue_card_paths:
         failures.append({"check": "deferred card queue equality", "corpusOnly": sorted(deferred_corpus_paths-queue_card_paths), "queueOnly": sorted(queue_card_paths-deferred_corpus_paths)})
+    registry_entry_count = 0
+    registry_run_count = 0
+    if registry is not None:
+        registry_entry_count = len(registry["entries"])
+        registry_run_count = sum(len(entry["runs"]) for entry in registry["entries"])
+        corpus_by_tuple = {(row.get("sourcePath"), row.get("sourceSha256")): row for row in rows}
+        registry_by_tuple = {(entry["sourcePath"], entry["sourceSha256"]): entry for entry in registry["entries"]}
+        selected_rows = {
+            (row.get("sourcePath"), row.get("sourceSha256")): row
+            for row in rows
+            if row.get("selectedExtraction") is not None
+            or (row.get("evidence") or {}).get("selectedExtraction") is not None
+            or row.get("evidenceRuns") is not None
+        }
+        if set(registry_by_tuple) != set(selected_rows):
+            failures.append({
+                "check": "selected evidence registry/corpus tuple equality",
+                "registryOnly": sorted(set(registry_by_tuple)-set(selected_rows)),
+                "corpusOnly": sorted(set(selected_rows)-set(registry_by_tuple)),
+            })
+        for key, entry in registry_by_tuple.items():
+            row = corpus_by_tuple.get(key)
+            if row is None:
+                failures.append({"check": "registry entry absent from corpus", "sourceTuple": key})
+                continue
+            projected = selected_evidence.project_entry(entry)
+            if row.get("selectedExtraction") != projected["selectedExtraction"]:
+                failures.append({"check": "selected extraction registry projection", "sourceTuple": key})
+            if (row.get("evidence") or {}).get("selectedExtraction") != projected["evidenceSelectedExtraction"]:
+                failures.append({"check": "evidence selected extraction registry projection", "sourceTuple": key})
+            if row.get("evidenceRuns") != projected["evidenceRuns"]:
+                failures.append({"check": "evidence runs registry projection", "sourceTuple": key})
+            selected = row.get("selectedExtraction") or {}
+            if (selected.get("sourcePath"), selected.get("sourceSha256")) != key:
+                failures.append({"check": "selected extraction source tuple", "sourceTuple": key})
+            for evidence_run in row.get("evidenceRuns") or []:
+                if evidence_run.get("sourceSha256") != key[1]:
+                    failures.append({"check": "evidence run source tuple", "sourceTuple": key, "runIdentity": evidence_run.get("runIdentity")})
+        expected_metadata = {
+            "selectedEvidenceRegistry": "assets/tts-mod/extract/selected-card-text-evidence.json",
+            "selectedEvidenceRegistrySchemaVersion": registry["schemaVersion"],
+            "selectedEvidenceRegistrySha256": selected_evidence.sha256_bytes(selected_evidence.canonical_json_bytes(registry)),
+            "selectedEvidenceTupleDigest": selected_evidence.registry_tuple_digest(registry),
+            "selectedEvidenceEntryCount": registry_entry_count,
+            "selectedEvidenceRunCount": registry_run_count,
+        }
+        if corpus.get("metadata") != expected_metadata:
+            failures.append({"check": "deterministic selected evidence metadata", "expected": expected_metadata, "actual": corpus.get("metadata")})
     recomputed = {
         "records": len(rows),
         "rulesTextPresent": rules_text,
@@ -127,6 +183,8 @@ def main() -> None:
             "glossaryIdentifiers": len(known),
             "canonicalSidecarsCovered": len(canonical_sidecars),
             "deferredCardQueueEntries": len(queue_card_paths),
+            "selectedEvidenceRegistryEntries": registry_entry_count,
+            "selectedEvidenceRegistryRuns": registry_run_count,
         },
         "failureCount": len(failures),
         "failures": failures,

@@ -8,14 +8,17 @@ import hashlib
 import json
 import re
 from pathlib import Path
+from typing import Any
 
 import analyze_card_extraction_coverage as coverage
+import card_text_evidence_registry as selected_evidence
 
 REPO = Path(__file__).resolve().parents[3]
 EXTRACT = REPO / "assets/tts-mod/extract"
 PROGRESS = EXTRACT / "vision-progress.json"
 QUEUE = EXTRACT / "low-confidence-review.json"
 GLOSSARY = REPO / "docs/rules/icon-glossary.md"
+REGISTRY = EXTRACT / "selected-card-text-evidence.json"
 DEFAULT_OUTPUT = EXTRACT / "card-text-corpus.json"
 TOKEN_RE = re.compile(r"\[([^\]]+)\]")
 ICON_ID_RE = re.compile(r"^- \*\*([A-Za-z][A-Za-z0-9]*)\*\* —")
@@ -76,12 +79,13 @@ def canonical_payload(record: dict) -> tuple[dict, dict]:
     return sidecar, identity
 
 
-def main() -> None:
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--output", type=Path, default=DEFAULT_OUTPUT)
-    args = parser.parse_args()
+def build_payload(*, registry: dict[str, Any] | None = None, registry_path: Path = REGISTRY) -> dict[str, Any]:
     progress = load(PROGRESS)
     queue = load(QUEUE)
+    if registry is None:
+        registry = selected_evidence.load_registry(registry_path)
+    else:
+        selected_evidence.validate_registry(registry)
     deferred = {entry["sourcePath"]: entry for entry in queue["entries"]}
     known = glossary_ids()
     records = []
@@ -151,8 +155,6 @@ def main() -> None:
             rules_readiness = "draft-partial"
         elif extraction_state == "no-transcription":
             rules_readiness = "missing-transcription"
-        elif extraction_state == "non-rules-or-reference":
-            rules_readiness = "not-rules-bearing-or-reference"
         else:
             rules_readiness = "not-rules-bearing-or-reference"
         readiness[rules_readiness] += 1
@@ -188,6 +190,8 @@ def main() -> None:
             },
         })
     records.sort(key=lambda row: row["sourcePath"])
+    selected_evidence.apply_registry(records, registry)
+    registry_bytes = selected_evidence.canonical_json_bytes(registry)
     payload = {
         "schemaVersion": 1,
         "status": "extracted evidence corpus; canonical and draft states are explicitly separated",
@@ -197,6 +201,14 @@ def main() -> None:
             "iconGlossary": "docs/rules/icon-glossary.md",
             "iconGlossaryIdentifierCount": len(known),
         },
+        "metadata": {
+            "selectedEvidenceRegistry": "assets/tts-mod/extract/selected-card-text-evidence.json",
+            "selectedEvidenceRegistrySchemaVersion": registry["schemaVersion"],
+            "selectedEvidenceRegistrySha256": selected_evidence.sha256_bytes(registry_bytes),
+            "selectedEvidenceTupleDigest": selected_evidence.registry_tuple_digest(registry),
+            "selectedEvidenceEntryCount": len(registry["entries"]),
+            "selectedEvidenceRunCount": sum(len(entry["runs"]) for entry in registry["entries"]),
+        },
         "counts": {
             "records": len(records),
             "rulesTextPresent": rules_bearing,
@@ -205,10 +217,33 @@ def main() -> None:
         },
         "records": records,
     }
-    output = args.output if args.output.is_absolute() else REPO / args.output
+    return payload
+
+
+def write_corpus(output: Path = DEFAULT_OUTPUT, *, registry: dict[str, Any] | None = None, registry_path: Path = REGISTRY) -> dict[str, Any]:
+    payload = build_payload(registry=registry, registry_path=registry_path)
+    data = selected_evidence.canonical_json_bytes(payload)
     output.parent.mkdir(parents=True, exist_ok=True)
-    output.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n")
-    print(json.dumps({"output": str(output.relative_to(REPO)), **payload["counts"]}, indent=2))
+    if not output.is_file() or output.read_bytes() != data:
+        tmp = output.with_suffix(output.suffix + ".tmp")
+        tmp.write_bytes(data)
+        tmp.replace(output)
+    return payload
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--output", type=Path, default=DEFAULT_OUTPUT)
+    parser.add_argument("--registry", type=Path, default=REGISTRY)
+    args = parser.parse_args()
+    output = args.output if args.output.is_absolute() else REPO / args.output
+    registry_path = args.registry if args.registry.is_absolute() else REPO / args.registry
+    payload = write_corpus(output, registry_path=registry_path)
+    try:
+        output_label = str(output.relative_to(REPO))
+    except ValueError:
+        output_label = str(output)
+    print(json.dumps({"output": output_label, **payload["counts"], "selectedEvidence": payload["metadata"]}, indent=2))
 
 
 if __name__ == "__main__":

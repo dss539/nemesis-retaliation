@@ -7,7 +7,7 @@ This project keeps two separate data layers:
 
 ## Verified baseline
 
-The current corpus is generated from `vision-progress.json`, `low-confidence-review.json`, the canonical `cards/` sidecars, and the 49-identifier official icon glossary.
+The current corpus is generated from `vision-progress.json`, `low-confidence-review.json`, the canonical `cards/` sidecars, the 49-identifier official icon glossary, and `extract/selected-card-text-evidence.json`. The last file is the tracked source of truth for selected reviewed overlays; ignored worker roots are optional provenance and are not needed to rebuild or validate the corpus.
 
 - 390 card/reference image records.
 - 168 individual generated card-face crops derived from 13 excluded source sheets; no parent sheet is double-counted.
@@ -30,6 +30,7 @@ python3 assets/tts-mod/extract/build_card_text_corpus.py
 python3 assets/tts-mod/extract/validate_card_text_corpus.py
 python3 assets/tts-mod/extract/analyze_unresolved_symbols.py
 python3 assets/tts-mod/extract/vision_validate.py
+python3 assets/tts-mod/extract/check_card_text_corpus_reproducibility.py
 ```
 
 All production workspace invocations must be launched through `workspace run nemesis-card-corpus -- ...` so the workspace flock is held.
@@ -56,4 +57,4 @@ Notable results:
 - `heavy-gun-operator-045_cards/card-16.png` / REPAIRS: ACTION-CARD and MALFUNCTION match; the upper-right crossed emblem remains unresolved and conflicts with the prior unsupported `notInCombat` label, which is preserved as historical evidence rather than silently removed.
 - `heavy-gun-operator-045_cards/card-00.png` / ANYTHING USEFUL?: the solid chamfered body glyph matches none of the authorized green/red/yellow item crops, and the upper-right emblem matches none of the authorized not-in-combat crop.
 
-The reusable merger is `assets/tts-mod/extract/merge_staged_vision_evidence.py`; it refuses non-deferred or invalid workers, requires exact source tuples, preserves prior snapshots, and writes only a deferred evidence overlay. Native worker roots remain local-only and are ignored by Git.
+The reusable merger is `assets/tts-mod/extract/merge_staged_vision_evidence.py`; it refuses non-deferred or invalid workers, requires exact source tuples, preserves prior snapshots, updates the durable registry atomically by stable run identity, and then rebuilds the corpus. Re-merging the same validated run is idempotent. Native worker roots remain local-only and are ignored by Git; registry and corpus validation never require them.
