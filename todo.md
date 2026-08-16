@@ -9,8 +9,10 @@ entry point.
 current work, blockers, approval gates, and meaningful project-state changes. Do not duplicate
 durable knowledge here or update it merely because a session occurred.
 
-Working dir (TTS extraction): `/home/smithers/nemesis-retaliation/assets/tts-mod/extract/`
-Tree: `/home/smithers/nemesis-retaliation/assets/tts-mod/extract/v2-dl/tree/`
+Active task workspace: `/home/smithers/projects/nemesis-card-corpus/`
+Repository: `/home/smithers/projects/nemesis-card-corpus/repos/nemesis-retaliation/`
+Working dir (TTS extraction): `/home/smithers/projects/nemesis-card-corpus/repos/nemesis-retaliation/assets/tts-mod/extract/`
+Tree: `/home/smithers/projects/nemesis-card-corpus/repos/nemesis-retaliation/assets/tts-mod/extract/v2-dl/tree/`
 
 ## Status legend
 - [ ] = not started
@@ -113,6 +115,13 @@ the transcription, rotation, icon-comparison, punctuation, or source-authority w
       promotions used a wrong semantic icon. Four fresh sessions were verified with one native-image
       API call and zero tools each. Reports: `docs/qa/vision-model-trial/sol-xhigh-mini/report.md` and
       `docs/qa/vision-model-trial/sol-max-mini/report.md`.
+
+## DONE — Extracted card-text evidence corpus (2026-08-16)
+- [x] Recomputed and validated the live baseline: 532 total in-scope images, 134 complete, 398 deferred, 0 unaccounted, and 64 valid canonical image/JSON pairs.
+- [x] Built `assets/tts-mod/extract/card-text-corpus.json` with 390 card/reference image records linked to source SHA-256 evidence. Parent sprite sheets are excluded; 168 generated records are individual faces from 13 source sheets.
+- [x] Classified 64 canonical records and 276 full draft card transcriptions. Across all record types, 352 contain nonempty rules/effect text; there are no partial rules-text records after structured effect/COMMAND/REACTION panels are recognized.
+- [x] Added deterministic corpus/coverage validators and `docs/qa/card-symbol-resolution-backlog.json`, which preserves 227 unresolved/local glyph occurrences across 136 rules-bearing image assets as morphology-only evidence.
+- [x] Documented schema, trust states, rebuild commands, and promotion boundaries in `assets/tts-mod/notes/card-text-corpus.md`.
 
 ## IN PROGRESS — Re-examine deferred assets with Sol Max
 - [~] Re-examine the deduplicated entries in

@@ -8,7 +8,8 @@ This directory contains the Tabletop Simulator source save, parsed metadata, dow
 - Do not re-download the asset set unless the existing files are lost or a newer source is deliberately selected.
 - Expansion content is intentionally excluded for now.
 - Vision-based transcription uses native Sol Max in one persistent verified session, normally with 2–4 explicitly labeled images per turn and separate persisted results per asset. One-image turns are reserved for dense/large assets, strict gates, focused checks, or confusion retries.
-- Eighteen card JSON entries are cataloged and all 18 have been human-reviewed. The count excludes card backs and rejected prototype components. Automatic Shotgun has a documented official-versus-TTS conflict; its canonical JSON representation remains a human decision.
+- The canonical `cards/` catalog contains 64 validated image/JSON pairs. Automatic Shotgun has a documented official-versus-TTS conflict; its canonical representation remains a human decision.
+- The separate extracted evidence corpus contains 390 card/reference image records and 352 records with nonempty rules/effect text. It intentionally distinguishes 64 canonical records, 276 full draft card transcriptions, unresolved local symbols, and non-rules/reference assets. See `notes/card-text-corpus.md`.
 
 Project-level progress and open work are tracked in [`../../todo.md`](../../todo.md).
 
@@ -32,6 +33,7 @@ or the available evidence conflicts. When one of those triggers applies:
 - `extract/v2-dl/tree/` — downloaded and categorized base-game asset tree
 - `notes/extraction.md` — detailed extraction history, binary format, classification rules, cleanup log, and expansion recovery notes
 - `notes/card-extraction.md` — card-reading, icon, punctuation, rotation, and source-fidelity lessons
+- `notes/card-text-corpus.md` — evidence-corpus schema, current verified counts, trust states, and rebuild commands
 
 QA evidence such as comparison images and source audits belongs in [`../../docs/qa/`](../../docs/qa/), not in these operational notes.
 
