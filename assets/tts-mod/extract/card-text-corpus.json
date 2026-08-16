@@ -1089,8 +1089,128 @@
         "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-worker-03/results/W01-024.json",
         "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-worker-03/raw/W01-024.json",
         "ledgerPath": "assets/tts-mod/extract/vision-progress.json",
-        "queuePath": "assets/tts-mod/extract/low-confidence-review.json"
-      }
+        "queuePath": "assets/tts-mod/extract/low-confidence-review.json",
+        "selectedExtraction": {
+          "workerId": "sol-max-direct-worker-08-20260816T065316Z",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-direct-worker-08-20260816T065316Z/results/W08-003.json",
+          "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-direct-worker-08-20260816T065316Z/raw/W08-003.json",
+          "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-direct-worker-08-20260816T065316Z/references/W08-003-post-blind-contact-sheet.png",
+          "promotionDecision": "defer",
+          "runtime": {
+            "provider": "openai-codex",
+            "model": "gpt-5.6-sol",
+            "reasoningEffort": "max",
+            "nativeImageRoute": "hermes chat --image direct native input",
+            "blindSessionId": "20260816_065854_b35f31",
+            "adjudicationSessionId": "20260816_070703_65fa82",
+            "auxiliaryVisionUsed": false,
+            "qwenUsed": false,
+            "ocrCanonicalEvidenceUsed": false,
+            "modelDowngradeUsed": false
+          }
+        }
+      },
+      "selectedExtraction": {
+        "overlayVersion": 1,
+        "status": "selected-evidence-deferred",
+        "workerId": "sol-max-direct-worker-08-20260816T065316Z",
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-00.png",
+        "sourceSha256": "de97374d9cc8ed9f9141a4539386fd6b8979b4230f4eee8ae04925622fc07fed",
+        "runtime": {
+          "provider": "openai-codex",
+          "model": "gpt-5.6-sol",
+          "reasoningEffort": "max",
+          "nativeImageRoute": "hermes chat --image direct native input",
+          "blindSessionId": "20260816_065854_b35f31",
+          "adjudicationSessionId": "20260816_070703_65fa82",
+          "auxiliaryVisionUsed": false,
+          "qwenUsed": false,
+          "ocrCanonicalEvidenceUsed": false,
+          "modelDowngradeUsed": false
+        },
+        "blindObservationPath": "assets/tts-mod/extract/vision-workers/sol-max-direct-worker-08-20260816T065316Z/raw/W08-003.json",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-direct-worker-08-20260816T065316Z/results/W08-003.json",
+        "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-direct-worker-08-20260816T065316Z/references/W08-003-post-blind-contact-sheet.png",
+        "visibleText": {
+          "title": "ANYTHING USEFUL?",
+          "typeLine": "Move.",
+          "bodyLines": [
+            "If you Explored a new Room, draw 1 Item for",
+            "each [UNRESOLVED ICON: solid white chamfered-corner polygon] in that Room.",
+            "Keep 1 and discard the rest."
+          ],
+          "lowerCenter": "RECON",
+          "officialPageVisibleEvidence": {
+            "printedPageNumber": "28",
+            "mainHeading": "ITEMS",
+            "sectionHeading": "GAINING ITEMS",
+            "actionHeading": "SEARCH"
+          }
+        },
+        "verifiedIconOccurrences": [],
+        "unresolvedIconOccurrences": [
+          {
+            "cardLocation": "Center of the second body line, between “each” and “in that Room.”",
+            "referenceLabel": "AUTHORITATIVE GLOSSARY CROP: green-item",
+            "matchDecision": "no-match",
+            "canonicalToken": null,
+            "closestAlternative": "An unmarked generic chamfered badge.",
+            "visibleDiscriminator": "The reference has a green chamfered field containing a distinct white plus, whereas the card glyph is uniformly white and has no visible plus.",
+            "evidenceRun": "sol-max-direct-worker-08-20260816T065316Z"
+          },
+          {
+            "cardLocation": "Center of the second body line, between “each” and “in that Room.”",
+            "referenceLabel": "AUTHORITATIVE GLOSSARY CROP: red-item",
+            "matchDecision": "no-match",
+            "canonicalToken": null,
+            "closestAlternative": "An unmarked generic chamfered badge.",
+            "visibleDiscriminator": "The reference has a red chamfered field with three separate white ammunition-like marks; none of those internal marks appears on the card glyph.",
+            "evidenceRun": "sol-max-direct-worker-08-20260816T065316Z"
+          },
+          {
+            "cardLocation": "Center of the second body line, between “each” and “in that Room.”",
+            "referenceLabel": "AUTHORITATIVE GLOSSARY CROP: yellow-item",
+            "matchDecision": "no-match",
+            "canonicalToken": null,
+            "closestAlternative": "An unmarked generic chamfered badge.",
+            "visibleDiscriminator": "The reference has a yellow chamfered field containing a diagonal white wrench-like mark, while the card glyph has no internal mark.",
+            "evidenceRun": "sol-max-direct-worker-08-20260816T065316Z"
+          },
+          {
+            "cardLocation": "Upper-right corner above the title plaque",
+            "referenceLabel": "AUTHORITATIVE GLOSSARY CROP: not-in-combat",
+            "matchDecision": "no-match",
+            "canonicalToken": null,
+            "closestAlternative": "A crossed-out elongated badge or equipment-shaped emblem.",
+            "visibleDiscriminator": "The reference uses a red circular prohibition ring with a single diagonal slash over a compact internal figure, whereas the card uses two full diagonals forming an X over an elongated stepped underform.",
+            "evidenceRun": "sol-max-direct-worker-08-20260816T065316Z"
+          }
+        ],
+        "canonicalTokensEmitted": [],
+        "allMaterialTextReadable": true,
+        "allMaterialIconsAuthoritativelyMatched": false,
+        "promotionDecision": "defer",
+        "decisionReasons": [
+          "All material words and punctuation are directly readable, and the contact sheet introduces no text correction.",
+          "No authorized item reference matches both the body glyph’s outer presentation and internal marks.",
+          "The upper-right graphic visibly differs from the authorized not-in-combat reference in both prohibition geometry and underlying silhouette.",
+          "Emitting an item or not-in-combat semantic token would therefore exceed the authorized pixel evidence.",
+          "The worker is staging-only; exact generated-cell/paired-side and supervisor promotion gates remain external."
+        ],
+        "conflictsWithPriorSnapshot": [],
+        "mergedAt": "2026-08-16T07:15:34.334195Z"
+      },
+      "evidenceRuns": [
+        {
+          "workerId": "sol-max-direct-worker-08-20260816T065316Z",
+          "sourceSha256": "de97374d9cc8ed9f9141a4539386fd6b8979b4230f4eee8ae04925622fc07fed",
+          "blindSessionId": "20260816_065854_b35f31",
+          "adjudicationSessionId": "20260816_070703_65fa82",
+          "promotionDecision": "defer",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-direct-worker-08-20260816T065316Z/results/W08-003.json",
+          "selected": true
+        }
+      ]
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-01.png",
@@ -1638,8 +1758,91 @@
         "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-worker-06/results/W06-003.json",
         "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-worker-06/raw/W06-003.json",
         "ledgerPath": "assets/tts-mod/extract/vision-progress.json",
-        "queuePath": "assets/tts-mod/extract/low-confidence-review.json"
-      }
+        "queuePath": "assets/tts-mod/extract/low-confidence-review.json",
+        "selectedExtraction": {
+          "workerId": "sol-max-direct-worker-08-20260816T065316Z",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-direct-worker-08-20260816T065316Z/results/W08-004.json",
+          "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-direct-worker-08-20260816T065316Z/raw/W08-004.json",
+          "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-direct-worker-08-20260816T065316Z/references/W08-004-post-blind-contact-sheet.png",
+          "promotionDecision": "defer",
+          "runtime": {
+            "provider": "openai-codex",
+            "model": "gpt-5.6-sol",
+            "reasoningEffort": "max",
+            "nativeImageRoute": "hermes chat --image direct native input",
+            "blindSessionId": "20260816_070042_be9988",
+            "adjudicationSessionId": "20260816_070831_69fe87",
+            "auxiliaryVisionUsed": false,
+            "qwenUsed": false,
+            "ocrCanonicalEvidenceUsed": false,
+            "modelDowngradeUsed": false
+          }
+        }
+      },
+      "selectedExtraction": {
+        "overlayVersion": 1,
+        "status": "selected-evidence-deferred",
+        "workerId": "sol-max-direct-worker-08-20260816T065316Z",
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-13.png",
+        "sourceSha256": "b3b209538a4ac8554ae6e5230f4a98b1fa1ff3bd8f89b3ccfbee53d115997e9e",
+        "runtime": {
+          "provider": "openai-codex",
+          "model": "gpt-5.6-sol",
+          "reasoningEffort": "max",
+          "nativeImageRoute": "hermes chat --image direct native input",
+          "blindSessionId": "20260816_070042_be9988",
+          "adjudicationSessionId": "20260816_070831_69fe87",
+          "auxiliaryVisionUsed": false,
+          "qwenUsed": false,
+          "ocrCanonicalEvidenceUsed": false,
+          "modelDowngradeUsed": false
+        },
+        "blindObservationPath": "assets/tts-mod/extract/vision-workers/sol-max-direct-worker-08-20260816T065316Z/raw/W08-004.json",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-direct-worker-08-20260816T065316Z/results/W08-004.json",
+        "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-direct-worker-08-20260816T065316Z/references/W08-004-post-blind-contact-sheet.png",
+        "visibleText": {
+          "title": "DEMOLITION",
+          "body": "Remove 1 Door.\nOR\nPlace a [malfunction] in your Room.",
+          "footer": "HEAVY GUN OPERATOR"
+        },
+        "verifiedIconOccurrences": [
+          {
+            "cardLocation": "Lower instruction line, between “Place a” and “in your Room.”",
+            "referenceLabel": "malfunction",
+            "matchDecision": "match",
+            "canonicalToken": "malfunction",
+            "closestAlternative": "Generic gear/settings icon or circular saw-like ring.",
+            "visibleDiscriminator": "The card glyph and authorized crop share eight broad squared teeth, the same rounded annular body, and a similarly proportioned circular central void; a saw or sunburst would instead have narrow pointed rays.",
+            "evidenceRun": "sol-max-direct-worker-08-20260816T065316Z"
+          }
+        ],
+        "unresolvedIconOccurrences": [],
+        "canonicalTokensEmitted": [
+          "malfunction"
+        ],
+        "allMaterialTextReadable": true,
+        "allMaterialIconsAuthoritativelyMatched": true,
+        "promotionDecision": "defer",
+        "decisionReasons": [
+          "The authorized reference panel visibly identifies its glossary crop as “malfunction.”",
+          "The card glyph matches the reference in outer silhouette, eight-tooth arrangement, annular body, and central opening.",
+          "The title, both instructions, divider, punctuation, and footer are visibly readable, and the blind transcription requires no text correction.",
+          "The worker is staging-only; exact generated-cell/paired-side and supervisor promotion gates remain external."
+        ],
+        "conflictsWithPriorSnapshot": [],
+        "mergedAt": "2026-08-16T07:15:34.334234Z"
+      },
+      "evidenceRuns": [
+        {
+          "workerId": "sol-max-direct-worker-08-20260816T065316Z",
+          "sourceSha256": "b3b209538a4ac8554ae6e5230f4a98b1fa1ff3bd8f89b3ccfbee53d115997e9e",
+          "blindSessionId": "20260816_070042_be9988",
+          "adjudicationSessionId": "20260816_070831_69fe87",
+          "promotionDecision": "defer",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-direct-worker-08-20260816T065316Z/results/W08-004.json",
+          "selected": true
+        }
+      ]
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-14.png",
@@ -1761,8 +1964,122 @@
         "resultPath": "assets/tts-mod/extract/vision-results/2598eafaf860423a8b1155380eebba7a94a340df8a2c8564c515292f27f0f66b.json",
         "rawResultPath": null,
         "ledgerPath": "assets/tts-mod/extract/vision-progress.json",
-        "queuePath": "assets/tts-mod/extract/low-confidence-review.json"
-      }
+        "queuePath": "assets/tts-mod/extract/low-confidence-review.json",
+        "selectedExtraction": {
+          "workerId": "sol-max-direct-worker-08-20260816T065316Z",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-direct-worker-08-20260816T065316Z/results/W08-001.json",
+          "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-direct-worker-08-20260816T065316Z/raw/W08-001.json",
+          "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-direct-worker-08-20260816T065316Z/references/W08-001-post-blind-contact-sheet.png",
+          "promotionDecision": "defer",
+          "runtime": {
+            "provider": "openai-codex",
+            "model": "gpt-5.6-sol",
+            "reasoningEffort": "max",
+            "nativeImageRoute": "hermes chat --image direct native input",
+            "blindSessionId": "20260816_065336_ed83c9",
+            "adjudicationSessionId": "20260816_070205_81ed18",
+            "auxiliaryVisionUsed": false,
+            "qwenUsed": false,
+            "ocrCanonicalEvidenceUsed": false,
+            "modelDowngradeUsed": false
+          }
+        }
+      },
+      "selectedExtraction": {
+        "overlayVersion": 1,
+        "status": "selected-evidence-deferred",
+        "workerId": "sol-max-direct-worker-08-20260816T065316Z",
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-16.png",
+        "sourceSha256": "2598eafaf860423a8b1155380eebba7a94a340df8a2c8564c515292f27f0f66b",
+        "runtime": {
+          "provider": "openai-codex",
+          "model": "gpt-5.6-sol",
+          "reasoningEffort": "max",
+          "nativeImageRoute": "hermes chat --image direct native input",
+          "blindSessionId": "20260816_065336_ed83c9",
+          "adjudicationSessionId": "20260816_070205_81ed18",
+          "auxiliaryVisionUsed": false,
+          "qwenUsed": false,
+          "ocrCanonicalEvidenceUsed": false,
+          "modelDowngradeUsed": false
+        },
+        "blindObservationPath": "assets/tts-mod/extract/vision-workers/sol-max-direct-worker-08-20260816T065316Z/raw/W08-001.json",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-direct-worker-08-20260816T065316Z/results/W08-001.json",
+        "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-direct-worker-08-20260816T065316Z/references/W08-001-post-blind-contact-sheet.png",
+        "visibleText": {
+          "illustrationText": "RESCUE",
+          "title": "REPAIRS",
+          "firstInstruction": "Discard 1 [action-card], Discard a [malfunction].",
+          "separator": "OR",
+          "secondInstruction": "Open or Close 1 Door.",
+          "footer": "HEAVY GUN OPERATOR"
+        },
+        "verifiedIconOccurrences": [
+          {
+            "cardLocation": "First instruction line, immediately after “Discard 1”",
+            "referenceLabel": "AUTHORITATIVE GLOSSARY CROP: action-card",
+            "matchDecision": "match",
+            "canonicalToken": "action-card",
+            "closestAlternative": "A keyboard-style A keycap",
+            "visibleDiscriminator": "Both card and reference have the same nested dark frame, pale rounded-rectangle field, and centered black capital A; it is not merely an unboxed printed letter.",
+            "evidenceRun": "sol-max-direct-worker-08-20260816T065316Z"
+          },
+          {
+            "cardLocation": "First instruction line, immediately after “Discard a”",
+            "referenceLabel": "AUTHORITATIVE GLOSSARY CROP: malfunction",
+            "matchDecision": "match",
+            "canonicalToken": "malfunction",
+            "closestAlternative": "A generic gear or cog pictogram",
+            "visibleDiscriminator": "The card glyph and reference share the same blunt eight-tooth perimeter, pale annular body, and dark round center rather than a solid sunburst or plain circle.",
+            "evidenceRun": "sol-max-direct-worker-08-20260816T065316Z"
+          }
+        ],
+        "unresolvedIconOccurrences": [
+          {
+            "cardLocation": "Upper-right corner of the illustrated area",
+            "referenceLabel": "No authorized glossary crop supplied for this glyph",
+            "matchDecision": "uncertain",
+            "canonicalToken": null,
+            "closestAlternative": "A crossed-out winged-bar or bidirectional-arrow-like pictogram",
+            "visibleDiscriminator": "Its dominant red diagonal X and white lateral projections visibly differ from both the boxed-A silhouette and the toothed circular malfunction glyph.",
+            "evidenceRun": "sol-max-direct-worker-08-20260816T065316Z"
+          }
+        ],
+        "canonicalTokensEmitted": [
+          "action-card",
+          "malfunction"
+        ],
+        "allMaterialTextReadable": true,
+        "allMaterialIconsAuthoritativelyMatched": false,
+        "promotionDecision": "defer",
+        "decisionReasons": [
+          "The two inline instruction glyphs visibly match the authorized action-card and malfunction glossary crops in both outer shape and internal marks.",
+          "The contact sheet corrects the first instruction’s inter-clause punctuation from a period to a comma.",
+          "A separate upper-right emblem has no authorized reference and cannot safely receive a semantic token.",
+          "No official-page heading or topic is visible from which to verify official-page identity.",
+          "The worker is staging-only; exact generated-cell/paired-side and supervisor promotion gates remain external."
+        ],
+        "conflictsWithPriorSnapshot": [
+          {
+            "field": "printedData.upperRight",
+            "priorValue": "notInCombat",
+            "currentStatus": "unresolved/no-authorized-match",
+            "resolution": "preserved prior snapshot; current staged evidence blocks canonical semantic use"
+          }
+        ],
+        "mergedAt": "2026-08-16T07:15:34.334084Z"
+      },
+      "evidenceRuns": [
+        {
+          "workerId": "sol-max-direct-worker-08-20260816T065316Z",
+          "sourceSha256": "2598eafaf860423a8b1155380eebba7a94a340df8a2c8564c515292f27f0f66b",
+          "blindSessionId": "20260816_065336_ed83c9",
+          "adjudicationSessionId": "20260816_070205_81ed18",
+          "promotionDecision": "defer",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-direct-worker-08-20260816T065316Z/results/W08-001.json",
+          "selected": true
+        }
+      ]
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-17.png",
@@ -4979,8 +5296,135 @@
         "resultPath": "assets/tts-mod/extract/vision-results/b732ca40c7c54b4c85901c16fab368a614b278c651079135fcec192a13bccf39.json",
         "rawResultPath": null,
         "ledgerPath": "assets/tts-mod/extract/vision-progress.json",
-        "queuePath": "assets/tts-mod/extract/low-confidence-review.json"
-      }
+        "queuePath": "assets/tts-mod/extract/low-confidence-review.json",
+        "selectedExtraction": {
+          "workerId": "sol-max-direct-worker-08-20260816T065316Z",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-direct-worker-08-20260816T065316Z/results/W08-002.json",
+          "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-direct-worker-08-20260816T065316Z/raw/W08-002.json",
+          "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-direct-worker-08-20260816T065316Z/references/W08-002-post-blind-contact-sheet.png",
+          "promotionDecision": "defer",
+          "runtime": {
+            "provider": "openai-codex",
+            "model": "gpt-5.6-sol",
+            "reasoningEffort": "max",
+            "nativeImageRoute": "hermes chat --image direct native input",
+            "blindSessionId": "20260816_065633_83c92a",
+            "adjudicationSessionId": "20260816_070421_901e88",
+            "auxiliaryVisionUsed": false,
+            "qwenUsed": false,
+            "ocrCanonicalEvidenceUsed": false,
+            "modelDowngradeUsed": false
+          }
+        }
+      },
+      "selectedExtraction": {
+        "overlayVersion": 1,
+        "status": "selected-evidence-deferred",
+        "workerId": "sol-max-direct-worker-08-20260816T065316Z",
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/attack-151_cards/card-06.png",
+        "sourceSha256": "b732ca40c7c54b4c85901c16fab368a614b278c651079135fcec192a13bccf39",
+        "runtime": {
+          "provider": "openai-codex",
+          "model": "gpt-5.6-sol",
+          "reasoningEffort": "max",
+          "nativeImageRoute": "hermes chat --image direct native input",
+          "blindSessionId": "20260816_065633_83c92a",
+          "adjudicationSessionId": "20260816_070421_901e88",
+          "auxiliaryVisionUsed": false,
+          "qwenUsed": false,
+          "ocrCanonicalEvidenceUsed": false,
+          "modelDowngradeUsed": false
+        },
+        "blindObservationPath": "assets/tts-mod/extract/vision-workers/sol-max-direct-worker-08-20260816T065316Z/raw/W08-002.json",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-direct-worker-08-20260816T065316Z/results/W08-002.json",
+        "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-direct-worker-08-20260816T065316Z/references/W08-002-post-blind-contact-sheet.png",
+        "visibleText": {
+          "title": "DEADLY CLAWS",
+          "typeLine": "",
+          "upperPanel": {
+            "leftIcons": [
+              "[ICON:ADULT]",
+              "[ICON:DRONE]"
+            ],
+            "instruction": "Lose 1 [LOCAL_ICON:INLINE-1]."
+          },
+          "lowerPanel": {
+            "leftIcons": [
+              "[ICON:QUEEN]"
+            ],
+            "instruction": "If you are Heavily Injured, you die.\nOtherwise, get a Serious Wound\non each empty Serious Wound\nslot to the right\nof your Health marker.\nThen, get 1 Serious Wound more."
+          },
+          "footer": ""
+        },
+        "verifiedIconOccurrences": [
+          {
+            "cardLocation": "Upper instruction section, left column, upper circular pictogram",
+            "referenceLabel": "OFFICIAL RULEBOOK PDF PAGE 32, INTRUDER ATTACKS / STANDARD ATTACKS, example A icon visibly labeled ADULT",
+            "matchDecision": "match",
+            "canonicalToken": "[ICON:ADULT]",
+            "closestAlternative": "[ICON:DRONE]",
+            "visibleDiscriminator": "The card and ADULT reference share the low lateral silhouette and lower-right looped strokes; the DRONE reference instead has an upright, front-facing, approximately bilateral figure around a bright central axis.",
+            "evidenceRun": "sol-max-direct-worker-08-20260816T065316Z"
+          },
+          {
+            "cardLocation": "Upper instruction section, left column, lower circular pictogram",
+            "referenceLabel": "OFFICIAL RULEBOOK PDF PAGE 32, INTRUDER ATTACKS / STANDARD ATTACKS, example A icon visibly labeled DRONE",
+            "matchDecision": "match",
+            "canonicalToken": "[ICON:DRONE]",
+            "closestAlternative": "[ICON:QUEEN]",
+            "visibleDiscriminator": "The card and DRONE reference share the frontal bilateral branching around a bright vertical center; the QUEEN reference is diagonally upright and markedly asymmetric rather than mirrored across its center.",
+            "evidenceRun": "sol-max-direct-worker-08-20260816T065316Z"
+          },
+          {
+            "cardLocation": "Lower instruction section, left-column circular pictogram",
+            "referenceLabel": "OFFICIAL RULEBOOK PDF PAGE 32, INTRUDER ATTACKS / STANDARD ATTACKS, example A icon visibly labeled QUEEN",
+            "matchDecision": "match",
+            "canonicalToken": "[ICON:QUEEN]",
+            "closestAlternative": "[ICON:ADULT]",
+            "visibleDiscriminator": "The card and QUEEN reference share the tall diagonal posture, prominent upper projection, and trailing lower strokes; the ADULT reference is predominantly horizontal and has the distinctive lower-right looped configuration.",
+            "evidenceRun": "sol-max-direct-worker-08-20260816T065316Z"
+          }
+        ],
+        "unresolvedIconOccurrences": [
+          {
+            "cardLocation": "Upper instruction section, inline immediately after the numeral 1",
+            "referenceLabel": "OFFICIAL RULEBOOK PDF PAGE 32, example effect B, where the same unlabeled mark is visibly printed after \"Lose 2\"",
+            "matchDecision": "match",
+            "canonicalToken": null,
+            "closestAlternative": "A plain medical-cross or health mark",
+            "visibleDiscriminator": "Both copies have the same long horizontal extensions and central angular waveform through a thick vertical block, unlike a plain cross; however, no visible caption or rule text on the authorized page assigns the mark a semantic name.",
+            "evidenceRun": "sol-max-direct-worker-08-20260816T065316Z"
+          }
+        ],
+        "canonicalTokensEmitted": [
+          "[ICON:ADULT]",
+          "[ICON:DRONE]",
+          "[ICON:QUEEN]"
+        ],
+        "allMaterialTextReadable": true,
+        "allMaterialIconsAuthoritativelyMatched": false,
+        "promotionDecision": "defer",
+        "decisionReasons": [
+          "The reference page is independently identifiable from visible pixels: the printed page number is 32, the main heading is \"INTRUDER ATTACKS\", and the relevant subsection is \"STANDARD ATTACKS\".",
+          "The card's material wording and punctuation agree with the blind transcription, so no contact-sheet text correction is required.",
+          "The three circular card pictograms visibly match the reference icons labeled ADULT, DRONE, and QUEEN by both outer form and distinctive internal structure.",
+          "The inline glyph has a matching reference copy but no authorized visible semantic label; promoting it to a named token would require inference from game semantics.",
+          "The worker is staging-only; exact generated-cell/paired-side and supervisor promotion gates remain external."
+        ],
+        "conflictsWithPriorSnapshot": [],
+        "mergedAt": "2026-08-16T07:15:34.334153Z"
+      },
+      "evidenceRuns": [
+        {
+          "workerId": "sol-max-direct-worker-08-20260816T065316Z",
+          "sourceSha256": "b732ca40c7c54b4c85901c16fab368a614b278c651079135fcec192a13bccf39",
+          "blindSessionId": "20260816_065633_83c92a",
+          "adjudicationSessionId": "20260816_070421_901e88",
+          "promotionDecision": "defer",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-direct-worker-08-20260816T065316Z/results/W08-002.json",
+          "selected": true
+        }
+      ]
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/attack-151_cards/card-07.png",
@@ -15983,5 +16427,14 @@
         "queuePath": null
       }
     }
-  ]
+  ],
+  "metadata": {
+    "selectedEvidenceLastMerged": {
+      "workerId": "sol-max-direct-worker-08-20260816T065316Z",
+      "mergedAt": "2026-08-16T07:15:34.334237Z",
+      "recordCount": 4,
+      "decision": "deferred-overlay-only",
+      "sourceTupleDigest": "6b2a7973fddc0a3bb96bc49c522795b19c27bdd21f0dc2ad532c237e6e3db060"
+    }
+  }
 }
