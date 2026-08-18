@@ -198,6 +198,18 @@ genuinely unselected position is `low-confidence-review.json` `entries[30]`:
 `assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-38.png`
 (SHA-256 `0552286f57fa7bd931211671372be695a22592dce514cd0fcdb61af9932d5bbb`).
 
+**W11 deferred-card checkpoint (2026-08-18T12:32:49Z):** Worker
+`sol-max-persistent-worker-11-20260818T113243Z-2e4d25` re-examined `card-38.png`,
+`card-39.png`, `card-40.png`, `card-41.png`, `card-43.png`, `card-44.png`,
+`medical-support-011.png`, and `medical-support-022.jpg` with one isolated native
+`openai-codex:gpt-5.6-sol` blind session at `max` plus 12 post-blind native reference calls.
+All eight selected results remain deferred; no canonical sidecar, source/canonical card byte,
+classification, or filename changed. Registry/corpus counts are 28/390 with 11 verified and 6
+unresolved W11 icon occurrences and zero prior-snapshot conflicts; identical re-merge is idempotent.
+Exact next forward genuinely unselected position is `low-confidence-review.json` `entries[38]`:
+`assets/tts-mod/extract/v2-dl/tree/cards/character/medical-support-023.jpg`
+(SHA-256 `71ed551e4eed6b33469b286d8dc0d2ddcc910cef22fb522097a0a24ae2ba0f72`).
+
 The requested approval-gated review target
 `assets/tts-mod/extract/v2-dl/tree/unsorted/card-176.jpg` is absent from the live tree. A candidate
 source matching the durable 2132x2142 trial dimensions is available at
