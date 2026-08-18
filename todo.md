@@ -173,6 +173,18 @@ sidecar/image pairs. Exact next re-examination path:
 `assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-16.png`.
 Audit: `assets/tts-mod/extract/vision-workers/supervisor-reconciliation-workers-05-06.json`.
 
+**W09 deferred-card checkpoint (2026-08-18T09:59:16Z):** Worker
+`sol-max-persistent-worker-09-20260818T085918Z-723f40` re-examined the exact generated-card
+cells `card-18.png` through `card-25.png` with verified native
+`openai-codex:gpt-5.6-sol` at `max`. All eight validated selections remain deferred; no canonical
+sidecar, source image, classification, or filename changed. The durable registry now contains 12
+selected entries/runs; the deterministic 390-record corpus contains 10 verified and 11 unresolved
+icon occurrences from W09, with six prior-snapshot conflicts preserved. Re-merging is idempotent.
+Exact next forward genuinely unselected position is
+`low-confidence-review.json` `entries[22]`:
+`assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-27.png`
+(SHA-256 `be41f58fd5e1bc3231001c5940ac5d6464ff8d625b08b45a0edc6311b2466354`).
+
 The requested approval-gated review target
 `assets/tts-mod/extract/v2-dl/tree/unsorted/card-176.jpg` is absent from the live tree. A candidate
 source matching the durable 2132x2142 trial dimensions is available at
