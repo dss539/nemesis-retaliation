@@ -275,6 +275,29 @@ corpus remains 390 records. Each W14 tuple remains exactly once in progress, the
 queue index 62, `assets/tts-mod/extract/v2-dl/tree/cards/character/recon-051.png`
 (SHA-256 `318546349ba9ded87455d6608112a0cdb7a5bf826eff07c64c106ed1289ec32d`).
 
+**W15 deferred-card checkpoint (2026-08-19T06:40:47Z):** Worker
+`sol-max-persistent-worker-15-20260819T054617Z-ac4db5` completed queue indices
+62–69 in one clean tool-disabled native `openai-codex:gpt-5.6-sol` max session
+(`20260819_054756_b8fea8`; 8 API calls, 16 messages, zero tools), followed by audited
+post-blind side, pair, official-source, and glossary evidence. Seven sources are exact
+rules-bearing faces: Recon DEMOLITION, Contractor SEARCH and DEMOLITION, BLOOD SENSE,
+and three BITE cells. `ATTACK / PRIMEBLOOD` is exactly the shared non-rules BackURL.
+Five direct icon groups are authoritatively matched. Thirteen local glyph occurrences
+remain explicit no-matches rather than inferred: SEARCH's solid chamfered polygon,
+three BLOOD SENSE cyan badges, and three cyan badges in each BITE cell. Before the
+shared write, the tentative merge was rolled back to the sealed W14 preimage and the
+normalized W15 evidence was rebuilt so every unresolved occurrence has its own exact
+location/morphology comparison row. All eight promotion decisions remain `defer`;
+no canonical sidecar, source image, category, filename, or protected target changed.
+Private projection, independent rebuild, shared merge, and identical re-merge are
+byte-idempotent: selected evidence now contains 60 exact tuple entries/runs and the
+corpus remains 390 records. Each W15 tuple occurs exactly once in progress, the
+398-entry low-confidence queue, selected evidence, and its exact corpus overlay; the
+global partition remains 532 = 134 complete + 398 deferred + 0 unaccounted. The next
+eligible exact tuple is queue index 70,
+`assets/tts-mod/extract/v2-dl/tree/cards/game/attack-151_cards/card-03.png`
+(SHA-256 `9c988ba455dd17dfa1dc34eb2fb26cfebb6c17c9f21cb6a60af473ca0c441afc`).
+
 The requested approval-gated review target
 `assets/tts-mod/extract/v2-dl/tree/unsorted/card-176.jpg` is absent from the live tree. A candidate
 source matching the durable 2132x2142 trial dimensions is available at
