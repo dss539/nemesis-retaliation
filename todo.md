@@ -298,6 +298,29 @@ eligible exact tuple is queue index 70,
 `assets/tts-mod/extract/v2-dl/tree/cards/game/attack-151_cards/card-03.png`
 (SHA-256 `9c988ba455dd17dfa1dc34eb2fb26cfebb6c17c9f21cb6a60af473ca0c441afc`).
 
+**W16 deferred-card checkpoint (2026-08-19T07:35:56Z):** Worker
+`sol-max-persistent-worker-16-20260819T064958Z-3c1388` completed exact queue indices
+70–72 and 74–78; index 73 was already selected by an earlier exact-tuple run and was
+mechanically skipped. Blind reads used one clean tool-disabled native
+`openai-codex:gpt-5.6-sol` max session (`20260819_065934_a4c431`; 8 API calls,
+16 messages, zero tools), followed by audited post-blind side, pair,
+official-source, and glossary evidence. All eight sources are rules-bearing generated
+attack FaceURL cells: three BITE, two DEADLY CLAWS, two FURY, and one INFECTING.
+Each has one exact CardID/GUID selector and one direct `ATTACK / PRIMEBLOOD` BackURL.
+Five inline white glyph groups are authoritatively matched to `characterHealth`.
+Twenty-four cyan local badge occurrences—three per face—remain explicit no-matches,
+each preserving its exact location and morphology; no semantic badge names were
+invented. All eight promotion decisions remain `defer`; no canonical sidecar, source
+image, category, filename, or protected target changed. Private projection,
+independent rebuild, shared merge, and identical re-merge are byte-idempotent:
+selected evidence now contains 68 exact tuple entries/runs and the corpus remains
+390 records. Each W16 tuple occurs exactly once in progress, the 398-entry
+low-confidence queue, selected evidence, and its exact corpus overlay; the global
+partition remains 532 = 134 complete + 398 deferred + 0 unaccounted. The next
+eligible exact tuple is queue index 79,
+`assets/tts-mod/extract/v2-dl/tree/cards/game/attack-151_cards/card-13.png`
+(SHA-256 `e23333f920163dc0a9342ef6d348855b0dbb3e2b7a769ec735e3d4460c2d89cf`).
+
 The requested approval-gated review target
 `assets/tts-mod/extract/v2-dl/tree/unsorted/card-176.jpg` is absent from the live tree. A candidate
 source matching the durable 2132x2142 trial dimensions is available at
