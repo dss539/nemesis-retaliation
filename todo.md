@@ -321,6 +321,34 @@ eligible exact tuple is queue index 79,
 `assets/tts-mod/extract/v2-dl/tree/cards/game/attack-151_cards/card-13.png`
 (SHA-256 `e23333f920163dc0a9342ef6d348855b0dbb3e2b7a769ec735e3d4460c2d89cf`).
 
+**W17 deferred-card checkpoint (2026-08-19T08:23:01Z):** Worker
+`sol-max-persistent-worker-17-20260819T074018Z-35053f` completed exact queue indices
+79–86. Blind reads used one clean tool-disabled native `openai-codex:gpt-5.6-sol`
+max session (`20260819_074348_1e30be`; 8 API calls, 16 messages, zero tools),
+followed by 11 audited native post-blind side, official-source, glossary, and focused
+comparison calls in session `20260819_062132_c0f4f3`. Seven sources are
+rules-bearing generated attack FaceURL cells 13–19: four `SCRATCH`, one `SUMMONING`,
+and two `TAIL ATTACK`. Source pixels visibly correct the blind `SCRAICH` title to
+`SCRATCH` on cells 13–16; immutable blind wrappers remain unchanged and each correction
+is explicit. Six attack cells have one exact CardID/GUID selector; `SUMMONING` cell 17
+has deck-level `ATTACK / PRIMEBLOOD` BackURL provenance and no direct cell-17 selector.
+The eighth source is a shared `CONTAMINATION` FaceURL used by 27 CardCustom objects and
+paired to the shared `ACTION` BackURL. It has no rules body; its large red patterned
+field is preserved as a non-text component graphic, not assigned a fabricated token.
+Five inline white groups match `characterHealth`, and the SUMMONING shield matches the
+official page-40 `secure` token. Twenty-one cyan local badge occurrences—three on each
+attack face—remain explicit no-matches preserving exact location/morphology; no semantic
+badge names were invented. All eight promotion decisions remain `defer`; no canonical
+sidecar, source image, category, filename, or protected target changed. Private
+projection, independent rebuild, shared merge, and identical re-merge are
+byte-idempotent: selected evidence now contains 76 exact tuple entries/runs and the
+corpus remains 390 records. Each W17 tuple occurs exactly once in progress, the
+398-entry low-confidence queue, selected evidence, and its exact corpus overlay; the
+global partition remains 532 = 134 complete + 398 deferred + 0 unaccounted. The next
+eligible exact tuple is queue index 87,
+`assets/tts-mod/extract/v2-dl/tree/cards/game/event-051.jpg`
+(SHA-256 `2eb453e8f770bbee9ab5b951fb22e952d34c1250876b88e878a461c11f7f8ded`).
+
 The requested approval-gated review target
 `assets/tts-mod/extract/v2-dl/tree/unsorted/card-176.jpg` is absent from the live tree. A candidate
 source matching the durable 2132x2142 trial dimensions is available at

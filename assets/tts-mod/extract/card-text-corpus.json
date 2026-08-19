@@ -10,10 +10,10 @@
   "metadata": {
     "selectedEvidenceRegistry": "assets/tts-mod/extract/selected-card-text-evidence.json",
     "selectedEvidenceRegistrySchemaVersion": 1,
-    "selectedEvidenceRegistrySha256": "8df391482c34a0039032475cb77eb8f65992e1e31a8bb71d30e98af96c2c40ef",
-    "selectedEvidenceTupleDigest": "228873aa09f3e2a715933cd44fbf44b06d515e1c710d5f0f651d62fc7b22f24b",
-    "selectedEvidenceEntryCount": 68,
-    "selectedEvidenceRunCount": 68
+    "selectedEvidenceRegistrySha256": "a6b493722bc50cb4a394bb61beee41cac020187ab4e95c269c6081eb48413386",
+    "selectedEvidenceTupleDigest": "bf2eda6f4a91771a709e591b7f818025feae4219ff9c1902e8e500538f55d8ba",
+    "selectedEvidenceEntryCount": 76,
+    "selectedEvidenceRunCount": 76
   },
   "counts": {
     "records": 390,
@@ -12736,8 +12736,120 @@
         "resultPath": "assets/tts-mod/extract/vision-results/e23333f920163dc0a9342ef6d348855b0dbb3e2b7a769ec735e3d4460c2d89cf.json",
         "rawResultPath": null,
         "ledgerPath": "assets/tts-mod/extract/vision-progress.json",
-        "queuePath": "assets/tts-mod/extract/low-confidence-review.json"
-      }
+        "queuePath": "assets/tts-mod/extract/low-confidence-review.json",
+        "selectedExtraction": {
+          "runIdentity": "w17-card-extraction-20260819T074018Z-35053f/sol-max-persistent-worker-17-20260819T074018Z-35053f/W17-001",
+          "runId": "w17-card-extraction-20260819T074018Z-35053f",
+          "workerId": "sol-max-persistent-worker-17-20260819T074018Z-35053f",
+          "assetId": "W17-001",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-17-20260819T074018Z-35053f/merge-view/results/W17-001.json",
+          "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-17-20260819T074018Z-35053f/merge-view/raw/W17-001.json",
+          "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-17-20260819T074018Z-35053f/references/W17-001-post-blind-contact-sheet.png",
+          "promotionDecision": "defer",
+          "runtime": {
+            "provider": "openai-codex",
+            "model": "gpt-5.6-sol",
+            "reasoningEffort": "max",
+            "nativeImageRoute": "hermes chat --image direct native input for blind reads; native vision_analyze for post-blind reference/adjudication",
+            "blindSessionId": "20260819_074348_1e30be",
+            "adjudicationSessionId": "20260819_062132_c0f4f3",
+            "auxiliaryVisionUsed": false,
+            "qwenUsed": false,
+            "ocrCanonicalEvidenceUsed": false,
+            "modelDowngradeUsed": false
+          }
+        }
+      },
+      "selectedExtraction": {
+        "overlayVersion": 1,
+        "status": "selected-evidence-deferred",
+        "runIdentity": "w17-card-extraction-20260819T074018Z-35053f/sol-max-persistent-worker-17-20260819T074018Z-35053f/W17-001",
+        "runId": "w17-card-extraction-20260819T074018Z-35053f",
+        "workerId": "sol-max-persistent-worker-17-20260819T074018Z-35053f",
+        "assetId": "W17-001",
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/attack-151_cards/card-13.png",
+        "sourceSha256": "e23333f920163dc0a9342ef6d348855b0dbb3e2b7a769ec735e3d4460c2d89cf",
+        "runtime": {
+          "provider": "openai-codex",
+          "model": "gpt-5.6-sol",
+          "reasoningEffort": "max",
+          "nativeImageRoute": "hermes chat --image direct native input for blind reads; native vision_analyze for post-blind reference/adjudication",
+          "blindSessionId": "20260819_074348_1e30be",
+          "adjudicationSessionId": "20260819_062132_c0f4f3",
+          "auxiliaryVisionUsed": false,
+          "qwenUsed": false,
+          "ocrCanonicalEvidenceUsed": false,
+          "modelDowngradeUsed": false
+        },
+        "blindObservationPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-17-20260819T074018Z-35053f/merge-view/raw/W17-001.json",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-17-20260819T074018Z-35053f/merge-view/results/W17-001.json",
+        "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-17-20260819T074018Z-35053f/references/W17-001-post-blind-contact-sheet.png",
+        "visibleText": {
+          "title": "SCRATCH",
+          "body": "Get 1 Contamination.",
+          "sections": [
+            "Get 1 Contamination."
+          ],
+          "footer": "",
+          "upperRight": "",
+          "illegibleSpans": [],
+          "clippedSpans": []
+        },
+        "verifiedIconOccurrences": [],
+        "unresolvedIconOccurrences": [
+          {
+            "cardLocation": "Lower panel, left column, top circular pictogram.",
+            "referenceLabel": "No authoritative canonical candidate established",
+            "matchDecision": "no-match",
+            "canonicalToken": null,
+            "closestAlternative": "An abstract knot, coiled tubing, or side-facing multi-projection figure.",
+            "visibleDiscriminator": "The rightmost thin stroke forms a visible open loop while the left side remains a denser, non-looped cluster. Direct comparison did not establish any authoritative canonical candidate.",
+            "evidenceRun": "sol-max-persistent-worker-17-20260819T074018Z-35053f"
+          },
+          {
+            "cardLocation": "Lower panel, left column, middle circular pictogram.",
+            "referenceLabel": "No authoritative canonical candidate established",
+            "matchDecision": "no-match",
+            "canonicalToken": null,
+            "closestAlternative": "A branching mechanical tower, plant-like glyph, or upright multi-limbed figure.",
+            "visibleDiscriminator": "The central vertical mass has multiple irregular lateral and lower projections rather than the repeated straight geometry expected of a simple tower or letterform. Direct comparison did not establish any authoritative canonical candidate.",
+            "evidenceRun": "sol-max-persistent-worker-17-20260819T074018Z-35053f"
+          },
+          {
+            "cardLocation": "Lower panel, left column, bottom circular pictogram.",
+            "referenceLabel": "No authoritative canonical candidate established",
+            "matchDecision": "no-match",
+            "canonicalToken": null,
+            "closestAlternative": "An ornate mask, crest, winged emblem, or front-facing broad multi-projection figure.",
+            "visibleDiscriminator": "The paired side lobes mirror one another around a distinct central vertical mass, unlike the visibly asymmetric figures in the two circles above. Direct comparison did not establish any authoritative canonical candidate.",
+            "evidenceRun": "sol-max-persistent-worker-17-20260819T074018Z-35053f"
+          }
+        ],
+        "canonicalTokensEmitted": [],
+        "allMaterialTextReadable": true,
+        "allMaterialIconsAuthoritativelyMatched": false,
+        "promotionDecision": "defer",
+        "decisionReasons": [
+          "Exact rules text and labeled inline glyphs are resolved; three cyan local badges remain explicitly unresolved.",
+          "No complete official face-text reproduction or explicit card-specific supersession was located.",
+          "Tracked counterpart conflict state: target-absent-no-same-title-counterpart."
+        ],
+        "conflictsWithPriorSnapshot": []
+      },
+      "evidenceRuns": [
+        {
+          "runIdentity": "w17-card-extraction-20260819T074018Z-35053f/sol-max-persistent-worker-17-20260819T074018Z-35053f/W17-001",
+          "runId": "w17-card-extraction-20260819T074018Z-35053f",
+          "workerId": "sol-max-persistent-worker-17-20260819T074018Z-35053f",
+          "assetId": "W17-001",
+          "sourceSha256": "e23333f920163dc0a9342ef6d348855b0dbb3e2b7a769ec735e3d4460c2d89cf",
+          "blindSessionId": "20260819_074348_1e30be",
+          "adjudicationSessionId": "20260819_062132_c0f4f3",
+          "promotionDecision": "defer",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-17-20260819T074018Z-35053f/merge-view/results/W17-001.json",
+          "selected": true
+        }
+      ]
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/attack-151_cards/card-14.png",
@@ -12777,8 +12889,132 @@
         "resultPath": "assets/tts-mod/extract/vision-results/241bd0d208b745a41e9ee671e55138b71669ef12b3bf8b1086922f85fc126963.json",
         "rawResultPath": null,
         "ledgerPath": "assets/tts-mod/extract/vision-progress.json",
-        "queuePath": "assets/tts-mod/extract/low-confidence-review.json"
-      }
+        "queuePath": "assets/tts-mod/extract/low-confidence-review.json",
+        "selectedExtraction": {
+          "runIdentity": "w17-card-extraction-20260819T074018Z-35053f/sol-max-persistent-worker-17-20260819T074018Z-35053f/W17-002",
+          "runId": "w17-card-extraction-20260819T074018Z-35053f",
+          "workerId": "sol-max-persistent-worker-17-20260819T074018Z-35053f",
+          "assetId": "W17-002",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-17-20260819T074018Z-35053f/merge-view/results/W17-002.json",
+          "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-17-20260819T074018Z-35053f/merge-view/raw/W17-002.json",
+          "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-17-20260819T074018Z-35053f/references/W17-002-post-blind-contact-sheet.png",
+          "promotionDecision": "defer",
+          "runtime": {
+            "provider": "openai-codex",
+            "model": "gpt-5.6-sol",
+            "reasoningEffort": "max",
+            "nativeImageRoute": "hermes chat --image direct native input for blind reads; native vision_analyze for post-blind reference/adjudication",
+            "blindSessionId": "20260819_074348_1e30be",
+            "adjudicationSessionId": "20260819_062132_c0f4f3",
+            "auxiliaryVisionUsed": false,
+            "qwenUsed": false,
+            "ocrCanonicalEvidenceUsed": false,
+            "modelDowngradeUsed": false
+          }
+        }
+      },
+      "selectedExtraction": {
+        "overlayVersion": 1,
+        "status": "selected-evidence-deferred",
+        "runIdentity": "w17-card-extraction-20260819T074018Z-35053f/sol-max-persistent-worker-17-20260819T074018Z-35053f/W17-002",
+        "runId": "w17-card-extraction-20260819T074018Z-35053f",
+        "workerId": "sol-max-persistent-worker-17-20260819T074018Z-35053f",
+        "assetId": "W17-002",
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/attack-151_cards/card-14.png",
+        "sourceSha256": "241bd0d208b745a41e9ee671e55138b71669ef12b3bf8b1086922f85fc126963",
+        "runtime": {
+          "provider": "openai-codex",
+          "model": "gpt-5.6-sol",
+          "reasoningEffort": "max",
+          "nativeImageRoute": "hermes chat --image direct native input for blind reads; native vision_analyze for post-blind reference/adjudication",
+          "blindSessionId": "20260819_074348_1e30be",
+          "adjudicationSessionId": "20260819_062132_c0f4f3",
+          "auxiliaryVisionUsed": false,
+          "qwenUsed": false,
+          "ocrCanonicalEvidenceUsed": false,
+          "modelDowngradeUsed": false
+        },
+        "blindObservationPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-17-20260819T074018Z-35053f/merge-view/raw/W17-002.json",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-17-20260819T074018Z-35053f/merge-view/results/W17-002.json",
+        "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-17-20260819T074018Z-35053f/references/W17-002-post-blind-contact-sheet.png",
+        "visibleText": {
+          "title": "SCRATCH",
+          "body": "Lose 1 [characterHealth].\nGet 1 Contamination.",
+          "sections": [
+            "Lose 1 [characterHealth].\nGet 1 Contamination."
+          ],
+          "footer": "",
+          "upperRight": "",
+          "illegibleSpans": [],
+          "clippedSpans": []
+        },
+        "verifiedIconOccurrences": [
+          {
+            "cardLocation": "Lower instruction panel, first line, immediately after \"Lose 1\" and immediately before the period.",
+            "referenceLabel": "characterHealth",
+            "matchDecision": "match",
+            "canonicalToken": "characterHealth",
+            "closestAlternative": "actionCard",
+            "visibleDiscriminator": "actionCard is a bordered upright rectangle containing A; oxygen is a vertical capsule; character and robot are silhouettes; notInCombat has a red prohibition ring; intruder is a curled creature. Only characterHealth shares the horizontal trace and central spike.",
+            "evidenceRun": "sol-max-persistent-worker-17-20260819T074018Z-35053f"
+          }
+        ],
+        "unresolvedIconOccurrences": [
+          {
+            "cardLocation": "Lower panel, left column, top circular pictogram.",
+            "referenceLabel": "No authoritative canonical candidate established",
+            "matchDecision": "no-match",
+            "canonicalToken": null,
+            "closestAlternative": "An abstract knot or coiled tubing rather than a side-facing multi-projection figure.",
+            "visibleDiscriminator": "The right half contains multiple open curved loops, while the left half is a denser pointed cluster rather than a continuation of a regular cord pattern. Direct comparison did not establish any authoritative canonical candidate.",
+            "evidenceRun": "sol-max-persistent-worker-17-20260819T074018Z-35053f"
+          },
+          {
+            "cardLocation": "Lower panel, left column, middle circular pictogram.",
+            "referenceLabel": "No authoritative canonical candidate established",
+            "matchDecision": "no-match",
+            "canonicalToken": null,
+            "closestAlternative": "A branching mechanical tower, plant-like glyph, or upright multi-limbed figure.",
+            "visibleDiscriminator": "Its central vertical mass is interrupted by irregular paired side projections and ends in several separately angled lower strokes, rather than one continuous geometric base. Direct comparison did not establish any authoritative canonical candidate.",
+            "evidenceRun": "sol-max-persistent-worker-17-20260819T074018Z-35053f"
+          },
+          {
+            "cardLocation": "Lower panel, left column, bottom circular pictogram.",
+            "referenceLabel": "No authoritative canonical candidate established",
+            "matchDecision": "no-match",
+            "canonicalToken": null,
+            "closestAlternative": "An ornate mask, crest, winged emblem, or broad front-facing multi-projection figure.",
+            "visibleDiscriminator": "Two prominent side arcs mirror one another around a central axis, making this mark substantially wider and more bilateral than the two pictograms above. Direct comparison did not establish any authoritative canonical candidate.",
+            "evidenceRun": "sol-max-persistent-worker-17-20260819T074018Z-35053f"
+          }
+        ],
+        "canonicalTokensEmitted": [
+          "characterHealth"
+        ],
+        "allMaterialTextReadable": true,
+        "allMaterialIconsAuthoritativelyMatched": false,
+        "promotionDecision": "defer",
+        "decisionReasons": [
+          "Exact rules text and labeled inline glyphs are resolved; three cyan local badges remain explicitly unresolved.",
+          "No complete official face-text reproduction or explicit card-specific supersession was located.",
+          "Tracked counterpart conflict state: target-absent-no-same-title-counterpart."
+        ],
+        "conflictsWithPriorSnapshot": []
+      },
+      "evidenceRuns": [
+        {
+          "runIdentity": "w17-card-extraction-20260819T074018Z-35053f/sol-max-persistent-worker-17-20260819T074018Z-35053f/W17-002",
+          "runId": "w17-card-extraction-20260819T074018Z-35053f",
+          "workerId": "sol-max-persistent-worker-17-20260819T074018Z-35053f",
+          "assetId": "W17-002",
+          "sourceSha256": "241bd0d208b745a41e9ee671e55138b71669ef12b3bf8b1086922f85fc126963",
+          "blindSessionId": "20260819_074348_1e30be",
+          "adjudicationSessionId": "20260819_062132_c0f4f3",
+          "promotionDecision": "defer",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-17-20260819T074018Z-35053f/merge-view/results/W17-002.json",
+          "selected": true
+        }
+      ]
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/attack-151_cards/card-15.png",
@@ -12820,8 +13056,132 @@
         "resultPath": "assets/tts-mod/extract/vision-results/20ced3626bd007e388acda4ccc96dfcd59e72bcf3cf7ae84ad1693e5ba0a924d.json",
         "rawResultPath": null,
         "ledgerPath": "assets/tts-mod/extract/vision-progress.json",
-        "queuePath": "assets/tts-mod/extract/low-confidence-review.json"
-      }
+        "queuePath": "assets/tts-mod/extract/low-confidence-review.json",
+        "selectedExtraction": {
+          "runIdentity": "w17-card-extraction-20260819T074018Z-35053f/sol-max-persistent-worker-17-20260819T074018Z-35053f/W17-003",
+          "runId": "w17-card-extraction-20260819T074018Z-35053f",
+          "workerId": "sol-max-persistent-worker-17-20260819T074018Z-35053f",
+          "assetId": "W17-003",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-17-20260819T074018Z-35053f/merge-view/results/W17-003.json",
+          "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-17-20260819T074018Z-35053f/merge-view/raw/W17-003.json",
+          "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-17-20260819T074018Z-35053f/references/W17-003-post-blind-contact-sheet.png",
+          "promotionDecision": "defer",
+          "runtime": {
+            "provider": "openai-codex",
+            "model": "gpt-5.6-sol",
+            "reasoningEffort": "max",
+            "nativeImageRoute": "hermes chat --image direct native input for blind reads; native vision_analyze for post-blind reference/adjudication",
+            "blindSessionId": "20260819_074348_1e30be",
+            "adjudicationSessionId": "20260819_062132_c0f4f3",
+            "auxiliaryVisionUsed": false,
+            "qwenUsed": false,
+            "ocrCanonicalEvidenceUsed": false,
+            "modelDowngradeUsed": false
+          }
+        }
+      },
+      "selectedExtraction": {
+        "overlayVersion": 1,
+        "status": "selected-evidence-deferred",
+        "runIdentity": "w17-card-extraction-20260819T074018Z-35053f/sol-max-persistent-worker-17-20260819T074018Z-35053f/W17-003",
+        "runId": "w17-card-extraction-20260819T074018Z-35053f",
+        "workerId": "sol-max-persistent-worker-17-20260819T074018Z-35053f",
+        "assetId": "W17-003",
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/attack-151_cards/card-15.png",
+        "sourceSha256": "20ced3626bd007e388acda4ccc96dfcd59e72bcf3cf7ae84ad1693e5ba0a924d",
+        "runtime": {
+          "provider": "openai-codex",
+          "model": "gpt-5.6-sol",
+          "reasoningEffort": "max",
+          "nativeImageRoute": "hermes chat --image direct native input for blind reads; native vision_analyze for post-blind reference/adjudication",
+          "blindSessionId": "20260819_074348_1e30be",
+          "adjudicationSessionId": "20260819_062132_c0f4f3",
+          "auxiliaryVisionUsed": false,
+          "qwenUsed": false,
+          "ocrCanonicalEvidenceUsed": false,
+          "modelDowngradeUsed": false
+        },
+        "blindObservationPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-17-20260819T074018Z-35053f/merge-view/raw/W17-003.json",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-17-20260819T074018Z-35053f/merge-view/results/W17-003.json",
+        "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-17-20260819T074018Z-35053f/references/W17-003-post-blind-contact-sheet.png",
+        "visibleText": {
+          "title": "SCRATCH",
+          "body": "Lose 1 [characterHealth].",
+          "sections": [
+            "Lose 1 [characterHealth]."
+          ],
+          "footer": "",
+          "upperRight": "",
+          "illegibleSpans": [],
+          "clippedSpans": []
+        },
+        "verifiedIconOccurrences": [
+          {
+            "cardLocation": "Lower instruction panel, immediately after \"Lose 1\" and immediately before the period.",
+            "referenceLabel": "characterHealth",
+            "matchDecision": "match",
+            "canonicalToken": "characterHealth",
+            "closestAlternative": "actionCard",
+            "visibleDiscriminator": "actionCard is a bordered upright rectangle containing A; oxygen is a vertical capsule; character and robot are silhouettes; notInCombat has a red prohibition ring; intruder is a curled creature. Only characterHealth shares the horizontal trace and central spike.",
+            "evidenceRun": "sol-max-persistent-worker-17-20260819T074018Z-35053f"
+          }
+        ],
+        "unresolvedIconOccurrences": [
+          {
+            "cardLocation": "Lower panel, left column, top circular pictogram.",
+            "referenceLabel": "No authoritative canonical candidate established",
+            "matchDecision": "no-match",
+            "canonicalToken": null,
+            "closestAlternative": "An abstract knot or coiled tubing rather than a side-facing multi-projection figure.",
+            "visibleDiscriminator": "Several short branches radiate from the dense central cluster while distinct open loops remain visible toward the right. Direct comparison did not establish any authoritative canonical candidate.",
+            "evidenceRun": "sol-max-persistent-worker-17-20260819T074018Z-35053f"
+          },
+          {
+            "cardLocation": "Lower panel, left column, middle circular pictogram.",
+            "referenceLabel": "No authoritative canonical candidate established",
+            "matchDecision": "no-match",
+            "canonicalToken": null,
+            "closestAlternative": "A branching plant-like glyph, mechanical tower, or upright multi-projection figure.",
+            "visibleDiscriminator": "The central vertical mass has irregular paired side projections and separately angled lower strokes rather than a regular geometric base. Direct comparison did not establish any authoritative canonical candidate.",
+            "evidenceRun": "sol-max-persistent-worker-17-20260819T074018Z-35053f"
+          },
+          {
+            "cardLocation": "Lower panel, left column, bottom circular pictogram.",
+            "referenceLabel": "No authoritative canonical candidate established",
+            "matchDecision": "no-match",
+            "canonicalToken": null,
+            "closestAlternative": "An ornate mask, crest, winged emblem, or broad front-facing multi-projection figure.",
+            "visibleDiscriminator": "Two prominent side arcs mirror one another around a central axis, producing a much wider and more bilateral mark than those above. Direct comparison did not establish any authoritative canonical candidate.",
+            "evidenceRun": "sol-max-persistent-worker-17-20260819T074018Z-35053f"
+          }
+        ],
+        "canonicalTokensEmitted": [
+          "characterHealth"
+        ],
+        "allMaterialTextReadable": true,
+        "allMaterialIconsAuthoritativelyMatched": false,
+        "promotionDecision": "defer",
+        "decisionReasons": [
+          "Exact rules text and labeled inline glyphs are resolved; three cyan local badges remain explicitly unresolved.",
+          "No complete official face-text reproduction or explicit card-specific supersession was located.",
+          "Tracked counterpart conflict state: target-absent-no-same-title-counterpart."
+        ],
+        "conflictsWithPriorSnapshot": []
+      },
+      "evidenceRuns": [
+        {
+          "runIdentity": "w17-card-extraction-20260819T074018Z-35053f/sol-max-persistent-worker-17-20260819T074018Z-35053f/W17-003",
+          "runId": "w17-card-extraction-20260819T074018Z-35053f",
+          "workerId": "sol-max-persistent-worker-17-20260819T074018Z-35053f",
+          "assetId": "W17-003",
+          "sourceSha256": "20ced3626bd007e388acda4ccc96dfcd59e72bcf3cf7ae84ad1693e5ba0a924d",
+          "blindSessionId": "20260819_074348_1e30be",
+          "adjudicationSessionId": "20260819_062132_c0f4f3",
+          "promotionDecision": "defer",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-17-20260819T074018Z-35053f/merge-view/results/W17-003.json",
+          "selected": true
+        }
+      ]
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/attack-151_cards/card-16.png",
@@ -12863,8 +13223,132 @@
         "resultPath": "assets/tts-mod/extract/vision-results/eb422e05e6ec47d486f08c873f4fd1c5427e79904f16fab88a140bd46a390e6a.json",
         "rawResultPath": null,
         "ledgerPath": "assets/tts-mod/extract/vision-progress.json",
-        "queuePath": "assets/tts-mod/extract/low-confidence-review.json"
-      }
+        "queuePath": "assets/tts-mod/extract/low-confidence-review.json",
+        "selectedExtraction": {
+          "runIdentity": "w17-card-extraction-20260819T074018Z-35053f/sol-max-persistent-worker-17-20260819T074018Z-35053f/W17-004",
+          "runId": "w17-card-extraction-20260819T074018Z-35053f",
+          "workerId": "sol-max-persistent-worker-17-20260819T074018Z-35053f",
+          "assetId": "W17-004",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-17-20260819T074018Z-35053f/merge-view/results/W17-004.json",
+          "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-17-20260819T074018Z-35053f/merge-view/raw/W17-004.json",
+          "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-17-20260819T074018Z-35053f/references/W17-004-post-blind-contact-sheet.png",
+          "promotionDecision": "defer",
+          "runtime": {
+            "provider": "openai-codex",
+            "model": "gpt-5.6-sol",
+            "reasoningEffort": "max",
+            "nativeImageRoute": "hermes chat --image direct native input for blind reads; native vision_analyze for post-blind reference/adjudication",
+            "blindSessionId": "20260819_074348_1e30be",
+            "adjudicationSessionId": "20260819_062132_c0f4f3",
+            "auxiliaryVisionUsed": false,
+            "qwenUsed": false,
+            "ocrCanonicalEvidenceUsed": false,
+            "modelDowngradeUsed": false
+          }
+        }
+      },
+      "selectedExtraction": {
+        "overlayVersion": 1,
+        "status": "selected-evidence-deferred",
+        "runIdentity": "w17-card-extraction-20260819T074018Z-35053f/sol-max-persistent-worker-17-20260819T074018Z-35053f/W17-004",
+        "runId": "w17-card-extraction-20260819T074018Z-35053f",
+        "workerId": "sol-max-persistent-worker-17-20260819T074018Z-35053f",
+        "assetId": "W17-004",
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/attack-151_cards/card-16.png",
+        "sourceSha256": "eb422e05e6ec47d486f08c873f4fd1c5427e79904f16fab88a140bd46a390e6a",
+        "runtime": {
+          "provider": "openai-codex",
+          "model": "gpt-5.6-sol",
+          "reasoningEffort": "max",
+          "nativeImageRoute": "hermes chat --image direct native input for blind reads; native vision_analyze for post-blind reference/adjudication",
+          "blindSessionId": "20260819_074348_1e30be",
+          "adjudicationSessionId": "20260819_062132_c0f4f3",
+          "auxiliaryVisionUsed": false,
+          "qwenUsed": false,
+          "ocrCanonicalEvidenceUsed": false,
+          "modelDowngradeUsed": false
+        },
+        "blindObservationPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-17-20260819T074018Z-35053f/merge-view/raw/W17-004.json",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-17-20260819T074018Z-35053f/merge-view/results/W17-004.json",
+        "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-17-20260819T074018Z-35053f/references/W17-004-post-blind-contact-sheet.png",
+        "visibleText": {
+          "title": "SCRATCH",
+          "body": "Lose 2 [characterHealth].",
+          "sections": [
+            "Lose 2 [characterHealth]."
+          ],
+          "footer": "",
+          "upperRight": "",
+          "illegibleSpans": [],
+          "clippedSpans": []
+        },
+        "verifiedIconOccurrences": [
+          {
+            "cardLocation": "Lower instruction panel, immediately after \"Lose 2\" and immediately before the period.",
+            "referenceLabel": "characterHealth",
+            "matchDecision": "match",
+            "canonicalToken": "characterHealth",
+            "closestAlternative": "actionCard",
+            "visibleDiscriminator": "actionCard is a bordered upright rectangle containing A; oxygen is a vertical capsule; character and robot are silhouettes; notInCombat has a red prohibition ring; intruder is a curled creature. Only characterHealth shares the horizontal trace and central spike.",
+            "evidenceRun": "sol-max-persistent-worker-17-20260819T074018Z-35053f"
+          }
+        ],
+        "unresolvedIconOccurrences": [
+          {
+            "cardLocation": "Lower panel, left column, top circular pictogram.",
+            "referenceLabel": "No authoritative canonical candidate established",
+            "matchDecision": "no-match",
+            "canonicalToken": null,
+            "closestAlternative": "An abstract knot or coiled tubing rather than a small horizontal multi-projection figure.",
+            "visibleDiscriminator": "The right side contains several distinct open loops while separate short branches project downward from the denser central mass. Direct comparison did not establish any authoritative canonical candidate.",
+            "evidenceRun": "sol-max-persistent-worker-17-20260819T074018Z-35053f"
+          },
+          {
+            "cardLocation": "Lower panel, left column, middle circular pictogram.",
+            "referenceLabel": "No authoritative canonical candidate established",
+            "matchDecision": "no-match",
+            "canonicalToken": null,
+            "closestAlternative": "A branching plant-like glyph, mechanical ornament, or upright multi-projection figure.",
+            "visibleDiscriminator": "The vertical core is interrupted by irregular curved side branches and ends in separately angled lower tips rather than a regular geometric base. Direct comparison did not establish any authoritative canonical candidate.",
+            "evidenceRun": "sol-max-persistent-worker-17-20260819T074018Z-35053f"
+          },
+          {
+            "cardLocation": "Lower panel, left column, bottom circular pictogram.",
+            "referenceLabel": "No authoritative canonical candidate established",
+            "matchDecision": "no-match",
+            "canonicalToken": null,
+            "closestAlternative": "An ornate mask, crest, winged emblem, or broad front-facing multi-projection figure.",
+            "visibleDiscriminator": "Two prominent side arcs mirror one another around the central axis, making this mark substantially wider and more bilateral than the two above. Direct comparison did not establish any authoritative canonical candidate.",
+            "evidenceRun": "sol-max-persistent-worker-17-20260819T074018Z-35053f"
+          }
+        ],
+        "canonicalTokensEmitted": [
+          "characterHealth"
+        ],
+        "allMaterialTextReadable": true,
+        "allMaterialIconsAuthoritativelyMatched": false,
+        "promotionDecision": "defer",
+        "decisionReasons": [
+          "Exact rules text and labeled inline glyphs are resolved; three cyan local badges remain explicitly unresolved.",
+          "No complete official face-text reproduction or explicit card-specific supersession was located.",
+          "Tracked counterpart conflict state: target-absent-no-same-title-counterpart."
+        ],
+        "conflictsWithPriorSnapshot": []
+      },
+      "evidenceRuns": [
+        {
+          "runIdentity": "w17-card-extraction-20260819T074018Z-35053f/sol-max-persistent-worker-17-20260819T074018Z-35053f/W17-004",
+          "runId": "w17-card-extraction-20260819T074018Z-35053f",
+          "workerId": "sol-max-persistent-worker-17-20260819T074018Z-35053f",
+          "assetId": "W17-004",
+          "sourceSha256": "eb422e05e6ec47d486f08c873f4fd1c5427e79904f16fab88a140bd46a390e6a",
+          "blindSessionId": "20260819_074348_1e30be",
+          "adjudicationSessionId": "20260819_062132_c0f4f3",
+          "promotionDecision": "defer",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-17-20260819T074018Z-35053f/merge-view/results/W17-004.json",
+          "selected": true
+        }
+      ]
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/attack-151_cards/card-17.png",
@@ -12906,8 +13390,143 @@
         "resultPath": "assets/tts-mod/extract/vision-results/75dda99e22f47ea06d533242f1646707edbebf6378651002cc10a23047bfec44.json",
         "rawResultPath": null,
         "ledgerPath": "assets/tts-mod/extract/vision-progress.json",
-        "queuePath": "assets/tts-mod/extract/low-confidence-review.json"
-      }
+        "queuePath": "assets/tts-mod/extract/low-confidence-review.json",
+        "selectedExtraction": {
+          "runIdentity": "w17-card-extraction-20260819T074018Z-35053f/sol-max-persistent-worker-17-20260819T074018Z-35053f/W17-005",
+          "runId": "w17-card-extraction-20260819T074018Z-35053f",
+          "workerId": "sol-max-persistent-worker-17-20260819T074018Z-35053f",
+          "assetId": "W17-005",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-17-20260819T074018Z-35053f/merge-view/results/W17-005.json",
+          "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-17-20260819T074018Z-35053f/merge-view/raw/W17-005.json",
+          "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-17-20260819T074018Z-35053f/references/W17-005-post-blind-contact-sheet.png",
+          "promotionDecision": "defer",
+          "runtime": {
+            "provider": "openai-codex",
+            "model": "gpt-5.6-sol",
+            "reasoningEffort": "max",
+            "nativeImageRoute": "hermes chat --image direct native input for blind reads; native vision_analyze for post-blind reference/adjudication",
+            "blindSessionId": "20260819_074348_1e30be",
+            "adjudicationSessionId": "20260819_062132_c0f4f3",
+            "auxiliaryVisionUsed": false,
+            "qwenUsed": false,
+            "ocrCanonicalEvidenceUsed": false,
+            "modelDowngradeUsed": false
+          }
+        }
+      },
+      "selectedExtraction": {
+        "overlayVersion": 1,
+        "status": "selected-evidence-deferred",
+        "runIdentity": "w17-card-extraction-20260819T074018Z-35053f/sol-max-persistent-worker-17-20260819T074018Z-35053f/W17-005",
+        "runId": "w17-card-extraction-20260819T074018Z-35053f",
+        "workerId": "sol-max-persistent-worker-17-20260819T074018Z-35053f",
+        "assetId": "W17-005",
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/attack-151_cards/card-17.png",
+        "sourceSha256": "75dda99e22f47ea06d533242f1646707edbebf6378651002cc10a23047bfec44",
+        "runtime": {
+          "provider": "openai-codex",
+          "model": "gpt-5.6-sol",
+          "reasoningEffort": "max",
+          "nativeImageRoute": "hermes chat --image direct native input for blind reads; native vision_analyze for post-blind reference/adjudication",
+          "blindSessionId": "20260819_074348_1e30be",
+          "adjudicationSessionId": "20260819_062132_c0f4f3",
+          "auxiliaryVisionUsed": false,
+          "qwenUsed": false,
+          "ocrCanonicalEvidenceUsed": false,
+          "modelDowngradeUsed": false
+        },
+        "blindObservationPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-17-20260819T074018Z-35053f/merge-view/raw/W17-005.json",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-17-20260819T074018Z-35053f/merge-view/results/W17-005.json",
+        "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-17-20260819T074018Z-35053f/references/W17-005-post-blind-contact-sheet.png",
+        "visibleText": {
+          "title": "SUMMONING",
+          "body": "Lose 2 [characterHealth].\n\nPlace 1 Drone in each adjacent\nCorridor with Intruders.\nIf the Room has no [secure], place 1\nDrone in that Room. This Drone\ndoesn’t make a Suprise Attack.",
+          "sections": [
+            "Lose 2 [characterHealth].",
+            "Place 1 Drone in each adjacent\nCorridor with Intruders.\nIf the Room has no [secure], place 1\nDrone in that Room. This Drone\ndoesn’t make a Suprise Attack."
+          ],
+          "footer": "",
+          "upperRight": "",
+          "illegibleSpans": [],
+          "clippedSpans": []
+        },
+        "verifiedIconOccurrences": [
+          {
+            "cardLocation": "Lower instruction panel, left of the red divider, circular pictogram.",
+            "referenceLabel": "characterHealth",
+            "matchDecision": "match",
+            "canonicalToken": "characterHealth",
+            "closestAlternative": "actionCard",
+            "visibleDiscriminator": "actionCard is a bordered upright rectangle containing A; oxygen is a vertical capsule; character and robot are silhouettes; notInCombat has a red prohibition ring; intruder is a curled creature. Only characterHealth shares the horizontal trace and central spike.",
+            "evidenceRun": "sol-max-persistent-worker-17-20260819T074018Z-35053f"
+          },
+          {
+            "cardLocation": "Lower instruction panel, third line, immediately after \"If the Room has no\" and immediately before the comma.",
+            "referenceLabel": "secure",
+            "matchDecision": "match",
+            "canonicalToken": "secure",
+            "closestAlternative": "computer",
+            "visibleDiscriminator": "Computer is a cyan rectangular monitor; Fire is an orange flame; Malfunction is a gray gear; Noise is a yellow nested triangular marker. None has the card glyph’s white faceted shield outline and central V seam.",
+            "evidenceRun": "sol-max-persistent-worker-17-20260819T074018Z-35053f"
+          }
+        ],
+        "unresolvedIconOccurrences": [
+          {
+            "cardLocation": "Middle instruction panel, left of the red divider, upper circular pictogram.",
+            "referenceLabel": "No authoritative canonical candidate established",
+            "matchDecision": "no-match",
+            "canonicalToken": null,
+            "closestAlternative": "An abstract knot or coiled tubing rather than a small horizontal multi-projection figure.",
+            "visibleDiscriminator": "Several short branches emerge independently from the dense center while multiple open curved loops remain visible on the right. Direct comparison did not establish any authoritative canonical candidate.",
+            "evidenceRun": "sol-max-persistent-worker-17-20260819T074018Z-35053f"
+          },
+          {
+            "cardLocation": "Middle instruction panel, left of the red divider, lower circular pictogram.",
+            "referenceLabel": "No authoritative canonical candidate established",
+            "matchDecision": "no-match",
+            "canonicalToken": null,
+            "closestAlternative": "A branching plant-like glyph, mechanical ornament, or upright multi-projection figure.",
+            "visibleDiscriminator": "The vertical core has irregular curved branches and separately angled lower tips rather than repeated straight geometric elements. Direct comparison did not establish any authoritative canonical candidate.",
+            "evidenceRun": "sol-max-persistent-worker-17-20260819T074018Z-35053f"
+          },
+          {
+            "cardLocation": "Middle instruction panel, immediately after \"Lose 2\" at the end of the line.",
+            "referenceLabel": "No authoritative canonical candidate established",
+            "matchDecision": "no-match",
+            "canonicalToken": null,
+            "closestAlternative": "A filled cross-shaped emblem with an angular cutout, or a free-standing angular trace superimposed on a white block.",
+            "visibleDiscriminator": "The white horizontal leads connect continuously to the central block, while the zigzag appears as dark negative space within that block. Direct comparison did not establish any authoritative canonical candidate.",
+            "evidenceRun": "sol-max-persistent-worker-17-20260819T074018Z-35053f"
+          }
+        ],
+        "canonicalTokensEmitted": [
+          "characterHealth",
+          "secure"
+        ],
+        "allMaterialTextReadable": true,
+        "allMaterialIconsAuthoritativelyMatched": false,
+        "promotionDecision": "defer",
+        "decisionReasons": [
+          "Exact rules text and labeled inline glyphs are resolved; three cyan local badges remain explicitly unresolved.",
+          "No complete official face-text reproduction or explicit card-specific supersession was located.",
+          "Tracked counterpart conflict state: target-absent-no-same-title-counterpart."
+        ],
+        "conflictsWithPriorSnapshot": []
+      },
+      "evidenceRuns": [
+        {
+          "runIdentity": "w17-card-extraction-20260819T074018Z-35053f/sol-max-persistent-worker-17-20260819T074018Z-35053f/W17-005",
+          "runId": "w17-card-extraction-20260819T074018Z-35053f",
+          "workerId": "sol-max-persistent-worker-17-20260819T074018Z-35053f",
+          "assetId": "W17-005",
+          "sourceSha256": "75dda99e22f47ea06d533242f1646707edbebf6378651002cc10a23047bfec44",
+          "blindSessionId": "20260819_074348_1e30be",
+          "adjudicationSessionId": "20260819_062132_c0f4f3",
+          "promotionDecision": "defer",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-17-20260819T074018Z-35053f/merge-view/results/W17-005.json",
+          "selected": true
+        }
+      ]
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/attack-151_cards/card-18.png",
@@ -12946,8 +13565,121 @@
         "resultPath": "assets/tts-mod/extract/vision-results/a5d496cfe387ac69a361b62b659047238d348f4db329583a6d3f5b562d0fbce3.json",
         "rawResultPath": null,
         "ledgerPath": "assets/tts-mod/extract/vision-progress.json",
-        "queuePath": "assets/tts-mod/extract/low-confidence-review.json"
-      }
+        "queuePath": "assets/tts-mod/extract/low-confidence-review.json",
+        "selectedExtraction": {
+          "runIdentity": "w17-card-extraction-20260819T074018Z-35053f/sol-max-persistent-worker-17-20260819T074018Z-35053f/W17-006",
+          "runId": "w17-card-extraction-20260819T074018Z-35053f",
+          "workerId": "sol-max-persistent-worker-17-20260819T074018Z-35053f",
+          "assetId": "W17-006",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-17-20260819T074018Z-35053f/merge-view/results/W17-006.json",
+          "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-17-20260819T074018Z-35053f/merge-view/raw/W17-006.json",
+          "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-17-20260819T074018Z-35053f/references/W17-006-post-blind-contact-sheet.png",
+          "promotionDecision": "defer",
+          "runtime": {
+            "provider": "openai-codex",
+            "model": "gpt-5.6-sol",
+            "reasoningEffort": "max",
+            "nativeImageRoute": "hermes chat --image direct native input for blind reads; native vision_analyze for post-blind reference/adjudication",
+            "blindSessionId": "20260819_074348_1e30be",
+            "adjudicationSessionId": "20260819_062132_c0f4f3",
+            "auxiliaryVisionUsed": false,
+            "qwenUsed": false,
+            "ocrCanonicalEvidenceUsed": false,
+            "modelDowngradeUsed": false
+          }
+        }
+      },
+      "selectedExtraction": {
+        "overlayVersion": 1,
+        "status": "selected-evidence-deferred",
+        "runIdentity": "w17-card-extraction-20260819T074018Z-35053f/sol-max-persistent-worker-17-20260819T074018Z-35053f/W17-006",
+        "runId": "w17-card-extraction-20260819T074018Z-35053f",
+        "workerId": "sol-max-persistent-worker-17-20260819T074018Z-35053f",
+        "assetId": "W17-006",
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/attack-151_cards/card-18.png",
+        "sourceSha256": "a5d496cfe387ac69a361b62b659047238d348f4db329583a6d3f5b562d0fbce3",
+        "runtime": {
+          "provider": "openai-codex",
+          "model": "gpt-5.6-sol",
+          "reasoningEffort": "max",
+          "nativeImageRoute": "hermes chat --image direct native input for blind reads; native vision_analyze for post-blind reference/adjudication",
+          "blindSessionId": "20260819_074348_1e30be",
+          "adjudicationSessionId": "20260819_062132_c0f4f3",
+          "auxiliaryVisionUsed": false,
+          "qwenUsed": false,
+          "ocrCanonicalEvidenceUsed": false,
+          "modelDowngradeUsed": false
+        },
+        "blindObservationPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-17-20260819T074018Z-35053f/merge-view/raw/W17-006.json",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-17-20260819T074018Z-35053f/merge-view/results/W17-006.json",
+        "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-17-20260819T074018Z-35053f/references/W17-006-post-blind-contact-sheet.png",
+        "visibleText": {
+          "title": "TAIL ATTACK",
+          "body": "Get 1 Contamination\n\nIf you are Injured or Heavily\nInjured, you die.\nOtherwise, you get\n1 Serious Wound and\n1 Contamination card.",
+          "sections": [
+            "Get 1 Contamination",
+            "If you are Injured or Heavily\nInjured, you die.\nOtherwise, you get\n1 Serious Wound and\n1 Contamination card."
+          ],
+          "footer": "",
+          "upperRight": "",
+          "illegibleSpans": [],
+          "clippedSpans": []
+        },
+        "verifiedIconOccurrences": [],
+        "unresolvedIconOccurrences": [
+          {
+            "cardLocation": "Middle instruction panel, left of the red divider, upper circular pictogram.",
+            "referenceLabel": "No authoritative canonical candidate established",
+            "matchDecision": "no-match",
+            "canonicalToken": null,
+            "closestAlternative": "An abstract knot or bundle of coiled tubing rather than a small horizontal multi-projection figure.",
+            "visibleDiscriminator": "Several short branch termini project independently from the dense center while distinct open loops remain visible toward the right. Direct comparison did not establish any authoritative canonical candidate.",
+            "evidenceRun": "sol-max-persistent-worker-17-20260819T074018Z-35053f"
+          },
+          {
+            "cardLocation": "Middle instruction panel, left of the red divider, lower circular pictogram.",
+            "referenceLabel": "No authoritative canonical candidate established",
+            "matchDecision": "no-match",
+            "canonicalToken": null,
+            "closestAlternative": "A branching plant-like glyph, mechanical ornament, or upright multi-projection figure.",
+            "visibleDiscriminator": "The narrow vertical core has irregular curved side branches and separately angled lower tips rather than repeated straight geometric elements. Direct comparison did not establish any authoritative canonical candidate.",
+            "evidenceRun": "sol-max-persistent-worker-17-20260819T074018Z-35053f"
+          },
+          {
+            "cardLocation": "Lower instruction panel, left of the red divider, circular pictogram.",
+            "referenceLabel": "No authoritative canonical candidate established",
+            "matchDecision": "no-match",
+            "canonicalToken": null,
+            "closestAlternative": "An ornate mask, crest, winged emblem, or broad front-facing multi-projection figure.",
+            "visibleDiscriminator": "Two large side arcs mirror one another around a central vertical mass, producing a broad, strongly bilateral silhouette unlike the two pictograms above. Direct comparison did not establish any authoritative canonical candidate.",
+            "evidenceRun": "sol-max-persistent-worker-17-20260819T074018Z-35053f"
+          }
+        ],
+        "canonicalTokensEmitted": [],
+        "allMaterialTextReadable": true,
+        "allMaterialIconsAuthoritativelyMatched": false,
+        "promotionDecision": "defer",
+        "decisionReasons": [
+          "Exact rules text and labeled inline glyphs are resolved; three cyan local badges remain explicitly unresolved.",
+          "No complete official face-text reproduction or explicit card-specific supersession was located.",
+          "Tracked counterpart conflict state: target-absent-no-same-title-counterpart."
+        ],
+        "conflictsWithPriorSnapshot": []
+      },
+      "evidenceRuns": [
+        {
+          "runIdentity": "w17-card-extraction-20260819T074018Z-35053f/sol-max-persistent-worker-17-20260819T074018Z-35053f/W17-006",
+          "runId": "w17-card-extraction-20260819T074018Z-35053f",
+          "workerId": "sol-max-persistent-worker-17-20260819T074018Z-35053f",
+          "assetId": "W17-006",
+          "sourceSha256": "a5d496cfe387ac69a361b62b659047238d348f4db329583a6d3f5b562d0fbce3",
+          "blindSessionId": "20260819_074348_1e30be",
+          "adjudicationSessionId": "20260819_062132_c0f4f3",
+          "promotionDecision": "defer",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-17-20260819T074018Z-35053f/merge-view/results/W17-006.json",
+          "selected": true
+        }
+      ]
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/attack-151_cards/card-19.png",
@@ -12988,8 +13720,133 @@
         "resultPath": "assets/tts-mod/extract/vision-results/8a8f393e64f6f0d5d1bf569afbff6b1737615c269b09f5e3bd11711f7e396e16.json",
         "rawResultPath": null,
         "ledgerPath": "assets/tts-mod/extract/vision-progress.json",
-        "queuePath": "assets/tts-mod/extract/low-confidence-review.json"
-      }
+        "queuePath": "assets/tts-mod/extract/low-confidence-review.json",
+        "selectedExtraction": {
+          "runIdentity": "w17-card-extraction-20260819T074018Z-35053f/sol-max-persistent-worker-17-20260819T074018Z-35053f/W17-007",
+          "runId": "w17-card-extraction-20260819T074018Z-35053f",
+          "workerId": "sol-max-persistent-worker-17-20260819T074018Z-35053f",
+          "assetId": "W17-007",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-17-20260819T074018Z-35053f/merge-view/results/W17-007.json",
+          "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-17-20260819T074018Z-35053f/merge-view/raw/W17-007.json",
+          "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-17-20260819T074018Z-35053f/references/W17-007-post-blind-contact-sheet.png",
+          "promotionDecision": "defer",
+          "runtime": {
+            "provider": "openai-codex",
+            "model": "gpt-5.6-sol",
+            "reasoningEffort": "max",
+            "nativeImageRoute": "hermes chat --image direct native input for blind reads; native vision_analyze for post-blind reference/adjudication",
+            "blindSessionId": "20260819_074348_1e30be",
+            "adjudicationSessionId": "20260819_062132_c0f4f3",
+            "auxiliaryVisionUsed": false,
+            "qwenUsed": false,
+            "ocrCanonicalEvidenceUsed": false,
+            "modelDowngradeUsed": false
+          }
+        }
+      },
+      "selectedExtraction": {
+        "overlayVersion": 1,
+        "status": "selected-evidence-deferred",
+        "runIdentity": "w17-card-extraction-20260819T074018Z-35053f/sol-max-persistent-worker-17-20260819T074018Z-35053f/W17-007",
+        "runId": "w17-card-extraction-20260819T074018Z-35053f",
+        "workerId": "sol-max-persistent-worker-17-20260819T074018Z-35053f",
+        "assetId": "W17-007",
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/attack-151_cards/card-19.png",
+        "sourceSha256": "8a8f393e64f6f0d5d1bf569afbff6b1737615c269b09f5e3bd11711f7e396e16",
+        "runtime": {
+          "provider": "openai-codex",
+          "model": "gpt-5.6-sol",
+          "reasoningEffort": "max",
+          "nativeImageRoute": "hermes chat --image direct native input for blind reads; native vision_analyze for post-blind reference/adjudication",
+          "blindSessionId": "20260819_074348_1e30be",
+          "adjudicationSessionId": "20260819_062132_c0f4f3",
+          "auxiliaryVisionUsed": false,
+          "qwenUsed": false,
+          "ocrCanonicalEvidenceUsed": false,
+          "modelDowngradeUsed": false
+        },
+        "blindObservationPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-17-20260819T074018Z-35053f/merge-view/raw/W17-007.json",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-17-20260819T074018Z-35053f/merge-view/results/W17-007.json",
+        "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-17-20260819T074018Z-35053f/references/W17-007-post-blind-contact-sheet.png",
+        "visibleText": {
+          "title": "TAIL ATTACK",
+          "body": "Lose 1 [characterHealth].\nGet 1 Contamination.\n\nIf you are Injured or Heavily\nInjured, you die.\nOtherwise, you get\n1 Serious Wound and\n1 Contamination card.",
+          "sections": [
+            "Lose 1 [characterHealth].\nGet 1 Contamination.",
+            "If you are Injured or Heavily\nInjured, you die.\nOtherwise, you get\n1 Serious Wound and\n1 Contamination card."
+          ],
+          "footer": "",
+          "upperRight": "",
+          "illegibleSpans": [],
+          "clippedSpans": []
+        },
+        "verifiedIconOccurrences": [
+          {
+            "cardLocation": "Lower instruction panel, left of the red divider, circular pictogram.",
+            "referenceLabel": "characterHealth",
+            "matchDecision": "match",
+            "canonicalToken": "characterHealth",
+            "closestAlternative": "actionCard",
+            "visibleDiscriminator": "actionCard is a bordered upright rectangle containing A; oxygen is a vertical capsule; character and robot are silhouettes; notInCombat has a red prohibition ring; intruder is a curled creature. Only characterHealth shares the horizontal trace and central spike.",
+            "evidenceRun": "sol-max-persistent-worker-17-20260819T074018Z-35053f"
+          }
+        ],
+        "unresolvedIconOccurrences": [
+          {
+            "cardLocation": "Middle instruction panel, left of the red divider, upper circular pictogram.",
+            "referenceLabel": "No authoritative canonical candidate established",
+            "matchDecision": "no-match",
+            "canonicalToken": null,
+            "closestAlternative": "An abstract knot or bundle of coiled tubing rather than a small horizontal multi-projection figure.",
+            "visibleDiscriminator": "Several short branch termini project independently from the dense center while distinct open loops remain visible toward the right. Direct comparison did not establish any authoritative canonical candidate.",
+            "evidenceRun": "sol-max-persistent-worker-17-20260819T074018Z-35053f"
+          },
+          {
+            "cardLocation": "Middle instruction panel, left of the red divider, lower circular pictogram.",
+            "referenceLabel": "No authoritative canonical candidate established",
+            "matchDecision": "no-match",
+            "canonicalToken": null,
+            "closestAlternative": "A branching plant-like glyph, mechanical ornament, or upright multi-projection figure.",
+            "visibleDiscriminator": "The narrow vertical core has irregular curved side branches and separately angled lower tips rather than repeated straight geometric elements. Direct comparison did not establish any authoritative canonical candidate.",
+            "evidenceRun": "sol-max-persistent-worker-17-20260819T074018Z-35053f"
+          },
+          {
+            "cardLocation": "Middle instruction panel, first line, immediately after \"Lose 1\" and immediately before the period.",
+            "referenceLabel": "No authoritative canonical candidate established",
+            "matchDecision": "no-match",
+            "canonicalToken": null,
+            "closestAlternative": "A filled blocky cross-like symbol with a dark angular cutout rather than a free-standing angular trace.",
+            "visibleDiscriminator": "Thin white leads remain open at both ends, and no fully closed rectangular perimeter is visibly resolved around the central bends. Direct comparison did not establish any authoritative canonical candidate.",
+            "evidenceRun": "sol-max-persistent-worker-17-20260819T074018Z-35053f"
+          }
+        ],
+        "canonicalTokensEmitted": [
+          "characterHealth"
+        ],
+        "allMaterialTextReadable": true,
+        "allMaterialIconsAuthoritativelyMatched": false,
+        "promotionDecision": "defer",
+        "decisionReasons": [
+          "Exact rules text and labeled inline glyphs are resolved; three cyan local badges remain explicitly unresolved.",
+          "No complete official face-text reproduction or explicit card-specific supersession was located.",
+          "Tracked counterpart conflict state: target-absent-no-same-title-counterpart."
+        ],
+        "conflictsWithPriorSnapshot": []
+      },
+      "evidenceRuns": [
+        {
+          "runIdentity": "w17-card-extraction-20260819T074018Z-35053f/sol-max-persistent-worker-17-20260819T074018Z-35053f/W17-007",
+          "runId": "w17-card-extraction-20260819T074018Z-35053f",
+          "workerId": "sol-max-persistent-worker-17-20260819T074018Z-35053f",
+          "assetId": "W17-007",
+          "sourceSha256": "8a8f393e64f6f0d5d1bf569afbff6b1737615c269b09f5e3bd11711f7e396e16",
+          "blindSessionId": "20260819_074348_1e30be",
+          "adjudicationSessionId": "20260819_062132_c0f4f3",
+          "promotionDecision": "defer",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-17-20260819T074018Z-35053f/merge-view/results/W17-007.json",
+          "selected": true
+        }
+      ]
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/contamination/contamination-047.png",
@@ -13023,8 +13880,90 @@
         "resultPath": "assets/tts-mod/extract/vision-results/a59278eddd8048c3b4ef478ac426e7ec21142ebad5da3f22d4de1ddf22311895.json",
         "rawResultPath": null,
         "ledgerPath": "assets/tts-mod/extract/vision-progress.json",
-        "queuePath": "assets/tts-mod/extract/low-confidence-review.json"
-      }
+        "queuePath": "assets/tts-mod/extract/low-confidence-review.json",
+        "selectedExtraction": {
+          "runIdentity": "w17-card-extraction-20260819T074018Z-35053f/sol-max-persistent-worker-17-20260819T074018Z-35053f/W17-008",
+          "runId": "w17-card-extraction-20260819T074018Z-35053f",
+          "workerId": "sol-max-persistent-worker-17-20260819T074018Z-35053f",
+          "assetId": "W17-008",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-17-20260819T074018Z-35053f/merge-view/results/W17-008.json",
+          "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-17-20260819T074018Z-35053f/merge-view/raw/W17-008.json",
+          "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-17-20260819T074018Z-35053f/references/W17-008-post-blind-contact-sheet.png",
+          "promotionDecision": "defer",
+          "runtime": {
+            "provider": "openai-codex",
+            "model": "gpt-5.6-sol",
+            "reasoningEffort": "max",
+            "nativeImageRoute": "hermes chat --image direct native input for blind reads; native vision_analyze for post-blind reference/adjudication",
+            "blindSessionId": "20260819_074348_1e30be",
+            "adjudicationSessionId": "20260819_062132_c0f4f3",
+            "auxiliaryVisionUsed": false,
+            "qwenUsed": false,
+            "ocrCanonicalEvidenceUsed": false,
+            "modelDowngradeUsed": false
+          }
+        }
+      },
+      "selectedExtraction": {
+        "overlayVersion": 1,
+        "status": "selected-evidence-deferred",
+        "runIdentity": "w17-card-extraction-20260819T074018Z-35053f/sol-max-persistent-worker-17-20260819T074018Z-35053f/W17-008",
+        "runId": "w17-card-extraction-20260819T074018Z-35053f",
+        "workerId": "sol-max-persistent-worker-17-20260819T074018Z-35053f",
+        "assetId": "W17-008",
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/contamination/contamination-047.png",
+        "sourceSha256": "a59278eddd8048c3b4ef478ac426e7ec21142ebad5da3f22d4de1ddf22311895",
+        "runtime": {
+          "provider": "openai-codex",
+          "model": "gpt-5.6-sol",
+          "reasoningEffort": "max",
+          "nativeImageRoute": "hermes chat --image direct native input for blind reads; native vision_analyze for post-blind reference/adjudication",
+          "blindSessionId": "20260819_074348_1e30be",
+          "adjudicationSessionId": "20260819_062132_c0f4f3",
+          "auxiliaryVisionUsed": false,
+          "qwenUsed": false,
+          "ocrCanonicalEvidenceUsed": false,
+          "modelDowngradeUsed": false
+        },
+        "blindObservationPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-17-20260819T074018Z-35053f/merge-view/raw/W17-008.json",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-17-20260819T074018Z-35053f/merge-view/results/W17-008.json",
+        "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-17-20260819T074018Z-35053f/references/W17-008-post-blind-contact-sheet.png",
+        "visibleText": {
+          "title": "CONTAMINATION",
+          "body": "",
+          "sections": [],
+          "footer": "",
+          "upperRight": "",
+          "illegibleSpans": [],
+          "clippedSpans": []
+        },
+        "verifiedIconOccurrences": [],
+        "unresolvedIconOccurrences": [],
+        "canonicalTokensEmitted": [],
+        "allMaterialTextReadable": true,
+        "allMaterialIconsAuthoritativelyMatched": true,
+        "promotionDecision": "defer",
+        "decisionReasons": [
+          "The source has title CONTAMINATION and a large non-text patterned component field but no card-specific rules body; retain as non-rules evidence and do not promote a fabricated token.",
+          "No complete official face-text reproduction or explicit card-specific supersession was located.",
+          "Tracked counterpart conflict state: target-absent-no-same-title-counterpart."
+        ],
+        "conflictsWithPriorSnapshot": []
+      },
+      "evidenceRuns": [
+        {
+          "runIdentity": "w17-card-extraction-20260819T074018Z-35053f/sol-max-persistent-worker-17-20260819T074018Z-35053f/W17-008",
+          "runId": "w17-card-extraction-20260819T074018Z-35053f",
+          "workerId": "sol-max-persistent-worker-17-20260819T074018Z-35053f",
+          "assetId": "W17-008",
+          "sourceSha256": "a59278eddd8048c3b4ef478ac426e7ec21142ebad5da3f22d4de1ddf22311895",
+          "blindSessionId": "20260819_074348_1e30be",
+          "adjudicationSessionId": "20260819_062132_c0f4f3",
+          "promotionDecision": "defer",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-17-20260819T074018Z-35053f/merge-view/results/W17-008.json",
+          "selected": true
+        }
+      ]
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/event-006.jpg",
