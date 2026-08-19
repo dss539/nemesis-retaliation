@@ -229,6 +229,30 @@ unaccounted. Exact next genuinely unselected position is `low-confidence-review.
 `assets/tts-mod/extract/v2-dl/tree/cards/character/officer-009.png`
 (SHA-256 `636b473e04f0e0f43bad9d30767092b44f3e822c924ff74f7e1f3c728bfbd6b0`).
 
+**W13 deferred-card checkpoint (2026-08-19T05:04:58Z):** Worker
+`sol-max-persistent-worker-13-20260819T042908Z-b4de5f` completed queue indices
+46–53 in one fresh tool-disabled native `openai-codex:gpt-5.6-sol` max session
+(`20260819_043155_256a9b`; 8 API calls, 16 messages, zero tools), followed by
+12 DB-audited native post-blind image reads. It preserved seven exact
+rules-bearing sources plus one exact non-rules Recon starting-item back, with 15
+authoritatively matched icon groups and one explicit unresolved group: STAY CALM's
+solid white upright card/tile does not directly match the official `actionCard`
+`A` crop and remains literal rather than inferred. Edition-sensitive text was
+preserved, including FIRE AT WILL's `neighbouring`, CHAIN OF COMMAND's unhyphenated
+`lower ranking` and printed `Burst. (you make all choices).`, and the direct
+FaceURL/BackURL relationship between the Recon back and ASSAULT RIFLE. A protected
+OFFICER CHAIN OF COMMAND target conflict was recorded without overwrite. All eight
+promotion decisions remain `defer`; no canonical sidecar was created or changed.
+The defer-only registry merge was locally projected, independently rebuilt, and
+shared-merged twice byte-idempotently: selected evidence now contains 44 exact
+tuple entries/runs, while the deterministic corpus remains 390 records. All eight
+W13 tuples remain exactly once in `vision-progress.json`, exactly once in the
+398-entry low-confidence queue, and exactly once in the selected evidence registry;
+the deterministic global partition remains 532 = 134 complete + 398 deferred + 0
+unaccounted. The next eligible exact tuple is queue index 54,
+`assets/tts-mod/extract/v2-dl/tree/cards/character/recon-019.png`
+(SHA-256 `b2361593ff5f03a812f76a73900beda2dcd7e99091d13209ca8d10e487dfe8ef`).
+
 The requested approval-gated review target
 `assets/tts-mod/extract/v2-dl/tree/unsorted/card-176.jpg` is absent from the live tree. A candidate
 source matching the durable 2132x2142 trial dimensions is available at
