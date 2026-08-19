@@ -210,6 +210,25 @@ Exact next forward genuinely unselected position is `low-confidence-review.json`
 `assets/tts-mod/extract/v2-dl/tree/cards/character/medical-support-023.jpg`
 (SHA-256 `71ed551e4eed6b33469b286d8dc0d2ddcc910cef22fb522097a0a24ae2ba0f72`).
 
+**W12 deferred-card checkpoint (2026-08-19T04:24:34Z):** Worker
+`sol-max-persistent-worker-12-20260818T124945Z-bba552` re-examined queue entries 38–45. The first
+four immutable reads remain byte-identical in the original native `openai-codex:gpt-5.6-sol`/`max`
+session; after that session acquired a failed fifth user turn (4 API calls, 9 messages), it was never
+resumed. Entries W12-005..008 used one fresh tools-disabled session (4 API calls, 8 messages, zero
+tools), and 13 post-blind native reference calls were separately audited. Seven assigned images now
+have exact rules-bearing text and authoritative icon morphology; the eighth is exactly classified as
+the non-rules `STARTING ITEM` / `OFFICER` BackURL paired to SAWED-OFF SHOTGUN. The selected
+evidence records 17 verified icon comparison groups covering 20 placements and 0 unresolved
+assigned-image glyphs. All eight promotions remain deferred: W12-005 conflicts with a protected
+exact-path canonical sidecar, W12-006/007 retain differing same-title source conflicts, and the other
+sources lack an authoritative edition/supersession gate. No canonical sidecar or source image changed.
+Registry/corpus counts are 36/390; local projection, shared merge, identical re-merge, and two explicit
+corpus rebuilds are byte-idempotent. Each W12 tuple remains exactly once in both progress and the
+398-entry low-confidence ledger; the global partition remains 134 complete, 398 deferred, 0
+unaccounted. Exact next genuinely unselected position is `low-confidence-review.json` `entries[46]`:
+`assets/tts-mod/extract/v2-dl/tree/cards/character/officer-009.png`
+(SHA-256 `636b473e04f0e0f43bad9d30767092b44f3e822c924ff74f7e1f3c728bfbd6b0`).
+
 The requested approval-gated review target
 `assets/tts-mod/extract/v2-dl/tree/unsorted/card-176.jpg` is absent from the live tree. A candidate
 source matching the durable 2132x2142 trial dimensions is available at

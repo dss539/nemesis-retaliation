@@ -10,10 +10,10 @@
   "metadata": {
     "selectedEvidenceRegistry": "assets/tts-mod/extract/selected-card-text-evidence.json",
     "selectedEvidenceRegistrySchemaVersion": 1,
-    "selectedEvidenceRegistrySha256": "affa709d854c580413b3808808291393c135a98267e78ec50f68060b14d2e10c",
-    "selectedEvidenceTupleDigest": "01af39899d04afb5ecf37a2157e9f0533264c0d812c26b14cd90afb3ad0ff9ec",
-    "selectedEvidenceEntryCount": 28,
-    "selectedEvidenceRunCount": 28
+    "selectedEvidenceRegistrySha256": "137c04346aebfb1fba86dd5332c37ecd4d38dd57fe53aef69750d0bd684f7271",
+    "selectedEvidenceTupleDigest": "794920cda5e3c1bae8ccb7f353fc5b7d3d5a41d3a3597e3a456c6ba94503b4a0",
+    "selectedEvidenceEntryCount": 36,
+    "selectedEvidenceRunCount": 36
   },
   "counts": {
     "records": 390,
@@ -5983,8 +5983,134 @@
         "resultPath": "assets/tts-mod/extract/vision-results/71ed551e4eed6b33469b286d8dc0d2ddcc910cef22fb522097a0a24ae2ba0f72.json",
         "rawResultPath": null,
         "ledgerPath": "assets/tts-mod/extract/vision-progress.json",
-        "queuePath": "assets/tts-mod/extract/low-confidence-review.json"
-      }
+        "queuePath": "assets/tts-mod/extract/low-confidence-review.json",
+        "selectedExtraction": {
+          "runIdentity": "w12-deferred-card-reexamination-20260818T124945Z-bba552/sol-max-persistent-worker-12-20260818T124945Z-bba552/W12-001",
+          "runId": "w12-deferred-card-reexamination-20260818T124945Z-bba552",
+          "workerId": "sol-max-persistent-worker-12-20260818T124945Z-bba552",
+          "assetId": "W12-001",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-12-20260818T124945Z-bba552/merge-view/results/W12-001.json",
+          "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-12-20260818T124945Z-bba552/merge-view/raw/W12-001.json",
+          "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-12-20260818T124945Z-bba552/references/W12-001-post-blind-contact-sheet.png",
+          "promotionDecision": "defer",
+          "runtime": {
+            "provider": "openai-codex",
+            "model": "gpt-5.6-sol",
+            "reasoningEffort": "max",
+            "nativeImageRoute": "hermes chat --image direct native input for blind reads; native vision_analyze for post-blind reference/adjudication",
+            "blindSessionId": "20260818_125823_37ca3d",
+            "adjudicationSessionId": "20260819_032946_2aeaee",
+            "auxiliaryVisionUsed": false,
+            "qwenUsed": false,
+            "ocrCanonicalEvidenceUsed": false,
+            "modelDowngradeUsed": false
+          }
+        }
+      },
+      "selectedExtraction": {
+        "overlayVersion": 1,
+        "status": "selected-evidence-deferred",
+        "runIdentity": "w12-deferred-card-reexamination-20260818T124945Z-bba552/sol-max-persistent-worker-12-20260818T124945Z-bba552/W12-001",
+        "runId": "w12-deferred-card-reexamination-20260818T124945Z-bba552",
+        "workerId": "sol-max-persistent-worker-12-20260818T124945Z-bba552",
+        "assetId": "W12-001",
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/medical-support-023.jpg",
+        "sourceSha256": "71ed551e4eed6b33469b286d8dc0d2ddcc910cef22fb522097a0a24ae2ba0f72",
+        "runtime": {
+          "provider": "openai-codex",
+          "model": "gpt-5.6-sol",
+          "reasoningEffort": "max",
+          "nativeImageRoute": "hermes chat --image direct native input for blind reads; native vision_analyze for post-blind reference/adjudication",
+          "blindSessionId": "20260818_125823_37ca3d",
+          "adjudicationSessionId": "20260819_032946_2aeaee",
+          "auxiliaryVisionUsed": false,
+          "qwenUsed": false,
+          "ocrCanonicalEvidenceUsed": false,
+          "modelDowngradeUsed": false
+        },
+        "blindObservationPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-12-20260818T124945Z-bba552/merge-view/raw/W12-001.json",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-12-20260818T124945Z-bba552/merge-view/results/W12-001.json",
+        "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-12-20260818T124945Z-bba552/references/W12-001-post-blind-contact-sheet.png",
+        "visibleText": {
+          "title": "FIELD SURGERY",
+          "body": "Discard 1 [actionCard] to discard 1 Serious Wound\nfrom a [character] of your choice in your Room.\nDiscard 1 [medpackToken] or that [character]\ngains 1 Contamination.",
+          "sections": [
+            "Discard 1 [actionCard] to discard 1 Serious Wound\nfrom a [character] of your choice in your Room.\nDiscard 1 [medpackToken] or that [character]\ngains 1 Contamination."
+          ],
+          "footer": "MEDICAL SUPPORT",
+          "upperRight": "[notInCombat]",
+          "illegibleSpans": [],
+          "clippedSpans": []
+        },
+        "verifiedIconOccurrences": [
+          {
+            "cardLocation": "upper right",
+            "referenceLabel": "notInCombat",
+            "matchDecision": "match",
+            "canonicalToken": "notInCombat",
+            "closestAlternative": "character",
+            "visibleDiscriminator": "notInCombat uniquely has the red enclosing prohibition circle and slash over a curled creature; the character crop is a plain full humanoid figure with no red enclosure",
+            "evidenceRun": "sol-max-persistent-worker-12-20260818T124945Z-bba552"
+          },
+          {
+            "cardLocation": "first line after ‘Discard 1’",
+            "referenceLabel": "actionCard",
+            "matchDecision": "match",
+            "canonicalToken": "actionCard",
+            "closestAlternative": "characterHealth",
+            "visibleDiscriminator": "actionCard contains a capital A on a card tile; characterHealth is a horizontal heartbeat trace without a letter or card outline",
+            "evidenceRun": "sol-max-persistent-worker-12-20260818T124945Z-bba552"
+          },
+          {
+            "cardLocation": "second line after ‘from a’ and third line after ‘that’",
+            "referenceLabel": "character",
+            "matchDecision": "match",
+            "canonicalToken": "character",
+            "closestAlternative": "robot",
+            "visibleDiscriminator": "character has a complete humanoid body; robot is a squat head-only glyph with two circular eyes",
+            "evidenceRun": "sol-max-persistent-worker-12-20260818T124945Z-bba552"
+          },
+          {
+            "cardLocation": "third line after ‘Discard 1’",
+            "referenceLabel": "medpackToken",
+            "matchDecision": "match",
+            "canonicalToken": "medpackToken",
+            "closestAlternative": "greenItem",
+            "visibleDiscriminator": "medpackToken has the attached right lobe with a dark vertical block; greenItem is a single green octagon containing only a white plus; medpackSlot instead has a black top notch and no plus",
+            "evidenceRun": "sol-max-persistent-worker-12-20260818T124945Z-bba552"
+          }
+        ],
+        "unresolvedIconOccurrences": [],
+        "canonicalTokensEmitted": [
+          "actionCard",
+          "character",
+          "medpackToken",
+          "notInCombat"
+        ],
+        "allMaterialTextReadable": true,
+        "allMaterialIconsAuthoritativelyMatched": true,
+        "promotionDecision": "defer",
+        "decisionReasons": [
+          "Exact pixel transcription and icon identities are complete, but canonical promotion remains gated on the card-specific official-source and tracked-counterpart comparisons performed after all adjudications.",
+          "No complete card-specific text or explicit supersession was located in the local official PDF/FAQ set, and no tracked source image is byte- or normalized-pixel-identical.",
+          "The target canonical path and same-title tracked counterpart are absent, so source/edition authority remains unresolved despite an exact pixel read."
+        ],
+        "conflictsWithPriorSnapshot": []
+      },
+      "evidenceRuns": [
+        {
+          "runIdentity": "w12-deferred-card-reexamination-20260818T124945Z-bba552/sol-max-persistent-worker-12-20260818T124945Z-bba552/W12-001",
+          "runId": "w12-deferred-card-reexamination-20260818T124945Z-bba552",
+          "workerId": "sol-max-persistent-worker-12-20260818T124945Z-bba552",
+          "assetId": "W12-001",
+          "sourceSha256": "71ed551e4eed6b33469b286d8dc0d2ddcc910cef22fb522097a0a24ae2ba0f72",
+          "blindSessionId": "20260818_125823_37ca3d",
+          "adjudicationSessionId": "20260819_032946_2aeaee",
+          "promotionDecision": "defer",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-12-20260818T124945Z-bba552/merge-view/results/W12-001.json",
+          "selected": true
+        }
+      ]
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/medical-support-024.jpg",
@@ -6023,8 +6149,115 @@
         "resultPath": "assets/tts-mod/extract/vision-results/2f22c806320b51af7fc05875dbad9b2172413695872c67f21e871f3e36fc3e4a.json",
         "rawResultPath": null,
         "ledgerPath": "assets/tts-mod/extract/vision-progress.json",
-        "queuePath": "assets/tts-mod/extract/low-confidence-review.json"
-      }
+        "queuePath": "assets/tts-mod/extract/low-confidence-review.json",
+        "selectedExtraction": {
+          "runIdentity": "w12-deferred-card-reexamination-20260818T124945Z-bba552/sol-max-persistent-worker-12-20260818T124945Z-bba552/W12-002",
+          "runId": "w12-deferred-card-reexamination-20260818T124945Z-bba552",
+          "workerId": "sol-max-persistent-worker-12-20260818T124945Z-bba552",
+          "assetId": "W12-002",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-12-20260818T124945Z-bba552/merge-view/results/W12-002.json",
+          "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-12-20260818T124945Z-bba552/merge-view/raw/W12-002.json",
+          "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-12-20260818T124945Z-bba552/references/W12-002-post-blind-contact-sheet.png",
+          "promotionDecision": "defer",
+          "runtime": {
+            "provider": "openai-codex",
+            "model": "gpt-5.6-sol",
+            "reasoningEffort": "max",
+            "nativeImageRoute": "hermes chat --image direct native input for blind reads; native vision_analyze for post-blind reference/adjudication",
+            "blindSessionId": "20260818_125823_37ca3d",
+            "adjudicationSessionId": "20260819_032946_2aeaee",
+            "auxiliaryVisionUsed": false,
+            "qwenUsed": false,
+            "ocrCanonicalEvidenceUsed": false,
+            "modelDowngradeUsed": false
+          }
+        }
+      },
+      "selectedExtraction": {
+        "overlayVersion": 1,
+        "status": "selected-evidence-deferred",
+        "runIdentity": "w12-deferred-card-reexamination-20260818T124945Z-bba552/sol-max-persistent-worker-12-20260818T124945Z-bba552/W12-002",
+        "runId": "w12-deferred-card-reexamination-20260818T124945Z-bba552",
+        "workerId": "sol-max-persistent-worker-12-20260818T124945Z-bba552",
+        "assetId": "W12-002",
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/medical-support-024.jpg",
+        "sourceSha256": "2f22c806320b51af7fc05875dbad9b2172413695872c67f21e871f3e36fc3e4a",
+        "runtime": {
+          "provider": "openai-codex",
+          "model": "gpt-5.6-sol",
+          "reasoningEffort": "max",
+          "nativeImageRoute": "hermes chat --image direct native input for blind reads; native vision_analyze for post-blind reference/adjudication",
+          "blindSessionId": "20260818_125823_37ca3d",
+          "adjudicationSessionId": "20260819_032946_2aeaee",
+          "auxiliaryVisionUsed": false,
+          "qwenUsed": false,
+          "ocrCanonicalEvidenceUsed": false,
+          "modelDowngradeUsed": false
+        },
+        "blindObservationPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-12-20260818T124945Z-bba552/merge-view/raw/W12-002.json",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-12-20260818T124945Z-bba552/merge-view/results/W12-002.json",
+        "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-12-20260818T124945Z-bba552/references/W12-002-post-blind-contact-sheet.png",
+        "visibleText": {
+          "title": "CARBINE",
+          "body": "Shoot: After you don’t kill the [intruder], deal 1 Hit.",
+          "sections": [
+            "Shoot: After you don’t kill the [intruder], deal 1 Hit."
+          ],
+          "footer": "",
+          "upperRight": "",
+          "subtype": "RANGED WEAPON, HEAVY",
+          "illegibleSpans": [],
+          "clippedSpans": []
+        },
+        "verifiedIconOccurrences": [
+          {
+            "cardLocation": "inline after ‘the’",
+            "referenceLabel": "intruder",
+            "matchDecision": "match",
+            "canonicalToken": "intruder",
+            "closestAlternative": "lander",
+            "visibleDiscriminator": "intruder is an asymmetric curled creature with head and dorsal spines; lander is a broad symmetric base with a tall smooth central spire; robot and character likewise lack the curled body",
+            "evidenceRun": "sol-max-persistent-worker-12-20260818T124945Z-bba552"
+          },
+          {
+            "cardLocation": "bottom center below the rules sentence",
+            "referenceLabel": "ammoSlot",
+            "matchDecision": "match",
+            "canonicalToken": "ammoSlot",
+            "closestAlternative": "anySlot",
+            "visibleDiscriminator": "ammoSlot and anySlot share the black upper notch, but the card receptacle is red like the authoritative ammoSlot while anySlot is gray; ammoToken is a separate two-lobed token with black ammunition bars rather than an empty receptacle",
+            "evidenceRun": "sol-max-persistent-worker-12-20260818T124945Z-bba552"
+          }
+        ],
+        "unresolvedIconOccurrences": [],
+        "canonicalTokensEmitted": [
+          "ammoSlot",
+          "intruder"
+        ],
+        "allMaterialTextReadable": true,
+        "allMaterialIconsAuthoritativelyMatched": true,
+        "promotionDecision": "defer",
+        "decisionReasons": [
+          "Exact pixel transcription and icon identities are complete, but canonical promotion remains gated on the card-specific official-source and tracked-counterpart comparisons performed after all adjudications.",
+          "No complete card-specific text or explicit supersession was located in the local official PDF/FAQ set, and no tracked source image is byte- or normalized-pixel-identical.",
+          "The target canonical path and same-title tracked counterpart are absent, so source/edition authority remains unresolved despite an exact pixel read."
+        ],
+        "conflictsWithPriorSnapshot": []
+      },
+      "evidenceRuns": [
+        {
+          "runIdentity": "w12-deferred-card-reexamination-20260818T124945Z-bba552/sol-max-persistent-worker-12-20260818T124945Z-bba552/W12-002",
+          "runId": "w12-deferred-card-reexamination-20260818T124945Z-bba552",
+          "workerId": "sol-max-persistent-worker-12-20260818T124945Z-bba552",
+          "assetId": "W12-002",
+          "sourceSha256": "2f22c806320b51af7fc05875dbad9b2172413695872c67f21e871f3e36fc3e4a",
+          "blindSessionId": "20260818_125823_37ca3d",
+          "adjudicationSessionId": "20260819_032946_2aeaee",
+          "promotionDecision": "defer",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-12-20260818T124945Z-bba552/merge-view/results/W12-002.json",
+          "selected": true
+        }
+      ]
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/medical-support-028.jpg",
@@ -6062,8 +6295,136 @@
         "resultPath": "assets/tts-mod/extract/vision-results/72b34b7b800a2109094cca515eb22e69fff016edded20ace0f15857296712180.json",
         "rawResultPath": null,
         "ledgerPath": "assets/tts-mod/extract/vision-progress.json",
-        "queuePath": "assets/tts-mod/extract/low-confidence-review.json"
-      }
+        "queuePath": "assets/tts-mod/extract/low-confidence-review.json",
+        "selectedExtraction": {
+          "runIdentity": "w12-deferred-card-reexamination-20260818T124945Z-bba552/sol-max-persistent-worker-12-20260818T124945Z-bba552/W12-003",
+          "runId": "w12-deferred-card-reexamination-20260818T124945Z-bba552",
+          "workerId": "sol-max-persistent-worker-12-20260818T124945Z-bba552",
+          "assetId": "W12-003",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-12-20260818T124945Z-bba552/merge-view/results/W12-003.json",
+          "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-12-20260818T124945Z-bba552/merge-view/raw/W12-003.json",
+          "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-12-20260818T124945Z-bba552/references/W12-003-post-blind-contact-sheet.png",
+          "promotionDecision": "defer",
+          "runtime": {
+            "provider": "openai-codex",
+            "model": "gpt-5.6-sol",
+            "reasoningEffort": "max",
+            "nativeImageRoute": "hermes chat --image direct native input for blind reads; native vision_analyze for post-blind reference/adjudication",
+            "blindSessionId": "20260818_125823_37ca3d",
+            "adjudicationSessionId": "20260819_032946_2aeaee",
+            "auxiliaryVisionUsed": false,
+            "qwenUsed": false,
+            "ocrCanonicalEvidenceUsed": false,
+            "modelDowngradeUsed": false
+          }
+        }
+      },
+      "selectedExtraction": {
+        "overlayVersion": 1,
+        "status": "selected-evidence-deferred",
+        "runIdentity": "w12-deferred-card-reexamination-20260818T124945Z-bba552/sol-max-persistent-worker-12-20260818T124945Z-bba552/W12-003",
+        "runId": "w12-deferred-card-reexamination-20260818T124945Z-bba552",
+        "workerId": "sol-max-persistent-worker-12-20260818T124945Z-bba552",
+        "assetId": "W12-003",
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/medical-support-028.jpg",
+        "sourceSha256": "72b34b7b800a2109094cca515eb22e69fff016edded20ace0f15857296712180",
+        "runtime": {
+          "provider": "openai-codex",
+          "model": "gpt-5.6-sol",
+          "reasoningEffort": "max",
+          "nativeImageRoute": "hermes chat --image direct native input for blind reads; native vision_analyze for post-blind reference/adjudication",
+          "blindSessionId": "20260818_125823_37ca3d",
+          "adjudicationSessionId": "20260819_032946_2aeaee",
+          "auxiliaryVisionUsed": false,
+          "qwenUsed": false,
+          "ocrCanonicalEvidenceUsed": false,
+          "modelDowngradeUsed": false
+        },
+        "blindObservationPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-12-20260818T124945Z-bba552/merge-view/raw/W12-003.json",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-12-20260818T124945Z-bba552/merge-view/results/W12-003.json",
+        "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-12-20260818T124945Z-bba552/references/W12-003-post-blind-contact-sheet.png",
+        "visibleText": {
+          "title": "FIRST AID",
+          "body": "Restore 1 [characterHealth].\n\nOR\n\nIf you are in a Room with a [greenItem]:\nGain 1 [medpackToken].",
+          "sections": [
+            "Restore 1 [characterHealth].",
+            "OR",
+            "If you are in a Room with a [greenItem]:\nGain 1 [medpackToken]."
+          ],
+          "footer": "MEDICAL SUPPORT",
+          "upperRight": "[notInCombat]",
+          "illegibleSpans": [],
+          "clippedSpans": []
+        },
+        "verifiedIconOccurrences": [
+          {
+            "cardLocation": "upper right",
+            "referenceLabel": "notInCombat",
+            "matchDecision": "match",
+            "canonicalToken": "notInCombat",
+            "closestAlternative": "characterHealth",
+            "visibleDiscriminator": "notInCombat has the red enclosing prohibition circle and slash over a creature; characterHealth is a plain white heartbeat trace with no red enclosure",
+            "evidenceRun": "sol-max-persistent-worker-12-20260818T124945Z-bba552"
+          },
+          {
+            "cardLocation": "first effect after ‘Restore 1’",
+            "referenceLabel": "characterHealth",
+            "matchDecision": "match",
+            "canonicalToken": "characterHealth",
+            "closestAlternative": "actionCard",
+            "visibleDiscriminator": "characterHealth is a heartbeat waveform; actionCard is a capital A inside a white card tile",
+            "evidenceRun": "sol-max-persistent-worker-12-20260818T124945Z-bba552"
+          },
+          {
+            "cardLocation": "condition after ‘Room with a’",
+            "referenceLabel": "greenItem",
+            "matchDecision": "match",
+            "canonicalToken": "greenItem",
+            "closestAlternative": "medpackToken",
+            "visibleDiscriminator": "greenItem is one octagon containing only the plus; medpackToken has an attached right lobe with a dark vertical block",
+            "evidenceRun": "sol-max-persistent-worker-12-20260818T124945Z-bba552"
+          },
+          {
+            "cardLocation": "final effect after ‘Gain 1’",
+            "referenceLabel": "medpackToken",
+            "matchDecision": "match",
+            "canonicalToken": "medpackToken",
+            "closestAlternative": "medpackSlot",
+            "visibleDiscriminator": "medpackToken includes the white plus and dark right lobe; medpackSlot is a rectangular green receptacle with a black upper notch and no plus",
+            "evidenceRun": "sol-max-persistent-worker-12-20260818T124945Z-bba552"
+          }
+        ],
+        "unresolvedIconOccurrences": [],
+        "canonicalTokensEmitted": [
+          "characterHealth",
+          "greenItem",
+          "medpackToken",
+          "notInCombat"
+        ],
+        "allMaterialTextReadable": true,
+        "allMaterialIconsAuthoritativelyMatched": true,
+        "promotionDecision": "defer",
+        "decisionReasons": [
+          "Exact pixel transcription and icon identities are complete, but canonical promotion remains gated on the card-specific official-source and tracked-counterpart comparisons performed after all adjudications.",
+          "No complete card-specific text or explicit supersession was located in the local official PDF/FAQ set, and no tracked source image is byte- or normalized-pixel-identical.",
+          "The target canonical path and same-title tracked counterpart are absent, so source/edition authority remains unresolved despite an exact pixel read."
+        ],
+        "conflictsWithPriorSnapshot": []
+      },
+      "evidenceRuns": [
+        {
+          "runIdentity": "w12-deferred-card-reexamination-20260818T124945Z-bba552/sol-max-persistent-worker-12-20260818T124945Z-bba552/W12-003",
+          "runId": "w12-deferred-card-reexamination-20260818T124945Z-bba552",
+          "workerId": "sol-max-persistent-worker-12-20260818T124945Z-bba552",
+          "assetId": "W12-003",
+          "sourceSha256": "72b34b7b800a2109094cca515eb22e69fff016edded20ace0f15857296712180",
+          "blindSessionId": "20260818_125823_37ca3d",
+          "adjudicationSessionId": "20260819_032946_2aeaee",
+          "promotionDecision": "defer",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-12-20260818T124945Z-bba552/merge-view/results/W12-003.json",
+          "selected": true
+        }
+      ]
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/medical-support-033.jpg",
@@ -6102,8 +6463,124 @@
         "resultPath": "assets/tts-mod/extract/vision-results/1682f8c99e00bf187c8a97a252f314482df8b75380a3a826e944e982d90d31d0.json",
         "rawResultPath": null,
         "ledgerPath": "assets/tts-mod/extract/vision-progress.json",
-        "queuePath": "assets/tts-mod/extract/low-confidence-review.json"
-      }
+        "queuePath": "assets/tts-mod/extract/low-confidence-review.json",
+        "selectedExtraction": {
+          "runIdentity": "w12-deferred-card-reexamination-20260818T124945Z-bba552/sol-max-persistent-worker-12-20260818T124945Z-bba552/W12-004",
+          "runId": "w12-deferred-card-reexamination-20260818T124945Z-bba552",
+          "workerId": "sol-max-persistent-worker-12-20260818T124945Z-bba552",
+          "assetId": "W12-004",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-12-20260818T124945Z-bba552/merge-view/results/W12-004.json",
+          "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-12-20260818T124945Z-bba552/merge-view/raw/W12-004.json",
+          "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-12-20260818T124945Z-bba552/references/W12-004-post-blind-contact-sheet.png",
+          "promotionDecision": "defer",
+          "runtime": {
+            "provider": "openai-codex",
+            "model": "gpt-5.6-sol",
+            "reasoningEffort": "max",
+            "nativeImageRoute": "hermes chat --image direct native input for blind reads; native vision_analyze for post-blind reference/adjudication",
+            "blindSessionId": "20260818_125823_37ca3d",
+            "adjudicationSessionId": "20260819_032946_2aeaee",
+            "auxiliaryVisionUsed": false,
+            "qwenUsed": false,
+            "ocrCanonicalEvidenceUsed": false,
+            "modelDowngradeUsed": false
+          }
+        }
+      },
+      "selectedExtraction": {
+        "overlayVersion": 1,
+        "status": "selected-evidence-deferred",
+        "runIdentity": "w12-deferred-card-reexamination-20260818T124945Z-bba552/sol-max-persistent-worker-12-20260818T124945Z-bba552/W12-004",
+        "runId": "w12-deferred-card-reexamination-20260818T124945Z-bba552",
+        "workerId": "sol-max-persistent-worker-12-20260818T124945Z-bba552",
+        "assetId": "W12-004",
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/medical-support-033.jpg",
+        "sourceSha256": "1682f8c99e00bf187c8a97a252f314482df8b75380a3a826e944e982d90d31d0",
+        "runtime": {
+          "provider": "openai-codex",
+          "model": "gpt-5.6-sol",
+          "reasoningEffort": "max",
+          "nativeImageRoute": "hermes chat --image direct native input for blind reads; native vision_analyze for post-blind reference/adjudication",
+          "blindSessionId": "20260818_125823_37ca3d",
+          "adjudicationSessionId": "20260819_032946_2aeaee",
+          "auxiliaryVisionUsed": false,
+          "qwenUsed": false,
+          "ocrCanonicalEvidenceUsed": false,
+          "modelDowngradeUsed": false
+        },
+        "blindObservationPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-12-20260818T124945Z-bba552/merge-view/raw/W12-004.json",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-12-20260818T124945Z-bba552/merge-view/results/W12-004.json",
+        "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-12-20260818T124945Z-bba552/references/W12-004-post-blind-contact-sheet.png",
+        "visibleText": {
+          "title": "COMBAT DRUGS",
+          "body": "Discard 1 [medpackToken] to choose a [character] in your Room.\nThey draw [actionCard] until they have 3 [actionCard] in hand.",
+          "sections": [
+            "Discard 1 [medpackToken] to choose a [character] in your Room.\nThey draw [actionCard] until they have 3 [actionCard] in hand."
+          ],
+          "footer": "MEDICAL SUPPORT",
+          "upperRight": "",
+          "illegibleSpans": [],
+          "clippedSpans": []
+        },
+        "verifiedIconOccurrences": [
+          {
+            "cardLocation": "first line after ‘Discard 1’",
+            "referenceLabel": "medpackToken",
+            "matchDecision": "match",
+            "canonicalToken": "medpackToken",
+            "closestAlternative": "greenItem",
+            "visibleDiscriminator": "medpackToken has the attached dark right lobe; greenItem is a single green octagon containing only a white plus; medpackSlot is an empty rectangular receptacle with a black top notch",
+            "evidenceRun": "sol-max-persistent-worker-12-20260818T124945Z-bba552"
+          },
+          {
+            "cardLocation": "first line after ‘choose a’",
+            "referenceLabel": "character",
+            "matchDecision": "match",
+            "canonicalToken": "character",
+            "closestAlternative": "robot",
+            "visibleDiscriminator": "character has a full humanoid body; robot is a squat head-only glyph with two round eyes",
+            "evidenceRun": "sol-max-persistent-worker-12-20260818T124945Z-bba552"
+          },
+          {
+            "cardLocation": "second line after ‘draw’ and after ‘3’",
+            "referenceLabel": "actionCard",
+            "matchDecision": "match",
+            "canonicalToken": "actionCard",
+            "closestAlternative": "character",
+            "visibleDiscriminator": "actionCard contains a capital A inside a card outline; character is a humanoid pictogram with no letter or card outline",
+            "evidenceRun": "sol-max-persistent-worker-12-20260818T124945Z-bba552"
+          }
+        ],
+        "unresolvedIconOccurrences": [],
+        "canonicalTokensEmitted": [
+          "actionCard",
+          "character",
+          "medpackToken"
+        ],
+        "allMaterialTextReadable": true,
+        "allMaterialIconsAuthoritativelyMatched": true,
+        "promotionDecision": "defer",
+        "decisionReasons": [
+          "Exact pixel transcription and icon identities are complete, but canonical promotion remains gated on the card-specific official-source and tracked-counterpart comparisons performed after all adjudications.",
+          "No complete card-specific text or explicit supersession was located in the local official PDF/FAQ set, and no tracked source image is byte- or normalized-pixel-identical.",
+          "The target canonical path and same-title tracked counterpart are absent, so source/edition authority remains unresolved despite an exact pixel read."
+        ],
+        "conflictsWithPriorSnapshot": []
+      },
+      "evidenceRuns": [
+        {
+          "runIdentity": "w12-deferred-card-reexamination-20260818T124945Z-bba552/sol-max-persistent-worker-12-20260818T124945Z-bba552/W12-004",
+          "runId": "w12-deferred-card-reexamination-20260818T124945Z-bba552",
+          "workerId": "sol-max-persistent-worker-12-20260818T124945Z-bba552",
+          "assetId": "W12-004",
+          "sourceSha256": "1682f8c99e00bf187c8a97a252f314482df8b75380a3a826e944e982d90d31d0",
+          "blindSessionId": "20260818_125823_37ca3d",
+          "adjudicationSessionId": "20260819_032946_2aeaee",
+          "promotionDecision": "defer",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-12-20260818T124945Z-bba552/merge-view/results/W12-004.json",
+          "selected": true
+        }
+      ]
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/medical-support-039.jpg",
@@ -6302,8 +6779,106 @@
         "resultPath": "assets/tts-mod/extract/vision-results/8b21eac1a4c1a2697c8f0184703e32f3984a25b847f14869c73cf7aa63645aa6.json",
         "rawResultPath": null,
         "ledgerPath": "assets/tts-mod/extract/vision-progress.json",
-        "queuePath": "assets/tts-mod/extract/low-confidence-review.json"
-      }
+        "queuePath": "assets/tts-mod/extract/low-confidence-review.json",
+        "selectedExtraction": {
+          "runIdentity": "w12-deferred-card-reexamination-20260818T124945Z-bba552/sol-max-persistent-worker-12-20260818T124945Z-bba552/W12-005",
+          "runId": "w12-deferred-card-reexamination-20260818T124945Z-bba552",
+          "workerId": "sol-max-persistent-worker-12-20260818T124945Z-bba552",
+          "assetId": "W12-005",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-12-20260818T124945Z-bba552/merge-view/results/W12-005.json",
+          "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-12-20260818T124945Z-bba552/merge-view/raw/W12-005.json",
+          "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-12-20260818T124945Z-bba552/references/W12-005-post-blind-contact-sheet.png",
+          "promotionDecision": "defer",
+          "runtime": {
+            "provider": "openai-codex",
+            "model": "gpt-5.6-sol",
+            "reasoningEffort": "max",
+            "nativeImageRoute": "hermes chat --image direct native input for blind reads; native vision_analyze for post-blind reference/adjudication",
+            "blindSessionId": "20260819_033723_f78125",
+            "adjudicationSessionId": "20260819_032946_2aeaee",
+            "auxiliaryVisionUsed": false,
+            "qwenUsed": false,
+            "ocrCanonicalEvidenceUsed": false,
+            "modelDowngradeUsed": false
+          }
+        }
+      },
+      "selectedExtraction": {
+        "overlayVersion": 1,
+        "status": "selected-evidence-deferred",
+        "runIdentity": "w12-deferred-card-reexamination-20260818T124945Z-bba552/sol-max-persistent-worker-12-20260818T124945Z-bba552/W12-005",
+        "runId": "w12-deferred-card-reexamination-20260818T124945Z-bba552",
+        "workerId": "sol-max-persistent-worker-12-20260818T124945Z-bba552",
+        "assetId": "W12-005",
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/medical-support-049.jpg",
+        "sourceSha256": "8b21eac1a4c1a2697c8f0184703e32f3984a25b847f14869c73cf7aa63645aa6",
+        "runtime": {
+          "provider": "openai-codex",
+          "model": "gpt-5.6-sol",
+          "reasoningEffort": "max",
+          "nativeImageRoute": "hermes chat --image direct native input for blind reads; native vision_analyze for post-blind reference/adjudication",
+          "blindSessionId": "20260819_033723_f78125",
+          "adjudicationSessionId": "20260819_032946_2aeaee",
+          "auxiliaryVisionUsed": false,
+          "qwenUsed": false,
+          "ocrCanonicalEvidenceUsed": false,
+          "modelDowngradeUsed": false
+        },
+        "blindObservationPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-12-20260818T124945Z-bba552/merge-view/raw/W12-005.json",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-12-20260818T124945Z-bba552/merge-view/results/W12-005.json",
+        "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-12-20260818T124945Z-bba552/references/W12-005-post-blind-contact-sheet.png",
+        "visibleText": {
+          "title": "DEMOLITION",
+          "body": "Destroy 1 accessible Door.\n\nOR\n\nPlace a [malfunction] in your Room.",
+          "sections": [
+            "Destroy 1 accessible Door.",
+            "OR",
+            "Place a [malfunction] in your Room."
+          ],
+          "footer": "MEDICAL SUPPORT",
+          "upperRight": "",
+          "illegibleSpans": [],
+          "clippedSpans": []
+        },
+        "verifiedIconOccurrences": [
+          {
+            "cardLocation": "second effect after ‘Place a’",
+            "referenceLabel": "malfunction",
+            "matchDecision": "match",
+            "canonicalToken": "malfunction",
+            "closestAlternative": "secure",
+            "visibleDiscriminator": "malfunction is a toothed circular gear with a round center; secure is an angular shield/chevron with a vertical inset, while computer, autodestruction, lander, and fire have different silhouettes and colors",
+            "evidenceRun": "sol-max-persistent-worker-12-20260818T124945Z-bba552"
+          }
+        ],
+        "unresolvedIconOccurrences": [],
+        "canonicalTokensEmitted": [
+          "malfunction"
+        ],
+        "allMaterialTextReadable": true,
+        "allMaterialIconsAuthoritativelyMatched": true,
+        "promotionDecision": "defer",
+        "decisionReasons": [
+          "Exact pixel transcription and icon identity are complete, but canonical promotion remains gated on the card-specific official-source and tracked-counterpart comparisons performed after all adjudications.",
+          "No complete card-specific text or explicit supersession was located in the local official PDF/FAQ set, and no tracked source image is byte- or normalized-pixel-identical.",
+          "A protected exact-path canonical sidecar differs; it is preserved unchanged and requires human authority to reconcile."
+        ],
+        "conflictsWithPriorSnapshot": []
+      },
+      "evidenceRuns": [
+        {
+          "runIdentity": "w12-deferred-card-reexamination-20260818T124945Z-bba552/sol-max-persistent-worker-12-20260818T124945Z-bba552/W12-005",
+          "runId": "w12-deferred-card-reexamination-20260818T124945Z-bba552",
+          "workerId": "sol-max-persistent-worker-12-20260818T124945Z-bba552",
+          "assetId": "W12-005",
+          "sourceSha256": "8b21eac1a4c1a2697c8f0184703e32f3984a25b847f14869c73cf7aa63645aa6",
+          "blindSessionId": "20260819_033723_f78125",
+          "adjudicationSessionId": "20260819_032946_2aeaee",
+          "promotionDecision": "defer",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-12-20260818T124945Z-bba552/merge-view/results/W12-005.json",
+          "selected": true
+        }
+      ]
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/medical-support-050.jpg",
@@ -6342,8 +6917,118 @@
         "resultPath": "assets/tts-mod/extract/vision-results/207d9cd90028a00a4fd758b8a586717176ba0f82a08b07685ca4f81f71156e71.json",
         "rawResultPath": null,
         "ledgerPath": "assets/tts-mod/extract/vision-progress.json",
-        "queuePath": "assets/tts-mod/extract/low-confidence-review.json"
-      }
+        "queuePath": "assets/tts-mod/extract/low-confidence-review.json",
+        "selectedExtraction": {
+          "runIdentity": "w12-deferred-card-reexamination-20260818T124945Z-bba552/sol-max-persistent-worker-12-20260818T124945Z-bba552/W12-006",
+          "runId": "w12-deferred-card-reexamination-20260818T124945Z-bba552",
+          "workerId": "sol-max-persistent-worker-12-20260818T124945Z-bba552",
+          "assetId": "W12-006",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-12-20260818T124945Z-bba552/merge-view/results/W12-006.json",
+          "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-12-20260818T124945Z-bba552/merge-view/raw/W12-006.json",
+          "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-12-20260818T124945Z-bba552/references/W12-006-post-blind-contact-sheet.png",
+          "promotionDecision": "defer",
+          "runtime": {
+            "provider": "openai-codex",
+            "model": "gpt-5.6-sol",
+            "reasoningEffort": "max",
+            "nativeImageRoute": "hermes chat --image direct native input for blind reads; native vision_analyze for post-blind reference/adjudication",
+            "blindSessionId": "20260819_033723_f78125",
+            "adjudicationSessionId": "20260819_032946_2aeaee",
+            "auxiliaryVisionUsed": false,
+            "qwenUsed": false,
+            "ocrCanonicalEvidenceUsed": false,
+            "modelDowngradeUsed": false
+          }
+        }
+      },
+      "selectedExtraction": {
+        "overlayVersion": 1,
+        "status": "selected-evidence-deferred",
+        "runIdentity": "w12-deferred-card-reexamination-20260818T124945Z-bba552/sol-max-persistent-worker-12-20260818T124945Z-bba552/W12-006",
+        "runId": "w12-deferred-card-reexamination-20260818T124945Z-bba552",
+        "workerId": "sol-max-persistent-worker-12-20260818T124945Z-bba552",
+        "assetId": "W12-006",
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/medical-support-050.jpg",
+        "sourceSha256": "207d9cd90028a00a4fd758b8a586717176ba0f82a08b07685ca4f81f71156e71",
+        "runtime": {
+          "provider": "openai-codex",
+          "model": "gpt-5.6-sol",
+          "reasoningEffort": "max",
+          "nativeImageRoute": "hermes chat --image direct native input for blind reads; native vision_analyze for post-blind reference/adjudication",
+          "blindSessionId": "20260819_033723_f78125",
+          "adjudicationSessionId": "20260819_032946_2aeaee",
+          "auxiliaryVisionUsed": false,
+          "qwenUsed": false,
+          "ocrCanonicalEvidenceUsed": false,
+          "modelDowngradeUsed": false
+        },
+        "blindObservationPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-12-20260818T124945Z-bba552/merge-view/raw/W12-006.json",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-12-20260818T124945Z-bba552/merge-view/results/W12-006.json",
+        "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-12-20260818T124945Z-bba552/references/W12-006-post-blind-contact-sheet.png",
+        "visibleText": {
+          "title": "CHAIN OF COMMAND",
+          "body": "Move the [lander] on the Round track\nby 1 in any direction.\n\nOR\n\nCOMMAND\nChoose a lower-ranking [character] in your Room\nor a neighboring one. Make the chosen [character] Move,\nShoot, or Burst (you make all choices).",
+          "sections": [
+            "Move the [lander] on the Round track\nby 1 in any direction.",
+            "OR",
+            "COMMAND\nChoose a lower-ranking [character] in your Room\nor a neighboring one. Make the chosen [character] Move,\nShoot, or Burst (you make all choices).",
+            "REACTION\nWhen a Command card is played on you:\nIgnore its effect."
+          ],
+          "footer": "MEDICAL SUPPORT",
+          "upperRight": "",
+          "reaction": "When a Command card is played on you:\nIgnore its effect.",
+          "illegibleSpans": [],
+          "clippedSpans": []
+        },
+        "verifiedIconOccurrences": [
+          {
+            "cardLocation": "first effect after ‘Move the’",
+            "referenceLabel": "lander",
+            "matchDecision": "match",
+            "canonicalToken": "lander",
+            "closestAlternative": "autodestruction",
+            "visibleDiscriminator": "lander has a single tall central spire and winged/scalloped base; autodestruction has three separate rounded lobes arranged around a circular center",
+            "evidenceRun": "sol-max-persistent-worker-12-20260818T124945Z-bba552"
+          },
+          {
+            "cardLocation": "COMMAND section after ‘lower-ranking’ and after ‘chosen’",
+            "referenceLabel": "character",
+            "matchDecision": "match",
+            "canonicalToken": "character",
+            "closestAlternative": "robot",
+            "visibleDiscriminator": "character has a full humanoid body; robot is a squat head-only glyph with two round eyes; intruder is a curled spined creature",
+            "evidenceRun": "sol-max-persistent-worker-12-20260818T124945Z-bba552"
+          }
+        ],
+        "unresolvedIconOccurrences": [],
+        "canonicalTokensEmitted": [
+          "character",
+          "lander"
+        ],
+        "allMaterialTextReadable": true,
+        "allMaterialIconsAuthoritativelyMatched": true,
+        "promotionDecision": "defer",
+        "decisionReasons": [
+          "Exact pixel transcription and icon identities are complete, but canonical promotion remains gated on the card-specific official-source and tracked-counterpart comparisons performed after all adjudications.",
+          "No complete card-specific text or explicit supersession was located in the local official PDF/FAQ set, and no tracked source image is byte- or normalized-pixel-identical.",
+          "Tracked same-title counterparts differ and do not establish this owner/source edition; promotion remains deferred."
+        ],
+        "conflictsWithPriorSnapshot": []
+      },
+      "evidenceRuns": [
+        {
+          "runIdentity": "w12-deferred-card-reexamination-20260818T124945Z-bba552/sol-max-persistent-worker-12-20260818T124945Z-bba552/W12-006",
+          "runId": "w12-deferred-card-reexamination-20260818T124945Z-bba552",
+          "workerId": "sol-max-persistent-worker-12-20260818T124945Z-bba552",
+          "assetId": "W12-006",
+          "sourceSha256": "207d9cd90028a00a4fd758b8a586717176ba0f82a08b07685ca4f81f71156e71",
+          "blindSessionId": "20260819_033723_f78125",
+          "adjudicationSessionId": "20260819_032946_2aeaee",
+          "promotionDecision": "defer",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-12-20260818T124945Z-bba552/merge-view/results/W12-006.json",
+          "selected": true
+        }
+      ]
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/officer-001.png",
@@ -6378,8 +7063,106 @@
         "resultPath": "assets/tts-mod/extract/vision-results/a9c5e332f3f7908a0c3d2e9c367e55d11a294ad9dc4107bac87cb1c540be7776.json",
         "rawResultPath": null,
         "ledgerPath": "assets/tts-mod/extract/vision-progress.json",
-        "queuePath": "assets/tts-mod/extract/low-confidence-review.json"
-      }
+        "queuePath": "assets/tts-mod/extract/low-confidence-review.json",
+        "selectedExtraction": {
+          "runIdentity": "w12-deferred-card-reexamination-20260818T124945Z-bba552/sol-max-persistent-worker-12-20260818T124945Z-bba552/W12-007",
+          "runId": "w12-deferred-card-reexamination-20260818T124945Z-bba552",
+          "workerId": "sol-max-persistent-worker-12-20260818T124945Z-bba552",
+          "assetId": "W12-007",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-12-20260818T124945Z-bba552/merge-view/results/W12-007.json",
+          "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-12-20260818T124945Z-bba552/merge-view/raw/W12-007.json",
+          "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-12-20260818T124945Z-bba552/references/W12-007-post-blind-contact-sheet.png",
+          "promotionDecision": "defer",
+          "runtime": {
+            "provider": "openai-codex",
+            "model": "gpt-5.6-sol",
+            "reasoningEffort": "max",
+            "nativeImageRoute": "hermes chat --image direct native input for blind reads; native vision_analyze for post-blind reference/adjudication",
+            "blindSessionId": "20260819_033723_f78125",
+            "adjudicationSessionId": "20260819_032946_2aeaee",
+            "auxiliaryVisionUsed": false,
+            "qwenUsed": false,
+            "ocrCanonicalEvidenceUsed": false,
+            "modelDowngradeUsed": false
+          }
+        }
+      },
+      "selectedExtraction": {
+        "overlayVersion": 1,
+        "status": "selected-evidence-deferred",
+        "runIdentity": "w12-deferred-card-reexamination-20260818T124945Z-bba552/sol-max-persistent-worker-12-20260818T124945Z-bba552/W12-007",
+        "runId": "w12-deferred-card-reexamination-20260818T124945Z-bba552",
+        "workerId": "sol-max-persistent-worker-12-20260818T124945Z-bba552",
+        "assetId": "W12-007",
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/officer-001.png",
+        "sourceSha256": "a9c5e332f3f7908a0c3d2e9c367e55d11a294ad9dc4107bac87cb1c540be7776",
+        "runtime": {
+          "provider": "openai-codex",
+          "model": "gpt-5.6-sol",
+          "reasoningEffort": "max",
+          "nativeImageRoute": "hermes chat --image direct native input for blind reads; native vision_analyze for post-blind reference/adjudication",
+          "blindSessionId": "20260819_033723_f78125",
+          "adjudicationSessionId": "20260819_032946_2aeaee",
+          "auxiliaryVisionUsed": false,
+          "qwenUsed": false,
+          "ocrCanonicalEvidenceUsed": false,
+          "modelDowngradeUsed": false
+        },
+        "blindObservationPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-12-20260818T124945Z-bba552/merge-view/raw/W12-007.json",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-12-20260818T124945Z-bba552/merge-view/results/W12-007.json",
+        "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-12-20260818T124945Z-bba552/references/W12-007-post-blind-contact-sheet.png",
+        "visibleText": {
+          "title": "DEMOLITION",
+          "body": "Destroy 1 accessible Door.\n\nOR\n\nPlace a [malfunction] in your Room.",
+          "sections": [
+            "Destroy 1 accessible Door.",
+            "OR",
+            "Place a [malfunction] in your Room."
+          ],
+          "footer": "OFFICER",
+          "upperRight": "",
+          "illegibleSpans": [],
+          "clippedSpans": []
+        },
+        "verifiedIconOccurrences": [
+          {
+            "cardLocation": "second effect after ‘Place a’",
+            "referenceLabel": "malfunction",
+            "matchDecision": "match",
+            "canonicalToken": "malfunction",
+            "closestAlternative": "secure",
+            "visibleDiscriminator": "malfunction is a toothed circular gear with a round center; secure is an angular shield/chevron with a vertical inset, while computer, autodestruction, lander, and fire have different silhouettes and colors",
+            "evidenceRun": "sol-max-persistent-worker-12-20260818T124945Z-bba552"
+          }
+        ],
+        "unresolvedIconOccurrences": [],
+        "canonicalTokensEmitted": [
+          "malfunction"
+        ],
+        "allMaterialTextReadable": true,
+        "allMaterialIconsAuthoritativelyMatched": true,
+        "promotionDecision": "defer",
+        "decisionReasons": [
+          "Exact pixel transcription and icon identity are complete, but canonical promotion remains gated on the card-specific official-source and tracked-counterpart comparisons performed after all adjudications.",
+          "No complete card-specific text or explicit supersession was located in the local official PDF/FAQ set, and no tracked source image is byte- or normalized-pixel-identical.",
+          "Tracked same-title counterparts differ and do not establish this owner/source edition; promotion remains deferred."
+        ],
+        "conflictsWithPriorSnapshot": []
+      },
+      "evidenceRuns": [
+        {
+          "runIdentity": "w12-deferred-card-reexamination-20260818T124945Z-bba552/sol-max-persistent-worker-12-20260818T124945Z-bba552/W12-007",
+          "runId": "w12-deferred-card-reexamination-20260818T124945Z-bba552",
+          "workerId": "sol-max-persistent-worker-12-20260818T124945Z-bba552",
+          "assetId": "W12-007",
+          "sourceSha256": "a9c5e332f3f7908a0c3d2e9c367e55d11a294ad9dc4107bac87cb1c540be7776",
+          "blindSessionId": "20260819_033723_f78125",
+          "adjudicationSessionId": "20260819_032946_2aeaee",
+          "promotionDecision": "defer",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-12-20260818T124945Z-bba552/merge-view/results/W12-007.json",
+          "selected": true
+        }
+      ]
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/officer-008.png",
@@ -6415,8 +7198,92 @@
         "resultPath": "assets/tts-mod/extract/vision-results/9abf6adef8b951c43bfbc87e39992792ece70357167dc588d8c5641fad78a0f0.json",
         "rawResultPath": null,
         "ledgerPath": "assets/tts-mod/extract/vision-progress.json",
-        "queuePath": "assets/tts-mod/extract/low-confidence-review.json"
-      }
+        "queuePath": "assets/tts-mod/extract/low-confidence-review.json",
+        "selectedExtraction": {
+          "runIdentity": "w12-deferred-card-reexamination-20260818T124945Z-bba552/sol-max-persistent-worker-12-20260818T124945Z-bba552/W12-008",
+          "runId": "w12-deferred-card-reexamination-20260818T124945Z-bba552",
+          "workerId": "sol-max-persistent-worker-12-20260818T124945Z-bba552",
+          "assetId": "W12-008",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-12-20260818T124945Z-bba552/merge-view/results/W12-008.json",
+          "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-12-20260818T124945Z-bba552/merge-view/raw/W12-008.json",
+          "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-12-20260818T124945Z-bba552/references/W12-008-post-blind-contact-sheet.png",
+          "promotionDecision": "defer",
+          "runtime": {
+            "provider": "openai-codex",
+            "model": "gpt-5.6-sol",
+            "reasoningEffort": "max",
+            "nativeImageRoute": "hermes chat --image direct native input for blind reads; native vision_analyze for post-blind reference/adjudication",
+            "blindSessionId": "20260819_033723_f78125",
+            "adjudicationSessionId": "20260819_032946_2aeaee",
+            "auxiliaryVisionUsed": false,
+            "qwenUsed": false,
+            "ocrCanonicalEvidenceUsed": false,
+            "modelDowngradeUsed": false
+          }
+        }
+      },
+      "selectedExtraction": {
+        "overlayVersion": 1,
+        "status": "selected-evidence-deferred",
+        "runIdentity": "w12-deferred-card-reexamination-20260818T124945Z-bba552/sol-max-persistent-worker-12-20260818T124945Z-bba552/W12-008",
+        "runId": "w12-deferred-card-reexamination-20260818T124945Z-bba552",
+        "workerId": "sol-max-persistent-worker-12-20260818T124945Z-bba552",
+        "assetId": "W12-008",
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/officer-008.png",
+        "sourceSha256": "9abf6adef8b951c43bfbc87e39992792ece70357167dc588d8c5641fad78a0f0",
+        "runtime": {
+          "provider": "openai-codex",
+          "model": "gpt-5.6-sol",
+          "reasoningEffort": "max",
+          "nativeImageRoute": "hermes chat --image direct native input for blind reads; native vision_analyze for post-blind reference/adjudication",
+          "blindSessionId": "20260819_033723_f78125",
+          "adjudicationSessionId": "20260819_032946_2aeaee",
+          "auxiliaryVisionUsed": false,
+          "qwenUsed": false,
+          "ocrCanonicalEvidenceUsed": false,
+          "modelDowngradeUsed": false
+        },
+        "blindObservationPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-12-20260818T124945Z-bba552/merge-view/raw/W12-008.json",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-12-20260818T124945Z-bba552/merge-view/results/W12-008.json",
+        "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-12-20260818T124945Z-bba552/references/W12-008-post-blind-contact-sheet.png",
+        "visibleText": {
+          "title": "STARTING ITEM\nOFFICER",
+          "body": "",
+          "sections": [],
+          "footer": "",
+          "upperRight": "",
+          "environmentalText": "Decorative pseudo-text/code-like markings on the illustrated equipment case; no additional readable English word is asserted.",
+          "illegibleSpans": [],
+          "clippedSpans": []
+        },
+        "verifiedIconOccurrences": [],
+        "unresolvedIconOccurrences": [],
+        "canonicalTokensEmitted": [],
+        "allMaterialTextReadable": true,
+        "allMaterialIconsAuthoritativelyMatched": true,
+        "promotionDecision": "defer",
+        "decisionReasons": [
+          "The assigned image is a non-rules BackURL identifier and must not be promoted or reclassified as a rules-bearing face without a human gate.",
+          "The direct paired face is retained as provenance evidence rather than substituted for the assigned source tuple.",
+          "No complete card-specific text or explicit supersession was located in the local official PDF/FAQ set, and no tracked source image is byte- or normalized-pixel-identical.",
+          "The assigned source is a non-rules BackURL identifier side and is complete as classification evidence, not a canonical rules sidecar candidate."
+        ],
+        "conflictsWithPriorSnapshot": []
+      },
+      "evidenceRuns": [
+        {
+          "runIdentity": "w12-deferred-card-reexamination-20260818T124945Z-bba552/sol-max-persistent-worker-12-20260818T124945Z-bba552/W12-008",
+          "runId": "w12-deferred-card-reexamination-20260818T124945Z-bba552",
+          "workerId": "sol-max-persistent-worker-12-20260818T124945Z-bba552",
+          "assetId": "W12-008",
+          "sourceSha256": "9abf6adef8b951c43bfbc87e39992792ece70357167dc588d8c5641fad78a0f0",
+          "blindSessionId": "20260819_033723_f78125",
+          "adjudicationSessionId": "20260819_032946_2aeaee",
+          "promotionDecision": "defer",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-12-20260818T124945Z-bba552/merge-view/results/W12-008.json",
+          "selected": true
+        }
+      ]
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/officer-009.png",
