@@ -10,10 +10,10 @@
   "metadata": {
     "selectedEvidenceRegistry": "assets/tts-mod/extract/selected-card-text-evidence.json",
     "selectedEvidenceRegistrySchemaVersion": 1,
-    "selectedEvidenceRegistrySha256": "9608d7612b1fcb2209d51ccd0b0e9564a7ea2328581773864572cad013dcf0a9",
-    "selectedEvidenceTupleDigest": "28806f8cccb9423a7d731d2e2e84807fc6d7eb51a737eed4c4f78d4d9df36882",
-    "selectedEvidenceEntryCount": 44,
-    "selectedEvidenceRunCount": 44
+    "selectedEvidenceRegistrySha256": "3d2abef4add644e7a817dfb8ac1c8d53114cd50ec439c310cadd5061e6c18682",
+    "selectedEvidenceTupleDigest": "d8ec20a68b512fd07dd04a60a42ba5933817899227b6e10257de2e370554e580",
+    "selectedEvidenceEntryCount": 52,
+    "selectedEvidenceRunCount": 52
   },
   "counts": {
     "records": 390,
@@ -8517,8 +8517,118 @@
         "resultPath": "assets/tts-mod/extract/vision-results/b2361593ff5f03a812f76a73900beda2dcd7e99091d13209ca8d10e487dfe8ef.json",
         "rawResultPath": null,
         "ledgerPath": "assets/tts-mod/extract/vision-progress.json",
-        "queuePath": "assets/tts-mod/extract/low-confidence-review.json"
-      }
+        "queuePath": "assets/tts-mod/extract/low-confidence-review.json",
+        "selectedExtraction": {
+          "runIdentity": "w14-deferred-card-reexamination-20260819T050936Z-5dcf03/sol-max-persistent-worker-14-20260819T050936Z-5dcf03/W14-001",
+          "runId": "w14-deferred-card-reexamination-20260819T050936Z-5dcf03",
+          "workerId": "sol-max-persistent-worker-14-20260819T050936Z-5dcf03",
+          "assetId": "W14-001",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-14-20260819T050936Z-5dcf03/merge-view/results/W14-001.json",
+          "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-14-20260819T050936Z-5dcf03/merge-view/raw/W14-001.json",
+          "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-14-20260819T050936Z-5dcf03/references/W14-001-post-blind-contact-sheet.png",
+          "promotionDecision": "defer",
+          "runtime": {
+            "provider": "openai-codex",
+            "model": "gpt-5.6-sol",
+            "reasoningEffort": "max",
+            "nativeImageRoute": "hermes chat --image direct native input for blind reads; native vision_analyze for post-blind reference/adjudication",
+            "blindSessionId": "20260819_051216_124afe",
+            "adjudicationSessionId": "20260819_032946_2aeaee",
+            "auxiliaryVisionUsed": false,
+            "qwenUsed": false,
+            "ocrCanonicalEvidenceUsed": false,
+            "modelDowngradeUsed": false
+          }
+        }
+      },
+      "selectedExtraction": {
+        "overlayVersion": 1,
+        "status": "selected-evidence-deferred",
+        "runIdentity": "w14-deferred-card-reexamination-20260819T050936Z-5dcf03/sol-max-persistent-worker-14-20260819T050936Z-5dcf03/W14-001",
+        "runId": "w14-deferred-card-reexamination-20260819T050936Z-5dcf03",
+        "workerId": "sol-max-persistent-worker-14-20260819T050936Z-5dcf03",
+        "assetId": "W14-001",
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/recon-019.png",
+        "sourceSha256": "b2361593ff5f03a812f76a73900beda2dcd7e99091d13209ca8d10e487dfe8ef",
+        "runtime": {
+          "provider": "openai-codex",
+          "model": "gpt-5.6-sol",
+          "reasoningEffort": "max",
+          "nativeImageRoute": "hermes chat --image direct native input for blind reads; native vision_analyze for post-blind reference/adjudication",
+          "blindSessionId": "20260819_051216_124afe",
+          "adjudicationSessionId": "20260819_032946_2aeaee",
+          "auxiliaryVisionUsed": false,
+          "qwenUsed": false,
+          "ocrCanonicalEvidenceUsed": false,
+          "modelDowngradeUsed": false
+        },
+        "blindObservationPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-14-20260819T050936Z-5dcf03/merge-view/raw/W14-001.json",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-14-20260819T050936Z-5dcf03/merge-view/results/W14-001.json",
+        "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-14-20260819T050936Z-5dcf03/references/W14-001-post-blind-contact-sheet.png",
+        "visibleText": {
+          "title": "CHAIN OF COMMAND",
+          "body": "Move the [lander] by 1 space in any direction.\n\nOR\n\nCOMMAND\nChoose a lower ranking [character] in your Room or\nneighbouring one. Make the chosen [character]\nMove, Shoot, or Burst. (you make all choices).",
+          "sections": [
+            "Move the [lander] by 1 space in any direction.",
+            "OR",
+            "COMMAND\nChoose a lower ranking [character] in your Room or\nneighbouring one. Make the chosen [character]\nMove, Shoot, or Burst. (you make all choices).",
+            "REACTION\nWhen a [character] with a higher Rank plays a\nCommand on you:\nCancel the effect of that Command.\nThat [character] must still pay the Action's cost."
+          ],
+          "footer": "RECON",
+          "upperRight": "",
+          "reaction": "When a [character] with a higher Rank plays a\nCommand on you:\nCancel the effect of that Command.\nThat [character] must still pay the Action's cost.",
+          "illegibleSpans": [],
+          "clippedSpans": []
+        },
+        "verifiedIconOccurrences": [
+          {
+            "cardLocation": "first instruction",
+            "referenceLabel": "lander",
+            "matchDecision": "match",
+            "canonicalToken": "lander",
+            "closestAlternative": "lander",
+            "visibleDiscriminator": "character and robot lack broad spire silhouette",
+            "evidenceRun": "sol-max-persistent-worker-14-20260819T050936Z-5dcf03"
+          },
+          {
+            "cardLocation": "four COMMAND/REACTION figure placements",
+            "referenceLabel": "character",
+            "matchDecision": "match",
+            "canonicalToken": "character",
+            "closestAlternative": "character, robot",
+            "visibleDiscriminator": "robot is a rounded faceplate with circular eyes",
+            "evidenceRun": "sol-max-persistent-worker-14-20260819T050936Z-5dcf03"
+          }
+        ],
+        "unresolvedIconOccurrences": [],
+        "canonicalTokensEmitted": [
+          "character",
+          "lander"
+        ],
+        "allMaterialTextReadable": true,
+        "allMaterialIconsAuthoritativelyMatched": true,
+        "promotionDecision": "defer",
+        "decisionReasons": [
+          "Exact text/icons are resolved, but official/tracked source-authority gates remain pending.",
+          "No complete official face-text reproduction or explicit card-specific supersession was located.",
+          "Tracked counterpart conflict state: target-absent-same-title-counterparts-differ."
+        ],
+        "conflictsWithPriorSnapshot": []
+      },
+      "evidenceRuns": [
+        {
+          "runIdentity": "w14-deferred-card-reexamination-20260819T050936Z-5dcf03/sol-max-persistent-worker-14-20260819T050936Z-5dcf03/W14-001",
+          "runId": "w14-deferred-card-reexamination-20260819T050936Z-5dcf03",
+          "workerId": "sol-max-persistent-worker-14-20260819T050936Z-5dcf03",
+          "assetId": "W14-001",
+          "sourceSha256": "b2361593ff5f03a812f76a73900beda2dcd7e99091d13209ca8d10e487dfe8ef",
+          "blindSessionId": "20260819_051216_124afe",
+          "adjudicationSessionId": "20260819_032946_2aeaee",
+          "promotionDecision": "defer",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-14-20260819T050936Z-5dcf03/merge-view/results/W14-001.json",
+          "selected": true
+        }
+      ]
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/recon-032.png",
@@ -8559,8 +8669,126 @@
         "resultPath": "assets/tts-mod/extract/vision-results/44e6332f499cfe45bbc63622784f23854e2c86b38404f01eda5434b76c9da78d.json",
         "rawResultPath": null,
         "ledgerPath": "assets/tts-mod/extract/vision-progress.json",
-        "queuePath": "assets/tts-mod/extract/low-confidence-review.json"
-      }
+        "queuePath": "assets/tts-mod/extract/low-confidence-review.json",
+        "selectedExtraction": {
+          "runIdentity": "w14-deferred-card-reexamination-20260819T050936Z-5dcf03/sol-max-persistent-worker-14-20260819T050936Z-5dcf03/W14-002",
+          "runId": "w14-deferred-card-reexamination-20260819T050936Z-5dcf03",
+          "workerId": "sol-max-persistent-worker-14-20260819T050936Z-5dcf03",
+          "assetId": "W14-002",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-14-20260819T050936Z-5dcf03/merge-view/results/W14-002.json",
+          "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-14-20260819T050936Z-5dcf03/merge-view/raw/W14-002.json",
+          "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-14-20260819T050936Z-5dcf03/references/W14-002-post-blind-contact-sheet.png",
+          "promotionDecision": "defer",
+          "runtime": {
+            "provider": "openai-codex",
+            "model": "gpt-5.6-sol",
+            "reasoningEffort": "max",
+            "nativeImageRoute": "hermes chat --image direct native input for blind reads; native vision_analyze for post-blind reference/adjudication",
+            "blindSessionId": "20260819_051216_124afe",
+            "adjudicationSessionId": "20260819_032946_2aeaee",
+            "auxiliaryVisionUsed": false,
+            "qwenUsed": false,
+            "ocrCanonicalEvidenceUsed": false,
+            "modelDowngradeUsed": false
+          }
+        }
+      },
+      "selectedExtraction": {
+        "overlayVersion": 1,
+        "status": "selected-evidence-deferred",
+        "runIdentity": "w14-deferred-card-reexamination-20260819T050936Z-5dcf03/sol-max-persistent-worker-14-20260819T050936Z-5dcf03/W14-002",
+        "runId": "w14-deferred-card-reexamination-20260819T050936Z-5dcf03",
+        "workerId": "sol-max-persistent-worker-14-20260819T050936Z-5dcf03",
+        "assetId": "W14-002",
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/recon-032.png",
+        "sourceSha256": "44e6332f499cfe45bbc63622784f23854e2c86b38404f01eda5434b76c9da78d",
+        "runtime": {
+          "provider": "openai-codex",
+          "model": "gpt-5.6-sol",
+          "reasoningEffort": "max",
+          "nativeImageRoute": "hermes chat --image direct native input for blind reads; native vision_analyze for post-blind reference/adjudication",
+          "blindSessionId": "20260819_051216_124afe",
+          "adjudicationSessionId": "20260819_032946_2aeaee",
+          "auxiliaryVisionUsed": false,
+          "qwenUsed": false,
+          "ocrCanonicalEvidenceUsed": false,
+          "modelDowngradeUsed": false
+        },
+        "blindObservationPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-14-20260819T050936Z-5dcf03/merge-view/raw/W14-002.json",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-14-20260819T050936Z-5dcf03/merge-view/results/W14-002.json",
+        "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-14-20260819T050936Z-5dcf03/references/W14-002-post-blind-contact-sheet.png",
+        "visibleText": {
+          "title": "ASSAULT RIFLE",
+          "body": "Shoot: After Shooting, you may spend [ammoToken]\nto Shoot a second time at the same [intruder].",
+          "sections": [
+            "Shoot: After Shooting, you may spend [ammoToken]\nto Shoot a second time at the same [intruder]."
+          ],
+          "footer": "",
+          "upperRight": "",
+          "subtype": "RANGED WEAPON, RIFLE",
+          "lowerCenter": "ammoSlot",
+          "illegibleSpans": [],
+          "clippedSpans": []
+        },
+        "verifiedIconOccurrences": [
+          {
+            "cardLocation": "inline after spend",
+            "referenceLabel": "ammoToken",
+            "matchDecision": "match",
+            "canonicalToken": "ammoToken",
+            "closestAlternative": "ammoToken",
+            "visibleDiscriminator": "ammoSlot is a large receptacle, not a compact token",
+            "evidenceRun": "sol-max-persistent-worker-14-20260819T050936Z-5dcf03"
+          },
+          {
+            "cardLocation": "inline after the same",
+            "referenceLabel": "intruder",
+            "matchDecision": "match",
+            "canonicalToken": "intruder",
+            "closestAlternative": "intruder",
+            "visibleDiscriminator": "not a radial burst",
+            "evidenceRun": "sol-max-persistent-worker-14-20260819T050936Z-5dcf03"
+          },
+          {
+            "cardLocation": "lower red receptacle",
+            "referenceLabel": "ammoSlot",
+            "matchDecision": "match",
+            "canonicalToken": "ammoSlot",
+            "closestAlternative": "ammoSlot, anySlot",
+            "visibleDiscriminator": "anySlot is gray",
+            "evidenceRun": "sol-max-persistent-worker-14-20260819T050936Z-5dcf03"
+          }
+        ],
+        "unresolvedIconOccurrences": [],
+        "canonicalTokensEmitted": [
+          "ammoSlot",
+          "ammoToken",
+          "intruder"
+        ],
+        "allMaterialTextReadable": true,
+        "allMaterialIconsAuthoritativelyMatched": true,
+        "promotionDecision": "defer",
+        "decisionReasons": [
+          "Exact material text/icons are resolved; source-authority gate remains pending.",
+          "No complete official face-text reproduction or explicit card-specific supersession was located.",
+          "Tracked counterpart conflict state: target-absent-no-same-title-counterpart."
+        ],
+        "conflictsWithPriorSnapshot": []
+      },
+      "evidenceRuns": [
+        {
+          "runIdentity": "w14-deferred-card-reexamination-20260819T050936Z-5dcf03/sol-max-persistent-worker-14-20260819T050936Z-5dcf03/W14-002",
+          "runId": "w14-deferred-card-reexamination-20260819T050936Z-5dcf03",
+          "workerId": "sol-max-persistent-worker-14-20260819T050936Z-5dcf03",
+          "assetId": "W14-002",
+          "sourceSha256": "44e6332f499cfe45bbc63622784f23854e2c86b38404f01eda5434b76c9da78d",
+          "blindSessionId": "20260819_051216_124afe",
+          "adjudicationSessionId": "20260819_032946_2aeaee",
+          "promotionDecision": "defer",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-14-20260819T050936Z-5dcf03/merge-view/results/W14-002.json",
+          "selected": true
+        }
+      ]
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/recon-036.png",
@@ -8596,8 +8824,114 @@
         "resultPath": "assets/tts-mod/extract/vision-results/245c4cacbe84a84a46819cffc5ddb0946e7af7f6ea3ac32c323e42bae57ac7f8.json",
         "rawResultPath": null,
         "ledgerPath": "assets/tts-mod/extract/vision-progress.json",
-        "queuePath": "assets/tts-mod/extract/low-confidence-review.json"
-      }
+        "queuePath": "assets/tts-mod/extract/low-confidence-review.json",
+        "selectedExtraction": {
+          "runIdentity": "w14-deferred-card-reexamination-20260819T050936Z-5dcf03/sol-max-persistent-worker-14-20260819T050936Z-5dcf03/W14-003",
+          "runId": "w14-deferred-card-reexamination-20260819T050936Z-5dcf03",
+          "workerId": "sol-max-persistent-worker-14-20260819T050936Z-5dcf03",
+          "assetId": "W14-003",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-14-20260819T050936Z-5dcf03/merge-view/results/W14-003.json",
+          "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-14-20260819T050936Z-5dcf03/merge-view/raw/W14-003.json",
+          "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-14-20260819T050936Z-5dcf03/references/W14-003-post-blind-contact-sheet.png",
+          "promotionDecision": "defer",
+          "runtime": {
+            "provider": "openai-codex",
+            "model": "gpt-5.6-sol",
+            "reasoningEffort": "max",
+            "nativeImageRoute": "hermes chat --image direct native input for blind reads; native vision_analyze for post-blind reference/adjudication",
+            "blindSessionId": "20260819_051216_124afe",
+            "adjudicationSessionId": "20260819_032946_2aeaee",
+            "auxiliaryVisionUsed": false,
+            "qwenUsed": false,
+            "ocrCanonicalEvidenceUsed": false,
+            "modelDowngradeUsed": false
+          }
+        }
+      },
+      "selectedExtraction": {
+        "overlayVersion": 1,
+        "status": "selected-evidence-deferred",
+        "runIdentity": "w14-deferred-card-reexamination-20260819T050936Z-5dcf03/sol-max-persistent-worker-14-20260819T050936Z-5dcf03/W14-003",
+        "runId": "w14-deferred-card-reexamination-20260819T050936Z-5dcf03",
+        "workerId": "sol-max-persistent-worker-14-20260819T050936Z-5dcf03",
+        "assetId": "W14-003",
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/recon-036.png",
+        "sourceSha256": "245c4cacbe84a84a46819cffc5ddb0946e7af7f6ea3ac32c323e42bae57ac7f8",
+        "runtime": {
+          "provider": "openai-codex",
+          "model": "gpt-5.6-sol",
+          "reasoningEffort": "max",
+          "nativeImageRoute": "hermes chat --image direct native input for blind reads; native vision_analyze for post-blind reference/adjudication",
+          "blindSessionId": "20260819_051216_124afe",
+          "adjudicationSessionId": "20260819_032946_2aeaee",
+          "auxiliaryVisionUsed": false,
+          "qwenUsed": false,
+          "ocrCanonicalEvidenceUsed": false,
+          "modelDowngradeUsed": false
+        },
+        "blindObservationPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-14-20260819T050936Z-5dcf03/merge-view/raw/W14-003.json",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-14-20260819T050936Z-5dcf03/merge-view/results/W14-003.json",
+        "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-14-20260819T050936Z-5dcf03/references/W14-003-post-blind-contact-sheet.png",
+        "visibleText": {
+          "title": "SHOOT FIRST",
+          "body": "Move through an empty Corridor.\nYou may Shoot or Burst during that Movement\n(even before Movement or before an [intruder] Attack).",
+          "sections": [
+            "Move through an empty Corridor.\nYou may Shoot or Burst during that Movement\n(even before Movement or before an [intruder] Attack)."
+          ],
+          "footer": "RECON",
+          "upperRight": "[notInCombat]",
+          "illegibleSpans": [],
+          "clippedSpans": []
+        },
+        "verifiedIconOccurrences": [
+          {
+            "cardLocation": "upper-right badge",
+            "referenceLabel": "notInCombat",
+            "matchDecision": "match",
+            "canonicalToken": "notInCombat",
+            "closestAlternative": "notInCombat",
+            "visibleDiscriminator": "uncrossed intruder lacks red circle/bar",
+            "evidenceRun": "sol-max-persistent-worker-14-20260819T050936Z-5dcf03"
+          },
+          {
+            "cardLocation": "inline before Attack",
+            "referenceLabel": "intruder",
+            "matchDecision": "match",
+            "canonicalToken": "intruder",
+            "closestAlternative": "intruder",
+            "visibleDiscriminator": "not a symmetric burst",
+            "evidenceRun": "sol-max-persistent-worker-14-20260819T050936Z-5dcf03"
+          }
+        ],
+        "unresolvedIconOccurrences": [],
+        "canonicalTokensEmitted": [
+          "intruder",
+          "notInCombat"
+        ],
+        "allMaterialTextReadable": true,
+        "allMaterialIconsAuthoritativelyMatched": true,
+        "promotionDecision": "defer",
+        "decisionReasons": [
+          "Exact text/icons are resolved, but source-authority gate remains pending.",
+          "No complete official face-text reproduction or explicit card-specific supersession was located.",
+          "Tracked counterpart conflict state: target-absent-no-same-title-counterpart."
+        ],
+        "conflictsWithPriorSnapshot": []
+      },
+      "evidenceRuns": [
+        {
+          "runIdentity": "w14-deferred-card-reexamination-20260819T050936Z-5dcf03/sol-max-persistent-worker-14-20260819T050936Z-5dcf03/W14-003",
+          "runId": "w14-deferred-card-reexamination-20260819T050936Z-5dcf03",
+          "workerId": "sol-max-persistent-worker-14-20260819T050936Z-5dcf03",
+          "assetId": "W14-003",
+          "sourceSha256": "245c4cacbe84a84a46819cffc5ddb0946e7af7f6ea3ac32c323e42bae57ac7f8",
+          "blindSessionId": "20260819_051216_124afe",
+          "adjudicationSessionId": "20260819_032946_2aeaee",
+          "promotionDecision": "defer",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-14-20260819T050936Z-5dcf03/merge-view/results/W14-003.json",
+          "selected": true
+        }
+      ]
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/recon-043.png",
@@ -8631,8 +8965,106 @@
         "resultPath": "assets/tts-mod/extract/vision-results/961372f54320d3fe89cfdf160487197ef8a98d490e07c92fd2b7c9ad802a16ee.json",
         "rawResultPath": null,
         "ledgerPath": "assets/tts-mod/extract/vision-progress.json",
-        "queuePath": "assets/tts-mod/extract/low-confidence-review.json"
-      }
+        "queuePath": "assets/tts-mod/extract/low-confidence-review.json",
+        "selectedExtraction": {
+          "runIdentity": "w14-deferred-card-reexamination-20260819T050936Z-5dcf03/sol-max-persistent-worker-14-20260819T050936Z-5dcf03/W14-004",
+          "runId": "w14-deferred-card-reexamination-20260819T050936Z-5dcf03",
+          "workerId": "sol-max-persistent-worker-14-20260819T050936Z-5dcf03",
+          "assetId": "W14-004",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-14-20260819T050936Z-5dcf03/merge-view/results/W14-004.json",
+          "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-14-20260819T050936Z-5dcf03/merge-view/raw/W14-004.json",
+          "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-14-20260819T050936Z-5dcf03/references/W14-004-post-blind-contact-sheet.png",
+          "promotionDecision": "defer",
+          "runtime": {
+            "provider": "openai-codex",
+            "model": "gpt-5.6-sol",
+            "reasoningEffort": "max",
+            "nativeImageRoute": "hermes chat --image direct native input for blind reads; native vision_analyze for post-blind reference/adjudication",
+            "blindSessionId": "20260819_051216_124afe",
+            "adjudicationSessionId": "20260819_032946_2aeaee",
+            "auxiliaryVisionUsed": false,
+            "qwenUsed": false,
+            "ocrCanonicalEvidenceUsed": false,
+            "modelDowngradeUsed": false
+          }
+        }
+      },
+      "selectedExtraction": {
+        "overlayVersion": 1,
+        "status": "selected-evidence-deferred",
+        "runIdentity": "w14-deferred-card-reexamination-20260819T050936Z-5dcf03/sol-max-persistent-worker-14-20260819T050936Z-5dcf03/W14-004",
+        "runId": "w14-deferred-card-reexamination-20260819T050936Z-5dcf03",
+        "workerId": "sol-max-persistent-worker-14-20260819T050936Z-5dcf03",
+        "assetId": "W14-004",
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/recon-043.png",
+        "sourceSha256": "961372f54320d3fe89cfdf160487197ef8a98d490e07c92fd2b7c9ad802a16ee",
+        "runtime": {
+          "provider": "openai-codex",
+          "model": "gpt-5.6-sol",
+          "reasoningEffort": "max",
+          "nativeImageRoute": "hermes chat --image direct native input for blind reads; native vision_analyze for post-blind reference/adjudication",
+          "blindSessionId": "20260819_051216_124afe",
+          "adjudicationSessionId": "20260819_032946_2aeaee",
+          "auxiliaryVisionUsed": false,
+          "qwenUsed": false,
+          "ocrCanonicalEvidenceUsed": false,
+          "modelDowngradeUsed": false
+        },
+        "blindObservationPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-14-20260819T050936Z-5dcf03/merge-view/raw/W14-004.json",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-14-20260819T050936Z-5dcf03/merge-view/results/W14-004.json",
+        "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-14-20260819T050936Z-5dcf03/references/W14-004-post-blind-contact-sheet.png",
+        "visibleText": {
+          "title": "SCOUTING",
+          "body": "Move Cautiously to a Discovered Room.\n\nOR\n\nMove through an Unexplored Corridor for Exploration.\nThen, draw Items in your Room based on its icons.\nYou may keep 1 of them and discard the rest.",
+          "sections": [
+            "Move Cautiously to a Discovered Room.",
+            "OR",
+            "Move through an Unexplored Corridor for Exploration.\nThen, draw Items in your Room based on its icons.\nYou may keep 1 of them and discard the rest."
+          ],
+          "footer": "RECON",
+          "upperRight": "[notInCombat]",
+          "illegibleSpans": [],
+          "clippedSpans": []
+        },
+        "verifiedIconOccurrences": [
+          {
+            "cardLocation": "upper-right badge",
+            "referenceLabel": "notInCombat",
+            "matchDecision": "match",
+            "canonicalToken": "notInCombat",
+            "closestAlternative": "notInCombat",
+            "visibleDiscriminator": "uncrossed intruder lacks red prohibition bar",
+            "evidenceRun": "sol-max-persistent-worker-14-20260819T050936Z-5dcf03"
+          }
+        ],
+        "unresolvedIconOccurrences": [],
+        "canonicalTokensEmitted": [
+          "notInCombat"
+        ],
+        "allMaterialTextReadable": true,
+        "allMaterialIconsAuthoritativelyMatched": true,
+        "promotionDecision": "defer",
+        "decisionReasons": [
+          "Exact text/icon are resolved, but source-authority gate remains pending.",
+          "No complete official face-text reproduction or explicit card-specific supersession was located.",
+          "Tracked counterpart conflict state: target-absent-no-same-title-counterpart."
+        ],
+        "conflictsWithPriorSnapshot": []
+      },
+      "evidenceRuns": [
+        {
+          "runIdentity": "w14-deferred-card-reexamination-20260819T050936Z-5dcf03/sol-max-persistent-worker-14-20260819T050936Z-5dcf03/W14-004",
+          "runId": "w14-deferred-card-reexamination-20260819T050936Z-5dcf03",
+          "workerId": "sol-max-persistent-worker-14-20260819T050936Z-5dcf03",
+          "assetId": "W14-004",
+          "sourceSha256": "961372f54320d3fe89cfdf160487197ef8a98d490e07c92fd2b7c9ad802a16ee",
+          "blindSessionId": "20260819_051216_124afe",
+          "adjudicationSessionId": "20260819_032946_2aeaee",
+          "promotionDecision": "defer",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-14-20260819T050936Z-5dcf03/merge-view/results/W14-004.json",
+          "selected": true
+        }
+      ]
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/recon-046_cards/card-00.png",
@@ -8666,8 +9098,91 @@
         "resultPath": "assets/tts-mod/extract/vision-results/65a5bf237a9e8d50460c8a9ae72247d62a0a940ea3ecca4f18323dced2afee8e.json",
         "rawResultPath": null,
         "ledgerPath": "assets/tts-mod/extract/vision-progress.json",
-        "queuePath": "assets/tts-mod/extract/low-confidence-review.json"
-      }
+        "queuePath": "assets/tts-mod/extract/low-confidence-review.json",
+        "selectedExtraction": {
+          "runIdentity": "w14-deferred-card-reexamination-20260819T050936Z-5dcf03/sol-max-persistent-worker-14-20260819T050936Z-5dcf03/W14-005",
+          "runId": "w14-deferred-card-reexamination-20260819T050936Z-5dcf03",
+          "workerId": "sol-max-persistent-worker-14-20260819T050936Z-5dcf03",
+          "assetId": "W14-005",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-14-20260819T050936Z-5dcf03/merge-view/results/W14-005.json",
+          "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-14-20260819T050936Z-5dcf03/merge-view/raw/W14-005.json",
+          "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-14-20260819T050936Z-5dcf03/references/W14-005-post-blind-contact-sheet.png",
+          "promotionDecision": "defer",
+          "runtime": {
+            "provider": "openai-codex",
+            "model": "gpt-5.6-sol",
+            "reasoningEffort": "max",
+            "nativeImageRoute": "hermes chat --image direct native input for blind reads; native vision_analyze for post-blind reference/adjudication",
+            "blindSessionId": "20260819_051216_124afe",
+            "adjudicationSessionId": "20260819_032946_2aeaee",
+            "auxiliaryVisionUsed": false,
+            "qwenUsed": false,
+            "ocrCanonicalEvidenceUsed": false,
+            "modelDowngradeUsed": false
+          }
+        }
+      },
+      "selectedExtraction": {
+        "overlayVersion": 1,
+        "status": "selected-evidence-deferred",
+        "runIdentity": "w14-deferred-card-reexamination-20260819T050936Z-5dcf03/sol-max-persistent-worker-14-20260819T050936Z-5dcf03/W14-005",
+        "runId": "w14-deferred-card-reexamination-20260819T050936Z-5dcf03",
+        "workerId": "sol-max-persistent-worker-14-20260819T050936Z-5dcf03",
+        "assetId": "W14-005",
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/recon-046_cards/card-00.png",
+        "sourceSha256": "65a5bf237a9e8d50460c8a9ae72247d62a0a940ea3ecca4f18323dced2afee8e",
+        "runtime": {
+          "provider": "openai-codex",
+          "model": "gpt-5.6-sol",
+          "reasoningEffort": "max",
+          "nativeImageRoute": "hermes chat --image direct native input for blind reads; native vision_analyze for post-blind reference/adjudication",
+          "blindSessionId": "20260819_051216_124afe",
+          "adjudicationSessionId": "20260819_032946_2aeaee",
+          "auxiliaryVisionUsed": false,
+          "qwenUsed": false,
+          "ocrCanonicalEvidenceUsed": false,
+          "modelDowngradeUsed": false
+        },
+        "blindObservationPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-14-20260819T050936Z-5dcf03/merge-view/raw/W14-005.json",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-14-20260819T050936Z-5dcf03/merge-view/results/W14-005.json",
+        "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-14-20260819T050936Z-5dcf03/references/W14-005-post-blind-contact-sheet.png",
+        "visibleText": {
+          "title": "PICK OFFICER",
+          "body": "",
+          "sections": [],
+          "footer": "",
+          "upperRight": "",
+          "environmentalText": "",
+          "illegibleSpans": [],
+          "clippedSpans": []
+        },
+        "verifiedIconOccurrences": [],
+        "unresolvedIconOccurrences": [],
+        "canonicalTokensEmitted": [],
+        "allMaterialTextReadable": true,
+        "allMaterialIconsAuthoritativelyMatched": true,
+        "promotionDecision": "defer",
+        "decisionReasons": [
+          "Assigned pixels are non-rules selection content; preserve classification/provenance only.",
+          "No complete official face-text reproduction or explicit card-specific supersession was located.",
+          "Tracked counterpart conflict state: not-a-rules-bearing-source-side-no-target-path."
+        ],
+        "conflictsWithPriorSnapshot": []
+      },
+      "evidenceRuns": [
+        {
+          "runIdentity": "w14-deferred-card-reexamination-20260819T050936Z-5dcf03/sol-max-persistent-worker-14-20260819T050936Z-5dcf03/W14-005",
+          "runId": "w14-deferred-card-reexamination-20260819T050936Z-5dcf03",
+          "workerId": "sol-max-persistent-worker-14-20260819T050936Z-5dcf03",
+          "assetId": "W14-005",
+          "sourceSha256": "65a5bf237a9e8d50460c8a9ae72247d62a0a940ea3ecca4f18323dced2afee8e",
+          "blindSessionId": "20260819_051216_124afe",
+          "adjudicationSessionId": "20260819_032946_2aeaee",
+          "promotionDecision": "defer",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-14-20260819T050936Z-5dcf03/merge-view/results/W14-005.json",
+          "selected": true
+        }
+      ]
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/recon-046_cards/card-01.png",
@@ -8805,8 +9320,91 @@
         "resultPath": "assets/tts-mod/extract/vision-results/b82daab495987e2301ecc17bc153da57e88b81777a1348bd6431dcada43587f5.json",
         "rawResultPath": null,
         "ledgerPath": "assets/tts-mod/extract/vision-progress.json",
-        "queuePath": "assets/tts-mod/extract/low-confidence-review.json"
-      }
+        "queuePath": "assets/tts-mod/extract/low-confidence-review.json",
+        "selectedExtraction": {
+          "runIdentity": "w14-deferred-card-reexamination-20260819T050936Z-5dcf03/sol-max-persistent-worker-14-20260819T050936Z-5dcf03/W14-006",
+          "runId": "w14-deferred-card-reexamination-20260819T050936Z-5dcf03",
+          "workerId": "sol-max-persistent-worker-14-20260819T050936Z-5dcf03",
+          "assetId": "W14-006",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-14-20260819T050936Z-5dcf03/merge-view/results/W14-006.json",
+          "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-14-20260819T050936Z-5dcf03/merge-view/raw/W14-006.json",
+          "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-14-20260819T050936Z-5dcf03/references/W14-006-post-blind-contact-sheet.png",
+          "promotionDecision": "defer",
+          "runtime": {
+            "provider": "openai-codex",
+            "model": "gpt-5.6-sol",
+            "reasoningEffort": "max",
+            "nativeImageRoute": "hermes chat --image direct native input for blind reads; native vision_analyze for post-blind reference/adjudication",
+            "blindSessionId": "20260819_051216_124afe",
+            "adjudicationSessionId": "20260819_032946_2aeaee",
+            "auxiliaryVisionUsed": false,
+            "qwenUsed": false,
+            "ocrCanonicalEvidenceUsed": false,
+            "modelDowngradeUsed": false
+          }
+        }
+      },
+      "selectedExtraction": {
+        "overlayVersion": 1,
+        "status": "selected-evidence-deferred",
+        "runIdentity": "w14-deferred-card-reexamination-20260819T050936Z-5dcf03/sol-max-persistent-worker-14-20260819T050936Z-5dcf03/W14-006",
+        "runId": "w14-deferred-card-reexamination-20260819T050936Z-5dcf03",
+        "workerId": "sol-max-persistent-worker-14-20260819T050936Z-5dcf03",
+        "assetId": "W14-006",
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/recon-046_cards/card-03.png",
+        "sourceSha256": "b82daab495987e2301ecc17bc153da57e88b81777a1348bd6431dcada43587f5",
+        "runtime": {
+          "provider": "openai-codex",
+          "model": "gpt-5.6-sol",
+          "reasoningEffort": "max",
+          "nativeImageRoute": "hermes chat --image direct native input for blind reads; native vision_analyze for post-blind reference/adjudication",
+          "blindSessionId": "20260819_051216_124afe",
+          "adjudicationSessionId": "20260819_032946_2aeaee",
+          "auxiliaryVisionUsed": false,
+          "qwenUsed": false,
+          "ocrCanonicalEvidenceUsed": false,
+          "modelDowngradeUsed": false
+        },
+        "blindObservationPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-14-20260819T050936Z-5dcf03/merge-view/raw/W14-006.json",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-14-20260819T050936Z-5dcf03/merge-view/results/W14-006.json",
+        "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-14-20260819T050936Z-5dcf03/references/W14-006-post-blind-contact-sheet.png",
+        "visibleText": {
+          "title": "PICK H. GUN OPERATOR",
+          "body": "",
+          "sections": [],
+          "footer": "",
+          "upperRight": "",
+          "environmentalText": "",
+          "illegibleSpans": [],
+          "clippedSpans": []
+        },
+        "verifiedIconOccurrences": [],
+        "unresolvedIconOccurrences": [],
+        "canonicalTokensEmitted": [],
+        "allMaterialTextReadable": true,
+        "allMaterialIconsAuthoritativelyMatched": true,
+        "promotionDecision": "defer",
+        "decisionReasons": [
+          "Assigned pixels are non-rules selection content; preserve exact label/provenance only.",
+          "No complete official face-text reproduction or explicit card-specific supersession was located.",
+          "Tracked counterpart conflict state: not-a-rules-bearing-source-side-no-target-path."
+        ],
+        "conflictsWithPriorSnapshot": []
+      },
+      "evidenceRuns": [
+        {
+          "runIdentity": "w14-deferred-card-reexamination-20260819T050936Z-5dcf03/sol-max-persistent-worker-14-20260819T050936Z-5dcf03/W14-006",
+          "runId": "w14-deferred-card-reexamination-20260819T050936Z-5dcf03",
+          "workerId": "sol-max-persistent-worker-14-20260819T050936Z-5dcf03",
+          "assetId": "W14-006",
+          "sourceSha256": "b82daab495987e2301ecc17bc153da57e88b81777a1348bd6431dcada43587f5",
+          "blindSessionId": "20260819_051216_124afe",
+          "adjudicationSessionId": "20260819_032946_2aeaee",
+          "promotionDecision": "defer",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-14-20260819T050936Z-5dcf03/merge-view/results/W14-006.json",
+          "selected": true
+        }
+      ]
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/recon-046_cards/card-04.png",
@@ -8943,8 +9541,91 @@
         "resultPath": "assets/tts-mod/extract/vision-results/1b5fd8e010fcdb8cef343f9cff19e73220b4fc87b0b87fbc9c8e02456152d158.json",
         "rawResultPath": null,
         "ledgerPath": "assets/tts-mod/extract/vision-progress.json",
-        "queuePath": "assets/tts-mod/extract/low-confidence-review.json"
-      }
+        "queuePath": "assets/tts-mod/extract/low-confidence-review.json",
+        "selectedExtraction": {
+          "runIdentity": "w14-deferred-card-reexamination-20260819T050936Z-5dcf03/sol-max-persistent-worker-14-20260819T050936Z-5dcf03/W14-007",
+          "runId": "w14-deferred-card-reexamination-20260819T050936Z-5dcf03",
+          "workerId": "sol-max-persistent-worker-14-20260819T050936Z-5dcf03",
+          "assetId": "W14-007",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-14-20260819T050936Z-5dcf03/merge-view/results/W14-007.json",
+          "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-14-20260819T050936Z-5dcf03/merge-view/raw/W14-007.json",
+          "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-14-20260819T050936Z-5dcf03/references/W14-007-post-blind-contact-sheet.png",
+          "promotionDecision": "defer",
+          "runtime": {
+            "provider": "openai-codex",
+            "model": "gpt-5.6-sol",
+            "reasoningEffort": "max",
+            "nativeImageRoute": "hermes chat --image direct native input for blind reads; native vision_analyze for post-blind reference/adjudication",
+            "blindSessionId": "20260819_051216_124afe",
+            "adjudicationSessionId": "20260819_032946_2aeaee",
+            "auxiliaryVisionUsed": false,
+            "qwenUsed": false,
+            "ocrCanonicalEvidenceUsed": false,
+            "modelDowngradeUsed": false
+          }
+        }
+      },
+      "selectedExtraction": {
+        "overlayVersion": 1,
+        "status": "selected-evidence-deferred",
+        "runIdentity": "w14-deferred-card-reexamination-20260819T050936Z-5dcf03/sol-max-persistent-worker-14-20260819T050936Z-5dcf03/W14-007",
+        "runId": "w14-deferred-card-reexamination-20260819T050936Z-5dcf03",
+        "workerId": "sol-max-persistent-worker-14-20260819T050936Z-5dcf03",
+        "assetId": "W14-007",
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/recon-046_cards/card-06.png",
+        "sourceSha256": "1b5fd8e010fcdb8cef343f9cff19e73220b4fc87b0b87fbc9c8e02456152d158",
+        "runtime": {
+          "provider": "openai-codex",
+          "model": "gpt-5.6-sol",
+          "reasoningEffort": "max",
+          "nativeImageRoute": "hermes chat --image direct native input for blind reads; native vision_analyze for post-blind reference/adjudication",
+          "blindSessionId": "20260819_051216_124afe",
+          "adjudicationSessionId": "20260819_032946_2aeaee",
+          "auxiliaryVisionUsed": false,
+          "qwenUsed": false,
+          "ocrCanonicalEvidenceUsed": false,
+          "modelDowngradeUsed": false
+        },
+        "blindObservationPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-14-20260819T050936Z-5dcf03/merge-view/raw/W14-007.json",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-14-20260819T050936Z-5dcf03/merge-view/results/W14-007.json",
+        "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-14-20260819T050936Z-5dcf03/references/W14-007-post-blind-contact-sheet.png",
+        "visibleText": {
+          "title": "PICK MEDICAL SUPPORT",
+          "body": "",
+          "sections": [],
+          "footer": "",
+          "upperRight": "",
+          "environmentalText": "",
+          "illegibleSpans": [],
+          "clippedSpans": []
+        },
+        "verifiedIconOccurrences": [],
+        "unresolvedIconOccurrences": [],
+        "canonicalTokensEmitted": [],
+        "allMaterialTextReadable": true,
+        "allMaterialIconsAuthoritativelyMatched": true,
+        "promotionDecision": "defer",
+        "decisionReasons": [
+          "Assigned pixels are non-rules selection content and cell-specific paired-side provenance is unresolved.",
+          "No complete official face-text reproduction or explicit card-specific supersession was located.",
+          "Tracked counterpart conflict state: not-a-rules-bearing-source-side-no-target-path."
+        ],
+        "conflictsWithPriorSnapshot": []
+      },
+      "evidenceRuns": [
+        {
+          "runIdentity": "w14-deferred-card-reexamination-20260819T050936Z-5dcf03/sol-max-persistent-worker-14-20260819T050936Z-5dcf03/W14-007",
+          "runId": "w14-deferred-card-reexamination-20260819T050936Z-5dcf03",
+          "workerId": "sol-max-persistent-worker-14-20260819T050936Z-5dcf03",
+          "assetId": "W14-007",
+          "sourceSha256": "1b5fd8e010fcdb8cef343f9cff19e73220b4fc87b0b87fbc9c8e02456152d158",
+          "blindSessionId": "20260819_051216_124afe",
+          "adjudicationSessionId": "20260819_032946_2aeaee",
+          "promotionDecision": "defer",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-14-20260819T050936Z-5dcf03/merge-view/results/W14-007.json",
+          "selected": true
+        }
+      ]
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/recon-046_cards/card-07.png",
@@ -8978,8 +9659,91 @@
         "resultPath": "assets/tts-mod/extract/vision-results/6df10c18ec97db9545f142453e97b0a63ebda640a387cad41537424fbf783865.json",
         "rawResultPath": null,
         "ledgerPath": "assets/tts-mod/extract/vision-progress.json",
-        "queuePath": "assets/tts-mod/extract/low-confidence-review.json"
-      }
+        "queuePath": "assets/tts-mod/extract/low-confidence-review.json",
+        "selectedExtraction": {
+          "runIdentity": "w14-deferred-card-reexamination-20260819T050936Z-5dcf03/sol-max-persistent-worker-14-20260819T050936Z-5dcf03/W14-008",
+          "runId": "w14-deferred-card-reexamination-20260819T050936Z-5dcf03",
+          "workerId": "sol-max-persistent-worker-14-20260819T050936Z-5dcf03",
+          "assetId": "W14-008",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-14-20260819T050936Z-5dcf03/merge-view/results/W14-008.json",
+          "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-14-20260819T050936Z-5dcf03/merge-view/raw/W14-008.json",
+          "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-14-20260819T050936Z-5dcf03/references/W14-008-post-blind-contact-sheet.png",
+          "promotionDecision": "defer",
+          "runtime": {
+            "provider": "openai-codex",
+            "model": "gpt-5.6-sol",
+            "reasoningEffort": "max",
+            "nativeImageRoute": "hermes chat --image direct native input for blind reads; native vision_analyze for post-blind reference/adjudication",
+            "blindSessionId": "20260819_051216_124afe",
+            "adjudicationSessionId": "20260819_032946_2aeaee",
+            "auxiliaryVisionUsed": false,
+            "qwenUsed": false,
+            "ocrCanonicalEvidenceUsed": false,
+            "modelDowngradeUsed": false
+          }
+        }
+      },
+      "selectedExtraction": {
+        "overlayVersion": 1,
+        "status": "selected-evidence-deferred",
+        "runIdentity": "w14-deferred-card-reexamination-20260819T050936Z-5dcf03/sol-max-persistent-worker-14-20260819T050936Z-5dcf03/W14-008",
+        "runId": "w14-deferred-card-reexamination-20260819T050936Z-5dcf03",
+        "workerId": "sol-max-persistent-worker-14-20260819T050936Z-5dcf03",
+        "assetId": "W14-008",
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/recon-046_cards/card-07.png",
+        "sourceSha256": "6df10c18ec97db9545f142453e97b0a63ebda640a387cad41537424fbf783865",
+        "runtime": {
+          "provider": "openai-codex",
+          "model": "gpt-5.6-sol",
+          "reasoningEffort": "max",
+          "nativeImageRoute": "hermes chat --image direct native input for blind reads; native vision_analyze for post-blind reference/adjudication",
+          "blindSessionId": "20260819_051216_124afe",
+          "adjudicationSessionId": "20260819_032946_2aeaee",
+          "auxiliaryVisionUsed": false,
+          "qwenUsed": false,
+          "ocrCanonicalEvidenceUsed": false,
+          "modelDowngradeUsed": false
+        },
+        "blindObservationPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-14-20260819T050936Z-5dcf03/merge-view/raw/W14-008.json",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-14-20260819T050936Z-5dcf03/merge-view/results/W14-008.json",
+        "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-14-20260819T050936Z-5dcf03/references/W14-008-post-blind-contact-sheet.png",
+        "visibleText": {
+          "title": "PICK UAV OPERATOR",
+          "body": "",
+          "sections": [],
+          "footer": "",
+          "upperRight": "",
+          "environmentalText": "",
+          "illegibleSpans": [],
+          "clippedSpans": []
+        },
+        "verifiedIconOccurrences": [],
+        "unresolvedIconOccurrences": [],
+        "canonicalTokensEmitted": [],
+        "allMaterialTextReadable": true,
+        "allMaterialIconsAuthoritativelyMatched": true,
+        "promotionDecision": "defer",
+        "decisionReasons": [
+          "Assigned pixels are non-rules selection content; preserve exact label/provenance only.",
+          "No complete official face-text reproduction or explicit card-specific supersession was located.",
+          "Tracked counterpart conflict state: not-a-rules-bearing-source-side-no-target-path."
+        ],
+        "conflictsWithPriorSnapshot": []
+      },
+      "evidenceRuns": [
+        {
+          "runIdentity": "w14-deferred-card-reexamination-20260819T050936Z-5dcf03/sol-max-persistent-worker-14-20260819T050936Z-5dcf03/W14-008",
+          "runId": "w14-deferred-card-reexamination-20260819T050936Z-5dcf03",
+          "workerId": "sol-max-persistent-worker-14-20260819T050936Z-5dcf03",
+          "assetId": "W14-008",
+          "sourceSha256": "6df10c18ec97db9545f142453e97b0a63ebda640a387cad41537424fbf783865",
+          "blindSessionId": "20260819_051216_124afe",
+          "adjudicationSessionId": "20260819_032946_2aeaee",
+          "promotionDecision": "defer",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-14-20260819T050936Z-5dcf03/merge-view/results/W14-008.json",
+          "selected": true
+        }
+      ]
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/recon-046_cards/card-08.png",

@@ -253,6 +253,28 @@ unaccounted. The next eligible exact tuple is queue index 54,
 `assets/tts-mod/extract/v2-dl/tree/cards/character/recon-019.png`
 (SHA-256 `b2361593ff5f03a812f76a73900beda2dcd7e99091d13209ca8d10e487dfe8ef`).
 
+**W14 deferred-card checkpoint (2026-08-19T05:43:21Z):** Worker
+`sol-max-persistent-worker-14-20260819T050936Z-5dcf03` completed queue indices
+54–61 in one fresh tool-disabled native `openai-codex:gpt-5.6-sol` max session
+(`20260819_051216_124afe`; 8 API calls, 16 messages, zero tools), followed by
+15 DB-audited native post-blind image reads. Four assigned images now have exact
+rules-bearing text with 8 authoritative icon groups covering 11 placements and
+zero unresolved assigned-image symbols: Recon CHAIN OF COMMAND, ASSAULT RIFLE,
+SHOOT FIRST, and SCOUTING. The other four are exactly classified non-rules
+character-selection faces (`PICK OFFICER`, `PICK H. GUN OPERATOR`, `PICK MEDICAL
+SUPPORT`, and `PICK UAV OPERATOR`) and were not promoted into rules sidecars. Seven
+tuples have one concrete paired-side relationship; generated cell 6 (`PICK MEDICAL
+SUPPORT`) has no concrete CardID selector and retains only generic shared CHARACTER
+DRAFT back evidence. All eight promotion decisions remain `defer`; no canonical
+sidecar, source image, or protected tracked target changed. The registry merge was
+projected, independently rebuilt, and shared-merged twice byte-idempotently:
+selected evidence now contains 52 exact tuple entries/runs, while the deterministic
+corpus remains 390 records. Each W14 tuple remains exactly once in progress, the
+398-entry low-confidence queue, and selected evidence; the global partition remains
+532 = 134 complete + 398 deferred + 0 unaccounted. The next eligible exact tuple is
+queue index 62, `assets/tts-mod/extract/v2-dl/tree/cards/character/recon-051.png`
+(SHA-256 `318546349ba9ded87455d6608112a0cdb7a5bf826eff07c64c106ed1289ec32d`).
+
 The requested approval-gated review target
 `assets/tts-mod/extract/v2-dl/tree/unsorted/card-176.jpg` is absent from the live tree. A candidate
 source matching the durable 2132x2142 trial dimensions is available at
