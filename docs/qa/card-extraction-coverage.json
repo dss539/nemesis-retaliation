@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "sourceProgressUpdatedAt": "2026-08-20T07:06:51.770770Z",
-  "sourceQueueUpdatedAt": "2026-08-20T07:06:51.770770Z",
+  "sourceProgressUpdatedAt": "2026-08-20T08:00:47.295355Z",
+  "sourceQueueUpdatedAt": "2026-08-20T08:00:47.295355Z",
   "totals": {
     "inScope": 532,
     "complete": 148,
@@ -169,14 +169,14 @@
     "reference": 4
   },
   "reasonTags": {
-    "classification": 292,
-    "clipped-or-illegible": 90,
+    "classification": 285,
+    "clipped-or-illegible": 86,
     "needs-official-source": 1,
     "orientation": 55,
-    "other": 81,
-    "provenance": 15,
+    "other": 86,
+    "provenance": 16,
     "schema-or-destination": 9,
-    "source-conflict": 7,
+    "source-conflict": 8,
     "unknown-icon": 2
   },
   "topRulesInformationPriorities": [
@@ -1130,127 +1130,6 @@
       }
     },
     {
-      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/exploration-076.png",
-      "sourceSha256": "e4e92cae40da14f30ee73a8f27ea8291d0861db0688ac207219fa475f24cd832",
-      "family": "game/exploration-076.png",
-      "isCard": true,
-      "isRulesBearingCandidate": true,
-      "extractionState": "draft-full",
-      "priorityScore": 430,
-      "title": null,
-      "typeLine": null,
-      "body": "Place A/B/C Room\ndepending on your Section.\n\n[character]\n\nReminder:\nPlace 1 [ICON: white vertically split angular shield-chevron glyph] if you are Moving with [ICON: white vertically split angular shield-chevron glyph].\n\nEntrance Effect:\nClose all Doors around this Room.\nResolve [ICON: yellow irregular starburst with black branching center].",
-      "footer": null,
-      "recognizedTokens": [
-        "character"
-      ],
-      "unknownTokens": [
-        "ICON: white vertically split angular shield-chevron glyph",
-        "ICON: yellow irregular starburst with black branching center"
-      ],
-      "unreadableMarkers": [],
-      "reasonTags": [
-        "classification"
-      ],
-      "reasonSkipped": "exact card identity/transcription/icon/category is not uniformly high-confidence",
-      "uncertainties": [
-        "The two repeated white Reminder-line glyphs do not confidently match any supplied canonical icon and are recorded literally.",
-        "The yellow-and-black glyph after “Resolve” does not confidently match any supplied canonical icon; specifically, it lacks the triangular morphology required for noiseDieHazard.",
-        "No explicit printed card title or owner label is visible, so a semantic filename identity and slug cannot be established confidently.",
-        "The exploration category is inferred from the visibly printed room-placement instruction and Entrance Effect structure rather than an explicit type label."
-      ],
-      "vision": {
-        "provider": "openai-codex",
-        "model": "gpt-5.6-sol",
-        "reasoningEffort": null,
-        "workerId": null,
-        "sessionId": "20260815_052728_00bc88",
-        "resultPath": "assets/tts-mod/extract/vision-results/e4e92cae40da14f30ee73a8f27ea8291d0861db0688ac207219fa475f24cd832.json",
-        "rawResultPath": null
-      }
-    },
-    {
-      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/exploration-087.png",
-      "sourceSha256": "d52ff877e59bfda1b306074b5567b4c0bf93a0be9b4e257acc88b38f87a7c85f",
-      "family": "game/exploration-087.png",
-      "isCard": true,
-      "isRulesBearingCandidate": true,
-      "extractionState": "draft-full",
-      "priorityScore": 430,
-      "title": null,
-      "typeLine": null,
-      "body": "Place a “?” Room tile.\n\nReminder:\nPlace 1 [ICON: white vertically elongated faceted shield-like glyph with concave upper corners, a central seam, and a pointed lower tip] if you are Moving with [ICON: white vertically elongated faceted shield-like glyph with concave upper corners, a central seam, and a pointed lower tip].\n\nEntrance Effect:\nClose all Doors around this Room.\nRemove this card from the game.",
-      "footer": null,
-      "recognizedTokens": [
-        "character",
-        "malfunction"
-      ],
-      "unknownTokens": [
-        "ICON: visible portion of a teal partial concentric-ring emblem with a dark-green filled circle at the lower-right edge",
-        "ICON: white vertically elongated faceted shield-like glyph with concave upper corners, a central seam, and a pointed lower tip",
-        "ICON: yellow trapezoidal badge with black pointed vertical glyph, angular wave lines, and central dot"
-      ],
-      "unreadableMarkers": [],
-      "reasonTags": [
-        "classification"
-      ],
-      "reasonSkipped": "exact card identity/transcription/icon/category is not uniformly high-confidence",
-      "uncertainties": [
-        "The two inline white faceted glyphs do not confidently match any supplied canonical icon and are therefore described literally.",
-        "The four yellow-and-black branch glyphs do not confidently match the supplied glossary and are therefore described literally rather than assigned a meaning.",
-        "The teal lower-right emblem is absent from the glossary and is partially cut off by the card/image edge.",
-        "No distinct printed title is visible, so the opening instruction is transcribed in body and proposedSlug is null."
-      ],
-      "vision": {
-        "provider": "openai-codex",
-        "model": "gpt-5.6-sol",
-        "reasoningEffort": null,
-        "workerId": null,
-        "sessionId": "20260815_052747_51c888",
-        "resultPath": "assets/tts-mod/extract/vision-results/d52ff877e59bfda1b306074b5567b4c0bf93a0be9b4e257acc88b38f87a7c85f.json",
-        "rawResultPath": null
-      }
-    },
-    {
-      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/exploration-107.png",
-      "sourceSha256": "daf8fb6f2bc9836bf7d457acf909fdd033aa55e182308e61b2d59e952bbced7c",
-      "family": "game/exploration-107.png",
-      "isCard": true,
-      "isRulesBearingCandidate": true,
-      "extractionState": "draft-full",
-      "priorityScore": 430,
-      "title": null,
-      "typeLine": null,
-      "body": "Place A/B/C Room\ndepending on your Section.\n\nReminder:\nPlace 1 [ICON: white vertically split downward-pointing shield glyph] if you are Moving with [ICON: white vertically split downward-pointing shield glyph].\n\nEntrance Effect:\nPlace 2 Adults in the Corridor\nyou have just passed through.\nThen, make a Noise roll.",
-      "footer": null,
-      "recognizedTokens": [],
-      "unknownTokens": [
-        "ICON: white vertically split downward-pointing shield glyph"
-      ],
-      "unreadableMarkers": [],
-      "reasonTags": [
-        "clipped-or-illegible",
-        "classification"
-      ],
-      "reasonSkipped": "exact card identity/transcription/icon/category is not uniformly high-confidence",
-      "uncertainties": [
-        "The two yellow corridor glyphs do not confidently match any supplied canonical icon; their meaning is unknown.",
-        "The two white inline Reminder glyphs do not confidently match any supplied canonical icon; they are transcribed literally.",
-        "The partially clipped lower-right green circular graphic may be decorative or a logo, but its identity cannot be determined from the visible pixels.",
-        "The exact named card subtype is not printed; room-placement and entrance-effect content supports an exploration/instruction-card classification.",
-        "No distinct card title is visibly identified; the opening room-placement instruction is treated as body text rather than a title."
-      ],
-      "vision": {
-        "provider": "openai-codex",
-        "model": "gpt-5.6-sol",
-        "reasoningEffort": null,
-        "workerId": null,
-        "sessionId": "20260815_052755_e0678f",
-        "resultPath": "assets/tts-mod/extract/vision-results/daf8fb6f2bc9836bf7d457acf909fdd033aa55e182308e61b2d59e952bbced7c.json",
-        "rawResultPath": null
-      }
-    },
-    {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/seriouswound-028.png",
       "sourceSha256": "cfc93364f9ec257e07bc84989bbea9709ecdc9519d11f2bc7fd4c5b519ab3f6f",
       "family": "game/seriouswound-028.png",
@@ -1325,6 +1204,117 @@
         "workerId": null,
         "sessionId": "20260815_054013_845b2c",
         "resultPath": "assets/tts-mod/extract/vision-results/42980fa5cef70e8ed40649d1495fc75c015c43f60ebb52961031d18f8f3e1564.json",
+        "rawResultPath": null
+      }
+    },
+    {
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/seriouswound-149_cards/card-02.png",
+      "sourceSha256": "e6ec34b2dde06f1cd76e958af3d24ee1bcc4fa177e4d214b086c70d82a8a2322",
+      "family": "game/seriouswound-149_cards",
+      "isCard": true,
+      "isRulesBearingCandidate": true,
+      "extractionState": "draft-full",
+      "priorityScore": 430,
+      "title": "HAND",
+      "typeLine": null,
+      "body": "“Use Item” Action costs\nyou 1 [ICON: white capital A in a black square with white border] more.",
+      "footer": null,
+      "recognizedTokens": [],
+      "unknownTokens": [
+        "ICON: white capital A in a black square with white border"
+      ],
+      "unreadableMarkers": [],
+      "reasonTags": [
+        "classification"
+      ],
+      "reasonSkipped": "exact card identity/transcription/icon/category is not uniformly high-confidence",
+      "uncertainties": [
+        "The boxed capital A is a card-local action/cost glyph not confidently matched to the canonical glossary, so it is described literally.",
+        "Tiny vertical interface text along the left edge is too faint to transcribe confidently.",
+        "The three small circular diagnostic glyphs are not confidently matched to the canonical glossary."
+      ],
+      "vision": {
+        "provider": "openai-codex",
+        "model": "gpt-5.6-sol",
+        "reasoningEffort": null,
+        "workerId": null,
+        "sessionId": "20260815_054017_e2dab1",
+        "resultPath": "assets/tts-mod/extract/vision-results/e6ec34b2dde06f1cd76e958af3d24ee1bcc4fa177e4d214b086c70d82a8a2322.json",
+        "rawResultPath": null
+      }
+    },
+    {
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/seriouswound-149_cards/card-03.png",
+      "sourceSha256": "322587af9825baec2c8786a0f5e15a657257a5633f025e694de2c962127b44f9",
+      "family": "game/seriouswound-149_cards",
+      "isCard": true,
+      "isRulesBearingCandidate": true,
+      "extractionState": "draft-full",
+      "priorityScore": 430,
+      "title": "ARM",
+      "typeLine": null,
+      "body": "You have only 1 Hand slot. If you\nhave Items in both Hand slots,\nyou must instantly discard\nthe Item from one of them.",
+      "footer": null,
+      "recognizedTokens": [],
+      "unknownTokens": [
+        "ICON: magenta circular marker with white U-shaped glyph",
+        "ICON: orange circular marker with white U-shaped glyph",
+        "ICON: yellow circular marker with white U-shaped glyph"
+      ],
+      "unreadableMarkers": [],
+      "reasonTags": [
+        "classification"
+      ],
+      "reasonSkipped": "exact card identity/transcription/icon/category is not uniformly high-confidence",
+      "uncertainties": [
+        "The three colored U-shaped callout glyphs are not confidently matched to any canonical glossary icon.",
+        "The small background interface labels REC SUITS and TISSUE DAMAGES are stylized and relatively low-contrast."
+      ],
+      "vision": {
+        "provider": "openai-codex",
+        "model": "gpt-5.6-sol",
+        "reasoningEffort": null,
+        "workerId": null,
+        "sessionId": "20260815_054019_a0bead",
+        "resultPath": "assets/tts-mod/extract/vision-results/322587af9825baec2c8786a0f5e15a657257a5633f025e694de2c962127b44f9.json",
+        "rawResultPath": null
+      }
+    },
+    {
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/seriouswound-149_cards/card-05.png",
+      "sourceSha256": "69fa0f09363ab35f1e547a60e64e1b011702a7469755835bf002e0739b0a33f2",
+      "family": "game/seriouswound-149_cards",
+      "isCard": true,
+      "isRulesBearingCandidate": true,
+      "extractionState": "draft-full",
+      "priorityScore": 430,
+      "title": "BODY",
+      "typeLine": null,
+      "body": "Your Hand Size is 1 lower.",
+      "footer": null,
+      "recognizedTokens": [],
+      "unknownTokens": [
+        "ICON: orange U-shaped glyph with detached oval mark above",
+        "ICON: pink U-shaped glyph with detached oval mark above",
+        "ICON: yellow U-shaped glyph with detached oval mark above"
+      ],
+      "unreadableMarkers": [],
+      "reasonTags": [
+        "classification"
+      ],
+      "reasonSkipped": "exact card identity/transcription/icon/category is not uniformly high-confidence",
+      "uncertainties": [
+        "The three colored U-shaped callout glyphs are not confidently matched to any canonical glossary icon.",
+        "Tiny vertical interface labels are low-resolution; “ECG STATUS” and “TISSUE DAMAGES” are the best visible readings.",
+        "The exact small symbol following “39.8” is difficult to distinguish, though it appears to be a degree mark."
+      ],
+      "vision": {
+        "provider": "openai-codex",
+        "model": "gpt-5.6-sol",
+        "reasoningEffort": null,
+        "workerId": null,
+        "sessionId": "20260815_054022_48d50f",
+        "resultPath": "assets/tts-mod/extract/vision-results/69fa0f09363ab35f1e547a60e64e1b011702a7469755835bf002e0739b0a33f2.json",
         "rawResultPath": null
       }
     }

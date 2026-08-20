@@ -1,25 +1,29 @@
 {
   "schemaVersion": 1,
   "sourceCorpus": "assets/tts-mod/extract/card-text-corpus.json",
-  "sourceProgressUpdatedAt": "2026-08-20T07:06:51.770770Z",
+  "sourceProgressUpdatedAt": "2026-08-20T08:00:47.295355Z",
   "warning": "Cluster labels describe visible morphology only. They are not canonical icon names or semantic claims.",
   "summary": {
-    "unresolvedTokenOccurrences": 195,
-    "distinctLiteralDescriptions": 185,
-    "affectedAssets": 115,
+    "unresolvedTokenOccurrences": 192,
+    "distinctLiteralDescriptions": 180,
+    "affectedAssets": 114,
     "clusters": 10
   },
   "clusters": [
     {
       "cluster": "other-local-morphology",
       "status": "morphology-only-unresolved",
-      "priorityScore": 5564,
-      "occurrences": 64,
-      "assetCount": 50,
-      "rulesBearingAssetCount": 50,
-      "distinctLiteralDescriptions": 64,
+      "priorityScore": 5340,
+      "occurrences": 60,
+      "assetCount": 48,
+      "rulesBearingAssetCount": 48,
+      "distinctLiteralDescriptions": 59,
       "resolutionStrategy": "Review highest-frequency rules-bearing examples first, then split into narrower morphology clusters without semantic guessing.",
       "topRepeatedLiterals": [
+        {
+          "token": "ICON: solid blank white rectangle",
+          "count": 2
+        },
         {
           "token": "ICON: black three-lobed circular glyph",
           "count": 1
@@ -86,10 +90,6 @@
         },
         {
           "token": "ICON: red clipped-corner badge with black cartridge-like glyph",
-          "count": 1
-        },
-        {
-          "token": "ICON: red diagonal X over a white outlined horizontal glyph",
           "count": 1
         },
         {
@@ -253,53 +253,13 @@
           "ledgerStatus": "deferred"
         },
         {
-          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/exploration-076.png",
-          "sourceSha256": "e4e92cae40da14f30ee73a8f27ea8291d0861db0688ac207219fa475f24cd832",
-          "componentFamily": "game/exploration",
+          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/greenitem-181_cards/card-00.png",
+          "sourceSha256": "59518a4d288b71cf979eae47d49f5cf098864f2a8c8b105c5e519be565a72044",
+          "componentFamily": "game/greenitem",
           "printedTitle": null,
-          "token": "ICON: white vertically split angular shield-chevron glyph",
+          "token": "ICON: solid blank white rectangle",
           "rulesTextPresent": true,
-          "rulesExcerpt": "Place A/B/C Room\ndepending on your Section.\n\n[character]\n\nReminder:\nPlace 1 [ICON: white vertically split angular shield-chevron glyph] if you are Moving with [ICON: white vertically split angular shield-chevron glyph].\n\nEntrance Effect:\nClose all Doors around this Room.\nResolve [ICON: yellow irregular starburst with black branching center].",
-          "ledgerStatus": "deferred"
-        },
-        {
-          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/exploration-087.png",
-          "sourceSha256": "d52ff877e59bfda1b306074b5567b4c0bf93a0be9b4e257acc88b38f87a7c85f",
-          "componentFamily": "game/exploration",
-          "printedTitle": null,
-          "token": "ICON: visible portion of a teal partial concentric-ring emblem with a dark-green filled circle at the lower-right edge",
-          "rulesTextPresent": true,
-          "rulesExcerpt": "Place a “?” Room tile.\n\nReminder:\nPlace 1 [ICON: white vertically elongated faceted shield-like glyph with concave upper corners, a central seam, and a pointed lower tip] if you are Moving with [ICON: white vertically elongated faceted shield-like glyph with concave upper corners, a central seam, and a pointed lower tip].\n\nEntrance Effect:\nClose all Doors around this Room.\nRemove this card from the game.",
-          "ledgerStatus": "deferred"
-        },
-        {
-          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/exploration-087.png",
-          "sourceSha256": "d52ff877e59bfda1b306074b5567b4c0bf93a0be9b4e257acc88b38f87a7c85f",
-          "componentFamily": "game/exploration",
-          "printedTitle": null,
-          "token": "ICON: white vertically elongated faceted shield-like glyph with concave upper corners, a central seam, and a pointed lower tip",
-          "rulesTextPresent": true,
-          "rulesExcerpt": "Place a “?” Room tile.\n\nReminder:\nPlace 1 [ICON: white vertically elongated faceted shield-like glyph with concave upper corners, a central seam, and a pointed lower tip] if you are Moving with [ICON: white vertically elongated faceted shield-like glyph with concave upper corners, a central seam, and a pointed lower tip].\n\nEntrance Effect:\nClose all Doors around this Room.\nRemove this card from the game.",
-          "ledgerStatus": "deferred"
-        },
-        {
-          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/exploration-087.png",
-          "sourceSha256": "d52ff877e59bfda1b306074b5567b4c0bf93a0be9b4e257acc88b38f87a7c85f",
-          "componentFamily": "game/exploration",
-          "printedTitle": null,
-          "token": "ICON: yellow trapezoidal badge with black pointed vertical glyph, angular wave lines, and central dot",
-          "rulesTextPresent": true,
-          "rulesExcerpt": "Place a “?” Room tile.\n\nReminder:\nPlace 1 [ICON: white vertically elongated faceted shield-like glyph with concave upper corners, a central seam, and a pointed lower tip] if you are Moving with [ICON: white vertically elongated faceted shield-like glyph with concave upper corners, a central seam, and a pointed lower tip].\n\nEntrance Effect:\nClose all Doors around this Room.\nRemove this card from the game.",
-          "ledgerStatus": "deferred"
-        },
-        {
-          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/exploration-107.png",
-          "sourceSha256": "daf8fb6f2bc9836bf7d457acf909fdd033aa55e182308e61b2d59e952bbced7c",
-          "componentFamily": "game/exploration",
-          "printedTitle": null,
-          "token": "ICON: white vertically split downward-pointing shield glyph",
-          "rulesTextPresent": true,
-          "rulesExcerpt": "Place A/B/C Room\ndepending on your Section.\n\nReminder:\nPlace 1 [ICON: white vertically split downward-pointing shield glyph] if you are Moving with [ICON: white vertically split downward-pointing shield glyph].\n\nEntrance Effect:\nPlace 2 Adults in the Corridor\nyou have just passed through.\nThen, make a Noise roll.",
+          "rulesExcerpt": "Draw 1 [ICON: solid blank white rectangle].\nYou may perform any number\nof Actions in this single Turn.\nPass as the last Action.",
           "ledgerStatus": "deferred"
         },
         {
@@ -307,9 +267,9 @@
           "sourceSha256": "55b5781d25288fd9ac949e546581dfecf40466c910fd2f8bbe9b01b451338a6b",
           "componentFamily": "game/greenitem",
           "printedTitle": null,
-          "token": "ICON: red diagonal X over a white outlined horizontal glyph",
+          "token": "ICON: solid blank white rectangle",
           "rulesTextPresent": true,
-          "rulesExcerpt": "Draw 3 [actionCard], reveal them,\nand resolve the Infection\nProcedure.",
+          "rulesExcerpt": "Draw 3 [ICON: solid blank white rectangle], reveal them,\nand resolve the Infection\nProcedure.",
           "ledgerStatus": "deferred"
         },
         {
@@ -2035,6 +1995,114 @@
       ]
     },
     {
+      "cluster": "red-prohibition-overlay",
+      "status": "morphology-only-unresolved",
+      "priorityScore": 777,
+      "occurrences": 7,
+      "assetCount": 7,
+      "rulesBearingAssetCount": 7,
+      "distinctLiteralDescriptions": 6,
+      "resolutionStrategy": "Inspect glyph location and occluded base silhouette; compare with authoritative restriction/action icons rather than inferring from rules semantics.",
+      "topRepeatedLiterals": [
+        {
+          "token": "ICON: red X over white horizontal device",
+          "count": 2
+        },
+        {
+          "token": "ICON: large red X over a mostly occluded short white horizontal blocky silhouette with small dark/red horizontal details",
+          "count": 1
+        },
+        {
+          "token": "ICON: red X over white horizontal card-like glyph with red stripes",
+          "count": 1
+        },
+        {
+          "token": "ICON: red prohibition slash over white cartridge-like glyph",
+          "count": 1
+        },
+        {
+          "token": "ICON: white crossed tools with red X",
+          "count": 1
+        },
+        {
+          "token": "ICON: white horizontal pictogram crossed by red X",
+          "count": 1
+        }
+      ],
+      "evidence": [
+        {
+          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-00.png",
+          "sourceSha256": "de97374d9cc8ed9f9141a4539386fd6b8979b4230f4eee8ae04925622fc07fed",
+          "componentFamily": "character/heavy-gun-operator",
+          "printedTitle": null,
+          "token": "ICON: large red X over a mostly occluded short white horizontal blocky silhouette with small dark/red horizontal details",
+          "rulesTextPresent": true,
+          "rulesExcerpt": "Move.\nIf you Explored a new Room, draw 1 Item for\neach [ICON: solid white chamfered eight-sided polygon with no visible internal mark] in that Room.\nKeep 1 and discard the rest.",
+          "ledgerStatus": "deferred"
+        },
+        {
+          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-33.png",
+          "sourceSha256": "be751ea90d12fc610244af03c2cdf4bc3dc94835abf7bd7fa029464dd8886a56",
+          "componentFamily": "character/heavy-gun-operator",
+          "printedTitle": null,
+          "token": "ICON: red X over white horizontal card-like glyph with red stripes",
+          "rulesTextPresent": true,
+          "rulesExcerpt": "Move the [ICON: white three-lobed upright silhouette] by 1 in any direction.\n\nOR\n\nMove with another Character.\nOnly you make a Noise Roll.",
+          "ledgerStatus": "deferred"
+        },
+        {
+          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/greenitem-029.png",
+          "sourceSha256": "10a73a40826de71ecab5b5cae848de1083bb8466e50a3db927db61fdc89aa546",
+          "componentFamily": "game/greenitem",
+          "printedTitle": null,
+          "token": "ICON: red X over white horizontal device",
+          "rulesTextPresent": true,
+          "rulesExcerpt": "Gain 7 [oxygen].",
+          "ledgerStatus": "deferred"
+        },
+        {
+          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/greenitem-181_cards/card-02.png",
+          "sourceSha256": "55b5781d25288fd9ac949e546581dfecf40466c910fd2f8bbe9b01b451338a6b",
+          "componentFamily": "game/greenitem",
+          "printedTitle": null,
+          "token": "ICON: red X over white horizontal device",
+          "rulesTextPresent": true,
+          "rulesExcerpt": "Draw 3 [ICON: solid blank white rectangle], reveal them,\nand resolve the Infection\nProcedure.",
+          "ledgerStatus": "deferred"
+        },
+        {
+          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/greenitem-181_cards/card-08.png",
+          "sourceSha256": "259b1c8fa4f9bc3194f2150511a981d734e421ae3eb1afb03f2d20175f2c035a",
+          "componentFamily": "game/greenitem",
+          "printedTitle": null,
+          "token": "ICON: white horizontal pictogram crossed by red X",
+          "rulesTextPresent": true,
+          "rulesExcerpt": "Draw 2 [actionCard].",
+          "ledgerStatus": "deferred"
+        },
+        {
+          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/yellowitem-145_cards/card-02.png",
+          "sourceSha256": "287cc86522b32aac0bb0e06fcab5f3c2db09012893c323e589afe79925cff4a3",
+          "componentFamily": "game/yellowitem",
+          "printedTitle": null,
+          "token": "ICON: red prohibition slash over white cartridge-like glyph",
+          "rulesTextPresent": true,
+          "rulesExcerpt": "Reinforce 1 empty Corridor.\n\nOR\n\nPlace 2 [ICON: white downward-pointing shield-like glyph with central angular line].",
+          "ledgerStatus": "deferred"
+        },
+        {
+          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/yellowitem-145_cards/card-03.png",
+          "sourceSha256": "7bf955ec7367f7242814ff9bd7c669b8c4e8b5b316bb6b281f59b6f2f3594253",
+          "componentFamily": "game/yellowitem",
+          "printedTitle": null,
+          "token": "ICON: white crossed tools with red X",
+          "rulesTextPresent": true,
+          "rulesExcerpt": "Discard a [ICON: white gear]\nOR\nOpen or Close 1 Door.",
+          "ledgerStatus": "deferred"
+        }
+      ]
+    },
+    {
       "cluster": "triangle-morphology",
       "status": "morphology-only-unresolved",
       "priorityScore": 777,
@@ -2247,11 +2315,11 @@
     {
       "cluster": "skull-burst-or-explosion-morphology",
       "status": "morphology-only-unresolved",
-      "priorityScore": 666,
-      "occurrences": 6,
-      "assetCount": 6,
-      "rulesBearingAssetCount": 6,
-      "distinctLiteralDescriptions": 6,
+      "priorityScore": 555,
+      "occurrences": 5,
+      "assetCount": 5,
+      "rulesBearingAssetCount": 5,
+      "distinctLiteralDescriptions": 5,
       "resolutionStrategy": "Compare with authoritative die-face crops and any card-local damage marker references; require a visible internal-mark match.",
       "topRepeatedLiterals": [
         {
@@ -2273,23 +2341,9 @@
         {
           "token": "ICON: white skull-like glyph with three radiating marks",
           "count": 1
-        },
-        {
-          "token": "ICON: yellow irregular starburst with black branching center",
-          "count": 1
         }
       ],
       "evidence": [
-        {
-          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/exploration-076.png",
-          "sourceSha256": "e4e92cae40da14f30ee73a8f27ea8291d0861db0688ac207219fa475f24cd832",
-          "componentFamily": "game/exploration",
-          "printedTitle": null,
-          "token": "ICON: yellow irregular starburst with black branching center",
-          "rulesTextPresent": true,
-          "rulesExcerpt": "Place A/B/C Room\ndepending on your Section.\n\n[character]\n\nReminder:\nPlace 1 [ICON: white vertically split angular shield-chevron glyph] if you are Moving with [ICON: white vertically split angular shield-chevron glyph].\n\nEntrance Effect:\nClose all Doors around this Room.\nResolve [ICON: yellow irregular starburst with black branching center].",
-          "ledgerStatus": "deferred"
-        },
         {
           "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoopCustomDeck-071.jpg",
           "sourceSha256": "0fe579f8c7d045db65c4c8b44b954417ac93a7c10ef6268d273878bfb2a4bc87",
@@ -2338,90 +2392,6 @@
           "token": "ICON: white skull with vertical split/exclamation-like mark",
           "rulesTextPresent": true,
           "rulesExcerpt": "[shootDieAmmoLoss]: Deal [ICON: white skull with vertical split/exclamation-like mark].",
-          "ledgerStatus": "deferred"
-        }
-      ]
-    },
-    {
-      "cluster": "red-prohibition-overlay",
-      "status": "morphology-only-unresolved",
-      "priorityScore": 555,
-      "occurrences": 5,
-      "assetCount": 5,
-      "rulesBearingAssetCount": 5,
-      "distinctLiteralDescriptions": 5,
-      "resolutionStrategy": "Inspect glyph location and occluded base silhouette; compare with authoritative restriction/action icons rather than inferring from rules semantics.",
-      "topRepeatedLiterals": [
-        {
-          "token": "ICON: large red X over a mostly occluded short white horizontal blocky silhouette with small dark/red horizontal details",
-          "count": 1
-        },
-        {
-          "token": "ICON: red X over white horizontal card-like glyph with red stripes",
-          "count": 1
-        },
-        {
-          "token": "ICON: red prohibition slash over white cartridge-like glyph",
-          "count": 1
-        },
-        {
-          "token": "ICON: white crossed tools with red X",
-          "count": 1
-        },
-        {
-          "token": "ICON: white horizontal pictogram crossed by red X",
-          "count": 1
-        }
-      ],
-      "evidence": [
-        {
-          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-00.png",
-          "sourceSha256": "de97374d9cc8ed9f9141a4539386fd6b8979b4230f4eee8ae04925622fc07fed",
-          "componentFamily": "character/heavy-gun-operator",
-          "printedTitle": null,
-          "token": "ICON: large red X over a mostly occluded short white horizontal blocky silhouette with small dark/red horizontal details",
-          "rulesTextPresent": true,
-          "rulesExcerpt": "Move.\nIf you Explored a new Room, draw 1 Item for\neach [ICON: solid white chamfered eight-sided polygon with no visible internal mark] in that Room.\nKeep 1 and discard the rest.",
-          "ledgerStatus": "deferred"
-        },
-        {
-          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-33.png",
-          "sourceSha256": "be751ea90d12fc610244af03c2cdf4bc3dc94835abf7bd7fa029464dd8886a56",
-          "componentFamily": "character/heavy-gun-operator",
-          "printedTitle": null,
-          "token": "ICON: red X over white horizontal card-like glyph with red stripes",
-          "rulesTextPresent": true,
-          "rulesExcerpt": "Move the [ICON: white three-lobed upright silhouette] by 1 in any direction.\n\nOR\n\nMove with another Character.\nOnly you make a Noise Roll.",
-          "ledgerStatus": "deferred"
-        },
-        {
-          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/greenitem-181_cards/card-08.png",
-          "sourceSha256": "259b1c8fa4f9bc3194f2150511a981d734e421ae3eb1afb03f2d20175f2c035a",
-          "componentFamily": "game/greenitem",
-          "printedTitle": null,
-          "token": "ICON: white horizontal pictogram crossed by red X",
-          "rulesTextPresent": true,
-          "rulesExcerpt": "Draw 2 [actionCard].",
-          "ledgerStatus": "deferred"
-        },
-        {
-          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/yellowitem-145_cards/card-02.png",
-          "sourceSha256": "287cc86522b32aac0bb0e06fcab5f3c2db09012893c323e589afe79925cff4a3",
-          "componentFamily": "game/yellowitem",
-          "printedTitle": null,
-          "token": "ICON: red prohibition slash over white cartridge-like glyph",
-          "rulesTextPresent": true,
-          "rulesExcerpt": "Reinforce 1 empty Corridor.\n\nOR\n\nPlace 2 [ICON: white downward-pointing shield-like glyph with central angular line].",
-          "ledgerStatus": "deferred"
-        },
-        {
-          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/yellowitem-145_cards/card-03.png",
-          "sourceSha256": "7bf955ec7367f7242814ff9bd7c669b8c4e8b5b316bb6b281f59b6f2f3594253",
-          "componentFamily": "game/yellowitem",
-          "printedTitle": null,
-          "token": "ICON: white crossed tools with red X",
-          "rulesTextPresent": true,
-          "rulesExcerpt": "Discard a [ICON: white gear]\nOR\nOpen or Close 1 Door.",
           "ledgerStatus": "deferred"
         }
       ]
