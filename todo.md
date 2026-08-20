@@ -489,6 +489,54 @@ tuple is current queue index 97,
 `assets/tts-mod/extract/v2-dl/tree/cards/game/exploration-076.png`
 (SHA-256 `e4e92cae40da14f30ee73a8f27ea8291d0861db0688ac207219fa475f24cd832`).
 
+**W21 defer-only mixed checkpoint (2026-08-20T08:04:20Z):** Worker
+`sol-max-persistent-worker-21-20260820T071414Z-p176060-72cd88` sealed these exact
+current low-confidence queue tuples:
+- index 97, `assets/tts-mod/extract/v2-dl/tree/cards/game/exploration-076.png`,
+  SHA-256 `e4e92cae40da14f30ee73a8f27ea8291d0861db0688ac207219fa475f24cd832`;
+- index 98, `assets/tts-mod/extract/v2-dl/tree/cards/game/exploration-087.png`,
+  SHA-256 `d52ff877e59bfda1b306074b5567b4c0bf93a0be9b4e257acc88b38f87a7c85f`;
+- index 99, `assets/tts-mod/extract/v2-dl/tree/cards/game/exploration-107.png`,
+  SHA-256 `daf8fb6f2bc9836bf7d457acf909fdd033aa55e182308e61b2d59e952bbced7c`;
+- index 100, `assets/tts-mod/extract/v2-dl/tree/cards/game/greenitem-029.png`,
+  SHA-256 `10a73a40826de71ecab5b5cae848de1083bb8466e50a3db927db61fdc89aa546`;
+- index 101, `assets/tts-mod/extract/v2-dl/tree/cards/game/greenitem-115.png`,
+  SHA-256 `ddedb8819e921206d38f6d89ea9690638fab53faa7a666fc8e2e2d1874566431`;
+- index 102, `assets/tts-mod/extract/v2-dl/tree/cards/game/greenitem-120.png`,
+  SHA-256 `5db3229a26df87dc4eca7b317b12d785632ab780dc770db3ec5fc7c6d373b34a`;
+- index 103, `assets/tts-mod/extract/v2-dl/tree/cards/game/greenitem-181_cards/card-00.png`,
+  SHA-256 `59518a4d288b71cf979eae47d49f5cf098864f2a8c8b105c5e519be565a72044`;
+- index 104, `assets/tts-mod/extract/v2-dl/tree/cards/game/greenitem-181_cards/card-02.png`,
+  SHA-256 `55b5781d25288fd9ac949e546581dfecf40466c910fd2f8bbe9b01b451338a6b`.
+All eight are rules-bearing and zero are non-rules: three exact exploration FaceURLs pair
+to `EXPLORATION / PRIMEBLOOD`; three standalone green-item FaceURLs and two generated
+green-item cells use the shared `ITEM` back. Blind reads used one persistent smoke-proven
+zero-tool native `openai-codex:gpt-5.6-sol` max session (`20260820_071539_1c3638`;
+8 API calls, 16 messages, zero tools); the unexposed supervisor session made ten direct
+post-blind card/back attachments. Twenty-three visual occurrences match canonical glossary
+tokens. Four unresolved functional occurrences remain four separate explicit no-match rows:
+Heavy Oxygen Tank's red-X/device, Adrenaline Injection's blank rectangle, and generated
+Caffeine Pills' red-X/device plus blank rectangle. Eight non-text graphics are preserved.
+All eight decisions remain `defer`: the three exploration faces lack unique printed slugs;
+Heavy Oxygen Tank has a no-match; standalone/generated Caffeine Pills are conflicting
+same-title variants; approved canonical Medkit has different operative text and was not
+overwritten; Adrenaline has a no-match; generated Caffeine cell 2 also has no exact CardID
+selector. No canonical file, source byte, category, or filename changed. V1 post-merge
+validation rolled the complete shared/QA state back after art-only photographed microtext
+abstentions were mistakenly retained in operative `visibleText.illegibleSpans`. V2 clears
+only those 11 art-only span entries while preserving blind raw and
+`nonRulesIllustrationDetails`; operative text, comparisons, and four unresolved occurrences
+are unchanged. V2 standard closure, private projection, independent rebuild, shared merge,
+and identical re-merge all pass byte-idempotently. Ten focused tests and all eight global
+commands pass with 532/532 source decodes, exact eight-record corpus scope, and exactly the
+three W21 assets carrying four no-match occurrences retained in the symbol backlog.
+Lifecycle/canonical counts remain 532 = 148 complete + 384 deferred + 0 unaccounted,
+queue 384, corpus 390, and canonical pairs 78; selected evidence rises to 94 entries/runs.
+Sealed data commit: `2b1f853e5dba8a9fae2e67989a0efb011333e8d0`. Blocker: none. The next eligible exact
+tuple is current queue index 105,
+`assets/tts-mod/extract/v2-dl/tree/cards/game/greenitem-181_cards/card-04.png`
+(SHA-256 `760e3b4e3e0c4e1b7910b3582a487d747b50a39bf382adf72769225d863438c1`).
+
 The requested approval-gated review target
 `assets/tts-mod/extract/v2-dl/tree/unsorted/card-176.jpg` is absent from the live tree. A candidate
 source matching the durable 2132x2142 trial dimensions is available at
