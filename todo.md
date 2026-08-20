@@ -537,6 +537,72 @@ tuple is current queue index 105,
 `assets/tts-mod/extract/v2-dl/tree/cards/game/greenitem-181_cards/card-04.png`
 (SHA-256 `760e3b4e3e0c4e1b7910b3582a487d747b50a39bf382adf72769225d863438c1`).
 
+**W22 defer-only generated-green/mission-task checkpoint (2026-08-20T09:18:11Z):** Worker
+`sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991` resumed from its intact,
+immutable evidence root and closed these exact current low-confidence queue tuples:
+- index 105, `assets/tts-mod/extract/v2-dl/tree/cards/game/greenitem-181_cards/card-04.png`,
+  SHA-256 `760e3b4e3e0c4e1b7910b3582a487d747b50a39bf382adf72769225d863438c1`;
+- index 106, `assets/tts-mod/extract/v2-dl/tree/cards/game/greenitem-181_cards/card-06.png`,
+  SHA-256 `3ed05ec380152f89ac3af2f4a648327d369a7a94db456f801e328027c81482f1`;
+- index 107, `assets/tts-mod/extract/v2-dl/tree/cards/game/greenitem-181_cards/card-07.png`,
+  SHA-256 `16941a0010c6dca8e2114c2c3a091649df27d88ab4b52883e9a7b8326cd3de57`;
+- index 108, `assets/tts-mod/extract/v2-dl/tree/cards/game/greenitem-181_cards/card-08.png`,
+  SHA-256 `259b1c8fa4f9bc3194f2150511a981d734e421ae3eb1afb03f2d20175f2c035a`;
+- index 109, `assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-023.png`,
+  SHA-256 `eaa728ca02c48c33e27e99fe2ef58c9668e7b8532316d3c6d3c93248a86b627a`;
+- index 110, `assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-056.png`,
+  SHA-256 `09eb22e4ef093e0f8f27fc0995b2d323dd9ed5c8e847fdcf18750c13b3c8d066`;
+- index 111, `assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-101.jpg`,
+  SHA-256 `da1772dcacfcc25d6e4ba8a61fc292f78764a196d08a0ed5e6170cb5a2b48504`;
+- index 112, `assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-110.png`,
+  SHA-256 `910da6e4468d14603c7e513d76eb7f856535defece8d46c011f88c6972d6e302`.
+
+The sealed clean blind lineage remains session `20260820_080847_8bb239`: 8 API calls,
+16 messages, zero tools, and eight byte-preserved mode-`0400` wrappers. Forty immutable
+resume-preimage records rehash exactly. Generated cells 4/6/8 have zero direct selectors;
+cell 7 has three. All four mission-task faces have one exact FaceURL selector and resolve to
+the generic shared `MISSION TASK` back; generated green faces resolve to the generic `ITEM`
+back. Direct post-blind p.40 and official Objectives Help Sheet comparisons partition all 31
+blind morphology occurrences exactly once: 7 authoritative matches, 13 explicit one-to-one
+no-match rows, 10 non-text component graphics, and 1 artwork-display morphology detail.
+Seven artwork-only microtext/detail abstentions are retained outside operative material text.
+
+All eight promotion decisions remain `defer`. EMERGENCY LIFE SUPPORT CODES verifies
+`computer` and `malfunction`, but its crossed title device and both Flip glyphs remain
+no-matches, cell 4 has no direct selector, and its protected target conflicts. MEDKIT verifies
+`characterHealth`, but its crossed title device remains a no-match, cell 6 has no direct
+selector, and its operative text conflicts with approved Medkit. STIMULANTS verifies
+`characterHealth`, but its crossed device and blank Draw rectangle remain no-matches despite
+three selectors. SYNTHETIC FOOD retains two functional no-matches and six artwork graphics,
+and cell 8 has no selector. FACILITY RESTART verifies `hibernatoriumActive`, but preserves a
+material assigned-face `[illegible]` requirement, an unmatched local player-count composite,
+and an official-vs-assigned art/layout revision mismatch; official wording was not substituted.
+ERADICATION retains its assigned “Queen must be killed / Facility cannot be destroyed” text,
+which conflicts directly with official “The Queen must be dead / Facility must NOT be
+destroyed,” plus an unmatched player-count composite. RECONNAISSANCE is visually and
+textually identical to the official component, but the material local player-count composite
+has no established canonical token or mission-task sidecar field. ESCORT MISSION is likewise
+source-identical and verifies `robot` and `character`, but its player-count composite and
+markable checkbox remain two separate unglossed/no-match occurrences. No canonical image,
+sidecar, source byte, category, filename, or candidate file changed.
+
+Worker closure and the reusable native-worker auditor pass with zero errors/warnings. The
+private defer-only projection and independent corpus rebuild are byte-identical. The shared
+merge passed a 4-write trial apply, deliberate 4-write exact rollback to the sealed clean
+preimage, 4-write committed apply, and a zero-write identical re-merge. Ten focused tests and
+all eight global validation commands pass; 532/532 sources decode, the recursive corpus diff
+is exactly the eight W22 paths, every W22 path remains in the symbol backlog, and all 13
+no-match occurrences survive in selected evidence and corpus overlays. Lifecycle/canonical
+counts remain 532 = 148 complete + 384 deferred + 0 unaccounted, queue 384, corpus 390,
+and canonical pairs 78; selected evidence rises from 94 to 102 entries/runs. Predecessor
+checkpoint HEAD was `e4350bb5eec7f88381c4c4aa8c493e5476ddcb8c`; sealed data commit is
+`c27ff5c141363354032b03606378a4166a85255e`. This entry is committed separately in the
+following todo-only checkpoint commit (its self-hash cannot be embedded in its own content).
+Operational blocker: none. Canonical-promotion blockers are the exact per-card gates above.
+No W23 work was started. The next eligible exact tuple is current queue index 113,
+`assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-116.jpg`
+(SHA-256 `c1adf21143fb353e2253fa99feb8f50b93fb246d8d0bd91701690a4033c658e6`).
+
 The requested approval-gated review target
 `assets/tts-mod/extract/v2-dl/tree/unsorted/card-176.jpg` is absent from the live tree. A candidate
 source matching the durable 2132x2142 trial dimensions is available at
