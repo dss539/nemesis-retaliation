@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "sourceProgressUpdatedAt": "2026-08-20T08:00:47.295355Z",
-  "sourceQueueUpdatedAt": "2026-08-20T08:00:47.295355Z",
+  "sourceProgressUpdatedAt": "2026-08-20T09:09:31.266653Z",
+  "sourceQueueUpdatedAt": "2026-08-20T09:09:31.266653Z",
   "totals": {
     "inScope": 532,
     "complete": 148,
@@ -13,12 +13,14 @@
     "canonicalSidecars": 78
   },
   "deferredExtractionStates": {
-    "draft-full": 293,
+    "draft-full": 292,
+    "draft-partial": 1,
     "no-transcription": 33,
     "non-rules-or-reference": 58
   },
   "deferredCardExtractionStates": {
-    "draft-full": 262,
+    "draft-full": 261,
+    "draft-partial": 1,
     "no-transcription": 2,
     "non-rules-or-reference": 14
   },
@@ -169,17 +171,59 @@
     "reference": 4
   },
   "reasonTags": {
-    "classification": 285,
-    "clipped-or-illegible": 86,
-    "needs-official-source": 1,
+    "classification": 280,
+    "clipped-or-illegible": 85,
+    "needs-official-source": 3,
     "orientation": 55,
-    "other": 86,
+    "other": 85,
     "provenance": 16,
-    "schema-or-destination": 9,
-    "source-conflict": 8,
+    "schema-or-destination": 11,
+    "source-conflict": 10,
     "unknown-icon": 2
   },
   "topRulesInformationPriorities": [
+    {
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-023.png",
+      "sourceSha256": "eaa728ca02c48c33e27e99fe2ef58c9668e7b8532316d3c6d3c93248a86b627a",
+      "family": "game/missionTaskDeck-023.png",
+      "isCard": true,
+      "isRulesBearingCandidate": true,
+      "extractionState": "draft-partial",
+      "priorityScore": 1250,
+      "title": "FACILITY RESTART",
+      "typeLine": "MISSION TASK",
+      "body": "The Hibernatorium must be [hibernatoriumActive]\nand at least 2 Life Support\nSystems must be [illegible]\nAND\nThe Reactor must be shut down.",
+      "footer": "",
+      "recognizedTokens": [
+        "hibernatoriumActive"
+      ],
+      "unknownTokens": [
+        "ICON: dark charcoal rounded square with pale border and faint diagonal/radial marks",
+        "ICON: small white bilateral figure-like silhouette above cyan concentric ovals",
+        "illegible"
+      ],
+      "unreadableMarkers": [
+        "[illegible]"
+      ],
+      "reasonTags": [
+        "clipped-or-illegible"
+      ],
+      "reasonSkipped": "Material assigned-face requirement text remains [illegible].; The local player-count composite remains an explicit no-match.; Assigned art/layout differs materially from the official help-sheet reproduction, so source-revision fidelity is unresolved.; The repository has no established mission-task sidecar field for the material player-count threshold.",
+      "uncertainties": [
+        "The assigned first requirement contains a material low-contrast [illegible] span and cannot be reconstructed from the official card.",
+        "The local player-count composite is an explicit no-match to tested p.40 candidates.",
+        "Assigned art/layout differs from the official help-sheet card; exact revision equivalence is not established."
+      ],
+      "vision": {
+        "provider": "openai-codex",
+        "model": "gpt-5.6-sol",
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991",
+        "sessionId": "20260820_080847_8bb239",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991/results/W22-005.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991/raw/W22-005.json"
+      }
+    },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/yellowitem-146_cards/card-03.png",
       "sourceSha256": "77223a77d61181cd144bd508dfcbfe91e135e093395d15e8b9957ce51669d8c4",
@@ -1277,44 +1321,6 @@
         "workerId": null,
         "sessionId": "20260815_054019_a0bead",
         "resultPath": "assets/tts-mod/extract/vision-results/322587af9825baec2c8786a0f5e15a657257a5633f025e694de2c962127b44f9.json",
-        "rawResultPath": null
-      }
-    },
-    {
-      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/seriouswound-149_cards/card-05.png",
-      "sourceSha256": "69fa0f09363ab35f1e547a60e64e1b011702a7469755835bf002e0739b0a33f2",
-      "family": "game/seriouswound-149_cards",
-      "isCard": true,
-      "isRulesBearingCandidate": true,
-      "extractionState": "draft-full",
-      "priorityScore": 430,
-      "title": "BODY",
-      "typeLine": null,
-      "body": "Your Hand Size is 1 lower.",
-      "footer": null,
-      "recognizedTokens": [],
-      "unknownTokens": [
-        "ICON: orange U-shaped glyph with detached oval mark above",
-        "ICON: pink U-shaped glyph with detached oval mark above",
-        "ICON: yellow U-shaped glyph with detached oval mark above"
-      ],
-      "unreadableMarkers": [],
-      "reasonTags": [
-        "classification"
-      ],
-      "reasonSkipped": "exact card identity/transcription/icon/category is not uniformly high-confidence",
-      "uncertainties": [
-        "The three colored U-shaped callout glyphs are not confidently matched to any canonical glossary icon.",
-        "Tiny vertical interface labels are low-resolution; “ECG STATUS” and “TISSUE DAMAGES” are the best visible readings.",
-        "The exact small symbol following “39.8” is difficult to distinguish, though it appears to be a degree mark."
-      ],
-      "vision": {
-        "provider": "openai-codex",
-        "model": "gpt-5.6-sol",
-        "reasoningEffort": null,
-        "workerId": null,
-        "sessionId": "20260815_054022_48d50f",
-        "resultPath": "assets/tts-mod/extract/vision-results/69fa0f09363ab35f1e547a60e64e1b011702a7469755835bf002e0739b0a33f2.json",
         "rawResultPath": null
       }
     }

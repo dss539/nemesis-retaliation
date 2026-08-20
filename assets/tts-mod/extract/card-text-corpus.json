@@ -2,33 +2,35 @@
   "schemaVersion": 1,
   "status": "extracted evidence corpus; canonical and draft states are explicitly separated",
   "generatedFrom": {
-    "visionProgressUpdatedAt": "2026-08-20T08:00:47.295355Z",
-    "reviewQueueUpdatedAt": "2026-08-20T08:00:47.295355Z",
+    "visionProgressUpdatedAt": "2026-08-20T09:09:31.266653Z",
+    "reviewQueueUpdatedAt": "2026-08-20T09:09:31.266653Z",
     "iconGlossary": "docs/rules/icon-glossary.md",
     "iconGlossaryIdentifierCount": 49
   },
   "metadata": {
     "selectedEvidenceRegistry": "assets/tts-mod/extract/selected-card-text-evidence.json",
     "selectedEvidenceRegistrySchemaVersion": 1,
-    "selectedEvidenceRegistrySha256": "93ffe6ecde8f2a22515155ad3fdf01feab04e80f37d8e21e9855b0e26498e665",
-    "selectedEvidenceTupleDigest": "6a525fe33449f41e02750a1ef520fb186b23cc9818976e364a31d9bbbf4c91bc",
-    "selectedEvidenceEntryCount": 94,
-    "selectedEvidenceRunCount": 94
+    "selectedEvidenceRegistrySha256": "50fceddf2fcff93de0850b14afd27e3b3d18c9562f123d09c6006be48980fb76",
+    "selectedEvidenceTupleDigest": "3c7eb6e9d2ff7159bf6e404c8542b8d6b35e486ba550ec104e0415dd4fa9a523",
+    "selectedEvidenceEntryCount": 102,
+    "selectedEvidenceRunCount": 102
   },
   "counts": {
     "records": 390,
     "rulesTextPresent": 352,
     "extractionStates": {
       "complete-non-rules-or-reference": 34,
-      "draft-full": 262,
+      "draft-full": 261,
+      "draft-partial": 1,
       "no-transcription": 2,
       "non-rules-or-reference": 14,
       "verified-canonical": 78
     },
     "rulesInformationReadiness": {
       "canonical": 78,
-      "draft-text-complete": 150,
-      "draft-text-complete-symbols-unresolved": 112,
+      "draft-partial": 1,
+      "draft-text-complete": 145,
+      "draft-text-complete-symbols-unresolved": 116,
       "missing-transcription": 2,
       "not-rules-bearing-or-reference": 48
     }
@@ -18453,10 +18455,15 @@
       "rulesTextPresent": true,
       "identity": {},
       "printedData": {
-        "title": "EMERGENCY LIFE\nSUPPORT CODES",
+        "title": "EMERGENCY LIFE SUPPORT CODES",
         "typeLine": "ONE USE ONLY",
-        "body": "Only in [computer] Room without [malfunction]\nFlip all [ICON: white three-lobed capsule with cyan outlined center canister glyph].\nFlip 1 [ICON: white three-lobed capsule with gray outlined center canister glyph].",
-        "upperRight": "notInCombat"
+        "body": "Only in [computer] Room without [malfunction].\nFlip all [ICON: white three-lobed horizontal cluster with cyan center and an outlined upright rounded rectangle].\nFlip 1 [ICON: white three-lobed horizontal cluster with gray center and a pale outlined upright rounded rectangle].",
+        "sections": [],
+        "footer": "",
+        "upperRight": "[ICON: narrow white segmented horizontal mark overlaid by a large red diagonal X]",
+        "lowerCenter": "",
+        "illegibleSpans": [],
+        "clippedSpans": []
       },
       "symbols": {
         "canonicalGlossaryTokens": [
@@ -18464,27 +18471,171 @@
           "malfunction"
         ],
         "unresolvedOrLocalTokens": [
-          "ICON: white three-lobed capsule with cyan outlined center canister glyph",
-          "ICON: white three-lobed capsule with gray outlined center canister glyph"
+          "ICON: narrow white segmented horizontal mark overlaid by a large red diagonal X",
+          "ICON: white three-lobed horizontal cluster with cyan center and an outlined upright rounded rectangle",
+          "ICON: white three-lobed horizontal cluster with gray center and a pale outlined upright rounded rectangle"
         ]
       },
       "uncertainties": [
-        "The cyan-centered and gray-centered glyphs after the Flip instructions do not confidently match any supplied canonical glossary icon, so they are transcribed literally.",
-        "No distinct punctuation is confidently separable from the malfunction icon at the end of the first body line."
+        "The crossed title-corner glyph has no authoritative p.40 match.",
+        "Both Flip-line three-lobed glyphs have explicit no-match rows and remain literal.",
+        "Generated cell 4 has no direct Card/CardCustom selector and resolves only to a shared sheet with generic back.",
+        "The proposed canonical target already exists with materially different approved content; no overwrite is permitted."
       ],
-      "canonicalPromotionBlocker": "exact card identity/transcription/icon/category is not uniformly high-confidence",
+      "canonicalPromotionBlocker": "Three functional glyph occurrences remain explicit authoritative no-matches.; Generated sprite-sheet cell 4 lacks an individual selecting Card/CardCustom reference.; cards/game/item/green/emergency-life-support-codes already exists and conflicts with this source variant.",
       "evidence": {
         "textBasis": "native vision draft; not canonical promotion",
         "visionProvider": "openai-codex",
         "visionModel": "gpt-5.6-sol",
-        "reasoningEffort": null,
-        "workerId": null,
-        "sessionId": "20260815_052920_f2f888",
-        "resultPath": "assets/tts-mod/extract/vision-results/760e3b4e3e0c4e1b7910b3582a487d747b50a39bf382adf72769225d863438c1.json",
-        "rawResultPath": null,
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991",
+        "sessionId": "20260820_080847_8bb239",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991/results/W22-001.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991/raw/W22-001.json",
         "ledgerPath": "assets/tts-mod/extract/vision-progress.json",
-        "queuePath": "assets/tts-mod/extract/low-confidence-review.json"
-      }
+        "queuePath": "assets/tts-mod/extract/low-confidence-review.json",
+        "selectedExtraction": {
+          "runIdentity": "w22-card-extraction-20260820T080700Z-p176060-79e991/sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991/W22-001",
+          "runId": "w22-card-extraction-20260820T080700Z-p176060-79e991",
+          "workerId": "sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991",
+          "assetId": "W22-001",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991/results/W22-001.json",
+          "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991/raw/W22-001.json",
+          "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991/references/W22-001-post-blind-contact-sheet.png",
+          "promotionDecision": "defer",
+          "runtime": {
+            "provider": "openai-codex",
+            "model": "gpt-5.6-sol",
+            "reasoningEffort": "max",
+            "nativeImageRoute": "direct persistent smoke-proven zero-tool blind session plus direct post-blind native validation",
+            "blindSessionId": "20260820_080847_8bb239",
+            "adjudicationSessionId": "unexposed-current-supervisor",
+            "auxiliaryVisionUsed": false,
+            "qwenUsed": false,
+            "ocrCanonicalEvidenceUsed": false,
+            "modelDowngradeUsed": false
+          }
+        }
+      },
+      "selectedExtraction": {
+        "overlayVersion": 1,
+        "status": "selected-evidence-deferred",
+        "runIdentity": "w22-card-extraction-20260820T080700Z-p176060-79e991/sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991/W22-001",
+        "runId": "w22-card-extraction-20260820T080700Z-p176060-79e991",
+        "workerId": "sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991",
+        "assetId": "W22-001",
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/greenitem-181_cards/card-04.png",
+        "sourceSha256": "760e3b4e3e0c4e1b7910b3582a487d747b50a39bf382adf72769225d863438c1",
+        "runtime": {
+          "provider": "openai-codex",
+          "model": "gpt-5.6-sol",
+          "reasoningEffort": "max",
+          "nativeImageRoute": "direct persistent smoke-proven zero-tool blind session plus direct post-blind native validation",
+          "blindSessionId": "20260820_080847_8bb239",
+          "adjudicationSessionId": "unexposed-current-supervisor",
+          "auxiliaryVisionUsed": false,
+          "qwenUsed": false,
+          "ocrCanonicalEvidenceUsed": false,
+          "modelDowngradeUsed": false
+        },
+        "blindObservationPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991/raw/W22-001.json",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991/results/W22-001.json",
+        "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991/references/W22-001-post-blind-contact-sheet.png",
+        "visibleText": {
+          "title": "EMERGENCY LIFE SUPPORT CODES",
+          "typeLine": "ONE USE ONLY",
+          "body": "Only in [computer] Room without [malfunction].\nFlip all [ICON: white three-lobed horizontal cluster with cyan center and an outlined upright rounded rectangle].\nFlip 1 [ICON: white three-lobed horizontal cluster with gray center and a pale outlined upright rounded rectangle].",
+          "sections": [],
+          "footer": "",
+          "upperRight": "[ICON: narrow white segmented horizontal mark overlaid by a large red diagonal X]",
+          "lowerCenter": "",
+          "illegibleSpans": [],
+          "clippedSpans": []
+        },
+        "verifiedIconOccurrences": [
+          {
+            "cardLocation": "Lower panel, first row, between in and Room.",
+            "referenceLabel": "computer",
+            "matchDecision": "match",
+            "canonicalToken": "computer",
+            "closestAlternative": "actionCard",
+            "visibleDiscriminator": "The cyan double rounded-square monitor with pale inset and lower notch matches computer; actionCard is a white vertical card bearing a black A.",
+            "evidenceRun": "sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991"
+          },
+          {
+            "cardLocation": "Lower panel, first row, immediately after without and immediately before the apparent terminal period.",
+            "referenceLabel": "malfunction",
+            "matchDecision": "match",
+            "canonicalToken": "malfunction",
+            "closestAlternative": "fire",
+            "visibleDiscriminator": "The pale broad-toothed gear/radial ring with dark center matches malfunction; fire is an asymmetric flame silhouette without gear teeth.",
+            "evidenceRun": "sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991"
+          }
+        ],
+        "unresolvedIconOccurrences": [
+          {
+            "cardLocation": "Right edge of the two-line title block, beginning immediately after LIFE and extending downward beside SUPPORT CODES.",
+            "referenceLabel": "No authoritative canonical candidate established",
+            "matchDecision": "no-match",
+            "canonicalToken": null,
+            "closestAlternative": "notInCombat",
+            "visibleDiscriminator": "The source uses a red X over a narrow segmented white bar; the official notInCombat crop has a red prohibition ring/slash around a white Intruder silhouette, and neither the ring nor Intruder is present.",
+            "evidenceRun": "sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991"
+          },
+          {
+            "cardLocation": "Lower panel, second row, immediately after Flip all and before a terminal period.",
+            "referenceLabel": "No authoritative canonical candidate established",
+            "matchDecision": "no-match",
+            "canonicalToken": null,
+            "closestAlternative": "lifeSupportActive / lifeSupportInactive",
+            "visibleDiscriminator": "The source is a three-lobed horizontal cluster with a cyan center and separate upright outline; official Life Support crops are rounded pills containing the tank/hand silhouette, and the inactive crop adds a black slash.",
+            "evidenceRun": "sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991"
+          },
+          {
+            "cardLocation": "Lower panel, third row, immediately after Flip 1 and before a terminal period.",
+            "referenceLabel": "No authoritative canonical candidate established",
+            "matchDecision": "no-match",
+            "canonicalToken": null,
+            "closestAlternative": "lifeSupportActive / lifeSupportInactive",
+            "visibleDiscriminator": "The source repeats the three-lobed cluster with a gray center and no black slash; the official active/inactive silhouettes and state slash are absent.",
+            "evidenceRun": "sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991"
+          }
+        ],
+        "canonicalTokensEmitted": [
+          "computer",
+          "malfunction"
+        ],
+        "allMaterialTextReadable": true,
+        "allMaterialIconsAuthoritativelyMatched": false,
+        "promotionDecision": "defer",
+        "decisionReasons": [
+          "Three functional glyph occurrences remain explicit authoritative no-matches.",
+          "Generated sprite-sheet cell 4 lacks an individual selecting Card/CardCustom reference.",
+          "cards/game/item/green/emergency-life-support-codes already exists and conflicts with this source variant."
+        ],
+        "conflictsWithPriorSnapshot": [
+          {
+            "field": "printedData.body",
+            "priorValue": "Only in [computer] Room without [malfunction]\nFlip all [ICON: white three-lobed capsule with cyan outlined center canister glyph].\nFlip 1 [ICON: white three-lobed capsule with gray outlined center canister glyph].",
+            "currentStatus": "superseded in selected evidence by direct-pixel normalized text and per-occurrence morphology",
+            "resolution": "preserve historical base snapshot; selected overlay carries exact current evidence without overwriting approved canonical data"
+          }
+        ]
+      },
+      "evidenceRuns": [
+        {
+          "runIdentity": "w22-card-extraction-20260820T080700Z-p176060-79e991/sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991/W22-001",
+          "runId": "w22-card-extraction-20260820T080700Z-p176060-79e991",
+          "workerId": "sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991",
+          "assetId": "W22-001",
+          "sourceSha256": "760e3b4e3e0c4e1b7910b3582a487d747b50a39bf382adf72769225d863438c1",
+          "blindSessionId": "20260820_080847_8bb239",
+          "adjudicationSessionId": "unexposed-current-supervisor",
+          "promotionDecision": "defer",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991/results/W22-001.json",
+          "selected": true
+        }
+      ]
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/greenitem-181_cards/card-05.png",
@@ -18533,39 +18684,159 @@
       "componentFamily": "game/greenitem",
       "ledgerStatus": "deferred",
       "extractionState": "draft-full",
-      "rulesInformationReadiness": "draft-text-complete",
+      "rulesInformationReadiness": "draft-text-complete-symbols-unresolved",
       "rulesTextPresent": true,
       "identity": {},
       "printedData": {
         "title": "MEDKIT",
         "typeLine": "ONE USE ONLY",
-        "body": "Discard 1 Serious Wound.\n\nOR\n\nMove your [characterHealth] marker\nback to the first space\nof the Injured Health section.",
-        "upperRight": "notInCombat",
-        "visibleText": "MEDICAL\nKIT\n99\n67"
+        "body": "Discard 1 Serious Wound.\nOR\nMove your [characterHealth] marker\nback to the first space\nof the Injured Health section.",
+        "sections": [],
+        "footer": "",
+        "upperRight": "[ICON: jagged white horizontal segmented mark overlaid by a large red diagonal X]",
+        "lowerCenter": "",
+        "illegibleSpans": [],
+        "clippedSpans": []
       },
       "symbols": {
         "canonicalGlossaryTokens": [
           "characterHealth"
         ],
-        "unresolvedOrLocalTokens": []
+        "unresolvedOrLocalTokens": [
+          "ICON: jagged white horizontal segmented mark overlaid by a large red diagonal X"
+        ]
       },
       "uncertainties": [
-        "Tiny labels and markings on the kit's electronic display are illegible; only the prominent digits appearing as 99 and 67 are transcribed.",
-        "The display digits are small and stylized, so their transcription is less certain than the card rules text."
+        "The crossed title-corner glyph has no authoritative p.40 match.",
+        "Generated cell 6 has no direct Card/CardCustom selector.",
+        "The existing approved medkit target contains a materially different effect and cannot be overwritten."
       ],
-      "canonicalPromotionBlocker": "exact card identity/transcription/icon/category is not uniformly high-confidence",
+      "canonicalPromotionBlocker": "One functional crossed title glyph remains an explicit no-match.; Generated sprite-sheet cell 6 lacks an individual selecting Card/CardCustom reference.; cards/game/item/green/medkit already exists with different approved rules text.",
       "evidence": {
         "textBasis": "native vision draft; not canonical promotion",
         "visionProvider": "openai-codex",
         "visionModel": "gpt-5.6-sol",
-        "reasoningEffort": null,
-        "workerId": null,
-        "sessionId": "20260815_052950_86a73a",
-        "resultPath": "assets/tts-mod/extract/vision-results/3ed05ec380152f89ac3af2f4a648327d369a7a94db456f801e328027c81482f1.json",
-        "rawResultPath": null,
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991",
+        "sessionId": "20260820_080847_8bb239",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991/results/W22-002.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991/raw/W22-002.json",
         "ledgerPath": "assets/tts-mod/extract/vision-progress.json",
-        "queuePath": "assets/tts-mod/extract/low-confidence-review.json"
-      }
+        "queuePath": "assets/tts-mod/extract/low-confidence-review.json",
+        "selectedExtraction": {
+          "runIdentity": "w22-card-extraction-20260820T080700Z-p176060-79e991/sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991/W22-002",
+          "runId": "w22-card-extraction-20260820T080700Z-p176060-79e991",
+          "workerId": "sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991",
+          "assetId": "W22-002",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991/results/W22-002.json",
+          "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991/raw/W22-002.json",
+          "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991/references/W22-002-post-blind-contact-sheet.png",
+          "promotionDecision": "defer",
+          "runtime": {
+            "provider": "openai-codex",
+            "model": "gpt-5.6-sol",
+            "reasoningEffort": "max",
+            "nativeImageRoute": "direct persistent smoke-proven zero-tool blind session plus direct post-blind native validation",
+            "blindSessionId": "20260820_080847_8bb239",
+            "adjudicationSessionId": "unexposed-current-supervisor",
+            "auxiliaryVisionUsed": false,
+            "qwenUsed": false,
+            "ocrCanonicalEvidenceUsed": false,
+            "modelDowngradeUsed": false
+          }
+        }
+      },
+      "selectedExtraction": {
+        "overlayVersion": 1,
+        "status": "selected-evidence-deferred",
+        "runIdentity": "w22-card-extraction-20260820T080700Z-p176060-79e991/sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991/W22-002",
+        "runId": "w22-card-extraction-20260820T080700Z-p176060-79e991",
+        "workerId": "sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991",
+        "assetId": "W22-002",
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/greenitem-181_cards/card-06.png",
+        "sourceSha256": "3ed05ec380152f89ac3af2f4a648327d369a7a94db456f801e328027c81482f1",
+        "runtime": {
+          "provider": "openai-codex",
+          "model": "gpt-5.6-sol",
+          "reasoningEffort": "max",
+          "nativeImageRoute": "direct persistent smoke-proven zero-tool blind session plus direct post-blind native validation",
+          "blindSessionId": "20260820_080847_8bb239",
+          "adjudicationSessionId": "unexposed-current-supervisor",
+          "auxiliaryVisionUsed": false,
+          "qwenUsed": false,
+          "ocrCanonicalEvidenceUsed": false,
+          "modelDowngradeUsed": false
+        },
+        "blindObservationPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991/raw/W22-002.json",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991/results/W22-002.json",
+        "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991/references/W22-002-post-blind-contact-sheet.png",
+        "visibleText": {
+          "title": "MEDKIT",
+          "typeLine": "ONE USE ONLY",
+          "body": "Discard 1 Serious Wound.\nOR\nMove your [characterHealth] marker\nback to the first space\nof the Injured Health section.",
+          "sections": [],
+          "footer": "",
+          "upperRight": "[ICON: jagged white horizontal segmented mark overlaid by a large red diagonal X]",
+          "lowerCenter": "",
+          "illegibleSpans": [],
+          "clippedSpans": []
+        },
+        "verifiedIconOccurrences": [
+          {
+            "cardLocation": "Second lower instruction area, between your and marker on the first text row.",
+            "referenceLabel": "characterHealth",
+            "matchDecision": "match",
+            "canonicalToken": "characterHealth",
+            "closestAlternative": "actionCard",
+            "visibleDiscriminator": "The tall white cross has block ends and a dark ECG zigzag through its center, matching characterHealth; actionCard is a white card with A.",
+            "evidenceRun": "sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991"
+          }
+        ],
+        "unresolvedIconOccurrences": [
+          {
+            "cardLocation": "Far right of the white MEDKIT title row, above and partly beside ONE USE ONLY.",
+            "referenceLabel": "No authoritative canonical candidate established",
+            "matchDecision": "no-match",
+            "canonicalToken": null,
+            "closestAlternative": "notInCombat",
+            "visibleDiscriminator": "The source uses a red X over a jagged segmented white bar; the official token has a red prohibition ring/slash around an Intruder silhouette.",
+            "evidenceRun": "sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991"
+          }
+        ],
+        "canonicalTokensEmitted": [
+          "characterHealth"
+        ],
+        "allMaterialTextReadable": true,
+        "allMaterialIconsAuthoritativelyMatched": false,
+        "promotionDecision": "defer",
+        "decisionReasons": [
+          "One functional crossed title glyph remains an explicit no-match.",
+          "Generated sprite-sheet cell 6 lacks an individual selecting Card/CardCustom reference.",
+          "cards/game/item/green/medkit already exists with different approved rules text."
+        ],
+        "conflictsWithPriorSnapshot": [
+          {
+            "field": "printedData.body",
+            "priorValue": "Discard 1 Serious Wound.\n\nOR\n\nMove your [characterHealth] marker\nback to the first space\nof the Injured Health section.",
+            "currentStatus": "superseded in selected evidence by direct-pixel normalized text and per-occurrence morphology",
+            "resolution": "preserve historical base snapshot; selected overlay carries exact current evidence without overwriting approved canonical data"
+          }
+        ]
+      },
+      "evidenceRuns": [
+        {
+          "runIdentity": "w22-card-extraction-20260820T080700Z-p176060-79e991/sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991/W22-002",
+          "runId": "w22-card-extraction-20260820T080700Z-p176060-79e991",
+          "workerId": "sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991",
+          "assetId": "W22-002",
+          "sourceSha256": "3ed05ec380152f89ac3af2f4a648327d369a7a94db456f801e328027c81482f1",
+          "blindSessionId": "20260820_080847_8bb239",
+          "adjudicationSessionId": "unexposed-current-supervisor",
+          "promotionDecision": "defer",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991/results/W22-002.json",
+          "selected": true
+        }
+      ]
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/greenitem-181_cards/card-07.png",
@@ -18574,36 +18845,168 @@
       "componentFamily": "game/greenitem",
       "ledgerStatus": "deferred",
       "extractionState": "draft-full",
-      "rulesInformationReadiness": "draft-text-complete",
+      "rulesInformationReadiness": "draft-text-complete-symbols-unresolved",
       "rulesTextPresent": true,
       "identity": {},
       "printedData": {
         "title": "STIMULANTS",
         "typeLine": "ONE USE ONLY",
-        "body": "Restore 2 [characterHealth].\n\nOR\n\nDraw 2 [actionCard].",
-        "upperRight": "notInCombat"
+        "body": "Restore 2 [characterHealth].\nOR\nDraw 2 [ICON: blank upright white rounded rectangle with a dark outline].",
+        "sections": [],
+        "footer": "",
+        "upperRight": "[ICON: white horizontally layered jagged-ended mark overlaid by a red X]",
+        "lowerCenter": "",
+        "illegibleSpans": [],
+        "clippedSpans": []
       },
       "symbols": {
         "canonicalGlossaryTokens": [
-          "actionCard",
           "characterHealth"
         ],
-        "unresolvedOrLocalTokens": []
+        "unresolvedOrLocalTokens": [
+          "ICON: blank upright white rounded rectangle with a dark outline",
+          "ICON: white horizontally layered jagged-ended mark overlaid by a red X"
+        ]
       },
-      "uncertainties": [],
-      "canonicalPromotionBlocker": "claimed glossary icons did not all pass a focused direct card-to-glossary crop comparison",
+      "uncertainties": [
+        "The crossed title-corner glyph and blank Draw glyph remain explicit no-matches.",
+        "No exact official component reproduction was located."
+      ],
+      "canonicalPromotionBlocker": "Two functional glyph occurrences remain explicit authoritative no-matches.; The blank Draw glyph has no established repository token or sidecar representation.; No exact applicable official component reproduction establishes source fidelity.",
       "evidence": {
         "textBasis": "native vision draft; not canonical promotion",
         "visionProvider": "openai-codex",
         "visionModel": "gpt-5.6-sol",
-        "reasoningEffort": null,
-        "workerId": null,
-        "sessionId": "20260815_052951_f054bb",
-        "resultPath": "assets/tts-mod/extract/vision-results/16941a0010c6dca8e2114c2c3a091649df27d88ab4b52883e9a7b8326cd3de57.json",
-        "rawResultPath": null,
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991",
+        "sessionId": "20260820_080847_8bb239",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991/results/W22-003.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991/raw/W22-003.json",
         "ledgerPath": "assets/tts-mod/extract/vision-progress.json",
-        "queuePath": "assets/tts-mod/extract/low-confidence-review.json"
-      }
+        "queuePath": "assets/tts-mod/extract/low-confidence-review.json",
+        "selectedExtraction": {
+          "runIdentity": "w22-card-extraction-20260820T080700Z-p176060-79e991/sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991/W22-003",
+          "runId": "w22-card-extraction-20260820T080700Z-p176060-79e991",
+          "workerId": "sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991",
+          "assetId": "W22-003",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991/results/W22-003.json",
+          "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991/raw/W22-003.json",
+          "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991/references/W22-003-post-blind-contact-sheet.png",
+          "promotionDecision": "defer",
+          "runtime": {
+            "provider": "openai-codex",
+            "model": "gpt-5.6-sol",
+            "reasoningEffort": "max",
+            "nativeImageRoute": "direct persistent smoke-proven zero-tool blind session plus direct post-blind native validation",
+            "blindSessionId": "20260820_080847_8bb239",
+            "adjudicationSessionId": "unexposed-current-supervisor",
+            "auxiliaryVisionUsed": false,
+            "qwenUsed": false,
+            "ocrCanonicalEvidenceUsed": false,
+            "modelDowngradeUsed": false
+          }
+        }
+      },
+      "selectedExtraction": {
+        "overlayVersion": 1,
+        "status": "selected-evidence-deferred",
+        "runIdentity": "w22-card-extraction-20260820T080700Z-p176060-79e991/sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991/W22-003",
+        "runId": "w22-card-extraction-20260820T080700Z-p176060-79e991",
+        "workerId": "sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991",
+        "assetId": "W22-003",
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/greenitem-181_cards/card-07.png",
+        "sourceSha256": "16941a0010c6dca8e2114c2c3a091649df27d88ab4b52883e9a7b8326cd3de57",
+        "runtime": {
+          "provider": "openai-codex",
+          "model": "gpt-5.6-sol",
+          "reasoningEffort": "max",
+          "nativeImageRoute": "direct persistent smoke-proven zero-tool blind session plus direct post-blind native validation",
+          "blindSessionId": "20260820_080847_8bb239",
+          "adjudicationSessionId": "unexposed-current-supervisor",
+          "auxiliaryVisionUsed": false,
+          "qwenUsed": false,
+          "ocrCanonicalEvidenceUsed": false,
+          "modelDowngradeUsed": false
+        },
+        "blindObservationPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991/raw/W22-003.json",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991/results/W22-003.json",
+        "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991/references/W22-003-post-blind-contact-sheet.png",
+        "visibleText": {
+          "title": "STIMULANTS",
+          "typeLine": "ONE USE ONLY",
+          "body": "Restore 2 [characterHealth].\nOR\nDraw 2 [ICON: blank upright white rounded rectangle with a dark outline].",
+          "sections": [],
+          "footer": "",
+          "upperRight": "[ICON: white horizontally layered jagged-ended mark overlaid by a red X]",
+          "lowerCenter": "",
+          "illegibleSpans": [],
+          "clippedSpans": []
+        },
+        "verifiedIconOccurrences": [
+          {
+            "cardLocation": "Upper instruction panel, immediately after Restore 2 and before a terminal period.",
+            "referenceLabel": "characterHealth",
+            "matchDecision": "match",
+            "canonicalToken": "characterHealth",
+            "closestAlternative": "actionCard",
+            "visibleDiscriminator": "The tall white cross with block arms and central ECG zigzag matches characterHealth; actionCard instead contains a printed A.",
+            "evidenceRun": "sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991"
+          }
+        ],
+        "unresolvedIconOccurrences": [
+          {
+            "cardLocation": "Far right of the main title row, immediately after STIMULANTS and above-right of ONE USE ONLY.",
+            "referenceLabel": "No authoritative canonical candidate established",
+            "matchDecision": "no-match",
+            "canonicalToken": null,
+            "closestAlternative": "notInCombat",
+            "visibleDiscriminator": "The source is a red X over layered white prongs and lacks the official prohibition ring and Intruder silhouette.",
+            "evidenceRun": "sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991"
+          },
+          {
+            "cardLocation": "Lower instruction panel, immediately after Draw 2 and before a terminal period.",
+            "referenceLabel": "No authoritative canonical candidate established",
+            "matchDecision": "no-match",
+            "canonicalToken": null,
+            "closestAlternative": "actionCard / anySlot",
+            "visibleDiscriminator": "The source is a blank upright rounded rectangle; actionCard visibly contains A, while anySlot is a wide gray slot with a dark top notch.",
+            "evidenceRun": "sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991"
+          }
+        ],
+        "canonicalTokensEmitted": [
+          "characterHealth"
+        ],
+        "allMaterialTextReadable": true,
+        "allMaterialIconsAuthoritativelyMatched": false,
+        "promotionDecision": "defer",
+        "decisionReasons": [
+          "Two functional glyph occurrences remain explicit authoritative no-matches.",
+          "The blank Draw glyph has no established repository token or sidecar representation.",
+          "No exact applicable official component reproduction establishes source fidelity."
+        ],
+        "conflictsWithPriorSnapshot": [
+          {
+            "field": "printedData.body",
+            "priorValue": "Restore 2 [characterHealth].\n\nOR\n\nDraw 2 [actionCard].",
+            "currentStatus": "superseded in selected evidence by direct-pixel normalized text and per-occurrence morphology",
+            "resolution": "preserve historical base snapshot; selected overlay carries exact current evidence without overwriting approved canonical data"
+          }
+        ]
+      },
+      "evidenceRuns": [
+        {
+          "runIdentity": "w22-card-extraction-20260820T080700Z-p176060-79e991/sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991/W22-003",
+          "runId": "w22-card-extraction-20260820T080700Z-p176060-79e991",
+          "workerId": "sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991",
+          "assetId": "W22-003",
+          "sourceSha256": "16941a0010c6dca8e2114c2c3a091649df27d88ab4b52883e9a7b8326cd3de57",
+          "blindSessionId": "20260820_080847_8bb239",
+          "adjudicationSessionId": "unexposed-current-supervisor",
+          "promotionDecision": "defer",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991/results/W22-003.json",
+          "selected": true
+        }
+      ]
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/greenitem-181_cards/card-08.png",
@@ -18616,36 +19019,151 @@
       "rulesTextPresent": true,
       "identity": {},
       "printedData": {
-        "title": "SYNTHETIC\nFOOD",
+        "title": "SYNTHETIC FOOD",
         "typeLine": "ONE USE ONLY",
-        "body": "Draw 2 [actionCard].",
-        "upperRight": "[ICON: white horizontal pictogram crossed by red X]"
+        "body": "Draw 2 [ICON: blank upright white rounded rectangle with a dark outline].",
+        "sections": [],
+        "footer": "",
+        "upperRight": "[ICON: white horizontally segmented mark overlaid by a large red X]",
+        "lowerCenter": "",
+        "illegibleSpans": [],
+        "clippedSpans": []
       },
       "symbols": {
-        "canonicalGlossaryTokens": [
-          "actionCard"
-        ],
+        "canonicalGlossaryTokens": [],
         "unresolvedOrLocalTokens": [
-          "ICON: white horizontal pictogram crossed by red X"
+          "ICON: blank upright white rounded rectangle with a dark outline",
+          "ICON: white horizontally segmented mark overlaid by a large red X"
         ]
       },
       "uncertainties": [
-        "The white horizontal pictogram crossed by a red X does not confidently match any canonical glossary icon.",
-        "Tiny label-like markings within the artwork are illegible and were not transcribed."
+        "The crossed title-corner glyph and blank Draw glyph remain explicit no-matches.",
+        "Generated cell 8 has no direct Card/CardCustom selector.",
+        "No exact official component reproduction was located."
       ],
-      "canonicalPromotionBlocker": "exact card identity/transcription/icon/category is not uniformly high-confidence",
+      "canonicalPromotionBlocker": "Two functional glyph occurrences remain explicit authoritative no-matches.; Generated sprite-sheet cell 8 lacks an individual selecting Card/CardCustom reference.; No exact applicable official component reproduction establishes source fidelity.",
       "evidence": {
         "textBasis": "native vision draft; not canonical promotion",
         "visionProvider": "openai-codex",
         "visionModel": "gpt-5.6-sol",
-        "reasoningEffort": null,
-        "workerId": null,
-        "sessionId": "20260815_052958_8af5ba",
-        "resultPath": "assets/tts-mod/extract/vision-results/259b1c8fa4f9bc3194f2150511a981d734e421ae3eb1afb03f2d20175f2c035a.json",
-        "rawResultPath": null,
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991",
+        "sessionId": "20260820_080847_8bb239",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991/results/W22-004.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991/raw/W22-004.json",
         "ledgerPath": "assets/tts-mod/extract/vision-progress.json",
-        "queuePath": "assets/tts-mod/extract/low-confidence-review.json"
-      }
+        "queuePath": "assets/tts-mod/extract/low-confidence-review.json",
+        "selectedExtraction": {
+          "runIdentity": "w22-card-extraction-20260820T080700Z-p176060-79e991/sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991/W22-004",
+          "runId": "w22-card-extraction-20260820T080700Z-p176060-79e991",
+          "workerId": "sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991",
+          "assetId": "W22-004",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991/results/W22-004.json",
+          "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991/raw/W22-004.json",
+          "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991/references/W22-004-post-blind-contact-sheet.png",
+          "promotionDecision": "defer",
+          "runtime": {
+            "provider": "openai-codex",
+            "model": "gpt-5.6-sol",
+            "reasoningEffort": "max",
+            "nativeImageRoute": "direct persistent smoke-proven zero-tool blind session plus direct post-blind native validation",
+            "blindSessionId": "20260820_080847_8bb239",
+            "adjudicationSessionId": "unexposed-current-supervisor",
+            "auxiliaryVisionUsed": false,
+            "qwenUsed": false,
+            "ocrCanonicalEvidenceUsed": false,
+            "modelDowngradeUsed": false
+          }
+        }
+      },
+      "selectedExtraction": {
+        "overlayVersion": 1,
+        "status": "selected-evidence-deferred",
+        "runIdentity": "w22-card-extraction-20260820T080700Z-p176060-79e991/sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991/W22-004",
+        "runId": "w22-card-extraction-20260820T080700Z-p176060-79e991",
+        "workerId": "sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991",
+        "assetId": "W22-004",
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/greenitem-181_cards/card-08.png",
+        "sourceSha256": "259b1c8fa4f9bc3194f2150511a981d734e421ae3eb1afb03f2d20175f2c035a",
+        "runtime": {
+          "provider": "openai-codex",
+          "model": "gpt-5.6-sol",
+          "reasoningEffort": "max",
+          "nativeImageRoute": "direct persistent smoke-proven zero-tool blind session plus direct post-blind native validation",
+          "blindSessionId": "20260820_080847_8bb239",
+          "adjudicationSessionId": "unexposed-current-supervisor",
+          "auxiliaryVisionUsed": false,
+          "qwenUsed": false,
+          "ocrCanonicalEvidenceUsed": false,
+          "modelDowngradeUsed": false
+        },
+        "blindObservationPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991/raw/W22-004.json",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991/results/W22-004.json",
+        "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991/references/W22-004-post-blind-contact-sheet.png",
+        "visibleText": {
+          "title": "SYNTHETIC FOOD",
+          "typeLine": "ONE USE ONLY",
+          "body": "Draw 2 [ICON: blank upright white rounded rectangle with a dark outline].",
+          "sections": [],
+          "footer": "",
+          "upperRight": "[ICON: white horizontally segmented mark overlaid by a large red X]",
+          "lowerCenter": "",
+          "illegibleSpans": [],
+          "clippedSpans": []
+        },
+        "verifiedIconOccurrences": [],
+        "unresolvedIconOccurrences": [
+          {
+            "cardLocation": "Right side of the title area, beside the two-line SYNTHETIC / FOOD title and above-right of ONE USE ONLY.",
+            "referenceLabel": "No authoritative canonical candidate established",
+            "matchDecision": "no-match",
+            "canonicalToken": null,
+            "closestAlternative": "notInCombat",
+            "visibleDiscriminator": "The source is a red X over a segmented horizontal bar and has neither a red ring nor an Intruder silhouette.",
+            "evidenceRun": "sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991"
+          },
+          {
+            "cardLocation": "Bottom instruction panel, immediately after Draw 2 and before the terminal period.",
+            "referenceLabel": "No authoritative canonical candidate established",
+            "matchDecision": "no-match",
+            "canonicalToken": null,
+            "closestAlternative": "actionCard / anySlot",
+            "visibleDiscriminator": "The source is a blank upright rounded rectangle; actionCard contains A and anySlot is a horizontal notched slot.",
+            "evidenceRun": "sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991"
+          }
+        ],
+        "canonicalTokensEmitted": [],
+        "allMaterialTextReadable": true,
+        "allMaterialIconsAuthoritativelyMatched": false,
+        "promotionDecision": "defer",
+        "decisionReasons": [
+          "Two functional glyph occurrences remain explicit authoritative no-matches.",
+          "Generated sprite-sheet cell 8 lacks an individual selecting Card/CardCustom reference.",
+          "No exact applicable official component reproduction establishes source fidelity."
+        ],
+        "conflictsWithPriorSnapshot": [
+          {
+            "field": "printedData.body",
+            "priorValue": "Draw 2 [actionCard].",
+            "currentStatus": "superseded in selected evidence by direct-pixel normalized text and per-occurrence morphology",
+            "resolution": "preserve historical base snapshot; selected overlay carries exact current evidence without overwriting approved canonical data"
+          }
+        ]
+      },
+      "evidenceRuns": [
+        {
+          "runIdentity": "w22-card-extraction-20260820T080700Z-p176060-79e991/sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991/W22-004",
+          "runId": "w22-card-extraction-20260820T080700Z-p176060-79e991",
+          "workerId": "sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991",
+          "assetId": "W22-004",
+          "sourceSha256": "259b1c8fa4f9bc3194f2150511a981d734e421ae3eb1afb03f2d20175f2c035a",
+          "blindSessionId": "20260820_080847_8bb239",
+          "adjudicationSessionId": "unexposed-current-supervisor",
+          "promotionDecision": "defer",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991/results/W22-004.json",
+          "selected": true
+        }
+      ]
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-018.png",
@@ -18706,41 +19224,171 @@
       "sourceKind": "manifest",
       "componentFamily": "game/missionTaskDeck",
       "ledgerStatus": "deferred",
-      "extractionState": "draft-full",
-      "rulesInformationReadiness": "draft-text-complete",
+      "extractionState": "draft-partial",
+      "rulesInformationReadiness": "draft-partial",
       "rulesTextPresent": true,
       "identity": {},
       "printedData": {
         "title": "FACILITY RESTART",
         "typeLine": "MISSION TASK",
-        "body": "The Hibernatorium must be [hibernatoriumActive]\nand at least 2 Life Support\nSystems must be\n\nAND\n\nThe Reactor must be shut down.",
-        "visibleText": "[character] 2+"
+        "body": "The Hibernatorium must be [hibernatoriumActive]\nand at least 2 Life Support\nSystems must be [illegible]\nAND\nThe Reactor must be shut down.",
+        "sections": [
+          "[ICON: dark charcoal rounded square with pale border and faint diagonal/radial marks]\n[ICON: small white bilateral figure-like silhouette above cyan concentric ovals] 2+"
+        ],
+        "footer": "",
+        "upperRight": "",
+        "lowerCenter": "",
+        "illegibleSpans": [
+          "Systems must be [illegible] — the content and terminal punctuation after be are too dark to resolve reliably"
+        ],
+        "clippedSpans": []
       },
       "symbols": {
         "canonicalGlossaryTokens": [
-          "character",
           "hibernatoriumActive"
         ],
-        "unresolvedOrLocalTokens": []
+        "unresolvedOrLocalTokens": [
+          "ICON: dark charcoal rounded square with pale border and faint diagonal/radial marks",
+          "ICON: small white bilateral figure-like silhouette above cyan concentric ovals",
+          "illegible"
+        ]
       },
       "uncertainties": [
-        "The near-black clause is extremely low contrast; only “and at least 2 Life Support” and “Systems must be” are confidently legible. Any content or glyph following “be” cannot be transcribed from the visible pixels.",
-        "The dark gray rounded square above the character-count indicator contains an indistinct interior mark whose identity is not legible; it may be a source-art oddity.",
-        "Tiny perspective-skewed lettering on the background monitor is blurred and not reliably legible."
+        "The assigned first requirement contains a material low-contrast [illegible] span and cannot be reconstructed from the official card.",
+        "The local player-count composite is an explicit no-match to tested p.40 candidates.",
+        "Assigned art/layout differs from the official help-sheet card; exact revision equivalence is not established."
       ],
-      "canonicalPromotionBlocker": "exact card identity/transcription/icon/category is not uniformly high-confidence",
+      "canonicalPromotionBlocker": "Material assigned-face requirement text remains [illegible].; The local player-count composite remains an explicit no-match.; Assigned art/layout differs materially from the official help-sheet reproduction, so source-revision fidelity is unresolved.; The repository has no established mission-task sidecar field for the material player-count threshold.",
       "evidence": {
         "textBasis": "native vision draft; not canonical promotion",
         "visionProvider": "openai-codex",
         "visionModel": "gpt-5.6-sol",
-        "reasoningEffort": null,
-        "workerId": null,
-        "sessionId": "20260815_052958_07db8b",
-        "resultPath": "assets/tts-mod/extract/vision-results/eaa728ca02c48c33e27e99fe2ef58c9668e7b8532316d3c6d3c93248a86b627a.json",
-        "rawResultPath": null,
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991",
+        "sessionId": "20260820_080847_8bb239",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991/results/W22-005.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991/raw/W22-005.json",
         "ledgerPath": "assets/tts-mod/extract/vision-progress.json",
-        "queuePath": "assets/tts-mod/extract/low-confidence-review.json"
-      }
+        "queuePath": "assets/tts-mod/extract/low-confidence-review.json",
+        "selectedExtraction": {
+          "runIdentity": "w22-card-extraction-20260820T080700Z-p176060-79e991/sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991/W22-005",
+          "runId": "w22-card-extraction-20260820T080700Z-p176060-79e991",
+          "workerId": "sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991",
+          "assetId": "W22-005",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991/results/W22-005.json",
+          "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991/raw/W22-005.json",
+          "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991/references/W22-005-post-blind-contact-sheet.png",
+          "promotionDecision": "defer",
+          "runtime": {
+            "provider": "openai-codex",
+            "model": "gpt-5.6-sol",
+            "reasoningEffort": "max",
+            "nativeImageRoute": "direct persistent smoke-proven zero-tool blind session plus direct post-blind native validation",
+            "blindSessionId": "20260820_080847_8bb239",
+            "adjudicationSessionId": "unexposed-current-supervisor",
+            "auxiliaryVisionUsed": false,
+            "qwenUsed": false,
+            "ocrCanonicalEvidenceUsed": false,
+            "modelDowngradeUsed": false
+          }
+        }
+      },
+      "selectedExtraction": {
+        "overlayVersion": 1,
+        "status": "selected-evidence-deferred",
+        "runIdentity": "w22-card-extraction-20260820T080700Z-p176060-79e991/sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991/W22-005",
+        "runId": "w22-card-extraction-20260820T080700Z-p176060-79e991",
+        "workerId": "sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991",
+        "assetId": "W22-005",
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-023.png",
+        "sourceSha256": "eaa728ca02c48c33e27e99fe2ef58c9668e7b8532316d3c6d3c93248a86b627a",
+        "runtime": {
+          "provider": "openai-codex",
+          "model": "gpt-5.6-sol",
+          "reasoningEffort": "max",
+          "nativeImageRoute": "direct persistent smoke-proven zero-tool blind session plus direct post-blind native validation",
+          "blindSessionId": "20260820_080847_8bb239",
+          "adjudicationSessionId": "unexposed-current-supervisor",
+          "auxiliaryVisionUsed": false,
+          "qwenUsed": false,
+          "ocrCanonicalEvidenceUsed": false,
+          "modelDowngradeUsed": false
+        },
+        "blindObservationPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991/raw/W22-005.json",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991/results/W22-005.json",
+        "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991/references/W22-005-post-blind-contact-sheet.png",
+        "visibleText": {
+          "title": "FACILITY RESTART",
+          "typeLine": "MISSION TASK",
+          "body": "The Hibernatorium must be [hibernatoriumActive]\nand at least 2 Life Support\nSystems must be [illegible]\nAND\nThe Reactor must be shut down.",
+          "sections": [
+            "[ICON: dark charcoal rounded square with pale border and faint diagonal/radial marks]\n[ICON: small white bilateral figure-like silhouette above cyan concentric ovals] 2+"
+          ],
+          "footer": "",
+          "upperRight": "",
+          "lowerCenter": "",
+          "illegibleSpans": [
+            "Systems must be [illegible] — the content and terminal punctuation after be are too dark to resolve reliably"
+          ],
+          "clippedSpans": []
+        },
+        "verifiedIconOccurrences": [
+          {
+            "cardLocation": "Upper condition panel, immediately after The Hibernatorium must be.",
+            "referenceLabel": "hibernatoriumActive",
+            "matchDecision": "match",
+            "canonicalToken": "hibernatoriumActive",
+            "closestAlternative": "hibernatoriumInactive",
+            "visibleDiscriminator": "The source has the same unslashed white cap/hand silhouette as hibernatoriumActive; hibernatoriumInactive adds a black diagonal slash that is absent.",
+            "evidenceRun": "sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991"
+          }
+        ],
+        "unresolvedIconOccurrences": [
+          {
+            "cardLocation": "Upper-middle area directly below the charcoal square and immediately left of 2+.",
+            "referenceLabel": "No authoritative canonical candidate established",
+            "matchDecision": "no-match",
+            "canonicalToken": null,
+            "closestAlternative": "character / robot",
+            "visibleDiscriminator": "The source is a tiny simplified white figure over several cyan rings; the official character crop is a detailed suited humanoid without rings and robot is a compact domed machine head.",
+            "evidenceRun": "sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991"
+          }
+        ],
+        "canonicalTokensEmitted": [
+          "hibernatoriumActive"
+        ],
+        "allMaterialTextReadable": false,
+        "allMaterialIconsAuthoritativelyMatched": false,
+        "promotionDecision": "defer",
+        "decisionReasons": [
+          "Material assigned-face requirement text remains [illegible].",
+          "The local player-count composite remains an explicit no-match.",
+          "Assigned art/layout differs materially from the official help-sheet reproduction, so source-revision fidelity is unresolved.",
+          "The repository has no established mission-task sidecar field for the material player-count threshold."
+        ],
+        "conflictsWithPriorSnapshot": [
+          {
+            "field": "printedData.body",
+            "priorValue": "The Hibernatorium must be [hibernatoriumActive]\nand at least 2 Life Support\nSystems must be\n\nAND\n\nThe Reactor must be shut down.",
+            "currentStatus": "superseded in selected evidence by direct-pixel normalized text and per-occurrence morphology",
+            "resolution": "preserve historical base snapshot; selected overlay carries exact current evidence without overwriting approved canonical data"
+          }
+        ]
+      },
+      "evidenceRuns": [
+        {
+          "runIdentity": "w22-card-extraction-20260820T080700Z-p176060-79e991/sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991/W22-005",
+          "runId": "w22-card-extraction-20260820T080700Z-p176060-79e991",
+          "workerId": "sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991",
+          "assetId": "W22-005",
+          "sourceSha256": "eaa728ca02c48c33e27e99fe2ef58c9668e7b8532316d3c6d3c93248a86b627a",
+          "blindSessionId": "20260820_080847_8bb239",
+          "adjudicationSessionId": "unexposed-current-supervisor",
+          "promotionDecision": "defer",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991/results/W22-005.json",
+          "selected": true
+        }
+      ]
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-056.png",
@@ -18749,35 +19397,148 @@
       "componentFamily": "game/missionTaskDeck",
       "ledgerStatus": "deferred",
       "extractionState": "draft-full",
-      "rulesInformationReadiness": "draft-text-complete",
+      "rulesInformationReadiness": "draft-text-complete-symbols-unresolved",
       "rulesTextPresent": true,
       "identity": {},
       "printedData": {
         "title": "ERADICATION",
         "typeLine": "MISSION TASK",
         "body": "Queen must be killed.\nAND\nThe Facility cannot be destroyed.",
-        "visibleText": "[character] 3+"
+        "sections": [
+          "[ICON: small white bilateral figure-like silhouette above concentric cyan and red ovals] 3+"
+        ],
+        "footer": "",
+        "upperRight": "",
+        "lowerCenter": "",
+        "illegibleSpans": [],
+        "clippedSpans": []
       },
       "symbols": {
-        "canonicalGlossaryTokens": [
-          "character"
-        ],
-        "unresolvedOrLocalTokens": []
+        "canonicalGlossaryTokens": [],
+        "unresolvedOrLocalTokens": [
+          "ICON: small white bilateral figure-like silhouette above concentric cyan and red ovals"
+        ]
       },
-      "uncertainties": [],
-      "canonicalPromotionBlocker": "meaningful visible text falls outside the established minimal sidecar fields",
+      "uncertainties": [
+        "The local player-count composite is an explicit no-match.",
+        "Assigned wording conflicts directly with the current official card wording."
+      ],
+      "canonicalPromotionBlocker": "Official ERADICATION says ‘The Queen must be dead.’ while the assigned face says ‘Queen must be killed.’; Official ERADICATION says ‘The Facility must NOT be destroyed.’ while the assigned face says ‘The Facility cannot be destroyed.’; The player-count composite remains an explicit no-match and no established mission-task sidecar field represents it.",
       "evidence": {
         "textBasis": "native vision draft; not canonical promotion",
         "visionProvider": "openai-codex",
         "visionModel": "gpt-5.6-sol",
-        "reasoningEffort": null,
-        "workerId": null,
-        "sessionId": "20260815_053005_125392",
-        "resultPath": "assets/tts-mod/extract/vision-results/09eb22e4ef093e0f8f27fc0995b2d323dd9ed5c8e847fdcf18750c13b3c8d066.json",
-        "rawResultPath": null,
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991",
+        "sessionId": "20260820_080847_8bb239",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991/results/W22-006.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991/raw/W22-006.json",
         "ledgerPath": "assets/tts-mod/extract/vision-progress.json",
-        "queuePath": "assets/tts-mod/extract/low-confidence-review.json"
-      }
+        "queuePath": "assets/tts-mod/extract/low-confidence-review.json",
+        "selectedExtraction": {
+          "runIdentity": "w22-card-extraction-20260820T080700Z-p176060-79e991/sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991/W22-006",
+          "runId": "w22-card-extraction-20260820T080700Z-p176060-79e991",
+          "workerId": "sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991",
+          "assetId": "W22-006",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991/results/W22-006.json",
+          "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991/raw/W22-006.json",
+          "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991/references/W22-006-post-blind-contact-sheet.png",
+          "promotionDecision": "defer",
+          "runtime": {
+            "provider": "openai-codex",
+            "model": "gpt-5.6-sol",
+            "reasoningEffort": "max",
+            "nativeImageRoute": "direct persistent smoke-proven zero-tool blind session plus direct post-blind native validation",
+            "blindSessionId": "20260820_080847_8bb239",
+            "adjudicationSessionId": "unexposed-current-supervisor",
+            "auxiliaryVisionUsed": false,
+            "qwenUsed": false,
+            "ocrCanonicalEvidenceUsed": false,
+            "modelDowngradeUsed": false
+          }
+        }
+      },
+      "selectedExtraction": {
+        "overlayVersion": 1,
+        "status": "selected-evidence-deferred",
+        "runIdentity": "w22-card-extraction-20260820T080700Z-p176060-79e991/sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991/W22-006",
+        "runId": "w22-card-extraction-20260820T080700Z-p176060-79e991",
+        "workerId": "sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991",
+        "assetId": "W22-006",
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-056.png",
+        "sourceSha256": "09eb22e4ef093e0f8f27fc0995b2d323dd9ed5c8e847fdcf18750c13b3c8d066",
+        "runtime": {
+          "provider": "openai-codex",
+          "model": "gpt-5.6-sol",
+          "reasoningEffort": "max",
+          "nativeImageRoute": "direct persistent smoke-proven zero-tool blind session plus direct post-blind native validation",
+          "blindSessionId": "20260820_080847_8bb239",
+          "adjudicationSessionId": "unexposed-current-supervisor",
+          "auxiliaryVisionUsed": false,
+          "qwenUsed": false,
+          "ocrCanonicalEvidenceUsed": false,
+          "modelDowngradeUsed": false
+        },
+        "blindObservationPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991/raw/W22-006.json",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991/results/W22-006.json",
+        "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991/references/W22-006-post-blind-contact-sheet.png",
+        "visibleText": {
+          "title": "ERADICATION",
+          "typeLine": "MISSION TASK",
+          "body": "Queen must be killed.\nAND\nThe Facility cannot be destroyed.",
+          "sections": [
+            "[ICON: small white bilateral figure-like silhouette above concentric cyan and red ovals] 3+"
+          ],
+          "footer": "",
+          "upperRight": "",
+          "lowerCenter": "",
+          "illegibleSpans": [],
+          "clippedSpans": []
+        },
+        "verifiedIconOccurrences": [],
+        "unresolvedIconOccurrences": [
+          {
+            "cardLocation": "Centered above the ERADICATION title panel and immediately left of 3+.",
+            "referenceLabel": "No authoritative canonical candidate established",
+            "matchDecision": "no-match",
+            "canonicalToken": null,
+            "closestAlternative": "character / robot",
+            "visibleDiscriminator": "The source is a simplified white figure over colored rings; character is a detailed suited humanoid without rings and robot is a compact domed machine head.",
+            "evidenceRun": "sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991"
+          }
+        ],
+        "canonicalTokensEmitted": [],
+        "allMaterialTextReadable": true,
+        "allMaterialIconsAuthoritativelyMatched": false,
+        "promotionDecision": "defer",
+        "decisionReasons": [
+          "Official ERADICATION says ‘The Queen must be dead.’ while the assigned face says ‘Queen must be killed.’",
+          "Official ERADICATION says ‘The Facility must NOT be destroyed.’ while the assigned face says ‘The Facility cannot be destroyed.’",
+          "The player-count composite remains an explicit no-match and no established mission-task sidecar field represents it."
+        ],
+        "conflictsWithPriorSnapshot": [
+          {
+            "field": "printedData.body",
+            "priorValue": "Queen must be killed.\nAND\nThe Facility cannot be destroyed.",
+            "currentStatus": "superseded in selected evidence by direct-pixel normalized text and per-occurrence morphology",
+            "resolution": "preserve historical base snapshot; selected overlay carries exact current evidence without overwriting approved canonical data"
+          }
+        ]
+      },
+      "evidenceRuns": [
+        {
+          "runIdentity": "w22-card-extraction-20260820T080700Z-p176060-79e991/sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991/W22-006",
+          "runId": "w22-card-extraction-20260820T080700Z-p176060-79e991",
+          "workerId": "sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991",
+          "assetId": "W22-006",
+          "sourceSha256": "09eb22e4ef093e0f8f27fc0995b2d323dd9ed5c8e847fdcf18750c13b3c8d066",
+          "blindSessionId": "20260820_080847_8bb239",
+          "adjudicationSessionId": "unexposed-current-supervisor",
+          "promotionDecision": "defer",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991/results/W22-006.json",
+          "selected": true
+        }
+      ]
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-101.jpg",
@@ -18786,35 +19547,147 @@
       "componentFamily": "game/missionTaskDeck",
       "ledgerStatus": "deferred",
       "extractionState": "draft-full",
-      "rulesInformationReadiness": "draft-text-complete",
+      "rulesInformationReadiness": "draft-text-complete-symbols-unresolved",
       "rulesTextPresent": true,
       "identity": {},
       "printedData": {
         "title": "RECONNAISSANCE",
+        "typeLine": "MISSION TASK",
         "body": "All Rooms of the A, B, and C type\nmust be Discovered.",
-        "footer": "MISSION TASK",
-        "visibleText": "[character] 3+"
+        "sections": [
+          "[ICON: small white tapered bilateral silhouette above concentric cyan and blue ovals] 3+"
+        ],
+        "footer": "",
+        "upperRight": "",
+        "lowerCenter": "",
+        "illegibleSpans": [],
+        "clippedSpans": []
       },
       "symbols": {
-        "canonicalGlossaryTokens": [
-          "character"
-        ],
-        "unresolvedOrLocalTokens": []
+        "canonicalGlossaryTokens": [],
+        "unresolvedOrLocalTokens": [
+          "ICON: small white tapered bilateral silhouette above concentric cyan and blue ovals"
+        ]
       },
-      "uncertainties": [],
-      "canonicalPromotionBlocker": "meaningful visible text falls outside the established minimal sidecar fields",
+      "uncertainties": [
+        "The local Number-of-Characters/player-count composite is outside the established p.40 canonical token set.",
+        "The repository has no established mission-task sidecar field for the material 3+ threshold."
+      ],
+      "canonicalPromotionBlocker": "The assigned face is visually/content-identical to the official help-sheet card and has an exact selector/back, but the material player-count composite remains an explicit p.40 no-match.; The minimal canonical sidecar schema has no established field/token for the mission-task 3+ threshold; inventing one is prohibited.",
       "evidence": {
         "textBasis": "native vision draft; not canonical promotion",
         "visionProvider": "openai-codex",
         "visionModel": "gpt-5.6-sol",
-        "reasoningEffort": null,
-        "workerId": null,
-        "sessionId": "20260815_053014_fe0f4c",
-        "resultPath": "assets/tts-mod/extract/vision-results/da1772dcacfcc25d6e4ba8a61fc292f78764a196d08a0ed5e6170cb5a2b48504.json",
-        "rawResultPath": null,
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991",
+        "sessionId": "20260820_080847_8bb239",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991/results/W22-007.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991/raw/W22-007.json",
         "ledgerPath": "assets/tts-mod/extract/vision-progress.json",
-        "queuePath": "assets/tts-mod/extract/low-confidence-review.json"
-      }
+        "queuePath": "assets/tts-mod/extract/low-confidence-review.json",
+        "selectedExtraction": {
+          "runIdentity": "w22-card-extraction-20260820T080700Z-p176060-79e991/sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991/W22-007",
+          "runId": "w22-card-extraction-20260820T080700Z-p176060-79e991",
+          "workerId": "sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991",
+          "assetId": "W22-007",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991/results/W22-007.json",
+          "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991/raw/W22-007.json",
+          "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991/references/W22-007-post-blind-contact-sheet.png",
+          "promotionDecision": "defer",
+          "runtime": {
+            "provider": "openai-codex",
+            "model": "gpt-5.6-sol",
+            "reasoningEffort": "max",
+            "nativeImageRoute": "direct persistent smoke-proven zero-tool blind session plus direct post-blind native validation",
+            "blindSessionId": "20260820_080847_8bb239",
+            "adjudicationSessionId": "unexposed-current-supervisor",
+            "auxiliaryVisionUsed": false,
+            "qwenUsed": false,
+            "ocrCanonicalEvidenceUsed": false,
+            "modelDowngradeUsed": false
+          }
+        }
+      },
+      "selectedExtraction": {
+        "overlayVersion": 1,
+        "status": "selected-evidence-deferred",
+        "runIdentity": "w22-card-extraction-20260820T080700Z-p176060-79e991/sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991/W22-007",
+        "runId": "w22-card-extraction-20260820T080700Z-p176060-79e991",
+        "workerId": "sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991",
+        "assetId": "W22-007",
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-101.jpg",
+        "sourceSha256": "da1772dcacfcc25d6e4ba8a61fc292f78764a196d08a0ed5e6170cb5a2b48504",
+        "runtime": {
+          "provider": "openai-codex",
+          "model": "gpt-5.6-sol",
+          "reasoningEffort": "max",
+          "nativeImageRoute": "direct persistent smoke-proven zero-tool blind session plus direct post-blind native validation",
+          "blindSessionId": "20260820_080847_8bb239",
+          "adjudicationSessionId": "unexposed-current-supervisor",
+          "auxiliaryVisionUsed": false,
+          "qwenUsed": false,
+          "ocrCanonicalEvidenceUsed": false,
+          "modelDowngradeUsed": false
+        },
+        "blindObservationPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991/raw/W22-007.json",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991/results/W22-007.json",
+        "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991/references/W22-007-post-blind-contact-sheet.png",
+        "visibleText": {
+          "title": "RECONNAISSANCE",
+          "typeLine": "MISSION TASK",
+          "body": "All Rooms of the A, B, and C type\nmust be Discovered.",
+          "sections": [
+            "[ICON: small white tapered bilateral silhouette above concentric cyan and blue ovals] 3+"
+          ],
+          "footer": "",
+          "upperRight": "",
+          "lowerCenter": "",
+          "illegibleSpans": [],
+          "clippedSpans": []
+        },
+        "verifiedIconOccurrences": [],
+        "unresolvedIconOccurrences": [
+          {
+            "cardLocation": "Centered above the RECONNAISSANCE title panel and immediately left of 3+.",
+            "referenceLabel": "No authoritative canonical candidate established",
+            "matchDecision": "no-match",
+            "canonicalToken": null,
+            "closestAlternative": "character / robot",
+            "visibleDiscriminator": "The source is a simplified white figure over colored rings; the p.40 character is a detailed suited humanoid without rings and robot is a compact domed machine head.",
+            "evidenceRun": "sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991"
+          }
+        ],
+        "canonicalTokensEmitted": [],
+        "allMaterialTextReadable": true,
+        "allMaterialIconsAuthoritativelyMatched": false,
+        "promotionDecision": "defer",
+        "decisionReasons": [
+          "The assigned face is visually/content-identical to the official help-sheet card and has an exact selector/back, but the material player-count composite remains an explicit p.40 no-match.",
+          "The minimal canonical sidecar schema has no established field/token for the mission-task 3+ threshold; inventing one is prohibited."
+        ],
+        "conflictsWithPriorSnapshot": [
+          {
+            "field": "printedData.body",
+            "priorValue": "All Rooms of the A, B, and C type\nmust be Discovered.",
+            "currentStatus": "superseded in selected evidence by direct-pixel normalized text and per-occurrence morphology",
+            "resolution": "preserve historical base snapshot; selected overlay carries exact current evidence without overwriting approved canonical data"
+          }
+        ]
+      },
+      "evidenceRuns": [
+        {
+          "runIdentity": "w22-card-extraction-20260820T080700Z-p176060-79e991/sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991/W22-007",
+          "runId": "w22-card-extraction-20260820T080700Z-p176060-79e991",
+          "workerId": "sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991",
+          "assetId": "W22-007",
+          "sourceSha256": "da1772dcacfcc25d6e4ba8a61fc292f78764a196d08a0ed5e6170cb5a2b48504",
+          "blindSessionId": "20260820_080847_8bb239",
+          "adjudicationSessionId": "unexposed-current-supervisor",
+          "promotionDecision": "defer",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991/results/W22-007.json",
+          "selected": true
+        }
+      ]
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-110.png",
@@ -18828,9 +19701,16 @@
       "identity": {},
       "printedData": {
         "title": "ESCORT MISSION",
-        "body": "[ICON: empty grey outlined rounded square] The [robot] must reach the Reactor\n(Section C) at least once during\nthe game (mark the box).\n\nAND\n\nAt least 1 [character] with a Data token\n(from the Server Room in Section B)\nmust Escape from the Facility.",
-        "footer": "MISSION TASK",
-        "visibleText": "[character] 2+"
+        "typeLine": "MISSION TASK",
+        "body": "[ICON: empty dark rounded square with pale outline] The [robot] must reach the Reactor\n(Section C) at least once during\nthe game (mark the box).\nAND\nAt least 1 [character] with a Data token\n(from the Server Room in Section B)\nmust Escape from the Facility.",
+        "sections": [
+          "[ICON: small white tapered bilateral silhouette above concentric cyan and blue ovals] 2+"
+        ],
+        "footer": "",
+        "upperRight": "",
+        "lowerCenter": "",
+        "illegibleSpans": [],
+        "clippedSpans": []
       },
       "symbols": {
         "canonicalGlossaryTokens": [
@@ -18838,26 +19718,161 @@
           "robot"
         ],
         "unresolvedOrLocalTokens": [
-          "ICON: empty grey outlined rounded square"
+          "ICON: empty dark rounded square with pale outline",
+          "ICON: small white tapered bilateral silhouette above concentric cyan and blue ovals"
         ]
       },
       "uncertainties": [
-        "The empty grey outlined square is a card-local checkbox glyph absent from the supplied canonical glossary, so it is transcribed literally.",
-        "The blue concentric rings beneath the above-title [character] glyph appear to be part of that local player-count symbol and have no separate confident canonical mapping."
+        "The local player-count composite and markable checkbox remain explicit no-match occurrences.",
+        "No canonical checkbox token or mission-task player-threshold sidecar field is established."
       ],
-      "canonicalPromotionBlocker": "exact card identity/transcription/icon/category is not uniformly high-confidence",
+      "canonicalPromotionBlocker": "The assigned face is source-identical to the official help-sheet card, but its markable checkbox is a local unglossed functional component.; The player-count composite remains an explicit p.40 no-match.; The repository has no established canonical sidecar fields/tokens for those two material components.",
       "evidence": {
         "textBasis": "native vision draft; not canonical promotion",
         "visionProvider": "openai-codex",
         "visionModel": "gpt-5.6-sol",
-        "reasoningEffort": null,
-        "workerId": null,
-        "sessionId": "20260815_053020_3574b4",
-        "resultPath": "assets/tts-mod/extract/vision-results/910da6e4468d14603c7e513d76eb7f856535defece8d46c011f88c6972d6e302.json",
-        "rawResultPath": null,
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991",
+        "sessionId": "20260820_080847_8bb239",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991/results/W22-008.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991/raw/W22-008.json",
         "ledgerPath": "assets/tts-mod/extract/vision-progress.json",
-        "queuePath": "assets/tts-mod/extract/low-confidence-review.json"
-      }
+        "queuePath": "assets/tts-mod/extract/low-confidence-review.json",
+        "selectedExtraction": {
+          "runIdentity": "w22-card-extraction-20260820T080700Z-p176060-79e991/sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991/W22-008",
+          "runId": "w22-card-extraction-20260820T080700Z-p176060-79e991",
+          "workerId": "sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991",
+          "assetId": "W22-008",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991/results/W22-008.json",
+          "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991/raw/W22-008.json",
+          "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991/references/W22-008-post-blind-contact-sheet.png",
+          "promotionDecision": "defer",
+          "runtime": {
+            "provider": "openai-codex",
+            "model": "gpt-5.6-sol",
+            "reasoningEffort": "max",
+            "nativeImageRoute": "direct persistent smoke-proven zero-tool blind session plus direct post-blind native validation",
+            "blindSessionId": "20260820_080847_8bb239",
+            "adjudicationSessionId": "unexposed-current-supervisor",
+            "auxiliaryVisionUsed": false,
+            "qwenUsed": false,
+            "ocrCanonicalEvidenceUsed": false,
+            "modelDowngradeUsed": false
+          }
+        }
+      },
+      "selectedExtraction": {
+        "overlayVersion": 1,
+        "status": "selected-evidence-deferred",
+        "runIdentity": "w22-card-extraction-20260820T080700Z-p176060-79e991/sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991/W22-008",
+        "runId": "w22-card-extraction-20260820T080700Z-p176060-79e991",
+        "workerId": "sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991",
+        "assetId": "W22-008",
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-110.png",
+        "sourceSha256": "910da6e4468d14603c7e513d76eb7f856535defece8d46c011f88c6972d6e302",
+        "runtime": {
+          "provider": "openai-codex",
+          "model": "gpt-5.6-sol",
+          "reasoningEffort": "max",
+          "nativeImageRoute": "direct persistent smoke-proven zero-tool blind session plus direct post-blind native validation",
+          "blindSessionId": "20260820_080847_8bb239",
+          "adjudicationSessionId": "unexposed-current-supervisor",
+          "auxiliaryVisionUsed": false,
+          "qwenUsed": false,
+          "ocrCanonicalEvidenceUsed": false,
+          "modelDowngradeUsed": false
+        },
+        "blindObservationPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991/raw/W22-008.json",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991/results/W22-008.json",
+        "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991/references/W22-008-post-blind-contact-sheet.png",
+        "visibleText": {
+          "title": "ESCORT MISSION",
+          "typeLine": "MISSION TASK",
+          "body": "[ICON: empty dark rounded square with pale outline] The [robot] must reach the Reactor\n(Section C) at least once during\nthe game (mark the box).\nAND\nAt least 1 [character] with a Data token\n(from the Server Room in Section B)\nmust Escape from the Facility.",
+          "sections": [
+            "[ICON: small white tapered bilateral silhouette above concentric cyan and blue ovals] 2+"
+          ],
+          "footer": "",
+          "upperRight": "",
+          "lowerCenter": "",
+          "illegibleSpans": [],
+          "clippedSpans": []
+        },
+        "verifiedIconOccurrences": [
+          {
+            "cardLocation": "First row of the upper condition, between The and must reach the Reactor.",
+            "referenceLabel": "robot",
+            "matchDecision": "match",
+            "canonicalToken": "robot",
+            "closestAlternative": "character",
+            "visibleDiscriminator": "The compact machine glyph has a small top node/stem, broad head/body, and dark circular openings; character is a full suited humanoid with limbs.",
+            "evidenceRun": "sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991"
+          },
+          {
+            "cardLocation": "First row of the lower condition, between At least 1 and with a Data token.",
+            "referenceLabel": "character",
+            "matchDecision": "match",
+            "canonicalToken": "character",
+            "closestAlternative": "robot",
+            "visibleDiscriminator": "The outlined suited figure has a round helmet/head, segmented torso, arms, and separated legs; robot is a compact domed head/body.",
+            "evidenceRun": "sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991"
+          }
+        ],
+        "unresolvedIconOccurrences": [
+          {
+            "cardLocation": "Centered above the ESCORT MISSION title panel and immediately left of 2+.",
+            "referenceLabel": "No authoritative canonical candidate established",
+            "matchDecision": "no-match",
+            "canonicalToken": null,
+            "closestAlternative": "character / robot",
+            "visibleDiscriminator": "The source is a simplified white figure over colored rings; neither the detailed p.40 character nor the domed robot reproduces the composite.",
+            "evidenceRun": "sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991"
+          },
+          {
+            "cardLocation": "Upper-left of the first condition area, immediately left of the three text rows beginning The.",
+            "referenceLabel": "No authoritative canonical candidate established",
+            "matchDecision": "no-match",
+            "canonicalToken": null,
+            "closestAlternative": "actionCard / anySlot",
+            "visibleDiscriminator": "The source is a large empty rounded square explicitly referenced by ‘mark the box’; actionCard contains A and anySlot is a wide top-notched slot.",
+            "evidenceRun": "sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991"
+          }
+        ],
+        "canonicalTokensEmitted": [
+          "character",
+          "robot"
+        ],
+        "allMaterialTextReadable": true,
+        "allMaterialIconsAuthoritativelyMatched": false,
+        "promotionDecision": "defer",
+        "decisionReasons": [
+          "The assigned face is source-identical to the official help-sheet card, but its markable checkbox is a local unglossed functional component.",
+          "The player-count composite remains an explicit p.40 no-match.",
+          "The repository has no established canonical sidecar fields/tokens for those two material components."
+        ],
+        "conflictsWithPriorSnapshot": [
+          {
+            "field": "printedData.body",
+            "priorValue": "[ICON: empty grey outlined rounded square] The [robot] must reach the Reactor\n(Section C) at least once during\nthe game (mark the box).\n\nAND\n\nAt least 1 [character] with a Data token\n(from the Server Room in Section B)\nmust Escape from the Facility.",
+            "currentStatus": "superseded in selected evidence by direct-pixel normalized text and per-occurrence morphology",
+            "resolution": "preserve historical base snapshot; selected overlay carries exact current evidence without overwriting approved canonical data"
+          }
+        ]
+      },
+      "evidenceRuns": [
+        {
+          "runIdentity": "w22-card-extraction-20260820T080700Z-p176060-79e991/sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991/W22-008",
+          "runId": "w22-card-extraction-20260820T080700Z-p176060-79e991",
+          "workerId": "sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991",
+          "assetId": "W22-008",
+          "sourceSha256": "910da6e4468d14603c7e513d76eb7f856535defece8d46c011f88c6972d6e302",
+          "blindSessionId": "20260820_080847_8bb239",
+          "adjudicationSessionId": "unexposed-current-supervisor",
+          "promotionDecision": "defer",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991/results/W22-008.json",
+          "selected": true
+        }
+      ]
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-116.jpg",
