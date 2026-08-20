@@ -6514,6 +6514,926 @@
           ]
         }
       ]
+    },
+    {
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/exploration-025.png",
+      "sourceSha256": "774b6ed8ea4492bfae38145c828ae47c61536855ec1ffb86702d1fb2d2d09d8b",
+      "status": "selected-evidence-deferred",
+      "selectedRunIdentity": "w20-card-extraction-retry-20260820T062826Z-p176060-d74a21/sol-max-persistent-worker-20-retry-20260820T062826Z-p176060-d74a21/W20-001",
+      "runs": [
+        {
+          "runIdentity": "w20-card-extraction-retry-20260820T062826Z-p176060-d74a21/sol-max-persistent-worker-20-retry-20260820T062826Z-p176060-d74a21/W20-001",
+          "runId": "w20-card-extraction-retry-20260820T062826Z-p176060-d74a21",
+          "workerId": "sol-max-persistent-worker-20-retry-20260820T062826Z-p176060-d74a21",
+          "assetId": "W20-001",
+          "assignmentSha256": "6c218f42ee174892ede5f813de0523eba47e55260b19a58083a1f82287b11d53",
+          "orderedTupleDigest": "870f2b9cd113b2eae8b39128a3fd52955c47d7c6d909d6c4336d947801ed47cf",
+          "runtime": {
+            "provider": "openai-codex",
+            "model": "gpt-5.6-sol",
+            "reasoningEffort": "max",
+            "nativeImageRoute": "direct persistent smoke-proven zero-tool blind session plus direct post-blind native validation",
+            "blindSessionId": "20260820_062933_d6e177",
+            "adjudicationSessionId": "unexposed-current-supervisor-p176060",
+            "auxiliaryVisionUsed": false,
+            "qwenUsed": false,
+            "ocrCanonicalEvidenceUsed": false,
+            "modelDowngradeUsed": false
+          },
+          "artifactPaths": {
+            "blindObservationPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-20-retry-20260820T062826Z-p176060-d74a21/raw/W20-001.json",
+            "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-20-retry-20260820T062826Z-p176060-d74a21/results/W20-001.json",
+            "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-20-retry-20260820T062826Z-p176060-d74a21/references/W20-001-post-blind-contact-sheet.png"
+          },
+          "visibleText": {
+            "title": "",
+            "body": "Place A/B/C Room\ndepending on your Section.\n\n[character] [malfunction]\n[noise]\n\nReminder:\nPlace 1 [secure] if you are Moving with [secure].\n\nMake a Noise roll.",
+            "sections": [
+              "Place A/B/C Room\ndepending on your Section.",
+              "[character] [malfunction]\n[noise]",
+              "Reminder:\nPlace 1 [secure] if you are Moving with [secure].",
+              "Make a Noise roll."
+            ],
+            "footer": "",
+            "upperRight": "",
+            "illegibleSpans": [],
+            "clippedSpans": []
+          },
+          "verifiedIconOccurrences": [
+            {
+              "cardLocation": "Above the upper-right edge of the central six-sided outline",
+              "referenceLabel": "noise",
+              "matchDecision": "match",
+              "canonicalToken": "noise",
+              "closestAlternative": "noiseDieHazard",
+              "visibleDiscriminator": "noiseDieHazard contains a black curled creature and central yellow burst/hand instead of nested chevrons",
+              "evidenceRun": "sol-max-persistent-worker-20-retry-20260820T062826Z-p176060-d74a21"
+            },
+            {
+              "cardLocation": "Upper-left quadrant inside the central six-sided outline",
+              "referenceLabel": "character",
+              "matchDecision": "match",
+              "canonicalToken": "character",
+              "closestAlternative": "robot",
+              "visibleDiscriminator": "robot is a compact domed mechanical head/body without articulated limbs",
+              "evidenceRun": "sol-max-persistent-worker-20-retry-20260820T062826Z-p176060-d74a21"
+            },
+            {
+              "cardLocation": "Near the center of the large six-sided outline, lower-right of the humanoid-like glyph",
+              "referenceLabel": "malfunction",
+              "matchDecision": "match",
+              "canonicalToken": "malfunction",
+              "closestAlternative": "fire",
+              "visibleDiscriminator": "fire is an orange asymmetric curl without radial teeth",
+              "evidenceRun": "sol-max-persistent-worker-20-retry-20260820T062826Z-p176060-d74a21"
+            },
+            {
+              "cardLocation": "Lower text block, immediately after the printed characters “Place 1”",
+              "referenceLabel": "secure",
+              "matchDecision": "match",
+              "canonicalToken": "secure",
+              "closestAlternative": "computer",
+              "visibleDiscriminator": "computer is a cyan rectangular monitor without shield facets",
+              "evidenceRun": "sol-max-persistent-worker-20-retry-20260820T062826Z-p176060-d74a21"
+            },
+            {
+              "cardLocation": "Lower text block, immediately after the printed word “with” and immediately before the terminal period",
+              "referenceLabel": "secure",
+              "matchDecision": "match",
+              "canonicalToken": "secure",
+              "closestAlternative": "computer",
+              "visibleDiscriminator": "computer is a cyan rectangular monitor without shield facets",
+              "evidenceRun": "sol-max-persistent-worker-20-retry-20260820T062826Z-p176060-d74a21"
+            }
+          ],
+          "unresolvedIconOccurrences": [],
+          "canonicalTokensEmitted": [
+            "character",
+            "malfunction",
+            "noise",
+            "secure"
+          ],
+          "allMaterialTextReadable": true,
+          "allMaterialIconsAuthoritativelyMatched": true,
+          "promotionDecision": "defer",
+          "decisionReasons": [
+            "All material printed text is readable; all 38 batch glyph occurrences pass direct glossary comparison; exact exploration FaceURL/shared BackURL role is resolved.",
+            "No unique printed title or canonical slug is visible, so canonical identity/filename cannot be established.",
+            "Current official sources provide family/mechanic corroboration but no card-specific identity or explicit supersession; no tracked byte/pixel duplicate exists."
+          ],
+          "conflictsWithPriorSnapshot": [
+            {
+              "field": "printedData.body",
+              "priorValue": "Place A/B/C Room\ndepending on your Section.\n\nReminder:\nPlace 1 [ICON: white upright faceted marker with solid cap, outlined pointed lower half, and diagonal interior stroke] if you are Moving with [ICON: white upright faceted shield-like marker with pointed bottom and black Y-shaped interior seams].\n\nMake a Noise roll.",
+              "currentStatus": "superseded in selected evidence by direct-pixel normalized body and verified schematic/reminder glyphs",
+              "resolution": "preserve the historical base snapshot; selected overlay carries current exact evidence while canonical identity/slug remains deferred"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/exploration-026.png",
+      "sourceSha256": "08445a3d8b18081d7396756f407ac058c383c3aee05bde76e80393b0af4b741d",
+      "status": "selected-evidence-deferred",
+      "selectedRunIdentity": "w20-card-extraction-retry-20260820T062826Z-p176060-d74a21/sol-max-persistent-worker-20-retry-20260820T062826Z-p176060-d74a21/W20-002",
+      "runs": [
+        {
+          "runIdentity": "w20-card-extraction-retry-20260820T062826Z-p176060-d74a21/sol-max-persistent-worker-20-retry-20260820T062826Z-p176060-d74a21/W20-002",
+          "runId": "w20-card-extraction-retry-20260820T062826Z-p176060-d74a21",
+          "workerId": "sol-max-persistent-worker-20-retry-20260820T062826Z-p176060-d74a21",
+          "assetId": "W20-002",
+          "assignmentSha256": "6c218f42ee174892ede5f813de0523eba47e55260b19a58083a1f82287b11d53",
+          "orderedTupleDigest": "870f2b9cd113b2eae8b39128a3fd52955c47d7c6d909d6c4336d947801ed47cf",
+          "runtime": {
+            "provider": "openai-codex",
+            "model": "gpt-5.6-sol",
+            "reasoningEffort": "max",
+            "nativeImageRoute": "direct persistent smoke-proven zero-tool blind session plus direct post-blind native validation",
+            "blindSessionId": "20260820_062933_d6e177",
+            "adjudicationSessionId": "unexposed-current-supervisor-p176060",
+            "auxiliaryVisionUsed": false,
+            "qwenUsed": false,
+            "ocrCanonicalEvidenceUsed": false,
+            "modelDowngradeUsed": false
+          },
+          "artifactPaths": {
+            "blindObservationPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-20-retry-20260820T062826Z-p176060-d74a21/raw/W20-002.json",
+            "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-20-retry-20260820T062826Z-p176060-d74a21/results/W20-002.json",
+            "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-20-retry-20260820T062826Z-p176060-d74a21/references/W20-002-post-blind-contact-sheet.png"
+          },
+          "visibleText": {
+            "title": "",
+            "body": "Place A/B/C Room\ndepending on your Section.\n\n[character] [fire]\n\nReminder:\nPlace 1 [secure] if you are Moving with [secure].\n\nClose all doors around this room.\n\nMake a Noise roll.",
+            "sections": [
+              "Place A/B/C Room\ndepending on your Section.",
+              "[character] [fire]",
+              "Reminder:\nPlace 1 [secure] if you are Moving with [secure].",
+              "Close all doors around this room.",
+              "Make a Noise roll."
+            ],
+            "footer": "",
+            "upperRight": "",
+            "illegibleSpans": [],
+            "clippedSpans": []
+          },
+          "verifiedIconOccurrences": [
+            {
+              "cardLocation": "Upper-left region inside the central six-sided outline",
+              "referenceLabel": "character",
+              "matchDecision": "match",
+              "canonicalToken": "character",
+              "closestAlternative": "robot",
+              "visibleDiscriminator": "robot is a compact domed mechanical head/body without articulated limbs",
+              "evidenceRun": "sol-max-persistent-worker-20-retry-20260820T062826Z-p176060-d74a21"
+            },
+            {
+              "cardLocation": "Near the center of the six-sided outline, below and right of the white bilateral figure",
+              "referenceLabel": "fire",
+              "matchDecision": "match",
+              "canonicalToken": "fire",
+              "closestAlternative": "malfunction",
+              "visibleDiscriminator": "malfunction is a gray regular toothed ring",
+              "evidenceRun": "sol-max-persistent-worker-20-retry-20260820T062826Z-p176060-d74a21"
+            },
+            {
+              "cardLocation": "Reminder sentence, immediately after the printed characters “Place 1”",
+              "referenceLabel": "secure",
+              "matchDecision": "match",
+              "canonicalToken": "secure",
+              "closestAlternative": "computer",
+              "visibleDiscriminator": "computer is a cyan rectangular monitor without shield facets",
+              "evidenceRun": "sol-max-persistent-worker-20-retry-20260820T062826Z-p176060-d74a21"
+            },
+            {
+              "cardLocation": "Reminder sentence, immediately after the printed word “with” and before the terminal period",
+              "referenceLabel": "secure",
+              "matchDecision": "match",
+              "canonicalToken": "secure",
+              "closestAlternative": "computer",
+              "visibleDiscriminator": "computer is a cyan rectangular monitor without shield facets",
+              "evidenceRun": "sol-max-persistent-worker-20-retry-20260820T062826Z-p176060-d74a21"
+            }
+          ],
+          "unresolvedIconOccurrences": [],
+          "canonicalTokensEmitted": [
+            "character",
+            "fire",
+            "secure"
+          ],
+          "allMaterialTextReadable": true,
+          "allMaterialIconsAuthoritativelyMatched": true,
+          "promotionDecision": "defer",
+          "decisionReasons": [
+            "All material printed text is readable; all 38 batch glyph occurrences pass direct glossary comparison; exact exploration FaceURL/shared BackURL role is resolved.",
+            "No unique printed title or canonical slug is visible, so canonical identity/filename cannot be established.",
+            "Current official sources provide family/mechanic corroboration but no card-specific identity or explicit supersession; no tracked byte/pixel duplicate exists."
+          ],
+          "conflictsWithPriorSnapshot": [
+            {
+              "field": "printedData.body",
+              "priorValue": "Place A/B/C Room\ndepending on your Section.\n\n[character] [fire]\n\nReminder:\nPlace 1 [ICON: white vertically elongated shield-like glyph with a notched top and internal chevron lines] if you are Moving with [ICON: white vertically elongated shield-like glyph with a notched top and internal chevron lines].\n\nClose all doors around this room.\n\nMake a Noise roll.",
+              "currentStatus": "superseded in selected evidence by direct-pixel normalized body and verified schematic/reminder glyphs",
+              "resolution": "preserve the historical base snapshot; selected overlay carries current exact evidence while canonical identity/slug remains deferred"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/exploration-027.png",
+      "sourceSha256": "3da198b348a70d64e20de051034e98aa2454ef1912df3cf18e78eaf7c4800043",
+      "status": "selected-evidence-deferred",
+      "selectedRunIdentity": "w20-card-extraction-retry-20260820T062826Z-p176060-d74a21/sol-max-persistent-worker-20-retry-20260820T062826Z-p176060-d74a21/W20-003",
+      "runs": [
+        {
+          "runIdentity": "w20-card-extraction-retry-20260820T062826Z-p176060-d74a21/sol-max-persistent-worker-20-retry-20260820T062826Z-p176060-d74a21/W20-003",
+          "runId": "w20-card-extraction-retry-20260820T062826Z-p176060-d74a21",
+          "workerId": "sol-max-persistent-worker-20-retry-20260820T062826Z-p176060-d74a21",
+          "assetId": "W20-003",
+          "assignmentSha256": "6c218f42ee174892ede5f813de0523eba47e55260b19a58083a1f82287b11d53",
+          "orderedTupleDigest": "870f2b9cd113b2eae8b39128a3fd52955c47d7c6d909d6c4336d947801ed47cf",
+          "runtime": {
+            "provider": "openai-codex",
+            "model": "gpt-5.6-sol",
+            "reasoningEffort": "max",
+            "nativeImageRoute": "direct persistent smoke-proven zero-tool blind session plus direct post-blind native validation",
+            "blindSessionId": "20260820_062933_d6e177",
+            "adjudicationSessionId": "unexposed-current-supervisor-p176060",
+            "auxiliaryVisionUsed": false,
+            "qwenUsed": false,
+            "ocrCanonicalEvidenceUsed": false,
+            "modelDowngradeUsed": false
+          },
+          "artifactPaths": {
+            "blindObservationPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-20-retry-20260820T062826Z-p176060-d74a21/raw/W20-003.json",
+            "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-20-retry-20260820T062826Z-p176060-d74a21/results/W20-003.json",
+            "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-20-retry-20260820T062826Z-p176060-d74a21/references/W20-003-post-blind-contact-sheet.png"
+          },
+          "visibleText": {
+            "title": "",
+            "body": "Place A/B/C Room\ndepending on your Section.\n\n[character]\n[noise]\n\nReminder:\nPlace 1 [secure] if you are Moving with [secure].\n\nResolve\n[noiseDieHazard]",
+            "sections": [
+              "Place A/B/C Room\ndepending on your Section.",
+              "[character]\n[noise]",
+              "Reminder:\nPlace 1 [secure] if you are Moving with [secure].",
+              "Resolve\n[noiseDieHazard]"
+            ],
+            "footer": "",
+            "upperRight": "",
+            "illegibleSpans": [],
+            "clippedSpans": []
+          },
+          "verifiedIconOccurrences": [
+            {
+              "cardLocation": "Centered inside the large six-sided outline",
+              "referenceLabel": "character",
+              "matchDecision": "match",
+              "canonicalToken": "character",
+              "closestAlternative": "robot",
+              "visibleDiscriminator": "robot is a compact domed mechanical head/body without articulated limbs",
+              "evidenceRun": "sol-max-persistent-worker-20-retry-20260820T062826Z-p176060-d74a21"
+            },
+            {
+              "cardLocation": "Inside the horizontal branch contours to the right of the central six-sided outline",
+              "referenceLabel": "noise",
+              "matchDecision": "match",
+              "canonicalToken": "noise",
+              "closestAlternative": "noiseDieHazard",
+              "visibleDiscriminator": "noiseDieHazard contains a black curled creature and central yellow burst/hand instead of nested chevrons",
+              "evidenceRun": "sol-max-persistent-worker-20-retry-20260820T062826Z-p176060-d74a21"
+            },
+            {
+              "cardLocation": "Reminder sentence, immediately after the printed characters “Place 1”",
+              "referenceLabel": "secure",
+              "matchDecision": "match",
+              "canonicalToken": "secure",
+              "closestAlternative": "computer",
+              "visibleDiscriminator": "computer is a cyan rectangular monitor without shield facets",
+              "evidenceRun": "sol-max-persistent-worker-20-retry-20260820T062826Z-p176060-d74a21"
+            },
+            {
+              "cardLocation": "Reminder sentence, immediately after the printed word “with” and before the terminal period",
+              "referenceLabel": "secure",
+              "matchDecision": "match",
+              "canonicalToken": "secure",
+              "closestAlternative": "computer",
+              "visibleDiscriminator": "computer is a cyan rectangular monitor without shield facets",
+              "evidenceRun": "sol-max-persistent-worker-20-retry-20260820T062826Z-p176060-d74a21"
+            },
+            {
+              "cardLocation": "Lower center, directly beneath the printed word “Resolve”",
+              "referenceLabel": "noiseDieHazard",
+              "matchDecision": "match",
+              "canonicalToken": "noiseDieHazard",
+              "closestAlternative": "noise",
+              "visibleDiscriminator": "noise has a central dark hexagon and nested side chevrons, neither visible in the source hazard glyph",
+              "evidenceRun": "sol-max-persistent-worker-20-retry-20260820T062826Z-p176060-d74a21"
+            }
+          ],
+          "unresolvedIconOccurrences": [],
+          "canonicalTokensEmitted": [
+            "character",
+            "noise",
+            "noiseDieHazard",
+            "secure"
+          ],
+          "allMaterialTextReadable": true,
+          "allMaterialIconsAuthoritativelyMatched": true,
+          "promotionDecision": "defer",
+          "decisionReasons": [
+            "All material printed text is readable; all 38 batch glyph occurrences pass direct glossary comparison; exact exploration FaceURL/shared BackURL role is resolved.",
+            "No unique printed title or canonical slug is visible, so canonical identity/filename cannot be established.",
+            "Current official sources provide family/mechanic corroboration but no card-specific identity or explicit supersession; no tracked byte/pixel duplicate exists."
+          ],
+          "conflictsWithPriorSnapshot": [
+            {
+              "field": "printedData.body",
+              "priorValue": "Place A/B/C Room\ndepending on your Section.\n\n[character]    [noise]\n\nReminder:\nPlace 1 [ICON: white faceted vertical shield-like marker] if you are Moving with [ICON: white faceted vertical shield-like marker].\n\nResolve",
+              "currentStatus": "superseded in selected evidence by direct-pixel normalized body and verified schematic/reminder glyphs",
+              "resolution": "preserve the historical base snapshot; selected overlay carries current exact evidence while canonical identity/slug remains deferred"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/exploration-031.png",
+      "sourceSha256": "549bb22b017b6df982c3378f613294969d7043a1a87a1e4b4f5d704308d2ceb0",
+      "status": "selected-evidence-deferred",
+      "selectedRunIdentity": "w20-card-extraction-retry-20260820T062826Z-p176060-d74a21/sol-max-persistent-worker-20-retry-20260820T062826Z-p176060-d74a21/W20-004",
+      "runs": [
+        {
+          "runIdentity": "w20-card-extraction-retry-20260820T062826Z-p176060-d74a21/sol-max-persistent-worker-20-retry-20260820T062826Z-p176060-d74a21/W20-004",
+          "runId": "w20-card-extraction-retry-20260820T062826Z-p176060-d74a21",
+          "workerId": "sol-max-persistent-worker-20-retry-20260820T062826Z-p176060-d74a21",
+          "assetId": "W20-004",
+          "assignmentSha256": "6c218f42ee174892ede5f813de0523eba47e55260b19a58083a1f82287b11d53",
+          "orderedTupleDigest": "870f2b9cd113b2eae8b39128a3fd52955c47d7c6d909d6c4336d947801ed47cf",
+          "runtime": {
+            "provider": "openai-codex",
+            "model": "gpt-5.6-sol",
+            "reasoningEffort": "max",
+            "nativeImageRoute": "direct persistent smoke-proven zero-tool blind session plus direct post-blind native validation",
+            "blindSessionId": "20260820_062933_d6e177",
+            "adjudicationSessionId": "unexposed-current-supervisor-p176060",
+            "auxiliaryVisionUsed": false,
+            "qwenUsed": false,
+            "ocrCanonicalEvidenceUsed": false,
+            "modelDowngradeUsed": false
+          },
+          "artifactPaths": {
+            "blindObservationPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-20-retry-20260820T062826Z-p176060-d74a21/raw/W20-004.json",
+            "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-20-retry-20260820T062826Z-p176060-d74a21/results/W20-004.json",
+            "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-20-retry-20260820T062826Z-p176060-d74a21/references/W20-004-post-blind-contact-sheet.png"
+          },
+          "visibleText": {
+            "title": "",
+            "body": "Place A/B/C Room\ndepending on your Section.\n\n[character] [malfunction]\n[noise]\n\nReminder:\nPlace 1 [secure] if you are Moving with [secure].\n\nClose all doors around this room.\n\nMake a Noise roll.",
+            "sections": [
+              "Place A/B/C Room\ndepending on your Section.",
+              "[character] [malfunction]\n[noise]",
+              "Reminder:\nPlace 1 [secure] if you are Moving with [secure].",
+              "Close all doors around this room.",
+              "Make a Noise roll."
+            ],
+            "footer": "",
+            "upperRight": "",
+            "illegibleSpans": [],
+            "clippedSpans": []
+          },
+          "verifiedIconOccurrences": [
+            {
+              "cardLocation": "Upper-left portion inside the central six-sided outline",
+              "referenceLabel": "character",
+              "matchDecision": "match",
+              "canonicalToken": "character",
+              "closestAlternative": "robot",
+              "visibleDiscriminator": "robot is a compact domed mechanical head/body without articulated limbs",
+              "evidenceRun": "sol-max-persistent-worker-20-retry-20260820T062826Z-p176060-d74a21"
+            },
+            {
+              "cardLocation": "Near the center of the large six-sided outline, below and right of the bilateral figure",
+              "referenceLabel": "malfunction",
+              "matchDecision": "match",
+              "canonicalToken": "malfunction",
+              "closestAlternative": "fire",
+              "visibleDiscriminator": "fire is an orange asymmetric curl without radial teeth",
+              "evidenceRun": "sol-max-persistent-worker-20-retry-20260820T062826Z-p176060-d74a21"
+            },
+            {
+              "cardLocation": "Between the paired horizontal contours to the right of the central six-sided outline",
+              "referenceLabel": "noise",
+              "matchDecision": "match",
+              "canonicalToken": "noise",
+              "closestAlternative": "noiseDieHazard",
+              "visibleDiscriminator": "noiseDieHazard contains a black curled creature and central yellow burst/hand instead of nested chevrons",
+              "evidenceRun": "sol-max-persistent-worker-20-retry-20260820T062826Z-p176060-d74a21"
+            },
+            {
+              "cardLocation": "Reminder sentence, immediately after the printed characters “Place 1”",
+              "referenceLabel": "secure",
+              "matchDecision": "match",
+              "canonicalToken": "secure",
+              "closestAlternative": "computer",
+              "visibleDiscriminator": "computer is a cyan rectangular monitor without shield facets",
+              "evidenceRun": "sol-max-persistent-worker-20-retry-20260820T062826Z-p176060-d74a21"
+            },
+            {
+              "cardLocation": "Reminder sentence, immediately after the printed word “with” and before the terminal period",
+              "referenceLabel": "secure",
+              "matchDecision": "match",
+              "canonicalToken": "secure",
+              "closestAlternative": "computer",
+              "visibleDiscriminator": "computer is a cyan rectangular monitor without shield facets",
+              "evidenceRun": "sol-max-persistent-worker-20-retry-20260820T062826Z-p176060-d74a21"
+            }
+          ],
+          "unresolvedIconOccurrences": [],
+          "canonicalTokensEmitted": [
+            "character",
+            "malfunction",
+            "noise",
+            "secure"
+          ],
+          "allMaterialTextReadable": true,
+          "allMaterialIconsAuthoritativelyMatched": true,
+          "promotionDecision": "defer",
+          "decisionReasons": [
+            "All material printed text is readable; all 38 batch glyph occurrences pass direct glossary comparison; exact exploration FaceURL/shared BackURL role is resolved.",
+            "No unique printed title or canonical slug is visible, so canonical identity/filename cannot be established.",
+            "Current official sources provide family/mechanic corroboration but no card-specific identity or explicit supersession; no tracked byte/pixel duplicate exists."
+          ],
+          "conflictsWithPriorSnapshot": [
+            {
+              "field": "printedData.body",
+              "priorValue": "Place A/B/C Room\ndepending on your Section.\n\nReminder:\nPlace 1 [ICON: white faceted shield-shaped glyph] if you are Moving with [ICON: white faceted shield-shaped glyph].\n\nClose all doors around this room.\n\nMake a Noise roll.",
+              "currentStatus": "superseded in selected evidence by direct-pixel normalized body and verified schematic/reminder glyphs",
+              "resolution": "preserve the historical base snapshot; selected overlay carries current exact evidence while canonical identity/slug remains deferred"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/exploration-032.png",
+      "sourceSha256": "9c521a0ca8f9303363e69266962c20bee13b7a03cc8d05410399755ea42c684b",
+      "status": "selected-evidence-deferred",
+      "selectedRunIdentity": "w20-card-extraction-retry-20260820T062826Z-p176060-d74a21/sol-max-persistent-worker-20-retry-20260820T062826Z-p176060-d74a21/W20-005",
+      "runs": [
+        {
+          "runIdentity": "w20-card-extraction-retry-20260820T062826Z-p176060-d74a21/sol-max-persistent-worker-20-retry-20260820T062826Z-p176060-d74a21/W20-005",
+          "runId": "w20-card-extraction-retry-20260820T062826Z-p176060-d74a21",
+          "workerId": "sol-max-persistent-worker-20-retry-20260820T062826Z-p176060-d74a21",
+          "assetId": "W20-005",
+          "assignmentSha256": "6c218f42ee174892ede5f813de0523eba47e55260b19a58083a1f82287b11d53",
+          "orderedTupleDigest": "870f2b9cd113b2eae8b39128a3fd52955c47d7c6d909d6c4336d947801ed47cf",
+          "runtime": {
+            "provider": "openai-codex",
+            "model": "gpt-5.6-sol",
+            "reasoningEffort": "max",
+            "nativeImageRoute": "direct persistent smoke-proven zero-tool blind session plus direct post-blind native validation",
+            "blindSessionId": "20260820_062933_d6e177",
+            "adjudicationSessionId": "unexposed-current-supervisor-p176060",
+            "auxiliaryVisionUsed": false,
+            "qwenUsed": false,
+            "ocrCanonicalEvidenceUsed": false,
+            "modelDowngradeUsed": false
+          },
+          "artifactPaths": {
+            "blindObservationPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-20-retry-20260820T062826Z-p176060-d74a21/raw/W20-005.json",
+            "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-20-retry-20260820T062826Z-p176060-d74a21/results/W20-005.json",
+            "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-20-retry-20260820T062826Z-p176060-d74a21/references/W20-005-post-blind-contact-sheet.png"
+          },
+          "visibleText": {
+            "title": "",
+            "body": "Place A/B/C Room\ndepending on your Section.\n\n[character]\n[noise]\n\nReminder:\nPlace 1 [secure] if you are Moving with [secure].\n\nPlace 4 Adults in the Corridor\nyou have just passed through.\nThen, make a Noise roll as normal.",
+            "sections": [
+              "Place A/B/C Room\ndepending on your Section.",
+              "[character]\n[noise]",
+              "Reminder:\nPlace 1 [secure] if you are Moving with [secure].",
+              "Place 4 Adults in the Corridor\nyou have just passed through.\nThen, make a Noise roll as normal."
+            ],
+            "footer": "",
+            "upperRight": "",
+            "illegibleSpans": [],
+            "clippedSpans": []
+          },
+          "verifiedIconOccurrences": [
+            {
+              "cardLocation": "Centered inside the large six-sided outline",
+              "referenceLabel": "character",
+              "matchDecision": "match",
+              "canonicalToken": "character",
+              "closestAlternative": "robot",
+              "visibleDiscriminator": "robot is a compact domed mechanical head/body without articulated limbs",
+              "evidenceRun": "sol-max-persistent-worker-20-retry-20260820T062826Z-p176060-d74a21"
+            },
+            {
+              "cardLocation": "Between the paired upward-right branch contours above and right of the central six-sided outline",
+              "referenceLabel": "noise",
+              "matchDecision": "match",
+              "canonicalToken": "noise",
+              "closestAlternative": "noiseDieHazard",
+              "visibleDiscriminator": "noiseDieHazard contains a black curled creature and central yellow burst/hand instead of nested chevrons",
+              "evidenceRun": "sol-max-persistent-worker-20-retry-20260820T062826Z-p176060-d74a21"
+            },
+            {
+              "cardLocation": "Reminder sentence, immediately after the printed characters “Place 1”",
+              "referenceLabel": "secure",
+              "matchDecision": "match",
+              "canonicalToken": "secure",
+              "closestAlternative": "computer",
+              "visibleDiscriminator": "computer is a cyan rectangular monitor without shield facets",
+              "evidenceRun": "sol-max-persistent-worker-20-retry-20260820T062826Z-p176060-d74a21"
+            },
+            {
+              "cardLocation": "Reminder sentence, immediately after the printed word “with” and before the terminal period",
+              "referenceLabel": "secure",
+              "matchDecision": "match",
+              "canonicalToken": "secure",
+              "closestAlternative": "computer",
+              "visibleDiscriminator": "computer is a cyan rectangular monitor without shield facets",
+              "evidenceRun": "sol-max-persistent-worker-20-retry-20260820T062826Z-p176060-d74a21"
+            }
+          ],
+          "unresolvedIconOccurrences": [],
+          "canonicalTokensEmitted": [
+            "character",
+            "noise",
+            "secure"
+          ],
+          "allMaterialTextReadable": true,
+          "allMaterialIconsAuthoritativelyMatched": true,
+          "promotionDecision": "defer",
+          "decisionReasons": [
+            "All material printed text is readable; all 38 batch glyph occurrences pass direct glossary comparison; exact exploration FaceURL/shared BackURL role is resolved.",
+            "No unique printed title or canonical slug is visible, so canonical identity/filename cannot be established.",
+            "Current official sources provide family/mechanic corroboration but no card-specific identity or explicit supersession; no tracked byte/pixel duplicate exists."
+          ],
+          "conflictsWithPriorSnapshot": [
+            {
+              "field": "printedData.body",
+              "priorValue": "Place A/B/C Room\ndepending on your Section.\n\nReminder:\nPlace 1 [ICON: white shield/book-shaped glyph with central vertical seam] if you are Moving with [ICON: white shield/book-shaped glyph with central vertical seam].\n\nPlace 4 Adults in the Corridor\nyou have just passed through.\nThen, make a Noise roll as normal.",
+              "currentStatus": "superseded in selected evidence by direct-pixel normalized body and verified schematic/reminder glyphs",
+              "resolution": "preserve the historical base snapshot; selected overlay carries current exact evidence while canonical identity/slug remains deferred"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/exploration-036.png",
+      "sourceSha256": "160d5d76b631d1ccbd1e4ea981313a1edbd83a6e9eda34dd825fafc2f9cbdd4d",
+      "status": "selected-evidence-deferred",
+      "selectedRunIdentity": "w20-card-extraction-retry-20260820T062826Z-p176060-d74a21/sol-max-persistent-worker-20-retry-20260820T062826Z-p176060-d74a21/W20-006",
+      "runs": [
+        {
+          "runIdentity": "w20-card-extraction-retry-20260820T062826Z-p176060-d74a21/sol-max-persistent-worker-20-retry-20260820T062826Z-p176060-d74a21/W20-006",
+          "runId": "w20-card-extraction-retry-20260820T062826Z-p176060-d74a21",
+          "workerId": "sol-max-persistent-worker-20-retry-20260820T062826Z-p176060-d74a21",
+          "assetId": "W20-006",
+          "assignmentSha256": "6c218f42ee174892ede5f813de0523eba47e55260b19a58083a1f82287b11d53",
+          "orderedTupleDigest": "870f2b9cd113b2eae8b39128a3fd52955c47d7c6d909d6c4336d947801ed47cf",
+          "runtime": {
+            "provider": "openai-codex",
+            "model": "gpt-5.6-sol",
+            "reasoningEffort": "max",
+            "nativeImageRoute": "direct persistent smoke-proven zero-tool blind session plus direct post-blind native validation",
+            "blindSessionId": "20260820_062933_d6e177",
+            "adjudicationSessionId": "unexposed-current-supervisor-p176060",
+            "auxiliaryVisionUsed": false,
+            "qwenUsed": false,
+            "ocrCanonicalEvidenceUsed": false,
+            "modelDowngradeUsed": false
+          },
+          "artifactPaths": {
+            "blindObservationPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-20-retry-20260820T062826Z-p176060-d74a21/raw/W20-006.json",
+            "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-20-retry-20260820T062826Z-p176060-d74a21/results/W20-006.json",
+            "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-20-retry-20260820T062826Z-p176060-d74a21/references/W20-006-post-blind-contact-sheet.png"
+          },
+          "visibleText": {
+            "title": "",
+            "body": "Place a “?” Room tile.\n\n[character] [malfunction] [fire]\n[noise]\n\nReminder:\nPlace 1 [secure] if you are Moving with [secure].\n\nClose all doors around this room.\n\nMake a Noise roll.\nRemove this card from the game.",
+            "sections": [
+              "Place a “?” Room tile.",
+              "[character] [malfunction] [fire]\n[noise]",
+              "Reminder:\nPlace 1 [secure] if you are Moving with [secure].",
+              "Close all doors around this room.",
+              "Make a Noise roll.\nRemove this card from the game."
+            ],
+            "footer": "",
+            "upperRight": "",
+            "illegibleSpans": [],
+            "clippedSpans": []
+          },
+          "verifiedIconOccurrences": [
+            {
+              "cardLocation": "Upper-center area inside the large six-sided outline",
+              "referenceLabel": "character",
+              "matchDecision": "match",
+              "canonicalToken": "character",
+              "closestAlternative": "robot",
+              "visibleDiscriminator": "robot is a compact domed mechanical head/body without articulated limbs",
+              "evidenceRun": "sol-max-persistent-worker-20-retry-20260820T062826Z-p176060-d74a21"
+            },
+            {
+              "cardLocation": "Lower-left area inside the central six-sided outline",
+              "referenceLabel": "malfunction",
+              "matchDecision": "match",
+              "canonicalToken": "malfunction",
+              "closestAlternative": "fire",
+              "visibleDiscriminator": "fire is an orange asymmetric curl without radial teeth",
+              "evidenceRun": "sol-max-persistent-worker-20-retry-20260820T062826Z-p176060-d74a21"
+            },
+            {
+              "cardLocation": "Lower-right area inside the central six-sided outline",
+              "referenceLabel": "fire",
+              "matchDecision": "match",
+              "canonicalToken": "fire",
+              "closestAlternative": "malfunction",
+              "visibleDiscriminator": "malfunction is a gray regular toothed ring",
+              "evidenceRun": "sol-max-persistent-worker-20-retry-20260820T062826Z-p176060-d74a21"
+            },
+            {
+              "cardLocation": "Between the paired upper-right branch contours above the central six-sided outline",
+              "referenceLabel": "noise",
+              "matchDecision": "match",
+              "canonicalToken": "noise",
+              "closestAlternative": "noiseDieHazard",
+              "visibleDiscriminator": "noiseDieHazard contains a black curled creature and central yellow burst/hand instead of nested chevrons",
+              "evidenceRun": "sol-max-persistent-worker-20-retry-20260820T062826Z-p176060-d74a21"
+            },
+            {
+              "cardLocation": "Reminder sentence, immediately after the printed characters “Place 1”",
+              "referenceLabel": "secure",
+              "matchDecision": "match",
+              "canonicalToken": "secure",
+              "closestAlternative": "computer",
+              "visibleDiscriminator": "computer is a cyan rectangular monitor without shield facets",
+              "evidenceRun": "sol-max-persistent-worker-20-retry-20260820T062826Z-p176060-d74a21"
+            },
+            {
+              "cardLocation": "Reminder sentence, immediately after the printed word “with” and before the terminal period",
+              "referenceLabel": "secure",
+              "matchDecision": "match",
+              "canonicalToken": "secure",
+              "closestAlternative": "computer",
+              "visibleDiscriminator": "computer is a cyan rectangular monitor without shield facets",
+              "evidenceRun": "sol-max-persistent-worker-20-retry-20260820T062826Z-p176060-d74a21"
+            }
+          ],
+          "unresolvedIconOccurrences": [],
+          "canonicalTokensEmitted": [
+            "character",
+            "fire",
+            "malfunction",
+            "noise",
+            "secure"
+          ],
+          "allMaterialTextReadable": true,
+          "allMaterialIconsAuthoritativelyMatched": true,
+          "promotionDecision": "defer",
+          "decisionReasons": [
+            "All material printed text is readable; all 38 batch glyph occurrences pass direct glossary comparison; exact exploration FaceURL/shared BackURL role is resolved.",
+            "No unique printed title or canonical slug is visible, so canonical identity/filename cannot be established.",
+            "Current official sources provide family/mechanic corroboration but no card-specific identity or explicit supersession; no tracked byte/pixel duplicate exists."
+          ],
+          "conflictsWithPriorSnapshot": [
+            {
+              "field": "printedData.body",
+              "priorValue": "[noise]\n[character]\n[malfunction] [fire]\n\nReminder:\nPlace 1 [ICON: white shield-shaped folded-panel glyph] if you are Moving with [ICON: white shield-shaped folded-panel glyph].\n\nClose all doors around this room.\n\nMake a Noise roll.\nRemove this card from the game.",
+              "currentStatus": "superseded in selected evidence by direct-pixel normalized body and verified schematic/reminder glyphs",
+              "resolution": "preserve the historical base snapshot; selected overlay carries current exact evidence while canonical identity/slug remains deferred"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/exploration-037.png",
+      "sourceSha256": "3101f9f9a5df9d01aa07073837412496355c63df94216ab1550abc6a21221516",
+      "status": "selected-evidence-deferred",
+      "selectedRunIdentity": "w20-card-extraction-retry-20260820T062826Z-p176060-d74a21/sol-max-persistent-worker-20-retry-20260820T062826Z-p176060-d74a21/W20-007",
+      "runs": [
+        {
+          "runIdentity": "w20-card-extraction-retry-20260820T062826Z-p176060-d74a21/sol-max-persistent-worker-20-retry-20260820T062826Z-p176060-d74a21/W20-007",
+          "runId": "w20-card-extraction-retry-20260820T062826Z-p176060-d74a21",
+          "workerId": "sol-max-persistent-worker-20-retry-20260820T062826Z-p176060-d74a21",
+          "assetId": "W20-007",
+          "assignmentSha256": "6c218f42ee174892ede5f813de0523eba47e55260b19a58083a1f82287b11d53",
+          "orderedTupleDigest": "870f2b9cd113b2eae8b39128a3fd52955c47d7c6d909d6c4336d947801ed47cf",
+          "runtime": {
+            "provider": "openai-codex",
+            "model": "gpt-5.6-sol",
+            "reasoningEffort": "max",
+            "nativeImageRoute": "direct persistent smoke-proven zero-tool blind session plus direct post-blind native validation",
+            "blindSessionId": "20260820_062933_d6e177",
+            "adjudicationSessionId": "unexposed-current-supervisor-p176060",
+            "auxiliaryVisionUsed": false,
+            "qwenUsed": false,
+            "ocrCanonicalEvidenceUsed": false,
+            "modelDowngradeUsed": false
+          },
+          "artifactPaths": {
+            "blindObservationPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-20-retry-20260820T062826Z-p176060-d74a21/raw/W20-007.json",
+            "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-20-retry-20260820T062826Z-p176060-d74a21/results/W20-007.json",
+            "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-20-retry-20260820T062826Z-p176060-d74a21/references/W20-007-post-blind-contact-sheet.png"
+          },
+          "visibleText": {
+            "title": "",
+            "body": "Place a “?” Room tile.\n\n[character]\n[noise]\n\nReminder:\nPlace 1 [secure] if you are Moving with [secure].\n\nResolve\n[noiseDieHazard]\n\nRemove this card from the game.",
+            "sections": [
+              "Place a “?” Room tile.",
+              "[character]\n[noise]",
+              "Reminder:\nPlace 1 [secure] if you are Moving with [secure].",
+              "Resolve\n[noiseDieHazard]",
+              "Remove this card from the game."
+            ],
+            "footer": "",
+            "upperRight": "",
+            "illegibleSpans": [],
+            "clippedSpans": []
+          },
+          "verifiedIconOccurrences": [
+            {
+              "cardLocation": "Center of the large six-sided outline",
+              "referenceLabel": "character",
+              "matchDecision": "match",
+              "canonicalToken": "character",
+              "closestAlternative": "robot",
+              "visibleDiscriminator": "robot is a compact domed mechanical head/body without articulated limbs",
+              "evidenceRun": "sol-max-persistent-worker-20-retry-20260820T062826Z-p176060-d74a21"
+            },
+            {
+              "cardLocation": "Between the paired upward-right contours above the central six-sided outline",
+              "referenceLabel": "noise",
+              "matchDecision": "match",
+              "canonicalToken": "noise",
+              "closestAlternative": "noiseDieHazard",
+              "visibleDiscriminator": "noiseDieHazard contains a black curled creature and central yellow burst/hand instead of nested chevrons",
+              "evidenceRun": "sol-max-persistent-worker-20-retry-20260820T062826Z-p176060-d74a21"
+            },
+            {
+              "cardLocation": "Reminder sentence, immediately after the printed characters “Place 1”",
+              "referenceLabel": "secure",
+              "matchDecision": "match",
+              "canonicalToken": "secure",
+              "closestAlternative": "computer",
+              "visibleDiscriminator": "computer is a cyan rectangular monitor without shield facets",
+              "evidenceRun": "sol-max-persistent-worker-20-retry-20260820T062826Z-p176060-d74a21"
+            },
+            {
+              "cardLocation": "Reminder sentence, immediately after the printed word “with” and before the terminal period",
+              "referenceLabel": "secure",
+              "matchDecision": "match",
+              "canonicalToken": "secure",
+              "closestAlternative": "computer",
+              "visibleDiscriminator": "computer is a cyan rectangular monitor without shield facets",
+              "evidenceRun": "sol-max-persistent-worker-20-retry-20260820T062826Z-p176060-d74a21"
+            },
+            {
+              "cardLocation": "Lower orange-brown panel, directly below “Resolve” and directly above “Remove this card from the game.”",
+              "referenceLabel": "noiseDieHazard",
+              "matchDecision": "match",
+              "canonicalToken": "noiseDieHazard",
+              "closestAlternative": "noise",
+              "visibleDiscriminator": "noise has a central dark hexagon and nested side chevrons, neither visible in the source hazard glyph",
+              "evidenceRun": "sol-max-persistent-worker-20-retry-20260820T062826Z-p176060-d74a21"
+            }
+          ],
+          "unresolvedIconOccurrences": [],
+          "canonicalTokensEmitted": [
+            "character",
+            "noise",
+            "noiseDieHazard",
+            "secure"
+          ],
+          "allMaterialTextReadable": true,
+          "allMaterialIconsAuthoritativelyMatched": true,
+          "promotionDecision": "defer",
+          "decisionReasons": [
+            "All material printed text is readable; all 38 batch glyph occurrences pass direct glossary comparison; exact exploration FaceURL/shared BackURL role is resolved.",
+            "No unique printed title or canonical slug is visible, so canonical identity/filename cannot be established.",
+            "Current official sources provide family/mechanic corroboration but no card-specific identity or explicit supersession; no tracked byte/pixel duplicate exists."
+          ],
+          "conflictsWithPriorSnapshot": [
+            {
+              "field": "printedData.body",
+              "priorValue": "Place a “?” Room tile.\n\n[noise]\n[character]\n\nReminder:\nPlace 1 [ICON: white shield-shaped glyph with black angular line] if you are Moving with [ICON: white shield-shaped glyph with black angular line].\n\nResolve\nRemove this card from the game.",
+              "currentStatus": "superseded in selected evidence by direct-pixel normalized body and verified schematic/reminder glyphs",
+              "resolution": "preserve the historical base snapshot; selected overlay carries current exact evidence while canonical identity/slug remains deferred"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/exploration-062.png",
+      "sourceSha256": "b3be8596be1e99b3b520b0ce2c37e7f14a48c6a90dc4e422d32ae92592fbab38",
+      "status": "selected-evidence-deferred",
+      "selectedRunIdentity": "w20-card-extraction-retry-20260820T062826Z-p176060-d74a21/sol-max-persistent-worker-20-retry-20260820T062826Z-p176060-d74a21/W20-008",
+      "runs": [
+        {
+          "runIdentity": "w20-card-extraction-retry-20260820T062826Z-p176060-d74a21/sol-max-persistent-worker-20-retry-20260820T062826Z-p176060-d74a21/W20-008",
+          "runId": "w20-card-extraction-retry-20260820T062826Z-p176060-d74a21",
+          "workerId": "sol-max-persistent-worker-20-retry-20260820T062826Z-p176060-d74a21",
+          "assetId": "W20-008",
+          "assignmentSha256": "6c218f42ee174892ede5f813de0523eba47e55260b19a58083a1f82287b11d53",
+          "orderedTupleDigest": "870f2b9cd113b2eae8b39128a3fd52955c47d7c6d909d6c4336d947801ed47cf",
+          "runtime": {
+            "provider": "openai-codex",
+            "model": "gpt-5.6-sol",
+            "reasoningEffort": "max",
+            "nativeImageRoute": "direct persistent smoke-proven zero-tool blind session plus direct post-blind native validation",
+            "blindSessionId": "20260820_062933_d6e177",
+            "adjudicationSessionId": "unexposed-current-supervisor-p176060",
+            "auxiliaryVisionUsed": false,
+            "qwenUsed": false,
+            "ocrCanonicalEvidenceUsed": false,
+            "modelDowngradeUsed": false
+          },
+          "artifactPaths": {
+            "blindObservationPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-20-retry-20260820T062826Z-p176060-d74a21/raw/W20-008.json",
+            "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-20-retry-20260820T062826Z-p176060-d74a21/results/W20-008.json",
+            "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-20-retry-20260820T062826Z-p176060-d74a21/references/W20-008-post-blind-contact-sheet.png"
+          },
+          "visibleText": {
+            "title": "",
+            "body": "Place A/B/C Room\ndepending on your Section.\n\n[character]\n[noise]\n\nReminder:\nPlace 1 [secure] if you are Moving with [secure].\n\nEntrance Effect:\nPlace 3 Adults in the Corridor\nyou have just passed through.\nThen, make a Noise roll.",
+            "sections": [
+              "Place A/B/C Room\ndepending on your Section.",
+              "[character]\n[noise]",
+              "Reminder:\nPlace 1 [secure] if you are Moving with [secure].",
+              "Entrance Effect:\nPlace 3 Adults in the Corridor\nyou have just passed through.\nThen, make a Noise roll."
+            ],
+            "footer": "",
+            "upperRight": "",
+            "illegibleSpans": [],
+            "clippedSpans": []
+          },
+          "verifiedIconOccurrences": [
+            {
+              "cardLocation": "Center of the large six-sided outline",
+              "referenceLabel": "character",
+              "matchDecision": "match",
+              "canonicalToken": "character",
+              "closestAlternative": "robot",
+              "visibleDiscriminator": "robot is a compact domed mechanical head/body without articulated limbs",
+              "evidenceRun": "sol-max-persistent-worker-20-retry-20260820T062826Z-p176060-d74a21"
+            },
+            {
+              "cardLocation": "Between the paired horizontal contours to the right of the central six-sided outline",
+              "referenceLabel": "noise",
+              "matchDecision": "match",
+              "canonicalToken": "noise",
+              "closestAlternative": "noiseDieHazard",
+              "visibleDiscriminator": "noiseDieHazard contains a black curled creature and central yellow burst/hand instead of nested chevrons",
+              "evidenceRun": "sol-max-persistent-worker-20-retry-20260820T062826Z-p176060-d74a21"
+            },
+            {
+              "cardLocation": "Reminder sentence, immediately after the printed characters “Place 1”",
+              "referenceLabel": "secure",
+              "matchDecision": "match",
+              "canonicalToken": "secure",
+              "closestAlternative": "computer",
+              "visibleDiscriminator": "computer is a cyan rectangular monitor without shield facets",
+              "evidenceRun": "sol-max-persistent-worker-20-retry-20260820T062826Z-p176060-d74a21"
+            },
+            {
+              "cardLocation": "Reminder sentence, immediately after the printed word “with” and before the terminal period",
+              "referenceLabel": "secure",
+              "matchDecision": "match",
+              "canonicalToken": "secure",
+              "closestAlternative": "computer",
+              "visibleDiscriminator": "computer is a cyan rectangular monitor without shield facets",
+              "evidenceRun": "sol-max-persistent-worker-20-retry-20260820T062826Z-p176060-d74a21"
+            }
+          ],
+          "unresolvedIconOccurrences": [],
+          "canonicalTokensEmitted": [
+            "character",
+            "noise",
+            "secure"
+          ],
+          "allMaterialTextReadable": true,
+          "allMaterialIconsAuthoritativelyMatched": true,
+          "promotionDecision": "defer",
+          "decisionReasons": [
+            "All material printed text is readable; all 38 batch glyph occurrences pass direct glossary comparison; exact exploration FaceURL/shared BackURL role is resolved.",
+            "No unique printed title or canonical slug is visible, so canonical identity/filename cannot be established.",
+            "Current official sources provide family/mechanic corroboration but no card-specific identity or explicit supersession; no tracked byte/pixel duplicate exists."
+          ],
+          "conflictsWithPriorSnapshot": [
+            {
+              "field": "printedData.body",
+              "priorValue": "Place A/B/C Room\ndepending on your Section.\n\nReminder:\nPlace 1 [ICON: white downward-pointing angular shield divided into three facets] if you are Moving with [ICON: white downward-pointing angular shield divided into three facets].\n\nEntrance Effect:\nPlace 3 Adults in the Corridor\nyou have just passed through.\nThen, make a Noise roll.",
+              "currentStatus": "superseded in selected evidence by direct-pixel normalized body and verified schematic/reminder glyphs",
+              "resolution": "preserve the historical base snapshot; selected overlay carries current exact evidence while canonical identity/slug remains deferred"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

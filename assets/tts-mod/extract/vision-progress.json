@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-08-20T06:08:12.846918Z",
+  "updatedAt": "2026-08-20T07:06:51.770770Z",
   "scope": {
     "root": "assets/tts-mod/extract/v2-dl/tree",
     "definition": "Every base-game PNG/JPEG canonical child or standalone image in the extraction tree. Source sprite sheets with documented canonical split children are excluded from semantic re-extraction.",
@@ -82436,9 +82436,13 @@
       "vision": {
         "provider": "openai-codex",
         "model": "gpt-5.6-sol",
-        "sessionId": "20260815_052616_14270f",
-        "resultPath": "assets/tts-mod/extract/vision-results/774b6ed8ea4492bfae38145c828ae47c61536855ec1ffb86702d1fb2d2d09d8b.json",
-        "confidence": "medium"
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-20-retry-20260820T062826Z-p176060-d74a21",
+        "sessionId": "20260820_062933_d6e177",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-20-retry-20260820T062826Z-p176060-d74a21/results/W20-001.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-20-retry-20260820T062826Z-p176060-d74a21/raw/W20-001.json",
+        "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-20-retry-20260820T062826Z-p176060-d74a21/references/W20-001-post-blind-contact-sheet.png",
+        "confidence": "high-evidence-deferred-identity"
       },
       "provenance": {
         "sourceUrl": "https://steamusercontent-a.akamaihd.net/ugc/11925215518030311/1D1C8104FBBBC2C0C1D0C3D181D19BCBC82DABFD/",
@@ -82558,36 +82562,34 @@
         ]
       },
       "semanticRead": {
-        "componentType": "exploration room-placement instruction card",
+        "componentType": "untitled exploration instruction face",
         "cardSide": "face",
         "title": "",
         "typeLine": "",
-        "body": "Place A/B/C Room\ndepending on your Section.\n\nReminder:\nPlace 1 [ICON: white upright faceted marker with solid cap, outlined pointed lower half, and diagonal interior stroke] if you are Moving with [ICON: white upright faceted shield-like marker with pointed bottom and black Y-shaped interior seams].\n\nMake a Noise roll.",
+        "body": "Place A/B/C Room\ndepending on your Section.\n\n[character] [malfunction]\n[noise]\n\nReminder:\nPlace 1 [secure] if you are Moving with [secure].\n\nMake a Noise roll.",
         "footer": "",
         "upperRight": "",
         "lowerCenter": "",
-        "visibleText": "[noise]\n[character] [malfunction]",
+        "visibleText": "",
         "confidentlyVisible": [
-          "The file is already oriented with all typography upright.",
-          "The component is a portrait rounded-rectangle card face.",
-          "The central diagram contains a white-outlined hexagonal room connected to corridor-like branches.",
-          "A white astronaut [character] and grey gear [malfunction] appear inside the central room.",
-          "A yellow signal-wave warning symbol [noise] appears in the upper connected area.",
-          "The card has a dark green-black background fading to orange near the bottom.",
-          "Pale green horizontal dividers separate the upper instruction, reminder panel, and final instruction."
+          "A portrait-oriented rounded rectangle fills the image. Its edge is nearly black; the upper and middle field is dark green-black with dense mottled rows of tiny rectangular marks, while the bottom field transitions to orange-brown.",
+          "Two centered lines of large bold white sans-serif print occupy the upper portion.",
+          "Three thin mint-green horizontal rules divide the composition: one below the upper text, one above the lower text block, and one below that block. Each rule has a centered downward-pointing angular notch.",
+          "The middle contains a large white/light-gray outlined six-sided polygon. Paired angular outline paths project upward, to the right, and toward the lower right, with several zigzag constrictions.",
+          "Inside the six-sided polygon are a small white segmented bilateral figure in the upper-left area and a larger white toothed circular figure nearer the center. A yellow tapered polygon containing near-black marks sits above the polygon's upper-right edge.",
+          "The lower text area has a centered one-line heading, a centered sentence containing two matching white inline glyphs, and a separate final centered sentence below the lowest mint-green rule.",
+          "The background's tiny repeated marks do not resolve into confidently readable words."
         ],
         "proposedCategory": "cards/game/exploration",
-        "proposedSlug": null,
-        "confidence": "medium",
+        "proposedSlug": "",
+        "confidence": "high-evidence-deferred-identity",
         "uncertainties": [
-          "The two white glyphs in the Reminder sentence are not confidently matched to any supplied canonical icon and are therefore transcribed literally.",
-          "The two reminder-line glyphs have similar shield/book-like silhouettes, but their visible fill and interior-seam details appear different; no identity or equivalence is inferred.",
-          "No explicit printed title is distinguishable from the instructional rules text, so title is empty and no semantic slug is proposed."
+          "No unique printed title or canonical slug is visible."
         ],
         "orientation": "upright"
       },
       "reviewQueuePath": "assets/tts-mod/extract/low-confidence-review.json",
-      "deferReason": "exact card identity/transcription/icon/category is not uniformly high-confidence"
+      "deferReason": "No unique printed title or canonical slug is visible; exact canonical identity/filename remains unresolved although all material text and glossary glyphs are verified."
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/exploration-026.png",
@@ -82601,9 +82603,13 @@
       "vision": {
         "provider": "openai-codex",
         "model": "gpt-5.6-sol",
-        "sessionId": "20260815_052620_801d44",
-        "resultPath": "assets/tts-mod/extract/vision-results/08445a3d8b18081d7396756f407ac058c383c3aee05bde76e80393b0af4b741d.json",
-        "confidence": "medium"
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-20-retry-20260820T062826Z-p176060-d74a21",
+        "sessionId": "20260820_062933_d6e177",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-20-retry-20260820T062826Z-p176060-d74a21/results/W20-002.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-20-retry-20260820T062826Z-p176060-d74a21/raw/W20-002.json",
+        "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-20-retry-20260820T062826Z-p176060-d74a21/references/W20-002-post-blind-contact-sheet.png",
+        "confidence": "high-evidence-deferred-identity"
       },
       "provenance": {
         "sourceUrl": "https://steamusercontent-a.akamaihd.net/ugc/11925215518029621/DCB70EAF3D848DE18CA7FE9DECD76846047A23CB/",
@@ -82723,35 +82729,34 @@
         ]
       },
       "semanticRead": {
-        "componentType": "exploration instruction card",
+        "componentType": "untitled exploration instruction face",
         "cardSide": "face",
         "title": "",
         "typeLine": "",
-        "body": "Place A/B/C Room\ndepending on your Section.\n\n[character] [fire]\n\nReminder:\nPlace 1 [ICON: white vertically elongated shield-like glyph with a notched top and internal chevron lines] if you are Moving with [ICON: white vertically elongated shield-like glyph with a notched top and internal chevron lines].\n\nClose all doors around this room.\n\nMake a Noise roll.",
+        "body": "Place A/B/C Room\ndepending on your Section.\n\n[character] [fire]\n\nReminder:\nPlace 1 [secure] if you are Moving with [secure].\n\nClose all doors around this room.\n\nMake a Noise roll.",
         "footer": "",
         "upperRight": "",
         "lowerCenter": "",
         "visibleText": "",
         "confidentlyVisible": [
-          "All typography is upright in the file as shown.",
-          "The central diagram contains a white astronaut glyph matching [character].",
-          "The central diagram contains an orange flame glyph matching [fire].",
-          "The astronaut and flame appear inside a white hexagonal room outline.",
-          "Two white corridor-like outlines extend from the room toward the right and lower right.",
-          "The two inline white glyphs in the Reminder sentence appear morphologically identical."
+          "A tall rounded rectangle fills the frame. The corners and outer vignette are nearly black. Most of the field is dark green-black with dense mottled rows of tiny rectangular marks; the lower portion transitions into a dark orange-brown field.",
+          "Two centered lines of large bold white sans-serif print occupy the upper portion.",
+          "Three thin mint-green horizontal rules divide the layout: one below the upper text, one above the reminder block, and one below that block. Each has a centered downward-pointing angular notch.",
+          "The middle contains a large white/light-gray outlined six-sided polygon with a top point, a bottom point, and near-vertical left and right sides. Paired angular paths project from its right side at two levels, and another paired oblique path projects toward the lower right.",
+          "A small white segmented bilateral figure appears in the upper-left region inside the six-sided outline. A larger vivid orange curled form appears below and to its right.",
+          "The lower text region contains a centered heading and a centered sentence interrupted by two matching white inline glyphs. Below a mint-green rule are two additional centered sentences separated vertically.",
+          "The tiny repeated background marks do not resolve into confidently readable material words."
         ],
         "proposedCategory": "cards/game/exploration",
-        "proposedSlug": null,
-        "confidence": "medium",
+        "proposedSlug": "",
+        "confidence": "high-evidence-deferred-identity",
         "uncertainties": [
-          "The two inline white glyphs in the Reminder sentence do not confidently match any supplied canonical glossary icon; they are therefore transcribed literally.",
-          "No distinct printed title is visible, so a semantic filename stem cannot be established from a title or unmistakable depicted identity.",
-          "The precise printed product term for this component type is not visible; “exploration instruction card” is inferred from its face layout and instructions."
+          "No unique printed title or canonical slug is visible."
         ],
         "orientation": "upright"
       },
       "reviewQueuePath": "assets/tts-mod/extract/low-confidence-review.json",
-      "deferReason": "exact card identity/transcription/icon/category is not uniformly high-confidence"
+      "deferReason": "No unique printed title or canonical slug is visible; exact canonical identity/filename remains unresolved although all material text and glossary glyphs are verified."
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/exploration-027.png",
@@ -82765,9 +82770,13 @@
       "vision": {
         "provider": "openai-codex",
         "model": "gpt-5.6-sol",
-        "sessionId": "20260815_052625_8e3f13",
-        "resultPath": "assets/tts-mod/extract/vision-results/3da198b348a70d64e20de051034e98aa2454ef1912df3cf18e78eaf7c4800043.json",
-        "confidence": "medium"
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-20-retry-20260820T062826Z-p176060-d74a21",
+        "sessionId": "20260820_062933_d6e177",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-20-retry-20260820T062826Z-p176060-d74a21/results/W20-003.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-20-retry-20260820T062826Z-p176060-d74a21/raw/W20-003.json",
+        "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-20-retry-20260820T062826Z-p176060-d74a21/references/W20-003-post-blind-contact-sheet.png",
+        "confidence": "high-evidence-deferred-identity"
       },
       "provenance": {
         "sourceUrl": "https://steamusercontent-a.akamaihd.net/ugc/11925215518050719/4C6CCB5E2452EE1966E603E99743C8BAC852419E/",
@@ -82887,37 +82896,35 @@
         ]
       },
       "semanticRead": {
-        "componentType": "exploration room-placement instruction card",
+        "componentType": "untitled exploration instruction face",
         "cardSide": "face",
         "title": "",
         "typeLine": "",
-        "body": "Place A/B/C Room\ndepending on your Section.\n\n[character]    [noise]\n\nReminder:\nPlace 1 [ICON: white faceted vertical shield-like marker] if you are Moving with [ICON: white faceted vertical shield-like marker].\n\nResolve",
+        "body": "Place A/B/C Room\ndepending on your Section.\n\n[character]\n[noise]\n\nReminder:\nPlace 1 [secure] if you are Moving with [secure].\n\nResolve\n[noiseDieHazard]",
         "footer": "",
         "upperRight": "",
-        "lowerCenter": "[ICON: yellow triangle with black curled creature silhouette]",
+        "lowerCenter": "",
         "visibleText": "",
         "confidentlyVisible": [
-          "Portrait-oriented rounded rectangular card",
-          "All meaningful typography is already upright",
-          "Top instruction is printed across two centered lines",
-          "Central diagram shows a white-outlined hexagonal room with a white astronaut icon",
-          "The room diagram has a right-hand extension containing a yellow noise-like glyph",
-          "Reminder panel contains two white faceted marker glyphs",
-          "Bottom orange-brown panel is headed “Resolve”",
-          "A yellow triangular glyph with a black curled creature silhouette is centered below “Resolve”"
+          "A tall rounded rectangle fills the frame, with nearly black corners and a dark vignette. Most of the field is mottled dark green-black with dense rows of tiny rectangular marks; the lower region transitions to dark orange-brown.",
+          "Two centered lines of large bold white sans-serif print occupy the upper portion.",
+          "Three thin mint-green horizontal rules divide the composition: one below the upper text, one above the reminder block, and one below the reminder block. Each rule has a centered downward-pointing angular notch.",
+          "The middle contains a large white/light-gray outlined six-sided polygon. Paired angular paths extend upward from its upper-right area, horizontally from its right side, and diagonally from its lower-right area.",
+          "A small white segmented bilateral figure is centered inside the six-sided polygon. A separate bright yellow tapered polygon with near-black internal marks sits between the two horizontal paths extending to the right.",
+          "The lower green region contains a centered heading and a centered sentence interrupted by two matching white inline glyphs.",
+          "Below the lowest mint-green rule, the orange-brown region contains one centered white word and, directly beneath it, a large yellow kite-like polygon containing a near-black irregular mark.",
+          "The tiny repeated background marks do not resolve into confidently readable material words."
         ],
         "proposedCategory": "cards/game/exploration",
-        "proposedSlug": null,
-        "confidence": "medium",
+        "proposedSlug": "",
+        "confidence": "high-evidence-deferred-identity",
         "uncertainties": [
-          "The two white inline faceted marker glyphs are not confidently represented in the supplied canonical glossary; their exact identity is unknown.",
-          "The lower-center yellow triangular action glyph contains a black curled creature silhouette, but its complete glyph does not confidently match a canonical icon and may be card-local.",
-          "No explicit card title or uniquely named identity is visible, so a semantic filename slug cannot be assigned confidently."
+          "No unique printed title or canonical slug is visible."
         ],
         "orientation": "upright"
       },
       "reviewQueuePath": "assets/tts-mod/extract/low-confidence-review.json",
-      "deferReason": "exact card identity/transcription/icon/category is not uniformly high-confidence"
+      "deferReason": "No unique printed title or canonical slug is visible; exact canonical identity/filename remains unresolved although all material text and glossary glyphs are verified."
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/exploration-031.png",
@@ -82931,9 +82938,13 @@
       "vision": {
         "provider": "openai-codex",
         "model": "gpt-5.6-sol",
-        "sessionId": "20260815_052632_f12018",
-        "resultPath": "assets/tts-mod/extract/vision-results/549bb22b017b6df982c3378f613294969d7043a1a87a1e4b4f5d704308d2ceb0.json",
-        "confidence": "medium"
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-20-retry-20260820T062826Z-p176060-d74a21",
+        "sessionId": "20260820_062933_d6e177",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-20-retry-20260820T062826Z-p176060-d74a21/results/W20-004.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-20-retry-20260820T062826Z-p176060-d74a21/raw/W20-004.json",
+        "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-20-retry-20260820T062826Z-p176060-d74a21/references/W20-004-post-blind-contact-sheet.png",
+        "confidence": "high-evidence-deferred-identity"
       },
       "provenance": {
         "sourceUrl": "https://steamusercontent-a.akamaihd.net/ugc/11925215518030670/599A7276F04BC15021BEA3056C9637EFEDCC6796/",
@@ -83053,34 +83064,35 @@
         ]
       },
       "semanticRead": {
-        "componentType": "exploration instruction card",
+        "componentType": "untitled exploration instruction face",
         "cardSide": "face",
         "title": "",
         "typeLine": "",
-        "body": "Place A/B/C Room\ndepending on your Section.\n\nReminder:\nPlace 1 [ICON: white faceted shield-shaped glyph] if you are Moving with [ICON: white faceted shield-shaped glyph].\n\nClose all doors around this room.\n\nMake a Noise roll.",
+        "body": "Place A/B/C Room\ndepending on your Section.\n\n[character] [malfunction]\n[noise]\n\nReminder:\nPlace 1 [secure] if you are Moving with [secure].\n\nClose all doors around this room.\n\nMake a Noise roll.",
         "footer": "",
         "upperRight": "",
         "lowerCenter": "",
         "visibleText": "",
         "confidentlyVisible": [
-          "White typography is upright and horizontally readable.",
-          "A central outlined hexagonal room contains a white [character] icon and a white [malfunction] icon.",
-          "The corridor branching right contains a yellow [noise] icon.",
-          "The two inline reminder glyphs are visually identical white faceted shield-like symbols.",
-          "Green divider lines separate the instruction, reminder, and final-effect panels.",
-          "The lower panel has an orange-brown background glow."
+          "A tall rounded rectangle fills the frame. The corners and edge vignette are nearly black. Most of the field is mottled dark green-black with dense rows of tiny rectangular marks; the lower portion transitions into dark orange-brown.",
+          "Two centered lines of large bold white sans-serif print occupy the upper portion.",
+          "Three thin mint-green horizontal rules divide the composition: one below the upper text, one above the reminder block, and one below the reminder block. Each rule contains a centered downward-pointing angular notch.",
+          "The middle contains a large white/light-gray outlined six-sided polygon. Two angular outline paths project upward from its upper-right area, while two near-horizontal paths project from its right side.",
+          "A small white segmented bilateral figure and a larger white toothed ring occupy the central six-sided area. A bright yellow tapered polygon with near-black internal marks sits between the two horizontal paths to the right.",
+          "The lower green region contains a centered heading and a centered sentence interrupted by two matching white inline glyphs.",
+          "Below the lowest mint-green rule, the orange-brown region contains two centered white sentences separated by a large vertical gap.",
+          "The tiny repeated background marks do not resolve into confidently readable material words."
         ],
         "proposedCategory": "cards/game/exploration",
-        "proposedSlug": null,
-        "confidence": "medium",
+        "proposedSlug": "",
+        "confidence": "high-evidence-deferred-identity",
         "uncertainties": [
-          "The two identical inline white faceted glyphs do not confidently match any supplied canonical glossary icon, so their meaning is not assigned.",
-          "No explicit printed title is visible, so no semantic filename stem is proposed."
+          "No unique printed title or canonical slug is visible."
         ],
         "orientation": "upright"
       },
       "reviewQueuePath": "assets/tts-mod/extract/low-confidence-review.json",
-      "deferReason": "exact card identity/transcription/icon/category is not uniformly high-confidence"
+      "deferReason": "No unique printed title or canonical slug is visible; exact canonical identity/filename remains unresolved although all material text and glossary glyphs are verified."
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/exploration-032.png",
@@ -83094,9 +83106,13 @@
       "vision": {
         "provider": "openai-codex",
         "model": "gpt-5.6-sol",
-        "sessionId": "20260815_052643_c48cc7",
-        "resultPath": "assets/tts-mod/extract/vision-results/9c521a0ca8f9303363e69266962c20bee13b7a03cc8d05410399755ea42c684b.json",
-        "confidence": "medium"
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-20-retry-20260820T062826Z-p176060-d74a21",
+        "sessionId": "20260820_062933_d6e177",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-20-retry-20260820T062826Z-p176060-d74a21/results/W20-005.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-20-retry-20260820T062826Z-p176060-d74a21/raw/W20-005.json",
+        "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-20-retry-20260820T062826Z-p176060-d74a21/references/W20-005-post-blind-contact-sheet.png",
+        "confidence": "high-evidence-deferred-identity"
       },
       "provenance": {
         "sourceUrl": "https://steamusercontent-a.akamaihd.net/ugc/11925215518027499/4D0592E08E56B9B14B770435CA4F1558A03F505A/",
@@ -83216,36 +83232,35 @@
         ]
       },
       "semanticRead": {
-        "componentType": "exploration instruction card",
+        "componentType": "untitled exploration instruction face",
         "cardSide": "face",
         "title": "",
         "typeLine": "",
-        "body": "Place A/B/C Room\ndepending on your Section.\n\nReminder:\nPlace 1 [ICON: white shield/book-shaped glyph with central vertical seam] if you are Moving with [ICON: white shield/book-shaped glyph with central vertical seam].\n\nPlace 4 Adults in the Corridor\nyou have just passed through.\nThen, make a Noise roll as normal.",
+        "body": "Place A/B/C Room\ndepending on your Section.\n\n[character]\n[noise]\n\nReminder:\nPlace 1 [secure] if you are Moving with [secure].\n\nPlace 4 Adults in the Corridor\nyou have just passed through.\nThen, make a Noise roll as normal.",
         "footer": "",
         "upperRight": "",
         "lowerCenter": "",
         "visibleText": "",
         "confidentlyVisible": [
-          "All meaningful typography is upright in the file.",
-          "A white room-and-corridor diagram occupies the center.",
-          "A yellow [noise] icon appears in the diagram's upper branch.",
-          "A white [character] icon appears inside the central hexagonal room.",
-          "Two matching white shield/book-shaped glyphs appear inline in the Reminder sentence.",
-          "The final three-line instruction is printed over an orange-brown lower panel."
+          "A tall rounded rectangle fills the frame. The corners and edge vignette are nearly black. Most of the field is mottled dark green-black with dense rows of tiny rectangular marks; the lower portion transitions into dark orange-brown.",
+          "Two centered lines of large bold white sans-serif print occupy the upper portion.",
+          "Three thin mint-green horizontal rules divide the composition: one below the upper text, one above the reminder block, and one below the reminder block. Each rule contains a centered downward-pointing angular notch.",
+          "The middle contains a large white/light-gray closed six-sided outline. Paired angular contours project upward-right from its upper-right area, paired near-horizontal contours project from its right side, and paired diagonal contours project toward the lower left.",
+          "A small white segmented bilateral figure is centered inside the six-sided outline. A bright yellow tapered polygon with near-black internal marks sits between the upward-right branch contours.",
+          "The lower green region contains a centered heading and a centered sentence interrupted by two matching white inline glyphs.",
+          "Below the lowest mint-green rule, three centered lines of white print occupy the orange-brown region.",
+          "The tiny repeated background marks do not resolve into confidently readable material words."
         ],
         "proposedCategory": "cards/game/exploration",
-        "proposedSlug": null,
-        "confidence": "medium",
+        "proposedSlug": "",
+        "confidence": "high-evidence-deferred-identity",
         "uncertainties": [
-          "The two inline white shield/book-shaped glyphs do not confidently match any supplied canonical icon and are therefore transcribed literally.",
-          "No explicit title, type line, or footer is visible; the upper wording is treated as an instruction rather than a title.",
-          "The exploration-card category is supported by the visible room-placement diagram and instructions, but no explicit component-type label is printed.",
-          "No unambiguous title or depicted identity supports a semantic filename slug."
+          "No unique printed title or canonical slug is visible."
         ],
         "orientation": "upright"
       },
       "reviewQueuePath": "assets/tts-mod/extract/low-confidence-review.json",
-      "deferReason": "exact card identity/transcription/icon/category is not uniformly high-confidence"
+      "deferReason": "No unique printed title or canonical slug is visible; exact canonical identity/filename remains unresolved although all material text and glossary glyphs are verified."
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/exploration-036.png",
@@ -83259,9 +83274,13 @@
       "vision": {
         "provider": "openai-codex",
         "model": "gpt-5.6-sol",
-        "sessionId": "20260815_052647_dce7e8",
-        "resultPath": "assets/tts-mod/extract/vision-results/160d5d76b631d1ccbd1e4ea981313a1edbd83a6e9eda34dd825fafc2f9cbdd4d.json",
-        "confidence": "medium"
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-20-retry-20260820T062826Z-p176060-d74a21",
+        "sessionId": "20260820_062933_d6e177",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-20-retry-20260820T062826Z-p176060-d74a21/results/W20-006.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-20-retry-20260820T062826Z-p176060-d74a21/raw/W20-006.json",
+        "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-20-retry-20260820T062826Z-p176060-d74a21/references/W20-006-post-blind-contact-sheet.png",
+        "confidence": "high-evidence-deferred-identity"
       },
       "provenance": {
         "sourceUrl": "https://steamusercontent-a.akamaihd.net/ugc/11927200046571277/C93D9F935166EB7C954DAD938F5AA78A09F262C7/",
@@ -83381,37 +83400,35 @@
         ]
       },
       "semanticRead": {
-        "componentType": "exploration instruction card",
+        "componentType": "untitled exploration instruction face",
         "cardSide": "face",
-        "title": "Place a “?” Room tile.",
+        "title": "",
         "typeLine": "",
-        "body": "[noise]\n[character]\n[malfunction] [fire]\n\nReminder:\nPlace 1 [ICON: white shield-shaped folded-panel glyph] if you are Moving with [ICON: white shield-shaped folded-panel glyph].\n\nClose all doors around this room.\n\nMake a Noise roll.\nRemove this card from the game.",
+        "body": "Place a “?” Room tile.\n\n[character] [malfunction] [fire]\n[noise]\n\nReminder:\nPlace 1 [secure] if you are Moving with [secure].\n\nClose all doors around this room.\n\nMake a Noise roll.\nRemove this card from the game.",
         "footer": "",
         "upperRight": "",
         "lowerCenter": "",
         "visibleText": "",
         "confidentlyVisible": [
-          "All typography is upright in the file as shown.",
-          "The card has rounded corners and a dark green-to-brown technological background.",
-          "A white branching room-and-corridor diagram occupies the center.",
-          "A yellow noise glyph appears in the upper-right branch of the diagram.",
-          "A white astronaut glyph appears near the top of the central hexagonal room.",
-          "A gray gear glyph and an orange flame glyph appear inside the central room.",
-          "Two small white shield-like folded-panel glyphs appear inline in the Reminder sentence.",
-          "The bottom rules panel has a brown-orange background."
+          "A tall rounded rectangle fills the frame. The corners and edge vignette are nearly black. Most of the field is mottled dark green-black with dense rows of tiny rectangular marks; the lower portion transitions into dark orange-brown.",
+          "One centered line of large bold white sans-serif print occupies the upper portion. A question-mark glyph is enclosed by double quotation marks within that line.",
+          "Three thin mint-green horizontal rules divide the composition: one below the upper line, one above the reminder block, and one below the reminder block. Each rule contains a centered downward-pointing angular notch.",
+          "The middle contains a large white/light-gray closed six-sided outline. Paired angular contours project upward-left, upward-right, and downward-right from the central outline.",
+          "Three glyphs occupy the six-sided area: a small white segmented bilateral figure near the top, a larger pale toothed ring at lower left, and a vivid orange curled form at lower right. A separate yellow tapered polygon with near-black internal marks sits between the upper-right branch contours.",
+          "The lower green region contains a centered heading and a centered sentence interrupted by two matching white inline glyphs.",
+          "Below the lowest mint-green rule, the orange-brown region contains one centered bold sentence. Farther down are another bold sentence and a thinner-weight sentence on separate centered lines.",
+          "The tiny repeated background marks do not resolve into confidently readable material words."
         ],
         "proposedCategory": "cards/game/exploration",
-        "proposedSlug": "place-a-question-mark-room-tile",
-        "confidence": "medium",
+        "proposedSlug": "",
+        "confidence": "high-evidence-deferred-identity",
         "uncertainties": [
-          "The two inline white shield-shaped folded-panel glyphs are not confidently matched to the supplied glossary and are therefore transcribed literally rather than assigned meanings.",
-          "The top instruction is treated as the title because it is the prominent heading, although no separate formal card-name line is printed.",
-          "The exploration category is inferred from the visible room-placement instruction and diagram rather than from a printed type line."
+          "No unique printed title or canonical slug is visible."
         ],
         "orientation": "upright"
       },
       "reviewQueuePath": "assets/tts-mod/extract/low-confidence-review.json",
-      "deferReason": "exact card identity/transcription/icon/category is not uniformly high-confidence"
+      "deferReason": "No unique printed title or canonical slug is visible; exact canonical identity/filename remains unresolved although all material text and glossary glyphs are verified."
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/exploration-037.png",
@@ -83425,9 +83442,13 @@
       "vision": {
         "provider": "openai-codex",
         "model": "gpt-5.6-sol",
-        "sessionId": "20260815_052713_62a66d",
-        "resultPath": "assets/tts-mod/extract/vision-results/3101f9f9a5df9d01aa07073837412496355c63df94216ab1550abc6a21221516.json",
-        "confidence": "medium"
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-20-retry-20260820T062826Z-p176060-d74a21",
+        "sessionId": "20260820_062933_d6e177",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-20-retry-20260820T062826Z-p176060-d74a21/results/W20-007.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-20-retry-20260820T062826Z-p176060-d74a21/raw/W20-007.json",
+        "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-20-retry-20260820T062826Z-p176060-d74a21/references/W20-007-post-blind-contact-sheet.png",
+        "confidence": "high-evidence-deferred-identity"
       },
       "provenance": {
         "sourceUrl": "https://steamusercontent-a.akamaihd.net/ugc/11927200046573937/52D39376A8EA1E6846E32B4300139EAC3676DC37/",
@@ -83547,36 +83568,35 @@
         ]
       },
       "semanticRead": {
-        "componentType": "exploration instruction card",
+        "componentType": "untitled exploration instruction face",
         "cardSide": "face",
         "title": "",
         "typeLine": "",
-        "body": "Place a “?” Room tile.\n\n[noise]\n[character]\n\nReminder:\nPlace 1 [ICON: white shield-shaped glyph with black angular line] if you are Moving with [ICON: white shield-shaped glyph with black angular line].\n\nResolve\nRemove this card from the game.",
+        "body": "Place a “?” Room tile.\n\n[character]\n[noise]\n\nReminder:\nPlace 1 [secure] if you are Moving with [secure].\n\nResolve\n[noiseDieHazard]\n\nRemove this card from the game.",
         "footer": "",
         "upperRight": "",
-        "lowerCenter": "[ICON: yellow triangle with black irregular burst glyph]",
+        "lowerCenter": "",
         "visibleText": "",
         "confidentlyVisible": [
-          "White instruction text appears upright.",
-          "A white astronaut [character] appears inside a central hexagonal room outline.",
-          "A yellow [noise] symbol appears in a corridor adjoining the central room.",
-          "Three corridor outlines branch from the central room.",
-          "The lower Resolve panel has an orange-brown background.",
-          "No text is visibly clipped."
+          "A tall rounded rectangle fills the frame. Its corners and edge vignette are nearly black. The upper and middle field is mottled dark green-black with dense rows of tiny rectangular marks; the lower field transitions to dark orange-brown.",
+          "One centered line of large bold white sans-serif print occupies the upper portion. A question-mark glyph is enclosed by double quotation marks within that line.",
+          "Three thin mint-green horizontal rules divide the composition: one below the upper line, one above the reminder block, and one below the reminder block. Each rule contains a centered downward-pointing angular notch.",
+          "The middle contains a large white/light-gray closed six-sided outline. Two parallel contours project upward-right. Four diverging contours descend from the lower half, visually defining three downward branch spaces.",
+          "A small white segmented bilateral figure is centered inside the six-sided outline. A bright yellow flared polygon containing near-black marks sits between the upward-right contours.",
+          "The lower green region contains a centered heading and a centered sentence interrupted by two matching white inline glyphs.",
+          "Below the lowest mint-green rule, the orange-brown region contains a centered bold word, a large yellow kite-like polygon directly beneath it, and a thinner centered sentence below the polygon.",
+          "The tiny repeated background marks do not resolve into confidently readable material words."
         ],
         "proposedCategory": "cards/game/exploration",
-        "proposedSlug": "place-a-question-mark-room-tile",
-        "confidence": "medium",
+        "proposedSlug": "",
+        "confidence": "high-evidence-deferred-identity",
         "uncertainties": [
-          "The two white shield-shaped inline glyphs are not confidently represented in the supplied canonical glossary.",
-          "The yellow triangular lower-center Resolve glyph is not confidently represented in the supplied canonical glossary.",
-          "The card has no explicit printed title or type label; its exploration-card classification is inferred from the visible room-placement instructions.",
-          "The proposed slug is derived from the prominent opening instruction rather than an explicit title."
+          "No unique printed title or canonical slug is visible."
         ],
         "orientation": "upright"
       },
       "reviewQueuePath": "assets/tts-mod/extract/low-confidence-review.json",
-      "deferReason": "exact card identity/transcription/icon/category is not uniformly high-confidence"
+      "deferReason": "No unique printed title or canonical slug is visible; exact canonical identity/filename remains unresolved although all material text and glossary glyphs are verified."
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/exploration-062.png",
@@ -83590,9 +83610,13 @@
       "vision": {
         "provider": "openai-codex",
         "model": "gpt-5.6-sol",
-        "sessionId": "20260815_052719_d9b568",
-        "resultPath": "assets/tts-mod/extract/vision-results/b3be8596be1e99b3b520b0ce2c37e7f14a48c6a90dc4e422d32ae92592fbab38.json",
-        "confidence": "medium"
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-20-retry-20260820T062826Z-p176060-d74a21",
+        "sessionId": "20260820_062933_d6e177",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-20-retry-20260820T062826Z-p176060-d74a21/results/W20-008.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-20-retry-20260820T062826Z-p176060-d74a21/raw/W20-008.json",
+        "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-20-retry-20260820T062826Z-p176060-d74a21/references/W20-008-post-blind-contact-sheet.png",
+        "confidence": "high-evidence-deferred-identity"
       },
       "provenance": {
         "sourceUrl": "https://steamusercontent-a.akamaihd.net/ugc/13386594386037118922/8B5181C4D9A8102F1DA255D9F7CC6413FF89ABBA/",
@@ -83712,38 +83736,36 @@
         ]
       },
       "semanticRead": {
-        "componentType": "room-placement and entrance-effect instruction card",
+        "componentType": "untitled exploration instruction face",
         "cardSide": "face",
         "title": "",
         "typeLine": "",
-        "body": "Place A/B/C Room\ndepending on your Section.\n\nReminder:\nPlace 1 [ICON: white downward-pointing angular shield divided into three facets] if you are Moving with [ICON: white downward-pointing angular shield divided into three facets].\n\nEntrance Effect:\nPlace 3 Adults in the Corridor\nyou have just passed through.\nThen, make a Noise roll.",
+        "body": "Place A/B/C Room\ndepending on your Section.\n\n[character]\n[noise]\n\nReminder:\nPlace 1 [secure] if you are Moving with [secure].\n\nEntrance Effect:\nPlace 3 Adults in the Corridor\nyou have just passed through.\nThen, make a Noise roll.",
         "footer": "",
         "upperRight": "",
         "lowerCenter": "",
-        "visibleText": "[character]\n[ICON: yellow triangular emblem with a central black hexagon and mirrored forked lines]\n[ICON: green concentric circular emblem partially clipped at the lower-right edge]",
+        "visibleText": "",
         "confidentlyVisible": [
-          "All meaningful typography is upright in the file.",
-          "The central diagram is a white-outlined hexagonal room containing a white astronaut character icon.",
-          "A yellow triangular emblem appears immediately right of the central room.",
-          "The Reminder line contains two matching white angular glyphs.",
-          "The Entrance Effect panel has an orange-brown background.",
-          "A green circular emblem is partially clipped by the lower-right edge."
+          "A tall rounded rectangle fills the frame. Its corners and edge vignette are nearly black. The upper and middle field is mottled dark green-black with dense rows of tiny rectangular marks; the lower field transitions to dark orange-brown.",
+          "Two centered lines of large bold white sans-serif print occupy the upper portion.",
+          "Three thin mint-green horizontal rules divide the composition: one below the upper text, one above the reminder block, and one below that block. Each rule has a centered downward-pointing angular notch.",
+          "The middle contains a large white/light-gray closed six-sided outline with pointed top and bottom vertices. Paired near-horizontal contours extend from both its left and right sides. Each upper outer contour has a small upward peak, and each lower outer contour has a small downward peak.",
+          "A compact white segmented bilateral figure is centered inside the six-sided outline. A separate bright-yellow tapered polygon containing near-black marks sits between the two rightward contours.",
+          "The lower green region contains a centered heading and a centered sentence interrupted by two matching white inline glyphs.",
+          "Below the lowest mint-green rule is a centered bold heading followed by three centered lighter-weight lines in the orange-brown region.",
+          "A large muted green circular graphic is partially cut off by the lower-right and right edges. It comprises a filled circular area and multiple thick open arcs.",
+          "The tiny repeated background marks do not resolve into confidently readable material words."
         ],
         "proposedCategory": "cards/game/exploration",
-        "proposedSlug": null,
-        "confidence": "medium",
+        "proposedSlug": "",
+        "confidence": "high-evidence-deferred-identity",
         "uncertainties": [
-          "The two white Reminder-line glyphs do not confidently match any supplied canonical icon and are transcribed literally.",
-          "The yellow emblem does not confidently match any supplied canonical icon and is transcribed literally.",
-          "The identity and function of the partially clipped green lower-right emblem are uncertain.",
-          "No unambiguous formal card title is visible; the top text appears to be an instruction rather than a title.",
-          "The exploration category is inferred from the visible room-placement and entrance-effect instructions, not from an explicit printed type label.",
-          "No sufficiently unambiguous depicted identity supports a semantic filename slug."
+          "No unique printed title or canonical slug is visible."
         ],
         "orientation": "upright"
       },
       "reviewQueuePath": "assets/tts-mod/extract/low-confidence-review.json",
-      "deferReason": "exact card identity/transcription/icon/category is not uniformly high-confidence"
+      "deferReason": "No unique printed title or canonical slug is visible; exact canonical identity/filename remains unresolved although all material text and glossary glyphs are verified."
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/exploration-076.png",
@@ -160638,7 +160660,7 @@
     "sidecarsCreated": 60,
     "imagesCopiedToCanonicalCatalog": 59,
     "sourceFilesMovedOrRenamed": 0,
-    "completedAt": "2026-08-20T06:08:12.846918Z"
+    "completedAt": "2026-08-20T07:06:51.770770Z"
   },
   "deferredReexamination": {
     "schemaVersion": 1,
@@ -160771,13 +160793,30 @@
         "rotationReason": "worker finished its exact shard",
         "promotionCount": 7,
         "deferredCount": 1
+      },
+      {
+        "workerId": "sol-max-persistent-worker-20-retry-20260820T062826Z-p176060-d74a21",
+        "status": "completed-private-projection-passed",
+        "assigned": 8,
+        "reexamined": 8,
+        "provider": "openai-codex",
+        "model": "gpt-5.6-sol",
+        "reasoningEffort": "max",
+        "sessionId": "20260820_062933_d6e177",
+        "rejectedPriorSessionId": "20260820_061821_0b24be",
+        "toolDisableSmokeSessionId": "20260820_062541_38a2e9",
+        "postBlindSessionId": null,
+        "postBlindSessionIdState": "unexposed",
+        "rotationReason": "tool-enabled first attempt rejected with zero sealed wrappers; fresh zero-tool retry completed",
+        "promotionCount": 0,
+        "deferredCount": 8
       }
     ],
-    "updatedAt": "2026-08-20T06:08:12.846918Z",
-    "reexamined": 52,
+    "updatedAt": "2026-08-20T07:06:51.770770Z",
+    "reexamined": 60,
     "newlyCompleted": 37,
     "stillDeferred": 384,
-    "nextPosition": "assets/tts-mod/extract/v2-dl/tree/cards/game/exploration-025.png",
+    "nextPosition": "assets/tts-mod/extract/v2-dl/tree/cards/game/exploration-076.png",
     "rejectedBatches": [
       {
         "workerId": "sol-max-worker-01",
