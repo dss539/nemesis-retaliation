@@ -349,6 +349,53 @@ eligible exact tuple is queue index 87,
 `assets/tts-mod/extract/v2-dl/tree/cards/game/event-051.jpg`
 (SHA-256 `2eb453e8f770bbee9ab5b951fb22e952d34c1250876b88e878a461c11f7f8ded`).
 
+**W18 mixed promotion/defer checkpoint (2026-08-20T05:27:57Z):** Recovery worker
+`sol-max-persistent-worker-18-recovery-20260820T044726Z-p176060-5eb908` sealed the
+following exact low-confidence queue tuples from stale partial source worker
+`sol-max-persistent-worker-18-20260819T083241Z-XgS4ri`:
+- index 87, `assets/tts-mod/extract/v2-dl/tree/cards/game/event-051.jpg`,
+  SHA-256 `2eb453e8f770bbee9ab5b951fb22e952d34c1250876b88e878a461c11f7f8ded`;
+- index 88, `assets/tts-mod/extract/v2-dl/tree/cards/game/event-054.png`,
+  SHA-256 `ac3dc8c20efc3e964383bb9956b264bf3f4a64762d8d8920f5c612d1841ec4bf`;
+- index 89, `assets/tts-mod/extract/v2-dl/tree/cards/game/event-058.jpg`,
+  SHA-256 `cdf03513025769517d9a0e05ac3881120176a1d506db118fd3db50b6c82d9762`;
+- index 90, `assets/tts-mod/extract/v2-dl/tree/cards/game/event-064.png`,
+  SHA-256 `93bd00726c0683feb10a47c85c86055438114c3a8c5fbb33500325fa195d2158`;
+- index 91, `assets/tts-mod/extract/v2-dl/tree/cards/game/event-072.png`,
+  SHA-256 `890259ff52beb7bb5235f2efd010b4e54ee752e9d85cb27f2de2576257fa33bb`;
+- index 92, `assets/tts-mod/extract/v2-dl/tree/cards/game/event-086.png`,
+  SHA-256 `fe6a4f8faae5efdecb02b1ec436c605f792f5f78dd332e1cf64cffc532631ab0`;
+- index 93, `assets/tts-mod/extract/v2-dl/tree/cards/game/event-090.png`,
+  SHA-256 `45b5845d04f57b10dff6e73005be88cba0107a1a15da83f581df6531390d1ac9`;
+- index 94, `assets/tts-mod/extract/v2-dl/tree/cards/game/event-093.jpg`,
+  SHA-256 `6f93c7b3d25bb4fcbf6b7d786f31172b09a65f888b9fdb707917a7fae916b868`.
+All eight are rules-bearing event FaceURL faces and zero are non-rules sources; each exact
+CardCustom selector resolves to the shared `EVENT / PRIMEBLOOD` BackURL. Byte-identical
+blind evidence came from one clean tool-disabled native `openai-codex:gpt-5.6-sol` max
+session (`20260819_083610_6461bd`; 8 API calls, 16 messages, zero tools). Historical
+post-blind session `20260819_062132_c0f4f3` supplied 15 audited attachments; the recovery
+supervisor (PID 176060; session ID unexposed) added 14 direct native Sol-Max/max contact,
+focused, paired-side, and official-page attachments. Forty-nine visual occurrences match
+authoritative glossary tokens. Three featureless white rectangular occurrences on
+`LEAVING THE SHELL` remain three separate explicit no-match rows; no semantic token was
+inferred. Two non-text graphics and one art-field correction are preserved. Seven faces
+(`OVERWHELMING ENEMIES`, `SHORT CIRCUIT`, `LIFE SUPPORT FAILURE`, `THE QUEEN AWAKENS`,
+`BREAKING IN`, `HATCHING`, and `PROTECT & SERVE`) passed every promotion gate and gained
+byte-preserving canonical images plus minimal sidecars; `LEAVING THE SHELL` remains
+`defer`. Private projection, independent corpus rebuild, shared merge, and identical
+re-merge are byte-idempotent. A stale all-PNG target assertion and a post-merge Git-scope
+assertion each stopped safely; the latter restored the complete W17 shared/canonical/QA
+preimage before a clean reapply. Final closure has zero standard-auditor errors/warnings;
+10 focused tests and all eight documented coverage/corpus/unresolved/vision/reproducibility
+commands pass, including 532/532 source decodes and an exact eight-record corpus diff.
+Selected evidence now has 77 entries/runs, the deterministic corpus remains 390 records,
+canonical sidecars/images total 71 pairs, and the partition is 532 = 141 complete + 391
+deferred + 0 unaccounted (queue 391). Sealed data commit:
+`1ca57c57d506151d712794555f72a66817ea7146`. Blocker: none. The next eligible exact tuple
+is original queue index 95 / current projected queue index 88,
+`assets/tts-mod/extract/v2-dl/tree/cards/game/event-096.png`
+(SHA-256 `85d08e0de5b2710ed0e1ac0295ed27da3b4d0da9eb2419aa0f0093d94f1b70d5`).
+
 The requested approval-gated review target
 `assets/tts-mod/extract/v2-dl/tree/unsorted/card-176.jpg` is absent from the live tree. A candidate
 source matching the durable 2132x2142 trial dimensions is available at
