@@ -444,6 +444,51 @@ Blocker: none. The next eligible exact tuple is original queue index 96 / curren
 queue index 89, `assets/tts-mod/extract/v2-dl/tree/cards/game/exploration-025.png`
 (SHA-256 `774b6ed8ea4492bfae38145c828ae47c61536855ec1ffb86702d1fb2d2d09d8b`).
 
+**W20 defer-only exploration checkpoint (2026-08-20T07:11:58Z):** Recovery worker
+`sol-max-persistent-worker-20-retry-20260820T062826Z-p176060-d74a21` sealed these exact
+current low-confidence queue tuples:
+- index 89, `assets/tts-mod/extract/v2-dl/tree/cards/game/exploration-025.png`,
+  SHA-256 `774b6ed8ea4492bfae38145c828ae47c61536855ec1ffb86702d1fb2d2d09d8b`;
+- index 90, `assets/tts-mod/extract/v2-dl/tree/cards/game/exploration-026.png`,
+  SHA-256 `08445a3d8b18081d7396756f407ac058c383c3aee05bde76e80393b0af4b741d`;
+- index 91, `assets/tts-mod/extract/v2-dl/tree/cards/game/exploration-027.png`,
+  SHA-256 `3da198b348a70d64e20de051034e98aa2454ef1912df3cf18e78eaf7c4800043`;
+- index 92, `assets/tts-mod/extract/v2-dl/tree/cards/game/exploration-031.png`,
+  SHA-256 `549bb22b017b6df982c3378f613294969d7043a1a87a1e4b4f5d704308d2ceb0`;
+- index 93, `assets/tts-mod/extract/v2-dl/tree/cards/game/exploration-032.png`,
+  SHA-256 `9c521a0ca8f9303363e69266962c20bee13b7a03cc8d05410399755ea42c684b`;
+- index 94, `assets/tts-mod/extract/v2-dl/tree/cards/game/exploration-036.png`,
+  SHA-256 `160d5d76b631d1ccbd1e4ea981313a1edbd83a6e9eda34dd825fafc2f9cbdd4d`;
+- index 95, `assets/tts-mod/extract/v2-dl/tree/cards/game/exploration-037.png`,
+  SHA-256 `3101f9f9a5df9d01aa07073837412496355c63df94216ab1550abc6a21221516`;
+- index 96, `assets/tts-mod/extract/v2-dl/tree/cards/game/exploration-062.png`,
+  SHA-256 `b3be8596be1e99b3b520b0ce2c37e7f14a48c6a90dc4e422d32ae92592fbab38`.
+All eight are rules-bearing exploration FaceURLs and zero are non-rules; each has one exact
+CardCustom selector and the shared `EXPLORATION / PRIMEBLOOD` BackURL. The first W20
+session (`20260820_061821_0b24be`) was rejected before any wrapper was sealed because the
+legacy empty `--toolsets ''` value fell back to normal CLI tools and made two `skill_view`
+calls. Neutral smoke session `20260820_062541_38a2e9` proved `--toolsets none` produced
+one API call, two messages, zero tools, no Tools system-prompt section, and no exposed
+`skill_view`; the extraction workflow reference was corrected accordingly. Fresh production
+session `20260820_062933_d6e177` then completed 8 API calls, 16 messages, zero tools, and
+eight immutable wrappers. The supervisor session ID remained unexposed and made nine direct
+post-blind contact/paired-side attachments. Thirty-eight glyph occurrences match the
+canonical glossary, zero remain unresolved/no-match, and nine non-text graphics are
+preserved (eight room/topology schematics plus one clipped corner motif). Every blind top
+“Place…” field is explicitly reallocated from `title` into operative body text; no unique
+printed title/slug is visible on any face. All eight promotion decisions therefore remain
+`defer`; no canonical image, sidecar, source byte, category, or filename changed. Private
+projection, independent corpus rebuild, defer-only shared merge, and identical re-merge are
+byte-idempotent. Final closure has zero standard-auditor errors/warnings; 10 focused tests
+and all eight documented global commands pass, with 532/532 source decodes, no W20 source
+left in the symbol backlog, and an exact eight-record corpus diff. Lifecycle and queue stay
+532 = 148 complete + 384 deferred + 0 unaccounted (queue 384); selected evidence rises to
+86 entries/runs, corpus remains 390 records, and canonical pairs remain 78. Sealed data
+commit: `947a4b129105521efd0cb2f4bae56dfa8068de47`. Blocker: none. The next eligible exact
+tuple is current queue index 97,
+`assets/tts-mod/extract/v2-dl/tree/cards/game/exploration-076.png`
+(SHA-256 `e4e92cae40da14f30ee73a8f27ea8291d0861db0688ac207219fa475f24cd832`).
+
 The requested approval-gated review target
 `assets/tts-mod/extract/v2-dl/tree/unsorted/card-176.jpg` is absent from the live tree. A candidate
 source matching the durable 2132x2142 trial dimensions is available at
