@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-08-20T20:35:05.197552Z",
+  "updatedAt": "2026-08-20T22:25:08.568933Z",
   "entries": [
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/bags/dataTokenBag-010.png",
@@ -52638,7 +52638,7 @@
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-160_cards/card-05.png",
       "sourceKind": "generated",
-      "sourceUrl": "https://steamusercontent-a.akamaihd.net/ugc/2468613527880246035/7A63AECA22A453903BF427431CD1B46E65E49390/",
+      "sourceUrl": null,
       "sourceSha256": "6876c41ee8d1f660f4c2ba8012c8caf0f2ccb55ca7677dfcccfb2a69e4c43e42",
       "provenance": {
         "sourceUrl": "https://steamusercontent-a.akamaihd.net/ugc/2468613527880246035/7A63AECA22A453903BF427431CD1B46E65E49390/",
@@ -52791,39 +52791,62 @@
       },
       "orientation": "upright",
       "confidentlyVisible": [
-        "Portrait-format card with all primary typography upright",
-        "Large black rounded-square space above the title",
-        "White astronaut-like character icon over blue concentric rings followed by “2+”",
-        "Title appears in a separate dark framed panel",
-        "Two condition panels are joined by a centered “AND” tab",
-        "Orange “MISSION TASK” label at the bottom",
-        "Background artwork depicts a damaged, blood-spattered illuminated display amid cables and machinery"
+        "Tall portrait composition dominated by dark blue-black, red, orange, cyan, and magenta pixels. The upper portion contains dense cable-like and mechanical shapes surrounding a bright, perspective-skewed cyan-to-magenta rectangle.",
+        "The centered overlay stack consists, from top to bottom, of a large dark rounded square with a thick pale outline; a compact white-and-blue glyph beside white characters; a wide black beveled title plaque; two translucent dark text panels separated by a small amber polygonal tab; and an orange footer line.",
+        "Foreground lettering is a high-contrast geometric sans serif. The title and separator are bold uppercase white, the condition text is mixed-case white, and the bottom classification line is bold uppercase orange.",
+        "The tilted bright rectangle in the upper half contains numerous very small, perspective-skewed white character strings. Glare, splatter, texture, and limited character separation prevent exact transcription.",
+        "All principal foreground text is fully inside the image bounds and visibly separated from the darker background."
       ],
       "visibleText": {
         "title": "RETRIEVAL",
-        "typeLine": "MISSION TASK",
-        "body": "At least 3 corpses from Hibernatorium\nmust be in the Landing Zone.\n\nAND\n\nThe Lander must not be destroyed.",
-        "visibleText": "[character] 2+"
+        "typeLine": "",
+        "body": "At least 3 corpses from Hibernatorium\nmust be in the Landing Zone.\nAND\nThe Lander must not be destroyed.",
+        "sections": [
+          "RETRIEVAL",
+          "At least 3 corpses from Hibernatorium\nmust be in the Landing Zone.\nAND\nThe Lander must not be destroyed.",
+          "MISSION TASK"
+        ],
+        "footer": "MISSION TASK",
+        "upperRight": "",
+        "lowerCenter": "[ICON: blank dark rounded square with a thick pale rounded outline]\n[ICON: white round-topped upright shape over cyan and blue elliptical rings] 2+",
+        "illegibleSpans": [
+          "Upper-middle tilted display, multiple lines of tiny perspective-skewed white alphanumeric text: [illegible]"
+        ],
+        "clippedSpans": []
       },
       "uncertainties": [
-        "The illuminated display in the background contains decorative pseudo-text or heavily distorted text that is not reliably legible and is not transcribed.",
-        "The large black rounded square contains no confidently visible glyph or text; its function cannot be determined from pixels alone."
+        "1 material occurrence(s) remain explicit authoritative no-match rows; false icon promotion is forbidden.",
+        "Current Awaken Realms Objectives Help Sheet and current BGA build contain no RETRIEVAL counterpart, so the assigned prototype wording cannot pass the current-source gate.",
+        "Current publisher primary face/operative wording gate is incomplete: no-current-publisher-or-licensed-digital-counterpart.",
+        "It is uncertain whether the large blank rounded square is a functional field or a decorative opaque overlay.",
+        "No approved canonical mission-task or solo/coop-objective sidecar schema exists in cards/game.",
+        "No canonical identity is assigned to either nontext glyph from contextual appearance alone.",
+        "The generated sprite-sheet cell has no safely unique GUID/CardID selector; modulo inference is forbidden.",
+        "The intended meaning of the white-and-blue glyph and its relationship to 2+ is not established by visible text.",
+        "The tiny white text on the tilted upper display cannot be transcribed reliably."
       ],
-      "reasonSkipped": "exact card identity/transcription/icon/category is not uniformly high-confidence",
+      "reasonSkipped": "1 material occurrence(s) remain explicit authoritative no-match rows; false icon promotion is forbidden.; The generated sprite-sheet cell has no safely unique GUID/CardID selector; modulo inference is forbidden.; Current publisher primary face/operative wording gate is incomplete: no-current-publisher-or-licensed-digital-counterpart.; No approved canonical mission-task or solo/coop-objective sidecar schema exists in cards/game.",
       "vision": {
         "provider": "openai-codex",
         "model": "gpt-5.6-sol",
-        "sessionId": "20260815_053124_8bbeb2",
-        "resultPath": "assets/tts-mod/extract/vision-results/6876c41ee8d1f660f4c2ba8012c8caf0f2ccb55ca7677dfcccfb2a69e4c43e42.json",
-        "iconVerification": null,
-        "evidencePath": null
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-24-20260820T204740Z-p273022-2cf4d5",
+        "sessionId": "20260820_205125_8df2c2",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-24-20260820T204740Z-p273022-2cf4d5/results/W24-001.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-24-20260820T204740Z-p273022-2cf4d5/raw/W24-001.json",
+        "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-24-20260820T204740Z-p273022-2cf4d5/qa/contact-sheets/W24-001-contact-sheet.png",
+        "confidence": "high-evidence-deferred-source/identity",
+        "iconVerification": {
+          "status": "0-matched-occurrences-with-1-explicit-no-match-occurrences",
+          "evidencePath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-24-20260820T204740Z-p273022-2cf4d5/metadata/adjudication-summary.json"
+        }
       },
       "status": "open"
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-160_cards/card-06.png",
       "sourceKind": "generated",
-      "sourceUrl": "https://steamusercontent-a.akamaihd.net/ugc/2468613527880246035/7A63AECA22A453903BF427431CD1B46E65E49390/",
+      "sourceUrl": null,
       "sourceSha256": "f2bde768819f1158a25be0304bced07328ae7dd23b71247ebafd8fb76e9fd586",
       "provenance": {
         "sourceUrl": "https://steamusercontent-a.akamaihd.net/ugc/2468613527880246035/7A63AECA22A453903BF427431CD1B46E65E49390/",
@@ -52976,38 +52999,61 @@
       },
       "orientation": "upright",
       "confidentlyVisible": [
-        "Portrait-format card face",
-        "White astronaut character icon above blue concentric rings",
-        "The character requirement is followed by “2+”",
-        "Title reads “ERADICATION”",
-        "Two objective statements are separated by an “AND” panel",
-        "Type line reads “MISSION TASK” in orange",
-        "Background artwork depicts a damaged, blood-splattered computer display amid cables and machinery"
+        "Tall portrait composition with dense dark blue-black machinery, cables, and structural forms. Red, orange, magenta, and cyan illumination is concentrated across the upper and central areas.",
+        "A large cyan-to-magenta rectangular display is tilted in perspective in the upper half. Its surface has cracks, dark-red splatter-like marks, and multiple rows of very small white characters.",
+        "The foreground overlay is centered in the lower half: a compact white-and-blue glyph beside white characters, a broad black beveled title plaque, two translucent dark panels separated by a small amber polygonal tab, and an orange footer line.",
+        "Foreground typography is high-contrast geometric sans serif. The title and separator are bold uppercase white, the condition lines are mixed-case white, and the footer is bold uppercase orange.",
+        "The principal foreground words are fully contained within their panels. The tiny display characters lack sufficient pixel separation for reliable exact reading."
       ],
       "visibleText": {
         "title": "ERADICATION",
-        "typeLine": "MISSION TASK",
+        "typeLine": "",
         "body": "Queen must be killed.\nAND\nThe Nest must be destroyed.",
-        "visibleText": "[character] 2+"
+        "sections": [
+          "ERADICATION",
+          "Queen must be killed.\nAND\nThe Nest must be destroyed.",
+          "MISSION TASK"
+        ],
+        "footer": "MISSION TASK",
+        "upperRight": "",
+        "lowerCenter": "[ICON: white round-topped clustered shape over cyan and blue elliptical rings] 2+",
+        "illegibleSpans": [
+          "Upper-half tilted display, multiple rows of tiny perspective-skewed white alphanumeric text: [illegible]"
+        ],
+        "clippedSpans": []
       },
       "uncertainties": [
-        "The computer-screen background contains decorative, distorted typography that is not legible enough to transcribe reliably."
+        "1 material occurrence(s) remain explicit authoritative no-match rows; false icon promotion is forbidden.",
+        "Current-source fidelity gate failed: material-conflict-with-current-publisher-counterpart.",
+        "Glow and low-scale detail obscure whether the central white glyph contains additional fine internal divisions.",
+        "No approved canonical mission-task or solo/coop-objective sidecar schema exists in cards/game.",
+        "No canonical subtype or symbol identity is promoted from visual context alone.",
+        "The generated sprite-sheet cell has no safely unique GUID/CardID selector; modulo inference is forbidden.",
+        "The intended meaning of the white-and-blue glyph and the functional meaning of its adjacency to 2+ are not established by visible text.",
+        "The small white alphanumeric rows on the tilted display cannot be transcribed reliably."
       ],
-      "reasonSkipped": "exact card identity/transcription/icon/category is not uniformly high-confidence",
+      "reasonSkipped": "1 material occurrence(s) remain explicit authoritative no-match rows; false icon promotion is forbidden.; The generated sprite-sheet cell has no safely unique GUID/CardID selector; modulo inference is forbidden.; Current-source fidelity gate failed: material-conflict-with-current-publisher-counterpart.; No approved canonical mission-task or solo/coop-objective sidecar schema exists in cards/game.",
       "vision": {
         "provider": "openai-codex",
         "model": "gpt-5.6-sol",
-        "sessionId": "20260815_053124_1fddd2",
-        "resultPath": "assets/tts-mod/extract/vision-results/f2bde768819f1158a25be0304bced07328ae7dd23b71247ebafd8fb76e9fd586.json",
-        "iconVerification": null,
-        "evidencePath": null
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-24-20260820T204740Z-p273022-2cf4d5",
+        "sessionId": "20260820_205125_8df2c2",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-24-20260820T204740Z-p273022-2cf4d5/results/W24-002.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-24-20260820T204740Z-p273022-2cf4d5/raw/W24-002.json",
+        "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-24-20260820T204740Z-p273022-2cf4d5/qa/contact-sheets/W24-002-contact-sheet.png",
+        "confidence": "high-evidence-deferred-source/identity",
+        "iconVerification": {
+          "status": "0-matched-occurrences-with-1-explicit-no-match-occurrences",
+          "evidencePath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-24-20260820T204740Z-p273022-2cf4d5/metadata/adjudication-summary.json"
+        }
       },
       "status": "open"
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-160_cards/card-07.png",
       "sourceKind": "generated",
-      "sourceUrl": "https://steamusercontent-a.akamaihd.net/ugc/2468613527880246035/7A63AECA22A453903BF427431CD1B46E65E49390/",
+      "sourceUrl": null,
       "sourceSha256": "fd728cde25c6429689b8c4d1208c269e80aa2031a0f2a538f9f03b9ff6769c85",
       "provenance": {
         "sourceUrl": "https://steamusercontent-a.akamaihd.net/ugc/2468613527880246035/7A63AECA22A453903BF427431CD1B46E65E49390/",
@@ -53160,40 +53206,64 @@
       },
       "orientation": "upright",
       "confidentlyVisible": [
-        "All prominent typography is upright in the file.",
-        "The title reads “ESCORT MISSION” in white uppercase letters.",
-        "The effect text reads “The Robot must reach the Reactor.”",
-        "The type line reads “MISSION TASK” in orange uppercase letters.",
-        "A white astronaut-like character glyph appears over blue concentric rings beside “2+”.",
-        "A large empty dark square with a light gray rounded outline appears above the character-count marking.",
-        "The artwork depicts a damaged illuminated computer display amid cables and red-blue lighting."
+        "Tall portrait composition with dense dark blue-black machinery, cables, pipes, and panel forms. Red and orange illumination dominates the upper area, while cyan, blue, and magenta light surrounds the center.",
+        "A large cyan-to-magenta rectangular display is tilted in perspective across the upper-middle area. Its surface contains cracks, bright glare points, irregular dark-red splatter shapes, and numerous rows of very small pale characters.",
+        "The centered foreground overlay consists, from top to bottom, of a dark rounded square with a thick pale border; a compact white-and-blue glyph beside white characters; a wide dark beveled plaque with amber edging and mirrored side ornaments; and one larger translucent dark panel outlined in amber.",
+        "Foreground lettering is a high-contrast geometric sans serif. The largest line is bold uppercase white; the sentence below is mixed-case white; and the lowest line is bold uppercase orange.",
+        "All principal foreground lettering is fully inside the frame. The tiny background characters are perspective-skewed and disrupted by glare, cracks, texture, and splatter."
       ],
       "visibleText": {
         "title": "ESCORT MISSION",
-        "typeLine": "MISSION TASK",
+        "typeLine": "",
         "body": "The Robot must reach the Reactor.",
-        "lowerCenter": "character",
-        "visibleText": "[ICON: dark gray rounded square outline]\n2+"
+        "sections": [
+          "ESCORT MISSION",
+          "The Robot must reach the Reactor.",
+          "MISSION TASK"
+        ],
+        "footer": "MISSION TASK",
+        "upperRight": "",
+        "lowerCenter": "[ICON: blank dark rounded square with a thick pale rounded outline]\n[ICON: white round-topped upright shape over cyan and blue elliptical rings] 2+",
+        "illegibleSpans": [
+          "Upper-middle tilted display, multiple rows of tiny perspective-skewed pale alphanumeric text: [illegible]",
+          "Faint small character row immediately above the dark rounded square: [illegible]",
+          "Scattered tiny panel markings in the surrounding machinery: [illegible]"
+        ],
+        "clippedSpans": []
       },
       "uncertainties": [
-        "The large dark gray rounded-square outline is not confidently identifiable as anySlot or another canonical icon, so it is described literally.",
-        "Tiny text-like markings on the computer display within the artwork are materially illegible and are not transcribed."
+        "1 material occurrence(s) remain explicit authoritative no-match rows; false icon promotion is forbidden.",
+        "Current-source fidelity gate failed: material-omission-versus-current-publisher-counterpart.",
+        "Glow and low-scale detail obscure possible fine divisions within the white-and-blue glyph.",
+        "It is uncertain whether the blank rounded square is a functional field or a decorative overlay.",
+        "No approved canonical mission-task or solo/coop-objective sidecar schema exists in cards/game.",
+        "The faint character row above the outlined square is too small and obscured for exact reading.",
+        "The generated sprite-sheet cell has no safely unique GUID/CardID selector; modulo inference is forbidden.",
+        "The intended meanings of the nontext glyph and its adjacency to 2+ are not established by visible text.",
+        "The tiny pale text on the tilted display and surrounding panels cannot be transcribed reliably."
       ],
-      "reasonSkipped": "exact card identity/transcription/icon/category is not uniformly high-confidence",
+      "reasonSkipped": "1 material occurrence(s) remain explicit authoritative no-match rows; false icon promotion is forbidden.; The generated sprite-sheet cell has no safely unique GUID/CardID selector; modulo inference is forbidden.; Current-source fidelity gate failed: material-omission-versus-current-publisher-counterpart.; No approved canonical mission-task or solo/coop-objective sidecar schema exists in cards/game.",
       "vision": {
         "provider": "openai-codex",
         "model": "gpt-5.6-sol",
-        "sessionId": "20260815_053129_f638ed",
-        "resultPath": "assets/tts-mod/extract/vision-results/fd728cde25c6429689b8c4d1208c269e80aa2031a0f2a538f9f03b9ff6769c85.json",
-        "iconVerification": null,
-        "evidencePath": null
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-24-20260820T204740Z-p273022-2cf4d5",
+        "sessionId": "20260820_205125_8df2c2",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-24-20260820T204740Z-p273022-2cf4d5/results/W24-003.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-24-20260820T204740Z-p273022-2cf4d5/raw/W24-003.json",
+        "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-24-20260820T204740Z-p273022-2cf4d5/qa/contact-sheets/W24-003-contact-sheet.png",
+        "confidence": "high-evidence-deferred-source/identity",
+        "iconVerification": {
+          "status": "0-matched-occurrences-with-1-explicit-no-match-occurrences",
+          "evidencePath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-24-20260820T204740Z-p273022-2cf4d5/metadata/adjudication-summary.json"
+        }
       },
       "status": "open"
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-160_cards/card-08.png",
       "sourceKind": "generated",
-      "sourceUrl": "https://steamusercontent-a.akamaihd.net/ugc/2468613527880246035/7A63AECA22A453903BF427431CD1B46E65E49390/",
+      "sourceUrl": null,
       "sourceSha256": "e3f3266defff5ad4ade7327a85ebc8878d10bcd18ad85816212c60300472ad68",
       "provenance": {
         "sourceUrl": "https://steamusercontent-a.akamaihd.net/ugc/2468613527880246035/7A63AECA22A453903BF427431CD1B46E65E49390/",
@@ -53346,39 +53416,65 @@
       },
       "orientation": "upright",
       "confidentlyVisible": [
-        "All primary typography is already upright and reads left to right.",
-        "The face is a vertically oriented illustrated card with bordered title and rules panels.",
-        "A white astronaut figure on cyan concentric rings appears beside “2+” above the title.",
-        "The Hibernatorium symbol is orange and not crossed out.",
-        "The Life Support symbol is cyan and not crossed out.",
-        "The title is printed in white uppercase letters.",
-        "“MISSION TASK” is printed in orange uppercase letters near the bottom."
+        "Tall portrait composition filled with dense dark blue-black machinery, cables, pipes, and panel forms. Red and orange illumination dominates the upper area, while blue, cyan, and magenta light surrounds the center.",
+        "A large cyan-to-magenta rectangular display is tilted in perspective across the upper-middle area. It contains cracks, bright glare, irregular dark-red splatter shapes, and numerous rows of very small pale characters.",
+        "The centered overlay stack consists, from top to bottom, of a dark rounded square with a thick pale border; a compact white-and-blue glyph beside white characters; a wide dark beveled plaque; an upper translucent text panel containing two colored inline glyphs; a small amber polygonal tab; and a lower translucent text panel with an orange footer.",
+        "The upper inline glyph is an orange horizontal capsule containing a white branched mark. The lower inline glyph is a white horizontal capsule containing cyan segmented geometry and is followed by a small white dot.",
+        "Foreground lettering is a high-contrast geometric sans serif. The largest line and separator are bold uppercase white, the panel sentences are mixed-case white, and the footer is bold uppercase orange.",
+        "All principal foreground lettering is fully within the frame. The tiny background characters are perspective-skewed and disrupted by glare, cracks, texture, and splatter."
       ],
       "visibleText": {
         "title": "FACILITY RESTART",
-        "typeLine": "MISSION TASK",
-        "body": "The Hibernatorium must be [hibernatoriumActive]\nand at least 2 Life Support\nSystems must be [lifeSupportActive].\n\nAND\n\nThe Facility cannot be destroyed.",
-        "visibleText": "[ICON: dark gray rounded square with faint indeterminate glyph]\n[character] 2+"
+        "typeLine": "",
+        "body": "The Hibernatorium must be [hibernatorium-active]\nand at least 2 Life Support\nSystems must be [UNRESOLVED:morphology-4].\nAND\nThe Facility cannot be destroyed.",
+        "sections": [
+          "FACILITY RESTART",
+          "The Hibernatorium must be [hibernatorium-active]\nand at least 2 Life Support\nSystems must be [UNRESOLVED:morphology-4].\nAND\nThe Facility cannot be destroyed.",
+          "MISSION TASK"
+        ],
+        "footer": "MISSION TASK",
+        "upperRight": "",
+        "lowerCenter": "[ICON: blank dark rounded square with a thick pale rounded outline]\n[ICON: white round-topped upright shape above cyan and blue elliptical rings] 2+",
+        "illegibleSpans": [
+          "Upper-middle tilted display, multiple rows of tiny perspective-skewed pale alphanumeric text: [illegible]",
+          "Faint tiny character row beneath the 2+ row and above the title plaque: [illegible]",
+          "Scattered tiny markings on peripheral machine panels: [illegible]"
+        ],
+        "clippedSpans": []
       },
       "uncertainties": [
-        "A dark gray rounded square above the player-count marking contains an extremely faint, indeterminate glyph or marking that cannot be identified or transcribed confidently.",
-        "Tiny text-like markings on the background monitor are decorative, obscured, and not legibly transcribable."
+        "2 material occurrence(s) remain explicit authoritative no-match rows; false icon promotion is forbidden.",
+        "Current-source fidelity gate failed: material-conflict-with-current-publisher-counterpart.",
+        "Glow and small scale limit certainty about the exact number and boundaries of the cyan inline glyph's internal segments.",
+        "It is uncertain whether the blank rounded square is a functional field or a decorative overlay.",
+        "No approved canonical mission-task or solo/coop-objective sidecar schema exists in cards/game.",
+        "The faint character row above the title plaque is too small and obscured for exact reading.",
+        "The generated sprite-sheet cell has no safely unique GUID/CardID selector; modulo inference is forbidden.",
+        "The intended identities and functions of all nontext glyphs, including their relation to adjacent wording and 2+, are not established by printed labels.",
+        "The tiny pale text on the tilted display and peripheral panels cannot be transcribed reliably."
       ],
-      "reasonSkipped": "exact card identity/transcription/icon/category is not uniformly high-confidence",
+      "reasonSkipped": "2 material occurrence(s) remain explicit authoritative no-match rows; false icon promotion is forbidden.; The generated sprite-sheet cell has no safely unique GUID/CardID selector; modulo inference is forbidden.; Current-source fidelity gate failed: material-conflict-with-current-publisher-counterpart.; No approved canonical mission-task or solo/coop-objective sidecar schema exists in cards/game.",
       "vision": {
         "provider": "openai-codex",
         "model": "gpt-5.6-sol",
-        "sessionId": "20260815_053153_f5a346",
-        "resultPath": "assets/tts-mod/extract/vision-results/e3f3266defff5ad4ade7327a85ebc8878d10bcd18ad85816212c60300472ad68.json",
-        "iconVerification": null,
-        "evidencePath": null
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-24-20260820T204740Z-p273022-2cf4d5",
+        "sessionId": "20260820_205125_8df2c2",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-24-20260820T204740Z-p273022-2cf4d5/results/W24-004.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-24-20260820T204740Z-p273022-2cf4d5/raw/W24-004.json",
+        "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-24-20260820T204740Z-p273022-2cf4d5/qa/contact-sheets/W24-004-contact-sheet.png",
+        "confidence": "high-evidence-deferred-source/identity",
+        "iconVerification": {
+          "status": "1-matched-occurrences-with-2-explicit-no-match-occurrences",
+          "evidencePath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-24-20260820T204740Z-p273022-2cf4d5/metadata/adjudication-summary.json"
+        }
       },
       "status": "open"
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-160_cards/card-09.png",
       "sourceKind": "generated",
-      "sourceUrl": "https://steamusercontent-a.akamaihd.net/ugc/2468613527880246035/7A63AECA22A453903BF427431CD1B46E65E49390/",
+      "sourceUrl": null,
       "sourceSha256": "5de3719f349157e4b5cda76358b68c59278ca278084c7779fed2507a3b229f4c",
       "provenance": {
         "sourceUrl": "https://steamusercontent-a.akamaihd.net/ugc/2468613527880246035/7A63AECA22A453903BF427431CD1B46E65E49390/",
@@ -53531,29 +53627,56 @@
       },
       "orientation": "upright",
       "confidentlyVisible": [
-        "Portrait-format card face",
-        "Industrial red-and-blue artwork depicts a damaged, blood-spattered monitor amid cables and machinery",
-        "A white astronaut-like character glyph over blue concentric rings appears immediately before “2+”",
-        "Title and effect text appear in black panels with gold borders",
-        "“MISSION TASK” is printed in orange below the effect text"
+        "Tall portrait composition filled with dense dark blue-black machinery, cables, pipes, and panel structures. Red and orange illumination dominates the upper area, while blue, cyan, and magenta light surrounds the center.",
+        "A large cyan-to-magenta rectangular display is tilted in perspective across the upper-middle area. Its surface contains cracks, glare points, irregular dark-red splatter shapes, and numerous rows of very small pale characters.",
+        "The centered lower overlay consists, from top to bottom, of a compact white-and-blue glyph beside white characters, a broad black beveled plaque with thin amber edging and angular side ornaments, and one large translucent dark panel with an amber border.",
+        "Foreground typography is a high-contrast geometric sans serif. The largest line is bold uppercase white, the central sentence is mixed-case white over two centered lines, and the lowest line is bold uppercase orange.",
+        "All principal foreground lettering is fully contained within the image. The tiny background characters are perspective-skewed and disrupted by glare, cracks, texture, and splatter."
       ],
       "visibleText": {
         "title": "ESSENTIAL DATA",
-        "typeLine": "MISSION TASK",
+        "typeLine": "",
         "body": "All Section Rooms A, B and C\nmust be Explored.",
-        "visibleText": "[character] 2+"
+        "sections": [
+          "ESSENTIAL DATA",
+          "All Section Rooms A, B and C\nmust be Explored.",
+          "MISSION TASK"
+        ],
+        "footer": "MISSION TASK",
+        "upperRight": "",
+        "lowerCenter": "[ICON: white round-topped upright shape above cyan and blue elliptical rings] 2+",
+        "illegibleSpans": [
+          "Upper-middle tilted display, multiple rows of tiny perspective-skewed pale alphanumeric text: [illegible]",
+          "Faint tiny character row beneath the tilted display: [illegible]",
+          "Scattered tiny markings on peripheral machine panels: [illegible]"
+        ],
+        "clippedSpans": []
       },
       "uncertainties": [
-        "The artwork monitor contains tiny distorted, partially obscured interface-like lettering that is not reliably legible and has therefore not been transcribed."
+        "1 material occurrence(s) remain explicit authoritative no-match rows; false icon promotion is forbidden.",
+        "Current-source fidelity gate failed: material-title-body-conflict-with-current-publisher-counterpart.",
+        "Fine divisions within the white-and-blue glyph are partly obscured by glow and small scale.",
+        "No approved canonical mission-task or solo/coop-objective sidecar schema exists in cards/game.",
+        "The angular amber and white elements beside the title visually merge with the frame and are treated as decoration rather than standalone functional symbols.",
+        "The generated sprite-sheet cell has no safely unique GUID/CardID selector; modulo inference is forbidden.",
+        "The intended identity of the nontext glyph and the functional meaning of its adjacency to 2+ are not established by printed text.",
+        "The tiny pale text on the tilted display and peripheral panels cannot be transcribed reliably."
       ],
-      "reasonSkipped": "exact card identity/transcription/icon/category is not uniformly high-confidence",
+      "reasonSkipped": "1 material occurrence(s) remain explicit authoritative no-match rows; false icon promotion is forbidden.; The generated sprite-sheet cell has no safely unique GUID/CardID selector; modulo inference is forbidden.; Current-source fidelity gate failed: material-title-body-conflict-with-current-publisher-counterpart.; No approved canonical mission-task or solo/coop-objective sidecar schema exists in cards/game.",
       "vision": {
         "provider": "openai-codex",
         "model": "gpt-5.6-sol",
-        "sessionId": "20260815_053154_69fa88",
-        "resultPath": "assets/tts-mod/extract/vision-results/5de3719f349157e4b5cda76358b68c59278ca278084c7779fed2507a3b229f4c.json",
-        "iconVerification": null,
-        "evidencePath": null
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-24-20260820T204740Z-p273022-2cf4d5",
+        "sessionId": "20260820_205125_8df2c2",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-24-20260820T204740Z-p273022-2cf4d5/results/W24-005.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-24-20260820T204740Z-p273022-2cf4d5/raw/W24-005.json",
+        "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-24-20260820T204740Z-p273022-2cf4d5/qa/contact-sheets/W24-005-contact-sheet.png",
+        "confidence": "high-evidence-deferred-source/identity",
+        "iconVerification": {
+          "status": "0-matched-occurrences-with-1-explicit-no-match-occurrences",
+          "evidencePath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-24-20260820T204740Z-p273022-2cf4d5/metadata/adjudication-summary.json"
+        }
       },
       "status": "open"
     },
@@ -53681,31 +53804,57 @@
       },
       "orientation": "upright",
       "confidentlyVisible": [
-        "Portrait-format card with all primary typography upright.",
-        "Artwork depicts a sealed doorway crossed by yellow warning tape.",
-        "A white astronaut-shaped character icon appears inline after “A”.",
-        "The word “QUARANTINE” is printed repeatedly on the yellow tape.",
-        "The footer is green and centered below the objective text.",
-        "No bare corner icon is visible."
+        "Tall portrait composition with a gritty, scratched, fabric-like surface texture. A gray-green metal double panel with a vertical center seam occupies the upper and middle area, flanked by dark cylindrical and structural forms.",
+        "Numerous bright yellow strips cross the metal panel at shallow and steep angles. They overlap, fold, darken, and leave some printed sequences partly hidden. Black uppercase lettering and a small repeated radial emblem appear along the strips.",
+        "A tilted yellow triangular placard appears on the upper-right portion of the metal panel. It has a dark border and a black three-lobed curved mark around a central ring.",
+        "The lower third contains two stacked dark beveled frames with thin pale-green luminous edges and symmetric green side accents. A large white uppercase line occupies the upper frame; a centered two-line white sentence occupies the lower frame; and a green uppercase line sits beneath it.",
+        "The sentence contains a compact white blocky pictogram between the printed A and must. The footer contains a single diagonal green stroke between two uppercase words.",
+        "Multiple complete instances of the same yellow-strip word are readable, while additional instances are obscured by crossings, folds, dark stains, or frame boundaries."
       ],
       "visibleText": {
         "title": "SCIENTIFIC SAMPLE",
+        "typeLine": "",
         "body": "A [character] must Escape from the Facility\nwith an Egg from the Nest (Section C).",
+        "sections": [
+          "SCIENTIFIC SAMPLE",
+          "A [character] must Escape from the Facility\nwith an Egg from the Nest (Section C).",
+          "SOLO / COOP"
+        ],
         "footer": "SOLO / COOP",
-        "visibleText": "[ICON: yellow triangular warning sign containing black three-lobed loop glyph]\nQUARANTINE"
+        "upperRight": "[ICON: tilted yellow triangular sign containing a black three-hooked radial emblem]",
+        "lowerCenter": "",
+        "illegibleSpans": [
+          "Darkened and texture-disrupted lettering on several overlapping yellow strips: [illegible]"
+        ],
+        "clippedSpans": [
+          "Additional yellow-strip word repetitions interrupted by folds, overlaps, strip ends, and image boundaries: [clipped]"
+        ]
       },
       "uncertainties": [
-        "The warning-sign and tape glyphs are decorative black three-lobed loop symbols not confidently matched to the canonical glossary, so no canonical meaning is assigned.",
-        "Several repeated QUARANTINE labels and small adjacent glyphs in the artwork are partially obscured, clipped, or abraded; only the clearly legible word is transcribed without reconstructing incomplete copies."
+        "Current publisher primary face/operative wording gate is incomplete: licensed-digital-secondary-corroboration-only.",
+        "No approved canonical mission-task or solo/coop-objective sidecar schema exists in cards/game.",
+        "No current publisher face or operative wording was located; current BGA build 260622-1220 is corroborating licensed-digital secondary evidence only.",
+        "No obscured tape lettering has been completed; those regions are deferred as [illegible] or [clipped].",
+        "The black radial marks on the triangle and tape appear morphologically similar, but exact identity equivalence is not asserted because the tape copies are much smaller.",
+        "The exact number of fully readable QUARANTINE repetitions cannot be established confidently because strips overlap and several copies are partly hidden.",
+        "The symmetric green side bars and angular border marks visually integrate with the frame and are treated as decoration rather than promoted as standalone functional symbols.",
+        "The white inline pictogram could visually support either a suited-person-like or machine-like reading; no printed label identifies it."
       ],
-      "reasonSkipped": "exact card identity/transcription/icon/category is not uniformly high-confidence",
+      "reasonSkipped": "Current publisher primary face/operative wording gate is incomplete: licensed-digital-secondary-corroboration-only.; No approved canonical mission-task or solo/coop-objective sidecar schema exists in cards/game.",
       "vision": {
         "provider": "openai-codex",
         "model": "gpt-5.6-sol",
-        "sessionId": "20260815_053154_de59d3",
-        "resultPath": "assets/tts-mod/extract/vision-results/be548264f79b37dd7db8ed726fcc1e9caf03c7cc20b1a4ec8ff40663935ee614.json",
-        "iconVerification": null,
-        "evidencePath": null
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-24-20260820T204740Z-p273022-2cf4d5",
+        "sessionId": "20260820_205125_8df2c2",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-24-20260820T204740Z-p273022-2cf4d5/results/W24-006.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-24-20260820T204740Z-p273022-2cf4d5/raw/W24-006.json",
+        "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-24-20260820T204740Z-p273022-2cf4d5/qa/contact-sheets/W24-006-contact-sheet.png",
+        "confidence": "high-evidence-deferred-source/identity",
+        "iconVerification": {
+          "status": "1-matched-occurrences-with-0-explicit-no-match-occurrences",
+          "evidencePath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-24-20260820T204740Z-p273022-2cf4d5/metadata/adjudication-summary.json"
+        }
       },
       "status": "open"
     },
@@ -53833,33 +53982,60 @@
       },
       "orientation": "upright",
       "confidentlyVisible": [
-        "Portrait-oriented card face",
-        "All primary typography is upright",
-        "Artwork depicts a sealed door crossed by yellow quarantine tape",
-        "A yellow triangular sign contains a black biohazard glyph",
-        "Title is printed in large white uppercase letters",
-        "Objective sentence is printed in two centered lines",
-        "Green SOLO / COOP label appears below the objective text"
+        "Tall portrait composition with a coarse, scratched, fabric-like surface texture. A gray-green metal double panel with a dark vertical center seam fills the upper and middle area, bordered by cylindrical and structural forms.",
+        "Numerous bright yellow strips cross the metal panel at different angles. They overlap, fold, darken, and terminate at panel edges. Repeated black uppercase lettering and small radial black emblems are printed on the strips.",
+        "A tilted yellow triangular placard appears above the strips on the upper-right portion of the metal panel. It has a dark border and a black three-lobed curved mark around a small central ring.",
+        "The lower third contains two stacked dark beveled frames with thin pale-green luminous outlines and symmetric green side accents. A large white uppercase line occupies the upper frame; a centered two-line white sentence occupies the lower frame; and a green uppercase footer appears below the sentence.",
+        "Several yellow-strip word-and-emblem sequences are completely readable. Other repetitions expose only leading or trailing letters because of folds, crossings, stains, and strip ends."
       ],
       "visibleText": {
-        "title": "CLEAN UP",
+        "title": "CLEANUP",
+        "typeLine": "",
         "body": "The Nest (Section C)\nmust be destroyed.",
+        "sections": [
+          "CLEANUP",
+          "The Nest (Section C)\nmust be destroyed.",
+          "SOLO / COOP"
+        ],
         "footer": "SOLO / COOP",
-        "visibleText": "[ICON: black biohazard glyph in yellow triangle]\n[ICON: black biohazard glyph] QUARANTINE\nQUA\nNTINE\n[ICON: black biohazard glyph] QUARANTINE\n[ICON: black biohazard glyph] QUARANT\nQUARANTINE\n[ICON: black biohazard glyph] QUARANTI\n[ICON: black biohazard glyph] QUARANTIN\n[ICON: black biohazard glyph] QUARAN\n[ICON: black biohazard glyph] QUARANTINE\nNTINE\nRANTIN\nQUARANTI"
+        "upperRight": "[ICON: tilted yellow triangular sign containing a black three-hooked radial emblem]",
+        "lowerCenter": "",
+        "illegibleSpans": [
+          "Darkened and texture-disrupted lettering at several yellow-strip folds and crossings: [illegible]"
+        ],
+        "clippedSpans": [
+          "Upper-right yellow strip: QUA[clipped]",
+          "Left side of the yellow strip immediately below the uppermost strip: [clipped]NTINE",
+          "Middle-left horizontal yellow strip: [clipped]ARANTINE",
+          "Bottom-left yellow strip: [clipped]RANTINE",
+          "Additional middle and lower yellow-strip repetitions interrupted by folds, overlaps, stains, and strip ends: [clipped]"
+        ]
       },
       "uncertainties": [
-        "Several decorative quarantine-tape inscriptions are overlapped, stained, blurred, or clipped; visibleText records only conservatively legible words and fragments.",
-        "The black biohazard glyphs are absent from the supplied canonical glossary, so literal icon descriptions are used.",
-        "Some repeated tape inscriptions may not be individually distinguishable because strips overlap one another."
+        "Current publisher primary face/operative wording gate is incomplete: publisher-card-pixels-occluded-licensed-secondary-only.",
+        "No approved canonical mission-task or solo/coop-objective sidecar schema exists in cards/game.",
+        "No hidden tape lettering has been completed; uncertain regions are marked [illegible] or [clipped].",
+        "Only three complete QUARANTINE sequences are promoted in the transcription; the exact status of additional repetitions is deferred because letters are obscured or truncated.",
+        "The black radial marks on the triangle and yellow strips appear morphologically similar, but exact identity equivalence is not asserted because the strip copies are much smaller.",
+        "The current rulebook text layer exposes CLEAN-UP text from a rear card, but full-page native vision proves that card is substantially occluded by FACEOFF; only BGA build 260622-1220 supplies readable CLEAN-UP wording, as licensed-digital secondary evidence.",
+        "The intended identity of the black three-lobed symbol is not established by a printed label.",
+        "The symmetric green side bars and angular border marks visually integrate with the frame and are treated as decoration rather than standalone functional symbols."
       ],
-      "reasonSkipped": "exact card identity/transcription/icon/category is not uniformly high-confidence",
+      "reasonSkipped": "Current publisher primary face/operative wording gate is incomplete: publisher-card-pixels-occluded-licensed-secondary-only.; No approved canonical mission-task or solo/coop-objective sidecar schema exists in cards/game.",
       "vision": {
         "provider": "openai-codex",
         "model": "gpt-5.6-sol",
-        "sessionId": "20260815_053156_ea25df",
-        "resultPath": "assets/tts-mod/extract/vision-results/58e9ded17f0841413f205e30c4cc63e47b23376d4be733d6fc5042c5610a04a7.json",
-        "iconVerification": null,
-        "evidencePath": null
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-24-20260820T204740Z-p273022-2cf4d5",
+        "sessionId": "20260820_205125_8df2c2",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-24-20260820T204740Z-p273022-2cf4d5/results/W24-007.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-24-20260820T204740Z-p273022-2cf4d5/raw/W24-007.json",
+        "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-24-20260820T204740Z-p273022-2cf4d5/qa/contact-sheets/W24-007-contact-sheet.png",
+        "confidence": "high-evidence-deferred-source/identity",
+        "iconVerification": {
+          "status": "0-matched-occurrences-with-0-explicit-no-match-occurrences",
+          "evidencePath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-24-20260820T204740Z-p273022-2cf4d5/metadata/adjudication-summary.json"
+        }
       },
       "status": "open"
     },
@@ -53987,31 +54163,61 @@
       },
       "orientation": "upright",
       "confidentlyVisible": [
-        "The file is already upright, with the main typography reading left to right.",
-        "The portrait card face depicts a sealed doorway covered with yellow quarantine tape.",
-        "The title is CLOSEDOWN.",
-        "The rules panel contains one sentence with a cyan-and-white crossed-out Life Support icon.",
-        "The bottom label is SOLO / COOP.",
-        "QUARANTINE is repeatedly printed on the yellow tape in the artwork."
+        "Tall portrait composition with a coarse, scratched, fabric-like surface texture. A gray-green metal double panel with a dark vertical center seam fills the upper and middle area, bordered by cylindrical and structural forms.",
+        "Numerous bright yellow strips cross the metal panel at different angles. They overlap, fold, darken, and terminate at panel edges. Repeated black uppercase lettering and small radial black emblems are printed on the strips.",
+        "A tilted yellow triangular placard appears above the strips on the upper-right portion of the metal panel. It has a dark border and a black three-lobed curved mark around a small central ring.",
+        "The lower third contains two stacked dark beveled frames with thin pale-green luminous outlines and symmetric green side accents. A large white uppercase line occupies the upper frame; a single centered white sentence occupies the lower frame; and a green uppercase footer appears below the sentence.",
+        "The sentence ends with a bright cyan horizontal capsule containing a white hollow oblong mark and a pointed white projection. A separate small white dot follows the capsule.",
+        "Several yellow-strip word-and-emblem sequences are completely readable. Other repetitions expose only leading or trailing letters because of folds, crossings, stains, and strip ends."
       ],
       "visibleText": {
         "title": "CLOSEDOWN",
-        "body": "All Life Support tokens must be [lifeSupportInactive].",
+        "typeLine": "",
+        "body": "All Life Support tokens must be [life-support-active].",
+        "sections": [
+          "CLOSEDOWN",
+          "All Life Support tokens must be [life-support-active].",
+          "SOLO / COOP"
+        ],
         "footer": "SOLO / COOP",
-        "visibleText": "[ICON: black three-lobed circular glyph inside yellow triangle]\n[ICON: black three-lobed circular glyph] QUARANTINE"
+        "upperRight": "[ICON: tilted yellow triangular sign containing a black three-hooked radial emblem]",
+        "lowerCenter": "",
+        "illegibleSpans": [
+          "Darkened and texture-disrupted lettering at several yellow-strip folds and crossings: [illegible]"
+        ],
+        "clippedSpans": [
+          "Upper-right yellow strip: QUA[clipped]",
+          "Left side of the yellow strip immediately below the uppermost strip: [clipped]NTINE",
+          "Middle-left horizontal yellow strip: [clipped]ARANTINE",
+          "Bottom-left yellow strip: [clipped]RANTINE",
+          "Additional middle and lower yellow-strip repetitions interrupted by folds, overlaps, stains, and strip ends: [clipped]"
+        ]
       },
       "uncertainties": [
-        "Several repetitions of QUARANTINE and their adjacent black glyphs in the background artwork are partially obscured, clipped, or degraded, so they cannot be transcribed occurrence-by-occurrence.",
-        "The black three-lobed circular artwork glyph is not confidently matched to a canonical glossary icon and is therefore described literally."
+        "Current publisher primary face/operative wording gate is incomplete: publisher-faq-title-erratum-plus-secondary-wording-only.",
+        "FAQ v1.2 names CLOSEDOWN and forbids it from coexisting with SHUTDOWN, but does not reproduce CLOSEDOWN operative wording; BGA is secondary evidence only.",
+        "No approved canonical mission-task or solo/coop-objective sidecar schema exists in cards/game.",
+        "No hidden tape lettering has been completed; uncertain regions are marked [illegible] or [clipped].",
+        "Only three complete QUARANTINE sequences are promoted in the transcription; the exact status of additional repetitions is deferred because letters are obscured or truncated.",
+        "The black radial marks on the triangle and yellow strips appear morphologically similar, but exact identity equivalence is not asserted because the strip copies are much smaller.",
+        "The cyan inline glyph's right end could be read as an arrow-like, forked, or star-like projection; its intended identity is not established by a printed label.",
+        "The symmetric green side bars and angular border marks visually integrate with the frame and are treated as decoration rather than standalone functional symbols."
       ],
-      "reasonSkipped": "exact card identity/transcription/icon/category is not uniformly high-confidence",
+      "reasonSkipped": "Current publisher primary face/operative wording gate is incomplete: publisher-faq-title-erratum-plus-secondary-wording-only.; No approved canonical mission-task or solo/coop-objective sidecar schema exists in cards/game.",
       "vision": {
         "provider": "openai-codex",
         "model": "gpt-5.6-sol",
-        "sessionId": "20260815_053206_6495a7",
-        "resultPath": "assets/tts-mod/extract/vision-results/71d47a2a9ebaee6f8bca6aa88413647e8b796e37cd9ecd175d505cf1ec7e1076.json",
-        "iconVerification": null,
-        "evidencePath": null
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-24-20260820T204740Z-p273022-2cf4d5",
+        "sessionId": "20260820_205125_8df2c2",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-24-20260820T204740Z-p273022-2cf4d5/results/W24-008.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-24-20260820T204740Z-p273022-2cf4d5/raw/W24-008.json",
+        "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-24-20260820T204740Z-p273022-2cf4d5/qa/contact-sheets/W24-008-contact-sheet.png",
+        "confidence": "high-evidence-deferred-source/identity",
+        "iconVerification": {
+          "status": "1-matched-occurrences-with-0-explicit-no-match-occurrences",
+          "evidencePath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-24-20260820T204740Z-p273022-2cf4d5/metadata/adjudication-summary.json"
+        }
       },
       "status": "open"
     },
