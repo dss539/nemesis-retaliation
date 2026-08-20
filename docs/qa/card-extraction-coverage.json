@@ -1,24 +1,24 @@
 {
   "schemaVersion": 1,
-  "sourceProgressUpdatedAt": "2026-08-16T03:20:33Z",
-  "sourceQueueUpdatedAt": "2026-08-16T03:20:33Z",
+  "sourceProgressUpdatedAt": "2026-08-20T05:15:55.087730Z",
+  "sourceQueueUpdatedAt": "2026-08-20T05:15:55.087730Z",
   "totals": {
     "inScope": 532,
-    "complete": 134,
-    "deferred": 398,
+    "complete": 141,
+    "deferred": 391,
     "cardImages": 390,
-    "completeCardImages": 98,
-    "deferredCardImages": 292,
+    "completeCardImages": 105,
+    "deferredCardImages": 285,
     "deferredNonCardImages": 106,
-    "canonicalSidecars": 64
+    "canonicalSidecars": 71
   },
   "deferredExtractionStates": {
-    "draft-full": 307,
+    "draft-full": 300,
     "no-transcription": 33,
     "non-rules-or-reference": 58
   },
   "deferredCardExtractionStates": {
-    "draft-full": 276,
+    "draft-full": 269,
     "no-transcription": 2,
     "non-rules-or-reference": 14
   },
@@ -53,14 +53,7 @@
     "game/attack-022.png": 1,
     "game/attack-151_cards": 19,
     "game/contamination": 1,
-    "game/event-051.jpg": 1,
     "game/event-054.png": 1,
-    "game/event-058.jpg": 1,
-    "game/event-064.png": 1,
-    "game/event-072.png": 1,
-    "game/event-086.png": 1,
-    "game/event-090.png": 1,
-    "game/event-093.jpg": 1,
     "game/event-096.png": 1,
     "game/event-099.png": 1,
     "game/event-100.png": 1,
@@ -183,7 +176,7 @@
     "reference": 4
   },
   "reasonTags": {
-    "classification": 314,
+    "classification": 307,
     "clipped-or-illegible": 91,
     "needs-official-source": 1,
     "orientation": 55,
@@ -191,7 +184,7 @@
     "provenance": 15,
     "schema-or-destination": 9,
     "source-conflict": 7,
-    "unknown-icon": 3
+    "unknown-icon": 2
   },
   "topRulesInformationPriorities": [
     {
@@ -224,45 +217,6 @@
         "workerId": null,
         "sessionId": "20260815_054336_4805ac",
         "resultPath": "assets/tts-mod/extract/vision-results/77223a77d61181cd144bd508dfcbfe91e135e093395d15e8b9957ce51669d8c4.json",
-        "rawResultPath": null
-      }
-    },
-    {
-      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/event-054.png",
-      "sourceSha256": "ac3dc8c20efc3e964383bb9956b264bf3f4a64762d8d8920f5c612d1841ec4bf",
-      "family": "game/event-054.png",
-      "isCard": true,
-      "isRulesBearingCandidate": true,
-      "extractionState": "draft-full",
-      "priorityScore": 530,
-      "title": "LEAVING THE SHELL",
-      "typeLine": null,
-      "body": "No [intruder] moves.\n\nEach [character] with Larva:\nGain 1 Contamination, discard all [actionCard],\nand reshuffle your deck.\nThen, resolve the Eclosion Procedure.\nEach other [character]:\nDraw 4 [actionCard] and resolve the Infection\nProcedure. Then, discard all [actionCard].\n\nReshuffle the Event deck.",
-      "footer": null,
-      "recognizedTokens": [
-        "actionCard",
-        "character",
-        "intruder"
-      ],
-      "unknownTokens": [
-        "ICON: gray upward-pointing triangle"
-      ],
-      "unreadableMarkers": [],
-      "reasonTags": [
-        "unknown-icon",
-        "classification"
-      ],
-      "reasonSkipped": "exact card identity/transcription/icon/category is not uniformly high-confidence",
-      "uncertainties": [
-        "The small gray upward-pointing triangle beneath the movement line has no confident glossary match and may be a decorative or source-art interface artifact."
-      ],
-      "vision": {
-        "provider": "openai-codex",
-        "model": "gpt-5.6-sol",
-        "reasoningEffort": null,
-        "workerId": null,
-        "sessionId": "20260815_052023_8493fc",
-        "resultPath": "assets/tts-mod/extract/vision-results/ac3dc8c20efc3e964383bb9956b264bf3f4a64762d8d8920f5c612d1841ec4bf.json",
         "rawResultPath": null
       }
     },
@@ -1146,108 +1100,62 @@
       }
     },
     {
-      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/event-051.jpg",
-      "sourceSha256": "2eb453e8f770bbee9ab5b951fb22e952d34c1250876b88e878a461c11f7f8ded",
-      "family": "game/event-051.jpg",
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/event-054.png",
+      "sourceSha256": "ac3dc8c20efc3e964383bb9956b264bf3f4a64762d8d8920f5c612d1841ec4bf",
+      "family": "game/event-054.png",
       "isCard": true,
       "isRulesBearingCandidate": true,
       "extractionState": "draft-full",
       "priorityScore": 430,
-      "title": "OVERWHELMING ENEMIES",
+      "title": "LEAVING THE SHELL",
       "typeLine": null,
-      "body": "All [intruder] in each [corridorNESW] move.\nThen, all [intruder] in every Room move.\n\nPlace 1 Drone in each Corridor\nwith a [noise] adjacent to a [character].\n\nEach [character] in a Room without a [secure]\nresolves [ICON: yellow circular burst with black spiky center].",
-      "footer": null,
+      "body": "No [intruder] moves.\n\nEach [character] with Larva:\nGain 1 Contamination, discard all [ICON: solid white rectangular block],\nand reshuffle your deck.\nThen, resolve the Eclosion Procedure.\nEach other [character]:\nDraw 4 [ICON: solid white rectangular block] and resolve the Infection\nProcedure. Then, discard all [ICON: solid white rectangular block].\n\nReshuffle the Event deck.",
+      "footer": "",
       "recognizedTokens": [
         "character",
-        "corridorNESW",
-        "intruder",
-        "noise",
-        "secure"
+        "intruder"
       ],
       "unknownTokens": [
-        "ICON: yellow circular burst with black spiky center"
+        "ICON: solid white rectangular block"
       ],
       "unreadableMarkers": [],
       "reasonTags": [
-        "classification"
+        "other"
       ],
-      "reasonSkipped": "exact card identity/transcription/icon/category is not uniformly high-confidence",
+      "reasonSkipped": "Three featureless solid white rectangular inline occurrences lack authoritative canonical identities; exactly one explicit no-match row per occurrence is preserved.",
       "uncertainties": [
-        "The final yellow circular glyph with a black spiky center is not confidently represented in the supplied canonical glossary and is therefore transcribed literally."
+        "Three featureless solid white rectangular inline occurrences lack visible morphology required to establish any canonical token."
       ],
       "vision": {
         "provider": "openai-codex",
         "model": "gpt-5.6-sol",
-        "reasoningEffort": null,
-        "workerId": null,
-        "sessionId": "20260815_052023_df8a2d",
-        "resultPath": "assets/tts-mod/extract/vision-results/2eb453e8f770bbee9ab5b951fb22e952d34c1250876b88e878a461c11f7f8ded.json",
-        "rawResultPath": null
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-18-recovery-20260820T044726Z-p176060-5eb908",
+        "sessionId": "20260819_083610_6461bd",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-18-recovery-20260820T044726Z-p176060-5eb908/results/W18-002.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-18-recovery-20260820T044726Z-p176060-5eb908/raw/W18-002.json"
       }
     },
     {
-      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/event-058.jpg",
-      "sourceSha256": "cdf03513025769517d9a0e05ac3881120176a1d506db118fd3db50b6c82d9762",
-      "family": "game/event-058.jpg",
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/event-096.png",
+      "sourceSha256": "85d08e0de5b2710ed0e1ac0295ed27da3b4d0da9eb2419aa0f0093d94f1b70d5",
+      "family": "game/event-096.png",
       "isCard": true,
       "isRulesBearingCandidate": true,
       "extractionState": "draft-full",
       "priorityScore": 430,
-      "title": "SHORT CIRCUIT",
+      "title": "LANDING ZONE EXPLODES",
       "typeLine": null,
-      "body": "All [intruder] in each [corridorNWSE] move.\nThen, all [intruder] in every Room move.\n\nIn Sections with an [oxygen]:\nPlace a [fire] in each Room with a [malfunction].\n\nEach [robot] in a Room without a [secure]\nresolves [ICON: yellow spiked circular field with black creature-like silhouette].",
+      "body": "All [intruder] in each [ICON: white outlined horizontal frame with central top and bottom tabs] move.\nThen, all [intruder] in every Room move.\n\nPlace a [fire] and a [malfunction] in\nthe Landing Zone.\n\nPlace a [noise] in each Unexplored\nCorridor without [noise].",
       "footer": null,
       "recognizedTokens": [
-        "corridorNWSE",
         "fire",
         "intruder",
-        "malfunction",
-        "oxygen",
-        "robot",
-        "secure"
-      ],
-      "unknownTokens": [
-        "ICON: yellow spiked circular field with black creature-like silhouette"
-      ],
-      "unreadableMarkers": [],
-      "reasonTags": [
-        "classification"
-      ],
-      "reasonSkipped": "exact card identity/transcription/icon/category is not uniformly high-confidence",
-      "uncertainties": [
-        "The final yellow spiked glyph is not confidently represented in the supplied glossary; its morphology is transcribed literally and its meaning is unknown."
-      ],
-      "vision": {
-        "provider": "openai-codex",
-        "model": "gpt-5.6-sol",
-        "reasoningEffort": null,
-        "workerId": null,
-        "sessionId": "20260815_052358_35e01d",
-        "resultPath": "assets/tts-mod/extract/vision-results/cdf03513025769517d9a0e05ac3881120176a1d506db118fd3db50b6c82d9762.json",
-        "rawResultPath": null
-      }
-    },
-    {
-      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/event-064.png",
-      "sourceSha256": "93bd00726c0683feb10a47c85c86055438114c3a8c5fbb33500325fa195d2158",
-      "family": "game/event-064.png",
-      "isCard": true,
-      "isRulesBearingCandidate": true,
-      "extractionState": "draft-full",
-      "priorityScore": 430,
-      "title": "LIFE SUPPORT FAILURE",
-      "typeLine": null,
-      "body": "All [intruder] in each [ICON: white outlined linked angular glyph] move.\nThen, all [intruder] in every Room move.\n\nFlip all [lifeSupportActive] to [lifeSupportInactive]. Place a [malfunction]\nin each Life Support Control Room.\n\nPlace a [noise] in each Unexplored\nCorridor without [noise].",
-      "footer": null,
-      "recognizedTokens": [
-        "intruder",
-        "lifeSupportActive",
-        "lifeSupportInactive",
         "malfunction",
         "noise"
       ],
       "unknownTokens": [
-        "ICON: white outlined linked angular glyph"
+        "ICON: white outlined horizontal frame with central top and bottom tabs"
       ],
       "unreadableMarkers": [],
       "reasonTags": [
@@ -1255,36 +1163,38 @@
       ],
       "reasonSkipped": "exact card identity/transcription/icon/category is not uniformly high-confidence",
       "uncertainties": [
-        "The white outlined linked angular glyph after “each” is clearly visible but cannot be confidently matched to corridorEW, corridorNESW, corridorNWSE, or another canonical glossary identifier."
+        "The white outlined horizontal frame icon in the first rule is not confidently matched to any supplied canonical icon, so it is transcribed literally."
       ],
       "vision": {
         "provider": "openai-codex",
         "model": "gpt-5.6-sol",
         "reasoningEffort": null,
         "workerId": null,
-        "sessionId": "20260815_052105_f7dd0f",
-        "resultPath": "assets/tts-mod/extract/vision-results/93bd00726c0683feb10a47c85c86055438114c3a8c5fbb33500325fa195d2158.json",
+        "sessionId": "20260815_052358_f865ce",
+        "resultPath": "assets/tts-mod/extract/vision-results/85d08e0de5b2710ed0e1ac0295ed27da3b4d0da9eb2419aa0f0093d94f1b70d5.json",
         "rawResultPath": null
       }
     },
     {
-      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/event-072.png",
-      "sourceSha256": "890259ff52beb7bb5235f2efd010b4e54ee752e9d85cb27f2de2576257fa33bb",
-      "family": "game/event-072.png",
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/event-099.png",
+      "sourceSha256": "0d5da2c8e1b6ccb6a30c83f9006aa924f4fc2f1f14d360d153bc5ea6f73770ed",
+      "family": "game/event-099.png",
       "isCard": true,
       "isRulesBearingCandidate": true,
       "extractionState": "draft-full",
       "priorityScore": 430,
-      "title": "THE QUEEN AWAKENS",
+      "title": "SYSTEM FAILURE",
       "typeLine": null,
-      "body": "All [intruder] in each [ICON: white outlined diagonal linked double-polygon glyph] move.\nThen, all [intruder] in every Room move.\n\nIf the Queen is alive, add all\nQueen tokens to the bag.\n\nPlace a [ICON: yellow pentagonal badge with black central diamond and inward chevrons] in each Unexplored\nCorridor without [ICON: yellow pentagonal badge with black central diamond and inward chevrons].",
+      "body": "All [intruder] in each [corridorEW] move.\nThen, all [intruder] in every Room move.\n\nPlace a [malfunction] in each [computer] Room.\n\nResolve each [ICON: yellow triangular warning badge with black central hexagonal glyph and nested angular lines] in\nUnexplored Corridors.",
       "footer": null,
       "recognizedTokens": [
-        "intruder"
+        "computer",
+        "corridorEW",
+        "intruder",
+        "malfunction"
       ],
       "unknownTokens": [
-        "ICON: white outlined diagonal linked double-polygon glyph",
-        "ICON: yellow pentagonal badge with black central diamond and inward chevrons"
+        "ICON: yellow triangular warning badge with black central hexagonal glyph and nested angular lines"
       ],
       "unreadableMarkers": [],
       "reasonTags": [
@@ -1292,39 +1202,38 @@
       ],
       "reasonSkipped": "exact card identity/transcription/icon/category is not uniformly high-confidence",
       "uncertainties": [
-        "The white outlined diagonal linked double-polygon glyph in the first rules panel is not confidently matched to any supplied canonical icon.",
-        "The repeated yellow pentagonal glyph in the bottom panel is not confidently matched to any supplied canonical icon.",
-        "The event-card classification is strongly suggested by the titled artwork and multi-panel effects, but no explicit printed type line identifies it as an event card."
+        "The yellow triangular glyph in the final panel is not uniquely distinguishable from the supplied glossary descriptions, so it is preserved literally rather than assigned a canonical identifier.",
+        "Background display text is stylized and blurred; only one clearly discernible “SYSTEMERROR” instance is transcribed, while other partial repetitions and microtext are omitted."
       ],
       "vision": {
         "provider": "openai-codex",
         "model": "gpt-5.6-sol",
         "reasoningEffort": null,
         "workerId": null,
-        "sessionId": "20260815_052114_cd3388",
-        "resultPath": "assets/tts-mod/extract/vision-results/890259ff52beb7bb5235f2efd010b4e54ee752e9d85cb27f2de2576257fa33bb.json",
+        "sessionId": "20260815_052358_6f7640",
+        "resultPath": "assets/tts-mod/extract/vision-results/0d5da2c8e1b6ccb6a30c83f9006aa924f4fc2f1f14d360d153bc5ea6f73770ed.json",
         "rawResultPath": null
       }
     },
     {
-      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/event-090.png",
-      "sourceSha256": "45b5845d04f57b10dff6e73005be88cba0107a1a15da83f581df6531390d1ac9",
-      "family": "game/event-090.png",
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/event-100.png",
+      "sourceSha256": "592afbb981cdb9bcae45812d38285a7e7cc1dd41bb21446861d51d000e9b0070",
+      "family": "game/event-100.png",
       "isCard": true,
       "isRulesBearingCandidate": true,
       "extractionState": "draft-full",
       "priorityScore": 430,
-      "title": "HATCHING",
+      "title": "SCENT OF PREY",
       "typeLine": null,
-      "body": "All [intruder] in each [ICON: white outlined angular two-lobed glyph] move.\n\nPlace a Larva in the Nest - it\nimmediately Attacks if any [character] is there.\nPlace 1 Larva in each Unexplored\nCorridor adjacent to a [character].\n\nResolve each [ICON: yellow pentagonal badge with black three-pronged glyph] in\nUnexplored Corridors.",
+      "body": "All [intruder] in each [corridorNWSE] move.\nThen, all [intruder] in every Room move.\n\nResolve each [ICON: yellow triangular striped glyph with central black wedge and dot] adjacent to a [character].\n\nEach [character] makes a Noise roll.",
       "footer": null,
       "recognizedTokens": [
         "character",
+        "corridorNWSE",
         "intruder"
       ],
       "unknownTokens": [
-        "ICON: white outlined angular two-lobed glyph",
-        "ICON: yellow pentagonal badge with black three-pronged glyph"
+        "ICON: yellow triangular striped glyph with central black wedge and dot"
       ],
       "unreadableMarkers": [],
       "reasonTags": [
@@ -1332,16 +1241,99 @@
       ],
       "reasonSkipped": "exact card identity/transcription/icon/category is not uniformly high-confidence",
       "uncertainties": [
-        "The white outlined angular glyph after “each” in the first panel does not confidently match a canonical glossary icon and is transcribed literally.",
-        "The yellow pentagonal badge in the bottom panel does not confidently match a canonical glossary icon and is transcribed literally."
+        "The yellow triangular striped glyph is not confidently matched to any supplied canonical icon and is therefore transcribed literally.",
+        "Horizontal bands overlay portions of the artwork; whether they are intentional visual design or a source-art artifact is uncertain."
       ],
       "vision": {
         "provider": "openai-codex",
         "model": "gpt-5.6-sol",
         "reasoningEffort": null,
         "workerId": null,
-        "sessionId": "20260815_052358_94067f",
-        "resultPath": "assets/tts-mod/extract/vision-results/45b5845d04f57b10dff6e73005be88cba0107a1a15da83f581df6531390d1ac9.json",
+        "sessionId": "20260815_052358_0c51f9",
+        "resultPath": "assets/tts-mod/extract/vision-results/592afbb981cdb9bcae45812d38285a7e7cc1dd41bb21446861d51d000e9b0070.json",
+        "rawResultPath": null
+      }
+    },
+    {
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/event-139.png",
+      "sourceSha256": "53351204890c5e98381a1fc4712e574a701659ec913b5f9c3f838ac6074c9614",
+      "family": "game/event-139.png",
+      "isCard": true,
+      "isRulesBearingCandidate": true,
+      "extractionState": "draft-full",
+      "priorityScore": 430,
+      "title": "DAMAGE",
+      "typeLine": null,
+      "body": "All [intruder] in each [corridorEW] move.\n\nPlace a [malfunction] in each Room with a [intruder].\n\nEach [character] in a Room\nwithout [ICON: white vertically pointed shield-like faceted glyph] resolves [ICON: yellow irregular burst glyph with black spiky creature silhouette].",
+      "footer": null,
+      "recognizedTokens": [
+        "character",
+        "corridorEW",
+        "intruder",
+        "malfunction"
+      ],
+      "unknownTokens": [
+        "ICON: white vertically pointed shield-like faceted glyph",
+        "ICON: yellow irregular burst glyph with black spiky creature silhouette"
+      ],
+      "unreadableMarkers": [],
+      "reasonTags": [
+        "classification"
+      ],
+      "reasonSkipped": "exact card identity/transcription/icon/category is not uniformly high-confidence",
+      "uncertainties": [
+        "The white vertically pointed, shield-like faceted glyph after “without” is not a confident match to any canonical glossary icon.",
+        "The yellow irregular burst glyph containing a black spiky creature silhouette is not a confident match to any canonical glossary icon."
+      ],
+      "vision": {
+        "provider": "openai-codex",
+        "model": "gpt-5.6-sol",
+        "reasoningEffort": null,
+        "workerId": null,
+        "sessionId": "20260815_052446_c3e71f",
+        "resultPath": "assets/tts-mod/extract/vision-results/53351204890c5e98381a1fc4712e574a701659ec913b5f9c3f838ac6074c9614.json",
+        "rawResultPath": null
+      }
+    },
+    {
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/event-167.png",
+      "sourceSha256": "37bbf022f99ef62a18a5225aaf31347f6299f72672603547f51918502241f27b",
+      "family": "game/event-167.png",
+      "isCard": true,
+      "isRulesBearingCandidate": true,
+      "extractionState": "draft-full",
+      "priorityScore": 430,
+      "title": "DAMAGING FIRE",
+      "typeLine": null,
+      "body": "All [intruder] in each [corridorNESW] move.\nThen, all [intruder] in every Room move.\n\nPlace a [malfunction] in each Room with a [fire].\nFrom each Room with a [fire],\nspread it through Corridors\nwith the lowest Noise value.\n\nEach [character] in a Room\nwithout [ICON: white segmented shield glyph] resolves [ICON: yellow spiked creature glyph].",
+      "footer": null,
+      "recognizedTokens": [
+        "character",
+        "corridorNESW",
+        "fire",
+        "intruder",
+        "malfunction"
+      ],
+      "unknownTokens": [
+        "ICON: white segmented shield glyph",
+        "ICON: yellow spiked creature glyph"
+      ],
+      "unreadableMarkers": [],
+      "reasonTags": [
+        "classification"
+      ],
+      "reasonSkipped": "exact card identity/transcription/icon/category is not uniformly high-confidence",
+      "uncertainties": [
+        "The white segmented shield-like glyph in the final panel is not confidently matched to the supplied canonical glossary.",
+        "The yellow spiked creature-like glyph after “resolves” is not confidently matched to the supplied canonical glossary."
+      ],
+      "vision": {
+        "provider": "openai-codex",
+        "model": "gpt-5.6-sol",
+        "reasoningEffort": null,
+        "workerId": null,
+        "sessionId": "20260815_052508_538b35",
+        "resultPath": "assets/tts-mod/extract/vision-results/37bbf022f99ef62a18a5225aaf31347f6299f72672603547f51918502241f27b.json",
         "rawResultPath": null
       }
     }

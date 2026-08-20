@@ -6274,6 +6274,130 @@
           "conflictsWithPriorSnapshot": []
         }
       ]
+    },
+    {
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/event-054.png",
+      "sourceSha256": "ac3dc8c20efc3e964383bb9956b264bf3f4a64762d8d8920f5c612d1841ec4bf",
+      "status": "selected-evidence-deferred",
+      "selectedRunIdentity": "w18-card-extraction-recovery-20260820T044726Z-p176060-5eb908/sol-max-persistent-worker-18-recovery-20260820T044726Z-p176060-5eb908/W18-002",
+      "runs": [
+        {
+          "runIdentity": "w18-card-extraction-recovery-20260820T044726Z-p176060-5eb908/sol-max-persistent-worker-18-recovery-20260820T044726Z-p176060-5eb908/W18-002",
+          "runId": "w18-card-extraction-recovery-20260820T044726Z-p176060-5eb908",
+          "workerId": "sol-max-persistent-worker-18-recovery-20260820T044726Z-p176060-5eb908",
+          "assetId": "W18-002",
+          "assignmentSha256": "865bcaa9c01d899c72e9dce9ab7c6f4e54273a5cfb0e6029070753fcc3ef20dd",
+          "orderedTupleDigest": "f596ed5997f40ae95ff397e4b0360ec620b11ca7e3804903d2bddc4643dd5ab9",
+          "runtime": {
+            "provider": "openai-codex",
+            "model": "gpt-5.6-sol",
+            "reasoningEffort": "max",
+            "nativeImageRoute": "salvaged verified direct blind session plus historical/current native post-blind morphology validation",
+            "blindSessionId": "20260819_083610_6461bd",
+            "adjudicationSessionId": "20260819_062132_c0f4f3",
+            "auxiliaryVisionUsed": false,
+            "qwenUsed": false,
+            "ocrCanonicalEvidenceUsed": false,
+            "modelDowngradeUsed": false
+          },
+          "artifactPaths": {
+            "blindObservationPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-18-recovery-20260820T044726Z-p176060-5eb908/raw/W18-002.json",
+            "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-18-recovery-20260820T044726Z-p176060-5eb908/results/W18-002.json",
+            "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-18-recovery-20260820T044726Z-p176060-5eb908/references/W18-002-post-blind-contact-sheet.png"
+          },
+          "visibleText": {
+            "title": "LEAVING THE SHELL",
+            "body": "No [intruder] moves.\n\nEach [character] with Larva:\nGain 1 Contamination, discard all [ICON: solid white rectangular block],\nand reshuffle your deck.\nThen, resolve the Eclosion Procedure.\nEach other [character]:\nDraw 4 [ICON: solid white rectangular block] and resolve the Infection\nProcedure. Then, discard all [ICON: solid white rectangular block].\n\nReshuffle the Event deck.",
+            "sections": [
+              "No [intruder] moves.",
+              "Each [character] with Larva:\nGain 1 Contamination, discard all [ICON: solid white rectangular block],\nand reshuffle your deck.\nThen, resolve the Eclosion Procedure.\nEach other [character]:\nDraw 4 [ICON: solid white rectangular block] and resolve the Infection\nProcedure. Then, discard all [ICON: solid white rectangular block].",
+              "Reshuffle the Event deck."
+            ],
+            "footer": "",
+            "upperRight": "",
+            "illegibleSpans": [],
+            "clippedSpans": []
+          },
+          "verifiedIconOccurrences": [
+            {
+              "cardLocation": "First narrow text panel, between 'No' and 'moves.'.",
+              "referenceLabel": "intruder",
+              "matchDecision": "match",
+              "canonicalToken": "intruder",
+              "closestAlternative": "robot",
+              "visibleDiscriminator": "robot is an upright domed mechanical head/body with two round eye holes, not a curled creature",
+              "evidenceRun": "sol-max-persistent-worker-18-recovery-20260820T044726Z-p176060-5eb908"
+            },
+            {
+              "cardLocation": "Large middle text panel, first line, between 'Each' and 'with Larva:'.",
+              "referenceLabel": "character",
+              "matchDecision": "match",
+              "canonicalToken": "character",
+              "closestAlternative": "robot",
+              "visibleDiscriminator": "robot is a compact domed mechanical head/body without articulated limbs",
+              "evidenceRun": "sol-max-persistent-worker-18-recovery-20260820T044726Z-p176060-5eb908"
+            },
+            {
+              "cardLocation": "Large middle text panel, fifth line, between 'Each other' and ':'.",
+              "referenceLabel": "character",
+              "matchDecision": "match",
+              "canonicalToken": "character",
+              "closestAlternative": "robot",
+              "visibleDiscriminator": "robot is a compact domed mechanical head/body without articulated limbs",
+              "evidenceRun": "sol-max-persistent-worker-18-recovery-20260820T044726Z-p176060-5eb908"
+            }
+          ],
+          "unresolvedIconOccurrences": [
+            {
+              "cardLocation": "Large middle text panel, second line, after 'discard all' and before ','.",
+              "referenceLabel": "No authoritative canonical candidate established",
+              "matchDecision": "no-match",
+              "canonicalToken": null,
+              "closestAlternative": "actionCard",
+              "visibleDiscriminator": "The source occurrence is a featureless solid white rectangle. actionCard requires a visible black “A”; anySlot requires a dark top notch; the die candidates require colored polygonal fields and digits. None of those discriminators is present.",
+              "evidenceRun": "sol-max-persistent-worker-18-recovery-20260820T044726Z-p176060-5eb908"
+            },
+            {
+              "cardLocation": "Large middle text panel, sixth line, after 'Draw 4' and before 'and resolve the Infection'.",
+              "referenceLabel": "No authoritative canonical candidate established",
+              "matchDecision": "no-match",
+              "canonicalToken": null,
+              "closestAlternative": "actionCard",
+              "visibleDiscriminator": "The source occurrence is a featureless solid white rectangle. actionCard requires a visible black “A”; anySlot requires a dark top notch; the die candidates require colored polygonal fields and digits. None of those discriminators is present.",
+              "evidenceRun": "sol-max-persistent-worker-18-recovery-20260820T044726Z-p176060-5eb908"
+            },
+            {
+              "cardLocation": "Large middle text panel, seventh line, after 'discard all' and before '.'.",
+              "referenceLabel": "No authoritative canonical candidate established",
+              "matchDecision": "no-match",
+              "canonicalToken": null,
+              "closestAlternative": "actionCard",
+              "visibleDiscriminator": "The source occurrence is a featureless solid white rectangle. actionCard requires a visible black “A”; anySlot requires a dark top notch; the die candidates require colored polygonal fields and digits. None of those discriminators is present.",
+              "evidenceRun": "sol-max-persistent-worker-18-recovery-20260820T044726Z-p176060-5eb908"
+            }
+          ],
+          "canonicalTokensEmitted": [
+            "character",
+            "intruder"
+          ],
+          "allMaterialTextReadable": true,
+          "allMaterialIconsAuthoritativelyMatched": false,
+          "promotionDecision": "defer",
+          "decisionReasons": [
+            "Exact text and recognized glyphs are preserved, but three featureless inline white rectangles remain explicit no-match occurrences.",
+            "No semantic token was inferred for unresolved morphology.",
+            "Tracked target and same-title counterpart checks are empty across the source-preserving image extension and all tracked image extensions."
+          ],
+          "conflictsWithPriorSnapshot": [
+            {
+              "field": "printedData.body",
+              "priorValue": "No [intruder] moves.\n\nEach [character] with Larva:\nGain 1 Contamination, discard all [actionCard],\nand reshuffle your deck.\nThen, resolve the Eclosion Procedure.\nEach other [character]:\nDraw 4 [actionCard] and resolve the Infection\nProcedure. Then, discard all [actionCard].\n\nReshuffle the Event deck.",
+              "currentStatus": "superseded in selected evidence by exact text plus three explicit no-match occurrences",
+              "resolution": "preserve the historical base snapshot; selected overlay supplies the current direct-pixel evidence without silently assigning semantic tokens"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

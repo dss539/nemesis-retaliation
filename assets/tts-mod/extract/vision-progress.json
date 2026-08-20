@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-08-16T03:20:33Z",
+  "updatedAt": "2026-08-20T05:15:55.087730Z",
   "scope": {
     "root": "assets/tts-mod/extract/v2-dl/tree",
     "definition": "Every base-game PNG/JPEG canonical child or standalone image in the extraction tree. Source sprite sheets with documented canonical split children are excluded from semantic re-extraction.",
@@ -34,8 +34,8 @@
     "nextPosition": "assets/tts-mod/extract/v2-dl/tree/bags/adult-007.png"
   },
   "counts": {
-    "complete": 134,
-    "deferred": 398,
+    "complete": 141,
+    "deferred": 391,
     "visionRead": 0,
     "visionFailed": 0,
     "pending": 0
@@ -77575,15 +77575,19 @@
       "bytes": 316841,
       "sourceKind": "manifest",
       "sourceUrl": "https://steamusercontent-a.akamaihd.net/ugc/12301127061713621195/D12648C0F0A83BD64CDBC54C18690AA236A5126A/",
-      "status": "deferred",
-      "canonicalPath": null,
-      "sidecarPath": null,
+      "status": "complete",
+      "canonicalPath": "cards/game/event/overwhelming-enemies.jpg",
+      "sidecarPath": "cards/game/event/overwhelming-enemies.json",
       "vision": {
         "provider": "openai-codex",
         "model": "gpt-5.6-sol",
-        "sessionId": "20260815_052023_df8a2d",
-        "resultPath": "assets/tts-mod/extract/vision-results/2eb453e8f770bbee9ab5b951fb22e952d34c1250876b88e878a461c11f7f8ded.json",
-        "confidence": "medium"
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-18-recovery-20260820T044726Z-p176060-5eb908",
+        "sessionId": "20260819_083610_6461bd",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-18-recovery-20260820T044726Z-p176060-5eb908/results/W18-001.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-18-recovery-20260820T044726Z-p176060-5eb908/raw/W18-001.json",
+        "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-18-recovery-20260820T044726Z-p176060-5eb908/references/W18-001-post-blind-contact-sheet.png",
+        "confidence": "high"
       },
       "provenance": {
         "sourceUrl": "https://steamusercontent-a.akamaihd.net/ugc/12301127061713621195/D12648C0F0A83BD64CDBC54C18690AA236A5126A/",
@@ -77751,34 +77755,35 @@
         ]
       },
       "semanticRead": {
-        "componentType": "illustrated game event card",
+        "componentType": "illustrated event card",
         "cardSide": "face",
         "title": "OVERWHELMING ENEMIES",
         "typeLine": "",
-        "body": "All [intruder] in each [corridorNESW] move.\nThen, all [intruder] in every Room move.\n\nPlace 1 Drone in each Corridor\nwith a [noise] adjacent to a [character].\n\nEach [character] in a Room without a [secure]\nresolves [ICON: yellow circular burst with black spiky center].",
+        "body": "All [intruder] in each [corridorNESW] move.\nThen, all [intruder] in every Room move.\n\nPlace 1 Drone in each Corridor\nwith a [noise] adjacent to a [character].\n\nEach [character] in a Room without a [secure]\nresolves [noiseDieHazard].",
         "footer": "",
         "upperRight": "",
         "lowerCenter": "",
         "visibleText": "",
         "confidentlyVisible": [
-          "All meaningful typography is upright in the file.",
-          "A white uppercase title appears above the artwork.",
-          "The artwork depicts two armed humanoid figures firing amid dark creatures.",
-          "Three separate green-framed rules panels appear beneath the artwork.",
-          "The first rules panel contains two curled white exoskeleton glyphs and one northeast–southwest corridor glyph.",
-          "The second rules panel contains a yellow triangular noise glyph and a white astronaut glyph.",
-          "The third rules panel contains a white astronaut glyph, a white shield glyph, and a yellow circular black-centered glyph."
+          "Portrait rectangular image with a dark green-black beveled frame and turquoise-green edge highlights.",
+          "A wide dark title plaque occupies the top, followed by a large illustrated area and three stacked dark text bands separated by bright green beveled dividers.",
+          "The illustration has a bright blue-white central field, two dark upright figure-like forms, red-orange horizontal flashes, and darker irregular forms around the edges.",
+          "All main lettering is centered white sans-serif text. Small white and amber symbols are embedded within the lower text lines.",
+          "Small diagonal dash clusters occur symmetrically in the upper frame without neighboring words; they appear ornamental rather than functional.",
+          "Every printed text line is visibly contained within the image; no material printed text is visibly clipped."
         ],
         "proposedCategory": "cards/game/event",
         "proposedSlug": "overwhelming-enemies",
-        "confidence": "medium",
-        "uncertainties": [
-          "The final yellow circular glyph with a black spiky center is not confidently represented in the supplied canonical glossary and is therefore transcribed literally."
-        ],
+        "confidence": "high",
+        "uncertainties": [],
         "orientation": "upright"
       },
-      "reviewQueuePath": "assets/tts-mod/extract/low-confidence-review.json",
-      "deferReason": "exact card identity/transcription/icon/category is not uniformly high-confidence"
+      "completionBasis": "recovery supervisor-validated exact native Sol-Max/max card face; every material glossary token passed direct morphology comparison; FaceURL/shared BackURL resolved; target unique/absent; no applicable official conflict",
+      "orientation": {
+        "sourceOrientation": "upright",
+        "canonicalOrientation": "upright"
+      },
+      "canonicalSha256": "2eb453e8f770bbee9ab5b951fb22e952d34c1250876b88e878a461c11f7f8ded"
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/event-052.png",
@@ -78019,9 +78024,13 @@
       "vision": {
         "provider": "openai-codex",
         "model": "gpt-5.6-sol",
-        "sessionId": "20260815_052023_8493fc",
-        "resultPath": "assets/tts-mod/extract/vision-results/ac3dc8c20efc3e964383bb9956b264bf3f4a64762d8d8920f5c612d1841ec4bf.json",
-        "confidence": "medium"
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-18-recovery-20260820T044726Z-p176060-5eb908",
+        "sessionId": "20260819_083610_6461bd",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-18-recovery-20260820T044726Z-p176060-5eb908/results/W18-002.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-18-recovery-20260820T044726Z-p176060-5eb908/raw/W18-002.json",
+        "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-18-recovery-20260820T044726Z-p176060-5eb908/references/W18-002-post-blind-contact-sheet.png",
+        "confidence": "high-text-deferred-symbols"
       },
       "provenance": {
         "sourceUrl": "https://steamusercontent-a.akamaihd.net/ugc/12894618739971527218/E61BB3C4C377B1D84AC01E9C80C1C5522FA2510E/",
@@ -78189,34 +78198,35 @@
         ]
       },
       "semanticRead": {
-        "componentType": "event card",
+        "componentType": "illustrated event card",
         "cardSide": "face",
         "title": "LEAVING THE SHELL",
         "typeLine": "",
-        "body": "No [intruder] moves.\n\nEach [character] with Larva:\nGain 1 Contamination, discard all [actionCard],\nand reshuffle your deck.\nThen, resolve the Eclosion Procedure.\nEach other [character]:\nDraw 4 [actionCard] and resolve the Infection\nProcedure. Then, discard all [actionCard].\n\nReshuffle the Event deck.",
+        "body": "No [intruder] moves.\n\nEach [character] with Larva:\nGain 1 Contamination, discard all [ICON: solid white rectangular block],\nand reshuffle your deck.\nThen, resolve the Eclosion Procedure.\nEach other [character]:\nDraw 4 [ICON: solid white rectangular block] and resolve the Infection\nProcedure. Then, discard all [ICON: solid white rectangular block].\n\nReshuffle the Event deck.",
         "footer": "",
         "upperRight": "",
         "lowerCenter": "",
-        "visibleText": "[ICON: gray upward-pointing triangle]",
+        "visibleText": "",
         "confidentlyVisible": [
-          "Portrait-format card with upright horizontal typography",
-          "White uppercase title above blue-green medical imaging artwork",
-          "Green illuminated science-fiction frame",
-          "White curled exoskeleton glyph in the movement line matches [intruder]",
-          "Two white astronaut glyphs match [character]",
-          "Three white card-shaped glyphs match [actionCard]",
-          "Rules occupy two separated panels beneath the artwork"
+          "Portrait rectangular composition with a dark navy-green background and a luminous angular green frame.",
+          "A large blue-cyan illustration fills the upper portion. It contains overlapping translucent curved bands, rib-like arcs, a bright rounded central form, dark cables, and scattered horizontal light streaks.",
+          "A large centered white title overlays the upper illustration.",
+          "Below the illustration is a narrow dark panel containing one centered text line and a separate small gray triangular mark beneath it.",
+          "A larger dark panel below contains seven centered lines of bold white text, two repeated white segmented figure-like glyphs, and three repeated solid white upright rectangles.",
+          "A final lower band contains one centered white sentence.",
+          "Bright green angular dividers separate the illustration and text regions. Small repeated diagonal strokes within the frame appear ornamental.",
+          "No material printed text is visibly clipped."
         ],
         "proposedCategory": "cards/game/event",
         "proposedSlug": "leaving-the-shell",
-        "confidence": "medium",
+        "confidence": "high-text-deferred-symbols",
         "uncertainties": [
-          "The small gray upward-pointing triangle beneath the movement line has no confident glossary match and may be a decorative or source-art interface artifact."
+          "Three featureless solid white rectangular inline occurrences lack visible morphology required to establish any canonical token."
         ],
         "orientation": "upright"
       },
       "reviewQueuePath": "assets/tts-mod/extract/low-confidence-review.json",
-      "deferReason": "exact card identity/transcription/icon/category is not uniformly high-confidence"
+      "deferReason": "Three featureless solid white rectangular inline occurrences lack authoritative canonical identities; exactly one explicit no-match row per occurrence is preserved."
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/event-058.jpg",
@@ -78224,15 +78234,19 @@
       "bytes": 355682,
       "sourceKind": "manifest",
       "sourceUrl": "https://steamusercontent-a.akamaihd.net/ugc/13171892592480825739/BF846859748AEB885B40F9C200C9D20875B3A352/",
-      "status": "deferred",
-      "canonicalPath": null,
-      "sidecarPath": null,
+      "status": "complete",
+      "canonicalPath": "cards/game/event/short-circuit.jpg",
+      "sidecarPath": "cards/game/event/short-circuit.json",
       "vision": {
         "provider": "openai-codex",
         "model": "gpt-5.6-sol",
-        "sessionId": "20260815_052358_35e01d",
-        "resultPath": "assets/tts-mod/extract/vision-results/cdf03513025769517d9a0e05ac3881120176a1d506db118fd3db50b6c82d9762.json",
-        "confidence": "medium"
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-18-recovery-20260820T044726Z-p176060-5eb908",
+        "sessionId": "20260819_083610_6461bd",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-18-recovery-20260820T044726Z-p176060-5eb908/results/W18-003.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-18-recovery-20260820T044726Z-p176060-5eb908/raw/W18-003.json",
+        "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-18-recovery-20260820T044726Z-p176060-5eb908/references/W18-003-post-blind-contact-sheet.png",
+        "confidence": "high"
       },
       "provenance": {
         "sourceUrl": "https://steamusercontent-a.akamaihd.net/ugc/13171892592480825739/BF846859748AEB885B40F9C200C9D20875B3A352/",
@@ -78404,29 +78418,34 @@
         "cardSide": "face",
         "title": "SHORT CIRCUIT",
         "typeLine": "",
-        "body": "All [intruder] in each [corridorNWSE] move.\nThen, all [intruder] in every Room move.\n\nIn Sections with an [oxygen]:\nPlace a [fire] in each Room with a [malfunction].\n\nEach [robot] in a Room without a [secure]\nresolves [ICON: yellow spiked circular field with black creature-like silhouette].",
+        "body": "All [intruder] in each [corridorNESW] move.\nThen, all [intruder] in every Room move.\n\nIn Sections with an [lifeSupportActive]:\nPlace a [fire] in each Room with a [malfunction].\n\nEach [character] in a Room without a [secure]\nresolves [noiseDieHazard].",
         "footer": "",
         "upperRight": "",
         "lowerCenter": "",
         "visibleText": "",
         "confidentlyVisible": [
-          "All typography is upright in the file.",
-          "The title is printed in white capitals above artwork of an electrical explosion in a damaged technological interior.",
-          "Three separate dark-green rules panels appear beneath the artwork.",
-          "The first panel contains two curled white exoskeleton icons and one diagonally oriented corridor icon.",
-          "The second panel contains a cyan horizontal supply icon, an orange-red flame icon, and a white gear icon.",
-          "The third panel contains a white robot icon, a white shield-like icon, and a yellow-and-black glyph."
+          "Portrait rectangular composition enclosed by a dark green-black frame with bright mint-green beveled edges.",
+          "The upper portion contains a dark blue-gray illustration with vertical rectangular structures, hanging curved black lines, cyan-white light at upper right, and an intense red-orange plume across the lower-right area.",
+          "A centered white uppercase title appears near the top of the illustrated area.",
+          "Three stacked dark green text panels occupy the lower portion and are separated by angular luminous green dividers.",
+          "The first panel has two centered text lines containing three white inline symbols.",
+          "The second panel has two centered text lines containing one cyan symbol, one red-orange symbol, and one white symbol.",
+          "The third panel has two centered text lines containing two white symbols and one yellow symbol.",
+          "Small diagonal white-green stroke clusters in the upper frame appear ornamental rather than inline functional marks.",
+          "No material printed text is visibly clipped."
         ],
         "proposedCategory": "cards/game/event",
         "proposedSlug": "short-circuit",
-        "confidence": "medium",
-        "uncertainties": [
-          "The final yellow spiked glyph is not confidently represented in the supplied glossary; its morphology is transcribed literally and its meaning is unknown."
-        ],
+        "confidence": "high",
+        "uncertainties": [],
         "orientation": "upright"
       },
-      "reviewQueuePath": "assets/tts-mod/extract/low-confidence-review.json",
-      "deferReason": "exact card identity/transcription/icon/category is not uniformly high-confidence"
+      "completionBasis": "recovery supervisor-validated exact native Sol-Max/max card face; every material glossary token passed direct morphology comparison; FaceURL/shared BackURL resolved; target unique/absent; no applicable official conflict",
+      "orientation": {
+        "sourceOrientation": "upright",
+        "canonicalOrientation": "upright"
+      },
+      "canonicalSha256": "cdf03513025769517d9a0e05ac3881120176a1d506db118fd3db50b6c82d9762"
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/event-064.png",
@@ -78434,15 +78453,19 @@
       "bytes": 1928384,
       "sourceKind": "manifest",
       "sourceUrl": "https://steamusercontent-a.akamaihd.net/ugc/13495498312978910531/B99F80AF6FC6DB94D3C2E9D0BA5E345D75579E4F/",
-      "status": "deferred",
-      "canonicalPath": null,
-      "sidecarPath": null,
+      "status": "complete",
+      "canonicalPath": "cards/game/event/life-support-failure.png",
+      "sidecarPath": "cards/game/event/life-support-failure.json",
       "vision": {
         "provider": "openai-codex",
         "model": "gpt-5.6-sol",
-        "sessionId": "20260815_052105_f7dd0f",
-        "resultPath": "assets/tts-mod/extract/vision-results/93bd00726c0683feb10a47c85c86055438114c3a8c5fbb33500325fa195d2158.json",
-        "confidence": "medium"
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-18-recovery-20260820T044726Z-p176060-5eb908",
+        "sessionId": "20260819_083610_6461bd",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-18-recovery-20260820T044726Z-p176060-5eb908/results/W18-004.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-18-recovery-20260820T044726Z-p176060-5eb908/raw/W18-004.json",
+        "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-18-recovery-20260820T044726Z-p176060-5eb908/references/W18-004-post-blind-contact-sheet.png",
+        "confidence": "high"
       },
       "provenance": {
         "sourceUrl": "https://steamusercontent-a.akamaihd.net/ugc/13495498312978910531/B99F80AF6FC6DB94D3C2E9D0BA5E345D75579E4F/",
@@ -78610,34 +78633,39 @@
         ]
       },
       "semanticRead": {
-        "componentType": "event card",
+        "componentType": "illustrated event card",
         "cardSide": "face",
         "title": "LIFE SUPPORT FAILURE",
         "typeLine": "",
-        "body": "All [intruder] in each [ICON: white outlined linked angular glyph] move.\nThen, all [intruder] in every Room move.\n\nFlip all [lifeSupportActive] to [lifeSupportInactive]. Place a [malfunction]\nin each Life Support Control Room.\n\nPlace a [noise] in each Unexplored\nCorridor without [noise].",
+        "body": "All [intruder] in each [corridorNESW] move.\nThen, all [intruder] in every Room move.\n\nFlip all [lifeSupportActive] to [lifeSupportInactive]. Place a [malfunction]\nin each Life Support Control Room.\n\nPlace a [noise] in each Unexplored\nCorridor without [noise].",
         "footer": "",
         "upperRight": "",
         "lowerCenter": "",
         "visibleText": "",
         "confidentlyVisible": [
-          "White uppercase title above orange-toned artwork",
-          "Artwork depicts a suited figure beside illuminated control equipment",
-          "Three distinct rules panels appear beneath the artwork",
-          "Two curled white exoskeleton glyphs match the canonical intruder icon",
-          "Active and crossed-out life-support icons appear consecutively in the second panel",
-          "A gray gear-shaped malfunction icon appears in the second panel",
-          "Two identical yellow noise glyphs appear in the third panel"
+          "Portrait rectangular composition with an orange-red illustrated upper area and three dark green lower text panels.",
+          "A luminous mint-green angular frame surrounds the illustration and continues as beveled separators around the lower panels.",
+          "The upper illustration contains one large dark figure-like form at left, smaller dark upright forms near center, cables, rectangular equipment, and bright orange-yellow displays and light streaks at right.",
+          "A centered white uppercase title occupies the upper portion of the illustration.",
+          "A yellow rectangular display in the upper-right portion of the illustration contains two large white digits crossed by a red diagonal stroke.",
+          "The first lower panel contains two centered white text lines and three white inline symbols.",
+          "The second lower panel contains two centered white text lines, two cyan-and-white symbols, and one white radial symbol.",
+          "The third lower panel contains two centered white text lines and two repeated yellow-and-black symbols.",
+          "Tiny red text-like marks appear on dark equipment at the far right but are not resolvable.",
+          "No material printed text is visibly clipped."
         ],
         "proposedCategory": "cards/game/event",
         "proposedSlug": "life-support-failure",
-        "confidence": "medium",
-        "uncertainties": [
-          "The white outlined linked angular glyph after “each” is clearly visible but cannot be confidently matched to corridorEW, corridorNESW, corridorNWSE, or another canonical glossary identifier."
-        ],
+        "confidence": "high",
+        "uncertainties": [],
         "orientation": "upright"
       },
-      "reviewQueuePath": "assets/tts-mod/extract/low-confidence-review.json",
-      "deferReason": "exact card identity/transcription/icon/category is not uniformly high-confidence"
+      "completionBasis": "recovery supervisor-validated exact native Sol-Max/max card face; every material glossary token passed direct morphology comparison; FaceURL/shared BackURL resolved; target unique/absent; no applicable official conflict",
+      "orientation": {
+        "sourceOrientation": "upright",
+        "canonicalOrientation": "upright"
+      },
+      "canonicalSha256": "93bd00726c0683feb10a47c85c86055438114c3a8c5fbb33500325fa195d2158"
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/event-072.png",
@@ -78645,15 +78673,19 @@
       "bytes": 1779299,
       "sourceKind": "manifest",
       "sourceUrl": "https://steamusercontent-a.akamaihd.net/ugc/13968887666597558301/C3318C55FF86599E8033789E5B54AD1109CCADD4/",
-      "status": "deferred",
-      "canonicalPath": null,
-      "sidecarPath": null,
+      "status": "complete",
+      "canonicalPath": "cards/game/event/the-queen-awakens.png",
+      "sidecarPath": "cards/game/event/the-queen-awakens.json",
       "vision": {
         "provider": "openai-codex",
         "model": "gpt-5.6-sol",
-        "sessionId": "20260815_052114_cd3388",
-        "resultPath": "assets/tts-mod/extract/vision-results/890259ff52beb7bb5235f2efd010b4e54ee752e9d85cb27f2de2576257fa33bb.json",
-        "confidence": "medium"
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-18-recovery-20260820T044726Z-p176060-5eb908",
+        "sessionId": "20260819_083610_6461bd",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-18-recovery-20260820T044726Z-p176060-5eb908/results/W18-005.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-18-recovery-20260820T044726Z-p176060-5eb908/raw/W18-005.json",
+        "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-18-recovery-20260820T044726Z-p176060-5eb908/references/W18-005-post-blind-contact-sheet.png",
+        "confidence": "high"
       },
       "provenance": {
         "sourceUrl": "https://steamusercontent-a.akamaihd.net/ugc/13968887666597558301/C3318C55FF86599E8033789E5B54AD1109CCADD4/",
@@ -78821,35 +78853,39 @@
         ]
       },
       "semanticRead": {
-        "componentType": "illustrated game event card",
+        "componentType": "illustrated event card",
         "cardSide": "face",
         "title": "THE QUEEN AWAKENS",
         "typeLine": "",
-        "body": "All [intruder] in each [ICON: white outlined diagonal linked double-polygon glyph] move.\nThen, all [intruder] in every Room move.\n\nIf the Queen is alive, add all\nQueen tokens to the bag.\n\nPlace a [ICON: yellow pentagonal badge with black central diamond and inward chevrons] in each Unexplored\nCorridor without [ICON: yellow pentagonal badge with black central diamond and inward chevrons].",
+        "body": "All [intruder] in each [corridorNESW] move.\nThen, all [intruder] in every Room move.\n\nIf the Queen is alive, add all\nQueen tokens to the bag.\n\nPlace a [noise] in each Unexplored\nCorridor without [noise].",
         "footer": "",
         "upperRight": "",
         "lowerCenter": "",
         "visibleText": "",
         "confidentlyVisible": [
-          "All typography is upright in the file's current orientation.",
-          "The title is printed in white uppercase letters.",
-          "The artwork depicts a tall pale exoskeletal creature inside a blue-lit industrial chamber, with darker creatures in the foreground.",
-          "The rules area contains three distinct panels separated by luminous green framing.",
-          "Two curled white exoskeleton glyphs confidently match [intruder].",
-          "The bottom panel contains two matching yellow pentagonal glyphs."
+          "Portrait rectangular composition with a luminous mint-green angular frame over a dark blue-green background.",
+          "The upper illustrated area contains a tall central bilateral figure-like form with an oval spined enclosure around its upper portion, thin hanging appendages below, and intense blue-white backlighting.",
+          "Two large dark irregular forms with prominent spikes occupy the lower-left and lower-right corners of the illustration.",
+          "A centered white uppercase title appears near the top of the illustrated area.",
+          "Three stacked dark green text panels occupy the lower portion and are separated by bright angular green dividers.",
+          "The first text panel contains two centered lines, three white inline symbols, and white punctuation.",
+          "The second text panel contains two centered lines without inline symbols.",
+          "The third text panel contains two centered lines and two repeated yellow-and-black inline symbols.",
+          "Small diagonal stroke clusters embedded symmetrically in the frame appear ornamental.",
+          "No material printed text is visibly clipped or obscured."
         ],
         "proposedCategory": "cards/game/event",
         "proposedSlug": "the-queen-awakens",
-        "confidence": "medium",
-        "uncertainties": [
-          "The white outlined diagonal linked double-polygon glyph in the first rules panel is not confidently matched to any supplied canonical icon.",
-          "The repeated yellow pentagonal glyph in the bottom panel is not confidently matched to any supplied canonical icon.",
-          "The event-card classification is strongly suggested by the titled artwork and multi-panel effects, but no explicit printed type line identifies it as an event card."
-        ],
+        "confidence": "high",
+        "uncertainties": [],
         "orientation": "upright"
       },
-      "reviewQueuePath": "assets/tts-mod/extract/low-confidence-review.json",
-      "deferReason": "exact card identity/transcription/icon/category is not uniformly high-confidence"
+      "completionBasis": "recovery supervisor-validated exact native Sol-Max/max card face; every material glossary token passed direct morphology comparison; FaceURL/shared BackURL resolved; target unique/absent; no applicable official conflict",
+      "orientation": {
+        "sourceOrientation": "upright",
+        "canonicalOrientation": "upright"
+      },
+      "canonicalSha256": "890259ff52beb7bb5235f2efd010b4e54ee752e9d85cb27f2de2576257fa33bb"
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/event-086.png",
@@ -78857,27 +78893,19 @@
       "bytes": 1906963,
       "sourceKind": "manifest",
       "sourceUrl": "https://steamusercontent-a.akamaihd.net/ugc/14836432583564015029/7384F82D496E0BAED3B971068E84ECEBFDE84D7E/",
-      "status": "deferred",
-      "canonicalPath": null,
-      "sidecarPath": null,
+      "status": "complete",
+      "canonicalPath": "cards/game/event/breaking-in.png",
+      "sidecarPath": "cards/game/event/breaking-in.json",
       "vision": {
         "provider": "openai-codex",
         "model": "gpt-5.6-sol",
-        "sessionId": "20260815_052358_aae591",
-        "resultPath": "assets/tts-mod/extract/vision-results/fe6a4f8faae5efdecb02b1ec436c605f792f5f78dd332e1cf64cffc532631ab0.json",
-        "confidence": "high",
-        "iconVerification": {
-          "status": "failed",
-          "sessionId": "20260815_060755_8c2936",
-          "evidencePath": "docs/qa/card-icon-comparisons/auto-fe6a4f8faae5efdecb02b1ec436c605f792f5f78dd332e1cf64cffc532631ab0.png",
-          "claimed": [
-            "corridorNWSE",
-            "intruder",
-            "noiseDieHazard",
-            "secure"
-          ],
-          "promptVersion": 1
-        }
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-18-recovery-20260820T044726Z-p176060-5eb908",
+        "sessionId": "20260819_083610_6461bd",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-18-recovery-20260820T044726Z-p176060-5eb908/results/W18-006.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-18-recovery-20260820T044726Z-p176060-5eb908/raw/W18-006.json",
+        "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-18-recovery-20260820T044726Z-p176060-5eb908/references/W18-006-post-blind-contact-sheet.png",
+        "confidence": "high"
       },
       "provenance": {
         "sourceUrl": "https://steamusercontent-a.akamaihd.net/ugc/14836432583564015029/7384F82D496E0BAED3B971068E84ECEBFDE84D7E/",
@@ -79045,24 +79073,26 @@
         ]
       },
       "semanticRead": {
-        "componentType": "portrait-format game event card",
+        "componentType": "illustrated event card",
         "cardSide": "face",
         "title": "BREAKING IN",
         "typeLine": "",
-        "body": "All [intruder] in each [corridorNWSE] move.\nThen, all [intruder] in every Room move.\n\nRemove 1 [secure] from each Room.\n\nResolve each [noiseDieHazard] in\nUnexplored Corridors.",
+        "body": "All [intruder] in each [corridorNESW] move.\nThen, all [intruder] in every Room move.\n\nRemove 1 [secure] from each Room.\n\nResolve each [noise] in\nUnexplored Corridors.",
         "footer": "",
         "upperRight": "",
         "lowerCenter": "",
         "visibleText": "",
         "confidentlyVisible": [
-          "Typography is upright in the file.",
-          "White uppercase title appears above the illustration.",
-          "Artwork depicts a humanoid figure surrounded by multiple pale, spiked creatures in a damaged industrial interior.",
-          "Rules are divided among three green-bordered panels.",
-          "Two curled white exoskeleton glyphs are visible inline.",
-          "A white outlined corridor glyph runs northwest to southeast.",
-          "A white shield-shaped secure glyph is visible inline.",
-          "A yellow hazard glyph is visible inline."
+          "Portrait rectangular composition with a dark green-black background and bright mint-green angular framing.",
+          "The upper illustrated area contains one dark upright back-facing figure-like form near the lower center, surrounded by multiple pale and dark spined forms at different depths.",
+          "The illustration has a blue-white vertical light field in the center, red-orange light near the lower edges, hanging dark cables, and dense dark structural shapes along both sides.",
+          "A centered white uppercase title appears near the top of the illustrated area.",
+          "Three stacked dark text panels occupy the lower portion and are separated by luminous angular green dividers.",
+          "The first text panel contains two centered white lines and three white inline symbols.",
+          "The second text panel contains one centered white line and one white inline symbol.",
+          "The third text panel contains two centered white lines and one yellow-and-black inline symbol.",
+          "Small diagonal mint-green stroke clusters occur symmetrically inside the frame and appear ornamental.",
+          "No material printed text is visibly clipped or obscured."
         ],
         "proposedCategory": "cards/game/event",
         "proposedSlug": "breaking-in",
@@ -79070,8 +79100,12 @@
         "uncertainties": [],
         "orientation": "upright"
       },
-      "reviewQueuePath": "assets/tts-mod/extract/low-confidence-review.json",
-      "deferReason": "claimed glossary icons did not all pass a focused direct card-to-glossary crop comparison"
+      "completionBasis": "recovery supervisor-validated exact native Sol-Max/max card face; every material glossary token passed direct morphology comparison; FaceURL/shared BackURL resolved; target unique/absent; no applicable official conflict",
+      "orientation": {
+        "sourceOrientation": "upright",
+        "canonicalOrientation": "upright"
+      },
+      "canonicalSha256": "fe6a4f8faae5efdecb02b1ec436c605f792f5f78dd332e1cf64cffc532631ab0"
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/event-090.png",
@@ -79079,15 +79113,19 @@
       "bytes": 1651832,
       "sourceKind": "manifest",
       "sourceUrl": "https://steamusercontent-a.akamaihd.net/ugc/14984102100805450214/3BF9D418D6AF01657BF2A3C890034B62FA99E4AE/",
-      "status": "deferred",
-      "canonicalPath": null,
-      "sidecarPath": null,
+      "status": "complete",
+      "canonicalPath": "cards/game/event/hatching.png",
+      "sidecarPath": "cards/game/event/hatching.json",
       "vision": {
         "provider": "openai-codex",
         "model": "gpt-5.6-sol",
-        "sessionId": "20260815_052358_94067f",
-        "resultPath": "assets/tts-mod/extract/vision-results/45b5845d04f57b10dff6e73005be88cba0107a1a15da83f581df6531390d1ac9.json",
-        "confidence": "medium"
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-18-recovery-20260820T044726Z-p176060-5eb908",
+        "sessionId": "20260819_083610_6461bd",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-18-recovery-20260820T044726Z-p176060-5eb908/results/W18-007.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-18-recovery-20260820T044726Z-p176060-5eb908/raw/W18-007.json",
+        "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-18-recovery-20260820T044726Z-p176060-5eb908/references/W18-007-post-blind-contact-sheet.png",
+        "confidence": "high"
       },
       "provenance": {
         "sourceUrl": "https://steamusercontent-a.akamaihd.net/ugc/14984102100805450214/3BF9D418D6AF01657BF2A3C890034B62FA99E4AE/",
@@ -79255,35 +79293,39 @@
         ]
       },
       "semanticRead": {
-        "componentType": "game event card",
+        "componentType": "illustrated event card",
         "cardSide": "face",
         "title": "HATCHING",
         "typeLine": "",
-        "body": "All [intruder] in each [ICON: white outlined angular two-lobed glyph] move.\n\nPlace a Larva in the Nest - it\nimmediately Attacks if any [character] is there.\nPlace 1 Larva in each Unexplored\nCorridor adjacent to a [character].\n\nResolve each [ICON: yellow pentagonal badge with black three-pronged glyph] in\nUnexplored Corridors.",
+        "body": "All [intruder] in each [corridorNESW] move.\n\nPlace a Larva in the Nest - it\nimmediately Attacks if any [character] is there.\nPlace 1 Larva in each Unexplored\nCorridor adjacent to a [character].\n\nResolve each [noise] in\nUnexplored Corridors.",
         "footer": "",
         "upperRight": "",
         "lowerCenter": "",
         "visibleText": "",
         "confidentlyVisible": [
-          "Typography is upright in the file.",
-          "The title reads “HATCHING” in white uppercase letters.",
-          "The upper artwork shows an armored humanoid figure in a damaged, misty industrial interior.",
-          "Three separate rules panels are enclosed by luminous green frames.",
-          "The first rules panel contains a curled white exoskeleton glyph matching [intruder].",
-          "The middle rules panel contains two white astronaut glyphs matching [character].",
-          "The bottom rules panel contains a yellow pentagonal badge with an internal black glyph."
+          "Portrait rectangular composition enclosed by a luminous mint-green angular frame over a dark green-black background.",
+          "The upper illustrated area contains one upright back-facing figure-like form near the center carrying a large irregular object with bright red patches.",
+          "The illustration has strong white-gray backlighting, dark wall structures, hanging curved cables, red light streaks, and several smaller dark silhouettes near the lower background.",
+          "A centered white uppercase title appears near the top of the illustrated area.",
+          "Three stacked dark text panels occupy the lower portion and are separated by bright angular green dividers.",
+          "The first text panel contains one centered white line and two white inline symbols.",
+          "The second text panel contains four centered white lines and two repeated white figure-like symbols.",
+          "The third text panel contains two centered white lines and one yellow-and-black symbol.",
+          "Small diagonal mint-green stroke clusters occur symmetrically inside the frame and appear ornamental.",
+          "No material printed text is visibly clipped or obscured."
         ],
         "proposedCategory": "cards/game/event",
         "proposedSlug": "hatching",
-        "confidence": "medium",
-        "uncertainties": [
-          "The white outlined angular glyph after “each” in the first panel does not confidently match a canonical glossary icon and is transcribed literally.",
-          "The yellow pentagonal badge in the bottom panel does not confidently match a canonical glossary icon and is transcribed literally."
-        ],
+        "confidence": "high",
+        "uncertainties": [],
         "orientation": "upright"
       },
-      "reviewQueuePath": "assets/tts-mod/extract/low-confidence-review.json",
-      "deferReason": "exact card identity/transcription/icon/category is not uniformly high-confidence"
+      "completionBasis": "recovery supervisor-validated exact native Sol-Max/max card face; every material glossary token passed direct morphology comparison; FaceURL/shared BackURL resolved; target unique/absent; no applicable official conflict",
+      "orientation": {
+        "sourceOrientation": "upright",
+        "canonicalOrientation": "upright"
+      },
+      "canonicalSha256": "45b5845d04f57b10dff6e73005be88cba0107a1a15da83f581df6531390d1ac9"
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/event-093.jpg",
@@ -79291,15 +79333,19 @@
       "bytes": 302574,
       "sourceKind": "manifest",
       "sourceUrl": "https://steamusercontent-a.akamaihd.net/ugc/15388121175689661077/0C1FB4EAA12FD48919246FAFD44FE8C806A5019C/",
-      "status": "deferred",
-      "canonicalPath": null,
-      "sidecarPath": null,
+      "status": "complete",
+      "canonicalPath": "cards/game/event/protect-and-serve.jpg",
+      "sidecarPath": "cards/game/event/protect-and-serve.json",
       "vision": {
         "provider": "openai-codex",
         "model": "gpt-5.6-sol",
-        "sessionId": "20260815_052257_e4c882",
-        "resultPath": "assets/tts-mod/extract/vision-results/6f93c7b3d25bb4fcbf6b7d786f31172b09a65f888b9fdb707917a7fae916b868.json",
-        "confidence": "medium"
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-18-recovery-20260820T044726Z-p176060-5eb908",
+        "sessionId": "20260819_083610_6461bd",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-18-recovery-20260820T044726Z-p176060-5eb908/results/W18-008.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-18-recovery-20260820T044726Z-p176060-5eb908/raw/W18-008.json",
+        "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-18-recovery-20260820T044726Z-p176060-5eb908/references/W18-008-post-blind-contact-sheet.png",
+        "confidence": "high"
       },
       "provenance": {
         "sourceUrl": "https://steamusercontent-a.akamaihd.net/ugc/15388121175689661077/0C1FB4EAA12FD48919246FAFD44FE8C806A5019C/",
@@ -79467,35 +79513,39 @@
         ]
       },
       "semanticRead": {
-        "componentType": "game event card",
+        "componentType": "illustrated event card",
         "cardSide": "face",
         "title": "PROTECT & SERVE",
         "typeLine": "",
-        "body": "All [intruder] in each [ICON: white outlined horizontal four-lobed glyph] move.\nThen, all [intruder] in every Room move.\n\nPlace 2 Drones in the Room/Corridor\nwith the Queen – they do not Attack.\nIf there is no Queen on the map,\nadd 2 random Drone tokens to the bag.\n\nEach [character] in a Room without a [ICON: white shield-like glyph with broad flat top and forked lower point]\nresolves [ICON: yellow spiked burst with black central glyph].",
+        "body": "All [intruder] in each [corridorEW] move.\nThen, all [intruder] in every Room move.\n\nPlace 2 Drones in the Room/Corridor\nwith the Queen – they do not Attack.\nIf there is no Queen on the map,\nadd 2 random Drone tokens to the bag.\n\nEach [character] in a Room without a [secure]\nresolves [noiseDieHazard].",
         "footer": "",
         "upperRight": "",
         "lowerCenter": "",
         "visibleText": "",
         "confidentlyVisible": [
-          "All typography is upright in the file.",
-          "The title is printed in white uppercase text above the artwork.",
-          "The card has three visually separated rules panels.",
-          "Two matching curled white exoskeleton glyphs appear in the first panel.",
-          "A white astronaut glyph appears in the final panel.",
-          "The artwork depicts a dark tendrilled creature in a green-lit mechanical interior."
+          "Portrait rectangular composition with a dark green-black background and a luminous mint-green angular frame.",
+          "The upper illustrated area contains a tall central branching form with many thin curved appendages, orange highlights near its upper portion, and strong pale green-white backlighting.",
+          "Dark structural masses flank the central illustrated form, with cables and angular pale panels visible behind it.",
+          "A centered white uppercase title appears near the top of the illustrated area.",
+          "Three stacked dark green text panels occupy the lower portion and are separated by bright angular green dividers.",
+          "The first panel contains two centered white lines and three white inline symbols.",
+          "The second panel contains four centered white lines without inline symbols.",
+          "The third panel contains two centered white lines, two white symbols, and one yellow-and-black symbol.",
+          "Small diagonal mint-green stroke clusters occur symmetrically within the frame and appear ornamental.",
+          "No material printed text is visibly clipped or obscured."
         ],
         "proposedCategory": "cards/game/event",
         "proposedSlug": "protect-and-serve",
-        "confidence": "medium",
-        "uncertainties": [
-          "The white outlined horizontal four-lobed inline glyph is not confidently matched to the supplied canonical glossary.",
-          "The white shield-like or funnel-shaped inline glyph in the final panel is not confidently matched to the supplied canonical glossary.",
-          "The yellow spiked-burst inline glyph in the final panel is not confidently matched to the supplied canonical glossary."
-        ],
+        "confidence": "high",
+        "uncertainties": [],
         "orientation": "upright"
       },
-      "reviewQueuePath": "assets/tts-mod/extract/low-confidence-review.json",
-      "deferReason": "exact card identity/transcription/icon/category is not uniformly high-confidence"
+      "completionBasis": "recovery supervisor-validated exact native Sol-Max/max card face; every material glossary token passed direct morphology comparison; FaceURL/shared BackURL resolved; target unique/absent; no applicable official conflict",
+      "orientation": {
+        "sourceOrientation": "upright",
+        "canonicalOrientation": "upright"
+      },
+      "canonicalSha256": "6f93c7b3d25bb4fcbf6b7d786f31172b09a65f888b9fdb707917a7fae916b868"
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/event-096.png",
@@ -160534,15 +160584,15 @@
   "runSummary": {
     "baselinePreviouslyComplete": 23,
     "baselinePreviouslyDeferred": 1,
-    "newlyCompleted": 111,
-    "newlyDeferred": 397,
-    "totalComplete": 134,
-    "totalDeferred": 398,
+    "newlyCompleted": 118,
+    "newlyDeferred": 390,
+    "totalComplete": 141,
+    "totalDeferred": 391,
     "remainingUnaccounted": 0,
-    "sidecarsCreated": 46,
-    "imagesCopiedToCanonicalCatalog": 45,
+    "sidecarsCreated": 53,
+    "imagesCopiedToCanonicalCatalog": 52,
     "sourceFilesMovedOrRenamed": 0,
-    "completedAt": "2026-08-15T06:09:23Z"
+    "completedAt": "2026-08-20T05:15:55.087730Z"
   },
   "deferredReexamination": {
     "schemaVersion": 1,
@@ -160550,7 +160600,7 @@
     "startedAt": "2026-08-15T20:30:07.246557Z",
     "startingComplete": 111,
     "startingDeferred": 421,
-    "sidecarsCreated": 46,
+    "sidecarsCreated": 53,
     "assetsCategorizedOrRenamed": 0,
     "workerContexts": [
       {
@@ -160643,13 +160693,30 @@
         "sessionProvenanceHandle": null,
         "rotationReason": "worker finished its shard",
         "supersededBy": null
+      },
+      {
+        "workerId": "sol-max-persistent-worker-18-recovery-20260820T044726Z-p176060-5eb908",
+        "status": "completed-private-projection-passed",
+        "assigned": 8,
+        "reexamined": 8,
+        "provider": "openai-codex",
+        "model": "gpt-5.6-sol",
+        "reasoningEffort": "max",
+        "sessionId": "20260819_083610_6461bd",
+        "historicalPostBlindSessionId": "20260819_062132_c0f4f3",
+        "recoverySupervisorSessionId": null,
+        "recoverySupervisorSessionIdState": "unexposed",
+        "rotationReason": "stale W18 partial worker salvaged into a fresh unique recovery root after exact tuple/session/wrapper validation",
+        "promotionCount": 7,
+        "deferredCount": 1,
+        "supersedesWorkerId": "sol-max-persistent-worker-18-20260819T083241Z-XgS4ri"
       }
     ],
-    "updatedAt": "2026-08-16T03:20:33Z",
-    "reexamined": 36,
-    "newlyCompleted": 23,
-    "stillDeferred": 398,
-    "nextPosition": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-16.png",
+    "updatedAt": "2026-08-20T05:15:55.087730Z",
+    "reexamined": 44,
+    "newlyCompleted": 30,
+    "stillDeferred": 391,
+    "nextPosition": "assets/tts-mod/extract/v2-dl/tree/cards/game/event-096.png",
     "rejectedBatches": [
       {
         "workerId": "sol-max-worker-01",

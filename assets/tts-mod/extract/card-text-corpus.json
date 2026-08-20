@@ -2,33 +2,33 @@
   "schemaVersion": 1,
   "status": "extracted evidence corpus; canonical and draft states are explicitly separated",
   "generatedFrom": {
-    "visionProgressUpdatedAt": "2026-08-16T03:20:33Z",
-    "reviewQueueUpdatedAt": "2026-08-16T03:20:33Z",
+    "visionProgressUpdatedAt": "2026-08-20T05:15:55.087730Z",
+    "reviewQueueUpdatedAt": "2026-08-20T05:15:55.087730Z",
     "iconGlossary": "docs/rules/icon-glossary.md",
     "iconGlossaryIdentifierCount": 49
   },
   "metadata": {
     "selectedEvidenceRegistry": "assets/tts-mod/extract/selected-card-text-evidence.json",
     "selectedEvidenceRegistrySchemaVersion": 1,
-    "selectedEvidenceRegistrySha256": "a6b493722bc50cb4a394bb61beee41cac020187ab4e95c269c6081eb48413386",
-    "selectedEvidenceTupleDigest": "bf2eda6f4a91771a709e591b7f818025feae4219ff9c1902e8e500538f55d8ba",
-    "selectedEvidenceEntryCount": 76,
-    "selectedEvidenceRunCount": 76
+    "selectedEvidenceRegistrySha256": "2bc43b5c1f58d51404ce3f6107f4b3d7812d82c847af41ae2fa65d0b82cad33b",
+    "selectedEvidenceTupleDigest": "d6f555618b734b516c47182c01b740a61e94101358ebd058eb656efa991dfd5b",
+    "selectedEvidenceEntryCount": 77,
+    "selectedEvidenceRunCount": 77
   },
   "counts": {
     "records": 390,
     "rulesTextPresent": 352,
     "extractionStates": {
       "complete-non-rules-or-reference": 34,
-      "draft-full": 276,
+      "draft-full": 269,
       "no-transcription": 2,
       "non-rules-or-reference": 14,
-      "verified-canonical": 64
+      "verified-canonical": 71
     },
     "rulesInformationReadiness": {
-      "canonical": 64,
-      "draft-text-complete": 142,
-      "draft-text-complete-symbols-unresolved": 134,
+      "canonical": 71,
+      "draft-text-complete": 141,
+      "draft-text-complete-symbols-unresolved": 128,
       "missing-transcription": 2,
       "not-rules-bearing-or-reference": 48
     }
@@ -14054,14 +14054,18 @@
       "sourceSha256": "2eb453e8f770bbee9ab5b951fb22e952d34c1250876b88e878a461c11f7f8ded",
       "sourceKind": "manifest",
       "componentFamily": "game/event",
-      "ledgerStatus": "deferred",
-      "extractionState": "draft-full",
-      "rulesInformationReadiness": "draft-text-complete-symbols-unresolved",
+      "ledgerStatus": "complete",
+      "extractionState": "verified-canonical",
+      "rulesInformationReadiness": "canonical",
       "rulesTextPresent": true,
-      "identity": {},
+      "identity": {
+        "canonicalSlug": "overwhelming-enemies",
+        "titleFromCanonicalSlug": "overwhelming enemies",
+        "canonicalPath": "cards/game/event/overwhelming-enemies.jpg",
+        "sidecarPath": "cards/game/event/overwhelming-enemies.json"
+      },
       "printedData": {
-        "title": "OVERWHELMING ENEMIES",
-        "body": "All [intruder] in each [corridorNESW] move.\nThen, all [intruder] in every Room move.\n\nPlace 1 Drone in each Corridor\nwith a [noise] adjacent to a [character].\n\nEach [character] in a Room without a [secure]\nresolves [ICON: yellow circular burst with black spiky center]."
+        "body": "All [intruder] in each [corridorNESW] move.\nThen, all [intruder] in every Room move.\n\nPlace 1 Drone in each Corridor\nwith a [noise] adjacent to a [character].\n\nEach [character] in a Room without a [secure]\nresolves [noiseDieHazard]."
       },
       "symbols": {
         "canonicalGlossaryTokens": [
@@ -14069,27 +14073,24 @@
           "corridorNESW",
           "intruder",
           "noise",
+          "noiseDieHazard",
           "secure"
         ],
-        "unresolvedOrLocalTokens": [
-          "ICON: yellow circular burst with black spiky center"
-        ]
+        "unresolvedOrLocalTokens": []
       },
-      "uncertainties": [
-        "The final yellow circular glyph with a black spiky center is not confidently represented in the supplied canonical glossary and is therefore transcribed literally."
-      ],
-      "canonicalPromotionBlocker": "exact card identity/transcription/icon/category is not uniformly high-confidence",
+      "uncertainties": [],
+      "canonicalPromotionBlocker": null,
       "evidence": {
-        "textBasis": "native vision draft; not canonical promotion",
+        "textBasis": "human-reviewed or supervisor-validated canonical sidecar",
         "visionProvider": "openai-codex",
         "visionModel": "gpt-5.6-sol",
-        "reasoningEffort": null,
-        "workerId": null,
-        "sessionId": "20260815_052023_df8a2d",
-        "resultPath": "assets/tts-mod/extract/vision-results/2eb453e8f770bbee9ab5b951fb22e952d34c1250876b88e878a461c11f7f8ded.json",
-        "rawResultPath": null,
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-18-recovery-20260820T044726Z-p176060-5eb908",
+        "sessionId": "20260819_083610_6461bd",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-18-recovery-20260820T044726Z-p176060-5eb908/results/W18-001.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-18-recovery-20260820T044726Z-p176060-5eb908/raw/W18-001.json",
         "ledgerPath": "assets/tts-mod/extract/vision-progress.json",
-        "queuePath": "assets/tts-mod/extract/low-confidence-review.json"
+        "queuePath": null
       }
     },
     {
@@ -14147,79 +14148,239 @@
       "identity": {},
       "printedData": {
         "title": "LEAVING THE SHELL",
-        "body": "No [intruder] moves.\n\nEach [character] with Larva:\nGain 1 Contamination, discard all [actionCard],\nand reshuffle your deck.\nThen, resolve the Eclosion Procedure.\nEach other [character]:\nDraw 4 [actionCard] and resolve the Infection\nProcedure. Then, discard all [actionCard].\n\nReshuffle the Event deck.",
-        "visibleText": "[ICON: gray upward-pointing triangle]"
+        "body": "No [intruder] moves.\n\nEach [character] with Larva:\nGain 1 Contamination, discard all [ICON: solid white rectangular block],\nand reshuffle your deck.\nThen, resolve the Eclosion Procedure.\nEach other [character]:\nDraw 4 [ICON: solid white rectangular block] and resolve the Infection\nProcedure. Then, discard all [ICON: solid white rectangular block].\n\nReshuffle the Event deck.",
+        "sections": [
+          "No [intruder] moves.",
+          "Each [character] with Larva:\nGain 1 Contamination, discard all [ICON: solid white rectangular block],\nand reshuffle your deck.\nThen, resolve the Eclosion Procedure.\nEach other [character]:\nDraw 4 [ICON: solid white rectangular block] and resolve the Infection\nProcedure. Then, discard all [ICON: solid white rectangular block].",
+          "Reshuffle the Event deck."
+        ],
+        "footer": "",
+        "upperRight": "",
+        "illegibleSpans": [],
+        "clippedSpans": []
       },
       "symbols": {
         "canonicalGlossaryTokens": [
-          "actionCard",
           "character",
           "intruder"
         ],
         "unresolvedOrLocalTokens": [
-          "ICON: gray upward-pointing triangle"
+          "ICON: solid white rectangular block"
         ]
       },
       "uncertainties": [
-        "The small gray upward-pointing triangle beneath the movement line has no confident glossary match and may be a decorative or source-art interface artifact."
+        "Three featureless solid white rectangular inline occurrences lack visible morphology required to establish any canonical token."
       ],
-      "canonicalPromotionBlocker": "exact card identity/transcription/icon/category is not uniformly high-confidence",
+      "canonicalPromotionBlocker": "Three featureless solid white rectangular inline occurrences lack authoritative canonical identities; exactly one explicit no-match row per occurrence is preserved.",
       "evidence": {
         "textBasis": "native vision draft; not canonical promotion",
         "visionProvider": "openai-codex",
         "visionModel": "gpt-5.6-sol",
-        "reasoningEffort": null,
-        "workerId": null,
-        "sessionId": "20260815_052023_8493fc",
-        "resultPath": "assets/tts-mod/extract/vision-results/ac3dc8c20efc3e964383bb9956b264bf3f4a64762d8d8920f5c612d1841ec4bf.json",
-        "rawResultPath": null,
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-18-recovery-20260820T044726Z-p176060-5eb908",
+        "sessionId": "20260819_083610_6461bd",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-18-recovery-20260820T044726Z-p176060-5eb908/results/W18-002.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-18-recovery-20260820T044726Z-p176060-5eb908/raw/W18-002.json",
         "ledgerPath": "assets/tts-mod/extract/vision-progress.json",
-        "queuePath": "assets/tts-mod/extract/low-confidence-review.json"
-      }
+        "queuePath": "assets/tts-mod/extract/low-confidence-review.json",
+        "selectedExtraction": {
+          "runIdentity": "w18-card-extraction-recovery-20260820T044726Z-p176060-5eb908/sol-max-persistent-worker-18-recovery-20260820T044726Z-p176060-5eb908/W18-002",
+          "runId": "w18-card-extraction-recovery-20260820T044726Z-p176060-5eb908",
+          "workerId": "sol-max-persistent-worker-18-recovery-20260820T044726Z-p176060-5eb908",
+          "assetId": "W18-002",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-18-recovery-20260820T044726Z-p176060-5eb908/results/W18-002.json",
+          "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-18-recovery-20260820T044726Z-p176060-5eb908/raw/W18-002.json",
+          "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-18-recovery-20260820T044726Z-p176060-5eb908/references/W18-002-post-blind-contact-sheet.png",
+          "promotionDecision": "defer",
+          "runtime": {
+            "provider": "openai-codex",
+            "model": "gpt-5.6-sol",
+            "reasoningEffort": "max",
+            "nativeImageRoute": "salvaged verified direct blind session plus historical/current native post-blind morphology validation",
+            "blindSessionId": "20260819_083610_6461bd",
+            "adjudicationSessionId": "20260819_062132_c0f4f3",
+            "auxiliaryVisionUsed": false,
+            "qwenUsed": false,
+            "ocrCanonicalEvidenceUsed": false,
+            "modelDowngradeUsed": false
+          }
+        }
+      },
+      "selectedExtraction": {
+        "overlayVersion": 1,
+        "status": "selected-evidence-deferred",
+        "runIdentity": "w18-card-extraction-recovery-20260820T044726Z-p176060-5eb908/sol-max-persistent-worker-18-recovery-20260820T044726Z-p176060-5eb908/W18-002",
+        "runId": "w18-card-extraction-recovery-20260820T044726Z-p176060-5eb908",
+        "workerId": "sol-max-persistent-worker-18-recovery-20260820T044726Z-p176060-5eb908",
+        "assetId": "W18-002",
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/event-054.png",
+        "sourceSha256": "ac3dc8c20efc3e964383bb9956b264bf3f4a64762d8d8920f5c612d1841ec4bf",
+        "runtime": {
+          "provider": "openai-codex",
+          "model": "gpt-5.6-sol",
+          "reasoningEffort": "max",
+          "nativeImageRoute": "salvaged verified direct blind session plus historical/current native post-blind morphology validation",
+          "blindSessionId": "20260819_083610_6461bd",
+          "adjudicationSessionId": "20260819_062132_c0f4f3",
+          "auxiliaryVisionUsed": false,
+          "qwenUsed": false,
+          "ocrCanonicalEvidenceUsed": false,
+          "modelDowngradeUsed": false
+        },
+        "blindObservationPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-18-recovery-20260820T044726Z-p176060-5eb908/raw/W18-002.json",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-18-recovery-20260820T044726Z-p176060-5eb908/results/W18-002.json",
+        "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-18-recovery-20260820T044726Z-p176060-5eb908/references/W18-002-post-blind-contact-sheet.png",
+        "visibleText": {
+          "title": "LEAVING THE SHELL",
+          "body": "No [intruder] moves.\n\nEach [character] with Larva:\nGain 1 Contamination, discard all [ICON: solid white rectangular block],\nand reshuffle your deck.\nThen, resolve the Eclosion Procedure.\nEach other [character]:\nDraw 4 [ICON: solid white rectangular block] and resolve the Infection\nProcedure. Then, discard all [ICON: solid white rectangular block].\n\nReshuffle the Event deck.",
+          "sections": [
+            "No [intruder] moves.",
+            "Each [character] with Larva:\nGain 1 Contamination, discard all [ICON: solid white rectangular block],\nand reshuffle your deck.\nThen, resolve the Eclosion Procedure.\nEach other [character]:\nDraw 4 [ICON: solid white rectangular block] and resolve the Infection\nProcedure. Then, discard all [ICON: solid white rectangular block].",
+            "Reshuffle the Event deck."
+          ],
+          "footer": "",
+          "upperRight": "",
+          "illegibleSpans": [],
+          "clippedSpans": []
+        },
+        "verifiedIconOccurrences": [
+          {
+            "cardLocation": "First narrow text panel, between 'No' and 'moves.'.",
+            "referenceLabel": "intruder",
+            "matchDecision": "match",
+            "canonicalToken": "intruder",
+            "closestAlternative": "robot",
+            "visibleDiscriminator": "robot is an upright domed mechanical head/body with two round eye holes, not a curled creature",
+            "evidenceRun": "sol-max-persistent-worker-18-recovery-20260820T044726Z-p176060-5eb908"
+          },
+          {
+            "cardLocation": "Large middle text panel, first line, between 'Each' and 'with Larva:'.",
+            "referenceLabel": "character",
+            "matchDecision": "match",
+            "canonicalToken": "character",
+            "closestAlternative": "robot",
+            "visibleDiscriminator": "robot is a compact domed mechanical head/body without articulated limbs",
+            "evidenceRun": "sol-max-persistent-worker-18-recovery-20260820T044726Z-p176060-5eb908"
+          },
+          {
+            "cardLocation": "Large middle text panel, fifth line, between 'Each other' and ':'.",
+            "referenceLabel": "character",
+            "matchDecision": "match",
+            "canonicalToken": "character",
+            "closestAlternative": "robot",
+            "visibleDiscriminator": "robot is a compact domed mechanical head/body without articulated limbs",
+            "evidenceRun": "sol-max-persistent-worker-18-recovery-20260820T044726Z-p176060-5eb908"
+          }
+        ],
+        "unresolvedIconOccurrences": [
+          {
+            "cardLocation": "Large middle text panel, second line, after 'discard all' and before ','.",
+            "referenceLabel": "No authoritative canonical candidate established",
+            "matchDecision": "no-match",
+            "canonicalToken": null,
+            "closestAlternative": "actionCard",
+            "visibleDiscriminator": "The source occurrence is a featureless solid white rectangle. actionCard requires a visible black “A”; anySlot requires a dark top notch; the die candidates require colored polygonal fields and digits. None of those discriminators is present.",
+            "evidenceRun": "sol-max-persistent-worker-18-recovery-20260820T044726Z-p176060-5eb908"
+          },
+          {
+            "cardLocation": "Large middle text panel, sixth line, after 'Draw 4' and before 'and resolve the Infection'.",
+            "referenceLabel": "No authoritative canonical candidate established",
+            "matchDecision": "no-match",
+            "canonicalToken": null,
+            "closestAlternative": "actionCard",
+            "visibleDiscriminator": "The source occurrence is a featureless solid white rectangle. actionCard requires a visible black “A”; anySlot requires a dark top notch; the die candidates require colored polygonal fields and digits. None of those discriminators is present.",
+            "evidenceRun": "sol-max-persistent-worker-18-recovery-20260820T044726Z-p176060-5eb908"
+          },
+          {
+            "cardLocation": "Large middle text panel, seventh line, after 'discard all' and before '.'.",
+            "referenceLabel": "No authoritative canonical candidate established",
+            "matchDecision": "no-match",
+            "canonicalToken": null,
+            "closestAlternative": "actionCard",
+            "visibleDiscriminator": "The source occurrence is a featureless solid white rectangle. actionCard requires a visible black “A”; anySlot requires a dark top notch; the die candidates require colored polygonal fields and digits. None of those discriminators is present.",
+            "evidenceRun": "sol-max-persistent-worker-18-recovery-20260820T044726Z-p176060-5eb908"
+          }
+        ],
+        "canonicalTokensEmitted": [
+          "character",
+          "intruder"
+        ],
+        "allMaterialTextReadable": true,
+        "allMaterialIconsAuthoritativelyMatched": false,
+        "promotionDecision": "defer",
+        "decisionReasons": [
+          "Exact text and recognized glyphs are preserved, but three featureless inline white rectangles remain explicit no-match occurrences.",
+          "No semantic token was inferred for unresolved morphology.",
+          "Tracked target and same-title counterpart checks are empty across the source-preserving image extension and all tracked image extensions."
+        ],
+        "conflictsWithPriorSnapshot": [
+          {
+            "field": "printedData.body",
+            "priorValue": "No [intruder] moves.\n\nEach [character] with Larva:\nGain 1 Contamination, discard all [actionCard],\nand reshuffle your deck.\nThen, resolve the Eclosion Procedure.\nEach other [character]:\nDraw 4 [actionCard] and resolve the Infection\nProcedure. Then, discard all [actionCard].\n\nReshuffle the Event deck.",
+            "currentStatus": "superseded in selected evidence by exact text plus three explicit no-match occurrences",
+            "resolution": "preserve the historical base snapshot; selected overlay supplies the current direct-pixel evidence without silently assigning semantic tokens"
+          }
+        ]
+      },
+      "evidenceRuns": [
+        {
+          "runIdentity": "w18-card-extraction-recovery-20260820T044726Z-p176060-5eb908/sol-max-persistent-worker-18-recovery-20260820T044726Z-p176060-5eb908/W18-002",
+          "runId": "w18-card-extraction-recovery-20260820T044726Z-p176060-5eb908",
+          "workerId": "sol-max-persistent-worker-18-recovery-20260820T044726Z-p176060-5eb908",
+          "assetId": "W18-002",
+          "sourceSha256": "ac3dc8c20efc3e964383bb9956b264bf3f4a64762d8d8920f5c612d1841ec4bf",
+          "blindSessionId": "20260819_083610_6461bd",
+          "adjudicationSessionId": "20260819_062132_c0f4f3",
+          "promotionDecision": "defer",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-18-recovery-20260820T044726Z-p176060-5eb908/results/W18-002.json",
+          "selected": true
+        }
+      ]
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/event-058.jpg",
       "sourceSha256": "cdf03513025769517d9a0e05ac3881120176a1d506db118fd3db50b6c82d9762",
       "sourceKind": "manifest",
       "componentFamily": "game/event",
-      "ledgerStatus": "deferred",
-      "extractionState": "draft-full",
-      "rulesInformationReadiness": "draft-text-complete-symbols-unresolved",
+      "ledgerStatus": "complete",
+      "extractionState": "verified-canonical",
+      "rulesInformationReadiness": "canonical",
       "rulesTextPresent": true,
-      "identity": {},
+      "identity": {
+        "canonicalSlug": "short-circuit",
+        "titleFromCanonicalSlug": "short circuit",
+        "canonicalPath": "cards/game/event/short-circuit.jpg",
+        "sidecarPath": "cards/game/event/short-circuit.json"
+      },
       "printedData": {
-        "title": "SHORT CIRCUIT",
-        "body": "All [intruder] in each [corridorNWSE] move.\nThen, all [intruder] in every Room move.\n\nIn Sections with an [oxygen]:\nPlace a [fire] in each Room with a [malfunction].\n\nEach [robot] in a Room without a [secure]\nresolves [ICON: yellow spiked circular field with black creature-like silhouette]."
+        "body": "All [intruder] in each [corridorNESW] move.\nThen, all [intruder] in every Room move.\n\nIn Sections with an [lifeSupportActive]:\nPlace a [fire] in each Room with a [malfunction].\n\nEach [character] in a Room without a [secure]\nresolves [noiseDieHazard]."
       },
       "symbols": {
         "canonicalGlossaryTokens": [
-          "corridorNWSE",
+          "character",
+          "corridorNESW",
           "fire",
           "intruder",
+          "lifeSupportActive",
           "malfunction",
-          "oxygen",
-          "robot",
+          "noiseDieHazard",
           "secure"
         ],
-        "unresolvedOrLocalTokens": [
-          "ICON: yellow spiked circular field with black creature-like silhouette"
-        ]
+        "unresolvedOrLocalTokens": []
       },
-      "uncertainties": [
-        "The final yellow spiked glyph is not confidently represented in the supplied glossary; its morphology is transcribed literally and its meaning is unknown."
-      ],
-      "canonicalPromotionBlocker": "exact card identity/transcription/icon/category is not uniformly high-confidence",
+      "uncertainties": [],
+      "canonicalPromotionBlocker": null,
       "evidence": {
-        "textBasis": "native vision draft; not canonical promotion",
+        "textBasis": "human-reviewed or supervisor-validated canonical sidecar",
         "visionProvider": "openai-codex",
         "visionModel": "gpt-5.6-sol",
-        "reasoningEffort": null,
-        "workerId": null,
-        "sessionId": "20260815_052358_35e01d",
-        "resultPath": "assets/tts-mod/extract/vision-results/cdf03513025769517d9a0e05ac3881120176a1d506db118fd3db50b6c82d9762.json",
-        "rawResultPath": null,
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-18-recovery-20260820T044726Z-p176060-5eb908",
+        "sessionId": "20260819_083610_6461bd",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-18-recovery-20260820T044726Z-p176060-5eb908/results/W18-003.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-18-recovery-20260820T044726Z-p176060-5eb908/raw/W18-003.json",
         "ledgerPath": "assets/tts-mod/extract/vision-progress.json",
-        "queuePath": "assets/tts-mod/extract/low-confidence-review.json"
+        "queuePath": null
       }
     },
     {
@@ -14227,42 +14388,43 @@
       "sourceSha256": "93bd00726c0683feb10a47c85c86055438114c3a8c5fbb33500325fa195d2158",
       "sourceKind": "manifest",
       "componentFamily": "game/event",
-      "ledgerStatus": "deferred",
-      "extractionState": "draft-full",
-      "rulesInformationReadiness": "draft-text-complete-symbols-unresolved",
+      "ledgerStatus": "complete",
+      "extractionState": "verified-canonical",
+      "rulesInformationReadiness": "canonical",
       "rulesTextPresent": true,
-      "identity": {},
+      "identity": {
+        "canonicalSlug": "life-support-failure",
+        "titleFromCanonicalSlug": "life support failure",
+        "canonicalPath": "cards/game/event/life-support-failure.png",
+        "sidecarPath": "cards/game/event/life-support-failure.json"
+      },
       "printedData": {
-        "title": "LIFE SUPPORT FAILURE",
-        "body": "All [intruder] in each [ICON: white outlined linked angular glyph] move.\nThen, all [intruder] in every Room move.\n\nFlip all [lifeSupportActive] to [lifeSupportInactive]. Place a [malfunction]\nin each Life Support Control Room.\n\nPlace a [noise] in each Unexplored\nCorridor without [noise]."
+        "body": "All [intruder] in each [corridorNESW] move.\nThen, all [intruder] in every Room move.\n\nFlip all [lifeSupportActive] to [lifeSupportInactive]. Place a [malfunction]\nin each Life Support Control Room.\n\nPlace a [noise] in each Unexplored\nCorridor without [noise]."
       },
       "symbols": {
         "canonicalGlossaryTokens": [
+          "corridorNESW",
           "intruder",
           "lifeSupportActive",
           "lifeSupportInactive",
           "malfunction",
           "noise"
         ],
-        "unresolvedOrLocalTokens": [
-          "ICON: white outlined linked angular glyph"
-        ]
+        "unresolvedOrLocalTokens": []
       },
-      "uncertainties": [
-        "The white outlined linked angular glyph after “each” is clearly visible but cannot be confidently matched to corridorEW, corridorNESW, corridorNWSE, or another canonical glossary identifier."
-      ],
-      "canonicalPromotionBlocker": "exact card identity/transcription/icon/category is not uniformly high-confidence",
+      "uncertainties": [],
+      "canonicalPromotionBlocker": null,
       "evidence": {
-        "textBasis": "native vision draft; not canonical promotion",
+        "textBasis": "human-reviewed or supervisor-validated canonical sidecar",
         "visionProvider": "openai-codex",
         "visionModel": "gpt-5.6-sol",
-        "reasoningEffort": null,
-        "workerId": null,
-        "sessionId": "20260815_052105_f7dd0f",
-        "resultPath": "assets/tts-mod/extract/vision-results/93bd00726c0683feb10a47c85c86055438114c3a8c5fbb33500325fa195d2158.json",
-        "rawResultPath": null,
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-18-recovery-20260820T044726Z-p176060-5eb908",
+        "sessionId": "20260819_083610_6461bd",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-18-recovery-20260820T044726Z-p176060-5eb908/results/W18-004.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-18-recovery-20260820T044726Z-p176060-5eb908/raw/W18-004.json",
         "ledgerPath": "assets/tts-mod/extract/vision-progress.json",
-        "queuePath": "assets/tts-mod/extract/low-confidence-review.json"
+        "queuePath": null
       }
     },
     {
@@ -14270,41 +14432,40 @@
       "sourceSha256": "890259ff52beb7bb5235f2efd010b4e54ee752e9d85cb27f2de2576257fa33bb",
       "sourceKind": "manifest",
       "componentFamily": "game/event",
-      "ledgerStatus": "deferred",
-      "extractionState": "draft-full",
-      "rulesInformationReadiness": "draft-text-complete-symbols-unresolved",
+      "ledgerStatus": "complete",
+      "extractionState": "verified-canonical",
+      "rulesInformationReadiness": "canonical",
       "rulesTextPresent": true,
-      "identity": {},
+      "identity": {
+        "canonicalSlug": "the-queen-awakens",
+        "titleFromCanonicalSlug": "the queen awakens",
+        "canonicalPath": "cards/game/event/the-queen-awakens.png",
+        "sidecarPath": "cards/game/event/the-queen-awakens.json"
+      },
       "printedData": {
-        "title": "THE QUEEN AWAKENS",
-        "body": "All [intruder] in each [ICON: white outlined diagonal linked double-polygon glyph] move.\nThen, all [intruder] in every Room move.\n\nIf the Queen is alive, add all\nQueen tokens to the bag.\n\nPlace a [ICON: yellow pentagonal badge with black central diamond and inward chevrons] in each Unexplored\nCorridor without [ICON: yellow pentagonal badge with black central diamond and inward chevrons]."
+        "body": "All [intruder] in each [corridorNESW] move.\nThen, all [intruder] in every Room move.\n\nIf the Queen is alive, add all\nQueen tokens to the bag.\n\nPlace a [noise] in each Unexplored\nCorridor without [noise]."
       },
       "symbols": {
         "canonicalGlossaryTokens": [
-          "intruder"
+          "corridorNESW",
+          "intruder",
+          "noise"
         ],
-        "unresolvedOrLocalTokens": [
-          "ICON: white outlined diagonal linked double-polygon glyph",
-          "ICON: yellow pentagonal badge with black central diamond and inward chevrons"
-        ]
+        "unresolvedOrLocalTokens": []
       },
-      "uncertainties": [
-        "The white outlined diagonal linked double-polygon glyph in the first rules panel is not confidently matched to any supplied canonical icon.",
-        "The repeated yellow pentagonal glyph in the bottom panel is not confidently matched to any supplied canonical icon.",
-        "The event-card classification is strongly suggested by the titled artwork and multi-panel effects, but no explicit printed type line identifies it as an event card."
-      ],
-      "canonicalPromotionBlocker": "exact card identity/transcription/icon/category is not uniformly high-confidence",
+      "uncertainties": [],
+      "canonicalPromotionBlocker": null,
       "evidence": {
-        "textBasis": "native vision draft; not canonical promotion",
+        "textBasis": "human-reviewed or supervisor-validated canonical sidecar",
         "visionProvider": "openai-codex",
         "visionModel": "gpt-5.6-sol",
-        "reasoningEffort": null,
-        "workerId": null,
-        "sessionId": "20260815_052114_cd3388",
-        "resultPath": "assets/tts-mod/extract/vision-results/890259ff52beb7bb5235f2efd010b4e54ee752e9d85cb27f2de2576257fa33bb.json",
-        "rawResultPath": null,
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-18-recovery-20260820T044726Z-p176060-5eb908",
+        "sessionId": "20260819_083610_6461bd",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-18-recovery-20260820T044726Z-p176060-5eb908/results/W18-005.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-18-recovery-20260820T044726Z-p176060-5eb908/raw/W18-005.json",
         "ledgerPath": "assets/tts-mod/extract/vision-progress.json",
-        "queuePath": "assets/tts-mod/extract/low-confidence-review.json"
+        "queuePath": null
       }
     },
     {
@@ -14312,37 +14473,41 @@
       "sourceSha256": "fe6a4f8faae5efdecb02b1ec436c605f792f5f78dd332e1cf64cffc532631ab0",
       "sourceKind": "manifest",
       "componentFamily": "game/event",
-      "ledgerStatus": "deferred",
-      "extractionState": "draft-full",
-      "rulesInformationReadiness": "draft-text-complete",
+      "ledgerStatus": "complete",
+      "extractionState": "verified-canonical",
+      "rulesInformationReadiness": "canonical",
       "rulesTextPresent": true,
-      "identity": {},
+      "identity": {
+        "canonicalSlug": "breaking-in",
+        "titleFromCanonicalSlug": "breaking in",
+        "canonicalPath": "cards/game/event/breaking-in.png",
+        "sidecarPath": "cards/game/event/breaking-in.json"
+      },
       "printedData": {
-        "title": "BREAKING IN",
-        "body": "All [intruder] in each [corridorNWSE] move.\nThen, all [intruder] in every Room move.\n\nRemove 1 [secure] from each Room.\n\nResolve each [noiseDieHazard] in\nUnexplored Corridors."
+        "body": "All [intruder] in each [corridorNESW] move.\nThen, all [intruder] in every Room move.\n\nRemove 1 [secure] from each Room.\n\nResolve each [noise] in\nUnexplored Corridors."
       },
       "symbols": {
         "canonicalGlossaryTokens": [
-          "corridorNWSE",
+          "corridorNESW",
           "intruder",
-          "noiseDieHazard",
+          "noise",
           "secure"
         ],
         "unresolvedOrLocalTokens": []
       },
       "uncertainties": [],
-      "canonicalPromotionBlocker": "claimed glossary icons did not all pass a focused direct card-to-glossary crop comparison",
+      "canonicalPromotionBlocker": null,
       "evidence": {
-        "textBasis": "native vision draft; not canonical promotion",
+        "textBasis": "human-reviewed or supervisor-validated canonical sidecar",
         "visionProvider": "openai-codex",
         "visionModel": "gpt-5.6-sol",
-        "reasoningEffort": null,
-        "workerId": null,
-        "sessionId": "20260815_052358_aae591",
-        "resultPath": "assets/tts-mod/extract/vision-results/fe6a4f8faae5efdecb02b1ec436c605f792f5f78dd332e1cf64cffc532631ab0.json",
-        "rawResultPath": null,
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-18-recovery-20260820T044726Z-p176060-5eb908",
+        "sessionId": "20260819_083610_6461bd",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-18-recovery-20260820T044726Z-p176060-5eb908/results/W18-006.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-18-recovery-20260820T044726Z-p176060-5eb908/raw/W18-006.json",
         "ledgerPath": "assets/tts-mod/extract/vision-progress.json",
-        "queuePath": "assets/tts-mod/extract/low-confidence-review.json"
+        "queuePath": null
       }
     },
     {
@@ -14350,41 +14515,41 @@
       "sourceSha256": "45b5845d04f57b10dff6e73005be88cba0107a1a15da83f581df6531390d1ac9",
       "sourceKind": "manifest",
       "componentFamily": "game/event",
-      "ledgerStatus": "deferred",
-      "extractionState": "draft-full",
-      "rulesInformationReadiness": "draft-text-complete-symbols-unresolved",
+      "ledgerStatus": "complete",
+      "extractionState": "verified-canonical",
+      "rulesInformationReadiness": "canonical",
       "rulesTextPresent": true,
-      "identity": {},
+      "identity": {
+        "canonicalSlug": "hatching",
+        "titleFromCanonicalSlug": "hatching",
+        "canonicalPath": "cards/game/event/hatching.png",
+        "sidecarPath": "cards/game/event/hatching.json"
+      },
       "printedData": {
-        "title": "HATCHING",
-        "body": "All [intruder] in each [ICON: white outlined angular two-lobed glyph] move.\n\nPlace a Larva in the Nest - it\nimmediately Attacks if any [character] is there.\nPlace 1 Larva in each Unexplored\nCorridor adjacent to a [character].\n\nResolve each [ICON: yellow pentagonal badge with black three-pronged glyph] in\nUnexplored Corridors."
+        "body": "All [intruder] in each [corridorNESW] move.\n\nPlace a Larva in the Nest - it\nimmediately Attacks if any [character] is there.\nPlace 1 Larva in each Unexplored\nCorridor adjacent to a [character].\n\nResolve each [noise] in\nUnexplored Corridors."
       },
       "symbols": {
         "canonicalGlossaryTokens": [
           "character",
-          "intruder"
+          "corridorNESW",
+          "intruder",
+          "noise"
         ],
-        "unresolvedOrLocalTokens": [
-          "ICON: white outlined angular two-lobed glyph",
-          "ICON: yellow pentagonal badge with black three-pronged glyph"
-        ]
+        "unresolvedOrLocalTokens": []
       },
-      "uncertainties": [
-        "The white outlined angular glyph after “each” in the first panel does not confidently match a canonical glossary icon and is transcribed literally.",
-        "The yellow pentagonal badge in the bottom panel does not confidently match a canonical glossary icon and is transcribed literally."
-      ],
-      "canonicalPromotionBlocker": "exact card identity/transcription/icon/category is not uniformly high-confidence",
+      "uncertainties": [],
+      "canonicalPromotionBlocker": null,
       "evidence": {
-        "textBasis": "native vision draft; not canonical promotion",
+        "textBasis": "human-reviewed or supervisor-validated canonical sidecar",
         "visionProvider": "openai-codex",
         "visionModel": "gpt-5.6-sol",
-        "reasoningEffort": null,
-        "workerId": null,
-        "sessionId": "20260815_052358_94067f",
-        "resultPath": "assets/tts-mod/extract/vision-results/45b5845d04f57b10dff6e73005be88cba0107a1a15da83f581df6531390d1ac9.json",
-        "rawResultPath": null,
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-18-recovery-20260820T044726Z-p176060-5eb908",
+        "sessionId": "20260819_083610_6461bd",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-18-recovery-20260820T044726Z-p176060-5eb908/results/W18-007.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-18-recovery-20260820T044726Z-p176060-5eb908/raw/W18-007.json",
         "ledgerPath": "assets/tts-mod/extract/vision-progress.json",
-        "queuePath": "assets/tts-mod/extract/low-confidence-review.json"
+        "queuePath": null
       }
     },
     {
@@ -14392,43 +14557,42 @@
       "sourceSha256": "6f93c7b3d25bb4fcbf6b7d786f31172b09a65f888b9fdb707917a7fae916b868",
       "sourceKind": "manifest",
       "componentFamily": "game/event",
-      "ledgerStatus": "deferred",
-      "extractionState": "draft-full",
-      "rulesInformationReadiness": "draft-text-complete-symbols-unresolved",
+      "ledgerStatus": "complete",
+      "extractionState": "verified-canonical",
+      "rulesInformationReadiness": "canonical",
       "rulesTextPresent": true,
-      "identity": {},
+      "identity": {
+        "canonicalSlug": "protect-and-serve",
+        "titleFromCanonicalSlug": "protect and serve",
+        "canonicalPath": "cards/game/event/protect-and-serve.jpg",
+        "sidecarPath": "cards/game/event/protect-and-serve.json"
+      },
       "printedData": {
-        "title": "PROTECT & SERVE",
-        "body": "All [intruder] in each [ICON: white outlined horizontal four-lobed glyph] move.\nThen, all [intruder] in every Room move.\n\nPlace 2 Drones in the Room/Corridor\nwith the Queen – they do not Attack.\nIf there is no Queen on the map,\nadd 2 random Drone tokens to the bag.\n\nEach [character] in a Room without a [ICON: white shield-like glyph with broad flat top and forked lower point]\nresolves [ICON: yellow spiked burst with black central glyph]."
+        "body": "All [intruder] in each [corridorEW] move.\nThen, all [intruder] in every Room move.\n\nPlace 2 Drones in the Room/Corridor\nwith the Queen – they do not Attack.\nIf there is no Queen on the map,\nadd 2 random Drone tokens to the bag.\n\nEach [character] in a Room without a [secure]\nresolves [noiseDieHazard]."
       },
       "symbols": {
         "canonicalGlossaryTokens": [
           "character",
-          "intruder"
+          "corridorEW",
+          "intruder",
+          "noiseDieHazard",
+          "secure"
         ],
-        "unresolvedOrLocalTokens": [
-          "ICON: white outlined horizontal four-lobed glyph",
-          "ICON: white shield-like glyph with broad flat top and forked lower point",
-          "ICON: yellow spiked burst with black central glyph"
-        ]
+        "unresolvedOrLocalTokens": []
       },
-      "uncertainties": [
-        "The white outlined horizontal four-lobed inline glyph is not confidently matched to the supplied canonical glossary.",
-        "The white shield-like or funnel-shaped inline glyph in the final panel is not confidently matched to the supplied canonical glossary.",
-        "The yellow spiked-burst inline glyph in the final panel is not confidently matched to the supplied canonical glossary."
-      ],
-      "canonicalPromotionBlocker": "exact card identity/transcription/icon/category is not uniformly high-confidence",
+      "uncertainties": [],
+      "canonicalPromotionBlocker": null,
       "evidence": {
-        "textBasis": "native vision draft; not canonical promotion",
+        "textBasis": "human-reviewed or supervisor-validated canonical sidecar",
         "visionProvider": "openai-codex",
         "visionModel": "gpt-5.6-sol",
-        "reasoningEffort": null,
-        "workerId": null,
-        "sessionId": "20260815_052257_e4c882",
-        "resultPath": "assets/tts-mod/extract/vision-results/6f93c7b3d25bb4fcbf6b7d786f31172b09a65f888b9fdb707917a7fae916b868.json",
-        "rawResultPath": null,
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-18-recovery-20260820T044726Z-p176060-5eb908",
+        "sessionId": "20260819_083610_6461bd",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-18-recovery-20260820T044726Z-p176060-5eb908/results/W18-008.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-18-recovery-20260820T044726Z-p176060-5eb908/raw/W18-008.json",
         "ledgerPath": "assets/tts-mod/extract/vision-progress.json",
-        "queuePath": "assets/tts-mod/extract/low-confidence-review.json"
+        "queuePath": null
       }
     },
     {
