@@ -672,6 +672,87 @@ PDF extraction still loses normative symbols. Automatic Shotgun is independently
 between the current official rulebook and BGA, but no automatic canonical promotion was
 made. Recheck every candidate visually and preserve uncertainty before changing data.
 
+**W23 defer-only mission-task checkpoint (2026-08-20T20:40:39Z):** Worker
+`sol-max-persistent-worker-23-20260820T185027Z-p240642-4513b3` selected the first eight
+previously unselected exact tuples from current queue index 113, with no selected-tuple skips:
+- index 113, `assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-116.jpg`,
+  SHA-256 `c1adf21143fb353e2253fa99feb8f50b93fb246d8d0bd91701690a4033c658e6`;
+- index 114, `assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-123.jpg`,
+  SHA-256 `1f8bb94fc434f1bd7861d76fe7db86cd7174f9c36ca1aaaf03601952896f4597`;
+- index 115, `assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-138.jpg`,
+  SHA-256 `41e770cd697f8226ffcc5bbcab0abee6612e525a6fc23cf3d0906f3ff456dcc8`;
+- index 116, `assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-160_cards/card-00.png`,
+  SHA-256 `c2d4bb142b03891040b8bf52a7cb4b1457b8e040b187abd2c1be003e4a1d9d2c`;
+- index 117, `assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-160_cards/card-01.png`,
+  SHA-256 `3cd13d793b369d06429494d3d04f991e454349be0cfc4b05805029e6b03261c3`;
+- index 118, `assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-160_cards/card-02.png`,
+  SHA-256 `11d743898e231415232b6ad79ab88c1e4d0e31f277c0a0385abb27a997d47b48`;
+- index 119, `assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-160_cards/card-03.png`,
+  SHA-256 `2b2042f9604da8c62c67c80b9953fe959c4c82ac93a56f2e258c473f85248e9f`;
+- index 120, `assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-160_cards/card-04.png`,
+  SHA-256 `3ff9ae783d02bbc700c294c837917e9d3037034dcd7b45ea571ed295430128d2`.
+
+Neutral smoke session `20260820_185733_87625e` verified one API call, two messages,
+zero tools, exact `openai-codex:gpt-5.6-sol` at `max`, and no stored Tools/tool-name marker.
+The sealed blind lineage is session `20260820_190057_7927a4`: 8 API calls, 16 messages,
+zero tools, and eight byte-preserved mode-`0400` wrappers. Post-blind coordinate evidence is
+split across sessions `20260820_193010_a77e8d` (1 call/2 messages/0 tools) and
+`20260820_193416_50af34` (7/14/0); official/glossary contact evidence is split across
+`20260820_194841_5f9531` (1/2/0) and `20260820_195524_a763ec` (7/14/0). All production
+sessions independently verify the same provider/model/reasoning and native direct-image route.
+The split sessions preserve valid first wrappers after local helper/parser failures and retry only
+the untouched suffix; the failed pre-dispatch/CLI attempts made no accepted image inference.
+
+All eight sources are rules-bearing Mission Task faces; none is a non-rules component. The first
+three resolve to exact FaceURL selectors `d6eed2`/CardID `585900`, `a9faad`/`581800`, and
+`ca25da`/`530400` under deck `eabc1d`. The five generated faces resolve exactly to source sheet
+`missionTaskDeck-160.jpg`, CustomDeck key `3938`, and cells 0–4, but no reliable unique
+per-cell GUID/CardID selector is established. Their candidate object references are preserved,
+not guessed. All eight resolve structurally to FaceURL with the same saved BackURL; that old CDN
+BackURL is now HTTP 404, so paired-side pixels could not be inspected. Current publisher
+rulebook, FAQ v1.2, and Objectives Help Sheet bytes match the live Awaken Realms downloads;
+BGA build `260622-1220` is retained only as licensed-digital secondary evidence.
+
+All 15 blind morphology occurrences reconcile exactly once: 2 p.40 matches (`character` and
+`lander`, both on ESSENTIAL DATA), 8 explicit one-to-one no-match rows for the ringed local
+player-count composites, 4 non-text component graphics, and 1 artwork-only morphology detail.
+Artwork microtext/display abstentions remain outside operative material text. Every one of the
+eight promotion decisions is `defer`:
+- THE SUPPLY ROUTE (`missionTaskDeck-116`) and ESSENTIAL DATA (`missionTaskDeck-123`) match
+  the current official operative wording, but each retains the unmatched player-count composite
+  and unavailable paired-side pixels.
+- PRIMARY SAMPLES (`missionTaskDeck-138`) conflicts with current official wording requiring
+  escaping Characters to carry at least two Eggs, and also retains those shared blockers.
+- generated PRIMARY SAMPLES uses `ALL` instead of official `2+`, retains the older Egg-removal
+  wording, and has no exact per-cell object selector.
+- generated PERIMETER CLEARING uses `ALL` instead of official `2+` and conflicts with the final
+  “all 3 A-type Rooms must be Discovered”/Reactor condition; its selector is unresolved.
+- generated THE SUPPLY ROUTE uses `ALL` instead of official `3+`, changes the final wording,
+  and has no exact per-cell selector.
+- generated SABOTAGE has no current official Mission Task counterpart and no exact selector.
+- generated ESSENTIAL DATA omits the official second condition requiring no Unexplored
+  Corridors in Section A and has no exact selector.
+No official wording was substituted into assigned art. No canonical image, sidecar, source byte,
+category, filename, protected target, or candidate file changed.
+
+The reusable native-worker closure auditor reports zero errors and zero warnings. The private
+projection and independent corpus rebuild are byte-identical and change exactly the eight assigned
+corpus records recursively. Shared merge completed 4 trial writes, 4 exact rollback writes,
+4 committed writes, and a zero-write identical re-merge. Ten focused tests and all eight global
+validation commands pass; 532/532 source images decode, 390/390 corpus source hashes verify,
+corpus builds are byte-stable, all eight W23 paths survive in the symbol backlog, and all eight
+no-match occurrences remain explicit in selected evidence, corpus overlays, and backlog output.
+Lifecycle/canonical counts remain 532 = 148 complete + 384 deferred + 0 unaccounted, queue 384,
+corpus 390, and canonical pairs 78; selected evidence rises from 102 to 110 entries/runs.
+Predecessor checkpoint HEAD was `48854fdd86478c1f74b614e9daa8faaa6d0beee1`; sealed data
+commit is `65fff3b486ec9f59b7b1bd10f8486af4d8e91f80`. This entry is committed separately in the
+following todo-only checkpoint commit, whose self-hash cannot appear in its own content.
+Operational blocker: none. Canonical-promotion blockers are the exact per-card gates above.
+Nothing was pushed or deployed, and no W24 work was started. The next eligible exact tuple is
+current queue index 121,
+`assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-160_cards/card-05.png`
+(SHA-256 `6876c41ee8d1f660f4c2ba8012c8caf0f2ccb55ca7677dfcccfb2a69e4c43e42`).
+
 ## LATER — Expansions (re-add when user wants them)
 - [ ] Re-extract expansion content from save (see `assets/tts-mod/notes/extraction.md` §15 for all deck GUIDs, intruder bags,
       shared action-154 cells, and classification pitfalls)
