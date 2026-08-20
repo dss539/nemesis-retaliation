@@ -396,6 +396,54 @@ is original queue index 95 / current projected queue index 88,
 `assets/tts-mod/extract/v2-dl/tree/cards/game/event-096.png`
 (SHA-256 `85d08e0de5b2710ed0e1ac0295ed27da3b4d0da9eb2419aa0f0093d94f1b70d5`).
 
+**W19 mixed promotion/defer checkpoint (2026-08-20T06:14:49Z):** Worker
+`sol-max-persistent-worker-19-20260820T053136Z-p176060-d62d87` sealed these exact
+current low-confidence queue tuples:
+- index 88, `assets/tts-mod/extract/v2-dl/tree/cards/game/event-096.png`,
+  SHA-256 `85d08e0de5b2710ed0e1ac0295ed27da3b4d0da9eb2419aa0f0093d94f1b70d5`;
+- index 89, `assets/tts-mod/extract/v2-dl/tree/cards/game/event-099.png`,
+  SHA-256 `0d5da2c8e1b6ccb6a30c83f9006aa924f4fc2f1f14d360d153bc5ea6f73770ed`;
+- index 90, `assets/tts-mod/extract/v2-dl/tree/cards/game/event-100.png`,
+  SHA-256 `592afbb981cdb9bcae45812d38285a7e7cc1dd41bb21446861d51d000e9b0070`;
+- index 91, `assets/tts-mod/extract/v2-dl/tree/cards/game/event-139.png`,
+  SHA-256 `53351204890c5e98381a1fc4712e574a701659ec913b5f9c3f838ac6074c9614`;
+- index 92, `assets/tts-mod/extract/v2-dl/tree/cards/game/event-167.png`,
+  SHA-256 `37bbf022f99ef62a18a5225aaf31347f6299f72672603547f51918502241f27b`;
+- index 93, `assets/tts-mod/extract/v2-dl/tree/cards/game/event-170.png`,
+  SHA-256 `86ba726fa9fa4a8d9ed2913f6619db2d5df1b5ad1e3c69bd0b380993c9e8967e`;
+- index 94, `assets/tts-mod/extract/v2-dl/tree/cards/game/event-179.png`,
+  SHA-256 `72a3270de96356e8ea1e64b9bf1d2b90e189a7ae6f1031d03b6db453d3f93eab`;
+- index 95, `assets/tts-mod/extract/v2-dl/tree/cards/game/exploration-024.png`,
+  SHA-256 `3cfb21c76b93ba8e23abf464321e7071d73aac0c23b0dc1763702206fe80854f`.
+All eight sources are rules-bearing and zero are non-rules: seven exact base event FaceURLs
+pair to `EVENT / PRIMEBLOOD`, and one exact exploration FaceURL pairs to
+`EXPLORATION / PRIMEBLOOD`. Blind reads used one clean persistent tool-disabled native
+`openai-codex:gpt-5.6-sol` max session (`20260820_053305_a121de`; 8 API calls,
+16 messages, zero tools); the current supervisor session ID remained unexposed and made
+11 direct post-blind contact, paired-side, and official-page attachments. Fifty-three
+visual occurrences match authoritative glossary tokens, zero occurrences remain
+unresolved/no-match, and the exploration room-and-branches outline is preserved as one
+non-text explanatory schematic. `SYSTEM FAILURE` also has two Carnomorph reuse refs and
+one unresolved expansion BackURL; those are separated from its exact base selector/back
+and do not collapse the provenance. Official rulebook page 3 directly reproduces
+`SCENT OF PREY` without conflict. Seven event faces (`LANDING ZONE EXPLODES`,
+`SYSTEM FAILURE`, `SCENT OF PREY`, `DAMAGE`, `DAMAGING FIRE`, `PANIC`, and
+`EGG PROTECTION`) passed every promotion gate and gained byte-preserving canonical images
+plus minimal sidecars. The untitled exploration face remains `defer` because no printed
+unique title/slug establishes a canonical filename, despite complete text and five matched
+glyph occurrences. Private projection, independent corpus rebuild, shared merge, and
+identical re-merge are byte-idempotent. A hand-supplied exploration-back hash and a generic
+FAQ phrase classification each failed closed before producing shared evidence, then were
+re-derived from live bytes/context. Final closure has zero standard-auditor errors/warnings;
+10 focused tests and all eight documented global commands pass, with 532/532 source
+decodes, no W19 source left in the symbol backlog, and an exact eight-record corpus diff.
+Selected evidence now has 78 entries/runs, corpus remains 390 records, canonical pairs
+total 78, and the partition is 532 = 148 complete + 384 deferred + 0 unaccounted
+(queue 384). Sealed data commit: `65733230d733ec0aa12b3435f4cb086f4251e8e0`.
+Blocker: none. The next eligible exact tuple is original queue index 96 / current projected
+queue index 89, `assets/tts-mod/extract/v2-dl/tree/cards/game/exploration-025.png`
+(SHA-256 `774b6ed8ea4492bfae38145c828ae47c61536855ec1ffb86702d1fb2d2d09d8b`).
+
 The requested approval-gated review target
 `assets/tts-mod/extract/v2-dl/tree/unsorted/card-176.jpg` is absent from the live tree. A candidate
 source matching the durable 2132x2142 trial dimensions is available at
