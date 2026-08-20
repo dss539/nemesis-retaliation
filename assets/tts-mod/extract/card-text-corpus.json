@@ -2,33 +2,33 @@
   "schemaVersion": 1,
   "status": "extracted evidence corpus; canonical and draft states are explicitly separated",
   "generatedFrom": {
-    "visionProgressUpdatedAt": "2026-08-20T05:15:55.087730Z",
-    "reviewQueueUpdatedAt": "2026-08-20T05:15:55.087730Z",
+    "visionProgressUpdatedAt": "2026-08-20T06:08:12.846918Z",
+    "reviewQueueUpdatedAt": "2026-08-20T06:08:12.846918Z",
     "iconGlossary": "docs/rules/icon-glossary.md",
     "iconGlossaryIdentifierCount": 49
   },
   "metadata": {
     "selectedEvidenceRegistry": "assets/tts-mod/extract/selected-card-text-evidence.json",
     "selectedEvidenceRegistrySchemaVersion": 1,
-    "selectedEvidenceRegistrySha256": "2bc43b5c1f58d51404ce3f6107f4b3d7812d82c847af41ae2fa65d0b82cad33b",
-    "selectedEvidenceTupleDigest": "d6f555618b734b516c47182c01b740a61e94101358ebd058eb656efa991dfd5b",
-    "selectedEvidenceEntryCount": 77,
-    "selectedEvidenceRunCount": 77
+    "selectedEvidenceRegistrySha256": "7ef1ac0e96d4c31885a2faf9ca8663824e31805c51f0c3c191b325d9d9cc8aef",
+    "selectedEvidenceTupleDigest": "4c2aef874f65675f7a2656329adb9a77a06cca1a0ad38c4ce6bb71bfe56c1438",
+    "selectedEvidenceEntryCount": 78,
+    "selectedEvidenceRunCount": 78
   },
   "counts": {
     "records": 390,
     "rulesTextPresent": 352,
     "extractionStates": {
       "complete-non-rules-or-reference": 34,
-      "draft-full": 269,
+      "draft-full": 262,
       "no-transcription": 2,
       "non-rules-or-reference": 14,
-      "verified-canonical": 71
+      "verified-canonical": 78
     },
     "rulesInformationReadiness": {
-      "canonical": 71,
+      "canonical": 78,
       "draft-text-complete": 141,
-      "draft-text-complete-symbols-unresolved": 128,
+      "draft-text-complete-symbols-unresolved": 121,
       "missing-transcription": 2,
       "not-rules-bearing-or-reference": 48
     }
@@ -14600,41 +14600,42 @@
       "sourceSha256": "85d08e0de5b2710ed0e1ac0295ed27da3b4d0da9eb2419aa0f0093d94f1b70d5",
       "sourceKind": "manifest",
       "componentFamily": "game/event",
-      "ledgerStatus": "deferred",
-      "extractionState": "draft-full",
-      "rulesInformationReadiness": "draft-text-complete-symbols-unresolved",
+      "ledgerStatus": "complete",
+      "extractionState": "verified-canonical",
+      "rulesInformationReadiness": "canonical",
       "rulesTextPresent": true,
-      "identity": {},
+      "identity": {
+        "canonicalSlug": "landing-zone-explodes",
+        "titleFromCanonicalSlug": "landing zone explodes",
+        "canonicalPath": "cards/game/event/landing-zone-explodes.png",
+        "sidecarPath": "cards/game/event/landing-zone-explodes.json"
+      },
       "printedData": {
-        "title": "LANDING ZONE EXPLODES",
-        "body": "All [intruder] in each [ICON: white outlined horizontal frame with central top and bottom tabs] move.\nThen, all [intruder] in every Room move.\n\nPlace a [fire] and a [malfunction] in\nthe Landing Zone.\n\nPlace a [noise] in each Unexplored\nCorridor without [noise]."
+        "body": "All [intruder] in each [corridorEW] move.\nThen, all [intruder] in every Room move.\n\nPlace a [fire] and a [malfunction] in\nthe Landing Zone.\n\nPlace a [noise] in each Unexplored\nCorridor without [noise]."
       },
       "symbols": {
         "canonicalGlossaryTokens": [
+          "corridorEW",
           "fire",
           "intruder",
           "malfunction",
           "noise"
         ],
-        "unresolvedOrLocalTokens": [
-          "ICON: white outlined horizontal frame with central top and bottom tabs"
-        ]
+        "unresolvedOrLocalTokens": []
       },
-      "uncertainties": [
-        "The white outlined horizontal frame icon in the first rule is not confidently matched to any supplied canonical icon, so it is transcribed literally."
-      ],
-      "canonicalPromotionBlocker": "exact card identity/transcription/icon/category is not uniformly high-confidence",
+      "uncertainties": [],
+      "canonicalPromotionBlocker": null,
       "evidence": {
-        "textBasis": "native vision draft; not canonical promotion",
+        "textBasis": "human-reviewed or supervisor-validated canonical sidecar",
         "visionProvider": "openai-codex",
         "visionModel": "gpt-5.6-sol",
-        "reasoningEffort": null,
-        "workerId": null,
-        "sessionId": "20260815_052358_f865ce",
-        "resultPath": "assets/tts-mod/extract/vision-results/85d08e0de5b2710ed0e1ac0295ed27da3b4d0da9eb2419aa0f0093d94f1b70d5.json",
-        "rawResultPath": null,
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-19-20260820T053136Z-p176060-d62d87",
+        "sessionId": "20260820_053305_a121de",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-19-20260820T053136Z-p176060-d62d87/results/W19-001.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-19-20260820T053136Z-p176060-d62d87/raw/W19-001.json",
         "ledgerPath": "assets/tts-mod/extract/vision-progress.json",
-        "queuePath": "assets/tts-mod/extract/low-confidence-review.json"
+        "queuePath": null
       }
     },
     {
@@ -14642,43 +14643,42 @@
       "sourceSha256": "0d5da2c8e1b6ccb6a30c83f9006aa924f4fc2f1f14d360d153bc5ea6f73770ed",
       "sourceKind": "manifest",
       "componentFamily": "game/event",
-      "ledgerStatus": "deferred",
-      "extractionState": "draft-full",
-      "rulesInformationReadiness": "draft-text-complete-symbols-unresolved",
+      "ledgerStatus": "complete",
+      "extractionState": "verified-canonical",
+      "rulesInformationReadiness": "canonical",
       "rulesTextPresent": true,
-      "identity": {},
+      "identity": {
+        "canonicalSlug": "system-failure",
+        "titleFromCanonicalSlug": "system failure",
+        "canonicalPath": "cards/game/event/system-failure.png",
+        "sidecarPath": "cards/game/event/system-failure.json"
+      },
       "printedData": {
-        "title": "SYSTEM FAILURE",
-        "body": "All [intruder] in each [corridorEW] move.\nThen, all [intruder] in every Room move.\n\nPlace a [malfunction] in each [computer] Room.\n\nResolve each [ICON: yellow triangular warning badge with black central hexagonal glyph and nested angular lines] in\nUnexplored Corridors.",
-        "visibleText": "SYSTEMERROR"
+        "body": "All [intruder] in each [corridorEW] move.\nThen, all [intruder] in every Room move.\n\nPlace a [malfunction] in each [computer] Room.\n\nResolve each [noise] in\nUnexplored Corridors."
       },
       "symbols": {
         "canonicalGlossaryTokens": [
           "computer",
           "corridorEW",
           "intruder",
-          "malfunction"
+          "malfunction",
+          "noise"
         ],
-        "unresolvedOrLocalTokens": [
-          "ICON: yellow triangular warning badge with black central hexagonal glyph and nested angular lines"
-        ]
+        "unresolvedOrLocalTokens": []
       },
-      "uncertainties": [
-        "The yellow triangular glyph in the final panel is not uniquely distinguishable from the supplied glossary descriptions, so it is preserved literally rather than assigned a canonical identifier.",
-        "Background display text is stylized and blurred; only one clearly discernible “SYSTEMERROR” instance is transcribed, while other partial repetitions and microtext are omitted."
-      ],
-      "canonicalPromotionBlocker": "exact card identity/transcription/icon/category is not uniformly high-confidence",
+      "uncertainties": [],
+      "canonicalPromotionBlocker": null,
       "evidence": {
-        "textBasis": "native vision draft; not canonical promotion",
+        "textBasis": "human-reviewed or supervisor-validated canonical sidecar",
         "visionProvider": "openai-codex",
         "visionModel": "gpt-5.6-sol",
-        "reasoningEffort": null,
-        "workerId": null,
-        "sessionId": "20260815_052358_6f7640",
-        "resultPath": "assets/tts-mod/extract/vision-results/0d5da2c8e1b6ccb6a30c83f9006aa924f4fc2f1f14d360d153bc5ea6f73770ed.json",
-        "rawResultPath": null,
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-19-20260820T053136Z-p176060-d62d87",
+        "sessionId": "20260820_053305_a121de",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-19-20260820T053136Z-p176060-d62d87/results/W19-002.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-19-20260820T053136Z-p176060-d62d87/raw/W19-002.json",
         "ledgerPath": "assets/tts-mod/extract/vision-progress.json",
-        "queuePath": "assets/tts-mod/extract/low-confidence-review.json"
+        "queuePath": null
       }
     },
     {
@@ -14686,41 +14686,41 @@
       "sourceSha256": "592afbb981cdb9bcae45812d38285a7e7cc1dd41bb21446861d51d000e9b0070",
       "sourceKind": "manifest",
       "componentFamily": "game/event",
-      "ledgerStatus": "deferred",
-      "extractionState": "draft-full",
-      "rulesInformationReadiness": "draft-text-complete-symbols-unresolved",
+      "ledgerStatus": "complete",
+      "extractionState": "verified-canonical",
+      "rulesInformationReadiness": "canonical",
       "rulesTextPresent": true,
-      "identity": {},
+      "identity": {
+        "canonicalSlug": "scent-of-prey",
+        "titleFromCanonicalSlug": "scent of prey",
+        "canonicalPath": "cards/game/event/scent-of-prey.png",
+        "sidecarPath": "cards/game/event/scent-of-prey.json"
+      },
       "printedData": {
-        "title": "SCENT OF PREY",
-        "body": "All [intruder] in each [corridorNWSE] move.\nThen, all [intruder] in every Room move.\n\nResolve each [ICON: yellow triangular striped glyph with central black wedge and dot] adjacent to a [character].\n\nEach [character] makes a Noise roll."
+        "body": "All [intruder] in each [corridorNWSE] move.\nThen, all [intruder] in every Room move.\n\nResolve each [noise] adjacent to a [character].\n\nEach [character] makes a Noise roll."
       },
       "symbols": {
         "canonicalGlossaryTokens": [
           "character",
           "corridorNWSE",
-          "intruder"
+          "intruder",
+          "noise"
         ],
-        "unresolvedOrLocalTokens": [
-          "ICON: yellow triangular striped glyph with central black wedge and dot"
-        ]
+        "unresolvedOrLocalTokens": []
       },
-      "uncertainties": [
-        "The yellow triangular striped glyph is not confidently matched to any supplied canonical icon and is therefore transcribed literally.",
-        "Horizontal bands overlay portions of the artwork; whether they are intentional visual design or a source-art artifact is uncertain."
-      ],
-      "canonicalPromotionBlocker": "exact card identity/transcription/icon/category is not uniformly high-confidence",
+      "uncertainties": [],
+      "canonicalPromotionBlocker": null,
       "evidence": {
-        "textBasis": "native vision draft; not canonical promotion",
+        "textBasis": "human-reviewed or supervisor-validated canonical sidecar",
         "visionProvider": "openai-codex",
         "visionModel": "gpt-5.6-sol",
-        "reasoningEffort": null,
-        "workerId": null,
-        "sessionId": "20260815_052358_0c51f9",
-        "resultPath": "assets/tts-mod/extract/vision-results/592afbb981cdb9bcae45812d38285a7e7cc1dd41bb21446861d51d000e9b0070.json",
-        "rawResultPath": null,
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-19-20260820T053136Z-p176060-d62d87",
+        "sessionId": "20260820_053305_a121de",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-19-20260820T053136Z-p176060-d62d87/results/W19-003.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-19-20260820T053136Z-p176060-d62d87/raw/W19-003.json",
         "ledgerPath": "assets/tts-mod/extract/vision-progress.json",
-        "queuePath": "assets/tts-mod/extract/low-confidence-review.json"
+        "queuePath": null
       }
     },
     {
@@ -14780,43 +14780,43 @@
       "sourceSha256": "53351204890c5e98381a1fc4712e574a701659ec913b5f9c3f838ac6074c9614",
       "sourceKind": "manifest",
       "componentFamily": "game/event",
-      "ledgerStatus": "deferred",
-      "extractionState": "draft-full",
-      "rulesInformationReadiness": "draft-text-complete-symbols-unresolved",
+      "ledgerStatus": "complete",
+      "extractionState": "verified-canonical",
+      "rulesInformationReadiness": "canonical",
       "rulesTextPresent": true,
-      "identity": {},
+      "identity": {
+        "canonicalSlug": "damage",
+        "titleFromCanonicalSlug": "damage",
+        "canonicalPath": "cards/game/event/damage.png",
+        "sidecarPath": "cards/game/event/damage.json"
+      },
       "printedData": {
-        "title": "DAMAGE",
-        "body": "All [intruder] in each [corridorEW] move.\n\nPlace a [malfunction] in each Room with a [intruder].\n\nEach [character] in a Room\nwithout [ICON: white vertically pointed shield-like faceted glyph] resolves [ICON: yellow irregular burst glyph with black spiky creature silhouette]."
+        "body": "All [intruder] in each [corridorEW] move.\n\nPlace a [malfunction] in each Room with a [intruder].\n\nEach [character] in a Room\nwithout [secure] resolves [noiseDieHazard]."
       },
       "symbols": {
         "canonicalGlossaryTokens": [
           "character",
           "corridorEW",
           "intruder",
-          "malfunction"
+          "malfunction",
+          "noiseDieHazard",
+          "secure"
         ],
-        "unresolvedOrLocalTokens": [
-          "ICON: white vertically pointed shield-like faceted glyph",
-          "ICON: yellow irregular burst glyph with black spiky creature silhouette"
-        ]
+        "unresolvedOrLocalTokens": []
       },
-      "uncertainties": [
-        "The white vertically pointed, shield-like faceted glyph after “without” is not a confident match to any canonical glossary icon.",
-        "The yellow irregular burst glyph containing a black spiky creature silhouette is not a confident match to any canonical glossary icon."
-      ],
-      "canonicalPromotionBlocker": "exact card identity/transcription/icon/category is not uniformly high-confidence",
+      "uncertainties": [],
+      "canonicalPromotionBlocker": null,
       "evidence": {
-        "textBasis": "native vision draft; not canonical promotion",
+        "textBasis": "human-reviewed or supervisor-validated canonical sidecar",
         "visionProvider": "openai-codex",
         "visionModel": "gpt-5.6-sol",
-        "reasoningEffort": null,
-        "workerId": null,
-        "sessionId": "20260815_052446_c3e71f",
-        "resultPath": "assets/tts-mod/extract/vision-results/53351204890c5e98381a1fc4712e574a701659ec913b5f9c3f838ac6074c9614.json",
-        "rawResultPath": null,
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-19-20260820T053136Z-p176060-d62d87",
+        "sessionId": "20260820_053305_a121de",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-19-20260820T053136Z-p176060-d62d87/results/W19-004.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-19-20260820T053136Z-p176060-d62d87/raw/W19-004.json",
         "ledgerPath": "assets/tts-mod/extract/vision-progress.json",
-        "queuePath": "assets/tts-mod/extract/low-confidence-review.json"
+        "queuePath": null
       }
     },
     {
@@ -14869,44 +14869,44 @@
       "sourceSha256": "37bbf022f99ef62a18a5225aaf31347f6299f72672603547f51918502241f27b",
       "sourceKind": "manifest",
       "componentFamily": "game/event",
-      "ledgerStatus": "deferred",
-      "extractionState": "draft-full",
-      "rulesInformationReadiness": "draft-text-complete-symbols-unresolved",
+      "ledgerStatus": "complete",
+      "extractionState": "verified-canonical",
+      "rulesInformationReadiness": "canonical",
       "rulesTextPresent": true,
-      "identity": {},
+      "identity": {
+        "canonicalSlug": "damaging-fire",
+        "titleFromCanonicalSlug": "damaging fire",
+        "canonicalPath": "cards/game/event/damaging-fire.png",
+        "sidecarPath": "cards/game/event/damaging-fire.json"
+      },
       "printedData": {
-        "title": "DAMAGING FIRE",
-        "body": "All [intruder] in each [corridorNESW] move.\nThen, all [intruder] in every Room move.\n\nPlace a [malfunction] in each Room with a [fire].\nFrom each Room with a [fire],\nspread it through Corridors\nwith the lowest Noise value.\n\nEach [character] in a Room\nwithout [ICON: white segmented shield glyph] resolves [ICON: yellow spiked creature glyph]."
+        "body": "All [intruder] in each [corridorNWSE] move.\nThen, all [intruder] in every Room move.\n\nPlace a [malfunction] in each Room with a [fire].\nFrom each Room with a [fire],\nspread it through Corridors\nwith the lowest Noise value.\n\nEach [character] in a Room\nwithout [secure] resolves [noiseDieHazard]."
       },
       "symbols": {
         "canonicalGlossaryTokens": [
           "character",
-          "corridorNESW",
+          "corridorNWSE",
           "fire",
           "intruder",
-          "malfunction"
+          "malfunction",
+          "noiseDieHazard",
+          "secure"
         ],
-        "unresolvedOrLocalTokens": [
-          "ICON: white segmented shield glyph",
-          "ICON: yellow spiked creature glyph"
-        ]
+        "unresolvedOrLocalTokens": []
       },
-      "uncertainties": [
-        "The white segmented shield-like glyph in the final panel is not confidently matched to the supplied canonical glossary.",
-        "The yellow spiked creature-like glyph after “resolves” is not confidently matched to the supplied canonical glossary."
-      ],
-      "canonicalPromotionBlocker": "exact card identity/transcription/icon/category is not uniformly high-confidence",
+      "uncertainties": [],
+      "canonicalPromotionBlocker": null,
       "evidence": {
-        "textBasis": "native vision draft; not canonical promotion",
+        "textBasis": "human-reviewed or supervisor-validated canonical sidecar",
         "visionProvider": "openai-codex",
         "visionModel": "gpt-5.6-sol",
-        "reasoningEffort": null,
-        "workerId": null,
-        "sessionId": "20260815_052508_538b35",
-        "resultPath": "assets/tts-mod/extract/vision-results/37bbf022f99ef62a18a5225aaf31347f6299f72672603547f51918502241f27b.json",
-        "rawResultPath": null,
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-19-20260820T053136Z-p176060-d62d87",
+        "sessionId": "20260820_053305_a121de",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-19-20260820T053136Z-p176060-d62d87/results/W19-005.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-19-20260820T053136Z-p176060-d62d87/raw/W19-005.json",
         "ledgerPath": "assets/tts-mod/extract/vision-progress.json",
-        "queuePath": "assets/tts-mod/extract/low-confidence-review.json"
+        "queuePath": null
       }
     },
     {
@@ -14914,14 +14914,18 @@
       "sourceSha256": "86ba726fa9fa4a8d9ed2913f6619db2d5df1b5ad1e3c69bd0b380993c9e8967e",
       "sourceKind": "manifest",
       "componentFamily": "game/event",
-      "ledgerStatus": "deferred",
-      "extractionState": "draft-full",
-      "rulesInformationReadiness": "draft-text-complete-symbols-unresolved",
+      "ledgerStatus": "complete",
+      "extractionState": "verified-canonical",
+      "rulesInformationReadiness": "canonical",
       "rulesTextPresent": true,
-      "identity": {},
+      "identity": {
+        "canonicalSlug": "panic",
+        "titleFromCanonicalSlug": "panic",
+        "canonicalPath": "cards/game/event/panic.png",
+        "sidecarPath": "cards/game/event/panic.json"
+      },
       "printedData": {
-        "title": "PANIC",
-        "body": "All [intruder] in each [corridorEW] move.\nThen, all [intruder] in every Room move.\n\nEach [character] in a Room with [intruder] or adjacent\nto a Corridor with [intruder]:\nLoses 1 [oxygenToken] or spends [ammoToken].\n\nResolve each [ICON: yellow triangular badge with black radiating chevron glyph] in\nUnexplored Corridors."
+        "body": "All [intruder] in each [corridorEW] move.\nThen, all [intruder] in every Room move.\n\nEach [character] in a Room with [intruder] or adjacent\nto a Corridor with [intruder]:\nLoses 1 [oxygenToken] or spends [ammoToken].\n\nResolve each [noise] in\nUnexplored Corridors."
       },
       "symbols": {
         "canonicalGlossaryTokens": [
@@ -14929,27 +14933,24 @@
           "character",
           "corridorEW",
           "intruder",
+          "noise",
           "oxygenToken"
         ],
-        "unresolvedOrLocalTokens": [
-          "ICON: yellow triangular badge with black radiating chevron glyph"
-        ]
+        "unresolvedOrLocalTokens": []
       },
-      "uncertainties": [
-        "The final yellow triangular badge with a black radiating chevron-like glyph is not confidently distinguishable from the glossary's noise-related symbols or an unlisted card-local glyph, so it is transcribed literally rather than assigned a canonical identifier."
-      ],
-      "canonicalPromotionBlocker": "exact card identity/transcription/icon/category is not uniformly high-confidence",
+      "uncertainties": [],
+      "canonicalPromotionBlocker": null,
       "evidence": {
-        "textBasis": "native vision draft; not canonical promotion",
+        "textBasis": "human-reviewed or supervisor-validated canonical sidecar",
         "visionProvider": "openai-codex",
         "visionModel": "gpt-5.6-sol",
-        "reasoningEffort": null,
-        "workerId": null,
-        "sessionId": "20260815_052509_167242",
-        "resultPath": "assets/tts-mod/extract/vision-results/86ba726fa9fa4a8d9ed2913f6619db2d5df1b5ad1e3c69bd0b380993c9e8967e.json",
-        "rawResultPath": null,
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-19-20260820T053136Z-p176060-d62d87",
+        "sessionId": "20260820_053305_a121de",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-19-20260820T053136Z-p176060-d62d87/results/W19-006.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-19-20260820T053136Z-p176060-d62d87/raw/W19-006.json",
         "ledgerPath": "assets/tts-mod/extract/vision-progress.json",
-        "queuePath": "assets/tts-mod/extract/low-confidence-review.json"
+        "queuePath": null
       }
     },
     {
@@ -15002,36 +15003,40 @@
       "sourceSha256": "72a3270de96356e8ea1e64b9bf1d2b90e189a7ae6f1031d03b6db453d3f93eab",
       "sourceKind": "manifest",
       "componentFamily": "game/event",
-      "ledgerStatus": "deferred",
-      "extractionState": "draft-full",
-      "rulesInformationReadiness": "draft-text-complete",
+      "ledgerStatus": "complete",
+      "extractionState": "verified-canonical",
+      "rulesInformationReadiness": "canonical",
       "rulesTextPresent": true,
-      "identity": {},
+      "identity": {
+        "canonicalSlug": "egg-protection",
+        "titleFromCanonicalSlug": "egg protection",
+        "canonicalPath": "cards/game/event/egg-protection.png",
+        "sidecarPath": "cards/game/event/egg-protection.json"
+      },
       "printedData": {
-        "title": "EGG PROTECTION",
-        "body": "All [intruder] in each [corridorNWSE] move.\n\nPlace 2 Drones in the Nest - they\nimmediately Attack if any [robot] is there.\nPlace 1 Drone in each Unexplored\nCorridor in section C.\n\nEach [robot] makes a Noise roll."
+        "body": "All [intruder] in each [corridorNWSE] move.\n\nPlace 2 Drones in the Nest - they\nimmediately Attack if any [character] is there.\nPlace 1 Drone in each Unexplored\nCorridor in section C.\n\nEach [character] makes a Noise roll."
       },
       "symbols": {
         "canonicalGlossaryTokens": [
+          "character",
           "corridorNWSE",
-          "intruder",
-          "robot"
+          "intruder"
         ],
         "unresolvedOrLocalTokens": []
       },
       "uncertainties": [],
-      "canonicalPromotionBlocker": "claimed glossary icons did not all pass a focused direct card-to-glossary crop comparison",
+      "canonicalPromotionBlocker": null,
       "evidence": {
-        "textBasis": "native vision draft; not canonical promotion",
+        "textBasis": "human-reviewed or supervisor-validated canonical sidecar",
         "visionProvider": "openai-codex",
         "visionModel": "gpt-5.6-sol",
-        "reasoningEffort": null,
-        "workerId": null,
-        "sessionId": "20260815_052529_3f6fa4",
-        "resultPath": "assets/tts-mod/extract/vision-results/72a3270de96356e8ea1e64b9bf1d2b90e189a7ae6f1031d03b6db453d3f93eab.json",
-        "rawResultPath": null,
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-19-20260820T053136Z-p176060-d62d87",
+        "sessionId": "20260820_053305_a121de",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-19-20260820T053136Z-p176060-d62d87/results/W19-007.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-19-20260820T053136Z-p176060-d62d87/raw/W19-007.json",
         "ledgerPath": "assets/tts-mod/extract/vision-progress.json",
-        "queuePath": "assets/tts-mod/extract/low-confidence-review.json"
+        "queuePath": null
       }
     },
     {
@@ -15041,41 +15046,192 @@
       "componentFamily": "game/exploration",
       "ledgerStatus": "deferred",
       "extractionState": "draft-full",
-      "rulesInformationReadiness": "draft-text-complete-symbols-unresolved",
+      "rulesInformationReadiness": "draft-text-complete",
       "rulesTextPresent": true,
       "identity": {},
       "printedData": {
-        "body": "Place A/B/C Room\ndepending on your Section.\n\n[character] [fire]\n[noiseDieHazard]\n\nReminder:\nPlace 1 [ICON: white shield-shaped glyph with black forked inner line] if you are Moving with [ICON: white shield-shaped glyph with black forked inner line].\n\nMake a Noise roll."
+        "title": "",
+        "body": "Place A/B/C Room\ndepending on your Section.\n\n[character] [fire]\n[noise]\n\nReminder:\nPlace 1 [secure] if you are Moving with [secure].\n\nMake a Noise roll.",
+        "sections": [
+          "Place A/B/C Room\ndepending on your Section.",
+          "[character] [fire]\n[noise]",
+          "Reminder:\nPlace 1 [secure] if you are Moving with [secure].",
+          "Make a Noise roll."
+        ],
+        "footer": "",
+        "upperRight": "",
+        "illegibleSpans": [],
+        "clippedSpans": []
       },
       "symbols": {
         "canonicalGlossaryTokens": [
           "character",
           "fire",
-          "noiseDieHazard"
+          "noise",
+          "secure"
         ],
-        "unresolvedOrLocalTokens": [
-          "ICON: white shield-shaped glyph with black forked inner line"
-        ]
+        "unresolvedOrLocalTokens": []
       },
       "uncertainties": [
-        "The repeated white shield-shaped inline glyph is not confidently represented in the supplied glossary; its meaning is unknown.",
-        "No explicit card title, type line, or footer is printed.",
-        "The exact semantic subtype is uncertain; the pixels support a game instruction/event card but do not explicitly label it as an exploration card.",
-        "No visible title or unmistakable named identity supports a reliable semantic slug."
+        "No printed title or unique canonical slug is visible."
       ],
-      "canonicalPromotionBlocker": "exact card identity/transcription/icon/category is not uniformly high-confidence",
+      "canonicalPromotionBlocker": "No printed title or unique canonical slug is visible; exact canonical identity/filename remains unresolved although all material text and five glossary-glyph occurrences are verified.",
       "evidence": {
         "textBasis": "native vision draft; not canonical promotion",
         "visionProvider": "openai-codex",
         "visionModel": "gpt-5.6-sol",
-        "reasoningEffort": null,
-        "workerId": null,
-        "sessionId": "20260815_052611_7a2bf5",
-        "resultPath": "assets/tts-mod/extract/vision-results/3cfb21c76b93ba8e23abf464321e7071d73aac0c23b0dc1763702206fe80854f.json",
-        "rawResultPath": null,
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-19-20260820T053136Z-p176060-d62d87",
+        "sessionId": "20260820_053305_a121de",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-19-20260820T053136Z-p176060-d62d87/results/W19-008.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-19-20260820T053136Z-p176060-d62d87/raw/W19-008.json",
         "ledgerPath": "assets/tts-mod/extract/vision-progress.json",
-        "queuePath": "assets/tts-mod/extract/low-confidence-review.json"
-      }
+        "queuePath": "assets/tts-mod/extract/low-confidence-review.json",
+        "selectedExtraction": {
+          "runIdentity": "w19-card-extraction-20260820T053136Z-p176060-d62d87/sol-max-persistent-worker-19-20260820T053136Z-p176060-d62d87/W19-008",
+          "runId": "w19-card-extraction-20260820T053136Z-p176060-d62d87",
+          "workerId": "sol-max-persistent-worker-19-20260820T053136Z-p176060-d62d87",
+          "assetId": "W19-008",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-19-20260820T053136Z-p176060-d62d87/results/W19-008.json",
+          "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-19-20260820T053136Z-p176060-d62d87/raw/W19-008.json",
+          "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-19-20260820T053136Z-p176060-d62d87/references/W19-008-post-blind-contact-sheet.png",
+          "promotionDecision": "defer",
+          "runtime": {
+            "provider": "openai-codex",
+            "model": "gpt-5.6-sol",
+            "reasoningEffort": "max",
+            "nativeImageRoute": "direct persistent tools-disabled blind session plus direct current-supervisor post-blind native validation",
+            "blindSessionId": "20260820_053305_a121de",
+            "adjudicationSessionId": "unexposed-current-supervisor-p176060",
+            "auxiliaryVisionUsed": false,
+            "qwenUsed": false,
+            "ocrCanonicalEvidenceUsed": false,
+            "modelDowngradeUsed": false
+          }
+        }
+      },
+      "selectedExtraction": {
+        "overlayVersion": 1,
+        "status": "selected-evidence-deferred",
+        "runIdentity": "w19-card-extraction-20260820T053136Z-p176060-d62d87/sol-max-persistent-worker-19-20260820T053136Z-p176060-d62d87/W19-008",
+        "runId": "w19-card-extraction-20260820T053136Z-p176060-d62d87",
+        "workerId": "sol-max-persistent-worker-19-20260820T053136Z-p176060-d62d87",
+        "assetId": "W19-008",
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/exploration-024.png",
+        "sourceSha256": "3cfb21c76b93ba8e23abf464321e7071d73aac0c23b0dc1763702206fe80854f",
+        "runtime": {
+          "provider": "openai-codex",
+          "model": "gpt-5.6-sol",
+          "reasoningEffort": "max",
+          "nativeImageRoute": "direct persistent tools-disabled blind session plus direct current-supervisor post-blind native validation",
+          "blindSessionId": "20260820_053305_a121de",
+          "adjudicationSessionId": "unexposed-current-supervisor-p176060",
+          "auxiliaryVisionUsed": false,
+          "qwenUsed": false,
+          "ocrCanonicalEvidenceUsed": false,
+          "modelDowngradeUsed": false
+        },
+        "blindObservationPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-19-20260820T053136Z-p176060-d62d87/raw/W19-008.json",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-19-20260820T053136Z-p176060-d62d87/results/W19-008.json",
+        "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-19-20260820T053136Z-p176060-d62d87/references/W19-008-post-blind-contact-sheet.png",
+        "visibleText": {
+          "title": "",
+          "body": "Place A/B/C Room\ndepending on your Section.\n\n[character] [fire]\n[noise]\n\nReminder:\nPlace 1 [secure] if you are Moving with [secure].\n\nMake a Noise roll.",
+          "sections": [
+            "Place A/B/C Room\ndepending on your Section.",
+            "[character] [fire]\n[noise]",
+            "Reminder:\nPlace 1 [secure] if you are Moving with [secure].",
+            "Make a Noise roll."
+          ],
+          "footer": "",
+          "upperRight": "",
+          "illegibleSpans": [],
+          "clippedSpans": []
+        },
+        "verifiedIconOccurrences": [
+          {
+            "cardLocation": "Upper-left interior of the large central six-sided outline",
+            "referenceLabel": "character",
+            "matchDecision": "match",
+            "canonicalToken": "character",
+            "closestAlternative": "robot",
+            "visibleDiscriminator": "robot is a compact domed mechanical head/body without articulated limbs",
+            "evidenceRun": "sol-max-persistent-worker-19-20260820T053136Z-p176060-d62d87"
+          },
+          {
+            "cardLocation": "Center of the large central six-sided outline, below-right of the white bilateral figure",
+            "referenceLabel": "fire",
+            "matchDecision": "match",
+            "canonicalToken": "fire",
+            "closestAlternative": "malfunction",
+            "visibleDiscriminator": "malfunction is a gray radial toothed ring with circular center",
+            "evidenceRun": "sol-max-persistent-worker-19-20260820T053136Z-p176060-d62d87"
+          },
+          {
+            "cardLocation": "Inside the lower-right branch immediately below the large central polygon",
+            "referenceLabel": "noise",
+            "matchDecision": "match",
+            "canonicalToken": "noise",
+            "closestAlternative": "noiseDieHazard",
+            "visibleDiscriminator": "noiseDieHazard contains a black curled creature and central yellow burst/hand instead of nested chevrons",
+            "evidenceRun": "sol-max-persistent-worker-19-20260820T053136Z-p176060-d62d87"
+          },
+          {
+            "cardLocation": "Reminder line, immediately after Place 1",
+            "referenceLabel": "secure",
+            "matchDecision": "match",
+            "canonicalToken": "secure",
+            "closestAlternative": "computer",
+            "visibleDiscriminator": "computer is a cyan monitor rectangle without shield facets",
+            "evidenceRun": "sol-max-persistent-worker-19-20260820T053136Z-p176060-d62d87"
+          },
+          {
+            "cardLocation": "Reminder line, immediately after with and before the final period",
+            "referenceLabel": "secure",
+            "matchDecision": "match",
+            "canonicalToken": "secure",
+            "closestAlternative": "computer",
+            "visibleDiscriminator": "computer is a cyan monitor rectangle without shield facets",
+            "evidenceRun": "sol-max-persistent-worker-19-20260820T053136Z-p176060-d62d87"
+          }
+        ],
+        "unresolvedIconOccurrences": [],
+        "canonicalTokensEmitted": [
+          "character",
+          "fire",
+          "noise",
+          "secure"
+        ],
+        "allMaterialTextReadable": true,
+        "allMaterialIconsAuthoritativelyMatched": true,
+        "promotionDecision": "defer",
+        "decisionReasons": [
+          "All material operative text is readable; every emitted glossary token passed direct source-to-labeled-crop morphology comparison; exact base FaceURL/shared BackURL role is resolved.",
+          "No printed title or unique canonical slug is visible, so canonical identity/filename remains unresolved despite complete text and glyph evidence."
+        ],
+        "conflictsWithPriorSnapshot": [
+          {
+            "field": "printedData.body",
+            "priorValue": "Place A/B/C Room\ndepending on your Section.\n\n[character] [fire]\n[noiseDieHazard]\n\nReminder:\nPlace 1 [ICON: white shield-shaped glyph with black forked inner line] if you are Moving with [ICON: white shield-shaped glyph with black forked inner line].\n\nMake a Noise roll.",
+            "currentStatus": "superseded in selected evidence by direct-pixel text and five verified glossary occurrences",
+            "resolution": "preserve the historical base snapshot; selected overlay corrects secure/noise morphology without inventing a title or canonical slug"
+          }
+        ]
+      },
+      "evidenceRuns": [
+        {
+          "runIdentity": "w19-card-extraction-20260820T053136Z-p176060-d62d87/sol-max-persistent-worker-19-20260820T053136Z-p176060-d62d87/W19-008",
+          "runId": "w19-card-extraction-20260820T053136Z-p176060-d62d87",
+          "workerId": "sol-max-persistent-worker-19-20260820T053136Z-p176060-d62d87",
+          "assetId": "W19-008",
+          "sourceSha256": "3cfb21c76b93ba8e23abf464321e7071d73aac0c23b0dc1763702206fe80854f",
+          "blindSessionId": "20260820_053305_a121de",
+          "adjudicationSessionId": "unexposed-current-supervisor-p176060",
+          "promotionDecision": "defer",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-19-20260820T053136Z-p176060-d62d87/results/W19-008.json",
+          "selected": true
+        }
+      ]
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/exploration-025.png",

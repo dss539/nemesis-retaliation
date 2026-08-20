@@ -6398,6 +6398,122 @@
           ]
         }
       ]
+    },
+    {
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/exploration-024.png",
+      "sourceSha256": "3cfb21c76b93ba8e23abf464321e7071d73aac0c23b0dc1763702206fe80854f",
+      "status": "selected-evidence-deferred",
+      "selectedRunIdentity": "w19-card-extraction-20260820T053136Z-p176060-d62d87/sol-max-persistent-worker-19-20260820T053136Z-p176060-d62d87/W19-008",
+      "runs": [
+        {
+          "runIdentity": "w19-card-extraction-20260820T053136Z-p176060-d62d87/sol-max-persistent-worker-19-20260820T053136Z-p176060-d62d87/W19-008",
+          "runId": "w19-card-extraction-20260820T053136Z-p176060-d62d87",
+          "workerId": "sol-max-persistent-worker-19-20260820T053136Z-p176060-d62d87",
+          "assetId": "W19-008",
+          "assignmentSha256": "53e2cec7ff9469a9e83b94861c88d77f45be778cc43d9d94c38fe11df75f5f0e",
+          "orderedTupleDigest": "e29d76e0ccb1877b31d34954702ea88607ec7cffcd78d0dcb3f86732a10cb21d",
+          "runtime": {
+            "provider": "openai-codex",
+            "model": "gpt-5.6-sol",
+            "reasoningEffort": "max",
+            "nativeImageRoute": "direct persistent tools-disabled blind session plus direct current-supervisor post-blind native validation",
+            "blindSessionId": "20260820_053305_a121de",
+            "adjudicationSessionId": "unexposed-current-supervisor-p176060",
+            "auxiliaryVisionUsed": false,
+            "qwenUsed": false,
+            "ocrCanonicalEvidenceUsed": false,
+            "modelDowngradeUsed": false
+          },
+          "artifactPaths": {
+            "blindObservationPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-19-20260820T053136Z-p176060-d62d87/raw/W19-008.json",
+            "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-19-20260820T053136Z-p176060-d62d87/results/W19-008.json",
+            "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-19-20260820T053136Z-p176060-d62d87/references/W19-008-post-blind-contact-sheet.png"
+          },
+          "visibleText": {
+            "title": "",
+            "body": "Place A/B/C Room\ndepending on your Section.\n\n[character] [fire]\n[noise]\n\nReminder:\nPlace 1 [secure] if you are Moving with [secure].\n\nMake a Noise roll.",
+            "sections": [
+              "Place A/B/C Room\ndepending on your Section.",
+              "[character] [fire]\n[noise]",
+              "Reminder:\nPlace 1 [secure] if you are Moving with [secure].",
+              "Make a Noise roll."
+            ],
+            "footer": "",
+            "upperRight": "",
+            "illegibleSpans": [],
+            "clippedSpans": []
+          },
+          "verifiedIconOccurrences": [
+            {
+              "cardLocation": "Upper-left interior of the large central six-sided outline",
+              "referenceLabel": "character",
+              "matchDecision": "match",
+              "canonicalToken": "character",
+              "closestAlternative": "robot",
+              "visibleDiscriminator": "robot is a compact domed mechanical head/body without articulated limbs",
+              "evidenceRun": "sol-max-persistent-worker-19-20260820T053136Z-p176060-d62d87"
+            },
+            {
+              "cardLocation": "Center of the large central six-sided outline, below-right of the white bilateral figure",
+              "referenceLabel": "fire",
+              "matchDecision": "match",
+              "canonicalToken": "fire",
+              "closestAlternative": "malfunction",
+              "visibleDiscriminator": "malfunction is a gray radial toothed ring with circular center",
+              "evidenceRun": "sol-max-persistent-worker-19-20260820T053136Z-p176060-d62d87"
+            },
+            {
+              "cardLocation": "Inside the lower-right branch immediately below the large central polygon",
+              "referenceLabel": "noise",
+              "matchDecision": "match",
+              "canonicalToken": "noise",
+              "closestAlternative": "noiseDieHazard",
+              "visibleDiscriminator": "noiseDieHazard contains a black curled creature and central yellow burst/hand instead of nested chevrons",
+              "evidenceRun": "sol-max-persistent-worker-19-20260820T053136Z-p176060-d62d87"
+            },
+            {
+              "cardLocation": "Reminder line, immediately after Place 1",
+              "referenceLabel": "secure",
+              "matchDecision": "match",
+              "canonicalToken": "secure",
+              "closestAlternative": "computer",
+              "visibleDiscriminator": "computer is a cyan monitor rectangle without shield facets",
+              "evidenceRun": "sol-max-persistent-worker-19-20260820T053136Z-p176060-d62d87"
+            },
+            {
+              "cardLocation": "Reminder line, immediately after with and before the final period",
+              "referenceLabel": "secure",
+              "matchDecision": "match",
+              "canonicalToken": "secure",
+              "closestAlternative": "computer",
+              "visibleDiscriminator": "computer is a cyan monitor rectangle without shield facets",
+              "evidenceRun": "sol-max-persistent-worker-19-20260820T053136Z-p176060-d62d87"
+            }
+          ],
+          "unresolvedIconOccurrences": [],
+          "canonicalTokensEmitted": [
+            "character",
+            "fire",
+            "noise",
+            "secure"
+          ],
+          "allMaterialTextReadable": true,
+          "allMaterialIconsAuthoritativelyMatched": true,
+          "promotionDecision": "defer",
+          "decisionReasons": [
+            "All material operative text is readable; every emitted glossary token passed direct source-to-labeled-crop morphology comparison; exact base FaceURL/shared BackURL role is resolved.",
+            "No printed title or unique canonical slug is visible, so canonical identity/filename remains unresolved despite complete text and glyph evidence."
+          ],
+          "conflictsWithPriorSnapshot": [
+            {
+              "field": "printedData.body",
+              "priorValue": "Place A/B/C Room\ndepending on your Section.\n\n[character] [fire]\n[noiseDieHazard]\n\nReminder:\nPlace 1 [ICON: white shield-shaped glyph with black forked inner line] if you are Moving with [ICON: white shield-shaped glyph with black forked inner line].\n\nMake a Noise roll.",
+              "currentStatus": "superseded in selected evidence by direct-pixel text and five verified glossary occurrences",
+              "resolution": "preserve the historical base snapshot; selected overlay corrects secure/noise morphology without inventing a title or canonical slug"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
