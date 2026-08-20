@@ -753,6 +753,114 @@ current queue index 121,
 `assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-160_cards/card-05.png`
 (SHA-256 `6876c41ee8d1f660f4c2ba8012c8caf0f2ccb55ca7677dfcccfb2a69e4c43e42`).
 
+**W24 defer-only mission/objective checkpoint (2026-08-20T22:33:19Z):** Worker
+`sol-max-persistent-worker-24-20260820T204740Z-p273022-2cf4d5` selected the first eight
+previously unselected exact tuples walking forward from current queue index 121. There were no
+selected-tuple skips. Assignment SHA-256 is
+`fc2111a11af990a6d2f12f6e66a66c32b39ac5614ad9249abaa86f696874bff9`; ordered
+`(assetId, sourcePath, sourceSha256)` tuple digest is
+`698d4141580f094c6bf2b44fb5603fa058a9e44ad0835802cce820b73870f3ae`:
+- index 121, `assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-160_cards/card-05.png`,
+  SHA-256 `6876c41ee8d1f660f4c2ba8012c8caf0f2ccb55ca7677dfcccfb2a69e4c43e42`;
+- index 122, `assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-160_cards/card-06.png`,
+  SHA-256 `f2bde768819f1158a25be0304bced07328ae7dd23b71247ebafd8fb76e9fd586`;
+- index 123, `assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-160_cards/card-07.png`,
+  SHA-256 `fd728cde25c6429689b8c4d1208c269e80aa2031a0f2a538f9f03b9ff6769c85`;
+- index 124, `assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-160_cards/card-08.png`,
+  SHA-256 `e3f3266defff5ad4ade7327a85ebc8878d10bcd18ad85816212c60300472ad68`;
+- index 125, `assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-160_cards/card-09.png`,
+  SHA-256 `5de3719f349157e4b5cda76358b68c59278ca278084c7779fed2507a3b229f4c`;
+- index 126, `assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoop/objectiveCoop-003.jpg`,
+  SHA-256 `be548264f79b37dd7db8ed726fcc1e9caf03c7cc20b1a4ec8ff40663935ee614`;
+- index 127, `assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoop/objectiveCoop-012.jpg`,
+  SHA-256 `58e9ded17f0841413f205e30c4cc63e47b23376d4be733d6fc5042c5610a04a7`;
+- index 128, `assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoop/objectiveCoop-015.jpg`,
+  SHA-256 `71d47a2a9ebaee6f8bca6aa88413647e8b796e37cd9ecd175d505cf1ec7e1076`.
+
+Neutral smoke session `20260820_204938_a5f885` verified 1 API call, 2 messages, 0 tools,
+exact `openai-codex:gpt-5.6-sol` at reasoning `max`, and no stored Tools/tool-name marker.
+Production evidence comprises 26 native one-image calls, 52 messages, and 0 tools across five
+independently DB-verified sessions: blind `20260820_205125_8df2c2` (8/16/0), bbox
+`20260820_211134_a57195` (8/16/0), negative Robot-glyph check
+`20260820_212425_121224` (1/2/0), glossary/paired-side contact
+`20260820_213254_c88eac` (8/16/0), and negative official CLEAN-UP pixel locator
+`20260820_215230_f9ad7b` (1/2/0). The strict helper assertions rejected the two valid negative
+answers after inference; their wrappers were salvaged immutably with DB provenance rather than
+retried or promoted. W24-003 visibly prints the word `Robot`, so no omitted morphology was added.
+The current rulebook's searchable CLEAN-UP text layer is behind an occluding FACEOFF card in the
+rendered pixels, so it is not claimed as visible primary face evidence. A broad prior-semantic search
+occurred only after all eight blind wrappers were sealed; it is disclosed in worker metadata, its
+snippets were ignored, and every later claim was re-derived from sealed W24 pixels plus direct
+structured/publisher evidence.
+
+All eight sources are rules-bearing; non-rules count is zero. W24-001..005 are FaceURL-generated
+cells 5–9 of `missionTaskDeck-160.jpg`, deck GUID `eabc1d`, CustomDeck key `3938`, grid 5x2.
+No authoritative structured mapping establishes a unique per-cell GUID/CardID selector, so candidate
+selectors are preserved but not guessed. W24-006/007/008 resolve exactly to FaceURL selectors
+`4ede1f`/CardID `533700`, `87ec86`/`533500`, and `49ba8f`/`533600` under deck `e22eaa`.
+The nested save establishes each exact FaceURL/BackURL pair. All eight paired-side pixels were
+inspected and classify as generic MISSION TASK or SOLO / COOP card backs without operative face
+text. The live Awaken Realms manifest and downloaded current rulebook, FAQ v1.2, and Objectives
+Help Sheet bytes match tracked hashes; BGA build `260622-1220` is retained only as labeled
+licensed-digital secondary evidence.
+
+All 26 blind morphology occurrences reconcile exactly once: 3 p.40 matches
+(`map/hibernatorium-active` on W24-004, `general/character` on W24-006, and
+`map/life-support-active` on W24-008), 6 explicit one-to-one no-match rows (the five ringed
+Number-of-Characters composites plus W24-004's noncanonical Life Support pictogram), 11 non-text
+component graphics, and 6 artwork-only details. Fourteen illustration/display abstentions remain
+separate from operative text. Every promotion decision is `defer`:
+- RETRIEVAL (W24-001) has no current publisher or BGA counterpart, no exact generated-cell
+  selector, and an unmatched player-count composite.
+- ERADICATION (W24-002) says the Queen must be killed and the Nest destroyed, materially
+  conflicting with the current requirement that the Queen be dead and the Facility not be
+  destroyed; its selector and player-count composite are unresolved.
+- ESCORT MISSION (W24-003) omits Section C, “at least once,” the checkbox, and the second
+  Character-with-Data escape condition; its selector and player-count composite are unresolved.
+- FACILITY RESTART (W24-004) substitutes an at-least-two-Life-Support/Facility-not-destroyed
+  condition for the current Life Support Control C/Reactor-shut-down requirement; it also has an
+  unmatched player-count composite, a noncanonical Life Support pictogram, and no exact selector.
+- ESSENTIAL DATA (W24-005) carries an all-rooms-explored condition under the wrong title instead
+  of the current Data-token/Lander/no-Unexplored-Corridors requirements; its selector and
+  player-count composite are unresolved.
+- SCIENTIFIC SAMPLE (W24-006) has an exact selector and matched Character glyph, but only
+  licensed-digital secondary wording support and no approved Solo/Coop target schema.
+- CLEAN UP (W24-007) has an exact selector and no unresolved material glyph, but the apparent
+  publisher card is pixel-occluded by FACEOFF; only secondary wording support remains and no
+  approved Solo/Coop target schema exists.
+- CLOSEDOWN (W24-008) has an exact selector and matched Life-Support-active glyph, but the FAQ
+  supplies only the CLOSEDOWN/SHUTDOWN coexistence erratum, not visible primary face wording;
+  BGA remains secondary and no approved Solo/Coop target schema exists.
+No official wording was substituted into assigned art. No canonical image, sidecar, source byte,
+category, filename, protected target, or candidate file changed.
+
+Result assembly preflighted in workspace-local disposable clones before authoritative writes. The
+reusable native-worker auditor's v1 adapter reported eight structural missing-field errors and zero
+warnings; v2 then failed during adapter construction before invoking the auditor. Both views and
+hash-linked failure metadata are preserved. The v3 compatibility view adds only the auditor-required
+adapter fields and passes with 0 errors/0 warnings while preserving original runtime/session evidence
+and result semantic digests. Private projection and independent corpus rebuild are byte-identical and
+change exactly the eight assigned corpus records recursively. Shared merge completed 4 trial writes,
+4 exact rollback writes, 4 committed writes, and a zero-write identical re-merge. The final
+all-script audit passes 14 adapted and 11 fresh W24 scripts with no stale W23/W22 IDs, roots, hashes,
+queue constants, titles, family assumptions, or direct-runner semantic leakage.
+
+Ten focused tests and all eight documented global validation commands pass. The baseline and final
+runs verify 532/532 source decodes, 390/390 corpus source hashes, reproducible/byte-stable corpus
+builds, exact selected-evidence/corpus/queue/progress partitions, six unresolved no-match rows across
+five backlog source paths, exact recursive eight-record scope, unchanged canonical source hashes,
+and exact eight-file generated Git scope. Lifecycle/canonical counts remain 532 = 148 complete +
+384 deferred + 0 unaccounted, queue 384, corpus 390, and canonical image/sidecar pairs 78; selected
+evidence rises from 110 to 118 entries/runs. Predecessor checkpoint HEAD was
+`9703a36481aa6fcb7490115d239ed5b777d4d856`; sealed data/QA commit is
+`e84b37f637ca96e316bee8b83db0844bb1f4a2ac`. This entry is committed separately in the following
+todo-only checkpoint commit, whose self-hash cannot appear in its own content.
+
+Operational blocker: none. Canonical-promotion blockers are the exact per-card gates above. Nothing
+was pushed or deployed, and no W25 work was started. The next eligible exact tuple is current queue
+index 129, `assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoop/objectiveCoop-016.jpg`
+(SHA-256 `755d74a481252909758bba60332e041aa0128d05536848d2160efb7dba7f76a0`).
+
 ## LATER — Expansions (re-add when user wants them)
 - [ ] Re-extract expansion content from save (see `assets/tts-mod/notes/extraction.md` §15 for all deck GUIDs, intruder bags,
       shared action-154 cells, and classification pitfalls)
