@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "recordType": "w23IndependentPrivateProjectionValidation",
+  "validatedAt": "2026-08-20T20:36:14.712016Z",
+  "workerId": "sol-max-persistent-worker-23-20260820T185027Z-p240642-4513b3",
+  "projectionReportPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-23-20260820T185027Z-p240642-4513b3/projections/w23-private/report.json",
+  "projectionReportSha256": "1eb3aebd46404e83162c18bd47a44c5ee423f30bd9ffd05acf415e0abd89f6a9",
+  "mergePlanPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-23-20260820T185027Z-p240642-4513b3/projections/w23-private/merge-plan.json",
+  "mergePlanSha256": "03cbb729d21565c47069095bce912b869a5cadabf5f60b7fcfe0511316ef2e4c",
+  "preCounts": {
+    "complete": 148,
+    "deferred": 384,
+    "queue": 384,
+    "registry": 102,
+    "corpus": 390,
+    "sidecars": 78
+  },
+  "postCounts": {
+    "complete": 148,
+    "deferred": 384,
+    "queue": 384,
+    "registry": 110,
+    "corpus": 390,
+    "sidecars": 78
+  },
+  "selectedEvidenceAddedCount": 8,
+  "matchedOccurrenceCount": 2,
+  "unresolvedNoMatchOccurrenceCount": 8,
+  "authoritativeNoMatchComparisonCount": 8,
+  "changedCorpusBasePaths": [
+    "assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-116.jpg",
+    "assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-123.jpg",
+    "assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-138.jpg",
+    "assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-160_cards/card-00.png",
+    "assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-160_cards/card-01.png",
+    "assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-160_cards/card-02.png",
+    "assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-160_cards/card-03.png",
+    "assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-160_cards/card-04.png"
+  ],
+  "nextEligibleTuple": {
+    "originalQueueIndex": 121,
+    "projectedQueueIndex": 121,
+    "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-160_cards/card-05.png",
+    "sourceSha256": "6876c41ee8d1f660f4c2ba8012c8caf0f2ccb55ca7677dfcccfb2a69e4c43e42"
+  },
+  "checks": {
+    "sealedPreimageMatchesShared": true,
+    "projectedHashesMatch": true,
+    "deferOnlyPlan": true,
+    "registrySchemaPassed": true,
+    "selectedRunScopeExact": true,
+    "oneToOneNoMatchRowsPreserved": true,
+    "independentCorpusRebuildByteIdentical": true,
+    "deferredQueueBijectionPassed": true,
+    "canonicalChangesZero": true,
+    "sharedBytesUnchanged": true,
+    "trackedWorktreeClean": true
+  },
+  "overallPassed": true
+}

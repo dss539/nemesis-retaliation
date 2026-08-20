@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "assetId": "W23-002",
+  "phase": "post-blind-bbox-adjudication",
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-123.jpg",
+  "sourceSha256": "1f8bb94fc434f1bd7861d76fe7db86cd7174f9c36ca1aaaf03601952896f4597",
+  "assignmentSha256": "1a946cb84717441f02df1871b8845fd0845ffdecfdd0079bf48a1616f3785199",
+  "startedAt": "2026-08-20T19:34:15.909529Z",
+  "endedAt": "2026-08-20T19:36:06.207218Z",
+  "commandRoute": "direct-hermes-chat-native-image",
+  "cliFlags": {
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "reasoning": "max",
+    "toolsets": "none",
+    "passSessionId": true,
+    "resume": false
+  },
+  "payload": {
+    "assetId": "W23-002",
+    "runtime": {
+      "sessionId": "20260820_193416_50af34",
+      "provider": "openai-codex",
+      "model": "gpt-5.6-sol",
+      "reasoningEffort": "max"
+    },
+    "image": {
+      "width": 1043,
+      "height": 1420
+    },
+    "occurrences": [
+      {
+        "sourceIconMorphologyIndex": 0,
+        "bbox": [
+          449,
+          643,
+          535,
+          715
+        ],
+        "category": "material-icon",
+        "pixelBasis": "Original 1043x1420 raster; tight bounds include the complete upright form, cyan edge, and all visible blue oval rims."
+      },
+      {
+        "sourceIconMorphologyIndex": 1,
+        "bbox": [
+          407,
+          863,
+          463,
+          931
+        ],
+        "category": "material-icon",
+        "pixelBasis": "Original 1043x1420 raster; tight bounds include the full white outline and antialiased edge while excluding adjacent text."
+      },
+      {
+        "sourceIconMorphologyIndex": 2,
+        "bbox": [
+          602,
+          975,
+          676,
+          1036
+        ],
+        "category": "material-icon",
+        "pixelBasis": "Original 1043x1420 raster; tight bounds include the complete white silhouette and antialiased edge while excluding adjacent text."
+      }
+    ],
+    "occurrenceCount": 3
+  },
+  "runtimeDatabaseProbe": {
+    "sessionId": "20260820_193416_50af34",
+    "source": "tool",
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "reasoningEffort": "max",
+    "apiCallCount": 1,
+    "messageCount": 2,
+    "toolCallCount": 0,
+    "messageRoleCounts": {
+      "user": 1,
+      "assistant": 1
+    },
+    "nonemptyToolPayloadCount": 0
+  },
+  "stdoutSha256": "fbdad77636a3d227a7880272eda9e4478e6edadc5b98fe33744bfef2a5127987",
+  "stderrSha256": "8cde891606194094f511a1f5d61b244c9e7d8a5fb8afdd500b09c10ccac07315"
+}

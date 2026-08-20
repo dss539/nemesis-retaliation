@@ -1,0 +1,171 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-08-20T18:55:16.885504Z",
+  "workerId": "sol-max-persistent-worker-23-20260820T185027Z-p240642-4513b3",
+  "git": {
+    "head": "48854fdd86478c1f74b614e9daa8faaa6d0beee1",
+    "cleanBefore": true,
+    "cleanAfter": true
+  },
+  "assignmentSha256": "1a946cb84717441f02df1871b8845fd0845ffdecfdd0079bf48a1616f3785199",
+  "orderedTupleDigest": "1cadcfc22b5c9b40e8b542963afc58a9f422eaf7f9c823d120c15914d47af662",
+  "counts": {
+    "complete": 148,
+    "deferred": 384,
+    "queue": 384,
+    "registry": 102,
+    "corpus": 390,
+    "sidecars": 78,
+    "sourceImagesDecoded": 532,
+    "corpusSourceHashesVerified": 390
+  },
+  "commands": [
+    {
+      "name": "focused-tests",
+      "command": [
+        "python3",
+        "-m",
+        "pytest",
+        "assets/tts-mod/extract/test_card_text_evidence_registry.py",
+        "-q"
+      ],
+      "startedAt": "2026-08-20T18:55:12.286430Z",
+      "completedAt": "2026-08-20T18:55:13.409464Z",
+      "returnCode": 0,
+      "stdoutPath": "logs/baseline/focused-tests.stdout.txt",
+      "stdoutSha256": "22395c302c54e86926a83c9a57feb1fead0389d4b50d1b2090688b087daae598",
+      "stderrPath": "logs/baseline/focused-tests.stderr.txt",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdoutTail": "..........                                                               [100%]\n10 passed in 0.94s\n",
+      "stderrTail": ""
+    },
+    {
+      "name": "coverage",
+      "command": [
+        "python3",
+        "assets/tts-mod/extract/analyze_card_extraction_coverage.py",
+        "--output",
+        "docs/qa/card-extraction-coverage.json",
+        "--top",
+        "30"
+      ],
+      "startedAt": "2026-08-20T18:55:13.413417Z",
+      "completedAt": "2026-08-20T18:55:13.490954Z",
+      "returnCode": 0,
+      "stdoutPath": "logs/baseline/coverage.stdout.txt",
+      "stdoutSha256": "1a772f1dec806cd259a59a57ce045a1ee4a23a12d9bc0bde916a9a0d00d017cb",
+      "stderrPath": "logs/baseline/coverage.stderr.txt",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdoutTail": "\",\n      \"sourceSha256\": \"42980fa5cef70e8ed40649d1495fc75c015c43f60ebb52961031d18f8f3e1564\",\n      \"family\": \"game/seriouswound-149_cards\",\n      \"isCard\": true,\n      \"isRulesBearingCandidate\": true,\n      \"extractionState\": \"draft-full\",\n      \"priorityScore\": 430,\n      \"title\": \"LUNGS\",\n      \"typeLine\": null,\n      \"body\": \"Whenever you Pass:\\nlose 1 [oxygenToken] (even in Section\\nwith [oxygen supply]).\\nIf you already have 0 [oxygenToken],\\nlose 2 [characterHealth] instead.\",\n      \"footer\": null,\n      \"recognizedTokens\": [\n        \"characterHealth\",\n        \"oxygen supply\",\n        \"oxygenToken\"\n      ],\n      \"unknownTokens\": [\n        \"ICON: orange glowing horseshoe-shaped glyph\",\n        \"ICON: red glowing horseshoe-shaped glyph\",\n        \"ICON: yellow glowing horseshoe-shaped glyph\"\n      ],\n      \"unreadableMarkers\": [],\n      \"reasonTags\": [\n        \"classification\"\n      ],\n      \"reasonSkipped\": \"exact card identity/transcription/icon/category is not uniformly high-confidence\",\n      \"uncertainties\": [\n        \"Three red, orange, and yellow horseshoe-shaped glyphs in the anatomical display are not confidently matched to the canonical glossary.\",\n        \"Faint vertical diagnostic-interface lettering along the left edge is too indistinct to transcribe confidently.\"\n      ],\n      \"vision\": {\n        \"provider\": \"openai-codex\",\n        \"model\": \"gpt-5.6-sol\",\n        \"reasoningEffort\": null,\n        \"workerId\": null,\n        \"sessionId\": \"20260815_054013_845b2c\",\n        \"resultPath\": \"assets/tts-mod/extract/vision-results/42980fa5cef70e8ed40649d1495fc75c015c43f60ebb52961031d18f8f3e1564.json\",\n        \"rawResultPath\": null\n      }\n    },\n    {\n      \"sourcePath\": \"assets/tts-mod/extract/v2-dl/tree/cards/game/seriouswound-149_cards/card-02.png\",\n      \"sourceSha256\": \"e6ec34b2dde06f1cd76e958af3d24ee1bcc4fa177e4d214b086c70d82a8a2322\",\n      \"family\": \"game/seriouswound-149_cards\",\n      \"isCard\": true,\n      \"isRulesBearingCandidate\": true,\n      \"extractionState\": \"draft-full\",\n      \"priorityScore\": 430,\n      \"title\": \"HAND\",\n      \"typeLine\": null,\n      \"body\": \"“Use Item” Action costs\\nyou 1 [ICON: white capital A in a black square with white border] more.\",\n      \"footer\": null,\n      \"recognizedTokens\": [],\n      \"unknownTokens\": [\n        \"ICON: white capital A in a black square with white border\"\n      ],\n      \"unreadableMarkers\": [],\n      \"reasonTags\": [\n        \"classification\"\n      ],\n      \"reasonSkipped\": \"exact card identity/transcription/icon/category is not uniformly high-confidence\",\n      \"uncertainties\": [\n        \"The boxed capital A is a card-local action/cost glyph not confidently matched to the canonical glossary, so it is described literally.\",\n        \"Tiny vertical interface text along the left edge is too faint to transcribe confidently.\",\n        \"The three small circular diagnostic glyphs are not confidently matched to the canonical glossary.\"\n      ],\n      \"vision\": {\n        \"provider\": \"openai-codex\",\n        \"model\": \"gpt-5.6-sol\",\n        \"reasoningEffort\": null,\n        \"workerId\": null,\n        \"sessionId\": \"20260815_054017_e2dab1\",\n        \"resultPath\": \"assets/tts-mod/extract/vision-results/e6ec34b2dde06f1cd76e958af3d24ee1bcc4fa177e4d214b086c70d82a8a2322.json\",\n        \"rawResultPath\": null\n      }\n    },\n    {\n      \"sourcePath\": \"assets/tts-mod/extract/v2-dl/tree/cards/game/seriouswound-149_cards/card-03.png\",\n      \"sourceSha256\": \"322587af9825baec2c8786a0f5e15a657257a5633f025e694de2c962127b44f9\",\n      \"family\": \"game/seriouswound-149_cards\",\n      \"isCard\": true,\n      \"isRulesBearingCandidate\": true,\n      \"extractionState\": \"draft-full\",\n      \"priorityScore\": 430,\n      \"title\": \"ARM\",\n      \"typeLine\": null,\n      \"body\": \"You have only 1 Hand slot. If you\\nhave Items in both Hand slots,\\nyou must instantly discard\\nthe Item from one of them.\",\n      \"footer\": null,\n      \"recognizedTokens\": [],\n      \"unknownTokens\": [\n        \"ICON: magenta circular marker with white U-shaped glyph\",\n        \"ICON: orange circular marker with white U-shaped glyph\",\n        \"ICON: yellow circular marker with white U-shaped glyph\"\n      ],\n      \"unreadableMarkers\": [],\n      \"reasonTags\": [\n        \"classification\"\n      ],\n      \"reasonSkipped\": \"exact card identity/transcription/icon/category is not uniformly high-confidence\",\n      \"uncertainties\": [\n        \"The three colored U-shaped callout glyphs are not confidently matched to any canonical glossary icon.\",\n        \"The small background interface labels REC SUITS and TISSUE DAMAGES are stylized and relatively low-contrast.\"\n      ],\n      \"vision\": {\n        \"provider\": \"openai-codex\",\n        \"model\": \"gpt-5.6-sol\",\n        \"reasoningEffort\": null,\n        \"workerId\": null,\n        \"sessionId\": \"20260815_054019_a0bead\",\n        \"resultPath\": \"assets/tts-mod/extract/vision-results/322587af9825baec2c8786a0f5e15a657257a5633f025e694de2c962127b44f9.json\",\n        \"rawResultPath\": null\n      }\n    }\n  ]\n}\n",
+      "stderrTail": ""
+    },
+    {
+      "name": "corpus-build-1",
+      "command": [
+        "python3",
+        "assets/tts-mod/extract/build_card_text_corpus.py"
+      ],
+      "startedAt": "2026-08-20T18:55:13.495410Z",
+      "completedAt": "2026-08-20T18:55:13.819077Z",
+      "returnCode": 0,
+      "stdoutPath": "logs/baseline/corpus-build-1.stdout.txt",
+      "stdoutSha256": "ab14bc994426bc19c61a59cceaa73f4de3f30a6d8821cf3ebefebccf17ac138c",
+      "stderrPath": "logs/baseline/corpus-build-1.stderr.txt",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdoutTail": "{\n  \"output\": \"assets/tts-mod/extract/card-text-corpus.json\",\n  \"records\": 390,\n  \"rulesTextPresent\": 352,\n  \"extractionStates\": {\n    \"complete-non-rules-or-reference\": 34,\n    \"draft-full\": 261,\n    \"draft-partial\": 1,\n    \"no-transcription\": 2,\n    \"non-rules-or-reference\": 14,\n    \"verified-canonical\": 78\n  },\n  \"rulesInformationReadiness\": {\n    \"canonical\": 78,\n    \"draft-partial\": 1,\n    \"draft-text-complete\": 145,\n    \"draft-text-complete-symbols-unresolved\": 116,\n    \"missing-transcription\": 2,\n    \"not-rules-bearing-or-reference\": 48\n  },\n  \"selectedEvidence\": {\n    \"selectedEvidenceRegistry\": \"assets/tts-mod/extract/selected-card-text-evidence.json\",\n    \"selectedEvidenceRegistrySchemaVersion\": 1,\n    \"selectedEvidenceRegistrySha256\": \"50fceddf2fcff93de0850b14afd27e3b3d18c9562f123d09c6006be48980fb76\",\n    \"selectedEvidenceTupleDigest\": \"3c7eb6e9d2ff7159bf6e404c8542b8d6b35e486ba550ec104e0415dd4fa9a523\",\n    \"selectedEvidenceEntryCount\": 102,\n    \"selectedEvidenceRunCount\": 102\n  }\n}\n",
+      "stderrTail": ""
+    },
+    {
+      "name": "corpus-validate",
+      "command": [
+        "python3",
+        "assets/tts-mod/extract/validate_card_text_corpus.py"
+      ],
+      "startedAt": "2026-08-20T18:55:13.823377Z",
+      "completedAt": "2026-08-20T18:55:14.136008Z",
+      "returnCode": 0,
+      "stdoutPath": "logs/baseline/corpus-validate.stdout.txt",
+      "stdoutSha256": "047a91c0c259a04eb0d53cfe66615fef3cb32d38cfa21d6a5b49fa71b001f2c8",
+      "stderrPath": "logs/baseline/corpus-validate.stderr.txt",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdoutTail": "{\n  \"schemaVersion\": 1,\n  \"passed\": true,\n  \"sourceProgressUpdatedAt\": \"2026-08-20T09:09:31.266653Z\",\n  \"sourceQueueUpdatedAt\": \"2026-08-20T09:09:31.266653Z\",\n  \"checks\": {\n    \"records\": 390,\n    \"rulesTextPresent\": 352,\n    \"extractionStates\": {\n      \"complete-non-rules-or-reference\": 34,\n      \"draft-full\": 261,\n      \"draft-partial\": 1,\n      \"no-transcription\": 2,\n      \"non-rules-or-reference\": 14,\n      \"verified-canonical\": 78\n    },\n    \"rulesInformationReadiness\": {\n      \"canonical\": 78,\n      \"draft-partial\": 1,\n      \"draft-text-complete\": 145,\n      \"draft-text-complete-symbols-unresolved\": 116,\n      \"missing-transcription\": 2,\n      \"not-rules-bearing-or-reference\": 48\n    },\n    \"sourceHashesVerified\": 390,\n    \"glossaryIdentifiers\": 49,\n    \"canonicalSidecarsCovered\": 78,\n    \"deferredCardQueueEntries\": 278,\n    \"selectedEvidenceRegistryEntries\": 102,\n    \"selectedEvidenceRegistryRuns\": 102\n  },\n  \"failureCount\": 0,\n  \"failures\": []\n}\n",
+      "stderrTail": ""
+    },
+    {
+      "name": "unresolved-symbols",
+      "command": [
+        "python3",
+        "assets/tts-mod/extract/analyze_unresolved_symbols.py"
+      ],
+      "startedAt": "2026-08-20T18:55:14.140335Z",
+      "completedAt": "2026-08-20T18:55:14.169554Z",
+      "returnCode": 0,
+      "stdoutPath": "logs/baseline/unresolved-symbols.stdout.txt",
+      "stdoutSha256": "e520bd132b7f1cba3fc4c9bf0f1fe99e95649f70df20c6998e1a784b7ef2dcd4",
+      "stderrPath": "logs/baseline/unresolved-symbols.stderr.txt",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdoutTail": "{\n  \"output\": \"docs/qa/card-symbol-resolution-backlog.json\",\n  \"summary\": {\n    \"unresolvedTokenOccurrences\": 203,\n    \"distinctLiteralDescriptions\": 189,\n    \"affectedAssets\": 119,\n    \"clusters\": 10\n  },\n  \"ranking\": [\n    {\n      \"cluster\": \"other-local-morphology\",\n      \"priorityScore\": 5895,\n      \"assetCount\": 53,\n      \"rulesBearingAssetCount\": 53,\n      \"occurrences\": 65\n    },\n    {\n      \"cluster\": \"circular-creature-morphology\",\n      \"priorityScore\": 2260,\n      \"assetCount\": 20,\n      \"rulesBearingAssetCount\": 20,\n      \"occurrences\": 60\n    },\n    {\n      \"cluster\": \"square-or-checkbox-morphology\",\n      \"priorityScore\": 1667,\n      \"assetCount\": 15,\n      \"rulesBearingAssetCount\": 15,\n      \"occurrences\": 17\n    },\n    {\n      \"cluster\": \"gear-or-cog-morphology\",\n      \"priorityScore\": 1332,\n      \"assetCount\": 12,\n      \"rulesBearingAssetCount\": 12,\n      \"occurrences\": 12\n    },\n    {\n      \"cluster\": \"biohazard-morphology\",\n      \"priorityScore\": 927,\n      \"assetCount\": 11,\n      \"rulesBearingAssetCount\": 11,\n      \"occurrences\": 17\n    },\n    {\n      \"cluster\": \"red-prohibition-overlay\",\n      \"priorityScore\": 888,\n      \"assetCount\": 8,\n      \"rulesBearingAssetCount\": 8,\n      \"occurrences\": 8\n    },\n    {\n      \"cluster\": \"triangle-morphology\",\n      \"priorityScore\": 777,\n      \"assetCount\": 7,\n      \"rulesBearingAssetCount\": 7,\n      \"occurrences\": 7\n    },\n    {\n      \"cluster\": \"octagonal-or-chamfered-polygon\",\n      \"priorityScore\": 666,\n      \"assetCount\": 6,\n      \"rulesBearingAssetCount\": 6,\n      \"occurrences\": 6\n    },\n    {\n      \"cluster\": \"skull-burst-or-explosion-morphology\",\n      \"priorityScore\": 555,\n      \"assetCount\": 5,\n      \"rulesBearingAssetCount\": 5,\n      \"occurrences\": 5\n    },\n    {\n      \"cluster\": \"exclamation-marker\",\n      \"priorityScore\": 366,\n      \"assetCount\": 6,\n      \"rulesBearingAssetCount\": 6,\n      \"occurrences\": 6\n    }\n  ]\n}\n",
+      "stderrTail": ""
+    },
+    {
+      "name": "vision-partition",
+      "command": [
+        "python3",
+        "assets/tts-mod/extract/vision_validate.py"
+      ],
+      "startedAt": "2026-08-20T18:55:14.173796Z",
+      "completedAt": "2026-08-20T18:55:15.848482Z",
+      "returnCode": 0,
+      "stdoutPath": "logs/baseline/vision-partition.stdout.txt",
+      "stdoutSha256": "1f12a14ac03587d319017a4113d82abfdbceddda8fdd89b8d6d8934e91b6fd02",
+      "stderrPath": "logs/baseline/vision-partition.stderr.txt",
+      "stderrSha256": "272b232a50bf5578d280be50c9f5650422118ab110f28c8c8a672f68ac3d9c4a",
+      "stdoutTail": "{\n  \"schemaVersion\": 1,\n  \"validatedProgressUpdatedAt\": \"2026-08-20T09:09:31.266653Z\",\n  \"passed\": true,\n  \"checks\": {\n    \"inScopeRecords\": 532,\n    \"stateCounts\": {\n      \"complete\": 148,\n      \"deferred\": 384\n    },\n    \"sourceImagesDecoded\": 532,\n    \"reviewEntries\": 384,\n    \"manifestEntries\": 444,\n    \"manifestUniqueUrls\": 444,\n    \"catalogEntries\": 444,\n    \"catalogSections\": 21,\n    \"canonicalSidecars\": 78,\n    \"canonicalImagesPaired\": 78,\n    \"completeCanonicalReferences\": 148,\n    \"reconciliation\": {\n      \"baselineInScope\": 532,\n      \"baselinePreviouslyComplete\": 23,\n      \"baselinePreviouslyDeferred\": 1,\n      \"newlyCompleted\": 125,\n      \"newlyDeferred\": 383,\n      \"totalComplete\": 148,\n      \"totalDeferred\": 384,\n      \"remainingUnaccounted\": 0,\n      \"sidecarsCreated\": 60,\n      \"totalSidecars\": 78,\n      \"sourceFilesMovedOrRenamed\": 0\n    }\n  },\n  \"failureCount\": 0,\n  \"failures\": []\n}\n",
+      "stderrTail": "/home/smithers/.local/lib/python3.13/site-packages/PIL/Image.py:3578: DecompressionBombWarning: Image size (91667280 pixels) exceeds limit of 89478485 pixels, could be decompression bomb DOS attack.\n  warnings.warn(\n"
+    },
+    {
+      "name": "reproducibility",
+      "command": [
+        "python3",
+        "assets/tts-mod/extract/check_card_text_corpus_reproducibility.py"
+      ],
+      "startedAt": "2026-08-20T18:55:15.852760Z",
+      "completedAt": "2026-08-20T18:55:16.483341Z",
+      "returnCode": 0,
+      "stdoutPath": "logs/baseline/reproducibility.stdout.txt",
+      "stdoutSha256": "7d9bfc9d995fe995976e207cea548b7c10a9e804ffa0c6bf51e9750adc2ede78",
+      "stderrPath": "logs/baseline/reproducibility.stderr.txt",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdoutTail": "{\n  \"passed\": true,\n  \"trackedCorpus\": \"assets/tts-mod/extract/card-text-corpus.json\",\n  \"trackedCorpusSha256\": \"61e14c47125c19e2c2dbe6fa3d980b6f267f1bb2acdc421215116f8c7627af5d\",\n  \"firstBuildSha256\": \"61e14c47125c19e2c2dbe6fa3d980b6f267f1bb2acdc421215116f8c7627af5d\",\n  \"secondBuildSha256\": \"61e14c47125c19e2c2dbe6fa3d980b6f267f1bb2acdc421215116f8c7627af5d\",\n  \"trackedOutputUnchanged\": true,\n  \"forbiddenGenerationMetadata\": []\n}\n",
+      "stderrTail": ""
+    },
+    {
+      "name": "corpus-build-2",
+      "command": [
+        "python3",
+        "assets/tts-mod/extract/build_card_text_corpus.py"
+      ],
+      "startedAt": "2026-08-20T18:55:16.487403Z",
+      "completedAt": "2026-08-20T18:55:16.815842Z",
+      "returnCode": 0,
+      "stdoutPath": "logs/baseline/corpus-build-2.stdout.txt",
+      "stdoutSha256": "ab14bc994426bc19c61a59cceaa73f4de3f30a6d8821cf3ebefebccf17ac138c",
+      "stderrPath": "logs/baseline/corpus-build-2.stderr.txt",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdoutTail": "{\n  \"output\": \"assets/tts-mod/extract/card-text-corpus.json\",\n  \"records\": 390,\n  \"rulesTextPresent\": 352,\n  \"extractionStates\": {\n    \"complete-non-rules-or-reference\": 34,\n    \"draft-full\": 261,\n    \"draft-partial\": 1,\n    \"no-transcription\": 2,\n    \"non-rules-or-reference\": 14,\n    \"verified-canonical\": 78\n  },\n  \"rulesInformationReadiness\": {\n    \"canonical\": 78,\n    \"draft-partial\": 1,\n    \"draft-text-complete\": 145,\n    \"draft-text-complete-symbols-unresolved\": 116,\n    \"missing-transcription\": 2,\n    \"not-rules-bearing-or-reference\": 48\n  },\n  \"selectedEvidence\": {\n    \"selectedEvidenceRegistry\": \"assets/tts-mod/extract/selected-card-text-evidence.json\",\n    \"selectedEvidenceRegistrySchemaVersion\": 1,\n    \"selectedEvidenceRegistrySha256\": \"50fceddf2fcff93de0850b14afd27e3b3d18c9562f123d09c6006be48980fb76\",\n    \"selectedEvidenceTupleDigest\": \"3c7eb6e9d2ff7159bf6e404c8542b8d6b35e486ba550ec104e0415dd4fa9a523\",\n    \"selectedEvidenceEntryCount\": 102,\n    \"selectedEvidenceRunCount\": 102\n  }\n}\n",
+      "stderrTail": ""
+    }
+  ],
+  "checks": {
+    "allEightCommandsPassed": true,
+    "focusedTenTestsPassed": true,
+    "countsExact": true,
+    "visionValidationPassed": true,
+    "corpusValidationPassed": true,
+    "sharedHashesUnchanged": true,
+    "qaHashesUnchanged": true,
+    "assignmentUnchanged": true,
+    "worktreeStillClean": true
+  },
+  "overallPassed": true
+}

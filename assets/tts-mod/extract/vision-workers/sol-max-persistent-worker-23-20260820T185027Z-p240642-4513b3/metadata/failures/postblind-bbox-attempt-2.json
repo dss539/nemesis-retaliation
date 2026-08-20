@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "attempt": "postblind-bbox-attempt-2",
+  "recordedAt": "2026-08-20T19:29:49Z",
+  "stage": "CLI argument parsing before session creation",
+  "errorType": "argparse SystemExit",
+  "returnCode": 2,
+  "error": "post-blind prompt was supplied as an unrecognized positional argument",
+  "providerCallStarted": false,
+  "apiCallsAdded": 0,
+  "wrappersWritten": 0,
+  "preservedLogs": [
+    "logs/adjudication-bbox/W23-001.stdout.log",
+    "logs/adjudication-bbox/W23-001.stderr.log"
+  ],
+  "sharedFilesModified": false,
+  "immutableBlindEvidenceAffected": false,
+  "repair": "Use the proven --image PATH -q PROMPT route with --source tool; retry in fresh output/log directories and a fresh session."
+}

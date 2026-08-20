@@ -1,0 +1,112 @@
+Warning: Unknown toolsets: none
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+**Inspecting image header and crop fidelity**
+
+**Comparing clipped official text with assigned conditions**
+
+**Verifying glossary heading and text capitalization**
+
+**Clarifying puzzle instruction formatting**
+
+**Refining official puzzle text interpretation**
+
+**Confirming partial text visibility and clipping**
+
+**Clarifying escape condition wording**
+
+**Identifying text conflicts in escape rules**
+
+**Noting qualifier visibility conflict**
+
+**Assessing source text labeling**
+
+**Verifying source-candidate mismatch**
+
+**Confirming official text clipping and icon use**
+
+**Verifying partial text visibility and transcription**
+
+**Resolving text capitalization and conflicting quotes**
+
+**Cataloging exact textual conflicts in instructions**
+
+**Assessing text cropping impact on clause**
+
+**Confirming no-match with insufficient promotion evidence**
+
+**Detailing visual features of glossary candidate**
+
+**Verifying officialOperativeText formatting**
+
+**Assessing finalCategory for non-text graphics**
+
+**Confirming material icon no-match classification**
+
+**Confirming candidate label usage****Inspecting image header and crop fidelity**
+**Comparing clipped official text with assigned conditions**
+**Verifying glossary heading and text capitalization**
+
+**Clarifying puzzle instruction formatting**
+**Refining official puzzle text interpretation**
+**Confirming partial text visibility and clipping**
+
+**Clarifying escape condition wording**
+**Identifying text conflicts in escape rules**
+**Noting qualifier visibility conflict**
+
+**Assessing source text labeling**
+**Verifying source-candidate mismatch**
+**Confirming official text clipping and icon use**
+
+**Verifying partial text visibility and transcription**
+**Resolving text capitalization and conflicting quotes**
+**Cataloging exact textual conflicts in instructions**
+
+**Assessing text cropping impact on clause**
+**Confirming no-match with insufficient promotion evidence**
+**Detailing visual features of glossary candidate**
+
+**Verifying officialOperativeText formatting**
+**Assessing finalCategory for non-text graphics**
+**Confirming material icon no-match classification**
+
+{
+  "assetId": "W23-003",
+  "runtime": {
+    "sessionId": "20260820_195626_adf1fa",
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "reasoningEffort": "max"
+  },
+  "occurrences": [
+    {
+      "sourceIconMorphologyIndex": 0,
+      "finalCategory": "no-match",
+      "canonicalToken": null,
+      "referenceLabel": "GLOSSARY general/ch",
+      "pixelObservations": "Location: upper center, directly left of 2+ and above PRIMARY SAMPLES. Outer shape: an unenclosed, approximately bilateral white figure with a rounded head, narrow neck, broad shoulders, tapered body, and paired lower projections, rising from several low concentric horizontal ovals. Internal marks: the figure is mostly solid and featureless apart from a dark outline and narrow lower central division; the oval rings have cyan highlights, electric-blue rims, dark-blue interiors, and visible gaps. Colors: white, light gray, cyan, electric blue, dark blue, and black.",
+      "closestAlternative": "The displayed segmented astronaut-like general/ch glossary candidate.",
+      "visibleDiscriminator": "The source has a solid round head without a visor and a largely unsegmented body seated in blue concentric rings; the candidate has a broad dark visor, separated articulated arms and torso compartments, and no rings.",
+      "uncertainty": "The candidate caption is right-edge clipped after the visible text \"GLOSSARY general/ch\", but the morphology mismatch does not depend on completing that label."
+    }
+  ],
+  "occurrenceCount": 1,
+  "sourceFidelity": {
+    "assignedTitle": "PRIMARY SAMPLES",
+    "officialCounterpartTitle": "PRIMARY SAMPLES",
+    "comparisonStatus": "material-conflict",
+    "assignedOperativeText": "At least 2 Eggs must\nbe taken out of the Facility using\nthe Lander or Escape Shuttle.",
+    "officialOperativeText": "All [icon] who Escape from the Facility\nmust be carrying at least 2 Eggs\nin total among them\n[illegible]matter if they Survive after Escaping).",
+    "conflicts": [
+      "Assigned requires \"At least 2 Eggs\" to \"be taken out of the Facility\"; official requires \"All [icon] who Escape from the Facility\" to \"be carrying at least 2 Eggs in total among them\", changing the actor condition and the collective-count qualifier.",
+      "Assigned includes \"using the Lander or Escape Shuttle.\"; no corresponding transport-method wording is visible in the official counterpart.",
+      "Official adds the visible trailing clause \"[illegible]matter if they Survive after Escaping).\"; assigned contains no survival-after-Escaping clause."
+    ],
+    "uncertainties": [
+      "The left edge of the official final line is clipped before the visible words \"matter if they Survive after Escaping).\", so the clause's opening words and polarity are unreadable."
+    ]
+  },
+  "promotionEvidence": "insufficient",
+  "promotionEvidenceReason": "The pixels decisively reject the displayed glossary candidate because its visor and segmented limbs are absent from the ringed source figure, but the official operative block materially differs from the assigned wording and its final line is clipped at the left edge; the sheet therefore does not support unqualified source-fidelity promotion."
+}

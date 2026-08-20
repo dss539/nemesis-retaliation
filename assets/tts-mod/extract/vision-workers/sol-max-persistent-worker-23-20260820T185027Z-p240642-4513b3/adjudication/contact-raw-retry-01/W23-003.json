@@ -1,0 +1,78 @@
+{
+  "schemaVersion": 1,
+  "assetId": "W23-003",
+  "phase": "post-blind-authoritative-contact-adjudication",
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-138.jpg",
+  "sourceSha256": "41e770cd697f8226ffcc5bbcab0abee6612e525a6fc23cf3d0906f3ff456dcc8",
+  "assignmentSha256": "1a946cb84717441f02df1871b8845fd0845ffdecfdd0079bf48a1616f3785199",
+  "contactIndexSha256": "eb7a4fe0add54329ed9a8dca12c5809a9b589ce5060620b26a11c3738060e059",
+  "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-23-20260820T185027Z-p240642-4513b3/qa/contact-sheets/W23-003-contact-sheet.png",
+  "contactSheetSha256": "099813a020bb96e19f464eda3b42ace40eead87b112b522c92e976ca00318954",
+  "startedAt": "2026-08-20T20:03:52.142351Z",
+  "endedAt": "2026-08-20T20:05:33.938375Z",
+  "commandRoute": "direct-hermes-chat-native-image",
+  "cliFlags": {
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "reasoning": "max",
+    "toolsets": "none",
+    "passSessionId": true,
+    "resume": true
+  },
+  "payload": {
+    "assetId": "W23-003",
+    "runtime": {
+      "sessionId": "20260820_195626_adf1fa",
+      "provider": "openai-codex",
+      "model": "gpt-5.6-sol",
+      "reasoningEffort": "max"
+    },
+    "occurrences": [
+      {
+        "sourceIconMorphologyIndex": 0,
+        "finalCategory": "no-match",
+        "canonicalToken": null,
+        "referenceLabel": "GLOSSARY general/ch",
+        "pixelObservations": "Location: upper center, directly left of 2+ and above PRIMARY SAMPLES. Outer shape: an unenclosed, approximately bilateral white figure with a rounded head, narrow neck, broad shoulders, tapered body, and paired lower projections, rising from several low concentric horizontal ovals. Internal marks: the figure is mostly solid and featureless apart from a dark outline and narrow lower central division; the oval rings have cyan highlights, electric-blue rims, dark-blue interiors, and visible gaps. Colors: white, light gray, cyan, electric blue, dark blue, and black.",
+        "closestAlternative": "The displayed segmented astronaut-like general/ch glossary candidate.",
+        "visibleDiscriminator": "The source has a solid round head without a visor and a largely unsegmented body seated in blue concentric rings; the candidate has a broad dark visor, separated articulated arms and torso compartments, and no rings.",
+        "uncertainty": "The candidate caption is right-edge clipped after the visible text \"GLOSSARY general/ch\", but the morphology mismatch does not depend on completing that label."
+      }
+    ],
+    "occurrenceCount": 1,
+    "sourceFidelity": {
+      "assignedTitle": "PRIMARY SAMPLES",
+      "officialCounterpartTitle": "PRIMARY SAMPLES",
+      "comparisonStatus": "material-conflict",
+      "assignedOperativeText": "At least 2 Eggs must\nbe taken out of the Facility using\nthe Lander or Escape Shuttle.",
+      "officialOperativeText": "All [icon] who Escape from the Facility\nmust be carrying at least 2 Eggs\nin total among them\n[illegible]matter if they Survive after Escaping).",
+      "conflicts": [
+        "Assigned requires \"At least 2 Eggs\" to \"be taken out of the Facility\"; official requires \"All [icon] who Escape from the Facility\" to \"be carrying at least 2 Eggs in total among them\", changing the actor condition and the collective-count qualifier.",
+        "Assigned includes \"using the Lander or Escape Shuttle.\"; no corresponding transport-method wording is visible in the official counterpart.",
+        "Official adds the visible trailing clause \"[illegible]matter if they Survive after Escaping).\"; assigned contains no survival-after-Escaping clause."
+      ],
+      "uncertainties": [
+        "The left edge of the official final line is clipped before the visible words \"matter if they Survive after Escaping).\", so the clause's opening words and polarity are unreadable."
+      ]
+    },
+    "promotionEvidence": "insufficient",
+    "promotionEvidenceReason": "The pixels decisively reject the displayed glossary candidate because its visor and segmented limbs are absent from the ringed source figure, but the official operative block materially differs from the assigned wording and its final line is clipped at the left edge; the sheet therefore does not support unqualified source-fidelity promotion."
+  },
+  "runtimeDatabaseProbe": {
+    "sessionId": "20260820_195626_adf1fa",
+    "source": "tool",
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "reasoningEffort": "max",
+    "apiCallCount": 2,
+    "messageCount": 4,
+    "toolCallCount": 0,
+    "messageRoles": {
+      "user": 2,
+      "assistant": 2
+    },
+    "messageToolPayloadCount": 0
+  },
+  "stdoutSha256": "95abe88b2dcc7dc6ae0d850808d8a0855adeca43b8e2e94fb70b158dc0c33502",
+  "stderrSha256": "cd5fe4cc47882a40de5c65424986d2764c9e3f2c1484f5519ba1bbbe636b46be"
+}

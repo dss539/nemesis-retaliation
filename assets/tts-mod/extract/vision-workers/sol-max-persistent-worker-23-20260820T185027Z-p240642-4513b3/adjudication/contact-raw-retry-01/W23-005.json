@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "assetId": "W23-005",
+  "phase": "post-blind-authoritative-contact-adjudication",
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-160_cards/card-01.png",
+  "sourceSha256": "3cd13d793b369d06429494d3d04f991e454349be0cfc4b05805029e6b03261c3",
+  "assignmentSha256": "1a946cb84717441f02df1871b8845fd0845ffdecfdd0079bf48a1616f3785199",
+  "contactIndexSha256": "eb7a4fe0add54329ed9a8dca12c5809a9b589ce5060620b26a11c3738060e059",
+  "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-23-20260820T185027Z-p240642-4513b3/qa/contact-sheets/W23-005-contact-sheet.png",
+  "contactSheetSha256": "fec05f28a98787f7ede2740d3b5cbee19682719ffbb648a0bfd7e334026c2d83",
+  "startedAt": "2026-08-20T20:06:41.113843Z",
+  "endedAt": "2026-08-20T20:07:57.313413Z",
+  "commandRoute": "direct-hermes-chat-native-image",
+  "cliFlags": {
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "reasoning": "max",
+    "toolsets": "none",
+    "passSessionId": true,
+    "resume": true
+  },
+  "payload": {
+    "assetId": "W23-005",
+    "runtime": {
+      "sessionId": "20260820_195626_adf1fa",
+      "provider": "openai-codex",
+      "model": "gpt-5.6-sol",
+      "reasoningEffort": "max"
+    },
+    "occurrences": [
+      {
+        "sourceIconMorphologyIndex": 0,
+        "finalCategory": "no-match",
+        "canonicalToken": null,
+        "referenceLabel": "GLOSSARY general/ch",
+        "pixelObservations": "Location: lower-middle center, directly left of ALL and above PERIMETER CLEARING. Outer shape: an unenclosed, approximately bilateral solid-white figure with a rounded head, narrow neck, broad shoulders, short lateral arm-like projections, a tapering torso, and two lower projections, seated in approximately three concentric horizontal ovals. Internal marks: the head is featureless; dark gaps separate the side projections from the torso and divide the lower pair; the rings have pale-cyan highlights, electric-blue rims, dark-blue interiors, and visible intervening gaps. Colors: white, pale cyan, electric blue, dark blue, and black against an orange-red background.",
+        "closestAlternative": "The displayed segmented astronaut-like general/ch glossary candidate.",
+        "visibleDiscriminator": "The source has a solid featureless head and largely unsegmented body surrounded by blue rings; the candidate has a broad dark visor, articulated segmented limbs, multiple torso voids, and no rings.",
+        "uncertainty": "The candidate caption is right-edge clipped after the visible text \"GLOSSARY general/ch\", but the morphology mismatch does not depend on completing that label."
+      },
+      {
+        "sourceIconMorphologyIndex": 1,
+        "finalCategory": "non-text-component-graphic",
+        "canonicalToken": null,
+        "referenceLabel": null,
+        "pixelObservations": "Location: center of the body panel between the two condition blocks. Outer shape: a small horizontally elongated plaque with chamfered corners, a raised gold bevel, and a dark amber-brown inner face. Internal marks: the uppercase white word AND is centered in the plaque; gold highlights trace the upper and side bevels, and the plaque overlays the horizontal divider extending from both sides. Colors: gold, amber, dark brown, and white.",
+        "closestAlternative": "An independently actionable badge or control labeled AND.",
+        "visibleDiscriminator": "The plaque is physically integrated into the divider between the two text regions and contains only the logical connector AND, with no separate pictogram or control affordance.",
+        "uncertainty": "none"
+      }
+    ],
+    "occurrenceCount": 2,
+    "sourceFidelity": {
+      "assignedTitle": "PERIMETER CLEARING",
+      "officialCounterpartTitle": "PERIMETER CLEARING",
+      "comparisonStatus": "material-conflict",
+      "assignedOperativeText": "ALL\nThe Reactor must be shut down.\n\nAND\n\nAll Section Rooms A must be Explored.",
+      "officialOperativeText": "2+\nThe Reactor (Section C)\n[illegible]ust be shut down (by using the Room).\n\nAND\n\nAll 3 Rooms of the A type\nmust be Discovered.",
+      "conflicts": [
+        "Assigned header qualifier is \"ALL\"; official header qualifier is \"2+\", changing the visible applicability/count condition.",
+        "Assigned names only \"The Reactor\"; official specifies \"The Reactor (Section C)\", adding a section qualifier.",
+        "Assigned says \"must be shut down.\"; official adds the method qualifier \"(by using the Room).\"",
+        "Assigned requires \"All Section Rooms A must be Explored.\"; official requires \"All 3 Rooms of the A type must be Discovered.\", changing the room description, explicit count, and required state."
+      ],
+      "uncertainties": [
+        "The official shutdown line is clipped at its left edge before the visible letters \"ust be shut down (by using the Room).\"; the preceding character or characters are unreadable."
+      ]
+    },
+    "promotionEvidence": "insufficient",
+    "promotionEvidenceReason": "The pixels decisively reject the glossary candidate for occurrence 0 and support the divider-integrated non-text classification for occurrence 1, but assigned and official pixels conflict on ALL versus 2+, the Reactor qualifiers and procedure, and the A-room condition, while the start of one official line is clipped."
+  },
+  "runtimeDatabaseProbe": {
+    "sessionId": "20260820_195626_adf1fa",
+    "source": "tool",
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "reasoningEffort": "max",
+    "apiCallCount": 4,
+    "messageCount": 8,
+    "toolCallCount": 0,
+    "messageRoles": {
+      "user": 4,
+      "assistant": 4
+    },
+    "messageToolPayloadCount": 0
+  },
+  "stdoutSha256": "4f22a1093f9ea94157563099dbd4bdb9db32fb5b4869767ee903b7666072c79c",
+  "stderrSha256": "e0a017c4772eb5fc0705b1f5a5e08368bfd67e9747074924e6590f4dc2cd59a8"
+}

@@ -1,0 +1,77 @@
+Warning: Unknown toolsets: none
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+**Comparing source and official card text discrepancies**
+
+**Documenting official card condition differences**
+
+**Noting text versus icon representation differences**
+
+**Reviewing icon and source discrepancies**
+
+**Assessing glossary reference and conflict sufficiency**
+
+**Confirming official phrase discrepancies**
+
+**Confirming markers for unreadable spans**
+
+**Comparing assigned and official text conflicts**
+
+**Assessing promotion evidence differences**
+
+**Confirming title and icon usage conventions**
+
+**Standardizing icon placeholder formats****Comparing source and official card text discrepancies**
+**Documenting official card condition differences**
+**Noting text versus icon representation differences**
+
+**Reviewing icon and source discrepancies**
+**Assessing glossary reference and conflict sufficiency**
+**Confirming official phrase discrepancies**
+
+**Confirming markers for unreadable spans**
+**Comparing assigned and official text conflicts**
+**Assessing promotion evidence differences**
+
+**Confirming title and icon usage conventions**
+{
+  "assetId": "W23-008",
+  "runtime": {
+    "sessionId": "20260820_195626_adf1fa",
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "reasoningEffort": "max"
+  },
+  "occurrences": [
+    {
+      "sourceIconMorphologyIndex": 0,
+      "finalCategory": "no-match",
+      "canonicalToken": null,
+      "referenceLabel": "GLOSSARY general/ch",
+      "pixelObservations": "Location: lower-middle center, directly left of 2+ and above ESSENTIAL DATA. Outer shape: an unenclosed, approximately bilateral solid-white figure with a rounded head, narrow neck, broad shoulders, short side projections, a tapering torso, and two lower projections, seated in approximately three nested horizontal elliptical rings. Internal marks: the head is featureless; dark gaps separate the side projections from the central body and divide the lower pair; the rings have pale-cyan highlights, electric-blue rims, dark-blue interiors, and visible intervening gaps. Colors: white, pale cyan, electric blue, dark blue, and black.",
+      "closestAlternative": "The displayed segmented astronaut-like general/ch glossary candidate.",
+      "visibleDiscriminator": "The source has a solid featureless head and largely unsegmented body surrounded by blue rings; the candidate has a broad dark visor, articulated segmented limbs, multiple torso voids, and no rings.",
+      "uncertainty": "The candidate caption is right-edge clipped after the visible text \"GLOSSARY general/ch\", but the morphology mismatch does not depend on completing that label."
+    }
+  ],
+  "occurrenceCount": 1,
+  "sourceFidelity": {
+    "assignedTitle": "ESSENTIAL DATA",
+    "officialCounterpartTitle": "ESSENTIAL DATA",
+    "comparisonStatus": "material-conflict",
+    "assignedOperativeText": "2+\nAt least 1 Character with Data token\nfrom the Server Room\nmust Escape using the Lander.",
+    "officialOperativeText": "2+\nAt least 1 [icon A] with a Data token\n[illegible]from the Server Room in Section B)\n[illegible]ust Escape using the [icon B] (Section A).\n\nAND\n\nThere must be no Unexplored\nCorridors in Section A.",
+    "conflicts": [
+      "Assigned says \"At least 1 Character with Data token\"; official shows \"At least 1 [icon A] with a Data token\", replacing the literal word \"Character\" with a glyph and adding the article \"a\" before \"Data token\".",
+      "Assigned says \"from the Server Room\"; official visibly includes \"from the Server Room in Section B)\", adding the Section B qualifier.",
+      "Assigned says \"must Escape using the Lander.\"; official visibly uses [icon B] instead of the literal word \"Lander\" and adds \"(Section A).\"",
+      "Official adds \"AND There must be no Unexplored Corridors in Section A.\"; assigned has no corresponding second condition."
+    ],
+    "uncertainties": [
+      "The official Server Room line begins at the left pixel boundary before visible \"from the Server Room in Section B)\"; any preceding punctuation is unreadable.",
+      "The next official line begins at the left pixel boundary before visible \"ust Escape using the [icon B] (Section A).\"; its initial character is unreadable."
+    ]
+  },
+  "promotionEvidence": "insufficient",
+  "promotionEvidenceReason": "The source glyph decisively differs from the glossary candidate in rings, visor, segmentation, and internal voids, but the official counterpart clips the starts of two operative lines and materially differs from the assigned text in article use, section qualifiers, text-versus-glyph presentation, and an entire additional condition; the sheet does not expose every official wording character needed for unqualified promotion."
+}

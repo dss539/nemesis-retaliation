@@ -1,0 +1,96 @@
+Warning: Unknown toolsets: none
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+**Analyzing image component occurrences for JSON output**
+
+**Clarifying semantic classification for staged non-text graphic**
+
+**Comparing official and source text for accuracy**
+
+**Comparing official and assigned mission conditions**
+
+**Identifying image text clipping issue**
+
+**Confirming text overflow causes clipping**
+
+**Assessing text clipping in report**
+
+**Comparing source and official headers**
+
+**Confirming clipped initial character in text**
+
+**Comparing reactor shutdown condition discrepancies**
+
+**Clarifying official text uncertainties and label usage**
+
+**Validating JSON output format**
+
+**Assessing promotion and label clipping issues**
+
+**Validating text occurrence order and illegibility marking****Analyzing image component occurrences for JSON output**
+**Clarifying semantic classification for staged non-text graphic**
+**Comparing official and source text for accuracy**
+
+**Comparing official and assigned mission conditions**
+**Identifying image text clipping issue**
+**Confirming text overflow causes clipping**
+
+**Assessing text clipping in report**
+**Comparing source and official headers**
+**Confirming clipped initial character in text**
+
+**Comparing reactor shutdown condition discrepancies**
+**Clarifying official text uncertainties and label usage**
+**Validating JSON output format**
+
+**Assessing promotion and label clipping issues**
+{
+  "assetId": "W23-005",
+  "runtime": {
+    "sessionId": "20260820_195626_adf1fa",
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "reasoningEffort": "max"
+  },
+  "occurrences": [
+    {
+      "sourceIconMorphologyIndex": 0,
+      "finalCategory": "no-match",
+      "canonicalToken": null,
+      "referenceLabel": "GLOSSARY general/ch",
+      "pixelObservations": "Location: lower-middle center, directly left of ALL and above PERIMETER CLEARING. Outer shape: an unenclosed, approximately bilateral solid-white figure with a rounded head, narrow neck, broad shoulders, short lateral arm-like projections, a tapering torso, and two lower projections, seated in approximately three concentric horizontal ovals. Internal marks: the head is featureless; dark gaps separate the side projections from the torso and divide the lower pair; the rings have pale-cyan highlights, electric-blue rims, dark-blue interiors, and visible intervening gaps. Colors: white, pale cyan, electric blue, dark blue, and black against an orange-red background.",
+      "closestAlternative": "The displayed segmented astronaut-like general/ch glossary candidate.",
+      "visibleDiscriminator": "The source has a solid featureless head and largely unsegmented body surrounded by blue rings; the candidate has a broad dark visor, articulated segmented limbs, multiple torso voids, and no rings.",
+      "uncertainty": "The candidate caption is right-edge clipped after the visible text \"GLOSSARY general/ch\", but the morphology mismatch does not depend on completing that label."
+    },
+    {
+      "sourceIconMorphologyIndex": 1,
+      "finalCategory": "non-text-component-graphic",
+      "canonicalToken": null,
+      "referenceLabel": null,
+      "pixelObservations": "Location: center of the body panel between the two condition blocks. Outer shape: a small horizontally elongated plaque with chamfered corners, a raised gold bevel, and a dark amber-brown inner face. Internal marks: the uppercase white word AND is centered in the plaque; gold highlights trace the upper and side bevels, and the plaque overlays the horizontal divider extending from both sides. Colors: gold, amber, dark brown, and white.",
+      "closestAlternative": "An independently actionable badge or control labeled AND.",
+      "visibleDiscriminator": "The plaque is physically integrated into the divider between the two text regions and contains only the logical connector AND, with no separate pictogram or control affordance.",
+      "uncertainty": "none"
+    }
+  ],
+  "occurrenceCount": 2,
+  "sourceFidelity": {
+    "assignedTitle": "PERIMETER CLEARING",
+    "officialCounterpartTitle": "PERIMETER CLEARING",
+    "comparisonStatus": "material-conflict",
+    "assignedOperativeText": "ALL\nThe Reactor must be shut down.\n\nAND\n\nAll Section Rooms A must be Explored.",
+    "officialOperativeText": "2+\nThe Reactor (Section C)\n[illegible]ust be shut down (by using the Room).\n\nAND\n\nAll 3 Rooms of the A type\nmust be Discovered.",
+    "conflicts": [
+      "Assigned header qualifier is \"ALL\"; official header qualifier is \"2+\", changing the visible applicability/count condition.",
+      "Assigned names only \"The Reactor\"; official specifies \"The Reactor (Section C)\", adding a section qualifier.",
+      "Assigned says \"must be shut down.\"; official adds the method qualifier \"(by using the Room).\"",
+      "Assigned requires \"All Section Rooms A must be Explored.\"; official requires \"All 3 Rooms of the A type must be Discovered.\", changing the room description, explicit count, and required state."
+    ],
+    "uncertainties": [
+      "The official shutdown line is clipped at its left edge before the visible letters \"ust be shut down (by using the Room).\"; the preceding character or characters are unreadable."
+    ]
+  },
+  "promotionEvidence": "insufficient",
+  "promotionEvidenceReason": "The pixels decisively reject the glossary candidate for occurrence 0 and support the divider-integrated non-text classification for occurrence 1, but assigned and official pixels conflict on ALL versus 2+, the Reactor qualifiers and procedure, and the A-room condition, while the start of one official line is clipped."
+}

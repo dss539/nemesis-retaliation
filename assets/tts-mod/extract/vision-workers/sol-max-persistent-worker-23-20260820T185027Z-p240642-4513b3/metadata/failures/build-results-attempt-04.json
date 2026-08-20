@@ -1,0 +1,11 @@
+{
+  "schemaVersion": 1,
+  "attempt": "build-results-attempt-04",
+  "recordedAt": "2026-08-20T20:26:11Z",
+  "stage": "core validation after eight derived results",
+  "error": "Fresh W23 root did not pre-create candidates/images and candidates/sidecars; the zero-candidate validation tried to iterate absent directories.",
+  "derivedRawFilesWritten": 8,
+  "derivedResultFilesWritten": 8,
+  "sharedFilesModified": false,
+  "repair": "Record hashes, remove only builder-owned disposable raw/result/derived-metadata outputs, make the builder create empty candidate directories deterministically, and rerun from empty derived staging."
+}

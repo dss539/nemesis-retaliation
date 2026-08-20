@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "assetId": "W23-003",
+  "phase": "post-blind-bbox-adjudication",
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-138.jpg",
+  "sourceSha256": "41e770cd697f8226ffcc5bbcab0abee6612e525a6fc23cf3d0906f3ff456dcc8",
+  "assignmentSha256": "1a946cb84717441f02df1871b8845fd0845ffdecfdd0079bf48a1616f3785199",
+  "startedAt": "2026-08-20T19:36:06.216617Z",
+  "endedAt": "2026-08-20T19:39:13.797814Z",
+  "commandRoute": "direct-hermes-chat-native-image",
+  "cliFlags": {
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "reasoning": "max",
+    "toolsets": "none",
+    "passSessionId": true,
+    "resume": true
+  },
+  "payload": {
+    "assetId": "W23-003",
+    "runtime": {
+      "sessionId": "20260820_193416_50af34",
+      "provider": "openai-codex",
+      "model": "gpt-5.6-sol",
+      "reasoningEffort": "max"
+    },
+    "image": {
+      "width": 3783,
+      "height": 5280
+    },
+    "occurrences": [
+      {
+        "sourceIconMorphologyIndex": 0,
+        "bbox": [
+          1597,
+          2980,
+          1881,
+          3312
+        ],
+        "category": "material-icon",
+        "pixelBasis": "Original 3783x5280 raster; tight bounds include the complete white outlined upright form and all visible cyan and blue concentric oval rims, excluding the adjacent 2+ text and underlying panel."
+      }
+    ],
+    "occurrenceCount": 1
+  },
+  "runtimeDatabaseProbe": {
+    "sessionId": "20260820_193416_50af34",
+    "source": "tool",
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "reasoningEffort": "max",
+    "apiCallCount": 2,
+    "messageCount": 4,
+    "toolCallCount": 0,
+    "messageRoleCounts": {
+      "user": 2,
+      "assistant": 2
+    },
+    "nonemptyToolPayloadCount": 0
+  },
+  "stdoutSha256": "bde961a98dc60b74e5e84a9799968a16cfc1da6dde59450edfdcfad917308df0",
+  "stderrSha256": "0633ee8dced30661bb7ee518536005578f356e2d7e25af4833f1cd56a1e1f21f"
+}

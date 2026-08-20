@@ -1,0 +1,91 @@
+{
+  "schemaVersion": 1,
+  "assetId": "W23-001",
+  "phase": "post-blind-bbox-adjudication",
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-116.jpg",
+  "sourceSha256": "c1adf21143fb353e2253fa99feb8f50b93fb246d8d0bd91701690a4033c658e6",
+  "assignmentSha256": "1a946cb84717441f02df1871b8845fd0845ffdecfdd0079bf48a1616f3785199",
+  "startedAt": "2026-08-20T19:30:11.826472Z",
+  "endedAt": "2026-08-20T19:31:35.740191Z",
+  "commandRoute": "direct-hermes-chat-native-image",
+  "cliFlags": {
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "reasoning": "max",
+    "toolsets": "none",
+    "passSessionId": true,
+    "resume": false
+  },
+  "payload": {
+    "assetId": "W23-001",
+    "runtime": {
+      "sessionId": "20260820_193010_a77e8d",
+      "provider": "openai-codex",
+      "model": "gpt-5.6-sol",
+      "reasoningEffort": "max"
+    },
+    "image": {
+      "width": 1025,
+      "height": 1396
+    },
+    "occurrences": [
+      {
+        "sourceIconMorphologyIndex": 0,
+        "bbox": [
+          439,
+          638,
+          522,
+          708
+        ],
+        "category": "material-icon",
+        "pixelBasis": "Original-pixel inspection: tight envelope around the luminous white/cyan upright core and concentric blue oval rings, excluding the adjacent 3+."
+      },
+      {
+        "sourceIconMorphologyIndex": 1,
+        "bbox": [
+          29,
+          294,
+          176,
+          364
+        ],
+        "category": "artwork-only-detail",
+        "pixelBasis": "Original-pixel inspection: joint envelope around both pale-yellow elongated blocks and the right-facing wedge printed on the red in-scene placard."
+      },
+      {
+        "sourceIconMorphologyIndex": 2,
+        "bbox": [
+          56,
+          1034,
+          971,
+          1292
+        ],
+        "category": "non-text-component-graphic",
+        "pixelBasis": "Original-pixel inspection: joint envelope of the two disconnected mirrored black side housings, including their orange-and-cream diagonal inserts; the intervening text panel is enclosed only because one bbox must span the pair."
+      }
+    ],
+    "occurrenceCount": 3
+  },
+  "runtimeDatabaseProbe": {
+    "sessionId": "20260820_193010_a77e8d",
+    "source": "tool",
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "reasoningEffort": "max",
+    "apiCallCount": 1,
+    "messageCount": 2,
+    "toolCallCount": 0,
+    "messageRoleCounts": {
+      "user": 1,
+      "assistant": 1
+    },
+    "nonemptyToolPayloadCount": 0
+  },
+  "stdoutSha256": "e96f30ea3201fddf08bf3d47fda781ca03c0eb5c491fdba640514fde53f5c0c9",
+  "stderrSha256": "a7ede421edd0e7de36ab1a975547ee8f3db816ffd9c867f751cc9b2e1fa96b4f",
+  "recovery": {
+    "salvaged": true,
+    "reason": "API call and payload validation succeeded before the original wrapper step failed on a local DB timestamp-column query.",
+    "failureRecord": "metadata/failures/postblind-bbox-attempt-3.json",
+    "semanticLookupBetweenCallAndSeal": false
+  }
+}

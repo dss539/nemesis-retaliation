@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "assetId": "W23-007",
+  "phase": "post-blind-authoritative-contact-adjudication",
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-160_cards/card-03.png",
+  "sourceSha256": "2b2042f9604da8c62c67c80b9953fe959c4c82ac93a56f2e258c473f85248e9f",
+  "assignmentSha256": "1a946cb84717441f02df1871b8845fd0845ffdecfdd0079bf48a1616f3785199",
+  "contactIndexSha256": "eb7a4fe0add54329ed9a8dca12c5809a9b589ce5060620b26a11c3738060e059",
+  "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-23-20260820T185027Z-p240642-4513b3/qa/contact-sheets/W23-007-contact-sheet.png",
+  "contactSheetSha256": "c4b6de1d54ce4eebc467b31f2852285a3e6c0d23ab7700b482b346dc84189889",
+  "startedAt": "2026-08-20T20:09:13.761955Z",
+  "endedAt": "2026-08-20T20:10:42.276895Z",
+  "commandRoute": "direct-hermes-chat-native-image",
+  "cliFlags": {
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "reasoning": "max",
+    "toolsets": "none",
+    "passSessionId": true,
+    "resume": true
+  },
+  "payload": {
+    "assetId": "W23-007",
+    "runtime": {
+      "sessionId": "20260820_195626_adf1fa",
+      "provider": "openai-codex",
+      "model": "gpt-5.6-sol",
+      "reasoningEffort": "max"
+    },
+    "occurrences": [
+      {
+        "sourceIconMorphologyIndex": 0,
+        "finalCategory": "non-text-component-graphic",
+        "canonicalToken": null,
+        "referenceLabel": null,
+        "pixelObservations": "Location: center below the tilted luminous display and above the ringed white figure and 2+. Outer shape: an upright near-square panel with strongly rounded corners, a thick continuous pale-gray border, a thin dark outer shadow, and a nearly opaque charcoal-black face. Internal marks: extremely faint gray alphanumeric-looking traces occur near the upper-left interior, while dark-red diagonal background strokes remain visible across the face; no recoverable central pictogram is present. Colors: black, charcoal, light gray, white, and faint dark red.",
+        "closestAlternative": "An empty framed slot or placeholder rather than a symbol-bearing square object.",
+        "visibleDiscriminator": "The closed high-contrast rounded frame clearly bounds a dark panel, but its interior contains no reliably separable symbol, icon, or readable text.",
+        "uncertainty": "The faint interior marks are below reliable legibility and do not establish a semantic identity."
+      },
+      {
+        "sourceIconMorphologyIndex": 1,
+        "finalCategory": "no-match",
+        "canonicalToken": null,
+        "referenceLabel": "general/character",
+        "pixelObservations": "Location: centered below the dark rounded square, directly left of 2+ and above SABOTAGE. Outer shape: an unenclosed, approximately bilateral solid-white figure with a rounded head, narrow neck, broad shoulders, short side projections, a tapering torso, and two lower projections, seated in several concentric horizontal elliptical rings. Internal marks: the head is featureless; dark gaps separate the side projections from the central body and divide the lower pair; the rings have pale-cyan highlights, electric-blue rims, dark-blue interiors, and visible intervening gaps. Colors: white, pale cyan, electric blue, dark blue, and black.",
+        "closestAlternative": "The displayed p.40 general/character glyph, which is a segmented astronaut-like figure.",
+        "visibleDiscriminator": "The source has a solid featureless head and body surrounded by blue rings; general/character has a broad dark visor, articulated segmented limbs, multiple torso voids, and no rings.",
+        "uncertainty": "none"
+      }
+    ],
+    "occurrenceCount": 2,
+    "sourceFidelity": {
+      "assignedTitle": "SABOTAGE",
+      "officialCounterpartTitle": null,
+      "comparisonStatus": "no-counterpart",
+      "assignedOperativeText": "2+\nPlace an Explosive token in each\nLife Support Control Room.",
+      "officialOperativeText": null,
+      "conflicts": [],
+      "uncertainties": []
+    },
+    "promotionEvidence": "sufficient",
+    "promotionEvidenceReason": "The pixels show that occurrence 0 is a framed dark component without a recoverable pictogram, while occurrence 1 differs decisively from the visible general/character reference in visor, segmentation, internal voids, and concentric rings. The assigned title and wording are legible, and the official panel explicitly shows that no current counterpart titled SABOTAGE was found."
+  },
+  "runtimeDatabaseProbe": {
+    "sessionId": "20260820_195626_adf1fa",
+    "source": "tool",
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "reasoningEffort": "max",
+    "apiCallCount": 6,
+    "messageCount": 12,
+    "toolCallCount": 0,
+    "messageRoles": {
+      "user": 6,
+      "assistant": 6
+    },
+    "messageToolPayloadCount": 0
+  },
+  "stdoutSha256": "ca391ff876b744d282ac5c18afca3828782d78502a7b9a1b4b6007ac5991ffc0",
+  "stderrSha256": "b900715ce46468bc98df006c85f8c835c73b62ba5c2050682668f3fcb8051eaf"
+}

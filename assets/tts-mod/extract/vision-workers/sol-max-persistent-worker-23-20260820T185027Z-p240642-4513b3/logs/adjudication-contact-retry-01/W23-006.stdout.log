@@ -1,0 +1,102 @@
+Warning: Unknown toolsets: none
+
+┌─ Reasoning ──────────────────────────────────────────────────────────────────┐
+**Verifying exact JSON formatting details**
+
+**Comparing source and official text differences**
+
+**Noting wording and capitalization discrepancies**
+
+**Comparing destination and header discrepancies**
+
+**Assessing wording and graphic conflicts**
+
+**Deciding promotion evidence sufficiency**
+
+**Assessing promotionEvidence sufficiency**
+
+**Confirming promotionEvidence sufficiency despite conflicts**
+
+**Documenting official schema text and uncertainties**
+
+**Describing figure morphology and captioning**
+
+**Assessing label references and source conflicts**
+
+**Planning detailed conflict splitting**
+
+**Verifying source and title consistency**
+
+**Confirming official text and label accuracy**
+
+**Inspecting plaque shape and label clipping**
+
+**Verifying header and image integrity****Verifying exact JSON formatting details**
+**Comparing source and official text differences**
+**Noting wording and capitalization discrepancies**
+
+**Comparing destination and header discrepancies**
+**Assessing wording and graphic conflicts**
+**Deciding promotion evidence sufficiency**
+
+**Assessing promotionEvidence sufficiency**
+**Confirming promotionEvidence sufficiency despite conflicts**
+**Documenting official schema text and uncertainties**
+
+**Describing figure morphology and captioning**
+**Assessing label references and source conflicts**
+**Planning detailed conflict splitting**
+
+**Verifying source and title consistency**
+**Confirming official text and label accuracy**
+**Inspecting plaque shape and label clipping**
+
+{
+  "assetId": "W23-006",
+  "runtime": {
+    "sessionId": "20260820_195626_adf1fa",
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "reasoningEffort": "max"
+  },
+  "occurrences": [
+    {
+      "sourceIconMorphologyIndex": 0,
+      "finalCategory": "no-match",
+      "canonicalToken": null,
+      "referenceLabel": "GLOSSARY general/ch",
+      "pixelObservations": "Location: center above the title plaque, directly left of ALL and above THE SUPPLY ROUTE. Outer shape: an unenclosed, approximately bilateral solid-white figure with a rounded head, narrow neck, broad shoulders, short side projections, a tapering torso, and two lower projections, seated in approximately three nested horizontal elliptical rings. Internal marks: the head is featureless; dark gaps separate the side projections from the torso and divide the lower pair; the rings have pale-cyan highlights, electric-blue rims, dark-blue interiors, and visible intervening gaps. Colors: white, pale cyan, electric blue, dark blue, and black against an orange-red background.",
+      "closestAlternative": "The displayed segmented astronaut-like general/ch glossary candidate.",
+      "visibleDiscriminator": "The source has a solid featureless head and largely unsegmented body surrounded by blue rings; the candidate has a broad dark visor, articulated segmented limbs, multiple torso voids, and no rings.",
+      "uncertainty": "The candidate caption is right-edge clipped after the visible text \"GLOSSARY general/ch\", but the morphology mismatch does not depend on completing that label."
+    },
+    {
+      "sourceIconMorphologyIndex": 1,
+      "finalCategory": "non-text-component-graphic",
+      "canonicalToken": null,
+      "referenceLabel": null,
+      "pixelObservations": "Location: center of the main body panel between the upper route condition and the lower Facility condition. Outer shape: a small horizontally elongated plaque with chamfered corners, a raised gold bevel, and a dark amber-brown inner face. Internal marks: the uppercase white word AND is centered inside the plaque; lighter gold highlights trace the beveled edges, and the plaque overlays the horizontal divider extending from both sides. Colors: gold, amber, dark brown, and white.",
+      "closestAlternative": "An independently actionable badge or control labeled AND.",
+      "visibleDiscriminator": "The plaque is physically integrated into the divider between the two text blocks and contains only the logical connector AND, with no separate pictogram or control affordance.",
+      "uncertainty": "none"
+    }
+  ],
+  "occurrenceCount": 2,
+  "sourceFidelity": {
+    "assignedTitle": "THE SUPPLY ROUTE",
+    "officialCounterpartTitle": "THE SUPPLY ROUTE",
+    "comparisonStatus": "material-conflict",
+    "assignedOperativeText": "ALL\nThe path from the Landing Zone to the\nServer Room must be Reinforced. (There is\na continuous path of Reinforced Corridors\nfrom the Landing zone to the Server Room).\n\nAND\n\nThe Facility must not be destroyed.",
+    "officialOperativeText": "3+\nThere must be a continuous path\nof Reinforced Corridors\nfrom the Landing Zone (Section A)\nto the Life Support Control C.\n\nAND\n\nThe Facility must NOT be destroyed.",
+    "conflicts": [
+      "Assigned header qualifier is \"ALL\"; official header qualifier is \"3+\", changing the visible applicability/count condition.",
+      "Assigned route terminates at \"the Server Room\"; official route terminates at \"the Life Support Control C.\"",
+      "Official adds the qualifier \"(Section A)\" after \"Landing Zone\"; assigned has no section qualifier there.",
+      "Assigned states \"The path from the Landing Zone to the Server Room must be Reinforced.\" and then gives the continuous-corridor condition parenthetically; official uses only the direct construction \"There must be a continuous path of Reinforced Corridors\".",
+      "Assigned shows \"The Facility must not be destroyed.\"; official shows \"The Facility must NOT be destroyed.\", changing visible capitalization and emphasis."
+    ],
+    "uncertainties": []
+  },
+  "promotionEvidence": "sufficient",
+  "promotionEvidenceReason": "The source glyph visibly lacks the glossary candidate's visor, segmented limbs, and torso voids while adding concentric blue rings, decisively supporting no-match; the AND plaque is visibly divider-integrated, and all source and official title, qualifier, route, and Facility-condition pixels needed to establish the wording conflicts are legible."
+}

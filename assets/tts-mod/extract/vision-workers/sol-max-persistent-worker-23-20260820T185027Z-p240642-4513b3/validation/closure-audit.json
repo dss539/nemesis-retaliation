@@ -1,0 +1,281 @@
+{
+  "schemaVersion": 1,
+  "recordType": "standardNativeVisionWorkerClosureAudit",
+  "capturedAt": "2026-08-20T20:34:03.280161Z",
+  "auditorPath": "/home/smithers/.hermes/skills/research/extract-game-mod-assets/scripts/audit_native_vision_worker.py",
+  "auditorSha256": "94cb6c51bfdb925c4720ea0f122e0a399cb082563df8f35f951cb106025ac929",
+  "command": [
+    "/usr/bin/python3",
+    "/home/smithers/.hermes/skills/research/extract-game-mod-assets/scripts/audit_native_vision_worker.py",
+    "--repo",
+    "/home/smithers/projects/nemesis-card-corpus/repos/nemesis-retaliation",
+    "--worker-root",
+    "/home/smithers/projects/nemesis-card-corpus/repos/nemesis-retaliation/assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-23-20260820T185027Z-p240642-4513b3/audit-view/normalized",
+    "--baseline",
+    "metadata/baseline.json",
+    "--skip-session-audit",
+    "--skip-git"
+  ],
+  "returnCode": 0,
+  "stderr": "",
+  "auditOutput": {
+    "schemaVersion": 1,
+    "workerRoot": "/home/smithers/projects/nemesis-card-corpus/repos/nemesis-retaliation/assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-23-20260820T185027Z-p240642-4513b3/audit-view/normalized",
+    "checks": {
+      "assignment": {
+        "path": "/home/smithers/projects/nemesis-card-corpus/repos/nemesis-retaliation/assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-23-20260820T185027Z-p240642-4513b3/audit-view/normalized/assignment.json",
+        "sha256": "1a946cb84717441f02df1871b8845fd0845ffdecfdd0079bf48a1616f3785199",
+        "orderedTupleDigest": "1cadcfc22b5c9b40e8b542963afc58a9f422eaf7f9c823d120c15914d47af662",
+        "ids": [
+          "W23-001",
+          "W23-002",
+          "W23-003",
+          "W23-004",
+          "W23-005",
+          "W23-006",
+          "W23-007",
+          "W23-008"
+        ],
+        "count": 8,
+        "baselineSha256": "1a946cb84717441f02df1871b8845fd0845ffdecfdd0079bf48a1616f3785199",
+        "baselineOrderedTupleDigest": "1cadcfc22b5c9b40e8b542963afc58a9f422eaf7f9c823d120c15914d47af662"
+      },
+      "runtime": {
+        "sha256": "57130079748b253697cf16981897f5039bcb45d889407736226f6167d700718c",
+        "provider": "openai-codex",
+        "model": "gpt-5.6-sol",
+        "reasoningEffort": "max",
+        "sessionId": "20260820_190057_7927a4",
+        "sealed": true,
+        "verificationState": "verified",
+        "nativeImageRouteState": "exercisedVerified",
+        "forbiddenRoutes": {
+          "auxiliaryVisionUsed": false,
+          "qwenUsed": false,
+          "ocrCanonicalEvidenceUsed": false,
+          "modelDowngradeUsed": false,
+          "sharedProviderConfigurationModified": false
+        },
+        "reasoningDbLimitation": "Hermes sessions table may not expose reasoning effort; do not treat DB absence as proof."
+      },
+      "artifactSets": {
+        "rawIds": [
+          "W23-001",
+          "W23-002",
+          "W23-003",
+          "W23-004",
+          "W23-005",
+          "W23-006",
+          "W23-007",
+          "W23-008"
+        ],
+        "resultIds": [
+          "W23-001",
+          "W23-002",
+          "W23-003",
+          "W23-004",
+          "W23-005",
+          "W23-006",
+          "W23-007",
+          "W23-008"
+        ],
+        "expectedIds": [
+          "W23-001",
+          "W23-002",
+          "W23-003",
+          "W23-004",
+          "W23-005",
+          "W23-006",
+          "W23-007",
+          "W23-008"
+        ]
+      },
+      "assets": [
+        {
+          "assetId": "W23-001",
+          "sourcePath": "/home/smithers/projects/nemesis-card-corpus/repos/nemesis-retaliation/assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-116.jpg",
+          "sha256": "c1adf21143fb353e2253fa99feb8f50b93fb246d8d0bd91701690a4033c658e6",
+          "sourceMetadata": {
+            "width": 1025,
+            "height": 1396,
+            "format": "JPEG",
+            "mode": "RGB",
+            "frames": 1,
+            "bytes": 671284,
+            "decode": true
+          },
+          "rawParsed": true,
+          "resultParsed": true,
+          "missingFields": [],
+          "submitted": 1,
+          "returned": 1,
+          "orientation": "upright",
+          "promotionDecision": "defer"
+        },
+        {
+          "assetId": "W23-002",
+          "sourcePath": "/home/smithers/projects/nemesis-card-corpus/repos/nemesis-retaliation/assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-123.jpg",
+          "sha256": "1f8bb94fc434f1bd7861d76fe7db86cd7174f9c36ca1aaaf03601952896f4597",
+          "sourceMetadata": {
+            "width": 1043,
+            "height": 1420,
+            "format": "JPEG",
+            "mode": "RGB",
+            "frames": 1,
+            "bytes": 659262,
+            "decode": true
+          },
+          "rawParsed": true,
+          "resultParsed": true,
+          "missingFields": [],
+          "submitted": 1,
+          "returned": 1,
+          "orientation": "upright",
+          "promotionDecision": "defer"
+        },
+        {
+          "assetId": "W23-003",
+          "sourcePath": "/home/smithers/projects/nemesis-card-corpus/repos/nemesis-retaliation/assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-138.jpg",
+          "sha256": "41e770cd697f8226ffcc5bbcab0abee6612e525a6fc23cf3d0906f3ff456dcc8",
+          "sourceMetadata": {
+            "width": 3783,
+            "height": 5280,
+            "format": "JPEG",
+            "mode": "RGB",
+            "frames": 1,
+            "bytes": 9155843,
+            "decode": true
+          },
+          "rawParsed": true,
+          "resultParsed": true,
+          "missingFields": [],
+          "submitted": 1,
+          "returned": 1,
+          "orientation": "upright",
+          "promotionDecision": "defer"
+        },
+        {
+          "assetId": "W23-004",
+          "sourcePath": "/home/smithers/projects/nemesis-card-corpus/repos/nemesis-retaliation/assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-160_cards/card-00.png",
+          "sha256": "c2d4bb142b03891040b8bf52a7cb4b1457b8e040b187abd2c1be003e4a1d9d2c",
+          "sourceMetadata": {
+            "width": 1136,
+            "height": 1525,
+            "format": "PNG",
+            "mode": "RGB",
+            "frames": 1,
+            "bytes": 2176224,
+            "decode": true
+          },
+          "rawParsed": true,
+          "resultParsed": true,
+          "missingFields": [],
+          "submitted": 1,
+          "returned": 1,
+          "orientation": "upright",
+          "promotionDecision": "defer"
+        },
+        {
+          "assetId": "W23-005",
+          "sourcePath": "/home/smithers/projects/nemesis-card-corpus/repos/nemesis-retaliation/assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-160_cards/card-01.png",
+          "sha256": "3cd13d793b369d06429494d3d04f991e454349be0cfc4b05805029e6b03261c3",
+          "sourceMetadata": {
+            "width": 1136,
+            "height": 1525,
+            "format": "PNG",
+            "mode": "RGB",
+            "frames": 1,
+            "bytes": 2241873,
+            "decode": true
+          },
+          "rawParsed": true,
+          "resultParsed": true,
+          "missingFields": [],
+          "submitted": 1,
+          "returned": 1,
+          "orientation": "upright",
+          "promotionDecision": "defer"
+        },
+        {
+          "assetId": "W23-006",
+          "sourcePath": "/home/smithers/projects/nemesis-card-corpus/repos/nemesis-retaliation/assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-160_cards/card-02.png",
+          "sha256": "11d743898e231415232b6ad79ab88c1e4d0e31f277c0a0385abb27a997d47b48",
+          "sourceMetadata": {
+            "width": 1136,
+            "height": 1525,
+            "format": "PNG",
+            "mode": "RGB",
+            "frames": 1,
+            "bytes": 1906035,
+            "decode": true
+          },
+          "rawParsed": true,
+          "resultParsed": true,
+          "missingFields": [],
+          "submitted": 1,
+          "returned": 1,
+          "orientation": "upright",
+          "promotionDecision": "defer"
+        },
+        {
+          "assetId": "W23-007",
+          "sourcePath": "/home/smithers/projects/nemesis-card-corpus/repos/nemesis-retaliation/assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-160_cards/card-03.png",
+          "sha256": "2b2042f9604da8c62c67c80b9953fe959c4c82ac93a56f2e258c473f85248e9f",
+          "sourceMetadata": {
+            "width": 1136,
+            "height": 1525,
+            "format": "PNG",
+            "mode": "RGB",
+            "frames": 1,
+            "bytes": 2407346,
+            "decode": true
+          },
+          "rawParsed": true,
+          "resultParsed": true,
+          "missingFields": [],
+          "submitted": 1,
+          "returned": 1,
+          "orientation": "upright",
+          "promotionDecision": "defer"
+        },
+        {
+          "assetId": "W23-008",
+          "sourcePath": "/home/smithers/projects/nemesis-card-corpus/repos/nemesis-retaliation/assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-160_cards/card-04.png",
+          "sha256": "3ff9ae783d02bbc700c294c837917e9d3037034dcd7b45ea571ed295430128d2",
+          "sourceMetadata": {
+            "width": 1136,
+            "height": 1525,
+            "format": "PNG",
+            "mode": "RGB",
+            "frames": 1,
+            "bytes": 2413848,
+            "decode": true
+          },
+          "rawParsed": true,
+          "resultParsed": true,
+          "missingFields": [],
+          "submitted": 1,
+          "returned": 1,
+          "orientation": "upright",
+          "promotionDecision": "defer"
+        }
+      ],
+      "reconciliation": {
+        "assigned": 8,
+        "submitted": 8,
+        "returned": 8,
+        "raw": 8,
+        "results": 8
+      },
+      "jsonParse": {
+        "fileCount": 20,
+        "failures": []
+      },
+      "candidateFiles": []
+    },
+    "errors": [],
+    "warnings": [],
+    "overallPassed": true
+  },
+  "overallPassed": true
+}

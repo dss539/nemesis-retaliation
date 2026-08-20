@@ -1,0 +1,131 @@
+{
+  "schemaVersion": 1,
+  "recordType": "normalizedNativeVisionRuntimeProvenance",
+  "recordedAt": "2026-08-20T20:31:27.136032Z",
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "reasoningEffort": "max",
+  "blind": {
+    "sessionIds": [
+      "20260820_190057_7927a4"
+    ],
+    "apiCallCount": 8,
+    "messageCount": 16,
+    "toolCallCount": 0
+  },
+  "bboxAdjudication": {
+    "sessionIds": [
+      "20260820_193010_a77e8d",
+      "20260820_193416_50af34"
+    ],
+    "apiCallCount": 8,
+    "messageCount": 16,
+    "toolCallCount": 0
+  },
+  "contactAdjudication": {
+    "sessionIds": [
+      "20260820_194841_5f9531",
+      "20260820_195626_adf1fa"
+    ],
+    "apiCallCount": 8,
+    "messageCount": 16,
+    "toolCallCount": 0
+  },
+  "neutralSmoke": {
+    "schemaVersion": 1,
+    "recordType": "neutralZeroToolSmokeAudit",
+    "startedAt": "2026-08-20T18:57:33.499230Z",
+    "completedAt": "2026-08-20T18:57:41.252140Z",
+    "workerId": "sol-max-persistent-worker-23-20260820T185027Z-p240642-4513b3",
+    "command": [
+      "hermes",
+      "chat",
+      "-Q",
+      "--provider",
+      "openai-codex",
+      "-m",
+      "gpt-5.6-sol",
+      "--reasoning",
+      "max",
+      "--max-turns",
+      "2",
+      "--toolsets",
+      "none",
+      "--pass-session-id",
+      "--source",
+      "tool",
+      "--ignore-rules",
+      "--in",
+      "/home/smithers/projects/nemesis-card-corpus/repos/nemesis-retaliation/assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-23-20260820T185027Z-p240642-4513b3",
+      "-q",
+      "<frozen neutral smoke prompt>"
+    ],
+    "stdoutPath": "logs/smoke.stdout.txt",
+    "stdoutSha256": "67ca548402921d6c6a9cbca74a10b1d52a8a58adb312c82fd54fb9e74cc15f67",
+    "stderrPath": "logs/smoke.stderr.txt",
+    "stderrSha256": "36bc643a8f40ae5f48e7461ee631693a710996d99c4d74915ce6ffe098ae0672",
+    "payload": {
+      "smoke": "NO_TOOLS",
+      "sessionId": "20260820_185733_87625e",
+      "provider": "openai-codex",
+      "model": "gpt-5.6-sol",
+      "reasoningEffort": "max"
+    },
+    "session": {
+      "sessionId": "20260820_185733_87625e",
+      "source": "tool",
+      "provider": "openai-codex",
+      "model": "gpt-5.6-sol",
+      "reasoningEffort": "max",
+      "apiCallCount": 1,
+      "messageCount": 2,
+      "toolCallCount": 0,
+      "messageRoles": {
+        "user": 1,
+        "assistant": 1
+      },
+      "messageToolCallCount": 0,
+      "cwd": null,
+      "parentSessionId": null,
+      "systemPromptSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "systemPromptStoredHash": "514a6069923eb8c458abc6233ce78b3d08e0a03525a48879b2e14c49b9fb87e8",
+      "systemPromptBytes": 0,
+      "toolsSectionMarkers": [],
+      "toolNameMarkers": []
+    },
+    "checks": {
+      "exitZero": true,
+      "payloadExact": true,
+      "providerExact": true,
+      "modelExact": true,
+      "reasoningExact": true,
+      "oneApiCall": true,
+      "twoMessages": true,
+      "zeroSessionTools": true,
+      "zeroMessageToolCalls": true,
+      "noSystemToolsSection": true,
+      "noSystemToolName": true,
+      "assignmentUnchanged": true
+    },
+    "overallPassed": true
+  },
+  "totalProductionNativeImageApiCalls": 24,
+  "totalProductionMessages": 48,
+  "totalProductionToolCalls": 0,
+  "oneImagePerCall": true,
+  "auxiliaryVisionUsed": false,
+  "qwenUsed": false,
+  "ocrCanonicalEvidenceUsed": false,
+  "modelDowngradeUsed": false,
+  "failureMetadataPaths": [
+    "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-23-20260820T185027Z-p240642-4513b3/metadata/failures/build-results-attempt-01.json",
+    "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-23-20260820T185027Z-p240642-4513b3/metadata/failures/build-results-attempt-02.json",
+    "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-23-20260820T185027Z-p240642-4513b3/metadata/failures/build-results-attempt-03.json",
+    "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-23-20260820T185027Z-p240642-4513b3/metadata/failures/build-results-attempt-04.json",
+    "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-23-20260820T185027Z-p240642-4513b3/metadata/failures/closure-preflight-attempt-01.json",
+    "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-23-20260820T185027Z-p240642-4513b3/metadata/failures/postblind-bbox-attempt-1.json",
+    "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-23-20260820T185027Z-p240642-4513b3/metadata/failures/postblind-bbox-attempt-2.json",
+    "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-23-20260820T185027Z-p240642-4513b3/metadata/failures/postblind-bbox-attempt-3.json",
+    "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-23-20260820T185027Z-p240642-4513b3/metadata/failures/postblind-contact-attempt-1.json"
+  ]
+}

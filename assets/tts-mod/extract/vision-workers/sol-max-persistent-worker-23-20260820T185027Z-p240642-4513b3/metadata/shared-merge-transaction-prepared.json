@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-08-20T20:36:49.406367Z",
+  "stage": "prepared-before-shared-writes",
+  "workerId": "sol-max-persistent-worker-23-20260820T185027Z-p240642-4513b3",
+  "mergePlanPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-23-20260820T185027Z-p240642-4513b3/projections/w23-private/merge-plan.json",
+  "mergePlanSha256": "03cbb729d21565c47069095bce912b869a5cadabf5f60b7fcfe0511316ef2e4c",
+  "privateValidationPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-23-20260820T185027Z-p240642-4513b3/validation/private-projection-validation.json",
+  "privateValidationSha256": "b6131afb5df416d4065e8cb85c718562731c6b9fff884428efda8eb5279fcbe4",
+  "preimage": {
+    "schemaVersion": 1,
+    "sealedAt": "2026-08-20T20:35:05.197552Z",
+    "workerId": "sol-max-persistent-worker-23-20260820T185027Z-p240642-4513b3",
+    "shared": {
+      "progress": {
+        "path": "assets/tts-mod/extract/vision-progress.json",
+        "sha256": "a958481fbdff2c5a2c00961583ce30d852fc188aa016038024c2f0746c5ea18a",
+        "bytes": 6029040
+      },
+      "queue": {
+        "path": "assets/tts-mod/extract/low-confidence-review.json",
+        "sha256": "fce89da3c11834b5533d5cb3d78aba8ff4abde79b48c1309ff4e7e1bb4ffb5c0",
+        "bytes": 4051161
+      },
+      "registry": {
+        "path": "assets/tts-mod/extract/selected-card-text-evidence.json",
+        "sha256": "50fceddf2fcff93de0850b14afd27e3b3d18c9562f123d09c6006be48980fb76",
+        "bytes": 534692
+      },
+      "corpus": {
+        "path": "assets/tts-mod/extract/card-text-corpus.json",
+        "sha256": "61e14c47125c19e2c2dbe6fa3d980b6f267f1bb2acdc421215116f8c7627af5d",
+        "bytes": 1478582
+      }
+    },
+    "counts": {
+      "complete": 148,
+      "deferred": 384,
+      "queue": 384,
+      "registry": 102,
+      "corpus": 390,
+      "sidecars": 78
+    },
+    "canonicalChangesProposed": 0,
+    "overallPassed": true
+  },
+  "projectedOutputSha256": {
+    "progress": "ae45f8b4e98cb0ef1fc214723ea16b8c24537000c51dba7cd4b9581eb9b701cc",
+    "queue": "d4ada7528b037b1656632afb37c18d9d8dfaab4e6b454c3722af8aef82c46257",
+    "registry": "e91580500a5a282208b953617aa408b1f6675e044f302dfebce0489864eaecc0",
+    "corpus": "5a4a85be42647b3febdb88ad9cefc06e704553cf11f30636a4f610937aba027c"
+  },
+  "canonicalChanges": 0
+}

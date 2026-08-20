@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 1,
+  "assetId": "W23-006",
+  "phase": "post-blind-bbox-adjudication",
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-160_cards/card-02.png",
+  "sourceSha256": "11d743898e231415232b6ad79ab88c1e4d0e31f277c0a0385abb27a997d47b48",
+  "assignmentSha256": "1a946cb84717441f02df1871b8845fd0845ffdecfdd0079bf48a1616f3785199",
+  "startedAt": "2026-08-20T19:40:18.263373Z",
+  "endedAt": "2026-08-20T19:40:51.544271Z",
+  "commandRoute": "direct-hermes-chat-native-image",
+  "cliFlags": {
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "reasoning": "max",
+    "toolsets": "none",
+    "passSessionId": true,
+    "resume": true
+  },
+  "payload": {
+    "assetId": "W23-006",
+    "runtime": {
+      "sessionId": "20260820_193416_50af34",
+      "provider": "openai-codex",
+      "model": "gpt-5.6-sol",
+      "reasoningEffort": "max"
+    },
+    "image": {
+      "width": 1136,
+      "height": 1525
+    },
+    "occurrences": [
+      {
+        "sourceIconMorphologyIndex": 0,
+        "bbox": [
+          481,
+          696,
+          562,
+          765
+        ],
+        "category": "material-icon",
+        "pixelBasis": "Original 1136x1525 raster; tight bounds include the complete white upright form and all visible cyan and blue elliptical rings, excluding the adjacent ALL text and title-plaque edge."
+      },
+      {
+        "sourceIconMorphologyIndex": 1,
+        "bbox": [
+          512,
+          1153,
+          627,
+          1216
+        ],
+        "category": "non-text-component-graphic",
+        "pixelBasis": "Original 1136x1525 raster; tight bounds include the complete raised chamfered plaque, gold rim, dark inner face, and printed AND, while excluding the horizontal divider strokes extending from it."
+      }
+    ],
+    "occurrenceCount": 2
+  },
+  "runtimeDatabaseProbe": {
+    "sessionId": "20260820_193416_50af34",
+    "source": "tool",
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "reasoningEffort": "max",
+    "apiCallCount": 5,
+    "messageCount": 10,
+    "toolCallCount": 0,
+    "messageRoleCounts": {
+      "user": 5,
+      "assistant": 5
+    },
+    "nonemptyToolPayloadCount": 0
+  },
+  "stdoutSha256": "ddbccc6dcdc86c6eb3adbae66bdaa3f73c7098da9e2babacecf7abef98a6ba30",
+  "stderrSha256": "dc3a35bf5b19506d7a60e975041f1a71d1ae42f6eefe78eec6791cd2298e66a3"
+}

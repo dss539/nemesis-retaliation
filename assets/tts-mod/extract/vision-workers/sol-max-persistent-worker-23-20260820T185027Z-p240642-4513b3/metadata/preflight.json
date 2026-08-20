@@ -1,0 +1,200 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-08-20T18:59:08.643094Z",
+  "workerId": "sol-max-persistent-worker-23-20260820T185027Z-p240642-4513b3",
+  "checks": {
+    "gitHeadExact": true,
+    "worktreeClean": true,
+    "workspaceLockExact": true,
+    "noLiveOverlap": true,
+    "neutralSmokePassed": true,
+    "neutralSmokeOneApiTwoMessagesZeroTools": true,
+    "neutralSmokeNoToolsPromptMarkers": true,
+    "baselineValidationPassed": true,
+    "assignmentImmutable": true,
+    "orderedTupleDigestFrozen": true,
+    "eightLiveSourceHashesAndDecodesExact": true,
+    "freshWorkerRoot": true,
+    "emptyRawResultStaging": true
+  },
+  "evidence": {
+    "gitHead": "48854fdd86478c1f74b614e9daa8faaa6d0beee1",
+    "lock": {
+      "lockPath": "/home/smithers/projects/nemesis-card-corpus/.workspace.lock",
+      "lockFd": 3,
+      "childFdVisible": false,
+      "outerHolderFdTarget": "/home/smithers/projects/nemesis-card-corpus/.workspace.lock",
+      "device": 64520,
+      "inode": 3048400,
+      "mode": "0600",
+      "holder": {
+        "command": "hermes",
+        "pid": 240642,
+        "type": "FLOCK",
+        "mode": "WRITE",
+        "path": "/home/smithers/projects/nemesis-card-corpus/.workspace.lock"
+      },
+      "contention": "busy-as-expected-from-inherited-exclusive-owner",
+      "verificationMethod": "read-only lslocks plus outer-holder fd device/inode; no lock reacquisition"
+    },
+    "liveLockRow": [
+      {
+        "command": "hermes",
+        "pid": 240642,
+        "type": "FLOCK",
+        "mode": "WRITE",
+        "path": "/home/smithers/projects/nemesis-card-corpus/.workspace.lock"
+      }
+    ],
+    "contention": "busy-as-expected; read-only inspection only, no reacquisition attempted",
+    "liveOverlap": [],
+    "smokeSessionId": "20260820_185733_87625e",
+    "smokeAuditPath": "metadata/smoke-audit.json",
+    "smokeAuditSha256": "5ff94172f67a4fd789bd8b2395f42e51e20b78e24867d021ffc16edfa8a34025",
+    "assignmentSha256": "1a946cb84717441f02df1871b8845fd0845ffdecfdd0079bf48a1616f3785199",
+    "orderedTupleDigest": "1cadcfc22b5c9b40e8b542963afc58a9f422eaf7f9c823d120c15914d47af662",
+    "counts": {
+      "complete": 148,
+      "deferred": 384,
+      "visionRead": 0,
+      "visionFailed": 0,
+      "pending": 0,
+      "unaccounted": 0,
+      "progress": 532,
+      "queue": 384,
+      "registry": 102,
+      "corpus": 390,
+      "canonicalPairs": 78
+    },
+    "orderedTuples": [
+      {
+        "assetId": "W23-001",
+        "queueIndex": 113,
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-116.jpg",
+        "sourceSha256": "c1adf21143fb353e2253fa99feb8f50b93fb246d8d0bd91701690a4033c658e6"
+      },
+      {
+        "assetId": "W23-002",
+        "queueIndex": 114,
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-123.jpg",
+        "sourceSha256": "1f8bb94fc434f1bd7861d76fe7db86cd7174f9c36ca1aaaf03601952896f4597"
+      },
+      {
+        "assetId": "W23-003",
+        "queueIndex": 115,
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-138.jpg",
+        "sourceSha256": "41e770cd697f8226ffcc5bbcab0abee6612e525a6fc23cf3d0906f3ff456dcc8"
+      },
+      {
+        "assetId": "W23-004",
+        "queueIndex": 116,
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-160_cards/card-00.png",
+        "sourceSha256": "c2d4bb142b03891040b8bf52a7cb4b1457b8e040b187abd2c1be003e4a1d9d2c"
+      },
+      {
+        "assetId": "W23-005",
+        "queueIndex": 117,
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-160_cards/card-01.png",
+        "sourceSha256": "3cd13d793b369d06429494d3d04f991e454349be0cfc4b05805029e6b03261c3"
+      },
+      {
+        "assetId": "W23-006",
+        "queueIndex": 118,
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-160_cards/card-02.png",
+        "sourceSha256": "11d743898e231415232b6ad79ab88c1e4d0e31f277c0a0385abb27a997d47b48"
+      },
+      {
+        "assetId": "W23-007",
+        "queueIndex": 119,
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-160_cards/card-03.png",
+        "sourceSha256": "2b2042f9604da8c62c67c80b9953fe959c4c82ac93a56f2e258c473f85248e9f"
+      },
+      {
+        "assetId": "W23-008",
+        "queueIndex": 120,
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-160_cards/card-04.png",
+        "sourceSha256": "3ff9ae783d02bbc700c294c837917e9d3037034dcd7b45ea571ed295430128d2"
+      }
+    ],
+    "skippedSelectedTuples": [],
+    "sourceChecks": [
+      {
+        "assetId": "W23-001",
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-116.jpg",
+        "expectedSha256": "c1adf21143fb353e2253fa99feb8f50b93fb246d8d0bd91701690a4033c658e6",
+        "liveSha256": "c1adf21143fb353e2253fa99feb8f50b93fb246d8d0bd91701690a4033c658e6",
+        "decode": true,
+        "passed": true
+      },
+      {
+        "assetId": "W23-002",
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-123.jpg",
+        "expectedSha256": "1f8bb94fc434f1bd7861d76fe7db86cd7174f9c36ca1aaaf03601952896f4597",
+        "liveSha256": "1f8bb94fc434f1bd7861d76fe7db86cd7174f9c36ca1aaaf03601952896f4597",
+        "decode": true,
+        "passed": true
+      },
+      {
+        "assetId": "W23-003",
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-138.jpg",
+        "expectedSha256": "41e770cd697f8226ffcc5bbcab0abee6612e525a6fc23cf3d0906f3ff456dcc8",
+        "liveSha256": "41e770cd697f8226ffcc5bbcab0abee6612e525a6fc23cf3d0906f3ff456dcc8",
+        "decode": true,
+        "passed": true
+      },
+      {
+        "assetId": "W23-004",
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-160_cards/card-00.png",
+        "expectedSha256": "c2d4bb142b03891040b8bf52a7cb4b1457b8e040b187abd2c1be003e4a1d9d2c",
+        "liveSha256": "c2d4bb142b03891040b8bf52a7cb4b1457b8e040b187abd2c1be003e4a1d9d2c",
+        "decode": true,
+        "passed": true
+      },
+      {
+        "assetId": "W23-005",
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-160_cards/card-01.png",
+        "expectedSha256": "3cd13d793b369d06429494d3d04f991e454349be0cfc4b05805029e6b03261c3",
+        "liveSha256": "3cd13d793b369d06429494d3d04f991e454349be0cfc4b05805029e6b03261c3",
+        "decode": true,
+        "passed": true
+      },
+      {
+        "assetId": "W23-006",
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-160_cards/card-02.png",
+        "expectedSha256": "11d743898e231415232b6ad79ab88c1e4d0e31f277c0a0385abb27a997d47b48",
+        "liveSha256": "11d743898e231415232b6ad79ab88c1e4d0e31f277c0a0385abb27a997d47b48",
+        "decode": true,
+        "passed": true
+      },
+      {
+        "assetId": "W23-007",
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-160_cards/card-03.png",
+        "expectedSha256": "2b2042f9604da8c62c67c80b9953fe959c4c82ac93a56f2e258c473f85248e9f",
+        "liveSha256": "2b2042f9604da8c62c67c80b9953fe959c4c82ac93a56f2e258c473f85248e9f",
+        "decode": true,
+        "passed": true
+      },
+      {
+        "assetId": "W23-008",
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-160_cards/card-04.png",
+        "expectedSha256": "3ff9ae783d02bbc700c294c837917e9d3037034dcd7b45ea571ed295430128d2",
+        "liveSha256": "3ff9ae783d02bbc700c294c837917e9d3037034dcd7b45ea571ed295430128d2",
+        "decode": true,
+        "passed": true
+      }
+    ],
+    "recoveriesBeforeVision": [
+      {
+        "stage": "lock visibility probe",
+        "outcome": "terminal child did not inherit FD 3; outer supervisor holder FD/inode and exclusive lslocks row verified read-only",
+        "evidenceChanged": false
+      },
+      {
+        "stage": "baseline runner pre-command guard",
+        "outcome": "fixed iterator truthiness bug before any validation command executed",
+        "evidenceChanged": false
+      }
+    ]
+  },
+  "overallPassed": true
+}

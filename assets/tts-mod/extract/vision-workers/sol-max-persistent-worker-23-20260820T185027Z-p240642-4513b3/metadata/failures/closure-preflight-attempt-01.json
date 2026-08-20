@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 1,
+  "attempt": "closure-preflight-attempt-01",
+  "recordedAt": "2026-08-20T20:30:54Z",
+  "stage": "reusable-auditor schema preflight",
+  "error": "W23-001..007 normalized results had assignment-derived nextPendingAssetId but nextPendingSourcePath was null; the reusable auditor requires both.",
+  "sharedFilesModified": false,
+  "repair": "Patch the deterministic builder, remove only its disposable derived outputs and dependent core reports, rebuild, and rerun independent validation before auditor invocation."
+}

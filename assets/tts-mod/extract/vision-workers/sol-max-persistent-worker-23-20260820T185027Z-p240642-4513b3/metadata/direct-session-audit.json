@@ -1,0 +1,65 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-08-20T19:18:23.840803Z",
+  "workerId": "sol-max-persistent-worker-23-20260820T185027Z-p240642-4513b3",
+  "session": {
+    "sessionId": "20260820_190057_7927a4",
+    "source": "tool",
+    "model": "gpt-5.6-sol",
+    "billingProvider": "openai-codex",
+    "reasoningEffort": "max",
+    "messageCount": 16,
+    "apiCallCount": 8,
+    "toolCallCount": 0,
+    "cwd": null,
+    "parentSessionId": null
+  },
+  "messageRoleCounts": {
+    "user": 8,
+    "assistant": 8
+  },
+  "returnedAssetIds": [
+    "W23-001",
+    "W23-002",
+    "W23-003",
+    "W23-004",
+    "W23-005",
+    "W23-006",
+    "W23-007",
+    "W23-008"
+  ],
+  "payloadSchema": {
+    "topLevelKeys": [
+      "assetId",
+      "blindPixelObservations",
+      "classificationConfidence",
+      "iconMorphology",
+      "orientation",
+      "preliminaryDecision",
+      "proposedClassification",
+      "readConfidence",
+      "runtime",
+      "uncertainties",
+      "visibleText"
+    ],
+    "orientationKeys": [
+      "basis",
+      "observed",
+      "rotationRequired"
+    ]
+  },
+  "checks": {
+    "modelProviderMatched": true,
+    "reasoningMaxFromModelConfig": true,
+    "onePersistentSession": true,
+    "exactlyEightApiCalls": true,
+    "exactlySixteenMessages": true,
+    "zeroToolCalls": true,
+    "stableIdsAndOrderMatched": true,
+    "sessionPayloadsEqualSealedWrappers": true,
+    "eightWrappersMode0400": true,
+    "allOriginalReadAtTimestampsPreserved": true,
+    "assignmentAndSourcesReconciled": true
+  },
+  "overallPassed": true
+}

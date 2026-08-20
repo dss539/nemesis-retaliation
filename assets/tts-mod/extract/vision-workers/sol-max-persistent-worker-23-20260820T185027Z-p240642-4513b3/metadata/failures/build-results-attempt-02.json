@@ -1,0 +1,11 @@
+{
+  "schemaVersion": 1,
+  "attempt": "build-results-attempt-02",
+  "recordedAt": "2026-08-20T20:24:17Z",
+  "stage": "blind-wrapper preservation preflight before derived raw/result writes",
+  "error": "Compared the full sealed wrapper bytes against isolated-raw-output, which intentionally contains only modelOutput.",
+  "derivedRawFilesWritten": 0,
+  "derivedResultFilesWritten": 0,
+  "sharedFilesModified": false,
+  "repair": "Require exact structural equality between sealed-wrapper.modelOutput and isolated-raw-output, while retaining the independent direct-session wrapper hash audit."
+}

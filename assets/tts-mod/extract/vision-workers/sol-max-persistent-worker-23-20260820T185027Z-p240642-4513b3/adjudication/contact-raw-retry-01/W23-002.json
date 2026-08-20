@@ -1,0 +1,97 @@
+{
+  "schemaVersion": 1,
+  "assetId": "W23-002",
+  "phase": "post-blind-authoritative-contact-adjudication",
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-123.jpg",
+  "sourceSha256": "1f8bb94fc434f1bd7861d76fe7db86cd7174f9c36ca1aaaf03601952896f4597",
+  "assignmentSha256": "1a946cb84717441f02df1871b8845fd0845ffdecfdd0079bf48a1616f3785199",
+  "contactIndexSha256": "eb7a4fe0add54329ed9a8dca12c5809a9b589ce5060620b26a11c3738060e059",
+  "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-23-20260820T185027Z-p240642-4513b3/qa/contact-sheets/W23-002-contact-sheet.png",
+  "contactSheetSha256": "6ac6b01e7308c09a299b42115289e7bc4e1ba9f49f5cb0df92af8e559f4d3905",
+  "startedAt": "2026-08-20T19:56:26.313412Z",
+  "endedAt": "2026-08-20T20:03:52.138126Z",
+  "commandRoute": "direct-hermes-chat-native-image",
+  "cliFlags": {
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "reasoning": "max",
+    "toolsets": "none",
+    "passSessionId": true,
+    "resume": false
+  },
+  "payload": {
+    "assetId": "W23-002",
+    "runtime": {
+      "sessionId": "20260820_195626_adf1fa",
+      "provider": "openai-codex",
+      "model": "gpt-5.6-sol",
+      "reasoningEffort": "max"
+    },
+    "occurrences": [
+      {
+        "sourceIconMorphologyIndex": 0,
+        "finalCategory": "no-match",
+        "canonicalToken": null,
+        "referenceLabel": "GLOSSARY general/ch",
+        "pixelObservations": "Location: upper center, immediately left of 2+ and above ESSENTIAL DATA. Outer shape: an unenclosed round-headed, narrow-bodied white figure rising from several separated concentric horizontal ovals. Internal marks: the figure is largely solid and featureless, while the ovals have bright rims, dark interiors, and dark gaps between rings. Colors: white, pale cyan, electric blue, and dark blue.",
+        "closestAlternative": "The displayed segmented astronaut-like general/ch glossary candidate.",
+        "visibleDiscriminator": "The source has a solid featureless round head and body embedded in blue concentric ovals; the candidate has a dark visor, segmented torso and limbs, and no blue ovals.",
+        "uncertainty": "The candidate caption is clipped after the visible text \"GLOSSARY general/ch\", but the morphology mismatch is unambiguous."
+      },
+      {
+        "sourceIconMorphologyIndex": 1,
+        "finalCategory": "match",
+        "canonicalToken": "general/character",
+        "referenceLabel": "GLOSSARY general/ch",
+        "pixelObservations": "Location: first operative line between \"At least 1\" and \"with a Data token\". Outer shape: a compact, upright, bilaterally symmetric white astronaut-like figure with a rounded helmet, broad shoulders, articulated side arms, a rectangular torso, and two lower leg forms. Internal marks: a broad dark visor crosses the helmet; dark gaps separate the helmet, chest plate, belt area, arms, and legs, with a small central dark square in the lower torso. Colors: white, off-white, charcoal, and black.",
+        "closestAlternative": "A compact equipment pack or bag-like badge.",
+        "visibleDiscriminator": "The detached helmet arch and visor sit above a symmetric articulated body with distinct arm and leg gaps; a pack or bag would not have that paired limb geometry. These shapes and internal voids coincide with the displayed glossary candidate.",
+        "uncertainty": "The reference heading is visibly clipped after \"GLOSSARY general/ch\"; the source-to-candidate morphology itself is an exact match at the displayed resolutions."
+      },
+      {
+        "sourceIconMorphologyIndex": 2,
+        "finalCategory": "match",
+        "canonicalToken": "map/lander",
+        "referenceLabel": "GLOSSARY map/lande",
+        "pixelObservations": "Location: third operative line between \"must Escape using the\" and \"(Section A).\" Outer shape: a broad symmetric white mound with a tall narrow central spire, two shorter side spires, curved descending shoulders, and a scalloped lower edge. Internal marks: the central spire contains one long enclosed dark vertical slot, and deep dark notches divide the lower edge into rounded lobes. Colors: white, off-white, and charcoal.",
+        "closestAlternative": "A three-pointed crown or mountain-like mark.",
+        "visibleDiscriminator": "The long enclosed slot in the central spire and the matching curved side-spire and scalloped-base geometry distinguish it from a crown or mountain and coincide with the displayed glossary candidate.",
+        "uncertainty": "The reference heading is visibly clipped after \"GLOSSARY map/lande\"; the source-to-candidate morphology itself is an exact match at the displayed resolutions."
+      }
+    ],
+    "occurrenceCount": 3,
+    "sourceFidelity": {
+      "assignedTitle": "ESSENTIAL DATA",
+      "officialCounterpartTitle": "ESSENTIAL DATA",
+      "comparisonStatus": "material-conflict",
+      "assignedOperativeText": "At least 1 [icon #1] with a Data token\n(from the Server Room in Section B)\nmust Escape using the [icon #2] (Section A).\n\nAND\n\nThere must be no Unexplored\nCorridors in Section A.",
+      "officialOperativeText": "At least 1 [icon #1] with a Data token\nfrom the Server Room in Section B)\nust Escape using the [icon #2] (Section A).\n\nAND\n\nThere must be no Unexplored\nCorridors in Section A.",
+      "conflicts": [
+        "Assigned shows \"(from the Server Room in Section B)\"; the official visible line shows \"from the Server Room in Section B)\", omitting the opening parenthesis.",
+        "Assigned shows \"must Escape using the [icon #2] (Section A).\"; the official visible line shows \"ust Escape using the [icon #2] (Section A).\", omitting the initial \"m\"."
+      ],
+      "uncertainties": [
+        "Both apparent official omissions occur at the left boundary of the supplied official pixels, so the sheet cannot establish whether they are omissions in the underlying wording or clipping at that boundary."
+      ]
+    },
+    "promotionEvidence": "insufficient",
+    "promotionEvidenceReason": "The pixels establish exact source-to-candidate morphology for indices 1 and 2 and a decisive rings-versus-segmented-figure mismatch for index 0, but the glossary headings are right-edge clipped and two official operative lines lose characters at the left pixel boundary; the sheet therefore does not expose every exact label and wording character needed for unqualified promotion."
+  },
+  "runtimeDatabaseProbe": {
+    "sessionId": "20260820_195626_adf1fa",
+    "source": "tool",
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "reasoningEffort": "max",
+    "apiCallCount": 1,
+    "messageCount": 2,
+    "toolCallCount": 0,
+    "messageRoles": {
+      "user": 1,
+      "assistant": 1
+    },
+    "messageToolPayloadCount": 0
+  },
+  "stdoutSha256": "3af5155aa9fb3f0c8c45f9ca09a3bc945733432cc35bdff23d322a882d6e0597",
+  "stderrSha256": "3f5e29f09843db714904637ec0a3790537d7af44b575b68c8b1d01c2d97984b8"
+}

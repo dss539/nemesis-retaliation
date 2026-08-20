@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "sourceProgressUpdatedAt": "2026-08-20T09:09:31.266653Z",
-  "sourceQueueUpdatedAt": "2026-08-20T09:09:31.266653Z",
+  "sourceProgressUpdatedAt": "2026-08-20T20:35:05.197552Z",
+  "sourceQueueUpdatedAt": "2026-08-20T20:35:05.197552Z",
   "totals": {
     "inScope": 532,
     "complete": 148,
@@ -13,14 +13,14 @@
     "canonicalSidecars": 78
   },
   "deferredExtractionStates": {
-    "draft-full": 292,
-    "draft-partial": 1,
+    "draft-full": 289,
+    "draft-partial": 4,
     "no-transcription": 33,
     "non-rules-or-reference": 58
   },
   "deferredCardExtractionStates": {
-    "draft-full": 261,
-    "draft-partial": 1,
+    "draft-full": 258,
+    "draft-partial": 4,
     "no-transcription": 2,
     "non-rules-or-reference": 14
   },
@@ -171,13 +171,13 @@
     "reference": 4
   },
   "reasonTags": {
-    "classification": 280,
+    "classification": 276,
     "clipped-or-illegible": 85,
     "needs-official-source": 3,
     "orientation": 55,
-    "other": 85,
-    "provenance": 16,
-    "schema-or-destination": 11,
+    "other": 81,
+    "provenance": 24,
+    "schema-or-destination": 17,
     "source-conflict": 10,
     "unknown-icon": 2
   },
@@ -222,6 +222,153 @@
         "sessionId": "20260820_080847_8bb239",
         "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991/results/W22-005.json",
         "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991/raw/W22-005.json"
+      }
+    },
+    {
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-116.jpg",
+      "sourceSha256": "c1adf21143fb353e2253fa99feb8f50b93fb246d8d0bd91701690a4033c658e6",
+      "family": "game/missionTaskDeck-116.jpg",
+      "isCard": true,
+      "isRulesBearingCandidate": true,
+      "extractionState": "draft-partial",
+      "priorityScore": 1250,
+      "title": "THE SUPPLY ROUTE",
+      "typeLine": "MISSION TASK",
+      "body": "There must be a continuous path\nof Reinforced Corridors\nfrom the Landing Zone (Section A)\nto the Life Support Control C.\n\nAND\n\nThe Facility must NOT be destroyed.",
+      "footer": "",
+      "recognizedTokens": [],
+      "unknownTokens": [
+        "ICON: two pale-yellow rounded horizontal blocks and a small right-pointing triangular wedge",
+        "ICON: white rounded upright form rising from concentric cyan/blue horizontal ovals",
+        "illegible"
+      ],
+      "unreadableMarkers": [
+        "[illegible]"
+      ],
+      "reasonTags": [
+        "provenance",
+        "clipped-or-illegible",
+        "schema-or-destination"
+      ],
+      "reasonSkipped": "The material ringed Number-of-Characters composite remains an explicit no-match to the canonical p.40 glossary.; The exact paired BackURL is recorded, but its saved Akamai endpoint returned HTTP 404 and paired-side pixels were unavailable for inspection.; The proposed target identity collides inside W23 with W23-006; no source revision may overwrite or select another without a human decision.",
+      "uncertainties": [
+        "The small lower line on the upper-left red placard cannot be reliably segmented into characters and remains [illegible].",
+        "The central blue-white glyph could visually resemble either a rounded upright figure-like form or a flame/beacon-like form; no printed label establishes its identity.",
+        "The pale-yellow marks on the red placard may be indicators, blank fields, or decorative shapes; their function is not visibly established.",
+        "The mirrored orange side motifs appear integrated with the panel border, but a functional chevron-like reading cannot be completely excluded.",
+        "The final C. is visibly printed, but the image alone does not establish whether C is an abbreviation, identifier, or part of a longer naming convention.",
+        "MISSION TASK appears once at lower center; it is represented in both typeLine and lowerCenter to encode its apparent role and its visible position, not as two separate printed instances.",
+        "The material ringed Number-of-Characters composite remains an explicit no-match to the canonical p.40 glossary.",
+        "The exact paired BackURL is recorded, but its saved Akamai endpoint returned HTTP 404 and paired-side pixels were unavailable for inspection.",
+        "The proposed target identity collides inside W23 with W23-006; no source revision may overwrite or select another without a human decision."
+      ],
+      "vision": {
+        "provider": "openai-codex",
+        "model": "gpt-5.6-sol",
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-23-20260820T185027Z-p240642-4513b3",
+        "sessionId": "20260820_190057_7927a4",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-23-20260820T185027Z-p240642-4513b3/results/W23-001.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-23-20260820T185027Z-p240642-4513b3/raw/W23-001.json"
+      }
+    },
+    {
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-160_cards/card-04.png",
+      "sourceSha256": "3ff9ae783d02bbc700c294c837917e9d3037034dcd7b45ea571ed295430128d2",
+      "family": "game/missionTaskDeck-160_cards",
+      "isCard": true,
+      "isRulesBearingCandidate": true,
+      "extractionState": "draft-partial",
+      "priorityScore": 1250,
+      "title": "ESSENTIAL DATA",
+      "typeLine": "MISSION TASK",
+      "body": "At least 1 Character with Data token\nfrom the Server Room\nmust Escape using the Lander.",
+      "footer": "",
+      "recognizedTokens": [],
+      "unknownTokens": [
+        "ICON: solid white rounded-cap upright silhouette above concentric cyan/blue horizontal rings",
+        "illegible"
+      ],
+      "unreadableMarkers": [
+        "[illegible]"
+      ],
+      "reasonTags": [
+        "provenance",
+        "schema-or-destination"
+      ],
+      "reasonSkipped": "The material ringed Number-of-Characters composite remains an explicit no-match to the canonical p.40 glossary.; The exact paired BackURL is recorded, but its saved Akamai endpoint returned HTTP 404 and paired-side pixels were unavailable for inspection.; The generated sheet cell is exact, but no unique GUID/CardID selector is safely established for this cell.; The proposed target identity collides inside W23 with W23-002; no source revision may overwrite or select another without a human decision.; Assigned art uses literal Character and Lander words where current official art uses the corresponding glyphs.; Assigned Server Room condition omits Section B.; Assigned Lander condition omits Section A.; Assigned art omits the entire current official AND condition requiring no Unexplored Corridors in Section A.",
+      "uncertainties": [
+        "The luminous display contains substantial material microtext, but its small size, oblique perspective, glare, fractures, and splatter prevent exact character-level transcription.",
+        "The faint diagonal sequence behind the body panel is partly occluded and cannot be completed from the visible strokes.",
+        "The blue-white glyph's semantic identity is not established by 2+; its white element could visually resemble a rounded upright figure, pawn, bottle, or plume-like marker.",
+        "The large luminous display, fractures, splatter, cables, and background equipment are treated as pictorial scene elements rather than promoted to functional symbols.",
+        "The mirrored orange panel-side marks appear border-integrated and are not promoted to functional symbols.",
+        "MISSION TASK occurs once at lower center; it is represented in both typeLine and lowerCenter to encode its apparent role and visible position, not as two separate printed instances.",
+        "The material ringed Number-of-Characters composite remains an explicit no-match to the canonical p.40 glossary.",
+        "The exact paired BackURL is recorded, but its saved Akamai endpoint returned HTTP 404 and paired-side pixels were unavailable for inspection.",
+        "The generated sheet cell is exact, but no unique GUID/CardID selector is safely established for this cell.",
+        "The proposed target identity collides inside W23 with W23-002; no source revision may overwrite or select another without a human decision.",
+        "Assigned art uses literal Character and Lander words where current official art uses the corresponding glyphs.",
+        "Assigned Server Room condition omits Section B.",
+        "Assigned Lander condition omits Section A.",
+        "Assigned art omits the entire current official AND condition requiring no Unexplored Corridors in Section A."
+      ],
+      "vision": {
+        "provider": "openai-codex",
+        "model": "gpt-5.6-sol",
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-23-20260820T185027Z-p240642-4513b3",
+        "sessionId": "20260820_190057_7927a4",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-23-20260820T185027Z-p240642-4513b3/results/W23-008.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-23-20260820T185027Z-p240642-4513b3/raw/W23-008.json"
+      }
+    },
+    {
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-160_cards/card-03.png",
+      "sourceSha256": "2b2042f9604da8c62c67c80b9953fe959c4c82ac93a56f2e258c473f85248e9f",
+      "family": "game/missionTaskDeck-160_cards",
+      "isCard": true,
+      "isRulesBearingCandidate": true,
+      "extractionState": "draft-partial",
+      "priorityScore": 1150,
+      "title": "SABOTAGE",
+      "typeLine": "MISSION TASK",
+      "body": "Place an Explosive token in each\nLife Support Control Room.",
+      "footer": "",
+      "recognizedTokens": [],
+      "unknownTokens": [
+        "ICON: dark rounded square with a thick pale border and faint illegible internal marks",
+        "ICON: solid white rounded-cap upright silhouette above concentric cyan/blue horizontal rings",
+        "illegible"
+      ],
+      "unreadableMarkers": [
+        "[illegible]"
+      ],
+      "reasonTags": [
+        "provenance"
+      ],
+      "reasonSkipped": "The material ringed Number-of-Characters composite remains an explicit no-match to the canonical p.40 glossary.; The exact paired BackURL is recorded, but its saved Akamai endpoint returned HTTP 404 and paired-side pixels were unavailable for inspection.; The generated sheet cell is exact, but no unique GUID/CardID selector is safely established for this cell.; No Mission Task titled SABOTAGE appears on the current two-page Awaken Realms Objectives Help Sheet or in the licensed BGA mission-task data.",
+      "uncertainties": [
+        "The central display contains substantial material microtext, but its small size, oblique perspective, glare, fractures, and splatter prevent exact character-level transcription.",
+        "The dark rounded square may be an independent functional symbol, a framed slot, or an empty dark object; no printed label establishes its identity.",
+        "The faint marks inside the dark square cannot be distinguished reliably from low-contrast text, texture, or underlying diagonal background strokes.",
+        "The blue-white glyph's semantic identity is not established by 2+; its white element could visually resemble a rounded upright figure, pawn, bottle, or plume-like marker.",
+        "The large luminous display, fractures, splatter, and background equipment are treated as pictorial scene elements rather than promoted to functional symbols.",
+        "The mirrored orange panel-side marks appear border-integrated and are not promoted to functional symbols.",
+        "MISSION TASK occurs once at lower center; it is represented in both typeLine and lowerCenter to encode its apparent role and visible position, not as two separate printed instances.",
+        "The material ringed Number-of-Characters composite remains an explicit no-match to the canonical p.40 glossary.",
+        "The exact paired BackURL is recorded, but its saved Akamai endpoint returned HTTP 404 and paired-side pixels were unavailable for inspection.",
+        "The generated sheet cell is exact, but no unique GUID/CardID selector is safely established for this cell.",
+        "No Mission Task titled SABOTAGE appears on the current two-page Awaken Realms Objectives Help Sheet or in the licensed BGA mission-task data."
+      ],
+      "vision": {
+        "provider": "openai-codex",
+        "model": "gpt-5.6-sol",
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-23-20260820T185027Z-p240642-4513b3",
+        "sessionId": "20260820_190057_7927a4",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-23-20260820T185027Z-p240642-4513b3/results/W23-007.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-23-20260820T185027Z-p240642-4513b3/raw/W23-007.json"
       }
     },
     {
@@ -1207,120 +1354,6 @@
         "workerId": null,
         "sessionId": "20260815_054009_4dea76",
         "resultPath": "assets/tts-mod/extract/vision-results/cfc93364f9ec257e07bc84989bbea9709ecdc9519d11f2bc7fd4c5b519ab3f6f.json",
-        "rawResultPath": null
-      }
-    },
-    {
-      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/seriouswound-149_cards/card-01.png",
-      "sourceSha256": "42980fa5cef70e8ed40649d1495fc75c015c43f60ebb52961031d18f8f3e1564",
-      "family": "game/seriouswound-149_cards",
-      "isCard": true,
-      "isRulesBearingCandidate": true,
-      "extractionState": "draft-full",
-      "priorityScore": 430,
-      "title": "LUNGS",
-      "typeLine": null,
-      "body": "Whenever you Pass:\nlose 1 [oxygenToken] (even in Section\nwith [oxygen supply]).\nIf you already have 0 [oxygenToken],\nlose 2 [characterHealth] instead.",
-      "footer": null,
-      "recognizedTokens": [
-        "characterHealth",
-        "oxygen supply",
-        "oxygenToken"
-      ],
-      "unknownTokens": [
-        "ICON: orange glowing horseshoe-shaped glyph",
-        "ICON: red glowing horseshoe-shaped glyph",
-        "ICON: yellow glowing horseshoe-shaped glyph"
-      ],
-      "unreadableMarkers": [],
-      "reasonTags": [
-        "classification"
-      ],
-      "reasonSkipped": "exact card identity/transcription/icon/category is not uniformly high-confidence",
-      "uncertainties": [
-        "Three red, orange, and yellow horseshoe-shaped glyphs in the anatomical display are not confidently matched to the canonical glossary.",
-        "Faint vertical diagnostic-interface lettering along the left edge is too indistinct to transcribe confidently."
-      ],
-      "vision": {
-        "provider": "openai-codex",
-        "model": "gpt-5.6-sol",
-        "reasoningEffort": null,
-        "workerId": null,
-        "sessionId": "20260815_054013_845b2c",
-        "resultPath": "assets/tts-mod/extract/vision-results/42980fa5cef70e8ed40649d1495fc75c015c43f60ebb52961031d18f8f3e1564.json",
-        "rawResultPath": null
-      }
-    },
-    {
-      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/seriouswound-149_cards/card-02.png",
-      "sourceSha256": "e6ec34b2dde06f1cd76e958af3d24ee1bcc4fa177e4d214b086c70d82a8a2322",
-      "family": "game/seriouswound-149_cards",
-      "isCard": true,
-      "isRulesBearingCandidate": true,
-      "extractionState": "draft-full",
-      "priorityScore": 430,
-      "title": "HAND",
-      "typeLine": null,
-      "body": "“Use Item” Action costs\nyou 1 [ICON: white capital A in a black square with white border] more.",
-      "footer": null,
-      "recognizedTokens": [],
-      "unknownTokens": [
-        "ICON: white capital A in a black square with white border"
-      ],
-      "unreadableMarkers": [],
-      "reasonTags": [
-        "classification"
-      ],
-      "reasonSkipped": "exact card identity/transcription/icon/category is not uniformly high-confidence",
-      "uncertainties": [
-        "The boxed capital A is a card-local action/cost glyph not confidently matched to the canonical glossary, so it is described literally.",
-        "Tiny vertical interface text along the left edge is too faint to transcribe confidently.",
-        "The three small circular diagnostic glyphs are not confidently matched to the canonical glossary."
-      ],
-      "vision": {
-        "provider": "openai-codex",
-        "model": "gpt-5.6-sol",
-        "reasoningEffort": null,
-        "workerId": null,
-        "sessionId": "20260815_054017_e2dab1",
-        "resultPath": "assets/tts-mod/extract/vision-results/e6ec34b2dde06f1cd76e958af3d24ee1bcc4fa177e4d214b086c70d82a8a2322.json",
-        "rawResultPath": null
-      }
-    },
-    {
-      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/seriouswound-149_cards/card-03.png",
-      "sourceSha256": "322587af9825baec2c8786a0f5e15a657257a5633f025e694de2c962127b44f9",
-      "family": "game/seriouswound-149_cards",
-      "isCard": true,
-      "isRulesBearingCandidate": true,
-      "extractionState": "draft-full",
-      "priorityScore": 430,
-      "title": "ARM",
-      "typeLine": null,
-      "body": "You have only 1 Hand slot. If you\nhave Items in both Hand slots,\nyou must instantly discard\nthe Item from one of them.",
-      "footer": null,
-      "recognizedTokens": [],
-      "unknownTokens": [
-        "ICON: magenta circular marker with white U-shaped glyph",
-        "ICON: orange circular marker with white U-shaped glyph",
-        "ICON: yellow circular marker with white U-shaped glyph"
-      ],
-      "unreadableMarkers": [],
-      "reasonTags": [
-        "classification"
-      ],
-      "reasonSkipped": "exact card identity/transcription/icon/category is not uniformly high-confidence",
-      "uncertainties": [
-        "The three colored U-shaped callout glyphs are not confidently matched to any canonical glossary icon.",
-        "The small background interface labels REC SUITS and TISSUE DAMAGES are stylized and relatively low-contrast."
-      ],
-      "vision": {
-        "provider": "openai-codex",
-        "model": "gpt-5.6-sol",
-        "reasoningEffort": null,
-        "workerId": null,
-        "sessionId": "20260815_054019_a0bead",
-        "resultPath": "assets/tts-mod/extract/vision-results/322587af9825baec2c8786a0f5e15a657257a5633f025e694de2c962127b44f9.json",
         "rawResultPath": null
       }
     }

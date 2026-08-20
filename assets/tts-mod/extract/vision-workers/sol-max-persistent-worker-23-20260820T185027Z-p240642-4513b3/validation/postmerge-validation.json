@@ -1,0 +1,306 @@
+{
+  "schemaVersion": 1,
+  "recordType": "w23FullPostmergeValidation",
+  "validatedAt": "2026-08-20T20:37:43.232087Z",
+  "workerId": "sol-max-persistent-worker-23-20260820T185027Z-p240642-4513b3",
+  "commands": [
+    {
+      "name": "focused-tests",
+      "command": [
+        "python3",
+        "-m",
+        "pytest",
+        "assets/tts-mod/extract/test_card_text_evidence_registry.py",
+        "-q"
+      ],
+      "startedAt": "2026-08-20T20:37:38.542148Z",
+      "completedAt": "2026-08-20T20:37:39.698480Z",
+      "returnCode": 0,
+      "stdoutSha256": "1e4efa9e3363c18bf406019b3ab5bb78befab7a98cd4d5e390257656b6e5cd89",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdoutTail": "..........                                                               [100%]\n10 passed in 0.95s\n",
+      "stderrTail": "",
+      "outputHashes": {
+        "progress": "ae45f8b4e98cb0ef1fc214723ea16b8c24537000c51dba7cd4b9581eb9b701cc",
+        "queue": "d4ada7528b037b1656632afb37c18d9d8dfaab4e6b454c3722af8aef82c46257",
+        "registry": "e91580500a5a282208b953617aa408b1f6675e044f302dfebce0489864eaecc0",
+        "corpus": "5a4a85be42647b3febdb88ad9cefc06e704553cf11f30636a4f610937aba027c",
+        "coverage": "1a772f1dec806cd259a59a57ce045a1ee4a23a12d9bc0bde916a9a0d00d017cb",
+        "symbols": "079d4d2318274c888f1e31706ebeac3038e7e713d66f6d9ecdca89d46851f53c",
+        "corpusValidation": "047a91c0c259a04eb0d53cfe66615fef3cb32d38cfa21d6a5b49fa71b001f2c8",
+        "visionValidation": "1f12a14ac03587d319017a4113d82abfdbceddda8fdd89b8d6d8934e91b6fd02"
+      }
+    },
+    {
+      "name": "coverage",
+      "command": [
+        "python3",
+        "assets/tts-mod/extract/analyze_card_extraction_coverage.py",
+        "--output",
+        "docs/qa/card-extraction-coverage.json",
+        "--top",
+        "30"
+      ],
+      "startedAt": "2026-08-20T20:37:39.707445Z",
+      "completedAt": "2026-08-20T20:37:39.785506Z",
+      "returnCode": 0,
+      "stdoutSha256": "53ddb857ac85c342aaf4192eb1cfb655f6e157372d8f28e71a214dc4baed6ac9",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdoutTail": "ealth].\\nGet 1 Contamination.\\n\\n[ICON: cyan circular glyph showing a frontal horned multi-limbed creature]\\nIf you are Injured or Heavily\\nInjured, you die.\\nOtherwise, you get\\n1 Serious Wound and\\n1 Contamination card.\",\n      \"footer\": null,\n      \"recognizedTokens\": [\n        \"characterHealth\"\n      ],\n      \"unknownTokens\": [\n        \"ICON: cyan circular glyph showing a frontal horned multi-limbed creature\",\n        \"ICON: cyan circular glyph showing a low horizontal multi-limbed creature\",\n        \"ICON: cyan circular glyph showing an upright spined creature\"\n      ],\n      \"unreadableMarkers\": [],\n      \"reasonTags\": [\n        \"classification\"\n      ],\n      \"reasonSkipped\": \"exact card identity/transcription/icon/category is not uniformly high-confidence\",\n      \"uncertainties\": [\n        \"The three cyan circular line-leading glyphs are card-local symbols absent from the supplied canonical glossary; their meanings are not assigned.\",\n        \"Fine anatomical details within the three cyan glyphs are stylized and somewhat ambiguous.\"\n      ],\n      \"vision\": {\n        \"provider\": \"openai-codex\",\n        \"model\": \"gpt-5.6-sol\",\n        \"reasoningEffort\": null,\n        \"workerId\": null,\n        \"sessionId\": \"20260815_052023_d7796c\",\n        \"resultPath\": \"assets/tts-mod/extract/vision-results/8a8f393e64f6f0d5d1bf569afbff6b1737615c269b09f5e3bd11711f7e396e16.json\",\n        \"rawResultPath\": null\n      }\n    },\n    {\n      \"sourcePath\": \"assets/tts-mod/extract/v2-dl/tree/cards/game/event-054.png\",\n      \"sourceSha256\": \"ac3dc8c20efc3e964383bb9956b264bf3f4a64762d8d8920f5c612d1841ec4bf\",\n      \"family\": \"game/event-054.png\",\n      \"isCard\": true,\n      \"isRulesBearingCandidate\": true,\n      \"extractionState\": \"draft-full\",\n      \"priorityScore\": 430,\n      \"title\": \"LEAVING THE SHELL\",\n      \"typeLine\": null,\n      \"body\": \"No [intruder] moves.\\n\\nEach [character] with Larva:\\nGain 1 Contamination, discard all [ICON: solid white rectangular block],\\nand reshuffle your deck.\\nThen, resolve the Eclosion Procedure.\\nEach other [character]:\\nDraw 4 [ICON: solid white rectangular block] and resolve the Infection\\nProcedure. Then, discard all [ICON: solid white rectangular block].\\n\\nReshuffle the Event deck.\",\n      \"footer\": \"\",\n      \"recognizedTokens\": [\n        \"character\",\n        \"intruder\"\n      ],\n      \"unknownTokens\": [\n        \"ICON: solid white rectangular block\"\n      ],\n      \"unreadableMarkers\": [],\n      \"reasonTags\": [\n        \"other\"\n      ],\n      \"reasonSkipped\": \"Three featureless solid white rectangular inline occurrences lack authoritative canonical identities; exactly one explicit no-match row per occurrence is preserved.\",\n      \"uncertainties\": [\n        \"Three featureless solid white rectangular inline occurrences lack visible morphology required to establish any canonical token.\"\n      ],\n      \"vision\": {\n        \"provider\": \"openai-codex\",\n        \"model\": \"gpt-5.6-sol\",\n        \"reasoningEffort\": \"max\",\n        \"workerId\": \"sol-max-persistent-worker-18-recovery-20260820T044726Z-p176060-5eb908\",\n        \"sessionId\": \"20260819_083610_6461bd\",\n        \"resultPath\": \"assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-18-recovery-20260820T044726Z-p176060-5eb908/results/W18-002.json\",\n        \"rawResultPath\": \"assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-18-recovery-20260820T044726Z-p176060-5eb908/raw/W18-002.json\"\n      }\n    },\n    {\n      \"sourcePath\": \"assets/tts-mod/extract/v2-dl/tree/cards/game/seriouswound-028.png\",\n      \"sourceSha256\": \"cfc93364f9ec257e07bc84989bbea9709ecdc9519d11f2bc7fd4c5b519ab3f6f\",\n      \"family\": \"game/seriouswound-028.png\",\n      \"isCard\": true,\n      \"isRulesBearingCandidate\": true,\n      \"extractionState\": \"draft-full\",\n      \"priorityScore\": 430,\n      \"title\": \"KNEE\",\n      \"typeLine\": null,\n      \"body\": \"“Make a Move with [ICON: white angular movement glyph]”\\ncosts you 1 [actionCard] more.\",\n      \"footer\": null,\n      \"recognizedTokens\": [\n        \"actionCard\"\n      ],\n      \"unknownTokens\": [\n        \"ICON: white angular movement glyph\"\n      ],\n      \"unreadableMarkers\": [],\n      \"reasonTags\": [\n        \"classification\"\n      ],\n      \"reasonSkipped\": \"exact card identity/transcription/icon/category is not uniformly high-confidence\",\n      \"uncertainties\": [\n        \"The white line-local glyph after “with” is not in the supplied canonical glossary; it is transcribed morphologically rather than assigned a meaning.\",\n        \"Faint decorative interface text and marks elsewhere in the artwork may be too indistinct to transcribe completely.\"\n      ],\n      \"vision\": {\n        \"provider\": \"openai-codex\",\n        \"model\": \"gpt-5.6-sol\",\n        \"reasoningEffort\": null,\n        \"workerId\": null,\n        \"sessionId\": \"20260815_054009_4dea76\",\n        \"resultPath\": \"assets/tts-mod/extract/vision-results/cfc93364f9ec257e07bc84989bbea9709ecdc9519d11f2bc7fd4c5b519ab3f6f.json\",\n        \"rawResultPath\": null\n      }\n    }\n  ]\n}\n",
+      "stderrTail": "",
+      "outputHashes": {
+        "progress": "ae45f8b4e98cb0ef1fc214723ea16b8c24537000c51dba7cd4b9581eb9b701cc",
+        "queue": "d4ada7528b037b1656632afb37c18d9d8dfaab4e6b454c3722af8aef82c46257",
+        "registry": "e91580500a5a282208b953617aa408b1f6675e044f302dfebce0489864eaecc0",
+        "corpus": "5a4a85be42647b3febdb88ad9cefc06e704553cf11f30636a4f610937aba027c",
+        "coverage": "53ddb857ac85c342aaf4192eb1cfb655f6e157372d8f28e71a214dc4baed6ac9",
+        "symbols": "079d4d2318274c888f1e31706ebeac3038e7e713d66f6d9ecdca89d46851f53c",
+        "corpusValidation": "047a91c0c259a04eb0d53cfe66615fef3cb32d38cfa21d6a5b49fa71b001f2c8",
+        "visionValidation": "1f12a14ac03587d319017a4113d82abfdbceddda8fdd89b8d6d8934e91b6fd02"
+      }
+    },
+    {
+      "name": "corpus-build-1",
+      "command": [
+        "python3",
+        "assets/tts-mod/extract/build_card_text_corpus.py"
+      ],
+      "startedAt": "2026-08-20T20:37:39.792404Z",
+      "completedAt": "2026-08-20T20:37:40.116336Z",
+      "returnCode": 0,
+      "stdoutSha256": "86e82d1c661f0a6ed152924c3b2d51ff6136f7a7b8282c63217f1132ef647572",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdoutTail": "{\n  \"output\": \"assets/tts-mod/extract/card-text-corpus.json\",\n  \"records\": 390,\n  \"rulesTextPresent\": 352,\n  \"extractionStates\": {\n    \"complete-non-rules-or-reference\": 34,\n    \"draft-full\": 258,\n    \"draft-partial\": 4,\n    \"no-transcription\": 2,\n    \"non-rules-or-reference\": 14,\n    \"verified-canonical\": 78\n  },\n  \"rulesInformationReadiness\": {\n    \"canonical\": 78,\n    \"draft-partial\": 4,\n    \"draft-text-complete\": 138,\n    \"draft-text-complete-symbols-unresolved\": 120,\n    \"missing-transcription\": 2,\n    \"not-rules-bearing-or-reference\": 48\n  },\n  \"selectedEvidence\": {\n    \"selectedEvidenceRegistry\": \"assets/tts-mod/extract/selected-card-text-evidence.json\",\n    \"selectedEvidenceRegistrySchemaVersion\": 1,\n    \"selectedEvidenceRegistrySha256\": \"e91580500a5a282208b953617aa408b1f6675e044f302dfebce0489864eaecc0\",\n    \"selectedEvidenceTupleDigest\": \"1841d64c35cd9f0bf7cb5882fbe424596564ab8fc77f21f95e72e751c7cbd881\",\n    \"selectedEvidenceEntryCount\": 110,\n    \"selectedEvidenceRunCount\": 110\n  }\n}\n",
+      "stderrTail": "",
+      "outputHashes": {
+        "progress": "ae45f8b4e98cb0ef1fc214723ea16b8c24537000c51dba7cd4b9581eb9b701cc",
+        "queue": "d4ada7528b037b1656632afb37c18d9d8dfaab4e6b454c3722af8aef82c46257",
+        "registry": "e91580500a5a282208b953617aa408b1f6675e044f302dfebce0489864eaecc0",
+        "corpus": "5a4a85be42647b3febdb88ad9cefc06e704553cf11f30636a4f610937aba027c",
+        "coverage": "53ddb857ac85c342aaf4192eb1cfb655f6e157372d8f28e71a214dc4baed6ac9",
+        "symbols": "079d4d2318274c888f1e31706ebeac3038e7e713d66f6d9ecdca89d46851f53c",
+        "corpusValidation": "047a91c0c259a04eb0d53cfe66615fef3cb32d38cfa21d6a5b49fa71b001f2c8",
+        "visionValidation": "1f12a14ac03587d319017a4113d82abfdbceddda8fdd89b8d6d8934e91b6fd02"
+      }
+    },
+    {
+      "name": "corpus-validate",
+      "command": [
+        "python3",
+        "assets/tts-mod/extract/validate_card_text_corpus.py"
+      ],
+      "startedAt": "2026-08-20T20:37:40.122886Z",
+      "completedAt": "2026-08-20T20:37:40.436569Z",
+      "returnCode": 0,
+      "stdoutSha256": "c604534539255eb3130f696509d89fd77260e0262f1d1c922bc8108499369e6a",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdoutTail": "{\n  \"schemaVersion\": 1,\n  \"passed\": true,\n  \"sourceProgressUpdatedAt\": \"2026-08-20T20:35:05.197552Z\",\n  \"sourceQueueUpdatedAt\": \"2026-08-20T20:35:05.197552Z\",\n  \"checks\": {\n    \"records\": 390,\n    \"rulesTextPresent\": 352,\n    \"extractionStates\": {\n      \"complete-non-rules-or-reference\": 34,\n      \"draft-full\": 258,\n      \"draft-partial\": 4,\n      \"no-transcription\": 2,\n      \"non-rules-or-reference\": 14,\n      \"verified-canonical\": 78\n    },\n    \"rulesInformationReadiness\": {\n      \"canonical\": 78,\n      \"draft-partial\": 4,\n      \"draft-text-complete\": 138,\n      \"draft-text-complete-symbols-unresolved\": 120,\n      \"missing-transcription\": 2,\n      \"not-rules-bearing-or-reference\": 48\n    },\n    \"sourceHashesVerified\": 390,\n    \"glossaryIdentifiers\": 49,\n    \"canonicalSidecarsCovered\": 78,\n    \"deferredCardQueueEntries\": 278,\n    \"selectedEvidenceRegistryEntries\": 110,\n    \"selectedEvidenceRegistryRuns\": 110\n  },\n  \"failureCount\": 0,\n  \"failures\": []\n}\n",
+      "stderrTail": "",
+      "outputHashes": {
+        "progress": "ae45f8b4e98cb0ef1fc214723ea16b8c24537000c51dba7cd4b9581eb9b701cc",
+        "queue": "d4ada7528b037b1656632afb37c18d9d8dfaab4e6b454c3722af8aef82c46257",
+        "registry": "e91580500a5a282208b953617aa408b1f6675e044f302dfebce0489864eaecc0",
+        "corpus": "5a4a85be42647b3febdb88ad9cefc06e704553cf11f30636a4f610937aba027c",
+        "coverage": "53ddb857ac85c342aaf4192eb1cfb655f6e157372d8f28e71a214dc4baed6ac9",
+        "symbols": "079d4d2318274c888f1e31706ebeac3038e7e713d66f6d9ecdca89d46851f53c",
+        "corpusValidation": "c604534539255eb3130f696509d89fd77260e0262f1d1c922bc8108499369e6a",
+        "visionValidation": "1f12a14ac03587d319017a4113d82abfdbceddda8fdd89b8d6d8934e91b6fd02"
+      }
+    },
+    {
+      "name": "unresolved-symbols",
+      "command": [
+        "python3",
+        "assets/tts-mod/extract/analyze_unresolved_symbols.py"
+      ],
+      "startedAt": "2026-08-20T20:37:40.443608Z",
+      "completedAt": "2026-08-20T20:37:40.474677Z",
+      "returnCode": 0,
+      "stdoutSha256": "6dd52f5c74f89a57096d06f99eee3b3344b7eebeb76935f8586318756161e81c",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdoutTail": "{\n  \"output\": \"docs/qa/card-symbol-resolution-backlog.json\",\n  \"summary\": {\n    \"unresolvedTokenOccurrences\": 219,\n    \"distinctLiteralDescriptions\": 196,\n    \"affectedAssets\": 126,\n    \"clusters\": 10\n  },\n  \"ranking\": [\n    {\n      \"cluster\": \"other-local-morphology\",\n      \"priorityScore\": 6679,\n      \"assetCount\": 60,\n      \"rulesBearingAssetCount\": 60,\n      \"occurrences\": 79\n    },\n    {\n      \"cluster\": \"circular-creature-morphology\",\n      \"priorityScore\": 2260,\n      \"assetCount\": 20,\n      \"rulesBearingAssetCount\": 20,\n      \"occurrences\": 60\n    },\n    {\n      \"cluster\": \"square-or-checkbox-morphology\",\n      \"priorityScore\": 1778,\n      \"assetCount\": 16,\n      \"rulesBearingAssetCount\": 16,\n      \"occurrences\": 18\n    },\n    {\n      \"cluster\": \"gear-or-cog-morphology\",\n      \"priorityScore\": 1332,\n      \"assetCount\": 12,\n      \"rulesBearingAssetCount\": 12,\n      \"occurrences\": 12\n    },\n    {\n      \"cluster\": \"biohazard-morphology\",\n      \"priorityScore\": 927,\n      \"assetCount\": 11,\n      \"rulesBearingAssetCount\": 11,\n      \"occurrences\": 17\n    },\n    {\n      \"cluster\": \"red-prohibition-overlay\",\n      \"priorityScore\": 888,\n      \"assetCount\": 8,\n      \"rulesBearingAssetCount\": 8,\n      \"occurrences\": 8\n    },\n    {\n      \"cluster\": \"triangle-morphology\",\n      \"priorityScore\": 888,\n      \"assetCount\": 8,\n      \"rulesBearingAssetCount\": 8,\n      \"occurrences\": 8\n    },\n    {\n      \"cluster\": \"octagonal-or-chamfered-polygon\",\n      \"priorityScore\": 666,\n      \"assetCount\": 6,\n      \"rulesBearingAssetCount\": 6,\n      \"occurrences\": 6\n    },\n    {\n      \"cluster\": \"skull-burst-or-explosion-morphology\",\n      \"priorityScore\": 555,\n      \"assetCount\": 5,\n      \"rulesBearingAssetCount\": 5,\n      \"occurrences\": 5\n    },\n    {\n      \"cluster\": \"exclamation-marker\",\n      \"priorityScore\": 366,\n      \"assetCount\": 6,\n      \"rulesBearingAssetCount\": 6,\n      \"occurrences\": 6\n    }\n  ]\n}\n",
+      "stderrTail": "",
+      "outputHashes": {
+        "progress": "ae45f8b4e98cb0ef1fc214723ea16b8c24537000c51dba7cd4b9581eb9b701cc",
+        "queue": "d4ada7528b037b1656632afb37c18d9d8dfaab4e6b454c3722af8aef82c46257",
+        "registry": "e91580500a5a282208b953617aa408b1f6675e044f302dfebce0489864eaecc0",
+        "corpus": "5a4a85be42647b3febdb88ad9cefc06e704553cf11f30636a4f610937aba027c",
+        "coverage": "53ddb857ac85c342aaf4192eb1cfb655f6e157372d8f28e71a214dc4baed6ac9",
+        "symbols": "0e8fd7f44887a11ee3cdf45138f02bed393996f8e9617f2c494bd368cce2e3e6",
+        "corpusValidation": "c604534539255eb3130f696509d89fd77260e0262f1d1c922bc8108499369e6a",
+        "visionValidation": "1f12a14ac03587d319017a4113d82abfdbceddda8fdd89b8d6d8934e91b6fd02"
+      }
+    },
+    {
+      "name": "vision-partition",
+      "command": [
+        "python3",
+        "assets/tts-mod/extract/vision_validate.py"
+      ],
+      "startedAt": "2026-08-20T20:37:40.480834Z",
+      "completedAt": "2026-08-20T20:37:42.069381Z",
+      "returnCode": 0,
+      "stdoutSha256": "a48a70a01590b8937483fc24af617c8a66ed8664e3e1db1625034774911b755f",
+      "stderrSha256": "272b232a50bf5578d280be50c9f5650422118ab110f28c8c8a672f68ac3d9c4a",
+      "stdoutTail": "{\n  \"schemaVersion\": 1,\n  \"validatedProgressUpdatedAt\": \"2026-08-20T20:35:05.197552Z\",\n  \"passed\": true,\n  \"checks\": {\n    \"inScopeRecords\": 532,\n    \"stateCounts\": {\n      \"complete\": 148,\n      \"deferred\": 384\n    },\n    \"sourceImagesDecoded\": 532,\n    \"reviewEntries\": 384,\n    \"manifestEntries\": 444,\n    \"manifestUniqueUrls\": 444,\n    \"catalogEntries\": 444,\n    \"catalogSections\": 21,\n    \"canonicalSidecars\": 78,\n    \"canonicalImagesPaired\": 78,\n    \"completeCanonicalReferences\": 148,\n    \"reconciliation\": {\n      \"baselineInScope\": 532,\n      \"baselinePreviouslyComplete\": 23,\n      \"baselinePreviouslyDeferred\": 1,\n      \"newlyCompleted\": 125,\n      \"newlyDeferred\": 383,\n      \"totalComplete\": 148,\n      \"totalDeferred\": 384,\n      \"remainingUnaccounted\": 0,\n      \"sidecarsCreated\": 60,\n      \"totalSidecars\": 78,\n      \"sourceFilesMovedOrRenamed\": 0\n    }\n  },\n  \"failureCount\": 0,\n  \"failures\": []\n}\n",
+      "stderrTail": "/home/smithers/.local/lib/python3.13/site-packages/PIL/Image.py:3578: DecompressionBombWarning: Image size (91667280 pixels) exceeds limit of 89478485 pixels, could be decompression bomb DOS attack.\n  warnings.warn(\n",
+      "outputHashes": {
+        "progress": "ae45f8b4e98cb0ef1fc214723ea16b8c24537000c51dba7cd4b9581eb9b701cc",
+        "queue": "d4ada7528b037b1656632afb37c18d9d8dfaab4e6b454c3722af8aef82c46257",
+        "registry": "e91580500a5a282208b953617aa408b1f6675e044f302dfebce0489864eaecc0",
+        "corpus": "5a4a85be42647b3febdb88ad9cefc06e704553cf11f30636a4f610937aba027c",
+        "coverage": "53ddb857ac85c342aaf4192eb1cfb655f6e157372d8f28e71a214dc4baed6ac9",
+        "symbols": "0e8fd7f44887a11ee3cdf45138f02bed393996f8e9617f2c494bd368cce2e3e6",
+        "corpusValidation": "c604534539255eb3130f696509d89fd77260e0262f1d1c922bc8108499369e6a",
+        "visionValidation": "a48a70a01590b8937483fc24af617c8a66ed8664e3e1db1625034774911b755f"
+      }
+    },
+    {
+      "name": "reproducibility",
+      "command": [
+        "python3",
+        "assets/tts-mod/extract/check_card_text_corpus_reproducibility.py"
+      ],
+      "startedAt": "2026-08-20T20:37:42.075665Z",
+      "completedAt": "2026-08-20T20:37:42.710915Z",
+      "returnCode": 0,
+      "stdoutSha256": "63cefabeca012996f2d4d4fe973d671c4d1bd18775c1702514a72cf0db103b81",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdoutTail": "{\n  \"passed\": true,\n  \"trackedCorpus\": \"assets/tts-mod/extract/card-text-corpus.json\",\n  \"trackedCorpusSha256\": \"5a4a85be42647b3febdb88ad9cefc06e704553cf11f30636a4f610937aba027c\",\n  \"firstBuildSha256\": \"5a4a85be42647b3febdb88ad9cefc06e704553cf11f30636a4f610937aba027c\",\n  \"secondBuildSha256\": \"5a4a85be42647b3febdb88ad9cefc06e704553cf11f30636a4f610937aba027c\",\n  \"trackedOutputUnchanged\": true,\n  \"forbiddenGenerationMetadata\": []\n}\n",
+      "stderrTail": "",
+      "outputHashes": {
+        "progress": "ae45f8b4e98cb0ef1fc214723ea16b8c24537000c51dba7cd4b9581eb9b701cc",
+        "queue": "d4ada7528b037b1656632afb37c18d9d8dfaab4e6b454c3722af8aef82c46257",
+        "registry": "e91580500a5a282208b953617aa408b1f6675e044f302dfebce0489864eaecc0",
+        "corpus": "5a4a85be42647b3febdb88ad9cefc06e704553cf11f30636a4f610937aba027c",
+        "coverage": "53ddb857ac85c342aaf4192eb1cfb655f6e157372d8f28e71a214dc4baed6ac9",
+        "symbols": "0e8fd7f44887a11ee3cdf45138f02bed393996f8e9617f2c494bd368cce2e3e6",
+        "corpusValidation": "c604534539255eb3130f696509d89fd77260e0262f1d1c922bc8108499369e6a",
+        "visionValidation": "a48a70a01590b8937483fc24af617c8a66ed8664e3e1db1625034774911b755f"
+      }
+    },
+    {
+      "name": "corpus-build-2",
+      "command": [
+        "python3",
+        "assets/tts-mod/extract/build_card_text_corpus.py"
+      ],
+      "startedAt": "2026-08-20T20:37:42.717213Z",
+      "completedAt": "2026-08-20T20:37:43.042277Z",
+      "returnCode": 0,
+      "stdoutSha256": "86e82d1c661f0a6ed152924c3b2d51ff6136f7a7b8282c63217f1132ef647572",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdoutTail": "{\n  \"output\": \"assets/tts-mod/extract/card-text-corpus.json\",\n  \"records\": 390,\n  \"rulesTextPresent\": 352,\n  \"extractionStates\": {\n    \"complete-non-rules-or-reference\": 34,\n    \"draft-full\": 258,\n    \"draft-partial\": 4,\n    \"no-transcription\": 2,\n    \"non-rules-or-reference\": 14,\n    \"verified-canonical\": 78\n  },\n  \"rulesInformationReadiness\": {\n    \"canonical\": 78,\n    \"draft-partial\": 4,\n    \"draft-text-complete\": 138,\n    \"draft-text-complete-symbols-unresolved\": 120,\n    \"missing-transcription\": 2,\n    \"not-rules-bearing-or-reference\": 48\n  },\n  \"selectedEvidence\": {\n    \"selectedEvidenceRegistry\": \"assets/tts-mod/extract/selected-card-text-evidence.json\",\n    \"selectedEvidenceRegistrySchemaVersion\": 1,\n    \"selectedEvidenceRegistrySha256\": \"e91580500a5a282208b953617aa408b1f6675e044f302dfebce0489864eaecc0\",\n    \"selectedEvidenceTupleDigest\": \"1841d64c35cd9f0bf7cb5882fbe424596564ab8fc77f21f95e72e751c7cbd881\",\n    \"selectedEvidenceEntryCount\": 110,\n    \"selectedEvidenceRunCount\": 110\n  }\n}\n",
+      "stderrTail": "",
+      "outputHashes": {
+        "progress": "ae45f8b4e98cb0ef1fc214723ea16b8c24537000c51dba7cd4b9581eb9b701cc",
+        "queue": "d4ada7528b037b1656632afb37c18d9d8dfaab4e6b454c3722af8aef82c46257",
+        "registry": "e91580500a5a282208b953617aa408b1f6675e044f302dfebce0489864eaecc0",
+        "corpus": "5a4a85be42647b3febdb88ad9cefc06e704553cf11f30636a4f610937aba027c",
+        "coverage": "53ddb857ac85c342aaf4192eb1cfb655f6e157372d8f28e71a214dc4baed6ac9",
+        "symbols": "0e8fd7f44887a11ee3cdf45138f02bed393996f8e9617f2c494bd368cce2e3e6",
+        "corpusValidation": "c604534539255eb3130f696509d89fd77260e0262f1d1c922bc8108499369e6a",
+        "visionValidation": "a48a70a01590b8937483fc24af617c8a66ed8664e3e1db1625034774911b755f"
+      }
+    }
+  ],
+  "checks": {
+    "focusedTenTestsPassed": true,
+    "coverage532Partition": true,
+    "allW23SourcesInSymbolBacklog": true,
+    "corpusValidationPassed": true,
+    "eightUnresolvedOccurrenceCardinalityPassed": true,
+    "visionValidationPassed": true,
+    "reproducibilityPassed": true,
+    "corpusBuildByteStable": true,
+    "allSourceHashesAndDecodesPassed": true,
+    "canonicalTreeUnchanged": true,
+    "recursiveCorpusDiffOnlyEightAssignedRecords": true,
+    "gitDiffCheckPassed": true,
+    "trackedScopeExactlyEightPaths": true,
+    "nextEligibleTupleReconciled": true,
+    "workerJsonParsed": true
+  },
+  "counts": {
+    "inScope": 532,
+    "complete": 148,
+    "deferred": 384,
+    "queue": 384,
+    "registry": 110,
+    "registryRuns": 110,
+    "corpus": 390,
+    "sidecars": 78,
+    "canonicalImagesPaired": 78,
+    "promotionCount": 0,
+    "deferCount": 8,
+    "matchedOccurrences": 2,
+    "unresolvedNoMatchOccurrences": 8,
+    "authoritativeNoMatchComparisons": 8,
+    "workerJsonFiles": 126
+  },
+  "changedCorpusRecordPaths": [
+    "assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-116.jpg",
+    "assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-123.jpg",
+    "assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-138.jpg",
+    "assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-160_cards/card-00.png",
+    "assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-160_cards/card-01.png",
+    "assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-160_cards/card-02.png",
+    "assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-160_cards/card-03.png",
+    "assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-160_cards/card-04.png"
+  ],
+  "gitStatus": [
+    " M assets/tts-mod/extract/card-text-corpus-validation.json",
+    " M assets/tts-mod/extract/card-text-corpus.json",
+    " M assets/tts-mod/extract/low-confidence-review.json",
+    " M assets/tts-mod/extract/selected-card-text-evidence.json",
+    " M assets/tts-mod/extract/vision-progress.json",
+    " M assets/tts-mod/extract/vision-validation.json",
+    " M docs/qa/card-extraction-coverage.json",
+    " M docs/qa/card-symbol-resolution-backlog.json"
+  ],
+  "gitScopePaths": [
+    "assets/tts-mod/extract/card-text-corpus-validation.json",
+    "assets/tts-mod/extract/card-text-corpus.json",
+    "assets/tts-mod/extract/low-confidence-review.json",
+    "assets/tts-mod/extract/selected-card-text-evidence.json",
+    "assets/tts-mod/extract/vision-progress.json",
+    "assets/tts-mod/extract/vision-validation.json",
+    "docs/qa/card-extraction-coverage.json",
+    "docs/qa/card-symbol-resolution-backlog.json"
+  ],
+  "symbolBacklogSummary": {
+    "unresolvedTokenOccurrences": 219,
+    "distinctLiteralDescriptions": 196,
+    "affectedAssets": 126,
+    "clusters": 10
+  },
+  "w23BacklogPaths": [
+    "assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-116.jpg",
+    "assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-123.jpg",
+    "assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-138.jpg",
+    "assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-160_cards/card-00.png",
+    "assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-160_cards/card-01.png",
+    "assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-160_cards/card-02.png",
+    "assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-160_cards/card-03.png",
+    "assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-160_cards/card-04.png"
+  ],
+  "nextEligibleTuple": {
+    "originalQueueIndex": 121,
+    "projectedQueueIndex": 121,
+    "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-160_cards/card-05.png",
+    "sourceSha256": "6876c41ee8d1f660f4c2ba8012c8caf0f2ccb55ca7677dfcccfb2a69e4c43e42"
+  },
+  "sharedHashes": {
+    "progress": "ae45f8b4e98cb0ef1fc214723ea16b8c24537000c51dba7cd4b9581eb9b701cc",
+    "queue": "d4ada7528b037b1656632afb37c18d9d8dfaab4e6b454c3722af8aef82c46257",
+    "registry": "e91580500a5a282208b953617aa408b1f6675e044f302dfebce0489864eaecc0",
+    "corpus": "5a4a85be42647b3febdb88ad9cefc06e704553cf11f30636a4f610937aba027c"
+  },
+  "qaHashes": {
+    "docs/qa/card-extraction-coverage.json": "53ddb857ac85c342aaf4192eb1cfb655f6e157372d8f28e71a214dc4baed6ac9",
+    "docs/qa/card-symbol-resolution-backlog.json": "0e8fd7f44887a11ee3cdf45138f02bed393996f8e9617f2c494bd368cce2e3e6",
+    "assets/tts-mod/extract/card-text-corpus-validation.json": "c604534539255eb3130f696509d89fd77260e0262f1d1c922bc8108499369e6a",
+    "assets/tts-mod/extract/vision-validation.json": "a48a70a01590b8937483fc24af617c8a66ed8664e3e1db1625034774911b755f"
+  },
+  "overallPassed": true
+}

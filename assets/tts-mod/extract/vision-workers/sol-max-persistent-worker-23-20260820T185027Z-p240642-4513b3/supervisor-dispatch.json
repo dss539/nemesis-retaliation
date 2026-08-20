@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "workerId": "sol-max-persistent-worker-23-20260820T185027Z-p240642-4513b3",
+  "dispatchedAt": "2026-08-20T19:00:57.021231Z",
+  "assignmentSha256": "1a946cb84717441f02df1871b8845fd0845ffdecfdd0079bf48a1616f3785199",
+  "orderedTupleDigest": "1cadcfc22b5c9b40e8b542963afc58a9f422eaf7f9c823d120c15914d47af662",
+  "orderedAssetIds": [
+    "W23-001",
+    "W23-002",
+    "W23-003",
+    "W23-004",
+    "W23-005",
+    "W23-006",
+    "W23-007",
+    "W23-008"
+  ],
+  "route": "direct hermes chat --image, persistent --resume session, tools disabled",
+  "model": {
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "reasoningEffort": "max"
+  },
+  "zeroToolSmoke": {
+    "sessionId": "20260820_185733_87625e",
+    "auditPath": "metadata/smoke-audit.json",
+    "auditSha256": "5ff94172f67a4fd789bd8b2395f42e51e20b78e24867d021ffc16edfa8a34025",
+    "apiCallCount": 1,
+    "messageCount": 2,
+    "toolCallCount": 0
+  },
+  "semanticInputAllowedBeforeReaderExit": [
+    "stable asset ID",
+    "native image pixels"
+  ]
+}

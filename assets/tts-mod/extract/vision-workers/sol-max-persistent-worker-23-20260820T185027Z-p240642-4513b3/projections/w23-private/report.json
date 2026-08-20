@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "recordType": "w23PrivateDeferOnlyProjection",
+  "recordedAt": "2026-08-20T20:35:05.197552Z",
+  "workerId": "sol-max-persistent-worker-23-20260820T185027Z-p240642-4513b3",
+  "runId": "w23-card-extraction-20260820T185027Z-p240642-4513b3",
+  "materialFieldNormalizationPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-23-20260820T185027Z-p240642-4513b3/metadata/material-field-normalization.json",
+  "materialFieldNormalizationSha256": "642e29509095f2847d12db27b2b3c2dc668bf4e9605b6b7250a9cf0b15d55df4",
+  "sourceReconciliationPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-23-20260820T185027Z-p240642-4513b3/metadata/source-reconciliation.json",
+  "sourceReconciliationSha256": "e63972f020d03281b2046d185f78a9e706de553c18e8da16594de5be22206450",
+  "preimagePath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-23-20260820T185027Z-p240642-4513b3/projections/w23-private/preimage/snapshot.json",
+  "preimageSha256": "75bbd8f60e1dbe89dbfefd6dd2eacac0ef81765c2a1e151675368cb616202dec",
+  "projectedOutputPaths": {
+    "progress": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-23-20260820T185027Z-p240642-4513b3/projections/w23-private/output/vision-progress.json",
+    "queue": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-23-20260820T185027Z-p240642-4513b3/projections/w23-private/output/low-confidence-review.json",
+    "registry": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-23-20260820T185027Z-p240642-4513b3/projections/w23-private/output/selected-card-text-evidence.json",
+    "corpus": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-23-20260820T185027Z-p240642-4513b3/projections/w23-private/output/card-text-corpus.json"
+  },
+  "projectedOutputSha256": {
+    "progress": "ae45f8b4e98cb0ef1fc214723ea16b8c24537000c51dba7cd4b9581eb9b701cc",
+    "queue": "d4ada7528b037b1656632afb37c18d9d8dfaab4e6b454c3722af8aef82c46257",
+    "registry": "e91580500a5a282208b953617aa408b1f6675e044f302dfebce0489864eaecc0",
+    "corpus": "5a4a85be42647b3febdb88ad9cefc06e704553cf11f30636a4f610937aba027c"
+  },
+  "preCounts": {
+    "complete": 148,
+    "deferred": 384,
+    "queue": 384,
+    "registry": 102,
+    "corpus": 390,
+    "sidecars": 78
+  },
+  "postCounts": {
+    "complete": 148,
+    "deferred": 384,
+    "queue": 384,
+    "registry": 110,
+    "corpus": 390,
+    "sidecars": 78
+  },
+  "promotionIds": [],
+  "deferIds": [
+    "W23-001",
+    "W23-002",
+    "W23-003",
+    "W23-004",
+    "W23-005",
+    "W23-006",
+    "W23-007",
+    "W23-008"
+  ],
+  "matchedOccurrenceCount": 2,
+  "unresolvedNoMatchOccurrenceCount": 8,
+  "authoritativeNoMatchComparisonCount": 8,
+  "selectedEvidenceAddedCount": 8,
+  "selectedEvidenceRunIdentities": [
+    "w23-card-extraction-20260820T185027Z-p240642-4513b3/sol-max-persistent-worker-23-20260820T185027Z-p240642-4513b3/W23-001",
+    "w23-card-extraction-20260820T185027Z-p240642-4513b3/sol-max-persistent-worker-23-20260820T185027Z-p240642-4513b3/W23-002",
+    "w23-card-extraction-20260820T185027Z-p240642-4513b3/sol-max-persistent-worker-23-20260820T185027Z-p240642-4513b3/W23-003",
+    "w23-card-extraction-20260820T185027Z-p240642-4513b3/sol-max-persistent-worker-23-20260820T185027Z-p240642-4513b3/W23-004",
+    "w23-card-extraction-20260820T185027Z-p240642-4513b3/sol-max-persistent-worker-23-20260820T185027Z-p240642-4513b3/W23-005",
+    "w23-card-extraction-20260820T185027Z-p240642-4513b3/sol-max-persistent-worker-23-20260820T185027Z-p240642-4513b3/W23-006",
+    "w23-card-extraction-20260820T185027Z-p240642-4513b3/sol-max-persistent-worker-23-20260820T185027Z-p240642-4513b3/W23-007",
+    "w23-card-extraction-20260820T185027Z-p240642-4513b3/sol-max-persistent-worker-23-20260820T185027Z-p240642-4513b3/W23-008"
+  ],
+  "changedCorpusBasePaths": [
+    "assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-116.jpg",
+    "assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-123.jpg",
+    "assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-138.jpg",
+    "assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-160_cards/card-00.png",
+    "assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-160_cards/card-01.png",
+    "assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-160_cards/card-02.png",
+    "assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-160_cards/card-03.png",
+    "assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-160_cards/card-04.png"
+  ],
+  "nextEligibleTuple": {
+    "originalQueueIndex": 121,
+    "projectedQueueIndex": 121,
+    "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-160_cards/card-05.png",
+    "sourceSha256": "6876c41ee8d1f660f4c2ba8012c8caf0f2ccb55ca7677dfcccfb2a69e4c43e42"
+  },
+  "sharedBytesUnchanged": true,
+  "canonicalChanges": 0,
+  "overallPassed": true
+}

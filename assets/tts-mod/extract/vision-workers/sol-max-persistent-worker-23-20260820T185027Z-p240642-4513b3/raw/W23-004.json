@@ -1,0 +1,137 @@
+{
+  "schemaVersion": 1,
+  "recordType": "blindNativePixelReadOriginalWrapper",
+  "assetId": "W23-004",
+  "batchId": "W23-clean-blind-persistent-01",
+  "assignmentIndex": 3,
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-160_cards/card-00.png",
+  "sourceSha256": "c2d4bb142b03891040b8bf52a7cb4b1457b8e040b187abd2c1be003e4a1d9d2c",
+  "sourceMetadata": {
+    "width": 1136,
+    "height": 1525,
+    "format": "PNG",
+    "mode": "RGB",
+    "frames": 1,
+    "bytes": 2176224,
+    "decode": true
+  },
+  "readAt": "2026-08-20T19:10:52.491488Z",
+  "runtime": {
+    "sessionId": "20260820_190057_7927a4",
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "reasoningEffort": "max"
+  },
+  "runtimeDatabaseProbe": {
+    "id": "20260820_190057_7927a4",
+    "source": "tool",
+    "model": "gpt-5.6-sol",
+    "model_config": {
+      "max_iterations": 4,
+      "reasoning_config": {
+        "enabled": true,
+        "effort": "max"
+      },
+      "max_tokens": null,
+      "yolo_mode": true
+    },
+    "billing_provider": "openai-codex",
+    "message_count": 8,
+    "tool_call_count": 0,
+    "api_call_count": 4,
+    "cwd": null,
+    "parent_session_id": null,
+    "reasoningEffortObserved": "max"
+  },
+  "attachment": {
+    "mechanism": "hermes chat native --image attachment in one isolated persistent tool-disabled session",
+    "exactSourcePathUsed": "/home/smithers/projects/nemesis-card-corpus/repos/nemesis-retaliation/assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-160_cards/card-00.png",
+    "submittedAssetIds": [
+      "W23-004"
+    ],
+    "returnedAssetIds": [
+      "W23-004"
+    ],
+    "submittedCount": 1,
+    "returnedCount": 1,
+    "countReconciled": true,
+    "oneImageExceptionReason": "Focused one-image turns preserve clean tuple-level attachment auditing while one persistent session is resumed for all eight assets."
+  },
+  "modelOutput": {
+    "assetId": "W23-004",
+    "runtime": {
+      "sessionId": "20260820_190057_7927a4",
+      "provider": "openai-codex",
+      "model": "gpt-5.6-sol",
+      "reasoningEffort": "max"
+    },
+    "orientation": {
+      "observed": "upright",
+      "rotationRequired": false,
+      "basis": "All prominent Latin text has level horizontal baselines and reads left-to-right; the portrait panel stack and central background forms have vertical axes."
+    },
+    "blindPixelObservations": [
+      "Portrait frame with a heavily textured dark red, black, and blue background. A diffuse saturated red glow occupies much of the upper and central area.",
+      "Numerous thick dark curved lines cross the scene like cables or tubes. Thin vertical light streaks, small bright fragments, and red speckling are distributed across the background.",
+      "A narrow bright vertical form descends through the central red glow toward a reflective dark lower surface. Additional red rounded masses and dark angular structures occupy the center-right.",
+      "The lower portion contains a wide near-black title plaque overlapping a larger translucent dark body panel. Both have clipped corners, thin gold/orange outlines, and bilateral illuminated edge details.",
+      "A compact white-and-blue composite glyph followed by the uppercase word ALL is centered immediately above the title plaque.",
+      "The title is one centered line of large white uppercase text. The body is three centered lines of white mixed-case text, followed by a centered orange uppercase line near the panel bottom.",
+      "Orange diagonal strokes and vertical light capsules along the panel sides are mirrored and physically continuous with the frame, favoring decorative border elements rather than independent symbols."
+    ],
+    "visibleText": {
+      "title": "PRIMARY SAMPLES",
+      "typeLine": "MISSION TASK",
+      "body": "At least 2 Eggs must\nbe taken out of the Facility using\nthe Lander or Escape Shuttle.",
+      "sections": [
+        "[ICON: solid white rounded-cap upright silhouette above concentric cyan/blue horizontal rings] ALL",
+        "At least 2 Eggs must\nbe taken out of the Facility using\nthe Lander or Escape Shuttle."
+      ],
+      "footer": "",
+      "upperRight": "",
+      "lowerCenter": "MISSION TASK",
+      "illegibleSpans": [],
+      "clippedSpans": []
+    },
+    "iconMorphology": [
+      {
+        "location": "Upper center, directly left of ALL and immediately above PRIMARY SAMPLES.",
+        "outerShape": "Unenclosed composite consisting of several low concentric horizontal oval rings beneath a small, vertically symmetric solid-white upright form. The upright form has a rounded cap, narrow connecting neck, broad upper sides, paired short lateral projections, a tapered center, and two lower projections.",
+        "internalMarks": "The rounded cap contains no visible facial or letter-like marks. Dark negative gaps separate the lateral projections from the center and divide the lower pair. The oval base has cyan rims, dark-blue interiors, and visible gaps between successive rings.",
+        "colors": [
+          "white",
+          "pale cyan",
+          "electric blue",
+          "dark blue",
+          "black"
+        ],
+        "neighboringText": "ALL immediately to the right; PRIMARY SAMPLES directly below.",
+        "closestPlausibleAlternative": "A pawn-, bottle-, or plume-like upright marker seated on ripple-like ovals.",
+        "visibleDiscriminator": "The silhouette has a distinct round cap plus bilateral side and split lower projections, rather than a pointed top or one continuous bottle-shaped contour.",
+        "semanticIdentityEstablished": false
+      }
+    ],
+    "proposedClassification": {
+      "componentFamily": "Portrait card-like printed component",
+      "componentType": "Printed MISSION TASK component titled PRIMARY SAMPLES",
+      "basisFromPixelsOnly": "The pixels show a framed title plaque and body panel over a portrait illustration, the clearly printed title PRIMARY SAMPLES, one condition statement, and the lower-center label MISSION TASK."
+    },
+    "readConfidence": {
+      "materialText": "Very high for ALL, PRIMARY SAMPLES, all three body lines, and MISSION TASK; no confirmed printed span is illegible or clipped.",
+      "punctuation": "Very high for the single full stop after Shuttle; no other material punctuation is visible.",
+      "iconMorphology": "High for the concentric rings and overall white silhouette; medium-high for the exact separation of the small lateral and lower projections because glow softens their edges."
+    },
+    "classificationConfidence": {
+      "componentFamily": "High for a portrait card-like printed component based solely on the framed title-and-body layout.",
+      "exactComponent": "Medium: the literal MISSION TASK and PRIMARY SAMPLES label-title pairing is clear, but no external canonical identity is asserted."
+    },
+    "uncertainties": [
+      "The blue-white glyph's semantic identity is not established by the adjacent word ALL; its white element could visually resemble a rounded upright figure, pawn, bottle, or plume-like marker.",
+      "The exact boundaries between the white silhouette's lower projections and the blue ring glow are slightly softened.",
+      "Tiny pale strokes within the upper-right background apparatus do not form confidently segmentable printed characters and are treated as illustrative highlights rather than text.",
+      "The mirrored orange and gold panel-side marks appear border-integrated and are not promoted to functional symbols.",
+      "MISSION TASK occurs once at lower center; it is represented in both typeLine and lowerCenter to encode its apparent role and visible position, not as two separate printed instances."
+    ],
+    "preliminaryDecision": "defer"
+  }
+}

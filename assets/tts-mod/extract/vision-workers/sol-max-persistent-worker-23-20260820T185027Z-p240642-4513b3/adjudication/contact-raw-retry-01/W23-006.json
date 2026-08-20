@@ -1,0 +1,88 @@
+{
+  "schemaVersion": 1,
+  "assetId": "W23-006",
+  "phase": "post-blind-authoritative-contact-adjudication",
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-160_cards/card-02.png",
+  "sourceSha256": "11d743898e231415232b6ad79ab88c1e4d0e31f277c0a0385abb27a997d47b48",
+  "assignmentSha256": "1a946cb84717441f02df1871b8845fd0845ffdecfdd0079bf48a1616f3785199",
+  "contactIndexSha256": "eb7a4fe0add54329ed9a8dca12c5809a9b589ce5060620b26a11c3738060e059",
+  "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-23-20260820T185027Z-p240642-4513b3/qa/contact-sheets/W23-006-contact-sheet.png",
+  "contactSheetSha256": "cacf77b1ad9f6b015c805e5874279a71ad61956d11cae26a10a57f4e8f1726a2",
+  "startedAt": "2026-08-20T20:07:57.317145Z",
+  "endedAt": "2026-08-20T20:09:13.758697Z",
+  "commandRoute": "direct-hermes-chat-native-image",
+  "cliFlags": {
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "reasoning": "max",
+    "toolsets": "none",
+    "passSessionId": true,
+    "resume": true
+  },
+  "payload": {
+    "assetId": "W23-006",
+    "runtime": {
+      "sessionId": "20260820_195626_adf1fa",
+      "provider": "openai-codex",
+      "model": "gpt-5.6-sol",
+      "reasoningEffort": "max"
+    },
+    "occurrences": [
+      {
+        "sourceIconMorphologyIndex": 0,
+        "finalCategory": "no-match",
+        "canonicalToken": null,
+        "referenceLabel": "GLOSSARY general/ch",
+        "pixelObservations": "Location: center above the title plaque, directly left of ALL and above THE SUPPLY ROUTE. Outer shape: an unenclosed, approximately bilateral solid-white figure with a rounded head, narrow neck, broad shoulders, short side projections, a tapering torso, and two lower projections, seated in approximately three nested horizontal elliptical rings. Internal marks: the head is featureless; dark gaps separate the side projections from the torso and divide the lower pair; the rings have pale-cyan highlights, electric-blue rims, dark-blue interiors, and visible intervening gaps. Colors: white, pale cyan, electric blue, dark blue, and black against an orange-red background.",
+        "closestAlternative": "The displayed segmented astronaut-like general/ch glossary candidate.",
+        "visibleDiscriminator": "The source has a solid featureless head and largely unsegmented body surrounded by blue rings; the candidate has a broad dark visor, articulated segmented limbs, multiple torso voids, and no rings.",
+        "uncertainty": "The candidate caption is right-edge clipped after the visible text \"GLOSSARY general/ch\", but the morphology mismatch does not depend on completing that label."
+      },
+      {
+        "sourceIconMorphologyIndex": 1,
+        "finalCategory": "non-text-component-graphic",
+        "canonicalToken": null,
+        "referenceLabel": null,
+        "pixelObservations": "Location: center of the main body panel between the upper route condition and the lower Facility condition. Outer shape: a small horizontally elongated plaque with chamfered corners, a raised gold bevel, and a dark amber-brown inner face. Internal marks: the uppercase white word AND is centered inside the plaque; lighter gold highlights trace the beveled edges, and the plaque overlays the horizontal divider extending from both sides. Colors: gold, amber, dark brown, and white.",
+        "closestAlternative": "An independently actionable badge or control labeled AND.",
+        "visibleDiscriminator": "The plaque is physically integrated into the divider between the two text blocks and contains only the logical connector AND, with no separate pictogram or control affordance.",
+        "uncertainty": "none"
+      }
+    ],
+    "occurrenceCount": 2,
+    "sourceFidelity": {
+      "assignedTitle": "THE SUPPLY ROUTE",
+      "officialCounterpartTitle": "THE SUPPLY ROUTE",
+      "comparisonStatus": "material-conflict",
+      "assignedOperativeText": "ALL\nThe path from the Landing Zone to the\nServer Room must be Reinforced. (There is\na continuous path of Reinforced Corridors\nfrom the Landing zone to the Server Room).\n\nAND\n\nThe Facility must not be destroyed.",
+      "officialOperativeText": "3+\nThere must be a continuous path\nof Reinforced Corridors\nfrom the Landing Zone (Section A)\nto the Life Support Control C.\n\nAND\n\nThe Facility must NOT be destroyed.",
+      "conflicts": [
+        "Assigned header qualifier is \"ALL\"; official header qualifier is \"3+\", changing the visible applicability/count condition.",
+        "Assigned route terminates at \"the Server Room\"; official route terminates at \"the Life Support Control C.\"",
+        "Official adds the qualifier \"(Section A)\" after \"Landing Zone\"; assigned has no section qualifier there.",
+        "Assigned states \"The path from the Landing Zone to the Server Room must be Reinforced.\" and then gives the continuous-corridor condition parenthetically; official uses only the direct construction \"There must be a continuous path of Reinforced Corridors\".",
+        "Assigned shows \"The Facility must not be destroyed.\"; official shows \"The Facility must NOT be destroyed.\", changing visible capitalization and emphasis."
+      ],
+      "uncertainties": []
+    },
+    "promotionEvidence": "sufficient",
+    "promotionEvidenceReason": "The source glyph visibly lacks the glossary candidate's visor, segmented limbs, and torso voids while adding concentric blue rings, decisively supporting no-match; the AND plaque is visibly divider-integrated, and all source and official title, qualifier, route, and Facility-condition pixels needed to establish the wording conflicts are legible."
+  },
+  "runtimeDatabaseProbe": {
+    "sessionId": "20260820_195626_adf1fa",
+    "source": "tool",
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "reasoningEffort": "max",
+    "apiCallCount": 5,
+    "messageCount": 10,
+    "toolCallCount": 0,
+    "messageRoles": {
+      "user": 5,
+      "assistant": 5
+    },
+    "messageToolPayloadCount": 0
+  },
+  "stdoutSha256": "5540bb78bfa58c1b2cc216496e4841de23664f2f788269c78c9912531d30d0d6",
+  "stderrSha256": "6ee17df5d45216583f686678ac2b03ad9b9d652d2443306710ff945ad0837aa0"
+}

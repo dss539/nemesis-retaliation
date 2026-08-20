@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "attempt": "postblind-bbox-attempt-1",
+  "recordedAt": "2026-08-20T19:27:25Z",
+  "stage": "pre-dispatch helper validation",
+  "errorType": "KeyError",
+  "error": "assignmentSha256",
+  "rootCause": "The helper incorrectly expected assignmentSha256 inside assignment.json; W23 freezes that digest in supervisor-dispatch.json.",
+  "providerCallStarted": false,
+  "apiCallsAdded": 0,
+  "wrappersWritten": 0,
+  "sharedFilesModified": false,
+  "immutableBlindEvidenceAffected": false,
+  "repair": "Read assignment bytes, compute SHA-256, and compare it to frozen supervisor-dispatch.json before dispatch."
+}

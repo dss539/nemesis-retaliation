@@ -1,0 +1,118 @@
+{
+  "schemaVersion": 1,
+  "workerId": "sol-max-persistent-worker-23-20260820T185027Z-p240642-4513b3",
+  "runId": "w23-card-extraction-20260820T185027Z-p240642-4513b3",
+  "reportedAt": "2026-08-20T20:34:03.285128Z",
+  "scope": "W23 eight exact Mission Task tuples at original queue indices 113-120",
+  "assignmentSha256": "1a946cb84717441f02df1871b8845fd0845ffdecfdd0079bf48a1616f3785199",
+  "orderedTupleDigest": "1cadcfc22b5c9b40e8b542963afc58a9f422eaf7f9c823d120c15914d47af662",
+  "actualRuntime": {
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "reasoningEffort": "max",
+    "verificationState": "verified"
+  },
+  "sessionSet": [
+    {
+      "sessionId": "20260820_190057_7927a4",
+      "provider": "openai-codex",
+      "model": "gpt-5.6-sol",
+      "reasoningEffort": "max",
+      "apiCallCount": 8,
+      "messageCount": 16,
+      "toolCallCount": 0,
+      "expectedApiCallCount": 8,
+      "expectedMessageCount": 16,
+      "passed": true
+    },
+    {
+      "sessionId": "20260820_193010_a77e8d",
+      "provider": "openai-codex",
+      "model": "gpt-5.6-sol",
+      "reasoningEffort": "max",
+      "apiCallCount": 1,
+      "messageCount": 2,
+      "toolCallCount": 0,
+      "expectedApiCallCount": 1,
+      "expectedMessageCount": 2,
+      "passed": true
+    },
+    {
+      "sessionId": "20260820_193416_50af34",
+      "provider": "openai-codex",
+      "model": "gpt-5.6-sol",
+      "reasoningEffort": "max",
+      "apiCallCount": 7,
+      "messageCount": 14,
+      "toolCallCount": 0,
+      "expectedApiCallCount": 7,
+      "expectedMessageCount": 14,
+      "passed": true
+    },
+    {
+      "sessionId": "20260820_194841_5f9531",
+      "provider": "openai-codex",
+      "model": "gpt-5.6-sol",
+      "reasoningEffort": "max",
+      "apiCallCount": 1,
+      "messageCount": 2,
+      "toolCallCount": 0,
+      "expectedApiCallCount": 1,
+      "expectedMessageCount": 2,
+      "passed": true
+    },
+    {
+      "sessionId": "20260820_195626_adf1fa",
+      "provider": "openai-codex",
+      "model": "gpt-5.6-sol",
+      "reasoningEffort": "max",
+      "apiCallCount": 7,
+      "messageCount": 14,
+      "toolCallCount": 0,
+      "expectedApiCallCount": 7,
+      "expectedMessageCount": 14,
+      "passed": true
+    }
+  ],
+  "decisionCounts": {
+    "defer": 8
+  },
+  "counts": {
+    "assigned": 8,
+    "completeResults": 8,
+    "promotionCandidates": 0,
+    "deferredPromotion": 8,
+    "candidateImages": 0,
+    "candidateSidecars": 0,
+    "originalWrappers": 8,
+    "verifiedIconOccurrences": 2,
+    "unresolvedIconOccurrences": 8,
+    "authoritativeNoMatchComparisons": 8,
+    "rulesBearingSources": 8,
+    "nonTextComponentGraphics": 4,
+    "iconMorphologyArtDisplayDetails": 1,
+    "blindIconMorphologyOccurrences": 15,
+    "nonRulesIllustrationDetails": 10,
+    "workerJsonFilesAtCoreSnapshot": 80
+  },
+  "validationPassed": true,
+  "coreValidationPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-23-20260820T185027Z-p240642-4513b3/validation/core-validation.json",
+  "independentValidationPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-23-20260820T185027Z-p240642-4513b3/validation/independent-core-validation.json",
+  "closureAuditPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-23-20260820T185027Z-p240642-4513b3/validation/closure-audit.json",
+  "sharedWritesPerformed": false,
+  "canonicalPromotionClaimed": false,
+  "candidatePromotionCount": 0,
+  "deferredCount": 8,
+  "candidateSidecarCount": 0,
+  "canonicalChangesProposed": 0,
+  "caveats": [
+    "Eight explicit no-match rows preserve the ringed Number-of-Characters composites one-to-one.",
+    "Only W23-002 has canonical inline Character and Lander matches.",
+    "W23-003/004/005/006/008 materially conflict with current official counterparts.",
+    "W23-007 has no current official Mission Task counterpart.",
+    "The exact paired BackURL is stale/unavailable and was not fabricated.",
+    "Generated cells W23-004..008 do not have safely unique GUID/CardID selectors.",
+    "No protected canonical target was changed."
+  ],
+  "overallPassed": true
+}

@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "attempt": "postblind-bbox-attempt-3",
+  "recordedAt": "2026-08-20T19:33:31.941303Z",
+  "stage": "post-call runtime DB probe before wrapper serialization",
+  "errorType": "sqlite3.OperationalError",
+  "error": "no such column: created_at",
+  "validApiCallsPreserved": 1,
+  "validAssetIdsPreserved": [
+    "W23-001"
+  ],
+  "sessionId": "20260820_193010_a77e8d",
+  "sessionRuntime": {
+    "sessionId": "20260820_193010_a77e8d",
+    "source": "tool",
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "reasoningEffort": "max",
+    "apiCallCount": 1,
+    "messageCount": 2,
+    "toolCallCount": 0,
+    "messageRoleCounts": {
+      "user": 1,
+      "assistant": 1
+    },
+    "nonemptyToolPayloadCount": 0
+  },
+  "providerCallSucceeded": true,
+  "wrapperSalvagedPath": "adjudication/bbox-raw-retry-01/W23-001.json",
+  "wrapperSha256": "7d5854f189f5f85f1440f8278285d93d0812dd4e5498085fa29c711a732f1245",
+  "wrapperMode": "0o400",
+  "sharedFilesModified": false,
+  "immutableBlindEvidenceAffected": false,
+  "nextAction": "Retry only W23-002 through W23-008 in a fresh session and fresh output/log directories."
+}
