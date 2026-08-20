@@ -620,6 +620,58 @@ includes the pre-existing clipped `cards/reference/objectives-help-sheet-page-2.
 transcription, icon, orientation, ownership, category, filename, variant, or component-function
 ambiguities.
 
+## SOURCE RESEARCH — Public authority audit (2026-08-20)
+
+An independent web-research lane found the following sources. The Awaken Realms FAQ,
+Objectives Help Sheet, BGA static data, and Tabletop Simulator format documentation were
+directly fetched for verification in this follow-up; Gamefound/update links remain cited
+as research leads. No corpus, canonical card, sidecar, or source asset was changed by this
+research note.
+
+- Awaken Realms current download manifest: https://awakenrealms.com/data/files.json
+  Use as the discovery root for current rulebooks, FAQ/errata, and component sheets.
+- Awaken Realms official current English rulebook:
+  https://awakenrealms.com/images/download/Nemesis_Retaliation/ENG/Nemesis_RT_Rulebook_210x285mm_bleed3mm%20%5B40%20pages%5D%20%5Blowres%5D.pdf
+  Primary source for final core inventory, printed wording, and card-back/deck
+  relationships; PDF extraction loses some normative symbols, so visual review remains
+  required.
+- Awaken Realms official Retaliation FAQ v1.2, dated 8.06.2026:
+  https://awakenrealms.com/images/download/Nemesis_Retaliation/ENG/RETALIATION_FAQ_297x214mm_bleed3mm_%5B3%20pages%5D%20v1.2_lowres.pdf
+  Directly resolves several rules/errata questions, including Artificial Fever,
+  malfunction/computer interaction, event timing, and item/gear interpretations.
+- Awaken Realms official Objectives Help Sheet:
+  https://awakenrealms.com/images/download/Nemesis_Retaliation/ENG/Nemesis_RT_Objective_Sheet_285x285mm_bleed3mm%20%5B2%20pages%5D
+  Preferred source for Mission Task/Objective wording and terminology. It is more
+  authoritative than TTS OCR, but symbols and layout still require visual checking.
+- Board Game Arena licensed digital implementation, build 260622-1220:
+  https://x.boardgamearena.net/data/themereleases/current/games/nemesisretaliation/260622-1220/modules/js/staticData.js
+  This versioned secondary source contains structured definitions for Action, Event,
+  Item, Objective, Exploration, Robot, Intruder Attack, Queen, and Serious Wound data,
+  with named placeholders. It is a transcription lead, not a print-production master;
+  digital adaptation or transcription errors remain possible. Import only with explicit
+  `licensed-digital-secondary` provenance and visually verify disputed text/icons.
+- Tabletop Simulator platform semantics:
+  https://kb.tabletopsimulator.com/custom-content/save-file-format
+  Confirms the general CustomDeck/Card fields and supports FaceURL/BackURL analysis,
+  but cannot establish that a particular mod assigned the correct image to a field.
+- Official Gamefound development updates provide supersession context:
+  https://gamefound.com/en/projects/awaken-realms/nemesis-retaliation/updates/21
+  https://gamefound.com/en/projects/awaken-realms/nemesis-retaliation/updates/32
+  https://gamefound.com/en/projects/awaken-realms/nemesis-retaliation/updates/35
+  https://gamefound.com/en/projects/awaken-realms/nemesis-retaliation/updates/36
+  https://gamefound.com/en/projects/awaken-realms/nemesis-retaliation/updates/37
+  The official TTS/prototype material is historical development evidence, not final
+  authority. Campaign-era counts and prototype wording must not override the current
+  retail rulebook/FAQ/component sheets.
+
+Concrete backlog guidance: use the current Awaken Realms rulebook plus FAQ v1.2 and
+component sheets as the primary hierarchy; use BGA only as a labeled secondary lead;
+preserve TTS/community disagreements as provenance conflicts. The research lane found
+no complete official publisher card-face atlas or print-production card master, and
+PDF extraction still loses normative symbols. Automatic Shotgun is independently aligned
+between the current official rulebook and BGA, but no automatic canonical promotion was
+made. Recheck every candidate visually and preserve uncertainty before changing data.
+
 ## LATER — Expansions (re-add when user wants them)
 - [ ] Re-extract expansion content from save (see `assets/tts-mod/notes/extraction.md` §15 for all deck GUIDs, intruder bags,
       shared action-154 cells, and classification pitfalls)
