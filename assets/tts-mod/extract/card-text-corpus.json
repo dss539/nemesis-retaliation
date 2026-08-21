@@ -2,18 +2,18 @@
   "schemaVersion": 1,
   "status": "extracted evidence corpus; canonical and draft states are explicitly separated",
   "generatedFrom": {
-    "visionProgressUpdatedAt": "2026-08-21T10:06:06.050252Z",
-    "reviewQueueUpdatedAt": "2026-08-21T10:06:06.050252Z",
+    "visionProgressUpdatedAt": "2026-08-21T11:16:02.707622Z",
+    "reviewQueueUpdatedAt": "2026-08-21T11:16:02.707622Z",
     "iconGlossary": "docs/rules/icon-glossary.md",
     "iconGlossaryIdentifierCount": 49
   },
   "metadata": {
     "selectedEvidenceRegistry": "assets/tts-mod/extract/selected-card-text-evidence.json",
     "selectedEvidenceRegistrySchemaVersion": 1,
-    "selectedEvidenceRegistrySha256": "7c9225c5ef9bebec40a23bedf9b56973e97d4e7c5cb8ca54069c01722b5064d6",
-    "selectedEvidenceTupleDigest": "f5299713baaf65351a4affdef15777b98b546224b9754bd9acb09689481a0d44",
-    "selectedEvidenceEntryCount": 166,
-    "selectedEvidenceRunCount": 166
+    "selectedEvidenceRegistrySha256": "12d962f2731e58461971072df69f2273522cd842a85b9fbbbae95e6c9f331b97",
+    "selectedEvidenceTupleDigest": "b89464d63827a0c5643bd1664605f5cda2a53903b72bd4c504c246fda9b2c08b",
+    "selectedEvidenceEntryCount": 182,
+    "selectedEvidenceRunCount": 182
   },
   "counts": {
     "records": 390,
@@ -29,8 +29,8 @@
     "rulesInformationReadiness": {
       "canonical": 78,
       "draft-partial": 4,
-      "draft-text-complete": 133,
-      "draft-text-complete-symbols-unresolved": 125,
+      "draft-text-complete": 118,
+      "draft-text-complete-symbols-unresolved": 140,
       "missing-transcription": 2,
       "not-rules-bearing-or-reference": 48
     }
@@ -30783,35 +30783,178 @@
       "componentFamily": "game/objectiveMissonDeck",
       "ledgerStatus": "deferred",
       "extractionState": "draft-full",
-      "rulesInformationReadiness": "draft-text-complete",
+      "rulesInformationReadiness": "draft-text-complete-symbols-unresolved",
       "rulesTextPresent": true,
       "identity": {},
       "printedData": {
         "title": "WE'VE GOT HISTORY",
+        "typeLine": "",
         "body": "You and the Character with the\nlowest rank must Survive.\n(If you are a Character with the lowest\nrank you must fulfill the second\noption from this Objective)\n\nOR\n\nThe Character with the highest\nrank must not Survive.\n(If you are a Character with\nthe highest rank you must fulfill\nthe first option from this Objective)",
+        "sections": [
+          {
+            "panelId": "P3",
+            "heading": "",
+            "text": "You and the Character with the\nlowest rank must Survive.\n(If you are a Character with the lowest\nrank you must fulfill the second\noption from this Objective)"
+          },
+          {
+            "panelId": "P4",
+            "heading": "OR",
+            "text": ""
+          },
+          {
+            "panelId": "P5",
+            "heading": "",
+            "text": "The Character with the highest\nrank must not Survive.\n(If you are a Character with\nthe highest rank you must fulfill\nthe first option from this Objective)"
+          }
+        ],
         "footer": "PERSONAL OBJECTIVE",
-        "visibleText": "[character] 4+"
+        "upperRight": "[ICON: white rounded-head silhouette above nested blue oval rings] 4+",
+        "lowerCenter": "PERSONAL OBJECTIVE",
+        "illegibleSpans": [],
+        "clippedSpans": []
       },
       "symbols": {
-        "canonicalGlossaryTokens": [
-          "character"
-        ],
-        "unresolvedOrLocalTokens": []
+        "canonicalGlossaryTokens": [],
+        "unresolvedOrLocalTokens": [
+          "ICON: white rounded-head silhouette above nested blue oval rings"
+        ]
       },
-      "uncertainties": [],
-      "canonicalPromotionBlocker": "meaningful visible text falls outside the established minimal sidecar fields",
+      "uncertainties": [
+        "The semantic identity of M1 cannot be established from its pixels alone.",
+        "The visual proximity of M1 and 4+ establishes grouping but not the meaning of that grouping.",
+        "The exact number and closure of the smallest blue oval strokes are softened by glow and overlap.",
+        "The canonical component family and front/back side terminology are not explicitly printed.",
+        "Current publisher-primary rendered component pixels conflict materially with the assigned TTS face; preserve both and do not substitute publisher wording into the TTS transcription.",
+        "The applicable exact-title BGA licensed-digital record conflicts materially and is retained only as secondary evidence.",
+        "1 material ringed player-count occurrence(s) remain explicit all-49 authoritative no-matches; no semantic token was invented.",
+        "No singular exact generated-cell selector exists; preserve all candidate references without CardID-modulo inference.",
+        "No approved canonical Personal/Private Objective card image/sidecar schema or directory exists under cards/game."
+      ],
+      "canonicalPromotionBlocker": "1 material ringed player-count occurrence(s) remain explicit all-49 authoritative no-matches; no semantic token was invented.; No singular exact generated-cell selector exists; preserve all candidate references without CardID-modulo inference.; Current publisher-primary rendered component pixels conflict materially with the assigned TTS face; preserve both and do not substitute publisher wording into the TTS transcription.; The applicable exact-title BGA licensed-digital record conflicts materially and is retained only as secondary evidence.; No approved canonical Personal/Private Objective card image/sidecar schema or directory exists under cards/game.",
       "evidence": {
         "textBasis": "native vision draft; not canonical promotion",
         "visionProvider": "openai-codex",
         "visionModel": "gpt-5.6-sol",
-        "reasoningEffort": null,
-        "workerId": null,
-        "sessionId": "20260815_053751_02cd58",
-        "resultPath": "assets/tts-mod/extract/vision-results/d6ccc53b53a98ce5e212d701c0523d8a2a343d1e6d759318585a8dc278b316b2.json",
-        "rawResultPath": null,
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-30-20260821T102147Z-p346900-971773",
+        "sessionId": "20260821_102416_61ceea",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/results/W30-001.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/raw/W30-001.json",
         "ledgerPath": "assets/tts-mod/extract/vision-progress.json",
-        "queuePath": "assets/tts-mod/extract/low-confidence-review.json"
-      }
+        "queuePath": "assets/tts-mod/extract/low-confidence-review.json",
+        "selectedExtraction": {
+          "runIdentity": "w30-card-extraction-20260821T102147Z-p346900-971773/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/W30-001",
+          "runId": "w30-card-extraction-20260821T102147Z-p346900-971773",
+          "workerId": "sol-max-persistent-worker-30-20260821T102147Z-p346900-971773",
+          "assetId": "W30-001",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/results/W30-001.json",
+          "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/raw/W30-001.json",
+          "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/qa/contact-sheets/W30-001-all-functional-all49-contact.png",
+          "promotionDecision": "defer",
+          "runtime": {
+            "provider": "openai-codex",
+            "model": "gpt-5.6-sol",
+            "reasoningEffort": "max",
+            "nativeImageRoute": "direct-hermes-chat-image",
+            "blindSessionId": "20260821_102416_61ceea",
+            "adjudicationSessionId": "20260821_104731_543f84",
+            "auxiliaryVisionUsed": false,
+            "qwenUsed": false,
+            "ocrCanonicalEvidenceUsed": false,
+            "modelDowngradeUsed": false
+          }
+        }
+      },
+      "selectedExtraction": {
+        "overlayVersion": 1,
+        "status": "selected-evidence-deferred",
+        "runIdentity": "w30-card-extraction-20260821T102147Z-p346900-971773/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/W30-001",
+        "runId": "w30-card-extraction-20260821T102147Z-p346900-971773",
+        "workerId": "sol-max-persistent-worker-30-20260821T102147Z-p346900-971773",
+        "assetId": "W30-001",
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-162_cards/card-11.png",
+        "sourceSha256": "d6ccc53b53a98ce5e212d701c0523d8a2a343d1e6d759318585a8dc278b316b2",
+        "runtime": {
+          "provider": "openai-codex",
+          "model": "gpt-5.6-sol",
+          "reasoningEffort": "max",
+          "nativeImageRoute": "direct-hermes-chat-image",
+          "blindSessionId": "20260821_102416_61ceea",
+          "adjudicationSessionId": "20260821_104731_543f84",
+          "auxiliaryVisionUsed": false,
+          "qwenUsed": false,
+          "ocrCanonicalEvidenceUsed": false,
+          "modelDowngradeUsed": false
+        },
+        "blindObservationPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/raw/W30-001.json",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/results/W30-001.json",
+        "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/qa/contact-sheets/W30-001-all-functional-all49-contact.png",
+        "visibleText": {
+          "title": "WE'VE GOT HISTORY",
+          "typeLine": "",
+          "body": "You and the Character with the\nlowest rank must Survive.\n(If you are a Character with the lowest\nrank you must fulfill the second\noption from this Objective)\n\nOR\n\nThe Character with the highest\nrank must not Survive.\n(If you are a Character with\nthe highest rank you must fulfill\nthe first option from this Objective)",
+          "sections": [
+            {
+              "panelId": "P3",
+              "heading": "",
+              "text": "You and the Character with the\nlowest rank must Survive.\n(If you are a Character with the lowest\nrank you must fulfill the second\noption from this Objective)"
+            },
+            {
+              "panelId": "P4",
+              "heading": "OR",
+              "text": ""
+            },
+            {
+              "panelId": "P5",
+              "heading": "",
+              "text": "The Character with the highest\nrank must not Survive.\n(If you are a Character with\nthe highest rank you must fulfill\nthe first option from this Objective)"
+            }
+          ],
+          "footer": "PERSONAL OBJECTIVE",
+          "upperRight": "[ICON: white rounded-head silhouette above nested blue oval rings] 4+",
+          "lowerCenter": "PERSONAL OBJECTIVE",
+          "illegibleSpans": [],
+          "clippedSpans": []
+        },
+        "verifiedIconOccurrences": [],
+        "unresolvedIconOccurrences": [
+          {
+            "cardLocation": "Lower center of P1, immediately above P2 and directly left of 4+.",
+            "referenceLabel": "Lower center of P1, immediately above P2 and directly left of '4+'. The outer shape is a composite of horizontally elongated concentric oval rings with a centered upright white figure- or pawn-like form rising from them: a small round top, narrow connection, two rounded side protrusions, and a broad flared lower portion. The upright form has light-gray to pale-blue central shading. The base has multiple thin cyan and deep-blue nested oval strokes, a dark navy center, and a blue outer glow. Colors are white, light gray, pale blue, cyan, deep blue, and dark navy.",
+            "matchDecision": "no-match",
+            "canonicalToken": null,
+            "closestAlternative": "character (the labeled p.40 character crop)",
+            "visibleDiscriminator": "M1 has a simple rounded-top, flared upright form mounted on multiple cyan/deep-blue oval rings. The character crop instead shows a detailed articulated astronaut silhouette with a helmet opening, rectangular torso marks, angular arms, and separated lower forms, and it has no ringed base.",
+            "evidenceRun": "sol-max-persistent-worker-30-20260821T102147Z-p346900-971773"
+          }
+        ],
+        "canonicalTokensEmitted": [],
+        "allMaterialTextReadable": true,
+        "allMaterialIconsAuthoritativelyMatched": false,
+        "promotionDecision": "defer",
+        "decisionReasons": [
+          "1 material ringed player-count occurrence(s) remain explicit all-49 authoritative no-matches; no semantic token was invented.",
+          "No singular exact generated-cell selector exists; preserve all candidate references without CardID-modulo inference.",
+          "Current publisher-primary rendered component pixels conflict materially with the assigned TTS face; preserve both and do not substitute publisher wording into the TTS transcription.",
+          "The applicable exact-title BGA licensed-digital record conflicts materially and is retained only as secondary evidence.",
+          "No approved canonical Personal/Private Objective card image/sidecar schema or directory exists under cards/game."
+        ],
+        "conflictsWithPriorSnapshot": []
+      },
+      "evidenceRuns": [
+        {
+          "runIdentity": "w30-card-extraction-20260821T102147Z-p346900-971773/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/W30-001",
+          "runId": "w30-card-extraction-20260821T102147Z-p346900-971773",
+          "workerId": "sol-max-persistent-worker-30-20260821T102147Z-p346900-971773",
+          "assetId": "W30-001",
+          "sourceSha256": "d6ccc53b53a98ce5e212d701c0523d8a2a343d1e6d759318585a8dc278b316b2",
+          "blindSessionId": "20260821_102416_61ceea",
+          "adjudicationSessionId": "20260821_104731_543f84",
+          "promotionDecision": "defer",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/results/W30-001.json",
+          "selected": true
+        }
+      ]
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-162_cards/card-12.png",
@@ -30820,35 +30963,178 @@
       "componentFamily": "game/objectiveMissonDeck",
       "ledgerStatus": "deferred",
       "extractionState": "draft-full",
-      "rulesInformationReadiness": "draft-text-complete",
+      "rulesInformationReadiness": "draft-text-complete-symbols-unresolved",
       "rulesTextPresent": true,
       "identity": {},
       "printedData": {
         "title": "THE RIGHT MOMENT\nTO STRIKE",
+        "typeLine": "",
         "body": "Character of the Player 1 cannot Survive.\n(If you are the Player 1 you have to fulfill\nthe second option from this Objective)\n\nOR\n\nYou have to be the only Survivor.",
+        "sections": [
+          {
+            "panelId": "P3",
+            "heading": "",
+            "text": "Character of the Player 1 cannot Survive.\n(If you are the Player 1 you have to fulfill\nthe second option from this Objective)"
+          },
+          {
+            "panelId": "P4",
+            "heading": "OR",
+            "text": ""
+          },
+          {
+            "panelId": "P5",
+            "heading": "",
+            "text": "You have to be the only Survivor."
+          }
+        ],
         "footer": "PERSONAL OBJECTIVE",
-        "visibleText": "[character] 2+"
+        "upperRight": "[ICON: white rounded-head silhouette above nested blue oval rings] 2+",
+        "lowerCenter": "PERSONAL OBJECTIVE",
+        "illegibleSpans": [],
+        "clippedSpans": []
       },
       "symbols": {
-        "canonicalGlossaryTokens": [
-          "character"
-        ],
-        "unresolvedOrLocalTokens": []
+        "canonicalGlossaryTokens": [],
+        "unresolvedOrLocalTokens": [
+          "ICON: white rounded-head silhouette above nested blue oval rings"
+        ]
       },
-      "uncertainties": [],
-      "canonicalPromotionBlocker": "meaningful visible text falls outside the established minimal sidecar fields",
+      "uncertainties": [
+        "The semantic identity of M1 cannot be established from its pixels alone.",
+        "The proximity of M1 and 2+ establishes a visual grouping but not the meaning of that grouping.",
+        "Glow and overlap soften the exact closure and count of the smallest oval strokes in M1.",
+        "The canonical component family and side terminology are not explicitly printed.",
+        "No current publisher-primary rendered component face visibly establishes this exact title and operative text; searchable text-layer hits alone are not face evidence.",
+        "The applicable exact-title BGA licensed-digital record conflicts materially and is retained only as secondary evidence.",
+        "1 material ringed player-count occurrence(s) remain explicit all-49 authoritative no-matches; no semantic token was invented.",
+        "No singular exact generated-cell selector exists; preserve all candidate references without CardID-modulo inference.",
+        "No approved canonical Personal/Private Objective card image/sidecar schema or directory exists under cards/game."
+      ],
+      "canonicalPromotionBlocker": "1 material ringed player-count occurrence(s) remain explicit all-49 authoritative no-matches; no semantic token was invented.; No singular exact generated-cell selector exists; preserve all candidate references without CardID-modulo inference.; No current publisher-primary rendered component face visibly establishes this exact title and operative text; searchable text-layer hits alone are not face evidence.; The applicable exact-title BGA licensed-digital record conflicts materially and is retained only as secondary evidence.; No approved canonical Personal/Private Objective card image/sidecar schema or directory exists under cards/game.",
       "evidence": {
         "textBasis": "native vision draft; not canonical promotion",
         "visionProvider": "openai-codex",
         "visionModel": "gpt-5.6-sol",
-        "reasoningEffort": null,
-        "workerId": null,
-        "sessionId": "20260815_053752_22d1d2",
-        "resultPath": "assets/tts-mod/extract/vision-results/0c8456bddc9b959a53b9cd56994555a71f8f2595b9361416e1c6985c8e749092.json",
-        "rawResultPath": null,
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-30-20260821T102147Z-p346900-971773",
+        "sessionId": "20260821_102416_61ceea",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/results/W30-002.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/raw/W30-002.json",
         "ledgerPath": "assets/tts-mod/extract/vision-progress.json",
-        "queuePath": "assets/tts-mod/extract/low-confidence-review.json"
-      }
+        "queuePath": "assets/tts-mod/extract/low-confidence-review.json",
+        "selectedExtraction": {
+          "runIdentity": "w30-card-extraction-20260821T102147Z-p346900-971773/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/W30-002",
+          "runId": "w30-card-extraction-20260821T102147Z-p346900-971773",
+          "workerId": "sol-max-persistent-worker-30-20260821T102147Z-p346900-971773",
+          "assetId": "W30-002",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/results/W30-002.json",
+          "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/raw/W30-002.json",
+          "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/qa/contact-sheets/W30-002-all-functional-all49-contact.png",
+          "promotionDecision": "defer",
+          "runtime": {
+            "provider": "openai-codex",
+            "model": "gpt-5.6-sol",
+            "reasoningEffort": "max",
+            "nativeImageRoute": "direct-hermes-chat-image",
+            "blindSessionId": "20260821_102416_61ceea",
+            "adjudicationSessionId": "20260821_104731_543f84",
+            "auxiliaryVisionUsed": false,
+            "qwenUsed": false,
+            "ocrCanonicalEvidenceUsed": false,
+            "modelDowngradeUsed": false
+          }
+        }
+      },
+      "selectedExtraction": {
+        "overlayVersion": 1,
+        "status": "selected-evidence-deferred",
+        "runIdentity": "w30-card-extraction-20260821T102147Z-p346900-971773/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/W30-002",
+        "runId": "w30-card-extraction-20260821T102147Z-p346900-971773",
+        "workerId": "sol-max-persistent-worker-30-20260821T102147Z-p346900-971773",
+        "assetId": "W30-002",
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-162_cards/card-12.png",
+        "sourceSha256": "0c8456bddc9b959a53b9cd56994555a71f8f2595b9361416e1c6985c8e749092",
+        "runtime": {
+          "provider": "openai-codex",
+          "model": "gpt-5.6-sol",
+          "reasoningEffort": "max",
+          "nativeImageRoute": "direct-hermes-chat-image",
+          "blindSessionId": "20260821_102416_61ceea",
+          "adjudicationSessionId": "20260821_104731_543f84",
+          "auxiliaryVisionUsed": false,
+          "qwenUsed": false,
+          "ocrCanonicalEvidenceUsed": false,
+          "modelDowngradeUsed": false
+        },
+        "blindObservationPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/raw/W30-002.json",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/results/W30-002.json",
+        "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/qa/contact-sheets/W30-002-all-functional-all49-contact.png",
+        "visibleText": {
+          "title": "THE RIGHT MOMENT\nTO STRIKE",
+          "typeLine": "",
+          "body": "Character of the Player 1 cannot Survive.\n(If you are the Player 1 you have to fulfill\nthe second option from this Objective)\n\nOR\n\nYou have to be the only Survivor.",
+          "sections": [
+            {
+              "panelId": "P3",
+              "heading": "",
+              "text": "Character of the Player 1 cannot Survive.\n(If you are the Player 1 you have to fulfill\nthe second option from this Objective)"
+            },
+            {
+              "panelId": "P4",
+              "heading": "OR",
+              "text": ""
+            },
+            {
+              "panelId": "P5",
+              "heading": "",
+              "text": "You have to be the only Survivor."
+            }
+          ],
+          "footer": "PERSONAL OBJECTIVE",
+          "upperRight": "[ICON: white rounded-head silhouette above nested blue oval rings] 2+",
+          "lowerCenter": "PERSONAL OBJECTIVE",
+          "illegibleSpans": [],
+          "clippedSpans": []
+        },
+        "verifiedIconOccurrences": [],
+        "unresolvedIconOccurrences": [
+          {
+            "cardLocation": "Lower center of P1, immediately above P2 and directly left of 2+.",
+            "referenceLabel": "Lower center of P1, immediately above P2 and directly left of '2+'. The outer shape is a composite emblem with several horizontally elongated concentric oval rings forming the base and a centered upright white figure- or pawn-like form rising from them. The upright form has a small round top, narrow connection, bilateral rounded projections, and a broad flared lower portion. Light-gray to pale-blue shading appears within the upright form. Thin cyan and deep-blue nested oval strokes surround a dark navy center, with a soft blue outer glow. Colors are white, light gray, pale blue, cyan, deep blue, and dark navy.",
+            "matchDecision": "no-match",
+            "canonicalToken": null,
+            "closestAlternative": "character (the labeled p.40 character crop)",
+            "visibleDiscriminator": "M1 is a simple rounded-top, flared upright form mounted on multiple cyan/deep-blue oval rings. The character crop is a detailed articulated astronaut with a helmet opening, dark torso divisions, angular arms, and separated lower forms, and it has no ringed base.",
+            "evidenceRun": "sol-max-persistent-worker-30-20260821T102147Z-p346900-971773"
+          }
+        ],
+        "canonicalTokensEmitted": [],
+        "allMaterialTextReadable": true,
+        "allMaterialIconsAuthoritativelyMatched": false,
+        "promotionDecision": "defer",
+        "decisionReasons": [
+          "1 material ringed player-count occurrence(s) remain explicit all-49 authoritative no-matches; no semantic token was invented.",
+          "No singular exact generated-cell selector exists; preserve all candidate references without CardID-modulo inference.",
+          "No current publisher-primary rendered component face visibly establishes this exact title and operative text; searchable text-layer hits alone are not face evidence.",
+          "The applicable exact-title BGA licensed-digital record conflicts materially and is retained only as secondary evidence.",
+          "No approved canonical Personal/Private Objective card image/sidecar schema or directory exists under cards/game."
+        ],
+        "conflictsWithPriorSnapshot": []
+      },
+      "evidenceRuns": [
+        {
+          "runIdentity": "w30-card-extraction-20260821T102147Z-p346900-971773/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/W30-002",
+          "runId": "w30-card-extraction-20260821T102147Z-p346900-971773",
+          "workerId": "sol-max-persistent-worker-30-20260821T102147Z-p346900-971773",
+          "assetId": "W30-002",
+          "sourceSha256": "0c8456bddc9b959a53b9cd56994555a71f8f2595b9361416e1c6985c8e749092",
+          "blindSessionId": "20260821_102416_61ceea",
+          "adjudicationSessionId": "20260821_104731_543f84",
+          "promotionDecision": "defer",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/results/W30-002.json",
+          "selected": true
+        }
+      ]
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-162_cards/card-13.png",
@@ -30857,35 +31143,188 @@
       "componentFamily": "game/objectiveMissonDeck",
       "ledgerStatus": "deferred",
       "extractionState": "draft-full",
-      "rulesInformationReadiness": "draft-text-complete",
+      "rulesInformationReadiness": "draft-text-complete-symbols-unresolved",
       "rulesTextPresent": true,
       "identity": {},
       "printedData": {
         "title": "GREENER PASTURES",
-        "body": "Character of the Player 2 cannot Survive.\n(If you are the Player 2 you have to fulfill\nthe second option from this Objective.)\n\nOR\n\nYou have to be the only Survivor.",
+        "typeLine": "",
+        "body": "Character of the Player 2 cannot Survive.\n(If you are the Player 2 you have to fulfill\nthe second option from this Objective)\n\nOR\n\nYou have to be the only Survivor.",
+        "sections": [
+          {
+            "panelId": "P3",
+            "heading": "",
+            "text": "Character of the Player 2 cannot Survive.\n(If you are the Player 2 you have to fulfill\nthe second option from this Objective)"
+          },
+          {
+            "panelId": "P4",
+            "heading": "OR",
+            "text": ""
+          },
+          {
+            "panelId": "P5",
+            "heading": "",
+            "text": "You have to be the only Survivor."
+          }
+        ],
         "footer": "PERSONAL OBJECTIVE",
-        "visibleText": "[character] 2+"
+        "upperRight": "[ICON: white rounded-head silhouette above nested blue oval rings] 2+",
+        "lowerCenter": "PERSONAL OBJECTIVE",
+        "illegibleSpans": [],
+        "clippedSpans": []
       },
       "symbols": {
-        "canonicalGlossaryTokens": [
-          "character"
-        ],
-        "unresolvedOrLocalTokens": []
+        "canonicalGlossaryTokens": [],
+        "unresolvedOrLocalTokens": [
+          "ICON: white rounded-head silhouette above nested blue oval rings"
+        ]
       },
-      "uncertainties": [],
-      "canonicalPromotionBlocker": "meaningful visible text falls outside the established minimal sidecar fields",
+      "uncertainties": [
+        "The semantic identity of M1 cannot be established from its pixels alone.",
+        "The proximity of M1 and 2+ establishes a visual grouping but not the meaning of that grouping.",
+        "Glow and overlap soften the exact closure and count of the smallest oval strokes in M1.",
+        "The tiny pale artwork-embedded mark cannot be confirmed or transcribed as specific characters.",
+        "The canonical component family and side terminology are not explicitly printed.",
+        "No current publisher-primary rendered component face visibly establishes this exact title and operative text; searchable text-layer hits alone are not face evidence.",
+        "The applicable exact-title BGA licensed-digital record conflicts materially and is retained only as secondary evidence.",
+        "1 material ringed player-count occurrence(s) remain explicit all-49 authoritative no-matches; no semantic token was invented.",
+        "No singular exact generated-cell selector exists; preserve all candidate references without CardID-modulo inference.",
+        "No approved canonical Personal/Private Objective card image/sidecar schema or directory exists under cards/game.",
+        "1 material discrepancy row(s) with the prior unselected corpus snapshot are preserved."
+      ],
+      "canonicalPromotionBlocker": "1 material ringed player-count occurrence(s) remain explicit all-49 authoritative no-matches; no semantic token was invented.; No singular exact generated-cell selector exists; preserve all candidate references without CardID-modulo inference.; No current publisher-primary rendered component face visibly establishes this exact title and operative text; searchable text-layer hits alone are not face evidence.; The applicable exact-title BGA licensed-digital record conflicts materially and is retained only as secondary evidence.; No approved canonical Personal/Private Objective card image/sidecar schema or directory exists under cards/game.; 1 material discrepancy row(s) with the prior unselected corpus snapshot are preserved.",
       "evidence": {
         "textBasis": "native vision draft; not canonical promotion",
         "visionProvider": "openai-codex",
         "visionModel": "gpt-5.6-sol",
-        "reasoningEffort": null,
-        "workerId": null,
-        "sessionId": "20260815_053753_34ca7f",
-        "resultPath": "assets/tts-mod/extract/vision-results/36f51a02097dfa1beadb7519fd46df8aade3c8132583a8e74ca3b4a9cac14727.json",
-        "rawResultPath": null,
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-30-20260821T102147Z-p346900-971773",
+        "sessionId": "20260821_102416_61ceea",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/results/W30-003.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/raw/W30-003.json",
         "ledgerPath": "assets/tts-mod/extract/vision-progress.json",
-        "queuePath": "assets/tts-mod/extract/low-confidence-review.json"
-      }
+        "queuePath": "assets/tts-mod/extract/low-confidence-review.json",
+        "selectedExtraction": {
+          "runIdentity": "w30-card-extraction-20260821T102147Z-p346900-971773/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/W30-003",
+          "runId": "w30-card-extraction-20260821T102147Z-p346900-971773",
+          "workerId": "sol-max-persistent-worker-30-20260821T102147Z-p346900-971773",
+          "assetId": "W30-003",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/results/W30-003.json",
+          "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/raw/W30-003.json",
+          "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/qa/contact-sheets/W30-003-all-functional-all49-contact.png",
+          "promotionDecision": "defer",
+          "runtime": {
+            "provider": "openai-codex",
+            "model": "gpt-5.6-sol",
+            "reasoningEffort": "max",
+            "nativeImageRoute": "direct-hermes-chat-image",
+            "blindSessionId": "20260821_102416_61ceea",
+            "adjudicationSessionId": "20260821_104731_543f84",
+            "auxiliaryVisionUsed": false,
+            "qwenUsed": false,
+            "ocrCanonicalEvidenceUsed": false,
+            "modelDowngradeUsed": false
+          }
+        }
+      },
+      "selectedExtraction": {
+        "overlayVersion": 1,
+        "status": "selected-evidence-deferred",
+        "runIdentity": "w30-card-extraction-20260821T102147Z-p346900-971773/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/W30-003",
+        "runId": "w30-card-extraction-20260821T102147Z-p346900-971773",
+        "workerId": "sol-max-persistent-worker-30-20260821T102147Z-p346900-971773",
+        "assetId": "W30-003",
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-162_cards/card-13.png",
+        "sourceSha256": "36f51a02097dfa1beadb7519fd46df8aade3c8132583a8e74ca3b4a9cac14727",
+        "runtime": {
+          "provider": "openai-codex",
+          "model": "gpt-5.6-sol",
+          "reasoningEffort": "max",
+          "nativeImageRoute": "direct-hermes-chat-image",
+          "blindSessionId": "20260821_102416_61ceea",
+          "adjudicationSessionId": "20260821_104731_543f84",
+          "auxiliaryVisionUsed": false,
+          "qwenUsed": false,
+          "ocrCanonicalEvidenceUsed": false,
+          "modelDowngradeUsed": false
+        },
+        "blindObservationPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/raw/W30-003.json",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/results/W30-003.json",
+        "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/qa/contact-sheets/W30-003-all-functional-all49-contact.png",
+        "visibleText": {
+          "title": "GREENER PASTURES",
+          "typeLine": "",
+          "body": "Character of the Player 2 cannot Survive.\n(If you are the Player 2 you have to fulfill\nthe second option from this Objective)\n\nOR\n\nYou have to be the only Survivor.",
+          "sections": [
+            {
+              "panelId": "P3",
+              "heading": "",
+              "text": "Character of the Player 2 cannot Survive.\n(If you are the Player 2 you have to fulfill\nthe second option from this Objective)"
+            },
+            {
+              "panelId": "P4",
+              "heading": "OR",
+              "text": ""
+            },
+            {
+              "panelId": "P5",
+              "heading": "",
+              "text": "You have to be the only Survivor."
+            }
+          ],
+          "footer": "PERSONAL OBJECTIVE",
+          "upperRight": "[ICON: white rounded-head silhouette above nested blue oval rings] 2+",
+          "lowerCenter": "PERSONAL OBJECTIVE",
+          "illegibleSpans": [],
+          "clippedSpans": []
+        },
+        "verifiedIconOccurrences": [],
+        "unresolvedIconOccurrences": [
+          {
+            "cardLocation": "Lower center of P1, immediately above P2 and directly left of 2+.",
+            "referenceLabel": "Lower center of P1, immediately above P2 and directly left of '2+'. The outer shape is a composite emblem with several horizontally elongated concentric oval rings forming the base and a centered upright white figure- or pawn-like form rising from them. The upright form has a small round top, narrow connection, bilateral rounded projections, and a broad flared lower portion. It contains light-gray to pale-blue central shading. The base has thin cyan and deep-blue nested oval strokes around a dark navy center, plus a soft blue outer glow. Colors are white, light gray, pale blue, cyan, deep blue, and dark navy.",
+            "matchDecision": "no-match",
+            "canonicalToken": null,
+            "closestAlternative": "character (the labeled p.40 character crop)",
+            "visibleDiscriminator": "M1 has a simple rounded-top, flared upright form mounted on multiple cyan/deep-blue oval rings. The character crop instead depicts a detailed articulated astronaut with a helmet opening, dark torso divisions, angular arms, and separated lower forms, and it has no ringed base.",
+            "evidenceRun": "sol-max-persistent-worker-30-20260821T102147Z-p346900-971773"
+          }
+        ],
+        "canonicalTokensEmitted": [],
+        "allMaterialTextReadable": true,
+        "allMaterialIconsAuthoritativelyMatched": false,
+        "promotionDecision": "defer",
+        "decisionReasons": [
+          "1 material ringed player-count occurrence(s) remain explicit all-49 authoritative no-matches; no semantic token was invented.",
+          "No singular exact generated-cell selector exists; preserve all candidate references without CardID-modulo inference.",
+          "No current publisher-primary rendered component face visibly establishes this exact title and operative text; searchable text-layer hits alone are not face evidence.",
+          "The applicable exact-title BGA licensed-digital record conflicts materially and is retained only as secondary evidence.",
+          "No approved canonical Personal/Private Objective card image/sidecar schema or directory exists under cards/game.",
+          "1 material discrepancy row(s) with the prior unselected corpus snapshot are preserved."
+        ],
+        "conflictsWithPriorSnapshot": [
+          {
+            "field": "printedData.body",
+            "priorValue": "Character of the Player 2 cannot Survive.\n(If you are the Player 2 you have to fulfill\nthe second option from this Objective.)\n\nOR\n\nYou have to be the only Survivor.",
+            "currentStatus": "Sealed W30-003 assigned-art reading: Character of the Player 2 cannot Survive.\n(If you are the Player 2 you have to fulfill\nthe second option from this Objective)\n\nOR\n\nYou have to be the only Survivor.",
+            "resolution": "Preserve the prior snapshot and this selected reread separately; do not silently normalize or overwrite either."
+          }
+        ]
+      },
+      "evidenceRuns": [
+        {
+          "runIdentity": "w30-card-extraction-20260821T102147Z-p346900-971773/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/W30-003",
+          "runId": "w30-card-extraction-20260821T102147Z-p346900-971773",
+          "workerId": "sol-max-persistent-worker-30-20260821T102147Z-p346900-971773",
+          "assetId": "W30-003",
+          "sourceSha256": "36f51a02097dfa1beadb7519fd46df8aade3c8132583a8e74ca3b4a9cac14727",
+          "blindSessionId": "20260821_102416_61ceea",
+          "adjudicationSessionId": "20260821_104731_543f84",
+          "promotionDecision": "defer",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/results/W30-003.json",
+          "selected": true
+        }
+      ]
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-162_cards/card-14.png",
@@ -30894,35 +31333,179 @@
       "componentFamily": "game/objectiveMissonDeck",
       "ledgerStatus": "deferred",
       "extractionState": "draft-full",
-      "rulesInformationReadiness": "draft-text-complete",
+      "rulesInformationReadiness": "draft-text-complete-symbols-unresolved",
       "rulesTextPresent": true,
       "identity": {},
       "printedData": {
         "title": "AN OLD FEUD",
+        "typeLine": "",
         "body": "Character of the Player 3 cannot Survive.\n(If you are the Player 3 you have to fulfill\nthe second option from this Objective)\n\nOR\n\nYou have to be the only Survivor.",
+        "sections": [
+          {
+            "panelId": "P3",
+            "heading": "",
+            "text": "Character of the Player 3 cannot Survive.\n(If you are the Player 3 you have to fulfill\nthe second option from this Objective)"
+          },
+          {
+            "panelId": "P4",
+            "heading": "OR",
+            "text": ""
+          },
+          {
+            "panelId": "P5",
+            "heading": "",
+            "text": "You have to be the only Survivor."
+          }
+        ],
         "footer": "PERSONAL OBJECTIVE",
-        "visibleText": "[character] 3+"
+        "upperRight": "[ICON: white rounded-head upright silhouette above nested cyan-blue oval rings] 3+",
+        "lowerCenter": "PERSONAL OBJECTIVE",
+        "illegibleSpans": [],
+        "clippedSpans": []
       },
       "symbols": {
-        "canonicalGlossaryTokens": [
-          "character"
-        ],
-        "unresolvedOrLocalTokens": []
+        "canonicalGlossaryTokens": [],
+        "unresolvedOrLocalTokens": [
+          "ICON: white rounded-head upright silhouette above nested cyan-blue oval rings"
+        ]
       },
-      "uncertainties": [],
-      "canonicalPromotionBlocker": "meaningful visible text falls outside the established minimal sidecar fields",
+      "uncertainties": [
+        "The semantic identity of M1 cannot be established from its pixels alone.",
+        "The proximity of M1 and 3+ establishes a visual grouping but not the meaning of that grouping.",
+        "Glow and overlap soften the exact closure and count of the smallest oval strokes in M1.",
+        "The right-side graffiti-like artwork cannot be confirmed or transcribed as specific characters.",
+        "The canonical component family and side terminology are not explicitly printed.",
+        "No current publisher-primary rendered component face visibly establishes this exact title and operative text; searchable text-layer hits alone are not face evidence.",
+        "The applicable exact-title BGA licensed-digital record conflicts materially and is retained only as secondary evidence.",
+        "1 material ringed player-count occurrence(s) remain explicit all-49 authoritative no-matches; no semantic token was invented.",
+        "No singular exact generated-cell selector exists; preserve all candidate references without CardID-modulo inference.",
+        "No approved canonical Personal/Private Objective card image/sidecar schema or directory exists under cards/game."
+      ],
+      "canonicalPromotionBlocker": "1 material ringed player-count occurrence(s) remain explicit all-49 authoritative no-matches; no semantic token was invented.; No singular exact generated-cell selector exists; preserve all candidate references without CardID-modulo inference.; No current publisher-primary rendered component face visibly establishes this exact title and operative text; searchable text-layer hits alone are not face evidence.; The applicable exact-title BGA licensed-digital record conflicts materially and is retained only as secondary evidence.; No approved canonical Personal/Private Objective card image/sidecar schema or directory exists under cards/game.",
       "evidence": {
         "textBasis": "native vision draft; not canonical promotion",
         "visionProvider": "openai-codex",
         "visionModel": "gpt-5.6-sol",
-        "reasoningEffort": null,
-        "workerId": null,
-        "sessionId": "20260815_053753_6a2e99",
-        "resultPath": "assets/tts-mod/extract/vision-results/9a2ab1c3cb5d743381be7df987e96f47bdeaf729d82fe18052409b42d42d762d.json",
-        "rawResultPath": null,
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-30-20260821T102147Z-p346900-971773",
+        "sessionId": "20260821_102416_61ceea",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/results/W30-004.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/raw/W30-004.json",
         "ledgerPath": "assets/tts-mod/extract/vision-progress.json",
-        "queuePath": "assets/tts-mod/extract/low-confidence-review.json"
-      }
+        "queuePath": "assets/tts-mod/extract/low-confidence-review.json",
+        "selectedExtraction": {
+          "runIdentity": "w30-card-extraction-20260821T102147Z-p346900-971773/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/W30-004",
+          "runId": "w30-card-extraction-20260821T102147Z-p346900-971773",
+          "workerId": "sol-max-persistent-worker-30-20260821T102147Z-p346900-971773",
+          "assetId": "W30-004",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/results/W30-004.json",
+          "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/raw/W30-004.json",
+          "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/qa/contact-sheets/W30-004-all-functional-all49-contact.png",
+          "promotionDecision": "defer",
+          "runtime": {
+            "provider": "openai-codex",
+            "model": "gpt-5.6-sol",
+            "reasoningEffort": "max",
+            "nativeImageRoute": "direct-hermes-chat-image",
+            "blindSessionId": "20260821_102416_61ceea",
+            "adjudicationSessionId": "20260821_104731_543f84",
+            "auxiliaryVisionUsed": false,
+            "qwenUsed": false,
+            "ocrCanonicalEvidenceUsed": false,
+            "modelDowngradeUsed": false
+          }
+        }
+      },
+      "selectedExtraction": {
+        "overlayVersion": 1,
+        "status": "selected-evidence-deferred",
+        "runIdentity": "w30-card-extraction-20260821T102147Z-p346900-971773/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/W30-004",
+        "runId": "w30-card-extraction-20260821T102147Z-p346900-971773",
+        "workerId": "sol-max-persistent-worker-30-20260821T102147Z-p346900-971773",
+        "assetId": "W30-004",
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-162_cards/card-14.png",
+        "sourceSha256": "9a2ab1c3cb5d743381be7df987e96f47bdeaf729d82fe18052409b42d42d762d",
+        "runtime": {
+          "provider": "openai-codex",
+          "model": "gpt-5.6-sol",
+          "reasoningEffort": "max",
+          "nativeImageRoute": "direct-hermes-chat-image",
+          "blindSessionId": "20260821_102416_61ceea",
+          "adjudicationSessionId": "20260821_104731_543f84",
+          "auxiliaryVisionUsed": false,
+          "qwenUsed": false,
+          "ocrCanonicalEvidenceUsed": false,
+          "modelDowngradeUsed": false
+        },
+        "blindObservationPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/raw/W30-004.json",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/results/W30-004.json",
+        "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/qa/contact-sheets/W30-004-all-functional-all49-contact.png",
+        "visibleText": {
+          "title": "AN OLD FEUD",
+          "typeLine": "",
+          "body": "Character of the Player 3 cannot Survive.\n(If you are the Player 3 you have to fulfill\nthe second option from this Objective)\n\nOR\n\nYou have to be the only Survivor.",
+          "sections": [
+            {
+              "panelId": "P3",
+              "heading": "",
+              "text": "Character of the Player 3 cannot Survive.\n(If you are the Player 3 you have to fulfill\nthe second option from this Objective)"
+            },
+            {
+              "panelId": "P4",
+              "heading": "OR",
+              "text": ""
+            },
+            {
+              "panelId": "P5",
+              "heading": "",
+              "text": "You have to be the only Survivor."
+            }
+          ],
+          "footer": "PERSONAL OBJECTIVE",
+          "upperRight": "[ICON: white rounded-head upright silhouette above nested cyan-blue oval rings] 3+",
+          "lowerCenter": "PERSONAL OBJECTIVE",
+          "illegibleSpans": [],
+          "clippedSpans": []
+        },
+        "verifiedIconOccurrences": [],
+        "unresolvedIconOccurrences": [
+          {
+            "cardLocation": "Lower center of P1, immediately above P2 and directly left of 3+.",
+            "referenceLabel": "Lower center of P1, immediately above P2 and directly left of '3+'. The outer shape is a composite emblem with several horizontally elongated concentric oval rings forming the base and a centered upright white figure- or pawn-like form rising from them. The upright form has a small round top, narrow connection, bilateral rounded projections, and a broad flared lower portion. It contains light-gray to pale-blue central shading. The base has thin cyan and deep-blue nested oval strokes around a dark navy center, with a soft blue outer glow. Colors are white, light gray, pale blue, cyan, deep blue, and dark navy.",
+            "matchDecision": "no-match",
+            "canonicalToken": null,
+            "closestAlternative": "character (the labeled p.40 character crop)",
+            "visibleDiscriminator": "M1 has a simple rounded-top, flared upright form mounted on multiple cyan/deep-blue oval rings. The character crop instead shows a detailed articulated astronaut with a helmet opening, dark torso divisions, angular arms, and separated lower forms, and it has no ringed base.",
+            "evidenceRun": "sol-max-persistent-worker-30-20260821T102147Z-p346900-971773"
+          }
+        ],
+        "canonicalTokensEmitted": [],
+        "allMaterialTextReadable": true,
+        "allMaterialIconsAuthoritativelyMatched": false,
+        "promotionDecision": "defer",
+        "decisionReasons": [
+          "1 material ringed player-count occurrence(s) remain explicit all-49 authoritative no-matches; no semantic token was invented.",
+          "No singular exact generated-cell selector exists; preserve all candidate references without CardID-modulo inference.",
+          "No current publisher-primary rendered component face visibly establishes this exact title and operative text; searchable text-layer hits alone are not face evidence.",
+          "The applicable exact-title BGA licensed-digital record conflicts materially and is retained only as secondary evidence.",
+          "No approved canonical Personal/Private Objective card image/sidecar schema or directory exists under cards/game."
+        ],
+        "conflictsWithPriorSnapshot": []
+      },
+      "evidenceRuns": [
+        {
+          "runIdentity": "w30-card-extraction-20260821T102147Z-p346900-971773/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/W30-004",
+          "runId": "w30-card-extraction-20260821T102147Z-p346900-971773",
+          "workerId": "sol-max-persistent-worker-30-20260821T102147Z-p346900-971773",
+          "assetId": "W30-004",
+          "sourceSha256": "9a2ab1c3cb5d743381be7df987e96f47bdeaf729d82fe18052409b42d42d762d",
+          "blindSessionId": "20260821_102416_61ceea",
+          "adjudicationSessionId": "20260821_104731_543f84",
+          "promotionDecision": "defer",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/results/W30-004.json",
+          "selected": true
+        }
+      ]
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-162_cards/card-15.png",
@@ -30931,35 +31514,180 @@
       "componentFamily": "game/objectiveMissonDeck",
       "ledgerStatus": "deferred",
       "extractionState": "draft-full",
-      "rulesInformationReadiness": "draft-text-complete",
+      "rulesInformationReadiness": "draft-text-complete-symbols-unresolved",
       "rulesTextPresent": true,
       "identity": {},
       "printedData": {
         "title": "HOSTILE TAKEOVER",
+        "typeLine": "",
         "body": "Character of the Player 4 cannot Survive.\n(If you are the Player 4 you have to fulfill\nthe second option from this Objective)\n\nOR\n\nYou have to be the only Survivor.",
+        "sections": [
+          {
+            "panelId": "P3",
+            "heading": "",
+            "text": "Character of the Player 4 cannot Survive.\n(If you are the Player 4 you have to fulfill\nthe second option from this Objective)"
+          },
+          {
+            "panelId": "P4",
+            "heading": "OR",
+            "text": ""
+          },
+          {
+            "panelId": "P5",
+            "heading": "",
+            "text": "You have to be the only Survivor."
+          }
+        ],
         "footer": "PERSONAL OBJECTIVE",
-        "visibleText": "[character] 4+"
+        "upperRight": "[ICON: white rounded-head upright silhouette above nested cyan-blue oval rings] 4+",
+        "lowerCenter": "PERSONAL OBJECTIVE",
+        "illegibleSpans": [],
+        "clippedSpans": []
       },
       "symbols": {
-        "canonicalGlossaryTokens": [
-          "character"
-        ],
-        "unresolvedOrLocalTokens": []
+        "canonicalGlossaryTokens": [],
+        "unresolvedOrLocalTokens": [
+          "ICON: white rounded-head upright silhouette above nested cyan-blue oval rings"
+        ]
       },
-      "uncertainties": [],
-      "canonicalPromotionBlocker": "meaningful visible text falls outside the established minimal sidecar fields",
+      "uncertainties": [
+        "The semantic identity of M1 cannot be established from its pixels alone.",
+        "The proximity of M1 and 4+ establishes a visual grouping but not the meaning of that grouping.",
+        "Glow and overlap soften the exact closure and count of the smallest oval strokes in M1.",
+        "The tiny marks in the yellow artwork panel cannot be transcribed as specific characters.",
+        "The orange wall strokes may be decorative rather than linguistic and cannot be transcribed.",
+        "The canonical component family and side terminology are not explicitly printed.",
+        "No current publisher-primary rendered component face visibly establishes this exact title and operative text; searchable text-layer hits alone are not face evidence.",
+        "The applicable exact-title BGA licensed-digital record conflicts materially and is retained only as secondary evidence.",
+        "1 material ringed player-count occurrence(s) remain explicit all-49 authoritative no-matches; no semantic token was invented.",
+        "No singular exact generated-cell selector exists; preserve all candidate references without CardID-modulo inference.",
+        "No approved canonical Personal/Private Objective card image/sidecar schema or directory exists under cards/game."
+      ],
+      "canonicalPromotionBlocker": "1 material ringed player-count occurrence(s) remain explicit all-49 authoritative no-matches; no semantic token was invented.; No singular exact generated-cell selector exists; preserve all candidate references without CardID-modulo inference.; No current publisher-primary rendered component face visibly establishes this exact title and operative text; searchable text-layer hits alone are not face evidence.; The applicable exact-title BGA licensed-digital record conflicts materially and is retained only as secondary evidence.; No approved canonical Personal/Private Objective card image/sidecar schema or directory exists under cards/game.",
       "evidence": {
         "textBasis": "native vision draft; not canonical promotion",
         "visionProvider": "openai-codex",
         "visionModel": "gpt-5.6-sol",
-        "reasoningEffort": null,
-        "workerId": null,
-        "sessionId": "20260815_053800_ca7ce6",
-        "resultPath": "assets/tts-mod/extract/vision-results/1f94620da15b61eaa4dce6ba5533b57c38502cb6112599cba09786659db7f083.json",
-        "rawResultPath": null,
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-30-20260821T102147Z-p346900-971773",
+        "sessionId": "20260821_102416_61ceea",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/results/W30-005.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/raw/W30-005.json",
         "ledgerPath": "assets/tts-mod/extract/vision-progress.json",
-        "queuePath": "assets/tts-mod/extract/low-confidence-review.json"
-      }
+        "queuePath": "assets/tts-mod/extract/low-confidence-review.json",
+        "selectedExtraction": {
+          "runIdentity": "w30-card-extraction-20260821T102147Z-p346900-971773/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/W30-005",
+          "runId": "w30-card-extraction-20260821T102147Z-p346900-971773",
+          "workerId": "sol-max-persistent-worker-30-20260821T102147Z-p346900-971773",
+          "assetId": "W30-005",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/results/W30-005.json",
+          "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/raw/W30-005.json",
+          "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/qa/contact-sheets/W30-005-all-functional-all49-contact.png",
+          "promotionDecision": "defer",
+          "runtime": {
+            "provider": "openai-codex",
+            "model": "gpt-5.6-sol",
+            "reasoningEffort": "max",
+            "nativeImageRoute": "direct-hermes-chat-image",
+            "blindSessionId": "20260821_102416_61ceea",
+            "adjudicationSessionId": "20260821_104731_543f84",
+            "auxiliaryVisionUsed": false,
+            "qwenUsed": false,
+            "ocrCanonicalEvidenceUsed": false,
+            "modelDowngradeUsed": false
+          }
+        }
+      },
+      "selectedExtraction": {
+        "overlayVersion": 1,
+        "status": "selected-evidence-deferred",
+        "runIdentity": "w30-card-extraction-20260821T102147Z-p346900-971773/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/W30-005",
+        "runId": "w30-card-extraction-20260821T102147Z-p346900-971773",
+        "workerId": "sol-max-persistent-worker-30-20260821T102147Z-p346900-971773",
+        "assetId": "W30-005",
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-162_cards/card-15.png",
+        "sourceSha256": "1f94620da15b61eaa4dce6ba5533b57c38502cb6112599cba09786659db7f083",
+        "runtime": {
+          "provider": "openai-codex",
+          "model": "gpt-5.6-sol",
+          "reasoningEffort": "max",
+          "nativeImageRoute": "direct-hermes-chat-image",
+          "blindSessionId": "20260821_102416_61ceea",
+          "adjudicationSessionId": "20260821_104731_543f84",
+          "auxiliaryVisionUsed": false,
+          "qwenUsed": false,
+          "ocrCanonicalEvidenceUsed": false,
+          "modelDowngradeUsed": false
+        },
+        "blindObservationPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/raw/W30-005.json",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/results/W30-005.json",
+        "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/qa/contact-sheets/W30-005-all-functional-all49-contact.png",
+        "visibleText": {
+          "title": "HOSTILE TAKEOVER",
+          "typeLine": "",
+          "body": "Character of the Player 4 cannot Survive.\n(If you are the Player 4 you have to fulfill\nthe second option from this Objective)\n\nOR\n\nYou have to be the only Survivor.",
+          "sections": [
+            {
+              "panelId": "P3",
+              "heading": "",
+              "text": "Character of the Player 4 cannot Survive.\n(If you are the Player 4 you have to fulfill\nthe second option from this Objective)"
+            },
+            {
+              "panelId": "P4",
+              "heading": "OR",
+              "text": ""
+            },
+            {
+              "panelId": "P5",
+              "heading": "",
+              "text": "You have to be the only Survivor."
+            }
+          ],
+          "footer": "PERSONAL OBJECTIVE",
+          "upperRight": "[ICON: white rounded-head upright silhouette above nested cyan-blue oval rings] 4+",
+          "lowerCenter": "PERSONAL OBJECTIVE",
+          "illegibleSpans": [],
+          "clippedSpans": []
+        },
+        "verifiedIconOccurrences": [],
+        "unresolvedIconOccurrences": [
+          {
+            "cardLocation": "Lower center of P1, immediately above P2 and directly left of 4+.",
+            "referenceLabel": "Lower center of P1, immediately above P2 and directly left of '4+'. The outer shape is a composite emblem with several horizontally elongated concentric oval rings forming the base and a centered upright white figure- or pawn-like form rising from them. The upright form has a small round top, narrow connection, bilateral rounded projections, and a broad flared lower portion. It contains light-gray to pale-blue central shading. The base has thin cyan and deep-blue nested oval strokes around a dark navy center, with a soft blue outer glow. Colors are white, light gray, pale blue, cyan, deep blue, and dark navy.",
+            "matchDecision": "no-match",
+            "canonicalToken": null,
+            "closestAlternative": "character (the labeled p.40 character crop)",
+            "visibleDiscriminator": "M1 has a simple rounded-top, flared upright form mounted on multiple cyan/deep-blue oval rings. The character crop instead shows a detailed articulated astronaut with a helmet opening, dark torso divisions, angular arms, and separated lower forms, and it has no ringed base.",
+            "evidenceRun": "sol-max-persistent-worker-30-20260821T102147Z-p346900-971773"
+          }
+        ],
+        "canonicalTokensEmitted": [],
+        "allMaterialTextReadable": true,
+        "allMaterialIconsAuthoritativelyMatched": false,
+        "promotionDecision": "defer",
+        "decisionReasons": [
+          "1 material ringed player-count occurrence(s) remain explicit all-49 authoritative no-matches; no semantic token was invented.",
+          "No singular exact generated-cell selector exists; preserve all candidate references without CardID-modulo inference.",
+          "No current publisher-primary rendered component face visibly establishes this exact title and operative text; searchable text-layer hits alone are not face evidence.",
+          "The applicable exact-title BGA licensed-digital record conflicts materially and is retained only as secondary evidence.",
+          "No approved canonical Personal/Private Objective card image/sidecar schema or directory exists under cards/game."
+        ],
+        "conflictsWithPriorSnapshot": []
+      },
+      "evidenceRuns": [
+        {
+          "runIdentity": "w30-card-extraction-20260821T102147Z-p346900-971773/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/W30-005",
+          "runId": "w30-card-extraction-20260821T102147Z-p346900-971773",
+          "workerId": "sol-max-persistent-worker-30-20260821T102147Z-p346900-971773",
+          "assetId": "W30-005",
+          "sourceSha256": "1f94620da15b61eaa4dce6ba5533b57c38502cb6112599cba09786659db7f083",
+          "blindSessionId": "20260821_102416_61ceea",
+          "adjudicationSessionId": "20260821_104731_543f84",
+          "promotionDecision": "defer",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/results/W30-005.json",
+          "selected": true
+        }
+      ]
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-162_cards/card-16.png",
@@ -30968,35 +31696,160 @@
       "componentFamily": "game/objectiveMissonDeck",
       "ledgerStatus": "deferred",
       "extractionState": "draft-full",
-      "rulesInformationReadiness": "draft-text-complete",
+      "rulesInformationReadiness": "draft-text-complete-symbols-unresolved",
       "rulesTextPresent": true,
       "identity": {},
       "printedData": {
         "title": "LAB RATS",
-        "typeLine": "PERSONAL OBJECTIVE",
+        "typeLine": "",
         "body": "All Characters who Escape from\nthe Facility must have at least 3\nContamination cards in total.",
-        "visibleText": "[character] 3+"
+        "sections": [
+          {
+            "panelId": "P3",
+            "heading": "",
+            "text": "All Characters who Escape from\nthe Facility must have at least 3\nContamination cards in total."
+          }
+        ],
+        "footer": "PERSONAL OBJECTIVE",
+        "upperRight": "[ICON: white round-topped upright silhouette above nested cyan-blue oval rings] 3+",
+        "lowerCenter": "PERSONAL OBJECTIVE",
+        "illegibleSpans": [],
+        "clippedSpans": []
       },
       "symbols": {
-        "canonicalGlossaryTokens": [
-          "character"
-        ],
-        "unresolvedOrLocalTokens": []
+        "canonicalGlossaryTokens": [],
+        "unresolvedOrLocalTokens": [
+          "ICON: white round-topped upright silhouette above nested cyan-blue oval rings"
+        ]
       },
-      "uncertainties": [],
-      "canonicalPromotionBlocker": "meaningful visible text falls outside the established minimal sidecar fields",
+      "uncertainties": [
+        "The semantic identity of M1 cannot be established from its pixels alone.",
+        "The proximity of M1 and 3+ establishes a visual grouping but not the meaning of that grouping.",
+        "Glow and overlap soften the exact closure and count of the smallest oval strokes in M1.",
+        "The tiny marks on the central artwork structure cannot be confirmed or transcribed as specific characters.",
+        "The identity of the pale curled artwork form inside the chamber is not established.",
+        "The canonical component family and side terminology are not explicitly printed.",
+        "No current publisher-primary rendered component face visibly establishes this exact title and operative text; searchable text-layer hits alone are not face evidence.",
+        "No applicable exact-title record exists in the current BGA licensed-digital secondary source.",
+        "1 material ringed player-count occurrence(s) remain explicit all-49 authoritative no-matches; no semantic token was invented.",
+        "No singular exact generated-cell selector exists; preserve all candidate references without CardID-modulo inference.",
+        "No approved canonical Personal/Private Objective card image/sidecar schema or directory exists under cards/game."
+      ],
+      "canonicalPromotionBlocker": "1 material ringed player-count occurrence(s) remain explicit all-49 authoritative no-matches; no semantic token was invented.; No singular exact generated-cell selector exists; preserve all candidate references without CardID-modulo inference.; No current publisher-primary rendered component face visibly establishes this exact title and operative text; searchable text-layer hits alone are not face evidence.; No applicable exact-title record exists in the current BGA licensed-digital secondary source.; No approved canonical Personal/Private Objective card image/sidecar schema or directory exists under cards/game.",
       "evidence": {
         "textBasis": "native vision draft; not canonical promotion",
         "visionProvider": "openai-codex",
         "visionModel": "gpt-5.6-sol",
-        "reasoningEffort": null,
-        "workerId": null,
-        "sessionId": "20260815_053805_cf219d",
-        "resultPath": "assets/tts-mod/extract/vision-results/9e42ffc3f4c75305c8eae3d8f25856d3625cc112c9b231ad4030708ff4952446.json",
-        "rawResultPath": null,
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-30-20260821T102147Z-p346900-971773",
+        "sessionId": "20260821_102416_61ceea",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/results/W30-006.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/raw/W30-006.json",
         "ledgerPath": "assets/tts-mod/extract/vision-progress.json",
-        "queuePath": "assets/tts-mod/extract/low-confidence-review.json"
-      }
+        "queuePath": "assets/tts-mod/extract/low-confidence-review.json",
+        "selectedExtraction": {
+          "runIdentity": "w30-card-extraction-20260821T102147Z-p346900-971773/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/W30-006",
+          "runId": "w30-card-extraction-20260821T102147Z-p346900-971773",
+          "workerId": "sol-max-persistent-worker-30-20260821T102147Z-p346900-971773",
+          "assetId": "W30-006",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/results/W30-006.json",
+          "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/raw/W30-006.json",
+          "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/qa/contact-sheets/W30-006-all-functional-all49-contact.png",
+          "promotionDecision": "defer",
+          "runtime": {
+            "provider": "openai-codex",
+            "model": "gpt-5.6-sol",
+            "reasoningEffort": "max",
+            "nativeImageRoute": "direct-hermes-chat-image",
+            "blindSessionId": "20260821_102416_61ceea",
+            "adjudicationSessionId": "20260821_104731_543f84",
+            "auxiliaryVisionUsed": false,
+            "qwenUsed": false,
+            "ocrCanonicalEvidenceUsed": false,
+            "modelDowngradeUsed": false
+          }
+        }
+      },
+      "selectedExtraction": {
+        "overlayVersion": 1,
+        "status": "selected-evidence-deferred",
+        "runIdentity": "w30-card-extraction-20260821T102147Z-p346900-971773/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/W30-006",
+        "runId": "w30-card-extraction-20260821T102147Z-p346900-971773",
+        "workerId": "sol-max-persistent-worker-30-20260821T102147Z-p346900-971773",
+        "assetId": "W30-006",
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-162_cards/card-16.png",
+        "sourceSha256": "9e42ffc3f4c75305c8eae3d8f25856d3625cc112c9b231ad4030708ff4952446",
+        "runtime": {
+          "provider": "openai-codex",
+          "model": "gpt-5.6-sol",
+          "reasoningEffort": "max",
+          "nativeImageRoute": "direct-hermes-chat-image",
+          "blindSessionId": "20260821_102416_61ceea",
+          "adjudicationSessionId": "20260821_104731_543f84",
+          "auxiliaryVisionUsed": false,
+          "qwenUsed": false,
+          "ocrCanonicalEvidenceUsed": false,
+          "modelDowngradeUsed": false
+        },
+        "blindObservationPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/raw/W30-006.json",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/results/W30-006.json",
+        "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/qa/contact-sheets/W30-006-all-functional-all49-contact.png",
+        "visibleText": {
+          "title": "LAB RATS",
+          "typeLine": "",
+          "body": "All Characters who Escape from\nthe Facility must have at least 3\nContamination cards in total.",
+          "sections": [
+            {
+              "panelId": "P3",
+              "heading": "",
+              "text": "All Characters who Escape from\nthe Facility must have at least 3\nContamination cards in total."
+            }
+          ],
+          "footer": "PERSONAL OBJECTIVE",
+          "upperRight": "[ICON: white round-topped upright silhouette above nested cyan-blue oval rings] 3+",
+          "lowerCenter": "PERSONAL OBJECTIVE",
+          "illegibleSpans": [],
+          "clippedSpans": []
+        },
+        "verifiedIconOccurrences": [],
+        "unresolvedIconOccurrences": [
+          {
+            "cardLocation": "Lower center of P1, immediately above P2 and directly left of 3+.",
+            "referenceLabel": "Lower center of P1, immediately above P2 and directly left of '3+'. The outer shape is a composite emblem with several horizontally elongated concentric oval rings forming the base and a centered upright white figure- or pawn-like form rising from them. The upright form has a small round top, narrow connection, bilateral rounded projections, and a broad flared lower portion. It contains light-gray to pale-blue central shading. The base has thin cyan and deep-blue nested oval strokes around a dark navy center, with a soft blue outer glow. Colors are white, light gray, pale blue, cyan, deep blue, and dark navy.",
+            "matchDecision": "no-match",
+            "canonicalToken": null,
+            "closestAlternative": "character (the labeled p.40 character crop)",
+            "visibleDiscriminator": "M1 has a simple round-topped, flared upright form mounted on multiple cyan/deep-blue oval rings. The character crop instead shows a detailed articulated astronaut with a helmet opening, dark torso divisions, angular arms, and separated lower forms, and it has no ringed base.",
+            "evidenceRun": "sol-max-persistent-worker-30-20260821T102147Z-p346900-971773"
+          }
+        ],
+        "canonicalTokensEmitted": [],
+        "allMaterialTextReadable": true,
+        "allMaterialIconsAuthoritativelyMatched": false,
+        "promotionDecision": "defer",
+        "decisionReasons": [
+          "1 material ringed player-count occurrence(s) remain explicit all-49 authoritative no-matches; no semantic token was invented.",
+          "No singular exact generated-cell selector exists; preserve all candidate references without CardID-modulo inference.",
+          "No current publisher-primary rendered component face visibly establishes this exact title and operative text; searchable text-layer hits alone are not face evidence.",
+          "No applicable exact-title record exists in the current BGA licensed-digital secondary source.",
+          "No approved canonical Personal/Private Objective card image/sidecar schema or directory exists under cards/game."
+        ],
+        "conflictsWithPriorSnapshot": []
+      },
+      "evidenceRuns": [
+        {
+          "runIdentity": "w30-card-extraction-20260821T102147Z-p346900-971773/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/W30-006",
+          "runId": "w30-card-extraction-20260821T102147Z-p346900-971773",
+          "workerId": "sol-max-persistent-worker-30-20260821T102147Z-p346900-971773",
+          "assetId": "W30-006",
+          "sourceSha256": "9e42ffc3f4c75305c8eae3d8f25856d3625cc112c9b231ad4030708ff4952446",
+          "blindSessionId": "20260821_102416_61ceea",
+          "adjudicationSessionId": "20260821_104731_543f84",
+          "promotionDecision": "defer",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/results/W30-006.json",
+          "selected": true
+        }
+      ]
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-162_cards/card-17.png",
@@ -31005,35 +31858,160 @@
       "componentFamily": "game/objectiveMissonDeck",
       "ledgerStatus": "deferred",
       "extractionState": "draft-full",
-      "rulesInformationReadiness": "draft-text-complete",
+      "rulesInformationReadiness": "draft-text-complete-symbols-unresolved",
       "rulesTextPresent": true,
       "identity": {},
       "printedData": {
         "title": "INSIDER INFORMATION",
+        "typeLine": "",
         "body": "You must be the only surviving Character\nwith a Data token from the Server Room.",
+        "sections": [
+          {
+            "panelId": "P3",
+            "heading": "",
+            "text": "You must be the only surviving Character\nwith a Data token from the Server Room."
+          }
+        ],
         "footer": "PERSONAL OBJECTIVE",
-        "visibleText": "[character] 3+"
+        "upperRight": "[ICON: white round-topped upright silhouette above nested cyan-blue oval rings] 3+",
+        "lowerCenter": "PERSONAL OBJECTIVE",
+        "illegibleSpans": [],
+        "clippedSpans": []
       },
       "symbols": {
-        "canonicalGlossaryTokens": [
-          "character"
-        ],
-        "unresolvedOrLocalTokens": []
+        "canonicalGlossaryTokens": [],
+        "unresolvedOrLocalTokens": [
+          "ICON: white round-topped upright silhouette above nested cyan-blue oval rings"
+        ]
       },
-      "uncertainties": [],
-      "canonicalPromotionBlocker": "meaningful visible text falls outside the established minimal sidecar fields",
+      "uncertainties": [
+        "The semantic identity of M1 cannot be established from its pixels alone.",
+        "The proximity of M1 and 3+ establishes a visual grouping but not the meaning of that grouping.",
+        "Glow and overlap soften the exact closure and count of the smallest oval strokes in M1.",
+        "The tiny marks on the central artwork structure cannot be confirmed or transcribed as specific characters.",
+        "The identity of the pale folded artwork form inside the chamber is not established.",
+        "The canonical component family and side terminology are not explicitly printed.",
+        "No current publisher-primary rendered component face visibly establishes this exact title and operative text; searchable text-layer hits alone are not face evidence.",
+        "The applicable exact-title BGA licensed-digital record conflicts materially and is retained only as secondary evidence.",
+        "1 material ringed player-count occurrence(s) remain explicit all-49 authoritative no-matches; no semantic token was invented.",
+        "No singular exact generated-cell selector exists; preserve all candidate references without CardID-modulo inference.",
+        "No approved canonical Personal/Private Objective card image/sidecar schema or directory exists under cards/game."
+      ],
+      "canonicalPromotionBlocker": "1 material ringed player-count occurrence(s) remain explicit all-49 authoritative no-matches; no semantic token was invented.; No singular exact generated-cell selector exists; preserve all candidate references without CardID-modulo inference.; No current publisher-primary rendered component face visibly establishes this exact title and operative text; searchable text-layer hits alone are not face evidence.; The applicable exact-title BGA licensed-digital record conflicts materially and is retained only as secondary evidence.; No approved canonical Personal/Private Objective card image/sidecar schema or directory exists under cards/game.",
       "evidence": {
         "textBasis": "native vision draft; not canonical promotion",
         "visionProvider": "openai-codex",
         "visionModel": "gpt-5.6-sol",
-        "reasoningEffort": null,
-        "workerId": null,
-        "sessionId": "20260815_053806_9e066a",
-        "resultPath": "assets/tts-mod/extract/vision-results/0d8879f3bcd2191607423ce00eaa1e4da150c151b3f5583c661903a3568b8168.json",
-        "rawResultPath": null,
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-30-20260821T102147Z-p346900-971773",
+        "sessionId": "20260821_102416_61ceea",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/results/W30-007.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/raw/W30-007.json",
         "ledgerPath": "assets/tts-mod/extract/vision-progress.json",
-        "queuePath": "assets/tts-mod/extract/low-confidence-review.json"
-      }
+        "queuePath": "assets/tts-mod/extract/low-confidence-review.json",
+        "selectedExtraction": {
+          "runIdentity": "w30-card-extraction-20260821T102147Z-p346900-971773/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/W30-007",
+          "runId": "w30-card-extraction-20260821T102147Z-p346900-971773",
+          "workerId": "sol-max-persistent-worker-30-20260821T102147Z-p346900-971773",
+          "assetId": "W30-007",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/results/W30-007.json",
+          "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/raw/W30-007.json",
+          "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/qa/contact-sheets/W30-007-all-functional-all49-contact.png",
+          "promotionDecision": "defer",
+          "runtime": {
+            "provider": "openai-codex",
+            "model": "gpt-5.6-sol",
+            "reasoningEffort": "max",
+            "nativeImageRoute": "direct-hermes-chat-image",
+            "blindSessionId": "20260821_102416_61ceea",
+            "adjudicationSessionId": "20260821_104731_543f84",
+            "auxiliaryVisionUsed": false,
+            "qwenUsed": false,
+            "ocrCanonicalEvidenceUsed": false,
+            "modelDowngradeUsed": false
+          }
+        }
+      },
+      "selectedExtraction": {
+        "overlayVersion": 1,
+        "status": "selected-evidence-deferred",
+        "runIdentity": "w30-card-extraction-20260821T102147Z-p346900-971773/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/W30-007",
+        "runId": "w30-card-extraction-20260821T102147Z-p346900-971773",
+        "workerId": "sol-max-persistent-worker-30-20260821T102147Z-p346900-971773",
+        "assetId": "W30-007",
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-162_cards/card-17.png",
+        "sourceSha256": "0d8879f3bcd2191607423ce00eaa1e4da150c151b3f5583c661903a3568b8168",
+        "runtime": {
+          "provider": "openai-codex",
+          "model": "gpt-5.6-sol",
+          "reasoningEffort": "max",
+          "nativeImageRoute": "direct-hermes-chat-image",
+          "blindSessionId": "20260821_102416_61ceea",
+          "adjudicationSessionId": "20260821_104731_543f84",
+          "auxiliaryVisionUsed": false,
+          "qwenUsed": false,
+          "ocrCanonicalEvidenceUsed": false,
+          "modelDowngradeUsed": false
+        },
+        "blindObservationPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/raw/W30-007.json",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/results/W30-007.json",
+        "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/qa/contact-sheets/W30-007-all-functional-all49-contact.png",
+        "visibleText": {
+          "title": "INSIDER INFORMATION",
+          "typeLine": "",
+          "body": "You must be the only surviving Character\nwith a Data token from the Server Room.",
+          "sections": [
+            {
+              "panelId": "P3",
+              "heading": "",
+              "text": "You must be the only surviving Character\nwith a Data token from the Server Room."
+            }
+          ],
+          "footer": "PERSONAL OBJECTIVE",
+          "upperRight": "[ICON: white round-topped upright silhouette above nested cyan-blue oval rings] 3+",
+          "lowerCenter": "PERSONAL OBJECTIVE",
+          "illegibleSpans": [],
+          "clippedSpans": []
+        },
+        "verifiedIconOccurrences": [],
+        "unresolvedIconOccurrences": [
+          {
+            "cardLocation": "Lower center of P1, immediately above P2 and directly left of 3+.",
+            "referenceLabel": "Lower center of P1, immediately above P2 and directly left of '3+'. The outer shape is a composite emblem with several horizontally elongated concentric oval rings forming the base and a centered upright white figure- or pawn-like form rising from them. The upright form has a small round top, narrow connection, bilateral rounded projections, and a broad flared lower portion. It contains light-gray to pale-blue central shading. The base has thin cyan and deep-blue nested oval strokes around a dark navy center, with a soft blue outer glow. Colors are white, light gray, pale blue, cyan, deep blue, and dark navy.",
+            "matchDecision": "no-match",
+            "canonicalToken": null,
+            "closestAlternative": "character (the labeled p.40 character crop)",
+            "visibleDiscriminator": "M1 has a simple round-topped, flared upright form mounted on multiple cyan/deep-blue oval rings. The character crop instead shows a detailed articulated astronaut with an open helmet area, rectangular torso marks, angular arms, and separated lower forms, and it has no ringed base.",
+            "evidenceRun": "sol-max-persistent-worker-30-20260821T102147Z-p346900-971773"
+          }
+        ],
+        "canonicalTokensEmitted": [],
+        "allMaterialTextReadable": true,
+        "allMaterialIconsAuthoritativelyMatched": false,
+        "promotionDecision": "defer",
+        "decisionReasons": [
+          "1 material ringed player-count occurrence(s) remain explicit all-49 authoritative no-matches; no semantic token was invented.",
+          "No singular exact generated-cell selector exists; preserve all candidate references without CardID-modulo inference.",
+          "No current publisher-primary rendered component face visibly establishes this exact title and operative text; searchable text-layer hits alone are not face evidence.",
+          "The applicable exact-title BGA licensed-digital record conflicts materially and is retained only as secondary evidence.",
+          "No approved canonical Personal/Private Objective card image/sidecar schema or directory exists under cards/game."
+        ],
+        "conflictsWithPriorSnapshot": []
+      },
+      "evidenceRuns": [
+        {
+          "runIdentity": "w30-card-extraction-20260821T102147Z-p346900-971773/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/W30-007",
+          "runId": "w30-card-extraction-20260821T102147Z-p346900-971773",
+          "workerId": "sol-max-persistent-worker-30-20260821T102147Z-p346900-971773",
+          "assetId": "W30-007",
+          "sourceSha256": "0d8879f3bcd2191607423ce00eaa1e4da150c151b3f5583c661903a3568b8168",
+          "blindSessionId": "20260821_102416_61ceea",
+          "adjudicationSessionId": "20260821_104731_543f84",
+          "promotionDecision": "defer",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/results/W30-007.json",
+          "selected": true
+        }
+      ]
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-162_cards/card-18.png",
@@ -31042,35 +32020,160 @@
       "componentFamily": "game/objectiveMissonDeck",
       "ledgerStatus": "deferred",
       "extractionState": "draft-full",
-      "rulesInformationReadiness": "draft-text-complete",
+      "rulesInformationReadiness": "draft-text-complete-symbols-unresolved",
       "rulesTextPresent": true,
       "identity": {},
       "printedData": {
         "title": "OLD FRIEND",
+        "typeLine": "",
         "body": "You must Escape from the Facility\nwith at least 1 Corpse\nfrom the Hibernatorium.",
+        "sections": [
+          {
+            "panelId": "P3",
+            "heading": "",
+            "text": "You must Escape from the Facility\nwith at least 1 Corpse\nfrom the Hibernatorium."
+          }
+        ],
         "footer": "PERSONAL OBJECTIVE",
-        "visibleText": "[character] 2+"
+        "upperRight": "[ICON: white round-topped upright silhouette above nested cyan-blue oval rings] 2+",
+        "lowerCenter": "PERSONAL OBJECTIVE",
+        "illegibleSpans": [],
+        "clippedSpans": []
       },
       "symbols": {
-        "canonicalGlossaryTokens": [
-          "character"
-        ],
-        "unresolvedOrLocalTokens": []
+        "canonicalGlossaryTokens": [],
+        "unresolvedOrLocalTokens": [
+          "ICON: white round-topped upright silhouette above nested cyan-blue oval rings"
+        ]
       },
-      "uncertainties": [],
-      "canonicalPromotionBlocker": "meaningful visible text falls outside the established minimal sidecar fields",
+      "uncertainties": [
+        "The semantic identity of M1 cannot be established from its pixels alone.",
+        "The proximity of M1 and 2+ establishes a visual grouping but not the meaning of that grouping.",
+        "Glow and overlap soften the exact closure and count of the smallest oval strokes in M1.",
+        "The tiny marks on the central artwork structure cannot be confirmed or transcribed as specific characters.",
+        "The identity of the pale folded artwork form inside the chamber is not established.",
+        "The canonical component family and side terminology are not explicitly printed.",
+        "No current publisher-primary rendered component face visibly establishes this exact title and operative text; searchable text-layer hits alone are not face evidence.",
+        "No applicable exact-title record exists in the current BGA licensed-digital secondary source.",
+        "1 material ringed player-count occurrence(s) remain explicit all-49 authoritative no-matches; no semantic token was invented.",
+        "No singular exact generated-cell selector exists; preserve all candidate references without CardID-modulo inference.",
+        "No approved canonical Personal/Private Objective card image/sidecar schema or directory exists under cards/game."
+      ],
+      "canonicalPromotionBlocker": "1 material ringed player-count occurrence(s) remain explicit all-49 authoritative no-matches; no semantic token was invented.; No singular exact generated-cell selector exists; preserve all candidate references without CardID-modulo inference.; No current publisher-primary rendered component face visibly establishes this exact title and operative text; searchable text-layer hits alone are not face evidence.; No applicable exact-title record exists in the current BGA licensed-digital secondary source.; No approved canonical Personal/Private Objective card image/sidecar schema or directory exists under cards/game.",
       "evidence": {
         "textBasis": "native vision draft; not canonical promotion",
         "visionProvider": "openai-codex",
         "visionModel": "gpt-5.6-sol",
-        "reasoningEffort": null,
-        "workerId": null,
-        "sessionId": "20260815_053806_283452",
-        "resultPath": "assets/tts-mod/extract/vision-results/d7066d565c1617eee42cfca1a8099623975ecdaed9d63fae9563cd7f4b0c3b23.json",
-        "rawResultPath": null,
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-30-20260821T102147Z-p346900-971773",
+        "sessionId": "20260821_102416_61ceea",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/results/W30-008.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/raw/W30-008.json",
         "ledgerPath": "assets/tts-mod/extract/vision-progress.json",
-        "queuePath": "assets/tts-mod/extract/low-confidence-review.json"
-      }
+        "queuePath": "assets/tts-mod/extract/low-confidence-review.json",
+        "selectedExtraction": {
+          "runIdentity": "w30-card-extraction-20260821T102147Z-p346900-971773/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/W30-008",
+          "runId": "w30-card-extraction-20260821T102147Z-p346900-971773",
+          "workerId": "sol-max-persistent-worker-30-20260821T102147Z-p346900-971773",
+          "assetId": "W30-008",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/results/W30-008.json",
+          "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/raw/W30-008.json",
+          "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/qa/contact-sheets/W30-008-all-functional-all49-contact.png",
+          "promotionDecision": "defer",
+          "runtime": {
+            "provider": "openai-codex",
+            "model": "gpt-5.6-sol",
+            "reasoningEffort": "max",
+            "nativeImageRoute": "direct-hermes-chat-image",
+            "blindSessionId": "20260821_102416_61ceea",
+            "adjudicationSessionId": "20260821_104731_543f84",
+            "auxiliaryVisionUsed": false,
+            "qwenUsed": false,
+            "ocrCanonicalEvidenceUsed": false,
+            "modelDowngradeUsed": false
+          }
+        }
+      },
+      "selectedExtraction": {
+        "overlayVersion": 1,
+        "status": "selected-evidence-deferred",
+        "runIdentity": "w30-card-extraction-20260821T102147Z-p346900-971773/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/W30-008",
+        "runId": "w30-card-extraction-20260821T102147Z-p346900-971773",
+        "workerId": "sol-max-persistent-worker-30-20260821T102147Z-p346900-971773",
+        "assetId": "W30-008",
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-162_cards/card-18.png",
+        "sourceSha256": "d7066d565c1617eee42cfca1a8099623975ecdaed9d63fae9563cd7f4b0c3b23",
+        "runtime": {
+          "provider": "openai-codex",
+          "model": "gpt-5.6-sol",
+          "reasoningEffort": "max",
+          "nativeImageRoute": "direct-hermes-chat-image",
+          "blindSessionId": "20260821_102416_61ceea",
+          "adjudicationSessionId": "20260821_104731_543f84",
+          "auxiliaryVisionUsed": false,
+          "qwenUsed": false,
+          "ocrCanonicalEvidenceUsed": false,
+          "modelDowngradeUsed": false
+        },
+        "blindObservationPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/raw/W30-008.json",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/results/W30-008.json",
+        "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/qa/contact-sheets/W30-008-all-functional-all49-contact.png",
+        "visibleText": {
+          "title": "OLD FRIEND",
+          "typeLine": "",
+          "body": "You must Escape from the Facility\nwith at least 1 Corpse\nfrom the Hibernatorium.",
+          "sections": [
+            {
+              "panelId": "P3",
+              "heading": "",
+              "text": "You must Escape from the Facility\nwith at least 1 Corpse\nfrom the Hibernatorium."
+            }
+          ],
+          "footer": "PERSONAL OBJECTIVE",
+          "upperRight": "[ICON: white round-topped upright silhouette above nested cyan-blue oval rings] 2+",
+          "lowerCenter": "PERSONAL OBJECTIVE",
+          "illegibleSpans": [],
+          "clippedSpans": []
+        },
+        "verifiedIconOccurrences": [],
+        "unresolvedIconOccurrences": [
+          {
+            "cardLocation": "Lower center of P1, immediately above P2 and directly left of 2+.",
+            "referenceLabel": "Lower center of P1, immediately above P2 and directly left of '2+'. The outer shape is a composite emblem with several horizontally elongated concentric oval rings forming the base and a centered upright white figure- or pawn-like form rising from them. The upright form has a small round top, narrow connection, bilateral rounded projections, and a broad flared lower portion. It contains light-gray to pale-blue central shading. The base has thin cyan and deep-blue nested oval strokes around a dark navy center, with a soft blue outer glow. Colors are white, light gray, pale blue, cyan, deep blue, and dark navy.",
+            "matchDecision": "no-match",
+            "canonicalToken": null,
+            "closestAlternative": "character (the labeled p.40 character crop)",
+            "visibleDiscriminator": "M1 has a simple round-topped, flared upright form mounted on multiple cyan/deep-blue oval rings. The character crop instead shows a detailed articulated astronaut with an open helmet area, rectangular torso marks, angular arms, and separated lower forms, and it has no ringed base.",
+            "evidenceRun": "sol-max-persistent-worker-30-20260821T102147Z-p346900-971773"
+          }
+        ],
+        "canonicalTokensEmitted": [],
+        "allMaterialTextReadable": true,
+        "allMaterialIconsAuthoritativelyMatched": false,
+        "promotionDecision": "defer",
+        "decisionReasons": [
+          "1 material ringed player-count occurrence(s) remain explicit all-49 authoritative no-matches; no semantic token was invented.",
+          "No singular exact generated-cell selector exists; preserve all candidate references without CardID-modulo inference.",
+          "No current publisher-primary rendered component face visibly establishes this exact title and operative text; searchable text-layer hits alone are not face evidence.",
+          "No applicable exact-title record exists in the current BGA licensed-digital secondary source.",
+          "No approved canonical Personal/Private Objective card image/sidecar schema or directory exists under cards/game."
+        ],
+        "conflictsWithPriorSnapshot": []
+      },
+      "evidenceRuns": [
+        {
+          "runIdentity": "w30-card-extraction-20260821T102147Z-p346900-971773/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/W30-008",
+          "runId": "w30-card-extraction-20260821T102147Z-p346900-971773",
+          "workerId": "sol-max-persistent-worker-30-20260821T102147Z-p346900-971773",
+          "assetId": "W30-008",
+          "sourceSha256": "d7066d565c1617eee42cfca1a8099623975ecdaed9d63fae9563cd7f4b0c3b23",
+          "blindSessionId": "20260821_102416_61ceea",
+          "adjudicationSessionId": "20260821_104731_543f84",
+          "promotionDecision": "defer",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/results/W30-008.json",
+          "selected": true
+        }
+      ]
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-162_cards/card-19.png",
@@ -31079,35 +32182,160 @@
       "componentFamily": "game/objectiveMissonDeck",
       "ledgerStatus": "deferred",
       "extractionState": "draft-full",
-      "rulesInformationReadiness": "draft-text-complete",
+      "rulesInformationReadiness": "draft-text-complete-symbols-unresolved",
       "rulesTextPresent": true,
       "identity": {},
       "printedData": {
         "title": "LUXURIOUS OFFER",
+        "typeLine": "",
         "body": "You must survive with an Egg.",
+        "sections": [
+          {
+            "panelId": "P3",
+            "heading": "",
+            "text": "You must survive with an Egg."
+          }
+        ],
         "footer": "PERSONAL OBJECTIVE",
-        "visibleText": "[character] 2+"
+        "upperRight": "[ICON: white round-topped upright silhouette above nested cyan-blue oval rings] 2+",
+        "lowerCenter": "PERSONAL OBJECTIVE",
+        "illegibleSpans": [],
+        "clippedSpans": []
       },
       "symbols": {
-        "canonicalGlossaryTokens": [
-          "character"
-        ],
-        "unresolvedOrLocalTokens": []
+        "canonicalGlossaryTokens": [],
+        "unresolvedOrLocalTokens": [
+          "ICON: white round-topped upright silhouette above nested cyan-blue oval rings"
+        ]
       },
-      "uncertainties": [],
-      "canonicalPromotionBlocker": "meaningful visible text falls outside the established minimal sidecar fields",
+      "uncertainties": [
+        "The semantic identity of M1 cannot be established from its pixels alone.",
+        "The proximity of M1 and 2+ establishes a visual grouping but not the meaning of that grouping.",
+        "Glow and overlap soften the exact closure and count of the smallest oval strokes in M1.",
+        "The tiny marks on the central artwork structure cannot be confirmed or transcribed as specific characters.",
+        "The identity of the pale curled artwork form inside the chamber is not established.",
+        "The canonical component family and side terminology are not explicitly printed.",
+        "Current publisher-primary rendered component pixels conflict materially with the assigned TTS face; preserve both and do not substitute publisher wording into the TTS transcription.",
+        "The applicable exact-title BGA licensed-digital record conflicts materially and is retained only as secondary evidence.",
+        "1 material ringed player-count occurrence(s) remain explicit all-49 authoritative no-matches; no semantic token was invented.",
+        "No singular exact generated-cell selector exists; preserve all candidate references without CardID-modulo inference.",
+        "No approved canonical Personal/Private Objective card image/sidecar schema or directory exists under cards/game."
+      ],
+      "canonicalPromotionBlocker": "1 material ringed player-count occurrence(s) remain explicit all-49 authoritative no-matches; no semantic token was invented.; No singular exact generated-cell selector exists; preserve all candidate references without CardID-modulo inference.; Current publisher-primary rendered component pixels conflict materially with the assigned TTS face; preserve both and do not substitute publisher wording into the TTS transcription.; The applicable exact-title BGA licensed-digital record conflicts materially and is retained only as secondary evidence.; No approved canonical Personal/Private Objective card image/sidecar schema or directory exists under cards/game.",
       "evidence": {
         "textBasis": "native vision draft; not canonical promotion",
         "visionProvider": "openai-codex",
         "visionModel": "gpt-5.6-sol",
-        "reasoningEffort": null,
-        "workerId": null,
-        "sessionId": "20260815_053809_147d88",
-        "resultPath": "assets/tts-mod/extract/vision-results/518f750e52720a13a626822da482dc87879fa47751cad7d583e482e315b8e5b8.json",
-        "rawResultPath": null,
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-30-20260821T102147Z-p346900-971773",
+        "sessionId": "20260821_102416_61ceea",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/results/W30-009.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/raw/W30-009.json",
         "ledgerPath": "assets/tts-mod/extract/vision-progress.json",
-        "queuePath": "assets/tts-mod/extract/low-confidence-review.json"
-      }
+        "queuePath": "assets/tts-mod/extract/low-confidence-review.json",
+        "selectedExtraction": {
+          "runIdentity": "w30-card-extraction-20260821T102147Z-p346900-971773/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/W30-009",
+          "runId": "w30-card-extraction-20260821T102147Z-p346900-971773",
+          "workerId": "sol-max-persistent-worker-30-20260821T102147Z-p346900-971773",
+          "assetId": "W30-009",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/results/W30-009.json",
+          "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/raw/W30-009.json",
+          "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/qa/contact-sheets/W30-009-all-functional-all49-contact.png",
+          "promotionDecision": "defer",
+          "runtime": {
+            "provider": "openai-codex",
+            "model": "gpt-5.6-sol",
+            "reasoningEffort": "max",
+            "nativeImageRoute": "direct-hermes-chat-image",
+            "blindSessionId": "20260821_102416_61ceea",
+            "adjudicationSessionId": "20260821_104731_543f84",
+            "auxiliaryVisionUsed": false,
+            "qwenUsed": false,
+            "ocrCanonicalEvidenceUsed": false,
+            "modelDowngradeUsed": false
+          }
+        }
+      },
+      "selectedExtraction": {
+        "overlayVersion": 1,
+        "status": "selected-evidence-deferred",
+        "runIdentity": "w30-card-extraction-20260821T102147Z-p346900-971773/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/W30-009",
+        "runId": "w30-card-extraction-20260821T102147Z-p346900-971773",
+        "workerId": "sol-max-persistent-worker-30-20260821T102147Z-p346900-971773",
+        "assetId": "W30-009",
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-162_cards/card-19.png",
+        "sourceSha256": "518f750e52720a13a626822da482dc87879fa47751cad7d583e482e315b8e5b8",
+        "runtime": {
+          "provider": "openai-codex",
+          "model": "gpt-5.6-sol",
+          "reasoningEffort": "max",
+          "nativeImageRoute": "direct-hermes-chat-image",
+          "blindSessionId": "20260821_102416_61ceea",
+          "adjudicationSessionId": "20260821_104731_543f84",
+          "auxiliaryVisionUsed": false,
+          "qwenUsed": false,
+          "ocrCanonicalEvidenceUsed": false,
+          "modelDowngradeUsed": false
+        },
+        "blindObservationPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/raw/W30-009.json",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/results/W30-009.json",
+        "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/qa/contact-sheets/W30-009-all-functional-all49-contact.png",
+        "visibleText": {
+          "title": "LUXURIOUS OFFER",
+          "typeLine": "",
+          "body": "You must survive with an Egg.",
+          "sections": [
+            {
+              "panelId": "P3",
+              "heading": "",
+              "text": "You must survive with an Egg."
+            }
+          ],
+          "footer": "PERSONAL OBJECTIVE",
+          "upperRight": "[ICON: white round-topped upright silhouette above nested cyan-blue oval rings] 2+",
+          "lowerCenter": "PERSONAL OBJECTIVE",
+          "illegibleSpans": [],
+          "clippedSpans": []
+        },
+        "verifiedIconOccurrences": [],
+        "unresolvedIconOccurrences": [
+          {
+            "cardLocation": "Lower center of P1, immediately above P2 and directly left of 2+.",
+            "referenceLabel": "Lower center of P1, immediately above P2 and directly left of '2+'. The outer shape is a composite emblem with several horizontally elongated concentric oval rings forming the base and a centered upright white figure- or pawn-like form rising from them. The upright form has a small round top, narrow connection, bilateral rounded projections, and a broad flared lower portion. It contains light-gray to pale-blue central shading. The base has thin cyan and deep-blue nested oval strokes around a dark navy center, with a soft blue outer glow. Colors are white, light gray, pale blue, cyan, deep blue, and dark navy.",
+            "matchDecision": "no-match",
+            "canonicalToken": null,
+            "closestAlternative": "character (the labeled p.40 character crop)",
+            "visibleDiscriminator": "M1 has a simple round-topped, flared upright form mounted on multiple cyan/deep-blue oval rings. The character crop instead shows a detailed articulated astronaut with an open helmet area, rectangular torso marks, angular arms, and separated lower forms, and it has no ringed base.",
+            "evidenceRun": "sol-max-persistent-worker-30-20260821T102147Z-p346900-971773"
+          }
+        ],
+        "canonicalTokensEmitted": [],
+        "allMaterialTextReadable": true,
+        "allMaterialIconsAuthoritativelyMatched": false,
+        "promotionDecision": "defer",
+        "decisionReasons": [
+          "1 material ringed player-count occurrence(s) remain explicit all-49 authoritative no-matches; no semantic token was invented.",
+          "No singular exact generated-cell selector exists; preserve all candidate references without CardID-modulo inference.",
+          "Current publisher-primary rendered component pixels conflict materially with the assigned TTS face; preserve both and do not substitute publisher wording into the TTS transcription.",
+          "The applicable exact-title BGA licensed-digital record conflicts materially and is retained only as secondary evidence.",
+          "No approved canonical Personal/Private Objective card image/sidecar schema or directory exists under cards/game."
+        ],
+        "conflictsWithPriorSnapshot": []
+      },
+      "evidenceRuns": [
+        {
+          "runIdentity": "w30-card-extraction-20260821T102147Z-p346900-971773/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/W30-009",
+          "runId": "w30-card-extraction-20260821T102147Z-p346900-971773",
+          "workerId": "sol-max-persistent-worker-30-20260821T102147Z-p346900-971773",
+          "assetId": "W30-009",
+          "sourceSha256": "518f750e52720a13a626822da482dc87879fa47751cad7d583e482e315b8e5b8",
+          "blindSessionId": "20260821_102416_61ceea",
+          "adjudicationSessionId": "20260821_104731_543f84",
+          "promotionDecision": "defer",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/results/W30-009.json",
+          "selected": true
+        }
+      ]
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-162_cards/card-20.png",
@@ -31116,35 +32344,180 @@
       "componentFamily": "game/objectiveMissonDeck",
       "ledgerStatus": "deferred",
       "extractionState": "draft-full",
-      "rulesInformationReadiness": "draft-text-complete",
+      "rulesInformationReadiness": "draft-text-complete-symbols-unresolved",
       "rulesTextPresent": true,
       "identity": {},
       "printedData": {
         "title": "CORPORATE CONTRACT",
+        "typeLine": "",
         "body": "Character of the Player 5 cannot Survive.\n(If you are the Player 5 you have to fulfill\nthe second option from this Objective)\n\nOR\n\nYou have to be the only Survivor.",
+        "sections": [
+          {
+            "panelId": "P3",
+            "heading": "",
+            "text": "Character of the Player 5 cannot Survive.\n(If you are the Player 5 you have to fulfill\nthe second option from this Objective)"
+          },
+          {
+            "panelId": "P4",
+            "heading": "OR",
+            "text": ""
+          },
+          {
+            "panelId": "P5",
+            "heading": "",
+            "text": "You have to be the only Survivor."
+          }
+        ],
         "footer": "PERSONAL OBJECTIVE",
-        "visibleText": "[character] 5+"
+        "upperRight": "[ICON: white round-topped upright silhouette above nested cyan-blue oval rings] 5+",
+        "lowerCenter": "PERSONAL OBJECTIVE",
+        "illegibleSpans": [],
+        "clippedSpans": []
       },
       "symbols": {
-        "canonicalGlossaryTokens": [
-          "character"
-        ],
-        "unresolvedOrLocalTokens": []
+        "canonicalGlossaryTokens": [],
+        "unresolvedOrLocalTokens": [
+          "ICON: white round-topped upright silhouette above nested cyan-blue oval rings"
+        ]
       },
-      "uncertainties": [],
-      "canonicalPromotionBlocker": "meaningful visible text falls outside the established minimal sidecar fields",
+      "uncertainties": [
+        "The semantic identity of M1 cannot be established from its pixels alone.",
+        "The proximity of M1 and 5+ establishes a visual grouping but not the meaning of that grouping.",
+        "Glow and overlap soften the exact closure and count of the smallest oval strokes in M1.",
+        "The tiny marks on the central artwork structure cannot be confirmed or transcribed as specific characters.",
+        "The identity of the pale folded artwork form inside the chamber is not established.",
+        "The canonical component family and side terminology are not explicitly printed.",
+        "Current publisher-primary rendered component pixels conflict materially with the assigned TTS face; preserve both and do not substitute publisher wording into the TTS transcription.",
+        "The applicable exact-title BGA licensed-digital record conflicts materially and is retained only as secondary evidence.",
+        "1 material ringed player-count occurrence(s) remain explicit all-49 authoritative no-matches; no semantic token was invented.",
+        "No singular exact generated-cell selector exists; preserve all candidate references without CardID-modulo inference.",
+        "No approved canonical Personal/Private Objective card image/sidecar schema or directory exists under cards/game."
+      ],
+      "canonicalPromotionBlocker": "1 material ringed player-count occurrence(s) remain explicit all-49 authoritative no-matches; no semantic token was invented.; No singular exact generated-cell selector exists; preserve all candidate references without CardID-modulo inference.; Current publisher-primary rendered component pixels conflict materially with the assigned TTS face; preserve both and do not substitute publisher wording into the TTS transcription.; The applicable exact-title BGA licensed-digital record conflicts materially and is retained only as secondary evidence.; No approved canonical Personal/Private Objective card image/sidecar schema or directory exists under cards/game.",
       "evidence": {
         "textBasis": "native vision draft; not canonical promotion",
         "visionProvider": "openai-codex",
         "visionModel": "gpt-5.6-sol",
-        "reasoningEffort": null,
-        "workerId": null,
-        "sessionId": "20260815_053815_2ff596",
-        "resultPath": "assets/tts-mod/extract/vision-results/86c8acf32ca511709d86d2633a6f586259fe52c82c0f2c08775d9fb0788649ec.json",
-        "rawResultPath": null,
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-30-20260821T102147Z-p346900-971773",
+        "sessionId": "20260821_102416_61ceea",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/results/W30-010.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/raw/W30-010.json",
         "ledgerPath": "assets/tts-mod/extract/vision-progress.json",
-        "queuePath": "assets/tts-mod/extract/low-confidence-review.json"
-      }
+        "queuePath": "assets/tts-mod/extract/low-confidence-review.json",
+        "selectedExtraction": {
+          "runIdentity": "w30-card-extraction-20260821T102147Z-p346900-971773/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/W30-010",
+          "runId": "w30-card-extraction-20260821T102147Z-p346900-971773",
+          "workerId": "sol-max-persistent-worker-30-20260821T102147Z-p346900-971773",
+          "assetId": "W30-010",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/results/W30-010.json",
+          "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/raw/W30-010.json",
+          "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/qa/contact-sheets/W30-010-all-functional-all49-contact.png",
+          "promotionDecision": "defer",
+          "runtime": {
+            "provider": "openai-codex",
+            "model": "gpt-5.6-sol",
+            "reasoningEffort": "max",
+            "nativeImageRoute": "direct-hermes-chat-image",
+            "blindSessionId": "20260821_102416_61ceea",
+            "adjudicationSessionId": "20260821_104731_543f84",
+            "auxiliaryVisionUsed": false,
+            "qwenUsed": false,
+            "ocrCanonicalEvidenceUsed": false,
+            "modelDowngradeUsed": false
+          }
+        }
+      },
+      "selectedExtraction": {
+        "overlayVersion": 1,
+        "status": "selected-evidence-deferred",
+        "runIdentity": "w30-card-extraction-20260821T102147Z-p346900-971773/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/W30-010",
+        "runId": "w30-card-extraction-20260821T102147Z-p346900-971773",
+        "workerId": "sol-max-persistent-worker-30-20260821T102147Z-p346900-971773",
+        "assetId": "W30-010",
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-162_cards/card-20.png",
+        "sourceSha256": "86c8acf32ca511709d86d2633a6f586259fe52c82c0f2c08775d9fb0788649ec",
+        "runtime": {
+          "provider": "openai-codex",
+          "model": "gpt-5.6-sol",
+          "reasoningEffort": "max",
+          "nativeImageRoute": "direct-hermes-chat-image",
+          "blindSessionId": "20260821_102416_61ceea",
+          "adjudicationSessionId": "20260821_104731_543f84",
+          "auxiliaryVisionUsed": false,
+          "qwenUsed": false,
+          "ocrCanonicalEvidenceUsed": false,
+          "modelDowngradeUsed": false
+        },
+        "blindObservationPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/raw/W30-010.json",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/results/W30-010.json",
+        "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/qa/contact-sheets/W30-010-all-functional-all49-contact.png",
+        "visibleText": {
+          "title": "CORPORATE CONTRACT",
+          "typeLine": "",
+          "body": "Character of the Player 5 cannot Survive.\n(If you are the Player 5 you have to fulfill\nthe second option from this Objective)\n\nOR\n\nYou have to be the only Survivor.",
+          "sections": [
+            {
+              "panelId": "P3",
+              "heading": "",
+              "text": "Character of the Player 5 cannot Survive.\n(If you are the Player 5 you have to fulfill\nthe second option from this Objective)"
+            },
+            {
+              "panelId": "P4",
+              "heading": "OR",
+              "text": ""
+            },
+            {
+              "panelId": "P5",
+              "heading": "",
+              "text": "You have to be the only Survivor."
+            }
+          ],
+          "footer": "PERSONAL OBJECTIVE",
+          "upperRight": "[ICON: white round-topped upright silhouette above nested cyan-blue oval rings] 5+",
+          "lowerCenter": "PERSONAL OBJECTIVE",
+          "illegibleSpans": [],
+          "clippedSpans": []
+        },
+        "verifiedIconOccurrences": [],
+        "unresolvedIconOccurrences": [
+          {
+            "cardLocation": "Lower center of P1, immediately above P2 and directly left of 5+.",
+            "referenceLabel": "Lower center of P1, immediately above P2 and directly left of '5+'. The outer shape is a composite emblem with several horizontally elongated concentric oval rings forming the base and a centered upright white figure- or pawn-like form rising from them. The upright form has a small round top, narrow connection, bilateral rounded projections, and a broad flared lower portion. It contains light-gray to pale-blue central shading. The base has thin cyan and deep-blue nested oval strokes around a dark navy center, with a soft blue outer glow. Colors are white, light gray, pale blue, cyan, deep blue, and dark navy.",
+            "matchDecision": "no-match",
+            "canonicalToken": null,
+            "closestAlternative": "character (the labeled p.40 character crop)",
+            "visibleDiscriminator": "M1 has a simple round-topped, flared upright form mounted on multiple cyan/deep-blue oval rings. The character crop instead shows a detailed articulated astronaut with an open helmet area, rectangular torso marks, angular arms, and separated lower forms, and it has no ringed base.",
+            "evidenceRun": "sol-max-persistent-worker-30-20260821T102147Z-p346900-971773"
+          }
+        ],
+        "canonicalTokensEmitted": [],
+        "allMaterialTextReadable": true,
+        "allMaterialIconsAuthoritativelyMatched": false,
+        "promotionDecision": "defer",
+        "decisionReasons": [
+          "1 material ringed player-count occurrence(s) remain explicit all-49 authoritative no-matches; no semantic token was invented.",
+          "No singular exact generated-cell selector exists; preserve all candidate references without CardID-modulo inference.",
+          "Current publisher-primary rendered component pixels conflict materially with the assigned TTS face; preserve both and do not substitute publisher wording into the TTS transcription.",
+          "The applicable exact-title BGA licensed-digital record conflicts materially and is retained only as secondary evidence.",
+          "No approved canonical Personal/Private Objective card image/sidecar schema or directory exists under cards/game."
+        ],
+        "conflictsWithPriorSnapshot": []
+      },
+      "evidenceRuns": [
+        {
+          "runIdentity": "w30-card-extraction-20260821T102147Z-p346900-971773/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/W30-010",
+          "runId": "w30-card-extraction-20260821T102147Z-p346900-971773",
+          "workerId": "sol-max-persistent-worker-30-20260821T102147Z-p346900-971773",
+          "assetId": "W30-010",
+          "sourceSha256": "86c8acf32ca511709d86d2633a6f586259fe52c82c0f2c08775d9fb0788649ec",
+          "blindSessionId": "20260821_102416_61ceea",
+          "adjudicationSessionId": "20260821_104731_543f84",
+          "promotionDecision": "defer",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/results/W30-010.json",
+          "selected": true
+        }
+      ]
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectivePersonalDeck-014.jpg",
@@ -31153,35 +32526,158 @@
       "componentFamily": "game/objectivePersonalDeck",
       "ledgerStatus": "deferred",
       "extractionState": "draft-full",
-      "rulesInformationReadiness": "draft-text-complete",
+      "rulesInformationReadiness": "draft-text-complete-symbols-unresolved",
       "rulesTextPresent": true,
       "identity": {},
       "printedData": {
         "title": "STATE'S EVIDENCE",
+        "typeLine": "",
         "body": "You must be the only surviving Character\nwith a Data token from the Server Room.",
+        "sections": [
+          {
+            "panelId": "P3",
+            "heading": "",
+            "text": "You must be the only surviving Character\nwith a Data token from the Server Room."
+          }
+        ],
         "footer": "PERSONAL OBJECTIVE",
-        "visibleText": "[character] 3+"
+        "upperRight": "[ICON: white round-topped upright silhouette above nested cyan-blue oval rings] 3+",
+        "lowerCenter": "PERSONAL OBJECTIVE",
+        "illegibleSpans": [],
+        "clippedSpans": []
       },
       "symbols": {
-        "canonicalGlossaryTokens": [
-          "character"
-        ],
-        "unresolvedOrLocalTokens": []
+        "canonicalGlossaryTokens": [],
+        "unresolvedOrLocalTokens": [
+          "ICON: white round-topped upright silhouette above nested cyan-blue oval rings"
+        ]
       },
-      "uncertainties": [],
-      "canonicalPromotionBlocker": "meaningful visible text falls outside the established minimal sidecar fields",
+      "uncertainties": [
+        "The semantic identity of M1 cannot be established from its pixels alone.",
+        "The proximity of M1 and 3+ establishes a visual grouping but not the meaning of that grouping.",
+        "Glow and overlap soften the exact closure and count of the smallest oval strokes in M1.",
+        "The tiny marks on the central artwork structure cannot be confirmed or transcribed as specific characters.",
+        "The identity of the pale folded artwork form inside the chamber is not established.",
+        "The canonical component family and side terminology are not explicitly printed.",
+        "Current publisher-primary rendered component pixels conflict materially with the assigned TTS face; preserve both and do not substitute publisher wording into the TTS transcription.",
+        "The applicable exact-title BGA licensed-digital record conflicts materially and is retained only as secondary evidence.",
+        "1 material ringed player-count occurrence(s) remain explicit all-49 authoritative no-matches; no semantic token was invented.",
+        "No approved canonical Personal/Private Objective card image/sidecar schema or directory exists under cards/game."
+      ],
+      "canonicalPromotionBlocker": "1 material ringed player-count occurrence(s) remain explicit all-49 authoritative no-matches; no semantic token was invented.; Current publisher-primary rendered component pixels conflict materially with the assigned TTS face; preserve both and do not substitute publisher wording into the TTS transcription.; The applicable exact-title BGA licensed-digital record conflicts materially and is retained only as secondary evidence.; No approved canonical Personal/Private Objective card image/sidecar schema or directory exists under cards/game.",
       "evidence": {
         "textBasis": "native vision draft; not canonical promotion",
         "visionProvider": "openai-codex",
         "visionModel": "gpt-5.6-sol",
-        "reasoningEffort": null,
-        "workerId": null,
-        "sessionId": "20260815_053815_f62eb4",
-        "resultPath": "assets/tts-mod/extract/vision-results/628fc9f78b4a26e405034fcf3f0d855b010d7125e173d79fbcca6c3668e95892.json",
-        "rawResultPath": null,
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-30-20260821T102147Z-p346900-971773",
+        "sessionId": "20260821_102416_61ceea",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/results/W30-011.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/raw/W30-011.json",
         "ledgerPath": "assets/tts-mod/extract/vision-progress.json",
-        "queuePath": "assets/tts-mod/extract/low-confidence-review.json"
-      }
+        "queuePath": "assets/tts-mod/extract/low-confidence-review.json",
+        "selectedExtraction": {
+          "runIdentity": "w30-card-extraction-20260821T102147Z-p346900-971773/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/W30-011",
+          "runId": "w30-card-extraction-20260821T102147Z-p346900-971773",
+          "workerId": "sol-max-persistent-worker-30-20260821T102147Z-p346900-971773",
+          "assetId": "W30-011",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/results/W30-011.json",
+          "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/raw/W30-011.json",
+          "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/qa/contact-sheets/W30-011-all-functional-all49-contact.png",
+          "promotionDecision": "defer",
+          "runtime": {
+            "provider": "openai-codex",
+            "model": "gpt-5.6-sol",
+            "reasoningEffort": "max",
+            "nativeImageRoute": "direct-hermes-chat-image",
+            "blindSessionId": "20260821_102416_61ceea",
+            "adjudicationSessionId": "20260821_104731_543f84",
+            "auxiliaryVisionUsed": false,
+            "qwenUsed": false,
+            "ocrCanonicalEvidenceUsed": false,
+            "modelDowngradeUsed": false
+          }
+        }
+      },
+      "selectedExtraction": {
+        "overlayVersion": 1,
+        "status": "selected-evidence-deferred",
+        "runIdentity": "w30-card-extraction-20260821T102147Z-p346900-971773/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/W30-011",
+        "runId": "w30-card-extraction-20260821T102147Z-p346900-971773",
+        "workerId": "sol-max-persistent-worker-30-20260821T102147Z-p346900-971773",
+        "assetId": "W30-011",
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectivePersonalDeck-014.jpg",
+        "sourceSha256": "628fc9f78b4a26e405034fcf3f0d855b010d7125e173d79fbcca6c3668e95892",
+        "runtime": {
+          "provider": "openai-codex",
+          "model": "gpt-5.6-sol",
+          "reasoningEffort": "max",
+          "nativeImageRoute": "direct-hermes-chat-image",
+          "blindSessionId": "20260821_102416_61ceea",
+          "adjudicationSessionId": "20260821_104731_543f84",
+          "auxiliaryVisionUsed": false,
+          "qwenUsed": false,
+          "ocrCanonicalEvidenceUsed": false,
+          "modelDowngradeUsed": false
+        },
+        "blindObservationPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/raw/W30-011.json",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/results/W30-011.json",
+        "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/qa/contact-sheets/W30-011-all-functional-all49-contact.png",
+        "visibleText": {
+          "title": "STATE'S EVIDENCE",
+          "typeLine": "",
+          "body": "You must be the only surviving Character\nwith a Data token from the Server Room.",
+          "sections": [
+            {
+              "panelId": "P3",
+              "heading": "",
+              "text": "You must be the only surviving Character\nwith a Data token from the Server Room."
+            }
+          ],
+          "footer": "PERSONAL OBJECTIVE",
+          "upperRight": "[ICON: white round-topped upright silhouette above nested cyan-blue oval rings] 3+",
+          "lowerCenter": "PERSONAL OBJECTIVE",
+          "illegibleSpans": [],
+          "clippedSpans": []
+        },
+        "verifiedIconOccurrences": [],
+        "unresolvedIconOccurrences": [
+          {
+            "cardLocation": "Lower center of P1, immediately above P2 and directly left of 3+.",
+            "referenceLabel": "Lower center of P1, immediately above P2 and directly left of '3+'. The outer shape is a composite emblem with several horizontally elongated concentric oval rings forming the base and a centered upright white figure- or pawn-like form rising from them. The upright form has a small round top, narrow connection, bilateral rounded projections, and a broad flared lower portion. It contains light-gray to pale-blue central shading. The base has thin cyan and deep-blue nested oval strokes around a dark navy center, with a soft blue outer glow. Colors are white, light gray, pale blue, cyan, deep blue, and dark navy.",
+            "matchDecision": "no-match",
+            "canonicalToken": null,
+            "closestAlternative": "character (the labeled p.40 character crop)",
+            "visibleDiscriminator": "M1 has a simple round-topped, flared upright form mounted on multiple cyan/deep-blue oval rings. The character crop instead shows a detailed articulated astronaut with an open helmet area, rectangular torso marks, angular arms, and separated lower forms, and it has no ringed base.",
+            "evidenceRun": "sol-max-persistent-worker-30-20260821T102147Z-p346900-971773"
+          }
+        ],
+        "canonicalTokensEmitted": [],
+        "allMaterialTextReadable": true,
+        "allMaterialIconsAuthoritativelyMatched": false,
+        "promotionDecision": "defer",
+        "decisionReasons": [
+          "1 material ringed player-count occurrence(s) remain explicit all-49 authoritative no-matches; no semantic token was invented.",
+          "Current publisher-primary rendered component pixels conflict materially with the assigned TTS face; preserve both and do not substitute publisher wording into the TTS transcription.",
+          "The applicable exact-title BGA licensed-digital record conflicts materially and is retained only as secondary evidence.",
+          "No approved canonical Personal/Private Objective card image/sidecar schema or directory exists under cards/game."
+        ],
+        "conflictsWithPriorSnapshot": []
+      },
+      "evidenceRuns": [
+        {
+          "runIdentity": "w30-card-extraction-20260821T102147Z-p346900-971773/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/W30-011",
+          "runId": "w30-card-extraction-20260821T102147Z-p346900-971773",
+          "workerId": "sol-max-persistent-worker-30-20260821T102147Z-p346900-971773",
+          "assetId": "W30-011",
+          "sourceSha256": "628fc9f78b4a26e405034fcf3f0d855b010d7125e173d79fbcca6c3668e95892",
+          "blindSessionId": "20260821_102416_61ceea",
+          "adjudicationSessionId": "20260821_104731_543f84",
+          "promotionDecision": "defer",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/results/W30-011.json",
+          "selected": true
+        }
+      ]
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectivePersonalDeck-043.jpg",
@@ -31190,35 +32686,158 @@
       "componentFamily": "game/objectivePersonalDeck",
       "ledgerStatus": "deferred",
       "extractionState": "draft-full",
-      "rulesInformationReadiness": "draft-text-complete",
+      "rulesInformationReadiness": "draft-text-complete-symbols-unresolved",
       "rulesTextPresent": true,
       "identity": {},
       "printedData": {
         "title": "EXPERIMENTAL SUBJECTS",
+        "typeLine": "",
         "body": "All Characters who Escape from\nthe Facility must have at least 3\nContamination cards in total\namong them (no matter if they Survive).",
+        "sections": [
+          {
+            "panelId": "P3",
+            "heading": "",
+            "text": "All Characters who Escape from\nthe Facility must have at least 3\nContamination cards in total\namong them (no matter if they Survive)."
+          }
+        ],
         "footer": "PERSONAL OBJECTIVE",
-        "visibleText": "[character] 3+"
+        "upperRight": "[ICON: white round-topped upright silhouette above nested cyan-blue oval rings] 3+",
+        "lowerCenter": "PERSONAL OBJECTIVE",
+        "illegibleSpans": [],
+        "clippedSpans": []
       },
       "symbols": {
-        "canonicalGlossaryTokens": [
-          "character"
-        ],
-        "unresolvedOrLocalTokens": []
+        "canonicalGlossaryTokens": [],
+        "unresolvedOrLocalTokens": [
+          "ICON: white round-topped upright silhouette above nested cyan-blue oval rings"
+        ]
       },
-      "uncertainties": [],
-      "canonicalPromotionBlocker": "meaningful visible text falls outside the established minimal sidecar fields",
+      "uncertainties": [
+        "The semantic identity of M1 cannot be established from its pixels alone.",
+        "The proximity of M1 and 3+ establishes a visual grouping but not the meaning of that grouping.",
+        "Glow and overlap soften the exact closure and count of the smallest oval strokes in M1.",
+        "The tiny marks on the central artwork structure cannot be confirmed or transcribed as specific characters.",
+        "The identity of the pale folded artwork form inside the chamber is not established.",
+        "The canonical component family and side terminology are not explicitly printed.",
+        "Current publisher-primary rendered component pixels conflict materially with the assigned TTS face; preserve both and do not substitute publisher wording into the TTS transcription.",
+        "The applicable exact-title BGA licensed-digital record conflicts materially and is retained only as secondary evidence.",
+        "1 material ringed player-count occurrence(s) remain explicit all-49 authoritative no-matches; no semantic token was invented.",
+        "No approved canonical Personal/Private Objective card image/sidecar schema or directory exists under cards/game."
+      ],
+      "canonicalPromotionBlocker": "1 material ringed player-count occurrence(s) remain explicit all-49 authoritative no-matches; no semantic token was invented.; Current publisher-primary rendered component pixels conflict materially with the assigned TTS face; preserve both and do not substitute publisher wording into the TTS transcription.; The applicable exact-title BGA licensed-digital record conflicts materially and is retained only as secondary evidence.; No approved canonical Personal/Private Objective card image/sidecar schema or directory exists under cards/game.",
       "evidence": {
         "textBasis": "native vision draft; not canonical promotion",
         "visionProvider": "openai-codex",
         "visionModel": "gpt-5.6-sol",
-        "reasoningEffort": null,
-        "workerId": null,
-        "sessionId": "20260815_053823_75080c",
-        "resultPath": "assets/tts-mod/extract/vision-results/de1213ee6a5b5489a9c7463e9532d2d4ae40b07975db38b9472f72d590f6218c.json",
-        "rawResultPath": null,
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-30-20260821T102147Z-p346900-971773",
+        "sessionId": "20260821_102416_61ceea",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/results/W30-012.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/raw/W30-012.json",
         "ledgerPath": "assets/tts-mod/extract/vision-progress.json",
-        "queuePath": "assets/tts-mod/extract/low-confidence-review.json"
-      }
+        "queuePath": "assets/tts-mod/extract/low-confidence-review.json",
+        "selectedExtraction": {
+          "runIdentity": "w30-card-extraction-20260821T102147Z-p346900-971773/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/W30-012",
+          "runId": "w30-card-extraction-20260821T102147Z-p346900-971773",
+          "workerId": "sol-max-persistent-worker-30-20260821T102147Z-p346900-971773",
+          "assetId": "W30-012",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/results/W30-012.json",
+          "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/raw/W30-012.json",
+          "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/qa/contact-sheets/W30-012-all-functional-all49-contact.png",
+          "promotionDecision": "defer",
+          "runtime": {
+            "provider": "openai-codex",
+            "model": "gpt-5.6-sol",
+            "reasoningEffort": "max",
+            "nativeImageRoute": "direct-hermes-chat-image",
+            "blindSessionId": "20260821_102416_61ceea",
+            "adjudicationSessionId": "20260821_104731_543f84",
+            "auxiliaryVisionUsed": false,
+            "qwenUsed": false,
+            "ocrCanonicalEvidenceUsed": false,
+            "modelDowngradeUsed": false
+          }
+        }
+      },
+      "selectedExtraction": {
+        "overlayVersion": 1,
+        "status": "selected-evidence-deferred",
+        "runIdentity": "w30-card-extraction-20260821T102147Z-p346900-971773/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/W30-012",
+        "runId": "w30-card-extraction-20260821T102147Z-p346900-971773",
+        "workerId": "sol-max-persistent-worker-30-20260821T102147Z-p346900-971773",
+        "assetId": "W30-012",
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectivePersonalDeck-043.jpg",
+        "sourceSha256": "de1213ee6a5b5489a9c7463e9532d2d4ae40b07975db38b9472f72d590f6218c",
+        "runtime": {
+          "provider": "openai-codex",
+          "model": "gpt-5.6-sol",
+          "reasoningEffort": "max",
+          "nativeImageRoute": "direct-hermes-chat-image",
+          "blindSessionId": "20260821_102416_61ceea",
+          "adjudicationSessionId": "20260821_104731_543f84",
+          "auxiliaryVisionUsed": false,
+          "qwenUsed": false,
+          "ocrCanonicalEvidenceUsed": false,
+          "modelDowngradeUsed": false
+        },
+        "blindObservationPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/raw/W30-012.json",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/results/W30-012.json",
+        "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/qa/contact-sheets/W30-012-all-functional-all49-contact.png",
+        "visibleText": {
+          "title": "EXPERIMENTAL SUBJECTS",
+          "typeLine": "",
+          "body": "All Characters who Escape from\nthe Facility must have at least 3\nContamination cards in total\namong them (no matter if they Survive).",
+          "sections": [
+            {
+              "panelId": "P3",
+              "heading": "",
+              "text": "All Characters who Escape from\nthe Facility must have at least 3\nContamination cards in total\namong them (no matter if they Survive)."
+            }
+          ],
+          "footer": "PERSONAL OBJECTIVE",
+          "upperRight": "[ICON: white round-topped upright silhouette above nested cyan-blue oval rings] 3+",
+          "lowerCenter": "PERSONAL OBJECTIVE",
+          "illegibleSpans": [],
+          "clippedSpans": []
+        },
+        "verifiedIconOccurrences": [],
+        "unresolvedIconOccurrences": [
+          {
+            "cardLocation": "Lower center of P1, immediately above P2 and directly left of 3+.",
+            "referenceLabel": "Lower center of P1, immediately above P2 and directly left of '3+'. The outer shape is a composite emblem with several horizontally elongated concentric oval rings forming the base and a centered upright white figure- or pawn-like form rising from them. The upright form has a small round top, narrow connection, bilateral rounded projections, and a broad flared lower portion. It contains light-gray to pale-blue central shading. The base has thin cyan and deep-blue nested oval strokes around a dark navy center, with a soft blue outer glow. Colors are white, light gray, pale blue, cyan, deep blue, and dark navy.",
+            "matchDecision": "no-match",
+            "canonicalToken": null,
+            "closestAlternative": "character (the labeled p.40 character crop)",
+            "visibleDiscriminator": "M1 has a simple solid round-topped, flared upright form mounted on multiple cyan/deep-blue oval rings. The character crop instead has an outlined helmet with a dark face opening, rectangular dark torso divisions, articulated arms, and separated lower forms, and it has no ringed base.",
+            "evidenceRun": "sol-max-persistent-worker-30-20260821T102147Z-p346900-971773"
+          }
+        ],
+        "canonicalTokensEmitted": [],
+        "allMaterialTextReadable": true,
+        "allMaterialIconsAuthoritativelyMatched": false,
+        "promotionDecision": "defer",
+        "decisionReasons": [
+          "1 material ringed player-count occurrence(s) remain explicit all-49 authoritative no-matches; no semantic token was invented.",
+          "Current publisher-primary rendered component pixels conflict materially with the assigned TTS face; preserve both and do not substitute publisher wording into the TTS transcription.",
+          "The applicable exact-title BGA licensed-digital record conflicts materially and is retained only as secondary evidence.",
+          "No approved canonical Personal/Private Objective card image/sidecar schema or directory exists under cards/game."
+        ],
+        "conflictsWithPriorSnapshot": []
+      },
+      "evidenceRuns": [
+        {
+          "runIdentity": "w30-card-extraction-20260821T102147Z-p346900-971773/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/W30-012",
+          "runId": "w30-card-extraction-20260821T102147Z-p346900-971773",
+          "workerId": "sol-max-persistent-worker-30-20260821T102147Z-p346900-971773",
+          "assetId": "W30-012",
+          "sourceSha256": "de1213ee6a5b5489a9c7463e9532d2d4ae40b07975db38b9472f72d590f6218c",
+          "blindSessionId": "20260821_102416_61ceea",
+          "adjudicationSessionId": "20260821_104731_543f84",
+          "promotionDecision": "defer",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/results/W30-012.json",
+          "selected": true
+        }
+      ]
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectivePersonalDeck-066.jpg",
@@ -31227,36 +32846,182 @@
       "componentFamily": "game/objectivePersonalDeck",
       "ledgerStatus": "deferred",
       "extractionState": "draft-full",
-      "rulesInformationReadiness": "draft-text-complete",
+      "rulesInformationReadiness": "draft-text-complete-symbols-unresolved",
       "rulesTextPresent": true,
       "identity": {},
       "printedData": {
         "title": "SHUTDOWN",
+        "typeLine": "",
         "body": "You must have a Data token\n(from the Server Room in Section B)\n\nAND\n\nAll Life Support tokens must be [lifeSupportInactive]\n(or removed from the game).",
+        "sections": [
+          {
+            "panelId": "P3",
+            "heading": "",
+            "text": "You must have a Data token\n(from the Server Room in Section B)"
+          },
+          {
+            "panelId": "P3",
+            "heading": "AND",
+            "text": "All Life Support tokens must be [lifeSupportInactive]\n(or removed from the game)."
+          }
+        ],
         "footer": "PERSONAL OBJECTIVE",
-        "visibleText": "[character] 2+"
+        "upperRight": "[ICON: white round-topped upright silhouette above nested cyan-blue oval rings] 2+",
+        "lowerCenter": "PERSONAL OBJECTIVE",
+        "illegibleSpans": [],
+        "clippedSpans": []
       },
       "symbols": {
         "canonicalGlossaryTokens": [
-          "character",
           "lifeSupportInactive"
         ],
-        "unresolvedOrLocalTokens": []
+        "unresolvedOrLocalTokens": [
+          "ICON: white round-topped upright silhouette above nested cyan-blue oval rings"
+        ]
       },
-      "uncertainties": [],
-      "canonicalPromotionBlocker": "meaningful visible text falls outside the established minimal sidecar fields",
+      "uncertainties": [
+        "The semantic identity of M1 cannot be established from its pixels alone.",
+        "The proximity of M1 and 2+ establishes a visual grouping but not the meaning of that grouping.",
+        "The semantic identity of M2 cannot be established from its pixels or neighboring sentence alone.",
+        "The dark diagonal band obscures part of M2's white internal marks, and those marks cannot be securely parsed as characters or a named symbol.",
+        "The dark red-orange artwork marking cannot be confirmed or transcribed as specific characters.",
+        "The canonical component family and side terminology are not explicitly printed.",
+        "Current publisher-primary rendered component pixels conflict materially with the assigned TTS face; preserve both and do not substitute publisher wording into the TTS transcription.",
+        "The applicable exact-title BGA licensed-digital record conflicts materially and is retained only as secondary evidence.",
+        "1 material ringed player-count occurrence(s) remain explicit all-49 authoritative no-matches; no semantic token was invented.",
+        "No approved canonical Personal/Private Objective card image/sidecar schema or directory exists under cards/game."
+      ],
+      "canonicalPromotionBlocker": "1 material ringed player-count occurrence(s) remain explicit all-49 authoritative no-matches; no semantic token was invented.; Current publisher-primary rendered component pixels conflict materially with the assigned TTS face; preserve both and do not substitute publisher wording into the TTS transcription.; The applicable exact-title BGA licensed-digital record conflicts materially and is retained only as secondary evidence.; No approved canonical Personal/Private Objective card image/sidecar schema or directory exists under cards/game.",
       "evidence": {
         "textBasis": "native vision draft; not canonical promotion",
         "visionProvider": "openai-codex",
         "visionModel": "gpt-5.6-sol",
-        "reasoningEffort": null,
-        "workerId": null,
-        "sessionId": "20260815_053824_d9dfb3",
-        "resultPath": "assets/tts-mod/extract/vision-results/616161bbdb4c758a5b864d514cf12087c7de6cbc293287558a261fd0bbe5960a.json",
-        "rawResultPath": null,
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-30-20260821T102147Z-p346900-971773",
+        "sessionId": "20260821_102416_61ceea",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/results/W30-013.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/raw/W30-013.json",
         "ledgerPath": "assets/tts-mod/extract/vision-progress.json",
-        "queuePath": "assets/tts-mod/extract/low-confidence-review.json"
-      }
+        "queuePath": "assets/tts-mod/extract/low-confidence-review.json",
+        "selectedExtraction": {
+          "runIdentity": "w30-card-extraction-20260821T102147Z-p346900-971773/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/W30-013",
+          "runId": "w30-card-extraction-20260821T102147Z-p346900-971773",
+          "workerId": "sol-max-persistent-worker-30-20260821T102147Z-p346900-971773",
+          "assetId": "W30-013",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/results/W30-013.json",
+          "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/raw/W30-013.json",
+          "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/qa/contact-sheets/W30-013-all-functional-all49-contact.png",
+          "promotionDecision": "defer",
+          "runtime": {
+            "provider": "openai-codex",
+            "model": "gpt-5.6-sol",
+            "reasoningEffort": "max",
+            "nativeImageRoute": "direct-hermes-chat-image",
+            "blindSessionId": "20260821_102416_61ceea",
+            "adjudicationSessionId": "20260821_104731_543f84",
+            "auxiliaryVisionUsed": false,
+            "qwenUsed": false,
+            "ocrCanonicalEvidenceUsed": false,
+            "modelDowngradeUsed": false
+          }
+        }
+      },
+      "selectedExtraction": {
+        "overlayVersion": 1,
+        "status": "selected-evidence-deferred",
+        "runIdentity": "w30-card-extraction-20260821T102147Z-p346900-971773/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/W30-013",
+        "runId": "w30-card-extraction-20260821T102147Z-p346900-971773",
+        "workerId": "sol-max-persistent-worker-30-20260821T102147Z-p346900-971773",
+        "assetId": "W30-013",
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectivePersonalDeck-066.jpg",
+        "sourceSha256": "616161bbdb4c758a5b864d514cf12087c7de6cbc293287558a261fd0bbe5960a",
+        "runtime": {
+          "provider": "openai-codex",
+          "model": "gpt-5.6-sol",
+          "reasoningEffort": "max",
+          "nativeImageRoute": "direct-hermes-chat-image",
+          "blindSessionId": "20260821_102416_61ceea",
+          "adjudicationSessionId": "20260821_104731_543f84",
+          "auxiliaryVisionUsed": false,
+          "qwenUsed": false,
+          "ocrCanonicalEvidenceUsed": false,
+          "modelDowngradeUsed": false
+        },
+        "blindObservationPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/raw/W30-013.json",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/results/W30-013.json",
+        "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/qa/contact-sheets/W30-013-all-functional-all49-contact.png",
+        "visibleText": {
+          "title": "SHUTDOWN",
+          "typeLine": "",
+          "body": "You must have a Data token\n(from the Server Room in Section B)\n\nAND\n\nAll Life Support tokens must be [lifeSupportInactive]\n(or removed from the game).",
+          "sections": [
+            {
+              "panelId": "P3",
+              "heading": "",
+              "text": "You must have a Data token\n(from the Server Room in Section B)"
+            },
+            {
+              "panelId": "P3",
+              "heading": "AND",
+              "text": "All Life Support tokens must be [lifeSupportInactive]\n(or removed from the game)."
+            }
+          ],
+          "footer": "PERSONAL OBJECTIVE",
+          "upperRight": "[ICON: white round-topped upright silhouette above nested cyan-blue oval rings] 2+",
+          "lowerCenter": "PERSONAL OBJECTIVE",
+          "illegibleSpans": [],
+          "clippedSpans": []
+        },
+        "verifiedIconOccurrences": [
+          {
+            "cardLocation": "P3, inline at the right end of the line beginning All Life Support tokens must be.",
+            "referenceLabel": "LifeSupportInactive",
+            "matchDecision": "match",
+            "canonicalToken": "lifeSupportInactive",
+            "closestAlternative": "lifeSupportActive",
+            "visibleDiscriminator": "M2 and lifeSupportActive share the cyan rounded capsule and corresponding white interior geometry, but M2 has the continuous dark lower-left-to-upper-right diagonal band. That band is present in the lifeSupportInactive crop and absent from lifeSupportActive.",
+            "evidenceRun": "sol-max-persistent-worker-30-20260821T102147Z-p346900-971773"
+          }
+        ],
+        "unresolvedIconOccurrences": [
+          {
+            "cardLocation": "Lower center of P1, immediately above P2 and directly left of 2+.",
+            "referenceLabel": "Lower center of P1, immediately above P2 and directly left of '2+'. The outer shape is a composite emblem with several horizontally elongated concentric oval rings forming the base and a centered upright white figure- or pawn-like form rising from them. The upright form has a small round top, narrow connection, bilateral rounded projections, and a broad flared lower portion. It contains light-gray to pale-blue central shading. The base has thin cyan and deep-blue nested oval strokes around a dark navy center, with a soft blue outer glow. Colors are white, light gray, pale blue, cyan, deep blue, and dark navy.",
+            "matchDecision": "no-match",
+            "canonicalToken": null,
+            "closestAlternative": "character (the labeled p.40 character crop)",
+            "visibleDiscriminator": "M1 has a simple solid round-topped, flared upright form mounted on multiple cyan/deep-blue oval rings. The character crop instead has an outlined helmet with a dark face opening, rectangular dark torso divisions, articulated arms, and separated lower forms, and it has no ringed base.",
+            "evidenceRun": "sol-max-persistent-worker-30-20260821T102147Z-p346900-971773"
+          }
+        ],
+        "canonicalTokensEmitted": [
+          "lifeSupportInactive"
+        ],
+        "allMaterialTextReadable": true,
+        "allMaterialIconsAuthoritativelyMatched": false,
+        "promotionDecision": "defer",
+        "decisionReasons": [
+          "1 material ringed player-count occurrence(s) remain explicit all-49 authoritative no-matches; no semantic token was invented.",
+          "Current publisher-primary rendered component pixels conflict materially with the assigned TTS face; preserve both and do not substitute publisher wording into the TTS transcription.",
+          "The applicable exact-title BGA licensed-digital record conflicts materially and is retained only as secondary evidence.",
+          "No approved canonical Personal/Private Objective card image/sidecar schema or directory exists under cards/game."
+        ],
+        "conflictsWithPriorSnapshot": []
+      },
+      "evidenceRuns": [
+        {
+          "runIdentity": "w30-card-extraction-20260821T102147Z-p346900-971773/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/W30-013",
+          "runId": "w30-card-extraction-20260821T102147Z-p346900-971773",
+          "workerId": "sol-max-persistent-worker-30-20260821T102147Z-p346900-971773",
+          "assetId": "W30-013",
+          "sourceSha256": "616161bbdb4c758a5b864d514cf12087c7de6cbc293287558a261fd0bbe5960a",
+          "blindSessionId": "20260821_102416_61ceea",
+          "adjudicationSessionId": "20260821_104731_543f84",
+          "promotionDecision": "defer",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/results/W30-013.json",
+          "selected": true
+        }
+      ]
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectivePersonalDeck-091.jpg",
@@ -31270,35 +33035,175 @@
       "identity": {},
       "printedData": {
         "title": "THE GREAT HUNT",
-        "typeLine": "PRIVATE OBJECTIVE",
+        "typeLine": "",
         "body": "The Queen must be dead.",
-        "lowerCenter": "[ICON: white flame-like figure on blue concentric oval base]",
-        "visibleText": "Remove the other Objective from the game to:\nProgress the Objective Choice track once\nand draw A accordingly.\n\n2+"
+        "sections": [
+          {
+            "panelId": "P1",
+            "heading": "",
+            "text": "Remove the other Objective from the game to:\nProgress the Objective Choice track once\nand draw [actionCard] accordingly."
+          },
+          {
+            "panelId": "P4",
+            "heading": "",
+            "text": "The Queen must be dead."
+          }
+        ],
+        "footer": "PRIVATE OBJECTIVE",
+        "upperRight": "[ICON: white round-topped upright silhouette above nested cyan-blue oval rings] 2+",
+        "lowerCenter": "PRIVATE OBJECTIVE",
+        "illegibleSpans": [],
+        "clippedSpans": []
       },
       "symbols": {
-        "canonicalGlossaryTokens": [],
+        "canonicalGlossaryTokens": [
+          "actionCard"
+        ],
         "unresolvedOrLocalTokens": [
-          "ICON: white flame-like figure on blue concentric oval base"
+          "ICON: white round-topped upright silhouette above nested cyan-blue oval rings"
         ]
       },
       "uncertainties": [
-        "The white flame-like figure on a blue concentric oval base is not confidently matched to any supplied canonical icon.",
-        "The semantic meaning of “2+” and its adjacent icon is uncertain.",
-        "The boxed “A” may be a card-local track or deck glyph, but only the visibly printed letter is transcribed."
+        "The function or canonical meaning of the boxed A in M1 is not established by its pixels alone.",
+        "The semantic identity of M2 cannot be established from its pixels alone.",
+        "The proximity of M2 and 2+ establishes a visual grouping but not the meaning of that grouping.",
+        "Glow and overlap soften the exact closure and count of the smallest oval strokes in M2.",
+        "The lime-green artwork marking at upper right is not established as a letter, numeral, or functional symbol.",
+        "The canonical component family and side terminology are not explicitly printed.",
+        "Current publisher-primary rendered component pixels directly support the assigned title and operative wording; other promotion gates remain independent.",
+        "The applicable exact-title BGA licensed-digital record corroborates the assigned operative text as secondary evidence.",
+        "1 material ringed player-count occurrence(s) remain explicit all-49 authoritative no-matches; no semantic token was invented.",
+        "No approved canonical Personal/Private Objective card image/sidecar schema or directory exists under cards/game."
       ],
-      "canonicalPromotionBlocker": "exact card identity/transcription/icon/category is not uniformly high-confidence",
+      "canonicalPromotionBlocker": "1 material ringed player-count occurrence(s) remain explicit all-49 authoritative no-matches; no semantic token was invented.; No approved canonical Personal/Private Objective card image/sidecar schema or directory exists under cards/game.",
       "evidence": {
         "textBasis": "native vision draft; not canonical promotion",
         "visionProvider": "openai-codex",
         "visionModel": "gpt-5.6-sol",
-        "reasoningEffort": null,
-        "workerId": null,
-        "sessionId": "20260815_053824_d164ca",
-        "resultPath": "assets/tts-mod/extract/vision-results/9958d19068c020fd4fa6410016726bb697d55a30328e80c06f8d3885b9fa0f4b.json",
-        "rawResultPath": null,
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-30-20260821T102147Z-p346900-971773",
+        "sessionId": "20260821_102416_61ceea",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/results/W30-014.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/raw/W30-014.json",
         "ledgerPath": "assets/tts-mod/extract/vision-progress.json",
-        "queuePath": "assets/tts-mod/extract/low-confidence-review.json"
-      }
+        "queuePath": "assets/tts-mod/extract/low-confidence-review.json",
+        "selectedExtraction": {
+          "runIdentity": "w30-card-extraction-20260821T102147Z-p346900-971773/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/W30-014",
+          "runId": "w30-card-extraction-20260821T102147Z-p346900-971773",
+          "workerId": "sol-max-persistent-worker-30-20260821T102147Z-p346900-971773",
+          "assetId": "W30-014",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/results/W30-014.json",
+          "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/raw/W30-014.json",
+          "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/qa/contact-sheets/W30-014-all-functional-all49-contact.png",
+          "promotionDecision": "defer",
+          "runtime": {
+            "provider": "openai-codex",
+            "model": "gpt-5.6-sol",
+            "reasoningEffort": "max",
+            "nativeImageRoute": "direct-hermes-chat-image",
+            "blindSessionId": "20260821_102416_61ceea",
+            "adjudicationSessionId": "20260821_104731_543f84",
+            "auxiliaryVisionUsed": false,
+            "qwenUsed": false,
+            "ocrCanonicalEvidenceUsed": false,
+            "modelDowngradeUsed": false
+          }
+        }
+      },
+      "selectedExtraction": {
+        "overlayVersion": 1,
+        "status": "selected-evidence-deferred",
+        "runIdentity": "w30-card-extraction-20260821T102147Z-p346900-971773/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/W30-014",
+        "runId": "w30-card-extraction-20260821T102147Z-p346900-971773",
+        "workerId": "sol-max-persistent-worker-30-20260821T102147Z-p346900-971773",
+        "assetId": "W30-014",
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectivePersonalDeck-091.jpg",
+        "sourceSha256": "9958d19068c020fd4fa6410016726bb697d55a30328e80c06f8d3885b9fa0f4b",
+        "runtime": {
+          "provider": "openai-codex",
+          "model": "gpt-5.6-sol",
+          "reasoningEffort": "max",
+          "nativeImageRoute": "direct-hermes-chat-image",
+          "blindSessionId": "20260821_102416_61ceea",
+          "adjudicationSessionId": "20260821_104731_543f84",
+          "auxiliaryVisionUsed": false,
+          "qwenUsed": false,
+          "ocrCanonicalEvidenceUsed": false,
+          "modelDowngradeUsed": false
+        },
+        "blindObservationPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/raw/W30-014.json",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/results/W30-014.json",
+        "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/qa/contact-sheets/W30-014-all-functional-all49-contact.png",
+        "visibleText": {
+          "title": "THE GREAT HUNT",
+          "typeLine": "",
+          "body": "The Queen must be dead.",
+          "sections": [
+            {
+              "panelId": "P1",
+              "heading": "",
+              "text": "Remove the other Objective from the game to:\nProgress the Objective Choice track once\nand draw [actionCard] accordingly."
+            },
+            {
+              "panelId": "P4",
+              "heading": "",
+              "text": "The Queen must be dead."
+            }
+          ],
+          "footer": "PRIVATE OBJECTIVE",
+          "upperRight": "[ICON: white round-topped upright silhouette above nested cyan-blue oval rings] 2+",
+          "lowerCenter": "PRIVATE OBJECTIVE",
+          "illegibleSpans": [],
+          "clippedSpans": []
+        },
+        "verifiedIconOccurrences": [
+          {
+            "cardLocation": "P1, inline in the third instruction line between the printed words draw and accordingly.",
+            "referenceLabel": "ActionCard",
+            "matchDecision": "match",
+            "canonicalToken": "actionCard",
+            "closestAlternative": "A literal unboxed capital A printed directly on the dark instruction band",
+            "visibleDiscriminator": "A continuous bright white upright card field and thin dark perimeter surround the A, reproducing the actionCard crop. An unboxed A would have the dark instruction-band background immediately around its strokes rather than the white quadrilateral field.",
+            "evidenceRun": "sol-max-persistent-worker-30-20260821T102147Z-p346900-971773"
+          }
+        ],
+        "unresolvedIconOccurrences": [
+          {
+            "cardLocation": "Lower center of P2, immediately above P3 and directly left of 2+.",
+            "referenceLabel": "Lower center of P2, immediately above P3 and directly left of '2+'. The outer shape is a composite emblem with several horizontally elongated concentric oval rings forming the base and a centered upright white figure- or pawn-like form rising from them. The upright form has a small round top, narrow connection, bilateral rounded projections, and a broad flared lower portion. It contains light-gray to pale-blue central shading. The base has thin cyan and deep-blue nested oval strokes around a dark navy center, with a soft blue outer glow. Colors are white, light gray, pale blue, cyan, deep blue, and dark navy.",
+            "matchDecision": "no-match",
+            "canonicalToken": null,
+            "closestAlternative": "character (the labeled p.40 character crop)",
+            "visibleDiscriminator": "M2 has a simple solid round-topped, flared upright form mounted on multiple cyan/deep-blue oval rings. The character crop instead has an outlined helmet with a dark face opening, rectangular dark torso divisions, articulated arms, and separated lower forms, and it has no ringed base.",
+            "evidenceRun": "sol-max-persistent-worker-30-20260821T102147Z-p346900-971773"
+          }
+        ],
+        "canonicalTokensEmitted": [
+          "actionCard"
+        ],
+        "allMaterialTextReadable": true,
+        "allMaterialIconsAuthoritativelyMatched": false,
+        "promotionDecision": "defer",
+        "decisionReasons": [
+          "1 material ringed player-count occurrence(s) remain explicit all-49 authoritative no-matches; no semantic token was invented.",
+          "No approved canonical Personal/Private Objective card image/sidecar schema or directory exists under cards/game."
+        ],
+        "conflictsWithPriorSnapshot": []
+      },
+      "evidenceRuns": [
+        {
+          "runIdentity": "w30-card-extraction-20260821T102147Z-p346900-971773/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/W30-014",
+          "runId": "w30-card-extraction-20260821T102147Z-p346900-971773",
+          "workerId": "sol-max-persistent-worker-30-20260821T102147Z-p346900-971773",
+          "assetId": "W30-014",
+          "sourceSha256": "9958d19068c020fd4fa6410016726bb697d55a30328e80c06f8d3885b9fa0f4b",
+          "blindSessionId": "20260821_102416_61ceea",
+          "adjudicationSessionId": "20260821_104731_543f84",
+          "promotionDecision": "defer",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/results/W30-014.json",
+          "selected": true
+        }
+      ]
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectivePersonalDeck-095.jpg",
@@ -31307,34 +33212,157 @@
       "componentFamily": "game/objectivePersonalDeck",
       "ledgerStatus": "deferred",
       "extractionState": "draft-full",
-      "rulesInformationReadiness": "draft-text-complete",
+      "rulesInformationReadiness": "draft-text-complete-symbols-unresolved",
       "rulesTextPresent": true,
       "identity": {},
       "printedData": {
         "title": "QUARANTINE",
+        "typeLine": "",
         "body": "No Character can Escape from\nthe Facility using the Lander.",
+        "sections": [
+          {
+            "panelId": "P3",
+            "heading": "",
+            "text": "No Character can Escape from\nthe Facility using the Lander."
+          }
+        ],
         "footer": "PERSONAL OBJECTIVE",
-        "lowerCenter": "character",
-        "visibleText": "3+"
+        "upperRight": "[ICON: white round-topped upright silhouette above nested cyan-blue oval rings] 3+",
+        "lowerCenter": "PERSONAL OBJECTIVE",
+        "illegibleSpans": [],
+        "clippedSpans": []
       },
       "symbols": {
         "canonicalGlossaryTokens": [],
-        "unresolvedOrLocalTokens": []
+        "unresolvedOrLocalTokens": [
+          "ICON: white round-topped upright silhouette above nested cyan-blue oval rings"
+        ]
       },
-      "uncertainties": [],
-      "canonicalPromotionBlocker": "meaningful visible text falls outside the established minimal sidecar fields",
+      "uncertainties": [
+        "The semantic identity of M1 cannot be established from its pixels alone.",
+        "The proximity of M1 and 3+ establishes a visual grouping but not the meaning of that grouping.",
+        "Glow and overlap soften the exact closure and count of the smallest oval strokes in M1.",
+        "The role of the orange triangular artwork markings is not established by their pixels alone.",
+        "The canonical component family and side terminology are not explicitly printed.",
+        "Current publisher-primary rendered component pixels conflict materially with the assigned TTS face; preserve both and do not substitute publisher wording into the TTS transcription.",
+        "The applicable exact-title BGA licensed-digital record conflicts materially and is retained only as secondary evidence.",
+        "1 material ringed player-count occurrence(s) remain explicit all-49 authoritative no-matches; no semantic token was invented.",
+        "No approved canonical Personal/Private Objective card image/sidecar schema or directory exists under cards/game."
+      ],
+      "canonicalPromotionBlocker": "1 material ringed player-count occurrence(s) remain explicit all-49 authoritative no-matches; no semantic token was invented.; Current publisher-primary rendered component pixels conflict materially with the assigned TTS face; preserve both and do not substitute publisher wording into the TTS transcription.; The applicable exact-title BGA licensed-digital record conflicts materially and is retained only as secondary evidence.; No approved canonical Personal/Private Objective card image/sidecar schema or directory exists under cards/game.",
       "evidence": {
         "textBasis": "native vision draft; not canonical promotion",
         "visionProvider": "openai-codex",
         "visionModel": "gpt-5.6-sol",
-        "reasoningEffort": null,
-        "workerId": null,
-        "sessionId": "20260815_053825_094eef",
-        "resultPath": "assets/tts-mod/extract/vision-results/144260585a868a5317b9f4a49b9b8942dc9373158237e72063fdc5388edac197.json",
-        "rawResultPath": null,
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-30-20260821T102147Z-p346900-971773",
+        "sessionId": "20260821_102416_61ceea",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/results/W30-015.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/raw/W30-015.json",
         "ledgerPath": "assets/tts-mod/extract/vision-progress.json",
-        "queuePath": "assets/tts-mod/extract/low-confidence-review.json"
-      }
+        "queuePath": "assets/tts-mod/extract/low-confidence-review.json",
+        "selectedExtraction": {
+          "runIdentity": "w30-card-extraction-20260821T102147Z-p346900-971773/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/W30-015",
+          "runId": "w30-card-extraction-20260821T102147Z-p346900-971773",
+          "workerId": "sol-max-persistent-worker-30-20260821T102147Z-p346900-971773",
+          "assetId": "W30-015",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/results/W30-015.json",
+          "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/raw/W30-015.json",
+          "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/qa/contact-sheets/W30-015-all-functional-all49-contact.png",
+          "promotionDecision": "defer",
+          "runtime": {
+            "provider": "openai-codex",
+            "model": "gpt-5.6-sol",
+            "reasoningEffort": "max",
+            "nativeImageRoute": "direct-hermes-chat-image",
+            "blindSessionId": "20260821_102416_61ceea",
+            "adjudicationSessionId": "20260821_104731_543f84",
+            "auxiliaryVisionUsed": false,
+            "qwenUsed": false,
+            "ocrCanonicalEvidenceUsed": false,
+            "modelDowngradeUsed": false
+          }
+        }
+      },
+      "selectedExtraction": {
+        "overlayVersion": 1,
+        "status": "selected-evidence-deferred",
+        "runIdentity": "w30-card-extraction-20260821T102147Z-p346900-971773/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/W30-015",
+        "runId": "w30-card-extraction-20260821T102147Z-p346900-971773",
+        "workerId": "sol-max-persistent-worker-30-20260821T102147Z-p346900-971773",
+        "assetId": "W30-015",
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectivePersonalDeck-095.jpg",
+        "sourceSha256": "144260585a868a5317b9f4a49b9b8942dc9373158237e72063fdc5388edac197",
+        "runtime": {
+          "provider": "openai-codex",
+          "model": "gpt-5.6-sol",
+          "reasoningEffort": "max",
+          "nativeImageRoute": "direct-hermes-chat-image",
+          "blindSessionId": "20260821_102416_61ceea",
+          "adjudicationSessionId": "20260821_104731_543f84",
+          "auxiliaryVisionUsed": false,
+          "qwenUsed": false,
+          "ocrCanonicalEvidenceUsed": false,
+          "modelDowngradeUsed": false
+        },
+        "blindObservationPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/raw/W30-015.json",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/results/W30-015.json",
+        "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/qa/contact-sheets/W30-015-all-functional-all49-contact.png",
+        "visibleText": {
+          "title": "QUARANTINE",
+          "typeLine": "",
+          "body": "No Character can Escape from\nthe Facility using the Lander.",
+          "sections": [
+            {
+              "panelId": "P3",
+              "heading": "",
+              "text": "No Character can Escape from\nthe Facility using the Lander."
+            }
+          ],
+          "footer": "PERSONAL OBJECTIVE",
+          "upperRight": "[ICON: white round-topped upright silhouette above nested cyan-blue oval rings] 3+",
+          "lowerCenter": "PERSONAL OBJECTIVE",
+          "illegibleSpans": [],
+          "clippedSpans": []
+        },
+        "verifiedIconOccurrences": [],
+        "unresolvedIconOccurrences": [
+          {
+            "cardLocation": "Lower center of P1, immediately above P2 and directly left of 3+.",
+            "referenceLabel": "Lower center of P1, immediately above P2 and directly left of '3+'. The outer shape is a composite emblem with several horizontally elongated concentric oval rings forming the base and a centered upright white figure- or pawn-like form rising from them. The upright form has a small round top, narrow connection, bilateral rounded projections, and a broad flared lower portion. It contains light-gray to pale-blue central shading. The base has thin cyan and deep-blue nested oval strokes around a dark navy center, with a soft blue outer glow. Colors are white, light gray, pale blue, cyan, deep blue, and dark navy.",
+            "matchDecision": "no-match",
+            "canonicalToken": null,
+            "closestAlternative": "character (the labeled p.40 character crop)",
+            "visibleDiscriminator": "M1 has a simple solid round-topped, flared upright form mounted on multiple cyan/deep-blue oval rings. The character crop instead has an outlined helmet with a dark face opening, rectangular dark torso divisions, articulated arms, and separated lower forms, and it has no ringed base.",
+            "evidenceRun": "sol-max-persistent-worker-30-20260821T102147Z-p346900-971773"
+          }
+        ],
+        "canonicalTokensEmitted": [],
+        "allMaterialTextReadable": true,
+        "allMaterialIconsAuthoritativelyMatched": false,
+        "promotionDecision": "defer",
+        "decisionReasons": [
+          "1 material ringed player-count occurrence(s) remain explicit all-49 authoritative no-matches; no semantic token was invented.",
+          "Current publisher-primary rendered component pixels conflict materially with the assigned TTS face; preserve both and do not substitute publisher wording into the TTS transcription.",
+          "The applicable exact-title BGA licensed-digital record conflicts materially and is retained only as secondary evidence.",
+          "No approved canonical Personal/Private Objective card image/sidecar schema or directory exists under cards/game."
+        ],
+        "conflictsWithPriorSnapshot": []
+      },
+      "evidenceRuns": [
+        {
+          "runIdentity": "w30-card-extraction-20260821T102147Z-p346900-971773/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/W30-015",
+          "runId": "w30-card-extraction-20260821T102147Z-p346900-971773",
+          "workerId": "sol-max-persistent-worker-30-20260821T102147Z-p346900-971773",
+          "assetId": "W30-015",
+          "sourceSha256": "144260585a868a5317b9f4a49b9b8942dc9373158237e72063fdc5388edac197",
+          "blindSessionId": "20260821_102416_61ceea",
+          "adjudicationSessionId": "20260821_104731_543f84",
+          "promotionDecision": "defer",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/results/W30-015.json",
+          "selected": true
+        }
+      ]
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectivePersonalDeck-156.jpg",
@@ -31343,39 +33371,195 @@
       "componentFamily": "game/objectivePersonalDeck",
       "ledgerStatus": "deferred",
       "extractionState": "draft-full",
-      "rulesInformationReadiness": "draft-text-complete",
+      "rulesInformationReadiness": "draft-text-complete-symbols-unresolved",
       "rulesTextPresent": true,
       "identity": {},
       "printedData": {
         "title": "TRAITOR IN PLAIN SIGHT",
-        "body": "Player 7’s Character cannot survive.\n\nOR\n\nYour Character is the only survivor.\n\n- What the fuck is going on?\n- You bitch.",
-        "footer": "CORPORATE",
-        "visibleText": "[intruder] 7+\nPRO\nOT\nTYPE"
+        "typeLine": "",
+        "body": "Player 7's Character cannot survive.\n\nOR\n\nYour Character is the only survivor.\n\n- What the fuck is going on?\n- You bitch.",
+        "sections": [
+          {
+            "panelId": "P3",
+            "heading": "",
+            "text": "Player 7's Character cannot survive."
+          },
+          {
+            "panelId": "P4",
+            "heading": "OR",
+            "text": ""
+          },
+          {
+            "panelId": "P5",
+            "heading": "",
+            "text": "Your Character is the only survivor.\n\n- What the fuck is going on?\n- You bitch."
+          }
+        ],
+        "footer": "C O R P O R A T E",
+        "upperRight": "[ICON: white round-topped upright silhouette above nested cyan-blue oval rings] 7+",
+        "lowerCenter": "C O R P O R A T E",
+        "illegibleSpans": [],
+        "clippedSpans": []
       },
       "symbols": {
-        "canonicalGlossaryTokens": [
-          "intruder"
-        ],
-        "unresolvedOrLocalTokens": []
+        "canonicalGlossaryTokens": [],
+        "unresolvedOrLocalTokens": [
+          "ICON: white round-topped upright silhouette above nested cyan-blue oval rings"
+        ]
       },
       "uncertainties": [
-        "The diagonal watermark is heavily obscured; only the separately visible fragments “PRO”, “OT”, and “TYPE” are transcribed rather than reconstructing hidden letters.",
-        "The curled white glyph confidently matches [intruder], but it appears on a card-local blue circular field not described by the canonical glossary.",
-        "The exact semantic role of the adjacent “7+” is not established from pixels alone."
+        "The semantic identity of M1 cannot be established from its pixels alone.",
+        "The proximity of M1 and 7+ establishes a visual grouping but not the meaning of that grouping.",
+        "The large translucent gray circular stroke crossing M1 is assigned to the diagonal watermark based on its continuity with the other watermark letters, but it partially complicates the small morphology's outer boundary.",
+        "The semantic status of the two olive-gold italic lines is not inferred beyond their verbatim transcription and placement.",
+        "The identities of the dark artwork forms are not established.",
+        "The canonical component family and side terminology are not explicitly printed.",
+        "No current publisher-primary rendered component face visibly establishes this exact title and operative text; searchable text-layer hits alone are not face evidence.",
+        "No applicable exact-title record exists in the current BGA licensed-digital secondary source.",
+        "1 material ringed player-count occurrence(s) remain explicit all-49 authoritative no-matches; no semantic token was invented.",
+        "The assigned face visibly carries a PROTOTYPE watermark and a nonstandard C O R P O R A T E footer; no current exact counterpart establishes canonical applicability.",
+        "No approved canonical Corporate prototype objective card image/sidecar schema or directory exists under cards/game.",
+        "2 material discrepancy row(s) with the prior unselected corpus snapshot are preserved."
       ],
-      "canonicalPromotionBlocker": "exact card identity/transcription/icon/category is not uniformly high-confidence",
+      "canonicalPromotionBlocker": "1 material ringed player-count occurrence(s) remain explicit all-49 authoritative no-matches; no semantic token was invented.; No current publisher-primary rendered component face visibly establishes this exact title and operative text; searchable text-layer hits alone are not face evidence.; No applicable exact-title record exists in the current BGA licensed-digital secondary source.; The assigned face visibly carries a PROTOTYPE watermark and a nonstandard C O R P O R A T E footer; no current exact counterpart establishes canonical applicability.; No approved canonical Corporate prototype objective card image/sidecar schema or directory exists under cards/game.; 2 material discrepancy row(s) with the prior unselected corpus snapshot are preserved.",
       "evidence": {
         "textBasis": "native vision draft; not canonical promotion",
         "visionProvider": "openai-codex",
         "visionModel": "gpt-5.6-sol",
-        "reasoningEffort": null,
-        "workerId": null,
-        "sessionId": "20260815_053827_5c91d6",
-        "resultPath": "assets/tts-mod/extract/vision-results/e5400e99d8671d21bdb4e16506a4533e4f4405e0a402217b039ba3326fcf178b.json",
-        "rawResultPath": null,
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-30-20260821T102147Z-p346900-971773",
+        "sessionId": "20260821_102416_61ceea",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/results/W30-016.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/raw/W30-016.json",
         "ledgerPath": "assets/tts-mod/extract/vision-progress.json",
-        "queuePath": "assets/tts-mod/extract/low-confidence-review.json"
-      }
+        "queuePath": "assets/tts-mod/extract/low-confidence-review.json",
+        "selectedExtraction": {
+          "runIdentity": "w30-card-extraction-20260821T102147Z-p346900-971773/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/W30-016",
+          "runId": "w30-card-extraction-20260821T102147Z-p346900-971773",
+          "workerId": "sol-max-persistent-worker-30-20260821T102147Z-p346900-971773",
+          "assetId": "W30-016",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/results/W30-016.json",
+          "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/raw/W30-016.json",
+          "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/qa/contact-sheets/W30-016-all-functional-all49-contact.png",
+          "promotionDecision": "defer",
+          "runtime": {
+            "provider": "openai-codex",
+            "model": "gpt-5.6-sol",
+            "reasoningEffort": "max",
+            "nativeImageRoute": "direct-hermes-chat-image",
+            "blindSessionId": "20260821_102416_61ceea",
+            "adjudicationSessionId": "20260821_104731_543f84",
+            "auxiliaryVisionUsed": false,
+            "qwenUsed": false,
+            "ocrCanonicalEvidenceUsed": false,
+            "modelDowngradeUsed": false
+          }
+        }
+      },
+      "selectedExtraction": {
+        "overlayVersion": 1,
+        "status": "selected-evidence-deferred",
+        "runIdentity": "w30-card-extraction-20260821T102147Z-p346900-971773/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/W30-016",
+        "runId": "w30-card-extraction-20260821T102147Z-p346900-971773",
+        "workerId": "sol-max-persistent-worker-30-20260821T102147Z-p346900-971773",
+        "assetId": "W30-016",
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectivePersonalDeck-156.jpg",
+        "sourceSha256": "e5400e99d8671d21bdb4e16506a4533e4f4405e0a402217b039ba3326fcf178b",
+        "runtime": {
+          "provider": "openai-codex",
+          "model": "gpt-5.6-sol",
+          "reasoningEffort": "max",
+          "nativeImageRoute": "direct-hermes-chat-image",
+          "blindSessionId": "20260821_102416_61ceea",
+          "adjudicationSessionId": "20260821_104731_543f84",
+          "auxiliaryVisionUsed": false,
+          "qwenUsed": false,
+          "ocrCanonicalEvidenceUsed": false,
+          "modelDowngradeUsed": false
+        },
+        "blindObservationPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/raw/W30-016.json",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/results/W30-016.json",
+        "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/qa/contact-sheets/W30-016-all-functional-all49-contact.png",
+        "visibleText": {
+          "title": "TRAITOR IN PLAIN SIGHT",
+          "typeLine": "",
+          "body": "Player 7's Character cannot survive.\n\nOR\n\nYour Character is the only survivor.\n\n- What the fuck is going on?\n- You bitch.",
+          "sections": [
+            {
+              "panelId": "P3",
+              "heading": "",
+              "text": "Player 7's Character cannot survive."
+            },
+            {
+              "panelId": "P4",
+              "heading": "OR",
+              "text": ""
+            },
+            {
+              "panelId": "P5",
+              "heading": "",
+              "text": "Your Character is the only survivor.\n\n- What the fuck is going on?\n- You bitch."
+            }
+          ],
+          "footer": "C O R P O R A T E",
+          "upperRight": "[ICON: white round-topped upright silhouette above nested cyan-blue oval rings] 7+",
+          "lowerCenter": "C O R P O R A T E",
+          "illegibleSpans": [],
+          "clippedSpans": []
+        },
+        "verifiedIconOccurrences": [],
+        "unresolvedIconOccurrences": [
+          {
+            "cardLocation": "Lower center of P1, immediately above P2 and directly left of 7+.",
+            "referenceLabel": "Lower center of P1, immediately above P2 and directly left of '7+'. The emblem has several horizontally elongated cyan-blue concentric oval rings forming its base and a centered upright white figure- or pawn-like form rising from them. The upright form has a small round top, narrow connection, short bilateral projections, and a broad flared lower portion, with faint light-gray to pale-blue internal shading. Thin cyan and deep-blue nested oval strokes surround a dark navy center and have a soft blue glow. A much larger translucent gray curved watermark stroke crosses behind the small emblem but is not continuous with its white or blue pixels. Emblem colors are white, light gray, pale blue, cyan, deep blue, and dark navy.",
+            "matchDecision": "no-match",
+            "canonicalToken": null,
+            "closestAlternative": "character (the labeled p.40 character crop)",
+            "visibleDiscriminator": "M1 has a simple solid round-topped, flared upright form mounted on multiple cyan/deep-blue oval rings. The character crop instead has an outlined helmet with a dark face opening, rectangular dark torso divisions, articulated arms, and separated lower forms, and it has no ringed base. The large gray background stroke also does not reproduce any part of the character crop.",
+            "evidenceRun": "sol-max-persistent-worker-30-20260821T102147Z-p346900-971773"
+          }
+        ],
+        "canonicalTokensEmitted": [],
+        "allMaterialTextReadable": true,
+        "allMaterialIconsAuthoritativelyMatched": false,
+        "promotionDecision": "defer",
+        "decisionReasons": [
+          "1 material ringed player-count occurrence(s) remain explicit all-49 authoritative no-matches; no semantic token was invented.",
+          "No current publisher-primary rendered component face visibly establishes this exact title and operative text; searchable text-layer hits alone are not face evidence.",
+          "No applicable exact-title record exists in the current BGA licensed-digital secondary source.",
+          "The assigned face visibly carries a PROTOTYPE watermark and a nonstandard C O R P O R A T E footer; no current exact counterpart establishes canonical applicability.",
+          "No approved canonical Corporate prototype objective card image/sidecar schema or directory exists under cards/game.",
+          "2 material discrepancy row(s) with the prior unselected corpus snapshot are preserved."
+        ],
+        "conflictsWithPriorSnapshot": [
+          {
+            "field": "printedData.body",
+            "priorValue": "Player 7’s Character cannot survive.\n\nOR\n\nYour Character is the only survivor.\n\n- What the fuck is going on?\n- You bitch.",
+            "currentStatus": "Sealed W30-016 assigned-art reading: Player 7's Character cannot survive.\n\nOR\n\nYour Character is the only survivor.\n\n- What the fuck is going on?\n- You bitch.",
+            "resolution": "Preserve the prior snapshot and this selected reread separately; do not silently normalize or overwrite either."
+          },
+          {
+            "field": "printedData.footer/typeLine",
+            "priorValue": "CORPORATE",
+            "currentStatus": "Sealed W30-016 assigned-art reading: C O R P O R A T E",
+            "resolution": "Preserve the prior snapshot and this selected reread separately; do not silently normalize or overwrite either."
+          }
+        ]
+      },
+      "evidenceRuns": [
+        {
+          "runIdentity": "w30-card-extraction-20260821T102147Z-p346900-971773/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/W30-016",
+          "runId": "w30-card-extraction-20260821T102147Z-p346900-971773",
+          "workerId": "sol-max-persistent-worker-30-20260821T102147Z-p346900-971773",
+          "assetId": "W30-016",
+          "sourceSha256": "e5400e99d8671d21bdb4e16506a4533e4f4405e0a402217b039ba3326fcf178b",
+          "blindSessionId": "20260821_102416_61ceea",
+          "adjudicationSessionId": "20260821_104731_543f84",
+          "promotionDecision": "defer",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/results/W30-016.json",
+          "selected": true
+        }
+      ]
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectivePersonalDeck-157.jpg",

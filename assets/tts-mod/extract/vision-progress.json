@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-08-21T10:06:06.050252Z",
+  "updatedAt": "2026-08-21T11:16:02.707622Z",
   "scope": {
     "root": "assets/tts-mod/extract/v2-dl/tree",
     "definition": "Every base-game PNG/JPEG canonical child or standalone image in the extraction tree. Source sprite sheets with documented canonical split children are excluded from semantic re-extraction.",
@@ -111719,9 +111719,13 @@
       "vision": {
         "provider": "openai-codex",
         "model": "gpt-5.6-sol",
-        "sessionId": "20260815_053751_02cd58",
-        "resultPath": "assets/tts-mod/extract/vision-results/d6ccc53b53a98ce5e212d701c0523d8a2a343d1e6d759318585a8dc278b316b2.json",
-        "confidence": "high"
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-30-20260821T102147Z-p346900-971773",
+        "sessionId": "20260821_102416_61ceea",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/results/W30-001.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/raw/W30-001.json",
+        "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/qa/contact-sheets/W30-001-all-functional-all49-contact.png",
+        "confidence": "high-evidence-deferred-source/schema"
       },
       "generatedFrom": {
         "sourceSheetPath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-162.jpg",
@@ -112238,30 +112242,42 @@
         ]
       },
       "semanticRead": {
-        "componentType": "personal objective card",
+        "componentType": "Personal/Private Objective card",
         "cardSide": "face",
         "title": "WE'VE GOT HISTORY",
         "typeLine": "",
         "body": "You and the Character with the\nlowest rank must Survive.\n(If you are a Character with the lowest\nrank you must fulfill the second\noption from this Objective)\n\nOR\n\nThe Character with the highest\nrank must not Survive.\n(If you are a Character with\nthe highest rank you must fulfill\nthe first option from this Objective)",
         "footer": "PERSONAL OBJECTIVE",
-        "upperRight": "",
-        "lowerCenter": "",
-        "visibleText": "[character] 4+",
+        "upperRight": "[ICON: white rounded-head silhouette above nested blue oval rings] 4+",
+        "lowerCenter": "PERSONAL OBJECTIVE",
+        "visibleText": "You and the Character with the\nlowest rank must Survive.\n(If you are a Character with the lowest\nrank you must fulfill the second\noption from this Objective)\n\nOR\n\nThe Character with the highest\nrank must not Survive.\n(If you are a Character with\nthe highest rank you must fulfill\nthe first option from this Objective)",
         "confidentlyVisible": [
-          "Portrait-oriented card face with all typography upright.",
-          "A white astronaut icon on blue concentric rings appears above the title.",
-          "The astronaut icon is followed by “4+”.",
-          "The two objective alternatives are separated by a centered “OR” panel.",
-          "Background art depicts a person watching projectiles or rockets over a burning landscape."
+          "The image is a portrait-format 827-by-1101-pixel composition with full-bleed artwork beneath dark translucent interface-like panels.",
+          "The upper portion contains a dark human-like figure at left, a smoky orange-brown landscape, a small pointed airborne form with a diagonal trail, and bright fire- or glow-like areas at right.",
+          "A crisp composite white-and-blue glyph appears immediately left of the white printed characters 4+ above the title plaque.",
+          "All title and rules lettering is white. The footer lettering is saturated cyan-blue. The OR lettering is white on a blue tab.",
+          "The title occupies one centered line. Each rules alternative occupies five centered lines, with the parenthetical text spanning three lines.",
+          "The central OR tab visibly separates the two rules alternatives.",
+          "No additional clearly printed words are visible in the artwork, and no materially visible printed text is clipped by an image edge."
         ],
-        "proposedCategory": "cards/game/objective",
-        "proposedSlug": "weve-got-history",
-        "confidence": "high",
-        "uncertainties": [],
+        "proposedCategory": "",
+        "proposedSlug": "",
+        "confidence": "high-evidence-deferred-source/schema",
+        "uncertainties": [
+          "The semantic identity of M1 cannot be established from its pixels alone.",
+          "The visual proximity of M1 and 4+ establishes grouping but not the meaning of that grouping.",
+          "The exact number and closure of the smallest blue oval strokes are softened by glow and overlap.",
+          "The canonical component family and front/back side terminology are not explicitly printed.",
+          "Current publisher-primary rendered component pixels conflict materially with the assigned TTS face; preserve both and do not substitute publisher wording into the TTS transcription.",
+          "The applicable exact-title BGA licensed-digital record conflicts materially and is retained only as secondary evidence.",
+          "1 material ringed player-count occurrence(s) remain explicit all-49 authoritative no-matches; no semantic token was invented.",
+          "No singular exact generated-cell selector exists; preserve all candidate references without CardID-modulo inference.",
+          "No approved canonical Personal/Private Objective card image/sidecar schema or directory exists under cards/game."
+        ],
         "orientation": "upright"
       },
       "reviewQueuePath": "assets/tts-mod/extract/low-confidence-review.json",
-      "deferReason": "meaningful visible text falls outside the established minimal sidecar fields"
+      "deferReason": "1 material ringed player-count occurrence(s) remain explicit all-49 authoritative no-matches; no semantic token was invented.; No singular exact generated-cell selector exists; preserve all candidate references without CardID-modulo inference.; Current publisher-primary rendered component pixels conflict materially with the assigned TTS face; preserve both and do not substitute publisher wording into the TTS transcription.; The applicable exact-title BGA licensed-digital record conflicts materially and is retained only as secondary evidence.; No approved canonical Personal/Private Objective card image/sidecar schema or directory exists under cards/game."
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-162_cards/card-12.png",
@@ -112275,9 +112291,13 @@
       "vision": {
         "provider": "openai-codex",
         "model": "gpt-5.6-sol",
-        "sessionId": "20260815_053752_22d1d2",
-        "resultPath": "assets/tts-mod/extract/vision-results/0c8456bddc9b959a53b9cd56994555a71f8f2595b9361416e1c6985c8e749092.json",
-        "confidence": "high"
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-30-20260821T102147Z-p346900-971773",
+        "sessionId": "20260821_102416_61ceea",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/results/W30-002.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/raw/W30-002.json",
+        "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/qa/contact-sheets/W30-002-all-functional-all49-contact.png",
+        "confidence": "high-evidence-deferred-source/schema"
       },
       "generatedFrom": {
         "sourceSheetPath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-162.jpg",
@@ -112794,32 +112814,42 @@
         ]
       },
       "semanticRead": {
-        "componentType": "personal objective card",
+        "componentType": "Personal/Private Objective card",
         "cardSide": "face",
         "title": "THE RIGHT MOMENT\nTO STRIKE",
         "typeLine": "",
         "body": "Character of the Player 1 cannot Survive.\n(If you are the Player 1 you have to fulfill\nthe second option from this Objective)\n\nOR\n\nYou have to be the only Survivor.",
         "footer": "PERSONAL OBJECTIVE",
-        "upperRight": "",
-        "lowerCenter": "",
-        "visibleText": "[character] 2+",
+        "upperRight": "[ICON: white rounded-head silhouette above nested blue oval rings] 2+",
+        "lowerCenter": "PERSONAL OBJECTIVE",
+        "visibleText": "Character of the Player 1 cannot Survive.\n(If you are the Player 1 you have to fulfill\nthe second option from this Objective)\n\nOR\n\nYou have to be the only Survivor.",
         "confidentlyVisible": [
-          "Portrait-format card face",
-          "Typography is upright in the file",
-          "Artwork depicts an astronaut-like figure facing a pale curled creature in front of a vehicle or structure",
-          "A white character icon above a blue ring appears beside “2+”",
-          "Title is printed in uppercase across two lines",
-          "Rules are divided into two alternatives by an “OR” panel",
-          "Footer reads “PERSONAL OBJECTIVE”"
+          "The image is a portrait-format composition with full-bleed dark blue, gray, red, and orange artwork beneath crisp translucent interface-like panels.",
+          "The upper artwork contains a large central boxy mechanical-looking structure, overhead light shafts, red and blue curved streaks, scattered fragments, and floor debris.",
+          "A pale multi-limbed creature-like artwork form is centered in front of a red glow; nearby dark hand- or figure-like silhouettes remain part of the artwork.",
+          "A sharp composite white-and-blue glyph appears immediately left of the white printed characters 2+ above the title panel.",
+          "The title is centered in two uppercase white lines. The upper rules passage is centered in three white lines, and the lower rules passage is centered in one white line.",
+          "The white word OR occupies a blue central tab separating the two rules passages.",
+          "The footer is printed in uppercase cyan-blue letters. No materially visible printed text is clipped by an image edge."
         ],
-        "proposedCategory": "cards/game/objective",
-        "proposedSlug": "the-right-moment-to-strike",
-        "confidence": "high",
-        "uncertainties": [],
+        "proposedCategory": "",
+        "proposedSlug": "",
+        "confidence": "high-evidence-deferred-source/schema",
+        "uncertainties": [
+          "The semantic identity of M1 cannot be established from its pixels alone.",
+          "The proximity of M1 and 2+ establishes a visual grouping but not the meaning of that grouping.",
+          "Glow and overlap soften the exact closure and count of the smallest oval strokes in M1.",
+          "The canonical component family and side terminology are not explicitly printed.",
+          "No current publisher-primary rendered component face visibly establishes this exact title and operative text; searchable text-layer hits alone are not face evidence.",
+          "The applicable exact-title BGA licensed-digital record conflicts materially and is retained only as secondary evidence.",
+          "1 material ringed player-count occurrence(s) remain explicit all-49 authoritative no-matches; no semantic token was invented.",
+          "No singular exact generated-cell selector exists; preserve all candidate references without CardID-modulo inference.",
+          "No approved canonical Personal/Private Objective card image/sidecar schema or directory exists under cards/game."
+        ],
         "orientation": "upright"
       },
       "reviewQueuePath": "assets/tts-mod/extract/low-confidence-review.json",
-      "deferReason": "meaningful visible text falls outside the established minimal sidecar fields"
+      "deferReason": "1 material ringed player-count occurrence(s) remain explicit all-49 authoritative no-matches; no semantic token was invented.; No singular exact generated-cell selector exists; preserve all candidate references without CardID-modulo inference.; No current publisher-primary rendered component face visibly establishes this exact title and operative text; searchable text-layer hits alone are not face evidence.; The applicable exact-title BGA licensed-digital record conflicts materially and is retained only as secondary evidence.; No approved canonical Personal/Private Objective card image/sidecar schema or directory exists under cards/game."
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-162_cards/card-13.png",
@@ -112833,9 +112863,13 @@
       "vision": {
         "provider": "openai-codex",
         "model": "gpt-5.6-sol",
-        "sessionId": "20260815_053753_34ca7f",
-        "resultPath": "assets/tts-mod/extract/vision-results/36f51a02097dfa1beadb7519fd46df8aade3c8132583a8e74ca3b4a9cac14727.json",
-        "confidence": "high"
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-30-20260821T102147Z-p346900-971773",
+        "sessionId": "20260821_102416_61ceea",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/results/W30-003.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/raw/W30-003.json",
+        "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/qa/contact-sheets/W30-003-all-functional-all49-contact.png",
+        "confidence": "high-evidence-deferred-source/schema"
       },
       "generatedFrom": {
         "sourceSheetPath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-162.jpg",
@@ -113352,29 +113386,44 @@
         ]
       },
       "semanticRead": {
-        "componentType": "personal objective card",
+        "componentType": "Personal/Private Objective card",
         "cardSide": "face",
         "title": "GREENER PASTURES",
         "typeLine": "",
-        "body": "Character of the Player 2 cannot Survive.\n(If you are the Player 2 you have to fulfill\nthe second option from this Objective.)\n\nOR\n\nYou have to be the only Survivor.",
+        "body": "Character of the Player 2 cannot Survive.\n(If you are the Player 2 you have to fulfill\nthe second option from this Objective)\n\nOR\n\nYou have to be the only Survivor.",
         "footer": "PERSONAL OBJECTIVE",
-        "upperRight": "",
-        "lowerCenter": "",
-        "visibleText": "[character] 2+",
+        "upperRight": "[ICON: white rounded-head silhouette above nested blue oval rings] 2+",
+        "lowerCenter": "PERSONAL OBJECTIVE",
+        "visibleText": "Character of the Player 2 cannot Survive.\n(If you are the Player 2 you have to fulfill\nthe second option from this Objective)\n\nOR\n\nYou have to be the only Survivor.",
         "confidentlyVisible": [
-          "Typography is upright in the file.",
-          "A white astronaut character icon above a blue circular base appears above the title, followed by “2+”.",
-          "Artwork depicts two armored astronauts among stacked industrial cargo containers.",
-          "The rules are divided into two framed alternatives separated by “OR”."
+          "The image is a portrait-format composition with full-bleed teal, dark gray, black, red, and yellow-green artwork beneath crisp translucent interface-like panels.",
+          "The upper artwork depicts stacked rectangular box-like structures on both sides, two upright human-like suited figures at different depths, overhead light beams, and scattered red glowing marks.",
+          "The nearer central figure holds a small red-lit object or device. The farther figure is centered in front of a large rectangular structure.",
+          "A sharp composite white-and-blue glyph appears immediately left of the white printed characters 2+ above the title plaque.",
+          "The title is centered in one uppercase white line. The upper rules passage is centered in three white lines, and the lower rules passage is centered in one white line.",
+          "The white word OR occupies a blue central tab separating the two rules passages.",
+          "The footer is printed in uppercase cyan-blue letters. A tiny pale text-like mark within the center-right artwork is not resolvable."
         ],
-        "proposedCategory": "cards/game/objective",
-        "proposedSlug": "greener-pastures",
-        "confidence": "high",
-        "uncertainties": [],
+        "proposedCategory": "",
+        "proposedSlug": "",
+        "confidence": "high-evidence-deferred-source/schema",
+        "uncertainties": [
+          "The semantic identity of M1 cannot be established from its pixels alone.",
+          "The proximity of M1 and 2+ establishes a visual grouping but not the meaning of that grouping.",
+          "Glow and overlap soften the exact closure and count of the smallest oval strokes in M1.",
+          "The tiny pale artwork-embedded mark cannot be confirmed or transcribed as specific characters.",
+          "The canonical component family and side terminology are not explicitly printed.",
+          "No current publisher-primary rendered component face visibly establishes this exact title and operative text; searchable text-layer hits alone are not face evidence.",
+          "The applicable exact-title BGA licensed-digital record conflicts materially and is retained only as secondary evidence.",
+          "1 material ringed player-count occurrence(s) remain explicit all-49 authoritative no-matches; no semantic token was invented.",
+          "No singular exact generated-cell selector exists; preserve all candidate references without CardID-modulo inference.",
+          "No approved canonical Personal/Private Objective card image/sidecar schema or directory exists under cards/game.",
+          "1 material discrepancy row(s) with the prior unselected corpus snapshot are preserved."
+        ],
         "orientation": "upright"
       },
       "reviewQueuePath": "assets/tts-mod/extract/low-confidence-review.json",
-      "deferReason": "meaningful visible text falls outside the established minimal sidecar fields"
+      "deferReason": "1 material ringed player-count occurrence(s) remain explicit all-49 authoritative no-matches; no semantic token was invented.; No singular exact generated-cell selector exists; preserve all candidate references without CardID-modulo inference.; No current publisher-primary rendered component face visibly establishes this exact title and operative text; searchable text-layer hits alone are not face evidence.; The applicable exact-title BGA licensed-digital record conflicts materially and is retained only as secondary evidence.; No approved canonical Personal/Private Objective card image/sidecar schema or directory exists under cards/game.; 1 material discrepancy row(s) with the prior unselected corpus snapshot are preserved."
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-162_cards/card-14.png",
@@ -113388,9 +113437,13 @@
       "vision": {
         "provider": "openai-codex",
         "model": "gpt-5.6-sol",
-        "sessionId": "20260815_053753_6a2e99",
-        "resultPath": "assets/tts-mod/extract/vision-results/9a2ab1c3cb5d743381be7df987e96f47bdeaf729d82fe18052409b42d42d762d.json",
-        "confidence": "high"
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-30-20260821T102147Z-p346900-971773",
+        "sessionId": "20260821_102416_61ceea",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/results/W30-004.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/raw/W30-004.json",
+        "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/qa/contact-sheets/W30-004-all-functional-all49-contact.png",
+        "confidence": "high-evidence-deferred-source/schema"
       },
       "generatedFrom": {
         "sourceSheetPath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-162.jpg",
@@ -113907,31 +113960,44 @@
         ]
       },
       "semanticRead": {
-        "componentType": "objective card",
+        "componentType": "Personal/Private Objective card",
         "cardSide": "face",
         "title": "AN OLD FEUD",
         "typeLine": "",
         "body": "Character of the Player 3 cannot Survive.\n(If you are the Player 3 you have to fulfill\nthe second option from this Objective)\n\nOR\n\nYou have to be the only Survivor.",
         "footer": "PERSONAL OBJECTIVE",
-        "upperRight": "",
-        "lowerCenter": "",
-        "visibleText": "[character] 3+",
+        "upperRight": "[ICON: white rounded-head upright silhouette above nested cyan-blue oval rings] 3+",
+        "lowerCenter": "PERSONAL OBJECTIVE",
+        "visibleText": "Character of the Player 3 cannot Survive.\n(If you are the Player 3 you have to fulfill\nthe second option from this Objective)\n\nOR\n\nYou have to be the only Survivor.",
         "confidentlyVisible": [
-          "Upright portrait-format card face",
-          "Two armored astronauts stand in a dark industrial corridor",
-          "A white astronaut glyph appears above the title beside “3+”",
-          "Title reads “AN OLD FEUD”",
-          "Two objective options are separated by “OR”",
-          "Footer reads “PERSONAL OBJECTIVE”"
+          "The image is a portrait-format composition with full-bleed dark blue, gray, black, red, and orange industrial-looking artwork beneath crisp translucent panels.",
+          "Two dark suited human-like figures stand near the upper center in a bright blue vertical light. The left figure extends an open hand toward a red-orange glow, while the right figure holds a long angular object.",
+          "Multiple chains hang vertically and horizontally across the upper artwork. Thick cables curve along both sides, and smoke, debris, and reflective floor textures occupy the lower artwork.",
+          "A sharp composite white-and-blue glyph appears immediately left of the white printed characters 3+ above the title plaque.",
+          "The title is centered in one uppercase white line. The upper rules passage is centered in three white lines, and the lower rules passage is centered in one white line.",
+          "The white word OR occupies a blue central tab separating the two rules passages.",
+          "The footer is printed in uppercase cyan-blue letters. Dark graffiti-like strokes in the right-side artwork are not resolvable as specific characters.",
+          "No sharp overlay text is clipped by an image edge."
         ],
-        "proposedCategory": "cards/game/objective",
-        "proposedSlug": "an-old-feud",
-        "confidence": "high",
-        "uncertainties": [],
+        "proposedCategory": "",
+        "proposedSlug": "",
+        "confidence": "high-evidence-deferred-source/schema",
+        "uncertainties": [
+          "The semantic identity of M1 cannot be established from its pixels alone.",
+          "The proximity of M1 and 3+ establishes a visual grouping but not the meaning of that grouping.",
+          "Glow and overlap soften the exact closure and count of the smallest oval strokes in M1.",
+          "The right-side graffiti-like artwork cannot be confirmed or transcribed as specific characters.",
+          "The canonical component family and side terminology are not explicitly printed.",
+          "No current publisher-primary rendered component face visibly establishes this exact title and operative text; searchable text-layer hits alone are not face evidence.",
+          "The applicable exact-title BGA licensed-digital record conflicts materially and is retained only as secondary evidence.",
+          "1 material ringed player-count occurrence(s) remain explicit all-49 authoritative no-matches; no semantic token was invented.",
+          "No singular exact generated-cell selector exists; preserve all candidate references without CardID-modulo inference.",
+          "No approved canonical Personal/Private Objective card image/sidecar schema or directory exists under cards/game."
+        ],
         "orientation": "upright"
       },
       "reviewQueuePath": "assets/tts-mod/extract/low-confidence-review.json",
-      "deferReason": "meaningful visible text falls outside the established minimal sidecar fields"
+      "deferReason": "1 material ringed player-count occurrence(s) remain explicit all-49 authoritative no-matches; no semantic token was invented.; No singular exact generated-cell selector exists; preserve all candidate references without CardID-modulo inference.; No current publisher-primary rendered component face visibly establishes this exact title and operative text; searchable text-layer hits alone are not face evidence.; The applicable exact-title BGA licensed-digital record conflicts materially and is retained only as secondary evidence.; No approved canonical Personal/Private Objective card image/sidecar schema or directory exists under cards/game."
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-162_cards/card-15.png",
@@ -113945,9 +114011,13 @@
       "vision": {
         "provider": "openai-codex",
         "model": "gpt-5.6-sol",
-        "sessionId": "20260815_053800_ca7ce6",
-        "resultPath": "assets/tts-mod/extract/vision-results/1f94620da15b61eaa4dce6ba5533b57c38502cb6112599cba09786659db7f083.json",
-        "confidence": "high"
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-30-20260821T102147Z-p346900-971773",
+        "sessionId": "20260821_102416_61ceea",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/results/W30-005.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/raw/W30-005.json",
+        "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/qa/contact-sheets/W30-005-all-functional-all49-contact.png",
+        "confidence": "high-evidence-deferred-source/schema"
       },
       "generatedFrom": {
         "sourceSheetPath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-162.jpg",
@@ -114464,30 +114534,45 @@
         ]
       },
       "semanticRead": {
-        "componentType": "personal objective card",
+        "componentType": "Personal/Private Objective card",
         "cardSide": "face",
         "title": "HOSTILE TAKEOVER",
         "typeLine": "",
         "body": "Character of the Player 4 cannot Survive.\n(If you are the Player 4 you have to fulfill\nthe second option from this Objective)\n\nOR\n\nYou have to be the only Survivor.",
         "footer": "PERSONAL OBJECTIVE",
-        "upperRight": "",
-        "lowerCenter": "",
-        "visibleText": "[character] 4+",
+        "upperRight": "[ICON: white rounded-head upright silhouette above nested cyan-blue oval rings] 4+",
+        "lowerCenter": "PERSONAL OBJECTIVE",
+        "visibleText": "Character of the Player 4 cannot Survive.\n(If you are the Player 4 you have to fulfill\nthe second option from this Objective)\n\nOR\n\nYou have to be the only Survivor.",
         "confidentlyVisible": [
-          "Upright portrait-format card",
-          "White astronaut-shaped character icon above the title",
-          "The character icon is followed by “4+”",
-          "Dark blue framed title and effect panels",
-          "Background art depicts armed figures in a damaged industrial corridor"
+          "The image is a portrait-format composition with full-bleed dark blue, black, gray, red, orange, and white industrial-looking artwork beneath crisp translucent panels.",
+          "A large dark human-like suited figure occupies the left foreground and holds a broad dark elongated form. Smaller human-like suited figures stand farther back near the center.",
+          "Thick black cables curve across the upper and right artwork. Bright white-blue illumination descends near the center, while red-orange glows and numerous thin yellow-orange light streaks cross the scene.",
+          "A sharp composite white-and-blue glyph appears immediately left of the white printed characters 4+ above the title plaque.",
+          "The title is centered in one uppercase white line. The upper rules passage is centered in three white lines, and the lower rules passage is centered in one white line.",
+          "The white word OR occupies a blue central tab separating the two rules passages.",
+          "The footer is printed in uppercase cyan-blue letters.",
+          "A small yellow illuminated artwork panel contains unresolved tiny marks, and orange text-like strokes on a wall surface are also unresolved. No sharp overlay text is clipped by an image edge."
         ],
-        "proposedCategory": "cards/game/objective",
-        "proposedSlug": "hostile-takeover",
-        "confidence": "high",
-        "uncertainties": [],
+        "proposedCategory": "",
+        "proposedSlug": "",
+        "confidence": "high-evidence-deferred-source/schema",
+        "uncertainties": [
+          "The semantic identity of M1 cannot be established from its pixels alone.",
+          "The proximity of M1 and 4+ establishes a visual grouping but not the meaning of that grouping.",
+          "Glow and overlap soften the exact closure and count of the smallest oval strokes in M1.",
+          "The tiny marks in the yellow artwork panel cannot be transcribed as specific characters.",
+          "The orange wall strokes may be decorative rather than linguistic and cannot be transcribed.",
+          "The canonical component family and side terminology are not explicitly printed.",
+          "No current publisher-primary rendered component face visibly establishes this exact title and operative text; searchable text-layer hits alone are not face evidence.",
+          "The applicable exact-title BGA licensed-digital record conflicts materially and is retained only as secondary evidence.",
+          "1 material ringed player-count occurrence(s) remain explicit all-49 authoritative no-matches; no semantic token was invented.",
+          "No singular exact generated-cell selector exists; preserve all candidate references without CardID-modulo inference.",
+          "No approved canonical Personal/Private Objective card image/sidecar schema or directory exists under cards/game."
+        ],
         "orientation": "upright"
       },
       "reviewQueuePath": "assets/tts-mod/extract/low-confidence-review.json",
-      "deferReason": "meaningful visible text falls outside the established minimal sidecar fields"
+      "deferReason": "1 material ringed player-count occurrence(s) remain explicit all-49 authoritative no-matches; no semantic token was invented.; No singular exact generated-cell selector exists; preserve all candidate references without CardID-modulo inference.; No current publisher-primary rendered component face visibly establishes this exact title and operative text; searchable text-layer hits alone are not face evidence.; The applicable exact-title BGA licensed-digital record conflicts materially and is retained only as secondary evidence.; No approved canonical Personal/Private Objective card image/sidecar schema or directory exists under cards/game."
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-162_cards/card-16.png",
@@ -114501,9 +114586,13 @@
       "vision": {
         "provider": "openai-codex",
         "model": "gpt-5.6-sol",
-        "sessionId": "20260815_053805_cf219d",
-        "resultPath": "assets/tts-mod/extract/vision-results/9e42ffc3f4c75305c8eae3d8f25856d3625cc112c9b231ad4030708ff4952446.json",
-        "confidence": "high"
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-30-20260821T102147Z-p346900-971773",
+        "sessionId": "20260821_102416_61ceea",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/results/W30-006.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/raw/W30-006.json",
+        "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/qa/contact-sheets/W30-006-all-functional-all49-contact.png",
+        "confidence": "high-evidence-deferred-source/schema"
       },
       "generatedFrom": {
         "sourceSheetPath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-162.jpg",
@@ -115020,30 +115109,45 @@
         ]
       },
       "semanticRead": {
-        "componentType": "personal objective card",
+        "componentType": "Personal/Private Objective card",
         "cardSide": "face",
         "title": "LAB RATS",
-        "typeLine": "PERSONAL OBJECTIVE",
+        "typeLine": "",
         "body": "All Characters who Escape from\nthe Facility must have at least 3\nContamination cards in total.",
-        "footer": "",
-        "upperRight": "",
-        "lowerCenter": "",
-        "visibleText": "[character] 3+",
+        "footer": "PERSONAL OBJECTIVE",
+        "upperRight": "[ICON: white round-topped upright silhouette above nested cyan-blue oval rings] 3+",
+        "lowerCenter": "PERSONAL OBJECTIVE",
+        "visibleText": "All Characters who Escape from\nthe Facility must have at least 3\nContamination cards in total.",
         "confidentlyVisible": [
-          "Typography is upright in the file.",
-          "Orange-red illustrated background shows a large illuminated containment apparatus.",
-          "A white character icon above the title is followed by “3+”.",
-          "Title reads “LAB RATS”.",
-          "Bottom label reads “PERSONAL OBJECTIVE”."
+          "The image is a portrait-format composition with full-bleed yellow, orange, red, gray, and black painterly artwork beneath crisp dark translucent panels.",
+          "A large vertically oriented cylindrical structure occupies the upper center. Its lower portion is gray and metallic-looking, while its faceted upper chamber glows yellow-green.",
+          "A pale rounded and curled form is visible inside the glowing chamber. Dark specks rise above the chamber, and multiple gray flexible tube-like forms extend outward from its base.",
+          "The surrounding artwork consists of a bright yellow upper field and a red-orange irregular ground or landscape with dark cavities, ridges, and streaks.",
+          "A sharp composite white-and-blue glyph appears immediately left of the white printed characters 3+ above the title plaque.",
+          "The title is centered in one uppercase white line. The rules passage is centered in three white lines.",
+          "The footer is printed in uppercase cyan-blue letters.",
+          "A small dark vertical artwork panel on the left side of the central structure contains tiny pale and blue text-like marks that are not resolvable. No sharp overlay text is clipped by an image edge."
         ],
-        "proposedCategory": "cards/game/objective",
-        "proposedSlug": "lab-rats",
-        "confidence": "high",
-        "uncertainties": [],
+        "proposedCategory": "",
+        "proposedSlug": "",
+        "confidence": "high-evidence-deferred-source/schema",
+        "uncertainties": [
+          "The semantic identity of M1 cannot be established from its pixels alone.",
+          "The proximity of M1 and 3+ establishes a visual grouping but not the meaning of that grouping.",
+          "Glow and overlap soften the exact closure and count of the smallest oval strokes in M1.",
+          "The tiny marks on the central artwork structure cannot be confirmed or transcribed as specific characters.",
+          "The identity of the pale curled artwork form inside the chamber is not established.",
+          "The canonical component family and side terminology are not explicitly printed.",
+          "No current publisher-primary rendered component face visibly establishes this exact title and operative text; searchable text-layer hits alone are not face evidence.",
+          "No applicable exact-title record exists in the current BGA licensed-digital secondary source.",
+          "1 material ringed player-count occurrence(s) remain explicit all-49 authoritative no-matches; no semantic token was invented.",
+          "No singular exact generated-cell selector exists; preserve all candidate references without CardID-modulo inference.",
+          "No approved canonical Personal/Private Objective card image/sidecar schema or directory exists under cards/game."
+        ],
         "orientation": "upright"
       },
       "reviewQueuePath": "assets/tts-mod/extract/low-confidence-review.json",
-      "deferReason": "meaningful visible text falls outside the established minimal sidecar fields"
+      "deferReason": "1 material ringed player-count occurrence(s) remain explicit all-49 authoritative no-matches; no semantic token was invented.; No singular exact generated-cell selector exists; preserve all candidate references without CardID-modulo inference.; No current publisher-primary rendered component face visibly establishes this exact title and operative text; searchable text-layer hits alone are not face evidence.; No applicable exact-title record exists in the current BGA licensed-digital secondary source.; No approved canonical Personal/Private Objective card image/sidecar schema or directory exists under cards/game."
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-162_cards/card-17.png",
@@ -115057,9 +115161,13 @@
       "vision": {
         "provider": "openai-codex",
         "model": "gpt-5.6-sol",
-        "sessionId": "20260815_053806_9e066a",
-        "resultPath": "assets/tts-mod/extract/vision-results/0d8879f3bcd2191607423ce00eaa1e4da150c151b3f5583c661903a3568b8168.json",
-        "confidence": "high"
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-30-20260821T102147Z-p346900-971773",
+        "sessionId": "20260821_102416_61ceea",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/results/W30-007.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/raw/W30-007.json",
+        "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/qa/contact-sheets/W30-007-all-functional-all49-contact.png",
+        "confidence": "high-evidence-deferred-source/schema"
       },
       "generatedFrom": {
         "sourceSheetPath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-162.jpg",
@@ -115576,29 +115684,45 @@
         ]
       },
       "semanticRead": {
-        "componentType": "objective card",
+        "componentType": "Personal/Private Objective card",
         "cardSide": "face",
         "title": "INSIDER INFORMATION",
         "typeLine": "",
         "body": "You must be the only surviving Character\nwith a Data token from the Server Room.",
         "footer": "PERSONAL OBJECTIVE",
-        "upperRight": "",
-        "lowerCenter": "",
-        "visibleText": "[character] 3+",
+        "upperRight": "[ICON: white round-topped upright silhouette above nested cyan-blue oval rings] 3+",
+        "lowerCenter": "PERSONAL OBJECTIVE",
+        "visibleText": "You must be the only surviving Character\nwith a Data token from the Server Room.",
         "confidentlyVisible": [
-          "Typography is upright in the file.",
-          "The upper artwork depicts a glowing containment chamber or pod in a red-orange environment.",
-          "A white character-shaped icon appears immediately before “3+”.",
-          "The title, objective condition, and footer are fully visible."
+          "The image is a portrait-format composition with full-bleed yellow, orange, red, gray, and black painterly artwork beneath crisp dark translucent panels.",
+          "A large vertically oriented cylindrical structure occupies the upper center. Its lower portion is opaque gray, while its faceted upper chamber is translucent and filled with yellow-green illumination.",
+          "A pale rounded and folded form is visible inside the glowing chamber. Several gray flexible tube-like forms extend outward from the base across the red-orange surface.",
+          "The surrounding artwork contains a bright yellow upper field, dark red-orange vertical masses on both sides, irregular terrain-like textures, cavities, ridges, and scattered dark marks.",
+          "A sharp composite white-and-blue glyph appears immediately left of the white printed characters 3+ above the title plaque.",
+          "The title is centered in one uppercase white line. The rules passage is centered in two white lines.",
+          "The footer is printed in uppercase cyan-blue letters.",
+          "A narrow dark artwork panel attached to the left side of the central structure contains tiny colored text-like marks that are not resolvable. No sharp overlay text is clipped by an image edge."
         ],
-        "proposedCategory": "cards/game/objective",
-        "proposedSlug": "insider-information",
-        "confidence": "high",
-        "uncertainties": [],
+        "proposedCategory": "",
+        "proposedSlug": "",
+        "confidence": "high-evidence-deferred-source/schema",
+        "uncertainties": [
+          "The semantic identity of M1 cannot be established from its pixels alone.",
+          "The proximity of M1 and 3+ establishes a visual grouping but not the meaning of that grouping.",
+          "Glow and overlap soften the exact closure and count of the smallest oval strokes in M1.",
+          "The tiny marks on the central artwork structure cannot be confirmed or transcribed as specific characters.",
+          "The identity of the pale folded artwork form inside the chamber is not established.",
+          "The canonical component family and side terminology are not explicitly printed.",
+          "No current publisher-primary rendered component face visibly establishes this exact title and operative text; searchable text-layer hits alone are not face evidence.",
+          "The applicable exact-title BGA licensed-digital record conflicts materially and is retained only as secondary evidence.",
+          "1 material ringed player-count occurrence(s) remain explicit all-49 authoritative no-matches; no semantic token was invented.",
+          "No singular exact generated-cell selector exists; preserve all candidate references without CardID-modulo inference.",
+          "No approved canonical Personal/Private Objective card image/sidecar schema or directory exists under cards/game."
+        ],
         "orientation": "upright"
       },
       "reviewQueuePath": "assets/tts-mod/extract/low-confidence-review.json",
-      "deferReason": "meaningful visible text falls outside the established minimal sidecar fields"
+      "deferReason": "1 material ringed player-count occurrence(s) remain explicit all-49 authoritative no-matches; no semantic token was invented.; No singular exact generated-cell selector exists; preserve all candidate references without CardID-modulo inference.; No current publisher-primary rendered component face visibly establishes this exact title and operative text; searchable text-layer hits alone are not face evidence.; The applicable exact-title BGA licensed-digital record conflicts materially and is retained only as secondary evidence.; No approved canonical Personal/Private Objective card image/sidecar schema or directory exists under cards/game."
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-162_cards/card-18.png",
@@ -115612,9 +115736,13 @@
       "vision": {
         "provider": "openai-codex",
         "model": "gpt-5.6-sol",
-        "sessionId": "20260815_053806_283452",
-        "resultPath": "assets/tts-mod/extract/vision-results/d7066d565c1617eee42cfca1a8099623975ecdaed9d63fae9563cd7f4b0c3b23.json",
-        "confidence": "high"
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-30-20260821T102147Z-p346900-971773",
+        "sessionId": "20260821_102416_61ceea",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/results/W30-008.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/raw/W30-008.json",
+        "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/qa/contact-sheets/W30-008-all-functional-all49-contact.png",
+        "confidence": "high-evidence-deferred-source/schema"
       },
       "generatedFrom": {
         "sourceSheetPath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-162.jpg",
@@ -116131,29 +116259,45 @@
         ]
       },
       "semanticRead": {
-        "componentType": "personal objective card",
+        "componentType": "Personal/Private Objective card",
         "cardSide": "face",
         "title": "OLD FRIEND",
         "typeLine": "",
         "body": "You must Escape from the Facility\nwith at least 1 Corpse\nfrom the Hibernatorium.",
         "footer": "PERSONAL OBJECTIVE",
-        "upperRight": "",
-        "lowerCenter": "",
-        "visibleText": "[character] 2+",
+        "upperRight": "[ICON: white round-topped upright silhouette above nested cyan-blue oval rings] 2+",
+        "lowerCenter": "PERSONAL OBJECTIVE",
+        "visibleText": "You must Escape from the Facility\nwith at least 1 Corpse\nfrom the Hibernatorium.",
         "confidentlyVisible": [
-          "White astronaut icon followed by “2+” above the title",
-          "Central artwork depicts a large illuminated containment or hibernation pod in a red-orange environment",
-          "Title and rules text are fully visible and upright",
-          "Blue footer label reads “PERSONAL OBJECTIVE”"
+          "The image is a portrait-format composition with full-bleed yellow, orange, red, gray, and black painterly artwork beneath crisp dark translucent panels.",
+          "A large vertically oriented cylindrical structure occupies the upper center. Its lower portion is opaque gray, while its faceted upper chamber is translucent and filled with yellow-green illumination.",
+          "A pale rounded and folded form is visible inside the glowing chamber. Multiple gray flexible tube-like forms extend outward from the base across the red-orange surface.",
+          "The surrounding artwork contains a broad bright yellow upper field, dark red-orange vertical masses on both sides, irregular terrain-like textures, cavities, ridges, and scattered dark marks.",
+          "A sharp composite white-and-blue glyph appears immediately left of the white printed characters 2+ above the title plaque.",
+          "The title is centered in one uppercase white line. The rules passage is centered in three white lines.",
+          "The footer is printed in uppercase cyan-blue letters.",
+          "A narrow dark artwork panel attached to the left side of the central structure contains tiny pale and blue text-like marks that are not resolvable. No sharp overlay text is clipped by an image edge."
         ],
-        "proposedCategory": "cards/game/objective",
-        "proposedSlug": "old-friend",
-        "confidence": "high",
-        "uncertainties": [],
+        "proposedCategory": "",
+        "proposedSlug": "",
+        "confidence": "high-evidence-deferred-source/schema",
+        "uncertainties": [
+          "The semantic identity of M1 cannot be established from its pixels alone.",
+          "The proximity of M1 and 2+ establishes a visual grouping but not the meaning of that grouping.",
+          "Glow and overlap soften the exact closure and count of the smallest oval strokes in M1.",
+          "The tiny marks on the central artwork structure cannot be confirmed or transcribed as specific characters.",
+          "The identity of the pale folded artwork form inside the chamber is not established.",
+          "The canonical component family and side terminology are not explicitly printed.",
+          "No current publisher-primary rendered component face visibly establishes this exact title and operative text; searchable text-layer hits alone are not face evidence.",
+          "No applicable exact-title record exists in the current BGA licensed-digital secondary source.",
+          "1 material ringed player-count occurrence(s) remain explicit all-49 authoritative no-matches; no semantic token was invented.",
+          "No singular exact generated-cell selector exists; preserve all candidate references without CardID-modulo inference.",
+          "No approved canonical Personal/Private Objective card image/sidecar schema or directory exists under cards/game."
+        ],
         "orientation": "upright"
       },
       "reviewQueuePath": "assets/tts-mod/extract/low-confidence-review.json",
-      "deferReason": "meaningful visible text falls outside the established minimal sidecar fields"
+      "deferReason": "1 material ringed player-count occurrence(s) remain explicit all-49 authoritative no-matches; no semantic token was invented.; No singular exact generated-cell selector exists; preserve all candidate references without CardID-modulo inference.; No current publisher-primary rendered component face visibly establishes this exact title and operative text; searchable text-layer hits alone are not face evidence.; No applicable exact-title record exists in the current BGA licensed-digital secondary source.; No approved canonical Personal/Private Objective card image/sidecar schema or directory exists under cards/game."
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-162_cards/card-19.png",
@@ -116167,9 +116311,13 @@
       "vision": {
         "provider": "openai-codex",
         "model": "gpt-5.6-sol",
-        "sessionId": "20260815_053809_147d88",
-        "resultPath": "assets/tts-mod/extract/vision-results/518f750e52720a13a626822da482dc87879fa47751cad7d583e482e315b8e5b8.json",
-        "confidence": "high"
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-30-20260821T102147Z-p346900-971773",
+        "sessionId": "20260821_102416_61ceea",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/results/W30-009.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/raw/W30-009.json",
+        "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/qa/contact-sheets/W30-009-all-functional-all49-contact.png",
+        "confidence": "high-evidence-deferred-source/schema"
       },
       "generatedFrom": {
         "sourceSheetPath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-162.jpg",
@@ -116686,32 +116834,45 @@
         ]
       },
       "semanticRead": {
-        "componentType": "personal objective card",
+        "componentType": "Personal/Private Objective card",
         "cardSide": "face",
         "title": "LUXURIOUS OFFER",
         "typeLine": "",
         "body": "You must survive with an Egg.",
         "footer": "PERSONAL OBJECTIVE",
-        "upperRight": "",
-        "lowerCenter": "",
-        "visibleText": "[character] 2+",
+        "upperRight": "[ICON: white round-topped upright silhouette above nested cyan-blue oval rings] 2+",
+        "lowerCenter": "PERSONAL OBJECTIVE",
+        "visibleText": "You must survive with an Egg.",
         "confidentlyVisible": [
-          "Portrait-oriented card face",
-          "Typography is upright and reads left to right",
-          "Central artwork depicts a glowing yellow containment vessel in a red-orange environment",
-          "A white astronaut glyph above blue rings appears immediately before “2+”",
-          "Title is printed in uppercase within a dark framed panel",
-          "Rules text is printed beneath the title",
-          "Blue uppercase footer label reads “PERSONAL OBJECTIVE”"
+          "The image is a portrait-format composition with full-bleed yellow, orange, red, gray, and black painterly artwork beneath crisp dark translucent panels.",
+          "A large vertically oriented cylindrical structure occupies the upper center. Its lower portion is opaque gray, while its faceted upper chamber is translucent and filled with yellow-green illumination.",
+          "A pale rounded and curled form is visible inside the glowing chamber. Multiple gray flexible tube-like forms extend outward from the base across the red-orange surface.",
+          "The surrounding artwork contains a broad bright yellow upper field, dark red-orange masses on both sides, irregular terrain-like textures, cavities, ridges, and scattered dark marks.",
+          "A sharp composite white-and-blue glyph appears immediately left of the white printed characters 2+ above the title plaque.",
+          "The title is centered in one uppercase white line. The rules passage is centered in one white line.",
+          "The footer is printed in uppercase cyan-blue letters.",
+          "A narrow dark artwork panel attached to the left side of the central structure contains tiny pale and blue text-like marks that are not resolvable. No sharp overlay text is clipped by an image edge."
         ],
-        "proposedCategory": "cards/game/objective",
-        "proposedSlug": "luxurious-offer",
-        "confidence": "high",
-        "uncertainties": [],
+        "proposedCategory": "",
+        "proposedSlug": "",
+        "confidence": "high-evidence-deferred-source/schema",
+        "uncertainties": [
+          "The semantic identity of M1 cannot be established from its pixels alone.",
+          "The proximity of M1 and 2+ establishes a visual grouping but not the meaning of that grouping.",
+          "Glow and overlap soften the exact closure and count of the smallest oval strokes in M1.",
+          "The tiny marks on the central artwork structure cannot be confirmed or transcribed as specific characters.",
+          "The identity of the pale curled artwork form inside the chamber is not established.",
+          "The canonical component family and side terminology are not explicitly printed.",
+          "Current publisher-primary rendered component pixels conflict materially with the assigned TTS face; preserve both and do not substitute publisher wording into the TTS transcription.",
+          "The applicable exact-title BGA licensed-digital record conflicts materially and is retained only as secondary evidence.",
+          "1 material ringed player-count occurrence(s) remain explicit all-49 authoritative no-matches; no semantic token was invented.",
+          "No singular exact generated-cell selector exists; preserve all candidate references without CardID-modulo inference.",
+          "No approved canonical Personal/Private Objective card image/sidecar schema or directory exists under cards/game."
+        ],
         "orientation": "upright"
       },
       "reviewQueuePath": "assets/tts-mod/extract/low-confidence-review.json",
-      "deferReason": "meaningful visible text falls outside the established minimal sidecar fields"
+      "deferReason": "1 material ringed player-count occurrence(s) remain explicit all-49 authoritative no-matches; no semantic token was invented.; No singular exact generated-cell selector exists; preserve all candidate references without CardID-modulo inference.; Current publisher-primary rendered component pixels conflict materially with the assigned TTS face; preserve both and do not substitute publisher wording into the TTS transcription.; The applicable exact-title BGA licensed-digital record conflicts materially and is retained only as secondary evidence.; No approved canonical Personal/Private Objective card image/sidecar schema or directory exists under cards/game."
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-162_cards/card-20.png",
@@ -116725,9 +116886,13 @@
       "vision": {
         "provider": "openai-codex",
         "model": "gpt-5.6-sol",
-        "sessionId": "20260815_053815_2ff596",
-        "resultPath": "assets/tts-mod/extract/vision-results/86c8acf32ca511709d86d2633a6f586259fe52c82c0f2c08775d9fb0788649ec.json",
-        "confidence": "high"
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-30-20260821T102147Z-p346900-971773",
+        "sessionId": "20260821_102416_61ceea",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/results/W30-010.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/raw/W30-010.json",
+        "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/qa/contact-sheets/W30-010-all-functional-all49-contact.png",
+        "confidence": "high-evidence-deferred-source/schema"
       },
       "generatedFrom": {
         "sourceSheetPath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-162.jpg",
@@ -117244,31 +117409,46 @@
         ]
       },
       "semanticRead": {
-        "componentType": "objective card",
+        "componentType": "Personal/Private Objective card",
         "cardSide": "face",
         "title": "CORPORATE CONTRACT",
         "typeLine": "",
         "body": "Character of the Player 5 cannot Survive.\n(If you are the Player 5 you have to fulfill\nthe second option from this Objective)\n\nOR\n\nYou have to be the only Survivor.",
         "footer": "PERSONAL OBJECTIVE",
-        "upperRight": "",
-        "lowerCenter": "",
-        "visibleText": "[character] 5+",
+        "upperRight": "[ICON: white round-topped upright silhouette above nested cyan-blue oval rings] 5+",
+        "lowerCenter": "PERSONAL OBJECTIVE",
+        "visibleText": "Character of the Player 5 cannot Survive.\n(If you are the Player 5 you have to fulfill\nthe second option from this Objective)\n\nOR\n\nYou have to be the only Survivor.",
         "confidentlyVisible": [
-          "Upright portrait-format card",
-          "Orange-red alien landscape artwork",
-          "Central illuminated containment pod or capsule",
-          "White character icon above the title followed by “5+”",
-          "Title and rules are printed in separate dark framed panels",
-          "Blue “PERSONAL OBJECTIVE” footer label"
+          "The image is a portrait-format composition with full-bleed yellow, orange, red, gray, and black painterly artwork beneath crisp dark translucent panels.",
+          "A large vertically oriented cylindrical structure occupies the upper center. Its lower portion is opaque gray, while its faceted upper chamber is translucent and filled with yellow-green illumination.",
+          "A pale rounded and folded form is visible inside the glowing chamber. Multiple gray flexible tube-like forms extend outward from the base across the red-orange surface.",
+          "The surrounding artwork contains a broad bright yellow upper field, dark red-orange masses on both sides, irregular terrain-like textures, cavities, ridges, and scattered dark marks.",
+          "A sharp composite white-and-blue glyph appears immediately left of the white printed characters 5+ above the title plaque.",
+          "The title is centered in one uppercase white line. The upper rules passage is centered in three white lines, and the lower rules passage is centered in one white line.",
+          "The white word OR occupies a blue central tab separating the two rules passages.",
+          "The footer is printed in uppercase cyan-blue letters.",
+          "A narrow dark artwork panel attached to the left side of the central structure contains tiny pale and blue text-like marks that are not resolvable. No sharp overlay text is clipped by an image edge."
         ],
-        "proposedCategory": "cards/game/objective",
-        "proposedSlug": "corporate-contract",
-        "confidence": "high",
-        "uncertainties": [],
+        "proposedCategory": "",
+        "proposedSlug": "",
+        "confidence": "high-evidence-deferred-source/schema",
+        "uncertainties": [
+          "The semantic identity of M1 cannot be established from its pixels alone.",
+          "The proximity of M1 and 5+ establishes a visual grouping but not the meaning of that grouping.",
+          "Glow and overlap soften the exact closure and count of the smallest oval strokes in M1.",
+          "The tiny marks on the central artwork structure cannot be confirmed or transcribed as specific characters.",
+          "The identity of the pale folded artwork form inside the chamber is not established.",
+          "The canonical component family and side terminology are not explicitly printed.",
+          "Current publisher-primary rendered component pixels conflict materially with the assigned TTS face; preserve both and do not substitute publisher wording into the TTS transcription.",
+          "The applicable exact-title BGA licensed-digital record conflicts materially and is retained only as secondary evidence.",
+          "1 material ringed player-count occurrence(s) remain explicit all-49 authoritative no-matches; no semantic token was invented.",
+          "No singular exact generated-cell selector exists; preserve all candidate references without CardID-modulo inference.",
+          "No approved canonical Personal/Private Objective card image/sidecar schema or directory exists under cards/game."
+        ],
         "orientation": "upright"
       },
       "reviewQueuePath": "assets/tts-mod/extract/low-confidence-review.json",
-      "deferReason": "meaningful visible text falls outside the established minimal sidecar fields"
+      "deferReason": "1 material ringed player-count occurrence(s) remain explicit all-49 authoritative no-matches; no semantic token was invented.; No singular exact generated-cell selector exists; preserve all candidate references without CardID-modulo inference.; Current publisher-primary rendered component pixels conflict materially with the assigned TTS face; preserve both and do not substitute publisher wording into the TTS transcription.; The applicable exact-title BGA licensed-digital record conflicts materially and is retained only as secondary evidence.; No approved canonical Personal/Private Objective card image/sidecar schema or directory exists under cards/game."
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectivePersonalDeck-014.jpg",
@@ -117282,9 +117462,13 @@
       "vision": {
         "provider": "openai-codex",
         "model": "gpt-5.6-sol",
-        "sessionId": "20260815_053815_f62eb4",
-        "resultPath": "assets/tts-mod/extract/vision-results/628fc9f78b4a26e405034fcf3f0d855b010d7125e173d79fbcca6c3668e95892.json",
-        "confidence": "high"
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-30-20260821T102147Z-p346900-971773",
+        "sessionId": "20260821_102416_61ceea",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/results/W30-011.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/raw/W30-011.json",
+        "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/qa/contact-sheets/W30-011-all-functional-all49-contact.png",
+        "confidence": "high-evidence-deferred-source/schema"
       },
       "provenance": {
         "sourceUrl": "https://steamusercontent-a.akamaihd.net/ugc/11834153767835769213/B65AD8C45E1CCEAB299809B0E0677E1D2956261F/",
@@ -117398,31 +117582,44 @@
         ]
       },
       "semanticRead": {
-        "componentType": "personal objective card",
+        "componentType": "Personal/Private Objective card",
         "cardSide": "face",
         "title": "STATE'S EVIDENCE",
         "typeLine": "",
         "body": "You must be the only surviving Character\nwith a Data token from the Server Room.",
         "footer": "PERSONAL OBJECTIVE",
-        "upperRight": "",
-        "lowerCenter": "",
-        "visibleText": "[character] 3+",
+        "upperRight": "[ICON: white round-topped upright silhouette above nested cyan-blue oval rings] 3+",
+        "lowerCenter": "PERSONAL OBJECTIVE",
+        "visibleText": "You must be the only surviving Character\nwith a Data token from the Server Room.",
         "confidentlyVisible": [
-          "Upright white typography on dark framed panels",
-          "Orange-red landscape artwork with a central illuminated structure",
-          "White astronaut icon above the title followed by “3+”",
-          "Title reads “STATE'S EVIDENCE”",
-          "Body text spans two lines",
-          "Blue footer reads “PERSONAL OBJECTIVE”"
+          "The image is a portrait-format composition with full-bleed yellow, orange, red, gray, and black painterly artwork beneath crisp dark translucent panels.",
+          "A large vertically oriented cylindrical structure occupies the upper center. Its lower portion is opaque gray, while its faceted upper chamber is translucent and filled with yellow-green illumination.",
+          "A pale rounded and folded form is visible inside the glowing chamber. Multiple gray flexible tube-like forms extend outward from the base across the red-orange surface.",
+          "The surrounding artwork contains a broad bright yellow upper field, dark red-orange masses on both sides, irregular terrain-like textures, cavities, ridges, and scattered dark marks.",
+          "A sharp composite white-and-blue glyph appears immediately left of the white printed characters 3+ above the title plaque.",
+          "The title is centered in one uppercase white line. The rules passage is centered in two white lines.",
+          "The title and body text are white; the footer is printed in uppercase cyan-blue letters.",
+          "A narrow dark artwork panel attached to the left side of the central structure contains tiny colored text-like marks that are not resolvable. No sharp overlay text is clipped by an image edge."
         ],
-        "proposedCategory": "cards/game/objective",
-        "proposedSlug": "states-evidence",
-        "confidence": "high",
-        "uncertainties": [],
+        "proposedCategory": "",
+        "proposedSlug": "",
+        "confidence": "high-evidence-deferred-source/schema",
+        "uncertainties": [
+          "The semantic identity of M1 cannot be established from its pixels alone.",
+          "The proximity of M1 and 3+ establishes a visual grouping but not the meaning of that grouping.",
+          "Glow and overlap soften the exact closure and count of the smallest oval strokes in M1.",
+          "The tiny marks on the central artwork structure cannot be confirmed or transcribed as specific characters.",
+          "The identity of the pale folded artwork form inside the chamber is not established.",
+          "The canonical component family and side terminology are not explicitly printed.",
+          "Current publisher-primary rendered component pixels conflict materially with the assigned TTS face; preserve both and do not substitute publisher wording into the TTS transcription.",
+          "The applicable exact-title BGA licensed-digital record conflicts materially and is retained only as secondary evidence.",
+          "1 material ringed player-count occurrence(s) remain explicit all-49 authoritative no-matches; no semantic token was invented.",
+          "No approved canonical Personal/Private Objective card image/sidecar schema or directory exists under cards/game."
+        ],
         "orientation": "upright"
       },
       "reviewQueuePath": "assets/tts-mod/extract/low-confidence-review.json",
-      "deferReason": "meaningful visible text falls outside the established minimal sidecar fields"
+      "deferReason": "1 material ringed player-count occurrence(s) remain explicit all-49 authoritative no-matches; no semantic token was invented.; Current publisher-primary rendered component pixels conflict materially with the assigned TTS face; preserve both and do not substitute publisher wording into the TTS transcription.; The applicable exact-title BGA licensed-digital record conflicts materially and is retained only as secondary evidence.; No approved canonical Personal/Private Objective card image/sidecar schema or directory exists under cards/game."
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectivePersonalDeck-043.jpg",
@@ -117436,9 +117633,13 @@
       "vision": {
         "provider": "openai-codex",
         "model": "gpt-5.6-sol",
-        "sessionId": "20260815_053823_75080c",
-        "resultPath": "assets/tts-mod/extract/vision-results/de1213ee6a5b5489a9c7463e9532d2d4ae40b07975db38b9472f72d590f6218c.json",
-        "confidence": "high"
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-30-20260821T102147Z-p346900-971773",
+        "sessionId": "20260821_102416_61ceea",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/results/W30-012.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/raw/W30-012.json",
+        "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/qa/contact-sheets/W30-012-all-functional-all49-contact.png",
+        "confidence": "high-evidence-deferred-source/schema"
       },
       "provenance": {
         "sourceUrl": "https://steamusercontent-a.akamaihd.net/ugc/11939655351948253093/0F766F6722460A4F13E106036D6DA75F0DB75753/",
@@ -117552,30 +117753,44 @@
         ]
       },
       "semanticRead": {
-        "componentType": "personal objective card",
+        "componentType": "Personal/Private Objective card",
         "cardSide": "face",
         "title": "EXPERIMENTAL SUBJECTS",
         "typeLine": "",
         "body": "All Characters who Escape from\nthe Facility must have at least 3\nContamination cards in total\namong them (no matter if they Survive).",
         "footer": "PERSONAL OBJECTIVE",
-        "upperRight": "",
-        "lowerCenter": "",
-        "visibleText": "[character] 3+",
+        "upperRight": "[ICON: white round-topped upright silhouette above nested cyan-blue oval rings] 3+",
+        "lowerCenter": "PERSONAL OBJECTIVE",
+        "visibleText": "All Characters who Escape from\nthe Facility must have at least 3\nContamination cards in total\namong them (no matter if they Survive).",
         "confidentlyVisible": [
-          "Upright white typography on dark framed panels",
-          "Title reads EXPERIMENTAL SUBJECTS",
-          "A white astronaut glyph matching [character] appears above the title beside 3+",
-          "Artwork depicts a large illuminated containment structure in a red-orange environment",
-          "Footer reads PERSONAL OBJECTIVE"
+          "The image is a portrait-format composition with full-bleed yellow, orange, red, gray, and black painterly artwork beneath crisp dark translucent panels.",
+          "A large vertically oriented cylindrical structure occupies the upper center. Its lower portion is opaque gray, while its faceted upper chamber is translucent and filled with yellow-green illumination.",
+          "A pale rounded and folded form is visible inside the glowing chamber. Multiple gray flexible tube-like forms extend outward from the base across the red-orange surface.",
+          "The surrounding artwork contains a broad bright yellow upper field, dark red-orange masses on both sides, irregular terrain-like textures, cavities, ridges, broad brush streaks, and scattered dark marks.",
+          "A sharp composite white-and-blue glyph appears immediately left of the white printed characters 3+ above the title plaque.",
+          "The title is centered in one uppercase white line. The rules passage is centered in four white lines.",
+          "The footer is printed in uppercase cyan-blue letters.",
+          "A narrow dark artwork panel attached to the left side of the central structure contains tiny colored text-like marks that are not resolvable. No sharp overlay text is clipped by an image edge."
         ],
-        "proposedCategory": "cards/game/objective",
-        "proposedSlug": "experimental-subjects",
-        "confidence": "high",
-        "uncertainties": [],
+        "proposedCategory": "",
+        "proposedSlug": "",
+        "confidence": "high-evidence-deferred-source/schema",
+        "uncertainties": [
+          "The semantic identity of M1 cannot be established from its pixels alone.",
+          "The proximity of M1 and 3+ establishes a visual grouping but not the meaning of that grouping.",
+          "Glow and overlap soften the exact closure and count of the smallest oval strokes in M1.",
+          "The tiny marks on the central artwork structure cannot be confirmed or transcribed as specific characters.",
+          "The identity of the pale folded artwork form inside the chamber is not established.",
+          "The canonical component family and side terminology are not explicitly printed.",
+          "Current publisher-primary rendered component pixels conflict materially with the assigned TTS face; preserve both and do not substitute publisher wording into the TTS transcription.",
+          "The applicable exact-title BGA licensed-digital record conflicts materially and is retained only as secondary evidence.",
+          "1 material ringed player-count occurrence(s) remain explicit all-49 authoritative no-matches; no semantic token was invented.",
+          "No approved canonical Personal/Private Objective card image/sidecar schema or directory exists under cards/game."
+        ],
         "orientation": "upright"
       },
       "reviewQueuePath": "assets/tts-mod/extract/low-confidence-review.json",
-      "deferReason": "meaningful visible text falls outside the established minimal sidecar fields"
+      "deferReason": "1 material ringed player-count occurrence(s) remain explicit all-49 authoritative no-matches; no semantic token was invented.; Current publisher-primary rendered component pixels conflict materially with the assigned TTS face; preserve both and do not substitute publisher wording into the TTS transcription.; The applicable exact-title BGA licensed-digital record conflicts materially and is retained only as secondary evidence.; No approved canonical Personal/Private Objective card image/sidecar schema or directory exists under cards/game."
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectivePersonalDeck-066.jpg",
@@ -117589,9 +117804,13 @@
       "vision": {
         "provider": "openai-codex",
         "model": "gpt-5.6-sol",
-        "sessionId": "20260815_053824_d9dfb3",
-        "resultPath": "assets/tts-mod/extract/vision-results/616161bbdb4c758a5b864d514cf12087c7de6cbc293287558a261fd0bbe5960a.json",
-        "confidence": "high"
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-30-20260821T102147Z-p346900-971773",
+        "sessionId": "20260821_102416_61ceea",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/results/W30-013.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/raw/W30-013.json",
+        "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/qa/contact-sheets/W30-013-all-functional-all49-contact.png",
+        "confidence": "high-evidence-deferred-source/schema"
       },
       "provenance": {
         "sourceUrl": "https://steamusercontent-a.akamaihd.net/ugc/13717014545461271689/CE99B86C2170BFA5E456EA5106647225D1E69856/",
@@ -117705,31 +117924,44 @@
         ]
       },
       "semanticRead": {
-        "componentType": "personal objective card",
+        "componentType": "Personal/Private Objective card",
         "cardSide": "face",
         "title": "SHUTDOWN",
         "typeLine": "",
         "body": "You must have a Data token\n(from the Server Room in Section B)\n\nAND\n\nAll Life Support tokens must be [lifeSupportInactive]\n(or removed from the game).",
         "footer": "PERSONAL OBJECTIVE",
-        "upperRight": "",
-        "lowerCenter": "",
-        "visibleText": "[character] 2+",
+        "upperRight": "[ICON: white round-topped upright silhouette above nested cyan-blue oval rings] 2+",
+        "lowerCenter": "PERSONAL OBJECTIVE",
+        "visibleText": "You must have a Data token\n(from the Server Room in Section B)\n\nAND\nAll Life Support tokens must be [lifeSupportInactive]\n(or removed from the game).",
         "confidentlyVisible": [
-          "Upright portrait card",
-          "Title reads SHUTDOWN",
-          "Requirement text is enclosed in a dark lower panel",
-          "A white character icon beside 2+ appears above the title",
-          "Crossed-out cyan Life Support icon appears inline in the final requirement",
-          "Footer reads PERSONAL OBJECTIVE"
+          "The image is a portrait-format composition with full-bleed dark brown, black, red, orange, gray, and blue industrial-looking artwork beneath crisp dark translucent panels.",
+          "The upper artwork contains a large dark rectangular slab hanging diagonally near the center, multiple loop-like protrusions on its upper edge, thick cables along both sides, and broad pale vertical and diagonal light shafts.",
+          "Small upright human-like figures appear near the center-right and right-middle. Bright white beams project from their vicinity, while an intense red-orange glow illuminates the central ground.",
+          "The ground contains rubble-like fragments, reflective wet-looking areas, tangled cable-like strands, and red, green, blue, and white light streaks.",
+          "A sharp composite white-and-blue glyph appears immediately left of the white printed characters 2+ above the title plaque.",
+          "The title is centered in one uppercase white line. The rules panel contains an upper two-line clause, a centered one-line AND separator, and a lower two-line clause with a sharp inline cyan, white, and dark morphology at the end of its first line.",
+          "The footer is printed in uppercase cyan-blue letters.",
+          "A dark red-orange graffiti-like marking on a vertical artwork surface right of center is not resolvable as specific characters. No sharp overlay text is clipped by an image edge."
         ],
-        "proposedCategory": "cards/game/objective",
-        "proposedSlug": "shutdown",
-        "confidence": "high",
-        "uncertainties": [],
+        "proposedCategory": "",
+        "proposedSlug": "",
+        "confidence": "high-evidence-deferred-source/schema",
+        "uncertainties": [
+          "The semantic identity of M1 cannot be established from its pixels alone.",
+          "The proximity of M1 and 2+ establishes a visual grouping but not the meaning of that grouping.",
+          "The semantic identity of M2 cannot be established from its pixels or neighboring sentence alone.",
+          "The dark diagonal band obscures part of M2's white internal marks, and those marks cannot be securely parsed as characters or a named symbol.",
+          "The dark red-orange artwork marking cannot be confirmed or transcribed as specific characters.",
+          "The canonical component family and side terminology are not explicitly printed.",
+          "Current publisher-primary rendered component pixels conflict materially with the assigned TTS face; preserve both and do not substitute publisher wording into the TTS transcription.",
+          "The applicable exact-title BGA licensed-digital record conflicts materially and is retained only as secondary evidence.",
+          "1 material ringed player-count occurrence(s) remain explicit all-49 authoritative no-matches; no semantic token was invented.",
+          "No approved canonical Personal/Private Objective card image/sidecar schema or directory exists under cards/game."
+        ],
         "orientation": "upright"
       },
       "reviewQueuePath": "assets/tts-mod/extract/low-confidence-review.json",
-      "deferReason": "meaningful visible text falls outside the established minimal sidecar fields"
+      "deferReason": "1 material ringed player-count occurrence(s) remain explicit all-49 authoritative no-matches; no semantic token was invented.; Current publisher-primary rendered component pixels conflict materially with the assigned TTS face; preserve both and do not substitute publisher wording into the TTS transcription.; The applicable exact-title BGA licensed-digital record conflicts materially and is retained only as secondary evidence.; No approved canonical Personal/Private Objective card image/sidecar schema or directory exists under cards/game."
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectivePersonalDeck-091.jpg",
@@ -117743,9 +117975,13 @@
       "vision": {
         "provider": "openai-codex",
         "model": "gpt-5.6-sol",
-        "sessionId": "20260815_053824_d164ca",
-        "resultPath": "assets/tts-mod/extract/vision-results/9958d19068c020fd4fa6410016726bb697d55a30328e80c06f8d3885b9fa0f4b.json",
-        "confidence": "medium"
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-30-20260821T102147Z-p346900-971773",
+        "sessionId": "20260821_102416_61ceea",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/results/W30-014.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/raw/W30-014.json",
+        "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/qa/contact-sheets/W30-014-all-functional-all49-contact.png",
+        "confidence": "high-evidence-deferred-source/schema"
       },
       "provenance": {
         "sourceUrl": "https://steamusercontent-a.akamaihd.net/ugc/15117521549292367987/11880957494B8243221878CC523B60F6F5DBE5ED/",
@@ -117859,37 +118095,45 @@
         ]
       },
       "semanticRead": {
-        "componentType": "personal objective card",
+        "componentType": "Personal/Private Objective card",
         "cardSide": "face",
         "title": "THE GREAT HUNT",
-        "typeLine": "PRIVATE OBJECTIVE",
+        "typeLine": "",
         "body": "The Queen must be dead.",
-        "footer": "",
-        "upperRight": "",
-        "lowerCenter": "[ICON: white flame-like figure on blue concentric oval base]",
-        "visibleText": "Remove the other Objective from the game to:\nProgress the Objective Choice track once\nand draw A accordingly.\n\n2+",
+        "footer": "PRIVATE OBJECTIVE",
+        "upperRight": "[ICON: white round-topped upright silhouette above nested cyan-blue oval rings] 2+",
+        "lowerCenter": "PRIVATE OBJECTIVE",
+        "visibleText": "Remove the other Objective from the game to:\nProgress the Objective Choice track once\nand draw [actionCard] accordingly.\n\nThe Queen must be dead.",
         "confidentlyVisible": [
-          "All meaningful typography is upright in the file.",
-          "The upper instruction occupies three centered lines.",
-          "The letter A is printed inside a white square.",
-          "Dark science-fiction artwork depicts several armored figures facing a green-lit screen.",
-          "A white flame-like figure on a blue concentric oval base appears above the title beside “2+”.",
-          "The title is printed in uppercase within a framed panel.",
-          "The objective condition is printed beneath the title.",
-          "The blue uppercase type line reads “PRIVATE OBJECTIVE”."
+          "The image is a portrait-format composition with dark teal, blue-green, black, gray, and localized pink-purple artwork beneath crisp printed overlays.",
+          "A dark translucent instruction band spans the top and contains three centered white lines. A white quadrilateral bearing a dark capital A is embedded in the third line.",
+          "The central artwork shows a large dark rounded human-like suited figure from behind at left-center, a smaller rounded suited figure near the center, and another dark rounded form at right.",
+          "A large glowing cyan-green rectangular display occupies the upper-center background. Machinery-like housings, cables, small illuminated blocks, reflections, and floating pale flecks surround it.",
+          "A sharp composite white-and-blue glyph appears immediately left of the white printed characters 2+ near the lower center of the artwork field.",
+          "The title is centered in one uppercase white line. The rules panel contains one centered white sentence.",
+          "The footer is printed in uppercase cyan-blue letters and reads differently from the title and body text.",
+          "A small lime-green curved marking is visible on right-side artwork machinery, but its placement and rendering identify it only as an artwork-embedded mark; no specific character label is established.",
+          "No materially visible overlay text is clipped, and no additional artwork-embedded words are securely readable."
         ],
-        "proposedCategory": "cards/game/objective",
-        "proposedSlug": "the-great-hunt",
-        "confidence": "medium",
+        "proposedCategory": "",
+        "proposedSlug": "",
+        "confidence": "high-evidence-deferred-source/schema",
         "uncertainties": [
-          "The white flame-like figure on a blue concentric oval base is not confidently matched to any supplied canonical icon.",
-          "The semantic meaning of “2+” and its adjacent icon is uncertain.",
-          "The boxed “A” may be a card-local track or deck glyph, but only the visibly printed letter is transcribed."
+          "The function or canonical meaning of the boxed A in M1 is not established by its pixels alone.",
+          "The semantic identity of M2 cannot be established from its pixels alone.",
+          "The proximity of M2 and 2+ establishes a visual grouping but not the meaning of that grouping.",
+          "Glow and overlap soften the exact closure and count of the smallest oval strokes in M2.",
+          "The lime-green artwork marking at upper right is not established as a letter, numeral, or functional symbol.",
+          "The canonical component family and side terminology are not explicitly printed.",
+          "Current publisher-primary rendered component pixels directly support the assigned title and operative wording; other promotion gates remain independent.",
+          "The applicable exact-title BGA licensed-digital record corroborates the assigned operative text as secondary evidence.",
+          "1 material ringed player-count occurrence(s) remain explicit all-49 authoritative no-matches; no semantic token was invented.",
+          "No approved canonical Personal/Private Objective card image/sidecar schema or directory exists under cards/game."
         ],
         "orientation": "upright"
       },
       "reviewQueuePath": "assets/tts-mod/extract/low-confidence-review.json",
-      "deferReason": "exact card identity/transcription/icon/category is not uniformly high-confidence"
+      "deferReason": "1 material ringed player-count occurrence(s) remain explicit all-49 authoritative no-matches; no semantic token was invented.; No approved canonical Personal/Private Objective card image/sidecar schema or directory exists under cards/game."
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectivePersonalDeck-095.jpg",
@@ -117903,9 +118147,13 @@
       "vision": {
         "provider": "openai-codex",
         "model": "gpt-5.6-sol",
-        "sessionId": "20260815_053825_094eef",
-        "resultPath": "assets/tts-mod/extract/vision-results/144260585a868a5317b9f4a49b9b8942dc9373158237e72063fdc5388edac197.json",
-        "confidence": "high"
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-30-20260821T102147Z-p346900-971773",
+        "sessionId": "20260821_102416_61ceea",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/results/W30-015.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/raw/W30-015.json",
+        "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/qa/contact-sheets/W30-015-all-functional-all49-contact.png",
+        "confidence": "high-evidence-deferred-source/schema"
       },
       "provenance": {
         "sourceUrl": "https://steamusercontent-a.akamaihd.net/ugc/15574875805914439887/053C2EFC1753588B9B21B96413B200E46139C617/",
@@ -118019,30 +118267,45 @@
         ]
       },
       "semanticRead": {
-        "componentType": "personal objective card",
+        "componentType": "Personal/Private Objective card",
         "cardSide": "face",
         "title": "QUARANTINE",
         "typeLine": "",
         "body": "No Character can Escape from\nthe Facility using the Lander.",
         "footer": "PERSONAL OBJECTIVE",
-        "upperRight": "",
-        "lowerCenter": "character",
-        "visibleText": "3+",
+        "upperRight": "[ICON: white round-topped upright silhouette above nested cyan-blue oval rings] 3+",
+        "lowerCenter": "PERSONAL OBJECTIVE",
+        "visibleText": "No Character can Escape from\nthe Facility using the Lander.",
         "confidentlyVisible": [
-          "Portrait-oriented card face",
-          "Two armored astronauts stand before a burning doorway",
-          "A white astronaut icon appears above the title beside “3+”",
-          "Title and rules text are fully legible",
-          "Blue footer text reads “PERSONAL OBJECTIVE”"
+          "The image is a portrait-format composition with full-bleed dark teal, black, orange, red, and blue artwork beneath crisp dark translucent panels.",
+          "Two large helmeted human-like suited figures face one another in the upper-middle artwork. A third helmeted head and upper back occupy the lower-left foreground.",
+          "The right-side figure holds a dark rectangular object containing a bright orange interior glow and a small blue-white point near one corner.",
+          "An intense orange-red illuminated compartment or opening fills the center background. Dark irregular forms, bright particles, and vertical streaks appear within it.",
+          "A thin red horizontal light line crosses most of the image through the middle artwork.",
+          "A sharp composite white-and-blue glyph appears immediately left of the white printed characters 3+ above the title plaque.",
+          "The title is centered in one uppercase white line. The rules passage is centered in two white lines.",
+          "The footer is printed in uppercase cyan-blue letters.",
+          "Orange triangular artwork markings are aligned near the image center: a downward-pointing layered form near the top with a thin descending line, and a smaller upward-pointing triangle lower in the artwork.",
+          "No additional materially visible words are securely readable, and no sharp overlay text is clipped by an image edge."
         ],
-        "proposedCategory": "cards/game/objective",
-        "proposedSlug": "quarantine",
-        "confidence": "high",
-        "uncertainties": [],
+        "proposedCategory": "",
+        "proposedSlug": "",
+        "confidence": "high-evidence-deferred-source/schema",
+        "uncertainties": [
+          "The semantic identity of M1 cannot be established from its pixels alone.",
+          "The proximity of M1 and 3+ establishes a visual grouping but not the meaning of that grouping.",
+          "Glow and overlap soften the exact closure and count of the smallest oval strokes in M1.",
+          "The role of the orange triangular artwork markings is not established by their pixels alone.",
+          "The canonical component family and side terminology are not explicitly printed.",
+          "Current publisher-primary rendered component pixels conflict materially with the assigned TTS face; preserve both and do not substitute publisher wording into the TTS transcription.",
+          "The applicable exact-title BGA licensed-digital record conflicts materially and is retained only as secondary evidence.",
+          "1 material ringed player-count occurrence(s) remain explicit all-49 authoritative no-matches; no semantic token was invented.",
+          "No approved canonical Personal/Private Objective card image/sidecar schema or directory exists under cards/game."
+        ],
         "orientation": "upright"
       },
       "reviewQueuePath": "assets/tts-mod/extract/low-confidence-review.json",
-      "deferReason": "meaningful visible text falls outside the established minimal sidecar fields"
+      "deferReason": "1 material ringed player-count occurrence(s) remain explicit all-49 authoritative no-matches; no semantic token was invented.; Current publisher-primary rendered component pixels conflict materially with the assigned TTS face; preserve both and do not substitute publisher wording into the TTS transcription.; The applicable exact-title BGA licensed-digital record conflicts materially and is retained only as secondary evidence.; No approved canonical Personal/Private Objective card image/sidecar schema or directory exists under cards/game."
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectivePersonalDeck-156.jpg",
@@ -118056,9 +118319,13 @@
       "vision": {
         "provider": "openai-codex",
         "model": "gpt-5.6-sol",
-        "sessionId": "20260815_053827_5c91d6",
-        "resultPath": "assets/tts-mod/extract/vision-results/e5400e99d8671d21bdb4e16506a4533e4f4405e0a402217b039ba3326fcf178b.json",
-        "confidence": "medium"
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-30-20260821T102147Z-p346900-971773",
+        "sessionId": "20260821_102416_61ceea",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/results/W30-016.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/raw/W30-016.json",
+        "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-30-20260821T102147Z-p346900-971773/qa/contact-sheets/W30-016-all-functional-all49-contact.png",
+        "confidence": "high-evidence-deferred-source/schema"
       },
       "provenance": {
         "sourceUrl": "https://steamusercontent-a.akamaihd.net/ugc/2497882400478760262/8E23C030B9B37F8F41227249EE856E4E98B13F59/",
@@ -118172,37 +118439,46 @@
         ]
       },
       "semanticRead": {
-        "componentType": "personal objective card",
+        "componentType": "Corporate prototype objective card",
         "cardSide": "face",
         "title": "TRAITOR IN PLAIN SIGHT",
         "typeLine": "",
-        "body": "Player 7’s Character cannot survive.\n\nOR\n\nYour Character is the only survivor.\n\n- What the fuck is going on?\n- You bitch.",
-        "footer": "CORPORATE",
-        "upperRight": "",
-        "lowerCenter": "",
-        "visibleText": "[intruder] 7+\nPRO\nOT\nTYPE",
+        "body": "Player 7's Character cannot survive.\n\nOR\n\nYour Character is the only survivor.\n\n- What the fuck is going on?\n- You bitch.",
+        "footer": "C O R P O R A T E",
+        "upperRight": "[ICON: white round-topped upright silhouette above nested cyan-blue oval rings] 7+",
+        "lowerCenter": "C O R P O R A T E",
+        "visibleText": "Player 7's Character cannot survive.\n\nOR\n\nYour Character is the only survivor.\n\n- What the fuck is going on?\n- You bitch.",
         "confidentlyVisible": [
-          "Portrait-format card with all primary typography upright",
-          "Spacecraft artwork fills the upper portion",
-          "A curled white exoskeleton glyph on a blue circular field appears above the title",
-          "The title is printed in uppercase white text",
-          "Two objective conditions are separated by an OR panel",
-          "Two pale-yellow italic lines appear beneath the conditions",
-          "CORPORATE is centered along the bottom edge",
-          "A large diagonal white watermark is partially obscured by artwork and card panels"
+          "The image is a portrait-format composition with rounded black outer corners, pale blue-gray artwork in the upper portion, and black panels with gold trim in the lower portion.",
+          "The upper artwork contains a large dark blocky form at left with narrow amber illuminated seams, an elongated dark vertical form at right, a central dark mass, and several small floating dark fragments against a mottled pale blue background.",
+          "A large translucent light-gray uppercase watermark runs diagonally from the lower-left region toward the upper-right region and remains readable as PROTOTYPE despite crossing artwork, the status cluster, and rules panels.",
+          "A sharp small composite white-and-blue glyph appears immediately left of the white printed characters 7+ above the title plaque. A much larger translucent gray circular stroke crossing the same area belongs to the diagonal watermark text rather than the small glyph.",
+          "The title is centered in one bold uppercase white line. The upper rules panel contains one centered white sentence.",
+          "The white word OR occupies a brown-gold central tab. The lower panel contains one centered white sentence followed by two centered olive-gold italic lines.",
+          "The footer consists of widely tracked uppercase gold letters.",
+          "No additional materially visible words are securely readable, and no main text is clipped by an image edge."
         ],
-        "proposedCategory": "cards/game/objective",
-        "proposedSlug": "traitor-in-plain-sight",
-        "confidence": "medium",
+        "proposedCategory": "",
+        "proposedSlug": "",
+        "confidence": "high-evidence-deferred-source/schema",
         "uncertainties": [
-          "The diagonal watermark is heavily obscured; only the separately visible fragments “PRO”, “OT”, and “TYPE” are transcribed rather than reconstructing hidden letters.",
-          "The curled white glyph confidently matches [intruder], but it appears on a card-local blue circular field not described by the canonical glossary.",
-          "The exact semantic role of the adjacent “7+” is not established from pixels alone."
+          "The semantic identity of M1 cannot be established from its pixels alone.",
+          "The proximity of M1 and 7+ establishes a visual grouping but not the meaning of that grouping.",
+          "The large translucent gray circular stroke crossing M1 is assigned to the diagonal watermark based on its continuity with the other watermark letters, but it partially complicates the small morphology's outer boundary.",
+          "The semantic status of the two olive-gold italic lines is not inferred beyond their verbatim transcription and placement.",
+          "The identities of the dark artwork forms are not established.",
+          "The canonical component family and side terminology are not explicitly printed.",
+          "No current publisher-primary rendered component face visibly establishes this exact title and operative text; searchable text-layer hits alone are not face evidence.",
+          "No applicable exact-title record exists in the current BGA licensed-digital secondary source.",
+          "1 material ringed player-count occurrence(s) remain explicit all-49 authoritative no-matches; no semantic token was invented.",
+          "The assigned face visibly carries a PROTOTYPE watermark and a nonstandard C O R P O R A T E footer; no current exact counterpart establishes canonical applicability.",
+          "No approved canonical Corporate prototype objective card image/sidecar schema or directory exists under cards/game.",
+          "2 material discrepancy row(s) with the prior unselected corpus snapshot are preserved."
         ],
         "orientation": "upright"
       },
       "reviewQueuePath": "assets/tts-mod/extract/low-confidence-review.json",
-      "deferReason": "exact card identity/transcription/icon/category is not uniformly high-confidence"
+      "deferReason": "1 material ringed player-count occurrence(s) remain explicit all-49 authoritative no-matches; no semantic token was invented.; No current publisher-primary rendered component face visibly establishes this exact title and operative text; searchable text-layer hits alone are not face evidence.; No applicable exact-title record exists in the current BGA licensed-digital secondary source.; The assigned face visibly carries a PROTOTYPE watermark and a nonstandard C O R P O R A T E footer; no current exact counterpart establishes canonical applicability.; No approved canonical Corporate prototype objective card image/sidecar schema or directory exists under cards/game.; 2 material discrepancy row(s) with the prior unselected corpus snapshot are preserved."
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectivePersonalDeck-157.jpg",
@@ -161754,7 +162030,7 @@
     "sidecarsCreated": 60,
     "imagesCopiedToCanonicalCatalog": 59,
     "sourceFilesMovedOrRenamed": 0,
-    "completedAt": "2026-08-21T10:06:06.050252Z"
+    "completedAt": "2026-08-21T11:16:02.707622Z"
   },
   "deferredReexamination": {
     "schemaVersion": 1,
@@ -162064,13 +162340,31 @@
         "rotationReason": "worker finished exact 16 mixed objective-family faces",
         "promotionCount": 0,
         "deferredCount": 16
+      },
+      {
+        "workerId": "sol-max-persistent-worker-30-20260821T102147Z-p346900-971773",
+        "status": "completed-private-projection-passed",
+        "assigned": 16,
+        "reexamined": 16,
+        "provider": "openai-codex",
+        "model": "gpt-5.6-sol",
+        "reasoningEffort": "max",
+        "sessionId": "20260821_102416_61ceea",
+        "postBlindSessionIds": [
+          "20260821_104731_543f84",
+          "20260821_105701_c44f35"
+        ],
+        "postBlindSessionIdState": "DB-verified all-49 contact and publisher-visible sessions",
+        "rotationReason": "worker finished exact 16 mixed objective-family faces",
+        "promotionCount": 0,
+        "deferredCount": 16
       }
     ],
-    "updatedAt": "2026-08-21T10:06:06.050252Z",
-    "reexamined": 140,
+    "updatedAt": "2026-08-21T11:16:02.707622Z",
+    "reexamined": 156,
     "newlyCompleted": 37,
     "stillDeferred": 384,
-    "nextPosition": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-162_cards/card-11.png",
+    "nextPosition": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectivePersonalDeck-157.jpg",
     "rejectedBatches": [
       {
         "workerId": "sol-max-worker-01",
