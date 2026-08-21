@@ -1525,6 +1525,145 @@ deployed, and no W31 work was started. The next eligible exact tuple is current 
 (SHA-256 `f420a43cbda8bc562b02eb0656f0f1cf80bdd97d95092a9ad84a69e12c089b02`);
 wraparound was not required.
 
+**W31 defer-only mixed-component checkpoint (2026-08-21T13:53:16.910066Z):** Worker
+`sol-max-persistent-worker-31-20260821T112612Z-p346900-b7e2c9` selected the first thirty-two previously unselected exact tuples walking
+forward from current queue index 193. There were no selected-tuple skips and no wraparound.
+Assignment SHA-256 is `a6566f985e87fd12afbea784086f92256a538041de04cf30c0fd8a7909c408e2`; ordered
+`(assetId, sourcePath, sourceSha256)` tuple digest is `682962d7aef01167e25c1be0a9b866836cef98877916c6ca731607d00f8e59ff`:
+- W31-001, index 193, `assets/tts-mod/extract/v2-dl/tree/cards/game/objectivePersonalDeck-157.jpg`,
+  SHA-256 `f420a43cbda8bc562b02eb0656f0f1cf80bdd97d95092a9ad84a69e12c089b02`;
+- W31-002, index 194, `assets/tts-mod/extract/v2-dl/tree/cards/game/objectivePersonalDeck-158.jpg`,
+  SHA-256 `8d2cfe3ee15534d8388721d1de501f9611146adffaf51f6c3588bccede1b2f73`;
+- W31-003, index 195, `assets/tts-mod/extract/v2-dl/tree/cards/game/objectivePersonalDeck-159.jpg`,
+  SHA-256 `fc0a267123d785703162e31ecfb91b68d3a43c9b53c3a2532cc6dc4932a7457f`;
+- W31-004, index 196, `assets/tts-mod/extract/v2-dl/tree/cards/game/objectivePersonalDeck-161.jpg`,
+  SHA-256 `3aec90a31ada20f22218d01aab15694a3be8c41a831a578db6c4d607cc42085a`;
+- W31-005, index 197, `assets/tts-mod/extract/v2-dl/tree/cards/game/queenHealthDeck-013.png`,
+  SHA-256 `5ad0606dff59c21b20689fc6b5b5192ef83c95f108ded91e587725bfd2c68092`;
+- W31-006, index 198, `assets/tts-mod/extract/v2-dl/tree/cards/game/queenHealthDeck-038.png`,
+  SHA-256 `fc04bf1a2920fb63ac512d209622b591cdc9f3cb9ca292c97bf874fcddbbd5c8`;
+- W31-007, index 199, `assets/tts-mod/extract/v2-dl/tree/cards/game/queenHealthDeck-040.png`,
+  SHA-256 `ce7a5fba88dd56f5de2ae77e5fe1647324bdfa9a99ae7f55485cca35eb72b062`;
+- W31-008, index 200, `assets/tts-mod/extract/v2-dl/tree/cards/game/queenHealthDeck-041.png`,
+  SHA-256 `929ac1204b4b7989ee051307245bf32fb5e1915a35b9afd5a73572c8ca01dc61`;
+- W31-009, index 201, `assets/tts-mod/extract/v2-dl/tree/cards/game/queenHealthDeck-045.png`,
+  SHA-256 `133a975dc072a169ceed85615ab2e5a6cde0f80a23f18e61948f0a963c9e98e2`;
+- W31-010, index 202, `assets/tts-mod/extract/v2-dl/tree/cards/game/queenHealthDeck-084.png`,
+  SHA-256 `bcb0eeb9e86f66f8401b584385746d268641c2692392b3faeb4f93438111a62f`;
+- W31-011, index 203, `assets/tts-mod/extract/v2-dl/tree/cards/game/queenHealthDeck-126.png`,
+  SHA-256 `63654c6409f88599aff333b6a54e90b3c3aaa7a29f2395ffff36eed7ab2d6e49`;
+- W31-012, index 204, `assets/tts-mod/extract/v2-dl/tree/cards/game/queenHealthDeck-164.png`,
+  SHA-256 `4a79f992bc3e6b7493887c40b1198785673cc87ce462bbdd732b02c8e6a3cf14`;
+- W31-013, index 205, `assets/tts-mod/extract/v2-dl/tree/cards/game/queenHealthDeck-165.png`,
+  SHA-256 `763ca108996c746f141b6f505d3afee2c30be1f6f4f38b84d0118f9f76bdf765`;
+- W31-014, index 206, `assets/tts-mod/extract/v2-dl/tree/cards/game/reditem-059.png`,
+  SHA-256 `e9ca2730644b069ebdfc3e5002b3a7656fc1a37035c38eebf7062e2f78f59651`;
+- W31-015, index 207, `assets/tts-mod/extract/v2-dl/tree/cards/game/reditem-112.png`,
+  SHA-256 `b728051696f6e41cefa58c203125c1470a3a48c589820b5b8a82cbf18c28681c`;
+- W31-016, index 208, `assets/tts-mod/extract/v2-dl/tree/cards/game/reditem-117.png`,
+  SHA-256 `9eb1ddc91a26bc4581a12f685edce6d1858b93770f576c3be3062a30f293d2db`;
+- W31-017, index 209, `assets/tts-mod/extract/v2-dl/tree/cards/game/reditem-148_cards/card-00.png`,
+  SHA-256 `7408e9ff7bbbfbea602627c74881c561ca7df151626bb160d2a8ceca1d1f24c0`;
+- W31-018, index 210, `assets/tts-mod/extract/v2-dl/tree/cards/game/reditem-148_cards/card-01.png`,
+  SHA-256 `4d61a4e3a38bc7cb5ecf52f452457c59ecc7c95755d25ee380238d7835caba77`;
+- W31-019, index 211, `assets/tts-mod/extract/v2-dl/tree/cards/game/reditem-148_cards/card-02.png`,
+  SHA-256 `441834df437ddff13e8fe8d485e615df7b67730aa1903610fbd474ee73d0161c`;
+- W31-020, index 212, `assets/tts-mod/extract/v2-dl/tree/cards/game/reditem-148_cards/card-03.png`,
+  SHA-256 `8f1f1ba0b8958061a8fb1ac0bea5972f6d090db76b56f4eb148ff0a8a337d992`;
+- W31-021, index 213, `assets/tts-mod/extract/v2-dl/tree/cards/game/reditem-148_cards/card-05.png`,
+  SHA-256 `e54b40f88c76cacea72d0ef10c82beb8c9170bb1d9db7d092c3557738492a79f`;
+- W31-022, index 214, `assets/tts-mod/extract/v2-dl/tree/cards/game/reditem-148_cards/card-06.png`,
+  SHA-256 `e149151bec4cb0d41875581b66864e5f2dd1465e169158ff46ce62f7aedc7c91`;
+- W31-023, index 215, `assets/tts-mod/extract/v2-dl/tree/cards/game/reditem-148_cards/card-07.png`,
+  SHA-256 `af3fa0947175239122c8d9a9075e39a3cc30f45a83d5838638619fafc4a67fb7`;
+- W31-024, index 216, `assets/tts-mod/extract/v2-dl/tree/cards/game/robotDeck-155.jpg`,
+  SHA-256 `9cf67e814071c67c598456070306951e3e24cb00a274b20d736596acfeb67c39`;
+- W31-025, index 217, `assets/tts-mod/extract/v2-dl/tree/cards/game/robotDeck-173.jpg`,
+  SHA-256 `0e8c91aac8c15e467bbf177ddb3b8fd06600353b3f7af2f1af933b24fb1f1386`;
+- W31-026, index 218, `assets/tts-mod/extract/v2-dl/tree/cards/game/robotDeck-175.jpg`,
+  SHA-256 `27a7014ae8011fa68b71a60365b11ca0392b4e66c7d9bdfbe46eec3a6bb21411`;
+- W31-027, index 219, `assets/tts-mod/extract/v2-dl/tree/cards/game/seriouswound-028.png`,
+  SHA-256 `cfc93364f9ec257e07bc84989bbea9709ecdc9519d11f2bc7fd4c5b519ab3f6f`;
+- W31-028, index 220, `assets/tts-mod/extract/v2-dl/tree/cards/game/seriouswound-104.png`,
+  SHA-256 `a8e96bccf2270724b257a20bcc55e24c2e78a161f8bb5ae6256f433c82ecd4e7`;
+- W31-029, index 221, `assets/tts-mod/extract/v2-dl/tree/cards/game/seriouswound-149_cards/card-00.png`,
+  SHA-256 `66db7a2fc44c3a8e278b2b7fd0ae40d3932f26667b568ad3b3271b6373f80998`;
+- W31-030, index 222, `assets/tts-mod/extract/v2-dl/tree/cards/game/seriouswound-149_cards/card-01.png`,
+  SHA-256 `42980fa5cef70e8ed40649d1495fc75c015c43f60ebb52961031d18f8f3e1564`;
+- W31-031, index 223, `assets/tts-mod/extract/v2-dl/tree/cards/game/seriouswound-149_cards/card-02.png`,
+  SHA-256 `e6ec34b2dde06f1cd76e958af3d24ee1bcc4fa177e4d214b086c70d82a8a2322`;
+- W31-032, index 224, `assets/tts-mod/extract/v2-dl/tree/cards/game/seriouswound-149_cards/card-03.png`,
+  SHA-256 `322587af9825baec2c8786a0f5e15a657257a5633f025e694de2c962127b44f9`;
+
+Neutral smoke session `20260821_112810_c4cebc` verified 1 API call, 2 messages,
+0 tools, exact native `openai-codex:gpt-5.6-sol` at reasoning `max`, and no stored
+Tools/tool-name marker. Production evidence totals 43 native-image API calls, 86 messages,
+and 0 tools across four independently DB-verified sessions:
+- blind `20260821_112834_379457` (32/64/0), one persistent one-image lineage with 32 mode-`0400` wrappers;
+- upright retry `20260821_123248_7e41e3` (1/2/0), a fresh isolated lossless CCW-90 reread of W31-016;
+- exhaustive all-49 contact `20260821_125353_fc9ee8` (8/16/0), four assets per turn with exact per-ID outputs;
+- rendered publisher-primary audit `20260821_132524_1f9d93` (2/4/0), covering rulebook p.3 and both Objectives-sheet pages.
+No OCR, Qwen, auxiliary vision, model/reasoning downgrade, shared-provider mutation, or
+unverified route was used. A complete batch-2 contact response was salvaged after a helper
+rejected basename-only reference paths; exactly five token-to-path normalizations changed no
+semantic token, verdict, source text, or immutable blind evidence.
+
+All 32 source roles are recursively resolved from the live TTS save: 31 FaceURLs and 1
+shared Robot BackURL; 11 sources are generated cells and 21 downloaded assets. Exact
+GUID/CardID source selectors are singular for 11
+sources, while all reference sets are preserved and 29
+are structurally complete. W31-024 has seven exact FaceURL counterparts but only two
+counterpart pixel assets in the extracted base tree; that partial set is explicit. Rules/non-rules
+counts are 31/1.
+
+All 89 blind morphology occurrences reconcile exactly once:
+42 authoritative p.40 matches, 30 explicit
+one-to-one no-match rows, 13 non-text component graphics,
+and 4 artwork-only details. Thirty-five discrepancies with
+the prior unselected corpus snapshot remain explicit; no previous approved record was overwritten.
+
+Fresh Awaken Realms bytes match tracked rulebook `e3cda0d7a91bd090cec45dbc8ce89e2015e2202173357c374ff49365f9c29ddd`,
+FAQ v1.2 `611ae20dc0b3e04f3c0d99f294a92fc95460c042565b12d1c808b1282ae0e0d8`, and Objectives sheet
+`30f3d4116a9c4dc3a53fb5e920995c24aa747988c915dc5fba6261cbd7dca364`. Current publisher rendered
+support is 24 absent counterparts, 5 occluded/unreadable Queen faces, 2 material wording
+conflicts (EYES and ARM), and 1 different-family card-back lookalike; zero source-fidelity
+gates pass. BGA build `260622-1220` at SHA-256
+`18cd8f4a2883d4f6662ed170095ff07e0d9f5da508064ed1d6bfc124f5a274ae` remains labeled secondary evidence.
+The durable evidence preserves 24 publisher/BGA conflict rows.
+
+All 32 promotion decisions remain `defer`; no candidate or canonical image/sidecar/source byte,
+category, or filename changed. Exact blockers include: four visibly prototype-marked Corporate
+objectives absent from current publisher/BGA data; Queen faces lacking complete visible primary
+counterparts and retaining local no-match frames; red Items with missing/renamed or conflicting
+current support plus unresolved/local glyphs and generated-selector gaps; a partial Robot-back
+counterpart set and no primary Robot faces; Serious Wound primary/BGA wording conflicts and local
+glyph/selector gaps; and no approved canonical schema/directory for any assigned family.
+
+Worker core, independent closure, and the reusable native-worker auditor all pass with 0 errors/
+0 warnings. Private projection and independent corpus rebuild are byte-identical and change
+exactly 32 assigned corpus records recursively. Shared merge completed 4 trial writes, 4 exact
+rollback writes, 4 committed writes, and a zero-write identical re-merge. Eleven focused tests
+and all eight documented global validation commands pass; 532/532 source images decode,
+390/390 corpus source hashes verify, canonical source hashes and 78 image/sidecar pairs remain
+unchanged, and two explicit corpus builds are byte-identical at `6cb4933195c68596d3b364d2900dab68f820245e5eaa57a725ef33bd5a224d69`.
+Final generated/QA Git scope is exactly eight files.
+
+Lifecycle counts remain 532 = 148 complete + 384
+deferred + 0 unaccounted; queue 384, selected
+registry/corpus overlays 214, genuinely unselected queue tuples
+170, corpus 390, canonical pairs
+78, and deferred re-examinations 188.
+The unresolved-symbol backlog contains 237 occurrences
+across 148 assets. Predecessor checkpoint HEAD was
+`66c6ff5f262ade3fe2fcef6d4f9ef5c343f24abe`; sealed data/QA/shared-scope commit is `6b634039223f9cbb022f70baa61b557d2f01225d`. This entry is
+committed separately in the following todo-only checkpoint commit, whose self-hash does not
+appear in its own content. Operational blocker: none; canonical-promotion blockers are the exact
+per-family, source-conflict, unresolved-morphology, selector, prototype, counterpart-coverage,
+and schema gates above. Nothing was pushed or deployed, and no W32 work was started. The next
+eligible exact tuple is current queue index 225,
+`assets/tts-mod/extract/v2-dl/tree/cards/game/seriouswound-149_cards/card-04.png`
+(SHA-256 `522c29d0874334cac9dda75c4cd0182fca35dbc7402c4b7231c1c8a6c6b1ec18`); wraparound was not required.
+
 ## LATER — Expansions (re-add when user wants them)
 - [ ] Re-extract expansion content from save (see `assets/tts-mod/notes/extraction.md` §15 for all deck GUIDs, intruder bags,
       shared action-154 cells, and classification pitfalls)
