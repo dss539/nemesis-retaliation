@@ -1407,6 +1407,124 @@ and no W30 work was started. The next eligible exact tuple is current queue inde
 (SHA-256 `d6ccc53b53a98ce5e212d701c0523d8a2a343d1e6d759318585a8dc278b316b2`);
 wraparound was not required.
 
+**W30 defer-only personal/private-objective checkpoint (2026-08-21T11:19:20Z):** Worker
+`sol-max-persistent-worker-30-20260821T102147Z-p346900-971773` selected the first sixteen
+previously unselected exact tuples walking forward from current queue index 177. There were no
+selected-tuple skips and no wraparound. Assignment SHA-256 is
+`42004efb7c7e573cd3ab53a45421c2d2a4af428e078d9a1f7e6d6d09ce5fc0fc`; ordered
+`(assetId, sourcePath, sourceSha256)` tuple digest is
+`9e3e82a0c349917648bc7edc6e3cbcb829548441a6769c49e6da93d6bd989844`:
+- W30-001, index 177, `assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-162_cards/card-11.png`,
+  SHA-256 `d6ccc53b53a98ce5e212d701c0523d8a2a343d1e6d759318585a8dc278b316b2`;
+- W30-002, index 178, `assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-162_cards/card-12.png`,
+  SHA-256 `0c8456bddc9b959a53b9cd56994555a71f8f2595b9361416e1c6985c8e749092`;
+- W30-003, index 179, `assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-162_cards/card-13.png`,
+  SHA-256 `36f51a02097dfa1beadb7519fd46df8aade3c8132583a8e74ca3b4a9cac14727`;
+- W30-004, index 180, `assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-162_cards/card-14.png`,
+  SHA-256 `9a2ab1c3cb5d743381be7df987e96f47bdeaf729d82fe18052409b42d42d762d`;
+- W30-005, index 181, `assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-162_cards/card-15.png`,
+  SHA-256 `1f94620da15b61eaa4dce6ba5533b57c38502cb6112599cba09786659db7f083`;
+- W30-006, index 182, `assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-162_cards/card-16.png`,
+  SHA-256 `9e42ffc3f4c75305c8eae3d8f25856d3625cc112c9b231ad4030708ff4952446`;
+- W30-007, index 183, `assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-162_cards/card-17.png`,
+  SHA-256 `0d8879f3bcd2191607423ce00eaa1e4da150c151b3f5583c661903a3568b8168`;
+- W30-008, index 184, `assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-162_cards/card-18.png`,
+  SHA-256 `d7066d565c1617eee42cfca1a8099623975ecdaed9d63fae9563cd7f4b0c3b23`;
+- W30-009, index 185, `assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-162_cards/card-19.png`,
+  SHA-256 `518f750e52720a13a626822da482dc87879fa47751cad7d583e482e315b8e5b8`;
+- W30-010, index 186, `assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-162_cards/card-20.png`,
+  SHA-256 `86c8acf32ca511709d86d2633a6f586259fe52c82c0f2c08775d9fb0788649ec`;
+- W30-011, index 187, `assets/tts-mod/extract/v2-dl/tree/cards/game/objectivePersonalDeck-014.jpg`,
+  SHA-256 `628fc9f78b4a26e405034fcf3f0d855b010d7125e173d79fbcca6c3668e95892`;
+- W30-012, index 188, `assets/tts-mod/extract/v2-dl/tree/cards/game/objectivePersonalDeck-043.jpg`,
+  SHA-256 `de1213ee6a5b5489a9c7463e9532d2d4ae40b07975db38b9472f72d590f6218c`;
+- W30-013, index 189, `assets/tts-mod/extract/v2-dl/tree/cards/game/objectivePersonalDeck-066.jpg`,
+  SHA-256 `616161bbdb4c758a5b864d514cf12087c7de6cbc293287558a261fd0bbe5960a`;
+- W30-014, index 190, `assets/tts-mod/extract/v2-dl/tree/cards/game/objectivePersonalDeck-091.jpg`,
+  SHA-256 `9958d19068c020fd4fa6410016726bb697d55a30328e80c06f8d3885b9fa0f4b`;
+- W30-015, index 191, `assets/tts-mod/extract/v2-dl/tree/cards/game/objectivePersonalDeck-095.jpg`,
+  SHA-256 `144260585a868a5317b9f4a49b9b8942dc9373158237e72063fdc5388edac197`;
+- W30-016, index 192, `assets/tts-mod/extract/v2-dl/tree/cards/game/objectivePersonalDeck-156.jpg`,
+  SHA-256 `e5400e99d8671d21bdb4e16506a4533e4f4405e0a402217b039ba3326fcf178b`.
+
+Neutral smoke session `20260821_102358_fb906f` verified 1 API call, 2 messages, 0 tools,
+exact native `openai-codex:gpt-5.6-sol` at reasoning `max`, and no stored Tools/tool-name
+marker. Production evidence totals 39 direct native image calls, 78 messages, and 0 tools across
+three independently DB-verified sessions: blind `20260821_102416_61ceea` (16/32/0), exhaustive
+all-49 contact plus paired-side inspection `20260821_104731_543f84` (16/32/0), and current
+publisher rendered-page audit `20260821_105701_c44f35` (7/14/0). Every blind turn reread the
+frozen assignment and live source hash before attachment; all 16 wrappers/raw copies are mode
+`0400`. No OCR, Qwen, auxiliary vision, model/reasoning downgrade, shared-provider mutation,
+failed production turn, or session split was used.
+
+All 16 assigned sources are rules-bearing FaceURLs and zero are non-rules. W30-001..010 are
+generated cells 11–20 of `objectiveMissonDeck-162.jpg` across exact deck lineages `263314` and
+`fae6cf`; every candidate reference is preserved, but no singular per-cell selector is inferred.
+W30-011..016 are downloaded FaceURLs with exact GUID/CardID selectors, respectively:
+`6fd912`/`530100`, `72e954`/`529700`, `e5ecaa`/`530000`, `0df957`/`590600`,
+`e0580b`/`529800`, and `6ffcf3`/`447900`, all under deck `263314`. Every exact reference set,
+FaceURL role, and paired BackURL is resolved. The shared paired side was directly inspected as a
+generic `OBJECTIVE` back with no operative rules text at SHA-256
+`7de29dc173947c5c01c3b95d7c63dfed1bdbc1b5571b233b2f10d9c02efb91a5`.
+W30-001..015 visibly belong to the Personal/Private Objective family; W30-016 visibly carries a
+`PROTOTYPE` watermark and nonstandard `C O R P O R A T E` footer and is preserved as prototype
+evidence rather than normalized.
+
+All 18 enumerated functional morphologies reconcile exactly once: 2 authoritative page-40 matches
+(`lifeSupportInactive` on SHUTDOWN and `actionCard` in THE GREAT HUNT's separate instruction
+panel) and 16 explicit one-to-one no-match rows. The no-match on every assigned face is the same
+material ringed player-count emblem: a white round-topped/flared upright form over nested cyan-blue
+oval rings that directly differs from the articulated page-40 `character` crop. No player-count
+semantic token was invented. Fifty-seven separate non-text component graphics, 91 artwork details,
+and 25 non-rules illustration/text abstentions are preserved outside operative objective text.
+
+Fresh Awaken Realms manifest downloads exactly match tracked rulebook
+`e3cda0d7a91bd090cec45dbc8ce89e2015e2202173357c374ff49365f9c29ddd`, FAQ v1.2
+`611ae20dc0b3e04f3c0d99f294a92fc95460c042565b12d1c808b1282ae0e0d8`, and Objectives
+Help Sheet `30f3d4116a9c4dc3a53fb5e920995c24aa747988c915dc5fba6261cbd7dca364`
+bytes. Current visible publisher components exactly support only THE GREAT HUNT, materially conflict
+with W30-001/009/010/011/012/013/015, and provide no visible exact counterpart for the other eight.
+Current BGA build `260622-1220` (SHA-256
+`18cd8f4a2883d4f6662ed170095ff07e0d9f5da508064ed1d6bfc124f5a274ae`) is exact only for
+THE GREAT HUNT, materially conflicts with twelve assigned faces, and has no exact-title record for
+LAB RATS, OLD FRIEND, or TRAITOR IN PLAIN SIGHT. Seven publisher-primary and 19 total
+publisher/BGA conflict rows remain verbatim. Three discrepancies with the prior unselected corpus
+snapshot are also explicit: one on W30-003 and two on the visibly prototyped W30-016. No official or
+BGA wording was substituted into assigned art.
+
+Every promotion decision is `defer`; no candidate or canonical image, sidecar, source byte, category,
+or filename changed. Every face retains the unresolved ringed player-count occurrence and lacks an
+approved Personal/Private/Corporate Objective canonical schema/directory; W30-001..010 additionally
+lack singular cell selectors; fifteen faces lack an exact current publisher-primary source-fidelity
+pass; seven have direct publisher wording conflicts; and W30-016 is visibly prototype-marked. THE
+GREAT HUNT's exact current publisher/BGA wording and matched `actionCard` still do not override its
+unresolved player-count emblem or missing target-schema gate.
+
+Core and independent worker closure pass, and the reusable native-worker auditor passes through its
+hash-linked compatibility view with 0 errors/0 warnings while original evidence stays unchanged.
+Private projection and independent corpus rebuild are byte-identical and change exactly the sixteen
+assigned corpus records recursively. Shared merge completed 4 trial writes, 4 exact rollback writes,
+4 committed writes, and a zero-write identical re-merge. Eleven focused tests and all eight
+documented global validation commands pass; 532/532 source images decode, 390/390 corpus source
+hashes verify, all sixteen no-match rows survive in selected evidence/corpus/backlog, canonical
+source hashes and 78 image/sidecar pairs remain unchanged, and two explicit corpus builds are
+byte-identical at `a7f0dd93541e8b438a0bdfe2c51835d7c6daa89411a450b0c2c61834649c7409`.
+Final generated/QA Git scope was exactly eight files.
+
+Lifecycle counts remain 532 = 148 complete + 384 deferred + 0 unaccounted; queue 384, selected
+registry/corpus overlays 182, genuinely unselected queue tuples 202, corpus 390, canonical pairs 78,
+and deferred re-examinations 156. The reconciled unresolved-symbol backlog contains 227 occurrences
+across 141 assets. Predecessor checkpoint HEAD was
+`b44712a5fd93644fc3d85006bde61be204a62e2e`; sealed data/QA/shared-scope commit is
+`7ff22eaf5781a2568d75b67a05e10aad8d45433f`. This entry is committed separately in the
+following todo-only checkpoint commit, whose self-hash does not appear in its own content.
+Operational blocker: none; canonical-promotion blockers are the exact per-family, source-conflict,
+ringed-player-count, generated-selector, prototype, and schema gates above. Nothing was pushed or
+deployed, and no W31 work was started. The next eligible exact tuple is current queue index 193,
+`assets/tts-mod/extract/v2-dl/tree/cards/game/objectivePersonalDeck-157.jpg`
+(SHA-256 `f420a43cbda8bc562b02eb0656f0f1cf80bdd97d95092a9ad84a69e12c089b02`);
+wraparound was not required.
+
 ## LATER — Expansions (re-add when user wants them)
 - [ ] Re-extract expansion content from save (see `assets/tts-mod/notes/extraction.md` §15 for all deck GUIDs, intruder bags,
       shared action-154 cells, and classification pitfalls)
