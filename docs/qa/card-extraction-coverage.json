@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "sourceProgressUpdatedAt": "2026-08-21T13:50:08.338081Z",
-  "sourceQueueUpdatedAt": "2026-08-21T13:50:08.338081Z",
+  "sourceProgressUpdatedAt": "2026-08-21T17:13:20.035216Z",
+  "sourceQueueUpdatedAt": "2026-08-21T17:13:20.035216Z",
   "totals": {
     "inScope": 532,
     "complete": 148,
@@ -13,14 +13,14 @@
     "canonicalSidecars": 78
   },
   "deferredExtractionStates": {
-    "draft-full": 289,
-    "draft-partial": 4,
+    "draft-full": 284,
+    "draft-partial": 9,
     "no-transcription": 34,
     "non-rules-or-reference": 57
   },
   "deferredCardExtractionStates": {
-    "draft-full": 258,
-    "draft-partial": 4,
+    "draft-full": 253,
+    "draft-partial": 9,
     "no-transcription": 3,
     "non-rules-or-reference": 13
   },
@@ -171,17 +171,278 @@
     "reference": 4
   },
   "reasonTags": {
-    "classification": 204,
-    "clipped-or-illegible": 64,
+    "classification": 175,
+    "clipped-or-illegible": 52,
     "needs-official-source": 30,
     "orientation": 56,
-    "other": 55,
-    "provenance": 70,
-    "schema-or-destination": 119,
-    "source-conflict": 56,
+    "other": 53,
+    "provenance": 82,
+    "schema-or-destination": 151,
+    "source-conflict": 80,
     "unknown-icon": 5
   },
   "topRulesInformationPriorities": [
+    {
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/seriouswound-149_cards/card-04.png",
+      "sourceSha256": "522c29d0874334cac9dda75c4cd0182fca35dbc7402c4b7231c1c8a6c6b1ec18",
+      "family": "game/seriouswound-149_cards",
+      "isCard": true,
+      "isRulesBearingCandidate": true,
+      "extractionState": "draft-partial",
+      "priorityScore": 1330,
+      "title": "LEG",
+      "typeLine": "",
+      "body": "Using the “Make a Move” Action\nfrom a Room with an [intruder]\nor through a Corridor\nwith an [intruder] costs you 1 [actionCard] more.",
+      "footer": "",
+      "recognizedTokens": [
+        "actionCard",
+        "intruder"
+      ],
+      "unknownTokens": [
+        "ICON: small green hollow quadrilateral",
+        "illegible"
+      ],
+      "unreadableMarkers": [
+        "[illegible]"
+      ],
+      "reasonTags": [
+        "provenance",
+        "source-conflict",
+        "schema-or-destination"
+      ],
+      "reasonSkipped": "No singular exact GUID/CardID source selector exists; preserve the complete exact reference set without unsupported cell or copy inference.; No current publisher-primary rendered face visibly establishes the exact assigned title/content and family.; The current exact-title BGA licensed-digital record conflicts materially and remains secondary evidence only.; 1 publisher/BGA/TTS-variant source conflict row(s) are preserved verbatim.; No approved canonical destination/schema maps this exact source-bound Serious Wound card face into the canonical catalog during unattended W32 processing.; 1 discrepancy row(s) with the prior unselected corpus snapshot are preserved.",
+      "uncertainties": [
+        "The hollow green mark immediately after and above “39.0” may be a line-network node or degree-like punctuation; the pixels provide no discriminator.",
+        "The upper-left vertical green microtext is too small and dim for reliable character recovery.",
+        "Additional faint horizontal runs at left-center and lower-left may contain text, but some may instead be interface line decoration.",
+        "The vertical “TISSUE DAMAGE” label is much smaller and lower-contrast than the main text, although its visible letter forms support that transcription.",
+        "The two white inline glyphs appear to repeat the same morphology, but their exact internal figurative form cannot be established from the raster.",
+        "The paired quotation glyphs visibly curl or slant; exact source-encoding as straight versus curly quotation marks cannot be recovered, so they are represented visually as “…” here.",
+        "The three colored open-U callouts are outside the sentence and attached to illustration leader lines; any function beyond non-text graphic annotation is not established by pixels.",
+        "No current publisher-primary rendered face visibly establishes the exact assigned title/content and family.",
+        "The current exact-title BGA licensed-digital record conflicts materially and remains secondary evidence only.",
+        "No singular exact GUID/CardID source selector exists; preserve the complete exact reference set without unsupported cell or copy inference.",
+        "1 publisher/BGA/TTS-variant source conflict row(s) are preserved verbatim.",
+        "No approved canonical destination/schema maps this exact source-bound Serious Wound card face into the canonical catalog during unattended W32 processing.",
+        "1 discrepancy row(s) with the prior unselected corpus snapshot are preserved."
+      ],
+      "vision": {
+        "provider": "openai-codex",
+        "model": "gpt-5.6-sol",
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-32-20260821T135953Z-p441103-69bcb8",
+        "sessionId": "20260821_140128_f6f95e",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-32-20260821T135953Z-p441103-69bcb8/results/W32-001.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-32-20260821T135953Z-p441103-69bcb8/raw/W32-001.json"
+      }
+    },
+    {
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/seriouswound-149_cards/card-05.png",
+      "sourceSha256": "69fa0f09363ab35f1e547a60e64e1b011702a7469755835bf002e0739b0a33f2",
+      "family": "game/seriouswound-149_cards",
+      "isCard": true,
+      "isRulesBearingCandidate": true,
+      "extractionState": "draft-partial",
+      "priorityScore": 1330,
+      "title": "BODY",
+      "typeLine": "",
+      "body": "Your Hand Size is 1 lower.",
+      "footer": "",
+      "recognizedTokens": [],
+      "unknownTokens": [
+        "ICON: small green hollow quadrilateral",
+        "illegible"
+      ],
+      "unreadableMarkers": [
+        "[illegible]"
+      ],
+      "reasonTags": [
+        "provenance",
+        "source-conflict",
+        "schema-or-destination"
+      ],
+      "reasonSkipped": "No singular exact GUID/CardID source selector exists; preserve the complete exact reference set without unsupported cell or copy inference.; No current publisher-primary rendered face visibly establishes the exact assigned title/content and family.; The current exact-title BGA licensed-digital record conflicts materially and remains secondary evidence only.; 1 publisher/BGA/TTS-variant source conflict row(s) are preserved verbatim.; No approved canonical destination/schema maps this exact source-bound Serious Wound card face into the canonical catalog during unattended W32 processing.; 1 discrepancy row(s) with the prior unselected corpus snapshot are preserved.",
+      "uncertainties": [
+        "The hollow green mark immediately after and above “39.0” may be a line-network node or degree-like punctuation; the pixels provide no discriminator.",
+        "The upper-left vertical green microtext is too small and dim for reliable character recovery.",
+        "Additional faint horizontal runs at left-center and lower-left may contain text, but some may instead be interface decoration.",
+        "The vertical “TISSUE DAMAGE” label is much smaller and lower-contrast than the main text, although its visible letter forms support that transcription.",
+        "The three colored open-U callouts are outside the sentence and attached to illustration leader lines; any function beyond non-text graphic annotation is not established by pixels.",
+        "The exact identity of the layered central figure and its highlighted regions cannot be established from pixels alone.",
+        "No current publisher-primary rendered face visibly establishes the exact assigned title/content and family.",
+        "The current exact-title BGA licensed-digital record conflicts materially and remains secondary evidence only.",
+        "No singular exact GUID/CardID source selector exists; preserve the complete exact reference set without unsupported cell or copy inference.",
+        "1 publisher/BGA/TTS-variant source conflict row(s) are preserved verbatim.",
+        "No approved canonical destination/schema maps this exact source-bound Serious Wound card face into the canonical catalog during unattended W32 processing.",
+        "1 discrepancy row(s) with the prior unselected corpus snapshot are preserved."
+      ],
+      "vision": {
+        "provider": "openai-codex",
+        "model": "gpt-5.6-sol",
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-32-20260821T135953Z-p441103-69bcb8",
+        "sessionId": "20260821_140128_f6f95e",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-32-20260821T135953Z-p441103-69bcb8/results/W32-002.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-32-20260821T135953Z-p441103-69bcb8/raw/W32-002.json"
+      }
+    },
+    {
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/seriouswound-149_cards/card-06.png",
+      "sourceSha256": "1027d7f87a80b4a7d32eb40e9d336c9557c032a33ab6fdc08912a5beeb3e2dcb",
+      "family": "game/seriouswound-149_cards",
+      "isCard": true,
+      "isRulesBearingCandidate": true,
+      "extractionState": "draft-partial",
+      "priorityScore": 1330,
+      "title": "KNEE",
+      "typeLine": "",
+      "body": "Using “Make a Move”\nor “Make a Move with [secure]”\nas your first Action in a Round\ncosts you 1 [actionCard] more.",
+      "footer": "",
+      "recognizedTokens": [
+        "actionCard",
+        "secure"
+      ],
+      "unknownTokens": [
+        "ICON: small green hollow quadrilateral",
+        "illegible"
+      ],
+      "unreadableMarkers": [
+        "[illegible]"
+      ],
+      "reasonTags": [
+        "provenance",
+        "source-conflict",
+        "schema-or-destination"
+      ],
+      "reasonSkipped": "No singular exact GUID/CardID source selector exists; preserve the complete exact reference set without unsupported cell or copy inference.; No current publisher-primary rendered face visibly establishes the exact assigned title/content and family.; The current exact-title BGA licensed-digital record conflicts materially and remains secondary evidence only.; 1 publisher/BGA/TTS-variant source conflict row(s) are preserved verbatim.; No approved canonical destination/schema maps this exact source-bound Serious Wound card face into the canonical catalog during unattended W32 processing.; 1 discrepancy row(s) with the prior unselected corpus snapshot are preserved.",
+      "uncertainties": [
+        "The hollow green mark immediately after and above “39.0” may be a line-network node or degree-like punctuation; the pixels provide no discriminator.",
+        "The upper-left vertical green microtext is too small and dim for reliable character recovery.",
+        "Additional faint horizontal runs at left-center and lower-left may contain text, but some may instead be interface decoration.",
+        "The vertical “TISSUE DAMAGE” label is much smaller and lower-contrast than the main text, although its visible letter forms support that transcription.",
+        "The exact internal form and semantic identity of the white tapered inline polygon cannot be established from pixels alone.",
+        "The quote glyphs visibly curl or slant; exact source encoding as straight versus curly quotation marks cannot be recovered, so they are represented visually as “…” here.",
+        "The two red outlined ovals may be artwork-integrated highlights or geometric overlays; no visible discriminator conclusively separates those alternatives.",
+        "The three colored open-U callouts are outside the sentence and attached to illustration leader lines; any function beyond non-text graphic annotation is not established by pixels.",
+        "No current publisher-primary rendered face visibly establishes the exact assigned title/content and family.",
+        "The current exact-title BGA licensed-digital record conflicts materially and remains secondary evidence only.",
+        "No singular exact GUID/CardID source selector exists; preserve the complete exact reference set without unsupported cell or copy inference.",
+        "1 publisher/BGA/TTS-variant source conflict row(s) are preserved verbatim.",
+        "No approved canonical destination/schema maps this exact source-bound Serious Wound card face into the canonical catalog during unattended W32 processing.",
+        "1 discrepancy row(s) with the prior unselected corpus snapshot are preserved."
+      ],
+      "vision": {
+        "provider": "openai-codex",
+        "model": "gpt-5.6-sol",
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-32-20260821T135953Z-p441103-69bcb8",
+        "sessionId": "20260821_140128_f6f95e",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-32-20260821T135953Z-p441103-69bcb8/results/W32-003.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-32-20260821T135953Z-p441103-69bcb8/raw/W32-003.json"
+      }
+    },
+    {
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/seriouswound-149_cards/card-07.png",
+      "sourceSha256": "b485840032e9abcaeec0bf614e7df0e5487aa52d43005615eeb6950aed44f09f",
+      "family": "game/seriouswound-149_cards",
+      "isCard": true,
+      "isRulesBearingCandidate": true,
+      "extractionState": "draft-partial",
+      "priorityScore": 1330,
+      "title": "GUTS",
+      "typeLine": "",
+      "body": "Whenever you Pass:\nget 1 Contamination card.",
+      "footer": "",
+      "recognizedTokens": [],
+      "unknownTokens": [
+        "ICON: small green hollow quadrilateral",
+        "illegible"
+      ],
+      "unreadableMarkers": [
+        "[illegible]"
+      ],
+      "reasonTags": [
+        "provenance",
+        "source-conflict",
+        "schema-or-destination"
+      ],
+      "reasonSkipped": "No singular exact GUID/CardID source selector exists; preserve the complete exact reference set without unsupported cell or copy inference.; No current publisher-primary rendered face visibly establishes the exact assigned title/content and family.; The current exact-title BGA licensed-digital record conflicts materially and remains secondary evidence only.; 1 publisher/BGA/TTS-variant source conflict row(s) are preserved verbatim.; No approved canonical destination/schema maps this exact source-bound Serious Wound card face into the canonical catalog during unattended W32 processing.",
+      "uncertainties": [
+        "The hollow green mark immediately after and above “39.0” may be a line-network node or degree-like punctuation; the pixels provide no discriminator.",
+        "The upper-left vertical green microtext is too small and dim for reliable character recovery.",
+        "Additional faint horizontal runs at left-center and lower-left may contain text, but some may instead be interface decoration.",
+        "The vertical “TISSUE DAMAGE” label is much smaller and lower-contrast than the main text, although its visible letter forms support that transcription.",
+        "The three colored open-U callouts are outside the sentence and attached to illustration leader lines; any function beyond non-text graphic annotation is not established by pixels.",
+        "The exact identities of the central red-orange region and lower yellow-orange looped forms cannot be established from pixels alone.",
+        "No current publisher-primary rendered face visibly establishes the exact assigned title/content and family.",
+        "The current exact-title BGA licensed-digital record conflicts materially and remains secondary evidence only.",
+        "No singular exact GUID/CardID source selector exists; preserve the complete exact reference set without unsupported cell or copy inference.",
+        "1 publisher/BGA/TTS-variant source conflict row(s) are preserved verbatim.",
+        "No approved canonical destination/schema maps this exact source-bound Serious Wound card face into the canonical catalog during unattended W32 processing."
+      ],
+      "vision": {
+        "provider": "openai-codex",
+        "model": "gpt-5.6-sol",
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-32-20260821T135953Z-p441103-69bcb8",
+        "sessionId": "20260821_140128_f6f95e",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-32-20260821T135953Z-p441103-69bcb8/results/W32-004.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-32-20260821T135953Z-p441103-69bcb8/raw/W32-004.json"
+      }
+    },
+    {
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/seriouswound-149_cards/card-08.png",
+      "sourceSha256": "2316dd24439f588422fce16da610e59e2609973f968bf0cb7dfb18b8d8f21f40",
+      "family": "game/seriouswound-149_cards",
+      "isCard": true,
+      "isRulesBearingCandidate": true,
+      "extractionState": "draft-partial",
+      "priorityScore": 1330,
+      "title": "BLEEDING",
+      "typeLine": "",
+      "body": "Whenever you Pass:\nlose 1 [characterHealth].",
+      "footer": "",
+      "recognizedTokens": [
+        "characterHealth"
+      ],
+      "unknownTokens": [
+        "ICON: small green hollow quadrilateral",
+        "illegible"
+      ],
+      "unreadableMarkers": [
+        "[illegible]"
+      ],
+      "reasonTags": [
+        "provenance",
+        "source-conflict",
+        "schema-or-destination"
+      ],
+      "reasonSkipped": "No singular exact GUID/CardID source selector exists; preserve the complete exact reference set without unsupported cell or copy inference.; No current publisher-primary rendered face visibly establishes the exact assigned title/content and family.; The current exact-title BGA licensed-digital record conflicts materially and remains secondary evidence only.; 1 publisher/BGA/TTS-variant source conflict row(s) are preserved verbatim.; No approved canonical destination/schema maps this exact source-bound Serious Wound card face into the canonical catalog during unattended W32 processing.",
+      "uncertainties": [
+        "The hollow green mark immediately after and above “39.0” may be a line-network node or degree-like punctuation; the pixels provide no discriminator.",
+        "The upper-left vertical green microtext is too small and dim for reliable character recovery.",
+        "Additional faint horizontal runs at left-center and lower-left may contain text, but some may instead be interface decoration.",
+        "The vertical “TISSUE DAMAGE” label is much smaller and lower-contrast than the main text, although its visible letter forms support that transcription.",
+        "The exact internal form and semantic identity of the white inline morphology cannot be established from pixels alone.",
+        "The small detached white dot after M1 aligns with the text baseline and is transcribed as a period, but it could conceivably be a terminal element of the glyph.",
+        "The three colored open-U callouts are outside the sentence and attached to illustration leader lines; any function beyond non-text graphic annotation is not established by pixels.",
+        "The broad central white-cyan band may be an integrated highlighted region or a large graphic overlay; its semantic identity is not visible.",
+        "No current publisher-primary rendered face visibly establishes the exact assigned title/content and family.",
+        "The current exact-title BGA licensed-digital record conflicts materially and remains secondary evidence only.",
+        "No singular exact GUID/CardID source selector exists; preserve the complete exact reference set without unsupported cell or copy inference.",
+        "1 publisher/BGA/TTS-variant source conflict row(s) are preserved verbatim.",
+        "No approved canonical destination/schema maps this exact source-bound Serious Wound card face into the canonical catalog during unattended W32 processing."
+      ],
+      "vision": {
+        "provider": "openai-codex",
+        "model": "gpt-5.6-sol",
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-32-20260821T135953Z-p441103-69bcb8",
+        "sessionId": "20260821_140128_f6f95e",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-32-20260821T135953Z-p441103-69bcb8/results/W32-005.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-32-20260821T135953Z-p441103-69bcb8/raw/W32-005.json"
+      }
+    },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-023.png",
       "sourceSha256": "eaa728ca02c48c33e27e99fe2ef58c9668e7b8532316d3c6d3c93248a86b627a",
@@ -1170,211 +1431,6 @@
         "sessionId": "20260815_051754_a4bf5a",
         "resultPath": "assets/tts-mod/extract/vision-results/eb422e05e6ec47d486f08c873f4fd1c5427e79904f16fab88a140bd46a390e6a.json",
         "rawResultPath": null
-      }
-    },
-    {
-      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/attack-151_cards/card-17.png",
-      "sourceSha256": "75dda99e22f47ea06d533242f1646707edbebf6378651002cc10a23047bfec44",
-      "family": "game/attack-151_cards",
-      "isCard": true,
-      "isRulesBearingCandidate": true,
-      "extractionState": "draft-full",
-      "priorityScore": 430,
-      "title": "SUMMONING",
-      "typeLine": null,
-      "body": "[ICON: cyan circular glyph with a small curled creature]\n[ICON: cyan circular glyph with a spined creature]\nLose 2 [characterHealth].\n\n[ICON: cyan circular glyph with a frontal many-limbed creature]\nPlace 1 Drone in each adjacent\nCorridor with Intruders.\nIf the Room has no [character], place 1\nDrone in that Room. This Drone\ndoesn’t make a Surprise Attack.",
-      "footer": null,
-      "recognizedTokens": [
-        "character",
-        "characterHealth"
-      ],
-      "unknownTokens": [
-        "ICON: cyan circular glyph with a frontal many-limbed creature",
-        "ICON: cyan circular glyph with a small curled creature",
-        "ICON: cyan circular glyph with a spined creature"
-      ],
-      "unreadableMarkers": [],
-      "reasonTags": [
-        "classification"
-      ],
-      "reasonSkipped": "exact card identity/transcription/icon/category is not uniformly high-confidence",
-      "uncertainties": [
-        "The three cyan circular creature glyphs are card-local symbols not confidently represented in the supplied canonical glossary; they are described literally.",
-        "The small white inline glyph after “If the Room has no” appears to be the canonical character astronaut symbol, but its stylized angular form makes the morphology less than fully unambiguous."
-      ],
-      "vision": {
-        "provider": "openai-codex",
-        "model": "gpt-5.6-sol",
-        "reasoningEffort": null,
-        "workerId": null,
-        "sessionId": "20260815_052023_108e1e",
-        "resultPath": "assets/tts-mod/extract/vision-results/75dda99e22f47ea06d533242f1646707edbebf6378651002cc10a23047bfec44.json",
-        "rawResultPath": null
-      }
-    },
-    {
-      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/attack-151_cards/card-18.png",
-      "sourceSha256": "a5d496cfe387ac69a361b62b659047238d348f4db329583a6d3f5b562d0fbce3",
-      "family": "game/attack-151_cards",
-      "isCard": true,
-      "isRulesBearingCandidate": true,
-      "extractionState": "draft-full",
-      "priorityScore": 430,
-      "title": "TAIL ATTACK",
-      "typeLine": null,
-      "body": "[ICON: blue circular glyph with cyan-white crouched quadrupedal creature]\n[ICON: blue circular glyph with cyan-white upright multi-limbed creature]\nGet 1 Contamination\n\n[ICON: blue-white circular glyph with cyan frontal horned creature]\nIf you are Injured or Heavily\nInjured, you die.\nOtherwise, you get\n1 Serious Wound and\n1 Contamination card.",
-      "footer": null,
-      "recognizedTokens": [],
-      "unknownTokens": [
-        "ICON: blue circular glyph with cyan-white crouched quadrupedal creature",
-        "ICON: blue circular glyph with cyan-white upright multi-limbed creature",
-        "ICON: blue-white circular glyph with cyan frontal horned creature"
-      ],
-      "unreadableMarkers": [],
-      "reasonTags": [
-        "classification"
-      ],
-      "reasonSkipped": "exact card identity/transcription/icon/category is not uniformly high-confidence",
-      "uncertainties": [
-        "The three circular cyan/white creature glyphs are card-local symbols that do not confidently match any canonical glossary icon; their represented identities are uncertain.",
-        "Fine anatomical details within the three small stylized creature glyphs are not fully distinguishable."
-      ],
-      "vision": {
-        "provider": "openai-codex",
-        "model": "gpt-5.6-sol",
-        "reasoningEffort": null,
-        "workerId": null,
-        "sessionId": "20260815_051804_902606",
-        "resultPath": "assets/tts-mod/extract/vision-results/a5d496cfe387ac69a361b62b659047238d348f4db329583a6d3f5b562d0fbce3.json",
-        "rawResultPath": null
-      }
-    },
-    {
-      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/attack-151_cards/card-19.png",
-      "sourceSha256": "8a8f393e64f6f0d5d1bf569afbff6b1737615c269b09f5e3bd11711f7e396e16",
-      "family": "game/attack-151_cards",
-      "isCard": true,
-      "isRulesBearingCandidate": true,
-      "extractionState": "draft-full",
-      "priorityScore": 430,
-      "title": "TAIL ATTACK",
-      "typeLine": null,
-      "body": "[ICON: cyan circular glyph showing a low horizontal multi-limbed creature]\n[ICON: cyan circular glyph showing an upright spined creature]\nLose 1 [characterHealth].\nGet 1 Contamination.\n\n[ICON: cyan circular glyph showing a frontal horned multi-limbed creature]\nIf you are Injured or Heavily\nInjured, you die.\nOtherwise, you get\n1 Serious Wound and\n1 Contamination card.",
-      "footer": null,
-      "recognizedTokens": [
-        "characterHealth"
-      ],
-      "unknownTokens": [
-        "ICON: cyan circular glyph showing a frontal horned multi-limbed creature",
-        "ICON: cyan circular glyph showing a low horizontal multi-limbed creature",
-        "ICON: cyan circular glyph showing an upright spined creature"
-      ],
-      "unreadableMarkers": [],
-      "reasonTags": [
-        "classification"
-      ],
-      "reasonSkipped": "exact card identity/transcription/icon/category is not uniformly high-confidence",
-      "uncertainties": [
-        "The three cyan circular line-leading glyphs are card-local symbols absent from the supplied canonical glossary; their meanings are not assigned.",
-        "Fine anatomical details within the three cyan glyphs are stylized and somewhat ambiguous."
-      ],
-      "vision": {
-        "provider": "openai-codex",
-        "model": "gpt-5.6-sol",
-        "reasoningEffort": null,
-        "workerId": null,
-        "sessionId": "20260815_052023_d7796c",
-        "resultPath": "assets/tts-mod/extract/vision-results/8a8f393e64f6f0d5d1bf569afbff6b1737615c269b09f5e3bd11711f7e396e16.json",
-        "rawResultPath": null
-      }
-    },
-    {
-      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/event-054.png",
-      "sourceSha256": "ac3dc8c20efc3e964383bb9956b264bf3f4a64762d8d8920f5c612d1841ec4bf",
-      "family": "game/event-054.png",
-      "isCard": true,
-      "isRulesBearingCandidate": true,
-      "extractionState": "draft-full",
-      "priorityScore": 430,
-      "title": "LEAVING THE SHELL",
-      "typeLine": null,
-      "body": "No [intruder] moves.\n\nEach [character] with Larva:\nGain 1 Contamination, discard all [ICON: solid white rectangular block],\nand reshuffle your deck.\nThen, resolve the Eclosion Procedure.\nEach other [character]:\nDraw 4 [ICON: solid white rectangular block] and resolve the Infection\nProcedure. Then, discard all [ICON: solid white rectangular block].\n\nReshuffle the Event deck.",
-      "footer": "",
-      "recognizedTokens": [
-        "character",
-        "intruder"
-      ],
-      "unknownTokens": [
-        "ICON: solid white rectangular block"
-      ],
-      "unreadableMarkers": [],
-      "reasonTags": [
-        "other"
-      ],
-      "reasonSkipped": "Three featureless solid white rectangular inline occurrences lack authoritative canonical identities; exactly one explicit no-match row per occurrence is preserved.",
-      "uncertainties": [
-        "Three featureless solid white rectangular inline occurrences lack visible morphology required to establish any canonical token."
-      ],
-      "vision": {
-        "provider": "openai-codex",
-        "model": "gpt-5.6-sol",
-        "reasoningEffort": "max",
-        "workerId": "sol-max-persistent-worker-18-recovery-20260820T044726Z-p176060-5eb908",
-        "sessionId": "20260819_083610_6461bd",
-        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-18-recovery-20260820T044726Z-p176060-5eb908/results/W18-002.json",
-        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-18-recovery-20260820T044726Z-p176060-5eb908/raw/W18-002.json"
-      }
-    },
-    {
-      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/seriouswound-028.png",
-      "sourceSha256": "cfc93364f9ec257e07bc84989bbea9709ecdc9519d11f2bc7fd4c5b519ab3f6f",
-      "family": "game/seriouswound-028.png",
-      "isCard": true,
-      "isRulesBearingCandidate": true,
-      "extractionState": "draft-full",
-      "priorityScore": 430,
-      "title": "KNEE",
-      "typeLine": "",
-      "body": "“Make a Move with [ICON: two overlapping white angular lobes with lower tab and upper notch]”\ncosts you 1 [actionCard] more.",
-      "footer": "",
-      "recognizedTokens": [
-        "actionCard"
-      ],
-      "unknownTokens": [
-        "ICON: two overlapping white angular lobes with lower tab and upper notch"
-      ],
-      "unreadableMarkers": [],
-      "reasonTags": [
-        "provenance",
-        "source-conflict",
-        "schema-or-destination"
-      ],
-      "reasonSkipped": "1 material functional occurrence(s) remain explicit all-49 authoritative no-matches; no semantic token was invented.; No singular exact GUID/CardID source selector exists; preserve the complete exact reference set without unsupported cell or copy inference.; No current publisher-primary rendered component face visibly establishes the exact assigned title/content and family.; The applicable exact-title/discard BGA licensed-digital record conflicts materially and is retained only as secondary evidence.; 1 publisher/BGA source conflict row(s) are preserved verbatim.; No approved canonical Serious Wound card image/sidecar schema or directory exists under cards/game.; 1 discrepancy row(s) with the prior unselected corpus snapshot are preserved.",
-      "uncertainties": [
-        "The exact source-character encoding of the opening and closing quotation glyphs cannot be recovered from raster pixels; they are transcribed as curly double quotation marks matching their visible shapes.",
-        "No separable degree mark is visible after 39.0; the nearby green outlined square is treated as an interface node rather than punctuation.",
-        "The small vertical TISSUE DAMAGE label is readable but lower contrast than the primary rules text.",
-        "The upper-left vertical interface label and additional green microtext-like marks are too small or low-contrast to transcribe safely.",
-        "M1 supports folded-sheet, interlocking-chevron, paired-limb, and irregular-polygon readings without a decisive semantic discriminator.",
-        "M2 visibly bears A, but its canonical function is not established by pixels alone.",
-        "The colored U-shaped callout markers are treated as non-text interface graphics rather than functional rules morphologies.",
-        "The exact component type and side taxonomy are not visibly printed.",
-        "No current publisher-primary rendered component face visibly establishes the exact assigned title/content and family.",
-        "The applicable exact-title/discard BGA licensed-digital record conflicts materially and is retained only as secondary evidence.",
-        "1 material functional occurrence(s) remain explicit all-49 authoritative no-matches; no semantic token was invented.",
-        "No singular exact GUID/CardID source selector exists; preserve the complete exact reference set without unsupported cell or copy inference.",
-        "1 publisher/BGA source conflict row(s) are preserved verbatim.",
-        "No approved canonical Serious Wound card image/sidecar schema or directory exists under cards/game.",
-        "1 discrepancy row(s) with the prior unselected corpus snapshot are preserved."
-      ],
-      "vision": {
-        "provider": "openai-codex",
-        "model": "gpt-5.6-sol",
-        "reasoningEffort": "max",
-        "workerId": "sol-max-persistent-worker-31-20260821T112612Z-p346900-b7e2c9",
-        "sessionId": "20260821_112834_379457",
-        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-31-20260821T112612Z-p346900-b7e2c9/results/W31-027.json",
-        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-31-20260821T112612Z-p346900-b7e2c9/raw/W31-027.json"
       }
     }
   ]
