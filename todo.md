@@ -1664,9 +1664,10 @@ eligible exact tuple is current queue index 225,
 `assets/tts-mod/extract/v2-dl/tree/cards/game/seriouswound-149_cards/card-04.png`
 (SHA-256 `522c29d0874334cac9dda75c4cd0182fca35dbc7402c4b7231c1c8a6c6b1ec18`); wraparound was not required.
 
-**W32 IN-PROGRESS run-budget interruption (2026-08-21T16:22:45.049830Z):** Worker
-`sol-max-persistent-worker-32-20260821T135953Z-p441103-69bcb8` froze the first 32 previously unselected exact tuples from current
-queue index 225 with no selected skips and no wraparound. Assignment SHA-256 is
+**W32 defer-only Serious-Wound/Starting-Item checkpoint (2026-08-21T17:14:57.289068Z):** Worker
+`sol-max-persistent-worker-32-20260821T135953Z-p441103-69bcb8` resumed the exact run-budget-blocked W32 root and selected the first
+thirty-two previously unselected tuples walking forward from current queue index 225.
+There were no selected-tuple skips and no wraparound. Assignment SHA-256 is
 `4aa548e182de01e4098d5caa1cfdc54709d90cc1067415582a06b48ae05cc135`; ordered `(assetId, sourcePath, sourceSha256)` tuple digest is
 `8b5991b07c9016284dc781c4baf1bd6cd4f7bc4f17848f4a46250ae7737d8ed1`:
 - W32-001, index 225, `assets/tts-mod/extract/v2-dl/tree/cards/game/seriouswound-149_cards/card-04.png`,
@@ -1734,37 +1735,76 @@ queue index 225 with no selected skips and no wraparound. Assignment SHA-256 is
 - W32-032, index 256, `assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-144_cards/card-08.png`,
   SHA-256 `dcca8ddf8c75047dd93d61660d237b5460c0566331e2d29fdd1cd26f61853f7b`;
 
-Neutral smoke session `20260821_140040_c040c1` passed 1 API call, 2 messages,
+Neutral smoke session `20260821_140040_c040c1` verified 1 API call, 2 messages,
 0 tools, exact native `openai-codex:gpt-5.6-sol` at reasoning `max`, and no stored
-Tools/tool-name marker. The clean blind session
-`20260821_140128_f6f95e` completed 32 native one-image calls, 64 messages,
-0 tools, and 32 immutable mode-`0400` wrappers. A fail-closed orientation audit caught 22
-records whose formal `rotationRequired` flag was false even though their pixel report said the
-native text was clockwise. Lossless decoded-pixel CCW-90 PNG derivatives were built without
-changing source files and independently reread upright in fresh session
-`20260821_153213_19cbe6` (22 calls / 44 messages / 0 tools).
-All 32 accepted records are now upright.
+Tools/tool-name marker. Production evidence totals 89
+native-image API calls, 178 messages, and 0 tools across four
+independently DB-verified sessions:
+- blind `20260821_140128_f6f95e` (32/64/0), 32 immutable one-image wrappers;
+- upright retry `20260821_153213_19cbe6` (22/44/0), 22 lossless CCW-90 rereads while source bytes remained unchanged;
+- exhaustive all-49 contact `20260821_163558_f8e0fc` (32/64/0), exactly eight four-asset primary calls plus 24 focused context-strip retries;
+- publisher-primary page audit `20260821_170818_302ebd` (3/6/0), directly inspecting rulebook pages 3, 18, and 29.
+The contact closure reconciles 55 functional occurrences and
+43 reference-path-only normalizations;
+semantic token, verdict, and source-text changes are all zero. The predecessor unsealed contact
+attempt remains failure provenance with zero accepted calls/wrappers/verdicts. No OCR, Qwen,
+auxiliary vision, model/reasoning downgrade, or shared-provider mutation was used.
 
-Fresh recursive TTS provenance resolves 31 FaceURLs and one shared BackURL, with rules/non-rules
-counts 31/1. Nineteen downloaded FaceURLs have one singular `CardCustom` GUID/CardID selector;
-the remaining generated/shared cases preserve their exact selector/reference sets. Paired pixels
-exist for every tuple; the shared BackURL has a deliberately incomplete many-face counterpart set.
-The accepted blind view contains 55 material-functional morphology occurrences. Thirty-two dense
-all-49 glossary + paired-side contact sheets were generated, but the first four-asset comparison
-turn was still in flight and unsealed when the supervisor run budget ended. It was terminated and
-contributes 0 accepted calls, 0 wrappers, and no semantic verdict. Do not reconstruct it.
+All 32 source roles are recursively resolved from live structured TTS data: 31 FaceURLs and 1
+shared Starting Item BackURL; 12 generated cells and
+20 downloaded assets. Singular exact GUID/CardID selectors
+exist for 19 sources; all
+32 exact reference sets are preserved.
+Every tuple has counterpart pixels, with 31
+complete counterpart sets and one explicitly partial shared-back face set. Rules/non-rules counts
+are 31/1.
 
-No result, promotion/defer decision, current-authority comparison, conflict row, candidate sidecar,
-canonical byte, queue/progress/registry/corpus byte, or shared QA output was written. Shared state
-remains exactly the sealed W31 preimage: 532 = 148 complete + 384 deferred + 0 unaccounted;
-queue 384, selected overlays 214, genuinely unselected tuples 170, corpus 390, canonical pairs 78.
-Exact blocker: `assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-32-20260821T135953Z-p441103-69bcb8/metadata/blocker-run-budget.json`. Operational blocker: supervisor run-time
-budget exhausted before contact-comparison closure. Resume this exact W32 root under the inherited
-workspace lock; do not create W33 and do not repeat the 32 blind or 22 upright-retry calls. Start a
-fresh tools-disabled Sol Max/max contact session for the eight four-asset batches, then finish source
-authority, result assembly, reusable closure audit, private projection, transactional shared merge,
-full validators, data commit, and separate todo-only checkpoint. No W32 data commit exists yet.
-Nothing was pushed or deployed, and no image worker remains active.
+All 184 accepted morphology occurrences reconcile exactly once:
+43 authoritative p.40 matches, 12
+explicit one-to-one no-match rows, 103 non-text component
+graphics, and 26 artwork-only details. The durable prior-snapshot
+comparison preserves 30 discrepancies; no previous approved
+record or canonical file was overwritten.
+
+Fresh Awaken Realms bytes match tracked rulebook `e3cda0d7a91bd090cec45dbc8ce89e2015e2202173357c374ff49365f9c29ddd`,
+FAQ v1.2 `611ae20dc0b3e04f3c0d99f294a92fc95460c042565b12d1c808b1282ae0e0d8`, and Objectives sheet
+`30f3d4116a9c4dc3a53fb5e920995c24aa747988c915dc5fba6261cbd7dca364`. Current rendered publisher
+status counts are `{"absent": 30, "exact-component-counterpart": 1, "same-family-operative-text-unreadable": 1}`; current BGA
+build `260622-1220` at SHA-256
+`18cd8f4a2883d4f6662ed170095ff07e0d9f5da508064ed1d6bfc124f5a274ae` remains licensed-digital secondary evidence
+with status counts `{"exact-title-material-text-conflict": 21, "exact-title-text-exact": 4, "no-exact-title-record": 6, "not-applicable-to-generic-back": 1}`.
+The evidence preserves 29 publisher/BGA/TTS-variant
+conflict rows verbatim; renamed or fuzzy titles were never substituted.
+
+All 32 promotion decisions remain `defer`; no candidate or canonical image/sidecar/source byte,
+category, or filename changed. Blocking gates are explicit per result: 12 unresolved local glyph
+occurrences, 13 non-singular selector cases, one partial counterpart set, current-source absences/
+conflicts or incomplete visible support, one generic non-rules BackURL, same-title TTS variants,
+and no approved canonical destination/schema for this unattended mixed family.
+
+Worker core, independent closure, and the reusable native-worker auditor pass with 0 errors/
+0 warnings. Private projection and independent corpus rebuild are byte-identical and change
+exactly 32 assigned corpus records recursively. Shared merge completed 4 trial writes, 4 exact
+rollback writes, 4 committed writes, and a zero-write identical re-merge. Eleven focused tests
+and all eight documented global validation commands pass; 532/532 source images decode,
+390/390 corpus source hashes verify, all 78 canonical image/sidecar pair hashes remain unchanged,
+and two explicit corpus builds are byte-identical at `662fb1a21e60da414363dc7ce373e11941461e4636f711cc4c39d4aca0a7fea0`. Final
+generated/QA Git scope is exactly eight files. The worker inventory covers
+828 pre-inventory files plus its sole self-exclusion.
+
+Lifecycle counts remain 532 = 148 complete + 384
+deferred + 0 unaccounted; queue 384, selected
+registry/corpus overlays 246, genuinely unselected queue tuples
+138, corpus 390, canonical pairs
+78, and deferred re-examinations 220.
+The unresolved-symbol backlog contains 217 occurrences
+across 139 assets. Predecessor checkpoint HEAD was
+`24795fbc8dba1de99bef552245c2ed80a166de31`; sealed data/QA/shared-scope commit is `1123b31fe8bf6b43833fe21ccac8dd42fff323e5`. This completion entry is
+committed separately in the following todo-only checkpoint commit, whose self-hash does not
+appear in its own content. Operational blocker: none. Nothing was pushed or deployed, no W33
+work was started, and the next eligible exact tuple is current queue index
+257, `assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-144_cards/card-09.png`
+(SHA-256 `4d9d0a3fc8807394cda0765d34ebbe84e7e7dd38f57ac7cfa2c810fcc83598ed`); wraparound was not required.
 
 ## LATER — Expansions (re-add when user wants them)
 - [ ] Re-extract expansion content from save (see `assets/tts-mod/notes/extraction.md` §15 for all deck GUIDs, intruder bags,
