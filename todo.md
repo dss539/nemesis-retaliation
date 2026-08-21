@@ -964,6 +964,111 @@ exact tuple is current queue index 137,
 `assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoop/objectiveCoop-178.jpg`
 (SHA-256 `67c96f43ec41729b3434a24add8db95f668b2b5439c792aaedaddb56ff462472`).
 
+**W26 defer-only Solo/Coop checkpoint (2026-08-21T04:58:35Z):** Worker
+`sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35` selected the first eight
+previously unselected exact tuples walking forward from current queue index 137. There were no
+selected-tuple skips. Assignment SHA-256 is
+`ee3d7a61c99c4f05e29267e6907929209933abb5dd035306ada2720b6e82f2e1`; ordered
+`(assetId, sourcePath, sourceSha256)` tuple digest is
+`c30d79ce3bad574a9b03c3dba9dd35a318b993f867b3546bd3fc3a9d898072e5`:
+- W26-001, index 137, `assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoop/objectiveCoop-178.jpg`,
+  SHA-256 `67c96f43ec41729b3434a24add8db95f668b2b5439c792aaedaddb56ff462472`;
+- W26-002, index 138, `assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoopCustomDeck-002.jpg`,
+  SHA-256 `440b9019aaf9e1f23b875bef44c774bb9a115152cad09f18ac375532dcfbb281`;
+- W26-003, index 139, `assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoopCustomDeck-007.jpg`,
+  SHA-256 `8400349f06425fb6a54a67bb8739041c0844ac8168fb2597ffbcc329df9e0586`;
+- W26-004, index 140, `assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoopCustomDeck-008.jpg`,
+  SHA-256 `de92b135888db44819874a9b74b871523442f22c6544e09a60619d1db75dd305`;
+- W26-005, index 141, `assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoopCustomDeck-011.jpg`,
+  SHA-256 `5f0a1dc38e2aec5bdd902112fb2cecd44cc4b3a495ff1c43f25dfb8ed075c5db`;
+- W26-006, index 142, `assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoopCustomDeck-048.jpg`,
+  SHA-256 `09f5b6cab2381b31842e877334f5d9270260de7fa305277c24e4f170ef540829`;
+- W26-007, index 143, `assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoopCustomDeck-049.jpg`,
+  SHA-256 `65802ba4b1bad2d405689998f9d4b89f83dec85ad1139925c2d61f388c096fa8`;
+- W26-008, index 144, `assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoopCustomDeck-071.jpg`,
+  SHA-256 `0fe579f8c7d045db65c4c8b44b954417ac93a7c10ef6268d273878bfb2a4bc87`.
+
+Neutral smoke session `20260821_035414_2cfe03` verified 1 API call, 2 messages, 0 tools,
+exact `openai-codex:gpt-5.6-sol` at reasoning `max`, and no stored Tools/tool-name marker.
+Production evidence totals 27 native image calls, 54 messages, and 0 tools across four
+independently DB-verified sessions: blind `20260821_035527_19a361` (8/16/0), bbox
+`20260821_041250_a76226` (8/16/0), p.40 contact `20260821_042610_3a2653` (8/16/0),
+and rendered publisher-primary audit `20260821_042954_c85a25` (3/6/0). Every blind turn
+re-read frozen assignment bytes and the live source hash before attaching one image; all eight
+wrappers are byte-preserved mode `0400`. No OCR, Qwen, auxiliary vision, model/reasoning
+downgrade, shared-provider mutation, or failed/partial production image read was used.
+
+All eight sources are rules-bearing direct FaceURLs; non-rules count is zero, generated-cell count
+is zero, and every face has an exact GUID/CardID selector. W26-001 is under deck `e22eaa` with
+selector `00c5e5`/`533300`; W26-002 through W26-008 are under deck `831e19` with selectors
+`885ed3`/`534700`, `9bce12`/`535400`, `dd8d81`/`535100`, `5322b1`/`556500`,
+`944b8d`/`534100`, `ad2265`/`557200`, and `74041c`/`534400`, respectively. All share
+one hash-identical inspected BackURL at `objectiveCoop/objectiveCoop-065.png` (SHA-256
+`290d5e37d0e39ec94737865b14fb7dfe2c0e9c37e882839708d43766b9be1939`), whose pixels
+show a MISSION TASK card back without operative face text. Live Awaken Realms bytes exactly
+match tracked rulebook `e3cda0d7a91bd090cec45dbc8ce89e2015e2202173357c374ff49365f9c29ddd`,
+FAQ v1.2 `611ae20dc0b3e04f3c0d99f294a92fc95460c042565b12d1c808b1282ae0e0d8`,
+and Objectives Help Sheet `30f3d4116a9c4dc3a53fb5e920995c24aa747988c915dc5fba6261cbd7dca364`
+hashes. BGA build `260622-1220` (SHA-256
+`18cd8f4a2883d4f6662ed170095ff07e0d9f5da508064ed1d6bfc124f5a274ae`) remains labeled
+licensed-digital secondary evidence only.
+
+All 32 blind morphology occurrences reconcile exactly once: 8 authoritative p.40 matches
+(`character` x6, `lander` x1, and `shootDieCritical` x1), 0 explicit no-match/unresolved rows,
+8 non-text component graphics, and 16 artwork-only details. The 24 repeated/clipped/illegible
+component-art notes remain separate from operative text. Publisher-primary counterpart status is
+0 exact, 0 conflicting/non-counterpart, and 8 absent; BGA secondary status is 1 exact, 0 material
+conflicts, and 7 absent. No official wording was substituted into assigned art. Every promotion
+decision is `defer`; no candidate/canonical file was staged:
+- CRUCIAL INTELLIGENCE (W26-001) has verified `character` and `lander` glyphs and exactly
+  matches the current BGA Solo/Coop record, but no current publisher-primary face/operative
+  wording was located and no approved Solo/Coop sidecar schema exists.
+- GENETIC UPLOAD (W26-002) has no material inline glyph; no current publisher-primary face or
+  exact current BGA Solo/Coop counterpart was located, and no approved target schema exists.
+- OUT OF SPACE (W26-003) has a verified `character` glyph; no current publisher-primary face or
+  exact current BGA Solo/Coop counterpart was located, and no approved target schema exists.
+- ONE FOR ALL (W26-004) has a verified `character` glyph; no current publisher-primary face or
+  exact current BGA Solo/Coop counterpart was located, and no approved target schema exists.
+- FIREWALL (W26-005) has a verified `character` glyph; no current publisher-primary face or exact
+  current BGA Solo/Coop counterpart was located, and no approved target schema exists.
+- COWARD (W26-006) has a verified `character` glyph; no current publisher-primary face or exact
+  current BGA Solo/Coop counterpart was located, and no approved target schema exists.
+- SECOND RESCUE (W26-007) has a verified `character` glyph; no current publisher-primary face or
+  exact current BGA Solo/Coop counterpart was located, and no approved target schema exists.
+- ELITE SHOOTERS (W26-008) has a verified `shootDieCritical` glyph; no current
+  publisher-primary face or exact current BGA Solo/Coop counterpart was located, and no approved
+  target schema exists.
+There are no material TTS/publisher/BGA wording conflicts in this batch. The exact promotion
+gates remain absence of a current publisher-primary counterpart for every asset, absence of an
+exact current licensed-secondary counterpart for W26-002 through W26-008, and the unsupported
+canonical Solo/Coop sidecar schema for all eight.
+
+The reusable native-worker closure auditor passes with 0 errors/0 warnings. Its successful output
+was preserved through a hash-linked closure continuation after a report-only `runId` field-shape
+error. Earlier disposable adapter failures (one list/object normalization mismatch and two stale
+closure constants) are preserved under `metadata/failures/`; no immutable vision evidence or
+shared bytes were affected. Private projection and independent corpus rebuild are byte-identical
+and change exactly the eight assigned corpus records recursively. Shared merge completed 4 trial
+writes, 4 exact rollback writes, 4 committed writes, and a zero-write identical re-merge. Ten
+focused tests and all eight documented global validation commands pass; 532/532 sources decode,
+390/390 corpus source hashes verify, corpus builds are byte-stable, reproducibility passes,
+deferred/queue and selected/corpus partitions reconcile, canonical source hashes and 78 canonical
+image/sidecar pairs remain unchanged, and generated Git scope is exactly eight files. The first
+all-script audit failed closed on its own deliberate prior-worker reference, v2 passed its then-live
+inventory, and final audit passes all 16 adapted plus 10 fresh W26 scripts (26 total) with 0
+errors/0 warnings and no stale prior-batch constants or blind semantic leakage.
+
+Lifecycle counts remain 532 = 148 complete + 384 deferred + 0 unaccounted; queue 384, corpus 390,
+and canonical pairs 78. Selected evidence rises from 126 to 134 entries/runs; W26 promotion/defer
+count is 0/8. Predecessor checkpoint HEAD was `10c33ad17df1e5a54f13b19aea358344eb6c4c64`;
+sealed data/QA/shared-scope commit is `6bcb14739e69eca7ecb27b20e0eae9aac704ffaa`. This entry
+is committed separately in the following todo-only checkpoint commit, whose self-hash cannot
+appear in its own content. Operational blocker: none; canonical-promotion blockers are the exact
+per-card gates above. Nothing was pushed or deployed, and no W27 work was started. The next
+eligible exact tuple is current queue index 145,
+`assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoopCustomDeck-075.jpg`
+(SHA-256 `1aeaa05448d03a083f8c585a4ccaaf2bef716c21cfe0b44c86d169583e3599c1`).
+
 ## LATER — Expansions (re-add when user wants them)
 - [ ] Re-extract expansion content from save (see `assets/tts-mod/notes/extraction.md` §15 for all deck GUIDs, intruder bags,
       shared action-154 cells, and classification pitfalls)
