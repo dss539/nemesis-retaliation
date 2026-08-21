@@ -1069,6 +1069,113 @@ eligible exact tuple is current queue index 145,
 `assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoopCustomDeck-075.jpg`
 (SHA-256 `1aeaa05448d03a083f8c585a4ccaaf2bef716c21cfe0b44c86d169583e3599c1`).
 
+**W27 defer-only Solo/Coop Mission Task checkpoint (2026-08-21):** Worker
+`sol-max-persistent-worker-27-20260821T054548Z-p346913-ace062` selected the first eight
+previously unselected exact tuples walking forward from current queue index 145. There were no
+selected-tuple skips and no wraparound. Assignment SHA-256 is
+`0beb1008314ea4ee617c2737b32a4ba7300d1b079306201d4ce0f10aef593a4e`; ordered
+`(assetId, sourcePath, sourceSha256)` tuple digest is
+`cf0b6c06acb916fae4a91c340932eb4bc058ba6b44f084b27e189ab4c102c483`:
+- W27-001, index 145, `assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoopCustomDeck-075.jpg`,
+  SHA-256 `1aeaa05448d03a083f8c585a4ccaaf2bef716c21cfe0b44c86d169583e3599c1`;
+- W27-002, index 146, `assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoopCustomDeck-077.jpg`,
+  SHA-256 `3268218a1f202c8bd6b76fb41356d8dee4e4e3fbc07bcb6381c5411c27f27860`;
+- W27-003, index 147, `assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoopCustomDeck-079.jpg`,
+  SHA-256 `6148e0cddb908bdb607aef3626cdf42300513e4c1b89b6ef3e929c29aaff1e1e`;
+- W27-004, index 148, `assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoopCustomDeck-080.jpg`,
+  SHA-256 `c73369d75953efcf42ab762e58fa99dc1db798ab3aa52d8d3995e562a41374a0`;
+- W27-005, index 149, `assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoopCustomDeck-082.jpg`,
+  SHA-256 `6fc50e739e56f4d1245f6f603a57dc69c3045f77de594925b54dd55c94e00c3e`;
+- W27-006, index 150, `assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoopCustomDeck-089.jpg`,
+  SHA-256 `80bd7e8c886855f77086b42930d9903b61fab3bcb98817eac23002296baeb46f`;
+- W27-007, index 151, `assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoopCustomDeck-102.jpg`,
+  SHA-256 `ec97601c529803b11a6445cb9f22939e5192723af3d78b91410c07a267999c6a`;
+- W27-008, index 152, `assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoopCustomDeck-103.jpg`,
+  SHA-256 `5b99b1dab8c5987946aa64b83efd0afe579583bfaa13ea569e470df10c3bd832`.
+
+Neutral smoke session `20260821_055044_471a8d` verified 1 API call, 2 messages, 0 tools,
+exact `openai-codex:gpt-5.6-sol` at reasoning `max`, and no stored Tools/tool-name marker.
+Production evidence totals 15 direct native image calls, 30 messages, and 0 tools across four
+independently DB-verified sessions: blind `20260821_055301_4de870` (8/16/0), focused bbox
+`20260821_062716_22a82f` (2/4/0), exhaustive all-49 p.40 contact
+`20260821_063250_159a74` (2/4/0), and publisher-primary visible-page audit
+`20260821_063740_918fc9` (3/6/0). Every blind turn re-read frozen assignment bytes and the
+live source hash before attaching one image; all eight wrappers and raw copies are byte-preserved
+mode `0400`. No OCR, Qwen, auxiliary vision, model/reasoning downgrade, shared-provider mutation,
+or failed/partial production image read was used.
+
+All eight sources are rules-bearing direct FaceURLs; non-rules and generated-cell counts are zero.
+Every face resolves to one exact CardCustom GUID/CardID selector under deck `831e19`:
+W27-001 `687177`/`535000`; W27-002 `9aa0dd`/`534000`; W27-003
+`0e82e9`/`535500`; W27-004 `d992ce`/`535200`; W27-005
+`4230c8`/`534800`; W27-006 `0af5f9`/`535300`; W27-007
+`b608be`/`533900`; W27-008 `b73d96`/`534200`. All share one
+hash-identical inspected BackURL at
+`assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoop/objectiveCoop-065.png`
+(SHA-256 `290d5e37d0e39ec94737865b14fb7dfe2c0e9c37e882839708d43766b9be1939`),
+whose pixels show a generic `SOLO / COOP MISSION TASK` card back with no operative rules text.
+The face footer plus paired back establish the source family as Solo/Coop Mission Task; no
+filename/folder alias was used as semantic evidence.
+
+All 66 enumerated blind morphology occurrences reconcile exactly once: 2 authoritative p.40
+matches, 0 explicit no-match rows, and 64 artwork-only warning/tape details. W27-001
+`NOT TAKING ANY CHANCE` matches its inline glyph to `robot`; W27-008 `DEN HUNT` matches its
+inline glyph to `character`. Sixteen additional non-text frame/glow graphics are preserved
+separately rather than double-counted in the 66-occurrence ledger, along with 183 non-rules
+illustration/background transcription details. The other exact assigned titles are
+`COMPLETE MAPPING`, `PREDATORS`, `ORGANIC SUPPLY`, `HQ TAKE BACK`, `OUR STAND`, and
+`COLLECTORS`.
+
+Fresh Awaken Realms bytes exactly match tracked rulebook
+`e3cda0d7a91bd090cec45dbc8ce89e2015e2202173357c374ff49365f9c29ddd`, FAQ v1.2
+`611ae20dc0b3e04f3c0d99f294a92fc95460c042565b12d1c808b1282ae0e0d8`, and Objectives
+Help Sheet `30f3d4116a9c4dc3a53fb5e920995c24aa747988c915dc5fba6261cbd7dca364`
+hashes. Visible-pixel review of rulebook page 3 and both Objectives Help Sheet pages, plus exact-title
+searches over all three fresh text derivatives, found zero current publisher-primary counterparts for
+the eight assigned titles. Current BGA build `260622-1220` (SHA-256
+`18cd8f4a2883d4f6662ed170095ff07e0d9f5da508064ed1d6bfc124f5a274ae`) contains 35
+keyed mission/objective display-name records and likewise has zero exact-title counterparts. Generic
+wording overlap was not promoted as identity. Current-authority wording-conflict count is zero; source
+support is absent rather than conflicting.
+
+Five conflicts with the prior unselected corpus snapshot are preserved explicitly: W27-001 corrects
+prior `[lander]` to directly matched `[robot]`; W27-008 corrects prior `[robot]` to directly matched
+`[character]`; W27-002 preserves visibly straight quotation marks around `"?"` against the prior
+curly quotes; and W27-003/W27-005 leave the illustrated warning marks semantically unnamed instead
+of retaining prior unsupported `biohazard` labels. The historical printedData remains provenance;
+no approved canonical file was overwritten. All eight promotion decisions remain `defer` because
+no exact current publisher-primary or licensed-digital title counterpart exists and the repository has
+no approved Solo/Coop Mission Task canonical image/sidecar schema or directory. No candidate,
+canonical image, sidecar, source byte, category, or filename was created or changed.
+
+The reusable native-worker closure auditor passes through its hash-linked compatibility view with
+0 errors/0 warnings; original assignment/runtime/raw/result evidence is unchanged. Independent worker
+closure parses 97 worker JSON files and passes exact source/session/morphology/conflict/lifecycle checks.
+Private projection and independent corpus rebuild are byte-identical and change exactly the eight
+assigned corpus records recursively. Shared merge completed 4 trial writes, 4 exact rollback writes,
+4 committed writes, and a zero-write identical re-merge. Ten focused tests and all eight documented
+global validation commands pass; 532/532 sources decode, 390/390 corpus source hashes verify, two
+explicit corpus builds are byte-identical at
+`f664a32167dcad9acffcb2496a0f3eadb5b256b302554323f689967a9f618ebc`, W27 paths are absent
+from the unresolved-symbol backlog, canonical source hashes are unchanged, and generated Git scope is
+exactly eight files. Final stale-constant audit passes all 24 W27 scripts with 0 errors/0 warnings; its
+first self-referential `w26-` allow-list failure is preserved worker-locally, as are one corrected
+BGA duplicate-display-name assertion and one pre-execution result-builder syntax failure. None changed
+shared or immutable evidence.
+
+Lifecycle counts remain 532 = 148 complete + 384 deferred + 0 unaccounted; queue 384, selected
+registry/corpus overlays 142, genuinely unselected queue tuples 242, corpus 390, canonical pairs 78,
+and deferred re-examinations 116. The unresolved-symbol backlog now contains 246 occurrences across
+135 assets. Predecessor checkpoint HEAD was `68cd74a36a5fea1f0c9c4e2c75fce98e0bd57194`; sealed
+data/QA/shared-scope commit is `2a6ab17c29a7eeb89d5ca6c3aa13f496d417916e`. This entry is
+committed separately in the following todo-only checkpoint commit, whose self-hash cannot appear in
+its own content. Operational blocker: none. Canonical-promotion blockers are the exact source-support
+and schema gates above. Nothing was pushed or deployed, and no W28 work was started. The next eligible
+exact tuple is current queue index 153,
+`assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoopCustomDeck-105.jpg`
+(SHA-256 `608248600b4d9fdb4e49112bbab74f616978ceb2335dbbe6bbb9275741fc9138`);
+wraparound was not required.
+
 ## LATER — Expansions (re-add when user wants them)
 - [ ] Re-extract expansion content from save (see `assets/tts-mod/notes/extraction.md` §15 for all deck GUIDs, intruder bags,
       shared action-154 cells, and classification pitfalls)
