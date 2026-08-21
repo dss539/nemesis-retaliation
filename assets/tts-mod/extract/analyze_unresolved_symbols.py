@@ -63,6 +63,60 @@ def rules_excerpt(row: dict[str, Any]) -> str:
     return " | ".join(chunks)[:500]
 
 
+def unresolved_occurrences(row: dict[str, Any]) -> list[dict[str, Any]]:
+    """Return one durable morphology row per unresolved occurrence.
+
+    A selected review overlay supersedes legacy token extraction for that record. This prevents
+    stale body tokens from double-counting or replacing explicit authoritative no-match rows.
+    """
+    selected = row.get("selectedExtraction")
+    if isinstance(selected, dict):
+        occurrences = selected.get("unresolvedIconOccurrences")
+        if not isinstance(occurrences, list):
+            raise ValueError(f"selectedExtraction.unresolvedIconOccurrences must be a list for {row.get('sourcePath')}")
+        output = []
+        for index, occurrence in enumerate(occurrences):
+            if not isinstance(occurrence, dict) or occurrence.get("matchDecision") not in {"match", "no-match", "uncertain"}:
+                raise ValueError(f"invalid selected unresolved occurrence {index} for {row.get('sourcePath')}")
+            reference = occurrence.get("referenceLabel")
+            if not isinstance(reference, str) or not reference or reference == "No authoritative label":
+                reference = occurrence.get("visibleDiscriminator")
+            if not isinstance(reference, str) or not reference:
+                reference = occurrence.get("closestAlternative")
+            if not isinstance(reference, str) or not reference:
+                raise ValueError(f"selected unresolved occurrence {index} lacks morphology evidence for {row.get('sourcePath')}")
+            decision = str(occurrence["matchDecision"])
+            occurrence_source = {
+                "no-match": "selected-explicit-authoritative-no-match",
+                "uncertain": "selected-explicit-uncertain",
+                "match": "selected-authoritative-morphology-match-semantic-unresolved",
+            }[decision]
+            output.append({
+                "token": reference,
+                "occurrenceSource": occurrence_source,
+                "occurrenceIndex": index,
+                "cardLocation": occurrence.get("cardLocation"),
+                "matchDecision": decision,
+                "closestAlternative": occurrence.get("closestAlternative"),
+                "visibleDiscriminator": occurrence.get("visibleDiscriminator"),
+                "evidenceRun": occurrence.get("evidenceRun"),
+            })
+        return output
+    return [
+        {
+            "token": token,
+            "occurrenceSource": "legacy-printed-token",
+            "occurrenceIndex": index,
+            "cardLocation": None,
+            "matchDecision": "unresolved-local-token",
+            "closestAlternative": None,
+            "visibleDiscriminator": None,
+            "evidenceRun": None,
+        }
+        for index, token in enumerate(row["symbols"]["unresolvedOrLocalTokens"])
+    ]
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--output", default="docs/qa/card-symbol-resolution-backlog.json")
@@ -72,7 +126,8 @@ def main() -> int:
     grouped: dict[str, list[dict[str, Any]]] = defaultdict(list)
     token_counts = Counter()
     for row in corpus["records"]:
-        for token in row["symbols"]["unresolvedOrLocalTokens"]:
+        for occurrence in unresolved_occurrences(row):
+            token = occurrence["token"]
             cluster = classify(token)
             token_counts[token] += 1
             grouped[cluster].append({
@@ -81,6 +136,13 @@ def main() -> int:
                 "componentFamily": row["componentFamily"],
                 "printedTitle": row.get("identity", {}).get("printedTitle"),
                 "token": token,
+                "occurrenceSource": occurrence["occurrenceSource"],
+                "occurrenceIndex": occurrence["occurrenceIndex"],
+                "cardLocation": occurrence["cardLocation"],
+                "matchDecision": occurrence["matchDecision"],
+                "closestAlternative": occurrence["closestAlternative"],
+                "visibleDiscriminator": occurrence["visibleDiscriminator"],
+                "evidenceRun": occurrence["evidenceRun"],
                 "rulesTextPresent": row["rulesTextPresent"],
                 "rulesExcerpt": rules_excerpt(row),
                 "ledgerStatus": row["ledgerStatus"],

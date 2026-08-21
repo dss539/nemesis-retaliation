@@ -11,6 +11,7 @@ import tempfile
 import unittest
 from unittest import mock
 
+import analyze_unresolved_symbols as unresolved_symbols
 import card_text_evidence_registry as selected_evidence
 from build_card_text_corpus import DEFAULT_OUTPUT, REGISTRY
 import validate_card_text_corpus as corpus_validator
@@ -89,6 +90,63 @@ class SelectedEvidenceRegistryTests(unittest.TestCase):
         selected_row = next(row for row in corpus["records"] if row.get("selectedExtraction"))
         selected_row["selectedExtraction"]["sourceSha256"] = "0" * 64
         self.assert_corpus_validator_rejects(corpus, copy.deepcopy(self.registry))
+
+    def test_selected_unresolved_occurrences_supersede_legacy_tokens_one_for_one(self) -> None:
+        row = {
+            "sourcePath": "example.png",
+            "symbols": {"unresolvedOrLocalTokens": ["legacy token that must not survive"]},
+            "selectedExtraction": {
+                "unresolvedIconOccurrences": [
+                    {
+                        "cardLocation": "upper left",
+                        "referenceLabel": "Observed white ringed silhouette",
+                        "matchDecision": "no-match",
+                        "canonicalToken": None,
+                        "closestAlternative": "character",
+                        "visibleDiscriminator": "The source has concentric blue rings absent from the candidate.",
+                        "evidenceRun": "worker-1",
+                    },
+                    {
+                        "cardLocation": "body line 2",
+                        "referenceLabel": "No authoritative label",
+                        "matchDecision": "no-match",
+                        "canonicalToken": None,
+                        "closestAlternative": "life support",
+                        "visibleDiscriminator": "A white three-section capsule with paired gray loops.",
+                        "evidenceRun": "worker-1",
+                    },
+                    {
+                        "cardLocation": "body line 3",
+                        "referenceLabel": "Official morphology match without a semantic label",
+                        "matchDecision": "match",
+                        "canonicalToken": None,
+                        "closestAlternative": "plain cross",
+                        "visibleDiscriminator": "The same waveform morphology is visible, but no source names it.",
+                        "evidenceRun": "worker-1",
+                    },
+                ]
+            },
+        }
+        occurrences = unresolved_symbols.unresolved_occurrences(row)
+        self.assertEqual(len(occurrences), 3)
+        self.assertEqual(
+            [item["token"] for item in occurrences],
+            [
+                "Observed white ringed silhouette",
+                "A white three-section capsule with paired gray loops.",
+                "Official morphology match without a semantic label",
+            ],
+        )
+        self.assertEqual(
+            [item["occurrenceSource"] for item in occurrences],
+            [
+                "selected-explicit-authoritative-no-match",
+                "selected-explicit-authoritative-no-match",
+                "selected-authoritative-morphology-match-semantic-unresolved",
+            ],
+        )
+        row["selectedExtraction"]["unresolvedIconOccurrences"] = []
+        self.assertEqual(unresolved_symbols.unresolved_occurrences(row), [])
 
     def test_validator_rejects_malformed_registry(self) -> None:
         corpus = json.loads(DEFAULT_OUTPUT.read_text())
