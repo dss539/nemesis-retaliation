@@ -1664,6 +1664,108 @@ eligible exact tuple is current queue index 225,
 `assets/tts-mod/extract/v2-dl/tree/cards/game/seriouswound-149_cards/card-04.png`
 (SHA-256 `522c29d0874334cac9dda75c4cd0182fca35dbc7402c4b7231c1c8a6c6b1ec18`); wraparound was not required.
 
+**W32 IN-PROGRESS run-budget interruption (2026-08-21T16:22:45.049830Z):** Worker
+`sol-max-persistent-worker-32-20260821T135953Z-p441103-69bcb8` froze the first 32 previously unselected exact tuples from current
+queue index 225 with no selected skips and no wraparound. Assignment SHA-256 is
+`4aa548e182de01e4098d5caa1cfdc54709d90cc1067415582a06b48ae05cc135`; ordered `(assetId, sourcePath, sourceSha256)` tuple digest is
+`8b5991b07c9016284dc781c4baf1bd6cd4f7bc4f17848f4a46250ae7737d8ed1`:
+- W32-001, index 225, `assets/tts-mod/extract/v2-dl/tree/cards/game/seriouswound-149_cards/card-04.png`,
+  SHA-256 `522c29d0874334cac9dda75c4cd0182fca35dbc7402c4b7231c1c8a6c6b1ec18`;
+- W32-002, index 226, `assets/tts-mod/extract/v2-dl/tree/cards/game/seriouswound-149_cards/card-05.png`,
+  SHA-256 `69fa0f09363ab35f1e547a60e64e1b011702a7469755835bf002e0739b0a33f2`;
+- W32-003, index 227, `assets/tts-mod/extract/v2-dl/tree/cards/game/seriouswound-149_cards/card-06.png`,
+  SHA-256 `1027d7f87a80b4a7d32eb40e9d336c9557c032a33ab6fdc08912a5beeb3e2dcb`;
+- W32-004, index 228, `assets/tts-mod/extract/v2-dl/tree/cards/game/seriouswound-149_cards/card-07.png`,
+  SHA-256 `b485840032e9abcaeec0bf614e7df0e5487aa52d43005615eeb6950aed44f09f`;
+- W32-005, index 229, `assets/tts-mod/extract/v2-dl/tree/cards/game/seriouswound-149_cards/card-08.png`,
+  SHA-256 `2316dd24439f588422fce16da610e59e2609973f968bf0cb7dfb18b8d8f21f40`;
+- W32-006, index 230, `assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-005.png`,
+  SHA-256 `36a33ad974b4fa96f009c0e95d17cc1427cd11de20e8643b229308c820477d44`;
+- W32-007, index 231, `assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-030.png`,
+  SHA-256 `ee004244a4cec9773d43252e7a453a9f31bd327a7f53eb59bd37eade341fe9be`;
+- W32-008, index 232, `assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-033.png`,
+  SHA-256 `7f1de79bbc5d8b86dae03d33deede52be56bfbc3a3c400a39b0bb5b03d8df2c3`;
+- W32-009, index 233, `assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-042.png`,
+  SHA-256 `f3761d0effff2a9bf05c4287450f8fb0e094740d2aa4052d82345fa4c09c2054`;
+- W32-010, index 234, `assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-044.png`,
+  SHA-256 `9870476ca19f38b2a7d15aca06626d722de38d83da8fcf84086a4f2ee2827dee`;
+- W32-011, index 235, `assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-046.jpg`,
+  SHA-256 `d9ce7bcc345521deeafc88c1ed7f99603e3248163a9d9dfd5fa7fd1cbf3879ba`;
+- W32-012, index 236, `assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-055.jpg`,
+  SHA-256 `17b9fc374296328f209b6ed96401dba47dd7857f9f1cb368f3345ade2d064207`;
+- W32-013, index 237, `assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-067.jpg`,
+  SHA-256 `80e0ab88527496e12287c919b33086d2bd4d4541359cad0630b2ce018695919b`;
+- W32-014, index 238, `assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-073.jpg`,
+  SHA-256 `dce11eecbc243970622af2db06d5df5e391497447a8c008bd9f125e008d92591`;
+- W32-015, index 239, `assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-074.jpg`,
+  SHA-256 `4dbee4ea11d5f223eca9a58cced91f37bab63f4296910cd0cbc0838acfc487e3`;
+- W32-016, index 240, `assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-083.jpg`,
+  SHA-256 `be3301f672e5fd689ca2b7e194e1b85ad020c66f57277fe9edd352d2078eb43f`;
+- W32-017, index 241, `assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-085.jpg`,
+  SHA-256 `6b691da92363fc2a538eb04ea0b97a51c3b205812b4ac5ffef1fd68381494b96`;
+- W32-018, index 242, `assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-088.jpg`,
+  SHA-256 `05992188d794ace180101b74074f39591315eedc251168c875dac483bd9bb9dc`;
+- W32-019, index 243, `assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-098.jpg`,
+  SHA-256 `b33ad7170c41977661089b1185297844101256e24e0c5cfab19e84fb6f7bd2fb`;
+- W32-020, index 244, `assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-108.jpg`,
+  SHA-256 `c3ffc0cdcb17206a2467a5faaf300fa53f4264d752977b5b69628ae3a6fc532d`;
+- W32-021, index 245, `assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-114.jpg`,
+  SHA-256 `fdb8cddc0b047d292fb79a60219340d5e5d7d1d1dfba32e7b779d9c775901f3f`;
+- W32-022, index 246, `assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-118.jpg`,
+  SHA-256 `42adf5a01f1bdb0ab7ef892fc91c29c33403b97f4e03537c33c8f8f0e413a96e`;
+- W32-023, index 247, `assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-131.png`,
+  SHA-256 `ea5cd7dad241bea8eea7d5897764485bab2bb616f1ee2ba8c39b9695f9118870`;
+- W32-024, index 248, `assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-136.jpg`,
+  SHA-256 `a763510f880bdd497fa9d3fb625a7fbab88294e32b9a638a702b4ac96e372401`;
+- W32-025, index 249, `assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-141.jpg`,
+  SHA-256 `725e788f3970d9699dd40fe12a86841748807e69d75007e98394bce41f60f7e6`;
+- W32-026, index 250, `assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-144_cards/card-01.png`,
+  SHA-256 `b9889286435b7adad61e79c9e3985c06d2e770833c37339eaaa9c5edf04d0c54`;
+- W32-027, index 251, `assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-144_cards/card-02.png`,
+  SHA-256 `5800849bb493d6000460ccf76c31d4cbc94c70a9a42586f13f606193b6afa6b8`;
+- W32-028, index 252, `assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-144_cards/card-03.png`,
+  SHA-256 `91857d78dd2e2dabd20dce496309d854c921a846db8708f24477189a8f3f4ac1`;
+- W32-029, index 253, `assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-144_cards/card-05.png`,
+  SHA-256 `8230ba5b1c59f7a9b136b3a2f1c14b4414f7ba918944684cd78e0ab199e1656a`;
+- W32-030, index 254, `assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-144_cards/card-06.png`,
+  SHA-256 `4ceab051ce520564a2a1dd312b65f665f76bf29b4a0a6eb94c2a7fbf37943478`;
+- W32-031, index 255, `assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-144_cards/card-07.png`,
+  SHA-256 `7b823f5dd37c1464ad713cb07e60b0731264d1f87ca87901c1e4c86bdd993f19`;
+- W32-032, index 256, `assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-144_cards/card-08.png`,
+  SHA-256 `dcca8ddf8c75047dd93d61660d237b5460c0566331e2d29fdd1cd26f61853f7b`;
+
+Neutral smoke session `20260821_140040_c040c1` passed 1 API call, 2 messages,
+0 tools, exact native `openai-codex:gpt-5.6-sol` at reasoning `max`, and no stored
+Tools/tool-name marker. The clean blind session
+`20260821_140128_f6f95e` completed 32 native one-image calls, 64 messages,
+0 tools, and 32 immutable mode-`0400` wrappers. A fail-closed orientation audit caught 22
+records whose formal `rotationRequired` flag was false even though their pixel report said the
+native text was clockwise. Lossless decoded-pixel CCW-90 PNG derivatives were built without
+changing source files and independently reread upright in fresh session
+`20260821_153213_19cbe6` (22 calls / 44 messages / 0 tools).
+All 32 accepted records are now upright.
+
+Fresh recursive TTS provenance resolves 31 FaceURLs and one shared BackURL, with rules/non-rules
+counts 31/1. Nineteen downloaded FaceURLs have one singular `CardCustom` GUID/CardID selector;
+the remaining generated/shared cases preserve their exact selector/reference sets. Paired pixels
+exist for every tuple; the shared BackURL has a deliberately incomplete many-face counterpart set.
+The accepted blind view contains 55 material-functional morphology occurrences. Thirty-two dense
+all-49 glossary + paired-side contact sheets were generated, but the first four-asset comparison
+turn was still in flight and unsealed when the supervisor run budget ended. It was terminated and
+contributes 0 accepted calls, 0 wrappers, and no semantic verdict. Do not reconstruct it.
+
+No result, promotion/defer decision, current-authority comparison, conflict row, candidate sidecar,
+canonical byte, queue/progress/registry/corpus byte, or shared QA output was written. Shared state
+remains exactly the sealed W31 preimage: 532 = 148 complete + 384 deferred + 0 unaccounted;
+queue 384, selected overlays 214, genuinely unselected tuples 170, corpus 390, canonical pairs 78.
+Exact blocker: `assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-32-20260821T135953Z-p441103-69bcb8/metadata/blocker-run-budget.json`. Operational blocker: supervisor run-time
+budget exhausted before contact-comparison closure. Resume this exact W32 root under the inherited
+workspace lock; do not create W33 and do not repeat the 32 blind or 22 upright-retry calls. Start a
+fresh tools-disabled Sol Max/max contact session for the eight four-asset batches, then finish source
+authority, result assembly, reusable closure audit, private projection, transactional shared merge,
+full validators, data commit, and separate todo-only checkpoint. No W32 data commit exists yet.
+Nothing was pushed or deployed, and no image worker remains active.
+
 ## LATER — Expansions (re-add when user wants them)
 - [ ] Re-extract expansion content from save (see `assets/tts-mod/notes/extraction.md` §15 for all deck GUIDs, intruder bags,
       shared action-154 cells, and classification pitfalls)
