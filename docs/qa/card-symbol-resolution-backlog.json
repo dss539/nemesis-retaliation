@@ -1,22 +1,22 @@
 {
   "schemaVersion": 1,
   "sourceCorpus": "assets/tts-mod/extract/card-text-corpus.json",
-  "sourceProgressUpdatedAt": "2026-08-20T23:52:52.862337Z",
+  "sourceProgressUpdatedAt": "2026-08-21T04:52:34.984696Z",
   "warning": "Cluster labels describe visible morphology only. They are not canonical icon names or semantic claims.",
   "summary": {
-    "unresolvedTokenOccurrences": 241,
-    "distinctLiteralDescriptions": 189,
-    "affectedAssets": 130,
+    "unresolvedTokenOccurrences": 248,
+    "distinctLiteralDescriptions": 188,
+    "affectedAssets": 137,
     "clusters": 10
   },
   "clusters": [
     {
       "cluster": "other-local-morphology",
       "status": "morphology-only-unresolved",
-      "priorityScore": 8252,
-      "occurrences": 112,
-      "assetCount": 74,
-      "rulesBearingAssetCount": 74,
+      "priorityScore": 9140,
+      "occurrences": 120,
+      "assetCount": 82,
+      "rulesBearingAssetCount": 82,
       "distinctLiteralDescriptions": 72,
       "resolutionStrategy": "Review highest-frequency rules-bearing examples first, then split into narrower morphology clusters without semantic guessing.",
       "topRepeatedLiterals": [
@@ -26,7 +26,7 @@
         },
         {
           "token": "clipped",
-          "count": 12
+          "count": 20
         },
         {
           "token": "ICON: solid white rounded-cap upright silhouette above concentric cyan/blue horizontal rings",
@@ -840,6 +840,86 @@
           "token": "illegible",
           "rulesTextPresent": true,
           "rulesExcerpt": "The Hibernatorium must be [hibernatoriumActive]\n(by using the Life Support Control C)",
+          "ledgerStatus": "deferred"
+        },
+        {
+          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoop/objectiveCoop-178.jpg",
+          "sourceSha256": "67c96f43ec41729b3434a24add8db95f668b2b5439c792aaedaddb56ff462472",
+          "componentFamily": "game/objectiveCoop",
+          "printedTitle": null,
+          "token": "clipped",
+          "rulesTextPresent": true,
+          "rulesExcerpt": "At least 1 [character] with a Data token must\nEscape from the Facility using the [lander].",
+          "ledgerStatus": "deferred"
+        },
+        {
+          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoopCustomDeck-002.jpg",
+          "sourceSha256": "440b9019aaf9e1f23b875bef44c774bb9a115152cad09f18ac375532dcfbb281",
+          "componentFamily": "game/objectiveCoopCustomDeck",
+          "printedTitle": null,
+          "token": "clipped",
+          "rulesTextPresent": true,
+          "rulesExcerpt": "1 Egg must be dropped in Surgery Room\n(the Egg is not destroyed as an exception).",
+          "ledgerStatus": "deferred"
+        },
+        {
+          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoopCustomDeck-007.jpg",
+          "sourceSha256": "8400349f06425fb6a54a67bb8739041c0844ac8168fb2597ffbcc329df9e0586",
+          "componentFamily": "game/objectiveCoopCustomDeck",
+          "printedTitle": null,
+          "token": "clipped",
+          "rulesTextPresent": true,
+          "rulesExcerpt": "A [character] must Escape in the Escape Shuttle.",
+          "ledgerStatus": "deferred"
+        },
+        {
+          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoopCustomDeck-008.jpg",
+          "sourceSha256": "de92b135888db44819874a9b74b871523442f22c6544e09a60619d1db75dd305",
+          "componentFamily": "game/objectiveCoopCustomDeck",
+          "printedTitle": null,
+          "token": "clipped",
+          "rulesTextPresent": true,
+          "rulesExcerpt": "At least 1 [character] must Survive\nwith no Contamination.",
+          "ledgerStatus": "deferred"
+        },
+        {
+          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoopCustomDeck-011.jpg",
+          "sourceSha256": "5f0a1dc38e2aec5bdd902112fb2cecd44cc4b3a495ff1c43f25dfb8ed075c5db",
+          "componentFamily": "game/objectiveCoopCustomDeck",
+          "printedTitle": null,
+          "token": "clipped",
+          "rulesTextPresent": true,
+          "rulesExcerpt": "All [character] who Escaped / Hibernated must not\nhave more than 3 Contaminations each\nin their deck (no matter if they Survive).",
+          "ledgerStatus": "deferred"
+        },
+        {
+          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoopCustomDeck-048.jpg",
+          "sourceSha256": "09f5b6cab2381b31842e877334f5d9270260de7fa305277c24e4f170ef540829",
+          "componentFamily": "game/objectiveCoopCustomDeck",
+          "printedTitle": null,
+          "token": "clipped",
+          "rulesTextPresent": true,
+          "rulesExcerpt": "Squad votes for 1 [character],\nit cannot Shoot or Burst\n(Grenade and Command do not count).",
+          "ledgerStatus": "deferred"
+        },
+        {
+          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoopCustomDeck-049.jpg",
+          "sourceSha256": "65802ba4b1bad2d405689998f9d4b89f83dec85ad1139925c2d61f388c096fa8",
+          "componentFamily": "game/objectiveCoopCustomDeck",
+          "printedTitle": null,
+          "token": "clipped",
+          "rulesTextPresent": true,
+          "rulesExcerpt": "2 Bodies from Hibernatorium\nmust be in the Landing Zone\n(Bodies work like downed [character]).",
+          "ledgerStatus": "deferred"
+        },
+        {
+          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoopCustomDeck-071.jpg",
+          "sourceSha256": "0fe579f8c7d045db65c4c8b44b954417ac93a7c10ef6268d273878bfb2a4bc87",
+          "componentFamily": "game/objectiveCoopCustomDeck",
+          "printedTitle": null,
+          "token": "clipped",
+          "rulesTextPresent": true,
+          "rulesExcerpt": "At least 3 [shootDieCritical] must be rolled.",
           "ledgerStatus": "deferred"
         },
         {
@@ -2691,11 +2771,11 @@
     {
       "cluster": "skull-burst-or-explosion-morphology",
       "status": "morphology-only-unresolved",
-      "priorityScore": 555,
-      "occurrences": 5,
-      "assetCount": 5,
-      "rulesBearingAssetCount": 5,
-      "distinctLiteralDescriptions": 5,
+      "priorityScore": 444,
+      "occurrences": 4,
+      "assetCount": 4,
+      "rulesBearingAssetCount": 4,
+      "distinctLiteralDescriptions": 4,
       "resolutionStrategy": "Compare with authoritative die-face crops and any card-local damage marker references; require a visible internal-mark match.",
       "topRepeatedLiterals": [
         {
@@ -2713,23 +2793,9 @@
         {
           "token": "ICON: white skull with vertical split/exclamation-like mark",
           "count": 1
-        },
-        {
-          "token": "ICON: white skull-like glyph with three radiating marks",
-          "count": 1
         }
       ],
       "evidence": [
-        {
-          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoopCustomDeck-071.jpg",
-          "sourceSha256": "0fe579f8c7d045db65c4c8b44b954417ac93a7c10ef6268d273878bfb2a4bc87",
-          "componentFamily": "game/objectiveCoopCustomDeck",
-          "printedTitle": null,
-          "token": "ICON: white skull-like glyph with three radiating marks",
-          "rulesTextPresent": true,
-          "rulesExcerpt": "At least 3 [ICON: white skull-like glyph with three radiating marks] must be rolled.",
-          "ledgerStatus": "deferred"
-        },
         {
           "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/reditem-117.png",
           "sourceSha256": "9eb1ddc91a26bc4581a12f685edce6d1858b93770f576c3be3062a30f293d2db",

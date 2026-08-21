@@ -2,18 +2,18 @@
   "schemaVersion": 1,
   "status": "extracted evidence corpus; canonical and draft states are explicitly separated",
   "generatedFrom": {
-    "visionProgressUpdatedAt": "2026-08-20T23:52:52.862337Z",
-    "reviewQueueUpdatedAt": "2026-08-20T23:52:52.862337Z",
+    "visionProgressUpdatedAt": "2026-08-21T04:52:34.984696Z",
+    "reviewQueueUpdatedAt": "2026-08-21T04:52:34.984696Z",
     "iconGlossary": "docs/rules/icon-glossary.md",
     "iconGlossaryIdentifierCount": 49
   },
   "metadata": {
     "selectedEvidenceRegistry": "assets/tts-mod/extract/selected-card-text-evidence.json",
     "selectedEvidenceRegistrySchemaVersion": 1,
-    "selectedEvidenceRegistrySha256": "4e25c36b0804029c142038d021011ef8df84d144247da0f332dbb67618d32dd1",
-    "selectedEvidenceTupleDigest": "90a3774ee9f42bd48af324229bdaf4d4ea32072a155eedc814b5f1ea5b1b8c55",
-    "selectedEvidenceEntryCount": 126,
-    "selectedEvidenceRunCount": 126
+    "selectedEvidenceRegistrySha256": "c081a84730fa197559f753dc3a955c555016dd021df45ce0916119ed5e6135dc",
+    "selectedEvidenceTupleDigest": "7cf82437d1bac5c8e6a4b44a6d6a591a761931c8e27050b0b82d7fb4548f52a9",
+    "selectedEvidenceEntryCount": 134,
+    "selectedEvidenceRunCount": 134
   },
   "counts": {
     "records": 390,
@@ -29,8 +29,8 @@
     "rulesInformationReadiness": {
       "canonical": 78,
       "draft-partial": 4,
-      "draft-text-complete": 134,
-      "draft-text-complete-symbols-unresolved": 124,
+      "draft-text-complete": 127,
+      "draft-text-complete-symbols-unresolved": 131,
       "missing-transcription": 2,
       "not-rules-bearing-or-reference": 48
     }
@@ -24193,39 +24193,181 @@
       "componentFamily": "game/objectiveCoop",
       "ledgerStatus": "deferred",
       "extractionState": "draft-full",
-      "rulesInformationReadiness": "draft-text-complete",
+      "rulesInformationReadiness": "draft-text-complete-symbols-unresolved",
       "rulesTextPresent": true,
       "identity": {},
       "printedData": {
         "title": "CRUCIAL INTELLIGENCE",
+        "typeLine": "",
         "body": "At least 1 [character] with a Data token must\nEscape from the Facility using the [lander].",
-        "footer": "SOLO / COOP",
-        "visibleText": "QUARANTINE"
+        "sections": [
+          "CRUCIAL INTELLIGENCE",
+          "At least 1 [character] with a Data token must\nEscape from the Facility using the [lander]."
+        ],
+        "footer": "",
+        "upperRight": "",
+        "lowerCenter": "SOLO / COOP",
+        "illegibleSpans": [
+          "Several repeated inscriptions on the overlapping yellow bands are blurred, shadowed, stained, or covered by other bands; only their securely visible letters are retained.",
+          "Fine internal details of the small repeated black marks are softened by the textured raster."
+        ],
+        "clippedSpans": [
+          "Leading or trailing portions of several yellow-band inscriptions disappear beneath overlapping bands, dark rails, or the visible end of a band and are represented as [clipped]."
+        ]
       },
       "symbols": {
         "canonicalGlossaryTokens": [
           "character",
           "lander"
         ],
-        "unresolvedOrLocalTokens": []
+        "unresolvedOrLocalTokens": [
+          "clipped"
+        ]
       },
       "uncertainties": [
-        "Several repetitions of QUARANTINE in the artwork are partially hidden, blurred, or clipped and are not individually transcribed.",
-        "The white pointed glyph after “the” is mapped to [lander] from its morphology, though its fine detail is limited by resolution."
+        "The overlapping yellow bands make the exact count and line grouping of separate QUARANTINE repetitions uncertain.",
+        "Several partial yellow-band inscriptions retain only prefixes or suffixes and have not been completed.",
+        "The small dark cutout and fine contour details inside the terminal white body-line symbol are softened by texture and resolution.",
+        "No printed label explicitly establishes a semantic or canonical identity for either inline white symbol or for the three-lobed black warning marks.",
+        "The paired green side marks may be decorative border elements rather than functional symbols; they are included because their isolated double-stroke form remains visually ambiguous.",
+        "No distinct type line or upper-right text is visible.",
+        "No current publisher-primary face or operative wording was located for this assigned Solo/Coop title in the rulebook, FAQ v1.2, or Objectives Help Sheet audit.",
+        "Current-source fidelity gate is incomplete or failed: licensed-digital-secondary-exact-corroboration-only-no-primary-face.",
+        "No approved canonical mission-task or solo/coop-objective sidecar schema exists in cards/game."
       ],
-      "canonicalPromotionBlocker": "exact card identity/transcription/icon/category is not uniformly high-confidence",
+      "canonicalPromotionBlocker": "Current-source fidelity gate is incomplete or failed: licensed-digital-secondary-exact-corroboration-only-no-primary-face.; No approved canonical mission-task or solo/coop-objective sidecar schema exists in cards/game.",
       "evidence": {
         "textBasis": "native vision draft; not canonical promotion",
         "visionProvider": "openai-codex",
         "visionModel": "gpt-5.6-sol",
-        "reasoningEffort": null,
-        "workerId": null,
-        "sessionId": "20260815_053540_67b272",
-        "resultPath": "assets/tts-mod/extract/vision-results/67c96f43ec41729b3434a24add8db95f668b2b5439c792aaedaddb56ff462472.json",
-        "rawResultPath": null,
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35",
+        "sessionId": "20260821_035527_19a361",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35/results/W26-001.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35/raw/W26-001.json",
         "ledgerPath": "assets/tts-mod/extract/vision-progress.json",
-        "queuePath": "assets/tts-mod/extract/low-confidence-review.json"
-      }
+        "queuePath": "assets/tts-mod/extract/low-confidence-review.json",
+        "selectedExtraction": {
+          "runIdentity": "w26-card-extraction-20260821T035155Z-p324953-703c35/sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35/W26-001",
+          "runId": "w26-card-extraction-20260821T035155Z-p324953-703c35",
+          "workerId": "sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35",
+          "assetId": "W26-001",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35/results/W26-001.json",
+          "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35/raw/W26-001.json",
+          "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35/qa/contact-sheets/W26-001-m2-contact-sheet.png",
+          "promotionDecision": "defer",
+          "runtime": {
+            "provider": "openai-codex",
+            "model": "gpt-5.6-sol",
+            "reasoningEffort": "max",
+            "nativeImageRoute": "direct persistent smoke-proven zero-tool blind session plus direct post-blind native validation",
+            "blindSessionId": "20260821_035527_19a361",
+            "adjudicationSessionId": "20260821_042610_3a2653",
+            "auxiliaryVisionUsed": false,
+            "qwenUsed": false,
+            "ocrCanonicalEvidenceUsed": false,
+            "modelDowngradeUsed": false
+          }
+        }
+      },
+      "selectedExtraction": {
+        "overlayVersion": 1,
+        "status": "selected-evidence-deferred",
+        "runIdentity": "w26-card-extraction-20260821T035155Z-p324953-703c35/sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35/W26-001",
+        "runId": "w26-card-extraction-20260821T035155Z-p324953-703c35",
+        "workerId": "sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35",
+        "assetId": "W26-001",
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoop/objectiveCoop-178.jpg",
+        "sourceSha256": "67c96f43ec41729b3434a24add8db95f668b2b5439c792aaedaddb56ff462472",
+        "runtime": {
+          "provider": "openai-codex",
+          "model": "gpt-5.6-sol",
+          "reasoningEffort": "max",
+          "nativeImageRoute": "direct persistent smoke-proven zero-tool blind session plus direct post-blind native validation",
+          "blindSessionId": "20260821_035527_19a361",
+          "adjudicationSessionId": "20260821_042610_3a2653",
+          "auxiliaryVisionUsed": false,
+          "qwenUsed": false,
+          "ocrCanonicalEvidenceUsed": false,
+          "modelDowngradeUsed": false
+        },
+        "blindObservationPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35/raw/W26-001.json",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35/results/W26-001.json",
+        "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35/qa/contact-sheets/W26-001-m2-contact-sheet.png",
+        "visibleText": {
+          "title": "CRUCIAL INTELLIGENCE",
+          "typeLine": "",
+          "body": "At least 1 [character] with a Data token must\nEscape from the Facility using the [lander].",
+          "sections": [
+            "CRUCIAL INTELLIGENCE",
+            "At least 1 [character] with a Data token must\nEscape from the Facility using the [lander]."
+          ],
+          "footer": "",
+          "upperRight": "",
+          "lowerCenter": "SOLO / COOP",
+          "illegibleSpans": [
+            "Several repeated inscriptions on the overlapping yellow bands are blurred, shadowed, stained, or covered by other bands; only their securely visible letters are retained.",
+            "Fine internal details of the small repeated black marks are softened by the textured raster."
+          ],
+          "clippedSpans": [
+            "Leading or trailing portions of several yellow-band inscriptions disappear beneath overlapping bands, dark rails, or the visible end of a band and are represented as [clipped]."
+          ]
+        },
+        "verifiedIconOccurrences": [
+          {
+            "cardLocation": "Lower panel, first body line, immediately after the printed numeral 1",
+            "referenceLabel": "Character",
+            "matchDecision": "match",
+            "canonicalToken": "character",
+            "closestAlternative": "Robot",
+            "visibleDiscriminator": "The source has two independently separated bent legs, while the Robot candidate has a single broad rounded chassis with one central lower projection and no separated legs.",
+            "evidenceRun": "sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35"
+          },
+          {
+            "cardLocation": "Lower panel, end of the second body line, between the printed words the and the final period",
+            "referenceLabel": "Lander token",
+            "matchDecision": "match",
+            "canonicalToken": "lander",
+            "closestAlternative": "Autodestruction token",
+            "visibleDiscriminator": "The source is one continuous white silhouette, whereas the Autodestruction token has three detached outer lobes arranged around a separate central circular element.",
+            "evidenceRun": "sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35"
+          }
+        ],
+        "unresolvedIconOccurrences": [],
+        "canonicalTokensEmitted": [
+          "character",
+          "lander"
+        ],
+        "allMaterialTextReadable": true,
+        "allMaterialIconsAuthoritativelyMatched": true,
+        "promotionDecision": "defer",
+        "decisionReasons": [
+          "Current-source fidelity gate is incomplete or failed: licensed-digital-secondary-exact-corroboration-only-no-primary-face.",
+          "No approved canonical mission-task or solo/coop-objective sidecar schema exists in cards/game."
+        ],
+        "conflictsWithPriorSnapshot": [
+          {
+            "field": "printedData.body",
+            "priorValue": "At least 1 [character] with a Data token must\nEscape from the Facility using the [lander].",
+            "currentStatus": "superseded in selected evidence by direct-pixel normalized text and per-occurrence morphology",
+            "resolution": "preserve historical base snapshot; selected overlay carries exact current evidence without overwriting approved canonical data"
+          }
+        ]
+      },
+      "evidenceRuns": [
+        {
+          "runIdentity": "w26-card-extraction-20260821T035155Z-p324953-703c35/sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35/W26-001",
+          "runId": "w26-card-extraction-20260821T035155Z-p324953-703c35",
+          "workerId": "sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35",
+          "assetId": "W26-001",
+          "sourceSha256": "67c96f43ec41729b3434a24add8db95f668b2b5439c792aaedaddb56ff462472",
+          "blindSessionId": "20260821_035527_19a361",
+          "adjudicationSessionId": "20260821_042610_3a2653",
+          "promotionDecision": "defer",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35/results/W26-001.json",
+          "selected": true
+        }
+      ]
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoopCustomDeck-002.jpg",
@@ -24234,37 +24376,157 @@
       "componentFamily": "game/objectiveCoopCustomDeck",
       "ledgerStatus": "deferred",
       "extractionState": "draft-full",
-      "rulesInformationReadiness": "draft-text-complete",
+      "rulesInformationReadiness": "draft-text-complete-symbols-unresolved",
       "rulesTextPresent": true,
       "identity": {},
       "printedData": {
         "title": "GENETIC UPLOAD",
+        "typeLine": "",
         "body": "1 Egg must be dropped in Surgery Room\n(the Egg is not destroyed as an exception).",
-        "footer": "SOLO / COOP",
-        "visibleText": "QUARANTINE"
+        "sections": [
+          "GENETIC UPLOAD",
+          "1 Egg must be dropped in Surgery Room\n(the Egg is not destroyed as an exception)."
+        ],
+        "footer": "",
+        "upperRight": "",
+        "lowerCenter": "SOLO / COOP",
+        "illegibleSpans": [
+          "Several yellow-band inscriptions are blurred, stained, shadowed, wrinkled, or covered by crossing bands; only securely distinguishable letters are retained.",
+          "Fine internal details of the smallest repeated black marks are softened by the raster texture."
+        ],
+        "clippedSpans": [
+          "Parts of several yellow-band inscriptions disappear beneath dark rails, overlapping bands, or the visible ends of band segments and are represented as [clipped]."
+        ]
       },
       "symbols": {
         "canonicalGlossaryTokens": [],
-        "unresolvedOrLocalTokens": []
+        "unresolvedOrLocalTokens": [
+          "clipped"
+        ]
       },
       "uncertainties": [
-        "Several repetitions of QUARANTINE in the artwork are partially obscured, clipped, distorted, or illegible and are not reconstructed.",
-        "The biohazard symbols are environmental artwork glyphs absent from the supplied canonical icon glossary; they are not mapped to a canonical icon.",
-        "Some apparent dark red stains in the artwork may be intentional source-art texture rather than distinct depicted objects."
+        "Overlapping yellow bands make the exact number and physical grouping of separate QUARANTINE repetitions uncertain.",
+        "Partial yellow-band inscriptions have not been completed beyond their visibly secure letters.",
+        "The small repeated black marks have softened internal contours, so their exact stroke topology remains uncertain.",
+        "The paired green side marks may be decorative border elements rather than functional symbols.",
+        "No printed label establishes a semantic or canonical identity for either three-lobed black symbol form.",
+        "No distinct type line, upper-right text, or separate footer text is visible.",
+        "No current publisher-primary face or operative wording was located for this assigned Solo/Coop title in the rulebook, FAQ v1.2, or Objectives Help Sheet audit.",
+        "No exact current licensed BGA Solo/Coop mission record exists for this assigned title; no fuzzy candidate was promoted.",
+        "Current-source fidelity gate is incomplete or failed: no-current-publisher-primary-or-licensed-secondary-counterpart.",
+        "No approved canonical mission-task or solo/coop-objective sidecar schema exists in cards/game."
       ],
-      "canonicalPromotionBlocker": "exact card identity/transcription/icon/category is not uniformly high-confidence",
+      "canonicalPromotionBlocker": "Current-source fidelity gate is incomplete or failed: no-current-publisher-primary-or-licensed-secondary-counterpart.; No approved canonical mission-task or solo/coop-objective sidecar schema exists in cards/game.",
       "evidence": {
         "textBasis": "native vision draft; not canonical promotion",
         "visionProvider": "openai-codex",
         "visionModel": "gpt-5.6-sol",
-        "reasoningEffort": null,
-        "workerId": null,
-        "sessionId": "20260815_053540_87c86d",
-        "resultPath": "assets/tts-mod/extract/vision-results/440b9019aaf9e1f23b875bef44c774bb9a115152cad09f18ac375532dcfbb281.json",
-        "rawResultPath": null,
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35",
+        "sessionId": "20260821_035527_19a361",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35/results/W26-002.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35/raw/W26-002.json",
         "ledgerPath": "assets/tts-mod/extract/vision-progress.json",
-        "queuePath": "assets/tts-mod/extract/low-confidence-review.json"
-      }
+        "queuePath": "assets/tts-mod/extract/low-confidence-review.json",
+        "selectedExtraction": {
+          "runIdentity": "w26-card-extraction-20260821T035155Z-p324953-703c35/sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35/W26-002",
+          "runId": "w26-card-extraction-20260821T035155Z-p324953-703c35",
+          "workerId": "sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35",
+          "assetId": "W26-002",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35/results/W26-002.json",
+          "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35/raw/W26-002.json",
+          "contactSheetPath": null,
+          "promotionDecision": "defer",
+          "runtime": {
+            "provider": "openai-codex",
+            "model": "gpt-5.6-sol",
+            "reasoningEffort": "max",
+            "nativeImageRoute": "direct persistent smoke-proven zero-tool blind session plus direct post-blind native validation",
+            "blindSessionId": "20260821_035527_19a361",
+            "adjudicationSessionId": "20260821_042610_3a2653",
+            "auxiliaryVisionUsed": false,
+            "qwenUsed": false,
+            "ocrCanonicalEvidenceUsed": false,
+            "modelDowngradeUsed": false
+          }
+        }
+      },
+      "selectedExtraction": {
+        "overlayVersion": 1,
+        "status": "selected-evidence-deferred",
+        "runIdentity": "w26-card-extraction-20260821T035155Z-p324953-703c35/sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35/W26-002",
+        "runId": "w26-card-extraction-20260821T035155Z-p324953-703c35",
+        "workerId": "sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35",
+        "assetId": "W26-002",
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoopCustomDeck-002.jpg",
+        "sourceSha256": "440b9019aaf9e1f23b875bef44c774bb9a115152cad09f18ac375532dcfbb281",
+        "runtime": {
+          "provider": "openai-codex",
+          "model": "gpt-5.6-sol",
+          "reasoningEffort": "max",
+          "nativeImageRoute": "direct persistent smoke-proven zero-tool blind session plus direct post-blind native validation",
+          "blindSessionId": "20260821_035527_19a361",
+          "adjudicationSessionId": "20260821_042610_3a2653",
+          "auxiliaryVisionUsed": false,
+          "qwenUsed": false,
+          "ocrCanonicalEvidenceUsed": false,
+          "modelDowngradeUsed": false
+        },
+        "blindObservationPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35/raw/W26-002.json",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35/results/W26-002.json",
+        "contactSheetPath": null,
+        "visibleText": {
+          "title": "GENETIC UPLOAD",
+          "typeLine": "",
+          "body": "1 Egg must be dropped in Surgery Room\n(the Egg is not destroyed as an exception).",
+          "sections": [
+            "GENETIC UPLOAD",
+            "1 Egg must be dropped in Surgery Room\n(the Egg is not destroyed as an exception)."
+          ],
+          "footer": "",
+          "upperRight": "",
+          "lowerCenter": "SOLO / COOP",
+          "illegibleSpans": [
+            "Several yellow-band inscriptions are blurred, stained, shadowed, wrinkled, or covered by crossing bands; only securely distinguishable letters are retained.",
+            "Fine internal details of the smallest repeated black marks are softened by the raster texture."
+          ],
+          "clippedSpans": [
+            "Parts of several yellow-band inscriptions disappear beneath dark rails, overlapping bands, or the visible ends of band segments and are represented as [clipped]."
+          ]
+        },
+        "verifiedIconOccurrences": [],
+        "unresolvedIconOccurrences": [],
+        "canonicalTokensEmitted": [],
+        "allMaterialTextReadable": true,
+        "allMaterialIconsAuthoritativelyMatched": true,
+        "promotionDecision": "defer",
+        "decisionReasons": [
+          "Current-source fidelity gate is incomplete or failed: no-current-publisher-primary-or-licensed-secondary-counterpart.",
+          "No approved canonical mission-task or solo/coop-objective sidecar schema exists in cards/game."
+        ],
+        "conflictsWithPriorSnapshot": [
+          {
+            "field": "printedData.body",
+            "priorValue": "1 Egg must be dropped in Surgery Room\n(the Egg is not destroyed as an exception).",
+            "currentStatus": "superseded in selected evidence by direct-pixel normalized text and per-occurrence morphology",
+            "resolution": "preserve historical base snapshot; selected overlay carries exact current evidence without overwriting approved canonical data"
+          }
+        ]
+      },
+      "evidenceRuns": [
+        {
+          "runIdentity": "w26-card-extraction-20260821T035155Z-p324953-703c35/sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35/W26-002",
+          "runId": "w26-card-extraction-20260821T035155Z-p324953-703c35",
+          "workerId": "sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35",
+          "assetId": "W26-002",
+          "sourceSha256": "440b9019aaf9e1f23b875bef44c774bb9a115152cad09f18ac375532dcfbb281",
+          "blindSessionId": "20260821_035527_19a361",
+          "adjudicationSessionId": "20260821_042610_3a2653",
+          "promotionDecision": "defer",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35/results/W26-002.json",
+          "selected": true
+        }
+      ]
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoopCustomDeck-007.jpg",
@@ -24273,35 +24535,171 @@
       "componentFamily": "game/objectiveCoopCustomDeck",
       "ledgerStatus": "deferred",
       "extractionState": "draft-full",
-      "rulesInformationReadiness": "draft-text-complete",
+      "rulesInformationReadiness": "draft-text-complete-symbols-unresolved",
       "rulesTextPresent": true,
       "identity": {},
       "printedData": {
         "title": "OUT OF SPACE",
+        "typeLine": "",
         "body": "A [character] must Escape in the Escape Shuttle.",
-        "footer": "SOLO / COOP",
-        "visibleText": "QUARANTINE"
+        "sections": [
+          "OUT OF SPACE",
+          "A [character] must Escape in the Escape Shuttle."
+        ],
+        "footer": "",
+        "upperRight": "",
+        "lowerCenter": "SOLO / COOP",
+        "illegibleSpans": [
+          "Several yellow-band inscriptions are blurred, stained, wrinkled, shadowed, or covered by crossing bands; only securely distinguishable letters are retained.",
+          "Fine internal strokes of the smallest repeated black marks are softened by the raster texture."
+        ],
+        "clippedSpans": [
+          "Leading or trailing portions of several yellow-band inscriptions disappear beneath overlapping bands, dark rails, or visible band ends and are represented as [clipped]."
+        ]
       },
       "symbols": {
         "canonicalGlossaryTokens": [
           "character"
         ],
-        "unresolvedOrLocalTokens": []
+        "unresolvedOrLocalTokens": [
+          "clipped"
+        ]
       },
-      "uncertainties": [],
-      "canonicalPromotionBlocker": "meaningful visible text falls outside the established minimal sidecar fields",
+      "uncertainties": [
+        "Overlapping yellow bands make the exact number and physical grouping of separate QUARANTINE repetitions uncertain.",
+        "Partial yellow-band inscriptions have not been completed beyond their securely visible letters.",
+        "No printed label establishes a semantic or canonical identity for the inline white glyph or the three-lobed black marks.",
+        "The paired green side marks may be decorative border elements rather than functional symbols.",
+        "Fine internal contours of the small repeated black marks are degraded by texture, folds, and stains.",
+        "No distinct type line, upper-right text, or separate footer text is visible.",
+        "No current publisher-primary face or operative wording was located for this assigned Solo/Coop title in the rulebook, FAQ v1.2, or Objectives Help Sheet audit.",
+        "No exact current licensed BGA Solo/Coop mission record exists for this assigned title; no fuzzy candidate was promoted.",
+        "Current-source fidelity gate is incomplete or failed: no-current-publisher-primary-or-licensed-secondary-counterpart.",
+        "No approved canonical mission-task or solo/coop-objective sidecar schema exists in cards/game."
+      ],
+      "canonicalPromotionBlocker": "Current-source fidelity gate is incomplete or failed: no-current-publisher-primary-or-licensed-secondary-counterpart.; No approved canonical mission-task or solo/coop-objective sidecar schema exists in cards/game.",
       "evidence": {
         "textBasis": "native vision draft; not canonical promotion",
         "visionProvider": "openai-codex",
         "visionModel": "gpt-5.6-sol",
-        "reasoningEffort": null,
-        "workerId": null,
-        "sessionId": "20260815_053540_24e0d9",
-        "resultPath": "assets/tts-mod/extract/vision-results/8400349f06425fb6a54a67bb8739041c0844ac8168fb2597ffbcc329df9e0586.json",
-        "rawResultPath": null,
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35",
+        "sessionId": "20260821_035527_19a361",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35/results/W26-003.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35/raw/W26-003.json",
         "ledgerPath": "assets/tts-mod/extract/vision-progress.json",
-        "queuePath": "assets/tts-mod/extract/low-confidence-review.json"
-      }
+        "queuePath": "assets/tts-mod/extract/low-confidence-review.json",
+        "selectedExtraction": {
+          "runIdentity": "w26-card-extraction-20260821T035155Z-p324953-703c35/sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35/W26-003",
+          "runId": "w26-card-extraction-20260821T035155Z-p324953-703c35",
+          "workerId": "sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35",
+          "assetId": "W26-003",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35/results/W26-003.json",
+          "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35/raw/W26-003.json",
+          "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35/qa/contact-sheets/W26-003-m2-contact-sheet.png",
+          "promotionDecision": "defer",
+          "runtime": {
+            "provider": "openai-codex",
+            "model": "gpt-5.6-sol",
+            "reasoningEffort": "max",
+            "nativeImageRoute": "direct persistent smoke-proven zero-tool blind session plus direct post-blind native validation",
+            "blindSessionId": "20260821_035527_19a361",
+            "adjudicationSessionId": "20260821_042610_3a2653",
+            "auxiliaryVisionUsed": false,
+            "qwenUsed": false,
+            "ocrCanonicalEvidenceUsed": false,
+            "modelDowngradeUsed": false
+          }
+        }
+      },
+      "selectedExtraction": {
+        "overlayVersion": 1,
+        "status": "selected-evidence-deferred",
+        "runIdentity": "w26-card-extraction-20260821T035155Z-p324953-703c35/sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35/W26-003",
+        "runId": "w26-card-extraction-20260821T035155Z-p324953-703c35",
+        "workerId": "sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35",
+        "assetId": "W26-003",
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoopCustomDeck-007.jpg",
+        "sourceSha256": "8400349f06425fb6a54a67bb8739041c0844ac8168fb2597ffbcc329df9e0586",
+        "runtime": {
+          "provider": "openai-codex",
+          "model": "gpt-5.6-sol",
+          "reasoningEffort": "max",
+          "nativeImageRoute": "direct persistent smoke-proven zero-tool blind session plus direct post-blind native validation",
+          "blindSessionId": "20260821_035527_19a361",
+          "adjudicationSessionId": "20260821_042610_3a2653",
+          "auxiliaryVisionUsed": false,
+          "qwenUsed": false,
+          "ocrCanonicalEvidenceUsed": false,
+          "modelDowngradeUsed": false
+        },
+        "blindObservationPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35/raw/W26-003.json",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35/results/W26-003.json",
+        "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35/qa/contact-sheets/W26-003-m2-contact-sheet.png",
+        "visibleText": {
+          "title": "OUT OF SPACE",
+          "typeLine": "",
+          "body": "A [character] must Escape in the Escape Shuttle.",
+          "sections": [
+            "OUT OF SPACE",
+            "A [character] must Escape in the Escape Shuttle."
+          ],
+          "footer": "",
+          "upperRight": "",
+          "lowerCenter": "SOLO / COOP",
+          "illegibleSpans": [
+            "Several yellow-band inscriptions are blurred, stained, wrinkled, shadowed, or covered by crossing bands; only securely distinguishable letters are retained.",
+            "Fine internal strokes of the smallest repeated black marks are softened by the raster texture."
+          ],
+          "clippedSpans": [
+            "Leading or trailing portions of several yellow-band inscriptions disappear beneath overlapping bands, dark rails, or visible band ends and are represented as [clipped]."
+          ]
+        },
+        "verifiedIconOccurrences": [
+          {
+            "cardLocation": "Lower text panel, in the sentence immediately after the printed A and before must",
+            "referenceLabel": "Character",
+            "matchDecision": "match",
+            "canonicalToken": "character",
+            "closestAlternative": "Robot",
+            "visibleDiscriminator": "The source has two independently separated bent legs, whereas the Robot candidate terminates in one broad lower chassis with a single central projection.",
+            "evidenceRun": "sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35"
+          }
+        ],
+        "unresolvedIconOccurrences": [],
+        "canonicalTokensEmitted": [
+          "character"
+        ],
+        "allMaterialTextReadable": true,
+        "allMaterialIconsAuthoritativelyMatched": true,
+        "promotionDecision": "defer",
+        "decisionReasons": [
+          "Current-source fidelity gate is incomplete or failed: no-current-publisher-primary-or-licensed-secondary-counterpart.",
+          "No approved canonical mission-task or solo/coop-objective sidecar schema exists in cards/game."
+        ],
+        "conflictsWithPriorSnapshot": [
+          {
+            "field": "printedData.body",
+            "priorValue": "A [character] must Escape in the Escape Shuttle.",
+            "currentStatus": "superseded in selected evidence by direct-pixel normalized text and per-occurrence morphology",
+            "resolution": "preserve historical base snapshot; selected overlay carries exact current evidence without overwriting approved canonical data"
+          }
+        ]
+      },
+      "evidenceRuns": [
+        {
+          "runIdentity": "w26-card-extraction-20260821T035155Z-p324953-703c35/sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35/W26-003",
+          "runId": "w26-card-extraction-20260821T035155Z-p324953-703c35",
+          "workerId": "sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35",
+          "assetId": "W26-003",
+          "sourceSha256": "8400349f06425fb6a54a67bb8739041c0844ac8168fb2597ffbcc329df9e0586",
+          "blindSessionId": "20260821_035527_19a361",
+          "adjudicationSessionId": "20260821_042610_3a2653",
+          "promotionDecision": "defer",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35/results/W26-003.json",
+          "selected": true
+        }
+      ]
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoopCustomDeck-008.jpg",
@@ -24310,38 +24708,171 @@
       "componentFamily": "game/objectiveCoopCustomDeck",
       "ledgerStatus": "deferred",
       "extractionState": "draft-full",
-      "rulesInformationReadiness": "draft-text-complete",
+      "rulesInformationReadiness": "draft-text-complete-symbols-unresolved",
       "rulesTextPresent": true,
       "identity": {},
       "printedData": {
         "title": "ONE FOR ALL",
+        "typeLine": "",
         "body": "At least 1 [character] must Survive\nwith no Contamination.",
-        "footer": "SOLO / COOP",
-        "visibleText": "QUARANTINE"
+        "sections": [
+          "ONE FOR ALL",
+          "At least 1 [character] must Survive\nwith no Contamination."
+        ],
+        "footer": "",
+        "upperRight": "",
+        "lowerCenter": "SOLO / COOP",
+        "illegibleSpans": [
+          "Part of one lower yellow-band inscription is obscured by stains, folds, and crossing bands; only its securely distinguishable prefix and suffix are retained.",
+          "Fine internal strokes of the smallest repeated black marks are softened by grain and band wrinkles."
+        ],
+        "clippedSpans": [
+          "Leading or trailing portions of several yellow-band inscriptions disappear beneath overlapping bands, dark rails, or visible band ends and are represented as [clipped]."
+        ]
       },
       "symbols": {
         "canonicalGlossaryTokens": [
           "character"
         ],
-        "unresolvedOrLocalTokens": []
+        "unresolvedOrLocalTokens": [
+          "clipped"
+        ]
       },
       "uncertainties": [
-        "The artwork contains multiple repeated, overlapping, clipped, and partially obscured instances of QUARANTINE; visibleText records only the confidently legible word without reconstructing or counting incomplete repetitions.",
-        "Small biohazard symbols in the artwork and on the tape are not glossary icons and are decorative rather than transcribed as rules glyphs."
+        "Overlapping yellow bands make the exact number and physical grouping of separate QUARANTINE repetitions uncertain.",
+        "Partial yellow-band inscriptions have not been completed beyond their securely visible letters.",
+        "No printed label establishes a semantic or canonical identity for the inline white glyph or the three-lobed black marks.",
+        "The paired green side marks may be decorative border elements rather than functional symbols.",
+        "Fine internal contours of the small repeated black marks are degraded by texture, folds, and stains.",
+        "No distinct type line, upper-right text, or separate footer text is visible.",
+        "No current publisher-primary face or operative wording was located for this assigned Solo/Coop title in the rulebook, FAQ v1.2, or Objectives Help Sheet audit.",
+        "No exact current licensed BGA Solo/Coop mission record exists for this assigned title; no fuzzy candidate was promoted.",
+        "Current-source fidelity gate is incomplete or failed: no-current-publisher-primary-or-licensed-secondary-counterpart.",
+        "No approved canonical mission-task or solo/coop-objective sidecar schema exists in cards/game."
       ],
-      "canonicalPromotionBlocker": "exact card identity/transcription/icon/category is not uniformly high-confidence",
+      "canonicalPromotionBlocker": "Current-source fidelity gate is incomplete or failed: no-current-publisher-primary-or-licensed-secondary-counterpart.; No approved canonical mission-task or solo/coop-objective sidecar schema exists in cards/game.",
       "evidence": {
         "textBasis": "native vision draft; not canonical promotion",
         "visionProvider": "openai-codex",
         "visionModel": "gpt-5.6-sol",
-        "reasoningEffort": null,
-        "workerId": null,
-        "sessionId": "20260815_053540_5e9557",
-        "resultPath": "assets/tts-mod/extract/vision-results/de92b135888db44819874a9b74b871523442f22c6544e09a60619d1db75dd305.json",
-        "rawResultPath": null,
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35",
+        "sessionId": "20260821_035527_19a361",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35/results/W26-004.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35/raw/W26-004.json",
         "ledgerPath": "assets/tts-mod/extract/vision-progress.json",
-        "queuePath": "assets/tts-mod/extract/low-confidence-review.json"
-      }
+        "queuePath": "assets/tts-mod/extract/low-confidence-review.json",
+        "selectedExtraction": {
+          "runIdentity": "w26-card-extraction-20260821T035155Z-p324953-703c35/sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35/W26-004",
+          "runId": "w26-card-extraction-20260821T035155Z-p324953-703c35",
+          "workerId": "sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35",
+          "assetId": "W26-004",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35/results/W26-004.json",
+          "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35/raw/W26-004.json",
+          "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35/qa/contact-sheets/W26-004-m2-contact-sheet.png",
+          "promotionDecision": "defer",
+          "runtime": {
+            "provider": "openai-codex",
+            "model": "gpt-5.6-sol",
+            "reasoningEffort": "max",
+            "nativeImageRoute": "direct persistent smoke-proven zero-tool blind session plus direct post-blind native validation",
+            "blindSessionId": "20260821_035527_19a361",
+            "adjudicationSessionId": "20260821_042610_3a2653",
+            "auxiliaryVisionUsed": false,
+            "qwenUsed": false,
+            "ocrCanonicalEvidenceUsed": false,
+            "modelDowngradeUsed": false
+          }
+        }
+      },
+      "selectedExtraction": {
+        "overlayVersion": 1,
+        "status": "selected-evidence-deferred",
+        "runIdentity": "w26-card-extraction-20260821T035155Z-p324953-703c35/sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35/W26-004",
+        "runId": "w26-card-extraction-20260821T035155Z-p324953-703c35",
+        "workerId": "sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35",
+        "assetId": "W26-004",
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoopCustomDeck-008.jpg",
+        "sourceSha256": "de92b135888db44819874a9b74b871523442f22c6544e09a60619d1db75dd305",
+        "runtime": {
+          "provider": "openai-codex",
+          "model": "gpt-5.6-sol",
+          "reasoningEffort": "max",
+          "nativeImageRoute": "direct persistent smoke-proven zero-tool blind session plus direct post-blind native validation",
+          "blindSessionId": "20260821_035527_19a361",
+          "adjudicationSessionId": "20260821_042610_3a2653",
+          "auxiliaryVisionUsed": false,
+          "qwenUsed": false,
+          "ocrCanonicalEvidenceUsed": false,
+          "modelDowngradeUsed": false
+        },
+        "blindObservationPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35/raw/W26-004.json",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35/results/W26-004.json",
+        "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35/qa/contact-sheets/W26-004-m2-contact-sheet.png",
+        "visibleText": {
+          "title": "ONE FOR ALL",
+          "typeLine": "",
+          "body": "At least 1 [character] must Survive\nwith no Contamination.",
+          "sections": [
+            "ONE FOR ALL",
+            "At least 1 [character] must Survive\nwith no Contamination."
+          ],
+          "footer": "",
+          "upperRight": "",
+          "lowerCenter": "SOLO / COOP",
+          "illegibleSpans": [
+            "Part of one lower yellow-band inscription is obscured by stains, folds, and crossing bands; only its securely distinguishable prefix and suffix are retained.",
+            "Fine internal strokes of the smallest repeated black marks are softened by grain and band wrinkles."
+          ],
+          "clippedSpans": [
+            "Leading or trailing portions of several yellow-band inscriptions disappear beneath overlapping bands, dark rails, or visible band ends and are represented as [clipped]."
+          ]
+        },
+        "verifiedIconOccurrences": [
+          {
+            "cardLocation": "Lower body panel, first text line, immediately after the printed numeral 1 and before must",
+            "referenceLabel": "Character",
+            "matchDecision": "match",
+            "canonicalToken": "character",
+            "closestAlternative": "Robot",
+            "visibleDiscriminator": "The source has a rounded head shell containing one horizontal dark opening, whereas the Robot candidate has a broad chassis topped by a rectangular nub and pierced by two circular openings.",
+            "evidenceRun": "sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35"
+          }
+        ],
+        "unresolvedIconOccurrences": [],
+        "canonicalTokensEmitted": [
+          "character"
+        ],
+        "allMaterialTextReadable": true,
+        "allMaterialIconsAuthoritativelyMatched": true,
+        "promotionDecision": "defer",
+        "decisionReasons": [
+          "Current-source fidelity gate is incomplete or failed: no-current-publisher-primary-or-licensed-secondary-counterpart.",
+          "No approved canonical mission-task or solo/coop-objective sidecar schema exists in cards/game."
+        ],
+        "conflictsWithPriorSnapshot": [
+          {
+            "field": "printedData.body",
+            "priorValue": "At least 1 [character] must Survive\nwith no Contamination.",
+            "currentStatus": "superseded in selected evidence by direct-pixel normalized text and per-occurrence morphology",
+            "resolution": "preserve historical base snapshot; selected overlay carries exact current evidence without overwriting approved canonical data"
+          }
+        ]
+      },
+      "evidenceRuns": [
+        {
+          "runIdentity": "w26-card-extraction-20260821T035155Z-p324953-703c35/sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35/W26-004",
+          "runId": "w26-card-extraction-20260821T035155Z-p324953-703c35",
+          "workerId": "sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35",
+          "assetId": "W26-004",
+          "sourceSha256": "de92b135888db44819874a9b74b871523442f22c6544e09a60619d1db75dd305",
+          "blindSessionId": "20260821_035527_19a361",
+          "adjudicationSessionId": "20260821_042610_3a2653",
+          "promotionDecision": "defer",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35/results/W26-004.json",
+          "selected": true
+        }
+      ]
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoopCustomDeck-011.jpg",
@@ -24350,37 +24881,171 @@
       "componentFamily": "game/objectiveCoopCustomDeck",
       "ledgerStatus": "deferred",
       "extractionState": "draft-full",
-      "rulesInformationReadiness": "draft-text-complete",
+      "rulesInformationReadiness": "draft-text-complete-symbols-unresolved",
       "rulesTextPresent": true,
       "identity": {},
       "printedData": {
         "title": "FIREWALL",
+        "typeLine": "",
         "body": "All [character] who Escaped / Hibernated must not\nhave more than 3 Contaminations each\nin their deck (no matter if they Survive).",
-        "footer": "SOLO / COOP",
-        "visibleText": "QUARANTINE"
+        "sections": [
+          "FIREWALL",
+          "All [character] who Escaped / Hibernated must not\nhave more than 3 Contaminations each\nin their deck (no matter if they Survive)."
+        ],
+        "footer": "",
+        "upperRight": "",
+        "lowerCenter": "SOLO / COOP",
+        "illegibleSpans": [
+          "Part of one lower yellow-band inscription is obscured by stains, folds, and crossing bands; only its securely distinguishable prefix and suffix are retained.",
+          "Fine internal strokes of the smallest repeated black marks are softened by grain and band wrinkles."
+        ],
+        "clippedSpans": [
+          "Leading or trailing portions of several yellow-band inscriptions disappear beneath overlapping bands, dark rails, or visible band ends and are represented as [clipped]."
+        ]
       },
       "symbols": {
         "canonicalGlossaryTokens": [
           "character"
         ],
-        "unresolvedOrLocalTokens": []
+        "unresolvedOrLocalTokens": [
+          "clipped"
+        ]
       },
       "uncertainties": [
-        "Several repetitions of QUARANTINE in the background artwork are partially obscured, overlapped, or clipped; visibleText records only the clearly readable complete word rather than reconstructing every tape label."
+        "Overlapping yellow bands make the exact number and physical grouping of separate QUARANTINE repetitions uncertain.",
+        "Partial yellow-band inscriptions have not been completed beyond their securely visible letters.",
+        "No printed label establishes a semantic or canonical identity for the inline white glyph or the three-lobed black marks.",
+        "The paired green side marks may be decorative border elements rather than functional symbols.",
+        "Fine internal contours of the small repeated black marks are degraded by texture, folds, and stains.",
+        "No distinct type line, upper-right text, or separate footer text is visible.",
+        "No current publisher-primary face or operative wording was located for this assigned Solo/Coop title in the rulebook, FAQ v1.2, or Objectives Help Sheet audit.",
+        "No exact current licensed BGA Solo/Coop mission record exists for this assigned title; no fuzzy candidate was promoted.",
+        "Current-source fidelity gate is incomplete or failed: no-current-publisher-primary-or-licensed-secondary-counterpart.",
+        "No approved canonical mission-task or solo/coop-objective sidecar schema exists in cards/game."
       ],
-      "canonicalPromotionBlocker": "exact card identity/transcription/icon/category is not uniformly high-confidence",
+      "canonicalPromotionBlocker": "Current-source fidelity gate is incomplete or failed: no-current-publisher-primary-or-licensed-secondary-counterpart.; No approved canonical mission-task or solo/coop-objective sidecar schema exists in cards/game.",
       "evidence": {
         "textBasis": "native vision draft; not canonical promotion",
         "visionProvider": "openai-codex",
         "visionModel": "gpt-5.6-sol",
-        "reasoningEffort": null,
-        "workerId": null,
-        "sessionId": "20260815_053558_7635b0",
-        "resultPath": "assets/tts-mod/extract/vision-results/5f0a1dc38e2aec5bdd902112fb2cecd44cc4b3a495ff1c43f25dfb8ed075c5db.json",
-        "rawResultPath": null,
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35",
+        "sessionId": "20260821_035527_19a361",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35/results/W26-005.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35/raw/W26-005.json",
         "ledgerPath": "assets/tts-mod/extract/vision-progress.json",
-        "queuePath": "assets/tts-mod/extract/low-confidence-review.json"
-      }
+        "queuePath": "assets/tts-mod/extract/low-confidence-review.json",
+        "selectedExtraction": {
+          "runIdentity": "w26-card-extraction-20260821T035155Z-p324953-703c35/sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35/W26-005",
+          "runId": "w26-card-extraction-20260821T035155Z-p324953-703c35",
+          "workerId": "sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35",
+          "assetId": "W26-005",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35/results/W26-005.json",
+          "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35/raw/W26-005.json",
+          "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35/qa/contact-sheets/W26-005-m2-contact-sheet.png",
+          "promotionDecision": "defer",
+          "runtime": {
+            "provider": "openai-codex",
+            "model": "gpt-5.6-sol",
+            "reasoningEffort": "max",
+            "nativeImageRoute": "direct persistent smoke-proven zero-tool blind session plus direct post-blind native validation",
+            "blindSessionId": "20260821_035527_19a361",
+            "adjudicationSessionId": "20260821_042610_3a2653",
+            "auxiliaryVisionUsed": false,
+            "qwenUsed": false,
+            "ocrCanonicalEvidenceUsed": false,
+            "modelDowngradeUsed": false
+          }
+        }
+      },
+      "selectedExtraction": {
+        "overlayVersion": 1,
+        "status": "selected-evidence-deferred",
+        "runIdentity": "w26-card-extraction-20260821T035155Z-p324953-703c35/sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35/W26-005",
+        "runId": "w26-card-extraction-20260821T035155Z-p324953-703c35",
+        "workerId": "sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35",
+        "assetId": "W26-005",
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoopCustomDeck-011.jpg",
+        "sourceSha256": "5f0a1dc38e2aec5bdd902112fb2cecd44cc4b3a495ff1c43f25dfb8ed075c5db",
+        "runtime": {
+          "provider": "openai-codex",
+          "model": "gpt-5.6-sol",
+          "reasoningEffort": "max",
+          "nativeImageRoute": "direct persistent smoke-proven zero-tool blind session plus direct post-blind native validation",
+          "blindSessionId": "20260821_035527_19a361",
+          "adjudicationSessionId": "20260821_042610_3a2653",
+          "auxiliaryVisionUsed": false,
+          "qwenUsed": false,
+          "ocrCanonicalEvidenceUsed": false,
+          "modelDowngradeUsed": false
+        },
+        "blindObservationPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35/raw/W26-005.json",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35/results/W26-005.json",
+        "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35/qa/contact-sheets/W26-005-m2-contact-sheet.png",
+        "visibleText": {
+          "title": "FIREWALL",
+          "typeLine": "",
+          "body": "All [character] who Escaped / Hibernated must not\nhave more than 3 Contaminations each\nin their deck (no matter if they Survive).",
+          "sections": [
+            "FIREWALL",
+            "All [character] who Escaped / Hibernated must not\nhave more than 3 Contaminations each\nin their deck (no matter if they Survive)."
+          ],
+          "footer": "",
+          "upperRight": "",
+          "lowerCenter": "SOLO / COOP",
+          "illegibleSpans": [
+            "Part of one lower yellow-band inscription is obscured by stains, folds, and crossing bands; only its securely distinguishable prefix and suffix are retained.",
+            "Fine internal strokes of the smallest repeated black marks are softened by grain and band wrinkles."
+          ],
+          "clippedSpans": [
+            "Leading or trailing portions of several yellow-band inscriptions disappear beneath overlapping bands, dark rails, or visible band ends and are represented as [clipped]."
+          ]
+        },
+        "verifiedIconOccurrences": [
+          {
+            "cardLocation": "Lower body panel, first text line, immediately after All and before who",
+            "referenceLabel": "Character",
+            "matchDecision": "match",
+            "canonicalToken": "character",
+            "closestAlternative": "Robot",
+            "visibleDiscriminator": "The source has two independently separated bent legs, whereas the Robot candidate terminates in one broad lower chassis with a single central projection.",
+            "evidenceRun": "sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35"
+          }
+        ],
+        "unresolvedIconOccurrences": [],
+        "canonicalTokensEmitted": [
+          "character"
+        ],
+        "allMaterialTextReadable": true,
+        "allMaterialIconsAuthoritativelyMatched": true,
+        "promotionDecision": "defer",
+        "decisionReasons": [
+          "Current-source fidelity gate is incomplete or failed: no-current-publisher-primary-or-licensed-secondary-counterpart.",
+          "No approved canonical mission-task or solo/coop-objective sidecar schema exists in cards/game."
+        ],
+        "conflictsWithPriorSnapshot": [
+          {
+            "field": "printedData.body",
+            "priorValue": "All [character] who Escaped / Hibernated must not\nhave more than 3 Contaminations each\nin their deck (no matter if they Survive).",
+            "currentStatus": "superseded in selected evidence by direct-pixel normalized text and per-occurrence morphology",
+            "resolution": "preserve historical base snapshot; selected overlay carries exact current evidence without overwriting approved canonical data"
+          }
+        ]
+      },
+      "evidenceRuns": [
+        {
+          "runIdentity": "w26-card-extraction-20260821T035155Z-p324953-703c35/sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35/W26-005",
+          "runId": "w26-card-extraction-20260821T035155Z-p324953-703c35",
+          "workerId": "sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35",
+          "assetId": "W26-005",
+          "sourceSha256": "5f0a1dc38e2aec5bdd902112fb2cecd44cc4b3a495ff1c43f25dfb8ed075c5db",
+          "blindSessionId": "20260821_035527_19a361",
+          "adjudicationSessionId": "20260821_042610_3a2653",
+          "promotionDecision": "defer",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35/results/W26-005.json",
+          "selected": true
+        }
+      ]
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoopCustomDeck-048.jpg",
@@ -24389,39 +25054,171 @@
       "componentFamily": "game/objectiveCoopCustomDeck",
       "ledgerStatus": "deferred",
       "extractionState": "draft-full",
-      "rulesInformationReadiness": "draft-text-complete",
+      "rulesInformationReadiness": "draft-text-complete-symbols-unresolved",
       "rulesTextPresent": true,
       "identity": {},
       "printedData": {
         "title": "COWARD",
+        "typeLine": "",
         "body": "Squad votes for 1 [character],\nit cannot Shoot or Burst\n(Grenade and Command do not count).",
-        "footer": "SOLO / COOP",
-        "visibleText": "QUARANTINE"
+        "sections": [
+          "COWARD",
+          "Squad votes for 1 [character],\nit cannot Shoot or Burst\n(Grenade and Command do not count)."
+        ],
+        "footer": "",
+        "upperRight": "",
+        "lowerCenter": "SOLO / COOP",
+        "illegibleSpans": [
+          "Part of one lower yellow-band inscription is obscured by stains, folds, and crossing bands; only its securely distinguishable prefix and suffix are retained.",
+          "Fine internal strokes of the smallest repeated black marks are softened by grain and band wrinkles."
+        ],
+        "clippedSpans": [
+          "Leading or trailing portions of several yellow-band inscriptions disappear beneath overlapping bands, dark rails, or visible band ends and are represented as [clipped]."
+        ]
       },
       "symbols": {
         "canonicalGlossaryTokens": [
           "character"
         ],
-        "unresolvedOrLocalTokens": []
+        "unresolvedOrLocalTokens": [
+          "clipped"
+        ]
       },
       "uncertainties": [
-        "The artwork contains numerous repeated, overlapping QUARANTINE tape inscriptions; several instances are clipped, obscured, or only partly legible and are not reconstructed.",
-        "The yellow triangular biohazard sign and tape biohazard glyphs are artwork-local symbols not represented in the supplied canonical glossary.",
-        "Whether this custom-looking objective belongs to a more specific objective subtype than cooperative objective is not established by visible pixels alone."
+        "Overlapping yellow bands make the exact number and physical grouping of separate QUARANTINE repetitions uncertain.",
+        "Partial yellow-band inscriptions have not been completed beyond their securely visible letters.",
+        "No printed label establishes a semantic or canonical identity for the inline white glyph or the three-lobed black marks.",
+        "The paired green side marks may be decorative border elements rather than functional symbols.",
+        "Fine internal contours of the small repeated black marks are degraded by texture, folds, and stains.",
+        "No distinct type line, upper-right text, or separate footer text is visible.",
+        "No current publisher-primary face or operative wording was located for this assigned Solo/Coop title in the rulebook, FAQ v1.2, or Objectives Help Sheet audit.",
+        "No exact current licensed BGA Solo/Coop mission record exists for this assigned title; no fuzzy candidate was promoted.",
+        "Current-source fidelity gate is incomplete or failed: no-current-publisher-primary-or-licensed-secondary-counterpart.",
+        "No approved canonical mission-task or solo/coop-objective sidecar schema exists in cards/game."
       ],
-      "canonicalPromotionBlocker": "exact card identity/transcription/icon/category is not uniformly high-confidence",
+      "canonicalPromotionBlocker": "Current-source fidelity gate is incomplete or failed: no-current-publisher-primary-or-licensed-secondary-counterpart.; No approved canonical mission-task or solo/coop-objective sidecar schema exists in cards/game.",
       "evidence": {
         "textBasis": "native vision draft; not canonical promotion",
         "visionProvider": "openai-codex",
         "visionModel": "gpt-5.6-sol",
-        "reasoningEffort": null,
-        "workerId": null,
-        "sessionId": "20260815_053600_fcdac3",
-        "resultPath": "assets/tts-mod/extract/vision-results/09f5b6cab2381b31842e877334f5d9270260de7fa305277c24e4f170ef540829.json",
-        "rawResultPath": null,
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35",
+        "sessionId": "20260821_035527_19a361",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35/results/W26-006.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35/raw/W26-006.json",
         "ledgerPath": "assets/tts-mod/extract/vision-progress.json",
-        "queuePath": "assets/tts-mod/extract/low-confidence-review.json"
-      }
+        "queuePath": "assets/tts-mod/extract/low-confidence-review.json",
+        "selectedExtraction": {
+          "runIdentity": "w26-card-extraction-20260821T035155Z-p324953-703c35/sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35/W26-006",
+          "runId": "w26-card-extraction-20260821T035155Z-p324953-703c35",
+          "workerId": "sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35",
+          "assetId": "W26-006",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35/results/W26-006.json",
+          "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35/raw/W26-006.json",
+          "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35/qa/contact-sheets/W26-006-m2-contact-sheet.png",
+          "promotionDecision": "defer",
+          "runtime": {
+            "provider": "openai-codex",
+            "model": "gpt-5.6-sol",
+            "reasoningEffort": "max",
+            "nativeImageRoute": "direct persistent smoke-proven zero-tool blind session plus direct post-blind native validation",
+            "blindSessionId": "20260821_035527_19a361",
+            "adjudicationSessionId": "20260821_042610_3a2653",
+            "auxiliaryVisionUsed": false,
+            "qwenUsed": false,
+            "ocrCanonicalEvidenceUsed": false,
+            "modelDowngradeUsed": false
+          }
+        }
+      },
+      "selectedExtraction": {
+        "overlayVersion": 1,
+        "status": "selected-evidence-deferred",
+        "runIdentity": "w26-card-extraction-20260821T035155Z-p324953-703c35/sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35/W26-006",
+        "runId": "w26-card-extraction-20260821T035155Z-p324953-703c35",
+        "workerId": "sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35",
+        "assetId": "W26-006",
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoopCustomDeck-048.jpg",
+        "sourceSha256": "09f5b6cab2381b31842e877334f5d9270260de7fa305277c24e4f170ef540829",
+        "runtime": {
+          "provider": "openai-codex",
+          "model": "gpt-5.6-sol",
+          "reasoningEffort": "max",
+          "nativeImageRoute": "direct persistent smoke-proven zero-tool blind session plus direct post-blind native validation",
+          "blindSessionId": "20260821_035527_19a361",
+          "adjudicationSessionId": "20260821_042610_3a2653",
+          "auxiliaryVisionUsed": false,
+          "qwenUsed": false,
+          "ocrCanonicalEvidenceUsed": false,
+          "modelDowngradeUsed": false
+        },
+        "blindObservationPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35/raw/W26-006.json",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35/results/W26-006.json",
+        "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35/qa/contact-sheets/W26-006-m2-contact-sheet.png",
+        "visibleText": {
+          "title": "COWARD",
+          "typeLine": "",
+          "body": "Squad votes for 1 [character],\nit cannot Shoot or Burst\n(Grenade and Command do not count).",
+          "sections": [
+            "COWARD",
+            "Squad votes for 1 [character],\nit cannot Shoot or Burst\n(Grenade and Command do not count)."
+          ],
+          "footer": "",
+          "upperRight": "",
+          "lowerCenter": "SOLO / COOP",
+          "illegibleSpans": [
+            "Part of one lower yellow-band inscription is obscured by stains, folds, and crossing bands; only its securely distinguishable prefix and suffix are retained.",
+            "Fine internal strokes of the smallest repeated black marks are softened by grain and band wrinkles."
+          ],
+          "clippedSpans": [
+            "Leading or trailing portions of several yellow-band inscriptions disappear beneath overlapping bands, dark rails, or visible band ends and are represented as [clipped]."
+          ]
+        },
+        "verifiedIconOccurrences": [
+          {
+            "cardLocation": "Lower body panel, first text line, immediately after the printed numeral 1 and before the comma",
+            "referenceLabel": "Character",
+            "matchDecision": "match",
+            "canonicalToken": "character",
+            "closestAlternative": "Robot",
+            "visibleDiscriminator": "The source has two independently separated lower appendages, whereas the Robot candidate ends in one broad lower chassis with a single central projection.",
+            "evidenceRun": "sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35"
+          }
+        ],
+        "unresolvedIconOccurrences": [],
+        "canonicalTokensEmitted": [
+          "character"
+        ],
+        "allMaterialTextReadable": true,
+        "allMaterialIconsAuthoritativelyMatched": true,
+        "promotionDecision": "defer",
+        "decisionReasons": [
+          "Current-source fidelity gate is incomplete or failed: no-current-publisher-primary-or-licensed-secondary-counterpart.",
+          "No approved canonical mission-task or solo/coop-objective sidecar schema exists in cards/game."
+        ],
+        "conflictsWithPriorSnapshot": [
+          {
+            "field": "printedData.body",
+            "priorValue": "Squad votes for 1 [character],\nit cannot Shoot or Burst\n(Grenade and Command do not count).",
+            "currentStatus": "superseded in selected evidence by direct-pixel normalized text and per-occurrence morphology",
+            "resolution": "preserve historical base snapshot; selected overlay carries exact current evidence without overwriting approved canonical data"
+          }
+        ]
+      },
+      "evidenceRuns": [
+        {
+          "runIdentity": "w26-card-extraction-20260821T035155Z-p324953-703c35/sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35/W26-006",
+          "runId": "w26-card-extraction-20260821T035155Z-p324953-703c35",
+          "workerId": "sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35",
+          "assetId": "W26-006",
+          "sourceSha256": "09f5b6cab2381b31842e877334f5d9270260de7fa305277c24e4f170ef540829",
+          "blindSessionId": "20260821_035527_19a361",
+          "adjudicationSessionId": "20260821_042610_3a2653",
+          "promotionDecision": "defer",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35/results/W26-006.json",
+          "selected": true
+        }
+      ]
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoopCustomDeck-049.jpg",
@@ -24430,38 +25227,171 @@
       "componentFamily": "game/objectiveCoopCustomDeck",
       "ledgerStatus": "deferred",
       "extractionState": "draft-full",
-      "rulesInformationReadiness": "draft-text-complete",
+      "rulesInformationReadiness": "draft-text-complete-symbols-unresolved",
       "rulesTextPresent": true,
       "identity": {},
       "printedData": {
         "title": "SECOND RESCUE",
+        "typeLine": "",
         "body": "2 Bodies from Hibernatorium\nmust be in the Landing Zone\n(Bodies work like downed [character]).",
-        "footer": "SOLO / COOP",
-        "visibleText": "QUARANTINE"
+        "sections": [
+          "SECOND RESCUE",
+          "2 Bodies from Hibernatorium\nmust be in the Landing Zone\n(Bodies work like downed [character])."
+        ],
+        "footer": "",
+        "upperRight": "",
+        "lowerCenter": "SOLO / COOP",
+        "illegibleSpans": [
+          "Part of one lower yellow-band inscription is obscured by stains, folds, and crossing bands; only its securely distinguishable prefix and suffix are retained.",
+          "Fine internal strokes of the smallest repeated black marks are softened by grain and band wrinkles."
+        ],
+        "clippedSpans": [
+          "Leading or trailing portions of several yellow-band inscriptions disappear beneath overlapping bands, dark rails, or visible band ends and are represented as [clipped]."
+        ]
       },
       "symbols": {
         "canonicalGlossaryTokens": [
           "character"
         ],
-        "unresolvedOrLocalTokens": []
+        "unresolvedOrLocalTokens": [
+          "clipped"
+        ]
       },
       "uncertainties": [
-        "Multiple QUARANTINE markings appear on the illustrated tape, but several instances are partially obscured, overlapped, or clipped and are not individually transcribed.",
-        "The astronaut-shaped glyph is confidently matched morphologically to [character], though it appears within a card-local rules example rather than as a standalone corner icon."
+        "Overlapping yellow bands make the exact number and physical grouping of separate QUARANTINE repetitions uncertain.",
+        "Partial yellow-band inscriptions have not been completed beyond their securely visible letters.",
+        "No printed label establishes a semantic or canonical identity for the inline white glyph or the three-lobed black marks.",
+        "The paired green side marks may be decorative border elements rather than functional symbols.",
+        "Fine internal contours of the small repeated black marks are degraded by texture, folds, and stains.",
+        "No distinct type line, upper-right text, or separate footer text is visible.",
+        "No current publisher-primary face or operative wording was located for this assigned Solo/Coop title in the rulebook, FAQ v1.2, or Objectives Help Sheet audit.",
+        "No exact current licensed BGA Solo/Coop mission record exists for this assigned title; no fuzzy candidate was promoted.",
+        "Current-source fidelity gate is incomplete or failed: no-current-publisher-primary-or-licensed-secondary-counterpart.",
+        "No approved canonical mission-task or solo/coop-objective sidecar schema exists in cards/game."
       ],
-      "canonicalPromotionBlocker": "exact card identity/transcription/icon/category is not uniformly high-confidence",
+      "canonicalPromotionBlocker": "Current-source fidelity gate is incomplete or failed: no-current-publisher-primary-or-licensed-secondary-counterpart.; No approved canonical mission-task or solo/coop-objective sidecar schema exists in cards/game.",
       "evidence": {
         "textBasis": "native vision draft; not canonical promotion",
         "visionProvider": "openai-codex",
         "visionModel": "gpt-5.6-sol",
-        "reasoningEffort": null,
-        "workerId": null,
-        "sessionId": "20260815_053601_20a1df",
-        "resultPath": "assets/tts-mod/extract/vision-results/65802ba4b1bad2d405689998f9d4b89f83dec85ad1139925c2d61f388c096fa8.json",
-        "rawResultPath": null,
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35",
+        "sessionId": "20260821_035527_19a361",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35/results/W26-007.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35/raw/W26-007.json",
         "ledgerPath": "assets/tts-mod/extract/vision-progress.json",
-        "queuePath": "assets/tts-mod/extract/low-confidence-review.json"
-      }
+        "queuePath": "assets/tts-mod/extract/low-confidence-review.json",
+        "selectedExtraction": {
+          "runIdentity": "w26-card-extraction-20260821T035155Z-p324953-703c35/sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35/W26-007",
+          "runId": "w26-card-extraction-20260821T035155Z-p324953-703c35",
+          "workerId": "sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35",
+          "assetId": "W26-007",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35/results/W26-007.json",
+          "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35/raw/W26-007.json",
+          "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35/qa/contact-sheets/W26-007-m2-contact-sheet.png",
+          "promotionDecision": "defer",
+          "runtime": {
+            "provider": "openai-codex",
+            "model": "gpt-5.6-sol",
+            "reasoningEffort": "max",
+            "nativeImageRoute": "direct persistent smoke-proven zero-tool blind session plus direct post-blind native validation",
+            "blindSessionId": "20260821_035527_19a361",
+            "adjudicationSessionId": "20260821_042610_3a2653",
+            "auxiliaryVisionUsed": false,
+            "qwenUsed": false,
+            "ocrCanonicalEvidenceUsed": false,
+            "modelDowngradeUsed": false
+          }
+        }
+      },
+      "selectedExtraction": {
+        "overlayVersion": 1,
+        "status": "selected-evidence-deferred",
+        "runIdentity": "w26-card-extraction-20260821T035155Z-p324953-703c35/sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35/W26-007",
+        "runId": "w26-card-extraction-20260821T035155Z-p324953-703c35",
+        "workerId": "sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35",
+        "assetId": "W26-007",
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoopCustomDeck-049.jpg",
+        "sourceSha256": "65802ba4b1bad2d405689998f9d4b89f83dec85ad1139925c2d61f388c096fa8",
+        "runtime": {
+          "provider": "openai-codex",
+          "model": "gpt-5.6-sol",
+          "reasoningEffort": "max",
+          "nativeImageRoute": "direct persistent smoke-proven zero-tool blind session plus direct post-blind native validation",
+          "blindSessionId": "20260821_035527_19a361",
+          "adjudicationSessionId": "20260821_042610_3a2653",
+          "auxiliaryVisionUsed": false,
+          "qwenUsed": false,
+          "ocrCanonicalEvidenceUsed": false,
+          "modelDowngradeUsed": false
+        },
+        "blindObservationPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35/raw/W26-007.json",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35/results/W26-007.json",
+        "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35/qa/contact-sheets/W26-007-m2-contact-sheet.png",
+        "visibleText": {
+          "title": "SECOND RESCUE",
+          "typeLine": "",
+          "body": "2 Bodies from Hibernatorium\nmust be in the Landing Zone\n(Bodies work like downed [character]).",
+          "sections": [
+            "SECOND RESCUE",
+            "2 Bodies from Hibernatorium\nmust be in the Landing Zone\n(Bodies work like downed [character])."
+          ],
+          "footer": "",
+          "upperRight": "",
+          "lowerCenter": "SOLO / COOP",
+          "illegibleSpans": [
+            "Part of one lower yellow-band inscription is obscured by stains, folds, and crossing bands; only its securely distinguishable prefix and suffix are retained.",
+            "Fine internal strokes of the smallest repeated black marks are softened by grain and band wrinkles."
+          ],
+          "clippedSpans": [
+            "Leading or trailing portions of several yellow-band inscriptions disappear beneath overlapping bands, dark rails, or visible band ends and are represented as [clipped]."
+          ]
+        },
+        "verifiedIconOccurrences": [
+          {
+            "cardLocation": "Lower body panel, third text line, immediately after downed and before the closing parenthesis",
+            "referenceLabel": "Character",
+            "matchDecision": "match",
+            "canonicalToken": "character",
+            "closestAlternative": "Robot",
+            "visibleDiscriminator": "The source has two independently separated lower extensions, whereas the Robot candidate ends in one broad lower chassis with a single central projection.",
+            "evidenceRun": "sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35"
+          }
+        ],
+        "unresolvedIconOccurrences": [],
+        "canonicalTokensEmitted": [
+          "character"
+        ],
+        "allMaterialTextReadable": true,
+        "allMaterialIconsAuthoritativelyMatched": true,
+        "promotionDecision": "defer",
+        "decisionReasons": [
+          "Current-source fidelity gate is incomplete or failed: no-current-publisher-primary-or-licensed-secondary-counterpart.",
+          "No approved canonical mission-task or solo/coop-objective sidecar schema exists in cards/game."
+        ],
+        "conflictsWithPriorSnapshot": [
+          {
+            "field": "printedData.body",
+            "priorValue": "2 Bodies from Hibernatorium\nmust be in the Landing Zone\n(Bodies work like downed [character]).",
+            "currentStatus": "superseded in selected evidence by direct-pixel normalized text and per-occurrence morphology",
+            "resolution": "preserve historical base snapshot; selected overlay carries exact current evidence without overwriting approved canonical data"
+          }
+        ]
+      },
+      "evidenceRuns": [
+        {
+          "runIdentity": "w26-card-extraction-20260821T035155Z-p324953-703c35/sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35/W26-007",
+          "runId": "w26-card-extraction-20260821T035155Z-p324953-703c35",
+          "workerId": "sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35",
+          "assetId": "W26-007",
+          "sourceSha256": "65802ba4b1bad2d405689998f9d4b89f83dec85ad1139925c2d61f388c096fa8",
+          "blindSessionId": "20260821_035527_19a361",
+          "adjudicationSessionId": "20260821_042610_3a2653",
+          "promotionDecision": "defer",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35/results/W26-007.json",
+          "selected": true
+        }
+      ]
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoopCustomDeck-071.jpg",
@@ -24475,34 +25405,167 @@
       "identity": {},
       "printedData": {
         "title": "ELITE SHOOTERS",
-        "body": "At least 3 [ICON: white skull-like glyph with three radiating marks] must be rolled.",
-        "footer": "SOLO / COOP",
-        "visibleText": "QUARANTINE\nQUARANTINE\nQUARANTINE\nQUARANTINE\nQUARANTINE"
+        "typeLine": "",
+        "body": "At least 3 [shootDieCritical] must be rolled.",
+        "sections": [
+          "ELITE SHOOTERS",
+          "At least 3 [shootDieCritical] must be rolled."
+        ],
+        "footer": "",
+        "upperRight": "",
+        "lowerCenter": "SOLO / COOP",
+        "illegibleSpans": [
+          "Part of one lower yellow-band inscription is obscured by stains, folds, and crossing bands; only its securely distinguishable prefix and suffix are retained.",
+          "Fine internal strokes of the smallest repeated black marks are softened by grain and band wrinkles."
+        ],
+        "clippedSpans": [
+          "Leading or trailing portions of several yellow-band inscriptions disappear beneath overlapping bands, dark rails, or visible band ends and are represented as [clipped]."
+        ]
       },
       "symbols": {
-        "canonicalGlossaryTokens": [],
+        "canonicalGlossaryTokens": [
+          "shootDieCritical"
+        ],
         "unresolvedOrLocalTokens": [
-          "ICON: white skull-like glyph with three radiating marks"
+          "clipped"
         ]
       },
       "uncertainties": [
-        "The white skull-like glyph in the body lacks the red triangular surround required for a confident shootDieCritical match, so it is recorded literally.",
-        "Several QUARANTINE inscriptions in the artwork are partly obscured, cropped, distorted, or illegible and are not reconstructed; visibleText includes only confidently complete instances.",
-        "The yellow triangular biohazard sign and quarantine-tape biohazard marks are artwork symbols, not confidently identifiable canonical gameplay icons."
+        "Overlapping yellow bands make the exact number and physical grouping of separate QUARANTINE repetitions uncertain.",
+        "Partial yellow-band inscriptions have not been completed beyond their securely visible letters.",
+        "The inline white emblem could plausibly be read as a face-like form or an irregular impact-like form; no neighboring print names it.",
+        "The exact number and attachment of the short rays above the inline emblem are softened by texture and resolution.",
+        "No printed label establishes a semantic or canonical identity for the three-lobed black marks.",
+        "The paired green side marks may be decorative border elements rather than functional symbols.",
+        "No distinct type line, upper-right text, or separate footer text is visible.",
+        "No current publisher-primary face or operative wording was located for this assigned Solo/Coop title in the rulebook, FAQ v1.2, or Objectives Help Sheet audit.",
+        "No exact current licensed BGA Solo/Coop mission record exists for this assigned title; no fuzzy candidate was promoted.",
+        "Current-source fidelity gate is incomplete or failed: no-current-publisher-primary-or-licensed-secondary-counterpart.",
+        "No approved canonical mission-task or solo/coop-objective sidecar schema exists in cards/game."
       ],
-      "canonicalPromotionBlocker": "exact card identity/transcription/icon/category is not uniformly high-confidence",
+      "canonicalPromotionBlocker": "Current-source fidelity gate is incomplete or failed: no-current-publisher-primary-or-licensed-secondary-counterpart.; No approved canonical mission-task or solo/coop-objective sidecar schema exists in cards/game.",
       "evidence": {
         "textBasis": "native vision draft; not canonical promotion",
         "visionProvider": "openai-codex",
         "visionModel": "gpt-5.6-sol",
-        "reasoningEffort": null,
-        "workerId": null,
-        "sessionId": "20260815_053602_b252e0",
-        "resultPath": "assets/tts-mod/extract/vision-results/0fe579f8c7d045db65c4c8b44b954417ac93a7c10ef6268d273878bfb2a4bc87.json",
-        "rawResultPath": null,
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35",
+        "sessionId": "20260821_035527_19a361",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35/results/W26-008.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35/raw/W26-008.json",
         "ledgerPath": "assets/tts-mod/extract/vision-progress.json",
-        "queuePath": "assets/tts-mod/extract/low-confidence-review.json"
-      }
+        "queuePath": "assets/tts-mod/extract/low-confidence-review.json",
+        "selectedExtraction": {
+          "runIdentity": "w26-card-extraction-20260821T035155Z-p324953-703c35/sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35/W26-008",
+          "runId": "w26-card-extraction-20260821T035155Z-p324953-703c35",
+          "workerId": "sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35",
+          "assetId": "W26-008",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35/results/W26-008.json",
+          "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35/raw/W26-008.json",
+          "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35/qa/contact-sheets/W26-008-m2-contact-sheet.png",
+          "promotionDecision": "defer",
+          "runtime": {
+            "provider": "openai-codex",
+            "model": "gpt-5.6-sol",
+            "reasoningEffort": "max",
+            "nativeImageRoute": "direct persistent smoke-proven zero-tool blind session plus direct post-blind native validation",
+            "blindSessionId": "20260821_035527_19a361",
+            "adjudicationSessionId": "20260821_042610_3a2653",
+            "auxiliaryVisionUsed": false,
+            "qwenUsed": false,
+            "ocrCanonicalEvidenceUsed": false,
+            "modelDowngradeUsed": false
+          }
+        }
+      },
+      "selectedExtraction": {
+        "overlayVersion": 1,
+        "status": "selected-evidence-deferred",
+        "runIdentity": "w26-card-extraction-20260821T035155Z-p324953-703c35/sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35/W26-008",
+        "runId": "w26-card-extraction-20260821T035155Z-p324953-703c35",
+        "workerId": "sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35",
+        "assetId": "W26-008",
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoopCustomDeck-071.jpg",
+        "sourceSha256": "0fe579f8c7d045db65c4c8b44b954417ac93a7c10ef6268d273878bfb2a4bc87",
+        "runtime": {
+          "provider": "openai-codex",
+          "model": "gpt-5.6-sol",
+          "reasoningEffort": "max",
+          "nativeImageRoute": "direct persistent smoke-proven zero-tool blind session plus direct post-blind native validation",
+          "blindSessionId": "20260821_035527_19a361",
+          "adjudicationSessionId": "20260821_042610_3a2653",
+          "auxiliaryVisionUsed": false,
+          "qwenUsed": false,
+          "ocrCanonicalEvidenceUsed": false,
+          "modelDowngradeUsed": false
+        },
+        "blindObservationPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35/raw/W26-008.json",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35/results/W26-008.json",
+        "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35/qa/contact-sheets/W26-008-m2-contact-sheet.png",
+        "visibleText": {
+          "title": "ELITE SHOOTERS",
+          "typeLine": "",
+          "body": "At least 3 [shootDieCritical] must be rolled.",
+          "sections": [
+            "ELITE SHOOTERS",
+            "At least 3 [shootDieCritical] must be rolled."
+          ],
+          "footer": "",
+          "upperRight": "",
+          "lowerCenter": "SOLO / COOP",
+          "illegibleSpans": [
+            "Part of one lower yellow-band inscription is obscured by stains, folds, and crossing bands; only its securely distinguishable prefix and suffix are retained.",
+            "Fine internal strokes of the smallest repeated black marks are softened by grain and band wrinkles."
+          ],
+          "clippedSpans": [
+            "Leading or trailing portions of several yellow-band inscriptions disappear beneath overlapping bands, dark rails, or visible band ends and are represented as [clipped]."
+          ]
+        },
+        "verifiedIconOccurrences": [
+          {
+            "cardLocation": "Lower body panel, within the sentence immediately after the printed numeral 3 and before must",
+            "referenceLabel": "Shoot die — Critical hit",
+            "matchDecision": "match",
+            "canonicalToken": "shootDieCritical",
+            "closestAlternative": "Noise die — Hazard",
+            "visibleDiscriminator": "The source has two distinct horizontally paired dark openings within its white upper mass, whereas the Noise die — Hazard candidate has one continuous dark central mass and no paired openings.",
+            "evidenceRun": "sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35"
+          }
+        ],
+        "unresolvedIconOccurrences": [],
+        "canonicalTokensEmitted": [
+          "shootDieCritical"
+        ],
+        "allMaterialTextReadable": true,
+        "allMaterialIconsAuthoritativelyMatched": true,
+        "promotionDecision": "defer",
+        "decisionReasons": [
+          "Current-source fidelity gate is incomplete or failed: no-current-publisher-primary-or-licensed-secondary-counterpart.",
+          "No approved canonical mission-task or solo/coop-objective sidecar schema exists in cards/game."
+        ],
+        "conflictsWithPriorSnapshot": [
+          {
+            "field": "printedData.body",
+            "priorValue": "At least 3 [ICON: white skull-like glyph with three radiating marks] must be rolled.",
+            "currentStatus": "superseded in selected evidence by direct-pixel normalized text and per-occurrence morphology",
+            "resolution": "preserve historical base snapshot; selected overlay carries exact current evidence without overwriting approved canonical data"
+          }
+        ]
+      },
+      "evidenceRuns": [
+        {
+          "runIdentity": "w26-card-extraction-20260821T035155Z-p324953-703c35/sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35/W26-008",
+          "runId": "w26-card-extraction-20260821T035155Z-p324953-703c35",
+          "workerId": "sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35",
+          "assetId": "W26-008",
+          "sourceSha256": "0fe579f8c7d045db65c4c8b44b954417ac93a7c10ef6268d273878bfb2a4bc87",
+          "blindSessionId": "20260821_035527_19a361",
+          "adjudicationSessionId": "20260821_042610_3a2653",
+          "promotionDecision": "defer",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-26-20260821T035155Z-p324953-703c35/results/W26-008.json",
+          "selected": true
+        }
+      ]
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoopCustomDeck-075.jpg",
