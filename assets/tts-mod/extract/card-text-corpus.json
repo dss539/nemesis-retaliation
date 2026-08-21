@@ -2,18 +2,18 @@
   "schemaVersion": 1,
   "status": "extracted evidence corpus; canonical and draft states are explicitly separated",
   "generatedFrom": {
-    "visionProgressUpdatedAt": "2026-08-20T22:25:08.568933Z",
-    "reviewQueueUpdatedAt": "2026-08-20T22:25:08.568933Z",
+    "visionProgressUpdatedAt": "2026-08-20T23:52:52.862337Z",
+    "reviewQueueUpdatedAt": "2026-08-20T23:52:52.862337Z",
     "iconGlossary": "docs/rules/icon-glossary.md",
     "iconGlossaryIdentifierCount": 49
   },
   "metadata": {
     "selectedEvidenceRegistry": "assets/tts-mod/extract/selected-card-text-evidence.json",
     "selectedEvidenceRegistrySchemaVersion": 1,
-    "selectedEvidenceRegistrySha256": "64cac1ae5cdd6e002c31932df0293fbee6b4868357e5e628d8506306ffec3aeb",
-    "selectedEvidenceTupleDigest": "f2019a61a7f9042bc812874b4ee15de2e32cc8c3d63f186365264930f5bf2cb7",
-    "selectedEvidenceEntryCount": 118,
-    "selectedEvidenceRunCount": 118
+    "selectedEvidenceRegistrySha256": "4e25c36b0804029c142038d021011ef8df84d144247da0f332dbb67618d32dd1",
+    "selectedEvidenceTupleDigest": "90a3774ee9f42bd48af324229bdaf4d4ea32072a155eedc814b5f1ea5b1b8c55",
+    "selectedEvidenceEntryCount": 126,
+    "selectedEvidenceRunCount": 126
   },
   "counts": {
     "records": 390,
@@ -29,8 +29,8 @@
     "rulesInformationReadiness": {
       "canonical": 78,
       "draft-partial": 4,
-      "draft-text-complete": 135,
-      "draft-text-complete-symbols-unresolved": 123,
+      "draft-text-complete": 134,
+      "draft-text-complete-symbols-unresolved": 124,
       "missing-transcription": 2,
       "not-rules-bearing-or-reference": 48
     }
@@ -22675,34 +22675,168 @@
       "identity": {},
       "printedData": {
         "title": "SHUTDOWN",
+        "typeLine": "",
         "body": "The Reactor (Section C)\nmust be shut down (by using the Room).",
+        "sections": [
+          "SHUTDOWN",
+          "The Reactor (Section C)\nmust be shut down (by using the Room).",
+          "SOLO / COOP"
+        ],
         "footer": "SOLO / COOP",
-        "visibleText": "QUARANTINE\n[ICON: yellow triangle black biohazard glyph]"
+        "upperRight": "",
+        "lowerCenter": "SOLO / COOP",
+        "illegibleSpans": [
+          "Several overlapping yellow-band regions contain letter-like black printing whose run boundaries and individual letters cannot be distinguished.",
+          "On the middle band, characters preceding the clearly visible RANTINE are obscured by overlap and dark texture: [illegible]RANTINE.",
+          "On a lower crossing band, only the ending TINE is sufficiently distinct: [illegible]TINE.",
+          "On the lowest band, dark reddish texture obscures the characters preceding RANTINE: [illegible]RANTINE."
+        ],
+        "clippedSpans": [
+          "Highest yellow-band area, right run: QUA[clipped].",
+          "Immediately lower crossing band, left run: [clipped]NTINE.",
+          "Steep central diagonal band: QUARAN[clipped].",
+          "Middle band, right run: QUARANTI[clipped].",
+          "Lower-middle band, right run: QUARAN[clipped].",
+          "Lowest band, right run: QUARANTI[clipped]."
+        ]
       },
       "symbols": {
         "canonicalGlossaryTokens": [],
         "unresolvedOrLocalTokens": [
-          "ICON: yellow triangle black biohazard glyph"
+          "clipped",
+          "illegible"
         ]
       },
       "uncertainties": [
-        "The artwork contains numerous repeated, overlapping, partially obscured, or clipped instances of QUARANTINE; only the fully legible word is transcribed once in visibleText rather than reconstructing every fragment.",
-        "The black biohazard-style glyph is not present in the supplied canonical icon glossary and is therefore recorded literally rather than assigned a canonical identifier.",
-        "Small matching glyphs printed repeatedly on the quarantine tape are decorative artwork and are not individually enumerated."
+        "Overlaps, stains, blur, and folds prevent a reliable count or complete transcription of every repeated yellow-band inscription.",
+        "Some partial yellow-band runs may belong to the same physical strip rather than separate strips.",
+        "The smallest radial mark on the highest strip is degraded enough that localized print damage remains a plausible alternative.",
+        "Fine internal details of the triangular mark and the tiny repeated marks are softened by texture and resolution.",
+        "The mirrored green slanted-bar clusters may be decorative frame elements rather than functional symbols.",
+        "No explicit type line or printed canonical component label is visible.",
+        "The current publisher same-title SHUTDOWN component is a different PRIVATE OBJECTIVE; FAQ v1.2 names the Solo/Coop task but does not reproduce its face wording.",
+        "Current-source fidelity gate is incomplete or failed: current-publisher-primary-same-title-non-counterpart.",
+        "No approved canonical mission-task or solo/coop-objective sidecar schema exists in cards/game."
       ],
-      "canonicalPromotionBlocker": "exact card identity/transcription/icon/category is not uniformly high-confidence",
+      "canonicalPromotionBlocker": "Current-source fidelity gate is incomplete or failed: current-publisher-primary-same-title-non-counterpart.; No approved canonical mission-task or solo/coop-objective sidecar schema exists in cards/game.",
       "evidence": {
         "textBasis": "native vision draft; not canonical promotion",
         "visionProvider": "openai-codex",
         "visionModel": "gpt-5.6-sol",
-        "reasoningEffort": null,
-        "workerId": null,
-        "sessionId": "20260815_053540_272ca4",
-        "resultPath": "assets/tts-mod/extract/vision-results/755d74a481252909758bba60332e041aa0128d05536848d2160efb7dba7f76a0.json",
-        "rawResultPath": null,
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-25-20260820T224038Z-p308509-d39bf7",
+        "sessionId": "20260820_224505_f47c2f",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-25-20260820T224038Z-p308509-d39bf7/results/W25-001.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-25-20260820T224038Z-p308509-d39bf7/raw/W25-001.json",
         "ledgerPath": "assets/tts-mod/extract/vision-progress.json",
-        "queuePath": "assets/tts-mod/extract/low-confidence-review.json"
-      }
+        "queuePath": "assets/tts-mod/extract/low-confidence-review.json",
+        "selectedExtraction": {
+          "runIdentity": "w25-card-extraction-20260820T204740Z-p273022-2cf4d5/sol-max-persistent-worker-25-20260820T224038Z-p308509-d39bf7/W25-001",
+          "runId": "w25-card-extraction-20260820T204740Z-p273022-2cf4d5",
+          "workerId": "sol-max-persistent-worker-25-20260820T224038Z-p308509-d39bf7",
+          "assetId": "W25-001",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-25-20260820T224038Z-p308509-d39bf7/results/W25-001.json",
+          "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-25-20260820T224038Z-p308509-d39bf7/raw/W25-001.json",
+          "contactSheetPath": null,
+          "promotionDecision": "defer",
+          "runtime": {
+            "provider": "openai-codex",
+            "model": "gpt-5.6-sol",
+            "reasoningEffort": "max",
+            "nativeImageRoute": "direct persistent smoke-proven zero-tool blind session plus direct post-blind native validation",
+            "blindSessionId": "20260820_224505_f47c2f",
+            "adjudicationSessionId": "20260820_232654_1c2354",
+            "auxiliaryVisionUsed": false,
+            "qwenUsed": false,
+            "ocrCanonicalEvidenceUsed": false,
+            "modelDowngradeUsed": false
+          }
+        }
+      },
+      "selectedExtraction": {
+        "overlayVersion": 1,
+        "status": "selected-evidence-deferred",
+        "runIdentity": "w25-card-extraction-20260820T204740Z-p273022-2cf4d5/sol-max-persistent-worker-25-20260820T224038Z-p308509-d39bf7/W25-001",
+        "runId": "w25-card-extraction-20260820T204740Z-p273022-2cf4d5",
+        "workerId": "sol-max-persistent-worker-25-20260820T224038Z-p308509-d39bf7",
+        "assetId": "W25-001",
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoop/objectiveCoop-016.jpg",
+        "sourceSha256": "755d74a481252909758bba60332e041aa0128d05536848d2160efb7dba7f76a0",
+        "runtime": {
+          "provider": "openai-codex",
+          "model": "gpt-5.6-sol",
+          "reasoningEffort": "max",
+          "nativeImageRoute": "direct persistent smoke-proven zero-tool blind session plus direct post-blind native validation",
+          "blindSessionId": "20260820_224505_f47c2f",
+          "adjudicationSessionId": "20260820_232654_1c2354",
+          "auxiliaryVisionUsed": false,
+          "qwenUsed": false,
+          "ocrCanonicalEvidenceUsed": false,
+          "modelDowngradeUsed": false
+        },
+        "blindObservationPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-25-20260820T224038Z-p308509-d39bf7/raw/W25-001.json",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-25-20260820T224038Z-p308509-d39bf7/results/W25-001.json",
+        "contactSheetPath": null,
+        "visibleText": {
+          "title": "SHUTDOWN",
+          "typeLine": "",
+          "body": "The Reactor (Section C)\nmust be shut down (by using the Room).",
+          "sections": [
+            "SHUTDOWN",
+            "The Reactor (Section C)\nmust be shut down (by using the Room).",
+            "SOLO / COOP"
+          ],
+          "footer": "SOLO / COOP",
+          "upperRight": "",
+          "lowerCenter": "SOLO / COOP",
+          "illegibleSpans": [
+            "Several overlapping yellow-band regions contain letter-like black printing whose run boundaries and individual letters cannot be distinguished.",
+            "On the middle band, characters preceding the clearly visible RANTINE are obscured by overlap and dark texture: [illegible]RANTINE.",
+            "On a lower crossing band, only the ending TINE is sufficiently distinct: [illegible]TINE.",
+            "On the lowest band, dark reddish texture obscures the characters preceding RANTINE: [illegible]RANTINE."
+          ],
+          "clippedSpans": [
+            "Highest yellow-band area, right run: QUA[clipped].",
+            "Immediately lower crossing band, left run: [clipped]NTINE.",
+            "Steep central diagonal band: QUARAN[clipped].",
+            "Middle band, right run: QUARANTI[clipped].",
+            "Lower-middle band, right run: QUARAN[clipped].",
+            "Lowest band, right run: QUARANTI[clipped]."
+          ]
+        },
+        "verifiedIconOccurrences": [],
+        "unresolvedIconOccurrences": [],
+        "canonicalTokensEmitted": [],
+        "allMaterialTextReadable": true,
+        "allMaterialIconsAuthoritativelyMatched": true,
+        "promotionDecision": "defer",
+        "decisionReasons": [
+          "Current-source fidelity gate is incomplete or failed: current-publisher-primary-same-title-non-counterpart.",
+          "No approved canonical mission-task or solo/coop-objective sidecar schema exists in cards/game."
+        ],
+        "conflictsWithPriorSnapshot": [
+          {
+            "field": "printedData.body",
+            "priorValue": "The Reactor (Section C)\nmust be shut down (by using the Room).",
+            "currentStatus": "superseded in selected evidence by direct-pixel normalized text and per-occurrence morphology",
+            "resolution": "preserve historical base snapshot; selected overlay carries exact current evidence without overwriting approved canonical data"
+          }
+        ]
+      },
+      "evidenceRuns": [
+        {
+          "runIdentity": "w25-card-extraction-20260820T204740Z-p273022-2cf4d5/sol-max-persistent-worker-25-20260820T224038Z-p308509-d39bf7/W25-001",
+          "runId": "w25-card-extraction-20260820T204740Z-p273022-2cf4d5",
+          "workerId": "sol-max-persistent-worker-25-20260820T224038Z-p308509-d39bf7",
+          "assetId": "W25-001",
+          "sourceSha256": "755d74a481252909758bba60332e041aa0128d05536848d2160efb7dba7f76a0",
+          "blindSessionId": "20260820_224505_f47c2f",
+          "adjudicationSessionId": "20260820_232654_1c2354",
+          "promotionDecision": "defer",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-25-20260820T224038Z-p308509-d39bf7/results/W25-001.json",
+          "selected": true
+        }
+      ]
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoop/objectiveCoop-061.jpg",
@@ -22716,34 +22850,171 @@
       "identity": {},
       "printedData": {
         "title": "NO CORNER UNCOVERED",
+        "typeLine": "",
         "body": "All Rooms of the B type\nmust be Discovered.",
+        "sections": [
+          "NO CORNER UNCOVERED",
+          "All Rooms of the B type\nmust be Discovered.",
+          "SOLO / COOP"
+        ],
         "footer": "SOLO / COOP",
-        "visibleText": "[ICON: yellow triangle with black biohazard glyph]\n[ICON: black biohazard glyph] QUARANTINE\n[ICON: black biohazard glyph] QUARANTINE\n[ICON: black biohazard glyph] QUARANTINE\n[ICON: black biohazard glyph] QUARANTINE"
+        "upperRight": "",
+        "lowerCenter": "SOLO / COOP",
+        "illegibleSpans": [
+          "Several overlapped or darkened yellow-strip regions contain black letter-like marks that cannot be divided into reliable words or fragments.",
+          "On the middle horizontal strip, characters before the visible RANTINE are obscured: [illegible]RANTINE.",
+          "On a lower descending strip, only TINE is sufficiently distinct: [illegible]TINE.",
+          "On the lowest strip, the characters before RANTIN are obscured by dark reddish texture."
+        ],
+        "clippedSpans": [
+          "Highest yellow-strip area, right run: QUA[clipped].",
+          "Immediately lower crossing strip, left run: [clipped]NTINE.",
+          "Steep central diagonal strip: QUARAN[clipped].",
+          "Middle strip, right run: QUARANTI[clipped].",
+          "Lower-middle strip, right run: QUARAN[clipped].",
+          "Lowest strip, left run: [illegible]RANTIN[clipped].",
+          "Lowest strip, right run: QUARANTI[clipped]."
+        ]
       },
       "symbols": {
         "canonicalGlossaryTokens": [],
         "unresolvedOrLocalTokens": [
-          "ICON: black biohazard glyph",
-          "ICON: yellow triangle with black biohazard glyph"
+          "clipped",
+          "illegible"
         ]
       },
       "uncertainties": [
-        "The biohazard glyph is not confidently represented by the supplied canonical glossary, so it is recorded literally.",
-        "Several additional QUARANTINE tape inscriptions are clipped, overlapped, blurred, or only partially visible and are therefore omitted rather than reconstructed."
+        "Overlap, dark stains, grain, and strip endpoints prevent a reliable complete transcription or count of all yellow-strip print runs.",
+        "Some nearby fragments may belong to the same physical strip rather than separate strips.",
+        "The apparent small radial mark on the highest strip is degraded enough that a stain or printing artifact remains a plausible alternative.",
+        "Fine internal details of the large triangular mark and the smallest repeated marks are softened by image texture.",
+        "The final letter after RANTIN on the lowest left strip is not sufficiently resolved and has not been completed.",
+        "The mirrored green side clusters may be decorative frame elements rather than functional symbols.",
+        "No explicit type line or canonical component label is visible.",
+        "No current publisher-primary face or operative wording was located for this assigned Solo/Coop title.",
+        "Current-source fidelity gate is incomplete or failed: licensed-digital-secondary-corroboration-only-no-primary-face.",
+        "No approved canonical mission-task or solo/coop-objective sidecar schema exists in cards/game."
       ],
-      "canonicalPromotionBlocker": "exact card identity/transcription/icon/category is not uniformly high-confidence",
+      "canonicalPromotionBlocker": "Current-source fidelity gate is incomplete or failed: licensed-digital-secondary-corroboration-only-no-primary-face.; No approved canonical mission-task or solo/coop-objective sidecar schema exists in cards/game.",
       "evidence": {
         "textBasis": "native vision draft; not canonical promotion",
         "visionProvider": "openai-codex",
         "visionModel": "gpt-5.6-sol",
-        "reasoningEffort": null,
-        "workerId": null,
-        "sessionId": "20260815_053223_c7b818",
-        "resultPath": "assets/tts-mod/extract/vision-results/399d5d96682f95850f3214635aa0616fe0c20309ddf2f2a2a79751300a75f09b.json",
-        "rawResultPath": null,
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-25-20260820T224038Z-p308509-d39bf7",
+        "sessionId": "20260820_224505_f47c2f",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-25-20260820T224038Z-p308509-d39bf7/results/W25-002.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-25-20260820T224038Z-p308509-d39bf7/raw/W25-002.json",
         "ledgerPath": "assets/tts-mod/extract/vision-progress.json",
-        "queuePath": "assets/tts-mod/extract/low-confidence-review.json"
-      }
+        "queuePath": "assets/tts-mod/extract/low-confidence-review.json",
+        "selectedExtraction": {
+          "runIdentity": "w25-card-extraction-20260820T204740Z-p273022-2cf4d5/sol-max-persistent-worker-25-20260820T224038Z-p308509-d39bf7/W25-002",
+          "runId": "w25-card-extraction-20260820T204740Z-p273022-2cf4d5",
+          "workerId": "sol-max-persistent-worker-25-20260820T224038Z-p308509-d39bf7",
+          "assetId": "W25-002",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-25-20260820T224038Z-p308509-d39bf7/results/W25-002.json",
+          "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-25-20260820T224038Z-p308509-d39bf7/raw/W25-002.json",
+          "contactSheetPath": null,
+          "promotionDecision": "defer",
+          "runtime": {
+            "provider": "openai-codex",
+            "model": "gpt-5.6-sol",
+            "reasoningEffort": "max",
+            "nativeImageRoute": "direct persistent smoke-proven zero-tool blind session plus direct post-blind native validation",
+            "blindSessionId": "20260820_224505_f47c2f",
+            "adjudicationSessionId": "20260820_232654_1c2354",
+            "auxiliaryVisionUsed": false,
+            "qwenUsed": false,
+            "ocrCanonicalEvidenceUsed": false,
+            "modelDowngradeUsed": false
+          }
+        }
+      },
+      "selectedExtraction": {
+        "overlayVersion": 1,
+        "status": "selected-evidence-deferred",
+        "runIdentity": "w25-card-extraction-20260820T204740Z-p273022-2cf4d5/sol-max-persistent-worker-25-20260820T224038Z-p308509-d39bf7/W25-002",
+        "runId": "w25-card-extraction-20260820T204740Z-p273022-2cf4d5",
+        "workerId": "sol-max-persistent-worker-25-20260820T224038Z-p308509-d39bf7",
+        "assetId": "W25-002",
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoop/objectiveCoop-061.jpg",
+        "sourceSha256": "399d5d96682f95850f3214635aa0616fe0c20309ddf2f2a2a79751300a75f09b",
+        "runtime": {
+          "provider": "openai-codex",
+          "model": "gpt-5.6-sol",
+          "reasoningEffort": "max",
+          "nativeImageRoute": "direct persistent smoke-proven zero-tool blind session plus direct post-blind native validation",
+          "blindSessionId": "20260820_224505_f47c2f",
+          "adjudicationSessionId": "20260820_232654_1c2354",
+          "auxiliaryVisionUsed": false,
+          "qwenUsed": false,
+          "ocrCanonicalEvidenceUsed": false,
+          "modelDowngradeUsed": false
+        },
+        "blindObservationPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-25-20260820T224038Z-p308509-d39bf7/raw/W25-002.json",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-25-20260820T224038Z-p308509-d39bf7/results/W25-002.json",
+        "contactSheetPath": null,
+        "visibleText": {
+          "title": "NO CORNER UNCOVERED",
+          "typeLine": "",
+          "body": "All Rooms of the B type\nmust be Discovered.",
+          "sections": [
+            "NO CORNER UNCOVERED",
+            "All Rooms of the B type\nmust be Discovered.",
+            "SOLO / COOP"
+          ],
+          "footer": "SOLO / COOP",
+          "upperRight": "",
+          "lowerCenter": "SOLO / COOP",
+          "illegibleSpans": [
+            "Several overlapped or darkened yellow-strip regions contain black letter-like marks that cannot be divided into reliable words or fragments.",
+            "On the middle horizontal strip, characters before the visible RANTINE are obscured: [illegible]RANTINE.",
+            "On a lower descending strip, only TINE is sufficiently distinct: [illegible]TINE.",
+            "On the lowest strip, the characters before RANTIN are obscured by dark reddish texture."
+          ],
+          "clippedSpans": [
+            "Highest yellow-strip area, right run: QUA[clipped].",
+            "Immediately lower crossing strip, left run: [clipped]NTINE.",
+            "Steep central diagonal strip: QUARAN[clipped].",
+            "Middle strip, right run: QUARANTI[clipped].",
+            "Lower-middle strip, right run: QUARAN[clipped].",
+            "Lowest strip, left run: [illegible]RANTIN[clipped].",
+            "Lowest strip, right run: QUARANTI[clipped]."
+          ]
+        },
+        "verifiedIconOccurrences": [],
+        "unresolvedIconOccurrences": [],
+        "canonicalTokensEmitted": [],
+        "allMaterialTextReadable": true,
+        "allMaterialIconsAuthoritativelyMatched": true,
+        "promotionDecision": "defer",
+        "decisionReasons": [
+          "Current-source fidelity gate is incomplete or failed: licensed-digital-secondary-corroboration-only-no-primary-face.",
+          "No approved canonical mission-task or solo/coop-objective sidecar schema exists in cards/game."
+        ],
+        "conflictsWithPriorSnapshot": [
+          {
+            "field": "printedData.body",
+            "priorValue": "All Rooms of the B type\nmust be Discovered.",
+            "currentStatus": "superseded in selected evidence by direct-pixel normalized text and per-occurrence morphology",
+            "resolution": "preserve historical base snapshot; selected overlay carries exact current evidence without overwriting approved canonical data"
+          }
+        ]
+      },
+      "evidenceRuns": [
+        {
+          "runIdentity": "w25-card-extraction-20260820T204740Z-p273022-2cf4d5/sol-max-persistent-worker-25-20260820T224038Z-p308509-d39bf7/W25-002",
+          "runId": "w25-card-extraction-20260820T204740Z-p273022-2cf4d5",
+          "workerId": "sol-max-persistent-worker-25-20260820T224038Z-p308509-d39bf7",
+          "assetId": "W25-002",
+          "sourceSha256": "399d5d96682f95850f3214635aa0616fe0c20309ddf2f2a2a79751300a75f09b",
+          "blindSessionId": "20260820_224505_f47c2f",
+          "adjudicationSessionId": "20260820_232654_1c2354",
+          "promotionDecision": "defer",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-25-20260820T224038Z-p308509-d39bf7/results/W25-002.json",
+          "selected": true
+        }
+      ]
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoop/objectiveCoop-063.jpg",
@@ -22757,36 +23028,189 @@
       "identity": {},
       "printedData": {
         "title": "SYSTEMS BACKUP",
+        "typeLine": "",
         "body": "The [robot] must be\nin the Reactor Room (Section C).",
+        "sections": [
+          "SYSTEMS BACKUP",
+          "The [robot] must be\nin the Reactor Room (Section C).",
+          "SOLO / COOP"
+        ],
         "footer": "SOLO / COOP",
-        "visibleText": "[ICON: yellow triangular sign with black three-lobed glyph]\n[ICON: black three-lobed glyph] QUARANTINE    QUA\nNTINE    [ICON: black three-lobed glyph] QUARANTINE\n[ICON: black three-lobed glyph] QUARANTI\nARANTINE    [ICON: black three-lobed glyph] QUARANTI\n[ICON: black three-lobed glyph] QUARANTI    [ICON: black three-lobed glyph] QUARAN\n[ICON: black three-lobed glyph] QUARANTINE\nANTINE    QUAR"
+        "upperRight": "",
+        "lowerCenter": "SOLO / COOP",
+        "illegibleSpans": [
+          "Several overlapped or darkened yellow-strip regions contain black letter-like printing that cannot be divided into reliable words or fragments.",
+          "On the middle horizontal strip, characters before the visible RANTINE are obscured: [illegible]RANTINE.",
+          "On a lower descending strip, only TINE is sufficiently distinct: [illegible]TINE.",
+          "On the lowest strip, dark reddish texture obscures the characters before RANTIN.",
+          "The body pictogram has no visible printed label establishing what object or category it denotes."
+        ],
+        "clippedSpans": [
+          "Highest yellow-strip area, right run: QUA[clipped].",
+          "Immediately lower crossing strip, left run: [clipped]NTINE.",
+          "Steep central diagonal strip: QUARAN[clipped].",
+          "Middle strip, right run: QUARANTI[clipped].",
+          "Lower-middle strip, right run: QUARAN[clipped].",
+          "Lowest strip, left run: [illegible]RANTIN[clipped].",
+          "Lowest strip, right run: QUARANTI[clipped]."
+        ]
       },
       "symbols": {
         "canonicalGlossaryTokens": [
           "robot"
         ],
         "unresolvedOrLocalTokens": [
-          "ICON: black three-lobed glyph",
-          "ICON: yellow triangular sign with black three-lobed glyph"
+          "clipped",
+          "illegible"
         ]
       },
       "uncertainties": [
-        "Several repeated tape inscriptions are overlapped, faded, angled, or clipped; only confidently legible fragments are transcribed and obscured letters are omitted.",
-        "The black three-lobed glyph repeated on the tape and triangular sign is absent from the supplied glossary, so it is described literally rather than assigned a canonical identifier."
+        "The white body pictogram has no printed label, so its semantic or canonical identity is not established by this image.",
+        "The precise curvature of the pictogram's top stem, lower tab, and side lobes is softened by antialiasing and image texture.",
+        "Overlap, dark stains, grain, and strip endpoints prevent a reliable complete transcription or count of all yellow-strip print runs.",
+        "Some nearby yellow-strip fragments may belong to the same physical strip rather than separate strips.",
+        "The apparent radial mark on the highest strip is degraded enough that a stain or printing artifact remains a plausible alternative.",
+        "The final letter after RANTIN on the lowest left strip is not sufficiently resolved and has not been completed.",
+        "The bright-green side bars appear integrated into the border and were not promoted to functional symbols; a decorative-versus-symbolic role remains uncertain.",
+        "No explicit type line or canonical component label is visible.",
+        "No current publisher-primary face or operative wording was located for this assigned Solo/Coop title.",
+        "Assigned TTS wording materially conflicts with the labeled licensed-digital secondary record; neither source is rewritten.",
+        "Current-source fidelity gate is incomplete or failed: licensed-digital-secondary-material-conflict-no-primary-face.",
+        "No approved canonical mission-task or solo/coop-objective sidecar schema exists in cards/game."
       ],
-      "canonicalPromotionBlocker": "exact card identity/transcription/icon/category is not uniformly high-confidence",
+      "canonicalPromotionBlocker": "Current-source fidelity gate is incomplete or failed: licensed-digital-secondary-material-conflict-no-primary-face.; No approved canonical mission-task or solo/coop-objective sidecar schema exists in cards/game.",
       "evidence": {
         "textBasis": "native vision draft; not canonical promotion",
         "visionProvider": "openai-codex",
         "visionModel": "gpt-5.6-sol",
-        "reasoningEffort": null,
-        "workerId": null,
-        "sessionId": "20260815_053232_28172d",
-        "resultPath": "assets/tts-mod/extract/vision-results/a9db66daeecae3e039e4e72b8f0e1ceb8d7fad4e46c6679b9eb0624b394d6155.json",
-        "rawResultPath": null,
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-25-20260820T224038Z-p308509-d39bf7",
+        "sessionId": "20260820_224505_f47c2f",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-25-20260820T224038Z-p308509-d39bf7/results/W25-003.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-25-20260820T224038Z-p308509-d39bf7/raw/W25-003.json",
         "ledgerPath": "assets/tts-mod/extract/vision-progress.json",
-        "queuePath": "assets/tts-mod/extract/low-confidence-review.json"
-      }
+        "queuePath": "assets/tts-mod/extract/low-confidence-review.json",
+        "selectedExtraction": {
+          "runIdentity": "w25-card-extraction-20260820T204740Z-p273022-2cf4d5/sol-max-persistent-worker-25-20260820T224038Z-p308509-d39bf7/W25-003",
+          "runId": "w25-card-extraction-20260820T204740Z-p273022-2cf4d5",
+          "workerId": "sol-max-persistent-worker-25-20260820T224038Z-p308509-d39bf7",
+          "assetId": "W25-003",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-25-20260820T224038Z-p308509-d39bf7/results/W25-003.json",
+          "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-25-20260820T224038Z-p308509-d39bf7/raw/W25-003.json",
+          "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-25-20260820T224038Z-p308509-d39bf7/qa/contact-sheets/W25-003-contact-sheet.png",
+          "promotionDecision": "defer",
+          "runtime": {
+            "provider": "openai-codex",
+            "model": "gpt-5.6-sol",
+            "reasoningEffort": "max",
+            "nativeImageRoute": "direct persistent smoke-proven zero-tool blind session plus direct post-blind native validation",
+            "blindSessionId": "20260820_224505_f47c2f",
+            "adjudicationSessionId": "20260820_232654_1c2354",
+            "auxiliaryVisionUsed": false,
+            "qwenUsed": false,
+            "ocrCanonicalEvidenceUsed": false,
+            "modelDowngradeUsed": false
+          }
+        }
+      },
+      "selectedExtraction": {
+        "overlayVersion": 1,
+        "status": "selected-evidence-deferred",
+        "runIdentity": "w25-card-extraction-20260820T204740Z-p273022-2cf4d5/sol-max-persistent-worker-25-20260820T224038Z-p308509-d39bf7/W25-003",
+        "runId": "w25-card-extraction-20260820T204740Z-p273022-2cf4d5",
+        "workerId": "sol-max-persistent-worker-25-20260820T224038Z-p308509-d39bf7",
+        "assetId": "W25-003",
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoop/objectiveCoop-063.jpg",
+        "sourceSha256": "a9db66daeecae3e039e4e72b8f0e1ceb8d7fad4e46c6679b9eb0624b394d6155",
+        "runtime": {
+          "provider": "openai-codex",
+          "model": "gpt-5.6-sol",
+          "reasoningEffort": "max",
+          "nativeImageRoute": "direct persistent smoke-proven zero-tool blind session plus direct post-blind native validation",
+          "blindSessionId": "20260820_224505_f47c2f",
+          "adjudicationSessionId": "20260820_232654_1c2354",
+          "auxiliaryVisionUsed": false,
+          "qwenUsed": false,
+          "ocrCanonicalEvidenceUsed": false,
+          "modelDowngradeUsed": false
+        },
+        "blindObservationPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-25-20260820T224038Z-p308509-d39bf7/raw/W25-003.json",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-25-20260820T224038Z-p308509-d39bf7/results/W25-003.json",
+        "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-25-20260820T224038Z-p308509-d39bf7/qa/contact-sheets/W25-003-contact-sheet.png",
+        "visibleText": {
+          "title": "SYSTEMS BACKUP",
+          "typeLine": "",
+          "body": "The [robot] must be\nin the Reactor Room (Section C).",
+          "sections": [
+            "SYSTEMS BACKUP",
+            "The [robot] must be\nin the Reactor Room (Section C).",
+            "SOLO / COOP"
+          ],
+          "footer": "SOLO / COOP",
+          "upperRight": "",
+          "lowerCenter": "SOLO / COOP",
+          "illegibleSpans": [
+            "Several overlapped or darkened yellow-strip regions contain black letter-like printing that cannot be divided into reliable words or fragments.",
+            "On the middle horizontal strip, characters before the visible RANTINE are obscured: [illegible]RANTINE.",
+            "On a lower descending strip, only TINE is sufficiently distinct: [illegible]TINE.",
+            "On the lowest strip, dark reddish texture obscures the characters before RANTIN.",
+            "The body pictogram has no visible printed label establishing what object or category it denotes."
+          ],
+          "clippedSpans": [
+            "Highest yellow-strip area, right run: QUA[clipped].",
+            "Immediately lower crossing strip, left run: [clipped]NTINE.",
+            "Steep central diagonal strip: QUARAN[clipped].",
+            "Middle strip, right run: QUARANTI[clipped].",
+            "Lower-middle strip, right run: QUARAN[clipped].",
+            "Lowest strip, left run: [illegible]RANTIN[clipped].",
+            "Lowest strip, right run: QUARANTI[clipped]."
+          ]
+        },
+        "verifiedIconOccurrences": [
+          {
+            "cardLocation": "Lower body panel, embedded in the first sentence line between The and must be.",
+            "referenceLabel": "Robot",
+            "matchDecision": "match",
+            "canonicalToken": "robot",
+            "closestAlternative": "Connector-housing-like pictogram",
+            "visibleDiscriminator": "The lower edge has one short centered tab rather than paired long connector prongs.",
+            "evidenceRun": "sol-max-persistent-worker-25-20260820T224038Z-p308509-d39bf7"
+          }
+        ],
+        "unresolvedIconOccurrences": [],
+        "canonicalTokensEmitted": [
+          "robot"
+        ],
+        "allMaterialTextReadable": true,
+        "allMaterialIconsAuthoritativelyMatched": true,
+        "promotionDecision": "defer",
+        "decisionReasons": [
+          "Current-source fidelity gate is incomplete or failed: licensed-digital-secondary-material-conflict-no-primary-face.",
+          "No approved canonical mission-task or solo/coop-objective sidecar schema exists in cards/game."
+        ],
+        "conflictsWithPriorSnapshot": [
+          {
+            "field": "printedData.body",
+            "priorValue": "The [robot] must be\nin the Reactor Room (Section C).",
+            "currentStatus": "superseded in selected evidence by direct-pixel normalized text and per-occurrence morphology",
+            "resolution": "preserve historical base snapshot; selected overlay carries exact current evidence without overwriting approved canonical data"
+          }
+        ]
+      },
+      "evidenceRuns": [
+        {
+          "runIdentity": "w25-card-extraction-20260820T204740Z-p273022-2cf4d5/sol-max-persistent-worker-25-20260820T224038Z-p308509-d39bf7/W25-003",
+          "runId": "w25-card-extraction-20260820T204740Z-p273022-2cf4d5",
+          "workerId": "sol-max-persistent-worker-25-20260820T224038Z-p308509-d39bf7",
+          "assetId": "W25-003",
+          "sourceSha256": "a9db66daeecae3e039e4e72b8f0e1ceb8d7fad4e46c6679b9eb0624b394d6155",
+          "blindSessionId": "20260820_224505_f47c2f",
+          "adjudicationSessionId": "20260820_232654_1c2354",
+          "promotionDecision": "defer",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-25-20260820T224038Z-p308509-d39bf7/results/W25-003.json",
+          "selected": true
+        }
+      ]
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoop/objectiveCoop-065.png",
@@ -22851,36 +23275,187 @@
       "identity": {},
       "printedData": {
         "title": "CULINARY SAMPLE",
+        "typeLine": "",
         "body": "A [character] must Escape from the Facility\nwith an Egg from the Nest (Section C).",
+        "sections": [
+          "CULINARY SAMPLE",
+          "A [character] must Escape from the Facility\nwith an Egg from the Nest (Section C).",
+          "SOLO / COOP"
+        ],
         "footer": "SOLO / COOP",
-        "visibleText": "[ICON: yellow triangular sign with black biohazard glyph]\nQUARANTINE\n[ICON: black biohazard glyph] QUARANTINE\n[ICON: black biohazard glyph] QUARANTINE\n[ICON: black biohazard glyph] QUARANTINE"
+        "upperRight": "",
+        "lowerCenter": "SOLO / COOP",
+        "illegibleSpans": [
+          "Several overlapped or darkened yellow-strip regions contain black letter-like printing that cannot be divided into reliable words or fragments.",
+          "On the middle horizontal strip, characters before the visible RANTINE are obscured: [illegible]RANTINE.",
+          "On a lower descending strip, only TINE is sufficiently distinct: [illegible]TINE.",
+          "On the lowest strip, dark reddish texture obscures the characters before RANTIN."
+        ],
+        "clippedSpans": [
+          "Highest yellow-strip area, right run: QUA[clipped].",
+          "Immediately lower crossing strip, left run: [clipped]NTINE.",
+          "Steep central diagonal strip: QUARAN[clipped].",
+          "Middle strip, right run: QUARANTI[clipped].",
+          "Lower-middle strip, right run: QUARAN[clipped].",
+          "Lowest strip, left run: [illegible]RANTIN[clipped].",
+          "Lowest strip, right run: QUARANTI[clipped]."
+        ]
       },
       "symbols": {
         "canonicalGlossaryTokens": [
           "character"
         ],
         "unresolvedOrLocalTokens": [
-          "ICON: black biohazard glyph",
-          "ICON: yellow triangular sign with black biohazard glyph"
+          "clipped",
+          "illegible"
         ]
       },
       "uncertainties": [
-        "Several additional quarantine-tape inscriptions are partially occluded, blurred, or clipped and are not reconstructed.",
-        "The repeated black biohazard glyphs are not present in the canonical glossary and appear to be decorative elements of the illustration."
+        "The white body pictogram has no printed label, so its semantic or canonical identity is not established by this image.",
+        "The smallest internal marks of the white pictogram are softened by antialiasing and image texture.",
+        "Overlap, dark stains, grain, and strip endpoints prevent a reliable complete transcription or count of all yellow-strip print runs.",
+        "Some nearby yellow-strip fragments may belong to the same physical strip rather than separate strips.",
+        "The apparent radial mark on the highest strip is degraded enough that a stain or printing artifact remains a plausible alternative.",
+        "The final letter after RANTIN on the lowest left strip is not sufficiently resolved and has not been completed.",
+        "The bright-green side bars appear integrated into the border and were not promoted to functional symbols; a decorative-versus-symbolic role remains uncertain.",
+        "No explicit type line or canonical component label is visible.",
+        "No current publisher-primary face or operative wording was located for this assigned Solo/Coop title.",
+        "Assigned TTS wording materially conflicts with the labeled licensed-digital secondary record; neither source is rewritten.",
+        "Current-source fidelity gate is incomplete or failed: licensed-digital-secondary-material-conflict-no-primary-face.",
+        "No approved canonical mission-task or solo/coop-objective sidecar schema exists in cards/game."
       ],
-      "canonicalPromotionBlocker": "exact card identity/transcription/icon/category is not uniformly high-confidence",
+      "canonicalPromotionBlocker": "Current-source fidelity gate is incomplete or failed: licensed-digital-secondary-material-conflict-no-primary-face.; No approved canonical mission-task or solo/coop-objective sidecar schema exists in cards/game.",
       "evidence": {
         "textBasis": "native vision draft; not canonical promotion",
         "visionProvider": "openai-codex",
         "visionModel": "gpt-5.6-sol",
-        "reasoningEffort": null,
-        "workerId": null,
-        "sessionId": "20260815_053253_1c765a",
-        "resultPath": "assets/tts-mod/extract/vision-results/f046bb036d1a7b3556faf8d3e48858ef6827590015f5721c919e018b22fb3862.json",
-        "rawResultPath": null,
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-25-20260820T224038Z-p308509-d39bf7",
+        "sessionId": "20260820_224505_f47c2f",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-25-20260820T224038Z-p308509-d39bf7/results/W25-004.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-25-20260820T224038Z-p308509-d39bf7/raw/W25-004.json",
         "ledgerPath": "assets/tts-mod/extract/vision-progress.json",
-        "queuePath": "assets/tts-mod/extract/low-confidence-review.json"
-      }
+        "queuePath": "assets/tts-mod/extract/low-confidence-review.json",
+        "selectedExtraction": {
+          "runIdentity": "w25-card-extraction-20260820T204740Z-p273022-2cf4d5/sol-max-persistent-worker-25-20260820T224038Z-p308509-d39bf7/W25-004",
+          "runId": "w25-card-extraction-20260820T204740Z-p273022-2cf4d5",
+          "workerId": "sol-max-persistent-worker-25-20260820T224038Z-p308509-d39bf7",
+          "assetId": "W25-004",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-25-20260820T224038Z-p308509-d39bf7/results/W25-004.json",
+          "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-25-20260820T224038Z-p308509-d39bf7/raw/W25-004.json",
+          "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-25-20260820T224038Z-p308509-d39bf7/qa/contact-sheets/W25-004-contact-sheet.png",
+          "promotionDecision": "defer",
+          "runtime": {
+            "provider": "openai-codex",
+            "model": "gpt-5.6-sol",
+            "reasoningEffort": "max",
+            "nativeImageRoute": "direct persistent smoke-proven zero-tool blind session plus direct post-blind native validation",
+            "blindSessionId": "20260820_224505_f47c2f",
+            "adjudicationSessionId": "20260820_232654_1c2354",
+            "auxiliaryVisionUsed": false,
+            "qwenUsed": false,
+            "ocrCanonicalEvidenceUsed": false,
+            "modelDowngradeUsed": false
+          }
+        }
+      },
+      "selectedExtraction": {
+        "overlayVersion": 1,
+        "status": "selected-evidence-deferred",
+        "runIdentity": "w25-card-extraction-20260820T204740Z-p273022-2cf4d5/sol-max-persistent-worker-25-20260820T224038Z-p308509-d39bf7/W25-004",
+        "runId": "w25-card-extraction-20260820T204740Z-p273022-2cf4d5",
+        "workerId": "sol-max-persistent-worker-25-20260820T224038Z-p308509-d39bf7",
+        "assetId": "W25-004",
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoop/objectiveCoop-078.jpg",
+        "sourceSha256": "f046bb036d1a7b3556faf8d3e48858ef6827590015f5721c919e018b22fb3862",
+        "runtime": {
+          "provider": "openai-codex",
+          "model": "gpt-5.6-sol",
+          "reasoningEffort": "max",
+          "nativeImageRoute": "direct persistent smoke-proven zero-tool blind session plus direct post-blind native validation",
+          "blindSessionId": "20260820_224505_f47c2f",
+          "adjudicationSessionId": "20260820_232654_1c2354",
+          "auxiliaryVisionUsed": false,
+          "qwenUsed": false,
+          "ocrCanonicalEvidenceUsed": false,
+          "modelDowngradeUsed": false
+        },
+        "blindObservationPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-25-20260820T224038Z-p308509-d39bf7/raw/W25-004.json",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-25-20260820T224038Z-p308509-d39bf7/results/W25-004.json",
+        "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-25-20260820T224038Z-p308509-d39bf7/qa/contact-sheets/W25-004-contact-sheet.png",
+        "visibleText": {
+          "title": "CULINARY SAMPLE",
+          "typeLine": "",
+          "body": "A [character] must Escape from the Facility\nwith an Egg from the Nest (Section C).",
+          "sections": [
+            "CULINARY SAMPLE",
+            "A [character] must Escape from the Facility\nwith an Egg from the Nest (Section C).",
+            "SOLO / COOP"
+          ],
+          "footer": "SOLO / COOP",
+          "upperRight": "",
+          "lowerCenter": "SOLO / COOP",
+          "illegibleSpans": [
+            "Several overlapped or darkened yellow-strip regions contain black letter-like printing that cannot be divided into reliable words or fragments.",
+            "On the middle horizontal strip, characters before the visible RANTINE are obscured: [illegible]RANTINE.",
+            "On a lower descending strip, only TINE is sufficiently distinct: [illegible]TINE.",
+            "On the lowest strip, dark reddish texture obscures the characters before RANTIN."
+          ],
+          "clippedSpans": [
+            "Highest yellow-strip area, right run: QUA[clipped].",
+            "Immediately lower crossing strip, left run: [clipped]NTINE.",
+            "Steep central diagonal strip: QUARAN[clipped].",
+            "Middle strip, right run: QUARANTI[clipped].",
+            "Lower-middle strip, right run: QUARAN[clipped].",
+            "Lowest strip, left run: [illegible]RANTIN[clipped].",
+            "Lowest strip, right run: QUARANTI[clipped]."
+          ]
+        },
+        "verifiedIconOccurrences": [
+          {
+            "cardLocation": "Lower body panel, embedded in the first sentence line between A and must.",
+            "referenceLabel": "Character",
+            "matchDecision": "match",
+            "canonicalToken": "character",
+            "closestAlternative": "A compact front-facing robot-like figure with a continuous pawn-like lower base",
+            "visibleDiscriminator": "The source has two short legs separated by a dark central gap rather than one continuous lower base.",
+            "evidenceRun": "sol-max-persistent-worker-25-20260820T224038Z-p308509-d39bf7"
+          }
+        ],
+        "unresolvedIconOccurrences": [],
+        "canonicalTokensEmitted": [
+          "character"
+        ],
+        "allMaterialTextReadable": true,
+        "allMaterialIconsAuthoritativelyMatched": true,
+        "promotionDecision": "defer",
+        "decisionReasons": [
+          "Current-source fidelity gate is incomplete or failed: licensed-digital-secondary-material-conflict-no-primary-face.",
+          "No approved canonical mission-task or solo/coop-objective sidecar schema exists in cards/game."
+        ],
+        "conflictsWithPriorSnapshot": [
+          {
+            "field": "printedData.body",
+            "priorValue": "A [character] must Escape from the Facility\nwith an Egg from the Nest (Section C).",
+            "currentStatus": "superseded in selected evidence by direct-pixel normalized text and per-occurrence morphology",
+            "resolution": "preserve historical base snapshot; selected overlay carries exact current evidence without overwriting approved canonical data"
+          }
+        ]
+      },
+      "evidenceRuns": [
+        {
+          "runIdentity": "w25-card-extraction-20260820T204740Z-p273022-2cf4d5/sol-max-persistent-worker-25-20260820T224038Z-p308509-d39bf7/W25-004",
+          "runId": "w25-card-extraction-20260820T204740Z-p273022-2cf4d5",
+          "workerId": "sol-max-persistent-worker-25-20260820T224038Z-p308509-d39bf7",
+          "assetId": "W25-004",
+          "sourceSha256": "f046bb036d1a7b3556faf8d3e48858ef6827590015f5721c919e018b22fb3862",
+          "blindSessionId": "20260820_224505_f47c2f",
+          "adjudicationSessionId": "20260820_232654_1c2354",
+          "promotionDecision": "defer",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-25-20260820T224038Z-p308509-d39bf7/results/W25-004.json",
+          "selected": true
+        }
+      ]
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoop/objectiveCoop-081.jpg",
@@ -22889,36 +23464,174 @@
       "componentFamily": "game/objectiveCoop",
       "ledgerStatus": "deferred",
       "extractionState": "draft-full",
-      "rulesInformationReadiness": "draft-text-complete",
+      "rulesInformationReadiness": "draft-text-complete-symbols-unresolved",
       "rulesTextPresent": true,
       "identity": {},
       "printedData": {
         "title": "DEEP SEARCH",
+        "typeLine": "",
         "body": "All Rooms of the C type\nmust be Discovered.",
+        "sections": [
+          "DEEP SEARCH",
+          "All Rooms of the C type\nmust be Discovered.",
+          "SOLO / COOP"
+        ],
         "footer": "SOLO / COOP",
-        "visibleText": "QUARANTINE\nQUARANTINE\nQUARANTINE"
+        "upperRight": "",
+        "lowerCenter": "SOLO / COOP",
+        "illegibleSpans": [
+          "Several overlapped or darkened yellow-strip regions contain black letter-like printing that cannot be divided into reliable words or fragments.",
+          "On the middle horizontal strip, characters before the visible RANTINE are obscured: [illegible]RANTINE.",
+          "On a lower descending strip, only TINE is sufficiently distinct: [illegible]TINE.",
+          "On the lowest strip, dark reddish texture obscures the characters before RANTIN and the immediately following character or characters: [illegible]RANTIN[illegible]."
+        ],
+        "clippedSpans": [
+          "Highest yellow-strip area, right run: QUA[clipped].",
+          "Immediately lower crossing strip, left run: [clipped]NTINE.",
+          "Steep central diagonal strip: QUARAN[clipped].",
+          "Middle strip, right run: QUARANTI[clipped].",
+          "Lower-middle strip, right run: QUARAN[clipped].",
+          "Lowest strip, right run: QUARANTI[clipped]."
+        ]
       },
       "symbols": {
         "canonicalGlossaryTokens": [],
-        "unresolvedOrLocalTokens": []
+        "unresolvedOrLocalTokens": [
+          "clipped",
+          "illegible"
+        ]
       },
       "uncertainties": [
-        "Several additional QUARANTINE tape inscriptions are clipped, obscured, or only partially legible and were not transcribed.",
-        "The biohazard glyphs are part of the illustration and have no confident match in the supplied canonical icon glossary."
+        "Overlap, dark stains, grain, and strip endpoints prevent a reliable complete transcription or count of all yellow-strip print runs.",
+        "Some nearby yellow-strip fragments may belong to the same physical strip rather than separate strips.",
+        "The apparent radial mark on the highest strip is degraded enough that a stain or printing artifact remains a plausible alternative.",
+        "Fine internal details of the triangular and repeated radial marks are softened by image texture.",
+        "The character or characters immediately after RANTIN on the lowest left strip are not sufficiently resolved and have not been completed.",
+        "The bright-green side bars appear integrated into the border and were not promoted to functional symbols; a decorative-versus-symbolic role remains uncertain.",
+        "No explicit type line or canonical component label is visible.",
+        "No current publisher-primary face or operative wording was located for this assigned Solo/Coop title.",
+        "Current-source fidelity gate is incomplete or failed: licensed-digital-secondary-corroboration-only-no-primary-face.",
+        "No approved canonical mission-task or solo/coop-objective sidecar schema exists in cards/game."
       ],
-      "canonicalPromotionBlocker": "exact card identity/transcription/icon/category is not uniformly high-confidence",
+      "canonicalPromotionBlocker": "Current-source fidelity gate is incomplete or failed: licensed-digital-secondary-corroboration-only-no-primary-face.; No approved canonical mission-task or solo/coop-objective sidecar schema exists in cards/game.",
       "evidence": {
         "textBasis": "native vision draft; not canonical promotion",
         "visionProvider": "openai-codex",
         "visionModel": "gpt-5.6-sol",
-        "reasoningEffort": null,
-        "workerId": null,
-        "sessionId": "20260815_053540_d6369e",
-        "resultPath": "assets/tts-mod/extract/vision-results/e86422969d427c2f63defa0ff927e8f69b13040260a95b8ebf3df5712a7d7a5b.json",
-        "rawResultPath": null,
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-25-20260820T224038Z-p308509-d39bf7",
+        "sessionId": "20260820_224505_f47c2f",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-25-20260820T224038Z-p308509-d39bf7/results/W25-005.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-25-20260820T224038Z-p308509-d39bf7/raw/W25-005.json",
         "ledgerPath": "assets/tts-mod/extract/vision-progress.json",
-        "queuePath": "assets/tts-mod/extract/low-confidence-review.json"
-      }
+        "queuePath": "assets/tts-mod/extract/low-confidence-review.json",
+        "selectedExtraction": {
+          "runIdentity": "w25-card-extraction-20260820T204740Z-p273022-2cf4d5/sol-max-persistent-worker-25-20260820T224038Z-p308509-d39bf7/W25-005",
+          "runId": "w25-card-extraction-20260820T204740Z-p273022-2cf4d5",
+          "workerId": "sol-max-persistent-worker-25-20260820T224038Z-p308509-d39bf7",
+          "assetId": "W25-005",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-25-20260820T224038Z-p308509-d39bf7/results/W25-005.json",
+          "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-25-20260820T224038Z-p308509-d39bf7/raw/W25-005.json",
+          "contactSheetPath": null,
+          "promotionDecision": "defer",
+          "runtime": {
+            "provider": "openai-codex",
+            "model": "gpt-5.6-sol",
+            "reasoningEffort": "max",
+            "nativeImageRoute": "direct persistent smoke-proven zero-tool blind session plus direct post-blind native validation",
+            "blindSessionId": "20260820_224505_f47c2f",
+            "adjudicationSessionId": "20260820_232654_1c2354",
+            "auxiliaryVisionUsed": false,
+            "qwenUsed": false,
+            "ocrCanonicalEvidenceUsed": false,
+            "modelDowngradeUsed": false
+          }
+        }
+      },
+      "selectedExtraction": {
+        "overlayVersion": 1,
+        "status": "selected-evidence-deferred",
+        "runIdentity": "w25-card-extraction-20260820T204740Z-p273022-2cf4d5/sol-max-persistent-worker-25-20260820T224038Z-p308509-d39bf7/W25-005",
+        "runId": "w25-card-extraction-20260820T204740Z-p273022-2cf4d5",
+        "workerId": "sol-max-persistent-worker-25-20260820T224038Z-p308509-d39bf7",
+        "assetId": "W25-005",
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoop/objectiveCoop-081.jpg",
+        "sourceSha256": "e86422969d427c2f63defa0ff927e8f69b13040260a95b8ebf3df5712a7d7a5b",
+        "runtime": {
+          "provider": "openai-codex",
+          "model": "gpt-5.6-sol",
+          "reasoningEffort": "max",
+          "nativeImageRoute": "direct persistent smoke-proven zero-tool blind session plus direct post-blind native validation",
+          "blindSessionId": "20260820_224505_f47c2f",
+          "adjudicationSessionId": "20260820_232654_1c2354",
+          "auxiliaryVisionUsed": false,
+          "qwenUsed": false,
+          "ocrCanonicalEvidenceUsed": false,
+          "modelDowngradeUsed": false
+        },
+        "blindObservationPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-25-20260820T224038Z-p308509-d39bf7/raw/W25-005.json",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-25-20260820T224038Z-p308509-d39bf7/results/W25-005.json",
+        "contactSheetPath": null,
+        "visibleText": {
+          "title": "DEEP SEARCH",
+          "typeLine": "",
+          "body": "All Rooms of the C type\nmust be Discovered.",
+          "sections": [
+            "DEEP SEARCH",
+            "All Rooms of the C type\nmust be Discovered.",
+            "SOLO / COOP"
+          ],
+          "footer": "SOLO / COOP",
+          "upperRight": "",
+          "lowerCenter": "SOLO / COOP",
+          "illegibleSpans": [
+            "Several overlapped or darkened yellow-strip regions contain black letter-like printing that cannot be divided into reliable words or fragments.",
+            "On the middle horizontal strip, characters before the visible RANTINE are obscured: [illegible]RANTINE.",
+            "On a lower descending strip, only TINE is sufficiently distinct: [illegible]TINE.",
+            "On the lowest strip, dark reddish texture obscures the characters before RANTIN and the immediately following character or characters: [illegible]RANTIN[illegible]."
+          ],
+          "clippedSpans": [
+            "Highest yellow-strip area, right run: QUA[clipped].",
+            "Immediately lower crossing strip, left run: [clipped]NTINE.",
+            "Steep central diagonal strip: QUARAN[clipped].",
+            "Middle strip, right run: QUARANTI[clipped].",
+            "Lower-middle strip, right run: QUARAN[clipped].",
+            "Lowest strip, right run: QUARANTI[clipped]."
+          ]
+        },
+        "verifiedIconOccurrences": [],
+        "unresolvedIconOccurrences": [],
+        "canonicalTokensEmitted": [],
+        "allMaterialTextReadable": true,
+        "allMaterialIconsAuthoritativelyMatched": true,
+        "promotionDecision": "defer",
+        "decisionReasons": [
+          "Current-source fidelity gate is incomplete or failed: licensed-digital-secondary-corroboration-only-no-primary-face.",
+          "No approved canonical mission-task or solo/coop-objective sidecar schema exists in cards/game."
+        ],
+        "conflictsWithPriorSnapshot": [
+          {
+            "field": "printedData.body",
+            "priorValue": "All Rooms of the C type\nmust be Discovered.",
+            "currentStatus": "superseded in selected evidence by direct-pixel normalized text and per-occurrence morphology",
+            "resolution": "preserve historical base snapshot; selected overlay carries exact current evidence without overwriting approved canonical data"
+          }
+        ]
+      },
+      "evidenceRuns": [
+        {
+          "runIdentity": "w25-card-extraction-20260820T204740Z-p273022-2cf4d5/sol-max-persistent-worker-25-20260820T224038Z-p308509-d39bf7/W25-005",
+          "runId": "w25-card-extraction-20260820T204740Z-p273022-2cf4d5",
+          "workerId": "sol-max-persistent-worker-25-20260820T224038Z-p308509-d39bf7",
+          "assetId": "W25-005",
+          "sourceSha256": "e86422969d427c2f63defa0ff927e8f69b13040260a95b8ebf3df5712a7d7a5b",
+          "blindSessionId": "20260820_224505_f47c2f",
+          "adjudicationSessionId": "20260820_232654_1c2354",
+          "promotionDecision": "defer",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-25-20260820T224038Z-p308509-d39bf7/results/W25-005.json",
+          "selected": true
+        }
+      ]
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoop/objectiveCoop-109.jpg",
@@ -22932,34 +23645,169 @@
       "identity": {},
       "printedData": {
         "title": "FACEOFF",
+        "typeLine": "",
         "body": "The Queen must be dead.",
+        "sections": [
+          "FACEOFF",
+          "The Queen must be dead.",
+          "SOLO / COOP"
+        ],
         "footer": "SOLO / COOP",
-        "visibleText": "[ICON: yellow triangle with black biohazard glyph]\nQUARANTINE\n[ICON: black biohazard glyph on yellow tape] QUARANTINE\n[ICON: black biohazard glyph on yellow tape] QUARANTINE"
+        "upperRight": "",
+        "lowerCenter": "SOLO / COOP",
+        "illegibleSpans": [
+          "Several overlapped or darkened yellow-strip regions contain black letter-like printing that cannot be divided into reliable words or fragments.",
+          "On the middle horizontal strip, characters before the visible RANTINE are obscured: [illegible]RANTINE.",
+          "On a lower descending strip, only TINE is sufficiently distinct: [illegible]TINE.",
+          "On the lowest strip, dark reddish texture obscures the characters before RANTIN and the immediately following character or characters: [illegible]RANTIN[illegible]."
+        ],
+        "clippedSpans": [
+          "Highest yellow-strip area, right run: QUA[clipped].",
+          "Immediately lower crossing strip, left run: [clipped]NTINE.",
+          "Steep central diagonal strip: QUARAN[clipped].",
+          "Middle strip, right run: QUARANTI[clipped].",
+          "Lower-middle shallow strip: QUARANTIN[clipped].",
+          "Lower rising strip, right run: QUARAN[clipped].",
+          "Lowest strip, right run: QUARANTI[clipped]."
+        ]
       },
       "symbols": {
         "canonicalGlossaryTokens": [],
         "unresolvedOrLocalTokens": [
-          "ICON: black biohazard glyph on yellow tape",
-          "ICON: yellow triangle with black biohazard glyph"
+          "clipped",
+          "illegible"
         ]
       },
       "uncertainties": [
-        "The biohazard-like glyph is not present in the supplied canonical glossary, so it is recorded literally rather than assigned a canonical identifier.",
-        "Several additional repetitions and fragments of lettering on the yellow tape are clipped, overlapped, stained, or degraded; they have not been reconstructed or transcribed as complete words."
+        "Overlap, dark stains, grain, and strip endpoints prevent a reliable complete transcription or count of all yellow-strip print runs.",
+        "Some nearby yellow-strip fragments may belong to the same physical strip rather than separate strips.",
+        "The apparent radial mark on the highest strip is degraded enough that a stain or printing artifact remains a plausible alternative.",
+        "Fine internal details of the triangular and repeated radial marks are softened by image texture.",
+        "The final letter of QUARANTIN on the lower-middle shallow strip is not sufficiently visible and has not been completed.",
+        "The character or characters immediately after RANTIN on the lowest left strip are not sufficiently resolved and have not been completed.",
+        "The bright-green side bars appear integrated into the border and were not promoted to functional symbols; a decorative-versus-symbolic role remains uncertain.",
+        "No explicit type line or canonical component label is visible.",
+        "No approved canonical mission-task or solo/coop-objective sidecar schema exists in cards/game."
       ],
-      "canonicalPromotionBlocker": "exact card identity/transcription/icon/category is not uniformly high-confidence",
+      "canonicalPromotionBlocker": "No approved canonical mission-task or solo/coop-objective sidecar schema exists in cards/game.",
       "evidence": {
         "textBasis": "native vision draft; not canonical promotion",
         "visionProvider": "openai-codex",
         "visionModel": "gpt-5.6-sol",
-        "reasoningEffort": null,
-        "workerId": null,
-        "sessionId": "20260815_053322_b6812f",
-        "resultPath": "assets/tts-mod/extract/vision-results/5a5d5ed6d8b686f5c6a702ccae176eac320bf8dc2e63303eb22cc18636f2dc19.json",
-        "rawResultPath": null,
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-25-20260820T224038Z-p308509-d39bf7",
+        "sessionId": "20260820_224505_f47c2f",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-25-20260820T224038Z-p308509-d39bf7/results/W25-006.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-25-20260820T224038Z-p308509-d39bf7/raw/W25-006.json",
         "ledgerPath": "assets/tts-mod/extract/vision-progress.json",
-        "queuePath": "assets/tts-mod/extract/low-confidence-review.json"
-      }
+        "queuePath": "assets/tts-mod/extract/low-confidence-review.json",
+        "selectedExtraction": {
+          "runIdentity": "w25-card-extraction-20260820T204740Z-p273022-2cf4d5/sol-max-persistent-worker-25-20260820T224038Z-p308509-d39bf7/W25-006",
+          "runId": "w25-card-extraction-20260820T204740Z-p273022-2cf4d5",
+          "workerId": "sol-max-persistent-worker-25-20260820T224038Z-p308509-d39bf7",
+          "assetId": "W25-006",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-25-20260820T224038Z-p308509-d39bf7/results/W25-006.json",
+          "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-25-20260820T224038Z-p308509-d39bf7/raw/W25-006.json",
+          "contactSheetPath": null,
+          "promotionDecision": "defer",
+          "runtime": {
+            "provider": "openai-codex",
+            "model": "gpt-5.6-sol",
+            "reasoningEffort": "max",
+            "nativeImageRoute": "direct persistent smoke-proven zero-tool blind session plus direct post-blind native validation",
+            "blindSessionId": "20260820_224505_f47c2f",
+            "adjudicationSessionId": "20260820_232654_1c2354",
+            "auxiliaryVisionUsed": false,
+            "qwenUsed": false,
+            "ocrCanonicalEvidenceUsed": false,
+            "modelDowngradeUsed": false
+          }
+        }
+      },
+      "selectedExtraction": {
+        "overlayVersion": 1,
+        "status": "selected-evidence-deferred",
+        "runIdentity": "w25-card-extraction-20260820T204740Z-p273022-2cf4d5/sol-max-persistent-worker-25-20260820T224038Z-p308509-d39bf7/W25-006",
+        "runId": "w25-card-extraction-20260820T204740Z-p273022-2cf4d5",
+        "workerId": "sol-max-persistent-worker-25-20260820T224038Z-p308509-d39bf7",
+        "assetId": "W25-006",
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoop/objectiveCoop-109.jpg",
+        "sourceSha256": "5a5d5ed6d8b686f5c6a702ccae176eac320bf8dc2e63303eb22cc18636f2dc19",
+        "runtime": {
+          "provider": "openai-codex",
+          "model": "gpt-5.6-sol",
+          "reasoningEffort": "max",
+          "nativeImageRoute": "direct persistent smoke-proven zero-tool blind session plus direct post-blind native validation",
+          "blindSessionId": "20260820_224505_f47c2f",
+          "adjudicationSessionId": "20260820_232654_1c2354",
+          "auxiliaryVisionUsed": false,
+          "qwenUsed": false,
+          "ocrCanonicalEvidenceUsed": false,
+          "modelDowngradeUsed": false
+        },
+        "blindObservationPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-25-20260820T224038Z-p308509-d39bf7/raw/W25-006.json",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-25-20260820T224038Z-p308509-d39bf7/results/W25-006.json",
+        "contactSheetPath": null,
+        "visibleText": {
+          "title": "FACEOFF",
+          "typeLine": "",
+          "body": "The Queen must be dead.",
+          "sections": [
+            "FACEOFF",
+            "The Queen must be dead.",
+            "SOLO / COOP"
+          ],
+          "footer": "SOLO / COOP",
+          "upperRight": "",
+          "lowerCenter": "SOLO / COOP",
+          "illegibleSpans": [
+            "Several overlapped or darkened yellow-strip regions contain black letter-like printing that cannot be divided into reliable words or fragments.",
+            "On the middle horizontal strip, characters before the visible RANTINE are obscured: [illegible]RANTINE.",
+            "On a lower descending strip, only TINE is sufficiently distinct: [illegible]TINE.",
+            "On the lowest strip, dark reddish texture obscures the characters before RANTIN and the immediately following character or characters: [illegible]RANTIN[illegible]."
+          ],
+          "clippedSpans": [
+            "Highest yellow-strip area, right run: QUA[clipped].",
+            "Immediately lower crossing strip, left run: [clipped]NTINE.",
+            "Steep central diagonal strip: QUARAN[clipped].",
+            "Middle strip, right run: QUARANTI[clipped].",
+            "Lower-middle shallow strip: QUARANTIN[clipped].",
+            "Lower rising strip, right run: QUARAN[clipped].",
+            "Lowest strip, right run: QUARANTI[clipped]."
+          ]
+        },
+        "verifiedIconOccurrences": [],
+        "unresolvedIconOccurrences": [],
+        "canonicalTokensEmitted": [],
+        "allMaterialTextReadable": true,
+        "allMaterialIconsAuthoritativelyMatched": true,
+        "promotionDecision": "defer",
+        "decisionReasons": [
+          "No approved canonical mission-task or solo/coop-objective sidecar schema exists in cards/game."
+        ],
+        "conflictsWithPriorSnapshot": [
+          {
+            "field": "printedData.body",
+            "priorValue": "The Queen must be dead.",
+            "currentStatus": "superseded in selected evidence by direct-pixel normalized text and per-occurrence morphology",
+            "resolution": "preserve historical base snapshot; selected overlay carries exact current evidence without overwriting approved canonical data"
+          }
+        ]
+      },
+      "evidenceRuns": [
+        {
+          "runIdentity": "w25-card-extraction-20260820T204740Z-p273022-2cf4d5/sol-max-persistent-worker-25-20260820T224038Z-p308509-d39bf7/W25-006",
+          "runId": "w25-card-extraction-20260820T204740Z-p273022-2cf4d5",
+          "workerId": "sol-max-persistent-worker-25-20260820T224038Z-p308509-d39bf7",
+          "assetId": "W25-006",
+          "sourceSha256": "5a5d5ed6d8b686f5c6a702ccae176eac320bf8dc2e63303eb22cc18636f2dc19",
+          "blindSessionId": "20260820_224505_f47c2f",
+          "adjudicationSessionId": "20260820_232654_1c2354",
+          "promotionDecision": "defer",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-25-20260820T224038Z-p308509-d39bf7/results/W25-006.json",
+          "selected": true
+        }
+      ]
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoop/objectiveCoop-113.jpg",
@@ -22973,35 +23821,173 @@
       "identity": {},
       "printedData": {
         "title": "ENTRANCE INSPECTION",
+        "typeLine": "",
         "body": "There must be no Unexplored\nCorridors in Section A.",
+        "sections": [
+          "ENTRANCE INSPECTION",
+          "There must be no Unexplored\nCorridors in Section A.",
+          "SOLO / COOP"
+        ],
         "footer": "SOLO / COOP",
-        "visibleText": "[ICON: yellow triangular warning sign with black biohazard glyph]\n[ICON: black biohazard glyph] QUARANTINE\n[ICON: black biohazard glyph] QUARANTINE\n[ICON: black biohazard glyph] QUARANTINE\n[ICON: black biohazard glyph] QUARANTINE"
+        "upperRight": "",
+        "lowerCenter": "SOLO / COOP",
+        "illegibleSpans": [
+          "Several overlapped or darkened yellow-strip regions contain black letter-like printing that cannot be divided into reliable words or fragments.",
+          "On the middle horizontal strip, characters before the visible RANTINE are obscured: [illegible]RANTINE.",
+          "On a lower descending strip, only TINE is sufficiently distinct: [illegible]TINE.",
+          "On the lowest strip, dark reddish texture obscures the characters before RANTIN and the immediately following character or characters: [illegible]RANTIN[illegible]."
+        ],
+        "clippedSpans": [
+          "Highest yellow-strip area, right run: QUA[clipped].",
+          "Immediately lower crossing strip, left run: [clipped]NTINE.",
+          "Steep central diagonal strip: QUARAN[clipped].",
+          "Middle strip, right run: QUARANTI[clipped].",
+          "Lower-middle shallow strip: QUARANTIN[clipped].",
+          "Lower rising strip, right run: QUARAN[clipped].",
+          "Lowest strip, right run: QUARANTI[clipped]."
+        ]
       },
       "symbols": {
         "canonicalGlossaryTokens": [],
         "unresolvedOrLocalTokens": [
-          "ICON: black biohazard glyph",
-          "ICON: yellow triangular warning sign with black biohazard glyph"
+          "clipped",
+          "illegible"
         ]
       },
       "uncertainties": [
-        "Several additional QUARANTINE inscriptions in the artwork are partly obscured, overlapped, or clipped and are not transcribed.",
-        "The biohazard warning glyphs are not represented in the supplied canonical glossary, so they are recorded as literal icon descriptions.",
-        "The exact number of fully legible repeated QUARANTINE inscriptions is somewhat ambiguous because the tape strips overlap."
+        "Overlap, dark stains, grain, and strip endpoints prevent a reliable complete transcription or count of all yellow-strip print runs.",
+        "Some nearby yellow-strip fragments may belong to the same physical strip rather than separate strips.",
+        "The apparent radial mark on the highest strip is degraded enough that a stain or printing artifact remains a plausible alternative.",
+        "Fine internal details of the triangular and repeated radial marks are softened by image texture.",
+        "The final letter of QUARANTIN on the lower-middle shallow strip is not sufficiently visible and has not been completed.",
+        "The character or characters immediately after RANTIN on the lowest left strip are not sufficiently resolved and have not been completed.",
+        "The bright-green side bars appear integrated into the border and were not promoted to functional symbols; a decorative-versus-symbolic role remains uncertain.",
+        "No explicit type line or canonical component label is visible.",
+        "No current publisher-primary face or operative wording was located for this assigned Solo/Coop title.",
+        "Assigned TTS wording materially conflicts with the labeled licensed-digital secondary record; neither source is rewritten.",
+        "Current-source fidelity gate is incomplete or failed: licensed-digital-secondary-material-conflict-no-primary-face.",
+        "No approved canonical mission-task or solo/coop-objective sidecar schema exists in cards/game."
       ],
-      "canonicalPromotionBlocker": "exact card identity/transcription/icon/category is not uniformly high-confidence",
+      "canonicalPromotionBlocker": "Current-source fidelity gate is incomplete or failed: licensed-digital-secondary-material-conflict-no-primary-face.; No approved canonical mission-task or solo/coop-objective sidecar schema exists in cards/game.",
       "evidence": {
         "textBasis": "native vision draft; not canonical promotion",
         "visionProvider": "openai-codex",
         "visionModel": "gpt-5.6-sol",
-        "reasoningEffort": null,
-        "workerId": null,
-        "sessionId": "20260815_053330_dd0953",
-        "resultPath": "assets/tts-mod/extract/vision-results/62bc7df50a5d5b5075561f5b63c11603086aa3f3e335d05d346a10dfd797fa9c.json",
-        "rawResultPath": null,
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-25-20260820T224038Z-p308509-d39bf7",
+        "sessionId": "20260820_224505_f47c2f",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-25-20260820T224038Z-p308509-d39bf7/results/W25-007.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-25-20260820T224038Z-p308509-d39bf7/raw/W25-007.json",
         "ledgerPath": "assets/tts-mod/extract/vision-progress.json",
-        "queuePath": "assets/tts-mod/extract/low-confidence-review.json"
-      }
+        "queuePath": "assets/tts-mod/extract/low-confidence-review.json",
+        "selectedExtraction": {
+          "runIdentity": "w25-card-extraction-20260820T204740Z-p273022-2cf4d5/sol-max-persistent-worker-25-20260820T224038Z-p308509-d39bf7/W25-007",
+          "runId": "w25-card-extraction-20260820T204740Z-p273022-2cf4d5",
+          "workerId": "sol-max-persistent-worker-25-20260820T224038Z-p308509-d39bf7",
+          "assetId": "W25-007",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-25-20260820T224038Z-p308509-d39bf7/results/W25-007.json",
+          "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-25-20260820T224038Z-p308509-d39bf7/raw/W25-007.json",
+          "contactSheetPath": null,
+          "promotionDecision": "defer",
+          "runtime": {
+            "provider": "openai-codex",
+            "model": "gpt-5.6-sol",
+            "reasoningEffort": "max",
+            "nativeImageRoute": "direct persistent smoke-proven zero-tool blind session plus direct post-blind native validation",
+            "blindSessionId": "20260820_224505_f47c2f",
+            "adjudicationSessionId": "20260820_232654_1c2354",
+            "auxiliaryVisionUsed": false,
+            "qwenUsed": false,
+            "ocrCanonicalEvidenceUsed": false,
+            "modelDowngradeUsed": false
+          }
+        }
+      },
+      "selectedExtraction": {
+        "overlayVersion": 1,
+        "status": "selected-evidence-deferred",
+        "runIdentity": "w25-card-extraction-20260820T204740Z-p273022-2cf4d5/sol-max-persistent-worker-25-20260820T224038Z-p308509-d39bf7/W25-007",
+        "runId": "w25-card-extraction-20260820T204740Z-p273022-2cf4d5",
+        "workerId": "sol-max-persistent-worker-25-20260820T224038Z-p308509-d39bf7",
+        "assetId": "W25-007",
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoop/objectiveCoop-113.jpg",
+        "sourceSha256": "62bc7df50a5d5b5075561f5b63c11603086aa3f3e335d05d346a10dfd797fa9c",
+        "runtime": {
+          "provider": "openai-codex",
+          "model": "gpt-5.6-sol",
+          "reasoningEffort": "max",
+          "nativeImageRoute": "direct persistent smoke-proven zero-tool blind session plus direct post-blind native validation",
+          "blindSessionId": "20260820_224505_f47c2f",
+          "adjudicationSessionId": "20260820_232654_1c2354",
+          "auxiliaryVisionUsed": false,
+          "qwenUsed": false,
+          "ocrCanonicalEvidenceUsed": false,
+          "modelDowngradeUsed": false
+        },
+        "blindObservationPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-25-20260820T224038Z-p308509-d39bf7/raw/W25-007.json",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-25-20260820T224038Z-p308509-d39bf7/results/W25-007.json",
+        "contactSheetPath": null,
+        "visibleText": {
+          "title": "ENTRANCE INSPECTION",
+          "typeLine": "",
+          "body": "There must be no Unexplored\nCorridors in Section A.",
+          "sections": [
+            "ENTRANCE INSPECTION",
+            "There must be no Unexplored\nCorridors in Section A.",
+            "SOLO / COOP"
+          ],
+          "footer": "SOLO / COOP",
+          "upperRight": "",
+          "lowerCenter": "SOLO / COOP",
+          "illegibleSpans": [
+            "Several overlapped or darkened yellow-strip regions contain black letter-like printing that cannot be divided into reliable words or fragments.",
+            "On the middle horizontal strip, characters before the visible RANTINE are obscured: [illegible]RANTINE.",
+            "On a lower descending strip, only TINE is sufficiently distinct: [illegible]TINE.",
+            "On the lowest strip, dark reddish texture obscures the characters before RANTIN and the immediately following character or characters: [illegible]RANTIN[illegible]."
+          ],
+          "clippedSpans": [
+            "Highest yellow-strip area, right run: QUA[clipped].",
+            "Immediately lower crossing strip, left run: [clipped]NTINE.",
+            "Steep central diagonal strip: QUARAN[clipped].",
+            "Middle strip, right run: QUARANTI[clipped].",
+            "Lower-middle shallow strip: QUARANTIN[clipped].",
+            "Lower rising strip, right run: QUARAN[clipped].",
+            "Lowest strip, right run: QUARANTI[clipped]."
+          ]
+        },
+        "verifiedIconOccurrences": [],
+        "unresolvedIconOccurrences": [],
+        "canonicalTokensEmitted": [],
+        "allMaterialTextReadable": true,
+        "allMaterialIconsAuthoritativelyMatched": true,
+        "promotionDecision": "defer",
+        "decisionReasons": [
+          "Current-source fidelity gate is incomplete or failed: licensed-digital-secondary-material-conflict-no-primary-face.",
+          "No approved canonical mission-task or solo/coop-objective sidecar schema exists in cards/game."
+        ],
+        "conflictsWithPriorSnapshot": [
+          {
+            "field": "printedData.body",
+            "priorValue": "There must be no Unexplored\nCorridors in Section A.",
+            "currentStatus": "superseded in selected evidence by direct-pixel normalized text and per-occurrence morphology",
+            "resolution": "preserve historical base snapshot; selected overlay carries exact current evidence without overwriting approved canonical data"
+          }
+        ]
+      },
+      "evidenceRuns": [
+        {
+          "runIdentity": "w25-card-extraction-20260820T204740Z-p273022-2cf4d5/sol-max-persistent-worker-25-20260820T224038Z-p308509-d39bf7/W25-007",
+          "runId": "w25-card-extraction-20260820T204740Z-p273022-2cf4d5",
+          "workerId": "sol-max-persistent-worker-25-20260820T224038Z-p308509-d39bf7",
+          "assetId": "W25-007",
+          "sourceSha256": "62bc7df50a5d5b5075561f5b63c11603086aa3f3e335d05d346a10dfd797fa9c",
+          "blindSessionId": "20260820_224505_f47c2f",
+          "adjudicationSessionId": "20260820_232654_1c2354",
+          "promotionDecision": "defer",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-25-20260820T224038Z-p308509-d39bf7/results/W25-007.json",
+          "selected": true
+        }
+      ]
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoop/objectiveCoop-132.jpg",
@@ -23014,35 +24000,191 @@
       "rulesTextPresent": true,
       "identity": {},
       "printedData": {
-        "title": "SAEFTY PROCEDURE",
-        "body": "The Hibernatorium must be [ICON: purple rounded rectangle with white three-lobed glyph]\n(by using the Life Support Control C)",
+        "title": "SAFETY PROCEDURE",
+        "typeLine": "",
+        "body": "The Hibernatorium must be [hibernatoriumActive]\n(by using the Life Support Control C)",
+        "sections": [
+          "SAFETY PROCEDURE",
+          "The Hibernatorium must be [hibernatoriumActive]\n(by using the Life Support Control C)",
+          "SOLO / COOP"
+        ],
         "footer": "SOLO / COOP",
-        "visibleText": "QUARANTINE\nQUARANTINE\nQUARANTINE\nQUARANTINE\nQUARANTINE\nQUARANTINE\nQUARANTINE"
+        "upperRight": "",
+        "lowerCenter": "SOLO / COOP",
+        "illegibleSpans": [
+          "Several overlapped or darkened yellow-strip regions contain black letter-like printing that cannot be divided into reliable words or fragments.",
+          "On the middle horizontal strip, characters before the visible RANTINE are obscured: [illegible]RANTINE.",
+          "On the lower-middle shallow strip, one or more characters between QUA and ANTIN are obscured: QUA[illegible]ANTIN[clipped].",
+          "On a lower descending strip, only TINE is sufficiently distinct: [illegible]TINE.",
+          "On the lowest strip, dark reddish texture obscures the characters before RANTIN and the immediately following character or characters: [illegible]RANTIN[illegible]."
+        ],
+        "clippedSpans": [
+          "Highest yellow-strip area, right run: QUA[clipped].",
+          "Immediately lower crossing strip, left run: [clipped]NTINE.",
+          "Steep central diagonal strip: QUARAN[clipped].",
+          "Middle strip, right run: QUARANTI[clipped].",
+          "Lower-middle shallow strip: QUA[illegible]ANTIN[clipped].",
+          "Lower rising strip, right run: QUARAN[clipped].",
+          "Lowest strip, right run: QUARANTI[clipped]."
+        ]
       },
       "symbols": {
-        "canonicalGlossaryTokens": [],
+        "canonicalGlossaryTokens": [
+          "hibernatoriumActive"
+        ],
         "unresolvedOrLocalTokens": [
-          "ICON: purple rounded rectangle with white three-lobed glyph"
+          "clipped",
+          "illegible"
         ]
       },
       "uncertainties": [
-        "The purple body glyph is not confidently matched to a canonical glossary icon; its literal visible morphology is preserved instead.",
-        "Several additional QUARANTINE inscriptions in the artwork are partially obscured or clipped and are not reconstructed.",
-        "The repeated complete QUARANTINE inscriptions overlap at varied angles, so visibleText preserves the readable words but not their precise spatial arrangement."
+        "The purple body symbol has no printed label, so its semantic or canonical identity is not established by this image.",
+        "The white internal mark in the purple capsule appears to have three principal downward lobes, but fine edge texture may conceal smaller subdivisions.",
+        "Overlap, dark stains, grain, and strip endpoints prevent a reliable complete transcription or count of all yellow-strip print runs.",
+        "Some nearby yellow-strip fragments may belong to the same physical strip rather than separate strips.",
+        "The apparent radial mark on the highest strip is degraded enough that a stain or printing artifact remains a plausible alternative.",
+        "The lower-middle shallow strip contains internal obscuration between QUA and ANTIN, and its ending is clipped.",
+        "The character or characters immediately after RANTIN on the lowest left strip are not sufficiently resolved and have not been completed.",
+        "The bright-green side bars appear integrated into the border and were not promoted to functional symbols; a decorative-versus-symbolic role remains uncertain.",
+        "No explicit type line or canonical component label is visible.",
+        "No current publisher-primary face or operative wording was located for this assigned Solo/Coop title.",
+        "Assigned TTS wording materially conflicts with the labeled licensed-digital secondary record; neither source is rewritten.",
+        "Current-source fidelity gate is incomplete or failed: licensed-digital-secondary-material-conflict-no-primary-face.",
+        "No approved canonical mission-task or solo/coop-objective sidecar schema exists in cards/game."
       ],
-      "canonicalPromotionBlocker": "exact card identity/transcription/icon/category is not uniformly high-confidence",
+      "canonicalPromotionBlocker": "Current-source fidelity gate is incomplete or failed: licensed-digital-secondary-material-conflict-no-primary-face.; No approved canonical mission-task or solo/coop-objective sidecar schema exists in cards/game.",
       "evidence": {
         "textBasis": "native vision draft; not canonical promotion",
         "visionProvider": "openai-codex",
         "visionModel": "gpt-5.6-sol",
-        "reasoningEffort": null,
-        "workerId": null,
-        "sessionId": "20260815_053540_c6e60f",
-        "resultPath": "assets/tts-mod/extract/vision-results/48a564f347ba9aaf02fbb14c555ebdce7114bfc8e1a3eb06badbd87fa480c1fa.json",
-        "rawResultPath": null,
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-25-20260820T224038Z-p308509-d39bf7",
+        "sessionId": "20260820_224505_f47c2f",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-25-20260820T224038Z-p308509-d39bf7/results/W25-008.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-25-20260820T224038Z-p308509-d39bf7/raw/W25-008.json",
         "ledgerPath": "assets/tts-mod/extract/vision-progress.json",
-        "queuePath": "assets/tts-mod/extract/low-confidence-review.json"
-      }
+        "queuePath": "assets/tts-mod/extract/low-confidence-review.json",
+        "selectedExtraction": {
+          "runIdentity": "w25-card-extraction-20260820T204740Z-p273022-2cf4d5/sol-max-persistent-worker-25-20260820T224038Z-p308509-d39bf7/W25-008",
+          "runId": "w25-card-extraction-20260820T204740Z-p273022-2cf4d5",
+          "workerId": "sol-max-persistent-worker-25-20260820T224038Z-p308509-d39bf7",
+          "assetId": "W25-008",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-25-20260820T224038Z-p308509-d39bf7/results/W25-008.json",
+          "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-25-20260820T224038Z-p308509-d39bf7/raw/W25-008.json",
+          "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-25-20260820T224038Z-p308509-d39bf7/qa/contact-sheets/W25-008-contact-sheet.png",
+          "promotionDecision": "defer",
+          "runtime": {
+            "provider": "openai-codex",
+            "model": "gpt-5.6-sol",
+            "reasoningEffort": "max",
+            "nativeImageRoute": "direct persistent smoke-proven zero-tool blind session plus direct post-blind native validation",
+            "blindSessionId": "20260820_224505_f47c2f",
+            "adjudicationSessionId": "20260820_232654_1c2354",
+            "auxiliaryVisionUsed": false,
+            "qwenUsed": false,
+            "ocrCanonicalEvidenceUsed": false,
+            "modelDowngradeUsed": false
+          }
+        }
+      },
+      "selectedExtraction": {
+        "overlayVersion": 1,
+        "status": "selected-evidence-deferred",
+        "runIdentity": "w25-card-extraction-20260820T204740Z-p273022-2cf4d5/sol-max-persistent-worker-25-20260820T224038Z-p308509-d39bf7/W25-008",
+        "runId": "w25-card-extraction-20260820T204740Z-p273022-2cf4d5",
+        "workerId": "sol-max-persistent-worker-25-20260820T224038Z-p308509-d39bf7",
+        "assetId": "W25-008",
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoop/objectiveCoop-132.jpg",
+        "sourceSha256": "48a564f347ba9aaf02fbb14c555ebdce7114bfc8e1a3eb06badbd87fa480c1fa",
+        "runtime": {
+          "provider": "openai-codex",
+          "model": "gpt-5.6-sol",
+          "reasoningEffort": "max",
+          "nativeImageRoute": "direct persistent smoke-proven zero-tool blind session plus direct post-blind native validation",
+          "blindSessionId": "20260820_224505_f47c2f",
+          "adjudicationSessionId": "20260820_232654_1c2354",
+          "auxiliaryVisionUsed": false,
+          "qwenUsed": false,
+          "ocrCanonicalEvidenceUsed": false,
+          "modelDowngradeUsed": false
+        },
+        "blindObservationPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-25-20260820T224038Z-p308509-d39bf7/raw/W25-008.json",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-25-20260820T224038Z-p308509-d39bf7/results/W25-008.json",
+        "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-25-20260820T224038Z-p308509-d39bf7/qa/contact-sheets/W25-008-contact-sheet.png",
+        "visibleText": {
+          "title": "SAFETY PROCEDURE",
+          "typeLine": "",
+          "body": "The Hibernatorium must be [hibernatoriumActive]\n(by using the Life Support Control C)",
+          "sections": [
+            "SAFETY PROCEDURE",
+            "The Hibernatorium must be [hibernatoriumActive]\n(by using the Life Support Control C)",
+            "SOLO / COOP"
+          ],
+          "footer": "SOLO / COOP",
+          "upperRight": "",
+          "lowerCenter": "SOLO / COOP",
+          "illegibleSpans": [
+            "Several overlapped or darkened yellow-strip regions contain black letter-like printing that cannot be divided into reliable words or fragments.",
+            "On the middle horizontal strip, characters before the visible RANTINE are obscured: [illegible]RANTINE.",
+            "On the lower-middle shallow strip, one or more characters between QUA and ANTIN are obscured: QUA[illegible]ANTIN[clipped].",
+            "On a lower descending strip, only TINE is sufficiently distinct: [illegible]TINE.",
+            "On the lowest strip, dark reddish texture obscures the characters before RANTIN and the immediately following character or characters: [illegible]RANTIN[illegible]."
+          ],
+          "clippedSpans": [
+            "Highest yellow-strip area, right run: QUA[clipped].",
+            "Immediately lower crossing strip, left run: [clipped]NTINE.",
+            "Steep central diagonal strip: QUARAN[clipped].",
+            "Middle strip, right run: QUARANTI[clipped].",
+            "Lower-middle shallow strip: QUA[illegible]ANTIN[clipped].",
+            "Lower rising strip, right run: QUARAN[clipped].",
+            "Lowest strip, right run: QUARANTI[clipped]."
+          ]
+        },
+        "verifiedIconOccurrences": [
+          {
+            "cardLocation": "Lower body panel, at the right end of the first body line immediately after be.",
+            "referenceLabel": "Active Hibernatorium token",
+            "matchDecision": "match",
+            "canonicalToken": "hibernatoriumActive",
+            "closestAlternative": "Inactive Hibernatorium token, crossed out",
+            "visibleDiscriminator": "The source has no crossing diagonal, whereas the inactive candidate has a thick dark diagonal crossing the capsule.",
+            "evidenceRun": "sol-max-persistent-worker-25-20260820T224038Z-p308509-d39bf7"
+          }
+        ],
+        "unresolvedIconOccurrences": [],
+        "canonicalTokensEmitted": [
+          "hibernatoriumActive"
+        ],
+        "allMaterialTextReadable": true,
+        "allMaterialIconsAuthoritativelyMatched": true,
+        "promotionDecision": "defer",
+        "decisionReasons": [
+          "Current-source fidelity gate is incomplete or failed: licensed-digital-secondary-material-conflict-no-primary-face.",
+          "No approved canonical mission-task or solo/coop-objective sidecar schema exists in cards/game."
+        ],
+        "conflictsWithPriorSnapshot": [
+          {
+            "field": "printedData.body",
+            "priorValue": "The Hibernatorium must be [ICON: purple rounded rectangle with white three-lobed glyph]\n(by using the Life Support Control C)",
+            "currentStatus": "superseded in selected evidence by direct-pixel normalized text and per-occurrence morphology",
+            "resolution": "preserve historical base snapshot; selected overlay carries exact current evidence without overwriting approved canonical data"
+          }
+        ]
+      },
+      "evidenceRuns": [
+        {
+          "runIdentity": "w25-card-extraction-20260820T204740Z-p273022-2cf4d5/sol-max-persistent-worker-25-20260820T224038Z-p308509-d39bf7/W25-008",
+          "runId": "w25-card-extraction-20260820T204740Z-p273022-2cf4d5",
+          "workerId": "sol-max-persistent-worker-25-20260820T224038Z-p308509-d39bf7",
+          "assetId": "W25-008",
+          "sourceSha256": "48a564f347ba9aaf02fbb14c555ebdce7114bfc8e1a3eb06badbd87fa480c1fa",
+          "blindSessionId": "20260820_224505_f47c2f",
+          "adjudicationSessionId": "20260820_232654_1c2354",
+          "promotionDecision": "defer",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-25-20260820T224038Z-p308509-d39bf7/results/W25-008.json",
+          "selected": true
+        }
+      ]
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoop/objectiveCoop-178.jpg",
