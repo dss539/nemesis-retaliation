@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "sourceProgressUpdatedAt": "2026-08-21T11:16:02.707622Z",
-  "sourceQueueUpdatedAt": "2026-08-21T11:16:02.707622Z",
+  "sourceProgressUpdatedAt": "2026-08-21T13:50:08.338081Z",
+  "sourceQueueUpdatedAt": "2026-08-21T13:50:08.338081Z",
   "totals": {
     "inScope": 532,
     "complete": 148,
@@ -15,14 +15,14 @@
   "deferredExtractionStates": {
     "draft-full": 289,
     "draft-partial": 4,
-    "no-transcription": 33,
-    "non-rules-or-reference": 58
+    "no-transcription": 34,
+    "non-rules-or-reference": 57
   },
   "deferredCardExtractionStates": {
     "draft-full": 258,
     "draft-partial": 4,
-    "no-transcription": 2,
-    "non-rules-or-reference": 14
+    "no-transcription": 3,
+    "non-rules-or-reference": 13
   },
   "deferredFamilies": {
     "character/heavy-gun-operator-045_cards": 35,
@@ -171,15 +171,15 @@
     "reference": 4
   },
   "reasonTags": {
-    "classification": 227,
-    "clipped-or-illegible": 61,
+    "classification": 204,
+    "clipped-or-illegible": 64,
     "needs-official-source": 30,
-    "orientation": 55,
-    "other": 58,
-    "provenance": 42,
-    "schema-or-destination": 88,
-    "source-conflict": 37,
-    "unknown-icon": 2
+    "orientation": 56,
+    "other": 55,
+    "provenance": 70,
+    "schema-or-destination": 119,
+    "source-conflict": 56,
+    "unknown-icon": 5
   },
   "topRulesInformationPriorities": [
     {
@@ -372,6 +372,53 @@
       }
     },
     {
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/robotDeck-155.jpg",
+      "sourceSha256": "9cf67e814071c67c598456070306951e3e24cb00a274b20d736596acfeb67c39",
+      "family": "game/robotDeck-155.jpg",
+      "isCard": true,
+      "isRulesBearingCandidate": true,
+      "extractionState": "no-transcription",
+      "priorityScore": 1000,
+      "title": "",
+      "typeLine": "",
+      "body": "",
+      "footer": "",
+      "recognizedTokens": [],
+      "unknownTokens": [],
+      "unreadableMarkers": [],
+      "reasonTags": [
+        "provenance",
+        "source-conflict",
+        "orientation",
+        "schema-or-destination"
+      ],
+      "reasonSkipped": "1 material functional occurrence(s) remain explicit all-49 authoritative no-matches; no semantic token was invented.; No singular exact GUID/CardID source selector exists; preserve the complete exact reference set without unsupported cell or copy inference.; The shared counterpart set is structurally resolved but not all counterpart pixels are present in the extracted base tree; only available exact counterparts were inspected.; The visible publisher lookalike belongs to a different component family and cannot establish source fidelity for this exact TTS role.; BGA structured face data does not establish generic card-back pixels.; 1 publisher/BGA source conflict row(s) are preserved verbatim.; No approved canonical Robot card back image/sidecar schema or directory exists under cards/game.",
+      "uncertainties": [
+        "No printed text provides a definitive orientation cue; upright orientation is based on the observed vertical composition and bilateral structural arrangement.",
+        "M1 may visually suggest a wheeled mechanism, irregular creature-like figure, or abstract assembly, but pixels alone do not distinguish those semantic readings.",
+        "M1 appears functional because it is flat-filled, thickly outlined, centrally isolated, and enclosed by an illuminated display, but its exact role is not visibly labeled.",
+        "The octagonal pane and surrounding housing may be component-level framing or part of the artwork; their exact canonical status is not established.",
+        "Circuit-like traces and small surface marks in P3 are nonalphabetic at the visible resolution and are not promoted to text.",
+        "The exact component family and side designation are not visibly printed.",
+        "The visible publisher lookalike belongs to a different component family and cannot establish source fidelity for this exact TTS role.",
+        "BGA structured face data does not establish generic card-back pixels.",
+        "1 material functional occurrence(s) remain explicit all-49 authoritative no-matches; no semantic token was invented.",
+        "No singular exact GUID/CardID source selector exists; preserve the complete exact reference set without unsupported cell or copy inference.",
+        "The shared counterpart set is structurally resolved but not all counterpart pixels are present in the extracted base tree; only available exact counterparts were inspected.",
+        "1 publisher/BGA source conflict row(s) are preserved verbatim.",
+        "No approved canonical Robot card back image/sidecar schema or directory exists under cards/game."
+      ],
+      "vision": {
+        "provider": "openai-codex",
+        "model": "gpt-5.6-sol",
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-31-20260821T112612Z-p346900-b7e2c9",
+        "sessionId": "20260821_112834_379457",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-31-20260821T112612Z-p346900-b7e2c9/results/W31-024.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-31-20260821T112612Z-p346900-b7e2c9/raw/W31-024.json"
+      }
+    },
+    {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/yellowitem-146_cards/card-03.png",
       "sourceSha256": "77223a77d61181cd144bd508dfcbfe91e135e093395d15e8b9957ce51669d8c4",
       "family": "game/yellowitem-146_cards",
@@ -441,48 +488,6 @@
         "sessionId": "20260815_213825_14ef69",
         "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-worker-03/results/W01-024.json",
         "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-worker-03/raw/W01-024.json"
-      }
-    },
-    {
-      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/reditem-117.png",
-      "sourceSha256": "9eb1ddc91a26bc4581a12f685edce6d1858b93770f576c3be3062a30f293d2db",
-      "family": "game/reditem-117.png",
-      "isCard": true,
-      "isRulesBearingCandidate": true,
-      "extractionState": "draft-full",
-      "priorityScore": 450,
-      "title": "REMOTE DETONATOR",
-      "typeLine": "ONE USE ONLY, HEAVY",
-      "body": "Discard 1 [actionCard] from any Room in the same Section\nto deal [ICON: white skull with surrounding burst marks] to all [intruder] in that Room.\nEach [character] there lose 3 [characterHealth].",
-      "footer": null,
-      "recognizedTokens": [
-        "actionCard",
-        "character",
-        "characterHealth",
-        "intruder"
-      ],
-      "unknownTokens": [
-        "ICON: white skull with surrounding burst marks"
-      ],
-      "unreadableMarkers": [],
-      "reasonTags": [
-        "unknown-icon",
-        "classification"
-      ],
-      "reasonSkipped": "exact card identity/transcription/icon/category is not uniformly high-confidence",
-      "uncertainties": [
-        "The white skull-and-burst body glyph is absent from the supplied canonical glossary, so it is transcribed literally rather than assigned a meaning.",
-        "The exact internal morphology of the [actionCard] glyph is very small, though its card-like outline is a confident glossary match.",
-        "The proposed item category is supported by the title, trait line, and effect presentation, but no explicit printed item-type label is visible."
-      ],
-      "vision": {
-        "provider": "openai-codex",
-        "model": "gpt-5.6-sol",
-        "reasoningEffort": null,
-        "workerId": null,
-        "sessionId": "20260815_060430_1f812c",
-        "resultPath": "assets/tts-mod/extract/vision-results/9eb1ddc91a26bc4581a12f685edce6d1858b93770f576c3be3062a30f293d2db.json",
-        "rawResultPath": null
       }
     },
     {
@@ -1329,32 +1334,47 @@
       "extractionState": "draft-full",
       "priorityScore": 430,
       "title": "KNEE",
-      "typeLine": null,
-      "body": "“Make a Move with [ICON: white angular movement glyph]”\ncosts you 1 [actionCard] more.",
-      "footer": null,
+      "typeLine": "",
+      "body": "“Make a Move with [ICON: two overlapping white angular lobes with lower tab and upper notch]”\ncosts you 1 [actionCard] more.",
+      "footer": "",
       "recognizedTokens": [
         "actionCard"
       ],
       "unknownTokens": [
-        "ICON: white angular movement glyph"
+        "ICON: two overlapping white angular lobes with lower tab and upper notch"
       ],
       "unreadableMarkers": [],
       "reasonTags": [
-        "classification"
+        "provenance",
+        "source-conflict",
+        "schema-or-destination"
       ],
-      "reasonSkipped": "exact card identity/transcription/icon/category is not uniformly high-confidence",
+      "reasonSkipped": "1 material functional occurrence(s) remain explicit all-49 authoritative no-matches; no semantic token was invented.; No singular exact GUID/CardID source selector exists; preserve the complete exact reference set without unsupported cell or copy inference.; No current publisher-primary rendered component face visibly establishes the exact assigned title/content and family.; The applicable exact-title/discard BGA licensed-digital record conflicts materially and is retained only as secondary evidence.; 1 publisher/BGA source conflict row(s) are preserved verbatim.; No approved canonical Serious Wound card image/sidecar schema or directory exists under cards/game.; 1 discrepancy row(s) with the prior unselected corpus snapshot are preserved.",
       "uncertainties": [
-        "The white line-local glyph after “with” is not in the supplied canonical glossary; it is transcribed morphologically rather than assigned a meaning.",
-        "Faint decorative interface text and marks elsewhere in the artwork may be too indistinct to transcribe completely."
+        "The exact source-character encoding of the opening and closing quotation glyphs cannot be recovered from raster pixels; they are transcribed as curly double quotation marks matching their visible shapes.",
+        "No separable degree mark is visible after 39.0; the nearby green outlined square is treated as an interface node rather than punctuation.",
+        "The small vertical TISSUE DAMAGE label is readable but lower contrast than the primary rules text.",
+        "The upper-left vertical interface label and additional green microtext-like marks are too small or low-contrast to transcribe safely.",
+        "M1 supports folded-sheet, interlocking-chevron, paired-limb, and irregular-polygon readings without a decisive semantic discriminator.",
+        "M2 visibly bears A, but its canonical function is not established by pixels alone.",
+        "The colored U-shaped callout markers are treated as non-text interface graphics rather than functional rules morphologies.",
+        "The exact component type and side taxonomy are not visibly printed.",
+        "No current publisher-primary rendered component face visibly establishes the exact assigned title/content and family.",
+        "The applicable exact-title/discard BGA licensed-digital record conflicts materially and is retained only as secondary evidence.",
+        "1 material functional occurrence(s) remain explicit all-49 authoritative no-matches; no semantic token was invented.",
+        "No singular exact GUID/CardID source selector exists; preserve the complete exact reference set without unsupported cell or copy inference.",
+        "1 publisher/BGA source conflict row(s) are preserved verbatim.",
+        "No approved canonical Serious Wound card image/sidecar schema or directory exists under cards/game.",
+        "1 discrepancy row(s) with the prior unselected corpus snapshot are preserved."
       ],
       "vision": {
         "provider": "openai-codex",
         "model": "gpt-5.6-sol",
-        "reasoningEffort": null,
-        "workerId": null,
-        "sessionId": "20260815_054009_4dea76",
-        "resultPath": "assets/tts-mod/extract/vision-results/cfc93364f9ec257e07bc84989bbea9709ecdc9519d11f2bc7fd4c5b519ab3f6f.json",
-        "rawResultPath": null
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-31-20260821T112612Z-p346900-b7e2c9",
+        "sessionId": "20260821_112834_379457",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-31-20260821T112612Z-p346900-b7e2c9/results/W31-027.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-31-20260821T112612Z-p346900-b7e2c9/raw/W31-027.json"
       }
     }
   ]
