@@ -1281,6 +1281,132 @@ exact tuple is current queue index 161,
 (SHA-256 `2f5eb390fbcbd4babb0979f41528a77773dda68c3794d77d23a15a0663daaf29`);
 wraparound was not required.
 
+**W29 defer-only mixed objective checkpoint (2026-08-21T10:08:58Z):** Worker
+`sol-max-persistent-worker-29-20260821T080826Z-p346900-1f117c` selected the first sixteen
+previously unselected exact tuples walking forward from current queue index 161. There were no
+selected-tuple skips and no wraparound. Assignment SHA-256 is
+`86b678a0e0a8d98fd6da36ad44647f0e590ae5038bbe62ddcfcb35d6e3d3d62b`; ordered
+`(assetId, sourcePath, sourceSha256)` tuple digest is
+`d1b47e4d6aa63d587e39c335a130a90b478da0cac0d3f90c1327b5e098d530e0`:
+- W29-001, index 161, `assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoopCustomDeck-129.jpg`,
+  SHA-256 `2f5eb390fbcbd4babb0979f41528a77773dda68c3794d77d23a15a0663daaf29`;
+- W29-002, index 162, `assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoopCustomDeck-168.jpg`,
+  SHA-256 `a0ac21b0a010c13f03e0c6365ea922b3093f7084d800ce636a4f38c829324835`;
+- W29-003, index 163, `assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoopCustomDeck-169.jpg`,
+  SHA-256 `f223acb6260191bedb9ecc04e9020aa20210776e179ab51a4eb37b81b2de9b82`;
+- W29-004, index 164, `assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-060.jpg`,
+  SHA-256 `a9fd755086b0399a89adcb5d2ed4e351674cfb2a039d7bd148c268d6a1252001`;
+- W29-005, index 165, `assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-070.jpg`,
+  SHA-256 `f62fadd79394572a6f593e17f9a2470cf03d99f833cb3145253a7c19f6f0bb25`;
+- W29-006, index 166, `assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-162_cards/card-00.png`,
+  SHA-256 `10357f3fdbce0dd9b6bfd9f297c965234e6cfbad9427d917a7b6b29384952a7d`;
+- W29-007, index 167, `assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-162_cards/card-01.png`,
+  SHA-256 `fd4010eb58756e3de8ddb635a7325e569401d9244c37627d659f52d369dd9522`;
+- W29-008, index 168, `assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-162_cards/card-02.png`,
+  SHA-256 `76866355163159b1cadefc9cde089972b36bea6af9c41a2e5dd636cae7d6d663`;
+- W29-009, index 169, `assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-162_cards/card-03.png`,
+  SHA-256 `d27fc8c094ad7030557fe0d9fad0edffeee0c289ca181f05d5fba28db45bd064`;
+- W29-010, index 170, `assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-162_cards/card-04.png`,
+  SHA-256 `2274d4d189d85a2a885478757d7aa13b07c48b912663a264c1dc7c0f9b2702b4`;
+- W29-011, index 171, `assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-162_cards/card-05.png`,
+  SHA-256 `be5a8b408b777fd45b519176f4851b1e3af42b8f6a011470fc4b361d0d2cf10c`;
+- W29-012, index 172, `assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-162_cards/card-06.png`,
+  SHA-256 `ee17501afeb2c1fbdc1d63378869644b9cdc9cc34c14e688c8bc0284d4093368`;
+- W29-013, index 173, `assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-162_cards/card-07.png`,
+  SHA-256 `1633b48e698f6a00101d5189f5de7b05e4250f39d3f8df30f6c952b654f33848`;
+- W29-014, index 174, `assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-162_cards/card-08.png`,
+  SHA-256 `0992c5b74134390a6b8dc6bb0794f40037a0e8f6b46d6268a64b26c2b975b0b8`;
+- W29-015, index 175, `assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-162_cards/card-09.png`,
+  SHA-256 `30c6cf858a1428f2817cca3afb8959973ff59a81932d94918cc31a8b10b1a38f`;
+- W29-016, index 176, `assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-162_cards/card-10.png`,
+  SHA-256 `27ea16e7ccca56021ba1b7189c0d8b3359102995caa169a15184c74e22574c6d`.
+
+Neutral smoke session `20260821_081017_264a52` verified 1 API call, 2 messages, 0 tools,
+exact native `openai-codex:gpt-5.6-sol` at reasoning `max`, and no stored Tools/tool-name
+marker. Production evidence totals 45 direct native image calls, 90 messages, and 0 tools across
+five independently DB-verified sessions: blind `20260821_081033_ca695b` (16/32/0), exhaustive
+all-49 contact `20260821_084809_6004af` (16/32/0), publisher pages prefix
+`20260821_090021_ca773d` (4/8/0), publisher pages suffix `20260821_091404_0c3ce7`
+(3/6/0), and focused display text `20260821_092737_65f4bf` (6/12/0). The prefix publisher
+session was retired after a post-inference helper-contract failure; its valid fourth response was
+salvaged byte-exact from the read-only session DB, zero semantic fields changed, and only the three
+untouched pages ran in the fresh suffix session. Every blind turn reread frozen assignment bytes and
+the live source hash; all 16 wrappers/raw copies are mode `0400`. No OCR, Qwen, auxiliary vision,
+model/reasoning downgrade, shared-provider mutation, or repeated accepted page read was used.
+
+All 16 sources are rules-bearing and zero are non-rules: 3 Solo/Coop Mission Task faces, 8 Mission
+Objective faces, and 5 Personal Objective faces. Five are downloaded FaceURLs and 11 are generated
+cells of `objectiveMissonDeck-162.jpg`. W29-001/002/003 have singular exact selectors
+`21b528`/`533800`, `ff8d9c`/`534500`, and `8c531f`/`599200`. W29-004 preserves exact
+duplicate GUIDs `37829f` and `c600ff` for CardID `529900`; W29-005 preserves `d711ab` and
+`263495` for CardID `553000`. The generated cells preserve both deck lineages (`fae6cf` and
+`263314`) and every candidate reference, but no CardID-modulo or other unsupported per-cell selector
+was inferred. All 16 FaceURL roles and paired BackURLs are resolved. Direct pixels classify the first
+three paired sides as `SOLO / COOP / MISSION TASK` backs (SHA-256
+`290d5e37d0e39ec94737865b14fb7dfe2c0e9c37e882839708d43766b9be1939`) and the
+other 13 as `OBJECTIVE` backs (SHA-256
+`7de29dc173947c5c01c3b95d7c63dfed1bdbc1b5571b233b2f10d9c02efb91a5`), all with zero
+operative rules text.
+
+All 43 enumerated blind morphologies reconcile exactly once: 5 authoritative page-40 matches
+(`character` x4 on BEST BUDDIES and NO ONE LEFT BEHIND; `grenadeToken` x1 on EXPLODING
+SOLUTION), 15 explicit one-to-one no-match rows, and 23 artwork-only details. Sixty-seven separate
+non-text component graphics remain separate. W29-004 through W29-014 each retain one no-match
+round-topped white form over blue rings; W29-015 retains that occurrence plus the unmatched white
+three-section Life Support capsule; W29-016 retains the ringed form plus the visibly labeled `OR`
+divider as an unmatched page-40 occurrence. Six focused 3x rereads independently classify the
+central blue displays on W29-006..011 as environmental artwork, not operative setup text; prior draft
+setup wording was not reused. The durable analyzer now serializes selected unresolved occurrences
+one-for-one, suppresses stale legacy tokens for selected records, and preserves historical selected
+`match`/`no-match`/`uncertain` compatibility. W29 contributes exactly 15 selected no-match backlog
+rows across 13 source paths.
+
+Fresh Awaken Realms bytes exactly match tracked rulebook
+`e3cda0d7a91bd090cec45dbc8ce89e2015e2202173357c374ff49365f9c29ddd`, FAQ v1.2
+`611ae20dc0b3e04f3c0d99f294a92fc95460c042565b12d1c808b1282ae0e0d8`, and Objectives
+Help Sheet `30f3d4116a9c4dc3a53fb5e920995c24aa747988c915dc5fba6261cbd7dca364`.
+Current publisher-primary component pixels exactly support W29-004..009, materially conflict with
+W29-010..015, and provide no visible exact counterpart for W29-001..003 or W29-016. BGA build
+`260622-1220` (SHA-256
+`18cd8f4a2883d4f6662ed170095ff07e0d9f5da508064ed1d6bfc124f5a274ae`) independently has
+the same 6 exact / 6 conflict / 4 absent split as labeled licensed-digital secondary evidence.
+Eight visible publisher conflict rows and 14 total publisher/BGA conflict rows are preserved verbatim;
+27 conflicts with the prior unselected corpus snapshot are also explicit. No official/BGA wording was
+substituted into assigned art.
+
+Every promotion decision is `defer`; no candidate, canonical image, sidecar, source byte, category,
+or filename changed. W29-001..003 and W29-016 lack a current exact publisher/BGA title counterpart;
+W29-010..015 conflict with current publisher pixels; W29-004..015 retain at least one no-match;
+W29-004/005 lack a singular direct selector; W29-006..016 lack exact generated-cell selectors; and
+all 16 lack an approved canonical schema/directory for their objective family. The worker closure and
+hash-linked reusable native-worker auditor pass with 0 errors/0 warnings. Final script audit passes
+46 W29 scripts with 0 errors/0 warnings and no stale prior-batch constants or blind semantic lookup.
+Private projection, independent corpus rebuild, and v4 shared merge are byte-idempotent; the final
+merge performed 4 trial writes, 4 exact rollback writes, 4 committed writes, and a zero-write
+identical re-merge. Fail-closed helper/validator attempts and three exact shared/QA rollback cycles
+are preserved worker-locally; each restored the sealed W28 preimage before repair and none altered
+immutable vision evidence or canonical/source bytes.
+
+Eleven focused tests and all eight documented global validation commands pass; 532/532 source
+images decode, 390/390 corpus source hashes verify, and two explicit corpus builds are byte-identical
+at `7f4e3574dd6fd8f27112db3de4298a1100f279073306cee240e71e7a5b235ea0`.
+Exact recursive corpus scope is 16 assigned records; canonical hashes and 78 image/sidecar pairs are
+unchanged; final generated/code Git scope is exactly 10 files. Lifecycle counts remain
+532 = 148 complete + 384 deferred + 0 unaccounted; queue 384, selected registry/corpus overlays
+166, genuinely unselected queue tuples 218, corpus 390, canonical pairs 78, and deferred
+re-examinations 140. The reconciled unresolved-symbol backlog contains 212 occurrences across 126
+assets, including the exact 15 W29 rows.
+
+Predecessor checkpoint HEAD was `fc2bf4e4c9dd46dca62f1490819dbf1f3197582c`; sealed
+data/QA/shared/code commit is `2d778ab4953b51df4383e907e21e2b8d044ce629`. This entry is
+committed separately in the following todo-only checkpoint commit, whose self-hash does not appear in
+its own content. Operational blocker: none; canonical-promotion blockers are the exact per-family,
+source-conflict, unresolved-morphology, and selector gates above. Nothing was pushed or deployed,
+and no W30 work was started. The next eligible exact tuple is current queue index 177,
+`assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-162_cards/card-11.png`
+(SHA-256 `d6ccc53b53a98ce5e212d701c0523d8a2a343d1e6d759318585a8dc278b316b2`);
+wraparound was not required.
+
 ## LATER — Expansions (re-add when user wants them)
 - [ ] Re-extract expansion content from save (see `assets/tts-mod/notes/extraction.md` §15 for all deck GUIDs, intruder bags,
       shared action-154 cells, and classification pitfalls)
