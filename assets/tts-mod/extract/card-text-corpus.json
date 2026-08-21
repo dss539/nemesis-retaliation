@@ -2,18 +2,18 @@
   "schemaVersion": 1,
   "status": "extracted evidence corpus; canonical and draft states are explicitly separated",
   "generatedFrom": {
-    "visionProgressUpdatedAt": "2026-08-21T06:59:51.627689Z",
-    "reviewQueueUpdatedAt": "2026-08-21T06:59:51.627689Z",
+    "visionProgressUpdatedAt": "2026-08-21T07:58:06.625743Z",
+    "reviewQueueUpdatedAt": "2026-08-21T07:58:06.625743Z",
     "iconGlossary": "docs/rules/icon-glossary.md",
     "iconGlossaryIdentifierCount": 49
   },
   "metadata": {
     "selectedEvidenceRegistry": "assets/tts-mod/extract/selected-card-text-evidence.json",
     "selectedEvidenceRegistrySchemaVersion": 1,
-    "selectedEvidenceRegistrySha256": "1d2d308036aa0d29fa3a574ea064a84a34eaf2f7f1b6b1322ce54a6310d1293b",
-    "selectedEvidenceTupleDigest": "56af620441b545d1783494d37d8f2c1abd72223b8cc7dd9ed08365ca88d62114",
-    "selectedEvidenceEntryCount": 142,
-    "selectedEvidenceRunCount": 142
+    "selectedEvidenceRegistrySha256": "e389afee7e36bb5486a00104014a3fbf38325f7fc39b9e05e125f5e93e8dd9b8",
+    "selectedEvidenceTupleDigest": "98b4f734ee22796cee9e8badadc09f89228cf8ad2349086f017e03ab187aea6a",
+    "selectedEvidenceEntryCount": 150,
+    "selectedEvidenceRunCount": 150
   },
   "counts": {
     "records": 390,
@@ -29,8 +29,8 @@
     "rulesInformationReadiness": {
       "canonical": 78,
       "draft-partial": 4,
-      "draft-text-complete": 129,
-      "draft-text-complete-symbols-unresolved": 129,
+      "draft-text-complete": 133,
+      "draft-text-complete-symbols-unresolved": 125,
       "missing-transcription": 2,
       "not-rules-bearing-or-reference": 48
     }
@@ -26796,42 +26796,163 @@
       "componentFamily": "game/objectiveCoopCustomDeck",
       "ledgerStatus": "deferred",
       "extractionState": "draft-full",
-      "rulesInformationReadiness": "draft-text-complete-symbols-unresolved",
+      "rulesInformationReadiness": "draft-text-complete",
       "rulesTextPresent": true,
       "identity": {},
       "printedData": {
         "title": "THIRD RESCUE",
+        "typeLine": "",
         "body": "2 Bodies from Hibernatorium\nmust be in the Landing Zone\n(Bodies work like downed [character]).",
-        "footer": "SOLO / COOP",
-        "visibleText": "QUARANTINE\n[ICON: black biohazard glyph inside yellow triangular warning sign]\n[ICON: black biohazard glyph repeated on yellow quarantine tape]"
+        "sections": [
+          "THIRD RESCUE",
+          "2 Bodies from Hibernatorium\nmust be in the Landing Zone\n(Bodies work like downed [character])."
+        ],
+        "footer": "",
+        "upperRight": "",
+        "lowerCenter": "SOLO / COOP",
+        "illegibleSpans": [],
+        "clippedSpans": []
       },
       "symbols": {
         "canonicalGlossaryTokens": [
           "character"
         ],
-        "unresolvedOrLocalTokens": [
-          "ICON: black biohazard glyph inside yellow triangular warning sign",
-          "ICON: black biohazard glyph repeated on yellow quarantine tape"
-        ]
+        "unresolvedOrLocalTokens": []
       },
       "uncertainties": [
-        "Biohazard glyphs in the artwork are not represented in the supplied canonical glossary.",
-        "Some background QUARANTINE lettering is partially obscured or clipped and is not reconstructed.",
-        "The inline white humanoid glyph is mapped to [character] from its astronaut morphology; its small size limits fine-detail confirmation."
+        "The folded and overlapping yellow strips make their exact layer order uncertain.",
+        "Only four P3 instances of QUARANTINE expose all letters clearly enough for full transcription; nine other word occurrences are represented only as [clipped].",
+        "M2 is partly degraded by a reddish-brown stain, although a structured radial form remains visible.",
+        "The white inline glyph M9 is visibly distinct and functionally placed within the sentence, but its semantic or canonical identity cannot be established from its pixels alone.",
+        "P3 is a background field rather than a fully enclosed panel, so its lower boundary is approximate.",
+        "No pixel-only evidence establishes an exact component name or a canonical side type.",
+        "No current publisher-primary visible exact-title counterpart was located: both Objectives Help Sheet pages are absent, while rulebook page 3 is occluded-not-visible and cannot establish a face.",
+        "The exact title is absent from all three fresh publisher text derivatives.",
+        "No exact current licensed-digital BGA mission/objective title counterpart exists.",
+        "Generic wording overlap without exact title identity is not promoted as a counterpart.",
+        "Current-source fidelity gate is incomplete: no exact-title counterpart exists in current publisher-primary pixels/text or the current licensed-digital mission/objective list.",
+        "No approved canonical Solo/Coop Mission Task image/sidecar schema or directory exists in cards/game.",
+        "1 material discrepancy row(s) with the prior unselected corpus snapshot are preserved; no silent canonical correction is allowed."
       ],
-      "canonicalPromotionBlocker": "exact card identity/transcription/icon/category is not uniformly high-confidence",
+      "canonicalPromotionBlocker": "Current-source fidelity gate is incomplete: no exact-title counterpart exists in current publisher-primary pixels/text or the current licensed-digital mission/objective list.; No approved canonical Solo/Coop Mission Task image/sidecar schema or directory exists in cards/game.; 1 material discrepancy row(s) with the prior unselected corpus snapshot are preserved; no silent canonical correction is allowed.",
       "evidence": {
         "textBasis": "native vision draft; not canonical promotion",
         "visionProvider": "openai-codex",
         "visionModel": "gpt-5.6-sol",
-        "reasoningEffort": null,
-        "workerId": null,
-        "sessionId": "20260815_053627_831873",
-        "resultPath": "assets/tts-mod/extract/vision-results/608248600b4d9fdb4e49112bbab74f616978ceb2335dbbe6bbb9275741fc9138.json",
-        "rawResultPath": null,
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87",
+        "sessionId": "20260821_071741_437876",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87/results/W28-001.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87/raw/W28-001.json",
         "ledgerPath": "assets/tts-mod/extract/vision-progress.json",
-        "queuePath": "assets/tts-mod/extract/low-confidence-review.json"
-      }
+        "queuePath": "assets/tts-mod/extract/low-confidence-review.json",
+        "selectedExtraction": {
+          "runIdentity": "w28-card-extraction-20260821T071525Z-p362032-1fed87/sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87/W28-001",
+          "runId": "w28-card-extraction-20260821T071525Z-p362032-1fed87",
+          "workerId": "sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87",
+          "assetId": "W28-001",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87/results/W28-001.json",
+          "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87/raw/W28-001.json",
+          "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87/qa/contact-sheets/W28-001-M9-all49-contact.png",
+          "promotionDecision": "defer",
+          "runtime": {
+            "provider": "openai-codex",
+            "model": "gpt-5.6-sol",
+            "reasoningEffort": "max",
+            "nativeImageRoute": "direct-hermes-chat-image",
+            "blindSessionId": "20260821_071741_437876",
+            "adjudicationSessionId": "20260821_074851_078999",
+            "auxiliaryVisionUsed": false,
+            "qwenUsed": false,
+            "ocrCanonicalEvidenceUsed": false,
+            "modelDowngradeUsed": false
+          }
+        }
+      },
+      "selectedExtraction": {
+        "overlayVersion": 1,
+        "status": "selected-evidence-deferred",
+        "runIdentity": "w28-card-extraction-20260821T071525Z-p362032-1fed87/sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87/W28-001",
+        "runId": "w28-card-extraction-20260821T071525Z-p362032-1fed87",
+        "workerId": "sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87",
+        "assetId": "W28-001",
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoopCustomDeck-105.jpg",
+        "sourceSha256": "608248600b4d9fdb4e49112bbab74f616978ceb2335dbbe6bbb9275741fc9138",
+        "runtime": {
+          "provider": "openai-codex",
+          "model": "gpt-5.6-sol",
+          "reasoningEffort": "max",
+          "nativeImageRoute": "direct-hermes-chat-image",
+          "blindSessionId": "20260821_071741_437876",
+          "adjudicationSessionId": "20260821_074851_078999",
+          "auxiliaryVisionUsed": false,
+          "qwenUsed": false,
+          "ocrCanonicalEvidenceUsed": false,
+          "modelDowngradeUsed": false
+        },
+        "blindObservationPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87/raw/W28-001.json",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87/results/W28-001.json",
+        "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87/qa/contact-sheets/W28-001-M9-all49-contact.png",
+        "visibleText": {
+          "title": "THIRD RESCUE",
+          "typeLine": "",
+          "body": "2 Bodies from Hibernatorium\nmust be in the Landing Zone\n(Bodies work like downed [character]).",
+          "sections": [
+            "THIRD RESCUE",
+            "2 Bodies from Hibernatorium\nmust be in the Landing Zone\n(Bodies work like downed [character])."
+          ],
+          "footer": "",
+          "upperRight": "",
+          "lowerCenter": "SOLO / COOP",
+          "illegibleSpans": [],
+          "clippedSpans": []
+        },
+        "verifiedIconOccurrences": [
+          {
+            "cardLocation": "P2, near the right end of the third body line, approximately x68%-74% and y87%-92%.",
+            "referenceLabel": "Character",
+            "matchDecision": "match",
+            "canonicalToken": "character",
+            "closestAlternative": "robot",
+            "visibleDiscriminator": "The source has one dark horizontal visor band in its rounded top, matching character; robot instead has two separate round eye apertures beneath a small top peg.",
+            "evidenceRun": "sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87"
+          }
+        ],
+        "unresolvedIconOccurrences": [],
+        "canonicalTokensEmitted": [
+          "character"
+        ],
+        "allMaterialTextReadable": true,
+        "allMaterialIconsAuthoritativelyMatched": true,
+        "promotionDecision": "defer",
+        "decisionReasons": [
+          "Current-source fidelity gate is incomplete: no exact-title counterpart exists in current publisher-primary pixels/text or the current licensed-digital mission/objective list.",
+          "No approved canonical Solo/Coop Mission Task image/sidecar schema or directory exists in cards/game.",
+          "1 material discrepancy row(s) with the prior unselected corpus snapshot are preserved; no silent canonical correction is allowed."
+        ],
+        "conflictsWithPriorSnapshot": [
+          {
+            "field": "printedData.visibleText",
+            "priorValue": "QUARANTINE\n[ICON: black biohazard glyph inside yellow triangular warning sign]\n[ICON: black biohazard glyph repeated on yellow quarantine tape]",
+            "currentStatus": "W28 pixel-first reread leaves the illustrated warning/tape marks semantically unnamed and artwork-only.",
+            "resolution": "Preserve prior unselected corpus snapshot as historical evidence; do not promote its unsupported semantic artwork label."
+          }
+        ]
+      },
+      "evidenceRuns": [
+        {
+          "runIdentity": "w28-card-extraction-20260821T071525Z-p362032-1fed87/sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87/W28-001",
+          "runId": "w28-card-extraction-20260821T071525Z-p362032-1fed87",
+          "workerId": "sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87",
+          "assetId": "W28-001",
+          "sourceSha256": "608248600b4d9fdb4e49112bbab74f616978ceb2335dbbe6bbb9275741fc9138",
+          "blindSessionId": "20260821_071741_437876",
+          "adjudicationSessionId": "20260821_074851_078999",
+          "promotionDecision": "defer",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87/results/W28-001.json",
+          "selected": true
+        }
+      ]
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoopCustomDeck-106.jpg",
@@ -26845,9 +26966,17 @@
       "identity": {},
       "printedData": {
         "title": "RECKLESS",
+        "typeLine": "",
         "body": "Squad votes for 1 [character],\nit cannot Move Cautiously.",
-        "footer": "SOLO / COOP",
-        "visibleText": "QUARANTINE"
+        "sections": [
+          "RECKLESS",
+          "Squad votes for 1 [character],\nit cannot Move Cautiously."
+        ],
+        "footer": "",
+        "upperRight": "",
+        "lowerCenter": "SOLO / COOP",
+        "illegibleSpans": [],
+        "clippedSpans": []
       },
       "symbols": {
         "canonicalGlossaryTokens": [
@@ -26856,22 +26985,130 @@
         "unresolvedOrLocalTokens": []
       },
       "uncertainties": [
-        "The artwork contains multiple repeated QUARANTINE markings; several instances are partially obscured or clipped and are not individually transcribed.",
-        "Some tiny biohazard symbols on the quarantine tape are decorative artwork glyphs rather than confidently glossary-matched game icons."
+        "The folded and overlapping yellow strips make their exact layer order uncertain.",
+        "Only four P3 instances of QUARANTINE expose all letters clearly enough for full transcription; nine other word occurrences are represented only as [clipped].",
+        "M2 is partly degraded by a reddish-brown stain, although a structured radial form remains visible.",
+        "The white inline glyph M9 is visibly distinct and functionally placed within the sentence, but its semantic or canonical identity cannot be established from its pixels alone.",
+        "P3 is a background field rather than a fully enclosed panel, so its lower boundary is approximate.",
+        "No pixel-only evidence establishes an exact component name or canonical side type.",
+        "No current publisher-primary visible exact-title counterpart was located: both Objectives Help Sheet pages are absent, while rulebook page 3 is occluded-not-visible and cannot establish a face.",
+        "The exact title is absent from all three fresh publisher text derivatives.",
+        "No exact current licensed-digital BGA mission/objective title counterpart exists.",
+        "Generic wording overlap without exact title identity is not promoted as a counterpart.",
+        "Current-source fidelity gate is incomplete: no exact-title counterpart exists in current publisher-primary pixels/text or the current licensed-digital mission/objective list.",
+        "No approved canonical Solo/Coop Mission Task image/sidecar schema or directory exists in cards/game."
       ],
-      "canonicalPromotionBlocker": "exact card identity/transcription/icon/category is not uniformly high-confidence",
+      "canonicalPromotionBlocker": "Current-source fidelity gate is incomplete: no exact-title counterpart exists in current publisher-primary pixels/text or the current licensed-digital mission/objective list.; No approved canonical Solo/Coop Mission Task image/sidecar schema or directory exists in cards/game.",
       "evidence": {
         "textBasis": "native vision draft; not canonical promotion",
         "visionProvider": "openai-codex",
         "visionModel": "gpt-5.6-sol",
-        "reasoningEffort": null,
-        "workerId": null,
-        "sessionId": "20260815_053627_b080bf",
-        "resultPath": "assets/tts-mod/extract/vision-results/32405644fa1317e3363cba6318edf2231f15a5d2b3f6ac1a2f28e54eddbae250.json",
-        "rawResultPath": null,
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87",
+        "sessionId": "20260821_071741_437876",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87/results/W28-002.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87/raw/W28-002.json",
         "ledgerPath": "assets/tts-mod/extract/vision-progress.json",
-        "queuePath": "assets/tts-mod/extract/low-confidence-review.json"
-      }
+        "queuePath": "assets/tts-mod/extract/low-confidence-review.json",
+        "selectedExtraction": {
+          "runIdentity": "w28-card-extraction-20260821T071525Z-p362032-1fed87/sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87/W28-002",
+          "runId": "w28-card-extraction-20260821T071525Z-p362032-1fed87",
+          "workerId": "sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87",
+          "assetId": "W28-002",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87/results/W28-002.json",
+          "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87/raw/W28-002.json",
+          "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87/qa/contact-sheets/W28-002-M9-all49-contact.png",
+          "promotionDecision": "defer",
+          "runtime": {
+            "provider": "openai-codex",
+            "model": "gpt-5.6-sol",
+            "reasoningEffort": "max",
+            "nativeImageRoute": "direct-hermes-chat-image",
+            "blindSessionId": "20260821_071741_437876",
+            "adjudicationSessionId": "20260821_074851_078999",
+            "auxiliaryVisionUsed": false,
+            "qwenUsed": false,
+            "ocrCanonicalEvidenceUsed": false,
+            "modelDowngradeUsed": false
+          }
+        }
+      },
+      "selectedExtraction": {
+        "overlayVersion": 1,
+        "status": "selected-evidence-deferred",
+        "runIdentity": "w28-card-extraction-20260821T071525Z-p362032-1fed87/sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87/W28-002",
+        "runId": "w28-card-extraction-20260821T071525Z-p362032-1fed87",
+        "workerId": "sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87",
+        "assetId": "W28-002",
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoopCustomDeck-106.jpg",
+        "sourceSha256": "32405644fa1317e3363cba6318edf2231f15a5d2b3f6ac1a2f28e54eddbae250",
+        "runtime": {
+          "provider": "openai-codex",
+          "model": "gpt-5.6-sol",
+          "reasoningEffort": "max",
+          "nativeImageRoute": "direct-hermes-chat-image",
+          "blindSessionId": "20260821_071741_437876",
+          "adjudicationSessionId": "20260821_074851_078999",
+          "auxiliaryVisionUsed": false,
+          "qwenUsed": false,
+          "ocrCanonicalEvidenceUsed": false,
+          "modelDowngradeUsed": false
+        },
+        "blindObservationPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87/raw/W28-002.json",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87/results/W28-002.json",
+        "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87/qa/contact-sheets/W28-002-M9-all49-contact.png",
+        "visibleText": {
+          "title": "RECKLESS",
+          "typeLine": "",
+          "body": "Squad votes for 1 [character],\nit cannot Move Cautiously.",
+          "sections": [
+            "RECKLESS",
+            "Squad votes for 1 [character],\nit cannot Move Cautiously."
+          ],
+          "footer": "",
+          "upperRight": "",
+          "lowerCenter": "SOLO / COOP",
+          "illegibleSpans": [],
+          "clippedSpans": []
+        },
+        "verifiedIconOccurrences": [
+          {
+            "cardLocation": "P2, within the first body line after the numeral 1, approximately x65%-71% and y81%-87%.",
+            "referenceLabel": "Character",
+            "matchDecision": "match",
+            "canonicalToken": "character",
+            "closestAlternative": "robot",
+            "visibleDiscriminator": "The source has a single horizontal visor opening inside a separately rounded cap, while robot has two circular openings across one broad domed body.",
+            "evidenceRun": "sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87"
+          }
+        ],
+        "unresolvedIconOccurrences": [],
+        "canonicalTokensEmitted": [
+          "character"
+        ],
+        "allMaterialTextReadable": true,
+        "allMaterialIconsAuthoritativelyMatched": true,
+        "promotionDecision": "defer",
+        "decisionReasons": [
+          "Current-source fidelity gate is incomplete: no exact-title counterpart exists in current publisher-primary pixels/text or the current licensed-digital mission/objective list.",
+          "No approved canonical Solo/Coop Mission Task image/sidecar schema or directory exists in cards/game."
+        ],
+        "conflictsWithPriorSnapshot": []
+      },
+      "evidenceRuns": [
+        {
+          "runIdentity": "w28-card-extraction-20260821T071525Z-p362032-1fed87/sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87/W28-002",
+          "runId": "w28-card-extraction-20260821T071525Z-p362032-1fed87",
+          "workerId": "sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87",
+          "assetId": "W28-002",
+          "sourceSha256": "32405644fa1317e3363cba6318edf2231f15a5d2b3f6ac1a2f28e54eddbae250",
+          "blindSessionId": "20260821_071741_437876",
+          "adjudicationSessionId": "20260821_074851_078999",
+          "promotionDecision": "defer",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87/results/W28-002.json",
+          "selected": true
+        }
+      ]
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoopCustomDeck-111.jpg",
@@ -26885,31 +27122,135 @@
       "identity": {},
       "printedData": {
         "title": "TECHNICAL SUPPLY",
+        "typeLine": "",
         "body": "Make a path of Reinforced Corridors from\nLanding Zone to Life Support Control B.",
-        "footer": "SOLO / COOP",
-        "visibleText": "QUARANTINE"
+        "sections": [
+          "TECHNICAL SUPPLY",
+          "Make a path of Reinforced Corridors from\nLanding Zone to Life Support Control B."
+        ],
+        "footer": "",
+        "upperRight": "",
+        "lowerCenter": "SOLO / COOP",
+        "illegibleSpans": [],
+        "clippedSpans": []
       },
       "symbols": {
         "canonicalGlossaryTokens": [],
         "unresolvedOrLocalTokens": []
       },
       "uncertainties": [
-        "The artwork contains multiple repeated, overlapping, and partially obscured instances of quarantine-tape lettering; only the fully legible word “QUARANTINE” is represented in visibleText, without reconstructing clipped repetitions.",
-        "The biohazard symbols in the artwork are environmental warning graphics and are not confidently mappable to any supplied canonical icon identifier."
+        "The folded and overlapping yellow strips make their exact layer order uncertain.",
+        "Only four P3 instances of QUARANTINE expose all letters clearly enough for full transcription; nine other word occurrences are represented only as [clipped].",
+        "M2 may contain a printed radial glyph beneath staining, but its internal morphology is not visibly discriminable from an irregular blotch.",
+        "The right token on the lowest strip is lower contrast than the main text, though all letters of QUARANTINE remain visibly bounded.",
+        "P3 is a background field rather than a fully enclosed panel, so its lower boundary is approximate.",
+        "No pixel-only evidence establishes an exact component name or canonical side type.",
+        "No current publisher-primary visible exact-title counterpart was located: both Objectives Help Sheet pages are absent, while rulebook page 3 is occluded-not-visible and cannot establish a face.",
+        "The exact title is absent from all three fresh publisher text derivatives.",
+        "No exact current licensed-digital BGA mission/objective title counterpart exists.",
+        "Generic wording overlap without exact title identity is not promoted as a counterpart.",
+        "Current-source fidelity gate is incomplete: no exact-title counterpart exists in current publisher-primary pixels/text or the current licensed-digital mission/objective list.",
+        "No approved canonical Solo/Coop Mission Task image/sidecar schema or directory exists in cards/game."
       ],
-      "canonicalPromotionBlocker": "exact card identity/transcription/icon/category is not uniformly high-confidence",
+      "canonicalPromotionBlocker": "Current-source fidelity gate is incomplete: no exact-title counterpart exists in current publisher-primary pixels/text or the current licensed-digital mission/objective list.; No approved canonical Solo/Coop Mission Task image/sidecar schema or directory exists in cards/game.",
       "evidence": {
         "textBasis": "native vision draft; not canonical promotion",
         "visionProvider": "openai-codex",
         "visionModel": "gpt-5.6-sol",
-        "reasoningEffort": null,
-        "workerId": null,
-        "sessionId": "20260815_053630_208613",
-        "resultPath": "assets/tts-mod/extract/vision-results/538b3413171bb3c6f529e91068cd3fe1487f6bc366dc41163b04e54764917983.json",
-        "rawResultPath": null,
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87",
+        "sessionId": "20260821_071741_437876",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87/results/W28-003.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87/raw/W28-003.json",
         "ledgerPath": "assets/tts-mod/extract/vision-progress.json",
-        "queuePath": "assets/tts-mod/extract/low-confidence-review.json"
-      }
+        "queuePath": "assets/tts-mod/extract/low-confidence-review.json",
+        "selectedExtraction": {
+          "runIdentity": "w28-card-extraction-20260821T071525Z-p362032-1fed87/sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87/W28-003",
+          "runId": "w28-card-extraction-20260821T071525Z-p362032-1fed87",
+          "workerId": "sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87",
+          "assetId": "W28-003",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87/results/W28-003.json",
+          "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87/raw/W28-003.json",
+          "contactSheetPath": null,
+          "promotionDecision": "defer",
+          "runtime": {
+            "provider": "openai-codex",
+            "model": "gpt-5.6-sol",
+            "reasoningEffort": "max",
+            "nativeImageRoute": "direct-hermes-chat-image",
+            "blindSessionId": "20260821_071741_437876",
+            "adjudicationSessionId": "20260821_074851_078999",
+            "auxiliaryVisionUsed": false,
+            "qwenUsed": false,
+            "ocrCanonicalEvidenceUsed": false,
+            "modelDowngradeUsed": false
+          }
+        }
+      },
+      "selectedExtraction": {
+        "overlayVersion": 1,
+        "status": "selected-evidence-deferred",
+        "runIdentity": "w28-card-extraction-20260821T071525Z-p362032-1fed87/sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87/W28-003",
+        "runId": "w28-card-extraction-20260821T071525Z-p362032-1fed87",
+        "workerId": "sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87",
+        "assetId": "W28-003",
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoopCustomDeck-111.jpg",
+        "sourceSha256": "538b3413171bb3c6f529e91068cd3fe1487f6bc366dc41163b04e54764917983",
+        "runtime": {
+          "provider": "openai-codex",
+          "model": "gpt-5.6-sol",
+          "reasoningEffort": "max",
+          "nativeImageRoute": "direct-hermes-chat-image",
+          "blindSessionId": "20260821_071741_437876",
+          "adjudicationSessionId": "20260821_074851_078999",
+          "auxiliaryVisionUsed": false,
+          "qwenUsed": false,
+          "ocrCanonicalEvidenceUsed": false,
+          "modelDowngradeUsed": false
+        },
+        "blindObservationPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87/raw/W28-003.json",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87/results/W28-003.json",
+        "contactSheetPath": null,
+        "visibleText": {
+          "title": "TECHNICAL SUPPLY",
+          "typeLine": "",
+          "body": "Make a path of Reinforced Corridors from\nLanding Zone to Life Support Control B.",
+          "sections": [
+            "TECHNICAL SUPPLY",
+            "Make a path of Reinforced Corridors from\nLanding Zone to Life Support Control B."
+          ],
+          "footer": "",
+          "upperRight": "",
+          "lowerCenter": "SOLO / COOP",
+          "illegibleSpans": [],
+          "clippedSpans": []
+        },
+        "verifiedIconOccurrences": [],
+        "unresolvedIconOccurrences": [],
+        "canonicalTokensEmitted": [],
+        "allMaterialTextReadable": true,
+        "allMaterialIconsAuthoritativelyMatched": true,
+        "promotionDecision": "defer",
+        "decisionReasons": [
+          "Current-source fidelity gate is incomplete: no exact-title counterpart exists in current publisher-primary pixels/text or the current licensed-digital mission/objective list.",
+          "No approved canonical Solo/Coop Mission Task image/sidecar schema or directory exists in cards/game."
+        ],
+        "conflictsWithPriorSnapshot": []
+      },
+      "evidenceRuns": [
+        {
+          "runIdentity": "w28-card-extraction-20260821T071525Z-p362032-1fed87/sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87/W28-003",
+          "runId": "w28-card-extraction-20260821T071525Z-p362032-1fed87",
+          "workerId": "sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87",
+          "assetId": "W28-003",
+          "sourceSha256": "538b3413171bb3c6f529e91068cd3fe1487f6bc366dc41163b04e54764917983",
+          "blindSessionId": "20260821_071741_437876",
+          "adjudicationSessionId": "20260821_074851_078999",
+          "promotionDecision": "defer",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87/results/W28-003.json",
+          "selected": true
+        }
+      ]
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoopCustomDeck-119.jpg",
@@ -26918,39 +27259,164 @@
       "componentFamily": "game/objectiveCoopCustomDeck",
       "ledgerStatus": "deferred",
       "extractionState": "draft-full",
-      "rulesInformationReadiness": "draft-text-complete-symbols-unresolved",
+      "rulesInformationReadiness": "draft-text-complete",
       "rulesTextPresent": true,
       "identity": {},
       "printedData": {
         "title": "SCHEDULE",
-        "body": "[ICON: white spacecraft-like silhouette] must arrive safely on Round 10.",
-        "footer": "SOLO / COOP",
-        "visibleText": "QUARANTINE"
+        "typeLine": "",
+        "body": "[lander] must arrive safely on Round 10.",
+        "sections": [
+          "SCHEDULE",
+          "[lander] must arrive safely on Round 10."
+        ],
+        "footer": "",
+        "upperRight": "",
+        "lowerCenter": "SOLO / COOP",
+        "illegibleSpans": [],
+        "clippedSpans": []
       },
       "symbols": {
-        "canonicalGlossaryTokens": [],
-        "unresolvedOrLocalTokens": [
-          "ICON: white spacecraft-like silhouette"
-        ]
+        "canonicalGlossaryTokens": [
+          "lander"
+        ],
+        "unresolvedOrLocalTokens": []
       },
       "uncertainties": [
-        "The line-leading white spacecraft-like glyph is not confidently matched to any canonical glossary icon.",
-        "Several background QUARANTINE markings are partially obscured, clipped, or distorted; only the clearly legible word is transcribed once.",
-        "The exact depicted identity of the line-leading glyph is uncertain."
+        "The folded and overlapping yellow strips make their exact layer order uncertain.",
+        "Only four P3 instances of QUARANTINE expose all letters clearly enough for full transcription; nine other word occurrences are represented only as [clipped].",
+        "M2 may contain a printed radial glyph beneath staining, but its internal morphology is not visibly discriminable from an irregular blotch.",
+        "The semantic or canonical identity of the white inline morphology M9 cannot be established from its pixels alone.",
+        "The right token on the lowest strip is lower contrast than the main text, though all letters of QUARANTINE remain visibly bounded.",
+        "P3 is a background field rather than a fully enclosed panel, so its lower boundary is approximate.",
+        "No pixel-only evidence establishes an exact component name or canonical side type.",
+        "No current publisher-primary visible exact-title counterpart was located: both Objectives Help Sheet pages are absent, while rulebook page 3 is occluded-not-visible and cannot establish a face.",
+        "The exact title is absent from all three fresh publisher text derivatives.",
+        "No exact current licensed-digital BGA mission/objective title counterpart exists.",
+        "Generic wording overlap without exact title identity is not promoted as a counterpart.",
+        "Current-source fidelity gate is incomplete: no exact-title counterpart exists in current publisher-primary pixels/text or the current licensed-digital mission/objective list.",
+        "No approved canonical Solo/Coop Mission Task image/sidecar schema or directory exists in cards/game.",
+        "1 material discrepancy row(s) with the prior unselected corpus snapshot are preserved; no silent canonical correction is allowed."
       ],
-      "canonicalPromotionBlocker": "exact card identity/transcription/icon/category is not uniformly high-confidence",
+      "canonicalPromotionBlocker": "Current-source fidelity gate is incomplete: no exact-title counterpart exists in current publisher-primary pixels/text or the current licensed-digital mission/objective list.; No approved canonical Solo/Coop Mission Task image/sidecar schema or directory exists in cards/game.; 1 material discrepancy row(s) with the prior unselected corpus snapshot are preserved; no silent canonical correction is allowed.",
       "evidence": {
         "textBasis": "native vision draft; not canonical promotion",
         "visionProvider": "openai-codex",
         "visionModel": "gpt-5.6-sol",
-        "reasoningEffort": null,
-        "workerId": null,
-        "sessionId": "20260815_053640_7881c7",
-        "resultPath": "assets/tts-mod/extract/vision-results/ff09f521ece8fb88ff0a703907158121a0d850341101ded2919eac85e89bc480.json",
-        "rawResultPath": null,
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87",
+        "sessionId": "20260821_071741_437876",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87/results/W28-004.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87/raw/W28-004.json",
         "ledgerPath": "assets/tts-mod/extract/vision-progress.json",
-        "queuePath": "assets/tts-mod/extract/low-confidence-review.json"
-      }
+        "queuePath": "assets/tts-mod/extract/low-confidence-review.json",
+        "selectedExtraction": {
+          "runIdentity": "w28-card-extraction-20260821T071525Z-p362032-1fed87/sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87/W28-004",
+          "runId": "w28-card-extraction-20260821T071525Z-p362032-1fed87",
+          "workerId": "sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87",
+          "assetId": "W28-004",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87/results/W28-004.json",
+          "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87/raw/W28-004.json",
+          "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87/qa/contact-sheets/W28-004-M9-all49-contact.png",
+          "promotionDecision": "defer",
+          "runtime": {
+            "provider": "openai-codex",
+            "model": "gpt-5.6-sol",
+            "reasoningEffort": "max",
+            "nativeImageRoute": "direct-hermes-chat-image",
+            "blindSessionId": "20260821_071741_437876",
+            "adjudicationSessionId": "20260821_074851_078999",
+            "auxiliaryVisionUsed": false,
+            "qwenUsed": false,
+            "ocrCanonicalEvidenceUsed": false,
+            "modelDowngradeUsed": false
+          }
+        }
+      },
+      "selectedExtraction": {
+        "overlayVersion": 1,
+        "status": "selected-evidence-deferred",
+        "runIdentity": "w28-card-extraction-20260821T071525Z-p362032-1fed87/sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87/W28-004",
+        "runId": "w28-card-extraction-20260821T071525Z-p362032-1fed87",
+        "workerId": "sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87",
+        "assetId": "W28-004",
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoopCustomDeck-119.jpg",
+        "sourceSha256": "ff09f521ece8fb88ff0a703907158121a0d850341101ded2919eac85e89bc480",
+        "runtime": {
+          "provider": "openai-codex",
+          "model": "gpt-5.6-sol",
+          "reasoningEffort": "max",
+          "nativeImageRoute": "direct-hermes-chat-image",
+          "blindSessionId": "20260821_071741_437876",
+          "adjudicationSessionId": "20260821_074851_078999",
+          "auxiliaryVisionUsed": false,
+          "qwenUsed": false,
+          "ocrCanonicalEvidenceUsed": false,
+          "modelDowngradeUsed": false
+        },
+        "blindObservationPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87/raw/W28-004.json",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87/results/W28-004.json",
+        "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87/qa/contact-sheets/W28-004-M9-all49-contact.png",
+        "visibleText": {
+          "title": "SCHEDULE",
+          "typeLine": "",
+          "body": "[lander] must arrive safely on Round 10.",
+          "sections": [
+            "SCHEDULE",
+            "[lander] must arrive safely on Round 10."
+          ],
+          "footer": "",
+          "upperRight": "",
+          "lowerCenter": "SOLO / COOP",
+          "illegibleSpans": [],
+          "clippedSpans": []
+        },
+        "verifiedIconOccurrences": [
+          {
+            "cardLocation": "P2, at the beginning of the body sentence, approximately x18%-25% and y83%-87%.",
+            "referenceLabel": "Lander",
+            "matchDecision": "match",
+            "canonicalToken": "lander",
+            "closestAlternative": "fire",
+            "visibleDiscriminator": "The source has mirrored side points around a centered vertical spike, whereas fire has an asymmetric hooked and offset outer contour.",
+            "evidenceRun": "sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87"
+          }
+        ],
+        "unresolvedIconOccurrences": [],
+        "canonicalTokensEmitted": [
+          "lander"
+        ],
+        "allMaterialTextReadable": true,
+        "allMaterialIconsAuthoritativelyMatched": true,
+        "promotionDecision": "defer",
+        "decisionReasons": [
+          "Current-source fidelity gate is incomplete: no exact-title counterpart exists in current publisher-primary pixels/text or the current licensed-digital mission/objective list.",
+          "No approved canonical Solo/Coop Mission Task image/sidecar schema or directory exists in cards/game.",
+          "1 material discrepancy row(s) with the prior unselected corpus snapshot are preserved; no silent canonical correction is allowed."
+        ],
+        "conflictsWithPriorSnapshot": [
+          {
+            "field": "printedData.body",
+            "priorValue": "[ICON: white spacecraft-like silhouette] must arrive safely on Round 10.",
+            "currentStatus": "sealed W28 assigned-art transcription: [lander] must arrive safely on Round 10.",
+            "resolution": "Preserve prior unselected corpus snapshot; selected W28 evidence records the direct reread and blocks silent canonical use."
+          }
+        ]
+      },
+      "evidenceRuns": [
+        {
+          "runIdentity": "w28-card-extraction-20260821T071525Z-p362032-1fed87/sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87/W28-004",
+          "runId": "w28-card-extraction-20260821T071525Z-p362032-1fed87",
+          "workerId": "sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87",
+          "assetId": "W28-004",
+          "sourceSha256": "ff09f521ece8fb88ff0a703907158121a0d850341101ded2919eac85e89bc480",
+          "blindSessionId": "20260821_071741_437876",
+          "adjudicationSessionId": "20260821_074851_078999",
+          "promotionDecision": "defer",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87/results/W28-004.json",
+          "selected": true
+        }
+      ]
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoopCustomDeck-121.jpg",
@@ -26964,32 +27430,135 @@
       "identity": {},
       "printedData": {
         "title": "SECRET ROOMS",
+        "typeLine": "",
         "body": "At least 3 Corridors must be placed\nusing the Drilling Station.",
-        "footer": "SOLO / COOP",
-        "visibleText": "QUARANTINE\nQUARANTINE\nQUARANTINE\nQUARANTINE"
+        "sections": [
+          "SECRET ROOMS",
+          "At least 3 Corridors must be placed\nusing the Drilling Station."
+        ],
+        "footer": "",
+        "upperRight": "",
+        "lowerCenter": "SOLO / COOP",
+        "illegibleSpans": [],
+        "clippedSpans": []
       },
       "symbols": {
         "canonicalGlossaryTokens": [],
         "unresolvedOrLocalTokens": []
       },
       "uncertainties": [
-        "Several additional QUARANTINE tape inscriptions are partially obscured, clipped, distorted, or illegible and are not transcribed.",
-        "The repeated QUARANTINE entries in visibleText represent only clearly readable complete instances; their exact visual line arrangement is irregular because they appear on overlapping tape in the artwork.",
-        "The biohazard symbols in the artwork are not represented as canonical icons because they are not present in the supplied glossary."
+        "The folded and overlapping yellow strips make their exact layer order uncertain.",
+        "Only four P3 instances of QUARANTINE expose all letters clearly enough for full transcription; nine other word occurrences are represented only as [clipped].",
+        "M2 may contain a printed radial glyph beneath staining, but its internal morphology is not visibly discriminable from an irregular blotch.",
+        "The right token on the lowest strip is lower contrast than the main text, though all letters of QUARANTINE remain visibly bounded.",
+        "P3 is a background field rather than a fully enclosed panel, so its lower boundary is approximate.",
+        "No pixel-only evidence establishes an exact component name or canonical side type.",
+        "No current publisher-primary visible exact-title counterpart was located: both Objectives Help Sheet pages are absent, while rulebook page 3 is occluded-not-visible and cannot establish a face.",
+        "The exact title is absent from all three fresh publisher text derivatives.",
+        "No exact current licensed-digital BGA mission/objective title counterpart exists.",
+        "Generic wording overlap without exact title identity is not promoted as a counterpart.",
+        "Current-source fidelity gate is incomplete: no exact-title counterpart exists in current publisher-primary pixels/text or the current licensed-digital mission/objective list.",
+        "No approved canonical Solo/Coop Mission Task image/sidecar schema or directory exists in cards/game."
       ],
-      "canonicalPromotionBlocker": "exact card identity/transcription/icon/category is not uniformly high-confidence",
+      "canonicalPromotionBlocker": "Current-source fidelity gate is incomplete: no exact-title counterpart exists in current publisher-primary pixels/text or the current licensed-digital mission/objective list.; No approved canonical Solo/Coop Mission Task image/sidecar schema or directory exists in cards/game.",
       "evidence": {
         "textBasis": "native vision draft; not canonical promotion",
         "visionProvider": "openai-codex",
         "visionModel": "gpt-5.6-sol",
-        "reasoningEffort": null,
-        "workerId": null,
-        "sessionId": "20260815_053643_8ea7c6",
-        "resultPath": "assets/tts-mod/extract/vision-results/4dc870d681bf40276145b0e0c9c051397eccd38a836b5fb43fc8c4b5107e3473.json",
-        "rawResultPath": null,
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87",
+        "sessionId": "20260821_071741_437876",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87/results/W28-005.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87/raw/W28-005.json",
         "ledgerPath": "assets/tts-mod/extract/vision-progress.json",
-        "queuePath": "assets/tts-mod/extract/low-confidence-review.json"
-      }
+        "queuePath": "assets/tts-mod/extract/low-confidence-review.json",
+        "selectedExtraction": {
+          "runIdentity": "w28-card-extraction-20260821T071525Z-p362032-1fed87/sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87/W28-005",
+          "runId": "w28-card-extraction-20260821T071525Z-p362032-1fed87",
+          "workerId": "sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87",
+          "assetId": "W28-005",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87/results/W28-005.json",
+          "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87/raw/W28-005.json",
+          "contactSheetPath": null,
+          "promotionDecision": "defer",
+          "runtime": {
+            "provider": "openai-codex",
+            "model": "gpt-5.6-sol",
+            "reasoningEffort": "max",
+            "nativeImageRoute": "direct-hermes-chat-image",
+            "blindSessionId": "20260821_071741_437876",
+            "adjudicationSessionId": "20260821_074851_078999",
+            "auxiliaryVisionUsed": false,
+            "qwenUsed": false,
+            "ocrCanonicalEvidenceUsed": false,
+            "modelDowngradeUsed": false
+          }
+        }
+      },
+      "selectedExtraction": {
+        "overlayVersion": 1,
+        "status": "selected-evidence-deferred",
+        "runIdentity": "w28-card-extraction-20260821T071525Z-p362032-1fed87/sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87/W28-005",
+        "runId": "w28-card-extraction-20260821T071525Z-p362032-1fed87",
+        "workerId": "sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87",
+        "assetId": "W28-005",
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoopCustomDeck-121.jpg",
+        "sourceSha256": "4dc870d681bf40276145b0e0c9c051397eccd38a836b5fb43fc8c4b5107e3473",
+        "runtime": {
+          "provider": "openai-codex",
+          "model": "gpt-5.6-sol",
+          "reasoningEffort": "max",
+          "nativeImageRoute": "direct-hermes-chat-image",
+          "blindSessionId": "20260821_071741_437876",
+          "adjudicationSessionId": "20260821_074851_078999",
+          "auxiliaryVisionUsed": false,
+          "qwenUsed": false,
+          "ocrCanonicalEvidenceUsed": false,
+          "modelDowngradeUsed": false
+        },
+        "blindObservationPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87/raw/W28-005.json",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87/results/W28-005.json",
+        "contactSheetPath": null,
+        "visibleText": {
+          "title": "SECRET ROOMS",
+          "typeLine": "",
+          "body": "At least 3 Corridors must be placed\nusing the Drilling Station.",
+          "sections": [
+            "SECRET ROOMS",
+            "At least 3 Corridors must be placed\nusing the Drilling Station."
+          ],
+          "footer": "",
+          "upperRight": "",
+          "lowerCenter": "SOLO / COOP",
+          "illegibleSpans": [],
+          "clippedSpans": []
+        },
+        "verifiedIconOccurrences": [],
+        "unresolvedIconOccurrences": [],
+        "canonicalTokensEmitted": [],
+        "allMaterialTextReadable": true,
+        "allMaterialIconsAuthoritativelyMatched": true,
+        "promotionDecision": "defer",
+        "decisionReasons": [
+          "Current-source fidelity gate is incomplete: no exact-title counterpart exists in current publisher-primary pixels/text or the current licensed-digital mission/objective list.",
+          "No approved canonical Solo/Coop Mission Task image/sidecar schema or directory exists in cards/game."
+        ],
+        "conflictsWithPriorSnapshot": []
+      },
+      "evidenceRuns": [
+        {
+          "runIdentity": "w28-card-extraction-20260821T071525Z-p362032-1fed87/sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87/W28-005",
+          "runId": "w28-card-extraction-20260821T071525Z-p362032-1fed87",
+          "workerId": "sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87",
+          "assetId": "W28-005",
+          "sourceSha256": "4dc870d681bf40276145b0e0c9c051397eccd38a836b5fb43fc8c4b5107e3473",
+          "blindSessionId": "20260821_071741_437876",
+          "adjudicationSessionId": "20260821_074851_078999",
+          "promotionDecision": "defer",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87/results/W28-005.json",
+          "selected": true
+        }
+      ]
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoopCustomDeck-122.jpg",
@@ -27003,9 +27572,17 @@
       "identity": {},
       "printedData": {
         "title": "TACTICAL DECISION",
+        "typeLine": "",
         "body": "At least 6 Doors must be Closed by a [character]",
-        "footer": "SOLO / COOP",
-        "visibleText": "QUARANTINE"
+        "sections": [
+          "TACTICAL DECISION",
+          "At least 6 Doors must be Closed by a [character]"
+        ],
+        "footer": "",
+        "upperRight": "",
+        "lowerCenter": "SOLO / COOP",
+        "illegibleSpans": [],
+        "clippedSpans": []
       },
       "symbols": {
         "canonicalGlossaryTokens": [
@@ -27014,22 +27591,132 @@
         "unresolvedOrLocalTokens": []
       },
       "uncertainties": [
-        "The artwork repeats QUARANTINE across several strips of tape, but many instances are partially obscured or clipped; visibleText records the clearly legible wording without reconstructing every partial repetition.",
-        "The yellow triangular biohazard sign and biohazard marks on the tape are artwork rather than confidently matched canonical glossary icons."
+        "The folded and overlapping yellow strips make their exact layer order uncertain.",
+        "Only four P3 instances of QUARANTINE expose all letters clearly enough for full transcription; nine other word occurrences are represented only as [clipped].",
+        "M2 may contain a printed radial glyph beneath staining, but its internal morphology is not visibly discriminable from an irregular blotch.",
+        "No isolated terminal mark can be confidently separated from M9 or nearby texture; no final punctuation is promoted.",
+        "The semantic or canonical identity of M9 cannot be established from its pixels alone.",
+        "The right token on the lowest strip is lower contrast than the main text, though all letters of QUARANTINE remain visibly bounded.",
+        "P3 is a background field rather than a fully enclosed panel, so its lower boundary is approximate.",
+        "No pixel-only evidence establishes an exact component name or canonical side type.",
+        "No current publisher-primary visible exact-title counterpart was located: both Objectives Help Sheet pages are absent, while rulebook page 3 is occluded-not-visible and cannot establish a face.",
+        "The exact title is absent from all three fresh publisher text derivatives.",
+        "No exact current licensed-digital BGA mission/objective title counterpart exists.",
+        "Generic wording overlap without exact title identity is not promoted as a counterpart.",
+        "Current-source fidelity gate is incomplete: no exact-title counterpart exists in current publisher-primary pixels/text or the current licensed-digital mission/objective list.",
+        "No approved canonical Solo/Coop Mission Task image/sidecar schema or directory exists in cards/game."
       ],
-      "canonicalPromotionBlocker": "exact card identity/transcription/icon/category is not uniformly high-confidence",
+      "canonicalPromotionBlocker": "Current-source fidelity gate is incomplete: no exact-title counterpart exists in current publisher-primary pixels/text or the current licensed-digital mission/objective list.; No approved canonical Solo/Coop Mission Task image/sidecar schema or directory exists in cards/game.",
       "evidence": {
         "textBasis": "native vision draft; not canonical promotion",
         "visionProvider": "openai-codex",
         "visionModel": "gpt-5.6-sol",
-        "reasoningEffort": null,
-        "workerId": null,
-        "sessionId": "20260815_053645_c24761",
-        "resultPath": "assets/tts-mod/extract/vision-results/de4d97fbae3b2bd3514fae4d51bad194d461f6df9d8d26ac9c34ea2328d92548.json",
-        "rawResultPath": null,
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87",
+        "sessionId": "20260821_071741_437876",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87/results/W28-006.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87/raw/W28-006.json",
         "ledgerPath": "assets/tts-mod/extract/vision-progress.json",
-        "queuePath": "assets/tts-mod/extract/low-confidence-review.json"
-      }
+        "queuePath": "assets/tts-mod/extract/low-confidence-review.json",
+        "selectedExtraction": {
+          "runIdentity": "w28-card-extraction-20260821T071525Z-p362032-1fed87/sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87/W28-006",
+          "runId": "w28-card-extraction-20260821T071525Z-p362032-1fed87",
+          "workerId": "sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87",
+          "assetId": "W28-006",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87/results/W28-006.json",
+          "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87/raw/W28-006.json",
+          "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87/qa/contact-sheets/W28-006-M9-all49-contact.png",
+          "promotionDecision": "defer",
+          "runtime": {
+            "provider": "openai-codex",
+            "model": "gpt-5.6-sol",
+            "reasoningEffort": "max",
+            "nativeImageRoute": "direct-hermes-chat-image",
+            "blindSessionId": "20260821_071741_437876",
+            "adjudicationSessionId": "20260821_074851_078999",
+            "auxiliaryVisionUsed": false,
+            "qwenUsed": false,
+            "ocrCanonicalEvidenceUsed": false,
+            "modelDowngradeUsed": false
+          }
+        }
+      },
+      "selectedExtraction": {
+        "overlayVersion": 1,
+        "status": "selected-evidence-deferred",
+        "runIdentity": "w28-card-extraction-20260821T071525Z-p362032-1fed87/sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87/W28-006",
+        "runId": "w28-card-extraction-20260821T071525Z-p362032-1fed87",
+        "workerId": "sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87",
+        "assetId": "W28-006",
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoopCustomDeck-122.jpg",
+        "sourceSha256": "de4d97fbae3b2bd3514fae4d51bad194d461f6df9d8d26ac9c34ea2328d92548",
+        "runtime": {
+          "provider": "openai-codex",
+          "model": "gpt-5.6-sol",
+          "reasoningEffort": "max",
+          "nativeImageRoute": "direct-hermes-chat-image",
+          "blindSessionId": "20260821_071741_437876",
+          "adjudicationSessionId": "20260821_074851_078999",
+          "auxiliaryVisionUsed": false,
+          "qwenUsed": false,
+          "ocrCanonicalEvidenceUsed": false,
+          "modelDowngradeUsed": false
+        },
+        "blindObservationPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87/raw/W28-006.json",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87/results/W28-006.json",
+        "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87/qa/contact-sheets/W28-006-M9-all49-contact.png",
+        "visibleText": {
+          "title": "TACTICAL DECISION",
+          "typeLine": "",
+          "body": "At least 6 Doors must be Closed by a [character]",
+          "sections": [
+            "TACTICAL DECISION",
+            "At least 6 Doors must be Closed by a [character]"
+          ],
+          "footer": "",
+          "upperRight": "",
+          "lowerCenter": "SOLO / COOP",
+          "illegibleSpans": [],
+          "clippedSpans": []
+        },
+        "verifiedIconOccurrences": [
+          {
+            "cardLocation": "P2, at the right end of the body line after the printed lowercase a, approximately x82%-89% and y83%-89%.",
+            "referenceLabel": "Character",
+            "matchDecision": "match",
+            "canonicalToken": "character",
+            "closestAlternative": "robot",
+            "visibleDiscriminator": "The source head contains one continuous horizontal visor opening, whereas robot has two separate circular openings.",
+            "evidenceRun": "sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87"
+          }
+        ],
+        "unresolvedIconOccurrences": [],
+        "canonicalTokensEmitted": [
+          "character"
+        ],
+        "allMaterialTextReadable": true,
+        "allMaterialIconsAuthoritativelyMatched": true,
+        "promotionDecision": "defer",
+        "decisionReasons": [
+          "Current-source fidelity gate is incomplete: no exact-title counterpart exists in current publisher-primary pixels/text or the current licensed-digital mission/objective list.",
+          "No approved canonical Solo/Coop Mission Task image/sidecar schema or directory exists in cards/game."
+        ],
+        "conflictsWithPriorSnapshot": []
+      },
+      "evidenceRuns": [
+        {
+          "runIdentity": "w28-card-extraction-20260821T071525Z-p362032-1fed87/sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87/W28-006",
+          "runId": "w28-card-extraction-20260821T071525Z-p362032-1fed87",
+          "workerId": "sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87",
+          "assetId": "W28-006",
+          "sourceSha256": "de4d97fbae3b2bd3514fae4d51bad194d461f6df9d8d26ac9c34ea2328d92548",
+          "blindSessionId": "20260821_071741_437876",
+          "adjudicationSessionId": "20260821_074851_078999",
+          "promotionDecision": "defer",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87/results/W28-006.json",
+          "selected": true
+        }
+      ]
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoopCustomDeck-124.jpg",
@@ -27038,42 +27725,164 @@
       "componentFamily": "game/objectiveCoopCustomDeck",
       "ledgerStatus": "deferred",
       "extractionState": "draft-full",
-      "rulesInformationReadiness": "draft-text-complete-symbols-unresolved",
+      "rulesInformationReadiness": "draft-text-complete",
       "rulesTextPresent": true,
       "identity": {},
       "printedData": {
         "title": "RESCUE",
-        "typeLine": "SOLO / COOP",
+        "typeLine": "",
         "body": "2 Bodies from Hibernatorium\nmust be in the Landing Zone\n(Bodies work like downed [character]).",
-        "visibleText": "[ICON: yellow triangular black biohazard glyph]\nQUARANTINE"
+        "sections": [
+          "RESCUE",
+          "2 Bodies from Hibernatorium\nmust be in the Landing Zone\n(Bodies work like downed [character])."
+        ],
+        "footer": "",
+        "upperRight": "",
+        "lowerCenter": "SOLO / COOP",
+        "illegibleSpans": [],
+        "clippedSpans": []
       },
       "symbols": {
         "canonicalGlossaryTokens": [
           "character"
         ],
-        "unresolvedOrLocalTokens": [
-          "ICON: yellow triangular black biohazard glyph"
-        ]
+        "unresolvedOrLocalTokens": []
       },
       "uncertainties": [
-        "The quarantine-tape artwork contains numerous repeated, overlapping, clipped, and partly illegible instances of “QUARANTINE”; only one fully readable instance is represented in visibleText.",
-        "The biohazard symbols in the artwork are not included in the supplied canonical glossary and are therefore described literally.",
-        "The white glyph after “downed” confidently matches the supplied astronaut morphology for [character], although its specific contextual meaning is not inferred beyond that mapping.",
-        "The printed term “Hibernatorium” is transcribed exactly as visible despite being an unusual word."
+        "The folded and overlapping yellow strips make their exact layer order uncertain.",
+        "Only four P3 instances of QUARANTINE expose all letters clearly enough for full transcription; nine other word occurrences are represented only as [clipped].",
+        "M2 may contain a printed radial glyph beneath staining, but its internal morphology is not visibly discriminable from an irregular blotch.",
+        "The semantic or canonical identity of M9 cannot be established from its pixels alone.",
+        "The right token on the lowest strip is lower contrast than the main text, though all letters of QUARANTINE remain visibly bounded.",
+        "P3 is a background field rather than a fully enclosed panel, so its lower boundary is approximate.",
+        "No pixel-only evidence establishes an exact component name or canonical side type.",
+        "No current publisher-primary visible exact-title counterpart was located: both Objectives Help Sheet pages are absent, while rulebook page 3 is occluded-not-visible and cannot establish a face.",
+        "The exact title is absent from all three fresh publisher text derivatives.",
+        "No exact current licensed-digital BGA mission/objective title counterpart exists.",
+        "Generic wording overlap without exact title identity is not promoted as a counterpart.",
+        "Current-source fidelity gate is incomplete: no exact-title counterpart exists in current publisher-primary pixels/text or the current licensed-digital mission/objective list.",
+        "No approved canonical Solo/Coop Mission Task image/sidecar schema or directory exists in cards/game.",
+        "1 material discrepancy row(s) with the prior unselected corpus snapshot are preserved; no silent canonical correction is allowed."
       ],
-      "canonicalPromotionBlocker": "exact card identity/transcription/icon/category is not uniformly high-confidence",
+      "canonicalPromotionBlocker": "Current-source fidelity gate is incomplete: no exact-title counterpart exists in current publisher-primary pixels/text or the current licensed-digital mission/objective list.; No approved canonical Solo/Coop Mission Task image/sidecar schema or directory exists in cards/game.; 1 material discrepancy row(s) with the prior unselected corpus snapshot are preserved; no silent canonical correction is allowed.",
       "evidence": {
         "textBasis": "native vision draft; not canonical promotion",
         "visionProvider": "openai-codex",
         "visionModel": "gpt-5.6-sol",
-        "reasoningEffort": null,
-        "workerId": null,
-        "sessionId": "20260815_053647_68dad4",
-        "resultPath": "assets/tts-mod/extract/vision-results/33b4d988858b45215a8de460c1cf0ff8ec24aa5343e09c698b913f0b83443e3c.json",
-        "rawResultPath": null,
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87",
+        "sessionId": "20260821_071741_437876",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87/results/W28-007.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87/raw/W28-007.json",
         "ledgerPath": "assets/tts-mod/extract/vision-progress.json",
-        "queuePath": "assets/tts-mod/extract/low-confidence-review.json"
-      }
+        "queuePath": "assets/tts-mod/extract/low-confidence-review.json",
+        "selectedExtraction": {
+          "runIdentity": "w28-card-extraction-20260821T071525Z-p362032-1fed87/sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87/W28-007",
+          "runId": "w28-card-extraction-20260821T071525Z-p362032-1fed87",
+          "workerId": "sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87",
+          "assetId": "W28-007",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87/results/W28-007.json",
+          "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87/raw/W28-007.json",
+          "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87/qa/contact-sheets/W28-007-M9-all49-contact.png",
+          "promotionDecision": "defer",
+          "runtime": {
+            "provider": "openai-codex",
+            "model": "gpt-5.6-sol",
+            "reasoningEffort": "max",
+            "nativeImageRoute": "direct-hermes-chat-image",
+            "blindSessionId": "20260821_071741_437876",
+            "adjudicationSessionId": "20260821_074851_078999",
+            "auxiliaryVisionUsed": false,
+            "qwenUsed": false,
+            "ocrCanonicalEvidenceUsed": false,
+            "modelDowngradeUsed": false
+          }
+        }
+      },
+      "selectedExtraction": {
+        "overlayVersion": 1,
+        "status": "selected-evidence-deferred",
+        "runIdentity": "w28-card-extraction-20260821T071525Z-p362032-1fed87/sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87/W28-007",
+        "runId": "w28-card-extraction-20260821T071525Z-p362032-1fed87",
+        "workerId": "sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87",
+        "assetId": "W28-007",
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoopCustomDeck-124.jpg",
+        "sourceSha256": "33b4d988858b45215a8de460c1cf0ff8ec24aa5343e09c698b913f0b83443e3c",
+        "runtime": {
+          "provider": "openai-codex",
+          "model": "gpt-5.6-sol",
+          "reasoningEffort": "max",
+          "nativeImageRoute": "direct-hermes-chat-image",
+          "blindSessionId": "20260821_071741_437876",
+          "adjudicationSessionId": "20260821_074851_078999",
+          "auxiliaryVisionUsed": false,
+          "qwenUsed": false,
+          "ocrCanonicalEvidenceUsed": false,
+          "modelDowngradeUsed": false
+        },
+        "blindObservationPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87/raw/W28-007.json",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87/results/W28-007.json",
+        "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87/qa/contact-sheets/W28-007-M9-all49-contact.png",
+        "visibleText": {
+          "title": "RESCUE",
+          "typeLine": "",
+          "body": "2 Bodies from Hibernatorium\nmust be in the Landing Zone\n(Bodies work like downed [character]).",
+          "sections": [
+            "RESCUE",
+            "2 Bodies from Hibernatorium\nmust be in the Landing Zone\n(Bodies work like downed [character])."
+          ],
+          "footer": "",
+          "upperRight": "",
+          "lowerCenter": "SOLO / COOP",
+          "illegibleSpans": [],
+          "clippedSpans": []
+        },
+        "verifiedIconOccurrences": [
+          {
+            "cardLocation": "P2, near the right end of the third body line after the printed word downed, approximately x68%-74% and y87%-92%.",
+            "referenceLabel": "Character",
+            "matchDecision": "match",
+            "canonicalToken": "character",
+            "closestAlternative": "robot",
+            "visibleDiscriminator": "The source head contains one continuous horizontal visor opening, whereas robot has two separate circular openings.",
+            "evidenceRun": "sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87"
+          }
+        ],
+        "unresolvedIconOccurrences": [],
+        "canonicalTokensEmitted": [
+          "character"
+        ],
+        "allMaterialTextReadable": true,
+        "allMaterialIconsAuthoritativelyMatched": true,
+        "promotionDecision": "defer",
+        "decisionReasons": [
+          "Current-source fidelity gate is incomplete: no exact-title counterpart exists in current publisher-primary pixels/text or the current licensed-digital mission/objective list.",
+          "No approved canonical Solo/Coop Mission Task image/sidecar schema or directory exists in cards/game.",
+          "1 material discrepancy row(s) with the prior unselected corpus snapshot are preserved; no silent canonical correction is allowed."
+        ],
+        "conflictsWithPriorSnapshot": [
+          {
+            "field": "printedData.visibleText",
+            "priorValue": "[ICON: yellow triangular black biohazard glyph]\nQUARANTINE",
+            "currentStatus": "W28 pixel-first reread leaves the illustrated warning/tape marks semantically unnamed and artwork-only.",
+            "resolution": "Preserve prior unselected corpus snapshot as historical evidence; do not promote its unsupported semantic artwork label."
+          }
+        ]
+      },
+      "evidenceRuns": [
+        {
+          "runIdentity": "w28-card-extraction-20260821T071525Z-p362032-1fed87/sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87/W28-007",
+          "runId": "w28-card-extraction-20260821T071525Z-p362032-1fed87",
+          "workerId": "sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87",
+          "assetId": "W28-007",
+          "sourceSha256": "33b4d988858b45215a8de460c1cf0ff8ec24aa5343e09c698b913f0b83443e3c",
+          "blindSessionId": "20260821_071741_437876",
+          "adjudicationSessionId": "20260821_074851_078999",
+          "promotionDecision": "defer",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87/results/W28-007.json",
+          "selected": true
+        }
+      ]
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoopCustomDeck-127.jpg",
@@ -27082,39 +27891,149 @@
       "componentFamily": "game/objectiveCoopCustomDeck",
       "ledgerStatus": "deferred",
       "extractionState": "draft-full",
-      "rulesInformationReadiness": "draft-text-complete-symbols-unresolved",
+      "rulesInformationReadiness": "draft-text-complete",
       "rulesTextPresent": true,
       "identity": {},
       "printedData": {
         "title": "SECURED PERIMETER",
+        "typeLine": "",
         "body": "All Corridors adjacent to the Landing Zone\nmust be Reinforced.",
-        "footer": "SOLO / COOP",
-        "visibleText": "[ICON: black biohazard symbol in yellow triangle]\nQUARANTINE\nQUARANTINE\nQUARANTINE\nQUARANTINE"
+        "sections": [
+          "SECURED PERIMETER",
+          "All Corridors adjacent to the Landing Zone\nmust be Reinforced."
+        ],
+        "footer": "",
+        "upperRight": "",
+        "lowerCenter": "SOLO / COOP",
+        "illegibleSpans": [],
+        "clippedSpans": []
       },
       "symbols": {
         "canonicalGlossaryTokens": [],
-        "unresolvedOrLocalTokens": [
-          "ICON: black biohazard symbol in yellow triangle"
-        ]
+        "unresolvedOrLocalTokens": []
       },
       "uncertainties": [
-        "Several additional QUARANTINE markings on the tape are partially clipped, obscured, folded, or blurred and are not reconstructed.",
-        "The biohazard symbols are not present in the supplied canonical glossary, so the clearly visible triangular sign is described literally.",
-        "The exact count and ordering of fully versus partially visible decorative QUARANTINE repetitions is difficult to establish because multiple tape strips overlap."
+        "The folded and overlapping yellow strips make their exact layer order uncertain.",
+        "Only four P3 instances of QUARANTINE expose all letters clearly enough for full transcription; nine other word occurrences are represented only as [clipped].",
+        "M2 may contain a printed radial glyph beneath staining, but its internal morphology is not visibly discriminable from an irregular blotch.",
+        "The right token on the lowest strip is lower contrast than the main text, though all letters of QUARANTINE remain visibly bounded.",
+        "P3 is a background field rather than a fully enclosed panel, so its lower boundary is approximate.",
+        "No pixel-only evidence establishes an exact component name or canonical side type.",
+        "No current publisher-primary visible exact-title counterpart was located: both Objectives Help Sheet pages are absent, while rulebook page 3 is occluded-not-visible and cannot establish a face.",
+        "The exact title is absent from all three fresh publisher text derivatives.",
+        "No exact current licensed-digital BGA mission/objective title counterpart exists.",
+        "Generic wording overlap without exact title identity is not promoted as a counterpart.",
+        "Current-source fidelity gate is incomplete: no exact-title counterpart exists in current publisher-primary pixels/text or the current licensed-digital mission/objective list.",
+        "No approved canonical Solo/Coop Mission Task image/sidecar schema or directory exists in cards/game.",
+        "1 material discrepancy row(s) with the prior unselected corpus snapshot are preserved; no silent canonical correction is allowed."
       ],
-      "canonicalPromotionBlocker": "exact card identity/transcription/icon/category is not uniformly high-confidence",
+      "canonicalPromotionBlocker": "Current-source fidelity gate is incomplete: no exact-title counterpart exists in current publisher-primary pixels/text or the current licensed-digital mission/objective list.; No approved canonical Solo/Coop Mission Task image/sidecar schema or directory exists in cards/game.; 1 material discrepancy row(s) with the prior unselected corpus snapshot are preserved; no silent canonical correction is allowed.",
       "evidence": {
         "textBasis": "native vision draft; not canonical promotion",
         "visionProvider": "openai-codex",
         "visionModel": "gpt-5.6-sol",
-        "reasoningEffort": null,
-        "workerId": null,
-        "sessionId": "20260815_053650_ce9209",
-        "resultPath": "assets/tts-mod/extract/vision-results/5e73b9b5b7a9f089da13689c0e7717927339b9802669807fd8226e3f9bc08559.json",
-        "rawResultPath": null,
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87",
+        "sessionId": "20260821_071741_437876",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87/results/W28-008.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87/raw/W28-008.json",
         "ledgerPath": "assets/tts-mod/extract/vision-progress.json",
-        "queuePath": "assets/tts-mod/extract/low-confidence-review.json"
-      }
+        "queuePath": "assets/tts-mod/extract/low-confidence-review.json",
+        "selectedExtraction": {
+          "runIdentity": "w28-card-extraction-20260821T071525Z-p362032-1fed87/sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87/W28-008",
+          "runId": "w28-card-extraction-20260821T071525Z-p362032-1fed87",
+          "workerId": "sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87",
+          "assetId": "W28-008",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87/results/W28-008.json",
+          "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87/raw/W28-008.json",
+          "contactSheetPath": null,
+          "promotionDecision": "defer",
+          "runtime": {
+            "provider": "openai-codex",
+            "model": "gpt-5.6-sol",
+            "reasoningEffort": "max",
+            "nativeImageRoute": "direct-hermes-chat-image",
+            "blindSessionId": "20260821_071741_437876",
+            "adjudicationSessionId": "20260821_074851_078999",
+            "auxiliaryVisionUsed": false,
+            "qwenUsed": false,
+            "ocrCanonicalEvidenceUsed": false,
+            "modelDowngradeUsed": false
+          }
+        }
+      },
+      "selectedExtraction": {
+        "overlayVersion": 1,
+        "status": "selected-evidence-deferred",
+        "runIdentity": "w28-card-extraction-20260821T071525Z-p362032-1fed87/sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87/W28-008",
+        "runId": "w28-card-extraction-20260821T071525Z-p362032-1fed87",
+        "workerId": "sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87",
+        "assetId": "W28-008",
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoopCustomDeck-127.jpg",
+        "sourceSha256": "5e73b9b5b7a9f089da13689c0e7717927339b9802669807fd8226e3f9bc08559",
+        "runtime": {
+          "provider": "openai-codex",
+          "model": "gpt-5.6-sol",
+          "reasoningEffort": "max",
+          "nativeImageRoute": "direct-hermes-chat-image",
+          "blindSessionId": "20260821_071741_437876",
+          "adjudicationSessionId": "20260821_074851_078999",
+          "auxiliaryVisionUsed": false,
+          "qwenUsed": false,
+          "ocrCanonicalEvidenceUsed": false,
+          "modelDowngradeUsed": false
+        },
+        "blindObservationPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87/raw/W28-008.json",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87/results/W28-008.json",
+        "contactSheetPath": null,
+        "visibleText": {
+          "title": "SECURED PERIMETER",
+          "typeLine": "",
+          "body": "All Corridors adjacent to the Landing Zone\nmust be Reinforced.",
+          "sections": [
+            "SECURED PERIMETER",
+            "All Corridors adjacent to the Landing Zone\nmust be Reinforced."
+          ],
+          "footer": "",
+          "upperRight": "",
+          "lowerCenter": "SOLO / COOP",
+          "illegibleSpans": [],
+          "clippedSpans": []
+        },
+        "verifiedIconOccurrences": [],
+        "unresolvedIconOccurrences": [],
+        "canonicalTokensEmitted": [],
+        "allMaterialTextReadable": true,
+        "allMaterialIconsAuthoritativelyMatched": true,
+        "promotionDecision": "defer",
+        "decisionReasons": [
+          "Current-source fidelity gate is incomplete: no exact-title counterpart exists in current publisher-primary pixels/text or the current licensed-digital mission/objective list.",
+          "No approved canonical Solo/Coop Mission Task image/sidecar schema or directory exists in cards/game.",
+          "1 material discrepancy row(s) with the prior unselected corpus snapshot are preserved; no silent canonical correction is allowed."
+        ],
+        "conflictsWithPriorSnapshot": [
+          {
+            "field": "printedData.visibleText",
+            "priorValue": "[ICON: black biohazard symbol in yellow triangle]\nQUARANTINE\nQUARANTINE\nQUARANTINE\nQUARANTINE",
+            "currentStatus": "W28 pixel-first reread leaves the illustrated warning/tape marks semantically unnamed and artwork-only.",
+            "resolution": "Preserve prior unselected corpus snapshot as historical evidence; do not promote its unsupported semantic artwork label."
+          }
+        ]
+      },
+      "evidenceRuns": [
+        {
+          "runIdentity": "w28-card-extraction-20260821T071525Z-p362032-1fed87/sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87/W28-008",
+          "runId": "w28-card-extraction-20260821T071525Z-p362032-1fed87",
+          "workerId": "sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87",
+          "assetId": "W28-008",
+          "sourceSha256": "5e73b9b5b7a9f089da13689c0e7717927339b9802669807fd8226e3f9bc08559",
+          "blindSessionId": "20260821_071741_437876",
+          "adjudicationSessionId": "20260821_074851_078999",
+          "promotionDecision": "defer",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87/results/W28-008.json",
+          "selected": true
+        }
+      ]
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoopCustomDeck-129.jpg",

@@ -1,23 +1,23 @@
 {
   "schemaVersion": 1,
   "sourceCorpus": "assets/tts-mod/extract/card-text-corpus.json",
-  "sourceProgressUpdatedAt": "2026-08-21T06:59:51.627689Z",
+  "sourceProgressUpdatedAt": "2026-08-21T07:58:06.625743Z",
   "warning": "Cluster labels describe visible morphology only. They are not canonical icon names or semantic claims.",
   "summary": {
-    "unresolvedTokenOccurrences": 246,
-    "distinctLiteralDescriptions": 186,
-    "affectedAssets": 135,
-    "clusters": 10
+    "unresolvedTokenOccurrences": 241,
+    "distinctLiteralDescriptions": 181,
+    "affectedAssets": 131,
+    "clusters": 9
   },
   "clusters": [
     {
       "cluster": "other-local-morphology",
       "status": "morphology-only-unresolved",
-      "priorityScore": 9140,
-      "occurrences": 120,
-      "assetCount": 82,
-      "rulesBearingAssetCount": 82,
-      "distinctLiteralDescriptions": 72,
+      "priorityScore": 9029,
+      "occurrences": 119,
+      "assetCount": 81,
+      "rulesBearingAssetCount": 81,
+      "distinctLiteralDescriptions": 71,
       "resolutionStrategy": "Review highest-frequency rules-bearing examples first, then split into narrower morphology clusters without semantic guessing.",
       "topRepeatedLiterals": [
         {
@@ -920,16 +920,6 @@
           "token": "clipped",
           "rulesTextPresent": true,
           "rulesExcerpt": "At least 3 [shootDieCritical] must be rolled.",
-          "ledgerStatus": "deferred"
-        },
-        {
-          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoopCustomDeck-119.jpg",
-          "sourceSha256": "ff09f521ece8fb88ff0a703907158121a0d850341101ded2919eac85e89bc480",
-          "componentFamily": "game/objectiveCoopCustomDeck",
-          "printedTitle": null,
-          "token": "ICON: white spacecraft-like silhouette",
-          "rulesTextPresent": true,
-          "rulesExcerpt": "[ICON: white spacecraft-like silhouette] must arrive safely on Round 10.",
           "ledgerStatus": "deferred"
         },
         {
@@ -2916,76 +2906,6 @@
           "token": "ICON: purple square exclamation mark",
           "rulesTextPresent": true,
           "rulesExcerpt": "Burst: Treat [burstDie3] and [burstDie4] as [burstDie2].\n[ICON: purple square exclamation mark], [ICON: red triangle white flame-like glyph] - Place a [malfunction] in your Room.",
-          "ledgerStatus": "deferred"
-        }
-      ]
-    },
-    {
-      "cluster": "biohazard-morphology",
-      "status": "morphology-only-unresolved",
-      "priorityScore": 34,
-      "occurrences": 4,
-      "assetCount": 3,
-      "rulesBearingAssetCount": 3,
-      "distinctLiteralDescriptions": 4,
-      "resolutionStrategy": "Separate decorative art/watermarks from inline operative symbols by location and sentence grammar before assigning meaning.",
-      "topRepeatedLiterals": [
-        {
-          "token": "ICON: black biohazard glyph inside yellow triangular warning sign",
-          "count": 1
-        },
-        {
-          "token": "ICON: black biohazard glyph repeated on yellow quarantine tape",
-          "count": 1
-        },
-        {
-          "token": "ICON: black biohazard symbol in yellow triangle",
-          "count": 1
-        },
-        {
-          "token": "ICON: yellow triangular black biohazard glyph",
-          "count": 1
-        }
-      ],
-      "evidence": [
-        {
-          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoopCustomDeck-105.jpg",
-          "sourceSha256": "608248600b4d9fdb4e49112bbab74f616978ceb2335dbbe6bbb9275741fc9138",
-          "componentFamily": "game/objectiveCoopCustomDeck",
-          "printedTitle": null,
-          "token": "ICON: black biohazard glyph inside yellow triangular warning sign",
-          "rulesTextPresent": true,
-          "rulesExcerpt": "2 Bodies from Hibernatorium\nmust be in the Landing Zone\n(Bodies work like downed [character]).",
-          "ledgerStatus": "deferred"
-        },
-        {
-          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoopCustomDeck-105.jpg",
-          "sourceSha256": "608248600b4d9fdb4e49112bbab74f616978ceb2335dbbe6bbb9275741fc9138",
-          "componentFamily": "game/objectiveCoopCustomDeck",
-          "printedTitle": null,
-          "token": "ICON: black biohazard glyph repeated on yellow quarantine tape",
-          "rulesTextPresent": true,
-          "rulesExcerpt": "2 Bodies from Hibernatorium\nmust be in the Landing Zone\n(Bodies work like downed [character]).",
-          "ledgerStatus": "deferred"
-        },
-        {
-          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoopCustomDeck-124.jpg",
-          "sourceSha256": "33b4d988858b45215a8de460c1cf0ff8ec24aa5343e09c698b913f0b83443e3c",
-          "componentFamily": "game/objectiveCoopCustomDeck",
-          "printedTitle": null,
-          "token": "ICON: yellow triangular black biohazard glyph",
-          "rulesTextPresent": true,
-          "rulesExcerpt": "2 Bodies from Hibernatorium\nmust be in the Landing Zone\n(Bodies work like downed [character]).",
-          "ledgerStatus": "deferred"
-        },
-        {
-          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoopCustomDeck-127.jpg",
-          "sourceSha256": "5e73b9b5b7a9f089da13689c0e7717927339b9802669807fd8226e3f9bc08559",
-          "componentFamily": "game/objectiveCoopCustomDeck",
-          "printedTitle": null,
-          "token": "ICON: black biohazard symbol in yellow triangle",
-          "rulesTextPresent": true,
-          "rulesExcerpt": "All Corridors adjacent to the Landing Zone\nmust be Reinforced.",
           "ledgerStatus": "deferred"
         }
       ]

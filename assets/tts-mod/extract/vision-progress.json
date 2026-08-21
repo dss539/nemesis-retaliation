@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-08-21T06:59:51.627689Z",
+  "updatedAt": "2026-08-21T07:58:06.625743Z",
   "scope": {
     "root": "assets/tts-mod/extract/v2-dl/tree",
     "definition": "Every base-game PNG/JPEG canonical child or standalone image in the extraction tree. Source sprite sheets with documented canonical split children are excluded from semantic re-extraction.",
@@ -101280,9 +101280,13 @@
       "vision": {
         "provider": "openai-codex",
         "model": "gpt-5.6-sol",
-        "sessionId": "20260815_053627_831873",
-        "resultPath": "assets/tts-mod/extract/vision-results/608248600b4d9fdb4e49112bbab74f616978ceb2335dbbe6bbb9275741fc9138.json",
-        "confidence": "medium"
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87",
+        "sessionId": "20260821_071741_437876",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87/results/W28-001.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87/raw/W28-001.json",
+        "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87/qa/contact-sheets/W28-001-M9-all49-contact.png",
+        "confidence": "high-evidence-deferred-source/schema"
       },
       "provenance": {
         "sourceUrl": "https://steamusercontent-a.akamaihd.net/ugc/16010328265289984070/2FD403CD6E0712E2473D2DE7B534A61E0DEF7508/",
@@ -101486,35 +101490,45 @@
         ]
       },
       "semanticRead": {
-        "componentType": "cooperative objective card",
+        "componentType": "Solo/Coop Mission Task card",
         "cardSide": "face",
         "title": "THIRD RESCUE",
         "typeLine": "",
         "body": "2 Bodies from Hibernatorium\nmust be in the Landing Zone\n(Bodies work like downed [character]).",
-        "footer": "SOLO / COOP",
+        "footer": "",
         "upperRight": "",
-        "lowerCenter": "",
-        "visibleText": "QUARANTINE\n[ICON: black biohazard glyph inside yellow triangular warning sign]\n[ICON: black biohazard glyph repeated on yellow quarantine tape]",
+        "lowerCenter": "SOLO / COOP",
+        "visibleText": "THIRD RESCUE\n2 Bodies from Hibernatorium\nmust be in the Landing Zone\n(Bodies work like downed [character]).",
         "confidentlyVisible": [
-          "Upright portrait card face",
-          "Title reads THIRD RESCUE",
-          "Rules text occupies a framed lower panel",
-          "A small white astronaut-like character glyph follows the word “downed”",
-          "Green footer reads SOLO / COOP",
-          "Artwork depicts a blood-stained doorway covered with yellow quarantine tape"
+          "Portrait raster approximately 1080 x 1512 visible pixels.",
+          "The upper field contains paired pale gray-green rectangular slabs separated by a dark vertical seam, surrounded by dark structural bars and crossed by multiple folded yellow strips.",
+          "A yellow black-bordered triangular placard with a central black radial mark is visible in the upper center-right. Seven separate small black radial marks are visibly printed on yellow strips.",
+          "The lower region contains two overlapping dark faceted plaques. P1 contains one large centered white uppercase line. P2 contains three centered white lines and one centered green uppercase line.",
+          "A compact white bilaterally symmetric glyph interrupts the third white body line near its right end; a closing parenthesis and period remain visible after it.",
+          "Fine screen-like texture, scratches, stains, folds, and overlapping strips reduce the legibility of much of the lettering in P3."
         ],
-        "proposedCategory": "cards/game/objective",
-        "proposedSlug": "third-rescue",
-        "confidence": "medium",
+        "proposedCategory": "",
+        "proposedSlug": "",
+        "confidence": "high-evidence-deferred-source/schema",
         "uncertainties": [
-          "Biohazard glyphs in the artwork are not represented in the supplied canonical glossary.",
-          "Some background QUARANTINE lettering is partially obscured or clipped and is not reconstructed.",
-          "The inline white humanoid glyph is mapped to [character] from its astronaut morphology; its small size limits fine-detail confirmation."
+          "The folded and overlapping yellow strips make their exact layer order uncertain.",
+          "Only four P3 instances of QUARANTINE expose all letters clearly enough for full transcription; nine other word occurrences are represented only as [clipped].",
+          "M2 is partly degraded by a reddish-brown stain, although a structured radial form remains visible.",
+          "The white inline glyph M9 is visibly distinct and functionally placed within the sentence, but its semantic or canonical identity cannot be established from its pixels alone.",
+          "P3 is a background field rather than a fully enclosed panel, so its lower boundary is approximate.",
+          "No pixel-only evidence establishes an exact component name or a canonical side type.",
+          "No current publisher-primary visible exact-title counterpart was located: both Objectives Help Sheet pages are absent, while rulebook page 3 is occluded-not-visible and cannot establish a face.",
+          "The exact title is absent from all three fresh publisher text derivatives.",
+          "No exact current licensed-digital BGA mission/objective title counterpart exists.",
+          "Generic wording overlap without exact title identity is not promoted as a counterpart.",
+          "Current-source fidelity gate is incomplete: no exact-title counterpart exists in current publisher-primary pixels/text or the current licensed-digital mission/objective list.",
+          "No approved canonical Solo/Coop Mission Task image/sidecar schema or directory exists in cards/game.",
+          "1 material discrepancy row(s) with the prior unselected corpus snapshot are preserved; no silent canonical correction is allowed."
         ],
         "orientation": "upright"
       },
       "reviewQueuePath": "assets/tts-mod/extract/low-confidence-review.json",
-      "deferReason": "exact card identity/transcription/icon/category is not uniformly high-confidence"
+      "deferReason": "Current-source fidelity gate is incomplete: no exact-title counterpart exists in current publisher-primary pixels/text or the current licensed-digital mission/objective list.; No approved canonical Solo/Coop Mission Task image/sidecar schema or directory exists in cards/game.; 1 material discrepancy row(s) with the prior unselected corpus snapshot are preserved; no silent canonical correction is allowed."
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoopCustomDeck-106.jpg",
@@ -101528,9 +101542,13 @@
       "vision": {
         "provider": "openai-codex",
         "model": "gpt-5.6-sol",
-        "sessionId": "20260815_053627_b080bf",
-        "resultPath": "assets/tts-mod/extract/vision-results/32405644fa1317e3363cba6318edf2231f15a5d2b3f6ac1a2f28e54eddbae250.json",
-        "confidence": "medium"
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87",
+        "sessionId": "20260821_071741_437876",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87/results/W28-002.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87/raw/W28-002.json",
+        "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87/qa/contact-sheets/W28-002-M9-all49-contact.png",
+        "confidence": "high-evidence-deferred-source/schema"
       },
       "provenance": {
         "sourceUrl": "https://steamusercontent-a.akamaihd.net/ugc/15985505917071312903/5CDDD593DBA2E3DBE214C9BA6C0133353A5D92EB/",
@@ -101734,33 +101752,44 @@
         ]
       },
       "semanticRead": {
-        "componentType": "objective card",
+        "componentType": "Solo/Coop Mission Task card",
         "cardSide": "face",
         "title": "RECKLESS",
         "typeLine": "",
         "body": "Squad votes for 1 [character],\nit cannot Move Cautiously.",
-        "footer": "SOLO / COOP",
+        "footer": "",
         "upperRight": "",
-        "lowerCenter": "",
-        "visibleText": "QUARANTINE",
+        "lowerCenter": "SOLO / COOP",
+        "visibleText": "RECKLESS\nSquad votes for 1 [character],\nit cannot Move Cautiously.",
         "confidentlyVisible": [
-          "Upright portrait-format card face",
-          "Title RECKLESS appears in white uppercase text",
-          "Body contains a white astronaut character icon after the numeral 1",
-          "Footer SOLO / COOP appears in green uppercase text",
-          "Artwork depicts a sealed doorway crossed by yellow quarantine tape"
+          "Portrait raster approximately 1080 x 1512 visible pixels.",
+          "The upper field contains two pale gray-green rectangular slabs separated by a dark vertical seam, dark surrounding bars, vertical red lines, and multiple overlapping yellow strips.",
+          "One yellow black-bordered triangular placard containing a dark radial mark appears in the upper center-right. Seven separate small dark radial marks are visibly printed on yellow strips.",
+          "Two overlapping dark faceted plaques occupy the lower region. P1 contains one large centered white uppercase line. P2 contains two centered white body lines and one centered green uppercase line.",
+          "A compact white segmented glyph appears within the first body line after the numeral 1. A small comma is visibly separated from its lower-right edge.",
+          "Fine regular screen texture, scratches, stains, folds, and strip overlaps reduce the legibility of much of the background lettering."
         ],
-        "proposedCategory": "cards/game/objective",
-        "proposedSlug": "reckless",
-        "confidence": "medium",
+        "proposedCategory": "",
+        "proposedSlug": "",
+        "confidence": "high-evidence-deferred-source/schema",
         "uncertainties": [
-          "The artwork contains multiple repeated QUARANTINE markings; several instances are partially obscured or clipped and are not individually transcribed.",
-          "Some tiny biohazard symbols on the quarantine tape are decorative artwork glyphs rather than confidently glossary-matched game icons."
+          "The folded and overlapping yellow strips make their exact layer order uncertain.",
+          "Only four P3 instances of QUARANTINE expose all letters clearly enough for full transcription; nine other word occurrences are represented only as [clipped].",
+          "M2 is partly degraded by a reddish-brown stain, although a structured radial form remains visible.",
+          "The white inline glyph M9 is visibly distinct and functionally placed within the sentence, but its semantic or canonical identity cannot be established from its pixels alone.",
+          "P3 is a background field rather than a fully enclosed panel, so its lower boundary is approximate.",
+          "No pixel-only evidence establishes an exact component name or canonical side type.",
+          "No current publisher-primary visible exact-title counterpart was located: both Objectives Help Sheet pages are absent, while rulebook page 3 is occluded-not-visible and cannot establish a face.",
+          "The exact title is absent from all three fresh publisher text derivatives.",
+          "No exact current licensed-digital BGA mission/objective title counterpart exists.",
+          "Generic wording overlap without exact title identity is not promoted as a counterpart.",
+          "Current-source fidelity gate is incomplete: no exact-title counterpart exists in current publisher-primary pixels/text or the current licensed-digital mission/objective list.",
+          "No approved canonical Solo/Coop Mission Task image/sidecar schema or directory exists in cards/game."
         ],
         "orientation": "upright"
       },
       "reviewQueuePath": "assets/tts-mod/extract/low-confidence-review.json",
-      "deferReason": "exact card identity/transcription/icon/category is not uniformly high-confidence"
+      "deferReason": "Current-source fidelity gate is incomplete: no exact-title counterpart exists in current publisher-primary pixels/text or the current licensed-digital mission/objective list.; No approved canonical Solo/Coop Mission Task image/sidecar schema or directory exists in cards/game."
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoopCustomDeck-111.jpg",
@@ -101774,9 +101803,13 @@
       "vision": {
         "provider": "openai-codex",
         "model": "gpt-5.6-sol",
-        "sessionId": "20260815_053630_208613",
-        "resultPath": "assets/tts-mod/extract/vision-results/538b3413171bb3c6f529e91068cd3fe1487f6bc366dc41163b04e54764917983.json",
-        "confidence": "medium"
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87",
+        "sessionId": "20260821_071741_437876",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87/results/W28-003.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87/raw/W28-003.json",
+        "contactSheetPath": null,
+        "confidence": "high-evidence-deferred-source/schema"
       },
       "provenance": {
         "sourceUrl": "https://steamusercontent-a.akamaihd.net/ugc/16075639653506388723/0276E4D7BE7CD9D9F854191146B2A10A66EAEDEA/",
@@ -101980,34 +102013,45 @@
         ]
       },
       "semanticRead": {
-        "componentType": "cooperative objective card",
+        "componentType": "Solo/Coop Mission Task card",
         "cardSide": "face",
         "title": "TECHNICAL SUPPLY",
         "typeLine": "",
         "body": "Make a path of Reinforced Corridors from\nLanding Zone to Life Support Control B.",
-        "footer": "SOLO / COOP",
+        "footer": "",
         "upperRight": "",
-        "lowerCenter": "",
-        "visibleText": "QUARANTINE",
+        "lowerCenter": "SOLO / COOP",
+        "visibleText": "TECHNICAL SUPPLY\nMake a path of Reinforced Corridors from\nLanding Zone to Life Support Control B.",
         "confidentlyVisible": [
-          "Portrait-oriented card face",
-          "Title and rules text are upright in the file",
-          "Artwork shows a sealed doorway crossed with yellow quarantine tape",
-          "A yellow triangular biohazard warning sign appears on the doorway",
-          "Footer text is green",
-          "No canonical glossary icon is visibly used as a card-corner or rules icon"
+          "Portrait raster approximately 1080 x 1512 visible pixels.",
+          "The upper field contains two pale gray-green rectangular slabs separated by a dark vertical seam, dark surrounding bars, vertical red lines, and multiple overlapping yellow strips.",
+          "One yellow black-bordered triangular placard containing a dark radial mark appears in the upper center-right.",
+          "Six small dark radial glyphs are clearly resolved on yellow strips. One additional compact dark occurrence preceding the highest readable strip word is heavily mixed with red-brown staining and lacks a reliable internal discriminator.",
+          "Two overlapping dark faceted plaques occupy the lower region. P1 contains one large centered white uppercase line. P2 contains two centered white body lines and one centered green uppercase line.",
+          "No discrete inline non-text morphology appears in the body statement.",
+          "Fine regular screen texture, scratches, stains, folds, and strip overlaps reduce the legibility of much of the background lettering."
         ],
-        "proposedCategory": "cards/game/objective",
-        "proposedSlug": "technical-supply",
-        "confidence": "medium",
+        "proposedCategory": "",
+        "proposedSlug": "",
+        "confidence": "high-evidence-deferred-source/schema",
         "uncertainties": [
-          "The artwork contains multiple repeated, overlapping, and partially obscured instances of quarantine-tape lettering; only the fully legible word “QUARANTINE” is represented in visibleText, without reconstructing clipped repetitions.",
-          "The biohazard symbols in the artwork are environmental warning graphics and are not confidently mappable to any supplied canonical icon identifier."
+          "The folded and overlapping yellow strips make their exact layer order uncertain.",
+          "Only four P3 instances of QUARANTINE expose all letters clearly enough for full transcription; nine other word occurrences are represented only as [clipped].",
+          "M2 may contain a printed radial glyph beneath staining, but its internal morphology is not visibly discriminable from an irregular blotch.",
+          "The right token on the lowest strip is lower contrast than the main text, though all letters of QUARANTINE remain visibly bounded.",
+          "P3 is a background field rather than a fully enclosed panel, so its lower boundary is approximate.",
+          "No pixel-only evidence establishes an exact component name or canonical side type.",
+          "No current publisher-primary visible exact-title counterpart was located: both Objectives Help Sheet pages are absent, while rulebook page 3 is occluded-not-visible and cannot establish a face.",
+          "The exact title is absent from all three fresh publisher text derivatives.",
+          "No exact current licensed-digital BGA mission/objective title counterpart exists.",
+          "Generic wording overlap without exact title identity is not promoted as a counterpart.",
+          "Current-source fidelity gate is incomplete: no exact-title counterpart exists in current publisher-primary pixels/text or the current licensed-digital mission/objective list.",
+          "No approved canonical Solo/Coop Mission Task image/sidecar schema or directory exists in cards/game."
         ],
         "orientation": "upright"
       },
       "reviewQueuePath": "assets/tts-mod/extract/low-confidence-review.json",
-      "deferReason": "exact card identity/transcription/icon/category is not uniformly high-confidence"
+      "deferReason": "Current-source fidelity gate is incomplete: no exact-title counterpart exists in current publisher-primary pixels/text or the current licensed-digital mission/objective list.; No approved canonical Solo/Coop Mission Task image/sidecar schema or directory exists in cards/game."
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoopCustomDeck-119.jpg",
@@ -102021,9 +102065,13 @@
       "vision": {
         "provider": "openai-codex",
         "model": "gpt-5.6-sol",
-        "sessionId": "20260815_053640_7881c7",
-        "resultPath": "assets/tts-mod/extract/vision-results/ff09f521ece8fb88ff0a703907158121a0d850341101ded2919eac85e89bc480.json",
-        "confidence": "medium"
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87",
+        "sessionId": "20260821_071741_437876",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87/results/W28-004.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87/raw/W28-004.json",
+        "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87/qa/contact-sheets/W28-004-M9-all49-contact.png",
+        "confidence": "high-evidence-deferred-source/schema"
       },
       "provenance": {
         "sourceUrl": "https://steamusercontent-a.akamaihd.net/ugc/16680509548323217078/96F576E5BFB79EA3C10D8509F47BBCD176245905/",
@@ -102227,36 +102275,47 @@
         ]
       },
       "semanticRead": {
-        "componentType": "objective card",
+        "componentType": "Solo/Coop Mission Task card",
         "cardSide": "face",
         "title": "SCHEDULE",
         "typeLine": "",
-        "body": "[ICON: white spacecraft-like silhouette] must arrive safely on Round 10.",
-        "footer": "SOLO / COOP",
+        "body": "[lander] must arrive safely on Round 10.",
+        "footer": "",
         "upperRight": "",
-        "lowerCenter": "",
-        "visibleText": "QUARANTINE",
+        "lowerCenter": "SOLO / COOP",
+        "visibleText": "SCHEDULE\n[lander] must arrive safely on Round 10.",
         "confidentlyVisible": [
-          "Vertical card face with upright typography",
-          "Title reads SCHEDULE",
-          "Rule text ends with “must arrive safely on Round 10.”",
-          "Footer reads SOLO / COOP",
-          "Background depicts a sealed doorway crossed by yellow quarantine tape",
-          "A yellow triangular biohazard sign is visible above the doorway",
-          "QUARANTINE is repeatedly printed on the yellow tape"
+          "Portrait raster approximately 1080 x 1512 visible pixels.",
+          "The upper field contains two pale gray-green rectangular slabs separated by a dark vertical seam, dark surrounding bars, vertical red lines, and multiple overlapping yellow strips.",
+          "One yellow black-bordered triangular placard containing a dark radial mark appears in the upper center-right.",
+          "Six small dark radial glyphs are clearly resolved on yellow strips. One additional compact dark occurrence preceding the highest readable strip word is heavily mixed with red-brown staining and lacks a reliable internal discriminator.",
+          "Two overlapping dark faceted plaques occupy the lower region. P1 contains one large centered white uppercase line. P2 contains one centered white sentence and one centered green uppercase line.",
+          "A solid white three-pronged glyph begins the body sentence before the word must.",
+          "Fine regular screen texture, scratches, stains, folds, and strip overlaps reduce the legibility of much of the background lettering."
         ],
-        "proposedCategory": "cards/game/objective",
-        "proposedSlug": "schedule",
-        "confidence": "medium",
+        "proposedCategory": "",
+        "proposedSlug": "",
+        "confidence": "high-evidence-deferred-source/schema",
         "uncertainties": [
-          "The line-leading white spacecraft-like glyph is not confidently matched to any canonical glossary icon.",
-          "Several background QUARANTINE markings are partially obscured, clipped, or distorted; only the clearly legible word is transcribed once.",
-          "The exact depicted identity of the line-leading glyph is uncertain."
+          "The folded and overlapping yellow strips make their exact layer order uncertain.",
+          "Only four P3 instances of QUARANTINE expose all letters clearly enough for full transcription; nine other word occurrences are represented only as [clipped].",
+          "M2 may contain a printed radial glyph beneath staining, but its internal morphology is not visibly discriminable from an irregular blotch.",
+          "The semantic or canonical identity of the white inline morphology M9 cannot be established from its pixels alone.",
+          "The right token on the lowest strip is lower contrast than the main text, though all letters of QUARANTINE remain visibly bounded.",
+          "P3 is a background field rather than a fully enclosed panel, so its lower boundary is approximate.",
+          "No pixel-only evidence establishes an exact component name or canonical side type.",
+          "No current publisher-primary visible exact-title counterpart was located: both Objectives Help Sheet pages are absent, while rulebook page 3 is occluded-not-visible and cannot establish a face.",
+          "The exact title is absent from all three fresh publisher text derivatives.",
+          "No exact current licensed-digital BGA mission/objective title counterpart exists.",
+          "Generic wording overlap without exact title identity is not promoted as a counterpart.",
+          "Current-source fidelity gate is incomplete: no exact-title counterpart exists in current publisher-primary pixels/text or the current licensed-digital mission/objective list.",
+          "No approved canonical Solo/Coop Mission Task image/sidecar schema or directory exists in cards/game.",
+          "1 material discrepancy row(s) with the prior unselected corpus snapshot are preserved; no silent canonical correction is allowed."
         ],
         "orientation": "upright"
       },
       "reviewQueuePath": "assets/tts-mod/extract/low-confidence-review.json",
-      "deferReason": "exact card identity/transcription/icon/category is not uniformly high-confidence"
+      "deferReason": "Current-source fidelity gate is incomplete: no exact-title counterpart exists in current publisher-primary pixels/text or the current licensed-digital mission/objective list.; No approved canonical Solo/Coop Mission Task image/sidecar schema or directory exists in cards/game.; 1 material discrepancy row(s) with the prior unselected corpus snapshot are preserved; no silent canonical correction is allowed."
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoopCustomDeck-121.jpg",
@@ -102270,9 +102329,13 @@
       "vision": {
         "provider": "openai-codex",
         "model": "gpt-5.6-sol",
-        "sessionId": "20260815_053643_8ea7c6",
-        "resultPath": "assets/tts-mod/extract/vision-results/4dc870d681bf40276145b0e0c9c051397eccd38a836b5fb43fc8c4b5107e3473.json",
-        "confidence": "medium"
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87",
+        "sessionId": "20260821_071741_437876",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87/results/W28-005.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87/raw/W28-005.json",
+        "contactSheetPath": null,
+        "confidence": "high-evidence-deferred-source/schema"
       },
       "provenance": {
         "sourceUrl": "https://steamusercontent-a.akamaihd.net/ugc/16959518814387884204/3BA2A8B742DA2965FACB6EBE9139EBBDA6676A7E/",
@@ -102476,35 +102539,45 @@
         ]
       },
       "semanticRead": {
-        "componentType": "cooperative/solo objective card",
+        "componentType": "Solo/Coop Mission Task card",
         "cardSide": "face",
         "title": "SECRET ROOMS",
         "typeLine": "",
         "body": "At least 3 Corridors must be placed\nusing the Drilling Station.",
-        "footer": "SOLO / COOP",
+        "footer": "",
         "upperRight": "",
-        "lowerCenter": "",
-        "visibleText": "QUARANTINE\nQUARANTINE\nQUARANTINE\nQUARANTINE",
+        "lowerCenter": "SOLO / COOP",
+        "visibleText": "SECRET ROOMS\nAt least 3 Corridors must be placed\nusing the Drilling Station.",
         "confidentlyVisible": [
-          "Portrait-oriented card face",
-          "Title reads SECRET ROOMS",
-          "Objective text is printed in two centered lines",
-          "Footer reads SOLO / COOP in green",
-          "Artwork depicts a sealed doorway crossed by yellow quarantine tape",
-          "A yellow triangular biohazard warning sign is visible on the doorway"
+          "Portrait raster approximately 1080 x 1512 visible pixels.",
+          "The upper field contains two pale gray-green rectangular slabs separated by a dark vertical seam, dark surrounding bars, vertical red lines, and multiple overlapping yellow strips.",
+          "One yellow black-bordered triangular placard containing a dark radial mark appears in the upper center-right.",
+          "Six small dark radial glyphs are clearly resolved on yellow strips. One additional compact dark occurrence preceding the highest readable strip word is heavily mixed with red-brown staining and lacks a reliable internal discriminator.",
+          "Two overlapping dark faceted plaques occupy the lower region. P1 contains one large centered white uppercase line. P2 contains two centered white body lines and one centered green uppercase line.",
+          "No discrete inline non-text morphology appears within the body statement.",
+          "Fine regular screen texture, scratches, stains, folds, and strip overlaps reduce the legibility of much of the background lettering."
         ],
-        "proposedCategory": "cards/game/objective",
-        "proposedSlug": "secret-rooms",
-        "confidence": "medium",
+        "proposedCategory": "",
+        "proposedSlug": "",
+        "confidence": "high-evidence-deferred-source/schema",
         "uncertainties": [
-          "Several additional QUARANTINE tape inscriptions are partially obscured, clipped, distorted, or illegible and are not transcribed.",
-          "The repeated QUARANTINE entries in visibleText represent only clearly readable complete instances; their exact visual line arrangement is irregular because they appear on overlapping tape in the artwork.",
-          "The biohazard symbols in the artwork are not represented as canonical icons because they are not present in the supplied glossary."
+          "The folded and overlapping yellow strips make their exact layer order uncertain.",
+          "Only four P3 instances of QUARANTINE expose all letters clearly enough for full transcription; nine other word occurrences are represented only as [clipped].",
+          "M2 may contain a printed radial glyph beneath staining, but its internal morphology is not visibly discriminable from an irregular blotch.",
+          "The right token on the lowest strip is lower contrast than the main text, though all letters of QUARANTINE remain visibly bounded.",
+          "P3 is a background field rather than a fully enclosed panel, so its lower boundary is approximate.",
+          "No pixel-only evidence establishes an exact component name or canonical side type.",
+          "No current publisher-primary visible exact-title counterpart was located: both Objectives Help Sheet pages are absent, while rulebook page 3 is occluded-not-visible and cannot establish a face.",
+          "The exact title is absent from all three fresh publisher text derivatives.",
+          "No exact current licensed-digital BGA mission/objective title counterpart exists.",
+          "Generic wording overlap without exact title identity is not promoted as a counterpart.",
+          "Current-source fidelity gate is incomplete: no exact-title counterpart exists in current publisher-primary pixels/text or the current licensed-digital mission/objective list.",
+          "No approved canonical Solo/Coop Mission Task image/sidecar schema or directory exists in cards/game."
         ],
         "orientation": "upright"
       },
       "reviewQueuePath": "assets/tts-mod/extract/low-confidence-review.json",
-      "deferReason": "exact card identity/transcription/icon/category is not uniformly high-confidence"
+      "deferReason": "Current-source fidelity gate is incomplete: no exact-title counterpart exists in current publisher-primary pixels/text or the current licensed-digital mission/objective list.; No approved canonical Solo/Coop Mission Task image/sidecar schema or directory exists in cards/game."
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoopCustomDeck-122.jpg",
@@ -102518,9 +102591,13 @@
       "vision": {
         "provider": "openai-codex",
         "model": "gpt-5.6-sol",
-        "sessionId": "20260815_053645_c24761",
-        "resultPath": "assets/tts-mod/extract/vision-results/de4d97fbae3b2bd3514fae4d51bad194d461f6df9d8d26ac9c34ea2328d92548.json",
-        "confidence": "medium"
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87",
+        "sessionId": "20260821_071741_437876",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87/results/W28-006.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87/raw/W28-006.json",
+        "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87/qa/contact-sheets/W28-006-M9-all49-contact.png",
+        "confidence": "high-evidence-deferred-source/schema"
       },
       "provenance": {
         "sourceUrl": "https://steamusercontent-a.akamaihd.net/ugc/17136052545018749540/2F738D970E0A0F27DAAA40D1DAF3737B3F8C4BFD/",
@@ -102724,33 +102801,48 @@
         ]
       },
       "semanticRead": {
-        "componentType": "cooperative objective card",
+        "componentType": "Solo/Coop Mission Task card",
         "cardSide": "face",
         "title": "TACTICAL DECISION",
         "typeLine": "",
         "body": "At least 6 Doors must be Closed by a [character]",
-        "footer": "SOLO / COOP",
+        "footer": "",
         "upperRight": "",
-        "lowerCenter": "",
-        "visibleText": "QUARANTINE",
+        "lowerCenter": "SOLO / COOP",
+        "visibleText": "TACTICAL DECISION\nAt least 6 Doors must be Closed by a [character]",
         "confidentlyVisible": [
-          "Portrait-oriented card with all gameplay typography upright",
-          "Artwork depicts a sealed doorway covered with yellow quarantine tape",
-          "A yellow triangular biohazard warning sign appears on the doorway",
-          "The sentence-ending white astronaut glyph confidently matches the canonical character icon",
-          "Title and objective text occupy separate framed panels"
+          "Portrait raster approximately 1080 x 1512 visible pixels.",
+          "The upper field contains two pale gray-green rectangular slabs separated by a dark vertical seam, dark surrounding bars, vertical red lines, and multiple overlapping yellow strips.",
+          "One yellow black-bordered triangular placard containing a dark radial mark appears in the upper center-right.",
+          "Six small dark radial glyphs are clearly resolved on yellow strips. One additional compact dark occurrence preceding the highest readable strip word is heavily mixed with red-brown staining and lacks a reliable internal discriminator.",
+          "Two overlapping dark faceted plaques occupy the lower region. P1 contains one large centered white uppercase line. P2 contains one centered white body line and one centered green uppercase line.",
+          "A compact white outlined segmented glyph terminates the body line after the printed lowercase a.",
+          "No isolated terminal punctuation is visibly separable after the white inline glyph.",
+          "Fine regular screen texture, scratches, stains, folds, and strip overlaps reduce the legibility of much of the background lettering."
         ],
-        "proposedCategory": "cards/game/objective",
-        "proposedSlug": "tactical-decision",
-        "confidence": "medium",
+        "proposedCategory": "",
+        "proposedSlug": "",
+        "confidence": "high-evidence-deferred-source/schema",
         "uncertainties": [
-          "The artwork repeats QUARANTINE across several strips of tape, but many instances are partially obscured or clipped; visibleText records the clearly legible wording without reconstructing every partial repetition.",
-          "The yellow triangular biohazard sign and biohazard marks on the tape are artwork rather than confidently matched canonical glossary icons."
+          "The folded and overlapping yellow strips make their exact layer order uncertain.",
+          "Only four P3 instances of QUARANTINE expose all letters clearly enough for full transcription; nine other word occurrences are represented only as [clipped].",
+          "M2 may contain a printed radial glyph beneath staining, but its internal morphology is not visibly discriminable from an irregular blotch.",
+          "No isolated terminal mark can be confidently separated from M9 or nearby texture; no final punctuation is promoted.",
+          "The semantic or canonical identity of M9 cannot be established from its pixels alone.",
+          "The right token on the lowest strip is lower contrast than the main text, though all letters of QUARANTINE remain visibly bounded.",
+          "P3 is a background field rather than a fully enclosed panel, so its lower boundary is approximate.",
+          "No pixel-only evidence establishes an exact component name or canonical side type.",
+          "No current publisher-primary visible exact-title counterpart was located: both Objectives Help Sheet pages are absent, while rulebook page 3 is occluded-not-visible and cannot establish a face.",
+          "The exact title is absent from all three fresh publisher text derivatives.",
+          "No exact current licensed-digital BGA mission/objective title counterpart exists.",
+          "Generic wording overlap without exact title identity is not promoted as a counterpart.",
+          "Current-source fidelity gate is incomplete: no exact-title counterpart exists in current publisher-primary pixels/text or the current licensed-digital mission/objective list.",
+          "No approved canonical Solo/Coop Mission Task image/sidecar schema or directory exists in cards/game."
         ],
         "orientation": "upright"
       },
       "reviewQueuePath": "assets/tts-mod/extract/low-confidence-review.json",
-      "deferReason": "exact card identity/transcription/icon/category is not uniformly high-confidence"
+      "deferReason": "Current-source fidelity gate is incomplete: no exact-title counterpart exists in current publisher-primary pixels/text or the current licensed-digital mission/objective list.; No approved canonical Solo/Coop Mission Task image/sidecar schema or directory exists in cards/game."
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoopCustomDeck-124.jpg",
@@ -102764,9 +102856,13 @@
       "vision": {
         "provider": "openai-codex",
         "model": "gpt-5.6-sol",
-        "sessionId": "20260815_053647_68dad4",
-        "resultPath": "assets/tts-mod/extract/vision-results/33b4d988858b45215a8de460c1cf0ff8ec24aa5343e09c698b913f0b83443e3c.json",
-        "confidence": "medium"
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87",
+        "sessionId": "20260821_071741_437876",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87/results/W28-007.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87/raw/W28-007.json",
+        "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87/qa/contact-sheets/W28-007-M9-all49-contact.png",
+        "confidence": "high-evidence-deferred-source/schema"
       },
       "provenance": {
         "sourceUrl": "https://steamusercontent-a.akamaihd.net/ugc/17354890033357201388/17FF4E37DABFA02CFBDBE246B49BBC7A1F9955F6/",
@@ -102970,36 +103066,47 @@
         ]
       },
       "semanticRead": {
-        "componentType": "cooperative objective card",
+        "componentType": "Solo/Coop Mission Task card",
         "cardSide": "face",
         "title": "RESCUE",
-        "typeLine": "SOLO / COOP",
+        "typeLine": "",
         "body": "2 Bodies from Hibernatorium\nmust be in the Landing Zone\n(Bodies work like downed [character]).",
         "footer": "",
         "upperRight": "",
-        "lowerCenter": "",
-        "visibleText": "[ICON: yellow triangular black biohazard glyph]\nQUARANTINE",
+        "lowerCenter": "SOLO / COOP",
+        "visibleText": "RESCUE\n2 Bodies from Hibernatorium\nmust be in the Landing Zone\n(Bodies work like downed [character]).",
         "confidentlyVisible": [
-          "Portrait-oriented card face",
-          "Typography is upright without rotation",
-          "Artwork depicts a sealed doorway covered with yellow quarantine tape",
-          "Blood-like red stains appear on the doorway and tape",
-          "A white astronaut-shaped character glyph appears after the word “downed”",
-          "Green framed rules panel occupies the lower portion"
+          "Portrait raster approximately 1080 x 1512 visible pixels.",
+          "The upper field contains two pale gray-green rectangular slabs separated by a dark vertical seam, dark surrounding bars, vertical red lines, and multiple overlapping yellow strips.",
+          "One yellow black-bordered triangular placard containing a dark radial mark appears in the upper center-right.",
+          "Six small dark radial glyphs are clearly resolved on yellow strips. One additional compact dark occurrence preceding the highest readable strip word is heavily mixed with red-brown staining and lacks a reliable internal discriminator.",
+          "Two overlapping dark faceted plaques occupy the lower region. P1 contains one large centered white uppercase line. P2 contains three centered white body lines and one centered green uppercase line.",
+          "A compact white segmented glyph appears near the right end of the third body line. A closing parenthesis and period are visibly separated to its right.",
+          "Fine regular screen texture, scratches, stains, folds, and strip overlaps reduce the legibility of much of the background lettering."
         ],
-        "proposedCategory": "cards/game/objective",
-        "proposedSlug": "rescue",
-        "confidence": "medium",
+        "proposedCategory": "",
+        "proposedSlug": "",
+        "confidence": "high-evidence-deferred-source/schema",
         "uncertainties": [
-          "The quarantine-tape artwork contains numerous repeated, overlapping, clipped, and partly illegible instances of “QUARANTINE”; only one fully readable instance is represented in visibleText.",
-          "The biohazard symbols in the artwork are not included in the supplied canonical glossary and are therefore described literally.",
-          "The white glyph after “downed” confidently matches the supplied astronaut morphology for [character], although its specific contextual meaning is not inferred beyond that mapping.",
-          "The printed term “Hibernatorium” is transcribed exactly as visible despite being an unusual word."
+          "The folded and overlapping yellow strips make their exact layer order uncertain.",
+          "Only four P3 instances of QUARANTINE expose all letters clearly enough for full transcription; nine other word occurrences are represented only as [clipped].",
+          "M2 may contain a printed radial glyph beneath staining, but its internal morphology is not visibly discriminable from an irregular blotch.",
+          "The semantic or canonical identity of M9 cannot be established from its pixels alone.",
+          "The right token on the lowest strip is lower contrast than the main text, though all letters of QUARANTINE remain visibly bounded.",
+          "P3 is a background field rather than a fully enclosed panel, so its lower boundary is approximate.",
+          "No pixel-only evidence establishes an exact component name or canonical side type.",
+          "No current publisher-primary visible exact-title counterpart was located: both Objectives Help Sheet pages are absent, while rulebook page 3 is occluded-not-visible and cannot establish a face.",
+          "The exact title is absent from all three fresh publisher text derivatives.",
+          "No exact current licensed-digital BGA mission/objective title counterpart exists.",
+          "Generic wording overlap without exact title identity is not promoted as a counterpart.",
+          "Current-source fidelity gate is incomplete: no exact-title counterpart exists in current publisher-primary pixels/text or the current licensed-digital mission/objective list.",
+          "No approved canonical Solo/Coop Mission Task image/sidecar schema or directory exists in cards/game.",
+          "1 material discrepancy row(s) with the prior unselected corpus snapshot are preserved; no silent canonical correction is allowed."
         ],
         "orientation": "upright"
       },
       "reviewQueuePath": "assets/tts-mod/extract/low-confidence-review.json",
-      "deferReason": "exact card identity/transcription/icon/category is not uniformly high-confidence"
+      "deferReason": "Current-source fidelity gate is incomplete: no exact-title counterpart exists in current publisher-primary pixels/text or the current licensed-digital mission/objective list.; No approved canonical Solo/Coop Mission Task image/sidecar schema or directory exists in cards/game.; 1 material discrepancy row(s) with the prior unselected corpus snapshot are preserved; no silent canonical correction is allowed."
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoopCustomDeck-127.jpg",
@@ -103013,9 +103120,13 @@
       "vision": {
         "provider": "openai-codex",
         "model": "gpt-5.6-sol",
-        "sessionId": "20260815_053650_ce9209",
-        "resultPath": "assets/tts-mod/extract/vision-results/5e73b9b5b7a9f089da13689c0e7717927339b9802669807fd8226e3f9bc08559.json",
-        "confidence": "medium"
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87",
+        "sessionId": "20260821_071741_437876",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87/results/W28-008.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87/raw/W28-008.json",
+        "contactSheetPath": null,
+        "confidence": "high-evidence-deferred-source/schema"
       },
       "provenance": {
         "sourceUrl": "https://steamusercontent-a.akamaihd.net/ugc/16967195172405239133/B1B62E5EE46158CF16771A5547B6643432900C8C/",
@@ -103219,35 +103330,46 @@
         ]
       },
       "semanticRead": {
-        "componentType": "cooperative objective card",
+        "componentType": "Solo/Coop Mission Task card",
         "cardSide": "face",
         "title": "SECURED PERIMETER",
         "typeLine": "",
         "body": "All Corridors adjacent to the Landing Zone\nmust be Reinforced.",
-        "footer": "SOLO / COOP",
+        "footer": "",
         "upperRight": "",
-        "lowerCenter": "",
-        "visibleText": "[ICON: black biohazard symbol in yellow triangle]\nQUARANTINE\nQUARANTINE\nQUARANTINE\nQUARANTINE",
+        "lowerCenter": "SOLO / COOP",
+        "visibleText": "SECURED PERIMETER\nAll Corridors adjacent to the Landing Zone\nmust be Reinforced.",
         "confidentlyVisible": [
-          "Portrait-oriented card face with all primary typography upright",
-          "Artwork depicts a sealed doorway covered with yellow quarantine tape",
-          "A yellow triangular biohazard sign appears above the tape",
-          "Title is printed in white uppercase text",
-          "Rules text is printed across two centered lines",
-          "Green SOLO / COOP label appears beneath the rules panel"
+          "Portrait raster approximately 1080 x 1512 visible pixels.",
+          "The upper field contains two pale gray-green rectangular slabs separated by a dark vertical seam, dark surrounding bars, vertical red lines, and multiple overlapping yellow strips.",
+          "One yellow black-bordered triangular placard containing a dark radial mark appears in the upper center-right.",
+          "Six small dark radial glyphs are clearly resolved on yellow strips. One additional compact dark occurrence preceding the highest readable strip word is heavily mixed with red-brown staining and lacks a reliable internal discriminator.",
+          "Two overlapping dark faceted plaques occupy the lower region. P1 contains one large centered white uppercase line. P2 contains two centered white body lines and one centered green uppercase line.",
+          "No discrete inline non-text morphology appears within the body statement.",
+          "Fine regular screen texture, scratches, stains, folds, and strip overlaps reduce the legibility of much of the background lettering."
         ],
-        "proposedCategory": "cards/game/objective",
-        "proposedSlug": "secured-perimeter",
-        "confidence": "medium",
+        "proposedCategory": "",
+        "proposedSlug": "",
+        "confidence": "high-evidence-deferred-source/schema",
         "uncertainties": [
-          "Several additional QUARANTINE markings on the tape are partially clipped, obscured, folded, or blurred and are not reconstructed.",
-          "The biohazard symbols are not present in the supplied canonical glossary, so the clearly visible triangular sign is described literally.",
-          "The exact count and ordering of fully versus partially visible decorative QUARANTINE repetitions is difficult to establish because multiple tape strips overlap."
+          "The folded and overlapping yellow strips make their exact layer order uncertain.",
+          "Only four P3 instances of QUARANTINE expose all letters clearly enough for full transcription; nine other word occurrences are represented only as [clipped].",
+          "M2 may contain a printed radial glyph beneath staining, but its internal morphology is not visibly discriminable from an irregular blotch.",
+          "The right token on the lowest strip is lower contrast than the main text, though all letters of QUARANTINE remain visibly bounded.",
+          "P3 is a background field rather than a fully enclosed panel, so its lower boundary is approximate.",
+          "No pixel-only evidence establishes an exact component name or canonical side type.",
+          "No current publisher-primary visible exact-title counterpart was located: both Objectives Help Sheet pages are absent, while rulebook page 3 is occluded-not-visible and cannot establish a face.",
+          "The exact title is absent from all three fresh publisher text derivatives.",
+          "No exact current licensed-digital BGA mission/objective title counterpart exists.",
+          "Generic wording overlap without exact title identity is not promoted as a counterpart.",
+          "Current-source fidelity gate is incomplete: no exact-title counterpart exists in current publisher-primary pixels/text or the current licensed-digital mission/objective list.",
+          "No approved canonical Solo/Coop Mission Task image/sidecar schema or directory exists in cards/game.",
+          "1 material discrepancy row(s) with the prior unselected corpus snapshot are preserved; no silent canonical correction is allowed."
         ],
         "orientation": "upright"
       },
       "reviewQueuePath": "assets/tts-mod/extract/low-confidence-review.json",
-      "deferReason": "exact card identity/transcription/icon/category is not uniformly high-confidence"
+      "deferReason": "Current-source fidelity gate is incomplete: no exact-title counterpart exists in current publisher-primary pixels/text or the current licensed-digital mission/objective list.; No approved canonical Solo/Coop Mission Task image/sidecar schema or directory exists in cards/game.; 1 material discrepancy row(s) with the prior unselected corpus snapshot are preserved; no silent canonical correction is allowed."
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoopCustomDeck-129.jpg",
@@ -161298,7 +161420,7 @@
     "sidecarsCreated": 60,
     "imagesCopiedToCanonicalCatalog": 59,
     "sourceFilesMovedOrRenamed": 0,
-    "completedAt": "2026-08-21T06:59:51.627689Z"
+    "completedAt": "2026-08-21T07:58:06.625743Z"
   },
   "deferredReexamination": {
     "schemaVersion": 1,
@@ -161570,13 +161692,31 @@
         "rotationReason": "worker finished exact eight direct Solo/Coop Mission Task faces",
         "promotionCount": 0,
         "deferredCount": 8
+      },
+      {
+        "workerId": "sol-max-persistent-worker-28-20260821T071525Z-p362032-1fed87",
+        "status": "completed-private-projection-passed",
+        "assigned": 8,
+        "reexamined": 8,
+        "provider": "openai-codex",
+        "model": "gpt-5.6-sol",
+        "reasoningEffort": "max",
+        "sessionId": "20260821_071741_437876",
+        "postBlindSessionIds": [
+          "20260821_074543_a084dd",
+          "20260821_074851_078999"
+        ],
+        "postBlindSessionIdState": "DB-verified focused contact session plus current publisher-visible session",
+        "rotationReason": "worker finished exact eight direct Solo/Coop Mission Task faces",
+        "promotionCount": 0,
+        "deferredCount": 8
       }
     ],
-    "updatedAt": "2026-08-21T06:59:51.627689Z",
-    "reexamined": 116,
+    "updatedAt": "2026-08-21T07:58:06.625743Z",
+    "reexamined": 124,
     "newlyCompleted": 37,
     "stillDeferred": 384,
-    "nextPosition": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoopCustomDeck-105.jpg",
+    "nextPosition": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoopCustomDeck-129.jpg",
     "rejectedBatches": [
       {
         "workerId": "sol-max-worker-01",
