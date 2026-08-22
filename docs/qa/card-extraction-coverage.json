@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "sourceProgressUpdatedAt": "2026-08-22T10:35:35Z",
-  "sourceQueueUpdatedAt": "2026-08-22T10:35:35Z",
+  "sourceProgressUpdatedAt": "2026-08-22T22:23:11Z",
+  "sourceQueueUpdatedAt": "2026-08-22T22:23:11Z",
   "totals": {
     "inScope": 532,
     "complete": 148,
@@ -13,14 +13,14 @@
     "canonicalSidecars": 78
   },
   "deferredExtractionStates": {
-    "draft-full": 280,
-    "draft-partial": 15,
+    "draft-full": 281,
+    "draft-partial": 14,
     "no-transcription": 42,
     "non-rules-or-reference": 47
   },
   "deferredCardExtractionStates": {
-    "draft-full": 249,
-    "draft-partial": 11,
+    "draft-full": 250,
+    "draft-partial": 10,
     "no-transcription": 3,
     "non-rules-or-reference": 15
   },
@@ -182,60 +182,6 @@
     "unknown-icon": 4
   },
   "topRulesInformationPriorities": [
-    {
-      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/seriouswound-149_cards/card-04.png",
-      "sourceSha256": "522c29d0874334cac9dda75c4cd0182fca35dbc7402c4b7231c1c8a6c6b1ec18",
-      "family": "game/seriouswound-149_cards",
-      "isCard": true,
-      "isRulesBearingCandidate": true,
-      "extractionState": "draft-partial",
-      "priorityScore": 1330,
-      "title": "LEG",
-      "typeLine": "",
-      "body": "Using the “Make a Move” Action\nfrom a Room with an [intruder]\nor through a Corridor\nwith an [intruder] costs you 1 [actionCard] more.",
-      "footer": "",
-      "recognizedTokens": [
-        "actionCard",
-        "intruder"
-      ],
-      "unknownTokens": [
-        "ICON: small green hollow quadrilateral",
-        "illegible"
-      ],
-      "unreadableMarkers": [
-        "[illegible]"
-      ],
-      "reasonTags": [
-        "provenance",
-        "source-conflict",
-        "schema-or-destination"
-      ],
-      "reasonSkipped": "No singular exact GUID/CardID source selector exists; preserve the complete exact reference set without unsupported cell or copy inference.; No current publisher-primary rendered face visibly establishes the exact assigned title/content and family.; The current exact-title BGA licensed-digital record conflicts materially and remains secondary evidence only.; 1 publisher/BGA/TTS-variant source conflict row(s) are preserved verbatim.; No approved canonical destination/schema maps this exact source-bound Serious Wound card face into the canonical catalog during unattended W32 processing.; 1 discrepancy row(s) with the prior unselected corpus snapshot are preserved.",
-      "uncertainties": [
-        "The hollow green mark immediately after and above “39.0” may be a line-network node or degree-like punctuation; the pixels provide no discriminator.",
-        "The upper-left vertical green microtext is too small and dim for reliable character recovery.",
-        "Additional faint horizontal runs at left-center and lower-left may contain text, but some may instead be interface line decoration.",
-        "The vertical “TISSUE DAMAGE” label is much smaller and lower-contrast than the main text, although its visible letter forms support that transcription.",
-        "The two white inline glyphs appear to repeat the same morphology, but their exact internal figurative form cannot be established from the raster.",
-        "The paired quotation glyphs visibly curl or slant; exact source-encoding as straight versus curly quotation marks cannot be recovered, so they are represented visually as “…” here.",
-        "The three colored open-U callouts are outside the sentence and attached to illustration leader lines; any function beyond non-text graphic annotation is not established by pixels.",
-        "No current publisher-primary rendered face visibly establishes the exact assigned title/content and family.",
-        "The current exact-title BGA licensed-digital record conflicts materially and remains secondary evidence only.",
-        "No singular exact GUID/CardID source selector exists; preserve the complete exact reference set without unsupported cell or copy inference.",
-        "1 publisher/BGA/TTS-variant source conflict row(s) are preserved verbatim.",
-        "No approved canonical destination/schema maps this exact source-bound Serious Wound card face into the canonical catalog during unattended W32 processing.",
-        "1 discrepancy row(s) with the prior unselected corpus snapshot are preserved."
-      ],
-      "vision": {
-        "provider": "openai-codex",
-        "model": "gpt-5.6-sol",
-        "reasoningEffort": "max",
-        "workerId": "sol-max-persistent-worker-32-20260821T135953Z-p441103-69bcb8",
-        "sessionId": "20260821_140128_f6f95e",
-        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-32-20260821T135953Z-p441103-69bcb8/results/W32-001.json",
-        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-32-20260821T135953Z-p441103-69bcb8/raw/W32-001.json"
-      }
-    },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/seriouswound-149_cards/card-05.png",
       "sourceSha256": "69fa0f09363ab35f1e547a60e64e1b011702a7469755835bf002e0739b0a33f2",
@@ -1468,6 +1414,45 @@
         "workerId": null,
         "sessionId": "20260815_051724_6804c6",
         "resultPath": "assets/tts-mod/extract/vision-results/241bd0d208b745a41e9ee671e55138b71669ef12b3bf8b1086922f85fc126963.json",
+        "rawResultPath": null
+      }
+    },
+    {
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/attack-151_cards/card-15.png",
+      "sourceSha256": "20ced3626bd007e388acda4ccc96dfcd59e72bcf3cf7ae84ad1693e5ba0a924d",
+      "family": "game/attack-151_cards",
+      "isCard": true,
+      "isRulesBearingCandidate": true,
+      "extractionState": "draft-full",
+      "priorityScore": 430,
+      "title": "SCRATCH",
+      "typeLine": null,
+      "body": "Lose 1 [characterHealth].",
+      "footer": null,
+      "recognizedTokens": [
+        "characterHealth"
+      ],
+      "unknownTokens": [
+        "ICON: blue circular broad creature silhouette",
+        "ICON: blue circular curled creature silhouette",
+        "ICON: blue circular upright creature silhouette"
+      ],
+      "unreadableMarkers": [],
+      "reasonTags": [
+        "classification"
+      ],
+      "reasonSkipped": "exact card identity/transcription/icon/category is not uniformly high-confidence",
+      "uncertainties": [
+        "The three lower-left circular creature glyphs are distinct card-local symbols not confidently matched to the canonical glossary; their exact identities are uncertain.",
+        "The attack-card classification is strongly suggested by the hostile artwork and damage effect but is not explicitly printed as a type line."
+      ],
+      "vision": {
+        "provider": "openai-codex",
+        "model": "gpt-5.6-sol",
+        "reasoningEffort": null,
+        "workerId": null,
+        "sessionId": "20260815_051752_d45cc8",
+        "resultPath": "assets/tts-mod/extract/vision-results/20ced3626bd007e388acda4ccc96dfcd59e72bcf3cf7ae84ad1693e5ba0a924d.json",
         "rawResultPath": null
       }
     }

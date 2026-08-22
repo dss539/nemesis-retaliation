@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "status": "extracted evidence corpus; canonical and draft states are explicitly separated",
   "generatedFrom": {
-    "visionProgressUpdatedAt": "2026-08-22T10:35:35Z",
-    "reviewQueueUpdatedAt": "2026-08-22T10:35:35Z",
+    "visionProgressUpdatedAt": "2026-08-22T22:23:11Z",
+    "reviewQueueUpdatedAt": "2026-08-22T22:23:11Z",
     "iconGlossary": "docs/rules/icon-glossary.md",
     "iconGlossaryIdentifierCount": 50,
     "semanticIconResolutions": "docs/qa/card-symbol-semantic-resolutions.json",
@@ -24,16 +24,16 @@
     "rulesTextPresent": 350,
     "extractionStates": {
       "complete-non-rules-or-reference": 34,
-      "draft-full": 249,
-      "draft-partial": 11,
+      "draft-full": 250,
+      "draft-partial": 10,
       "no-transcription": 3,
       "non-rules-or-reference": 15,
       "verified-canonical": 78
     },
     "rulesInformationReadiness": {
       "canonical": 78,
-      "draft-partial": 11,
-      "draft-text-complete": 118,
+      "draft-partial": 10,
+      "draft-text-complete": 119,
       "draft-text-complete-symbols-unresolved": 131,
       "missing-transcription": 3,
       "not-rules-bearing-or-reference": 49
@@ -42549,8 +42549,8 @@
       "sourceKind": "generated",
       "componentFamily": "game/seriouswound",
       "ledgerStatus": "deferred",
-      "extractionState": "draft-partial",
-      "rulesInformationReadiness": "draft-partial",
+      "extractionState": "draft-full",
+      "rulesInformationReadiness": "draft-text-complete",
       "rulesTextPresent": true,
       "identity": {},
       "printedData": {
@@ -42567,25 +42567,13 @@
             "panelId": "P2",
             "heading": "",
             "text": "Using the “Make a Move” Action\nfrom a Room with an [intruder]\nor through a Corridor\nwith an [intruder] costs you 1 [actionCard] more."
-          },
-          {
-            "panelId": "P3",
-            "heading": "TEMP.",
-            "text": "39.0[ICON: small green hollow quadrilateral]\n[illegible]\nTISSUE DAMAGE"
           }
         ],
         "footer": "",
         "upperRight": "",
         "lowerCenter": "LEG",
-        "otherMaterialText": [
-          "TEMP.",
-          "39.0",
-          "TISSUE DAMAGE"
-        ],
-        "illegibleSpans": [
-          "P3 upper-left, vertical green microtext beneath the highest hollow green square: [illegible].",
-          "P3 left-center and lower-left, extremely faint horizontal microtext-like runs beside connector lines: [illegible]."
-        ],
+        "otherMaterialText": [],
+        "illegibleSpans": [],
         "clippedSpans": []
       },
       "symbols": {
@@ -42593,25 +42581,15 @@
           "actionCard",
           "intruder"
         ],
-        "unresolvedOrLocalTokens": [
-          "ICON: small green hollow quadrilateral",
-          "illegible"
-        ]
+        "unresolvedOrLocalTokens": []
       },
       "uncertainties": [
-        "The hollow green mark immediately after and above “39.0” may be a line-network node or degree-like punctuation; the pixels provide no discriminator.",
-        "The upper-left vertical green microtext is too small and dim for reliable character recovery.",
-        "Additional faint horizontal runs at left-center and lower-left may contain text, but some may instead be interface line decoration.",
-        "The vertical “TISSUE DAMAGE” label is much smaller and lower-contrast than the main text, although its visible letter forms support that transcription.",
-        "The two white inline glyphs appear to repeat the same morphology, but their exact internal figurative form cannot be established from the raster.",
-        "The paired quotation glyphs visibly curl or slant; exact source-encoding as straight versus curly quotation marks cannot be recovered, so they are represented visually as “…” here.",
-        "The three colored open-U callouts are outside the sentence and attached to illustration leader lines; any function beyond non-text graphic annotation is not established by pixels.",
         "No current publisher-primary rendered face visibly establishes the exact assigned title/content and family.",
         "The current exact-title BGA licensed-digital record conflicts materially and remains secondary evidence only.",
         "No singular exact GUID/CardID source selector exists; preserve the complete exact reference set without unsupported cell or copy inference.",
         "1 publisher/BGA/TTS-variant source conflict row(s) are preserved verbatim.",
-        "No approved canonical destination/schema maps this exact source-bound Serious Wound card face into the canonical catalog during unattended W32 processing.",
-        "1 discrepancy row(s) with the prior unselected corpus snapshot are preserved."
+        "No approved canonical destination/schema maps this exact source-bound Serious Wound card face into the canonical catalog during unattended processing.",
+        "The exact TTS source and licensed-digital wording remain separate source variants; manual review did not canonize either one."
       ],
       "canonicalPromotionBlocker": "No singular exact GUID/CardID source selector exists; preserve the complete exact reference set without unsupported cell or copy inference.; No current publisher-primary rendered face visibly establishes the exact assigned title/content and family.; The current exact-title BGA licensed-digital record conflicts materially and remains secondary evidence only.; 1 publisher/BGA/TTS-variant source conflict row(s) are preserved verbatim.; No approved canonical destination/schema maps this exact source-bound Serious Wound card face into the canonical catalog during unattended W32 processing.; 1 discrepancy row(s) with the prior unselected corpus snapshot are preserved.",
       "evidence": {
@@ -42625,6 +42603,15 @@
         "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-32-20260821T135953Z-p441103-69bcb8/raw/W32-001.json",
         "ledgerPath": "assets/tts-mod/extract/vision-progress.json",
         "queuePath": "assets/tts-mod/extract/low-confidence-review.json",
+        "manualReview": {
+          "sampleId": "card-rules-sample-bc635f5",
+          "sampleItemId": "S07",
+          "verdict": "P",
+          "reviewedAt": "2026-08-22T22:23:11Z",
+          "reviewedBy": "project-owner",
+          "evidencePath": "docs/qa/card-rules-manual-review-2026-08-22.json",
+          "finding": "Manual review passed the exact TTS rule text and all three functional icon mappings (Intruder twice and Action card once). The tiny scan-overlay labels, unreadable microtext, green line-network nodes, and colored callouts are artwork/interface decoration, not rules text."
+        },
         "selectedExtraction": {
           "runIdentity": "w32-card-extraction-20260821T135953Z-p441103-69bcb8/sol-max-persistent-worker-32-20260821T135953Z-p441103-69bcb8/W32-001",
           "runId": "w32-card-extraction-20260821T135953Z-p441103-69bcb8",

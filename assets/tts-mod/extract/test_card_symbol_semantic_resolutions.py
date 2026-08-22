@@ -91,5 +91,21 @@ class SemanticIconResolutionTests(unittest.TestCase):
         self.assertIn("OR", remaining[0]["token"])
 
 
+    def test_reviewed_leg_excludes_scan_overlay_from_rules_data(self):
+        path = "assets/tts-mod/extract/v2-dl/tree/cards/game/seriouswound-149_cards/card-04.png"
+        row = self.rows[path]
+        self.assertEqual(row["extractionState"], "draft-full")
+        self.assertEqual(row["rulesInformationReadiness"], "draft-text-complete")
+        self.assertEqual(row["symbols"]["canonicalGlossaryTokens"], ["actionCard", "intruder"])
+        self.assertEqual(row["symbols"]["unresolvedOrLocalTokens"], [])
+        self.assertEqual(row["evidence"]["manualReview"]["verdict"], "P")
+        self.assertNotIn("P3", {item["panelId"] for item in row["printedData"]["sections"]})
+        self.assertEqual(row["printedData"]["illegibleSpans"], [])
+        self.assertEqual(backlog.unresolved_occurrences(row), [])
+        selected_p3 = next(item for item in row["selectedExtraction"]["visibleText"]["sections"] if item["panelId"] == "P3")
+        self.assertIn("[illegible]", selected_p3["text"])
+        self.assertEqual(row["ledgerStatus"], "deferred")
+
+
 if __name__ == "__main__":
     unittest.main()

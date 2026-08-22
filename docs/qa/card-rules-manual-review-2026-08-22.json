@@ -1,15 +1,13 @@
 {
   "schemaVersion": 2,
-  "status": "manual-review-in-progress",
+  "status": "completed-manual-review",
   "sampleId": "card-rules-sample-bc635f5",
   "reviewedAt": "2026-08-22T05:59:25Z",
   "reviewedBy": "project-owner",
   "sourceCheckpointCommit": "bc635f571fb40805d3e6fe9c9b1a40f6f771568f",
   "sourceDataCommit": "585740242f1a6bbdb6780dea3b5a38ee8eb8a7cb",
-  "reviewedCount": 7,
-  "unreviewedSampleItems": [
-    "S07"
-  ],
+  "reviewedCount": 8,
+  "unreviewedSampleItems": [],
   "results": [
     {
       "id": "S01",
@@ -60,6 +58,14 @@
       "corpusEffect": "Normalized both legacy result glyphs to [burstDieAdditionalEffects] and [shootDieAmmoLoss], retained the colon, and preserved literal art descriptions in provenance."
     },
     {
+      "id": "S07",
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/seriouswound-149_cards/card-04.png",
+      "sourceSha256": "522c29d0874334cac9dda75c4cd0182fca35dbc7402c4b7231c1c8a6c6b1ec18",
+      "verdict": "P",
+      "finding": "Manual review passed the exact TTS rule text and all three functional icon mappings (Intruder twice and Action card once). The tiny scan-overlay labels, unreadable microtext, green line-network nodes, and colored callouts are artwork/interface decoration, not rules text.",
+      "corpusEffect": "Removed artwork-only illegible/green-node placeholders from printed rules data, preserved the readable and unreadable overlay details as artwork provenance, upgraded the source transcription from draft-partial to draft-full, and retained the licensed-digital wording conflict."
+    },
+    {
       "id": "S08",
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-141.jpg",
       "sourceSha256": "725e788f3970d9699dd40fe12a86841748807e69d75007e98394bce41f60f7e6",
@@ -68,6 +74,6 @@
       "corpusEffect": "No data change."
     }
   ],
-  "amendedAt": "2026-08-22T10:35:35Z",
+  "amendedAt": "2026-08-22T22:23:11Z",
   "semanticNormalizationPolicy": "Canonical placeholders encode game meaning. Approved source-scoped semantic resolutions are recorded in docs/qa/card-symbol-semantic-resolutions.json; literal appearance and immutable model evidence remain preserved."
 }

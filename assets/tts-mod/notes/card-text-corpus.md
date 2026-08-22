@@ -7,29 +7,28 @@ This project keeps two separate data layers:
 
 ## Verified baseline
 
-The current corpus is generated from `vision-progress.json`, `low-confidence-review.json`, the canonical `cards/` sidecars, the 49-identifier official icon glossary, `extract/selected-card-text-evidence.json`, and `docs/qa/card-symbol-semantic-resolutions.json`. The last two files are tracked sources of truth for selected reviewed overlays and source-scoped semantic icon aliases; ignored worker roots are optional provenance and are not needed to rebuild or validate the corpus.
+The current corpus is generated from `vision-progress.json`, `low-confidence-review.json`, the canonical `cards/` sidecars, 50 approved icon identifiers (49 from the page-40 glossary plus the official Number of Characters metadata symbol), `extract/selected-card-text-evidence.json`, and `docs/qa/card-symbol-semantic-resolutions.json`. The last two files are tracked sources of truth for selected reviewed overlays and source-scoped semantic icon aliases; ignored worker roots are optional provenance and are not needed to rebuild or validate the corpus.
 
 - 390 card/reference image records.
 - 168 individual generated card-face crops derived from 13 excluded source sheets; no parent sheet is double-counted.
 - 350 records contain nonempty rules/effect text.
 - 78 records are canonical image/JSON pairs.
-- 249 records are full draft card transcriptions: 118 with only recognized canonical inline tokens and 131 with one or more unresolved/local tokens.
+- 250 records are full draft card transcriptions: 119 with only recognized canonical inline tokens and 131 with one or more unresolved/local tokens.
 - 49 records are card backs, help/reference material, or other non-rules/non-canonical records.
 - 3 records have no transcription and remain explicit rather than guessed.
-- 11 records remain partial because at least one material span is explicitly illegible or clipped.
+- 10 records remain partial because at least one material rules span is explicitly illegible or clipped.
 
 `docs/qa/card-symbol-resolution-backlog.json` inventories 513 unresolved/local token occurrences across 202 corpus or selected-evidence assets after excluding approved source-scoped semantic resolutions. Its cluster names describe visible morphology only; they are not semantic icon assignments.
 
 ## Manual sample adjudication
 
-Seven owner-reviewed sample items are recorded in `docs/qa/card-rules-manual-review-2026-08-22.json`
-and projected into each reviewed corpus record as `evidence.manualReview`; S07 remains unreviewed.
-S01, S03, and S08 passed. S02 exposed only a review-package omission: the canonical sidecar and
-corpus already stored `notInCombat`. S05 and S06 established the reviewed legacy weapon aliases.
-S04 retained the tightly kerned apostrophe in `Player10's` and resolved its white-person-over-blue-rings
-metadata glyph as `[numberOfCharacters]` from official rulebook page 10 and the Objectives Help Sheet,
-while remaining deferred as a visibly PROTOTYPE source. Source-scoped decisions are recorded in
-`docs/qa/card-symbol-semantic-resolutions.json`.
+All eight owner-reviewed sample items are recorded in `docs/qa/card-rules-manual-review-2026-08-22.json`
+and projected into each reviewed corpus record as `evidence.manualReview`. S01, S03, S07, and S08
+passed; S02 exposed only a review-package omission. S05 and S06 established the reviewed legacy
+weapon aliases. S04 retained the tightly kerned apostrophe and resolved `[numberOfCharacters]`.
+S07 confirmed the exact TTS LEG rule and all three functional icons, and classified its tiny scan-overlay
+labels, unreadable microtext, green nodes, and colored callouts as artwork rather than rules data. The
+TTS-versus-licensed-digital LEG wording conflict remains preserved, and both S04 and S07 remain deferred.
 
 ## Rebuild and verify
 

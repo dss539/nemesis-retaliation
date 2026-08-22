@@ -1870,12 +1870,14 @@ following punctuation is a colon, and its false illegible span remains removed. 
 source-scoped artwork aliases were audited across the related legacy weapon faces without changing
 canonical card promotion status. S03 later passed. S04 retained its tightly kerned apostrophe and
 resolved the official Number of Characters metadata symbol as `[numberOfCharacters]`; its prototype
-status remains deferred. S07 is the only unreviewed sample item. Durable evidence:
+status remains deferred. S07 passed the exact TTS LEG text and all three icon mappings; scan-overlay
+microtext and green/callout graphics are artwork, not rules, so that source is now draft-full while its
+licensed-digital wording conflict and deferred status remain. All eight sample items are reviewed. Durable evidence:
 `docs/qa/card-rules-manual-review-2026-08-22.json` and
 `docs/qa/card-symbol-semantic-resolutions.json`.
 
 The lifecycle partition remains 532 = 148 complete + 384 deferred + 0 unaccounted; canonical pairs
-remain 78. The rebuilt 390-record corpus has 350 rules-bearing records, 249 full drafts, 11 partial
+remain 78. The rebuilt 390-record corpus has 350 rules-bearing records, 250 full drafts, 10 partial
 drafts, 3 no-transcription records, and 49 non-rules/reference records. All six documented global
 corpus/vision commands pass, including 532/532 source decodes, 390/390 corpus hashes, and two
 byte-identical builds. Nothing was pushed, deployed, promoted to production, or changed outside the
