@@ -29,8 +29,8 @@ def icon_map() -> dict[str, Path]:
     text = GLOSSARY.read_text()
     pairs = re.findall(r"\*\*([A-Za-z][A-Za-z0-9]*)\*\*.*?\(`(assets/icons/[^`]+)`\)", text)
     result = {name: vb.REPO / path for name, path in pairs}
-    if len(result) != 49:
-        raise RuntimeError(f"expected 49 glossary icons, found {len(result)}")
+    if len(result) != 50:
+        raise RuntimeError(f"expected 50 approved icon files (49 page-40 plus Number of Characters), found {len(result)}")
     missing = [str(p) for p in result.values() if not p.exists()]
     if missing:
         raise RuntimeError(f"missing icon files: {missing}")

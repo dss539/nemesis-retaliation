@@ -1,15 +1,13 @@
 {
   "schemaVersion": 2,
-  "status": "completed-manual-review",
+  "status": "manual-review-in-progress",
   "sampleId": "card-rules-sample-bc635f5",
   "reviewedAt": "2026-08-22T05:59:25Z",
   "reviewedBy": "project-owner",
   "sourceCheckpointCommit": "bc635f571fb40805d3e6fe9c9b1a40f6f771568f",
   "sourceDataCommit": "585740242f1a6bbdb6780dea3b5a38ee8eb8a7cb",
-  "reviewedCount": 5,
+  "reviewedCount": 7,
   "unreviewedSampleItems": [
-    "S03",
-    "S04",
     "S07"
   ],
   "results": [
@@ -28,6 +26,22 @@
       "verdict": "C",
       "finding": "The manual-review presentation omitted the upper-right crossed-out-gun icon. The canonical sidecar, ledger semantic read, and generated corpus already stored upperRight as notInCombat.",
       "corpusEffect": "No canonical data change; corrected the review package and its false text-only label."
+    },
+    {
+      "id": "S03",
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/robotDeck-175.jpg",
+      "sourceSha256": "27a7014ae8011fa68b71a60365b11ca0392b4e66c7d9bdfbe46eec3a6bb21411",
+      "verdict": "P",
+      "finding": "Manual review passed the title, exact rules text, and the robot, Burst-die additional-effects, and malfunction symbol mappings. The source remains a deferred TTS variant.",
+      "corpusEffect": "No text or symbol change; recorded the passing owner review while retaining deferred source status."
+    },
+    {
+      "id": "S04",
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectivePersonalDeck-161.jpg",
+      "sourceSha256": "3aec90a31ada20f22218d01aab15694a3be8c41a831a578db6c4d607cc42085a",
+      "verdict": "C",
+      "finding": "The apostrophe in Player10's is present but visually crowded by the tight kerning, making it easy to miss. The white person over cyan-blue rings before 10+ is the official Number of Characters symbol, not the separate Character glossary icon.",
+      "corpusEffect": "Retained the apostrophe in Player10's, normalized the Objective metadata as [numberOfCharacters] 10+, and retained the PROTOTYPE source/version deferral."
     },
     {
       "id": "S05",
@@ -54,6 +68,6 @@
       "corpusEffect": "No data change."
     }
   ],
-  "amendedAt": "2026-08-22T06:16:18Z",
-  "semanticNormalizationPolicy": "Canonical placeholders encode game meaning. Approved pre-release artwork aliases are source-scoped in docs/qa/card-symbol-semantic-resolutions.json; literal appearance remains provenance."
+  "amendedAt": "2026-08-22T10:35:35Z",
+  "semanticNormalizationPolicy": "Canonical placeholders encode game meaning. Approved source-scoped semantic resolutions are recorded in docs/qa/card-symbol-semantic-resolutions.json; literal appearance and immutable model evidence remain preserved."
 }

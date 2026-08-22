@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "approved-official-component-metadata-symbol",
+  "reviewedAt": "2026-08-22T10:35:35Z",
+  "projectIdentifier": "numberOfCharacters",
+  "publisherTerm": "Number of Characters symbol",
+  "meaning": "Minimum number of Characters taking part in the game for an Objective card to remain in its deck during setup.",
+  "officialSources": [
+    {
+      "path": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
+      "sha256": "e3cda0d7a91bd090cec45dbc8ce89e2015e2202173357c374ff49365f9c29ddd",
+      "citation": "printed page 10, Objective Setup and Character Draft, step 2",
+      "text": "Remove all cards with a Number of Characters symbol higher than the number of Characters taking part in the game."
+    },
+    {
+      "path": "docs/rulebooks/Nemesis_RT_Objectives_Sheet.pdf",
+      "sha256": "30f3d4116a9c4dc3a53fb5e920995c24aa747988c915dc5fba6261cbd7dca364",
+      "citation": "Objectives Help Sheet pages 1–2; visible examples include 2+, 3+, 4+, and 5+ cards",
+      "render": {
+        "page": 2,
+        "dpi": 400,
+        "dimensions": [
+          4583,
+          4583
+        ]
+      }
+    }
+  ],
+  "iconAsset": {
+    "path": "assets/icons/objectives/number-of-characters.png",
+    "sha256": "d2d5e71e46d83e6ade6133eb0fef5eb6f9469bd3a2b81e3a77f470472e2394a7",
+    "dimensions": [
+      68,
+      70
+    ],
+    "cropFromRenderedPage2": [
+      2910,
+      3672,
+      2978,
+      3742
+    ],
+    "sourceCard": "THE GREAT HUNT — 2+"
+  },
+  "comparison": {
+    "path": "docs/qa/card-icon-comparisons/number-of-characters-source-comparison.png",
+    "sha256": "2d9e4660ffd5728900bbd2f8987962c7478e3893c88cd0ee4eebea8e799b0eb5",
+    "officialExamples": [
+      "LUXURIOUS OFFER — 2+",
+      "QUARANTINE — 3+",
+      "STATE'S EVIDENCE — 3+",
+      "THE GREAT HUNT — 2+"
+    ],
+    "reviewedSourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectivePersonalDeck-161.jpg",
+    "reviewedSourceSha256": "3aec90a31ada20f22218d01aab15694a3be8c41a831a578db6c4d607cc42085a",
+    "result": "S04 uses the same Number of Characters morphology; gray PROTOTYPE watermark overlap does not change the glyph identity."
+  },
+  "manualReview": {
+    "sampleId": "card-rules-sample-bc635f5",
+    "sampleItemId": "S04",
+    "verdict": "C",
+    "projectOwnerNote": "apostrophe is obscured by awful kerning so it is easy to miss; the 10+ symbol seems to be a player symbol",
+    "adjudication": "Retain the apostrophe in Player10's; normalize the metadata glyph as [numberOfCharacters] using publisher terminology."
+  }
+}

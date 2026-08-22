@@ -1859,7 +1859,7 @@ Nothing was pushed, no PR/deploy/profile/config/service/production action occurr
 clean at checkpoint, no worker remained live, and there is no next tuple or W34.
 
 
-**Manual card-rules sample adjudication (2026-08-22T05:59:25Z):** The project owner reviewed five
+**Manual card-rules sample adjudication (begun 2026-08-22T05:59:25Z; amended 2026-08-22T10:35:35Z):** The project owner reviewed seven
 stratified sample items. S01 (DAMAGING FIRE) and S08 (STARTING ITEM back) passed. S02 (REST) exposed
 a review-package defect, not a corpus defect: its canonical sidecar and corpus already stored the
 upper-right `notInCombat` icon, and the package's false text-only label was corrected. S05 (GATLING
@@ -1868,7 +1868,9 @@ to `[burstDieAdditionalEffects]`. S06 (PLASMA GUN) maps the same purple legacy r
 red ammunition-magazine result to `[burstDieAdditionalEffects]` and `[shootDieAmmoLoss]`; the
 following punctuation is a colon, and its false illegible span remains removed. The same
 source-scoped artwork aliases were audited across the related legacy weapon faces without changing
-canonical card promotion status. S03, S04, and S07 were not reviewed. Durable evidence:
+canonical card promotion status. S03 later passed. S04 retained its tightly kerned apostrophe and
+resolved the official Number of Characters metadata symbol as `[numberOfCharacters]`; its prototype
+status remains deferred. S07 is the only unreviewed sample item. Durable evidence:
 `docs/qa/card-rules-manual-review-2026-08-22.json` and
 `docs/qa/card-symbol-semantic-resolutions.json`.
 

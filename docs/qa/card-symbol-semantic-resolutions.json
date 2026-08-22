@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "status": "approved source-specific semantic icon resolutions",
-  "updatedAt": "2026-08-22T06:16:18Z",
+  "updatedAt": "2026-08-22T10:35:35Z",
   "policy": "Canonical card-rule placeholders encode game semantics, not exact artwork. Pre-release or prototype artwork may be normalized only for the exact source tuples listed here. Literal source appearance remains preserved in source images, raw vision evidence, and each resolution entry; no color/shape-wide inference is authorized.",
   "entries": [
     {
@@ -193,6 +193,43 @@
           "selectedOccurrenceIndexes": [
             0
           ]
+        }
+      ]
+    },
+    {
+      "id": "official-number-of-characters-objective-metadata",
+      "canonicalToken": "numberOfCharacters",
+      "resolutionType": "official-component-metadata-direct-match",
+      "literalArt": "white person or figure above cyan-blue concentric rings",
+      "evidence": [
+        "Project-owner S04 correction on 2026-08-22 identified the glyph as a Player symbol.",
+        "Official rulebook page 10 names the Number of Characters symbol and defines its Objective-setup function.",
+        "The official Objectives Help Sheet pages 1–2 visibly use the same morphology before Character-count thresholds.",
+        "docs/qa/card-icon-comparisons/number-of-characters-source-audit.json",
+        "docs/rules/icon-glossary.md"
+      ],
+      "comparisonSources": [
+        {
+          "sourcePath": "docs/rulebooks/Nemesis_RT_Objectives_Sheet.pdf",
+          "sourceSha256": "30f3d4116a9c4dc3a53fb5e920995c24aa747988c915dc5fba6261cbd7dca364",
+          "visibleExamples": [
+            "LUXURIOUS OFFER — 2+",
+            "QUARANTINE — 3+",
+            "STATE'S EVIDENCE — 3+",
+            "THE GREAT HUNT — 2+"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectivePersonalDeck-161.jpg",
+          "sourceSha256": "3aec90a31ada20f22218d01aab15694a3be8c41a831a578db6c4d607cc42085a",
+          "title": "WRONG CALL",
+          "literalTokens": [],
+          "selectedOccurrenceIndexes": [
+            0
+          ],
+          "note": "The normalized token is stored in the P2 metadata section before the printed 10+ threshold; immutable selected-run evidence retains the original no-match row."
         }
       ]
     }

@@ -22,15 +22,14 @@ The current corpus is generated from `vision-progress.json`, `low-confidence-rev
 
 ## Manual sample adjudication
 
-The five-item owner review completed and amended on 2026-08-22 is recorded in
-`docs/qa/card-rules-manual-review-2026-08-22.json` and projected into each reviewed corpus
-record as `evidence.manualReview`. S01 and S08 passed. S02 exposed a review-package omission only:
-the canonical sidecar and corpus already stored the upper-right `notInCombat` icon. S05 records
-`[ammoToken]` and normalizes its pre-release purple exclamation result to
-`[burstDieAdditionalEffects]`. S06 normalizes the same purple legacy result plus its older red
-ammunition-magazine result to `[burstDieAdditionalEffects]` and `[shootDieAmmoLoss]`, while
-preserving literal art descriptions and the reviewed colon in provenance. The source-scoped policy
-and all affected legacy weapon tuples are in `docs/qa/card-symbol-semantic-resolutions.json`.
+Seven owner-reviewed sample items are recorded in `docs/qa/card-rules-manual-review-2026-08-22.json`
+and projected into each reviewed corpus record as `evidence.manualReview`; S07 remains unreviewed.
+S01, S03, and S08 passed. S02 exposed only a review-package omission: the canonical sidecar and
+corpus already stored `notInCombat`. S05 and S06 established the reviewed legacy weapon aliases.
+S04 retained the tightly kerned apostrophe in `Player10's` and resolved its white-person-over-blue-rings
+metadata glyph as `[numberOfCharacters]` from official rulebook page 10 and the Objectives Help Sheet,
+while remaining deferred as a visibly PROTOTYPE source. Source-scoped decisions are recorded in
+`docs/qa/card-symbol-semantic-resolutions.json`.
 
 ## Rebuild and verify
 

@@ -60,8 +60,8 @@ def main() -> None:
     ledger_cards = [row for row in progress["records"] if "/tree/cards/" in row["sourcePath"]]
     ledger_by_path = {row["sourcePath"]: row for row in ledger_cards}
     queue_card_paths = {row["sourcePath"] for row in queue["entries"] if "/tree/cards/" in row["sourcePath"]}
-    if len(known) != 49:
-        failures.append({"check": "glossary", "expected": 49, "actual": len(known)})
+    if len(known) != 50:
+        failures.append({"check": "glossary", "expected": 50, "actual": len(known)})
     if len(paths) != len(set(paths)):
         failures.append({"check": "unique corpus paths"})
     if paths != sorted(paths):

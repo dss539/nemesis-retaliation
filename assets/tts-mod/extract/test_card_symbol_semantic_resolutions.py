@@ -9,6 +9,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 import analyze_unresolved_symbols as backlog
 import build_card_text_corpus as corpus
+import vision_batch
 
 
 class SemanticIconResolutionTests(unittest.TestCase):
@@ -21,10 +22,10 @@ class SemanticIconResolutionTests(unittest.TestCase):
         known = corpus.glossary_ids()
         registry, index = corpus.semantic_icon_resolution_index(known)
         self.assertEqual(registry["schemaVersion"], 1)
-        self.assertEqual(len(index), 7)
-        self.assertEqual(sum(len(items) for items in index.values()), 11)
-        self.assertEqual(self.payload["generatedFrom"]["semanticIconResolutionSourceCount"], 7)
-        self.assertEqual(self.payload["generatedFrom"]["semanticIconResolutionCount"], 11)
+        self.assertEqual(len(index), 8)
+        self.assertEqual(sum(len(items) for items in index.values()), 12)
+        self.assertEqual(self.payload["generatedFrom"]["semanticIconResolutionSourceCount"], 8)
+        self.assertEqual(self.payload["generatedFrom"]["semanticIconResolutionCount"], 12)
         self.assertTrue(all(item["canonicalToken"] in known for items in index.values() for item in items))
 
     def test_reviewed_plasma_uses_canonical_semantics_and_keeps_resolution_evidence(self):
@@ -68,6 +69,26 @@ class SemanticIconResolutionTests(unittest.TestCase):
         remaining = backlog.unresolved_occurrences(flame)
         self.assertEqual(len(remaining), 1)
         self.assertIn("rounded lobes", remaining[0]["token"])
+
+
+    def test_vision_helpers_resolve_the_active_worktree(self):
+        expected = Path(__file__).resolve().parents[3]
+        self.assertEqual(vision_batch.REPO, expected)
+
+
+    def test_reviewed_wrong_call_uses_number_of_characters_metadata(self):
+        path = "assets/tts-mod/extract/v2-dl/tree/cards/game/objectivePersonalDeck-161.jpg"
+        row = self.rows[path]
+        self.assertIn("numberOfCharacters", corpus.glossary_ids())
+        section = next(item for item in row["printedData"]["sections"] if item["panelId"] == "P2")
+        self.assertEqual(section["text"], "[numberOfCharacters] 10+")
+        self.assertIn("numberOfCharacters", row["symbols"]["canonicalGlossaryTokens"])
+        self.assertEqual(row["evidence"]["manualReview"]["verdict"], "C")
+        ids = {item["resolutionId"] for item in row["evidence"]["semanticIconResolutions"]}
+        self.assertEqual(ids, {"official-number-of-characters-objective-metadata"})
+        remaining = backlog.unresolved_occurrences(row)
+        self.assertEqual(len(remaining), 1)
+        self.assertIn("OR", remaining[0]["token"])
 
 
 if __name__ == "__main__":

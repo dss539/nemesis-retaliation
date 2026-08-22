@@ -15,7 +15,7 @@ import time
 
 from PIL import Image
 
-REPO = Path("/home/smithers/nemesis-retaliation")
+REPO = Path(__file__).resolve().parents[3]
 PROGRESS = REPO / "assets/tts-mod/extract/vision-progress.json"
 RESULT_DIR = REPO / "assets/tts-mod/extract/vision-results"
 PROVIDER = "openai-codex"
@@ -31,6 +31,7 @@ Map: computer; fire; malfunction; noise; secure; corridorEW; corridorNESW; corri
 Tactical Gear tokens: oxygenToken yellow; ammoToken red; grenadeToken purple; medpackToken green.
 Tactical Gear slots: ammoSlot red; grenadeSlot purple; oxygenSlot yellow; medpackSlot green; anySlot grey.
 General: character astronaut; oxygen supply; characterHealth cross with EKG; actionCard; robot; notInCombat prohibition (card art may show crossed-out gun or crossed-out Intruder); intruder curled white exoskeleton.
+Objective metadata: numberOfCharacters white person above cyan-blue concentric rings, followed by a minimum Character-count threshold such as 2+.
 """
 
 BASE_PROMPT = """Inspect this ONE image's actual pixels from scratch. Ignore its filename and directory as semantic evidence. Do not infer identity from neighboring files, sheet position, or expected game inventory. First determine how the FILE would need to rotate to make all meaningful typography upright. Transcribe only visible pixels; never reconstruct clipped, hidden, or illegible content. Preserve capitalization, punctuation, headings, line/panel breaks, and misspellings. Embed confidently matched canonical icons inline as [camelCase]. For a bare corner icon, use a position field. If a glyph is not confidently in the glossary, write a literal [ICON: color shape glyph] in visibleText/body and record the uncertainty; do not guess its meaning. Some TTS sources use pre-release artwork for a later canonical semantic icon. Do not reject or normalize solely from pixel mismatch or color/shape similarity: preserve the literal blind observation, and let downstream adjudication apply only source-specific mappings approved in docs/qa/card-symbol-semantic-resolutions.json.

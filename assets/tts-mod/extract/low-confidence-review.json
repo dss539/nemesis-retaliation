@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-08-22T06:16:18Z",
+  "updatedAt": "2026-08-22T10:35:35Z",
   "entries": [
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/bags/dataTokenBag-010.png",
@@ -77310,7 +77310,7 @@
           {
             "panelId": "P2",
             "heading": "",
-            "text": "10+"
+            "text": "[numberOfCharacters] 10+"
           },
           {
             "panelId": "P3",
@@ -77343,23 +77343,22 @@
         "clippedSpans": []
       },
       "uncertainties": [
-        "The exact straight-versus-curly typographic form of the apostrophe in 10's cannot be established from the small raster glyph.",
+        "The white figure above cyan-blue concentric rings is the official Number of Characters symbol; the exact source-bound match and publisher terminology are recorded in docs/qa/card-icon-comparisons/number-of-characters-source-audit.json.",
+        "1 material functional occurrence remains an explicit page-40 glossary no-match: the beveled OR separator plaque; its printed OR function is transcribed without inventing a glossary token.",
         "No distinct interword gap is visible between Player and 10; the transcription does not insert one.",
         "The comma following but is close to the terminal stroke of the italic t, but a separate low punctuation mark is visibly present.",
         "The large pale-gray annulus near M1 is visually consistent with an O-shaped portion of the diagonal PROTOTYPE overlay, but complete layer separation is not possible from the flattened pixels.",
-        "M1's irregular white shape supports multiple literal visual readings; no semantic or canonical icon identity is established.",
         "M2 is visibly an OR separator, but its beveled container may be partly functional and partly decorative; no canonical morphology name is established.",
         "M3 is treated as embedded artwork because of its painterly perspective and placement, but its tiny internal structure is unresolved.",
         "The footer visibly reads C O R P O R A T E with wide tracking; pixels alone do not establish whether it is a type line, affiliation label, or another category.",
         "The assigned face visibly carries a diagonal PROTOTYPE overlay and C O R P O R A T E footer; current publisher Objectives pages and BGA contain no exact-title counterpart.",
         "No current publisher-primary rendered component face visibly establishes the exact assigned title/content and family.",
         "No exact-title record exists in the current BGA licensed-digital secondary source.",
-        "2 material functional occurrence(s) remain explicit all-49 authoritative no-matches; no semantic token was invented.",
         "The assigned face is visibly prototype-marked and cannot be promoted as current canonical data.",
         "No approved canonical Corporate prototype objective card image/sidecar schema or directory exists under cards/game.",
         "1 discrepancy row(s) with the prior unselected corpus snapshot are preserved."
       ],
-      "reasonSkipped": "2 material functional occurrence(s) remain explicit all-49 authoritative no-matches; no semantic token was invented.; The assigned face visibly carries a diagonal PROTOTYPE overlay and C O R P O R A T E footer; current publisher Objectives pages and BGA contain no exact-title counterpart.; No current publisher-primary rendered component face visibly establishes the exact assigned title/content and family.; No exact-title record exists in the current BGA licensed-digital secondary source.; The assigned face is visibly prototype-marked and cannot be promoted as current canonical data.; No approved canonical Corporate prototype objective card image/sidecar schema or directory exists under cards/game.; 1 discrepancy row(s) with the prior unselected corpus snapshot are preserved.",
+      "reasonSkipped": "The Number of Characters symbol is resolved from official rulebook/Objectives-sheet evidence; 1 material functional occurrence remains an explicit page-40 glossary no-match (the OR separator plaque); no unsupported glossary token was invented.; The assigned face visibly carries a diagonal PROTOTYPE overlay and C O R P O R A T E footer; current publisher Objectives pages and BGA contain no exact-title counterpart.; No current publisher-primary rendered component face visibly establishes the exact assigned title/content and family.; No exact-title record exists in the current BGA licensed-digital secondary source.; The assigned face is visibly prototype-marked and cannot be promoted as current canonical data.; No approved canonical Corporate prototype objective card image/sidecar schema or directory exists under cards/game.; 1 discrepancy row(s) with the prior unselected corpus snapshot are preserved.",
       "vision": {
         "provider": "openai-codex",
         "model": "gpt-5.6-sol",
@@ -77375,7 +77374,29 @@
           "evidencePath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-31-20260821T112612Z-p346900-b7e2c9/metadata/adjudication-summary.json"
         }
       },
-      "status": "open"
+      "status": "open",
+      "manualReview": {
+        "sampleId": "card-rules-sample-bc635f5",
+        "sampleItemId": "S04",
+        "verdict": "C",
+        "reviewedAt": "2026-08-22T10:35:35Z",
+        "reviewedBy": "project-owner",
+        "evidencePath": "docs/qa/card-rules-manual-review-2026-08-22.json",
+        "finding": "The apostrophe in Player10's is present but visually crowded by the tight kerning, making it easy to miss. The white person over cyan-blue rings before 10+ is the official Number of Characters symbol, not the separate Character glossary icon."
+      },
+      "semanticIconResolutions": [
+        {
+          "resolutionId": "official-number-of-characters-objective-metadata",
+          "canonicalToken": "numberOfCharacters",
+          "resolutionType": "official-component-metadata-direct-match",
+          "literalArt": "white person or figure above cyan-blue concentric rings",
+          "literalTokens": [],
+          "selectedOccurrenceIndexes": [
+            0
+          ],
+          "evidencePath": "docs/qa/card-symbol-semantic-resolutions.json"
+        }
+      ]
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/queenHealthDeck-013.png",
@@ -82548,7 +82569,16 @@
           "evidencePath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-31-20260821T112612Z-p346900-b7e2c9/metadata/adjudication-summary.json"
         }
       },
-      "status": "open"
+      "status": "open",
+      "manualReview": {
+        "sampleId": "card-rules-sample-bc635f5",
+        "sampleItemId": "S03",
+        "verdict": "P",
+        "reviewedAt": "2026-08-22T09:53:32Z",
+        "reviewedBy": "project-owner",
+        "evidencePath": "docs/qa/card-rules-manual-review-2026-08-22.json",
+        "finding": "Manual review passed the title, exact rules text, and the robot, Burst-die additional-effects, and malfunction symbol mappings. The source remains a deferred TTS variant."
+      }
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/seriouswound-028.png",

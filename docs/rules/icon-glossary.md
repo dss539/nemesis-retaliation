@@ -1,10 +1,10 @@
 # Nemesis: Retaliation — Canonical Icon Glossary
 
 **Source:** Official rulebook, page 40 (icon glossary).
-**Supporting rules:** Shoot and Burst results, page 33; Noise Hazard result, page 24.
+**Supporting rules:** Shoot and Burst results, page 33; Noise Hazard result, page 24; Number of Characters symbol, page 10 and the official Objectives Help Sheet.
 **Authority:** This glossary is the authoritative reference for icon identifiers used in card extraction and game data.
 
-The printed glossary contains **49 distinct icons**. Bold camelCase terms below are project identifiers. Where page 40 groups several variants under one printed label, the identifiers distinguish the visible variants without inventing additional rules meaning.
+The printed page-40 glossary contains **49 distinct icons**. This project also records one official Objective-card metadata symbol from page 10 and the Objectives Help Sheet, for **50 identifiers total**. Bold camelCase terms below are project identifiers. Where page 40 groups several variants under one printed label, the identifiers distinguish visible variants without inventing additional rules meaning.
 
 ---
 
@@ -115,6 +115,14 @@ Page 40 prints **three**, not six, Corridor icons. Corridors are undirected, so 
 
 ---
 
+## Objective Metadata Icons
+
+The official rulebook calls the following the **Number of Characters symbol** (page 10). During Objective setup, remove cards whose printed threshold is higher than the number of Characters taking part. The official Objectives Help Sheet visibly pairs this symbol with thresholds such as `2+`, `3+`, `4+`, and `5+`. It is a setup/player-count marker, not the page-40 **Character** entity icon.
+
+- **numberOfCharacters** — Number of Characters symbol; white person above cyan-blue concentric rings (`assets/icons/objectives/number-of-characters.png`)
+
+---
+
 ## Usage in Card Data
 
 Use the camelCase identifiers above.
@@ -138,3 +146,4 @@ The PNGs were re-derived from the official PDF’s page 40 at 400 DPI. The previ
 - `assets/icons/tactical-gear/` — 4 files
 - `assets/icons/tactical-gear-slots/` — 5 files
 - `assets/icons/general/` — 7 files
+- `assets/icons/objectives/` — 1 file

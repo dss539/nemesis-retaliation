@@ -35,8 +35,8 @@ def glossary_ids() -> set[str]:
         match = ICON_ID_RE.match(line)
         if match:
             result.add(match.group(1))
-    if len(result) != 49:
-        raise ValueError(f"expected 49 glossary identifiers, found {len(result)}")
+    if len(result) != 50:
+        raise ValueError(f"expected 50 approved icon identifiers (49 page-40 plus Number of Characters), found {len(result)}")
     return result
 
 
