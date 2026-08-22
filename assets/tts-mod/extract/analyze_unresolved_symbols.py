@@ -12,8 +12,11 @@ from pathlib import Path
 import re
 from typing import Any
 
+import card_text_evidence_registry as selected_evidence
+
 REPO = Path(__file__).resolve().parents[3]
 CORPUS = REPO / "assets/tts-mod/extract/card-text-corpus.json"
+REGISTRY = REPO / "assets/tts-mod/extract/selected-card-text-evidence.json"
 
 CLUSTERS = [
     ("circular-creature-morphology", r"creature|alien|insect|many[- ]limbed|tentacl|spined|spiky|crouched|winged|dragon|humanoid.*medallion"),
@@ -123,9 +126,11 @@ def main() -> int:
     args = ap.parse_args()
 
     corpus = json.loads(CORPUS.read_text())
+    registry = selected_evidence.load_registry(REGISTRY)
     grouped: dict[str, list[dict[str, Any]]] = defaultdict(list)
     token_counts = Counter()
-    for row in corpus["records"]:
+
+    def add_row(row: dict[str, Any]) -> None:
         for occurrence in unresolved_occurrences(row):
             token = occurrence["token"]
             cluster = classify(token)
@@ -147,6 +152,34 @@ def main() -> int:
                 "rulesExcerpt": rules_excerpt(row),
                 "ledgerStatus": row["ledgerStatus"],
             })
+
+    corpus_tuples = set()
+    for row in corpus["records"]:
+        corpus_tuples.add((row["sourcePath"], row["sourceSha256"]))
+        add_row(row)
+
+    non_corpus_selected = 0
+    for entry in registry["entries"]:
+        key = (entry["sourcePath"], entry["sourceSha256"])
+        if key in corpus_tuples:
+            continue
+        run = selected_evidence.selected_run(entry)
+        visible = run["visibleText"]
+        parts = entry["sourcePath"].split("/tree/", 1)
+        family = parts[1].split("/", 1)[0] if len(parts) == 2 else "non-corpus"
+        pseudo_row = {
+            "sourcePath": entry["sourcePath"],
+            "sourceSha256": entry["sourceSha256"],
+            "componentFamily": f"non-corpus/{family}",
+            "identity": {"printedTitle": visible.get("title") if isinstance(visible, dict) else None},
+            "printedData": visible,
+            "selectedExtraction": {"unresolvedIconOccurrences": run["unresolvedIconOccurrences"]},
+            "rulesTextPresent": bool(isinstance(visible, dict) and str(visible.get("body") or "").strip()),
+            "ledgerStatus": "deferred",
+            "symbols": {"unresolvedOrLocalTokens": []},
+        }
+        add_row(pseudo_row)
+        non_corpus_selected += 1
 
     clusters = []
     for name, occurrences in grouped.items():
@@ -176,6 +209,7 @@ def main() -> int:
     out = {
         "schemaVersion": 1,
         "sourceCorpus": "assets/tts-mod/extract/card-text-corpus.json",
+        "sourceRegistry": "assets/tts-mod/extract/selected-card-text-evidence.json",
         "sourceProgressUpdatedAt": corpus["generatedFrom"]["visionProgressUpdatedAt"],
         "warning": "Cluster labels describe visible morphology only. They are not canonical icon names or semantic claims.",
         "summary": {
@@ -183,6 +217,7 @@ def main() -> int:
             "distinctLiteralDescriptions": len(token_counts),
             "affectedAssets": len({x["sourcePath"] for rows in grouped.values() for x in rows}),
             "clusters": len(clusters),
+            "nonCorpusSelectedEntriesScanned": non_corpus_selected,
         },
         "clusters": clusters,
     }

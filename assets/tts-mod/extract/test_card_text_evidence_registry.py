@@ -46,6 +46,9 @@ class SelectedEvidenceRegistryTests(unittest.TestCase):
 
     def test_current_registry_is_valid(self) -> None:
         self.assertEqual(selected_evidence.validate_registry(copy.deepcopy(self.registry)), self.registry)
+        nullable = copy.deepcopy(self.registry)
+        nullable["entries"][0]["runs"][0]["runtime"]["adjudicationSessionId"] = None
+        self.assertEqual(selected_evidence.validate_registry(nullable), nullable)
 
     def test_duplicate_tuple_is_rejected(self) -> None:
         registry = copy.deepcopy(self.registry)
@@ -73,11 +76,16 @@ class SelectedEvidenceRegistryTests(unittest.TestCase):
         registry["entries"][1]["selectedRunIdentity"] = registry["entries"][1]["runs"][0]["runIdentity"]
         self.assert_rejected(registry)
 
-    def test_registry_tuple_absent_from_corpus_is_rejected(self) -> None:
+    def test_registry_tuple_absent_from_corpus_is_valid_but_not_projected(self) -> None:
         entry = self.registry["entries"][0]
-        wrong_tuple_record = {"sourcePath": entry["sourcePath"], "sourceSha256": "0" * 64, "evidence": {}}
+        nonmember_record = {"sourcePath": "nonmember.png", "sourceSha256": "0" * 64, "evidence": {}}
+        selected_evidence.apply_registry([nonmember_record], copy.deepcopy(self.registry))
+        self.assertNotIn("selectedExtraction", nonmember_record)
+        self.assertNotIn("evidenceRuns", nonmember_record)
+        self.assertNotEqual((nonmember_record["sourcePath"], nonmember_record["sourceSha256"]), (entry["sourcePath"], entry["sourceSha256"]))
+        wrong_hash_same_path = {"sourcePath": entry["sourcePath"], "sourceSha256": "0" * 64, "evidence": {}}
         with self.assertRaises(selected_evidence.RegistryError):
-            selected_evidence.apply_registry([wrong_tuple_record], copy.deepcopy(self.registry))
+            selected_evidence.apply_registry([wrong_hash_same_path], copy.deepcopy(self.registry))
 
     def test_validator_rejects_corpus_selected_evidence_absent_from_registry(self) -> None:
         corpus = json.loads(DEFAULT_OUTPUT.read_text())

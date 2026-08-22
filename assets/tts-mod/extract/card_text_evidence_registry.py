@@ -104,8 +104,11 @@ def _string_list(value: Any, location: str, *, nonempty: bool = False, sorted_un
 
 def _validate_runtime(value: Any, location: str) -> dict[str, Any]:
     runtime = _exact_keys(value, RUNTIME_KEYS, location)
-    for key in ("provider", "model", "reasoningEffort", "nativeImageRoute", "blindSessionId", "adjudicationSessionId"):
+    for key in ("provider", "model", "reasoningEffort", "nativeImageRoute", "blindSessionId"):
         _nonempty_string(runtime[key], f"{location}.{key}")
+    adjudication_session = runtime["adjudicationSessionId"]
+    if adjudication_session is not None and (not isinstance(adjudication_session, str) or not adjudication_session):
+        _fail(f"{location}.adjudicationSessionId", "must be null or a non-empty string")
     for key in ("auxiliaryVisionUsed", "qwenUsed", "ocrCanonicalEvidenceUsed", "modelDowngradeUsed"):
         if not isinstance(runtime[key], bool):
             _fail(f"{location}.{key}", "must be boolean")
@@ -306,6 +309,13 @@ def project_entry(entry: dict[str, Any]) -> dict[str, Any]:
 
 
 def apply_registry(records: list[dict[str, Any]], registry: dict[str, Any]) -> None:
+    """Project selected evidence onto corpus members without fabricating rows.
+
+    The selected-evidence registry covers the full 532-image review queue, while
+    this corpus intentionally contains only card/reference records. Registry
+    entries outside the corpus remain globally validated and counted in corpus
+    metadata, but they do not create synthetic corpus records.
+    """
     validate_registry(registry)
     record_by_tuple: dict[tuple[str, str], dict[str, Any]] = {}
     for record in records:
@@ -317,12 +327,16 @@ def apply_registry(records: list[dict[str, Any]], registry: dict[str, Any]) -> N
         if key in record_by_tuple:
             raise RegistryError(f"duplicate corpus source tuple while applying registry: {key!r}")
         record_by_tuple[key] = record
-    registry_keys = {(entry["sourcePath"], entry["sourceSha256"]) for entry in registry["entries"]}
-    missing = sorted(registry_keys - set(record_by_tuple))
-    if missing:
-        raise RegistryError(f"registry source tuples absent from generated corpus: {missing!r}")
+    record_paths = {record["sourcePath"] for record in records}
     for entry in registry["entries"]:
-        record = record_by_tuple[(entry["sourcePath"], entry["sourceSha256"])]
+        key = (entry["sourcePath"], entry["sourceSha256"])
+        record = record_by_tuple.get(key)
+        if record is None:
+            if entry["sourcePath"] in record_paths:
+                raise RegistryError(
+                    f"registry source path matches a corpus member but its SHA-256 does not: {key!r}"
+                )
+            continue
         projected = project_entry(entry)
         record["selectedExtraction"] = projected["selectedExtraction"]
         record.setdefault("evidence", {})["selectedExtraction"] = projected["evidenceSelectedExtraction"]

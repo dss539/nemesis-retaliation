@@ -130,17 +130,26 @@ def main() -> None:
             or (row.get("evidence") or {}).get("selectedExtraction") is not None
             or row.get("evidenceRuns") is not None
         }
-        if set(registry_by_tuple) != set(selected_rows):
+        corpus_registry_keys = set(registry_by_tuple) & set(corpus_by_tuple)
+        corpus_paths = {key[0] for key in corpus_by_tuple}
+        mismatched_corpus_paths = sorted(
+            key for key in registry_by_tuple
+            if key[0] in corpus_paths and key not in corpus_by_tuple
+        )
+        if mismatched_corpus_paths:
             failures.append({
-                "check": "selected evidence registry/corpus tuple equality",
-                "registryOnly": sorted(set(registry_by_tuple)-set(selected_rows)),
-                "corpusOnly": sorted(set(selected_rows)-set(registry_by_tuple)),
+                "check": "selected evidence registry corpus-path SHA mismatch",
+                "sourceTuples": mismatched_corpus_paths,
             })
-        for key, entry in registry_by_tuple.items():
-            row = corpus_by_tuple.get(key)
-            if row is None:
-                failures.append({"check": "registry entry absent from corpus", "sourceTuple": key})
-                continue
+        if corpus_registry_keys != set(selected_rows):
+            failures.append({
+                "check": "selected evidence registry/corpus intersection equality",
+                "registryCorpusIntersectionOnly": sorted(corpus_registry_keys-set(selected_rows)),
+                "corpusOnly": sorted(set(selected_rows)-corpus_registry_keys),
+            })
+        for key in sorted(corpus_registry_keys):
+            entry = registry_by_tuple[key]
+            row = corpus_by_tuple[key]
             projected = selected_evidence.project_entry(entry)
             if row.get("selectedExtraction") != projected["selectedExtraction"]:
                 failures.append({"check": "selected extraction registry projection", "sourceTuple": key})
