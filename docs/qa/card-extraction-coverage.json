@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "sourceProgressUpdatedAt": "2026-08-22T00:41:50.250068Z",
-  "sourceQueueUpdatedAt": "2026-08-22T00:41:50.250068Z",
+  "sourceProgressUpdatedAt": "2026-08-22T05:59:25Z",
+  "sourceQueueUpdatedAt": "2026-08-22T05:59:25Z",
   "totals": {
     "inScope": 532,
     "complete": 148,
@@ -13,14 +13,14 @@
     "canonicalSidecars": 78
   },
   "deferredExtractionStates": {
-    "draft-full": 279,
-    "draft-partial": 16,
+    "draft-full": 280,
+    "draft-partial": 15,
     "no-transcription": 42,
     "non-rules-or-reference": 47
   },
   "deferredCardExtractionStates": {
-    "draft-full": 248,
-    "draft-partial": 12,
+    "draft-full": 249,
+    "draft-partial": 11,
     "no-transcription": 3,
     "non-rules-or-reference": 15
   },
@@ -172,7 +172,7 @@
   },
   "reasonTags": {
     "classification": 75,
-    "clipped-or-illegible": 93,
+    "clipped-or-illegible": 92,
     "needs-official-source": 30,
     "orientation": 58,
     "other": 46,
@@ -635,60 +635,6 @@
         "sessionId": "20260820_190057_7927a4",
         "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-23-20260820T185027Z-p240642-4513b3/results/W23-008.json",
         "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-23-20260820T185027Z-p240642-4513b3/raw/W23-008.json"
-      }
-    },
-    {
-      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-144_cards/card-11.png",
-      "sourceSha256": "10b491b739caab061332b6ec8ff4b8261f9519dfa5f3784fb1cfb5696f27eccc",
-      "family": "game/startItemDeck-144_cards",
-      "isCard": true,
-      "isRulesBearingCandidate": true,
-      "extractionState": "draft-partial",
-      "priorityScore": 1250,
-      "title": "PLASMA GUN",
-      "typeLine": "RANGED WEAPON. REQUIRES NO AMMO",
-      "body": "This Weapon can be used even\nwith a [malfunction] on it and is not discarded\nwhen another [malfunction] is placed.\n[ICON: white exclamation-shaped mark in a purple rounded square], [ICON: white tapered vertical mark in a red upright triangle][illegible] Place a [malfunction] on this Weapon\nand then lose 2 [characterHealth] for each [malfunction].",
-      "footer": "",
-      "recognizedTokens": [
-        "characterHealth",
-        "malfunction"
-      ],
-      "unknownTokens": [
-        "ICON: white exclamation-shaped mark in a purple rounded square",
-        "ICON: white tapered vertical mark in a red upright triangle",
-        "illegible"
-      ],
-      "unreadableMarkers": [
-        "[illegible]",
-        "[illegible]"
-      ],
-      "reasonTags": [
-        "clipped-or-illegible",
-        "source-conflict",
-        "schema-or-destination"
-      ],
-      "reasonSkipped": "2 material functional occurrence(s) remain explicit all-49 no-matches; no semantic token was invented.; Current rendered publisher evidence provides locator/prose/family context but not a complete exact component face.; Current exact-title BGA secondary text potentially conflicts and is preserved without substitution.; 1 publisher/BGA/TTS-variant conflict row(s) are preserved verbatim.; At least one materially recorded text span remains [illegible] or [clipped].; No unattended W33 canonical destination/schema is approved for this mixed-family source; no existing approved file may be overwritten or reclassified.; 2 discrepancy row(s) with the prior corpus snapshot are preserved.",
-      "uncertainties": [
-        "The tiny punctuation immediately after M4 cannot be distinguished reliably from the presented pixels.",
-        "M6 is visibly a coherent white line morphology, but its exact fine stroke structure and semantic identity are not established.",
-        "Some fine edges of M1, M2, M5, and M7 touch dark artwork or nearby lettering, making exact protrusion counts uncertain while leaving the occurrence count clear.",
-        "The physical role of the top-center white polygon and the exact component family or side are not established by the visible face.",
-        "Current rendered publisher evidence provides locator/prose/family context but not a complete exact component face.",
-        "Current exact-title BGA secondary text potentially conflicts and is preserved without substitution.",
-        "2 material functional occurrence(s) remain explicit all-49 no-matches; no semantic token was invented.",
-        "1 publisher/BGA/TTS-variant conflict row(s) are preserved verbatim.",
-        "At least one materially recorded text span remains [illegible] or [clipped].",
-        "No unattended W33 canonical destination/schema is approved for this mixed-family source; no existing approved file may be overwritten or reclassified.",
-        "2 discrepancy row(s) with the prior corpus snapshot are preserved."
-      ],
-      "vision": {
-        "provider": "openai-codex",
-        "model": "gpt-5.6-sol",
-        "reasoningEffort": "max",
-        "workerId": "sol-max-persistent-worker-33-20260821T172305Z-p465856-36ac0c",
-        "sessionId": "20260821_233507_143fb7",
-        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-33-20260821T172305Z-p465856-36ac0c/results/W33-002.json",
-        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-33-20260821T172305Z-p465856-36ac0c/raw/W33-002.json"
       }
     },
     {
@@ -1484,6 +1430,44 @@
         "workerId": null,
         "sessionId": "20260815_051724_9ca631",
         "resultPath": "assets/tts-mod/extract/vision-results/e23333f920163dc0a9342ef6d348855b0dbb3e2b7a769ec735e3d4460c2d89cf.json",
+        "rawResultPath": null
+      }
+    },
+    {
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/attack-151_cards/card-14.png",
+      "sourceSha256": "241bd0d208b745a41e9ee671e55138b71669ef12b3bf8b1086922f85fc126963",
+      "family": "game/attack-151_cards",
+      "isCard": true,
+      "isRulesBearingCandidate": true,
+      "extractionState": "draft-full",
+      "priorityScore": 430,
+      "title": "SCRATCH",
+      "typeLine": null,
+      "body": "[ICON: cyan curled creature glyph in blue circle]\n[ICON: cyan upright spined creature glyph in blue circle]\n[ICON: cyan horned creature glyph in blue circle]\n\nLose 1 [characterHealth].\nGet 1 Contamination.",
+      "footer": null,
+      "recognizedTokens": [
+        "characterHealth"
+      ],
+      "unknownTokens": [
+        "ICON: cyan curled creature glyph in blue circle",
+        "ICON: cyan horned creature glyph in blue circle",
+        "ICON: cyan upright spined creature glyph in blue circle"
+      ],
+      "unreadableMarkers": [],
+      "reasonTags": [
+        "classification"
+      ],
+      "reasonSkipped": "exact card identity/transcription/icon/category is not uniformly high-confidence",
+      "uncertainties": [
+        "The exact identities and mechanical meanings of the three cyan creature pictograms are uncertain; they do not confidently match any canonical glossary icon."
+      ],
+      "vision": {
+        "provider": "openai-codex",
+        "model": "gpt-5.6-sol",
+        "reasoningEffort": null,
+        "workerId": null,
+        "sessionId": "20260815_051724_6804c6",
+        "resultPath": "assets/tts-mod/extract/vision-results/241bd0d208b745a41e9ee671e55138b71669ef12b3bf8b1086922f85fc126963.json",
         "rawResultPath": null
       }
     }

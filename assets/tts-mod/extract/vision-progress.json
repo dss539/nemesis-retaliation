@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-08-22T00:41:50.250068Z",
+  "updatedAt": "2026-08-22T05:59:25Z",
   "scope": {
     "root": "assets/tts-mod/extract/v2-dl/tree",
     "definition": "Every base-game PNG/JPEG canonical child or standalone image in the extraction tree. Source sprite sheets with documented canonical split children are excluded from semantic re-extraction.",
@@ -65452,7 +65452,16 @@
         "sourceOrientation": "upright",
         "canonicalOrientation": "upright"
       },
-      "canonicalSha256": "69eee8ba31616f20ac8859c7cd8dc908445ed85808004cfdedeeeb9968b473e3"
+      "canonicalSha256": "69eee8ba31616f20ac8859c7cd8dc908445ed85808004cfdedeeeb9968b473e3",
+      "manualReview": {
+        "sampleId": "card-rules-sample-bc635f5",
+        "sampleItemId": "S02",
+        "verdict": "C",
+        "reviewedAt": "2026-08-22T05:59:25Z",
+        "reviewedBy": "project-owner",
+        "evidencePath": "docs/qa/card-rules-manual-review-2026-08-22.json",
+        "finding": "The manual-review presentation omitted the upper-right crossed-out-gun icon. The canonical sidecar, ledger semantic read, and generated corpus already stored upperRight as notInCombat."
+      }
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/attack-020.png",
@@ -81675,7 +81684,16 @@
         "sourceOrientation": "upright",
         "canonicalOrientation": "upright"
       },
-      "canonicalSha256": "37bbf022f99ef62a18a5225aaf31347f6299f72672603547f51918502241f27b"
+      "canonicalSha256": "37bbf022f99ef62a18a5225aaf31347f6299f72672603547f51918502241f27b",
+      "manualReview": {
+        "sampleId": "card-rules-sample-bc635f5",
+        "sampleItemId": "S01",
+        "verdict": "P",
+        "reviewedAt": "2026-08-22T05:59:25Z",
+        "reviewedBy": "project-owner",
+        "evidencePath": "docs/qa/card-rules-manual-review-2026-08-22.json",
+        "finding": "Manual review passed the title, rules text, seven canonical icon tokens, and canonical status without correction."
+      }
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/event-170.png",
@@ -139845,7 +139863,16 @@
         "orientation": "upright"
       },
       "reviewQueuePath": "assets/tts-mod/extract/low-confidence-review.json",
-      "deferReason": "No singular exact GUID/CardID source selector exists; preserve the complete exact reference set without unsupported cell or copy inference.; The shared counterpart set is structurally resolved but not all counterpart pixels are present; only available exact counterparts were inspected.; No current publisher-primary rendered face visibly establishes the exact assigned title/content and family.; BGA structured face data does not establish generic Starting Item back pixels.; This assigned source is a generic BackURL/non-rules component and is not a rules sidecar candidate.; No approved canonical destination/schema maps this exact source-bound Generic Starting Item card back into the canonical catalog during unattended W32 processing."
+      "deferReason": "No singular exact GUID/CardID source selector exists; preserve the complete exact reference set without unsupported cell or copy inference.; The shared counterpart set is structurally resolved but not all counterpart pixels are present; only available exact counterparts were inspected.; No current publisher-primary rendered face visibly establishes the exact assigned title/content and family.; BGA structured face data does not establish generic Starting Item back pixels.; This assigned source is a generic BackURL/non-rules component and is not a rules sidecar candidate.; No approved canonical destination/schema maps this exact source-bound Generic Starting Item card back into the canonical catalog during unattended W32 processing.",
+      "manualReview": {
+        "sampleId": "card-rules-sample-bc635f5",
+        "sampleItemId": "S08",
+        "verdict": "P",
+        "reviewedAt": "2026-08-22T05:59:25Z",
+        "reviewedBy": "project-owner",
+        "evidencePath": "docs/qa/card-rules-manual-review-2026-08-22.json",
+        "finding": "Manual review passed the non-rules/card-back classification and confirmed that no rules text was manufactured."
+      }
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-144_cards/card-00.png",
@@ -141698,11 +141725,11 @@
         "cardSide": "face",
         "title": "GATLING GUN",
         "typeLine": "RANGED WEAPON, RIFLE",
-        "body": "Burst: You may burst twice to the same Corridor\nspending only 1 [ICON: red chamfered block with a dark square center and a narrow darker-red right side].\n[ICON: purple square with a white vertical bar and detached square dot]: Place [malfunction] on this Weapon.",
+        "body": "Burst: You may burst twice to the same Corridor\nspending only 1 [ammoToken].\n[ICON: white exclamation mark in a purple square]: Place [malfunction] on this Weapon.",
         "footer": "",
         "upperRight": "",
         "lowerCenter": "",
-        "visibleText": "GATLING GUN\nRANGED WEAPON, RIFLE\n\nBurst: You may burst twice to the same Corridor\nspending only 1 [ICON: red chamfered block with a dark square center and a narrow darker-red right side].\n[ICON: purple square with a white vertical bar and detached square dot]: Place [malfunction] on this Weapon.",
+        "visibleText": "GATLING GUN\nRANGED WEAPON, RIFLE\n\nBurst: You may burst twice to the same Corridor\nspending only 1 [ammoToken].\n[ICON: white exclamation mark in a purple square]: Place [malfunction] on this Weapon.",
         "confidentlyVisible": [
           "The image is a landscape rectangle dominated by dark black, gray, muted red-brown, white, yellow-orange, purple, and bright red.",
           "A large bright white polygonal field occupies the top center and has diagonal lower side edges.",
@@ -141719,8 +141746,7 @@
         "proposedSlug": "",
         "confidence": "high-evidence-deferred-source/schema",
         "uncertainties": [
-          "The dark square in M1 could be a printed inset or an opening exposing a dark field; no depth cue resolves this.",
-          "M2's white bar-and-dot pair is visibly punctuation-like, but its semantic function as a badge is not established.",
+          "The purple square visibly contains a white exclamation mark, but whether it is a die result and its exact semantic identifier remain unresolved.",
           "M3's exact number of radial projections is not confidently resolved, though its toothed circular morphology is clear.",
           "The complete lower contours of M4 and M5 are not visible because both extend beyond the lower raster edge.",
           "The dark six-sided regions in M4 and M5 could be printed insets or openings exposing a dark field; no depth cue resolves this.",
@@ -141729,7 +141755,7 @@
           "No current publisher-primary rendered face visibly establishes the exact assigned title/content and family.",
           "The current exact-title BGA licensed-digital record conflicts materially and remains secondary evidence only.",
           "A same-title TTS variant has materially different printed type/effect text; the variant conflict is preserved without collapsing versions.",
-          "2 material functional occurrence(s) remain explicit all-49 authoritative no-matches; no semantic token was invented.",
+          "1 material functional occurrence remains an explicit all-49 authoritative no-match; no semantic token was invented.",
           "No singular exact GUID/CardID source selector exists; preserve the complete exact reference set without unsupported cell or copy inference.",
           "2 publisher/BGA/TTS-variant source conflict row(s) are preserved verbatim.",
           "No approved canonical destination/schema maps this exact source-bound Starting Item, Equipment, Weapon, or Armor card face into the canonical catalog during unattended W32 processing.",
@@ -141738,7 +141764,16 @@
         "orientation": "upright"
       },
       "reviewQueuePath": "assets/tts-mod/extract/low-confidence-review.json",
-      "deferReason": "2 material functional occurrence(s) remain explicit all-49 authoritative no-matches; no semantic token was invented.; No singular exact GUID/CardID source selector exists; preserve the complete exact reference set without unsupported cell or copy inference.; No current publisher-primary rendered face visibly establishes the exact assigned title/content and family.; The current exact-title BGA licensed-digital record conflicts materially and remains secondary evidence only.; A same-title TTS variant has materially different printed type/effect text; the variant conflict is preserved without collapsing versions.; 2 publisher/BGA/TTS-variant source conflict row(s) are preserved verbatim.; No approved canonical destination/schema maps this exact source-bound Starting Item, Equipment, Weapon, or Armor card face into the canonical catalog during unattended W32 processing.; 1 discrepancy row(s) with the prior unselected corpus snapshot are preserved."
+      "deferReason": "2 material functional occurrence(s) remain explicit all-49 authoritative no-matches; no semantic token was invented.; No singular exact GUID/CardID source selector exists; preserve the complete exact reference set without unsupported cell or copy inference.; No current publisher-primary rendered face visibly establishes the exact assigned title/content and family.; The current exact-title BGA licensed-digital record conflicts materially and remains secondary evidence only.; A same-title TTS variant has materially different printed type/effect text; the variant conflict is preserved without collapsing versions.; 2 publisher/BGA/TTS-variant source conflict row(s) are preserved verbatim.; No approved canonical destination/schema maps this exact source-bound Starting Item, Equipment, Weapon, or Armor card face into the canonical catalog during unattended W32 processing.; 1 discrepancy row(s) with the prior unselected corpus snapshot are preserved.",
+      "manualReview": {
+        "sampleId": "card-rules-sample-bc635f5",
+        "sampleItemId": "S05",
+        "verdict": "C",
+        "reviewedAt": "2026-08-22T05:59:25Z",
+        "reviewedBy": "project-owner",
+        "evidencePath": "docs/qa/card-rules-manual-review-2026-08-22.json",
+        "finding": "The red inline icon after “1” is Ammo and maps to canonical ammoToken. The purple square contains a white exclamation mark; its die-result semantics remain unresolved."
+      }
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-144_cards/card-07.png",
@@ -143059,11 +143094,11 @@
         "cardSide": "face",
         "title": "PLASMA GUN",
         "typeLine": "RANGED WEAPON. REQUIRES NO AMMO",
-        "body": "This Weapon can be used even\nwith a [malfunction] on it and is not discarded\nwhen another [malfunction] is placed.\n[ICON: white exclamation-shaped mark in a purple rounded square], [ICON: white tapered vertical mark in a red upright triangle][illegible] Place a [malfunction] on this Weapon\nand then lose 2 [characterHealth] for each [malfunction].",
+        "body": "This Weapon can be used even\nwith a [malfunction] on it and is not discarded\nwhen another [malfunction] is placed.\n[ICON: white exclamation mark in a purple rounded square], [ICON: black curved ammunition magazine in a red upright triangle]: Place a [malfunction] on this Weapon\nand then lose 2 [characterHealth] for each [malfunction].",
         "footer": "",
         "upperRight": "",
         "lowerCenter": "and then lose 2 [characterHealth] for each [malfunction].",
-        "visibleText": "PLASMA GUN\nRANGED WEAPON. REQUIRES NO AMMO\nThis Weapon can be used even\nwith a [malfunction] on it and is not discarded\nwhen another [malfunction] is placed.\n[ICON: white exclamation-shaped mark in a purple rounded square], [ICON: white tapered vertical mark in a red upright triangle][illegible] Place a [malfunction] on this Weapon\nand then lose 2 [characterHealth] for each [malfunction].",
+        "visibleText": "PLASMA GUN\nRANGED WEAPON. REQUIRES NO AMMO\n\nThis Weapon can be used even\nwith a [malfunction] on it and is not discarded\nwhen another [malfunction] is placed.\n[ICON: white exclamation mark in a purple rounded square], [ICON: black curved ammunition magazine in a red upright triangle]: Place a [malfunction] on this Weapon\nand then lose 2 [characterHealth] for each [malfunction].",
         "confidentlyVisible": [
           "The raster is 863 x 591 pixels. A large white, flat-bottomed polygon with inward-sloping sides enters from the top center; dark imagery surrounds it.",
           "A pale blue-gray metallic-looking frame runs across the upper dark field and descends diagonally near both upper corners. Short diagonal stripe clusters occur within the frame at left and right.",
@@ -143076,7 +143111,8 @@
         "proposedSlug": "",
         "confidence": "source-bound-reviewed-deferred",
         "uncertainties": [
-          "The tiny punctuation immediately after M4 cannot be distinguished reliably from the presented pixels.",
+          "The purple square visibly contains a white exclamation mark and may represent a die result, but its exact semantic identifier remains unresolved.",
+          "The red upright triangle visibly contains a black curved ammunition magazine, but this artwork does not exactly match an established canonical Shoot-die glossary crop, so no semantic token is assigned.",
           "M6 is visibly a coherent white line morphology, but its exact fine stroke structure and semantic identity are not established.",
           "Some fine edges of M1, M2, M5, and M7 touch dark artwork or nearby lettering, making exact protrusion counts uncertain while leaving the occurrence count clear.",
           "The physical role of the top-center white polygon and the exact component family or side are not established by the visible face.",
@@ -143084,14 +143120,22 @@
           "Current exact-title BGA secondary text potentially conflicts and is preserved without substitution.",
           "2 material functional occurrence(s) remain explicit all-49 no-matches; no semantic token was invented.",
           "1 publisher/BGA/TTS-variant conflict row(s) are preserved verbatim.",
-          "At least one materially recorded text span remains [illegible] or [clipped].",
           "No unattended W33 canonical destination/schema is approved for this mixed-family source; no existing approved file may be overwritten or reclassified.",
           "2 discrepancy row(s) with the prior corpus snapshot are preserved."
         ],
         "orientation": "upright"
       },
       "reviewQueuePath": "assets/tts-mod/extract/low-confidence-review.json",
-      "deferReason": "2 material functional occurrence(s) remain explicit all-49 no-matches; no semantic token was invented.; Current rendered publisher evidence provides locator/prose/family context but not a complete exact component face.; Current exact-title BGA secondary text potentially conflicts and is preserved without substitution.; 1 publisher/BGA/TTS-variant conflict row(s) are preserved verbatim.; At least one materially recorded text span remains [illegible] or [clipped].; No unattended W33 canonical destination/schema is approved for this mixed-family source; no existing approved file may be overwritten or reclassified.; 2 discrepancy row(s) with the prior corpus snapshot are preserved."
+      "deferReason": "2 material functional occurrence(s) remain explicit all-49 no-matches; no semantic token was invented.; Current rendered publisher evidence provides locator/prose/family context but not a complete exact component face.; Current exact-title BGA secondary text potentially conflicts and is preserved without substitution.; 1 publisher/BGA/TTS-variant conflict row(s) are preserved verbatim.; At least one materially recorded text span remains [illegible] or [clipped].; No unattended W33 canonical destination/schema is approved for this mixed-family source; no existing approved file may be overwritten or reclassified.; 2 discrepancy row(s) with the prior corpus snapshot are preserved.",
+      "manualReview": {
+        "sampleId": "card-rules-sample-bc635f5",
+        "sampleItemId": "S06",
+        "verdict": "C",
+        "reviewedAt": "2026-08-22T05:59:25Z",
+        "reviewedBy": "project-owner",
+        "evidencePath": "docs/qa/card-rules-manual-review-2026-08-22.json",
+        "finding": "The purple square contains the same white exclamation mark and may represent a die result, but no canonical identifier is established. The red triangle contains a black curved ammunition magazine. The following punctuation is a colon."
+      }
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-144_cards/card-12.png",

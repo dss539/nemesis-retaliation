@@ -103,6 +103,7 @@ def build_payload(*, registry: dict[str, Any] | None = None, registry_path: Path
         if hashlib.sha256(source.read_bytes()).hexdigest() != source_sha:
             raise ValueError(f"source hash mismatch: {source_path}")
         queue_entry = deferred.get(source_path)
+        manual_review = ledger.get("manualReview")
         identity = {}
         if ledger["status"] == "complete":
             text_data, identity = canonical_payload(ledger)
@@ -124,6 +125,7 @@ def build_payload(*, registry: dict[str, Any] | None = None, registry_path: Path
         else:
             if queue_entry is None:
                 raise ValueError(f"deferred card missing queue entry: {source_path}")
+            manual_review = queue_entry.get("manualReview") or manual_review
             text_data = queue_entry.get("visibleText")
             if text_data is None:
                 text_data = queue_entry.get("semanticRead") or {}
@@ -187,6 +189,7 @@ def build_payload(*, registry: dict[str, Any] | None = None, registry_path: Path
                 "rawResultPath": vision.get("rawResultPath"),
                 "ledgerPath": "assets/tts-mod/extract/vision-progress.json",
                 "queuePath": "assets/tts-mod/extract/low-confidence-review.json" if ledger["status"] == "deferred" else None,
+                **({"manualReview": manual_review} if manual_review else {}),
             },
         })
     records.sort(key=lambda row: row["sourcePath"])

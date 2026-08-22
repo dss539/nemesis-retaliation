@@ -1858,6 +1858,24 @@ and all 78 canonical pair hashes remain unchanged. Sealed data/QA/shared/code co
 Nothing was pushed, no PR/deploy/profile/config/service/production action occurred, the worktree was
 clean at checkpoint, no worker remained live, and there is no next tuple or W34.
 
+
+**Manual card-rules sample adjudication (2026-08-22T05:59:25Z):** The project owner reviewed five
+stratified sample items. S01 (DAMAGING FIRE) and S08 (STARTING ITEM back) passed. S02 (REST) exposed
+a review-package defect, not a corpus defect: its canonical sidecar and corpus already stored the
+upper-right `notInCombat` icon, and the package's false text-only label was corrected. S05 (GATLING
+GUN) now maps the red Ammo occurrence to `[ammoToken]` and retains the purple exclamation mark as
+semantically unresolved. S06 (PLASMA GUN) now records the purple exclamation mark, the black curved
+ammunition magazine inside the red triangle, and the following colon; its false illegible span was
+removed and its evidence state advanced from `draft-partial` to `draft-full`. S03, S04, and S07 were
+not reviewed. Durable evidence: `docs/qa/card-rules-manual-review-2026-08-22.json`.
+
+The lifecycle partition remains 532 = 148 complete + 384 deferred + 0 unaccounted; canonical pairs
+remain 78. The rebuilt 390-record corpus has 350 rules-bearing records, 249 full drafts, 11 partial
+drafts, 3 no-transcription records, and 49 non-rules/reference records. All six documented global
+corpus/vision commands pass, including 532/532 source decodes, 390/390 corpus hashes, and two
+byte-identical builds. Nothing was pushed, deployed, promoted to production, or changed outside the
+task workspace.
+
 ## LATER — Expansions (re-add when user wants them)
 - [ ] Re-extract expansion content from save (see `assets/tts-mod/notes/extraction.md` §15 for all deck GUIDs, intruder bags,
       shared action-154 cells, and classification pitfalls)

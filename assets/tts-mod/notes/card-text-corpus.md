@@ -11,14 +11,25 @@ The current corpus is generated from `vision-progress.json`, `low-confidence-rev
 
 - 390 card/reference image records.
 - 168 individual generated card-face crops derived from 13 excluded source sheets; no parent sheet is double-counted.
-- 352 records contain nonempty rules/effect text.
-- 64 records are canonical image/JSON pairs.
-- 276 records are full draft card transcriptions: 142 with only recognized canonical inline tokens and 134 with one or more unresolved/local tokens.
-- 48 records are card backs, help/reference material, or other non-rules/non-canonical records.
-- 2 records have no transcription and remain explicit rather than guessed.
-- 0 partial rules-text records after structured effect/COMMAND/REACTION panels are counted correctly.
+- 350 records contain nonempty rules/effect text.
+- 78 records are canonical image/JSON pairs.
+- 249 records are full draft card transcriptions: 113 with only recognized canonical inline tokens and 136 with one or more unresolved/local tokens.
+- 49 records are card backs, help/reference material, or other non-rules/non-canonical records.
+- 3 records have no transcription and remain explicit rather than guessed.
+- 11 records remain partial because at least one material span is explicitly illegible or clipped.
 
-`docs/qa/card-symbol-resolution-backlog.json` inventories 227 unresolved/local token occurrences across 136 rules-bearing image assets. Its cluster names describe visible morphology only; they are not semantic icon assignments.
+`docs/qa/card-symbol-resolution-backlog.json` inventories 523 unresolved/local token occurrences across 207 corpus or selected-evidence assets. Its cluster names describe visible morphology only; they are not semantic icon assignments.
+
+## Manual sample adjudication
+
+The five-item owner review completed on 2026-08-22 is recorded in
+`docs/qa/card-rules-manual-review-2026-08-22.json` and projected into each reviewed corpus
+record as `evidence.manualReview`. S01 and S08 passed. S02 exposed a review-package omission only:
+the canonical sidecar and corpus already stored the upper-right `notInCombat` icon. S05 now records
+the human-confirmed `[ammoToken]` while retaining the purple exclamation mark as semantically
+unresolved. S06 now records the purple exclamation morphology, the black curved ammunition magazine
+inside the red triangle, and the following colon; removing the false illegible span upgrades it from
+`draft-partial` to `draft-full` without inventing either unresolved die-result identifier.
 
 ## Rebuild and verify
 

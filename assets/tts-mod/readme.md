@@ -8,8 +8,8 @@ This directory contains the Tabletop Simulator source save, parsed metadata, dow
 - Do not re-download the asset set unless the existing files are lost or a newer source is deliberately selected.
 - Expansion content is intentionally excluded for now.
 - Vision-based transcription uses native Sol Max in one persistent verified session, normally with 2–4 explicitly labeled images per turn and separate persisted results per asset. One-image turns are reserved for dense/large assets, strict gates, focused checks, or confusion retries.
-- The canonical `cards/` catalog contains 64 validated image/JSON pairs. Automatic Shotgun has a documented official-versus-TTS conflict; its canonical representation remains a human decision.
-- The separate extracted evidence corpus contains 390 card/reference image records and 352 records with nonempty rules/effect text. It intentionally distinguishes 64 canonical records, 276 full draft card transcriptions, unresolved local symbols, and non-rules/reference assets. See `notes/card-text-corpus.md`.
+- The canonical `cards/` catalog contains 78 validated image/JSON pairs. Automatic Shotgun has a documented official-versus-TTS conflict; its canonical representation remains a human decision.
+- The separate extracted evidence corpus contains 390 card/reference image records and 350 records with nonempty rules/effect text. It distinguishes 78 canonical records, 249 full draft transcriptions, 11 partial drafts, 3 explicit no-transcription records, and 49 non-rules/reference records. See `notes/card-text-corpus.md`.
 
 Project-level progress and open work are tracked in [`../../todo.md`](../../todo.md).
 

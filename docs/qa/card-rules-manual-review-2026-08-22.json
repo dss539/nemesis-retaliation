@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "status": "completed-manual-review",
+  "sampleId": "card-rules-sample-bc635f5",
+  "reviewedAt": "2026-08-22T05:59:25Z",
+  "reviewedBy": "project-owner",
+  "sourceCheckpointCommit": "bc635f571fb40805d3e6fe9c9b1a40f6f771568f",
+  "sourceDataCommit": "585740242f1a6bbdb6780dea3b5a38ee8eb8a7cb",
+  "reviewedCount": 5,
+  "unreviewedSampleItems": [
+    "S03",
+    "S04",
+    "S07"
+  ],
+  "results": [
+    {
+      "id": "S01",
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/event-167.png",
+      "sourceSha256": "37bbf022f99ef62a18a5225aaf31347f6299f72672603547f51918502241f27b",
+      "verdict": "P",
+      "finding": "Manual review passed the title, rules text, seven canonical icon tokens, and canonical status without correction.",
+      "corpusEffect": "No data change."
+    },
+    {
+      "id": "S02",
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/action/rest.png",
+      "sourceSha256": "69eee8ba31616f20ac8859c7cd8dc908445ed85808004cfdedeeeb9968b473e3",
+      "verdict": "C",
+      "finding": "The manual-review presentation omitted the upper-right crossed-out-gun icon. The canonical sidecar, ledger semantic read, and generated corpus already stored upperRight as notInCombat.",
+      "corpusEffect": "No canonical data change; corrected the review package and its false text-only label."
+    },
+    {
+      "id": "S05",
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-144_cards/card-06.png",
+      "sourceSha256": "4ceab051ce520564a2a1dd312b65f665f76bf29b4a0a6eb94c2a7fbf37943478",
+      "verdict": "C",
+      "finding": "The red inline icon after “1” is Ammo and maps to canonical ammoToken. The purple square contains a white exclamation mark; its die-result semantics remain unresolved.",
+      "corpusEffect": "Replaced the red morphology placeholder with [ammoToken]; narrowed the purple placeholder to an exact exclamation-mark morphology; reduced unresolved functional occurrences from two to one."
+    },
+    {
+      "id": "S06",
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-144_cards/card-11.png",
+      "sourceSha256": "10b491b739caab061332b6ec8ff4b8261f9519dfa5f3784fb1cfb5696f27eccc",
+      "verdict": "C",
+      "finding": "The purple square contains the same white exclamation mark and may represent a die result, but no canonical identifier is established. The red triangle contains a black curved ammunition magazine. The following punctuation is a colon.",
+      "corpusEffect": "Corrected both literal morphologies and the colon; removed the false illegible span; upgraded the evidence state from draft-partial to draft-full while retaining two semantically unresolved symbols."
+    },
+    {
+      "id": "S08",
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-141.jpg",
+      "sourceSha256": "725e788f3970d9699dd40fe12a86841748807e69d75007e98394bce41f60f7e6",
+      "verdict": "P",
+      "finding": "Manual review passed the non-rules/card-back classification and confirmed that no rules text was manufactured.",
+      "corpusEffect": "No data change."
+    }
+  ]
+}
