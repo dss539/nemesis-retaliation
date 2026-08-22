@@ -14,7 +14,10 @@ second glossary.
 
 - Card art may use a visual variant of a canonical semantic icon. An exact crop match confirms an
   identifier, but a mismatch alone does not disprove it; compare official definitions, card
-  anatomy, and applicable component references.
+  anatomy, applicable component references, same-title later artwork, and source edition/prototype
+  provenance. Approved source-specific aliases live in
+  `docs/qa/card-symbol-semantic-resolutions.json`; normalize rules text to the semantic token while
+  retaining literal art descriptions in evidence. Never generalize an alias by color/shape alone.
 - Separate the narrow fact established by a correction from adjacent assumptions. For example,
   confirming that a crossed-out-gun card glyph means `notInCombat` did not establish that the
   rulebook glossary used the same artwork.

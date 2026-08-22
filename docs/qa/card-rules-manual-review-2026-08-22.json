@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "status": "completed-manual-review",
   "sampleId": "card-rules-sample-bc635f5",
   "reviewedAt": "2026-08-22T05:59:25Z",
@@ -34,16 +34,16 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-144_cards/card-06.png",
       "sourceSha256": "4ceab051ce520564a2a1dd312b65f665f76bf29b4a0a6eb94c2a7fbf37943478",
       "verdict": "C",
-      "finding": "The red inline icon after “1” is Ammo and maps to canonical ammoToken. The purple square contains a white exclamation mark; its die-result semantics remain unresolved.",
-      "corpusEffect": "Replaced the red morphology placeholder with [ammoToken]; narrowed the purple placeholder to an exact exclamation-mark morphology; reduced unresolved functional occurrences from two to one."
+      "finding": "The red inline icon after “1” is Ammo and maps to canonical ammoToken. The purple exclamation square is pre-release artwork for burstDieAdditionalEffects.",
+      "corpusEffect": "Normalized the red icon to [ammoToken] and the legacy purple exclamation result to [burstDieAdditionalEffects]; preserved both literal morphologies in source-bound evidence."
     },
     {
       "id": "S06",
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-144_cards/card-11.png",
       "sourceSha256": "10b491b739caab061332b6ec8ff4b8261f9519dfa5f3784fb1cfb5696f27eccc",
       "verdict": "C",
-      "finding": "The purple square contains the same white exclamation mark and may represent a die result, but no canonical identifier is established. The red triangle contains a black curved ammunition magazine. The following punctuation is a colon.",
-      "corpusEffect": "Corrected both literal morphologies and the colon; removed the false illegible span; upgraded the evidence state from draft-partial to draft-full while retaining two semantically unresolved symbols."
+      "finding": "The purple exclamation square is pre-release artwork for burstDieAdditionalEffects. The red triangle contains an older ammunition-magazine motif and maps to shootDieAmmoLoss. The following punctuation is a colon.",
+      "corpusEffect": "Normalized both legacy result glyphs to [burstDieAdditionalEffects] and [shootDieAmmoLoss], retained the colon, and preserved literal art descriptions in provenance."
     },
     {
       "id": "S08",
@@ -53,5 +53,7 @@
       "finding": "Manual review passed the non-rules/card-back classification and confirmed that no rules text was manufactured.",
       "corpusEffect": "No data change."
     }
-  ]
+  ],
+  "amendedAt": "2026-08-22T06:16:18Z",
+  "semanticNormalizationPolicy": "Canonical placeholders encode game meaning. Approved pre-release artwork aliases are source-scoped in docs/qa/card-symbol-semantic-resolutions.json; literal appearance remains provenance."
 }

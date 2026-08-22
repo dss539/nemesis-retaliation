@@ -20,7 +20,7 @@ PROGRESS = REPO / "assets/tts-mod/extract/vision-progress.json"
 RESULT_DIR = REPO / "assets/tts-mod/extract/vision-results"
 PROVIDER = "openai-codex"
 MODEL = "gpt-5.6-sol"
-PROMPT_VERSION = 1
+PROMPT_VERSION = 2
 
 ICON_GLOSSARY = """Canonical icon identifiers (choose one only on a confident morphology match; this list may not include card-local action glyphs):
 Shoot die: shootDie2 red triangle 2; shootDie3 red triangle 3; shootDie4 red triangle 4; shootDie5 red triangle 5; shootDieAmmoLoss red triangle with three cartridges; shootDieCritical red triangle with skull.
@@ -33,7 +33,7 @@ Tactical Gear slots: ammoSlot red; grenadeSlot purple; oxygenSlot yellow; medpac
 General: character astronaut; oxygen supply; characterHealth cross with EKG; actionCard; robot; notInCombat prohibition (card art may show crossed-out gun or crossed-out Intruder); intruder curled white exoskeleton.
 """
 
-BASE_PROMPT = """Inspect this ONE image's actual pixels from scratch. Ignore its filename and directory as semantic evidence. Do not infer identity from neighboring files, sheet position, or expected game inventory. First determine how the FILE would need to rotate to make all meaningful typography upright. Transcribe only visible pixels; never reconstruct clipped, hidden, or illegible content. Preserve capitalization, punctuation, headings, line/panel breaks, and misspellings. Embed confidently matched canonical icons inline as [camelCase]. For a bare corner icon, use a position field. If a glyph is not confidently in the glossary, write a literal [ICON: color shape glyph] in visibleText/body and record the uncertainty; do not guess its meaning.
+BASE_PROMPT = """Inspect this ONE image's actual pixels from scratch. Ignore its filename and directory as semantic evidence. Do not infer identity from neighboring files, sheet position, or expected game inventory. First determine how the FILE would need to rotate to make all meaningful typography upright. Transcribe only visible pixels; never reconstruct clipped, hidden, or illegible content. Preserve capitalization, punctuation, headings, line/panel breaks, and misspellings. Embed confidently matched canonical icons inline as [camelCase]. For a bare corner icon, use a position field. If a glyph is not confidently in the glossary, write a literal [ICON: color shape glyph] in visibleText/body and record the uncertainty; do not guess its meaning. Some TTS sources use pre-release artwork for a later canonical semantic icon. Do not reject or normalize solely from pixel mismatch or color/shape similarity: preserve the literal blind observation, and let downstream adjudication apply only source-specific mappings approved in docs/qa/card-symbol-semantic-resolutions.json.
 
 {glossary}
 

@@ -72,6 +72,14 @@ def unresolved_occurrences(row: dict[str, Any]) -> list[dict[str, Any]]:
     A selected review overlay supersedes legacy token extraction for that record. This prevents
     stale body tokens from double-counting or replacing explicit authoritative no-match rows.
     """
+    resolved_indexes = set()
+    evidence = row.get("evidence")
+    if isinstance(evidence, dict):
+        for resolution in evidence.get("semanticIconResolutions") or []:
+            indexes = resolution.get("selectedOccurrenceIndexes") or []
+            if not all(isinstance(index, int) and index >= 0 for index in indexes):
+                raise ValueError(f"invalid resolved occurrence indexes for {row.get('sourcePath')}")
+            resolved_indexes.update(indexes)
     selected = row.get("selectedExtraction")
     if isinstance(selected, dict):
         occurrences = selected.get("unresolvedIconOccurrences")
@@ -79,6 +87,8 @@ def unresolved_occurrences(row: dict[str, Any]) -> list[dict[str, Any]]:
             raise ValueError(f"selectedExtraction.unresolvedIconOccurrences must be a list for {row.get('sourcePath')}")
         output = []
         for index, occurrence in enumerate(occurrences):
+            if index in resolved_indexes:
+                continue
             if not isinstance(occurrence, dict) or occurrence.get("matchDecision") not in {"match", "no-match", "uncertain"}:
                 raise ValueError(f"invalid selected unresolved occurrence {index} for {row.get('sourcePath')}")
             reference = occurrence.get("referenceLabel")
@@ -211,7 +221,7 @@ def main() -> int:
         "sourceCorpus": "assets/tts-mod/extract/card-text-corpus.json",
         "sourceRegistry": "assets/tts-mod/extract/selected-card-text-evidence.json",
         "sourceProgressUpdatedAt": corpus["generatedFrom"]["visionProgressUpdatedAt"],
-        "warning": "Cluster labels describe visible morphology only. They are not canonical icon names or semantic claims.",
+        "warning": "Cluster labels describe visible morphology only. They exclude source-scoped semantic resolutions approved in docs/qa/card-symbol-semantic-resolutions.json and are not canonical icon names or semantic claims.",
         "summary": {
             "unresolvedTokenOccurrences": sum(len(v) for v in grouped.values()),
             "distinctLiteralDescriptions": len(token_counts),

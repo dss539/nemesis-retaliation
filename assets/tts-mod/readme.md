@@ -20,7 +20,9 @@ validate directly against the card image and established icon glossary. Do not p
 source cross-check or request an extra consultation unless confidence is low, something is unknown,
 or the available evidence conflicts. When one of those triggers applies:
 
-1. Transcribe the asset exactly.
+1. Transcribe visible text and literal artwork exactly into source-bound evidence. In normalized rules
+   text, use an approved source-specific semantic alias from
+   `docs/qa/card-symbol-semantic-resolutions.json` when pre-release artwork differs from the final icon.
 2. Cross-reference the current applicable official FAQ/errata, rulebook, and official component references.
 3. Use the most authoritative and up-to-date applicable official source for canonical data.
 4. Preserve conflicting source text as provenance.

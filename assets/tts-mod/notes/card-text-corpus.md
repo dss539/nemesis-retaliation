@@ -7,29 +7,30 @@ This project keeps two separate data layers:
 
 ## Verified baseline
 
-The current corpus is generated from `vision-progress.json`, `low-confidence-review.json`, the canonical `cards/` sidecars, the 49-identifier official icon glossary, and `extract/selected-card-text-evidence.json`. The last file is the tracked source of truth for selected reviewed overlays; ignored worker roots are optional provenance and are not needed to rebuild or validate the corpus.
+The current corpus is generated from `vision-progress.json`, `low-confidence-review.json`, the canonical `cards/` sidecars, the 49-identifier official icon glossary, `extract/selected-card-text-evidence.json`, and `docs/qa/card-symbol-semantic-resolutions.json`. The last two files are tracked sources of truth for selected reviewed overlays and source-scoped semantic icon aliases; ignored worker roots are optional provenance and are not needed to rebuild or validate the corpus.
 
 - 390 card/reference image records.
 - 168 individual generated card-face crops derived from 13 excluded source sheets; no parent sheet is double-counted.
 - 350 records contain nonempty rules/effect text.
 - 78 records are canonical image/JSON pairs.
-- 249 records are full draft card transcriptions: 113 with only recognized canonical inline tokens and 136 with one or more unresolved/local tokens.
+- 249 records are full draft card transcriptions: 118 with only recognized canonical inline tokens and 131 with one or more unresolved/local tokens.
 - 49 records are card backs, help/reference material, or other non-rules/non-canonical records.
 - 3 records have no transcription and remain explicit rather than guessed.
 - 11 records remain partial because at least one material span is explicitly illegible or clipped.
 
-`docs/qa/card-symbol-resolution-backlog.json` inventories 523 unresolved/local token occurrences across 207 corpus or selected-evidence assets. Its cluster names describe visible morphology only; they are not semantic icon assignments.
+`docs/qa/card-symbol-resolution-backlog.json` inventories 513 unresolved/local token occurrences across 202 corpus or selected-evidence assets after excluding approved source-scoped semantic resolutions. Its cluster names describe visible morphology only; they are not semantic icon assignments.
 
 ## Manual sample adjudication
 
-The five-item owner review completed on 2026-08-22 is recorded in
+The five-item owner review completed and amended on 2026-08-22 is recorded in
 `docs/qa/card-rules-manual-review-2026-08-22.json` and projected into each reviewed corpus
 record as `evidence.manualReview`. S01 and S08 passed. S02 exposed a review-package omission only:
-the canonical sidecar and corpus already stored the upper-right `notInCombat` icon. S05 now records
-the human-confirmed `[ammoToken]` while retaining the purple exclamation mark as semantically
-unresolved. S06 now records the purple exclamation morphology, the black curved ammunition magazine
-inside the red triangle, and the following colon; removing the false illegible span upgrades it from
-`draft-partial` to `draft-full` without inventing either unresolved die-result identifier.
+the canonical sidecar and corpus already stored the upper-right `notInCombat` icon. S05 records
+`[ammoToken]` and normalizes its pre-release purple exclamation result to
+`[burstDieAdditionalEffects]`. S06 normalizes the same purple legacy result plus its older red
+ammunition-magazine result to `[burstDieAdditionalEffects]` and `[shootDieAmmoLoss]`, while
+preserving literal art descriptions and the reviewed colon in provenance. The source-scoped policy
+and all affected legacy weapon tuples are in `docs/qa/card-symbol-semantic-resolutions.json`.
 
 ## Rebuild and verify
 
@@ -51,7 +52,7 @@ All production workspace invocations must be launched through `workspace run nem
 - `verified-canonical` means the record is backed by an existing canonical sidecar.
 - `draft-full` means all currently visible material rules text was transcribed without an illegible/clipped marker; it is not a promotion decision.
 - `draft-text-complete-symbols-unresolved` preserves exact morphology descriptions for symbols that have not passed authoritative crop/source comparison.
-- Raw `printedData` is retained without silent normalization so structured panels and unusual layouts are not flattened away.
+- `printedData` preserves text, structure, and punctuation while using canonical semantic icon tokens for source tuples approved in `docs/qa/card-symbol-semantic-resolutions.json`. Literal pre-release artwork remains in the source image, raw/selected vision evidence, and projected resolution provenance; unregistered lookalikes remain unresolved.
 - Every record links to the source path and source SHA-256. The validator rehashes and decodes all 390 source images and reconciles every complete/deferred ledger record.
 - Canonical promotion still requires exact text, authoritative icon identity, component/side provenance, schema validity, and no unresolved source conflict.
 

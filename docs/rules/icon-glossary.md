@@ -31,6 +31,10 @@ Page 40 groups these as **“Burst die icons — Specific results on a Burst die
 - **burstDie4** — Purple square with white “4” (`assets/icons/dice/burst-die-4.png`)
 - **burstDieAdditionalEffects** — Purple square with four white corner marks; check the used Weapon or Action for additional effects (`assets/icons/dice/burst-die-additional-effects.png`)
 
+#### Pre-release die-result artwork
+
+Canonical identifiers encode the game result, not a promise that every source uses identical final artwork. Source-scoped reviewed aliases are recorded in `docs/qa/card-symbol-semantic-resolutions.json`. In the audited pre-release/prototype weapon faces, a purple square with a white exclamation mark is `burstDieAdditionalEffects`, and a red triangle with an older curved ammunition-magazine motif is `shootDieAmmoLoss`. Preserve the literal artwork in provenance while using the canonical semantic token in rules text. Do not apply either mapping to every purple exclamation or red triangle by appearance alone; the source tuple must be approved in the resolution registry.
+
 ### Noise Die Results
 
 Page 40 groups these as **“Noise die icons — Specific results on a Noise die.”**

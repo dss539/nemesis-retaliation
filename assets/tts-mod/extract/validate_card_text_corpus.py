@@ -9,6 +9,7 @@ import re
 from pathlib import Path
 
 import card_text_evidence_registry as selected_evidence
+import build_card_text_corpus as corpus_builder
 
 REPO = Path(__file__).resolve().parents[3]
 EXTRACT = REPO / "assets/tts-mod/extract"
@@ -43,6 +44,12 @@ def main() -> None:
     queue = load(QUEUE)
     known = {m.group(1) for line in GLOSSARY.read_text().splitlines() if (m := ICON_ID_RE.match(line))}
     failures = []
+    try:
+        resolution_payload, resolution_index = corpus_builder.semantic_icon_resolution_index(known)
+    except (OSError, ValueError, TypeError) as exc:
+        resolution_payload = None
+        resolution_index = {}
+        failures.append({"check": "semantic icon resolution registry schema", "error": str(exc)})
     try:
         registry = selected_evidence.load_registry(REGISTRY)
     except selected_evidence.RegistryError as exc:
@@ -116,12 +123,30 @@ def main() -> None:
         failures.append({"check": "canonical sidecar coverage", "missing": sorted(expected_sidecars-canonical_sidecars), "extra": sorted(canonical_sidecars-expected_sidecars)})
     if deferred_corpus_paths != queue_card_paths:
         failures.append({"check": "deferred card queue equality", "corpusOnly": sorted(deferred_corpus_paths-queue_card_paths), "queueOnly": sorted(queue_card_paths-deferred_corpus_paths)})
+    corpus_by_tuple = {(row.get("sourcePath"), row.get("sourceSha256")): row for row in rows}
+    for key, resolutions in resolution_index.items():
+        source = REPO / key[0]
+        if not source.is_file() or hashlib.sha256(source.read_bytes()).hexdigest() != key[1]:
+            failures.append({"check": "semantic icon resolution source tuple", "sourceTuple": key})
+            continue
+        row = corpus_by_tuple.get(key)
+        if row is None:
+            failures.append({"check": "semantic icon resolution corpus tuple", "sourceTuple": key})
+            continue
+        actual = (row.get("evidence") or {}).get("semanticIconResolutions")
+        if actual != resolutions:
+            failures.append({"check": "semantic icon resolution corpus projection", "sourceTuple": key, "expected": resolutions, "actual": actual})
+    unexpected_resolution_rows = sorted(
+        key for key, row in corpus_by_tuple.items()
+        if (row.get("evidence") or {}).get("semanticIconResolutions") is not None and key not in resolution_index
+    )
+    if unexpected_resolution_rows:
+        failures.append({"check": "unregistered semantic icon resolutions", "sourceTuples": unexpected_resolution_rows})
     registry_entry_count = 0
     registry_run_count = 0
     if registry is not None:
         registry_entry_count = len(registry["entries"])
         registry_run_count = sum(len(entry["runs"]) for entry in registry["entries"])
-        corpus_by_tuple = {(row.get("sourcePath"), row.get("sourceSha256")): row for row in rows}
         registry_by_tuple = {(entry["sourcePath"], entry["sourceSha256"]): entry for entry in registry["entries"]}
         selected_rows = {
             (row.get("sourcePath"), row.get("sourceSha256")): row
@@ -170,6 +195,7 @@ def main() -> None:
             "selectedEvidenceTupleDigest": selected_evidence.registry_tuple_digest(registry),
             "selectedEvidenceEntryCount": registry_entry_count,
             "selectedEvidenceRunCount": registry_run_count,
+            "semanticIconResolutionRegistrySha256": selected_evidence.sha256_bytes(selected_evidence.canonical_json_bytes(resolution_payload)),
         }
         if corpus.get("metadata") != expected_metadata:
             failures.append({"check": "deterministic selected evidence metadata", "expected": expected_metadata, "actual": corpus.get("metadata")})
@@ -194,6 +220,8 @@ def main() -> None:
             "deferredCardQueueEntries": len(queue_card_paths),
             "selectedEvidenceRegistryEntries": registry_entry_count,
             "selectedEvidenceRegistryRuns": registry_run_count,
+            "semanticIconResolutionSources": len(resolution_index),
+            "semanticIconResolutions": sum(len(items) for items in resolution_index.values()),
         },
         "failureCount": len(failures),
         "failures": failures,

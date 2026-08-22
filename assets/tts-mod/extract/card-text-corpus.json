@@ -2,10 +2,13 @@
   "schemaVersion": 1,
   "status": "extracted evidence corpus; canonical and draft states are explicitly separated",
   "generatedFrom": {
-    "visionProgressUpdatedAt": "2026-08-22T05:59:25Z",
-    "reviewQueueUpdatedAt": "2026-08-22T05:59:25Z",
+    "visionProgressUpdatedAt": "2026-08-22T06:16:18Z",
+    "reviewQueueUpdatedAt": "2026-08-22T06:16:18Z",
     "iconGlossary": "docs/rules/icon-glossary.md",
-    "iconGlossaryIdentifierCount": 49
+    "iconGlossaryIdentifierCount": 49,
+    "semanticIconResolutions": "docs/qa/card-symbol-semantic-resolutions.json",
+    "semanticIconResolutionSourceCount": 7,
+    "semanticIconResolutionCount": 11
   },
   "metadata": {
     "selectedEvidenceRegistry": "assets/tts-mod/extract/selected-card-text-evidence.json",
@@ -13,7 +16,8 @@
     "selectedEvidenceRegistrySha256": "b696b6c15b547c50f32554c6e93d4d6a1ad13e41cc1f748472870a436e0e93ef",
     "selectedEvidenceTupleDigest": "e1167de772daf14fbb374b3507fc774546a6a1dc896da182dc6a70ebe77a89cc",
     "selectedEvidenceEntryCount": 384,
-    "selectedEvidenceRunCount": 384
+    "selectedEvidenceRunCount": 384,
+    "semanticIconResolutionRegistrySha256": "dc40dcbf1fac592056725a0b5a46e7b6ca9601ab5d6d3160c564353c20d8f106"
   },
   "counts": {
     "records": 390,
@@ -29,8 +33,8 @@
     "rulesInformationReadiness": {
       "canonical": 78,
       "draft-partial": 11,
-      "draft-text-complete": 113,
-      "draft-text-complete-symbols-unresolved": 136,
+      "draft-text-complete": 118,
+      "draft-text-complete-symbols-unresolved": 131,
       "missing-transcription": 3,
       "not-rules-bearing-or-reference": 49
     }
@@ -847,7 +851,7 @@
         "cardSide": "face",
         "title": "BE GUN",
         "typeLine": "RANGED WEAPON, RIFLE",
-        "body": "Burst: Treat [burstDie1] as [burstDie2].\n[ICON: purple square with white exclamation mark]: Place a [ICON: light-grey cog with dark circular center] on this Weapon.",
+        "body": "Burst: Treat [burstDie1] as [burstDie2].\n[burstDieAdditionalEffects]: Place a [ICON: light-grey cog with dark circular center] on this Weapon.",
         "footer": "",
         "upperRight": "",
         "lowerCenter": "",
@@ -874,11 +878,11 @@
       "symbols": {
         "canonicalGlossaryTokens": [
           "burstDie1",
-          "burstDie2"
+          "burstDie2",
+          "burstDieAdditionalEffects"
         ],
         "unresolvedOrLocalTokens": [
-          "ICON: light-grey cog with dark circular center",
-          "ICON: purple square with white exclamation mark"
+          "ICON: light-grey cog with dark circular center"
         ]
       },
       "uncertainties": [],
@@ -893,7 +897,20 @@
         "resultPath": "assets/tts-mod/extract/vision-results/2d41625662d5e0727d89354e160e48ac76bd4051305cec7f61746f2ab94d81e5.json",
         "rawResultPath": null,
         "ledgerPath": "assets/tts-mod/extract/vision-progress.json",
-        "queuePath": null
+        "queuePath": null,
+        "semanticIconResolutions": [
+          {
+            "resolutionId": "legacy-purple-exclamation-is-burst-additional-effects",
+            "canonicalToken": "burstDieAdditionalEffects",
+            "resolutionType": "pre-release-artwork-semantic-alias",
+            "literalArt": "purple square containing a white exclamation mark (vertical bar and detached dot)",
+            "literalTokens": [
+              "ICON: purple square with white exclamation mark"
+            ],
+            "selectedOccurrenceIndexes": [],
+            "evidencePath": "docs/qa/card-symbol-semantic-resolutions.json"
+          }
+        ]
       }
     },
     {
@@ -46907,18 +46924,18 @@
       "componentFamily": "game/startItemDeck",
       "ledgerStatus": "deferred",
       "extractionState": "draft-full",
-      "rulesInformationReadiness": "draft-text-complete-symbols-unresolved",
+      "rulesInformationReadiness": "draft-text-complete",
       "rulesTextPresent": true,
       "identity": {},
       "printedData": {
         "title": "GATLING GUN",
         "typeLine": "RANGED WEAPON, RIFLE",
-        "body": "Burst: After Bursting, you may Burst a second time at the\nsame Corridor without spending [ammoToken].\n[ICON: purple square with a white vertical bar and detached square dot]: Place [malfunction] on this Weapon.",
+        "body": "Burst: After Bursting, you may Burst a second time at the\nsame Corridor without spending [ammoToken].\n[burstDieAdditionalEffects]: Place [malfunction] on this Weapon.",
         "sections": [
           {
             "panelId": "P1",
             "heading": "GATLING GUN",
-            "text": "RANGED WEAPON, RIFLE\n\nBurst: After Bursting, you may Burst a second time at the\nsame Corridor without spending [ammoToken].\n[ICON: purple square with a white vertical bar and detached square dot]: Place [malfunction] on this Weapon."
+            "text": "RANGED WEAPON, RIFLE\n\nBurst: After Bursting, you may Burst a second time at the\nsame Corridor without spending [ammoToken].\n[burstDieAdditionalEffects]: Place [malfunction] on this Weapon."
           }
         ],
         "footer": "",
@@ -46931,15 +46948,13 @@
       "symbols": {
         "canonicalGlossaryTokens": [
           "ammoToken",
+          "burstDieAdditionalEffects",
           "malfunction"
         ],
-        "unresolvedOrLocalTokens": [
-          "ICON: purple square with a white vertical bar and detached square dot"
-        ]
+        "unresolvedOrLocalTokens": []
       },
       "uncertainties": [
         "The exact number and contour of the short red upper notches inside M1 are not fully resolved.",
-        "M2's internal white bar-and-dot pair is visually punctuation-like, but its semantic function as a badge is not established.",
         "M3's exact number of radial projections is not confidently resolved, though the toothed-ring morphology is clear.",
         "The complete lower contours of M4 and M5 are not visible because both extend beyond the lower raster edge.",
         "The dark six-sided regions in M4 and M5 could be printed insets or openings exposing a dark field; no depth cue resolves this.",
@@ -46948,12 +46963,11 @@
         "No current publisher-primary rendered face visibly establishes the exact assigned title/content and family.",
         "The current exact-title BGA licensed-digital record conflicts materially and remains secondary evidence only.",
         "A same-title TTS variant has materially different printed type/effect text; the variant conflict is preserved without collapsing versions.",
-        "1 material functional occurrence(s) remain explicit all-49 authoritative no-matches; no semantic token was invented.",
         "2 publisher/BGA/TTS-variant source conflict row(s) are preserved verbatim.",
         "No approved canonical destination/schema maps this exact source-bound Starting Item, Equipment, Weapon, or Armor card face into the canonical catalog during unattended W32 processing.",
         "1 discrepancy row(s) with the prior unselected corpus snapshot are preserved."
       ],
-      "canonicalPromotionBlocker": "1 material functional occurrence(s) remain explicit all-49 authoritative no-matches; no semantic token was invented.; No current publisher-primary rendered face visibly establishes the exact assigned title/content and family.; The current exact-title BGA licensed-digital record conflicts materially and remains secondary evidence only.; A same-title TTS variant has materially different printed type/effect text; the variant conflict is preserved without collapsing versions.; 2 publisher/BGA/TTS-variant source conflict row(s) are preserved verbatim.; No approved canonical destination/schema maps this exact source-bound Starting Item, Equipment, Weapon, or Armor card face into the canonical catalog during unattended W32 processing.; 1 discrepancy row(s) with the prior unselected corpus snapshot are preserved.",
+      "canonicalPromotionBlocker": "no semantic token was invented.; No current publisher-primary rendered face visibly establishes the exact assigned title/content and family.; The current exact-title BGA licensed-digital record conflicts materially and remains secondary evidence only.; A same-title TTS variant has materially different printed type/effect text; the variant conflict is preserved without collapsing versions.; 2 publisher/BGA/TTS-variant source conflict row(s) are preserved verbatim.; No approved canonical destination/schema maps this exact source-bound Starting Item, Equipment, Weapon, or Armor card face into the canonical catalog during unattended W32 processing.; 1 discrepancy row(s) with the prior unselected corpus snapshot are preserved.",
       "evidence": {
         "textBasis": "native vision draft; not canonical promotion",
         "visionProvider": "openai-codex",
@@ -46965,6 +46979,21 @@
         "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-32-20260821T135953Z-p441103-69bcb8/raw/W32-023.json",
         "ledgerPath": "assets/tts-mod/extract/vision-progress.json",
         "queuePath": "assets/tts-mod/extract/low-confidence-review.json",
+        "semanticIconResolutions": [
+          {
+            "resolutionId": "legacy-purple-exclamation-is-burst-additional-effects",
+            "canonicalToken": "burstDieAdditionalEffects",
+            "resolutionType": "pre-release-artwork-semantic-alias",
+            "literalArt": "purple square containing a white exclamation mark (vertical bar and detached dot)",
+            "literalTokens": [
+              "ICON: purple square with a white vertical bar and detached square dot"
+            ],
+            "selectedOccurrenceIndexes": [
+              0
+            ],
+            "evidencePath": "docs/qa/card-symbol-semantic-resolutions.json"
+          }
+        ],
         "selectedExtraction": {
           "runIdentity": "w32-card-extraction-20260821T135953Z-p441103-69bcb8/sol-max-persistent-worker-32-20260821T135953Z-p441103-69bcb8/W32-023",
           "runId": "w32-card-extraction-20260821T135953Z-p441103-69bcb8",
@@ -48125,12 +48154,12 @@
       "printedData": {
         "title": "FLAMETHROWER",
         "typeLine": "RANGED WEAPON, REQUIRES NO AMMO",
-        "body": "Shoot and Burst:\nIf you are in a Section with an [ICON: white horizontal three-lobed capsule with a gray outlined central vertical block and short top stem] lose 1 [oxygen].\n[ICON: purple square with a white vertical bar and detached square dot], [shootDieAmmoLoss]: Place a [fire].",
+        "body": "Shoot and Burst:\nIf you are in a Section with an [ICON: white horizontal three-lobed capsule with a gray outlined central vertical block and short top stem] lose 1 [oxygen].\n[burstDieAdditionalEffects], [shootDieAmmoLoss]: Place a [fire].",
         "sections": [
           {
             "panelId": "P1",
             "heading": "FLAMETHROWER",
-            "text": "RANGED WEAPON, REQUIRES NO AMMO\n\nShoot and Burst:\nIf you are in a Section with an [ICON: white horizontal three-lobed capsule with a gray outlined central vertical block and short top stem] lose 1 [oxygen].\n[ICON: purple square with a white vertical bar and detached square dot], [shootDieAmmoLoss]: Place a [fire]."
+            "text": "RANGED WEAPON, REQUIRES NO AMMO\n\nShoot and Burst:\nIf you are in a Section with an [ICON: white horizontal three-lobed capsule with a gray outlined central vertical block and short top stem] lose 1 [oxygen].\n[burstDieAdditionalEffects], [shootDieAmmoLoss]: Place a [fire]."
           }
         ],
         "footer": "",
@@ -48142,12 +48171,12 @@
       },
       "symbols": {
         "canonicalGlossaryTokens": [
+          "burstDieAdditionalEffects",
           "fire",
           "oxygen",
           "shootDieAmmoLoss"
         ],
         "unresolvedOrLocalTokens": [
-          "ICON: purple square with a white vertical bar and detached square dot",
           "ICON: white horizontal three-lobed capsule with a gray outlined central vertical block and short top stem"
         ]
       },
@@ -48162,13 +48191,13 @@
         "No current publisher-primary rendered face visibly establishes the exact assigned title/content and family.",
         "The current exact-title BGA licensed-digital record conflicts materially and remains secondary evidence only.",
         "A same-title TTS variant has materially different printed type/effect text; the variant conflict is preserved without collapsing versions.",
-        "2 material functional occurrence(s) remain explicit all-49 authoritative no-matches; no semantic token was invented.",
         "No singular exact GUID/CardID source selector exists; preserve the complete exact reference set without unsupported cell or copy inference.",
         "2 publisher/BGA/TTS-variant source conflict row(s) are preserved verbatim.",
         "No approved canonical destination/schema maps this exact source-bound Starting Item, Equipment, Weapon, or Armor card face into the canonical catalog during unattended W32 processing.",
-        "1 discrepancy row(s) with the prior unselected corpus snapshot are preserved."
+        "1 discrepancy row(s) with the prior unselected corpus snapshot are preserved.",
+        "1 material functional occurrence remains semantically unresolved after approved source-specific resolutions."
       ],
-      "canonicalPromotionBlocker": "2 material functional occurrence(s) remain explicit all-49 authoritative no-matches; no semantic token was invented.; No singular exact GUID/CardID source selector exists; preserve the complete exact reference set without unsupported cell or copy inference.; No current publisher-primary rendered face visibly establishes the exact assigned title/content and family.; The current exact-title BGA licensed-digital record conflicts materially and remains secondary evidence only.; A same-title TTS variant has materially different printed type/effect text; the variant conflict is preserved without collapsing versions.; 2 publisher/BGA/TTS-variant source conflict row(s) are preserved verbatim.; No approved canonical destination/schema maps this exact source-bound Starting Item, Equipment, Weapon, or Armor card face into the canonical catalog during unattended W32 processing.; 1 discrepancy row(s) with the prior unselected corpus snapshot are preserved.",
+      "canonicalPromotionBlocker": "1 material functional occurrence remains semantically unresolved after approved source-specific resolutions.; no semantic token was invented.; No singular exact GUID/CardID source selector exists; preserve the complete exact reference set without unsupported cell or copy inference.; No current publisher-primary rendered face visibly establishes the exact assigned title/content and family.; The current exact-title BGA licensed-digital record conflicts materially and remains secondary evidence only.; A same-title TTS variant has materially different printed type/effect text; the variant conflict is preserved without collapsing versions.; 2 publisher/BGA/TTS-variant source conflict row(s) are preserved verbatim.; No approved canonical destination/schema maps this exact source-bound Starting Item, Equipment, Weapon, or Armor card face into the canonical catalog during unattended W32 processing.; 1 discrepancy row(s) with the prior unselected corpus snapshot are preserved.",
       "evidence": {
         "textBasis": "native vision draft; not canonical promotion",
         "visionProvider": "openai-codex",
@@ -48180,6 +48209,30 @@
         "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-32-20260821T135953Z-p441103-69bcb8/raw/W32-029.json",
         "ledgerPath": "assets/tts-mod/extract/vision-progress.json",
         "queuePath": "assets/tts-mod/extract/low-confidence-review.json",
+        "semanticIconResolutions": [
+          {
+            "resolutionId": "legacy-purple-exclamation-is-burst-additional-effects",
+            "canonicalToken": "burstDieAdditionalEffects",
+            "resolutionType": "pre-release-artwork-semantic-alias",
+            "literalArt": "purple square containing a white exclamation mark (vertical bar and detached dot)",
+            "literalTokens": [
+              "ICON: purple square with a white vertical bar and detached square dot"
+            ],
+            "selectedOccurrenceIndexes": [
+              1
+            ],
+            "evidencePath": "docs/qa/card-symbol-semantic-resolutions.json"
+          },
+          {
+            "resolutionId": "legacy-red-magazine-triangle-is-shoot-ammo-loss",
+            "canonicalToken": "shootDieAmmoLoss",
+            "resolutionType": "pre-release-artwork-semantic-alias",
+            "literalArt": "red upright triangle containing an older curved or oblique ammunition-magazine motif",
+            "literalTokens": [],
+            "selectedOccurrenceIndexes": [],
+            "evidencePath": "docs/qa/card-symbol-semantic-resolutions.json"
+          }
+        ],
         "selectedExtraction": {
           "runIdentity": "w32-card-extraction-20260821T135953Z-p441103-69bcb8/sol-max-persistent-worker-32-20260821T135953Z-p441103-69bcb8/W32-029",
           "runId": "w32-card-extraction-20260821T135953Z-p441103-69bcb8",
@@ -48343,18 +48396,18 @@
       "componentFamily": "game/startItemDeck",
       "ledgerStatus": "deferred",
       "extractionState": "draft-full",
-      "rulesInformationReadiness": "draft-text-complete-symbols-unresolved",
+      "rulesInformationReadiness": "draft-text-complete",
       "rulesTextPresent": true,
       "identity": {},
       "printedData": {
         "title": "GATLING GUN",
         "typeLine": "RANGED WEAPON, RIFLE",
-        "body": "Burst: You may burst twice to the same Corridor\nspending only 1 [ammoToken].\n[ICON: white exclamation mark in a purple square]: Place [malfunction] on this Weapon.",
+        "body": "Burst: You may burst twice to the same Corridor\nspending only 1 [ammoToken].\n[burstDieAdditionalEffects]: Place [malfunction] on this Weapon.",
         "sections": [
           {
             "panelId": "P1",
             "heading": "GATLING GUN",
-            "text": "RANGED WEAPON, RIFLE\n\nBurst: You may burst twice to the same Corridor\nspending only 1 [ammoToken].\n[ICON: white exclamation mark in a purple square]: Place [malfunction] on this Weapon."
+            "text": "RANGED WEAPON, RIFLE\n\nBurst: You may burst twice to the same Corridor\nspending only 1 [ammoToken].\n[burstDieAdditionalEffects]: Place [malfunction] on this Weapon."
           }
         ],
         "footer": "",
@@ -48367,14 +48420,12 @@
       "symbols": {
         "canonicalGlossaryTokens": [
           "ammoToken",
+          "burstDieAdditionalEffects",
           "malfunction"
         ],
-        "unresolvedOrLocalTokens": [
-          "ICON: white exclamation mark in a purple square"
-        ]
+        "unresolvedOrLocalTokens": []
       },
       "uncertainties": [
-        "The purple square visibly contains a white exclamation mark, but whether it is a die result and its exact semantic identifier remain unresolved.",
         "M3's exact number of radial projections is not confidently resolved, though its toothed circular morphology is clear.",
         "The complete lower contours of M4 and M5 are not visible because both extend beyond the lower raster edge.",
         "The dark six-sided regions in M4 and M5 could be printed insets or openings exposing a dark field; no depth cue resolves this.",
@@ -48383,13 +48434,12 @@
         "No current publisher-primary rendered face visibly establishes the exact assigned title/content and family.",
         "The current exact-title BGA licensed-digital record conflicts materially and remains secondary evidence only.",
         "A same-title TTS variant has materially different printed type/effect text; the variant conflict is preserved without collapsing versions.",
-        "1 material functional occurrence remains an explicit all-49 authoritative no-match; no semantic token was invented.",
         "No singular exact GUID/CardID source selector exists; preserve the complete exact reference set without unsupported cell or copy inference.",
         "2 publisher/BGA/TTS-variant source conflict row(s) are preserved verbatim.",
         "No approved canonical destination/schema maps this exact source-bound Starting Item, Equipment, Weapon, or Armor card face into the canonical catalog during unattended W32 processing.",
         "1 discrepancy row(s) with the prior unselected corpus snapshot are preserved."
       ],
-      "canonicalPromotionBlocker": "1 material functional occurrence remains an explicit all-49 authoritative no-match; no semantic token was invented.; No singular exact GUID/CardID source selector exists; preserve the complete exact reference set without unsupported cell or copy inference.; No current publisher-primary rendered face visibly establishes the exact assigned title/content and family.; The current exact-title BGA licensed-digital record conflicts materially and remains secondary evidence only.; A same-title TTS variant has materially different printed type/effect text; the variant conflict is preserved without collapsing versions.; 2 publisher/BGA/TTS-variant source conflict row(s) are preserved verbatim.; No approved canonical destination/schema maps this exact source-bound Starting Item, Equipment, Weapon, or Armor card face into the canonical catalog during unattended W32 processing.; 1 discrepancy row(s) with the prior unselected corpus snapshot are preserved.",
+      "canonicalPromotionBlocker": "no semantic token was invented.; No singular exact GUID/CardID source selector exists; preserve the complete exact reference set without unsupported cell or copy inference.; No current publisher-primary rendered face visibly establishes the exact assigned title/content and family.; The current exact-title BGA licensed-digital record conflicts materially and remains secondary evidence only.; A same-title TTS variant has materially different printed type/effect text; the variant conflict is preserved without collapsing versions.; 2 publisher/BGA/TTS-variant source conflict row(s) are preserved verbatim.; No approved canonical destination/schema maps this exact source-bound Starting Item, Equipment, Weapon, or Armor card face into the canonical catalog during unattended W32 processing.; 1 discrepancy row(s) with the prior unselected corpus snapshot are preserved.",
       "evidence": {
         "textBasis": "native vision draft; not canonical promotion",
         "visionProvider": "openai-codex",
@@ -48408,8 +48458,36 @@
           "reviewedAt": "2026-08-22T05:59:25Z",
           "reviewedBy": "project-owner",
           "evidencePath": "docs/qa/card-rules-manual-review-2026-08-22.json",
-          "finding": "The red inline icon after “1” is Ammo and maps to canonical ammoToken. The purple square contains a white exclamation mark; its die-result semantics remain unresolved."
+          "finding": "The red inline icon after “1” is Ammo and maps to canonical ammoToken. The purple exclamation square is pre-release artwork for the canonical burstDieAdditionalEffects result."
         },
+        "semanticIconResolutions": [
+          {
+            "resolutionId": "legacy-purple-exclamation-is-burst-additional-effects",
+            "canonicalToken": "burstDieAdditionalEffects",
+            "resolutionType": "pre-release-artwork-semantic-alias",
+            "literalArt": "purple square containing a white exclamation mark (vertical bar and detached dot)",
+            "literalTokens": [
+              "ICON: white exclamation mark in a purple square"
+            ],
+            "selectedOccurrenceIndexes": [
+              1
+            ],
+            "evidencePath": "docs/qa/card-symbol-semantic-resolutions.json"
+          },
+          {
+            "resolutionId": "manual-s05-red-inline-is-ammo-token",
+            "canonicalToken": "ammoToken",
+            "resolutionType": "project-owner-manual-morphology-resolution",
+            "literalArt": "red chamfered ammunition block with a dark center and darker right-side facet",
+            "literalTokens": [
+              "ICON: red chamfered block with a dark square center and a narrow darker-red right side"
+            ],
+            "selectedOccurrenceIndexes": [
+              0
+            ],
+            "evidencePath": "docs/qa/card-symbol-semantic-resolutions.json"
+          }
+        ],
         "selectedExtraction": {
           "runIdentity": "w32-card-extraction-20260821T135953Z-p441103-69bcb8/sol-max-persistent-worker-32-20260821T135953Z-p441103-69bcb8/W32-030",
           "runId": "w32-card-extraction-20260821T135953Z-p441103-69bcb8",
@@ -48920,18 +48998,18 @@
       "componentFamily": "game/startItemDeck",
       "ledgerStatus": "deferred",
       "extractionState": "draft-full",
-      "rulesInformationReadiness": "draft-text-complete-symbols-unresolved",
+      "rulesInformationReadiness": "draft-text-complete",
       "rulesTextPresent": true,
       "identity": {},
       "printedData": {
         "title": "MINI-TURRET",
         "typeLine": "",
-        "body": "Place this Item in your Room.\nWhenever an [intruder] enters the Room\nwith Mini-Turret, resolve a Shoot roll against it.\n[ICON: red upward-pointing triangle with narrow white oblique inset] – remove this card from the game.",
+        "body": "Place this Item in your Room.\nWhenever an [intruder] enters the Room\nwith Mini-Turret, resolve a Shoot roll against it.\n[shootDieAmmoLoss] – remove this card from the game.",
         "sections": [
           {
             "panelId": "P1",
             "heading": "MINI-TURRET",
-            "text": "Place this Item in your Room.\nWhenever an [intruder] enters the Room\nwith Mini-Turret, resolve a Shoot roll against it.\n[ICON: red upward-pointing triangle with narrow white oblique inset] – remove this card from the game."
+            "text": "Place this Item in your Room.\nWhenever an [intruder] enters the Room\nwith Mini-Turret, resolve a Shoot roll against it.\n[shootDieAmmoLoss] – remove this card from the game."
           }
         ],
         "footer": "",
@@ -48943,11 +49021,10 @@
       },
       "symbols": {
         "canonicalGlossaryTokens": [
-          "intruder"
+          "intruder",
+          "shootDieAmmoLoss"
         ],
-        "unresolvedOrLocalTokens": [
-          "ICON: red upward-pointing triangle with narrow white oblique inset"
-        ]
+        "unresolvedOrLocalTokens": []
       },
       "uncertainties": [
         "The finest dark cuts within M1 may combine intentional negative space with dark background and anti-aliased edge pixels.",
@@ -48955,11 +49032,10 @@
         "The raster does not show a distinct closed outer card border, reverse, or printed side marker.",
         "Current rendered publisher evidence provides locator/prose/family context but not a complete exact component face.",
         "No exact-title BGA record exists; no fuzzy/renamed candidate was substituted.",
-        "1 material functional occurrence(s) remain explicit all-49 no-matches; no semantic token was invented.",
         "No unattended W33 canonical destination/schema is approved for this mixed-family source; no existing approved file may be overwritten or reclassified.",
         "1 discrepancy row(s) with the prior corpus snapshot are preserved."
       ],
-      "canonicalPromotionBlocker": "1 material functional occurrence(s) remain explicit all-49 no-matches; no semantic token was invented.; Current rendered publisher evidence provides locator/prose/family context but not a complete exact component face.; No exact-title BGA record exists; no fuzzy/renamed candidate was substituted.; No unattended W33 canonical destination/schema is approved for this mixed-family source; no existing approved file may be overwritten or reclassified.; 1 discrepancy row(s) with the prior corpus snapshot are preserved.",
+      "canonicalPromotionBlocker": "no semantic token was invented.; Current rendered publisher evidence provides locator/prose/family context but not a complete exact component face.; No exact-title BGA record exists; no fuzzy/renamed candidate was substituted.; No unattended W33 canonical destination/schema is approved for this mixed-family source; no existing approved file may be overwritten or reclassified.; 1 discrepancy row(s) with the prior corpus snapshot are preserved.",
       "evidence": {
         "textBasis": "native vision draft; not canonical promotion",
         "visionProvider": "openai-codex",
@@ -48971,6 +49047,21 @@
         "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-33-20260821T172305Z-p465856-36ac0c/raw/W33-001.json",
         "ledgerPath": "assets/tts-mod/extract/vision-progress.json",
         "queuePath": "assets/tts-mod/extract/low-confidence-review.json",
+        "semanticIconResolutions": [
+          {
+            "resolutionId": "legacy-red-magazine-triangle-is-shoot-ammo-loss",
+            "canonicalToken": "shootDieAmmoLoss",
+            "resolutionType": "pre-release-artwork-semantic-alias",
+            "literalArt": "red upright triangle containing an older curved or oblique ammunition-magazine motif",
+            "literalTokens": [
+              "ICON: red upward-pointing triangle with narrow white oblique inset"
+            ],
+            "selectedOccurrenceIndexes": [
+              0
+            ],
+            "evidencePath": "docs/qa/card-symbol-semantic-resolutions.json"
+          }
+        ],
         "selectedExtraction": {
           "runIdentity": "w33-final-extraction-20260821T172305Z-p465856-36ac0c/sol-max-persistent-worker-33-20260821T172305Z-p465856-36ac0c/W33-001",
           "runId": "w33-final-extraction-20260821T172305Z-p465856-36ac0c",
@@ -49142,18 +49233,18 @@
       "componentFamily": "game/startItemDeck",
       "ledgerStatus": "deferred",
       "extractionState": "draft-full",
-      "rulesInformationReadiness": "draft-text-complete-symbols-unresolved",
+      "rulesInformationReadiness": "draft-text-complete",
       "rulesTextPresent": true,
       "identity": {},
       "printedData": {
         "title": "PLASMA GUN",
         "typeLine": "RANGED WEAPON. REQUIRES NO AMMO",
-        "body": "This Weapon can be used even\nwith a [malfunction] on it and is not discarded\nwhen another [malfunction] is placed.\n[ICON: white exclamation mark in a purple rounded square], [ICON: black curved ammunition magazine in a red upright triangle]: Place a [malfunction] on this Weapon\nand then lose 2 [characterHealth] for each [malfunction].",
+        "body": "This Weapon can be used even\nwith a [malfunction] on it and is not discarded\nwhen another [malfunction] is placed.\n[burstDieAdditionalEffects], [shootDieAmmoLoss]: Place a [malfunction] on this Weapon\nand then lose 2 [characterHealth] for each [malfunction].",
         "sections": [
           {
             "panelId": "P1",
             "heading": "PLASMA GUN",
-            "text": "RANGED WEAPON. REQUIRES NO AMMO\nThis Weapon can be used even\nwith a [malfunction] on it and is not discarded\nwhen another [malfunction] is placed.\n[ICON: white exclamation mark in a purple rounded square], [ICON: black curved ammunition magazine in a red upright triangle]: Place a [malfunction] on this Weapon\nand then lose 2 [characterHealth] for each [malfunction]."
+            "text": "RANGED WEAPON. REQUIRES NO AMMO\nThis Weapon can be used even\nwith a [malfunction] on it and is not discarded\nwhen another [malfunction] is placed.\n[burstDieAdditionalEffects], [shootDieAmmoLoss]: Place a [malfunction] on this Weapon\nand then lose 2 [characterHealth] for each [malfunction]."
           }
         ],
         "footer": "",
@@ -49165,28 +49256,25 @@
       },
       "symbols": {
         "canonicalGlossaryTokens": [
+          "burstDieAdditionalEffects",
           "characterHealth",
-          "malfunction"
+          "malfunction",
+          "shootDieAmmoLoss"
         ],
-        "unresolvedOrLocalTokens": [
-          "ICON: black curved ammunition magazine in a red upright triangle",
-          "ICON: white exclamation mark in a purple rounded square"
-        ]
+        "unresolvedOrLocalTokens": []
       },
       "uncertainties": [
         "The purple square visibly contains a white exclamation mark and may represent a die result, but its exact semantic identifier remains unresolved.",
-        "The red upright triangle visibly contains a black curved ammunition magazine, but this artwork does not exactly match an established canonical Shoot-die glossary crop, so no semantic token is assigned.",
         "M6 is visibly a coherent white line morphology, but its exact fine stroke structure and semantic identity are not established.",
         "Some fine edges of M1, M2, M5, and M7 touch dark artwork or nearby lettering, making exact protrusion counts uncertain while leaving the occurrence count clear.",
         "The physical role of the top-center white polygon and the exact component family or side are not established by the visible face.",
         "Current rendered publisher evidence provides locator/prose/family context but not a complete exact component face.",
         "Current exact-title BGA secondary text potentially conflicts and is preserved without substitution.",
-        "2 material functional occurrence(s) remain explicit all-49 no-matches; no semantic token was invented.",
         "1 publisher/BGA/TTS-variant conflict row(s) are preserved verbatim.",
         "No unattended W33 canonical destination/schema is approved for this mixed-family source; no existing approved file may be overwritten or reclassified.",
         "2 discrepancy row(s) with the prior corpus snapshot are preserved."
       ],
-      "canonicalPromotionBlocker": "2 material functional occurrence(s) remain explicit all-49 no-matches; no semantic token was invented.; Current rendered publisher evidence provides locator/prose/family context but not a complete exact component face.; Current exact-title BGA secondary text potentially conflicts and is preserved without substitution.; 1 publisher/BGA/TTS-variant conflict row(s) are preserved verbatim.; No unattended W33 canonical destination/schema is approved for this mixed-family source; no existing approved file may be overwritten or reclassified.; 2 discrepancy row(s) with the prior corpus snapshot are preserved.",
+      "canonicalPromotionBlocker": "no semantic token was invented.; Current rendered publisher evidence provides locator/prose/family context but not a complete exact component face.; Current exact-title BGA secondary text potentially conflicts and is preserved without substitution.; 1 publisher/BGA/TTS-variant conflict row(s) are preserved verbatim.; No unattended W33 canonical destination/schema is approved for this mixed-family source; no existing approved file may be overwritten or reclassified.; 2 discrepancy row(s) with the prior corpus snapshot are preserved.",
       "evidence": {
         "textBasis": "native vision draft; not canonical promotion",
         "visionProvider": "openai-codex",
@@ -49205,8 +49293,38 @@
           "reviewedAt": "2026-08-22T05:59:25Z",
           "reviewedBy": "project-owner",
           "evidencePath": "docs/qa/card-rules-manual-review-2026-08-22.json",
-          "finding": "The purple square contains the same white exclamation mark and may represent a die result, but no canonical identifier is established. The red triangle contains a black curved ammunition magazine. The following punctuation is a colon."
+          "finding": "The purple exclamation square is pre-release artwork for burstDieAdditionalEffects. The red triangle contains an older ammunition-magazine motif and maps to shootDieAmmoLoss. The following punctuation is a colon."
         },
+        "semanticIconResolutions": [
+          {
+            "resolutionId": "legacy-purple-exclamation-is-burst-additional-effects",
+            "canonicalToken": "burstDieAdditionalEffects",
+            "resolutionType": "pre-release-artwork-semantic-alias",
+            "literalArt": "purple square containing a white exclamation mark (vertical bar and detached dot)",
+            "literalTokens": [
+              "ICON: white exclamation mark in a purple rounded square",
+              "ICON: white exclamation-shaped mark in a purple rounded square"
+            ],
+            "selectedOccurrenceIndexes": [
+              0
+            ],
+            "evidencePath": "docs/qa/card-symbol-semantic-resolutions.json"
+          },
+          {
+            "resolutionId": "legacy-red-magazine-triangle-is-shoot-ammo-loss",
+            "canonicalToken": "shootDieAmmoLoss",
+            "resolutionType": "pre-release-artwork-semantic-alias",
+            "literalArt": "red upright triangle containing an older curved or oblique ammunition-magazine motif",
+            "literalTokens": [
+              "ICON: black curved ammunition magazine in a red upright triangle",
+              "ICON: white tapered vertical mark in a red upright triangle"
+            ],
+            "selectedOccurrenceIndexes": [
+              1
+            ],
+            "evidencePath": "docs/qa/card-symbol-semantic-resolutions.json"
+          }
+        ],
         "selectedExtraction": {
           "runIdentity": "w33-final-extraction-20260821T172305Z-p465856-36ac0c/sol-max-persistent-worker-33-20260821T172305Z-p465856-36ac0c/W33-002",
           "runId": "w33-final-extraction-20260821T172305Z-p465856-36ac0c",
@@ -50196,23 +50314,23 @@
       "componentFamily": "game/startItemDeck",
       "ledgerStatus": "deferred",
       "extractionState": "draft-full",
-      "rulesInformationReadiness": "draft-text-complete-symbols-unresolved",
+      "rulesInformationReadiness": "draft-text-complete",
       "rulesTextPresent": true,
       "identity": {},
       "printedData": {
         "title": "SONIC GUN",
         "typeLine": "RANGED WEAPON. REQUIRES NO AMMO",
-        "body": "Burst: Treat [burstDie3] and [burstDie4] as [burstDie2].\n[ICON: purple square with white !], [ICON: red upright triangle with white irregular angular mark] - Place a [malfunction] in your Room.",
+        "body": "Burst: Treat [burstDie3] and [burstDie4] as [burstDie2].\n[burstDieAdditionalEffects], [shootDieAmmoLoss] - Place a [malfunction] in your Room.",
         "sections": [
           {
             "panelId": "P1",
             "heading": "SONIC GUN",
-            "text": "RANGED WEAPON. REQUIRES NO AMMO\nBurst: Treat [burstDie3] and [burstDie4] as [burstDie2].\n[ICON: purple square with white !], [ICON: red upright triangle with white irregular angular mark] - Place a [malfunction] in your Room."
+            "text": "RANGED WEAPON. REQUIRES NO AMMO\nBurst: Treat [burstDie3] and [burstDie4] as [burstDie2].\n[burstDieAdditionalEffects], [shootDieAmmoLoss] - Place a [malfunction] in your Room."
           }
         ],
         "footer": "",
         "upperRight": "",
-        "lowerCenter": "Burst: Treat [burstDie3] and [burstDie4] as [burstDie2].\n[ICON: purple square with white !], [ICON: red upright triangle with white irregular angular mark] - Place a [malfunction] in your Room.",
+        "lowerCenter": "Burst: Treat [burstDie3] and [burstDie4] as [burstDie2].\n[burstDieAdditionalEffects], [shootDieAmmoLoss] - Place a [malfunction] in your Room.",
         "otherMaterialText": [],
         "illegibleSpans": [],
         "clippedSpans": []
@@ -50222,12 +50340,11 @@
           "burstDie2",
           "burstDie3",
           "burstDie4",
-          "malfunction"
+          "burstDieAdditionalEffects",
+          "malfunction",
+          "shootDieAmmoLoss"
         ],
-        "unresolvedOrLocalTokens": [
-          "ICON: purple square with white !",
-          "ICON: red upright triangle with white irregular angular mark"
-        ]
+        "unresolvedOrLocalTokens": []
       },
       "uncertainties": [
         "M5's white interior mark is abstract and does not resolve as a letter, punctuation mark, or named symbol.",
@@ -50237,12 +50354,11 @@
         "No reverse or printed side marker is visible.",
         "A same-component publisher render is visible but complete operative text is unreadable/occluded.",
         "Current exact-title BGA secondary text potentially conflicts and is preserved without substitution.",
-        "2 material functional occurrence(s) remain explicit all-49 no-matches; no semantic token was invented.",
         "1 publisher/BGA/TTS-variant conflict row(s) are preserved verbatim.",
         "No unattended W33 canonical destination/schema is approved for this mixed-family source; no existing approved file may be overwritten or reclassified.",
         "2 discrepancy row(s) with the prior corpus snapshot are preserved."
       ],
-      "canonicalPromotionBlocker": "2 material functional occurrence(s) remain explicit all-49 no-matches; no semantic token was invented.; A same-component publisher render is visible but complete operative text is unreadable/occluded.; Current exact-title BGA secondary text potentially conflicts and is preserved without substitution.; 1 publisher/BGA/TTS-variant conflict row(s) are preserved verbatim.; No unattended W33 canonical destination/schema is approved for this mixed-family source; no existing approved file may be overwritten or reclassified.; 2 discrepancy row(s) with the prior corpus snapshot are preserved.",
+      "canonicalPromotionBlocker": "no semantic token was invented.; A same-component publisher render is visible but complete operative text is unreadable/occluded.; Current exact-title BGA secondary text potentially conflicts and is preserved without substitution.; 1 publisher/BGA/TTS-variant conflict row(s) are preserved verbatim.; No unattended W33 canonical destination/schema is approved for this mixed-family source; no existing approved file may be overwritten or reclassified.; 2 discrepancy row(s) with the prior corpus snapshot are preserved.",
       "evidence": {
         "textBasis": "native vision draft; not canonical promotion",
         "visionProvider": "openai-codex",
@@ -50254,6 +50370,34 @@
         "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-33-20260821T172305Z-p465856-36ac0c/raw/W33-007.json",
         "ledgerPath": "assets/tts-mod/extract/vision-progress.json",
         "queuePath": "assets/tts-mod/extract/low-confidence-review.json",
+        "semanticIconResolutions": [
+          {
+            "resolutionId": "legacy-purple-exclamation-is-burst-additional-effects",
+            "canonicalToken": "burstDieAdditionalEffects",
+            "resolutionType": "pre-release-artwork-semantic-alias",
+            "literalArt": "purple square containing a white exclamation mark (vertical bar and detached dot)",
+            "literalTokens": [
+              "ICON: purple square with white !"
+            ],
+            "selectedOccurrenceIndexes": [
+              0
+            ],
+            "evidencePath": "docs/qa/card-symbol-semantic-resolutions.json"
+          },
+          {
+            "resolutionId": "legacy-red-magazine-triangle-is-shoot-ammo-loss",
+            "canonicalToken": "shootDieAmmoLoss",
+            "resolutionType": "pre-release-artwork-semantic-alias",
+            "literalArt": "red upright triangle containing an older curved or oblique ammunition-magazine motif",
+            "literalTokens": [
+              "ICON: red upright triangle with white irregular angular mark"
+            ],
+            "selectedOccurrenceIndexes": [
+              1
+            ],
+            "evidencePath": "docs/qa/card-symbol-semantic-resolutions.json"
+          }
+        ],
         "selectedExtraction": {
           "runIdentity": "w33-final-extraction-20260821T172305Z-p465856-36ac0c/sol-max-persistent-worker-33-20260821T172305Z-p465856-36ac0c/W33-007",
           "runId": "w33-final-extraction-20260821T172305Z-p465856-36ac0c",

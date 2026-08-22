@@ -2,13 +2,13 @@
   "schemaVersion": 1,
   "sourceCorpus": "assets/tts-mod/extract/card-text-corpus.json",
   "sourceRegistry": "assets/tts-mod/extract/selected-card-text-evidence.json",
-  "sourceProgressUpdatedAt": "2026-08-22T05:59:25Z",
-  "warning": "Cluster labels describe visible morphology only. They are not canonical icon names or semantic claims.",
+  "sourceProgressUpdatedAt": "2026-08-22T06:16:18Z",
+  "warning": "Cluster labels describe visible morphology only. They exclude source-scoped semantic resolutions approved in docs/qa/card-symbol-semantic-resolutions.json and are not canonical icon names or semantic claims.",
   "summary": {
-    "unresolvedTokenOccurrences": 523,
-    "distinctLiteralDescriptions": 395,
-    "affectedAssets": 207,
-    "clusters": 9,
+    "unresolvedTokenOccurrences": 513,
+    "distinctLiteralDescriptions": 385,
+    "affectedAssets": 202,
+    "clusters": 8,
     "nonCorpusSelectedEntriesScanned": 106
   },
   "clusters": [
@@ -3008,7 +3008,7 @@
           "visibleDiscriminator": "The lifeSupportActive crop has a cyan rounded outer field surrounding a white pod-like contour and cyan central panel. The source has no cyan outer field or bounded cyan panel; its outermost form is a continuous white three-lobed silhouette around a gray outlined central stemmed block. None of the 49 crops reproduces that complete color and internal-line configuration.",
           "evidenceRun": "sol-max-persistent-worker-32-20260821T135953Z-p441103-69bcb8",
           "rulesTextPresent": true,
-          "rulesExcerpt": "Shoot and Burst:\nIf you are in a Section with an [ICON: white horizontal three-lobed capsule with a gray outlined central vertical block and short top stem] lose 1 [oxygen].\n[ICON: purple square with a white vertical bar and detached square dot], [shootDieAmmoLoss]: Place a [fire].",
+          "rulesExcerpt": "Shoot and Burst:\nIf you are in a Section with an [ICON: white horizontal three-lobed capsule with a gray outlined central vertical block and short top stem] lose 1 [oxygen].\n[burstDieAdditionalEffects], [shootDieAmmoLoss]: Place a [fire].",
           "ledgerStatus": "deferred"
         },
         {
@@ -5751,13 +5751,596 @@
       ]
     },
     {
+      "cluster": "octagonal-or-chamfered-polygon",
+      "status": "morphology-only-unresolved",
+      "priorityScore": 1344,
+      "occurrences": 14,
+      "assetCount": 13,
+      "rulesBearingAssetCount": 12,
+      "distinctLiteralDescriptions": 12,
+      "resolutionStrategy": "Compare representative cards against authoritative room/search/item references; preserve literal shape until a printed name is proven.",
+      "topRepeatedLiterals": [
+        {
+          "token": "Location: upper center, between Discard and additional cards. Outer shape: a large near-square octagonal outline made from separated horizontal, vertical, and diagonal segments, with gaps at the middle of the left and right sides. Internal marks: a large white 1 with an angled upper-left flag, straight stem, broad basal foot, and gray shadow is centered in a dark translucent green interior; faint cross-shaped guide-like lines remain visible behind it. Colors: bright green, teal, cyan-green glow, dark green, white, and gray shadow.",
+          "count": 3
+        },
+        {
+          "token": "Location: center of the assigned panel, entirely within the illuminated octagonal pane. Outer shape: a compact horizontal irregular silhouette with a broad sloped central body, a thin jointed rod-like extension projecting left, and two large separate circular lobes attached along the lower-right edge, all enclosed by a thick white contour. Internal marks: the broad body contains pale olive and cream regions, a large white angular diagonal patch, and two small light yellow-green quadrilateral patches near its upper surface; each circular lower lobe has a pale olive center and thick white surround, while dark gaps separate portions of the body, extension, and lobes. Colors: white, off-white, cream, pale olive, light yellow-green, and dark gray negative space.",
+          "count": 1
+        },
+        {
+          "token": "Location: first body-text line, in the inline gap immediately after “Spend” and before “from your Rifle.” Outer shape: compact saturated-red near-square badge with stepped or chamfered corners and short lateral projections. Internal marks: a very dark brown-black central area split into two adjacent upright rectangular forms by a narrow red vertical strip; tiny top-edge details are unresolved. Colors: saturated red and very dark brown-black.",
+          "count": 1
+        },
+        {
+          "token": "Location: upper center, between Discard and additional cards. Outer shape: a large near-square octagonal outline composed of separated horizontal, vertical, and diagonal segments, with gaps at the middle of the left and right sides. Internal marks: a large white 2 with a curved top, descending diagonal middle, horizontal basal stroke, and gray shadow is centered in a dark translucent green interior; faint guide-like lines remain visible behind it. Colors: bright green, teal, cyan-green glow, dark green, white, and gray shadow.",
+          "count": 1
+        },
+        {
+          "token": "Location: upper center, between Discard and additional cards. Outer shape: a large near-square octagonal outline made from separated horizontal, vertical, and diagonal segments, with gaps at the middle of both sides. Internal marks: a large white 2 is centered in a dark translucent green interior, with no other discrete internal mark. Colors: bright green, teal, cyan-green glow, dark green, and white.",
+          "count": 1
+        },
+        {
+          "token": "Location: upper center, between Discard and additional cards. Outer shape: a large near-square octagonal outline made from separated horizontal, vertical, and diagonal segments, with gaps at the middle of both sides. Internal marks: a large white 3 is centered in a dark translucent green interior, with no other discrete internal mark. Colors: bright green, teal, cyan-green glow, dark green, and white.",
+          "count": 1
+        },
+        {
+          "token": "Location: upper center, between Discard and additional cards. Outer shape: a large near-square octagonal outline made from separated horizontal, vertical, and diagonal segments, with gaps at the middle of both sides. Internal marks: a tall, narrow white 0-like glyph is centered in a dark translucent green interior, with no slash or crossing mark. Colors: bright green, teal, cyan-green glow, dark green, and white.",
+          "count": 1
+        },
+        {
+          "token": "Location: upper center, between Discard and additional cards. Outer shape: a large near-square octagonal outline made from separated horizontal, vertical, and diagonal segments, with gaps at the middle of both sides. Internal marks: a tall, narrow white 0-like glyph is centered in a dark translucent green interior, with no slash or other crossing mark. Colors: bright green, teal, cyan-green glow, dark green, and white.",
+          "count": 1
+        },
+        {
+          "token": "Location: upper center, between Discard and additional cards. Outer shape: a large near-square octagonal outline made from separated horizontal, vertical, and diagonal segments, with gaps at the middle of the left and right sides. Internal marks: a large white 3 is centered in a dark translucent green interior, with no other discrete internal mark. Colors: bright green, teal, cyan-green glow, dark green, and white.",
+          "count": 1
+        },
+        {
+          "token": "Lower instruction line 2, approximately x=417–465, y=436–479; small red near-square with slightly rounded or chamfered corners; one broad near-black rectangular inset is split into left and right fields by a narrow red vertical separator; colors red and near-black.",
+          "count": 1
+        },
+        {
+          "token": "P1, in the upper-right field at approximately x=721-862 and y=66-257, with the outer plaque clipped by the source raster's right edge. Outer shape: large bright-red angular plaque with a horizontal top, chamfered upper-left and lower-left corners, and a vertical left-middle edge. Centered within it is a white vertically elongated grenade-like ovoid with broad shoulders, a narrow capped top, and a tapered pointed lower end. Internal marks: thin red vertical and curved cross-divisions segment the white body into central and side facets, and a thin white curved line extends leftward and downward from the capped top. Colors: bright red, white, and dark-red edge shading.",
+          "count": 1
+        },
+        {
+          "token": "P1, on the first instruction line between \"a\" and \"from this Weapon,\" approximately x=425-474 and y=392-442. Outer shape: small horizontally elongated bright-red compound block with a chamfered near-square front portion and a narrower contiguous dark-red angular side portion. Internal marks: the front contains a white upright capped grenade-like silhouette with a rounded segmented lower body, small red or pale-pink cutouts, and a curved white side line; the right side contains a dark vertical recess. Colors: bright red, dark red, white, pale pink, and dark maroon.",
+          "count": 1
+        }
+      ],
+      "evidence": [
+        {
+          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-15.png",
+          "sourceSha256": "e063664e4e786d66092f347f444c9a9184ae0a9f51547158f98e8b25e300b39a",
+          "componentFamily": "character/heavy-gun-operator",
+          "printedTitle": null,
+          "token": "Location: first body-text line, in the inline gap immediately after “Spend” and before “from your Rifle.” Outer shape: compact saturated-red near-square badge with stepped or chamfered corners and short lateral projections. Internal marks: a very dark brown-black central area split into two adjacent upright rectangular forms by a narrow red vertical strip; tiny top-edge details are unresolved. Colors: saturated red and very dark brown-black.",
+          "occurrenceSource": "selected-explicit-authoritative-no-match",
+          "occurrenceIndex": 0,
+          "cardLocation": "First body-text line, immediately after “Spend” and immediately before “from your Rifle.”",
+          "matchDecision": "no-match",
+          "closestAlternative": "The closest frozen candidate is ammoToken (assets/icons/tactical-gear/ammo-token.png); the supplied literal alternative is a decorative red badge with one undivided dark center.",
+          "visibleDiscriminator": "The split center rules out the literal undivided-center alternative, but it does not reproduce ammoToken: M1 visibly has two broad adjacent dark upright forms in a compact near-square badge, whereas ammoToken is a wider asymmetric red token containing a cluster of numerous narrow black cartridge-like bars and a separate dark-red right-side block. The other red candidates also conflict visibly, including redItem with three white upright marks and ammoSlot with one broad top recess.",
+          "evidenceRun": "sol-max-persistent-worker-33-20260821T172305Z-p465856-36ac0c",
+          "rulesTextPresent": true,
+          "rulesExcerpt": "Spend [ICON: red stepped near-square badge with two dark upright inset forms] from your Rifle.\nThe Queen OR all Adults and Drones Escape\nfrom your Room.",
+          "ledgerStatus": "deferred"
+        },
+        {
+          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/queenHealthDeck-013.png",
+          "sourceSha256": "5ad0606dff59c21b20689fc6b5b5192ef83c95f108ded91e587725bfd2c68092",
+          "componentFamily": "game/queenHealthDeck",
+          "printedTitle": null,
+          "token": "Location: upper center, between Discard and additional cards. Outer shape: a large near-square octagonal outline made from separated horizontal, vertical, and diagonal segments, with gaps at the middle of both sides. Internal marks: a tall, narrow white 0-like glyph is centered in a dark translucent green interior, with no slash or crossing mark. Colors: bright green, teal, cyan-green glow, dark green, and white.",
+          "occurrenceSource": "selected-explicit-authoritative-no-match",
+          "occurrenceIndex": 0,
+          "cardLocation": "Upper center, between Discard and additional cards.",
+          "matchDecision": "no-match",
+          "closestAlternative": "A literal interrupted octagonal display or two opposing segmented brackets around 0 or uppercase O. Among the labeled crops, greenItem is nearest in green octagonal tendency, while the numbered die crops are nearest in containing a large numeral.",
+          "visibleDiscriminator": "The greenItem crop is a solid green octagon containing a white plus, not a separated glowing perimeter containing a tall loop. Every numbered crop places its numeral in a solid red triangle, purple rounded square, or yellow diamond, and no labeled numeral crop contains 0. None of the 49 crops reproduces the source's complete frame-and-glyph morphology.",
+          "evidenceRun": "sol-max-persistent-worker-31-20260821T112612Z-p346900-b7e2c9",
+          "rulesTextPresent": true,
+          "rulesExcerpt": "0\nadditional cards.\n\nIf the card was drawn by a [character].\n\nActivate the Queen.",
+          "ledgerStatus": "deferred"
+        },
+        {
+          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/queenHealthDeck-038.png",
+          "sourceSha256": "fc04bf1a2920fb63ac512d209622b591cdc9f3cb9ca292c97bf874fcddbbd5c8",
+          "componentFamily": "game/queenHealthDeck",
+          "printedTitle": null,
+          "token": "Location: upper center, between Discard and additional cards. Outer shape: a large near-square octagonal outline made from separated horizontal, vertical, and diagonal segments, with gaps at the middle of both sides. Internal marks: a large white 2 is centered in a dark translucent green interior, with no other discrete internal mark. Colors: bright green, teal, cyan-green glow, dark green, and white.",
+          "occurrenceSource": "selected-explicit-authoritative-no-match",
+          "occurrenceIndex": 0,
+          "cardLocation": "Upper center, between Discard and additional cards.",
+          "matchDecision": "no-match",
+          "closestAlternative": "The labeled shootDie2, burstDie2, and noiseDie2 crops share the numeral 2; greenItem is the closest labeled crop in green octagonal tendency. A literal interrupted octagonal display or opposing segmented brackets is the closest noncanonical reading.",
+          "visibleDiscriminator": "The three labeled 2 crops use respectively a solid red triangle, purple rounded square, and yellow diamond, whereas the source uses a separated glowing green perimeter with side gaps. The greenItem crop is a solid green octagon containing a white plus rather than 2. No labeled crop reproduces both the source frame and its internal numeral.",
+          "evidenceRun": "sol-max-persistent-worker-31-20260821T112612Z-p346900-b7e2c9",
+          "rulesTextPresent": true,
+          "rulesExcerpt": "2\nadditional cards.\n\nIf the card was drawn by a [character].\n\nRepel the Queen.",
+          "ledgerStatus": "deferred"
+        },
+        {
+          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/queenHealthDeck-040.png",
+          "sourceSha256": "ce7a5fba88dd56f5de2ae77e5fe1647324bdfa9a99ae7f55485cca35eb72b062",
+          "componentFamily": "game/queenHealthDeck",
+          "printedTitle": null,
+          "token": "Location: upper center, between Discard and additional cards. Outer shape: a large near-square octagonal outline made from separated horizontal, vertical, and diagonal segments, with gaps at the middle of both sides. Internal marks: a tall, narrow white 0-like glyph is centered in a dark translucent green interior, with no slash or other crossing mark. Colors: bright green, teal, cyan-green glow, dark green, and white.",
+          "occurrenceSource": "selected-explicit-authoritative-no-match",
+          "occurrenceIndex": 0,
+          "cardLocation": "Upper center, between Discard and additional cards.",
+          "matchDecision": "no-match",
+          "closestAlternative": "A literal interrupted octagonal display or two opposing segmented brackets around 0 or uppercase O. Among the labeled crops, greenItem is nearest in green octagonal tendency, while the numbered die crops are nearest in containing a large numeral.",
+          "visibleDiscriminator": "The greenItem crop is a solid green octagon containing a white plus, not a separated glowing perimeter containing a tall loop. Every numbered crop places its numeral in a solid red triangle, purple rounded square, or yellow diamond, and no labeled numeral crop contains 0. None of the 49 crops reproduces the source's complete frame-and-glyph morphology.",
+          "evidenceRun": "sol-max-persistent-worker-31-20260821T112612Z-p346900-b7e2c9",
+          "rulesTextPresent": true,
+          "rulesExcerpt": "0\nadditional cards.\n\nIf the card was drawn by a [character].\n\nPlace the Queen back in the pool.",
+          "ledgerStatus": "deferred"
+        },
+        {
+          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/queenHealthDeck-041.png",
+          "sourceSha256": "929ac1204b4b7989ee051307245bf32fb5e1915a35b9afd5a73572c8ca01dc61",
+          "componentFamily": "game/queenHealthDeck",
+          "printedTitle": null,
+          "token": "Location: upper center, between Discard and additional cards. Outer shape: a large near-square octagonal outline made from separated horizontal, vertical, and diagonal segments, with gaps at the middle of both sides. Internal marks: a large white 3 is centered in a dark translucent green interior, with no other discrete internal mark. Colors: bright green, teal, cyan-green glow, dark green, and white.",
+          "occurrenceSource": "selected-explicit-authoritative-no-match",
+          "occurrenceIndex": 0,
+          "cardLocation": "Upper center, between Discard and additional cards.",
+          "matchDecision": "no-match",
+          "closestAlternative": "The labeled shootDie3, burstDie3, and noiseDie3 crops share the numeral 3; greenItem is the closest labeled crop in green octagonal tendency. A literal interrupted octagonal display or opposing segmented brackets is the closest noncanonical reading.",
+          "visibleDiscriminator": "The three labeled 3 crops use respectively a solid red triangle, purple rounded square, and yellow diamond, whereas the source uses a separated glowing green perimeter with side gaps. The greenItem crop is a solid green octagon containing a white plus rather than 3. No labeled crop reproduces both the source frame and its internal numeral.",
+          "evidenceRun": "sol-max-persistent-worker-31-20260821T112612Z-p346900-b7e2c9",
+          "rulesTextPresent": true,
+          "rulesExcerpt": "3\nadditional cards.\n\nIf the card was drawn by a [character]:\n\nPlace a [malfunction] in the Queen's Room.\nOR\nUnreinforce Queen's Corridor.",
+          "ledgerStatus": "deferred"
+        },
+        {
+          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/queenHealthDeck-045.png",
+          "sourceSha256": "133a975dc072a169ceed85615ab2e5a6cde0f80a23f18e61948f0a963c9e98e2",
+          "componentFamily": "game/queenHealthDeck",
+          "printedTitle": null,
+          "token": "Location: upper center, between Discard and additional cards. Outer shape: a large near-square octagonal outline made from separated horizontal, vertical, and diagonal segments, with gaps at the middle of the left and right sides. Internal marks: a large white 3 is centered in a dark translucent green interior, with no other discrete internal mark. Colors: bright green, teal, cyan-green glow, dark green, and white.",
+          "occurrenceSource": "selected-explicit-authoritative-no-match",
+          "occurrenceIndex": 0,
+          "cardLocation": "Upper center, between Discard and additional cards.",
+          "matchDecision": "no-match",
+          "closestAlternative": "The labeled shootDie3, burstDie3, and noiseDie3 crops share the numeral 3; greenItem is the nearest labeled crop in green octagonal tendency. A literal interrupted octagonal display or two opposing segmented brackets around a numeral is the closest noncanonical alternative.",
+          "visibleDiscriminator": "The three labeled 3 crops place their numerals in, respectively, a solid red triangle, purple rounded square, and yellow diamond, whereas the source has a separated glowing green perimeter with open side gaps. The greenItem crop is a solid green octagon containing a white plus. The frame-like burstDieAdditionalEffects crop has four white corner brackets on a filled purple square and no central numeral. None of the 49 crops reproduces the complete source frame-and-glyph morphology.",
+          "evidenceRun": "sol-max-persistent-worker-31-20260821T112612Z-p346900-b7e2c9",
+          "rulesTextPresent": true,
+          "rulesExcerpt": "3\nadditional cards.\n\nIf the card was drawn by a [character].\n\nActivate the Queen.",
+          "ledgerStatus": "deferred"
+        },
+        {
+          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/queenHealthDeck-084.png",
+          "sourceSha256": "bcb0eeb9e86f66f8401b584385746d268641c2692392b3faeb4f93438111a62f",
+          "componentFamily": "game/queenHealthDeck",
+          "printedTitle": null,
+          "token": "Location: upper center, between Discard and additional cards. Outer shape: a large near-square octagonal outline made from separated horizontal, vertical, and diagonal segments, with gaps at the middle of the left and right sides. Internal marks: a large white 1 with an angled upper-left flag, straight stem, broad basal foot, and gray shadow is centered in a dark translucent green interior; faint cross-shaped guide-like lines remain visible behind it. Colors: bright green, teal, cyan-green glow, dark green, white, and gray shadow.",
+          "occurrenceSource": "selected-explicit-authoritative-no-match",
+          "occurrenceIndex": 0,
+          "cardLocation": "Upper center, between Discard and additional cards.",
+          "matchDecision": "no-match",
+          "closestAlternative": "The labeled burstDie1 and noiseDie1 crops share the numeral 1; greenItem is the nearest labeled crop in green octagonal tendency. A literal interrupted octagonal display or two opposing segmented brackets around an I-, l-, or 1-like glyph is the closest noncanonical alternative.",
+          "visibleDiscriminator": "The burstDie1 crop places a white 1 in a solid purple rounded square, and noiseDie1 places a black 1 in a solid yellow diamond. The greenItem crop is a solid green octagon containing a white plus. The source instead has separated glowing green edge segments, side gaps, a translucent interior, and a shadowed white 1. The angled upper-left flag and broad foot favor numeral 1 over I or lowercase l, but no labeled crop reproduces the complete display.",
+          "evidenceRun": "sol-max-persistent-worker-31-20260821T112612Z-p346900-b7e2c9",
+          "rulesTextPresent": true,
+          "rulesExcerpt": "1\nadditional cards.\n\nIf the card was drawn by a [character].\n\nRepel the Queen.",
+          "ledgerStatus": "deferred"
+        },
+        {
+          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/queenHealthDeck-126.png",
+          "sourceSha256": "63654c6409f88599aff333b6a54e90b3c3aaa7a29f2395ffff36eed7ab2d6e49",
+          "componentFamily": "game/queenHealthDeck",
+          "printedTitle": null,
+          "token": "Location: upper center, between Discard and additional cards. Outer shape: a large near-square octagonal outline made from separated horizontal, vertical, and diagonal segments, with gaps at the middle of the left and right sides. Internal marks: a large white 1 with an angled upper-left flag, straight stem, broad basal foot, and gray shadow is centered in a dark translucent green interior; faint cross-shaped guide-like lines remain visible behind it. Colors: bright green, teal, cyan-green glow, dark green, white, and gray shadow.",
+          "occurrenceSource": "selected-explicit-authoritative-no-match",
+          "occurrenceIndex": 0,
+          "cardLocation": "Upper center, between Discard and additional cards.",
+          "matchDecision": "no-match",
+          "closestAlternative": "The labeled burstDie1 and noiseDie1 crops share the numeral 1; greenItem is the nearest labeled crop in green octagonal tendency. A literal interrupted octagonal display or two opposing segmented brackets around an I-, l-, or 1-like glyph is the closest noncanonical alternative.",
+          "visibleDiscriminator": "The burstDie1 crop places a white 1 in a solid purple rounded square, and noiseDie1 places a black 1 in a solid yellow diamond. The greenItem crop is a solid green octagon containing a white plus. The source instead has separated glowing green edge segments, side gaps, a translucent interior, and a shadowed white 1. The angled upper-left flag and broad foot favor numeral 1 over I or lowercase l, but no labeled crop reproduces the complete display.",
+          "evidenceRun": "sol-max-persistent-worker-31-20260821T112612Z-p346900-b7e2c9",
+          "rulesTextPresent": true,
+          "rulesExcerpt": "1\nadditional cards.\n\nIf the card was drawn by a [character].\n\nAdd all Queen tokens to the bag.",
+          "ledgerStatus": "deferred"
+        },
+        {
+          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/queenHealthDeck-164.png",
+          "sourceSha256": "4a79f992bc3e6b7493887c40b1198785673cc87ce462bbdd732b02c8e6a3cf14",
+          "componentFamily": "game/queenHealthDeck",
+          "printedTitle": null,
+          "token": "Location: upper center, between Discard and additional cards. Outer shape: a large near-square octagonal outline made from separated horizontal, vertical, and diagonal segments, with gaps at the middle of the left and right sides. Internal marks: a large white 1 with an angled upper-left flag, straight stem, broad basal foot, and gray shadow is centered in a dark translucent green interior; faint cross-shaped guide-like lines remain visible behind it. Colors: bright green, teal, cyan-green glow, dark green, white, and gray shadow.",
+          "occurrenceSource": "selected-explicit-authoritative-no-match",
+          "occurrenceIndex": 0,
+          "cardLocation": "Upper center, between Discard and additional cards.",
+          "matchDecision": "no-match",
+          "closestAlternative": "The labeled burstDie1 and noiseDie1 crops share the numeral 1; greenItem is the nearest labeled crop in green octagonal tendency. A literal interrupted octagonal display or two opposing segmented brackets around an I-, l-, or 1-like glyph is the closest noncanonical alternative.",
+          "visibleDiscriminator": "The burstDie1 crop places a white 1 in a solid purple rounded square, and noiseDie1 places a black 1 in a solid yellow diamond. The greenItem crop is a solid green octagon containing a white plus. The source instead has separated glowing green edge segments, side gaps, a translucent interior, and a shadowed white 1. The angled upper-left flag and broad foot favor numeral 1 over I or lowercase l, but no labeled crop reproduces the complete display.",
+          "evidenceRun": "sol-max-persistent-worker-31-20260821T112612Z-p346900-b7e2c9",
+          "rulesTextPresent": true,
+          "rulesExcerpt": "1\nadditional cards.\n\nIf the card was drawn by a [character].\n\nEach [character] in the Room with the Queen\nDraws 2 [actionCard].",
+          "ledgerStatus": "deferred"
+        },
+        {
+          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/queenHealthDeck-165.png",
+          "sourceSha256": "763ca108996c746f141b6f505d3afee2c30be1f6f4f38b84d0118f9f76bdf765",
+          "componentFamily": "game/queenHealthDeck",
+          "printedTitle": null,
+          "token": "Location: upper center, between Discard and additional cards. Outer shape: a large near-square octagonal outline composed of separated horizontal, vertical, and diagonal segments, with gaps at the middle of the left and right sides. Internal marks: a large white 2 with a curved top, descending diagonal middle, horizontal basal stroke, and gray shadow is centered in a dark translucent green interior; faint guide-like lines remain visible behind it. Colors: bright green, teal, cyan-green glow, dark green, white, and gray shadow.",
+          "occurrenceSource": "selected-explicit-authoritative-no-match",
+          "occurrenceIndex": 0,
+          "cardLocation": "Upper center, between Discard and additional cards.",
+          "matchDecision": "no-match",
+          "closestAlternative": "The labeled shootDie2, burstDie2, and noiseDie2 crops share the numeral 2; greenItem is the nearest labeled crop in green octagonal tendency. A literal interrupted octagonal display or two opposing segmented brackets around a numeral is the closest noncanonical alternative.",
+          "visibleDiscriminator": "The shootDie2, burstDie2, and noiseDie2 crops place 2 inside, respectively, a solid red triangle, purple rounded square, and yellow diamond. The greenItem crop is a solid green octagon containing a white plus, and burstDieAdditionalEffects has four white corner brackets on a filled purple square without a numeral. The source instead has separated glowing green perimeter segments, open side gaps, and a translucent interior. No supplied crop reproduces the complete source frame-and-glyph morphology.",
+          "evidenceRun": "sol-max-persistent-worker-31-20260821T112612Z-p346900-b7e2c9",
+          "rulesTextPresent": true,
+          "rulesExcerpt": "2\nadditional cards.\n\nIf the card was drawn by a [character].\n\nEach [character] in the Room with the Queen\nMakes a Noise roll.",
+          "ledgerStatus": "deferred"
+        },
+        {
+          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/robotDeck-155.jpg",
+          "sourceSha256": "9cf67e814071c67c598456070306951e3e24cb00a274b20d736596acfeb67c39",
+          "componentFamily": "game/robotDeck",
+          "printedTitle": null,
+          "token": "Location: center of the assigned panel, entirely within the illuminated octagonal pane. Outer shape: a compact horizontal irregular silhouette with a broad sloped central body, a thin jointed rod-like extension projecting left, and two large separate circular lobes attached along the lower-right edge, all enclosed by a thick white contour. Internal marks: the broad body contains pale olive and cream regions, a large white angular diagonal patch, and two small light yellow-green quadrilateral patches near its upper surface; each circular lower lobe has a pale olive center and thick white surround, while dark gaps separate portions of the body, extension, and lobes. Colors: white, off-white, cream, pale olive, light yellow-green, and dark gray negative space.",
+          "occurrenceSource": "selected-explicit-authoritative-no-match",
+          "occurrenceIndex": 0,
+          "cardLocation": "Center of P2, entirely within the illuminated octagonal pane.",
+          "matchDecision": "no-match",
+          "closestAlternative": "The p.40 robot crop is the closest labeled mechanical-looking candidate; a wheeled mechanical silhouette, irregular creature-like silhouette, or abstract multi-part assembly is the closest literal alternative.",
+          "visibleDiscriminator": "The robot crop is a compact white domed head or body with a short top antenna and two large dark circular eye openings. The source instead has a long jointed left extension, a broad sloped multicolored body, two large lower-right wheel-like circles, angular internal color patches, and no paired eye apertures. No other crop contains this arm-and-wheel-like multi-part morphology, so the source has no authoritative glossary match.",
+          "evidenceRun": "sol-max-persistent-worker-31-20260821T112612Z-p346900-b7e2c9",
+          "rulesTextPresent": false,
+          "rulesExcerpt": "",
+          "ledgerStatus": "deferred"
+        },
+        {
+          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-144_cards/card-07.png",
+          "sourceSha256": "7b823f5dd37c1464ad713cb07e60b0731264d1f87ca87901c1e4c86bdd993f19",
+          "componentFamily": "game/startItemDeck",
+          "printedTitle": null,
+          "token": "P1, in the upper-right field at approximately x=721-862 and y=66-257, with the outer plaque clipped by the source raster's right edge. Outer shape: large bright-red angular plaque with a horizontal top, chamfered upper-left and lower-left corners, and a vertical left-middle edge. Centered within it is a white vertically elongated grenade-like ovoid with broad shoulders, a narrow capped top, and a tapered pointed lower end. Internal marks: thin red vertical and curved cross-divisions segment the white body into central and side facets, and a thin white curved line extends leftward and downward from the capped top. Colors: bright red, white, and dark-red edge shading.",
+          "occurrenceSource": "selected-explicit-authoritative-no-match",
+          "occurrenceIndex": 0,
+          "cardLocation": "Upper-right field, approximately x=721–862 and y=66–257; red outer plaque clipped by the right raster edge.",
+          "matchDecision": "no-match",
+          "closestAlternative": "grenadeToken",
+          "visibleDiscriminator": "The grenadeToken crop has a compact purple-magenta compound token body with a narrower dark-purple right-side panel. The source instead places the white segmented ovoid inside a much larger bright-red angular plaque, with no matching purple field or visibly corresponding compound-token boundary. None of the other 48 crops has this red-plaque configuration.",
+          "evidenceRun": "sol-max-persistent-worker-32-20260821T135953Z-p441103-69bcb8",
+          "rulesTextPresent": true,
+          "rulesExcerpt": "Burst: You may use a [ICON: red chamfered block containing a white upright capped bulb silhouette and a darker-red right side] from this Weapon\nbefore or instead of a normal Burst.",
+          "ledgerStatus": "deferred"
+        },
+        {
+          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-144_cards/card-07.png",
+          "sourceSha256": "7b823f5dd37c1464ad713cb07e60b0731264d1f87ca87901c1e4c86bdd993f19",
+          "componentFamily": "game/startItemDeck",
+          "printedTitle": null,
+          "token": "P1, on the first instruction line between \"a\" and \"from this Weapon,\" approximately x=425-474 and y=392-442. Outer shape: small horizontally elongated bright-red compound block with a chamfered near-square front portion and a narrower contiguous dark-red angular side portion. Internal marks: the front contains a white upright capped grenade-like silhouette with a rounded segmented lower body, small red or pale-pink cutouts, and a curved white side line; the right side contains a dark vertical recess. Colors: bright red, dark red, white, pale pink, and dark maroon.",
+          "occurrenceSource": "selected-explicit-authoritative-no-match",
+          "occurrenceIndex": 1,
+          "cardLocation": "First instruction line, between “a” and “from this Weapon”, approximately x=425–474 and y=392–442.",
+          "matchDecision": "no-match",
+          "closestAlternative": "grenadeToken",
+          "visibleDiscriminator": "The source and grenadeToken crop share a segmented white grenade-like internal silhouette and a compound body with a darker right-side panel, but their authoritative outer colors differ visibly: the source body is bright red with a dark-red side, whereas the glossary crop is purple-magenta with a dark-purple side. The red ammoToken crop has the source's general outer color but contains multiple black ammunition bars rather than the white segmented form, so no supplied crop matches the complete occurrence.",
+          "evidenceRun": "sol-max-persistent-worker-32-20260821T135953Z-p441103-69bcb8",
+          "rulesTextPresent": true,
+          "rulesExcerpt": "Burst: You may use a [ICON: red chamfered block containing a white upright capped bulb silhouette and a darker-red right side] from this Weapon\nbefore or instead of a normal Burst.",
+          "ledgerStatus": "deferred"
+        },
+        {
+          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-144_cards/card-14.png",
+          "sourceSha256": "f29213e6aa1250538e65825cafbaa61be3348ba79520842e6b8f22f7c5ad4a77",
+          "componentFamily": "game/startItemDeck",
+          "printedTitle": null,
+          "token": "Lower instruction line 2, approximately x=417–465, y=436–479; small red near-square with slightly rounded or chamfered corners; one broad near-black rectangular inset is split into left and right fields by a narrow red vertical separator; colors red and near-black.",
+          "occurrenceSource": "selected-explicit-authoritative-no-match",
+          "occurrenceIndex": 1,
+          "cardLocation": "Lower instruction line 2, approximately x=417–465, y=436–479.",
+          "matchDecision": "no-match",
+          "closestAlternative": "ammoToken (assets/icons/tactical-gear/ammo-token.png)",
+          "visibleDiscriminator": "The glossary ammoToken is a horizontally elongated chamfered tag with several visibly separate near-black vertical cartridge marks on the left and a distinct dark-red end block on the right. The source is near-square and exposes only one broad split dark rectangle, without the repeated cartridge marks needed to discriminate ammoToken from a local red framed block; ammoSlot instead has one unsplit dark trapezoidal opening.",
+          "evidenceRun": "sol-max-persistent-worker-33-20260821T172305Z-p465856-36ac0c",
+          "rulesTextPresent": true,
+          "rulesExcerpt": "[shootDie2][illegible] treat this result as a [shootDieCritical]\nand spend 1 [ICON: red near-square with a split dark rectangular inset] as normal.",
+          "ledgerStatus": "deferred"
+        }
+      ]
+    },
+    {
+      "cluster": "red-prohibition-overlay",
+      "status": "morphology-only-unresolved",
+      "priorityScore": 1333,
+      "occurrences": 13,
+      "assetCount": 12,
+      "rulesBearingAssetCount": 12,
+      "distinctLiteralDescriptions": 12,
+      "resolutionStrategy": "Inspect glyph location and occluded base silhouette; compare with authoritative restriction/action icons rather than inferring from rules semantics.",
+      "topRepeatedLiterals": [
+        {
+          "token": "Location: right side of the title area, beside the two-line title and above the rules panel. Outer shape: an unenclosed approximately X-shaped construction formed by one broad bright-red diagonal bar and an opposing white diagonal or central stroke. Internal marks: the white portion has several short parallel horizontal prongs at its left and right ends, with dark gaps separating the prongs; the red bar crosses over the center from lower-left toward upper-right. Colors: bright red, dark red, white, black, and gray shadow.",
+          "count": 2
+        },
+        {
+          "token": "Location: right side of the title area, beside the two-line title and above the rules panel. Outer shape: a thick bright-red circular ring crossed by a broad red diagonal bar rising from lower-left toward upper-right. Internal marks: a white pointed bilateral silhouette lies inside the ring, with a long narrow central axis, a pointed end, paired lateral triangular or bar-like extensions, and several short parallel white bars on one side; the red bar obscures part of the center. Colors: bright red, dark red, white, black, and gray shadow.",
+          "count": 1
+        },
+        {
+          "token": "Location: right side of the title area, beside the two-line title and above the rules panel. Outer shape: an approximately circular dark-red field with partial brighter-red perimeter arcs and a broad bright-red diagonal bar rising from lower-left toward upper-right. Internal marks: a thick white diagonal stroke crosses in the opposing direction and has multiple short parallel white prongs or bars near its ends, producing an X-like crossed construction beneath the red bar. Colors: bright red, dark red, white, black, and gray shadow.",
+          "count": 1
+        },
+        {
+          "token": "Location: upper-left P1 immediately right of M1 and left of the first dark-red aperture; outer shape: thick open chevron pointing left; internal marks: a dark triangular negative space between two diagonal bars; colors: medium gray and dark gray.",
+          "count": 1
+        },
+        {
+          "token": "Location: upper-right quadrant of P1. Outer shape: roughly square composite glyph consisting of a horizontally elongated white stepped silhouette beneath two thick red diagonal bars forming a complete X. Internal marks: the exposed white ends contain short red horizontal inset strokes, with portions occluded by the X and black shadowing around the glyph. Colors: white, bright red, dark red, and black.",
+          "count": 1
+        },
+        {
+          "token": "P1 upper-right, over a pale faceted polygon within a thin dark polygonal outline; outer shape: complete red outlined circle; internal marks: broad red diagonal bar crossing the circle and overlaying a light-gray faceted quadrilateral with a darker-gray triangular facet; colors: red, light gray, dark gray, and black.",
+          "count": 1
+        },
+        {
+          "token": "P1, in the upper-right title field at approximately x=721-791 and y=154-214, isolated to the right of \"EQUIPMENT.\" Outer shape: two broad bright-red diagonal bars cross as an X over a horizontally elongated white silhouette. Internal marks: the partly occluded white form has a broad rounded or looped left end, a narrower central span, and a stepped rectangular right end containing dark grooves or notches. Colors: bright red, white, pale-gray antialiasing, and dark blue-black negative space.",
+          "count": 1
+        },
+        {
+          "token": "Right side of P1 below M2; a thick red circular ring crossed by an upper-left-to-lower-right diagonal bar; a light gray or off-white circular form with regularly spaced broad rectangular projections surrounding a darker olive-brown center; red, off-white/light gray, olive-brown, and near-black.",
+          "count": 1
+        },
+        {
+          "token": "Upper right, approximately x=723–789, y=154–213; two thick red diagonal bars form an X over a short white horizontal stepped silhouette; exposed white portions contain small near-black slit-like marks, while the red X occludes most of the center; colors red, white, and near-black.",
+          "count": 1
+        },
+        {
+          "token": "Upper right, immediately to the right of the two-line title; a white horizontally elongated stepped or pointed silhouette is crossed corner-to-corner by two thick red diagonal bars forming an X; several short dark horizontal strokes remain visible toward the right end of the white under-form; colors are red, white, and dark gray/black.",
+          "count": 1
+        },
+        {
+          "token": "Upper-right of P1, higher of the two red barred graphics; a thick red circular ring with an upper-left-to-lower-right diagonal bar and a thin irregular gray polygonal outline behind it; an asymmetric gray form with a light upper polygonal facet and darker lower facets divided by dark straight seams; red, light gray, medium gray, dark gray, and near-black.",
+          "count": 1
+        },
+        {
+          "token": "Upper-right of the title plaque, immediately right of TOOLS and ONE USE ONLY. The roughly square composite footprint consists of two thick bright-red diagonal bars, with dark-red shadowing, intersecting near the center over an elongated white glyph on a dark background. The partly hidden white underform has a rounded or hooked left portion, a horizontal body, and short split projections at the right.",
+          "count": 1
+        }
+      ],
+      "evidence": [
+        {
+          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-10.png",
+          "sourceSha256": "d8e12e0209d014f6a18e716b3bf0aa7b75f8c49b61b6d7579c36fdb5dc9b805d",
+          "componentFamily": "character/heavy-gun-operator",
+          "printedTitle": null,
+          "token": "Location: upper-right quadrant of P1. Outer shape: roughly square composite glyph consisting of a horizontally elongated white stepped silhouette beneath two thick red diagonal bars forming a complete X. Internal marks: the exposed white ends contain short red horizontal inset strokes, with portions occluded by the X and black shadowing around the glyph. Colors: white, bright red, dark red, and black.",
+          "occurrenceSource": "selected-explicit-authoritative-no-match",
+          "occurrenceIndex": 0,
+          "cardLocation": "Upper-right quadrant of the illustrated field.",
+          "matchDecision": "no-match",
+          "closestAlternative": "notInCombat is the closest frozen red-over-white negation graphic; the closest literal alternative is a crossed-out stepped ribbon or banner-like badge.",
+          "visibleDiscriminator": "The notInCombat crop has a red circular prohibition ring and one diagonal slash over a white intruder silhouette. M1 has no ring or intruder contour, uses two diagonal bars as a complete X, and has an elongated stepped white base with red inset strokes. None of the other labeled glossary crops reproduces this construction.",
+          "evidenceRun": "sol-max-persistent-worker-33-20260821T172305Z-p465856-36ac0c",
+          "rulesTextPresent": true,
+          "rulesExcerpt": "Choose a Rifle with [ammoToken] and Burst using it.\nThen, you may Move through the Corridor\nyou have Bursted at.",
+          "ledgerStatus": "deferred"
+        },
+        {
+          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/reditem-148_cards/card-01.png",
+          "sourceSha256": "4d61a4e3a38bc7cb5ecf52f452457c59ecc7c95755d25ee380238d7835caba77",
+          "componentFamily": "game/reditem",
+          "printedTitle": null,
+          "token": "Location: right side of the title area, beside the two-line title and above the rules panel. Outer shape: a thick bright-red circular ring crossed by a broad red diagonal bar rising from lower-left toward upper-right. Internal marks: a white pointed bilateral silhouette lies inside the ring, with a long narrow central axis, a pointed end, paired lateral triangular or bar-like extensions, and several short parallel white bars on one side; the red bar obscures part of the center. Colors: bright red, dark red, white, black, and gray shadow.",
+          "occurrenceSource": "selected-explicit-authoritative-no-match",
+          "occurrenceIndex": 0,
+          "cardLocation": "Right side of P2, beside the two-line title and above P3.",
+          "matchDecision": "no-match",
+          "closestAlternative": "The p.40 notInCombat crop is the closest labeled barred-circle morphology, while lander is the closest labeled pointed white inner silhouette; a prohibition overlay around a mechanical or directional form is the closest literal alternative.",
+          "visibleDiscriminator": "The notInCombat crop contains a red ring and diagonal bar over an asymmetric spiky curled figure with visible facial apertures and an inward-hooking lower contour. The source instead contains a bilaterally pointed long-axis form with paired lateral extensions and parallel bars. The lander crop has no red prohibition overlay and has a central slit, raised side arms, and scalloped base. No supplied crop reproduces both the source overlay and its inner morphology.",
+          "evidenceRun": "sol-max-persistent-worker-31-20260821T112612Z-p346900-b7e2c9",
+          "rulesTextPresent": true,
+          "rulesExcerpt": "Only in [computer] Room without [malfunction].\n\nTake both Anti-Aircraft tokens\nand place them in any order.",
+          "ledgerStatus": "deferred"
+        },
+        {
+          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/reditem-148_cards/card-02.png",
+          "sourceSha256": "441834df437ddff13e8fe8d485e615df7b67730aa1903610fbd474ee73d0161c",
+          "componentFamily": "game/reditem",
+          "printedTitle": null,
+          "token": "Location: right side of the title area, beside the two-line title and above the rules panel. Outer shape: an approximately circular dark-red field with partial brighter-red perimeter arcs and a broad bright-red diagonal bar rising from lower-left toward upper-right. Internal marks: a thick white diagonal stroke crosses in the opposing direction and has multiple short parallel white prongs or bars near its ends, producing an X-like crossed construction beneath the red bar. Colors: bright red, dark red, white, black, and gray shadow.",
+          "occurrenceSource": "selected-explicit-authoritative-no-match",
+          "occurrenceIndex": 0,
+          "cardLocation": "Right side of P2, beside the two-line title and above P3.",
+          "matchDecision": "no-match",
+          "closestAlternative": "The p.40 notInCombat crop is the closest labeled red cancellation morphology; a red cancellation bar over a forked tool, arrow, or branch-like white mark is the closest literal alternative.",
+          "visibleDiscriminator": "The notInCombat crop has a complete red circular ring and one diagonal bar over a white-and-black asymmetric spiky curled figure. The source has only partial red perimeter arcs and contains an opposing white multi-pronged diagonal stroke rather than the curled figure. The inactive life-support and hibernatorium crops use black slashes over cyan or purple rounded capsules, not this red-and-white crossed construction. No supplied crop reproduces the complete morphology.",
+          "evidenceRun": "sol-max-persistent-worker-31-20260821T112612Z-p346900-b7e2c9",
+          "rulesTextPresent": true,
+          "rulesExcerpt": "Place 1 [ICON: red rounded rectangular tile with white upright bulb-shaped inset] in an empty Corridor.\nWhen any number of [intruder]\nare placed in that Corridor,\nremove the [ICON: red rounded rectangular tile with white upright bulb-shaped inset] and resolve\nthe token effect there.",
+          "ledgerStatus": "deferred"
+        },
+        {
+          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/reditem-148_cards/card-03.png",
+          "sourceSha256": "8f1f1ba0b8958061a8fb1ac0bea5972f6d090db76b56f4eb148ff0a8a337d992",
+          "componentFamily": "game/reditem",
+          "printedTitle": null,
+          "token": "Location: right side of the title area, beside the two-line title and above the rules panel. Outer shape: an unenclosed approximately X-shaped construction formed by one broad bright-red diagonal bar and an opposing white diagonal or central stroke. Internal marks: the white portion has several short parallel horizontal prongs at its left and right ends, with dark gaps separating the prongs; the red bar crosses over the center from lower-left toward upper-right. Colors: bright red, dark red, white, black, and gray shadow.",
+          "occurrenceSource": "selected-explicit-authoritative-no-match",
+          "occurrenceIndex": 0,
+          "cardLocation": "Right side of P2, beside the two-line title and above P3.",
+          "matchDecision": "no-match",
+          "closestAlternative": "The p.40 notInCombat crop is the closest labeled cancellation morphology; a red cancellation stroke over a white forked tool, arrow, branch, or corridor-like mark is the closest literal alternative.",
+          "visibleDiscriminator": "The notInCombat crop has a complete red circular ring and diagonal bar over a white-and-black asymmetric spiky curled figure. The source has no enclosing ring and its inner white form is a multi-pronged linear construction rather than an intruder silhouette. The inactive life-support and hibernatorium crops use black slashes over colored rounded capsules, and the corridor crops are complete white room outlines rather than crossed multi-pronged strokes. None of the 49 crops reproduces the complete source morphology.",
+          "evidenceRun": "sol-max-persistent-worker-31-20260821T112612Z-p346900-b7e2c9",
+          "rulesTextPresent": true,
+          "rulesExcerpt": "Resolve an Exploration Procedure\nfor a Room on the other side\nof an empty, Open Corridor.",
+          "ledgerStatus": "deferred"
+        },
+        {
+          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/reditem-148_cards/card-06.png",
+          "sourceSha256": "e149151bec4cb0d41875581b66864e5f2dd1465e169158ff46ce62f7aedc7c91",
+          "componentFamily": "game/reditem",
+          "printedTitle": null,
+          "token": "Location: right side of the title area, beside the two-line title and above the rules panel. Outer shape: an unenclosed approximately X-shaped construction formed by one broad bright-red diagonal bar and an opposing white diagonal or central stroke. Internal marks: the white portion has several short parallel horizontal prongs at its left and right ends, with dark gaps separating the prongs; the red bar crosses over the center from lower-left toward upper-right. Colors: bright red, dark red, white, black, and gray shadow.",
+          "occurrenceSource": "selected-explicit-authoritative-no-match",
+          "occurrenceIndex": 0,
+          "cardLocation": "Right side of P2, beside the two-line title and above P3.",
+          "matchDecision": "no-match",
+          "closestAlternative": "The p.40 notInCombat crop is the closest labeled cancellation morphology; a red cancellation stroke over a white forked tool, arrow, branch, or corridor-like mark is the closest literal alternative.",
+          "visibleDiscriminator": "The notInCombat crop has a complete red circular ring and diagonal bar over an asymmetric spiky curled figure. The source has no enclosing ring and its underlying white form is a multi-pronged linear construction. The inactive life-support and hibernatorium crops use black slashes over cyan or purple rounded capsules, while the corridor crops are complete white room outlines. None of the 49 crops reproduces the source's crossed construction.",
+          "evidenceRun": "sol-max-persistent-worker-31-20260821T112612Z-p346900-b7e2c9",
+          "rulesTextPresent": true,
+          "rulesExcerpt": "Only in a [computer] Room with no [malfunction].\nCheck all Objective cards\nof a chosen Character.",
+          "ledgerStatus": "deferred"
+        },
+        {
+          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-144_cards/card-03.png",
+          "sourceSha256": "91857d78dd2e2dabd20dce496309d854c921a846db8708f24477189a8f3f4ac1",
+          "componentFamily": "game/startItemDeck",
+          "printedTitle": null,
+          "token": "P1, in the upper-right title field at approximately x=721-791 and y=154-214, isolated to the right of \"EQUIPMENT.\" Outer shape: two broad bright-red diagonal bars cross as an X over a horizontally elongated white silhouette. Internal marks: the partly occluded white form has a broad rounded or looped left end, a narrower central span, and a stepped rectangular right end containing dark grooves or notches. Colors: bright red, white, pale-gray antialiasing, and dark blue-black negative space.",
+          "occurrenceSource": "selected-explicit-authoritative-no-match",
+          "occurrenceIndex": 0,
+          "cardLocation": "Upper-right title field, approximately x=721–791 and y=154–214; isolated to the right of “EQUIPMENT”.",
+          "matchDecision": "no-match",
+          "closestAlternative": "notInCombat, the closest supplied compound crop with a red overlay over a white silhouette",
+          "visibleDiscriminator": "The notInCombat crop has a complete red circular ring plus one diagonal slash over a curled, spiked white silhouette. The source instead has two diagonal red bars forming an X, no circular ring, and a horizontally elongated white form with rounded and stepped ends. None of the 49 crops contains the source's complete crossed-X composite.",
+          "evidenceRun": "sol-max-persistent-worker-32-20260821T135953Z-p441103-69bcb8",
+          "rulesTextPresent": true,
+          "rulesExcerpt": "Remove a [malfunction].\nOR\nRemove this Item and Reinforce an empty Corridor.",
+          "ledgerStatus": "deferred"
+        },
+        {
+          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-144_cards/card-14.png",
+          "sourceSha256": "f29213e6aa1250538e65825cafbaa61be3348ba79520842e6b8f22f7c5ad4a77",
+          "componentFamily": "game/startItemDeck",
+          "printedTitle": null,
+          "token": "Upper right, approximately x=723–789, y=154–213; two thick red diagonal bars form an X over a short white horizontal stepped silhouette; exposed white portions contain small near-black slit-like marks, while the red X occludes most of the center; colors red, white, and near-black.",
+          "occurrenceSource": "selected-explicit-authoritative-no-match",
+          "occurrenceIndex": 0,
+          "cardLocation": "Upper right, approximately x=723–789, y=154–213.",
+          "matchDecision": "no-match",
+          "closestAlternative": "notInCombat (assets/icons/general/not-in-combat.png), or a local crossed emblem",
+          "visibleDiscriminator": "The source has two red bars forming an X and a horizontal stepped white glyph with dark slits. The glossary notInCombat mark instead has a red circular prohibition border with one diagonal slash over a white intruder silhouette; no glossary crop reproduces the source overlay geometry.",
+          "evidenceRun": "sol-max-persistent-worker-33-20260821T172305Z-p465856-36ac0c",
+          "rulesTextPresent": true,
+          "rulesExcerpt": "[shootDie2][illegible] treat this result as a [shootDieCritical]\nand spend 1 [ICON: red near-square with a split dark rectangular inset] as normal.",
+          "ledgerStatus": "deferred"
+        },
+        {
+          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-144_cards/card-15.png",
+          "sourceSha256": "185c18384a4343c00a698a6105225c7690448689da332dba204daf13a398ecdb",
+          "componentFamily": "game/startItemDeck",
+          "printedTitle": null,
+          "token": "Upper right, immediately to the right of the two-line title; a white horizontally elongated stepped or pointed silhouette is crossed corner-to-corner by two thick red diagonal bars forming an X; several short dark horizontal strokes remain visible toward the right end of the white under-form; colors are red, white, and dark gray/black.",
+          "occurrenceSource": "selected-explicit-authoritative-no-match",
+          "occurrenceIndex": 0,
+          "cardLocation": "Upper right, immediately to the right of the two-line title.",
+          "matchDecision": "no-match",
+          "closestAlternative": "notInCombat is the closest frozen negation-style candidate; the literal alternative is a decorative red X over a ribbon-like or local white ornament.",
+          "visibleDiscriminator": "The source has two red diagonal bars forming an X with no enclosing red circle, and its white under-form is horizontally stepped with repeated dark strokes. The notInCombat crop instead has a red circular prohibition border with one slash over a white creature profile; no other frozen crop matches the source composite.",
+          "evidenceRun": "sol-max-persistent-worker-33-20260821T172305Z-p465856-36ac0c",
+          "rulesTextPresent": true,
+          "rulesExcerpt": "[actionCard]t the start of the game choose a [robot] card\nand place the [robot] in the Landing Zone.\nDiscard A.\nActivate [robot] from anywhere in the Facility.",
+          "ledgerStatus": "deferred"
+        },
+        {
+          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/yellowitem-145_cards/card-03.png",
+          "sourceSha256": "7bf955ec7367f7242814ff9bd7c669b8c4e8b5b316bb6b281f59b6f2f3594253",
+          "componentFamily": "game/yellowitem",
+          "printedTitle": null,
+          "token": "Upper-right of the title plaque, immediately right of TOOLS and ONE USE ONLY. The roughly square composite footprint consists of two thick bright-red diagonal bars, with dark-red shadowing, intersecting near the center over an elongated white glyph on a dark background. The partly hidden white underform has a rounded or hooked left portion, a horizontal body, and short split projections at the right.",
+          "occurrenceSource": "selected-explicit-authoritative-no-match",
+          "occurrenceIndex": 0,
+          "cardLocation": "Upper-right of the title plaque",
+          "matchDecision": "no-match",
+          "closestAlternative": "Literal alternative: a standalone red X positioned over or beside an unrelated white horizontal emblem; the closest frozen glossary overlay is notInCombat.",
+          "visibleDiscriminator": "Both red diagonal strokes visibly overlap and continue across the white underform, establishing an integrated X-over-glyph composite rather than adjacent graphics. No frozen glossary crop has that composite. In particular, notInCombat has a complete red prohibition circle and one diagonal slash over a white spined creature, whereas M1 has no circle, has two crossing red bars, and has a horizontal white underform.",
+          "evidenceRun": "sol-max-persistent-worker-33-20260821T172305Z-p465856-36ac0c",
+          "rulesTextPresent": true,
+          "rulesExcerpt": "Discard a [malfunction]\nOR\nOpen or Close 1 Door.",
+          "ledgerStatus": "deferred"
+        },
+        {
+          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/tiles/room/nest-014.jpg",
+          "sourceSha256": "f5e3e108fdcb5b43919535e3a4eb9913456c57fd0946cb689223eaf80d1fd224",
+          "componentFamily": "non-corpus/tiles",
+          "printedTitle": "NEST",
+          "token": "Right side of P1 below M2; a thick red circular ring crossed by an upper-left-to-lower-right diagonal bar; a light gray or off-white circular form with regularly spaced broad rectangular projections surrounding a darker olive-brown center; red, off-white/light gray, olive-brown, and near-black.",
+          "occurrenceSource": "selected-explicit-authoritative-no-match",
+          "occurrenceIndex": 2,
+          "cardLocation": "Right side of P1, below M2",
+          "matchDecision": "no-match",
+          "closestAlternative": "malfunction by the internal toothed form; notInCombat by the outer prohibition geometry; literal alternative: a radial rosette or sunburst",
+          "visibleDiscriminator": "The broad squared projections at regular intervals visibly establish a gear-like rather than tapered rosette interior. However, notInCombat has an intruder silhouette instead of a gear, while malfunction is an unbarred gray broken-gear icon. No frozen token combines this toothed interior with the material red prohibition ring and bar.",
+          "evidenceRun": "sol-max-persistent-worker-33-20260821T172305Z-p465856-36ac0c",
+          "rulesTextPresent": true,
+          "rulesExcerpt": "Take 1 Intruder Egg\nand make a Noise roll.",
+          "ledgerStatus": "deferred"
+        },
+        {
+          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/tiles/room/nest-014.jpg",
+          "sourceSha256": "f5e3e108fdcb5b43919535e3a4eb9913456c57fd0946cb689223eaf80d1fd224",
+          "componentFamily": "non-corpus/tiles",
+          "printedTitle": "NEST",
+          "token": "Upper-right of P1, higher of the two red barred graphics; a thick red circular ring with an upper-left-to-lower-right diagonal bar and a thin irregular gray polygonal outline behind it; an asymmetric gray form with a light upper polygonal facet and darker lower facets divided by dark straight seams; red, light gray, medium gray, dark gray, and near-black.",
+          "occurrenceSource": "selected-explicit-authoritative-no-match",
+          "occurrenceIndex": 1,
+          "cardLocation": "Upper-right of P1; the higher of two red barred graphics",
+          "matchDecision": "no-match",
+          "closestAlternative": "notInCombat by the outer prohibition geometry; secure by the internal faceted motif; literal alternative: two overlapping gray polygonal blocks",
+          "visibleDiscriminator": "The notInCombat crop contains a visibly spined white intruder silhouette, which is absent here. The secure crop is an unbarred white symmetric shield/chevron emblem, while this complete occurrence materially includes a red ring and diagonal bar around a shaded asymmetric faceted form. The visible seams may favor one faceted form over separate blocks, but no frozen token combines that interior with this prohibition overlay.",
+          "evidenceRun": "sol-max-persistent-worker-33-20260821T172305Z-p465856-36ac0c",
+          "rulesTextPresent": true,
+          "rulesExcerpt": "Take 1 Intruder Egg\nand make a Noise roll.",
+          "ledgerStatus": "deferred"
+        },
+        {
+          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/tiles/room/technical-corridor-entrance-006.jpg",
+          "sourceSha256": "75f637fba2487eae76be7638126c409b8402973c5cd80d071d134221bb1791fb",
+          "componentFamily": "non-corpus/tiles",
+          "printedTitle": "TECHNICAL CORRIDOR\nENTRANCE",
+          "token": "P1 upper-right, over a pale faceted polygon within a thin dark polygonal outline; outer shape: complete red outlined circle; internal marks: broad red diagonal bar crossing the circle and overlaying a light-gray faceted quadrilateral with a darker-gray triangular facet; colors: red, light gray, dark gray, and black.",
+          "occurrenceSource": "selected-explicit-authoritative-no-match",
+          "occurrenceIndex": 1,
+          "cardLocation": "P1 upper-right, over a pale faceted polygon within a thin dark polygonal outline.",
+          "matchDecision": "no-match",
+          "closestAlternative": "notInCombat is the closest frozen composite; the literal alternative is a slashed-zero-like or decorative ring-and-bar stencil.",
+          "visibleDiscriminator": "The notInCombat crop visibly places its red ring and slash over a jagged white intruder silhouette with spines and facial details. M2 instead contains a simple faceted gray quadrilateral with a darker triangular facet. The shared prohibition ring and bar cannot establish the token when the underlying internal subject differs.",
+          "evidenceRun": "sol-max-persistent-worker-33-20260821T172305Z-p465856-36ac0c",
+          "rulesTextPresent": true,
+          "rulesExcerpt": "Move your Character\nto a Room.\nResolve an Intruder Attack card\n(treat it as an Adult Attack).",
+          "ledgerStatus": "deferred"
+        },
+        {
+          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/tokens/character/recon-005.png",
+          "sourceSha256": "1d20c2dbf3dea84f870a37bfc13fb6b3af1e8d0b6e37ec6096360049dbdc81cb",
+          "componentFamily": "non-corpus/tokens",
+          "printedTitle": "RECON",
+          "token": "Location: upper-left P1 immediately right of M1 and left of the first dark-red aperture; outer shape: thick open chevron pointing left; internal marks: a dark triangular negative space between two diagonal bars; colors: medium gray and dark gray.",
+          "occurrenceSource": "selected-explicit-authoritative-no-match",
+          "occurrenceIndex": 1,
+          "cardLocation": "Upper-left P1, immediately right of M1 and left of the first dark-red square aperture.",
+          "matchDecision": "no-match",
+          "closestAlternative": "A decorative angular bracket or track-direction marker; no frozen glossary token has this isolated open-chevron form.",
+          "visibleDiscriminator": "It is an open left-facing two-bar form without a closed token boundary or any numeral, object glyph, or other internal discriminator found in the glossary set.",
+          "evidenceRun": "sol-max-persistent-worker-33-20260821T172305Z-p465856-36ac0c",
+          "rulesTextPresent": true,
+          "rulesExcerpt": "B[actionCard]SIC [actionCard]CTIONS\n[ICON: small white right-pointing filled triangle] PL[actionCard]Y AN ACTION CARD\n[ICON: small white right-pointing filled triangle] PASS\nDISCARD A\n[ICON: small white right-pointing filled triangle] MAKE A MOVE\n[ICON: small white right-pointing filled triangle] PLACE 1 [secure]\n[ICON: small white right-pointing filled triangle] FIRE A SHOT\n[ICON: small white right-pointing filled triangle] FIRE A BURST\n[ICON: small white right-pointing filled triangle] MELEE A",
+          "ledgerStatus": "deferred"
+        }
+      ]
+    },
+    {
       "cluster": "square-or-checkbox-morphology",
       "status": "morphology-only-unresolved",
-      "priorityScore": 1571,
-      "occurrences": 21,
-      "assetCount": 15,
-      "rulesBearingAssetCount": 14,
-      "distinctLiteralDescriptions": 21,
+      "priorityScore": 1238,
+      "occurrences": 18,
+      "assetCount": 12,
+      "rulesBearingAssetCount": 11,
+      "distinctLiteralDescriptions": 18,
       "resolutionStrategy": "Distinguish mission checkbox/control decoration from operative inline icons using layout and official component references.",
       "topRepeatedLiterals": [
         {
@@ -5821,23 +6404,15 @@
           "count": 1
         },
         {
-          "token": "P1, at the beginning of the final instruction line, approximately x=237-283 and y=434-479, immediately before a separately printed colon. Outer shape: filled purple-magenta near-square with slightly softened or pixel-stepped corners and dark-purple edge shading. Internal marks: one plain upright white rectangular bar and one smaller detached white square dot are vertically aligned near the center. Colors: purple-magenta, white, and dark purple.",
-          "count": 1
-        },
-        {
-          "token": "P1, at the beginning of the third instruction line, approximately x=237-283 and y=435-479, immediately before a separately printed colon. Outer shape: filled purple-magenta near-square with slightly softened or pixel-stepped corners and dark-purple edge shading. Internal marks: one plain upright white rectangular bar and one smaller detached white square dot are vertically aligned near the center. Colors: purple-magenta, white, and dark purple.",
-          "count": 1
-        },
-        {
-          "token": "P1, at the beginning of the third instruction line, approximately x=297-344 and y=435-480, immediately before a separately printed comma. Outer shape: filled purple-magenta near-square with slightly softened or pixel-stepped corners and dark-purple edge shading. Internal marks: one plain upright white rectangular bar and one smaller detached white square dot are vertically aligned near the center. Colors: purple-magenta, white, and dark purple.",
-          "count": 1
-        },
-        {
           "token": "Second row of the rotated OBJECTIVE CHOICE panel in local reading order; small dark rounded rectangle with a thin white outline and a separate open white leading angle; a second white +2; white and charcoal.",
           "count": 1
         },
         {
           "token": "Third row of the rotated OBJECTIVE CHOICE panel in local reading order; small dark rounded rectangle with a thin white outline and a separate open white leading angle; white +3 inside; white and charcoal.",
+          "count": 1
+        },
+        {
+          "token": "Upper right, approximately x704-772 and y115-177, immediately right of the ROBOT CONTROLLER heading; a roughly square composite containing an irregular horizontally elongated white silhouette with stepped protrusions beneath two broad diagonal strokes forming an X; the white base has dark notches and gray edging and is partly occluded, while the red strokes have dark shadow edging; colors are white, red, dark gray, and black.",
           "count": 1
         }
       ],
@@ -5942,57 +6517,6 @@
           "evidenceRun": "sol-max-persistent-worker-31-20260821T112612Z-p346900-b7e2c9",
           "rulesTextPresent": true,
           "rulesExcerpt": "Whenever you Pass:\nlose 1 [oxygen] (even in Section\nwith [lifeSupportActive]).\nIf you already have 0 [oxygen],\nlose 2 [ICON: thick white horizontal stepped zigzag line with sharp central peak] instead.",
-          "ledgerStatus": "deferred"
-        },
-        {
-          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-131.png",
-          "sourceSha256": "ea5cd7dad241bea8eea7d5897764485bab2bb616f1ee2ba8c39b9695f9118870",
-          "componentFamily": "game/startItemDeck",
-          "printedTitle": null,
-          "token": "P1, at the beginning of the final instruction line, approximately x=237-283 and y=434-479, immediately before a separately printed colon. Outer shape: filled purple-magenta near-square with slightly softened or pixel-stepped corners and dark-purple edge shading. Internal marks: one plain upright white rectangular bar and one smaller detached white square dot are vertically aligned near the center. Colors: purple-magenta, white, and dark purple.",
-          "occurrenceSource": "selected-explicit-authoritative-no-match",
-          "occurrenceIndex": 0,
-          "cardLocation": "Beginning of the final instruction line, approximately x=237–283 and y=434–479; immediately before a separate colon.",
-          "matchDecision": "no-match",
-          "closestAlternative": "burstDie1",
-          "visibleDiscriminator": "The source contains a straight upper bar plus a clearly detached lower square dot. The burstDie1 crop contains one continuous numeral 1 with an angled upper stroke and base, while burstDieAdditionalEffects contains four corner brackets; none of the 49 crops contains the source's bar-and-detached-dot configuration.",
-          "evidenceRun": "sol-max-persistent-worker-32-20260821T135953Z-p441103-69bcb8",
-          "rulesTextPresent": true,
-          "rulesExcerpt": "Burst: After Bursting, you may Burst a second time at the\nsame Corridor without spending [ammoToken].\n[ICON: purple square with a white vertical bar and detached square dot]: Place [malfunction] on this Weapon.",
-          "ledgerStatus": "deferred"
-        },
-        {
-          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-144_cards/card-05.png",
-          "sourceSha256": "8230ba5b1c59f7a9b136b3a2f1c14b4414f7ba918944684cd78e0ab199e1656a",
-          "componentFamily": "game/startItemDeck",
-          "printedTitle": null,
-          "token": "P1, at the beginning of the third instruction line, approximately x=297-344 and y=435-480, immediately before a separately printed comma. Outer shape: filled purple-magenta near-square with slightly softened or pixel-stepped corners and dark-purple edge shading. Internal marks: one plain upright white rectangular bar and one smaller detached white square dot are vertically aligned near the center. Colors: purple-magenta, white, and dark purple.",
-          "occurrenceSource": "selected-explicit-authoritative-no-match",
-          "occurrenceIndex": 1,
-          "cardLocation": "Beginning of the third instruction line, approximately x=297–344 and y=435–480; immediately before a comma.",
-          "matchDecision": "no-match",
-          "closestAlternative": "burstDie1",
-          "visibleDiscriminator": "The source contains a straight upper bar plus a clearly detached lower square dot. The burstDie1 crop contains one continuous numeral 1 with an angled upper stroke and base, while burstDieAdditionalEffects contains four corner brackets; none of the 49 crops contains the source's bar-and-detached-dot configuration.",
-          "evidenceRun": "sol-max-persistent-worker-32-20260821T135953Z-p441103-69bcb8",
-          "rulesTextPresent": true,
-          "rulesExcerpt": "Shoot and Burst:\nIf you are in a Section with an [ICON: white horizontal three-lobed capsule with a gray outlined central vertical block and short top stem] lose 1 [oxygen].\n[ICON: purple square with a white vertical bar and detached square dot], [shootDieAmmoLoss]: Place a [fire].",
-          "ledgerStatus": "deferred"
-        },
-        {
-          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-144_cards/card-06.png",
-          "sourceSha256": "4ceab051ce520564a2a1dd312b65f665f76bf29b4a0a6eb94c2a7fbf37943478",
-          "componentFamily": "game/startItemDeck",
-          "printedTitle": null,
-          "token": "P1, at the beginning of the third instruction line, approximately x=237-283 and y=435-479, immediately before a separately printed colon. Outer shape: filled purple-magenta near-square with slightly softened or pixel-stepped corners and dark-purple edge shading. Internal marks: one plain upright white rectangular bar and one smaller detached white square dot are vertically aligned near the center. Colors: purple-magenta, white, and dark purple.",
-          "occurrenceSource": "selected-explicit-authoritative-no-match",
-          "occurrenceIndex": 1,
-          "cardLocation": "Beginning of the third instruction line, approximately x=237–283 and y=435–479; immediately before a separate colon.",
-          "matchDecision": "no-match",
-          "closestAlternative": "burstDie1",
-          "visibleDiscriminator": "The source contains a straight upper bar plus a clearly detached lower square dot. The burstDie1 crop contains one continuous numeral 1 with an angled upper stroke and base, while burstDieAdditionalEffects contains four corner brackets; none of the 49 crops contains the source's bar-and-detached-dot configuration.",
-          "evidenceRun": "sol-max-persistent-worker-32-20260821T135953Z-p441103-69bcb8",
-          "rulesTextPresent": true,
-          "rulesExcerpt": "Burst: You may burst twice to the same Corridor\nspending only 1 [ammoToken].\n[ICON: white exclamation mark in a purple square]: Place [malfunction] on this Weapon.",
           "ledgerStatus": "deferred"
         },
         {
@@ -6202,334 +6726,13 @@
       ]
     },
     {
-      "cluster": "octagonal-or-chamfered-polygon",
-      "status": "morphology-only-unresolved",
-      "priorityScore": 1455,
-      "occurrences": 15,
-      "assetCount": 14,
-      "rulesBearingAssetCount": 13,
-      "distinctLiteralDescriptions": 13,
-      "resolutionStrategy": "Compare representative cards against authoritative room/search/item references; preserve literal shape until a printed name is proven.",
-      "topRepeatedLiterals": [
-        {
-          "token": "Location: upper center, between Discard and additional cards. Outer shape: a large near-square octagonal outline made from separated horizontal, vertical, and diagonal segments, with gaps at the middle of the left and right sides. Internal marks: a large white 1 with an angled upper-left flag, straight stem, broad basal foot, and gray shadow is centered in a dark translucent green interior; faint cross-shaped guide-like lines remain visible behind it. Colors: bright green, teal, cyan-green glow, dark green, white, and gray shadow.",
-          "count": 3
-        },
-        {
-          "token": "Location: center of the assigned panel, entirely within the illuminated octagonal pane. Outer shape: a compact horizontal irregular silhouette with a broad sloped central body, a thin jointed rod-like extension projecting left, and two large separate circular lobes attached along the lower-right edge, all enclosed by a thick white contour. Internal marks: the broad body contains pale olive and cream regions, a large white angular diagonal patch, and two small light yellow-green quadrilateral patches near its upper surface; each circular lower lobe has a pale olive center and thick white surround, while dark gaps separate portions of the body, extension, and lobes. Colors: white, off-white, cream, pale olive, light yellow-green, and dark gray negative space.",
-          "count": 1
-        },
-        {
-          "token": "Location: first body-text line, in the inline gap immediately after “Spend” and before “from your Rifle.” Outer shape: compact saturated-red near-square badge with stepped or chamfered corners and short lateral projections. Internal marks: a very dark brown-black central area split into two adjacent upright rectangular forms by a narrow red vertical strip; tiny top-edge details are unresolved. Colors: saturated red and very dark brown-black.",
-          "count": 1
-        },
-        {
-          "token": "Location: upper center, between Discard and additional cards. Outer shape: a large near-square octagonal outline composed of separated horizontal, vertical, and diagonal segments, with gaps at the middle of the left and right sides. Internal marks: a large white 2 with a curved top, descending diagonal middle, horizontal basal stroke, and gray shadow is centered in a dark translucent green interior; faint guide-like lines remain visible behind it. Colors: bright green, teal, cyan-green glow, dark green, white, and gray shadow.",
-          "count": 1
-        },
-        {
-          "token": "Location: upper center, between Discard and additional cards. Outer shape: a large near-square octagonal outline made from separated horizontal, vertical, and diagonal segments, with gaps at the middle of both sides. Internal marks: a large white 2 is centered in a dark translucent green interior, with no other discrete internal mark. Colors: bright green, teal, cyan-green glow, dark green, and white.",
-          "count": 1
-        },
-        {
-          "token": "Location: upper center, between Discard and additional cards. Outer shape: a large near-square octagonal outline made from separated horizontal, vertical, and diagonal segments, with gaps at the middle of both sides. Internal marks: a large white 3 is centered in a dark translucent green interior, with no other discrete internal mark. Colors: bright green, teal, cyan-green glow, dark green, and white.",
-          "count": 1
-        },
-        {
-          "token": "Location: upper center, between Discard and additional cards. Outer shape: a large near-square octagonal outline made from separated horizontal, vertical, and diagonal segments, with gaps at the middle of both sides. Internal marks: a tall, narrow white 0-like glyph is centered in a dark translucent green interior, with no slash or crossing mark. Colors: bright green, teal, cyan-green glow, dark green, and white.",
-          "count": 1
-        },
-        {
-          "token": "Location: upper center, between Discard and additional cards. Outer shape: a large near-square octagonal outline made from separated horizontal, vertical, and diagonal segments, with gaps at the middle of both sides. Internal marks: a tall, narrow white 0-like glyph is centered in a dark translucent green interior, with no slash or other crossing mark. Colors: bright green, teal, cyan-green glow, dark green, and white.",
-          "count": 1
-        },
-        {
-          "token": "Location: upper center, between Discard and additional cards. Outer shape: a large near-square octagonal outline made from separated horizontal, vertical, and diagonal segments, with gaps at the middle of the left and right sides. Internal marks: a large white 3 is centered in a dark translucent green interior, with no other discrete internal mark. Colors: bright green, teal, cyan-green glow, dark green, and white.",
-          "count": 1
-        },
-        {
-          "token": "Lower instruction line 2, approximately x=417–465, y=436–479; small red near-square with slightly rounded or chamfered corners; one broad near-black rectangular inset is split into left and right fields by a narrow red vertical separator; colors red and near-black.",
-          "count": 1
-        },
-        {
-          "token": "P1, in the upper-right field at approximately x=721-862 and y=66-257, with the outer plaque clipped by the source raster's right edge. Outer shape: large bright-red angular plaque with a horizontal top, chamfered upper-left and lower-left corners, and a vertical left-middle edge. Centered within it is a white vertically elongated grenade-like ovoid with broad shoulders, a narrow capped top, and a tapered pointed lower end. Internal marks: thin red vertical and curved cross-divisions segment the white body into central and side facets, and a thin white curved line extends leftward and downward from the capped top. Colors: bright red, white, and dark-red edge shading.",
-          "count": 1
-        },
-        {
-          "token": "P1, on the first instruction line between \"a\" and \"from this Weapon,\" approximately x=425-474 and y=392-442. Outer shape: small horizontally elongated bright-red compound block with a chamfered near-square front portion and a narrower contiguous dark-red angular side portion. Internal marks: the front contains a white upright capped grenade-like silhouette with a rounded segmented lower body, small red or pale-pink cutouts, and a curved white side line; the right side contains a dark vertical recess. Colors: bright red, dark red, white, pale pink, and dark maroon.",
-          "count": 1
-        },
-        {
-          "token": "P1, on the second instruction line immediately after the printed numeral 1 and before the terminal period, approximately x=506-554 and y=388-434. Outer shape: small horizontally elongated bright-red compound block with a chamfered near-square front portion and a narrower contiguous angular side portion at the right. Internal marks: the front forms a red frame around one undivided dark square inset; the narrow right portion has a red outer edge and darker-red interior forming a faceted side face. Colors: bright red, dark red, near-black, and dark maroon.",
-          "count": 1
-        }
-      ],
-      "evidence": [
-        {
-          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-15.png",
-          "sourceSha256": "e063664e4e786d66092f347f444c9a9184ae0a9f51547158f98e8b25e300b39a",
-          "componentFamily": "character/heavy-gun-operator",
-          "printedTitle": null,
-          "token": "Location: first body-text line, in the inline gap immediately after “Spend” and before “from your Rifle.” Outer shape: compact saturated-red near-square badge with stepped or chamfered corners and short lateral projections. Internal marks: a very dark brown-black central area split into two adjacent upright rectangular forms by a narrow red vertical strip; tiny top-edge details are unresolved. Colors: saturated red and very dark brown-black.",
-          "occurrenceSource": "selected-explicit-authoritative-no-match",
-          "occurrenceIndex": 0,
-          "cardLocation": "First body-text line, immediately after “Spend” and immediately before “from your Rifle.”",
-          "matchDecision": "no-match",
-          "closestAlternative": "The closest frozen candidate is ammoToken (assets/icons/tactical-gear/ammo-token.png); the supplied literal alternative is a decorative red badge with one undivided dark center.",
-          "visibleDiscriminator": "The split center rules out the literal undivided-center alternative, but it does not reproduce ammoToken: M1 visibly has two broad adjacent dark upright forms in a compact near-square badge, whereas ammoToken is a wider asymmetric red token containing a cluster of numerous narrow black cartridge-like bars and a separate dark-red right-side block. The other red candidates also conflict visibly, including redItem with three white upright marks and ammoSlot with one broad top recess.",
-          "evidenceRun": "sol-max-persistent-worker-33-20260821T172305Z-p465856-36ac0c",
-          "rulesTextPresent": true,
-          "rulesExcerpt": "Spend [ICON: red stepped near-square badge with two dark upright inset forms] from your Rifle.\nThe Queen OR all Adults and Drones Escape\nfrom your Room.",
-          "ledgerStatus": "deferred"
-        },
-        {
-          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/queenHealthDeck-013.png",
-          "sourceSha256": "5ad0606dff59c21b20689fc6b5b5192ef83c95f108ded91e587725bfd2c68092",
-          "componentFamily": "game/queenHealthDeck",
-          "printedTitle": null,
-          "token": "Location: upper center, between Discard and additional cards. Outer shape: a large near-square octagonal outline made from separated horizontal, vertical, and diagonal segments, with gaps at the middle of both sides. Internal marks: a tall, narrow white 0-like glyph is centered in a dark translucent green interior, with no slash or crossing mark. Colors: bright green, teal, cyan-green glow, dark green, and white.",
-          "occurrenceSource": "selected-explicit-authoritative-no-match",
-          "occurrenceIndex": 0,
-          "cardLocation": "Upper center, between Discard and additional cards.",
-          "matchDecision": "no-match",
-          "closestAlternative": "A literal interrupted octagonal display or two opposing segmented brackets around 0 or uppercase O. Among the labeled crops, greenItem is nearest in green octagonal tendency, while the numbered die crops are nearest in containing a large numeral.",
-          "visibleDiscriminator": "The greenItem crop is a solid green octagon containing a white plus, not a separated glowing perimeter containing a tall loop. Every numbered crop places its numeral in a solid red triangle, purple rounded square, or yellow diamond, and no labeled numeral crop contains 0. None of the 49 crops reproduces the source's complete frame-and-glyph morphology.",
-          "evidenceRun": "sol-max-persistent-worker-31-20260821T112612Z-p346900-b7e2c9",
-          "rulesTextPresent": true,
-          "rulesExcerpt": "0\nadditional cards.\n\nIf the card was drawn by a [character].\n\nActivate the Queen.",
-          "ledgerStatus": "deferred"
-        },
-        {
-          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/queenHealthDeck-038.png",
-          "sourceSha256": "fc04bf1a2920fb63ac512d209622b591cdc9f3cb9ca292c97bf874fcddbbd5c8",
-          "componentFamily": "game/queenHealthDeck",
-          "printedTitle": null,
-          "token": "Location: upper center, between Discard and additional cards. Outer shape: a large near-square octagonal outline made from separated horizontal, vertical, and diagonal segments, with gaps at the middle of both sides. Internal marks: a large white 2 is centered in a dark translucent green interior, with no other discrete internal mark. Colors: bright green, teal, cyan-green glow, dark green, and white.",
-          "occurrenceSource": "selected-explicit-authoritative-no-match",
-          "occurrenceIndex": 0,
-          "cardLocation": "Upper center, between Discard and additional cards.",
-          "matchDecision": "no-match",
-          "closestAlternative": "The labeled shootDie2, burstDie2, and noiseDie2 crops share the numeral 2; greenItem is the closest labeled crop in green octagonal tendency. A literal interrupted octagonal display or opposing segmented brackets is the closest noncanonical reading.",
-          "visibleDiscriminator": "The three labeled 2 crops use respectively a solid red triangle, purple rounded square, and yellow diamond, whereas the source uses a separated glowing green perimeter with side gaps. The greenItem crop is a solid green octagon containing a white plus rather than 2. No labeled crop reproduces both the source frame and its internal numeral.",
-          "evidenceRun": "sol-max-persistent-worker-31-20260821T112612Z-p346900-b7e2c9",
-          "rulesTextPresent": true,
-          "rulesExcerpt": "2\nadditional cards.\n\nIf the card was drawn by a [character].\n\nRepel the Queen.",
-          "ledgerStatus": "deferred"
-        },
-        {
-          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/queenHealthDeck-040.png",
-          "sourceSha256": "ce7a5fba88dd56f5de2ae77e5fe1647324bdfa9a99ae7f55485cca35eb72b062",
-          "componentFamily": "game/queenHealthDeck",
-          "printedTitle": null,
-          "token": "Location: upper center, between Discard and additional cards. Outer shape: a large near-square octagonal outline made from separated horizontal, vertical, and diagonal segments, with gaps at the middle of both sides. Internal marks: a tall, narrow white 0-like glyph is centered in a dark translucent green interior, with no slash or other crossing mark. Colors: bright green, teal, cyan-green glow, dark green, and white.",
-          "occurrenceSource": "selected-explicit-authoritative-no-match",
-          "occurrenceIndex": 0,
-          "cardLocation": "Upper center, between Discard and additional cards.",
-          "matchDecision": "no-match",
-          "closestAlternative": "A literal interrupted octagonal display or two opposing segmented brackets around 0 or uppercase O. Among the labeled crops, greenItem is nearest in green octagonal tendency, while the numbered die crops are nearest in containing a large numeral.",
-          "visibleDiscriminator": "The greenItem crop is a solid green octagon containing a white plus, not a separated glowing perimeter containing a tall loop. Every numbered crop places its numeral in a solid red triangle, purple rounded square, or yellow diamond, and no labeled numeral crop contains 0. None of the 49 crops reproduces the source's complete frame-and-glyph morphology.",
-          "evidenceRun": "sol-max-persistent-worker-31-20260821T112612Z-p346900-b7e2c9",
-          "rulesTextPresent": true,
-          "rulesExcerpt": "0\nadditional cards.\n\nIf the card was drawn by a [character].\n\nPlace the Queen back in the pool.",
-          "ledgerStatus": "deferred"
-        },
-        {
-          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/queenHealthDeck-041.png",
-          "sourceSha256": "929ac1204b4b7989ee051307245bf32fb5e1915a35b9afd5a73572c8ca01dc61",
-          "componentFamily": "game/queenHealthDeck",
-          "printedTitle": null,
-          "token": "Location: upper center, between Discard and additional cards. Outer shape: a large near-square octagonal outline made from separated horizontal, vertical, and diagonal segments, with gaps at the middle of both sides. Internal marks: a large white 3 is centered in a dark translucent green interior, with no other discrete internal mark. Colors: bright green, teal, cyan-green glow, dark green, and white.",
-          "occurrenceSource": "selected-explicit-authoritative-no-match",
-          "occurrenceIndex": 0,
-          "cardLocation": "Upper center, between Discard and additional cards.",
-          "matchDecision": "no-match",
-          "closestAlternative": "The labeled shootDie3, burstDie3, and noiseDie3 crops share the numeral 3; greenItem is the closest labeled crop in green octagonal tendency. A literal interrupted octagonal display or opposing segmented brackets is the closest noncanonical reading.",
-          "visibleDiscriminator": "The three labeled 3 crops use respectively a solid red triangle, purple rounded square, and yellow diamond, whereas the source uses a separated glowing green perimeter with side gaps. The greenItem crop is a solid green octagon containing a white plus rather than 3. No labeled crop reproduces both the source frame and its internal numeral.",
-          "evidenceRun": "sol-max-persistent-worker-31-20260821T112612Z-p346900-b7e2c9",
-          "rulesTextPresent": true,
-          "rulesExcerpt": "3\nadditional cards.\n\nIf the card was drawn by a [character]:\n\nPlace a [malfunction] in the Queen's Room.\nOR\nUnreinforce Queen's Corridor.",
-          "ledgerStatus": "deferred"
-        },
-        {
-          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/queenHealthDeck-045.png",
-          "sourceSha256": "133a975dc072a169ceed85615ab2e5a6cde0f80a23f18e61948f0a963c9e98e2",
-          "componentFamily": "game/queenHealthDeck",
-          "printedTitle": null,
-          "token": "Location: upper center, between Discard and additional cards. Outer shape: a large near-square octagonal outline made from separated horizontal, vertical, and diagonal segments, with gaps at the middle of the left and right sides. Internal marks: a large white 3 is centered in a dark translucent green interior, with no other discrete internal mark. Colors: bright green, teal, cyan-green glow, dark green, and white.",
-          "occurrenceSource": "selected-explicit-authoritative-no-match",
-          "occurrenceIndex": 0,
-          "cardLocation": "Upper center, between Discard and additional cards.",
-          "matchDecision": "no-match",
-          "closestAlternative": "The labeled shootDie3, burstDie3, and noiseDie3 crops share the numeral 3; greenItem is the nearest labeled crop in green octagonal tendency. A literal interrupted octagonal display or two opposing segmented brackets around a numeral is the closest noncanonical alternative.",
-          "visibleDiscriminator": "The three labeled 3 crops place their numerals in, respectively, a solid red triangle, purple rounded square, and yellow diamond, whereas the source has a separated glowing green perimeter with open side gaps. The greenItem crop is a solid green octagon containing a white plus. The frame-like burstDieAdditionalEffects crop has four white corner brackets on a filled purple square and no central numeral. None of the 49 crops reproduces the complete source frame-and-glyph morphology.",
-          "evidenceRun": "sol-max-persistent-worker-31-20260821T112612Z-p346900-b7e2c9",
-          "rulesTextPresent": true,
-          "rulesExcerpt": "3\nadditional cards.\n\nIf the card was drawn by a [character].\n\nActivate the Queen.",
-          "ledgerStatus": "deferred"
-        },
-        {
-          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/queenHealthDeck-084.png",
-          "sourceSha256": "bcb0eeb9e86f66f8401b584385746d268641c2692392b3faeb4f93438111a62f",
-          "componentFamily": "game/queenHealthDeck",
-          "printedTitle": null,
-          "token": "Location: upper center, between Discard and additional cards. Outer shape: a large near-square octagonal outline made from separated horizontal, vertical, and diagonal segments, with gaps at the middle of the left and right sides. Internal marks: a large white 1 with an angled upper-left flag, straight stem, broad basal foot, and gray shadow is centered in a dark translucent green interior; faint cross-shaped guide-like lines remain visible behind it. Colors: bright green, teal, cyan-green glow, dark green, white, and gray shadow.",
-          "occurrenceSource": "selected-explicit-authoritative-no-match",
-          "occurrenceIndex": 0,
-          "cardLocation": "Upper center, between Discard and additional cards.",
-          "matchDecision": "no-match",
-          "closestAlternative": "The labeled burstDie1 and noiseDie1 crops share the numeral 1; greenItem is the nearest labeled crop in green octagonal tendency. A literal interrupted octagonal display or two opposing segmented brackets around an I-, l-, or 1-like glyph is the closest noncanonical alternative.",
-          "visibleDiscriminator": "The burstDie1 crop places a white 1 in a solid purple rounded square, and noiseDie1 places a black 1 in a solid yellow diamond. The greenItem crop is a solid green octagon containing a white plus. The source instead has separated glowing green edge segments, side gaps, a translucent interior, and a shadowed white 1. The angled upper-left flag and broad foot favor numeral 1 over I or lowercase l, but no labeled crop reproduces the complete display.",
-          "evidenceRun": "sol-max-persistent-worker-31-20260821T112612Z-p346900-b7e2c9",
-          "rulesTextPresent": true,
-          "rulesExcerpt": "1\nadditional cards.\n\nIf the card was drawn by a [character].\n\nRepel the Queen.",
-          "ledgerStatus": "deferred"
-        },
-        {
-          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/queenHealthDeck-126.png",
-          "sourceSha256": "63654c6409f88599aff333b6a54e90b3c3aaa7a29f2395ffff36eed7ab2d6e49",
-          "componentFamily": "game/queenHealthDeck",
-          "printedTitle": null,
-          "token": "Location: upper center, between Discard and additional cards. Outer shape: a large near-square octagonal outline made from separated horizontal, vertical, and diagonal segments, with gaps at the middle of the left and right sides. Internal marks: a large white 1 with an angled upper-left flag, straight stem, broad basal foot, and gray shadow is centered in a dark translucent green interior; faint cross-shaped guide-like lines remain visible behind it. Colors: bright green, teal, cyan-green glow, dark green, white, and gray shadow.",
-          "occurrenceSource": "selected-explicit-authoritative-no-match",
-          "occurrenceIndex": 0,
-          "cardLocation": "Upper center, between Discard and additional cards.",
-          "matchDecision": "no-match",
-          "closestAlternative": "The labeled burstDie1 and noiseDie1 crops share the numeral 1; greenItem is the nearest labeled crop in green octagonal tendency. A literal interrupted octagonal display or two opposing segmented brackets around an I-, l-, or 1-like glyph is the closest noncanonical alternative.",
-          "visibleDiscriminator": "The burstDie1 crop places a white 1 in a solid purple rounded square, and noiseDie1 places a black 1 in a solid yellow diamond. The greenItem crop is a solid green octagon containing a white plus. The source instead has separated glowing green edge segments, side gaps, a translucent interior, and a shadowed white 1. The angled upper-left flag and broad foot favor numeral 1 over I or lowercase l, but no labeled crop reproduces the complete display.",
-          "evidenceRun": "sol-max-persistent-worker-31-20260821T112612Z-p346900-b7e2c9",
-          "rulesTextPresent": true,
-          "rulesExcerpt": "1\nadditional cards.\n\nIf the card was drawn by a [character].\n\nAdd all Queen tokens to the bag.",
-          "ledgerStatus": "deferred"
-        },
-        {
-          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/queenHealthDeck-164.png",
-          "sourceSha256": "4a79f992bc3e6b7493887c40b1198785673cc87ce462bbdd732b02c8e6a3cf14",
-          "componentFamily": "game/queenHealthDeck",
-          "printedTitle": null,
-          "token": "Location: upper center, between Discard and additional cards. Outer shape: a large near-square octagonal outline made from separated horizontal, vertical, and diagonal segments, with gaps at the middle of the left and right sides. Internal marks: a large white 1 with an angled upper-left flag, straight stem, broad basal foot, and gray shadow is centered in a dark translucent green interior; faint cross-shaped guide-like lines remain visible behind it. Colors: bright green, teal, cyan-green glow, dark green, white, and gray shadow.",
-          "occurrenceSource": "selected-explicit-authoritative-no-match",
-          "occurrenceIndex": 0,
-          "cardLocation": "Upper center, between Discard and additional cards.",
-          "matchDecision": "no-match",
-          "closestAlternative": "The labeled burstDie1 and noiseDie1 crops share the numeral 1; greenItem is the nearest labeled crop in green octagonal tendency. A literal interrupted octagonal display or two opposing segmented brackets around an I-, l-, or 1-like glyph is the closest noncanonical alternative.",
-          "visibleDiscriminator": "The burstDie1 crop places a white 1 in a solid purple rounded square, and noiseDie1 places a black 1 in a solid yellow diamond. The greenItem crop is a solid green octagon containing a white plus. The source instead has separated glowing green edge segments, side gaps, a translucent interior, and a shadowed white 1. The angled upper-left flag and broad foot favor numeral 1 over I or lowercase l, but no labeled crop reproduces the complete display.",
-          "evidenceRun": "sol-max-persistent-worker-31-20260821T112612Z-p346900-b7e2c9",
-          "rulesTextPresent": true,
-          "rulesExcerpt": "1\nadditional cards.\n\nIf the card was drawn by a [character].\n\nEach [character] in the Room with the Queen\nDraws 2 [actionCard].",
-          "ledgerStatus": "deferred"
-        },
-        {
-          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/queenHealthDeck-165.png",
-          "sourceSha256": "763ca108996c746f141b6f505d3afee2c30be1f6f4f38b84d0118f9f76bdf765",
-          "componentFamily": "game/queenHealthDeck",
-          "printedTitle": null,
-          "token": "Location: upper center, between Discard and additional cards. Outer shape: a large near-square octagonal outline composed of separated horizontal, vertical, and diagonal segments, with gaps at the middle of the left and right sides. Internal marks: a large white 2 with a curved top, descending diagonal middle, horizontal basal stroke, and gray shadow is centered in a dark translucent green interior; faint guide-like lines remain visible behind it. Colors: bright green, teal, cyan-green glow, dark green, white, and gray shadow.",
-          "occurrenceSource": "selected-explicit-authoritative-no-match",
-          "occurrenceIndex": 0,
-          "cardLocation": "Upper center, between Discard and additional cards.",
-          "matchDecision": "no-match",
-          "closestAlternative": "The labeled shootDie2, burstDie2, and noiseDie2 crops share the numeral 2; greenItem is the nearest labeled crop in green octagonal tendency. A literal interrupted octagonal display or two opposing segmented brackets around a numeral is the closest noncanonical alternative.",
-          "visibleDiscriminator": "The shootDie2, burstDie2, and noiseDie2 crops place 2 inside, respectively, a solid red triangle, purple rounded square, and yellow diamond. The greenItem crop is a solid green octagon containing a white plus, and burstDieAdditionalEffects has four white corner brackets on a filled purple square without a numeral. The source instead has separated glowing green perimeter segments, open side gaps, and a translucent interior. No supplied crop reproduces the complete source frame-and-glyph morphology.",
-          "evidenceRun": "sol-max-persistent-worker-31-20260821T112612Z-p346900-b7e2c9",
-          "rulesTextPresent": true,
-          "rulesExcerpt": "2\nadditional cards.\n\nIf the card was drawn by a [character].\n\nEach [character] in the Room with the Queen\nMakes a Noise roll.",
-          "ledgerStatus": "deferred"
-        },
-        {
-          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/robotDeck-155.jpg",
-          "sourceSha256": "9cf67e814071c67c598456070306951e3e24cb00a274b20d736596acfeb67c39",
-          "componentFamily": "game/robotDeck",
-          "printedTitle": null,
-          "token": "Location: center of the assigned panel, entirely within the illuminated octagonal pane. Outer shape: a compact horizontal irregular silhouette with a broad sloped central body, a thin jointed rod-like extension projecting left, and two large separate circular lobes attached along the lower-right edge, all enclosed by a thick white contour. Internal marks: the broad body contains pale olive and cream regions, a large white angular diagonal patch, and two small light yellow-green quadrilateral patches near its upper surface; each circular lower lobe has a pale olive center and thick white surround, while dark gaps separate portions of the body, extension, and lobes. Colors: white, off-white, cream, pale olive, light yellow-green, and dark gray negative space.",
-          "occurrenceSource": "selected-explicit-authoritative-no-match",
-          "occurrenceIndex": 0,
-          "cardLocation": "Center of P2, entirely within the illuminated octagonal pane.",
-          "matchDecision": "no-match",
-          "closestAlternative": "The p.40 robot crop is the closest labeled mechanical-looking candidate; a wheeled mechanical silhouette, irregular creature-like silhouette, or abstract multi-part assembly is the closest literal alternative.",
-          "visibleDiscriminator": "The robot crop is a compact white domed head or body with a short top antenna and two large dark circular eye openings. The source instead has a long jointed left extension, a broad sloped multicolored body, two large lower-right wheel-like circles, angular internal color patches, and no paired eye apertures. No other crop contains this arm-and-wheel-like multi-part morphology, so the source has no authoritative glossary match.",
-          "evidenceRun": "sol-max-persistent-worker-31-20260821T112612Z-p346900-b7e2c9",
-          "rulesTextPresent": false,
-          "rulesExcerpt": "",
-          "ledgerStatus": "deferred"
-        },
-        {
-          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-144_cards/card-06.png",
-          "sourceSha256": "4ceab051ce520564a2a1dd312b65f665f76bf29b4a0a6eb94c2a7fbf37943478",
-          "componentFamily": "game/startItemDeck",
-          "printedTitle": null,
-          "token": "P1, on the second instruction line immediately after the printed numeral 1 and before the terminal period, approximately x=506-554 and y=388-434. Outer shape: small horizontally elongated bright-red compound block with a chamfered near-square front portion and a narrower contiguous angular side portion at the right. Internal marks: the front forms a red frame around one undivided dark square inset; the narrow right portion has a red outer edge and darker-red interior forming a faceted side face. Colors: bright red, dark red, near-black, and dark maroon.",
-          "occurrenceSource": "selected-explicit-authoritative-no-match",
-          "occurrenceIndex": 0,
-          "cardLocation": "Second instruction line, immediately after the printed numeral “1” and before the terminal period, approximately x=506–554 and y=388–434.",
-          "matchDecision": "no-match",
-          "closestAlternative": "ammoToken",
-          "visibleDiscriminator": "The source shares ammoToken's red compound contour and dark-red side face, but its front contains one continuous dark square opening with no visible internal divisions. The ammoToken crop contains a row of multiple separately resolved narrow black upright ammunition marks divided by red gaps. None of the other 48 crops has the source's solid square inset within this compound red body.",
-          "evidenceRun": "sol-max-persistent-worker-32-20260821T135953Z-p441103-69bcb8",
-          "rulesTextPresent": true,
-          "rulesExcerpt": "Burst: You may burst twice to the same Corridor\nspending only 1 [ammoToken].\n[ICON: white exclamation mark in a purple square]: Place [malfunction] on this Weapon.",
-          "ledgerStatus": "deferred"
-        },
-        {
-          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-144_cards/card-07.png",
-          "sourceSha256": "7b823f5dd37c1464ad713cb07e60b0731264d1f87ca87901c1e4c86bdd993f19",
-          "componentFamily": "game/startItemDeck",
-          "printedTitle": null,
-          "token": "P1, in the upper-right field at approximately x=721-862 and y=66-257, with the outer plaque clipped by the source raster's right edge. Outer shape: large bright-red angular plaque with a horizontal top, chamfered upper-left and lower-left corners, and a vertical left-middle edge. Centered within it is a white vertically elongated grenade-like ovoid with broad shoulders, a narrow capped top, and a tapered pointed lower end. Internal marks: thin red vertical and curved cross-divisions segment the white body into central and side facets, and a thin white curved line extends leftward and downward from the capped top. Colors: bright red, white, and dark-red edge shading.",
-          "occurrenceSource": "selected-explicit-authoritative-no-match",
-          "occurrenceIndex": 0,
-          "cardLocation": "Upper-right field, approximately x=721–862 and y=66–257; red outer plaque clipped by the right raster edge.",
-          "matchDecision": "no-match",
-          "closestAlternative": "grenadeToken",
-          "visibleDiscriminator": "The grenadeToken crop has a compact purple-magenta compound token body with a narrower dark-purple right-side panel. The source instead places the white segmented ovoid inside a much larger bright-red angular plaque, with no matching purple field or visibly corresponding compound-token boundary. None of the other 48 crops has this red-plaque configuration.",
-          "evidenceRun": "sol-max-persistent-worker-32-20260821T135953Z-p441103-69bcb8",
-          "rulesTextPresent": true,
-          "rulesExcerpt": "Burst: You may use a [ICON: red chamfered block containing a white upright capped bulb silhouette and a darker-red right side] from this Weapon\nbefore or instead of a normal Burst.",
-          "ledgerStatus": "deferred"
-        },
-        {
-          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-144_cards/card-07.png",
-          "sourceSha256": "7b823f5dd37c1464ad713cb07e60b0731264d1f87ca87901c1e4c86bdd993f19",
-          "componentFamily": "game/startItemDeck",
-          "printedTitle": null,
-          "token": "P1, on the first instruction line between \"a\" and \"from this Weapon,\" approximately x=425-474 and y=392-442. Outer shape: small horizontally elongated bright-red compound block with a chamfered near-square front portion and a narrower contiguous dark-red angular side portion. Internal marks: the front contains a white upright capped grenade-like silhouette with a rounded segmented lower body, small red or pale-pink cutouts, and a curved white side line; the right side contains a dark vertical recess. Colors: bright red, dark red, white, pale pink, and dark maroon.",
-          "occurrenceSource": "selected-explicit-authoritative-no-match",
-          "occurrenceIndex": 1,
-          "cardLocation": "First instruction line, between “a” and “from this Weapon”, approximately x=425–474 and y=392–442.",
-          "matchDecision": "no-match",
-          "closestAlternative": "grenadeToken",
-          "visibleDiscriminator": "The source and grenadeToken crop share a segmented white grenade-like internal silhouette and a compound body with a darker right-side panel, but their authoritative outer colors differ visibly: the source body is bright red with a dark-red side, whereas the glossary crop is purple-magenta with a dark-purple side. The red ammoToken crop has the source's general outer color but contains multiple black ammunition bars rather than the white segmented form, so no supplied crop matches the complete occurrence.",
-          "evidenceRun": "sol-max-persistent-worker-32-20260821T135953Z-p441103-69bcb8",
-          "rulesTextPresent": true,
-          "rulesExcerpt": "Burst: You may use a [ICON: red chamfered block containing a white upright capped bulb silhouette and a darker-red right side] from this Weapon\nbefore or instead of a normal Burst.",
-          "ledgerStatus": "deferred"
-        },
-        {
-          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-144_cards/card-14.png",
-          "sourceSha256": "f29213e6aa1250538e65825cafbaa61be3348ba79520842e6b8f22f7c5ad4a77",
-          "componentFamily": "game/startItemDeck",
-          "printedTitle": null,
-          "token": "Lower instruction line 2, approximately x=417–465, y=436–479; small red near-square with slightly rounded or chamfered corners; one broad near-black rectangular inset is split into left and right fields by a narrow red vertical separator; colors red and near-black.",
-          "occurrenceSource": "selected-explicit-authoritative-no-match",
-          "occurrenceIndex": 1,
-          "cardLocation": "Lower instruction line 2, approximately x=417–465, y=436–479.",
-          "matchDecision": "no-match",
-          "closestAlternative": "ammoToken (assets/icons/tactical-gear/ammo-token.png)",
-          "visibleDiscriminator": "The glossary ammoToken is a horizontally elongated chamfered tag with several visibly separate near-black vertical cartridge marks on the left and a distinct dark-red end block on the right. The source is near-square and exposes only one broad split dark rectangle, without the repeated cartridge marks needed to discriminate ammoToken from a local red framed block; ammoSlot instead has one unsplit dark trapezoidal opening.",
-          "evidenceRun": "sol-max-persistent-worker-33-20260821T172305Z-p465856-36ac0c",
-          "rulesTextPresent": true,
-          "rulesExcerpt": "[shootDie2][illegible] treat this result as a [shootDieCritical]\nand spend 1 [ICON: red near-square with a split dark rectangular inset] as normal.",
-          "ledgerStatus": "deferred"
-        }
-      ]
-    },
-    {
       "cluster": "triangle-morphology",
       "status": "morphology-only-unresolved",
-      "priorityScore": 1386,
-      "occurrences": 116,
-      "assetCount": 27,
-      "rulesBearingAssetCount": 10,
-      "distinctLiteralDescriptions": 116,
+      "priorityScore": 1053,
+      "occurrences": 113,
+      "assetCount": 24,
+      "rulesBearingAssetCount": 7,
+      "distinctLiteralDescriptions": 113,
       "resolutionStrategy": "Build a local comparison set; retain descriptive token if no exhaustive official vocabulary exists.",
       "topRepeatedLiterals": [
         {
@@ -6630,57 +6833,6 @@
           "rulesTextPresent": true,
           "rulesExcerpt": "When you would receive\na Serious Wound,\ndiscard this Item instead.",
           "ledgerStatus": "complete"
-        },
-        {
-          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-144_cards/card-09.png",
-          "sourceSha256": "4d9d0a3fc8807394cda0765d34ebbe84e7e7dd38f57ac7cfa2c810fcc83598ed",
-          "componentFamily": "game/startItemDeck",
-          "printedTitle": null,
-          "token": "Lower face body at the beginning of the fourth line, approximately x189-234, y431-465; outer shape is a solid red upward-pointing triangular field with a broad horizontal base and sharp apex; internal mark is one narrow, contiguous, irregular white oblique inset that bends slightly, with no clearly detached dot; colors are red and white.",
-          "occurrenceSource": "selected-explicit-authoritative-no-match",
-          "occurrenceIndex": 0,
-          "cardLocation": "Lower body, beginning of the fourth line; approximately x189–234, y431–465.",
-          "matchDecision": "no-match",
-          "closestAlternative": "An unlisted red triangular badge containing an exclamation-like mark; among the frozen candidates, the red triangular shoot-die symbols are the closest outer-shape family.",
-          "visibleDiscriminator": "The source contains one narrow oblique white inset. The frozen red triangles instead contain broad numerals 2, 3, 4, or 5, three parallel ammunition forms, or a broad multi-lobed critical skull/creature glyph with internal cutouts. None has this single oblique inset, and the other frozen crops also differ in outer field, color, or silhouette.",
-          "evidenceRun": "sol-max-persistent-worker-33-20260821T172305Z-p465856-36ac0c",
-          "rulesTextPresent": true,
-          "rulesExcerpt": "Place this Item in your Room.\nWhenever an [intruder] enters the Room\nwith Mini-Turret, resolve a Shoot roll against it.\n[ICON: red upward-pointing triangle with narrow white oblique inset] – remove this card from the game.",
-          "ledgerStatus": "deferred"
-        },
-        {
-          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-144_cards/card-11.png",
-          "sourceSha256": "10b491b739caab061332b6ec8ff4b8261f9519dfa5f3784fb1cfb5696f27eccc",
-          "componentFamily": "game/startItemDeck",
-          "printedTitle": null,
-          "token": "Location: approximately x262-306, y399-436, after the comma following M3; outer shape: filled upright red triangle with a pointed apex and broad horizontal base; internal marks: one centered white tapered vertical mark remains wholly inside the triangle; colors: red and white.",
-          "occurrenceSource": "selected-explicit-authoritative-no-match",
-          "occurrenceIndex": 1,
-          "cardLocation": "Approximately x262-306, y399-436; fourth rules line after the comma following M3.",
-          "matchDecision": "no-match",
-          "closestAlternative": "shootDieAmmoLoss",
-          "visibleDiscriminator": "The source visibly resolves only one centered tapered white mark. shootDieAmmoLoss has three separated upright white cartridge-like forms, while the other red-triangle crops contain legible numerals or a broad complex skull; the source therefore lacks the internal discriminator required for any red-triangle token.",
-          "evidenceRun": "sol-max-persistent-worker-33-20260821T172305Z-p465856-36ac0c",
-          "rulesTextPresent": true,
-          "rulesExcerpt": "This Weapon can be used even\nwith a [malfunction] on it and is not discarded\nwhen another [malfunction] is placed.\n[ICON: white exclamation mark in a purple rounded square], [ICON: black curved ammunition magazine in a red upright triangle]: Place a [malfunction] on this Weapon\nand then lose 2 [characterHealth] for each [malfunction].",
-          "ledgerStatus": "deferred"
-        },
-        {
-          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-144_cards/card-17.png",
-          "sourceSha256": "84679e2487a76c3e726fbb8cc49c2f20c98fd8e9876fb8ecbb953f75887b680a",
-          "componentFamily": "game/startItemDeck",
-          "printedTitle": null,
-          "token": "Location: lower-center rules block, second line, after the comma following M4 and before the external white hyphen. Outer shape: filled upright triangular silhouette with a pointed top and broad lower edge. Internal marks: one irregular white angular, slash-like mark whose fine geometry does not resolve as an alphabetic glyph. Colors: red and white.",
-          "occurrenceSource": "selected-explicit-authoritative-no-match",
-          "occurrenceIndex": 1,
-          "cardLocation": "Lower-center rules block, second line, after the comma following M4 and before the white hyphen.",
-          "matchDecision": "no-match",
-          "closestAlternative": "shootDieCritical is the closest same-outer-shape non-numeral candidate; shootDieAmmoLoss is the other supplied non-numeral red-triangle alternative.",
-          "visibleDiscriminator": "The source shows one narrow irregular angular/slash-like white mark. shootDieCritical visibly has a broad skull-like face with multiple cutouts and lower detail, while shootDieAmmoLoss has three separated upright bullet forms. Neither glossary interior pattern is visible in M5.",
-          "evidenceRun": "sol-max-persistent-worker-33-20260821T172305Z-p465856-36ac0c",
-          "rulesTextPresent": true,
-          "rulesExcerpt": "Burst: Treat [burstDie3] and [burstDie4] as [burstDie2].\n[ICON: purple square with white !], [ICON: red upright triangle with white irregular angular mark] - Place a [malfunction] in your Room.",
-          "ledgerStatus": "deferred"
         },
         {
           "sourcePath": "assets/tts-mod/extract/v2-dl/tree/models/model-001.jpg",
@@ -8589,289 +8741,6 @@
       ]
     },
     {
-      "cluster": "red-prohibition-overlay",
-      "status": "morphology-only-unresolved",
-      "priorityScore": 1333,
-      "occurrences": 13,
-      "assetCount": 12,
-      "rulesBearingAssetCount": 12,
-      "distinctLiteralDescriptions": 12,
-      "resolutionStrategy": "Inspect glyph location and occluded base silhouette; compare with authoritative restriction/action icons rather than inferring from rules semantics.",
-      "topRepeatedLiterals": [
-        {
-          "token": "Location: right side of the title area, beside the two-line title and above the rules panel. Outer shape: an unenclosed approximately X-shaped construction formed by one broad bright-red diagonal bar and an opposing white diagonal or central stroke. Internal marks: the white portion has several short parallel horizontal prongs at its left and right ends, with dark gaps separating the prongs; the red bar crosses over the center from lower-left toward upper-right. Colors: bright red, dark red, white, black, and gray shadow.",
-          "count": 2
-        },
-        {
-          "token": "Location: right side of the title area, beside the two-line title and above the rules panel. Outer shape: a thick bright-red circular ring crossed by a broad red diagonal bar rising from lower-left toward upper-right. Internal marks: a white pointed bilateral silhouette lies inside the ring, with a long narrow central axis, a pointed end, paired lateral triangular or bar-like extensions, and several short parallel white bars on one side; the red bar obscures part of the center. Colors: bright red, dark red, white, black, and gray shadow.",
-          "count": 1
-        },
-        {
-          "token": "Location: right side of the title area, beside the two-line title and above the rules panel. Outer shape: an approximately circular dark-red field with partial brighter-red perimeter arcs and a broad bright-red diagonal bar rising from lower-left toward upper-right. Internal marks: a thick white diagonal stroke crosses in the opposing direction and has multiple short parallel white prongs or bars near its ends, producing an X-like crossed construction beneath the red bar. Colors: bright red, dark red, white, black, and gray shadow.",
-          "count": 1
-        },
-        {
-          "token": "Location: upper-left P1 immediately right of M1 and left of the first dark-red aperture; outer shape: thick open chevron pointing left; internal marks: a dark triangular negative space between two diagonal bars; colors: medium gray and dark gray.",
-          "count": 1
-        },
-        {
-          "token": "Location: upper-right quadrant of P1. Outer shape: roughly square composite glyph consisting of a horizontally elongated white stepped silhouette beneath two thick red diagonal bars forming a complete X. Internal marks: the exposed white ends contain short red horizontal inset strokes, with portions occluded by the X and black shadowing around the glyph. Colors: white, bright red, dark red, and black.",
-          "count": 1
-        },
-        {
-          "token": "P1 upper-right, over a pale faceted polygon within a thin dark polygonal outline; outer shape: complete red outlined circle; internal marks: broad red diagonal bar crossing the circle and overlaying a light-gray faceted quadrilateral with a darker-gray triangular facet; colors: red, light gray, dark gray, and black.",
-          "count": 1
-        },
-        {
-          "token": "P1, in the upper-right title field at approximately x=721-791 and y=154-214, isolated to the right of \"EQUIPMENT.\" Outer shape: two broad bright-red diagonal bars cross as an X over a horizontally elongated white silhouette. Internal marks: the partly occluded white form has a broad rounded or looped left end, a narrower central span, and a stepped rectangular right end containing dark grooves or notches. Colors: bright red, white, pale-gray antialiasing, and dark blue-black negative space.",
-          "count": 1
-        },
-        {
-          "token": "Right side of P1 below M2; a thick red circular ring crossed by an upper-left-to-lower-right diagonal bar; a light gray or off-white circular form with regularly spaced broad rectangular projections surrounding a darker olive-brown center; red, off-white/light gray, olive-brown, and near-black.",
-          "count": 1
-        },
-        {
-          "token": "Upper right, approximately x=723–789, y=154–213; two thick red diagonal bars form an X over a short white horizontal stepped silhouette; exposed white portions contain small near-black slit-like marks, while the red X occludes most of the center; colors red, white, and near-black.",
-          "count": 1
-        },
-        {
-          "token": "Upper right, immediately to the right of the two-line title; a white horizontally elongated stepped or pointed silhouette is crossed corner-to-corner by two thick red diagonal bars forming an X; several short dark horizontal strokes remain visible toward the right end of the white under-form; colors are red, white, and dark gray/black.",
-          "count": 1
-        },
-        {
-          "token": "Upper-right of P1, higher of the two red barred graphics; a thick red circular ring with an upper-left-to-lower-right diagonal bar and a thin irregular gray polygonal outline behind it; an asymmetric gray form with a light upper polygonal facet and darker lower facets divided by dark straight seams; red, light gray, medium gray, dark gray, and near-black.",
-          "count": 1
-        },
-        {
-          "token": "Upper-right of the title plaque, immediately right of TOOLS and ONE USE ONLY. The roughly square composite footprint consists of two thick bright-red diagonal bars, with dark-red shadowing, intersecting near the center over an elongated white glyph on a dark background. The partly hidden white underform has a rounded or hooked left portion, a horizontal body, and short split projections at the right.",
-          "count": 1
-        }
-      ],
-      "evidence": [
-        {
-          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-10.png",
-          "sourceSha256": "d8e12e0209d014f6a18e716b3bf0aa7b75f8c49b61b6d7579c36fdb5dc9b805d",
-          "componentFamily": "character/heavy-gun-operator",
-          "printedTitle": null,
-          "token": "Location: upper-right quadrant of P1. Outer shape: roughly square composite glyph consisting of a horizontally elongated white stepped silhouette beneath two thick red diagonal bars forming a complete X. Internal marks: the exposed white ends contain short red horizontal inset strokes, with portions occluded by the X and black shadowing around the glyph. Colors: white, bright red, dark red, and black.",
-          "occurrenceSource": "selected-explicit-authoritative-no-match",
-          "occurrenceIndex": 0,
-          "cardLocation": "Upper-right quadrant of the illustrated field.",
-          "matchDecision": "no-match",
-          "closestAlternative": "notInCombat is the closest frozen red-over-white negation graphic; the closest literal alternative is a crossed-out stepped ribbon or banner-like badge.",
-          "visibleDiscriminator": "The notInCombat crop has a red circular prohibition ring and one diagonal slash over a white intruder silhouette. M1 has no ring or intruder contour, uses two diagonal bars as a complete X, and has an elongated stepped white base with red inset strokes. None of the other labeled glossary crops reproduces this construction.",
-          "evidenceRun": "sol-max-persistent-worker-33-20260821T172305Z-p465856-36ac0c",
-          "rulesTextPresent": true,
-          "rulesExcerpt": "Choose a Rifle with [ammoToken] and Burst using it.\nThen, you may Move through the Corridor\nyou have Bursted at.",
-          "ledgerStatus": "deferred"
-        },
-        {
-          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/reditem-148_cards/card-01.png",
-          "sourceSha256": "4d61a4e3a38bc7cb5ecf52f452457c59ecc7c95755d25ee380238d7835caba77",
-          "componentFamily": "game/reditem",
-          "printedTitle": null,
-          "token": "Location: right side of the title area, beside the two-line title and above the rules panel. Outer shape: a thick bright-red circular ring crossed by a broad red diagonal bar rising from lower-left toward upper-right. Internal marks: a white pointed bilateral silhouette lies inside the ring, with a long narrow central axis, a pointed end, paired lateral triangular or bar-like extensions, and several short parallel white bars on one side; the red bar obscures part of the center. Colors: bright red, dark red, white, black, and gray shadow.",
-          "occurrenceSource": "selected-explicit-authoritative-no-match",
-          "occurrenceIndex": 0,
-          "cardLocation": "Right side of P2, beside the two-line title and above P3.",
-          "matchDecision": "no-match",
-          "closestAlternative": "The p.40 notInCombat crop is the closest labeled barred-circle morphology, while lander is the closest labeled pointed white inner silhouette; a prohibition overlay around a mechanical or directional form is the closest literal alternative.",
-          "visibleDiscriminator": "The notInCombat crop contains a red ring and diagonal bar over an asymmetric spiky curled figure with visible facial apertures and an inward-hooking lower contour. The source instead contains a bilaterally pointed long-axis form with paired lateral extensions and parallel bars. The lander crop has no red prohibition overlay and has a central slit, raised side arms, and scalloped base. No supplied crop reproduces both the source overlay and its inner morphology.",
-          "evidenceRun": "sol-max-persistent-worker-31-20260821T112612Z-p346900-b7e2c9",
-          "rulesTextPresent": true,
-          "rulesExcerpt": "Only in [computer] Room without [malfunction].\n\nTake both Anti-Aircraft tokens\nand place them in any order.",
-          "ledgerStatus": "deferred"
-        },
-        {
-          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/reditem-148_cards/card-02.png",
-          "sourceSha256": "441834df437ddff13e8fe8d485e615df7b67730aa1903610fbd474ee73d0161c",
-          "componentFamily": "game/reditem",
-          "printedTitle": null,
-          "token": "Location: right side of the title area, beside the two-line title and above the rules panel. Outer shape: an approximately circular dark-red field with partial brighter-red perimeter arcs and a broad bright-red diagonal bar rising from lower-left toward upper-right. Internal marks: a thick white diagonal stroke crosses in the opposing direction and has multiple short parallel white prongs or bars near its ends, producing an X-like crossed construction beneath the red bar. Colors: bright red, dark red, white, black, and gray shadow.",
-          "occurrenceSource": "selected-explicit-authoritative-no-match",
-          "occurrenceIndex": 0,
-          "cardLocation": "Right side of P2, beside the two-line title and above P3.",
-          "matchDecision": "no-match",
-          "closestAlternative": "The p.40 notInCombat crop is the closest labeled red cancellation morphology; a red cancellation bar over a forked tool, arrow, or branch-like white mark is the closest literal alternative.",
-          "visibleDiscriminator": "The notInCombat crop has a complete red circular ring and one diagonal bar over a white-and-black asymmetric spiky curled figure. The source has only partial red perimeter arcs and contains an opposing white multi-pronged diagonal stroke rather than the curled figure. The inactive life-support and hibernatorium crops use black slashes over cyan or purple rounded capsules, not this red-and-white crossed construction. No supplied crop reproduces the complete morphology.",
-          "evidenceRun": "sol-max-persistent-worker-31-20260821T112612Z-p346900-b7e2c9",
-          "rulesTextPresent": true,
-          "rulesExcerpt": "Place 1 [ICON: red rounded rectangular tile with white upright bulb-shaped inset] in an empty Corridor.\nWhen any number of [intruder]\nare placed in that Corridor,\nremove the [ICON: red rounded rectangular tile with white upright bulb-shaped inset] and resolve\nthe token effect there.",
-          "ledgerStatus": "deferred"
-        },
-        {
-          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/reditem-148_cards/card-03.png",
-          "sourceSha256": "8f1f1ba0b8958061a8fb1ac0bea5972f6d090db76b56f4eb148ff0a8a337d992",
-          "componentFamily": "game/reditem",
-          "printedTitle": null,
-          "token": "Location: right side of the title area, beside the two-line title and above the rules panel. Outer shape: an unenclosed approximately X-shaped construction formed by one broad bright-red diagonal bar and an opposing white diagonal or central stroke. Internal marks: the white portion has several short parallel horizontal prongs at its left and right ends, with dark gaps separating the prongs; the red bar crosses over the center from lower-left toward upper-right. Colors: bright red, dark red, white, black, and gray shadow.",
-          "occurrenceSource": "selected-explicit-authoritative-no-match",
-          "occurrenceIndex": 0,
-          "cardLocation": "Right side of P2, beside the two-line title and above P3.",
-          "matchDecision": "no-match",
-          "closestAlternative": "The p.40 notInCombat crop is the closest labeled cancellation morphology; a red cancellation stroke over a white forked tool, arrow, branch, or corridor-like mark is the closest literal alternative.",
-          "visibleDiscriminator": "The notInCombat crop has a complete red circular ring and diagonal bar over a white-and-black asymmetric spiky curled figure. The source has no enclosing ring and its inner white form is a multi-pronged linear construction rather than an intruder silhouette. The inactive life-support and hibernatorium crops use black slashes over colored rounded capsules, and the corridor crops are complete white room outlines rather than crossed multi-pronged strokes. None of the 49 crops reproduces the complete source morphology.",
-          "evidenceRun": "sol-max-persistent-worker-31-20260821T112612Z-p346900-b7e2c9",
-          "rulesTextPresent": true,
-          "rulesExcerpt": "Resolve an Exploration Procedure\nfor a Room on the other side\nof an empty, Open Corridor.",
-          "ledgerStatus": "deferred"
-        },
-        {
-          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/reditem-148_cards/card-06.png",
-          "sourceSha256": "e149151bec4cb0d41875581b66864e5f2dd1465e169158ff46ce62f7aedc7c91",
-          "componentFamily": "game/reditem",
-          "printedTitle": null,
-          "token": "Location: right side of the title area, beside the two-line title and above the rules panel. Outer shape: an unenclosed approximately X-shaped construction formed by one broad bright-red diagonal bar and an opposing white diagonal or central stroke. Internal marks: the white portion has several short parallel horizontal prongs at its left and right ends, with dark gaps separating the prongs; the red bar crosses over the center from lower-left toward upper-right. Colors: bright red, dark red, white, black, and gray shadow.",
-          "occurrenceSource": "selected-explicit-authoritative-no-match",
-          "occurrenceIndex": 0,
-          "cardLocation": "Right side of P2, beside the two-line title and above P3.",
-          "matchDecision": "no-match",
-          "closestAlternative": "The p.40 notInCombat crop is the closest labeled cancellation morphology; a red cancellation stroke over a white forked tool, arrow, branch, or corridor-like mark is the closest literal alternative.",
-          "visibleDiscriminator": "The notInCombat crop has a complete red circular ring and diagonal bar over an asymmetric spiky curled figure. The source has no enclosing ring and its underlying white form is a multi-pronged linear construction. The inactive life-support and hibernatorium crops use black slashes over cyan or purple rounded capsules, while the corridor crops are complete white room outlines. None of the 49 crops reproduces the source's crossed construction.",
-          "evidenceRun": "sol-max-persistent-worker-31-20260821T112612Z-p346900-b7e2c9",
-          "rulesTextPresent": true,
-          "rulesExcerpt": "Only in a [computer] Room with no [malfunction].\nCheck all Objective cards\nof a chosen Character.",
-          "ledgerStatus": "deferred"
-        },
-        {
-          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-144_cards/card-03.png",
-          "sourceSha256": "91857d78dd2e2dabd20dce496309d854c921a846db8708f24477189a8f3f4ac1",
-          "componentFamily": "game/startItemDeck",
-          "printedTitle": null,
-          "token": "P1, in the upper-right title field at approximately x=721-791 and y=154-214, isolated to the right of \"EQUIPMENT.\" Outer shape: two broad bright-red diagonal bars cross as an X over a horizontally elongated white silhouette. Internal marks: the partly occluded white form has a broad rounded or looped left end, a narrower central span, and a stepped rectangular right end containing dark grooves or notches. Colors: bright red, white, pale-gray antialiasing, and dark blue-black negative space.",
-          "occurrenceSource": "selected-explicit-authoritative-no-match",
-          "occurrenceIndex": 0,
-          "cardLocation": "Upper-right title field, approximately x=721–791 and y=154–214; isolated to the right of “EQUIPMENT”.",
-          "matchDecision": "no-match",
-          "closestAlternative": "notInCombat, the closest supplied compound crop with a red overlay over a white silhouette",
-          "visibleDiscriminator": "The notInCombat crop has a complete red circular ring plus one diagonal slash over a curled, spiked white silhouette. The source instead has two diagonal red bars forming an X, no circular ring, and a horizontally elongated white form with rounded and stepped ends. None of the 49 crops contains the source's complete crossed-X composite.",
-          "evidenceRun": "sol-max-persistent-worker-32-20260821T135953Z-p441103-69bcb8",
-          "rulesTextPresent": true,
-          "rulesExcerpt": "Remove a [malfunction].\nOR\nRemove this Item and Reinforce an empty Corridor.",
-          "ledgerStatus": "deferred"
-        },
-        {
-          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-144_cards/card-14.png",
-          "sourceSha256": "f29213e6aa1250538e65825cafbaa61be3348ba79520842e6b8f22f7c5ad4a77",
-          "componentFamily": "game/startItemDeck",
-          "printedTitle": null,
-          "token": "Upper right, approximately x=723–789, y=154–213; two thick red diagonal bars form an X over a short white horizontal stepped silhouette; exposed white portions contain small near-black slit-like marks, while the red X occludes most of the center; colors red, white, and near-black.",
-          "occurrenceSource": "selected-explicit-authoritative-no-match",
-          "occurrenceIndex": 0,
-          "cardLocation": "Upper right, approximately x=723–789, y=154–213.",
-          "matchDecision": "no-match",
-          "closestAlternative": "notInCombat (assets/icons/general/not-in-combat.png), or a local crossed emblem",
-          "visibleDiscriminator": "The source has two red bars forming an X and a horizontal stepped white glyph with dark slits. The glossary notInCombat mark instead has a red circular prohibition border with one diagonal slash over a white intruder silhouette; no glossary crop reproduces the source overlay geometry.",
-          "evidenceRun": "sol-max-persistent-worker-33-20260821T172305Z-p465856-36ac0c",
-          "rulesTextPresent": true,
-          "rulesExcerpt": "[shootDie2][illegible] treat this result as a [shootDieCritical]\nand spend 1 [ICON: red near-square with a split dark rectangular inset] as normal.",
-          "ledgerStatus": "deferred"
-        },
-        {
-          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-144_cards/card-15.png",
-          "sourceSha256": "185c18384a4343c00a698a6105225c7690448689da332dba204daf13a398ecdb",
-          "componentFamily": "game/startItemDeck",
-          "printedTitle": null,
-          "token": "Upper right, immediately to the right of the two-line title; a white horizontally elongated stepped or pointed silhouette is crossed corner-to-corner by two thick red diagonal bars forming an X; several short dark horizontal strokes remain visible toward the right end of the white under-form; colors are red, white, and dark gray/black.",
-          "occurrenceSource": "selected-explicit-authoritative-no-match",
-          "occurrenceIndex": 0,
-          "cardLocation": "Upper right, immediately to the right of the two-line title.",
-          "matchDecision": "no-match",
-          "closestAlternative": "notInCombat is the closest frozen negation-style candidate; the literal alternative is a decorative red X over a ribbon-like or local white ornament.",
-          "visibleDiscriminator": "The source has two red diagonal bars forming an X with no enclosing red circle, and its white under-form is horizontally stepped with repeated dark strokes. The notInCombat crop instead has a red circular prohibition border with one slash over a white creature profile; no other frozen crop matches the source composite.",
-          "evidenceRun": "sol-max-persistent-worker-33-20260821T172305Z-p465856-36ac0c",
-          "rulesTextPresent": true,
-          "rulesExcerpt": "[actionCard]t the start of the game choose a [robot] card\nand place the [robot] in the Landing Zone.\nDiscard A.\nActivate [robot] from anywhere in the Facility.",
-          "ledgerStatus": "deferred"
-        },
-        {
-          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/yellowitem-145_cards/card-03.png",
-          "sourceSha256": "7bf955ec7367f7242814ff9bd7c669b8c4e8b5b316bb6b281f59b6f2f3594253",
-          "componentFamily": "game/yellowitem",
-          "printedTitle": null,
-          "token": "Upper-right of the title plaque, immediately right of TOOLS and ONE USE ONLY. The roughly square composite footprint consists of two thick bright-red diagonal bars, with dark-red shadowing, intersecting near the center over an elongated white glyph on a dark background. The partly hidden white underform has a rounded or hooked left portion, a horizontal body, and short split projections at the right.",
-          "occurrenceSource": "selected-explicit-authoritative-no-match",
-          "occurrenceIndex": 0,
-          "cardLocation": "Upper-right of the title plaque",
-          "matchDecision": "no-match",
-          "closestAlternative": "Literal alternative: a standalone red X positioned over or beside an unrelated white horizontal emblem; the closest frozen glossary overlay is notInCombat.",
-          "visibleDiscriminator": "Both red diagonal strokes visibly overlap and continue across the white underform, establishing an integrated X-over-glyph composite rather than adjacent graphics. No frozen glossary crop has that composite. In particular, notInCombat has a complete red prohibition circle and one diagonal slash over a white spined creature, whereas M1 has no circle, has two crossing red bars, and has a horizontal white underform.",
-          "evidenceRun": "sol-max-persistent-worker-33-20260821T172305Z-p465856-36ac0c",
-          "rulesTextPresent": true,
-          "rulesExcerpt": "Discard a [malfunction]\nOR\nOpen or Close 1 Door.",
-          "ledgerStatus": "deferred"
-        },
-        {
-          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/tiles/room/nest-014.jpg",
-          "sourceSha256": "f5e3e108fdcb5b43919535e3a4eb9913456c57fd0946cb689223eaf80d1fd224",
-          "componentFamily": "non-corpus/tiles",
-          "printedTitle": "NEST",
-          "token": "Right side of P1 below M2; a thick red circular ring crossed by an upper-left-to-lower-right diagonal bar; a light gray or off-white circular form with regularly spaced broad rectangular projections surrounding a darker olive-brown center; red, off-white/light gray, olive-brown, and near-black.",
-          "occurrenceSource": "selected-explicit-authoritative-no-match",
-          "occurrenceIndex": 2,
-          "cardLocation": "Right side of P1, below M2",
-          "matchDecision": "no-match",
-          "closestAlternative": "malfunction by the internal toothed form; notInCombat by the outer prohibition geometry; literal alternative: a radial rosette or sunburst",
-          "visibleDiscriminator": "The broad squared projections at regular intervals visibly establish a gear-like rather than tapered rosette interior. However, notInCombat has an intruder silhouette instead of a gear, while malfunction is an unbarred gray broken-gear icon. No frozen token combines this toothed interior with the material red prohibition ring and bar.",
-          "evidenceRun": "sol-max-persistent-worker-33-20260821T172305Z-p465856-36ac0c",
-          "rulesTextPresent": true,
-          "rulesExcerpt": "Take 1 Intruder Egg\nand make a Noise roll.",
-          "ledgerStatus": "deferred"
-        },
-        {
-          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/tiles/room/nest-014.jpg",
-          "sourceSha256": "f5e3e108fdcb5b43919535e3a4eb9913456c57fd0946cb689223eaf80d1fd224",
-          "componentFamily": "non-corpus/tiles",
-          "printedTitle": "NEST",
-          "token": "Upper-right of P1, higher of the two red barred graphics; a thick red circular ring with an upper-left-to-lower-right diagonal bar and a thin irregular gray polygonal outline behind it; an asymmetric gray form with a light upper polygonal facet and darker lower facets divided by dark straight seams; red, light gray, medium gray, dark gray, and near-black.",
-          "occurrenceSource": "selected-explicit-authoritative-no-match",
-          "occurrenceIndex": 1,
-          "cardLocation": "Upper-right of P1; the higher of two red barred graphics",
-          "matchDecision": "no-match",
-          "closestAlternative": "notInCombat by the outer prohibition geometry; secure by the internal faceted motif; literal alternative: two overlapping gray polygonal blocks",
-          "visibleDiscriminator": "The notInCombat crop contains a visibly spined white intruder silhouette, which is absent here. The secure crop is an unbarred white symmetric shield/chevron emblem, while this complete occurrence materially includes a red ring and diagonal bar around a shaded asymmetric faceted form. The visible seams may favor one faceted form over separate blocks, but no frozen token combines that interior with this prohibition overlay.",
-          "evidenceRun": "sol-max-persistent-worker-33-20260821T172305Z-p465856-36ac0c",
-          "rulesTextPresent": true,
-          "rulesExcerpt": "Take 1 Intruder Egg\nand make a Noise roll.",
-          "ledgerStatus": "deferred"
-        },
-        {
-          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/tiles/room/technical-corridor-entrance-006.jpg",
-          "sourceSha256": "75f637fba2487eae76be7638126c409b8402973c5cd80d071d134221bb1791fb",
-          "componentFamily": "non-corpus/tiles",
-          "printedTitle": "TECHNICAL CORRIDOR\nENTRANCE",
-          "token": "P1 upper-right, over a pale faceted polygon within a thin dark polygonal outline; outer shape: complete red outlined circle; internal marks: broad red diagonal bar crossing the circle and overlaying a light-gray faceted quadrilateral with a darker-gray triangular facet; colors: red, light gray, dark gray, and black.",
-          "occurrenceSource": "selected-explicit-authoritative-no-match",
-          "occurrenceIndex": 1,
-          "cardLocation": "P1 upper-right, over a pale faceted polygon within a thin dark polygonal outline.",
-          "matchDecision": "no-match",
-          "closestAlternative": "notInCombat is the closest frozen composite; the literal alternative is a slashed-zero-like or decorative ring-and-bar stencil.",
-          "visibleDiscriminator": "The notInCombat crop visibly places its red ring and slash over a jagged white intruder silhouette with spines and facial details. M2 instead contains a simple faceted gray quadrilateral with a darker triangular facet. The shared prohibition ring and bar cannot establish the token when the underlying internal subject differs.",
-          "evidenceRun": "sol-max-persistent-worker-33-20260821T172305Z-p465856-36ac0c",
-          "rulesTextPresent": true,
-          "rulesExcerpt": "Move your Character\nto a Room.\nResolve an Intruder Attack card\n(treat it as an Adult Attack).",
-          "ledgerStatus": "deferred"
-        },
-        {
-          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/tokens/character/recon-005.png",
-          "sourceSha256": "1d20c2dbf3dea84f870a37bfc13fb6b3af1e8d0b6e37ec6096360049dbdc81cb",
-          "componentFamily": "non-corpus/tokens",
-          "printedTitle": "RECON",
-          "token": "Location: upper-left P1 immediately right of M1 and left of the first dark-red aperture; outer shape: thick open chevron pointing left; internal marks: a dark triangular negative space between two diagonal bars; colors: medium gray and dark gray.",
-          "occurrenceSource": "selected-explicit-authoritative-no-match",
-          "occurrenceIndex": 1,
-          "cardLocation": "Upper-left P1, immediately right of M1 and left of the first dark-red square aperture.",
-          "matchDecision": "no-match",
-          "closestAlternative": "A decorative angular bracket or track-direction marker; no frozen glossary token has this isolated open-chevron form.",
-          "visibleDiscriminator": "It is an open left-facing two-bar form without a closed token boundary or any numeral, object glyph, or other internal discriminator found in the glossary set.",
-          "evidenceRun": "sol-max-persistent-worker-33-20260821T172305Z-p465856-36ac0c",
-          "rulesTextPresent": true,
-          "rulesExcerpt": "B[actionCard]SIC [actionCard]CTIONS\n[ICON: small white right-pointing filled triangle] PL[actionCard]Y AN ACTION CARD\n[ICON: small white right-pointing filled triangle] PASS\nDISCARD A\n[ICON: small white right-pointing filled triangle] MAKE A MOVE\n[ICON: small white right-pointing filled triangle] PLACE 1 [secure]\n[ICON: small white right-pointing filled triangle] FIRE A SHOT\n[ICON: small white right-pointing filled triangle] FIRE A BURST\n[ICON: small white right-pointing filled triangle] MELEE A",
-          "ledgerStatus": "deferred"
-        }
-      ]
-    },
-    {
       "cluster": "skull-burst-or-explosion-morphology",
       "status": "morphology-only-unresolved",
       "priorityScore": 900,
@@ -9125,85 +8994,8 @@
           "visibleDiscriminator": null,
           "evidenceRun": null,
           "rulesTextPresent": true,
-          "rulesExcerpt": "Burst: Treat [burstDie1] as [burstDie2].\n[ICON: purple square with white exclamation mark]: Place a [ICON: light-grey cog with dark circular center] on this Weapon.",
+          "rulesExcerpt": "Burst: Treat [burstDie1] as [burstDie2].\n[burstDieAdditionalEffects]: Place a [ICON: light-grey cog with dark circular center] on this Weapon.",
           "ledgerStatus": "complete"
-        }
-      ]
-    },
-    {
-      "cluster": "exclamation-marker",
-      "status": "morphology-only-unresolved",
-      "priorityScore": 33,
-      "occurrences": 3,
-      "assetCount": 3,
-      "rulesBearingAssetCount": 3,
-      "distinctLiteralDescriptions": 3,
-      "resolutionStrategy": "Check source edition/prototype provenance first; several examples may be prototype-only UI markers rather than final-game rules icons.",
-      "topRepeatedLiterals": [
-        {
-          "token": "ICON: purple square with white exclamation mark",
-          "count": 1
-        },
-        {
-          "token": "Location: approximately x201-246, y395-440, at the beginning of the fourth rules line; outer shape: upright purple rounded-corner square; internal marks: centered white exclamation-shaped mark made from a tall vertical stroke and detached lower dot; colors: purple and white.",
-          "count": 1
-        },
-        {
-          "token": "Location: lower-center rules block, at the beginning of the second line, with a comma outside its right edge. Outer shape: upright near-square tile with slightly rounded corners. Internal marks: large white exclamation mark with a separated lower dot. Colors: muted magenta-purple and white.",
-          "count": 1
-        }
-      ],
-      "evidence": [
-        {
-          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-025.png",
-          "sourceSha256": "2d41625662d5e0727d89354e160e48ac76bd4051305cec7f61746f2ab94d81e5",
-          "componentFamily": "character/heavy-gun-operator",
-          "printedTitle": null,
-          "token": "ICON: purple square with white exclamation mark",
-          "occurrenceSource": "legacy-printed-token",
-          "occurrenceIndex": 1,
-          "cardLocation": null,
-          "matchDecision": "unresolved-local-token",
-          "closestAlternative": null,
-          "visibleDiscriminator": null,
-          "evidenceRun": null,
-          "rulesTextPresent": true,
-          "rulesExcerpt": "Burst: Treat [burstDie1] as [burstDie2].\n[ICON: purple square with white exclamation mark]: Place a [ICON: light-grey cog with dark circular center] on this Weapon.",
-          "ledgerStatus": "complete"
-        },
-        {
-          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-144_cards/card-11.png",
-          "sourceSha256": "10b491b739caab061332b6ec8ff4b8261f9519dfa5f3784fb1cfb5696f27eccc",
-          "componentFamily": "game/startItemDeck",
-          "printedTitle": null,
-          "token": "Location: approximately x201-246, y395-440, at the beginning of the fourth rules line; outer shape: upright purple rounded-corner square; internal marks: centered white exclamation-shaped mark made from a tall vertical stroke and detached lower dot; colors: purple and white.",
-          "occurrenceSource": "selected-explicit-authoritative-no-match",
-          "occurrenceIndex": 0,
-          "cardLocation": "Approximately x201-246, y395-440; beginning of the fourth rules line.",
-          "matchDecision": "no-match",
-          "closestAlternative": "burstDie1",
-          "visibleDiscriminator": "The source has a detached white dot below a long stroke, visibly forming an exclamation mark. burstDie1 has a continuous numeral 1 with no detached lower dot; the other purple die crops contain numerals 2-4 or four separate corner brackets, so none matches the internal mark.",
-          "evidenceRun": "sol-max-persistent-worker-33-20260821T172305Z-p465856-36ac0c",
-          "rulesTextPresent": true,
-          "rulesExcerpt": "This Weapon can be used even\nwith a [malfunction] on it and is not discarded\nwhen another [malfunction] is placed.\n[ICON: white exclamation mark in a purple rounded square], [ICON: black curved ammunition magazine in a red upright triangle]: Place a [malfunction] on this Weapon\nand then lose 2 [characterHealth] for each [malfunction].",
-          "ledgerStatus": "deferred"
-        },
-        {
-          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-144_cards/card-17.png",
-          "sourceSha256": "84679e2487a76c3e726fbb8cc49c2f20c98fd8e9876fb8ecbb953f75887b680a",
-          "componentFamily": "game/startItemDeck",
-          "printedTitle": null,
-          "token": "Location: lower-center rules block, at the beginning of the second line, with a comma outside its right edge. Outer shape: upright near-square tile with slightly rounded corners. Internal marks: large white exclamation mark with a separated lower dot. Colors: muted magenta-purple and white.",
-          "occurrenceSource": "selected-explicit-authoritative-no-match",
-          "occurrenceIndex": 0,
-          "cardLocation": "Lower-center rules block, at the beginning of the second line.",
-          "matchDecision": "no-match",
-          "closestAlternative": "burstDieAdditionalEffects, because it is the only supplied non-numeral purple rounded-square glossary crop; the literal alternative is an ordinary exclamation mark on a colored highlight.",
-          "visibleDiscriminator": "M4 contains one central exclamation stroke and a separate lower dot. burstDieAdditionalEffects instead contains four separated white corner-bracket marks around an empty center. No supplied glossary crop has M4's internal exclamation pattern.",
-          "evidenceRun": "sol-max-persistent-worker-33-20260821T172305Z-p465856-36ac0c",
-          "rulesTextPresent": true,
-          "rulesExcerpt": "Burst: Treat [burstDie3] and [burstDie4] as [burstDie2].\n[ICON: purple square with white !], [ICON: red upright triangle with white irregular angular mark] - Place a [malfunction] in your Room.",
-          "ledgerStatus": "deferred"
         }
       ]
     },

@@ -19,6 +19,7 @@ PROGRESS = EXTRACT / "vision-progress.json"
 QUEUE = EXTRACT / "low-confidence-review.json"
 GLOSSARY = REPO / "docs/rules/icon-glossary.md"
 REGISTRY = EXTRACT / "selected-card-text-evidence.json"
+SEMANTIC_RESOLUTIONS = REPO / "docs/qa/card-symbol-semantic-resolutions.json"
 DEFAULT_OUTPUT = EXTRACT / "card-text-corpus.json"
 TOKEN_RE = re.compile(r"\[([^\]]+)\]")
 ICON_ID_RE = re.compile(r"^- \*\*([A-Za-z][A-Za-z0-9]*)\*\* —")
@@ -48,6 +49,46 @@ def all_strings(value):
     elif isinstance(value, dict):
         for item in value.values():
             yield from all_strings(item)
+
+
+def semantic_icon_resolution_index(known: set[str]) -> tuple[dict[str, Any], dict[tuple[str, str], list[dict[str, Any]]]]:
+    payload = load(SEMANTIC_RESOLUTIONS)
+    if payload.get("schemaVersion") != 1 or not isinstance(payload.get("entries"), list):
+        raise ValueError("invalid semantic icon resolution registry")
+    index: dict[tuple[str, str], list[dict[str, Any]]] = {}
+    for entry in payload["entries"]:
+        canonical = entry.get("canonicalToken")
+        if canonical not in known:
+            raise ValueError(f"semantic icon resolution uses unknown canonical token: {canonical}")
+        for source in entry.get("sources") or []:
+            key = (source.get("sourcePath"), source.get("sourceSha256"))
+            if not all(isinstance(value, str) and value for value in key):
+                raise ValueError(f"semantic icon resolution has invalid source tuple: {entry.get('id')}")
+            resolution = {
+                "resolutionId": entry.get("id"),
+                "canonicalToken": canonical,
+                "resolutionType": entry.get("resolutionType"),
+                "literalArt": entry.get("literalArt"),
+                "literalTokens": list(source.get("literalTokens") or []),
+                "selectedOccurrenceIndexes": list(source.get("selectedOccurrenceIndexes") or []),
+                "evidencePath": "docs/qa/card-symbol-semantic-resolutions.json",
+            }
+            index.setdefault(key, []).append(resolution)
+    return payload, index
+
+
+def normalize_semantic_icons(value: Any, resolutions: list[dict[str, Any]]) -> Any:
+    if isinstance(value, str):
+        for resolution in resolutions:
+            replacement = f"[{resolution['canonicalToken']}]"
+            for literal in resolution["literalTokens"]:
+                value = value.replace(f"[{literal}]", replacement)
+        return value
+    if isinstance(value, list):
+        return [normalize_semantic_icons(item, resolutions) for item in value]
+    if isinstance(value, dict):
+        return {key: normalize_semantic_icons(item, resolutions) for key, item in value.items()}
+    return value
 
 
 def normalized_family(path: str) -> str:
@@ -88,6 +129,7 @@ def build_payload(*, registry: dict[str, Any] | None = None, registry_path: Path
         selected_evidence.validate_registry(registry)
     deferred = {entry["sourcePath"]: entry for entry in queue["entries"]}
     known = glossary_ids()
+    resolution_payload, resolution_index = semantic_icon_resolution_index(known)
     records = []
     readiness = collections.Counter()
     extraction_states = collections.Counter()
@@ -103,6 +145,7 @@ def build_payload(*, registry: dict[str, Any] | None = None, registry_path: Path
         if hashlib.sha256(source.read_bytes()).hexdigest() != source_sha:
             raise ValueError(f"source hash mismatch: {source_path}")
         queue_entry = deferred.get(source_path)
+        icon_resolutions = resolution_index.get((source_path, source_sha), [])
         manual_review = ledger.get("manualReview")
         identity = {}
         if ledger["status"] == "complete":
@@ -134,6 +177,7 @@ def build_payload(*, registry: dict[str, Any] | None = None, registry_path: Path
             uncertainties = queue_entry.get("uncertainties") or []
             reason = queue_entry.get("reasonSkipped")
             vision = queue_entry.get("vision") or {}
+        text_data = normalize_semantic_icons(text_data, icon_resolutions)
         strings = list(all_strings(text_data))
         tokens = sorted(set(token for text in strings for token in TOKEN_RE.findall(text)))
         canonical_tokens = sorted(token for token in tokens if token in known)
@@ -190,6 +234,7 @@ def build_payload(*, registry: dict[str, Any] | None = None, registry_path: Path
                 "ledgerPath": "assets/tts-mod/extract/vision-progress.json",
                 "queuePath": "assets/tts-mod/extract/low-confidence-review.json" if ledger["status"] == "deferred" else None,
                 **({"manualReview": manual_review} if manual_review else {}),
+                **({"semanticIconResolutions": icon_resolutions} if icon_resolutions else {}),
             },
         })
     records.sort(key=lambda row: row["sourcePath"])
@@ -203,6 +248,9 @@ def build_payload(*, registry: dict[str, Any] | None = None, registry_path: Path
             "reviewQueueUpdatedAt": queue.get("updatedAt"),
             "iconGlossary": "docs/rules/icon-glossary.md",
             "iconGlossaryIdentifierCount": len(known),
+            "semanticIconResolutions": "docs/qa/card-symbol-semantic-resolutions.json",
+            "semanticIconResolutionSourceCount": len(resolution_index),
+            "semanticIconResolutionCount": sum(len(rows) for rows in resolution_index.values()),
         },
         "metadata": {
             "selectedEvidenceRegistry": "assets/tts-mod/extract/selected-card-text-evidence.json",
@@ -211,6 +259,7 @@ def build_payload(*, registry: dict[str, Any] | None = None, registry_path: Path
             "selectedEvidenceTupleDigest": selected_evidence.registry_tuple_digest(registry),
             "selectedEvidenceEntryCount": len(registry["entries"]),
             "selectedEvidenceRunCount": sum(len(entry["runs"]) for entry in registry["entries"]),
+            "semanticIconResolutionRegistrySha256": selected_evidence.sha256_bytes(selected_evidence.canonical_json_bytes(resolution_payload)),
         },
         "counts": {
             "records": len(records),

@@ -82,7 +82,7 @@ the transcription, rotation, icon-comparison, punctuation, or source-authority w
 - Canonical image/JSON pairs: 63 total — 18 previously human-approved and preserved unchanged, plus 45 newly created from uniformly high-confidence pixel reads with valid minimal sidecars. `Move Quietly` was approved with the correction that its upper-right `notInCombat` symbol uses the crossed-out-Intruder variant, not the crossed-out-gun variant. `Bulletproof Vest`, `Handgun`, `Duck and Cover`, Contractor Consultant `Computer Skills`, `Always Prepared`, `Forcing Fire`, and `Secure` were approved unchanged; the canonical Bulletproof Vest face uses “gain a Serious Wound,” while its conflicting TTS BackURL is retained as provenance in `docs/qa/card-source-audits/bulletproof-vest-face-back.md`. The false `cards/character/combat-engineer/starting-item.*` entry was removed with human approval after it was definitively traced to the BackURL of Automatic Shotgun object `2059a7`; the image is retained only as provenance at `docs/qa/card-source-audits/automatic-shotgun-tts-back.png`.
 - This pass verified 60 non-upright assets by rotating lossless staging pixels before the final transcription; manifest-backed sources stayed byte-identical, and any promoted canonical card copy is upright.
 - Source images rotated upright: 5 (Combat Engineer Starting Item/Automatic Shotgun back, Automatic Shotgun face, Contractor Handgun, obsolete BF Gun face, Heavy Gun Operator Starting Item/BF Gun back).
-- BF Gun is excluded from canonical data as an obsolete/prototype HGO starting item; its purple exclamation glyph does not match the current official `burstDieAdditionalEffects` glyph. Evidence: `docs/qa/card-source-audits/bf-gun-source-fidelity.md`.
+- BF Gun is excluded from canonical data as an obsolete/prototype HGO starting item; its purple exclamation artwork differs from the current `burstDieAdditionalEffects` glyph but is retained as an approved source-specific semantic alias. Evidence: `docs/qa/card-source-audits/bf-gun-source-fidelity.md` and `docs/qa/card-symbol-semantic-resolutions.json`.
 - Automatic Shotgun still has a documented official-vs-TTS text conflict; its TTS JSON remains unchanged pending a human-approved canonical-data representation. Evidence: `docs/qa/card-source-audits/automatic-shotgun-source-fidelity.md`.
 - Icons flagged UNCERTAIN in canonical catalog entries: 0.
 - Card-extraction notes: `assets/tts-mod/notes/card-extraction.md`
@@ -1863,11 +1863,14 @@ clean at checkpoint, no worker remained live, and there is no next tuple or W34.
 stratified sample items. S01 (DAMAGING FIRE) and S08 (STARTING ITEM back) passed. S02 (REST) exposed
 a review-package defect, not a corpus defect: its canonical sidecar and corpus already stored the
 upper-right `notInCombat` icon, and the package's false text-only label was corrected. S05 (GATLING
-GUN) now maps the red Ammo occurrence to `[ammoToken]` and retains the purple exclamation mark as
-semantically unresolved. S06 (PLASMA GUN) now records the purple exclamation mark, the black curved
-ammunition magazine inside the red triangle, and the following colon; its false illegible span was
-removed and its evidence state advanced from `draft-partial` to `draft-full`. S03, S04, and S07 were
-not reviewed. Durable evidence: `docs/qa/card-rules-manual-review-2026-08-22.json`.
+GUN) maps the red Ammo occurrence to `[ammoToken]` and its pre-release purple exclamation result
+to `[burstDieAdditionalEffects]`. S06 (PLASMA GUN) maps the same purple legacy result and the older
+red ammunition-magazine result to `[burstDieAdditionalEffects]` and `[shootDieAmmoLoss]`; the
+following punctuation is a colon, and its false illegible span remains removed. The same
+source-scoped artwork aliases were audited across the related legacy weapon faces without changing
+canonical card promotion status. S03, S04, and S07 were not reviewed. Durable evidence:
+`docs/qa/card-rules-manual-review-2026-08-22.json` and
+`docs/qa/card-symbol-semantic-resolutions.json`.
 
 The lifecycle partition remains 532 = 148 complete + 384 deferred + 0 unaccounted; canonical pairs
 remain 78. The rebuilt 390-record corpus has 350 rules-bearing records, 249 full drafts, 11 partial

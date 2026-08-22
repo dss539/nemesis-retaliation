@@ -1,0 +1,200 @@
+{
+  "schemaVersion": 1,
+  "status": "approved source-specific semantic icon resolutions",
+  "updatedAt": "2026-08-22T06:16:18Z",
+  "policy": "Canonical card-rule placeholders encode game semantics, not exact artwork. Pre-release or prototype artwork may be normalized only for the exact source tuples listed here. Literal source appearance remains preserved in source images, raw vision evidence, and each resolution entry; no color/shape-wide inference is authorized.",
+  "entries": [
+    {
+      "id": "legacy-purple-exclamation-is-burst-additional-effects",
+      "canonicalToken": "burstDieAdditionalEffects",
+      "resolutionType": "pre-release-artwork-semantic-alias",
+      "literalArt": "purple square containing a white exclamation mark (vertical bar and detached dot)",
+      "evidence": [
+        "Project-owner follow-up review on 2026-08-22: collected assets may use pre-release artwork that differs visually while retaining the same symbol meaning.",
+        "The legacy glyph occupies the non-numeric Burst-result position and introduces a printed additional effect on every listed weapon face.",
+        "Later Flamethrower and Plasma Gun faces use the current burstDieAdditionalEffects artwork in the same result/effect syntax.",
+        "docs/qa/card-rules-manual-review-2026-08-22.json",
+        "docs/rules/icon-glossary.md"
+      ],
+      "comparisonSources": [
+        {
+          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-055.jpg",
+          "sourceSha256": "17b9fc374296328f209b6ed96401dba47dd7857f9f1cb368f3345ade2d064207",
+          "title": "FLAMETHROWER",
+          "canonicalResultSequence": [
+            "burstDieAdditionalEffects",
+            "shootDieAmmoLoss"
+          ]
+        },
+        {
+          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-114.jpg",
+          "sourceSha256": "fdb8cddc0b047d292fb79a60219340d5e5d7d1d1dfba32e7b779d9c775901f3f",
+          "title": "PLASMA GUN",
+          "canonicalResultSequence": [
+            "burstDieAdditionalEffects",
+            "shootDieAmmoLoss"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-025.png",
+          "sourceSha256": "2d41625662d5e0727d89354e160e48ac76bd4051305cec7f61746f2ab94d81e5",
+          "title": "BE GUN",
+          "literalTokens": [
+            "ICON: purple square with white exclamation mark"
+          ],
+          "selectedOccurrenceIndexes": []
+        },
+        {
+          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-131.png",
+          "sourceSha256": "ea5cd7dad241bea8eea7d5897764485bab2bb616f1ee2ba8c39b9695f9118870",
+          "title": "GATLING GUN",
+          "literalTokens": [
+            "ICON: purple square with a white vertical bar and detached square dot"
+          ],
+          "selectedOccurrenceIndexes": [
+            0
+          ]
+        },
+        {
+          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-144_cards/card-05.png",
+          "sourceSha256": "8230ba5b1c59f7a9b136b3a2f1c14b4414f7ba918944684cd78e0ab199e1656a",
+          "title": "FLAMETHROWER",
+          "literalTokens": [
+            "ICON: purple square with a white vertical bar and detached square dot"
+          ],
+          "selectedOccurrenceIndexes": [
+            1
+          ]
+        },
+        {
+          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-144_cards/card-06.png",
+          "sourceSha256": "4ceab051ce520564a2a1dd312b65f665f76bf29b4a0a6eb94c2a7fbf37943478",
+          "title": "GATLING GUN",
+          "literalTokens": [
+            "ICON: white exclamation mark in a purple square"
+          ],
+          "selectedOccurrenceIndexes": [
+            1
+          ]
+        },
+        {
+          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-144_cards/card-11.png",
+          "sourceSha256": "10b491b739caab061332b6ec8ff4b8261f9519dfa5f3784fb1cfb5696f27eccc",
+          "title": "PLASMA GUN",
+          "literalTokens": [
+            "ICON: white exclamation mark in a purple rounded square",
+            "ICON: white exclamation-shaped mark in a purple rounded square"
+          ],
+          "selectedOccurrenceIndexes": [
+            0
+          ]
+        },
+        {
+          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-144_cards/card-17.png",
+          "sourceSha256": "84679e2487a76c3e726fbb8cc49c2f20c98fd8e9876fb8ecbb953f75887b680a",
+          "title": "SONIC GUN",
+          "literalTokens": [
+            "ICON: purple square with white !"
+          ],
+          "selectedOccurrenceIndexes": [
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "legacy-red-magazine-triangle-is-shoot-ammo-loss",
+      "canonicalToken": "shootDieAmmoLoss",
+      "resolutionType": "pre-release-artwork-semantic-alias",
+      "literalArt": "red upright triangle containing an older curved or oblique ammunition-magazine motif",
+      "evidence": [
+        "Project-owner follow-up review on 2026-08-22 identified the reviewed Plasma Gun triangle as an ammunition magazine and probably a die result, and explained that pre-release symbols may retain meaning despite changed art.",
+        "The reviewed legacy Plasma Gun and the later same-title Plasma Gun place this red result after the Burst additional-effects result in the same two-result effect trigger.",
+        "The legacy Flamethrower face already had this artwork normalized as shootDieAmmoLoss; the same shared-sheet motif appears on Sonic Gun and Mini-Turret in Shoot-result syntax.",
+        "docs/qa/card-rules-manual-review-2026-08-22.json",
+        "docs/rules/icon-glossary.md"
+      ],
+      "comparisonSources": [
+        {
+          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-114.jpg",
+          "sourceSha256": "fdb8cddc0b047d292fb79a60219340d5e5d7d1d1dfba32e7b779d9c775901f3f",
+          "title": "PLASMA GUN",
+          "canonicalResultSequence": [
+            "burstDieAdditionalEffects",
+            "shootDieAmmoLoss"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-144_cards/card-05.png",
+          "sourceSha256": "8230ba5b1c59f7a9b136b3a2f1c14b4414f7ba918944684cd78e0ab199e1656a",
+          "title": "FLAMETHROWER",
+          "literalTokens": [],
+          "selectedOccurrenceIndexes": [],
+          "note": "This occurrence was already normalized as shootDieAmmoLoss before the alias registry existed."
+        },
+        {
+          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-144_cards/card-09.png",
+          "sourceSha256": "4d9d0a3fc8807394cda0765d34ebbe84e7e7dd38f57ac7cfa2c810fcc83598ed",
+          "title": "MINI-TURRET",
+          "literalTokens": [
+            "ICON: red upward-pointing triangle with narrow white oblique inset"
+          ],
+          "selectedOccurrenceIndexes": [
+            0
+          ]
+        },
+        {
+          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-144_cards/card-11.png",
+          "sourceSha256": "10b491b739caab061332b6ec8ff4b8261f9519dfa5f3784fb1cfb5696f27eccc",
+          "title": "PLASMA GUN",
+          "literalTokens": [
+            "ICON: black curved ammunition magazine in a red upright triangle",
+            "ICON: white tapered vertical mark in a red upright triangle"
+          ],
+          "selectedOccurrenceIndexes": [
+            1
+          ]
+        },
+        {
+          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-144_cards/card-17.png",
+          "sourceSha256": "84679e2487a76c3e726fbb8cc49c2f20c98fd8e9876fb8ecbb953f75887b680a",
+          "title": "SONIC GUN",
+          "literalTokens": [
+            "ICON: red upright triangle with white irregular angular mark"
+          ],
+          "selectedOccurrenceIndexes": [
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "id": "manual-s05-red-inline-is-ammo-token",
+      "canonicalToken": "ammoToken",
+      "resolutionType": "project-owner-manual-morphology-resolution",
+      "literalArt": "red chamfered ammunition block with a dark center and darker right-side facet",
+      "evidence": [
+        "Project-owner S05 manual review on 2026-08-22: “red icon is ammo”.",
+        "docs/qa/card-rules-manual-review-2026-08-22.json"
+      ],
+      "comparisonSources": [],
+      "sources": [
+        {
+          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-144_cards/card-06.png",
+          "sourceSha256": "4ceab051ce520564a2a1dd312b65f665f76bf29b4a0a6eb94c2a7fbf37943478",
+          "title": "GATLING GUN",
+          "literalTokens": [
+            "ICON: red chamfered block with a dark square center and a narrow darker-red right side"
+          ],
+          "selectedOccurrenceIndexes": [
+            0
+          ]
+        }
+      ]
+    }
+  ]
+}
