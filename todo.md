@@ -1806,78 +1806,57 @@ work was started, and the next eligible exact tuple is current queue index
 257, `assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-144_cards/card-09.png`
 (SHA-256 `4d9d0a3fc8807394cda0765d34ebbe84e7e7dd38f57ac7cfa2c810fcc83598ed`); wraparound was not required.
 
-**W33 final-completion blocker checkpoint (2026-08-21T18:14:46.685738Z):** Worker
-`sol-max-persistent-worker-33-20260821T172305Z-p465856-36ac0c` froze every one of the
-138 genuinely unselected exact low-confidence tuples. Assignment SHA-256 is
-`41a354f78f7e88dc4f35ea3d0ba80581751b5e184e1afa9c54621b659ac03b9d`; ordered
-`(assetId, sourcePath, sourceSha256)` tuple digest is
-`17e234503230a4a37e6dcb0c94e55b828b4081381edf0e361ffa2af4fb8aa967`. The walk
-started at current queue index 257, reached index 383, wrapped once, skipped exact already-selected
-indices 1 and 11, and ended at index 12. The tracked QA seal contains all 138 ordered tuples plus
-live hashes, dimensions, formats, modes, frame counts, and decode results:
-`docs/qa/card-text-final-completion-blocker-w33.json` (SHA-256
-`83455d558ec92a0ede9181c1da355f3c526bb9fa9e2c1bd50422749d7df00ab3`).
+**W33 final-completion checkpoint (2026-08-22T00:43:51.299394Z):** Worker
+`sol-max-persistent-worker-33-20260821T172305Z-p465856-36ac0c` completed the exact immutable 138-tuple final assignment. Assignment SHA-256 is
+`41a354f78f7e88dc4f35ea3d0ba80581751b5e184e1afa9c54621b659ac03b9d` and ordered `(assetId, sourcePath, sourceSha256)` tuple digest is
+`17e234503230a4a37e6dcb0c94e55b828b4081381edf0e361ffa2af4fb8aa967`. No W34 worker or next tuple exists.
 
-Neutral smoke session `20260821_172412_8b6254` verified exact native
-`openai-codex:gpt-5.6-sol` at reasoning `max`, 1 API call, 2 messages, 0 tools, and no stored
-Tools/tool-name marker. Seven exact direct-image blind wrappers were accepted and sealed mode `0400`:
-- W33-001, queue index 257, `assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-144_cards/card-09.png`,
-  SHA-256 `4d9d0a3fc8807394cda0765d34ebbe84e7e7dd38f57ac7cfa2c810fcc83598ed`;
-- W33-002, index 258, `assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-144_cards/card-11.png`,
-  SHA-256 `10b491b739caab061332b6ec8ff4b8261f9519dfa5f3784fb1cfb5696f27eccc`;
-- W33-003, index 259, `assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-144_cards/card-12.png`,
-  SHA-256 `82ca10b789c9453b5e9310e3125bd4ce83d48db08bbccc725ac25ef83f30175b`;
-- W33-004, index 260, `assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-144_cards/card-14.png`,
-  SHA-256 `f29213e6aa1250538e65825cafbaa61be3348ba79520842e6b8f22f7c5ad4a77`;
-- W33-005, index 261, `assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-144_cards/card-15.png`,
-  SHA-256 `185c18384a4343c00a698a6105225c7690448689da332dba204daf13a398ecdb`;
-- W33-006, index 262, `assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-144_cards/card-16.png`,
-  SHA-256 `4d21fccf31989c02c416a53c7ae7908ae555d3511f901860d584e506a51c7153`;
-- W33-007, index 263, `assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-144_cards/card-17.png`,
-  SHA-256 `84679e2487a76c3e726fbb8cc49c2f20c98fd8e9876fb8ecbb953f75887b680a`.
+W33-106 recovered through the explicitly authorized large-input route after six exact-source provider
+overload sessions. Its original `tokens/boarderTile-002.png` remained byte-identical at
+`b3f6694e56943a95525dc14b8c432a1509e243aea43764ab677e26734bab26ba` (9895×9264,
+23465920 bytes). The sole accepted upload derivative is lossless PNG
+`1e15d2cc9366808072a91faa5899e80b4011c0519ac1ff8a218d8f0062884284` (4096×3835,
+5231386 bytes), produced by the recorded aspect-preserving LANCZOS
+4096px-bound transform. Session `20260821_232016_14d96d` verified 1 API call, 2 messages, and 0 tools.
 
-The accepted blind calls used three independently DB-verified zero-tool sessions:
-`20260821_172910_4cf05a` (5 API calls, 11 stored messages, 0 tools),
-`20260821_175826_e1b5ed` (1/3/0), and `20260821_180642_0e75df` (1/3/0).
-Each retired session contains one final user message without an assistant response; W33-006,
-W33-007, and W33-008 respectively are explicitly not reads in those unserved turns. Accepted
-production evidence is therefore 7 API calls / 7 immutable wrappers / 0 tools; no Qwen, auxiliary
-vision, OCR canonical evidence, model/reasoning downgrade, or shared provider/config mutation occurred.
+Accepted production evidence totals 260 unique sessions, 264 native-image
+API calls, 528 accepted messages, and 0 tools across blind, 11 lossless orientation
+retries, 104 independent all-49 contact adjudications, and 11 single-page publisher audits. The separate
+non-production route smoke is 1 session / 1 API call / 2 messages / 0 tools. Excluded
+evidence totals 10 known sessions, 3 DB-counted API calls,
+16 messages (including 3 historical
+unserved messages inside accepted blind sessions), and 0 tools. This excludes the
+W33-022 timeout, six W33-106 overload sessions, and three context-stripped multi-image publisher calls;
+all are preserved as failure provenance and none supplied accepted semantics. No OCR, Qwen, auxiliary
+vision, model/reasoning downgrade, or shared provider/config mutation was used.
 
-Operational blocker: the verified one-shot CLI exposes one direct `--image` per query, and the seven
-accepted Sol-Max/max reads measured approximately five to six minutes each. The remaining 131 blind
-reads plus orientation retries, authoritative comparisons, closure, merge, and validation cannot fit
-the active 12-hour/500-turn bounded supervisor. A neutral interactive multi-image smoke could not
-attach local paths through this remote PTY and exited before inference; a compact-output same-route
-retry preserved all material gates but did not improve latency. This is an exhausted exact-route
-blocker, not permission to downgrade or substitute.
+All 138 decisions are conservative `defer`; promotions/canonical changes are 0. The immutable results
+reconcile 589 enumerated morphologies exactly once: 557 functional
+occurrences split into 232 authoritative page-40 matches and
+325 explicit no-match rows, plus 32 non-text component
+morphologies and 0 artwork morphologies. Conflicts preserved verbatim:
+42 prior-snapshot, 79 total source-authority/variant,
+including 11 publisher-primary, 64 BGA-secondary, and
+4 same-title TTS-variant rows. No approved file was overwritten or reclassified.
 
-No post-blind source-role/rules classification, icon comparison, source-conflict adjudication,
-promotion/defer decision, normalized result, native-worker closure audit, projection, or shared merge
-was performed. Consequently W33 has 0 promoted, 0 merged-deferred, 0 adjudicated non-rules sources,
-0 authoritative icon matches, 0 explicit no-match rows, 0 adjudicated non-text occurrences, and 0
-adjudicated source conflicts; these are stage-not-reached counts, not semantic conclusions about the
-seven images. `raw/` and `results/` remain empty, no candidate/canonical/source byte changed, and all
-three contaminated sessions are retired.
+Generic recursive provenance resolves all 138 exact URL reference sets across 1 bag, 32 cards, 8
+figures, 42 models, 33 tiles, and 22 tokens; 42 applicable paired-side sets have complete pixels and 13
+sources retain explicit state-alternate evidence. The selected-evidence registry now covers every 384
+queue tuple while the intentionally card/reference-only corpus remains 390 records: exactly 32 W33
+corpus members receive overlays and 106 non-corpus selections remain registry/QA evidence without
+fabricated corpus rows. Final lifecycle is 532 = 148 complete +
+384 deferred + 0 unaccounted; queue 384, selected
+384, genuinely unselected 0, canonical pairs
+78.
 
-Eleven focused tests and all eight documented global commands pass both before vision and after the
-blocker seal. The final checks verify 532/532 source decodes, 390/390 corpus source hashes, corpus
-reproducibility at `662fb1a21e60da414363dc7ce373e11941461e4636f711cc4c39d4aca0a7fea0`,
-all 138 assignment source probes, exact QA JSON scope, and no active image worker. Shared state remains
-byte-identical to W32: lifecycle 532 = 148 complete + 384 deferred + 0 unaccounted; queue 384;
-selected registry/corpus overlays 246; genuinely unselected queue tuples 138; corpus 390; canonical
-pairs 78. Predecessor checkpoint HEAD was `b65515daea12e126b8f710d044e9156d35fedae1`;
-sealed QA blocker commit is `0934bc22b612b871746257dbfdf545483c20beb3`. This entry is committed
-separately in the following todo-only checkpoint commit, whose self-hash does not appear in its own
-content. Nothing was pushed or deployed, and no W34 work was started.
-
-Exact continuation cursor is W33-008, queue index 264,
-`assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-163.png`
-(SHA-256 `f4c92eedec2f7cec343224b63d868c5d655b174f9944d745984d841c3d188b2a`).
-Resume the immutable W33 assignment there in a fresh tool-disabled Sol-Max/max session under a
-lock-owning supervisor provisioned beyond the measured blind-plus-adjudication duration, or only after
-a programmatic native multi-image route has itself been verified. Preserve W33-001..007; do not
-resume the three contaminated sessions or reread their accepted tuples.
+Reusable native-worker audit, independent closure, private projection, transactional trial/rollback/
+commit/zero-write remerge, and final validation all pass with 0 errors/0 warnings. Eleven focused tests
+and all eight global commands pass; 532/532 images decode, 390/390 corpus hashes verify, two corpus
+builds are byte-identical at `59d56b3995255fdf4956c0110bfd383a5c0f3ebd099d8047d372dc02f6429208`, unresolved occurrence cardinality is exact,
+and all 78 canonical pair hashes remain unchanged. Sealed data/QA/shared/code commit:
+`585740242f1a6bbdb6780dea3b5a38ee8eb8a7cb`. This TODO entry is committed separately because it cannot embed its own hash.
+Nothing was pushed, no PR/deploy/profile/config/service/production action occurred, the worktree was
+clean at checkpoint, no worker remained live, and there is no next tuple or W34.
 
 ## LATER — Expansions (re-add when user wants them)
 - [ ] Re-extract expansion content from save (see `assets/tts-mod/notes/extraction.md` §15 for all deck GUIDs, intruder bags,
