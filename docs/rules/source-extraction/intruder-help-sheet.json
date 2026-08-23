@@ -1,0 +1,261 @@
+{
+  "schemaVersion": 1,
+  "recordType": "verbatim-source-extraction",
+  "scope": "Nemesis: Retaliation base game",
+  "component": "Intruder Help Sheet",
+  "sourceAuthority": "source-bound TTS component scan; corroborated as a required base component by the official rulebook, but not silently promoted to publisher-primary pixels",
+  "pairingEvidence": {
+    "ttsGuid": "1e58e7",
+    "objectType": "CardCustom",
+    "cardId": 509000,
+    "role": "intruderHelp",
+    "facePath": "assets/tts-mod/extract/v2-dl/tree/cards/reference/card-053.png",
+    "backPath": "assets/tts-mod/extract/v2-dl/tree/cards/reference/card-069.png"
+  },
+  "normalizationPolicy": "Verbatim printed wording and source-local token occurrence labels only. No canonical vocabulary, aliases, taxonomy, ontology, or semantic joins are created here.",
+  "sides": [
+    {
+      "sideId": "queen-alive",
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/reference/card-053.png",
+      "sourceSha256": "c3480ca3c7524dd09b7a841d33ff109500b2f46b684f616d35e7007b29edf593",
+      "dimensions": [
+        1916,
+        1123
+      ],
+      "orientation": "upright",
+      "title": "THE QUEEN IS ALIVE",
+      "columns": [
+        {
+          "columnId": "corridor",
+          "heading": "RESOLVE\nIN A CORRIDOR",
+          "rows": [
+            {
+              "occurrenceId": "QA-C-01",
+              "sourceTokenAppearance": "mint-rimmed circular marker with an unlabeled pale upright multi-limbed figure",
+              "printedInstruction": "Activate the Queen.\nIf not possible – place her\nin the Corridor."
+            },
+            {
+              "occurrenceId": "QA-C-02",
+              "sourceTokenFaces": [
+                "2",
+                "3",
+                "4",
+                "1+1",
+                "2+1",
+                "3+1"
+              ],
+              "printedInstruction": "Place the\nnumber of\nIntruders\nshown on the\ntoken (Adults\nand Drones) in\nthe Corridor."
+            },
+            {
+              "occurrenceId": "QA-C-03",
+              "sourceTokenAppearance": "mint-rimmed circular marker with pale brackets and an unlabeled small curled figure",
+              "printedInstruction": "Place 1 Larva\nin the Corridor."
+            }
+          ]
+        },
+        {
+          "columnId": "room",
+          "heading": "RESOLVE\nIN A ROOM",
+          "rows": [
+            {
+              "occurrenceId": "QA-R-01",
+              "sourceTokenPrintedLabel": "QUEEN",
+              "printedInstruction": "Activate the Queen.\nIf not possible – place her\nin the Room."
+            },
+            {
+              "occurrenceId": "QA-R-02",
+              "sourceTokenPrintedLabels": [
+                "DRONE",
+                "ADULT",
+                "LARVA"
+              ],
+              "printedInstruction": "Place 1 Intruder\nof the type shown\non the token\nin the Room."
+            }
+          ]
+        },
+        {
+          "columnId": "bag-development",
+          "heading": "BAG\nDEVELOPMENT",
+          "rows": [
+            {
+              "occurrenceId": "QA-B-01",
+              "sourceTokenPrintedLabel": "QUEEN",
+              "printedInstruction": "Activate the Queen.\nIf not possible – add 2 Larva\ntokens to the bag."
+            },
+            {
+              "occurrenceId": "QA-B-02",
+              "sourceTokenPrintedLabels": [
+                "DRONE",
+                "ADULT"
+              ],
+              "printedInstruction": "Add 2 Queen tokens\nto the bag."
+            },
+            {
+              "occurrenceId": "QA-B-03",
+              "sourceTokenPrintedLabel": "LARVA",
+              "printedInstruction": "Add 2 random Drone\ntokens to the bag."
+            }
+          ]
+        }
+      ],
+      "bottomRow": {
+        "occurrenceId": "QA-BOTTOM-01",
+        "sourceTokenAppearance": "unlabeled dark circular marker with a thin mint outline",
+        "printedInstruction": "Add 2 random Adult tokens\nto the bag. Add this token back\nto the bag."
+      },
+      "nonNormativeArtworkText": [
+        "tiny oblique marks on the bag illustration are not transcribed as operative rules"
+      ],
+      "materialUnreadableSpans": [],
+      "evidence": {
+        "sourceSha256": "c3480ca3c7524dd09b7a841d33ff109500b2f46b684f616d35e7007b29edf593",
+        "selectedRunIdentity": "w33-final-extraction-20260821T172305Z-p465856-36ac0c/sol-max-persistent-worker-33-20260821T172305Z-p465856-36ac0c/W33-020",
+        "runtime": {
+          "provider": "openai-codex",
+          "model": "gpt-5.6-sol",
+          "reasoningEffort": "max",
+          "nativeImageRoute": "direct-hermes-chat-image",
+          "blindSessionId": "20260821_184637_53d6cb",
+          "adjudicationSessionId": "20260821_235512_e3bcc5",
+          "auxiliaryVisionUsed": false,
+          "qwenUsed": false,
+          "ocrCanonicalEvidenceUsed": false,
+          "modelDowngradeUsed": false
+        },
+        "artifactPaths": {
+          "blindObservationPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-33-20260821T172305Z-p465856-36ac0c/raw/W33-020.json",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-33-20260821T172305Z-p465856-36ac0c/results/W33-020.json",
+          "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-33-20260821T172305Z-p465856-36ac0c/qa/contact-sheets/W33-020-all-functional-all49-contact.png"
+        }
+      }
+    },
+    {
+      "sideId": "queen-dead",
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/reference/card-069.png",
+      "sourceSha256": "4b0690bfe144ec9b57220b4564bc9dfc5e452cd770cbe5a085d54534cd6460cc",
+      "dimensions": [
+        1916,
+        1179
+      ],
+      "orientation": "upright",
+      "title": "THE QUEEN IS DEAD",
+      "columns": [
+        {
+          "columnId": "corridor",
+          "heading": "RESOLVE\nIN A CORRIDOR",
+          "rows": [
+            {
+              "occurrenceId": "QD-C-01",
+              "sourceTokenAppearance": "mint-rimmed circular marker with an unlabeled pale upright multi-limbed figure",
+              "printedInstruction": "Place 1 Drone in the Corridor.\nRemove this token from\nthe game."
+            },
+            {
+              "occurrenceId": "QD-C-02",
+              "sourceTokenFaces": [
+                "2",
+                "3",
+                "4",
+                "1+1",
+                "2+1",
+                "3+1"
+              ],
+              "printedInstruction": "Place the\nnumber of\nIntruders\nshown on the\ntoken (Adults\nand Drones) in\nthe Corridor."
+            },
+            {
+              "occurrenceId": "QD-C-03",
+              "sourceTokenAppearance": "mint-rimmed circular marker with pale brackets and an unlabeled small curled figure",
+              "printedInstruction": "Place 1 Larva\nin the Corridor."
+            }
+          ]
+        },
+        {
+          "columnId": "room",
+          "heading": "RESOLVE\nIN A ROOM",
+          "rows": [
+            {
+              "occurrenceId": "QD-R-01",
+              "sourceTokenPrintedLabel": "QUEEN",
+              "printedInstruction": "Place 1 Drone in the Room.\nRemove this token from\nthe game."
+            },
+            {
+              "occurrenceId": "QD-R-02",
+              "sourceTokenPrintedLabels": [
+                "DRONE",
+                "ADULT",
+                "LARVA"
+              ],
+              "printedInstruction": "Place 1 Intruder\nof the type shown\non the token\nin the Room."
+            }
+          ]
+        },
+        {
+          "columnId": "bag-development",
+          "heading": "BAG\nDEVELOPMENT",
+          "rows": [
+            {
+              "occurrenceId": "QD-B-01",
+              "sourceTokenPrintedLabel": "QUEEN",
+              "printedInstruction": "Add 2 random Drone\ntokens to the bag.\nRemove this token\nfrom the game."
+            },
+            {
+              "occurrenceId": "QD-B-02",
+              "sourceTokenPrintedLabels": [
+                "DRONE",
+                "ADULT"
+              ],
+              "printedInstruction": "Add 2 Larva tokens\nto the bag."
+            },
+            {
+              "occurrenceId": "QD-B-03",
+              "sourceTokenPrintedLabel": "LARVA",
+              "printedInstruction": "Add 2 random Drone\ntokens to the bag."
+            }
+          ]
+        }
+      ],
+      "bottomRow": {
+        "occurrenceId": "QD-BOTTOM-01",
+        "sourceTokenAppearance": "unlabeled dark circular marker with a thin mint outline",
+        "printedInstruction": "Add 2 random Adult tokens\nto the bag. Add this token back\nto the bag."
+      },
+      "nonNormativeArtworkText": [
+        "NEMESIS on the bag illustration"
+      ],
+      "materialUnreadableSpans": [],
+      "evidence": {
+        "sourceSha256": "4b0690bfe144ec9b57220b4564bc9dfc5e452cd770cbe5a085d54534cd6460cc",
+        "selectedRunIdentity": "w33-final-extraction-20260821T172305Z-p465856-36ac0c/sol-max-persistent-worker-33-20260821T172305Z-p465856-36ac0c/W33-021",
+        "runtime": {
+          "provider": "openai-codex",
+          "model": "gpt-5.6-sol",
+          "reasoningEffort": "max",
+          "nativeImageRoute": "direct-hermes-chat-image",
+          "blindSessionId": "20260821_184637_08be4f",
+          "adjudicationSessionId": "20260821_235516_a821cf",
+          "auxiliaryVisionUsed": false,
+          "qwenUsed": false,
+          "ocrCanonicalEvidenceUsed": false,
+          "modelDowngradeUsed": false
+        },
+        "artifactPaths": {
+          "blindObservationPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-33-20260821T172305Z-p465856-36ac0c/raw/W33-021.json",
+          "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-33-20260821T172305Z-p465856-36ac0c/results/W33-021.json",
+          "contactSheetPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-33-20260821T172305Z-p465856-36ac0c/qa/contact-sheets/W33-021-all-functional-all49-contact.png"
+        }
+      }
+    }
+  ],
+  "officialCorroboration": [
+    {
+      "path": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
+      "sha256": "e3cda0d7a91bd090cec45dbc8ce89e2015e2202173357c374ff49365f9c29ddd",
+      "citation": "printed page 8 setup: begin with “The Queen is Alive” side up; component gives effects of drawing Intruder tokens"
+    },
+    {
+      "path": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
+      "sha256": "e3cda0d7a91bd090cec45dbc8ce89e2015e2202173357c374ff49365f9c29ddd",
+      "citation": "printed page 15 Bag Development: resolve the token front using the Intruder Help Sheet; effects change after Queen death"
+    }
+  ],
+  "extractionStatus": "source text complete; source-local token art retained without canonical semantic identifiers"
+}

@@ -1,0 +1,160 @@
+{
+  "schemaVersion": 1,
+  "scope": "Nemesis: Retaliation base game only",
+  "createdAt": "2026-08-22",
+  "purpose": "Close extraction of all authoritative and source-bound evidence before creating a canonical vocabulary, aliases, taxonomy, ontology, or semantic layer.",
+  "authorityOrder": [
+    "official FAQ/errata",
+    "official rulebook",
+    "official help sheets and visible component text",
+    "source-bound TTS component scans, preserved by source tuple and version",
+    "licensed-digital structured secondary evidence",
+    "TTS structured metadata/provenance"
+  ],
+  "excluded": [
+    "Sangrevore, Neoflesh, Xyrian, Contractors, Insider, Stretch Goals, and other expansion sources",
+    "current JavaScript implementation as rules authority",
+    "canonical vocabulary, alias, taxonomy, ontology, and semantic normalization work"
+  ],
+  "officialSources": [
+    {
+      "path": "docs/rulebooks/Nemesis_RT_FAQ_v1.2.pdf",
+      "sha256": "611ae20dc0b3e04f3c0d99f294a92fc95460c042565b12d1c808b1282ae0e0d8",
+      "bytes": 616525,
+      "role": "FAQ and errata",
+      "authority": "official-errata",
+      "extractionStatus": "text layer extracted; visual/page obligation audit not closed",
+      "pages": 4,
+      "textExtraction": {
+        "path": "docs/rulebooks/faq_text.txt",
+        "sha256": "9741ca30bf75f834de9fba5752f5355c5cfb9638955efe5cd9c1c181cbb432f5"
+      }
+    },
+    {
+      "path": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
+      "sha256": "e3cda0d7a91bd090cec45dbc8ce89e2015e2202173357c374ff49365f9c29ddd",
+      "bytes": 18960215,
+      "role": "base-game rulebook",
+      "authority": "official-primary",
+      "extractionStatus": "text layer extracted; graphical normative channels and page-by-page obligation coverage not closed",
+      "pages": 40,
+      "textExtraction": {
+        "path": "docs/rulebooks/rulebook_text.txt",
+        "sha256": "b89552f02686559e2efa284dc8a18afc16bfb753b2de8afebe62c5243ca45a0a"
+      }
+    },
+    {
+      "path": "docs/rulebooks/Nemesis_RT_Rooms_Sheet.pdf",
+      "sha256": "f97b683894576a27d787241a6ec09e1de6ca088ffa7c5b109fb3e9ed2af54f8b",
+      "bytes": 6844297,
+      "role": "Room Help Sheet",
+      "authority": "official-component-reference",
+      "extractionStatus": "raw two-page PDF present; individual Room effects/layouts not yet extracted into source-bound records",
+      "pages": 2,
+      "relatedTtsPaths": [
+        "assets/tts-mod/extract/v2-dl/tree/cards/reference/rooms-help-sheet-page-1.jpg",
+        "assets/tts-mod/extract/v2-dl/tree/cards/reference/rooms-help-sheet-page-2.jpg"
+      ]
+    },
+    {
+      "path": "docs/rulebooks/Nemesis_RT_Objectives_Sheet.pdf",
+      "sha256": "30f3d4116a9c4dc3a53fb5e920995c24aa747988c915dc5fba6261cbd7dca364",
+      "bytes": 11696961,
+      "role": "Objective and Mission Task Help Sheet",
+      "authority": "official-component-reference",
+      "extractionStatus": "raw two-page PDF present; cards/terms are not yet extracted as one record per component",
+      "pages": 2,
+      "relatedTtsPaths": [
+        "assets/tts-mod/extract/v2-dl/tree/cards/reference/objectives-help-sheet.jpg",
+        "assets/tts-mod/extract/v2-dl/tree/cards/reference/objectives-help-sheet-page-2.jpg"
+      ]
+    }
+  ],
+  "componentEvidence": [
+    {
+      "component": "Intruder Help Sheet",
+      "paths": [
+        "assets/tts-mod/extract/v2-dl/tree/cards/reference/card-053.png",
+        "assets/tts-mod/extract/v2-dl/tree/cards/reference/card-069.png"
+      ],
+      "sourceSha256": [
+        "c3480ca3c7524dd09b7a841d33ff109500b2f46b684f616d35e7007b29edf593",
+        "4b0690bfe144ec9b57220b4564bc9dfc5e452cd770cbe5a085d54534cd6460cc"
+      ],
+      "authority": "source-bound TTS component scan",
+      "extractionStatus": "verbatim source extraction complete",
+      "output": "docs/rules/source-extraction/intruder-help-sheet.json"
+    },
+    {
+      "component": "Player Help cards",
+      "authority": "source-bound TTS component scans",
+      "recordCount": 10,
+      "extractionStatus": "duplicate player-number variants mostly transcribed; wording conflicts with current rulebook phase naming require source separation, not normalization"
+    },
+    {
+      "component": "Card/reference corpus",
+      "authority": "mixed source-bound component evidence",
+      "path": "assets/tts-mod/extract/card-text-corpus.json",
+      "sha256": "baaf18625eeaab940379fa412896bc390d5a409365c9a4f7ae312b4a9f858c95",
+      "counts": {
+        "records": 390,
+        "rulesTextPresent": 350,
+        "extractionStates": {
+          "complete-non-rules-or-reference": 34,
+          "draft-full": 250,
+          "draft-partial": 10,
+          "no-transcription": 3,
+          "non-rules-or-reference": 15,
+          "verified-canonical": 78
+        },
+        "rulesInformationReadiness": {
+          "canonical": 78,
+          "draft-partial": 10,
+          "draft-text-complete": 119,
+          "draft-text-complete-symbols-unresolved": 131,
+          "missing-transcription": 3,
+          "not-rules-bearing-or-reference": 49
+        }
+      },
+      "extractionStatus": "390 records closed into explicit states; remaining gaps enumerated separately"
+    }
+  ],
+  "remainingGraphicalSourceUnits": [
+    {
+      "priority": 1,
+      "source": "Official Room Help Sheet",
+      "units": 2,
+      "requiredOutput": "one verbatim source record per Room/effect plus page/layout evidence"
+    },
+    {
+      "priority": 2,
+      "source": "Official Objective Help Sheet",
+      "units": 2,
+      "requiredOutput": "one verbatim source record per Objective/Mission Task/game-term note, preserving visible grouping and count thresholds"
+    },
+    {
+      "priority": 3,
+      "source": "Card corpus material gaps",
+      "units": 13,
+      "requiredOutput": "resolve only true operative unreadable spans; classify non-operative art separately; preserve source conflicts"
+    },
+    {
+      "priority": 4,
+      "source": "Official rulebook graphical normative channels",
+      "units": 40,
+      "requiredOutput": "page-by-page visual obligation census covering diagrams, tables, card anatomy, icon associations, and examples not represented by text extraction"
+    },
+    {
+      "priority": 5,
+      "source": "Official FAQ visual/layout channel",
+      "units": 4,
+      "requiredOutput": "page-by-page confirmation that text extraction retained scope, numbering, examples, and icon associations"
+    },
+    {
+      "priority": 6,
+      "source": "Player Help cards",
+      "units": 10,
+      "requiredOutput": "deduplicate identical text while preserving player-number and source-version variants"
+    }
+  ]
+}
