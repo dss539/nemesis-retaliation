@@ -17,6 +17,7 @@ ontology, or semantic rule model is designed.
 ## Files
 
 - `base-source-inventory.json` — closed inventory of current base-game source channels and their extraction status.
+- `faq-v1.2-source-extraction.json` — full four-page FAQ/errata extraction with base-game versus expansion applicability preserved.
 - `intruder-help-sheet.json` — verbatim source-bound extraction of both base Intruder Help Sheet sides.
 - `room-help-sheet-layout.json` — visual page/grid inventory of all 25 printed Room entries.
 - `room-help-sheet.json` — complete source-bound extraction of all 25 Room effects, notes, literal functional-icon occurrences, and visual evidence.

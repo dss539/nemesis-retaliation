@@ -1,0 +1,1758 @@
+{
+  "schemaVersion": 1,
+  "recordType": "official-faq-errata-v1.2-source-extraction",
+  "scope": "Full official FAQ retained; base-game applicability is explicitly separated from expansion-only rulings",
+  "source": {
+    "path": "docs/rulebooks/Nemesis_RT_FAQ_v1.2.pdf",
+    "sha256": "611ae20dc0b3e04f3c0d99f294a92fc95460c042565b12d1c808b1282ae0e0d8",
+    "pages": 4,
+    "renderDpi": 200,
+    "renderDimensions": [
+      1701,
+      2386
+    ],
+    "printedVersion": "V1.2",
+    "printedDate": "8.06.2026",
+    "checkedTextExtraction": {
+      "path": "docs/rulebooks/faq_text.txt",
+      "sha256": "9741ca30bf75f834de9fba5752f5355c5cfb9638955efe5cd9c1c181cbb432f5",
+      "pageBoundariesPreserved": false
+    },
+    "freshComparisonExtraction": {
+      "tool": "pdftotext -layout",
+      "pageBoundariesPreserved": true,
+      "wholeFileSha256": "306aec09da276675252d9efb1b0bcd83f29e6e526c5b422829b5b993134cbed9"
+    }
+  },
+  "authority": "official FAQ/errata; overrides conflicting official rulebook text where applicable",
+  "policy": "Rendered section/column/scope structure was inspected before page-local text extraction. Full FAQ wording is retained source-bound; base-game and expansion applicability are labeled but not normalized into a vocabulary or semantic layer.",
+  "counts": {
+    "pages": 4,
+    "coverPages": 1,
+    "rulingAndErrataUnits": 59,
+    "baseGameApplicableUnits": 28,
+    "expansionSpecificUnits": 31,
+    "errataUnits": 15,
+    "faqRulingUnits": 44,
+    "unitsWithVisualOccurrences": 2,
+    "visualOccurrences": 4,
+    "materialUnreadableSpans": 0
+  },
+  "pages": [
+    {
+      "pdfPageIndex": 1,
+      "visiblePrintedPageNumber": null,
+      "pageRole": "cover",
+      "headings": [
+        "NEMESIS RETALIATION",
+        "OFFICIAL GAME FAQ",
+        "V1.2"
+      ],
+      "coverMetadata": {
+        "printedVersion": "V1.2",
+        "printedDate": "8.06.2026",
+        "publisher": "AWAKEN REALMS"
+      },
+      "units": [],
+      "materialUnreadableSpans": [],
+      "renderEvidence": {
+        "dpi": 200,
+        "dimensions": [
+          1701,
+          2386
+        ],
+        "imageSha256": "7f1e4d5b13b769b271cbfa4372ce6d29d771acd07454dfdfcc0426ea106f14a1",
+        "freshPageTextSha256": "d9c14dee320922fc7e6377d00b3bf987ef882e39acecfdf3304735784a02fcf0",
+        "freshPageTextCharacters": 49
+      }
+    },
+    {
+      "pdfPageIndex": 2,
+      "visiblePrintedPageNumber": 2,
+      "pageRole": "rulings-and-errata",
+      "headings": [
+        "ERRATA",
+        "GENERAL RULES",
+        "ACTION CARDS",
+        "ROOMS",
+        "ITEMS AND TACTICAL GEAR"
+      ],
+      "units": [
+        {
+          "pageLocalNumber": 1,
+          "section": "ERRATA",
+          "unitKind": "erratum",
+          "applicability": "base-game-additional-mode",
+          "column": "left",
+          "bbox": [
+            118,
+            314,
+            811,
+            407
+          ],
+          "printedLines": [
+            "Solo/coop tasks 3 and 11 (CLOSEDOWN & SHUTDOWN)",
+            "A: Those 2 tasks can never exist in the same game. If drawn in the same game, discard the last one and draw another task."
+          ],
+          "printedText": "Solo/coop tasks 3 and 11 (CLOSEDOWN & SHUTDOWN)\nA: Those 2 tasks can never exist in the same game. If drawn in the same game, discard the last one and draw another task.",
+          "questionText": "Solo/coop tasks 3 and 11 (CLOSEDOWN & SHUTDOWN)",
+          "answerText": "A: Those 2 tasks can never exist in the same game. If drawn in the same game, discard the last one and draw another task.",
+          "sourceUnitId": "FQ-P02-U01",
+          "textLayerComparison": {
+            "status": "partial-column-scope-structure-lost",
+            "questionOrLocatorFoundInFreshPageText": true,
+            "questionOrLocatorFoundInCheckedExtraction": true,
+            "lostInformation": "Two-column reading order, section/scope heading association, numbering hierarchy, and any inline source glyphs are not fully preserved by the checked text extraction."
+          }
+        },
+        {
+          "pageLocalNumber": 2,
+          "section": "ERRATA",
+          "unitKind": "erratum",
+          "applicability": "expansion-neoflesh",
+          "column": "left",
+          "bbox": [
+            118,
+            439,
+            811,
+            531
+          ],
+          "printedLines": [
+            "Neoflesh Event Card “Artificial Fever“",
+            "A: This card should read at the very end “Then, discard all cards from hand.”"
+          ],
+          "printedText": "Neoflesh Event Card “Artificial Fever“\nA: This card should read at the very end “Then, discard all cards from hand.”",
+          "questionText": "Neoflesh Event Card “Artificial Fever“",
+          "answerText": "A: This card should read at the very end “Then, discard all cards from hand.”",
+          "sourceUnitId": "FQ-P02-U02",
+          "textLayerComparison": {
+            "status": "partial-column-scope-structure-lost",
+            "questionOrLocatorFoundInFreshPageText": true,
+            "questionOrLocatorFoundInCheckedExtraction": true,
+            "lostInformation": "Two-column reading order, section/scope heading association, numbering hierarchy, and any inline source glyphs are not fully preserved by the checked text extraction."
+          }
+        },
+        {
+          "pageLocalNumber": 1,
+          "section": "GENERAL RULES",
+          "unitKind": "faq-ruling",
+          "applicability": "base-game",
+          "column": "left",
+          "bbox": [
+            118,
+            676,
+            812,
+            854
+          ],
+          "printedLines": [
+            "How does shooting at the Queen work exactly?",
+            "Shooting at the Queen works exactly the same as it does for Adult Intruders, but instead of removing the miniature from the board, you resolve the Queen health card instead. Shooting a Queen with 2 hits will result in resolving the top card of the Queen Health Deck, if a player rolls a 2 (or fewer) or a skull symbol."
+          ],
+          "printedText": "How does shooting at the Queen work exactly?\nShooting at the Queen works exactly the same as it does for Adult Intruders, but instead of removing the miniature from the board, you resolve the Queen health card instead. Shooting a Queen with 2 hits will result in resolving the top card of the Queen Health Deck, if a player rolls a 2 (or fewer) or a skull symbol.",
+          "questionText": "How does shooting at the Queen work exactly?",
+          "answerText": "Shooting at the Queen works exactly the same as it does for Adult Intruders, but instead of removing the miniature from the board, you resolve the Queen health card instead. Shooting a Queen with 2 hits will result in resolving the top card of the Queen Health Deck, if a player rolls a 2 (or fewer) or a skull symbol.",
+          "sourceUnitId": "FQ-P02-U03",
+          "textLayerComparison": {
+            "status": "partial-column-scope-structure-lost",
+            "questionOrLocatorFoundInFreshPageText": true,
+            "questionOrLocatorFoundInCheckedExtraction": true,
+            "lostInformation": "Two-column reading order, section/scope heading association, numbering hierarchy, and any inline source glyphs are not fully preserved by the checked text extraction."
+          }
+        },
+        {
+          "pageLocalNumber": 2,
+          "section": "GENERAL RULES",
+          "unitKind": "faq-ruling",
+          "applicability": "base-game",
+          "column": "left",
+          "bbox": [
+            118,
+            885,
+            812,
+            978
+          ],
+          "printedLines": [
+            "Do Malfunction markers make computer icons unavailable?",
+            "Malfunction markers do not interact with computer icons, unless a specific Item or effect says otherwise."
+          ],
+          "printedText": "Do Malfunction markers make computer icons unavailable?\nMalfunction markers do not interact with computer icons, unless a specific Item or effect says otherwise.",
+          "questionText": "Do Malfunction markers make computer icons unavailable?",
+          "answerText": "Malfunction markers do not interact with computer icons, unless a specific Item or effect says otherwise.",
+          "sourceUnitId": "FQ-P02-U04",
+          "textLayerComparison": {
+            "status": "partial-column-scope-structure-lost",
+            "questionOrLocatorFoundInFreshPageText": true,
+            "questionOrLocatorFoundInCheckedExtraction": true,
+            "lostInformation": "Two-column reading order, section/scope heading association, numbering hierarchy, and any inline source glyphs are not fully preserved by the checked text extraction."
+          }
+        },
+        {
+          "pageLocalNumber": 3,
+          "section": "GENERAL RULES",
+          "unitKind": "faq-ruling",
+          "applicability": "base-game",
+          "column": "left",
+          "bbox": [
+            118,
+            1010,
+            810,
+            1103
+          ],
+          "printedLines": [
+            "Q: If the autodestruction is turned on and the game ends, is the autodestruction triggered during end game procedures?",
+            "A: Yes, Autodestruction will still happen, before the end game sequence."
+          ],
+          "printedText": "Q: If the autodestruction is turned on and the game ends, is the autodestruction triggered during end game procedures?\nA: Yes, Autodestruction will still happen, before the end game sequence.",
+          "questionText": "Q: If the autodestruction is turned on and the game ends, is the autodestruction triggered during end game procedures?",
+          "answerText": "A: Yes, Autodestruction will still happen, before the end game sequence.",
+          "sourceUnitId": "FQ-P02-U05",
+          "textLayerComparison": {
+            "status": "partial-column-scope-structure-lost",
+            "questionOrLocatorFoundInFreshPageText": true,
+            "questionOrLocatorFoundInCheckedExtraction": true,
+            "lostInformation": "Two-column reading order, section/scope heading association, numbering hierarchy, and any inline source glyphs are not fully preserved by the checked text extraction."
+          }
+        },
+        {
+          "pageLocalNumber": 4,
+          "section": "GENERAL RULES",
+          "unitKind": "faq-ruling",
+          "applicability": "base-game",
+          "column": "left",
+          "bbox": [
+            118,
+            1134,
+            811,
+            1312
+          ],
+          "printedLines": [
+            "Q: An Exploration card tells me to close doors around a newly explored room. Do you only close doors touching the room or all doors in corridors next to the room? What about the hibernatorium doors?",
+            "A: Only close doors touching the new room. Hibernatorium doors will never close that way, since Exploration is not resolve in the Hibernatorium."
+          ],
+          "printedText": "Q: An Exploration card tells me to close doors around a newly explored room. Do you only close doors touching the room or all doors in corridors next to the room? What about the hibernatorium doors?\nA: Only close doors touching the new room. Hibernatorium doors will never close that way, since Exploration is not resolve in the Hibernatorium.",
+          "questionText": "Q: An Exploration card tells me to close doors around a newly explored room. Do you only close doors touching the room or all doors in corridors next to the room? What about the hibernatorium doors?",
+          "answerText": "A: Only close doors touching the new room. Hibernatorium doors will never close that way, since Exploration is not resolve in the Hibernatorium.",
+          "sourceUnitId": "FQ-P02-U06",
+          "textLayerComparison": {
+            "status": "partial-column-scope-structure-lost",
+            "questionOrLocatorFoundInFreshPageText": false,
+            "questionOrLocatorFoundInCheckedExtraction": true,
+            "lostInformation": "Two-column reading order, section/scope heading association, numbering hierarchy, and any inline source glyphs are not fully preserved by the checked text extraction."
+          }
+        },
+        {
+          "pageLocalNumber": 5,
+          "section": "GENERAL RULES",
+          "unitKind": "faq-ruling",
+          "applicability": "base-game",
+          "column": "left",
+          "bbox": [
+            118,
+            1344,
+            811,
+            1465
+          ],
+          "printedLines": [
+            "Q: On Exploration cards, is the “Remove this card from the game” part of the Entrance effect?",
+            "A: No. Effects that Explore ignoring Entrance effects still remove those Exploration cards from the game."
+          ],
+          "printedText": "Q: On Exploration cards, is the “Remove this card from the game” part of the Entrance effect?\nA: No. Effects that Explore ignoring Entrance effects still remove those Exploration cards from the game.",
+          "questionText": "Q: On Exploration cards, is the “Remove this card from the game” part of the Entrance effect?",
+          "answerText": "A: No. Effects that Explore ignoring Entrance effects still remove those Exploration cards from the game.",
+          "sourceUnitId": "FQ-P02-U07",
+          "textLayerComparison": {
+            "status": "partial-column-scope-structure-lost",
+            "questionOrLocatorFoundInFreshPageText": false,
+            "questionOrLocatorFoundInCheckedExtraction": true,
+            "lostInformation": "Two-column reading order, section/scope heading association, numbering hierarchy, and any inline source glyphs are not fully preserved by the checked text extraction."
+          }
+        },
+        {
+          "pageLocalNumber": 6,
+          "section": "GENERAL RULES",
+          "unitKind": "faq-ruling",
+          "applicability": "base-game",
+          "column": "left",
+          "bbox": [
+            118,
+            1496,
+            811,
+            1646
+          ],
+          "printedLines": [
+            "Q: For events with “Resolve a Noise marker in each Unexplored corridor” effect – do those Corridors must have Noise markers placed?",
+            "A: Yes. You cannot resolve a Noise marker, if it does not exist in a Corridor."
+          ],
+          "printedText": "Q: For events with “Resolve a Noise marker in each Unexplored corridor” effect – do those Corridors must have Noise markers placed?\nA: Yes. You cannot resolve a Noise marker, if it does not exist in a Corridor.",
+          "questionText": "Q: For events with “Resolve a Noise marker in each Unexplored corridor” effect – do those Corridors must have Noise markers placed?",
+          "answerText": "A: Yes. You cannot resolve a Noise marker, if it does not exist in a Corridor.",
+          "sourceUnitId": "FQ-P02-U08",
+          "textLayerComparison": {
+            "status": "partial-column-scope-structure-lost",
+            "questionOrLocatorFoundInFreshPageText": false,
+            "questionOrLocatorFoundInCheckedExtraction": true,
+            "lostInformation": "Two-column reading order, section/scope heading association, numbering hierarchy, and any inline source glyphs are not fully preserved by the checked text extraction."
+          }
+        },
+        {
+          "pageLocalNumber": 7,
+          "section": "GENERAL RULES",
+          "unitKind": "faq-ruling",
+          "applicability": "base-game",
+          "column": "left",
+          "bbox": [
+            118,
+            1677,
+            583,
+            1770
+          ],
+          "printedLines": [
+            "Q: What happens when Fire is to be spread through an Open Corridor?",
+            "A: Nothing. Do not place the Fire marker."
+          ],
+          "printedText": "Q: What happens when Fire is to be spread through an Open Corridor?\nA: Nothing. Do not place the Fire marker.",
+          "questionText": "Q: What happens when Fire is to be spread through an Open Corridor?",
+          "answerText": "A: Nothing. Do not place the Fire marker.",
+          "sourceUnitId": "FQ-P02-U09",
+          "textLayerComparison": {
+            "status": "partial-column-scope-structure-lost",
+            "questionOrLocatorFoundInFreshPageText": true,
+            "questionOrLocatorFoundInCheckedExtraction": true,
+            "lostInformation": "Two-column reading order, section/scope heading association, numbering hierarchy, and any inline source glyphs are not fully preserved by the checked text extraction."
+          }
+        },
+        {
+          "pageLocalNumber": 8,
+          "section": "GENERAL RULES",
+          "unitKind": "faq-ruling",
+          "applicability": "base-game",
+          "column": "left",
+          "bbox": [
+            118,
+            1802,
+            811,
+            1980
+          ],
+          "printedLines": [
+            "Q: Can I do (...) through Closed Doors? What exactly are Objects?",
+            "A: Objects include Doors, Character, Intruders, basically everything excluding Noise markers. Through doors you cannot Reinforce a Corridor, Command another Character, Burst, throw Grenades, etc. You can place and discard Noise markers."
+          ],
+          "printedText": "Q: Can I do (...) through Closed Doors? What exactly are Objects?\nA: Objects include Doors, Character, Intruders, basically everything excluding Noise markers. Through doors you cannot Reinforce a Corridor, Command another Character, Burst, throw Grenades, etc. You can place and discard Noise markers.",
+          "questionText": "Q: Can I do (...) through Closed Doors? What exactly are Objects?",
+          "answerText": "A: Objects include Doors, Character, Intruders, basically everything excluding Noise markers. Through doors you cannot Reinforce a Corridor, Command another Character, Burst, throw Grenades, etc. You can place and discard Noise markers.",
+          "sourceUnitId": "FQ-P02-U10",
+          "textLayerComparison": {
+            "status": "partial-column-scope-structure-lost",
+            "questionOrLocatorFoundInFreshPageText": true,
+            "questionOrLocatorFoundInCheckedExtraction": true,
+            "lostInformation": "Two-column reading order, section/scope heading association, numbering hierarchy, and any inline source glyphs are not fully preserved by the checked text extraction."
+          }
+        },
+        {
+          "pageLocalNumber": 9,
+          "section": "GENERAL RULES",
+          "unitKind": "faq-ruling",
+          "applicability": "base-game",
+          "column": "left",
+          "bbox": [
+            118,
+            2011,
+            811,
+            2217
+          ],
+          "printedLines": [
+            "Q: When a card tells me to reshuffle the deck, does it include the card itself?",
+            "A: Yes. Note that it differs from reshuffling the Action deck due to drawing cards. Meaning that, if an Action card allows you to draw more cards, the cards are drawn (which may force you to reshuffle the deck) before the card itself is discarded. In turn, it is not reshuffled."
+          ],
+          "printedText": "Q: When a card tells me to reshuffle the deck, does it include the card itself?\nA: Yes. Note that it differs from reshuffling the Action deck due to drawing cards. Meaning that, if an Action card allows you to draw more cards, the cards are drawn (which may force you to reshuffle the deck) before the card itself is discarded. In turn, it is not reshuffled.",
+          "questionText": "Q: When a card tells me to reshuffle the deck, does it include the card itself?",
+          "answerText": "A: Yes. Note that it differs from reshuffling the Action deck due to drawing cards. Meaning that, if an Action card allows you to draw more cards, the cards are drawn (which may force you to reshuffle the deck) before the card itself is discarded. In turn, it is not reshuffled.",
+          "sourceUnitId": "FQ-P02-U11",
+          "textLayerComparison": {
+            "status": "partial-column-scope-structure-lost",
+            "questionOrLocatorFoundInFreshPageText": false,
+            "questionOrLocatorFoundInCheckedExtraction": true,
+            "lostInformation": "Two-column reading order, section/scope heading association, numbering hierarchy, and any inline source glyphs are not fully preserved by the checked text extraction."
+          }
+        },
+        {
+          "pageLocalNumber": 10,
+          "section": "GENERAL RULES",
+          "unitKind": "faq-ruling",
+          "applicability": "base-game",
+          "column": "right",
+          "bbox": [
+            890,
+            208,
+            1485,
+            272
+          ],
+          "printedLines": [
+            "Q: Do Intruders move towards Characters in the Lander?",
+            "A: No."
+          ],
+          "printedText": "Q: Do Intruders move towards Characters in the Lander?\nA: No.",
+          "questionText": "Q: Do Intruders move towards Characters in the Lander?",
+          "answerText": "A: No.",
+          "sourceUnitId": "FQ-P02-U12",
+          "textLayerComparison": {
+            "status": "partial-column-scope-structure-lost",
+            "questionOrLocatorFoundInFreshPageText": true,
+            "questionOrLocatorFoundInCheckedExtraction": true,
+            "lostInformation": "Two-column reading order, section/scope heading association, numbering hierarchy, and any inline source glyphs are not fully preserved by the checked text extraction."
+          }
+        },
+        {
+          "pageLocalNumber": 11,
+          "section": "GENERAL RULES",
+          "unitKind": "faq-ruling",
+          "applicability": "base-game",
+          "column": "right",
+          "bbox": [
+            890,
+            304,
+            1428,
+            397
+          ],
+          "printedLines": [
+            "Q: Do Secure tokens prevent Attacks from Intruder being placed in the room?",
+            "A: Yes."
+          ],
+          "printedText": "Q: Do Secure tokens prevent Attacks from Intruder being placed in the room?\nA: Yes.",
+          "questionText": "Q: Do Secure tokens prevent Attacks from Intruder being placed in the room?",
+          "answerText": "A: Yes.",
+          "sourceUnitId": "FQ-P02-U13",
+          "textLayerComparison": {
+            "status": "partial-column-scope-structure-lost",
+            "questionOrLocatorFoundInFreshPageText": true,
+            "questionOrLocatorFoundInCheckedExtraction": true,
+            "lostInformation": "Two-column reading order, section/scope heading association, numbering hierarchy, and any inline source glyphs are not fully preserved by the checked text extraction."
+          }
+        },
+        {
+          "pageLocalNumber": 1,
+          "section": "ACTION CARDS",
+          "unitKind": "faq-ruling",
+          "applicability": "base-game",
+          "column": "right",
+          "bbox": [
+            890,
+            541,
+            1583,
+            719
+          ],
+          "printedLines": [
+            "Q: Fire At Will – How exactly does that card work?",
+            "A: The Officer chooses their room or the neighboring one. Then, each Character in a Turn Order Bursts at a Corridor chosen by the Officer. The Officer may choose a different Corridor for each Character to Burst at. Characters, when Bursting, may choose which Weapon to use."
+          ],
+          "printedText": "Q: Fire At Will – How exactly does that card work?\nA: The Officer chooses their room or the neighboring one. Then, each Character in a Turn Order Bursts at a Corridor chosen by the Officer. The Officer may choose a different Corridor for each Character to Burst at. Characters, when Bursting, may choose which Weapon to use.",
+          "questionText": "Q: Fire At Will – How exactly does that card work?",
+          "answerText": "A: The Officer chooses their room or the neighboring one. Then, each Character in a Turn Order Bursts at a Corridor chosen by the Officer. The Officer may choose a different Corridor for each Character to Burst at. Characters, when Bursting, may choose which Weapon to use.",
+          "sourceUnitId": "FQ-P02-U14",
+          "textLayerComparison": {
+            "status": "partial-column-scope-structure-lost",
+            "questionOrLocatorFoundInFreshPageText": true,
+            "questionOrLocatorFoundInCheckedExtraction": true,
+            "lostInformation": "Two-column reading order, section/scope heading association, numbering hierarchy, and any inline source glyphs are not fully preserved by the checked text extraction."
+          }
+        },
+        {
+          "pageLocalNumber": 2,
+          "section": "ACTION CARDS",
+          "unitKind": "faq-ruling",
+          "applicability": "base-game",
+          "column": "right",
+          "bbox": [
+            890,
+            751,
+            1499,
+            843
+          ],
+          "printedLines": [
+            "Q: Shoot First – Can I Shoot/Burst at Intruders that appear as a result of my movement, due to a Noise roll?",
+            "A: Yes."
+          ],
+          "printedText": "Q: Shoot First – Can I Shoot/Burst at Intruders that appear as a result of my movement, due to a Noise roll?\nA: Yes.",
+          "questionText": "Q: Shoot First – Can I Shoot/Burst at Intruders that appear as a result of my movement, due to a Noise roll?",
+          "answerText": "A: Yes.",
+          "sourceUnitId": "FQ-P02-U15",
+          "textLayerComparison": {
+            "status": "partial-column-scope-structure-lost",
+            "questionOrLocatorFoundInFreshPageText": false,
+            "questionOrLocatorFoundInCheckedExtraction": true,
+            "lostInformation": "Two-column reading order, section/scope heading association, numbering hierarchy, and any inline source glyphs are not fully preserved by the checked text extraction."
+          }
+        },
+        {
+          "pageLocalNumber": 3,
+          "section": "ACTION CARDS",
+          "unitKind": "faq-ruling",
+          "applicability": "base-game",
+          "column": "right",
+          "bbox": [
+            890,
+            875,
+            1583,
+            996
+          ],
+          "printedLines": [
+            "Q: Will using an Action, like Duck and Cover, prevent an Intruder Attack caused by a Hazard roll?",
+            "A: No. Cards that allow you to prevent an Intruder Attack during a Movement, apply only to Opportunity Attacks."
+          ],
+          "printedText": "Q: Will using an Action, like Duck and Cover, prevent an Intruder Attack caused by a Hazard roll?\nA: No. Cards that allow you to prevent an Intruder Attack during a Movement, apply only to Opportunity Attacks.",
+          "questionText": "Q: Will using an Action, like Duck and Cover, prevent an Intruder Attack caused by a Hazard roll?",
+          "answerText": "A: No. Cards that allow you to prevent an Intruder Attack during a Movement, apply only to Opportunity Attacks.",
+          "sourceUnitId": "FQ-P02-U16",
+          "textLayerComparison": {
+            "status": "partial-column-scope-structure-lost",
+            "questionOrLocatorFoundInFreshPageText": true,
+            "questionOrLocatorFoundInCheckedExtraction": true,
+            "lostInformation": "Two-column reading order, section/scope heading association, numbering hierarchy, and any inline source glyphs are not fully preserved by the checked text extraction."
+          }
+        },
+        {
+          "pageLocalNumber": 1,
+          "section": "ROOMS",
+          "unitKind": "faq-ruling",
+          "applicability": "base-game",
+          "column": "right",
+          "bbox": [
+            890,
+            1141,
+            1405,
+            1233
+          ],
+          "printedLines": [
+            "Q: Drilling Station – If the robot is broken, can the Drilling Station be used to create a corridor?",
+            "A: No it cannot."
+          ],
+          "printedText": "Q: Drilling Station – If the robot is broken, can the Drilling Station be used to create a corridor?\nA: No it cannot.",
+          "questionText": "Q: Drilling Station – If the robot is broken, can the Drilling Station be used to create a corridor?",
+          "answerText": "A: No it cannot.",
+          "sourceUnitId": "FQ-P02-U17",
+          "textLayerComparison": {
+            "status": "partial-column-scope-structure-lost",
+            "questionOrLocatorFoundInFreshPageText": false,
+            "questionOrLocatorFoundInCheckedExtraction": true,
+            "lostInformation": "Two-column reading order, section/scope heading association, numbering hierarchy, and any inline source glyphs are not fully preserved by the checked text extraction."
+          }
+        },
+        {
+          "pageLocalNumber": 2,
+          "section": "ROOMS",
+          "unitKind": "faq-ruling",
+          "applicability": "base-game",
+          "column": "right",
+          "bbox": [
+            890,
+            1265,
+            1583,
+            1556
+          ],
+          "printedLines": [
+            "Q: Shelter – can Items “discard” Secure tokens from this room for their effects?",
+            "A: No. The Shelter “always secured” should be treated as a permanent status of the room (preventing Attacks from incoming Intruders), not as a Secure token. The “always secured” is not a Secure token, and as such cannot be discarded by Items (or for example, counted for Sharpshooter’s “Hold Position” card). Additional Secure tokens may be placed in this room with a standard limit of 3. Those tokens are discarded first in case of any effects (Intruders entering the room, items, etc.)."
+          ],
+          "printedText": "Q: Shelter – can Items “discard” Secure tokens from this room for their effects?\nA: No. The Shelter “always secured” should be treated as a permanent status of the room (preventing Attacks from incoming Intruders), not as a Secure token. The “always secured” is not a Secure token, and as such cannot be discarded by Items (or for example, counted for Sharpshooter’s “Hold Position” card). Additional Secure tokens may be placed in this room with a standard limit of 3. Those tokens are discarded first in case of any effects (Intruders entering the room, items, etc.).",
+          "questionText": "Q: Shelter – can Items “discard” Secure tokens from this room for their effects?",
+          "answerText": "A: No. The Shelter “always secured” should be treated as a permanent status of the room (preventing Attacks from incoming Intruders), not as a Secure token. The “always secured” is not a Secure token, and as such cannot be discarded by Items (or for example, counted for Sharpshooter’s “Hold Position” card). Additional Secure tokens may be placed in this room with a standard limit of 3. Those tokens are discarded first in case of any effects (Intruders entering the room, items, etc.).",
+          "sourceUnitId": "FQ-P02-U18",
+          "textLayerComparison": {
+            "status": "partial-column-scope-structure-lost",
+            "questionOrLocatorFoundInFreshPageText": false,
+            "questionOrLocatorFoundInCheckedExtraction": true,
+            "lostInformation": "Two-column reading order, section/scope heading association, numbering hierarchy, and any inline source glyphs are not fully preserved by the checked text extraction."
+          }
+        },
+        {
+          "pageLocalNumber": 3,
+          "section": "ROOMS",
+          "unitKind": "faq-ruling",
+          "applicability": "base-game",
+          "column": "right",
+          "bbox": [
+            890,
+            1588,
+            1582,
+            1681
+          ],
+          "printedLines": [
+            "Q: Technical Corridor Entrance – can the Attack as a result of using this room be prevented with effects that Prevent Intruder Attacks?",
+            "A: Yes."
+          ],
+          "printedText": "Q: Technical Corridor Entrance – can the Attack as a result of using this room be prevented with effects that Prevent Intruder Attacks?\nA: Yes.",
+          "questionText": "Q: Technical Corridor Entrance – can the Attack as a result of using this room be prevented with effects that Prevent Intruder Attacks?",
+          "answerText": "A: Yes.",
+          "sourceUnitId": "FQ-P02-U19",
+          "textLayerComparison": {
+            "status": "partial-column-scope-structure-lost",
+            "questionOrLocatorFoundInFreshPageText": false,
+            "questionOrLocatorFoundInCheckedExtraction": true,
+            "lostInformation": "Two-column reading order, section/scope heading association, numbering hierarchy, and any inline source glyphs are not fully preserved by the checked text extraction."
+          }
+        },
+        {
+          "pageLocalNumber": 4,
+          "section": "ROOMS",
+          "unitKind": "faq-ruling",
+          "applicability": "base-game",
+          "column": "right",
+          "bbox": [
+            890,
+            1712,
+            1562,
+            1805
+          ],
+          "printedLines": [
+            "Q: The Nest – If the game ends and a Fire marker is in the Nest, will it be considered destroyed, even if some Eggs are still there?",
+            "A: No."
+          ],
+          "printedText": "Q: The Nest – If the game ends and a Fire marker is in the Nest, will it be considered destroyed, even if some Eggs are still there?\nA: No.",
+          "questionText": "Q: The Nest – If the game ends and a Fire marker is in the Nest, will it be considered destroyed, even if some Eggs are still there?",
+          "answerText": "A: No.",
+          "sourceUnitId": "FQ-P02-U20",
+          "textLayerComparison": {
+            "status": "partial-column-scope-structure-lost",
+            "questionOrLocatorFoundInFreshPageText": false,
+            "questionOrLocatorFoundInCheckedExtraction": true,
+            "lostInformation": "Two-column reading order, section/scope heading association, numbering hierarchy, and any inline source glyphs are not fully preserved by the checked text extraction."
+          }
+        },
+        {
+          "pageLocalNumber": 1,
+          "section": "ITEMS AND TACTICAL GEAR",
+          "unitKind": "faq-ruling",
+          "applicability": "base-game",
+          "column": "right",
+          "bbox": [
+            890,
+            1950,
+            1583,
+            2131
+          ],
+          "printedLines": [
+            "Q: Are effects on Weapons, when rolling a specific result on a die, in addition to a standard result, or instead of it?",
+            "A: Unless the Weapon instructs you to specifically do something “instead”, the effect described is resolved in addition to any standard effect.",
+            "For example, when rolling an [FQ-P02-U21-I01] on a Shoot die, you still spend Ammo, even if your Weapon allows you to “[FQ-P02-U21-I02]: resolve [FQ-P02-U21-I03]”."
+          ],
+          "printedText": "Q: Are effects on Weapons, when rolling a specific result on a die, in addition to a standard result, or instead of it?\nA: Unless the Weapon instructs you to specifically do something “instead”, the effect described is resolved in addition to any standard effect.\nFor example, when rolling an [FQ-P02-U21-I01] on a Shoot die, you still spend Ammo, even if your Weapon allows you to “[FQ-P02-U21-I02]: resolve [FQ-P02-U21-I03]”.",
+          "questionText": "Q: Are effects on Weapons, when rolling a specific result on a die, in addition to a standard result, or instead of it?",
+          "answerText": "A: Unless the Weapon instructs you to specifically do something “instead”, the effect described is resolved in addition to any standard effect. For example, when rolling an [FQ-P02-U21-I01] on a Shoot die, you still spend Ammo, even if your Weapon allows you to “[FQ-P02-U21-I02]: resolve [FQ-P02-U21-I03]”.",
+          "sourceUnitId": "FQ-P02-U21",
+          "visualOccurrences": [
+            {
+              "occurrenceId": "FQ-P02-U21-I01",
+              "location": "answer example after “rolling an”",
+              "literalAppearance": "red triangular die-face glyph with white repeated vertical ammunition-like marks"
+            },
+            {
+              "occurrenceId": "FQ-P02-U21-I02",
+              "location": "quoted Weapon instruction before a colon",
+              "literalAppearance": "same red triangular repeated-bar die-face glyph"
+            },
+            {
+              "occurrenceId": "FQ-P02-U21-I03",
+              "location": "quoted Weapon instruction after “resolve”",
+              "literalAppearance": "small dark horned/skull-like result glyph"
+            }
+          ],
+          "textLayerComparison": {
+            "status": "partial-inline-glyphs-and-column-scope-lost",
+            "questionOrLocatorFoundInFreshPageText": true,
+            "questionOrLocatorFoundInCheckedExtraction": true,
+            "lostInformation": "Two-column reading order, section/scope heading association, numbering hierarchy, and any inline source glyphs are not fully preserved by the checked text extraction."
+          }
+        }
+      ],
+      "materialUnreadableSpans": [],
+      "renderEvidence": {
+        "dpi": 200,
+        "dimensions": [
+          1701,
+          2386
+        ],
+        "imageSha256": "cf9cd0ea4cdffdad93476f6374f05f769b250f65199b7065102a7f6b2124abbe",
+        "freshPageTextSha256": "538e029b73350654d50e7a2d548661943b30cf49c577620c9e4215205c03bdef",
+        "freshPageTextCharacters": 7933
+      }
+    },
+    {
+      "pdfPageIndex": 3,
+      "visiblePrintedPageNumber": 3,
+      "pageRole": "rulings-and-errata",
+      "headings": [
+        "ITEMS AND TACTICAL GEAR",
+        "CONTRACTORS AND SUPPORT SQUAD",
+        "NEOFLESH CULT EXPANSION",
+        "XYRIANS EXPANSION",
+        "INSIDER EXPANSION",
+        "SANGREVORES EXPANSION",
+        "BIO-ENHANCEMENT SUPPORT"
+      ],
+      "units": [
+        {
+          "pageLocalNumber": 2,
+          "section": "ITEMS AND TACTICAL GEAR",
+          "unitKind": "faq-ruling",
+          "applicability": "base-game",
+          "column": "left",
+          "bbox": [
+            118,
+            208,
+            811,
+            301
+          ],
+          "printedLines": [
+            "Q: Can you spend ammo from “Requires no Ammo” Weapons using an Action card or other effect?",
+            "A: You may “spend” Ammo from a weapon with “Requires no Ammo” trait."
+          ],
+          "printedText": "Q: Can you spend ammo from “Requires no Ammo” Weapons using an Action card or other effect?\nA: You may “spend” Ammo from a weapon with “Requires no Ammo” trait.",
+          "questionText": "Q: Can you spend ammo from “Requires no Ammo” Weapons using an Action card or other effect?",
+          "answerText": "A: You may “spend” Ammo from a weapon with “Requires no Ammo” trait.",
+          "sourceUnitId": "FQ-P03-U01",
+          "textLayerComparison": {
+            "status": "partial-column-scope-structure-lost",
+            "questionOrLocatorFoundInFreshPageText": false,
+            "questionOrLocatorFoundInCheckedExtraction": true,
+            "lostInformation": "Two-column reading order, section/scope heading association, numbering hierarchy, and any inline source glyphs are not fully preserved by the checked text extraction."
+          }
+        },
+        {
+          "pageLocalNumber": 3,
+          "section": "ITEMS AND TACTICAL GEAR",
+          "unitKind": "faq-ruling",
+          "applicability": "base-game",
+          "column": "left",
+          "bbox": [
+            118,
+            332,
+            756,
+            425
+          ],
+          "printedLines": [
+            "Q: Can I spend ammo from a malfunctioned Weapon for other effects like for an Action card?",
+            "A: No, ammo can not be spent from malfunctioned Weapons."
+          ],
+          "printedText": "Q: Can I spend ammo from a malfunctioned Weapon for other effects like for an Action card?\nA: No, ammo can not be spent from malfunctioned Weapons.",
+          "questionText": "Q: Can I spend ammo from a malfunctioned Weapon for other effects like for an Action card?",
+          "answerText": "A: No, ammo can not be spent from malfunctioned Weapons.",
+          "sourceUnitId": "FQ-P03-U02",
+          "textLayerComparison": {
+            "status": "partial-column-scope-structure-lost",
+            "questionOrLocatorFoundInFreshPageText": true,
+            "questionOrLocatorFoundInCheckedExtraction": true,
+            "lostInformation": "Two-column reading order, section/scope heading association, numbering hierarchy, and any inline source glyphs are not fully preserved by the checked text extraction."
+          }
+        },
+        {
+          "pageLocalNumber": 4,
+          "section": "ITEMS AND TACTICAL GEAR",
+          "unitKind": "faq-ruling",
+          "applicability": "base-game",
+          "column": "left",
+          "bbox": [
+            118,
+            457,
+            811,
+            606
+          ],
+          "printedLines": [
+            "Q: Grenade Launcher – Can Grenades be thrown from a malfunctioning Grenade Launcher with the Use Tactical Any Gear action?",
+            "A: Yes, you can use any tokens you have on any of your items with the Use Any Tactical Gear action."
+          ],
+          "printedText": "Q: Grenade Launcher – Can Grenades be thrown from a malfunctioning Grenade Launcher with the Use Tactical Any Gear action?\nA: Yes, you can use any tokens you have on any of your items with the Use Any Tactical Gear action.",
+          "questionText": "Q: Grenade Launcher – Can Grenades be thrown from a malfunctioning Grenade Launcher with the Use Tactical Any Gear action?",
+          "answerText": "A: Yes, you can use any tokens you have on any of your items with the Use Any Tactical Gear action.",
+          "sourceUnitId": "FQ-P03-U03",
+          "textLayerComparison": {
+            "status": "partial-column-scope-structure-lost",
+            "questionOrLocatorFoundInFreshPageText": false,
+            "questionOrLocatorFoundInCheckedExtraction": true,
+            "lostInformation": "Two-column reading order, section/scope heading association, numbering hierarchy, and any inline source glyphs are not fully preserved by the checked text extraction."
+          }
+        },
+        {
+          "pageLocalNumber": 5,
+          "section": "ITEMS AND TACTICAL GEAR",
+          "unitKind": "faq-ruling",
+          "applicability": "base-game",
+          "column": "left",
+          "bbox": [
+            118,
+            638,
+            811,
+            730
+          ],
+          "printedLines": [
+            "Q: Trading - When we Trade Items do we “gain” them? Can I immediately use an Item like “Ammo” when it’s being traded?",
+            "A: Yes, you may immediately use it. It is gained."
+          ],
+          "printedText": "Q: Trading - When we Trade Items do we “gain” them? Can I immediately use an Item like “Ammo” when it’s being traded?\nA: Yes, you may immediately use it. It is gained.",
+          "questionText": "Q: Trading - When we Trade Items do we “gain” them? Can I immediately use an Item like “Ammo” when it’s being traded?",
+          "answerText": "A: Yes, you may immediately use it. It is gained.",
+          "sourceUnitId": "FQ-P03-U04",
+          "textLayerComparison": {
+            "status": "partial-column-scope-structure-lost",
+            "questionOrLocatorFoundInFreshPageText": false,
+            "questionOrLocatorFoundInCheckedExtraction": true,
+            "lostInformation": "Two-column reading order, section/scope heading association, numbering hierarchy, and any inline source glyphs are not fully preserved by the checked text extraction."
+          }
+        },
+        {
+          "pageLocalNumber": 6,
+          "section": "ITEMS AND TACTICAL GEAR",
+          "unitKind": "faq-ruling",
+          "applicability": "base-game",
+          "column": "left",
+          "bbox": [
+            118,
+            762,
+            740,
+            826
+          ],
+          "printedLines": [
+            "Q: Duct Tape - Can I Duct Tape a 3rd Item in a single hand?",
+            "A: Yes."
+          ],
+          "printedText": "Q: Duct Tape - Can I Duct Tape a 3rd Item in a single hand?\nA: Yes.",
+          "questionText": "Q: Duct Tape - Can I Duct Tape a 3rd Item in a single hand?",
+          "answerText": "A: Yes.",
+          "sourceUnitId": "FQ-P03-U05",
+          "textLayerComparison": {
+            "status": "partial-column-scope-structure-lost",
+            "questionOrLocatorFoundInFreshPageText": true,
+            "questionOrLocatorFoundInCheckedExtraction": true,
+            "lostInformation": "Two-column reading order, section/scope heading association, numbering hierarchy, and any inline source glyphs are not fully preserved by the checked text extraction."
+          }
+        },
+        {
+          "pageLocalNumber": 7,
+          "section": "ITEMS AND TACTICAL GEAR",
+          "unitKind": "faq-ruling",
+          "applicability": "base-game",
+          "column": "left",
+          "bbox": [
+            118,
+            858,
+            811,
+            1008
+          ],
+          "printedLines": [
+            "Q: When performing “Use Any Tactical Gear” Action, can I use multiple tokens at once? When do I choose which one to use?",
+            "A: You may use multiple tokens at once. You may choose which token to use one by one (for example to decide to throw an additional grenade, after throwing one already)."
+          ],
+          "printedText": "Q: When performing “Use Any Tactical Gear” Action, can I use multiple tokens at once? When do I choose which one to use?\nA: You may use multiple tokens at once. You may choose which token to use one by one (for example to decide to throw an additional grenade, after throwing one already).",
+          "questionText": "Q: When performing “Use Any Tactical Gear” Action, can I use multiple tokens at once? When do I choose which one to use?",
+          "answerText": "A: You may use multiple tokens at once. You may choose which token to use one by one (for example to decide to throw an additional grenade, after throwing one already).",
+          "sourceUnitId": "FQ-P03-U06",
+          "textLayerComparison": {
+            "status": "partial-column-scope-structure-lost",
+            "questionOrLocatorFoundInFreshPageText": false,
+            "questionOrLocatorFoundInCheckedExtraction": true,
+            "lostInformation": "Two-column reading order, section/scope heading association, numbering hierarchy, and any inline source glyphs are not fully preserved by the checked text extraction."
+          }
+        },
+        {
+          "pageLocalNumber": 8,
+          "section": "ITEMS AND TACTICAL GEAR",
+          "unitKind": "faq-ruling",
+          "applicability": "base-game",
+          "column": "left",
+          "bbox": [
+            118,
+            1039,
+            811,
+            1274
+          ],
+          "printedLines": [
+            "Q: Can I heal other players with Restore [Hp] effects (medic’s Actions cards, green tactical token)? What about other effects?",
+            "A:The interplay rules should apply to all forms of Actions. Action cards, Item cards, Tactical Gear tokens, etc. are all fair deal to use on other Characters, as long as the receiving Character allows you and the effect includes 1 of the 4 mentioned in the rulebook. Other types of Actions and effects which are not Actions cannot be used on other Characters."
+          ],
+          "printedText": "Q: Can I heal other players with Restore [Hp] effects (medic’s Actions cards, green tactical token)? What about other effects?\nA:The interplay rules should apply to all forms of Actions. Action cards, Item cards, Tactical Gear tokens, etc. are all fair deal to use on other Characters, as long as the receiving Character allows you and the effect includes 1 of the 4 mentioned in the rulebook. Other types of Actions and effects which are not Actions cannot be used on other Characters.",
+          "questionText": "Q: Can I heal other players with Restore [Hp] effects (medic’s Actions cards, green tactical token)? What about other effects?",
+          "answerText": "A:The interplay rules should apply to all forms of Actions. Action cards, Item cards, Tactical Gear tokens, etc. are all fair deal to use on other Characters, as long as the receiving Character allows you and the effect includes 1 of the 4 mentioned in the rulebook. Other types of Actions and effects which are not Actions cannot be used on other Characters.",
+          "sourceUnitId": "FQ-P03-U07",
+          "textLayerComparison": {
+            "status": "partial-column-scope-structure-lost",
+            "questionOrLocatorFoundInFreshPageText": true,
+            "questionOrLocatorFoundInCheckedExtraction": true,
+            "lostInformation": "Two-column reading order, section/scope heading association, numbering hierarchy, and any inline source glyphs are not fully preserved by the checked text extraction."
+          }
+        },
+        {
+          "pageLocalNumber": 9,
+          "section": "ITEMS AND TACTICAL GEAR",
+          "unitKind": "faq-ruling",
+          "applicability": "base-game",
+          "column": "left",
+          "bbox": [
+            118,
+            1305,
+            626,
+            1398
+          ],
+          "printedLines": [
+            "Q: What happens to Doors placed by a Portable Barricade that then have been opened?",
+            "A: They are gone."
+          ],
+          "printedText": "Q: What happens to Doors placed by a Portable Barricade that then have been opened?\nA: They are gone.",
+          "questionText": "Q: What happens to Doors placed by a Portable Barricade that then have been opened?",
+          "answerText": "A: They are gone.",
+          "sourceUnitId": "FQ-P03-U08",
+          "textLayerComparison": {
+            "status": "partial-column-scope-structure-lost",
+            "questionOrLocatorFoundInFreshPageText": false,
+            "questionOrLocatorFoundInCheckedExtraction": true,
+            "lostInformation": "Two-column reading order, section/scope heading association, numbering hierarchy, and any inline source glyphs are not fully preserved by the checked text extraction."
+          }
+        },
+        {
+          "pageLocalNumber": 1,
+          "section": "CONTRACTORS AND SUPPORT SQUAD",
+          "unitKind": "faq-ruling",
+          "applicability": "expansion-contractors-support-squad",
+          "column": "left",
+          "bbox": [
+            118,
+            1593,
+            786,
+            1657
+          ],
+          "printedLines": [
+            "Q: Can Sharpshooters card One by One kill Drones or Ironclads?",
+            "A: No."
+          ],
+          "printedText": "Q: Can Sharpshooters card One by One kill Drones or Ironclads?\nA: No.",
+          "questionText": "Q: Can Sharpshooters card One by One kill Drones or Ironclads?",
+          "answerText": "A: No.",
+          "sourceUnitId": "FQ-P03-U09",
+          "textLayerComparison": {
+            "status": "partial-column-scope-structure-lost",
+            "questionOrLocatorFoundInFreshPageText": true,
+            "questionOrLocatorFoundInCheckedExtraction": true,
+            "lostInformation": "Two-column reading order, section/scope heading association, numbering hierarchy, and any inline source glyphs are not fully preserved by the checked text extraction."
+          }
+        },
+        {
+          "pageLocalNumber": 2,
+          "section": "CONTRACTORS AND SUPPORT SQUAD",
+          "unitKind": "faq-ruling",
+          "applicability": "expansion-contractors-support-squad",
+          "column": "left",
+          "bbox": [
+            118,
+            1689,
+            687,
+            1781
+          ],
+          "printedLines": [
+            "Q: Pilot’s Orbital Maneuvering System – do you check the Anti-Aircraft status when using this Item?",
+            "A: Yes."
+          ],
+          "printedText": "Q: Pilot’s Orbital Maneuvering System – do you check the Anti-Aircraft status when using this Item?\nA: Yes.",
+          "questionText": "Q: Pilot’s Orbital Maneuvering System – do you check the Anti-Aircraft status when using this Item?",
+          "answerText": "A: Yes.",
+          "sourceUnitId": "FQ-P03-U10",
+          "textLayerComparison": {
+            "status": "partial-column-scope-structure-lost",
+            "questionOrLocatorFoundInFreshPageText": true,
+            "questionOrLocatorFoundInCheckedExtraction": true,
+            "lostInformation": "Two-column reading order, section/scope heading association, numbering hierarchy, and any inline source glyphs are not fully preserved by the checked text extraction."
+          }
+        },
+        {
+          "pageLocalNumber": 3,
+          "section": "CONTRACTORS AND SUPPORT SQUAD",
+          "unitKind": "faq-ruling",
+          "applicability": "expansion-contractors-support-squad",
+          "column": "left",
+          "bbox": [
+            118,
+            1813,
+            743,
+            1906
+          ],
+          "printedLines": [
+            "Q: Sentry’s NBC suit with Suffocating token – Does the NBC suit give 1 oxygen first, or do they lose 1 oxygen first?",
+            "A: You gain 1 Oxygen first and stay alive"
+          ],
+          "printedText": "Q: Sentry’s NBC suit with Suffocating token – Does the NBC suit give 1 oxygen first, or do they lose 1 oxygen first?\nA: You gain 1 Oxygen first and stay alive",
+          "questionText": "Q: Sentry’s NBC suit with Suffocating token – Does the NBC suit give 1 oxygen first, or do they lose 1 oxygen first?",
+          "answerText": "A: You gain 1 Oxygen first and stay alive",
+          "sourceUnitId": "FQ-P03-U11",
+          "textLayerComparison": {
+            "status": "partial-column-scope-structure-lost",
+            "questionOrLocatorFoundInFreshPageText": true,
+            "questionOrLocatorFoundInCheckedExtraction": true,
+            "lostInformation": "Two-column reading order, section/scope heading association, numbering hierarchy, and any inline source glyphs are not fully preserved by the checked text extraction."
+          }
+        },
+        {
+          "pageLocalNumber": 1,
+          "section": "NEOFLESH CULT EXPANSION",
+          "unitKind": "faq-ruling",
+          "applicability": "expansion-neoflesh",
+          "column": "left",
+          "bbox": [
+            118,
+            2050,
+            693,
+            2143
+          ],
+          "printedLines": [
+            "Q: Do Twitchlings move if they are in a Room with one or more Characters during their activation step?",
+            "A: Yes, they do."
+          ],
+          "printedText": "Q: Do Twitchlings move if they are in a Room with one or more Characters during their activation step?\nA: Yes, they do.",
+          "questionText": "Q: Do Twitchlings move if they are in a Room with one or more Characters during their activation step?",
+          "answerText": "A: Yes, they do.",
+          "sourceUnitId": "FQ-P03-U12",
+          "textLayerComparison": {
+            "status": "partial-column-scope-structure-lost",
+            "questionOrLocatorFoundInFreshPageText": true,
+            "questionOrLocatorFoundInCheckedExtraction": true,
+            "lostInformation": "Two-column reading order, section/scope heading association, numbering hierarchy, and any inline source glyphs are not fully preserved by the checked text extraction."
+          }
+        },
+        {
+          "pageLocalNumber": 2,
+          "section": "NEOFLESH CULT EXPANSION",
+          "unitKind": "faq-ruling",
+          "applicability": "expansion-neoflesh",
+          "column": "right",
+          "bbox": [
+            890,
+            208,
+            1583,
+            331
+          ],
+          "printedLines": [
+            "Q: Cultits – Does dealing multiple hits in the same Action cause multiple Noise rolls or only one?",
+            "A: After any Action, regardless of the amount of Hits/[FQ-P03-U13-I01] dealt, make only 1 Noise Roll after the whole action is completed."
+          ],
+          "printedText": "Q: Cultits – Does dealing multiple hits in the same Action cause multiple Noise rolls or only one?\nA: After any Action, regardless of the amount of Hits/[FQ-P03-U13-I01] dealt, make only 1 Noise Roll after the whole action is completed.",
+          "questionText": "Q: Cultits – Does dealing multiple hits in the same Action cause multiple Noise rolls or only one?",
+          "answerText": "A: After any Action, regardless of the amount of Hits/[FQ-P03-U13-I01] dealt, make only 1 Noise Roll after the whole action is completed.",
+          "sourceUnitId": "FQ-P03-U13",
+          "visualOccurrences": [
+            {
+              "occurrenceId": "FQ-P03-U13-I01",
+              "location": "answer between “Hits/” and “dealt”",
+              "literalAppearance": "small dark horned/skull-like hit/result glyph"
+            }
+          ],
+          "textLayerComparison": {
+            "status": "partial-inline-glyphs-and-column-scope-lost",
+            "questionOrLocatorFoundInFreshPageText": false,
+            "questionOrLocatorFoundInCheckedExtraction": true,
+            "lostInformation": "Two-column reading order, section/scope heading association, numbering hierarchy, and any inline source glyphs are not fully preserved by the checked text extraction."
+          }
+        },
+        {
+          "pageLocalNumber": 3,
+          "section": "NEOFLESH CULT EXPANSION",
+          "unitKind": "faq-ruling",
+          "applicability": "expansion-neoflesh",
+          "column": "right",
+          "bbox": [
+            890,
+            363,
+            1560,
+            427
+          ],
+          "printedLines": [
+            "Q. Can Twitchlings be placed in an undiscovered Hibernatorium?",
+            "A: Yes."
+          ],
+          "printedText": "Q. Can Twitchlings be placed in an undiscovered Hibernatorium?\nA: Yes.",
+          "questionText": "Q. Can Twitchlings be placed in an undiscovered Hibernatorium?",
+          "answerText": "A: Yes.",
+          "sourceUnitId": "FQ-P03-U14",
+          "textLayerComparison": {
+            "status": "partial-column-scope-structure-lost",
+            "questionOrLocatorFoundInFreshPageText": true,
+            "questionOrLocatorFoundInCheckedExtraction": true,
+            "lostInformation": "Two-column reading order, section/scope heading association, numbering hierarchy, and any inline source glyphs are not fully preserved by the checked text extraction."
+          }
+        },
+        {
+          "pageLocalNumber": 4,
+          "section": "NEOFLESH CULT EXPANSION",
+          "unitKind": "faq-ruling",
+          "applicability": "expansion-neoflesh",
+          "column": "right",
+          "bbox": [
+            890,
+            459,
+            1418,
+            551
+          ],
+          "printedLines": [
+            "Q. Rise of the Machine Event – Can it Malfunction an undiscovered Hibernatorium?",
+            "A: Yes."
+          ],
+          "printedText": "Q. Rise of the Machine Event – Can it Malfunction an undiscovered Hibernatorium?\nA: Yes.",
+          "questionText": "Q. Rise of the Machine Event – Can it Malfunction an undiscovered Hibernatorium?",
+          "answerText": "A: Yes.",
+          "sourceUnitId": "FQ-P03-U15",
+          "textLayerComparison": {
+            "status": "partial-column-scope-structure-lost",
+            "questionOrLocatorFoundInFreshPageText": false,
+            "questionOrLocatorFoundInCheckedExtraction": true,
+            "lostInformation": "Two-column reading order, section/scope heading association, numbering hierarchy, and any inline source glyphs are not fully preserved by the checked text extraction."
+          }
+        },
+        {
+          "pageLocalNumber": 5,
+          "section": "NEOFLESH CULT EXPANSION",
+          "unitKind": "faq-ruling",
+          "applicability": "expansion-neoflesh",
+          "column": "right",
+          "bbox": [
+            890,
+            583,
+            1441,
+            676
+          ],
+          "printedLines": [
+            "Q. Eclosion Procedure – when you die during that procedure, what kind of Adult is being placed?",
+            "A: Use the Neoflesh Golden rule – place the Slasher."
+          ],
+          "printedText": "Q. Eclosion Procedure – when you die during that procedure, what kind of Adult is being placed?\nA: Use the Neoflesh Golden rule – place the Slasher.",
+          "questionText": "Q. Eclosion Procedure – when you die during that procedure, what kind of Adult is being placed?",
+          "answerText": "A: Use the Neoflesh Golden rule – place the Slasher.",
+          "sourceUnitId": "FQ-P03-U16",
+          "textLayerComparison": {
+            "status": "partial-column-scope-structure-lost",
+            "questionOrLocatorFoundInFreshPageText": true,
+            "questionOrLocatorFoundInCheckedExtraction": true,
+            "lostInformation": "Two-column reading order, section/scope heading association, numbering hierarchy, and any inline source glyphs are not fully preserved by the checked text extraction."
+          }
+        },
+        {
+          "pageLocalNumber": 6,
+          "section": "NEOFLESH CULT EXPANSION",
+          "unitKind": "faq-ruling",
+          "applicability": "expansion-neoflesh",
+          "column": "right",
+          "bbox": [
+            890,
+            707,
+            1456,
+            800
+          ],
+          "printedLines": [
+            "Q. If the Robot is malfunctioned, are events regarding the robot (like “Part of the Cult”) still resolved?",
+            "A: Yes."
+          ],
+          "printedText": "Q. If the Robot is malfunctioned, are events regarding the robot (like “Part of the Cult”) still resolved?\nA: Yes.",
+          "questionText": "Q. If the Robot is malfunctioned, are events regarding the robot (like “Part of the Cult”) still resolved?",
+          "answerText": "A: Yes.",
+          "sourceUnitId": "FQ-P03-U17",
+          "textLayerComparison": {
+            "status": "partial-column-scope-structure-lost",
+            "questionOrLocatorFoundInFreshPageText": true,
+            "questionOrLocatorFoundInCheckedExtraction": true,
+            "lostInformation": "Two-column reading order, section/scope heading association, numbering hierarchy, and any inline source glyphs are not fully preserved by the checked text extraction."
+          }
+        },
+        {
+          "pageLocalNumber": 1,
+          "section": "XYRIANS EXPANSION",
+          "unitKind": "faq-ruling",
+          "applicability": "expansion-xyrians",
+          "column": "right",
+          "bbox": [
+            890,
+            945,
+            1322,
+            1037
+          ],
+          "printedLines": [
+            "Q. What happens when Xyrians remove the lander with Players inside?",
+            "A: Players get ejected."
+          ],
+          "printedText": "Q. What happens when Xyrians remove the lander with Players inside?\nA: Players get ejected.",
+          "questionText": "Q. What happens when Xyrians remove the lander with Players inside?",
+          "answerText": "A: Players get ejected.",
+          "sourceUnitId": "FQ-P03-U18",
+          "textLayerComparison": {
+            "status": "partial-column-scope-structure-lost",
+            "questionOrLocatorFoundInFreshPageText": false,
+            "questionOrLocatorFoundInCheckedExtraction": true,
+            "lostInformation": "Two-column reading order, section/scope heading association, numbering hierarchy, and any inline source glyphs are not fully preserved by the checked text extraction."
+          }
+        },
+        {
+          "pageLocalNumber": 2,
+          "section": "XYRIANS EXPANSION",
+          "unitKind": "faq-ruling",
+          "applicability": "expansion-xyrians",
+          "column": "right",
+          "bbox": [
+            890,
+            1069,
+            1583,
+            1162
+          ],
+          "printedLines": [
+            "Q. Xyrian Items – is Health being restored when the Item is traded?",
+            "A: No, the rulebook specifies that the Health restoration only happens when this Item is picked up for the first time."
+          ],
+          "printedText": "Q. Xyrian Items – is Health being restored when the Item is traded?\nA: No, the rulebook specifies that the Health restoration only happens when this Item is picked up for the first time.",
+          "questionText": "Q. Xyrian Items – is Health being restored when the Item is traded?",
+          "answerText": "A: No, the rulebook specifies that the Health restoration only happens when this Item is picked up for the first time.",
+          "sourceUnitId": "FQ-P03-U19",
+          "textLayerComparison": {
+            "status": "partial-column-scope-structure-lost",
+            "questionOrLocatorFoundInFreshPageText": true,
+            "questionOrLocatorFoundInCheckedExtraction": true,
+            "lostInformation": "Two-column reading order, section/scope heading association, numbering hierarchy, and any inline source glyphs are not fully preserved by the checked text extraction."
+          }
+        },
+        {
+          "pageLocalNumber": 1,
+          "section": "INSIDER EXPANSION",
+          "unitKind": "faq-ruling",
+          "applicability": "expansion-insider",
+          "column": "right",
+          "bbox": [
+            890,
+            1306,
+            1397,
+            1371
+          ],
+          "printedLines": [
+            "Q. Can I heal the Insider via the interplay rules?",
+            "A: No. The insider is not a Character."
+          ],
+          "printedText": "Q. Can I heal the Insider via the interplay rules?\nA: No. The insider is not a Character.",
+          "questionText": "Q. Can I heal the Insider via the interplay rules?",
+          "answerText": "A: No. The insider is not a Character.",
+          "sourceUnitId": "FQ-P03-U20",
+          "textLayerComparison": {
+            "status": "partial-column-scope-structure-lost",
+            "questionOrLocatorFoundInFreshPageText": true,
+            "questionOrLocatorFoundInCheckedExtraction": true,
+            "lostInformation": "Two-column reading order, section/scope heading association, numbering hierarchy, and any inline source glyphs are not fully preserved by the checked text extraction."
+          }
+        },
+        {
+          "pageLocalNumber": 2,
+          "section": "INSIDER EXPANSION",
+          "unitKind": "faq-ruling",
+          "applicability": "expansion-insider",
+          "column": "right",
+          "bbox": [
+            890,
+            1402,
+            1503,
+            1467
+          ],
+          "printedLines": [
+            "Q. Do Intruders move away from the room with the Insider",
+            "A: No. They stay and Attack."
+          ],
+          "printedText": "Q. Do Intruders move away from the room with the Insider\nA: No. They stay and Attack.",
+          "questionText": "Q. Do Intruders move away from the room with the Insider",
+          "answerText": "A: No. They stay and Attack.",
+          "sourceUnitId": "FQ-P03-U21",
+          "textLayerComparison": {
+            "status": "partial-column-scope-structure-lost",
+            "questionOrLocatorFoundInFreshPageText": true,
+            "questionOrLocatorFoundInCheckedExtraction": true,
+            "lostInformation": "Two-column reading order, section/scope heading association, numbering hierarchy, and any inline source glyphs are not fully preserved by the checked text extraction."
+          }
+        },
+        {
+          "pageLocalNumber": 1,
+          "section": "SANGREVORES EXPANSION",
+          "unitKind": "faq-ruling",
+          "applicability": "expansion-sangrevores",
+          "column": "right",
+          "bbox": [
+            890,
+            1612,
+            1474,
+            1704
+          ],
+          "printedLines": [
+            "Q: Are Infections treated as Infected Contaminations or non-Infected?",
+            "A: All Infections are treated as Infected Contaminations."
+          ],
+          "printedText": "Q: Are Infections treated as Infected Contaminations or non-Infected?\nA: All Infections are treated as Infected Contaminations.",
+          "questionText": "Q: Are Infections treated as Infected Contaminations or non-Infected?",
+          "answerText": "A: All Infections are treated as Infected Contaminations.",
+          "sourceUnitId": "FQ-P03-U22",
+          "textLayerComparison": {
+            "status": "partial-column-scope-structure-lost",
+            "questionOrLocatorFoundInFreshPageText": false,
+            "questionOrLocatorFoundInCheckedExtraction": true,
+            "lostInformation": "Two-column reading order, section/scope heading association, numbering hierarchy, and any inline source glyphs are not fully preserved by the checked text extraction."
+          }
+        },
+        {
+          "pageLocalNumber": 2,
+          "section": "SANGREVORES EXPANSION",
+          "unitKind": "faq-ruling",
+          "applicability": "expansion-sangrevores",
+          "column": "right",
+          "bbox": [
+            890,
+            1736,
+            1583,
+            1829
+          ],
+          "printedLines": [
+            "Q: Do you still place Shadow Tokens (Noise tokens) into Reinforced Corridors after movement?",
+            "A: Yes. Reinforced Corridors are less effective against Sangrevores."
+          ],
+          "printedText": "Q: Do you still place Shadow Tokens (Noise tokens) into Reinforced Corridors after movement?\nA: Yes. Reinforced Corridors are less effective against Sangrevores.",
+          "questionText": "Q: Do you still place Shadow Tokens (Noise tokens) into Reinforced Corridors after movement?",
+          "answerText": "A: Yes. Reinforced Corridors are less effective against Sangrevores.",
+          "sourceUnitId": "FQ-P03-U23",
+          "textLayerComparison": {
+            "status": "partial-column-scope-structure-lost",
+            "questionOrLocatorFoundInFreshPageText": false,
+            "questionOrLocatorFoundInCheckedExtraction": true,
+            "lostInformation": "Two-column reading order, section/scope heading association, numbering hierarchy, and any inline source glyphs are not fully preserved by the checked text extraction."
+          }
+        },
+        {
+          "pageLocalNumber": 3,
+          "section": "SANGREVORES EXPANSION",
+          "unitKind": "faq-ruling",
+          "applicability": "expansion-sangrevores",
+          "column": "right",
+          "bbox": [
+            890,
+            1860,
+            1583,
+            1953
+          ],
+          "printedLines": [
+            "Q. What happens when I run out of Shadow Markers?",
+            "A: Use replacement components. Shadow markers should not be limited."
+          ],
+          "printedText": "Q. What happens when I run out of Shadow Markers?\nA: Use replacement components. Shadow markers should not be limited.",
+          "questionText": "Q. What happens when I run out of Shadow Markers?",
+          "answerText": "A: Use replacement components. Shadow markers should not be limited.",
+          "sourceUnitId": "FQ-P03-U24",
+          "textLayerComparison": {
+            "status": "partial-column-scope-structure-lost",
+            "questionOrLocatorFoundInFreshPageText": true,
+            "questionOrLocatorFoundInCheckedExtraction": true,
+            "lostInformation": "Two-column reading order, section/scope heading association, numbering hierarchy, and any inline source glyphs are not fully preserved by the checked text extraction."
+          }
+        },
+        {
+          "pageLocalNumber": 1,
+          "section": "BIO-ENHANCEMENT SUPPORT",
+          "unitKind": "faq-ruling",
+          "applicability": "expansion-bio-enhancement",
+          "column": "right",
+          "bbox": [
+            890,
+            2098,
+            1583,
+            2219
+          ],
+          "printedLines": [
+            "Q: Takeover card – if a canceled Action required using resources of any kind, are they used?",
+            "A: No, the Character only spends the Action cards. Any Items/Oxygen/ Gear tokens etc. are not spent."
+          ],
+          "printedText": "Q: Takeover card – if a canceled Action required using resources of any kind, are they used?\nA: No, the Character only spends the Action cards. Any Items/Oxygen/ Gear tokens etc. are not spent.",
+          "questionText": "Q: Takeover card – if a canceled Action required using resources of any kind, are they used?",
+          "answerText": "A: No, the Character only spends the Action cards. Any Items/Oxygen/ Gear tokens etc. are not spent.",
+          "sourceUnitId": "FQ-P03-U25",
+          "textLayerComparison": {
+            "status": "partial-column-scope-structure-lost",
+            "questionOrLocatorFoundInFreshPageText": false,
+            "questionOrLocatorFoundInCheckedExtraction": true,
+            "lostInformation": "Two-column reading order, section/scope heading association, numbering hierarchy, and any inline source glyphs are not fully preserved by the checked text extraction."
+          }
+        }
+      ],
+      "materialUnreadableSpans": [],
+      "renderEvidence": {
+        "dpi": 200,
+        "dimensions": [
+          1701,
+          2386
+        ],
+        "imageSha256": "e21a87654f6f45ee55d207d2b0b1648e20c1e674af6d9f60b20590591f24a0e3",
+        "freshPageTextSha256": "a7ff6d11cd9ca33ccc21e2c1c7256be8b5e9371b7d46afebc656288e54ea4ab6",
+        "freshPageTextCharacters": 6602
+      }
+    },
+    {
+      "pdfPageIndex": 4,
+      "visiblePrintedPageNumber": 4,
+      "pageRole": "comic-errata",
+      "headings": [
+        "COMIC"
+      ],
+      "units": [
+        {
+          "pageLocalNumber": 1,
+          "section": "COMIC",
+          "unitKind": "erratum",
+          "applicability": "expansion-comic",
+          "column": "left",
+          "bbox": [
+            118,
+            314,
+            646,
+            371
+          ],
+          "printedLines": [
+            "Comms Room from the punchboard is Command Room/Command Center Room."
+          ],
+          "printedText": "Comms Room from the punchboard is Command Room/Command Center Room.",
+          "questionText": null,
+          "answerText": null,
+          "sourceUnitId": "FQ-P04-U01",
+          "textLayerComparison": {
+            "status": "partial-column-scope-structure-lost",
+            "questionOrLocatorFoundInFreshPageText": true,
+            "questionOrLocatorFoundInCheckedExtraction": true,
+            "lostInformation": "Two-column reading order, section/scope heading association, numbering hierarchy, and any inline source glyphs are not fully preserved by the checked text extraction."
+          }
+        },
+        {
+          "pageLocalNumber": 2,
+          "section": "COMIC",
+          "unitKind": "erratum",
+          "applicability": "expansion-comic",
+          "column": "left",
+          "bbox": [
+            118,
+            395,
+            811,
+            516
+          ],
+          "printedLines": [
+            "Setup - the first step has wrong instruction. It should read:",
+            "Starting from Mission 2 forward, place the Comms Room face up on the right side of the Hibernatorium, so that it connects through the Corridor “004”."
+          ],
+          "printedText": "Setup - the first step has wrong instruction. It should read:\nStarting from Mission 2 forward, place the Comms Room face up on the right side of the Hibernatorium, so that it connects through the Corridor “004”.",
+          "questionText": null,
+          "answerText": null,
+          "sourceUnitId": "FQ-P04-U02",
+          "textLayerComparison": {
+            "status": "partial-column-scope-structure-lost",
+            "questionOrLocatorFoundInFreshPageText": true,
+            "questionOrLocatorFoundInCheckedExtraction": true,
+            "lostInformation": "Two-column reading order, section/scope heading association, numbering hierarchy, and any inline source glyphs are not fully preserved by the checked text extraction."
+          }
+        },
+        {
+          "pageLocalNumber": 3,
+          "section": "COMIC",
+          "unitKind": "erratum",
+          "applicability": "expansion-comic",
+          "column": "left",
+          "bbox": [
+            118,
+            547,
+            807,
+            578
+          ],
+          "printedLines": [
+            "The Comic Sheet is missing a box. There should be box D to mark."
+          ],
+          "printedText": "The Comic Sheet is missing a box. There should be box D to mark.",
+          "questionText": null,
+          "answerText": null,
+          "sourceUnitId": "FQ-P04-U03",
+          "textLayerComparison": {
+            "status": "partial-column-scope-structure-lost",
+            "questionOrLocatorFoundInFreshPageText": true,
+            "questionOrLocatorFoundInCheckedExtraction": true,
+            "lostInformation": "Two-column reading order, section/scope heading association, numbering hierarchy, and any inline source glyphs are not fully preserved by the checked text extraction."
+          }
+        },
+        {
+          "pageLocalNumber": 4,
+          "section": "COMIC",
+          "unitKind": "erratum",
+          "applicability": "expansion-comic",
+          "column": "left",
+          "bbox": [
+            118,
+            599,
+            771,
+            630
+          ],
+          "printedLines": [
+            "Card C10A should have 2 boxes to mark with Universal tokens."
+          ],
+          "printedText": "Card C10A should have 2 boxes to mark with Universal tokens.",
+          "questionText": null,
+          "answerText": null,
+          "sourceUnitId": "FQ-P04-U04",
+          "textLayerComparison": {
+            "status": "partial-column-scope-structure-lost",
+            "questionOrLocatorFoundInFreshPageText": true,
+            "questionOrLocatorFoundInCheckedExtraction": true,
+            "lostInformation": "Two-column reading order, section/scope heading association, numbering hierarchy, and any inline source glyphs are not fully preserved by the checked text extraction."
+          }
+        },
+        {
+          "pageLocalNumber": 5,
+          "section": "COMIC",
+          "unitKind": "erratum",
+          "applicability": "expansion-comic",
+          "column": "left",
+          "bbox": [
+            118,
+            651,
+            811,
+            744
+          ],
+          "printedLines": [
+            "Card C11A has unclear instructions. It should read:",
+            "Reach a Room adjacent/neighboring to the Rebel Recon in Section C. Then, go to E307."
+          ],
+          "printedText": "Card C11A has unclear instructions. It should read:\nReach a Room adjacent/neighboring to the Rebel Recon in Section C. Then, go to E307.",
+          "questionText": null,
+          "answerText": null,
+          "sourceUnitId": "FQ-P04-U05",
+          "textLayerComparison": {
+            "status": "partial-column-scope-structure-lost",
+            "questionOrLocatorFoundInFreshPageText": true,
+            "questionOrLocatorFoundInCheckedExtraction": true,
+            "lostInformation": "Two-column reading order, section/scope heading association, numbering hierarchy, and any inline source glyphs are not fully preserved by the checked text extraction."
+          }
+        },
+        {
+          "pageLocalNumber": 6,
+          "section": "COMIC",
+          "unitKind": "erratum",
+          "applicability": "expansion-comic",
+          "column": "left",
+          "bbox": [
+            118,
+            776,
+            799,
+            832
+          ],
+          "printedLines": [
+            "Card C16A should instruct you to just “Reach the Comms Room”, as it is Discovered already."
+          ],
+          "printedText": "Card C16A should instruct you to just “Reach the Comms Room”, as it is Discovered already.",
+          "questionText": null,
+          "answerText": null,
+          "sourceUnitId": "FQ-P04-U06",
+          "textLayerComparison": {
+            "status": "partial-column-scope-structure-lost",
+            "questionOrLocatorFoundInFreshPageText": true,
+            "questionOrLocatorFoundInCheckedExtraction": true,
+            "lostInformation": "Two-column reading order, section/scope heading association, numbering hierarchy, and any inline source glyphs are not fully preserved by the checked text extraction."
+          }
+        },
+        {
+          "pageLocalNumber": 7,
+          "section": "COMIC",
+          "unitKind": "erratum",
+          "applicability": "expansion-comic",
+          "column": "left",
+          "bbox": [
+            118,
+            856,
+            811,
+            977
+          ],
+          "printedLines": [
+            "Instruction box on page 10 sets up a wrong Room (Shelter Room). It should read:",
+            "If the bottom left Room in Section A is Undiscovered, place the Safe Room (“!”) there with two random Corridors."
+          ],
+          "printedText": "Instruction box on page 10 sets up a wrong Room (Shelter Room). It should read:\nIf the bottom left Room in Section A is Undiscovered, place the Safe Room (“!”) there with two random Corridors.",
+          "questionText": null,
+          "answerText": null,
+          "sourceUnitId": "FQ-P04-U07",
+          "textLayerComparison": {
+            "status": "partial-column-scope-structure-lost",
+            "questionOrLocatorFoundInFreshPageText": true,
+            "questionOrLocatorFoundInCheckedExtraction": true,
+            "lostInformation": "Two-column reading order, section/scope heading association, numbering hierarchy, and any inline source glyphs are not fully preserved by the checked text extraction."
+          }
+        },
+        {
+          "pageLocalNumber": 8,
+          "section": "COMIC",
+          "unitKind": "erratum",
+          "applicability": "expansion-comic",
+          "column": "left",
+          "bbox": [
+            118,
+            1009,
+            733,
+            1101
+          ],
+          "printedLines": [
+            "Instruction box on page 28 if referring to the wrong Room. It should read:",
+            "Place token D in the Safe Room."
+          ],
+          "printedText": "Instruction box on page 28 if referring to the wrong Room. It should read:\nPlace token D in the Safe Room.",
+          "questionText": null,
+          "answerText": null,
+          "sourceUnitId": "FQ-P04-U08",
+          "textLayerComparison": {
+            "status": "partial-column-scope-structure-lost",
+            "questionOrLocatorFoundInFreshPageText": true,
+            "questionOrLocatorFoundInCheckedExtraction": true,
+            "lostInformation": "Two-column reading order, section/scope heading association, numbering hierarchy, and any inline source glyphs are not fully preserved by the checked text extraction."
+          }
+        },
+        {
+          "pageLocalNumber": 9,
+          "section": "COMIC",
+          "unitKind": "erratum",
+          "applicability": "expansion-comic",
+          "column": "left",
+          "bbox": [
+            118,
+            1133,
+            657,
+            1226
+          ],
+          "printedLines": [
+            "Instruction box on page 29 is missing information. It should also include:",
+            "Discard token D."
+          ],
+          "printedText": "Instruction box on page 29 is missing information. It should also include:\nDiscard token D.",
+          "questionText": null,
+          "answerText": null,
+          "sourceUnitId": "FQ-P04-U09",
+          "textLayerComparison": {
+            "status": "partial-column-scope-structure-lost",
+            "questionOrLocatorFoundInFreshPageText": true,
+            "questionOrLocatorFoundInCheckedExtraction": true,
+            "lostInformation": "Two-column reading order, section/scope heading association, numbering hierarchy, and any inline source glyphs are not fully preserved by the checked text extraction."
+          }
+        },
+        {
+          "pageLocalNumber": 10,
+          "section": "COMIC",
+          "unitKind": "erratum",
+          "applicability": "expansion-comic",
+          "column": "left",
+          "bbox": [
+            118,
+            1257,
+            811,
+            1407
+          ],
+          "printedLines": [
+            "Instruction box on page 35 regarding placing Rebels is incomplete. It should read:",
+            "Place 2 Rebel standees in the Landing Zone and 2 in the Comms Room. If you have R1 marked on the Comic Sheet, remove one Rebel standee from the Landing Zone."
+          ],
+          "printedText": "Instruction box on page 35 regarding placing Rebels is incomplete. It should read:\nPlace 2 Rebel standees in the Landing Zone and 2 in the Comms Room. If you have R1 marked on the Comic Sheet, remove one Rebel standee from the Landing Zone.",
+          "questionText": null,
+          "answerText": null,
+          "sourceUnitId": "FQ-P04-U10",
+          "textLayerComparison": {
+            "status": "partial-column-scope-structure-lost",
+            "questionOrLocatorFoundInFreshPageText": true,
+            "questionOrLocatorFoundInCheckedExtraction": true,
+            "lostInformation": "Two-column reading order, section/scope heading association, numbering hierarchy, and any inline source glyphs are not fully preserved by the checked text extraction."
+          }
+        },
+        {
+          "pageLocalNumber": 11,
+          "section": "COMIC",
+          "unitKind": "erratum",
+          "applicability": "expansion-comic",
+          "column": "left",
+          "bbox": [
+            118,
+            1438,
+            737,
+            1531
+          ],
+          "printedLines": [
+            "Instruction box on page 43 is referring to the wrong Room. It should read:",
+            "Place Dr Ashton in the Safe Room."
+          ],
+          "printedText": "Instruction box on page 43 is referring to the wrong Room. It should read:\nPlace Dr Ashton in the Safe Room.",
+          "questionText": null,
+          "answerText": null,
+          "sourceUnitId": "FQ-P04-U11",
+          "textLayerComparison": {
+            "status": "partial-column-scope-structure-lost",
+            "questionOrLocatorFoundInFreshPageText": true,
+            "questionOrLocatorFoundInCheckedExtraction": true,
+            "lostInformation": "Two-column reading order, section/scope heading association, numbering hierarchy, and any inline source glyphs are not fully preserved by the checked text extraction."
+          }
+        },
+        {
+          "pageLocalNumber": 12,
+          "section": "COMIC",
+          "unitKind": "erratum",
+          "applicability": "expansion-comic",
+          "column": "left",
+          "bbox": [
+            118,
+            1563,
+            812,
+            1712
+          ],
+          "printedLines": [
+            "Instruction box on page 56 is missing some information. It should read:",
+            "Place token C on the Server Room if it is already Discovered. Otherwise, place it on the Section B Rooms stack. Flip card C13A to C13B."
+          ],
+          "printedText": "Instruction box on page 56 is missing some information. It should read:\nPlace token C on the Server Room if it is already Discovered. Otherwise, place it on the Section B Rooms stack. Flip card C13A to C13B.",
+          "questionText": null,
+          "answerText": null,
+          "sourceUnitId": "FQ-P04-U12",
+          "textLayerComparison": {
+            "status": "partial-column-scope-structure-lost",
+            "questionOrLocatorFoundInFreshPageText": true,
+            "questionOrLocatorFoundInCheckedExtraction": true,
+            "lostInformation": "Two-column reading order, section/scope heading association, numbering hierarchy, and any inline source glyphs are not fully preserved by the checked text extraction."
+          }
+        },
+        {
+          "pageLocalNumber": 13,
+          "section": "COMIC",
+          "unitKind": "erratum",
+          "applicability": "expansion-comic",
+          "column": "left",
+          "bbox": [
+            118,
+            1744,
+            811,
+            1837
+          ],
+          "printedLines": [
+            "Instruction box on pages 78, 79 and 81 are missing how to set up the Queen. They should also read:",
+            "Place a Universal marker on the “0” space of the Queen’s Hits track."
+          ],
+          "printedText": "Instruction box on pages 78, 79 and 81 are missing how to set up the Queen. They should also read:\nPlace a Universal marker on the “0” space of the Queen’s Hits track.",
+          "questionText": null,
+          "answerText": null,
+          "sourceUnitId": "FQ-P04-U13",
+          "textLayerComparison": {
+            "status": "partial-column-scope-structure-lost",
+            "questionOrLocatorFoundInFreshPageText": true,
+            "questionOrLocatorFoundInCheckedExtraction": true,
+            "lostInformation": "Two-column reading order, section/scope heading association, numbering hierarchy, and any inline source glyphs are not fully preserved by the checked text extraction."
+          }
+        }
+      ],
+      "materialUnreadableSpans": [],
+      "renderEvidence": {
+        "dpi": 200,
+        "dimensions": [
+          1701,
+          2386
+        ],
+        "imageSha256": "4453ea1650cbb36a43b6c4889513e13514b421ce04ce3fc21ea0d18ba77e3149",
+        "freshPageTextSha256": "b4d72a3132b5c8ad2c3f2bb6c17513e0aad0adea022e771ad05a7619fff3df04",
+        "freshPageTextCharacters": 2076
+      }
+    }
+  ],
+  "extractionStatus": "complete: cover plus all 59 visible ruling/errata units extracted, scoped, and compared with checked text extraction"
+}

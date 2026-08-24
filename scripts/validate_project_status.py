@@ -68,6 +68,13 @@ def main() -> None:
         f"  - {source_validation['checks']['rulebookReferenceVisualUnits']} reference/navigation units",
         f"  - {source_validation['checks']['rulebookMaterialUnreadableSpans']} unreadable visual spans",
         f"  - all {source_validation['checks']['rulebookVisualUnits']} only partially represented by text extraction because graphical structure is lost",
+        f"- FAQ/errata v1.2: **{source_validation['checks']['faqPages']}/{source_validation['checks']['faqPages']} rendered pages extracted**",
+        f"  - {source_validation['checks']['faqRulingAndErrataUnits']} ruling/errata units",
+        f"  - {source_validation['checks']['faqBaseGameApplicableUnits']} base-game-applicable units",
+        f"  - {source_validation['checks']['faqExpansionSpecificUnits']} expansion-specific units retained out of base conclusions",
+        f"  - {source_validation['checks']['faqErrataUnits']} errata units and {source_validation['checks']['faqRulingUnits']} FAQ rulings",
+        f"  - {source_validation['checks']['faqVisualOccurrences']} inline visual occurrences",
+        f"  - {source_validation['checks']['faqMaterialUnreadableSpans']} unreadable spans",
     ]
     for fragment in expected_fragments:
         require(fragment in status, f"PROJECT_STATUS.md count drift: expected {fragment!r}", failures)

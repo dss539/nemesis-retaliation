@@ -1917,6 +1917,14 @@ task workspace.
 - [x] Compared 353 printed labels against page-local and checked-in text extraction; all 80 units are only partially represented because their graphical relationships are lost.
 - [x] Deterministic validator regenerates all 40 page images/text segments and checks every hash, page, bbox, ID, count, representative obligation, and glossary total.
 
+## DONE — Official FAQ/errata v1.2 source extraction (2026-08-24T08:07:32Z)
+
+- [x] Rendered all 4 FAQ pages at 200 DPI and extracted cover metadata (`V1.2`, `8.06.2026`) plus all 59 ruling/errata units.
+- [x] Preserved two-column reading order, section headings, numbering, exact Q/A or correction text, bboxes, and 4 inline glyph occurrences omitted by text extraction.
+- [x] Partitioned applicability: 28 base-game units and 31 expansion-specific units; expansion rulings remain retained but outside base conclusions.
+- [x] Classified 15 errata units and 44 FAQ rulings with 0 unreadable spans; FAQ authority remains above conflicting rulebook text.
+- [x] Deterministic validator regenerates all 4 page renders/text segments and verifies hashes, counts, section totals, scopes, bboxes, IDs, and representative base/expansion rulings.
+
 ## LATER — Expansions (re-add when user wants them)
 - [ ] Re-extract expansion content from save (see `assets/tts-mod/notes/extraction.md` §15 for all deck GUIDs, intruder bags,
       shared action-154 cells, and classification pitfalls)

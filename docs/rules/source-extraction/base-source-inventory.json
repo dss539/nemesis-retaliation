@@ -23,12 +23,17 @@
       "bytes": 616525,
       "role": "FAQ and errata",
       "authority": "official-errata",
-      "extractionStatus": "text layer extracted; visual/page obligation audit not closed",
+      "extractionStatus": "complete: cover and all 59 ruling/errata units extracted with base-versus-expansion applicability and visual/text-layer boundaries",
       "pages": 4,
       "textExtraction": {
         "path": "docs/rulebooks/faq_text.txt",
         "sha256": "9741ca30bf75f834de9fba5752f5355c5cfb9638955efe5cd9c1c181cbb432f5"
-      }
+      },
+      "extractionOutput": "docs/rules/source-extraction/faq-v1.2-source-extraction.json",
+      "rulingAndErrataUnitCount": 59,
+      "baseGameApplicableUnitCount": 28,
+      "expansionSpecificUnitCount": 31,
+      "materialUnreadableSpanCount": 0
     },
     {
       "path": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
@@ -154,16 +159,10 @@
   "remainingGraphicalSourceUnits": [
     {
       "priority": 1,
-      "source": "Official FAQ visual/layout channel",
-      "units": 4,
-      "requiredOutput": "page-by-page confirmation that text extraction retained scope, numbering, examples, and icon associations"
-    },
-    {
-      "priority": 2,
       "source": "Player Help cards",
       "units": 10,
       "requiredOutput": "deduplicate identical text while preserving player-number and source-version variants"
     }
   ],
-  "updatedAt": "2026-08-24T07:42:23Z"
+  "updatedAt": "2026-08-24T08:07:32Z"
 }

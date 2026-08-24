@@ -8,23 +8,19 @@
 - Official Room Help Sheet: all 25 entries extracted source-bound in `room-help-sheet.json` (112 literal functional-icon occurrences, 39 effect/note references, 0 unreadable operative spans).
 - Official Objective Help Sheet: all 45 source units inventoried in `objective-help-sheet.json`; 35 fully visible units extracted, 10 physical occlusions retained explicitly, 0 unreadable visible spans.
 - Official rulebook visual channel: all 40 pages classified in `rulebook-visual-obligations.json`; 80 visual units (72 normative, 5 worked examples, 3 reference), 0 unreadable spans.
+- Official FAQ/errata v1.2: all 4 pages and 59 ruling/errata units extracted in `faq-v1.2-source-extraction.json`; 28 base-applicable and 31 expansion-specific units, 0 unreadable spans.
 - Card-gap review: all 13 former gaps adjudicated source-bound; 9 are rules-text complete, 3 are classified non-rules, and 1 exact prototype span remains explicitly blocked. SUBMACHINE GUN punctuation was recovered as a colon without altering its icon/source conflicts.
 - Vocabulary/taxonomy/ontology work remains intentionally unopened.
 
 ## Ordered extraction work
 
-### P1 — Official FAQ visual confirmation
+### P1 — Player Help cards and duplicate source variants
 
-Audit all 4 rendered FAQ/errata pages. Preserve printed numbering, question/answer scope, icon and component associations,
-examples, and base-versus-expansion applicability. Compare each page against `faq_text.txt`, retaining visual structure that the
-text layer loses and treating FAQ/errata as higher authority than the rulebook.
+Extract all 10 Player Help source occurrences. Preserve player-number differences, exact phase labels/order, icons, and source
+revision. Prove byte/pixel/text duplicates before linking them; do not normalize the TTS card's phase labels against the current
+rulebook. Classify card fronts/backs and retain all applicable wording conflicts.
 
-### P2 — Player Help cards and duplicate source variants
-
-Extract and deduplicate exact wording while retaining player-number and source-version differences. Do not normalize the
-TTS card's phase labels against the current rulebook during extraction.
-
-### P3 — Secondary evidence closure
+### P2 — Secondary evidence closure
 
 Consolidate one immutable copy of BGA build 260622-1220, index its relevant data sections, and retain TTS structured
 metadata as provenance/deck-role evidence. Secondary data may reveal conflicts but cannot settle them over official sources.

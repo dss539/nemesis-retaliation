@@ -58,6 +58,7 @@ def main() -> None:
         'card-gap-adjudications.json',
         'card-gap-inventory.json',
         'extraction-roadmap.md',
+        'faq-v1.2-source-extraction.json',
         'intruder-help-sheet.json',
         'objective-help-sheet.json',
         'objective-help-sheet-layout.json',
@@ -133,6 +134,21 @@ def main() -> None:
     if rulebook_run.returncode != 0 or not rulebook_report.get('passed'):
         failures.append({'check': 'rulebook visual census', 'report': rulebook_report})
     rulebook_checks = rulebook_report.get('checks') or {}
+
+    # Verify the full FAQ/errata corpus and base-versus-expansion applicability partition.
+    faq_run = subprocess.run(
+        ['python3', str(REPO / 'scripts/validate_faq_source_extraction.py')],
+        check=False,
+        text=True,
+        capture_output=True,
+    )
+    try:
+        faq_report = json.loads(faq_run.stdout)
+    except json.JSONDecodeError:
+        faq_report = {'passed': False, 'checks': {}, 'failures': [{'check': 'invalid validator output', 'stderr': faq_run.stderr}]}
+    if faq_run.returncode != 0 or not faq_report.get('passed'):
+        failures.append({'check': 'FAQ source extraction', 'report': faq_report})
+    faq_checks = faq_report.get('checks') or {}
 
     # Verify Intruder Help source pairs, extraction completeness, and selected evidence lineage.
     if intruder.get('component') != 'Intruder Help Sheet' or len(intruder.get('sides') or []) != 2:
@@ -402,6 +418,14 @@ def main() -> None:
             'rulebookWorkedExampleVisuals': (rulebook_checks.get('byObligationClass') or {}).get('worked-example-visual'),
             'rulebookReferenceVisualUnits': (rulebook_checks.get('byObligationClass') or {}).get('reference-visual-unit'),
             'rulebookMaterialUnreadableSpans': rulebook_checks.get('materialUnreadableSpans'),
+            'faqPages': faq_checks.get('pages'),
+            'faqRulingAndErrataUnits': faq_checks.get('rulingAndErrataUnits'),
+            'faqBaseGameApplicableUnits': faq_checks.get('baseGameApplicableUnits'),
+            'faqExpansionSpecificUnits': faq_checks.get('expansionSpecificUnits'),
+            'faqErrataUnits': faq_checks.get('errataUnits'),
+            'faqRulingUnits': faq_checks.get('faqRulingUnits'),
+            'faqVisualOccurrences': faq_checks.get('visualOccurrences'),
+            'faqMaterialUnreadableSpans': faq_checks.get('materialUnreadableSpans'),
             'intruderHelpSides': len(intruder['sides']),
             'intruderHelpInstructions': source_instructions,
             'intruderHelpOccurrenceIds': len(set(occurrence_ids)),

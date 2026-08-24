@@ -13,14 +13,14 @@ The current implementation is not being repaired or extended. It is historical b
 
 ## Immediate Next Deliverable
 
-Complete **visual confirmation of all 4 official FAQ/errata pages**:
+Extract all **10 Player Help source occurrences**:
 
-- render every page at a fixed recorded resolution and preserve PDF-index/printed-page mapping;
-- extract each numbered question/answer, erratum, example, icon/component association, and applicability statement source-bound;
-- compare rendered pixels with `faq_text.txt`, preserving row/group/scope structure lost by extraction;
-- distinguish base-game rulings from expansion-only material;
-- record contradictions/supersession over the rulebook without silently rewriting either source;
-- assign source-local identifiers only—no canonical vocabulary or semantic normalization.
+- verify every source tuple, orientation, front/back role, and TTS object/deck provenance;
+- transcribe exact player-number, phase labels/order, icons, and instructional text;
+- prove byte, pixel, and text identity before linking duplicates;
+- preserve player-number and source-revision variants independently;
+- retain conflicts with current rulebook terminology/order without normalization;
+- classify every occurrence as complete face, duplicate occurrence, back/reference, or explicit blocker.
 
 ## Verified Checkpoint
 
@@ -44,6 +44,13 @@ Complete **visual confirmation of all 4 official FAQ/errata pages**:
   - FAQ v1.2: 4 pages
   - Room Help Sheet: 2 pages
   - Objective Help Sheet: 2 pages
+- FAQ/errata v1.2: **4/4 rendered pages extracted**
+  - 59 ruling/errata units
+  - 28 base-game-applicable units
+  - 31 expansion-specific units retained out of base conclusions
+  - 15 errata units and 44 FAQ rulings
+  - 4 inline visual occurrences
+  - 0 unreadable spans
 - Rulebook visual census: **40/40 rendered pages classified**
   - 80 non-decorative visual units
   - 72 normative visual obligations
@@ -85,17 +92,17 @@ Machine-readable evidence: `docs/rules/source-extraction/validation.json`.
 - Extracted the official Objective Help Sheet at its source boundary: all 45 units inventoried, all visible wording retained, physical occlusions explicit, repeated page terms preserved, and hidden text-layer data not promoted to visible-face evidence.
 - Closed all 13 card-gap reviews at their source boundary: nine complete rules reads, three non-rules classifications, one exact-source blocker, and one recovered punctuation correction; prior selected worker evidence remains immutable history.
 - Completed a blind rendered-page census of all 40 official rulebook pages and recorded 80 visual units with explicit text-layer coverage, including setup/map topology, component/card anatomy, token/die state keys, worked examples, and the 49-icon glossary.
+- Extracted all 59 official FAQ/errata v1.2 units from four pages, retaining exact two-column section scope, 28 base-applicable versus 31 expansion-specific rulings, 15 errata, 44 Q&A rulings, and four source-local inline glyphs.
 - Created the closed source inventory, card-gap inventory, secondary-source inventory, Room layout inventory, roadmap, and deterministic validator.
 
 ## Remaining Work — Ordered
 
-1. **FAQ visual confirmation** — inspect all four rendered pages for numbering, scope, examples, icons, and applicability.
-2. **Player Help variants** — deduplicate exact wording while preserving player-number and source-version differences.
-3. **Secondary-source closure** — consolidate one immutable BGA build snapshot and index relevant data sections; retain TTS metadata as provenance only.
-4. **Extraction closure audit** — reconcile every source unit as extracted, non-normative, or explicitly blocked.
-5. **Canonical vocabulary and aliases** — begin only after the extraction gate passes.
-6. **Taxonomy/ontology**, then **semantic rules layer**.
-7. Define implementation-readiness criteria and seek explicit approval before a clean rewrite.
+1. **Player Help variants** — deduplicate exact wording while preserving player-number and source-version differences.
+2. **Secondary-source closure** — consolidate one immutable BGA build snapshot and index relevant data sections; retain TTS metadata as provenance only.
+3. **Extraction closure audit** — reconcile every source unit as extracted, non-normative, or explicitly blocked.
+4. **Canonical vocabulary and aliases** — begin only after the extraction gate passes.
+5. **Taxonomy/ontology**, then **semantic rules layer**.
+6. Define implementation-readiness criteria and seek explicit approval before a clean rewrite.
 
 Detailed phase plan: `docs/rules/source-extraction/extraction-roadmap.md`.
 

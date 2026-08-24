@@ -92,7 +92,7 @@ The card/reference evidence corpus and extraction provenance are under `assets/t
 
 The active phase is **base-game source extraction before vocabulary design**.
 
-The immediate deliverable is visual confirmation of all 4 official FAQ/errata pages. Render each page at a fixed recorded resolution; preserve question/answer numbering, scope, icon/component associations, examples, and base-versus-expansion applicability; compare against `faq_text.txt`; and treat the FAQ as higher authority than the rulebook. Do not begin canonical naming or semantic normalization.
+The immediate deliverable is extraction of all 10 Player Help source occurrences. Preserve exact player-number differences, phase labels/order, icons, source revision, and front/back role. Link duplicates only after byte/pixel/text proof, retain conflicts with the current rulebook separately, and do not begin canonical naming or semantic normalization.
 
 See `PROJECT_STATUS.md` and `docs/rules/source-extraction/extraction-roadmap.md` for the verified checkpoint and subsequent order.
 
