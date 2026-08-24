@@ -1909,6 +1909,14 @@ task workspace.
 - [x] Preserved the prototype `FACILITY RESTART` incomplete clause and all materially different source variants without substitution.
 - [x] Corpus rebuild: 390 records, 259 full drafts, 1 partial, 0 no-transcription, 52 non-rules/reference; focused and deterministic validators pass.
 
+## DONE — Official rulebook visual obligation census (2026-08-24T07:42:23Z)
+
+- [x] Rendered and inspected all 40 official rulebook pages blind at 160 DPI before consulting text extraction.
+- [x] Recorded 80 source-local visual units: 72 normative obligations, 5 worked examples, and 3 reference/navigation units; 0 material visual spans are unreadable.
+- [x] Captured setup/map topology, card/component anatomy, state/face/color/orientation keys, action/die tables, movement examples, scanner overlay, Queen/Health tracks, and the 49-icon glossary without semantic normalization.
+- [x] Compared 353 printed labels against page-local and checked-in text extraction; all 80 units are only partially represented because their graphical relationships are lost.
+- [x] Deterministic validator regenerates all 40 page images/text segments and checks every hash, page, bbox, ID, count, representative obligation, and glossary total.
+
 ## LATER — Expansions (re-add when user wants them)
 - [ ] Re-extract expansion content from save (see `assets/tts-mod/notes/extraction.md` §15 for all deck GUIDs, intruder bags,
       shared action-154 cells, and classification pitfalls)

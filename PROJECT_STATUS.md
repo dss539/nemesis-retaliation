@@ -13,14 +13,14 @@ The current implementation is not being repaired or extended. It is historical b
 
 ## Immediate Next Deliverable
 
-Complete a **40-page official rulebook visual obligation census**:
+Complete **visual confirmation of all 4 official FAQ/errata pages**:
 
 - render every page at a fixed recorded resolution and preserve PDF-index/printed-page mapping;
-- inventory each diagram, table, component anatomy panel, icon association, ordering arrow, worked example, and graphical constraint;
-- compare rendered pixels with `rulebook_text.txt` and extract only obligations absent or structurally lost in text extraction;
-- assign source-local page/region/occurrence identifiers without canonical naming;
-- preserve examples as examples and avoid silently converting them into general rules;
-- record every page as extracted, visually non-normative, or explicitly blocked.
+- extract each numbered question/answer, erratum, example, icon/component association, and applicability statement source-bound;
+- compare rendered pixels with `faq_text.txt`, preserving row/group/scope structure lost by extraction;
+- distinguish base-game rulings from expansion-only material;
+- record contradictions/supersession over the rulebook without silently rewriting either source;
+- assign source-local identifiers only—no canonical vocabulary or semantic normalization.
 
 ## Verified Checkpoint
 
@@ -44,6 +44,13 @@ Complete a **40-page official rulebook visual obligation census**:
   - FAQ v1.2: 4 pages
   - Room Help Sheet: 2 pages
   - Objective Help Sheet: 2 pages
+- Rulebook visual census: **40/40 rendered pages classified**
+  - 80 non-decorative visual units
+  - 72 normative visual obligations
+  - 5 worked-example visuals
+  - 3 reference/navigation units
+  - 0 unreadable visual spans
+  - all 80 only partially represented by text extraction because graphical structure is lost
 - Intruder Help Sheet: both sides extracted source-bound
 - Intruder Help instructions: **18/18**
 - Room Help Sheet: **25/25 entries extracted source-bound**
@@ -77,18 +84,18 @@ Machine-readable evidence: `docs/rules/source-extraction/validation.json`.
 - Extracted all 25 official Room Help Sheet entries with effects, notes, literal functional-icon occurrences, and reproducible visual evidence.
 - Extracted the official Objective Help Sheet at its source boundary: all 45 units inventoried, all visible wording retained, physical occlusions explicit, repeated page terms preserved, and hidden text-layer data not promoted to visible-face evidence.
 - Closed all 13 card-gap reviews at their source boundary: nine complete rules reads, three non-rules classifications, one exact-source blocker, and one recovered punctuation correction; prior selected worker evidence remains immutable history.
+- Completed a blind rendered-page census of all 40 official rulebook pages and recorded 80 visual units with explicit text-layer coverage, including setup/map topology, component/card anatomy, token/die state keys, worked examples, and the 49-icon glossary.
 - Created the closed source inventory, card-gap inventory, secondary-source inventory, Room layout inventory, roadmap, and deterministic validator.
 
 ## Remaining Work — Ordered
 
-1. **Rulebook visual obligation census** — inspect all 40 rendered pages for normative information lost by the text layer.
-2. **FAQ visual confirmation** — inspect all four rendered pages for numbering, scope, examples, icons, and applicability.
-3. **Player Help variants** — deduplicate exact wording while preserving player-number and source-version differences.
-4. **Secondary-source closure** — consolidate one immutable BGA build snapshot and index relevant data sections; retain TTS metadata as provenance only.
-5. **Extraction closure audit** — reconcile every source unit as extracted, non-normative, or explicitly blocked.
-6. **Canonical vocabulary and aliases** — begin only after the extraction gate passes.
-7. **Taxonomy/ontology**, then **semantic rules layer**.
-8. Define implementation-readiness criteria and seek explicit approval before a clean rewrite.
+1. **FAQ visual confirmation** — inspect all four rendered pages for numbering, scope, examples, icons, and applicability.
+2. **Player Help variants** — deduplicate exact wording while preserving player-number and source-version differences.
+3. **Secondary-source closure** — consolidate one immutable BGA build snapshot and index relevant data sections; retain TTS metadata as provenance only.
+4. **Extraction closure audit** — reconcile every source unit as extracted, non-normative, or explicitly blocked.
+5. **Canonical vocabulary and aliases** — begin only after the extraction gate passes.
+6. **Taxonomy/ontology**, then **semantic rules layer**.
+7. Define implementation-readiness criteria and seek explicit approval before a clean rewrite.
 
 Detailed phase plan: `docs/rules/source-extraction/extraction-roadmap.md`.
 

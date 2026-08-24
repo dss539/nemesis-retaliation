@@ -92,7 +92,7 @@ The card/reference evidence corpus and extraction provenance are under `assets/t
 
 The active phase is **base-game source extraction before vocabulary design**.
 
-The immediate deliverable is a page-by-page visual obligation census of all 40 official rulebook pages. Render each page at a fixed recorded resolution and extract normative diagrams, tables, component anatomy, icon associations, ordering arrows, examples, and graphical constraints that are absent or structurally lost in the text layer. Preserve page/region evidence and source-local occurrences; do not begin canonical naming or semantic normalization.
+The immediate deliverable is visual confirmation of all 4 official FAQ/errata pages. Render each page at a fixed recorded resolution; preserve question/answer numbering, scope, icon/component associations, examples, and base-versus-expansion applicability; compare against `faq_text.txt`; and treat the FAQ as higher authority than the rulebook. Do not begin canonical naming or semantic normalization.
 
 See `PROJECT_STATUS.md` and `docs/rules/source-extraction/extraction-roadmap.md` for the verified checkpoint and subsequent order.
 

@@ -61,6 +61,13 @@ def main() -> None:
         f"  - {source_validation['checks']['cardGapCounts']['classifiedNonRules']} classified non-rules components/placeholders",
         f"  - {source_validation['checks']['cardGapCounts']['recoveredOperativeCorrections']} operative correction recovered (`SUBMACHINE GUN`: colon)",
         f"  - {source_validation['checks']['cardGapCounts']['remainingNoTranscription']} remaining no-transcription records",
+        f"- Rulebook visual census: **{source_validation['checks']['rulebookVisualPages']}/{source_validation['checks']['rulebookVisualPages']} rendered pages classified**",
+        f"  - {source_validation['checks']['rulebookVisualUnits']} non-decorative visual units",
+        f"  - {source_validation['checks']['rulebookNormativeVisualObligations']} normative visual obligations",
+        f"  - {source_validation['checks']['rulebookWorkedExampleVisuals']} worked-example visuals",
+        f"  - {source_validation['checks']['rulebookReferenceVisualUnits']} reference/navigation units",
+        f"  - {source_validation['checks']['rulebookMaterialUnreadableSpans']} unreadable visual spans",
+        f"  - all {source_validation['checks']['rulebookVisualUnits']} only partially represented by text extraction because graphical structure is lost",
     ]
     for fragment in expected_fragments:
         require(fragment in status, f"PROJECT_STATUS.md count drift: expected {fragment!r}", failures)

@@ -36,12 +36,17 @@
       "bytes": 18960215,
       "role": "base-game rulebook",
       "authority": "official-primary",
-      "extractionStatus": "text layer extracted; graphical normative channels and page-by-page obligation coverage not closed",
+      "extractionStatus": "complete: text layer retained as an aid and all 40 rendered pages classified into source-bound visual obligations",
       "pages": 40,
       "textExtraction": {
         "path": "docs/rulebooks/rulebook_text.txt",
         "sha256": "b89552f02686559e2efa284dc8a18afc16bfb753b2de8afebe62c5243ca45a0a"
-      }
+      },
+      "visualExtractionOutput": "docs/rules/source-extraction/rulebook-visual-obligations.json",
+      "visualUnitCount": 80,
+      "normativeVisualObligationCount": 72,
+      "workedExampleVisualCount": 5,
+      "materialUnreadableSpanCount": 0
     },
     {
       "path": "docs/rulebooks/Nemesis_RT_Rooms_Sheet.pdf",
@@ -149,22 +154,16 @@
   "remainingGraphicalSourceUnits": [
     {
       "priority": 1,
-      "source": "Official rulebook graphical normative channels",
-      "units": 40,
-      "requiredOutput": "page-by-page visual obligation census covering diagrams, tables, card anatomy, icon associations, and examples not represented by text extraction"
-    },
-    {
-      "priority": 2,
       "source": "Official FAQ visual/layout channel",
       "units": 4,
       "requiredOutput": "page-by-page confirmation that text extraction retained scope, numbering, examples, and icon associations"
     },
     {
-      "priority": 3,
+      "priority": 2,
       "source": "Player Help cards",
       "units": 10,
       "requiredOutput": "deduplicate identical text while preserving player-number and source-version variants"
     }
   ],
-  "updatedAt": "2026-08-24T07:01:08Z"
+  "updatedAt": "2026-08-24T07:42:23Z"
 }

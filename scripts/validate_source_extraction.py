@@ -61,6 +61,7 @@ def main() -> None:
         'intruder-help-sheet.json',
         'objective-help-sheet.json',
         'objective-help-sheet-layout.json',
+        'rulebook-visual-obligations.json',
         'room-help-sheet.json',
         'room-help-sheet-layout.json',
         'secondary-source-inventory.json',
@@ -117,6 +118,21 @@ def main() -> None:
     if card_gap_run.returncode != 0 or not card_gap_report.get('passed'):
         failures.append({'check': 'card gap adjudications', 'report': card_gap_report})
     recomputed = card_gap_report.get('checks') or {}
+
+    # Verify every rendered rulebook page and the closed visual-obligation census.
+    rulebook_run = subprocess.run(
+        ['python3', str(REPO / 'scripts/validate_rulebook_visual_census.py')],
+        check=False,
+        text=True,
+        capture_output=True,
+    )
+    try:
+        rulebook_report = json.loads(rulebook_run.stdout)
+    except json.JSONDecodeError:
+        rulebook_report = {'passed': False, 'checks': {}, 'failures': [{'check': 'invalid validator output', 'stderr': rulebook_run.stderr}]}
+    if rulebook_run.returncode != 0 or not rulebook_report.get('passed'):
+        failures.append({'check': 'rulebook visual census', 'report': rulebook_report})
+    rulebook_checks = rulebook_report.get('checks') or {}
 
     # Verify Intruder Help source pairs, extraction completeness, and selected evidence lineage.
     if intruder.get('component') != 'Intruder Help Sheet' or len(intruder.get('sides') or []) != 2:
@@ -379,6 +395,13 @@ def main() -> None:
             'officialSources': len(inventory['officialSources']),
             'cardGapRecords': recomputed.get('reviewedRecords'),
             'cardGapCounts': recomputed,
+            'rulebookVisualPages': rulebook_checks.get('pages'),
+            'rulebookPagesWithVisualObligations': rulebook_checks.get('pagesWithVisualObligations'),
+            'rulebookVisualUnits': rulebook_checks.get('visualUnits'),
+            'rulebookNormativeVisualObligations': (rulebook_checks.get('byObligationClass') or {}).get('normative-visual-obligation'),
+            'rulebookWorkedExampleVisuals': (rulebook_checks.get('byObligationClass') or {}).get('worked-example-visual'),
+            'rulebookReferenceVisualUnits': (rulebook_checks.get('byObligationClass') or {}).get('reference-visual-unit'),
+            'rulebookMaterialUnreadableSpans': rulebook_checks.get('materialUnreadableSpans'),
             'intruderHelpSides': len(intruder['sides']),
             'intruderHelpInstructions': source_instructions,
             'intruderHelpOccurrenceIds': len(set(occurrence_ids)),
