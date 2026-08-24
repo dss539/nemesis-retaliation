@@ -92,7 +92,7 @@ The card/reference evidence corpus and extraction provenance are under `assets/t
 
 The active phase is **base-game source extraction before vocabulary design**.
 
-The immediate deliverable is extraction of all 10 Player Help source occurrences. Preserve exact player-number differences, phase labels/order, icons, source revision, and front/back role. Link duplicates only after byte/pixel/text proof, retain conflicts with the current rulebook separately, and do not begin canonical naming or semantic normalization.
+The immediate deliverable is secondary-evidence closure: consolidate one immutable BGA build 260622-1220 snapshot, index all base-relevant structured sections, prove the four collected copies are exact duplicates, and close TTS Lua/object/GMNotes metadata as provenance and deck-role evidence. Secondary evidence may expose conflicts but must not override official sources; do not begin canonical naming or semantic normalization.
 
 See `PROJECT_STATUS.md` and `docs/rules/source-extraction/extraction-roadmap.md` for the verified checkpoint and subsequent order.
 

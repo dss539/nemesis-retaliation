@@ -9,21 +9,23 @@
 - Official Objective Help Sheet: all 45 source units inventoried in `objective-help-sheet.json`; 35 fully visible units extracted, 10 physical occlusions retained explicitly, 0 unreadable visible spans.
 - Official rulebook visual channel: all 40 pages classified in `rulebook-visual-obligations.json`; 80 visual units (72 normative, 5 worked examples, 3 reference), 0 unreadable spans.
 - Official FAQ/errata v1.2: all 4 pages and 59 ruling/errata units extracted in `faq-v1.2-source-extraction.json`; 28 base-applicable and 31 expansion-specific units, 0 unreadable spans.
+- Player Help source: all 10 numbered fronts and the shared functional PASS side extracted in `player-help-source-extraction.json`; one exact text variant, two raster-template groups, 0 unreadable spans.
 - Card-gap review: all 13 former gaps adjudicated source-bound; 9 are rules-text complete, 3 are classified non-rules, and 1 exact prototype span remains explicitly blocked. SUBMACHINE GUN punctuation was recovered as a colon without altering its icon/source conflicts.
 - Vocabulary/taxonomy/ontology work remains intentionally unopened.
 
 ## Ordered extraction work
 
-### P1 — Player Help cards and duplicate source variants
+### P1 — Secondary evidence closure
 
-Extract all 10 Player Help source occurrences. Preserve player-number differences, exact phase labels/order, icons, and source
-revision. Prove byte/pixel/text duplicates before linking them; do not normalize the TTS card's phase labels against the current
-rulebook. Classify card fronts/backs and retain all applicable wording conflicts.
+Consolidate one immutable copy of BGA build 260622-1220, index all base-relevant structured sections, and prove the four
+collected copies are exact duplicates. Close TTS structured metadata as provenance/deck-role evidence with source hashes,
+record counts, and applicability boundaries. Secondary data may reveal conflicts but cannot settle them over official sources.
 
-### P2 — Secondary evidence closure
+### P2 — Extraction closure audit
 
-Consolidate one immutable copy of BGA build 260622-1220, index its relevant data sections, and retain TTS structured
-metadata as provenance/deck-role evidence. Secondary data may reveal conflicts but cannot settle them over official sources.
+Reconcile every in-scope official page, help-sheet unit, card/reference source, Player Help occurrence, and secondary data
+channel as `extracted`, `non-normative`, or explicitly `blocked`. Verify all counts, source hashes, conflicts, authority order,
+and remaining blockers before opening vocabulary work.
 
 ## Exit gate before vocabulary work
 

@@ -75,6 +75,12 @@ def main() -> None:
         f"  - {source_validation['checks']['faqErrataUnits']} errata units and {source_validation['checks']['faqRulingUnits']} FAQ rulings",
         f"  - {source_validation['checks']['faqVisualOccurrences']} inline visual occurrences",
         f"  - {source_validation['checks']['faqMaterialUnreadableSpans']} unreadable spans",
+        f"- Player Help source: **{source_validation['checks']['playerHelpFrontOccurrences']}/{source_validation['checks']['playerHelpFrontOccurrences']} numbered fronts extracted**",
+        f"  - {source_validation['checks']['playerHelpSharedBackOccurrences']} shared functional `PASS` side",
+        f"  - {source_validation['checks']['playerHelpInstructionTextVariants']} identical instruction-text variant",
+        f"  - {source_validation['checks']['playerHelpRasterTemplateGroups']} measured raster-template groups",
+        f"  - {source_validation['checks']['playerHelpFunctionalIconOccurrences']} functional icons and {source_validation['checks']['playerHelpMaterialUnreadableSpans']} unreadable spans",
+        "  - explicit conflicts: TTS 10 fronts vs official 5-card inventory; obsolete phase sequence vs current rulebook",
     ]
     for fragment in expected_fragments:
         require(fragment in status, f"PROJECT_STATUS.md count drift: expected {fragment!r}", failures)

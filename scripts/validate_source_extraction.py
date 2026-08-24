@@ -62,6 +62,7 @@ def main() -> None:
         'intruder-help-sheet.json',
         'objective-help-sheet.json',
         'objective-help-sheet-layout.json',
+        'player-help-source-extraction.json',
         'rulebook-visual-obligations.json',
         'room-help-sheet.json',
         'room-help-sheet-layout.json',
@@ -149,6 +150,21 @@ def main() -> None:
     if faq_run.returncode != 0 or not faq_report.get('passed'):
         failures.append({'check': 'FAQ source extraction', 'report': faq_report})
     faq_checks = faq_report.get('checks') or {}
+
+    # Verify all numbered Player Help fronts, their shared PASS side, and source-version conflicts.
+    player_help_run = subprocess.run(
+        ['python3', str(REPO / 'scripts/validate_player_help_extraction.py')],
+        check=False,
+        text=True,
+        capture_output=True,
+    )
+    try:
+        player_help_report = json.loads(player_help_run.stdout)
+    except json.JSONDecodeError:
+        player_help_report = {'passed': False, 'checks': {}, 'failures': [{'check': 'invalid validator output', 'stderr': player_help_run.stderr}]}
+    if player_help_run.returncode != 0 or not player_help_report.get('passed'):
+        failures.append({'check': 'Player Help source extraction', 'report': player_help_report})
+    player_help_checks = player_help_report.get('checks') or {}
 
     # Verify Intruder Help source pairs, extraction completeness, and selected evidence lineage.
     if intruder.get('component') != 'Intruder Help Sheet' or len(intruder.get('sides') or []) != 2:
@@ -426,6 +442,13 @@ def main() -> None:
             'faqRulingUnits': faq_checks.get('faqRulingUnits'),
             'faqVisualOccurrences': faq_checks.get('visualOccurrences'),
             'faqMaterialUnreadableSpans': faq_checks.get('materialUnreadableSpans'),
+            'playerHelpFrontOccurrences': player_help_checks.get('frontOccurrences'),
+            'playerHelpDistinctPlayerNumbers': player_help_checks.get('distinctPlayerNumbers'),
+            'playerHelpSharedBackOccurrences': player_help_checks.get('sharedBackOccurrences'),
+            'playerHelpInstructionTextVariants': player_help_checks.get('instructionTextVariants'),
+            'playerHelpRasterTemplateGroups': player_help_checks.get('rasterTemplateGroups'),
+            'playerHelpFunctionalIconOccurrences': player_help_checks.get('functionalIconOccurrences'),
+            'playerHelpMaterialUnreadableSpans': player_help_checks.get('materialUnreadableSpans'),
             'intruderHelpSides': len(intruder['sides']),
             'intruderHelpInstructions': source_instructions,
             'intruderHelpOccurrenceIds': len(set(occurrence_ids)),

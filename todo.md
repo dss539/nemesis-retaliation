@@ -1925,6 +1925,14 @@ task workspace.
 - [x] Classified 15 errata units and 44 FAQ rulings with 0 unreadable spans; FAQ authority remains above conflicting rulebook text.
 - [x] Deterministic validator regenerates all 4 page renders/text segments and verifies hashes, counts, section totals, scopes, bboxes, IDs, and representative base/expansion rulings.
 
+## DONE — Player Help source-occurrence extraction (2026-08-24T08:24:36Z)
+
+- [x] Extracted ten distinct numbered Player Help fronts (players 1–10) and the exact shared functional `PASS` BackURL side.
+- [x] Verified all fronts belong to TTS bag `d8a0fb` (`playerHelpCards`); players 1–5 are generated FaceURL sheet cells and players 6–10 have individual FaceURL GUID/CardID tuples.
+- [x] Proved one exact instruction-text variant and two measured raster-template groups while retaining every numbered source occurrence independently.
+- [x] Preserved source conflicts: TTS has ten fronts while the current rulebook inventory says five; TTS phase labels/order materially differ from the current rulebook.
+- [x] Deterministic validator checks hashes, dimensions, TTS roles, paired side, text equivalence, template metrics, corpus projection, canonical Player 6, and conflict records; 0 unreadable spans.
+
 ## LATER — Expansions (re-add when user wants them)
 - [ ] Re-extract expansion content from save (see `assets/tts-mod/notes/extraction.md` §15 for all deck GUIDs, intruder bags,
       shared action-154 cells, and classification pitfalls)
