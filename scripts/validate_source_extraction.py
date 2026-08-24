@@ -58,6 +58,7 @@ def main() -> None:
         'card-gap-adjudications.json',
         'card-gap-inventory.json',
         'extraction-roadmap.md',
+        'extraction-closure-audit.json',
         'faq-v1.2-source-extraction.json',
         'intruder-help-sheet.json',
         'objective-help-sheet.json',
@@ -66,6 +67,7 @@ def main() -> None:
         'rulebook-visual-obligations.json',
         'room-help-sheet.json',
         'room-help-sheet-layout.json',
+        'secondary-evidence-index.json',
         'secondary-source-inventory.json',
     ]
     for name in required:
@@ -165,6 +167,36 @@ def main() -> None:
     if player_help_run.returncode != 0 or not player_help_report.get('passed'):
         failures.append({'check': 'Player Help source extraction', 'report': player_help_report})
     player_help_checks = player_help_report.get('checks') or {}
+
+    # Verify the immutable licensed-digital snapshot and all structured secondary channels.
+    secondary_run = subprocess.run(
+        ['python3', str(REPO / 'scripts/validate_secondary_evidence.py')],
+        check=False,
+        text=True,
+        capture_output=True,
+    )
+    try:
+        secondary_report = json.loads(secondary_run.stdout)
+    except json.JSONDecodeError:
+        secondary_report = {'passed': False, 'checks': {}, 'failures': [{'check': 'invalid validator output', 'stderr': secondary_run.stderr}]}
+    if secondary_run.returncode != 0 or not secondary_report.get('passed'):
+        failures.append({'check': 'secondary evidence closure', 'report': secondary_report})
+    secondary_checks = secondary_report.get('checks') or {}
+
+    # Verify the final extraction gate after every channel-specific validator has passed.
+    closure_run = subprocess.run(
+        ['python3', str(REPO / 'scripts/validate_extraction_closure.py')],
+        check=False,
+        text=True,
+        capture_output=True,
+    )
+    try:
+        closure_report = json.loads(closure_run.stdout)
+    except json.JSONDecodeError:
+        closure_report = {'passed': False, 'checks': {}, 'failures': [{'check': 'invalid validator output', 'stderr': closure_run.stderr}]}
+    if closure_run.returncode != 0 or not closure_report.get('passed'):
+        failures.append({'check': 'extraction closure gate', 'report': closure_report})
+    closure_checks = closure_report.get('checks') or {}
 
     # Verify Intruder Help source pairs, extraction completeness, and selected evidence lineage.
     if intruder.get('component') != 'Intruder Help Sheet' or len(intruder.get('sides') or []) != 2:
@@ -407,17 +439,6 @@ def main() -> None:
         if p2.get('pixelIdenticalToSourceUnitId') != p1.get('sourceUnitId') or (p1.get('visualEvidence') or {}).get('cropSha256') != (p2.get('visualEvidence') or {}).get('cropSha256'):
             failures.append({'check': 'Objective Help repeated game term', 'index': index})
 
-    # Verify all BGA snapshots are byte-identical and still live.
-    bga_hashes = set()
-    for row in secondary['licensedDigitalSecondary']['copies']:
-        path = Path(row['path'])
-        if not path.is_file() or sha(path) != row['sha256'] or path.stat().st_size != row['bytes']:
-            failures.append({'check': 'BGA snapshot tuple', 'path': row['path']})
-        else:
-            bga_hashes.add(row['sha256'])
-    if sorted(bga_hashes) != secondary['licensedDigitalSecondary']['distinctSha256'] or len(bga_hashes) != 1:
-        failures.append({'check': 'BGA snapshot dedupe', 'hashes': sorted(bga_hashes)})
-
     report = {
         'schemaVersion': 1,
         'passed': not failures,
@@ -465,8 +486,23 @@ def main() -> None:
             'objectiveHelpPartiallyVisibleIconOccurrences': len(objective_partial_icons),
             'objectiveHelpTextIconReferences': objective_placeholders,
             'objectiveHelpMaterialUnreadableSpans': objective_unreadable,
-            'bgaCopies': len(secondary['licensedDigitalSecondary']['copies']),
-            'bgaDistinctHashes': len(bga_hashes),
+            'bgaCopies': secondary_checks.get('bgaCopiesVerified'),
+            'bgaDistinctHashes': secondary_checks.get('bgaDistinctHashes'),
+            'bgaTopLevelTables': secondary_checks.get('bgaTopLevelTables'),
+            'bgaStructuredRecords': secondary_checks.get('bgaStructuredRecords'),
+            'ttsStructuredFiles': secondary_checks.get('ttsStructuredFiles'),
+            'ttsLuaRoleRecords': secondary_checks.get('ttsLuaRoleRecords'),
+            'ttsGmnotesTagRows': secondary_checks.get('ttsGmnotesTagRows'),
+            'ttsGmnotesTaggedOccurrences': secondary_checks.get('ttsGmnotesTaggedOccurrences'),
+            'secondarySelectedEvidenceEntries': secondary_checks.get('selectedEvidenceEntries'),
+            'secondarySelectedEvidenceRuns': secondary_checks.get('selectedEvidenceRuns'),
+            'corpusRecordsWithBgaConflictBoundary': secondary_checks.get('corpusRecordsWithBgaConflictBoundary'),
+            'closureChannels': closure_checks.get('channels'),
+            'closureExtractedOrIndexedChannels': closure_checks.get('extractedOrIndexedChannels'),
+            'closureExplicitBlockers': closure_checks.get('explicitBlockers'),
+            'closureGateCriteria': closure_checks.get('gateCriteria'),
+            'closurePassedGateCriteria': closure_checks.get('passedGateCriteria'),
+            'closureRemainingGraphicalSourceUnits': closure_checks.get('remainingGraphicalSourceUnits'),
         },
         'failureCount': len(failures),
         'failures': failures,

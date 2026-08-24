@@ -29,7 +29,13 @@
     "distinctSha256": [
       "18cd8f4a2883d4f6662ed170095ff07e0d9f5da508064ed1d6bfc124f5a274ae"
     ],
-    "status": "four workspace-local copies inventoried; consolidation into one immutable source snapshot remains pending"
+    "status": "complete: four collected copies recorded and byte-identical; one immutable repository snapshot retained and all 11 top-level tables indexed",
+    "immutableSnapshot": {
+      "path": "docs/rules/source-extraction/secondary/bga-staticData-260622-1220.js",
+      "sha256": "18cd8f4a2883d4f6662ed170095ff07e0d9f5da508064ed1d6bfc124f5a274ae",
+      "bytes": 85433
+    },
+    "structuredIndex": "docs/rules/source-extraction/secondary-evidence-index.json"
   },
   "ttsStructuredEvidence": [
     {
@@ -38,7 +44,7 @@
       "bytes": 1320421,
       "role": "TTS structure/provenance evidence",
       "authority": "source-structured-secondary",
-      "extractionStatus": "extracted and available"
+      "extractionStatus": "complete: source tuple verified and indexed in secondary-evidence-index.json"
     },
     {
       "path": "assets/tts-mod/extract/v2/lua_roles.json",
@@ -46,7 +52,7 @@
       "bytes": 32174,
       "role": "TTS structure/provenance evidence",
       "authority": "source-structured-secondary",
-      "extractionStatus": "extracted and available"
+      "extractionStatus": "complete: source tuple verified and indexed in secondary-evidence-index.json"
     },
     {
       "path": "assets/tts-mod/extract/v2/gmnotes_taxonomy.json",
@@ -54,7 +60,7 @@
       "bytes": 7357,
       "role": "TTS structure/provenance evidence",
       "authority": "source-structured-secondary",
-      "extractionStatus": "extracted and available"
+      "extractionStatus": "complete: source tuple verified and indexed in secondary-evidence-index.json"
     },
     {
       "path": "assets/tts-mod/extract/v2/classification.json",
@@ -62,7 +68,7 @@
       "bytes": 1753201,
       "role": "TTS structure/provenance evidence",
       "authority": "source-structured-secondary",
-      "extractionStatus": "extracted and available"
+      "extractionStatus": "complete: source tuple verified and indexed in secondary-evidence-index.json"
     },
     {
       "path": "assets/tts-mod/extract/card-provenance-inventory.json",
@@ -70,7 +76,7 @@
       "bytes": 510010,
       "role": "TTS structure/provenance evidence",
       "authority": "source-structured-secondary",
-      "extractionStatus": "extracted and available"
+      "extractionStatus": "complete: source tuple verified and indexed in secondary-evidence-index.json"
     },
     {
       "path": "assets/tts-mod/extract/selected-card-text-evidence.json",
@@ -78,7 +84,13 @@
       "bytes": 2468766,
       "role": "TTS structure/provenance evidence",
       "authority": "source-structured-secondary",
-      "extractionStatus": "extracted and available"
+      "extractionStatus": "complete: source tuple verified and indexed in secondary-evidence-index.json"
     }
-  ]
+  ],
+  "closureIndex": {
+    "path": "docs/rules/source-extraction/secondary-evidence-index.json",
+    "sha256": "d00a935f14b24696ae1a156892c8b1c38124698b76f021787db79ba829a268d5",
+    "status": "complete"
+  },
+  "updatedAt": "2026-08-24T08:24:36Z"
 }

@@ -10,26 +10,19 @@
 - Official rulebook visual channel: all 40 pages classified in `rulebook-visual-obligations.json`; 80 visual units (72 normative, 5 worked examples, 3 reference), 0 unreadable spans.
 - Official FAQ/errata v1.2: all 4 pages and 59 ruling/errata units extracted in `faq-v1.2-source-extraction.json`; 28 base-applicable and 31 expansion-specific units, 0 unreadable spans.
 - Player Help source: all 10 numbered fronts and the shared functional PASS side extracted in `player-help-source-extraction.json`; one exact text variant, two raster-template groups, 0 unreadable spans.
+- Secondary evidence: immutable BGA build 260622-1220 snapshot retained and 11 tables/298 scoped records indexed; 6 TTS structured channels hashed and bounded as provenance only.
+- Final extraction audit: 9/9 channels extracted or indexed, 6/6 gate criteria passed, 1 exact-source blocker retained, 0 remaining graphical source units.
 - Card-gap review: all 13 former gaps adjudicated source-bound; 9 are rules-text complete, 3 are classified non-rules, and 1 exact prototype span remains explicitly blocked. SUBMACHINE GUN punctuation was recovered as a colon without altering its icon/source conflicts.
 - Vocabulary/taxonomy/ontology work remains intentionally unopened.
 
-## Ordered extraction work
+## Extraction work status
 
-### P1 — Secondary evidence closure
-
-Consolidate one immutable copy of BGA build 260622-1220, index all base-relevant structured sections, and prove the four
-collected copies are exact duplicates. Close TTS structured metadata as provenance/deck-role evidence with source hashes,
-record counts, and applicability boundaries. Secondary data may reveal conflicts but cannot settle them over official sources.
-
-### P2 — Extraction closure audit
-
-Reconcile every in-scope official page, help-sheet unit, card/reference source, Player Help occurrence, and secondary data
-channel as `extracted`, `non-normative`, or explicitly `blocked`. Verify all counts, source hashes, conflicts, authority order,
-and remaining blockers before opening vocabulary work.
+All ordered extraction work is complete. The nine-channel closure ledger is `extraction-closure-audit.json`.
+The next phase is canonical vocabulary and source-scoped aliases; taxonomy/ontology and semantic modeling remain later gates.
 
 ## Exit gate before vocabulary work
 
-Vocabulary/aliases/taxonomy/ontology may begin only when:
+Vocabulary/aliases/taxonomy/ontology could begin only when:
 
 - every in-scope source unit is `extracted`, `non-normative`, or an explicit `blocked` record;
 - every graphical normative channel has a rendered-pixel extraction or a specific blocker;
@@ -37,3 +30,7 @@ Vocabulary/aliases/taxonomy/ontology may begin only when:
 - source versions and conflicts are retained independently;
 - counts reconcile across PDFs, help sheets, card corpus, and structured source inventories;
 - no extraction record silently embeds an alias or semantic interpretation.
+
+## Gate outcome
+
+**PASS.** All 6 criteria above are satisfied. Canonical vocabulary and source-scoped alias work may begin. The exact prototype `FACILITY RESTART` missing span remains blocked and may not be invented by later layers.

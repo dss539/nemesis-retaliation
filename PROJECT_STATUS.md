@@ -1,26 +1,27 @@
 # Nemesis: Retaliation — Project Status
 
 **Status date:** 2026-08-24
-**Active phase:** Base-game source extraction
+**Active phase:** Canonical vocabulary and source-scoped aliases (extraction gate passed)
 **Active branch:** `work/card-corpus-extraction`
 **Implementation status:** Frozen; a clean rewrite will begin only after rules-layer readiness and explicit approval
 
 ## Current Objective
 
-Finish source-bound extraction of all remaining base-game evidence **before** creating a canonical vocabulary, aliases, taxonomy, ontology, or semantic rules layer.
+Build a source-traceable canonical vocabulary and source-scoped alias registry from the now-closed base-game extraction layer.
 
-The current implementation is not being repaired or extended. It is historical behavior/QA evidence only.
+The current implementation remains frozen. Taxonomy/ontology relationships and semantic effect modeling remain later phases.
 
 ## Immediate Next Deliverable
 
-Complete **secondary-evidence closure**:
+Build the **canonical vocabulary and source-scoped alias layer**:
 
-- select one immutable BGA build `260622-1220` snapshot and prove all four collected copies are byte-identical;
-- index all base-relevant structured sections, object keys, record counts, and source scope;
-- preserve duplicate display names and use scoped source keys rather than inventing identities;
-- close TTS Lua roles, object/classification records, and GMNotes taxonomy as provenance/deck-role evidence;
-- identify conflicts against official sources without letting secondary evidence settle them;
-- produce deterministic hashes/counts and an explicit applicability/authority boundary.
+- inventory every official/base term from FAQ, rulebook, Help sheets, and source-bound components;
+- preserve exact source spelling, capitalization, pluralization, typos, prototype terms, and licensed-digital/TTS variants;
+- select canonical terms only through the authority order, with FAQ/errata above rulebook and official components;
+- distinguish true synonyms from broader/narrower concepts and artwork-only/source-local labels;
+- assign aliases only to explicit source tuples or proven general equivalents—never by color/shape resemblance alone;
+- retain unresolved conflicts and the blocked `FACILITY RESTART` span without invention;
+- validate uniqueness, provenance, authority, and complete source-term coverage before taxonomy/ontology begins.
 
 ## Verified Checkpoint
 
@@ -39,11 +40,25 @@ Complete **secondary-evidence closure**:
 
 ### Source-extraction layer
 
+- Extraction closure gate: **PASS**
+  - 9/9 source channels extracted or indexed
+  - 6/6 gate criteria passed
+  - 0 remaining graphical source units
+  - 1 explicit exact-source operative blocker retained
+  - next phase authorized: canonical vocabulary and source-scoped aliases
 - Official sources inventoried:
   - Rulebook: 40 pages
   - FAQ v1.2: 4 pages
   - Room Help Sheet: 2 pages
   - Objective Help Sheet: 2 pages
+- Secondary evidence closure:
+  - 4 BGA copies verified byte-identical; 1 immutable build `260622-1220` snapshot retained
+  - 11 BGA tables and 298 scoped structured records indexed
+  - 6 TTS structured files indexed
+  - 159 Lua role records
+  - 172 GMNotes tag rows / 1,267 tagged occurrences
+  - 384 selected-evidence entries/runs
+  - 156 corpus records explicitly preserve a BGA conflict/secondary boundary
 - Player Help source: **10/10 numbered fronts extracted**
   - 1 shared functional `PASS` side
   - 1 identical instruction-text variant
@@ -100,23 +115,24 @@ Machine-readable evidence: `docs/rules/source-extraction/validation.json`.
 - Completed a blind rendered-page census of all 40 official rulebook pages and recorded 80 visual units with explicit text-layer coverage, including setup/map topology, component/card anatomy, token/die state keys, worked examples, and the 49-icon glossary.
 - Extracted all 59 official FAQ/errata v1.2 units from four pages, retaining exact two-column section scope, 28 base-applicable versus 31 expansion-specific rulings, 15 errata, 44 Q&A rulings, and four source-local inline glyphs.
 - Extracted all ten TTS Player Help fronts and their shared functional PASS side; proved one instruction-text variant and two raster-template groups, retained FaceURL/BackURL roles, and recorded count/phase-sequence conflicts with current official sources.
+- Consolidated licensed-digital build 260622-1220 into one immutable snapshot, indexed 11 tables/298 scoped records, and closed six TTS structured channels as secondary provenance with explicit count/name/conflict boundaries.
+- Passed the final nine-channel extraction closure audit: every source channel is extracted/indexed, all six gate criteria pass, no graphical units remain, and the one exact-source blocker remains explicit.
 - Created the closed source inventory, card-gap inventory, secondary-source inventory, Room layout inventory, roadmap, and deterministic validator.
 
 ## Remaining Work — Ordered
 
-1. **Secondary-source closure** — consolidate one immutable BGA build snapshot and index relevant data sections; retain TTS metadata as provenance only.
-2. **Extraction closure audit** — reconcile every source unit as extracted, non-normative, or explicitly blocked.
-3. **Canonical vocabulary and aliases** — begin only after the extraction gate passes.
-4. **Taxonomy/ontology**, then **semantic rules layer**.
-5. Define implementation-readiness criteria and seek explicit approval before a clean rewrite.
+1. **Canonical vocabulary and source-scoped aliases** — build and review the controlled term layer now that extraction passed.
+2. **Taxonomy/ontology** — define classes and relationships only after vocabulary validation.
+3. **Semantic rules layer** — model timing, choices, visibility, costs, targets, and state transitions after ontology review.
+4. Define implementation-readiness criteria and seek explicit approval before a clean rewrite.
 
 Detailed phase plan: `docs/rules/source-extraction/extraction-roadmap.md`.
 
 ## Phase Gates
 
-### Gate before vocabulary, aliases, taxonomy, or ontology
+### Gate before vocabulary, aliases, taxonomy, or ontology — PASSED
 
-All of the following must be true:
+All of the following are true:
 
 - every in-scope source unit is `extracted`, `non-normative`, or explicitly `blocked`;
 - every graphical normative channel has rendered-pixel evidence or a specific blocker;

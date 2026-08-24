@@ -1,0 +1,283 @@
+{
+  "schemaVersion": 1,
+  "recordType": "base-game-source-extraction-closure-audit",
+  "auditedAt": "2026-08-24T08:24:36Z",
+  "authorityOrder": [
+    "official FAQ/errata",
+    "official rulebook",
+    "official help sheets and visible component text",
+    "source-bound TTS component scans, preserved by source tuple and version",
+    "licensed-digital structured secondary evidence",
+    "TTS structured metadata/provenance"
+  ],
+  "scope": "Nemesis: Retaliation base game only",
+  "channels": [
+    {
+      "channelId": "official-faq-v1.2",
+      "authority": "official-errata",
+      "sourcePath": "docs/rulebooks/Nemesis_RT_FAQ_v1.2.pdf",
+      "status": "extracted",
+      "counts": {
+        "pages": 4,
+        "coverPages": 1,
+        "rulingAndErrataUnits": 59,
+        "baseGameApplicableUnits": 28,
+        "expansionSpecificUnits": 31,
+        "errataUnits": 15,
+        "faqRulingUnits": 44,
+        "unitsWithVisualOccurrences": 2,
+        "visualOccurrences": 4,
+        "materialUnreadableSpans": 0
+      },
+      "evidencePath": "docs/rules/source-extraction/faq-v1.2-source-extraction.json"
+    },
+    {
+      "channelId": "official-rulebook",
+      "authority": "official-primary",
+      "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
+      "status": "extracted",
+      "counts": {
+        "pages": 40,
+        "pagesWithVisualObligations": 36,
+        "pagesWithoutNormativeVisualUnits": 4,
+        "visualUnits": 80,
+        "byObligationClass": {
+          "normative-visual-obligation": 72,
+          "worked-example-visual": 5,
+          "reference-visual-unit": 3
+        },
+        "byTextLayerCoverage": {
+          "partial-visual-structure-lost": 80,
+          "absent-from-text-layer": 0,
+          "fully-retained": 0
+        },
+        "materialUnreadableSpans": 0,
+        "printedPageNumbersVisible": 35
+      },
+      "evidencePath": "docs/rules/source-extraction/rulebook-visual-obligations.json"
+    },
+    {
+      "channelId": "official-room-help",
+      "authority": "official-component-reference",
+      "sourcePath": "docs/rulebooks/Nemesis_RT_Rooms_Sheet.pdf",
+      "status": "extracted",
+      "counts": {
+        "entries": 25,
+        "byPrintedSectionMarker": {
+          "?": 13,
+          "A": 4,
+          "B": 4,
+          "C": 4
+        },
+        "byPage": {
+          "1": 13,
+          "2": 12
+        },
+        "functionalIconOccurrences": 112,
+        "effectAndNoteIconReferences": 39,
+        "entriesWithAssociatedNotes": 18,
+        "entriesWithCrossReferences": 5,
+        "materialUnreadableSpans": 0
+      },
+      "evidencePath": "docs/rules/source-extraction/room-help-sheet.json"
+    },
+    {
+      "channelId": "official-objective-help",
+      "authority": "official-component-reference",
+      "sourcePath": "docs/rulebooks/Nemesis_RT_Objectives_Sheet.pdf",
+      "status": "extracted-with-explicit-physical-occlusion",
+      "counts": {
+        "sourceUnits": 45,
+        "pageOccurrences": {
+          "1": 22,
+          "2": 23
+        },
+        "byCategory": {
+          "game-term": 14,
+          "mission-objective": 7,
+          "mission-task": 8,
+          "private-objective": 15,
+          "explanatory-note": 1
+        },
+        "fullyVisibleAndExtracted": 35,
+        "partiallyOccluded": 10,
+        "functionalIconOccurrences": 50,
+        "partiallyVisibleIconOccurrences": 5,
+        "textIconReferences": 30,
+        "materialUnreadableSpans": 0
+      },
+      "evidencePath": "docs/rules/source-extraction/objective-help-sheet.json"
+    },
+    {
+      "channelId": "tts-intruder-help",
+      "authority": "source-bound-component-scan",
+      "sourcePath": "two exact TTS sides recorded in evidence",
+      "status": "extracted",
+      "counts": {
+        "sides": 2,
+        "instructions": 18
+      },
+      "evidencePath": "docs/rules/source-extraction/intruder-help-sheet.json"
+    },
+    {
+      "channelId": "tts-player-help",
+      "authority": "source-bound-component-scan",
+      "sourcePath": "TTS playerHelpCards bag",
+      "status": "extracted-with-source-conflicts",
+      "counts": {
+        "frontOccurrences": 10,
+        "distinctPlayerNumbers": 10,
+        "sharedBackOccurrences": 1,
+        "instructionTextVariants": 1,
+        "rasterTemplateGroups": 2,
+        "functionalIconOccurrences": 0,
+        "materialUnreadableSpans": 0
+      },
+      "evidencePath": "docs/rules/source-extraction/player-help-source-extraction.json"
+    },
+    {
+      "channelId": "card-reference-corpus",
+      "authority": "mixed source-bound evidence",
+      "sourcePath": "assets/tts-mod/extract/card-text-corpus.json",
+      "status": "extracted-with-one-explicit-blocker",
+      "counts": {
+        "records": 390,
+        "rulesTextPresent": 350,
+        "extractionStates": {
+          "complete-non-rules-or-reference": 34,
+          "draft-full": 259,
+          "draft-partial": 1,
+          "non-rules-or-reference": 18,
+          "verified-canonical": 78
+        },
+        "rulesInformationReadiness": {
+          "canonical": 78,
+          "draft-partial": 1,
+          "draft-text-complete": 123,
+          "draft-text-complete-symbols-unresolved": 136,
+          "not-rules-bearing-or-reference": 52
+        }
+      },
+      "evidencePath": "docs/rules/source-extraction/card-gap-inventory.json"
+    },
+    {
+      "channelId": "licensed-digital-secondary",
+      "authority": "licensed-digital-secondary",
+      "sourcePath": "docs/rules/source-extraction/secondary/bga-staticData-260622-1220.js",
+      "status": "indexed-secondary",
+      "counts": {
+        "tables": 11,
+        "records": 298
+      },
+      "evidencePath": "docs/rules/source-extraction/secondary-evidence-index.json"
+    },
+    {
+      "channelId": "tts-structured-secondary",
+      "authority": "source-structured-secondary",
+      "sourcePath": "six hashed TTS structured files",
+      "status": "indexed-secondary",
+      "counts": {
+        "files": 6,
+        "luaRoles": 159,
+        "gmnotesRows": 172,
+        "gmnotesOccurrences": 1267
+      },
+      "evidencePath": "docs/rules/source-extraction/secondary-evidence-index.json"
+    }
+  ],
+  "explicitBlockers": [
+    {
+      "assetId": "G02",
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-023.png",
+      "sourceSha256": "eaa728ca02c48c33e27e99fe2ef58c9668e7b8532316d3c6d3c93248a86b627a",
+      "title": "FACILITY RESTART",
+      "blockedSpan": "Immediately after “Systems must be” in the prototype FACILITY RESTART first condition.",
+      "whyBlocked": "No complete following mark is visible in the exact source pixels; collected same-title TTS and current official/BGA variants differ materially elsewhere and cannot be substituted.",
+      "handling": "Retain [illegible] source-bound and preserve all variants independently until source equivalence or a clearer exact counterpart is established."
+    }
+  ],
+  "preservedConflictRegistries": [
+    {
+      "path": "docs/rules/source-extraction/player-help-source-extraction.json",
+      "kind": "source count and phase-sequence conflicts"
+    },
+    {
+      "path": "docs/rules/source-extraction/secondary-evidence-index.json",
+      "kind": "licensed-digital/component and structured-count boundaries"
+    },
+    {
+      "path": "docs/rules/source-extraction/card-gap-inventory.json",
+      "kind": "exact-source operative blocker and card source variants"
+    },
+    {
+      "path": "docs/rules/source-extraction/faq-v1.2-source-extraction.json",
+      "kind": "base versus expansion applicability and higher-authority rulings"
+    }
+  ],
+  "gateCriteria": [
+    {
+      "criterion": "Every in-scope source unit is extracted, non-normative, or explicitly blocked.",
+      "passed": true,
+      "evidence": [
+        "base-source-inventory.json",
+        "channel ledger above"
+      ]
+    },
+    {
+      "criterion": "Every graphical normative channel has rendered-pixel extraction or a specific blocker.",
+      "passed": true,
+      "evidence": [
+        "rulebook-visual-obligations.json",
+        "faq-v1.2-source-extraction.json",
+        "room-help-sheet.json",
+        "objective-help-sheet.json"
+      ]
+    },
+    {
+      "criterion": "All card operative text gaps are closed or explicitly blocked.",
+      "passed": true,
+      "evidence": [
+        "card-gap-inventory.json",
+        "card-gap-adjudications.json"
+      ]
+    },
+    {
+      "criterion": "Source versions and conflicts are retained independently.",
+      "passed": true,
+      "evidence": [
+        "player-help-source-extraction.json",
+        "secondary-evidence-index.json",
+        "faq-v1.2-source-extraction.json"
+      ]
+    },
+    {
+      "criterion": "Counts reconcile across PDFs, help sheets, card corpus, and structured inventories.",
+      "passed": true,
+      "evidence": [
+        "deterministic channel validators"
+      ]
+    },
+    {
+      "criterion": "No extraction record silently embeds a canonical alias, taxonomy, ontology, or semantic interpretation.",
+      "passed": true,
+      "evidence": [
+        "source-extraction policies and source-local occurrence IDs"
+      ]
+    }
+  ],
+  "gateDecision": {
+    "passed": true,
+    "decision": "PASS — canonical vocabulary and source-scoped alias work may begin",
+    "blockerPolicy": "The one prototype FACILITY RESTART span remains explicit and must stay unresolved; vocabulary/ontology work may not invent its missing content.",
+    "nextPhase": "canonical vocabulary and source-scoped aliases"
+  },
+  "counts": {
+    "channels": 9,
+    "extractedOrIndexedChannels": 9,
+    "explicitBlockers": 1,
+    "gateCriteria": 6,
+    "passedGateCriteria": 6,
+    "remainingGraphicalSourceUnits": 0
+  },
+  "policy": "This audit closes extraction only. It does not approve canonical terms, aliases, taxonomy, ontology, semantic rules, implementation architecture, or a rewrite."
+}

@@ -28,7 +28,10 @@ ontology, or semantic rule model is designed.
 - `card-gap-adjudications.json` — source-bound pixel decisions for all 13 former card-gap records, with artwork/rules boundaries and immutable prior-read provenance.
 - `card-gap-inventory.json` — closed projection of those 13 reviews: 9 rules-text-complete, 3 classified non-rules, and 1 exact-source operative blocker.
 - `secondary-source-inventory.json` — licensed-digital and TTS structured evidence, explicitly kept below official authority.
-- `extraction-roadmap.md` — ordered remaining work and the gate before vocabulary design begins.
+- `secondary-evidence-index.json` — immutable BGA build index plus TTS object/role/GMNotes/provenance closure and conflict boundaries.
+- `secondary/bga-staticData-260622-1220.js` — byte-identical immutable snapshot of licensed-digital build `260622-1220`.
+- `extraction-roadmap.md` — completed extraction order and the passed gate before vocabulary design.
+- `extraction-closure-audit.json` — nine-channel final closure ledger, one explicit blocker, and the passed vocabulary gate.
 
 The source extraction layer may retain literal repeated strings and variant names. Deduplication, aliases,
 controlled terms, entity classes, relationships, and semantic effect structures are deliberately deferred.

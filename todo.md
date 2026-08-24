@@ -1933,6 +1933,22 @@ task workspace.
 - [x] Preserved source conflicts: TTS has ten fronts while the current rulebook inventory says five; TTS phase labels/order materially differ from the current rulebook.
 - [x] Deterministic validator checks hashes, dimensions, TTS roles, paired side, text equivalence, template metrics, corpus projection, canonical Player 6, and conflict records; 0 unreadable spans.
 
+## DONE — Secondary-evidence closure (2026-08-24T08:24:36Z)
+
+- [x] Copied one byte-identical BGA build `260622-1220` snapshot into the repository; all 4 collected runtime copies share SHA-256 `18cd8f4a…` and size 85,433 bytes.
+- [x] Evaluated and indexed all 11 BGA top-level data tables (298 scoped keys), field/type shapes, placeholder strings, duplicate display names, and count boundaries against physical sources.
+- [x] Indexed 6 TTS structured evidence files, 159 Lua role records, 172 GMNotes tag rows / 1,267 occurrences, classification/object structure, card provenance, and 384 selected-evidence entries/runs.
+- [x] Recorded 156 corpus records with an explicit BGA conflict/secondary boundary; display names remain labels, never source keys.
+- [x] Secondary evidence is mechanically closed but remains below FAQ/rulebook/help-sheet/component authority.
+
+## DONE — Final base-source extraction closure (2026-08-24T08:24:36Z)
+
+- [x] Reconciled 9 source channels: official FAQ, rulebook, Room Help, Objective Help, Intruder Help, Player Help, card/reference corpus, licensed-digital snapshot, and TTS structured evidence.
+- [x] All 9 channels are extracted/indexed; all 6 extraction-gate criteria pass; no graphical source units remain.
+- [x] One exact prototype `FACILITY RESTART` operative span remains explicitly blocked and may not be invented downstream.
+- [x] Authority order, applicability, component/front/back roles, source conflicts, and count boundaries remain explicit.
+- [x] Extraction gate decision: PASS — canonical vocabulary and source-scoped alias work may begin. This does not approve taxonomy, ontology, semantics, implementation, PR, merge, or deployment.
+
 ## LATER — Expansions (re-add when user wants them)
 - [ ] Re-extract expansion content from save (see `assets/tts-mod/notes/extraction.md` §15 for all deck GUIDs, intruder bags,
       shared action-154 cells, and classification pitfalls)

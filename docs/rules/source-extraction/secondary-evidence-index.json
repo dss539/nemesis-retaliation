@@ -1,0 +1,4001 @@
+{
+  "schemaVersion": 1,
+  "recordType": "secondary-evidence-closure-index",
+  "scope": "Base-game source work with expansion/secondary records retained only under explicit applicability and authority boundaries",
+  "authorityBoundary": "Licensed-digital and TTS structured sources are secondary. They corroborate, expose conflicts, identify source roles, and provide scoped keys; they never overwrite FAQ, rulebook, official help-sheet, or exact component wording.",
+  "licensedDigital": {
+    "build": "260622-1220",
+    "immutableSnapshotPath": "docs/rules/source-extraction/secondary/bga-staticData-260622-1220.js",
+    "sha256": "18cd8f4a2883d4f6662ed170095ff07e0d9f5da508064ed1d6bfc124f5a274ae",
+    "bytes": 85433,
+    "collectedCopyCount": 4,
+    "distinctCollectedHashes": [
+      "18cd8f4a2883d4f6662ed170095ff07e0d9f5da508064ed1d6bfc124f5a274ae"
+    ],
+    "allCollectedCopiesByteIdentical": true,
+    "structuredIndex": {
+      "source": "docs/rules/source-extraction/secondary/bga-staticData-260622-1220.js",
+      "topLevelConstantCount": 11,
+      "tables": [
+        {
+          "name": "ACTION_CARDS_DATA",
+          "kind": "object",
+          "count": 60,
+          "keys": [
+            "CombatEngineer_ChainOfCommand",
+            "CombatEngineer_ComputerSkills",
+            "CombatEngineer_Demolition",
+            "CombatEngineer_Explosives",
+            "CombatEngineer_FastRepairs",
+            "CombatEngineer_FastSecure",
+            "CombatEngineer_Pyrotechnics",
+            "CombatEngineer_Rest",
+            "CombatEngineer_Search",
+            "CombatEngineer_TacticalRetreat",
+            "ContractorConsultant_AlwaysPrepared",
+            "ContractorConsultant_BasicSecure",
+            "ContractorConsultant_ComputerSkills",
+            "ContractorConsultant_Demolition",
+            "ContractorConsultant_DuckAndCover",
+            "ContractorConsultant_MoveQuietly",
+            "ContractorConsultant_Repairs",
+            "ContractorConsultant_Rest",
+            "ContractorConsultant_Search",
+            "ContractorConsultant_WeakSpot",
+            "HeavyGunOperator_Breakthrough",
+            "HeavyGunOperator_ChainOfCommand",
+            "HeavyGunOperator_ContinousFire",
+            "HeavyGunOperator_Demolition",
+            "HeavyGunOperator_FastReload",
+            "HeavyGunOperator_ForcingFire",
+            "HeavyGunOperator_Repairs",
+            "HeavyGunOperator_Rest",
+            "HeavyGunOperator_Search",
+            "HeavyGunOperator_Secure",
+            "MedicalSupport_ChainOfCommand",
+            "MedicalSupport_CombatDrugs",
+            "MedicalSupport_Demolition",
+            "MedicalSupport_FieldSurgery",
+            "MedicalSupport_FirstAid",
+            "MedicalSupport_HippocraticOath",
+            "MedicalSupport_Repairs",
+            "MedicalSupport_Rest",
+            "MedicalSupport_Search",
+            "MedicalSupport_Secure",
+            "Officer_Demolition",
+            "Officer_FireAtWill",
+            "Officer_FirstInCommand",
+            "Officer_LetsGo",
+            "Officer_OfficersChannel",
+            "Officer_Repairs",
+            "Officer_Rest",
+            "Officer_Search",
+            "Officer_Secure",
+            "Officer_StayCalm",
+            "Recon_ChainOfCommand",
+            "Recon_Demolition",
+            "Recon_Repairs",
+            "Recon_Rest",
+            "Recon_Scouting",
+            "Recon_Search",
+            "Recon_Secure",
+            "Recon_ShootFirst",
+            "Recon_Sprint",
+            "Recon_TakingAim"
+          ],
+          "fieldKeys": [
+            "character",
+            "command",
+            "effectDesc",
+            "name",
+            "noIntruders",
+            "reactionDesc"
+          ],
+          "fieldTypes": {
+            "character": [
+              "number"
+            ],
+            "command": [
+              "boolean"
+            ],
+            "effectDesc": [
+              "array"
+            ],
+            "name": [
+              "string"
+            ],
+            "noIntruders": [
+              "boolean"
+            ],
+            "reactionDesc": [
+              "string"
+            ]
+          },
+          "placeholderTokens": [
+            "ACTION-CARD",
+            "AMMO",
+            "ANY-INTRUDER",
+            "ANY-ITEM-GREEN",
+            "ANY-ITEM-YELLOW",
+            "BELT-AMMO-TOKEN",
+            "BELT-GRENADE-TOKEN",
+            "BELT-MEDPACK-TOKEN",
+            "CHARACTER",
+            "COMPUTER",
+            "FIRE",
+            "HP",
+            "INSTANT-KILL",
+            "LANDER",
+            "MALFUNCTION",
+            "OXYGEN",
+            "ROBOT",
+            "SECURE"
+          ],
+          "duplicateDisplayNames": [
+            {
+              "displayName": "Chain Of Command",
+              "count": 4
+            },
+            {
+              "displayName": "Computer Skills",
+              "count": 2
+            },
+            {
+              "displayName": "Demolition",
+              "count": 6
+            },
+            {
+              "displayName": "Rest",
+              "count": 6
+            },
+            {
+              "displayName": "Search",
+              "count": 6
+            },
+            {
+              "displayName": "Repairs",
+              "count": 5
+            },
+            {
+              "displayName": "Secure",
+              "count": 4
+            }
+          ]
+        },
+        {
+          "name": "EVENT_CARDS_DATA",
+          "kind": "object",
+          "count": 20,
+          "keys": [
+            "Event_BreakingIn",
+            "Event_Damage",
+            "Event_DamagingFire",
+            "Event_EggProtection",
+            "Event_FireBreath",
+            "Event_GeneratorsOverheat",
+            "Event_Hatching",
+            "Event_LandingZoneExplodes",
+            "Event_LeavingTheShell",
+            "Event_LifeSupportFailure",
+            "Event_NoWayOut",
+            "Event_OverwhelmingEnemies",
+            "Event_Panic",
+            "Event_ProtectServe",
+            "Event_ReactorOverheating",
+            "Event_RiseOfTheMachine",
+            "Event_ScentOfPrey",
+            "Event_ShortCircuit",
+            "Event_SystemFailure",
+            "Event_TheQueenAwakens"
+          ],
+          "fieldKeys": [
+            "intrudersEffectDesc",
+            "name",
+            "primaryEffectDesc",
+            "secondaryEffectDesc"
+          ],
+          "fieldTypes": {
+            "intrudersEffectDesc": [
+              "array"
+            ],
+            "name": [
+              "string"
+            ],
+            "primaryEffectDesc": [
+              "array"
+            ],
+            "secondaryEffectDesc": [
+              "array"
+            ]
+          },
+          "placeholderTokens": [
+            "ACTION-CARD",
+            "AMMO",
+            "ANY-INTRUDER",
+            "CHARACTER",
+            "COMPUTER",
+            "CORRIDOR-ACUTE",
+            "CORRIDOR-GRAVE",
+            "CORRIDOR-HOR",
+            "FIRE",
+            "HAZARD",
+            "HP",
+            "MALFUNCTION",
+            "NOISE",
+            "OXYGEN",
+            "OXYGEN-OFF",
+            "OXYGEN-ON",
+            "ROBOT",
+            "SECURE"
+          ],
+          "duplicateDisplayNames": []
+        },
+        {
+          "name": "ROOMS_DATA",
+          "kind": "object",
+          "count": 25,
+          "keys": [
+            "AlarmRoom",
+            "Armory",
+            "CoolingSystem",
+            "DecontaminationRoom",
+            "DoorControlRoom",
+            "DrillingStation",
+            "EmergencyRoom",
+            "EscapeShuttle",
+            "ExperimentalMilitaryLab",
+            "GunneryRoom",
+            "Hibernatorium",
+            "LandingZone",
+            "LifeSupportControlA",
+            "LifeSupportControlB",
+            "LifeSupportControlC",
+            "Nest",
+            "PressureControl",
+            "Reactor",
+            "SecurityRobotRoom",
+            "ServerRoom",
+            "Shelter",
+            "SprinklersControl",
+            "SupplyRoom",
+            "SurgeryRoom",
+            "TechnicalCorridorEntrance"
+          ],
+          "fieldKeys": [
+            "alwaysSecured",
+            "computer",
+            "deckType",
+            "effectDesc",
+            "items",
+            "name",
+            "noMalfunction",
+            "noSecure",
+            "number",
+            "type"
+          ],
+          "fieldTypes": {
+            "alwaysSecured": [
+              "boolean"
+            ],
+            "computer": [
+              "boolean"
+            ],
+            "deckType": [
+              "string"
+            ],
+            "effectDesc": [
+              "array"
+            ],
+            "items": [
+              "array"
+            ],
+            "name": [
+              "string"
+            ],
+            "noMalfunction": [
+              "boolean"
+            ],
+            "noSecure": [
+              "boolean"
+            ],
+            "number": [
+              "number"
+            ],
+            "type": [
+              "string"
+            ]
+          },
+          "placeholderTokens": [
+            "ACTION-CARD",
+            "ANY-INTRUDER",
+            "ANY-ITEM-RED",
+            "BELT-AMMO-TOKEN",
+            "BELT-GRENADE-TOKEN",
+            "COMPUTER",
+            "FIRE",
+            "HIBERNATORIUM-OFF",
+            "HIBERNATORIUM-ON",
+            "HP",
+            "LANDER",
+            "MALFUNCTION",
+            "NOISE",
+            "OXYGEN",
+            "OXYGEN-OFF",
+            "OXYGEN-ON",
+            "REACTOR",
+            "ROBOT",
+            "SECURE"
+          ],
+          "duplicateDisplayNames": []
+        },
+        {
+          "name": "CORRIDORS_DATA",
+          "kind": "object",
+          "count": 44,
+          "keys": [
+            "Corridor101",
+            "Corridor102",
+            "Corridor103",
+            "Corridor104",
+            "Corridor105",
+            "Corridor106",
+            "Corridor107",
+            "Corridor108",
+            "Corridor109",
+            "Corridor110",
+            "Corridor111",
+            "Corridor201",
+            "Corridor202",
+            "Corridor203",
+            "Corridor204",
+            "Corridor205",
+            "Corridor206",
+            "Corridor207",
+            "Corridor208",
+            "Corridor209",
+            "Corridor210",
+            "Corridor211",
+            "Corridor301",
+            "Corridor302",
+            "Corridor303",
+            "Corridor304",
+            "Corridor305",
+            "Corridor306",
+            "Corridor307",
+            "Corridor308",
+            "Corridor309",
+            "Corridor310",
+            "Corridor311",
+            "Corridor401",
+            "Corridor402",
+            "Corridor403",
+            "Corridor404",
+            "Corridor405",
+            "Corridor406",
+            "Corridor407",
+            "Corridor408",
+            "Corridor409",
+            "Corridor410",
+            "Corridor411"
+          ],
+          "fieldKeys": [
+            "deadlyNoiseValue",
+            "hasDoor",
+            "noiseValue",
+            "number",
+            "type"
+          ],
+          "fieldTypes": {
+            "deadlyNoiseValue": [
+              "null",
+              "number"
+            ],
+            "hasDoor": [
+              "boolean"
+            ],
+            "noiseValue": [
+              "number"
+            ],
+            "number": [
+              "number"
+            ],
+            "type": [
+              "string"
+            ]
+          },
+          "placeholderTokens": [],
+          "duplicateDisplayNames": []
+        },
+        {
+          "name": "EXPLORATION_CARDS_DATA",
+          "kind": "object",
+          "count": 12,
+          "keys": [
+            "ExplorationCard1",
+            "ExplorationCard2",
+            "ExplorationCard3",
+            "ExplorationCard4",
+            "ExplorationCard5",
+            "ExplorationCard6",
+            "ExplorationCard7",
+            "ExplorationCard8",
+            "ExplorationCard9",
+            "ExplorationCard10",
+            "ExplorationCard11",
+            "ExplorationCard12"
+          ],
+          "fieldKeys": [
+            "closeDoor",
+            "corridors",
+            "corridorsWithNoise",
+            "effectDesc",
+            "hazard",
+            "intrudersToAdd",
+            "noiseRoll",
+            "number",
+            "otherTokens",
+            "removeFromGame",
+            "type"
+          ],
+          "fieldTypes": {
+            "closeDoor": [
+              "boolean"
+            ],
+            "corridors": [
+              "array"
+            ],
+            "corridorsWithNoise": [
+              "array"
+            ],
+            "effectDesc": [
+              "array"
+            ],
+            "hazard": [
+              "boolean"
+            ],
+            "intrudersToAdd": [
+              "number"
+            ],
+            "noiseRoll": [
+              "boolean"
+            ],
+            "number": [
+              "number"
+            ],
+            "otherTokens": [
+              "array"
+            ],
+            "removeFromGame": [
+              "boolean"
+            ],
+            "type": [
+              "string"
+            ]
+          },
+          "placeholderTokens": [
+            "HAZARD"
+          ],
+          "duplicateDisplayNames": []
+        },
+        {
+          "name": "ITEMS_DATA",
+          "kind": "object",
+          "count": 57,
+          "keys": [
+            "AdrenalineInjection",
+            "Ammo",
+            "AntiaircraftCodes",
+            "Antiseptic",
+            "AssaultRifle",
+            "AssaultShotgun",
+            "AutoloaderBelt",
+            "AutomaticShotgun",
+            "Bayonet",
+            "BfGun",
+            "BiohazardArmor",
+            "BulletproofVest",
+            "CaffeinePills",
+            "Carbine",
+            "DrumMagRifle",
+            "DuctTape",
+            "Egg",
+            "EmergencyLifeSupportCodes",
+            "EngineeringEquipment",
+            "EntrenchingTool",
+            "ExploringDrone",
+            "FireExtinguisher",
+            "Flamethrower",
+            "Flashbang",
+            "GatlingGun",
+            "GrenadeLauncher",
+            "Grenade",
+            "HandCannon",
+            "Handgun",
+            "HeavyArmor",
+            "HeavyOxygenTank",
+            "MedicalStapler",
+            "Medkit",
+            "Medpack",
+            "MilitaryTaser",
+            "NoiseScanner",
+            "OxygenTank",
+            "PerimeterSecurityDevice",
+            "PersonalLogCodes",
+            "Phosphates",
+            "PlasmaGun",
+            "PortableBarrier",
+            "PortableDevice",
+            "RemoteDetonator",
+            "RobotController",
+            "RpgLauncher",
+            "SawedoffShotgun",
+            "SecuritySystemControl",
+            "SonicGun",
+            "Stimulants",
+            "SubmachineGun",
+            "SupportingRobotController",
+            "TacticalArmor",
+            "TacticalHatchet",
+            "TerminationCodes",
+            "Tools",
+            "UtilityVest"
+          ],
+          "fieldKeys": [
+            "armor",
+            "deck",
+            "effectDesc",
+            "heavy",
+            "meleeWeapon",
+            "name",
+            "nbr",
+            "noAmmoWeapon",
+            "noIntruders",
+            "oneUse",
+            "rangedWeapon",
+            "slots",
+            "subtitle",
+            "traits"
+          ],
+          "fieldTypes": {
+            "armor": [
+              "boolean"
+            ],
+            "deck": [
+              "string"
+            ],
+            "effectDesc": [
+              "array"
+            ],
+            "heavy": [
+              "boolean"
+            ],
+            "meleeWeapon": [
+              "boolean"
+            ],
+            "name": [
+              "string"
+            ],
+            "nbr": [
+              "number"
+            ],
+            "noAmmoWeapon": [
+              "boolean"
+            ],
+            "noIntruders": [
+              "boolean"
+            ],
+            "oneUse": [
+              "boolean"
+            ],
+            "rangedWeapon": [
+              "boolean"
+            ],
+            "slots": [
+              "array"
+            ],
+            "subtitle": [
+              "string"
+            ],
+            "traits": [
+              "string"
+            ]
+          },
+          "placeholderTokens": [
+            "ACTION-CARD",
+            "AMMO",
+            "ANY-INTRUDER",
+            "BELT-AMMO-TOKEN",
+            "BELT-GRENADE-TOKEN",
+            "BELT-MEDPACK-TOKEN",
+            "BELT-OXYGEN-TOKEN",
+            "BURST-TRIGGER",
+            "CHARACTER",
+            "COMPUTER",
+            "DICE-BURST",
+            "DICE-BURST-1",
+            "DICE-BURST-2",
+            "DICE-BURST-3",
+            "DICE-BURST-4",
+            "DICE-SHOOT-1",
+            "DICE-SHOOT-999",
+            "FIRE",
+            "HAZARD",
+            "HP",
+            "INSTANT-KILL",
+            "MALFUNCTION",
+            "NOISE",
+            "OXYGEN",
+            "OXYGEN-OFF",
+            "OXYGEN-ON",
+            "ROBOT",
+            "SECURE",
+            "SHOOT-TRIGGER"
+          ],
+          "duplicateDisplayNames": []
+        },
+        {
+          "name": "MISSIONS_OBJECTIVES_DATA",
+          "kind": "object",
+          "count": 38,
+          "keys": [
+            "CleanUp",
+            "Closedown",
+            "CrucialIntelligence",
+            "CulinarySample",
+            "DeepSearch",
+            "EntranceInspection",
+            "Eradication",
+            "EscortMission",
+            "EssentialData",
+            "Faceoff",
+            "FacilityRestart",
+            "NoCornerUncovered",
+            "PerimeterClearing",
+            "PrimarySamples",
+            "Reconnaissance",
+            "SafetyProcedure",
+            "ScientificSample",
+            "Shutdown",
+            "SystemsBackup",
+            "TheSupplyRoute",
+            "Objective_OfficialOrder",
+            "Objective_SelfServing",
+            "Objective_UlteriorMotive",
+            "Objective_VeniVidiVici",
+            "Objective_TheGreatHunt",
+            "Objective_Quarantine",
+            "Objective_Shutdown",
+            "Objective_CrewsFavorite",
+            "Objective_WeveGotHistory",
+            "Objective_TheRightMomentToStrike",
+            "Objective_GreenerPastures",
+            "Objective_AnOldFeud",
+            "Objective_HostileTakeover",
+            "Objective_CorporateContract",
+            "Objective_ExperimentalSubjects",
+            "Objective_InsiderInformation",
+            "Objective_StatesEvidence",
+            "Objective_LuxuriousOffer"
+          ],
+          "fieldKeys": [
+            "assetType",
+            "desc",
+            "effectDesc",
+            "name",
+            "orEffectDesc",
+            "soloCoop"
+          ],
+          "fieldTypes": {
+            "assetType": [
+              "string"
+            ],
+            "desc": [
+              "array"
+            ],
+            "effectDesc": [
+              "array"
+            ],
+            "name": [
+              "string"
+            ],
+            "orEffectDesc": [
+              "array"
+            ],
+            "soloCoop": [
+              "boolean"
+            ]
+          },
+          "placeholderTokens": [
+            "CHARACTER",
+            "HIBERNATORIUM-ON",
+            "LANDER",
+            "OXYGEN-OFF",
+            "OXYGEN-ON",
+            "ROBOT"
+          ],
+          "duplicateDisplayNames": [
+            {
+              "displayName": "Shutdown",
+              "count": 2
+            }
+          ]
+        },
+        {
+          "name": "ROBOT_CARDS_DATA",
+          "kind": "object",
+          "count": 6,
+          "keys": [
+            "ExplorationRobot",
+            "MedicalRobot",
+            "MilitaryRobot",
+            "SecuringRobot",
+            "ServerRobot",
+            "TechnicalRobot"
+          ],
+          "fieldKeys": [
+            "color",
+            "desc",
+            "name"
+          ],
+          "fieldTypes": {
+            "color": [
+              "string"
+            ],
+            "desc": [
+              "array"
+            ],
+            "name": [
+              "string"
+            ]
+          },
+          "placeholderTokens": [
+            "CHARACTER",
+            "COMPUTER",
+            "DICE-BURST",
+            "FIRE",
+            "HP",
+            "MALFUNCTION",
+            "ROBOT",
+            "SECURE"
+          ],
+          "duplicateDisplayNames": []
+        },
+        {
+          "name": "INTRUDER_ATTACKS_DATA",
+          "kind": "object",
+          "count": 15,
+          "keys": [
+            "IntruderAttack_Bite",
+            "IntruderAttack_DeadlyClaws1",
+            "IntruderAttack_DeadlyClaws2",
+            "IntruderAttack_DeadlyClaws3",
+            "IntruderAttack_Fury1",
+            "IntruderAttack_Fury2",
+            "IntruderAttack_Infecting",
+            "IntruderAttack_Miss",
+            "IntruderAttack_Scratch1",
+            "IntruderAttack_Scratch2",
+            "IntruderAttack_Scratch3",
+            "IntruderAttack_Scratch4",
+            "IntruderAttack_BloodSense",
+            "IntruderAttack_TailAttack1",
+            "IntruderAttack_TailAttack2"
+          ],
+          "fieldKeys": [
+            "asset",
+            "effectDesc",
+            "name"
+          ],
+          "fieldTypes": {
+            "asset": [
+              "string"
+            ],
+            "effectDesc": [
+              "array"
+            ],
+            "name": [
+              "string"
+            ]
+          },
+          "placeholderTokens": [
+            "ANY-INTRUDER",
+            "CHARACTER",
+            "HP"
+          ],
+          "duplicateDisplayNames": [
+            {
+              "displayName": "Deadly Claws",
+              "count": 3
+            },
+            {
+              "displayName": "Fury",
+              "count": 2
+            },
+            {
+              "displayName": "Scratch",
+              "count": 4
+            },
+            {
+              "displayName": "Tail Attack",
+              "count": 2
+            }
+          ]
+        },
+        {
+          "name": "QUEEN_CARDS_DATA",
+          "kind": "object",
+          "count": 12,
+          "keys": [
+            "QueenHealthCard1",
+            "QueenHealthCard2",
+            "QueenHealthCard3",
+            "QueenHealthCard4",
+            "QueenHealthCard5",
+            "QueenHealthCard6",
+            "QueenHealthCard7",
+            "QueenHealthCard8",
+            "QueenHealthCard9",
+            "QueenHealthCard10",
+            "QueenHealthCard11",
+            "QueenHealthCard12"
+          ],
+          "fieldKeys": [
+            "discard",
+            "effectDesc"
+          ],
+          "fieldTypes": {
+            "discard": [
+              "number"
+            ],
+            "effectDesc": [
+              "string"
+            ]
+          },
+          "placeholderTokens": [
+            "ACTION-CARD",
+            "CHARACTER",
+            "MALFUNCTION"
+          ],
+          "duplicateDisplayNames": []
+        },
+        {
+          "name": "SERIOUS_WOUNDS_DATA",
+          "kind": "object",
+          "count": 9,
+          "keys": [
+            "Bleeding",
+            "Leg",
+            "Arm",
+            "Eyes",
+            "Guts",
+            "Body",
+            "Hand",
+            "Knee",
+            "Lungs"
+          ],
+          "fieldKeys": [
+            "effectDesc",
+            "name"
+          ],
+          "fieldTypes": {
+            "effectDesc": [
+              "array"
+            ],
+            "name": [
+              "string"
+            ]
+          },
+          "placeholderTokens": [
+            "ACTION-CARD",
+            "ANY-INTRUDER",
+            "HP",
+            "OXYGEN"
+          ],
+          "duplicateDisplayNames": []
+        }
+      ],
+      "totalStructuredRecords": 298,
+      "sourceSha256": "18cd8f4a2883d4f6662ed170095ff07e0d9f5da508064ed1d6bfc124f5a274ae",
+      "build": "260622-1220"
+    }
+  },
+  "ttsStructuredEvidence": {
+    "objects": {
+      "path": "assets/tts-mod/extract/v2/objects.json",
+      "sha256": "107f917269c73746affce85ef871d983e7d033c32bad3e1e524c3fafd1f220c2",
+      "kind": "array",
+      "count": 1800,
+      "elementKeys": [
+        "card_id",
+        "deck_nums",
+        "description",
+        "gmnotes",
+        "guid",
+        "nickname",
+        "parent",
+        "transform",
+        "type",
+        "urls"
+      ]
+    },
+    "classification": {
+      "path": "assets/tts-mod/extract/v2/classification.json",
+      "sha256": "58617214cb42b259f3b5d89a10b4e94706dda4aa5c5253bd810703f31719afef",
+      "kind": "array",
+      "count": 1800,
+      "elementKeys": [
+        "card_id",
+        "deck_nums",
+        "description",
+        "gmnotes",
+        "group",
+        "guid",
+        "nickname",
+        "parent",
+        "reason",
+        "transform",
+        "type",
+        "urls",
+        "verdict"
+      ],
+      "verdictCounts": {
+        "base": 857,
+        "expansion": 881,
+        "junk": 55,
+        "unknown": 7
+      },
+      "objectTypeCounts": {
+        "3DText": 5,
+        "Bag": 68,
+        "Bowl": 1,
+        "Card": 265,
+        "CardCustom": 722,
+        "Chinese_Checkers_Piece": 1,
+        "Custom_Assetbundle": 52,
+        "Custom_Assetbundle_Bag": 2,
+        "Custom_Assetbundle_Infinite_Bag": 2,
+        "Custom_Dice": 3,
+        "Custom_Model": 159,
+        "Custom_Model_Bag": 34,
+        "Custom_Model_Infinite_Bag": 6,
+        "Custom_PDF": 8,
+        "Custom_Tile": 200,
+        "Custom_Token": 148,
+        "Deck": 70,
+        "DeckCustom": 6,
+        "Figurine_Custom": 36,
+        "FogOfWarTrigger": 1,
+        "HandTrigger": 10,
+        "go_game_piece_white": 1
+      },
+      "groupCounts": {
+        "None": 1800
+      }
+    },
+    "luaRoles": {
+      "path": "assets/tts-mod/extract/v2/lua_roles.json",
+      "sha256": "9f45b811a7ac2375681ac173043db12da2eeaaa359cd2c2b5c0d14db5721c49a",
+      "recordCount": 159,
+      "uniqueRoleCount": 117,
+      "uniqueGuidCount": 150,
+      "recordsWithDeckNumbers": 43,
+      "objectTypeCounts": {
+        "Bag": 24,
+        "Bowl": 1,
+        "CardCustom": 5,
+        "Chinese_Checkers_Piece": 1,
+        "Custom_Assetbundle": 7,
+        "Custom_Assetbundle_Bag": 2,
+        "Custom_Assetbundle_Infinite_Bag": 2,
+        "Custom_Dice": 3,
+        "Custom_Model": 21,
+        "Custom_Model_Bag": 35,
+        "Custom_Model_Infinite_Bag": 5,
+        "Custom_Tile": 5,
+        "Custom_Token": 4,
+        "Deck": 34,
+        "DeckCustom": 4,
+        "Figurine_Custom": 4,
+        "FogOfWarTrigger": 1,
+        "go_game_piece_white": 1
+      },
+      "records": [
+        {
+          "role": "centerCube",
+          "guid": "c80f0b",
+          "type": "Custom_Model",
+          "nickname": "",
+          "gmnotes": "-",
+          "n_urls": 2,
+          "deck_nums": [],
+          "contained": 1
+        },
+        {
+          "role": "hiddenRoom",
+          "guid": "3d73e4",
+          "type": "Custom_Model",
+          "nickname": "HIBERNATORIUM",
+          "gmnotes": "18",
+          "n_urls": 3,
+          "deck_nums": [],
+          "contained": 1
+        },
+        {
+          "role": "soundboard1",
+          "guid": "8307a4",
+          "type": "Custom_Assetbundle",
+          "nickname": "",
+          "gmnotes": "-",
+          "n_urls": 1,
+          "deck_nums": [],
+          "contained": 1
+        },
+        {
+          "role": "soundboard2",
+          "guid": "f6d4ac",
+          "type": "Custom_Assetbundle",
+          "nickname": "",
+          "gmnotes": "-",
+          "n_urls": 1,
+          "deck_nums": [],
+          "contained": 1
+        },
+        {
+          "role": "soundboard3",
+          "guid": "4a252d",
+          "type": "Custom_Assetbundle",
+          "nickname": "",
+          "gmnotes": "-",
+          "n_urls": 1,
+          "deck_nums": [],
+          "contained": 1
+        },
+        {
+          "role": "soundboard4",
+          "guid": "75bc75",
+          "type": "Custom_Assetbundle",
+          "nickname": "",
+          "gmnotes": "-",
+          "n_urls": 1,
+          "deck_nums": [],
+          "contained": 1
+        },
+        {
+          "role": "soundboard5",
+          "guid": "0393d0",
+          "type": "Custom_Assetbundle",
+          "nickname": "",
+          "gmnotes": "-",
+          "n_urls": 1,
+          "deck_nums": [],
+          "contained": 1
+        },
+        {
+          "role": "soundboard6",
+          "guid": "97d5ca",
+          "type": "Custom_Assetbundle",
+          "nickname": "",
+          "gmnotes": "-",
+          "n_urls": 1,
+          "deck_nums": [],
+          "contained": 1
+        },
+        {
+          "role": "autoDestructionToken",
+          "guid": "d24061",
+          "type": "Custom_Tile",
+          "nickname": "",
+          "gmnotes": "-",
+          "n_urls": 2,
+          "deck_nums": [],
+          "contained": 1
+        },
+        {
+          "role": "shuttleFigure",
+          "guid": "2d0e04",
+          "type": "Custom_Tile",
+          "nickname": "",
+          "gmnotes": "-",
+          "n_urls": 2,
+          "deck_nums": [],
+          "contained": 1
+        },
+        {
+          "role": "gameBox",
+          "guid": "a64f43",
+          "type": "Custom_Model_Bag",
+          "nickname": "",
+          "gmnotes": "actionDiscard",
+          "n_urls": 3,
+          "deck_nums": [],
+          "contained": 1
+        },
+        {
+          "role": "hibUnexplored",
+          "guid": "3817bc",
+          "type": "Custom_Token",
+          "nickname": "",
+          "gmnotes": "-",
+          "n_urls": 2,
+          "deck_nums": [],
+          "contained": 1
+        },
+        {
+          "role": "boarderTile",
+          "guid": "006497",
+          "type": "Custom_Token",
+          "nickname": "",
+          "gmnotes": "-",
+          "n_urls": 2,
+          "deck_nums": [],
+          "contained": 1
+        },
+        {
+          "role": "turnMarker",
+          "guid": "513438",
+          "type": "go_game_piece_white",
+          "nickname": "turnMarker",
+          "gmnotes": "-",
+          "n_urls": 0,
+          "deck_nums": [],
+          "contained": 1
+        },
+        {
+          "role": "scanner",
+          "guid": "5b3265",
+          "type": "Custom_Tile",
+          "nickname": "Scanner",
+          "gmnotes": "-",
+          "n_urls": 2,
+          "deck_nums": [],
+          "contained": 1
+        },
+        {
+          "role": "robot",
+          "guid": "cbf1f3",
+          "type": "Custom_Model",
+          "nickname": "",
+          "gmnotes": "-",
+          "n_urls": 3,
+          "deck_nums": [],
+          "contained": 1
+        },
+        {
+          "role": "robotDeck",
+          "guid": "98925d",
+          "type": "DeckCustom",
+          "nickname": "",
+          "gmnotes": "-",
+          "n_urls": 7,
+          "deck_nums": [
+            "5064",
+            "5108",
+            "5293",
+            "5294",
+            "5295",
+            "5296"
+          ],
+          "contained": 1
+        },
+        {
+          "role": "robotToken",
+          "guid": "828c1d",
+          "type": "Custom_Token",
+          "nickname": "",
+          "gmnotes": "-",
+          "n_urls": 3,
+          "deck_nums": [],
+          "contained": 1
+        },
+        {
+          "role": "contaminationDeck",
+          "guid": "7e89ea",
+          "type": "Deck",
+          "nickname": "",
+          "gmnotes": "actionDiscard",
+          "n_urls": 2,
+          "deck_nums": [
+            "5647",
+            "5648",
+            "5649",
+            "5650",
+            "5651",
+            "5652",
+            "5653",
+            "5654",
+            "5655",
+            "5656",
+            "5657",
+            "5658",
+            "5659",
+            "5660",
+            "5661",
+            "5662",
+            "5663",
+            "5664",
+            "5665",
+            "5666",
+            "5667",
+            "5668",
+            "5669",
+            "5670",
+            "5671",
+            "5672",
+            "5673"
+          ],
+          "contained": 1
+        },
+        {
+          "role": "queenHealthDeck",
+          "guid": "9acd7f",
+          "type": "Deck",
+          "nickname": "",
+          "gmnotes": "-",
+          "n_urls": 11,
+          "deck_nums": [
+            "4241",
+            "4243",
+            "4245",
+            "4292",
+            "4581",
+            "5037",
+            "5038",
+            "5039",
+            "5040",
+            "5041",
+            "5042"
+          ],
+          "contained": 1
+        },
+        {
+          "role": "objectiveMissonDeck",
+          "guid": "fae6cf",
+          "type": "Deck",
+          "nickname": "",
+          "gmnotes": "-",
+          "n_urls": 4,
+          "deck_nums": [
+            "3944",
+            "5299",
+            "5530"
+          ],
+          "contained": 1
+        },
+        {
+          "role": "objectivePersonalDeck",
+          "guid": "263314",
+          "type": "Deck",
+          "nickname": "",
+          "gmnotes": "-",
+          "n_urls": 12,
+          "deck_nums": [
+            "3941",
+            "4478",
+            "4479",
+            "4480",
+            "4481",
+            "4482",
+            "5297",
+            "5298",
+            "5300",
+            "5301",
+            "5906"
+          ],
+          "contained": 1
+        },
+        {
+          "role": "objectiveCoopDeck",
+          "guid": "e22eaa",
+          "type": "Deck",
+          "nickname": "",
+          "gmnotes": "actionDiscard",
+          "n_urls": 13,
+          "deck_nums": [
+            "5326",
+            "5327",
+            "5328",
+            "5329",
+            "5330",
+            "5331",
+            "5332",
+            "5333",
+            "5334",
+            "5335",
+            "5336",
+            "5337"
+          ],
+          "contained": 1
+        },
+        {
+          "role": "objectiveCoopCustomDeck",
+          "guid": "831e19",
+          "type": "Deck",
+          "nickname": "",
+          "gmnotes": "-",
+          "n_urls": 27,
+          "deck_nums": [
+            "5338",
+            "5339",
+            "5340",
+            "5341",
+            "5342",
+            "5344",
+            "5345",
+            "5347",
+            "5348",
+            "5350",
+            "5351",
+            "5352",
+            "5353",
+            "5354",
+            "5355",
+            "5356",
+            "5359",
+            "5360",
+            "5361",
+            "5362",
+            "5364",
+            "5565",
+            "5571",
+            "5572",
+            "5573",
+            "5992"
+          ],
+          "contained": 1
+        },
+        {
+          "role": "missionTaskDeck",
+          "guid": "eabc1d",
+          "type": "Deck",
+          "nickname": "",
+          "gmnotes": "-",
+          "n_urls": 9,
+          "deck_nums": [
+            "3938",
+            "3997",
+            "5304",
+            "5534",
+            "5570",
+            "5818",
+            "5859",
+            "5907"
+          ],
+          "contained": 1
+        },
+        {
+          "role": "characterDraftDeck",
+          "guid": "2abdf6",
+          "type": "Custom_Model_Bag",
+          "nickname": "",
+          "gmnotes": "-",
+          "n_urls": 3,
+          "deck_nums": [],
+          "contained": 1
+        },
+        {
+          "role": "startItemDeck",
+          "guid": "f71196",
+          "type": "DeckCustom",
+          "nickname": "",
+          "gmnotes": "-",
+          "n_urls": 24,
+          "deck_nums": [
+            "29",
+            "4102",
+            "4104",
+            "4248",
+            "4249",
+            "4661",
+            "4934",
+            "5029",
+            "5070",
+            "5071",
+            "5072",
+            "5073",
+            "5074",
+            "5075",
+            "5076",
+            "5077",
+            "5078",
+            "5079",
+            "5080",
+            "5081",
+            "5082",
+            "5083",
+            "5566"
+          ],
+          "contained": 1
+        },
+        {
+          "role": "attacksDeck",
+          "guid": "34c73e",
+          "type": "DeckCustom",
+          "nickname": "",
+          "gmnotes": "attackDiscard",
+          "n_urls": 3,
+          "deck_nums": [
+            "3949",
+            "3991"
+          ],
+          "contained": 1
+        },
+        {
+          "role": "greenItemsDeck",
+          "guid": "17400d",
+          "type": "Deck",
+          "nickname": "",
+          "gmnotes": "greenitemDiscard",
+          "n_urls": 7,
+          "deck_nums": [
+            "37",
+            "4001",
+            "4159",
+            "4160",
+            "4161",
+            "5365",
+            "5366",
+            "5367"
+          ],
+          "contained": 1
+        },
+        {
+          "role": "redItemsDeck",
+          "guid": "9027ed",
+          "type": "Deck",
+          "nickname": "",
+          "gmnotes": "reditemDiscard",
+          "n_urls": 8,
+          "deck_nums": [
+            "35",
+            "36",
+            "5307",
+            "5308",
+            "5309",
+            "5310",
+            "5311",
+            "5312",
+            "5313",
+            "5314",
+            "5315",
+            "5316",
+            "5438"
+          ],
+          "contained": 1
+        },
+        {
+          "role": "yellowItemsDeck",
+          "guid": "fe68f3",
+          "type": "Deck",
+          "nickname": "",
+          "gmnotes": "yellowitemDiscard",
+          "n_urls": 7,
+          "deck_nums": [
+            "33",
+            "34",
+            "3954",
+            "5318",
+            "5320"
+          ],
+          "contained": 1
+        },
+        {
+          "role": "eventDeck",
+          "guid": "0d3dae",
+          "type": "DeckCustom",
+          "nickname": "",
+          "gmnotes": "eventDiscard",
+          "n_urls": 21,
+          "deck_nums": [
+            "5609",
+            "5610",
+            "5611",
+            "5612",
+            "5613",
+            "5614",
+            "5615",
+            "5616",
+            "5617",
+            "5618",
+            "5619",
+            "5620",
+            "5621",
+            "5622",
+            "5623",
+            "5624",
+            "5625",
+            "5626",
+            "5627",
+            "5628"
+          ],
+          "contained": 1
+        },
+        {
+          "role": "seriouswoundDeck",
+          "guid": "b75145",
+          "type": "Deck",
+          "nickname": "",
+          "gmnotes": "seriouswoundDiscard",
+          "n_urls": 4,
+          "deck_nums": [
+            "38",
+            "4048",
+            "5439"
+          ],
+          "contained": 1
+        },
+        {
+          "role": "roomIABag",
+          "guid": "4b5bf1",
+          "type": "Custom_Model_Bag",
+          "nickname": "",
+          "gmnotes": "-",
+          "n_urls": 3,
+          "deck_nums": [],
+          "contained": 1
+        },
+        {
+          "role": "roomIBBag",
+          "guid": "40de95",
+          "type": "Custom_Model_Bag",
+          "nickname": "",
+          "gmnotes": "-",
+          "n_urls": 3,
+          "deck_nums": [],
+          "contained": 1
+        },
+        {
+          "role": "roomICBag",
+          "guid": "94cb25",
+          "type": "Custom_Model_Bag",
+          "nickname": "",
+          "gmnotes": "-",
+          "n_urls": 3,
+          "deck_nums": [],
+          "contained": 1
+        },
+        {
+          "role": "roomIIBag",
+          "guid": "e548bf",
+          "type": "Custom_Model_Bag",
+          "nickname": "",
+          "gmnotes": "-",
+          "n_urls": 3,
+          "deck_nums": [],
+          "contained": 1
+        },
+        {
+          "role": "corridorBag",
+          "guid": "527c41",
+          "type": "Custom_Model_Bag",
+          "nickname": "",
+          "gmnotes": "-",
+          "n_urls": 3,
+          "deck_nums": [],
+          "contained": 1
+        },
+        {
+          "role": "noiseBag",
+          "guid": "c59c6b",
+          "type": "Custom_Assetbundle_Infinite_Bag",
+          "nickname": "",
+          "gmnotes": "-",
+          "n_urls": 1,
+          "deck_nums": [],
+          "contained": 1
+        },
+        {
+          "role": "landingZone",
+          "guid": "8e0bfa",
+          "type": "Custom_Model",
+          "nickname": "",
+          "gmnotes": "14",
+          "n_urls": 3,
+          "deck_nums": [],
+          "contained": 1
+        },
+        {
+          "role": "playerHelpBag",
+          "guid": "d8a0fb",
+          "type": "Bag",
+          "nickname": "playerHelpCards",
+          "gmnotes": "-",
+          "n_urls": 0,
+          "deck_nums": [],
+          "contained": 1
+        },
+        {
+          "role": "trashBag",
+          "guid": "718459",
+          "type": "Bag",
+          "nickname": "trashBag",
+          "gmnotes": "-",
+          "n_urls": 0,
+          "deck_nums": [],
+          "contained": 1
+        },
+        {
+          "role": "carcassBag",
+          "guid": "25585f",
+          "type": "Custom_Model_Infinite_Bag",
+          "nickname": "Carcass bag",
+          "gmnotes": "-",
+          "n_urls": 3,
+          "deck_nums": [],
+          "contained": 1
+        },
+        {
+          "role": "trapBag",
+          "guid": "0987e4",
+          "type": "Custom_Model_Infinite_Bag",
+          "nickname": "Trap bag",
+          "gmnotes": "-",
+          "n_urls": 3,
+          "deck_nums": [],
+          "contained": 1
+        },
+        {
+          "role": "airlockToken",
+          "guid": "73cc48",
+          "type": "Custom_Tile",
+          "nickname": "airlockToken",
+          "gmnotes": "-",
+          "n_urls": 2,
+          "deck_nums": [],
+          "contained": 1
+        },
+        {
+          "role": "larvaeBag",
+          "guid": "26b980",
+          "type": "Custom_Model_Bag",
+          "nickname": "",
+          "gmnotes": "enemybag",
+          "n_urls": 3,
+          "deck_nums": [],
+          "contained": 1
+        },
+        {
+          "role": "creeperBag",
+          "guid": "26b980",
+          "type": "Custom_Model_Bag",
+          "nickname": "",
+          "gmnotes": "enemybag",
+          "n_urls": 3,
+          "deck_nums": [],
+          "contained": 1
+        },
+        {
+          "role": "adultBag",
+          "guid": "1a0e0c",
+          "type": "Custom_Model_Bag",
+          "nickname": "",
+          "gmnotes": "enemybag",
+          "n_urls": 3,
+          "deck_nums": [],
+          "contained": 1
+        },
+        {
+          "role": "breederBag",
+          "guid": "ff790c",
+          "type": "Custom_Model_Bag",
+          "nickname": "",
+          "gmnotes": "enemybag",
+          "n_urls": 3,
+          "deck_nums": [],
+          "contained": 1
+        },
+        {
+          "role": "queenBag",
+          "guid": "52ae01",
+          "type": "Custom_Model_Bag",
+          "nickname": "",
+          "gmnotes": "enemybag",
+          "n_urls": 3,
+          "deck_nums": [],
+          "contained": 1
+        },
+        {
+          "role": "larvaeFBag",
+          "guid": "978afc",
+          "type": "Bag",
+          "nickname": "Larva",
+          "gmnotes": "-",
+          "n_urls": 2,
+          "deck_nums": [],
+          "contained": 1
+        },
+        {
+          "role": "creeperFBag",
+          "guid": "978afc",
+          "type": "Bag",
+          "nickname": "Larva",
+          "gmnotes": "-",
+          "n_urls": 2,
+          "deck_nums": [],
+          "contained": 1
+        },
+        {
+          "role": "adultFBag",
+          "guid": "d85f3b",
+          "type": "Bag",
+          "nickname": "Adult",
+          "gmnotes": "-",
+          "n_urls": 2,
+          "deck_nums": [],
+          "contained": 1
+        },
+        {
+          "role": "breederFBag",
+          "guid": "31f65c",
+          "type": "Bag",
+          "nickname": "Drone",
+          "gmnotes": "-",
+          "n_urls": 2,
+          "deck_nums": [],
+          "contained": 1
+        },
+        {
+          "role": "queenFBag",
+          "guid": "bf3dc5",
+          "type": "Bag",
+          "nickname": "Queen",
+          "gmnotes": "-",
+          "n_urls": 2,
+          "deck_nums": [],
+          "contained": 1
+        },
+        {
+          "role": "intruderHelp",
+          "guid": "1e58e7",
+          "type": "CardCustom",
+          "nickname": "",
+          "gmnotes": "-",
+          "n_urls": 2,
+          "deck_nums": [
+            "5090"
+          ],
+          "contained": 1
+        },
+        {
+          "role": "nestBag",
+          "guid": "da6c44",
+          "type": "Custom_Model_Bag",
+          "nickname": "Egg Tokens",
+          "gmnotes": "-",
+          "n_urls": 3,
+          "deck_nums": [],
+          "contained": 1
+        },
+        {
+          "role": "eggBag",
+          "guid": "05fd7c",
+          "type": "Custom_Model_Infinite_Bag",
+          "nickname": "Egg Tokens",
+          "gmnotes": "-",
+          "n_urls": 3,
+          "deck_nums": [],
+          "contained": 1
+        },
+        {
+          "role": "intruderBag",
+          "guid": "1283e4",
+          "type": "Custom_Model_Bag",
+          "nickname": "",
+          "gmnotes": "-",
+          "n_urls": 3,
+          "deck_nums": [],
+          "contained": 1
+        },
+        {
+          "role": "healthBag",
+          "guid": "50e559",
+          "type": "Custom_Model_Infinite_Bag",
+          "nickname": "",
+          "gmnotes": "-",
+          "n_urls": 2,
+          "deck_nums": [],
+          "contained": 1
+        },
+        {
+          "role": "grenadeBag",
+          "guid": "0a9a06",
+          "type": "Custom_Model_Bag",
+          "nickname": "",
+          "gmnotes": "-",
+          "n_urls": 3,
+          "deck_nums": [],
+          "contained": 1
+        },
+        {
+          "role": "ammoBag",
+          "guid": "ed4a41",
+          "type": "Custom_Model_Bag",
+          "nickname": "",
+          "gmnotes": "-",
+          "n_urls": 3,
+          "deck_nums": [],
+          "contained": 1
+        },
+        {
+          "role": "oxygenBag",
+          "guid": "d2f7a3",
+          "type": "Custom_Model_Bag",
+          "nickname": "",
+          "gmnotes": "-",
+          "n_urls": 3,
+          "deck_nums": [],
+          "contained": 1
+        },
+        {
+          "role": "medpackBag",
+          "guid": "c218a3",
+          "type": "Custom_Model_Bag",
+          "nickname": "",
+          "gmnotes": "-",
+          "n_urls": 3,
+          "deck_nums": [],
+          "contained": 1
+        },
+        {
+          "role": "doorBag",
+          "guid": "435a9a",
+          "type": "Custom_Model_Bag",
+          "nickname": "Doors",
+          "gmnotes": "-",
+          "n_urls": 3,
+          "deck_nums": [],
+          "contained": 1
+        },
+        {
+          "role": "fireBag",
+          "guid": "602a2e",
+          "type": "Custom_Assetbundle_Bag",
+          "nickname": "",
+          "gmnotes": "-",
+          "n_urls": 1,
+          "deck_nums": [],
+          "contained": 1
+        },
+        {
+          "role": "malfunctionBag",
+          "guid": "05e833",
+          "type": "Custom_Assetbundle_Bag",
+          "nickname": "",
+          "gmnotes": "-",
+          "n_urls": 1,
+          "deck_nums": [],
+          "contained": 1
+        },
+        {
+          "role": "secureBag",
+          "guid": "162108",
+          "type": "Custom_Model_Bag",
+          "nickname": "",
+          "gmnotes": "-",
+          "n_urls": 3,
+          "deck_nums": [],
+          "contained": 1
+        },
+        {
+          "role": "dataTokenBag",
+          "guid": "dbc018",
+          "type": "Custom_Model_Infinite_Bag",
+          "nickname": "",
+          "gmnotes": "-",
+          "n_urls": 3,
+          "deck_nums": [],
+          "contained": 1
+        },
+        {
+          "role": "firstPlayerToken",
+          "guid": "002ba0",
+          "type": "Custom_Model",
+          "nickname": "",
+          "gmnotes": "-",
+          "n_urls": 3,
+          "deck_nums": [],
+          "contained": 1
+        },
+        {
+          "role": "zoneHide",
+          "guid": "041d27",
+          "type": "FogOfWarTrigger",
+          "nickname": "",
+          "gmnotes": "-",
+          "n_urls": 0,
+          "deck_nums": [],
+          "contained": 1
+        },
+        {
+          "role": "actColTile",
+          "guid": "5fbf1a",
+          "type": "Custom_Model",
+          "nickname": "",
+          "gmnotes": "-",
+          "n_urls": 2,
+          "deck_nums": [],
+          "contained": 1
+        },
+        {
+          "role": "weaponColTile",
+          "guid": "f5da36",
+          "type": "Custom_Model",
+          "nickname": "",
+          "gmnotes": "-",
+          "n_urls": 2,
+          "deck_nums": [],
+          "contained": 1
+        },
+        {
+          "role": "soundTile",
+          "guid": "162b51",
+          "type": "Custom_Model",
+          "nickname": "",
+          "gmnotes": "-",
+          "n_urls": 2,
+          "deck_nums": [],
+          "contained": 1
+        },
+        {
+          "role": "roundTile",
+          "guid": "dfc0e5",
+          "type": "Custom_Model",
+          "nickname": "",
+          "gmnotes": "-",
+          "n_urls": 2,
+          "deck_nums": [],
+          "contained": 1
+        },
+        {
+          "role": "drawTile",
+          "guid": "7e707f",
+          "type": "Custom_Model",
+          "nickname": "",
+          "gmnotes": "-",
+          "n_urls": 2,
+          "deck_nums": [],
+          "contained": 1
+        },
+        {
+          "role": "burstTile",
+          "guid": "50894f",
+          "type": "Custom_Model",
+          "nickname": "",
+          "gmnotes": "-",
+          "n_urls": 2,
+          "deck_nums": [],
+          "contained": 1
+        },
+        {
+          "role": "bagDevTile",
+          "guid": "aa4ead",
+          "type": "Custom_Model",
+          "nickname": "",
+          "gmnotes": "-",
+          "n_urls": 2,
+          "deck_nums": [],
+          "contained": 1
+        },
+        {
+          "role": "autoEventTile",
+          "guid": "74d8cc",
+          "type": "Custom_Model",
+          "nickname": "",
+          "gmnotes": "-",
+          "n_urls": 2,
+          "deck_nums": [],
+          "contained": 1
+        },
+        {
+          "role": "numpadSetTile",
+          "guid": "3aa3ea",
+          "type": "Custom_Model",
+          "nickname": "EndTurn",
+          "gmnotes": "-",
+          "n_urls": 2,
+          "deck_nums": [],
+          "contained": 1
+        },
+        {
+          "role": "exploreNoiseTile",
+          "guid": "04ec83",
+          "type": "Custom_Model",
+          "nickname": "",
+          "gmnotes": "-",
+          "n_urls": 2,
+          "deck_nums": [],
+          "contained": 1
+        },
+        {
+          "role": "rollAnimationTile",
+          "guid": "2e26e6",
+          "type": "Custom_Model",
+          "nickname": "",
+          "gmnotes": "-",
+          "n_urls": 2,
+          "deck_nums": [],
+          "contained": 1
+        },
+        {
+          "role": "rollModeTile",
+          "guid": "f24c3c",
+          "type": "Custom_Model",
+          "nickname": "",
+          "gmnotes": "-",
+          "n_urls": 2,
+          "deck_nums": [],
+          "contained": 1
+        },
+        {
+          "role": "queenActivateTile",
+          "guid": "55cd1a",
+          "type": "Custom_Model",
+          "nickname": "EndTurn",
+          "gmnotes": "-",
+          "n_urls": 2,
+          "deck_nums": [],
+          "contained": 1
+        },
+        {
+          "role": "shootRollDice",
+          "guid": "d8282d",
+          "type": "Custom_Dice",
+          "nickname": "",
+          "gmnotes": "-",
+          "n_urls": 2,
+          "deck_nums": [],
+          "contained": 1
+        },
+        {
+          "role": "burstRollDice",
+          "guid": "9cd65f",
+          "type": "Custom_Dice",
+          "nickname": "",
+          "gmnotes": "-",
+          "n_urls": 2,
+          "deck_nums": [],
+          "contained": 1
+        },
+        {
+          "role": "noiseRollDice",
+          "guid": "effa9f",
+          "type": "Custom_Dice",
+          "nickname": "",
+          "gmnotes": "-",
+          "n_urls": 2,
+          "deck_nums": [],
+          "contained": 1
+        },
+        {
+          "role": "rollBowl",
+          "guid": "c54938",
+          "type": "Bowl",
+          "nickname": "",
+          "gmnotes": "-",
+          "n_urls": 0,
+          "deck_nums": [],
+          "contained": 1
+        },
+        {
+          "role": "landerPilotSoundBoard",
+          "guid": "801a46",
+          "type": "Custom_Assetbundle",
+          "nickname": "",
+          "gmnotes": "-",
+          "n_urls": 1,
+          "deck_nums": [],
+          "contained": 1
+        },
+        {
+          "role": "explorationDeck",
+          "guid": "63add2",
+          "type": "Deck",
+          "nickname": "",
+          "gmnotes": "explorationDiscard",
+          "n_urls": 13,
+          "deck_nums": [
+            "5629",
+            "5630",
+            "5631",
+            "5632",
+            "5633",
+            "5634",
+            "5635",
+            "5636",
+            "5637",
+            "5638",
+            "5639",
+            "5640"
+          ],
+          "contained": 1
+        },
+        {
+          "role": "pickContractorsDeck",
+          "guid": "24a5c3",
+          "type": "Deck",
+          "nickname": "",
+          "gmnotes": "-",
+          "n_urls": 13,
+          "deck_nums": [
+            "4386",
+            "4428",
+            "5879",
+            "5882",
+            "5883",
+            "5884",
+            "5885",
+            "5886",
+            "5890",
+            "5908",
+            "5909",
+            "5910"
+          ],
+          "contained": 1
+        },
+        {
+          "role": "pickCustomContractorsDeck",
+          "guid": "7ace5d",
+          "type": "Deck",
+          "nickname": "",
+          "gmnotes": "-",
+          "n_urls": 8,
+          "deck_nums": [
+            "5863",
+            "5881",
+            "5891",
+            "5911",
+            "5949",
+            "5968",
+            "5991"
+          ],
+          "contained": 1
+        },
+        {
+          "role": "xyrianExplorationDeck",
+          "guid": "6b2b69",
+          "type": "Deck",
+          "nickname": "",
+          "gmnotes": "-",
+          "n_urls": 3,
+          "deck_nums": [
+            "5431",
+            "5432",
+            "5433"
+          ],
+          "contained": 1
+        },
+        {
+          "role": "xyrianEventDeck",
+          "guid": "28c1de",
+          "type": "Deck",
+          "nickname": "",
+          "gmnotes": "-",
+          "n_urls": 4,
+          "deck_nums": [
+            "5434",
+            "5435",
+            "5436"
+          ],
+          "contained": 1
+        },
+        {
+          "role": "xyrianPhase",
+          "guid": "484e11",
+          "type": "CardCustom",
+          "nickname": "",
+          "gmnotes": "-",
+          "n_urls": 2,
+          "deck_nums": [
+            "5429"
+          ],
+          "contained": 1
+        },
+        {
+          "role": "xyrianFBag",
+          "guid": "0aeeb4",
+          "type": "Bag",
+          "nickname": "",
+          "gmnotes": "-",
+          "n_urls": 0,
+          "deck_nums": [],
+          "contained": 1
+        },
+        {
+          "role": "xyrianInjuryBag",
+          "guid": "2ed00a",
+          "type": "Custom_Model_Bag",
+          "nickname": "",
+          "gmnotes": "-",
+          "n_urls": 3,
+          "deck_nums": [],
+          "contained": 1
+        },
+        {
+          "role": "xyrianTracerBag",
+          "guid": "89c362",
+          "type": "Custom_Model_Bag",
+          "nickname": "",
+          "gmnotes": "-",
+          "n_urls": 4,
+          "deck_nums": [],
+          "contained": 1
+        },
+        {
+          "role": "xyrianStatusBag",
+          "guid": "66f5d4",
+          "type": "Custom_Model_Bag",
+          "nickname": "",
+          "gmnotes": "-",
+          "n_urls": 3,
+          "deck_nums": [],
+          "contained": 1
+        },
+        {
+          "role": "xyrianActivationDeck",
+          "guid": "5ba34d",
+          "type": "Deck",
+          "nickname": "",
+          "gmnotes": "xyrianActivationDiscard",
+          "n_urls": 11,
+          "deck_nums": [
+            "5093",
+            "5094",
+            "5095",
+            "5096",
+            "5097",
+            "5098",
+            "5099",
+            "5100",
+            "5101",
+            "5102"
+          ],
+          "contained": 1
+        },
+        {
+          "role": "xyrianAllegiance",
+          "guid": "e09b11",
+          "type": "CardCustom",
+          "nickname": "",
+          "gmnotes": "xyrianAllegiance",
+          "n_urls": 2,
+          "deck_nums": [
+            "5535"
+          ],
+          "contained": 1
+        },
+        {
+          "role": "xyrianAllegianceToken",
+          "guid": "e6dc9b",
+          "type": "Custom_Token",
+          "nickname": "",
+          "gmnotes": "-",
+          "n_urls": 2,
+          "deck_nums": [],
+          "contained": 1
+        },
+        {
+          "role": "insiderDeck",
+          "guid": "1c3be3",
+          "type": "Deck",
+          "nickname": "insiderStoryDeck",
+          "gmnotes": "-",
+          "n_urls": 4,
+          "deck_nums": [
+            "5451",
+            "5480"
+          ],
+          "contained": 1
+        },
+        {
+          "role": "insiderFig",
+          "guid": "b8323a",
+          "type": "Figurine_Custom",
+          "nickname": "insiderFig",
+          "gmnotes": "-",
+          "n_urls": 1,
+          "deck_nums": [],
+          "contained": 1
+        },
+        {
+          "role": "insiderCard",
+          "guid": "04e7a0",
+          "type": "CardCustom",
+          "nickname": "insiderCard",
+          "gmnotes": "-",
+          "n_urls": 2,
+          "deck_nums": [
+            "5122"
+          ],
+          "contained": 1
+        },
+        {
+          "role": "insiderHealth",
+          "guid": "03446d",
+          "type": "Custom_Model",
+          "nickname": "",
+          "gmnotes": "-",
+          "n_urls": 2,
+          "deck_nums": [],
+          "contained": 1
+        },
+        {
+          "role": "insiderRunaway",
+          "guid": "1b11a3",
+          "type": "Figurine_Custom",
+          "nickname": "runawayFig",
+          "gmnotes": "-",
+          "n_urls": 1,
+          "deck_nums": [],
+          "contained": 1
+        },
+        {
+          "role": "explorationDeck",
+          "guid": "a24dc8",
+          "type": "Deck",
+          "nickname": "exploration",
+          "gmnotes": "explorationDiscard",
+          "n_urls": 13,
+          "deck_nums": [
+            "5641",
+            "5642",
+            "5643",
+            "5644",
+            "5645",
+            "5646",
+            "5647",
+            "5648",
+            "5649",
+            "5650",
+            "5651",
+            "5652"
+          ],
+          "contained": 1
+        },
+        {
+          "role": "attacksDeck",
+          "guid": "61a87c",
+          "type": "Deck",
+          "nickname": "attack",
+          "gmnotes": "attackDiscard",
+          "n_urls": 19,
+          "deck_nums": [
+            "4582",
+            "4583",
+            "4584",
+            "4585",
+            "4587",
+            "4658",
+            "4663",
+            "4665",
+            "4667",
+            "4668",
+            "4669",
+            "5043",
+            "5044",
+            "5045",
+            "5046",
+            "5047",
+            "5048",
+            "5049"
+          ],
+          "contained": 1
+        },
+        {
+          "role": "eventDeck",
+          "guid": "abbdd0",
+          "type": "Deck",
+          "nickname": "eventDeck",
+          "gmnotes": "eventDiscard",
+          "n_urls": 2,
+          "deck_nums": [
+            "5475"
+          ],
+          "contained": 1
+        },
+        {
+          "role": "queenHealthDeck",
+          "guid": "99e2ce",
+          "type": "Deck",
+          "nickname": "queenHealth",
+          "gmnotes": "-",
+          "n_urls": 13,
+          "deck_nums": [
+            "4663",
+            "4666",
+            "4667",
+            "4670",
+            "4672",
+            "5043",
+            "5044",
+            "5045",
+            "5050",
+            "5051",
+            "5052",
+            "5053"
+          ],
+          "contained": 1
+        },
+        {
+          "role": "larvaeBag",
+          "guid": "595bcc",
+          "type": "Custom_Model_Bag",
+          "nickname": "twitchlingTokenBag",
+          "gmnotes": "enemybag",
+          "n_urls": 3,
+          "deck_nums": [],
+          "contained": 1
+        },
+        {
+          "role": "adultBag",
+          "guid": "ecc8e6",
+          "type": "Custom_Model_Bag",
+          "nickname": "adultTokenBag",
+          "gmnotes": "enemybag",
+          "n_urls": 3,
+          "deck_nums": [],
+          "contained": 1
+        },
+        {
+          "role": "queenBag",
+          "guid": "f31180",
+          "type": "Custom_Model_Bag",
+          "nickname": "queenTokenBag",
+          "gmnotes": "enemybag",
+          "n_urls": 3,
+          "deck_nums": [],
+          "contained": 1
+        },
+        {
+          "role": "larvaeFBag",
+          "guid": "a00d06",
+          "type": "Bag",
+          "nickname": "twitchlingBag",
+          "gmnotes": "-",
+          "n_urls": 2,
+          "deck_nums": [],
+          "contained": 1
+        },
+        {
+          "role": "adultFBag",
+          "guid": "c36ee8",
+          "type": "Bag",
+          "nickname": "slasherBag",
+          "gmnotes": "-",
+          "n_urls": 2,
+          "deck_nums": [],
+          "contained": 1
+        },
+        {
+          "role": "ironcladFBag",
+          "guid": "fd7091",
+          "type": "Bag",
+          "nickname": "ironcladBag",
+          "gmnotes": "-",
+          "n_urls": 2,
+          "deck_nums": [],
+          "contained": 1
+        },
+        {
+          "role": "firespitterFBag",
+          "guid": "e0feed",
+          "type": "Bag",
+          "nickname": "firespitterBag",
+          "gmnotes": "-",
+          "n_urls": 2,
+          "deck_nums": [],
+          "contained": 1
+        },
+        {
+          "role": "crawlmineFBag",
+          "guid": "1ca1ec",
+          "type": "Bag",
+          "nickname": "crawlmineBag",
+          "gmnotes": "-",
+          "n_urls": 2,
+          "deck_nums": [],
+          "contained": 1
+        },
+        {
+          "role": "breederFBag",
+          "guid": "84381e",
+          "type": "Bag",
+          "nickname": "cultistBag",
+          "gmnotes": "-",
+          "n_urls": 2,
+          "deck_nums": [],
+          "contained": 1
+        },
+        {
+          "role": "queenFBag",
+          "guid": "f6fec4",
+          "type": "Bag",
+          "nickname": "motherbrainBag",
+          "gmnotes": "-",
+          "n_urls": 2,
+          "deck_nums": [],
+          "contained": 1
+        },
+        {
+          "role": "cultistDeadBag",
+          "guid": "63aef2",
+          "type": "Bag",
+          "nickname": "cultistDeadBag",
+          "gmnotes": "-",
+          "n_urls": 0,
+          "deck_nums": [],
+          "contained": 1
+        },
+        {
+          "role": "explorationDeck",
+          "guid": "dd1eda",
+          "type": "Deck",
+          "nickname": "exploration",
+          "gmnotes": "explorationDiscard",
+          "n_urls": 13,
+          "deck_nums": [
+            "4671",
+            "4672",
+            "4673",
+            "4692",
+            "4694",
+            "4695",
+            "4696",
+            "4697",
+            "5025",
+            "5450",
+            "5451",
+            "5452"
+          ],
+          "contained": 1
+        },
+        {
+          "role": "attacksDeck",
+          "guid": "3a25fc",
+          "type": "Deck",
+          "nickname": "attack",
+          "gmnotes": "attackDiscard",
+          "n_urls": 8,
+          "deck_nums": [
+            "5480",
+            "5481",
+            "5482",
+            "5484",
+            "5485",
+            "5486",
+            "5487",
+            "5492",
+            "5493",
+            "5494",
+            "5495",
+            "5496",
+            "5497",
+            "5498",
+            "5499",
+            "5574",
+            "5575",
+            "5576",
+            "5577",
+            "5578"
+          ],
+          "contained": 1
+        },
+        {
+          "role": "eventDeck",
+          "guid": "58aa1c",
+          "type": "Deck",
+          "nickname": "eventDeck",
+          "gmnotes": "eventDiscard",
+          "n_urls": 21,
+          "deck_nums": [
+            "5222",
+            "5223",
+            "5224",
+            "5225",
+            "5227",
+            "5228",
+            "5229",
+            "5230",
+            "5231",
+            "5232",
+            "5233",
+            "5234",
+            "5235",
+            "5236",
+            "5238",
+            "5239",
+            "5240",
+            "5241",
+            "5242",
+            "5243"
+          ],
+          "contained": 1
+        },
+        {
+          "role": "queenHealthDeck",
+          "guid": "3b65b3",
+          "type": "Deck",
+          "nickname": "kingHealth",
+          "gmnotes": "-",
+          "n_urls": 12,
+          "deck_nums": [
+            "4722",
+            "4917",
+            "4918",
+            "4919",
+            "4920",
+            "4921",
+            "4922",
+            "4923",
+            "4924",
+            "4925",
+            "4992"
+          ],
+          "contained": 1
+        },
+        {
+          "role": "adultBag",
+          "guid": "d181aa",
+          "type": "Custom_Model_Bag",
+          "nickname": "ghoulTokenBag",
+          "gmnotes": "enemybag",
+          "n_urls": 3,
+          "deck_nums": [],
+          "contained": 1
+        },
+        {
+          "role": "breederBag",
+          "guid": "405099",
+          "type": "Custom_Model_Bag",
+          "nickname": "specterTokenBag",
+          "gmnotes": "enemybag",
+          "n_urls": 3,
+          "deck_nums": [],
+          "contained": 1
+        },
+        {
+          "role": "queenBag",
+          "guid": "37f835",
+          "type": "Custom_Model_Bag",
+          "nickname": "kingTokenBag",
+          "gmnotes": "enemybag",
+          "n_urls": 3,
+          "deck_nums": [],
+          "contained": 1
+        },
+        {
+          "role": "adultFBag",
+          "guid": "f7fd5f",
+          "type": "Bag",
+          "nickname": "ghoulBag",
+          "gmnotes": "-",
+          "n_urls": 2,
+          "deck_nums": [],
+          "contained": 1
+        },
+        {
+          "role": "breederFBag",
+          "guid": "a0f2a3",
+          "type": "Bag",
+          "nickname": "specterBag",
+          "gmnotes": "-",
+          "n_urls": 2,
+          "deck_nums": [],
+          "contained": 1
+        },
+        {
+          "role": "queenFBag",
+          "guid": "4abca0",
+          "type": "Bag",
+          "nickname": "kingBag",
+          "gmnotes": "-",
+          "n_urls": 2,
+          "deck_nums": [],
+          "contained": 1
+        },
+        {
+          "role": "shadowBag",
+          "guid": "aff77d",
+          "type": "Custom_Model_Bag",
+          "nickname": "shadowBag",
+          "gmnotes": "shadowDiscard",
+          "n_urls": 3,
+          "deck_nums": [],
+          "contained": 1
+        },
+        {
+          "role": "taintedDeck",
+          "guid": "7347e2",
+          "type": "Deck",
+          "nickname": "tainted",
+          "gmnotes": "-",
+          "n_urls": 14,
+          "deck_nums": [
+            "5480",
+            "5481",
+            "5482",
+            "5483",
+            "5484",
+            "5485",
+            "5486",
+            "5487",
+            "5488",
+            "5489",
+            "5490",
+            "5491",
+            "5492"
+          ],
+          "contained": 1
+        },
+        {
+          "role": "contaminationDeck",
+          "guid": "ebef8b",
+          "type": "Deck",
+          "nickname": "infection",
+          "gmnotes": "actionDiscard",
+          "n_urls": 17,
+          "deck_nums": [
+            "5790",
+            "5791",
+            "5792",
+            "5793",
+            "5794",
+            "5795",
+            "5796",
+            "5797",
+            "5798",
+            "5799",
+            "5800",
+            "5801",
+            "5802",
+            "5803",
+            "5804",
+            "5805",
+            "5806",
+            "5807"
+          ],
+          "contained": 1
+        },
+        {
+          "role": "noiseBag",
+          "guid": "7cb24e",
+          "type": "Custom_Assetbundle_Infinite_Bag",
+          "nickname": "noiseBag",
+          "gmnotes": "-",
+          "n_urls": 1,
+          "deck_nums": [],
+          "contained": 1
+        },
+        {
+          "role": "explorationDeck",
+          "guid": "2e8e9d",
+          "type": "Deck",
+          "nickname": "exploration",
+          "gmnotes": "explorationDiscard",
+          "n_urls": 13,
+          "deck_nums": [
+            "5674",
+            "5675",
+            "5676",
+            "5677",
+            "5678",
+            "5679",
+            "5680",
+            "5681",
+            "5682",
+            "5683",
+            "5684",
+            "5685"
+          ],
+          "contained": 1
+        },
+        {
+          "role": "attacksDeck",
+          "guid": "9aefbc",
+          "type": "Deck",
+          "nickname": "attack",
+          "gmnotes": "attackDiscard",
+          "n_urls": 9,
+          "deck_nums": [
+            "5686",
+            "5687",
+            "5688",
+            "5689",
+            "5690",
+            "5691",
+            "5692",
+            "5693"
+          ],
+          "contained": 1
+        },
+        {
+          "role": "eventDeck",
+          "guid": "0da709",
+          "type": "Deck",
+          "nickname": "eventDeck",
+          "gmnotes": "eventDiscard",
+          "n_urls": 21,
+          "deck_nums": [
+            "5575",
+            "5577",
+            "5578",
+            "5579",
+            "5580",
+            "5581",
+            "5582",
+            "5584",
+            "5585",
+            "5587",
+            "5588",
+            "5589",
+            "5590",
+            "5591",
+            "5592",
+            "5594",
+            "5899",
+            "5901",
+            "5912",
+            "5924"
+          ],
+          "contained": 1
+        },
+        {
+          "role": "queenHealthDeck",
+          "guid": "6963a5",
+          "type": "Deck",
+          "nickname": "queenHealth",
+          "gmnotes": "-",
+          "n_urls": 12,
+          "deck_nums": [
+            "5694",
+            "5695",
+            "5696",
+            "5697",
+            "5698",
+            "5699",
+            "5700",
+            "5701",
+            "5702",
+            "5703",
+            "5704"
+          ],
+          "contained": 1
+        },
+        {
+          "role": "larvaeBag",
+          "guid": "c2c9ea",
+          "type": "Custom_Model_Bag",
+          "nickname": "metagorgerBag",
+          "gmnotes": "enemybag",
+          "n_urls": 3,
+          "deck_nums": [],
+          "contained": 1
+        },
+        {
+          "role": "creeperBag",
+          "guid": "c2c9ea",
+          "type": "Custom_Model_Bag",
+          "nickname": "metagorgerBag",
+          "gmnotes": "enemybag",
+          "n_urls": 3,
+          "deck_nums": [],
+          "contained": 1
+        },
+        {
+          "role": "adultBag",
+          "guid": "81dd12",
+          "type": "Custom_Model_Bag",
+          "nickname": "shamblerBag",
+          "gmnotes": "enemybag",
+          "n_urls": 3,
+          "deck_nums": [],
+          "contained": 1
+        },
+        {
+          "role": "breederBag",
+          "guid": "4b660f",
+          "type": "Custom_Model_Bag",
+          "nickname": "fleshbeastBag",
+          "gmnotes": "enemybag",
+          "n_urls": 3,
+          "deck_nums": [],
+          "contained": 1
+        },
+        {
+          "role": "queenBag",
+          "guid": "c13884",
+          "type": "Custom_Model_Bag",
+          "nickname": "butcherBag",
+          "gmnotes": "enemybag",
+          "n_urls": 3,
+          "deck_nums": [],
+          "contained": 1
+        },
+        {
+          "role": "larvaeFBag",
+          "guid": "231d79",
+          "type": "Bag",
+          "nickname": "metagorgerFBag",
+          "gmnotes": "-",
+          "n_urls": 0,
+          "deck_nums": [],
+          "contained": 1
+        },
+        {
+          "role": "creeperFBag",
+          "guid": "231d79",
+          "type": "Bag",
+          "nickname": "metagorgerFBag",
+          "gmnotes": "-",
+          "n_urls": 0,
+          "deck_nums": [],
+          "contained": 1
+        },
+        {
+          "role": "adultFBag",
+          "guid": "47fde0",
+          "type": "Bag",
+          "nickname": "shamblerFBag",
+          "gmnotes": "-",
+          "n_urls": 0,
+          "deck_nums": [],
+          "contained": 1
+        },
+        {
+          "role": "breederFBag",
+          "guid": "3be840",
+          "type": "Bag",
+          "nickname": "fleshbeastFBag",
+          "gmnotes": "-",
+          "n_urls": 0,
+          "deck_nums": [],
+          "contained": 1
+        },
+        {
+          "role": "queenFBag",
+          "guid": "db891d",
+          "type": "Bag",
+          "nickname": "butcherFBag",
+          "gmnotes": "-",
+          "n_urls": 0,
+          "deck_nums": [],
+          "contained": 1
+        },
+        {
+          "role": "mutationDeck",
+          "guid": "c74454",
+          "type": "Deck",
+          "nickname": "mutation",
+          "gmnotes": "-",
+          "n_urls": 8,
+          "deck_nums": [
+            "3039",
+            "5706",
+            "5707",
+            "5708",
+            "5709",
+            "5819",
+            "5978"
+          ],
+          "contained": 1
+        },
+        {
+          "role": "mutationMarker",
+          "guid": "a1a031",
+          "type": "Custom_Tile",
+          "nickname": "mutationMarker",
+          "gmnotes": "-",
+          "n_urls": 1,
+          "deck_nums": [],
+          "contained": 1
+        },
+        {
+          "role": "locTableControl",
+          "guid": "bd69bd",
+          "type": "Chinese_Checkers_Piece",
+          "nickname": "Flex Table Control",
+          "gmnotes": "-",
+          "n_urls": 0,
+          "deck_nums": [],
+          "contained": 1
+        },
+        {
+          "role": "locLaika",
+          "guid": "b6b3dd",
+          "type": "Custom_Model",
+          "nickname": "Laika",
+          "gmnotes": "dog",
+          "n_urls": 3,
+          "deck_nums": [],
+          "contained": 1
+        },
+        {
+          "role": "insiderDeck",
+          "guid": "1c3be3",
+          "type": "Deck",
+          "nickname": "insiderStoryDeck",
+          "gmnotes": "-",
+          "n_urls": 4,
+          "deck_nums": [
+            "5451",
+            "5480"
+          ],
+          "contained": 1
+        },
+        {
+          "role": "insiderFig",
+          "guid": "b8323a",
+          "type": "Figurine_Custom",
+          "nickname": "insiderFig",
+          "gmnotes": "-",
+          "n_urls": 1,
+          "deck_nums": [],
+          "contained": 1
+        },
+        {
+          "role": "insiderCard",
+          "guid": "04e7a0",
+          "type": "CardCustom",
+          "nickname": "insiderCard",
+          "gmnotes": "-",
+          "n_urls": 2,
+          "deck_nums": [
+            "5122"
+          ],
+          "contained": 1
+        },
+        {
+          "role": "insiderHealth",
+          "guid": "03446d",
+          "type": "Custom_Model",
+          "nickname": "",
+          "gmnotes": "-",
+          "n_urls": 2,
+          "deck_nums": [],
+          "contained": 1
+        },
+        {
+          "role": "insiderRunaway",
+          "guid": "1b11a3",
+          "type": "Figurine_Custom",
+          "nickname": "runawayFig",
+          "gmnotes": "-",
+          "n_urls": 1,
+          "deck_nums": [],
+          "contained": 1
+        }
+      ]
+    },
+    "gmnotesTaxonomy": {
+      "path": "assets/tts-mod/extract/v2/gmnotes_taxonomy.json",
+      "sha256": "0e04672c676917118a32fc3f58e0071d9413d940a90c516f3ebdf29c7ee58279",
+      "distinctTagRows": 172,
+      "totalTaggedOccurrences": 1267,
+      "rows": [
+        {
+          "gmnotes": "action",
+          "count": 247
+        },
+        {
+          "gmnotes": "event",
+          "count": 84
+        },
+        {
+          "gmnotes": "attack",
+          "count": 80
+        },
+        {
+          "gmnotes": "adultToken",
+          "count": 50
+        },
+        {
+          "gmnotes": "exploration",
+          "count": 48
+        },
+        {
+          "gmnotes": "actionDiscard",
+          "count": 35
+        },
+        {
+          "gmnotes": "yellowitem",
+          "count": 30
+        },
+        {
+          "gmnotes": "reditem",
+          "count": 30
+        },
+        {
+          "gmnotes": "greenitem",
+          "count": 30
+        },
+        {
+          "gmnotes": "wound",
+          "count": 27
+        },
+        {
+          "gmnotes": "breederToken",
+          "count": 23
+        },
+        {
+          "gmnotes": "1",
+          "count": 22
+        },
+        {
+          "gmnotes": "2",
+          "count": 21
+        },
+        {
+          "gmnotes": "oxygen",
+          "count": 21
+        },
+        {
+          "gmnotes": "ammo",
+          "count": 21
+        },
+        {
+          "gmnotes": "A",
+          "count": 20
+        },
+        {
+          "gmnotes": "queenToken",
+          "count": 20
+        },
+        {
+          "gmnotes": "grenade",
+          "count": 20
+        },
+        {
+          "gmnotes": "medpack",
+          "count": 20
+        },
+        {
+          "gmnotes": "secure",
+          "count": 20
+        },
+        {
+          "gmnotes": "larvaeToken",
+          "count": 18
+        },
+        {
+          "gmnotes": "creeperToken",
+          "count": 16
+        },
+        {
+          "gmnotes": "enemybag",
+          "count": 15
+        },
+        {
+          "gmnotes": "malfunction",
+          "count": 14
+        },
+        {
+          "gmnotes": "tainted",
+          "count": 13
+        },
+        {
+          "gmnotes": "shadow",
+          "count": 13
+        },
+        {
+          "gmnotes": "adult",
+          "count": 12
+        },
+        {
+          "gmnotes": "mutation",
+          "count": 12
+        },
+        {
+          "gmnotes": "crawlmineToken",
+          "count": 10
+        },
+        {
+          "gmnotes": "xyrianActivation",
+          "count": 10
+        },
+        {
+          "gmnotes": "playerHealth",
+          "count": 10
+        },
+        {
+          "gmnotes": "fire",
+          "count": 9
+        },
+        {
+          "gmnotes": "3",
+          "count": 9
+        },
+        {
+          "gmnotes": "firespitterToken",
+          "count": 9
+        },
+        {
+          "gmnotes": "ironcladToken",
+          "count": 9
+        },
+        {
+          "gmnotes": "slasherToken",
+          "count": 9
+        },
+        {
+          "gmnotes": "breeder",
+          "count": 8
+        },
+        {
+          "gmnotes": "AA",
+          "count": 7
+        },
+        {
+          "gmnotes": "eventDiscard",
+          "count": 6
+        },
+        {
+          "gmnotes": "queen",
+          "count": 5
+        },
+        {
+          "gmnotes": "attackDiscard",
+          "count": 4
+        },
+        {
+          "gmnotes": "10",
+          "count": 4
+        },
+        {
+          "gmnotes": "explorationDiscard",
+          "count": 4
+        },
+        {
+          "gmnotes": "M",
+          "count": 3
+        },
+        {
+          "gmnotes": "7",
+          "count": 3
+        },
+        {
+          "gmnotes": "4",
+          "count": 3
+        },
+        {
+          "gmnotes": "8",
+          "count": 3
+        },
+        {
+          "gmnotes": "9",
+          "count": 3
+        },
+        {
+          "gmnotes": "larvae",
+          "count": 3
+        },
+        {
+          "gmnotes": "xyrianEvent",
+          "count": 3
+        },
+        {
+          "gmnotes": "xyrianExplore",
+          "count": 3
+        },
+        {
+          "gmnotes": "xyrianItem",
+          "count": 3
+        },
+        {
+          "gmnotes": "xyrian",
+          "count": 3
+        },
+        {
+          "gmnotes": "xyrianTracer",
+          "count": 3
+        },
+        {
+          "gmnotes": "xyrianInjury",
+          "count": 3
+        },
+        {
+          "gmnotes": "xyrianStatus",
+          "count": 3
+        },
+        {
+          "gmnotes": "AAA",
+          "count": 2
+        },
+        {
+          "gmnotes": "16",
+          "count": 2
+        },
+        {
+          "gmnotes": "17",
+          "count": 2
+        },
+        {
+          "gmnotes": "19",
+          "count": 2
+        },
+        {
+          "gmnotes": "20",
+          "count": 2
+        },
+        {
+          "gmnotes": "22",
+          "count": 2
+        },
+        {
+          "gmnotes": "23",
+          "count": 2
+        },
+        {
+          "gmnotes": "25",
+          "count": 2
+        },
+        {
+          "gmnotes": "6",
+          "count": 2
+        },
+        {
+          "gmnotes": "13",
+          "count": 2
+        },
+        {
+          "gmnotes": "5",
+          "count": 2
+        },
+        {
+          "gmnotes": "12",
+          "count": 2
+        },
+        {
+          "gmnotes": "14",
+          "count": 2
+        },
+        {
+          "gmnotes": "110",
+          "count": 2
+        },
+        {
+          "gmnotes": "301",
+          "count": 2
+        },
+        {
+          "gmnotes": "401",
+          "count": 2
+        },
+        {
+          "gmnotes": "201",
+          "count": 2
+        },
+        {
+          "gmnotes": "AGG",
+          "count": 1
+        },
+        {
+          "gmnotes": "yellowitemDiscard",
+          "count": 1
+        },
+        {
+          "gmnotes": "reditemDiscard",
+          "count": 1
+        },
+        {
+          "gmnotes": "greenitemDiscard",
+          "count": 1
+        },
+        {
+          "gmnotes": "seriouswoundDiscard",
+          "count": 1
+        },
+        {
+          "gmnotes": "active",
+          "count": 1
+        },
+        {
+          "gmnotes": "inactive",
+          "count": 1
+        },
+        {
+          "gmnotes": "15",
+          "count": 1
+        },
+        {
+          "gmnotes": "21",
+          "count": 1
+        },
+        {
+          "gmnotes": "24",
+          "count": 1
+        },
+        {
+          "gmnotes": "11",
+          "count": 1
+        },
+        {
+          "gmnotes": "creeper",
+          "count": 1
+        },
+        {
+          "gmnotes": "02",
+          "count": 1
+        },
+        {
+          "gmnotes": "03",
+          "count": 1
+        },
+        {
+          "gmnotes": "05",
+          "count": 1
+        },
+        {
+          "gmnotes": "06",
+          "count": 1
+        },
+        {
+          "gmnotes": "08",
+          "count": 1
+        },
+        {
+          "gmnotes": "09",
+          "count": 1
+        },
+        {
+          "gmnotes": "26",
+          "count": 1
+        },
+        {
+          "gmnotes": "28",
+          "count": 1
+        },
+        {
+          "gmnotes": "30",
+          "count": 1
+        },
+        {
+          "gmnotes": "31",
+          "count": 1
+        },
+        {
+          "gmnotes": "33",
+          "count": 1
+        },
+        {
+          "gmnotes": "34",
+          "count": 1
+        },
+        {
+          "gmnotes": "36",
+          "count": 1
+        },
+        {
+          "gmnotes": "38",
+          "count": 1
+        },
+        {
+          "gmnotes": "39",
+          "count": 1
+        },
+        {
+          "gmnotes": "41",
+          "count": 1
+        },
+        {
+          "gmnotes": "42",
+          "count": 1
+        },
+        {
+          "gmnotes": "44",
+          "count": 1
+        },
+        {
+          "gmnotes": "45",
+          "count": 1
+        },
+        {
+          "gmnotes": "47",
+          "count": 1
+        },
+        {
+          "gmnotes": "48",
+          "count": 1
+        },
+        {
+          "gmnotes": "50",
+          "count": 1
+        },
+        {
+          "gmnotes": "52",
+          "count": 1
+        },
+        {
+          "gmnotes": "53",
+          "count": 1
+        },
+        {
+          "gmnotes": "noise",
+          "count": 1
+        },
+        {
+          "gmnotes": "shadowDiscard",
+          "count": 1
+        },
+        {
+          "gmnotes": "firespitter",
+          "count": 1
+        },
+        {
+          "gmnotes": "slasher",
+          "count": 1
+        },
+        {
+          "gmnotes": "ironclad",
+          "count": 1
+        },
+        {
+          "gmnotes": "slasherBuff",
+          "count": 1
+        },
+        {
+          "gmnotes": "cultistBuff",
+          "count": 1
+        },
+        {
+          "gmnotes": "twitchlingBuff",
+          "count": 1
+        },
+        {
+          "gmnotes": "firespitterBuff",
+          "count": 1
+        },
+        {
+          "gmnotes": "ironcladBuff",
+          "count": 1
+        },
+        {
+          "gmnotes": "crawlmineBuff",
+          "count": 1
+        },
+        {
+          "gmnotes": "crawlmine",
+          "count": 1
+        },
+        {
+          "gmnotes": "dog",
+          "count": 1
+        },
+        {
+          "gmnotes": "AG",
+          "count": 1
+        },
+        {
+          "gmnotes": "AO",
+          "count": 1
+        },
+        {
+          "gmnotes": "AM",
+          "count": 1
+        },
+        {
+          "gmnotes": "109",
+          "count": 1
+        },
+        {
+          "gmnotes": "202",
+          "count": 1
+        },
+        {
+          "gmnotes": "203",
+          "count": 1
+        },
+        {
+          "gmnotes": "204",
+          "count": 1
+        },
+        {
+          "gmnotes": "205",
+          "count": 1
+        },
+        {
+          "gmnotes": "207",
+          "count": 1
+        },
+        {
+          "gmnotes": "106",
+          "count": 1
+        },
+        {
+          "gmnotes": "208",
+          "count": 1
+        },
+        {
+          "gmnotes": "104",
+          "count": 1
+        },
+        {
+          "gmnotes": "209",
+          "count": 1
+        },
+        {
+          "gmnotes": "102",
+          "count": 1
+        },
+        {
+          "gmnotes": "210",
+          "count": 1
+        },
+        {
+          "gmnotes": "302",
+          "count": 1
+        },
+        {
+          "gmnotes": "303",
+          "count": 1
+        },
+        {
+          "gmnotes": "103",
+          "count": 1
+        },
+        {
+          "gmnotes": "409",
+          "count": 1
+        },
+        {
+          "gmnotes": "407",
+          "count": 1
+        },
+        {
+          "gmnotes": "308",
+          "count": 1
+        },
+        {
+          "gmnotes": "305",
+          "count": 1
+        },
+        {
+          "gmnotes": "402",
+          "count": 1
+        },
+        {
+          "gmnotes": "403",
+          "count": 1
+        },
+        {
+          "gmnotes": "404",
+          "count": 1
+        },
+        {
+          "gmnotes": "406",
+          "count": 1
+        },
+        {
+          "gmnotes": "408",
+          "count": 1
+        },
+        {
+          "gmnotes": "310",
+          "count": 1
+        },
+        {
+          "gmnotes": "304",
+          "count": 1
+        },
+        {
+          "gmnotes": "206",
+          "count": 1
+        },
+        {
+          "gmnotes": "307",
+          "count": 1
+        },
+        {
+          "gmnotes": "306",
+          "count": 1
+        },
+        {
+          "gmnotes": "108",
+          "count": 1
+        },
+        {
+          "gmnotes": "101",
+          "count": 1
+        },
+        {
+          "gmnotes": "405",
+          "count": 1
+        },
+        {
+          "gmnotes": "410",
+          "count": 1
+        },
+        {
+          "gmnotes": "309",
+          "count": 1
+        },
+        {
+          "gmnotes": "105",
+          "count": 1
+        },
+        {
+          "gmnotes": "107",
+          "count": 1
+        },
+        {
+          "gmnotes": "18",
+          "count": 1
+        },
+        {
+          "gmnotes": "100",
+          "count": 1
+        },
+        {
+          "gmnotes": "200",
+          "count": 1
+        },
+        {
+          "gmnotes": "300",
+          "count": 1
+        },
+        {
+          "gmnotes": "400",
+          "count": 1
+        },
+        {
+          "gmnotes": "xyrianAllegiance",
+          "count": 1
+        },
+        {
+          "gmnotes": "xyrianActivationDiscard",
+          "count": 1
+        },
+        {
+          "gmnotes": "hibernatoriumOff",
+          "count": 1
+        },
+        {
+          "gmnotes": "xyrianToken",
+          "count": 1
+        },
+        {
+          "gmnotes": "trap",
+          "count": 1
+        },
+        {
+          "gmnotes": "carcass",
+          "count": 1
+        }
+      ],
+      "boundary": "GMNotes are source-local functional tags/state labels; numeric and expansion tags are not canonical rules vocabulary."
+    },
+    "cardProvenanceInventory": {
+      "path": "assets/tts-mod/extract/card-provenance-inventory.json",
+      "sha256": "49f2d27a2f3da1ef2a1fe35e8bcf2848940ffbe47549cb0de24710ea1c0c5a66",
+      "kind": "array",
+      "count": 235,
+      "elementKeys": [
+        "file",
+        "keys",
+        "objects",
+        "refs",
+        "url"
+      ]
+    },
+    "selectedEvidenceRegistry": {
+      "path": "assets/tts-mod/extract/selected-card-text-evidence.json",
+      "sha256": "b696b6c15b547c50f32554c6e93d4d6a1ad13e41cc1f748472870a436e0e93ef",
+      "entryCount": 384,
+      "runCount": 384,
+      "uniqueSourceTupleCount": 384
+    }
+  },
+  "conflictInventory": {
+    "corpusRecordsExplicitlyMentioningBgaConflictOrSecondaryBoundary": 156,
+    "sourcePaths": [
+      "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-01.png",
+      "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-02.png",
+      "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-05.png",
+      "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-06.png",
+      "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-07.png",
+      "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-08.png",
+      "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-10.png",
+      "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-11.png",
+      "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-12.png",
+      "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-15.png",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-160_cards/card-03.png",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-160_cards/card-05.png",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoop/objectiveCoop-003.jpg",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoop/objectiveCoop-012.jpg",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoop/objectiveCoop-015.jpg",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoopCustomDeck-002.jpg",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoopCustomDeck-007.jpg",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoopCustomDeck-008.jpg",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoopCustomDeck-011.jpg",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoopCustomDeck-048.jpg",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoopCustomDeck-049.jpg",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoopCustomDeck-071.jpg",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoopCustomDeck-075.jpg",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoopCustomDeck-077.jpg",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoopCustomDeck-079.jpg",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoopCustomDeck-080.jpg",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoopCustomDeck-082.jpg",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoopCustomDeck-089.jpg",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoopCustomDeck-102.jpg",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoopCustomDeck-103.jpg",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoopCustomDeck-105.jpg",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoopCustomDeck-106.jpg",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoopCustomDeck-111.jpg",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoopCustomDeck-119.jpg",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoopCustomDeck-121.jpg",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoopCustomDeck-122.jpg",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoopCustomDeck-124.jpg",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoopCustomDeck-127.jpg",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoopCustomDeck-129.jpg",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoopCustomDeck-168.jpg",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveCoopCustomDeck-169.jpg",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-060.jpg",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-070.jpg",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-162_cards/card-00.png",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-162_cards/card-01.png",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-162_cards/card-02.png",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-162_cards/card-03.png",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-162_cards/card-04.png",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-162_cards/card-05.png",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-162_cards/card-06.png",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-162_cards/card-07.png",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-162_cards/card-08.png",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-162_cards/card-09.png",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-162_cards/card-10.png",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-162_cards/card-11.png",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-162_cards/card-12.png",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-162_cards/card-13.png",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-162_cards/card-14.png",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-162_cards/card-15.png",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-162_cards/card-16.png",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-162_cards/card-17.png",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-162_cards/card-18.png",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-162_cards/card-19.png",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-162_cards/card-20.png",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/objectivePersonalDeck-014.jpg",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/objectivePersonalDeck-043.jpg",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/objectivePersonalDeck-066.jpg",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/objectivePersonalDeck-091.jpg",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/objectivePersonalDeck-095.jpg",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/objectivePersonalDeck-156.jpg",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/objectivePersonalDeck-157.jpg",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/objectivePersonalDeck-158.jpg",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/objectivePersonalDeck-159.jpg",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/objectivePersonalDeck-161.jpg",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/queenHealthDeck-013.png",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/queenHealthDeck-038.png",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/queenHealthDeck-040.png",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/queenHealthDeck-041.png",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/queenHealthDeck-045.png",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/queenHealthDeck-084.png",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/queenHealthDeck-126.png",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/queenHealthDeck-164.png",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/queenHealthDeck-165.png",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/reditem-059.png",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/reditem-112.png",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/reditem-117.png",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/reditem-148_cards/card-00.png",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/reditem-148_cards/card-01.png",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/reditem-148_cards/card-02.png",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/reditem-148_cards/card-03.png",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/reditem-148_cards/card-05.png",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/reditem-148_cards/card-06.png",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/reditem-148_cards/card-07.png",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/robotDeck-155.jpg",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/robotDeck-173.jpg",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/robotDeck-175.jpg",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/seriouswound-028.png",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/seriouswound-104.png",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/seriouswound-149_cards/card-00.png",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/seriouswound-149_cards/card-01.png",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/seriouswound-149_cards/card-02.png",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/seriouswound-149_cards/card-03.png",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/seriouswound-149_cards/card-04.png",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/seriouswound-149_cards/card-05.png",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/seriouswound-149_cards/card-06.png",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/seriouswound-149_cards/card-07.png",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/seriouswound-149_cards/card-08.png",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-005.png",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-030.png",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-033.png",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-042.png",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-044.png",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-046.jpg",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-055.jpg",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-067.jpg",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-073.jpg",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-074.jpg",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-083.jpg",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-085.jpg",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-088.jpg",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-098.jpg",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-108.jpg",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-114.jpg",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-118.jpg",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-131.png",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-136.jpg",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-141.jpg",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-144_cards/card-01.png",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-144_cards/card-02.png",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-144_cards/card-03.png",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-144_cards/card-05.png",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-144_cards/card-06.png",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-144_cards/card-07.png",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-144_cards/card-08.png",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-144_cards/card-09.png",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-144_cards/card-11.png",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-144_cards/card-12.png",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-144_cards/card-14.png",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-144_cards/card-15.png",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-144_cards/card-16.png",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-144_cards/card-17.png",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-163.png",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-171.jpg",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/yellowitem-021.png",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/yellowitem-050.png",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/yellowitem-143.jpg",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/yellowitem-145_cards/card-00.png",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/yellowitem-145_cards/card-02.png",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/yellowitem-145_cards/card-03.png",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/yellowitem-146_cards/card-00.png",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/yellowitem-146_cards/card-02.png",
+      "assets/tts-mod/extract/v2-dl/tree/cards/game/yellowitem-146_cards/card-03.png",
+      "assets/tts-mod/extract/v2-dl/tree/cards/reference/card-034_cards/card-05.png",
+      "assets/tts-mod/extract/v2-dl/tree/cards/reference/card-053.png",
+      "assets/tts-mod/extract/v2-dl/tree/cards/reference/card-069.png",
+      "assets/tts-mod/extract/v2-dl/tree/cards/reference/objectives-help-sheet-page-2.jpg"
+    ],
+    "structuredCountBoundaries": [
+      {
+        "table": "ROOMS_DATA",
+        "structuredKeyCount": 25,
+        "officialPhysicalCount": 23,
+        "officialHelpEntryCount": 25,
+        "handling": "Keep all three counts scoped; do not equate Help entries or structured keys with physical tile copies."
+      },
+      {
+        "table": "CORRIDORS_DATA",
+        "structuredKeyCount": 44,
+        "officialPhysicalCount": 40,
+        "handling": "Structured keys are not accepted as physical copy inventory."
+      },
+      {
+        "table": "INTRUDER_ATTACKS_DATA",
+        "structuredKeyCount": 15,
+        "officialPhysicalCount": 20,
+        "handling": "Display/type variants and physical duplicates make counts non-isomorphic."
+      },
+      {
+        "table": "SERIOUS_WOUNDS_DATA",
+        "structuredKeyCount": 9,
+        "officialPhysicalCount": 27,
+        "handling": "Structured unique wound types are distinct from physical card copies."
+      },
+      {
+        "table": "ITEMS_DATA",
+        "structuredKeyCount": 57,
+        "officialItemCards": 90,
+        "officialCharacterItemCards": 7,
+        "officialSupportEquipmentCards": 24,
+        "handling": "One structured table spans selected item families/types and cannot replace official deck/copy inventory."
+      },
+      {
+        "table": "MISSIONS_OBJECTIVES_DATA",
+        "structuredKeyCount": 38,
+        "handling": "Table combines Mission Tasks, standard Objectives, and Solo/Coop records; preserve scoped object keys and mode fields."
+      }
+    ],
+    "duplicateDisplayNameBoundary": "Display names are not keys. BGA table/object keys and scope remain the only source-local identifiers; duplicate names are retained in structuredIndex.tables[].duplicateDisplayNames."
+  },
+  "counts": {
+    "bgaCopiesVerified": 4,
+    "bgaDistinctHashes": 1,
+    "bgaTopLevelTables": 11,
+    "bgaStructuredRecords": 298,
+    "ttsStructuredFiles": 6,
+    "ttsLuaRoleRecords": 159,
+    "ttsGmnotesTagRows": 172,
+    "ttsGmnotesTaggedOccurrences": 1267,
+    "selectedEvidenceEntries": 384,
+    "selectedEvidenceRuns": 384,
+    "corpusRecordsWithBgaConflictBoundary": 156
+  },
+  "extractionStatus": "complete: one immutable BGA snapshot indexed; four copies proven identical; six TTS structured channels hashed, counted, and bounded as secondary provenance"
+}

@@ -90,9 +90,9 @@ The card/reference evidence corpus and extraction provenance are under `assets/t
 
 ## Current Phase
 
-The active phase is **base-game source extraction before vocabulary design**.
+The active phase is **canonical vocabulary and source-scoped aliases after a passed extraction gate**.
 
-The immediate deliverable is secondary-evidence closure: consolidate one immutable BGA build 260622-1220 snapshot, index all base-relevant structured sections, prove the four collected copies are exact duplicates, and close TTS Lua/object/GMNotes metadata as provenance and deck-role evidence. Secondary evidence may expose conflicts but must not override official sources; do not begin canonical naming or semantic normalization.
+The immediate deliverable is a source-traceable controlled vocabulary: inventory official/base terms, preserve source spellings and versioned aliases, select canonical terms only under the authority order, and record ambiguity/conflict blockers without collapsing them. Do not begin taxonomy/ontology relationships or a semantic effect language until the vocabulary/alias layer is reviewed and validated.
 
 See `PROJECT_STATUS.md` and `docs/rules/source-extraction/extraction-roadmap.md` for the verified checkpoint and subsequent order.
 
