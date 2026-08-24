@@ -1959,6 +1959,13 @@ task workspace.
 - [ ] Owner gate VG-001: `PERSONAL OBJECTIVE` → source-scoped alias of `Private Objective`.
 - [ ] Owner gate VG-002: `Drilling Room` → alias of named component `DRILLING STATION`.
 
+## DONE — Independent Room Help fidelity hardening (2026-08-24T10:04:12Z)
+
+- [x] Independent 25-entry audit found no material discrepancy in wording, punctuation, grouping, notes, cross-references, 112 icon occurrences, 39 inline references, or unreadability status.
+- [x] Extended evidence crops for entries 05, 08, 11, and 12 to include all of their own notes.
+- [x] Added a pinned independent source-fidelity lock, full PDF text-layer/render identity checks, exact per-entry projections, provenance checks, and hard-coded completeness totals.
+- [x] Added negative controls proving coordinated extraction/layout edits, missing icons, blank/semantic morphology, unreadability drift, incomplete crops, and bad provenance are rejected.
+
 ## LATER — Expansions (re-add when user wants them)
 - [ ] Re-extract expansion content from save (see `assets/tts-mod/notes/extraction.md` §15 for all deck GUIDs, intruder bags,
       shared action-154 cells, and classification pitfalls)

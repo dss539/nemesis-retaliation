@@ -67,6 +67,7 @@ def main() -> None:
         'rulebook-visual-obligations.json',
         'room-help-sheet.json',
         'room-help-sheet-layout.json',
+        'room-help-sheet-source-fidelity-lock.json',
         'secondary-evidence-index.json',
         'secondary-source-inventory.json',
     ]
@@ -197,6 +198,23 @@ def main() -> None:
     if closure_run.returncode != 0 or not closure_report.get('passed'):
         failures.append({'check': 'extraction closure gate', 'report': closure_report})
     closure_checks = closure_report.get('checks') or {}
+
+    # Verify Room Help content against the independently audited and pinned
+    # source-fidelity lock. This catches coordinated extraction/layout edits,
+    # source-icon omissions, incomplete crops, and verbatim text drift.
+    room_fidelity_run = subprocess.run(
+        ['python3', str(REPO / 'scripts/validate_room_help_source_fidelity.py')],
+        check=False,
+        text=True,
+        capture_output=True,
+    )
+    try:
+        room_fidelity_report = json.loads(room_fidelity_run.stdout)
+    except json.JSONDecodeError:
+        room_fidelity_report = {'passed': False, 'checks': {}, 'failures': [{'check': 'invalid validator output', 'stderr': room_fidelity_run.stderr}]}
+    if room_fidelity_run.returncode != 0 or not room_fidelity_report.get('passed'):
+        failures.append({'check': 'Room Help independent source fidelity', 'report': room_fidelity_report})
+    room_fidelity_checks = room_fidelity_report.get('checks') or {}
 
     # Verify Intruder Help source pairs, extraction completeness, and selected evidence lineage.
     if intruder.get('component') != 'Intruder Help Sheet' or len(intruder.get('sides') or []) != 2:
@@ -336,8 +354,18 @@ def main() -> None:
         'entriesWithCrossReferences': sum(bool(row.get('crossReferences')) for row in help_entries),
         'materialUnreadableSpans': unreadable_count,
     }
-    if room_help.get('counts') != recomputed_help_counts or recomputed_help_counts.get('materialUnreadableSpans') != 0:
-        failures.append({'check': 'Room Help extraction counts', 'expected': recomputed_help_counts, 'actual': room_help.get('counts')})
+    required_help_counts = {
+        'entries': 25,
+        'byPrintedSectionMarker': {'?': 13, 'A': 4, 'B': 4, 'C': 4},
+        'byPage': {'1': 13, '2': 12},
+        'functionalIconOccurrences': 112,
+        'effectAndNoteIconReferences': 39,
+        'entriesWithAssociatedNotes': 18,
+        'entriesWithCrossReferences': 5,
+        'materialUnreadableSpans': 0,
+    }
+    if room_help.get('counts') != recomputed_help_counts or recomputed_help_counts != required_help_counts:
+        failures.append({'check': 'Room Help extraction counts', 'expected': required_help_counts, 'recomputed': recomputed_help_counts, 'actual': room_help.get('counts')})
 
     # Verify the Objective Help layout/extraction, including repeated terms and physical occlusion boundaries.
     objective_source = objective_help.get('source') or {}
@@ -479,6 +507,10 @@ def main() -> None:
             'roomHelpFunctionalIconOccurrences': len(help_occurrences),
             'roomHelpEffectAndNoteIconReferences': help_placeholders,
             'roomHelpMaterialUnreadableSpans': unreadable_count,
+            'roomHelpExactSourceProjectionsVerified': room_fidelity_checks.get('entryExactProjectionsVerified'),
+            'roomHelpAuditedCropCoverageBoxesVerified': room_fidelity_checks.get('auditedCropCoverageBoxesVerified'),
+            'roomHelpPinnedFidelityLockSha256': room_fidelity_checks.get('pinnedLockSha256'),
+            'roomHelpPdfTextLayerSha256': room_fidelity_checks.get('pdfTextLayerSha256'),
             'objectiveHelpSourceUnits': len(objective_units),
             'objectiveHelpFullyVisibleAndExtracted': objective_full_units,
             'objectiveHelpPartiallyOccluded': objective_partial_units,

@@ -21,6 +21,7 @@ ontology, or semantic rule model is designed.
 - `intruder-help-sheet.json` — verbatim source-bound extraction of both base Intruder Help Sheet sides.
 - `room-help-sheet-layout.json` — visual page/grid inventory of all 25 printed Room entries.
 - `room-help-sheet.json` — complete source-bound extraction of all 25 Room effects, notes, literal functional-icon occurrences, and visual evidence.
+- `room-help-sheet-source-fidelity-lock.json` — independently audited exact projection of all 25 entries, pinned source/text-layer/render hashes, 112 icon occurrences, 39 inline references, and required evidence crops.
 - `objective-help-sheet-layout.json` — page/layout and visibility inventory for 45 Objective Help source units.
 - `objective-help-sheet.json` — source-bound extraction of 35 fully visible units plus explicit pixel/text-layer boundaries for 10 physically occluded card occurrences.
 - `player-help-source-extraction.json` — ten numbered Player Help fronts, shared functional PASS side, template equivalence, TTS roles, and source conflicts.

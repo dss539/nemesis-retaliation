@@ -79,7 +79,10 @@
         "entriesWithCrossReferences": 5,
         "materialUnreadableSpans": 0
       },
-      "evidencePath": "docs/rules/source-extraction/room-help-sheet.json"
+      "evidencePath": "docs/rules/source-extraction/room-help-sheet.json",
+      "sourceFidelityLock": "docs/rules/source-extraction/room-help-sheet-source-fidelity-lock.json",
+      "sourceFidelityValidator": "scripts/validate_room_help_source_fidelity.py",
+      "sourceFidelityStatus": "independently audited: 25 exact projections and 25 complete evidence crops verified; corruption negative controls pass"
     },
     {
       "channelId": "official-objective-help",
@@ -230,7 +233,9 @@
         "rulebook-visual-obligations.json",
         "faq-v1.2-source-extraction.json",
         "room-help-sheet.json",
-        "objective-help-sheet.json"
+        "objective-help-sheet.json",
+        "room-help-sheet-source-fidelity-lock.json",
+        "scripts/validate_room_help_source_fidelity.py"
       ]
     },
     {

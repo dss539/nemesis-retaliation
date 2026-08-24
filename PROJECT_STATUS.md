@@ -78,10 +78,13 @@ After each decision, update the alias registry and review-gate record with exact
   - all 80 only partially represented by text extraction because graphical structure is lost
 - Intruder Help Sheet: both sides extracted source-bound
 - Intruder Help instructions: **18/18**
-- Room Help Sheet: **25/25 entries extracted source-bound**
+- Room Help Sheet: **25/25 entries extracted source-bound and independently locked**
+  - 25 exact source projections verified
+  - 25 complete audited evidence crops verified
   - 112 literal functional-icon occurrences
   - 39 effect/note icon references
   - 0 unreadable operative spans
+  - corruption negative controls reject verbatim, icon, crop, provenance, unreadability, and coordinated-layout drift
 - Objective Help Sheet: **45/45 source units inventoried**
   - 35 fully visible units extracted source-bound
   - 10 physically occluded units retained with explicit visibility boundaries
@@ -121,7 +124,7 @@ Machine-readable evidence: `docs/rules/source-extraction/validation.json`.
 - Re-derived the official icon glossary and recorded reviewed source-scoped artwork resolutions without generalizing by appearance.
 - Completed an eight-item manual review sample and applied all corrections.
 - Extracted both Intruder Help Sheet sides without introducing canonical vocabulary.
-- Extracted all 25 official Room Help Sheet entries with effects, notes, literal functional-icon occurrences, and reproducible visual evidence.
+- Extracted all 25 official Room Help Sheet entries with effects, notes, literal functional-icon occurrences, and reproducible visual evidence; an independent 25-entry audit found no material discrepancy, four incomplete crop extents were corrected, and a pinned fidelity lock plus corruption suite now enforces the result.
 - Extracted the official Objective Help Sheet at its source boundary: all 45 units inventoried, all visible wording retained, physical occlusions explicit, repeated page terms preserved, and hidden text-layer data not promoted to visible-face evidence.
 - Closed all 13 card-gap reviews at their source boundary: nine complete rules reads, three non-rules classifications, one exact-source blocker, and one recovered punctuation correction; prior selected worker evidence remains immutable history.
 - Completed a blind rendered-page census of all 40 official rulebook pages and recorded 80 visual units with explicit text-layer coverage, including setup/map topology, component/card anatomy, token/die state keys, worked examples, and the 49-icon glossary.
