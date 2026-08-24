@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
   "recordType": "vocabulary-owner-review-gates",
-  "status": "two genuine canonicalization decisions block vocabulary approval and taxonomy/ontology start",
+  "status": "VG-001 resolved; one canonicalization decision (VG-002) still blocks vocabulary approval and taxonomy/ontology start",
   "counts": {
     "reviewGates": 2,
-    "resolved": 0,
-    "open": 2
+    "resolved": 1,
+    "open": 1
   },
   "gates": [
     {
@@ -19,7 +19,11 @@
       "options": [
         "accept source-scoped alias",
         "retain as unresolved source-variant term"
-      ]
+      ],
+      "status": "resolved",
+      "decision": "accept source-scoped alias",
+      "decidedAt": "2026-08-24T22:45:28Z",
+      "decisionEvidence": "Project owner selected option 1: Accept the source-scoped alias."
     },
     {
       "reviewGateId": "VG-002",
@@ -32,7 +36,8 @@
       "options": [
         "accept alias to Drilling Station",
         "retain as unresolved official naming conflict"
-      ]
+      ],
+      "status": "open"
     }
   ]
 }

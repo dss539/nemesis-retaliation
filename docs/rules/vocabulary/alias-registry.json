@@ -4,8 +4,8 @@
   "policy": "An alias requires explicit official equivalence, exact source-tuple evidence, or owner review. No alias is generalized by color, shape, folder, display-name equality, or technical key similarity.",
   "counts": {
     "aliases": 8,
-    "acceptedAliases": 6,
-    "proposedReviewAliases": 2,
+    "acceptedAliases": 7,
+    "proposedReviewAliases": 1,
     "nonAliasBoundaries": 5,
     "reviewGates": 2
   },
@@ -74,7 +74,7 @@
     {
       "aliasId": "AL-003",
       "aliasText": "PERSONAL OBJECTIVE",
-      "status": "proposed-source-scoped-alias",
+      "status": "accepted-source-scoped-alias",
       "scope": "exact listed TTS component sources only",
       "targetTermId": "term.private-objective",
       "targetNamedIdentityId": null,
@@ -501,7 +501,14 @@
         }
       ],
       "basis": "Final official rulebook/Objective Help uses Private Objective; exact TTS source faces use PERSONAL OBJECTIVE for the corresponding private-objective deck/faces. Preserve the printed source label.",
-      "reviewGateId": "VG-001"
+      "reviewGateId": null,
+      "ownerReview": {
+        "reviewGateId": "VG-001",
+        "decision": "accept source-scoped alias",
+        "decidedAt": "2026-08-24T22:45:28Z",
+        "evidence": "Project owner selected option 1 in direct response to the two-option VG-001 review prompt.",
+        "scopeConfirmation": "Only the exact listed prototype/TTS source tuples; original PERSONAL OBJECTIVE wording and provenance remain preserved."
+      }
     },
     {
       "aliasId": "AL-004",

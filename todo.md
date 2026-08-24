@@ -1954,9 +1954,9 @@ task workspace.
 - [x] Inventoried 1,853 observed source-term occurrences across all closed official/component/card/secondary channels.
 - [x] Separated 643 named component/title/key occurrences into 501 exact-string-only identity groups.
 - [x] Proposed 167 controlled vocabulary entries: 50 accepted existing icon terms and 117 authority-derived labels.
-- [x] Registered 8 aliases (6 accepted, 2 proposed) plus 5 non-alias guardrails; no appearance-wide or duplicate-name aliasing is permitted.
+- [x] Registered 8 aliases (7 accepted, 1 proposed) plus 5 non-alias guardrails; no appearance-wide or duplicate-name aliasing is permitted.
 - [x] Validation passes with no taxonomy/ontology/semantic artifacts.
-- [ ] Owner gate VG-001: `PERSONAL OBJECTIVE` → source-scoped alias of `Private Objective`.
+- [x] Owner gate VG-001: accepted `PERSONAL OBJECTIVE` → source-scoped alias of `Private Objective` for exact listed tuples; original wording/provenance preserved.
 - [ ] Owner gate VG-002: `Drilling Room` → alias of named component `DRILLING STATION`.
 
 ## DONE — Independent Room Help fidelity hardening (2026-08-24T10:04:12Z)

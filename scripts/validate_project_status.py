@@ -111,8 +111,8 @@ def main() -> None:
         f"  - {vocab_validation['checks']['proposedAuthorityDerivedTerms']} authority-derived canonical-label proposals",
         f"- {vocab_validation['checks']['aliasEntries']} alias entries",
         f"  - {vocab_validation['checks']['acceptedAliases']} accepted explicit/source-scoped aliases",
-        f"  - {vocab_validation['checks']['proposedReviewAliases']} proposed aliases awaiting owner review",
-        f"- {vocab_validation['checks']['openReviewGates']} open review gates; taxonomy/ontology has not started",
+        f"  - {vocab_validation['checks']['proposedReviewAliases']} proposed alias" + ("" if vocab_validation['checks']['proposedReviewAliases'] == 1 else "es") + " awaiting owner review",
+        f"- {vocab_validation['checks']['openReviewGates']} open review gate" + ("" if vocab_validation['checks']['openReviewGates'] == 1 else "s") + "; taxonomy/ontology has not started",
     ]
     for fragment in expected_fragments:
         require(fragment in status, f"PROJECT_STATUS.md count drift: expected {fragment!r}", failures)

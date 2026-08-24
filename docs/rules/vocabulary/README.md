@@ -8,7 +8,7 @@ This directory is the first post-extraction layer. It proposes controlled labels
 - `named-component-identities.json` — Room/card/reference/BGA-key observations grouped only by normalized exact-string equality.
 - `canonical-vocabulary.json` — 50 already accepted icon-glossary terms plus 117 authority-derived canonical-label proposals.
 - `alias-registry.json` — accepted explicit/source-scoped aliases, proposed aliases requiring review, and explicit non-alias guardrails.
-- `vocabulary-review-gates.json` — the two genuine owner decisions that remain before this proposal can be approved.
+- `vocabulary-review-gates.json` — owner decisions and evidence; VG-001 is resolved and VG-002 remains open.
 - `coverage.json` — mechanical coverage and intentional non-canonicalization report.
 
 ## Authority and boundaries
@@ -35,9 +35,12 @@ The existing reviewed legacy artwork mappings remain restricted to the exact sou
 
 ## Current review gate
 
-Two proposed mappings remain open:
+Resolved:
 
-1. `PERSONAL OBJECTIVE` → `Private Objective`, restricted to listed TTS/prototype source tuples.
-2. `Drilling Room` → the named official component `DRILLING STATION`.
+- `VG-001`: accepted `PERSONAL OBJECTIVE` → `Private Objective`, restricted to the exact listed TTS/prototype source tuples. Original wording and provenance remain preserved.
 
-Taxonomy/ontology work must not begin until these are resolved and the vocabulary validator reports no open review gates.
+Still open:
+
+- `VG-002`: `Drilling Room` → the named official component `DRILLING STATION`.
+
+Taxonomy/ontology work must not begin until VG-002 is resolved and the vocabulary validator reports no open review gates.

@@ -92,7 +92,7 @@ The card/reference evidence corpus and extraction provenance are under `assets/t
 
 The active phase is **canonical vocabulary and source-scoped aliases after a passed extraction gate**.
 
-The vocabulary proposal is built and validated. The immediate gate is project-owner review of exactly two canonicalization decisions in `docs/rules/vocabulary/vocabulary-review-gates.json`: PERSONAL OBJECTIVE → Private Objective for listed TTS source tuples, and Drilling Room → DRILLING STATION for the official Room identity. Ask one decision at a time. Do not begin taxonomy/ontology or semantic effects until both gates are resolved and vocabulary validation reports zero open review gates.
+The vocabulary proposal is built and validated. VG-001 is resolved: PERSONAL OBJECTIVE is an accepted alias of Private Objective only for the exact listed TTS/prototype source tuples, with original wording and provenance preserved. The immediate gate is project-owner review of VG-002 in `docs/rules/vocabulary/vocabulary-review-gates.json`: Drilling Room → DRILLING STATION for the official Room identity. Do not begin taxonomy/ontology or semantic effects until VG-002 is resolved and vocabulary validation reports zero open review gates.
 
 See `PROJECT_STATUS.md` and `docs/rules/source-extraction/extraction-roadmap.md` for the verified checkpoint and subsequent order.
 

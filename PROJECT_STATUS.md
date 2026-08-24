@@ -13,12 +13,13 @@ The current implementation remains frozen. Taxonomy/ontology relationships and s
 
 ## Immediate Next Deliverable
 
-Resolve the **two genuine vocabulary owner-review gates**, one at a time:
+Resolve the **final vocabulary owner-review gate, VG-002**:
 
-1. Decide whether `PERSONAL OBJECTIVE` on the listed prototype/TTS faces is a source-scoped alias of final official `Private Objective`.
-2. Decide whether official-rulebook `Drilling Room` is an alias of the official component/FAQ title `DRILLING STATION`.
+- Decide whether official-rulebook `Drilling Room` is an alias of the official component/FAQ title `DRILLING STATION`.
 
-After each decision, update the alias registry and review-gate record with exact evidence. Taxonomy/ontology remains blocked until both are resolved and vocabulary validation reports zero open gates.
+VG-001 is resolved: `PERSONAL OBJECTIVE` is accepted as a source-scoped alias of `Private Objective` only for the exact listed prototype/TTS tuples, with original wording and provenance preserved.
+
+After VG-002, update the alias registry and review-gate record with exact evidence. Taxonomy/ontology remains blocked until vocabulary validation reports zero open gates.
 
 ## Verified Checkpoint
 
@@ -110,10 +111,10 @@ Machine-readable evidence: `docs/rules/source-extraction/validation.json`.
   - 50 accepted existing icon-glossary terms
   - 117 authority-derived canonical-label proposals
 - 8 alias entries
-  - 6 accepted explicit/source-scoped aliases
-  - 2 proposed aliases awaiting owner review
+  - 7 accepted explicit/source-scoped aliases
+  - 1 proposed alias awaiting owner review
 - 5 explicit non-alias guardrails
-- 2 open review gates; taxonomy/ontology has not started
+- 1 open review gate; taxonomy/ontology has not started
 - `scripts/validate_vocabulary_proposal.py`: **passed with 0 failures**
 
 ## Completed Milestones
@@ -132,12 +133,12 @@ Machine-readable evidence: `docs/rules/source-extraction/validation.json`.
 - Extracted all ten TTS Player Help fronts and their shared functional PASS side; proved one instruction-text variant and two raster-template groups, retained FaceURL/BackURL roles, and recorded count/phase-sequence conflicts with current official sources.
 - Consolidated licensed-digital build 260622-1220 into one immutable snapshot, indexed 11 tables/298 scoped records, and closed six TTS structured channels as secondary provenance with explicit count/name/conflict boundaries.
 - Passed the final nine-channel extraction closure audit: every source channel is extracted/indexed, all six gate criteria pass, no graphical units remain, and the one exact-source blocker remains explicit.
-- Built and validated the first vocabulary proposal: 1,853 source occurrences, 501 named-identity groups, 167 controlled entries, 8 aliases, 5 non-alias guardrails, and 2 explicit owner-review gates; no taxonomy/ontology artifacts exist.
+- Built and validated the first vocabulary proposal: 1,853 source occurrences, 501 named-identity groups, 167 controlled entries, 8 aliases, and 5 non-alias guardrails; VG-001 is resolved, VG-002 remains open, and no taxonomy/ontology artifacts exist.
 - Created the closed source inventory, card-gap inventory, secondary-source inventory, Room layout inventory, roadmap, and deterministic validator.
 
 ## Remaining Work — Ordered
 
-1. **Resolve two vocabulary owner-review gates** and approve the controlled term/alias layer.
+1. **Resolve final vocabulary owner-review gate VG-002** and approve the controlled term/alias layer.
 2. **Taxonomy/ontology** — define classes and relationships only after vocabulary validation reports zero open gates.
 3. **Semantic rules layer** — model timing, choices, visibility, costs, targets, and state transitions after ontology review.
 4. Define implementation-readiness criteria and seek explicit approval before a clean rewrite.
@@ -187,7 +188,7 @@ All of the following are true:
 ## Known Current Blockers and Open Evidence
 
 - One prototype `FACILITY RESTART` face visibly ends a condition at “Systems must be”; no following mark is recoverable from the exact pixels, and materially different same-title/current-official variants cannot be substituted.
-- Vocabulary review gates `VG-001` (`PERSONAL OBJECTIVE`) and `VG-002` (`Drilling Room`) require project-owner decisions before taxonomy/ontology.
+- Vocabulary gate `VG-001` is resolved as a strict source-scoped alias; `VG-002` (`Drilling Room`) still requires the project-owner decision before taxonomy/ontology.
 - The 25 Room Help entries versus 23 Room tiles relationship is unresolved.
 - Source/version conflicts remain in several card families and must not be flattened.
 - Genuine rules ambiguities remain in `docs/rules/open-questions.md`; some stale extraction blockers there must later be re-audited against newly collected evidence.
