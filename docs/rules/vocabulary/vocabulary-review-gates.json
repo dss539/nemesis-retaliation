@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "recordType": "vocabulary-owner-review-gates",
+  "status": "two genuine canonicalization decisions block vocabulary approval and taxonomy/ontology start",
+  "counts": {
+    "reviewGates": 2,
+    "resolved": 0,
+    "open": 2
+  },
+  "gates": [
+    {
+      "reviewGateId": "VG-001",
+      "question": "Should PERSONAL OBJECTIVE on the listed prototype/TTS faces be accepted as a source-scoped alias of the final official term Private Objective?",
+      "recommendedDecision": "accept source-scoped alias",
+      "whyDecisionNeeded": "The mapping is strongly supported by deck/face/title correspondence, but the printed source term differs and the user requested reviewed canonicalization rather than silent collapse.",
+      "affectedAliasIds": [
+        "AL-003"
+      ],
+      "options": [
+        "accept source-scoped alias",
+        "retain as unresolved source-variant term"
+      ]
+    },
+    {
+      "reviewGateId": "VG-002",
+      "question": "Should the rulebook phrase Drilling Room be accepted as an alias of the official component title Drilling Station?",
+      "recommendedDecision": "accept official-primary-to-component alias",
+      "whyDecisionNeeded": "Two official channels use different names for the apparently corresponding Section A Room. Component/FAQ wording is more specific, but this is still an internal official naming inconsistency.",
+      "affectedAliasIds": [
+        "AL-004"
+      ],
+      "options": [
+        "accept alias to Drilling Station",
+        "retain as unresolved official naming conflict"
+      ]
+    }
+  ]
+}

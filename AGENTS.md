@@ -92,7 +92,7 @@ The card/reference evidence corpus and extraction provenance are under `assets/t
 
 The active phase is **canonical vocabulary and source-scoped aliases after a passed extraction gate**.
 
-The immediate deliverable is a source-traceable controlled vocabulary: inventory official/base terms, preserve source spellings and versioned aliases, select canonical terms only under the authority order, and record ambiguity/conflict blockers without collapsing them. Do not begin taxonomy/ontology relationships or a semantic effect language until the vocabulary/alias layer is reviewed and validated.
+The vocabulary proposal is built and validated. The immediate gate is project-owner review of exactly two canonicalization decisions in `docs/rules/vocabulary/vocabulary-review-gates.json`: PERSONAL OBJECTIVE → Private Objective for listed TTS source tuples, and Drilling Room → DRILLING STATION for the official Room identity. Ask one decision at a time. Do not begin taxonomy/ontology or semantic effects until both gates are resolved and vocabulary validation reports zero open review gates.
 
 See `PROJECT_STATUS.md` and `docs/rules/source-extraction/extraction-roadmap.md` for the verified checkpoint and subsequent order.
 

@@ -13,15 +13,12 @@ The current implementation remains frozen. Taxonomy/ontology relationships and s
 
 ## Immediate Next Deliverable
 
-Build the **canonical vocabulary and source-scoped alias layer**:
+Resolve the **two genuine vocabulary owner-review gates**, one at a time:
 
-- inventory every official/base term from FAQ, rulebook, Help sheets, and source-bound components;
-- preserve exact source spelling, capitalization, pluralization, typos, prototype terms, and licensed-digital/TTS variants;
-- select canonical terms only through the authority order, with FAQ/errata above rulebook and official components;
-- distinguish true synonyms from broader/narrower concepts and artwork-only/source-local labels;
-- assign aliases only to explicit source tuples or proven general equivalents—never by color/shape resemblance alone;
-- retain unresolved conflicts and the blocked `FACILITY RESTART` span without invention;
-- validate uniqueness, provenance, authority, and complete source-term coverage before taxonomy/ontology begins.
+1. Decide whether `PERSONAL OBJECTIVE` on the listed prototype/TTS faces is a source-scoped alias of final official `Private Objective`.
+2. Decide whether official-rulebook `Drilling Room` is an alias of the official component/FAQ title `DRILLING STATION`.
+
+After each decision, update the alias registry and review-gate record with exact evidence. Taxonomy/ontology remains blocked until both are resolved and vocabulary validation reports zero open gates.
 
 ## Verified Checkpoint
 
@@ -101,6 +98,21 @@ Build the **canonical vocabulary and source-scoped alias layer**:
 
 Machine-readable evidence: `docs/rules/source-extraction/validation.json`.
 
+
+### Vocabulary proposal
+
+- 1,853 observed source-term occurrences / 1,194 normalized exact-string keys
+- 643 named-identity source occurrences / 501 exact-string groups
+- 167 controlled vocabulary entries
+  - 50 accepted existing icon-glossary terms
+  - 117 authority-derived canonical-label proposals
+- 8 alias entries
+  - 6 accepted explicit/source-scoped aliases
+  - 2 proposed aliases awaiting owner review
+- 5 explicit non-alias guardrails
+- 2 open review gates; taxonomy/ontology has not started
+- `scripts/validate_vocabulary_proposal.py`: **passed with 0 failures**
+
 ## Completed Milestones
 
 - Downloaded, classified, and reconciled the base-game TTS asset tree.
@@ -117,12 +129,13 @@ Machine-readable evidence: `docs/rules/source-extraction/validation.json`.
 - Extracted all ten TTS Player Help fronts and their shared functional PASS side; proved one instruction-text variant and two raster-template groups, retained FaceURL/BackURL roles, and recorded count/phase-sequence conflicts with current official sources.
 - Consolidated licensed-digital build 260622-1220 into one immutable snapshot, indexed 11 tables/298 scoped records, and closed six TTS structured channels as secondary provenance with explicit count/name/conflict boundaries.
 - Passed the final nine-channel extraction closure audit: every source channel is extracted/indexed, all six gate criteria pass, no graphical units remain, and the one exact-source blocker remains explicit.
+- Built and validated the first vocabulary proposal: 1,853 source occurrences, 501 named-identity groups, 167 controlled entries, 8 aliases, 5 non-alias guardrails, and 2 explicit owner-review gates; no taxonomy/ontology artifacts exist.
 - Created the closed source inventory, card-gap inventory, secondary-source inventory, Room layout inventory, roadmap, and deterministic validator.
 
 ## Remaining Work — Ordered
 
-1. **Canonical vocabulary and source-scoped aliases** — build and review the controlled term layer now that extraction passed.
-2. **Taxonomy/ontology** — define classes and relationships only after vocabulary validation.
+1. **Resolve two vocabulary owner-review gates** and approve the controlled term/alias layer.
+2. **Taxonomy/ontology** — define classes and relationships only after vocabulary validation reports zero open gates.
 3. **Semantic rules layer** — model timing, choices, visibility, costs, targets, and state transitions after ontology review.
 4. Define implementation-readiness criteria and seek explicit approval before a clean rewrite.
 
@@ -171,6 +184,7 @@ All of the following are true:
 ## Known Current Blockers and Open Evidence
 
 - One prototype `FACILITY RESTART` face visibly ends a condition at “Systems must be”; no following mark is recoverable from the exact pixels, and materially different same-title/current-official variants cannot be substituted.
+- Vocabulary review gates `VG-001` (`PERSONAL OBJECTIVE`) and `VG-002` (`Drilling Room`) require project-owner decisions before taxonomy/ontology.
 - The 25 Room Help entries versus 23 Room tiles relationship is unresolved.
 - Source/version conflicts remain in several card families and must not be flattened.
 - Genuine rules ambiguities remain in `docs/rules/open-questions.md`; some stale extraction blockers there must later be re-audited against newly collected evidence.

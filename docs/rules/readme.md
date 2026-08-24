@@ -49,6 +49,12 @@ The wording “must,” “may,” and “cannot” is deliberate:
 - `open-questions.md` — 10 unresolved ambiguities from the source material.
 - `sources.md` — source editions and citation conventions.
 
+## Vocabulary proposal
+
+The post-extraction controlled-term proposal is under `docs/rules/vocabulary/`. Start with `vocabulary/README.md`.
+It currently contains source-term evidence, named identity observations, 167 canonical-label entries, source-scoped aliases,
+coverage, validation, and two owner-review gates. It deliberately contains no taxonomy, ontology, or semantic-effect model.
+
 ## Rule ID conventions
 
 - FND-### — foundations and conventions

@@ -12,6 +12,7 @@ SUPPLEMENT = REPO / "AGENTS-SUPPLEMENT.md"
 README = REPO / "readme.md"
 CORPUS = REPO / "assets/tts-mod/extract/card-text-corpus.json"
 SOURCE_VALIDATION = REPO / "docs/rules/source-extraction/validation.json"
+VOCAB_VALIDATION = REPO / "docs/rules/vocabulary/validation.json"
 
 
 def require(condition: bool, message: str, failures: list[str]) -> None:
@@ -27,6 +28,7 @@ def main() -> None:
     readme = README.read_text(encoding="utf-8")
     corpus = json.loads(CORPUS.read_text(encoding="utf-8"))
     source_validation = json.loads(SOURCE_VALIDATION.read_text(encoding="utf-8"))
+    vocab_validation = json.loads(VOCAB_VALIDATION.read_text(encoding="utf-8"))
 
     require("PROJECT_STATUS.md" in agents, "AGENTS.md must point to PROJECT_STATUS.md", failures)
     require("Current implementation work is out of scope" in agents, "AGENTS.md must freeze legacy implementation work", failures)
@@ -37,6 +39,8 @@ def main() -> None:
             "source-extraction validation must pass", failures)
     require("Canonical vocabulary and source-scoped aliases (extraction gate passed)" in status,
             "PROJECT_STATUS.md must advance to vocabulary phase after closure", failures)
+    require(vocab_validation.get("passed") is True and vocab_validation.get("failureCount") == 0,
+            "vocabulary proposal validation must pass", failures)
 
     counts = corpus["counts"]
     expected_fragments = [
@@ -97,6 +101,15 @@ def main() -> None:
         f"  - {source_validation['checks']['closureRemainingGraphicalSourceUnits']} remaining graphical source units",
         f"  - {source_validation['checks']['closureExplicitBlockers']} explicit exact-source operative blocker retained",
         "  - next phase authorized: canonical vocabulary and source-scoped aliases",
+        f"- {vocab_validation['checks']['sourceTermOccurrences']:,} observed source-term occurrences / {vocab_validation['checks']['uniqueNormalizedSourceKeys']:,} normalized exact-string keys",
+        f"- {vocab_validation['checks']['namedIdentityOccurrences']} named-identity source occurrences / {vocab_validation['checks']['namedIdentityExactStringGroups']} exact-string groups",
+        f"- {vocab_validation['checks']['canonicalVocabularyEntries']} controlled vocabulary entries",
+        f"  - {vocab_validation['checks']['acceptedExistingIconTerms']} accepted existing icon-glossary terms",
+        f"  - {vocab_validation['checks']['proposedAuthorityDerivedTerms']} authority-derived canonical-label proposals",
+        f"- {vocab_validation['checks']['aliasEntries']} alias entries",
+        f"  - {vocab_validation['checks']['acceptedAliases']} accepted explicit/source-scoped aliases",
+        f"  - {vocab_validation['checks']['proposedReviewAliases']} proposed aliases awaiting owner review",
+        f"- {vocab_validation['checks']['openReviewGates']} open review gates; taxonomy/ontology has not started",
     ]
     for fragment in expected_fragments:
         require(fragment in status, f"PROJECT_STATUS.md count drift: expected {fragment!r}", failures)
@@ -115,6 +128,8 @@ def main() -> None:
             "corpusRecords": counts["records"],
             "sourceExtractionPassed": source_validation["passed"],
             "linkedPathsChecked": len(linked_paths),
+            "vocabularyEntries": vocab_validation["checks"]["canonicalVocabularyEntries"],
+            "vocabularyOpenReviewGates": vocab_validation["checks"]["openReviewGates"],
         },
         "failureCount": len(failures),
         "failures": failures,

@@ -1949,6 +1949,16 @@ task workspace.
 - [x] Authority order, applicability, component/front/back roles, source conflicts, and count boundaries remain explicit.
 - [x] Extraction gate decision: PASS — canonical vocabulary and source-scoped alias work may begin. This does not approve taxonomy, ontology, semantics, implementation, PR, merge, or deployment.
 
+## IN PROGRESS — Canonical vocabulary proposal (2026-08-24T09:25:59Z)
+
+- [x] Inventoried 1,853 observed source-term occurrences across all closed official/component/card/secondary channels.
+- [x] Separated 643 named component/title/key occurrences into 501 exact-string-only identity groups.
+- [x] Proposed 167 controlled vocabulary entries: 50 accepted existing icon terms and 117 authority-derived labels.
+- [x] Registered 8 aliases (6 accepted, 2 proposed) plus 5 non-alias guardrails; no appearance-wide or duplicate-name aliasing is permitted.
+- [x] Validation passes with no taxonomy/ontology/semantic artifacts.
+- [ ] Owner gate VG-001: `PERSONAL OBJECTIVE` → source-scoped alias of `Private Objective`.
+- [ ] Owner gate VG-002: `Drilling Room` → alias of named component `DRILLING STATION`.
+
 ## LATER — Expansions (re-add when user wants them)
 - [ ] Re-extract expansion content from save (see `assets/tts-mod/notes/extraction.md` §15 for all deck GUIDs, intruder bags,
       shared action-154 cells, and classification pitfalls)
