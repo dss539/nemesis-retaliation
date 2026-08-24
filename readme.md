@@ -2,8 +2,9 @@
 
 A faithful digital adaptation of the board game **Nemesis: Retaliation** by Awaken Realms.
 
-> **STATUS (2026-08-09):** The inaccurate first-pass implementation is archived under
-> `archive/obsolete/`. The project is being rebuilt from canonical sources.
+> **CURRENT STRATEGY:** Finish the base-game source and rules layer before vocabulary, ontology,
+> semantics, or implementation. The legacy implementation is historical evidence only. Start with
+> [`PROJECT_STATUS.md`](PROJECT_STATUS.md).
 
 ## Source authority
 
@@ -19,9 +20,10 @@ Conflicting sources are preserved as provenance. If supersession, edition, appli
 
 ## Project layout
 
+- `PROJECT_STATUS.md` — concise current phase, next task, blockers, and readiness gates
 - `AGENTS.md` — agent-facing repository context and operating instructions
 - `AGENTS-SUPPLEMENT.md` — supplemental agent documentation and note-placement practices
-- `todo.md` — current work, blockers, and gates
+- `todo.md` — detailed backlog and historical checkpoints
 - `assets/tts-mod/readme.md` — TTS asset workspace entry point and current status
 - `assets/tts-mod/notes/` — topic-specific extraction and card-transcription knowledge
 - `assets/tts-mod/extract/` — source save, parsed metadata, and downloaded assets
@@ -35,7 +37,8 @@ Conflicting sources are preserved as provenance. If supersession, edition, appli
 Write durable documentation when new reusable knowledge, a decision, a blocker, or meaningful project state actually exists. Do not create or duplicate notes merely because a session occurred.
 
 - Project overview and navigation → this `readme.md`
-- Current tasks, blockers, and approval gates → `todo.md`
+- Current phase, immediate next task, blockers, and readiness gates → `PROJECT_STATUS.md`
+- Detailed backlog and historical checkpoints → `todo.md`
 - Agent-specific repository instructions → `AGENTS.md`; supplemental documentation practices → `AGENTS-SUPPLEMENT.md`
 - TTS extraction and card-transcription procedures → `assets/tts-mod/notes/`
 - Official rule interpretations and unresolved source questions → `docs/rules/`
@@ -45,16 +48,16 @@ Write durable documentation when new reusable knowledge, a decision, a blocker, 
 Use one authoritative home for each fact and link to it elsewhere. Do not copy the same lesson into multiple catch-all files. In particular:
 
 - A durable procedure learned during QA belongs in the relevant topic note; `docs/qa/` keeps only the specific evidence that established or verified it.
-- A source conflict and its evidence belong in a focused source audit; any still-open decision belongs in `todo.md` or `docs/rules/open-questions.md`, depending on whether it is a work gate or a rules question.
+- A source conflict and its evidence belong in a focused source audit; a concise active blocker belongs in `PROJECT_STATUS.md`, detailed work history in `todo.md`, and a genuine rules ambiguity in `docs/rules/open-questions.md`.
 - `readme.md` files are concise entry points and maps, not chronological notebooks.
 - Topic notes describe reusable knowledge, not running tallies or session history.
 - Historical execution detail belongs in an audit or log only when it is evidence worth retaining.
 
 When information changes category, move it rather than copying it. Update inbound links and remove the stale version in the same change.
 
-## Planned implementation
+## Future clean implementation
 
-The digital adaptation will be rebuilt from the canonical sources above. Current priorities and approval gates are tracked in [`todo.md`](todo.md).
+The legacy implementation is frozen. A new digital adaptation will be designed from scratch only after source extraction, vocabulary/alias review, taxonomy or ontology, semantic-rule modeling, and rules-readiness audits pass—and only after explicit project-owner approval. Current state and gates are tracked in [`PROJECT_STATUS.md`](PROJECT_STATUS.md).
 
 ## Disclaimer
 

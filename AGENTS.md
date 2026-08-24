@@ -1,111 +1,142 @@
-# Nemesis: Retaliation - Digital Edition
+# Nemesis: Retaliation — Rules Corpus and Future Rewrite
 
-## Project Overview
-A faithful web-based digital adaptation of the board game Nemesis: Retaliation by Awaken Realms.
-- **Live site:** https://dss539.github.io/nemesis-retaliation/
-- **Repo:** https://github.com/dss539/nemesis-retaliation
-- **Tech:** Vanilla JS, PeerJS (WebRTC P2P), HTML5 Canvas, CSS. No build step, no server.
+## Mission
 
-## Architecture
-- `index.html` — entry point, lobby + game screens
-- `css/style.css` — all styling, responsive/mobile, compass picker
-- `js/data.js` — game data (characters, rooms, items, events, intruders, objectives)
-- `js/engine.js` — core rules engine (authoritative, runs on host)
-- `js/network.js` — PeerJS multiplayer, state sync
-- `js/render.js` — 2D canvas board renderer (1200x900 base, DPR-aware)
-- `js/ui.js` — UI panels, modals, action bar, tab navigation, compass picker
-- `js/main.js` — lobby flow, game start, screen switching
+Build a source-faithful, reviewable rules layer for the base game of *Nemesis: Retaliation*. A new digital implementation will be designed and built from scratch only after the rules layer is as solid as reasonably achievable.
 
-## Networking Model
-- Host-authoritative: host runs the engine, clients send actions via WebRTC
-- PeerJS for P2P (no server needed, just PeerJS broker for signaling)
-- Full state sent to all clients — privacy is UI-layer only (renderCardArea only shows local player's hand/objectives/backpack)
-- A disconnected joined player pauses the game; their slot can be reclaimed without changing state, and turn/phase progression cannot continue until it is filled.
-- `serializeStateForPlayer()` exists in network.js but is no longer used (kept for reference)
+**Current implementation work is out of scope.** The existing web game is a legacy prototype and may be inspected only as historical behavior or QA evidence. Its code, data, architecture, and live behavior are not authority for rules, vocabulary, ontology, or the future rewrite.
 
-## Key Design Decisions
-- Privacy: display-layer only, NOT state sanitization. Host needs full state for engine. Each browser's UI only renders its own player's private info.
-- Canvas: renders at devicePixelRatio for crisp text. Base coordinate space 1200x900. The fixed, mat-derived field has 23 valid room slots arranged 5/4/5/4/5 by row; each slot holds a regular 160px-wide pointy-top hexagonal Room with vertical E/W sides. Odd rows are offset by half a slot; fixed spacing reserves room for all six hex-edge Corridors. Click handling uses the same hexagonal geometry.
-- Map interaction: continuous mobile pinch zoom; 10%-step buttons and desktop wheel zoom; mobile/desktop camera panning includes generous off-board slack while retaining a recovery strip; independently scrollable board/card/player/log panels
-- Exploration: XCOM-style board targeting. Legal connected rooms and in-bounds empty hex neighbors in `NE`, `E`, `SE`, `SW`, `W`, and `NW` highlight directly on the map; invalid, occupied, closed-door, and off-board destinations are omitted. Rooms index exits by hex direction, and corridors store their direction from both endpoints.
-- Text labels for all game state (fire, broken, secure count, intruder types, noise) — never color alone
+## Start Here
 
-## Game Content Status
-- Base game: implemented (6 characters, 23 rooms, 90 items, 20 events, 8 mission tasks)
-- Expansions: not yet (Sangrevore, Xyrians, Contractors, Insider, Stretch Goals)
-- Solo/Coop mode: not yet
-- Deadly mode: not yet
-- AI opponents: not yet
-- Card art: not yet (text-based)
+1. Read `PROJECT_STATUS.md` for current state, next work, blockers, and authoritative tracker locations.
+2. Read `docs/rules/source-extraction/extraction-roadmap.md` for the ordered extraction phase.
+3. Read `docs/rules/readme.md` for rules-corpus authority and record conventions.
+4. Read `AGENTS-SUPPLEMENT.md` for documentation placement rules.
+5. Load any relevant Hermes skill before acting.
 
-## Known Limitations
-- Some room effects are simplified
-- Trade UI needs exchange modal (engine supports it)
-- Item selection on search is auto-pick (should present choice)
-- Intruder movement AI is simplified (shortest path, not full BFS)
-- The fixed mat-derived room field is a gameplay boundary. It now preserves the physical mat's stepped outer silhouette, but does not reproduce every printed facility detail or authored room arrangement.
+Do not infer current status from historical checkpoints in `todo.md`, old implementation documents, or the live site.
 
-## Bugs Fixed (10 total)
-1. Unjoined player slots started alive=false (broke solo/bot games) → changed to alive=true
-2. Dead players could win → endGame now skips dead non-escaped players
-3. No intruders appeared → event cards now draw from bag (Infestation=2, Surge=3, Nest Defense=Drone)
-4. Suffocation didn't kill → now kills on next turn after oxygen hits 0
-5. Queen never moved/attacked → now places in discovered room if Nest not on board
-6. Exploration blocked by corridor adjacency → exploration moves bypass adjacency entirely
-7. Host saw all players' objectives → moved to UI-layer privacy (display only)
-8. Exploration could redraw and overwrite the already-placed Landing Zone, creating a self-loop corridor → removed Landing Zone from the undiscovered Section A pool
-9. A character killed during an action retained the active turn forever → lethal action resolution now immediately advances to the next eligible player
-10. Nest events could place a Drone or Queen at an undiscovered, nonexistent room ID → hidden Nest occupants are reserved and materialized when the Nest is discovered
+## Current Strategy — Mandatory
 
-## QA
-- 4-browser Playwright test: host + 3 clients, 3 rounds, all synced, no errors
-- 4-browser tactical gameplay test: 11 canvas-selected moves across 3 rounds, 23 four-way sync checks, 8 rooms/7 corridors explored, 2 legitimate player deaths advanced correctly, no browser errors (`docs/qa/tactical-4browser-results.json`)
-- Hex-direction regression: six reciprocal `NE`/`E`/`SE`/`SW`/`W`/`NW` neighbors across even and odd rows; deprecated `S` rejected; valid `SE` accepted; E and NE corridors terminate exactly at their hex boundaries (`docs/qa/hex_direction_regression.js`).
-- Earlier octagon/8-direction QA artifacts are historical only and superseded by the pointy-top hex renderer and the hex-direction regression above.
-- Full 14-round four-browser game: 60 recorded actions, 61 sync checks, 61 graph/topology checks, five representative screenshots, and no browser errors after the hidden-Nest fix (`docs/qa/full-game-report.md`)
-- Full action trace and rule/FAQ deviation audit: `docs/qa/full-game-action-log.md`, `docs/qa/full-game-action-log.json`, and `docs/qa/full-game-rules-audit.md`
-- Mobile portrait/landscape QA dispatches real two-point pinch-in/pinch-out gestures and verifies map zoom, two-axis pan, touch target coordinates after panning, Fit reset, and oversized board/panel scrolling (`docs/qa/mobile_layout_qa.py`)
-- Test scripts in docs/qa/ (4browser_qa.py is reusable, others gitignored)
-- Playwright installed on smithers for multi-browser testing
+Work in this order:
 
-## Rulebooks
-All official PDFs and extracted text are in `docs/rulebooks/` (gitignored):
-- `Nemesis_RT_Rulebook_official.pdf` — main 40-page rulebook
-- `Nemesis_RT_FAQ_v1.2.pdf` — official FAQ & errata
-- `rulebook_text.txt` — extracted text from main rulebook
-- `faq_text.txt` — extracted text from FAQ
-- Plus expansion rulebooks (Sangrevore, Xyrians, Contractors, Insider, SG, SS)
+1. Extract every remaining in-scope base-game source.
+2. Preserve each source, edition, and conflicting variant independently.
+3. Close or explicitly block every operative transcription gap.
+4. Create a canonical vocabulary and controlled aliases.
+5. Build a taxonomy or ontology.
+6. Build the semantic rules layer.
+7. Define readiness criteria for a clean implementation.
+8. Start the new implementation only after explicit project-owner approval.
 
-## Rules Corpus
-- `docs/rules/` is the human-facing, semi-formal interpretation corpus for the base game. Start with `docs/rules/readme.md`.
-- Authority is explicit: official FAQ/errata overrides the official rulebook; project interpretations and any deliberate digital adaptations must be visibly labeled and may not silently change tabletop rules.
-- `docs/rules/00-foundations.md` through `03-intruders-and-survival.md` provide source-backed operational rules. `open-questions.md` records genuine unresolved source ambiguities.
-- `docs/rules/bug-tracker.md` tracks confirmed implementation failures. Bugs and QA failures are never intentional deviations and must be repaired, not normalized.
-- `docs/rules/deviations.md` is reserved exclusively for deliberate, remaining digital adaptations.
+Do **not** begin vocabulary, alias, taxonomy, ontology, semantic-model, architecture, engine, UI, networking, or implementation work ahead of this sequence.
 
-## Git
-- Identity: Derrick Southerland <dss539@users.noreply.github.com>
-- Branch: main
-- GitHub Pages: enabled, auto-deploys from main
+## Authority and Source Discipline
 
-## How to Resume Work
-1. Read this file (`AGENTS.md`) for project context, then `AGENTS-SUPPLEMENT.md` for documentation and note-placement rules
-2. Read `docs/rules/readme.md` and the relevant source-backed rules record before changing game mechanics
-3. Read `docs/rules/bug-tracker.md` and `docs/qa/full-game-rules-audit.md` for known rules failures
-4. Read `docs/design/architecture.md` for design decisions and TODO
-5. Read `docs/design/play-area-design.md` — the ACTIVE design authority for the play area surface (map, sections, room state, equal-weighting principle); it states its precedence over the older mobile-* design docs
-6. Rulebook PDFs and extracted text in `docs/rulebooks/` are the primary official source; FAQ/errata takes precedence
-7. To test multiplayer: use Playwright (installed on smithers), write a Python script that launches multiple headless Chromium instances. See `docs/qa/4browser_qa.py` for pattern.
-8. To test locally: `python3 -m http.server 8889` then open http://localhost:8889
+For rules questions, use this precedence:
 
-## Future Work
-- Card art/graphics
-- Full trade UI (exchange modal)
-- Item choice on search (currently auto-picks first)
-- Expansion content (Sangrevore, Xyrians, etc.)
-- Solo/Coop objectives
-- Deadly mode (dual noise values)
-- Sound/music
-- Proper intruder pathfinding (BFS)
-- Reconnection support (player reclaiming their slot)
-- Room layout should match physical game's grid positioning
+1. Applicable official FAQ/errata.
+2. Official rulebook.
+3. Official help sheets and visible component text.
+4. Documented project interpretation in `docs/rules/`.
+5. Explicitly declared adaptation.
+6. Unresolved question — never silently convert this into a rule.
+
+Source-bound TTS scans and licensed-digital data are evidence, not automatic authority over official sources. Preserve conflicts verbatim. Never combine wording merely because two effects appear similar.
+
+During extraction:
+
+- preserve exact wording, punctuation, grouping, layout, labels, icons, and source provenance;
+- use source-local occurrence IDs only as evidence locators, not canonical terms;
+- distinguish operative rules from artwork, interface decoration, microtext, and flavor text;
+- mark genuinely unreadable operative content rather than reconstructing it;
+- do not introduce canonical aliases or semantic interpretation into source records;
+- keep expansion material out of the base-game scope unless separately authorized.
+
+## Project Status and Tracker Ownership
+
+- `PROJECT_STATUS.md` — concise current state, next action, blockers, phase gates, and tracker map. **This is the first-stop status authority.**
+- `docs/rules/source-extraction/extraction-roadmap.md` — ordered work for the current extraction phase.
+- `docs/rules/source-extraction/*.json` — exact machine-readable source inventory, gaps, provenance, and validation counts.
+- `todo.md` — detailed backlog and historical checkpoints; not the first-stop status summary.
+- `docs/rules/open-questions.md` — genuine unresolved source ambiguities.
+- `docs/rules/` — established human-readable rule records; implementation behavior is not authority.
+- Git — durable checkpoint and remote synchronization state.
+
+Update `PROJECT_STATUS.md` whenever the active phase, next task, blocker, readiness gate, or verified headline counts materially change. Link to authoritative detail rather than duplicating long evidence or procedures.
+
+## Active Workspace
+
+Rules/card source work uses the task workspace:
+
+- Workspace root: `/home/smithers/projects/nemesis-card-corpus/`
+- Repository worktree: `/home/smithers/projects/nemesis-card-corpus/repos/nemesis-retaliation/`
+- Branch: `work/card-corpus-extraction`
+- Canonical lock: `/home/smithers/projects/nemesis-card-corpus/.workspace.lock`
+
+Every worker must hold the workspace's exclusive nonblocking root flock for its full lifetime. Use `workspace run nemesis-card-corpus -- ...` for commands. Do not create a Hermes profile for this work without explicit permission.
+
+## Current Source Set
+
+Official base-game research sources are local and gitignored under `docs/rulebooks/`:
+
+- `Nemesis_RT_Rulebook_official.pdf` — 40 pages
+- `Nemesis_RT_FAQ_v1.2.pdf` — 4 pages
+- `Nemesis_RT_Rooms_Sheet.pdf` — 2 pages
+- `Nemesis_RT_Objectives_Sheet.pdf` — 2 pages
+- `rulebook_text.txt` and `faq_text.txt` — extraction aids, not substitutes for rendered-page inspection
+
+The card/reference evidence corpus and extraction provenance are under `assets/tts-mod/extract/`. Start with `assets/tts-mod/notes/card-text-corpus.md` and `docs/rules/source-extraction/README.md`.
+
+## Current Phase
+
+The active phase is **base-game source extraction before vocabulary design**.
+
+The immediate deliverable is a complete source-bound extraction of the 25 entries on the official Room Help Sheet: exact effects, alternatives, literal icon occurrences, restrictions, notes, page/grid position, and unreadable spans. Preserve the unresolved relationship between those 25 entries and the rulebook's 23 Room-tile component count.
+
+See `PROJECT_STATUS.md` and `docs/rules/source-extraction/extraction-roadmap.md` for the verified checkpoint and subsequent order.
+
+## Extraction Verification
+
+After source-extraction changes, run:
+
+```bash
+workspace run nemesis-card-corpus -- \
+  bash -lc 'cd repos/nemesis-retaliation && \
+    python3 scripts/validate_source_extraction.py && \
+    python3 scripts/validate_project_status.py'
+```
+
+For card-corpus changes, also run the focused tests and the documented global corpus/vision validation commands in `assets/tts-mod/notes/card-text-corpus.md`.
+
+Do not claim completion from a successful write alone. Verify source hashes, counts, required records, deterministic outputs, and visual artifacts where applicable.
+
+## Legacy Implementation Boundary
+
+The legacy prototype remains in `index.html`, `js/`, `css/`, and related design/QA files; the historical live site is <https://dss539.github.io/nemesis-retaliation/>. It is frozen as implementation work for the current phase.
+
+Allowed uses:
+
+- historical QA evidence;
+- identifying past misunderstandings or missing rules;
+- preserving useful non-authoritative test scenarios;
+- researching prior design decisions that may later be reconsidered.
+
+Disallowed uses during the rules phase:
+
+- treating `js/data.js` or `js/engine.js` as source truth;
+- repairing legacy implementation bugs;
+- extending legacy UI, networking, content, or architecture;
+- normalizing source evidence to match current code;
+- assuming the future rewrite will reuse the legacy architecture.
+
+One future-design invariant already confirmed by the project owner is that Rooms are regular pointy-top hexagons, never octagons; all six edges retain visible Corridor spacing, and illegal destinations are not offered. This remains a future fidelity requirement, not authorization to implement it now.
+
+## Git and External Actions
+
+- Repository: <https://github.com/dss539/nemesis-retaliation>
+- Commit identity: Derrick Southerland `<dss539@users.noreply.github.com>`
+- Active rules branch: `work/card-corpus-extraction`
+- `main` and the GitHub Pages deployment contain the legacy implementation.
+
+Do not open a pull request, merge, deploy, or modify production without explicit direct approval. Push only when requested or when the user has explicitly authorized that push boundary.

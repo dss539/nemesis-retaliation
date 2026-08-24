@@ -1,12 +1,13 @@
 # Nemesis: Retaliation — Project TODO
 
-Durable, living task list for the whole project (game development + TTS asset extraction). Update
-it when tasks, blockers, approval gates, or project state change. Read `AGENTS.md` and
-`AGENTS-SUPPLEMENT.md` for repository context, and `assets/tts-mod/readme.md` for the asset-workspace
-entry point.
+Detailed backlog and historical checkpoint ledger for the project. Read `PROJECT_STATUS.md` first
+for the current phase, immediate next task, blockers, and readiness gates. Update this file for detailed
+backlog changes or durable checkpoint history; do not make it duplicate the concise status summary. Read
+`AGENTS.md` and `AGENTS-SUPPLEMENT.md` for operating rules, and `assets/tts-mod/readme.md` for the
+asset-workspace entry point.
 
-**DOCUMENTATION RULE:** Follow `readme.md` → “Documentation placement.” This file records only
-current work, blockers, approval gates, and meaningful project-state changes. Do not duplicate
+**DOCUMENTATION RULE:** Follow `readme.md` → “Documentation placement.” `PROJECT_STATUS.md` owns
+the concise current state. This file owns detailed backlog and historical checkpoints. Do not duplicate
 durable knowledge here or update it merely because a session occurred.
 
 Active task workspace: `/home/smithers/projects/nemesis-card-corpus/`
