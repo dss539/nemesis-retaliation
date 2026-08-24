@@ -13,17 +13,14 @@ The current implementation is not being repaired or extended. It is historical b
 
 ## Immediate Next Deliverable
 
-Extract the official **two-page Objective Help Sheet** into source-bound records:
+Close the **13 card-gap records** in `docs/rules/source-extraction/card-gap-inventory.json`:
 
-- one record per Mission Objective, Private Objective, Mission Task, and game-term note;
-- exact title, wording, punctuation, annotations, and `AND`/`OR` grouping;
-- literal icon occurrences without canonical naming;
-- Number-of-Characters threshold as printed, without aliasing it during extraction;
-- unavailable-player clauses and scoped explanatory notes;
-- page/grid position and rendered-page evidence;
-- explicit source conflicts or unreadable spans.
-
-Do not collapse duplicate display names or infer semantic equivalence across modes, source versions, or component families.
+- resolve or explicitly block the two true operative-text gaps (`FACILITY RESTART` and `SUBMACHINE GUN`);
+- review eight partial records whose unreadable markers sit outside operative body text, separating artwork/interface evidence from rules;
+- classify three no-transcription records as rules-bearing, card back, blank/render failure, or other component evidence;
+- preserve every TTS, official, and licensed-digital source variant independently;
+- update corpus readiness only when the source evidence supports it;
+- do not introduce canonical vocabulary or semantic normalization.
 
 ## Verified Checkpoint
 
@@ -53,6 +50,11 @@ Do not collapse duplicate display names or infer semantic equivalence across mod
   - 112 literal functional-icon occurrences
   - 39 effect/note icon references
   - 0 unreadable operative spans
+- Objective Help Sheet: **45/45 source units inventoried**
+  - 35 fully visible units extracted source-bound
+  - 10 physically occluded units retained with explicit visibility boundaries
+  - 50 full and 5 partially visible icon occurrences
+  - 0 unreadable visible spans
 - Card-gap inventory: 13 records
   - 2 true operative-text gaps
   - 8 nonbody marker/structure gaps
@@ -71,20 +73,20 @@ Machine-readable evidence: `docs/rules/source-extraction/validation.json`.
 - Completed an eight-item manual review sample and applied all corrections.
 - Extracted both Intruder Help Sheet sides without introducing canonical vocabulary.
 - Extracted all 25 official Room Help Sheet entries with effects, notes, literal functional-icon occurrences, and reproducible visual evidence.
+- Extracted the official Objective Help Sheet at its source boundary: all 45 units inventoried, all visible wording retained, physical occlusions explicit, repeated page terms preserved, and hidden text-layer data not promoted to visible-face evidence.
 - Created the closed source inventory, card-gap inventory, secondary-source inventory, Room layout inventory, roadmap, and deterministic validator.
 
 ## Remaining Work — Ordered
 
-1. **Official Objective Help Sheet** — one record per Mission Objective, Private Objective, Mission Task, and game-term note.
-2. **Card-corpus gaps** — close or explicitly block two operative gaps; classify eight nonbody gaps and three missing records.
-3. **Rulebook visual obligation census** — inspect all 40 rendered pages for normative information lost by the text layer.
-4. **FAQ visual confirmation** — inspect all four rendered pages for numbering, scope, examples, icons, and applicability.
-5. **Player Help variants** — deduplicate exact wording while preserving player-number and source-version differences.
-6. **Secondary-source closure** — consolidate one immutable BGA build snapshot and index relevant data sections; retain TTS metadata as provenance only.
-7. **Extraction closure audit** — reconcile every source unit as extracted, non-normative, or explicitly blocked.
-8. **Canonical vocabulary and aliases** — begin only after the extraction gate passes.
-9. **Taxonomy/ontology**, then **semantic rules layer**.
-10. Define implementation-readiness criteria and seek explicit approval before a clean rewrite.
+1. **Card-corpus gaps** — close or explicitly block two operative gaps; classify eight nonbody gaps and three missing records.
+2. **Rulebook visual obligation census** — inspect all 40 rendered pages for normative information lost by the text layer.
+3. **FAQ visual confirmation** — inspect all four rendered pages for numbering, scope, examples, icons, and applicability.
+4. **Player Help variants** — deduplicate exact wording while preserving player-number and source-version differences.
+5. **Secondary-source closure** — consolidate one immutable BGA build snapshot and index relevant data sections; retain TTS metadata as provenance only.
+6. **Extraction closure audit** — reconcile every source unit as extracted, non-normative, or explicitly blocked.
+7. **Canonical vocabulary and aliases** — begin only after the extraction gate passes.
+8. **Taxonomy/ontology**, then **semantic rules layer**.
+9. Define implementation-readiness criteria and seek explicit approval before a clean rewrite.
 
 Detailed phase plan: `docs/rules/source-extraction/extraction-roadmap.md`.
 

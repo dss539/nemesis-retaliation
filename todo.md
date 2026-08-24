@@ -1892,6 +1892,14 @@ task workspace.
 - [x] Confirmed 0 unreadable operative spans. The unresolved 25 help-sheet entries versus 23 Room tiles relationship remains explicit rather than inferred.
 - [x] Durable extraction: `docs/rules/source-extraction/room-help-sheet.json`. Next source: official Objective Help Sheet.
 
+## DONE — Official Objective Help Sheet source extraction (2026-08-24T06:27:29Z)
+
+- [x] Inventoried 45 official source units: 14 GAME TERMS page occurrences, 7 Mission Objective physical cards, 8 Mission Tasks, 15 Private Objectives, and 1 shared explanatory note.
+- [x] Extracted all 35 fully visible units with exact wording and source-local icon occurrences; retained 10 physically occluded cards with direct fragments, explicit occlusion, and a hard PDF-text-layer/visible-face boundary.
+- [x] Preserved five physical OFFICIAL ORDER copies and seven pixel-identical repeated GAME TERMS occurrences as separate source units.
+- [x] Regenerated both 300-DPI pages and all 45 crops; source/page/crop hashes, category counts, unit IDs, placeholders, occurrences, duplicate-page equivalence, and visibility counts pass deterministic validation.
+- [x] Durable extraction: `docs/rules/source-extraction/objective-help-sheet.json`. Next source work: 13 card-gap records.
+
 ## LATER — Expansions (re-add when user wants them)
 - [ ] Re-extract expansion content from save (see `assets/tts-mod/notes/extraction.md` §15 for all deck GUIDs, intruder bags,
       shared action-154 cells, and classification pitfalls)

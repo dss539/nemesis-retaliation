@@ -92,7 +92,7 @@ The card/reference evidence corpus and extraction provenance are under `assets/t
 
 The active phase is **base-game source extraction before vocabulary design**.
 
-The immediate deliverable is a complete source-bound extraction of the official two-page Objective Help Sheet: one record per Mission Objective, Private Objective, Mission Task, and game-term note, preserving count thresholds, unavailable-player clauses, visible AND/OR grouping, annotations, page/grid position, and source variants. Do not begin canonical naming or semantic normalization.
+The immediate deliverable is closure of the 13 card-gap records in `docs/rules/source-extraction/card-gap-inventory.json`: resolve or explicitly block the two true operative-text gaps, classify eight nonbody marker/structure gaps without treating artwork as rules, and classify three no-transcription records. Preserve every TTS/publisher/licensed-digital conflict separately and do not begin canonical naming or semantic normalization.
 
 See `PROJECT_STATUS.md` and `docs/rules/source-extraction/extraction-roadmap.md` for the verified checkpoint and subsequent order.
 

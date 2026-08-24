@@ -50,6 +50,11 @@ def main() -> None:
         f"  - {source_validation['checks']['roomHelpFunctionalIconOccurrences']} literal functional-icon occurrences",
         f"  - {source_validation['checks']['roomHelpEffectAndNoteIconReferences']} effect/note icon references",
         f"  - {source_validation['checks']['roomHelpMaterialUnreadableSpans']} unreadable operative spans",
+        f"- Objective Help Sheet: **{source_validation['checks']['objectiveHelpSourceUnits']}/{source_validation['checks']['objectiveHelpSourceUnits']} source units inventoried**",
+        f"  - {source_validation['checks']['objectiveHelpFullyVisibleAndExtracted']} fully visible units extracted source-bound",
+        f"  - {source_validation['checks']['objectiveHelpPartiallyOccluded']} physically occluded units retained with explicit visibility boundaries",
+        f"  - {source_validation['checks']['objectiveHelpFunctionalIconOccurrences']} full and {source_validation['checks']['objectiveHelpPartiallyVisibleIconOccurrences']} partially visible icon occurrences",
+        f"  - {source_validation['checks']['objectiveHelpMaterialUnreadableSpans']} unreadable visible spans",
     ]
     for fragment in expected_fragments:
         require(fragment in status, f"PROJECT_STATUS.md count drift: expected {fragment!r}", failures)

@@ -20,6 +20,8 @@ ontology, or semantic rule model is designed.
 - `intruder-help-sheet.json` — verbatim source-bound extraction of both base Intruder Help Sheet sides.
 - `room-help-sheet-layout.json` — visual page/grid inventory of all 25 printed Room entries.
 - `room-help-sheet.json` — complete source-bound extraction of all 25 Room effects, notes, literal functional-icon occurrences, and visual evidence.
+- `objective-help-sheet-layout.json` — page/layout and visibility inventory for 45 Objective Help source units.
+- `objective-help-sheet.json` — source-bound extraction of 35 fully visible units plus explicit pixel/text-layer boundaries for 10 physically occluded card occurrences.
 - `card-gap-inventory.json` — the 10 partial and 3 no-transcription card records, separated by operative versus non-operative gaps.
 - `secondary-source-inventory.json` — licensed-digital and TTS structured evidence, explicitly kept below official authority.
 - `extraction-roadmap.md` — ordered remaining work and the gate before vocabulary design begins.

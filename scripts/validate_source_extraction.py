@@ -58,6 +58,8 @@ def main() -> None:
         'card-gap-inventory.json',
         'extraction-roadmap.md',
         'intruder-help-sheet.json',
+        'objective-help-sheet.json',
+        'objective-help-sheet-layout.json',
         'room-help-sheet.json',
         'room-help-sheet-layout.json',
         'secondary-source-inventory.json',
@@ -69,6 +71,8 @@ def main() -> None:
     inventory = load(EXTRACT / 'base-source-inventory.json')
     gaps = load(EXTRACT / 'card-gap-inventory.json')
     intruder = load(EXTRACT / 'intruder-help-sheet.json')
+    objective_help = load(EXTRACT / 'objective-help-sheet.json')
+    objective_layout = load(EXTRACT / 'objective-help-sheet-layout.json')
     room_help = load(EXTRACT / 'room-help-sheet.json')
     room_layout = load(EXTRACT / 'room-help-sheet-layout.json')
     secondary = load(EXTRACT / 'secondary-source-inventory.json')
@@ -280,6 +284,106 @@ def main() -> None:
     if room_help.get('counts') != recomputed_help_counts or recomputed_help_counts.get('materialUnreadableSpans') != 0:
         failures.append({'check': 'Room Help extraction counts', 'expected': recomputed_help_counts, 'actual': room_help.get('counts')})
 
+    # Verify the Objective Help layout/extraction, including repeated terms and physical occlusion boundaries.
+    objective_source = objective_help.get('source') or {}
+    objective_pdf = REPO / objective_source.get('path', '')
+    if not objective_pdf.is_file() or sha(objective_pdf) != objective_source.get('sha256') or pdf_pages(objective_pdf) != objective_source.get('pages'):
+        failures.append({'check': 'Objective Help source tuple'})
+    layout_units = objective_layout.get('units') or []
+    objective_units = objective_help.get('units') or []
+    layout_ids = [row.get('sourceUnitId') for row in layout_units]
+    objective_ids = [row.get('sourceUnitId') for row in objective_units]
+    if objective_ids != layout_ids or len(objective_ids) != len(set(objective_ids)):
+        failures.append({'check': 'Objective Help unit closure', 'layout': layout_ids, 'extraction': objective_ids})
+    layout_by_id = {row['sourceUnitId']: row for row in layout_units}
+    objective_icons = []
+    objective_partial_icons = []
+    objective_placeholders = 0
+    objective_unreadable = 0
+    objective_partial_units = 0
+    objective_full_units = 0
+    objective_placeholder_re = re.compile(r'\[([A-Z0-9-]+-I\d{2})\]')
+    with tempfile.TemporaryDirectory(prefix='validate-objective-help-') as tmpdir:
+        prefix = Path(tmpdir) / 'page'
+        render = (objective_source.get('visualInspection') or {})
+        subprocess.run(['pdftoppm', '-f', '1', '-l', '2', '-png', '-r', str(render.get('dpi')), str(objective_pdf), str(prefix)], check=True)
+        pages = {page: Image.open(Path(tmpdir) / f'page-{page}.png').convert('RGB') for page in (1, 2)}
+        for page, image in pages.items():
+            expected_hash = (render.get('renderedPageSha256') or {}).get(str(page))
+            if list(image.size) != render.get('renderDimensions') or sha(Path(tmpdir) / f'page-{page}.png') != expected_hash:
+                failures.append({'check': 'Objective Help rendered page', 'page': page})
+        for row in objective_units:
+            unit_id = row.get('sourceUnitId')
+            layout_row = layout_by_id.get(unit_id)
+            if not layout_row or row.get('category') != layout_row.get('category'):
+                failures.append({'check': 'Objective Help layout join', 'sourceUnitId': unit_id})
+                continue
+            icons = row.get('functionalIconOccurrences') or []
+            partial_icons = row.get('partiallyVisibleIconOccurrences') or []
+            icon_ids = [item.get('occurrenceId') for item in icons]
+            partial_ids = [item.get('occurrenceId') for item in partial_icons]
+            objective_icons.extend(icon_ids)
+            objective_partial_icons.extend(partial_ids)
+            if len(icon_ids) != len(set(icon_ids)) or len(partial_ids) != len(set(partial_ids)):
+                failures.append({'check': 'Objective Help occurrence IDs', 'sourceUnitId': unit_id})
+            strings_to_scan = []
+            for key in ('printedDefinition', 'topInstruction', 'printedCondition', 'printedText'):
+                if isinstance(row.get(key), str):
+                    strings_to_scan.append(row[key])
+            strings_to_scan.extend(row.get('associatedNotes') or [])
+            placeholders = [match for text in strings_to_scan for match in objective_placeholder_re.findall(text)]
+            objective_placeholders += len(placeholders)
+            if set(placeholders) - set(icon_ids):
+                failures.append({'check': 'Objective Help undefined placeholder', 'sourceUnitId': unit_id, 'undefined': sorted(set(placeholders)-set(icon_ids))})
+            objective_unreadable += len(row.get('materialUnreadableSpans') or [])
+            if row.get('visibility') == 'partially-occluded' or row.get('materialOccludedSpans'):
+                objective_partial_units += 1
+            else:
+                objective_full_units += 1
+            visual = row.get('visualEvidence') or {}
+            page = visual.get('page')
+            crop = pages[page].crop(tuple(visual.get('cropBox') or []))
+            crop_path = Path(tmpdir) / f'{unit_id}.png'
+            crop.save(crop_path, 'PNG', optimize=True)
+            if list(crop.size) != visual.get('cropDimensions') or sha(crop_path) != visual.get('cropSha256'):
+                failures.append({'check': 'Objective Help crop evidence', 'sourceUnitId': unit_id})
+        for image in pages.values():
+            image.close()
+    if len(objective_icons) != len(set(objective_icons)) or len(objective_partial_icons) != len(set(objective_partial_icons)):
+        failures.append({'check': 'Objective Help global occurrence uniqueness'})
+    objective_categories = ('game-term', 'mission-objective', 'mission-task', 'private-objective', 'explanatory-note')
+    recomputed_objective_counts = {
+        'sourceUnits': len(objective_units),
+        'pageOccurrences': {str(page): sum((row.get('visualEvidence') or {}).get('page') == page for row in objective_units) for page in [1, 2]},
+        'byCategory': {category: sum(row.get('category') == category for row in objective_units) for category in objective_categories},
+        'fullyVisibleAndExtracted': objective_full_units,
+        'partiallyOccluded': objective_partial_units,
+        'functionalIconOccurrences': len(objective_icons),
+        'partiallyVisibleIconOccurrences': len(objective_partial_icons),
+        'textIconReferences': objective_placeholders,
+        'materialUnreadableSpans': objective_unreadable,
+    }
+    required_objective_counts = {
+        'sourceUnits': 45,
+        'pageOccurrences': {'1': 22, '2': 23},
+        'byCategory': {'game-term': 14, 'mission-objective': 7, 'mission-task': 8, 'private-objective': 15, 'explanatory-note': 1},
+        'fullyVisibleAndExtracted': 35,
+        'partiallyOccluded': 10,
+        'functionalIconOccurrences': 50,
+        'partiallyVisibleIconOccurrences': 5,
+        'textIconReferences': 30,
+        'materialUnreadableSpans': 0,
+    }
+    if objective_help.get('counts') != recomputed_objective_counts or recomputed_objective_counts != required_objective_counts:
+        failures.append({'check': 'Objective Help extraction counts', 'expected': required_objective_counts, 'actual': recomputed_objective_counts})
+    # Repeated GAME TERMS are independent page occurrences but exact RGB duplicates.
+    objective_by_id = {row['sourceUnitId']: row for row in objective_units}
+    for index in range(1, 8):
+        p1 = objective_by_id[f'P1-GT-{index:02d}']
+        p2 = objective_by_id[f'P2-GT-{index:02d}']
+        if p2.get('pixelIdenticalToSourceUnitId') != p1.get('sourceUnitId') or (p1.get('visualEvidence') or {}).get('cropSha256') != (p2.get('visualEvidence') or {}).get('cropSha256'):
+            failures.append({'check': 'Objective Help repeated game term', 'index': index})
+
     # Verify all BGA snapshots are byte-identical and still live.
     bga_hashes = set()
     for row in secondary['licensedDigitalSecondary']['copies']:
@@ -309,6 +413,13 @@ def main() -> None:
             'roomHelpFunctionalIconOccurrences': len(help_occurrences),
             'roomHelpEffectAndNoteIconReferences': help_placeholders,
             'roomHelpMaterialUnreadableSpans': unreadable_count,
+            'objectiveHelpSourceUnits': len(objective_units),
+            'objectiveHelpFullyVisibleAndExtracted': objective_full_units,
+            'objectiveHelpPartiallyOccluded': objective_partial_units,
+            'objectiveHelpFunctionalIconOccurrences': len(objective_icons),
+            'objectiveHelpPartiallyVisibleIconOccurrences': len(objective_partial_icons),
+            'objectiveHelpTextIconReferences': objective_placeholders,
+            'objectiveHelpMaterialUnreadableSpans': objective_unreadable,
             'bgaCopies': len(secondary['licensedDigitalSecondary']['copies']),
             'bgaDistinctHashes': len(bga_hashes),
         },
