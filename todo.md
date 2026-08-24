@@ -1884,6 +1884,14 @@ corpus/vision commands pass, including 532/532 source decodes, 390/390 corpus ha
 byte-identical builds. Nothing was pushed, deployed, promoted to production, or changed outside the
 task workspace.
 
+## DONE — Official Room Help Sheet source extraction (2026-08-24T05:46:42Z)
+
+- [x] Extracted all 25 printed Room entries from the official two-page PDF without canonical naming or semantic normalization.
+- [x] Preserved exact effects, AND/OR grouping, 18 entries with notes, 5 cross-references, 112 source-local functional-icon occurrences, and 39 effect/note references.
+- [x] Regenerated both 300-DPI pages and all 25 crops from the official PDF; source/page/crop hashes, entry numbers, titles, layout joins, placeholders, occurrence IDs, and counts pass deterministic validation.
+- [x] Confirmed 0 unreadable operative spans. The unresolved 25 help-sheet entries versus 23 Room tiles relationship remains explicit rather than inferred.
+- [x] Durable extraction: `docs/rules/source-extraction/room-help-sheet.json`. Next source: official Objective Help Sheet.
+
 ## LATER — Expansions (re-add when user wants them)
 - [ ] Re-extract expansion content from save (see `assets/tts-mod/notes/extraction.md` §15 for all deck GUIDs, intruder bags,
       shared action-154 cells, and classification pitfalls)

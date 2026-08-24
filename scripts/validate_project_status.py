@@ -46,7 +46,10 @@ def main() -> None:
         f"- {counts['extractionStates']['no-transcription']} no-transcription records",
         f"- {counts['extractionStates']['complete-non-rules-or-reference'] + counts['extractionStates']['non-rules-or-reference']} non-rules/reference records",
         f"- Intruder Help instructions: **{source_validation['checks']['intruderHelpInstructions']}/{source_validation['checks']['intruderHelpInstructions']}**",
-        f"- Room Help Sheet layout: **{source_validation['checks']['roomHelpEntries']}/{source_validation['checks']['roomHelpEntries']} entries inventoried; effects and notes pending**",
+        f"- Room Help Sheet: **{source_validation['checks']['roomHelpEffectsExtracted']}/{source_validation['checks']['roomHelpEffectsExtracted']} entries extracted source-bound**",
+        f"  - {source_validation['checks']['roomHelpFunctionalIconOccurrences']} literal functional-icon occurrences",
+        f"  - {source_validation['checks']['roomHelpEffectAndNoteIconReferences']} effect/note icon references",
+        f"  - {source_validation['checks']['roomHelpMaterialUnreadableSpans']} unreadable operative spans",
     ]
     for fragment in expected_fragments:
         require(fragment in status, f"PROJECT_STATUS.md count drift: expected {fragment!r}", failures)

@@ -92,7 +92,7 @@ The card/reference evidence corpus and extraction provenance are under `assets/t
 
 The active phase is **base-game source extraction before vocabulary design**.
 
-The immediate deliverable is a complete source-bound extraction of the 25 entries on the official Room Help Sheet: exact effects, alternatives, literal icon occurrences, restrictions, notes, page/grid position, and unreadable spans. Preserve the unresolved relationship between those 25 entries and the rulebook's 23 Room-tile component count.
+The immediate deliverable is a complete source-bound extraction of the official two-page Objective Help Sheet: one record per Mission Objective, Private Objective, Mission Task, and game-term note, preserving count thresholds, unavailable-player clauses, visible AND/OR grouping, annotations, page/grid position, and source variants. Do not begin canonical naming or semantic normalization.
 
 See `PROJECT_STATUS.md` and `docs/rules/source-extraction/extraction-roadmap.md` for the verified checkpoint and subsequent order.
 

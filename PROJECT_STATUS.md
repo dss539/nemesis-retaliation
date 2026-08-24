@@ -1,6 +1,6 @@
 # Nemesis: Retaliation — Project Status
 
-**Status date:** 2026-08-22
+**Status date:** 2026-08-24
 **Active phase:** Base-game source extraction
 **Active branch:** `work/card-corpus-extraction`
 **Implementation status:** Frozen; a clean rewrite will begin only after rules-layer readiness and explicit approval
@@ -13,18 +13,17 @@ The current implementation is not being repaired or extended. It is historical b
 
 ## Immediate Next Deliverable
 
-Extract all **25 entries** from the official two-page Room Help Sheet into source-bound records containing:
+Extract the official **two-page Objective Help Sheet** into source-bound records:
 
-- printed number, title, and section marker;
-- exact effect wording and `OR`/`AND` grouping;
+- one record per Mission Objective, Private Objective, Mission Task, and game-term note;
+- exact title, wording, punctuation, annotations, and `AND`/`OR` grouping;
 - literal icon occurrences without canonical naming;
-- mandatory, optional, and conditional language as printed;
-- restrictions and explanatory notes;
-- page and grid position;
-- genuinely unreadable spans;
-- official PDF hash and rendered-page evidence.
+- Number-of-Characters threshold as printed, without aliasing it during extraction;
+- unavailable-player clauses and scoped explanatory notes;
+- page/grid position and rendered-page evidence;
+- explicit source conflicts or unreadable spans.
 
-Do not resolve the discrepancy between the **25 help-sheet entries** (`13 ? + 4 A + 4 B + 4 C`) and the rulebook's **23 Room tiles** (`13 ? + 3 A + 3 B + 4 C`) by inference. Preserve it as unresolved source/setup evidence.
+Do not collapse duplicate display names or infer semantic equivalence across modes, source versions, or component families.
 
 ## Verified Checkpoint
 
@@ -50,7 +49,10 @@ Do not resolve the discrepancy between the **25 help-sheet entries** (`13 ? + 4 
   - Objective Help Sheet: 2 pages
 - Intruder Help Sheet: both sides extracted source-bound
 - Intruder Help instructions: **18/18**
-- Room Help Sheet layout: **25/25 entries inventoried; effects and notes pending**
+- Room Help Sheet: **25/25 entries extracted source-bound**
+  - 112 literal functional-icon occurrences
+  - 39 effect/note icon references
+  - 0 unreadable operative spans
 - Card-gap inventory: 13 records
   - 2 true operative-text gaps
   - 8 nonbody marker/structure gaps
@@ -68,21 +70,21 @@ Machine-readable evidence: `docs/rules/source-extraction/validation.json`.
 - Re-derived the official icon glossary and recorded reviewed source-scoped artwork resolutions without generalizing by appearance.
 - Completed an eight-item manual review sample and applied all corrections.
 - Extracted both Intruder Help Sheet sides without introducing canonical vocabulary.
+- Extracted all 25 official Room Help Sheet entries with effects, notes, literal functional-icon occurrences, and reproducible visual evidence.
 - Created the closed source inventory, card-gap inventory, secondary-source inventory, Room layout inventory, roadmap, and deterministic validator.
 
 ## Remaining Work — Ordered
 
-1. **Official Room Help Sheet** — extract all 25 effects and notes.
-2. **Official Objective Help Sheet** — one record per Mission Objective, Private Objective, Mission Task, and game-term note.
-3. **Card-corpus gaps** — close or explicitly block two operative gaps; classify eight nonbody gaps and three missing records.
-4. **Rulebook visual obligation census** — inspect all 40 rendered pages for normative information lost by the text layer.
-5. **FAQ visual confirmation** — inspect all four rendered pages for numbering, scope, examples, icons, and applicability.
-6. **Player Help variants** — deduplicate exact wording while preserving player-number and source-version differences.
-7. **Secondary-source closure** — consolidate one immutable BGA build snapshot and index relevant data sections; retain TTS metadata as provenance only.
-8. **Extraction closure audit** — reconcile every source unit as extracted, non-normative, or explicitly blocked.
-9. **Canonical vocabulary and aliases** — begin only after the extraction gate passes.
-10. **Taxonomy/ontology**, then **semantic rules layer**.
-11. Define implementation-readiness criteria and seek explicit approval before a clean rewrite.
+1. **Official Objective Help Sheet** — one record per Mission Objective, Private Objective, Mission Task, and game-term note.
+2. **Card-corpus gaps** — close or explicitly block two operative gaps; classify eight nonbody gaps and three missing records.
+3. **Rulebook visual obligation census** — inspect all 40 rendered pages for normative information lost by the text layer.
+4. **FAQ visual confirmation** — inspect all four rendered pages for numbering, scope, examples, icons, and applicability.
+5. **Player Help variants** — deduplicate exact wording while preserving player-number and source-version differences.
+6. **Secondary-source closure** — consolidate one immutable BGA build snapshot and index relevant data sections; retain TTS metadata as provenance only.
+7. **Extraction closure audit** — reconcile every source unit as extracted, non-normative, or explicitly blocked.
+8. **Canonical vocabulary and aliases** — begin only after the extraction gate passes.
+9. **Taxonomy/ontology**, then **semantic rules layer**.
+10. Define implementation-readiness criteria and seek explicit approval before a clean rewrite.
 
 Detailed phase plan: `docs/rules/source-extraction/extraction-roadmap.md`.
 

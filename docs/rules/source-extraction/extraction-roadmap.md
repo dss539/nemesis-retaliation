@@ -5,24 +5,19 @@
 - Official primary/errata PDFs inventoried: rulebook (40 pages), FAQ (4), Room Help Sheet (2), Objective Help Sheet (2).
 - Card/reference evidence corpus: 390 records; 78 canonical, 250 full drafts, 10 partial, 3 no-transcription, 49 non-rules/reference.
 - Base Intruder Help Sheet: both source-bound sides now extracted verbatim in `intruder-help-sheet.json`.
-- Official Room Help Sheet: both pages inventoried as 25 source entries in `room-help-sheet-layout.json`; effects/notes remain pending.
+- Official Room Help Sheet: all 25 entries extracted source-bound in `room-help-sheet.json` (112 literal functional-icon occurrences, 39 effect/note references, 0 unreadable operative spans).
 - Card gaps: 2 records contain unreadable markers in operative body text; 8 partial records have markers outside operative body text; 3 records have no transcription.
 - Vocabulary/taxonomy/ontology work remains intentionally unopened.
 
 ## Ordered extraction work
 
-### P1 — Official Room Help Sheet
-
-Extract both pages visually and structurally. Produce one source record per Room with exact title, section/type,
-printed effect, options, icons, restrictions, and page position. Preserve differences from TTS Room assets.
-
-### P2 — Official Objective Help Sheet
+### P1 — Official Objective Help Sheet
 
 Extract every Mission Objective, Private Objective, Mission Task, and game-term note as a separate source record.
 Preserve count thresholds, unavailable-player clauses, OR/AND grouping, annotations, and page layout. Do not collapse
 same-name entries across scope or mode.
 
-### P3 — Card-corpus gaps
+### P2 — Card-corpus gaps
 
 Work from `card-gap-inventory.json`:
 
@@ -31,21 +26,21 @@ Work from `card-gap-inventory.json`:
 3. Classify the 3 no-transcription records as rules-bearing, card back, blank/render failure, or other component evidence.
 4. Preserve all TTS/publisher/licensed-digital conflicts separately.
 
-### P4 — Official rulebook visual obligation census
+### P3 — Official rulebook visual obligation census
 
 Audit all 40 rendered pages, not only the text layer. Extract normative diagrams, component anatomy, tables, card/icon
 associations, ordering arrows, examples, and graphical constraints that are missing from `rulebook_text.txt`.
 
-### P5 — Official FAQ visual confirmation
+### P4 — Official FAQ visual confirmation
 
 Audit all 4 rendered pages to verify numbering, scope, icon associations, examples, and expansion applicability.
 
-### P6 — Player Help cards and duplicate source variants
+### P5 — Player Help cards and duplicate source variants
 
 Extract and deduplicate exact wording while retaining player-number and source-version differences. Do not normalize the
 TTS card's phase labels against the current rulebook during extraction.
 
-### P7 — Secondary evidence closure
+### P6 — Secondary evidence closure
 
 Consolidate one immutable copy of BGA build 260622-1220, index its relevant data sections, and retain TTS structured
 metadata as provenance/deck-role evidence. Secondary data may reveal conflicts but cannot settle them over official sources.

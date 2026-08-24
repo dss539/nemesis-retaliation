@@ -49,12 +49,14 @@
       "bytes": 6844297,
       "role": "Room Help Sheet",
       "authority": "official-component-reference",
-      "extractionStatus": "raw two-page PDF present; individual Room effects/layouts not yet extracted into source-bound records",
+      "extractionStatus": "complete: all 25 printed entries extracted source-bound with effects, notes, literal functional-icon occurrences, and visual evidence",
       "pages": 2,
       "relatedTtsPaths": [
         "assets/tts-mod/extract/v2-dl/tree/cards/reference/rooms-help-sheet-page-1.jpg",
         "assets/tts-mod/extract/v2-dl/tree/cards/reference/rooms-help-sheet-page-2.jpg"
-      ]
+      ],
+      "extractionOutput": "docs/rules/source-extraction/room-help-sheet.json",
+      "extractedEntryCount": 25
     },
     {
       "path": "docs/rulebooks/Nemesis_RT_Objectives_Sheet.pdf",
@@ -84,6 +86,17 @@
       "authority": "source-bound TTS component scan",
       "extractionStatus": "verbatim source extraction complete",
       "output": "docs/rules/source-extraction/intruder-help-sheet.json"
+    },
+    {
+      "component": "Room Help Sheet",
+      "path": "docs/rulebooks/Nemesis_RT_Rooms_Sheet.pdf",
+      "sourceSha256": "f97b683894576a27d787241a6ec09e1de6ca088ffa7c5b109fb3e9ed2af54f8b",
+      "authority": "official-component-reference",
+      "extractionStatus": "verbatim source extraction complete",
+      "entryCount": 25,
+      "functionalIconOccurrenceCount": 112,
+      "materialUnreadableSpanCount": 0,
+      "output": "docs/rules/source-extraction/room-help-sheet.json"
     },
     {
       "component": "Player Help cards",
@@ -122,39 +135,34 @@
   "remainingGraphicalSourceUnits": [
     {
       "priority": 1,
-      "source": "Official Room Help Sheet",
-      "units": 2,
-      "requiredOutput": "one verbatim source record per Room/effect plus page/layout evidence"
-    },
-    {
-      "priority": 2,
       "source": "Official Objective Help Sheet",
       "units": 2,
       "requiredOutput": "one verbatim source record per Objective/Mission Task/game-term note, preserving visible grouping and count thresholds"
     },
     {
-      "priority": 3,
+      "priority": 2,
       "source": "Card corpus material gaps",
       "units": 13,
       "requiredOutput": "resolve only true operative unreadable spans; classify non-operative art separately; preserve source conflicts"
     },
     {
-      "priority": 4,
+      "priority": 3,
       "source": "Official rulebook graphical normative channels",
       "units": 40,
       "requiredOutput": "page-by-page visual obligation census covering diagrams, tables, card anatomy, icon associations, and examples not represented by text extraction"
     },
     {
-      "priority": 5,
+      "priority": 4,
       "source": "Official FAQ visual/layout channel",
       "units": 4,
       "requiredOutput": "page-by-page confirmation that text extraction retained scope, numbering, examples, and icon associations"
     },
     {
-      "priority": 6,
+      "priority": 5,
       "source": "Player Help cards",
       "units": 10,
       "requiredOutput": "deduplicate identical text while preserving player-number and source-version variants"
     }
-  ]
+  ],
+  "updatedAt": "2026-08-24T05:46:42Z"
 }

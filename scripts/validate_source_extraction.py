@@ -5,7 +5,10 @@ import hashlib
 import json
 import re
 import subprocess
+import tempfile
 from pathlib import Path
+
+from PIL import Image
 
 REPO = Path(__file__).resolve().parents[1]
 EXTRACT = REPO / 'docs/rules/source-extraction'
@@ -55,6 +58,7 @@ def main() -> None:
         'card-gap-inventory.json',
         'extraction-roadmap.md',
         'intruder-help-sheet.json',
+        'room-help-sheet.json',
         'room-help-sheet-layout.json',
         'secondary-source-inventory.json',
     ]
@@ -65,6 +69,7 @@ def main() -> None:
     inventory = load(EXTRACT / 'base-source-inventory.json')
     gaps = load(EXTRACT / 'card-gap-inventory.json')
     intruder = load(EXTRACT / 'intruder-help-sheet.json')
+    room_help = load(EXTRACT / 'room-help-sheet.json')
     room_layout = load(EXTRACT / 'room-help-sheet-layout.json')
     secondary = load(EXTRACT / 'secondary-source-inventory.json')
     corpus = load(CORPUS)
@@ -197,7 +202,13 @@ def main() -> None:
     if sorted(room_numbers) != expected_numbers or len(room_numbers) != len(set(room_numbers)):
         failures.append({'check': 'Room Help Sheet printed numbers', 'expected': expected_numbers, 'actual': sorted(room_numbers)})
     room_grid = {(row.get('page'), row.get('gridColumn'), row.get('gridRow')) for row in room_entries}
-    if len(room_grid) != 25 or any(not row.get('printedTitle') or row.get('effectExtractionStatus') != 'pending' for row in room_entries):
+    if len(room_grid) != 25 or any(
+        not row.get('printedTitle')
+        or row.get('effectExtractionStatus') != 'extracted'
+        or row.get('effectExtractionPath') != 'docs/rules/source-extraction/room-help-sheet.json'
+        or row.get('effectExtractionEntryNumber') != row.get('printedNumber')
+        for row in room_entries
+    ):
         failures.append({'check': 'Room Help Sheet layout entries'})
     room_counts = {
         'entries': len(room_entries),
@@ -206,6 +217,68 @@ def main() -> None:
     }
     if room_layout.get('counts') != room_counts or room_counts != {'entries': 25, 'byPrintedSectionMarker': {'?': 13, 'A': 4, 'B': 4, 'C': 4}, 'byPage': {'1': 13, '2': 12}}:
         failures.append({'check': 'Room Help Sheet layout counts', 'actual': room_counts})
+
+    # Verify the complete Room Help extraction and regenerate every visual crop.
+    help_source = room_help.get('source') or {}
+    help_pdf = REPO / help_source.get('path', '')
+    if not help_pdf.is_file() or sha(help_pdf) != help_source.get('sha256') or pdf_pages(help_pdf) != help_source.get('pages'):
+        failures.append({'check': 'Room Help Sheet extraction source tuple'})
+    help_entries = room_help.get('entries') or []
+    help_numbers = [row.get('printedNumber') for row in help_entries]
+    if help_numbers != expected_numbers or len(help_numbers) != len(set(help_numbers)):
+        failures.append({'check': 'Room Help Sheet extraction numbers', 'actual': help_numbers})
+    help_occurrences = []
+    help_placeholders = 0
+    unreadable_count = 0
+    layout_by_number = {row['printedNumber']: row for row in room_entries}
+    placeholder_re = re.compile(r'\[(R\d{2}-I\d{2})\]')
+    with tempfile.TemporaryDirectory(prefix='validate-room-help-') as tmpdir:
+        prefix = Path(tmpdir) / 'page'
+        subprocess.run(['pdftoppm', '-f', '1', '-l', '2', '-png', '-r', str(help_source.get('renderDpi')), str(help_pdf), str(prefix)], check=True)
+        pages = {page: Image.open(Path(tmpdir) / f'page-{page}.png').convert('RGB') for page in (1, 2)}
+        for page, image in pages.items():
+            expected_page_hash = (help_source.get('renderedPageSha256') or {}).get(str(page))
+            if list(image.size) != help_source.get('renderDimensions') or sha(Path(tmpdir) / f'page-{page}.png') != expected_page_hash:
+                failures.append({'check': 'Room Help rendered page', 'page': page})
+        for row in help_entries:
+            number = row.get('printedNumber')
+            layout_row = layout_by_number.get(number)
+            if not layout_row or row.get('printedTitle') != layout_row.get('printedTitle') or row.get('printedSectionMarker') != layout_row.get('printedSectionMarker'):
+                failures.append({'check': 'Room Help extraction layout join', 'number': number})
+            icons = row.get('functionalIconOccurrences') or []
+            icon_ids = [icon.get('occurrenceId') for icon in icons]
+            help_occurrences.extend(icon_ids)
+            if len(icon_ids) != len(set(icon_ids)) or any(not isinstance(item, str) or not item.startswith(f'R{number}-I') for item in icon_ids):
+                failures.append({'check': 'Room Help occurrence IDs', 'number': number})
+            strings_to_scan = [row.get('printedEffect') or '', *(row.get('associatedNotes') or []), *(row.get('crossReferences') or [])]
+            placeholders = [match for text in strings_to_scan for match in placeholder_re.findall(text)]
+            help_placeholders += len(placeholders)
+            if set(placeholders) - set(icon_ids):
+                failures.append({'check': 'Room Help undefined placeholder', 'number': number, 'undefined': sorted(set(placeholders)-set(icon_ids))})
+            unreadable_count += len(row.get('materialUnreadableSpans') or [])
+            visual = row.get('visualEvidence') or {}
+            page = visual.get('page')
+            crop = pages[page].crop(tuple(visual.get('cropBox') or []))
+            crop_path = Path(tmpdir) / f'room-{number}.png'
+            crop.save(crop_path, 'PNG', optimize=True)
+            if list(crop.size) != visual.get('cropDimensions') or sha(crop_path) != visual.get('cropSha256'):
+                failures.append({'check': 'Room Help crop evidence', 'number': number})
+        for image in pages.values():
+            image.close()
+    if len(help_occurrences) != len(set(help_occurrences)):
+        failures.append({'check': 'Room Help global occurrence uniqueness'})
+    recomputed_help_counts = {
+        'entries': len(help_entries),
+        'byPrintedSectionMarker': {marker: sum(row.get('printedSectionMarker') == marker for row in help_entries) for marker in ['?', 'A', 'B', 'C']},
+        'byPage': {str(page): sum((row.get('visualEvidence') or {}).get('page') == page for row in help_entries) for page in [1, 2]},
+        'functionalIconOccurrences': len(help_occurrences),
+        'effectAndNoteIconReferences': help_placeholders,
+        'entriesWithAssociatedNotes': sum(bool(row.get('associatedNotes')) for row in help_entries),
+        'entriesWithCrossReferences': sum(bool(row.get('crossReferences')) for row in help_entries),
+        'materialUnreadableSpans': unreadable_count,
+    }
+    if room_help.get('counts') != recomputed_help_counts or recomputed_help_counts.get('materialUnreadableSpans') != 0:
+        failures.append({'check': 'Room Help extraction counts', 'expected': recomputed_help_counts, 'actual': room_help.get('counts')})
 
     # Verify all BGA snapshots are byte-identical and still live.
     bga_hashes = set()
@@ -232,6 +305,10 @@ def main() -> None:
             'intruderHelpOccurrenceIds': len(set(occurrence_ids)),
             'roomHelpEntries': len(room_entries),
             'roomHelpCounts': room_counts,
+            'roomHelpEffectsExtracted': len(help_entries),
+            'roomHelpFunctionalIconOccurrences': len(help_occurrences),
+            'roomHelpEffectAndNoteIconReferences': help_placeholders,
+            'roomHelpMaterialUnreadableSpans': unreadable_count,
             'bgaCopies': len(secondary['licensedDigitalSecondary']['copies']),
             'bgaDistinctHashes': len(bga_hashes),
         },
