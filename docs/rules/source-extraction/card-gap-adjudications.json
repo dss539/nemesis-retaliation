@@ -1,0 +1,278 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "base-card-gap-closure-2026-08-24",
+  "scope": "Nemesis: Retaliation base-game source extraction",
+  "reviewedAt": "2026-08-24T06:48:17Z",
+  "policy": "Source-bound pixel adjudication only. Artwork and interface microtext are not operative rules. Exact TTS/current-official/licensed-digital conflicts remain separate. No vocabulary, aliases, taxonomy, ontology, semantic normalization, or canonical promotion.",
+  "counts": {
+    "records": 13,
+    "rulesTextComplete": 9,
+    "explicitOperativeSourceBlockers": 1,
+    "classifiedNonRules": 3,
+    "recoveredOperativeCorrections": 1,
+    "materialUnreadableVisibleRulesSpans": 1
+  },
+  "focusedDerivatives": {
+    "G02": {
+      "purpose": "channel-separated recovery of the dark prototype condition",
+      "fullPanelContactSha256": "917c382fc241572614f06cc81b7c84a3c6832dbb594a58b8af2478924ba02ffa",
+      "inlineContactSha256": "dabeba81c8bd260021816caed60922f5ad1af1d8aa3ec3246ce7d67eda2ceac6",
+      "result": "no complete printed glyph recoverable after “Systems must be”"
+    },
+    "G11": {
+      "purpose": "lossless upright punctuation review",
+      "transform": "Pillow Image.Transpose.ROTATE_90",
+      "uprightSha256": "70fe7735e4a1faa6000ae4acb521618ac4f100ca35ed123e1b574b0611d356a4",
+      "result": "two vertically aligned white dots; colon"
+    }
+  },
+  "entries": [
+    {
+      "assetId": "G01",
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-07.png",
+      "sourceSha256": "b10da0bc490a8433e1061c77d4d45fce0cabf818fc81af1dd301f969c91d27ba",
+      "dimensions": [
+        1052,
+        1433
+      ],
+      "originalGapClass": "nonbody-marker-or-structure-gap",
+      "disposition": "rules-text-complete-source-deferred",
+      "expectedExtractionState": "draft-full",
+      "operativeTextStatus": "complete",
+      "finding": "All title/body/footer text is readable. The only prior illegible span is microtext in the artwork display, outside the operative panels.",
+      "pixelEvidence": {
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-07.png",
+        "sourceSha256": "b10da0bc490a8433e1061c77d4d45fce0cabf818fc81af1dd301f969c91d27ba",
+        "stagedByteIdentical": true
+      }
+    },
+    {
+      "assetId": "G02",
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-023.png",
+      "sourceSha256": "eaa728ca02c48c33e27e99fe2ef58c9668e7b8532316d3c6d3c93248a86b627a",
+      "dimensions": [
+        1136,
+        1525
+      ],
+      "originalGapClass": "operative-text-gap",
+      "disposition": "explicit-operative-source-blocker",
+      "expectedExtractionState": "draft-partial",
+      "operativeTextStatus": "blocked-at-source",
+      "finding": "Prototype source retains an incomplete low-contrast clause. Focused channel-separated review found no recoverable mark after “Systems must be”; current official wording is a different source revision.",
+      "pixelEvidence": {
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-023.png",
+        "sourceSha256": "eaa728ca02c48c33e27e99fe2ef58c9668e7b8532316d3c6d3c93248a86b627a",
+        "stagedByteIdentical": true
+      }
+    },
+    {
+      "assetId": "G03",
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-116.jpg",
+      "sourceSha256": "c1adf21143fb353e2253fa99feb8f50b93fb246d8d0bd91701690a4033c658e6",
+      "dimensions": [
+        1025,
+        1396
+      ],
+      "originalGapClass": "nonbody-marker-or-structure-gap",
+      "disposition": "rules-text-complete-source-deferred",
+      "expectedExtractionState": "draft-full",
+      "operativeTextStatus": "complete",
+      "finding": "Mission Task count, title, complete conditions, connector, and footer are readable; only background placard microtext was previously unresolved.",
+      "pixelEvidence": {
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-116.jpg",
+        "sourceSha256": "c1adf21143fb353e2253fa99feb8f50b93fb246d8d0bd91701690a4033c658e6",
+        "stagedByteIdentical": true
+      }
+    },
+    {
+      "assetId": "G04",
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-160_cards/card-03.png",
+      "sourceSha256": "2b2042f9604da8c62c67c80b9953fe959c4c82ac93a56f2e258c473f85248e9f",
+      "dimensions": [
+        1136,
+        1525
+      ],
+      "originalGapClass": "nonbody-marker-or-structure-gap",
+      "disposition": "rules-text-complete-prototype-source-deferred",
+      "expectedExtractionState": "draft-full",
+      "operativeTextStatus": "complete",
+      "finding": "Title, complete one-sentence condition, count marker, and footer are readable; unresolved marks are artwork/source-layout material. This prototype-only task remains a separate source variant.",
+      "pixelEvidence": {
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-160_cards/card-03.png",
+        "sourceSha256": "2b2042f9604da8c62c67c80b9953fe959c4c82ac93a56f2e258c473f85248e9f",
+        "stagedByteIdentical": true
+      }
+    },
+    {
+      "assetId": "G05",
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-160_cards/card-04.png",
+      "sourceSha256": "3ff9ae783d02bbc700c294c837917e9d3037034dcd7b45ea571ed295430128d2",
+      "dimensions": [
+        1136,
+        1525
+      ],
+      "originalGapClass": "nonbody-marker-or-structure-gap",
+      "disposition": "rules-text-complete-prototype-source-deferred",
+      "expectedExtractionState": "draft-full",
+      "operativeTextStatus": "complete",
+      "finding": "The prototype task’s complete printed condition is readable. Prior illegible/clipped spans are background artwork; material wording differences from the current official card remain source-version conflicts.",
+      "pixelEvidence": {
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-160_cards/card-04.png",
+        "sourceSha256": "3ff9ae783d02bbc700c294c837917e9d3037034dcd7b45ea571ed295430128d2",
+        "stagedByteIdentical": true
+      }
+    },
+    {
+      "assetId": "G06",
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/robotDeck-155.jpg",
+      "sourceSha256": "9cf67e814071c67c598456070306951e3e24cb00a274b20d736596acfeb67c39",
+      "dimensions": [
+        591,
+        862
+      ],
+      "originalGapClass": "no-operative-transcription",
+      "disposition": "classified-non-rules-card-back",
+      "expectedExtractionState": "non-rules-or-reference",
+      "operativeTextStatus": "not-rules-bearing",
+      "finding": "Image is a complete generic illustrated card back with no printed rules text.",
+      "pixelEvidence": {
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/robotDeck-155.jpg",
+        "sourceSha256": "9cf67e814071c67c598456070306951e3e24cb00a274b20d736596acfeb67c39",
+        "stagedByteIdentical": true
+      }
+    },
+    {
+      "assetId": "G07",
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/seriouswound-149_cards/card-05.png",
+      "sourceSha256": "69fa0f09363ab35f1e547a60e64e1b011702a7469755835bf002e0739b0a33f2",
+      "dimensions": [
+        591,
+        863
+      ],
+      "originalGapClass": "nonbody-marker-or-structure-gap",
+      "disposition": "rules-text-complete-source-deferred",
+      "expectedExtractionState": "draft-full",
+      "operativeTextStatus": "complete",
+      "finding": "Title and full operative Serious Wound rule are readable. Tiny green nodes, labels, and scan overlays are artwork/interface decoration, not rules text.",
+      "pixelEvidence": {
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/seriouswound-149_cards/card-05.png",
+        "sourceSha256": "69fa0f09363ab35f1e547a60e64e1b011702a7469755835bf002e0739b0a33f2",
+        "stagedByteIdentical": true
+      }
+    },
+    {
+      "assetId": "G08",
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/seriouswound-149_cards/card-06.png",
+      "sourceSha256": "1027d7f87a80b4a7d32eb40e9d336c9557c032a33ab6fdc08912a5beeb3e2dcb",
+      "dimensions": [
+        591,
+        863
+      ],
+      "originalGapClass": "nonbody-marker-or-structure-gap",
+      "disposition": "rules-text-complete-source-deferred",
+      "expectedExtractionState": "draft-full",
+      "operativeTextStatus": "complete",
+      "finding": "Title and full operative Serious Wound rule are readable. Tiny green nodes, labels, and scan overlays are artwork/interface decoration, not rules text.",
+      "pixelEvidence": {
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/seriouswound-149_cards/card-06.png",
+        "sourceSha256": "1027d7f87a80b4a7d32eb40e9d336c9557c032a33ab6fdc08912a5beeb3e2dcb",
+        "stagedByteIdentical": true
+      }
+    },
+    {
+      "assetId": "G09",
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/seriouswound-149_cards/card-07.png",
+      "sourceSha256": "b485840032e9abcaeec0bf614e7df0e5487aa52d43005615eeb6950aed44f09f",
+      "dimensions": [
+        591,
+        863
+      ],
+      "originalGapClass": "nonbody-marker-or-structure-gap",
+      "disposition": "rules-text-complete-source-deferred",
+      "expectedExtractionState": "draft-full",
+      "operativeTextStatus": "complete",
+      "finding": "Title and full operative Serious Wound rule are readable. Tiny green nodes, labels, and scan overlays are artwork/interface decoration, not rules text.",
+      "pixelEvidence": {
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/seriouswound-149_cards/card-07.png",
+        "sourceSha256": "b485840032e9abcaeec0bf614e7df0e5487aa52d43005615eeb6950aed44f09f",
+        "stagedByteIdentical": true
+      }
+    },
+    {
+      "assetId": "G10",
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/seriouswound-149_cards/card-08.png",
+      "sourceSha256": "2316dd24439f588422fce16da610e59e2609973f968bf0cb7dfb18b8d8f21f40",
+      "dimensions": [
+        591,
+        863
+      ],
+      "originalGapClass": "nonbody-marker-or-structure-gap",
+      "disposition": "rules-text-complete-source-deferred",
+      "expectedExtractionState": "draft-full",
+      "operativeTextStatus": "complete",
+      "finding": "Title and full operative Serious Wound rule are readable. Tiny green nodes, labels, and scan overlays are artwork/interface decoration, not rules text.",
+      "pixelEvidence": {
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/seriouswound-149_cards/card-08.png",
+        "sourceSha256": "2316dd24439f588422fce16da610e59e2609973f968bf0cb7dfb18b8d8f21f40",
+        "stagedByteIdentical": true
+      }
+    },
+    {
+      "assetId": "G11",
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-144_cards/card-14.png",
+      "sourceSha256": "f29213e6aa1250538e65825cafbaa61be3348ba79520842e6b8f22f7c5ad4a77",
+      "dimensions": [
+        591,
+        863
+      ],
+      "originalGapClass": "operative-text-gap",
+      "disposition": "rules-text-complete-punctuation-recovered",
+      "expectedExtractionState": "draft-full",
+      "operativeTextStatus": "complete",
+      "finding": "Lossless upright review resolves the only unreadable operative span as a colon. No text was inferred from game semantics.",
+      "pixelEvidence": {
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-144_cards/card-14.png",
+        "sourceSha256": "f29213e6aa1250538e65825cafbaa61be3348ba79520842e6b8f22f7c5ad4a77",
+        "stagedByteIdentical": true
+      }
+    },
+    {
+      "assetId": "G12",
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/yellowitem-146_cards/card-03.png",
+      "sourceSha256": "77223a77d61181cd144bd508dfcbfe91e135e093395d15e8b9957ce51669d8c4",
+      "dimensions": [
+        591,
+        863
+      ],
+      "originalGapClass": "no-operative-transcription",
+      "disposition": "classified-non-rules-placeholder",
+      "expectedExtractionState": "non-rules-or-reference",
+      "operativeTextStatus": "not-rules-bearing",
+      "finding": "Near-uniform black source contains no visible rules-bearing component face or operative text.",
+      "pixelEvidence": {
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/yellowitem-146_cards/card-03.png",
+        "sourceSha256": "77223a77d61181cd144bd508dfcbfe91e135e093395d15e8b9957ce51669d8c4",
+        "stagedByteIdentical": true
+      }
+    },
+    {
+      "assetId": "G13",
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/reference/card-034_cards/card-05.png",
+      "sourceSha256": "ae7bd644fc9d42671fd5f5b826360b17d5af483905754187e550050dcf8838d9",
+      "dimensions": [
+        815,
+        1111
+      ],
+      "originalGapClass": "no-operative-transcription",
+      "disposition": "classified-non-rules-placeholder",
+      "expectedExtractionState": "non-rules-or-reference",
+      "operativeTextStatus": "not-rules-bearing",
+      "finding": "Near-uniform black source contains no visible rules-bearing component face or operative text.",
+      "pixelEvidence": {
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/reference/card-034_cards/card-05.png",
+        "sourceSha256": "ae7bd644fc9d42671fd5f5b826360b17d5af483905754187e550050dcf8838d9",
+        "stagedByteIdentical": true
+      }
+    }
+  ]
+}

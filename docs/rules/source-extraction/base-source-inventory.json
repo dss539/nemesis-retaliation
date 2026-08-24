@@ -124,55 +124,47 @@
       "component": "Card/reference corpus",
       "authority": "mixed source-bound component evidence",
       "path": "assets/tts-mod/extract/card-text-corpus.json",
-      "sha256": "baaf18625eeaab940379fa412896bc390d5a409365c9a4f7ae312b4a9f858c95",
+      "sha256": "34395bb0fbb665d011e0e4cbbf3adc47898f3cce7522ad7eb9e186475e5ee7cd",
       "counts": {
         "records": 390,
         "rulesTextPresent": 350,
         "extractionStates": {
           "complete-non-rules-or-reference": 34,
-          "draft-full": 250,
-          "draft-partial": 10,
-          "no-transcription": 3,
-          "non-rules-or-reference": 15,
+          "draft-full": 259,
+          "draft-partial": 1,
+          "non-rules-or-reference": 18,
           "verified-canonical": 78
         },
         "rulesInformationReadiness": {
           "canonical": 78,
-          "draft-partial": 10,
-          "draft-text-complete": 119,
-          "draft-text-complete-symbols-unresolved": 131,
-          "missing-transcription": 3,
-          "not-rules-bearing-or-reference": 49
+          "draft-partial": 1,
+          "draft-text-complete": 123,
+          "draft-text-complete-symbols-unresolved": 136,
+          "not-rules-bearing-or-reference": 52
         }
       },
-      "extractionStatus": "390 records closed into explicit states; remaining gaps enumerated separately"
+      "extractionStatus": "390 records closed into explicit source states; nine prior partials are rules-text complete, three missing records are classified non-rules, and one exact-source operative span remains explicitly blocked"
     }
   ],
   "remainingGraphicalSourceUnits": [
     {
       "priority": 1,
-      "source": "Card corpus material gaps",
-      "units": 13,
-      "requiredOutput": "resolve only true operative unreadable spans; classify non-operative art separately; preserve source conflicts"
-    },
-    {
-      "priority": 2,
       "source": "Official rulebook graphical normative channels",
       "units": 40,
       "requiredOutput": "page-by-page visual obligation census covering diagrams, tables, card anatomy, icon associations, and examples not represented by text extraction"
     },
     {
-      "priority": 3,
+      "priority": 2,
       "source": "Official FAQ visual/layout channel",
       "units": 4,
       "requiredOutput": "page-by-page confirmation that text extraction retained scope, numbering, examples, and icon associations"
     },
     {
-      "priority": 4,
+      "priority": 3,
       "source": "Player Help cards",
       "units": 10,
       "requiredOutput": "deduplicate identical text while preserving player-number and source-version variants"
     }
   ],
-  "updatedAt": "2026-08-24T06:27:29Z"
+  "updatedAt": "2026-08-24T07:01:08Z"
 }

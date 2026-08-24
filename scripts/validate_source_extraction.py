@@ -55,6 +55,7 @@ def main() -> None:
     required = [
         'README.md',
         'base-source-inventory.json',
+        'card-gap-adjudications.json',
         'card-gap-inventory.json',
         'extraction-roadmap.md',
         'intruder-help-sheet.json',
@@ -102,46 +103,20 @@ def main() -> None:
         else:
             repository_hashes += 1
 
-    # Verify card gap inventory is a deterministic projection of current corpus states.
-    expected_gap_rows = [row for row in corpus['records'] if row['extractionState'] in {'draft-partial', 'no-transcription'}]
-    expected_paths = {row['sourcePath'] for row in expected_gap_rows}
-    actual_paths = {row['sourcePath'] for row in gaps['records']}
-    if actual_paths != expected_paths or len(actual_paths) != len(gaps['records']):
-        failures.append({'check': 'card gap paths', 'missing': sorted(expected_paths-actual_paths), 'extra': sorted(actual_paths-expected_paths)})
-    recomputed = {
-        'records': len(expected_gap_rows),
-        'draftPartial': sum(row['extractionState'] == 'draft-partial' for row in expected_gap_rows),
-        'noTranscription': sum(row['extractionState'] == 'no-transcription' for row in expected_gap_rows),
-        'operativeTextGaps': 0,
-        'nonbodyMarkerOrStructureGaps': 0,
-        'noOperativeTranscription': 0,
-    }
-    corpus_by_path = {row['sourcePath']: row for row in corpus['records']}
-    for row in gaps['records']:
-        source = REPO / row['sourcePath']
-        if not source.is_file() or sha(source) != row['sourceSha256']:
-            failures.append({'check': 'card gap source tuple', 'path': row['sourcePath']})
-        original = corpus_by_path.get(row['sourcePath'])
-        if not original or original['sourceSha256'] != row['sourceSha256']:
-            failures.append({'check': 'card gap corpus tuple', 'path': row['sourcePath']})
-            continue
-        body = ((original.get('printedData') or {}).get('body') or '') if isinstance(original.get('printedData'), dict) else ''
-        has_body_marker = bool(UNREADABLE_RE.search(body))
-        if original['extractionState'] == 'no-transcription':
-            expected_class = 'no-operative-transcription'
-            recomputed['noOperativeTranscription'] += 1
-        elif has_body_marker:
-            expected_class = 'operative-text-gap'
-            recomputed['operativeTextGaps'] += 1
-        else:
-            expected_class = 'nonbody-marker-or-structure-gap'
-            recomputed['nonbodyMarkerOrStructureGaps'] += 1
-        if row['gapClass'] != expected_class:
-            failures.append({'check': 'card gap class', 'path': row['sourcePath'], 'expected': expected_class, 'actual': row['gapClass']})
-    if gaps['sourceCorpusSha256'] != sha(CORPUS):
-        failures.append({'check': 'card gap corpus hash'})
-    if gaps['counts'] != recomputed:
-        failures.append({'check': 'card gap counts', 'expected': recomputed, 'actual': gaps['counts']})
+    # Verify the closed 13-record card-gap review as a dedicated source-bound projection.
+    card_gap_run = subprocess.run(
+        ['python3', str(REPO / 'scripts/validate_card_gap_adjudications.py')],
+        check=False,
+        text=True,
+        capture_output=True,
+    )
+    try:
+        card_gap_report = json.loads(card_gap_run.stdout)
+    except json.JSONDecodeError:
+        card_gap_report = {'passed': False, 'checks': {}, 'failures': [{'check': 'invalid validator output', 'stderr': card_gap_run.stderr}]}
+    if card_gap_run.returncode != 0 or not card_gap_report.get('passed'):
+        failures.append({'check': 'card gap adjudications', 'report': card_gap_report})
+    recomputed = card_gap_report.get('checks') or {}
 
     # Verify Intruder Help source pairs, extraction completeness, and selected evidence lineage.
     if intruder.get('component') != 'Intruder Help Sheet' or len(intruder.get('sides') or []) != 2:
@@ -402,7 +377,7 @@ def main() -> None:
             'requiredOutputs': len(required),
             'repositorySourceHashesVerified': repository_hashes,
             'officialSources': len(inventory['officialSources']),
-            'cardGapRecords': len(gaps['records']),
+            'cardGapRecords': recomputed.get('reviewedRecords'),
             'cardGapCounts': recomputed,
             'intruderHelpSides': len(intruder['sides']),
             'intruderHelpInstructions': source_instructions,

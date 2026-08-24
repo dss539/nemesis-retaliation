@@ -13,14 +13,14 @@ The current implementation is not being repaired or extended. It is historical b
 
 ## Immediate Next Deliverable
 
-Close the **13 card-gap records** in `docs/rules/source-extraction/card-gap-inventory.json`:
+Complete a **40-page official rulebook visual obligation census**:
 
-- resolve or explicitly block the two true operative-text gaps (`FACILITY RESTART` and `SUBMACHINE GUN`);
-- review eight partial records whose unreadable markers sit outside operative body text, separating artwork/interface evidence from rules;
-- classify three no-transcription records as rules-bearing, card back, blank/render failure, or other component evidence;
-- preserve every TTS, official, and licensed-digital source variant independently;
-- update corpus readiness only when the source evidence supports it;
-- do not introduce canonical vocabulary or semantic normalization.
+- render every page at a fixed recorded resolution and preserve PDF-index/printed-page mapping;
+- inventory each diagram, table, component anatomy panel, icon association, ordering arrow, worked example, and graphical constraint;
+- compare rendered pixels with `rulebook_text.txt` and extract only obligations absent or structurally lost in text extraction;
+- assign source-local page/region/occurrence identifiers without canonical naming;
+- preserve examples as examples and avoid silently converting them into general rules;
+- record every page as extracted, visually non-normative, or explicitly blocked.
 
 ## Verified Checkpoint
 
@@ -30,10 +30,10 @@ Close the **13 card-gap records** in `docs/rules/source-extraction/card-gap-inve
 - 390 card/reference records
 - 350 records with rules/effect text
 - 78 canonical image/sidecar pairs
-- 250 full drafts
-- 10 partial records
-- 3 no-transcription records
-- 49 non-rules/reference records
+- 259 full drafts
+- 1 partial record
+- 0 no-transcription records
+- 52 non-rules/reference records
 - Manual stratified review: **8/8 complete**
 - Approved icon identifiers: **50**
 
@@ -55,10 +55,12 @@ Close the **13 card-gap records** in `docs/rules/source-extraction/card-gap-inve
   - 10 physically occluded units retained with explicit visibility boundaries
   - 50 full and 5 partially visible icon occurrences
   - 0 unreadable visible spans
-- Card-gap inventory: 13 records
-  - 2 true operative-text gaps
-  - 8 nonbody marker/structure gaps
-  - 3 no-transcription classifications
+- Card-gap review: **13/13 source tuples adjudicated**
+  - 9 rules-text-complete records
+  - 1 explicit exact-source operative blocker
+  - 3 classified non-rules components/placeholders
+  - 1 operative correction recovered (`SUBMACHINE GUN`: colon)
+  - 0 remaining no-transcription records
 - Four licensed-digital BGA snapshots inventoried and confirmed byte-identical
 - `scripts/validate_source_extraction.py`: **passed with 0 failures**
 
@@ -74,19 +76,19 @@ Machine-readable evidence: `docs/rules/source-extraction/validation.json`.
 - Extracted both Intruder Help Sheet sides without introducing canonical vocabulary.
 - Extracted all 25 official Room Help Sheet entries with effects, notes, literal functional-icon occurrences, and reproducible visual evidence.
 - Extracted the official Objective Help Sheet at its source boundary: all 45 units inventoried, all visible wording retained, physical occlusions explicit, repeated page terms preserved, and hidden text-layer data not promoted to visible-face evidence.
+- Closed all 13 card-gap reviews at their source boundary: nine complete rules reads, three non-rules classifications, one exact-source blocker, and one recovered punctuation correction; prior selected worker evidence remains immutable history.
 - Created the closed source inventory, card-gap inventory, secondary-source inventory, Room layout inventory, roadmap, and deterministic validator.
 
 ## Remaining Work — Ordered
 
-1. **Card-corpus gaps** — close or explicitly block two operative gaps; classify eight nonbody gaps and three missing records.
-2. **Rulebook visual obligation census** — inspect all 40 rendered pages for normative information lost by the text layer.
-3. **FAQ visual confirmation** — inspect all four rendered pages for numbering, scope, examples, icons, and applicability.
-4. **Player Help variants** — deduplicate exact wording while preserving player-number and source-version differences.
-5. **Secondary-source closure** — consolidate one immutable BGA build snapshot and index relevant data sections; retain TTS metadata as provenance only.
-6. **Extraction closure audit** — reconcile every source unit as extracted, non-normative, or explicitly blocked.
-7. **Canonical vocabulary and aliases** — begin only after the extraction gate passes.
-8. **Taxonomy/ontology**, then **semantic rules layer**.
-9. Define implementation-readiness criteria and seek explicit approval before a clean rewrite.
+1. **Rulebook visual obligation census** — inspect all 40 rendered pages for normative information lost by the text layer.
+2. **FAQ visual confirmation** — inspect all four rendered pages for numbering, scope, examples, icons, and applicability.
+3. **Player Help variants** — deduplicate exact wording while preserving player-number and source-version differences.
+4. **Secondary-source closure** — consolidate one immutable BGA build snapshot and index relevant data sections; retain TTS metadata as provenance only.
+5. **Extraction closure audit** — reconcile every source unit as extracted, non-normative, or explicitly blocked.
+6. **Canonical vocabulary and aliases** — begin only after the extraction gate passes.
+7. **Taxonomy/ontology**, then **semantic rules layer**.
+8. Define implementation-readiness criteria and seek explicit approval before a clean rewrite.
 
 Detailed phase plan: `docs/rules/source-extraction/extraction-roadmap.md`.
 
@@ -132,9 +134,7 @@ All of the following must be true:
 
 ## Known Current Blockers and Open Evidence
 
-- `FACILITY RESTART` and `SUBMACHINE GUN` retain true operative unreadable spans.
-- Eight other partial records require artwork/metadata versus rules classification.
-- Three no-transcription records require component classification.
+- One prototype `FACILITY RESTART` face visibly ends a condition at “Systems must be”; no following mark is recoverable from the exact pixels, and materially different same-title/current-official variants cannot be substituted.
 - The 25 Room Help entries versus 23 Room tiles relationship is unresolved.
 - Source/version conflicts remain in several card families and must not be flattened.
 - Genuine rules ambiguities remain in `docs/rules/open-questions.md`; some stale extraction blockers there must later be re-audited against newly collected evidence.

@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "sourceProgressUpdatedAt": "2026-08-22T22:23:11Z",
-  "sourceQueueUpdatedAt": "2026-08-22T22:23:11Z",
+  "sourceQueueUpdatedAt": "2026-08-24T06:48:17Z",
   "totals": {
     "inScope": 532,
     "complete": 148,
@@ -13,16 +13,15 @@
     "canonicalSidecars": 78
   },
   "deferredExtractionStates": {
-    "draft-full": 281,
-    "draft-partial": 14,
-    "no-transcription": 42,
-    "non-rules-or-reference": 47
+    "draft-full": 290,
+    "draft-partial": 5,
+    "no-transcription": 39,
+    "non-rules-or-reference": 50
   },
   "deferredCardExtractionStates": {
-    "draft-full": 250,
-    "draft-partial": 10,
-    "no-transcription": 3,
-    "non-rules-or-reference": 15
+    "draft-full": 259,
+    "draft-partial": 1,
+    "non-rules-or-reference": 18
   },
   "deferredFamilies": {
     "character/heavy-gun-operator-045_cards": 35,
@@ -172,7 +171,7 @@
   },
   "reasonTags": {
     "classification": 75,
-    "clipped-or-illegible": 92,
+    "clipped-or-illegible": 91,
     "needs-official-source": 31,
     "orientation": 58,
     "other": 46,
@@ -182,266 +181,6 @@
     "unknown-icon": 4
   },
   "topRulesInformationPriorities": [
-    {
-      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/seriouswound-149_cards/card-05.png",
-      "sourceSha256": "69fa0f09363ab35f1e547a60e64e1b011702a7469755835bf002e0739b0a33f2",
-      "family": "game/seriouswound-149_cards",
-      "isCard": true,
-      "isRulesBearingCandidate": true,
-      "extractionState": "draft-partial",
-      "priorityScore": 1330,
-      "title": "BODY",
-      "typeLine": "",
-      "body": "Your Hand Size is 1 lower.",
-      "footer": "",
-      "recognizedTokens": [],
-      "unknownTokens": [
-        "ICON: small green hollow quadrilateral",
-        "illegible"
-      ],
-      "unreadableMarkers": [
-        "[illegible]"
-      ],
-      "reasonTags": [
-        "provenance",
-        "source-conflict",
-        "schema-or-destination"
-      ],
-      "reasonSkipped": "No singular exact GUID/CardID source selector exists; preserve the complete exact reference set without unsupported cell or copy inference.; No current publisher-primary rendered face visibly establishes the exact assigned title/content and family.; The current exact-title BGA licensed-digital record conflicts materially and remains secondary evidence only.; 1 publisher/BGA/TTS-variant source conflict row(s) are preserved verbatim.; No approved canonical destination/schema maps this exact source-bound Serious Wound card face into the canonical catalog during unattended W32 processing.; 1 discrepancy row(s) with the prior unselected corpus snapshot are preserved.",
-      "uncertainties": [
-        "The hollow green mark immediately after and above “39.0” may be a line-network node or degree-like punctuation; the pixels provide no discriminator.",
-        "The upper-left vertical green microtext is too small and dim for reliable character recovery.",
-        "Additional faint horizontal runs at left-center and lower-left may contain text, but some may instead be interface decoration.",
-        "The vertical “TISSUE DAMAGE” label is much smaller and lower-contrast than the main text, although its visible letter forms support that transcription.",
-        "The three colored open-U callouts are outside the sentence and attached to illustration leader lines; any function beyond non-text graphic annotation is not established by pixels.",
-        "The exact identity of the layered central figure and its highlighted regions cannot be established from pixels alone.",
-        "No current publisher-primary rendered face visibly establishes the exact assigned title/content and family.",
-        "The current exact-title BGA licensed-digital record conflicts materially and remains secondary evidence only.",
-        "No singular exact GUID/CardID source selector exists; preserve the complete exact reference set without unsupported cell or copy inference.",
-        "1 publisher/BGA/TTS-variant source conflict row(s) are preserved verbatim.",
-        "No approved canonical destination/schema maps this exact source-bound Serious Wound card face into the canonical catalog during unattended W32 processing.",
-        "1 discrepancy row(s) with the prior unselected corpus snapshot are preserved."
-      ],
-      "vision": {
-        "provider": "openai-codex",
-        "model": "gpt-5.6-sol",
-        "reasoningEffort": "max",
-        "workerId": "sol-max-persistent-worker-32-20260821T135953Z-p441103-69bcb8",
-        "sessionId": "20260821_140128_f6f95e",
-        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-32-20260821T135953Z-p441103-69bcb8/results/W32-002.json",
-        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-32-20260821T135953Z-p441103-69bcb8/raw/W32-002.json"
-      }
-    },
-    {
-      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/seriouswound-149_cards/card-06.png",
-      "sourceSha256": "1027d7f87a80b4a7d32eb40e9d336c9557c032a33ab6fdc08912a5beeb3e2dcb",
-      "family": "game/seriouswound-149_cards",
-      "isCard": true,
-      "isRulesBearingCandidate": true,
-      "extractionState": "draft-partial",
-      "priorityScore": 1330,
-      "title": "KNEE",
-      "typeLine": "",
-      "body": "Using “Make a Move”\nor “Make a Move with [secure]”\nas your first Action in a Round\ncosts you 1 [actionCard] more.",
-      "footer": "",
-      "recognizedTokens": [
-        "actionCard",
-        "secure"
-      ],
-      "unknownTokens": [
-        "ICON: small green hollow quadrilateral",
-        "illegible"
-      ],
-      "unreadableMarkers": [
-        "[illegible]"
-      ],
-      "reasonTags": [
-        "provenance",
-        "source-conflict",
-        "schema-or-destination"
-      ],
-      "reasonSkipped": "No singular exact GUID/CardID source selector exists; preserve the complete exact reference set without unsupported cell or copy inference.; No current publisher-primary rendered face visibly establishes the exact assigned title/content and family.; The current exact-title BGA licensed-digital record conflicts materially and remains secondary evidence only.; 1 publisher/BGA/TTS-variant source conflict row(s) are preserved verbatim.; No approved canonical destination/schema maps this exact source-bound Serious Wound card face into the canonical catalog during unattended W32 processing.; 1 discrepancy row(s) with the prior unselected corpus snapshot are preserved.",
-      "uncertainties": [
-        "The hollow green mark immediately after and above “39.0” may be a line-network node or degree-like punctuation; the pixels provide no discriminator.",
-        "The upper-left vertical green microtext is too small and dim for reliable character recovery.",
-        "Additional faint horizontal runs at left-center and lower-left may contain text, but some may instead be interface decoration.",
-        "The vertical “TISSUE DAMAGE” label is much smaller and lower-contrast than the main text, although its visible letter forms support that transcription.",
-        "The exact internal form and semantic identity of the white tapered inline polygon cannot be established from pixels alone.",
-        "The quote glyphs visibly curl or slant; exact source encoding as straight versus curly quotation marks cannot be recovered, so they are represented visually as “…” here.",
-        "The two red outlined ovals may be artwork-integrated highlights or geometric overlays; no visible discriminator conclusively separates those alternatives.",
-        "The three colored open-U callouts are outside the sentence and attached to illustration leader lines; any function beyond non-text graphic annotation is not established by pixels.",
-        "No current publisher-primary rendered face visibly establishes the exact assigned title/content and family.",
-        "The current exact-title BGA licensed-digital record conflicts materially and remains secondary evidence only.",
-        "No singular exact GUID/CardID source selector exists; preserve the complete exact reference set without unsupported cell or copy inference.",
-        "1 publisher/BGA/TTS-variant source conflict row(s) are preserved verbatim.",
-        "No approved canonical destination/schema maps this exact source-bound Serious Wound card face into the canonical catalog during unattended W32 processing.",
-        "1 discrepancy row(s) with the prior unselected corpus snapshot are preserved."
-      ],
-      "vision": {
-        "provider": "openai-codex",
-        "model": "gpt-5.6-sol",
-        "reasoningEffort": "max",
-        "workerId": "sol-max-persistent-worker-32-20260821T135953Z-p441103-69bcb8",
-        "sessionId": "20260821_140128_f6f95e",
-        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-32-20260821T135953Z-p441103-69bcb8/results/W32-003.json",
-        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-32-20260821T135953Z-p441103-69bcb8/raw/W32-003.json"
-      }
-    },
-    {
-      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/seriouswound-149_cards/card-07.png",
-      "sourceSha256": "b485840032e9abcaeec0bf614e7df0e5487aa52d43005615eeb6950aed44f09f",
-      "family": "game/seriouswound-149_cards",
-      "isCard": true,
-      "isRulesBearingCandidate": true,
-      "extractionState": "draft-partial",
-      "priorityScore": 1330,
-      "title": "GUTS",
-      "typeLine": "",
-      "body": "Whenever you Pass:\nget 1 Contamination card.",
-      "footer": "",
-      "recognizedTokens": [],
-      "unknownTokens": [
-        "ICON: small green hollow quadrilateral",
-        "illegible"
-      ],
-      "unreadableMarkers": [
-        "[illegible]"
-      ],
-      "reasonTags": [
-        "provenance",
-        "source-conflict",
-        "schema-or-destination"
-      ],
-      "reasonSkipped": "No singular exact GUID/CardID source selector exists; preserve the complete exact reference set without unsupported cell or copy inference.; No current publisher-primary rendered face visibly establishes the exact assigned title/content and family.; The current exact-title BGA licensed-digital record conflicts materially and remains secondary evidence only.; 1 publisher/BGA/TTS-variant source conflict row(s) are preserved verbatim.; No approved canonical destination/schema maps this exact source-bound Serious Wound card face into the canonical catalog during unattended W32 processing.",
-      "uncertainties": [
-        "The hollow green mark immediately after and above “39.0” may be a line-network node or degree-like punctuation; the pixels provide no discriminator.",
-        "The upper-left vertical green microtext is too small and dim for reliable character recovery.",
-        "Additional faint horizontal runs at left-center and lower-left may contain text, but some may instead be interface decoration.",
-        "The vertical “TISSUE DAMAGE” label is much smaller and lower-contrast than the main text, although its visible letter forms support that transcription.",
-        "The three colored open-U callouts are outside the sentence and attached to illustration leader lines; any function beyond non-text graphic annotation is not established by pixels.",
-        "The exact identities of the central red-orange region and lower yellow-orange looped forms cannot be established from pixels alone.",
-        "No current publisher-primary rendered face visibly establishes the exact assigned title/content and family.",
-        "The current exact-title BGA licensed-digital record conflicts materially and remains secondary evidence only.",
-        "No singular exact GUID/CardID source selector exists; preserve the complete exact reference set without unsupported cell or copy inference.",
-        "1 publisher/BGA/TTS-variant source conflict row(s) are preserved verbatim.",
-        "No approved canonical destination/schema maps this exact source-bound Serious Wound card face into the canonical catalog during unattended W32 processing."
-      ],
-      "vision": {
-        "provider": "openai-codex",
-        "model": "gpt-5.6-sol",
-        "reasoningEffort": "max",
-        "workerId": "sol-max-persistent-worker-32-20260821T135953Z-p441103-69bcb8",
-        "sessionId": "20260821_140128_f6f95e",
-        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-32-20260821T135953Z-p441103-69bcb8/results/W32-004.json",
-        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-32-20260821T135953Z-p441103-69bcb8/raw/W32-004.json"
-      }
-    },
-    {
-      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/seriouswound-149_cards/card-08.png",
-      "sourceSha256": "2316dd24439f588422fce16da610e59e2609973f968bf0cb7dfb18b8d8f21f40",
-      "family": "game/seriouswound-149_cards",
-      "isCard": true,
-      "isRulesBearingCandidate": true,
-      "extractionState": "draft-partial",
-      "priorityScore": 1330,
-      "title": "BLEEDING",
-      "typeLine": "",
-      "body": "Whenever you Pass:\nlose 1 [characterHealth].",
-      "footer": "",
-      "recognizedTokens": [
-        "characterHealth"
-      ],
-      "unknownTokens": [
-        "ICON: small green hollow quadrilateral",
-        "illegible"
-      ],
-      "unreadableMarkers": [
-        "[illegible]"
-      ],
-      "reasonTags": [
-        "provenance",
-        "source-conflict",
-        "schema-or-destination"
-      ],
-      "reasonSkipped": "No singular exact GUID/CardID source selector exists; preserve the complete exact reference set without unsupported cell or copy inference.; No current publisher-primary rendered face visibly establishes the exact assigned title/content and family.; The current exact-title BGA licensed-digital record conflicts materially and remains secondary evidence only.; 1 publisher/BGA/TTS-variant source conflict row(s) are preserved verbatim.; No approved canonical destination/schema maps this exact source-bound Serious Wound card face into the canonical catalog during unattended W32 processing.",
-      "uncertainties": [
-        "The hollow green mark immediately after and above “39.0” may be a line-network node or degree-like punctuation; the pixels provide no discriminator.",
-        "The upper-left vertical green microtext is too small and dim for reliable character recovery.",
-        "Additional faint horizontal runs at left-center and lower-left may contain text, but some may instead be interface decoration.",
-        "The vertical “TISSUE DAMAGE” label is much smaller and lower-contrast than the main text, although its visible letter forms support that transcription.",
-        "The exact internal form and semantic identity of the white inline morphology cannot be established from pixels alone.",
-        "The small detached white dot after M1 aligns with the text baseline and is transcribed as a period, but it could conceivably be a terminal element of the glyph.",
-        "The three colored open-U callouts are outside the sentence and attached to illustration leader lines; any function beyond non-text graphic annotation is not established by pixels.",
-        "The broad central white-cyan band may be an integrated highlighted region or a large graphic overlay; its semantic identity is not visible.",
-        "No current publisher-primary rendered face visibly establishes the exact assigned title/content and family.",
-        "The current exact-title BGA licensed-digital record conflicts materially and remains secondary evidence only.",
-        "No singular exact GUID/CardID source selector exists; preserve the complete exact reference set without unsupported cell or copy inference.",
-        "1 publisher/BGA/TTS-variant source conflict row(s) are preserved verbatim.",
-        "No approved canonical destination/schema maps this exact source-bound Serious Wound card face into the canonical catalog during unattended W32 processing."
-      ],
-      "vision": {
-        "provider": "openai-codex",
-        "model": "gpt-5.6-sol",
-        "reasoningEffort": "max",
-        "workerId": "sol-max-persistent-worker-32-20260821T135953Z-p441103-69bcb8",
-        "sessionId": "20260821_140128_f6f95e",
-        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-32-20260821T135953Z-p441103-69bcb8/results/W32-005.json",
-        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-32-20260821T135953Z-p441103-69bcb8/raw/W32-005.json"
-      }
-    },
-    {
-      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-07.png",
-      "sourceSha256": "b10da0bc490a8433e1061c77d4d45fce0cabf818fc81af1dd301f969c91d27ba",
-      "family": "character/heavy-gun-operator-045_cards",
-      "isCard": true,
-      "isRulesBearingCandidate": true,
-      "extractionState": "draft-partial",
-      "priorityScore": 1250,
-      "title": "SECURE",
-      "typeLine": "",
-      "body": "Place 2 [secure].\nOR\nReinforce 1 empty Corridor that leads\nto a Room with a Character or [robot].",
-      "footer": "RECON",
-      "recognizedTokens": [
-        "robot",
-        "secure"
-      ],
-      "unknownTokens": [
-        "ICON: white stepped horizontal bar with red internal strokes, crossed by a red X",
-        "illegible"
-      ],
-      "unreadableMarkers": [
-        "[illegible]"
-      ],
-      "reasonTags": [
-        "clipped-or-illegible",
-        "source-conflict",
-        "schema-or-destination"
-      ],
-      "reasonSkipped": "1 material functional occurrence(s) remain explicit all-49 no-matches; no semantic token was invented.; Current rendered publisher evidence provides locator/prose/family context but not a complete exact component face.; Current exact-title BGA secondary text potentially conflicts and is preserved without substitution.; 4 publisher/BGA/TTS-variant conflict row(s) are preserved verbatim.; At least one materially recorded text span remains [illegible] or [clipped].; No unattended W33 canonical destination/schema is approved for this mixed-family source; no existing approved file may be overwritten or reclassified.; 2 discrepancy row(s) with the prior corpus snapshot are preserved.",
-      "uncertainties": [
-        "M1's white central contour and some internal strokes are obscured by the overlaid red X.",
-        "M2's white facets can plausibly read as either a solid faceted silhouette or an outlined three-dimensional form.",
-        "The semantic identities of M1, M2, and M3 are not established by their pixels alone.",
-        "The tiny pale marks in the upper-middle illustrated display may imitate text, but no individual word or character is reliably readable.",
-        "M1 is treated as one compound occurrence because the red X and white base are spatially integrated into a single corner emblem.",
-        "Current rendered publisher evidence provides locator/prose/family context but not a complete exact component face.",
-        "Current exact-title BGA secondary text potentially conflicts and is preserved without substitution.",
-        "1 material functional occurrence(s) remain explicit all-49 no-matches; no semantic token was invented.",
-        "4 publisher/BGA/TTS-variant conflict row(s) are preserved verbatim.",
-        "At least one materially recorded text span remains [illegible] or [clipped].",
-        "No unattended W33 canonical destination/schema is approved for this mixed-family source; no existing approved file may be overwritten or reclassified.",
-        "2 discrepancy row(s) with the prior corpus snapshot are preserved."
-      ],
-      "vision": {
-        "provider": "openai-codex",
-        "model": "gpt-5.6-sol",
-        "reasoningEffort": "max",
-        "workerId": "sol-max-persistent-worker-33-20260821T172305Z-p465856-36ac0c",
-        "sessionId": "20260821_221754_aa8e51",
-        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-33-20260821T172305Z-p465856-36ac0c/results/W33-133.json",
-        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-33-20260821T172305Z-p465856-36ac0c/raw/W33-133.json"
-      }
-    },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-023.png",
       "sourceSha256": "eaa728ca02c48c33e27e99fe2ef58c9668e7b8532316d3c6d3c93248a86b627a",
@@ -482,296 +221,6 @@
         "sessionId": "20260820_080847_8bb239",
         "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991/results/W22-005.json",
         "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991/raw/W22-005.json"
-      }
-    },
-    {
-      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-116.jpg",
-      "sourceSha256": "c1adf21143fb353e2253fa99feb8f50b93fb246d8d0bd91701690a4033c658e6",
-      "family": "game/missionTaskDeck-116.jpg",
-      "isCard": true,
-      "isRulesBearingCandidate": true,
-      "extractionState": "draft-partial",
-      "priorityScore": 1250,
-      "title": "THE SUPPLY ROUTE",
-      "typeLine": "MISSION TASK",
-      "body": "There must be a continuous path\nof Reinforced Corridors\nfrom the Landing Zone (Section A)\nto the Life Support Control C.\n\nAND\n\nThe Facility must NOT be destroyed.",
-      "footer": "",
-      "recognizedTokens": [],
-      "unknownTokens": [
-        "ICON: two pale-yellow rounded horizontal blocks and a small right-pointing triangular wedge",
-        "ICON: white rounded upright form rising from concentric cyan/blue horizontal ovals",
-        "illegible"
-      ],
-      "unreadableMarkers": [
-        "[illegible]"
-      ],
-      "reasonTags": [
-        "provenance",
-        "clipped-or-illegible",
-        "schema-or-destination"
-      ],
-      "reasonSkipped": "The material ringed Number-of-Characters composite remains an explicit no-match to the canonical p.40 glossary.; The exact paired BackURL is recorded, but its saved Akamai endpoint returned HTTP 404 and paired-side pixels were unavailable for inspection.; The proposed target identity collides inside W23 with W23-006; no source revision may overwrite or select another without a human decision.",
-      "uncertainties": [
-        "The small lower line on the upper-left red placard cannot be reliably segmented into characters and remains [illegible].",
-        "The central blue-white glyph could visually resemble either a rounded upright figure-like form or a flame/beacon-like form; no printed label establishes its identity.",
-        "The pale-yellow marks on the red placard may be indicators, blank fields, or decorative shapes; their function is not visibly established.",
-        "The mirrored orange side motifs appear integrated with the panel border, but a functional chevron-like reading cannot be completely excluded.",
-        "The final C. is visibly printed, but the image alone does not establish whether C is an abbreviation, identifier, or part of a longer naming convention.",
-        "MISSION TASK appears once at lower center; it is represented in both typeLine and lowerCenter to encode its apparent role and its visible position, not as two separate printed instances.",
-        "The material ringed Number-of-Characters composite remains an explicit no-match to the canonical p.40 glossary.",
-        "The exact paired BackURL is recorded, but its saved Akamai endpoint returned HTTP 404 and paired-side pixels were unavailable for inspection.",
-        "The proposed target identity collides inside W23 with W23-006; no source revision may overwrite or select another without a human decision."
-      ],
-      "vision": {
-        "provider": "openai-codex",
-        "model": "gpt-5.6-sol",
-        "reasoningEffort": "max",
-        "workerId": "sol-max-persistent-worker-23-20260820T185027Z-p240642-4513b3",
-        "sessionId": "20260820_190057_7927a4",
-        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-23-20260820T185027Z-p240642-4513b3/results/W23-001.json",
-        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-23-20260820T185027Z-p240642-4513b3/raw/W23-001.json"
-      }
-    },
-    {
-      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-160_cards/card-04.png",
-      "sourceSha256": "3ff9ae783d02bbc700c294c837917e9d3037034dcd7b45ea571ed295430128d2",
-      "family": "game/missionTaskDeck-160_cards",
-      "isCard": true,
-      "isRulesBearingCandidate": true,
-      "extractionState": "draft-partial",
-      "priorityScore": 1250,
-      "title": "ESSENTIAL DATA",
-      "typeLine": "MISSION TASK",
-      "body": "At least 1 Character with Data token\nfrom the Server Room\nmust Escape using the Lander.",
-      "footer": "",
-      "recognizedTokens": [],
-      "unknownTokens": [
-        "ICON: solid white rounded-cap upright silhouette above concentric cyan/blue horizontal rings",
-        "illegible"
-      ],
-      "unreadableMarkers": [
-        "[illegible]"
-      ],
-      "reasonTags": [
-        "provenance",
-        "schema-or-destination"
-      ],
-      "reasonSkipped": "The material ringed Number-of-Characters composite remains an explicit no-match to the canonical p.40 glossary.; The exact paired BackURL is recorded, but its saved Akamai endpoint returned HTTP 404 and paired-side pixels were unavailable for inspection.; The generated sheet cell is exact, but no unique GUID/CardID selector is safely established for this cell.; The proposed target identity collides inside W23 with W23-002; no source revision may overwrite or select another without a human decision.; Assigned art uses literal Character and Lander words where current official art uses the corresponding glyphs.; Assigned Server Room condition omits Section B.; Assigned Lander condition omits Section A.; Assigned art omits the entire current official AND condition requiring no Unexplored Corridors in Section A.",
-      "uncertainties": [
-        "The luminous display contains substantial material microtext, but its small size, oblique perspective, glare, fractures, and splatter prevent exact character-level transcription.",
-        "The faint diagonal sequence behind the body panel is partly occluded and cannot be completed from the visible strokes.",
-        "The blue-white glyph's semantic identity is not established by 2+; its white element could visually resemble a rounded upright figure, pawn, bottle, or plume-like marker.",
-        "The large luminous display, fractures, splatter, cables, and background equipment are treated as pictorial scene elements rather than promoted to functional symbols.",
-        "The mirrored orange panel-side marks appear border-integrated and are not promoted to functional symbols.",
-        "MISSION TASK occurs once at lower center; it is represented in both typeLine and lowerCenter to encode its apparent role and visible position, not as two separate printed instances.",
-        "The material ringed Number-of-Characters composite remains an explicit no-match to the canonical p.40 glossary.",
-        "The exact paired BackURL is recorded, but its saved Akamai endpoint returned HTTP 404 and paired-side pixels were unavailable for inspection.",
-        "The generated sheet cell is exact, but no unique GUID/CardID selector is safely established for this cell.",
-        "The proposed target identity collides inside W23 with W23-002; no source revision may overwrite or select another without a human decision.",
-        "Assigned art uses literal Character and Lander words where current official art uses the corresponding glyphs.",
-        "Assigned Server Room condition omits Section B.",
-        "Assigned Lander condition omits Section A.",
-        "Assigned art omits the entire current official AND condition requiring no Unexplored Corridors in Section A."
-      ],
-      "vision": {
-        "provider": "openai-codex",
-        "model": "gpt-5.6-sol",
-        "reasoningEffort": "max",
-        "workerId": "sol-max-persistent-worker-23-20260820T185027Z-p240642-4513b3",
-        "sessionId": "20260820_190057_7927a4",
-        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-23-20260820T185027Z-p240642-4513b3/results/W23-008.json",
-        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-23-20260820T185027Z-p240642-4513b3/raw/W23-008.json"
-      }
-    },
-    {
-      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-144_cards/card-14.png",
-      "sourceSha256": "f29213e6aa1250538e65825cafbaa61be3348ba79520842e6b8f22f7c5ad4a77",
-      "family": "game/startItemDeck-144_cards",
-      "isCard": true,
-      "isRulesBearingCandidate": true,
-      "extractionState": "draft-partial",
-      "priorityScore": 1250,
-      "title": "SUBMACHINE GUN",
-      "typeLine": "RANGED WEAPON",
-      "body": "[shootDie2][illegible] treat this result as a [shootDieCritical]\nand spend 1 [ICON: red near-square with a split dark rectangular inset] as normal.",
-      "footer": "",
-      "recognizedTokens": [
-        "shootDie2",
-        "shootDieCritical"
-      ],
-      "unknownTokens": [
-        "ICON: red near-square with a split dark rectangular inset",
-        "ICON: white horizontal stepped bar crossed by a red X",
-        "illegible"
-      ],
-      "unreadableMarkers": [
-        "[illegible]",
-        "[illegible]",
-        "[illegible]"
-      ],
-      "reasonTags": [
-        "clipped-or-illegible",
-        "source-conflict",
-        "classification",
-        "schema-or-destination"
-      ],
-      "reasonSkipped": "2 material functional occurrence(s) remain explicit all-49 no-matches; no semantic token was invented.; Current rendered publisher evidence provides locator/prose/family context but not a complete exact component face.; Current exact-title BGA secondary text potentially conflicts and is preserved without substitution.; 1 publisher/BGA/TTS-variant conflict row(s) are preserved verbatim.; At least one materially recorded text span remains [illegible] or [clipped].; No unattended W33 canonical destination/schema is approved for this mixed-family source; no existing approved file may be overwritten or reclassified.; 3 discrepancy row(s) with the prior corpus snapshot are preserved.",
-      "uncertainties": [
-        "The tiny punctuation-like mark immediately after M2 cannot be distinguished reliably and remains [illegible].",
-        "The underlying white silhouette in M1 is substantially occluded by the red X, preventing complete morphology recovery.",
-        "The finest internal contours of M2 and M3 are small and may contain additional pixels that cannot be resolved confidently.",
-        "Pixels alone do not establish whether the white top-center field and red lower-center geometry are component contours, functional structures, or decorative layout elements.",
-        "The red lower-center geometry is clipped by the bottom raster edge, although no printed text is clipped.",
-        "No visible discriminator establishes a canonical component family, exact component identity, or side type.",
-        "Current rendered publisher evidence provides locator/prose/family context but not a complete exact component face.",
-        "Current exact-title BGA secondary text potentially conflicts and is preserved without substitution.",
-        "2 material functional occurrence(s) remain explicit all-49 no-matches; no semantic token was invented.",
-        "1 publisher/BGA/TTS-variant conflict row(s) are preserved verbatim.",
-        "At least one materially recorded text span remains [illegible] or [clipped].",
-        "No unattended W33 canonical destination/schema is approved for this mixed-family source; no existing approved file may be overwritten or reclassified.",
-        "3 discrepancy row(s) with the prior corpus snapshot are preserved."
-      ],
-      "vision": {
-        "provider": "openai-codex",
-        "model": "gpt-5.6-sol",
-        "reasoningEffort": "max",
-        "workerId": "sol-max-persistent-worker-33-20260821T172305Z-p465856-36ac0c",
-        "sessionId": "20260821_233507_13a356",
-        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-33-20260821T172305Z-p465856-36ac0c/results/W33-004.json",
-        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-33-20260821T172305Z-p465856-36ac0c/raw/W33-004.json"
-      }
-    },
-    {
-      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-160_cards/card-03.png",
-      "sourceSha256": "2b2042f9604da8c62c67c80b9953fe959c4c82ac93a56f2e258c473f85248e9f",
-      "family": "game/missionTaskDeck-160_cards",
-      "isCard": true,
-      "isRulesBearingCandidate": true,
-      "extractionState": "draft-partial",
-      "priorityScore": 1150,
-      "title": "SABOTAGE",
-      "typeLine": "MISSION TASK",
-      "body": "Place an Explosive token in each\nLife Support Control Room.",
-      "footer": "",
-      "recognizedTokens": [],
-      "unknownTokens": [
-        "ICON: dark rounded square with a thick pale border and faint illegible internal marks",
-        "ICON: solid white rounded-cap upright silhouette above concentric cyan/blue horizontal rings",
-        "illegible"
-      ],
-      "unreadableMarkers": [
-        "[illegible]"
-      ],
-      "reasonTags": [
-        "provenance"
-      ],
-      "reasonSkipped": "The material ringed Number-of-Characters composite remains an explicit no-match to the canonical p.40 glossary.; The exact paired BackURL is recorded, but its saved Akamai endpoint returned HTTP 404 and paired-side pixels were unavailable for inspection.; The generated sheet cell is exact, but no unique GUID/CardID selector is safely established for this cell.; No Mission Task titled SABOTAGE appears on the current two-page Awaken Realms Objectives Help Sheet or in the licensed BGA mission-task data.",
-      "uncertainties": [
-        "The central display contains substantial material microtext, but its small size, oblique perspective, glare, fractures, and splatter prevent exact character-level transcription.",
-        "The dark rounded square may be an independent functional symbol, a framed slot, or an empty dark object; no printed label establishes its identity.",
-        "The faint marks inside the dark square cannot be distinguished reliably from low-contrast text, texture, or underlying diagonal background strokes.",
-        "The blue-white glyph's semantic identity is not established by 2+; its white element could visually resemble a rounded upright figure, pawn, bottle, or plume-like marker.",
-        "The large luminous display, fractures, splatter, and background equipment are treated as pictorial scene elements rather than promoted to functional symbols.",
-        "The mirrored orange panel-side marks appear border-integrated and are not promoted to functional symbols.",
-        "MISSION TASK occurs once at lower center; it is represented in both typeLine and lowerCenter to encode its apparent role and visible position, not as two separate printed instances.",
-        "The material ringed Number-of-Characters composite remains an explicit no-match to the canonical p.40 glossary.",
-        "The exact paired BackURL is recorded, but its saved Akamai endpoint returned HTTP 404 and paired-side pixels were unavailable for inspection.",
-        "The generated sheet cell is exact, but no unique GUID/CardID selector is safely established for this cell.",
-        "No Mission Task titled SABOTAGE appears on the current two-page Awaken Realms Objectives Help Sheet or in the licensed BGA mission-task data."
-      ],
-      "vision": {
-        "provider": "openai-codex",
-        "model": "gpt-5.6-sol",
-        "reasoningEffort": "max",
-        "workerId": "sol-max-persistent-worker-23-20260820T185027Z-p240642-4513b3",
-        "sessionId": "20260820_190057_7927a4",
-        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-23-20260820T185027Z-p240642-4513b3/results/W23-007.json",
-        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-23-20260820T185027Z-p240642-4513b3/raw/W23-007.json"
-      }
-    },
-    {
-      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/robotDeck-155.jpg",
-      "sourceSha256": "9cf67e814071c67c598456070306951e3e24cb00a274b20d736596acfeb67c39",
-      "family": "game/robotDeck-155.jpg",
-      "isCard": true,
-      "isRulesBearingCandidate": true,
-      "extractionState": "no-transcription",
-      "priorityScore": 1000,
-      "title": "",
-      "typeLine": "",
-      "body": "",
-      "footer": "",
-      "recognizedTokens": [],
-      "unknownTokens": [],
-      "unreadableMarkers": [],
-      "reasonTags": [
-        "provenance",
-        "source-conflict",
-        "orientation",
-        "schema-or-destination"
-      ],
-      "reasonSkipped": "1 material functional occurrence(s) remain explicit all-49 authoritative no-matches; no semantic token was invented.; No singular exact GUID/CardID source selector exists; preserve the complete exact reference set without unsupported cell or copy inference.; The shared counterpart set is structurally resolved but not all counterpart pixels are present in the extracted base tree; only available exact counterparts were inspected.; The visible publisher lookalike belongs to a different component family and cannot establish source fidelity for this exact TTS role.; BGA structured face data does not establish generic card-back pixels.; 1 publisher/BGA source conflict row(s) are preserved verbatim.; No approved canonical Robot card back image/sidecar schema or directory exists under cards/game.",
-      "uncertainties": [
-        "No printed text provides a definitive orientation cue; upright orientation is based on the observed vertical composition and bilateral structural arrangement.",
-        "M1 may visually suggest a wheeled mechanism, irregular creature-like figure, or abstract assembly, but pixels alone do not distinguish those semantic readings.",
-        "M1 appears functional because it is flat-filled, thickly outlined, centrally isolated, and enclosed by an illuminated display, but its exact role is not visibly labeled.",
-        "The octagonal pane and surrounding housing may be component-level framing or part of the artwork; their exact canonical status is not established.",
-        "Circuit-like traces and small surface marks in P3 are nonalphabetic at the visible resolution and are not promoted to text.",
-        "The exact component family and side designation are not visibly printed.",
-        "The visible publisher lookalike belongs to a different component family and cannot establish source fidelity for this exact TTS role.",
-        "BGA structured face data does not establish generic card-back pixels.",
-        "1 material functional occurrence(s) remain explicit all-49 authoritative no-matches; no semantic token was invented.",
-        "No singular exact GUID/CardID source selector exists; preserve the complete exact reference set without unsupported cell or copy inference.",
-        "The shared counterpart set is structurally resolved but not all counterpart pixels are present in the extracted base tree; only available exact counterparts were inspected.",
-        "1 publisher/BGA source conflict row(s) are preserved verbatim.",
-        "No approved canonical Robot card back image/sidecar schema or directory exists under cards/game."
-      ],
-      "vision": {
-        "provider": "openai-codex",
-        "model": "gpt-5.6-sol",
-        "reasoningEffort": "max",
-        "workerId": "sol-max-persistent-worker-31-20260821T112612Z-p346900-b7e2c9",
-        "sessionId": "20260821_112834_379457",
-        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-31-20260821T112612Z-p346900-b7e2c9/results/W31-024.json",
-        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-31-20260821T112612Z-p346900-b7e2c9/raw/W31-024.json"
-      }
-    },
-    {
-      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/yellowitem-146_cards/card-03.png",
-      "sourceSha256": "77223a77d61181cd144bd508dfcbfe91e135e093395d15e8b9957ce51669d8c4",
-      "family": "game/yellowitem-146_cards",
-      "isCard": true,
-      "isRulesBearingCandidate": true,
-      "extractionState": "no-transcription",
-      "priorityScore": 1000,
-      "title": "",
-      "typeLine": "",
-      "body": "",
-      "footer": "",
-      "recognizedTokens": [],
-      "unknownTokens": [],
-      "unreadableMarkers": [],
-      "reasonTags": [
-        "orientation",
-        "schema-or-destination"
-      ],
-      "reasonSkipped": "Current rendered publisher evidence provides locator/prose/family context but not a complete exact component face.; No exact-title BGA record exists; no fuzzy/renamed candidate was substituted.; This source is non-rules component evidence and is not a canonical card sidecar candidate.; No unattended W33 canonical destination/schema is approved for this mixed-family source; no existing approved file may be overwritten or reclassified.",
-      "uncertainties": [
-        "The pixels do not establish whether the black field is intentional content, an obscured image, or an empty render.",
-        "Intrinsic orientation cannot be established because no directional feature is visible.",
-        "Current rendered publisher evidence provides locator/prose/family context but not a complete exact component face.",
-        "No exact-title BGA record exists; no fuzzy/renamed candidate was substituted.",
-        "This source is non-rules component evidence and is not a canonical card sidecar candidate.",
-        "No unattended W33 canonical destination/schema is approved for this mixed-family source; no existing approved file may be overwritten or reclassified."
-      ],
-      "vision": {
-        "provider": "openai-codex",
-        "model": "gpt-5.6-sol",
-        "reasoningEffort": "max",
-        "workerId": "sol-max-persistent-worker-33-20260821T172305Z-p465856-36ac0c",
-        "sessionId": "20260821_183735_5b37f7",
-        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-33-20260821T172305Z-p465856-36ac0c/results/W33-018.json",
-        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-33-20260821T172305Z-p465856-36ac0c/raw/W33-018.json"
       }
     },
     {
@@ -1454,6 +903,489 @@
         "sessionId": "20260815_051752_d45cc8",
         "resultPath": "assets/tts-mod/extract/vision-results/20ced3626bd007e388acda4ccc96dfcd59e72bcf3cf7ae84ad1693e5ba0a924d.json",
         "rawResultPath": null
+      }
+    },
+    {
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/attack-151_cards/card-16.png",
+      "sourceSha256": "eb422e05e6ec47d486f08c873f4fd1c5427e79904f16fab88a140bd46a390e6a",
+      "family": "game/attack-151_cards",
+      "isCard": true,
+      "isRulesBearingCandidate": true,
+      "extractionState": "draft-full",
+      "priorityScore": 430,
+      "title": "SCRATCH",
+      "typeLine": null,
+      "body": "Lose 2 [characterHealth].",
+      "footer": null,
+      "recognizedTokens": [
+        "characterHealth"
+      ],
+      "unknownTokens": [
+        "ICON: blue circular glyph depicting a broad many-limbed creature",
+        "ICON: blue circular glyph depicting a small curled creature",
+        "ICON: blue circular glyph depicting an upright spiky creature"
+      ],
+      "unreadableMarkers": [],
+      "reasonTags": [
+        "classification"
+      ],
+      "reasonSkipped": "exact card identity/transcription/icon/category is not uniformly high-confidence",
+      "uncertainties": [
+        "The three blue circular creature glyphs do not confidently match any canonical glossary icon; their exact identities and meanings are unknown.",
+        "No deck, owner, or printed type line is visible; the attack-card category is inferred from the face layout and effect presentation."
+      ],
+      "vision": {
+        "provider": "openai-codex",
+        "model": "gpt-5.6-sol",
+        "reasoningEffort": null,
+        "workerId": null,
+        "sessionId": "20260815_051754_a4bf5a",
+        "resultPath": "assets/tts-mod/extract/vision-results/eb422e05e6ec47d486f08c873f4fd1c5427e79904f16fab88a140bd46a390e6a.json",
+        "rawResultPath": null
+      }
+    },
+    {
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/attack-151_cards/card-17.png",
+      "sourceSha256": "75dda99e22f47ea06d533242f1646707edbebf6378651002cc10a23047bfec44",
+      "family": "game/attack-151_cards",
+      "isCard": true,
+      "isRulesBearingCandidate": true,
+      "extractionState": "draft-full",
+      "priorityScore": 430,
+      "title": "SUMMONING",
+      "typeLine": null,
+      "body": "[ICON: cyan circular glyph with a small curled creature]\n[ICON: cyan circular glyph with a spined creature]\nLose 2 [characterHealth].\n\n[ICON: cyan circular glyph with a frontal many-limbed creature]\nPlace 1 Drone in each adjacent\nCorridor with Intruders.\nIf the Room has no [character], place 1\nDrone in that Room. This Drone\ndoesn’t make a Surprise Attack.",
+      "footer": null,
+      "recognizedTokens": [
+        "character",
+        "characterHealth"
+      ],
+      "unknownTokens": [
+        "ICON: cyan circular glyph with a frontal many-limbed creature",
+        "ICON: cyan circular glyph with a small curled creature",
+        "ICON: cyan circular glyph with a spined creature"
+      ],
+      "unreadableMarkers": [],
+      "reasonTags": [
+        "classification"
+      ],
+      "reasonSkipped": "exact card identity/transcription/icon/category is not uniformly high-confidence",
+      "uncertainties": [
+        "The three cyan circular creature glyphs are card-local symbols not confidently represented in the supplied canonical glossary; they are described literally.",
+        "The small white inline glyph after “If the Room has no” appears to be the canonical character astronaut symbol, but its stylized angular form makes the morphology less than fully unambiguous."
+      ],
+      "vision": {
+        "provider": "openai-codex",
+        "model": "gpt-5.6-sol",
+        "reasoningEffort": null,
+        "workerId": null,
+        "sessionId": "20260815_052023_108e1e",
+        "resultPath": "assets/tts-mod/extract/vision-results/75dda99e22f47ea06d533242f1646707edbebf6378651002cc10a23047bfec44.json",
+        "rawResultPath": null
+      }
+    },
+    {
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/attack-151_cards/card-18.png",
+      "sourceSha256": "a5d496cfe387ac69a361b62b659047238d348f4db329583a6d3f5b562d0fbce3",
+      "family": "game/attack-151_cards",
+      "isCard": true,
+      "isRulesBearingCandidate": true,
+      "extractionState": "draft-full",
+      "priorityScore": 430,
+      "title": "TAIL ATTACK",
+      "typeLine": null,
+      "body": "[ICON: blue circular glyph with cyan-white crouched quadrupedal creature]\n[ICON: blue circular glyph with cyan-white upright multi-limbed creature]\nGet 1 Contamination\n\n[ICON: blue-white circular glyph with cyan frontal horned creature]\nIf you are Injured or Heavily\nInjured, you die.\nOtherwise, you get\n1 Serious Wound and\n1 Contamination card.",
+      "footer": null,
+      "recognizedTokens": [],
+      "unknownTokens": [
+        "ICON: blue circular glyph with cyan-white crouched quadrupedal creature",
+        "ICON: blue circular glyph with cyan-white upright multi-limbed creature",
+        "ICON: blue-white circular glyph with cyan frontal horned creature"
+      ],
+      "unreadableMarkers": [],
+      "reasonTags": [
+        "classification"
+      ],
+      "reasonSkipped": "exact card identity/transcription/icon/category is not uniformly high-confidence",
+      "uncertainties": [
+        "The three circular cyan/white creature glyphs are card-local symbols that do not confidently match any canonical glossary icon; their represented identities are uncertain.",
+        "Fine anatomical details within the three small stylized creature glyphs are not fully distinguishable."
+      ],
+      "vision": {
+        "provider": "openai-codex",
+        "model": "gpt-5.6-sol",
+        "reasoningEffort": null,
+        "workerId": null,
+        "sessionId": "20260815_051804_902606",
+        "resultPath": "assets/tts-mod/extract/vision-results/a5d496cfe387ac69a361b62b659047238d348f4db329583a6d3f5b562d0fbce3.json",
+        "rawResultPath": null
+      }
+    },
+    {
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/attack-151_cards/card-19.png",
+      "sourceSha256": "8a8f393e64f6f0d5d1bf569afbff6b1737615c269b09f5e3bd11711f7e396e16",
+      "family": "game/attack-151_cards",
+      "isCard": true,
+      "isRulesBearingCandidate": true,
+      "extractionState": "draft-full",
+      "priorityScore": 430,
+      "title": "TAIL ATTACK",
+      "typeLine": null,
+      "body": "[ICON: cyan circular glyph showing a low horizontal multi-limbed creature]\n[ICON: cyan circular glyph showing an upright spined creature]\nLose 1 [characterHealth].\nGet 1 Contamination.\n\n[ICON: cyan circular glyph showing a frontal horned multi-limbed creature]\nIf you are Injured or Heavily\nInjured, you die.\nOtherwise, you get\n1 Serious Wound and\n1 Contamination card.",
+      "footer": null,
+      "recognizedTokens": [
+        "characterHealth"
+      ],
+      "unknownTokens": [
+        "ICON: cyan circular glyph showing a frontal horned multi-limbed creature",
+        "ICON: cyan circular glyph showing a low horizontal multi-limbed creature",
+        "ICON: cyan circular glyph showing an upright spined creature"
+      ],
+      "unreadableMarkers": [],
+      "reasonTags": [
+        "classification"
+      ],
+      "reasonSkipped": "exact card identity/transcription/icon/category is not uniformly high-confidence",
+      "uncertainties": [
+        "The three cyan circular line-leading glyphs are card-local symbols absent from the supplied canonical glossary; their meanings are not assigned.",
+        "Fine anatomical details within the three cyan glyphs are stylized and somewhat ambiguous."
+      ],
+      "vision": {
+        "provider": "openai-codex",
+        "model": "gpt-5.6-sol",
+        "reasoningEffort": null,
+        "workerId": null,
+        "sessionId": "20260815_052023_d7796c",
+        "resultPath": "assets/tts-mod/extract/vision-results/8a8f393e64f6f0d5d1bf569afbff6b1737615c269b09f5e3bd11711f7e396e16.json",
+        "rawResultPath": null
+      }
+    },
+    {
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/event-054.png",
+      "sourceSha256": "ac3dc8c20efc3e964383bb9956b264bf3f4a64762d8d8920f5c612d1841ec4bf",
+      "family": "game/event-054.png",
+      "isCard": true,
+      "isRulesBearingCandidate": true,
+      "extractionState": "draft-full",
+      "priorityScore": 430,
+      "title": "LEAVING THE SHELL",
+      "typeLine": null,
+      "body": "No [intruder] moves.\n\nEach [character] with Larva:\nGain 1 Contamination, discard all [ICON: solid white rectangular block],\nand reshuffle your deck.\nThen, resolve the Eclosion Procedure.\nEach other [character]:\nDraw 4 [ICON: solid white rectangular block] and resolve the Infection\nProcedure. Then, discard all [ICON: solid white rectangular block].\n\nReshuffle the Event deck.",
+      "footer": "",
+      "recognizedTokens": [
+        "character",
+        "intruder"
+      ],
+      "unknownTokens": [
+        "ICON: solid white rectangular block"
+      ],
+      "unreadableMarkers": [],
+      "reasonTags": [
+        "other"
+      ],
+      "reasonSkipped": "Three featureless solid white rectangular inline occurrences lack authoritative canonical identities; exactly one explicit no-match row per occurrence is preserved.",
+      "uncertainties": [
+        "Three featureless solid white rectangular inline occurrences lack visible morphology required to establish any canonical token."
+      ],
+      "vision": {
+        "provider": "openai-codex",
+        "model": "gpt-5.6-sol",
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-18-recovery-20260820T044726Z-p176060-5eb908",
+        "sessionId": "20260819_083610_6461bd",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-18-recovery-20260820T044726Z-p176060-5eb908/results/W18-002.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-18-recovery-20260820T044726Z-p176060-5eb908/raw/W18-002.json"
+      }
+    },
+    {
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/seriouswound-028.png",
+      "sourceSha256": "cfc93364f9ec257e07bc84989bbea9709ecdc9519d11f2bc7fd4c5b519ab3f6f",
+      "family": "game/seriouswound-028.png",
+      "isCard": true,
+      "isRulesBearingCandidate": true,
+      "extractionState": "draft-full",
+      "priorityScore": 430,
+      "title": "KNEE",
+      "typeLine": "",
+      "body": "“Make a Move with [ICON: two overlapping white angular lobes with lower tab and upper notch]”\ncosts you 1 [actionCard] more.",
+      "footer": "",
+      "recognizedTokens": [
+        "actionCard"
+      ],
+      "unknownTokens": [
+        "ICON: two overlapping white angular lobes with lower tab and upper notch"
+      ],
+      "unreadableMarkers": [],
+      "reasonTags": [
+        "provenance",
+        "source-conflict",
+        "schema-or-destination"
+      ],
+      "reasonSkipped": "1 material functional occurrence(s) remain explicit all-49 authoritative no-matches; no semantic token was invented.; No singular exact GUID/CardID source selector exists; preserve the complete exact reference set without unsupported cell or copy inference.; No current publisher-primary rendered component face visibly establishes the exact assigned title/content and family.; The applicable exact-title/discard BGA licensed-digital record conflicts materially and is retained only as secondary evidence.; 1 publisher/BGA source conflict row(s) are preserved verbatim.; No approved canonical Serious Wound card image/sidecar schema or directory exists under cards/game.; 1 discrepancy row(s) with the prior unselected corpus snapshot are preserved.",
+      "uncertainties": [
+        "The exact source-character encoding of the opening and closing quotation glyphs cannot be recovered from raster pixels; they are transcribed as curly double quotation marks matching their visible shapes.",
+        "No separable degree mark is visible after 39.0; the nearby green outlined square is treated as an interface node rather than punctuation.",
+        "The small vertical TISSUE DAMAGE label is readable but lower contrast than the primary rules text.",
+        "The upper-left vertical interface label and additional green microtext-like marks are too small or low-contrast to transcribe safely.",
+        "M1 supports folded-sheet, interlocking-chevron, paired-limb, and irregular-polygon readings without a decisive semantic discriminator.",
+        "M2 visibly bears A, but its canonical function is not established by pixels alone.",
+        "The colored U-shaped callout markers are treated as non-text interface graphics rather than functional rules morphologies.",
+        "The exact component type and side taxonomy are not visibly printed.",
+        "No current publisher-primary rendered component face visibly establishes the exact assigned title/content and family.",
+        "The applicable exact-title/discard BGA licensed-digital record conflicts materially and is retained only as secondary evidence.",
+        "1 material functional occurrence(s) remain explicit all-49 authoritative no-matches; no semantic token was invented.",
+        "No singular exact GUID/CardID source selector exists; preserve the complete exact reference set without unsupported cell or copy inference.",
+        "1 publisher/BGA source conflict row(s) are preserved verbatim.",
+        "No approved canonical Serious Wound card image/sidecar schema or directory exists under cards/game.",
+        "1 discrepancy row(s) with the prior unselected corpus snapshot are preserved."
+      ],
+      "vision": {
+        "provider": "openai-codex",
+        "model": "gpt-5.6-sol",
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-31-20260821T112612Z-p346900-b7e2c9",
+        "sessionId": "20260821_112834_379457",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-31-20260821T112612Z-p346900-b7e2c9/results/W31-027.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-31-20260821T112612Z-p346900-b7e2c9/raw/W31-027.json"
+      }
+    },
+    {
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/seriouswound-149_cards/card-01.png",
+      "sourceSha256": "42980fa5cef70e8ed40649d1495fc75c015c43f60ebb52961031d18f8f3e1564",
+      "family": "game/seriouswound-149_cards",
+      "isCard": true,
+      "isRulesBearingCandidate": true,
+      "extractionState": "draft-full",
+      "priorityScore": 430,
+      "title": "LUNGS",
+      "typeLine": "",
+      "body": "Whenever you Pass:\nlose 1 [oxygen] (even in Section\nwith [lifeSupportActive]).\nIf you already have 0 [oxygen],\nlose 2 [ICON: thick white horizontal stepped zigzag line with sharp central peak] instead.",
+      "footer": "",
+      "recognizedTokens": [
+        "lifeSupportActive",
+        "oxygen"
+      ],
+      "unknownTokens": [
+        "ICON: thick white horizontal stepped zigzag line with sharp central peak"
+      ],
+      "unreadableMarkers": [],
+      "reasonTags": [
+        "provenance",
+        "source-conflict",
+        "schema-or-destination"
+      ],
+      "reasonSkipped": "1 material functional occurrence(s) remain explicit all-49 authoritative no-matches; no semantic token was invented.; No singular exact GUID/CardID source selector exists; preserve the complete exact reference set without unsupported cell or copy inference.; No current publisher-primary rendered component face visibly establishes the exact assigned title/content and family.; The applicable exact-title/discard BGA licensed-digital record conflicts materially and is retained only as secondary evidence.; 1 publisher/BGA source conflict row(s) are preserved verbatim.; No approved canonical Serious Wound card image/sidecar schema or directory exists under cards/game.; 1 discrepancy row(s) with the prior unselected corpus snapshot are preserved.",
+      "uncertainties": [
+        "The small vertical ECG SUITS and TISSUE DAMAGE labels are readable but substantially smaller and lower contrast than the primary rule text.",
+        "No separable degree mark is visible after 39.0; the nearby green outlined square is treated as an interface node rather than punctuation.",
+        "Additional green microtext-like marks are too small or low-contrast to transcribe safely.",
+        "M1 through M3 visibly share the same open-top U-shaped morphology but differ in color and location; their exact interface function is not labeled.",
+        "M4 and M6 visibly share the same yellow-rimmed blue-cylinder morphology, but pixels do not establish its canonical identity.",
+        "M5's bilateral white end lobes and cyan central frame support several connector-like or linked-object readings without selecting one.",
+        "M7's stepped zigzag geometry is clear, but its canonical meaning is not established.",
+        "The anatomical or diagnostic significance of the colored lung highlights and callout lines is not inferred.",
+        "The exact component type and side taxonomy are not visibly printed.",
+        "No current publisher-primary rendered component face visibly establishes the exact assigned title/content and family.",
+        "The applicable exact-title/discard BGA licensed-digital record conflicts materially and is retained only as secondary evidence.",
+        "1 material functional occurrence(s) remain explicit all-49 authoritative no-matches; no semantic token was invented.",
+        "No singular exact GUID/CardID source selector exists; preserve the complete exact reference set without unsupported cell or copy inference.",
+        "1 publisher/BGA source conflict row(s) are preserved verbatim.",
+        "No approved canonical Serious Wound card image/sidecar schema or directory exists under cards/game.",
+        "1 discrepancy row(s) with the prior unselected corpus snapshot are preserved."
+      ],
+      "vision": {
+        "provider": "openai-codex",
+        "model": "gpt-5.6-sol",
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-31-20260821T112612Z-p346900-b7e2c9",
+        "sessionId": "20260821_112834_379457",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-31-20260821T112612Z-p346900-b7e2c9/results/W31-030.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-31-20260821T112612Z-p346900-b7e2c9/raw/W31-030.json"
+      }
+    },
+    {
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-01.png",
+      "sourceSha256": "d293abad16af07498d8f485bd1ab67426be66a64d78c2fbd085ec4bac7dc0f4f",
+      "family": "character/heavy-gun-operator-045_cards",
+      "isCard": true,
+      "isRulesBearingCandidate": true,
+      "extractionState": "draft-full",
+      "priorityScore": 350,
+      "title": "CHAIN\nOF COMMAND",
+      "typeLine": "",
+      "body": "Move the [ICON: solid white irregular silhouette with tall narrow central projection and broad multi-lobed base] by 1 space in any direction.\nOR\n\nCOMMAND\nChoose a Character with a lower Rank.\nThen, Move, Shoot, or Burst using this\nCharacter.\n\nREACTION\nWhen a Character with a higher Rank plays\na Command on you:\nCancel the effect of that Command. That\nCharacter must still pay the Action’s cost.",
+      "footer": "RECON",
+      "recognizedTokens": [],
+      "unknownTokens": [
+        "ICON: solid white irregular silhouette with tall narrow central projection and broad multi-lobed base"
+      ],
+      "unreadableMarkers": [],
+      "reasonTags": [
+        "provenance",
+        "source-conflict",
+        "schema-or-destination"
+      ],
+      "reasonSkipped": "1 material functional occurrence(s) remain explicit all-49 no-matches; no semantic token was invented.; Current rendered publisher evidence provides locator/prose/family context but not a complete exact component face.; Current exact-title BGA secondary text potentially conflicts and is preserved without substitution.; Same-title TTS variants differ materially and remain separate provenance.; 5 publisher/BGA/TTS-variant conflict row(s) are preserved verbatim.; No unattended W33 canonical destination/schema is approved for this mixed-family source; no existing approved file may be overwritten or reclassified.; 1 discrepancy row(s) with the prior corpus snapshot are preserved.",
+      "uncertainties": [
+        "The semantic identity represented by M1 cannot be established from its silhouette alone.",
+        "RECON uses wide typographic tracking; it is transcribed as the single printed word RECON rather than as five separate tokens.",
+        "The visible face does not independently establish a canonical component subtype or whether it is formally a front or reverse side.",
+        "Current rendered publisher evidence provides locator/prose/family context but not a complete exact component face.",
+        "Current exact-title BGA secondary text potentially conflicts and is preserved without substitution.",
+        "Same-title TTS variants differ materially and remain separate provenance.",
+        "1 material functional occurrence(s) remain explicit all-49 no-matches; no semantic token was invented.",
+        "5 publisher/BGA/TTS-variant conflict row(s) are preserved verbatim.",
+        "No unattended W33 canonical destination/schema is approved for this mixed-family source; no existing approved file may be overwritten or reclassified.",
+        "1 discrepancy row(s) with the prior corpus snapshot are preserved."
+      ],
+      "vision": {
+        "provider": "openai-codex",
+        "model": "gpt-5.6-sol",
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-33-20260821T172305Z-p465856-36ac0c",
+        "sessionId": "20260821_221031_3ed46a",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-33-20260821T172305Z-p465856-36ac0c/results/W33-129.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-33-20260821T172305Z-p465856-36ac0c/raw/W33-129.json"
+      }
+    },
+    {
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-05.png",
+      "sourceSha256": "27a5c1a5959ed93f93d508e0f0a8d07999e0d929a0b9874848c2c10b3accf4e7",
+      "family": "character/heavy-gun-operator-045_cards",
+      "isCard": true,
+      "isRulesBearingCandidate": true,
+      "extractionState": "draft-full",
+      "priorityScore": 350,
+      "title": "SCOUTING",
+      "typeLine": "",
+      "body": "Move.\nBefore the Noise roll, place 1 [secure]\nin the Room you are Moving to.",
+      "footer": "RECON",
+      "recognizedTokens": [
+        "secure"
+      ],
+      "unknownTokens": [
+        "ICON: red diagonal X over a white horizontal bar with short red inset marks"
+      ],
+      "unreadableMarkers": [],
+      "reasonTags": [
+        "clipped-or-illegible",
+        "source-conflict",
+        "schema-or-destination"
+      ],
+      "reasonSkipped": "1 material functional occurrence(s) remain explicit all-49 no-matches; no semantic token was invented.; Current rendered publisher evidence provides locator/prose/family context but not a complete exact component face.; Current exact-title BGA secondary text potentially conflicts and is preserved without substitution.; 1 publisher/BGA/TTS-variant conflict row(s) are preserved verbatim.; At least one materially recorded text span remains [illegible] or [clipped].; No unattended W33 canonical destination/schema is approved for this mixed-family source; no existing approved file may be overwritten or reclassified.; 1 discrepancy row(s) with the prior corpus snapshot are preserved.",
+      "uncertainties": [
+        "The central portion of the white horizontal form in M1 is occluded by the red X and cannot be reconstructed.",
+        "M2 visibly has a faceted silhouette and Y-shaped seam, but whether it most closely resembles a badge, book, box, or another form is ambiguous.",
+        "Tiny red marks on the right-side wall may be decorative strokes or text-like stenciling; they are not legible enough to transcribe.",
+        "Current rendered publisher evidence provides locator/prose/family context but not a complete exact component face.",
+        "Current exact-title BGA secondary text potentially conflicts and is preserved without substitution.",
+        "1 material functional occurrence(s) remain explicit all-49 no-matches; no semantic token was invented.",
+        "1 publisher/BGA/TTS-variant conflict row(s) are preserved verbatim.",
+        "At least one materially recorded text span remains [illegible] or [clipped].",
+        "No unattended W33 canonical destination/schema is approved for this mixed-family source; no existing approved file may be overwritten or reclassified.",
+        "1 discrepancy row(s) with the prior corpus snapshot are preserved."
+      ],
+      "vision": {
+        "provider": "openai-codex",
+        "model": "gpt-5.6-sol",
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-33-20260821T172305Z-p465856-36ac0c",
+        "sessionId": "20260821_221345_8de61f",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-33-20260821T172305Z-p465856-36ac0c/results/W33-131.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-33-20260821T172305Z-p465856-36ac0c/raw/W33-131.json"
+      }
+    },
+    {
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-06.png",
+      "sourceSha256": "90cb405743269046b530add3108500d2e0eaefbd66fb9d55d7b42dd0cbbffa30",
+      "family": "character/heavy-gun-operator-045_cards",
+      "isCard": true,
+      "isRulesBearingCandidate": true,
+      "extractionState": "draft-full",
+      "priorityScore": 350,
+      "title": "SEARCH",
+      "typeLine": "",
+      "body": "Draw 1 Item for each [ICON: solid white eight-sided polygon] in your Room.\nKeep 1 and discard the rest.",
+      "footer": "",
+      "recognizedTokens": [],
+      "unknownTokens": [
+        "ICON: solid white eight-sided polygon",
+        "ICON: two red diagonal bars crossing over a white horizontal notched bar-like form"
+      ],
+      "unreadableMarkers": [],
+      "reasonTags": [
+        "source-conflict",
+        "schema-or-destination"
+      ],
+      "reasonSkipped": "2 material functional occurrence(s) remain explicit all-49 no-matches; no semantic token was invented.; Current publisher rendered component pixels conflict materially with assigned TTS text; both remain verbatim.; Current exact-title BGA secondary text potentially conflicts and is preserved without substitution.; 7 publisher/BGA/TTS-variant conflict row(s) are preserved verbatim.; No unattended W33 canonical destination/schema is approved for this mixed-family source; no existing approved file may be overwritten or reclassified.; 2 discrepancy row(s) with the prior corpus snapshot are preserved.",
+      "uncertainties": [
+        "The exact outer contour and full internal markings of M1’s white horizontal under-form are occluded by the red diagonal bars.",
+        "No visibly printed label establishes the semantic meaning of either M1 or M2.",
+        "RECON is visibly a lower-center word, but its categorical role is not established by placement alone.",
+        "P1, P2, and P3 overlap visually, so their coordinate boundaries are approximate rather than hard nonoverlapping divisions.",
+        "Current publisher rendered component pixels conflict materially with assigned TTS text; both remain verbatim.",
+        "Current exact-title BGA secondary text potentially conflicts and is preserved without substitution.",
+        "2 material functional occurrence(s) remain explicit all-49 no-matches; no semantic token was invented.",
+        "7 publisher/BGA/TTS-variant conflict row(s) are preserved verbatim.",
+        "No unattended W33 canonical destination/schema is approved for this mixed-family source; no existing approved file may be overwritten or reclassified.",
+        "2 discrepancy row(s) with the prior corpus snapshot are preserved."
+      ],
+      "vision": {
+        "provider": "openai-codex",
+        "model": "gpt-5.6-sol",
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-33-20260821T172305Z-p465856-36ac0c",
+        "sessionId": "20260821_221754_861e21",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-33-20260821T172305Z-p465856-36ac0c/results/W33-132.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-33-20260821T172305Z-p465856-36ac0c/raw/W33-132.json"
+      }
+    },
+    {
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-07.png",
+      "sourceSha256": "b10da0bc490a8433e1061c77d4d45fce0cabf818fc81af1dd301f969c91d27ba",
+      "family": "character/heavy-gun-operator-045_cards",
+      "isCard": true,
+      "isRulesBearingCandidate": true,
+      "extractionState": "draft-full",
+      "priorityScore": 350,
+      "title": "SECURE",
+      "typeLine": "",
+      "body": "Place 2 [secure].\nOR\nReinforce 1 empty Corridor that leads\nto a Room with a Character or [robot].",
+      "footer": "RECON",
+      "recognizedTokens": [
+        "robot",
+        "secure"
+      ],
+      "unknownTokens": [
+        "ICON: white stepped horizontal bar with red internal strokes, crossed by a red X"
+      ],
+      "unreadableMarkers": [],
+      "reasonTags": [
+        "source-conflict",
+        "schema-or-destination"
+      ],
+      "reasonSkipped": "1 material functional occurrence(s) remain explicit all-49 no-matches; no semantic token was invented.; Current rendered publisher evidence provides locator/prose/family context but not a complete exact component face.; Current exact-title BGA secondary text potentially conflicts and is preserved without substitution.; 4 publisher/BGA/TTS-variant conflict row(s) are preserved verbatim.; No unattended W33 canonical destination/schema is approved for this mixed-family source; no existing approved file may be overwritten or reclassified.; 2 discrepancy row(s) with the prior corpus snapshot are preserved.",
+      "uncertainties": [
+        "M1's white central contour and some internal strokes are obscured by the overlaid red X.",
+        "M2's white facets can plausibly read as either a solid faceted silhouette or an outlined three-dimensional form.",
+        "The semantic identities of M1, M2, and M3 are not established by their pixels alone.",
+        "The tiny pale marks in the upper-middle illustrated display may imitate text, but no individual word or character is reliably readable.",
+        "M1 is treated as one compound occurrence because the red X and white base are spatially integrated into a single corner emblem.",
+        "Current rendered publisher evidence provides locator/prose/family context but not a complete exact component face.",
+        "Current exact-title BGA secondary text potentially conflicts and is preserved without substitution.",
+        "1 material functional occurrence(s) remain explicit all-49 no-matches; no semantic token was invented.",
+        "4 publisher/BGA/TTS-variant conflict row(s) are preserved verbatim.",
+        "No unattended W33 canonical destination/schema is approved for this mixed-family source; no existing approved file may be overwritten or reclassified.",
+        "2 discrepancy row(s) with the prior corpus snapshot are preserved."
+      ],
+      "vision": {
+        "provider": "openai-codex",
+        "model": "gpt-5.6-sol",
+        "reasoningEffort": "max",
+        "workerId": "sol-max-persistent-worker-33-20260821T172305Z-p465856-36ac0c",
+        "sessionId": "20260821_221754_aa8e51",
+        "resultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-33-20260821T172305Z-p465856-36ac0c/results/W33-133.json",
+        "rawResultPath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-33-20260821T172305Z-p465856-36ac0c/raw/W33-133.json"
       }
     }
   ]

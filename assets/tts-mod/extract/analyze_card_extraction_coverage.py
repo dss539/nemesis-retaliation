@@ -91,6 +91,12 @@ def extraction_state(entry: dict) -> tuple[str, dict]:
         if isinstance(visible.get(key), str) and visible.get(key).strip()
     ]
     has_rules_text = bool(body.strip() or structured_rules)
+    component_classification = entry.get("sourceComponentClassification")
+    classified_non_rules = bool(
+        isinstance(component_classification, dict)
+        and component_classification.get("status") == "complete"
+        and component_classification.get("rulesBearing") is False
+    )
     tokens = sorted(set(TOKEN_RE.findall(text)))
     unknown = sorted(t for t in tokens if t.upper().startswith("ICON:") or t.lower() in {"illegible", "clipped"})
     markers = re.findall(r"\[(?:illegible|clipped)(?:[^\]]*)\]", text, re.I)
@@ -98,7 +104,7 @@ def extraction_state(entry: dict) -> tuple[str, dict]:
         state = "draft-full"
     elif has_rules_text:
         state = "draft-partial"
-    elif text:
+    elif classified_non_rules or text:
         state = "non-rules-or-reference"
     else:
         state = "no-transcription"

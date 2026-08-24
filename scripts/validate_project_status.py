@@ -42,8 +42,8 @@ def main() -> None:
         f"- {counts['rulesTextPresent']} records with rules/effect text",
         f"- {counts['extractionStates']['verified-canonical']} canonical image/sidecar pairs",
         f"- {counts['extractionStates']['draft-full']} full drafts",
-        f"- {counts['extractionStates']['draft-partial']} partial records",
-        f"- {counts['extractionStates']['no-transcription']} no-transcription records",
+        f"- {counts['extractionStates']['draft-partial']} partial record" + ("" if counts['extractionStates']['draft-partial'] == 1 else "s"),
+        f"- {counts['extractionStates'].get('no-transcription', 0)} no-transcription record" + ("" if counts['extractionStates'].get('no-transcription', 0) == 1 else "s"),
         f"- {counts['extractionStates']['complete-non-rules-or-reference'] + counts['extractionStates']['non-rules-or-reference']} non-rules/reference records",
         f"- Intruder Help instructions: **{source_validation['checks']['intruderHelpInstructions']}/{source_validation['checks']['intruderHelpInstructions']}**",
         f"- Room Help Sheet: **{source_validation['checks']['roomHelpEffectsExtracted']}/{source_validation['checks']['roomHelpEffectsExtracted']} entries extracted source-bound**",
@@ -55,6 +55,12 @@ def main() -> None:
         f"  - {source_validation['checks']['objectiveHelpPartiallyOccluded']} physically occluded units retained with explicit visibility boundaries",
         f"  - {source_validation['checks']['objectiveHelpFunctionalIconOccurrences']} full and {source_validation['checks']['objectiveHelpPartiallyVisibleIconOccurrences']} partially visible icon occurrences",
         f"  - {source_validation['checks']['objectiveHelpMaterialUnreadableSpans']} unreadable visible spans",
+        f"- Card-gap review: **{source_validation['checks']['cardGapRecords']}/{source_validation['checks']['cardGapRecords']} source tuples adjudicated**",
+        f"  - {source_validation['checks']['cardGapCounts']['rulesTextComplete']} rules-text-complete records",
+        f"  - {source_validation['checks']['cardGapCounts']['explicitOperativeSourceBlockers']} explicit exact-source operative blocker",
+        f"  - {source_validation['checks']['cardGapCounts']['classifiedNonRules']} classified non-rules components/placeholders",
+        f"  - {source_validation['checks']['cardGapCounts']['recoveredOperativeCorrections']} operative correction recovered (`SUBMACHINE GUN`: colon)",
+        f"  - {source_validation['checks']['cardGapCounts']['remainingNoTranscription']} remaining no-transcription records",
     ]
     for fragment in expected_fragments:
         require(fragment in status, f"PROJECT_STATUS.md count drift: expected {fragment!r}", failures)

@@ -13,12 +13,21 @@ The current corpus is generated from `vision-progress.json`, `low-confidence-rev
 - 168 individual generated card-face crops derived from 13 excluded source sheets; no parent sheet is double-counted.
 - 350 records contain nonempty rules/effect text.
 - 78 records are canonical image/JSON pairs.
-- 250 records are full draft card transcriptions: 119 with only recognized canonical inline tokens and 131 with one or more unresolved/local tokens.
-- 49 records are card backs, help/reference material, or other non-rules/non-canonical records.
-- 3 records have no transcription and remain explicit rather than guessed.
-- 10 records remain partial because at least one material rules span is explicitly illegible or clipped.
+- 259 records are full draft card transcriptions: 123 with only recognized canonical inline tokens and 136 with one or more unresolved/local tokens.
+- 52 records are card backs, help/reference material, placeholders, or other non-rules/non-canonical records.
+- 0 card/reference records remain without transcription/classification.
+- 1 record remains partial because one exact source-local operative span is explicitly illegible.
 
-`docs/qa/card-symbol-resolution-backlog.json` inventories 513 unresolved/local token occurrences across 202 corpus or selected-evidence assets after excluding approved source-scoped semantic resolutions. Its cluster names describe visible morphology only; they are not semantic icon assignments.
+`docs/qa/card-symbol-resolution-backlog.json` inventories 512 unresolved/local token occurrences across 202 corpus or selected-evidence assets after excluding approved source-scoped semantic resolutions. Its cluster names describe visible morphology only; they are not semantic icon assignments.
+
+
+## Source-extraction card-gap adjudication
+
+All 13 former card-gap records are source-bound in `docs/rules/source-extraction/card-gap-adjudications.json` and projected
+through `low-confidence-review.json` without altering immutable blind/result worker evidence. Nine are now `draft-full` after
+artwork/interface microtext was removed from rules legibility, three are classified non-rules, and `SUBMACHINE GUN` recovered
+a printed colon. One prototype `FACILITY RESTART` span remains `draft-partial`: the exact pixels show no recoverable mark after
+“Systems must be,” and newer/different source variants are preserved rather than substituted.
 
 ## Manual sample adjudication
 

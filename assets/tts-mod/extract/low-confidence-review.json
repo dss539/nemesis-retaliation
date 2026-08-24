@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-08-22T22:23:11Z",
+  "updatedAt": "2026-08-24T06:48:17Z",
   "entries": [
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/bags/dataTokenBag-010.png",
@@ -5342,11 +5342,6 @@
         "body": "Place 2 [secure].\nOR\nReinforce 1 empty Corridor that leads\nto a Room with a Character or [robot].",
         "sections": [
           {
-            "panelId": "P1",
-            "heading": "",
-            "text": "[illegible]"
-          },
-          {
             "panelId": "P2",
             "heading": "SECURE",
             "text": ""
@@ -5375,12 +5370,8 @@
         "footer": "RECON",
         "upperRight": "[ICON: white stepped horizontal bar with red internal strokes, crossed by a red X]",
         "lowerCenter": "RECON",
-        "otherMaterialText": [
-          "Upper-middle glowing rectangular display: [illegible]"
-        ],
-        "illegibleSpans": [
-          "Very small pale glyph-like marks within the upper-middle red/orange rectangular display: [illegible]"
-        ],
+        "otherMaterialText": [],
+        "illegibleSpans": [],
         "clippedSpans": []
       },
       "uncertainties": [
@@ -5393,11 +5384,10 @@
         "Current exact-title BGA secondary text potentially conflicts and is preserved without substitution.",
         "1 material functional occurrence(s) remain explicit all-49 no-matches; no semantic token was invented.",
         "4 publisher/BGA/TTS-variant conflict row(s) are preserved verbatim.",
-        "At least one materially recorded text span remains [illegible] or [clipped].",
         "No unattended W33 canonical destination/schema is approved for this mixed-family source; no existing approved file may be overwritten or reclassified.",
         "2 discrepancy row(s) with the prior corpus snapshot are preserved."
       ],
-      "reasonSkipped": "1 material functional occurrence(s) remain explicit all-49 no-matches; no semantic token was invented.; Current rendered publisher evidence provides locator/prose/family context but not a complete exact component face.; Current exact-title BGA secondary text potentially conflicts and is preserved without substitution.; 4 publisher/BGA/TTS-variant conflict row(s) are preserved verbatim.; At least one materially recorded text span remains [illegible] or [clipped].; No unattended W33 canonical destination/schema is approved for this mixed-family source; no existing approved file may be overwritten or reclassified.; 2 discrepancy row(s) with the prior corpus snapshot are preserved.",
+      "reasonSkipped": "1 material functional occurrence(s) remain explicit all-49 no-matches; no semantic token was invented.; Current rendered publisher evidence provides locator/prose/family context but not a complete exact component face.; Current exact-title BGA secondary text potentially conflicts and is preserved without substitution.; 4 publisher/BGA/TTS-variant conflict row(s) are preserved verbatim.; No unattended W33 canonical destination/schema is approved for this mixed-family source; no existing approved file may be overwritten or reclassified.; 2 discrepancy row(s) with the prior corpus snapshot are preserved.",
       "vision": {
         "provider": "openai-codex",
         "model": "gpt-5.6-sol",
@@ -5413,7 +5403,27 @@
           "evidencePath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-33-20260821T172305Z-p465856-36ac0c/metadata/adjudication-summary.json"
         }
       },
-      "status": "open"
+      "status": "open",
+      "artworkOnlyEvidence": {
+        "classification": "artwork/interface or source-layout material outside title and operative rules panels",
+        "readableLabels": [],
+        "unreadableDetails": [
+          "very small pale marks in the upper-middle glowing red/orange display"
+        ],
+        "nonTextGraphics": [
+          "upper-middle glowing display and background equipment graphics"
+        ],
+        "rulesDataHandling": "Preserve in source-review provenance; exclude from operative rules text, icon tokens, and legibility state."
+      },
+      "sourceExtractionReview": {
+        "reviewId": "base-card-gap-closure-2026-08-24",
+        "assetId": "G01",
+        "reviewedAt": "2026-08-24T06:48:17Z",
+        "reviewedBy": "source-extraction-supervisor",
+        "evidencePath": "docs/rules/source-extraction/card-gap-adjudications.json",
+        "disposition": "rules-text-complete-source-deferred",
+        "finding": "All title/body/footer text is readable. The only prior illegible span is microtext in the artwork display, outside the operative panels."
+      }
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-08.png",
@@ -50915,7 +50925,22 @@
           "evidencePath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-22-20260820T080700Z-p176060-79e991/metadata/adjudication-summary.json"
         }
       },
-      "status": "open"
+      "status": "open",
+      "sourcePixelBlocker": {
+        "operativeSpan": "Immediately after the visible words “Systems must be”",
+        "finding": "No complete following glyph or punctuation is distinguishable in the exact source pixels, including grayscale, inverted, and isolated RGB-channel review. The visible clause ends incomplete.",
+        "handling": "Retain [illegible] at this source-local position. Do not substitute the materially different current official Objective Help Sheet wording.",
+        "applicableOfficialComparison": "docs/rules/source-extraction/objective-help-sheet.json#P1-MT-FACILITY-RESTART"
+      },
+      "sourceExtractionReview": {
+        "reviewId": "base-card-gap-closure-2026-08-24",
+        "assetId": "G02",
+        "reviewedAt": "2026-08-24T06:48:17Z",
+        "reviewedBy": "source-extraction-supervisor",
+        "evidencePath": "docs/rules/source-extraction/card-gap-adjudications.json",
+        "disposition": "explicit-operative-source-blocker",
+        "finding": "Prototype source retains an incomplete low-contrast clause. Focused channel-separated review found no recoverable mark after “Systems must be”; current official wording is a different source revision."
+      }
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-056.png",
@@ -51464,7 +51489,6 @@
         "typeLine": "MISSION TASK",
         "body": "There must be a continuous path\nof Reinforced Corridors\nfrom the Landing Zone (Section A)\nto the Life Support Control C.\n\nAND\n\nThe Facility must NOT be destroyed.",
         "sections": [
-          "CARGO-045\n[ICON: two pale-yellow rounded horizontal blocks and a small right-pointing triangular wedge]\n[illegible]",
           "[ICON: white rounded upright form rising from concentric cyan/blue horizontal ovals] 3+",
           "There must be a continuous path\nof Reinforced Corridors\nfrom the Landing Zone (Section A)\nto the Life Support Control C.",
           "AND",
@@ -51473,9 +51497,7 @@
         "footer": "",
         "upperRight": "",
         "lowerCenter": "MISSION TASK",
-        "illegibleSpans": [
-          "Upper-left red placard, small pale printed line beneath the yellow marks: [illegible]."
-        ],
+        "illegibleSpans": [],
         "clippedSpans": []
       },
       "uncertainties": [
@@ -51505,7 +51527,29 @@
           "evidencePath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-23-20260820T185027Z-p240642-4513b3/metadata/adjudication-summary.json"
         }
       },
-      "status": "open"
+      "status": "open",
+      "artworkOnlyEvidence": {
+        "classification": "artwork/interface or source-layout material outside title and operative rules panels",
+        "readableLabels": [
+          "CARGO-045"
+        ],
+        "unreadableDetails": [
+          "small pale line under the yellow shapes on the red background placard"
+        ],
+        "nonTextGraphics": [
+          "red CARGO-045 placard and its two pale-yellow display shapes"
+        ],
+        "rulesDataHandling": "Preserve in source-review provenance; exclude from operative rules text, icon tokens, and legibility state."
+      },
+      "sourceExtractionReview": {
+        "reviewId": "base-card-gap-closure-2026-08-24",
+        "assetId": "G03",
+        "reviewedAt": "2026-08-24T06:48:17Z",
+        "reviewedBy": "source-extraction-supervisor",
+        "evidencePath": "docs/rules/source-extraction/card-gap-adjudications.json",
+        "disposition": "rules-text-complete-source-deferred",
+        "finding": "Mission Task count, title, complete conditions, connector, and footer are readable; only background placard microtext was previously unresolved."
+      }
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-123.jpg",
@@ -52623,19 +52667,13 @@
         "typeLine": "MISSION TASK",
         "body": "Place an Explosive token in each\nLife Support Control Room.",
         "sections": [
-          "[illegible]",
-          "[ICON: dark rounded square with a thick pale border and faint illegible internal marks]",
           "[ICON: solid white rounded-cap upright silhouette above concentric cyan/blue horizontal rings] 2+",
           "Place an Explosive token in each\nLife Support Control Room."
         ],
         "footer": "",
         "upperRight": "",
         "lowerCenter": "MISSION TASK",
-        "illegibleSpans": [
-          "Central tilted cyan-magenta display, approximately nine rows of small oblique white alphanumeric text distributed across multiple columns: [illegible].",
-          "Inside the dark rounded square above 2+, faint gray alphanumeric-looking marks near the upper-left interior: [illegible].",
-          "Small magenta vertical object in the lower-left background, several rows of tiny dark text-like marks: [illegible]."
-        ],
+        "illegibleSpans": [],
         "clippedSpans": []
       },
       "uncertainties": [
@@ -52667,7 +52705,31 @@
           "evidencePath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-23-20260820T185027Z-p240642-4513b3/metadata/adjudication-summary.json"
         }
       },
-      "status": "open"
+      "status": "open",
+      "artworkOnlyEvidence": {
+        "classification": "artwork/interface or source-layout material outside title and operative rules panels",
+        "readableLabels": [],
+        "unreadableDetails": [
+          "oblique display microtext",
+          "faint marks in dark rounded square",
+          "tiny text-like marks on lower-left prop"
+        ],
+        "nonTextGraphics": [
+          "central tilted display",
+          "dark rounded square above count marker",
+          "background equipment/prop labels"
+        ],
+        "rulesDataHandling": "Preserve in source-review provenance; exclude from operative rules text, icon tokens, and legibility state."
+      },
+      "sourceExtractionReview": {
+        "reviewId": "base-card-gap-closure-2026-08-24",
+        "assetId": "G04",
+        "reviewedAt": "2026-08-24T06:48:17Z",
+        "reviewedBy": "source-extraction-supervisor",
+        "evidencePath": "docs/rules/source-extraction/card-gap-adjudications.json",
+        "disposition": "rules-text-complete-prototype-source-deferred",
+        "finding": "Title, complete one-sentence condition, count marker, and footer are readable; unresolved marks are artwork/source-layout material. This prototype-only task remains a separate source variant."
+      }
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-160_cards/card-04.png",
@@ -52839,22 +52901,14 @@
         "typeLine": "MISSION TASK",
         "body": "At least 1 Character with Data token\nfrom the Server Room\nmust Escape using the Lander.",
         "sections": [
-          "[illegible]",
           "[ICON: solid white rounded-cap upright silhouette above concentric cyan/blue horizontal rings] 2+",
           "At least 1 Character with Data token\nfrom the Server Room\nmust Escape using the Lander."
         ],
         "footer": "",
         "upperRight": "",
         "lowerCenter": "MISSION TASK",
-        "illegibleSpans": [
-          "Central tilted cyan-magenta display, multiple rows and columns of small oblique white alphanumeric text: [illegible].",
-          "Faint alphanumeric-looking sequence immediately below the display's lower border near center: [illegible].",
-          "Small vertical object in the lower-left background, several rows of tiny dark text-like marks: [illegible].",
-          "Narrow vertical label-like strip on equipment near the right edge: [illegible]."
-        ],
-        "clippedSpans": [
-          "Faint diagonal background character-like sequence behind the left side of the translucent body panel: [clipped]."
-        ]
+        "illegibleSpans": [],
+        "clippedSpans": []
       },
       "uncertainties": [
         "The luminous display contains substantial material microtext, but its small size, oblique perspective, glare, fractures, and splatter prevent exact character-level transcription.",
@@ -52888,7 +52942,31 @@
           "evidencePath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-23-20260820T185027Z-p240642-4513b3/metadata/adjudication-summary.json"
         }
       },
-      "status": "open"
+      "status": "open",
+      "artworkOnlyEvidence": {
+        "classification": "artwork/interface or source-layout material outside title and operative rules panels",
+        "readableLabels": [],
+        "unreadableDetails": [
+          "central display microtext",
+          "faint sequence below display",
+          "lower-left prop microtext",
+          "right-edge equipment label",
+          "background character-like sequence"
+        ],
+        "nonTextGraphics": [
+          "central display and equipment/background overlays"
+        ],
+        "rulesDataHandling": "Preserve in source-review provenance; exclude from operative rules text, icon tokens, and legibility state."
+      },
+      "sourceExtractionReview": {
+        "reviewId": "base-card-gap-closure-2026-08-24",
+        "assetId": "G05",
+        "reviewedAt": "2026-08-24T06:48:17Z",
+        "reviewedBy": "source-extraction-supervisor",
+        "evidencePath": "docs/rules/source-extraction/card-gap-adjudications.json",
+        "disposition": "rules-text-complete-prototype-source-deferred",
+        "finding": "The prototype task’s complete printed condition is readable. Prior illegible/clipped spans are background artwork; material wording differences from the current official card remain source-version conflicts."
+      }
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-160_cards/card-05.png",
@@ -82235,7 +82313,23 @@
           "evidencePath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-31-20260821T112612Z-p346900-b7e2c9/metadata/adjudication-summary.json"
         }
       },
-      "status": "open"
+      "status": "open",
+      "sourceComponentClassification": {
+        "status": "complete",
+        "classification": "generic-card-back",
+        "rulesBearing": false,
+        "visibleDescription": "Symmetric dark mechanical frame with a centered pale wheeled machine silhouette; no title, body, footer, or operative text.",
+        "handling": "Retain as source/component provenance; exclude from rules-bearing transcription requirements."
+      },
+      "sourceExtractionReview": {
+        "reviewId": "base-card-gap-closure-2026-08-24",
+        "assetId": "G06",
+        "reviewedAt": "2026-08-24T06:48:17Z",
+        "reviewedBy": "source-extraction-supervisor",
+        "evidencePath": "docs/rules/source-extraction/card-gap-adjudications.json",
+        "disposition": "classified-non-rules-card-back",
+        "finding": "Image is a complete generic illustrated card back with no printed rules text."
+      }
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/robotDeck-173.jpg",
@@ -86603,25 +86697,13 @@
             "panelId": "P2",
             "heading": "",
             "text": "Your Hand Size is 1 lower."
-          },
-          {
-            "panelId": "P3",
-            "heading": "TEMP.",
-            "text": "39.0[ICON: small green hollow quadrilateral]\n[illegible]\nTISSUE DAMAGE"
           }
         ],
         "footer": "",
         "upperRight": "",
         "lowerCenter": "BODY",
-        "otherMaterialText": [
-          "TEMP.",
-          "39.0",
-          "TISSUE DAMAGE"
-        ],
-        "illegibleSpans": [
-          "P3 upper-left, vertical green microtext beneath the highest hollow green square: [illegible].",
-          "P3 left-center and lower-left, extremely faint horizontal microtext-like runs beside connector lines: [illegible]."
-        ],
+        "otherMaterialText": [],
+        "illegibleSpans": [],
         "clippedSpans": []
       },
       "uncertainties": [
@@ -86654,7 +86736,34 @@
           "evidencePath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-32-20260821T135953Z-p441103-69bcb8/metadata/adjudication-summary.json"
         }
       },
-      "status": "open"
+      "status": "open",
+      "artworkOnlyEvidence": {
+        "classification": "artwork/interface or source-layout material outside title and operative rules panels",
+        "readableLabels": [
+          "TEMP.",
+          "39.0",
+          "TISSUE DAMAGE"
+        ],
+        "unreadableDetails": [
+          "tiny vertical scan label",
+          "faint microtext-like marks around scan nodes/lines"
+        ],
+        "nonTextGraphics": [
+          "green hollow quadrilateral nodes",
+          "colored callout markers and leader lines",
+          "radiographic anatomy illustration and scan overlays"
+        ],
+        "rulesDataHandling": "Preserve in source-review provenance; exclude from operative rules text, icon tokens, and legibility state."
+      },
+      "sourceExtractionReview": {
+        "reviewId": "base-card-gap-closure-2026-08-24",
+        "assetId": "G07",
+        "reviewedAt": "2026-08-24T06:48:17Z",
+        "reviewedBy": "source-extraction-supervisor",
+        "evidencePath": "docs/rules/source-extraction/card-gap-adjudications.json",
+        "disposition": "rules-text-complete-source-deferred",
+        "finding": "Title and full operative Serious Wound rule are readable. Tiny green nodes, labels, and scan overlays are artwork/interface decoration, not rules text."
+      }
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/seriouswound-149_cards/card-06.png",
@@ -87209,25 +87318,13 @@
             "panelId": "P2",
             "heading": "",
             "text": "Using “Make a Move”\nor “Make a Move with [secure]”\nas your first Action in a Round\ncosts you 1 [actionCard] more."
-          },
-          {
-            "panelId": "P3",
-            "heading": "TEMP.",
-            "text": "39.0[ICON: small green hollow quadrilateral]\n[illegible]\nTISSUE DAMAGE"
           }
         ],
         "footer": "",
         "upperRight": "",
         "lowerCenter": "KNEE",
-        "otherMaterialText": [
-          "TEMP.",
-          "39.0",
-          "TISSUE DAMAGE"
-        ],
-        "illegibleSpans": [
-          "P3 upper-left, vertical green microtext beneath the highest hollow green square: [illegible].",
-          "P3 left-center and lower-left, extremely faint horizontal microtext-like runs beside connector lines: [illegible]."
-        ],
+        "otherMaterialText": [],
+        "illegibleSpans": [],
         "clippedSpans": []
       },
       "uncertainties": [
@@ -87262,7 +87359,34 @@
           "evidencePath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-32-20260821T135953Z-p441103-69bcb8/metadata/adjudication-summary.json"
         }
       },
-      "status": "open"
+      "status": "open",
+      "artworkOnlyEvidence": {
+        "classification": "artwork/interface or source-layout material outside title and operative rules panels",
+        "readableLabels": [
+          "TEMP.",
+          "39.0",
+          "TISSUE DAMAGE"
+        ],
+        "unreadableDetails": [
+          "tiny vertical scan label",
+          "faint microtext-like marks around scan nodes/lines"
+        ],
+        "nonTextGraphics": [
+          "green hollow quadrilateral nodes",
+          "colored callout markers and leader lines",
+          "radiographic anatomy illustration and scan overlays"
+        ],
+        "rulesDataHandling": "Preserve in source-review provenance; exclude from operative rules text, icon tokens, and legibility state."
+      },
+      "sourceExtractionReview": {
+        "reviewId": "base-card-gap-closure-2026-08-24",
+        "assetId": "G08",
+        "reviewedAt": "2026-08-24T06:48:17Z",
+        "reviewedBy": "source-extraction-supervisor",
+        "evidencePath": "docs/rules/source-extraction/card-gap-adjudications.json",
+        "disposition": "rules-text-complete-source-deferred",
+        "finding": "Title and full operative Serious Wound rule are readable. Tiny green nodes, labels, and scan overlays are artwork/interface decoration, not rules text."
+      }
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/seriouswound-149_cards/card-07.png",
@@ -87817,25 +87941,13 @@
             "panelId": "P2",
             "heading": "",
             "text": "Whenever you Pass:\nget 1 Contamination card."
-          },
-          {
-            "panelId": "P3",
-            "heading": "TEMP.",
-            "text": "39.0[ICON: small green hollow quadrilateral]\n[illegible]\nTISSUE DAMAGE"
           }
         ],
         "footer": "",
         "upperRight": "",
         "lowerCenter": "GUTS",
-        "otherMaterialText": [
-          "TEMP.",
-          "39.0",
-          "TISSUE DAMAGE"
-        ],
-        "illegibleSpans": [
-          "P3 upper-left, vertical green microtext beneath the highest hollow green square: [illegible].",
-          "P3 left-center and lower-left, extremely faint horizontal microtext-like runs beside connector lines: [illegible]."
-        ],
+        "otherMaterialText": [],
+        "illegibleSpans": [],
         "clippedSpans": []
       },
       "uncertainties": [
@@ -87867,7 +87979,34 @@
           "evidencePath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-32-20260821T135953Z-p441103-69bcb8/metadata/adjudication-summary.json"
         }
       },
-      "status": "open"
+      "status": "open",
+      "artworkOnlyEvidence": {
+        "classification": "artwork/interface or source-layout material outside title and operative rules panels",
+        "readableLabels": [
+          "TEMP.",
+          "39.0",
+          "TISSUE DAMAGE"
+        ],
+        "unreadableDetails": [
+          "tiny vertical scan label",
+          "faint microtext-like marks around scan nodes/lines"
+        ],
+        "nonTextGraphics": [
+          "green hollow quadrilateral nodes",
+          "colored callout markers and leader lines",
+          "radiographic anatomy illustration and scan overlays"
+        ],
+        "rulesDataHandling": "Preserve in source-review provenance; exclude from operative rules text, icon tokens, and legibility state."
+      },
+      "sourceExtractionReview": {
+        "reviewId": "base-card-gap-closure-2026-08-24",
+        "assetId": "G09",
+        "reviewedAt": "2026-08-24T06:48:17Z",
+        "reviewedBy": "source-extraction-supervisor",
+        "evidencePath": "docs/rules/source-extraction/card-gap-adjudications.json",
+        "disposition": "rules-text-complete-source-deferred",
+        "finding": "Title and full operative Serious Wound rule are readable. Tiny green nodes, labels, and scan overlays are artwork/interface decoration, not rules text."
+      }
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/seriouswound-149_cards/card-08.png",
@@ -88423,25 +88562,13 @@
             "panelId": "P2",
             "heading": "",
             "text": "Whenever you Pass:\nlose 1 [characterHealth]."
-          },
-          {
-            "panelId": "P3",
-            "heading": "TEMP.",
-            "text": "39.0[ICON: small green hollow quadrilateral]\n[illegible]\nTISSUE DAMAGE"
           }
         ],
         "footer": "",
         "upperRight": "",
         "lowerCenter": "BLEEDING",
-        "otherMaterialText": [
-          "TEMP.",
-          "39.0",
-          "TISSUE DAMAGE"
-        ],
-        "illegibleSpans": [
-          "P3 upper-left, vertical green microtext beneath the highest hollow green square: [illegible].",
-          "P3 left-center and lower-left, extremely faint horizontal microtext-like runs beside connector lines: [illegible]."
-        ],
+        "otherMaterialText": [],
+        "illegibleSpans": [],
         "clippedSpans": []
       },
       "uncertainties": [
@@ -88475,7 +88602,34 @@
           "evidencePath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-32-20260821T135953Z-p441103-69bcb8/metadata/adjudication-summary.json"
         }
       },
-      "status": "open"
+      "status": "open",
+      "artworkOnlyEvidence": {
+        "classification": "artwork/interface or source-layout material outside title and operative rules panels",
+        "readableLabels": [
+          "TEMP.",
+          "39.0",
+          "TISSUE DAMAGE"
+        ],
+        "unreadableDetails": [
+          "tiny vertical scan label",
+          "faint microtext-like marks around scan nodes/lines"
+        ],
+        "nonTextGraphics": [
+          "green hollow quadrilateral nodes",
+          "colored callout markers and leader lines",
+          "radiographic anatomy illustration and scan overlays"
+        ],
+        "rulesDataHandling": "Preserve in source-review provenance; exclude from operative rules text, icon tokens, and legibility state."
+      },
+      "sourceExtractionReview": {
+        "reviewId": "base-card-gap-closure-2026-08-24",
+        "assetId": "G10",
+        "reviewedAt": "2026-08-24T06:48:17Z",
+        "reviewedBy": "source-extraction-supervisor",
+        "evidencePath": "docs/rules/source-extraction/card-gap-adjudications.json",
+        "disposition": "rules-text-complete-source-deferred",
+        "finding": "Title and full operative Serious Wound rule are readable. Tiny green nodes, labels, and scan overlays are artwork/interface decoration, not rules text."
+      }
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-005.png",
@@ -98496,21 +98650,19 @@
       "visibleText": {
         "title": "SUBMACHINE GUN",
         "typeLine": "RANGED WEAPON",
-        "body": "[shootDie2][illegible] treat this result as a [shootDieCritical]\nand spend 1 [ICON: red near-square with a split dark rectangular inset] as normal.",
+        "body": "[shootDie2]: treat this result as a [shootDieCritical]\nand spend 1 [ICON: red near-square with a split dark rectangular inset] as normal.",
         "sections": [
           {
             "panelId": "P1",
             "heading": "SUBMACHINE GUN\nRANGED WEAPON",
-            "text": "[shootDie2][illegible] treat this result as a [shootDieCritical]\nand spend 1 [ICON: red near-square with a split dark rectangular inset] as normal."
+            "text": "[shootDie2]: treat this result as a [shootDieCritical]\nand spend 1 [ICON: red near-square with a split dark rectangular inset] as normal."
           }
         ],
         "footer": "",
         "upperRight": "[ICON: white horizontal stepped bar crossed by a red X]",
-        "lowerCenter": "[shootDie2][illegible] treat this result as a [shootDieCritical]\nand spend 1 [ICON: red near-square with a split dark rectangular inset] as normal.",
+        "lowerCenter": "[shootDie2]: treat this result as a [shootDieCritical]\nand spend 1 [ICON: red near-square with a split dark rectangular inset] as normal.",
         "otherMaterialText": [],
-        "illegibleSpans": [
-          "P1, lower instruction line 1, immediately after the first red triangle: a tiny white punctuation-like mark is visible, but its exact glyph is ambiguous and is transcribed as [illegible]."
-        ],
+        "illegibleSpans": [],
         "clippedSpans": []
       },
       "uncertainties": [
@@ -98524,11 +98676,10 @@
         "Current exact-title BGA secondary text potentially conflicts and is preserved without substitution.",
         "2 material functional occurrence(s) remain explicit all-49 no-matches; no semantic token was invented.",
         "1 publisher/BGA/TTS-variant conflict row(s) are preserved verbatim.",
-        "At least one materially recorded text span remains [illegible] or [clipped].",
         "No unattended W33 canonical destination/schema is approved for this mixed-family source; no existing approved file may be overwritten or reclassified.",
         "3 discrepancy row(s) with the prior corpus snapshot are preserved."
       ],
-      "reasonSkipped": "2 material functional occurrence(s) remain explicit all-49 no-matches; no semantic token was invented.; Current rendered publisher evidence provides locator/prose/family context but not a complete exact component face.; Current exact-title BGA secondary text potentially conflicts and is preserved without substitution.; 1 publisher/BGA/TTS-variant conflict row(s) are preserved verbatim.; At least one materially recorded text span remains [illegible] or [clipped].; No unattended W33 canonical destination/schema is approved for this mixed-family source; no existing approved file may be overwritten or reclassified.; 3 discrepancy row(s) with the prior corpus snapshot are preserved.",
+      "reasonSkipped": "2 material functional occurrence(s) remain explicit all-49 no-matches; no semantic token was invented.; Current rendered publisher evidence provides locator/prose/family context but not a complete exact component face.; Current exact-title BGA secondary text potentially conflicts and is preserved without substitution.; 1 publisher/BGA/TTS-variant conflict row(s) are preserved verbatim.; No unattended W33 canonical destination/schema is approved for this mixed-family source; no existing approved file may be overwritten or reclassified.; 3 discrepancy row(s) with the prior corpus snapshot are preserved.",
       "vision": {
         "provider": "openai-codex",
         "model": "gpt-5.6-sol",
@@ -98544,7 +98695,22 @@
           "evidencePath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-33-20260821T172305Z-p465856-36ac0c/metadata/adjudication-summary.json"
         }
       },
-      "status": "open"
+      "status": "open",
+      "correctedOperativeSpan": {
+        "prior": "[shootDie2][illegible] treat this result as a [shootDieCritical]",
+        "current": "[shootDie2]: treat this result as a [shootDieCritical]",
+        "pixelFinding": "The upright lossless derivative shows two vertically aligned white dots immediately after the first red triangular glyph: a colon.",
+        "handling": "Punctuation-only correction; icon semantics and source variants remain unchanged."
+      },
+      "sourceExtractionReview": {
+        "reviewId": "base-card-gap-closure-2026-08-24",
+        "assetId": "G11",
+        "reviewedAt": "2026-08-24T06:48:17Z",
+        "reviewedBy": "source-extraction-supervisor",
+        "evidencePath": "docs/rules/source-extraction/card-gap-adjudications.json",
+        "disposition": "rules-text-complete-punctuation-recovered",
+        "finding": "Lossless upright review resolves the only unreadable operative span as a colon. No text was inferred from game semantics."
+      }
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-144_cards/card-15.png",
@@ -103347,7 +103513,23 @@
           "evidencePath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-33-20260821T172305Z-p465856-36ac0c/metadata/adjudication-summary.json"
         }
       },
-      "status": "open"
+      "status": "open",
+      "sourceComponentClassification": {
+        "status": "complete",
+        "classification": "near-uniform-black-placeholder",
+        "rulesBearing": false,
+        "visibleDescription": "591×863 raster; 509,920 pixels are exact black and the remaining 113 pixels differ only by RGB values 0–3; no visible component frame or text.",
+        "handling": "Retain bytes and source tuple as placeholder/render evidence; exclude from rules-bearing transcription requirements."
+      },
+      "sourceExtractionReview": {
+        "reviewId": "base-card-gap-closure-2026-08-24",
+        "assetId": "G12",
+        "reviewedAt": "2026-08-24T06:48:17Z",
+        "reviewedBy": "source-extraction-supervisor",
+        "evidencePath": "docs/rules/source-extraction/card-gap-adjudications.json",
+        "disposition": "classified-non-rules-placeholder",
+        "finding": "Near-uniform black source contains no visible rules-bearing component face or operative text."
+      }
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/reference/card-034_cards/card-05.png",
@@ -103526,7 +103708,23 @@
           "evidencePath": "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-33-20260821T172305Z-p465856-36ac0c/metadata/adjudication-summary.json"
         }
       },
-      "status": "open"
+      "status": "open",
+      "sourceComponentClassification": {
+        "status": "complete",
+        "classification": "near-uniform-black-placeholder",
+        "rulesBearing": false,
+        "visibleDescription": "815×1111 raster with only two colors: 905,453 exact-black pixels and 12 pixels at RGB 1,1,1; no visible component frame or text.",
+        "handling": "Retain bytes and source tuple as placeholder/render evidence; exclude from rules-bearing transcription requirements."
+      },
+      "sourceExtractionReview": {
+        "reviewId": "base-card-gap-closure-2026-08-24",
+        "assetId": "G13",
+        "reviewedAt": "2026-08-24T06:48:17Z",
+        "reviewedBy": "source-extraction-supervisor",
+        "evidencePath": "docs/rules/source-extraction/card-gap-adjudications.json",
+        "disposition": "classified-non-rules-placeholder",
+        "finding": "Near-uniform black source contains no visible rules-bearing component face or operative text."
+      }
     },
     {
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/reference/card-053.png",

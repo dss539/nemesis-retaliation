@@ -147,6 +147,8 @@ def build_payload(*, registry: dict[str, Any] | None = None, registry_path: Path
         queue_entry = deferred.get(source_path)
         icon_resolutions = resolution_index.get((source_path, source_sha), [])
         manual_review = ledger.get("manualReview")
+        source_extraction_review = None
+        source_component_classification = None
         identity = {}
         if ledger["status"] == "complete":
             text_data, identity = canonical_payload(ledger)
@@ -169,6 +171,8 @@ def build_payload(*, registry: dict[str, Any] | None = None, registry_path: Path
             if queue_entry is None:
                 raise ValueError(f"deferred card missing queue entry: {source_path}")
             manual_review = queue_entry.get("manualReview") or manual_review
+            source_extraction_review = queue_entry.get("sourceExtractionReview")
+            source_component_classification = queue_entry.get("sourceComponentClassification")
             text_data = queue_entry.get("visibleText")
             if text_data is None:
                 text_data = queue_entry.get("semanticRead") or {}
@@ -234,6 +238,8 @@ def build_payload(*, registry: dict[str, Any] | None = None, registry_path: Path
                 "ledgerPath": "assets/tts-mod/extract/vision-progress.json",
                 "queuePath": "assets/tts-mod/extract/low-confidence-review.json" if ledger["status"] == "deferred" else None,
                 **({"manualReview": manual_review} if manual_review else {}),
+                **({"sourceExtractionReview": source_extraction_review} if source_extraction_review else {}),
+                **({"sourceComponentClassification": source_component_classification} if source_component_classification else {}),
                 **({"semanticIconResolutions": icon_resolutions} if icon_resolutions else {}),
             },
         })

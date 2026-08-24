@@ -22,7 +22,8 @@ ontology, or semantic rule model is designed.
 - `room-help-sheet.json` — complete source-bound extraction of all 25 Room effects, notes, literal functional-icon occurrences, and visual evidence.
 - `objective-help-sheet-layout.json` — page/layout and visibility inventory for 45 Objective Help source units.
 - `objective-help-sheet.json` — source-bound extraction of 35 fully visible units plus explicit pixel/text-layer boundaries for 10 physically occluded card occurrences.
-- `card-gap-inventory.json` — the 10 partial and 3 no-transcription card records, separated by operative versus non-operative gaps.
+- `card-gap-adjudications.json` — source-bound pixel decisions for all 13 former card-gap records, with artwork/rules boundaries and immutable prior-read provenance.
+- `card-gap-inventory.json` — closed projection of those 13 reviews: 9 rules-text-complete, 3 classified non-rules, and 1 exact-source operative blocker.
 - `secondary-source-inventory.json` — licensed-digital and TTS structured evidence, explicitly kept below official authority.
 - `extraction-roadmap.md` — ordered remaining work and the gate before vocabulary design begins.
 

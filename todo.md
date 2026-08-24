@@ -1900,6 +1900,15 @@ task workspace.
 - [x] Regenerated both 300-DPI pages and all 45 crops; source/page/crop hashes, category counts, unit IDs, placeholders, occurrences, duplicate-page equivalence, and visibility counts pass deterministic validation.
 - [x] Durable extraction: `docs/rules/source-extraction/objective-help-sheet.json`. Next source work: 13 card-gap records.
 
+## DONE — Base card-gap source adjudication (2026-08-24T07:01:08Z)
+
+- [x] Re-reviewed all 13 former card-gap source tuples from exact pixels: 9 rules-text-complete, 3 classified non-rules, and 1 exact-source operative blocker.
+- [x] Recovered `SUBMACHINE GUN` punctuation as a colon on a lossless upright derivative; immutable selected worker evidence remains preserved separately.
+- [x] Classified unreadable Serious Wound scan microtext, Mission Task background displays, and Character-card display microtext as artwork/interface material outside operative rules.
+- [x] Classified one robot card back and two near-uniform black placeholders as non-rules; no card/reference record remains untranscribed/unclassified.
+- [x] Preserved the prototype `FACILITY RESTART` incomplete clause and all materially different source variants without substitution.
+- [x] Corpus rebuild: 390 records, 259 full drafts, 1 partial, 0 no-transcription, 52 non-rules/reference; focused and deterministic validators pass.
+
 ## LATER — Expansions (re-add when user wants them)
 - [ ] Re-extract expansion content from save (see `assets/tts-mod/notes/extraction.md` §15 for all deck GUIDs, intruder bags,
       shared action-154 cells, and classification pitfalls)
