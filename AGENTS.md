@@ -92,7 +92,7 @@ The card/reference evidence corpus and extraction provenance are under `assets/t
 
 The active phase is **canonical vocabulary and source-scoped aliases after a passed extraction gate**.
 
-The vocabulary proposal is built and validated. VG-001 is resolved: PERSONAL OBJECTIVE is an accepted alias of Private Objective only for the exact listed TTS/prototype source tuples, with original wording and provenance preserved. The immediate gate is project-owner review of VG-002 in `docs/rules/vocabulary/vocabulary-review-gates.json`: Drilling Room → DRILLING STATION for the official Room identity. Do not begin taxonomy/ontology or semantic effects until VG-002 is resolved and vocabulary validation reports zero open review gates.
+The vocabulary and alias layer is approved and validated with zero open owner gates. The active phase is taxonomy/ontology design. Build explicit classes and relationships from the approved vocabulary and named identities; keep source provenance and unresolved rules questions visible. Do not begin semantic effect modeling until taxonomy/ontology validation and owner review pass.
 
 See `PROJECT_STATUS.md` and `docs/rules/source-extraction/extraction-roadmap.md` for the verified checkpoint and subsequent order.
 

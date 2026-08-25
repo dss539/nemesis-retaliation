@@ -33,14 +33,11 @@ Aliases require explicit official equivalence, exact source-tuple evidence, or o
 
 The existing reviewed legacy artwork mappings remain restricted to the exact source tuples in `docs/qa/card-symbol-semantic-resolutions.json`.
 
-## Current review gate
+## Review outcome
 
-Resolved:
+All owner gates are resolved:
 
-- `VG-001`: accepted `PERSONAL OBJECTIVE` → `Private Objective`, restricted to the exact listed TTS/prototype source tuples. Original wording and provenance remain preserved.
+- `VG-001`: accepted `PERSONAL OBJECTIVE` → `Private Objective`, restricted to exact listed TTS/prototype tuples.
+- `VG-002`: accepted rulebook `Drilling Room` → named official component `DRILLING STATION`.
 
-Still open:
-
-- `VG-002`: `Drilling Room` → the named official component `DRILLING STATION`.
-
-Taxonomy/ontology work must not begin until VG-002 is resolved and the vocabulary validator reports no open review gates.
+Original source labels and provenance remain preserved. The vocabulary/alias gate is passed; taxonomy/ontology work may begin.

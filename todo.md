@@ -1949,15 +1949,22 @@ task workspace.
 - [x] Authority order, applicability, component/front/back roles, source conflicts, and count boundaries remain explicit.
 - [x] Extraction gate decision: PASS — canonical vocabulary and source-scoped alias work may begin. This does not approve taxonomy, ontology, semantics, implementation, PR, merge, or deployment.
 
-## IN PROGRESS — Canonical vocabulary proposal (2026-08-24T09:25:59Z)
+## DONE — Canonical vocabulary proposal (2026-08-24T09:25:59Z)
 
 - [x] Inventoried 1,853 observed source-term occurrences across all closed official/component/card/secondary channels.
 - [x] Separated 643 named component/title/key occurrences into 501 exact-string-only identity groups.
 - [x] Proposed 167 controlled vocabulary entries: 50 accepted existing icon terms and 117 authority-derived labels.
-- [x] Registered 8 aliases (7 accepted, 1 proposed) plus 5 non-alias guardrails; no appearance-wide or duplicate-name aliasing is permitted.
+- [x] Registered 8 accepted aliases plus 5 non-alias guardrails; no appearance-wide or duplicate-name aliasing is permitted.
 - [x] Validation passes with no taxonomy/ontology/semantic artifacts.
 - [x] Owner gate VG-001: accepted `PERSONAL OBJECTIVE` → source-scoped alias of `Private Objective` for exact listed tuples; original wording/provenance preserved.
-- [ ] Owner gate VG-002: `Drilling Room` → alias of named component `DRILLING STATION`.
+- [x] Owner gate VG-002: accepted `Drilling Room` → alias of named component `DRILLING STATION`; both official labels preserved.
+
+## IN PROGRESS — Taxonomy/ontology proposal (2026-08-24T23:02:00Z)
+
+- [ ] Define source-traceable classes over approved vocabulary and named identities.
+- [ ] Define source-supported relationships, domains, ranges, and constraints without semantic effects.
+- [ ] Validate mappings, provenance, acyclicity, uniqueness, and phase boundaries.
+- [ ] Record genuine ontology owner-review gates before semantic modeling.
 
 ## DONE — Independent Room Help fidelity hardening (2026-08-24T10:04:12Z)
 

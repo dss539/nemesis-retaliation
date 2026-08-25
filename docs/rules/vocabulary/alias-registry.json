@@ -4,8 +4,8 @@
   "policy": "An alias requires explicit official equivalence, exact source-tuple evidence, or owner review. No alias is generalized by color, shape, folder, display-name equality, or technical key similarity.",
   "counts": {
     "aliases": 8,
-    "acceptedAliases": 7,
-    "proposedReviewAliases": 1,
+    "acceptedAliases": 8,
+    "proposedReviewAliases": 0,
     "nonAliasBoundaries": 5,
     "reviewGates": 2
   },
@@ -513,7 +513,7 @@
     {
       "aliasId": "AL-004",
       "aliasText": "Drilling Room",
-      "status": "proposed-named-identity-alias",
+      "status": "accepted-official-naming-alias",
       "scope": "official rulebook printed page 19 only",
       "targetTermId": null,
       "targetNamedIdentityId": "NI-0133",
@@ -542,7 +542,14 @@
       ],
       "sourceTuples": [],
       "basis": "Rulebook prose says Drilling Room; official Room Help and FAQ use Drilling Station for the corresponding Section A Room.",
-      "reviewGateId": "VG-002"
+      "reviewGateId": null,
+      "ownerReview": {
+        "reviewGateId": "VG-002",
+        "decision": "accept alias to Drilling Station",
+        "decidedAt": "2026-08-24T23:02:00Z",
+        "evidence": "Project owner authorized the recommended choice with “Yeah go with your gut.”",
+        "scopeConfirmation": "Official rulebook phrase Drilling Room aliases the named official Room Help/FAQ component identity DRILLING STATION; both source labels remain preserved."
+      }
     },
     {
       "aliasId": "AL-005",

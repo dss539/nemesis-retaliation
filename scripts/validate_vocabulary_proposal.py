@@ -30,7 +30,7 @@ def main():
   if not evidence or any(x.get('sourceTermId') not in by_id for x in evidence): failures.append({'check':'canonical evidence','termId':e['termId']})
  # Alias targets/scopes/evidence are closed; accepted source-scoped art aliases retain exact tuples.
  alias_rows=aliases.get('aliases') or []; alias_ids={a['aliasId'] for a in alias_rows}
- if aliases.get('counts')!={'aliases':8,'acceptedAliases':7,'proposedReviewAliases':1,'nonAliasBoundaries':5,'reviewGates':2}: failures.append({'check':'alias counts'})
+ if aliases.get('counts')!={'aliases':8,'acceptedAliases':8,'proposedReviewAliases':0,'nonAliasBoundaries':5,'reviewGates':2}: failures.append({'check':'alias counts'})
  for a in alias_rows:
   if bool(a.get('targetTermId'))==bool(a.get('targetNamedIdentityId')): failures.append({'check':'alias target cardinality','id':a['aliasId']})
   if a.get('targetTermId') and a['targetTermId'] not in term_ids: failures.append({'check':'alias term target','id':a['aliasId']})
@@ -44,20 +44,21 @@ def main():
  personal_alias=next((a for a in alias_rows if a.get('aliasId')=='AL-003'),None)
  if not personal_alias or personal_alias.get('status')!='accepted-source-scoped-alias' or personal_alias.get('reviewGateId') is not None or (personal_alias.get('ownerReview') or {}).get('decision')!='accept source-scoped alias':
   failures.append({'check':'VG-001 accepted source-scoped alias decision'})
- # The remaining open owner gate maps exactly to the remaining proposed alias.
+ drilling_alias=next((a for a in alias_rows if a.get('aliasId')=='AL-004'),None)
+ if not drilling_alias or drilling_alias.get('status')!='accepted-official-naming-alias' or drilling_alias.get('reviewGateId') is not None or (drilling_alias.get('ownerReview') or {}).get('decision')!='accept alias to Drilling Station':
+  failures.append({'check':'VG-002 accepted official naming alias decision'})
+ # Both owner gates are resolved; there must be no remaining proposed alias.
  gates=review.get('gates') or []
- if review.get('counts')!={'reviewGates':2,'resolved':1,'open':1} or {g['reviewGateId'] for g in gates}!={'VG-001','VG-002'}: failures.append({'check':'review gates'})
+ if review.get('counts')!={'reviewGates':2,'resolved':2,'open':0} or {g['reviewGateId'] for g in gates}!={'VG-001','VG-002'}: failures.append({'check':'review gates'})
  gate_by_id={g['reviewGateId']:g for g in gates}
- if gate_by_id['VG-001'].get('status')!='resolved' or gate_by_id['VG-001'].get('decision')!='accept source-scoped alias' or gate_by_id['VG-002'].get('status')!='open': failures.append({'check':'review gate statuses'})
+ if gate_by_id['VG-001'].get('status')!='resolved' or gate_by_id['VG-001'].get('decision')!='accept source-scoped alias' or gate_by_id['VG-002'].get('status')!='resolved' or gate_by_id['VG-002'].get('decision')!='accept alias to Drilling Station': failures.append({'check':'review gate statuses'})
  if {x for g in gates if g.get('status')=='open' for x in g['affectedAliasIds']}!={a['aliasId'] for a in alias_rows if a['status'].startswith('proposed-')}: failures.append({'check':'review/alias linkage'})
  # Coverage is mechanically recomputed.
  cited={x['sourceTermId'] for e in entries for x in e['authorityEvidence']}; alias_cited={x['sourceTermId'] for a in alias_rows for x in a.get('sourceEvidence') or []}; identity_cited={x['sourceTermId'] for g in groups for x in g['sourceOccurrences']}; covered=cited|alias_cited|identity_cited
- expected_cov={'sourceTermOccurrences':1853,'uniqueNormalizedSourceKeys':1194,'namedIdentityOccurrences':643,'namedIdentityExactStringGroups':501,'canonicalVocabularyEntries':167,'acceptedExistingIconTerms':50,'proposedAuthorityDerivedTerms':117,'aliasEntries':8,'acceptedAliases':7,'proposedReviewAliases':1,'directlyReferencedSourceTerms':len(cited|alias_cited),'sourceTermsCoveredByVocabularyAliasOrNamedIdentity':len(covered),'uncitedSourceTermOccurrences':1853-len(covered),'openReviewGates':1}
+ expected_cov={'sourceTermOccurrences':1853,'uniqueNormalizedSourceKeys':1194,'namedIdentityOccurrences':643,'namedIdentityExactStringGroups':501,'canonicalVocabularyEntries':167,'acceptedExistingIconTerms':50,'proposedAuthorityDerivedTerms':117,'aliasEntries':8,'acceptedAliases':8,'proposedReviewAliases':0,'directlyReferencedSourceTerms':len(cited|alias_cited),'sourceTermsCoveredByVocabularyAliasOrNamedIdentity':len(covered),'uncitedSourceTermOccurrences':1853-len(covered),'openReviewGates':0}
  if coverage.get('counts')!=expected_cov: failures.append({'check':'coverage counts','expected':expected_cov,'actual':coverage.get('counts')})
- # Taxonomy/ontology/semantic artifacts are forbidden before review closes.
- forbidden=[]
- for pattern in ('*taxonomy*','*ontology*','*semantic*'):
-  forbidden += [p.name for p in DIR.glob(pattern)]
- if forbidden: failures.append({'check':'premature later-phase artifacts','files':sorted(set(forbidden))})
+ # Semantic artifacts remain forbidden; taxonomy/ontology is now authorized.
+ forbidden=[p.name for p in DIR.glob('*semantic*')]
+ if forbidden: failures.append({'check':'premature semantic artifacts','files':sorted(set(forbidden))})
  report={'schemaVersion':1,'passed':not failures,'checks':expected_cov,'failureCount':len(failures),'failures':failures}; (DIR/'validation.json').write_text(json.dumps(report,indent=2,ensure_ascii=False)+'\n'); print(json.dumps(report,indent=2,ensure_ascii=False)); return 0 if not failures else 1
 if __name__=='__main__': raise SystemExit(main())

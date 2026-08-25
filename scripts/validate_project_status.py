@@ -37,8 +37,12 @@ def main() -> None:
     require("legacy implementation is frozen" in readme.lower(), "readme.md must state the legacy implementation boundary", failures)
     require(source_validation.get("passed") is True and source_validation.get("failureCount") == 0,
             "source-extraction validation must pass", failures)
-    require("Canonical vocabulary and source-scoped aliases (extraction gate passed)" in status,
-            "PROJECT_STATUS.md must advance to vocabulary phase after closure", failures)
+    if vocab_validation["checks"]["openReviewGates"] == 0:
+        require("Taxonomy/ontology proposal (vocabulary gate passed)" in status,
+                "PROJECT_STATUS.md must advance to taxonomy/ontology after vocabulary approval", failures)
+    else:
+        require("Canonical vocabulary and source-scoped aliases (extraction gate passed)" in status,
+                "PROJECT_STATUS.md must remain in vocabulary phase while review gates are open", failures)
     require(vocab_validation.get("passed") is True and vocab_validation.get("failureCount") == 0,
             "vocabulary proposal validation must pass", failures)
 
@@ -112,7 +116,7 @@ def main() -> None:
         f"- {vocab_validation['checks']['aliasEntries']} alias entries",
         f"  - {vocab_validation['checks']['acceptedAliases']} accepted explicit/source-scoped aliases",
         f"  - {vocab_validation['checks']['proposedReviewAliases']} proposed alias" + ("" if vocab_validation['checks']['proposedReviewAliases'] == 1 else "es") + " awaiting owner review",
-        f"- {vocab_validation['checks']['openReviewGates']} open review gate" + ("" if vocab_validation['checks']['openReviewGates'] == 1 else "s") + "; taxonomy/ontology has not started",
+        f"- {vocab_validation['checks']['openReviewGates']} open review gate" + ("" if vocab_validation['checks']['openReviewGates'] == 1 else "s") + ("; taxonomy/ontology is authorized" if vocab_validation['checks']['openReviewGates'] == 0 else "; taxonomy/ontology has not started"),
     ]
     for fragment in expected_fragments:
         require(fragment in status, f"PROJECT_STATUS.md count drift: expected {fragment!r}", failures)
