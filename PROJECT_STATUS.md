@@ -1,7 +1,7 @@
 # Nemesis: Retaliation — Project Status
 
 **Status date:** 2026-08-24
-**Active phase:** Taxonomy/ontology proposal (vocabulary gate passed)
+**Active phase:** Taxonomy/ontology independent review (vocabulary gate passed)
 **Active branch:** `work/card-corpus-extraction`
 **Implementation status:** Frozen; a clean rewrite will begin only after rules-layer readiness and explicit approval
 
@@ -13,14 +13,15 @@ The current implementation remains frozen. Semantic effect modeling remains a la
 
 ## Immediate Next Deliverable
 
-Build and validate the **taxonomy/ontology proposal**:
+Complete the **independent taxonomy/ontology review**:
 
-- define classes independently from source display names and technical keys;
-- map controlled terms and named component identities to classes with provenance;
-- define only source-supported relationships, domains, ranges, cardinalities, and lifecycle/zone concepts;
-- preserve uncertainty and source conflicts as explicit review gates;
-- keep timing, choice ownership, costs, targets, visibility, and executable effects out of this layer;
-- require zero structural validation failures and owner review before semantic modeling begins.
+- audit all classes and multiple inheritance for category errors;
+- audit all 167 controlled-term and 501 named-identity mappings;
+- verify 45 relationship domains/ranges, 20 inverse pairs, cardinalities, and 14 static constraints against sources;
+- verify timing/decision/visibility/lifecycle scaffolding without introducing effect instances;
+- classify stale open questions separately from genuine semantic ambiguities;
+- collect any genuine owner decisions and defer asking until all independent work is exhausted;
+- rerun reproducibility and corruption negative controls before approving the ontology gate.
 
 ## Verified Checkpoint
 
@@ -104,6 +105,20 @@ Build and validate the **taxonomy/ontology proposal**:
 Machine-readable evidence: `docs/rules/source-extraction/validation.json`.
 
 
+### Taxonomy/ontology proposal
+
+- 202 source-traceable taxa / 9 roots
+- all 167 controlled terms mapped exactly once
+- all 501 named identity observations mapped as source identities
+- 50 printed-symbol denotations
+- 45 static relationship shapes / 20 inverse pairs
+- 14 source-backed structural assertions and constraints
+- 15 semantic-scaffolding taxa for later zones, timing, decisions, visibility, lifecycle, and finite supply
+- 0 ontology owner gates asserted before independent review
+- byte-identical rebuild validation and corruption negative controls pass
+- no triggers, ordered effect steps, costs, target selection, or state mutations encoded
+- `scripts/validate_taxonomy_ontology.py`: **passed with 0 failures**
+
 ### Vocabulary proposal
 
 - 1,853 observed source-term occurrences / 1,194 normalized exact-string keys
@@ -134,13 +149,14 @@ Machine-readable evidence: `docs/rules/source-extraction/validation.json`.
 - Extracted all ten TTS Player Help fronts and their shared functional PASS side; proved one instruction-text variant and two raster-template groups, retained FaceURL/BackURL roles, and recorded count/phase-sequence conflicts with current official sources.
 - Consolidated licensed-digital build 260622-1220 into one immutable snapshot, indexed 11 tables/298 scoped records, and closed six TTS structured channels as secondary provenance with explicit count/name/conflict boundaries.
 - Passed the final nine-channel extraction closure audit: every source channel is extracted/indexed, all six gate criteria pass, no graphical units remain, and the one exact-source blocker remains explicit.
-- Built and validated the vocabulary layer: 1,853 source occurrences, 501 named-identity groups, 167 controlled entries, 8 accepted aliases, and 5 non-alias guardrails; VG-001 and VG-002 are resolved and taxonomy/ontology is authorized.
+- Built and validated the vocabulary layer: 1,853 source occurrences, 501 named-identity groups, 167 controlled entries, 8 accepted aliases, and 5 non-alias guardrails; VG-001 and VG-002 are resolved.
+- Built the initial static taxonomy/ontology proposal: 202 taxa, complete term/identity mappings, 45 relationship shapes, 14 static constraints, semantic scaffolding, deterministic rebuilds, and negative controls; independent review remains in progress.
 - Created the closed source inventory, card-gap inventory, secondary-source inventory, Room layout inventory, roadmap, and deterministic validator.
 
 ## Remaining Work — Ordered
 
-1. **Taxonomy/ontology** — define and validate classes, relationships, constraints, and provenance.
-2. **Semantic rules layer** — model timing, choices, visibility, costs, targets, and state transitions after ontology review.
+1. **Independent taxonomy/ontology review** — audit and correct the generated proposal; resolve only genuine owner gates.
+2. **Semantic rules layer** — model timing, choices, visibility, costs, targets, and state transitions after ontology approval.
 3. Define implementation-readiness criteria and seek explicit approval before a clean rewrite.
 
 Detailed phase plan: `docs/rules/source-extraction/extraction-roadmap.md`.
@@ -189,6 +205,7 @@ All of the following are true:
 
 - One prototype `FACILITY RESTART` face visibly ends a condition at “Systems must be”; no following mark is recoverable from the exact pixels, and materially different same-title/current-official variants cannot be substituted.
 - Vocabulary gates `VG-001` and `VG-002` are resolved; `PERSONAL OBJECTIVE` remains source-scoped and `Drilling Room` aliases `DRILLING STATION` with both official labels preserved.
+- Six semantic/source questions (OQ-001, OQ-002, OQ-003, OQ-004, OQ-007, OQ-009) remain explicit but do not block static ontology review.
 - The 25 Room Help entries versus 23 Room tiles relationship is unresolved.
 - Source/version conflicts remain in several card families and must not be flattened.
 - Genuine rules ambiguities remain in `docs/rules/open-questions.md`; some stale extraction blockers there must later be re-audited against newly collected evidence.
@@ -218,6 +235,6 @@ Use these records for different questions:
 4. Read the relevant source inventory/extraction record.
 5. Load the relevant Hermes skills.
 6. Perform source-bound extraction without normalization.
-7. Run `python3 scripts/validate_source_extraction.py` and `python3 scripts/validate_project_status.py` through `workspace run`.
+7. Run `python3 scripts/validate_source_extraction.py`, `python3 scripts/validate_vocabulary_proposal.py`, `python3 scripts/validate_taxonomy_ontology.py`, and `python3 scripts/validate_project_status.py` through `workspace run`.
 8. Update this file only if material status changed.
 9. Commit and push only within the authorized boundary; do not open a PR or deploy without explicit approval.

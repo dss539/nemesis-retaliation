@@ -1,0 +1,2859 @@
+{
+  "schemaVersion": 1,
+  "recordType": "source-traceable-taxonomy-proposal",
+  "phaseBoundary": "Classification only. Multiple parents do not imply disjointness unless declared. No executable effects, triggers, costs, choices, targets, or state transitions are encoded.",
+  "counts": {
+    "taxa": 202,
+    "rootTaxa": 9,
+    "controlledTermAssignments": 167,
+    "namedIdentityAssignments": 501,
+    "byOntologicalKind": {
+      "class": 92,
+      "identity-kind": 13,
+      "meta-rule": 9,
+      "process-type": 43,
+      "role": 2,
+      "schema-class": 15,
+      "state-value": 19,
+      "symbol-kind": 9
+    },
+    "namedIdentityAssignmentsByTaxon": {
+      "tax.identity.card-face": 199,
+      "tax.identity.game-term-label": 7,
+      "tax.identity.room": 25,
+      "tax.identity.structured-key": 270
+    }
+  },
+  "taxa": [
+    {
+      "taxonId": "tax.entity",
+      "label": "Entity",
+      "parentTaxonIds": [],
+      "ontologicalKind": "class",
+      "definitionBoundary": "A persistent game-world, information, component, or spatial object.",
+      "evidenceTermIds": [],
+      "sourceEvidence": [
+        "docs/rules/00-foundations.md:FND-004"
+      ],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.process",
+      "label": "Process type",
+      "parentTaxonIds": [],
+      "ontologicalKind": "process-type",
+      "definitionBoundary": "A temporally extended game occurrence; this layer names process types but does not encode executable procedures.",
+      "evidenceTermIds": [],
+      "sourceEvidence": [
+        "docs/rules/01-round-and-turns.md"
+      ],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.state",
+      "label": "State or status",
+      "parentTaxonIds": [],
+      "ontologicalKind": "class",
+      "definitionBoundary": "A condition that may hold for an entity or information object; transitions are not encoded here.",
+      "evidenceTermIds": [],
+      "sourceEvidence": [
+        "docs/rules/02-character-actions.md:Doors",
+        "docs/rules/03-intruders-and-survival.md"
+      ],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.role",
+      "label": "Contextual role",
+      "parentTaxonIds": [],
+      "ontologicalKind": "role",
+      "definitionBoundary": "A role held by an entity in a context rather than an intrinsic entity class.",
+      "evidenceTermIds": [],
+      "sourceEvidence": [
+        "docs/rules/01-round-and-turns.md:RT-002"
+      ],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.rule",
+      "label": "Rule or mode concept",
+      "parentTaxonIds": [],
+      "ontologicalKind": "meta-rule",
+      "definitionBoundary": "A game-mode or cross-cutting rule concept, not a physical component.",
+      "evidenceTermIds": [],
+      "sourceEvidence": [
+        "docs/rules/00-foundations.md:FND-001"
+      ],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.value",
+      "label": "Value kind",
+      "parentTaxonIds": [],
+      "ontologicalKind": "class",
+      "definitionBoundary": "An enumerated or quantitative value used by static game structure.",
+      "evidenceTermIds": [],
+      "sourceEvidence": [
+        "docs/rules/00-foundations.md:FND-004"
+      ],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.symbol",
+      "label": "Printed symbol kind",
+      "parentTaxonIds": [],
+      "ontologicalKind": "symbol-kind",
+      "definitionBoundary": "A printed icon/glyph result. It may denote another taxon but is not identical to its artwork.",
+      "evidenceTermIds": [],
+      "sourceEvidence": [
+        "docs/rules/icon-glossary.md"
+      ],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.identity",
+      "label": "Named source identity kind",
+      "parentTaxonIds": [],
+      "ontologicalKind": "identity-kind",
+      "definitionBoundary": "A source-local named component, face, label, or structured key; exact name equality alone does not establish gameplay equivalence.",
+      "evidenceTermIds": [],
+      "sourceEvidence": [
+        "docs/rules/vocabulary/named-component-identities.json"
+      ],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.scaffold",
+      "label": "Semantic-model scaffold",
+      "parentTaxonIds": [],
+      "ontologicalKind": "schema-class",
+      "definitionBoundary": "Static ontology scaffolding for later timing, decision, visibility, zone, and lifecycle semantics; no effect instances are encoded.",
+      "evidenceTermIds": [],
+      "sourceEvidence": [
+        "docs/rules/00-foundations.md:FND-002"
+      ],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.entity.agent",
+      "label": "Agent",
+      "parentTaxonIds": [
+        "tax.entity"
+      ],
+      "ontologicalKind": "class",
+      "definitionBoundary": "An entity capable of acting, being targeted, or occupying game space.",
+      "evidenceTermIds": [],
+      "sourceEvidence": [
+        "docs/rules/00-foundations.md:FND-004"
+      ],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.entity.agent.participant",
+      "label": "Participant agent",
+      "parentTaxonIds": [
+        "tax.entity.agent"
+      ],
+      "ontologicalKind": "class",
+      "definitionBoundary": "Human participant or their controlled Character.",
+      "evidenceTermIds": [],
+      "sourceEvidence": [
+        "docs/rules/00-foundations.md:FND-004"
+      ],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.entity.agent.player",
+      "label": "Player",
+      "parentTaxonIds": [
+        "tax.entity.agent.participant"
+      ],
+      "ontologicalKind": "class",
+      "definitionBoundary": "Human participant controlling a Character.",
+      "evidenceTermIds": [
+        "term.player"
+      ],
+      "sourceEvidence": [],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.entity.agent.character",
+      "label": "Character",
+      "parentTaxonIds": [
+        "tax.entity.agent.participant"
+      ],
+      "ontologicalKind": "class",
+      "definitionBoundary": "In-game Character controlled by a Player.",
+      "evidenceTermIds": [],
+      "sourceEvidence": [
+        "docs/rules/00-foundations.md:FND-004"
+      ],
+      "disjointWithTaxonIds": [
+        "tax.entity.agent.intruder"
+      ]
+    },
+    {
+      "taxonId": "tax.entity.agent.robot",
+      "label": "Robot",
+      "parentTaxonIds": [
+        "tax.entity.agent"
+      ],
+      "ontologicalKind": "class",
+      "definitionBoundary": "Robot model/entity activated under Robot rules.",
+      "evidenceTermIds": [],
+      "sourceEvidence": [
+        "docs/rules/02-character-actions.md:ACT-ROBOT-001"
+      ],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.entity.agent.intruder",
+      "label": "Intruder",
+      "parentTaxonIds": [
+        "tax.entity.agent"
+      ],
+      "ontologicalKind": "class",
+      "definitionBoundary": "Primeblood Intruder entity; Characters are not Intruders.",
+      "evidenceTermIds": [],
+      "sourceEvidence": [
+        "docs/rules/00-foundations.md:FND-004",
+        "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf:printed page 8"
+      ],
+      "disjointWithTaxonIds": [
+        "tax.entity.agent.character"
+      ]
+    },
+    {
+      "taxonId": "tax.entity.agent.intruder.queen",
+      "label": "Queen",
+      "parentTaxonIds": [
+        "tax.entity.agent.intruder"
+      ],
+      "ontologicalKind": "class",
+      "definitionBoundary": "Queen Intruder type.",
+      "evidenceTermIds": [
+        "term.queen"
+      ],
+      "sourceEvidence": [],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.entity.agent.intruder.drone",
+      "label": "Drone",
+      "parentTaxonIds": [
+        "tax.entity.agent.intruder"
+      ],
+      "ontologicalKind": "class",
+      "definitionBoundary": "Drone Intruder type.",
+      "evidenceTermIds": [
+        "term.drone"
+      ],
+      "sourceEvidence": [],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.entity.agent.intruder.adult",
+      "label": "Adult",
+      "parentTaxonIds": [
+        "tax.entity.agent.intruder"
+      ],
+      "ontologicalKind": "class",
+      "definitionBoundary": "Adult Intruder type.",
+      "evidenceTermIds": [
+        "term.adult"
+      ],
+      "sourceEvidence": [],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.entity.agent.intruder.larva",
+      "label": "Larva",
+      "parentTaxonIds": [
+        "tax.entity.agent.intruder"
+      ],
+      "ontologicalKind": "class",
+      "definitionBoundary": "Larva Intruder type.",
+      "evidenceTermIds": [
+        "term.larva"
+      ],
+      "sourceEvidence": [],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.entity.spatial",
+      "label": "Spatial entity",
+      "parentTaxonIds": [
+        "tax.entity"
+      ],
+      "ontologicalKind": "class",
+      "definitionBoundary": "A map, Facility, location, slot, or structural connector.",
+      "evidenceTermIds": [],
+      "sourceEvidence": [
+        "docs/rules/00-foundations.md:FND-005"
+      ],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.entity.spatial.map",
+      "label": "Map",
+      "parentTaxonIds": [
+        "tax.entity.spatial"
+      ],
+      "ontologicalKind": "class",
+      "definitionBoundary": "The spatial play surface showing the Facility.",
+      "evidenceTermIds": [
+        "term.map"
+      ],
+      "sourceEvidence": [],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.entity.spatial.facility",
+      "label": "Facility",
+      "parentTaxonIds": [
+        "tax.entity.spatial"
+      ],
+      "ontologicalKind": "class",
+      "definitionBoundary": "The base-game Facility divided into Sections A, B, and C.",
+      "evidenceTermIds": [
+        "term.facility"
+      ],
+      "sourceEvidence": [
+        "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf:printed page 20"
+      ],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.entity.spatial.section",
+      "label": "Section",
+      "parentTaxonIds": [
+        "tax.entity.spatial"
+      ],
+      "ontologicalKind": "class",
+      "definitionBoundary": "One of the three Facility Sections.",
+      "evidenceTermIds": [
+        "term.section"
+      ],
+      "sourceEvidence": [],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.entity.spatial.section.a",
+      "label": "Section A",
+      "parentTaxonIds": [
+        "tax.entity.spatial.section"
+      ],
+      "ontologicalKind": "identity-kind",
+      "definitionBoundary": "The enumerated printed Section A identity, not a subclass inferred from name alone.",
+      "evidenceTermIds": [
+        "term.section-a"
+      ],
+      "sourceEvidence": [],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.entity.spatial.section.b",
+      "label": "Section B",
+      "parentTaxonIds": [
+        "tax.entity.spatial.section"
+      ],
+      "ontologicalKind": "identity-kind",
+      "definitionBoundary": "The enumerated printed Section B identity, not a subclass inferred from name alone.",
+      "evidenceTermIds": [
+        "term.section-b"
+      ],
+      "sourceEvidence": [],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.entity.spatial.section.c",
+      "label": "Section C",
+      "parentTaxonIds": [
+        "tax.entity.spatial.section"
+      ],
+      "ontologicalKind": "identity-kind",
+      "definitionBoundary": "The enumerated printed Section C identity, not a subclass inferred from name alone.",
+      "evidenceTermIds": [
+        "term.section-c"
+      ],
+      "sourceEvidence": [],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.entity.spatial.location",
+      "label": "Location",
+      "parentTaxonIds": [
+        "tax.entity.spatial"
+      ],
+      "ontologicalKind": "class",
+      "definitionBoundary": "A location capable of containing game entities.",
+      "evidenceTermIds": [],
+      "sourceEvidence": [
+        "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf:printed page 20"
+      ],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.entity.spatial.room",
+      "label": "Room",
+      "parentTaxonIds": [
+        "tax.entity.spatial.location"
+      ],
+      "ontologicalKind": "class",
+      "definitionBoundary": "A Facility Room. Characters may occupy Rooms, not Corridors.",
+      "evidenceTermIds": [
+        "term.room"
+      ],
+      "sourceEvidence": [],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.entity.spatial.room-slot",
+      "label": "Room slot",
+      "parentTaxonIds": [
+        "tax.entity.spatial.location"
+      ],
+      "ontologicalKind": "class",
+      "definitionBoundary": "A Facility-map slot that may be empty/Undiscovered or hold a placed Room.",
+      "evidenceTermIds": [],
+      "sourceEvidence": [
+        "docs/rules/00-foundations.md:FND-005",
+        "docs/rules/02-character-actions.md:ACT-EXPLORE-001"
+      ],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.entity.spatial.corridor",
+      "label": "Corridor",
+      "parentTaxonIds": [
+        "tax.entity.spatial.location"
+      ],
+      "ontologicalKind": "class",
+      "definitionBoundary": "A connector between two adjacent Room/Room-slot endpoints; Intruders but not Characters may occupy it.",
+      "evidenceTermIds": [
+        "term.corridor"
+      ],
+      "sourceEvidence": [],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.entity.spatial.door",
+      "label": "Door",
+      "parentTaxonIds": [
+        "tax.entity.spatial"
+      ],
+      "ontologicalKind": "class",
+      "definitionBoundary": "A Door at a Corridor end against a Room.",
+      "evidenceTermIds": [
+        "term.door"
+      ],
+      "sourceEvidence": [
+        "docs/rules/02-character-actions.md:Doors"
+      ],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.entity.spatial.room.nest",
+      "label": "Nest Room identity",
+      "parentTaxonIds": [
+        "tax.entity.spatial.room"
+      ],
+      "ontologicalKind": "identity-kind",
+      "definitionBoundary": "The named Nest Room identity, not a general Room subclass.",
+      "evidenceTermIds": [
+        "term.nest"
+      ],
+      "sourceEvidence": [],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.entity.spatial.room.hibernatorium",
+      "label": "Hibernatorium Room identity",
+      "parentTaxonIds": [
+        "tax.entity.spatial.room"
+      ],
+      "ontologicalKind": "identity-kind",
+      "definitionBoundary": "The named Hibernatorium Room identity, not a general Room subclass.",
+      "evidenceTermIds": [
+        "term.hibernatorium"
+      ],
+      "sourceEvidence": [],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.entity.spatial.room.landing-zone",
+      "label": "Landing Zone Room identity",
+      "parentTaxonIds": [
+        "tax.entity.spatial.room"
+      ],
+      "ontologicalKind": "identity-kind",
+      "definitionBoundary": "The named Landing Zone Room identity, not a general Room subclass.",
+      "evidenceTermIds": [
+        "term.landing-zone"
+      ],
+      "sourceEvidence": [],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.entity.spatial.room.escape-shuttle",
+      "label": "Escape Shuttle Room identity",
+      "parentTaxonIds": [
+        "tax.entity.spatial.room"
+      ],
+      "ontologicalKind": "identity-kind",
+      "definitionBoundary": "The named Escape Shuttle Room identity, not a general Room subclass.",
+      "evidenceTermIds": [
+        "term.escape-shuttle"
+      ],
+      "sourceEvidence": [],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.entity.spatial.room.reactor",
+      "label": "Reactor Room identity",
+      "parentTaxonIds": [
+        "tax.entity.spatial.room"
+      ],
+      "ontologicalKind": "identity-kind",
+      "definitionBoundary": "The named Reactor Room identity, not a general Room subclass.",
+      "evidenceTermIds": [
+        "term.reactor"
+      ],
+      "sourceEvidence": [],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.entity.component",
+      "label": "Physical component",
+      "parentTaxonIds": [
+        "tax.entity"
+      ],
+      "ontologicalKind": "class",
+      "definitionBoundary": "A finite or printed physical game component represented in the source inventory.",
+      "evidenceTermIds": [],
+      "sourceEvidence": [
+        "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf:component list"
+      ],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.entity.component.card",
+      "label": "Card",
+      "parentTaxonIds": [
+        "tax.entity.component"
+      ],
+      "ontologicalKind": "class",
+      "definitionBoundary": "A printed card component.",
+      "evidenceTermIds": [],
+      "sourceEvidence": [
+        "docs/rulebooks/rulebook_text.txt:component list"
+      ],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.entity.component.card.action",
+      "label": "Action card",
+      "parentTaxonIds": [
+        "tax.entity.component.card"
+      ],
+      "ontologicalKind": "class",
+      "definitionBoundary": "Character-specific Action card, distinct from a Basic Action.",
+      "evidenceTermIds": [],
+      "sourceEvidence": [
+        "docs/rules/02-character-actions.md:ACT-CARD-001"
+      ],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.entity.component.card.contamination",
+      "label": "Contamination card",
+      "parentTaxonIds": [
+        "tax.entity.component.card"
+      ],
+      "ontologicalKind": "class",
+      "definitionBoundary": "Contamination card sharing a back with Action cards but forming a separate deck.",
+      "evidenceTermIds": [
+        "term.contamination-card"
+      ],
+      "sourceEvidence": [],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.entity.component.card.event",
+      "label": "Event card",
+      "parentTaxonIds": [
+        "tax.entity.component.card"
+      ],
+      "ontologicalKind": "class",
+      "definitionBoundary": "Event card resolved in Event Phase.",
+      "evidenceTermIds": [
+        "term.event-card"
+      ],
+      "sourceEvidence": [],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.entity.component.card.exploration",
+      "label": "Exploration card",
+      "parentTaxonIds": [
+        "tax.entity.component.card"
+      ],
+      "ontologicalKind": "class",
+      "definitionBoundary": "Exploration card used in Exploration Sequence.",
+      "evidenceTermIds": [
+        "term.exploration-card"
+      ],
+      "sourceEvidence": [],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.entity.component.card.intruder-attack",
+      "label": "Intruder Attack card",
+      "parentTaxonIds": [
+        "tax.entity.component.card"
+      ],
+      "ontologicalKind": "class",
+      "definitionBoundary": "Card containing effects by Intruder type.",
+      "evidenceTermIds": [
+        "term.intruder-attack-card"
+      ],
+      "sourceEvidence": [],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.entity.component.card.queen-health",
+      "label": "Queen Health card",
+      "parentTaxonIds": [
+        "tax.entity.component.card"
+      ],
+      "ontologicalKind": "class",
+      "definitionBoundary": "Card in the Queen Health deck.",
+      "evidenceTermIds": [
+        "term.queen-health-card"
+      ],
+      "sourceEvidence": [],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.entity.component.card.serious-wound",
+      "label": "Serious Wound card",
+      "parentTaxonIds": [
+        "tax.entity.component.card"
+      ],
+      "ontologicalKind": "class",
+      "definitionBoundary": "Persistent Serious Wound card.",
+      "evidenceTermIds": [
+        "term.serious-wound-card"
+      ],
+      "sourceEvidence": [],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.entity.component.card.robot",
+      "label": "Robot card",
+      "parentTaxonIds": [
+        "tax.entity.component.card"
+      ],
+      "ontologicalKind": "class",
+      "definitionBoundary": "Card determining Robot rules/identity.",
+      "evidenceTermIds": [
+        "term.robot-card"
+      ],
+      "sourceEvidence": [],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.entity.component.card.mission-task",
+      "label": "Mission Task card",
+      "parentTaxonIds": [
+        "tax.entity.component.card"
+      ],
+      "ontologicalKind": "class",
+      "definitionBoundary": "Card carrying a Mission Task.",
+      "evidenceTermIds": [
+        "term.mission-task-card"
+      ],
+      "sourceEvidence": [],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.entity.component.card.objective",
+      "label": "Objective card",
+      "parentTaxonIds": [
+        "tax.entity.component.card"
+      ],
+      "ontologicalKind": "class",
+      "definitionBoundary": "Card carrying an Objective.",
+      "evidenceTermIds": [
+        "term.objective-card"
+      ],
+      "sourceEvidence": [],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.entity.component.card.objective.solo-coop",
+      "label": "Solo/Coop Objective card",
+      "parentTaxonIds": [
+        "tax.entity.component.card.objective"
+      ],
+      "ontologicalKind": "class",
+      "definitionBoundary": "Objective card scoped to Solo/Coop rules.",
+      "evidenceTermIds": [
+        "term.solo-coop-objective-card"
+      ],
+      "sourceEvidence": [],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.entity.component.card.character-draft",
+      "label": "Character Draft card",
+      "parentTaxonIds": [
+        "tax.entity.component.card"
+      ],
+      "ontologicalKind": "class",
+      "definitionBoundary": "Card used in Character Draft.",
+      "evidenceTermIds": [
+        "term.character-draft-card"
+      ],
+      "sourceEvidence": [],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.entity.component.card.help",
+      "label": "Help card",
+      "parentTaxonIds": [
+        "tax.entity.component.card"
+      ],
+      "ontologicalKind": "class",
+      "definitionBoundary": "Numbered Player Help card/reference component.",
+      "evidenceTermIds": [
+        "term.help-card"
+      ],
+      "sourceEvidence": [],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.entity.information",
+      "label": "Information object",
+      "parentTaxonIds": [
+        "tax.entity"
+      ],
+      "ontologicalKind": "class",
+      "definitionBoundary": "Rules-bearing information that can be printed on a component.",
+      "evidenceTermIds": [],
+      "sourceEvidence": [
+        "docs/rules/01-round-and-turns.md:RT-010"
+      ],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.entity.information.objective",
+      "label": "Objective",
+      "parentTaxonIds": [
+        "tax.entity.information"
+      ],
+      "ontologicalKind": "class",
+      "definitionBoundary": "Endgame condition retained by a player.",
+      "evidenceTermIds": [
+        "term.objective"
+      ],
+      "sourceEvidence": [],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.entity.information.objective.private",
+      "label": "Private Objective",
+      "parentTaxonIds": [
+        "tax.entity.information.objective"
+      ],
+      "ontologicalKind": "class",
+      "definitionBoundary": "Private Objective information type.",
+      "evidenceTermIds": [
+        "term.private-objective"
+      ],
+      "sourceEvidence": [],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.entity.information.objective.mission",
+      "label": "Mission Objective",
+      "parentTaxonIds": [
+        "tax.entity.information.objective"
+      ],
+      "ontologicalKind": "class",
+      "definitionBoundary": "Mission Objective information type.",
+      "evidenceTermIds": [
+        "term.mission-objective"
+      ],
+      "sourceEvidence": [],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.entity.information.mission-task",
+      "label": "Mission Task",
+      "parentTaxonIds": [
+        "tax.entity.information"
+      ],
+      "ontologicalKind": "class",
+      "definitionBoundary": "Mission Task referenced by Mission Objectives; not itself an Objective subtype.",
+      "evidenceTermIds": [
+        "term.mission-task"
+      ],
+      "sourceEvidence": [],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.entity.component.card.item",
+      "label": "Item card",
+      "parentTaxonIds": [
+        "tax.entity.component.card"
+      ],
+      "ontologicalKind": "class",
+      "definitionBoundary": "Card representing an Item.",
+      "evidenceTermIds": [
+        "term.item"
+      ],
+      "sourceEvidence": [
+        "docs/rules/04-items-and-equipment.md:ITM-001"
+      ],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.entity.component.card.item.regular",
+      "label": "Regular Item",
+      "parentTaxonIds": [
+        "tax.entity.component.card.item"
+      ],
+      "ontologicalKind": "class",
+      "definitionBoundary": "Vertical Backpack Item card without Armor keyword.",
+      "evidenceTermIds": [
+        "term.regular-item"
+      ],
+      "sourceEvidence": [],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.entity.component.card.item.heavy",
+      "label": "Heavy Item",
+      "parentTaxonIds": [
+        "tax.entity.component.card.item"
+      ],
+      "ontologicalKind": "class",
+      "definitionBoundary": "Horizontal Item card held in a Hand slot.",
+      "evidenceTermIds": [
+        "term.heavy-item"
+      ],
+      "sourceEvidence": [],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.entity.component.card.item.armor",
+      "label": "Armor Item",
+      "parentTaxonIds": [
+        "tax.entity.component.card.item"
+      ],
+      "ontologicalKind": "class",
+      "definitionBoundary": "Item card carrying the Armor keyword and worn on the Health track.",
+      "evidenceTermIds": [
+        "term.armor-item"
+      ],
+      "sourceEvidence": [],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.entity.component.card.item.character",
+      "label": "Character Item",
+      "parentTaxonIds": [
+        "tax.entity.component.card.item"
+      ],
+      "ontologicalKind": "class",
+      "definitionBoundary": "Per-character starting equipment source family.",
+      "evidenceTermIds": [
+        "term.character-item"
+      ],
+      "sourceEvidence": [],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.entity.component.card.item.support",
+      "label": "Support Equipment",
+      "parentTaxonIds": [
+        "tax.entity.component.card.item"
+      ],
+      "ontologicalKind": "class",
+      "definitionBoundary": "Support Equipment source family.",
+      "evidenceTermIds": [
+        "term.support-equipment"
+      ],
+      "sourceEvidence": [],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.entity.component.card.item.weapon",
+      "label": "Weapon",
+      "parentTaxonIds": [
+        "tax.entity.component.card.item.heavy"
+      ],
+      "ontologicalKind": "class",
+      "definitionBoundary": "Weapon Item; functional category that may overlap source families.",
+      "evidenceTermIds": [
+        "term.weapon"
+      ],
+      "sourceEvidence": [],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.entity.component.card.item.weapon.ranged",
+      "label": "Ranged Weapon",
+      "parentTaxonIds": [
+        "tax.entity.component.card.item.weapon"
+      ],
+      "ontologicalKind": "class",
+      "definitionBoundary": "Weapon usable for Shoot/Burst when otherwise legal.",
+      "evidenceTermIds": [
+        "term.ranged-weapon"
+      ],
+      "sourceEvidence": [],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.entity.component.card.item.weapon.melee",
+      "label": "Melee Weapon",
+      "parentTaxonIds": [
+        "tax.entity.component.card.item.weapon"
+      ],
+      "ontologicalKind": "class",
+      "definitionBoundary": "Melee Weapon functional category.",
+      "evidenceTermIds": [
+        "term.melee-weapon"
+      ],
+      "sourceEvidence": [],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.entity.component.token",
+      "label": "Token",
+      "parentTaxonIds": [
+        "tax.entity.component"
+      ],
+      "ontologicalKind": "class",
+      "definitionBoundary": "Physical token component.",
+      "evidenceTermIds": [],
+      "sourceEvidence": [
+        "docs/rulebooks/rulebook_text.txt:component list"
+      ],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.entity.component.token.data",
+      "label": "Data token",
+      "parentTaxonIds": [
+        "tax.entity.component.token"
+      ],
+      "ontologicalKind": "class",
+      "definitionBoundary": "Data token.",
+      "evidenceTermIds": [
+        "term.data-token"
+      ],
+      "sourceEvidence": [],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.entity.component.token.egg",
+      "label": "Egg token",
+      "parentTaxonIds": [
+        "tax.entity.component.token"
+      ],
+      "ontologicalKind": "class",
+      "definitionBoundary": "Egg token.",
+      "evidenceTermIds": [
+        "term.egg-token"
+      ],
+      "sourceEvidence": [],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.entity.component.token.tactical-gear",
+      "label": "Tactical Gear token",
+      "parentTaxonIds": [
+        "tax.entity.component.token"
+      ],
+      "ontologicalKind": "class",
+      "definitionBoundary": "Consumable Ammo, Grenade, Oxygen, or Medpack token.",
+      "evidenceTermIds": [
+        "term.tactical-gear-token"
+      ],
+      "sourceEvidence": [],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.entity.component.token.tactical-gear.ammo",
+      "label": "Ammo Tactical Gear token",
+      "parentTaxonIds": [
+        "tax.entity.component.token.tactical-gear"
+      ],
+      "ontologicalKind": "class",
+      "definitionBoundary": "Ammo token.",
+      "evidenceTermIds": [],
+      "sourceEvidence": [
+        "docs/rules/04-items-and-equipment.md:ITM-005"
+      ],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.entity.component.token.tactical-gear.grenade",
+      "label": "Grenade Tactical Gear token",
+      "parentTaxonIds": [
+        "tax.entity.component.token.tactical-gear"
+      ],
+      "ontologicalKind": "class",
+      "definitionBoundary": "Grenade token.",
+      "evidenceTermIds": [],
+      "sourceEvidence": [
+        "docs/rules/04-items-and-equipment.md:ITM-005"
+      ],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.entity.component.token.tactical-gear.oxygen",
+      "label": "Oxygen Tactical Gear token",
+      "parentTaxonIds": [
+        "tax.entity.component.token.tactical-gear"
+      ],
+      "ontologicalKind": "class",
+      "definitionBoundary": "Oxygen token.",
+      "evidenceTermIds": [],
+      "sourceEvidence": [
+        "docs/rules/04-items-and-equipment.md:ITM-005"
+      ],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.entity.component.token.tactical-gear.medpack",
+      "label": "Medpack Tactical Gear token",
+      "parentTaxonIds": [
+        "tax.entity.component.token.tactical-gear"
+      ],
+      "ontologicalKind": "class",
+      "definitionBoundary": "Medpack token.",
+      "evidenceTermIds": [],
+      "sourceEvidence": [
+        "docs/rules/04-items-and-equipment.md:ITM-005"
+      ],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.entity.component.token.round",
+      "label": "Round marker",
+      "parentTaxonIds": [
+        "tax.entity.component.token"
+      ],
+      "ontologicalKind": "class",
+      "definitionBoundary": "Round marker on Round track.",
+      "evidenceTermIds": [
+        "term.round-marker"
+      ],
+      "sourceEvidence": [],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.entity.component.token.starting-player",
+      "label": "Starting Player token",
+      "parentTaxonIds": [
+        "tax.entity.component.token"
+      ],
+      "ontologicalKind": "class",
+      "definitionBoundary": "Token identifying the Starting Player.",
+      "evidenceTermIds": [
+        "term.starting-player-token"
+      ],
+      "sourceEvidence": [],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.entity.component.token.suffocating",
+      "label": "Suffocating token",
+      "parentTaxonIds": [
+        "tax.entity.component.token"
+      ],
+      "ontologicalKind": "class",
+      "definitionBoundary": "Suffocating status token.",
+      "evidenceTermIds": [
+        "term.suffocating-token"
+      ],
+      "sourceEvidence": [],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.entity.component.token.anti-aircraft",
+      "label": "Anti-Aircraft token",
+      "parentTaxonIds": [
+        "tax.entity.component.token"
+      ],
+      "ontologicalKind": "class",
+      "definitionBoundary": "Anti-Aircraft status/order token.",
+      "evidenceTermIds": [
+        "term.anti-aircraft-token"
+      ],
+      "sourceEvidence": [],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.entity.component.token.lander",
+      "label": "Lander token",
+      "parentTaxonIds": [
+        "tax.entity.component.token"
+      ],
+      "ontologicalKind": "class",
+      "definitionBoundary": "Lander token on the Round track/map.",
+      "evidenceTermIds": [],
+      "sourceEvidence": [
+        "docs/rules/01-round-and-turns.md:RT-012a"
+      ],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.entity.component.token.autodestruction",
+      "label": "Autodestruction token",
+      "parentTaxonIds": [
+        "tax.entity.component.token"
+      ],
+      "ontologicalKind": "class",
+      "definitionBoundary": "Autodestruction token on the Round track.",
+      "evidenceTermIds": [],
+      "sourceEvidence": [
+        "docs/rules/03-intruders-and-survival.md:INT-010"
+      ],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.entity.component.marker",
+      "label": "Marker",
+      "parentTaxonIds": [
+        "tax.entity.component"
+      ],
+      "ontologicalKind": "class",
+      "definitionBoundary": "Marker component representing Hits, Fire, Malfunction, Noise, or similar state.",
+      "evidenceTermIds": [],
+      "sourceEvidence": [
+        "docs/rulebooks/rulebook_text.txt:component list"
+      ],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.entity.component.marker.universal",
+      "label": "Universal marker",
+      "parentTaxonIds": [
+        "tax.entity.component.marker"
+      ],
+      "ontologicalKind": "class",
+      "definitionBoundary": "General-purpose Universal marker.",
+      "evidenceTermIds": [
+        "term.universal-marker"
+      ],
+      "sourceEvidence": [],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.entity.component.marker.fire",
+      "label": "Fire marker",
+      "parentTaxonIds": [
+        "tax.entity.component.marker"
+      ],
+      "ontologicalKind": "class",
+      "definitionBoundary": "Fire marker.",
+      "evidenceTermIds": [],
+      "sourceEvidence": [
+        "docs/rules/01-round-and-turns.md:RT-008"
+      ],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.entity.component.marker.malfunction",
+      "label": "Malfunction marker",
+      "parentTaxonIds": [
+        "tax.entity.component.marker"
+      ],
+      "ontologicalKind": "class",
+      "definitionBoundary": "Malfunction marker.",
+      "evidenceTermIds": [],
+      "sourceEvidence": [
+        "docs/rules/02-character-actions.md"
+      ],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.entity.component.marker.noise",
+      "label": "Noise marker",
+      "parentTaxonIds": [
+        "tax.entity.component.marker"
+      ],
+      "ontologicalKind": "class",
+      "definitionBoundary": "Noise marker placed in Corridors.",
+      "evidenceTermIds": [],
+      "sourceEvidence": [
+        "docs/rules/02-character-actions.md:Noise"
+      ],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.entity.component.token.secure",
+      "label": "Secure token",
+      "parentTaxonIds": [
+        "tax.entity.component.token"
+      ],
+      "ontologicalKind": "class",
+      "definitionBoundary": "Secure token placed in Rooms.",
+      "evidenceTermIds": [],
+      "sourceEvidence": [
+        "docs/rules/02-character-actions.md:ACT-SECURE-001"
+      ],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.entity.component.slot",
+      "label": "Component slot",
+      "parentTaxonIds": [
+        "tax.entity.component"
+      ],
+      "ontologicalKind": "class",
+      "definitionBoundary": "A printed slot that may hold a compatible component.",
+      "evidenceTermIds": [],
+      "sourceEvidence": [
+        "docs/rules/04-items-and-equipment.md:ITM-005"
+      ],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.entity.component.slot.tactical-gear",
+      "label": "Tactical Gear Slot",
+      "parentTaxonIds": [
+        "tax.entity.component.slot"
+      ],
+      "ontologicalKind": "class",
+      "definitionBoundary": "Slot accepting Tactical Gear tokens by type or Any.",
+      "evidenceTermIds": [
+        "term.tactical-gear-slot"
+      ],
+      "sourceEvidence": [],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.entity.component.slot.hand",
+      "label": "Hand Slot",
+      "parentTaxonIds": [
+        "tax.entity.component.slot"
+      ],
+      "ontologicalKind": "class",
+      "definitionBoundary": "Character Hand slot for Heavy Items.",
+      "evidenceTermIds": [
+        "term.hand-slot"
+      ],
+      "sourceEvidence": [],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.entity.component.storage",
+      "label": "Storage area",
+      "parentTaxonIds": [
+        "tax.entity.component"
+      ],
+      "ontologicalKind": "class",
+      "definitionBoundary": "Board/card-holder area that stores components or cards.",
+      "evidenceTermIds": [],
+      "sourceEvidence": [
+        "docs/rules/02-character-actions.md:ACT-SEARCH-001"
+      ],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.entity.component.storage.backpack",
+      "label": "Backpack",
+      "parentTaxonIds": [
+        "tax.entity.component.storage"
+      ],
+      "ontologicalKind": "class",
+      "definitionBoundary": "Secret unlimited storage for Regular Items.",
+      "evidenceTermIds": [
+        "term.backpack"
+      ],
+      "sourceEvidence": [],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.entity.component.storage.tactical-belt",
+      "label": "Tactical Belt",
+      "parentTaxonIds": [
+        "tax.entity.component.storage"
+      ],
+      "ontologicalKind": "class",
+      "definitionBoundary": "Four Any Tactical Gear slots on a Character board.",
+      "evidenceTermIds": [
+        "term.tactical-belt"
+      ],
+      "sourceEvidence": [],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.process.temporal",
+      "label": "Temporal structure",
+      "parentTaxonIds": [
+        "tax.process"
+      ],
+      "ontologicalKind": "process-type",
+      "definitionBoundary": "Round/Phase/Turn structural process.",
+      "evidenceTermIds": [],
+      "sourceEvidence": [
+        "docs/rules/01-round-and-turns.md:RT-001"
+      ],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.process.temporal.round",
+      "label": "Round",
+      "parentTaxonIds": [
+        "tax.process.temporal"
+      ],
+      "ontologicalKind": "process-type",
+      "definitionBoundary": "One ordered Player, Intruder, Event, and Cleanup phase cycle.",
+      "evidenceTermIds": [
+        "term.round"
+      ],
+      "sourceEvidence": [],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.process.temporal.phase",
+      "label": "Phase",
+      "parentTaxonIds": [
+        "tax.process.temporal"
+      ],
+      "ontologicalKind": "process-type",
+      "definitionBoundary": "Named Round phase.",
+      "evidenceTermIds": [],
+      "sourceEvidence": [
+        "docs/rules/01-round-and-turns.md:RT-001"
+      ],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.process.temporal.phase.player",
+      "label": "Player Phase",
+      "parentTaxonIds": [
+        "tax.process.temporal.phase"
+      ],
+      "ontologicalKind": "process-type",
+      "definitionBoundary": "Player Phase.",
+      "evidenceTermIds": [
+        "term.player-phase"
+      ],
+      "sourceEvidence": [],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.process.temporal.phase.intruder",
+      "label": "Intruder Phase",
+      "parentTaxonIds": [
+        "tax.process.temporal.phase"
+      ],
+      "ontologicalKind": "process-type",
+      "definitionBoundary": "Intruder Phase.",
+      "evidenceTermIds": [
+        "term.intruder-phase"
+      ],
+      "sourceEvidence": [],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.process.temporal.phase.event",
+      "label": "Event Phase",
+      "parentTaxonIds": [
+        "tax.process.temporal.phase"
+      ],
+      "ontologicalKind": "process-type",
+      "definitionBoundary": "Event Phase.",
+      "evidenceTermIds": [
+        "term.event-phase"
+      ],
+      "sourceEvidence": [],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.process.temporal.phase.cleanup",
+      "label": "Cleanup Phase",
+      "parentTaxonIds": [
+        "tax.process.temporal.phase"
+      ],
+      "ontologicalKind": "process-type",
+      "definitionBoundary": "Cleanup Phase.",
+      "evidenceTermIds": [
+        "term.cleanup-phase"
+      ],
+      "sourceEvidence": [],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.process.temporal.turn",
+      "label": "Turn",
+      "parentTaxonIds": [
+        "tax.process.temporal"
+      ],
+      "ontologicalKind": "process-type",
+      "definitionBoundary": "Player Turn during Player Phase.",
+      "evidenceTermIds": [
+        "term.turn"
+      ],
+      "sourceEvidence": [],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.process.action",
+      "label": "Action",
+      "parentTaxonIds": [
+        "tax.process"
+      ],
+      "ontologicalKind": "process-type",
+      "definitionBoundary": "Action process performed under Action timing/cost rules.",
+      "evidenceTermIds": [
+        "term.action"
+      ],
+      "sourceEvidence": [],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.process.action.basic",
+      "label": "Basic Action",
+      "parentTaxonIds": [
+        "tax.process.action"
+      ],
+      "ontologicalKind": "process-type",
+      "definitionBoundary": "Always-available option distinct from an Action card.",
+      "evidenceTermIds": [
+        "term.basic-action"
+      ],
+      "sourceEvidence": [],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.process.card-effect",
+      "label": "Card/effect process",
+      "parentTaxonIds": [
+        "tax.process"
+      ],
+      "ontologicalKind": "process-type",
+      "definitionBoundary": "Process invoked by printed card/effect text; it is not automatically an Action.",
+      "evidenceTermIds": [],
+      "sourceEvidence": [
+        "docs/rules/02-character-actions.md:ACT-CARD-001"
+      ],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.process.card-effect.reaction",
+      "label": "Reaction",
+      "parentTaxonIds": [
+        "tax.process.card-effect"
+      ],
+      "ontologicalKind": "process-type",
+      "definitionBoundary": "Reaction process; the rulebook explicitly says it is not an Action.",
+      "evidenceTermIds": [
+        "term.reaction"
+      ],
+      "sourceEvidence": [],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.process.card-effect.command",
+      "label": "Command",
+      "parentTaxonIds": [
+        "tax.process.card-effect"
+      ],
+      "ontologicalKind": "process-type",
+      "definitionBoundary": "Ordering process granted by an effect; the commanded Character may perform an Action.",
+      "evidenceTermIds": [
+        "term.command"
+      ],
+      "sourceEvidence": [],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.process.action.pass",
+      "label": "Pass",
+      "parentTaxonIds": [
+        "tax.process.action"
+      ],
+      "ontologicalKind": "process-type",
+      "definitionBoundary": "Pass Action ending participation in later Player-Phase rotations.",
+      "evidenceTermIds": [
+        "term.pass"
+      ],
+      "sourceEvidence": [],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.process.action.move",
+      "label": "Move",
+      "parentTaxonIds": [
+        "tax.process.action"
+      ],
+      "ontologicalKind": "process-type",
+      "definitionBoundary": "Movement Action.",
+      "evidenceTermIds": [
+        "term.move"
+      ],
+      "sourceEvidence": [],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.process.action.make-a-move",
+      "label": "Make a Move",
+      "parentTaxonIds": [
+        "tax.process.action.move"
+      ],
+      "ontologicalKind": "process-type",
+      "definitionBoundary": "Printed Make a Move Action label.",
+      "evidenceTermIds": [
+        "term.make-a-move"
+      ],
+      "sourceEvidence": [],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.process.action.move-cautiously",
+      "label": "Moving Cautiously",
+      "parentTaxonIds": [
+        "tax.process.action.move"
+      ],
+      "ontologicalKind": "process-type",
+      "definitionBoundary": "Cautious movement variant.",
+      "evidenceTermIds": [
+        "term.moving-cautiously"
+      ],
+      "sourceEvidence": [],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.process.attack",
+      "label": "Attack",
+      "parentTaxonIds": [
+        "tax.process"
+      ],
+      "ontologicalKind": "process-type",
+      "definitionBoundary": "Generic attack process family; not every Attack is a player Action.",
+      "evidenceTermIds": [
+        "term.attack"
+      ],
+      "sourceEvidence": [],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.process.attack.opportunity",
+      "label": "Opportunity Attack",
+      "parentTaxonIds": [
+        "tax.process.attack"
+      ],
+      "ontologicalKind": "process-type",
+      "definitionBoundary": "Attack triggered during Movement before relocation; not a selected Action.",
+      "evidenceTermIds": [
+        "term.opportunity-attack"
+      ],
+      "sourceEvidence": [],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.process.action.attack.shoot",
+      "label": "Shoot",
+      "parentTaxonIds": [
+        "tax.process.action",
+        "tax.process.attack"
+      ],
+      "ontologicalKind": "process-type",
+      "definitionBoundary": "Shoot is both a player Action type and an attack process.",
+      "evidenceTermIds": [
+        "term.shoot"
+      ],
+      "sourceEvidence": [],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.process.action.attack.burst",
+      "label": "Burst",
+      "parentTaxonIds": [
+        "tax.process.action",
+        "tax.process.attack"
+      ],
+      "ontologicalKind": "process-type",
+      "definitionBoundary": "Burst is both a player Action type and an attack process.",
+      "evidenceTermIds": [
+        "term.burst"
+      ],
+      "sourceEvidence": [],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.process.action.attack.melee",
+      "label": "Melee Attack",
+      "parentTaxonIds": [
+        "tax.process.action",
+        "tax.process.attack"
+      ],
+      "ontologicalKind": "process-type",
+      "definitionBoundary": "Melee Attack is both a player Action type and an attack process.",
+      "evidenceTermIds": [
+        "term.melee-attack"
+      ],
+      "sourceEvidence": [],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.process.operation.repel",
+      "label": "Repel",
+      "parentTaxonIds": [
+        "tax.process.operation"
+      ],
+      "ontologicalKind": "process-type",
+      "definitionBoundary": "Movement operation produced by a source effect, not a universal Basic Action.",
+      "evidenceTermIds": [
+        "term.repel"
+      ],
+      "sourceEvidence": [],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.process.card-effect.search",
+      "label": "Search",
+      "parentTaxonIds": [
+        "tax.process.card-effect"
+      ],
+      "ontologicalKind": "process-type",
+      "definitionBoundary": "Search is an Action-card effect resolved through Play an Action card, not a universal Basic Action.",
+      "evidenceTermIds": [
+        "term.search"
+      ],
+      "sourceEvidence": [],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.process.action.use-room",
+      "label": "Use the Room",
+      "parentTaxonIds": [
+        "tax.process.action"
+      ],
+      "ontologicalKind": "process-type",
+      "definitionBoundary": "Use Room Action.",
+      "evidenceTermIds": [
+        "term.use-the-room"
+      ],
+      "sourceEvidence": [],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.process.action.trade",
+      "label": "Trade",
+      "parentTaxonIds": [
+        "tax.process.action"
+      ],
+      "ontologicalKind": "process-type",
+      "definitionBoundary": "Trade Action.",
+      "evidenceTermIds": [
+        "term.trade"
+      ],
+      "sourceEvidence": [],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.process.action.use-tactical-gear",
+      "label": "Use Any Tactical Gear Action",
+      "parentTaxonIds": [
+        "tax.process.action"
+      ],
+      "ontologicalKind": "process-type",
+      "definitionBoundary": "Tactical Gear Action.",
+      "evidenceTermIds": [
+        "term.use-any-tactical-gear-action"
+      ],
+      "sourceEvidence": [],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.process.sequence",
+      "label": "Resolution sequence",
+      "parentTaxonIds": [
+        "tax.process"
+      ],
+      "ontologicalKind": "process-type",
+      "definitionBoundary": "Named ordered resolution sequence; individual steps are deferred to semantic modeling.",
+      "evidenceTermIds": [],
+      "sourceEvidence": [
+        "docs/rules/02-character-actions.md"
+      ],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.process.sequence.movement",
+      "label": "Movement Sequence",
+      "parentTaxonIds": [
+        "tax.process.sequence"
+      ],
+      "ontologicalKind": "process-type",
+      "definitionBoundary": "Movement Sequence.",
+      "evidenceTermIds": [
+        "term.movement-sequence"
+      ],
+      "sourceEvidence": [],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.process.sequence.exploration",
+      "label": "Exploration Sequence",
+      "parentTaxonIds": [
+        "tax.process.sequence"
+      ],
+      "ontologicalKind": "process-type",
+      "definitionBoundary": "Exploration Sequence.",
+      "evidenceTermIds": [
+        "term.exploration-sequence"
+      ],
+      "sourceEvidence": [],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.process.sequence.noise-roll",
+      "label": "Noise Roll",
+      "parentTaxonIds": [
+        "tax.process.sequence"
+      ],
+      "ontologicalKind": "process-type",
+      "definitionBoundary": "Noise Roll resolution.",
+      "evidenceTermIds": [
+        "term.noise-roll"
+      ],
+      "sourceEvidence": [],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.process.operation",
+      "label": "Resolution operation",
+      "parentTaxonIds": [
+        "tax.process"
+      ],
+      "ontologicalKind": "process-type",
+      "definitionBoundary": "Primitive operation label used by rules; its executable semantics are deferred.",
+      "evidenceTermIds": [],
+      "sourceEvidence": [
+        "docs/rules/02-character-actions.md"
+      ],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.process.operation.hit",
+      "label": "Hit",
+      "parentTaxonIds": [
+        "tax.process.operation"
+      ],
+      "ontologicalKind": "process-type",
+      "definitionBoundary": "Deal/record a Hit.",
+      "evidenceTermIds": [
+        "term.hit"
+      ],
+      "sourceEvidence": [],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.process.operation.draw",
+      "label": "Draw",
+      "parentTaxonIds": [
+        "tax.process.operation"
+      ],
+      "ontologicalKind": "process-type",
+      "definitionBoundary": "Draw a card/token/component from a source.",
+      "evidenceTermIds": [
+        "term.draw"
+      ],
+      "sourceEvidence": [],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.process.operation.discard",
+      "label": "Discard",
+      "parentTaxonIds": [
+        "tax.process.operation"
+      ],
+      "ontologicalKind": "process-type",
+      "definitionBoundary": "Move a component to a discard destination or source-defined discard location.",
+      "evidenceTermIds": [
+        "term.discard"
+      ],
+      "sourceEvidence": [],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.process.procedure",
+      "label": "Procedure",
+      "parentTaxonIds": [
+        "tax.process"
+      ],
+      "ontologicalKind": "process-type",
+      "definitionBoundary": "Named rules procedure.",
+      "evidenceTermIds": [],
+      "sourceEvidence": [
+        "docs/rules/03-intruders-and-survival.md"
+      ],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.process.procedure.infection",
+      "label": "Infection Procedure",
+      "parentTaxonIds": [
+        "tax.process.procedure"
+      ],
+      "ontologicalKind": "process-type",
+      "definitionBoundary": "Infection Procedure.",
+      "evidenceTermIds": [
+        "term.infection-procedure"
+      ],
+      "sourceEvidence": [],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.process.procedure.eclosion",
+      "label": "Eclosion Procedure",
+      "parentTaxonIds": [
+        "tax.process.procedure"
+      ],
+      "ontologicalKind": "process-type",
+      "definitionBoundary": "Eclosion Procedure.",
+      "evidenceTermIds": [
+        "term.eclosion-procedure"
+      ],
+      "sourceEvidence": [],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.process.procedure.autodestruction",
+      "label": "Autodestruction Procedure",
+      "parentTaxonIds": [
+        "tax.process.procedure"
+      ],
+      "ontologicalKind": "process-type",
+      "definitionBoundary": "Autodestruction Procedure.",
+      "evidenceTermIds": [
+        "term.autodestruction-procedure"
+      ],
+      "sourceEvidence": [],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.process.procedure.endgame",
+      "label": "End of the Game",
+      "parentTaxonIds": [
+        "tax.process.procedure"
+      ],
+      "ontologicalKind": "process-type",
+      "definitionBoundary": "End-of-game sequence.",
+      "evidenceTermIds": [
+        "term.end-of-the-game"
+      ],
+      "sourceEvidence": [],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.process.procedure.escape",
+      "label": "Escape",
+      "parentTaxonIds": [
+        "tax.process.procedure"
+      ],
+      "ontologicalKind": "process-type",
+      "definitionBoundary": "Escape process/status transition.",
+      "evidenceTermIds": [
+        "term.escape"
+      ],
+      "sourceEvidence": [],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.process.procedure.hibernate",
+      "label": "Hibernate",
+      "parentTaxonIds": [
+        "tax.process.procedure"
+      ],
+      "ontologicalKind": "process-type",
+      "definitionBoundary": "Hibernation process/status transition.",
+      "evidenceTermIds": [
+        "term.hibernate"
+      ],
+      "sourceEvidence": [],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.state.health",
+      "label": "Health state",
+      "parentTaxonIds": [
+        "tax.state"
+      ],
+      "ontologicalKind": "class",
+      "definitionBoundary": "Character health/status condition.",
+      "evidenceTermIds": [
+        "term.character-health"
+      ],
+      "sourceEvidence": [],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.state.health.point",
+      "label": "Health Point value",
+      "parentTaxonIds": [
+        "tax.value"
+      ],
+      "ontologicalKind": "class",
+      "definitionBoundary": "Quantified Character Health point.",
+      "evidenceTermIds": [
+        "term.health-point"
+      ],
+      "sourceEvidence": [],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.state.health.healthy",
+      "label": "Healthy",
+      "parentTaxonIds": [
+        "tax.state.health"
+      ],
+      "ontologicalKind": "state-value",
+      "definitionBoundary": "Healthy Character state.",
+      "evidenceTermIds": [
+        "term.healthy"
+      ],
+      "sourceEvidence": [],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.state.health.injured",
+      "label": "Injured",
+      "parentTaxonIds": [
+        "tax.state.health"
+      ],
+      "ontologicalKind": "state-value",
+      "definitionBoundary": "Injured Character state.",
+      "evidenceTermIds": [
+        "term.injured"
+      ],
+      "sourceEvidence": [],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.state.health.heavily-injured",
+      "label": "Heavily Injured",
+      "parentTaxonIds": [
+        "tax.state.health"
+      ],
+      "ontologicalKind": "state-value",
+      "definitionBoundary": "Heavily Injured Character state.",
+      "evidenceTermIds": [
+        "term.heavily-injured"
+      ],
+      "sourceEvidence": [],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.state.infection",
+      "label": "Infection-related state",
+      "parentTaxonIds": [
+        "tax.state"
+      ],
+      "ontologicalKind": "class",
+      "definitionBoundary": "Infection/Contamination state family.",
+      "evidenceTermIds": [],
+      "sourceEvidence": [
+        "docs/rules/03-intruders-and-survival.md:INT-008"
+      ],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.state.infection.infected",
+      "label": "Infected",
+      "parentTaxonIds": [
+        "tax.state.infection"
+      ],
+      "ontologicalKind": "state-value",
+      "definitionBoundary": "Infected state determined by scanning.",
+      "evidenceTermIds": [
+        "term.infected"
+      ],
+      "sourceEvidence": [],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.state.infection.contamination",
+      "label": "Contamination",
+      "parentTaxonIds": [
+        "tax.state.infection"
+      ],
+      "ontologicalKind": "class",
+      "definitionBoundary": "Contamination condition/concept, distinct from a Contamination card component.",
+      "evidenceTermIds": [
+        "term.contamination"
+      ],
+      "sourceEvidence": [],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.state.discovery",
+      "label": "Discovery state",
+      "parentTaxonIds": [
+        "tax.state"
+      ],
+      "ontologicalKind": "class",
+      "definitionBoundary": "Discovered/Undiscovered spatial state.",
+      "evidenceTermIds": [],
+      "sourceEvidence": [
+        "docs/rules/02-character-actions.md:ACT-EXPLORE-001"
+      ],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.state.discovery.discovered",
+      "label": "Discovered",
+      "parentTaxonIds": [
+        "tax.state.discovery"
+      ],
+      "ontologicalKind": "state-value",
+      "definitionBoundary": "Discovered state.",
+      "evidenceTermIds": [
+        "term.discovered"
+      ],
+      "sourceEvidence": [],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.state.discovery.undiscovered",
+      "label": "Undiscovered",
+      "parentTaxonIds": [
+        "tax.state.discovery"
+      ],
+      "ontologicalKind": "state-value",
+      "definitionBoundary": "Undiscovered state.",
+      "evidenceTermIds": [
+        "term.undiscovered"
+      ],
+      "sourceEvidence": [],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.state.door",
+      "label": "Door state",
+      "parentTaxonIds": [
+        "tax.state"
+      ],
+      "ontologicalKind": "class",
+      "definitionBoundary": "Opened/Closed/Destroyed Door state.",
+      "evidenceTermIds": [],
+      "sourceEvidence": [
+        "docs/rules/02-character-actions.md:Doors"
+      ],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.state.opened",
+      "label": "Opened",
+      "parentTaxonIds": [
+        "tax.state"
+      ],
+      "ontologicalKind": "state-value",
+      "definitionBoundary": "Opened state; typically applied to Doors.",
+      "evidenceTermIds": [
+        "term.opened"
+      ],
+      "sourceEvidence": [],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.state.closed",
+      "label": "Closed",
+      "parentTaxonIds": [
+        "tax.state"
+      ],
+      "ontologicalKind": "state-value",
+      "definitionBoundary": "Closed state; typically applied to Doors.",
+      "evidenceTermIds": [
+        "term.closed"
+      ],
+      "sourceEvidence": [],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.state.destroyed",
+      "label": "Destroyed",
+      "parentTaxonIds": [
+        "tax.state"
+      ],
+      "ontologicalKind": "state-value",
+      "definitionBoundary": "Destroyed state applicable to Doors, Rooms, Nest, or Facility where sources say so.",
+      "evidenceTermIds": [
+        "term.destroyed"
+      ],
+      "sourceEvidence": [],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.state.corridor",
+      "label": "Corridor status",
+      "parentTaxonIds": [
+        "tax.state"
+      ],
+      "ontologicalKind": "class",
+      "definitionBoundary": "Corridor Empty/Unexplored/Reinforced status dimension.",
+      "evidenceTermIds": [],
+      "sourceEvidence": [
+        "docs/rules/02-character-actions.md"
+      ],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.state.corridor.reinforced",
+      "label": "Reinforced Corridor",
+      "parentTaxonIds": [
+        "tax.state.corridor"
+      ],
+      "ontologicalKind": "state-value",
+      "definitionBoundary": "Corridor reinforced status/value 0.",
+      "evidenceTermIds": [
+        "term.reinforced-corridor"
+      ],
+      "sourceEvidence": [],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.state.corridor.empty",
+      "label": "Empty Corridor",
+      "parentTaxonIds": [
+        "tax.state.corridor"
+      ],
+      "ontologicalKind": "state-value",
+      "definitionBoundary": "Corridor contains no Intruder/Noise where a source requires Empty.",
+      "evidenceTermIds": [
+        "term.empty-corridor"
+      ],
+      "sourceEvidence": [],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.state.corridor.unexplored",
+      "label": "Unexplored Corridor",
+      "parentTaxonIds": [
+        "tax.state.corridor"
+      ],
+      "ontologicalKind": "state-value",
+      "definitionBoundary": "Corridor leading to an Undiscovered Room slot.",
+      "evidenceTermIds": [
+        "term.unexplored-corridor"
+      ],
+      "sourceEvidence": [],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.state.objective",
+      "label": "Objective status",
+      "parentTaxonIds": [
+        "tax.state"
+      ],
+      "ontologicalKind": "class",
+      "definitionBoundary": "Objective fulfillment state.",
+      "evidenceTermIds": [],
+      "sourceEvidence": [
+        "docs/rules/03-intruders-and-survival.md:INT-011"
+      ],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.state.objective.fulfilled",
+      "label": "Fulfilled",
+      "parentTaxonIds": [
+        "tax.state.objective"
+      ],
+      "ontologicalKind": "state-value",
+      "definitionBoundary": "Objective/Mission Task fulfilled state.",
+      "evidenceTermIds": [
+        "term.fulfilled"
+      ],
+      "sourceEvidence": [],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.state.participation",
+      "label": "Participation/endgame state",
+      "parentTaxonIds": [
+        "tax.state"
+      ],
+      "ontologicalKind": "class",
+      "definitionBoundary": "Character participation/survival state family.",
+      "evidenceTermIds": [],
+      "sourceEvidence": [
+        "docs/rules/01-round-and-turns.md:RT-014",
+        "docs/rules/03-intruders-and-survival.md:INT-011"
+      ],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.state.participation.survivor",
+      "label": "Survivor",
+      "parentTaxonIds": [
+        "tax.state.participation"
+      ],
+      "ontologicalKind": "state-value",
+      "definitionBoundary": "Character satisfies the Objective Help definition of Survivor.",
+      "evidenceTermIds": [
+        "term.survivor"
+      ],
+      "sourceEvidence": [],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.state.participation.escaped",
+      "label": "Escaped",
+      "parentTaxonIds": [
+        "tax.state.participation"
+      ],
+      "ontologicalKind": "state-value",
+      "definitionBoundary": "Character has Escaped according to Objective Help/endgame rules.",
+      "evidenceTermIds": [],
+      "sourceEvidence": [
+        "docs/rules/03-intruders-and-survival.md:INT-009"
+      ],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.state.participation.hibernated",
+      "label": "Hibernated",
+      "parentTaxonIds": [
+        "tax.state.participation"
+      ],
+      "ontologicalKind": "state-value",
+      "definitionBoundary": "Character has successfully Hibernated.",
+      "evidenceTermIds": [],
+      "sourceEvidence": [
+        "docs/rules/03-intruders-and-survival.md:INT-009"
+      ],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.state.combat",
+      "label": "Combat status",
+      "parentTaxonIds": [
+        "tax.state"
+      ],
+      "ontologicalKind": "class",
+      "definitionBoundary": "Character combat condition derived from sharing a Room with an Intruder.",
+      "evidenceTermIds": [],
+      "sourceEvidence": [
+        "docs/rules/00-foundations.md:FND-004"
+      ],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.state.combat.not-in-combat",
+      "label": "Not In Combat",
+      "parentTaxonIds": [
+        "tax.state.combat"
+      ],
+      "ontologicalKind": "state-value",
+      "definitionBoundary": "Restriction/status meaning the Character is not in a Room with an Intruder.",
+      "evidenceTermIds": [],
+      "sourceEvidence": [
+        "docs/rules/02-character-actions.md"
+      ],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.state.activation",
+      "label": "Activation state",
+      "parentTaxonIds": [
+        "tax.state"
+      ],
+      "ontologicalKind": "class",
+      "definitionBoundary": "Active/Inactive state for Life Support or Hibernatorium components.",
+      "evidenceTermIds": [],
+      "sourceEvidence": [
+        "docs/rulebooks/rulebook_text.txt:setup"
+      ],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.state.activation.active",
+      "label": "Active",
+      "parentTaxonIds": [
+        "tax.state.activation"
+      ],
+      "ontologicalKind": "state-value",
+      "definitionBoundary": "Active face/state.",
+      "evidenceTermIds": [],
+      "sourceEvidence": [
+        "docs/rulebooks/rulebook_text.txt:setup"
+      ],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.state.activation.inactive",
+      "label": "Inactive",
+      "parentTaxonIds": [
+        "tax.state.activation"
+      ],
+      "ontologicalKind": "state-value",
+      "definitionBoundary": "Inactive face/state.",
+      "evidenceTermIds": [],
+      "sourceEvidence": [
+        "docs/rulebooks/rulebook_text.txt:setup"
+      ],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.role.starting-player",
+      "label": "Starting Player",
+      "parentTaxonIds": [
+        "tax.role"
+      ],
+      "ontologicalKind": "role",
+      "definitionBoundary": "Player holding the Starting Player token.",
+      "evidenceTermIds": [
+        "term.starting-player"
+      ],
+      "sourceEvidence": [],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.value.turn-order",
+      "label": "Turn Order",
+      "parentTaxonIds": [
+        "tax.value"
+      ],
+      "ontologicalKind": "class",
+      "definitionBoundary": "Clockwise ordering beginning at Starting Player.",
+      "evidenceTermIds": [
+        "term.turn-order"
+      ],
+      "sourceEvidence": [],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.value.orientation",
+      "label": "Corridor orientation value",
+      "parentTaxonIds": [
+        "tax.value"
+      ],
+      "ontologicalKind": "class",
+      "definitionBoundary": "E–W, NE–SW, or NW–SE printed Corridor orientation.",
+      "evidenceTermIds": [],
+      "sourceEvidence": [
+        "docs/rules/00-foundations.md:FND-005"
+      ],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.value.resource",
+      "label": "Resource value",
+      "parentTaxonIds": [
+        "tax.value"
+      ],
+      "ontologicalKind": "class",
+      "definitionBoundary": "Quantified resource such as Oxygen or Character Health.",
+      "evidenceTermIds": [],
+      "sourceEvidence": [
+        "docs/rules/04-items-and-equipment.md"
+      ],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.value.resource.oxygen",
+      "label": "Oxygen value",
+      "parentTaxonIds": [
+        "tax.value.resource"
+      ],
+      "ontologicalKind": "class",
+      "definitionBoundary": "Character Oxygen counter/resource value.",
+      "evidenceTermIds": [],
+      "sourceEvidence": [
+        "docs/rules/01-round-and-turns.md:RT-005"
+      ],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.rule.mode",
+      "label": "Game mode",
+      "parentTaxonIds": [
+        "tax.rule"
+      ],
+      "ontologicalKind": "meta-rule",
+      "definitionBoundary": "Rule-set mode or variant.",
+      "evidenceTermIds": [],
+      "sourceEvidence": [
+        "docs/rules/00-foundations.md:FND-001"
+      ],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.rule.mode.deadly",
+      "label": "Deadly Mode",
+      "parentTaxonIds": [
+        "tax.rule.mode"
+      ],
+      "ontologicalKind": "meta-rule",
+      "definitionBoundary": "Deadly Mode variant.",
+      "evidenceTermIds": [
+        "term.deadly-mode"
+      ],
+      "sourceEvidence": [],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.rule.mode.solo-coop",
+      "label": "Solo and Coop Rules",
+      "parentTaxonIds": [
+        "tax.rule.mode"
+      ],
+      "ontologicalKind": "meta-rule",
+      "definitionBoundary": "Solo/Coop rules mode.",
+      "evidenceTermIds": [
+        "term.solo-and-coop-rules"
+      ],
+      "sourceEvidence": [],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.rule.constraint",
+      "label": "Cross-cutting rule constraint",
+      "parentTaxonIds": [
+        "tax.rule"
+      ],
+      "ontologicalKind": "meta-rule",
+      "definitionBoundary": "Rule constraint applied across components/effects.",
+      "evidenceTermIds": [],
+      "sourceEvidence": [
+        "docs/rules/00-foundations.md"
+      ],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.rule.constraint.component-limits",
+      "label": "Component Limits",
+      "parentTaxonIds": [
+        "tax.rule.constraint"
+      ],
+      "ontologicalKind": "meta-rule",
+      "definitionBoundary": "Finite physical component limits.",
+      "evidenceTermIds": [
+        "term.component-limits"
+      ],
+      "sourceEvidence": [],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.rule.constraint.nightmare",
+      "label": "Nightmare Rule",
+      "parentTaxonIds": [
+        "tax.rule.constraint"
+      ],
+      "ontologicalKind": "meta-rule",
+      "definitionBoundary": "Nightmare Rule.",
+      "evidenceTermIds": [
+        "term.nightmare-rule"
+      ],
+      "sourceEvidence": [],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.rule.constraint.local-effects",
+      "label": "Local Effects",
+      "parentTaxonIds": [
+        "tax.rule.constraint"
+      ],
+      "ontologicalKind": "meta-rule",
+      "definitionBoundary": "Default local-target rule.",
+      "evidenceTermIds": [
+        "term.local-effects"
+      ],
+      "sourceEvidence": [],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.rule.constraint.interplay",
+      "label": "Interplay",
+      "parentTaxonIds": [
+        "tax.rule.constraint"
+      ],
+      "ontologicalKind": "meta-rule",
+      "definitionBoundary": "Consent/direct-use interaction rule.",
+      "evidenceTermIds": [
+        "term.interplay"
+      ],
+      "sourceEvidence": [],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.symbol.die-result",
+      "label": "Die-result symbol",
+      "parentTaxonIds": [
+        "tax.symbol"
+      ],
+      "ontologicalKind": "symbol-kind",
+      "definitionBoundary": "Printed Shoot/Burst/Noise die result identifier.",
+      "evidenceTermIds": [],
+      "sourceEvidence": [
+        "docs/rules/icon-glossary.md"
+      ],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.symbol.item-icon",
+      "label": "Item Icon",
+      "parentTaxonIds": [
+        "tax.symbol"
+      ],
+      "ontologicalKind": "symbol-kind",
+      "definitionBoundary": "Red/Yellow/Green Item search icon.",
+      "evidenceTermIds": [],
+      "sourceEvidence": [
+        "docs/rules/04-items-and-equipment.md:ITM-006"
+      ],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.symbol.room-feature",
+      "label": "Room-feature symbol",
+      "parentTaxonIds": [
+        "tax.symbol"
+      ],
+      "ontologicalKind": "symbol-kind",
+      "definitionBoundary": "Room feature such as Computer.",
+      "evidenceTermIds": [],
+      "sourceEvidence": [
+        "docs/rules/icon-glossary.md"
+      ],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.symbol.component-reference",
+      "label": "Component-reference symbol",
+      "parentTaxonIds": [
+        "tax.symbol"
+      ],
+      "ontologicalKind": "symbol-kind",
+      "definitionBoundary": "Printed icon denoting a component/token/slot.",
+      "evidenceTermIds": [],
+      "sourceEvidence": [
+        "docs/rules/icon-glossary.md"
+      ],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.symbol.entity-reference",
+      "label": "Entity-reference symbol",
+      "parentTaxonIds": [
+        "tax.symbol"
+      ],
+      "ontologicalKind": "symbol-kind",
+      "definitionBoundary": "Printed icon denoting Character, Robot, or Intruder.",
+      "evidenceTermIds": [],
+      "sourceEvidence": [
+        "docs/rules/icon-glossary.md"
+      ],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.symbol.state-reference",
+      "label": "State-reference symbol",
+      "parentTaxonIds": [
+        "tax.symbol"
+      ],
+      "ontologicalKind": "symbol-kind",
+      "definitionBoundary": "Printed icon denoting a state/restriction.",
+      "evidenceTermIds": [],
+      "sourceEvidence": [
+        "docs/rules/icon-glossary.md"
+      ],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.symbol.orientation",
+      "label": "Orientation symbol",
+      "parentTaxonIds": [
+        "tax.symbol"
+      ],
+      "ontologicalKind": "symbol-kind",
+      "definitionBoundary": "Printed Corridor orientation icon.",
+      "evidenceTermIds": [],
+      "sourceEvidence": [
+        "docs/rules/icon-glossary.md"
+      ],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.symbol.metadata",
+      "label": "Metadata symbol",
+      "parentTaxonIds": [
+        "tax.symbol"
+      ],
+      "ontologicalKind": "symbol-kind",
+      "definitionBoundary": "Printed metadata symbol such as Number of Characters.",
+      "evidenceTermIds": [],
+      "sourceEvidence": [
+        "docs/rules/icon-glossary.md"
+      ],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.scaffold.zone",
+      "label": "Zone",
+      "parentTaxonIds": [
+        "tax.scaffold"
+      ],
+      "ontologicalKind": "schema-class",
+      "definitionBoundary": "Named storage/location zone for components; zone transitions are deferred.",
+      "evidenceTermIds": [],
+      "sourceEvidence": [
+        "docs/rules/01-round-and-turns.md",
+        "docs/rules/02-character-actions.md"
+      ],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.scaffold.zone.deck",
+      "label": "Deck",
+      "parentTaxonIds": [
+        "tax.scaffold.zone"
+      ],
+      "ontologicalKind": "schema-class",
+      "definitionBoundary": "Deck static zone class.",
+      "evidenceTermIds": [],
+      "sourceEvidence": [
+        "docs/rules/01-round-and-turns.md:RT-012"
+      ],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.scaffold.zone.discard-pile",
+      "label": "Discard pile",
+      "parentTaxonIds": [
+        "tax.scaffold.zone"
+      ],
+      "ontologicalKind": "schema-class",
+      "definitionBoundary": "Discard pile static zone class.",
+      "evidenceTermIds": [],
+      "sourceEvidence": [
+        "docs/rules/01-round-and-turns.md:RT-012"
+      ],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.scaffold.zone.hand",
+      "label": "Hand",
+      "parentTaxonIds": [
+        "tax.scaffold.zone"
+      ],
+      "ontologicalKind": "schema-class",
+      "definitionBoundary": "Hand static zone class.",
+      "evidenceTermIds": [],
+      "sourceEvidence": [
+        "docs/rules/01-round-and-turns.md:RT-006"
+      ],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.scaffold.zone.backpack",
+      "label": "Backpack zone",
+      "parentTaxonIds": [
+        "tax.scaffold.zone"
+      ],
+      "ontologicalKind": "schema-class",
+      "definitionBoundary": "Backpack zone static zone class.",
+      "evidenceTermIds": [],
+      "sourceEvidence": [
+        "docs/rules/02-character-actions.md:ACT-SEARCH-001"
+      ],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.scaffold.zone.character-board",
+      "label": "Character board zone",
+      "parentTaxonIds": [
+        "tax.scaffold.zone"
+      ],
+      "ontologicalKind": "schema-class",
+      "definitionBoundary": "Character board zone static zone class.",
+      "evidenceTermIds": [],
+      "sourceEvidence": [
+        "docs/rules/03-intruders-and-survival.md:INT-008"
+      ],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.scaffold.zone.removed-from-game",
+      "label": "Removed-from-game zone",
+      "parentTaxonIds": [
+        "tax.scaffold.zone"
+      ],
+      "ontologicalKind": "schema-class",
+      "definitionBoundary": "Removed-from-game zone static zone class.",
+      "evidenceTermIds": [],
+      "sourceEvidence": [
+        "docs/rules/01-round-and-turns.md:RT-010"
+      ],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.scaffold.zone.intruder-bag",
+      "label": "Intruder bag",
+      "parentTaxonIds": [
+        "tax.scaffold.zone"
+      ],
+      "ontologicalKind": "schema-class",
+      "definitionBoundary": "Intruder bag static zone class.",
+      "evidenceTermIds": [],
+      "sourceEvidence": [
+        "docs/rules/03-intruders-and-survival.md:INT-001"
+      ],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.scaffold.zone.token-pile",
+      "label": "Token pile",
+      "parentTaxonIds": [
+        "tax.scaffold.zone"
+      ],
+      "ontologicalKind": "schema-class",
+      "definitionBoundary": "Token pile static zone class.",
+      "evidenceTermIds": [],
+      "sourceEvidence": [
+        "docs/rules/03-intruders-and-survival.md:INT-001"
+      ],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.scaffold.timing-window",
+      "label": "Timing window",
+      "parentTaxonIds": [
+        "tax.scaffold"
+      ],
+      "ontologicalKind": "schema-class",
+      "definitionBoundary": "Named point/interval in Round, Phase, Turn, Action, or Procedure; specific effect timing is deferred.",
+      "evidenceTermIds": [],
+      "sourceEvidence": [
+        "docs/rules/01-round-and-turns.md"
+      ],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.scaffold.decision",
+      "label": "Decision",
+      "parentTaxonIds": [
+        "tax.scaffold"
+      ],
+      "ontologicalKind": "schema-class",
+      "definitionBoundary": "Actor-owned choice; specific options and legality are deferred.",
+      "evidenceTermIds": [],
+      "sourceEvidence": [
+        "docs/rules/00-foundations.md:FND-002"
+      ],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.scaffold.audience-scope",
+      "label": "Audience scope",
+      "parentTaxonIds": [
+        "tax.scaffold"
+      ],
+      "ontologicalKind": "schema-class",
+      "definitionBoundary": "Public/private/temporary visibility category; specific information policies are deferred.",
+      "evidenceTermIds": [],
+      "sourceEvidence": [
+        "docs/rules/02-character-actions.md:ACT-SEARCH-001",
+        "docs/rules/02-character-actions.md:ACT-CARD-002"
+      ],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.scaffold.lifecycle-transition",
+      "label": "Lifecycle transition",
+      "parentTaxonIds": [
+        "tax.scaffold"
+      ],
+      "ontologicalKind": "schema-class",
+      "definitionBoundary": "Transition between states/zones; trigger and procedure semantics are deferred.",
+      "evidenceTermIds": [],
+      "sourceEvidence": [
+        "docs/rules/01-round-and-turns.md:RT-014"
+      ],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.scaffold.supply-pool",
+      "label": "Finite supply pool",
+      "parentTaxonIds": [
+        "tax.scaffold"
+      ],
+      "ontologicalKind": "schema-class",
+      "definitionBoundary": "Physical finite supply/pile/deck limiting component availability.",
+      "evidenceTermIds": [],
+      "sourceEvidence": [
+        "docs/rules/03-intruders-and-survival.md:INT-001",
+        "docs/rules/04-items-and-equipment.md:ITM-005"
+      ],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.identity.room",
+      "label": "Named Room identity",
+      "parentTaxonIds": [
+        "tax.identity"
+      ],
+      "ontologicalKind": "identity-kind",
+      "definitionBoundary": "Exact-string Room title/source identity.",
+      "evidenceTermIds": [],
+      "sourceEvidence": [
+        "docs/rules/vocabulary/named-component-identities.json"
+      ],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.identity.card-face",
+      "label": "Named card/reference face identity",
+      "parentTaxonIds": [
+        "tax.identity"
+      ],
+      "ontologicalKind": "identity-kind",
+      "definitionBoundary": "Exact-string named card/reference face identity.",
+      "evidenceTermIds": [],
+      "sourceEvidence": [
+        "docs/rules/vocabulary/named-component-identities.json"
+      ],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.identity.game-term-label",
+      "label": "Named game-term/help label identity",
+      "parentTaxonIds": [
+        "tax.identity"
+      ],
+      "ontologicalKind": "identity-kind",
+      "definitionBoundary": "Exact-string game-term/help heading that is not necessarily a component identity.",
+      "evidenceTermIds": [],
+      "sourceEvidence": [
+        "docs/rules/vocabulary/named-component-identities.json"
+      ],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.identity.structured-key",
+      "label": "Secondary structured key identity",
+      "parentTaxonIds": [
+        "tax.identity"
+      ],
+      "ontologicalKind": "identity-kind",
+      "definitionBoundary": "BGA/TTS source-local technical object key.",
+      "evidenceTermIds": [],
+      "sourceEvidence": [
+        "docs/rules/source-extraction/secondary-evidence-index.json"
+      ],
+      "disjointWithTaxonIds": []
+    }
+  ]
+}

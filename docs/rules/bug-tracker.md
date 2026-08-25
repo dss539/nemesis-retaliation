@@ -1,6 +1,8 @@
 # Rules Implementation Bug Tracker
 
-This tracks confirmed rules-implementation bugs — failures to faithfully implement the official rulebook and FAQ. These are **not** intentional deviations. Every item here must be repaired.
+> **Historical/frozen implementation evidence.** The legacy web implementation is out of scope and will not be repaired. This file may identify rules topics but is not the active project backlog or rules authority; use `PROJECT_STATUS.md`, source extraction, vocabulary, ontology, and source-backed rule records for current work.
+
+This tracks historical rules-implementation bugs — failures of the frozen prototype to implement the official rulebook and FAQ. These are **not** intentional deviations. A future clean implementation must avoid them; the prototype itself is not an active repair target.
 
 Source: `docs/qa/full-game-rules-audit.md` (original audit), verified against current code July 2026.
 
@@ -52,7 +54,7 @@ Source: `docs/qa/full-game-rules-audit.md` (original audit), verified against cu
 | BUG-020 | Fire kills non-Larva Intruders | Confirmed | `engine.js:506-523` kills Adults at 1 Fire hit, Drones at 2. Rulebook: Fire cannot kill any Intruder except Larva. |
 | BUG-021 | Drone Room health uses Corridor rules | Confirmed | `actionShoot` at `engine.js:1301-1306` and `actionMelee` at `1375-1380` require 2 Drone hits regardless of location. Rulebook: Drone resilience applies only in corridors. |
 | BUG-022 | Queen bag token placed at undiscovered Nest room | Partial | Hidden-Nest event handling works for ev19/ev20. But `resolveIntruderToken()` at `engine.js:1191-1200` sets queen.location to room `nest` even while undiscovered. |
-| BUG-023 | Action deck is a placeholder that reuses Basic Action names | Confirmed | `createActionDeck()` in `engine.js` builds 10 cards from the literal strings `move`, `shoot`, `search`, `cautiousMove`, `useRoom`, `special`. These are Basic Action identifiers, not Action card faces, so cards are indistinguishable from actions in state, log, and UI, and no card has a printed effect to resolve. Violates ACT-CARD-001. Real faces are blocked on OQ-010. |
+| BUG-023 | Action deck is a placeholder that reuses Basic Action names | Confirmed (legacy only) | `createActionDeck()` in `engine.js` builds 10 cards from Basic Action-like identifiers. This violates ACT-CARD-001. The former OQ-010 source-data blocker is now closed: 60 scoped licensed-digital records and source-bound card variants are inventoried. No legacy implementation repair is authorized. |
 
 ## Summary
 

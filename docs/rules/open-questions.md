@@ -58,16 +58,16 @@ Use this ledger for ambiguities that the official rulebook and FAQ do not settle
 - **Question:** What are the complete printed rules, cost, and restrictions of the Rest Action card?
 - **Why it matters:** The Rest card is referenced by the Infection Procedure but its full text was not recoverable from the extracted rulebook text.
 - **Sources checked:** Rulebook p. 38 (lines 6079–6098). Only the Infection-Procedure connection is recoverable.
-- **Candidate readings:** N/A — requires visual PDF/card inspection.
-- **Status:** Open. Inspect the physical Rest Action card or a high-quality scan before formalizing its full effect.
+- **Evidence recovered:** The project-owner-reviewed canonical source tuple `assets/tts-mod/extract/v2-dl/tree/cards/game/action/rest.png` (`69eee8ba…`) contains the complete operative body and `notInCombat` association. A separate TTS Medical Support face and all six licensed-digital Character records preserve their own wording/version data.
+- **Status:** **Resolved as an extraction blocker.** Rest source text/restriction is captured. Cross-version wording and effect reconciliation belongs to the later semantic/source-variant layer and must not overwrite any source record.
 
 ### OQ-006 — Intruder Help Sheet encounter table transcription
 
 - **Question:** What are the exact per-token effects for the Queen-alive and Queen-dead sides of the Intruder Help Sheet in each draw context (noise marker, hazard, bag development, other)?
 - **Why it matters:** The Help Sheet is normative for token resolution, but its graphical layout did not survive text extraction.
 - **Sources checked:** Rulebook p. 30 (lines 5182–5188); Rulebook p. 35 (lines 5764–5772).
-- **Candidate readings:** N/A — requires transcription from the physical Help Sheet or PDF artwork.
-- **Status:** Open. Transcribe the table before implementing token-resolution mechanics.
+- **Evidence recovered:** `docs/rules/source-extraction/intruder-help-sheet.json` transcribes both paired sides, all draw contexts, and all 18 printed instructions from exact source tuples with zero unreadable spans.
+- **Status:** **Resolved as an extraction blocker.** The TTS component scan remains source-bound secondary component evidence and must not be promoted above FAQ/rulebook authority.
 
 ### OQ-007 — Secure interaction with simultaneous multi-Intruder entry
 
@@ -84,24 +84,24 @@ Use this ledger for ambiguities that the official rulebook and FAQ do not settle
 - **Question:** Which specific basic actions and Action cards carry the “Not in Combat” restriction?
 - **Why it matters:** The rule itself is clear (no action while in a Room with an Intruder), but the text extraction lost the icon-to-action associations.
 - **Sources checked:** Rulebook p. 12 (lines 2901–2920).
-- **Candidate readings:** N/A — requires visual PDF/card inspection.
-- **Status:** Open. Validate from the rulebook PDF or card faces.
+- **Evidence recovered:** Rulebook visual unit `RB-P12-V02` associates the restriction glyph with Place 1 Secure token, Activate the Robot, Trade, Use the Room, and Make a Move Cautiously. The card corpus retains `printedData.upperRight = notInCombat` per extracted face (42 Action-card/component-scan occurrences: 20 canonical and 22 full-draft, plus non-Action Item occurrences kept separately).
+- **Status:** **Resolved as an extraction blocker.** Each association remains attached to its exact source face/version; duplicate titles do not create a global association by name.
 
 ### OQ-009 — Nest event before the Nest is discovered
 
 - **Question:** When an official event/effect instructs placement, activation, or resolution at the Nest before it has been explored, what exact physical-game procedure applies?
 - **Why it matters:** The digital edition must reproduce the physical result, rather than reserve, defer, or relocate Nest occupants as a digital design decision.
-- **Sources checked:** Current extracted rulebook text did not yield the relevant event-card resolution. The official event card and any FAQ clarification must be inspected directly.
-- **Candidate readings:** None adopted. The physical-game procedure is authoritative.
-- **Status:** Open, pending transcription of the relevant official event card/rule/FAQ text.
+- **Sources checked:** Canonical event source tuples `event-090.png` (Hatching: place a Larva in the Nest) and `event-179.png` (Egg Protection: place 2 Drones in the Nest); rulebook and FAQ extraction. The card instructions are now readable, but no checked authoritative source states what to do if the Nest Room is not yet on the map.
+- **Candidate readings:** None adopted. Reserving, deferring, relocating, or forcing discovery would each add a procedure absent from the checked sources.
+- **Status:** **Open genuine semantic/source ambiguity.** The missing information is no longer card transcription; it is the physical resolution procedure for a nonexistent/Undiscovered Nest location.
 
-### OQ-010 — Action card faces are not recoverable from extracted text
+### OQ-010 — Action card source inventory and authority reconciliation
 
 - **Question:** What are the named Action card faces in each Character's 10-card deck, and each face's printed effect, Reaction, and Not-in-Combat state?
 - **Why it matters:** Action cards are the player's primary resource and the only way to resolve the zero-cost `Play an Action card` Basic Action. Without real faces, the engine cannot resolve card effects and the UI cannot display a hand faithfully. See ACT-CARD-001 and BUG-023.
 - **Sources checked:** `docs/rulebooks/rulebook_text.txt` — the rulebook pictures only a few example card faces rather than listing decks. Only **Sprint** (Recon) and **Duck and Cover** (Contractor: Consultant) are recoverable, plus the anatomy diagram on p. 14. The component list gives a total of 60 Action cards (line 528) with no per-Character breakdown. Web search returned no authoritative Retaliation-specific card list; results were paywalled or covered the earlier *Nemesis* game, whose card list must not be substituted.
-- **Candidate readings:** None adopted. Inventing card faces is explicitly forbidden by the corpus coverage discipline.
-- **Status:** Open. Requires transcription from the physical cards or an official card-list export. Until then, unverified faces must be labelled as unverified in prototypes and must not be committed to `data.js` as if authoritative.
+- **Evidence recovered:** The closed card corpus preserves the source-bound component scans/variants, and immutable licensed-digital build `260622-1220` supplies 60 scoped Action-card records (10 per Character) with names, effects, Reactions, Command flags, and Not-in-Combat booleans. The rulebook independently confirms 60 total / 10 per Character.
+- **Status:** **Resolved as a missing-source/data blocker, not as an authority merge.** The licensed-digital table is secondary and TTS/prototype/final-source variants remain independent. Canonical per-face wording and executable effect reconciliation belongs to the semantic layer; no face may be invented or silently rewritten.
 
 ### OQ-011 — Blue Item Icon
 

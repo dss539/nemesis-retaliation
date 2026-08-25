@@ -8,8 +8,8 @@
   - **Source:** Rulebook p. 12, “Cost in Action Cards” (extracted text lines 2935–2938).
 - An effect or action may be selected only if it can be resolved entirely.
   - **Source:** Rulebook p. 14, “Effects” (extracted text lines 3187–3197).
-- “Not in Combat” means the acting Character is not in a Room containing at least one Intruder. The extracted text does not reliably preserve which individual action icons carry this restriction; preserve each printed action/card’s icon as data.
-  - **Source:** Rulebook p. 12, “Not in Combat” (extracted text lines 2901–2920).
+- “Not in Combat” means the acting Character is not in a Room containing at least one Intruder. Rulebook visual unit `RB-P12-V02` preserves the Basic Action associations: Place 1 Secure token, Activate the Robot, Trade, Use the Room, and Make a Move Cautiously carry the restriction glyph. Card-face associations remain source data on each extracted face (`printedData.upperRight`).
+  - **Source:** Rulebook p. 12, “Not in Combat” (extracted text lines 2901–2920); `docs/rules/source-extraction/rulebook-visual-obligations.json`; `assets/tts-mod/extract/card-text-corpus.json`.
 - General local-effect default: an unspecified target is in the acting Character’s Room.
   - **Source:** Rulebook p. 17, “Golden Rules — Local Effects.”
 
@@ -239,13 +239,9 @@
 
 ### Rest
 
-- **Status:** Only partially recoverable from the extracted text. The base Basic Actions list does not contain Rest as a basic action. The rulebook references the Rest Action card in connection with the Infection Procedure.
-- **Source:** Rulebook p. 38, “Infection Procedure” (lines 6079–6098).
-- **Reliable minimum:** If a valid Rest Action card instructs the player to resolve the Infection Procedure:
-  1. Scan all Contamination cards in hand.
-  2. For each card containing “INFECTED,” treat it as Infected; if the Character has no Larva, place one Larva on their Character board.
-  3. Move all Contamination cards from hand to the top of the discard pile.
-- **Open issue:** The complete printed Rest card should be visually inspected before formalizing its full effect, cost, or restrictions.
+- **Status:** Source extraction is complete. Rest is an Action-card effect, not a Basic Action. The project-owner-reviewed canonical face is `assets/tts-mod/extract/v2-dl/tree/cards/game/action/rest.png`; it carries `notInCombat` and instructs the Character to resolve the Infection Procedure and remove all Uninfected cards from the game. A separate TTS Medical Support face and the licensed-digital six-character records preserve their wording/version differences independently.
+- **Source:** Rulebook p. 38, “Infection Procedure” (lines 6079–6098); `assets/tts-mod/extract/card-text-corpus.json` source tuple `69eee8ba…`; `docs/rules/source-extraction/secondary/bga-staticData-260622-1220.js`.
+- **Boundary:** This closes the former transcription blocker. Exact cross-version wording reconciliation belongs to source-variant/semantic review; do not rewrite one source from another.
 
 ## ACT-CARD-001 — Action card identity and anatomy
 
@@ -263,11 +259,11 @@
   - Played via `Play an Action card` — its printed effect **is** resolved, then it goes to the discard pile.
 - **Invariant:** An Action card’s Title must never be presented as if it were a Basic Action, and a Basic Action must never be presented as if it were a card in hand. A player choosing what to do selects a Basic Action; a player choosing what to spend or play selects a card.
 - **Naming invariant:** Action card identifiers must not reuse Basic Action names (`move`, `shoot`, `useRoom`, and similar). Reusing them makes the two categories indistinguishable in state, logs, and UI. See BUG-023.
-- **Confirmed card faces:** Only these base-box Action card faces are currently confirmed from official sources. All other faces are unverified and must not be invented:
+- **Rulebook-illustrated faces:** These faces are directly illustrated in the rulebook:
   - **Sprint** (Recon) — “Move. Then, you may spend 1 to Move again.” Source: Rulebook Recon card image (extracted text lines ~332–338).
   - **Duck and Cover** (Contractor: Consultant) — “Discard 1 Action card to Move. During that Movement, Prevent 1 Intruder Attack.” Has a Reaction effect. Source: Rulebook pp. 14 and 13 card image (lines 3118–3127, 3190–3196).
-- **Deck size:** Each Character has their own Action deck; the project currently models 10 cards per Character. The rulebook lists 60 Action cards as a component total (line 528). The per-Character composition of named faces is not established by the extracted text.
-- **Open interpretation:** The full per-Character list of Action card faces, and each face’s printed cost/effect/Reaction/Not-In-Combat state, is not recoverable from the extracted rulebook text. Recorded as OQ-009.
+- **Deck size:** Each Character has their own 10-card Action deck; the rulebook lists 60 Action cards total (line 528). The closed source layer now preserves component scans/variants plus a licensed-digital secondary table with 60 scoped character/card keys, including effects, Reactions, Command flags, and Not-in-Combat booleans.
+- **Authority boundary:** The source inventory is complete enough to eliminate the former missing-data blocker (OQ-010), but the licensed-digital table remains secondary and source variants must not be silently collapsed into final official wording. Per-face semantic reconciliation is later work.
 
 ## ACT-CARD-002 — Contamination cards cannot pay Action costs
 

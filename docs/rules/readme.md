@@ -45,9 +45,12 @@ The wording “must,” “may,” and “cannot” is deliberate:
 - `01-round-and-turns.md` — round sequence, phases, turns, pass, actions, cleanup, death, endgame triggers (RT-001–015, 7 examples).
 - `02-character-actions.md` — all player action procedures: move, explore, search, shoot, burst, melee, trade, doors, noise, plus Action card identity (ACT-*-001, ACT-CARD-001–002, 8 examples).
 - `03-intruders-and-survival.md` — intruder bag, movement, attacks, health, contamination, eclosion, escape, endgame resolution (INT-001–011, 6 examples).
-- `deviations.md` — intentional digital adaptations and 17 known deviations cross-referenced to rule records.
-- `open-questions.md` — 10 unresolved ambiguities from the source material.
+- `04-items-and-equipment.md` — source-backed Item physical classes, source families, storage, Tactical Gear, and Item Icons (ITM-001–008).
+- `deviations.md` — deliberate digital adaptations only; currently one recorded proposal. Implementation bugs never belong there.
+- `open-questions.md` — 12 tracked questions: six genuine semantic/source ambiguities remain open and six former extraction/vision questions are explicitly resolved.
 - `sources.md` — source editions and citation conventions.
+- `vocabulary/` — approved controlled terms, aliases, source-term inventory, named identity observations, and validation.
+- `ontology/` — taxonomy/ontology proposal, complete vocabulary/identity mappings, structural relationship shapes, constraints, and validation.
 
 ## Vocabulary proposal
 
@@ -71,4 +74,4 @@ coverage, validation, and two owner-review gates. It deliberately contains no ta
 
 A rule enters the corpus only when it has a source citation or is explicitly labeled as a project decision. When source text is ambiguous, preserve the ambiguity and add an open question rather than inventing a definitive mechanic.
 
-This first edition concentrates on rules that control state, timing, player choices, and game resolution. Component inventories, flavor text, and isolated card text can be added later using the same format.
+The extraction and controlled-vocabulary layers now include component/reference/card evidence. The next structural layer is the taxonomy/ontology proposal; executable card/Room/Event semantics remain deliberately separate and later.

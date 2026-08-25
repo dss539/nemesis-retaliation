@@ -13,6 +13,7 @@ README = REPO / "readme.md"
 CORPUS = REPO / "assets/tts-mod/extract/card-text-corpus.json"
 SOURCE_VALIDATION = REPO / "docs/rules/source-extraction/validation.json"
 VOCAB_VALIDATION = REPO / "docs/rules/vocabulary/validation.json"
+ONTOLOGY_VALIDATION = REPO / "docs/rules/ontology/validation.json"
 
 
 def require(condition: bool, message: str, failures: list[str]) -> None:
@@ -29,6 +30,7 @@ def main() -> None:
     corpus = json.loads(CORPUS.read_text(encoding="utf-8"))
     source_validation = json.loads(SOURCE_VALIDATION.read_text(encoding="utf-8"))
     vocab_validation = json.loads(VOCAB_VALIDATION.read_text(encoding="utf-8"))
+    ontology_validation = json.loads(ONTOLOGY_VALIDATION.read_text(encoding="utf-8"))
 
     require("PROJECT_STATUS.md" in agents, "AGENTS.md must point to PROJECT_STATUS.md", failures)
     require("Current implementation work is out of scope" in agents, "AGENTS.md must freeze legacy implementation work", failures)
@@ -38,13 +40,15 @@ def main() -> None:
     require(source_validation.get("passed") is True and source_validation.get("failureCount") == 0,
             "source-extraction validation must pass", failures)
     if vocab_validation["checks"]["openReviewGates"] == 0:
-        require("Taxonomy/ontology proposal (vocabulary gate passed)" in status,
-                "PROJECT_STATUS.md must advance to taxonomy/ontology after vocabulary approval", failures)
+        require("Taxonomy/ontology independent review (vocabulary gate passed)" in status,
+                "PROJECT_STATUS.md must advance to taxonomy/ontology review after vocabulary approval", failures)
     else:
         require("Canonical vocabulary and source-scoped aliases (extraction gate passed)" in status,
                 "PROJECT_STATUS.md must remain in vocabulary phase while review gates are open", failures)
     require(vocab_validation.get("passed") is True and vocab_validation.get("failureCount") == 0,
             "vocabulary proposal validation must pass", failures)
+    require(ontology_validation.get("passed") is True and ontology_validation.get("failureCount") == 0,
+            "taxonomy/ontology validation must pass", failures)
 
     counts = corpus["counts"]
     expected_fragments = [
@@ -117,6 +121,14 @@ def main() -> None:
         f"  - {vocab_validation['checks']['acceptedAliases']} accepted explicit/source-scoped aliases",
         f"  - {vocab_validation['checks']['proposedReviewAliases']} proposed alias" + ("" if vocab_validation['checks']['proposedReviewAliases'] == 1 else "es") + " awaiting owner review",
         f"- {vocab_validation['checks']['openReviewGates']} open review gate" + ("" if vocab_validation['checks']['openReviewGates'] == 1 else "s") + ("; taxonomy/ontology is authorized" if vocab_validation['checks']['openReviewGates'] == 0 else "; taxonomy/ontology has not started"),
+        f"- {ontology_validation['checks']['taxa']} source-traceable taxa / {ontology_validation['checks']['rootTaxa']} roots",
+        f"- all {ontology_validation['checks']['controlledTerms']} controlled terms mapped exactly once",
+        f"- all {ontology_validation['checks']['namedIdentities']} named identity observations mapped as source identities",
+        f"- {ontology_validation['checks']['symbolDenotations']} printed-symbol denotations",
+        f"- {ontology_validation['checks']['relations']} static relationship shapes / {ontology_validation['checks']['inversePairs']} inverse pairs",
+        f"- {ontology_validation['checks']['staticAssertions']} source-backed structural assertions and constraints",
+        f"- {ontology_validation['checks']['semanticScaffoldTaxa']} semantic-scaffolding taxa for later zones, timing, decisions, visibility, lifecycle, and finite supply",
+        f"- {ontology_validation['checks']['openReviewGates']} ontology owner gates asserted before independent review",
     ]
     for fragment in expected_fragments:
         require(fragment in status, f"PROJECT_STATUS.md count drift: expected {fragment!r}", failures)
@@ -137,6 +149,8 @@ def main() -> None:
             "linkedPathsChecked": len(linked_paths),
             "vocabularyEntries": vocab_validation["checks"]["canonicalVocabularyEntries"],
             "vocabularyOpenReviewGates": vocab_validation["checks"]["openReviewGates"],
+            "ontologyTaxa": ontology_validation["checks"]["taxa"],
+            "ontologyOpenReviewGates": ontology_validation["checks"]["openReviewGates"],
         },
         "failureCount": len(failures),
         "failures": failures,

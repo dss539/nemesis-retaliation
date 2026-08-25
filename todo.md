@@ -1961,10 +1961,13 @@ task workspace.
 
 ## IN PROGRESS — Taxonomy/ontology proposal (2026-08-24T23:02:00Z)
 
-- [ ] Define source-traceable classes over approved vocabulary and named identities.
-- [ ] Define source-supported relationships, domains, ranges, and constraints without semantic effects.
-- [ ] Validate mappings, provenance, acyclicity, uniqueness, and phase boundaries.
-- [ ] Record genuine ontology owner-review gates before semantic modeling.
+- [x] Define 202 source-traceable taxa over approved vocabulary and named identities.
+- [x] Map all 167 controlled terms and 501 named identity observations.
+- [x] Define 45 source-supported relationships, 20 inverse pairs, and 14 static constraints without semantic effects.
+- [x] Validate provenance, acyclicity, uniqueness, domains/ranges, cardinalities, complete mappings, and byte-identical rebuilds.
+- [x] Add corruption negative controls for cycles, missing mappings, bad inverses/ranges/cardinalities, missing sources, and semantic leakage.
+- [ ] Incorporate independent taxonomy, ontology, ambiguity, and validator audits.
+- [ ] Record genuine ontology owner-review gates, if any, only after all independent work is exhausted.
 
 ## DONE — Independent Room Help fidelity hardening (2026-08-24T10:04:12Z)
 

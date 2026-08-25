@@ -21,7 +21,7 @@
 - **Component limits:** Place as many models of a requested type as are available, then ignore the excess.
 - **Room capacity:** Unlimited.
 - **Corridor capacity:** Six Intruder-equivalents; a Queen counts as four.
-- **Extraction limitation:** The exact per-token effects for the Help Sheet’s noise/hazard/other spawning contexts are graphical and did not survive text extraction. The Help Sheet table should be transcribed from the PDF/help-sheet artwork before implementing token-resolution mechanics.
+- **Help Sheet extraction:** Both Queen Alive and Queen Dead sides are transcribed source-bound in `docs/rules/source-extraction/intruder-help-sheet.json`: 18 instructions with source-local token occurrences, exact front/back pairing, and zero unreadable spans. The TTS component pixels remain below official FAQ/rulebook authority and are not silently normalized.
 
 ## INT-002 — Noise-based spawning and hazard spawning
 

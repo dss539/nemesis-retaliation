@@ -92,7 +92,7 @@ The card/reference evidence corpus and extraction provenance are under `assets/t
 
 The active phase is **canonical vocabulary and source-scoped aliases after a passed extraction gate**.
 
-The vocabulary and alias layer is approved and validated with zero open owner gates. The active phase is taxonomy/ontology design. Build explicit classes and relationships from the approved vocabulary and named identities; keep source provenance and unresolved rules questions visible. Do not begin semantic effect modeling until taxonomy/ontology validation and owner review pass.
+The vocabulary and alias layer is approved with zero open gates. The initial taxonomy/ontology proposal is built and mechanically validated: all controlled terms and named identities are mapped, structural relationships/constraints are source-cited, and semantic effects are excluded. The active task is independent taxonomy/ontology review and correction. Keep a deferred decision list; do not begin semantic effect modeling until independent review is incorporated and any genuine owner gates are resolved.
 
 See `PROJECT_STATUS.md` and `docs/rules/source-extraction/extraction-roadmap.md` for the verified checkpoint and subsequent order.
 
