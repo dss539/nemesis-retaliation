@@ -15,13 +15,13 @@ DIR = REPO / 'docs/rules/semantics'
 VOCAB = REPO / 'docs/rules/vocabulary'
 ONTOLOGY = REPO / 'docs/rules/ontology'
 EXPECTED = {
-    'sources': 9, 'semanticNodes': 18, 'records': 13, 'sourceBacked': 7, 'withOpenQuestion': 6,
-    'sourceVariants': 0, 'sourceAssertions': 27, 'conditions': 25,
-    'operations': 64, 'decisions': 10, 'informationPolicies': 16,
-    'costs': 2, 'targets': 5, 'openQuestionReferences': 7,
-    'variantReferences': 2, 'questions': 9, 'openQuestions': 9, 'systems': 9,
+    'sources': 9, 'semanticNodes': 18, 'records': 24, 'sourceBacked': 17, 'withOpenQuestion': 7,
+    'sourceVariants': 0, 'sourceAssertions': 39, 'conditions': 65,
+    'operations': 128, 'decisions': 13, 'informationPolicies': 28,
+    'costs': 2, 'targets': 8, 'openQuestionReferences': 8,
+    'variantReferences': 2, 'questions': 9, 'openQuestions': 9, 'systems': 16,
     'conflicts': 7, 'unresolvedConflicts': 3,
-    'backlogUnits': 600, 'backlogPilotCovered': 17, 'backlogSourceBlocked': 1,
+    'backlogUnits': 600, 'backlogPilotCovered': 25, 'backlogSourceBlocked': 1,
 }
 ALLOWED_OPERATIONS = {
     'branch','change-value','choose','draw-random','end-process','evaluate-condition',
@@ -30,7 +30,7 @@ ALLOWED_OPERATIONS = {
     'reveal','select-target','set-state','transition-zone','shuffle','resolve-open-alternative',
 }
 ALLOWED_TIMING = {'before-attack-resolution','during','during-event-card-resolution','when-action-card-played','when-triggered'}
-ALLOWED_PARTIAL = {'all-or-nothing-selection','if-not-possible-fallback','ordered-complete','per-sentence-continue','replacement-effect','source-conditional-steps'}
+ALLOWED_PARTIAL = {'all-or-nothing-selection','if-not-possible-fallback','ordered-complete','per-sentence-continue','replacement-effect','source-conditional-steps','per-effect-check','source-limited-components'}
 FORBIDDEN_IMPLEMENTATION_TEXT = re.compile(r'\b(?:engine\.js|data\.js|network\.js|PeerJS|DOM|WebRTC|serialization|database schema|UI widget)\b', re.IGNORECASE)
 
 
@@ -390,7 +390,7 @@ def validate(source_path: Path, schema_path: Path, semantic_vocabulary_path: Pat
     if actual_counts != EXPECTED:
         failures.append({'check': 'hard-coded semantic pilot counts', 'expected': EXPECTED, 'actual': actual_counts})
     expected_pilot_counts = {key: actual_counts[key] for key in ('records','sourceBacked','withOpenQuestion','sourceVariants','sourceAssertions','conditions','operations','decisions','informationPolicies','costs','targets','openQuestionReferences','variantReferences')}
-    if pilots.get('counts') != expected_pilot_counts or sources_data.get('counts') != {'sources': 9} or review.get('counts') != {'questions':9,'officialClarificationPreferred':6,'sourceAmbiguitiesIntroducedByPilot':3,'resolved':0,'open':9} or coverage.get('counts') != {'systems':9,'pilotRecords':13,'fullBaseSemanticCoverageClaimed':False}:
+    if pilots.get('counts') != expected_pilot_counts or sources_data.get('counts') != {'sources': 9} or review.get('counts') != {'questions':9,'officialClarificationPreferred':6,'sourceAmbiguitiesIntroducedByPilot':3,'resolved':0,'open':9} or coverage.get('counts') != {'systems':16,'pilotRecords':24,'fullBaseSemanticCoverageClaimed':False}:
         failures.append({'check': 'declared semantic counts'})
     covered_rule_ids = [rule_id for system in coverage.get('systems') or [] for rule_id in system.get('ruleIds') or []]
     if set(covered_rule_ids) != set(record_ids) or len(covered_rule_ids) != len(set(covered_rule_ids)) or coverage.get('counts', {}).get('fullBaseSemanticCoverageClaimed') is not False:
@@ -413,7 +413,7 @@ def validate(source_path: Path, schema_path: Path, semantic_vocabulary_path: Pat
     if len(blocked_units) != 1 or not blocked_units[0].get('sourcePath','').endswith('missionTaskDeck-023.png') or 'exact-source-operative-span' not in blocked_units[0].get('blockers',[]):
         failures.append({'check': 'semantic backlog inherited source blocker'})
     expected_backlog_channels = {'card-reference-source-tuple':350,'interpreted-rule-record':54,'intruder-help-instruction':18,'objective-help-unit':45,'official-faq-unit':28,'room-help-entry':25,'rulebook-visual-obligation':80}
-    expected_backlog_status = {'pending':582,'pilot-covered':17,'source-blocked':1}
+    expected_backlog_status = {'pending':574,'pilot-covered':25,'source-blocked':1}
     if backlog.get('counts') != {'units':600,'byChannel':expected_backlog_channels,'byStatus':expected_backlog_status}:
         failures.append({'check': 'semantic backlog declared counts'})
 

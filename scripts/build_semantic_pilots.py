@@ -5,6 +5,7 @@ import argparse
 import hashlib
 import json
 from pathlib import Path
+from semantic_general_records import build_general_records
 
 REPO = Path(__file__).resolve().parents[1]
 parser = argparse.ArgumentParser()
@@ -91,7 +92,7 @@ semantic_schema = {
         'ruleId': {'type':'string','pattern':'^SEM-[A-Z0-9-]+$'},
         'title': {'type':'string','minLength':1},
         'status': {'enum':['source-backed','source-backed-with-open-question','source-variant']},
-        'ruleKind': {'enum':['sequence','procedure','action','reaction','component-effect','event','dispatcher','endgame']},
+        'ruleKind': {'enum':['sequence','procedure','action','reaction','component-effect','event','dispatcher','endgame','constraint']},
         'applicability': {'type':'object','required':['game','mode','playerCount'], 'properties':{'game':{'const':'Nemesis: Retaliation'},'mode':{'enum':['base','base-standard']},'playerCount':{'type':['object','null']}}},
         'authority': {'type':'object','required':['highest','interpretation'], 'properties':{'highest':{'enum':['official-errata','official-primary','official-component-reference','source-bound-component-scan']},'interpretation':{'enum':['verbatim-structure','source-composed','open-alternatives']}}},
         'sourceAssertions': {'type':'array','minItems':1},
@@ -312,6 +313,7 @@ records.append(record(
     [operation('S01',1,'invoke-process','if-able','rules-system','pending Autodestruction',['SA-END-2']),operation('S02',2,'set-state','if-able','onboard Characters at Round-14 expiry','sem.state.participation.dead',['SA-END-1'],conditions=['Round 14 trigger']),operation('S03',3,'invoke-process','must','each alive Escaped/Hibernated Character without Larva','Infection Procedure',['SA-END-1']),operation('S04',4,'invoke-process','must','each alive Escaped/Hibernated Character currently with Larva','Eclosion Procedure',['SA-END-1'],notes='Whether “currently” includes a Larva gained in S03 is OQ-002.'),operation('S05',5,'choose','if-able','each still-alive Player lacking chosen Objective','one Objective',['SA-END-1'],decision_ref='D-LATE-OBJECTIVE'),operation('S06',6,'reveal','must','each still-alive Character','chosen Objective',['SA-END-1']),operation('S07',7,'evaluate-condition','must','each still-alive Character','Objective fulfilled',['SA-END-1']),operation('S08',8,'set-state','if-able','Character with fulfilled Objective','sem.state.outcome.winner',['SA-END-1'])],
     {'policy':'ordered-complete','unit':'endgame sequence step','onImpossible':'source-specific; unresolved iteration questions remain explicit'}, {'kind':'end-of-game'}, {'policy':'once per game'}, [{'condition':'Character remains alive and chosen Objective is Fulfilled','result':'wins'}], ['OQ-001','OQ-002'], []))
 
+records.extend(build_general_records(record, assertion, timing, participant, condition, decision, operation))
 records.sort(key=lambda item: item['ruleId'])
 
 semantic_questions = {
@@ -320,7 +322,7 @@ semantic_questions = {
     'questions':[
         {'questionId':'OQ-001','title':'Eclosion existing-hand behavior','decisionClass':'official-clarification-preferred','blocksRuleIds':['SEM-ENDGAME-001'],'plannedRuleIds':[],'defaultProhibited':True,'sourceEvidenceRefs':['docs/rules/open-questions.md:OQ-001'],'alternatives':[{'alternativeId':'OQ-001-A','description':'Check all cards in hand after drawing, including pre-existing cards.','support':'literal “in hand” wording'},{'alternativeId':'OQ-001-B','description':'Check only the four newly drawn cards.','support':'possible procedure intent; not stated'}]},
         {'questionId':'OQ-002','title':'Endgame Larva iteration timing','decisionClass':'official-clarification-preferred','blocksRuleIds':['SEM-ENDGAME-001'],'plannedRuleIds':[],'defaultProhibited':True,'sourceEvidenceRefs':['docs/rules/open-questions.md:OQ-002'],'alternatives':[{'alternativeId':'OQ-002-A','description':'Evaluate “currently has a Larva” when the Eclosion cohort step is reached, including Larvae gained in the preceding Infection step.','support':'sequential text and “during this Sequence” note'},{'alternativeId':'OQ-002-B','description':'Snapshot Larva status at the start of endgame.','support':'possible cohort-intent reading; not explicit'}]},
-        {'questionId':'OQ-003','title':'Starting Player token passing over nonparticipants','decisionClass':'official-clarification-preferred','blocksRuleIds':[],'plannedRuleIds':['SEM-CLEANUP-001'],'defaultProhibited':True,'sourceEvidenceRefs':['docs/rules/open-questions.md:OQ-003'],'alternatives':[{'alternativeId':'OQ-003-A','description':'Skip dead/Escaped/Hibernated participants and assign the role to the next eligible Player.','support':'natural reading of “no longer takes part”'},{'alternativeId':'OQ-003-B','description':'Move the token to the next seat/Player regardless of participation status.','support':'literal clockwise-next reading; downstream effect unclear'}]},
+        {'questionId':'OQ-003','title':'Starting Player token passing over nonparticipants','decisionClass':'official-clarification-preferred','blocksRuleIds':['SEM-RT-012'],'plannedRuleIds':[],'defaultProhibited':True,'sourceEvidenceRefs':['docs/rules/open-questions.md:OQ-003'],'alternatives':[{'alternativeId':'OQ-003-A','description':'Skip dead/Escaped/Hibernated participants and assign the role to the next eligible Player.','support':'natural reading of “no longer takes part”'},{'alternativeId':'OQ-003-B','description':'Move the token to the next seat/Player regardless of participation status.','support':'literal clockwise-next reading; downstream effect unclear'}]},
         {'questionId':'OQ-004','title':'Player Phase recalculation after mid-Turn death','decisionClass':'official-clarification-preferred','blocksRuleIds':['SEM-RT-005'],'plannedRuleIds':[],'defaultProhibited':True,'sourceEvidenceRefs':['docs/rules/open-questions.md:OQ-004'],'alternatives':[{'alternativeId':'OQ-004-A','description':'End the dead Character’s Action window and continue with the next eligible Player/Turn.','support':'dead Character no longer takes part'},{'alternativeId':'OQ-004-B','description':'Apply another phase-advancement procedure.','support':'source does not specify one'}]},
         {'questionId':'OQ-007','title':'Secure tokens and simultaneous multi-Intruder entry','decisionClass':'official-clarification-preferred','blocksRuleIds':[],'plannedRuleIds':['SEM-SECURE-ENTRY-001'],'defaultProhibited':True,'sourceEvidenceRefs':['docs/rules/open-questions.md:OQ-007'],'alternatives':[{'alternativeId':'OQ-007-A','description':'Each entering Intruder consumes one Secure token and prevents its own entry Attack.','support':'per-Intruder “whenever an Intruder enters” wording'},{'alternativeId':'OQ-007-B','description':'One Secure token prevents all Attacks from one simultaneous group entry.','support':'possible simultaneous-effect grouping; no example'}]},
         {'questionId':'OQ-009','title':'Nest placement before discovery','decisionClass':'official-clarification-preferred','blocksRuleIds':['SEM-EVENT-HATCHING-001'],'plannedRuleIds':[],'defaultProhibited':True,'sourceEvidenceRefs':['docs/rules/open-questions.md:OQ-009'],'alternatives':[{'alternativeId':'OQ-009-A','description':'Reserve/defer the placed Intruder until the Nest appears.','support':'possible physical hidden-space treatment; no checked rule'},{'alternativeId':'OQ-009-B','description':'Ignore the impossible Nest-placement sentence and continue the Event.','support':'general Event impossible-sentence rule'},{'alternativeId':'OQ-009-C','description':'Use another physical hidden-Nest procedure.','support':'source procedure not recovered'}]},
@@ -365,8 +367,15 @@ coverage = {
         {'system':'Event partial resolution','ruleIds':['SEM-EVENT-HATCHING-001']},
         {'system':'Intruder Help dispatcher','ruleIds':['SEM-INTRUDER-HELP-QA-R01']},
         {'system':'endgame/open alternatives','ruleIds':['SEM-ENDGAME-001']},
+        {'system':'objective choice','ruleIds':['SEM-RT-010']},
+        {'system':'Intruder Phase','ruleIds':['SEM-RT-008']},
+        {'system':'Event Phase and Bag Development','ruleIds':['SEM-RT-009','SEM-EVENT-GENERAL-001','SEM-RT-011']},
+        {'system':'Cleanup Phase','ruleIds':['SEM-RT-012']},
+        {'system':'Doors and Noise','ruleIds':['SEM-DOOR-001','SEM-NOISE-001']},
+        {'system':'Intruder Attack and Character Health','ruleIds':['SEM-INT-004','SEM-INT-006']},
+        {'system':'Tactical Gear','ruleIds':['SEM-ITM-005']},
     ],
-    'counts':{'systems':9,'pilotRecords':len(records),'fullBaseSemanticCoverageClaimed':False},
+    'counts':{'systems':16,'pilotRecords':len(records),'fullBaseSemanticCoverageClaimed':False},
     'notYetCovered':['complete card corpus','all 25 Room effects','all 20 Events','all Intruder Help rows','all Objectives/Mission Tasks','all Item/Robot/Attack/Queen Health/Serious Wound effects','remaining general rules and procedures'],
 }
 

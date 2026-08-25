@@ -15,8 +15,8 @@ The current implementation remains frozen. Semantic records remain independent o
 
 Encode the **highest-value source-clear semantic backlog** without touching blocked decisions:
 
-- general Intruder Phase, Event Phase, Bag Development, Noise, Door, combat, health/wound, Item/Tactical Gear, and component lifecycle rules;
 - all remaining source-clear Intruder Help rows and Room effects;
+- remaining setup, map, combat, Queen, Robot, Lander, procedure, Item, and component lifecycle rules not yet represented by the 24-record corpus;
 - source-clear Event/card/component families with explicit variants;
 - exact FAQ overrides and per-sentence partial-resolution scope;
 - source-obligation links and contradiction coverage after every batch;
@@ -110,19 +110,19 @@ Machine-readable evidence: `docs/rules/source-extraction/validation.json`.
 
 - 9 exact source registry tuples
 - 18 semantic-only state/zone/position/visibility nodes
-- 13 pilot records across 9 systems
-  - 7 source-backed
-  - 6 source-backed with open questions
-- 27 source assertions / 25 structured conditions and guards
-- 64 ordered operations
-- 10 actor-owned decisions / 16 information policies
-- 2 explicit costs / 5 target specifications
+- 24 pilot records across 16 systems
+  - 17 source-backed
+  - 7 source-backed with open questions
+- 39 source assertions / 65 structured conditions and guards
+- 128 ordered operations
+- 13 actor-owned decisions / 28 information policies
+- 2 explicit costs / 8 target specifications
 - 2 preserved source-variant references
 - 9 open semantic questions with explicit alternatives and defaults prohibited
 - 7 registered conflicts: 2 authority-resolved, 3 unresolved, 2 preserved boundaries
 - 600 source-obligation backlog units
-  - 17 pilot-covered
-  - 582 pending
+  - 25 pilot-covered
+  - 574 pending
   - 1 inherited exact-source blocker
 - full base-game semantic coverage explicitly not claimed
 - four-workstream independent review incorporated
@@ -178,6 +178,7 @@ Machine-readable evidence: `docs/rules/source-extraction/validation.json`.
 - Built and validated the vocabulary layer: 1,853 source occurrences, 501 named-identity groups, 167 controlled entries, 8 accepted aliases, and 5 non-alias guardrails; VG-001 and VG-002 are resolved.
 - Built, independently reviewed, corrected, and validated the static taxonomy/ontology: 211 taxa, complete term/identity/alias mappings, 55 relationship shapes, 14 static constraints, semantic scaffolding, two-seed deterministic rebuilds, and adversarial negative controls; no owner gate remains.
 - Built, independently reviewed, corrected, and validated an implementation-neutral 13-record semantic pilot across nine systems with exact source tuples, semantic state/zone nodes, explicit authority/timing/ownership/visibility/costs/targets/operations/transitions/partial resolution, two variants, seven conflicts, and nine no-default questions.
+- Expanded the corpus to 24 records / 16 systems with Objective choice, Intruder/Event/Cleanup phases, generic Event resolution, Bag Development, Doors, Noise, Intruder Attacks, Health/Wounds, and Tactical Gear; covered source obligations rose from 17 to 25.
 - Created the closed source inventory, card-gap inventory, secondary-source inventory, Room layout inventory, roadmap, and deterministic validator.
 
 ## Remaining Work — Ordered

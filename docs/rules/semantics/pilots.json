@@ -4,18 +4,18 @@
   "schemaPath": "docs/rules/semantics/semantic-rule.schema.json",
   "scope": "base-game representative pilot; not full semantic coverage",
   "counts": {
-    "records": 13,
-    "sourceBacked": 7,
-    "withOpenQuestion": 6,
+    "records": 24,
+    "sourceBacked": 17,
+    "withOpenQuestion": 7,
     "sourceVariants": 0,
-    "sourceAssertions": 27,
-    "conditions": 25,
-    "operations": 64,
-    "decisions": 10,
-    "informationPolicies": 16,
+    "sourceAssertions": 39,
+    "conditions": 65,
+    "operations": 128,
+    "decisions": 13,
+    "informationPolicies": 28,
     "costs": 2,
-    "targets": 5,
-    "openQuestionReferences": 7,
+    "targets": 8,
+    "openQuestionReferences": 8,
     "variantReferences": 2
   },
   "records": [
@@ -1425,6 +1425,296 @@
       "schemaVersion": 1,
       "recordType": "semantic-rule",
       "recordRevision": 1,
+      "ruleId": "SEM-DOOR-001",
+      "title": "Door states, adjacency, and blocking",
+      "status": "source-backed",
+      "ruleKind": "constraint",
+      "applicability": {
+        "game": "Nemesis: Retaliation",
+        "mode": "base-standard",
+        "playerCount": null
+      },
+      "authority": {
+        "highest": "official-errata",
+        "interpretation": "source-composed"
+      },
+      "sourceAssertions": [
+        {
+          "assertionId": "SA-DOOR-RB",
+          "sourceId": "SRC-RULEBOOK",
+          "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
+          "sourceSha256": "e3cda0d7a91bd090cec45dbc8ce89e2015e2202173357c374ff49365f9c29ddd",
+          "sourceAuthority": "official-primary",
+          "sourceVersion": "base rulebook, local official PDF",
+          "locator": "printed pages 22–23 / Doors",
+          "supportsFields": [
+            "operations",
+            "preconditions"
+          ],
+          "sourceText": "Door states are Open, Closed, Destroyed; Destroyed behaves Open and cannot close; Closed blocks path/effects but not adjacency.",
+          "textKind": "normalized-paraphrase",
+          "evidenceRecord": "docs/rules/02-character-actions.md:Doors"
+        },
+        {
+          "assertionId": "SA-DOOR-FAQ",
+          "sourceId": "SRC-FAQ",
+          "sourcePath": "docs/rulebooks/Nemesis_RT_FAQ_v1.2.pdf",
+          "sourceSha256": "611ae20dc0b3e04f3c0d99f294a92fc95460c042565b12d1c808b1282ae0e0d8",
+          "sourceAuthority": "official-errata",
+          "sourceVersion": "v1.2 / 2026-06-08",
+          "locator": "General rules #8",
+          "supportsFields": [
+            "operations",
+            "partialResolution"
+          ],
+          "sourceText": "Closed Doors block effects/objects except Noise marker placement/discard.",
+          "textKind": "normalized-paraphrase",
+          "evidenceRecord": "docs/rules/02-character-actions.md:Doors"
+        }
+      ],
+      "termRefs": [
+        "term.closed",
+        "term.destroyed",
+        "term.door",
+        "term.opened"
+      ],
+      "taxonRefs": [
+        "tax.entity.spatial.door",
+        "tax.state.closed",
+        "tax.state.destroyed",
+        "tax.state.opened"
+      ],
+      "namedIdentityRefs": [],
+      "timing": {
+        "windowId": "TW-DOOR",
+        "anchorTaxonId": "tax.state.door",
+        "relation": "when-triggered",
+        "recurrence": "per-Door-state/effect-check"
+      },
+      "participants": [
+        {
+          "participantId": "P-RULES",
+          "participantKind": "rules-system",
+          "taxonId": null,
+          "role": null
+        }
+      ],
+      "modality": "must",
+      "preconditions": [
+        {
+          "conditionId": "S01-C01",
+          "scope": "operation-guard",
+          "expression": {
+            "operator": "predicate",
+            "args": [
+              {
+                "predicate": "appropriate effect opens Door"
+              }
+            ]
+          },
+          "sourceAssertionIds": [
+            "SA-DOOR-RB"
+          ]
+        },
+        {
+          "conditionId": "S02-C01",
+          "scope": "operation-guard",
+          "expression": {
+            "operator": "predicate",
+            "args": [
+              {
+                "predicate": "appropriate effect closes Door"
+              }
+            ]
+          },
+          "sourceAssertionIds": [
+            "SA-DOOR-RB"
+          ]
+        },
+        {
+          "conditionId": "S02-C02",
+          "scope": "operation-guard",
+          "expression": {
+            "operator": "predicate",
+            "args": [
+              {
+                "predicate": "Door has a Door slot"
+              }
+            ]
+          },
+          "sourceAssertionIds": [
+            "SA-DOOR-RB"
+          ]
+        },
+        {
+          "conditionId": "S02-C03",
+          "scope": "operation-guard",
+          "expression": {
+            "operator": "predicate",
+            "args": [
+              {
+                "predicate": "Door is not Destroyed"
+              }
+            ]
+          },
+          "sourceAssertionIds": [
+            "SA-DOOR-RB"
+          ]
+        },
+        {
+          "conditionId": "S03-C01",
+          "scope": "operation-guard",
+          "expression": {
+            "operator": "predicate",
+            "args": [
+              {
+                "predicate": "appropriate effect destroys Door"
+              }
+            ]
+          },
+          "sourceAssertionIds": [
+            "SA-DOOR-RB"
+          ]
+        }
+      ],
+      "decisions": [],
+      "informationPolicy": [
+        {
+          "informationId": "I-DOOR",
+          "subjectRef": "Door state and blocked path",
+          "audience": "public",
+          "revealTrigger": "continuous",
+          "secrecy": "none"
+        }
+      ],
+      "costs": [],
+      "targets": [],
+      "operations": [
+        {
+          "stepId": "S01",
+          "sequence": 1,
+          "operationType": "set-state",
+          "modality": "if-able",
+          "subjectRef": "Door",
+          "objectRef": "tax.state.opened",
+          "conditionRefs": [
+            "S01-C01"
+          ],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-DOOR-RB"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S02",
+          "sequence": 2,
+          "operationType": "set-state",
+          "modality": "if-able",
+          "subjectRef": "Door",
+          "objectRef": "tax.state.closed",
+          "conditionRefs": [
+            "S02-C01",
+            "S02-C02",
+            "S02-C03"
+          ],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-DOOR-RB"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S03",
+          "sequence": 3,
+          "operationType": "set-state",
+          "modality": "if-able",
+          "subjectRef": "Door",
+          "objectRef": "tax.state.destroyed",
+          "conditionRefs": [
+            "S03-C01"
+          ],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-DOOR-RB"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S04",
+          "sequence": 4,
+          "operationType": "evaluate-condition",
+          "modality": "must",
+          "subjectRef": "rules-system",
+          "objectRef": "Closed Door blocks movement/effects but preserves adjacency",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-DOOR-RB",
+            "SA-DOOR-FAQ"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S05",
+          "sequence": 5,
+          "operationType": "evaluate-condition",
+          "modality": "must",
+          "subjectRef": "rules-system",
+          "objectRef": "Noise markers may still be placed/discarded through Closed Door",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-DOOR-FAQ"
+          ],
+          "notes": null
+        }
+      ],
+      "partialResolution": {
+        "policy": "per-effect-check",
+        "unit": "attempted path/effect",
+        "onImpossible": "blocked effect does not cross; source-specific enclosing resolution applies"
+      },
+      "duration": {
+        "kind": "persistent-state-constraint"
+      },
+      "stacking": {
+        "policy": "one state per Door; Destroyed is irreversible"
+      },
+      "outcomes": [],
+      "unresolvedQuestionRefs": [],
+      "sourceVariants": [],
+      "implementationBoundary": "implementation-neutral; no engine, UI, network, storage, or serialization mapping"
+    },
+    {
+      "schemaVersion": 1,
+      "recordType": "semantic-rule",
+      "recordRevision": 1,
       "ruleId": "SEM-ENDGAME-001",
       "title": "End-of-game triggers and checks",
       "status": "source-backed-with-open-question",
@@ -1773,6 +2063,198 @@
       "schemaVersion": 1,
       "recordType": "semantic-rule",
       "recordRevision": 1,
+      "ruleId": "SEM-EVENT-GENERAL-001",
+      "title": "Generic Event card resolution",
+      "status": "source-backed",
+      "ruleKind": "event",
+      "applicability": {
+        "game": "Nemesis: Retaliation",
+        "mode": "base-standard",
+        "playerCount": null
+      },
+      "authority": {
+        "highest": "official-primary",
+        "interpretation": "verbatim-structure"
+      },
+      "sourceAssertions": [
+        {
+          "assertionId": "SA-EVENT-GEN",
+          "sourceId": "SRC-RULEBOOK",
+          "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
+          "sourceSha256": "e3cda0d7a91bd090cec45dbc8ce89e2015e2202173357c374ff49365f9c29ddd",
+          "sourceAuthority": "official-primary",
+          "sourceVersion": "base rulebook, local official PDF",
+          "locator": "printed page 15 / lines 3269–3299",
+          "supportsFields": [
+            "operations",
+            "partialResolution",
+            "timing"
+          ],
+          "sourceText": "Draw an Event, resolve movement, main effect, secondary effect, then discard; ignore an impossible sentence and continue.",
+          "textKind": "normalized-paraphrase",
+          "evidenceRecord": "docs/rules/00-foundations.md:FND-003"
+        }
+      ],
+      "termRefs": [
+        "term.discard",
+        "term.event-card",
+        "term.turn-order"
+      ],
+      "taxonRefs": [
+        "tax.entity.component.card.event",
+        "tax.process.operation.discard",
+        "tax.value.turn-order"
+      ],
+      "namedIdentityRefs": [],
+      "timing": {
+        "windowId": "TW-EVENT-CARD",
+        "anchorTaxonId": "tax.process.temporal.phase.event",
+        "relation": "during-event-card-resolution",
+        "recurrence": "once-per-drawn-Event"
+      },
+      "participants": [
+        {
+          "participantId": "P-RULES",
+          "participantKind": "rules-system",
+          "taxonId": null,
+          "role": null
+        }
+      ],
+      "modality": "must",
+      "preconditions": [],
+      "decisions": [],
+      "informationPolicy": [
+        {
+          "informationId": "I-EVENT-CARD",
+          "subjectRef": "drawn Event and all results",
+          "audience": "public",
+          "revealTrigger": "draw",
+          "secrecy": "none"
+        }
+      ],
+      "costs": [],
+      "targets": [],
+      "operations": [
+        {
+          "stepId": "S01",
+          "sequence": 1,
+          "operationType": "draw-random",
+          "modality": "must",
+          "subjectRef": "rules-system",
+          "objectRef": "top Event card",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-EVENT-GEN"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S02",
+          "sequence": 2,
+          "operationType": "move-entity",
+          "modality": "if-able",
+          "subjectRef": "Intruders described by Event movement",
+          "objectRef": "toward closest Characters",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-EVENT-GEN"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S03",
+          "sequence": 3,
+          "operationType": "invoke-process",
+          "modality": "if-able",
+          "subjectRef": "rules-system",
+          "objectRef": "Event Main Effect sentences",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-EVENT-GEN"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S04",
+          "sequence": 4,
+          "operationType": "invoke-process",
+          "modality": "if-able",
+          "subjectRef": "rules-system",
+          "objectRef": "Event Secondary Effect sentences",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-EVENT-GEN"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S05",
+          "sequence": 5,
+          "operationType": "transition-zone",
+          "modality": "must",
+          "subjectRef": "rules-system",
+          "objectRef": "resolved Event card",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": {
+            "from": "sem.zone.card-in-resolution",
+            "to": "tax.scaffold.zone.discard-pile",
+            "positionRef": "sem.position.deck-top"
+          },
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-EVENT-GEN"
+          ],
+          "notes": null
+        }
+      ],
+      "partialResolution": {
+        "policy": "per-sentence-continue",
+        "unit": "Event-card sentence",
+        "onImpossible": "ignore only that impossible sentence and continue remaining sentences/steps"
+      },
+      "duration": {
+        "kind": "instantaneous-event-resolution"
+      },
+      "stacking": {
+        "policy": "not-applicable"
+      },
+      "outcomes": [],
+      "unresolvedQuestionRefs": [],
+      "sourceVariants": [],
+      "implementationBoundary": "implementation-neutral; no engine, UI, network, storage, or serialization mapping"
+    },
+    {
+      "schemaVersion": 1,
+      "recordType": "semantic-rule",
+      "recordRevision": 1,
       "ruleId": "SEM-EVENT-HATCHING-001",
       "title": "Hatching Event resolution",
       "status": "source-backed-with-open-question",
@@ -1993,6 +2475,812 @@
       "schemaVersion": 1,
       "recordType": "semantic-rule",
       "recordRevision": 1,
+      "ruleId": "SEM-INT-004",
+      "title": "Intruder Attack",
+      "status": "source-backed",
+      "ruleKind": "procedure",
+      "applicability": {
+        "game": "Nemesis: Retaliation",
+        "mode": "base-standard",
+        "playerCount": null
+      },
+      "authority": {
+        "highest": "official-primary",
+        "interpretation": "source-composed"
+      },
+      "sourceAssertions": [
+        {
+          "assertionId": "SA-ATTACK",
+          "sourceId": "SRC-RULEBOOK",
+          "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
+          "sourceSha256": "e3cda0d7a91bd090cec45dbc8ce89e2015e2202173357c374ff49365f9c29ddd",
+          "sourceAuthority": "official-primary",
+          "sourceVersion": "base rulebook, local official PDF",
+          "locator": "printed pages 15, 25, 32, 34 / Intruder Attacks",
+          "supportsFields": [
+            "targets",
+            "operations",
+            "partialResolution"
+          ],
+          "sourceText": "Select target by source trigger/Turn order, draw Intruder Attack card, resolve type effect, discard; Larva uses its special procedure.",
+          "textKind": "normalized-paraphrase",
+          "evidenceRecord": "docs/rules/03-intruders-and-survival.md:INT-004"
+        }
+      ],
+      "termRefs": [
+        "term.attack",
+        "term.contamination-card",
+        "term.intruder-attack-card",
+        "term.larva",
+        "term.turn-order"
+      ],
+      "taxonRefs": [
+        "tax.entity.agent.intruder.larva",
+        "tax.entity.component.card.contamination",
+        "tax.entity.component.card.intruder-attack",
+        "tax.process.attack",
+        "tax.value.turn-order"
+      ],
+      "namedIdentityRefs": [],
+      "timing": {
+        "windowId": "TW-INTRUDER-ATTACK",
+        "anchorTaxonId": "tax.process.attack",
+        "relation": "when-triggered",
+        "recurrence": "per-attacking-Intruder"
+      },
+      "participants": [
+        {
+          "participantId": "P-INTRUDER",
+          "participantKind": "actor",
+          "taxonId": "tax.entity.agent.intruder",
+          "role": null
+        },
+        {
+          "participantId": "P-TARGET",
+          "participantKind": "affected",
+          "taxonId": "tax.entity.agent.character",
+          "role": null
+        },
+        {
+          "participantId": "P-RULES",
+          "participantKind": "rules-system",
+          "taxonId": null,
+          "role": null
+        }
+      ],
+      "modality": "must",
+      "preconditions": [
+        {
+          "conditionId": "S03-C01",
+          "scope": "operation-guard",
+          "expression": {
+            "operator": "predicate",
+            "args": [
+              {
+                "predicate": "attacker is not Larva"
+              }
+            ]
+          },
+          "sourceAssertionIds": [
+            "SA-ATTACK"
+          ]
+        },
+        {
+          "conditionId": "S04-C01",
+          "scope": "operation-guard",
+          "expression": {
+            "operator": "predicate",
+            "args": [
+              {
+                "predicate": "attacker is not Larva"
+              }
+            ]
+          },
+          "sourceAssertionIds": [
+            "SA-ATTACK"
+          ]
+        },
+        {
+          "conditionId": "S05-C01",
+          "scope": "operation-guard",
+          "expression": {
+            "operator": "predicate",
+            "args": [
+              {
+                "predicate": "attacker is not Larva"
+              }
+            ]
+          },
+          "sourceAssertionIds": [
+            "SA-ATTACK"
+          ]
+        },
+        {
+          "conditionId": "S06-C01",
+          "scope": "operation-guard",
+          "expression": {
+            "operator": "predicate",
+            "args": [
+              {
+                "predicate": "attacker is Larva"
+              }
+            ]
+          },
+          "sourceAssertionIds": [
+            "SA-ATTACK"
+          ]
+        },
+        {
+          "conditionId": "S07-C01",
+          "scope": "operation-guard",
+          "expression": {
+            "operator": "predicate",
+            "args": [
+              {
+                "predicate": "attacker is Larva"
+              }
+            ]
+          },
+          "sourceAssertionIds": [
+            "SA-ATTACK"
+          ]
+        },
+        {
+          "conditionId": "S07-C02",
+          "scope": "operation-guard",
+          "expression": {
+            "operator": "predicate",
+            "args": [
+              {
+                "predicate": "target board has no Larva"
+              }
+            ]
+          },
+          "sourceAssertionIds": [
+            "SA-ATTACK"
+          ]
+        },
+        {
+          "conditionId": "S08-C01",
+          "scope": "operation-guard",
+          "expression": {
+            "operator": "predicate",
+            "args": [
+              {
+                "predicate": "attacker is Larva"
+              }
+            ]
+          },
+          "sourceAssertionIds": [
+            "SA-ATTACK"
+          ]
+        },
+        {
+          "conditionId": "S08-C02",
+          "scope": "operation-guard",
+          "expression": {
+            "operator": "predicate",
+            "args": [
+              {
+                "predicate": "target board already has Larva"
+              }
+            ]
+          },
+          "sourceAssertionIds": [
+            "SA-ATTACK"
+          ]
+        }
+      ],
+      "decisions": [],
+      "informationPolicy": [
+        {
+          "informationId": "I-ATTACK",
+          "subjectRef": "attacker, target, drawn card, outcome",
+          "audience": "public",
+          "revealTrigger": "attack/draw",
+          "secrecy": "none"
+        }
+      ],
+      "costs": [],
+      "targets": [
+        {
+          "targetId": "T-ATTACK",
+          "selectorRef": "rules-system",
+          "eligibleTaxonIds": [
+            "tax.entity.agent.character"
+          ],
+          "cardinality": {
+            "min": 0,
+            "max": 1
+          },
+          "selectionMode": "deterministic-turn-order",
+          "visibility": "public"
+        }
+      ],
+      "operations": [
+        {
+          "stepId": "S01",
+          "sequence": 1,
+          "operationType": "select-target",
+          "modality": "if-able",
+          "subjectRef": "P-RULES",
+          "objectRef": "eligible Character according to trigger/Turn order",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": "T-ATTACK",
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-ATTACK"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S02",
+          "sequence": 2,
+          "operationType": "branch",
+          "modality": "must",
+          "subjectRef": "P-RULES",
+          "objectRef": "Larva or standard Attack",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-ATTACK"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S03",
+          "sequence": 3,
+          "operationType": "draw-random",
+          "modality": "must",
+          "subjectRef": "P-RULES",
+          "objectRef": "Intruder Attack card",
+          "conditionRefs": [
+            "S03-C01"
+          ],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-ATTACK"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S04",
+          "sequence": 4,
+          "operationType": "invoke-process",
+          "modality": "must",
+          "subjectRef": "P-INTRUDER",
+          "objectRef": "card effect assigned to attacker type",
+          "conditionRefs": [
+            "S04-C01"
+          ],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-ATTACK"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S05",
+          "sequence": 5,
+          "operationType": "transition-zone",
+          "modality": "must",
+          "subjectRef": "P-RULES",
+          "objectRef": "resolved Intruder Attack card",
+          "conditionRefs": [
+            "S05-C01"
+          ],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": {
+            "from": "sem.zone.card-in-resolution",
+            "to": "tax.scaffold.zone.discard-pile",
+            "positionRef": "sem.position.deck-top"
+          },
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-ATTACK"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S06",
+          "sequence": 6,
+          "operationType": "place-component",
+          "modality": "must",
+          "subjectRef": "P-RULES",
+          "objectRef": "1 Contamination into target discard pile",
+          "conditionRefs": [
+            "S06-C01"
+          ],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-ATTACK"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S07",
+          "sequence": 7,
+          "operationType": "move-entity",
+          "modality": "if-able",
+          "subjectRef": "Larva",
+          "objectRef": "target Character board",
+          "conditionRefs": [
+            "S07-C01",
+            "S07-C02"
+          ],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-ATTACK"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S08",
+          "sequence": 8,
+          "operationType": "remove-component",
+          "modality": "if-able",
+          "subjectRef": "P-RULES",
+          "objectRef": "attacking Larva",
+          "conditionRefs": [
+            "S08-C01",
+            "S08-C02"
+          ],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-ATTACK"
+          ],
+          "notes": null
+        }
+      ],
+      "partialResolution": {
+        "policy": "source-conditional-steps",
+        "unit": "Attack branch",
+        "onImpossible": "no eligible Character means no standard target; prevention/replacement effects are separate semantic records"
+      },
+      "duration": {
+        "kind": "instantaneous-attack"
+      },
+      "stacking": {
+        "policy": "one resolution per attacking Intruder"
+      },
+      "outcomes": [],
+      "unresolvedQuestionRefs": [],
+      "sourceVariants": [],
+      "implementationBoundary": "implementation-neutral; no engine, UI, network, storage, or serialization mapping"
+    },
+    {
+      "schemaVersion": 1,
+      "recordType": "semantic-rule",
+      "recordRevision": 1,
+      "ruleId": "SEM-INT-006",
+      "title": "Character Health, Serious Wounds, and death",
+      "status": "source-backed",
+      "ruleKind": "procedure",
+      "applicability": {
+        "game": "Nemesis: Retaliation",
+        "mode": "base-standard",
+        "playerCount": null
+      },
+      "authority": {
+        "highest": "official-primary",
+        "interpretation": "source-composed"
+      },
+      "sourceAssertions": [
+        {
+          "assertionId": "SA-HEALTH",
+          "sourceId": "SRC-RULEBOOK",
+          "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
+          "sourceSha256": "e3cda0d7a91bd090cec45dbc8ce89e2015e2202173357c374ff49365f9c29ddd",
+          "sourceAuthority": "official-primary",
+          "sourceVersion": "base rulebook, local official PDF",
+          "locator": "printed page 18 / Health, Serious Wounds, Death",
+          "supportsFields": [
+            "operations",
+            "decisions",
+            "outcomes",
+            "duration",
+            "stacking"
+          ],
+          "sourceText": "Move Health marker, discard crossed Armor, die at Skull; place Serious Wound leftmost, shift Health when occupied section, duplicates do not stack, owner chooses discarded Wound.",
+          "textKind": "normalized-paraphrase",
+          "evidenceRecord": "docs/rules/03-intruders-and-survival.md:INT-006"
+        }
+      ],
+      "termRefs": [
+        "term.character-health",
+        "term.health-point",
+        "term.healthy",
+        "term.heavily-injured",
+        "term.injured",
+        "term.serious-wound-card"
+      ],
+      "taxonRefs": [
+        "tax.entity.component.card.serious-wound",
+        "tax.state.health",
+        "tax.state.health.healthy",
+        "tax.state.health.heavily-injured",
+        "tax.state.health.injured",
+        "tax.state.health.point"
+      ],
+      "namedIdentityRefs": [],
+      "timing": {
+        "windowId": "TW-HEALTH",
+        "anchorTaxonId": "tax.state.health",
+        "relation": "when-triggered",
+        "recurrence": "per-health/wound-effect"
+      },
+      "participants": [
+        {
+          "participantId": "P-CHARACTER",
+          "participantKind": "affected",
+          "taxonId": "tax.entity.agent.character",
+          "role": null
+        },
+        {
+          "participantId": "P-OWNER",
+          "participantKind": "decision-owner",
+          "taxonId": "tax.entity.agent.player",
+          "role": null
+        },
+        {
+          "participantId": "P-RULES",
+          "participantKind": "rules-system",
+          "taxonId": null,
+          "role": null
+        }
+      ],
+      "modality": "must",
+      "preconditions": [
+        {
+          "conditionId": "S03-C01",
+          "scope": "operation-guard",
+          "expression": {
+            "operator": "predicate",
+            "args": [
+              {
+                "predicate": "Health marker reaches Skull"
+              }
+            ]
+          },
+          "sourceAssertionIds": [
+            "SA-HEALTH"
+          ]
+        },
+        {
+          "conditionId": "S04-C01",
+          "scope": "operation-guard",
+          "expression": {
+            "operator": "predicate",
+            "args": [
+              {
+                "predicate": "effect grants Serious Wound"
+              }
+            ]
+          },
+          "sourceAssertionIds": [
+            "SA-HEALTH"
+          ]
+        },
+        {
+          "conditionId": "S06-C01",
+          "scope": "operation-guard",
+          "expression": {
+            "operator": "predicate",
+            "args": [
+              {
+                "predicate": "Health marker occupied the Wound section"
+              }
+            ]
+          },
+          "sourceAssertionIds": [
+            "SA-HEALTH"
+          ]
+        },
+        {
+          "conditionId": "S10-C01",
+          "scope": "operation-guard",
+          "expression": {
+            "operator": "predicate",
+            "args": [
+              {
+                "predicate": "Character dies"
+              }
+            ]
+          },
+          "sourceAssertionIds": [
+            "SA-HEALTH"
+          ]
+        }
+      ],
+      "decisions": [
+        {
+          "decisionId": "D-DISCARD-WOUND",
+          "ownerRef": "P-OWNER",
+          "selectionMode": "player-choice",
+          "cardinality": {
+            "min": 1,
+            "max": 1
+          },
+          "declineAllowed": false,
+          "visibility": "owner-private-until-declaration",
+          "options": [
+            "owned Serious Wound copies when an effect discards one"
+          ]
+        }
+      ],
+      "informationPolicy": [
+        {
+          "informationId": "I-HEALTH",
+          "subjectRef": "Health marker, Armor, Wounds, death",
+          "audience": "public",
+          "revealTrigger": "continuous/resolution",
+          "secrecy": "none"
+        }
+      ],
+      "costs": [],
+      "targets": [],
+      "operations": [
+        {
+          "stepId": "S01",
+          "sequence": 1,
+          "operationType": "change-value",
+          "modality": "must",
+          "subjectRef": "P-RULES",
+          "objectRef": "Health marker right by instructed amount",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-HEALTH"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S02",
+          "sequence": 2,
+          "operationType": "remove-component",
+          "modality": "if-able",
+          "subjectRef": "P-RULES",
+          "objectRef": "Armor crossed by Health marker",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-HEALTH"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S03",
+          "sequence": 3,
+          "operationType": "set-state",
+          "modality": "if-able",
+          "subjectRef": "P-CHARACTER",
+          "objectRef": "sem.state.participation.dead",
+          "conditionRefs": [
+            "S03-C01"
+          ],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-HEALTH"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S04",
+          "sequence": 4,
+          "operationType": "draw-random",
+          "modality": "if-able",
+          "subjectRef": "P-RULES",
+          "objectRef": "Serious Wound card",
+          "conditionRefs": [
+            "S04-C01"
+          ],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-HEALTH"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S05",
+          "sequence": 5,
+          "operationType": "place-component",
+          "modality": "must",
+          "subjectRef": "P-RULES",
+          "objectRef": "drawn Wound in leftmost empty Health section",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-HEALTH"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S06",
+          "sequence": 6,
+          "operationType": "change-value",
+          "modality": "if-able",
+          "subjectRef": "P-RULES",
+          "objectRef": "Health marker to first empty slot of next section",
+          "conditionRefs": [
+            "S06-C01"
+          ],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-HEALTH"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S07",
+          "sequence": 7,
+          "operationType": "choose",
+          "modality": "if-able",
+          "subjectRef": "P-OWNER",
+          "objectRef": "which duplicate/copy Wound to discard",
+          "conditionRefs": [],
+          "decisionRef": "D-DISCARD-WOUND",
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-HEALTH"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S08",
+          "sequence": 8,
+          "operationType": "remove-component",
+          "modality": "if-able",
+          "subjectRef": "P-RULES",
+          "objectRef": "selected Wound",
+          "conditionRefs": [],
+          "decisionRef": "D-DISCARD-WOUND",
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-HEALTH"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S09",
+          "sequence": 9,
+          "operationType": "set-state",
+          "modality": "must",
+          "subjectRef": "P-RULES",
+          "objectRef": "remaining Wounds slide left; Health marker does not move",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-HEALTH"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S10",
+          "sequence": 10,
+          "operationType": "remove-component",
+          "modality": "must",
+          "subjectRef": "P-RULES",
+          "objectRef": "all Items carried by Character",
+          "conditionRefs": [
+            "S10-C01"
+          ],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-HEALTH"
+          ],
+          "notes": null
+        }
+      ],
+      "partialResolution": {
+        "policy": "ordered-complete",
+        "unit": "health/wound effect",
+        "onImpossible": "restore may restore fewer points; finite Wound deck/component rules apply"
+      },
+      "duration": {
+        "kind": "persistent-until-healed/discarded/death"
+      },
+      "stacking": {
+        "policy": "duplicate Wound cards may coexist but printed effects do not stack"
+      },
+      "outcomes": [
+        {
+          "condition": "Health marker reaches Skull",
+          "result": "Character dies, loses carried Items, no longer participates"
+        }
+      ],
+      "unresolvedQuestionRefs": [],
+      "sourceVariants": [],
+      "implementationBoundary": "implementation-neutral; no engine, UI, network, storage, or serialization mapping"
+    },
+    {
+      "schemaVersion": 1,
+      "recordType": "semantic-rule",
+      "recordRevision": 1,
       "ruleId": "SEM-INTRUDER-HELP-QA-R01",
       "title": "Queen Alive token resolved in a Room",
       "status": "source-backed",
@@ -2197,6 +3485,685 @@
       },
       "stacking": {
         "policy": "one row per token/context"
+      },
+      "outcomes": [],
+      "unresolvedQuestionRefs": [],
+      "sourceVariants": [],
+      "implementationBoundary": "implementation-neutral; no engine, UI, network, storage, or serialization mapping"
+    },
+    {
+      "schemaVersion": 1,
+      "recordType": "semantic-rule",
+      "recordRevision": 1,
+      "ruleId": "SEM-ITM-005",
+      "title": "Tactical Gear tokens and slots",
+      "status": "source-backed",
+      "ruleKind": "constraint",
+      "applicability": {
+        "game": "Nemesis: Retaliation",
+        "mode": "base-standard",
+        "playerCount": null
+      },
+      "authority": {
+        "highest": "official-primary",
+        "interpretation": "verbatim-structure"
+      },
+      "sourceAssertions": [
+        {
+          "assertionId": "SA-GEAR",
+          "sourceId": "SRC-RULEBOOK",
+          "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
+          "sourceSha256": "e3cda0d7a91bd090cec45dbc8ce89e2015e2202173357c374ff49365f9c29ddd",
+          "sourceAuthority": "official-primary",
+          "sourceVersion": "base rulebook, local official PDF",
+          "locator": "printed pages 16 and 29 / Tactical Gear",
+          "supportsFields": [
+            "preconditions",
+            "operations",
+            "partialResolution"
+          ],
+          "sourceText": "Gained tokens occupy empty matching/Any slots; one token per slot; tokens are limited; losing Item loses its tokens.",
+          "textKind": "normalized-paraphrase",
+          "evidenceRecord": "docs/rules/04-items-and-equipment.md:ITM-005"
+        }
+      ],
+      "termRefs": [
+        "icon.ammoToken",
+        "icon.grenadeToken",
+        "icon.medpackToken",
+        "icon.oxygenToken",
+        "term.tactical-belt",
+        "term.tactical-gear-slot",
+        "term.tactical-gear-token"
+      ],
+      "taxonRefs": [
+        "tax.entity.component.slot.tactical-gear",
+        "tax.entity.component.storage.tactical-belt",
+        "tax.entity.component.token.tactical-gear",
+        "tax.scaffold.supply-pool"
+      ],
+      "namedIdentityRefs": [],
+      "timing": {
+        "windowId": "TW-GEAR",
+        "anchorTaxonId": "tax.entity.component.token.tactical-gear",
+        "relation": "when-triggered",
+        "recurrence": "per-gain/use/loss"
+      },
+      "participants": [
+        {
+          "participantId": "P-OWNER",
+          "participantKind": "decision-owner",
+          "taxonId": "tax.entity.agent.player",
+          "role": null
+        },
+        {
+          "participantId": "P-CHARACTER",
+          "participantKind": "actor",
+          "taxonId": "tax.entity.agent.character",
+          "role": null
+        },
+        {
+          "participantId": "P-RULES",
+          "participantKind": "rules-system",
+          "taxonId": null,
+          "role": null
+        }
+      ],
+      "modality": "must",
+      "preconditions": [
+        {
+          "conditionId": "C-GEAR-SLOT",
+          "scope": "record-precondition",
+          "expression": {
+            "operator": "all",
+            "args": [
+              {
+                "predicate": "chosen slot is empty"
+              },
+              {
+                "predicate": "slot type matches token or is Any"
+              }
+            ]
+          },
+          "sourceAssertionIds": [
+            "SA-GEAR"
+          ]
+        },
+        {
+          "conditionId": "S04-C01",
+          "scope": "operation-guard",
+          "expression": {
+            "operator": "predicate",
+            "args": [
+              {
+                "predicate": "Item is lost"
+              }
+            ]
+          },
+          "sourceAssertionIds": [
+            "SA-GEAR"
+          ]
+        }
+      ],
+      "decisions": [
+        {
+          "decisionId": "D-GEAR-SLOT",
+          "ownerRef": "P-OWNER",
+          "selectionMode": "player-choice",
+          "cardinality": {
+            "min": 1,
+            "max": 1
+          },
+          "declineAllowed": false,
+          "visibility": "public-on-placement",
+          "options": [
+            "compatible empty Tactical Gear slots"
+          ]
+        }
+      ],
+      "informationPolicy": [
+        {
+          "informationId": "I-GEAR",
+          "subjectRef": "token type, side, slot, supply availability",
+          "audience": "public",
+          "revealTrigger": "continuous/placement",
+          "secrecy": "none"
+        }
+      ],
+      "costs": [],
+      "targets": [
+        {
+          "targetId": "T-GEAR-SLOT",
+          "selectorRef": "P-OWNER",
+          "eligibleTaxonIds": [
+            "tax.entity.component.slot.tactical-gear"
+          ],
+          "cardinality": {
+            "min": 1,
+            "max": 1
+          },
+          "selectionMode": "player-choice",
+          "visibility": "public"
+        }
+      ],
+      "operations": [
+        {
+          "stepId": "S01",
+          "sequence": 1,
+          "operationType": "evaluate-condition",
+          "modality": "must",
+          "subjectRef": "P-RULES",
+          "objectRef": "token available in finite supply",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-GEAR"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S02",
+          "sequence": 2,
+          "operationType": "select-target",
+          "modality": "must",
+          "subjectRef": "P-OWNER",
+          "objectRef": "compatible empty slot",
+          "conditionRefs": [],
+          "decisionRef": "D-GEAR-SLOT",
+          "targetRef": "T-GEAR-SLOT",
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-GEAR"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S03",
+          "sequence": 3,
+          "operationType": "transition-zone",
+          "modality": "must",
+          "subjectRef": "P-RULES",
+          "objectRef": "gained Tactical Gear token",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": {
+            "from": "tax.scaffold.supply-pool",
+            "to": "selected Tactical Gear slot"
+          },
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-GEAR"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S04",
+          "sequence": 4,
+          "operationType": "remove-component",
+          "modality": "must",
+          "subjectRef": "P-RULES",
+          "objectRef": "all Tactical Gear tokens on a lost Item",
+          "conditionRefs": [
+            "S04-C01"
+          ],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-GEAR"
+          ],
+          "notes": null
+        }
+      ],
+      "partialResolution": {
+        "policy": "source-limited-components",
+        "unit": "requested token",
+        "onImpossible": "if all tokens of that type are held, Character cannot gain another"
+      },
+      "duration": {
+        "kind": "persistent-slot-occupancy"
+      },
+      "stacking": {
+        "policy": "one token per slot; multiple slots allowed"
+      },
+      "outcomes": [],
+      "unresolvedQuestionRefs": [],
+      "sourceVariants": [],
+      "implementationBoundary": "implementation-neutral; no engine, UI, network, storage, or serialization mapping"
+    },
+    {
+      "schemaVersion": 1,
+      "recordType": "semantic-rule",
+      "recordRevision": 1,
+      "ruleId": "SEM-NOISE-001",
+      "title": "Noise Roll",
+      "status": "source-backed",
+      "ruleKind": "procedure",
+      "applicability": {
+        "game": "Nemesis: Retaliation",
+        "mode": "base-standard",
+        "playerCount": null
+      },
+      "authority": {
+        "highest": "official-primary",
+        "interpretation": "verbatim-structure"
+      },
+      "sourceAssertions": [
+        {
+          "assertionId": "SA-NOISE",
+          "sourceId": "SRC-RULEBOOK",
+          "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
+          "sourceSha256": "e3cda0d7a91bd090cec45dbc8ce89e2015e2202173357c374ff49365f9c29ddd",
+          "sourceAuthority": "official-primary",
+          "sourceVersion": "base rulebook, local official PDF",
+          "locator": "printed page 25 / lines 4669–4705",
+          "supportsFields": [
+            "operations",
+            "partialResolution"
+          ],
+          "sourceText": "Roll Noise die; resolve every adjacent matching-value Corridor in order or resolve Hazard using token front; no matching Corridor means nothing.",
+          "textKind": "normalized-paraphrase",
+          "evidenceRecord": "docs/rules/02-character-actions.md:Noise"
+        }
+      ],
+      "termRefs": [
+        "icon.intruder",
+        "icon.noise",
+        "term.corridor",
+        "term.noise-roll"
+      ],
+      "taxonRefs": [
+        "tax.entity.agent.intruder",
+        "tax.entity.component.marker.noise",
+        "tax.entity.spatial.corridor",
+        "tax.process.sequence.noise-roll"
+      ],
+      "namedIdentityRefs": [],
+      "timing": {
+        "windowId": "TW-NOISE",
+        "anchorTaxonId": "tax.process.sequence.noise-roll",
+        "relation": "when-triggered",
+        "recurrence": "per-required-Noise-roll"
+      },
+      "participants": [
+        {
+          "participantId": "P-ROLLER",
+          "participantKind": "actor",
+          "taxonId": "tax.entity.agent.character",
+          "role": null
+        },
+        {
+          "participantId": "P-RULES",
+          "participantKind": "rules-system",
+          "taxonId": null,
+          "role": null
+        }
+      ],
+      "modality": "must",
+      "preconditions": [
+        {
+          "conditionId": "S03-C01",
+          "scope": "operation-guard",
+          "expression": {
+            "operator": "predicate",
+            "args": [
+              {
+                "predicate": "numeric result"
+              }
+            ]
+          },
+          "sourceAssertionIds": [
+            "SA-NOISE"
+          ]
+        },
+        {
+          "conditionId": "S03-C02",
+          "scope": "operation-guard",
+          "expression": {
+            "operator": "predicate",
+            "args": [
+              {
+                "predicate": "matching Corridor contains Intruder"
+              }
+            ]
+          },
+          "sourceAssertionIds": [
+            "SA-NOISE"
+          ]
+        },
+        {
+          "conditionId": "S04-C01",
+          "scope": "operation-guard",
+          "expression": {
+            "operator": "predicate",
+            "args": [
+              {
+                "predicate": "numeric result"
+              }
+            ]
+          },
+          "sourceAssertionIds": [
+            "SA-NOISE"
+          ]
+        },
+        {
+          "conditionId": "S04-C02",
+          "scope": "operation-guard",
+          "expression": {
+            "operator": "predicate",
+            "args": [
+              {
+                "predicate": "matching Corridor contains Intruder"
+              }
+            ]
+          },
+          "sourceAssertionIds": [
+            "SA-NOISE"
+          ]
+        },
+        {
+          "conditionId": "S05-C01",
+          "scope": "operation-guard",
+          "expression": {
+            "operator": "predicate",
+            "args": [
+              {
+                "predicate": "numeric result"
+              }
+            ]
+          },
+          "sourceAssertionIds": [
+            "SA-NOISE"
+          ]
+        },
+        {
+          "conditionId": "S05-C02",
+          "scope": "operation-guard",
+          "expression": {
+            "operator": "predicate",
+            "args": [
+              {
+                "predicate": "matching Corridor contains no Intruder and has Noise marker"
+              }
+            ]
+          },
+          "sourceAssertionIds": [
+            "SA-NOISE"
+          ]
+        },
+        {
+          "conditionId": "S06-C01",
+          "scope": "operation-guard",
+          "expression": {
+            "operator": "predicate",
+            "args": [
+              {
+                "predicate": "numeric result"
+              }
+            ]
+          },
+          "sourceAssertionIds": [
+            "SA-NOISE"
+          ]
+        },
+        {
+          "conditionId": "S06-C02",
+          "scope": "operation-guard",
+          "expression": {
+            "operator": "predicate",
+            "args": [
+              {
+                "predicate": "matching Corridor contains no Intruder and no Noise marker"
+              }
+            ]
+          },
+          "sourceAssertionIds": [
+            "SA-NOISE"
+          ]
+        },
+        {
+          "conditionId": "S07-C01",
+          "scope": "operation-guard",
+          "expression": {
+            "operator": "predicate",
+            "args": [
+              {
+                "predicate": "Hazard result"
+              }
+            ]
+          },
+          "sourceAssertionIds": [
+            "SA-NOISE"
+          ]
+        },
+        {
+          "conditionId": "S08-C01",
+          "scope": "operation-guard",
+          "expression": {
+            "operator": "predicate",
+            "args": [
+              {
+                "predicate": "Hazard result"
+              }
+            ]
+          },
+          "sourceAssertionIds": [
+            "SA-NOISE"
+          ]
+        }
+      ],
+      "decisions": [],
+      "informationPolicy": [
+        {
+          "informationId": "I-NOISE",
+          "subjectRef": "die result, affected Corridors, token/result",
+          "audience": "public",
+          "revealTrigger": "roll/draw",
+          "secrecy": "none"
+        }
+      ],
+      "costs": [],
+      "targets": [],
+      "operations": [
+        {
+          "stepId": "S01",
+          "sequence": 1,
+          "operationType": "draw-random",
+          "modality": "must",
+          "subjectRef": "P-ROLLER",
+          "objectRef": "Noise die result",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-NOISE"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S02",
+          "sequence": 2,
+          "operationType": "branch",
+          "modality": "must",
+          "subjectRef": "P-RULES",
+          "objectRef": "numeric or Hazard result",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-NOISE"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S03",
+          "sequence": 3,
+          "operationType": "move-entity",
+          "modality": "if-able",
+          "subjectRef": "largest Intruder in each matching Corridor",
+          "objectRef": "P-ROLLER Room",
+          "conditionRefs": [
+            "S03-C01",
+            "S03-C02"
+          ],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": {
+            "scope": "every matching adjacent Corridor"
+          },
+          "sourceAssertionIds": [
+            "SA-NOISE"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S04",
+          "sequence": 4,
+          "operationType": "invoke-process",
+          "modality": "must",
+          "subjectRef": "moved Intruder",
+          "objectRef": "immediate Intruder Attack",
+          "conditionRefs": [
+            "S04-C01",
+            "S04-C02"
+          ],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": "SEM-INT-004",
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-NOISE"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S05",
+          "sequence": 5,
+          "operationType": "invoke-process",
+          "modality": "if-able",
+          "subjectRef": "P-RULES",
+          "objectRef": "existing Noise marker",
+          "conditionRefs": [
+            "S05-C01",
+            "S05-C02"
+          ],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": {
+            "scope": "every matching adjacent Corridor"
+          },
+          "sourceAssertionIds": [
+            "SA-NOISE"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S06",
+          "sequence": 6,
+          "operationType": "place-component",
+          "modality": "if-able",
+          "subjectRef": "P-RULES",
+          "objectRef": "Noise marker",
+          "conditionRefs": [
+            "S06-C01",
+            "S06-C02"
+          ],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": {
+            "scope": "every matching adjacent Corridor"
+          },
+          "sourceAssertionIds": [
+            "SA-NOISE"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S07",
+          "sequence": 7,
+          "operationType": "draw-random",
+          "modality": "if-able",
+          "subjectRef": "P-RULES",
+          "objectRef": "Intruder token, front icon only",
+          "conditionRefs": [
+            "S07-C01"
+          ],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-NOISE"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S08",
+          "sequence": 8,
+          "operationType": "invoke-process",
+          "modality": "if-able",
+          "subjectRef": "P-RULES",
+          "objectRef": "Intruder Help Room-context row",
+          "conditionRefs": [
+            "S08-C01"
+          ],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-NOISE"
+          ],
+          "notes": null
+        }
+      ],
+      "partialResolution": {
+        "policy": "source-conditional-steps",
+        "unit": "matching Corridor/result branch",
+        "onImpossible": "if no matching numeric Corridor, nothing happens; finite components place as available"
+      },
+      "duration": {
+        "kind": "instantaneous-procedure"
+      },
+      "stacking": {
+        "policy": "one die result per roll"
       },
       "outcomes": [],
       "unresolvedQuestionRefs": [],
@@ -3587,6 +5554,1218 @@
       },
       "outcomes": [],
       "unresolvedQuestionRefs": [],
+      "sourceVariants": [],
+      "implementationBoundary": "implementation-neutral; no engine, UI, network, storage, or serialization mapping"
+    },
+    {
+      "schemaVersion": 1,
+      "recordType": "semantic-rule",
+      "recordRevision": 1,
+      "ruleId": "SEM-RT-008",
+      "title": "Intruder Phase",
+      "status": "source-backed",
+      "ruleKind": "sequence",
+      "applicability": {
+        "game": "Nemesis: Retaliation",
+        "mode": "base-standard",
+        "playerCount": null
+      },
+      "authority": {
+        "highest": "official-primary",
+        "interpretation": "verbatim-structure"
+      },
+      "sourceAssertions": [
+        {
+          "assertionId": "SA-RT008-1",
+          "sourceId": "SRC-RULEBOOK",
+          "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
+          "sourceSha256": "e3cda0d7a91bd090cec45dbc8ce89e2015e2202173357c374ff49365f9c29ddd",
+          "sourceAuthority": "official-primary",
+          "sourceVersion": "base rulebook, local official PDF",
+          "locator": "printed pages 14–15 / Intruder Phase",
+          "supportsFields": [
+            "timing",
+            "operations",
+            "targets",
+            "partialResolution"
+          ],
+          "sourceText": "Resolve Intruders Burning, then Intruder Attacks, with Rooms top-left row order and larger Intruders first.",
+          "textKind": "normalized-paraphrase",
+          "evidenceRecord": "docs/rules/01-round-and-turns.md:RT-008"
+        }
+      ],
+      "termRefs": [
+        "icon.fire",
+        "term.attack",
+        "term.hit",
+        "term.intruder-phase",
+        "term.turn-order"
+      ],
+      "taxonRefs": [
+        "tax.entity.component.marker.fire",
+        "tax.process.attack",
+        "tax.process.operation.hit",
+        "tax.process.temporal.phase.intruder",
+        "tax.value.turn-order"
+      ],
+      "namedIdentityRefs": [],
+      "timing": {
+        "windowId": "TW-INTRUDER-PHASE",
+        "anchorTaxonId": "tax.process.temporal.phase.intruder",
+        "relation": "during",
+        "recurrence": "once-per-round"
+      },
+      "participants": [
+        {
+          "participantId": "P-RULES",
+          "participantKind": "rules-system",
+          "taxonId": null,
+          "role": null
+        },
+        {
+          "participantId": "P-INTRUDERS",
+          "participantKind": "collection",
+          "taxonId": "tax.entity.agent.intruder",
+          "role": null
+        },
+        {
+          "participantId": "P-CHARACTERS",
+          "participantKind": "collection",
+          "taxonId": "tax.entity.agent.character",
+          "role": null
+        }
+      ],
+      "modality": "must",
+      "preconditions": [],
+      "decisions": [],
+      "informationPolicy": [
+        {
+          "informationId": "I-INTRUDER-PHASE",
+          "subjectRef": "Intruder locations, Hits, targets, attacks",
+          "audience": "public",
+          "revealTrigger": "continuous",
+          "secrecy": "none"
+        }
+      ],
+      "costs": [],
+      "targets": [
+        {
+          "targetId": "T-ATTACKED-CHARACTER",
+          "selectorRef": "rules-system",
+          "eligibleTaxonIds": [
+            "tax.entity.agent.character"
+          ],
+          "cardinality": {
+            "min": 0,
+            "max": 1
+          },
+          "selectionMode": "deterministic-turn-order",
+          "visibility": "public"
+        }
+      ],
+      "operations": [
+        {
+          "stepId": "S01",
+          "sequence": 1,
+          "operationType": "change-value",
+          "modality": "if-able",
+          "subjectRef": "each Intruder in a Room with Fire",
+          "objectRef": "Hits",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": {
+            "amount": 1,
+            "valueTaxonId": "tax.process.operation.hit"
+          },
+          "invokeRuleId": null,
+          "repeat": {
+            "scope": "each matching Intruder"
+          },
+          "sourceAssertionIds": [
+            "SA-RT008-1"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S02",
+          "sequence": 2,
+          "operationType": "remove-component",
+          "modality": "if-able",
+          "subjectRef": "rules-system",
+          "objectRef": "1 Egg if Fire is in the Nest",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-RT008-1"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S03",
+          "sequence": 3,
+          "operationType": "invoke-process",
+          "modality": "if-able",
+          "subjectRef": "each Intruder in a Room with Character",
+          "objectRef": "Intruder Attack",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": "T-ATTACKED-CHARACTER",
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": {
+            "roomOrder": "top-left row by row",
+            "intruderOrder": "Queen > Drone > Adult > Larva",
+            "targetOrder": "first in Turn order, then next if target dies/leaves"
+          },
+          "sourceAssertionIds": [
+            "SA-RT008-1"
+          ],
+          "notes": null
+        }
+      ],
+      "partialResolution": {
+        "policy": "ordered-complete",
+        "unit": "Intruder Phase step",
+        "onImpossible": "finite-component and target availability rules apply per operation"
+      },
+      "duration": {
+        "kind": "phase"
+      },
+      "stacking": {
+        "policy": "once per Round"
+      },
+      "outcomes": [],
+      "unresolvedQuestionRefs": [],
+      "sourceVariants": [],
+      "implementationBoundary": "implementation-neutral; no engine, UI, network, storage, or serialization mapping"
+    },
+    {
+      "schemaVersion": 1,
+      "recordType": "semantic-rule",
+      "recordRevision": 1,
+      "ruleId": "SEM-RT-009",
+      "title": "Event Phase",
+      "status": "source-backed",
+      "ruleKind": "sequence",
+      "applicability": {
+        "game": "Nemesis: Retaliation",
+        "mode": "base-standard",
+        "playerCount": null
+      },
+      "authority": {
+        "highest": "official-primary",
+        "interpretation": "verbatim-structure"
+      },
+      "sourceAssertions": [
+        {
+          "assertionId": "SA-RT009-PHASE",
+          "sourceId": "SRC-RULEBOOK",
+          "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
+          "sourceSha256": "e3cda0d7a91bd090cec45dbc8ce89e2015e2202173357c374ff49365f9c29ddd",
+          "sourceAuthority": "official-primary",
+          "sourceVersion": "base rulebook, local official PDF",
+          "locator": "printed pages 12, 14–15 / Event Phase",
+          "supportsFields": [
+            "timing",
+            "operations"
+          ],
+          "sourceText": "Event Phase resolves one Event card and then Bag Development.",
+          "textKind": "normalized-paraphrase",
+          "evidenceRecord": "docs/rules/01-round-and-turns.md:RT-009"
+        }
+      ],
+      "termRefs": [
+        "term.event-card",
+        "term.event-phase"
+      ],
+      "taxonRefs": [
+        "tax.entity.component.card.event",
+        "tax.process.temporal.phase.event"
+      ],
+      "namedIdentityRefs": [],
+      "timing": {
+        "windowId": "TW-EVENT-PHASE",
+        "anchorTaxonId": "tax.process.temporal.phase.event",
+        "relation": "during",
+        "recurrence": "once-per-round"
+      },
+      "participants": [
+        {
+          "participantId": "P-RULES",
+          "participantKind": "rules-system",
+          "taxonId": null,
+          "role": null
+        }
+      ],
+      "modality": "must",
+      "preconditions": [],
+      "decisions": [],
+      "informationPolicy": [
+        {
+          "informationId": "I-EVENT-PHASE",
+          "subjectRef": "Event card and Bag Development results",
+          "audience": "public",
+          "revealTrigger": "resolution",
+          "secrecy": "none"
+        }
+      ],
+      "costs": [],
+      "targets": [],
+      "operations": [
+        {
+          "stepId": "S01",
+          "sequence": 1,
+          "operationType": "invoke-process",
+          "modality": "must",
+          "subjectRef": "rules-system",
+          "objectRef": "Event card resolution",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": "SEM-EVENT-GENERAL-001",
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-RT009-PHASE"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S02",
+          "sequence": 2,
+          "operationType": "invoke-process",
+          "modality": "must",
+          "subjectRef": "rules-system",
+          "objectRef": "Bag Development",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": "SEM-RT-011",
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-RT009-PHASE"
+          ],
+          "notes": null
+        }
+      ],
+      "partialResolution": {
+        "policy": "ordered-complete",
+        "unit": "Event Phase step",
+        "onImpossible": "Event-card per-sentence policy belongs to invoked record"
+      },
+      "duration": {
+        "kind": "phase"
+      },
+      "stacking": {
+        "policy": "once per Round"
+      },
+      "outcomes": [],
+      "unresolvedQuestionRefs": [],
+      "sourceVariants": [],
+      "implementationBoundary": "implementation-neutral; no engine, UI, network, storage, or serialization mapping"
+    },
+    {
+      "schemaVersion": 1,
+      "recordType": "semantic-rule",
+      "recordRevision": 1,
+      "ruleId": "SEM-RT-010",
+      "title": "Choosing an Objective",
+      "status": "source-backed",
+      "ruleKind": "procedure",
+      "applicability": {
+        "game": "Nemesis: Retaliation",
+        "mode": "base-standard",
+        "playerCount": null
+      },
+      "authority": {
+        "highest": "official-primary",
+        "interpretation": "verbatim-structure"
+      },
+      "sourceAssertions": [
+        {
+          "assertionId": "SA-RT010-1",
+          "sourceId": "SRC-RULEBOOK",
+          "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
+          "sourceSha256": "e3cda0d7a91bd090cec45dbc8ce89e2015e2202173357c374ff49365f9c29ddd",
+          "sourceAuthority": "official-primary",
+          "sourceVersion": "base rulebook, local official PDF",
+          "locator": "printed pages 13 and 39 / Choosing an Objective",
+          "supportsFields": [
+            "timing",
+            "decisions",
+            "informationPolicy",
+            "operations",
+            "outcomes"
+          ],
+          "sourceText": "Once per game during their Turn, before or after an Action, a player removes one Objective unseen, keeps the other, advances the Objective Choice track, and draws the track reward.",
+          "textKind": "normalized-paraphrase",
+          "evidenceRecord": "docs/rules/01-round-and-turns.md:RT-010"
+        }
+      ],
+      "termRefs": [
+        "icon.actionCard",
+        "term.mission-objective",
+        "term.objective",
+        "term.objective-card",
+        "term.private-objective"
+      ],
+      "taxonRefs": [
+        "tax.entity.component.card.objective",
+        "tax.entity.information.objective",
+        "tax.entity.information.objective.mission",
+        "tax.entity.information.objective.private"
+      ],
+      "namedIdentityRefs": [],
+      "timing": {
+        "windowId": "TW-OBJECTIVE-CHOICE",
+        "anchorTaxonId": "tax.process.temporal.turn",
+        "relation": "during",
+        "recurrence": "once-per-player-per-game"
+      },
+      "participants": [
+        {
+          "participantId": "P-CHOOSING-PLAYER",
+          "participantKind": "actor",
+          "taxonId": "tax.entity.agent.player",
+          "role": null
+        },
+        {
+          "participantId": "P-CHARACTER",
+          "participantKind": "controlled-actor",
+          "taxonId": "tax.entity.agent.character",
+          "role": null
+        }
+      ],
+      "modality": "may",
+      "preconditions": [
+        {
+          "conditionId": "C-OBJ-WINDOW",
+          "scope": "record-precondition",
+          "expression": {
+            "operator": "all",
+            "args": [
+              {
+                "predicate": "Player has not previously chosen an Objective"
+              },
+              {
+                "predicate": "current timing is before or after a Turn Action, not during one"
+              }
+            ]
+          },
+          "sourceAssertionIds": [
+            "SA-RT010-1"
+          ]
+        }
+      ],
+      "decisions": [
+        {
+          "decisionId": "D-OBJECTIVE",
+          "ownerRef": "P-CHOOSING-PLAYER",
+          "selectionMode": "player-choice",
+          "cardinality": {
+            "min": 1,
+            "max": 1
+          },
+          "declineAllowed": false,
+          "visibility": "owner-private",
+          "options": [
+            "the Player’s two Objective cards"
+          ]
+        }
+      ],
+      "informationPolicy": [
+        {
+          "informationId": "I-OBJECTIVE-PAIR",
+          "subjectRef": "both Objective identities and removed choice",
+          "audience": "owner-private",
+          "revealTrigger": "chosen Objective at End of Game only",
+          "secrecy": "removed Objective is not shown; kept Objective remains hidden"
+        },
+        {
+          "informationId": "I-OBJECTIVE-TRACK",
+          "subjectRef": "track position and cards drawn",
+          "audience": "public",
+          "revealTrigger": "choice resolution",
+          "secrecy": "none"
+        }
+      ],
+      "costs": [],
+      "targets": [],
+      "operations": [
+        {
+          "stepId": "S01",
+          "sequence": 1,
+          "operationType": "choose",
+          "modality": "may",
+          "subjectRef": "P-CHOOSING-PLAYER",
+          "objectRef": "one Objective to remove",
+          "conditionRefs": [],
+          "decisionRef": "D-OBJECTIVE",
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-RT010-1"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S02",
+          "sequence": 2,
+          "operationType": "transition-zone",
+          "modality": "must",
+          "subjectRef": "P-CHOOSING-PLAYER",
+          "objectRef": "unchosen/removed Objective",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": {
+            "from": "tax.scaffold.zone.hand",
+            "to": "tax.scaffold.zone.removed-from-game"
+          },
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-RT010-1"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S03",
+          "sequence": 3,
+          "operationType": "set-state",
+          "modality": "must",
+          "subjectRef": "P-CHOOSING-PLAYER",
+          "objectRef": "other Objective retained as chosen",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-RT010-1"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S04",
+          "sequence": 4,
+          "operationType": "change-value",
+          "modality": "if-able",
+          "subjectRef": "rules-system",
+          "objectRef": "Objective Choice track",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": {
+            "amount": -1,
+            "value": "one track position"
+          },
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-RT010-1"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S05",
+          "sequence": 5,
+          "operationType": "draw-random",
+          "modality": "must",
+          "subjectRef": "P-CHOOSING-PLAYER",
+          "objectRef": "Action cards according to pre-move track position: 3/2/2/1",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-RT010-1"
+          ],
+          "notes": null
+        }
+      ],
+      "partialResolution": {
+        "policy": "all-or-nothing-selection",
+        "unit": "Objective choice procedure",
+        "onImpossible": "may be initiated only in its legal window"
+      },
+      "duration": {
+        "kind": "persistent-until-endgame"
+      },
+      "stacking": {
+        "policy": "once per Player per game"
+      },
+      "outcomes": [
+        {
+          "condition": "chosen Objective not fulfilled at endgame",
+          "result": "Character cannot win"
+        }
+      ],
+      "unresolvedQuestionRefs": [],
+      "sourceVariants": [],
+      "implementationBoundary": "implementation-neutral; no engine, UI, network, storage, or serialization mapping"
+    },
+    {
+      "schemaVersion": 1,
+      "recordType": "semantic-rule",
+      "recordRevision": 1,
+      "ruleId": "SEM-RT-011",
+      "title": "Bag Development",
+      "status": "source-backed",
+      "ruleKind": "procedure",
+      "applicability": {
+        "game": "Nemesis: Retaliation",
+        "mode": "base-standard",
+        "playerCount": null
+      },
+      "authority": {
+        "highest": "official-primary",
+        "interpretation": "verbatim-structure"
+      },
+      "sourceAssertions": [
+        {
+          "assertionId": "SA-BAG-DEV",
+          "sourceId": "SRC-RULEBOOK",
+          "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
+          "sourceSha256": "e3cda0d7a91bd090cec45dbc8ce89e2015e2202173357c374ff49365f9c29ddd",
+          "sourceAuthority": "official-primary",
+          "sourceVersion": "base rulebook, local official PDF",
+          "locator": "printed pages 15–16 / Bag Development",
+          "supportsFields": [
+            "operations",
+            "partialResolution"
+          ],
+          "sourceText": "Draw one Intruder token, use the front only, resolve the type row, and return/discard according to token lifecycle; Blank returns to bag.",
+          "textKind": "normalized-paraphrase",
+          "evidenceRecord": "docs/rules/01-round-and-turns.md:RT-011"
+        }
+      ],
+      "termRefs": [
+        "term.adult",
+        "term.drone",
+        "term.larva",
+        "term.queen"
+      ],
+      "taxonRefs": [
+        "tax.entity.agent.intruder.adult",
+        "tax.entity.agent.intruder.drone",
+        "tax.entity.agent.intruder.larva",
+        "tax.entity.agent.intruder.queen",
+        "tax.scaffold.zone.intruder-bag",
+        "tax.scaffold.zone.token-pile"
+      ],
+      "namedIdentityRefs": [],
+      "timing": {
+        "windowId": "TW-BAG-DEV",
+        "anchorTaxonId": "tax.process.temporal.phase.event",
+        "relation": "during",
+        "recurrence": "once-per-Event-Phase"
+      },
+      "participants": [
+        {
+          "participantId": "P-RULES",
+          "participantKind": "rules-system",
+          "taxonId": null,
+          "role": null
+        }
+      ],
+      "modality": "must",
+      "preconditions": [
+        {
+          "conditionId": "S03-C01",
+          "scope": "operation-guard",
+          "expression": {
+            "operator": "predicate",
+            "args": [
+              {
+                "predicate": "drawn token is Queen"
+              }
+            ]
+          },
+          "sourceAssertionIds": [
+            "SA-BAG-DEV"
+          ]
+        },
+        {
+          "conditionId": "S03-C02",
+          "scope": "operation-guard",
+          "expression": {
+            "operator": "predicate",
+            "args": [
+              {
+                "predicate": "Queen is on map"
+              }
+            ]
+          },
+          "sourceAssertionIds": [
+            "SA-BAG-DEV"
+          ]
+        },
+        {
+          "conditionId": "S04-C01",
+          "scope": "operation-guard",
+          "expression": {
+            "operator": "predicate",
+            "args": [
+              {
+                "predicate": "drawn token is Queen"
+              }
+            ]
+          },
+          "sourceAssertionIds": [
+            "SA-BAG-DEV"
+          ]
+        },
+        {
+          "conditionId": "S04-C02",
+          "scope": "operation-guard",
+          "expression": {
+            "operator": "predicate",
+            "args": [
+              {
+                "predicate": "Queen is not on map"
+              }
+            ]
+          },
+          "sourceAssertionIds": [
+            "SA-BAG-DEV"
+          ]
+        },
+        {
+          "conditionId": "S05-C01",
+          "scope": "operation-guard",
+          "expression": {
+            "operator": "predicate",
+            "args": [
+              {
+                "predicate": "drawn token is Adult or Drone"
+              }
+            ]
+          },
+          "sourceAssertionIds": [
+            "SA-BAG-DEV"
+          ]
+        },
+        {
+          "conditionId": "S06-C01",
+          "scope": "operation-guard",
+          "expression": {
+            "operator": "predicate",
+            "args": [
+              {
+                "predicate": "drawn token is Larva"
+              }
+            ]
+          },
+          "sourceAssertionIds": [
+            "SA-BAG-DEV"
+          ]
+        },
+        {
+          "conditionId": "S07-C01",
+          "scope": "operation-guard",
+          "expression": {
+            "operator": "predicate",
+            "args": [
+              {
+                "predicate": "drawn token is Blank"
+              }
+            ]
+          },
+          "sourceAssertionIds": [
+            "SA-BAG-DEV"
+          ]
+        },
+        {
+          "conditionId": "S08-C01",
+          "scope": "operation-guard",
+          "expression": {
+            "operator": "predicate",
+            "args": [
+              {
+                "predicate": "drawn token is not Blank"
+              }
+            ]
+          },
+          "sourceAssertionIds": [
+            "SA-BAG-DEV"
+          ]
+        },
+        {
+          "conditionId": "S09-C01",
+          "scope": "operation-guard",
+          "expression": {
+            "operator": "predicate",
+            "args": [
+              {
+                "predicate": "drawn token is Blank"
+              }
+            ]
+          },
+          "sourceAssertionIds": [
+            "SA-BAG-DEV"
+          ]
+        }
+      ],
+      "decisions": [],
+      "informationPolicy": [
+        {
+          "informationId": "I-BAG-TOKEN",
+          "subjectRef": "drawn token front and result",
+          "audience": "public",
+          "revealTrigger": "draw",
+          "secrecy": "back ignored for this procedure"
+        }
+      ],
+      "costs": [],
+      "targets": [],
+      "operations": [
+        {
+          "stepId": "S01",
+          "sequence": 1,
+          "operationType": "draw-random",
+          "modality": "must",
+          "subjectRef": "rules-system",
+          "objectRef": "1 Intruder token from bag",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-BAG-DEV"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S02",
+          "sequence": 2,
+          "operationType": "branch",
+          "modality": "must",
+          "subjectRef": "rules-system",
+          "objectRef": "token-front type row",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-BAG-DEV"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S03",
+          "sequence": 3,
+          "operationType": "invoke-process",
+          "modality": "if-able",
+          "subjectRef": "Queen",
+          "objectRef": "Activate Queen",
+          "conditionRefs": [
+            "S03-C01",
+            "S03-C02"
+          ],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-BAG-DEV"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S04",
+          "sequence": 4,
+          "operationType": "place-component",
+          "modality": "if-able",
+          "subjectRef": "rules-system",
+          "objectRef": "2 Larva tokens into bag",
+          "conditionRefs": [
+            "S04-C01",
+            "S04-C02"
+          ],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-BAG-DEV"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S05",
+          "sequence": 5,
+          "operationType": "place-component",
+          "modality": "if-able",
+          "subjectRef": "rules-system",
+          "objectRef": "2 Queen tokens into bag",
+          "conditionRefs": [
+            "S05-C01"
+          ],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-BAG-DEV"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S06",
+          "sequence": 6,
+          "operationType": "draw-random",
+          "modality": "if-able",
+          "subjectRef": "rules-system",
+          "objectRef": "2 random Drone tokens from pile into bag",
+          "conditionRefs": [
+            "S06-C01"
+          ],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-BAG-DEV"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S07",
+          "sequence": 7,
+          "operationType": "draw-random",
+          "modality": "if-able",
+          "subjectRef": "rules-system",
+          "objectRef": "2 random Adult tokens from pile into bag",
+          "conditionRefs": [
+            "S07-C01"
+          ],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-BAG-DEV"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S08",
+          "sequence": 8,
+          "operationType": "transition-zone",
+          "modality": "must",
+          "subjectRef": "rules-system",
+          "objectRef": "resolved non-Blank token",
+          "conditionRefs": [
+            "S08-C01"
+          ],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": {
+            "from": "drawn-token",
+            "to": "tax.scaffold.zone.token-pile",
+            "positionRef": "sem.position.deck-bottom"
+          },
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-BAG-DEV"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S09",
+          "sequence": 9,
+          "operationType": "transition-zone",
+          "modality": "must",
+          "subjectRef": "rules-system",
+          "objectRef": "Blank token",
+          "conditionRefs": [
+            "S09-C01"
+          ],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": {
+            "from": "drawn-token",
+            "to": "tax.scaffold.zone.intruder-bag"
+          },
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-BAG-DEV"
+          ],
+          "notes": null
+        }
+      ],
+      "partialResolution": {
+        "policy": "source-limited-components",
+        "unit": "requested token",
+        "onImpossible": "place/add as many requested components as available; ignore excess"
+      },
+      "duration": {
+        "kind": "instantaneous-procedure"
+      },
+      "stacking": {
+        "policy": "once per Event Phase"
+      },
+      "outcomes": [],
+      "unresolvedQuestionRefs": [],
+      "sourceVariants": [],
+      "implementationBoundary": "implementation-neutral; no engine, UI, network, storage, or serialization mapping"
+    },
+    {
+      "schemaVersion": 1,
+      "recordType": "semantic-rule",
+      "recordRevision": 1,
+      "ruleId": "SEM-RT-012",
+      "title": "Cleanup Phase",
+      "status": "source-backed-with-open-question",
+      "ruleKind": "sequence",
+      "applicability": {
+        "game": "Nemesis: Retaliation",
+        "mode": "base-standard",
+        "playerCount": null
+      },
+      "authority": {
+        "highest": "official-primary",
+        "interpretation": "open-alternatives"
+      },
+      "sourceAssertions": [
+        {
+          "assertionId": "SA-CLEANUP",
+          "sourceId": "SRC-RULEBOOK",
+          "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
+          "sourceSha256": "e3cda0d7a91bd090cec45dbc8ce89e2015e2202173357c374ff49365f9c29ddd",
+          "sourceAuthority": "official-primary",
+          "sourceVersion": "base rulebook, local official PDF",
+          "locator": "printed pages 15–16 / Cleanup Phase",
+          "supportsFields": [
+            "operations",
+            "unresolvedQuestionRefs"
+          ],
+          "sourceText": "Pass Starting Player clockwise, refill each hand to 5 with reshuffle as needed, then advance Round marker and resolve entered token.",
+          "textKind": "normalized-paraphrase",
+          "evidenceRecord": "docs/rules/01-round-and-turns.md:RT-012"
+        }
+      ],
+      "termRefs": [
+        "icon.actionCard",
+        "term.cleanup-phase",
+        "term.round-marker",
+        "term.starting-player"
+      ],
+      "taxonRefs": [
+        "tax.entity.component.card.action",
+        "tax.entity.component.token.round",
+        "tax.process.temporal.phase.cleanup",
+        "tax.role.starting-player"
+      ],
+      "namedIdentityRefs": [],
+      "timing": {
+        "windowId": "TW-CLEANUP",
+        "anchorTaxonId": "tax.process.temporal.phase.cleanup",
+        "relation": "during",
+        "recurrence": "once-per-round"
+      },
+      "participants": [
+        {
+          "participantId": "P-RULES",
+          "participantKind": "rules-system",
+          "taxonId": null,
+          "role": null
+        },
+        {
+          "participantId": "P-PLAYERS",
+          "participantKind": "collection",
+          "taxonId": "tax.entity.agent.player",
+          "role": null
+        }
+      ],
+      "modality": "must",
+      "preconditions": [
+        {
+          "conditionId": "S05-C01",
+          "scope": "operation-guard",
+          "expression": {
+            "operator": "predicate",
+            "args": [
+              {
+                "predicate": "Round marker was already on final space"
+              }
+            ]
+          },
+          "sourceAssertionIds": [
+            "SA-CLEANUP"
+          ]
+        }
+      ],
+      "decisions": [],
+      "informationPolicy": [
+        {
+          "informationId": "I-CLEANUP",
+          "subjectRef": "Starting Player, hand counts, Round track/token effects",
+          "audience": "public-except-card-identities",
+          "revealTrigger": "resolution",
+          "secrecy": "drawn Action/Contamination identities remain owner-private"
+        }
+      ],
+      "costs": [],
+      "targets": [],
+      "operations": [
+        {
+          "stepId": "S01",
+          "sequence": 1,
+          "operationType": "resolve-open-alternative",
+          "modality": "must",
+          "subjectRef": "rules-system",
+          "objectRef": "OQ-003 Starting Player transfer",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-CLEANUP"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S02",
+          "sequence": 2,
+          "operationType": "draw-random",
+          "modality": "must",
+          "subjectRef": "each eligible Player",
+          "objectRef": "Action cards until hand size is 5",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": {
+            "ifDeckEmpties": "shuffle discard pile into Action deck and continue"
+          },
+          "sourceAssertionIds": [
+            "SA-CLEANUP"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S03",
+          "sequence": 3,
+          "operationType": "change-value",
+          "modality": "if-able",
+          "subjectRef": "rules-system",
+          "objectRef": "Round marker +1",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-CLEANUP"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S04",
+          "sequence": 4,
+          "operationType": "invoke-process",
+          "modality": "if-able",
+          "subjectRef": "rules-system",
+          "objectRef": "token effect on newly entered Round space",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-CLEANUP"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S05",
+          "sequence": 5,
+          "operationType": "invoke-process",
+          "modality": "must",
+          "subjectRef": "rules-system",
+          "objectRef": "End of the Game",
+          "conditionRefs": [
+            "S05-C01"
+          ],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": "SEM-ENDGAME-001",
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-CLEANUP"
+          ],
+          "notes": null
+        }
+      ],
+      "partialResolution": {
+        "policy": "ordered-complete",
+        "unit": "Cleanup step",
+        "onImpossible": "OQ-003 remains open; finite deck reshuffle is explicit"
+      },
+      "duration": {
+        "kind": "phase"
+      },
+      "stacking": {
+        "policy": "once per Round"
+      },
+      "outcomes": [],
+      "unresolvedQuestionRefs": [
+        "OQ-003"
+      ],
       "sourceVariants": [],
       "implementationBoundary": "implementation-neutral; no engine, UI, network, storage, or serialization mapping"
     }

@@ -1983,10 +1983,10 @@ task workspace.
 
 ## IN PROGRESS — Semantic coverage expansion (2026-08-24)
 
-- [ ] Encode source-clear cross-cutting phase, bag, noise, Door, combat, health, Item, and lifecycle procedures.
+- [x] Encode source-clear Objective choice, Intruder/Event/Cleanup phases, Event procedure, Bag Development, Door, Noise, Intruder Attack, Health/Wound, and Tactical Gear rules.
 - [ ] Encode remaining 17 Intruder Help instructions and 24 Room effects in source-bounded batches.
 - [ ] Expand through Events/cards/components while retaining all source variants and authority boundaries.
-- [ ] Advance the 600-unit source-obligation backlog from 17 pilot-covered / 582 pending / 1 blocked.
+- [ ] Advance the 600-unit source-obligation backlog from 25 covered / 574 pending / 1 blocked.
 - [ ] Continue source search for nine scoped open questions; ask the owner only after all unaffected work is exhausted.
 
 ## DONE — Independent Room Help fidelity hardening (2026-08-24T10:04:12Z)

@@ -28,12 +28,13 @@ class SemanticPilotTests(unittest.TestCase):
         run,report=self.run_validator()
         self.assertEqual(run.returncode,0,run.stdout+run.stderr)
         self.assertTrue(report['passed'])
-        self.assertEqual(report['checks']['records'],13)
-        self.assertEqual(report['checks']['operations'],64)
+        self.assertEqual(report['checks']['records'],24)
+        self.assertEqual(report['checks']['operations'],128)
         self.assertEqual(report['checks']['openQuestions'],9)
         self.assertEqual(report['checks']['semanticNodes'],18)
         self.assertEqual(report['checks']['conflicts'],7)
         self.assertEqual(report['checks']['backlogUnits'],600)
+        self.assertEqual(report['checks']['backlogPilotCovered'],25)
 
     def test_high_risk_semantic_boundaries(self):
         pilots=load(DIR/'pilots.json'); by_id={r['ruleId']:r for r in pilots['records']}
@@ -51,6 +52,14 @@ class SemanticPilotTests(unittest.TestCase):
         self.assertTrue(any(item['operationType']=='end-action-window' for item in by_id['SEM-RT-007']['operations']))
         self.assertFalse(any(item['operationType']=='end-process' for item in by_id['SEM-RT-007']['operations']))
         self.assertTrue(all(r['implementationBoundary'].startswith('implementation-neutral') for r in pilots['records']))
+
+    def test_cross_cutting_general_rule_boundaries(self):
+        by_id={r['ruleId']:r for r in load(DIR/'pilots.json')['records']}
+        self.assertEqual([item['invokeRuleId'] for item in by_id['SEM-RT-009']['operations']],['SEM-EVENT-GENERAL-001','SEM-RT-011'])
+        self.assertEqual(by_id['SEM-EVENT-GENERAL-001']['partialResolution']['policy'],'per-sentence-continue')
+        self.assertIn('OQ-003',by_id['SEM-RT-012']['unresolvedQuestionRefs'])
+        self.assertTrue(any(item['objectRef']=='sem.state.participation.dead' for item in by_id['SEM-INT-006']['operations']))
+        self.assertTrue(any('Noise markers may still be placed/discarded' in item['objectRef'] for item in by_id['SEM-DOOR-001']['operations']))
 
     def test_adversarial_corruptions_are_rejected(self):
         with tempfile.TemporaryDirectory(prefix='semantic-negative-') as temp_dir:

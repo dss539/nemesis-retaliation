@@ -7,7 +7,7 @@ This directory is the first implementation-neutral semantic layer built over the
 - `semantic-rule.schema.json` — closed JSON Schema shape for one semantic rule record.
 - `semantic-vocabulary.json` — semantic-only states, temporary zones, deck positions, and visibility scopes that must not be confused with static ontology classes/processes.
 - `source-registry.json` — exact source tuples, hashes, versions, authority, and extraction-index links used by pilots.
-- `pilots.json` — 13 representative rules across nine systems.
+- `pilots.json` — 24 validated semantic records across 16 systems; the historical filename is retained while coverage expands.
 - `review-gates.json` — nine explicit open semantic questions with alternatives; no default is adopted.
 - `contradictions.json` — seven source/semantic conflicts: two authority-resolved, three unresolved, and two preserved boundaries.
 - `coverage.json` — pilot scope and the large remaining base-game semantic surface.
@@ -39,7 +39,7 @@ Every pilot carries:
 
 ## Pilot coverage
 
-The 13 records cover:
+The 24 records cover:
 
 1. Round phase sequence;
 2. Player Phase rotation;
@@ -53,11 +53,22 @@ The 13 records cover:
 10. Sprinklers Control Room effect;
 11. Hatching Event with per-sentence partial resolution;
 12. Queen-Alive Intruder Help Room-context dispatch;
-13. endgame triggers and checks.
+13. endgame triggers and checks;
+14. Objective choice;
+15. Intruder Phase;
+16. Event Phase and generic Event resolution;
+17. Bag Development;
+18. Cleanup Phase with OQ-003;
+19. Door states and blocking;
+20. Noise Roll;
+21. Intruder Attack;
+22. Character Health, Serious Wounds, and death;
+23. Tactical Gear token/slot constraints; and
+24. the source-obligation links for those reusable procedures.
 
 This is representative, **not full base-game semantic coverage**.
 
-The backlog currently records 17 pilot-covered source obligations, 582 pending obligations, and one inherited exact-source blocker (`FACILITY RESTART`). These are source-obligation counts, not a claim that 600 distinct game effects exist.
+The backlog currently records 25 covered source obligations, 574 pending obligations, and one inherited exact-source blocker (`FACILITY RESTART`). These are source-obligation counts, not a claim that 600 distinct game effects exist.
 
 ## Open questions carried without defaults
 
