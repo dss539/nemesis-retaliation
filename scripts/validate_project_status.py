@@ -40,8 +40,8 @@ def main() -> None:
     require(source_validation.get("passed") is True and source_validation.get("failureCount") == 0,
             "source-extraction validation must pass", failures)
     if vocab_validation["checks"]["openReviewGates"] == 0:
-        require("Taxonomy/ontology independent review (vocabulary gate passed)" in status,
-                "PROJECT_STATUS.md must advance to taxonomy/ontology review after vocabulary approval", failures)
+        require("Semantic rules schema and pilot (ontology gate passed)" in status,
+                "PROJECT_STATUS.md must advance to semantic schema/pilot after ontology approval", failures)
     else:
         require("Canonical vocabulary and source-scoped aliases (extraction gate passed)" in status,
                 "PROJECT_STATUS.md must remain in vocabulary phase while review gates are open", failures)
@@ -128,7 +128,7 @@ def main() -> None:
         f"- {ontology_validation['checks']['relations']} static relationship shapes / {ontology_validation['checks']['inversePairs']} inverse pairs",
         f"- {ontology_validation['checks']['staticAssertions']} source-backed structural assertions and constraints",
         f"- {ontology_validation['checks']['semanticScaffoldTaxa']} semantic-scaffolding taxa for later zones, timing, decisions, visibility, lifecycle, and finite supply",
-        f"- {ontology_validation['checks']['openReviewGates']} ontology owner gates asserted before independent review",
+        f"- {ontology_validation['checks']['openReviewGates']} ontology owner gates after four-workstream independent review",
     ]
     for fragment in expected_fragments:
         require(fragment in status, f"PROJECT_STATUS.md count drift: expected {fragment!r}", failures)

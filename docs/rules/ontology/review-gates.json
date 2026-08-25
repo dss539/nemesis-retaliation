@@ -1,13 +1,40 @@
 {
   "schemaVersion": 1,
   "recordType": "taxonomy-ontology-review-gates",
-  "status": "proposal generated; no owner gate asserted yet, pending independent audit",
+  "status": "independent taxonomy, relationship, ambiguity, and validator audits incorporated; no owner gate blocks static ontology approval",
   "counts": {
     "reviewGates": 0,
     "resolved": 0,
     "open": 0
   },
   "gates": [],
+  "independentAudit": {
+    "delegationId": "deleg_0cdda6e9",
+    "workstreams": 4,
+    "incorporatedFindings": [
+      "separate source occurrence, component definition, component set, and runtime/physical copy levels",
+      "Reaction is not an Action; generic Attack and Opportunity Attack are not automatically player Actions",
+      "retain carrier/card versus printed-content distinction",
+      "defer timing, decision ownership, visibility, and lifecycle transition relations to semantic modeling",
+      "add missing Facility/Section/Corridor/Door/definition/copy/set/deck-role/icon-occurrence structural edges",
+      "correct Empty Corridor: Noise is allowed; only Intruders make it non-empty",
+      "harden mapping, inverse-signature, alias-projection, provenance, cardinality, phase-boundary, and reproducibility validation"
+    ]
+  },
+  "deferredSemanticRelationIds": [
+    "rel.phase-part-of-round",
+    "rel.round-has-phase",
+    "rel.precedes",
+    "rel.follows",
+    "rel.turn-occurs-in-phase",
+    "rel.phase-has-turn",
+    "rel.process-has-timing-window",
+    "rel.decision-owned-by",
+    "rel.owns-decision",
+    "rel.information-visible-to",
+    "rel.transition-from",
+    "rel.transition-to"
+  ],
   "deferredNonBlockingQuestions": [
     {
       "questionId": "ONTO-DQ-001",

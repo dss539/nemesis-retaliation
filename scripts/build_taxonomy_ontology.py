@@ -44,12 +44,12 @@ def node(taxon_id: str, label: str, parents: list[str], kind: str, boundary: str
     nodes.append({
         'taxonId': taxon_id,
         'label': label,
-        'parentTaxonIds': parents,
+        'parentTaxonIds': sorted(set(parents)),
         'ontologicalKind': kind,
         'definitionBoundary': boundary,
         'evidenceTermIds': evidence_terms,
         'sourceEvidence': source or [],
-        'disjointWithTaxonIds': disjoint or [],
+        'disjointWithTaxonIds': sorted(set(disjoint or [])),
     })
 
 # Root kinds.
@@ -95,7 +95,8 @@ node('tax.entity.spatial.room.escape-shuttle', 'Escape Shuttle Room identity', [
 node('tax.entity.spatial.room.reactor', 'Reactor Room identity', ['tax.entity.spatial.room'], 'identity-kind', 'The named Reactor Room identity, not a general Room subclass.', term_labels=['Reactor'])
 
 # Components and information objects.
-node('tax.entity.component', 'Physical component', ['tax.entity'], 'class', 'A finite or printed physical game component represented in the source inventory.', source=['docs/rulebooks/Nemesis_RT_Rulebook_official.pdf:component list'])
+node('tax.entity.component', 'Component copy/runtime entity', ['tax.entity'], 'class', 'A physical component copy or runtime entity in one game, distinct from its definition and source occurrence.', source=['docs/rulebooks/Nemesis_RT_Rulebook_official.pdf:component list'])
+node('tax.entity.component-set', 'Component set or supply', ['tax.entity'], 'class', 'A deck, pile, pool, insert, or finite set from which component copies are supplied.', source=['docs/rulebooks/Nemesis_RT_Rulebook_official.pdf:component list'])
 node('tax.entity.component.card', 'Card', ['tax.entity.component'], 'class', 'A printed card component.', source=['docs/rulebooks/rulebook_text.txt:component list'])
 node('tax.entity.component.card.action', 'Action card', ['tax.entity.component.card'], 'class', 'Character-specific Action card, distinct from a Basic Action.', source=['docs/rules/02-character-actions.md:ACT-CARD-001'])
 node('tax.entity.component.card.contamination', 'Contamination card', ['tax.entity.component.card'], 'class', 'Contamination card sharing a back with Action cards but forming a separate deck.', term_labels=['Contamination card'])
@@ -112,6 +113,10 @@ node('tax.entity.component.card.character-draft', 'Character Draft card', ['tax.
 node('tax.entity.component.card.help', 'Help card', ['tax.entity.component.card'], 'class', 'Numbered Player Help card/reference component.', term_labels=['Help card'])
 
 node('tax.entity.information', 'Information object', ['tax.entity'], 'class', 'Rules-bearing information that can be printed on a component.', source=['docs/rules/01-round-and-turns.md:RT-010'])
+node('tax.entity.information.component-definition', 'Component definition', ['tax.entity.information'], 'class', 'Rules-bearing definition shared by one or more component copies; distinct from a source occurrence and runtime copy.', source=['docs/rules/source-extraction/README.md'])
+node('tax.entity.information.component-definition.room', 'Room definition', ['tax.entity.information.component-definition'], 'class', 'Definition of a named Room effect/metadata entry.', source=['docs/rules/source-extraction/room-help-sheet.json'])
+node('tax.entity.information.component-definition.card-face', 'Card-face definition', ['tax.entity.information.component-definition'], 'class', 'Definition of one scoped card face/version.', source=['assets/tts-mod/extract/card-text-corpus.json'])
+node('tax.entity.information.component-definition.component-set', 'Component-set definition', ['tax.entity.information.component-definition'], 'class', 'Definition/inventory of a deck, pile, pool, or component set.', source=['docs/rulebooks/Nemesis_RT_Rulebook_official.pdf:component list'])
 node('tax.entity.information.objective', 'Objective', ['tax.entity.information'], 'class', 'Endgame condition retained by a player.', term_labels=['Objective'])
 node('tax.entity.information.objective.private', 'Private Objective', ['tax.entity.information.objective'], 'class', 'Private Objective information type.', term_labels=['Private Objective'])
 node('tax.entity.information.objective.mission', 'Mission Objective', ['tax.entity.information.objective'], 'class', 'Mission Objective information type.', term_labels=['Mission Objective'])
@@ -217,8 +222,8 @@ node('tax.state.closed', 'Closed', ['tax.state'], 'state-value', 'Closed state; 
 node('tax.state.destroyed', 'Destroyed', ['tax.state'], 'state-value', 'Destroyed state applicable to Doors, Rooms, Nest, or Facility where sources say so.', term_labels=['Destroyed'])
 node('tax.state.corridor', 'Corridor status', ['tax.state'], 'class', 'Corridor Empty/Unexplored/Reinforced status dimension.', source=['docs/rules/02-character-actions.md'])
 node('tax.state.corridor.reinforced', 'Reinforced Corridor', ['tax.state.corridor'], 'state-value', 'Corridor reinforced status/value 0.', term_labels=['Reinforced Corridor'])
-node('tax.state.corridor.empty', 'Empty Corridor', ['tax.state.corridor'], 'state-value', 'Corridor contains no Intruder/Noise where a source requires Empty.', term_labels=['Empty Corridor'])
-node('tax.state.corridor.unexplored', 'Unexplored Corridor', ['tax.state.corridor'], 'state-value', 'Corridor leading to an Undiscovered Room slot.', term_labels=['Unexplored Corridor'])
+node('tax.state.corridor.empty', 'Empty Corridor', ['tax.state.corridor'], 'state-value', 'Corridor containing no Intruders; a Corridor with a Noise marker is still Empty.', term_labels=['Empty Corridor'], source=['docs/rulebooks/rulebook_text.txt:lines 4159–4161'])
+node('tax.state.corridor.unexplored', 'Unexplored Corridor', ['tax.state.corridor'], 'state-value', 'Corridor connected with only one placed Room.', term_labels=['Unexplored Corridor'], source=['docs/rulebooks/rulebook_text.txt:lines 4162–4163'])
 node('tax.state.objective', 'Objective status', ['tax.state'], 'class', 'Objective fulfillment state.', source=['docs/rules/03-intruders-and-survival.md:INT-011'])
 node('tax.state.objective.fulfilled', 'Fulfilled', ['tax.state.objective'], 'state-value', 'Objective/Mission Task fulfilled state.', term_labels=['Fulfilled'])
 node('tax.state.participation', 'Participation/endgame state', ['tax.state'], 'class', 'Character participation/survival state family.', source=['docs/rules/01-round-and-turns.md:RT-014','docs/rules/03-intruders-and-survival.md:INT-011'])
@@ -231,6 +236,7 @@ node('tax.state.activation', 'Activation state', ['tax.state'], 'class', 'Active
 node('tax.state.activation.active', 'Active', ['tax.state.activation'], 'state-value', 'Active face/state.', source=['docs/rulebooks/rulebook_text.txt:setup'])
 node('tax.state.activation.inactive', 'Inactive', ['tax.state.activation'], 'state-value', 'Inactive face/state.', source=['docs/rulebooks/rulebook_text.txt:setup'])
 node('tax.role.starting-player', 'Starting Player', ['tax.role'], 'role', 'Player holding the Starting Player token.', term_labels=['Starting Player'])
+node('tax.role.character', 'Character role/identity', ['tax.role'], 'role', 'Named Character role to which Action cards/decks and Character Items may belong.', source=['docs/rulebooks/rulebook_text.txt:Character setup'])
 
 node('tax.value.turn-order', 'Turn Order', ['tax.value'], 'class', 'Clockwise ordering beginning at Starting Player.', term_labels=['Turn Order'])
 node('tax.value.orientation', 'Corridor orientation value', ['tax.value'], 'class', 'E–W, NE–SW, or NW–SE printed Corridor orientation.', source=['docs/rules/00-foundations.md:FND-005'])
@@ -273,6 +279,9 @@ node('tax.identity.room', 'Named Room identity', ['tax.identity'], 'identity-kin
 node('tax.identity.card-face', 'Named card/reference face identity', ['tax.identity'], 'identity-kind', 'Exact-string named card/reference face identity.', source=['docs/rules/vocabulary/named-component-identities.json'])
 node('tax.identity.game-term-label', 'Named game-term/help label identity', ['tax.identity'], 'identity-kind', 'Exact-string game-term/help heading that is not necessarily a component identity.', source=['docs/rules/vocabulary/named-component-identities.json'])
 node('tax.identity.structured-key', 'Secondary structured key identity', ['tax.identity'], 'identity-kind', 'BGA/TTS source-local technical object key.', source=['docs/rules/source-extraction/secondary-evidence-index.json'])
+node('tax.identity.source-occurrence', 'Source occurrence', ['tax.identity'], 'identity-kind', 'One exact textual, visual, or structured occurrence in one source tuple.', source=['docs/rules/vocabulary/source-term-inventory.json'])
+node('tax.identity.source-occurrence.help-entry', 'Help-sheet entry occurrence', ['tax.identity.source-occurrence'], 'identity-kind', 'One exact Room/Objective/Intruder Help entry occurrence.', source=['docs/rules/source-extraction/README.md'])
+node('tax.identity.source-occurrence.icon', 'Printed icon occurrence', ['tax.identity.source-occurrence'], 'identity-kind', 'One source-local functional icon occurrence on a face/help entry.', source=['docs/rules/source-extraction/room-help-sheet.json'])
 
 node_ids = {item['taxonId'] for item in nodes}
 if len(node_ids) != len(nodes):
@@ -372,10 +381,37 @@ for record in identities['records']:
         'boundary': 'Does not assert that matching display names are the same game object, class, card copy, or semantic effect.',
     })
 
+identity_assignment_by_id = {item['identityObservationId']: item for item in identity_assignments}
+alias_mappings = []
+for alias in aliases['aliases']:
+    if not alias['status'].startswith('accepted-'):
+        raise AssertionError(f'unresolved alias reached ontology generation: {alias["aliasId"]}')
+    target_term = alias.get('targetTermId')
+    target_identity = alias.get('targetNamedIdentityId')
+    if bool(target_term) == bool(target_identity):
+        raise AssertionError(f'alias must target exactly one layer: {alias["aliasId"]}')
+    target_taxa = []
+    if target_term:
+        assignment = assignments[target_term]
+        target_taxa = [assignment['primaryTaxonId'], *assignment['alsoDenotesTaxonIds']]
+    else:
+        target_taxa = [identity_assignment_by_id[target_identity]['primaryTaxonId']]
+    alias_mappings.append({
+        'aliasId': alias['aliasId'],
+        'aliasText': alias['aliasText'],
+        'status': alias['status'],
+        'scope': alias['scope'],
+        'targetTermId': target_term,
+        'targetNamedIdentityId': target_identity,
+        'targetTaxonIds': sorted(set(target_taxa)),
+        'sourceTupleCount': len(alias.get('sourceTuples') or []),
+        'boundary': 'Projection of the accepted scoped alias only; never owl:sameAs and never broader than alias-registry scope.',
+    })
+
 # Static relationship vocabulary. Effect steps/targets/cost values are not instantiated here.
 relations = []
 def relation(rel_id: str, label: str, domain: list[str], range_: list[str], *, inverse: str | None = None, symmetric: bool = False, transitive: bool = False, cardinality: dict | None = None, source: list[str] | None = None, boundary: str) -> None:
-    relations.append({'relationId': rel_id, 'label': label, 'domainTaxonIds': domain, 'rangeTaxonIds': range_, 'inverseRelationId': inverse, 'symmetric': symmetric, 'transitive': transitive, 'cardinalityShape': cardinality or {}, 'sourceEvidence': source or [], 'semanticBoundary': boundary})
+    relations.append({'relationId': rel_id, 'label': label, 'domainTaxonIds': sorted(set(domain)), 'rangeTaxonIds': sorted(set(range_)), 'inverseRelationId': inverse, 'symmetric': symmetric, 'transitive': transitive, 'cardinalityShape': cardinality or {}, 'sourceEvidence': source or [], 'semanticBoundary': boundary})
 
 relation('rel.part-of','part of',['tax.entity'],['tax.entity'],inverse='rel.has-part',transitive=True,source=['docs/rulebooks/rulebook_text.txt:printed page 20'],boundary='Static composition only; creation/removal procedures are deferred.')
 relation('rel.has-part','has part',['tax.entity'],['tax.entity'],inverse='rel.part-of',transitive=True,source=['docs/rulebooks/rulebook_text.txt:printed page 20'],boundary='Static composition only.')
@@ -408,25 +444,39 @@ relation('rel.symbol-denotes','symbol denotes',['tax.symbol'],['tax.entity','tax
 relation('rel.denoted-by-symbol','denoted by symbol',['tax.entity','tax.process','tax.state','tax.role','tax.value'],['tax.symbol'],inverse='rel.symbol-denotes',source=['docs/rules/icon-glossary.md'],boundary='Canonical denotation only.')
 relation('rel.named-identity-instantiates','named identity instantiates',['tax.identity'],['tax.entity','tax.process','tax.state','tax.role','tax.rule'],inverse='rel.has-named-identity',source=['docs/rules/vocabulary/named-component-identities.json'],boundary='Must be explicitly asserted; exact display-name equality never creates this relation automatically.')
 relation('rel.has-named-identity','has named identity',['tax.entity','tax.process','tax.state','tax.role','tax.rule'],['tax.identity'],inverse='rel.named-identity-instantiates',source=['docs/rules/vocabulary/named-component-identities.json'],boundary='Must be explicitly asserted.')
-relation('rel.phase-part-of-round','phase part of Round',['tax.process.temporal.phase'],['tax.process.temporal.round'],inverse='rel.round-has-phase',cardinality={'perPhaseOccurrence':{'min':1,'max':1}},source=['docs/rules/01-round-and-turns.md:RT-001'],boundary='Round structure only.')
-relation('rel.round-has-phase','Round has phase',['tax.process.temporal.round'],['tax.process.temporal.phase'],inverse='rel.phase-part-of-round',cardinality={'baseRound':{'min':4,'max':4}},source=['docs/rules/01-round-and-turns.md:RT-001'],boundary='The four named phases are fixed for the base game.')
-relation('rel.precedes','precedes',['tax.process.temporal'],['tax.process.temporal'],inverse='rel.follows',transitive=True,source=['docs/rules/01-round-and-turns.md:RT-001'],boundary='Static timing ordering; interrupts and effect windows are deferred.')
-relation('rel.follows','follows',['tax.process.temporal'],['tax.process.temporal'],inverse='rel.precedes',transitive=True,source=['docs/rules/01-round-and-turns.md:RT-001'],boundary='Static timing ordering.')
-relation('rel.turn-occurs-in-phase','Turn occurs in phase',['tax.process.temporal.turn'],['tax.process.temporal.phase.player'],inverse='rel.phase-has-turn',source=['docs/rules/01-round-and-turns.md:RT-004'],boundary='Structural timing relation; rotation/skip logic is deferred.')
-relation('rel.phase-has-turn','phase has Turn',['tax.process.temporal.phase.player'],['tax.process.temporal.turn'],inverse='rel.turn-occurs-in-phase',source=['docs/rules/01-round-and-turns.md:RT-004'],boundary='Structural timing relation.')
-relation('rel.process-has-timing-window','process has timing window',['tax.process'],['tax.scaffold.timing-window'],source=['docs/rules/01-round-and-turns.md'],boundary='Schema relation only; individual effect timings are semantic-layer data.')
-relation('rel.decision-owned-by','decision owned by',['tax.scaffold.decision'],['tax.entity.agent.player','tax.entity.agent.character','tax.role'],inverse='rel.owns-decision',source=['docs/rules/00-foundations.md:FND-002'],boundary='Schema relation only; each specific choice owner is semantic-layer data.')
-relation('rel.owns-decision','owns decision',['tax.entity.agent.player','tax.entity.agent.character','tax.role'],['tax.scaffold.decision'],inverse='rel.decision-owned-by',source=['docs/rules/00-foundations.md:FND-002'],boundary='Schema relation only.')
-relation('rel.information-visible-to','information visible to',['tax.entity.information','tax.entity.component.card'],['tax.scaffold.audience-scope'],source=['docs/rules/01-round-and-turns.md:RT-010','docs/rules/02-character-actions.md:ACT-SEARCH-001'],boundary='Schema relation only; actual secrecy/reveal policy is semantic-layer data.')
-relation('rel.transition-from','transition from',['tax.scaffold.lifecycle-transition'],['tax.state','tax.scaffold.zone'],source=['docs/rules/01-round-and-turns.md:RT-014'],boundary='Schema relation only; triggers and ordered mutations are semantic-layer data.')
-relation('rel.transition-to','transition to',['tax.scaffold.lifecycle-transition'],['tax.state','tax.scaffold.zone'],source=['docs/rules/01-round-and-turns.md:RT-014'],boundary='Schema relation only; triggers and ordered mutations are semantic-layer data.')
+relation('rel.map-depicts-facility','Map depicts Facility',['tax.entity.spatial.map'],['tax.entity.spatial.facility'],inverse='rel.facility-depicted-by-map',cardinality={'baseMap':{'min':1,'max':1}},source=['docs/rulebooks/rulebook_text.txt:lines 3915–3918'],boundary='Static representation relation, not map rendering or setup procedure.')
+relation('rel.facility-depicted-by-map','Facility depicted by Map',['tax.entity.spatial.facility'],['tax.entity.spatial.map'],inverse='rel.map-depicts-facility',cardinality={'baseFacility':{'min':1,'max':1}},source=['docs/rulebooks/rulebook_text.txt:lines 3915–3918'],boundary='Static representation relation.')
+relation('rel.section-part-of-facility','Section part of Facility',['tax.entity.spatial.section'],['tax.entity.spatial.facility'],inverse='rel.facility-has-section',cardinality={'baseSection':{'min':1,'max':1}},source=['docs/rulebooks/rulebook_text.txt:lines 3915–3918'],boundary='Static base-map composition only.')
+relation('rel.facility-has-section','Facility has Section',['tax.entity.spatial.facility'],['tax.entity.spatial.section'],inverse='rel.section-part-of-facility',cardinality={'baseFacility':{'min':3,'max':3}},source=['docs/rulebooks/rulebook_text.txt:lines 3915–3918'],boundary='Base Facility has Sections A, B, and C; phase/mode variants remain separately scoped.')
+relation('rel.corridor-located-in-section','Corridor located in Section',['tax.entity.spatial.corridor'],['tax.entity.spatial.section'],inverse='rel.section-has-corridor',cardinality={'placedCorridor':{'min':1,'max':2}},source=['docs/rulebooks/rulebook_text.txt:lines 4138–4140'],boundary='A border Corridor belongs to both bordering Sections; placement procedure is deferred.')
+relation('rel.section-has-corridor','Section has Corridor',['tax.entity.spatial.section'],['tax.entity.spatial.corridor'],inverse='rel.corridor-located-in-section',source=['docs/rulebooks/rulebook_text.txt:lines 4138–4140'],boundary='Static Section membership only.')
+relation('rel.door-bounds-room','Door bounds Room',['tax.entity.spatial.door'],['tax.entity.spatial.room'],inverse='rel.room-bounded-by-door',cardinality={'placedDoor':{'min':1,'max':1}},source=['docs/rules/02-character-actions.md:Doors'],boundary='Door is at a Corridor end against one Room; state/access effects are deferred.')
+relation('rel.room-bounded-by-door','Room bounded by Door',['tax.entity.spatial.room'],['tax.entity.spatial.door'],inverse='rel.door-bounds-room',source=['docs/rules/02-character-actions.md:Doors'],boundary='Static boundary relation only.')
+relation('rel.source-occurrence-documents-definition','source occurrence documents definition',['tax.identity.source-occurrence'],['tax.entity.information.component-definition'],inverse='rel.definition-documented-by-source-occurrence',source=['docs/rules/source-extraction/README.md'],boundary='Provenance relation only; it does not merge versions or assert semantic equivalence.')
+relation('rel.definition-documented-by-source-occurrence','definition documented by source occurrence',['tax.entity.information.component-definition'],['tax.identity.source-occurrence'],inverse='rel.source-occurrence-documents-definition',source=['docs/rules/source-extraction/README.md'],boundary='Provenance relation only.')
+relation('rel.component-copy-realizes-definition','component copy realizes definition',['tax.entity.component'],['tax.entity.information.component-definition'],inverse='rel.definition-realized-by-copy',cardinality={'componentCopy':{'min':1,'max':1}},source=['docs/rulebooks/Nemesis_RT_Rulebook_official.pdf:component list','docs/rules/source-extraction/README.md'],boundary='Definition/copy separation; multiple physical copies may realize one definition.')
+relation('rel.definition-realized-by-copy','definition realized by component copy',['tax.entity.information.component-definition'],['tax.entity.component'],inverse='rel.component-copy-realizes-definition',source=['docs/rulebooks/Nemesis_RT_Rulebook_official.pdf:component list'],boundary='Definition/copy separation.')
+relation('rel.component-copy-member-of-set','component copy member of set',['tax.entity.component'],['tax.entity.component-set'],inverse='rel.component-set-has-copy',source=['docs/rulebooks/Nemesis_RT_Rulebook_official.pdf:component list'],boundary='Static inventory/deck/pool membership; draw/removal transitions are deferred.')
+relation('rel.component-set-has-copy','component set has copy',['tax.entity.component-set'],['tax.entity.component'],inverse='rel.component-copy-member-of-set',source=['docs/rulebooks/Nemesis_RT_Rulebook_official.pdf:component list'],boundary='Static inventory membership only.')
+relation('rel.help-entry-describes-room-definition','Help entry describes Room definition',['tax.identity.source-occurrence.help-entry'],['tax.entity.information.component-definition.room'],inverse='rel.room-definition-described-by-help-entry',source=['docs/rules/source-extraction/room-help-sheet.json'],boundary='Exact source occurrence to definition relation; aliases and semantics remain separately reviewed.')
+relation('rel.room-definition-described-by-help-entry','Room definition described by Help entry',['tax.entity.information.component-definition.room'],['tax.identity.source-occurrence.help-entry'],inverse='rel.help-entry-describes-room-definition',cardinality={'officialRoomHelpDefinition':{'min':1,'max':1}},source=['docs/rules/source-extraction/room-help-sheet.json'],boundary='Official Room Help source relation only.')
+relation('rel.action-deck-for-character-role','Action deck for Character role',['tax.scaffold.zone.deck'],['tax.role.character'],inverse='rel.character-role-has-action-deck',cardinality={'baseCharacterRole':{'min':1,'max':1}},source=['docs/rulebooks/rulebook_text.txt:lines 2684–2689'],boundary='Deck-role association only; individual face effects and deck transitions are deferred.')
+relation('rel.character-role-has-action-deck','Character role has Action deck',['tax.role.character'],['tax.scaffold.zone.deck'],inverse='rel.action-deck-for-character-role',cardinality={'baseCharacterRole':{'min':1,'max':1}},source=['docs/rulebooks/rulebook_text.txt:lines 2684–2689'],boundary='Deck-role association only.')
+relation('rel.icon-occurrence-appears-on-definition','icon occurrence appears on definition',['tax.identity.source-occurrence.icon'],['tax.entity.information.component-definition'],inverse='rel.definition-has-icon-occurrence',source=['docs/rules/source-extraction/room-help-sheet.json','assets/tts-mod/extract/card-text-corpus.json'],boundary='Source-local occurrence placement only; semantic denotation is a separate reviewed relation.')
+relation('rel.definition-has-icon-occurrence','definition has icon occurrence',['tax.entity.information.component-definition'],['tax.identity.source-occurrence.icon'],inverse='rel.icon-occurrence-appears-on-definition',source=['docs/rules/source-extraction/room-help-sheet.json','assets/tts-mod/extract/card-text-corpus.json'],boundary='Source-local occurrence inventory only.')
+relation('rel.room-definition-designated-for-section','Room definition designated for Section',['tax.entity.information.component-definition.room'],['tax.entity.spatial.section'],inverse='rel.section-has-designated-room-definition',cardinality={'typedRoomDefinition':{'min':0,'max':1}},source=['docs/rules/source-extraction/room-help-sheet.json'],boundary='A/B/C printed designation only; “?” remains unassigned and placement is deferred.')
+relation('rel.section-has-designated-room-definition','Section has designated Room definition',['tax.entity.spatial.section'],['tax.entity.information.component-definition.room'],inverse='rel.room-definition-designated-for-section',source=['docs/rules/source-extraction/room-help-sheet.json'],boundary='Printed Room-type designation only.')
+# Temporal ordering, decision ownership, visibility, and lifecycle transition
+# properties are deliberately deferred to the semantic layer. The scaffold
+# taxa above reserve their types without pretending that static ontology is an
+# executable timing/effect model.
 relation('rel.limited-by-supply','limited by supply',['tax.entity.component'],['tax.scaffold.supply-pool'],inverse='rel.supply-limits',source=['docs/rules/03-intruders-and-survival.md:INT-001','docs/rules/04-items-and-equipment.md:ITM-005'],boundary='Finite-supply relation; exhaustion resolution remains source-specific.')
 relation('rel.supply-limits','supply limits',['tax.scaffold.supply-pool'],['tax.entity.component'],inverse='rel.limited-by-supply',source=['docs/rules/03-intruders-and-survival.md:INT-001'],boundary='Finite-supply relation.')
 
 # Static assertions/constraints; not executable effect records.
 assertions = [
     {'assertionId':'AS-001','kind':'closed-enumeration','subjectTaxonId':'tax.entity.spatial.section','memberTaxonIds':['tax.entity.spatial.section.a','tax.entity.spatial.section.b','tax.entity.spatial.section.c'],'scope':'base Facility','sourceEvidence':['docs/rulebooks/rulebook_text.txt:lines 3915–3918']},
-    {'assertionId':'AS-002','kind':'ordered-membership','subjectTaxonId':'tax.process.temporal.round','memberTaxonIds':['tax.process.temporal.phase.player','tax.process.temporal.phase.intruder','tax.process.temporal.phase.event','tax.process.temporal.phase.cleanup'],'scope':'base Round','sourceEvidence':['docs/rules/01-round-and-turns.md:RT-001']},
+    {'assertionId':'AS-002','kind':'ontology-level-separation','taxonIds':['tax.identity.source-occurrence','tax.entity.information.component-definition','tax.entity.component'],'sourceEvidence':['docs/rules/source-extraction/README.md','docs/rulebooks/Nemesis_RT_Rulebook_official.pdf:component list'],'boundary':'Source occurrences document definitions; runtime/physical copies realize definitions. No pair is automatically identical or owl:sameAs.'},
     {'assertionId':'AS-003','kind':'placement-constraint','subjectTaxonId':'tax.entity.agent.character','allowedLocationTaxonIds':['tax.entity.spatial.room'],'forbiddenLocationTaxonIds':['tax.entity.spatial.corridor'],'scope':'while on Facility map','sourceEvidence':['docs/rulebooks/rulebook_text.txt:lines 3919–3921']},
     {'assertionId':'AS-004','kind':'placement-constraint','subjectTaxonId':'tax.entity.agent.intruder','allowedLocationTaxonIds':['tax.entity.spatial.room','tax.entity.spatial.corridor'],'scope':'while on Facility map','sourceEvidence':['docs/rulebooks/rulebook_text.txt:lines 3919–3921']},
     {'assertionId':'AS-005','kind':'capacity-constraint','subjectTaxonId':'tax.entity.spatial.room','capacity':'unlimited Intruders','sourceEvidence':['docs/rules/03-intruders-and-survival.md:INT-001']},
@@ -446,9 +496,28 @@ assertions = [
 review_gates = {
     'schemaVersion': 1,
     'recordType': 'taxonomy-ontology-review-gates',
-    'status': 'proposal generated; no owner gate asserted yet, pending independent audit',
+    'status': 'independent taxonomy, relationship, ambiguity, and validator audits incorporated; no owner gate blocks static ontology approval',
     'counts': {'reviewGates': 0, 'resolved': 0, 'open': 0},
     'gates': [],
+    'independentAudit': {
+        'delegationId': 'deleg_0cdda6e9',
+        'workstreams': 4,
+        'incorporatedFindings': [
+            'separate source occurrence, component definition, component set, and runtime/physical copy levels',
+            'Reaction is not an Action; generic Attack and Opportunity Attack are not automatically player Actions',
+            'retain carrier/card versus printed-content distinction',
+            'defer timing, decision ownership, visibility, and lifecycle transition relations to semantic modeling',
+            'add missing Facility/Section/Corridor/Door/definition/copy/set/deck-role/icon-occurrence structural edges',
+            'correct Empty Corridor: Noise is allowed; only Intruders make it non-empty',
+            'harden mapping, inverse-signature, alias-projection, provenance, cardinality, phase-boundary, and reproducibility validation',
+        ],
+    },
+    'deferredSemanticRelationIds': [
+        'rel.phase-part-of-round', 'rel.round-has-phase', 'rel.precedes', 'rel.follows',
+        'rel.turn-occurs-in-phase', 'rel.phase-has-turn', 'rel.process-has-timing-window',
+        'rel.decision-owned-by', 'rel.owns-decision', 'rel.information-visible-to',
+        'rel.transition-from', 'rel.transition-to',
+    ],
     'deferredNonBlockingQuestions': [
         {'questionId':'ONTO-DQ-001','sourceQuestionId':'OQ-001','classification':'semantic-procedure ambiguity','reason':'Eclosion hand snapshot/iteration semantics do not alter static classes or relations.'},
         {'questionId':'ONTO-DQ-002','sourceQuestionId':'OQ-002','classification':'semantic timing ambiguity','reason':'Endgame Larva iteration timing is an ordered-procedure issue.'},
@@ -489,9 +558,10 @@ taxonomy = {
 mappings = {
     'schemaVersion': 1,
     'recordType': 'taxonomy-mappings',
-    'counts': {'controlledTerms': len(term_assignment_rows), 'namedIdentities': len(identity_assignments), 'symbolDenotations': sum(item['assignmentKind'] == 'symbol-denotation' for item in term_assignment_rows)},
+    'counts': {'controlledTerms': len(term_assignment_rows), 'namedIdentities': len(identity_assignments), 'symbolDenotations': sum(item['assignmentKind'] == 'symbol-denotation' for item in term_assignment_rows), 'acceptedAliases': len(alias_mappings)},
     'controlledTermAssignments': term_assignment_rows,
     'namedIdentityAssignments': identity_assignments,
+    'acceptedAliasMappings': alias_mappings,
 }
 
 ontology = {

@@ -4,7 +4,8 @@
   "counts": {
     "controlledTerms": 167,
     "namedIdentities": 501,
-    "symbolDenotations": 50
+    "symbolDenotations": 50,
+    "acceptedAliases": 8
   },
   "controlledTermAssignments": [
     {
@@ -5420,6 +5421,115 @@
       "assignmentKind": "classifies-source-identity-only",
       "sourceOccurrenceCount": 1,
       "boundary": "Does not assert that matching display names are the same game object, class, card copy, or semantic effect."
+    }
+  ],
+  "acceptedAliasMappings": [
+    {
+      "aliasId": "AL-001",
+      "aliasText": "Primeblood",
+      "status": "accepted-explicit-official-equivalence",
+      "scope": "global-official",
+      "targetTermId": "icon.intruder",
+      "targetNamedIdentityId": null,
+      "targetTaxonIds": [
+        "tax.entity.agent.intruder",
+        "tax.symbol.entity-reference"
+      ],
+      "sourceTupleCount": 0,
+      "boundary": "Projection of the accepted scoped alias only; never owl:sameAs and never broader than alias-registry scope."
+    },
+    {
+      "aliasId": "AL-002",
+      "aliasText": "Primebloods",
+      "status": "accepted-explicit-official-equivalence",
+      "scope": "global-official",
+      "targetTermId": "icon.intruder",
+      "targetNamedIdentityId": null,
+      "targetTaxonIds": [
+        "tax.entity.agent.intruder",
+        "tax.symbol.entity-reference"
+      ],
+      "sourceTupleCount": 0,
+      "boundary": "Projection of the accepted scoped alias only; never owl:sameAs and never broader than alias-registry scope."
+    },
+    {
+      "aliasId": "AL-003",
+      "aliasText": "PERSONAL OBJECTIVE",
+      "status": "accepted-source-scoped-alias",
+      "scope": "exact listed TTS component sources only",
+      "targetTermId": "term.private-objective",
+      "targetNamedIdentityId": null,
+      "targetTaxonIds": [
+        "tax.entity.information.objective.private"
+      ],
+      "sourceTupleCount": 38,
+      "boundary": "Projection of the accepted scoped alias only; never owl:sameAs and never broader than alias-registry scope."
+    },
+    {
+      "aliasId": "AL-004",
+      "aliasText": "Drilling Room",
+      "status": "accepted-official-naming-alias",
+      "scope": "official rulebook printed page 19 only",
+      "targetTermId": null,
+      "targetNamedIdentityId": "NI-0133",
+      "targetTaxonIds": [
+        "tax.identity.room"
+      ],
+      "sourceTupleCount": 0,
+      "boundary": "Projection of the accepted scoped alias only; never owl:sameAs and never broader than alias-registry scope."
+    },
+    {
+      "aliasId": "AL-005",
+      "aliasText": "purple square containing a white exclamation mark (vertical bar and detached dot)",
+      "status": "accepted-source-scoped-semantic-artwork-alias",
+      "scope": "only exact tuples listed by legacy-purple-exclamation-is-burst-additional-effects",
+      "targetTermId": "icon.burstDieAdditionalEffects",
+      "targetNamedIdentityId": null,
+      "targetTaxonIds": [
+        "tax.symbol.die-result"
+      ],
+      "sourceTupleCount": 6,
+      "boundary": "Projection of the accepted scoped alias only; never owl:sameAs and never broader than alias-registry scope."
+    },
+    {
+      "aliasId": "AL-006",
+      "aliasText": "red upright triangle containing an older curved or oblique ammunition-magazine motif",
+      "status": "accepted-source-scoped-semantic-artwork-alias",
+      "scope": "only exact tuples listed by legacy-red-magazine-triangle-is-shoot-ammo-loss",
+      "targetTermId": "icon.shootDieAmmoLoss",
+      "targetNamedIdentityId": null,
+      "targetTaxonIds": [
+        "tax.symbol.die-result"
+      ],
+      "sourceTupleCount": 4,
+      "boundary": "Projection of the accepted scoped alias only; never owl:sameAs and never broader than alias-registry scope."
+    },
+    {
+      "aliasId": "AL-007",
+      "aliasText": "red chamfered ammunition block with a dark center and darker right-side facet",
+      "status": "accepted-source-scoped-semantic-artwork-alias",
+      "scope": "only exact tuples listed by manual-s05-red-inline-is-ammo-token",
+      "targetTermId": "icon.ammoToken",
+      "targetNamedIdentityId": null,
+      "targetTaxonIds": [
+        "tax.entity.component.token.tactical-gear.ammo",
+        "tax.symbol.component-reference"
+      ],
+      "sourceTupleCount": 1,
+      "boundary": "Projection of the accepted scoped alias only; never owl:sameAs and never broader than alias-registry scope."
+    },
+    {
+      "aliasId": "AL-008",
+      "aliasText": "white person or figure above cyan-blue concentric rings",
+      "status": "accepted-source-scoped-semantic-artwork-alias",
+      "scope": "only exact tuples listed by official-number-of-characters-objective-metadata",
+      "targetTermId": "icon.numberOfCharacters",
+      "targetNamedIdentityId": null,
+      "targetTaxonIds": [
+        "tax.symbol.metadata"
+      ],
+      "sourceTupleCount": 1,
+      "boundary": "Projection of the accepted scoped alias only; never owl:sameAs and never broader than alias-registry scope."
     }
   ]
 }

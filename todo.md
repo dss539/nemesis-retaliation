@@ -1959,15 +1959,24 @@ task workspace.
 - [x] Owner gate VG-001: accepted `PERSONAL OBJECTIVE` → source-scoped alias of `Private Objective` for exact listed tuples; original wording/provenance preserved.
 - [x] Owner gate VG-002: accepted `Drilling Room` → alias of named component `DRILLING STATION`; both official labels preserved.
 
-## IN PROGRESS — Taxonomy/ontology proposal (2026-08-24T23:02:00Z)
+## DONE — Taxonomy/ontology proposal (2026-08-24T23:02:00Z)
 
 - [x] Define 202 source-traceable taxa over approved vocabulary and named identities.
 - [x] Map all 167 controlled terms and 501 named identity observations.
 - [x] Define 45 source-supported relationships, 20 inverse pairs, and 14 static constraints without semantic effects.
 - [x] Validate provenance, acyclicity, uniqueness, domains/ranges, cardinalities, complete mappings, and byte-identical rebuilds.
 - [x] Add corruption negative controls for cycles, missing mappings, bad inverses/ranges/cardinalities, missing sources, and semantic leakage.
-- [ ] Incorporate independent taxonomy, ontology, ambiguity, and validator audits.
-- [ ] Record genuine ontology owner-review gates, if any, only after all independent work is exhausted.
+- [x] Incorporate four independent taxonomy, ontology, ambiguity, and validator audits.
+- [x] Correct process/category errors, add occurrence/definition/copy levels and missing static edges, and defer 12 semantic relation IDs.
+- [x] Conclude no genuine owner gate blocks the static ontology after corrections.
+
+## IN PROGRESS — Semantic rules schema and pilot (2026-08-24)
+
+- [ ] Define the source-traceable semantic record/schema contract.
+- [ ] Encode representative Round/Turn, movement/exploration, card, Room, Event, Intruder, and endgame pilots.
+- [ ] Carry six genuine semantic questions explicitly without silent defaults.
+- [ ] Add deterministic validation and adversarial negative controls.
+- [ ] Collect owner decisions but defer asking until every independent semantic task is exhausted.
 
 ## DONE — Independent Room Help fidelity hardening (2026-08-24T10:04:12Z)
 

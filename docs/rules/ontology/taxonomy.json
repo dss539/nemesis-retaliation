@@ -3,16 +3,16 @@
   "recordType": "source-traceable-taxonomy-proposal",
   "phaseBoundary": "Classification only. Multiple parents do not imply disjointness unless declared. No executable effects, triggers, costs, choices, targets, or state transitions are encoded.",
   "counts": {
-    "taxa": 202,
+    "taxa": 211,
     "rootTaxa": 9,
     "controlledTermAssignments": 167,
     "namedIdentityAssignments": 501,
     "byOntologicalKind": {
-      "class": 92,
-      "identity-kind": 13,
+      "class": 97,
+      "identity-kind": 16,
       "meta-rule": 9,
       "process-type": 43,
-      "role": 2,
+      "role": 3,
       "schema-class": 15,
       "state-value": 19,
       "symbol-kind": 9
@@ -524,12 +524,26 @@
     },
     {
       "taxonId": "tax.entity.component",
-      "label": "Physical component",
+      "label": "Component copy/runtime entity",
       "parentTaxonIds": [
         "tax.entity"
       ],
       "ontologicalKind": "class",
-      "definitionBoundary": "A finite or printed physical game component represented in the source inventory.",
+      "definitionBoundary": "A physical component copy or runtime entity in one game, distinct from its definition and source occurrence.",
+      "evidenceTermIds": [],
+      "sourceEvidence": [
+        "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf:component list"
+      ],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.entity.component-set",
+      "label": "Component set or supply",
+      "parentTaxonIds": [
+        "tax.entity"
+      ],
+      "ontologicalKind": "class",
+      "definitionBoundary": "A deck, pile, pool, insert, or finite set from which component copies are supplied.",
       "evidenceTermIds": [],
       "sourceEvidence": [
         "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf:component list"
@@ -743,6 +757,62 @@
       "evidenceTermIds": [],
       "sourceEvidence": [
         "docs/rules/01-round-and-turns.md:RT-010"
+      ],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.entity.information.component-definition",
+      "label": "Component definition",
+      "parentTaxonIds": [
+        "tax.entity.information"
+      ],
+      "ontologicalKind": "class",
+      "definitionBoundary": "Rules-bearing definition shared by one or more component copies; distinct from a source occurrence and runtime copy.",
+      "evidenceTermIds": [],
+      "sourceEvidence": [
+        "docs/rules/source-extraction/README.md"
+      ],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.entity.information.component-definition.room",
+      "label": "Room definition",
+      "parentTaxonIds": [
+        "tax.entity.information.component-definition"
+      ],
+      "ontologicalKind": "class",
+      "definitionBoundary": "Definition of a named Room effect/metadata entry.",
+      "evidenceTermIds": [],
+      "sourceEvidence": [
+        "docs/rules/source-extraction/room-help-sheet.json"
+      ],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.entity.information.component-definition.card-face",
+      "label": "Card-face definition",
+      "parentTaxonIds": [
+        "tax.entity.information.component-definition"
+      ],
+      "ontologicalKind": "class",
+      "definitionBoundary": "Definition of one scoped card face/version.",
+      "evidenceTermIds": [],
+      "sourceEvidence": [
+        "assets/tts-mod/extract/card-text-corpus.json"
+      ],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.entity.information.component-definition.component-set",
+      "label": "Component-set definition",
+      "parentTaxonIds": [
+        "tax.entity.information.component-definition"
+      ],
+      "ontologicalKind": "class",
+      "definitionBoundary": "Definition/inventory of a deck, pile, pool, or component set.",
+      "evidenceTermIds": [],
+      "sourceEvidence": [
+        "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf:component list"
       ],
       "disjointWithTaxonIds": []
     },
@@ -2130,11 +2200,13 @@
         "tax.state.corridor"
       ],
       "ontologicalKind": "state-value",
-      "definitionBoundary": "Corridor contains no Intruder/Noise where a source requires Empty.",
+      "definitionBoundary": "Corridor containing no Intruders; a Corridor with a Noise marker is still Empty.",
       "evidenceTermIds": [
         "term.empty-corridor"
       ],
-      "sourceEvidence": [],
+      "sourceEvidence": [
+        "docs/rulebooks/rulebook_text.txt:lines 4159–4161"
+      ],
       "disjointWithTaxonIds": []
     },
     {
@@ -2144,11 +2216,13 @@
         "tax.state.corridor"
       ],
       "ontologicalKind": "state-value",
-      "definitionBoundary": "Corridor leading to an Undiscovered Room slot.",
+      "definitionBoundary": "Corridor connected with only one placed Room.",
       "evidenceTermIds": [
         "term.unexplored-corridor"
       ],
-      "sourceEvidence": [],
+      "sourceEvidence": [
+        "docs/rulebooks/rulebook_text.txt:lines 4162–4163"
+      ],
       "disjointWithTaxonIds": []
     },
     {
@@ -2318,6 +2392,20 @@
         "term.starting-player"
       ],
       "sourceEvidence": [],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.role.character",
+      "label": "Character role/identity",
+      "parentTaxonIds": [
+        "tax.role"
+      ],
+      "ontologicalKind": "role",
+      "definitionBoundary": "Named Character role to which Action cards/decks and Character Items may belong.",
+      "evidenceTermIds": [],
+      "sourceEvidence": [
+        "docs/rulebooks/rulebook_text.txt:Character setup"
+      ],
       "disjointWithTaxonIds": []
     },
     {
@@ -2852,6 +2940,48 @@
       "evidenceTermIds": [],
       "sourceEvidence": [
         "docs/rules/source-extraction/secondary-evidence-index.json"
+      ],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.identity.source-occurrence",
+      "label": "Source occurrence",
+      "parentTaxonIds": [
+        "tax.identity"
+      ],
+      "ontologicalKind": "identity-kind",
+      "definitionBoundary": "One exact textual, visual, or structured occurrence in one source tuple.",
+      "evidenceTermIds": [],
+      "sourceEvidence": [
+        "docs/rules/vocabulary/source-term-inventory.json"
+      ],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.identity.source-occurrence.help-entry",
+      "label": "Help-sheet entry occurrence",
+      "parentTaxonIds": [
+        "tax.identity.source-occurrence"
+      ],
+      "ontologicalKind": "identity-kind",
+      "definitionBoundary": "One exact Room/Objective/Intruder Help entry occurrence.",
+      "evidenceTermIds": [],
+      "sourceEvidence": [
+        "docs/rules/source-extraction/README.md"
+      ],
+      "disjointWithTaxonIds": []
+    },
+    {
+      "taxonId": "tax.identity.source-occurrence.icon",
+      "label": "Printed icon occurrence",
+      "parentTaxonIds": [
+        "tax.identity.source-occurrence"
+      ],
+      "ontologicalKind": "identity-kind",
+      "definitionBoundary": "One source-local functional icon occurrence on a face/help entry.",
+      "evidenceTermIds": [],
+      "sourceEvidence": [
+        "docs/rules/source-extraction/room-help-sheet.json"
       ],
       "disjointWithTaxonIds": []
     }

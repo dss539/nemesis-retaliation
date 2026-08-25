@@ -3,8 +3,8 @@
   "recordType": "static-ontology-proposal",
   "phaseBoundary": "Static classes, relationship shapes, source-backed constraints, and scaffolding only. No effect instances, ordered mutations, legality algorithms, target selection, costs, or visibility decisions are encoded.",
   "counts": {
-    "relations": 45,
-    "inversePairs": 20,
+    "relations": 55,
+    "inversePairs": 27,
     "staticAssertions": 14,
     "semanticScaffoldTaxa": 15
   },
@@ -547,8 +547,8 @@
       "rangeTaxonIds": [
         "tax.entity",
         "tax.process",
-        "tax.state",
         "tax.role",
+        "tax.state",
         "tax.value"
       ],
       "inverseRelationId": "rel.denoted-by-symbol",
@@ -566,8 +566,8 @@
       "domainTaxonIds": [
         "tax.entity",
         "tax.process",
-        "tax.state",
         "tax.role",
+        "tax.state",
         "tax.value"
       ],
       "rangeTaxonIds": [
@@ -591,9 +591,9 @@
       "rangeTaxonIds": [
         "tax.entity",
         "tax.process",
-        "tax.state",
         "tax.role",
-        "tax.rule"
+        "tax.rule",
+        "tax.state"
       ],
       "inverseRelationId": "rel.has-named-identity",
       "symmetric": false,
@@ -610,9 +610,9 @@
       "domainTaxonIds": [
         "tax.entity",
         "tax.process",
-        "tax.state",
         "tax.role",
-        "tax.rule"
+        "tax.rule",
+        "tax.state"
       ],
       "rangeTaxonIds": [
         "tax.identity"
@@ -627,238 +627,458 @@
       "semanticBoundary": "Must be explicitly asserted."
     },
     {
-      "relationId": "rel.phase-part-of-round",
-      "label": "phase part of Round",
+      "relationId": "rel.map-depicts-facility",
+      "label": "Map depicts Facility",
       "domainTaxonIds": [
-        "tax.process.temporal.phase"
+        "tax.entity.spatial.map"
       ],
       "rangeTaxonIds": [
-        "tax.process.temporal.round"
+        "tax.entity.spatial.facility"
       ],
-      "inverseRelationId": "rel.round-has-phase",
+      "inverseRelationId": "rel.facility-depicted-by-map",
       "symmetric": false,
       "transitive": false,
       "cardinalityShape": {
-        "perPhaseOccurrence": {
+        "baseMap": {
           "min": 1,
           "max": 1
         }
       },
       "sourceEvidence": [
-        "docs/rules/01-round-and-turns.md:RT-001"
+        "docs/rulebooks/rulebook_text.txt:lines 3915–3918"
       ],
-      "semanticBoundary": "Round structure only."
+      "semanticBoundary": "Static representation relation, not map rendering or setup procedure."
     },
     {
-      "relationId": "rel.round-has-phase",
-      "label": "Round has phase",
+      "relationId": "rel.facility-depicted-by-map",
+      "label": "Facility depicted by Map",
       "domainTaxonIds": [
-        "tax.process.temporal.round"
+        "tax.entity.spatial.facility"
       ],
       "rangeTaxonIds": [
-        "tax.process.temporal.phase"
+        "tax.entity.spatial.map"
       ],
-      "inverseRelationId": "rel.phase-part-of-round",
+      "inverseRelationId": "rel.map-depicts-facility",
       "symmetric": false,
       "transitive": false,
       "cardinalityShape": {
-        "baseRound": {
-          "min": 4,
-          "max": 4
+        "baseFacility": {
+          "min": 1,
+          "max": 1
         }
       },
       "sourceEvidence": [
-        "docs/rules/01-round-and-turns.md:RT-001"
+        "docs/rulebooks/rulebook_text.txt:lines 3915–3918"
       ],
-      "semanticBoundary": "The four named phases are fixed for the base game."
+      "semanticBoundary": "Static representation relation."
     },
     {
-      "relationId": "rel.precedes",
-      "label": "precedes",
+      "relationId": "rel.section-part-of-facility",
+      "label": "Section part of Facility",
       "domainTaxonIds": [
-        "tax.process.temporal"
+        "tax.entity.spatial.section"
       ],
       "rangeTaxonIds": [
-        "tax.process.temporal"
+        "tax.entity.spatial.facility"
       ],
-      "inverseRelationId": "rel.follows",
+      "inverseRelationId": "rel.facility-has-section",
       "symmetric": false,
-      "transitive": true,
-      "cardinalityShape": {},
+      "transitive": false,
+      "cardinalityShape": {
+        "baseSection": {
+          "min": 1,
+          "max": 1
+        }
+      },
       "sourceEvidence": [
-        "docs/rules/01-round-and-turns.md:RT-001"
+        "docs/rulebooks/rulebook_text.txt:lines 3915–3918"
       ],
-      "semanticBoundary": "Static timing ordering; interrupts and effect windows are deferred."
+      "semanticBoundary": "Static base-map composition only."
     },
     {
-      "relationId": "rel.follows",
-      "label": "follows",
+      "relationId": "rel.facility-has-section",
+      "label": "Facility has Section",
       "domainTaxonIds": [
-        "tax.process.temporal"
+        "tax.entity.spatial.facility"
       ],
       "rangeTaxonIds": [
-        "tax.process.temporal"
+        "tax.entity.spatial.section"
       ],
-      "inverseRelationId": "rel.precedes",
+      "inverseRelationId": "rel.section-part-of-facility",
       "symmetric": false,
-      "transitive": true,
-      "cardinalityShape": {},
+      "transitive": false,
+      "cardinalityShape": {
+        "baseFacility": {
+          "min": 3,
+          "max": 3
+        }
+      },
       "sourceEvidence": [
-        "docs/rules/01-round-and-turns.md:RT-001"
+        "docs/rulebooks/rulebook_text.txt:lines 3915–3918"
       ],
-      "semanticBoundary": "Static timing ordering."
+      "semanticBoundary": "Base Facility has Sections A, B, and C; phase/mode variants remain separately scoped."
     },
     {
-      "relationId": "rel.turn-occurs-in-phase",
-      "label": "Turn occurs in phase",
+      "relationId": "rel.corridor-located-in-section",
+      "label": "Corridor located in Section",
       "domainTaxonIds": [
-        "tax.process.temporal.turn"
+        "tax.entity.spatial.corridor"
       ],
       "rangeTaxonIds": [
-        "tax.process.temporal.phase.player"
+        "tax.entity.spatial.section"
       ],
-      "inverseRelationId": "rel.phase-has-turn",
+      "inverseRelationId": "rel.section-has-corridor",
+      "symmetric": false,
+      "transitive": false,
+      "cardinalityShape": {
+        "placedCorridor": {
+          "min": 1,
+          "max": 2
+        }
+      },
+      "sourceEvidence": [
+        "docs/rulebooks/rulebook_text.txt:lines 4138–4140"
+      ],
+      "semanticBoundary": "A border Corridor belongs to both bordering Sections; placement procedure is deferred."
+    },
+    {
+      "relationId": "rel.section-has-corridor",
+      "label": "Section has Corridor",
+      "domainTaxonIds": [
+        "tax.entity.spatial.section"
+      ],
+      "rangeTaxonIds": [
+        "tax.entity.spatial.corridor"
+      ],
+      "inverseRelationId": "rel.corridor-located-in-section",
       "symmetric": false,
       "transitive": false,
       "cardinalityShape": {},
       "sourceEvidence": [
-        "docs/rules/01-round-and-turns.md:RT-004"
+        "docs/rulebooks/rulebook_text.txt:lines 4138–4140"
       ],
-      "semanticBoundary": "Structural timing relation; rotation/skip logic is deferred."
+      "semanticBoundary": "Static Section membership only."
     },
     {
-      "relationId": "rel.phase-has-turn",
-      "label": "phase has Turn",
+      "relationId": "rel.door-bounds-room",
+      "label": "Door bounds Room",
       "domainTaxonIds": [
-        "tax.process.temporal.phase.player"
+        "tax.entity.spatial.door"
       ],
       "rangeTaxonIds": [
-        "tax.process.temporal.turn"
+        "tax.entity.spatial.room"
       ],
-      "inverseRelationId": "rel.turn-occurs-in-phase",
+      "inverseRelationId": "rel.room-bounded-by-door",
+      "symmetric": false,
+      "transitive": false,
+      "cardinalityShape": {
+        "placedDoor": {
+          "min": 1,
+          "max": 1
+        }
+      },
+      "sourceEvidence": [
+        "docs/rules/02-character-actions.md:Doors"
+      ],
+      "semanticBoundary": "Door is at a Corridor end against one Room; state/access effects are deferred."
+    },
+    {
+      "relationId": "rel.room-bounded-by-door",
+      "label": "Room bounded by Door",
+      "domainTaxonIds": [
+        "tax.entity.spatial.room"
+      ],
+      "rangeTaxonIds": [
+        "tax.entity.spatial.door"
+      ],
+      "inverseRelationId": "rel.door-bounds-room",
       "symmetric": false,
       "transitive": false,
       "cardinalityShape": {},
       "sourceEvidence": [
-        "docs/rules/01-round-and-turns.md:RT-004"
+        "docs/rules/02-character-actions.md:Doors"
       ],
-      "semanticBoundary": "Structural timing relation."
+      "semanticBoundary": "Static boundary relation only."
     },
     {
-      "relationId": "rel.process-has-timing-window",
-      "label": "process has timing window",
+      "relationId": "rel.source-occurrence-documents-definition",
+      "label": "source occurrence documents definition",
       "domainTaxonIds": [
-        "tax.process"
+        "tax.identity.source-occurrence"
       ],
       "rangeTaxonIds": [
-        "tax.scaffold.timing-window"
+        "tax.entity.information.component-definition"
       ],
-      "inverseRelationId": null,
+      "inverseRelationId": "rel.definition-documented-by-source-occurrence",
       "symmetric": false,
       "transitive": false,
       "cardinalityShape": {},
       "sourceEvidence": [
-        "docs/rules/01-round-and-turns.md"
+        "docs/rules/source-extraction/README.md"
       ],
-      "semanticBoundary": "Schema relation only; individual effect timings are semantic-layer data."
+      "semanticBoundary": "Provenance relation only; it does not merge versions or assert semantic equivalence."
     },
     {
-      "relationId": "rel.decision-owned-by",
-      "label": "decision owned by",
+      "relationId": "rel.definition-documented-by-source-occurrence",
+      "label": "definition documented by source occurrence",
       "domainTaxonIds": [
-        "tax.scaffold.decision"
+        "tax.entity.information.component-definition"
       ],
       "rangeTaxonIds": [
-        "tax.entity.agent.player",
-        "tax.entity.agent.character",
-        "tax.role"
+        "tax.identity.source-occurrence"
       ],
-      "inverseRelationId": "rel.owns-decision",
+      "inverseRelationId": "rel.source-occurrence-documents-definition",
       "symmetric": false,
       "transitive": false,
       "cardinalityShape": {},
       "sourceEvidence": [
-        "docs/rules/00-foundations.md:FND-002"
+        "docs/rules/source-extraction/README.md"
       ],
-      "semanticBoundary": "Schema relation only; each specific choice owner is semantic-layer data."
+      "semanticBoundary": "Provenance relation only."
     },
     {
-      "relationId": "rel.owns-decision",
-      "label": "owns decision",
+      "relationId": "rel.component-copy-realizes-definition",
+      "label": "component copy realizes definition",
       "domainTaxonIds": [
-        "tax.entity.agent.player",
-        "tax.entity.agent.character",
-        "tax.role"
+        "tax.entity.component"
       ],
       "rangeTaxonIds": [
-        "tax.scaffold.decision"
+        "tax.entity.information.component-definition"
       ],
-      "inverseRelationId": "rel.decision-owned-by",
+      "inverseRelationId": "rel.definition-realized-by-copy",
+      "symmetric": false,
+      "transitive": false,
+      "cardinalityShape": {
+        "componentCopy": {
+          "min": 1,
+          "max": 1
+        }
+      },
+      "sourceEvidence": [
+        "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf:component list",
+        "docs/rules/source-extraction/README.md"
+      ],
+      "semanticBoundary": "Definition/copy separation; multiple physical copies may realize one definition."
+    },
+    {
+      "relationId": "rel.definition-realized-by-copy",
+      "label": "definition realized by component copy",
+      "domainTaxonIds": [
+        "tax.entity.information.component-definition"
+      ],
+      "rangeTaxonIds": [
+        "tax.entity.component"
+      ],
+      "inverseRelationId": "rel.component-copy-realizes-definition",
       "symmetric": false,
       "transitive": false,
       "cardinalityShape": {},
       "sourceEvidence": [
-        "docs/rules/00-foundations.md:FND-002"
+        "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf:component list"
       ],
-      "semanticBoundary": "Schema relation only."
+      "semanticBoundary": "Definition/copy separation."
     },
     {
-      "relationId": "rel.information-visible-to",
-      "label": "information visible to",
+      "relationId": "rel.component-copy-member-of-set",
+      "label": "component copy member of set",
       "domainTaxonIds": [
-        "tax.entity.information",
-        "tax.entity.component.card"
+        "tax.entity.component"
       ],
       "rangeTaxonIds": [
-        "tax.scaffold.audience-scope"
+        "tax.entity.component-set"
       ],
-      "inverseRelationId": null,
+      "inverseRelationId": "rel.component-set-has-copy",
       "symmetric": false,
       "transitive": false,
       "cardinalityShape": {},
       "sourceEvidence": [
-        "docs/rules/01-round-and-turns.md:RT-010",
-        "docs/rules/02-character-actions.md:ACT-SEARCH-001"
+        "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf:component list"
       ],
-      "semanticBoundary": "Schema relation only; actual secrecy/reveal policy is semantic-layer data."
+      "semanticBoundary": "Static inventory/deck/pool membership; draw/removal transitions are deferred."
     },
     {
-      "relationId": "rel.transition-from",
-      "label": "transition from",
+      "relationId": "rel.component-set-has-copy",
+      "label": "component set has copy",
       "domainTaxonIds": [
-        "tax.scaffold.lifecycle-transition"
+        "tax.entity.component-set"
       ],
       "rangeTaxonIds": [
-        "tax.state",
-        "tax.scaffold.zone"
+        "tax.entity.component"
       ],
-      "inverseRelationId": null,
+      "inverseRelationId": "rel.component-copy-member-of-set",
       "symmetric": false,
       "transitive": false,
       "cardinalityShape": {},
       "sourceEvidence": [
-        "docs/rules/01-round-and-turns.md:RT-014"
+        "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf:component list"
       ],
-      "semanticBoundary": "Schema relation only; triggers and ordered mutations are semantic-layer data."
+      "semanticBoundary": "Static inventory membership only."
     },
     {
-      "relationId": "rel.transition-to",
-      "label": "transition to",
+      "relationId": "rel.help-entry-describes-room-definition",
+      "label": "Help entry describes Room definition",
       "domainTaxonIds": [
-        "tax.scaffold.lifecycle-transition"
+        "tax.identity.source-occurrence.help-entry"
       ],
       "rangeTaxonIds": [
-        "tax.state",
-        "tax.scaffold.zone"
+        "tax.entity.information.component-definition.room"
       ],
-      "inverseRelationId": null,
+      "inverseRelationId": "rel.room-definition-described-by-help-entry",
       "symmetric": false,
       "transitive": false,
       "cardinalityShape": {},
       "sourceEvidence": [
-        "docs/rules/01-round-and-turns.md:RT-014"
+        "docs/rules/source-extraction/room-help-sheet.json"
       ],
-      "semanticBoundary": "Schema relation only; triggers and ordered mutations are semantic-layer data."
+      "semanticBoundary": "Exact source occurrence to definition relation; aliases and semantics remain separately reviewed."
+    },
+    {
+      "relationId": "rel.room-definition-described-by-help-entry",
+      "label": "Room definition described by Help entry",
+      "domainTaxonIds": [
+        "tax.entity.information.component-definition.room"
+      ],
+      "rangeTaxonIds": [
+        "tax.identity.source-occurrence.help-entry"
+      ],
+      "inverseRelationId": "rel.help-entry-describes-room-definition",
+      "symmetric": false,
+      "transitive": false,
+      "cardinalityShape": {
+        "officialRoomHelpDefinition": {
+          "min": 1,
+          "max": 1
+        }
+      },
+      "sourceEvidence": [
+        "docs/rules/source-extraction/room-help-sheet.json"
+      ],
+      "semanticBoundary": "Official Room Help source relation only."
+    },
+    {
+      "relationId": "rel.action-deck-for-character-role",
+      "label": "Action deck for Character role",
+      "domainTaxonIds": [
+        "tax.scaffold.zone.deck"
+      ],
+      "rangeTaxonIds": [
+        "tax.role.character"
+      ],
+      "inverseRelationId": "rel.character-role-has-action-deck",
+      "symmetric": false,
+      "transitive": false,
+      "cardinalityShape": {
+        "baseCharacterRole": {
+          "min": 1,
+          "max": 1
+        }
+      },
+      "sourceEvidence": [
+        "docs/rulebooks/rulebook_text.txt:lines 2684–2689"
+      ],
+      "semanticBoundary": "Deck-role association only; individual face effects and deck transitions are deferred."
+    },
+    {
+      "relationId": "rel.character-role-has-action-deck",
+      "label": "Character role has Action deck",
+      "domainTaxonIds": [
+        "tax.role.character"
+      ],
+      "rangeTaxonIds": [
+        "tax.scaffold.zone.deck"
+      ],
+      "inverseRelationId": "rel.action-deck-for-character-role",
+      "symmetric": false,
+      "transitive": false,
+      "cardinalityShape": {
+        "baseCharacterRole": {
+          "min": 1,
+          "max": 1
+        }
+      },
+      "sourceEvidence": [
+        "docs/rulebooks/rulebook_text.txt:lines 2684–2689"
+      ],
+      "semanticBoundary": "Deck-role association only."
+    },
+    {
+      "relationId": "rel.icon-occurrence-appears-on-definition",
+      "label": "icon occurrence appears on definition",
+      "domainTaxonIds": [
+        "tax.identity.source-occurrence.icon"
+      ],
+      "rangeTaxonIds": [
+        "tax.entity.information.component-definition"
+      ],
+      "inverseRelationId": "rel.definition-has-icon-occurrence",
+      "symmetric": false,
+      "transitive": false,
+      "cardinalityShape": {},
+      "sourceEvidence": [
+        "docs/rules/source-extraction/room-help-sheet.json",
+        "assets/tts-mod/extract/card-text-corpus.json"
+      ],
+      "semanticBoundary": "Source-local occurrence placement only; semantic denotation is a separate reviewed relation."
+    },
+    {
+      "relationId": "rel.definition-has-icon-occurrence",
+      "label": "definition has icon occurrence",
+      "domainTaxonIds": [
+        "tax.entity.information.component-definition"
+      ],
+      "rangeTaxonIds": [
+        "tax.identity.source-occurrence.icon"
+      ],
+      "inverseRelationId": "rel.icon-occurrence-appears-on-definition",
+      "symmetric": false,
+      "transitive": false,
+      "cardinalityShape": {},
+      "sourceEvidence": [
+        "docs/rules/source-extraction/room-help-sheet.json",
+        "assets/tts-mod/extract/card-text-corpus.json"
+      ],
+      "semanticBoundary": "Source-local occurrence inventory only."
+    },
+    {
+      "relationId": "rel.room-definition-designated-for-section",
+      "label": "Room definition designated for Section",
+      "domainTaxonIds": [
+        "tax.entity.information.component-definition.room"
+      ],
+      "rangeTaxonIds": [
+        "tax.entity.spatial.section"
+      ],
+      "inverseRelationId": "rel.section-has-designated-room-definition",
+      "symmetric": false,
+      "transitive": false,
+      "cardinalityShape": {
+        "typedRoomDefinition": {
+          "min": 0,
+          "max": 1
+        }
+      },
+      "sourceEvidence": [
+        "docs/rules/source-extraction/room-help-sheet.json"
+      ],
+      "semanticBoundary": "A/B/C printed designation only; “?” remains unassigned and placement is deferred."
+    },
+    {
+      "relationId": "rel.section-has-designated-room-definition",
+      "label": "Section has designated Room definition",
+      "domainTaxonIds": [
+        "tax.entity.spatial.section"
+      ],
+      "rangeTaxonIds": [
+        "tax.entity.information.component-definition.room"
+      ],
+      "inverseRelationId": "rel.room-definition-designated-for-section",
+      "symmetric": false,
+      "transitive": false,
+      "cardinalityShape": {},
+      "sourceEvidence": [
+        "docs/rules/source-extraction/room-help-sheet.json"
+      ],
+      "semanticBoundary": "Printed Room-type designation only."
     },
     {
       "relationId": "rel.limited-by-supply",
@@ -915,18 +1135,17 @@
     },
     {
       "assertionId": "AS-002",
-      "kind": "ordered-membership",
-      "subjectTaxonId": "tax.process.temporal.round",
-      "memberTaxonIds": [
-        "tax.process.temporal.phase.player",
-        "tax.process.temporal.phase.intruder",
-        "tax.process.temporal.phase.event",
-        "tax.process.temporal.phase.cleanup"
+      "kind": "ontology-level-separation",
+      "taxonIds": [
+        "tax.identity.source-occurrence",
+        "tax.entity.information.component-definition",
+        "tax.entity.component"
       ],
-      "scope": "base Round",
       "sourceEvidence": [
-        "docs/rules/01-round-and-turns.md:RT-001"
-      ]
+        "docs/rules/source-extraction/README.md",
+        "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf:component list"
+      ],
+      "boundary": "Source occurrences document definitions; runtime/physical copies realize definitions. No pair is automatically identical or owl:sameAs."
     },
     {
       "assertionId": "AS-003",

@@ -1,27 +1,26 @@
 # Nemesis: Retaliation — Project Status
 
 **Status date:** 2026-08-24
-**Active phase:** Taxonomy/ontology independent review (vocabulary gate passed)
+**Active phase:** Semantic rules schema and pilot (ontology gate passed)
 **Active branch:** `work/card-corpus-extraction`
 **Implementation status:** Frozen; a clean rewrite will begin only after rules-layer readiness and explicit approval
 
 ## Current Objective
 
-Build a source-traceable taxonomy and ontology over the approved controlled vocabulary and named identities.
+Build a source-traceable semantic rules schema and representative pilot records over the approved vocabulary and reviewed static ontology.
 
-The current implementation remains frozen. Semantic effect modeling remains a later phase.
+The current implementation remains frozen. Semantic records describe rules independently of any future engine/UI architecture.
 
 ## Immediate Next Deliverable
 
-Complete the **independent taxonomy/ontology review**:
+Build and validate the **semantic schema and representative pilot**:
 
-- audit all classes and multiple inheritance for category errors;
-- audit all 167 controlled-term and 501 named-identity mappings;
-- verify 45 relationship domains/ranges, 20 inverse pairs, cardinalities, and 14 static constraints against sources;
-- verify timing/decision/visibility/lifecycle scaffolding without introducing effect instances;
-- classify stale open questions separately from genuine semantic ambiguities;
-- collect any genuine owner decisions and defer asking until all independent work is exhausted;
-- rerun reproducibility and corruption negative controls before approving the ontology gate.
+- define timing windows, actor/decision ownership, visibility, modalities, conditions, costs, targets, ordered operations, lifecycle transitions, and partial-resolution behavior;
+- preserve source authority, version, exact component/source identity, and unresolved alternatives on every record;
+- encode representative cross-system pilots before attempting full coverage;
+- include Round/Turn structure, Move/Exploration, Search, Rest/Infection, one Reaction/Command, one Room, one Event, Intruder token resolution, and endgame flow;
+- keep OQ-001, OQ-002, OQ-003, OQ-004, OQ-007, and OQ-009 explicit rather than choosing silently;
+- validate deterministic rebuilds, schema constraints, source citations, complete ownership/visibility/timing fields, and forbidden implementation leakage.
 
 ## Verified Checkpoint
 
@@ -105,17 +104,19 @@ Complete the **independent taxonomy/ontology review**:
 Machine-readable evidence: `docs/rules/source-extraction/validation.json`.
 
 
-### Taxonomy/ontology proposal
+### Taxonomy/ontology — independently reviewed and passed
 
-- 202 source-traceable taxa / 9 roots
+- 211 source-traceable taxa / 9 roots
 - all 167 controlled terms mapped exactly once
 - all 501 named identity observations mapped as source identities
 - 50 printed-symbol denotations
-- 45 static relationship shapes / 20 inverse pairs
+- 55 static relationship shapes / 27 inverse pairs
 - 14 source-backed structural assertions and constraints
 - 15 semantic-scaffolding taxa for later zones, timing, decisions, visibility, lifecycle, and finite supply
-- 0 ontology owner gates asserted before independent review
-- byte-identical rebuild validation and corruption negative controls pass
+- all 8 accepted aliases projected
+- 0 ontology owner gates after four-workstream independent review
+- 12 semantic relation IDs explicitly deferred from the static layer
+- two-seed byte-identical rebuild validation and expanded corruption negative controls pass
 - no triggers, ordered effect steps, costs, target selection, or state mutations encoded
 - `scripts/validate_taxonomy_ontology.py`: **passed with 0 failures**
 
@@ -150,13 +151,13 @@ Machine-readable evidence: `docs/rules/source-extraction/validation.json`.
 - Consolidated licensed-digital build 260622-1220 into one immutable snapshot, indexed 11 tables/298 scoped records, and closed six TTS structured channels as secondary provenance with explicit count/name/conflict boundaries.
 - Passed the final nine-channel extraction closure audit: every source channel is extracted/indexed, all six gate criteria pass, no graphical units remain, and the one exact-source blocker remains explicit.
 - Built and validated the vocabulary layer: 1,853 source occurrences, 501 named-identity groups, 167 controlled entries, 8 accepted aliases, and 5 non-alias guardrails; VG-001 and VG-002 are resolved.
-- Built the initial static taxonomy/ontology proposal: 202 taxa, complete term/identity mappings, 45 relationship shapes, 14 static constraints, semantic scaffolding, deterministic rebuilds, and negative controls; independent review remains in progress.
+- Built, independently reviewed, corrected, and validated the static taxonomy/ontology: 211 taxa, complete term/identity/alias mappings, 55 relationship shapes, 14 static constraints, semantic scaffolding, two-seed deterministic rebuilds, and adversarial negative controls; no owner gate remains.
 - Created the closed source inventory, card-gap inventory, secondary-source inventory, Room layout inventory, roadmap, and deterministic validator.
 
 ## Remaining Work — Ordered
 
-1. **Independent taxonomy/ontology review** — audit and correct the generated proposal; resolve only genuine owner gates.
-2. **Semantic rules layer** — model timing, choices, visibility, costs, targets, and state transitions after ontology approval.
+1. **Semantic rules schema and pilot** — establish the effect model and validate representative rules across systems.
+2. **Semantic coverage expansion** — encode all base-game rules/components while preserving open questions and source variants.
 3. Define implementation-readiness criteria and seek explicit approval before a clean rewrite.
 
 Detailed phase plan: `docs/rules/source-extraction/extraction-roadmap.md`.
@@ -174,12 +175,13 @@ All of the following are true:
 - counts reconcile across PDFs, help sheets, card corpus, and structured inventories;
 - no extraction record silently embeds an alias or semantic interpretation.
 
-### Gate before semantic modeling
+### Gate before semantic modeling — PASSED
 
 - controlled vocabulary and aliases reviewed;
 - source terms and source-local morphology remain traceable;
-- component taxonomy reviewed;
-- ontology relationships, cardinalities, timing, decision ownership, visibility, and lifecycle concepts agreed;
+- static taxonomy/ontology independently reviewed and validated;
+- static relationships/cardinalities and timing/decision/visibility/lifecycle scaffold boundaries agreed;
+- semantic relation IDs are explicitly deferred into this phase rather than pre-populated with guesses;
 - unresolved source questions remain explicit.
 
 ### Gate before implementation
