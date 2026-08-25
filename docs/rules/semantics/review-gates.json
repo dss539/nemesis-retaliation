@@ -1,0 +1,77 @@
+{
+  "schemaVersion": 1,
+  "recordType": "semantic-review-gates",
+  "status": "pilot built with deferred questions; no default answer adopted",
+  "counts": {
+    "questions": 7,
+    "officialClarificationPreferred": 6,
+    "sourceAmbiguitiesIntroducedByPilot": 1,
+    "resolved": 0,
+    "open": 7
+  },
+  "questions": [
+    {
+      "questionId": "OQ-001",
+      "title": "Eclosion existing-hand behavior",
+      "decisionClass": "official-clarification-preferred",
+      "blocksRuleIds": [
+        "SEM-ENDGAME-001"
+      ],
+      "defaultProhibited": true
+    },
+    {
+      "questionId": "OQ-002",
+      "title": "Endgame Larva iteration timing",
+      "decisionClass": "official-clarification-preferred",
+      "blocksRuleIds": [
+        "SEM-ENDGAME-001"
+      ],
+      "defaultProhibited": true
+    },
+    {
+      "questionId": "OQ-003",
+      "title": "Starting Player token passing over nonparticipants",
+      "decisionClass": "official-clarification-preferred",
+      "blocksRuleIds": [
+        "future Cleanup semantic record"
+      ],
+      "defaultProhibited": true
+    },
+    {
+      "questionId": "OQ-004",
+      "title": "Player Phase recalculation after mid-Turn death",
+      "decisionClass": "official-clarification-preferred",
+      "blocksRuleIds": [
+        "SEM-RT-005"
+      ],
+      "defaultProhibited": true
+    },
+    {
+      "questionId": "OQ-007",
+      "title": "Secure tokens and simultaneous multi-Intruder entry",
+      "decisionClass": "official-clarification-preferred",
+      "blocksRuleIds": [
+        "future Secure semantic record"
+      ],
+      "defaultProhibited": true
+    },
+    {
+      "questionId": "OQ-009",
+      "title": "Nest placement before discovery",
+      "decisionClass": "official-clarification-preferred",
+      "blocksRuleIds": [
+        "SEM-EVENT-HATCHING-001"
+      ],
+      "defaultProhibited": true
+    },
+    {
+      "questionId": "SEM-Q-001",
+      "title": "Duck and Cover replacement target when multiple other Characters share the Room",
+      "decisionClass": "source-ambiguity-owner-decision-after-source-search",
+      "blocksRuleIds": [
+        "SEM-REACTION-DUCK-001"
+      ],
+      "defaultProhibited": true
+    }
+  ]
+}

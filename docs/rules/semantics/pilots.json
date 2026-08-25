@@ -1,0 +1,3320 @@
+{
+  "schemaVersion": 1,
+  "recordType": "semantic-rule-pilot-corpus",
+  "schemaPath": "docs/rules/semantics/semantic-rule.schema.json",
+  "scope": "base-game representative pilot; not full semantic coverage",
+  "counts": {
+    "records": 13,
+    "sourceBacked": 9,
+    "withOpenQuestion": 4,
+    "sourceVariants": 0,
+    "sourceAssertions": 25,
+    "conditions": 23,
+    "operations": 61,
+    "decisions": 10,
+    "informationPolicies": 16,
+    "costs": 2,
+    "targets": 5,
+    "openQuestionReferences": 5,
+    "variantReferences": 2
+  },
+  "records": [
+    {
+      "ruleId": "SEM-ACT-EXPLORE-001",
+      "title": "Exploration Sequence",
+      "status": "source-backed",
+      "ruleKind": "sequence",
+      "applicability": {
+        "game": "Nemesis: Retaliation",
+        "mode": "base-standard",
+        "playerCount": null
+      },
+      "authority": {
+        "highest": "official-errata",
+        "interpretation": "source-composed"
+      },
+      "sourceAssertions": [
+        {
+          "assertionId": "SA-EXP-1",
+          "sourceId": "SRC-RULEBOOK",
+          "locator": "printed page 24 / Exploration Sequence",
+          "supportsFields": [
+            "timing",
+            "operations",
+            "partialResolution"
+          ],
+          "sourceText": "Draw an Exploration card, set up Room/Corridors/markers, move Character, resolve Entrance Effect, discard card. Invalid additional Corridors are omitted.",
+          "textKind": "normalized-paraphrase",
+          "evidenceRecord": "docs/rules/02-character-actions.md:ACT-EXPLORE-001"
+        },
+        {
+          "assertionId": "SA-EXP-2",
+          "sourceId": "SRC-FAQ",
+          "locator": "General rules #4–5",
+          "supportsFields": [
+            "operations",
+            "partialResolution"
+          ],
+          "sourceText": "Close Doors applies only around the new Room; remove-from-game text is outside Entrance Effect.",
+          "textKind": "normalized-paraphrase",
+          "evidenceRecord": "docs/rules/02-character-actions.md:ACT-EXPLORE-001"
+        }
+      ],
+      "termRefs": [
+        "term.discovered",
+        "term.exploration-card",
+        "term.exploration-sequence",
+        "term.undiscovered",
+        "term.unexplored-corridor"
+      ],
+      "taxonRefs": [
+        "tax.entity.component.card.exploration",
+        "tax.process.sequence.exploration",
+        "tax.state.corridor.unexplored",
+        "tax.state.discovery.discovered",
+        "tax.state.discovery.undiscovered"
+      ],
+      "namedIdentityRefs": [],
+      "timing": {
+        "windowId": "TW-EXPLORE",
+        "anchorTaxonId": "tax.process.sequence.movement",
+        "relation": "when-triggered",
+        "recurrence": "per-Unexplored-destination"
+      },
+      "participants": [
+        {
+          "participantId": "P-EXPLORER",
+          "participantKind": "actor",
+          "taxonId": "tax.entity.agent.character",
+          "role": null
+        },
+        {
+          "participantId": "P-RULES",
+          "participantKind": "rules-system",
+          "taxonId": null,
+          "role": null
+        }
+      ],
+      "modality": "must",
+      "preconditions": [
+        {
+          "conditionId": "C-EXPLORE",
+          "scope": "record-precondition",
+          "expression": {
+            "operator": "all",
+            "args": [
+              {
+                "predicate": "Movement reaches an Unexplored Corridor"
+              },
+              {
+                "predicate": "destination Room slot is empty and Undiscovered"
+              }
+            ]
+          },
+          "sourceAssertionIds": [
+            "SA-EXP-1"
+          ]
+        }
+      ],
+      "decisions": [],
+      "informationPolicy": [
+        {
+          "informationId": "I-EXPLORATION-CARD",
+          "subjectRef": "drawn Exploration card",
+          "audience": "public",
+          "revealTrigger": "draw",
+          "secrecy": "none"
+        }
+      ],
+      "costs": [],
+      "targets": [],
+      "operations": [
+        {
+          "stepId": "S01",
+          "sequence": 1,
+          "operationType": "draw-random",
+          "modality": "must",
+          "subjectRef": "P-RULES",
+          "objectRef": "top/random Exploration card",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-EXP-1"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S02",
+          "sequence": 2,
+          "operationType": "place-component",
+          "modality": "must",
+          "subjectRef": "P-RULES",
+          "objectRef": "random Room of required A/B/C type; use ? if exhausted",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-EXP-1"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S03",
+          "sequence": 3,
+          "operationType": "place-component",
+          "modality": "if-able",
+          "subjectRef": "P-RULES",
+          "objectRef": "each indicated Corridor",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-EXP-1"
+          ],
+          "notes": "Omit a Corridor that would leave the Facility or connect to an already placed Room."
+        },
+        {
+          "stepId": "S04",
+          "sequence": 4,
+          "operationType": "place-component",
+          "modality": "if-able",
+          "subjectRef": "P-RULES",
+          "objectRef": "depicted markers/tokens",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-EXP-1"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S05",
+          "sequence": 5,
+          "operationType": "move-entity",
+          "modality": "must",
+          "subjectRef": "P-EXPLORER",
+          "objectRef": "newly placed Room",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-EXP-1"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S06",
+          "sequence": 6,
+          "operationType": "invoke-process",
+          "modality": "if-able",
+          "subjectRef": "P-RULES",
+          "objectRef": "Entrance Effect",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-EXP-1"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S07",
+          "sequence": 7,
+          "operationType": "transition-zone",
+          "modality": "must",
+          "subjectRef": "P-RULES",
+          "objectRef": "Exploration card",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": {
+            "from": "resolved-card",
+            "to": "discard-or-removed-as-printed"
+          },
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-EXP-1",
+            "SA-EXP-2"
+          ],
+          "notes": null
+        }
+      ],
+      "partialResolution": {
+        "policy": "source-conditional-steps",
+        "unit": "indicated Corridor/marker and sentence",
+        "onImpossible": "Omit only source-defined invalid Corridors; remove-from-game instruction still resolves when Entrance Effect is ignored"
+      },
+      "duration": {
+        "kind": "instantaneous-sequence"
+      },
+      "stacking": {
+        "policy": "not-applicable"
+      },
+      "outcomes": [],
+      "unresolvedQuestionRefs": [],
+      "sourceVariants": [],
+      "implementationBoundary": "implementation-neutral; no engine, UI, network, storage, or serialization mapping"
+    },
+    {
+      "ruleId": "SEM-ACT-MOVE-001",
+      "title": "Move Action and Movement Sequence",
+      "status": "source-backed",
+      "ruleKind": "action",
+      "applicability": {
+        "game": "Nemesis: Retaliation",
+        "mode": "base-standard",
+        "playerCount": null
+      },
+      "authority": {
+        "highest": "official-errata",
+        "interpretation": "source-composed"
+      },
+      "sourceAssertions": [
+        {
+          "assertionId": "SA-MOVE-1",
+          "sourceId": "SRC-RULEBOOK",
+          "locator": "printed pages 12 and 24–25",
+          "supportsFields": [
+            "costs",
+            "preconditions",
+            "targets",
+            "operations"
+          ],
+          "sourceText": "Move costs 1 Action card; choose an adjacent Corridor, resolve opportunity attacks, resolve destination, then make a Noise roll.",
+          "textKind": "normalized-paraphrase",
+          "evidenceRecord": "docs/rules/02-character-actions.md:ACT-MOVE-001"
+        },
+        {
+          "assertionId": "SA-MOVE-2",
+          "sourceId": "SRC-FAQ",
+          "locator": "Action cards #3",
+          "supportsFields": [
+            "outcomes"
+          ],
+          "sourceText": "Attack prevention during Movement applies to opportunity attacks, not a Hazard-result attack.",
+          "textKind": "normalized-paraphrase",
+          "evidenceRecord": "docs/rules/02-character-actions.md:ACT-MOVE-001"
+        }
+      ],
+      "termRefs": [
+        "term.closed",
+        "term.corridor",
+        "term.move",
+        "term.movement-sequence",
+        "term.noise-roll",
+        "term.opportunity-attack",
+        "term.room"
+      ],
+      "taxonRefs": [
+        "tax.entity.spatial.corridor",
+        "tax.entity.spatial.room",
+        "tax.process.action.move",
+        "tax.process.attack.opportunity",
+        "tax.process.sequence.movement",
+        "tax.state.closed"
+      ],
+      "namedIdentityRefs": [],
+      "timing": {
+        "windowId": "TW-MOVE",
+        "anchorTaxonId": "tax.process.temporal.turn",
+        "relation": "during",
+        "recurrence": "per-selected-Move"
+      },
+      "participants": [
+        {
+          "participantId": "P-ACTIVE-PLAYER",
+          "participantKind": "decision-owner",
+          "taxonId": "tax.entity.agent.player",
+          "role": null
+        },
+        {
+          "participantId": "P-MOVING-CHARACTER",
+          "participantKind": "actor",
+          "taxonId": "tax.entity.agent.character",
+          "role": null
+        }
+      ],
+      "modality": "must",
+      "preconditions": [
+        {
+          "conditionId": "C-LEGAL-CORRIDOR",
+          "scope": "record-precondition",
+          "expression": {
+            "operator": "all",
+            "args": [
+              {
+                "predicate": "Corridor is adjacent to origin Room"
+              },
+              {
+                "predicate": "path is not blocked by a Closed Door"
+              },
+              {
+                "predicate": "destination branch is fully resolvable"
+              }
+            ]
+          },
+          "sourceAssertionIds": [
+            "SA-MOVE-1"
+          ]
+        },
+        {
+          "conditionId": "S04-C01",
+          "scope": "operation-guard",
+          "expression": {
+            "operator": "predicate",
+            "args": [
+              {
+                "predicate": "destination is Discovered Room OR destination is Undiscovered Room slot"
+              }
+            ]
+          },
+          "sourceAssertionIds": [
+            "SA-MOVE-1"
+          ]
+        },
+        {
+          "conditionId": "S05-C01",
+          "scope": "operation-guard",
+          "expression": {
+            "operator": "predicate",
+            "args": [
+              {
+                "predicate": "destination is Discovered Room"
+              }
+            ]
+          },
+          "sourceAssertionIds": [
+            "SA-MOVE-1"
+          ]
+        },
+        {
+          "conditionId": "S06-C01",
+          "scope": "operation-guard",
+          "expression": {
+            "operator": "predicate",
+            "args": [
+              {
+                "predicate": "selected Corridor is Unexplored"
+              }
+            ]
+          },
+          "sourceAssertionIds": [
+            "SA-MOVE-1"
+          ]
+        },
+        {
+          "conditionId": "S07-C01",
+          "scope": "operation-guard",
+          "expression": {
+            "operator": "predicate",
+            "args": [
+              {
+                "predicate": "movement completed"
+              }
+            ]
+          },
+          "sourceAssertionIds": [
+            "SA-MOVE-1"
+          ]
+        }
+      ],
+      "decisions": [
+        {
+          "decisionId": "D-PAYMENT",
+          "ownerRef": "P-ACTIVE-PLAYER",
+          "selectionMode": "player-choice",
+          "cardinality": {
+            "min": 1,
+            "max": 1
+          },
+          "declineAllowed": false,
+          "visibility": "owner-private-until-discard",
+          "options": [
+            "own Action cards in hand"
+          ]
+        },
+        {
+          "decisionId": "D-CORRIDOR",
+          "ownerRef": "P-ACTIVE-PLAYER",
+          "selectionMode": "player-choice",
+          "cardinality": {
+            "min": 1,
+            "max": 1
+          },
+          "declineAllowed": false,
+          "visibility": "public-on-declaration",
+          "options": [
+            "adjacent Corridors satisfying C-LEGAL-CORRIDOR"
+          ]
+        }
+      ],
+      "informationPolicy": [
+        {
+          "informationId": "I-MOVE-PAYMENT",
+          "subjectRef": "paid Action card identity",
+          "audience": "public",
+          "revealTrigger": "payment discard",
+          "secrecy": "none"
+        }
+      ],
+      "costs": [
+        {
+          "costId": "COST-MOVE",
+          "payerRef": "P-ACTIVE-PLAYER",
+          "resourceTermId": "icon.actionCard",
+          "quantity": 1,
+          "selectionDecisionRef": "D-PAYMENT",
+          "transition": {
+            "from": "tax.scaffold.zone.hand",
+            "to": "tax.scaffold.zone.discard-pile"
+          }
+        }
+      ],
+      "targets": [
+        {
+          "targetId": "T-CORRIDOR",
+          "selectorRef": "P-ACTIVE-PLAYER",
+          "eligibleTaxonIds": [
+            "tax.entity.spatial.corridor"
+          ],
+          "cardinality": {
+            "min": 1,
+            "max": 1
+          },
+          "selectionMode": "player-choice",
+          "visibility": "public"
+        }
+      ],
+      "operations": [
+        {
+          "stepId": "S01",
+          "sequence": 1,
+          "operationType": "pay-cost",
+          "modality": "must",
+          "subjectRef": "P-ACTIVE-PLAYER",
+          "objectRef": "COST-MOVE",
+          "conditionRefs": [],
+          "decisionRef": "D-PAYMENT",
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-MOVE-1"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S02",
+          "sequence": 2,
+          "operationType": "select-target",
+          "modality": "must",
+          "subjectRef": "P-ACTIVE-PLAYER",
+          "objectRef": "adjacent Corridor",
+          "conditionRefs": [],
+          "decisionRef": "D-CORRIDOR",
+          "targetRef": "T-CORRIDOR",
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-MOVE-1"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S03",
+          "sequence": 3,
+          "operationType": "resolve-attacks",
+          "modality": "if-able",
+          "subjectRef": "Intruders in origin Room and selected Corridor",
+          "objectRef": "P-MOVING-CHARACTER",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": {
+            "order": "largest-first",
+            "max": 3
+          },
+          "sourceAssertionIds": [
+            "SA-MOVE-1"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S04",
+          "sequence": 4,
+          "operationType": "branch",
+          "modality": "must",
+          "subjectRef": "rules-system",
+          "objectRef": "destination branch",
+          "conditionRefs": [
+            "S04-C01"
+          ],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-MOVE-1"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S05",
+          "sequence": 5,
+          "operationType": "move-entity",
+          "modality": "must",
+          "subjectRef": "P-MOVING-CHARACTER",
+          "objectRef": "destination Room",
+          "conditionRefs": [
+            "S05-C01"
+          ],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-MOVE-1"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S06",
+          "sequence": 6,
+          "operationType": "invoke-process",
+          "modality": "must",
+          "subjectRef": "P-MOVING-CHARACTER",
+          "objectRef": "Exploration Sequence",
+          "conditionRefs": [
+            "S06-C01"
+          ],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": "SEM-ACT-EXPLORE-001",
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-MOVE-1"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S07",
+          "sequence": 7,
+          "operationType": "invoke-process",
+          "modality": "must",
+          "subjectRef": "P-MOVING-CHARACTER",
+          "objectRef": "Noise Roll",
+          "conditionRefs": [
+            "S07-C01"
+          ],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-MOVE-1"
+          ],
+          "notes": "Occurs after every Movement unless an explicit special effect says otherwise."
+        }
+      ],
+      "partialResolution": {
+        "policy": "all-or-nothing-selection",
+        "unit": "Move Action",
+        "onImpossible": "Action may be selected only if fully resolvable"
+      },
+      "duration": {
+        "kind": "instantaneous-action"
+      },
+      "stacking": {
+        "policy": "repeatable Action"
+      },
+      "outcomes": [],
+      "unresolvedQuestionRefs": [],
+      "sourceVariants": [],
+      "implementationBoundary": "implementation-neutral; no engine, UI, network, storage, or serialization mapping"
+    },
+    {
+      "ruleId": "SEM-ACT-REST-001",
+      "title": "Rest card modifier over Infection Procedure",
+      "status": "source-backed",
+      "ruleKind": "component-effect",
+      "applicability": {
+        "game": "Nemesis: Retaliation",
+        "mode": "base-standard",
+        "playerCount": null
+      },
+      "authority": {
+        "highest": "official-primary",
+        "interpretation": "source-composed"
+      },
+      "sourceAssertions": [
+        {
+          "assertionId": "SA-REST-1",
+          "sourceId": "SRC-CARD-REST",
+          "locator": "exact card face",
+          "supportsFields": [
+            "preconditions",
+            "operations",
+            "sourceVariants"
+          ],
+          "sourceText": "Resolve the Infection Procedure. Remove all Uninfected cards from the game.",
+          "textKind": "normalized-paraphrase",
+          "evidenceRecord": "assets/tts-mod/extract/card-text-corpus.json"
+        },
+        {
+          "assertionId": "SA-REST-2",
+          "sourceId": "SRC-RULEBOOK",
+          "locator": "printed page 38 / lines 6079–6098",
+          "supportsFields": [
+            "operations"
+          ],
+          "sourceText": "Scan all Contamination cards in hand; place a Larva if any is Infected and none is present; place Contaminations on top of discard pile.",
+          "textKind": "normalized-paraphrase",
+          "evidenceRecord": "docs/rules/03-intruders-and-survival.md:INT-008"
+        },
+        {
+          "assertionId": "SA-REST-3",
+          "sourceId": "SRC-RULEBOOK",
+          "locator": "printed page 13 / Playing Action Cards",
+          "supportsFields": [
+            "operations"
+          ],
+          "sourceText": "After resolving an Action card, discard that card.",
+          "textKind": "normalized-paraphrase",
+          "evidenceRecord": "docs/rules/02-character-actions.md:ACT-CARD-001"
+        }
+      ],
+      "termRefs": [
+        "icon.notInCombat",
+        "term.contamination-card",
+        "term.infected",
+        "term.infection-procedure"
+      ],
+      "taxonRefs": [
+        "tax.entity.component.card.contamination",
+        "tax.process.procedure.infection",
+        "tax.state.combat.not-in-combat",
+        "tax.state.infection.infected"
+      ],
+      "namedIdentityRefs": [
+        "NI-0410"
+      ],
+      "timing": {
+        "windowId": "TW-REST",
+        "anchorTaxonId": "tax.process.action.basic",
+        "relation": "when-action-card-played",
+        "recurrence": "per-played-Rest-card"
+      },
+      "participants": [
+        {
+          "participantId": "P-RESTING",
+          "participantKind": "actor",
+          "taxonId": "tax.entity.agent.character",
+          "role": null
+        },
+        {
+          "participantId": "P-OWNER",
+          "participantKind": "controller",
+          "taxonId": "tax.entity.agent.player",
+          "role": null
+        }
+      ],
+      "modality": "must",
+      "preconditions": [
+        {
+          "conditionId": "C-REST-LEGAL",
+          "scope": "record-precondition",
+          "expression": {
+            "operator": "all",
+            "args": [
+              {
+                "predicate": "Character is Not In Combat"
+              },
+              {
+                "predicate": "Rest/Infection sequence is fully resolvable"
+              }
+            ]
+          },
+          "sourceAssertionIds": [
+            "SA-REST-1",
+            "SA-REST-2"
+          ]
+        },
+        {
+          "conditionId": "S03-C01",
+          "scope": "operation-guard",
+          "expression": {
+            "operator": "predicate",
+            "args": [
+              {
+                "predicate": "at least one scanned card is Infected"
+              }
+            ]
+          },
+          "sourceAssertionIds": [
+            "SA-REST-2"
+          ]
+        },
+        {
+          "conditionId": "S03-C02",
+          "scope": "operation-guard",
+          "expression": {
+            "operator": "predicate",
+            "args": [
+              {
+                "predicate": "Character board has no Larva"
+              }
+            ]
+          },
+          "sourceAssertionIds": [
+            "SA-REST-2"
+          ]
+        }
+      ],
+      "decisions": [],
+      "informationPolicy": [
+        {
+          "informationId": "I-SCAN",
+          "subjectRef": "hidden Contamination text/result",
+          "audience": "scanning-player",
+          "revealTrigger": "scan instruction",
+          "secrecy": "hidden before scan; post-scan disclosure is not specified by the checked source"
+        }
+      ],
+      "costs": [],
+      "targets": [],
+      "operations": [
+        {
+          "stepId": "S01",
+          "sequence": 1,
+          "operationType": "inspect-private",
+          "modality": "must",
+          "subjectRef": "P-OWNER",
+          "objectRef": "all Contamination cards in hand",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-REST-2"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S02",
+          "sequence": 2,
+          "operationType": "evaluate-condition",
+          "modality": "must",
+          "subjectRef": "P-OWNER",
+          "objectRef": "exact word INFECTED on each scanned card",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-REST-2"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S03",
+          "sequence": 3,
+          "operationType": "place-component",
+          "modality": "if-able",
+          "subjectRef": "P-RESTING",
+          "objectRef": "1 Larva on Character board",
+          "conditionRefs": [
+            "S03-C01",
+            "S03-C02"
+          ],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-REST-2"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S04",
+          "sequence": 4,
+          "operationType": "transition-zone",
+          "modality": "must",
+          "subjectRef": "P-OWNER",
+          "objectRef": "all scanned Uninfected Contamination cards",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": {
+            "from": "tax.scaffold.zone.hand",
+            "to": "tax.scaffold.zone.removed-from-game"
+          },
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-REST-1"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S05",
+          "sequence": 5,
+          "operationType": "transition-zone",
+          "modality": "must",
+          "subjectRef": "P-OWNER",
+          "objectRef": "remaining Infected Contamination cards",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": {
+            "from": "tax.scaffold.zone.hand",
+            "to": "top of tax.scaffold.zone.discard-pile"
+          },
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-REST-2"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S06",
+          "sequence": 6,
+          "operationType": "transition-zone",
+          "modality": "must",
+          "subjectRef": "P-OWNER",
+          "objectRef": "played Rest Action card",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": {
+            "from": "tax.scaffold.zone.hand",
+            "to": "tax.scaffold.zone.discard-pile"
+          },
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-REST-1",
+            "SA-REST-3"
+          ],
+          "notes": null
+        }
+      ],
+      "partialResolution": {
+        "policy": "all-or-nothing-selection",
+        "unit": "Rest card effect",
+        "onImpossible": "card may be selected only if fully resolvable"
+      },
+      "duration": {
+        "kind": "instantaneous-card-effect"
+      },
+      "stacking": {
+        "policy": "non-Infected removal replaces normal Infection Procedure discard destination for those cards"
+      },
+      "outcomes": [],
+      "unresolvedQuestionRefs": [],
+      "sourceVariants": [
+        {
+          "variantId": "SV-REST-MEDICAL",
+          "sourceId": "SRC-CARD-REST-MEDICAL",
+          "difference": "Medical Support source face says non-Infected and “instead of discarding them”; exact punctuation and footer remain separate.",
+          "resolution": "pilot encodes only the reviewed canonical source tuple plus the official Procedure; the Medical Support variant is not substituted"
+        }
+      ],
+      "implementationBoundary": "implementation-neutral; no engine, UI, network, storage, or serialization mapping"
+    },
+    {
+      "ruleId": "SEM-ACT-SEARCH-001",
+      "title": "Search Action-card effect",
+      "status": "source-backed",
+      "ruleKind": "component-effect",
+      "applicability": {
+        "game": "Nemesis: Retaliation",
+        "mode": "base-standard",
+        "playerCount": null
+      },
+      "authority": {
+        "highest": "official-primary",
+        "interpretation": "source-composed"
+      },
+      "sourceAssertions": [
+        {
+          "assertionId": "SA-SEARCH-1",
+          "sourceId": "SRC-RULEBOOK",
+          "locator": "printed page 28 / lines 4849–4865",
+          "supportsFields": [
+            "preconditions",
+            "decisions",
+            "informationPolicy",
+            "operations"
+          ],
+          "sourceText": "Draw 1 Item for each Item Icon, keep 1, put the rest on the bottoms of their respective decks, and do not reveal unchosen Items.",
+          "textKind": "normalized-paraphrase",
+          "evidenceRecord": "docs/rules/02-character-actions.md:ACT-SEARCH-001"
+        },
+        {
+          "assertionId": "SA-SEARCH-2",
+          "sourceId": "SRC-CARD-SEARCH-MEDICAL",
+          "locator": "exact card face",
+          "supportsFields": [
+            "timing",
+            "operations",
+            "sourceVariants"
+          ],
+          "sourceText": "For each Item Icon in your Room draw 1 Item of the corresponding type. You may keep 1 of them and discard the rest.",
+          "textKind": "normalized-paraphrase",
+          "evidenceRecord": "assets/tts-mod/extract/card-text-corpus.json"
+        },
+        {
+          "assertionId": "SA-SEARCH-3",
+          "sourceId": "SRC-RULEBOOK",
+          "locator": "printed page 13 / Playing Action Cards",
+          "supportsFields": [
+            "operations"
+          ],
+          "sourceText": "After resolving an Action card, discard that card.",
+          "textKind": "normalized-paraphrase",
+          "evidenceRecord": "docs/rules/02-character-actions.md:ACT-CARD-001"
+        }
+      ],
+      "termRefs": [
+        "icon.notInCombat",
+        "term.armor-item",
+        "term.backpack",
+        "term.hand-slot",
+        "term.item",
+        "term.room",
+        "term.search"
+      ],
+      "taxonRefs": [
+        "tax.entity.component.card.item",
+        "tax.entity.component.card.item.armor",
+        "tax.entity.component.slot.hand",
+        "tax.entity.spatial.room",
+        "tax.process.card-effect.search",
+        "tax.scaffold.zone.backpack",
+        "tax.state.combat.not-in-combat"
+      ],
+      "namedIdentityRefs": [
+        "NI-0426"
+      ],
+      "timing": {
+        "windowId": "TW-SEARCH",
+        "anchorTaxonId": "tax.process.action.basic",
+        "relation": "when-action-card-played",
+        "recurrence": "per-played-Search-card"
+      },
+      "participants": [
+        {
+          "participantId": "P-SEARCHER",
+          "participantKind": "actor",
+          "taxonId": "tax.entity.agent.character",
+          "role": null
+        },
+        {
+          "participantId": "P-OWNER",
+          "participantKind": "decision-owner",
+          "taxonId": "tax.entity.agent.player",
+          "role": null
+        }
+      ],
+      "modality": "must",
+      "preconditions": [
+        {
+          "conditionId": "C-SEARCH-LEGAL",
+          "scope": "record-precondition",
+          "expression": {
+            "operator": "all",
+            "args": [
+              {
+                "predicate": "Searcher is Not In Combat"
+              },
+              {
+                "predicate": "Room has at least 1 Item Icon"
+              },
+              {
+                "predicate": "the draw/keep/return sequence is fully resolvable"
+              }
+            ]
+          },
+          "sourceAssertionIds": [
+            "SA-SEARCH-1",
+            "SA-SEARCH-2"
+          ]
+        }
+      ],
+      "decisions": [
+        {
+          "decisionId": "D-KEEP-ITEM",
+          "ownerRef": "P-OWNER",
+          "selectionMode": "player-choice",
+          "cardinality": {
+            "min": 1,
+            "max": 1
+          },
+          "declineAllowed": false,
+          "visibility": "owner-private",
+          "options": [
+            "drawn Item cards"
+          ]
+        }
+      ],
+      "informationPolicy": [
+        {
+          "informationId": "I-SEARCH-CANDIDATES",
+          "subjectRef": "drawn Item identities",
+          "audience": "owner-private",
+          "revealTrigger": "chosen Item enters a public area or is used",
+          "secrecy": "unchosen Items must not be revealed"
+        },
+        {
+          "informationId": "I-BACKPACK-ITEM",
+          "subjectRef": "chosen Regular Item in Backpack",
+          "audience": "owner-private",
+          "revealTrigger": "use or source-defined reveal",
+          "secrecy": "Backpack contents hidden"
+        }
+      ],
+      "costs": [],
+      "targets": [
+        {
+          "targetId": "T-KEPT-ITEM",
+          "selectorRef": "P-OWNER",
+          "eligibleTaxonIds": [
+            "tax.entity.component.card.item"
+          ],
+          "cardinality": {
+            "min": 1,
+            "max": 1
+          },
+          "selectionMode": "player-choice",
+          "visibility": "owner-private"
+        }
+      ],
+      "operations": [
+        {
+          "stepId": "S01",
+          "sequence": 1,
+          "operationType": "draw-random",
+          "modality": "must",
+          "subjectRef": "P-SEARCHER",
+          "objectRef": "1 Item from corresponding deck per Room Item Icon",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-SEARCH-1"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S02",
+          "sequence": 2,
+          "operationType": "select-target",
+          "modality": "must",
+          "subjectRef": "P-OWNER",
+          "objectRef": "one drawn Item",
+          "conditionRefs": [],
+          "decisionRef": "D-KEEP-ITEM",
+          "targetRef": "T-KEPT-ITEM",
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-SEARCH-1"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S03",
+          "sequence": 3,
+          "operationType": "transition-zone",
+          "modality": "must",
+          "subjectRef": "P-OWNER",
+          "objectRef": "chosen Item",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": {
+            "from": "temporary-private-inspection",
+            "to": "Backpack, Hand slot, or Armor position according to Item class"
+          },
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-SEARCH-1"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S04",
+          "sequence": 4,
+          "operationType": "transition-zone",
+          "modality": "must",
+          "subjectRef": "P-OWNER",
+          "objectRef": "each unchosen Item",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": {
+            "from": "temporary-private-inspection",
+            "to": "bottom of its respective deck"
+          },
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-SEARCH-1"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S05",
+          "sequence": 5,
+          "operationType": "transition-zone",
+          "modality": "must",
+          "subjectRef": "P-OWNER",
+          "objectRef": "played Search Action card",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": {
+            "from": "tax.scaffold.zone.hand",
+            "to": "tax.scaffold.zone.discard-pile"
+          },
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-SEARCH-2",
+            "SA-SEARCH-3"
+          ],
+          "notes": null
+        }
+      ],
+      "partialResolution": {
+        "policy": "all-or-nothing-selection",
+        "unit": "Search effect",
+        "onImpossible": "Action/card effect may be selected only if fully resolvable"
+      },
+      "duration": {
+        "kind": "instantaneous-card-effect"
+      },
+      "stacking": {
+        "policy": "one chosen Item; unchosen returns are independent per deck"
+      },
+      "outcomes": [],
+      "unresolvedQuestionRefs": [],
+      "sourceVariants": [
+        {
+          "variantId": "SV-SEARCH-CARD-SHORTHAND",
+          "sourceId": "SRC-CARD-SEARCH-MEDICAL",
+          "difference": "Card says discard the rest; higher-authority rulebook defines discard here as bottom of respective decks and prohibits revealing unchosen Items.",
+          "resolution": "official-primary rulebook controls general Search procedure while exact card wording remains preserved"
+        }
+      ],
+      "implementationBoundary": "implementation-neutral; no engine, UI, network, storage, or serialization mapping"
+    },
+    {
+      "ruleId": "SEM-ENDGAME-001",
+      "title": "End-of-game triggers and checks",
+      "status": "source-backed-with-open-question",
+      "ruleKind": "endgame",
+      "applicability": {
+        "game": "Nemesis: Retaliation",
+        "mode": "base-standard",
+        "playerCount": null
+      },
+      "authority": {
+        "highest": "official-errata",
+        "interpretation": "open-alternatives"
+      },
+      "sourceAssertions": [
+        {
+          "assertionId": "SA-END-1",
+          "sourceId": "SRC-RULEBOOK",
+          "locator": "printed page 39 / lines 6238–6273",
+          "supportsFields": [
+            "preconditions",
+            "operations",
+            "outcomes",
+            "unresolvedQuestionRefs"
+          ],
+          "sourceText": "Game ends at Round 14, when all players are dead/Escaped/Hibernated, or Facility destruction; then resolve Infection, Eclosion, Objective reveal/check, and winners.",
+          "textKind": "normalized-paraphrase",
+          "evidenceRecord": "docs/rules/03-intruders-and-survival.md:INT-011"
+        },
+        {
+          "assertionId": "SA-END-2",
+          "sourceId": "SRC-FAQ",
+          "locator": "General rules #3",
+          "supportsFields": [
+            "operations"
+          ],
+          "sourceText": "Pending Autodestruction happens before the endgame sequence.",
+          "textKind": "normalized-paraphrase",
+          "evidenceRecord": "docs/rules/03-intruders-and-survival.md:INT-010"
+        }
+      ],
+      "termRefs": [
+        "term.eclosion-procedure",
+        "term.end-of-the-game",
+        "term.fulfilled",
+        "term.infection-procedure",
+        "term.objective",
+        "term.survivor"
+      ],
+      "taxonRefs": [
+        "tax.entity.information.objective",
+        "tax.process.procedure.eclosion",
+        "tax.process.procedure.endgame",
+        "tax.process.procedure.infection",
+        "tax.state.objective.fulfilled",
+        "tax.state.participation.survivor"
+      ],
+      "namedIdentityRefs": [],
+      "timing": {
+        "windowId": "TW-ENDGAME",
+        "anchorTaxonId": "tax.process.procedure.endgame",
+        "relation": "when-triggered",
+        "recurrence": "once-per-game"
+      },
+      "participants": [
+        {
+          "participantId": "P-RULES",
+          "participantKind": "rules-system",
+          "taxonId": null,
+          "role": null
+        },
+        {
+          "participantId": "P-CHARACTERS",
+          "participantKind": "collection",
+          "taxonId": "tax.entity.agent.character",
+          "role": null
+        },
+        {
+          "participantId": "P-PLAYERS",
+          "participantKind": "collection",
+          "taxonId": "tax.entity.agent.player",
+          "role": null
+        }
+      ],
+      "modality": "must",
+      "preconditions": [
+        {
+          "conditionId": "C-END-TRIGGER",
+          "scope": "record-precondition",
+          "expression": {
+            "operator": "any",
+            "args": [
+              {
+                "predicate": "Round 14 ends"
+              },
+              {
+                "predicate": "all players died, Escaped, or Hibernated"
+              },
+              {
+                "predicate": "Facility is Destroyed"
+              }
+            ]
+          },
+          "sourceAssertionIds": [
+            "SA-END-1"
+          ]
+        },
+        {
+          "conditionId": "S02-C01",
+          "scope": "operation-guard",
+          "expression": {
+            "operator": "predicate",
+            "args": [
+              {
+                "predicate": "Round 14 trigger"
+              }
+            ]
+          },
+          "sourceAssertionIds": [
+            "SA-END-1"
+          ]
+        }
+      ],
+      "decisions": [
+        {
+          "decisionId": "D-LATE-OBJECTIVE",
+          "ownerRef": "P-PLAYERS",
+          "selectionMode": "player-choice",
+          "cardinality": {
+            "min": 1,
+            "max": 1
+          },
+          "declineAllowed": false,
+          "visibility": "owner-private-until-reveal",
+          "options": [
+            "each still-alive eligible Player chooses from their two Objective cards"
+          ]
+        }
+      ],
+      "informationPolicy": [
+        {
+          "informationId": "I-OBJECTIVES",
+          "subjectRef": "unselected/chosen Objective identities",
+          "audience": "owner-private",
+          "revealTrigger": "endgame Objective check",
+          "secrecy": "hidden until reveal"
+        },
+        {
+          "informationId": "I-END-RESULT",
+          "subjectRef": "survival and winners",
+          "audience": "public",
+          "revealTrigger": "resolution",
+          "secrecy": "none"
+        }
+      ],
+      "costs": [],
+      "targets": [],
+      "operations": [
+        {
+          "stepId": "S01",
+          "sequence": 1,
+          "operationType": "invoke-process",
+          "modality": "if-able",
+          "subjectRef": "rules-system",
+          "objectRef": "pending Autodestruction",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-END-2"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S02",
+          "sequence": 2,
+          "operationType": "set-state",
+          "modality": "if-able",
+          "subjectRef": "onboard Characters at Round-14 expiry",
+          "objectRef": "dead",
+          "conditionRefs": [
+            "S02-C01"
+          ],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-END-1"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S03",
+          "sequence": 3,
+          "operationType": "invoke-process",
+          "modality": "must",
+          "subjectRef": "each alive Escaped/Hibernated Character without Larva",
+          "objectRef": "Infection Procedure",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-END-1"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S04",
+          "sequence": 4,
+          "operationType": "invoke-process",
+          "modality": "must",
+          "subjectRef": "each alive Escaped/Hibernated Character currently with Larva",
+          "objectRef": "Eclosion Procedure",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-END-1"
+          ],
+          "notes": "Whether “currently” includes a Larva gained in S03 is OQ-002."
+        },
+        {
+          "stepId": "S05",
+          "sequence": 5,
+          "operationType": "choose",
+          "modality": "if-able",
+          "subjectRef": "each still-alive Player lacking chosen Objective",
+          "objectRef": "one Objective",
+          "conditionRefs": [],
+          "decisionRef": "D-LATE-OBJECTIVE",
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-END-1"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S06",
+          "sequence": 6,
+          "operationType": "reveal",
+          "modality": "must",
+          "subjectRef": "each still-alive Character",
+          "objectRef": "chosen Objective",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-END-1"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S07",
+          "sequence": 7,
+          "operationType": "evaluate-condition",
+          "modality": "must",
+          "subjectRef": "each still-alive Character",
+          "objectRef": "Objective fulfilled",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-END-1"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S08",
+          "sequence": 8,
+          "operationType": "set-state",
+          "modality": "if-able",
+          "subjectRef": "Character with fulfilled Objective",
+          "objectRef": "winner",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-END-1"
+          ],
+          "notes": null
+        }
+      ],
+      "partialResolution": {
+        "policy": "ordered-complete",
+        "unit": "endgame sequence step",
+        "onImpossible": "source-specific; unresolved iteration questions remain explicit"
+      },
+      "duration": {
+        "kind": "end-of-game"
+      },
+      "stacking": {
+        "policy": "once per game"
+      },
+      "outcomes": [
+        {
+          "condition": "Character remains alive and chosen Objective is Fulfilled",
+          "result": "wins"
+        }
+      ],
+      "unresolvedQuestionRefs": [
+        "OQ-001",
+        "OQ-002"
+      ],
+      "sourceVariants": [],
+      "implementationBoundary": "implementation-neutral; no engine, UI, network, storage, or serialization mapping"
+    },
+    {
+      "ruleId": "SEM-EVENT-HATCHING-001",
+      "title": "Hatching Event resolution",
+      "status": "source-backed-with-open-question",
+      "ruleKind": "event",
+      "applicability": {
+        "game": "Nemesis: Retaliation",
+        "mode": "base-standard",
+        "playerCount": null
+      },
+      "authority": {
+        "highest": "official-primary",
+        "interpretation": "open-alternatives"
+      },
+      "sourceAssertions": [
+        {
+          "assertionId": "SA-HATCH-1",
+          "sourceId": "SRC-EVENT-HATCHING",
+          "locator": "canonical Event face",
+          "supportsFields": [
+            "operations",
+            "unresolvedQuestionRefs"
+          ],
+          "sourceText": "All Intruders in each NE–SW Corridor move. Place a Larva in the Nest; place 1 Larva in each Unexplored Corridor adjacent to a Character. Resolve each Noise in Unexplored Corridors.",
+          "textKind": "normalized-paraphrase",
+          "evidenceRecord": "assets/tts-mod/extract/card-text-corpus.json"
+        },
+        {
+          "assertionId": "SA-HATCH-2",
+          "sourceId": "SRC-RULEBOOK",
+          "locator": "printed page 15 / Event card resolution",
+          "supportsFields": [
+            "timing",
+            "partialResolution"
+          ],
+          "sourceText": "Resolve movement, main effect, secondary effect, then discard; ignore an impossible sentence and continue.",
+          "textKind": "normalized-paraphrase",
+          "evidenceRecord": "docs/rules/01-round-and-turns.md:RT-009"
+        }
+      ],
+      "termRefs": [
+        "icon.corridorNESW",
+        "icon.noise",
+        "term.event-card",
+        "term.nest",
+        "term.noise-roll",
+        "term.unexplored-corridor"
+      ],
+      "taxonRefs": [
+        "tax.entity.component.card.event",
+        "tax.entity.component.marker.noise",
+        "tax.entity.spatial.room.nest",
+        "tax.state.corridor.unexplored",
+        "tax.value.orientation"
+      ],
+      "namedIdentityRefs": [],
+      "timing": {
+        "windowId": "TW-HATCH",
+        "anchorTaxonId": "tax.process.temporal.phase.event",
+        "relation": "during-event-card-resolution",
+        "recurrence": "when-drawn"
+      },
+      "participants": [
+        {
+          "participantId": "P-RULES",
+          "participantKind": "rules-system",
+          "taxonId": null,
+          "role": null
+        }
+      ],
+      "modality": "must",
+      "preconditions": [],
+      "decisions": [],
+      "informationPolicy": [
+        {
+          "informationId": "I-EVENT",
+          "subjectRef": "drawn Event card and all results",
+          "audience": "public",
+          "revealTrigger": "draw",
+          "secrecy": "none"
+        }
+      ],
+      "costs": [],
+      "targets": [],
+      "operations": [
+        {
+          "stepId": "S01",
+          "sequence": 1,
+          "operationType": "move-entity",
+          "modality": "if-able",
+          "subjectRef": "each Intruder in NE–SW Corridors",
+          "objectRef": "toward closest Character",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": {
+            "order": "source Event movement order"
+          },
+          "sourceAssertionIds": [
+            "SA-HATCH-1",
+            "SA-HATCH-2"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S02",
+          "sequence": 2,
+          "operationType": "place-component",
+          "modality": "if-able",
+          "subjectRef": "rules-system",
+          "objectRef": "1 Larva in the Nest",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-HATCH-1"
+          ],
+          "notes": "If a Character is there, the entry immediately Attacks."
+        },
+        {
+          "stepId": "S03",
+          "sequence": 3,
+          "operationType": "place-component",
+          "modality": "if-able",
+          "subjectRef": "rules-system",
+          "objectRef": "1 Larva in each Unexplored Corridor adjacent to a Character",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": {
+            "scope": "each matching Corridor"
+          },
+          "sourceAssertionIds": [
+            "SA-HATCH-1"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S04",
+          "sequence": 4,
+          "operationType": "invoke-process",
+          "modality": "if-able",
+          "subjectRef": "rules-system",
+          "objectRef": "each existing Noise marker in Unexplored Corridors",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": {
+            "order": "Facility top-left row by row"
+          },
+          "sourceAssertionIds": [
+            "SA-HATCH-1"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S05",
+          "sequence": 5,
+          "operationType": "transition-zone",
+          "modality": "must",
+          "subjectRef": "rules-system",
+          "objectRef": "Hatching Event card",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": {
+            "from": "resolved Event",
+            "to": "tax.scaffold.zone.discard-pile"
+          },
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-HATCH-2"
+          ],
+          "notes": null
+        }
+      ],
+      "partialResolution": {
+        "policy": "per-sentence-continue",
+        "unit": "Event-card sentence",
+        "onImpossible": "ignore only the impossible sentence and continue the card"
+      },
+      "duration": {
+        "kind": "instantaneous-event-resolution"
+      },
+      "stacking": {
+        "policy": "not-applicable"
+      },
+      "outcomes": [],
+      "unresolvedQuestionRefs": [
+        "OQ-009"
+      ],
+      "sourceVariants": [],
+      "implementationBoundary": "implementation-neutral; no engine, UI, network, storage, or serialization mapping"
+    },
+    {
+      "ruleId": "SEM-INTRUDER-HELP-QA-R01",
+      "title": "Queen Alive token resolved in a Room",
+      "status": "source-backed",
+      "ruleKind": "dispatcher",
+      "applicability": {
+        "game": "Nemesis: Retaliation",
+        "mode": "base-standard",
+        "playerCount": null
+      },
+      "authority": {
+        "highest": "official-primary",
+        "interpretation": "verbatim-structure"
+      },
+      "sourceAssertions": [
+        {
+          "assertionId": "SA-IH-QA-R01",
+          "sourceId": "SRC-INTRUDER-HELP-QA",
+          "locator": "queen-alive / room / QA-R-01",
+          "supportsFields": [
+            "preconditions",
+            "operations"
+          ],
+          "sourceText": "Activate the Queen. If not possible – place her in the Room.",
+          "textKind": "normalized-paraphrase",
+          "evidenceRecord": "docs/rules/source-extraction/intruder-help-sheet.json:QA-R-01"
+        },
+        {
+          "assertionId": "SA-IH-CONTEXT",
+          "sourceId": "SRC-RULEBOOK",
+          "locator": "printed pages 25, 30, 35",
+          "supportsFields": [
+            "timing"
+          ],
+          "sourceText": "Resolve the drawn token in the context directed by the caller/Help Sheet column.",
+          "textKind": "normalized-paraphrase",
+          "evidenceRecord": "docs/rules/03-intruders-and-survival.md:INT-001"
+        }
+      ],
+      "termRefs": [
+        "term.queen",
+        "term.room"
+      ],
+      "taxonRefs": [
+        "tax.entity.agent.intruder.queen",
+        "tax.entity.spatial.room"
+      ],
+      "namedIdentityRefs": [],
+      "timing": {
+        "windowId": "TW-IH-QA-R01",
+        "anchorTaxonId": "tax.process.sequence.noise-roll",
+        "relation": "when-triggered",
+        "recurrence": "per-drawn-Queen-token-in-Room-context"
+      },
+      "participants": [
+        {
+          "participantId": "P-RULES",
+          "participantKind": "rules-system",
+          "taxonId": null,
+          "role": null
+        }
+      ],
+      "modality": "must",
+      "preconditions": [
+        {
+          "conditionId": "C-IH-SIDE",
+          "scope": "record-precondition",
+          "expression": {
+            "operator": "predicate",
+            "args": [
+              {
+                "predicate": "Intruder Help side is Queen Alive"
+              }
+            ]
+          },
+          "sourceAssertionIds": [
+            "SA-IH-QA-R01"
+          ]
+        },
+        {
+          "conditionId": "C-IH-CONTEXT",
+          "scope": "record-precondition",
+          "expression": {
+            "operator": "predicate",
+            "args": [
+              {
+                "predicate": "caller requests Room context"
+              }
+            ]
+          },
+          "sourceAssertionIds": [
+            "SA-IH-CONTEXT"
+          ]
+        },
+        {
+          "conditionId": "S02-C01",
+          "scope": "operation-guard",
+          "expression": {
+            "operator": "predicate",
+            "args": [
+              {
+                "predicate": "Queen activation is not possible"
+              }
+            ]
+          },
+          "sourceAssertionIds": [
+            "SA-IH-QA-R01"
+          ]
+        }
+      ],
+      "decisions": [],
+      "informationPolicy": [
+        {
+          "informationId": "I-DRAWN-TOKEN",
+          "subjectRef": "drawn Intruder token and resolved result",
+          "audience": "public",
+          "revealTrigger": "draw",
+          "secrecy": "none"
+        }
+      ],
+      "costs": [],
+      "targets": [],
+      "operations": [
+        {
+          "stepId": "S01",
+          "sequence": 1,
+          "operationType": "invoke-process",
+          "modality": "if-able",
+          "subjectRef": "Queen",
+          "objectRef": "Activate Queen",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-IH-QA-R01"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S02",
+          "sequence": 2,
+          "operationType": "place-component",
+          "modality": "must",
+          "subjectRef": "rules-system",
+          "objectRef": "Queen in caller-supplied Room",
+          "conditionRefs": [
+            "S02-C01"
+          ],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-IH-QA-R01"
+          ],
+          "notes": null
+        }
+      ],
+      "partialResolution": {
+        "policy": "if-not-possible-fallback",
+        "unit": "Help Sheet row",
+        "onImpossible": "use the printed placement fallback"
+      },
+      "duration": {
+        "kind": "instantaneous-dispatch-row"
+      },
+      "stacking": {
+        "policy": "one row per token/context"
+      },
+      "outcomes": [],
+      "unresolvedQuestionRefs": [],
+      "sourceVariants": [],
+      "implementationBoundary": "implementation-neutral; no engine, UI, network, storage, or serialization mapping"
+    },
+    {
+      "ruleId": "SEM-REACTION-DUCK-001",
+      "title": "Duck and Cover Reaction redirect",
+      "status": "source-backed-with-open-question",
+      "ruleKind": "reaction",
+      "applicability": {
+        "game": "Nemesis: Retaliation",
+        "mode": "base-standard",
+        "playerCount": null
+      },
+      "authority": {
+        "highest": "official-primary",
+        "interpretation": "open-alternatives"
+      },
+      "sourceAssertions": [
+        {
+          "assertionId": "SA-DUCK-1",
+          "sourceId": "SRC-CARD-DUCK",
+          "locator": "Reaction panel",
+          "supportsFields": [
+            "timing",
+            "preconditions",
+            "targets",
+            "operations"
+          ],
+          "sourceText": "When you would be Attacked by an Intruder in a Room with another Character: The Intruder Attacks the other Character instead.",
+          "textKind": "normalized-paraphrase",
+          "evidenceRecord": "assets/tts-mod/extract/card-text-corpus.json"
+        },
+        {
+          "assertionId": "SA-DUCK-2",
+          "sourceId": "SRC-RULEBOOK",
+          "locator": "printed pages 13–14 / Reactions",
+          "supportsFields": [
+            "timing",
+            "duration"
+          ],
+          "sourceText": "A player may use a Reaction when its condition is met; resolve it, then discard the card; it is not an Action.",
+          "textKind": "normalized-paraphrase",
+          "evidenceRecord": "docs/rules/01-round-and-turns.md:RT-003"
+        }
+      ],
+      "termRefs": [
+        "icon.character",
+        "icon.intruder",
+        "term.attack",
+        "term.reaction"
+      ],
+      "taxonRefs": [
+        "tax.entity.agent.character",
+        "tax.entity.agent.intruder",
+        "tax.process.attack",
+        "tax.process.card-effect.reaction"
+      ],
+      "namedIdentityRefs": [],
+      "timing": {
+        "windowId": "TW-DUCK",
+        "anchorTaxonId": "tax.process.attack",
+        "relation": "before-attack-resolution",
+        "recurrence": "when-trigger-condition-met"
+      },
+      "participants": [
+        {
+          "participantId": "P-ORIGINAL-TARGET",
+          "participantKind": "actor",
+          "taxonId": "tax.entity.agent.character",
+          "role": null
+        },
+        {
+          "participantId": "P-OWNER",
+          "participantKind": "decision-owner",
+          "taxonId": "tax.entity.agent.player",
+          "role": null
+        },
+        {
+          "participantId": "P-INTRUDER",
+          "participantKind": "affected",
+          "taxonId": "tax.entity.agent.intruder",
+          "role": null
+        }
+      ],
+      "modality": "may",
+      "preconditions": [
+        {
+          "conditionId": "C-DUCK",
+          "scope": "record-precondition",
+          "expression": {
+            "operator": "all",
+            "args": [
+              {
+                "predicate": "P-ORIGINAL-TARGET would be Attacked by P-INTRUDER"
+              },
+              {
+                "predicate": "same Room contains at least one other Character"
+              }
+            ]
+          },
+          "sourceAssertionIds": [
+            "SA-DUCK-1"
+          ]
+        },
+        {
+          "conditionId": "S02-C01",
+          "scope": "operation-guard",
+          "expression": {
+            "operator": "predicate",
+            "args": [
+              {
+                "predicate": "Reaction played"
+              }
+            ]
+          },
+          "sourceAssertionIds": [
+            "SA-DUCK-1"
+          ]
+        },
+        {
+          "conditionId": "S03-C01",
+          "scope": "operation-guard",
+          "expression": {
+            "operator": "predicate",
+            "args": [
+              {
+                "predicate": "Reaction played"
+              }
+            ]
+          },
+          "sourceAssertionIds": [
+            "SA-DUCK-1"
+          ]
+        },
+        {
+          "conditionId": "S04-C01",
+          "scope": "operation-guard",
+          "expression": {
+            "operator": "predicate",
+            "args": [
+              {
+                "predicate": "Reaction played"
+              }
+            ]
+          },
+          "sourceAssertionIds": [
+            "SA-DUCK-2"
+          ]
+        }
+      ],
+      "decisions": [
+        {
+          "decisionId": "D-USE-REACTION",
+          "ownerRef": "P-OWNER",
+          "selectionMode": "player-choice",
+          "cardinality": {
+            "min": 0,
+            "max": 1
+          },
+          "declineAllowed": true,
+          "visibility": "public-on-play",
+          "options": [
+            "decline",
+            "play Duck and Cover"
+          ]
+        }
+      ],
+      "informationPolicy": [
+        {
+          "informationId": "I-REACTION-CARD",
+          "subjectRef": "Duck and Cover identity",
+          "audience": "public",
+          "revealTrigger": "play",
+          "secrecy": "hidden in hand before play"
+        }
+      ],
+      "costs": [],
+      "targets": [
+        {
+          "targetId": "T-OTHER-CHARACTER",
+          "selectorRef": "unresolved-by-source-when-multiple",
+          "eligibleTaxonIds": [
+            "tax.entity.agent.character"
+          ],
+          "cardinality": {
+            "min": 1,
+            "max": 1
+          },
+          "selectionMode": "unresolved-when-multiple",
+          "visibility": "public"
+        }
+      ],
+      "operations": [
+        {
+          "stepId": "S01",
+          "sequence": 1,
+          "operationType": "play-card",
+          "modality": "may",
+          "subjectRef": "P-OWNER",
+          "objectRef": "Duck and Cover",
+          "conditionRefs": [],
+          "decisionRef": "D-USE-REACTION",
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-DUCK-1",
+            "SA-DUCK-2"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S02",
+          "sequence": 2,
+          "operationType": "replace-target",
+          "modality": "must",
+          "subjectRef": "P-INTRUDER",
+          "objectRef": "T-OTHER-CHARACTER",
+          "conditionRefs": [
+            "S02-C01"
+          ],
+          "decisionRef": null,
+          "targetRef": "T-OTHER-CHARACTER",
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-DUCK-1"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S03",
+          "sequence": 3,
+          "operationType": "invoke-process",
+          "modality": "must",
+          "subjectRef": "P-INTRUDER",
+          "objectRef": "Intruder Attack against replacement target",
+          "conditionRefs": [
+            "S03-C01"
+          ],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-DUCK-1"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S04",
+          "sequence": 4,
+          "operationType": "transition-zone",
+          "modality": "must",
+          "subjectRef": "P-OWNER",
+          "objectRef": "Duck and Cover card",
+          "conditionRefs": [
+            "S04-C01"
+          ],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": {
+            "from": "tax.scaffold.zone.hand",
+            "to": "tax.scaffold.zone.discard-pile"
+          },
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-DUCK-2"
+          ],
+          "notes": null
+        }
+      ],
+      "partialResolution": {
+        "policy": "replacement-effect",
+        "unit": "one pending Attack",
+        "onImpossible": "source does not specify replacement selection when multiple other Characters exist"
+      },
+      "duration": {
+        "kind": "one-pending-attack"
+      },
+      "stacking": {
+        "policy": "one Reaction card play per copy"
+      },
+      "outcomes": [],
+      "unresolvedQuestionRefs": [
+        "SEM-Q-001"
+      ],
+      "sourceVariants": [],
+      "implementationBoundary": "implementation-neutral; no engine, UI, network, storage, or serialization mapping"
+    },
+    {
+      "ruleId": "SEM-ROOM-01",
+      "title": "Sprinklers Control Room effect",
+      "status": "source-backed",
+      "ruleKind": "component-effect",
+      "applicability": {
+        "game": "Nemesis: Retaliation",
+        "mode": "base-standard",
+        "playerCount": null
+      },
+      "authority": {
+        "highest": "official-primary",
+        "interpretation": "verbatim-structure"
+      },
+      "sourceAssertions": [
+        {
+          "assertionId": "SA-ROOM01-1",
+          "sourceId": "SRC-ROOM-HELP",
+          "locator": "entry 01 SPRINKLERS CONTROL",
+          "supportsFields": [
+            "decisions",
+            "targets",
+            "operations"
+          ],
+          "sourceText": "Discard all Fire markers from a chosen Section.",
+          "textKind": "normalized-paraphrase",
+          "evidenceRecord": "docs/rules/source-extraction/room-help-sheet.json:01"
+        },
+        {
+          "assertionId": "SA-ROOM01-2",
+          "sourceId": "SRC-RULEBOOK",
+          "locator": "printed page 12 / Basic Actions List",
+          "supportsFields": [
+            "costs",
+            "preconditions"
+          ],
+          "sourceText": "Use the Room costs 2 Action cards and carries Not In Combat.",
+          "textKind": "normalized-paraphrase",
+          "evidenceRecord": "docs/rules/source-extraction/rulebook-visual-obligations.json:RB-P12-V02"
+        }
+      ],
+      "termRefs": [
+        "icon.fire",
+        "icon.notInCombat",
+        "term.section",
+        "term.use-the-room"
+      ],
+      "taxonRefs": [
+        "tax.entity.component.marker.fire",
+        "tax.entity.spatial.section",
+        "tax.process.action.use-room",
+        "tax.state.combat.not-in-combat"
+      ],
+      "namedIdentityRefs": [
+        "NI-0447"
+      ],
+      "timing": {
+        "windowId": "TW-ROOM01",
+        "anchorTaxonId": "tax.process.action.use-room",
+        "relation": "during",
+        "recurrence": "per-Use-Room"
+      },
+      "participants": [
+        {
+          "participantId": "P-ACTIVE-PLAYER",
+          "participantKind": "decision-owner",
+          "taxonId": "tax.entity.agent.player",
+          "role": null
+        },
+        {
+          "participantId": "P-ACTIVE-CHARACTER",
+          "participantKind": "actor",
+          "taxonId": "tax.entity.agent.character",
+          "role": null
+        }
+      ],
+      "modality": "must",
+      "preconditions": [
+        {
+          "conditionId": "C-ROOM01",
+          "scope": "record-precondition",
+          "expression": {
+            "operator": "all",
+            "args": [
+              {
+                "predicate": "Character occupies Sprinklers Control"
+              },
+              {
+                "predicate": "Character is Not In Combat"
+              },
+              {
+                "predicate": "effect is fully resolvable"
+              }
+            ]
+          },
+          "sourceAssertionIds": [
+            "SA-ROOM01-1",
+            "SA-ROOM01-2"
+          ]
+        }
+      ],
+      "decisions": [
+        {
+          "decisionId": "D-ROOM01-PAY",
+          "ownerRef": "P-ACTIVE-PLAYER",
+          "selectionMode": "player-choice",
+          "cardinality": {
+            "min": 2,
+            "max": 2
+          },
+          "declineAllowed": false,
+          "visibility": "owner-private-until-discard",
+          "options": [
+            "own Action cards in hand"
+          ]
+        },
+        {
+          "decisionId": "D-SECTION",
+          "ownerRef": "P-ACTIVE-PLAYER",
+          "selectionMode": "player-choice",
+          "cardinality": {
+            "min": 1,
+            "max": 1
+          },
+          "declineAllowed": false,
+          "visibility": "public-on-declaration",
+          "options": [
+            "Section A",
+            "Section B",
+            "Section C"
+          ]
+        }
+      ],
+      "informationPolicy": [
+        {
+          "informationId": "I-ROOM01",
+          "subjectRef": "selected Section and Fire markers",
+          "audience": "public",
+          "revealTrigger": "declaration",
+          "secrecy": "none"
+        }
+      ],
+      "costs": [
+        {
+          "costId": "COST-ROOM01",
+          "payerRef": "P-ACTIVE-PLAYER",
+          "resourceTermId": "icon.actionCard",
+          "quantity": 2,
+          "selectionDecisionRef": "D-ROOM01-PAY",
+          "transition": {
+            "from": "tax.scaffold.zone.hand",
+            "to": "tax.scaffold.zone.discard-pile"
+          }
+        }
+      ],
+      "targets": [
+        {
+          "targetId": "T-SECTION",
+          "selectorRef": "P-ACTIVE-PLAYER",
+          "eligibleTaxonIds": [
+            "tax.entity.spatial.section"
+          ],
+          "cardinality": {
+            "min": 1,
+            "max": 1
+          },
+          "selectionMode": "player-choice",
+          "visibility": "public"
+        }
+      ],
+      "operations": [
+        {
+          "stepId": "S01",
+          "sequence": 1,
+          "operationType": "pay-cost",
+          "modality": "must",
+          "subjectRef": "P-ACTIVE-PLAYER",
+          "objectRef": "COST-ROOM01",
+          "conditionRefs": [],
+          "decisionRef": "D-ROOM01-PAY",
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-ROOM01-2"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S02",
+          "sequence": 2,
+          "operationType": "select-target",
+          "modality": "must",
+          "subjectRef": "P-ACTIVE-PLAYER",
+          "objectRef": "one Section",
+          "conditionRefs": [],
+          "decisionRef": "D-SECTION",
+          "targetRef": "T-SECTION",
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-ROOM01-1"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S03",
+          "sequence": 3,
+          "operationType": "remove-component",
+          "modality": "must",
+          "subjectRef": "rules-system",
+          "objectRef": "all Fire markers in selected Section",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": "T-SECTION",
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": {
+            "scope": "all matching markers"
+          },
+          "sourceAssertionIds": [
+            "SA-ROOM01-1"
+          ],
+          "notes": null
+        }
+      ],
+      "partialResolution": {
+        "policy": "all-or-nothing-selection",
+        "unit": "Use Room Action",
+        "onImpossible": "Action may be selected only if fully resolvable"
+      },
+      "duration": {
+        "kind": "instantaneous-room-effect"
+      },
+      "stacking": {
+        "policy": "repeatable via separate Actions"
+      },
+      "outcomes": [],
+      "unresolvedQuestionRefs": [],
+      "sourceVariants": [],
+      "implementationBoundary": "implementation-neutral; no engine, UI, network, storage, or serialization mapping"
+    },
+    {
+      "ruleId": "SEM-RT-001",
+      "title": "Round phase sequence",
+      "status": "source-backed",
+      "ruleKind": "sequence",
+      "applicability": {
+        "game": "Nemesis: Retaliation",
+        "mode": "base-standard",
+        "playerCount": null
+      },
+      "authority": {
+        "highest": "official-primary",
+        "interpretation": "verbatim-structure"
+      },
+      "sourceAssertions": [
+        {
+          "assertionId": "SA-RT001-1",
+          "sourceId": "SRC-RULEBOOK",
+          "locator": "printed pages 12–15 / rulebook_text lines 2939–2986",
+          "supportsFields": [
+            "timing",
+            "operations"
+          ],
+          "sourceText": "The game is played in a series of Rounds. Each Round contains Player, Intruder, Event, and Cleanup Phases in that order.",
+          "textKind": "normalized-paraphrase",
+          "evidenceRecord": "docs/rules/01-round-and-turns.md:RT-001"
+        }
+      ],
+      "termRefs": [
+        "term.cleanup-phase",
+        "term.event-phase",
+        "term.intruder-phase",
+        "term.player-phase",
+        "term.round"
+      ],
+      "taxonRefs": [
+        "tax.process.temporal.phase.cleanup",
+        "tax.process.temporal.phase.event",
+        "tax.process.temporal.phase.intruder",
+        "tax.process.temporal.phase.player",
+        "tax.process.temporal.round"
+      ],
+      "namedIdentityRefs": [],
+      "timing": {
+        "windowId": "TW-ROUND",
+        "anchorTaxonId": "tax.process.temporal.round",
+        "relation": "during",
+        "recurrence": "once-per-round"
+      },
+      "participants": [
+        {
+          "participantId": "P-RULES",
+          "participantKind": "rules-system",
+          "taxonId": null,
+          "role": null
+        }
+      ],
+      "modality": "must",
+      "preconditions": [],
+      "decisions": [],
+      "informationPolicy": [
+        {
+          "informationId": "I-ROUND-STATE",
+          "subjectRef": "current phase/round",
+          "audience": "public",
+          "revealTrigger": "continuous",
+          "secrecy": "none"
+        }
+      ],
+      "costs": [],
+      "targets": [],
+      "operations": [
+        {
+          "stepId": "S01",
+          "sequence": 1,
+          "operationType": "invoke-process",
+          "modality": "must",
+          "subjectRef": "rules-system",
+          "objectRef": "Player Phase",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-RT001-1"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S02",
+          "sequence": 2,
+          "operationType": "invoke-process",
+          "modality": "must",
+          "subjectRef": "rules-system",
+          "objectRef": "Intruder Phase",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-RT001-1"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S03",
+          "sequence": 3,
+          "operationType": "invoke-process",
+          "modality": "must",
+          "subjectRef": "rules-system",
+          "objectRef": "Event Phase",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-RT001-1"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S04",
+          "sequence": 4,
+          "operationType": "invoke-process",
+          "modality": "must",
+          "subjectRef": "rules-system",
+          "objectRef": "Cleanup Phase",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-RT001-1"
+          ],
+          "notes": null
+        }
+      ],
+      "partialResolution": {
+        "policy": "ordered-complete",
+        "unit": "phase",
+        "onImpossible": "not-specified"
+      },
+      "duration": {
+        "kind": "round"
+      },
+      "stacking": {
+        "policy": "not-applicable"
+      },
+      "outcomes": [],
+      "unresolvedQuestionRefs": [],
+      "sourceVariants": [],
+      "implementationBoundary": "implementation-neutral; no engine, UI, network, storage, or serialization mapping"
+    },
+    {
+      "ruleId": "SEM-RT-004",
+      "title": "Player Phase rotation",
+      "status": "source-backed",
+      "ruleKind": "sequence",
+      "applicability": {
+        "game": "Nemesis: Retaliation",
+        "mode": "base-standard",
+        "playerCount": null
+      },
+      "authority": {
+        "highest": "official-primary",
+        "interpretation": "verbatim-structure"
+      },
+      "sourceAssertions": [
+        {
+          "assertionId": "SA-RT004-1",
+          "sourceId": "SRC-RULEBOOK",
+          "locator": "printed page 13 / lines 2987–3004",
+          "supportsFields": [
+            "timing",
+            "operations",
+            "targets"
+          ],
+          "sourceText": "During this Phase players take their Turns in clockwise order, beginning with the Starting Player. If a given player has Passed, they are skipped.",
+          "textKind": "normalized-paraphrase",
+          "evidenceRecord": "docs/rules/01-round-and-turns.md:RT-004"
+        }
+      ],
+      "termRefs": [
+        "term.pass",
+        "term.player-phase",
+        "term.starting-player",
+        "term.turn",
+        "term.turn-order"
+      ],
+      "taxonRefs": [
+        "tax.process.temporal.phase.player",
+        "tax.process.temporal.turn",
+        "tax.role.starting-player",
+        "tax.value.turn-order"
+      ],
+      "namedIdentityRefs": [],
+      "timing": {
+        "windowId": "TW-PLAYER-PHASE",
+        "anchorTaxonId": "tax.process.temporal.phase.player",
+        "relation": "during",
+        "recurrence": "once-per-round"
+      },
+      "participants": [
+        {
+          "participantId": "P-RULES",
+          "participantKind": "rules-system",
+          "taxonId": null,
+          "role": null
+        },
+        {
+          "participantId": "P-PLAYERS",
+          "participantKind": "collection",
+          "taxonId": "tax.entity.agent.player",
+          "role": null
+        }
+      ],
+      "modality": "must",
+      "preconditions": [
+        {
+          "conditionId": "C-ALL-PASSED",
+          "scope": "record-precondition",
+          "expression": {
+            "operator": "predicate",
+            "args": [
+              {
+                "predicate": "all eligible players have Passed"
+              }
+            ]
+          },
+          "sourceAssertionIds": [
+            "SA-RT004-1"
+          ]
+        }
+      ],
+      "decisions": [],
+      "informationPolicy": [
+        {
+          "informationId": "I-TURN-ORDER",
+          "subjectRef": "turn order and passed status",
+          "audience": "public",
+          "revealTrigger": "continuous",
+          "secrecy": "none"
+        }
+      ],
+      "costs": [],
+      "targets": [
+        {
+          "targetId": "T-NEXT-PLAYER",
+          "selectorRef": "rules-system",
+          "eligibleTaxonIds": [
+            "tax.entity.agent.player"
+          ],
+          "cardinality": {
+            "min": 1,
+            "max": 1
+          },
+          "selectionMode": "deterministic-turn-order",
+          "visibility": "public"
+        }
+      ],
+      "operations": [
+        {
+          "stepId": "S01",
+          "sequence": 1,
+          "operationType": "select-target",
+          "modality": "must",
+          "subjectRef": "rules-system",
+          "objectRef": "next non-Passed Player",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": "T-NEXT-PLAYER",
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-RT004-1"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S02",
+          "sequence": 2,
+          "operationType": "invoke-process",
+          "modality": "must",
+          "subjectRef": "selected Player",
+          "objectRef": "Turn",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": {
+            "untilConditionRef": "C-ALL-PASSED"
+          },
+          "sourceAssertionIds": [
+            "SA-RT004-1"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S03",
+          "sequence": 3,
+          "operationType": "invoke-process",
+          "modality": "must",
+          "subjectRef": "rules-system",
+          "objectRef": "Intruder Phase",
+          "conditionRefs": [
+            "C-ALL-PASSED"
+          ],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-RT004-1"
+          ],
+          "notes": null
+        }
+      ],
+      "partialResolution": {
+        "policy": "ordered-complete",
+        "unit": "turn rotation",
+        "onImpossible": "skip players who have Passed"
+      },
+      "duration": {
+        "kind": "phase"
+      },
+      "stacking": {
+        "policy": "not-applicable"
+      },
+      "outcomes": [],
+      "unresolvedQuestionRefs": [],
+      "sourceVariants": [],
+      "implementationBoundary": "implementation-neutral; no engine, UI, network, storage, or serialization mapping"
+    },
+    {
+      "ruleId": "SEM-RT-005",
+      "title": "Player Turn",
+      "status": "source-backed-with-open-question",
+      "ruleKind": "sequence",
+      "applicability": {
+        "game": "Nemesis: Retaliation",
+        "mode": "base-standard",
+        "playerCount": null
+      },
+      "authority": {
+        "highest": "official-primary",
+        "interpretation": "open-alternatives"
+      },
+      "sourceAssertions": [
+        {
+          "assertionId": "SA-RT005-1",
+          "sourceId": "SRC-RULEBOOK",
+          "locator": "printed pages 12–13 / lines 2854–2864, 2929–2934",
+          "supportsFields": [
+            "operations",
+            "decisions"
+          ],
+          "sourceText": "Perform exactly two Actions, then resolve Oxygen loss, then Fire damage.",
+          "textKind": "normalized-paraphrase",
+          "evidenceRecord": "docs/rules/01-round-and-turns.md:RT-005"
+        },
+        {
+          "assertionId": "SA-RT005-2",
+          "sourceId": "SRC-RULEBOOK",
+          "locator": "printed page 18 / death",
+          "supportsFields": [
+            "unresolvedQuestionRefs"
+          ],
+          "sourceText": "A dead Character no longer takes part in the game.",
+          "textKind": "normalized-paraphrase",
+          "evidenceRecord": "docs/rules/open-questions.md:OQ-004"
+        }
+      ],
+      "termRefs": [
+        "icon.characterHealth",
+        "icon.fire",
+        "icon.oxygen",
+        "term.action",
+        "term.pass",
+        "term.turn"
+      ],
+      "taxonRefs": [
+        "tax.entity.component.marker.fire",
+        "tax.process.action",
+        "tax.process.temporal.turn",
+        "tax.value.resource.oxygen"
+      ],
+      "namedIdentityRefs": [],
+      "timing": {
+        "windowId": "TW-TURN",
+        "anchorTaxonId": "tax.process.temporal.turn",
+        "relation": "during",
+        "recurrence": "once-per-player-turn"
+      },
+      "participants": [
+        {
+          "participantId": "P-ACTIVE-PLAYER",
+          "participantKind": "actor",
+          "taxonId": "tax.entity.agent.player",
+          "role": null
+        },
+        {
+          "participantId": "P-ACTIVE-CHARACTER",
+          "participantKind": "controlled-actor",
+          "taxonId": "tax.entity.agent.character",
+          "role": null
+        }
+      ],
+      "modality": "must",
+      "preconditions": [
+        {
+          "conditionId": "S03-C01",
+          "scope": "operation-guard",
+          "expression": {
+            "operator": "predicate",
+            "args": [
+              {
+                "predicate": "Character is in a Section with inactive Life Support"
+              }
+            ]
+          },
+          "sourceAssertionIds": [
+            "SA-RT005-1"
+          ]
+        },
+        {
+          "conditionId": "S04-C01",
+          "scope": "operation-guard",
+          "expression": {
+            "operator": "predicate",
+            "args": [
+              {
+                "predicate": "Character is in a Room with Fire"
+              }
+            ]
+          },
+          "sourceAssertionIds": [
+            "SA-RT005-1"
+          ]
+        }
+      ],
+      "decisions": [
+        {
+          "decisionId": "D-ACTION-1",
+          "ownerRef": "P-ACTIVE-PLAYER",
+          "selectionMode": "player-choice",
+          "cardinality": {
+            "min": 1,
+            "max": 1
+          },
+          "declineAllowed": false,
+          "visibility": "public-on-declaration",
+          "options": [
+            "any fully resolvable legal Action"
+          ]
+        },
+        {
+          "decisionId": "D-ACTION-2",
+          "ownerRef": "P-ACTIVE-PLAYER",
+          "selectionMode": "player-choice",
+          "cardinality": {
+            "min": 1,
+            "max": 1
+          },
+          "declineAllowed": false,
+          "visibility": "public-on-declaration",
+          "options": [
+            "any fully resolvable legal Action, including Pass"
+          ]
+        }
+      ],
+      "informationPolicy": [
+        {
+          "informationId": "I-HAND",
+          "subjectRef": "unselected hand cards",
+          "audience": "owner-private",
+          "revealTrigger": "source-specific play/discard",
+          "secrecy": "identities hidden from other players"
+        }
+      ],
+      "costs": [],
+      "targets": [],
+      "operations": [
+        {
+          "stepId": "S01",
+          "sequence": 1,
+          "operationType": "invoke-selected-process",
+          "modality": "must",
+          "subjectRef": "P-ACTIVE-CHARACTER",
+          "objectRef": "selected Action",
+          "conditionRefs": [],
+          "decisionRef": "D-ACTION-1",
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-RT005-1"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S02",
+          "sequence": 2,
+          "operationType": "invoke-selected-process",
+          "modality": "must",
+          "subjectRef": "P-ACTIVE-CHARACTER",
+          "objectRef": "selected Action",
+          "conditionRefs": [],
+          "decisionRef": "D-ACTION-2",
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-RT005-1"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S03",
+          "sequence": 3,
+          "operationType": "change-value",
+          "modality": "if-able",
+          "subjectRef": "P-ACTIVE-CHARACTER",
+          "objectRef": "Oxygen",
+          "conditionRefs": [
+            "S03-C01"
+          ],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": {
+            "amount": -1,
+            "valueTaxonId": "tax.value.resource.oxygen"
+          },
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-RT005-1"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S04",
+          "sequence": 4,
+          "operationType": "change-value",
+          "modality": "if-able",
+          "subjectRef": "P-ACTIVE-CHARACTER",
+          "objectRef": "Character Health",
+          "conditionRefs": [
+            "S04-C01"
+          ],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": {
+            "amount": -1,
+            "valueTaxonId": "tax.state.health.point"
+          },
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-RT005-1"
+          ],
+          "notes": null
+        }
+      ],
+      "partialResolution": {
+        "policy": "ordered-complete",
+        "unit": "turn step",
+        "onImpossible": "Pass remains an Action option; mid-Turn death continuation is unresolved"
+      },
+      "duration": {
+        "kind": "turn"
+      },
+      "stacking": {
+        "policy": "not-applicable"
+      },
+      "outcomes": [],
+      "unresolvedQuestionRefs": [
+        "OQ-004"
+      ],
+      "sourceVariants": [],
+      "implementationBoundary": "implementation-neutral; no engine, UI, network, storage, or serialization mapping"
+    },
+    {
+      "ruleId": "SEM-RT-007",
+      "title": "Pass Action",
+      "status": "source-backed",
+      "ruleKind": "action",
+      "applicability": {
+        "game": "Nemesis: Retaliation",
+        "mode": "base-standard",
+        "playerCount": null
+      },
+      "authority": {
+        "highest": "official-primary",
+        "interpretation": "verbatim-structure"
+      },
+      "sourceAssertions": [
+        {
+          "assertionId": "SA-RT007-1",
+          "sourceId": "SRC-RULEBOOK",
+          "locator": "printed pages 13–14 / Passing",
+          "supportsFields": [
+            "decisions",
+            "operations",
+            "duration"
+          ],
+          "sourceText": "A player may discard any number of Action and Contamination cards from hand; the Turn ends and the player is skipped for the rest of the Player Phase.",
+          "textKind": "normalized-paraphrase",
+          "evidenceRecord": "docs/rules/01-round-and-turns.md:RT-007"
+        }
+      ],
+      "termRefs": [
+        "icon.actionCard",
+        "term.contamination-card",
+        "term.pass"
+      ],
+      "taxonRefs": [
+        "tax.entity.component.card.action",
+        "tax.entity.component.card.contamination",
+        "tax.process.action.pass"
+      ],
+      "namedIdentityRefs": [],
+      "timing": {
+        "windowId": "TW-PASS",
+        "anchorTaxonId": "tax.process.temporal.turn",
+        "relation": "during",
+        "recurrence": "once-when-chosen"
+      },
+      "participants": [
+        {
+          "participantId": "P-ACTIVE-PLAYER",
+          "participantKind": "actor",
+          "taxonId": "tax.entity.agent.player",
+          "role": null
+        }
+      ],
+      "modality": "may",
+      "preconditions": [],
+      "decisions": [
+        {
+          "decisionId": "D-DISCARD-SUBSET",
+          "ownerRef": "P-ACTIVE-PLAYER",
+          "selectionMode": "player-choice",
+          "cardinality": {
+            "min": 0,
+            "max": null
+          },
+          "declineAllowed": true,
+          "visibility": "owner-private-until-discard",
+          "options": [
+            "any subset of Action and Contamination cards in own hand"
+          ]
+        }
+      ],
+      "informationPolicy": [
+        {
+          "informationId": "I-PASS-HAND",
+          "subjectRef": "unselected hand cards",
+          "audience": "owner-private",
+          "revealTrigger": "never by Pass",
+          "secrecy": "identities hidden"
+        },
+        {
+          "informationId": "I-PASS-DISCARDS",
+          "subjectRef": "selected discarded cards",
+          "audience": "public",
+          "revealTrigger": "discard",
+          "secrecy": "none"
+        }
+      ],
+      "costs": [],
+      "targets": [],
+      "operations": [
+        {
+          "stepId": "S01",
+          "sequence": 1,
+          "operationType": "transition-zone",
+          "modality": "may",
+          "subjectRef": "P-ACTIVE-PLAYER",
+          "objectRef": "selected cards",
+          "conditionRefs": [],
+          "decisionRef": "D-DISCARD-SUBSET",
+          "targetRef": null,
+          "transition": {
+            "from": "tax.scaffold.zone.hand",
+            "to": "tax.scaffold.zone.discard-pile"
+          },
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-RT007-1"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S02",
+          "sequence": 2,
+          "operationType": "set-state",
+          "modality": "must",
+          "subjectRef": "P-ACTIVE-PLAYER",
+          "objectRef": "Passed for current Player Phase",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-RT007-1"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S03",
+          "sequence": 3,
+          "operationType": "end-process",
+          "modality": "must",
+          "subjectRef": "P-ACTIVE-PLAYER",
+          "objectRef": "current Turn",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-RT007-1"
+          ],
+          "notes": null
+        }
+      ],
+      "partialResolution": {
+        "policy": "all-or-nothing-selection",
+        "unit": "Pass Action",
+        "onImpossible": "not applicable; zero-card subset is legal"
+      },
+      "duration": {
+        "kind": "until-end-of-current-player-phase"
+      },
+      "stacking": {
+        "policy": "one Passed state per Player Phase"
+      },
+      "outcomes": [],
+      "unresolvedQuestionRefs": [],
+      "sourceVariants": [],
+      "implementationBoundary": "implementation-neutral; no engine, UI, network, storage, or serialization mapping"
+    }
+  ]
+}

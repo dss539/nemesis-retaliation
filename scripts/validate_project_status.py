@@ -14,6 +14,7 @@ CORPUS = REPO / "assets/tts-mod/extract/card-text-corpus.json"
 SOURCE_VALIDATION = REPO / "docs/rules/source-extraction/validation.json"
 VOCAB_VALIDATION = REPO / "docs/rules/vocabulary/validation.json"
 ONTOLOGY_VALIDATION = REPO / "docs/rules/ontology/validation.json"
+SEMANTIC_VALIDATION = REPO / "docs/rules/semantics/validation.json"
 
 
 def require(condition: bool, message: str, failures: list[str]) -> None:
@@ -31,6 +32,7 @@ def main() -> None:
     source_validation = json.loads(SOURCE_VALIDATION.read_text(encoding="utf-8"))
     vocab_validation = json.loads(VOCAB_VALIDATION.read_text(encoding="utf-8"))
     ontology_validation = json.loads(ONTOLOGY_VALIDATION.read_text(encoding="utf-8"))
+    semantic_validation = json.loads(SEMANTIC_VALIDATION.read_text(encoding="utf-8"))
 
     require("PROJECT_STATUS.md" in agents, "AGENTS.md must point to PROJECT_STATUS.md", failures)
     require("Current implementation work is out of scope" in agents, "AGENTS.md must freeze legacy implementation work", failures)
@@ -40,8 +42,8 @@ def main() -> None:
     require(source_validation.get("passed") is True and source_validation.get("failureCount") == 0,
             "source-extraction validation must pass", failures)
     if vocab_validation["checks"]["openReviewGates"] == 0:
-        require("Semantic rules schema and pilot (ontology gate passed)" in status,
-                "PROJECT_STATUS.md must advance to semantic schema/pilot after ontology approval", failures)
+        require("Semantic pilot independent review (ontology gate passed)" in status,
+                "PROJECT_STATUS.md must advance to semantic pilot review after ontology approval", failures)
     else:
         require("Canonical vocabulary and source-scoped aliases (extraction gate passed)" in status,
                 "PROJECT_STATUS.md must remain in vocabulary phase while review gates are open", failures)
@@ -49,6 +51,8 @@ def main() -> None:
             "vocabulary proposal validation must pass", failures)
     require(ontology_validation.get("passed") is True and ontology_validation.get("failureCount") == 0,
             "taxonomy/ontology validation must pass", failures)
+    require(semantic_validation.get("passed") is True and semantic_validation.get("failureCount") == 0,
+            "semantic pilot validation must pass", failures)
 
     counts = corpus["counts"]
     expected_fragments = [
@@ -129,6 +133,14 @@ def main() -> None:
         f"- {ontology_validation['checks']['staticAssertions']} source-backed structural assertions and constraints",
         f"- {ontology_validation['checks']['semanticScaffoldTaxa']} semantic-scaffolding taxa for later zones, timing, decisions, visibility, lifecycle, and finite supply",
         f"- {ontology_validation['checks']['openReviewGates']} ontology owner gates after four-workstream independent review",
+        f"- {semantic_validation['checks']['sources']} exact source registry tuples",
+        f"- {semantic_validation['checks']['records']} pilot records across {semantic_validation['checks']['systems']} systems",
+        f"- {semantic_validation['checks']['sourceAssertions']} source assertions / {semantic_validation['checks']['conditions']} structured conditions and guards",
+        f"- {semantic_validation['checks']['operations']} ordered operations",
+        f"- {semantic_validation['checks']['decisions']} actor-owned decisions / {semantic_validation['checks']['informationPolicies']} information policies",
+        f"- {semantic_validation['checks']['costs']} explicit costs / {semantic_validation['checks']['targets']} target specifications",
+        f"- {semantic_validation['checks']['variantReferences']} preserved source-variant references",
+        f"- {semantic_validation['checks']['openQuestions']} open semantic questions, all with defaults prohibited",
     ]
     for fragment in expected_fragments:
         require(fragment in status, f"PROJECT_STATUS.md count drift: expected {fragment!r}", failures)
@@ -151,6 +163,8 @@ def main() -> None:
             "vocabularyOpenReviewGates": vocab_validation["checks"]["openReviewGates"],
             "ontologyTaxa": ontology_validation["checks"]["taxa"],
             "ontologyOpenReviewGates": ontology_validation["checks"]["openReviewGates"],
+            "semanticPilotRecords": semantic_validation["checks"]["records"],
+            "semanticOpenQuestions": semantic_validation["checks"]["openQuestions"],
         },
         "failureCount": len(failures),
         "failures": failures,

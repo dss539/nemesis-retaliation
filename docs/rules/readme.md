@@ -50,7 +50,8 @@ The wording “must,” “may,” and “cannot” is deliberate:
 - `open-questions.md` — 12 tracked questions: six genuine semantic/source ambiguities remain open and six former extraction/vision questions are explicitly resolved.
 - `sources.md` — source editions and citation conventions.
 - `vocabulary/` — approved controlled terms, aliases, source-term inventory, named identity observations, and validation.
-- `ontology/` — taxonomy/ontology proposal, complete vocabulary/identity mappings, structural relationship shapes, constraints, and validation.
+- `ontology/` — independently reviewed taxonomy/ontology, complete vocabulary/identity/alias mappings, static relationship shapes, constraints, and validation.
+- `semantics/` — implementation-neutral semantic schema, representative pilot corpus, source registry, open gates, coverage, and validation.
 
 ## Vocabulary proposal
 

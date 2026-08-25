@@ -1972,10 +1972,11 @@ task workspace.
 
 ## IN PROGRESS — Semantic rules schema and pilot (2026-08-24)
 
-- [ ] Define the source-traceable semantic record/schema contract.
-- [ ] Encode representative Round/Turn, movement/exploration, card, Room, Event, Intruder, and endgame pilots.
-- [ ] Carry six genuine semantic questions explicitly without silent defaults.
-- [ ] Add deterministic validation and adversarial negative controls.
+- [x] Define the closed source-traceable semantic record/schema contract.
+- [x] Encode 13 representative Round/Turn, movement/exploration, card, Room, Event, Intruder Help, and endgame pilots.
+- [x] Carry six existing genuine questions plus one pilot-discovered ambiguity explicitly with defaults prohibited.
+- [x] Add strict validation, two-seed deterministic rebuilds, and adversarial negative controls.
+- [ ] Incorporate independent schema, system-pilot, component-pilot, and validator audits.
 - [ ] Collect owner decisions but defer asking until every independent semantic task is exhausted.
 
 ## DONE — Independent Room Help fidelity hardening (2026-08-24T10:04:12Z)

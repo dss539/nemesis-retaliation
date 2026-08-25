@@ -1,0 +1,79 @@
+{
+  "schemaVersion": 1,
+  "recordType": "semantic-pilot-coverage",
+  "status": "representative pilot only",
+  "systems": [
+    {
+      "system": "round/phase/turn",
+      "ruleIds": [
+        "SEM-RT-001",
+        "SEM-RT-004",
+        "SEM-RT-005",
+        "SEM-RT-007"
+      ]
+    },
+    {
+      "system": "movement/exploration",
+      "ruleIds": [
+        "SEM-ACT-MOVE-001",
+        "SEM-ACT-EXPLORE-001"
+      ]
+    },
+    {
+      "system": "private search/zone handling",
+      "ruleIds": [
+        "SEM-ACT-SEARCH-001"
+      ]
+    },
+    {
+      "system": "infection/card modifier",
+      "ruleIds": [
+        "SEM-ACT-REST-001"
+      ]
+    },
+    {
+      "system": "reaction/replacement target",
+      "ruleIds": [
+        "SEM-REACTION-DUCK-001"
+      ]
+    },
+    {
+      "system": "Room effect",
+      "ruleIds": [
+        "SEM-ROOM-01"
+      ]
+    },
+    {
+      "system": "Event partial resolution",
+      "ruleIds": [
+        "SEM-EVENT-HATCHING-001"
+      ]
+    },
+    {
+      "system": "Intruder Help dispatcher",
+      "ruleIds": [
+        "SEM-INTRUDER-HELP-QA-R01"
+      ]
+    },
+    {
+      "system": "endgame/open alternatives",
+      "ruleIds": [
+        "SEM-ENDGAME-001"
+      ]
+    }
+  ],
+  "counts": {
+    "systems": 9,
+    "pilotRecords": 13,
+    "fullBaseSemanticCoverageClaimed": false
+  },
+  "notYetCovered": [
+    "complete card corpus",
+    "all 25 Room effects",
+    "all 20 Events",
+    "all Intruder Help rows",
+    "all Objectives/Mission Tasks",
+    "all Item/Robot/Attack/Queen Health/Serious Wound effects",
+    "remaining general rules and procedures"
+  ]
+}

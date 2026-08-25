@@ -1,0 +1,181 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/nemesis-retaliation/semantic-rule.schema.json",
+  "title": "Nemesis Retaliation semantic rule record",
+  "type": "object",
+  "required": [
+    "ruleId",
+    "title",
+    "status",
+    "ruleKind",
+    "applicability",
+    "authority",
+    "sourceAssertions",
+    "termRefs",
+    "taxonRefs",
+    "namedIdentityRefs",
+    "timing",
+    "participants",
+    "modality",
+    "preconditions",
+    "decisions",
+    "informationPolicy",
+    "costs",
+    "targets",
+    "operations",
+    "partialResolution",
+    "duration",
+    "stacking",
+    "outcomes",
+    "unresolvedQuestionRefs",
+    "sourceVariants",
+    "implementationBoundary"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "ruleId": {
+      "type": "string",
+      "pattern": "^SEM-[A-Z0-9-]+$"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "status": {
+      "enum": [
+        "source-backed",
+        "source-backed-with-open-question",
+        "source-variant"
+      ]
+    },
+    "ruleKind": {
+      "enum": [
+        "sequence",
+        "procedure",
+        "action",
+        "reaction",
+        "component-effect",
+        "event",
+        "dispatcher",
+        "endgame"
+      ]
+    },
+    "applicability": {
+      "type": "object",
+      "required": [
+        "game",
+        "mode",
+        "playerCount"
+      ],
+      "properties": {
+        "game": {
+          "const": "Nemesis: Retaliation"
+        },
+        "mode": {
+          "enum": [
+            "base",
+            "base-standard"
+          ]
+        },
+        "playerCount": {
+          "type": [
+            "object",
+            "null"
+          ]
+        }
+      }
+    },
+    "authority": {
+      "type": "object",
+      "required": [
+        "highest",
+        "interpretation"
+      ],
+      "properties": {
+        "highest": {
+          "enum": [
+            "official-errata",
+            "official-primary",
+            "official-component-reference",
+            "source-bound-component-scan"
+          ]
+        },
+        "interpretation": {
+          "enum": [
+            "verbatim-structure",
+            "source-composed",
+            "open-alternatives"
+          ]
+        }
+      }
+    },
+    "sourceAssertions": {
+      "type": "array",
+      "minItems": 1
+    },
+    "termRefs": {
+      "type": "array"
+    },
+    "taxonRefs": {
+      "type": "array"
+    },
+    "namedIdentityRefs": {
+      "type": "array"
+    },
+    "timing": {
+      "type": "object"
+    },
+    "participants": {
+      "type": "array"
+    },
+    "modality": {
+      "enum": [
+        "must",
+        "may",
+        "cannot",
+        "if-able",
+        "mixed"
+      ]
+    },
+    "preconditions": {
+      "type": "array"
+    },
+    "decisions": {
+      "type": "array"
+    },
+    "informationPolicy": {
+      "type": "array"
+    },
+    "costs": {
+      "type": "array"
+    },
+    "targets": {
+      "type": "array"
+    },
+    "operations": {
+      "type": "array",
+      "minItems": 1
+    },
+    "partialResolution": {
+      "type": "object"
+    },
+    "duration": {
+      "type": "object"
+    },
+    "stacking": {
+      "type": "object"
+    },
+    "outcomes": {
+      "type": "array"
+    },
+    "unresolvedQuestionRefs": {
+      "type": "array"
+    },
+    "sourceVariants": {
+      "type": "array"
+    },
+    "implementationBoundary": {
+      "const": "implementation-neutral; no engine, UI, network, storage, or serialization mapping"
+    }
+  }
+}

@@ -92,7 +92,7 @@ The card/reference evidence corpus and extraction provenance are under `assets/t
 
 The active phase is **canonical vocabulary and source-scoped aliases after a passed extraction gate**.
 
-The vocabulary and static taxonomy/ontology gates are passed. The active phase is semantic rules schema and representative pilot encoding. Model timing, decision ownership, visibility, costs, targets, ordered resolution, partial-resolution policy, lifecycle transitions, and source variants without inventing answers to the six open semantic questions. Keep implementation work frozen and keep a deferred owner-decision list until all other semantic work is exhausted.
+The vocabulary and static taxonomy/ontology gates are passed. The initial semantic schema and 13-record pilot are built and mechanically validated. The active task is independent semantic review and correction across schema, system pilots, component pilots, and adversarial validation. Preserve seven open questions with defaults prohibited; keep implementation frozen and defer owner questions until every independent semantic task is exhausted.
 
 See `PROJECT_STATUS.md` and `docs/rules/source-extraction/extraction-roadmap.md` for the verified checkpoint and subsequent order.
 
