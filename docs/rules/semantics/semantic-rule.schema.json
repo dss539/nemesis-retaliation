@@ -4,6 +4,9 @@
   "title": "Nemesis Retaliation semantic rule record",
   "type": "object",
   "required": [
+    "schemaVersion",
+    "recordType",
+    "recordRevision",
     "ruleId",
     "title",
     "status",
@@ -33,6 +36,16 @@
   ],
   "additionalProperties": false,
   "properties": {
+    "schemaVersion": {
+      "const": 1
+    },
+    "recordType": {
+      "const": "semantic-rule"
+    },
+    "recordRevision": {
+      "type": "integer",
+      "minimum": 1
+    },
     "ruleId": {
       "type": "string",
       "pattern": "^SEM-[A-Z0-9-]+$"

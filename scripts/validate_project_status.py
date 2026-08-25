@@ -42,8 +42,8 @@ def main() -> None:
     require(source_validation.get("passed") is True and source_validation.get("failureCount") == 0,
             "source-extraction validation must pass", failures)
     if vocab_validation["checks"]["openReviewGates"] == 0:
-        require("Semantic pilot independent review (ontology gate passed)" in status,
-                "PROJECT_STATUS.md must advance to semantic pilot review after ontology approval", failures)
+        require("Semantic coverage expansion (pilot gate passed)" in status,
+                "PROJECT_STATUS.md must advance to semantic coverage after pilot approval", failures)
     else:
         require("Canonical vocabulary and source-scoped aliases (extraction gate passed)" in status,
                 "PROJECT_STATUS.md must remain in vocabulary phase while review gates are open", failures)
@@ -134,13 +134,15 @@ def main() -> None:
         f"- {ontology_validation['checks']['semanticScaffoldTaxa']} semantic-scaffolding taxa for later zones, timing, decisions, visibility, lifecycle, and finite supply",
         f"- {ontology_validation['checks']['openReviewGates']} ontology owner gates after four-workstream independent review",
         f"- {semantic_validation['checks']['sources']} exact source registry tuples",
+        f"- {semantic_validation['checks']['semanticNodes']} semantic-only state/zone/position/visibility nodes",
         f"- {semantic_validation['checks']['records']} pilot records across {semantic_validation['checks']['systems']} systems",
         f"- {semantic_validation['checks']['sourceAssertions']} source assertions / {semantic_validation['checks']['conditions']} structured conditions and guards",
         f"- {semantic_validation['checks']['operations']} ordered operations",
         f"- {semantic_validation['checks']['decisions']} actor-owned decisions / {semantic_validation['checks']['informationPolicies']} information policies",
         f"- {semantic_validation['checks']['costs']} explicit costs / {semantic_validation['checks']['targets']} target specifications",
         f"- {semantic_validation['checks']['variantReferences']} preserved source-variant references",
-        f"- {semantic_validation['checks']['openQuestions']} open semantic questions, all with defaults prohibited",
+        f"- {semantic_validation['checks']['openQuestions']} open semantic questions with explicit alternatives and defaults prohibited",
+        f"- {semantic_validation['checks']['conflicts']} registered conflicts: 2 authority-resolved, {semantic_validation['checks']['unresolvedConflicts']} unresolved, 2 preserved boundaries",
         f"- {semantic_validation['checks']['backlogUnits']} source-obligation backlog units",
         f"  - {semantic_validation['checks']['backlogPilotCovered']} pilot-covered",
         f"  - {semantic_validation['checks']['backlogUnits'] - semantic_validation['checks']['backlogPilotCovered'] - semantic_validation['checks']['backlogSourceBlocked']} pending",

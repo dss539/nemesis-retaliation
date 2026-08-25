@@ -5,12 +5,15 @@ This directory is the first implementation-neutral semantic layer built over the
 ## Files
 
 - `semantic-rule.schema.json` — closed JSON Schema shape for one semantic rule record.
+- `semantic-vocabulary.json` — semantic-only states, temporary zones, deck positions, and visibility scopes that must not be confused with static ontology classes/processes.
 - `source-registry.json` — exact source tuples, hashes, versions, authority, and extraction-index links used by pilots.
 - `pilots.json` — 13 representative rules across nine systems.
-- `review-gates.json` — seven explicit open semantic questions; no default is adopted.
+- `review-gates.json` — nine explicit open semantic questions with alternatives; no default is adopted.
+- `contradictions.json` — seven source/semantic conflicts: two authority-resolved, three unresolved, and two preserved boundaries.
 - `coverage.json` — pilot scope and the large remaining base-game semantic surface.
 - `backlog.json` — 600 source-obligation units across rule records, FAQ, visual obligations, Help sheets, and independent card/reference tuples; overlapping variants are intentionally retained.
 - `validation.json` — deterministic validation report.
+- `independent-review.md` — four-workstream review findings and incorporated corrections.
 
 Builder: `scripts/build_semantic_pilots.py`
 Validator: `scripts/validate_semantic_pilots.py`
@@ -65,8 +68,10 @@ The backlog currently records 17 pilot-covered source obligations, 582 pending o
 - OQ-007 — simultaneous multi-Intruder Secure consumption;
 - OQ-009 — Nest placement before discovery;
 - SEM-Q-001 — Duck and Cover replacement target when multiple other Characters are present.
+- SEM-Q-002 — whether an exploratory Entrance Noise satisfies or adds to mandatory Movement Noise;
+- SEM-Q-003 — which equal-largest Opportunity Attackers resolve when more than three qualify.
 
-The first six prefer official clarification. SEM-Q-001 requires more source searching before any owner decision.
+The first six prefer official clarification. SEM-Q-001 through SEM-Q-003 require further source searching before any owner decision.
 
 ## Fidelity boundaries exercised
 

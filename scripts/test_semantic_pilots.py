@@ -10,7 +10,7 @@ import unittest
 REPO=Path(__file__).resolve().parents[1]
 DIR=REPO/'docs/rules/semantics'
 VALIDATOR=REPO/'scripts/validate_semantic_pilots.py'
-FILES=('source-registry.json','semantic-rule.schema.json','pilots.json','review-gates.json','coverage.json','backlog.json')
+FILES=('source-registry.json','semantic-rule.schema.json','semantic-vocabulary.json','pilots.json','review-gates.json','contradictions.json','coverage.json','backlog.json')
 
 
 def load(path): return json.loads(path.read_text(encoding='utf-8'))
@@ -19,7 +19,7 @@ def load(path): return json.loads(path.read_text(encoding='utf-8'))
 class SemanticPilotTests(unittest.TestCase):
     def run_validator(self, root=None, skip=False):
         base=root or DIR
-        command=['python3',str(VALIDATOR),'--source-registry',str(base/'source-registry.json'),'--schema',str(base/'semantic-rule.schema.json'),'--pilots',str(base/'pilots.json'),'--review-gates',str(base/'review-gates.json'),'--coverage',str(base/'coverage.json'),'--backlog',str(base/'backlog.json')]
+        command=['python3',str(VALIDATOR),'--source-registry',str(base/'source-registry.json'),'--schema',str(base/'semantic-rule.schema.json'),'--semantic-vocabulary',str(base/'semantic-vocabulary.json'),'--pilots',str(base/'pilots.json'),'--review-gates',str(base/'review-gates.json'),'--contradictions',str(base/'contradictions.json'),'--coverage',str(base/'coverage.json'),'--backlog',str(base/'backlog.json')]
         if skip: command.append('--skip-reproducibility')
         run=subprocess.run(command,cwd=REPO,check=False,capture_output=True,text=True,timeout=300)
         return run,json.loads(run.stdout)
@@ -29,25 +29,34 @@ class SemanticPilotTests(unittest.TestCase):
         self.assertEqual(run.returncode,0,run.stdout+run.stderr)
         self.assertTrue(report['passed'])
         self.assertEqual(report['checks']['records'],13)
-        self.assertEqual(report['checks']['operations'],61)
-        self.assertEqual(report['checks']['openQuestions'],7)
+        self.assertEqual(report['checks']['operations'],64)
+        self.assertEqual(report['checks']['openQuestions'],9)
+        self.assertEqual(report['checks']['semanticNodes'],18)
+        self.assertEqual(report['checks']['conflicts'],7)
         self.assertEqual(report['checks']['backlogUnits'],600)
 
     def test_high_risk_semantic_boundaries(self):
         pilots=load(DIR/'pilots.json'); by_id={r['ruleId']:r for r in pilots['records']}
-        self.assertIn('bottom of its respective deck',json.dumps(by_id['SEM-ACT-SEARCH-001']))
+        search_steps={item['stepId']:item for item in by_id['SEM-ACT-SEARCH-001']['operations']}
+        self.assertEqual(search_steps['S04']['transition']['to'],'tax.scaffold.zone.deck')
+        self.assertEqual(search_steps['S04']['transition']['positionRef'],'sem.position.deck-bottom')
         self.assertIn('unchosen Items must not be revealed',json.dumps(by_id['SEM-ACT-SEARCH-001']))
         self.assertEqual(by_id['SEM-EVENT-HATCHING-001']['partialResolution']['policy'],'per-sentence-continue')
         self.assertIn('OQ-009',by_id['SEM-EVENT-HATCHING-001']['unresolvedQuestionRefs'])
         self.assertEqual(by_id['SEM-REACTION-DUCK-001']['ruleKind'],'reaction')
         self.assertIn('SEM-Q-001',by_id['SEM-REACTION-DUCK-001']['unresolvedQuestionRefs'])
+        self.assertIn('SEM-Q-002',by_id['SEM-ACT-EXPLORE-001']['unresolvedQuestionRefs'])
+        self.assertIn('SEM-Q-003',by_id['SEM-ACT-MOVE-001']['unresolvedQuestionRefs'])
+        self.assertTrue(any(item['operationType']=='resolve-open-alternative' for item in by_id['SEM-ACT-EXPLORE-001']['operations']))
+        self.assertTrue(any(item['operationType']=='end-action-window' for item in by_id['SEM-RT-007']['operations']))
+        self.assertFalse(any(item['operationType']=='end-process' for item in by_id['SEM-RT-007']['operations']))
         self.assertTrue(all(r['implementationBoundary'].startswith('implementation-neutral') for r in pilots['records']))
 
     def test_adversarial_corruptions_are_rejected(self):
         with tempfile.TemporaryDirectory(prefix='semantic-negative-') as temp_dir:
             root=Path(temp_dir)
             for name in FILES: (root/name).write_text((DIR/name).read_text(encoding='utf-8'),encoding='utf-8')
-            sources=load(root/'source-registry.json'); pilots=load(root/'pilots.json'); review=load(root/'review-gates.json'); coverage=load(root/'coverage.json'); backlog=load(root/'backlog.json')
+            sources=load(root/'source-registry.json'); pilots=load(root/'pilots.json'); review=load(root/'review-gates.json'); contradictions=load(root/'contradictions.json'); coverage=load(root/'coverage.json'); backlog=load(root/'backlog.json')
             sources['sources'][0]['sha256']='0'*64
             record=pilots['records'][0]
             record['unexpectedField']='implementation leak'
@@ -69,15 +78,16 @@ class SemanticPilotTests(unittest.TestCase):
             rest=next(r for r in pilots['records'] if r['ruleId']=='SEM-ACT-REST-001')
             rest['sourceVariants'][0]['sourceId']='SRC-MISSING'
             review['questions'][0]['defaultProhibited']=False
+            contradictions['conflicts'][2]['questionId']='SEM-Q-MISSING'
             coverage['systems'][0]['ruleIds'].append(coverage['systems'][1]['ruleIds'][0])
             pending=next(item for item in backlog['units'] if item['status']=='pending')
             pending['status']='pilot-covered'
-            for name,data in [('source-registry.json',sources),('pilots.json',pilots),('review-gates.json',review),('coverage.json',coverage),('backlog.json',backlog)]:
+            for name,data in [('source-registry.json',sources),('pilots.json',pilots),('review-gates.json',review),('contradictions.json',contradictions),('coverage.json',coverage),('backlog.json',backlog)]:
                 (root/name).write_text(json.dumps(data,indent=2,ensure_ascii=False)+'\n',encoding='utf-8')
             run,report=self.run_validator(root,skip=True)
         self.assertNotEqual(run.returncode,0)
         checks={f['check'] for f in report['failures']}
-        required={'source tuple','record schema fields','implementation boundary','controlled term references','taxon references','record authority precedence','operation IDs/order','operation source linkage','decision completeness','partial-resolution completeness','source variant completeness','semantic question no-default/linkage','Event partial/Nest ambiguity fidelity','semantic pilot coverage projection','semantic backlog status/link consistency','hard-coded semantic pilot counts'}
+        required={'source tuple','record schema fields','implementation boundary','controlled term references','taxon references','record authority precedence','operation IDs/order','operation source linkage','decision completeness','partial-resolution completeness','source variant completeness','semantic question no-default/linkage','semantic conflict question linkage','Event partial/Nest ambiguity fidelity','semantic pilot coverage projection','semantic backlog status/link consistency','hard-coded semantic pilot counts'}
         self.assertTrue(required.issubset(checks),sorted(checks))
 
     def test_duplicate_json_keys_are_rejected(self):

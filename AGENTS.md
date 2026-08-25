@@ -92,7 +92,7 @@ The card/reference evidence corpus and extraction provenance are under `assets/t
 
 The active phase is **canonical vocabulary and source-scoped aliases after a passed extraction gate**.
 
-The vocabulary and static taxonomy/ontology gates are passed. The initial semantic schema and 13-record pilot are built and mechanically validated. The active task is independent semantic review and correction across schema, system pilots, component pilots, and adversarial validation. Preserve seven open questions with defaults prohibited; keep implementation frozen and defer owner questions until every independent semantic task is exhausted.
+The vocabulary, static ontology, and independently reviewed semantic pilot gates are passed. The active phase is source-obligation semantic coverage expansion. Work through the 600-unit overlapping source backlog without flattening variants; encode all source-clear rules first, leave nine semantic questions with defaults prohibited, and defer owner questions until every unaffected record and source search is exhausted. Implementation remains frozen.
 
 See `PROJECT_STATUS.md` and `docs/rules/source-extraction/extraction-roadmap.md` for the verified checkpoint and subsequent order.
 

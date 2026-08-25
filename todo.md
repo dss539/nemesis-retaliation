@@ -1970,15 +1970,24 @@ task workspace.
 - [x] Correct process/category errors, add occurrence/definition/copy levels and missing static edges, and defer 12 semantic relation IDs.
 - [x] Conclude no genuine owner gate blocks the static ontology after corrections.
 
-## IN PROGRESS — Semantic rules schema and pilot (2026-08-24)
+## DONE — Semantic rules schema and pilot (2026-08-24)
 
 - [x] Define the closed source-traceable semantic record/schema contract.
 - [x] Encode 13 representative Round/Turn, movement/exploration, card, Room, Event, Intruder Help, and endgame pilots.
 - [x] Carry six existing genuine questions plus one pilot-discovered ambiguity explicitly with defaults prohibited.
 - [x] Add strict validation, two-seed deterministic rebuilds, and adversarial negative controls.
 - [x] Build a 600-unit source-obligation backlog: 17 pilot-covered, 582 pending, 1 exact-source blocked.
-- [ ] Incorporate independent schema, system-pilot, component-pilot, and validator audits.
-- [ ] Collect owner decisions but defer asking until every independent semantic task is exhausted.
+- [x] Incorporate independent schema, system-pilot, component-pilot, and validator audits.
+- [x] Add exact source-tuple assertions, semantic state/zone nodes, explicit question alternatives, conflict register, and stronger validation.
+- [x] Defer owner decisions; no unrelated semantic work is blocked by the nine scoped questions.
+
+## IN PROGRESS — Semantic coverage expansion (2026-08-24)
+
+- [ ] Encode source-clear cross-cutting phase, bag, noise, Door, combat, health, Item, and lifecycle procedures.
+- [ ] Encode remaining 17 Intruder Help instructions and 24 Room effects in source-bounded batches.
+- [ ] Expand through Events/cards/components while retaining all source variants and authority boundaries.
+- [ ] Advance the 600-unit source-obligation backlog from 17 pilot-covered / 582 pending / 1 blocked.
+- [ ] Continue source search for nine scoped open questions; ask the owner only after all unaffected work is exhausted.
 
 ## DONE — Independent Room Help fidelity hardening (2026-08-24T10:04:12Z)
 

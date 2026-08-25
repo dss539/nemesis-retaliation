@@ -1,27 +1,28 @@
 # Nemesis: Retaliation — Project Status
 
 **Status date:** 2026-08-24
-**Active phase:** Semantic pilot independent review (ontology gate passed)
+**Active phase:** Semantic coverage expansion (pilot gate passed)
 **Active branch:** `work/card-corpus-extraction`
 **Implementation status:** Frozen; a clean rewrite will begin only after rules-layer readiness and explicit approval
 
 ## Current Objective
 
-Build a source-traceable semantic rules schema and representative pilot records over the approved vocabulary and reviewed static ontology.
+Expand the independently reviewed semantic model from representative pilots to complete base-game source-obligation coverage while preserving variants, conflicts, and unresolved alternatives.
 
-The current implementation remains frozen. Semantic records describe rules independently of any future engine/UI architecture.
+The current implementation remains frozen. Semantic records remain independent of any future engine/UI architecture.
 
 ## Immediate Next Deliverable
 
-Complete the **independent semantic pilot review**:
+Encode the **highest-value source-clear semantic backlog** without touching blocked decisions:
 
-- audit schema completeness and implementation neutrality;
-- audit Round/Turn/Pass, Move/Exploration, Search, Rest/Infection, Reaction, Room, Event, Intruder Help, and endgame pilots against direct sources;
-- verify every timing window, owner, visibility policy, modality, cost, target, ordered operation, transition, duration, and partial-resolution rule;
-- verify source variants remain independent and authority precedence is explicit;
-- attack validation with isolated negative controls and contradiction/coverage checks;
-- collect any genuine owner decisions but defer asking until every review/remediation task is complete;
-- do not claim full base-game semantic coverage from the representative pilot.
+- general Intruder Phase, Event Phase, Bag Development, Noise, Door, combat, health/wound, Item/Tactical Gear, and component lifecycle rules;
+- all remaining source-clear Intruder Help rows and Room effects;
+- source-clear Event/card/component families with explicit variants;
+- exact FAQ overrides and per-sentence partial-resolution scope;
+- source-obligation links and contradiction coverage after every batch;
+- continue independent validation and source searching for the nine open questions, but adopt no default.
+
+Prioritize reusable procedures and cross-cutting rules before hundreds of individual component effects.
 
 ## Verified Checkpoint
 
@@ -105,24 +106,27 @@ Complete the **independent semantic pilot review**:
 Machine-readable evidence: `docs/rules/source-extraction/validation.json`.
 
 
-### Semantic schema/pilot — built, validation passed, independent review pending
+### Semantic schema/pilot — independently reviewed and passed
 
 - 9 exact source registry tuples
+- 18 semantic-only state/zone/position/visibility nodes
 - 13 pilot records across 9 systems
-  - 9 source-backed
-  - 4 source-backed with open questions
-- 25 source assertions / 24 structured conditions and guards
-- 61 ordered operations
+  - 7 source-backed
+  - 6 source-backed with open questions
+- 27 source assertions / 25 structured conditions and guards
+- 64 ordered operations
 - 10 actor-owned decisions / 16 information policies
 - 2 explicit costs / 5 target specifications
 - 2 preserved source-variant references
-- 7 open semantic questions, all with defaults prohibited
+- 9 open semantic questions with explicit alternatives and defaults prohibited
+- 7 registered conflicts: 2 authority-resolved, 3 unresolved, 2 preserved boundaries
 - 600 source-obligation backlog units
   - 17 pilot-covered
   - 582 pending
   - 1 inherited exact-source blocker
 - full base-game semantic coverage explicitly not claimed
-- two-seed byte-identical rebuilds and adversarial corruption tests pass
+- four-workstream independent review incorporated
+- two-seed byte-identical rebuilds and expanded adversarial corruption tests pass
 - `scripts/validate_semantic_pilots.py`: **passed with 0 failures**
 
 ### Taxonomy/ontology — independently reviewed and passed
@@ -173,13 +177,13 @@ Machine-readable evidence: `docs/rules/source-extraction/validation.json`.
 - Passed the final nine-channel extraction closure audit: every source channel is extracted/indexed, all six gate criteria pass, no graphical units remain, and the one exact-source blocker remains explicit.
 - Built and validated the vocabulary layer: 1,853 source occurrences, 501 named-identity groups, 167 controlled entries, 8 accepted aliases, and 5 non-alias guardrails; VG-001 and VG-002 are resolved.
 - Built, independently reviewed, corrected, and validated the static taxonomy/ontology: 211 taxa, complete term/identity/alias mappings, 55 relationship shapes, 14 static constraints, semantic scaffolding, two-seed deterministic rebuilds, and adversarial negative controls; no owner gate remains.
-- Built and validated an implementation-neutral 13-record semantic pilot across nine systems with explicit authority, timing, ownership, visibility, costs, targets, operations, transitions, partial resolution, variants, and seven no-default open questions; independent review remains in progress.
+- Built, independently reviewed, corrected, and validated an implementation-neutral 13-record semantic pilot across nine systems with exact source tuples, semantic state/zone nodes, explicit authority/timing/ownership/visibility/costs/targets/operations/transitions/partial resolution, two variants, seven conflicts, and nine no-default questions.
 - Created the closed source inventory, card-gap inventory, secondary-source inventory, Room layout inventory, roadmap, and deterministic validator.
 
 ## Remaining Work — Ordered
 
-1. **Independent semantic pilot review** — audit/correct schema, records, and validation; resolve only genuine owner gates.
-2. **Semantic coverage expansion** — encode all base-game rules/components while preserving open questions and source variants.
+1. **Semantic coverage expansion** — encode source-clear general rules/procedures, then component effects, while preserving questions and variants.
+2. **Semantic closure audit** — completeness, contradiction, authority, citation, terminology, and scenario coverage.
 3. Define implementation-readiness criteria and seek explicit approval before a clean rewrite.
 
 Detailed phase plan: `docs/rules/source-extraction/extraction-roadmap.md`.
@@ -229,7 +233,7 @@ All of the following are true:
 
 - One prototype `FACILITY RESTART` face visibly ends a condition at “Systems must be”; no following mark is recoverable from the exact pixels, and materially different same-title/current-official variants cannot be substituted.
 - Vocabulary gates `VG-001` and `VG-002` are resolved; `PERSONAL OBJECTIVE` remains source-scoped and `Drilling Room` aliases `DRILLING STATION` with both official labels preserved.
-- Six semantic/source questions (OQ-001, OQ-002, OQ-003, OQ-004, OQ-007, OQ-009) remain explicit but do not block static ontology review.
+- Nine semantic/source questions remain explicit: OQ-001, OQ-002, OQ-003, OQ-004, OQ-007, OQ-009, SEM-Q-001, SEM-Q-002, and SEM-Q-003. They block only affected records, not unrelated coverage work.
 - The 25 Room Help entries versus 23 Room tiles relationship is unresolved.
 - Source/version conflicts remain in several card families and must not be flattened.
 - Genuine rules ambiguities remain in `docs/rules/open-questions.md`; some stale extraction blockers there must later be re-audited against newly collected evidence.

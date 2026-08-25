@@ -5,24 +5,27 @@
   "scope": "base-game representative pilot; not full semantic coverage",
   "counts": {
     "records": 13,
-    "sourceBacked": 9,
-    "withOpenQuestion": 4,
+    "sourceBacked": 7,
+    "withOpenQuestion": 6,
     "sourceVariants": 0,
-    "sourceAssertions": 25,
-    "conditions": 24,
-    "operations": 61,
+    "sourceAssertions": 27,
+    "conditions": 25,
+    "operations": 64,
     "decisions": 10,
     "informationPolicies": 16,
     "costs": 2,
     "targets": 5,
-    "openQuestionReferences": 5,
+    "openQuestionReferences": 7,
     "variantReferences": 2
   },
   "records": [
     {
+      "schemaVersion": 1,
+      "recordType": "semantic-rule",
+      "recordRevision": 1,
       "ruleId": "SEM-ACT-EXPLORE-001",
       "title": "Exploration Sequence",
-      "status": "source-backed",
+      "status": "source-backed-with-open-question",
       "ruleKind": "sequence",
       "applicability": {
         "game": "Nemesis: Retaliation",
@@ -31,12 +34,16 @@
       },
       "authority": {
         "highest": "official-errata",
-        "interpretation": "source-composed"
+        "interpretation": "open-alternatives"
       },
       "sourceAssertions": [
         {
           "assertionId": "SA-EXP-1",
           "sourceId": "SRC-RULEBOOK",
+          "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
+          "sourceSha256": "e3cda0d7a91bd090cec45dbc8ce89e2015e2202173357c374ff49365f9c29ddd",
+          "sourceAuthority": "official-primary",
+          "sourceVersion": "base rulebook, local official PDF",
           "locator": "printed page 24 / Exploration Sequence",
           "supportsFields": [
             "timing",
@@ -50,6 +57,10 @@
         {
           "assertionId": "SA-EXP-2",
           "sourceId": "SRC-FAQ",
+          "sourcePath": "docs/rulebooks/Nemesis_RT_FAQ_v1.2.pdf",
+          "sourceSha256": "611ae20dc0b3e04f3c0d99f294a92fc95460c042565b12d1c808b1282ae0e0d8",
+          "sourceAuthority": "official-errata",
+          "sourceVersion": "v1.2 / 2026-06-08",
           "locator": "General rules #4–5",
           "supportsFields": [
             "operations",
@@ -58,6 +69,22 @@
           "sourceText": "Close Doors applies only around the new Room; remove-from-game text is outside Entrance Effect.",
           "textKind": "normalized-paraphrase",
           "evidenceRecord": "docs/rules/02-character-actions.md:ACT-EXPLORE-001"
+        },
+        {
+          "assertionId": "SA-EXP-3",
+          "sourceId": "SRC-RULEBOOK",
+          "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
+          "sourceSha256": "e3cda0d7a91bd090cec45dbc8ce89e2015e2202173357c374ff49365f9c29ddd",
+          "sourceAuthority": "official-primary",
+          "sourceVersion": "base rulebook, local official PDF",
+          "locator": "printed pages 25–27 / Noise after every Movement and worked example",
+          "supportsFields": [
+            "operations",
+            "unresolvedQuestionRefs"
+          ],
+          "sourceText": "Every Movement requires a Noise roll, while the worked exploratory example resolves one Entrance-Effect Noise roll and then finishes the card.",
+          "textKind": "normalized-paraphrase",
+          "evidenceRecord": "docs/rules/open-questions.md"
         }
       ],
       "termRefs": [
@@ -114,6 +141,21 @@
           "sourceAssertionIds": [
             "SA-EXP-1"
           ]
+        },
+        {
+          "conditionId": "S01-C01",
+          "scope": "operation-guard",
+          "expression": {
+            "operator": "predicate",
+            "args": [
+              {
+                "predicate": "Exploration deck is empty"
+              }
+            ]
+          },
+          "sourceAssertionIds": [
+            "SA-EXP-1"
+          ]
         }
       ],
       "decisions": [],
@@ -132,11 +174,13 @@
         {
           "stepId": "S01",
           "sequence": 1,
-          "operationType": "draw-random",
-          "modality": "must",
+          "operationType": "shuffle",
+          "modality": "if-able",
           "subjectRef": "P-RULES",
-          "objectRef": "top/random Exploration card",
-          "conditionRefs": [],
+          "objectRef": "non-removed Exploration discard cards into Exploration deck",
+          "conditionRefs": [
+            "S01-C01"
+          ],
           "decisionRef": null,
           "targetRef": null,
           "transition": null,
@@ -151,6 +195,25 @@
         {
           "stepId": "S02",
           "sequence": 2,
+          "operationType": "draw-random",
+          "modality": "must",
+          "subjectRef": "P-RULES",
+          "objectRef": "top Exploration card",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-EXP-1"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S03",
+          "sequence": 3,
           "operationType": "place-component",
           "modality": "must",
           "subjectRef": "P-RULES",
@@ -168,8 +231,8 @@
           "notes": null
         },
         {
-          "stepId": "S03",
-          "sequence": 3,
+          "stepId": "S04",
+          "sequence": 4,
           "operationType": "place-component",
           "modality": "if-able",
           "subjectRef": "P-RULES",
@@ -187,8 +250,8 @@
           "notes": "Omit a Corridor that would leave the Facility or connect to an already placed Room."
         },
         {
-          "stepId": "S04",
-          "sequence": 4,
+          "stepId": "S05",
+          "sequence": 5,
           "operationType": "place-component",
           "modality": "if-able",
           "subjectRef": "P-RULES",
@@ -206,8 +269,8 @@
           "notes": null
         },
         {
-          "stepId": "S05",
-          "sequence": 5,
+          "stepId": "S06",
+          "sequence": 6,
           "operationType": "move-entity",
           "modality": "must",
           "subjectRef": "P-EXPLORER",
@@ -225,8 +288,8 @@
           "notes": null
         },
         {
-          "stepId": "S06",
-          "sequence": 6,
+          "stepId": "S07",
+          "sequence": 7,
           "operationType": "invoke-process",
           "modality": "if-able",
           "subjectRef": "P-RULES",
@@ -244,8 +307,27 @@
           "notes": null
         },
         {
-          "stepId": "S07",
-          "sequence": 7,
+          "stepId": "S08",
+          "sequence": 8,
+          "operationType": "resolve-open-alternative",
+          "modality": "must",
+          "subjectRef": "P-RULES",
+          "objectRef": "SEM-Q-002 post-Movement Noise accounting",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-EXP-3"
+          ],
+          "notes": "No default: either the Entrance Noise satisfies the universal roll or a separate universal roll also occurs."
+        },
+        {
+          "stepId": "S09",
+          "sequence": 9,
           "operationType": "transition-zone",
           "modality": "must",
           "subjectRef": "P-RULES",
@@ -254,7 +336,7 @@
           "decisionRef": null,
           "targetRef": null,
           "transition": {
-            "from": "resolved-card",
+            "from": "sem.zone.card-in-resolution",
             "to": "discard-or-removed-as-printed"
           },
           "valueChange": null,
@@ -279,14 +361,19 @@
         "policy": "not-applicable"
       },
       "outcomes": [],
-      "unresolvedQuestionRefs": [],
+      "unresolvedQuestionRefs": [
+        "SEM-Q-002"
+      ],
       "sourceVariants": [],
       "implementationBoundary": "implementation-neutral; no engine, UI, network, storage, or serialization mapping"
     },
     {
+      "schemaVersion": 1,
+      "recordType": "semantic-rule",
+      "recordRevision": 1,
       "ruleId": "SEM-ACT-MOVE-001",
       "title": "Move Action and Movement Sequence",
-      "status": "source-backed",
+      "status": "source-backed-with-open-question",
       "ruleKind": "action",
       "applicability": {
         "game": "Nemesis: Retaliation",
@@ -295,12 +382,16 @@
       },
       "authority": {
         "highest": "official-errata",
-        "interpretation": "source-composed"
+        "interpretation": "open-alternatives"
       },
       "sourceAssertions": [
         {
           "assertionId": "SA-MOVE-1",
           "sourceId": "SRC-RULEBOOK",
+          "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
+          "sourceSha256": "e3cda0d7a91bd090cec45dbc8ce89e2015e2202173357c374ff49365f9c29ddd",
+          "sourceAuthority": "official-primary",
+          "sourceVersion": "base rulebook, local official PDF",
           "locator": "printed pages 12 and 24–25",
           "supportsFields": [
             "costs",
@@ -315,6 +406,10 @@
         {
           "assertionId": "SA-MOVE-2",
           "sourceId": "SRC-FAQ",
+          "sourcePath": "docs/rulebooks/Nemesis_RT_FAQ_v1.2.pdf",
+          "sourceSha256": "611ae20dc0b3e04f3c0d99f294a92fc95460c042565b12d1c808b1282ae0e0d8",
+          "sourceAuthority": "official-errata",
+          "sourceVersion": "v1.2 / 2026-06-08",
           "locator": "Action cards #3",
           "supportsFields": [
             "outcomes"
@@ -437,7 +532,7 @@
             "operator": "predicate",
             "args": [
               {
-                "predicate": "movement completed"
+                "predicate": "destination is an already Discovered Room"
               }
             ]
           },
@@ -572,7 +667,7 @@
           "sourceAssertionIds": [
             "SA-MOVE-1"
           ],
-          "notes": null
+          "notes": "If more than three equal-largest Intruders qualify, source tie-breaking is SEM-Q-003."
         },
         {
           "stepId": "S04",
@@ -656,7 +751,7 @@
           "sourceAssertionIds": [
             "SA-MOVE-1"
           ],
-          "notes": "Occurs after every Movement unless an explicit special effect says otherwise."
+          "notes": "Unexplored Movement delegates post-Movement Noise accounting to SEM-ACT-EXPLORE-001 because SEM-Q-002 remains open."
         }
       ],
       "partialResolution": {
@@ -671,11 +766,16 @@
         "policy": "repeatable Action"
       },
       "outcomes": [],
-      "unresolvedQuestionRefs": [],
+      "unresolvedQuestionRefs": [
+        "SEM-Q-003"
+      ],
       "sourceVariants": [],
       "implementationBoundary": "implementation-neutral; no engine, UI, network, storage, or serialization mapping"
     },
     {
+      "schemaVersion": 1,
+      "recordType": "semantic-rule",
+      "recordRevision": 1,
       "ruleId": "SEM-ACT-REST-001",
       "title": "Rest card modifier over Infection Procedure",
       "status": "source-backed",
@@ -693,6 +793,10 @@
         {
           "assertionId": "SA-REST-1",
           "sourceId": "SRC-CARD-REST",
+          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/action/rest.png",
+          "sourceSha256": "69eee8ba31616f20ac8859c7cd8dc908445ed85808004cfdedeeeb9968b473e3",
+          "sourceAuthority": "source-bound-component-scan",
+          "sourceVersion": "project-owner-reviewed canonical Rest face",
           "locator": "exact card face",
           "supportsFields": [
             "preconditions",
@@ -706,6 +810,10 @@
         {
           "assertionId": "SA-REST-2",
           "sourceId": "SRC-RULEBOOK",
+          "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
+          "sourceSha256": "e3cda0d7a91bd090cec45dbc8ce89e2015e2202173357c374ff49365f9c29ddd",
+          "sourceAuthority": "official-primary",
+          "sourceVersion": "base rulebook, local official PDF",
           "locator": "printed page 38 / lines 6079–6098",
           "supportsFields": [
             "operations"
@@ -717,6 +825,10 @@
         {
           "assertionId": "SA-REST-3",
           "sourceId": "SRC-RULEBOOK",
+          "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
+          "sourceSha256": "e3cda0d7a91bd090cec45dbc8ce89e2015e2202173357c374ff49365f9c29ddd",
+          "sourceAuthority": "official-primary",
+          "sourceVersion": "base rulebook, local official PDF",
           "locator": "printed page 13 / Playing Action Cards",
           "supportsFields": [
             "operations"
@@ -724,6 +836,21 @@
           "sourceText": "After resolving an Action card, discard that card.",
           "textKind": "normalized-paraphrase",
           "evidenceRecord": "docs/rules/02-character-actions.md:ACT-CARD-001"
+        },
+        {
+          "assertionId": "SA-REST-V1",
+          "sourceId": "SRC-CARD-REST-MEDICAL",
+          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/medical-support-022.jpg",
+          "sourceSha256": "ea82b58b58b9ce9dd01dcd21f7b73616a50751208d7f38b304e1029a422b7527",
+          "sourceAuthority": "source-bound-component-scan",
+          "sourceVersion": "Medical Support Rest source variant",
+          "locator": "exact Medical Support variant face",
+          "supportsFields": [
+            "sourceVariants"
+          ],
+          "sourceText": "Remove all non-Infected cards from the game instead of discarding them.",
+          "textKind": "normalized-paraphrase",
+          "evidenceRecord": "assets/tts-mod/extract/card-text-corpus.json"
         }
       ],
       "termRefs": [
@@ -971,6 +1098,7 @@
         {
           "variantId": "SV-REST-MEDICAL",
           "sourceId": "SRC-CARD-REST-MEDICAL",
+          "sourceAssertionId": "SA-REST-V1",
           "difference": "Medical Support source face says non-Infected and “instead of discarding them”; exact punctuation and footer remain separate.",
           "resolution": "pilot encodes only the reviewed canonical source tuple plus the official Procedure; the Medical Support variant is not substituted"
         }
@@ -978,6 +1106,9 @@
       "implementationBoundary": "implementation-neutral; no engine, UI, network, storage, or serialization mapping"
     },
     {
+      "schemaVersion": 1,
+      "recordType": "semantic-rule",
+      "recordRevision": 1,
       "ruleId": "SEM-ACT-SEARCH-001",
       "title": "Search Action-card effect",
       "status": "source-backed",
@@ -995,6 +1126,10 @@
         {
           "assertionId": "SA-SEARCH-1",
           "sourceId": "SRC-RULEBOOK",
+          "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
+          "sourceSha256": "e3cda0d7a91bd090cec45dbc8ce89e2015e2202173357c374ff49365f9c29ddd",
+          "sourceAuthority": "official-primary",
+          "sourceVersion": "base rulebook, local official PDF",
           "locator": "printed page 28 / lines 4849–4865",
           "supportsFields": [
             "preconditions",
@@ -1009,6 +1144,10 @@
         {
           "assertionId": "SA-SEARCH-2",
           "sourceId": "SRC-CARD-SEARCH-MEDICAL",
+          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/medical-support-047.jpg",
+          "sourceSha256": "b34d341ff67972b8a779b02209a7cb6f57f1d03f2118e10bfbc6e491592516be",
+          "sourceAuthority": "source-bound-component-scan",
+          "sourceVersion": "Medical Support Search face",
           "locator": "exact card face",
           "supportsFields": [
             "timing",
@@ -1022,6 +1161,10 @@
         {
           "assertionId": "SA-SEARCH-3",
           "sourceId": "SRC-RULEBOOK",
+          "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
+          "sourceSha256": "e3cda0d7a91bd090cec45dbc8ce89e2015e2202173357c374ff49365f9c29ddd",
+          "sourceAuthority": "official-primary",
+          "sourceVersion": "base rulebook, local official PDF",
           "locator": "printed page 13 / Playing Action Cards",
           "supportsFields": [
             "operations"
@@ -1195,7 +1338,7 @@
           "decisionRef": null,
           "targetRef": null,
           "transition": {
-            "from": "temporary-private-inspection",
+            "from": "sem.zone.temporary-private-inspection",
             "to": "Backpack, Hand slot, or Armor position according to Item class"
           },
           "valueChange": null,
@@ -1217,8 +1360,9 @@
           "decisionRef": null,
           "targetRef": null,
           "transition": {
-            "from": "temporary-private-inspection",
-            "to": "bottom of its respective deck"
+            "from": "sem.zone.temporary-private-inspection",
+            "to": "tax.scaffold.zone.deck",
+            "positionRef": "sem.position.deck-bottom"
           },
           "valueChange": null,
           "invokeRuleId": null,
@@ -1240,7 +1384,8 @@
           "targetRef": null,
           "transition": {
             "from": "tax.scaffold.zone.hand",
-            "to": "tax.scaffold.zone.discard-pile"
+            "to": "tax.scaffold.zone.discard-pile",
+            "positionRef": "sem.position.deck-top"
           },
           "valueChange": null,
           "invokeRuleId": null,
@@ -1269,13 +1414,17 @@
         {
           "variantId": "SV-SEARCH-CARD-SHORTHAND",
           "sourceId": "SRC-CARD-SEARCH-MEDICAL",
-          "difference": "Card says discard the rest; higher-authority rulebook defines discard here as bottom of respective decks and prohibits revealing unchosen Items.",
-          "resolution": "official-primary rulebook controls general Search procedure while exact card wording remains preserved"
+          "sourceAssertionId": "SA-SEARCH-2",
+          "difference": "Card says “may keep 1” and “discard the rest”; higher-authority rulebook says pick 1, places the rest on respective deck bottoms, and prohibits revealing unchosen Items.",
+          "resolution": "official-primary rulebook controls the general Search procedure while exact optionality/destination card wording remains preserved"
         }
       ],
       "implementationBoundary": "implementation-neutral; no engine, UI, network, storage, or serialization mapping"
     },
     {
+      "schemaVersion": 1,
+      "recordType": "semantic-rule",
+      "recordRevision": 1,
       "ruleId": "SEM-ENDGAME-001",
       "title": "End-of-game triggers and checks",
       "status": "source-backed-with-open-question",
@@ -1293,6 +1442,10 @@
         {
           "assertionId": "SA-END-1",
           "sourceId": "SRC-RULEBOOK",
+          "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
+          "sourceSha256": "e3cda0d7a91bd090cec45dbc8ce89e2015e2202173357c374ff49365f9c29ddd",
+          "sourceAuthority": "official-primary",
+          "sourceVersion": "base rulebook, local official PDF",
           "locator": "printed page 39 / lines 6238–6273",
           "supportsFields": [
             "preconditions",
@@ -1307,6 +1460,10 @@
         {
           "assertionId": "SA-END-2",
           "sourceId": "SRC-FAQ",
+          "sourcePath": "docs/rulebooks/Nemesis_RT_FAQ_v1.2.pdf",
+          "sourceSha256": "611ae20dc0b3e04f3c0d99f294a92fc95460c042565b12d1c808b1282ae0e0d8",
+          "sourceAuthority": "official-errata",
+          "sourceVersion": "v1.2 / 2026-06-08",
           "locator": "General rules #3",
           "supportsFields": [
             "operations"
@@ -1458,7 +1615,7 @@
           "operationType": "set-state",
           "modality": "if-able",
           "subjectRef": "onboard Characters at Round-14 expiry",
-          "objectRef": "dead",
+          "objectRef": "sem.state.participation.dead",
           "conditionRefs": [
             "S02-C01"
           ],
@@ -1574,7 +1731,7 @@
           "operationType": "set-state",
           "modality": "if-able",
           "subjectRef": "Character with fulfilled Objective",
-          "objectRef": "winner",
+          "objectRef": "sem.state.outcome.winner",
           "conditionRefs": [],
           "decisionRef": null,
           "targetRef": null,
@@ -1613,6 +1770,9 @@
       "implementationBoundary": "implementation-neutral; no engine, UI, network, storage, or serialization mapping"
     },
     {
+      "schemaVersion": 1,
+      "recordType": "semantic-rule",
+      "recordRevision": 1,
       "ruleId": "SEM-EVENT-HATCHING-001",
       "title": "Hatching Event resolution",
       "status": "source-backed-with-open-question",
@@ -1630,6 +1790,10 @@
         {
           "assertionId": "SA-HATCH-1",
           "sourceId": "SRC-EVENT-HATCHING",
+          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/event-090.png",
+          "sourceSha256": "45b5845d04f57b10dff6e73005be88cba0107a1a15da83f581df6531390d1ac9",
+          "sourceAuthority": "source-bound-component-scan",
+          "sourceVersion": "canonical Hatching Event face",
           "locator": "canonical Event face",
           "supportsFields": [
             "operations",
@@ -1642,6 +1806,10 @@
         {
           "assertionId": "SA-HATCH-2",
           "sourceId": "SRC-RULEBOOK",
+          "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
+          "sourceSha256": "e3cda0d7a91bd090cec45dbc8ce89e2015e2202173357c374ff49365f9c29ddd",
+          "sourceAuthority": "official-primary",
+          "sourceVersion": "base rulebook, local official PDF",
           "locator": "printed page 15 / Event card resolution",
           "supportsFields": [
             "timing",
@@ -1822,6 +1990,9 @@
       "implementationBoundary": "implementation-neutral; no engine, UI, network, storage, or serialization mapping"
     },
     {
+      "schemaVersion": 1,
+      "recordType": "semantic-rule",
+      "recordRevision": 1,
       "ruleId": "SEM-INTRUDER-HELP-QA-R01",
       "title": "Queen Alive token resolved in a Room",
       "status": "source-backed",
@@ -1839,6 +2010,10 @@
         {
           "assertionId": "SA-IH-QA-R01",
           "sourceId": "SRC-INTRUDER-HELP-QA",
+          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/reference/card-053.png",
+          "sourceSha256": "c3480ca3c7524dd09b7a841d33ff109500b2f46b684f616d35e7007b29edf593",
+          "sourceAuthority": "source-bound-component-scan",
+          "sourceVersion": "TTS Queen Alive face",
           "locator": "queen-alive / room / QA-R-01",
           "supportsFields": [
             "preconditions",
@@ -1851,6 +2026,10 @@
         {
           "assertionId": "SA-IH-CONTEXT",
           "sourceId": "SRC-RULEBOOK",
+          "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
+          "sourceSha256": "e3cda0d7a91bd090cec45dbc8ce89e2015e2202173357c374ff49365f9c29ddd",
+          "sourceAuthority": "official-primary",
+          "sourceVersion": "base rulebook, local official PDF",
           "locator": "printed pages 25, 30, 35",
           "supportsFields": [
             "timing"
@@ -1983,6 +2162,29 @@
             "SA-IH-QA-R01"
           ],
           "notes": null
+        },
+        {
+          "stepId": "S03",
+          "sequence": 3,
+          "operationType": "transition-zone",
+          "modality": "must",
+          "subjectRef": "rules-system",
+          "objectRef": "resolved Queen Intruder token",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": {
+            "from": "drawn-token",
+            "to": "tax.scaffold.zone.token-pile",
+            "positionRef": "sem.position.deck-bottom"
+          },
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-IH-CONTEXT"
+          ],
+          "notes": "Blank is the general exception; this row is not Blank."
         }
       ],
       "partialResolution": {
@@ -2002,6 +2204,9 @@
       "implementationBoundary": "implementation-neutral; no engine, UI, network, storage, or serialization mapping"
     },
     {
+      "schemaVersion": 1,
+      "recordType": "semantic-rule",
+      "recordRevision": 1,
       "ruleId": "SEM-REACTION-DUCK-001",
       "title": "Duck and Cover Reaction redirect",
       "status": "source-backed-with-open-question",
@@ -2019,6 +2224,10 @@
         {
           "assertionId": "SA-DUCK-1",
           "sourceId": "SRC-CARD-DUCK",
+          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/contractor-026.jpg",
+          "sourceSha256": "a3ad029d27fc444d1b66129fcf577402f44c5e9cea323219cf31ec4c94108a1c",
+          "sourceAuthority": "source-bound-component-scan",
+          "sourceVersion": "Contractor: Consultant Duck and Cover face",
           "locator": "Reaction panel",
           "supportsFields": [
             "timing",
@@ -2033,6 +2242,10 @@
         {
           "assertionId": "SA-DUCK-2",
           "sourceId": "SRC-RULEBOOK",
+          "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
+          "sourceSha256": "e3cda0d7a91bd090cec45dbc8ce89e2015e2202173357c374ff49365f9c29ddd",
+          "sourceAuthority": "official-primary",
+          "sourceVersion": "base rulebook, local official PDF",
           "locator": "printed pages 13–14 / Reactions",
           "supportsFields": [
             "timing",
@@ -2297,6 +2510,9 @@
       "implementationBoundary": "implementation-neutral; no engine, UI, network, storage, or serialization mapping"
     },
     {
+      "schemaVersion": 1,
+      "recordType": "semantic-rule",
+      "recordRevision": 1,
       "ruleId": "SEM-ROOM-01",
       "title": "Sprinklers Control Room effect",
       "status": "source-backed",
@@ -2314,6 +2530,10 @@
         {
           "assertionId": "SA-ROOM01-1",
           "sourceId": "SRC-ROOM-HELP",
+          "sourcePath": "docs/rulebooks/Nemesis_RT_Rooms_Sheet.pdf",
+          "sourceSha256": "f97b683894576a27d787241a6ec09e1de6ca088ffa7c5b109fb3e9ed2af54f8b",
+          "sourceAuthority": "official-component-reference",
+          "sourceVersion": "base Room Help Sheet",
           "locator": "entry 01 SPRINKLERS CONTROL",
           "supportsFields": [
             "decisions",
@@ -2327,6 +2547,10 @@
         {
           "assertionId": "SA-ROOM01-2",
           "sourceId": "SRC-RULEBOOK",
+          "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
+          "sourceSha256": "e3cda0d7a91bd090cec45dbc8ce89e2015e2202173357c374ff49365f9c29ddd",
+          "sourceAuthority": "official-primary",
+          "sourceVersion": "base rulebook, local official PDF",
           "locator": "printed page 12 / Basic Actions List",
           "supportsFields": [
             "costs",
@@ -2544,6 +2768,9 @@
       "implementationBoundary": "implementation-neutral; no engine, UI, network, storage, or serialization mapping"
     },
     {
+      "schemaVersion": 1,
+      "recordType": "semantic-rule",
+      "recordRevision": 1,
       "ruleId": "SEM-RT-001",
       "title": "Round phase sequence",
       "status": "source-backed",
@@ -2561,6 +2788,10 @@
         {
           "assertionId": "SA-RT001-1",
           "sourceId": "SRC-RULEBOOK",
+          "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
+          "sourceSha256": "e3cda0d7a91bd090cec45dbc8ce89e2015e2202173357c374ff49365f9c29ddd",
+          "sourceAuthority": "official-primary",
+          "sourceVersion": "base rulebook, local official PDF",
           "locator": "printed pages 12–15 / rulebook_text lines 2939–2986",
           "supportsFields": [
             "timing",
@@ -2709,6 +2940,9 @@
       "implementationBoundary": "implementation-neutral; no engine, UI, network, storage, or serialization mapping"
     },
     {
+      "schemaVersion": 1,
+      "recordType": "semantic-rule",
+      "recordRevision": 1,
       "ruleId": "SEM-RT-004",
       "title": "Player Phase rotation",
       "status": "source-backed",
@@ -2726,6 +2960,10 @@
         {
           "assertionId": "SA-RT004-1",
           "sourceId": "SRC-RULEBOOK",
+          "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
+          "sourceSha256": "e3cda0d7a91bd090cec45dbc8ce89e2015e2202173357c374ff49365f9c29ddd",
+          "sourceAuthority": "official-primary",
+          "sourceVersion": "base rulebook, local official PDF",
           "locator": "printed page 13 / lines 2987–3004",
           "supportsFields": [
             "timing",
@@ -2896,6 +3134,9 @@
       "implementationBoundary": "implementation-neutral; no engine, UI, network, storage, or serialization mapping"
     },
     {
+      "schemaVersion": 1,
+      "recordType": "semantic-rule",
+      "recordRevision": 1,
       "ruleId": "SEM-RT-005",
       "title": "Player Turn",
       "status": "source-backed-with-open-question",
@@ -2913,6 +3154,10 @@
         {
           "assertionId": "SA-RT005-1",
           "sourceId": "SRC-RULEBOOK",
+          "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
+          "sourceSha256": "e3cda0d7a91bd090cec45dbc8ce89e2015e2202173357c374ff49365f9c29ddd",
+          "sourceAuthority": "official-primary",
+          "sourceVersion": "base rulebook, local official PDF",
           "locator": "printed pages 12–13 / lines 2854–2864, 2929–2934",
           "supportsFields": [
             "operations",
@@ -2925,6 +3170,10 @@
         {
           "assertionId": "SA-RT005-2",
           "sourceId": "SRC-RULEBOOK",
+          "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
+          "sourceSha256": "e3cda0d7a91bd090cec45dbc8ce89e2015e2202173357c374ff49365f9c29ddd",
+          "sourceAuthority": "official-primary",
+          "sourceVersion": "base rulebook, local official PDF",
           "locator": "printed page 18 / death",
           "supportsFields": [
             "unresolvedQuestionRefs"
@@ -3167,6 +3416,9 @@
       "implementationBoundary": "implementation-neutral; no engine, UI, network, storage, or serialization mapping"
     },
     {
+      "schemaVersion": 1,
+      "recordType": "semantic-rule",
+      "recordRevision": 1,
       "ruleId": "SEM-RT-007",
       "title": "Pass Action",
       "status": "source-backed",
@@ -3184,6 +3436,10 @@
         {
           "assertionId": "SA-RT007-1",
           "sourceId": "SRC-RULEBOOK",
+          "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
+          "sourceSha256": "e3cda0d7a91bd090cec45dbc8ce89e2015e2202173357c374ff49365f9c29ddd",
+          "sourceAuthority": "official-primary",
+          "sourceVersion": "base rulebook, local official PDF",
           "locator": "printed pages 13–14 / Passing",
           "supportsFields": [
             "decisions",
@@ -3251,7 +3507,7 @@
           "subjectRef": "selected discarded cards",
           "audience": "public",
           "revealTrigger": "discard",
-          "secrecy": "none"
+          "secrecy": "component/card identity is public; hidden INFECTED text remains governed by scanning"
         }
       ],
       "costs": [],
@@ -3285,7 +3541,7 @@
           "operationType": "set-state",
           "modality": "must",
           "subjectRef": "P-ACTIVE-PLAYER",
-          "objectRef": "Passed for current Player Phase",
+          "objectRef": "sem.state.phase.passed",
           "conditionRefs": [],
           "decisionRef": null,
           "targetRef": null,

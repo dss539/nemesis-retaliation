@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
   "recordType": "semantic-review-gates",
-  "status": "pilot built with deferred questions; no default answer adopted",
+  "status": "pilot built with deferred questions and explicit alternatives; no default answer adopted",
   "counts": {
-    "questions": 7,
+    "questions": 9,
     "officialClarificationPreferred": 6,
-    "sourceAmbiguitiesIntroducedByPilot": 1,
+    "sourceAmbiguitiesIntroducedByPilot": 3,
     "resolved": 0,
-    "open": 7
+    "open": 9
   },
   "questions": [
     {
@@ -17,7 +17,23 @@
       "blocksRuleIds": [
         "SEM-ENDGAME-001"
       ],
-      "defaultProhibited": true
+      "plannedRuleIds": [],
+      "defaultProhibited": true,
+      "sourceEvidenceRefs": [
+        "docs/rules/open-questions.md:OQ-001"
+      ],
+      "alternatives": [
+        {
+          "alternativeId": "OQ-001-A",
+          "description": "Check all cards in hand after drawing, including pre-existing cards.",
+          "support": "literal “in hand” wording"
+        },
+        {
+          "alternativeId": "OQ-001-B",
+          "description": "Check only the four newly drawn cards.",
+          "support": "possible procedure intent; not stated"
+        }
+      ]
     },
     {
       "questionId": "OQ-002",
@@ -26,16 +42,48 @@
       "blocksRuleIds": [
         "SEM-ENDGAME-001"
       ],
-      "defaultProhibited": true
+      "plannedRuleIds": [],
+      "defaultProhibited": true,
+      "sourceEvidenceRefs": [
+        "docs/rules/open-questions.md:OQ-002"
+      ],
+      "alternatives": [
+        {
+          "alternativeId": "OQ-002-A",
+          "description": "Evaluate “currently has a Larva” when the Eclosion cohort step is reached, including Larvae gained in the preceding Infection step.",
+          "support": "sequential text and “during this Sequence” note"
+        },
+        {
+          "alternativeId": "OQ-002-B",
+          "description": "Snapshot Larva status at the start of endgame.",
+          "support": "possible cohort-intent reading; not explicit"
+        }
+      ]
     },
     {
       "questionId": "OQ-003",
       "title": "Starting Player token passing over nonparticipants",
       "decisionClass": "official-clarification-preferred",
-      "blocksRuleIds": [
-        "future Cleanup semantic record"
+      "blocksRuleIds": [],
+      "plannedRuleIds": [
+        "SEM-CLEANUP-001"
       ],
-      "defaultProhibited": true
+      "defaultProhibited": true,
+      "sourceEvidenceRefs": [
+        "docs/rules/open-questions.md:OQ-003"
+      ],
+      "alternatives": [
+        {
+          "alternativeId": "OQ-003-A",
+          "description": "Skip dead/Escaped/Hibernated participants and assign the role to the next eligible Player.",
+          "support": "natural reading of “no longer takes part”"
+        },
+        {
+          "alternativeId": "OQ-003-B",
+          "description": "Move the token to the next seat/Player regardless of participation status.",
+          "support": "literal clockwise-next reading; downstream effect unclear"
+        }
+      ]
     },
     {
       "questionId": "OQ-004",
@@ -44,16 +92,48 @@
       "blocksRuleIds": [
         "SEM-RT-005"
       ],
-      "defaultProhibited": true
+      "plannedRuleIds": [],
+      "defaultProhibited": true,
+      "sourceEvidenceRefs": [
+        "docs/rules/open-questions.md:OQ-004"
+      ],
+      "alternatives": [
+        {
+          "alternativeId": "OQ-004-A",
+          "description": "End the dead Character’s Action window and continue with the next eligible Player/Turn.",
+          "support": "dead Character no longer takes part"
+        },
+        {
+          "alternativeId": "OQ-004-B",
+          "description": "Apply another phase-advancement procedure.",
+          "support": "source does not specify one"
+        }
+      ]
     },
     {
       "questionId": "OQ-007",
       "title": "Secure tokens and simultaneous multi-Intruder entry",
       "decisionClass": "official-clarification-preferred",
-      "blocksRuleIds": [
-        "future Secure semantic record"
+      "blocksRuleIds": [],
+      "plannedRuleIds": [
+        "SEM-SECURE-ENTRY-001"
       ],
-      "defaultProhibited": true
+      "defaultProhibited": true,
+      "sourceEvidenceRefs": [
+        "docs/rules/open-questions.md:OQ-007"
+      ],
+      "alternatives": [
+        {
+          "alternativeId": "OQ-007-A",
+          "description": "Each entering Intruder consumes one Secure token and prevents its own entry Attack.",
+          "support": "per-Intruder “whenever an Intruder enters” wording"
+        },
+        {
+          "alternativeId": "OQ-007-B",
+          "description": "One Secure token prevents all Attacks from one simultaneous group entry.",
+          "support": "possible simultaneous-effect grouping; no example"
+        }
+      ]
     },
     {
       "questionId": "OQ-009",
@@ -62,7 +142,28 @@
       "blocksRuleIds": [
         "SEM-EVENT-HATCHING-001"
       ],
-      "defaultProhibited": true
+      "plannedRuleIds": [],
+      "defaultProhibited": true,
+      "sourceEvidenceRefs": [
+        "docs/rules/open-questions.md:OQ-009"
+      ],
+      "alternatives": [
+        {
+          "alternativeId": "OQ-009-A",
+          "description": "Reserve/defer the placed Intruder until the Nest appears.",
+          "support": "possible physical hidden-space treatment; no checked rule"
+        },
+        {
+          "alternativeId": "OQ-009-B",
+          "description": "Ignore the impossible Nest-placement sentence and continue the Event.",
+          "support": "general Event impossible-sentence rule"
+        },
+        {
+          "alternativeId": "OQ-009-C",
+          "description": "Use another physical hidden-Nest procedure.",
+          "support": "source procedure not recovered"
+        }
+      ]
     },
     {
       "questionId": "SEM-Q-001",
@@ -71,7 +172,83 @@
       "blocksRuleIds": [
         "SEM-REACTION-DUCK-001"
       ],
-      "defaultProhibited": true
+      "plannedRuleIds": [],
+      "defaultProhibited": true,
+      "sourceEvidenceRefs": [
+        "assets/tts-mod/extract/v2-dl/tree/cards/character/contractor-026.jpg"
+      ],
+      "alternatives": [
+        {
+          "alternativeId": "SEM-Q-001-A",
+          "description": "Reaction owner chooses one other Character.",
+          "support": "effect owner often owns choices, but this card does not say choose"
+        },
+        {
+          "alternativeId": "SEM-Q-001-B",
+          "description": "Apply ordinary Intruder target priority among the other Characters.",
+          "support": "general attack targeting, but replacement wording may override"
+        },
+        {
+          "alternativeId": "SEM-Q-001-C",
+          "description": "Another tie-break applies.",
+          "support": "not stated"
+        }
+      ]
+    },
+    {
+      "questionId": "SEM-Q-002",
+      "title": "Exploratory Movement Noise when the Entrance Effect is itself a Noise roll",
+      "decisionClass": "source-ambiguity-owner-decision-after-source-search",
+      "blocksRuleIds": [
+        "SEM-ACT-EXPLORE-001"
+      ],
+      "plannedRuleIds": [],
+      "defaultProhibited": true,
+      "sourceEvidenceRefs": [
+        "docs/rulebooks/rulebook_text.txt:lines 4528–4530, 4702–4705, 4753–4760"
+      ],
+      "alternatives": [
+        {
+          "alternativeId": "SEM-Q-002-A",
+          "description": "The Entrance-Effect Noise roll satisfies the universal post-Movement Noise requirement; perform one roll total.",
+          "support": "worked example resolves one Entrance Noise and then finishes"
+        },
+        {
+          "alternativeId": "SEM-Q-002-B",
+          "description": "Perform the universal Movement Noise plus the additional Entrance-Effect Noise; perform two rolls.",
+          "support": "Entrance Effect is called additional and Noise is mandatory after every Movement"
+        }
+      ]
+    },
+    {
+      "questionId": "SEM-Q-003",
+      "title": "Opportunity Attack selection when more than three equal-largest Intruders qualify",
+      "decisionClass": "source-ambiguity-owner-decision-after-source-search",
+      "blocksRuleIds": [
+        "SEM-ACT-MOVE-001"
+      ],
+      "plannedRuleIds": [],
+      "defaultProhibited": true,
+      "sourceEvidenceRefs": [
+        "docs/rulebooks/rulebook_text.txt:lines 4551–4557"
+      ],
+      "alternatives": [
+        {
+          "alternativeId": "SEM-Q-003-A",
+          "description": "Acting Player chooses which equal-largest Intruders attack.",
+          "support": "possible player-owned target selection; not stated"
+        },
+        {
+          "alternativeId": "SEM-Q-003-B",
+          "description": "Use a deterministic map/turn-order tie-break.",
+          "support": "other rule families use deterministic ties; none cited here"
+        },
+        {
+          "alternativeId": "SEM-Q-003-C",
+          "description": "Resolve another source-defined physical ordering.",
+          "support": "not recovered"
+        }
+      ]
     }
   ]
 }

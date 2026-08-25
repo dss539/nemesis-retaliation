@@ -15,18 +15,19 @@ DIR = REPO / 'docs/rules/semantics'
 VOCAB = REPO / 'docs/rules/vocabulary'
 ONTOLOGY = REPO / 'docs/rules/ontology'
 EXPECTED = {
-    'sources': 9, 'records': 13, 'sourceBacked': 9, 'withOpenQuestion': 4,
-    'sourceVariants': 0, 'sourceAssertions': 25, 'conditions': 24,
-    'operations': 61, 'decisions': 10, 'informationPolicies': 16,
-    'costs': 2, 'targets': 5, 'openQuestionReferences': 5,
-    'variantReferences': 2, 'questions': 7, 'openQuestions': 7, 'systems': 9,
+    'sources': 9, 'semanticNodes': 18, 'records': 13, 'sourceBacked': 7, 'withOpenQuestion': 6,
+    'sourceVariants': 0, 'sourceAssertions': 27, 'conditions': 25,
+    'operations': 64, 'decisions': 10, 'informationPolicies': 16,
+    'costs': 2, 'targets': 5, 'openQuestionReferences': 7,
+    'variantReferences': 2, 'questions': 9, 'openQuestions': 9, 'systems': 9,
+    'conflicts': 7, 'unresolvedConflicts': 3,
     'backlogUnits': 600, 'backlogPilotCovered': 17, 'backlogSourceBlocked': 1,
 }
 ALLOWED_OPERATIONS = {
     'branch','change-value','choose','draw-random','end-process','evaluate-condition',
     'inspect-private','invoke-process','invoke-selected-process','move-entity','pay-cost','end-action-window',
     'place-component','play-card','remove-component','replace-target','resolve-attacks',
-    'reveal','select-target','set-state','transition-zone',
+    'reveal','select-target','set-state','transition-zone','shuffle','resolve-open-alternative',
 }
 ALLOWED_TIMING = {'before-attack-resolution','during','during-event-card-resolution','when-action-card-played','when-triggered'}
 ALLOWED_PARTIAL = {'all-or-nothing-selection','if-not-possible-fallback','ordered-complete','per-sentence-continue','replacement-effect','source-conditional-steps'}
@@ -74,12 +75,14 @@ def cardinality_valid(value: dict) -> bool:
     return isinstance(maximum, int) and not isinstance(maximum, bool) and maximum >= minimum
 
 
-def validate(source_path: Path, schema_path: Path, pilots_path: Path, review_path: Path, coverage_path: Path, backlog_path: Path, *, reproducibility: bool) -> dict:
+def validate(source_path: Path, schema_path: Path, semantic_vocabulary_path: Path, pilots_path: Path, review_path: Path, contradictions_path: Path, coverage_path: Path, backlog_path: Path, *, reproducibility: bool) -> dict:
     failures: list[dict] = []
     sources_data = load(source_path)
     schema = load(schema_path)
+    semantic_vocabulary = load(semantic_vocabulary_path)
     pilots = load(pilots_path)
     review = load(review_path)
+    contradictions = load(contradictions_path)
     coverage = load(coverage_path)
     backlog = load(backlog_path)
     vocabulary = load(VOCAB / 'canonical-vocabulary.json')
@@ -90,8 +93,18 @@ def validate(source_path: Path, schema_path: Path, pilots_path: Path, review_pat
     term_ids = {item['termId'] for item in vocabulary['entries']}
     identity_ids = {item['identityObservationId'] for item in identities['records']}
     taxon_ids = {item['taxonId'] for item in taxonomy['taxa']}
+    semantic_node_rows = semantic_vocabulary.get('nodes') or []
+    semantic_node_ids = {item.get('semanticNodeId') for item in semantic_node_rows}
     if ontology_review.get('counts', {}).get('open') != 0:
         failures.append({'check': 'ontology prerequisite gate'})
+    if len(semantic_node_ids) != len(semantic_node_rows) or any(not re.fullmatch(r'sem\.[a-z0-9.-]+', item or '') for item in semantic_node_ids):
+        failures.append({'check': 'semantic node IDs'})
+    semantic_kind_counts = {kind: sum(item.get('kind') == kind for item in semantic_node_rows) for kind in ('state-value','zone','position','visibility-scope')}
+    if semantic_vocabulary.get('counts') != {'nodes':18,'stateValues':11,'zones':2,'positions':2,'visibilityScopes':3} or semantic_kind_counts != {'state-value':11,'zone':2,'position':2,'visibility-scope':3}:
+        failures.append({'check': 'semantic node counts'})
+    for item in semantic_node_rows:
+        if not item.get('label') or not item.get('sourceEvidence') or any((evidence_path(ref) is None or not evidence_path(ref).exists()) for ref in item.get('sourceEvidence') or []):
+            failures.append({'check': 'semantic node provenance', 'semanticNodeId': item.get('semanticNodeId')})
 
     source_rows = sources_data.get('sources') or []
     source_ids = [item.get('sourceId') for item in source_rows]
@@ -134,18 +147,55 @@ def validate(source_path: Path, schema_path: Path, pilots_path: Path, review_pat
     open_question_text = (REPO / 'docs/rules/open-questions.md').read_text(encoding='utf-8')
     for question in question_rows:
         qid = question.get('questionId')
-        if not question.get('defaultProhibited') or not question.get('blocksRuleIds'):
+        if not question.get('defaultProhibited') or not (question.get('blocksRuleIds') or question.get('plannedRuleIds')):
             failures.append({'check': 'semantic question no-default/linkage', 'questionId': qid})
         if qid.startswith('OQ-') and f'### {qid} ' not in open_question_text:
             failures.append({'check': 'source open-question reference', 'questionId': qid})
         for blocked in question.get('blocksRuleIds') or []:
-            if blocked not in record_by_id and not blocked.startswith('future '):
+            if blocked not in record_by_id:
                 failures.append({'check': 'semantic question blocked record', 'questionId': qid, 'blocked': blocked})
+        for planned in question.get('plannedRuleIds') or []:
+            if not re.fullmatch(r'SEM-[A-Z0-9-]+', planned) or planned in record_by_id:
+                failures.append({'check': 'semantic question planned record', 'questionId': qid, 'planned': planned})
+        alternatives = question.get('alternatives') or []
+        alternative_ids = [item.get('alternativeId') for item in alternatives]
+        if len(alternatives) < 2 or len(alternative_ids) != len(set(alternative_ids)) or any(not item.get('description') or not item.get('support') for item in alternatives):
+            failures.append({'check': 'semantic question alternatives', 'questionId': qid})
+        for reference in question.get('sourceEvidenceRefs') or []:
+            path = evidence_path(reference)
+            if path is None or not path.exists():
+                failures.append({'check': 'semantic question source evidence', 'questionId': qid, 'reference': reference})
+
+    conflict_rows = contradictions.get('conflicts') or []
+    conflict_ids = [item.get('conflictId') for item in conflict_rows]
+    if conflict_ids != [f'SC-{index:03d}' for index in range(1, len(conflict_rows) + 1)]:
+        failures.append({'check': 'semantic conflict IDs/order'})
+    for conflict in conflict_rows:
+        status = conflict.get('status')
+        question_id = conflict.get('questionId')
+        if status not in {'resolved-by-authority','unresolved','preserved-boundary'} or not conflict.get('difference') or not conflict.get('resolution'):
+            failures.append({'check': 'semantic conflict shape', 'conflictId': conflict.get('conflictId')})
+        if status == 'unresolved' and question_id not in question_ids:
+            failures.append({'check': 'semantic conflict question linkage', 'conflictId': conflict.get('conflictId'), 'questionId': question_id})
+        if status != 'unresolved' and question_id is not None:
+            failures.append({'check': 'semantic conflict resolved question drift', 'conflictId': conflict.get('conflictId')})
+        if any(rule_id not in record_by_id for rule_id in conflict.get('affectedRuleIds') or []):
+            failures.append({'check': 'semantic conflict rule linkage', 'conflictId': conflict.get('conflictId')})
+        for reference in conflict.get('evidenceRefs') or []:
+            if reference in source_by_id:
+                continue
+            path = evidence_path(reference)
+            if path is None or not path.exists():
+                failures.append({'check': 'semantic conflict evidence', 'conflictId': conflict.get('conflictId'), 'reference': reference})
+    if contradictions.get('counts') != {'conflicts':7,'resolvedByAuthority':2,'unresolved':3,'preservedBoundary':2}:
+        failures.append({'check': 'semantic conflict declared counts'})
 
     for record in records:
         rule_id = record['ruleId']
         if set(record) != schema_fields:
             failures.append({'check': 'record schema fields', 'ruleId': rule_id, 'missing': sorted(schema_fields - set(record)), 'extra': sorted(set(record) - schema_fields)})
+        if record.get('schemaVersion') != 1 or record.get('recordType') != 'semantic-rule' or not isinstance(record.get('recordRevision'), int) or isinstance(record.get('recordRevision'), bool) or record.get('recordRevision', 0) < 1:
+            failures.append({'check': 'record schema/version', 'ruleId': rule_id})
         if record.get('implementationBoundary') != 'implementation-neutral; no engine, UI, network, storage, or serialization mapping':
             failures.append({'check': 'implementation boundary', 'ruleId': rule_id})
         searchable = json.dumps({key:value for key,value in record.items() if key != 'implementationBoundary'}, ensure_ascii=False)
@@ -170,6 +220,8 @@ def validate(source_path: Path, schema_path: Path, pilots_path: Path, review_pat
                 failures.append({'check': 'source assertion source', 'ruleId': rule_id, 'assertionId': item.get('assertionId')})
                 continue
             used_authorities.append(source['authority'])
+            if any(item.get(field) != source.get(source_field) for field, source_field in (('sourcePath','path'),('sourceSha256','sha256'),('sourceAuthority','authority'),('sourceVersion','version'))):
+                failures.append({'check': 'source assertion tuple projection', 'ruleId': rule_id, 'assertionId': item.get('assertionId')})
             if not item.get('locator') or not item.get('sourceText') or item.get('textKind') not in {'verbatim','normalized-paraphrase'}:
                 failures.append({'check': 'source assertion text/locator', 'ruleId': rule_id, 'assertionId': item.get('assertionId')})
             if not item.get('supportsFields') or any(field not in schema_fields for field in item.get('supportsFields') or []):
@@ -262,6 +314,8 @@ def validate(source_path: Path, schema_path: Path, pilots_path: Path, review_pat
                 failures.append({'check': 'operation target linkage', 'ruleId': rule_id, 'stepId': item.get('stepId')})
             if item.get('invokeRuleId') is not None and item.get('invokeRuleId') not in record_by_id:
                 failures.append({'check': 'operation invoked rule linkage', 'ruleId': rule_id, 'stepId': item.get('stepId'), 'invokeRuleId': item.get('invokeRuleId')})
+            if isinstance(item.get('objectRef'), str) and item['objectRef'].startswith('sem.') and item['objectRef'] not in semantic_node_ids and item['objectRef'] not in question_ids:
+                failures.append({'check': 'operation semantic-node reference', 'ruleId': rule_id, 'stepId': item.get('stepId'), 'value': item['objectRef']})
             repeat = item.get('repeat') or {}
             if repeat.get('untilConditionRef') and repeat['untilConditionRef'] not in condition_set:
                 failures.append({'check': 'operation repeat condition linkage', 'ruleId': rule_id, 'stepId': item.get('stepId')})
@@ -270,6 +324,8 @@ def validate(source_path: Path, schema_path: Path, pilots_path: Path, review_pat
                 for value in payload.values():
                     if isinstance(value, str) and value.startswith('tax.') and value not in taxon_ids:
                         failures.append({'check': 'operation ontology reference', 'ruleId': rule_id, 'stepId': item.get('stepId'), 'value': value})
+                    if isinstance(value, str) and value.startswith('sem.') and value not in semantic_node_ids:
+                        failures.append({'check': 'operation semantic-node reference', 'ruleId': rule_id, 'stepId': item.get('stepId'), 'value': value})
 
         partial = record.get('partialResolution') or {}
         if partial.get('policy') not in ALLOWED_PARTIAL or not partial.get('unit') or not partial.get('onImpossible'):
@@ -283,17 +339,25 @@ def validate(source_path: Path, schema_path: Path, pilots_path: Path, review_pat
         if (record.get('status') == 'source-backed-with-open-question') != bool(unresolved):
             failures.append({'check': 'record status/question consistency', 'ruleId': rule_id})
         for variant in record.get('sourceVariants') or []:
-            if variant.get('sourceId') not in source_by_id or not all(variant.get(field) for field in ('variantId','difference','resolution')):
+            if variant.get('sourceId') not in source_by_id or variant.get('sourceAssertionId') not in assertion_set or not all(variant.get(field) for field in ('variantId','difference','resolution')):
                 failures.append({'check': 'source variant completeness', 'ruleId': rule_id})
 
     # High-risk pilot fidelity invariants.
     search = record_by_id.get('SEM-ACT-SEARCH-001') or {}
-    search_text = json.dumps(search, ensure_ascii=False)
-    if 'bottom of its respective deck' not in search_text or 'unchosen Items must not be revealed' not in search_text:
+    search_operations = {item.get('stepId'): item for item in search.get('operations') or []}
+    search_information = search.get('informationPolicy') or []
+    if (search_operations.get('S04', {}).get('transition') or {}).get('to') != 'tax.scaffold.zone.deck' or (search_operations.get('S04', {}).get('transition') or {}).get('positionRef') != 'sem.position.deck-bottom' or not any('unchosen Items must not be revealed' in item.get('secrecy','') for item in search_information):
         failures.append({'check': 'Search bottom/private fidelity'})
     duck = record_by_id.get('SEM-REACTION-DUCK-001') or {}
     if duck.get('ruleKind') != 'reaction' or 'SEM-Q-001' not in duck.get('unresolvedQuestionRefs', []):
         failures.append({'check': 'Reaction replacement ambiguity fidelity'})
+    move = record_by_id.get('SEM-ACT-MOVE-001') or {}
+    explore = record_by_id.get('SEM-ACT-EXPLORE-001') or {}
+    if 'SEM-Q-003' not in move.get('unresolvedQuestionRefs', []) or 'SEM-Q-002' not in explore.get('unresolvedQuestionRefs', []) or not any(item.get('operationType') == 'resolve-open-alternative' for item in explore.get('operations') or []):
+        failures.append({'check': 'Movement/Exploration ambiguity fidelity'})
+    passing = record_by_id.get('SEM-RT-007') or {}
+    if not any(item.get('operationType') == 'end-action-window' for item in passing.get('operations') or []) or any(item.get('operationType') == 'end-process' for item in passing.get('operations') or []):
+        failures.append({'check': 'Pass Turn-end effect fidelity'})
     hatching = record_by_id.get('SEM-EVENT-HATCHING-001') or {}
     if hatching.get('partialResolution', {}).get('policy') != 'per-sentence-continue' or 'OQ-009' not in hatching.get('unresolvedQuestionRefs', []):
         failures.append({'check': 'Event partial/Nest ambiguity fidelity'})
@@ -302,7 +366,7 @@ def validate(source_path: Path, schema_path: Path, pilots_path: Path, review_pat
         failures.append({'check': 'semantic relation handoff'})
 
     actual_counts = {
-        'sources': len(source_rows), 'records': len(records),
+        'sources': len(source_rows), 'semanticNodes': len(semantic_node_rows), 'records': len(records),
         'sourceBacked': sum(item.get('status') == 'source-backed' for item in records),
         'withOpenQuestion': sum(item.get('status') == 'source-backed-with-open-question' for item in records),
         'sourceVariants': sum(item.get('status') == 'source-variant' for item in records),
@@ -317,6 +381,8 @@ def validate(source_path: Path, schema_path: Path, pilots_path: Path, review_pat
         'variantReferences': sum(len(item.get('sourceVariants') or []) for item in records),
         'questions': len(question_rows), 'openQuestions': review.get('counts', {}).get('open'),
         'systems': len(coverage.get('systems') or []),
+        'conflicts': len(conflict_rows),
+        'unresolvedConflicts': sum(item.get('status') == 'unresolved' for item in conflict_rows),
         'backlogUnits': len(backlog.get('units') or []),
         'backlogPilotCovered': sum(item.get('status') == 'pilot-covered' for item in backlog.get('units') or []),
         'backlogSourceBlocked': sum(item.get('status') == 'source-blocked' for item in backlog.get('units') or []),
@@ -324,7 +390,7 @@ def validate(source_path: Path, schema_path: Path, pilots_path: Path, review_pat
     if actual_counts != EXPECTED:
         failures.append({'check': 'hard-coded semantic pilot counts', 'expected': EXPECTED, 'actual': actual_counts})
     expected_pilot_counts = {key: actual_counts[key] for key in ('records','sourceBacked','withOpenQuestion','sourceVariants','sourceAssertions','conditions','operations','decisions','informationPolicies','costs','targets','openQuestionReferences','variantReferences')}
-    if pilots.get('counts') != expected_pilot_counts or sources_data.get('counts') != {'sources': 9} or review.get('counts') != {'questions':7,'officialClarificationPreferred':6,'sourceAmbiguitiesIntroducedByPilot':1,'resolved':0,'open':7} or coverage.get('counts') != {'systems':9,'pilotRecords':13,'fullBaseSemanticCoverageClaimed':False}:
+    if pilots.get('counts') != expected_pilot_counts or sources_data.get('counts') != {'sources': 9} or review.get('counts') != {'questions':9,'officialClarificationPreferred':6,'sourceAmbiguitiesIntroducedByPilot':3,'resolved':0,'open':9} or coverage.get('counts') != {'systems':9,'pilotRecords':13,'fullBaseSemanticCoverageClaimed':False}:
         failures.append({'check': 'declared semantic counts'})
     covered_rule_ids = [rule_id for system in coverage.get('systems') or [] for rule_id in system.get('ruleIds') or []]
     if set(covered_rule_ids) != set(record_ids) or len(covered_rule_ids) != len(set(covered_rule_ids)) or coverage.get('counts', {}).get('fullBaseSemanticCoverageClaimed') is not False:
@@ -365,7 +431,7 @@ def validate(source_path: Path, schema_path: Path, pilots_path: Path, review_pat
                     failures.append({'check': 'semantic backlog rebuild execution', 'seed': seed, 'stderr': backlog_run.stderr})
                     continue
                 hashes = {}
-                for name, tracked in [('source-registry.json',source_path),('semantic-rule.schema.json',schema_path),('pilots.json',pilots_path),('review-gates.json',review_path),('coverage.json',coverage_path),('backlog.json',backlog_path)]:
+                for name, tracked in [('source-registry.json',source_path),('semantic-rule.schema.json',schema_path),('semantic-vocabulary.json',semantic_vocabulary_path),('pilots.json',pilots_path),('review-gates.json',review_path),('contradictions.json',contradictions_path),('coverage.json',coverage_path),('backlog.json',backlog_path)]:
                     rebuilt = Path(temp_dir) / name
                     hashes[name] = sha(rebuilt) if rebuilt.is_file() else None
                     if not rebuilt.is_file() or hashes[name] != sha(tracked):
@@ -381,15 +447,17 @@ def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument('--source-registry', type=Path, default=DIR/'source-registry.json')
     parser.add_argument('--schema', type=Path, default=DIR/'semantic-rule.schema.json')
+    parser.add_argument('--semantic-vocabulary', type=Path, default=DIR/'semantic-vocabulary.json')
     parser.add_argument('--pilots', type=Path, default=DIR/'pilots.json')
     parser.add_argument('--review-gates', type=Path, default=DIR/'review-gates.json')
+    parser.add_argument('--contradictions', type=Path, default=DIR/'contradictions.json')
     parser.add_argument('--coverage', type=Path, default=DIR/'coverage.json')
     parser.add_argument('--backlog', type=Path, default=DIR/'backlog.json')
     parser.add_argument('--skip-reproducibility', action='store_true')
     parser.add_argument('--report', action='store_true')
     args = parser.parse_args()
     try:
-        report = validate(args.source_registry,args.schema,args.pilots,args.review_gates,args.coverage,args.backlog,reproducibility=not args.skip_reproducibility)
+        report = validate(args.source_registry,args.schema,args.semantic_vocabulary,args.pilots,args.review_gates,args.contradictions,args.coverage,args.backlog,reproducibility=not args.skip_reproducibility)
     except (DuplicateJsonKeyError,json.JSONDecodeError) as error:
         report = {'schemaVersion':1,'passed':False,'checks':{},'failureCount':1,'failures':[{'check':'strict JSON parsing','error':str(error)}]}
     if args.report and args.pilots.resolve() == (DIR/'pilots.json').resolve():

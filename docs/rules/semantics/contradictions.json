@@ -1,0 +1,116 @@
+{
+  "schemaVersion": 1,
+  "recordType": "semantic-conflict-register",
+  "policy": "Readable source differences remain separate. Authority may resolve a general rule without rewriting lower-authority component wording; unresolved conflicts never receive a default.",
+  "counts": {
+    "conflicts": 7,
+    "resolvedByAuthority": 2,
+    "unresolved": 3,
+    "preservedBoundary": 2
+  },
+  "conflicts": [
+    {
+      "conflictId": "SC-001",
+      "title": "Search keep optionality and unchosen destination",
+      "status": "resolved-by-authority",
+      "questionId": null,
+      "affectedRuleIds": [
+        "SEM-ACT-SEARCH-001"
+      ],
+      "evidenceRefs": [
+        "SRC-RULEBOOK",
+        "SRC-CARD-SEARCH-MEDICAL"
+      ],
+      "difference": "Card says may keep 1 / discard the rest; rulebook says pick 1, put unchosen cards on respective deck bottoms, and do not reveal them.",
+      "resolution": "Official-primary rulebook controls the general Search procedure; exact card wording remains a source variant."
+    },
+    {
+      "conflictId": "SC-002",
+      "title": "Rest Uninfected/non-Infected wording and destination",
+      "status": "resolved-by-authority",
+      "questionId": null,
+      "affectedRuleIds": [
+        "SEM-ACT-REST-001"
+      ],
+      "evidenceRefs": [
+        "SRC-RULEBOOK",
+        "SRC-CARD-REST",
+        "SRC-CARD-REST-MEDICAL"
+      ],
+      "difference": "Reviewed face says remove all Uninfected; Medical Support variant says remove non-Infected instead of discarding; ordinary Infection Procedure discards all Contaminations.",
+      "resolution": "Each component variant is retained. Pilot composes the reviewed face as a destination override over the official Procedure."
+    },
+    {
+      "conflictId": "SC-003",
+      "title": "Exploration Entrance Noise versus universal Movement Noise",
+      "status": "unresolved",
+      "questionId": "SEM-Q-002",
+      "affectedRuleIds": [
+        "SEM-ACT-EXPLORE-001",
+        "SEM-ACT-MOVE-001"
+      ],
+      "evidenceRefs": [
+        "SRC-RULEBOOK"
+      ],
+      "difference": "Noise is mandatory after every Movement; Entrance Effect is called additional; the worked example resolves one Entrance Noise and then finishes.",
+      "resolution": "No default; explicit alternatives in review-gates.json."
+    },
+    {
+      "conflictId": "SC-004",
+      "title": "Duck and Cover multiple replacement targets",
+      "status": "unresolved",
+      "questionId": "SEM-Q-001",
+      "affectedRuleIds": [
+        "SEM-REACTION-DUCK-001"
+      ],
+      "evidenceRefs": [
+        "SRC-CARD-DUCK",
+        "SRC-RULEBOOK"
+      ],
+      "difference": "Card says the other Character but gives no selection/tie-break when more than one other Character is present.",
+      "resolution": "No default; explicit alternatives in review-gates.json."
+    },
+    {
+      "conflictId": "SC-005",
+      "title": "Event placement at an undiscovered Nest",
+      "status": "unresolved",
+      "questionId": "OQ-009",
+      "affectedRuleIds": [
+        "SEM-EVENT-HATCHING-001"
+      ],
+      "evidenceRefs": [
+        "SRC-EVENT-HATCHING",
+        "SRC-RULEBOOK"
+      ],
+      "difference": "Event requires placement in the Nest; checked sources do not define placement when the Nest Room is absent.",
+      "resolution": "No default; Event impossible-sentence rule is one candidate, not silently adopted."
+    },
+    {
+      "conflictId": "SC-006",
+      "title": "Player Help phase sequence versus current rulebook",
+      "status": "preserved-boundary",
+      "questionId": null,
+      "affectedRuleIds": [
+        "SEM-RT-001"
+      ],
+      "evidenceRefs": [
+        "docs/rules/source-extraction/player-help-source-extraction.json",
+        "SRC-RULEBOOK"
+      ],
+      "difference": "TTS Player Help fronts encode an obsolete phase sequence and 10-card count while the official current rulebook controls base sequence/count.",
+      "resolution": "Retain TTS as source-version evidence; never alias same words to current semantics."
+    },
+    {
+      "conflictId": "SC-007",
+      "title": "FACILITY RESTART unreadable exact-source span",
+      "status": "preserved-boundary",
+      "questionId": null,
+      "affectedRuleIds": [],
+      "evidenceRefs": [
+        "docs/rules/source-extraction/card-gap-inventory.json"
+      ],
+      "difference": "Prototype exact source ends “Systems must be” with no recoverable following mark; other variants differ materially.",
+      "resolution": "Keep source blocked; no semantic record may invent or borrow the missing mark."
+    }
+  ]
+}

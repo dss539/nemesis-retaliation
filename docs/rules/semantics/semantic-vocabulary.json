@@ -1,0 +1,157 @@
+{
+  "schemaVersion": 1,
+  "recordType": "semantic-node-registry",
+  "counts": {
+    "nodes": 18,
+    "stateValues": 11,
+    "zones": 2,
+    "positions": 2,
+    "visibilityScopes": 3
+  },
+  "nodes": [
+    {
+      "semanticNodeId": "sem.state.phase.passed",
+      "kind": "state-value",
+      "label": "Passed for current Player Phase",
+      "sourceEvidence": [
+        "docs/rules/01-round-and-turns.md:RT-007"
+      ]
+    },
+    {
+      "semanticNodeId": "sem.state.participation.active",
+      "kind": "state-value",
+      "label": "Actively participating",
+      "sourceEvidence": [
+        "docs/rules/01-round-and-turns.md:RT-014"
+      ]
+    },
+    {
+      "semanticNodeId": "sem.state.participation.in-lander",
+      "kind": "state-value",
+      "label": "Inside Lander, not yet Escaped",
+      "sourceEvidence": [
+        "docs/rules/01-round-and-turns.md:RT-014"
+      ]
+    },
+    {
+      "semanticNodeId": "sem.state.participation.escaped",
+      "kind": "state-value",
+      "label": "Escaped",
+      "sourceEvidence": [
+        "docs/rules/03-intruders-and-survival.md:INT-009"
+      ]
+    },
+    {
+      "semanticNodeId": "sem.state.participation.hibernated",
+      "kind": "state-value",
+      "label": "Hibernated",
+      "sourceEvidence": [
+        "docs/rules/03-intruders-and-survival.md:INT-009"
+      ]
+    },
+    {
+      "semanticNodeId": "sem.state.participation.dead",
+      "kind": "state-value",
+      "label": "Dead/no longer participating",
+      "sourceEvidence": [
+        "docs/rules/01-round-and-turns.md:RT-014"
+      ]
+    },
+    {
+      "semanticNodeId": "sem.state.game.running",
+      "kind": "state-value",
+      "label": "Game running",
+      "sourceEvidence": [
+        "docs/rules/01-round-and-turns.md:RT-015"
+      ]
+    },
+    {
+      "semanticNodeId": "sem.state.game.ending",
+      "kind": "state-value",
+      "label": "Endgame sequence resolving",
+      "sourceEvidence": [
+        "docs/rules/03-intruders-and-survival.md:INT-011"
+      ]
+    },
+    {
+      "semanticNodeId": "sem.state.game.ended",
+      "kind": "state-value",
+      "label": "Game ended",
+      "sourceEvidence": [
+        "docs/rules/03-intruders-and-survival.md:INT-011"
+      ]
+    },
+    {
+      "semanticNodeId": "sem.state.outcome.winner",
+      "kind": "state-value",
+      "label": "Winner",
+      "sourceEvidence": [
+        "docs/rules/03-intruders-and-survival.md:INT-011"
+      ]
+    },
+    {
+      "semanticNodeId": "sem.state.outcome.loser",
+      "kind": "state-value",
+      "label": "Loser",
+      "sourceEvidence": [
+        "docs/rules/03-intruders-and-survival.md:INT-011"
+      ]
+    },
+    {
+      "semanticNodeId": "sem.zone.temporary-private-inspection",
+      "kind": "zone",
+      "label": "Temporary private inspection set",
+      "sourceEvidence": [
+        "docs/rules/02-character-actions.md:ACT-SEARCH-001"
+      ]
+    },
+    {
+      "semanticNodeId": "sem.zone.card-in-resolution",
+      "kind": "zone",
+      "label": "Card currently resolving",
+      "sourceEvidence": [
+        "docs/rules/02-character-actions.md:ACT-CARD-001"
+      ]
+    },
+    {
+      "semanticNodeId": "sem.position.deck-top",
+      "kind": "position",
+      "label": "Top of deck/pile",
+      "sourceEvidence": [
+        "docs/rules/03-intruders-and-survival.md:INT-008"
+      ]
+    },
+    {
+      "semanticNodeId": "sem.position.deck-bottom",
+      "kind": "position",
+      "label": "Bottom of deck/pile",
+      "sourceEvidence": [
+        "docs/rules/02-character-actions.md:ACT-SEARCH-001"
+      ]
+    },
+    {
+      "semanticNodeId": "sem.visibility.public",
+      "kind": "visibility-scope",
+      "label": "Public",
+      "sourceEvidence": [
+        "docs/rules/01-round-and-turns.md"
+      ]
+    },
+    {
+      "semanticNodeId": "sem.visibility.owner-private",
+      "kind": "visibility-scope",
+      "label": "Owner-private",
+      "sourceEvidence": [
+        "docs/rules/02-character-actions.md:ACT-SEARCH-001"
+      ]
+    },
+    {
+      "semanticNodeId": "sem.visibility.scanning-player",
+      "kind": "visibility-scope",
+      "label": "Scanning player",
+      "sourceEvidence": [
+        "docs/rules/03-intruders-and-survival.md:INT-008"
+      ]
+    }
+  ]
+}
