@@ -111,12 +111,16 @@ Machine-readable evidence: `docs/rules/source-extraction/validation.json`.
 - 13 pilot records across 9 systems
   - 9 source-backed
   - 4 source-backed with open questions
-- 25 source assertions / 23 structured conditions and guards
+- 25 source assertions / 24 structured conditions and guards
 - 61 ordered operations
 - 10 actor-owned decisions / 16 information policies
 - 2 explicit costs / 5 target specifications
 - 2 preserved source-variant references
 - 7 open semantic questions, all with defaults prohibited
+- 600 source-obligation backlog units
+  - 17 pilot-covered
+  - 582 pending
+  - 1 inherited exact-source blocker
 - full base-game semantic coverage explicitly not claimed
 - two-seed byte-identical rebuilds and adversarial corruption tests pass
 - `scripts/validate_semantic_pilots.py`: **passed with 0 failures**

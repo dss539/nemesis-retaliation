@@ -1976,6 +1976,7 @@ task workspace.
 - [x] Encode 13 representative Round/Turn, movement/exploration, card, Room, Event, Intruder Help, and endgame pilots.
 - [x] Carry six existing genuine questions plus one pilot-discovered ambiguity explicitly with defaults prohibited.
 - [x] Add strict validation, two-seed deterministic rebuilds, and adversarial negative controls.
+- [x] Build a 600-unit source-obligation backlog: 17 pilot-covered, 582 pending, 1 exact-source blocked.
 - [ ] Incorporate independent schema, system-pilot, component-pilot, and validator audits.
 - [ ] Collect owner decisions but defer asking until every independent semantic task is exhausted.
 

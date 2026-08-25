@@ -16,14 +16,15 @@ VOCAB = REPO / 'docs/rules/vocabulary'
 ONTOLOGY = REPO / 'docs/rules/ontology'
 EXPECTED = {
     'sources': 9, 'records': 13, 'sourceBacked': 9, 'withOpenQuestion': 4,
-    'sourceVariants': 0, 'sourceAssertions': 25, 'conditions': 23,
+    'sourceVariants': 0, 'sourceAssertions': 25, 'conditions': 24,
     'operations': 61, 'decisions': 10, 'informationPolicies': 16,
     'costs': 2, 'targets': 5, 'openQuestionReferences': 5,
     'variantReferences': 2, 'questions': 7, 'openQuestions': 7, 'systems': 9,
+    'backlogUnits': 600, 'backlogPilotCovered': 17, 'backlogSourceBlocked': 1,
 }
 ALLOWED_OPERATIONS = {
     'branch','change-value','choose','draw-random','end-process','evaluate-condition',
-    'inspect-private','invoke-process','invoke-selected-process','move-entity','pay-cost',
+    'inspect-private','invoke-process','invoke-selected-process','move-entity','pay-cost','end-action-window',
     'place-component','play-card','remove-component','replace-target','resolve-attacks',
     'reveal','select-target','set-state','transition-zone',
 }
@@ -73,13 +74,14 @@ def cardinality_valid(value: dict) -> bool:
     return isinstance(maximum, int) and not isinstance(maximum, bool) and maximum >= minimum
 
 
-def validate(source_path: Path, schema_path: Path, pilots_path: Path, review_path: Path, coverage_path: Path, *, reproducibility: bool) -> dict:
+def validate(source_path: Path, schema_path: Path, pilots_path: Path, review_path: Path, coverage_path: Path, backlog_path: Path, *, reproducibility: bool) -> dict:
     failures: list[dict] = []
     sources_data = load(source_path)
     schema = load(schema_path)
     pilots = load(pilots_path)
     review = load(review_path)
     coverage = load(coverage_path)
+    backlog = load(backlog_path)
     vocabulary = load(VOCAB / 'canonical-vocabulary.json')
     identities = load(VOCAB / 'named-component-identities.json')
     taxonomy = load(ONTOLOGY / 'taxonomy.json')
@@ -315,6 +317,9 @@ def validate(source_path: Path, schema_path: Path, pilots_path: Path, review_pat
         'variantReferences': sum(len(item.get('sourceVariants') or []) for item in records),
         'questions': len(question_rows), 'openQuestions': review.get('counts', {}).get('open'),
         'systems': len(coverage.get('systems') or []),
+        'backlogUnits': len(backlog.get('units') or []),
+        'backlogPilotCovered': sum(item.get('status') == 'pilot-covered' for item in backlog.get('units') or []),
+        'backlogSourceBlocked': sum(item.get('status') == 'source-blocked' for item in backlog.get('units') or []),
     }
     if actual_counts != EXPECTED:
         failures.append({'check': 'hard-coded semantic pilot counts', 'expected': EXPECTED, 'actual': actual_counts})
@@ -325,6 +330,27 @@ def validate(source_path: Path, schema_path: Path, pilots_path: Path, review_pat
     if set(covered_rule_ids) != set(record_ids) or len(covered_rule_ids) != len(set(covered_rule_ids)) or coverage.get('counts', {}).get('fullBaseSemanticCoverageClaimed') is not False:
         failures.append({'check': 'semantic pilot coverage projection'})
 
+    backlog_units = backlog.get('units') or []
+    backlog_ids = [item.get('semanticUnitId') for item in backlog_units]
+    if len(backlog_ids) != len(set(backlog_ids)) or any(not item for item in backlog_ids):
+        failures.append({'check': 'semantic backlog unit IDs'})
+    allowed_backlog_status = {'pending','pilot-covered','source-blocked'}
+    for item in backlog_units:
+        path = REPO / item.get('sourcePath', '')
+        if not path.exists() or item.get('status') not in allowed_backlog_status or not item.get('channel') or not item.get('sourceLocator'):
+            failures.append({'check': 'semantic backlog source/status', 'semanticUnitId': item.get('semanticUnitId')})
+        if any(rule_id not in record_by_id for rule_id in item.get('pilotRuleIds') or []):
+            failures.append({'check': 'semantic backlog pilot linkage', 'semanticUnitId': item.get('semanticUnitId')})
+        if (item.get('status') == 'pilot-covered') != bool(item.get('pilotRuleIds')):
+            failures.append({'check': 'semantic backlog status/link consistency', 'semanticUnitId': item.get('semanticUnitId')})
+    blocked_units = [item for item in backlog_units if item.get('status') == 'source-blocked']
+    if len(blocked_units) != 1 or not blocked_units[0].get('sourcePath','').endswith('missionTaskDeck-023.png') or 'exact-source-operative-span' not in blocked_units[0].get('blockers',[]):
+        failures.append({'check': 'semantic backlog inherited source blocker'})
+    expected_backlog_channels = {'card-reference-source-tuple':350,'interpreted-rule-record':54,'intruder-help-instruction':18,'objective-help-unit':45,'official-faq-unit':28,'room-help-entry':25,'rulebook-visual-obligation':80}
+    expected_backlog_status = {'pending':582,'pilot-covered':17,'source-blocked':1}
+    if backlog.get('counts') != {'units':600,'byChannel':expected_backlog_channels,'byStatus':expected_backlog_status}:
+        failures.append({'check': 'semantic backlog declared counts'})
+
     if reproducibility:
         builds = []
         for seed in ('1','777'):
@@ -334,8 +360,12 @@ def validate(source_path: Path, schema_path: Path, pilots_path: Path, review_pat
                 if run.returncode != 0:
                     failures.append({'check': 'semantic rebuild execution', 'seed': seed, 'stderr': run.stderr})
                     continue
+                backlog_run = subprocess.run(['python3', str(REPO / 'scripts/build_semantic_backlog.py'), '--output', str(Path(temp_dir) / 'backlog.json')], cwd=REPO, env=env, check=False, capture_output=True, text=True)
+                if backlog_run.returncode != 0:
+                    failures.append({'check': 'semantic backlog rebuild execution', 'seed': seed, 'stderr': backlog_run.stderr})
+                    continue
                 hashes = {}
-                for name, tracked in [('source-registry.json',source_path),('semantic-rule.schema.json',schema_path),('pilots.json',pilots_path),('review-gates.json',review_path),('coverage.json',coverage_path)]:
+                for name, tracked in [('source-registry.json',source_path),('semantic-rule.schema.json',schema_path),('pilots.json',pilots_path),('review-gates.json',review_path),('coverage.json',coverage_path),('backlog.json',backlog_path)]:
                     rebuilt = Path(temp_dir) / name
                     hashes[name] = sha(rebuilt) if rebuilt.is_file() else None
                     if not rebuilt.is_file() or hashes[name] != sha(tracked):
@@ -354,11 +384,12 @@ def main() -> int:
     parser.add_argument('--pilots', type=Path, default=DIR/'pilots.json')
     parser.add_argument('--review-gates', type=Path, default=DIR/'review-gates.json')
     parser.add_argument('--coverage', type=Path, default=DIR/'coverage.json')
+    parser.add_argument('--backlog', type=Path, default=DIR/'backlog.json')
     parser.add_argument('--skip-reproducibility', action='store_true')
     parser.add_argument('--report', action='store_true')
     args = parser.parse_args()
     try:
-        report = validate(args.source_registry,args.schema,args.pilots,args.review_gates,args.coverage,reproducibility=not args.skip_reproducibility)
+        report = validate(args.source_registry,args.schema,args.pilots,args.review_gates,args.coverage,args.backlog,reproducibility=not args.skip_reproducibility)
     except (DuplicateJsonKeyError,json.JSONDecodeError) as error:
         report = {'schemaVersion':1,'passed':False,'checks':{},'failureCount':1,'failures':[{'check':'strict JSON parsing','error':str(error)}]}
     if args.report and args.pilots.resolve() == (DIR/'pilots.json').resolve():

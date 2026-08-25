@@ -141,6 +141,10 @@ def main() -> None:
         f"- {semantic_validation['checks']['costs']} explicit costs / {semantic_validation['checks']['targets']} target specifications",
         f"- {semantic_validation['checks']['variantReferences']} preserved source-variant references",
         f"- {semantic_validation['checks']['openQuestions']} open semantic questions, all with defaults prohibited",
+        f"- {semantic_validation['checks']['backlogUnits']} source-obligation backlog units",
+        f"  - {semantic_validation['checks']['backlogPilotCovered']} pilot-covered",
+        f"  - {semantic_validation['checks']['backlogUnits'] - semantic_validation['checks']['backlogPilotCovered'] - semantic_validation['checks']['backlogSourceBlocked']} pending",
+        f"  - {semantic_validation['checks']['backlogSourceBlocked']} inherited exact-source blocker",
     ]
     for fragment in expected_fragments:
         require(fragment in status, f"PROJECT_STATUS.md count drift: expected {fragment!r}", failures)

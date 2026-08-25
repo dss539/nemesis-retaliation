@@ -9,7 +9,7 @@
     "withOpenQuestion": 4,
     "sourceVariants": 0,
     "sourceAssertions": 25,
-    "conditions": 23,
+    "conditions": 24,
     "operations": 61,
     "decisions": 10,
     "informationPolicies": 16,
@@ -2819,13 +2819,13 @@
         {
           "stepId": "S01",
           "sequence": 1,
-          "operationType": "select-target",
+          "operationType": "set-state",
           "modality": "must",
           "subjectRef": "rules-system",
-          "objectRef": "next non-Passed Player",
+          "objectRef": "Turn-order cursor at Starting Player",
           "conditionRefs": [],
           "decisionRef": null,
-          "targetRef": "T-NEXT-PLAYER",
+          "targetRef": null,
           "transition": null,
           "valueChange": null,
           "invokeRuleId": null,
@@ -2840,15 +2840,16 @@
           "sequence": 2,
           "operationType": "invoke-process",
           "modality": "must",
-          "subjectRef": "selected Player",
+          "subjectRef": "next non-Passed Player",
           "objectRef": "Turn",
           "conditionRefs": [],
           "decisionRef": null,
-          "targetRef": null,
+          "targetRef": "T-NEXT-PLAYER",
           "transition": null,
           "valueChange": null,
           "invokeRuleId": null,
           "repeat": {
+            "afterEach": "advance clockwise to next non-Passed Player",
             "untilConditionRef": "C-ALL-PASSED"
           },
           "sourceAssertionIds": [
@@ -2971,6 +2972,21 @@
       "modality": "must",
       "preconditions": [
         {
+          "conditionId": "S02-C01",
+          "scope": "operation-guard",
+          "expression": {
+            "operator": "predicate",
+            "args": [
+              {
+                "predicate": "current Player has not Passed and Character remains participating"
+              }
+            ]
+          },
+          "sourceAssertionIds": [
+            "SA-RT005-1"
+          ]
+        },
+        {
           "conditionId": "S03-C01",
           "scope": "operation-guard",
           "expression": {
@@ -3066,10 +3082,12 @@
           "stepId": "S02",
           "sequence": 2,
           "operationType": "invoke-selected-process",
-          "modality": "must",
+          "modality": "if-able",
           "subjectRef": "P-ACTIVE-CHARACTER",
           "objectRef": "selected Action",
-          "conditionRefs": [],
+          "conditionRefs": [
+            "S02-C01"
+          ],
           "decisionRef": "D-ACTION-2",
           "targetRef": null,
           "transition": null,
@@ -3283,10 +3301,10 @@
         {
           "stepId": "S03",
           "sequence": 3,
-          "operationType": "end-process",
+          "operationType": "end-action-window",
           "modality": "must",
           "subjectRef": "P-ACTIVE-PLAYER",
-          "objectRef": "current Turn",
+          "objectRef": "remaining Action opportunities in current Turn",
           "conditionRefs": [],
           "decisionRef": null,
           "targetRef": null,
@@ -3297,7 +3315,7 @@
           "sourceAssertionIds": [
             "SA-RT007-1"
           ],
-          "notes": null
+          "notes": "Return to the parent Turn so mandatory oxygen loss and fire damage still resolve."
         }
       ],
       "partialResolution": {

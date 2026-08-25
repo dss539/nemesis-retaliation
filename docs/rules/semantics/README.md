@@ -9,6 +9,7 @@ This directory is the first implementation-neutral semantic layer built over the
 - `pilots.json` — 13 representative rules across nine systems.
 - `review-gates.json` — seven explicit open semantic questions; no default is adopted.
 - `coverage.json` — pilot scope and the large remaining base-game semantic surface.
+- `backlog.json` — 600 source-obligation units across rule records, FAQ, visual obligations, Help sheets, and independent card/reference tuples; overlapping variants are intentionally retained.
 - `validation.json` — deterministic validation report.
 
 Builder: `scripts/build_semantic_pilots.py`
@@ -52,6 +53,8 @@ The 13 records cover:
 13. endgame triggers and checks.
 
 This is representative, **not full base-game semantic coverage**.
+
+The backlog currently records 17 pilot-covered source obligations, 582 pending obligations, and one inherited exact-source blocker (`FACILITY RESTART`). These are source-obligation counts, not a claim that 600 distinct game effects exist.
 
 ## Open questions carried without defaults
 
