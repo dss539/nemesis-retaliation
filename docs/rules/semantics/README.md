@@ -12,12 +12,13 @@ This directory is the first implementation-neutral semantic layer built over the
 - `robot-source-index.json` — mechanically derived closure of the six base Robot faces, one shared non-operative back, exact root-role/CardID/GUID/FaceURL/container provenance, 24 panels, 16 sentences, 23 icons, official/FAQ/runtime-state boundaries, licensed variants, exclusions, and backlog tuples; title/folder/modulo joins are prohibited.
 - `attack-source-index.json` — mechanically derived closure of 20 base Intruder Attack occurrences: 19 selected 5×4-sheet cells plus one direct face, one shared back, one unused selector-gap cell, full CardID/GUID/CustomDeck/URL provenance, repeated-title multiplicity, panels/sentences, 57 source-scoped applicability badges, official counterparts, 15 licensed variants, exclusions, and backlog tuples.
 - `queen-health-source-index.json` — mechanically derived closure of 12 physical base Queen Health occurrences over 10 face assets, one shared back, exact saved CardID/GUID/CustomDeck/FaceURL provenance, two-panel/count/icon locks, official track/visual/FAQ/Objective evidence, 12 independent licensed rows, duplicate-copy boundaries, exclusions, and backlog tuples.
-- `source-registry.json` — 90 exact source tuples, hashes, versions, authority, occurrence identities, and extraction-index links used by the corpus.
-- `pilots.json` — 167 validated semantic records across 19 systems; the historical filename is retained while coverage expands.
-- `review-gates.json` — thirty-five explicit open semantic questions with alternatives; no default is adopted.
-- `contradictions.json` — twenty-two source/semantic conflicts: ten authority-resolved, nine unresolved, and three preserved boundaries.
+- `serious-wound-source-index.json` — mechanically derived closure of all 27 base Serious Wound physical occurrences: 21 generated selections across seven 3×3-sheet cells plus six direct LEG/KNEE copies, two explicit selector-gap cells, one shared back, 54 panels/81 regions, exact text/icons, official-visible occurrences, nine independent licensed rows, exclusions, and backlog tuples.
+- `source-registry.json` — 122 exact source tuples, hashes, versions, authority, occurrence identities, and extraction-index links used by the corpus.
+- `pilots.json` — 199 validated semantic records across 20 systems; the historical filename is retained while coverage expands.
+- `review-gates.json` — forty-four explicit open semantic questions with alternatives; no default is adopted.
+- `contradictions.json` — twenty-eight source/semantic conflicts: thirteen authority-resolved, eleven unresolved, and four preserved boundaries.
 - `coverage.json` — pilot scope and the large remaining base-game semantic surface.
-- `backlog.json` — 600 source-obligation units across rule records, FAQ, visual obligations, Help sheets, and independent card/reference tuples; 174 are covered, 425 pending, and one source-blocked, with overlapping variants intentionally retained.
+- `backlog.json` — 600 source-obligation units across rule records, FAQ, visual obligations, Help sheets, and independent card/reference tuples; 189 are covered, 410 pending, and one source-blocked, with overlapping variants intentionally retained.
 - `validation.json` — deterministic validation report.
 - `independent-review.md` — four-workstream review findings and incorporated corrections.
 
@@ -45,7 +46,7 @@ Every pilot carries:
 
 ## Current coverage
 
-The 167 records cover the original reusable-procedure set plus:
+The 199 records cover the original reusable-procedure set plus:
 
 1. Round phase sequence;
 2. Player Phase rotation;
@@ -83,10 +84,11 @@ The 167 records cover the original reusable-procedure set plus:
 34. the complete six-face base Robot family, with one shared back, random hidden setup/reveal, local/remote Activation and Data-token costs, movement and Tactical Gear procedures, finite Malfunction/Fire/Secure handling, exact panel/sentence/icon order, six licensed variants, two official visible face occurrences, and eight new no-default questions; and
 35. all 20 mechanically selected base Intruder Attack occurrences, including six distinct Bite copies and other repeated titles, 19 generated cells plus direct Blood Sense, one shared back, the excluded unused Summoning cell, 69 physical panels, 54 printed sentences, 57 source-scoped applicability badges, 13 inline icons, 15 licensed structured variants, three official-visible face counterparts, occurrence dispatch from `SEM-INT-004`, reusable Contamination gain, and five new no-default questions.
 36. all 12 mechanically derived base Queen Health physical occurrences over 10 direct face assets, with two duplicate-asset pairs retained as four physical copies, one 13-reference shared back, 24 panels, 37 printed sentences, 12 source-local number displays, 16 exact page-40 icon matches, 12 independent licensed rows, three official-visible faces/two backs, Queen Hits/setup/draw/death/Activation/Repel/Shoot/Burst integration, and five new no-default questions.
+37. all 27 mechanically derived base Serious Wound physical occurrences over nine selected face assets, with seven selected 3×3-sheet cells (21 physical copies), six direct LEG/KNEE copies, two unselected selector-gap cells retained as source variants, one 28-reference shared back, 54 panels/81 regions, 42 printed sentence occurrences, 30 physical functional-icon occurrences, nine independent licensed rows with zero asserted physical identity links, three official-visible faces/two backs, reusable setup/gain/discard/stacking/variant procedures, and nine new no-default questions.
 
 This is representative, **not full base-game semantic coverage**.
 
-The backlog currently records 174 covered source obligations, 425 pending obligations, and one inherited exact-source blocker (`FACILITY RESTART`). The Event, Exploration, Robot, Intruder Attack, and Queen Health batches link 68 exact card/source tuples plus overlapping rule, FAQ, Help, and official visual obligations. These are source-obligation counts, not a claim that 600 distinct game effects exist.
+The backlog currently records 189 covered source obligations, 410 pending obligations, and one inherited exact-source blocker (`FACILITY RESTART`). The Event, Exploration, Robot, Intruder Attack, Queen Health, and Serious Wound batches link 79 exact card/source tuples plus overlapping rule, FAQ, Help, and official visual obligations. These are source-obligation counts, not a claim that 600 distinct game effects exist.
 
 ## Open questions carried without defaults
 
@@ -125,8 +127,17 @@ The backlog currently records 174 covered source obligations, 425 pending obliga
 - SEM-Q-027 — Queen death timing when the final card is drawn versus discarded.
 - SEM-Q-028 — Malfunction/Unreinforce branch ownership, location dispatch, and unavailable-branch handling.
 - SEM-Q-029 — identity/scope of the unmapped Queen Hits terminal/inline local glyph.
+- SEM-Q-030 — Serious Wound draw/reveal/face-up placement timing.
+- SEM-Q-031 — Serious Wound gain when no Health Section is empty.
+- SEM-Q-032 — Wound placement while the Health marker is Heavily Injured.
+- SEM-Q-033 — direct KNEE local action-glyph identity/scope.
+- SEM-Q-034 — LUNGS terminal local-glyph identity.
+- SEM-Q-035 — BODY “Hand Size” scope.
+- SEM-Q-036 — newly placed Wound effect-activation order.
+- SEM-Q-037 — Whenever-you-Pass Wound trigger order.
+- SEM-Q-038 — multiple-Wound draw/placement/shortfall order.
 
-- OQ-001, OQ-002, OQ-003, OQ-004, OQ-007, OQ-009, SEM-Q-010, SEM-Q-025, SEM-Q-027, and SEM-Q-029 prefer official clarification. The other SEM questions require further source searching before any owner decision.
+- OQ-001, OQ-002, OQ-003, OQ-004, OQ-007, OQ-009, SEM-Q-010, SEM-Q-025, SEM-Q-027, SEM-Q-029, SEM-Q-030, SEM-Q-031, SEM-Q-032, SEM-Q-036, SEM-Q-037, and SEM-Q-038 prefer official clarification. The other SEM questions require further source searching before any owner decision.
 
 ## Fidelity boundaries exercised
 
@@ -152,6 +163,13 @@ The backlog currently records 174 covered source obligations, 425 pending obliga
 - All twelve segmented green number displays remain source-local: nine are explicit selected all-49 no-matches and the canonical face retains one preselected unregistered display. Their visible numeric values compose only with the page-35 card instruction and create no Shoot/Burst/Health/damage alias.
 - The Queen Hits track remains `0,1,2,3,4,terminal-local-glyph`; both queen-head/blob-plus-style terminal/inline occurrences stay unmapped. Shoot/Burst timing, Character attribution, final-card death timing, and Malfunction/Unreinforce ownership receive no defaults.
 - Generic Queen Health resolution alone owns reveal, hidden additional discards, exact physical-face dispatch, drawn-card discard, no-reshuffle finite exhaustion, and reset to exactly 0 without overflow. Bottom effects still run after death caused by additional discards; the final-draw death conflict remains SEM-Q-027.
+- Serious Wound identity comes from the sole base `seriouswoundDeck` root plus exact saved full CardID/GUID/CustomDeck/FaceURL/BackURL tuples and, for generated faces, an exact sheet/hash/grid/cell selector—not title, body resemblance, folder, saved sequence, or CardID modulo. All nine printed titles have multiplicity three.
+- The 3×3 parent sheet is one source asset, not a rules face. Cells 4 (LEG) and 6 (KNEE) have no root DeckID/GUID selector and remain source variants; they are never substituted for the six direct physical LEG/KNEE copies by matching title or effect.
+- The shared `SERIOUS WOUND` back is one non-operative side with 28 references, not a twenty-eighth rules face. Setup shuffles exactly 27 physical cards face down; no checked rule reshuffles the separate Serious Wound discard pile.
+- Exact selected FaceURL/source-byte equivalence—not display title—supplies duplicate non-stacking groups. Every physical copy remains separately selectable for discard; discard moves one owner-selected copy to the Wound discard pile, slides remaining Wounds left, does not move Health, and ends only that copy’s contribution.
+- Thirty physical functional-icon occurrences retain 24 exact page-40 matches and six local no-match occurrences. The direct KNEE two-lobe glyph and LUNGS stepped-zigzag remain literal under SEM-Q-033/034; licensed placeholders and selector-gap artwork create no alias.
+- Nine licensed `SERIOUS_WOUNDS_DATA` rows remain independent with zero asserted TTS physical identity links. Two official EYES faces, one partial ARM face, and two official backs control only their exact publisher occurrences; no official example identifies a TTS GUID copy.
+- The reusable Wound gain procedure owns finite draw, leftmost-section placement, all-three-slot coverage, Health displacement, exact physical dispatch, and no-reshuffle shortfall while SEM-Q-030/031/032/036/038 prohibit visibility, terminal-slot, activation, and multi-Wound defaults. Emergency Room, Surgery Room, Medical Robot, and the generic Health procedure reuse the exact discard/gain lifecycle without changing Surgery branch order.
 - FAQ authority keeps remove-from-game outside the Entrance Effect, so all three removal transitions remain unconditional when Entrance Effects are ignored; close-Doors effects target only Doors touching the new Room.
 - Random-Corridor and finite-component assignment across multiple diagram slots remains SEM-Q-011 with no player owner, spatial order, or additional randomness invented.
 - Hatching and Egg Protection retain the Undiscovered-Nest question, and simultaneous Egg Protection entry retains OQ-007.
@@ -166,4 +184,4 @@ The backlog currently records 174 covered source obligations, 425 pending obliga
 
 ## Validation
 
-Validation rejects duplicate JSON keys, broken hashes/citations, authority-precedence errors, stale vocabulary/ontology references, missing owners/visibility/timing, invalid cardinality, dangling decisions/targets/conditions, source-variant loss, partial-resolution drift, invented defaults, implementation leakage, coverage overclaims, and non-reproducible builds. Event-, Exploration-, Robot-, and Attack-specific controls retain their prior family locks. Queen Health controls reject dropped/duplicated/reordered physical faces, title/folder/modulo/licensed-ordinal joins, selector/back inversion, local-symbol invention/loss/swap, count/track/body/panel/punctuation drift, reset/overflow/default invention, duplicate-copy pairing, variant/authority loss, and coordinated backlog lowering. Two builds run under different hash seeds/locales and must be byte-identical.
+Validation rejects duplicate JSON keys, broken hashes/citations, authority-precedence errors, stale vocabulary/ontology references, missing owners/visibility/timing, invalid cardinality, dangling decisions/targets/conditions, source-variant loss, partial-resolution drift, invented defaults, implementation leakage, coverage overclaims, and non-reproducible builds. Event-, Exploration-, Robot-, Attack-, and Queen-Health-specific controls retain their prior family locks. Serious Wound controls reject dropped/duplicated/reordered copies, repeated-title collapse, sheet/cell swaps, title/body/folder/sequence/modulo/licensed joins, selector drift, face/back or direct/generated inversion, panel/region/slot/icon swaps, body/punctuation/order drift, immediate/persistent flattening, stacking/default invention, reshuffle/lifecycle drift, variant/authority loss, and coordinated backlog lowering. Two builds run under different hash seeds/locales and must be byte-identical.
