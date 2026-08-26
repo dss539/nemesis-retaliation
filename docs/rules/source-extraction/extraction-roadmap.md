@@ -13,12 +13,12 @@
 - Secondary evidence: immutable BGA build 260622-1220 snapshot retained and 11 tables/298 scoped records indexed; 6 TTS structured channels hashed and bounded as provenance only.
 - Final extraction audit: 9/9 channels extracted or indexed, 6/6 gate criteria passed, 1 exact-source blocker retained, 0 remaining graphical source units.
 - Card-gap review: all 13 former gaps adjudicated source-bound; 9 are rules-text complete, 3 are classified non-rules, and 1 exact prototype span remains explicitly blocked. SUBMACHINE GUN punctuation was recovered as a colon without altering its icon/source conflicts.
-- Vocabulary/taxonomy/ontology work remains intentionally unopened.
+- Vocabulary and static ontology gates subsequently passed; current semantic coverage and next work are tracked in `PROJECT_STATUS.md`.
 
 ## Extraction work status
 
 All ordered extraction work is complete. The nine-channel closure ledger is `extraction-closure-audit.json`.
-The next phase is canonical vocabulary and source-scoped aliases; taxonomy/ontology and semantic modeling remain later gates.
+The vocabulary, static ontology, and representative semantic gates subsequently passed. Semantic source-obligation expansion is active; this extraction roadmap remains the authority only for extraction closure/order.
 
 ## Exit gate before vocabulary work
 
