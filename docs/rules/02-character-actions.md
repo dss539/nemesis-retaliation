@@ -270,8 +270,8 @@
 - **Rulebook-illustrated faces:** These faces are directly illustrated in the rulebook:
   - **Sprint** (Recon) — “Move. Then, you may spend 1 to Move again.” Source: Rulebook Recon card image (extracted text lines ~332–338).
   - **Duck and Cover** (Contractor: Consultant) — “Discard 1 Action card to Move. During that Movement, Prevent 1 Intruder Attack.” Has a Reaction effect. Source: Rulebook pp. 14 and 13 card image (lines 3118–3127, 3190–3196).
-- **Deck size:** Each Character has their own 10-card Action deck; the rulebook lists 60 Action cards total (line 528). The closed source layer now preserves component scans/variants plus a licensed-digital secondary table with 60 scoped character/card keys, including effects, Reactions, Command flags, and Not-in-Combat booleans.
-- **Authority boundary:** The source inventory is complete enough to eliminate the former missing-data blocker (OQ-010), but the licensed-digital table remains secondary and source variants must not be silently collapsed into final official wording. Per-face semantic reconciliation is later work.
+- **Deck size:** Each Character has their own 10-card Action deck; the rulebook lists 60 Action cards total (line 528). `semantics/action-source-index.json` mechanically reconciles six exact Character memberships from seven TTS root segments (including the five-card Shared Contractor root), while preserving component scans/selector gaps and all 60 licensed-digital rows independently.
+- **Authority boundary:** The former missing-data blocker (OQ-010) is resolved. All 60 exact physical occurrences now have occurrence-keyed semantic records, but licensed rows, current official examples, TTS variants, and unresolved local glyph/Command/Reaction questions remain source-scoped and must not be silently collapsed. This family closure is not full base-game semantic coverage.
 
 ## ACT-CARD-002 — Contamination cards cannot pay Action costs
 

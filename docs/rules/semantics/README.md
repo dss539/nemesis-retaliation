@@ -16,12 +16,13 @@ This directory is the first implementation-neutral semantic layer built over the
 - `green-item-source-index.json` — mechanically derived closure of the base regular Green Item family: 23 exact physical Backpack-card occurrences from a 30-child root, seven Heavy exclusions, eight printed titles/assets, five selected and four selector-gap 3×3-sheet cells, one shared back, 46 sentences/icons, official family evidence, ten independent licensed rows, and backlog closure.
 - `red-item-source-index.json` — mechanically derived closure of the full 30-child Red root: 21 source-clear regular occurrences, three explicit Heavy occurrences, six Military Taser physical-class conflicts, two sheets/two backs, seven selector gaps, 45 regular-face sentences, 27 regular physical glyphs, official/FAQ evidence, nine independent licensed rows, and backlog closure.
 - `yellow-item-source-index.json` — mechanically derived closure of the full 30-child Yellow root: 24 source-clear regular occurrences, six Fire Extinguisher/Robot Controller physical-class conflicts, two 2×2 sheets, five selector gaps, one shared back plus one cell-selected UniqueBack sheet, 56 regular-face sentences, 48 regular physical glyphs, one official-visible Duct Tape face, six independent licensed rows, and backlog closure.
-- `source-registry.json` — 244 exact source tuples, hashes, versions, authority, occurrence identities, and extraction-index links used by the corpus.
-- `pilots.json` — 292 validated semantic records across 23 systems; the historical filename is retained while coverage expands.
-- `review-gates.json` — sixty-one explicit open semantic questions with alternatives; no default is adopted.
-- `contradictions.json` — forty-eight source/semantic conflicts: fourteen authority-resolved, twenty-two unresolved, and twelve preserved boundaries.
+- `action-source-index.json` — mechanically derived closure of all 60 base Action physical occurrences across six Characters: seven TTS root segments, 39 direct faces, 21 selected generated cells, 29 base selector-gap variants, 40 excluded expansion cells, two 9×5 sheets, one shared back, exact anatomy/text/icons/costs, official/FAQ evidence, 60 independent licensed rows, and backlog closure.
+- `source-registry.json` — 340 exact source tuples, hashes, versions, authority, occurrence identities, and extraction-index links used by the corpus.
+- `pilots.json` — 363 validated semantic records across 24 systems; the historical filename is retained while coverage expands.
+- `review-gates.json` — seventy-nine explicit open semantic questions with alternatives; no default is adopted.
+- `contradictions.json` — fifty-eight source/semantic conflicts: fourteen authority-resolved, twenty-five unresolved, and nineteen preserved boundaries.
 - `coverage.json` — pilot scope and the large remaining base-game semantic surface.
-- `backlog.json` — 600 source-obligation units across rule records, FAQ, visual obligations, Help sheets, and independent card/reference tuples; 246 are covered, 353 pending, and one source-blocked, with overlapping variants intentionally retained.
+- `backlog.json` — 600 source-obligation units across rule records, FAQ, visual obligations, Help sheets, and independent card/reference tuples; 348 are covered, 251 pending, and one source-blocked, with overlapping variants intentionally retained.
 - `validation.json` — deterministic validation report.
 - `independent-review.md` — four-workstream review findings and incorporated corrections.
 
@@ -49,7 +50,7 @@ Every pilot carries:
 
 ## Current coverage
 
-The 292 records cover the original reusable-procedure set plus:
+The 363 records cover the original reusable-procedure set plus:
 
 1. Round phase sequence;
 2. Player Phase rotation;
@@ -91,10 +92,11 @@ The 292 records cover the original reusable-procedure set plus:
 38. all 23 mechanically derived base regular Green Item physical occurrences over eight selected face assets, with fifteen generated selections across five 3×3-sheet cells plus eight direct copies, four selector-gap cells, seven exact Heavy root exclusions, one 31-reference shared back, 85 panels/69 regions, 46 printed sentences and 46 physical functional icons, ten independent licensed rows preserving the aggregate 30/23/7 boundary without copy joins, reusable finite deck/Backpack/Use/One Use/Trade/Interplay/restoration/immediate-use procedures, and seven new no-default questions.
 39. all 21 source-clear regular Red Item physical occurrences from the exact 30-child root, with seven generated selections across four 4×2-sheet cells plus fourteen direct copies, four Red selector-gap variants, three explicit Heavy exclusions, six Military Taser class-conflict selectors from a cross-family 2×2 sheet, two non-operative backs, 87 panels/63 regions, 45 printed sentences and 27 regular physical glyphs, nine independent licensed rows, reusable Ammo/Grenade/Anti-Aircraft procedures, and five new no-default questions.
 40. all 24 source-clear regular Yellow Item physical occurrences from the exact 30-child root, with eleven generated selections across Duct Tape/Tools cells plus thirteen direct Phosphates/Oxygen Tank copies, five selector gaps across two 2×2 sheets, six Fire Extinguisher/Robot Controller class conflicts, one shared back plus one cell-selected UniqueBack sheet, 128 panels/72 regions, 56 printed sentences and 48 regular physical glyphs, one exact official-visible Duct Tape occurrence, six independent licensed rows, reusable Oxygen/Malfunction/Reinforce procedures, and six new no-default questions.
+41. all 60 mechanically derived base Action physical occurrences, with 55 Character-kit selectors plus five Shared Contractor selectors, 39 direct faces, 21 selected generated cells, 29 base selector-gap variants, 40 excluded expansion cells, two 9×5 sheets, one 273-reference shared back, 290 panels, 164 sentences, 143 physical functional icons, exact setup/play/payment/draw/reshuffle/Reaction/Command lifecycle, 60 independent licensed rows, and eighteen new no-default questions.
 
 This is representative, **not full base-game semantic coverage**.
 
-The backlog currently records 246 covered source obligations, 353 pending obligations, and one inherited exact-source blocker (`FACILITY RESTART`). The closed component batches now include the 24 source-clear regular Yellow occurrences while retaining all six Yellow class-conflict root occurrences outside regular effect dispatch. These are overlapping source-obligation counts, not a claim that 600 distinct game effects exist.
+The backlog currently records 348 covered source obligations, 251 pending obligations, and one inherited exact-source blocker (`FACILITY RESTART`). The closed component batches now include the complete 60-occurrence base Action family while retaining 29 base selector-gap variants, 40 expansion sheet cells, and all non-Action lookalikes outside physical Action dispatch. These are overlapping source-obligation counts, not a claim that 600 distinct game effects exist.
 
 ## Open questions carried without defaults
 
@@ -161,8 +163,26 @@ OQ-002 is no longer an open gate. Current official rulebook p. 39 (lines 6251–
 - SEM-Q-054 — Duct Tape stack cardinality and later discard/loss/Malfunction/Trade lifecycle.
 - SEM-Q-055 — Phosphates Empty Corridor target owner, locality, and eligibility.
 - SEM-Q-056 — Tools Door target/state owner, local range, and accessibility.
+- SEM-Q-057 — selected Action upper-right crossed-glyph denotations and scope.
+- SEM-Q-058 — selected Search octagon identity and corresponding Item-deck mapping.
+- SEM-Q-059 — Command nested-Action costs, resources, legality, and remaining choices.
+- SEM-Q-060 — Reaction priority, simultaneous windows, replacement order, and stacking.
+- SEM-Q-061 — Action-card continuation and discard after acting Character death/escape.
+- SEM-Q-062 — Continuous Fire zero-card legality, Hit allocation, and optional Burst.
+- SEM-Q-063 — Always Prepared multi-Intruder Attack order and continuation.
+- SEM-Q-064 — Always Prepared Item draw privacy, optional keep, destination, and shortage.
+- SEM-Q-065 — Medical Action target consent and Field Surgery payment/choice ownership.
+- SEM-Q-066 — Weak Spots/Hippocratic Oath setup Hits before required attack.
+- SEM-Q-067 — Officer Channel nested Command card lifecycle and Room substitution.
+- SEM-Q-068 — Stay Calm local draw-glyph identity.
+- SEM-Q-069 — Let’s Go companion owner, consent, Movement, and Noise/Attack scope.
+- SEM-Q-070 — Taking Aim reroll scope and second-result acceptance.
+- SEM-Q-071 — Explosives new-Corridor endpoint, geometry, orientation, and finite supply.
+- SEM-Q-072 — Action draw shortage and multi-recipient ordering.
+- SEM-Q-073 — Movement-card interrupt, prevention, companion, and continuation windows.
+- SEM-Q-074 — Chain of Command Reaction cancellation cost meaning and timing.
 
-- OQ-001, OQ-003, OQ-004, OQ-007, OQ-009, SEM-Q-010, SEM-Q-025, SEM-Q-027, SEM-Q-029, SEM-Q-030, SEM-Q-031, SEM-Q-032, SEM-Q-036, SEM-Q-037, SEM-Q-038, SEM-Q-039, SEM-Q-040, SEM-Q-042, SEM-Q-043, SEM-Q-044, SEM-Q-045, SEM-Q-047, SEM-Q-049, SEM-Q-050, and SEM-Q-052 through SEM-Q-056 prefer official clarification. The other SEM questions require further source searching before any owner decision.
+- OQ-001, OQ-003, OQ-004, OQ-007, OQ-009, SEM-Q-010, SEM-Q-025, SEM-Q-027, SEM-Q-029, SEM-Q-030, SEM-Q-031, SEM-Q-032, SEM-Q-036, SEM-Q-037, SEM-Q-038, SEM-Q-039, SEM-Q-040, SEM-Q-042, SEM-Q-043, SEM-Q-044, SEM-Q-045, SEM-Q-047, SEM-Q-049, SEM-Q-050, SEM-Q-052 through SEM-Q-056, SEM-Q-059 through SEM-Q-067, and SEM-Q-069 through SEM-Q-074 prefer official clarification. The other SEM questions require further source searching before any owner decision.
 
 ## Fidelity boundaries exercised
 
@@ -216,6 +236,14 @@ OQ-002 is no longer an open gate. Current official rulebook p. 39 (lines 6251–
 - Reusable Oxygen gain caps at 7; Oxygen-token use delegates gain before the enclosing Tactical Gear lifecycle returns the token exactly once. Malfunction removal preserves local target and conditional Interplay consent. Reinforce removes Noise before flipping a legal Empty Corridor and invents no caller target owner.
 - Current official Duct Tape and FAQ precedence remain occurrence-scoped: the publisher face/third-Item ruling does not identify any TTS GUID. SEM-Q-053/054 prohibit a default for TTS self-placement versus One Use discard, beyond-third capacity, attachment topology, token loss, discard, Malfunction, Trade, and separation.
 - SEM-Q-039/040/044/045 and SEM-Q-051–056 prohibit invented Use/discard order, Yellow-deck reshuffles, cross-Character Oxygen-token scope, immediate-window order, local-glyph restrictions, class correspondence, Duct lifecycle, Phosphates targets, and Tools Door ownership/range. Unaffected clauses/copies remain encoded.
+- Action identity comes from six exact Character kit/deck roots plus the Shared Contractor root, full CardID/GUID/CustomDeck/FaceURL/BackURL/container tuples, and explicit sheet/hash/grid/cell selectors—not title, Character name alone, body similarity, folder/order/cell, source sheet, CardID modulo, licensed key, or aggregate multiplicity.
+- The 55 kit-root and five Shared Contractor selectors compose exactly ten physical copies per base Character. TTS saved sequence is provenance only; setup shuffles each deck, and the Contractor’s two source roots remain distinct while forming one base deck under the official five-plus-five rule.
+- CustomDeck 5674 retains 16 selected physical cells and 29 source-clear base selector gaps. CustomDeck 5675 retains base cells 10–14 while cells 0–9 and 15–44 remain expansion material. Parent sheets and the 273-reference shared back are provenance/non-operative sides, never extra rules faces.
+- All 60 physical copies retain 290 panels, 164 sentences, 143 functional icon occurrences, zero-cost `Play an Action card` dispatch, and 22 printed additional-cost clauses. Twenty-eight Not In Combat occurrences are source-resolved; eight selected local upper-right morphologies remain literal under SEM-Q-057 and cannot inherit licensed `noIntruders` flags.
+- Generic Action-card play and Reaction dispatchers alone own reveal, card-in-resolution, and final discard transitions. Search, Rest, and Duck reusable effects no longer double-discard their physical cards; FAQ authority keeps draw-triggered reshuffles before the resolving card enters its discard pile.
+- Six printed Reaction panels remain distinct timing occurrences from their main Action effects. Eight printed COMMAND headings remain source text even though only seven licensed rows set `command=true`; Officer Channel’s nested Command lifecycle remains unresolved rather than flattened into that boolean.
+- Sixty licensed rows remain independent with zero asserted TTS-copy links. Selected pixel evidence controls twenty-six literal transcription differences while stale corpus projections remain recorded in each face’s `representationBoundary`; official examples control only their exact publisher occurrences.
+- SEM-Q-057–074 prohibit invented Action glyph, Command payment, Reaction priority, death/escape continuation, multi-target order, consent, nested-card, reroll, Corridor-placement, draw-shortage, Movement-interrupt, and cancellation-cost defaults. Every unaffected clause and exact copy remains encoded.
 - FAQ authority keeps remove-from-game outside the Entrance Effect, so all three removal transitions remain unconditional when Entrance Effects are ignored; close-Doors effects target only Doors touching the new Room.
 - Random-Corridor and finite-component assignment across multiple diagram slots remains SEM-Q-011 with no player owner, spatial order, or additional randomness invented.
 - Hatching and Egg Protection retain the Undiscovered-Nest question, and simultaneous Egg Protection entry retains OQ-007.
@@ -230,4 +258,4 @@ OQ-002 is no longer an open gate. Current official rulebook p. 39 (lines 6251–
 
 ## Validation
 
-Validation rejects duplicate JSON keys, broken hashes/citations, authority-precedence errors, stale vocabulary/ontology references, missing owners/visibility/timing, invalid cardinality, dangling decisions/targets/conditions, source-variant loss, partial-resolution drift, invented defaults, implementation leakage, coverage overclaims, and non-reproducible builds. Prior family controls remain locked. Green and Red Item controls retain their copy/class/lifecycle mutations. Yellow Item controls reject copy loss/duplication, repeated-title collapse, sheet/cell/modulo/title/color/utility-system joins, FaceURL/BackURL/UniqueBack inversion, regular/class-conflict/cross-family leakage, panel/body/icon/order drift, utility/system inference, optionality/owner/default invention, Oxygen/Duct/stacking/reshuffle drift, variant/authority loss, and coordinated backlog lowering. Two builds run under different hash seeds/locales and must be byte-identical.
+Validation rejects duplicate JSON keys, broken hashes/citations, authority-precedence errors, stale vocabulary/ontology references, missing owners/visibility/timing, invalid cardinality, dangling decisions/targets/conditions, source-variant loss, partial-resolution drift, invented defaults, implementation leakage, coverage overclaims, and non-reproducible builds. Prior family controls remain locked. Green and Red Item controls retain their copy/class/lifecycle mutations. Yellow Item controls reject copy loss/duplication, repeated-title collapse, sheet/cell/modulo/title/color/utility-system joins, FaceURL/BackURL/UniqueBack inversion, regular/class-conflict/cross-family leakage, panel/body/icon/order drift, utility/system inference, optionality/owner/default invention, Oxygen/Duct/stacking/reshuffle drift, variant/authority loss, and coordinated backlog lowering. Action controls reject dropped/duplicated copies, Character/deck/member swaps, title/body collapse, sheet/cell/modulo/folder joins, selector/back inversion, cost/Not-in-Combat/panel/Command/Reaction/icon/punctuation/order drift, visibility leakage, owner/target/consent/default invention, Reaction/Command flattening, lifecycle/reshuffle drift, licensed/official variant loss, and coordinated backlog lowering. Two builds run under different hash seeds/locales and must be byte-identical.

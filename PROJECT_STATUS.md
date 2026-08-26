@@ -15,22 +15,22 @@ The current implementation remains frozen. Semantic records remain independent o
 
 Encode the **highest-value source-clear semantic backlog** without touching blocked decisions:
 
-- remaining setup, map, combat, Lander, procedure, Item, and component lifecycle rules not yet represented by the 292-record corpus;
-- remaining source-clear card/component families outside the closed 20-card Event, 12-card Exploration, 6-card Robot, 20-occurrence Intruder Attack, 12-occurrence Queen Health, 27-occurrence Serious Wound, 23-occurrence regular Green Item, 21-occurrence source-clear regular Red Item, and 24-occurrence source-clear regular Yellow Item families, next deriving the base Action-card family mechanically with exact Character/deck/copy/source-variant boundaries;
-- Objective Help and Mission Task semantics after source-visible/occluded boundaries are preserved;
+- remaining setup, map, combat, Lander, procedure, Item, and component lifecycle rules not yet represented by the 363-record corpus;
+- remaining source-clear card/component families outside the closed 20-card Event, 12-card Exploration, 6-card Robot, 20-occurrence Intruder Attack, 12-occurrence Queen Health, 27-occurrence Serious Wound, 23-occurrence regular Green Item, 21-occurrence source-clear regular Red Item, 24-occurrence source-clear regular Yellow Item, and complete 60-occurrence base Action families;
+- Objective Help and Mission Task semantics next, preserving source-visible/occluded boundaries and exact physical/source variants;
 - exact FAQ overrides and per-sentence partial-resolution scope;
 - source-obligation links and contradiction coverage after every batch;
-- continue independent validation and source searching for the sixty-one open questions, but adopt no default.
+- continue independent validation and source searching for the seventy-nine open questions, but adopt no default.
 
 Prioritize reusable procedures and cross-cutting rules before hundreds of individual component effects.
 
 ## Resume Checkpoint
 
-- Verified semantic data checkpoint: `1b79973863ba601389c6256680a49401f99c8c16` (`Add base Yellow Item card semantics`).
-- Branch `work/card-corpus-extraction` will be twenty-three local commits ahead of `origin/work/card-corpus-extraction` after this separate status checkpoint; nothing has been pushed. No PR or deployment exists.
-- The only remaining dirty path after this status checkpoint is `AGENTS.md`. Its protected phase update predates the checkpoint and says ten open questions instead of the verified sixty-one. Preserve it byte-for-byte for explicit review rather than discarding or staging it implicitly.
-- Full batch verification passed: semantic validator with cross-seed/cross-locale rebuilds and 29 focused/adversarial tests; ontology validator/rebuild and 4 tests; vocabulary validator; full source-extraction/FAQ/secondary/visual/Player Help/card-gap/Room validation; 3 Room fidelity tests; all 24 card-evidence tests; the documented six-command global card-corpus/vision/reproducibility gate; project-status validator; `git diff --check`.
-- Resume with `semantic-components`: mechanically derive the base Action-card family next, then expand Objectives/Mission Tasks and remaining component lifecycles while preserving physical copies, Character/deck membership, variants, and authority conflicts. Current source-obligation boundary is 246 covered / 353 pending / 1 source-blocked; 61 semantic questions remain no-default.
+- Verified semantic data checkpoint: `791081920ae2e64aca7fa1341c9baecca2ab357c` (`Add base Action card semantics`).
+- Branch `work/card-corpus-extraction` will be twenty-five local commits ahead of `origin/work/card-corpus-extraction` after this separate status checkpoint; nothing has been pushed. No PR or deployment exists.
+- The only remaining dirty path after this status checkpoint is `AGENTS.md`. Its protected phase update predates the checkpoint and says ten open questions instead of the verified seventy-nine. Preserve it byte-for-byte for explicit review rather than discarding or staging it implicitly.
+- Full batch verification passed: semantic validator with cross-seed/cross-locale rebuilds and 31 focused/adversarial tests; ontology validator/rebuild and 4 tests; vocabulary validator; full source-extraction/FAQ/secondary/visual/Player Help/card-gap/Room validation; 3 Room fidelity tests; all 24 card-evidence tests; the documented six-command global card-corpus/vision/reproducibility gate; project-status validator; `git diff --check`.
+- Resume with `semantic-components`: expand Objectives/Mission Tasks and remaining setup/map/combat/Lander/component lifecycles while preserving physical copies, source-visible/occluded boundaries, variants, and authority conflicts. Current source-obligation boundary is 348 covered / 251 pending / 1 source-blocked; 79 semantic questions remain no-default.
 
 ## Verified Checkpoint
 
@@ -116,19 +116,19 @@ Machine-readable evidence: `docs/rules/source-extraction/validation.json`.
 
 ### Semantic schema and expanding corpus — independently locked and passed
 
-- 244 exact source registry tuples
+- 340 exact source registry tuples
 - 26 semantic-only state/zone/position/visibility nodes
-- 292 pilot records across 23 systems
-- 106 source-backed
-- 182 source-backed with open questions
+- 363 pilot records across 24 systems
+- 138 source-backed
+- 221 source-backed with open questions
 - 4 source-variant boundary records
-- 984 source assertions / 1109 structured conditions and guards
-- 1310 ordered operations
-- 174 actor-owned decisions / 308 information policies
-- 11 explicit costs / 469 target specifications
-- 173 preserved source-variant references
-- 61 open semantic questions with explicit alternatives and defaults prohibited
-- 48 registered conflicts: 14 authority-resolved, 22 unresolved, 12 preserved boundaries
+- 1061 source assertions / 1335 structured conditions and guards
+- 1572 ordered operations
+- 294 actor-owned decisions / 380 information policies
+- 31 explicit costs / 515 target specifications
+- 175 preserved source-variant references
+- 79 open semantic questions with explicit alternatives and defaults prohibited
+- 58 registered conflicts: 14 authority-resolved, 25 unresolved, 19 preserved boundaries
 - base Event family: **20/20 identities represented**
   - 20 exact Event scan occurrences
   - 20 licensed-digital Event occurrences retained as variants
@@ -198,19 +198,28 @@ Machine-readable evidence: `docs/rules/source-extraction/validation.json`.
   - complete root anatomy totals 158 panels / 90 regions / 68 printed sentences / 60 functional glyphs (44 exact matches + 16 literal local no-matches); the 24 regular occurrences account for 128 panels / 72 regions / 56 sentences / 48 glyphs (32 matches + 16 no-matches)
   - 6 licensed `deck-yellow` rows / 30 declared copies remain independent and aggregate-reconcile to 24 regular + 6 Heavy without a TTS copy crosswalk; one official-visible Duct Tape occurrence controls only its exact publisher occurrence and identifies no TTS GUID
   - reusable finite Yellow-root/One Use/immediate-use, Oxygen gain/token, local Malfunction discard, and Reinforce procedures reuse generic Backpack/Use/Trade/Interplay/Tactical Gear/Door semantics without inventing target owners, class identity, or lifecycle defaults
-  - six new no-default questions retain selected local glyphs, Fire Extinguisher/Robot Controller class correspondence, Duct Tape disposition/stack lifecycle, Phosphates target scope, and Tools Door ownership/accessibility; shared Item questions now cover Yellow exhaustion, Oxygen-token Interplay scope, and immediate-use windows
+  - six new no-default questions retain selected local glyphs, Fire Extinguisher/Robot Controller class correspondence, Duct Tape source/One Use/stacking/Trade lifecycle, Phosphates target scope, and Tools Door ownership/accessibility; shared Item questions now cover Yellow exhaustion, Oxygen-token Interplay scope, and immediate-use windows
   - Green/Red decks, Starting/Equipment cards outside exact root selectors, six class-conflict effects, Tactical Gear/tokens, parent sheets, backs, gaps, overlays, placeholders, and duplicate evidence references remain excluded from the 24 regular Yellow effect records
+- complete base Action family: **60/60 mechanically derived physical occurrences represented (10 per Character)**
+  - 55 exact Character-kit selectors plus 5 exact Shared Contractor selectors compose six ten-card decks; all copies retain full CardID/GUID/CustomDeck/FaceURL/BackURL/container provenance
+  - 39 direct faces plus 21 selected generated cells across two 9×5 sheets; 29 source-clear base selector-gap cells and 40 expansion cells remain explicit exclusions
+  - 60 selected face assets / 32 printed titles / one shared non-operative back with 273 global references; repeated and cross-Character titles never collapse physical or semantic occurrences
+  - 290 physical panels / 136 operative panels / 164 exact printed sentences / 143 physical functional-icon occurrences (129 source-resolved + 14 literal local no-matches)
+  - 28 source-resolved Not In Combat occurrences, 8 unresolved upper-right local morphologies, and 24 absent upper-right regions remain source-scoped; no licensed-flag default is imported
+  - 60 independent licensed rows retain 6 Reactions, 7 `command=true`, and 35 `noIntruders=true` occurrences with zero asserted TTS-copy identity links; 4 official visible faces, 2 visible backs, and 8 FAQ obligations remain independent
+  - 60 physical main-effect records plus exact Action setup/play/payment/draw/reshuffle/Reaction/Command dispatch and 6 Reaction-panel records; 18 new no-default questions retain glyph, payment, owner, consent, target, ordering, interruption, shortage, and lifecycle boundaries
+  - expansion Character decks, draft cards, Contamination, Starting Items, parent sheets, shared back, selector gaps, cross-family cells, placeholders, and duplicate evidence references remain excluded from the 60 physical rules occurrences
 - all 18 Intruder Help instructions represented and row-locked
 - all 25 Room Help entries represented, plus generic Use Room and cross-cutting Room constraints
 - all 112 source-local Room Help functional-icon occurrences mapped source-scoped without changing extraction records
 - 600 source-obligation backlog units
-  - 246 pilot-covered
-  - 353 pending
+  - 348 pilot-covered
+  - 251 pending
   - 1 inherited exact-source blocker
 - full base-game semantic coverage explicitly not claimed
 - four-workstream independent review incorporated
 - cross-seed/cross-locale byte-identical rebuilds and expanded adversarial corruption tests pass
-- `scripts/validate_semantic_pilots.py`: **passed with 0 failures**, including cross-seed/cross-locale rebuilds and 29 focused/adversarial tests
+- `scripts/validate_semantic_pilots.py`: **passed with 0 failures**, including cross-seed/cross-locale rebuilds and 31 focused/adversarial tests
 
 ### Taxonomy/ontology — independently reviewed and passed
 
@@ -272,6 +281,7 @@ Machine-readable evidence: `docs/rules/source-extraction/validation.json`.
 - Closed the 23-occurrence base regular Green Item family mechanically from the raw 30-child TTS `Deck`, retained all repeated physical copies, five selected generated cells plus eight direct copies, four selector-gap variants, seven Heavy exclusions, one parent sheet/shared back, 85 panels/69 regions/46 sentences/46 physical symbols, independent official/licensed evidence, reusable finite deck/Backpack/Use/Trade/Interplay/restoration lifecycle, and advanced source-obligation coverage to 215 while fifty questions remain no-default.
 - Closed the 21-occurrence source-clear regular Red Item family mechanically from the raw 30-child TTS `Deck`, retained all repeated physical copies, seven selected generated copies plus fourteen direct copies, four Red selector gaps, three Heavy and six class-conflict root exclusions, two parent sheets/two backs, 87 panels/63 regions/45 sentences/27 regular physical symbols, independent official/licensed evidence, reusable Ammo/Grenade/Anti-Aircraft lifecycle, and advanced source-obligation coverage to 235 while fifty-five questions remain no-default.
 - Closed the 24-occurrence source-clear regular Yellow Item family mechanically from the raw 30-child TTS `Deck`, retained all repeated physical copies, eleven selected generated copies plus thirteen direct copies, five selector gaps, six class-conflict root exclusions, two parent sheets and shared/UniqueBack forms, 128 regular panels/72 regions/56 sentences/48 physical symbols, independent official/licensed evidence, reusable Oxygen/Malfunction/Reinforce/Duct lifecycle boundaries, and advanced source-obligation coverage to 246 while sixty-one questions remain no-default.
+- Closed the complete 60-occurrence base Action family mechanically from six Character kits plus the Shared Contractor root, retained 39 direct faces, 21 exact generated selections, 29 base selector-gap variants, 40 excluded expansion cells, two parent sheets, one 273-reference shared back, 290 panels/164 sentences/143 physical symbols, 60 independent licensed rows, exact setup/play/payment/draw/Reaction/Command lifecycle, and advanced source-obligation coverage to 348 while seventy-nine questions remain no-default.
 - Created the closed source inventory, card-gap inventory, secondary-source inventory, Room layout inventory, roadmap, and deterministic validator.
 
 ## Remaining Work — Ordered
@@ -327,7 +337,7 @@ All of the following are true:
 
 - One prototype `FACILITY RESTART` face visibly ends a condition at “Systems must be”; no following mark is recoverable from the exact pixels, and materially different same-title/current-official variants cannot be substituted.
 - Vocabulary gates `VG-001` and `VG-002` are resolved; `PERSONAL OBJECTIVE` remains source-scoped and `Drilling Room` aliases `DRILLING STATION` with both official labels preserved.
-- Sixty-one semantic/source questions remain explicit: OQ-001, OQ-003, OQ-004, OQ-007, OQ-009, and SEM-Q-001 through SEM-Q-056. They block only affected clauses/records, not unrelated coverage work.
+- Seventy-nine semantic/source questions remain explicit: OQ-001, OQ-003, OQ-004, OQ-007, OQ-009, and SEM-Q-001 through SEM-Q-074. They block only affected clauses/records, not unrelated coverage work.
 - OQ-002 is resolved by current official rulebook p. 39 (lines 6251–6265): evaluate Larva eligibility when the Eclosion cohort step is reached, including a Larva gained during the preceding Infection step. OQ-001 and multi-Character cohort ordering remain unresolved and unchanged.
 - SEM-Q-011 retains the source-unspecified assignment of random Corridor draws and scarce finite components across multiple Exploration diagram slots; no player owner, spatial order, or additional randomization is adopted.
 - SEM-Q-012 through SEM-Q-019 retain Robot reveal/effect availability, movement ownership, Exploration Noise, Medical choices, Securing Door/supply behavior, Server Room context, and Technical marker scope without defaults. SEM-Q-020 through SEM-Q-024 retain Attack scope, continuation, timing, Wound assignment, and no-badge applicability. SEM-Q-025 through SEM-Q-029 retain Queen Health trigger timing, Character attribution, final-card death, Malfunction/Unreinforce ownership/location, and terminal-glyph scope. Neoflesh-only FAQ answers remain excluded from base conclusions.
@@ -335,6 +345,7 @@ All of the following are true:
 - SEM-Q-039 through SEM-Q-045 retain Use/One Use payment-reveal-effect-discard order, finite Item color-deck exhaustion, selected Green local glyphs, Contamination Codes Door eligibility/allocation, Interplay restoration ownership and gain-glyph scope, and multiple immediate-use Item timing without defaults.
 - SEM-Q-046 through SEM-Q-050 retain selected Red upper-right glyph restrictions, Military Taser class/current-source correspondence, Exploring Drone target context, Personal Log Objective inspection/secrecy, and Portable Barrier Door/FAQ applicability without defaults. SEM-Q-040, SEM-Q-044, and SEM-Q-045 now also cover Red color-deck exhaustion, Tactical Gear gain-target scope, and Red immediate-use windows.
 - SEM-Q-051 through SEM-Q-056 retain selected Yellow upper-right glyph restrictions, Fire Extinguisher/Robot Controller class correspondence, Duct Tape source/One Use/stacking/Trade lifecycle, Phosphates Corridor targeting, and Tools Door ownership/accessibility without defaults. SEM-Q-040, SEM-Q-044, and SEM-Q-045 now also cover Yellow color-deck exhaustion, Oxygen-token gain-target scope, and Yellow immediate-use windows.
+- SEM-Q-057 through SEM-Q-074 retain Action-card upper-right and Search/draw glyphs, Command costs/owners, Reaction priority, death/escape continuation, multi-target order, consent, nested Command lifecycle, rerolls, Corridor placement, finite draw shortage, Movement interrupts, and cancellation payment timing without defaults.
 - The 25 Room Help entries versus 23 Room tiles relationship is unresolved.
 - Source/version conflicts remain in several card families and must not be flattened.
 - Genuine rules ambiguities remain in `docs/rules/open-questions.md`; some stale extraction blockers there must later be re-audited against newly collected evidence.
