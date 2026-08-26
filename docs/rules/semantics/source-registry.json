@@ -10,7 +10,7 @@
     "project-interpretation"
   ],
   "counts": {
-    "sources": 75
+    "sources": 90
   },
   "sources": [
     {
@@ -284,6 +284,16 @@
       "occurrenceId": "INTRUDER_ATTACKS_DATA",
       "evidenceIndexPath": "docs/rules/source-extraction/secondary-evidence-index.json",
       "evidenceRecord": "INTRUDER_ATTACKS_DATA"
+    },
+    {
+      "sourceId": "SRC-BGA-QUEEN-HEALTH",
+      "authority": "licensed-digital-secondary",
+      "version": "licensed BGA immutable build 260622-1220 / QUEEN_CARDS_DATA",
+      "path": "docs/rules/source-extraction/secondary/bga-staticData-260622-1220.js",
+      "sha256": "18cd8f4a2883d4f6662ed170095ff07e0d9f5da508064ed1d6bfc124f5a274ae",
+      "occurrenceId": "QUEEN_CARDS_DATA",
+      "evidenceIndexPath": "docs/rules/source-extraction/secondary-evidence-index.json",
+      "evidenceRecord": "QUEEN_CARDS_DATA"
     },
     {
       "sourceId": "SRC-BGA-ROBOTS",
@@ -713,6 +723,159 @@
       "path": "assets/tts-mod/extract/v2-dl/tree/cards/reference/card-069.png",
       "sha256": "4b0690bfe144ec9b57220b4564bc9dfc5e452cd770cbe5a085d54534cd6460cc",
       "evidenceIndexPath": "docs/rules/source-extraction/intruder-help-sheet.json"
+    },
+    {
+      "sourceId": "SRC-OBJECTIVE-HELP",
+      "authority": "official-component-reference",
+      "version": "base Objective Help Sheet",
+      "path": "docs/rulebooks/Nemesis_RT_Objectives_Sheet.pdf",
+      "sha256": "30f3d4116a9c4dc3a53fb5e920995c24aa747988c915dc5fba6261cbd7dca364",
+      "occurrenceId": "OBJECTIVE-HELP-SHEET",
+      "evidenceIndexPath": "docs/rules/source-extraction/objective-help-sheet.json",
+      "evidenceRecord": "docs/rules/source-extraction/objective-help-sheet.json"
+    },
+    {
+      "sourceId": "SRC-QUEEN-HEALTH-424100-A10F34",
+      "authority": "source-bound-component-scan",
+      "version": "TTS base Queen Health physical occurrence / root deck 9acd7f / saved sequence 9 / full CardID 424100 / GUID a10f34",
+      "path": "assets/tts-mod/extract/v2-dl/tree/cards/game/queenHealthDeck-038.png",
+      "sha256": "fc04bf1a2920fb63ac512d209622b591cdc9f3cb9ca292c97bf874fcddbbd5c8",
+      "occurrenceId": "TTS-QUEEN-HEALTH-424100-A10F34-FACE",
+      "evidenceIndexPath": "assets/tts-mod/extract/card-text-corpus.json",
+      "evidenceRecord": "fc04bf1a2920fb63ac512d209622b591cdc9f3cb9ca292c97bf874fcddbbd5c8",
+      "provenanceIndexPath": "assets/tts-mod/extract/card-provenance-inventory.json"
+    },
+    {
+      "sourceId": "SRC-QUEEN-HEALTH-424300-615E22",
+      "authority": "source-bound-component-scan",
+      "version": "TTS base Queen Health physical occurrence / root deck 9acd7f / saved sequence 1 / full CardID 424300 / GUID 615e22",
+      "path": "assets/tts-mod/extract/v2-dl/tree/cards/game/queenHealthDeck-039.png",
+      "sha256": "648b81223c8c8b65b96a4304645bfe738f2ca64ecf989c0a826111d6bf6bd506",
+      "occurrenceId": "TTS-QUEEN-HEALTH-424300-615E22-FACE",
+      "evidenceIndexPath": "assets/tts-mod/extract/card-text-corpus.json",
+      "evidenceRecord": "648b81223c8c8b65b96a4304645bfe738f2ca64ecf989c0a826111d6bf6bd506",
+      "provenanceIndexPath": "assets/tts-mod/extract/card-provenance-inventory.json"
+    },
+    {
+      "sourceId": "SRC-QUEEN-HEALTH-424500-0DD25F",
+      "authority": "source-bound-component-scan",
+      "version": "TTS base Queen Health physical occurrence / root deck 9acd7f / saved sequence 2 / full CardID 424500 / GUID 0dd25f",
+      "path": "assets/tts-mod/extract/v2-dl/tree/cards/game/queenHealthDeck-040.png",
+      "sha256": "ce7a5fba88dd56f5de2ae77e5fe1647324bdfa9a99ae7f55485cca35eb72b062",
+      "occurrenceId": "TTS-QUEEN-HEALTH-424500-0DD25F-FACE",
+      "evidenceIndexPath": "assets/tts-mod/extract/card-text-corpus.json",
+      "evidenceRecord": "ce7a5fba88dd56f5de2ae77e5fe1647324bdfa9a99ae7f55485cca35eb72b062",
+      "provenanceIndexPath": "assets/tts-mod/extract/card-provenance-inventory.json"
+    },
+    {
+      "sourceId": "SRC-QUEEN-HEALTH-429200-0FBF8D",
+      "authority": "source-bound-component-scan",
+      "version": "TTS base Queen Health physical occurrence / root deck 9acd7f / saved sequence 12 / full CardID 429200 / GUID 0fbf8d",
+      "path": "assets/tts-mod/extract/v2-dl/tree/cards/game/queenHealthDeck-045.png",
+      "sha256": "133a975dc072a169ceed85615ab2e5a6cde0f80a23f18e61948f0a963c9e98e2",
+      "occurrenceId": "TTS-QUEEN-HEALTH-429200-0FBF8D-FACE",
+      "evidenceIndexPath": "assets/tts-mod/extract/card-text-corpus.json",
+      "evidenceRecord": "133a975dc072a169ceed85615ab2e5a6cde0f80a23f18e61948f0a963c9e98e2",
+      "provenanceIndexPath": "assets/tts-mod/extract/card-provenance-inventory.json"
+    },
+    {
+      "sourceId": "SRC-QUEEN-HEALTH-429200-48A2AE",
+      "authority": "source-bound-component-scan",
+      "version": "TTS base Queen Health physical occurrence / root deck 9acd7f / saved sequence 11 / full CardID 429200 / GUID 48a2ae",
+      "path": "assets/tts-mod/extract/v2-dl/tree/cards/game/queenHealthDeck-045.png",
+      "sha256": "133a975dc072a169ceed85615ab2e5a6cde0f80a23f18e61948f0a963c9e98e2",
+      "occurrenceId": "TTS-QUEEN-HEALTH-429200-48A2AE-FACE",
+      "evidenceIndexPath": "assets/tts-mod/extract/card-text-corpus.json",
+      "evidenceRecord": "133a975dc072a169ceed85615ab2e5a6cde0f80a23f18e61948f0a963c9e98e2",
+      "provenanceIndexPath": "assets/tts-mod/extract/card-provenance-inventory.json"
+    },
+    {
+      "sourceId": "SRC-QUEEN-HEALTH-458100-6BA0A2",
+      "authority": "source-bound-component-scan",
+      "version": "TTS base Queen Health physical occurrence / root deck 9acd7f / saved sequence 10 / full CardID 458100 / GUID 6ba0a2",
+      "path": "assets/tts-mod/extract/v2-dl/tree/cards/game/queenHealthDeck-041.png",
+      "sha256": "929ac1204b4b7989ee051307245bf32fb5e1915a35b9afd5a73572c8ca01dc61",
+      "occurrenceId": "TTS-QUEEN-HEALTH-458100-6BA0A2-FACE",
+      "evidenceIndexPath": "assets/tts-mod/extract/card-text-corpus.json",
+      "evidenceRecord": "929ac1204b4b7989ee051307245bf32fb5e1915a35b9afd5a73572c8ca01dc61",
+      "provenanceIndexPath": "assets/tts-mod/extract/card-provenance-inventory.json"
+    },
+    {
+      "sourceId": "SRC-QUEEN-HEALTH-503700-E4AB1C",
+      "authority": "source-bound-component-scan",
+      "version": "TTS base Queen Health physical occurrence / root deck 9acd7f / saved sequence 3 / full CardID 503700 / GUID e4ab1c",
+      "path": "assets/tts-mod/extract/v2-dl/tree/cards/game/queenHealthDeck-013.png",
+      "sha256": "5ad0606dff59c21b20689fc6b5b5192ef83c95f108ded91e587725bfd2c68092",
+      "occurrenceId": "TTS-QUEEN-HEALTH-503700-E4AB1C-FACE",
+      "evidenceIndexPath": "assets/tts-mod/extract/card-text-corpus.json",
+      "evidenceRecord": "5ad0606dff59c21b20689fc6b5b5192ef83c95f108ded91e587725bfd2c68092",
+      "provenanceIndexPath": "assets/tts-mod/extract/card-provenance-inventory.json"
+    },
+    {
+      "sourceId": "SRC-QUEEN-HEALTH-503800-64AE0A",
+      "authority": "source-bound-component-scan",
+      "version": "TTS base Queen Health physical occurrence / root deck 9acd7f / saved sequence 8 / full CardID 503800 / GUID 64ae0a",
+      "path": "assets/tts-mod/extract/v2-dl/tree/cards/game/queenHealthDeck-165.png",
+      "sha256": "763ca108996c746f141b6f505d3afee2c30be1f6f4f38b84d0118f9f76bdf765",
+      "occurrenceId": "TTS-QUEEN-HEALTH-503800-64AE0A-FACE",
+      "evidenceIndexPath": "assets/tts-mod/extract/card-text-corpus.json",
+      "evidenceRecord": "763ca108996c746f141b6f505d3afee2c30be1f6f4f38b84d0118f9f76bdf765",
+      "provenanceIndexPath": "assets/tts-mod/extract/card-provenance-inventory.json"
+    },
+    {
+      "sourceId": "SRC-QUEEN-HEALTH-503900-B42831",
+      "authority": "source-bound-component-scan",
+      "version": "TTS base Queen Health physical occurrence / root deck 9acd7f / saved sequence 7 / full CardID 503900 / GUID b42831",
+      "path": "assets/tts-mod/extract/v2-dl/tree/cards/game/queenHealthDeck-164.png",
+      "sha256": "4a79f992bc3e6b7493887c40b1198785673cc87ce462bbdd732b02c8e6a3cf14",
+      "occurrenceId": "TTS-QUEEN-HEALTH-503900-B42831-FACE",
+      "evidenceIndexPath": "assets/tts-mod/extract/card-text-corpus.json",
+      "evidenceRecord": "4a79f992bc3e6b7493887c40b1198785673cc87ce462bbdd732b02c8e6a3cf14",
+      "provenanceIndexPath": "assets/tts-mod/extract/card-provenance-inventory.json"
+    },
+    {
+      "sourceId": "SRC-QUEEN-HEALTH-504000-919263",
+      "authority": "source-bound-component-scan",
+      "version": "TTS base Queen Health physical occurrence / root deck 9acd7f / saved sequence 6 / full CardID 504000 / GUID 919263",
+      "path": "assets/tts-mod/extract/v2-dl/tree/cards/game/queenHealthDeck-126.png",
+      "sha256": "63654c6409f88599aff333b6a54e90b3c3aaa7a29f2395ffff36eed7ab2d6e49",
+      "occurrenceId": "TTS-QUEEN-HEALTH-504000-919263-FACE",
+      "evidenceIndexPath": "assets/tts-mod/extract/card-text-corpus.json",
+      "evidenceRecord": "63654c6409f88599aff333b6a54e90b3c3aaa7a29f2395ffff36eed7ab2d6e49",
+      "provenanceIndexPath": "assets/tts-mod/extract/card-provenance-inventory.json"
+    },
+    {
+      "sourceId": "SRC-QUEEN-HEALTH-504100-717B23",
+      "authority": "source-bound-component-scan",
+      "version": "TTS base Queen Health physical occurrence / root deck 9acd7f / saved sequence 4 / full CardID 504100 / GUID 717b23",
+      "path": "assets/tts-mod/extract/v2-dl/tree/cards/game/queenHealthDeck-084.png",
+      "sha256": "bcb0eeb9e86f66f8401b584385746d268641c2692392b3faeb4f93438111a62f",
+      "occurrenceId": "TTS-QUEEN-HEALTH-504100-717B23-FACE",
+      "evidenceIndexPath": "assets/tts-mod/extract/card-text-corpus.json",
+      "evidenceRecord": "bcb0eeb9e86f66f8401b584385746d268641c2692392b3faeb4f93438111a62f",
+      "provenanceIndexPath": "assets/tts-mod/extract/card-provenance-inventory.json"
+    },
+    {
+      "sourceId": "SRC-QUEEN-HEALTH-504200-CA5827",
+      "authority": "source-bound-component-scan",
+      "version": "TTS base Queen Health physical occurrence / root deck 9acd7f / saved sequence 5 / full CardID 504200 / GUID ca5827",
+      "path": "assets/tts-mod/extract/v2-dl/tree/cards/game/queenHealthDeck-084.png",
+      "sha256": "bcb0eeb9e86f66f8401b584385746d268641c2692392b3faeb4f93438111a62f",
+      "occurrenceId": "TTS-QUEEN-HEALTH-504200-CA5827-FACE",
+      "evidenceIndexPath": "assets/tts-mod/extract/card-text-corpus.json",
+      "evidenceRecord": "bcb0eeb9e86f66f8401b584385746d268641c2692392b3faeb4f93438111a62f",
+      "provenanceIndexPath": "assets/tts-mod/extract/card-provenance-inventory.json"
+    },
+    {
+      "sourceId": "SRC-QUEEN-HEALTH-BACK",
+      "authority": "source-bound-component-scan",
+      "version": "TTS shared base Queen Health back / root deck 9acd7f",
+      "path": "assets/tts-mod/extract/v2-dl/tree/cards/game/queenHealthDeck-017.png",
+      "sha256": "c02d1ae4f5add1502d16182823507ce412869a5264e134ffaa36f18d7b60b6fc",
+      "occurrenceId": "TTS-QUEEN-HEALTH-SHARED-BACK",
+      "evidenceIndexPath": "assets/tts-mod/extract/card-text-corpus.json",
+      "evidenceRecord": "c02d1ae4f5add1502d16182823507ce412869a5264e134ffaa36f18d7b60b6fc",
+      "provenanceIndexPath": "assets/tts-mod/extract/card-provenance-inventory.json"
     },
     {
       "sourceId": "SRC-ROBOT-506400",

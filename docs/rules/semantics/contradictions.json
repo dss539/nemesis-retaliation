@@ -3,10 +3,10 @@
   "recordType": "semantic-conflict-register",
   "policy": "Readable source differences remain separate. Authority may resolve a general rule without rewriting lower-authority component wording; unresolved conflicts never receive a default.",
   "counts": {
-    "conflicts": 18,
-    "resolvedByAuthority": 8,
-    "unresolved": 8,
-    "preservedBoundary": 2
+    "conflicts": 22,
+    "resolvedByAuthority": 10,
+    "unresolved": 9,
+    "preservedBoundary": 3
   },
   "conflicts": [
     {
@@ -306,6 +306,93 @@
       ],
       "difference": "The scans say all Heavily Injured Characters die and all survivors gain cards with no Room qualifier; BGA says those Characters are in your Room and then affects each other Character there.",
       "resolution": "No default; preserve literal scan scope, the licensed local-scope lead, and all alternatives in review-gates.json."
+    },
+    {
+      "conflictId": "SC-019",
+      "title": "Official Queen Health example versus TTS one-card Repel face wording",
+      "status": "resolved-by-authority",
+      "questionId": null,
+      "affectedRuleIds": [
+        "SEM-QUEEN-HEALTH-504100-717B23-001",
+        "SEM-QUEEN-HEALTH-504200-CA5827-001"
+      ],
+      "evidenceRefs": [
+        "SRC-RULEBOOK",
+        "SRC-QUEEN-HEALTH-504100-717B23",
+        "SRC-QUEEN-HEALTH-504200-CA5827"
+      ],
+      "difference": "The official page-35 visible example prints “Discard 1 additional card.” above “Repel the Queen.”; the shared TTS face prints plural “additional cards.” and a preceding Character-draw condition. The official occurrence does not identify either duplicate TTS GUID.",
+      "resolution": "Official-primary wording and two-panel structure control only the exact current visible occurrence. Preserve both TTS physical copies, their shared bytes, punctuation/pluralization, and unresolved copy correspondence independently."
+    },
+    {
+      "conflictId": "SC-020",
+      "title": "Queen Health Malfunction/Unreinforce scan versus licensed Malfunction-only row",
+      "status": "resolved-by-authority",
+      "questionId": null,
+      "affectedRuleIds": [
+        "SEM-QUEEN-HEALTH-458100-6BA0A2-001"
+      ],
+      "evidenceRefs": [
+        "SRC-QUEEN-HEALTH-458100-6BA0A2",
+        "SRC-BGA-QUEEN-HEALTH"
+      ],
+      "difference": "The exact TTS face says “Place a Malfunction in the Queen’s Room. OR Unreinforce Queen’s Corridor.” The discard-3 licensed row says only “Place a <MALFUNCTION> in the Room with the Queen.”",
+      "resolution": "The source-bound component scan controls this exact physical occurrence over licensed-digital secondary data. Preserve the licensed QueenHealthCard12 row as a separate material variant; do not delete the scan branch or rewrite either wording."
+    },
+    {
+      "conflictId": "SC-021",
+      "title": "Queen death on last discard versus empty deck",
+      "status": "unresolved",
+      "questionId": "SEM-Q-027",
+      "affectedRuleIds": [
+        "SEM-QUEEN-HEALTH-RESOLUTION-001",
+        "SEM-QUEEN-DEATH-001",
+        "SEM-QUEEN-HEALTH-424300-615E22-001",
+        "SEM-QUEEN-HEALTH-424500-0DD25F-001",
+        "SEM-QUEEN-HEALTH-503700-E4AB1C-001",
+        "SEM-QUEEN-HEALTH-504100-717B23-001",
+        "SEM-QUEEN-HEALTH-504200-CA5827-001",
+        "SEM-QUEEN-HEALTH-504000-919263-001",
+        "SEM-QUEEN-HEALTH-503900-B42831-001",
+        "SEM-QUEEN-HEALTH-503800-64AE0A-001",
+        "SEM-QUEEN-HEALTH-424100-A10F34-001",
+        "SEM-QUEEN-HEALTH-458100-6BA0A2-001",
+        "SEM-QUEEN-HEALTH-429200-48A2AE-001",
+        "SEM-QUEEN-HEALTH-429200-0FBF8D-001"
+      ],
+      "evidenceRefs": [
+        "SRC-RULEBOOK",
+        "SRC-OBJECTIVE-HELP",
+        "docs/rules/semantics/queen-health-source-index.json"
+      ],
+      "difference": "Rulebook page 35 repeatedly triggers Queen death when the last Queen Health card is discarded and sequences the drawn-card discard after its bottom effect; both Objective Help occurrences say the Queen is dead when the Queen Health deck is empty, which can happen as soon as the final card is drawn.",
+      "resolution": "No default. SEM-Q-027 preserves draw-empty, additional-discard, bottom-effect, drawn-discard, death, and reset alternatives without changing either official occurrence."
+    },
+    {
+      "conflictId": "SC-022",
+      "title": "TTS conditional faces versus licensed schema and ordinal/copy boundary",
+      "status": "preserved-boundary",
+      "questionId": null,
+      "affectedRuleIds": [
+        "SEM-QUEEN-HEALTH-424300-615E22-001",
+        "SEM-QUEEN-HEALTH-424500-0DD25F-001",
+        "SEM-QUEEN-HEALTH-503700-E4AB1C-001",
+        "SEM-QUEEN-HEALTH-504100-717B23-001",
+        "SEM-QUEEN-HEALTH-504200-CA5827-001",
+        "SEM-QUEEN-HEALTH-504000-919263-001",
+        "SEM-QUEEN-HEALTH-503900-B42831-001",
+        "SEM-QUEEN-HEALTH-503800-64AE0A-001",
+        "SEM-QUEEN-HEALTH-424100-A10F34-001",
+        "SEM-QUEEN-HEALTH-458100-6BA0A2-001",
+        "SEM-QUEEN-HEALTH-429200-48A2AE-001",
+        "SEM-QUEEN-HEALTH-429200-0FBF8D-001"
+      ],
+      "evidenceRefs": [
+        "docs/rules/semantics/queen-health-source-index.json",
+        "SRC-BGA-QUEEN-HEALTH"
+      ],
+      "difference": "Every TTS face includes “If the card was drawn by a Character” while QUEEN_CARDS_DATA stores only discard/effect fields. BGA keys 1–12 form twelve independent licensed rows, but their suffixes are not printed numbers or source-backed TTS deck order; duplicate Repel/Activate rows cannot be paired one-to-one with duplicate TTS GUIDs by ordinal.",
+      "resolution": "Retain all twelve TTS physical occurrences, ten asset tuples, and twelve BGA rows independently. Candidate sets use exact structured tuples and multiplicity only; they never become title, filename, ordinal, or arbitrary duplicate-copy identity joins."
     }
   ]
 }

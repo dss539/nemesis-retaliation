@@ -14,8 +14,8 @@
       "rulebook-visual-obligation": 80
     },
     "byStatus": {
-      "pending": 445,
-      "pilot-covered": 154,
+      "pending": 425,
+      "pilot-covered": 174,
       "source-blocked": 1
     }
   },
@@ -211,7 +211,8 @@
       "authority": "project-interpretation",
       "status": "pilot-covered",
       "pilotRuleIds": [
-        "SEM-RT-011"
+        "SEM-RT-011",
+        "SEM-QUEEN-ACTIVATION-001"
       ],
       "blockers": []
     },
@@ -317,8 +318,12 @@
       "sourcePath": "docs/rules/02-character-actions.md",
       "sourceLocator": "ACT-SHOOT-001",
       "authority": "project-interpretation",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ACT-SHOOT-001",
+        "SEM-QUEEN-HIT-001",
+        "SEM-QUEEN-HEALTH-RESOLUTION-001"
+      ],
       "blockers": []
     },
     {
@@ -328,8 +333,12 @@
       "sourcePath": "docs/rules/02-character-actions.md",
       "sourceLocator": "ACT-BURST-001",
       "authority": "project-interpretation",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ACT-BURST-001",
+        "SEM-QUEEN-HIT-001",
+        "SEM-QUEEN-HEALTH-RESOLUTION-001"
+      ],
       "blockers": []
     },
     {
@@ -472,7 +481,9 @@
       "authority": "project-interpretation",
       "status": "pilot-covered",
       "pilotRuleIds": [
-        "SEM-IH-QA-R-01"
+        "SEM-IH-QA-R-01",
+        "SEM-QUEEN-HEALTH-SETUP-001",
+        "SEM-QUEEN-HEALTH-504000-919263-001"
       ],
       "blockers": []
     },
@@ -494,8 +505,11 @@
       "sourcePath": "docs/rules/03-intruders-and-survival.md",
       "sourceLocator": "INT-003",
       "authority": "project-interpretation",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-INTRUDER-REPEL-001",
+        "SEM-QUEEN-ACTIVATION-001"
+      ],
       "blockers": []
     },
     {
@@ -582,8 +596,26 @@
       "sourcePath": "docs/rules/03-intruders-and-survival.md",
       "sourceLocator": "INT-007",
       "authority": "project-interpretation",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ACT-SHOOT-001",
+        "SEM-ACT-BURST-001",
+        "SEM-QUEEN-HIT-001",
+        "SEM-QUEEN-HEALTH-RESOLUTION-001",
+        "SEM-QUEEN-DEATH-001",
+        "SEM-QUEEN-HEALTH-424300-615E22-001",
+        "SEM-QUEEN-HEALTH-424500-0DD25F-001",
+        "SEM-QUEEN-HEALTH-503700-E4AB1C-001",
+        "SEM-QUEEN-HEALTH-504100-717B23-001",
+        "SEM-QUEEN-HEALTH-504200-CA5827-001",
+        "SEM-QUEEN-HEALTH-504000-919263-001",
+        "SEM-QUEEN-HEALTH-503900-B42831-001",
+        "SEM-QUEEN-HEALTH-503800-64AE0A-001",
+        "SEM-QUEEN-HEALTH-424100-A10F34-001",
+        "SEM-QUEEN-HEALTH-458100-6BA0A2-001",
+        "SEM-QUEEN-HEALTH-429200-48A2AE-001",
+        "SEM-QUEEN-HEALTH-429200-0FBF8D-001"
+      ],
       "blockers": []
     },
     {
@@ -641,7 +673,8 @@
       "authority": "project-interpretation",
       "status": "pilot-covered",
       "pilotRuleIds": [
-        "SEM-AUTODESTRUCTION-001"
+        "SEM-AUTODESTRUCTION-001",
+        "SEM-QUEEN-DEATH-001"
       ],
       "blockers": []
     },
@@ -654,7 +687,8 @@
       "authority": "project-interpretation",
       "status": "pilot-covered",
       "pilotRuleIds": [
-        "SEM-ENDGAME-001"
+        "SEM-ENDGAME-001",
+        "SEM-QUEEN-DEATH-001"
       ],
       "blockers": []
     },
@@ -768,8 +802,12 @@
       "sourcePath": "docs/rulebooks/Nemesis_RT_FAQ_v1.2.pdf",
       "sourceLocator": "FQ-P02-U03",
       "authority": "official-errata",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ACT-SHOOT-001",
+        "SEM-QUEEN-HIT-001",
+        "SEM-QUEEN-HEALTH-RESOLUTION-001"
+      ],
       "blockers": []
     },
     {
@@ -1141,7 +1179,20 @@
         "SEM-ATTACK-394911-001",
         "SEM-ROBOT-SETUP-001",
         "SEM-ROBOT-SERVER-001",
-        "SEM-ROBOT-TECHNICAL-001"
+        "SEM-ROBOT-TECHNICAL-001",
+        "SEM-QUEEN-HEALTH-SETUP-001",
+        "SEM-QUEEN-HEALTH-424300-615E22-001",
+        "SEM-QUEEN-HEALTH-424500-0DD25F-001",
+        "SEM-QUEEN-HEALTH-503700-E4AB1C-001",
+        "SEM-QUEEN-HEALTH-504100-717B23-001",
+        "SEM-QUEEN-HEALTH-504200-CA5827-001",
+        "SEM-QUEEN-HEALTH-504000-919263-001",
+        "SEM-QUEEN-HEALTH-503900-B42831-001",
+        "SEM-QUEEN-HEALTH-503800-64AE0A-001",
+        "SEM-QUEEN-HEALTH-424100-A10F34-001",
+        "SEM-QUEEN-HEALTH-458100-6BA0A2-001",
+        "SEM-QUEEN-HEALTH-429200-48A2AE-001",
+        "SEM-QUEEN-HEALTH-429200-0FBF8D-001"
       ],
       "blockers": []
     },
@@ -1917,8 +1968,13 @@
       "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
       "sourceLocator": "RB-P35-V01",
       "authority": "official-primary",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-QUEEN-HEALTH-SETUP-001",
+        "SEM-QUEEN-HIT-001",
+        "SEM-QUEEN-HEALTH-RESOLUTION-001",
+        "SEM-QUEEN-DEATH-001"
+      ],
       "blockers": []
     },
     {
@@ -1928,8 +1984,22 @@
       "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
       "sourceLocator": "RB-P35-V02",
       "authority": "official-primary",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-QUEEN-HEALTH-RESOLUTION-001",
+        "SEM-QUEEN-HEALTH-424300-615E22-001",
+        "SEM-QUEEN-HEALTH-424500-0DD25F-001",
+        "SEM-QUEEN-HEALTH-503700-E4AB1C-001",
+        "SEM-QUEEN-HEALTH-504100-717B23-001",
+        "SEM-QUEEN-HEALTH-504200-CA5827-001",
+        "SEM-QUEEN-HEALTH-504000-919263-001",
+        "SEM-QUEEN-HEALTH-503900-B42831-001",
+        "SEM-QUEEN-HEALTH-503800-64AE0A-001",
+        "SEM-QUEEN-HEALTH-424100-A10F34-001",
+        "SEM-QUEEN-HEALTH-458100-6BA0A2-001",
+        "SEM-QUEEN-HEALTH-429200-48A2AE-001",
+        "SEM-QUEEN-HEALTH-429200-0FBF8D-001"
+      ],
       "blockers": []
     },
     {
@@ -1939,8 +2009,11 @@
       "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
       "sourceLocator": "RB-P35-V03",
       "authority": "official-primary",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-QUEEN-HIT-001",
+        "SEM-QUEEN-HEALTH-RESOLUTION-001"
+      ],
       "blockers": []
     },
     {
@@ -2439,8 +2512,10 @@
       "sourcePath": "docs/rulebooks/Nemesis_RT_Objectives_Sheet.pdf",
       "sourceLocator": "P1-GT-06",
       "authority": "official-component-reference",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-QUEEN-DEATH-001"
+      ],
       "blockers": []
     },
     {
@@ -2689,8 +2764,10 @@
       "sourcePath": "docs/rulebooks/Nemesis_RT_Objectives_Sheet.pdf",
       "sourceLocator": "P2-GT-06",
       "authority": "official-component-reference",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-QUEEN-DEATH-001"
+      ],
       "blockers": []
     },
     {
@@ -6390,8 +6467,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/queenHealthDeck-013.png",
       "sourceLocator": "5ad0606dff59c21b20689fc6b5b5192ef83c95f108ded91e587725bfd2c68092",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-QUEEN-HEALTH-503700-E4AB1C-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -6403,8 +6482,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/queenHealthDeck-038.png",
       "sourceLocator": "fc04bf1a2920fb63ac512d209622b591cdc9f3cb9ca292c97bf874fcddbbd5c8",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-QUEEN-HEALTH-424100-A10F34-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -6416,8 +6497,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/queenHealthDeck-039.png",
       "sourceLocator": "648b81223c8c8b65b96a4304645bfe738f2ca64ecf989c0a826111d6bf6bd506",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-QUEEN-HEALTH-424300-615E22-001"
+      ],
       "blockers": []
     },
     {
@@ -6427,8 +6510,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/queenHealthDeck-040.png",
       "sourceLocator": "ce7a5fba88dd56f5de2ae77e5fe1647324bdfa9a99ae7f55485cca35eb72b062",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-QUEEN-HEALTH-424500-0DD25F-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -6440,8 +6525,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/queenHealthDeck-041.png",
       "sourceLocator": "929ac1204b4b7989ee051307245bf32fb5e1915a35b9afd5a73572c8ca01dc61",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-QUEEN-HEALTH-458100-6BA0A2-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -6453,8 +6540,11 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/queenHealthDeck-045.png",
       "sourceLocator": "133a975dc072a169ceed85615ab2e5a6cde0f80a23f18e61948f0a963c9e98e2",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-QUEEN-HEALTH-429200-48A2AE-001",
+        "SEM-QUEEN-HEALTH-429200-0FBF8D-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -6466,8 +6556,11 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/queenHealthDeck-084.png",
       "sourceLocator": "bcb0eeb9e86f66f8401b584385746d268641c2692392b3faeb4f93438111a62f",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-QUEEN-HEALTH-504100-717B23-001",
+        "SEM-QUEEN-HEALTH-504200-CA5827-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -6479,8 +6572,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/queenHealthDeck-126.png",
       "sourceLocator": "63654c6409f88599aff333b6a54e90b3c3aaa7a29f2395ffff36eed7ab2d6e49",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-QUEEN-HEALTH-504000-919263-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -6492,8 +6587,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/queenHealthDeck-164.png",
       "sourceLocator": "4a79f992bc3e6b7493887c40b1198785673cc87ce462bbdd732b02c8e6a3cf14",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-QUEEN-HEALTH-503900-B42831-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -6505,8 +6602,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/queenHealthDeck-165.png",
       "sourceLocator": "763ca108996c746f141b6f505d3afee2c30be1f6f4f38b84d0118f9f76bdf765",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-QUEEN-HEALTH-503800-64AE0A-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]

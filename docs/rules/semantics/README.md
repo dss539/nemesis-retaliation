@@ -11,12 +11,13 @@ This directory is the first implementation-neutral semantic layer built over the
 - `exploration-source-index.json` — mechanically derived closure of all 12 untitled base Exploration faces, their exact TTS CardID/GUID/FaceURL and shared BackURL provenance, 46 printed sentences, 12 diagrams, 60 source-local icon occurrences, official/FAQ occurrences, licensed variants, and backlog tuples; title/folder/modulo joins are prohibited.
 - `robot-source-index.json` — mechanically derived closure of the six base Robot faces, one shared non-operative back, exact root-role/CardID/GUID/FaceURL/container provenance, 24 panels, 16 sentences, 23 icons, official/FAQ/runtime-state boundaries, licensed variants, exclusions, and backlog tuples; title/folder/modulo joins are prohibited.
 - `attack-source-index.json` — mechanically derived closure of 20 base Intruder Attack occurrences: 19 selected 5×4-sheet cells plus one direct face, one shared back, one unused selector-gap cell, full CardID/GUID/CustomDeck/URL provenance, repeated-title multiplicity, panels/sentences, 57 source-scoped applicability badges, official counterparts, 15 licensed variants, exclusions, and backlog tuples.
-- `source-registry.json` — 75 exact source tuples, hashes, versions, authority, occurrence identities, and extraction-index links used by the corpus.
-- `pilots.json` — 145 validated semantic records across 18 systems; the historical filename is retained while coverage expands.
-- `review-gates.json` — thirty explicit open semantic questions with alternatives; no default is adopted.
-- `contradictions.json` — eighteen source/semantic conflicts: eight authority-resolved, eight unresolved, and two preserved boundaries.
+- `queen-health-source-index.json` — mechanically derived closure of 12 physical base Queen Health occurrences over 10 face assets, one shared back, exact saved CardID/GUID/CustomDeck/FaceURL provenance, two-panel/count/icon locks, official track/visual/FAQ/Objective evidence, 12 independent licensed rows, duplicate-copy boundaries, exclusions, and backlog tuples.
+- `source-registry.json` — 90 exact source tuples, hashes, versions, authority, occurrence identities, and extraction-index links used by the corpus.
+- `pilots.json` — 167 validated semantic records across 19 systems; the historical filename is retained while coverage expands.
+- `review-gates.json` — thirty-five explicit open semantic questions with alternatives; no default is adopted.
+- `contradictions.json` — twenty-two source/semantic conflicts: ten authority-resolved, nine unresolved, and three preserved boundaries.
 - `coverage.json` — pilot scope and the large remaining base-game semantic surface.
-- `backlog.json` — 600 source-obligation units across rule records, FAQ, visual obligations, Help sheets, and independent card/reference tuples; overlapping variants are intentionally retained.
+- `backlog.json` — 600 source-obligation units across rule records, FAQ, visual obligations, Help sheets, and independent card/reference tuples; 174 are covered, 425 pending, and one source-blocked, with overlapping variants intentionally retained.
 - `validation.json` — deterministic validation report.
 - `independent-review.md` — four-workstream review findings and incorporated corrections.
 
@@ -44,7 +45,7 @@ Every pilot carries:
 
 ## Current coverage
 
-The 145 records cover the original reusable-procedure set plus:
+The 167 records cover the original reusable-procedure set plus:
 
 1. Round phase sequence;
 2. Player Phase rotation;
@@ -81,10 +82,11 @@ The 145 records cover the original reusable-procedure set plus:
 33. all 12 mechanically closed untitled base Exploration face occurrences, with exact placement/reminder/Entrance/lifecycle order, source-local six-slot diagrams and icon identities, one licensed-digital variant per face, three official visible occurrences, and occurrence-based dispatch from the generic Exploration Sequence; and
 34. the complete six-face base Robot family, with one shared back, random hidden setup/reveal, local/remote Activation and Data-token costs, movement and Tactical Gear procedures, finite Malfunction/Fire/Secure handling, exact panel/sentence/icon order, six licensed variants, two official visible face occurrences, and eight new no-default questions; and
 35. all 20 mechanically selected base Intruder Attack occurrences, including six distinct Bite copies and other repeated titles, 19 generated cells plus direct Blood Sense, one shared back, the excluded unused Summoning cell, 69 physical panels, 54 printed sentences, 57 source-scoped applicability badges, 13 inline icons, 15 licensed structured variants, three official-visible face counterparts, occurrence dispatch from `SEM-INT-004`, reusable Contamination gain, and five new no-default questions.
+36. all 12 mechanically derived base Queen Health physical occurrences over 10 direct face assets, with two duplicate-asset pairs retained as four physical copies, one 13-reference shared back, 24 panels, 37 printed sentences, 12 source-local number displays, 16 exact page-40 icon matches, 12 independent licensed rows, three official-visible faces/two backs, Queen Hits/setup/draw/death/Activation/Repel/Shoot/Burst integration, and five new no-default questions.
 
 This is representative, **not full base-game semantic coverage**.
 
-The backlog currently records 154 covered source obligations, 445 pending obligations, and one inherited exact-source blocker (`FACILITY RESTART`). The Event, Exploration, Robot, and Intruder Attack batches link all 58 exact card tuples plus overlapping rule, FAQ, and official visual obligations. These are source-obligation counts, not a claim that 600 distinct game effects exist.
+The backlog currently records 174 covered source obligations, 425 pending obligations, and one inherited exact-source blocker (`FACILITY RESTART`). The Event, Exploration, Robot, Intruder Attack, and Queen Health batches link 68 exact card/source tuples plus overlapping rule, FAQ, Help, and official visual obligations. These are source-obligation counts, not a claim that 600 distinct game effects exist.
 
 ## Open questions carried without defaults
 
@@ -118,8 +120,13 @@ The backlog currently records 154 covered source obligations, 445 pending obliga
 - SEM-Q-022 — Blood Sense Movement check and relocation after death/interruption.
 - SEM-Q-023 — Deadly Claws random Wound-to-slot and finite-deck order.
 - SEM-Q-024 — MISS applicability despite having no printed Intruder-type badges.
+- SEM-Q-025 — exact Queen Health trigger timing inside Shoot/Burst/other Actions.
+- SEM-Q-026 — attribution of each face’s “drawn by a Character” condition.
+- SEM-Q-027 — Queen death timing when the final card is drawn versus discarded.
+- SEM-Q-028 — Malfunction/Unreinforce branch ownership, location dispatch, and unavailable-branch handling.
+- SEM-Q-029 — identity/scope of the unmapped Queen Hits terminal/inline local glyph.
 
-- OQ-001, OQ-002, OQ-003, OQ-004, OQ-007, OQ-009, and SEM-Q-010 prefer official clarification. SEM-Q-001 through SEM-Q-009 and SEM-Q-011 through SEM-Q-024 otherwise require further source searching before any owner decision.
+- OQ-001, OQ-002, OQ-003, OQ-004, OQ-007, OQ-009, SEM-Q-010, SEM-Q-025, SEM-Q-027, and SEM-Q-029 prefer official clarification. The other SEM questions require further source searching before any owner decision.
 
 ## Fidelity boundaries exercised
 
@@ -140,6 +147,11 @@ The backlog currently records 154 covered source obligations, 445 pending obliga
 - Deadly Claws, Infecting, Tail Attack, and Fury source differences remain explicit. Official-visible current counterparts control where applicable; exact TTS scans and all 15 lower-authority licensed records are not rewritten or flattened.
 - `characterHealth` is used for the local card-06 glyph only after an independent exact-scale match to an existing page-40-backed Attack occurrence; the original unlabeled/no-match evidence remains present. The conflicting card-19 selected rows are likewise retained rather than silently repaired.
 - Generic Attack draw/target/discard rules remain in `SEM-INT-004`; each face encodes only occurrence applicability and its ordered panel effect. MISS returns itself before its FAQ-controlled self-inclusive reshuffle, and generic discard applies only while a card remains in resolution.
+- Queen Health identity comes from the base `queenHealthDeck` root plus exact saved physical CardID/GUID/CustomDeck/FaceURL/BackURL tuples, never the shared `Discard` heading, displayed count alone, filename, CardID modulo, or licensed key suffix. Twelve physical cards remain distinct even though `-084` and `-045` each supply two copies.
+- The TTS saved order is retained as provenance but setup shuffles it; `QueenHealthCard1..12` suffixes are licensed structured keys, not printed card numbers or source-backed order. Duplicate licensed rows remain candidate sets rather than arbitrary one-to-one copy joins.
+- All twelve segmented green number displays remain source-local: nine are explicit selected all-49 no-matches and the canonical face retains one preselected unregistered display. Their visible numeric values compose only with the page-35 card instruction and create no Shoot/Burst/Health/damage alias.
+- The Queen Hits track remains `0,1,2,3,4,terminal-local-glyph`; both queen-head/blob-plus-style terminal/inline occurrences stay unmapped. Shoot/Burst timing, Character attribution, final-card death timing, and Malfunction/Unreinforce ownership receive no defaults.
+- Generic Queen Health resolution alone owns reveal, hidden additional discards, exact physical-face dispatch, drawn-card discard, no-reshuffle finite exhaustion, and reset to exactly 0 without overflow. Bottom effects still run after death caused by additional discards; the final-draw death conflict remains SEM-Q-027.
 - FAQ authority keeps remove-from-game outside the Entrance Effect, so all three removal transitions remain unconditional when Entrance Effects are ignored; close-Doors effects target only Doors touching the new Room.
 - Random-Corridor and finite-component assignment across multiple diagram slots remains SEM-Q-011 with no player owner, spatial order, or additional randomness invented.
 - Hatching and Egg Protection retain the Undiscovered-Nest question, and simultaneous Egg Protection entry retains OQ-007.
@@ -154,4 +166,4 @@ The backlog currently records 154 covered source obligations, 445 pending obliga
 
 ## Validation
 
-Validation rejects duplicate JSON keys, broken hashes/citations, authority-precedence errors, stale vocabulary/ontology references, missing owners/visibility/timing, invalid cardinality, dangling decisions/targets/conditions, source-variant loss, partial-resolution drift, invented defaults, implementation leakage, coverage overclaims, and non-reproducible builds. Event-specific controls reject dropped records, valid-source swaps, title-only joins, sentence-order changes, invented glyph defaults, lost licensed variants, authority inversion, and coordinated backlog-count lowering. Exploration-specific controls additionally reject dropped/duplicated faces, title/folder/modulo joins, source-face swaps, FaceURL/BackURL inversion, source-unit reordering, remove-from-game scope drift, invented titles/system icons/defaults, lost variants, authority inversion, and coordinated backlog lowering. Robot-specific controls reject dropped/duplicated faces, title-only joins, face/back or runtime-state inversion, wrong GUID/CardID, sentence/panel/icon reordering or loss, reveal leakage, Malfunction contradiction flattening, invented movement owners/defaults, lost variants, authority inversion, and coordinated backlog lowering. Attack-specific controls reject dropped/duplicated occurrences, repeated-title collapse, sheet/cell swaps, modulo joins, selector drift, FaceURL/BackURL inversion, applicability swaps, count-preserving badge movement, local-icon invention/loss, body/punctuation/order drift, branch flattening, lost variants, authority inversion, invented defaults/owners, and coordinated backlog lowering. Two builds run under different hash seeds/locales and must be byte-identical.
+Validation rejects duplicate JSON keys, broken hashes/citations, authority-precedence errors, stale vocabulary/ontology references, missing owners/visibility/timing, invalid cardinality, dangling decisions/targets/conditions, source-variant loss, partial-resolution drift, invented defaults, implementation leakage, coverage overclaims, and non-reproducible builds. Event-, Exploration-, Robot-, and Attack-specific controls retain their prior family locks. Queen Health controls reject dropped/duplicated/reordered physical faces, title/folder/modulo/licensed-ordinal joins, selector/back inversion, local-symbol invention/loss/swap, count/track/body/panel/punctuation drift, reset/overflow/default invention, duplicate-copy pairing, variant/authority loss, and coordinated backlog lowering. Two builds run under different hash seeds/locales and must be byte-identical.

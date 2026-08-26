@@ -3,11 +3,11 @@
   "recordType": "semantic-review-gates",
   "status": "pilot built with deferred questions and explicit alternatives; no default answer adopted",
   "counts": {
-    "questions": 30,
-    "officialClarificationPreferred": 7,
-    "sourceAmbiguitiesIntroducedByPilot": 23,
+    "questions": 35,
+    "officialClarificationPreferred": 10,
+    "sourceAmbiguitiesIntroducedByPilot": 25,
     "resolved": 0,
-    "open": 30
+    "open": 35
   },
   "questions": [
     {
@@ -940,6 +940,196 @@
           "alternativeId": "SEM-Q-024-C",
           "description": "Another source-local universal-applicability convention applies.",
           "support": "the face visibly has text but no printed badge or explanatory marker"
+        }
+      ]
+    },
+    {
+      "questionId": "SEM-Q-025",
+      "title": "Queen Health trigger timing inside Shoot, Burst, and other Actions",
+      "decisionClass": "official-clarification-preferred",
+      "blocksRuleIds": [
+        "SEM-ACT-SHOOT-001",
+        "SEM-ACT-BURST-001",
+        "SEM-QUEEN-HIT-001",
+        "SEM-QUEEN-HEALTH-RESOLUTION-001"
+      ],
+      "plannedRuleIds": [],
+      "defaultProhibited": true,
+      "sourceEvidenceRefs": [
+        "docs/rulebooks/rulebook_text.txt:lines 5514–5537, 5576–5605, 5747–5763",
+        "docs/rules/source-extraction/faq-v1.2-source-extraction.json:FQ-P02-U03",
+        "docs/rules/semantics/queen-health-source-index.json"
+      ],
+      "alternatives": [
+        {
+          "alternativeId": "SEM-Q-025-A",
+          "description": "Resolve the Queen Health card immediately when the marker reaches the final space or an applicable lethal Shoot result occurs, then continue only the still-legal non-Hit remainder of the Action while ignoring all later Hits.",
+          "support": "page 35 says “Whenever” the marker reaches the final space and explicitly ignores further Hits in that Action; exact continuation position is not stated"
+        },
+        {
+          "alternativeId": "SEM-Q-025-B",
+          "description": "Finish the enclosing Shoot/Burst die, Hit allocation, and printed Weapon/Action operations first, then resolve one Queen Health card for the trigger.",
+          "support": "Combat procedures present complete ordered Action steps, while page 35 does not explicitly interrupt those steps"
+        },
+        {
+          "alternativeId": "SEM-Q-025-C",
+          "description": "Use another source-defined interrupt window that distinguishes the initial Shoot Hit, lethal die result, Burst Hits, and additional-effect operations.",
+          "support": "FAQ confirms when a Shoot is lethal but does not define this nested timing window"
+        }
+      ]
+    },
+    {
+      "questionId": "SEM-Q-026",
+      "title": "Attribution of “If the card was drawn by a Character” on Queen Health faces",
+      "decisionClass": "source-ambiguity-owner-decision-after-source-search",
+      "blocksRuleIds": [
+        "SEM-QUEEN-HEALTH-RESOLUTION-001",
+        "SEM-QUEEN-HEALTH-424300-615E22-001",
+        "SEM-QUEEN-HEALTH-424500-0DD25F-001",
+        "SEM-QUEEN-HEALTH-503700-E4AB1C-001",
+        "SEM-QUEEN-HEALTH-504100-717B23-001",
+        "SEM-QUEEN-HEALTH-504200-CA5827-001",
+        "SEM-QUEEN-HEALTH-504000-919263-001",
+        "SEM-QUEEN-HEALTH-503900-B42831-001",
+        "SEM-QUEEN-HEALTH-503800-64AE0A-001",
+        "SEM-QUEEN-HEALTH-424100-A10F34-001",
+        "SEM-QUEEN-HEALTH-458100-6BA0A2-001",
+        "SEM-QUEEN-HEALTH-429200-48A2AE-001",
+        "SEM-QUEEN-HEALTH-429200-0FBF8D-001"
+      ],
+      "plannedRuleIds": [],
+      "defaultProhibited": true,
+      "sourceEvidenceRefs": [
+        "assets/tts-mod/extract/selected-card-text-evidence.json",
+        "docs/rules/semantics/queen-health-source-index.json",
+        "docs/rulebooks/rulebook_text.txt:lines 3095–3100, 5747–5763"
+      ],
+      "alternatives": [
+        {
+          "alternativeId": "SEM-Q-026-A",
+          "description": "The Character whose Action/effect dealt the triggering Hit is the drawing Character and owns any Character-bound lower-panel context.",
+          "support": "the faces condition their effects on a Character draw and Command rules retain an effect owner, but the card does not define attribution"
+        },
+        {
+          "alternativeId": "SEM-Q-026-B",
+          "description": "Only a direct Character-controlled Combat Action counts; non-Action, commanded, Fire, Event, or other sources draw through the rules system and fail the condition.",
+          "support": "possible literal distinction between a Character draw and a non-player effect; no checked source enumerates qualifying sources"
+        },
+        {
+          "alternativeId": "SEM-Q-026-C",
+          "description": "The physical player who reveals/draws the top card counts regardless of which effect caused the Queen Health trigger.",
+          "support": "possible tabletop handling reading, but physical handling is not named as rules ownership"
+        }
+      ]
+    },
+    {
+      "questionId": "SEM-Q-027",
+      "title": "Queen death timing when the final card is drawn versus discarded",
+      "decisionClass": "official-clarification-preferred",
+      "blocksRuleIds": [
+        "SEM-QUEEN-HEALTH-RESOLUTION-001",
+        "SEM-QUEEN-DEATH-001",
+        "SEM-QUEEN-HEALTH-424300-615E22-001",
+        "SEM-QUEEN-HEALTH-424500-0DD25F-001",
+        "SEM-QUEEN-HEALTH-503700-E4AB1C-001",
+        "SEM-QUEEN-HEALTH-504100-717B23-001",
+        "SEM-QUEEN-HEALTH-504200-CA5827-001",
+        "SEM-QUEEN-HEALTH-504000-919263-001",
+        "SEM-QUEEN-HEALTH-503900-B42831-001",
+        "SEM-QUEEN-HEALTH-503800-64AE0A-001",
+        "SEM-QUEEN-HEALTH-424100-A10F34-001",
+        "SEM-QUEEN-HEALTH-458100-6BA0A2-001",
+        "SEM-QUEEN-HEALTH-429200-48A2AE-001",
+        "SEM-QUEEN-HEALTH-429200-0FBF8D-001"
+      ],
+      "plannedRuleIds": [],
+      "defaultProhibited": true,
+      "sourceEvidenceRefs": [
+        "docs/rulebooks/rulebook_text.txt:lines 5754–5772",
+        "docs/rules/source-extraction/objective-help-sheet.json:P1-GT-06/P2-GT-06",
+        "docs/rules/semantics/queen-health-source-index.json"
+      ],
+      "alternatives": [
+        {
+          "alternativeId": "SEM-Q-027-A",
+          "description": "The Queen dies only when a Queen Health card enters the discard pile; merely drawing the last deck card does not trigger death before its bottom effect and final discard.",
+          "support": "page 35 repeatedly says the last card is discarded and explicitly sequences the drawn-card discard after its bottom effect"
+        },
+        {
+          "alternativeId": "SEM-Q-027-B",
+          "description": "The Queen dies as soon as drawing leaves the Queen Health deck empty, before additional discards or the bottom effect, while the bottom effect still resolves under the page-35 exception.",
+          "support": "both Objective Help occurrences define Queen death when the deck is empty"
+        },
+        {
+          "alternativeId": "SEM-Q-027-C",
+          "description": "Additional hidden discards can kill the Queen before the bottom effect, but drawing the final card uses a separate source-defined timing point later in the resolution.",
+          "support": "page 35 explicitly mentions death caused by additional discards but does not reconcile the drawn-final-card empty-deck case"
+        }
+      ]
+    },
+    {
+      "questionId": "SEM-Q-028",
+      "title": "Malfunction-or-Unreinforce branch ownership and location handling",
+      "decisionClass": "source-ambiguity-owner-decision-after-source-search",
+      "blocksRuleIds": [
+        "SEM-QUEEN-HEALTH-458100-6BA0A2-001"
+      ],
+      "plannedRuleIds": [],
+      "defaultProhibited": true,
+      "sourceEvidenceRefs": [
+        "assets/tts-mod/extract/v2-dl/tree/cards/game/queenHealthDeck-041.png",
+        "assets/tts-mod/extract/selected-card-text-evidence.json",
+        "docs/rules/semantics/queen-health-source-index.json",
+        "docs/rulebooks/rulebook_text.txt:lines 4150–4157, 4368–4375, 4414–4426"
+      ],
+      "alternatives": [
+        {
+          "alternativeId": "SEM-Q-028-A",
+          "description": "The attributed drawing Character chooses one legal branch; Malfunction targets the Queen’s Room and Unreinforce targets her current reinforced Corridor.",
+          "support": "the face prints OR, but names no owner and does not state whether either branch may be chosen regardless of Queen location"
+        },
+        {
+          "alternativeId": "SEM-Q-028-B",
+          "description": "Queen location deterministically dispatches the effect: Malfunction if she is in a Room, Unreinforce if she is in a Corridor.",
+          "support": "each branch names one mutually exclusive Queen location, but the card does not state “if” or otherwise define this dispatch"
+        },
+        {
+          "alternativeId": "SEM-Q-028-C",
+          "description": "Apply another physical/source-defined branch rule, including what happens when the Room already has a Malfunction or the Corridor is not reinforced and which nonzero face appears after Unreinforce.",
+          "support": "generic Malfunction fallback is defined, but Unreinforce and whole-branch legality are not"
+        }
+      ]
+    },
+    {
+      "questionId": "SEM-Q-029",
+      "title": "Queen Hits terminal and inline local-glyph identity/scope",
+      "decisionClass": "official-clarification-preferred",
+      "blocksRuleIds": [
+        "SEM-ACT-SHOOT-001",
+        "SEM-QUEEN-HIT-001"
+      ],
+      "plannedRuleIds": [],
+      "defaultProhibited": true,
+      "sourceEvidenceRefs": [
+        "docs/rules/source-extraction/rulebook-visual-obligations.json:RB-P35-V01/RB-P35-V03",
+        "docs/rules/source-extraction/faq-v1.2-source-extraction.json:FQ-P02-U03",
+        "docs/rules/semantics/queen-health-source-index.json:officialLocalSymbols"
+      ],
+      "alternatives": [
+        {
+          "alternativeId": "SEM-Q-029-A",
+          "description": "The page-35 queen-head/blob-plus-style inline glyph is the Shoot skull/Critical result referenced by FAQ and triggers a Queen Health card whenever that exact result is dealt.",
+          "support": "FAQ explicitly says skull symbol, but no independent exact morphology match to a page-40 token has been established"
+        },
+        {
+          "alternativeId": "SEM-Q-029-B",
+          "description": "The glyph is only the Queen Hits track terminal-space marker; FAQ separately names the Shoot skull result without creating a global icon identity.",
+          "support": "the visual census binds the glyph spatially to the terminal space and plain-text extraction loses its identity"
+        },
+        {
+          "alternativeId": "SEM-Q-029-C",
+          "description": "Use another source-scoped lethal-result relation established by future official component/icon evidence.",
+          "support": "current evidence supports the trigger prose but not a page-40, color-wide, shape-wide, or global alias"
         }
       ]
     }

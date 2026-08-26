@@ -60,9 +60,11 @@ event_sources=load('docs/rules/semantics/event-source-index.json')
 exploration_sources=load('docs/rules/semantics/exploration-source-index.json')
 robot_sources=load('docs/rules/semantics/robot-source-index.json')
 attack_sources=load('docs/rules/semantics/attack-source-index.json')
+queen_health_sources=load('docs/rules/semantics/queen-health-source-index.json')
 exploration_rule_ids=[row['semanticRuleId'] for row in exploration_sources['faces']]
 robot_rule_ids=[row['semanticRuleId'] for row in robot_sources['faces']]
 attack_rule_ids=[row['semanticRuleId'] for row in attack_sources['faces']]
+queen_health_rule_ids=[row['semanticRuleId'] for row in queen_health_sources['faces']]
 
 # Pilot-to-source obligation links. These are evidence coverage links, not claims
 # that the entire channel/category is semantically complete.
@@ -82,6 +84,8 @@ for face in robot_sources['faces']:
  links[face['backlogUnitId']]=[face['semanticRuleId']]
 for face in attack_sources['faces']:
  links[face['backlogUnitId']]=[face['semanticRuleId']]
+for face in queen_health_sources['faces']:
+ links.setdefault(face['backlogUnitId'],[]).append(face['semanticRuleId'])
 links['FAQ:FQ-P02-U06']=['SEM-ACT-EXPLORE-001',*[row['semanticRuleId'] for row in exploration_sources['faces'] if any(item['sourceUnitId']=='FQ-P02-U06' for item in row['faqOccurrences'])]]
 links['FAQ:FQ-P02-U07']=['SEM-ACT-EXPLORE-001',*[row['semanticRuleId'] for row in exploration_sources['faces'] if any(item['sourceUnitId']=='FQ-P02-U07' for item in row['faqOccurrences'])]]
 links['VIS:RB-P24-V01']=['SEM-ACT-EXPLORE-001','SEM-EXPLORATION-5639-001']
@@ -109,6 +113,23 @@ links['VIS:RB-P14-V02']=['SEM-EVENT-INTRUDER-MOVEMENT-001']
 links['VIS:RB-P31-V01']=['SEM-EVENT-INTRUDER-MOVEMENT-001','SEM-EVENT-SHORT-CIRCUIT-001']
 links['VIS:RB-P31-V02']=['SEM-EVENT-INTRUDER-MOVEMENT-001']
 links['VIS:RB-P32-V01']=['SEM-INT-004','SEM-ATTACK-394911-001']
+links['RULE:ACT-SHOOT-001']=['SEM-ACT-SHOOT-001','SEM-QUEEN-HIT-001','SEM-QUEEN-HEALTH-RESOLUTION-001']
+links['RULE:ACT-BURST-001']=['SEM-ACT-BURST-001','SEM-QUEEN-HIT-001','SEM-QUEEN-HEALTH-RESOLUTION-001']
+links['RULE:INT-001']=[*links.get('RULE:INT-001',[]),'SEM-QUEEN-HEALTH-SETUP-001',*[rule_id for rule_id in queen_health_rule_ids if rule_id in {'SEM-QUEEN-HEALTH-504000-919263-001'}]]
+links['RULE:INT-003']=['SEM-INTRUDER-REPEL-001','SEM-QUEEN-ACTIVATION-001']
+links['RULE:INT-007']=['SEM-ACT-SHOOT-001','SEM-ACT-BURST-001','SEM-QUEEN-HIT-001','SEM-QUEEN-HEALTH-RESOLUTION-001','SEM-QUEEN-DEATH-001',*queen_health_rule_ids]
+links['RULE:INT-010']=[*links.get('RULE:INT-010',[]),'SEM-QUEEN-DEATH-001']
+links['RULE:INT-011']=[*links.get('RULE:INT-011',[]),'SEM-QUEEN-DEATH-001']
+links['RULE:RT-011']=[*links.get('RULE:RT-011',[]),'SEM-QUEEN-ACTIVATION-001']
+links['FAQ:FQ-P02-U03']=['SEM-ACT-SHOOT-001','SEM-QUEEN-HIT-001','SEM-QUEEN-HEALTH-RESOLUTION-001']
+links['VIS:RB-P03-V01']=[*links.get('VIS:RB-P03-V01',[]),'SEM-QUEEN-HEALTH-SETUP-001',*queen_health_rule_ids]
+links['VIS:RB-P35-V01']=['SEM-QUEEN-HEALTH-SETUP-001','SEM-QUEEN-HIT-001','SEM-QUEEN-HEALTH-RESOLUTION-001','SEM-QUEEN-DEATH-001']
+links['VIS:RB-P35-V02']=['SEM-QUEEN-HEALTH-RESOLUTION-001',*queen_health_rule_ids]
+links['VIS:RB-P35-V03']=['SEM-QUEEN-HIT-001','SEM-QUEEN-HEALTH-RESOLUTION-001']
+links['OBJ:P1-GT-06']=['SEM-QUEEN-DEATH-001']
+links['OBJ:P2-GT-06']=['SEM-QUEEN-DEATH-001']
+for unit_id,rule_ids in links.items():
+ links[unit_id]=list(dict.fromkeys(rule_ids))
 for unit in units:
  if unit['semanticUnitId'].startswith('INTR:'):
   occurrence_id=unit['semanticUnitId'].split(':',1)[1]

@@ -251,3 +251,53 @@ Use this ledger for ambiguities that the official rulebook and FAQ do not settle
   - (b) No matching badge means no associated effect, so the card is discarded without applying its text.
   - (c) Another source-local universal marker/convention applies.
 - **Status:** Open. Universal applicability is not inferred from absence alone; reshuffling is encoded only behind this no-default gate.
+
+### SEM-Q-025 — Queen Health trigger timing inside an Action
+
+- **Question:** At what exact interrupt point does a Queen Health card resolve when the Hits marker reaches the final space, or a Shoot roll is otherwise lethal, relative to the remaining Shoot/Burst die, Hit-allocation, and Weapon/Action-effect steps?
+- **Sources checked:** Rulebook pp. 33–35 (Burst, Shoot, Queen Health); FAQ v1.2 General rules #1; exact source index `docs/rules/semantics/queen-health-source-index.json`.
+- **Candidate readings:**
+  - (a) Resolve immediately at the trigger, then continue only still-legal non-Hit operations while ignoring later Hits in that Action.
+  - (b) Finish the enclosing Combat procedure, then resolve one Queen Health card.
+  - (c) A more specific interrupt window distinguishes initial Shoot Hit, lethal die result, Burst Hits, and additional effects.
+- **Status:** Open; official clarification preferred. No timing default is adopted.
+
+### SEM-Q-026 — “Drawn by a Character” attribution
+
+- **Question:** Which actor counts as the Character who drew a Queen Health card for every exact TTS face’s conditional lower panel?
+- **Sources checked:** All twelve mechanically derived physical occurrences, selected/canonical card evidence, rulebook Queen Health and Commands passages, FAQ v1.2, and licensed `QUEEN_CARDS_DATA` (which omits the shared condition).
+- **Candidate readings:**
+  - (a) The Character whose Action/effect dealt the triggering Hit.
+  - (b) Only a direct Character-controlled Combat Action; commanded and non-player effects do not qualify.
+  - (c) The player physically revealing the card, regardless of trigger source.
+- **Status:** Open. No actor, target owner, or conditional-applicability default is adopted.
+
+### SEM-Q-027 — Final-card draw versus discard death timing
+
+- **Question:** If drawing the top Queen Health card leaves the deck empty, does the Queen die immediately, only when that drawn card is later discarded, or at another point after additional discards but before/after the bottom effect?
+- **Sources checked:** Rulebook p. 35 says the last card is “discarded” and sequences the drawn-card discard after its bottom effect; both Objective Help `QUEEN IS DEAD` occurrences say the Queen dies when the deck is empty.
+- **Candidate readings:**
+  - (a) Drawing alone does not kill; death waits for a discard.
+  - (b) Emptying the deck by drawing kills immediately, while the bottom effect still resolves.
+  - (c) Additional-discard death is immediate, but the drawn-final-card case has a distinct later timing point.
+- **Status:** Open; official clarification preferred. Draw, hidden discards, lower effect, drawn-card discard, death, and reset remain separately ordered with no default.
+
+### SEM-Q-028 — Malfunction/Unreinforce branch ownership and location
+
+- **Question:** On exact face `TTS-QUEEN-HEALTH-458100-6BA0A2-FACE`, who owns the `OR`, is it instead deterministic by the Queen’s Room/Corridor location, and what happens when the named branch is unavailable?
+- **Sources checked:** Exact scan `queenHealthDeck-041.png`, selected evidence, rulebook Malfunction/Reinforced Corridor rules, FAQ v1.2, and licensed `QueenHealthCard12` (Malfunction-only variant).
+- **Candidate readings:**
+  - (a) The attributed drawing Character chooses one legal branch.
+  - (b) Queen location dispatches deterministically: Room → Malfunction, Corridor → Unreinforce.
+  - (c) Another physical/source-defined branch and shortage rule applies, including the nonzero Corridor face restored by “Unreinforce.”
+- **Status:** Open. The exact branch, owner, eligibility, and Corridor value are default-prohibited; generic finite Malfunction/Fire fallback remains independently encoded.
+
+### SEM-Q-029 — Queen Hits terminal/inline local glyph
+
+- **Question:** Is the page-35 queen-head/blob-plus-style terminal/inline morphology exactly the Shoot skull/Critical symbol named by FAQ, only a track-terminal marker, or another source-scoped lethal-result symbol?
+- **Sources checked:** Rulebook visual units `RB-P35-V01` and `RB-P35-V03`, page-40 glossary, FAQ v1.2 General rules #1, and the Queen Health source index.
+- **Candidate readings:**
+  - (a) Exact Shoot skull/Critical result.
+  - (b) Track-terminal marker only; FAQ supplies a separate lethal Shoot rule.
+  - (c) Another source-scoped relation requiring future official icon/component evidence.
+- **Status:** Open; official clarification preferred. The two literal occurrences remain unmapped and create no page-40, color-wide, shape-wide, or global alias.

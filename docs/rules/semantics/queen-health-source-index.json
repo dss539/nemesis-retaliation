@@ -1,0 +1,3144 @@
+{
+  "schemaVersion": 1,
+  "recordType": "semantic-queen-health-source-index",
+  "scope": "entire mechanically derived base Queen Health card/component family; twelve physical occurrences, ten face assets, shared back, official visuals, licensed rows, and source variants remain independent",
+  "derivationPolicy": "Derive physical cards only from the first/base queenHealthDeck Lua role and exact raw root Deck GUID, saved DeckIDs order, contained full CardID/GUID/CustomDeck/FaceURL/BackURL tuples. Close each occurrence against live bytes, corpus/selected evidence, panels, sentences, local symbols, official rule/FAQ/visual evidence, licensed rows, and backlog. Never join by Discard heading, display number alone, filename/folder, CardID modulo, BGA ordinal, or effect resemblance.",
+  "counts": {
+    "physicalFaceOccurrences": 12,
+    "uniqueFaceAssets": 10,
+    "uniqueFullCardIds": 11,
+    "uniqueCardGuids": 12,
+    "rootCustomDeckEntries": 11,
+    "rootUniqueFaceUrls": 10,
+    "directFaceOccurrences": 12,
+    "generatedFaceOccurrences": 0,
+    "sourceSheets": 0,
+    "selectorGaps": 0,
+    "sharedBackOccurrences": 1,
+    "sharedBackSelectorReferences": 13,
+    "canonicalCorpusAssets": 1,
+    "sourceBoundDraftAssets": 9,
+    "physicalPanels": 24,
+    "operativePanels": 24,
+    "printedSentences": 37,
+    "localNumberDisplayOccurrences": 12,
+    "page40MatchedIconOccurrences": 16,
+    "functionalIconOccurrences": 28,
+    "uniqueAssetFunctionalIconOccurrences": 24,
+    "selectedEvidenceNoMatchAssetOccurrences": 9,
+    "canonicalLocalUnregisteredAssetOccurrences": 1,
+    "characterIconOccurrences": 14,
+    "actionCardIconOccurrences": 1,
+    "malfunctionIconOccurrences": 1,
+    "queenIconOccurrences": 0,
+    "damageIconOccurrences": 0,
+    "burstIconOccurrences": 0,
+    "healthIconOccurrences": 0,
+    "licensedDigitalOccurrences": 12,
+    "licensedPlaceholderOccurrences": 4,
+    "licensedCandidateLinks": 16,
+    "officialVisibleFaceOccurrences": 3,
+    "officialVisibleBackOccurrences": 2,
+    "officialQueenHitsTrackSpaces": 6,
+    "officialTrackTerminalLocalSymbolOccurrences": 2,
+    "officialRulebookTextOccurrences": 17,
+    "officialRulebookVisualObligations": 4,
+    "faqOccurrences": 1,
+    "objectiveHelpOccurrences": 2,
+    "excludedExpansionQueenHealthDecks": 3,
+    "excludedPrototypeFaces": 0,
+    "excludedPlaceholderFaces": 0,
+    "excludedParentSheets": 0,
+    "excludedBaseAttackOccurrencesWithQueenApplicability": 20,
+    "backlogTuples": 10,
+    "backlogPhysicalFaceLinks": 12,
+    "backlogObligationsLinked": 25
+  },
+  "discardNumberMultiplicity": {
+    "0": 3,
+    "1": 4,
+    "2": 2,
+    "3": 3
+  },
+  "familyCountEvidence": {
+    "officialRulebook": {
+      "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
+      "locator": "unprinted PDF page 3 / RB-P03-V01 / rulebook_text line 524",
+      "printedPhysicalCount": 12
+    },
+    "rawTtsDeck": {
+      "sourcePath": "assets/tts-mod/extract/nemesis_script_mod.bin",
+      "sourceSha256": "8592c12556630d20c2443a2bd26059ddd8c38d64d91a695c2cfe3542914d1c68",
+      "rolePath": "assets/tts-mod/extract/v2/lua_roles.json",
+      "role": "queenHealthDeck",
+      "deckGuid": "9acd7f",
+      "deckIdsInSavedOrder": [
+        424300,
+        424500,
+        503700,
+        504100,
+        504200,
+        504000,
+        503900,
+        503800,
+        424100,
+        458100,
+        429200,
+        429200
+      ],
+      "savedOrderIsGameplayDeckOrder": false,
+      "setupRequiresShuffle": true,
+      "physicalFaceCount": 12,
+      "uniqueFaceAssetCount": 10
+    },
+    "closedCorpus": {
+      "sourcePath": "assets/tts-mod/extract/card-text-corpus.json",
+      "physicalOccurrenceCount": 12,
+      "uniqueFaceAssetCount": 10,
+      "sourcePaths": [
+        "assets/tts-mod/extract/v2-dl/tree/cards/game/queenHealthDeck-039.png",
+        "assets/tts-mod/extract/v2-dl/tree/cards/game/queenHealthDeck-040.png",
+        "assets/tts-mod/extract/v2-dl/tree/cards/game/queenHealthDeck-013.png",
+        "assets/tts-mod/extract/v2-dl/tree/cards/game/queenHealthDeck-084.png",
+        "assets/tts-mod/extract/v2-dl/tree/cards/game/queenHealthDeck-126.png",
+        "assets/tts-mod/extract/v2-dl/tree/cards/game/queenHealthDeck-164.png",
+        "assets/tts-mod/extract/v2-dl/tree/cards/game/queenHealthDeck-165.png",
+        "assets/tts-mod/extract/v2-dl/tree/cards/game/queenHealthDeck-038.png",
+        "assets/tts-mod/extract/v2-dl/tree/cards/game/queenHealthDeck-041.png",
+        "assets/tts-mod/extract/v2-dl/tree/cards/game/queenHealthDeck-045.png"
+      ]
+    },
+    "licensedDigital": {
+      "sourcePath": "docs/rules/source-extraction/secondary/bga-staticData-260622-1220.js",
+      "indexPath": "docs/rules/source-extraction/secondary-evidence-index.json",
+      "table": "QUEEN_CARDS_DATA",
+      "structuredVariantCount": 12,
+      "keysInSourceOrder": [
+        "QueenHealthCard1",
+        "QueenHealthCard2",
+        "QueenHealthCard3",
+        "QueenHealthCard4",
+        "QueenHealthCard5",
+        "QueenHealthCard6",
+        "QueenHealthCard7",
+        "QueenHealthCard8",
+        "QueenHealthCard9",
+        "QueenHealthCard10",
+        "QueenHealthCard11",
+        "QueenHealthCard12"
+      ],
+      "keySuffixIsNotPrintedCardNumberOrDeckOrder": true
+    },
+    "backlog": {
+      "sourcePath": "docs/rules/semantics/backlog.json",
+      "faceTupleCount": 10,
+      "physicalFaceLinkCount": 12,
+      "faceUnitIds": [
+        "CARD:648b81223c8c8b65",
+        "CARD:ce7a5fba88dd56f5",
+        "CARD:5ad0606dff59c21b",
+        "CARD:bcb0eeb9e86f66f8",
+        "CARD:63654c6409f88599",
+        "CARD:4a79f992bc3e6b74",
+        "CARD:763ca108996c746f",
+        "CARD:fc04bf1a2920fb63",
+        "CARD:929ac1204b4b7989",
+        "CARD:133a975dc072a169"
+      ],
+      "linkedUnitIds": [
+        "CARD:648b81223c8c8b65",
+        "CARD:ce7a5fba88dd56f5",
+        "CARD:5ad0606dff59c21b",
+        "CARD:bcb0eeb9e86f66f8",
+        "CARD:63654c6409f88599",
+        "CARD:4a79f992bc3e6b74",
+        "CARD:763ca108996c746f",
+        "CARD:fc04bf1a2920fb63",
+        "CARD:929ac1204b4b7989",
+        "CARD:133a975dc072a169",
+        "RULE:ACT-SHOOT-001",
+        "RULE:ACT-BURST-001",
+        "RULE:INT-001",
+        "RULE:INT-003",
+        "RULE:INT-007",
+        "RULE:INT-010",
+        "RULE:INT-011",
+        "RULE:RT-011",
+        "FAQ:FQ-P02-U03",
+        "VIS:RB-P03-V01",
+        "VIS:RB-P35-V01",
+        "VIS:RB-P35-V02",
+        "VIS:RB-P35-V03",
+        "OBJ:P1-GT-06",
+        "OBJ:P2-GT-06"
+      ]
+    }
+  },
+  "queenHitsTrack": {
+    "sourceOccurrenceId": "RB-P35-V01-QH-HITS-TRACK",
+    "parentOccurrenceId": "RB-P35-V01",
+    "spacesInPrintedOrder": [
+      {
+        "sequence": 1,
+        "printedValue": 0,
+        "role": "reset/setup"
+      },
+      {
+        "sequence": 2,
+        "printedValue": 1,
+        "role": "accumulated-Hit"
+      },
+      {
+        "sequence": 3,
+        "printedValue": 2,
+        "role": "accumulated-Hit"
+      },
+      {
+        "sequence": 4,
+        "printedValue": 3,
+        "role": "accumulated-Hit"
+      },
+      {
+        "sequence": 5,
+        "printedValue": 4,
+        "role": "accumulated-Hit"
+      },
+      {
+        "sequence": 6,
+        "printedValue": null,
+        "role": "final-space-local-symbol",
+        "literalAppearance": "small pale queen-head/blob-plus-style local terminal glyph; the visual census conservatively describes it as skull-like",
+        "semanticReferenceId": null,
+        "page40TokenAssigned": false
+      }
+    ],
+    "cardAreaSlots": 1,
+    "cardFaceTracks": 0,
+    "cardFaceSlots": 0
+  },
+  "officialLocalSymbols": [
+    {
+      "occurrenceId": "RB-P35-V01-QH-TERMINAL",
+      "parentOccurrenceId": "RB-P35-V01",
+      "location": "terminal Queen's Hits track space",
+      "literalAppearance": "small pale queen-head/blob-plus-style local glyph; existing census says skull-like",
+      "semanticReferenceId": null,
+      "page40TokenAssigned": false
+    },
+    {
+      "occurrenceId": "RB-P35-V03-QH-INLINE",
+      "parentOccurrenceId": "RB-P35-V03",
+      "location": "inline parenthetical next to final-space trigger prose",
+      "literalAppearance": "small pale queen-head/blob-plus-style local glyph associated visually with the track terminal",
+      "semanticReferenceId": null,
+      "page40TokenAssigned": false
+    }
+  ],
+  "sharedBack": {
+    "sourceId": "SRC-QUEEN-HEALTH-BACK",
+    "occurrenceId": "TTS-QUEEN-HEALTH-SHARED-BACK",
+    "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/queenHealthDeck-017.png",
+    "sourceSha256": "c02d1ae4f5add1502d16182823507ce412869a5264e134ffaa36f18d7b60b6fc",
+    "sourceAuthority": "source-bound-component-scan",
+    "sourceVersion": "TTS shared base Queen Health back / root deck 9acd7f",
+    "sourceSelector": {
+      "key": "BackURL",
+      "objectType": "Deck",
+      "guid": "9acd7f",
+      "url": "https://steamusercontent-a.akamaihd.net/ugc/11923313303559415/089CF664C3CC0F028CCC63FB2B9C15C4B063F3A9/",
+      "sideRole": "shared-non-operative-back",
+      "rootDeckSelectorCount": 1,
+      "baseCardSelectorCount": 12,
+      "referenceCount": 13
+    },
+    "printedTitle": "QUEEN HEALTH",
+    "printedVisibleText": "PRIMEBLOOD",
+    "rulesTextPresent": false,
+    "separateRulesFace": false,
+    "numberedBack": false
+  },
+  "officialRulebookTextOccurrences": [
+    {
+      "occurrenceId": "RB-QH-INVENTORY",
+      "section": "inventory",
+      "locator": "unprinted PDF page 3 / rulebook_text line 524",
+      "sourceText": "12 Queen Health cards."
+    },
+    {
+      "occurrenceId": "RB-QH-SETUP-01",
+      "section": "setup",
+      "locator": "printed page 10 / lines 2583–2587",
+      "sourceText": "Shuffle all Queen Health cards and place them numbers-side down; place a Universal marker on 0 of the Queen's Hits track."
+    },
+    {
+      "occurrenceId": "RB-QH-BURST-01",
+      "section": "burst",
+      "locator": "printed page 33 / lines 5514–5529",
+      "sourceText": "A Character may apply any number of Burst Hits to the Queen up to her Hits track maximum; leftover Hits are lost."
+    },
+    {
+      "occurrenceId": "RB-QH-SHOOT-01",
+      "section": "shoot",
+      "locator": "printed page 33 / lines 5576–5605",
+      "sourceText": "Shoot deals 1 Hit before the Shoot roll; Larvae and the Queen use different Health resolution."
+    },
+    {
+      "occurrenceId": "RB-QH-MELEE-01",
+      "section": "melee",
+      "locator": "printed page 34 / lines 5628–5669",
+      "sourceText": "Melee deals 1 Hit before its Shoot-die roll; the Queen's Health resolves differently."
+    },
+    {
+      "occurrenceId": "RB-QH-HITS-01",
+      "section": "queen-health",
+      "locator": "printed page 35 / lines 5791–5800",
+      "sourceText": "For each Hit dealt to the Queen, advance the Universal marker on the Queen's Hits track by 1 instead of placing markers near the model."
+    },
+    {
+      "occurrenceId": "RB-QH-THRESHOLD-01",
+      "section": "queen-health",
+      "locator": "printed page 35 / lines 5747–5754",
+      "sourceText": "Whenever the marker reaches the final space, ignore any further Hits in that Action and draw the top Queen Health card."
+    },
+    {
+      "occurrenceId": "RB-QH-RESOLVE-01",
+      "section": "queen-health",
+      "locator": "printed page 35 / lines 5754–5760",
+      "sourceText": "Discard the shown number of additional cards without revealing them, then resolve the bottom effect even if the Queen dies from the additional discards."
+    },
+    {
+      "occurrenceId": "RB-QH-RESOLVE-02",
+      "section": "queen-health",
+      "locator": "printed page 35 / lines 5761–5763",
+      "sourceText": "Discard the drawn card and reset the Universal marker to 0."
+    },
+    {
+      "occurrenceId": "RB-QH-DEATH-01",
+      "section": "queen-death",
+      "locator": "printed page 35 / lines 5764–5772",
+      "sourceText": "When the last Queen Health card is discarded, remove the Queen model, ignore future Queen placements, and flip the Intruder Help sheet."
+    },
+    {
+      "occurrenceId": "RB-QH-ACTIVATION-01",
+      "section": "queen-activation",
+      "locator": "printed page 35 / lines 5773–5786",
+      "sourceText": "The Queen Attacks a Character in her Room if possible, otherwise moves once toward the closest Character using the stated tie-breaks."
+    },
+    {
+      "occurrenceId": "RB-QH-REPEL-01",
+      "section": "repel",
+      "locator": "printed page 31 / lines 5273–5292",
+      "sourceText": "A Character Repelling an Intruder from the same Room chooses the exit Corridor; other Repel destinations use lowest ID and preserve Door/entry consequences."
+    },
+    {
+      "occurrenceId": "RB-QH-ACTION-DRAW-01",
+      "section": "action-deck",
+      "locator": "printed page 16 / lines 3435–3438",
+      "sourceText": "When an Action deck has no card to draw, shuffle that Character's discard pile into a new deck and continue drawing."
+    },
+    {
+      "occurrenceId": "RB-QH-CHARACTER-ORDER-01",
+      "section": "effect-order",
+      "locator": "printed page 14 / lines 3294–3299",
+      "sourceText": "All effects mentioning Characters resolve in Turn order."
+    },
+    {
+      "occurrenceId": "RB-QH-MALFUNCTION-01",
+      "section": "malfunction",
+      "locator": "printed page 22 / lines 4368–4375, 4414–4426",
+      "sourceText": "A Room holds at most one Malfunction; repeated placement is ignored; if the supply is empty place Fire in the Room instead if possible."
+    },
+    {
+      "occurrenceId": "RB-QH-REINFORCE-01",
+      "section": "reinforced-corridor",
+      "locator": "printed page 21 / lines 4150–4157",
+      "sourceText": "Reinforcing an empty Corridor discards Noise and flips the Corridor to its value-0 side."
+    },
+    {
+      "occurrenceId": "RB-QH-FACILITY-DEATH-01",
+      "section": "facility-destruction",
+      "locator": "printed pages 7 and 38 / INT-010",
+      "sourceText": "Facility destruction kills all Intruders, including the Queen."
+    }
+  ],
+  "officialVisibleCounterparts": [
+    {
+      "sourceOccurrenceId": "RB-P03-V01-QH-FACE-DISCARD-0-PARTIAL",
+      "parentOccurrenceId": "RB-P03-V01",
+      "kind": "partial-face",
+      "locator": "unprinted PDF page 3 / bottom-right Queen Health spread / rear upper-left face",
+      "visibleText": "Discard\n0",
+      "completeness": "same-family face; remaining operative text physically occluded",
+      "candidateDiscardCount": 0,
+      "sourceId": "SRC-RULEBOOK",
+      "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
+      "sourceSha256": "e3cda0d7a91bd090cec45dbc8ce89e2015e2202173357c374ff49365f9c29ddd",
+      "parentVisualType": "illustrated-component-inventory",
+      "parentBbox160Dpi": [
+        165,
+        120,
+        1135,
+        1685
+      ],
+      "sourceScopedOnly": true
+    },
+    {
+      "sourceOccurrenceId": "RB-P03-V01-QH-FACE-DISCARD-1-PARTIAL",
+      "parentOccurrenceId": "RB-P03-V01",
+      "kind": "partial-face",
+      "locator": "unprinted PDF page 3 / bottom-right Queen Health spread / rear upper-right face",
+      "visibleText": "Discard\n1",
+      "completeness": "same-family face; remaining operative text physically occluded",
+      "candidateDiscardCount": 1,
+      "sourceId": "SRC-RULEBOOK",
+      "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
+      "sourceSha256": "e3cda0d7a91bd090cec45dbc8ce89e2015e2202173357c374ff49365f9c29ddd",
+      "parentVisualType": "illustrated-component-inventory",
+      "parentBbox160Dpi": [
+        165,
+        120,
+        1135,
+        1685
+      ],
+      "sourceScopedOnly": true
+    },
+    {
+      "sourceOccurrenceId": "RB-P03-V01-QH-BACK",
+      "parentOccurrenceId": "RB-P03-V01",
+      "kind": "shared-back",
+      "locator": "unprinted PDF page 3 / bottom-right Queen Health spread / front card back",
+      "visibleText": "QUEEN HEALTH\nPRIMEBLOOD",
+      "completeness": "visible family back; non-operative",
+      "candidateDiscardCount": null,
+      "sourceId": "SRC-RULEBOOK",
+      "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
+      "sourceSha256": "e3cda0d7a91bd090cec45dbc8ce89e2015e2202173357c374ff49365f9c29ddd",
+      "parentVisualType": "illustrated-component-inventory",
+      "parentBbox160Dpi": [
+        165,
+        120,
+        1135,
+        1685
+      ],
+      "sourceScopedOnly": true
+    },
+    {
+      "sourceOccurrenceId": "RB-P35-V02-QH-FACE-DISCARD-1-REPEL",
+      "parentOccurrenceId": "RB-P35-V02",
+      "kind": "face",
+      "locator": "printed page 35 / Queen Health card anatomy example",
+      "visibleText": "Discard\n1\nadditional card.\nRepel the Queen.",
+      "completeness": "official visible current component occurrence; panel structure and exposed wording control only this occurrence",
+      "candidateDiscardCount": 1,
+      "sourceId": "SRC-RULEBOOK",
+      "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
+      "sourceSha256": "e3cda0d7a91bd090cec45dbc8ce89e2015e2202173357c374ff49365f9c29ddd",
+      "parentVisualType": "queen-health-card-front-back-anatomy-example",
+      "parentBbox160Dpi": [
+        175,
+        860,
+        640,
+        1285
+      ],
+      "sourceScopedOnly": true
+    },
+    {
+      "sourceOccurrenceId": "RB-P35-V02-QH-BACK",
+      "parentOccurrenceId": "RB-P35-V02",
+      "kind": "shared-back",
+      "locator": "printed page 35 / Queen Health card anatomy example",
+      "visibleText": "QUEEN HEALTH\nPRIMEBLOOD",
+      "completeness": "visible family back; non-operative",
+      "candidateDiscardCount": null,
+      "sourceId": "SRC-RULEBOOK",
+      "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
+      "sourceSha256": "e3cda0d7a91bd090cec45dbc8ce89e2015e2202173357c374ff49365f9c29ddd",
+      "parentVisualType": "queen-health-card-front-back-anatomy-example",
+      "parentBbox160Dpi": [
+        175,
+        860,
+        640,
+        1285
+      ],
+      "sourceScopedOnly": true
+    }
+  ],
+  "faqOccurrences": [
+    {
+      "sourceUnitId": "FQ-P02-U03",
+      "section": "GENERAL RULES",
+      "applicability": "base-game",
+      "printedText": "How does shooting at the Queen work exactly?\nShooting at the Queen works exactly the same as it does for Adult Intruders, but instead of removing the miniature from the board, you resolve the Queen health card instead. Shooting a Queen with 2 hits will result in resolving the top card of the Queen Health Deck, if a player rolls a 2 (or fewer) or a skull symbol."
+    }
+  ],
+  "objectiveHelpOccurrences": [
+    {
+      "sourceUnitId": "P1-GT-06",
+      "heading": "QUEEN IS DEAD",
+      "printedDefinition": "The Queen is considered\ndead when the Facility is Destroyed or when\nthe Queen Health deck is empty. A reminder is\nwritten down on the Queen Health cards space.",
+      "visibility": null
+    },
+    {
+      "sourceUnitId": "P2-GT-06",
+      "heading": "QUEEN IS DEAD",
+      "printedDefinition": "The Queen is considered\ndead when the Facility is Destroyed or when\nthe Queen Health deck is empty. A reminder is\nwritten down on the Queen Health cards space.",
+      "visibility": null
+    }
+  ],
+  "licensedDigitalOccurrences": [
+    {
+      "key": "QueenHealthCard1",
+      "structuredOrdinal": 1,
+      "discard": 0,
+      "effectDesc": "Repel the Queen.",
+      "sourceBlockText": "  QueenHealthCard1: { discard: 0, effectDesc: 'Repel the Queen.' },",
+      "structuredOrdinalIsNotPrintedCardNumberOrDeckOrder": true
+    },
+    {
+      "key": "QueenHealthCard2",
+      "structuredOrdinal": 2,
+      "discard": 0,
+      "effectDesc": "Activate the Queen.",
+      "sourceBlockText": "  QueenHealthCard2: { discard: 0, effectDesc: 'Activate the Queen.' },",
+      "structuredOrdinalIsNotPrintedCardNumberOrDeckOrder": true
+    },
+    {
+      "key": "QueenHealthCard3",
+      "structuredOrdinal": 3,
+      "discard": 0,
+      "effectDesc": "Place the Queen back in the pool.",
+      "sourceBlockText": "  QueenHealthCard3: { discard: 0, effectDesc: 'Place the Queen back in the pool.' },",
+      "structuredOrdinalIsNotPrintedCardNumberOrDeckOrder": true
+    },
+    {
+      "key": "QueenHealthCard4",
+      "structuredOrdinal": 4,
+      "discard": 1,
+      "effectDesc": "Repel the Queen.",
+      "sourceBlockText": "  QueenHealthCard4: { discard: 1, effectDesc: 'Repel the Queen.' },",
+      "structuredOrdinalIsNotPrintedCardNumberOrDeckOrder": true
+    },
+    {
+      "key": "QueenHealthCard5",
+      "structuredOrdinal": 5,
+      "discard": 1,
+      "effectDesc": "Repel the Queen.",
+      "sourceBlockText": "  QueenHealthCard5: { discard: 1, effectDesc: 'Repel the Queen.' },",
+      "structuredOrdinalIsNotPrintedCardNumberOrDeckOrder": true
+    },
+    {
+      "key": "QueenHealthCard6",
+      "structuredOrdinal": 6,
+      "discard": 1,
+      "effectDesc": "Add all Queen tokens to the bag.",
+      "sourceBlockText": "  QueenHealthCard6: { discard: 1, effectDesc: 'Add all Queen tokens to the bag.' },",
+      "structuredOrdinalIsNotPrintedCardNumberOrDeckOrder": true
+    },
+    {
+      "key": "QueenHealthCard7",
+      "structuredOrdinal": 7,
+      "discard": 1,
+      "effectDesc": "Each <CHARACTER> in the Room with the Queen draws 2<ACTION-CARD>.",
+      "sourceBlockText": "  QueenHealthCard7: { discard: 1, effectDesc: 'Each <CHARACTER> in the Room with the Queen draws 2<ACTION-CARD>.' },",
+      "structuredOrdinalIsNotPrintedCardNumberOrDeckOrder": true
+    },
+    {
+      "key": "QueenHealthCard8",
+      "structuredOrdinal": 8,
+      "discard": 2,
+      "effectDesc": "Repel the Queen.",
+      "sourceBlockText": "  QueenHealthCard8: { discard: 2, effectDesc: 'Repel the Queen.' },",
+      "structuredOrdinalIsNotPrintedCardNumberOrDeckOrder": true
+    },
+    {
+      "key": "QueenHealthCard9",
+      "structuredOrdinal": 9,
+      "discard": 2,
+      "effectDesc": "Each <CHARACTER> in the Room with the Queen makes a Noise roll.",
+      "sourceBlockText": "  QueenHealthCard9: { discard: 2, effectDesc: 'Each <CHARACTER> in the Room with the Queen makes a Noise roll.' },",
+      "structuredOrdinalIsNotPrintedCardNumberOrDeckOrder": true
+    },
+    {
+      "key": "QueenHealthCard10",
+      "structuredOrdinal": 10,
+      "discard": 3,
+      "effectDesc": "Activate the Queen.",
+      "sourceBlockText": "  QueenHealthCard10: { discard: 3, effectDesc: 'Activate the Queen.' },",
+      "structuredOrdinalIsNotPrintedCardNumberOrDeckOrder": true
+    },
+    {
+      "key": "QueenHealthCard11",
+      "structuredOrdinal": 11,
+      "discard": 3,
+      "effectDesc": "Activate the Queen.",
+      "sourceBlockText": "  QueenHealthCard11: { discard: 3, effectDesc: 'Activate the Queen.' },",
+      "structuredOrdinalIsNotPrintedCardNumberOrDeckOrder": true
+    },
+    {
+      "key": "QueenHealthCard12",
+      "structuredOrdinal": 12,
+      "discard": 3,
+      "effectDesc": "Place a <MALFUNCTION> in the Room with the Queen.",
+      "sourceBlockText": "  QueenHealthCard12: { discard: 3, effectDesc: 'Place a <MALFUNCTION> in the Room with the Queen.' },",
+      "structuredOrdinalIsNotPrintedCardNumberOrDeckOrder": true
+    }
+  ],
+  "excludedContent": {
+    "expansionQueenHealthDecks": [
+      {
+        "expansion": "Neoflesh",
+        "role": "queenHealthDeck",
+        "guid": "99e2ce",
+        "type": "Deck",
+        "deckNums": [
+          "4663",
+          "4666",
+          "4667",
+          "4670",
+          "4672",
+          "5043",
+          "5044",
+          "5045",
+          "5050",
+          "5051",
+          "5052",
+          "5053"
+        ],
+        "scope": "expansion; excluded from base conclusions"
+      },
+      {
+        "expansion": "Sangrevores",
+        "role": "queenHealthDeck",
+        "guid": "3b65b3",
+        "type": "Deck",
+        "deckNums": [
+          "4722",
+          "4917",
+          "4918",
+          "4919",
+          "4920",
+          "4921",
+          "4922",
+          "4923",
+          "4924",
+          "4925",
+          "4992"
+        ],
+        "scope": "expansion; excluded from base conclusions"
+      },
+      {
+        "expansion": "Carnomorph",
+        "role": "queenHealthDeck",
+        "guid": "6963a5",
+        "type": "Deck",
+        "deckNums": [
+          "5694",
+          "5695",
+          "5696",
+          "5697",
+          "5698",
+          "5699",
+          "5700",
+          "5701",
+          "5702",
+          "5703",
+          "5704"
+        ],
+        "scope": "expansion; excluded from base conclusions"
+      }
+    ],
+    "prototypePlaceholderParentSheetBoundary": "The base root deck has twelve direct CardCustom children, zero generated cells, zero source sheets, zero selector gaps, and no separately selected prototype or placeholder face.",
+    "sharedBackBoundary": "One generic BackURL is referenced by the root deck and all twelve physical cards; it is not a thirteenth rules face and it carries no per-card number.",
+    "duplicateFaceBoundary": "Two physical cards share queenHealthDeck-084.png under distinct CardID/GUID tuples; two more share queenHealthDeck-045.png and CardID 429200 under distinct GUIDs. Shared bytes do not collapse copies.",
+    "attackAndNonHealthCollisions": [
+      {
+        "kind": "base Intruder Attack family",
+        "count": 20,
+        "boundary": "Queen applicability badges or Queen Attack resolution do not make an Intruder Attack card a Queen Health card."
+      },
+      {
+        "kind": "The Queen Awakens Event",
+        "count": 1,
+        "boundary": "Event title collision; separate Event deck occurrence."
+      },
+      {
+        "kind": "Intruder Help Queen Alive/Dead faces",
+        "count": 2,
+        "boundary": "reference-sheet state faces, not Queen Health cards."
+      },
+      {
+        "kind": "Queen model/tokens/objective labels",
+        "boundary": "agents, tokens, and game-term occurrences are supporting evidence, not deck faces."
+      }
+    ],
+    "licensedOrdinalBoundary": "QueenHealthCard1..12 are licensed structured keys. Their suffixes are retained but are not promoted to printed titles, physical card numbers, TTS saved order, or a one-to-one duplicate-copy assignment.",
+    "duplicateReferenceBoundary": "Root-deck, child-card, corpus, selected-evidence, official-visible, backlog, and licensed records are provenance links rather than extra physical Queen Health occurrences."
+  },
+  "faces": [
+    {
+      "queenHealthOccurrenceId": "TTS-QUEEN-HEALTH-424300-615E22-FACE",
+      "ttsRole": "queenHealthDeck",
+      "ttsDeckGuid": "9acd7f",
+      "ttsDeckType": "Deck",
+      "ttsSavedSequence": 1,
+      "rulesDeckOrderSourceBacked": false,
+      "ttsCardGuid": "615e22",
+      "ttsCardId": 424300,
+      "customDeckId": "4243",
+      "sourceSelector": {
+        "key": "FaceURL",
+        "objectType": "CardCustom",
+        "fullCardId": 424300,
+        "guid": "615e22",
+        "parentDeckGuid": "9acd7f",
+        "customDeckId": "4243",
+        "url": "https://steamusercontent-a.akamaihd.net/ugc/11927200047880192/6966B0D711B4968C0B0F3D87FF920634ACCCCA2A/",
+        "backUrl": "https://steamusercontent-a.akamaihd.net/ugc/11923313303559415/089CF664C3CC0F028CCC63FB2B9C15C4B063F3A9/",
+        "sideRole": "operative-number-and-effect-face",
+        "sourceRole": "direct-composite-face",
+        "selectorStatus": "exact-full-CardID-GUID-CustomDeck-FaceURL-parent-tuple",
+        "generatedSpriteSheetCell": false,
+        "selectorGap": null,
+        "cardIdModuloJoinUsed": false
+      },
+      "sourceId": "SRC-QUEEN-HEALTH-424300-615E22",
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/queenHealthDeck-039.png",
+      "sourceSha256": "648b81223c8c8b65b96a4304645bfe738f2ca64ecf989c0a826111d6bf6bd506",
+      "sourceAuthority": "source-bound-component-scan",
+      "sourceVersion": "TTS base Queen Health physical occurrence / root deck 9acd7f / saved sequence 1 / full CardID 424300 / GUID 615e22",
+      "corpusEvidencePath": "assets/tts-mod/extract/card-text-corpus.json",
+      "selectedEvidencePath": "assets/tts-mod/extract/vision-results/648b81223c8c8b65b96a4304645bfe738f2ca64ecf989c0a826111d6bf6bd506.json",
+      "provenanceEvidencePath": "assets/tts-mod/extract/card-provenance-inventory.json",
+      "extractionState": "verified-canonical",
+      "rulesInformationReadiness": "canonical",
+      "printedHeading": "Discard",
+      "printedDiscardCount": 0,
+      "printedBody": "0\nadditional cards.\n\nIf the card was drawn by a [character]:\n\nRepel the Queen.",
+      "panels": [
+        {
+          "panelId": "P1",
+          "readingOrder": 1,
+          "role": "discard-count-and-artwork-panel",
+          "operative": true,
+          "heading": "Discard",
+          "exactText": "Discard\n0\nadditional cards.",
+          "bodyStart": 0,
+          "bodyEnd": 19
+        },
+        {
+          "panelId": "P2",
+          "readingOrder": 2,
+          "role": "conditional-special-effect-panel",
+          "operative": true,
+          "heading": "",
+          "exactText": "If the card was drawn by a [character]:\n\nRepel the Queen.",
+          "bodyStart": 21,
+          "bodyEnd": 78
+        }
+      ],
+      "sentences": [
+        {
+          "sentenceId": "QH-424300-615E22-S01",
+          "sequence": 1,
+          "panelId": "P1",
+          "exactText": "0\nadditional cards.",
+          "start": 0,
+          "end": 19
+        },
+        {
+          "sentenceId": "QH-424300-615E22-S02",
+          "sequence": 2,
+          "panelId": "P2",
+          "exactText": "If the card was drawn by a [character]:",
+          "start": 21,
+          "end": 60
+        },
+        {
+          "sentenceId": "QH-424300-615E22-S03",
+          "sequence": 3,
+          "panelId": "P2",
+          "exactText": "Repel the Queen.",
+          "start": 62,
+          "end": 78
+        }
+      ],
+      "iconOccurrences": [
+        {
+          "occurrenceId": "QH-424300-615E22-I01",
+          "assetMorphologyOccurrenceId": "QH-ASSET-648b81223c8c8b65-DISPLAY",
+          "sequence": 1,
+          "panelId": "P1",
+          "sourceToken": "LOCAL-DISCARD-DISPLAY-0",
+          "literalAppearance": "Large near-square octagonal outline made from separated horizontal, vertical, and diagonal glowing green segments, with gaps at the middle of both sides, containing a tall narrow white 0-like glyph in a dark translucent green interior.",
+          "printedNumericValue": 0,
+          "semanticReferenceId": null,
+          "mappingStatus": "canonical-preselected-local-morphology-no-global-alias",
+          "page40TokenAssigned": false,
+          "mappingScope": "exact Queen Health source occurrence TTS-QUEEN-HEALTH-424300-615E22-FACE only",
+          "resolutionBoundary": "The visible numeral remains source-local morphology. Its numeric value is read from this card occurrence and composed with the official page-35 instruction; it is not a Shoot/Burst/Health/damage icon alias.",
+          "selectedEvidence": null
+        },
+        {
+          "occurrenceId": "QH-424300-615E22-I02",
+          "assetMorphologyOccurrenceId": "QH-ASSET-648b81223c8c8b65-INLINE-01",
+          "sequence": 2,
+          "panelId": "P2",
+          "sourceToken": "character",
+          "start": 48,
+          "end": 59,
+          "literalAppearance": "Character",
+          "semanticReferenceId": "icon.character",
+          "mappingStatus": "authoritative-page40-exact-occurrence-match",
+          "page40TokenAssigned": true,
+          "mappingScope": "exact Queen Health source occurrence TTS-QUEEN-HEALTH-424300-615E22-FACE only",
+          "resolutionBoundary": "Only the exact occurrence-specific authoritative comparison is used; no color, position, title, or surrounding-text alias is created.",
+          "selectedEvidence": {
+            "canonicalToken": "character",
+            "matchDecision": "match",
+            "referenceLabel": "Character",
+            "evidenceSource": "assets/tts-mod/extract/vision-results/648b81223c8c8b65b96a4304645bfe738f2ca64ecf989c0a826111d6bf6bd506.json"
+          }
+        }
+      ],
+      "cardStateRoles": {
+        "setup": "numbers-side down; operative face hidden and shared back visible",
+        "drawn": "operative face revealed publicly in resolution",
+        "additionalDiscards": "discarded without revealing",
+        "sharedBackSourceId": "SRC-QUEEN-HEALTH-BACK",
+        "separateRulesFaceOnBack": false
+      },
+      "sharedFaceAsset": {
+        "sourceSha256": "648b81223c8c8b65b96a4304645bfe738f2ca64ecf989c0a826111d6bf6bd506",
+        "physicalOccurrenceCount": 1,
+        "physicalOccurrenceIds": [
+          "TTS-QUEEN-HEALTH-424300-615E22-FACE"
+        ],
+        "assetIdentityDoesNotCollapsePhysicalCopies": true
+      },
+      "semanticRuleId": "SEM-QUEEN-HEALTH-424300-615E22-001",
+      "backlogUnitId": "CARD:648b81223c8c8b65",
+      "bgaVariantCandidates": {
+        "sourceId": "SRC-BGA-QUEEN-HEALTH",
+        "sourcePath": "docs/rules/source-extraction/secondary/bga-staticData-260622-1220.js",
+        "sourceSha256": "18cd8f4a2883d4f6662ed170095ff07e0d9f5da508064ed1d6bfc124f5a274ae",
+        "sourceVersion": "licensed BGA immutable build 260622-1220 / QUEEN_CARDS_DATA",
+        "table": "QUEEN_CARDS_DATA",
+        "matchStatus": "exact-functional-tuple-candidate",
+        "candidateKeys": [
+          "QueenHealthCard1"
+        ],
+        "candidates": [
+          {
+            "key": "QueenHealthCard1",
+            "structuredOrdinal": 1,
+            "discard": 0,
+            "effectDesc": "Repel the Queen.",
+            "sourceBlockText": "  QueenHealthCard1: { discard: 0, effectDesc: 'Repel the Queen.' },",
+            "structuredOrdinalIsNotPrintedCardNumberOrDeckOrder": true
+          }
+        ],
+        "oneToOneCopyAssignmentAsserted": true,
+        "boundary": "Candidate projection uses exact discard/effect tuples and family multiplicity only; BGA key suffixes are not printed card numbers or TTS deck order, and duplicate candidate copies are not arbitrarily paired."
+      },
+      "officialCounterpartRefs": [
+        "RB-P03-V01-QH-FACE-DISCARD-0-PARTIAL"
+      ],
+      "joinEvidence": {
+        "identityJoin": "exact physical occurrence and source-asset projection",
+        "titleOnlyJoin": false,
+        "folderOnlyJoin": false,
+        "cardIdModuloJoin": false,
+        "bgaOrdinalJoin": false,
+        "basis": [
+          "first/base queenHealthDeck Lua role and exact root GUID",
+          "raw saved DeckIDs sequence plus contained full CardID/GUID occurrence",
+          "exact CustomDeck ID, FaceURL, shared BackURL, and parent deck tuple",
+          "closed-corpus path/live SHA-256 and exact selected/canonical text evidence",
+          "ordered two-panel body, source sentences, local number display, and occurrence-scoped icon comparisons",
+          "licensed rows retained independently with candidate-set boundaries rather than title or ordinal pairing"
+        ]
+      }
+    },
+    {
+      "queenHealthOccurrenceId": "TTS-QUEEN-HEALTH-424500-0DD25F-FACE",
+      "ttsRole": "queenHealthDeck",
+      "ttsDeckGuid": "9acd7f",
+      "ttsDeckType": "Deck",
+      "ttsSavedSequence": 2,
+      "rulesDeckOrderSourceBacked": false,
+      "ttsCardGuid": "0dd25f",
+      "ttsCardId": 424500,
+      "customDeckId": "4245",
+      "sourceSelector": {
+        "key": "FaceURL",
+        "objectType": "CardCustom",
+        "fullCardId": 424500,
+        "guid": "0dd25f",
+        "parentDeckGuid": "9acd7f",
+        "customDeckId": "4245",
+        "url": "https://steamusercontent-a.akamaihd.net/ugc/11927200047880909/B382505588480493C902985794727A4D893DDD06/",
+        "backUrl": "https://steamusercontent-a.akamaihd.net/ugc/11923313303559415/089CF664C3CC0F028CCC63FB2B9C15C4B063F3A9/",
+        "sideRole": "operative-number-and-effect-face",
+        "sourceRole": "direct-composite-face",
+        "selectorStatus": "exact-full-CardID-GUID-CustomDeck-FaceURL-parent-tuple",
+        "generatedSpriteSheetCell": false,
+        "selectorGap": null,
+        "cardIdModuloJoinUsed": false
+      },
+      "sourceId": "SRC-QUEEN-HEALTH-424500-0DD25F",
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/queenHealthDeck-040.png",
+      "sourceSha256": "ce7a5fba88dd56f5de2ae77e5fe1647324bdfa9a99ae7f55485cca35eb72b062",
+      "sourceAuthority": "source-bound-component-scan",
+      "sourceVersion": "TTS base Queen Health physical occurrence / root deck 9acd7f / saved sequence 2 / full CardID 424500 / GUID 0dd25f",
+      "corpusEvidencePath": "assets/tts-mod/extract/card-text-corpus.json",
+      "selectedEvidencePath": "assets/tts-mod/extract/selected-card-text-evidence.json",
+      "provenanceEvidencePath": "assets/tts-mod/extract/card-provenance-inventory.json",
+      "extractionState": "draft-full",
+      "rulesInformationReadiness": "draft-text-complete",
+      "printedHeading": "Discard",
+      "printedDiscardCount": 0,
+      "printedBody": "0\nadditional cards.\n\nIf the card was drawn by a [character].\n\nPlace the Queen back in the pool.",
+      "panels": [
+        {
+          "panelId": "P1",
+          "readingOrder": 1,
+          "role": "discard-count-and-artwork-panel",
+          "operative": true,
+          "heading": "Discard",
+          "exactText": "Discard\n0\nadditional cards.",
+          "bodyStart": 0,
+          "bodyEnd": 19
+        },
+        {
+          "panelId": "P2",
+          "readingOrder": 2,
+          "role": "conditional-special-effect-panel",
+          "operative": true,
+          "heading": "",
+          "exactText": "If the card was drawn by a [character].\n\nPlace the Queen back in the pool.",
+          "bodyStart": 21,
+          "bodyEnd": 95
+        }
+      ],
+      "sentences": [
+        {
+          "sentenceId": "QH-424500-0DD25F-S01",
+          "sequence": 1,
+          "panelId": "P1",
+          "exactText": "0\nadditional cards.",
+          "start": 0,
+          "end": 19
+        },
+        {
+          "sentenceId": "QH-424500-0DD25F-S02",
+          "sequence": 2,
+          "panelId": "P2",
+          "exactText": "If the card was drawn by a [character].",
+          "start": 21,
+          "end": 60
+        },
+        {
+          "sentenceId": "QH-424500-0DD25F-S03",
+          "sequence": 3,
+          "panelId": "P2",
+          "exactText": "Place the Queen back in the pool.",
+          "start": 62,
+          "end": 95
+        }
+      ],
+      "iconOccurrences": [
+        {
+          "occurrenceId": "QH-424500-0DD25F-I01",
+          "assetMorphologyOccurrenceId": "QH-ASSET-ce7a5fba88dd56f5-DISPLAY",
+          "sequence": 1,
+          "panelId": "P1",
+          "sourceToken": "LOCAL-DISCARD-DISPLAY-0",
+          "literalAppearance": "Large near-square octagonal outline made from separated horizontal, vertical, and diagonal glowing green segments, with gaps at the middle of both sides, containing a tall narrow white 0-like glyph in a dark translucent green interior.",
+          "printedNumericValue": 0,
+          "semanticReferenceId": null,
+          "mappingStatus": "selected-explicit-authoritative-no-match",
+          "page40TokenAssigned": false,
+          "mappingScope": "exact Queen Health source occurrence TTS-QUEEN-HEALTH-424500-0DD25F-FACE only",
+          "resolutionBoundary": "The visible numeral remains source-local morphology. Its numeric value is read from this card occurrence and composed with the official page-35 instruction; it is not a Shoot/Burst/Health/damage icon alias.",
+          "selectedEvidence": {
+            "cardLocation": "Upper center, between Discard and additional cards.",
+            "referenceLabel": "Location: upper center, between Discard and additional cards. Outer shape: a large near-square octagonal outline made from separated horizontal, vertical, and diagonal segments, with gaps at the middle of both sides. Internal marks: a tall, narrow white 0-like glyph is centered in a dark translucent green interior, with no slash or other crossing mark. Colors: bright green, teal, cyan-green glow, dark green, and white.",
+            "matchDecision": "no-match",
+            "canonicalToken": null,
+            "closestAlternative": "A literal interrupted octagonal display or two opposing segmented brackets around 0 or uppercase O. Among the labeled crops, greenItem is nearest in green octagonal tendency, while the numbered die crops are nearest in containing a large numeral.",
+            "visibleDiscriminator": "The greenItem crop is a solid green octagon containing a white plus, not a separated glowing perimeter containing a tall loop. Every numbered crop places its numeral in a solid red triangle, purple rounded square, or yellow diamond, and no labeled numeral crop contains 0. None of the 49 crops reproduces the source's complete frame-and-glyph morphology.",
+            "evidenceRun": "sol-max-persistent-worker-31-20260821T112612Z-p346900-b7e2c9"
+          }
+        },
+        {
+          "occurrenceId": "QH-424500-0DD25F-I02",
+          "assetMorphologyOccurrenceId": "QH-ASSET-ce7a5fba88dd56f5-INLINE-01",
+          "sequence": 2,
+          "panelId": "P2",
+          "sourceToken": "character",
+          "start": 48,
+          "end": 59,
+          "literalAppearance": "The source and character crop share the same ordered structure of arched head opening, horizontal neck separation, squared shoulders, articulated bent arms, rectangular chest void, narrowed waist, and split lower form. The robot crop instead has a short antenna, a broad domed body, and two circular eye openings, without articulated arms, chest opening, or paired lower limbs. These internal features positively discriminate character from robot without relying on surrounding wording.",
+          "semanticReferenceId": "icon.character",
+          "mappingStatus": "authoritative-page40-exact-occurrence-match",
+          "page40TokenAssigned": true,
+          "mappingScope": "exact Queen Health source occurrence TTS-QUEEN-HEALTH-424500-0DD25F-FACE only",
+          "resolutionBoundary": "Only the exact occurrence-specific authoritative comparison is used; no color, position, title, or surrounding-text alias is created.",
+          "selectedEvidence": {
+            "cardLocation": "Within the first sentence of P2, immediately after a and immediately before the sentence-ending period.",
+            "referenceLabel": "Character",
+            "matchDecision": "match",
+            "canonicalToken": "character",
+            "closestAlternative": "The p.40 robot crop, or a literal segmented mechanical or protective-suit figure, is the closest alternative to the p.40 character crop.",
+            "visibleDiscriminator": "The source and character crop share the same ordered structure of arched head opening, horizontal neck separation, squared shoulders, articulated bent arms, rectangular chest void, narrowed waist, and split lower form. The robot crop instead has a short antenna, a broad domed body, and two circular eye openings, without articulated arms, chest opening, or paired lower limbs. These internal features positively discriminate character from robot without relying on surrounding wording.",
+            "evidenceRun": "sol-max-persistent-worker-31-20260821T112612Z-p346900-b7e2c9"
+          }
+        }
+      ],
+      "cardStateRoles": {
+        "setup": "numbers-side down; operative face hidden and shared back visible",
+        "drawn": "operative face revealed publicly in resolution",
+        "additionalDiscards": "discarded without revealing",
+        "sharedBackSourceId": "SRC-QUEEN-HEALTH-BACK",
+        "separateRulesFaceOnBack": false
+      },
+      "sharedFaceAsset": {
+        "sourceSha256": "ce7a5fba88dd56f5de2ae77e5fe1647324bdfa9a99ae7f55485cca35eb72b062",
+        "physicalOccurrenceCount": 1,
+        "physicalOccurrenceIds": [
+          "TTS-QUEEN-HEALTH-424500-0DD25F-FACE"
+        ],
+        "assetIdentityDoesNotCollapsePhysicalCopies": true
+      },
+      "semanticRuleId": "SEM-QUEEN-HEALTH-424500-0DD25F-001",
+      "backlogUnitId": "CARD:ce7a5fba88dd56f5",
+      "bgaVariantCandidates": {
+        "sourceId": "SRC-BGA-QUEEN-HEALTH",
+        "sourcePath": "docs/rules/source-extraction/secondary/bga-staticData-260622-1220.js",
+        "sourceSha256": "18cd8f4a2883d4f6662ed170095ff07e0d9f5da508064ed1d6bfc124f5a274ae",
+        "sourceVersion": "licensed BGA immutable build 260622-1220 / QUEEN_CARDS_DATA",
+        "table": "QUEEN_CARDS_DATA",
+        "matchStatus": "exact-functional-tuple-candidate",
+        "candidateKeys": [
+          "QueenHealthCard3"
+        ],
+        "candidates": [
+          {
+            "key": "QueenHealthCard3",
+            "structuredOrdinal": 3,
+            "discard": 0,
+            "effectDesc": "Place the Queen back in the pool.",
+            "sourceBlockText": "  QueenHealthCard3: { discard: 0, effectDesc: 'Place the Queen back in the pool.' },",
+            "structuredOrdinalIsNotPrintedCardNumberOrDeckOrder": true
+          }
+        ],
+        "oneToOneCopyAssignmentAsserted": true,
+        "boundary": "Candidate projection uses exact discard/effect tuples and family multiplicity only; BGA key suffixes are not printed card numbers or TTS deck order, and duplicate candidate copies are not arbitrarily paired."
+      },
+      "officialCounterpartRefs": [
+        "RB-P03-V01-QH-FACE-DISCARD-0-PARTIAL"
+      ],
+      "joinEvidence": {
+        "identityJoin": "exact physical occurrence and source-asset projection",
+        "titleOnlyJoin": false,
+        "folderOnlyJoin": false,
+        "cardIdModuloJoin": false,
+        "bgaOrdinalJoin": false,
+        "basis": [
+          "first/base queenHealthDeck Lua role and exact root GUID",
+          "raw saved DeckIDs sequence plus contained full CardID/GUID occurrence",
+          "exact CustomDeck ID, FaceURL, shared BackURL, and parent deck tuple",
+          "closed-corpus path/live SHA-256 and exact selected/canonical text evidence",
+          "ordered two-panel body, source sentences, local number display, and occurrence-scoped icon comparisons",
+          "licensed rows retained independently with candidate-set boundaries rather than title or ordinal pairing"
+        ]
+      }
+    },
+    {
+      "queenHealthOccurrenceId": "TTS-QUEEN-HEALTH-503700-E4AB1C-FACE",
+      "ttsRole": "queenHealthDeck",
+      "ttsDeckGuid": "9acd7f",
+      "ttsDeckType": "Deck",
+      "ttsSavedSequence": 3,
+      "rulesDeckOrderSourceBacked": false,
+      "ttsCardGuid": "e4ab1c",
+      "ttsCardId": 503700,
+      "customDeckId": "5037",
+      "sourceSelector": {
+        "key": "FaceURL",
+        "objectType": "CardCustom",
+        "fullCardId": 503700,
+        "guid": "e4ab1c",
+        "parentDeckGuid": "9acd7f",
+        "customDeckId": "5037",
+        "url": "https://steamusercontent-a.akamaihd.net/ugc/11613634528901264119/DBEBAB234C1393F06823B56F128D2115D64BD970/",
+        "backUrl": "https://steamusercontent-a.akamaihd.net/ugc/11923313303559415/089CF664C3CC0F028CCC63FB2B9C15C4B063F3A9/",
+        "sideRole": "operative-number-and-effect-face",
+        "sourceRole": "direct-composite-face",
+        "selectorStatus": "exact-full-CardID-GUID-CustomDeck-FaceURL-parent-tuple",
+        "generatedSpriteSheetCell": false,
+        "selectorGap": null,
+        "cardIdModuloJoinUsed": false
+      },
+      "sourceId": "SRC-QUEEN-HEALTH-503700-E4AB1C",
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/queenHealthDeck-013.png",
+      "sourceSha256": "5ad0606dff59c21b20689fc6b5b5192ef83c95f108ded91e587725bfd2c68092",
+      "sourceAuthority": "source-bound-component-scan",
+      "sourceVersion": "TTS base Queen Health physical occurrence / root deck 9acd7f / saved sequence 3 / full CardID 503700 / GUID e4ab1c",
+      "corpusEvidencePath": "assets/tts-mod/extract/card-text-corpus.json",
+      "selectedEvidencePath": "assets/tts-mod/extract/selected-card-text-evidence.json",
+      "provenanceEvidencePath": "assets/tts-mod/extract/card-provenance-inventory.json",
+      "extractionState": "draft-full",
+      "rulesInformationReadiness": "draft-text-complete",
+      "printedHeading": "Discard",
+      "printedDiscardCount": 0,
+      "printedBody": "0\nadditional cards.\n\nIf the card was drawn by a [character].\n\nActivate the Queen.",
+      "panels": [
+        {
+          "panelId": "P1",
+          "readingOrder": 1,
+          "role": "discard-count-and-artwork-panel",
+          "operative": true,
+          "heading": "Discard",
+          "exactText": "Discard\n0\nadditional cards.",
+          "bodyStart": 0,
+          "bodyEnd": 19
+        },
+        {
+          "panelId": "P2",
+          "readingOrder": 2,
+          "role": "conditional-special-effect-panel",
+          "operative": true,
+          "heading": "",
+          "exactText": "If the card was drawn by a [character].\n\nActivate the Queen.",
+          "bodyStart": 21,
+          "bodyEnd": 81
+        }
+      ],
+      "sentences": [
+        {
+          "sentenceId": "QH-503700-E4AB1C-S01",
+          "sequence": 1,
+          "panelId": "P1",
+          "exactText": "0\nadditional cards.",
+          "start": 0,
+          "end": 19
+        },
+        {
+          "sentenceId": "QH-503700-E4AB1C-S02",
+          "sequence": 2,
+          "panelId": "P2",
+          "exactText": "If the card was drawn by a [character].",
+          "start": 21,
+          "end": 60
+        },
+        {
+          "sentenceId": "QH-503700-E4AB1C-S03",
+          "sequence": 3,
+          "panelId": "P2",
+          "exactText": "Activate the Queen.",
+          "start": 62,
+          "end": 81
+        }
+      ],
+      "iconOccurrences": [
+        {
+          "occurrenceId": "QH-503700-E4AB1C-I01",
+          "assetMorphologyOccurrenceId": "QH-ASSET-5ad0606dff59c21b-DISPLAY",
+          "sequence": 1,
+          "panelId": "P1",
+          "sourceToken": "LOCAL-DISCARD-DISPLAY-0",
+          "literalAppearance": "Large near-square octagonal outline made from separated horizontal, vertical, and diagonal glowing green segments, with gaps at the middle of both sides, containing a tall narrow white 0-like glyph in a dark translucent green interior.",
+          "printedNumericValue": 0,
+          "semanticReferenceId": null,
+          "mappingStatus": "selected-explicit-authoritative-no-match",
+          "page40TokenAssigned": false,
+          "mappingScope": "exact Queen Health source occurrence TTS-QUEEN-HEALTH-503700-E4AB1C-FACE only",
+          "resolutionBoundary": "The visible numeral remains source-local morphology. Its numeric value is read from this card occurrence and composed with the official page-35 instruction; it is not a Shoot/Burst/Health/damage icon alias.",
+          "selectedEvidence": {
+            "cardLocation": "Upper center, between Discard and additional cards.",
+            "referenceLabel": "Location: upper center, between Discard and additional cards. Outer shape: a large near-square octagonal outline made from separated horizontal, vertical, and diagonal segments, with gaps at the middle of both sides. Internal marks: a tall, narrow white 0-like glyph is centered in a dark translucent green interior, with no slash or crossing mark. Colors: bright green, teal, cyan-green glow, dark green, and white.",
+            "matchDecision": "no-match",
+            "canonicalToken": null,
+            "closestAlternative": "A literal interrupted octagonal display or two opposing segmented brackets around 0 or uppercase O. Among the labeled crops, greenItem is nearest in green octagonal tendency, while the numbered die crops are nearest in containing a large numeral.",
+            "visibleDiscriminator": "The greenItem crop is a solid green octagon containing a white plus, not a separated glowing perimeter containing a tall loop. Every numbered crop places its numeral in a solid red triangle, purple rounded square, or yellow diamond, and no labeled numeral crop contains 0. None of the 49 crops reproduces the source's complete frame-and-glyph morphology.",
+            "evidenceRun": "sol-max-persistent-worker-31-20260821T112612Z-p346900-b7e2c9"
+          }
+        },
+        {
+          "occurrenceId": "QH-503700-E4AB1C-I02",
+          "assetMorphologyOccurrenceId": "QH-ASSET-5ad0606dff59c21b-INLINE-01",
+          "sequence": 2,
+          "panelId": "P2",
+          "sourceToken": "character",
+          "start": 48,
+          "end": 59,
+          "literalAppearance": "The source and character crop share the same ordered structure of arched head opening, horizontal neck separation, squared shoulders, articulated bent arms, rectangular chest void, narrowed waist, and split lower form. The robot crop instead has a short antenna, a broad domed body, and two circular eye openings, without articulated arms, chest opening, or paired lower limbs. These internal features positively discriminate character from robot without relying on surrounding wording.",
+          "semanticReferenceId": "icon.character",
+          "mappingStatus": "authoritative-page40-exact-occurrence-match",
+          "page40TokenAssigned": true,
+          "mappingScope": "exact Queen Health source occurrence TTS-QUEEN-HEALTH-503700-E4AB1C-FACE only",
+          "resolutionBoundary": "Only the exact occurrence-specific authoritative comparison is used; no color, position, title, or surrounding-text alias is created.",
+          "selectedEvidence": {
+            "cardLocation": "Within the first sentence of P2, immediately after a and immediately before the sentence-ending period.",
+            "referenceLabel": "Character",
+            "matchDecision": "match",
+            "canonicalToken": "character",
+            "closestAlternative": "The p.40 robot crop, or a literal segmented mechanical or protective-suit figure, is the closest alternative to the p.40 character crop.",
+            "visibleDiscriminator": "The source and character crop share the same ordered structure of arched head opening, horizontal neck separation, squared shoulders, articulated bent arms, rectangular chest void, narrowed waist, and split lower form. The robot crop instead has a short antenna, a broad domed body, and two circular eye openings, without articulated arms, chest opening, or paired lower limbs. These internal features positively discriminate character from robot without relying on surrounding wording.",
+            "evidenceRun": "sol-max-persistent-worker-31-20260821T112612Z-p346900-b7e2c9"
+          }
+        }
+      ],
+      "cardStateRoles": {
+        "setup": "numbers-side down; operative face hidden and shared back visible",
+        "drawn": "operative face revealed publicly in resolution",
+        "additionalDiscards": "discarded without revealing",
+        "sharedBackSourceId": "SRC-QUEEN-HEALTH-BACK",
+        "separateRulesFaceOnBack": false
+      },
+      "sharedFaceAsset": {
+        "sourceSha256": "5ad0606dff59c21b20689fc6b5b5192ef83c95f108ded91e587725bfd2c68092",
+        "physicalOccurrenceCount": 1,
+        "physicalOccurrenceIds": [
+          "TTS-QUEEN-HEALTH-503700-E4AB1C-FACE"
+        ],
+        "assetIdentityDoesNotCollapsePhysicalCopies": true
+      },
+      "semanticRuleId": "SEM-QUEEN-HEALTH-503700-E4AB1C-001",
+      "backlogUnitId": "CARD:5ad0606dff59c21b",
+      "bgaVariantCandidates": {
+        "sourceId": "SRC-BGA-QUEEN-HEALTH",
+        "sourcePath": "docs/rules/source-extraction/secondary/bga-staticData-260622-1220.js",
+        "sourceSha256": "18cd8f4a2883d4f6662ed170095ff07e0d9f5da508064ed1d6bfc124f5a274ae",
+        "sourceVersion": "licensed BGA immutable build 260622-1220 / QUEEN_CARDS_DATA",
+        "table": "QUEEN_CARDS_DATA",
+        "matchStatus": "exact-functional-tuple-candidate",
+        "candidateKeys": [
+          "QueenHealthCard2"
+        ],
+        "candidates": [
+          {
+            "key": "QueenHealthCard2",
+            "structuredOrdinal": 2,
+            "discard": 0,
+            "effectDesc": "Activate the Queen.",
+            "sourceBlockText": "  QueenHealthCard2: { discard: 0, effectDesc: 'Activate the Queen.' },",
+            "structuredOrdinalIsNotPrintedCardNumberOrDeckOrder": true
+          }
+        ],
+        "oneToOneCopyAssignmentAsserted": true,
+        "boundary": "Candidate projection uses exact discard/effect tuples and family multiplicity only; BGA key suffixes are not printed card numbers or TTS deck order, and duplicate candidate copies are not arbitrarily paired."
+      },
+      "officialCounterpartRefs": [
+        "RB-P03-V01-QH-FACE-DISCARD-0-PARTIAL"
+      ],
+      "joinEvidence": {
+        "identityJoin": "exact physical occurrence and source-asset projection",
+        "titleOnlyJoin": false,
+        "folderOnlyJoin": false,
+        "cardIdModuloJoin": false,
+        "bgaOrdinalJoin": false,
+        "basis": [
+          "first/base queenHealthDeck Lua role and exact root GUID",
+          "raw saved DeckIDs sequence plus contained full CardID/GUID occurrence",
+          "exact CustomDeck ID, FaceURL, shared BackURL, and parent deck tuple",
+          "closed-corpus path/live SHA-256 and exact selected/canonical text evidence",
+          "ordered two-panel body, source sentences, local number display, and occurrence-scoped icon comparisons",
+          "licensed rows retained independently with candidate-set boundaries rather than title or ordinal pairing"
+        ]
+      }
+    },
+    {
+      "queenHealthOccurrenceId": "TTS-QUEEN-HEALTH-504100-717B23-FACE",
+      "ttsRole": "queenHealthDeck",
+      "ttsDeckGuid": "9acd7f",
+      "ttsDeckType": "Deck",
+      "ttsSavedSequence": 4,
+      "rulesDeckOrderSourceBacked": false,
+      "ttsCardGuid": "717b23",
+      "ttsCardId": 504100,
+      "customDeckId": "5041",
+      "sourceSelector": {
+        "key": "FaceURL",
+        "objectType": "CardCustom",
+        "fullCardId": 504100,
+        "guid": "717b23",
+        "parentDeckGuid": "9acd7f",
+        "customDeckId": "5041",
+        "url": "https://steamusercontent-a.akamaihd.net/ugc/14690781479903647924/C557C9D26820C4170FD77A6920D21A37C15C6487/",
+        "backUrl": "https://steamusercontent-a.akamaihd.net/ugc/11923313303559415/089CF664C3CC0F028CCC63FB2B9C15C4B063F3A9/",
+        "sideRole": "operative-number-and-effect-face",
+        "sourceRole": "direct-composite-face",
+        "selectorStatus": "exact-full-CardID-GUID-CustomDeck-FaceURL-parent-tuple",
+        "generatedSpriteSheetCell": false,
+        "selectorGap": null,
+        "cardIdModuloJoinUsed": false
+      },
+      "sourceId": "SRC-QUEEN-HEALTH-504100-717B23",
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/queenHealthDeck-084.png",
+      "sourceSha256": "bcb0eeb9e86f66f8401b584385746d268641c2692392b3faeb4f93438111a62f",
+      "sourceAuthority": "source-bound-component-scan",
+      "sourceVersion": "TTS base Queen Health physical occurrence / root deck 9acd7f / saved sequence 4 / full CardID 504100 / GUID 717b23",
+      "corpusEvidencePath": "assets/tts-mod/extract/card-text-corpus.json",
+      "selectedEvidencePath": "assets/tts-mod/extract/selected-card-text-evidence.json",
+      "provenanceEvidencePath": "assets/tts-mod/extract/card-provenance-inventory.json",
+      "extractionState": "draft-full",
+      "rulesInformationReadiness": "draft-text-complete",
+      "printedHeading": "Discard",
+      "printedDiscardCount": 1,
+      "printedBody": "1\nadditional cards.\n\nIf the card was drawn by a [character].\n\nRepel the Queen.",
+      "panels": [
+        {
+          "panelId": "P1",
+          "readingOrder": 1,
+          "role": "discard-count-and-artwork-panel",
+          "operative": true,
+          "heading": "Discard",
+          "exactText": "Discard\n1\nadditional cards.",
+          "bodyStart": 0,
+          "bodyEnd": 19
+        },
+        {
+          "panelId": "P2",
+          "readingOrder": 2,
+          "role": "conditional-special-effect-panel",
+          "operative": true,
+          "heading": "",
+          "exactText": "If the card was drawn by a [character].\n\nRepel the Queen.",
+          "bodyStart": 21,
+          "bodyEnd": 78
+        }
+      ],
+      "sentences": [
+        {
+          "sentenceId": "QH-504100-717B23-S01",
+          "sequence": 1,
+          "panelId": "P1",
+          "exactText": "1\nadditional cards.",
+          "start": 0,
+          "end": 19
+        },
+        {
+          "sentenceId": "QH-504100-717B23-S02",
+          "sequence": 2,
+          "panelId": "P2",
+          "exactText": "If the card was drawn by a [character].",
+          "start": 21,
+          "end": 60
+        },
+        {
+          "sentenceId": "QH-504100-717B23-S03",
+          "sequence": 3,
+          "panelId": "P2",
+          "exactText": "Repel the Queen.",
+          "start": 62,
+          "end": 78
+        }
+      ],
+      "iconOccurrences": [
+        {
+          "occurrenceId": "QH-504100-717B23-I01",
+          "assetMorphologyOccurrenceId": "QH-ASSET-bcb0eeb9e86f66f8-DISPLAY",
+          "sequence": 1,
+          "panelId": "P1",
+          "sourceToken": "LOCAL-DISCARD-DISPLAY-1",
+          "literalAppearance": "Large near-square octagonal outline made from separated horizontal, vertical, and diagonal glowing green segments, with side gaps, containing a white 1 with angled upper-left flag, straight stem, broad basal foot, and gray shadow in a dark translucent green interior.",
+          "printedNumericValue": 1,
+          "semanticReferenceId": null,
+          "mappingStatus": "selected-explicit-authoritative-no-match",
+          "page40TokenAssigned": false,
+          "mappingScope": "exact Queen Health source occurrence TTS-QUEEN-HEALTH-504100-717B23-FACE only",
+          "resolutionBoundary": "The visible numeral remains source-local morphology. Its numeric value is read from this card occurrence and composed with the official page-35 instruction; it is not a Shoot/Burst/Health/damage icon alias.",
+          "selectedEvidence": {
+            "cardLocation": "Upper center, between Discard and additional cards.",
+            "referenceLabel": "Location: upper center, between Discard and additional cards. Outer shape: a large near-square octagonal outline made from separated horizontal, vertical, and diagonal segments, with gaps at the middle of the left and right sides. Internal marks: a large white 1 with an angled upper-left flag, straight stem, broad basal foot, and gray shadow is centered in a dark translucent green interior; faint cross-shaped guide-like lines remain visible behind it. Colors: bright green, teal, cyan-green glow, dark green, white, and gray shadow.",
+            "matchDecision": "no-match",
+            "canonicalToken": null,
+            "closestAlternative": "The labeled burstDie1 and noiseDie1 crops share the numeral 1; greenItem is the nearest labeled crop in green octagonal tendency. A literal interrupted octagonal display or two opposing segmented brackets around an I-, l-, or 1-like glyph is the closest noncanonical alternative.",
+            "visibleDiscriminator": "The burstDie1 crop places a white 1 in a solid purple rounded square, and noiseDie1 places a black 1 in a solid yellow diamond. The greenItem crop is a solid green octagon containing a white plus. The source instead has separated glowing green edge segments, side gaps, a translucent interior, and a shadowed white 1. The angled upper-left flag and broad foot favor numeral 1 over I or lowercase l, but no labeled crop reproduces the complete display.",
+            "evidenceRun": "sol-max-persistent-worker-31-20260821T112612Z-p346900-b7e2c9"
+          }
+        },
+        {
+          "occurrenceId": "QH-504100-717B23-I02",
+          "assetMorphologyOccurrenceId": "QH-ASSET-bcb0eeb9e86f66f8-INLINE-01",
+          "sequence": 2,
+          "panelId": "P2",
+          "sourceToken": "character",
+          "start": 48,
+          "end": 59,
+          "literalAppearance": "The source and character crop share the same ordered pixel structure: arched head opening, horizontal neck separation, squared shoulders, articulated bent arms, rectangular chest void, narrowed waist, and split lower form. The robot crop instead has a short antenna, broad domed body, and two circular eye openings, without articulated arms, a rectangular chest opening, or paired lower limbs. These visible internal features discriminate character from robot without using the surrounding sentence.",
+          "semanticReferenceId": "icon.character",
+          "mappingStatus": "authoritative-page40-exact-occurrence-match",
+          "page40TokenAssigned": true,
+          "mappingScope": "exact Queen Health source occurrence TTS-QUEEN-HEALTH-504100-717B23-FACE only",
+          "resolutionBoundary": "Only the exact occurrence-specific authoritative comparison is used; no color, position, title, or surrounding-text alias is created.",
+          "selectedEvidence": {
+            "cardLocation": "Within the first sentence of P2, immediately after a and immediately before the sentence-ending period.",
+            "referenceLabel": "Character",
+            "matchDecision": "match",
+            "canonicalToken": "character",
+            "closestAlternative": "The p.40 robot crop, or a literal segmented mechanical or protective-suit figure, is the closest alternative to the p.40 character crop.",
+            "visibleDiscriminator": "The source and character crop share the same ordered pixel structure: arched head opening, horizontal neck separation, squared shoulders, articulated bent arms, rectangular chest void, narrowed waist, and split lower form. The robot crop instead has a short antenna, broad domed body, and two circular eye openings, without articulated arms, a rectangular chest opening, or paired lower limbs. These visible internal features discriminate character from robot without using the surrounding sentence.",
+            "evidenceRun": "sol-max-persistent-worker-31-20260821T112612Z-p346900-b7e2c9"
+          }
+        }
+      ],
+      "cardStateRoles": {
+        "setup": "numbers-side down; operative face hidden and shared back visible",
+        "drawn": "operative face revealed publicly in resolution",
+        "additionalDiscards": "discarded without revealing",
+        "sharedBackSourceId": "SRC-QUEEN-HEALTH-BACK",
+        "separateRulesFaceOnBack": false
+      },
+      "sharedFaceAsset": {
+        "sourceSha256": "bcb0eeb9e86f66f8401b584385746d268641c2692392b3faeb4f93438111a62f",
+        "physicalOccurrenceCount": 2,
+        "physicalOccurrenceIds": [
+          "TTS-QUEEN-HEALTH-504100-717B23-FACE",
+          "TTS-QUEEN-HEALTH-504200-CA5827-FACE"
+        ],
+        "assetIdentityDoesNotCollapsePhysicalCopies": true
+      },
+      "semanticRuleId": "SEM-QUEEN-HEALTH-504100-717B23-001",
+      "backlogUnitId": "CARD:bcb0eeb9e86f66f8",
+      "bgaVariantCandidates": {
+        "sourceId": "SRC-BGA-QUEEN-HEALTH",
+        "sourcePath": "docs/rules/source-extraction/secondary/bga-staticData-260622-1220.js",
+        "sourceSha256": "18cd8f4a2883d4f6662ed170095ff07e0d9f5da508064ed1d6bfc124f5a274ae",
+        "sourceVersion": "licensed BGA immutable build 260622-1220 / QUEEN_CARDS_DATA",
+        "table": "QUEEN_CARDS_DATA",
+        "matchStatus": "duplicate-functional-tuple-candidate-set",
+        "candidateKeys": [
+          "QueenHealthCard4",
+          "QueenHealthCard5"
+        ],
+        "candidates": [
+          {
+            "key": "QueenHealthCard4",
+            "structuredOrdinal": 4,
+            "discard": 1,
+            "effectDesc": "Repel the Queen.",
+            "sourceBlockText": "  QueenHealthCard4: { discard: 1, effectDesc: 'Repel the Queen.' },",
+            "structuredOrdinalIsNotPrintedCardNumberOrDeckOrder": true
+          },
+          {
+            "key": "QueenHealthCard5",
+            "structuredOrdinal": 5,
+            "discard": 1,
+            "effectDesc": "Repel the Queen.",
+            "sourceBlockText": "  QueenHealthCard5: { discard: 1, effectDesc: 'Repel the Queen.' },",
+            "structuredOrdinalIsNotPrintedCardNumberOrDeckOrder": true
+          }
+        ],
+        "oneToOneCopyAssignmentAsserted": false,
+        "boundary": "Candidate projection uses exact discard/effect tuples and family multiplicity only; BGA key suffixes are not printed card numbers or TTS deck order, and duplicate candidate copies are not arbitrarily paired."
+      },
+      "officialCounterpartRefs": [
+        "RB-P03-V01-QH-FACE-DISCARD-1-PARTIAL",
+        "RB-P35-V02-QH-FACE-DISCARD-1-REPEL"
+      ],
+      "joinEvidence": {
+        "identityJoin": "exact physical occurrence and source-asset projection",
+        "titleOnlyJoin": false,
+        "folderOnlyJoin": false,
+        "cardIdModuloJoin": false,
+        "bgaOrdinalJoin": false,
+        "basis": [
+          "first/base queenHealthDeck Lua role and exact root GUID",
+          "raw saved DeckIDs sequence plus contained full CardID/GUID occurrence",
+          "exact CustomDeck ID, FaceURL, shared BackURL, and parent deck tuple",
+          "closed-corpus path/live SHA-256 and exact selected/canonical text evidence",
+          "ordered two-panel body, source sentences, local number display, and occurrence-scoped icon comparisons",
+          "licensed rows retained independently with candidate-set boundaries rather than title or ordinal pairing"
+        ]
+      }
+    },
+    {
+      "queenHealthOccurrenceId": "TTS-QUEEN-HEALTH-504200-CA5827-FACE",
+      "ttsRole": "queenHealthDeck",
+      "ttsDeckGuid": "9acd7f",
+      "ttsDeckType": "Deck",
+      "ttsSavedSequence": 5,
+      "rulesDeckOrderSourceBacked": false,
+      "ttsCardGuid": "ca5827",
+      "ttsCardId": 504200,
+      "customDeckId": "5042",
+      "sourceSelector": {
+        "key": "FaceURL",
+        "objectType": "CardCustom",
+        "fullCardId": 504200,
+        "guid": "ca5827",
+        "parentDeckGuid": "9acd7f",
+        "customDeckId": "5042",
+        "url": "https://steamusercontent-a.akamaihd.net/ugc/14690781479903647924/C557C9D26820C4170FD77A6920D21A37C15C6487/",
+        "backUrl": "https://steamusercontent-a.akamaihd.net/ugc/11923313303559415/089CF664C3CC0F028CCC63FB2B9C15C4B063F3A9/",
+        "sideRole": "operative-number-and-effect-face",
+        "sourceRole": "direct-composite-face",
+        "selectorStatus": "exact-full-CardID-GUID-CustomDeck-FaceURL-parent-tuple",
+        "generatedSpriteSheetCell": false,
+        "selectorGap": null,
+        "cardIdModuloJoinUsed": false
+      },
+      "sourceId": "SRC-QUEEN-HEALTH-504200-CA5827",
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/queenHealthDeck-084.png",
+      "sourceSha256": "bcb0eeb9e86f66f8401b584385746d268641c2692392b3faeb4f93438111a62f",
+      "sourceAuthority": "source-bound-component-scan",
+      "sourceVersion": "TTS base Queen Health physical occurrence / root deck 9acd7f / saved sequence 5 / full CardID 504200 / GUID ca5827",
+      "corpusEvidencePath": "assets/tts-mod/extract/card-text-corpus.json",
+      "selectedEvidencePath": "assets/tts-mod/extract/selected-card-text-evidence.json",
+      "provenanceEvidencePath": "assets/tts-mod/extract/card-provenance-inventory.json",
+      "extractionState": "draft-full",
+      "rulesInformationReadiness": "draft-text-complete",
+      "printedHeading": "Discard",
+      "printedDiscardCount": 1,
+      "printedBody": "1\nadditional cards.\n\nIf the card was drawn by a [character].\n\nRepel the Queen.",
+      "panels": [
+        {
+          "panelId": "P1",
+          "readingOrder": 1,
+          "role": "discard-count-and-artwork-panel",
+          "operative": true,
+          "heading": "Discard",
+          "exactText": "Discard\n1\nadditional cards.",
+          "bodyStart": 0,
+          "bodyEnd": 19
+        },
+        {
+          "panelId": "P2",
+          "readingOrder": 2,
+          "role": "conditional-special-effect-panel",
+          "operative": true,
+          "heading": "",
+          "exactText": "If the card was drawn by a [character].\n\nRepel the Queen.",
+          "bodyStart": 21,
+          "bodyEnd": 78
+        }
+      ],
+      "sentences": [
+        {
+          "sentenceId": "QH-504200-CA5827-S01",
+          "sequence": 1,
+          "panelId": "P1",
+          "exactText": "1\nadditional cards.",
+          "start": 0,
+          "end": 19
+        },
+        {
+          "sentenceId": "QH-504200-CA5827-S02",
+          "sequence": 2,
+          "panelId": "P2",
+          "exactText": "If the card was drawn by a [character].",
+          "start": 21,
+          "end": 60
+        },
+        {
+          "sentenceId": "QH-504200-CA5827-S03",
+          "sequence": 3,
+          "panelId": "P2",
+          "exactText": "Repel the Queen.",
+          "start": 62,
+          "end": 78
+        }
+      ],
+      "iconOccurrences": [
+        {
+          "occurrenceId": "QH-504200-CA5827-I01",
+          "assetMorphologyOccurrenceId": "QH-ASSET-bcb0eeb9e86f66f8-DISPLAY",
+          "sequence": 1,
+          "panelId": "P1",
+          "sourceToken": "LOCAL-DISCARD-DISPLAY-1",
+          "literalAppearance": "Large near-square octagonal outline made from separated horizontal, vertical, and diagonal glowing green segments, with side gaps, containing a white 1 with angled upper-left flag, straight stem, broad basal foot, and gray shadow in a dark translucent green interior.",
+          "printedNumericValue": 1,
+          "semanticReferenceId": null,
+          "mappingStatus": "selected-explicit-authoritative-no-match",
+          "page40TokenAssigned": false,
+          "mappingScope": "exact Queen Health source occurrence TTS-QUEEN-HEALTH-504200-CA5827-FACE only",
+          "resolutionBoundary": "The visible numeral remains source-local morphology. Its numeric value is read from this card occurrence and composed with the official page-35 instruction; it is not a Shoot/Burst/Health/damage icon alias.",
+          "selectedEvidence": {
+            "cardLocation": "Upper center, between Discard and additional cards.",
+            "referenceLabel": "Location: upper center, between Discard and additional cards. Outer shape: a large near-square octagonal outline made from separated horizontal, vertical, and diagonal segments, with gaps at the middle of the left and right sides. Internal marks: a large white 1 with an angled upper-left flag, straight stem, broad basal foot, and gray shadow is centered in a dark translucent green interior; faint cross-shaped guide-like lines remain visible behind it. Colors: bright green, teal, cyan-green glow, dark green, white, and gray shadow.",
+            "matchDecision": "no-match",
+            "canonicalToken": null,
+            "closestAlternative": "The labeled burstDie1 and noiseDie1 crops share the numeral 1; greenItem is the nearest labeled crop in green octagonal tendency. A literal interrupted octagonal display or two opposing segmented brackets around an I-, l-, or 1-like glyph is the closest noncanonical alternative.",
+            "visibleDiscriminator": "The burstDie1 crop places a white 1 in a solid purple rounded square, and noiseDie1 places a black 1 in a solid yellow diamond. The greenItem crop is a solid green octagon containing a white plus. The source instead has separated glowing green edge segments, side gaps, a translucent interior, and a shadowed white 1. The angled upper-left flag and broad foot favor numeral 1 over I or lowercase l, but no labeled crop reproduces the complete display.",
+            "evidenceRun": "sol-max-persistent-worker-31-20260821T112612Z-p346900-b7e2c9"
+          }
+        },
+        {
+          "occurrenceId": "QH-504200-CA5827-I02",
+          "assetMorphologyOccurrenceId": "QH-ASSET-bcb0eeb9e86f66f8-INLINE-01",
+          "sequence": 2,
+          "panelId": "P2",
+          "sourceToken": "character",
+          "start": 48,
+          "end": 59,
+          "literalAppearance": "The source and character crop share the same ordered pixel structure: arched head opening, horizontal neck separation, squared shoulders, articulated bent arms, rectangular chest void, narrowed waist, and split lower form. The robot crop instead has a short antenna, broad domed body, and two circular eye openings, without articulated arms, a rectangular chest opening, or paired lower limbs. These visible internal features discriminate character from robot without using the surrounding sentence.",
+          "semanticReferenceId": "icon.character",
+          "mappingStatus": "authoritative-page40-exact-occurrence-match",
+          "page40TokenAssigned": true,
+          "mappingScope": "exact Queen Health source occurrence TTS-QUEEN-HEALTH-504200-CA5827-FACE only",
+          "resolutionBoundary": "Only the exact occurrence-specific authoritative comparison is used; no color, position, title, or surrounding-text alias is created.",
+          "selectedEvidence": {
+            "cardLocation": "Within the first sentence of P2, immediately after a and immediately before the sentence-ending period.",
+            "referenceLabel": "Character",
+            "matchDecision": "match",
+            "canonicalToken": "character",
+            "closestAlternative": "The p.40 robot crop, or a literal segmented mechanical or protective-suit figure, is the closest alternative to the p.40 character crop.",
+            "visibleDiscriminator": "The source and character crop share the same ordered pixel structure: arched head opening, horizontal neck separation, squared shoulders, articulated bent arms, rectangular chest void, narrowed waist, and split lower form. The robot crop instead has a short antenna, broad domed body, and two circular eye openings, without articulated arms, a rectangular chest opening, or paired lower limbs. These visible internal features discriminate character from robot without using the surrounding sentence.",
+            "evidenceRun": "sol-max-persistent-worker-31-20260821T112612Z-p346900-b7e2c9"
+          }
+        }
+      ],
+      "cardStateRoles": {
+        "setup": "numbers-side down; operative face hidden and shared back visible",
+        "drawn": "operative face revealed publicly in resolution",
+        "additionalDiscards": "discarded without revealing",
+        "sharedBackSourceId": "SRC-QUEEN-HEALTH-BACK",
+        "separateRulesFaceOnBack": false
+      },
+      "sharedFaceAsset": {
+        "sourceSha256": "bcb0eeb9e86f66f8401b584385746d268641c2692392b3faeb4f93438111a62f",
+        "physicalOccurrenceCount": 2,
+        "physicalOccurrenceIds": [
+          "TTS-QUEEN-HEALTH-504100-717B23-FACE",
+          "TTS-QUEEN-HEALTH-504200-CA5827-FACE"
+        ],
+        "assetIdentityDoesNotCollapsePhysicalCopies": true
+      },
+      "semanticRuleId": "SEM-QUEEN-HEALTH-504200-CA5827-001",
+      "backlogUnitId": "CARD:bcb0eeb9e86f66f8",
+      "bgaVariantCandidates": {
+        "sourceId": "SRC-BGA-QUEEN-HEALTH",
+        "sourcePath": "docs/rules/source-extraction/secondary/bga-staticData-260622-1220.js",
+        "sourceSha256": "18cd8f4a2883d4f6662ed170095ff07e0d9f5da508064ed1d6bfc124f5a274ae",
+        "sourceVersion": "licensed BGA immutable build 260622-1220 / QUEEN_CARDS_DATA",
+        "table": "QUEEN_CARDS_DATA",
+        "matchStatus": "duplicate-functional-tuple-candidate-set",
+        "candidateKeys": [
+          "QueenHealthCard4",
+          "QueenHealthCard5"
+        ],
+        "candidates": [
+          {
+            "key": "QueenHealthCard4",
+            "structuredOrdinal": 4,
+            "discard": 1,
+            "effectDesc": "Repel the Queen.",
+            "sourceBlockText": "  QueenHealthCard4: { discard: 1, effectDesc: 'Repel the Queen.' },",
+            "structuredOrdinalIsNotPrintedCardNumberOrDeckOrder": true
+          },
+          {
+            "key": "QueenHealthCard5",
+            "structuredOrdinal": 5,
+            "discard": 1,
+            "effectDesc": "Repel the Queen.",
+            "sourceBlockText": "  QueenHealthCard5: { discard: 1, effectDesc: 'Repel the Queen.' },",
+            "structuredOrdinalIsNotPrintedCardNumberOrDeckOrder": true
+          }
+        ],
+        "oneToOneCopyAssignmentAsserted": false,
+        "boundary": "Candidate projection uses exact discard/effect tuples and family multiplicity only; BGA key suffixes are not printed card numbers or TTS deck order, and duplicate candidate copies are not arbitrarily paired."
+      },
+      "officialCounterpartRefs": [
+        "RB-P03-V01-QH-FACE-DISCARD-1-PARTIAL",
+        "RB-P35-V02-QH-FACE-DISCARD-1-REPEL"
+      ],
+      "joinEvidence": {
+        "identityJoin": "exact physical occurrence and source-asset projection",
+        "titleOnlyJoin": false,
+        "folderOnlyJoin": false,
+        "cardIdModuloJoin": false,
+        "bgaOrdinalJoin": false,
+        "basis": [
+          "first/base queenHealthDeck Lua role and exact root GUID",
+          "raw saved DeckIDs sequence plus contained full CardID/GUID occurrence",
+          "exact CustomDeck ID, FaceURL, shared BackURL, and parent deck tuple",
+          "closed-corpus path/live SHA-256 and exact selected/canonical text evidence",
+          "ordered two-panel body, source sentences, local number display, and occurrence-scoped icon comparisons",
+          "licensed rows retained independently with candidate-set boundaries rather than title or ordinal pairing"
+        ]
+      }
+    },
+    {
+      "queenHealthOccurrenceId": "TTS-QUEEN-HEALTH-504000-919263-FACE",
+      "ttsRole": "queenHealthDeck",
+      "ttsDeckGuid": "9acd7f",
+      "ttsDeckType": "Deck",
+      "ttsSavedSequence": 6,
+      "rulesDeckOrderSourceBacked": false,
+      "ttsCardGuid": "919263",
+      "ttsCardId": 504000,
+      "customDeckId": "5040",
+      "sourceSelector": {
+        "key": "FaceURL",
+        "objectType": "CardCustom",
+        "fullCardId": 504000,
+        "guid": "919263",
+        "parentDeckGuid": "9acd7f",
+        "customDeckId": "5040",
+        "url": "https://steamusercontent-a.akamaihd.net/ugc/17400925971843092307/BD31969306BC8BAF8CC4F9A4BF845326047EA8D4/",
+        "backUrl": "https://steamusercontent-a.akamaihd.net/ugc/11923313303559415/089CF664C3CC0F028CCC63FB2B9C15C4B063F3A9/",
+        "sideRole": "operative-number-and-effect-face",
+        "sourceRole": "direct-composite-face",
+        "selectorStatus": "exact-full-CardID-GUID-CustomDeck-FaceURL-parent-tuple",
+        "generatedSpriteSheetCell": false,
+        "selectorGap": null,
+        "cardIdModuloJoinUsed": false
+      },
+      "sourceId": "SRC-QUEEN-HEALTH-504000-919263",
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/queenHealthDeck-126.png",
+      "sourceSha256": "63654c6409f88599aff333b6a54e90b3c3aaa7a29f2395ffff36eed7ab2d6e49",
+      "sourceAuthority": "source-bound-component-scan",
+      "sourceVersion": "TTS base Queen Health physical occurrence / root deck 9acd7f / saved sequence 6 / full CardID 504000 / GUID 919263",
+      "corpusEvidencePath": "assets/tts-mod/extract/card-text-corpus.json",
+      "selectedEvidencePath": "assets/tts-mod/extract/selected-card-text-evidence.json",
+      "provenanceEvidencePath": "assets/tts-mod/extract/card-provenance-inventory.json",
+      "extractionState": "draft-full",
+      "rulesInformationReadiness": "draft-text-complete",
+      "printedHeading": "Discard",
+      "printedDiscardCount": 1,
+      "printedBody": "1\nadditional cards.\n\nIf the card was drawn by a [character].\n\nAdd all Queen tokens to the bag.",
+      "panels": [
+        {
+          "panelId": "P1",
+          "readingOrder": 1,
+          "role": "discard-count-and-artwork-panel",
+          "operative": true,
+          "heading": "Discard",
+          "exactText": "Discard\n1\nadditional cards.",
+          "bodyStart": 0,
+          "bodyEnd": 19
+        },
+        {
+          "panelId": "P2",
+          "readingOrder": 2,
+          "role": "conditional-special-effect-panel",
+          "operative": true,
+          "heading": "",
+          "exactText": "If the card was drawn by a [character].\n\nAdd all Queen tokens to the bag.",
+          "bodyStart": 21,
+          "bodyEnd": 94
+        }
+      ],
+      "sentences": [
+        {
+          "sentenceId": "QH-504000-919263-S01",
+          "sequence": 1,
+          "panelId": "P1",
+          "exactText": "1\nadditional cards.",
+          "start": 0,
+          "end": 19
+        },
+        {
+          "sentenceId": "QH-504000-919263-S02",
+          "sequence": 2,
+          "panelId": "P2",
+          "exactText": "If the card was drawn by a [character].",
+          "start": 21,
+          "end": 60
+        },
+        {
+          "sentenceId": "QH-504000-919263-S03",
+          "sequence": 3,
+          "panelId": "P2",
+          "exactText": "Add all Queen tokens to the bag.",
+          "start": 62,
+          "end": 94
+        }
+      ],
+      "iconOccurrences": [
+        {
+          "occurrenceId": "QH-504000-919263-I01",
+          "assetMorphologyOccurrenceId": "QH-ASSET-63654c6409f88599-DISPLAY",
+          "sequence": 1,
+          "panelId": "P1",
+          "sourceToken": "LOCAL-DISCARD-DISPLAY-1",
+          "literalAppearance": "Large near-square octagonal outline made from separated horizontal, vertical, and diagonal glowing green segments, with side gaps, containing a white 1 with angled upper-left flag, straight stem, broad basal foot, and gray shadow in a dark translucent green interior.",
+          "printedNumericValue": 1,
+          "semanticReferenceId": null,
+          "mappingStatus": "selected-explicit-authoritative-no-match",
+          "page40TokenAssigned": false,
+          "mappingScope": "exact Queen Health source occurrence TTS-QUEEN-HEALTH-504000-919263-FACE only",
+          "resolutionBoundary": "The visible numeral remains source-local morphology. Its numeric value is read from this card occurrence and composed with the official page-35 instruction; it is not a Shoot/Burst/Health/damage icon alias.",
+          "selectedEvidence": {
+            "cardLocation": "Upper center, between Discard and additional cards.",
+            "referenceLabel": "Location: upper center, between Discard and additional cards. Outer shape: a large near-square octagonal outline made from separated horizontal, vertical, and diagonal segments, with gaps at the middle of the left and right sides. Internal marks: a large white 1 with an angled upper-left flag, straight stem, broad basal foot, and gray shadow is centered in a dark translucent green interior; faint cross-shaped guide-like lines remain visible behind it. Colors: bright green, teal, cyan-green glow, dark green, white, and gray shadow.",
+            "matchDecision": "no-match",
+            "canonicalToken": null,
+            "closestAlternative": "The labeled burstDie1 and noiseDie1 crops share the numeral 1; greenItem is the nearest labeled crop in green octagonal tendency. A literal interrupted octagonal display or two opposing segmented brackets around an I-, l-, or 1-like glyph is the closest noncanonical alternative.",
+            "visibleDiscriminator": "The burstDie1 crop places a white 1 in a solid purple rounded square, and noiseDie1 places a black 1 in a solid yellow diamond. The greenItem crop is a solid green octagon containing a white plus. The source instead has separated glowing green edge segments, side gaps, a translucent interior, and a shadowed white 1. The angled upper-left flag and broad foot favor numeral 1 over I or lowercase l, but no labeled crop reproduces the complete display.",
+            "evidenceRun": "sol-max-persistent-worker-31-20260821T112612Z-p346900-b7e2c9"
+          }
+        },
+        {
+          "occurrenceId": "QH-504000-919263-I02",
+          "assetMorphologyOccurrenceId": "QH-ASSET-63654c6409f88599-INLINE-01",
+          "sequence": 2,
+          "panelId": "P2",
+          "sourceToken": "character",
+          "start": 48,
+          "end": 59,
+          "literalAppearance": "The source and character crop share the same ordered pixel structure: arched head opening, horizontal neck separation, squared shoulders, articulated bent arms, rectangular chest void, narrowed waist, and split lower form. The robot crop instead has a short antenna, broad domed body, and two circular eye openings, without articulated arms, a rectangular chest opening, or paired lower limbs. These visible internal features discriminate character from robot without using the surrounding sentence.",
+          "semanticReferenceId": "icon.character",
+          "mappingStatus": "authoritative-page40-exact-occurrence-match",
+          "page40TokenAssigned": true,
+          "mappingScope": "exact Queen Health source occurrence TTS-QUEEN-HEALTH-504000-919263-FACE only",
+          "resolutionBoundary": "Only the exact occurrence-specific authoritative comparison is used; no color, position, title, or surrounding-text alias is created.",
+          "selectedEvidence": {
+            "cardLocation": "Within the first sentence of P2, immediately after a and immediately before the sentence-ending period.",
+            "referenceLabel": "Character",
+            "matchDecision": "match",
+            "canonicalToken": "character",
+            "closestAlternative": "The p.40 robot crop, or a literal segmented mechanical or protective-suit figure, is the closest alternative to the p.40 character crop.",
+            "visibleDiscriminator": "The source and character crop share the same ordered pixel structure: arched head opening, horizontal neck separation, squared shoulders, articulated bent arms, rectangular chest void, narrowed waist, and split lower form. The robot crop instead has a short antenna, broad domed body, and two circular eye openings, without articulated arms, a rectangular chest opening, or paired lower limbs. These visible internal features discriminate character from robot without using the surrounding sentence.",
+            "evidenceRun": "sol-max-persistent-worker-31-20260821T112612Z-p346900-b7e2c9"
+          }
+        }
+      ],
+      "cardStateRoles": {
+        "setup": "numbers-side down; operative face hidden and shared back visible",
+        "drawn": "operative face revealed publicly in resolution",
+        "additionalDiscards": "discarded without revealing",
+        "sharedBackSourceId": "SRC-QUEEN-HEALTH-BACK",
+        "separateRulesFaceOnBack": false
+      },
+      "sharedFaceAsset": {
+        "sourceSha256": "63654c6409f88599aff333b6a54e90b3c3aaa7a29f2395ffff36eed7ab2d6e49",
+        "physicalOccurrenceCount": 1,
+        "physicalOccurrenceIds": [
+          "TTS-QUEEN-HEALTH-504000-919263-FACE"
+        ],
+        "assetIdentityDoesNotCollapsePhysicalCopies": true
+      },
+      "semanticRuleId": "SEM-QUEEN-HEALTH-504000-919263-001",
+      "backlogUnitId": "CARD:63654c6409f88599",
+      "bgaVariantCandidates": {
+        "sourceId": "SRC-BGA-QUEEN-HEALTH",
+        "sourcePath": "docs/rules/source-extraction/secondary/bga-staticData-260622-1220.js",
+        "sourceSha256": "18cd8f4a2883d4f6662ed170095ff07e0d9f5da508064ed1d6bfc124f5a274ae",
+        "sourceVersion": "licensed BGA immutable build 260622-1220 / QUEEN_CARDS_DATA",
+        "table": "QUEEN_CARDS_DATA",
+        "matchStatus": "exact-functional-tuple-candidate",
+        "candidateKeys": [
+          "QueenHealthCard6"
+        ],
+        "candidates": [
+          {
+            "key": "QueenHealthCard6",
+            "structuredOrdinal": 6,
+            "discard": 1,
+            "effectDesc": "Add all Queen tokens to the bag.",
+            "sourceBlockText": "  QueenHealthCard6: { discard: 1, effectDesc: 'Add all Queen tokens to the bag.' },",
+            "structuredOrdinalIsNotPrintedCardNumberOrDeckOrder": true
+          }
+        ],
+        "oneToOneCopyAssignmentAsserted": true,
+        "boundary": "Candidate projection uses exact discard/effect tuples and family multiplicity only; BGA key suffixes are not printed card numbers or TTS deck order, and duplicate candidate copies are not arbitrarily paired."
+      },
+      "officialCounterpartRefs": [
+        "RB-P03-V01-QH-FACE-DISCARD-1-PARTIAL"
+      ],
+      "joinEvidence": {
+        "identityJoin": "exact physical occurrence and source-asset projection",
+        "titleOnlyJoin": false,
+        "folderOnlyJoin": false,
+        "cardIdModuloJoin": false,
+        "bgaOrdinalJoin": false,
+        "basis": [
+          "first/base queenHealthDeck Lua role and exact root GUID",
+          "raw saved DeckIDs sequence plus contained full CardID/GUID occurrence",
+          "exact CustomDeck ID, FaceURL, shared BackURL, and parent deck tuple",
+          "closed-corpus path/live SHA-256 and exact selected/canonical text evidence",
+          "ordered two-panel body, source sentences, local number display, and occurrence-scoped icon comparisons",
+          "licensed rows retained independently with candidate-set boundaries rather than title or ordinal pairing"
+        ]
+      }
+    },
+    {
+      "queenHealthOccurrenceId": "TTS-QUEEN-HEALTH-503900-B42831-FACE",
+      "ttsRole": "queenHealthDeck",
+      "ttsDeckGuid": "9acd7f",
+      "ttsDeckType": "Deck",
+      "ttsSavedSequence": 7,
+      "rulesDeckOrderSourceBacked": false,
+      "ttsCardGuid": "b42831",
+      "ttsCardId": 503900,
+      "customDeckId": "5039",
+      "sourceSelector": {
+        "key": "FaceURL",
+        "objectType": "CardCustom",
+        "fullCardId": 503900,
+        "guid": "b42831",
+        "parentDeckGuid": "9acd7f",
+        "customDeckId": "5039",
+        "url": "https://steamusercontent-a.akamaihd.net/ugc/9263970486587487472/662E7FA7802A266CAFFDACC0398D85F2F84F31A5/",
+        "backUrl": "https://steamusercontent-a.akamaihd.net/ugc/11923313303559415/089CF664C3CC0F028CCC63FB2B9C15C4B063F3A9/",
+        "sideRole": "operative-number-and-effect-face",
+        "sourceRole": "direct-composite-face",
+        "selectorStatus": "exact-full-CardID-GUID-CustomDeck-FaceURL-parent-tuple",
+        "generatedSpriteSheetCell": false,
+        "selectorGap": null,
+        "cardIdModuloJoinUsed": false
+      },
+      "sourceId": "SRC-QUEEN-HEALTH-503900-B42831",
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/queenHealthDeck-164.png",
+      "sourceSha256": "4a79f992bc3e6b7493887c40b1198785673cc87ce462bbdd732b02c8e6a3cf14",
+      "sourceAuthority": "source-bound-component-scan",
+      "sourceVersion": "TTS base Queen Health physical occurrence / root deck 9acd7f / saved sequence 7 / full CardID 503900 / GUID b42831",
+      "corpusEvidencePath": "assets/tts-mod/extract/card-text-corpus.json",
+      "selectedEvidencePath": "assets/tts-mod/extract/selected-card-text-evidence.json",
+      "provenanceEvidencePath": "assets/tts-mod/extract/card-provenance-inventory.json",
+      "extractionState": "draft-full",
+      "rulesInformationReadiness": "draft-text-complete",
+      "printedHeading": "Discard",
+      "printedDiscardCount": 1,
+      "printedBody": "1\nadditional cards.\n\nIf the card was drawn by a [character].\n\nEach [character] in the Room with the Queen\nDraws 2 [actionCard].",
+      "panels": [
+        {
+          "panelId": "P1",
+          "readingOrder": 1,
+          "role": "discard-count-and-artwork-panel",
+          "operative": true,
+          "heading": "Discard",
+          "exactText": "Discard\n1\nadditional cards.",
+          "bodyStart": 0,
+          "bodyEnd": 19
+        },
+        {
+          "panelId": "P2",
+          "readingOrder": 2,
+          "role": "conditional-special-effect-panel",
+          "operative": true,
+          "heading": "",
+          "exactText": "If the card was drawn by a [character].\n\nEach [character] in the Room with the Queen\nDraws 2 [actionCard].",
+          "bodyStart": 21,
+          "bodyEnd": 127
+        }
+      ],
+      "sentences": [
+        {
+          "sentenceId": "QH-503900-B42831-S01",
+          "sequence": 1,
+          "panelId": "P1",
+          "exactText": "1\nadditional cards.",
+          "start": 0,
+          "end": 19
+        },
+        {
+          "sentenceId": "QH-503900-B42831-S02",
+          "sequence": 2,
+          "panelId": "P2",
+          "exactText": "If the card was drawn by a [character].",
+          "start": 21,
+          "end": 60
+        },
+        {
+          "sentenceId": "QH-503900-B42831-S03",
+          "sequence": 3,
+          "panelId": "P2",
+          "exactText": "Each [character] in the Room with the Queen\nDraws 2 [actionCard].",
+          "start": 62,
+          "end": 127
+        }
+      ],
+      "iconOccurrences": [
+        {
+          "occurrenceId": "QH-503900-B42831-I01",
+          "assetMorphologyOccurrenceId": "QH-ASSET-4a79f992bc3e6b74-DISPLAY",
+          "sequence": 1,
+          "panelId": "P1",
+          "sourceToken": "LOCAL-DISCARD-DISPLAY-1",
+          "literalAppearance": "Large near-square octagonal outline made from separated horizontal, vertical, and diagonal glowing green segments, with side gaps, containing a white 1 with angled upper-left flag, straight stem, broad basal foot, and gray shadow in a dark translucent green interior.",
+          "printedNumericValue": 1,
+          "semanticReferenceId": null,
+          "mappingStatus": "selected-explicit-authoritative-no-match",
+          "page40TokenAssigned": false,
+          "mappingScope": "exact Queen Health source occurrence TTS-QUEEN-HEALTH-503900-B42831-FACE only",
+          "resolutionBoundary": "The visible numeral remains source-local morphology. Its numeric value is read from this card occurrence and composed with the official page-35 instruction; it is not a Shoot/Burst/Health/damage icon alias.",
+          "selectedEvidence": {
+            "cardLocation": "Upper center, between Discard and additional cards.",
+            "referenceLabel": "Location: upper center, between Discard and additional cards. Outer shape: a large near-square octagonal outline made from separated horizontal, vertical, and diagonal segments, with gaps at the middle of the left and right sides. Internal marks: a large white 1 with an angled upper-left flag, straight stem, broad basal foot, and gray shadow is centered in a dark translucent green interior; faint cross-shaped guide-like lines remain visible behind it. Colors: bright green, teal, cyan-green glow, dark green, white, and gray shadow.",
+            "matchDecision": "no-match",
+            "canonicalToken": null,
+            "closestAlternative": "The labeled burstDie1 and noiseDie1 crops share the numeral 1; greenItem is the nearest labeled crop in green octagonal tendency. A literal interrupted octagonal display or two opposing segmented brackets around an I-, l-, or 1-like glyph is the closest noncanonical alternative.",
+            "visibleDiscriminator": "The burstDie1 crop places a white 1 in a solid purple rounded square, and noiseDie1 places a black 1 in a solid yellow diamond. The greenItem crop is a solid green octagon containing a white plus. The source instead has separated glowing green edge segments, side gaps, a translucent interior, and a shadowed white 1. The angled upper-left flag and broad foot favor numeral 1 over I or lowercase l, but no labeled crop reproduces the complete display.",
+            "evidenceRun": "sol-max-persistent-worker-31-20260821T112612Z-p346900-b7e2c9"
+          }
+        },
+        {
+          "occurrenceId": "QH-503900-B42831-I02",
+          "assetMorphologyOccurrenceId": "QH-ASSET-4a79f992bc3e6b74-INLINE-01",
+          "sequence": 2,
+          "panelId": "P2",
+          "sourceToken": "character",
+          "start": 48,
+          "end": 59,
+          "literalAppearance": "The source and character crop share the same ordered pixel structure: arched head opening, horizontal neck separation, squared shoulders, articulated bent arms, rectangular chest void, narrowed waist, and split lower form. The robot crop instead has a short antenna, broad domed body, and two circular eye openings, without articulated arms, a rectangular chest opening, or paired lower limbs. These visible internal features discriminate character from robot without using the surrounding sentence.",
+          "semanticReferenceId": "icon.character",
+          "mappingStatus": "authoritative-page40-exact-occurrence-match",
+          "page40TokenAssigned": true,
+          "mappingScope": "exact Queen Health source occurrence TTS-QUEEN-HEALTH-503900-B42831-FACE only",
+          "resolutionBoundary": "Only the exact occurrence-specific authoritative comparison is used; no color, position, title, or surrounding-text alias is created.",
+          "selectedEvidence": {
+            "cardLocation": "Within the first sentence of P2, immediately after a and immediately before the sentence-ending period.",
+            "referenceLabel": "Character",
+            "matchDecision": "match",
+            "canonicalToken": "character",
+            "closestAlternative": "The p.40 robot crop, or a literal segmented mechanical or protective-suit figure, is the closest alternative to the p.40 character crop.",
+            "visibleDiscriminator": "The source and character crop share the same ordered pixel structure: arched head opening, horizontal neck separation, squared shoulders, articulated bent arms, rectangular chest void, narrowed waist, and split lower form. The robot crop instead has a short antenna, broad domed body, and two circular eye openings, without articulated arms, a rectangular chest opening, or paired lower limbs. These visible internal features discriminate character from robot without using the surrounding sentence.",
+            "evidenceRun": "sol-max-persistent-worker-31-20260821T112612Z-p346900-b7e2c9"
+          }
+        },
+        {
+          "occurrenceId": "QH-503900-B42831-I03",
+          "assetMorphologyOccurrenceId": "QH-ASSET-4a79f992bc3e6b74-INLINE-02",
+          "sequence": 3,
+          "panelId": "P2",
+          "sourceToken": "character",
+          "start": 67,
+          "end": 78,
+          "literalAppearance": "This occurrence independently reproduces the character crop's arched head opening, horizontal neck separation, squared shoulders, articulated bent arms, rectangular chest void, narrowed waist, and split lower form. The robot crop has an antenna and two round eye holes in a broad domed body and lacks the source's arms, chest opening, and paired lower structure. The visible internal pattern therefore discriminates character from robot without relying on adjacent wording or the other occurrence.",
+          "semanticReferenceId": "icon.character",
+          "mappingStatus": "authoritative-page40-exact-occurrence-match",
+          "page40TokenAssigned": true,
+          "mappingScope": "exact Queen Health source occurrence TTS-QUEEN-HEALTH-503900-B42831-FACE only",
+          "resolutionBoundary": "Only the exact occurrence-specific authoritative comparison is used; no color, position, title, or surrounding-text alias is created.",
+          "selectedEvidence": {
+            "cardLocation": "Within the second instruction of P2, immediately after Each and before in the Room with the Queen.",
+            "referenceLabel": "Character",
+            "matchDecision": "match",
+            "canonicalToken": "character",
+            "closestAlternative": "The p.40 robot crop, or a literal segmented mechanical or protective-suit figure, is the closest alternative to the p.40 character crop.",
+            "visibleDiscriminator": "This occurrence independently reproduces the character crop's arched head opening, horizontal neck separation, squared shoulders, articulated bent arms, rectangular chest void, narrowed waist, and split lower form. The robot crop has an antenna and two round eye holes in a broad domed body and lacks the source's arms, chest opening, and paired lower structure. The visible internal pattern therefore discriminates character from robot without relying on adjacent wording or the other occurrence.",
+            "evidenceRun": "sol-max-persistent-worker-31-20260821T112612Z-p346900-b7e2c9"
+          }
+        },
+        {
+          "occurrenceId": "QH-503900-B42831-I04",
+          "assetMorphologyOccurrenceId": "QH-ASSET-4a79f992bc3e6b74-INLINE-03",
+          "sequence": 4,
+          "panelId": "P2",
+          "sourceToken": "actionCard",
+          "start": 114,
+          "end": 126,
+          "literalAppearance": "The source and actionCard crop share the same vertical white rounded rectangle, complete dark edge, slight shadow, and centered bold black uppercase A. The anySlot crop is a broad horizontal gray panel with a dark slot-shaped opening and no letter. No other supplied crop contains the same enclosed A morphology, so the visible internal glyph and enclosing boundary uniquely support actionCard.",
+          "semanticReferenceId": "icon.actionCard",
+          "mappingStatus": "authoritative-page40-exact-occurrence-match",
+          "page40TokenAssigned": true,
+          "mappingScope": "exact Queen Health source occurrence TTS-QUEEN-HEALTH-503900-B42831-FACE only",
+          "resolutionBoundary": "Only the exact occurrence-specific authoritative comparison is used; no color, position, title, or surrounding-text alias is created.",
+          "selectedEvidence": {
+            "cardLocation": "On the final line of P2, immediately after Draws 2 and immediately before the sentence-ending period.",
+            "referenceLabel": "ActionCard",
+            "matchDecision": "match",
+            "canonicalToken": "actionCard",
+            "closestAlternative": "A literal boxed letter or keycap-like plaque is the closest noncanonical alternative; anySlot is the nearest other labeled pale rectangular morphology.",
+            "visibleDiscriminator": "The source and actionCard crop share the same vertical white rounded rectangle, complete dark edge, slight shadow, and centered bold black uppercase A. The anySlot crop is a broad horizontal gray panel with a dark slot-shaped opening and no letter. No other supplied crop contains the same enclosed A morphology, so the visible internal glyph and enclosing boundary uniquely support actionCard.",
+            "evidenceRun": "sol-max-persistent-worker-31-20260821T112612Z-p346900-b7e2c9"
+          }
+        }
+      ],
+      "cardStateRoles": {
+        "setup": "numbers-side down; operative face hidden and shared back visible",
+        "drawn": "operative face revealed publicly in resolution",
+        "additionalDiscards": "discarded without revealing",
+        "sharedBackSourceId": "SRC-QUEEN-HEALTH-BACK",
+        "separateRulesFaceOnBack": false
+      },
+      "sharedFaceAsset": {
+        "sourceSha256": "4a79f992bc3e6b7493887c40b1198785673cc87ce462bbdd732b02c8e6a3cf14",
+        "physicalOccurrenceCount": 1,
+        "physicalOccurrenceIds": [
+          "TTS-QUEEN-HEALTH-503900-B42831-FACE"
+        ],
+        "assetIdentityDoesNotCollapsePhysicalCopies": true
+      },
+      "semanticRuleId": "SEM-QUEEN-HEALTH-503900-B42831-001",
+      "backlogUnitId": "CARD:4a79f992bc3e6b74",
+      "bgaVariantCandidates": {
+        "sourceId": "SRC-BGA-QUEEN-HEALTH",
+        "sourcePath": "docs/rules/source-extraction/secondary/bga-staticData-260622-1220.js",
+        "sourceSha256": "18cd8f4a2883d4f6662ed170095ff07e0d9f5da508064ed1d6bfc124f5a274ae",
+        "sourceVersion": "licensed BGA immutable build 260622-1220 / QUEEN_CARDS_DATA",
+        "table": "QUEEN_CARDS_DATA",
+        "matchStatus": "exact-functional-tuple-candidate",
+        "candidateKeys": [
+          "QueenHealthCard7"
+        ],
+        "candidates": [
+          {
+            "key": "QueenHealthCard7",
+            "structuredOrdinal": 7,
+            "discard": 1,
+            "effectDesc": "Each <CHARACTER> in the Room with the Queen draws 2<ACTION-CARD>.",
+            "sourceBlockText": "  QueenHealthCard7: { discard: 1, effectDesc: 'Each <CHARACTER> in the Room with the Queen draws 2<ACTION-CARD>.' },",
+            "structuredOrdinalIsNotPrintedCardNumberOrDeckOrder": true
+          }
+        ],
+        "oneToOneCopyAssignmentAsserted": true,
+        "boundary": "Candidate projection uses exact discard/effect tuples and family multiplicity only; BGA key suffixes are not printed card numbers or TTS deck order, and duplicate candidate copies are not arbitrarily paired."
+      },
+      "officialCounterpartRefs": [
+        "RB-P03-V01-QH-FACE-DISCARD-1-PARTIAL"
+      ],
+      "joinEvidence": {
+        "identityJoin": "exact physical occurrence and source-asset projection",
+        "titleOnlyJoin": false,
+        "folderOnlyJoin": false,
+        "cardIdModuloJoin": false,
+        "bgaOrdinalJoin": false,
+        "basis": [
+          "first/base queenHealthDeck Lua role and exact root GUID",
+          "raw saved DeckIDs sequence plus contained full CardID/GUID occurrence",
+          "exact CustomDeck ID, FaceURL, shared BackURL, and parent deck tuple",
+          "closed-corpus path/live SHA-256 and exact selected/canonical text evidence",
+          "ordered two-panel body, source sentences, local number display, and occurrence-scoped icon comparisons",
+          "licensed rows retained independently with candidate-set boundaries rather than title or ordinal pairing"
+        ]
+      }
+    },
+    {
+      "queenHealthOccurrenceId": "TTS-QUEEN-HEALTH-503800-64AE0A-FACE",
+      "ttsRole": "queenHealthDeck",
+      "ttsDeckGuid": "9acd7f",
+      "ttsDeckType": "Deck",
+      "ttsSavedSequence": 8,
+      "rulesDeckOrderSourceBacked": false,
+      "ttsCardGuid": "64ae0a",
+      "ttsCardId": 503800,
+      "customDeckId": "5038",
+      "sourceSelector": {
+        "key": "FaceURL",
+        "objectType": "CardCustom",
+        "fullCardId": 503800,
+        "guid": "64ae0a",
+        "parentDeckGuid": "9acd7f",
+        "customDeckId": "5038",
+        "url": "https://steamusercontent-a.akamaihd.net/ugc/9333928177533445071/850727DE9E9EBA8DC184A4696FEB9569BD98CACE/",
+        "backUrl": "https://steamusercontent-a.akamaihd.net/ugc/11923313303559415/089CF664C3CC0F028CCC63FB2B9C15C4B063F3A9/",
+        "sideRole": "operative-number-and-effect-face",
+        "sourceRole": "direct-composite-face",
+        "selectorStatus": "exact-full-CardID-GUID-CustomDeck-FaceURL-parent-tuple",
+        "generatedSpriteSheetCell": false,
+        "selectorGap": null,
+        "cardIdModuloJoinUsed": false
+      },
+      "sourceId": "SRC-QUEEN-HEALTH-503800-64AE0A",
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/queenHealthDeck-165.png",
+      "sourceSha256": "763ca108996c746f141b6f505d3afee2c30be1f6f4f38b84d0118f9f76bdf765",
+      "sourceAuthority": "source-bound-component-scan",
+      "sourceVersion": "TTS base Queen Health physical occurrence / root deck 9acd7f / saved sequence 8 / full CardID 503800 / GUID 64ae0a",
+      "corpusEvidencePath": "assets/tts-mod/extract/card-text-corpus.json",
+      "selectedEvidencePath": "assets/tts-mod/extract/selected-card-text-evidence.json",
+      "provenanceEvidencePath": "assets/tts-mod/extract/card-provenance-inventory.json",
+      "extractionState": "draft-full",
+      "rulesInformationReadiness": "draft-text-complete",
+      "printedHeading": "Discard",
+      "printedDiscardCount": 2,
+      "printedBody": "2\nadditional cards.\n\nIf the card was drawn by a [character].\n\nEach [character] in the Room with the Queen\nMakes a Noise roll.",
+      "panels": [
+        {
+          "panelId": "P1",
+          "readingOrder": 1,
+          "role": "discard-count-and-artwork-panel",
+          "operative": true,
+          "heading": "Discard",
+          "exactText": "Discard\n2\nadditional cards.",
+          "bodyStart": 0,
+          "bodyEnd": 19
+        },
+        {
+          "panelId": "P2",
+          "readingOrder": 2,
+          "role": "conditional-special-effect-panel",
+          "operative": true,
+          "heading": "",
+          "exactText": "If the card was drawn by a [character].\n\nEach [character] in the Room with the Queen\nMakes a Noise roll.",
+          "bodyStart": 21,
+          "bodyEnd": 125
+        }
+      ],
+      "sentences": [
+        {
+          "sentenceId": "QH-503800-64AE0A-S01",
+          "sequence": 1,
+          "panelId": "P1",
+          "exactText": "2\nadditional cards.",
+          "start": 0,
+          "end": 19
+        },
+        {
+          "sentenceId": "QH-503800-64AE0A-S02",
+          "sequence": 2,
+          "panelId": "P2",
+          "exactText": "If the card was drawn by a [character].",
+          "start": 21,
+          "end": 60
+        },
+        {
+          "sentenceId": "QH-503800-64AE0A-S03",
+          "sequence": 3,
+          "panelId": "P2",
+          "exactText": "Each [character] in the Room with the Queen\nMakes a Noise roll.",
+          "start": 62,
+          "end": 125
+        }
+      ],
+      "iconOccurrences": [
+        {
+          "occurrenceId": "QH-503800-64AE0A-I01",
+          "assetMorphologyOccurrenceId": "QH-ASSET-763ca108996c746f-DISPLAY",
+          "sequence": 1,
+          "panelId": "P1",
+          "sourceToken": "LOCAL-DISCARD-DISPLAY-2",
+          "literalAppearance": "Large near-square octagonal outline made from separated horizontal, vertical, and diagonal glowing green segments, with side gaps, containing a white 2 with curved top, descending diagonal middle, horizontal basal stroke, and gray shadow in a dark translucent green interior.",
+          "printedNumericValue": 2,
+          "semanticReferenceId": null,
+          "mappingStatus": "selected-explicit-authoritative-no-match",
+          "page40TokenAssigned": false,
+          "mappingScope": "exact Queen Health source occurrence TTS-QUEEN-HEALTH-503800-64AE0A-FACE only",
+          "resolutionBoundary": "The visible numeral remains source-local morphology. Its numeric value is read from this card occurrence and composed with the official page-35 instruction; it is not a Shoot/Burst/Health/damage icon alias.",
+          "selectedEvidence": {
+            "cardLocation": "Upper center, between Discard and additional cards.",
+            "referenceLabel": "Location: upper center, between Discard and additional cards. Outer shape: a large near-square octagonal outline composed of separated horizontal, vertical, and diagonal segments, with gaps at the middle of the left and right sides. Internal marks: a large white 2 with a curved top, descending diagonal middle, horizontal basal stroke, and gray shadow is centered in a dark translucent green interior; faint guide-like lines remain visible behind it. Colors: bright green, teal, cyan-green glow, dark green, white, and gray shadow.",
+            "matchDecision": "no-match",
+            "canonicalToken": null,
+            "closestAlternative": "The labeled shootDie2, burstDie2, and noiseDie2 crops share the numeral 2; greenItem is the nearest labeled crop in green octagonal tendency. A literal interrupted octagonal display or two opposing segmented brackets around a numeral is the closest noncanonical alternative.",
+            "visibleDiscriminator": "The shootDie2, burstDie2, and noiseDie2 crops place 2 inside, respectively, a solid red triangle, purple rounded square, and yellow diamond. The greenItem crop is a solid green octagon containing a white plus, and burstDieAdditionalEffects has four white corner brackets on a filled purple square without a numeral. The source instead has separated glowing green perimeter segments, open side gaps, and a translucent interior. No supplied crop reproduces the complete source frame-and-glyph morphology.",
+            "evidenceRun": "sol-max-persistent-worker-31-20260821T112612Z-p346900-b7e2c9"
+          }
+        },
+        {
+          "occurrenceId": "QH-503800-64AE0A-I02",
+          "assetMorphologyOccurrenceId": "QH-ASSET-763ca108996c746f-INLINE-01",
+          "sequence": 2,
+          "panelId": "P2",
+          "sourceToken": "character",
+          "start": 48,
+          "end": 59,
+          "literalAppearance": "The source and character crop share the same ordered structure of arched head opening, horizontal neck separation, squared shoulders, articulated bent arms, rectangular chest void, narrowed waist, and split lower form. The robot crop instead has a short antenna, broad domed body, and two circular eye openings, without articulated arms, a rectangular chest opening, or paired lower limbs. These internal features discriminate character from robot without using adjacent wording.",
+          "semanticReferenceId": "icon.character",
+          "mappingStatus": "authoritative-page40-exact-occurrence-match",
+          "page40TokenAssigned": true,
+          "mappingScope": "exact Queen Health source occurrence TTS-QUEEN-HEALTH-503800-64AE0A-FACE only",
+          "resolutionBoundary": "Only the exact occurrence-specific authoritative comparison is used; no color, position, title, or surrounding-text alias is created.",
+          "selectedEvidence": {
+            "cardLocation": "Within the first sentence of P2, immediately after a and immediately before the sentence-ending period.",
+            "referenceLabel": "Character",
+            "matchDecision": "match",
+            "canonicalToken": "character",
+            "closestAlternative": "The p.40 robot crop, or a literal segmented mechanical or protective-suit figure, is the closest alternative to the p.40 character crop.",
+            "visibleDiscriminator": "The source and character crop share the same ordered structure of arched head opening, horizontal neck separation, squared shoulders, articulated bent arms, rectangular chest void, narrowed waist, and split lower form. The robot crop instead has a short antenna, broad domed body, and two circular eye openings, without articulated arms, a rectangular chest opening, or paired lower limbs. These internal features discriminate character from robot without using adjacent wording.",
+            "evidenceRun": "sol-max-persistent-worker-31-20260821T112612Z-p346900-b7e2c9"
+          }
+        },
+        {
+          "occurrenceId": "QH-503800-64AE0A-I03",
+          "assetMorphologyOccurrenceId": "QH-ASSET-763ca108996c746f-INLINE-02",
+          "sequence": 3,
+          "panelId": "P2",
+          "sourceToken": "character",
+          "start": 67,
+          "end": 78,
+          "literalAppearance": "This occurrence independently reproduces the character crop's arched head opening, horizontal neck separation, squared shoulders, articulated bent arms, rectangular chest void, narrowed waist, and split lower form. The robot crop has an antenna and two round eye holes in a broad domed body and lacks the source's arms, chest opening, and paired lower structure. The visible internal pattern therefore discriminates character from robot without relying on adjacent wording or the other occurrence.",
+          "semanticReferenceId": "icon.character",
+          "mappingStatus": "authoritative-page40-exact-occurrence-match",
+          "page40TokenAssigned": true,
+          "mappingScope": "exact Queen Health source occurrence TTS-QUEEN-HEALTH-503800-64AE0A-FACE only",
+          "resolutionBoundary": "Only the exact occurrence-specific authoritative comparison is used; no color, position, title, or surrounding-text alias is created.",
+          "selectedEvidence": {
+            "cardLocation": "Within the second instruction of P2, immediately after Each and before in the Room with the Queen.",
+            "referenceLabel": "Character",
+            "matchDecision": "match",
+            "canonicalToken": "character",
+            "closestAlternative": "The p.40 robot crop, or a literal segmented mechanical or protective-suit figure, is the closest alternative to the p.40 character crop.",
+            "visibleDiscriminator": "This occurrence independently reproduces the character crop's arched head opening, horizontal neck separation, squared shoulders, articulated bent arms, rectangular chest void, narrowed waist, and split lower form. The robot crop has an antenna and two round eye holes in a broad domed body and lacks the source's arms, chest opening, and paired lower structure. The visible internal pattern therefore discriminates character from robot without relying on adjacent wording or the other occurrence.",
+            "evidenceRun": "sol-max-persistent-worker-31-20260821T112612Z-p346900-b7e2c9"
+          }
+        }
+      ],
+      "cardStateRoles": {
+        "setup": "numbers-side down; operative face hidden and shared back visible",
+        "drawn": "operative face revealed publicly in resolution",
+        "additionalDiscards": "discarded without revealing",
+        "sharedBackSourceId": "SRC-QUEEN-HEALTH-BACK",
+        "separateRulesFaceOnBack": false
+      },
+      "sharedFaceAsset": {
+        "sourceSha256": "763ca108996c746f141b6f505d3afee2c30be1f6f4f38b84d0118f9f76bdf765",
+        "physicalOccurrenceCount": 1,
+        "physicalOccurrenceIds": [
+          "TTS-QUEEN-HEALTH-503800-64AE0A-FACE"
+        ],
+        "assetIdentityDoesNotCollapsePhysicalCopies": true
+      },
+      "semanticRuleId": "SEM-QUEEN-HEALTH-503800-64AE0A-001",
+      "backlogUnitId": "CARD:763ca108996c746f",
+      "bgaVariantCandidates": {
+        "sourceId": "SRC-BGA-QUEEN-HEALTH",
+        "sourcePath": "docs/rules/source-extraction/secondary/bga-staticData-260622-1220.js",
+        "sourceSha256": "18cd8f4a2883d4f6662ed170095ff07e0d9f5da508064ed1d6bfc124f5a274ae",
+        "sourceVersion": "licensed BGA immutable build 260622-1220 / QUEEN_CARDS_DATA",
+        "table": "QUEEN_CARDS_DATA",
+        "matchStatus": "exact-functional-tuple-candidate",
+        "candidateKeys": [
+          "QueenHealthCard9"
+        ],
+        "candidates": [
+          {
+            "key": "QueenHealthCard9",
+            "structuredOrdinal": 9,
+            "discard": 2,
+            "effectDesc": "Each <CHARACTER> in the Room with the Queen makes a Noise roll.",
+            "sourceBlockText": "  QueenHealthCard9: { discard: 2, effectDesc: 'Each <CHARACTER> in the Room with the Queen makes a Noise roll.' },",
+            "structuredOrdinalIsNotPrintedCardNumberOrDeckOrder": true
+          }
+        ],
+        "oneToOneCopyAssignmentAsserted": true,
+        "boundary": "Candidate projection uses exact discard/effect tuples and family multiplicity only; BGA key suffixes are not printed card numbers or TTS deck order, and duplicate candidate copies are not arbitrarily paired."
+      },
+      "officialCounterpartRefs": [],
+      "joinEvidence": {
+        "identityJoin": "exact physical occurrence and source-asset projection",
+        "titleOnlyJoin": false,
+        "folderOnlyJoin": false,
+        "cardIdModuloJoin": false,
+        "bgaOrdinalJoin": false,
+        "basis": [
+          "first/base queenHealthDeck Lua role and exact root GUID",
+          "raw saved DeckIDs sequence plus contained full CardID/GUID occurrence",
+          "exact CustomDeck ID, FaceURL, shared BackURL, and parent deck tuple",
+          "closed-corpus path/live SHA-256 and exact selected/canonical text evidence",
+          "ordered two-panel body, source sentences, local number display, and occurrence-scoped icon comparisons",
+          "licensed rows retained independently with candidate-set boundaries rather than title or ordinal pairing"
+        ]
+      }
+    },
+    {
+      "queenHealthOccurrenceId": "TTS-QUEEN-HEALTH-424100-A10F34-FACE",
+      "ttsRole": "queenHealthDeck",
+      "ttsDeckGuid": "9acd7f",
+      "ttsDeckType": "Deck",
+      "ttsSavedSequence": 9,
+      "rulesDeckOrderSourceBacked": false,
+      "ttsCardGuid": "a10f34",
+      "ttsCardId": 424100,
+      "customDeckId": "4241",
+      "sourceSelector": {
+        "key": "FaceURL",
+        "objectType": "CardCustom",
+        "fullCardId": 424100,
+        "guid": "a10f34",
+        "parentDeckGuid": "9acd7f",
+        "customDeckId": "4241",
+        "url": "https://steamusercontent-a.akamaihd.net/ugc/11927200047871616/FFC8811B1422CA6D68A3366B03EE4C2403117D55/",
+        "backUrl": "https://steamusercontent-a.akamaihd.net/ugc/11923313303559415/089CF664C3CC0F028CCC63FB2B9C15C4B063F3A9/",
+        "sideRole": "operative-number-and-effect-face",
+        "sourceRole": "direct-composite-face",
+        "selectorStatus": "exact-full-CardID-GUID-CustomDeck-FaceURL-parent-tuple",
+        "generatedSpriteSheetCell": false,
+        "selectorGap": null,
+        "cardIdModuloJoinUsed": false
+      },
+      "sourceId": "SRC-QUEEN-HEALTH-424100-A10F34",
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/queenHealthDeck-038.png",
+      "sourceSha256": "fc04bf1a2920fb63ac512d209622b591cdc9f3cb9ca292c97bf874fcddbbd5c8",
+      "sourceAuthority": "source-bound-component-scan",
+      "sourceVersion": "TTS base Queen Health physical occurrence / root deck 9acd7f / saved sequence 9 / full CardID 424100 / GUID a10f34",
+      "corpusEvidencePath": "assets/tts-mod/extract/card-text-corpus.json",
+      "selectedEvidencePath": "assets/tts-mod/extract/selected-card-text-evidence.json",
+      "provenanceEvidencePath": "assets/tts-mod/extract/card-provenance-inventory.json",
+      "extractionState": "draft-full",
+      "rulesInformationReadiness": "draft-text-complete",
+      "printedHeading": "Discard",
+      "printedDiscardCount": 2,
+      "printedBody": "2\nadditional cards.\n\nIf the card was drawn by a [character].\n\nRepel the Queen.",
+      "panels": [
+        {
+          "panelId": "P1",
+          "readingOrder": 1,
+          "role": "discard-count-and-artwork-panel",
+          "operative": true,
+          "heading": "Discard",
+          "exactText": "Discard\n2\nadditional cards.",
+          "bodyStart": 0,
+          "bodyEnd": 19
+        },
+        {
+          "panelId": "P2",
+          "readingOrder": 2,
+          "role": "conditional-special-effect-panel",
+          "operative": true,
+          "heading": "",
+          "exactText": "If the card was drawn by a [character].\n\nRepel the Queen.",
+          "bodyStart": 21,
+          "bodyEnd": 78
+        }
+      ],
+      "sentences": [
+        {
+          "sentenceId": "QH-424100-A10F34-S01",
+          "sequence": 1,
+          "panelId": "P1",
+          "exactText": "2\nadditional cards.",
+          "start": 0,
+          "end": 19
+        },
+        {
+          "sentenceId": "QH-424100-A10F34-S02",
+          "sequence": 2,
+          "panelId": "P2",
+          "exactText": "If the card was drawn by a [character].",
+          "start": 21,
+          "end": 60
+        },
+        {
+          "sentenceId": "QH-424100-A10F34-S03",
+          "sequence": 3,
+          "panelId": "P2",
+          "exactText": "Repel the Queen.",
+          "start": 62,
+          "end": 78
+        }
+      ],
+      "iconOccurrences": [
+        {
+          "occurrenceId": "QH-424100-A10F34-I01",
+          "assetMorphologyOccurrenceId": "QH-ASSET-fc04bf1a2920fb63-DISPLAY",
+          "sequence": 1,
+          "panelId": "P1",
+          "sourceToken": "LOCAL-DISCARD-DISPLAY-2",
+          "literalAppearance": "Large near-square octagonal outline made from separated horizontal, vertical, and diagonal glowing green segments, with side gaps, containing a white 2 with curved top, descending diagonal middle, horizontal basal stroke, and gray shadow in a dark translucent green interior.",
+          "printedNumericValue": 2,
+          "semanticReferenceId": null,
+          "mappingStatus": "selected-explicit-authoritative-no-match",
+          "page40TokenAssigned": false,
+          "mappingScope": "exact Queen Health source occurrence TTS-QUEEN-HEALTH-424100-A10F34-FACE only",
+          "resolutionBoundary": "The visible numeral remains source-local morphology. Its numeric value is read from this card occurrence and composed with the official page-35 instruction; it is not a Shoot/Burst/Health/damage icon alias.",
+          "selectedEvidence": {
+            "cardLocation": "Upper center, between Discard and additional cards.",
+            "referenceLabel": "Location: upper center, between Discard and additional cards. Outer shape: a large near-square octagonal outline made from separated horizontal, vertical, and diagonal segments, with gaps at the middle of both sides. Internal marks: a large white 2 is centered in a dark translucent green interior, with no other discrete internal mark. Colors: bright green, teal, cyan-green glow, dark green, and white.",
+            "matchDecision": "no-match",
+            "canonicalToken": null,
+            "closestAlternative": "The labeled shootDie2, burstDie2, and noiseDie2 crops share the numeral 2; greenItem is the closest labeled crop in green octagonal tendency. A literal interrupted octagonal display or opposing segmented brackets is the closest noncanonical reading.",
+            "visibleDiscriminator": "The three labeled 2 crops use respectively a solid red triangle, purple rounded square, and yellow diamond, whereas the source uses a separated glowing green perimeter with side gaps. The greenItem crop is a solid green octagon containing a white plus rather than 2. No labeled crop reproduces both the source frame and its internal numeral.",
+            "evidenceRun": "sol-max-persistent-worker-31-20260821T112612Z-p346900-b7e2c9"
+          }
+        },
+        {
+          "occurrenceId": "QH-424100-A10F34-I02",
+          "assetMorphologyOccurrenceId": "QH-ASSET-fc04bf1a2920fb63-INLINE-01",
+          "sequence": 2,
+          "panelId": "P2",
+          "sourceToken": "character",
+          "start": 48,
+          "end": 59,
+          "literalAppearance": "The source and character crop share the same ordered structure of arched head opening, horizontal neck separation, squared shoulders, articulated bent arms, rectangular chest void, narrowed waist, and split lower form. The robot crop instead has a short antenna, a broad domed body, and two circular eye openings, without articulated arms, chest opening, or paired lower limbs. These internal features positively discriminate character from robot without relying on surrounding wording.",
+          "semanticReferenceId": "icon.character",
+          "mappingStatus": "authoritative-page40-exact-occurrence-match",
+          "page40TokenAssigned": true,
+          "mappingScope": "exact Queen Health source occurrence TTS-QUEEN-HEALTH-424100-A10F34-FACE only",
+          "resolutionBoundary": "Only the exact occurrence-specific authoritative comparison is used; no color, position, title, or surrounding-text alias is created.",
+          "selectedEvidence": {
+            "cardLocation": "Within the first sentence of P2, immediately after a and immediately before the sentence-ending period.",
+            "referenceLabel": "Character",
+            "matchDecision": "match",
+            "canonicalToken": "character",
+            "closestAlternative": "The p.40 robot crop, or a literal segmented mechanical or protective-suit figure, is the closest alternative to the p.40 character crop.",
+            "visibleDiscriminator": "The source and character crop share the same ordered structure of arched head opening, horizontal neck separation, squared shoulders, articulated bent arms, rectangular chest void, narrowed waist, and split lower form. The robot crop instead has a short antenna, a broad domed body, and two circular eye openings, without articulated arms, chest opening, or paired lower limbs. These internal features positively discriminate character from robot without relying on surrounding wording.",
+            "evidenceRun": "sol-max-persistent-worker-31-20260821T112612Z-p346900-b7e2c9"
+          }
+        }
+      ],
+      "cardStateRoles": {
+        "setup": "numbers-side down; operative face hidden and shared back visible",
+        "drawn": "operative face revealed publicly in resolution",
+        "additionalDiscards": "discarded without revealing",
+        "sharedBackSourceId": "SRC-QUEEN-HEALTH-BACK",
+        "separateRulesFaceOnBack": false
+      },
+      "sharedFaceAsset": {
+        "sourceSha256": "fc04bf1a2920fb63ac512d209622b591cdc9f3cb9ca292c97bf874fcddbbd5c8",
+        "physicalOccurrenceCount": 1,
+        "physicalOccurrenceIds": [
+          "TTS-QUEEN-HEALTH-424100-A10F34-FACE"
+        ],
+        "assetIdentityDoesNotCollapsePhysicalCopies": true
+      },
+      "semanticRuleId": "SEM-QUEEN-HEALTH-424100-A10F34-001",
+      "backlogUnitId": "CARD:fc04bf1a2920fb63",
+      "bgaVariantCandidates": {
+        "sourceId": "SRC-BGA-QUEEN-HEALTH",
+        "sourcePath": "docs/rules/source-extraction/secondary/bga-staticData-260622-1220.js",
+        "sourceSha256": "18cd8f4a2883d4f6662ed170095ff07e0d9f5da508064ed1d6bfc124f5a274ae",
+        "sourceVersion": "licensed BGA immutable build 260622-1220 / QUEEN_CARDS_DATA",
+        "table": "QUEEN_CARDS_DATA",
+        "matchStatus": "exact-functional-tuple-candidate",
+        "candidateKeys": [
+          "QueenHealthCard8"
+        ],
+        "candidates": [
+          {
+            "key": "QueenHealthCard8",
+            "structuredOrdinal": 8,
+            "discard": 2,
+            "effectDesc": "Repel the Queen.",
+            "sourceBlockText": "  QueenHealthCard8: { discard: 2, effectDesc: 'Repel the Queen.' },",
+            "structuredOrdinalIsNotPrintedCardNumberOrDeckOrder": true
+          }
+        ],
+        "oneToOneCopyAssignmentAsserted": true,
+        "boundary": "Candidate projection uses exact discard/effect tuples and family multiplicity only; BGA key suffixes are not printed card numbers or TTS deck order, and duplicate candidate copies are not arbitrarily paired."
+      },
+      "officialCounterpartRefs": [],
+      "joinEvidence": {
+        "identityJoin": "exact physical occurrence and source-asset projection",
+        "titleOnlyJoin": false,
+        "folderOnlyJoin": false,
+        "cardIdModuloJoin": false,
+        "bgaOrdinalJoin": false,
+        "basis": [
+          "first/base queenHealthDeck Lua role and exact root GUID",
+          "raw saved DeckIDs sequence plus contained full CardID/GUID occurrence",
+          "exact CustomDeck ID, FaceURL, shared BackURL, and parent deck tuple",
+          "closed-corpus path/live SHA-256 and exact selected/canonical text evidence",
+          "ordered two-panel body, source sentences, local number display, and occurrence-scoped icon comparisons",
+          "licensed rows retained independently with candidate-set boundaries rather than title or ordinal pairing"
+        ]
+      }
+    },
+    {
+      "queenHealthOccurrenceId": "TTS-QUEEN-HEALTH-458100-6BA0A2-FACE",
+      "ttsRole": "queenHealthDeck",
+      "ttsDeckGuid": "9acd7f",
+      "ttsDeckType": "Deck",
+      "ttsSavedSequence": 10,
+      "rulesDeckOrderSourceBacked": false,
+      "ttsCardGuid": "6ba0a2",
+      "ttsCardId": 458100,
+      "customDeckId": "4581",
+      "sourceSelector": {
+        "key": "FaceURL",
+        "objectType": "CardCustom",
+        "fullCardId": 458100,
+        "guid": "6ba0a2",
+        "parentDeckGuid": "9acd7f",
+        "customDeckId": "4581",
+        "url": "https://steamusercontent-a.akamaihd.net/ugc/11928382804440611/8DB81FB4B3DE0AC2C7F4366D8EC46817FC7E7086/",
+        "backUrl": "https://steamusercontent-a.akamaihd.net/ugc/11923313303559415/089CF664C3CC0F028CCC63FB2B9C15C4B063F3A9/",
+        "sideRole": "operative-number-and-effect-face",
+        "sourceRole": "direct-composite-face",
+        "selectorStatus": "exact-full-CardID-GUID-CustomDeck-FaceURL-parent-tuple",
+        "generatedSpriteSheetCell": false,
+        "selectorGap": null,
+        "cardIdModuloJoinUsed": false
+      },
+      "sourceId": "SRC-QUEEN-HEALTH-458100-6BA0A2",
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/queenHealthDeck-041.png",
+      "sourceSha256": "929ac1204b4b7989ee051307245bf32fb5e1915a35b9afd5a73572c8ca01dc61",
+      "sourceAuthority": "source-bound-component-scan",
+      "sourceVersion": "TTS base Queen Health physical occurrence / root deck 9acd7f / saved sequence 10 / full CardID 458100 / GUID 6ba0a2",
+      "corpusEvidencePath": "assets/tts-mod/extract/card-text-corpus.json",
+      "selectedEvidencePath": "assets/tts-mod/extract/selected-card-text-evidence.json",
+      "provenanceEvidencePath": "assets/tts-mod/extract/card-provenance-inventory.json",
+      "extractionState": "draft-full",
+      "rulesInformationReadiness": "draft-text-complete",
+      "printedHeading": "Discard",
+      "printedDiscardCount": 3,
+      "printedBody": "3\nadditional cards.\n\nIf the card was drawn by a [character]:\n\nPlace a [malfunction] in the Queen's Room.\nOR\nUnreinforce Queen's Corridor.",
+      "panels": [
+        {
+          "panelId": "P1",
+          "readingOrder": 1,
+          "role": "discard-count-and-artwork-panel",
+          "operative": true,
+          "heading": "Discard",
+          "exactText": "Discard\n3\nadditional cards.",
+          "bodyStart": 0,
+          "bodyEnd": 19
+        },
+        {
+          "panelId": "P2",
+          "readingOrder": 2,
+          "role": "conditional-special-effect-panel",
+          "operative": true,
+          "heading": "",
+          "exactText": "If the card was drawn by a [character]:\n\nPlace a [malfunction] in the Queen's Room.\nOR\nUnreinforce Queen's Corridor.",
+          "bodyStart": 21,
+          "bodyEnd": 137
+        }
+      ],
+      "sentences": [
+        {
+          "sentenceId": "QH-458100-6BA0A2-S01",
+          "sequence": 1,
+          "panelId": "P1",
+          "exactText": "3\nadditional cards.",
+          "start": 0,
+          "end": 19
+        },
+        {
+          "sentenceId": "QH-458100-6BA0A2-S02",
+          "sequence": 2,
+          "panelId": "P2",
+          "exactText": "If the card was drawn by a [character]:",
+          "start": 21,
+          "end": 60
+        },
+        {
+          "sentenceId": "QH-458100-6BA0A2-S03",
+          "sequence": 3,
+          "panelId": "P2",
+          "exactText": "Place a [malfunction] in the Queen's Room.",
+          "start": 62,
+          "end": 104
+        },
+        {
+          "sentenceId": "QH-458100-6BA0A2-S04",
+          "sequence": 4,
+          "panelId": "P2",
+          "exactText": "Unreinforce Queen's Corridor.",
+          "start": 108,
+          "end": 137
+        }
+      ],
+      "iconOccurrences": [
+        {
+          "occurrenceId": "QH-458100-6BA0A2-I01",
+          "assetMorphologyOccurrenceId": "QH-ASSET-929ac1204b4b7989-DISPLAY",
+          "sequence": 1,
+          "panelId": "P1",
+          "sourceToken": "LOCAL-DISCARD-DISPLAY-3",
+          "literalAppearance": "Large near-square octagonal outline made from separated horizontal, vertical, and diagonal glowing green segments, with gaps at the middle of both sides, containing a large white 3 in a dark translucent green interior.",
+          "printedNumericValue": 3,
+          "semanticReferenceId": null,
+          "mappingStatus": "selected-explicit-authoritative-no-match",
+          "page40TokenAssigned": false,
+          "mappingScope": "exact Queen Health source occurrence TTS-QUEEN-HEALTH-458100-6BA0A2-FACE only",
+          "resolutionBoundary": "The visible numeral remains source-local morphology. Its numeric value is read from this card occurrence and composed with the official page-35 instruction; it is not a Shoot/Burst/Health/damage icon alias.",
+          "selectedEvidence": {
+            "cardLocation": "Upper center, between Discard and additional cards.",
+            "referenceLabel": "Location: upper center, between Discard and additional cards. Outer shape: a large near-square octagonal outline made from separated horizontal, vertical, and diagonal segments, with gaps at the middle of both sides. Internal marks: a large white 3 is centered in a dark translucent green interior, with no other discrete internal mark. Colors: bright green, teal, cyan-green glow, dark green, and white.",
+            "matchDecision": "no-match",
+            "canonicalToken": null,
+            "closestAlternative": "The labeled shootDie3, burstDie3, and noiseDie3 crops share the numeral 3; greenItem is the closest labeled crop in green octagonal tendency. A literal interrupted octagonal display or opposing segmented brackets is the closest noncanonical reading.",
+            "visibleDiscriminator": "The three labeled 3 crops use respectively a solid red triangle, purple rounded square, and yellow diamond, whereas the source uses a separated glowing green perimeter with side gaps. The greenItem crop is a solid green octagon containing a white plus rather than 3. No labeled crop reproduces both the source frame and its internal numeral.",
+            "evidenceRun": "sol-max-persistent-worker-31-20260821T112612Z-p346900-b7e2c9"
+          }
+        },
+        {
+          "occurrenceId": "QH-458100-6BA0A2-I02",
+          "assetMorphologyOccurrenceId": "QH-ASSET-929ac1204b4b7989-INLINE-01",
+          "sequence": 2,
+          "panelId": "P2",
+          "sourceToken": "character",
+          "start": 48,
+          "end": 59,
+          "literalAppearance": "The source and character crop share the same ordered structure of arched head opening, horizontal neck separation, squared shoulders, articulated bent arms, rectangular chest void, narrowed waist, and split lower form. The robot crop instead has a short antenna, a broad domed body, and two circular eye openings, without articulated arms, chest opening, or paired lower limbs. These internal features positively discriminate character from robot without relying on surrounding wording.",
+          "semanticReferenceId": "icon.character",
+          "mappingStatus": "authoritative-page40-exact-occurrence-match",
+          "page40TokenAssigned": true,
+          "mappingScope": "exact Queen Health source occurrence TTS-QUEEN-HEALTH-458100-6BA0A2-FACE only",
+          "resolutionBoundary": "Only the exact occurrence-specific authoritative comparison is used; no color, position, title, or surrounding-text alias is created.",
+          "selectedEvidence": {
+            "cardLocation": "Within the first line of P2, immediately after a and immediately before the colon.",
+            "referenceLabel": "Character",
+            "matchDecision": "match",
+            "canonicalToken": "character",
+            "closestAlternative": "The p.40 robot crop, or a literal segmented mechanical or protective-suit figure, is the closest alternative to the p.40 character crop.",
+            "visibleDiscriminator": "The source and character crop share the same ordered structure of arched head opening, horizontal neck separation, squared shoulders, articulated bent arms, rectangular chest void, narrowed waist, and split lower form. The robot crop instead has a short antenna, a broad domed body, and two circular eye openings, without articulated arms, chest opening, or paired lower limbs. These internal features positively discriminate character from robot without relying on surrounding wording.",
+            "evidenceRun": "sol-max-persistent-worker-31-20260821T112612Z-p346900-b7e2c9"
+          }
+        },
+        {
+          "occurrenceId": "QH-458100-6BA0A2-I03",
+          "assetMorphologyOccurrenceId": "QH-ASSET-929ac1204b4b7989-INLINE-02",
+          "sequence": 3,
+          "panelId": "P2",
+          "sourceToken": "malfunction",
+          "start": 70,
+          "end": 83,
+          "literalAppearance": "The source and malfunction crop share a thick gray circular ring, a dark round central void, and evenly distributed squared gear teeth with corresponding inset transitions between the teeth and ring. The autodestruction crop instead has three broad separated white lobes around a central circle and no continuous toothed ring. Other radial crops use pointed, nested, or petal-like structures rather than squared teeth, so the visible internal geometry uniquely supports malfunction.",
+          "semanticReferenceId": "icon.malfunction",
+          "mappingStatus": "authoritative-page40-exact-occurrence-match",
+          "page40TokenAssigned": true,
+          "mappingScope": "exact Queen Health source occurrence TTS-QUEEN-HEALTH-458100-6BA0A2-FACE only",
+          "resolutionBoundary": "Only the exact occurrence-specific authoritative comparison is used; no color, position, title, or surrounding-text alias is created.",
+          "selectedEvidence": {
+            "cardLocation": "Within the first option line of P2, immediately after Place a and before in the Queen's Room.",
+            "referenceLabel": "Malfunction",
+            "matchDecision": "match",
+            "canonicalToken": "malfunction",
+            "closestAlternative": "A literal toothed mechanical ring, sunburst, or decorative rosette; among the labeled crops, autodestruction is the nearest other radial circular symbol.",
+            "visibleDiscriminator": "The source and malfunction crop share a thick gray circular ring, a dark round central void, and evenly distributed squared gear teeth with corresponding inset transitions between the teeth and ring. The autodestruction crop instead has three broad separated white lobes around a central circle and no continuous toothed ring. Other radial crops use pointed, nested, or petal-like structures rather than squared teeth, so the visible internal geometry uniquely supports malfunction.",
+            "evidenceRun": "sol-max-persistent-worker-31-20260821T112612Z-p346900-b7e2c9"
+          }
+        }
+      ],
+      "cardStateRoles": {
+        "setup": "numbers-side down; operative face hidden and shared back visible",
+        "drawn": "operative face revealed publicly in resolution",
+        "additionalDiscards": "discarded without revealing",
+        "sharedBackSourceId": "SRC-QUEEN-HEALTH-BACK",
+        "separateRulesFaceOnBack": false
+      },
+      "sharedFaceAsset": {
+        "sourceSha256": "929ac1204b4b7989ee051307245bf32fb5e1915a35b9afd5a73572c8ca01dc61",
+        "physicalOccurrenceCount": 1,
+        "physicalOccurrenceIds": [
+          "TTS-QUEEN-HEALTH-458100-6BA0A2-FACE"
+        ],
+        "assetIdentityDoesNotCollapsePhysicalCopies": true
+      },
+      "semanticRuleId": "SEM-QUEEN-HEALTH-458100-6BA0A2-001",
+      "backlogUnitId": "CARD:929ac1204b4b7989",
+      "bgaVariantCandidates": {
+        "sourceId": "SRC-BGA-QUEEN-HEALTH",
+        "sourcePath": "docs/rules/source-extraction/secondary/bga-staticData-260622-1220.js",
+        "sourceSha256": "18cd8f4a2883d4f6662ed170095ff07e0d9f5da508064ed1d6bfc124f5a274ae",
+        "sourceVersion": "licensed BGA immutable build 260622-1220 / QUEEN_CARDS_DATA",
+        "table": "QUEEN_CARDS_DATA",
+        "matchStatus": "material-source-variant-conflict",
+        "candidateKeys": [
+          "QueenHealthCard12"
+        ],
+        "candidates": [
+          {
+            "key": "QueenHealthCard12",
+            "structuredOrdinal": 12,
+            "discard": 3,
+            "effectDesc": "Place a <MALFUNCTION> in the Room with the Queen.",
+            "sourceBlockText": "  QueenHealthCard12: { discard: 3, effectDesc: 'Place a <MALFUNCTION> in the Room with the Queen.' },",
+            "structuredOrdinalIsNotPrintedCardNumberOrDeckOrder": true
+          }
+        ],
+        "oneToOneCopyAssignmentAsserted": true,
+        "boundary": "Candidate projection uses exact discard/effect tuples and family multiplicity only; BGA key suffixes are not printed card numbers or TTS deck order, and duplicate candidate copies are not arbitrarily paired."
+      },
+      "officialCounterpartRefs": [],
+      "joinEvidence": {
+        "identityJoin": "exact physical occurrence and source-asset projection",
+        "titleOnlyJoin": false,
+        "folderOnlyJoin": false,
+        "cardIdModuloJoin": false,
+        "bgaOrdinalJoin": false,
+        "basis": [
+          "first/base queenHealthDeck Lua role and exact root GUID",
+          "raw saved DeckIDs sequence plus contained full CardID/GUID occurrence",
+          "exact CustomDeck ID, FaceURL, shared BackURL, and parent deck tuple",
+          "closed-corpus path/live SHA-256 and exact selected/canonical text evidence",
+          "ordered two-panel body, source sentences, local number display, and occurrence-scoped icon comparisons",
+          "licensed rows retained independently with candidate-set boundaries rather than title or ordinal pairing"
+        ]
+      }
+    },
+    {
+      "queenHealthOccurrenceId": "TTS-QUEEN-HEALTH-429200-48A2AE-FACE",
+      "ttsRole": "queenHealthDeck",
+      "ttsDeckGuid": "9acd7f",
+      "ttsDeckType": "Deck",
+      "ttsSavedSequence": 11,
+      "rulesDeckOrderSourceBacked": false,
+      "ttsCardGuid": "48a2ae",
+      "ttsCardId": 429200,
+      "customDeckId": "4292",
+      "sourceSelector": {
+        "key": "FaceURL",
+        "objectType": "CardCustom",
+        "fullCardId": 429200,
+        "guid": "48a2ae",
+        "parentDeckGuid": "9acd7f",
+        "customDeckId": "4292",
+        "url": "https://steamusercontent-a.akamaihd.net/ugc/11928382804440574/77448656104F9D31C7257ACDCF4C8B921898B918/",
+        "backUrl": "https://steamusercontent-a.akamaihd.net/ugc/11923313303559415/089CF664C3CC0F028CCC63FB2B9C15C4B063F3A9/",
+        "sideRole": "operative-number-and-effect-face",
+        "sourceRole": "direct-composite-face",
+        "selectorStatus": "exact-full-CardID-GUID-CustomDeck-FaceURL-parent-tuple",
+        "generatedSpriteSheetCell": false,
+        "selectorGap": null,
+        "cardIdModuloJoinUsed": false
+      },
+      "sourceId": "SRC-QUEEN-HEALTH-429200-48A2AE",
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/queenHealthDeck-045.png",
+      "sourceSha256": "133a975dc072a169ceed85615ab2e5a6cde0f80a23f18e61948f0a963c9e98e2",
+      "sourceAuthority": "source-bound-component-scan",
+      "sourceVersion": "TTS base Queen Health physical occurrence / root deck 9acd7f / saved sequence 11 / full CardID 429200 / GUID 48a2ae",
+      "corpusEvidencePath": "assets/tts-mod/extract/card-text-corpus.json",
+      "selectedEvidencePath": "assets/tts-mod/extract/selected-card-text-evidence.json",
+      "provenanceEvidencePath": "assets/tts-mod/extract/card-provenance-inventory.json",
+      "extractionState": "draft-full",
+      "rulesInformationReadiness": "draft-text-complete",
+      "printedHeading": "Discard",
+      "printedDiscardCount": 3,
+      "printedBody": "3\nadditional cards.\n\nIf the card was drawn by a [character].\n\nActivate the Queen.",
+      "panels": [
+        {
+          "panelId": "P1",
+          "readingOrder": 1,
+          "role": "discard-count-and-artwork-panel",
+          "operative": true,
+          "heading": "Discard",
+          "exactText": "Discard\n3\nadditional cards.",
+          "bodyStart": 0,
+          "bodyEnd": 19
+        },
+        {
+          "panelId": "P2",
+          "readingOrder": 2,
+          "role": "conditional-special-effect-panel",
+          "operative": true,
+          "heading": "",
+          "exactText": "If the card was drawn by a [character].\n\nActivate the Queen.",
+          "bodyStart": 21,
+          "bodyEnd": 81
+        }
+      ],
+      "sentences": [
+        {
+          "sentenceId": "QH-429200-48A2AE-S01",
+          "sequence": 1,
+          "panelId": "P1",
+          "exactText": "3\nadditional cards.",
+          "start": 0,
+          "end": 19
+        },
+        {
+          "sentenceId": "QH-429200-48A2AE-S02",
+          "sequence": 2,
+          "panelId": "P2",
+          "exactText": "If the card was drawn by a [character].",
+          "start": 21,
+          "end": 60
+        },
+        {
+          "sentenceId": "QH-429200-48A2AE-S03",
+          "sequence": 3,
+          "panelId": "P2",
+          "exactText": "Activate the Queen.",
+          "start": 62,
+          "end": 81
+        }
+      ],
+      "iconOccurrences": [
+        {
+          "occurrenceId": "QH-429200-48A2AE-I01",
+          "assetMorphologyOccurrenceId": "QH-ASSET-133a975dc072a169-DISPLAY",
+          "sequence": 1,
+          "panelId": "P1",
+          "sourceToken": "LOCAL-DISCARD-DISPLAY-3",
+          "literalAppearance": "Large near-square octagonal outline made from separated horizontal, vertical, and diagonal glowing green segments, with gaps at the middle of both sides, containing a large white 3 in a dark translucent green interior.",
+          "printedNumericValue": 3,
+          "semanticReferenceId": null,
+          "mappingStatus": "selected-explicit-authoritative-no-match",
+          "page40TokenAssigned": false,
+          "mappingScope": "exact Queen Health source occurrence TTS-QUEEN-HEALTH-429200-48A2AE-FACE only",
+          "resolutionBoundary": "The visible numeral remains source-local morphology. Its numeric value is read from this card occurrence and composed with the official page-35 instruction; it is not a Shoot/Burst/Health/damage icon alias.",
+          "selectedEvidence": {
+            "cardLocation": "Upper center, between Discard and additional cards.",
+            "referenceLabel": "Location: upper center, between Discard and additional cards. Outer shape: a large near-square octagonal outline made from separated horizontal, vertical, and diagonal segments, with gaps at the middle of the left and right sides. Internal marks: a large white 3 is centered in a dark translucent green interior, with no other discrete internal mark. Colors: bright green, teal, cyan-green glow, dark green, and white.",
+            "matchDecision": "no-match",
+            "canonicalToken": null,
+            "closestAlternative": "The labeled shootDie3, burstDie3, and noiseDie3 crops share the numeral 3; greenItem is the nearest labeled crop in green octagonal tendency. A literal interrupted octagonal display or two opposing segmented brackets around a numeral is the closest noncanonical alternative.",
+            "visibleDiscriminator": "The three labeled 3 crops place their numerals in, respectively, a solid red triangle, purple rounded square, and yellow diamond, whereas the source has a separated glowing green perimeter with open side gaps. The greenItem crop is a solid green octagon containing a white plus. The frame-like burstDieAdditionalEffects crop has four white corner brackets on a filled purple square and no central numeral. None of the 49 crops reproduces the complete source frame-and-glyph morphology.",
+            "evidenceRun": "sol-max-persistent-worker-31-20260821T112612Z-p346900-b7e2c9"
+          }
+        },
+        {
+          "occurrenceId": "QH-429200-48A2AE-I02",
+          "assetMorphologyOccurrenceId": "QH-ASSET-133a975dc072a169-INLINE-01",
+          "sequence": 2,
+          "panelId": "P2",
+          "sourceToken": "character",
+          "start": 48,
+          "end": 59,
+          "literalAppearance": "The source and character crop share the same ordered pixel structure: arched head opening, horizontal neck separation, squared shoulders, articulated bent arms, rectangular chest void, narrowed waist, and split lower form. The robot crop instead has a short antenna, broad domed body, and two circular eye openings, without articulated arms, a rectangular chest opening, or paired lower limbs. These visible internal features discriminate character from robot without using the surrounding sentence.",
+          "semanticReferenceId": "icon.character",
+          "mappingStatus": "authoritative-page40-exact-occurrence-match",
+          "page40TokenAssigned": true,
+          "mappingScope": "exact Queen Health source occurrence TTS-QUEEN-HEALTH-429200-48A2AE-FACE only",
+          "resolutionBoundary": "Only the exact occurrence-specific authoritative comparison is used; no color, position, title, or surrounding-text alias is created.",
+          "selectedEvidence": {
+            "cardLocation": "Within the first sentence of P2, immediately after a and immediately before the sentence-ending period.",
+            "referenceLabel": "Character",
+            "matchDecision": "match",
+            "canonicalToken": "character",
+            "closestAlternative": "The p.40 robot crop, or a literal segmented mechanical or protective-suit figure, is the closest alternative to the p.40 character crop.",
+            "visibleDiscriminator": "The source and character crop share the same ordered pixel structure: arched head opening, horizontal neck separation, squared shoulders, articulated bent arms, rectangular chest void, narrowed waist, and split lower form. The robot crop instead has a short antenna, broad domed body, and two circular eye openings, without articulated arms, a rectangular chest opening, or paired lower limbs. These visible internal features discriminate character from robot without using the surrounding sentence.",
+            "evidenceRun": "sol-max-persistent-worker-31-20260821T112612Z-p346900-b7e2c9"
+          }
+        }
+      ],
+      "cardStateRoles": {
+        "setup": "numbers-side down; operative face hidden and shared back visible",
+        "drawn": "operative face revealed publicly in resolution",
+        "additionalDiscards": "discarded without revealing",
+        "sharedBackSourceId": "SRC-QUEEN-HEALTH-BACK",
+        "separateRulesFaceOnBack": false
+      },
+      "sharedFaceAsset": {
+        "sourceSha256": "133a975dc072a169ceed85615ab2e5a6cde0f80a23f18e61948f0a963c9e98e2",
+        "physicalOccurrenceCount": 2,
+        "physicalOccurrenceIds": [
+          "TTS-QUEEN-HEALTH-429200-48A2AE-FACE",
+          "TTS-QUEEN-HEALTH-429200-0FBF8D-FACE"
+        ],
+        "assetIdentityDoesNotCollapsePhysicalCopies": true
+      },
+      "semanticRuleId": "SEM-QUEEN-HEALTH-429200-48A2AE-001",
+      "backlogUnitId": "CARD:133a975dc072a169",
+      "bgaVariantCandidates": {
+        "sourceId": "SRC-BGA-QUEEN-HEALTH",
+        "sourcePath": "docs/rules/source-extraction/secondary/bga-staticData-260622-1220.js",
+        "sourceSha256": "18cd8f4a2883d4f6662ed170095ff07e0d9f5da508064ed1d6bfc124f5a274ae",
+        "sourceVersion": "licensed BGA immutable build 260622-1220 / QUEEN_CARDS_DATA",
+        "table": "QUEEN_CARDS_DATA",
+        "matchStatus": "duplicate-functional-tuple-candidate-set",
+        "candidateKeys": [
+          "QueenHealthCard10",
+          "QueenHealthCard11"
+        ],
+        "candidates": [
+          {
+            "key": "QueenHealthCard10",
+            "structuredOrdinal": 10,
+            "discard": 3,
+            "effectDesc": "Activate the Queen.",
+            "sourceBlockText": "  QueenHealthCard10: { discard: 3, effectDesc: 'Activate the Queen.' },",
+            "structuredOrdinalIsNotPrintedCardNumberOrDeckOrder": true
+          },
+          {
+            "key": "QueenHealthCard11",
+            "structuredOrdinal": 11,
+            "discard": 3,
+            "effectDesc": "Activate the Queen.",
+            "sourceBlockText": "  QueenHealthCard11: { discard: 3, effectDesc: 'Activate the Queen.' },",
+            "structuredOrdinalIsNotPrintedCardNumberOrDeckOrder": true
+          }
+        ],
+        "oneToOneCopyAssignmentAsserted": false,
+        "boundary": "Candidate projection uses exact discard/effect tuples and family multiplicity only; BGA key suffixes are not printed card numbers or TTS deck order, and duplicate candidate copies are not arbitrarily paired."
+      },
+      "officialCounterpartRefs": [],
+      "joinEvidence": {
+        "identityJoin": "exact physical occurrence and source-asset projection",
+        "titleOnlyJoin": false,
+        "folderOnlyJoin": false,
+        "cardIdModuloJoin": false,
+        "bgaOrdinalJoin": false,
+        "basis": [
+          "first/base queenHealthDeck Lua role and exact root GUID",
+          "raw saved DeckIDs sequence plus contained full CardID/GUID occurrence",
+          "exact CustomDeck ID, FaceURL, shared BackURL, and parent deck tuple",
+          "closed-corpus path/live SHA-256 and exact selected/canonical text evidence",
+          "ordered two-panel body, source sentences, local number display, and occurrence-scoped icon comparisons",
+          "licensed rows retained independently with candidate-set boundaries rather than title or ordinal pairing"
+        ]
+      }
+    },
+    {
+      "queenHealthOccurrenceId": "TTS-QUEEN-HEALTH-429200-0FBF8D-FACE",
+      "ttsRole": "queenHealthDeck",
+      "ttsDeckGuid": "9acd7f",
+      "ttsDeckType": "Deck",
+      "ttsSavedSequence": 12,
+      "rulesDeckOrderSourceBacked": false,
+      "ttsCardGuid": "0fbf8d",
+      "ttsCardId": 429200,
+      "customDeckId": "4292",
+      "sourceSelector": {
+        "key": "FaceURL",
+        "objectType": "CardCustom",
+        "fullCardId": 429200,
+        "guid": "0fbf8d",
+        "parentDeckGuid": "9acd7f",
+        "customDeckId": "4292",
+        "url": "https://steamusercontent-a.akamaihd.net/ugc/11928382804440574/77448656104F9D31C7257ACDCF4C8B921898B918/",
+        "backUrl": "https://steamusercontent-a.akamaihd.net/ugc/11923313303559415/089CF664C3CC0F028CCC63FB2B9C15C4B063F3A9/",
+        "sideRole": "operative-number-and-effect-face",
+        "sourceRole": "direct-composite-face",
+        "selectorStatus": "exact-full-CardID-GUID-CustomDeck-FaceURL-parent-tuple",
+        "generatedSpriteSheetCell": false,
+        "selectorGap": null,
+        "cardIdModuloJoinUsed": false
+      },
+      "sourceId": "SRC-QUEEN-HEALTH-429200-0FBF8D",
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/queenHealthDeck-045.png",
+      "sourceSha256": "133a975dc072a169ceed85615ab2e5a6cde0f80a23f18e61948f0a963c9e98e2",
+      "sourceAuthority": "source-bound-component-scan",
+      "sourceVersion": "TTS base Queen Health physical occurrence / root deck 9acd7f / saved sequence 12 / full CardID 429200 / GUID 0fbf8d",
+      "corpusEvidencePath": "assets/tts-mod/extract/card-text-corpus.json",
+      "selectedEvidencePath": "assets/tts-mod/extract/selected-card-text-evidence.json",
+      "provenanceEvidencePath": "assets/tts-mod/extract/card-provenance-inventory.json",
+      "extractionState": "draft-full",
+      "rulesInformationReadiness": "draft-text-complete",
+      "printedHeading": "Discard",
+      "printedDiscardCount": 3,
+      "printedBody": "3\nadditional cards.\n\nIf the card was drawn by a [character].\n\nActivate the Queen.",
+      "panels": [
+        {
+          "panelId": "P1",
+          "readingOrder": 1,
+          "role": "discard-count-and-artwork-panel",
+          "operative": true,
+          "heading": "Discard",
+          "exactText": "Discard\n3\nadditional cards.",
+          "bodyStart": 0,
+          "bodyEnd": 19
+        },
+        {
+          "panelId": "P2",
+          "readingOrder": 2,
+          "role": "conditional-special-effect-panel",
+          "operative": true,
+          "heading": "",
+          "exactText": "If the card was drawn by a [character].\n\nActivate the Queen.",
+          "bodyStart": 21,
+          "bodyEnd": 81
+        }
+      ],
+      "sentences": [
+        {
+          "sentenceId": "QH-429200-0FBF8D-S01",
+          "sequence": 1,
+          "panelId": "P1",
+          "exactText": "3\nadditional cards.",
+          "start": 0,
+          "end": 19
+        },
+        {
+          "sentenceId": "QH-429200-0FBF8D-S02",
+          "sequence": 2,
+          "panelId": "P2",
+          "exactText": "If the card was drawn by a [character].",
+          "start": 21,
+          "end": 60
+        },
+        {
+          "sentenceId": "QH-429200-0FBF8D-S03",
+          "sequence": 3,
+          "panelId": "P2",
+          "exactText": "Activate the Queen.",
+          "start": 62,
+          "end": 81
+        }
+      ],
+      "iconOccurrences": [
+        {
+          "occurrenceId": "QH-429200-0FBF8D-I01",
+          "assetMorphologyOccurrenceId": "QH-ASSET-133a975dc072a169-DISPLAY",
+          "sequence": 1,
+          "panelId": "P1",
+          "sourceToken": "LOCAL-DISCARD-DISPLAY-3",
+          "literalAppearance": "Large near-square octagonal outline made from separated horizontal, vertical, and diagonal glowing green segments, with gaps at the middle of both sides, containing a large white 3 in a dark translucent green interior.",
+          "printedNumericValue": 3,
+          "semanticReferenceId": null,
+          "mappingStatus": "selected-explicit-authoritative-no-match",
+          "page40TokenAssigned": false,
+          "mappingScope": "exact Queen Health source occurrence TTS-QUEEN-HEALTH-429200-0FBF8D-FACE only",
+          "resolutionBoundary": "The visible numeral remains source-local morphology. Its numeric value is read from this card occurrence and composed with the official page-35 instruction; it is not a Shoot/Burst/Health/damage icon alias.",
+          "selectedEvidence": {
+            "cardLocation": "Upper center, between Discard and additional cards.",
+            "referenceLabel": "Location: upper center, between Discard and additional cards. Outer shape: a large near-square octagonal outline made from separated horizontal, vertical, and diagonal segments, with gaps at the middle of the left and right sides. Internal marks: a large white 3 is centered in a dark translucent green interior, with no other discrete internal mark. Colors: bright green, teal, cyan-green glow, dark green, and white.",
+            "matchDecision": "no-match",
+            "canonicalToken": null,
+            "closestAlternative": "The labeled shootDie3, burstDie3, and noiseDie3 crops share the numeral 3; greenItem is the nearest labeled crop in green octagonal tendency. A literal interrupted octagonal display or two opposing segmented brackets around a numeral is the closest noncanonical alternative.",
+            "visibleDiscriminator": "The three labeled 3 crops place their numerals in, respectively, a solid red triangle, purple rounded square, and yellow diamond, whereas the source has a separated glowing green perimeter with open side gaps. The greenItem crop is a solid green octagon containing a white plus. The frame-like burstDieAdditionalEffects crop has four white corner brackets on a filled purple square and no central numeral. None of the 49 crops reproduces the complete source frame-and-glyph morphology.",
+            "evidenceRun": "sol-max-persistent-worker-31-20260821T112612Z-p346900-b7e2c9"
+          }
+        },
+        {
+          "occurrenceId": "QH-429200-0FBF8D-I02",
+          "assetMorphologyOccurrenceId": "QH-ASSET-133a975dc072a169-INLINE-01",
+          "sequence": 2,
+          "panelId": "P2",
+          "sourceToken": "character",
+          "start": 48,
+          "end": 59,
+          "literalAppearance": "The source and character crop share the same ordered pixel structure: arched head opening, horizontal neck separation, squared shoulders, articulated bent arms, rectangular chest void, narrowed waist, and split lower form. The robot crop instead has a short antenna, broad domed body, and two circular eye openings, without articulated arms, a rectangular chest opening, or paired lower limbs. These visible internal features discriminate character from robot without using the surrounding sentence.",
+          "semanticReferenceId": "icon.character",
+          "mappingStatus": "authoritative-page40-exact-occurrence-match",
+          "page40TokenAssigned": true,
+          "mappingScope": "exact Queen Health source occurrence TTS-QUEEN-HEALTH-429200-0FBF8D-FACE only",
+          "resolutionBoundary": "Only the exact occurrence-specific authoritative comparison is used; no color, position, title, or surrounding-text alias is created.",
+          "selectedEvidence": {
+            "cardLocation": "Within the first sentence of P2, immediately after a and immediately before the sentence-ending period.",
+            "referenceLabel": "Character",
+            "matchDecision": "match",
+            "canonicalToken": "character",
+            "closestAlternative": "The p.40 robot crop, or a literal segmented mechanical or protective-suit figure, is the closest alternative to the p.40 character crop.",
+            "visibleDiscriminator": "The source and character crop share the same ordered pixel structure: arched head opening, horizontal neck separation, squared shoulders, articulated bent arms, rectangular chest void, narrowed waist, and split lower form. The robot crop instead has a short antenna, broad domed body, and two circular eye openings, without articulated arms, a rectangular chest opening, or paired lower limbs. These visible internal features discriminate character from robot without using the surrounding sentence.",
+            "evidenceRun": "sol-max-persistent-worker-31-20260821T112612Z-p346900-b7e2c9"
+          }
+        }
+      ],
+      "cardStateRoles": {
+        "setup": "numbers-side down; operative face hidden and shared back visible",
+        "drawn": "operative face revealed publicly in resolution",
+        "additionalDiscards": "discarded without revealing",
+        "sharedBackSourceId": "SRC-QUEEN-HEALTH-BACK",
+        "separateRulesFaceOnBack": false
+      },
+      "sharedFaceAsset": {
+        "sourceSha256": "133a975dc072a169ceed85615ab2e5a6cde0f80a23f18e61948f0a963c9e98e2",
+        "physicalOccurrenceCount": 2,
+        "physicalOccurrenceIds": [
+          "TTS-QUEEN-HEALTH-429200-48A2AE-FACE",
+          "TTS-QUEEN-HEALTH-429200-0FBF8D-FACE"
+        ],
+        "assetIdentityDoesNotCollapsePhysicalCopies": true
+      },
+      "semanticRuleId": "SEM-QUEEN-HEALTH-429200-0FBF8D-001",
+      "backlogUnitId": "CARD:133a975dc072a169",
+      "bgaVariantCandidates": {
+        "sourceId": "SRC-BGA-QUEEN-HEALTH",
+        "sourcePath": "docs/rules/source-extraction/secondary/bga-staticData-260622-1220.js",
+        "sourceSha256": "18cd8f4a2883d4f6662ed170095ff07e0d9f5da508064ed1d6bfc124f5a274ae",
+        "sourceVersion": "licensed BGA immutable build 260622-1220 / QUEEN_CARDS_DATA",
+        "table": "QUEEN_CARDS_DATA",
+        "matchStatus": "duplicate-functional-tuple-candidate-set",
+        "candidateKeys": [
+          "QueenHealthCard10",
+          "QueenHealthCard11"
+        ],
+        "candidates": [
+          {
+            "key": "QueenHealthCard10",
+            "structuredOrdinal": 10,
+            "discard": 3,
+            "effectDesc": "Activate the Queen.",
+            "sourceBlockText": "  QueenHealthCard10: { discard: 3, effectDesc: 'Activate the Queen.' },",
+            "structuredOrdinalIsNotPrintedCardNumberOrDeckOrder": true
+          },
+          {
+            "key": "QueenHealthCard11",
+            "structuredOrdinal": 11,
+            "discard": 3,
+            "effectDesc": "Activate the Queen.",
+            "sourceBlockText": "  QueenHealthCard11: { discard: 3, effectDesc: 'Activate the Queen.' },",
+            "structuredOrdinalIsNotPrintedCardNumberOrDeckOrder": true
+          }
+        ],
+        "oneToOneCopyAssignmentAsserted": false,
+        "boundary": "Candidate projection uses exact discard/effect tuples and family multiplicity only; BGA key suffixes are not printed card numbers or TTS deck order, and duplicate candidate copies are not arbitrarily paired."
+      },
+      "officialCounterpartRefs": [],
+      "joinEvidence": {
+        "identityJoin": "exact physical occurrence and source-asset projection",
+        "titleOnlyJoin": false,
+        "folderOnlyJoin": false,
+        "cardIdModuloJoin": false,
+        "bgaOrdinalJoin": false,
+        "basis": [
+          "first/base queenHealthDeck Lua role and exact root GUID",
+          "raw saved DeckIDs sequence plus contained full CardID/GUID occurrence",
+          "exact CustomDeck ID, FaceURL, shared BackURL, and parent deck tuple",
+          "closed-corpus path/live SHA-256 and exact selected/canonical text evidence",
+          "ordered two-panel body, source sentences, local number display, and occurrence-scoped icon comparisons",
+          "licensed rows retained independently with candidate-set boundaries rather than title or ordinal pairing"
+        ]
+      }
+    }
+  ]
+}

@@ -15,14 +15,14 @@ DIR = REPO / 'docs/rules/semantics'
 VOCAB = REPO / 'docs/rules/vocabulary'
 ONTOLOGY = REPO / 'docs/rules/ontology'
 EXPECTED = {
-    'sources': 75, 'semanticNodes': 26, 'records': 145, 'sourceBacked': 83, 'withOpenQuestion': 62,
-    'sourceVariants': 0, 'sourceAssertions': 448, 'conditions': 591,
-    'operations': 672, 'decisions': 73, 'informationPolicies': 158,
-    'costs': 6, 'targets': 177, 'openQuestionReferences': 80,
-    'variantReferences': 74, 'questions': 30, 'openQuestions': 30, 'systems': 18,
-    'conflicts': 18, 'unresolvedConflicts': 8,
+    'sources': 90, 'semanticNodes': 26, 'records': 167, 'sourceBacked': 88, 'withOpenQuestion': 79,
+    'sourceVariants': 0, 'sourceAssertions': 519, 'conditions': 680,
+    'operations': 773, 'decisions': 80, 'informationPolicies': 181,
+    'costs': 9, 'targets': 203, 'openQuestionReferences': 114,
+    'variantReferences': 95, 'questions': 35, 'openQuestions': 35, 'systems': 19,
+    'conflicts': 22, 'unresolvedConflicts': 9,
     'roomIconDenotations': 112,
-    'backlogUnits': 600, 'backlogPilotCovered': 154, 'backlogSourceBlocked': 1,
+    'backlogUnits': 600, 'backlogPilotCovered': 174, 'backlogSourceBlocked': 1,
     'eventIdentities': 20, 'eventScanOccurrences': 20, 'eventLicensedOccurrences': 20,
     'eventOfficialOccurrences': 4, 'eventRecords': 20, 'eventBacklogTuples': 20,
     'explorationIdentities': 12, 'explorationScanOccurrences': 12,
@@ -43,6 +43,13 @@ EXPECTED = {
     'attackPrintedSentences': 54, 'attackBadgeOccurrences': 57,
     'attackInlineIconOccurrences': 13, 'attackFunctionalSymbolOccurrences': 70,
     'attackSelectedNoMatches': 55, 'attackRecords': 20, 'attackBacklogTuples': 20,
+    'queenHealthPhysicalOccurrences': 12, 'queenHealthUniqueFaceAssets': 10,
+    'queenHealthSharedBackOccurrences': 1, 'queenHealthLicensedOccurrences': 12,
+    'queenHealthOfficialFaceOccurrences': 3, 'queenHealthOfficialBackOccurrences': 2,
+    'queenHealthPhysicalPanels': 24, 'queenHealthPrintedSentences': 37,
+    'queenHealthLocalDisplayOccurrences': 12, 'queenHealthMatchedIconOccurrences': 16,
+    'queenHealthFunctionalIconOccurrences': 28, 'queenHealthRecords': 12,
+    'queenHealthBacklogTuples': 10,
 }
 PINNED_HELP_SOURCE_HASHES = {
     'docs/rules/source-extraction/intruder-help-sheet.json': 'e07f2703a6ad1b49c06389f79d3b1ffd6f5fd1d98604bf14b405fee49d9679e6',
@@ -52,6 +59,7 @@ PINNED_HELP_SOURCE_HASHES = {
 PINNED_EXPLORATION_SOURCE_INDEX_HASH = 'd95dc30738ce2efbb4cf696671388aaf731626f167601fdca70c6fee74dc95bd'
 PINNED_ROBOT_SOURCE_INDEX_HASH = 'd5c0f1abb5794cdddebba42b38580627122a43da96f8da0ff289d5b917c9b6a4'
 PINNED_ATTACK_SOURCE_INDEX_HASH = 'c7b26acaccdb08f166a5618fa9c140189239f50645e1e6601ecc7dfda210f6b3'
+PINNED_QUEEN_HEALTH_SOURCE_INDEX_HASH = '74fc260e2d09f4676b186431f59d8564b7f9bb3f3e8091d50b80e003fbc29988'
 EXPECTED_EVENT_OCCURRENCES = {
     5609: ('SRC-EVENT-5609','assets/tts-mod/extract/v2-dl/tree/cards/game/event-099.png','0d5da2c8e1b6ccb6a30c83f9006aa924f4fc2f1f14d360d153bc5ea6f73770ed','Event_SystemFailure','SEM-EVENT-SYSTEM-FAILURE-001','SYSTEM FAILURE'),
     5610: ('SRC-EVENT-5610','assets/tts-mod/extract/v2-dl/tree/cards/game/event-009.png','92bc91f54116780d214aefd7925a46897d811f699c5921edd55f45b40deb989d','Event_NoWayOut','SEM-EVENT-NO-WAY-OUT-001','NO WAY OUT'),
@@ -234,6 +242,62 @@ EXPECTED_ATTACK_BODY_DIGESTS = {
 EXPECTED_ATTACK_RECORD_DIGESTS = {
     'SEM-ATTACK-394900-001':'b363d61ef96b239f83e04bc00867d2943a7da868438484d802bfd54b5d888c84','SEM-ATTACK-394901-001':'cb09dbe29c77e9655279b52c6061f46013da0b1686c779b49363038be067275c','SEM-ATTACK-394902-001':'fbe74107fd5766b9812c7d78f9729c2a5c2b12bebdb82b3c5bd216ebf7de9fe1','SEM-ATTACK-394903-001':'ecfc2a2e4f1ab416634a3cebe988bb82903f48c91d4745f0445e2be65bf871f4','SEM-ATTACK-394904-001':'0fda12666d53361403fd60e597a812784b17f2fb9f7ca1725e1463d42a595dc2','SEM-ATTACK-394905-001':'a4a2b485e8ca2ae13481ec799f986e1d78ce6abe1702664086b2df7eb55681ce','SEM-ATTACK-394906-001':'363be26edf170bc7df8344817fbe313a4df63aeb06d8c6307b9b04b0a09b250c','SEM-ATTACK-394907-001':'d00202c7f465423b10f943791aa5bb62245701348345cf3701debbdfbde89d10','SEM-ATTACK-394908-001':'28c7d244ecdc45f0624c1a0a43085e4de732a11b13cb6279fd25350ea32099d6','SEM-ATTACK-394909-001':'4564b6f6b6e9a5b1e2d7e860cd4254e055689f02038d2d70a2951e11aa35441b','SEM-ATTACK-394910-001':'360814f4b3f7df57e3c00c683349a2b7204a48e2f6e4e0a0092f3d5e1ae03018','SEM-ATTACK-394911-001':'566f1d1b2ddc77b08dc741a300d8596c0f90238636d830ecc591a5e06fb6d335','SEM-ATTACK-394912-001':'f23f2616dfd0894cad070e8910f1c1c7a6011f61dd6c856041f413a84e5fdbc6','SEM-ATTACK-394913-001':'82f959a00970278f4d0e40f9769d849eceee6cfc695e06eef631dc7049b9a996','SEM-ATTACK-394914-001':'2077903a59bd34a3c7d47fdc771436be117df0f9d403e464556f5c9e8bad4a19','SEM-ATTACK-394915-001':'cffaac76cb2054586bbdfa93c2ef97e973d0d599d8922dcdaf6709e902ce1630','SEM-ATTACK-394916-001':'881b144695663b5d3e0b061517a42973b0f232d06a2df03de68a450b733628df','SEM-ATTACK-394918-001':'7e9050f736b63d7fd5c5336160fc2c4ff3cb2a6ccfad70396b8226198ac3697f','SEM-ATTACK-394919-001':'39a77c3ee127e0c3eb77a1aa0e8c4d38c29fe1f069eb32c712eb05831ad5d80b','SEM-ATTACK-399100-001':'603b47857c36fb72e6e48b244d0cb879286b105c4944fe2204322aa4ba4fd369','SEM-CONTAMINATION-GAIN-001':'de8256656ec5d3d98079726883c49e0753e9f48b469445b6db6a1fb47a763638','SEM-INT-004':'fef1c6058aaab9a28794e2d89486cb88d52f279ae686f4e77a588b7879a7b0b9',
 }
+EXPECTED_QUEEN_HEALTH_COUNTS = {
+    'physicalFaceOccurrences':12,'uniqueFaceAssets':10,'uniqueFullCardIds':11,'uniqueCardGuids':12,
+    'rootCustomDeckEntries':11,'rootUniqueFaceUrls':10,'directFaceOccurrences':12,'generatedFaceOccurrences':0,
+    'sourceSheets':0,'selectorGaps':0,'sharedBackOccurrences':1,'sharedBackSelectorReferences':13,
+    'canonicalCorpusAssets':1,'sourceBoundDraftAssets':9,'physicalPanels':24,'operativePanels':24,
+    'printedSentences':37,'localNumberDisplayOccurrences':12,'page40MatchedIconOccurrences':16,
+    'functionalIconOccurrences':28,'uniqueAssetFunctionalIconOccurrences':24,
+    'selectedEvidenceNoMatchAssetOccurrences':9,'canonicalLocalUnregisteredAssetOccurrences':1,
+    'characterIconOccurrences':14,'actionCardIconOccurrences':1,'malfunctionIconOccurrences':1,
+    'queenIconOccurrences':0,'damageIconOccurrences':0,'burstIconOccurrences':0,'healthIconOccurrences':0,
+    'licensedDigitalOccurrences':12,'licensedPlaceholderOccurrences':4,'licensedCandidateLinks':16,
+    'officialVisibleFaceOccurrences':3,'officialVisibleBackOccurrences':2,'officialQueenHitsTrackSpaces':6,
+    'officialTrackTerminalLocalSymbolOccurrences':2,'officialRulebookTextOccurrences':17,
+    'officialRulebookVisualObligations':4,'faqOccurrences':1,'objectiveHelpOccurrences':2,
+    'excludedExpansionQueenHealthDecks':3,'excludedPrototypeFaces':0,'excludedPlaceholderFaces':0,
+    'excludedParentSheets':0,'excludedBaseAttackOccurrencesWithQueenApplicability':20,
+    'backlogTuples':10,'backlogPhysicalFaceLinks':12,'backlogObligationsLinked':25,
+}
+EXPECTED_QUEEN_HEALTH_OCCURRENCES = {
+    'TTS-QUEEN-HEALTH-424300-615E22-FACE': {'sequence':1,'cardId':424300,'guid':'615e22','customDeckId':'4243','path':'assets/tts-mod/extract/v2-dl/tree/cards/game/queenHealthDeck-039.png','sha256':'648b81223c8c8b65b96a4304645bfe738f2ca64ecf989c0a826111d6bf6bd506','discard':0,'bgaKeys':['QueenHealthCard1'],'ruleId':'SEM-QUEEN-HEALTH-424300-615E22-001','sentences':3,'iconRefs':[None,'icon.character'],'official':['RB-P03-V01-QH-FACE-DISCARD-0-PARTIAL'],'bodyDigest':'0288196e016568e20f154986e3e7acea89c435985dbeee6b1a1ffa482294c78e'},
+    'TTS-QUEEN-HEALTH-424500-0DD25F-FACE': {'sequence':2,'cardId':424500,'guid':'0dd25f','customDeckId':'4245','path':'assets/tts-mod/extract/v2-dl/tree/cards/game/queenHealthDeck-040.png','sha256':'ce7a5fba88dd56f5de2ae77e5fe1647324bdfa9a99ae7f55485cca35eb72b062','discard':0,'bgaKeys':['QueenHealthCard3'],'ruleId':'SEM-QUEEN-HEALTH-424500-0DD25F-001','sentences':3,'iconRefs':[None,'icon.character'],'official':['RB-P03-V01-QH-FACE-DISCARD-0-PARTIAL'],'bodyDigest':'26fa14dfae12d957d2a584730ecabb25404294f5d90a838078ef9a0b12acda18'},
+    'TTS-QUEEN-HEALTH-503700-E4AB1C-FACE': {'sequence':3,'cardId':503700,'guid':'e4ab1c','customDeckId':'5037','path':'assets/tts-mod/extract/v2-dl/tree/cards/game/queenHealthDeck-013.png','sha256':'5ad0606dff59c21b20689fc6b5b5192ef83c95f108ded91e587725bfd2c68092','discard':0,'bgaKeys':['QueenHealthCard2'],'ruleId':'SEM-QUEEN-HEALTH-503700-E4AB1C-001','sentences':3,'iconRefs':[None,'icon.character'],'official':['RB-P03-V01-QH-FACE-DISCARD-0-PARTIAL'],'bodyDigest':'f6bf9085284274c926b9b0a8ed0477d3ab32ceed39ab7c37c04d432829bbfd31'},
+    'TTS-QUEEN-HEALTH-504100-717B23-FACE': {'sequence':4,'cardId':504100,'guid':'717b23','customDeckId':'5041','path':'assets/tts-mod/extract/v2-dl/tree/cards/game/queenHealthDeck-084.png','sha256':'bcb0eeb9e86f66f8401b584385746d268641c2692392b3faeb4f93438111a62f','discard':1,'bgaKeys':['QueenHealthCard4','QueenHealthCard5'],'ruleId':'SEM-QUEEN-HEALTH-504100-717B23-001','sentences':3,'iconRefs':[None,'icon.character'],'official':['RB-P03-V01-QH-FACE-DISCARD-1-PARTIAL','RB-P35-V02-QH-FACE-DISCARD-1-REPEL'],'bodyDigest':'69f900f3e0fc4b4058cf40269333d88e03db41169652709fd7cd17ceb3ae3e07'},
+    'TTS-QUEEN-HEALTH-504200-CA5827-FACE': {'sequence':5,'cardId':504200,'guid':'ca5827','customDeckId':'5042','path':'assets/tts-mod/extract/v2-dl/tree/cards/game/queenHealthDeck-084.png','sha256':'bcb0eeb9e86f66f8401b584385746d268641c2692392b3faeb4f93438111a62f','discard':1,'bgaKeys':['QueenHealthCard4','QueenHealthCard5'],'ruleId':'SEM-QUEEN-HEALTH-504200-CA5827-001','sentences':3,'iconRefs':[None,'icon.character'],'official':['RB-P03-V01-QH-FACE-DISCARD-1-PARTIAL','RB-P35-V02-QH-FACE-DISCARD-1-REPEL'],'bodyDigest':'69f900f3e0fc4b4058cf40269333d88e03db41169652709fd7cd17ceb3ae3e07'},
+    'TTS-QUEEN-HEALTH-504000-919263-FACE': {'sequence':6,'cardId':504000,'guid':'919263','customDeckId':'5040','path':'assets/tts-mod/extract/v2-dl/tree/cards/game/queenHealthDeck-126.png','sha256':'63654c6409f88599aff333b6a54e90b3c3aaa7a29f2395ffff36eed7ab2d6e49','discard':1,'bgaKeys':['QueenHealthCard6'],'ruleId':'SEM-QUEEN-HEALTH-504000-919263-001','sentences':3,'iconRefs':[None,'icon.character'],'official':['RB-P03-V01-QH-FACE-DISCARD-1-PARTIAL'],'bodyDigest':'49d95c5cb4a5d6acb37f2628963db3defb35086c3cf47b25dfedb0ebe21e2e4f'},
+    'TTS-QUEEN-HEALTH-503900-B42831-FACE': {'sequence':7,'cardId':503900,'guid':'b42831','customDeckId':'5039','path':'assets/tts-mod/extract/v2-dl/tree/cards/game/queenHealthDeck-164.png','sha256':'4a79f992bc3e6b7493887c40b1198785673cc87ce462bbdd732b02c8e6a3cf14','discard':1,'bgaKeys':['QueenHealthCard7'],'ruleId':'SEM-QUEEN-HEALTH-503900-B42831-001','sentences':3,'iconRefs':[None,'icon.character','icon.character','icon.actionCard'],'official':['RB-P03-V01-QH-FACE-DISCARD-1-PARTIAL'],'bodyDigest':'381827a4ef54b37b0be97c0341895699030a23d5fadd9b06c08059db46f26f7f'},
+    'TTS-QUEEN-HEALTH-503800-64AE0A-FACE': {'sequence':8,'cardId':503800,'guid':'64ae0a','customDeckId':'5038','path':'assets/tts-mod/extract/v2-dl/tree/cards/game/queenHealthDeck-165.png','sha256':'763ca108996c746f141b6f505d3afee2c30be1f6f4f38b84d0118f9f76bdf765','discard':2,'bgaKeys':['QueenHealthCard9'],'ruleId':'SEM-QUEEN-HEALTH-503800-64AE0A-001','sentences':3,'iconRefs':[None,'icon.character','icon.character'],'official':[],'bodyDigest':'8a0db6dba05b54944a20e757cefd7676da2ae51ad265994c4a83fc5a36245a72'},
+    'TTS-QUEEN-HEALTH-424100-A10F34-FACE': {'sequence':9,'cardId':424100,'guid':'a10f34','customDeckId':'4241','path':'assets/tts-mod/extract/v2-dl/tree/cards/game/queenHealthDeck-038.png','sha256':'fc04bf1a2920fb63ac512d209622b591cdc9f3cb9ca292c97bf874fcddbbd5c8','discard':2,'bgaKeys':['QueenHealthCard8'],'ruleId':'SEM-QUEEN-HEALTH-424100-A10F34-001','sentences':3,'iconRefs':[None,'icon.character'],'official':[],'bodyDigest':'dbfd5460f3068cd37d6b23a2de37ed5a5369e5859454bf1ea9543bb175f6dd5f'},
+    'TTS-QUEEN-HEALTH-458100-6BA0A2-FACE': {'sequence':10,'cardId':458100,'guid':'6ba0a2','customDeckId':'4581','path':'assets/tts-mod/extract/v2-dl/tree/cards/game/queenHealthDeck-041.png','sha256':'929ac1204b4b7989ee051307245bf32fb5e1915a35b9afd5a73572c8ca01dc61','discard':3,'bgaKeys':['QueenHealthCard12'],'ruleId':'SEM-QUEEN-HEALTH-458100-6BA0A2-001','sentences':4,'iconRefs':[None,'icon.character','icon.malfunction'],'official':[],'bodyDigest':'153d49c08790ab6ef75121483b876ac1be7c848fb44216f7dca7dcf2edd772be'},
+    'TTS-QUEEN-HEALTH-429200-48A2AE-FACE': {'sequence':11,'cardId':429200,'guid':'48a2ae','customDeckId':'4292','path':'assets/tts-mod/extract/v2-dl/tree/cards/game/queenHealthDeck-045.png','sha256':'133a975dc072a169ceed85615ab2e5a6cde0f80a23f18e61948f0a963c9e98e2','discard':3,'bgaKeys':['QueenHealthCard10','QueenHealthCard11'],'ruleId':'SEM-QUEEN-HEALTH-429200-48A2AE-001','sentences':3,'iconRefs':[None,'icon.character'],'official':[],'bodyDigest':'94eb3ec782f5d5851e0f927584b156e3304cd140b6954c5904ee71ac8ef74d06'},
+    'TTS-QUEEN-HEALTH-429200-0FBF8D-FACE': {'sequence':12,'cardId':429200,'guid':'0fbf8d','customDeckId':'4292','path':'assets/tts-mod/extract/v2-dl/tree/cards/game/queenHealthDeck-045.png','sha256':'133a975dc072a169ceed85615ab2e5a6cde0f80a23f18e61948f0a963c9e98e2','discard':3,'bgaKeys':['QueenHealthCard10','QueenHealthCard11'],'ruleId':'SEM-QUEEN-HEALTH-429200-0FBF8D-001','sentences':3,'iconRefs':[None,'icon.character'],'official':[],'bodyDigest':'94eb3ec782f5d5851e0f927584b156e3304cd140b6954c5904ee71ac8ef74d06'},
+}
+EXPECTED_QUEEN_HEALTH_RECORD_DIGESTS = {
+    'SEM-ACT-BURST-001':'259ea7a58a2f41d7fc9b04462e90a46e18d506cbb1d8cc79aaeab3fd07ebb21c',
+    'SEM-ACT-SHOOT-001':'8015e439e91a95ba4223aacb33dbe3f453c2d5eb3317bb14ed32d7d42e3bdffe',
+    'SEM-ACTION-CARD-DRAW-001':'d2ae2c3748ab7871a96659fc3818378ba1ebbdd5dc62c8a045d564b0a60ffdc4',
+    'SEM-INTRUDER-REPEL-001':'5c030ed830b2d16b44fc662b223cca11f4f35ac443774b77f5607a83905bff8a',
+    'SEM-QUEEN-ACTIVATION-001':'7d1f7fed31ee55757d6e840517aad0d651c0b120aaea37cba221d166a3a62dc6',
+    'SEM-QUEEN-DEATH-001':'d2c72f0b6f49e04ce0419e43f5095bffbbca4166ce4ce021c856512042d4615e',
+    'SEM-QUEEN-HEALTH-424100-A10F34-001':'b8a649795d83e4a5b81ea8f3d2b652b6ea6353f32794f39702fa4ee499a401dd',
+    'SEM-QUEEN-HEALTH-424300-615E22-001':'952e3ee3c4d4361a9420dbac92635788a960db64d50ac6ab3fa0a7305ea3df9f',
+    'SEM-QUEEN-HEALTH-424500-0DD25F-001':'d689da7b8918a0be98fd5956a64f4ed16610e818be28222e102a362b52a609b9',
+    'SEM-QUEEN-HEALTH-429200-0FBF8D-001':'c1dd57714569d92ca5c92cab480daa7cc10c7c7940e06a10e1ffd3380cf48a05',
+    'SEM-QUEEN-HEALTH-429200-48A2AE-001':'abd661d7ba0b62b50b21261706249c6174a807bbdd5067515037ef6246e8c865',
+    'SEM-QUEEN-HEALTH-458100-6BA0A2-001':'b08dcd1658cccdc474396248d92bc20cf573f5c833b2aec859b132ff6eb54428',
+    'SEM-QUEEN-HEALTH-503700-E4AB1C-001':'32dc716f9b167d1d12be8c72ba1ff9de856881c86c07f7b8c1774b40510c3285',
+    'SEM-QUEEN-HEALTH-503800-64AE0A-001':'a3c851bbcc7b624e891cbcca6eda623d89286e01a86944a6f7221dfe8245a928',
+    'SEM-QUEEN-HEALTH-503900-B42831-001':'c44df0a5d1c8824e0301014382199b2947d275cae04cacfcbd7b14330a821fcc',
+    'SEM-QUEEN-HEALTH-504000-919263-001':'815993f106b52a673a9221af7013b56f6fb6b5064cbdf36e2bfde060d742187d',
+    'SEM-QUEEN-HEALTH-504100-717B23-001':'945272162c3a11f63a33168429db5fc055bc3f61828de6956e0c2e37e4300bee',
+    'SEM-QUEEN-HEALTH-504200-CA5827-001':'a0320ea77d122ab1e48ae7b1eeab170e44e1f03344e870441e7ed81a3c1764bc',
+    'SEM-QUEEN-HEALTH-RESOLUTION-001':'e9f735aabe7706010cb14b2f390b282bb3d3579893e44a70c6ecf51cb80c6a39',
+    'SEM-QUEEN-HEALTH-SETUP-001':'261da0b12938b8d328fe65c58dfca82b85bc47754e52f5fb2049f19b777dc4cb',
+    'SEM-QUEEN-HIT-001':'372acf3d0fff4555ba5de4a1e06d46b1dd9b038cc936b7818357ef55183ec60a',
+    'SEM-ROOM-MALFUNCTION-PLACEMENT-001':'c2954c90e774324267041aba20fa1938e2b28d26118215866048c5242eea8676',
+}
 ALLOWED_OPERATIONS = {
     'branch','change-value','choose','draw-random','end-process','evaluate-condition',
     'inspect-private','invoke-process','invoke-selected-process','move-entity','pay-cost','end-action-window',
@@ -287,12 +351,13 @@ def cardinality_valid(value: dict) -> bool:
     return isinstance(maximum, int) and not isinstance(maximum, bool) and maximum >= minimum
 
 
-def validate(event_source_path: Path, exploration_source_path: Path, robot_source_path: Path, attack_source_path: Path, source_path: Path, schema_path: Path, semantic_vocabulary_path: Path, room_icon_path: Path, pilots_path: Path, review_path: Path, contradictions_path: Path, coverage_path: Path, backlog_path: Path, *, reproducibility: bool) -> dict:  # pyright: ignore[reportGeneralTypeIssues]
+def validate(event_source_path: Path, exploration_source_path: Path, robot_source_path: Path, attack_source_path: Path, queen_health_source_path: Path, source_path: Path, schema_path: Path, semantic_vocabulary_path: Path, room_icon_path: Path, pilots_path: Path, review_path: Path, contradictions_path: Path, coverage_path: Path, backlog_path: Path, *, reproducibility: bool) -> dict:  # pyright: ignore[reportGeneralTypeIssues]
     failures: list[dict] = []
     event_sources = load(event_source_path)
     exploration_sources = load(exploration_source_path)
     robot_sources = load(robot_source_path)
     attack_sources = load(attack_source_path)
+    queen_health_sources = load(queen_health_source_path)
     sources_data = load(source_path)
     schema = load(schema_path)
     semantic_vocabulary = load(semantic_vocabulary_path)
@@ -879,6 +944,167 @@ def validate(event_source_path: Path, exploration_source_path: Path, robot_sourc
     if attack_linked_backlog_ids != expected_linked_attack_backlog_ids or any((backlog_rows_by_id.get(unit_id) or {}).get('status') != 'pilot-covered' for unit_id in expected_linked_attack_backlog_ids):
         failures.append({'check':'Attack exact overlapping backlog-obligation closure'})
 
+    # Independent base Queen Health family lock. Twelve exact physical
+    # CardID/GUID occurrences project ten face assets and one shared back. The
+    # duplicate assets, licensed ordinals, partial official faces, local number
+    # displays, and Queen/Attack name collisions remain non-isomorphic.
+    queen_rows = queen_health_sources.get('faces') or []
+    queen_by_occurrence = {row.get('queenHealthOccurrenceId'):row for row in queen_rows}
+    expected_queen_occurrence_ids = list(EXPECTED_QUEEN_HEALTH_OCCURRENCES)
+    if sha(queen_health_source_path) != PINNED_QUEEN_HEALTH_SOURCE_INDEX_HASH:
+        failures.append({'check':'pinned Queen Health source index'})
+    if queen_health_sources.get('counts') != EXPECTED_QUEEN_HEALTH_COUNTS or list(queen_by_occurrence) != expected_queen_occurrence_ids or len(queen_by_occurrence) != len(queen_rows):
+        failures.append({'check':'Queen Health source-index exact physical occurrence count'})
+    base_queen_role = next((row for row in roles if row.get('role') == 'queenHealthDeck' and row.get('guid') == '9acd7f'), {})
+    root_queen_object = next((row for row in objects if row.get('guid') == '9acd7f'), {})
+    expected_queen_deck_nums = ['4241','4243','4245','4292','4581','5037','5038','5039','5040','5041','5042']
+    if base_queen_role.get('type') != 'Deck' or base_queen_role.get('n_urls') != 11 or base_queen_role.get('deck_nums') != expected_queen_deck_nums or root_queen_object.get('type') != 'Deck' or root_queen_object.get('parent') != []:
+        failures.append({'check':'Queen Health root Lua role/deck/container closure'})
+    expected_saved_card_ids = [EXPECTED_QUEEN_HEALTH_OCCURRENCES[occurrence_id]['cardId'] for occurrence_id in expected_queen_occurrence_ids]
+    raw_evidence = queen_health_sources.get('familyCountEvidence',{}).get('rawTtsDeck') or {}
+    if raw_evidence.get('sourcePath') != 'assets/tts-mod/extract/nemesis_script_mod.bin' or raw_evidence.get('sourceSha256') != '8592c12556630d20c2443a2bd26059ddd8c38d64d91a695c2cfe3542914d1c68' or raw_evidence.get('deckIdsInSavedOrder') != expected_saved_card_ids or raw_evidence.get('savedOrderIsGameplayDeckOrder') is not False or raw_evidence.get('setupRequiresShuffle') is not True:
+        failures.append({'check':'Queen Health raw DeckIDs/saved-order/setup-shuffle lock'})
+    queen_children = [row for row in objects if ['Deck','9acd7f',''] in (row.get('parent') or []) and row.get('type') == 'CardCustom']
+    queen_children_by_tuple = {(int(row['card_id']),row['guid']):row for row in queen_children if row.get('card_id')}
+    expected_child_tuples = {(expected['cardId'],expected['guid']) for expected in EXPECTED_QUEEN_HEALTH_OCCURRENCES.values()}
+    if set(queen_children_by_tuple) != expected_child_tuples or len(queen_children) != 12:
+        failures.append({'check':'Queen Health exact full CardID/GUID child closure'})
+    expected_expansion_roles = {('99e2ce','Neoflesh'),('3b65b3','Sangrevores'),('6963a5','Carnomorph')}
+    excluded_queen_decks = (queen_health_sources.get('excludedContent') or {}).get('expansionQueenHealthDecks') or []
+    if {(row.get('guid'),row.get('expansion')) for row in excluded_queen_decks} != expected_expansion_roles or any(row.get('scope') != 'expansion; excluded from base conclusions' for row in excluded_queen_decks):
+        failures.append({'check':'Queen Health base/expansion role boundary'})
+    queen_table = next((row for row in secondary['licensedDigital']['structuredIndex']['tables'] if row.get('name') == 'QUEEN_CARDS_DATA'), {})
+    expected_queen_bga = {
+        'QueenHealthCard1':(0,'Repel the Queen.'),'QueenHealthCard2':(0,'Activate the Queen.'),'QueenHealthCard3':(0,'Place the Queen back in the pool.'),
+        'QueenHealthCard4':(1,'Repel the Queen.'),'QueenHealthCard5':(1,'Repel the Queen.'),'QueenHealthCard6':(1,'Add all Queen tokens to the bag.'),
+        'QueenHealthCard7':(1,'Each <CHARACTER> in the Room with the Queen draws 2<ACTION-CARD>.'),'QueenHealthCard8':(2,'Repel the Queen.'),
+        'QueenHealthCard9':(2,'Each <CHARACTER> in the Room with the Queen makes a Noise roll.'),'QueenHealthCard10':(3,'Activate the Queen.'),
+        'QueenHealthCard11':(3,'Activate the Queen.'),'QueenHealthCard12':(3,'Place a <MALFUNCTION> in the Room with the Queen.'),
+    }
+    licensed_queen_rows = queen_health_sources.get('licensedDigitalOccurrences') or []
+    licensed_queen_by_key = {row.get('key'):row for row in licensed_queen_rows}
+    if queen_table.get('count') != 12 or set(queen_table.get('keys') or []) != set(expected_queen_bga) or list(licensed_queen_by_key) != list(expected_queen_bga):
+        failures.append({'check':'Queen Health licensed-digital independent occurrence closure'})
+    for key,expected in expected_queen_bga.items():
+        row = licensed_queen_by_key.get(key) or {}
+        if (row.get('discard'),row.get('effectDesc')) != expected or row.get('structuredOrdinalIsNotPrintedCardNumberOrDeckOrder') is not True or not row.get('sourceBlockText') or row.get('sourceBlockText') not in bga_text:
+            failures.append({'check':'Queen Health licensed exact row/ordinal boundary','key':key})
+    queen_provenance_by_tuple = {}
+    queen_back_provenance = None
+    for provenance_row in provenance:
+        for obj in provenance_row.get('objects') or []:
+            if obj.get('key') == 'BackURL' and obj.get('guid') == '9acd7f':
+                queen_back_provenance = provenance_row
+            key = (obj.get('cardId'),obj.get('guid'))
+            if obj.get('key') == 'FaceURL' and key in expected_child_tuples and ['Deck','9acd7f',''] in (obj.get('parent') or []):
+                queen_provenance_by_tuple[key] = (provenance_row,obj)
+    if set(queen_provenance_by_tuple) != expected_child_tuples or not queen_back_provenance or queen_back_provenance.get('refs') != 13:
+        failures.append({'check':'Queen Health FaceURL/BackURL provenance closure'})
+    expected_queen_source_ids = set()
+    expected_backlog_rules = {}
+    for occurrence_id,expected in EXPECTED_QUEEN_HEALTH_OCCURRENCES.items():
+        face = queen_by_occurrence.get(occurrence_id) or {}
+        expected_queen_source_ids.add('SRC-QUEEN-HEALTH-'+occurrence_id.removeprefix('TTS-QUEEN-HEALTH-').removesuffix('-FACE'))
+        actual_tuple = (face.get('ttsSavedSequence'),face.get('ttsCardId'),face.get('ttsCardGuid'),face.get('customDeckId'),face.get('sourcePath'),face.get('sourceSha256'),face.get('printedDiscardCount'),(face.get('bgaVariantCandidates') or {}).get('candidateKeys'),face.get('semanticRuleId'))
+        expected_tuple = (expected['sequence'],expected['cardId'],expected['guid'],expected['customDeckId'],expected['path'],expected['sha256'],expected['discard'],expected['bgaKeys'],expected['ruleId'])
+        if actual_tuple != expected_tuple:
+            failures.append({'check':'independently locked Queen Health physical occurrence crosswalk','occurrenceId':occurrence_id})
+        source_file = REPO/expected['path']
+        if not source_file.is_file() or sha(source_file) != expected['sha256']:
+            failures.append({'check':'Queen Health live face hash','occurrenceId':occurrence_id})
+        selector = face.get('sourceSelector') or {}
+        provenance_row,obj = queen_provenance_by_tuple.get((expected['cardId'],expected['guid']), ({},{}))
+        derived_path = 'assets/tts-mod/extract/v2-dl/tree/' + provenance_row.get('file','')
+        if derived_path != expected['path'] or selector.get('key') != 'FaceURL' or selector.get('objectType') != 'CardCustom' or selector.get('fullCardId') != expected['cardId'] or selector.get('guid') != expected['guid'] or selector.get('parentDeckGuid') != '9acd7f' or selector.get('customDeckId') != expected['customDeckId'] or selector.get('url') != provenance_row.get('url') or selector.get('sideRole') != 'operative-number-and-effect-face' or selector.get('sourceRole') != 'direct-composite-face' or selector.get('generatedSpriteSheetCell') is not False or selector.get('selectorGap') is not None or selector.get('cardIdModuloJoinUsed') is not False or selector.get('url') == selector.get('backUrl'):
+            failures.append({'check':'Queen Health exact CardID/GUID/FaceURL selector projection','occurrenceId':occurrence_id})
+        corpus_row = corpus_by_path.get(expected['path']) or {}
+        body = face.get('printedBody') or ''
+        if corpus_row.get('sourceSha256') != expected['sha256'] or corpus_row.get('printedData',{}).get('body') != body or not corpus_row.get('rulesTextPresent') or hashlib.sha256(body.encode()).hexdigest() != expected['bodyDigest']:
+            failures.append({'check':'Queen Health exact body/order/punctuation lock','occurrenceId':occurrence_id})
+        registry_source_id = 'SRC-QUEEN-HEALTH-'+occurrence_id.removeprefix('TTS-QUEEN-HEALTH-').removesuffix('-FACE')
+        registry = source_by_id.get(registry_source_id) or {}
+        if face.get('sourceId') != registry_source_id or (registry.get('path'),registry.get('sha256'),registry.get('authority'),registry.get('occurrenceId'),registry.get('evidenceRecord')) != (expected['path'],expected['sha256'],'source-bound-component-scan',occurrence_id,expected['sha256']):
+            failures.append({'check':'Queen Health source-registry exact physical tuple','occurrenceId':occurrence_id})
+        panels = face.get('panels') or []
+        expected_panel_tuple = [('P1',1,'discard-count-and-artwork-panel',True),('P2',2,'conditional-special-effect-panel',True)]
+        panel_tuple = [(row.get('panelId'),row.get('readingOrder'),row.get('role'),row.get('operative')) for row in panels]
+        if panel_tuple != expected_panel_tuple or (panels and panels[0].get('heading') != 'Discard'):
+            failures.append({'check':'Queen Health exact two-panel roles/order','occurrenceId':occurrence_id})
+        for panel in panels:
+            start,end = panel.get('bodyStart'),panel.get('bodyEnd')
+            expected_panel_text = body[start:end] if isinstance(start,int) and isinstance(end,int) else None
+            if panel.get('panelId') == 'P1':
+                expected_panel_text = 'Discard\n' + (expected_panel_text or '')
+            if not isinstance(start,int) or not isinstance(end,int) or panel.get('exactText') != expected_panel_text:
+                failures.append({'check':'Queen Health exact panel body/span projection','occurrenceId':occurrence_id,'panelId':panel.get('panelId')})
+        sentences = face.get('sentences') or []
+        if len(sentences) != expected['sentences'] or [row.get('sequence') for row in sentences] != list(range(1,expected['sentences']+1)) or len({row.get('sentenceId') for row in sentences}) != expected['sentences']:
+            failures.append({'check':'Queen Health exact source sentence count/order','occurrenceId':occurrence_id})
+        cursor = 0
+        for sentence in sentences:
+            start,end = sentence.get('start'),sentence.get('end')
+            if not isinstance(start,int) or not isinstance(end,int) or start < cursor or body[start:end] != sentence.get('exactText') or sentence.get('panelId') not in {'P1','P2'}:
+                failures.append({'check':'Queen Health exact source sentence text/panel projection','occurrenceId':occurrence_id,'sentenceId':sentence.get('sentenceId')})
+            cursor = end if isinstance(end,int) else cursor
+        icons = face.get('iconOccurrences') or []
+        if [row.get('semanticReferenceId') for row in icons] != expected['iconRefs'] or [row.get('sequence') for row in icons] != list(range(1,len(icons)+1)) or len({row.get('occurrenceId') for row in icons}) != len(icons):
+            failures.append({'check':'Queen Health exact local/icon occurrence projection','occurrenceId':occurrence_id})
+        local = icons[0] if icons else {}
+        if local.get('printedNumericValue') != expected['discard'] or local.get('semanticReferenceId') is not None or local.get('page40TokenAssigned') is not False or not str(local.get('sourceToken','')).startswith('LOCAL-DISCARD-DISPLAY-') or 'not a Shoot/Burst/Health/damage icon alias' not in local.get('resolutionBoundary',''):
+            failures.append({'check':'Queen Health local number no-alias/value lock','occurrenceId':occurrence_id})
+        for icon in icons[1:]:
+            start,end = icon.get('start'),icon.get('end')
+            if not isinstance(start,int) or not isinstance(end,int) or body[start:end] != f"[{icon.get('sourceToken')}]" or icon.get('semanticReferenceId') != f"icon.{icon.get('sourceToken')}" or icon.get('page40TokenAssigned') is not True or icon.get('mappingScope') != f'exact Queen Health source occurrence {occurrence_id} only':
+                failures.append({'check':'Queen Health exact matched icon token/span/scope','occurrenceId':occurrence_id,'iconId':icon.get('occurrenceId')})
+        bga_candidates = face.get('bgaVariantCandidates') or {}
+        candidate_rows = bga_candidates.get('candidates') or []
+        if bga_candidates.get('sourceId') != 'SRC-BGA-QUEEN-HEALTH' or bga_candidates.get('sourceSha256') != sha(REPO/'docs/rules/source-extraction/secondary/bga-staticData-260622-1220.js') or [row.get('key') for row in candidate_rows] != expected['bgaKeys'] or any(row.get('sourceBlockText') not in bga_text for row in candidate_rows) or bga_candidates.get('oneToOneCopyAssignmentAsserted') != (len(expected['bgaKeys']) == 1) or 'not printed card numbers' not in bga_candidates.get('boundary',''):
+            failures.append({'check':'Queen Health licensed variant/candidate-copy boundary','occurrenceId':occurrence_id})
+        if face.get('officialCounterpartRefs') != expected['official']:
+            failures.append({'check':'Queen Health official-visible counterpart projection','occurrenceId':occurrence_id})
+        join = face.get('joinEvidence') or {}
+        basis_text = ' '.join(join.get('basis') or []).lower()
+        if join.get('identityJoin') != 'exact physical occurrence and source-asset projection' or join.get('titleOnlyJoin') is not False or join.get('folderOnlyJoin') is not False or join.get('cardIdModuloJoin') is not False or join.get('bgaOrdinalJoin') is not False or any(fragment not in basis_text for fragment in ('full cardid/guid','faceurl','backurl','sha-256','ordered two-panel','candidate-set')):
+            failures.append({'check':'Queen Health title/folder/modulo/BGA-ordinal join prohibited','occurrenceId':occurrence_id})
+        backlog_id = 'CARD:'+expected['sha256'][:16]
+        expected_backlog_rules.setdefault(backlog_id,[]).append(expected['ruleId'])
+        if face.get('backlogUnitId') != backlog_id:
+            failures.append({'check':'Queen Health exact backlog tuple projection','occurrenceId':occurrence_id})
+    for backlog_id,rule_ids in expected_backlog_rules.items():
+        expected_path = next(expected['path'] for expected in EXPECTED_QUEEN_HEALTH_OCCURRENCES.values() if 'CARD:'+expected['sha256'][:16] == backlog_id)
+        expected_sha = next(expected['sha256'] for expected in EXPECTED_QUEEN_HEALTH_OCCURRENCES.values() if 'CARD:'+expected['sha256'][:16] == backlog_id)
+        backlog_row = backlog_rows_by_id.get(backlog_id) or {}
+        if backlog_row.get('sourcePath') != expected_path or backlog_row.get('sourceLocator') != expected_sha or backlog_row.get('pilotRuleIds') != rule_ids or backlog_row.get('status') != 'pilot-covered':
+            failures.append({'check':'Queen Health exact backlog tuple projection','backlogUnitId':backlog_id})
+    actual_queen_source_ids = {row.get('sourceId') for row in source_rows if row.get('occurrenceId','').startswith('TTS-QUEEN-HEALTH-') and row.get('occurrenceId') != 'TTS-QUEEN-HEALTH-SHARED-BACK'}
+    queen_back = queen_health_sources.get('sharedBack') or {}
+    queen_back_selector = queen_back.get('sourceSelector') or {}
+    queen_back_registry = source_by_id.get('SRC-QUEEN-HEALTH-BACK') or {}
+    queen_bga_registry = source_by_id.get('SRC-BGA-QUEEN-HEALTH') or {}
+    objective_help_registry = source_by_id.get('SRC-OBJECTIVE-HELP') or {}
+    expected_queen_back_tuple = ('assets/tts-mod/extract/v2-dl/tree/cards/game/queenHealthDeck-017.png','c02d1ae4f5add1502d16182823507ce412869a5264e134ffaa36f18d7b60b6fc','BackURL','Deck','9acd7f',1,12,13,False,False,False)
+    actual_queen_back_tuple = (queen_back.get('sourcePath'),queen_back.get('sourceSha256'),queen_back_selector.get('key'),queen_back_selector.get('objectType'),queen_back_selector.get('guid'),queen_back_selector.get('rootDeckSelectorCount'),queen_back_selector.get('baseCardSelectorCount'),queen_back_selector.get('referenceCount'),queen_back.get('rulesTextPresent'),queen_back.get('separateRulesFace'),queen_back.get('numberedBack'))
+    if actual_queen_source_ids != expected_queen_source_ids or actual_queen_back_tuple != expected_queen_back_tuple or (queen_back_registry.get('path'),queen_back_registry.get('sha256'),queen_back_registry.get('occurrenceId')) != (expected_queen_back_tuple[0],expected_queen_back_tuple[1],'TTS-QUEEN-HEALTH-SHARED-BACK') or queen_bga_registry.get('occurrenceId') != 'QUEEN_CARDS_DATA' or objective_help_registry.get('occurrenceId') != 'OBJECTIVE-HELP-SHEET':
+        failures.append({'check':'Queen Health source-registry face/back/licensed/Objective closure'})
+    official_queen = queen_health_sources.get('officialVisibleCounterparts') or []
+    expected_official_queen_ids = ['RB-P03-V01-QH-FACE-DISCARD-0-PARTIAL','RB-P03-V01-QH-FACE-DISCARD-1-PARTIAL','RB-P03-V01-QH-BACK','RB-P35-V02-QH-FACE-DISCARD-1-REPEL','RB-P35-V02-QH-BACK']
+    if [row.get('sourceOccurrenceId') for row in official_queen] != expected_official_queen_ids or [row.get('parentOccurrenceId') for row in official_queen] != ['RB-P03-V01','RB-P03-V01','RB-P03-V01','RB-P35-V02','RB-P35-V02'] or any(row.get('sourceScopedOnly') is not True for row in official_queen):
+        failures.append({'check':'Queen Health official face/back occurrence closure'})
+    hits_track = queen_health_sources.get('queenHitsTrack') or {}
+    track_spaces = hits_track.get('spacesInPrintedOrder') or []
+    local_symbols = queen_health_sources.get('officialLocalSymbols') or []
+    if [row.get('printedValue') for row in track_spaces] != [0,1,2,3,4,None] or [row.get('sequence') for row in track_spaces] != list(range(1,7)) or track_spaces[-1].get('semanticReferenceId') is not None or track_spaces[-1].get('page40TokenAssigned') is not False or len(local_symbols) != 2 or any(row.get('semanticReferenceId') is not None or row.get('page40TokenAssigned') is not False or 'queen-head/blob-plus-style' not in row.get('literalAppearance','') for row in local_symbols):
+        failures.append({'check':'Queen Health track/terminal local-symbol no-alias lock'})
+    queen_excluded = queen_health_sources.get('excludedContent') or {}
+    collision_rows = queen_excluded.get('attackAndNonHealthCollisions') or []
+    if queen_excluded.get('prototypePlaceholderParentSheetBoundary') != 'The base root deck has twelve direct CardCustom children, zero generated cells, zero source sheets, zero selector gaps, and no separately selected prototype or placeholder face.' or len(collision_rows) != 4 or collision_rows[0].get('count') != 20 or 'not a thirteenth rules face' not in queen_excluded.get('sharedBackBoundary','') or 'do not collapse copies' not in queen_excluded.get('duplicateFaceBoundary',''):
+        failures.append({'check':'Queen Health prototype/back/duplicate/Attack-collision exclusion boundary'})
+    queen_linked_backlog_ids = (queen_health_sources.get('familyCountEvidence',{}).get('backlog') or {}).get('linkedUnitIds') or []
+    expected_queen_face_backlog_ids = list(expected_backlog_rules)
+    expected_linked_queen_backlog_ids = [*expected_queen_face_backlog_ids,'RULE:ACT-SHOOT-001','RULE:ACT-BURST-001','RULE:INT-001','RULE:INT-003','RULE:INT-007','RULE:INT-010','RULE:INT-011','RULE:RT-011','FAQ:FQ-P02-U03','VIS:RB-P03-V01','VIS:RB-P35-V01','VIS:RB-P35-V02','VIS:RB-P35-V03','OBJ:P1-GT-06','OBJ:P2-GT-06']
+    if queen_linked_backlog_ids != expected_linked_queen_backlog_ids or any((backlog_rows_by_id.get(unit_id) or {}).get('status') != 'pilot-covered' for unit_id in expected_linked_queen_backlog_ids):
+        failures.append({'check':'Queen Health exact overlapping backlog-obligation closure'})
+
     required_fields = schema.get('required') or []
     schema_fields = set((schema.get('properties') or {}).keys())
     if set(required_fields) != schema_fields or schema.get('additionalProperties') is not False:
@@ -939,7 +1165,7 @@ def validate(event_source_path: Path, exploration_source_path: Path, robot_sourc
             path = evidence_path(reference)
             if path is None or not path.exists():
                 failures.append({'check': 'semantic conflict evidence', 'conflictId': conflict.get('conflictId'), 'reference': reference})
-    if contradictions.get('counts') != {'conflicts':18,'resolvedByAuthority':8,'unresolved':8,'preservedBoundary':2}:
+    if contradictions.get('counts') != {'conflicts':22,'resolvedByAuthority':10,'unresolved':9,'preservedBoundary':3}:
         failures.append({'check': 'semantic conflict declared counts'})
 
     for record in records:
@@ -1664,6 +1890,128 @@ def validate(event_source_path: Path, exploration_source_path: Path, robot_sourc
     expected_attack_system_ids = ['SEM-INT-004','SEM-SECURE-ENTRY-001','SEM-INT-006','SEM-CONTAMINATION-GAIN-001',*[EXPECTED_ATTACK_OCCURRENCES[card_id][6] for card_id in sorted(EXPECTED_ATTACK_OCCURRENCES)]]
     if attack_system.get('ruleIds') != expected_attack_system_ids or any(fragment in not_yet_text for fragment in ('Item/Attack','remaining Item/Attack','all Attack')):
         failures.append({'check':'Attack coverage stale not-yet-covered claim'})
+
+    expected_queen_rule_ids = {expected['ruleId'] for expected in EXPECTED_QUEEN_HEALTH_OCCURRENCES.values()}
+    actual_queen_rule_ids = {rule_id for rule_id in record_by_id if re.fullmatch(r'SEM-QUEEN-HEALTH-\d+-[A-Z0-9]+-001',rule_id)}
+    if actual_queen_rule_ids != expected_queen_rule_ids:
+        failures.append({'check':'Queen Health semantic physical face-record closure','missing':sorted(expected_queen_rule_ids-actual_queen_rule_ids),'extra':sorted(actual_queen_rule_ids-expected_queen_rule_ids)})
+    for occurrence_id,expected in EXPECTED_QUEEN_HEALTH_OCCURRENCES.items():
+        source_face = queen_by_occurrence.get(occurrence_id) or {}
+        item = record_by_id.get(expected['ruleId']) or {}
+        code = occurrence_id.removeprefix('TTS-QUEEN-HEALTH-').removesuffix('-FACE')
+        assertions = {row.get('assertionId'):row for row in item.get('sourceAssertions') or []}
+        scan = assertions.get(f'SA-QHF-{code}-SCAN') or {}
+        licensed = assertions.get(f'SA-QHF-{code}-BGA') or {}
+        expected_source_id = 'SRC-QUEEN-HEALTH-'+code
+        if (scan.get('sourceId'),scan.get('sourceSha256'),scan.get('sourceText'),scan.get('textKind')) != (expected_source_id,expected['sha256'],source_face.get('printedBody'),'verbatim'):
+            failures.append({'check':'Queen Health exact physical scan assertion projection','occurrenceId':occurrence_id})
+        expected_bga_text = '\n'.join(row.get('sourceBlockText','') for row in (source_face.get('bgaVariantCandidates') or {}).get('candidates') or [])
+        if (licensed.get('sourceId'),licensed.get('sourceText'),licensed.get('textKind')) != ('SRC-BGA-QUEEN-HEALTH',expected_bga_text,'verbatim'):
+            failures.append({'check':'Queen Health exact licensed candidate assertion projection','occurrenceId':occurrence_id})
+        variants = item.get('sourceVariants') or []
+        expected_variants = [(f'SV-QHF-{code}-BGA','SRC-BGA-QUEEN-HEALTH',f'SA-QHF-{code}-BGA')]
+        expected_variants.extend((f'SV-QHF-{code}-OFFICIAL-{index:02d}','SRC-RULEBOOK',f'SA-QHF-{code}-OFFICIAL-{index:02d}') for index in range(1,len(expected['official'])+1))
+        if [(row.get('variantId'),row.get('sourceId'),row.get('sourceAssertionId')) for row in variants] != expected_variants or any(not row.get('difference') or not row.get('resolution') for row in variants):
+            failures.append({'check':'Queen Health licensed/official source-variant closure','occurrenceId':occurrence_id})
+        sentence_by_id = {row.get('sentenceId'):row for row in source_face.get('sentences') or []}
+        source_ops = [row for row in item.get('operations') or [] if row.get('sourceSentenceId')]
+        first_sentence_order = list(dict.fromkeys(row.get('sourceSentenceId') for row in source_ops))
+        expected_sentence_order = [row.get('sentenceId') for row in source_face.get('sentences') or []]
+        if not source_ops or first_sentence_order != expected_sentence_order or any(row.get('sourceSentenceId') not in sentence_by_id or row.get('sourcePanelId') != sentence_by_id.get(row.get('sourceSentenceId'),{}).get('panelId') for row in source_ops):
+            failures.append({'check':'Queen Health semantic sentence/panel order projection','occurrenceId':occurrence_id})
+        expected_questions = ['SEM-Q-026','SEM-Q-027'] + (['SEM-Q-028'] if expected['cardId'] == 458100 else [])
+        if item.get('unresolvedQuestionRefs') != expected_questions or item.get('status') != 'source-backed-with-open-question':
+            failures.append({'check':'Queen Health face no-default question projection','occurrenceId':occurrence_id})
+        if item.get('authority',{}).get('highest') != 'official-primary' or item.get('title') != f'Queen Health physical occurrence {code}':
+            failures.append({'check':'Queen Health face authority/physical-title lock','occurrenceId':occurrence_id})
+        number_op = (item.get('operations') or [{}])[0]
+        if number_op.get('operationType') != 'change-value' or (number_op.get('valueChange') or {}).get('amount') != expected['discard'] or 'source-local no-alias' not in (number_op.get('notes') or ''):
+            failures.append({'check':'Queen Health semantic number/display no-alias projection','occurrenceId':occurrence_id})
+        if any(row.get('operationType') == 'shuffle' for row in item.get('operations') or []) or any((row.get('transition') or {}).get('from') == 'sem.zone.card-in-resolution' for row in item.get('operations') or []):
+            failures.append({'check':'Queen Health generic lifecycle ownership/no-face-reshuffle','occurrenceId':occurrence_id})
+        decisions = item.get('decisions') or []
+        if expected['cardId'] == 458100:
+            if len(decisions) != 1 or decisions[0].get('selectionMode') != 'unresolved' or decisions[0].get('ownerRef') != 'P-BRANCH-OWNER' or not any(row.get('operationType') == 'resolve-open-alternative' and 'SEM-Q-028' in row.get('objectRef','') for row in item.get('operations') or []):
+                failures.append({'check':'Queen Health Malfunction/Unreinforce no invented branch owner/default'})
+        elif decisions:
+            failures.append({'check':'Queen Health no invented face decision owner','occurrenceId':occurrence_id})
+        target_ids = {row.get('targetId') for row in item.get('targets') or []}
+        used_targets = {row.get('targetRef') for row in item.get('operations') or [] if row.get('targetRef')}
+        if target_ids != used_targets:
+            failures.append({'check':'Queen Health face target usage closure','occurrenceId':occurrence_id})
+    queen_resolution = record_by_id.get('SEM-QUEEN-HEALTH-RESOLUTION-001') or {}
+    resolution_ops = queen_resolution.get('operations') or []
+    resolution_types = [row.get('operationType') for row in resolution_ops]
+    resolution_dispatch = next((row.get('dispatchRuleIds') for row in resolution_ops if row.get('dispatchRuleIds')), None)
+    expected_queen_dispatch = [EXPECTED_QUEEN_HEALTH_OCCURRENCES[occurrence_id]['ruleId'] for occurrence_id in expected_queen_occurrence_ids]
+    expected_resolution_component_assertions = ['SA-QH-RESOLUTION-FACE-'+occurrence_id.removeprefix('TTS-QUEEN-HEALTH-').removesuffix('-FACE') for occurrence_id in expected_queen_occurrence_ids]
+    resolution_assertion_ids = [row.get('assertionId') for row in queen_resolution.get('sourceAssertions') or []]
+    dispatch_op = next((row for row in resolution_ops if row.get('dispatchRuleIds')), {})
+    if resolution_assertion_ids != ['SA-QH-RESOLUTION-RB',*expected_resolution_component_assertions] or dispatch_op.get('sourceAssertionIds') != ['SA-QH-RESOLUTION-RB',*expected_resolution_component_assertions]:
+        failures.append({'check':'Queen Health exact dispatcher source-assertion closure'})
+    additional_discard = next((row for row in resolution_ops if row.get('operationType') == 'transition-zone' and 'additional Queen Health' in row.get('objectRef','')), {})
+    drawn_discard = next((row for row in resolution_ops if row.get('operationType') == 'transition-zone' and 'drawn Queen Health' in row.get('objectRef','')), {})
+    reset = next((row for row in resolution_ops if row.get('operationType') == 'change-value' and 'reset to 0' in row.get('objectRef','')), {})
+    if resolution_types != ['draw-random','reveal','resolve-open-alternative','transition-zone','invoke-process','resolve-open-alternative','invoke-selected-process','transition-zone','invoke-process','change-value'] or resolution_dispatch != expected_queen_dispatch or (additional_discard.get('transition') or {}) != {'from':'tax.scaffold.zone.deck','to':'tax.scaffold.zone.discard-pile'} or (additional_discard.get('repeat') or {}).get('reveal') is not False or (drawn_discard.get('transition') or {}).get('from') != 'sem.zone.card-in-resolution' or (reset.get('valueChange') or {}).get('overflowCarry') is not False or any(row.get('operationType') == 'shuffle' for row in resolution_ops):
+        failures.append({'check':'Queen Health draw/hidden-discard/effect/drawn-discard/reset/no-reshuffle order lock'})
+    if queen_resolution.get('unresolvedQuestionRefs') != ['SEM-Q-025','SEM-Q-026','SEM-Q-027'] or not any(row.get('audience') == 'hidden-from-all' and 'without revealing' in row.get('secrecy','') for row in queen_resolution.get('informationPolicy') or []):
+        failures.append({'check':'Queen Health lifecycle visibility/no-default lock'})
+    queen_hit = record_by_id.get('SEM-QUEEN-HIT-001') or {}
+    hit_ops = queen_hit.get('operations') or []
+    hit_change = hit_ops[0] if hit_ops else {}
+    hit_repeat = hit_change.get('repeat') or {}
+    if queen_hit.get('unresolvedQuestionRefs') != ['SEM-Q-025','SEM-Q-029'] or hit_repeat != {'sourceAssignedHits':'one at a time','sameActionOverflow':'ignored after trigger','crossActionCarry':True} or not any(row.get('operationType') == 'set-state' and 'ignore all later Hits' in row.get('objectRef','') for row in hit_ops) or not any(row.get('invokeRuleId') == 'SEM-QUEEN-HEALTH-RESOLUTION-001' for row in hit_ops):
+        failures.append({'check':'Queen Health Hit carry/threshold/overflow/default lock'})
+    shoot = record_by_id.get('SEM-ACT-SHOOT-001') or {}
+    burst = record_by_id.get('SEM-ACT-BURST-001') or {}
+    shoot_ops = shoot.get('operations') or []
+    burst_ops = burst.get('operations') or []
+    shoot_initial = next((index for index,row in enumerate(shoot_ops) if row.get('invokeRuleId') == 'SEM-QUEEN-HIT-001' and 'initial Shoot Hit' in row.get('objectRef','')), None)
+    shoot_roll = next((index for index,row in enumerate(shoot_ops) if row.get('operationType') == 'draw-random'), None)
+    burst_queen = next((index for index,row in enumerate(burst_ops) if row.get('invokeRuleId') == 'SEM-QUEEN-HIT-001'), None)
+    burst_extra = next((index for index,row in enumerate(burst_ops) if 'additional-effects symbol' in row.get('objectRef','')), None)
+    if shoot.get('unresolvedQuestionRefs') != ['SEM-Q-025','SEM-Q-029'] or burst.get('unresolvedQuestionRefs') != ['SEM-Q-025'] or shoot_initial is None or shoot_roll is None or shoot_initial >= shoot_roll or burst_queen is None or burst_extra is None or burst_queen >= burst_extra or (burst_ops[burst_queen].get('repeat') or {}).get('sameActionOverflow') != 'lost':
+        failures.append({'check':'Queen Health Shoot-versus-Burst timing/allocation boundary'})
+    queen_death = record_by_id.get('SEM-QUEEN-DEATH-001') or {}
+    death_text = json.dumps(queen_death,ensure_ascii=False)
+    if queen_death.get('unresolvedQuestionRefs') != ['SEM-Q-027'] or not all(fragment in death_text for fragment in ('last Queen Health card was discarded','Queen Health deck is empty','Facility was destroyed','Queen model','future Queen placements','Intruder Help sheet')):
+        failures.append({'check':'Queen Health death/endgame/Help-state boundary'})
+    queen_activation = record_by_id.get('SEM-QUEEN-ACTIVATION-001') or {}
+    if [row.get('operationType') for row in queen_activation.get('operations') or []] != ['select-target','invoke-process','select-target','move-entity'] or not any(row.get('invokeRuleId') == 'SEM-INT-004' for row in queen_activation.get('operations') or []):
+        failures.append({'check':'Queen Activation Attack/movement reuse boundary'})
+    action_draw = record_by_id.get('SEM-ACTION-CARD-DRAW-001') or {}
+    if [row.get('operationType') for row in action_draw.get('operations') or []] != ['evaluate-condition','shuffle','draw-random'] or not any(row.get('invokeRuleId') == 'SEM-ACTION-CARD-DRAW-001' and (row.get('repeat') or {}).get('perCharacter') == 2 for row in (record_by_id.get('SEM-QUEEN-HEALTH-503900-B42831-001') or {}).get('operations') or []):
+        failures.append({'check':'Queen Health reusable Action-card draw/renewal order'})
+    noise_face = record_by_id.get('SEM-QUEEN-HEALTH-503800-64AE0A-001') or {}
+    if not any(row.get('invokeRuleId') == 'SEM-NOISE-001' and (row.get('repeat') or {}).get('completeImmediateConsequencesBeforeNext') is True for row in noise_face.get('operations') or []):
+        failures.append({'check':'Queen Health per-Character Noise/immediate consequence order'})
+    question_by_id = {row.get('questionId'):row for row in question_rows}
+    expected_queen_question_blocks = {
+        'SEM-Q-025':['SEM-ACT-SHOOT-001','SEM-ACT-BURST-001','SEM-QUEEN-HIT-001','SEM-QUEEN-HEALTH-RESOLUTION-001'],
+        'SEM-Q-026':['SEM-QUEEN-HEALTH-RESOLUTION-001',*expected_queen_dispatch],
+        'SEM-Q-027':['SEM-QUEEN-HEALTH-RESOLUTION-001','SEM-QUEEN-DEATH-001',*expected_queen_dispatch],
+        'SEM-Q-028':['SEM-QUEEN-HEALTH-458100-6BA0A2-001'],
+        'SEM-Q-029':['SEM-ACT-SHOOT-001','SEM-QUEEN-HIT-001'],
+    }
+    for question_id,blocks in expected_queen_question_blocks.items():
+        question = question_by_id.get(question_id) or {}
+        if question.get('defaultProhibited') is not True or question.get('blocksRuleIds') != blocks or len(question.get('alternatives') or []) != 3:
+            failures.append({'check':'Queen Health ambiguity no-default alternatives/linkage','questionId':question_id})
+    queen_conflicts = {row.get('conflictId'):row for row in conflict_rows if row.get('conflictId') in {'SC-019','SC-020','SC-021','SC-022'}}
+    if set(queen_conflicts) != {'SC-019','SC-020','SC-021','SC-022'} or queen_conflicts.get('SC-019',{}).get('status') != 'resolved-by-authority' or queen_conflicts.get('SC-020',{}).get('status') != 'resolved-by-authority' or (queen_conflicts.get('SC-021',{}).get('status'),queen_conflicts.get('SC-021',{}).get('questionId')) != ('unresolved','SEM-Q-027') or queen_conflicts.get('SC-022',{}).get('status') != 'preserved-boundary':
+        failures.append({'check':'Queen Health source-variant authority/conflict closure'})
+    actual_queen_lock_ids = set(EXPECTED_QUEEN_HEALTH_RECORD_DIGESTS) & set(record_by_id)
+    if actual_queen_lock_ids != set(EXPECTED_QUEEN_HEALTH_RECORD_DIGESTS):
+        failures.append({'check':'independently locked Queen Health semantic projection','missing':sorted(set(EXPECTED_QUEEN_HEALTH_RECORD_DIGESTS)-actual_queen_lock_ids)})
+    for rule_id,expected_digest in EXPECTED_QUEEN_HEALTH_RECORD_DIGESTS.items():
+        item = record_by_id.get(rule_id)
+        actual_digest = hashlib.sha256(json.dumps(item,sort_keys=True,ensure_ascii=False,separators=(',',':')).encode()).hexdigest() if item else None
+        if actual_digest != expected_digest:
+            failures.append({'check':'independently locked Queen Health semantic projection','ruleId':rule_id,'actual':actual_digest})
+    queen_system = next((row for row in coverage.get('systems') or [] if row.get('system') == 'base Queen Health card/component family'), {})
+    expected_queen_system_ids = ['SEM-ACT-SHOOT-001','SEM-ACT-BURST-001','SEM-ACTION-CARD-DRAW-001','SEM-INTRUDER-REPEL-001','SEM-QUEEN-ACTIVATION-001','SEM-QUEEN-HEALTH-SETUP-001','SEM-QUEEN-HIT-001','SEM-QUEEN-HEALTH-RESOLUTION-001','SEM-QUEEN-DEATH-001',*expected_queen_dispatch]
+    if queen_system.get('ruleIds') != expected_queen_system_ids or any(fragment in not_yet_text for fragment in ('all remaining Item/Queen Health','all Queen Health')):
+        failures.append({'check':'Queen Health coverage stale not-yet-covered claim'})
     semantic_relation_ids = set(ontology_review.get('deferredSemanticRelationIds') or [])
     if semantic_relation_ids != {'rel.phase-part-of-round','rel.round-has-phase','rel.precedes','rel.follows','rel.turn-occurs-in-phase','rel.phase-has-turn','rel.process-has-timing-window','rel.decision-owned-by','rel.owns-decision','rel.information-visible-to','rel.transition-from','rel.transition-to'}:
         failures.append({'check': 'semantic relation handoff'})
@@ -1736,11 +2084,24 @@ def validate(event_source_path: Path, exploration_source_path: Path, robot_sourc
         'attackSelectedNoMatches': sum(len((item.get('selectedEvidenceComparisons') or {}).get('unresolvedIconOccurrences') or []) for item in attack_rows),
         'attackRecords': len(actual_attack_rule_ids),
         'attackBacklogTuples': sum((backlog_rows_by_id.get('CARD:'+value[2][:16]) or {}).get('pilotRuleIds') == [value[6]] for value in EXPECTED_ATTACK_OCCURRENCES.values()),
+        'queenHealthPhysicalOccurrences': len(queen_rows),
+        'queenHealthUniqueFaceAssets': len({item.get('sourceSha256') for item in queen_rows}),
+        'queenHealthSharedBackOccurrences': int(bool(queen_health_sources.get('sharedBack'))),
+        'queenHealthLicensedOccurrences': len(licensed_queen_rows),
+        'queenHealthOfficialFaceOccurrences': sum(row.get('kind') in {'face','partial-face'} for row in official_queen),
+        'queenHealthOfficialBackOccurrences': sum(row.get('kind') == 'shared-back' for row in official_queen),
+        'queenHealthPhysicalPanels': sum(len(item.get('panels') or []) for item in queen_rows),
+        'queenHealthPrintedSentences': sum(len(item.get('sentences') or []) for item in queen_rows),
+        'queenHealthLocalDisplayOccurrences': sum(sum(icon.get('semanticReferenceId') is None for icon in item.get('iconOccurrences') or []) for item in queen_rows),
+        'queenHealthMatchedIconOccurrences': sum(sum(icon.get('semanticReferenceId') is not None for icon in item.get('iconOccurrences') or []) for item in queen_rows),
+        'queenHealthFunctionalIconOccurrences': sum(len(item.get('iconOccurrences') or []) for item in queen_rows),
+        'queenHealthRecords': len(actual_queen_rule_ids),
+        'queenHealthBacklogTuples': sum((backlog_rows_by_id.get(backlog_id) or {}).get('pilotRuleIds') == rule_ids for backlog_id,rule_ids in expected_backlog_rules.items()),
     }
     if actual_counts != EXPECTED:
         failures.append({'check': 'hard-coded semantic pilot counts', 'expected': EXPECTED, 'actual': actual_counts})
     expected_pilot_counts = {key: actual_counts[key] for key in ('records','sourceBacked','withOpenQuestion','sourceVariants','sourceAssertions','conditions','operations','decisions','informationPolicies','costs','targets','openQuestionReferences','variantReferences')}
-    if pilots.get('counts') != expected_pilot_counts or sources_data.get('counts') != {'sources': 75} or review.get('counts') != {'questions':30,'officialClarificationPreferred':7,'sourceAmbiguitiesIntroducedByPilot':23,'resolved':0,'open':30} or coverage.get('counts') != {'systems':18,'pilotRecords':145,'fullBaseSemanticCoverageClaimed':False}:
+    if pilots.get('counts') != expected_pilot_counts or sources_data.get('counts') != {'sources': 90} or review.get('counts') != {'questions':35,'officialClarificationPreferred':10,'sourceAmbiguitiesIntroducedByPilot':25,'resolved':0,'open':35} or coverage.get('counts') != {'systems':19,'pilotRecords':167,'fullBaseSemanticCoverageClaimed':False}:
         failures.append({'check': 'declared semantic counts'})
     covered_rule_ids = [rule_id for system in coverage.get('systems') or [] for rule_id in system.get('ruleIds') or []]
     if set(covered_rule_ids) != set(record_ids) or len(covered_rule_ids) != len(set(covered_rule_ids)) or coverage.get('counts', {}).get('fullBaseSemanticCoverageClaimed') is not False:
@@ -1769,7 +2130,7 @@ def validate(event_source_path: Path, exploration_source_path: Path, robot_sourc
     if len(blocked_units) != 1 or not blocked_units[0].get('sourcePath','').endswith('missionTaskDeck-023.png') or 'exact-source-operative-span' not in blocked_units[0].get('blockers',[]):
         failures.append({'check': 'semantic backlog inherited source blocker'})
     expected_backlog_channels = {'card-reference-source-tuple':350,'interpreted-rule-record':54,'intruder-help-instruction':18,'objective-help-unit':45,'official-faq-unit':28,'room-help-entry':25,'rulebook-visual-obligation':80}
-    expected_backlog_status = {'pending':445,'pilot-covered':154,'source-blocked':1}
+    expected_backlog_status = {'pending':425,'pilot-covered':174,'source-blocked':1}
     if backlog.get('counts') != {'units':600,'byChannel':expected_backlog_channels,'byStatus':expected_backlog_status}:
         failures.append({'check': 'semantic backlog declared counts'})
 
@@ -1787,7 +2148,7 @@ def validate(event_source_path: Path, exploration_source_path: Path, robot_sourc
                     failures.append({'check': 'semantic backlog rebuild execution', 'seed': seed, 'locale':locale_name, 'stderr': backlog_run.stderr})
                     continue
                 hashes = {}
-                for name, tracked in [('event-source-index.json',event_source_path),('exploration-source-index.json',exploration_source_path),('robot-source-index.json',robot_source_path),('attack-source-index.json',attack_source_path),('source-registry.json',source_path),('semantic-rule.schema.json',schema_path),('semantic-vocabulary.json',semantic_vocabulary_path),('room-icon-denotations.json',room_icon_path),('pilots.json',pilots_path),('review-gates.json',review_path),('contradictions.json',contradictions_path),('coverage.json',coverage_path),('backlog.json',backlog_path)]:
+                for name, tracked in [('event-source-index.json',event_source_path),('exploration-source-index.json',exploration_source_path),('robot-source-index.json',robot_source_path),('attack-source-index.json',attack_source_path),('queen-health-source-index.json',queen_health_source_path),('source-registry.json',source_path),('semantic-rule.schema.json',schema_path),('semantic-vocabulary.json',semantic_vocabulary_path),('room-icon-denotations.json',room_icon_path),('pilots.json',pilots_path),('review-gates.json',review_path),('contradictions.json',contradictions_path),('coverage.json',coverage_path),('backlog.json',backlog_path)]:
                     rebuilt = Path(temp_dir) / name
                     hashes[name] = sha(rebuilt) if rebuilt.is_file() else None
                     if not rebuilt.is_file() or hashes[name] != sha(tracked):
@@ -1805,6 +2166,7 @@ def main() -> int:
     parser.add_argument('--exploration-source-index', type=Path, default=DIR/'exploration-source-index.json')
     parser.add_argument('--robot-source-index', type=Path, default=DIR/'robot-source-index.json')
     parser.add_argument('--attack-source-index', type=Path, default=DIR/'attack-source-index.json')
+    parser.add_argument('--queen-health-source-index', type=Path, default=DIR/'queen-health-source-index.json')
     parser.add_argument('--source-registry', type=Path, default=DIR/'source-registry.json')
     parser.add_argument('--schema', type=Path, default=DIR/'semantic-rule.schema.json')
     parser.add_argument('--semantic-vocabulary', type=Path, default=DIR/'semantic-vocabulary.json')
@@ -1818,7 +2180,7 @@ def main() -> int:
     parser.add_argument('--report', action='store_true')
     args = parser.parse_args()
     try:
-        report = validate(args.event_source_index,args.exploration_source_index,args.robot_source_index,args.attack_source_index,args.source_registry,args.schema,args.semantic_vocabulary,args.room_icon_denotations,args.pilots,args.review_gates,args.contradictions,args.coverage,args.backlog,reproducibility=not args.skip_reproducibility)
+        report = validate(args.event_source_index,args.exploration_source_index,args.robot_source_index,args.attack_source_index,args.queen_health_source_index,args.source_registry,args.schema,args.semantic_vocabulary,args.room_icon_denotations,args.pilots,args.review_gates,args.contradictions,args.coverage,args.backlog,reproducibility=not args.skip_reproducibility)
     except (DuplicateJsonKeyError,json.JSONDecodeError) as error:
         report = {'schemaVersion':1,'passed':False,'checks':{},'failureCount':1,'failures':[{'check':'strict JSON parsing','error':str(error)}]}
     if args.report and args.pilots.resolve() == (DIR/'pilots.json').resolve():

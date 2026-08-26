@@ -10,7 +10,7 @@ import unittest
 REPO=Path(__file__).resolve().parents[1]
 DIR=REPO/'docs/rules/semantics'
 VALIDATOR=REPO/'scripts/validate_semantic_pilots.py'
-FILES=('event-source-index.json','exploration-source-index.json','robot-source-index.json','attack-source-index.json','source-registry.json','semantic-rule.schema.json','semantic-vocabulary.json','room-icon-denotations.json','pilots.json','review-gates.json','contradictions.json','coverage.json','backlog.json')
+FILES=('event-source-index.json','exploration-source-index.json','robot-source-index.json','attack-source-index.json','queen-health-source-index.json','source-registry.json','semantic-rule.schema.json','semantic-vocabulary.json','room-icon-denotations.json','pilots.json','review-gates.json','contradictions.json','coverage.json','backlog.json')
 
 
 def load(path): return json.loads(path.read_text(encoding='utf-8'))
@@ -19,7 +19,7 @@ def load(path): return json.loads(path.read_text(encoding='utf-8'))
 class SemanticPilotTests(unittest.TestCase):
     def run_validator(self, root=None, skip=False):
         base=root or DIR
-        command=['python3',str(VALIDATOR),'--event-source-index',str(base/'event-source-index.json'),'--exploration-source-index',str(base/'exploration-source-index.json'),'--robot-source-index',str(base/'robot-source-index.json'),'--attack-source-index',str(base/'attack-source-index.json'),'--source-registry',str(base/'source-registry.json'),'--schema',str(base/'semantic-rule.schema.json'),'--semantic-vocabulary',str(base/'semantic-vocabulary.json'),'--room-icon-denotations',str(base/'room-icon-denotations.json'),'--pilots',str(base/'pilots.json'),'--review-gates',str(base/'review-gates.json'),'--contradictions',str(base/'contradictions.json'),'--coverage',str(base/'coverage.json'),'--backlog',str(base/'backlog.json')]
+        command=['python3',str(VALIDATOR),'--event-source-index',str(base/'event-source-index.json'),'--exploration-source-index',str(base/'exploration-source-index.json'),'--robot-source-index',str(base/'robot-source-index.json'),'--attack-source-index',str(base/'attack-source-index.json'),'--queen-health-source-index',str(base/'queen-health-source-index.json'),'--source-registry',str(base/'source-registry.json'),'--schema',str(base/'semantic-rule.schema.json'),'--semantic-vocabulary',str(base/'semantic-vocabulary.json'),'--room-icon-denotations',str(base/'room-icon-denotations.json'),'--pilots',str(base/'pilots.json'),'--review-gates',str(base/'review-gates.json'),'--contradictions',str(base/'contradictions.json'),'--coverage',str(base/'coverage.json'),'--backlog',str(base/'backlog.json')]
         if skip: command.append('--skip-reproducibility')
         run=subprocess.run(command,cwd=REPO,check=False,capture_output=True,text=True,timeout=300)
         return run,json.loads(run.stdout)
@@ -28,15 +28,15 @@ class SemanticPilotTests(unittest.TestCase):
         run,report=self.run_validator()
         self.assertEqual(run.returncode,0,run.stdout+run.stderr)
         self.assertTrue(report['passed'])
-        self.assertEqual(report['checks']['records'],145)
-        self.assertEqual(report['checks']['operations'],672)
-        self.assertEqual(report['checks']['decisions'],73)
-        self.assertEqual(report['checks']['targets'],177)
-        self.assertEqual(report['checks']['openQuestions'],30)
+        self.assertEqual(report['checks']['records'],167)
+        self.assertEqual(report['checks']['operations'],773)
+        self.assertEqual(report['checks']['decisions'],80)
+        self.assertEqual(report['checks']['targets'],203)
+        self.assertEqual(report['checks']['openQuestions'],35)
         self.assertEqual(report['checks']['semanticNodes'],26)
-        self.assertEqual(report['checks']['conflicts'],18)
+        self.assertEqual(report['checks']['conflicts'],22)
         self.assertEqual(report['checks']['backlogUnits'],600)
-        self.assertEqual(report['checks']['backlogPilotCovered'],154)
+        self.assertEqual(report['checks']['backlogPilotCovered'],174)
         self.assertEqual(report['checks']['eventIdentities'],20)
         self.assertEqual(report['checks']['eventRecords'],20)
         self.assertEqual(report['checks']['eventBacklogTuples'],20)
@@ -58,6 +58,13 @@ class SemanticPilotTests(unittest.TestCase):
         self.assertEqual(report['checks']['attackBadgeOccurrences'],57)
         self.assertEqual(report['checks']['attackInlineIconOccurrences'],13)
         self.assertEqual(report['checks']['attackBacklogTuples'],20)
+        self.assertEqual(report['checks']['queenHealthPhysicalOccurrences'],12)
+        self.assertEqual(report['checks']['queenHealthUniqueFaceAssets'],10)
+        self.assertEqual(report['checks']['queenHealthPhysicalPanels'],24)
+        self.assertEqual(report['checks']['queenHealthPrintedSentences'],37)
+        self.assertEqual(report['checks']['queenHealthFunctionalIconOccurrences'],28)
+        self.assertEqual(report['checks']['queenHealthRecords'],12)
+        self.assertEqual(report['checks']['queenHealthBacklogTuples'],10)
         self.assertEqual(report['checks']['roomIconDenotations'],112)
 
     def test_high_risk_semantic_boundaries(self):
@@ -633,6 +640,187 @@ class SemanticPilotTests(unittest.TestCase):
         self.assertIn('Attack exact backlog tuple projection',checks)
         self.assertIn('Attack exact overlapping backlog-obligation closure',checks)
 
+    def test_base_queen_health_family_semantic_closure(self):
+        source=load(DIR/'queen-health-source-index.json')
+        registry={row['sourceId']:row for row in load(DIR/'source-registry.json')['sources']}
+        by_id={row['ruleId']:row for row in load(DIR/'pilots.json')['records']}
+        backlog={row['semanticUnitId']:row for row in load(DIR/'backlog.json')['units']}
+        self.assertEqual(source['counts']['physicalFaceOccurrences'],12)
+        self.assertEqual(source['counts']['uniqueFaceAssets'],10)
+        self.assertEqual(source['counts']['physicalPanels'],24)
+        self.assertEqual(source['counts']['printedSentences'],37)
+        self.assertEqual(source['counts']['functionalIconOccurrences'],28)
+        self.assertEqual(source['discardNumberMultiplicity'],{'0':3,'1':4,'2':2,'3':3})
+        expected_occurrences=[
+            (424300,'615e22'),(424500,'0dd25f'),(503700,'e4ab1c'),(504100,'717b23'),
+            (504200,'ca5827'),(504000,'919263'),(503900,'b42831'),(503800,'64ae0a'),
+            (424100,'a10f34'),(458100,'6ba0a2'),(429200,'48a2ae'),(429200,'0fbf8d'),
+        ]
+        self.assertEqual([(row['ttsCardId'],row['ttsCardGuid']) for row in source['faces']],expected_occurrences)
+        self.assertEqual(source['familyCountEvidence']['rawTtsDeck']['deckIdsInSavedOrder'],[row[0] for row in expected_occurrences])
+        self.assertFalse(source['familyCountEvidence']['rawTtsDeck']['savedOrderIsGameplayDeckOrder'])
+        self.assertTrue(source['familyCountEvidence']['rawTtsDeck']['setupRequiresShuffle'])
+        self.assertEqual(source['sharedBack']['sourceSelector']['referenceCount'],13)
+        self.assertFalse(source['sharedBack']['numberedBack'])
+        self.assertFalse(source['sharedBack']['separateRulesFace'])
+        self.assertEqual([row['printedValue'] for row in source['queenHitsTrack']['spacesInPrintedOrder']],[0,1,2,3,4,None])
+        self.assertTrue(all(row['semanticReferenceId'] is None and not row['page40TokenAssigned'] for row in source['officialLocalSymbols']))
+        self.assertEqual([row['key'] for row in source['licensedDigitalOccurrences']],[f'QueenHealthCard{index}' for index in range(1,13)])
+        rule_ids=[]
+        expected_backlog={}
+        for face in source['faces']:
+            occurrence=face['queenHealthOccurrenceId']; rule=by_id[face['semanticRuleId']]; rule_ids.append(face['semanticRuleId'])
+            selector=face['sourceSelector']
+            self.assertEqual(selector['key'],'FaceURL')
+            self.assertEqual(selector['fullCardId'],face['ttsCardId'])
+            self.assertEqual(selector['guid'],face['ttsCardGuid'])
+            self.assertEqual(selector['parentDeckGuid'],'9acd7f')
+            self.assertFalse(face['joinEvidence']['titleOnlyJoin'])
+            self.assertFalse(face['joinEvidence']['bgaOrdinalJoin'])
+            self.assertEqual([row['panelId'] for row in face['panels']],['P1','P2'])
+            self.assertEqual(face['iconOccurrences'][0]['semanticReferenceId'],None)
+            self.assertFalse(face['iconOccurrences'][0]['page40TokenAssigned'])
+            self.assertEqual(face['iconOccurrences'][0]['printedNumericValue'],face['printedDiscardCount'])
+            self.assertEqual((registry[face['sourceId']]['path'],registry[face['sourceId']]['sha256'],registry[face['sourceId']]['occurrenceId']),(face['sourcePath'],face['sourceSha256'],occurrence))
+            expected_backlog.setdefault(face['backlogUnitId'],[]).append(face['semanticRuleId'])
+            source_sentence_ids=[row['sentenceId'] for row in face['sentences']]
+            semantic_sentence_ids=[row['sourceSentenceId'] for row in rule['operations']]
+            self.assertEqual(list(dict.fromkeys(semantic_sentence_ids)),source_sentence_ids)
+            self.assertEqual(rule['unresolvedQuestionRefs'][:2],['SEM-Q-026','SEM-Q-027'])
+            self.assertEqual(rule['sourceVariants'][0]['sourceId'],'SRC-BGA-QUEEN-HEALTH')
+        for unit_id,rule_ids_for_asset in expected_backlog.items():
+            self.assertEqual(backlog[unit_id]['pilotRuleIds'],rule_ids_for_asset)
+            self.assertEqual(backlog[unit_id]['status'],'pilot-covered')
+        dispatch=next(row['dispatchRuleIds'] for row in by_id['SEM-QUEEN-HEALTH-RESOLUTION-001']['operations'] if row.get('dispatchRuleIds'))
+        self.assertEqual(dispatch,rule_ids)
+        self.assertFalse(any(row['operationType']=='shuffle' for row in by_id['SEM-QUEEN-HEALTH-RESOLUTION-001']['operations']))
+        reset=next(row for row in by_id['SEM-QUEEN-HEALTH-RESOLUTION-001']['operations'] if row['operationType']=='change-value')
+        self.assertFalse(reset['valueChange']['overflowCarry'])
+        self.assertEqual(by_id['SEM-QUEEN-HEALTH-458100-6BA0A2-001']['decisions'][0]['selectionMode'],'unresolved')
+        questions={row['questionId']:row for row in load(DIR/'review-gates.json')['questions']}
+        for question_id in [f'SEM-Q-{index:03d}' for index in range(25,30)]:
+            self.assertTrue(questions[question_id]['defaultProhibited'])
+
+    def test_queen_health_specific_adversarial_corruptions_are_rejected(self):
+        def run_mutation(mutate):
+            with tempfile.TemporaryDirectory(prefix='semantic-queen-health-negative-') as temp_dir:
+                root=Path(temp_dir)
+                data={name:load(DIR/name) for name in FILES}
+                mutate(data)
+                for name,payload in data.items():
+                    (root/name).write_text(json.dumps(payload,indent=2,ensure_ascii=False)+'\n',encoding='utf-8')
+                run,report=self.run_validator(root,skip=True)
+            self.assertNotEqual(run.returncode,0)
+            return {failure['check'] for failure in report['failures']}
+
+        def drop_face(data):
+            source=data['queen-health-source-index.json']; source['faces']=source['faces'][1:]
+            source['counts']['physicalFaceOccurrences']-=1; source['counts']['directFaceOccurrences']-=1
+            source['counts']['physicalPanels']-=2; source['counts']['operativePanels']-=2
+        self.assertIn('Queen Health source-index exact physical occurrence count',run_mutation(drop_face))
+
+        def duplicate_face(data):
+            source=data['queen-health-source-index.json']; source['faces'].append(json.loads(json.dumps(source['faces'][0])))
+            source['counts']['physicalFaceOccurrences']+=1; source['counts']['directFaceOccurrences']+=1
+            source['counts']['physicalPanels']+=2; source['counts']['operativePanels']+=2
+        self.assertIn('Queen Health source-index exact physical occurrence count',run_mutation(duplicate_face))
+
+        def title_join(data):
+            join=data['queen-health-source-index.json']['faces'][0]['joinEvidence']
+            join.update({'identityJoin':'Discard heading','titleOnlyJoin':True,'basis':['Discard']})
+        self.assertIn('Queen Health title/folder/modulo/BGA-ordinal join prohibited',run_mutation(title_join))
+
+        def invert_selector_back(data):
+            face=data['queen-health-source-index.json']['faces'][1]; back=data['queen-health-source-index.json']['sharedBack']['sourceSelector']
+            face['sourceSelector'].update({'key':'BackURL','url':back['url'],'sideRole':'shared-non-operative-back'})
+        self.assertIn('Queen Health exact CardID/GUID/FaceURL selector projection',run_mutation(invert_selector_back))
+
+        def reorder_faces(data):
+            faces=data['queen-health-source-index.json']['faces']; faces[0],faces[1]=faces[1],faces[0]
+            faces[0]['ttsSavedSequence']=1; faces[1]['ttsSavedSequence']=2
+        checks=run_mutation(reorder_faces)
+        self.assertIn('Queen Health source-index exact physical occurrence count',checks)
+        self.assertIn('independently locked Queen Health physical occurrence crosswalk',checks)
+
+        def invent_local_icon(data):
+            icon=data['queen-health-source-index.json']['faces'][0]['iconOccurrences'][0]
+            icon.update({'semanticReferenceId':'icon.burstDie1','page40TokenAssigned':True,'mappingStatus':'invented'})
+        self.assertIn('Queen Health local number no-alias/value lock',run_mutation(invent_local_icon))
+
+        def lose_local_icon(data):
+            source=data['queen-health-source-index.json']; source['faces'][0]['iconOccurrences'].pop(0)
+            source['counts']['localNumberDisplayOccurrences']-=1; source['counts']['functionalIconOccurrences']-=1
+        self.assertIn('Queen Health exact local/icon occurrence projection',run_mutation(lose_local_icon))
+
+        def swap_local_numbers(data):
+            first=data['queen-health-source-index.json']['faces'][0]['iconOccurrences'][0]
+            fourth=data['queen-health-source-index.json']['faces'][3]['iconOccurrences'][0]
+            first['printedNumericValue'],fourth['printedNumericValue']=fourth['printedNumericValue'],first['printedNumericValue']
+        self.assertIn('Queen Health local number no-alias/value lock',run_mutation(swap_local_numbers))
+
+        def drift_track(data):
+            data['queen-health-source-index.json']['queenHitsTrack']['spacesInPrintedOrder'][4]['printedValue']=5
+        self.assertIn('Queen Health track/terminal local-symbol no-alias lock',run_mutation(drift_track))
+
+        def drift_body_punctuation(data):
+            face=data['queen-health-source-index.json']['faces'][2]
+            face['printedBody']=face['printedBody'].replace('Activate the Queen.','Activate the Queen!')
+        self.assertIn('Queen Health exact body/order/punctuation lock',run_mutation(drift_body_punctuation))
+
+        def reorder_panels(data):
+            panels=data['queen-health-source-index.json']['faces'][2]['panels']; panels[0],panels[1]=panels[1],panels[0]
+            panels[0]['readingOrder']=1; panels[1]['readingOrder']=2
+        self.assertIn('Queen Health exact two-panel roles/order',run_mutation(reorder_panels))
+
+        def invent_reset_overflow(data):
+            rule=next(row for row in data['pilots.json']['records'] if row['ruleId']=='SEM-QUEEN-HEALTH-RESOLUTION-001')
+            reset=next(row for row in rule['operations'] if row['operationType']=='change-value')
+            reset['valueChange']['overflowCarry']=True
+        self.assertIn('Queen Health draw/hidden-discard/effect/drawn-discard/reset/no-reshuffle order lock',run_mutation(invent_reset_overflow))
+
+        def lose_variants(data):
+            rule=next(row for row in data['pilots.json']['records'] if row['ruleId']=='SEM-QUEEN-HEALTH-504100-717B23-001')
+            removed=len(rule['sourceVariants']); rule['sourceVariants']=[]; data['pilots.json']['counts']['variantReferences']-=removed
+        self.assertIn('Queen Health licensed/official source-variant closure',run_mutation(lose_variants))
+
+        def lose_dispatch_source_assertion(data):
+            rule=next(row for row in data['pilots.json']['records'] if row['ruleId']=='SEM-QUEEN-HEALTH-RESOLUTION-001')
+            removed=rule['sourceAssertions'].pop(1)['assertionId']
+            next(row for row in rule['operations'] if row.get('dispatchRuleIds'))['sourceAssertionIds'].remove(removed)
+            data['pilots.json']['counts']['sourceAssertions']-=1
+        self.assertIn('Queen Health exact dispatcher source-assertion closure',run_mutation(lose_dispatch_source_assertion))
+
+        def invert_authority(data):
+            rule=next(row for row in data['pilots.json']['records'] if row['ruleId']=='SEM-QUEEN-HEALTH-458100-6BA0A2-001')
+            rule['authority']['highest']='licensed-digital-secondary'
+        self.assertIn('Queen Health face authority/physical-title lock',run_mutation(invert_authority))
+
+        def invent_branch_default(data):
+            question=next(row for row in data['review-gates.json']['questions'] if row['questionId']=='SEM-Q-028')
+            question['defaultProhibited']=False
+            rule=next(row for row in data['pilots.json']['records'] if row['ruleId']=='SEM-QUEEN-HEALTH-458100-6BA0A2-001')
+            rule['decisions'][0].update({'selectionMode':'player-choice','ownerRef':'P-DRAWING-CHARACTER'})
+        checks=run_mutation(invent_branch_default)
+        self.assertIn('Queen Health Malfunction/Unreinforce no invented branch owner/default',checks)
+        self.assertIn('Queen Health ambiguity no-default alternatives/linkage',checks)
+
+        def invent_duplicate_ordinal_pairing(data):
+            candidates=data['queen-health-source-index.json']['faces'][3]['bgaVariantCandidates']
+            candidates['candidateKeys']=['QueenHealthCard4']; candidates['candidates']=candidates['candidates'][:1]
+            candidates['oneToOneCopyAssignmentAsserted']=True
+        self.assertIn('Queen Health licensed variant/candidate-copy boundary',run_mutation(invent_duplicate_ordinal_pairing))
+
+        def lower_backlog_coordinated(data):
+            target='CARD:648b81223c8c8b65'; backlog=data['backlog.json']
+            backlog['units']=[row for row in backlog['units'] if row['semanticUnitId']!=target]
+            backlog['counts']['units']-=1; backlog['counts']['byChannel']['card-reference-source-tuple']-=1; backlog['counts']['byStatus']['pilot-covered']-=1
+            source=data['queen-health-source-index.json']; ledger=source['familyCountEvidence']['backlog']
+            ledger['faceUnitIds'].remove(target); ledger['linkedUnitIds'].remove(target); ledger['faceTupleCount']-=1
+            source['counts']['backlogTuples']-=1; source['counts']['backlogObligationsLinked']-=1
+        checks=run_mutation(lower_backlog_coordinated)
+        self.assertIn('Queen Health exact backlog tuple projection',checks)
+        self.assertIn('Queen Health exact overlapping backlog-obligation closure',checks)
+
     def test_base_event_family_semantic_closure(self):
         source=load(DIR/'event-source-index.json')
         registry={row['sourceId']:row for row in load(DIR/'source-registry.json')['sources']}
@@ -748,7 +936,7 @@ class SemanticPilotTests(unittest.TestCase):
             for name in FILES: (root/name).write_text((DIR/name).read_text(encoding='utf-8'),encoding='utf-8')
             sources=load(root/'source-registry.json'); room_icons=load(root/'room-icon-denotations.json'); pilots=load(root/'pilots.json'); review=load(root/'review-gates.json'); contradictions=load(root/'contradictions.json'); coverage=load(root/'coverage.json'); backlog=load(root/'backlog.json')
             sources['sources'][0]['sha256']='0'*64
-            record=pilots['records'][0]
+            record=next(row for row in pilots['records'] if row['ruleId']=='SEM-ACTION-CARD-DRAW-001')
             record['unexpectedField']='implementation leak'
             record['termRefs'][0]='term.missing'
             record['taxonRefs'][0]='tax.missing'

@@ -81,6 +81,7 @@
         "SEM-ROOM-23",
         "SEM-ROOM-24",
         "SEM-ROOM-25",
+        "SEM-ROOM-MALFUNCTION-PLACEMENT-001",
         "SEM-ROOM-STATIC-PROHIBITIONS"
       ]
     },
@@ -237,17 +238,43 @@
         "SEM-ROBOT-MEDICAL-001",
         "SEM-ROBOT-MILITARY-001"
       ]
+    },
+    {
+      "system": "base Queen Health card/component family",
+      "ruleIds": [
+        "SEM-ACT-SHOOT-001",
+        "SEM-ACT-BURST-001",
+        "SEM-ACTION-CARD-DRAW-001",
+        "SEM-INTRUDER-REPEL-001",
+        "SEM-QUEEN-ACTIVATION-001",
+        "SEM-QUEEN-HEALTH-SETUP-001",
+        "SEM-QUEEN-HIT-001",
+        "SEM-QUEEN-HEALTH-RESOLUTION-001",
+        "SEM-QUEEN-DEATH-001",
+        "SEM-QUEEN-HEALTH-424300-615E22-001",
+        "SEM-QUEEN-HEALTH-424500-0DD25F-001",
+        "SEM-QUEEN-HEALTH-503700-E4AB1C-001",
+        "SEM-QUEEN-HEALTH-504100-717B23-001",
+        "SEM-QUEEN-HEALTH-504200-CA5827-001",
+        "SEM-QUEEN-HEALTH-504000-919263-001",
+        "SEM-QUEEN-HEALTH-503900-B42831-001",
+        "SEM-QUEEN-HEALTH-503800-64AE0A-001",
+        "SEM-QUEEN-HEALTH-424100-A10F34-001",
+        "SEM-QUEEN-HEALTH-458100-6BA0A2-001",
+        "SEM-QUEEN-HEALTH-429200-48A2AE-001",
+        "SEM-QUEEN-HEALTH-429200-0FBF8D-001"
+      ]
     }
   ],
   "counts": {
-    "systems": 18,
-    "pilotRecords": 145,
+    "systems": 19,
+    "pilotRecords": 167,
     "fullBaseSemanticCoverageClaimed": false
   },
   "notYetCovered": [
-    "remaining card corpus outside the closed 20-card Event, 12-card Exploration, 6-card Robot, and 20-occurrence Intruder Attack families",
-    "all Objectives/Mission Tasks",
-    "all remaining Item/Queen Health/Serious Wound effects",
+    "remaining card corpus outside the closed 20-card Event, 12-card Exploration, 6-card Robot, 20-occurrence Intruder Attack, and 12-occurrence Queen Health families",
+    "all remaining Objectives/Mission Tasks outside the linked Queen-death Help units",
+    "all remaining Item/Serious Wound effects",
     "remaining setup, map, procedure, and component lifecycle rules"
   ]
 }
