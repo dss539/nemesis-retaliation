@@ -1,4 +1,4 @@
-# Nemesis: Retaliation semantic rules pilot
+# Nemesis: Retaliation semantic rules corpus
 
 This directory is the first implementation-neutral semantic layer built over the approved vocabulary and independently reviewed static ontology.
 
@@ -6,10 +6,11 @@ This directory is the first implementation-neutral semantic layer built over the
 
 - `semantic-rule.schema.json` — closed JSON Schema shape for one semantic rule record.
 - `semantic-vocabulary.json` — semantic-only states, temporary zones, deck positions, and visibility scopes that must not be confused with static ontology classes/processes.
+- `room-icon-denotations.json` — source-scoped semantic projection of all 112 Room Help functional-icon occurrences; literal extraction remains unchanged.
 - `source-registry.json` — exact source tuples, hashes, versions, authority, and extraction-index links used by pilots.
-- `pilots.json` — 24 validated semantic records across 16 systems; the historical filename is retained while coverage expands.
-- `review-gates.json` — nine explicit open semantic questions with alternatives; no default is adopted.
-- `contradictions.json` — seven source/semantic conflicts: two authority-resolved, three unresolved, and two preserved boundaries.
+- `pilots.json` — 73 validated semantic records across 18 systems; the historical filename is retained while coverage expands.
+- `review-gates.json` — eleven explicit open semantic questions with alternatives; no default is adopted.
+- `contradictions.json` — eight source/semantic conflicts: two authority-resolved, four unresolved, and two preserved boundaries.
 - `coverage.json` — pilot scope and the large remaining base-game semantic surface.
 - `backlog.json` — 600 source-obligation units across rule records, FAQ, visual obligations, Help sheets, and independent card/reference tuples; overlapping variants are intentionally retained.
 - `validation.json` — deterministic validation report.
@@ -37,9 +38,9 @@ Every pilot carries:
 - unresolved-question and source-variant links;
 - an explicit implementation-neutral boundary.
 
-## Pilot coverage
+## Current coverage
 
-The 24 records cover:
+The 73 records cover the original 24-record reusable-procedure set plus:
 
 1. Round phase sequence;
 2. Player Phase rotation;
@@ -64,11 +65,17 @@ The 24 records cover:
 21. Intruder Attack;
 22. Character Health, Serious Wounds, and death;
 23. Tactical Gear token/slot constraints; and
-24. the source-obligation links for those reusable procedures.
+24. the source-obligation links for those reusable procedures;
+25. all 18 Intruder Help instruction rows, including Queen alive/dead side conditions, finite supply, front/back token data, model capacity, immediate attacks, and token lifecycle;
+26. generic Use the Room plus all 25 Room Help effects;
+27. all 112 Room Help functional-icon occurrences mapped source-scoped, including printed static Room properties and connected Tactical Gear slots;
+28. FAQ-controlled Shelter, Drilling Station, Technical Corridor Entrance, and Nest behavior;
+29. Robot Malfunction, Data-token persistence, Autodestruction, and Nest-destruction constraints; and
+30. per-Corridor Noise movement/Attack ordering.
 
 This is representative, **not full base-game semantic coverage**.
 
-The backlog currently records 25 covered source obligations, 574 pending obligations, and one inherited exact-source blocker (`FACILITY RESTART`). These are source-obligation counts, not a claim that 600 distinct game effects exist.
+The backlog currently records 71 covered source obligations, 528 pending obligations, and one inherited exact-source blocker (`FACILITY RESTART`). These are source-obligation counts, not a claim that 600 distinct game effects exist.
 
 ## Open questions carried without defaults
 
@@ -81,8 +88,9 @@ The backlog currently records 25 covered source obligations, 574 pending obligat
 - SEM-Q-001 — Duck and Cover replacement target when multiple other Characters are present.
 - SEM-Q-002 — whether an exploratory Entrance Noise satisfies or adds to mandatory Movement Noise;
 - SEM-Q-003 — which equal-largest Opportunity Attackers resolve when more than three qualify.
+- SEM-Q-004 — whether Supply Room’s “You may keep 2” means optional exact-two or any subset up to two.
 
-The first six prefer official clarification. SEM-Q-001 through SEM-Q-003 require further source searching before any owner decision.
+- The first six prefer official clarification. SEM-Q-001 through SEM-Q-005 require further source searching before any owner decision.
 
 ## Fidelity boundaries exercised
 
@@ -91,6 +99,9 @@ The first six prefer official clarification. SEM-Q-001 through SEM-Q-003 require
 - Rest preserves exact source variants rather than rewriting one face from another.
 - Event impossibility applies per sentence and continuation is mandatory.
 - Hatching’s Undiscovered-Nest case remains unresolved.
+- Room Help extraction remains literal/source-local; semantic icon mappings live only in `room-icon-denotations.json`.
+- Static Room prohibition graphics are persistent properties, not removable Secure/Malfunction components.
+- Intruder Help dispatch preserves front icon, back count/color, finite supply, model capacity, immediate Attack order, and discard/return lifecycle separately.
 - Basic Action costs and Action-card play/discard are not conflated.
 - No engine, UI, networking, persistence, or serialization mapping appears in semantic data.
 

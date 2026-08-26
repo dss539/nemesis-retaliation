@@ -124,3 +124,13 @@ Use this ledger for ambiguities that the official rulebook and FAQ do not settle
   - (a) “Not In Combat” restriction
   - (b) Other combat-related restriction
 - **Status:** RESOLVED — page 40 labels its crossed-out-Intruder symbol **Not In Combat**: an Action with this icon cannot be performed in a Room with Intruders. Printed Action cards may instead use a white-gun/red-X symbol; the user confirmed that card-art variant has the same meaning. Reading (a) adopted; canonical identifier `[notInCombat]`.
+
+### SEM-Q-005 — Drilling Station new-Corridor endpoint selection
+
+- **Question:** When the Drilling Station says to place a new Corridor leading from the Room with the Robot, who selects the legal edge or endpoint if more than one placement is possible?
+- **Why it matters:** A digital implementation must not silently choose a map edge or endpoint when the checked source provides no selector or tie-break.
+- **Sources checked:** Room Help entry 17 and its associated note; official FAQ Rooms #1; rulebook Robot and map-placement sections.
+- **Candidate readings:**
+  - (a) The player chooses a legal edge/end point.
+  - (b) A physical-game placement procedure or deterministic edge rule applies.
+- **Status:** Open. The semantic pilot preserves the decision as source-unspecified and adopts no default.

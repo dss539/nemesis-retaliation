@@ -3,11 +3,11 @@
   "recordType": "semantic-review-gates",
   "status": "pilot built with deferred questions and explicit alternatives; no default answer adopted",
   "counts": {
-    "questions": 9,
+    "questions": 11,
     "officialClarificationPreferred": 6,
-    "sourceAmbiguitiesIntroducedByPilot": 3,
+    "sourceAmbiguitiesIntroducedByPilot": 5,
     "resolved": 0,
-    "open": 9
+    "open": 11
   },
   "questions": [
     {
@@ -247,6 +247,57 @@
           "alternativeId": "SEM-Q-003-C",
           "description": "Resolve another source-defined physical ordering.",
           "support": "not recovered"
+        }
+      ]
+    },
+    {
+      "questionId": "SEM-Q-004",
+      "title": "Supply Room “You may keep 2” cardinality",
+      "decisionClass": "source-ambiguity-owner-decision-after-source-search",
+      "blocksRuleIds": [
+        "SEM-ROOM-04"
+      ],
+      "plannedRuleIds": [],
+      "defaultProhibited": true,
+      "sourceEvidenceRefs": [
+        "docs/rules/source-extraction/room-help-sheet.json:04.printedEffect"
+      ],
+      "alternatives": [
+        {
+          "alternativeId": "SEM-Q-004-A",
+          "description": "If the player keeps Items, they keep exactly 2; “may” permits declining the keep.",
+          "support": "optional exact-number reading of “You may keep 2”"
+        },
+        {
+          "alternativeId": "SEM-Q-004-B",
+          "description": "The player may keep any subset from zero through 2.",
+          "support": "common up-to-number reading; not explicitly written"
+        }
+      ]
+    },
+    {
+      "questionId": "SEM-Q-005",
+      "title": "Drilling Station new-Corridor endpoint selection",
+      "decisionClass": "source-ambiguity-owner-decision-after-source-search",
+      "blocksRuleIds": [
+        "SEM-ROOM-17"
+      ],
+      "plannedRuleIds": [],
+      "defaultProhibited": true,
+      "sourceEvidenceRefs": [
+        "docs/rules/source-extraction/room-help-sheet.json:17.printedEffect",
+        "docs/rules/source-extraction/room-help-sheet.json:17.associatedNotes[0]"
+      ],
+      "alternatives": [
+        {
+          "alternativeId": "SEM-Q-005-A",
+          "description": "Player chooses a legal edge/end point from the Room with the Robot.",
+          "support": "digital adaptation needed if multiple legal edges exist; not named by source"
+        },
+        {
+          "alternativeId": "SEM-Q-005-B",
+          "description": "Use a physical-game placement procedure or deterministic edge rule.",
+          "support": "source says leading from the Room but gives no selector/tie-break"
         }
       ]
     }

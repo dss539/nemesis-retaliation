@@ -6,6 +6,9 @@ import hashlib
 import json
 from pathlib import Path
 from semantic_general_records import build_general_records
+from semantic_intruder_help_records import build_intruder_help_records
+from semantic_room_records import build_room_records
+from room_icon_denotations import build_room_icon_denotations
 
 REPO = Path(__file__).resolve().parents[1]
 parser = argparse.ArgumentParser()
@@ -42,6 +45,11 @@ sources = {
     'SRC-INTRUDER-HELP-QA': {
         'sourceId': 'SRC-INTRUDER-HELP-QA', 'authority': 'source-bound-component-scan', 'version': 'TTS Queen Alive face',
         'path': 'assets/tts-mod/extract/v2-dl/tree/cards/reference/card-053.png', 'sha256': sha('assets/tts-mod/extract/v2-dl/tree/cards/reference/card-053.png'),
+        'evidenceIndexPath': 'docs/rules/source-extraction/intruder-help-sheet.json',
+    },
+    'SRC-INTRUDER-HELP-QD': {
+        'sourceId': 'SRC-INTRUDER-HELP-QD', 'authority': 'source-bound-component-scan', 'version': 'TTS Queen Dead face',
+        'path': 'assets/tts-mod/extract/v2-dl/tree/cards/reference/card-069.png', 'sha256': sha('assets/tts-mod/extract/v2-dl/tree/cards/reference/card-069.png'),
         'evidenceIndexPath': 'docs/rules/source-extraction/intruder-help-sheet.json',
     },
     'SRC-CARD-SEARCH-MEDICAL': {
@@ -107,7 +115,7 @@ semantic_schema = {
 semantic_nodes = {
     'schemaVersion': 1,
     'recordType': 'semantic-node-registry',
-    'counts': {'nodes': 18, 'stateValues': 11, 'zones': 2, 'positions': 2, 'visibilityScopes': 3},
+    'counts': {'nodes': 22, 'stateValues': 15, 'zones': 2, 'positions': 2, 'visibilityScopes': 3},
     'nodes': [
         {'semanticNodeId':'sem.state.phase.passed','kind':'state-value','label':'Passed for current Player Phase','sourceEvidence':['docs/rules/01-round-and-turns.md:RT-007']},
         {'semanticNodeId':'sem.state.participation.active','kind':'state-value','label':'Actively participating','sourceEvidence':['docs/rules/01-round-and-turns.md:RT-014']},
@@ -120,6 +128,10 @@ semantic_nodes = {
         {'semanticNodeId':'sem.state.game.ended','kind':'state-value','label':'Game ended','sourceEvidence':['docs/rules/03-intruders-and-survival.md:INT-011']},
         {'semanticNodeId':'sem.state.outcome.winner','kind':'state-value','label':'Winner','sourceEvidence':['docs/rules/03-intruders-and-survival.md:INT-011']},
         {'semanticNodeId':'sem.state.outcome.loser','kind':'state-value','label':'Loser','sourceEvidence':['docs/rules/03-intruders-and-survival.md:INT-011']},
+        {'semanticNodeId':'sem.state.room.always-secured','kind':'state-value','label':'Permanent always-secured Room status','sourceEvidence':['docs/rulebooks/Nemesis_RT_FAQ_v1.2.pdf:Rooms #2']},
+        {'semanticNodeId':'sem.state.room.secure-prohibited','kind':'state-value','label':'Room cannot receive Secure tokens','sourceEvidence':['docs/rulebooks/Nemesis_RT_Rooms_Sheet.pdf:Rooms 04, 12, 25']},
+        {'semanticNodeId':'sem.state.room.malfunction-prohibited','kind':'state-value','label':'Room cannot receive Malfunction markers','sourceEvidence':['docs/rulebooks/Nemesis_RT_Rooms_Sheet.pdf:Room 25']},
+        {'semanticNodeId':'sem.state.room.nest-destroyed','kind':'state-value','label':'Nest destroyed','sourceEvidence':['docs/rulebooks/Nemesis_RT_Rulebook_official.pdf:printed page 7','docs/rulebooks/Nemesis_RT_FAQ_v1.2.pdf:Rooms #4']},
         {'semanticNodeId':'sem.zone.temporary-private-inspection','kind':'zone','label':'Temporary private inspection set','sourceEvidence':['docs/rules/02-character-actions.md:ACT-SEARCH-001']},
         {'semanticNodeId':'sem.zone.card-in-resolution','kind':'zone','label':'Card currently resolving','sourceEvidence':['docs/rules/02-character-actions.md:ACT-CARD-001']},
         {'semanticNodeId':'sem.position.deck-top','kind':'position','label':'Top of deck/pile','sourceEvidence':['docs/rules/03-intruders-and-survival.md:INT-008']},
@@ -129,6 +141,11 @@ semantic_nodes = {
         {'semanticNodeId':'sem.visibility.scanning-player','kind':'visibility-scope','label':'Scanning player','sourceEvidence':['docs/rules/03-intruders-and-survival.md:INT-008']},
     ],
 }
+
+room_icon_denotations = build_room_icon_denotations(
+    json.loads((REPO/'docs/rules/source-extraction/room-help-sheet.json').read_text()),
+    json.loads((REPO/'docs/rules/vocabulary/canonical-vocabulary.json').read_text()),
+)
 
 
 def assertion(assertion_id, source_id, locator, supports, excerpt=None, evidence_record=None):
@@ -262,7 +279,7 @@ records.append(record(
 
 records.append(record(
     'SEM-REACTION-DUCK-001','Duck and Cover Reaction redirect','source-backed-with-open-question','reaction','official-primary','open-alternatives',
-    [assertion('SA-DUCK-1','SRC-CARD-DUCK','Reaction panel',['timing','preconditions','targets','operations'],'When you would be Attacked by an Intruder in a Room with another Character: The Intruder Attacks the other Character instead.','assets/tts-mod/extract/card-text-corpus.json'),assertion('SA-DUCK-2','SRC-RULEBOOK','printed pages 13–14 / Reactions',['timing','duration'],'A player may use a Reaction when its condition is met; resolve it, then discard the card; it is not an Action.','docs/rules/01-round-and-turns.md:RT-003')],
+    [assertion('SA-DUCK-1','SRC-CARD-DUCK','Reaction panel',['timing','preconditions','targets','operations'],'When you would be Attacked by an Intruder in a Room with another Character: The Intruder Attacks the other Character instead.','assets/tts-mod/extract/card-text-corpus.json'),assertion('SA-DUCK-2','SRC-RULEBOOK','printed pages 13–14 / Reactions',['timing','duration','operations'],'A player may use a Reaction when its condition is met; resolve it, then discard the card; it is not an Action.','docs/rules/01-round-and-turns.md:RT-003')],
     ['term.reaction','term.attack','icon.intruder','icon.character'],['tax.process.card-effect.reaction','tax.process.attack','tax.entity.agent.intruder','tax.entity.agent.character'],[],
     timing('TW-DUCK','tax.process.attack','before-attack-resolution','when-trigger-condition-met'),[participant('P-ORIGINAL-TARGET','actor','tax.entity.agent.character'),participant('P-OWNER','decision-owner','tax.entity.agent.player'),participant('P-INTRUDER','affected','tax.entity.agent.intruder')],'may',
     [condition('C-DUCK','all',[{'predicate':'P-ORIGINAL-TARGET would be Attacked by P-INTRUDER'},{'predicate':'same Room contains at least one other Character'}],['SA-DUCK-1'])],
@@ -273,34 +290,25 @@ records.append(record(
     {'policy':'replacement-effect','unit':'one pending Attack','onImpossible':'source does not specify replacement selection when multiple other Characters exist'}, {'kind':'one-pending-attack'}, {'policy':'one Reaction card play per copy'}, [], ['SEM-Q-001'], []))
 
 records.append(record(
-    'SEM-ROOM-01','Sprinklers Control Room effect','source-backed','component-effect','official-primary','verbatim-structure',
-    [assertion('SA-ROOM01-1','SRC-ROOM-HELP','entry 01 SPRINKLERS CONTROL',['decisions','targets','operations'],'Discard all Fire markers from a chosen Section.','docs/rules/source-extraction/room-help-sheet.json:01'),assertion('SA-ROOM01-2','SRC-RULEBOOK','printed page 12 / Basic Actions List',['costs','preconditions'],'Use the Room costs 2 Action cards and carries Not In Combat.','docs/rules/source-extraction/rulebook-visual-obligations.json:RB-P12-V02')],
-    ['term.use-the-room','term.section','icon.fire','icon.notInCombat'],['tax.process.action.use-room','tax.entity.spatial.section','tax.entity.component.marker.fire','tax.state.combat.not-in-combat'],['NI-0447'],
-    timing('TW-ROOM01','tax.process.action.use-room','during','per-Use-Room'),[participant('P-ACTIVE-PLAYER','decision-owner','tax.entity.agent.player'),participant('P-ACTIVE-CHARACTER','actor','tax.entity.agent.character')],'must',
-    [condition('C-ROOM01','all',[{'predicate':'Character occupies Sprinklers Control'},{'predicate':'Character is Not In Combat'},{'predicate':'effect is fully resolvable'}],['SA-ROOM01-1','SA-ROOM01-2'])],
-    [decision('D-ROOM01-PAY','P-ACTIVE-PLAYER','player-choice',2,2,False,'owner-private-until-discard',['own Action cards in hand']),decision('D-SECTION','P-ACTIVE-PLAYER','player-choice',1,1,False,'public-on-declaration',['Section A','Section B','Section C'])],
-    [{'informationId':'I-ROOM01','subjectRef':'selected Section and Fire markers','audience':'public','revealTrigger':'declaration','secrecy':'none'}],
-    [{'costId':'COST-ROOM01','payerRef':'P-ACTIVE-PLAYER','resourceTermId':'icon.actionCard','quantity':2,'selectionDecisionRef':'D-ROOM01-PAY','transition':{'from':'tax.scaffold.zone.hand','to':'tax.scaffold.zone.discard-pile'}}],
+    'SEM-ROOM-01','Sprinklers Control Room effect','source-backed','component-effect','official-component-reference','verbatim-structure',
+    [assertion('SA-ROOM01-1','SRC-ROOM-HELP','entry 01 SPRINKLERS CONTROL',['decisions','targets','operations'],'Discard all [R01-I04]\nfrom a chosen Section.','docs/rules/source-extraction/room-help-sheet.json:01.printedEffect')],
+    ['term.section','icon.fire'],['tax.entity.spatial.section','tax.entity.component.marker.fire'],['NI-0447'],
+    timing('TW-ROOM01','tax.process.action.use-room','when-triggered','per-invoked-Room-effect'),[participant('P-ACTIVE-PLAYER','decision-owner','tax.entity.agent.player'),participant('P-ACTIVE-CHARACTER','actor','tax.entity.agent.character')],'must',
+    [condition('C-ROOM01','predicate',[{'predicate':'invoked Sprinklers Control effect is fully resolvable'}],['SA-ROOM01-1'])],
+    [decision('D-SECTION','P-ACTIVE-PLAYER','player-choice',1,1,False,'public-on-declaration',['Section A','Section B','Section C'])],
+    [{'informationId':'I-ROOM01','subjectRef':'selected Section and Fire markers','audience':'public','revealTrigger':'declaration','secrecy':'none'}],[],
     [{'targetId':'T-SECTION','selectorRef':'P-ACTIVE-PLAYER','eligibleTaxonIds':['tax.entity.spatial.section'],'cardinality':{'min':1,'max':1},'selectionMode':'player-choice','visibility':'public'}],
-    [operation('S01',1,'pay-cost','must','P-ACTIVE-PLAYER','COST-ROOM01',['SA-ROOM01-2'],decision_ref='D-ROOM01-PAY'),operation('S02',2,'select-target','must','P-ACTIVE-PLAYER','one Section',['SA-ROOM01-1'],decision_ref='D-SECTION',target_ref='T-SECTION'),operation('S03',3,'remove-component','must','rules-system','all Fire markers in selected Section',['SA-ROOM01-1'],target_ref='T-SECTION',repeat={'scope':'all matching markers'})],
-    {'policy':'all-or-nothing-selection','unit':'Use Room Action','onImpossible':'Action may be selected only if fully resolvable'}, {'kind':'instantaneous-room-effect'}, {'policy':'repeatable via separate Actions'}, [], [], []))
+    [operation('S01',1,'select-target','must','P-ACTIVE-PLAYER','one Section',['SA-ROOM01-1'],decision_ref='D-SECTION',target_ref='T-SECTION'),operation('S02',2,'remove-component','must','rules-system','all Fire markers in selected Section',['SA-ROOM01-1'],target_ref='T-SECTION',repeat={'scope':'all matching markers'})],
+    {'policy':'all-or-nothing-selection','unit':'Room effect','onImpossible':'parent Use Room Action may be selected only if this effect is fully resolvable'}, {'kind':'instantaneous-room-effect'}, {'policy':'repeatable only through distinct legal invocations; invocation source controls any Action cost'}, [], [], []))
+records[-1]['sourceAssertions'][0]['textKind']='verbatim'
 
 records.append(record(
     'SEM-EVENT-HATCHING-001','Hatching Event resolution','source-backed-with-open-question','event','official-primary','open-alternatives',
-    [assertion('SA-HATCH-1','SRC-EVENT-HATCHING','canonical Event face',['operations','unresolvedQuestionRefs'],'All Intruders in each NE–SW Corridor move. Place a Larva in the Nest; place 1 Larva in each Unexplored Corridor adjacent to a Character. Resolve each Noise in Unexplored Corridors.','assets/tts-mod/extract/card-text-corpus.json'),assertion('SA-HATCH-2','SRC-RULEBOOK','printed page 15 / Event card resolution',['timing','partialResolution'],'Resolve movement, main effect, secondary effect, then discard; ignore an impossible sentence and continue.','docs/rules/01-round-and-turns.md:RT-009')],
+    [assertion('SA-HATCH-1','SRC-EVENT-HATCHING','canonical Event face',['operations','unresolvedQuestionRefs'],'All Intruders in each NE–SW Corridor move. Place a Larva in the Nest; place 1 Larva in each Unexplored Corridor adjacent to a Character. Resolve each Noise in Unexplored Corridors.','assets/tts-mod/extract/card-text-corpus.json'),assertion('SA-HATCH-2','SRC-RULEBOOK','printed page 15 / Event card resolution',['timing','operations','partialResolution'],'Resolve movement, main effect, secondary effect, then discard; ignore an impossible sentence and continue.','docs/rules/01-round-and-turns.md:RT-009')],
     ['term.event-card','icon.corridorNESW','term.nest','term.unexplored-corridor','icon.noise','term.noise-roll'],['tax.entity.component.card.event','tax.value.orientation','tax.entity.spatial.room.nest','tax.state.corridor.unexplored','tax.entity.component.marker.noise'],[],
     timing('TW-HATCH','tax.process.temporal.phase.event','during-event-card-resolution','when-drawn'),[participant('P-RULES','rules-system')],'must',[],[],[{'informationId':'I-EVENT','subjectRef':'drawn Event card and all results','audience':'public','revealTrigger':'draw','secrecy':'none'}],[],[],
-    [operation('S01',1,'move-entity','if-able','each Intruder in NE–SW Corridors','toward closest Character',['SA-HATCH-1','SA-HATCH-2'],repeat={'order':'source Event movement order'}),operation('S02',2,'place-component','if-able','rules-system','1 Larva in the Nest',['SA-HATCH-1'],notes='If a Character is there, the entry immediately Attacks.'),operation('S03',3,'place-component','if-able','rules-system','1 Larva in each Unexplored Corridor adjacent to a Character',['SA-HATCH-1'],repeat={'scope':'each matching Corridor'}),operation('S04',4,'invoke-process','if-able','rules-system','each existing Noise marker in Unexplored Corridors',['SA-HATCH-1'],repeat={'order':'Facility top-left row by row'}),operation('S05',5,'transition-zone','must','rules-system','Hatching Event card',['SA-HATCH-2'],transition={'from':'resolved Event','to':'tax.scaffold.zone.discard-pile'})],
+    [operation('S01',1,'move-entity','if-able','each Intruder in NE–SW Corridors','toward closest Character',['SA-HATCH-1'],repeat={'order':'source Event movement order'}),operation('S02',2,'place-component','if-able','rules-system','1 Larva in the Nest',['SA-HATCH-1'],notes='If a Character is there, the entry immediately Attacks.'),operation('S03',3,'place-component','if-able','rules-system','1 Larva in each Unexplored Corridor adjacent to a Character',['SA-HATCH-1'],repeat={'scope':'each matching Corridor'}),operation('S04',4,'invoke-process','if-able','rules-system','each existing Noise marker in Unexplored Corridors',['SA-HATCH-1'],repeat={'order':'Facility top-left row by row'}),operation('S05',5,'transition-zone','must','rules-system','Hatching Event card',['SA-HATCH-2'],transition={'from':'resolved Event','to':'tax.scaffold.zone.discard-pile'})],
     {'policy':'per-sentence-continue','unit':'Event-card sentence','onImpossible':'ignore only the impossible sentence and continue the card'}, {'kind':'instantaneous-event-resolution'}, {'policy':'not-applicable'}, [], ['OQ-009'], []))
-
-records.append(record(
-    'SEM-INTRUDER-HELP-QA-R01','Queen Alive token resolved in a Room','source-backed','dispatcher','official-primary','verbatim-structure',
-    [assertion('SA-IH-QA-R01','SRC-INTRUDER-HELP-QA','queen-alive / room / QA-R-01',['preconditions','operations'],'Activate the Queen. If not possible – place her in the Room.','docs/rules/source-extraction/intruder-help-sheet.json:QA-R-01'),assertion('SA-IH-CONTEXT','SRC-RULEBOOK','printed pages 25, 30, 35',['timing'],'Resolve the drawn token in the context directed by the caller/Help Sheet column.','docs/rules/03-intruders-and-survival.md:INT-001')],
-    ['term.queen','term.room'],['tax.entity.agent.intruder.queen','tax.entity.spatial.room'],[],
-    timing('TW-IH-QA-R01','tax.process.sequence.noise-roll','when-triggered','per-drawn-Queen-token-in-Room-context'),[participant('P-RULES','rules-system')],'must',
-    [condition('C-IH-SIDE','predicate',[{'predicate':'Intruder Help side is Queen Alive'}],['SA-IH-QA-R01']),condition('C-IH-CONTEXT','predicate',[{'predicate':'caller requests Room context'}],['SA-IH-CONTEXT'])],[],[{'informationId':'I-DRAWN-TOKEN','subjectRef':'drawn Intruder token and resolved result','audience':'public','revealTrigger':'draw','secrecy':'none'}],[],[],
-    [operation('S01',1,'invoke-process','if-able','Queen','Activate Queen',['SA-IH-QA-R01']),operation('S02',2,'place-component','must','rules-system','Queen in caller-supplied Room',['SA-IH-QA-R01'],conditions=['Queen activation is not possible']),operation('S03',3,'transition-zone','must','rules-system','resolved Queen Intruder token',['SA-IH-CONTEXT'],transition={'from':'drawn-token','to':'tax.scaffold.zone.token-pile','positionRef':'sem.position.deck-bottom'},notes='Blank is the general exception; this row is not Blank.')],
-    {'policy':'if-not-possible-fallback','unit':'Help Sheet row','onImpossible':'use the printed placement fallback'}, {'kind':'instantaneous-dispatch-row'}, {'policy':'one row per token/context'}, [], [], []))
 
 records.append(record(
     'SEM-ENDGAME-001','End-of-game triggers and checks','source-backed-with-open-question','endgame','official-errata','open-alternatives',
@@ -314,11 +322,13 @@ records.append(record(
     {'policy':'ordered-complete','unit':'endgame sequence step','onImpossible':'source-specific; unresolved iteration questions remain explicit'}, {'kind':'end-of-game'}, {'policy':'once per game'}, [{'condition':'Character remains alive and chosen Objective is Fulfilled','result':'wins'}], ['OQ-001','OQ-002'], []))
 
 records.extend(build_general_records(record, assertion, timing, participant, condition, decision, operation))
+records.extend(build_intruder_help_records(REPO, record, assertion, timing, participant, condition, operation))
+records.extend(build_room_records(REPO, record, assertion, timing, participant, condition, decision, operation))
 records.sort(key=lambda item: item['ruleId'])
 
 semantic_questions = {
     'schemaVersion':1,'recordType':'semantic-review-gates','status':'pilot built with deferred questions and explicit alternatives; no default answer adopted',
-    'counts':{'questions':9,'officialClarificationPreferred':6,'sourceAmbiguitiesIntroducedByPilot':3,'resolved':0,'open':9},
+    'counts':{'questions':11,'officialClarificationPreferred':6,'sourceAmbiguitiesIntroducedByPilot':5,'resolved':0,'open':11},
     'questions':[
         {'questionId':'OQ-001','title':'Eclosion existing-hand behavior','decisionClass':'official-clarification-preferred','blocksRuleIds':['SEM-ENDGAME-001'],'plannedRuleIds':[],'defaultProhibited':True,'sourceEvidenceRefs':['docs/rules/open-questions.md:OQ-001'],'alternatives':[{'alternativeId':'OQ-001-A','description':'Check all cards in hand after drawing, including pre-existing cards.','support':'literal “in hand” wording'},{'alternativeId':'OQ-001-B','description':'Check only the four newly drawn cards.','support':'possible procedure intent; not stated'}]},
         {'questionId':'OQ-002','title':'Endgame Larva iteration timing','decisionClass':'official-clarification-preferred','blocksRuleIds':['SEM-ENDGAME-001'],'plannedRuleIds':[],'defaultProhibited':True,'sourceEvidenceRefs':['docs/rules/open-questions.md:OQ-002'],'alternatives':[{'alternativeId':'OQ-002-A','description':'Evaluate “currently has a Larva” when the Eclosion cohort step is reached, including Larvae gained in the preceding Infection step.','support':'sequential text and “during this Sequence” note'},{'alternativeId':'OQ-002-B','description':'Snapshot Larva status at the start of endgame.','support':'possible cohort-intent reading; not explicit'}]},
@@ -329,6 +339,8 @@ semantic_questions = {
         {'questionId':'SEM-Q-001','title':'Duck and Cover replacement target when multiple other Characters share the Room','decisionClass':'source-ambiguity-owner-decision-after-source-search','blocksRuleIds':['SEM-REACTION-DUCK-001'],'plannedRuleIds':[],'defaultProhibited':True,'sourceEvidenceRefs':['assets/tts-mod/extract/v2-dl/tree/cards/character/contractor-026.jpg'],'alternatives':[{'alternativeId':'SEM-Q-001-A','description':'Reaction owner chooses one other Character.','support':'effect owner often owns choices, but this card does not say choose'},{'alternativeId':'SEM-Q-001-B','description':'Apply ordinary Intruder target priority among the other Characters.','support':'general attack targeting, but replacement wording may override'},{'alternativeId':'SEM-Q-001-C','description':'Another tie-break applies.','support':'not stated'}]},
         {'questionId':'SEM-Q-002','title':'Exploratory Movement Noise when the Entrance Effect is itself a Noise roll','decisionClass':'source-ambiguity-owner-decision-after-source-search','blocksRuleIds':['SEM-ACT-EXPLORE-001'],'plannedRuleIds':[],'defaultProhibited':True,'sourceEvidenceRefs':['docs/rulebooks/rulebook_text.txt:lines 4528–4530, 4702–4705, 4753–4760'],'alternatives':[{'alternativeId':'SEM-Q-002-A','description':'The Entrance-Effect Noise roll satisfies the universal post-Movement Noise requirement; perform one roll total.','support':'worked example resolves one Entrance Noise and then finishes'},{'alternativeId':'SEM-Q-002-B','description':'Perform the universal Movement Noise plus the additional Entrance-Effect Noise; perform two rolls.','support':'Entrance Effect is called additional and Noise is mandatory after every Movement'}]},
         {'questionId':'SEM-Q-003','title':'Opportunity Attack selection when more than three equal-largest Intruders qualify','decisionClass':'source-ambiguity-owner-decision-after-source-search','blocksRuleIds':['SEM-ACT-MOVE-001'],'plannedRuleIds':[],'defaultProhibited':True,'sourceEvidenceRefs':['docs/rulebooks/rulebook_text.txt:lines 4551–4557'],'alternatives':[{'alternativeId':'SEM-Q-003-A','description':'Acting Player chooses which equal-largest Intruders attack.','support':'possible player-owned target selection; not stated'},{'alternativeId':'SEM-Q-003-B','description':'Use a deterministic map/turn-order tie-break.','support':'other rule families use deterministic ties; none cited here'},{'alternativeId':'SEM-Q-003-C','description':'Resolve another source-defined physical ordering.','support':'not recovered'}]},
+        {'questionId':'SEM-Q-004','title':'Supply Room “You may keep 2” cardinality','decisionClass':'source-ambiguity-owner-decision-after-source-search','blocksRuleIds':['SEM-ROOM-04'],'plannedRuleIds':[],'defaultProhibited':True,'sourceEvidenceRefs':['docs/rules/source-extraction/room-help-sheet.json:04.printedEffect'],'alternatives':[{'alternativeId':'SEM-Q-004-A','description':'If the player keeps Items, they keep exactly 2; “may” permits declining the keep.','support':'optional exact-number reading of “You may keep 2”'},{'alternativeId':'SEM-Q-004-B','description':'The player may keep any subset from zero through 2.','support':'common up-to-number reading; not explicitly written'}]},
+        {'questionId':'SEM-Q-005','title':'Drilling Station new-Corridor endpoint selection','decisionClass':'source-ambiguity-owner-decision-after-source-search','blocksRuleIds':['SEM-ROOM-17'],'plannedRuleIds':[],'defaultProhibited':True,'sourceEvidenceRefs':['docs/rules/source-extraction/room-help-sheet.json:17.printedEffect','docs/rules/source-extraction/room-help-sheet.json:17.associatedNotes[0]'],'alternatives':[{'alternativeId':'SEM-Q-005-A','description':'Player chooses a legal edge/end point from the Room with the Robot.','support':'digital adaptation needed if multiple legal edges exist; not named by source'},{'alternativeId':'SEM-Q-005-B','description':'Use a physical-game placement procedure or deterministic edge rule.','support':'source says leading from the Room but gives no selector/tie-break'}]},
     ],
 }
 
@@ -337,7 +349,7 @@ contradictions = {
     'schemaVersion': 1,
     'recordType': 'semantic-conflict-register',
     'policy': 'Readable source differences remain separate. Authority may resolve a general rule without rewriting lower-authority component wording; unresolved conflicts never receive a default.',
-    'counts': {'conflicts': 7, 'resolvedByAuthority': 2, 'unresolved': 3, 'preservedBoundary': 2},
+    'counts': {'conflicts': 8, 'resolvedByAuthority': 2, 'unresolved': 4, 'preservedBoundary': 2},
     'conflicts': [
         {'conflictId':'SC-001','title':'Search keep optionality and unchosen destination','status':'resolved-by-authority','questionId':None,'affectedRuleIds':['SEM-ACT-SEARCH-001'],'evidenceRefs':['SRC-RULEBOOK','SRC-CARD-SEARCH-MEDICAL'],'difference':'Card says may keep 1 / discard the rest; rulebook says pick 1, put unchosen cards on respective deck bottoms, and do not reveal them.','resolution':'Official-primary rulebook controls the general Search procedure; exact card wording remains a source variant.'},
         {'conflictId':'SC-002','title':'Rest Uninfected/non-Infected wording and destination','status':'resolved-by-authority','questionId':None,'affectedRuleIds':['SEM-ACT-REST-001'],'evidenceRefs':['SRC-RULEBOOK','SRC-CARD-REST','SRC-CARD-REST-MEDICAL'],'difference':'Reviewed face says remove all Uninfected; Medical Support variant says remove non-Infected instead of discarding; ordinary Infection Procedure discards all Contaminations.','resolution':'Each component variant is retained. Pilot composes the reviewed face as a destination override over the official Procedure.'},
@@ -346,6 +358,7 @@ contradictions = {
         {'conflictId':'SC-005','title':'Event placement at an undiscovered Nest','status':'unresolved','questionId':'OQ-009','affectedRuleIds':['SEM-EVENT-HATCHING-001'],'evidenceRefs':['SRC-EVENT-HATCHING','SRC-RULEBOOK'],'difference':'Event requires placement in the Nest; checked sources do not define placement when the Nest Room is absent.','resolution':'No default; Event impossible-sentence rule is one candidate, not silently adopted.'},
         {'conflictId':'SC-006','title':'Player Help phase sequence versus current rulebook','status':'preserved-boundary','questionId':None,'affectedRuleIds':['SEM-RT-001'],'evidenceRefs':['docs/rules/source-extraction/player-help-source-extraction.json','SRC-RULEBOOK'],'difference':'TTS Player Help fronts encode an obsolete phase sequence and 10-card count while the official current rulebook controls base sequence/count.','resolution':'Retain TTS as source-version evidence; never alias same words to current semantics.'},
         {'conflictId':'SC-007','title':'FACILITY RESTART unreadable exact-source span','status':'preserved-boundary','questionId':None,'affectedRuleIds':[],'evidenceRefs':['docs/rules/source-extraction/card-gap-inventory.json'],'difference':'Prototype exact source ends “Systems must be” with no recoverable following mark; other variants differ materially.','resolution':'Keep source blocked; no semantic record may invent or borrow the missing mark.'},
+        {'conflictId':'SC-008','title':'Supply Room optional keep cardinality','status':'unresolved','questionId':'SEM-Q-004','affectedRuleIds':['SEM-ROOM-04'],'evidenceRefs':['SRC-ROOM-HELP'],'difference':'Printed “You may keep 2” does not unambiguously state optional exact-two versus any subset up to two.','resolution':'No default; explicit alternatives in review-gates.json.'},
     ],
 }
 
@@ -363,25 +376,28 @@ coverage = {
         {'system':'private search/zone handling','ruleIds':['SEM-ACT-SEARCH-001']},
         {'system':'infection/card modifier','ruleIds':['SEM-ACT-REST-001']},
         {'system':'reaction/replacement target','ruleIds':['SEM-REACTION-DUCK-001']},
-        {'system':'Room effect','ruleIds':['SEM-ROOM-01']},
+        {'system':'Use Room and Room effects','ruleIds':['SEM-USE-ROOM-001','SEM-DATA-TOKEN-001','SEM-NEST-DESTROYED-001',*sorted(item['ruleId'] for item in records if item['ruleId'].startswith('SEM-ROOM-'))]},
         {'system':'Event partial resolution','ruleIds':['SEM-EVENT-HATCHING-001']},
-        {'system':'Intruder Help dispatcher','ruleIds':['SEM-INTRUDER-HELP-QA-R01']},
+        {'system':'Intruder Help dispatcher','ruleIds':sorted(item['ruleId'] for item in records if item['ruleId'].startswith('SEM-IH-'))},
         {'system':'endgame/open alternatives','ruleIds':['SEM-ENDGAME-001']},
         {'system':'objective choice','ruleIds':['SEM-RT-010']},
         {'system':'Intruder Phase','ruleIds':['SEM-RT-008']},
         {'system':'Event Phase and Bag Development','ruleIds':['SEM-RT-009','SEM-EVENT-GENERAL-001','SEM-RT-011']},
         {'system':'Cleanup Phase','ruleIds':['SEM-RT-012']},
-        {'system':'Doors and Noise','ruleIds':['SEM-DOOR-001','SEM-NOISE-001']},
+        {'system':'Doors and Noise','ruleIds':['SEM-DOOR-001','SEM-NOISE-001','SEM-NOISE-NUMERIC-CORRIDOR-001']},
         {'system':'Intruder Attack and Character Health','ruleIds':['SEM-INT-004','SEM-INT-006']},
         {'system':'Tactical Gear','ruleIds':['SEM-ITM-005']},
+        {'system':'Autodestruction Procedure','ruleIds':['SEM-AUTODESTRUCTION-001']},
+        {'system':'Robot Malfunction','ruleIds':['SEM-ROBOT-MALFUNCTION-001']},
     ],
-    'counts':{'systems':16,'pilotRecords':len(records),'fullBaseSemanticCoverageClaimed':False},
-    'notYetCovered':['complete card corpus','all 25 Room effects','all 20 Events','all Intruder Help rows','all Objectives/Mission Tasks','all Item/Robot/Attack/Queen Health/Serious Wound effects','remaining general rules and procedures'],
+    'counts':{'systems':18,'pilotRecords':len(records),'fullBaseSemanticCoverageClaimed':False},
+    'notYetCovered':['complete card corpus','all 20 Events','all Objectives/Mission Tasks','all Item/Robot/Attack/Queen Health/Serious Wound effects','remaining setup, map, procedure, and component lifecycle rules'],
 }
 
 write('source-registry.json', source_registry)
 write('semantic-rule.schema.json', semantic_schema)
 write('semantic-vocabulary.json', semantic_nodes)
+write('room-icon-denotations.json', room_icon_denotations)
 write('pilots.json', pilot)
 write('review-gates.json', semantic_questions)
 write('contradictions.json', contradictions)

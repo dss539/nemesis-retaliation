@@ -60,11 +60,26 @@ for row in corpus['records']:
 # that the entire channel/category is semantically complete.
 links={
  'RULE:RT-001':['SEM-RT-001'],'RULE:RT-004':['SEM-RT-004'],'RULE:RT-005':['SEM-RT-005'],'RULE:RT-007':['SEM-RT-007'],'RULE:RT-008':['SEM-RT-008'],'RULE:RT-009':['SEM-RT-009','SEM-EVENT-GENERAL-001'],'RULE:RT-010':['SEM-RT-010'],'RULE:RT-011':['SEM-RT-011'],'RULE:RT-012':['SEM-RT-012'],
- 'RULE:ACT-MOVE-001':['SEM-ACT-MOVE-001'],'RULE:ACT-EXPLORE-001':['SEM-ACT-EXPLORE-001'],'RULE:ACT-SEARCH-001':['SEM-ACT-SEARCH-001'],
- 'RULE:ACT-CARD-001':['SEM-ACT-SEARCH-001','SEM-ACT-REST-001'],'RULE:INT-001':['SEM-INTRUDER-HELP-QA-R01'],'RULE:INT-004':['SEM-INT-004'],'RULE:INT-006':['SEM-INT-006'],'RULE:INT-008':['SEM-ACT-REST-001','SEM-ENDGAME-001'],'RULE:INT-011':['SEM-ENDGAME-001'],'RULE:ITM-005':['SEM-ITM-005'],
- 'VIS:RB-P12-V02':['SEM-ACT-MOVE-001','SEM-ROOM-01'],'ROOM:01':['SEM-ROOM-01'],'INTR:QA-R-01':['SEM-INTRUDER-HELP-QA-R01'],
+ 'RULE:ACT-MOVE-001':['SEM-ACT-MOVE-001'],'RULE:ACT-EXPLORE-001':['SEM-ACT-EXPLORE-001'],'RULE:ACT-SEARCH-001':['SEM-ACT-SEARCH-001'],'RULE:ACT-ROBOT-001':['SEM-ROBOT-MALFUNCTION-001'],
+ 'RULE:ACT-CARD-001':['SEM-ACT-SEARCH-001','SEM-ACT-REST-001'],'RULE:INT-001':['SEM-IH-QA-R-01'],'RULE:INT-004':['SEM-INT-004'],'RULE:INT-006':['SEM-INT-006'],'RULE:INT-008':['SEM-ACT-REST-001','SEM-ENDGAME-001'],'RULE:INT-010':['SEM-AUTODESTRUCTION-001'],'RULE:INT-011':['SEM-ENDGAME-001'],'RULE:ITM-005':['SEM-ITM-005'],
+ 'VIS:RB-P12-V02':['SEM-ACT-MOVE-001','SEM-ROOM-01'],'ROOM:01':['SEM-ROOM-01'],'INTR:QA-R-01':['SEM-IH-QA-R-01'],
  'CARD:b34d341ff67972b8':['SEM-ACT-SEARCH-001'],'CARD:69eee8ba31616f20':['SEM-ACT-REST-001'],'CARD:a3ad029d27fc444d':['SEM-REACTION-DUCK-001'],'CARD:45b5845d04f57b1':['SEM-EVENT-HATCHING-001'],
 }
+for unit in units:
+ if unit['semanticUnitId'].startswith('INTR:'):
+  occurrence_id=unit['semanticUnitId'].split(':',1)[1]
+  links[unit['semanticUnitId']]=[f'SEM-IH-{occurrence_id}']
+ elif unit['semanticUnitId'].startswith('ROOM:'):
+  room_number=unit['semanticUnitId'].split(':',1)[1]
+  room_extras=[]
+  if room_number=='02': room_extras.append('SEM-ROOM-02-SECURE')
+  if room_number in {'04','12','25'}: room_extras.append('SEM-ROOM-STATIC-PROHIBITIONS')
+  if room_number in {'07','17'}: room_extras.append('SEM-ROBOT-MALFUNCTION-001')
+  if room_number=='20': room_extras.append('SEM-DATA-TOKEN-001')
+  links[unit['semanticUnitId']]=[f'SEM-ROOM-{room_number}',*room_extras]
+links['FAQ:FQ-P02-U17']=['SEM-ROOM-17']
+links['FAQ:FQ-P02-U18']=['SEM-ROOM-02-SECURE']
+links['FAQ:FQ-P02-U19']=['SEM-ROOM-12']
 for unit in units:
  if unit['semanticUnitId'] in links:
   unit['status']='pilot-covered'; unit['pilotRuleIds']=links[unit['semanticUnitId']]

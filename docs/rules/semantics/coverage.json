@@ -38,9 +38,38 @@
       ]
     },
     {
-      "system": "Room effect",
+      "system": "Use Room and Room effects",
       "ruleIds": [
-        "SEM-ROOM-01"
+        "SEM-USE-ROOM-001",
+        "SEM-DATA-TOKEN-001",
+        "SEM-NEST-DESTROYED-001",
+        "SEM-ROOM-01",
+        "SEM-ROOM-02",
+        "SEM-ROOM-02-SECURE",
+        "SEM-ROOM-03",
+        "SEM-ROOM-04",
+        "SEM-ROOM-05",
+        "SEM-ROOM-06",
+        "SEM-ROOM-07",
+        "SEM-ROOM-08",
+        "SEM-ROOM-09",
+        "SEM-ROOM-10",
+        "SEM-ROOM-11",
+        "SEM-ROOM-12",
+        "SEM-ROOM-13",
+        "SEM-ROOM-14",
+        "SEM-ROOM-15",
+        "SEM-ROOM-16",
+        "SEM-ROOM-17",
+        "SEM-ROOM-18",
+        "SEM-ROOM-19",
+        "SEM-ROOM-20",
+        "SEM-ROOM-21",
+        "SEM-ROOM-22",
+        "SEM-ROOM-23",
+        "SEM-ROOM-24",
+        "SEM-ROOM-25",
+        "SEM-ROOM-STATIC-PROHIBITIONS"
       ]
     },
     {
@@ -52,7 +81,24 @@
     {
       "system": "Intruder Help dispatcher",
       "ruleIds": [
-        "SEM-INTRUDER-HELP-QA-R01"
+        "SEM-IH-QA-B-01",
+        "SEM-IH-QA-B-02",
+        "SEM-IH-QA-B-03",
+        "SEM-IH-QA-BOTTOM-01",
+        "SEM-IH-QA-C-01",
+        "SEM-IH-QA-C-02",
+        "SEM-IH-QA-C-03",
+        "SEM-IH-QA-R-01",
+        "SEM-IH-QA-R-02",
+        "SEM-IH-QD-B-01",
+        "SEM-IH-QD-B-02",
+        "SEM-IH-QD-B-03",
+        "SEM-IH-QD-BOTTOM-01",
+        "SEM-IH-QD-C-01",
+        "SEM-IH-QD-C-02",
+        "SEM-IH-QD-C-03",
+        "SEM-IH-QD-R-01",
+        "SEM-IH-QD-R-02"
       ]
     },
     {
@@ -91,7 +137,8 @@
       "system": "Doors and Noise",
       "ruleIds": [
         "SEM-DOOR-001",
-        "SEM-NOISE-001"
+        "SEM-NOISE-001",
+        "SEM-NOISE-NUMERIC-CORRIDOR-001"
       ]
     },
     {
@@ -106,20 +153,30 @@
       "ruleIds": [
         "SEM-ITM-005"
       ]
+    },
+    {
+      "system": "Autodestruction Procedure",
+      "ruleIds": [
+        "SEM-AUTODESTRUCTION-001"
+      ]
+    },
+    {
+      "system": "Robot Malfunction",
+      "ruleIds": [
+        "SEM-ROBOT-MALFUNCTION-001"
+      ]
     }
   ],
   "counts": {
-    "systems": 16,
-    "pilotRecords": 24,
+    "systems": 18,
+    "pilotRecords": 73,
     "fullBaseSemanticCoverageClaimed": false
   },
   "notYetCovered": [
     "complete card corpus",
-    "all 25 Room effects",
     "all 20 Events",
-    "all Intruder Help rows",
     "all Objectives/Mission Tasks",
     "all Item/Robot/Attack/Queen Health/Serious Wound effects",
-    "remaining general rules and procedures"
+    "remaining setup, map, procedure, and component lifecycle rules"
   ]
 }

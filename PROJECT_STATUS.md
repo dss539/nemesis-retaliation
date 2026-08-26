@@ -1,6 +1,6 @@
 # Nemesis: Retaliation — Project Status
 
-**Status date:** 2026-08-24
+**Status date:** 2026-08-26
 **Active phase:** Semantic coverage expansion (pilot gate passed)
 **Active branch:** `work/card-corpus-extraction`
 **Implementation status:** Frozen; a clean rewrite will begin only after rules-layer readiness and explicit approval
@@ -15,12 +15,12 @@ The current implementation remains frozen. Semantic records remain independent o
 
 Encode the **highest-value source-clear semantic backlog** without touching blocked decisions:
 
-- all remaining source-clear Intruder Help rows and Room effects;
-- remaining setup, map, combat, Queen, Robot, Lander, procedure, Item, and component lifecycle rules not yet represented by the 24-record corpus;
+- remaining setup, map, combat, Queen, Lander, procedure, Item, and component lifecycle rules not yet represented by the 73-record corpus;
 - source-clear Event/card/component families with explicit variants;
+- Objective Help and Mission Task semantics after source-visible/occluded boundaries are preserved;
 - exact FAQ overrides and per-sentence partial-resolution scope;
 - source-obligation links and contradiction coverage after every batch;
-- continue independent validation and source searching for the nine open questions, but adopt no default.
+- continue independent validation and source searching for the eleven open questions, but adopt no default.
 
 Prioritize reusable procedures and cross-cutting rules before hundreds of individual component effects.
 
@@ -106,23 +106,26 @@ Prioritize reusable procedures and cross-cutting rules before hundreds of indivi
 Machine-readable evidence: `docs/rules/source-extraction/validation.json`.
 
 
-### Semantic schema/pilot — independently reviewed and passed
+### Semantic schema and expanding corpus — independently reviewed and passed
 
-- 9 exact source registry tuples
-- 18 semantic-only state/zone/position/visibility nodes
-- 24 pilot records across 16 systems
-  - 17 source-backed
-  - 7 source-backed with open questions
-- 39 source assertions / 65 structured conditions and guards
-- 128 ordered operations
-- 13 actor-owned decisions / 28 information policies
-- 2 explicit costs / 8 target specifications
+- 10 exact source registry tuples
+- 22 semantic-only state/zone/position/visibility nodes
+- 73 pilot records across 18 systems
+- 64 source-backed
+  - 9 source-backed with open questions
+- 155 source assertions / 221 structured conditions and guards
+- 281 ordered operations
+- 48 actor-owned decisions / 80 information policies
+- 3 explicit costs / 20 target specifications
 - 2 preserved source-variant references
-- 9 open semantic questions with explicit alternatives and defaults prohibited
-- 7 registered conflicts: 2 authority-resolved, 3 unresolved, 2 preserved boundaries
+- 11 open semantic questions with explicit alternatives and defaults prohibited
+- 8 registered conflicts: 2 authority-resolved, 4 unresolved, 2 preserved boundaries
+- all 18 Intruder Help instructions represented and row-locked
+- all 25 Room Help entries represented, plus generic Use Room and cross-cutting Room constraints
+- all 112 source-local Room Help functional-icon occurrences mapped source-scoped without changing extraction records
 - 600 source-obligation backlog units
-  - 25 pilot-covered
-  - 574 pending
+  - 71 pilot-covered
+  - 528 pending
   - 1 inherited exact-source blocker
 - full base-game semantic coverage explicitly not claimed
 - four-workstream independent review incorporated
@@ -179,6 +182,7 @@ Machine-readable evidence: `docs/rules/source-extraction/validation.json`.
 - Built, independently reviewed, corrected, and validated the static taxonomy/ontology: 211 taxa, complete term/identity/alias mappings, 55 relationship shapes, 14 static constraints, semantic scaffolding, two-seed deterministic rebuilds, and adversarial negative controls; no owner gate remains.
 - Built, independently reviewed, corrected, and validated an implementation-neutral 13-record semantic pilot across nine systems with exact source tuples, semantic state/zone nodes, explicit authority/timing/ownership/visibility/costs/targets/operations/transitions/partial resolution, two variants, seven conflicts, and nine no-default questions.
 - Expanded the corpus to 24 records / 16 systems with Objective choice, Intruder/Event/Cleanup phases, generic Event resolution, Bag Development, Doors, Noise, Intruder Attacks, Health/Wounds, and Tactical Gear; covered source obligations rose from 17 to 25.
+- Expanded and independently audited the corpus to 73 records / 18 systems: all 18 Intruder Help instructions, all 25 Room effects, generic Use Room, all 112 Room icon denotations, Robot/Data/Autodestruction/Nest constraints, exact FAQ overrides, and corrected per-Corridor Noise/Attack ordering; covered source obligations rose to 71 while eleven questions remain no-default.
 - Created the closed source inventory, card-gap inventory, secondary-source inventory, Room layout inventory, roadmap, and deterministic validator.
 
 ## Remaining Work — Ordered

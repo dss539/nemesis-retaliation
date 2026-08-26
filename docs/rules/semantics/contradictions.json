@@ -3,9 +3,9 @@
   "recordType": "semantic-conflict-register",
   "policy": "Readable source differences remain separate. Authority may resolve a general rule without rewriting lower-authority component wording; unresolved conflicts never receive a default.",
   "counts": {
-    "conflicts": 7,
+    "conflicts": 8,
     "resolvedByAuthority": 2,
-    "unresolved": 3,
+    "unresolved": 4,
     "preservedBoundary": 2
   },
   "conflicts": [
@@ -111,6 +111,20 @@
       ],
       "difference": "Prototype exact source ends “Systems must be” with no recoverable following mark; other variants differ materially.",
       "resolution": "Keep source blocked; no semantic record may invent or borrow the missing mark."
+    },
+    {
+      "conflictId": "SC-008",
+      "title": "Supply Room optional keep cardinality",
+      "status": "unresolved",
+      "questionId": "SEM-Q-004",
+      "affectedRuleIds": [
+        "SEM-ROOM-04"
+      ],
+      "evidenceRefs": [
+        "SRC-ROOM-HELP"
+      ],
+      "difference": "Printed “You may keep 2” does not unambiguously state optional exact-two versus any subset up to two.",
+      "resolution": "No default; explicit alternatives in review-gates.json."
     }
   ]
 }

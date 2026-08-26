@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "recordType": "semantic-node-registry",
   "counts": {
-    "nodes": 18,
-    "stateValues": 11,
+    "nodes": 22,
+    "stateValues": 15,
     "zones": 2,
     "positions": 2,
     "visibilityScopes": 3
@@ -95,6 +95,39 @@
       "label": "Loser",
       "sourceEvidence": [
         "docs/rules/03-intruders-and-survival.md:INT-011"
+      ]
+    },
+    {
+      "semanticNodeId": "sem.state.room.always-secured",
+      "kind": "state-value",
+      "label": "Permanent always-secured Room status",
+      "sourceEvidence": [
+        "docs/rulebooks/Nemesis_RT_FAQ_v1.2.pdf:Rooms #2"
+      ]
+    },
+    {
+      "semanticNodeId": "sem.state.room.secure-prohibited",
+      "kind": "state-value",
+      "label": "Room cannot receive Secure tokens",
+      "sourceEvidence": [
+        "docs/rulebooks/Nemesis_RT_Rooms_Sheet.pdf:Rooms 04, 12, 25"
+      ]
+    },
+    {
+      "semanticNodeId": "sem.state.room.malfunction-prohibited",
+      "kind": "state-value",
+      "label": "Room cannot receive Malfunction markers",
+      "sourceEvidence": [
+        "docs/rulebooks/Nemesis_RT_Rooms_Sheet.pdf:Room 25"
+      ]
+    },
+    {
+      "semanticNodeId": "sem.state.room.nest-destroyed",
+      "kind": "state-value",
+      "label": "Nest destroyed",
+      "sourceEvidence": [
+        "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf:printed page 7",
+        "docs/rulebooks/Nemesis_RT_FAQ_v1.2.pdf:Rooms #4"
       ]
     },
     {
