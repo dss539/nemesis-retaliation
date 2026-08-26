@@ -66,6 +66,7 @@ green_item_sources=load('docs/rules/semantics/green-item-source-index.json')
 red_item_sources=load('docs/rules/semantics/red-item-source-index.json')
 yellow_item_sources=load('docs/rules/semantics/yellow-item-source-index.json')
 action_sources=load('docs/rules/semantics/action-source-index.json')
+objective_sources=load('docs/rules/semantics/objective-mission-source-index.json')
 exploration_rule_ids=[row['semanticRuleId'] for row in exploration_sources['faces']]
 robot_rule_ids=[row['semanticRuleId'] for row in robot_sources['faces']]
 attack_rule_ids=[row['semanticRuleId'] for row in attack_sources['faces']]
@@ -76,6 +77,9 @@ red_item_rule_ids=[row['semanticRuleId'] for row in red_item_sources['faces']]
 yellow_item_rule_ids=[row['semanticRuleId'] for row in yellow_item_sources['faces']]
 action_rule_ids=[row['semanticRuleId'] for row in action_sources['faces']]
 action_reaction_rule_ids=[row['reactionRuleId'] for row in action_sources['faces'] if row.get('reactionRuleId')]
+objective_physical_rule_ids=[row['semanticRuleId'] for row in objective_sources['physicalFaces'] if row.get('semanticRuleId')]
+objective_official_rule_ids=[row['semanticRuleId'] for row in objective_sources['officialHelpOccurrences'] if row.get('effectKind')]
+objective_licensed_rule_ids=[row['semanticRuleId'] for row in objective_sources['licensedDigitalOccurrences'] if row.get('semanticRuleId')]
 
 # Pilot-to-source obligation links. These are evidence coverage links, not claims
 # that the entire channel/category is semantically complete.
@@ -129,6 +133,22 @@ for asset in action_sources['sourceFaceAssets']:
   links[unit_id]=physical_rule_ids
  elif asset.get('selectorGap'):
   links[unit_id]=['SEM-ACTION-CARD-VARIANT-BOUNDARIES-001']
+for asset in objective_sources['sourceFaceAssets']:
+ unit_id=asset['backlogUnitId']
+ if unit_id=='CARD:eaa728ca02c48c33':
+  continue
+ physical_rule_ids=[row['semanticRuleId'] for row in objective_sources['physicalFaces'] if row.get('semanticRuleId') and row['sourcePath']==asset['sourcePath']]
+ links[unit_id]=physical_rule_ids or ['SEM-OBJECTIVE-VARIANT-BOUNDARIES-001']
+for occurrence in objective_sources['officialHelpOccurrences']:
+ unit_id=occurrence['backlogUnitId']
+ rule_ids=[]
+ if occurrence.get('semanticRuleId'):
+  rule_ids.append(occurrence['semanticRuleId'])
+ if occurrence.get('boundaryRuleId'):
+  rule_ids.append(occurrence['boundaryRuleId'])
+ if occurrence['sourceUnitId']=='P2-NOTE-RANKING-CHOICE':
+  rule_ids.extend(['SEM-OBJECTIVE-FULFILLMENT-001','SEM-OBJECTIVE-OFFICIAL-P2-PO-WEVE-GOT-HISTORY-001'])
+ links[unit_id]=list(dict.fromkeys(rule_ids))
 links['FAQ:FQ-P02-U06']=['SEM-ACT-EXPLORE-001',*[row['semanticRuleId'] for row in exploration_sources['faces'] if any(item['sourceUnitId']=='FQ-P02-U06' for item in row['faqOccurrences'])]]
 links['FAQ:FQ-P02-U07']=['SEM-ACT-EXPLORE-001',*[row['semanticRuleId'] for row in exploration_sources['faces'] if any(item['sourceUnitId']=='FQ-P02-U07' for item in row['faqOccurrences'])]]
 links['VIS:RB-P24-V01']=['SEM-ACT-EXPLORE-001','SEM-EXPLORATION-5639-001']
@@ -317,6 +337,13 @@ links['VIS:RB-P13-V01']=['SEM-ACTION-CARD-PLAY-001','SEM-ACTION-CARD-REACTION-00
 links['VIS:RB-P28-V02']=[*links.get('VIS:RB-P28-V02',[]),'SEM-ACT-SEARCH-001',*action_by_kind.get('search',[])]
 links['VIS:RB-P36-V01']=['SEM-ACTION-DECK-SETUP-001','SEM-ACTION-CARD-PAYMENT-001']
 links['VIS:RB-P40-V02']=[*links.get('VIS:RB-P40-V02',[]),'SEM-ACTION-CARD-VARIANT-BOUNDARIES-001',*action_rule_ids]
+links['RULE:RT-010']=['SEM-RT-010','SEM-OBJECTIVE-SECRECY-001']
+links['RULE:INT-009']=['SEM-OBJECTIVE-ESCAPE-001','SEM-OBJECTIVE-SURVIVOR-001']
+links['RULE:INT-011']=[*links.get('RULE:INT-011',[]),'SEM-OBJECTIVE-FULFILLMENT-001','SEM-OBJECTIVE-FACE-CHECK-001','SEM-MISSION-TASK-CHECK-001','SEM-OBJECTIVE-SURVIVOR-001','SEM-OBJECTIVE-ESCAPE-001']
+links['VIS:RB-P03-V01']=[*links.get('VIS:RB-P03-V01',[]),'SEM-OBJECTIVE-SETUP-001','SEM-OBJECTIVE-VARIANT-BOUNDARIES-001']
+links['VIS:RB-P11-V01']=[*links.get('VIS:RB-P11-V01',[]),'SEM-OBJECTIVE-SETUP-001','SEM-OBJECTIVE-SECRECY-001']
+links['VIS:RB-P13-V02']=['SEM-RT-010']
+links['VIS:RB-P39-V01']=['SEM-OBJECTIVE-FULFILLMENT-001','SEM-OBJECTIVE-VARIANT-BOUNDARIES-001','SEM-OBJECTIVE-FACE-CHECK-001','SEM-MISSION-TASK-CHECK-001',*objective_official_rule_ids]
 for unit_id,rule_ids in links.items():
  links[unit_id]=list(dict.fromkeys(rule_ids))
 for unit in units:

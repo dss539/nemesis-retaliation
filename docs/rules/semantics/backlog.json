@@ -14,8 +14,8 @@
       "rulebook-visual-obligation": 80
     },
     "byStatus": {
-      "pending": 251,
-      "pilot-covered": 348,
+      "pending": 156,
+      "pilot-covered": 443,
       "source-blocked": 1
     }
   },
@@ -222,7 +222,8 @@
       "authority": "project-interpretation",
       "status": "pilot-covered",
       "pilotRuleIds": [
-        "SEM-RT-010"
+        "SEM-RT-010",
+        "SEM-OBJECTIVE-SECRECY-001"
       ],
       "blockers": []
     },
@@ -922,8 +923,11 @@
       "sourcePath": "docs/rules/03-intruders-and-survival.md",
       "sourceLocator": "INT-009",
       "authority": "project-interpretation",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-OBJECTIVE-ESCAPE-001",
+        "SEM-OBJECTIVE-SURVIVOR-001"
+      ],
       "blockers": []
     },
     {
@@ -950,7 +954,12 @@
       "status": "pilot-covered",
       "pilotRuleIds": [
         "SEM-ENDGAME-001",
-        "SEM-QUEEN-DEATH-001"
+        "SEM-QUEEN-DEATH-001",
+        "SEM-OBJECTIVE-FULFILLMENT-001",
+        "SEM-OBJECTIVE-FACE-CHECK-001",
+        "SEM-MISSION-TASK-CHECK-001",
+        "SEM-OBJECTIVE-SURVIVOR-001",
+        "SEM-OBJECTIVE-ESCAPE-001"
       ],
       "blockers": []
     },
@@ -1732,7 +1741,9 @@
         "SEM-YELLOW-ITEM-VARIANT-BOUNDARIES-001",
         "SEM-ACTION-DECK-SETUP-001",
         "SEM-ACTION-CARD-VARIANT-BOUNDARIES-001",
-        "SEM-ACTION-CON-567514-35D06D-001"
+        "SEM-ACTION-CON-567514-35D06D-001",
+        "SEM-OBJECTIVE-SETUP-001",
+        "SEM-OBJECTIVE-VARIANT-BOUNDARIES-001"
       ],
       "blockers": []
     },
@@ -1889,7 +1900,9 @@
       "pilotRuleIds": [
         "SEM-ACTION-DECK-SETUP-001",
         "SEM-ACTION-CARD-PLAY-001",
-        "SEM-ACTION-CARD-PAYMENT-001"
+        "SEM-ACTION-CARD-PAYMENT-001",
+        "SEM-OBJECTIVE-SETUP-001",
+        "SEM-OBJECTIVE-SECRECY-001"
       ],
       "blockers": []
     },
@@ -1970,8 +1983,10 @@
       "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
       "sourceLocator": "RB-P13-V02",
       "authority": "official-primary",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-RT-010"
+      ],
       "blockers": []
     },
     {
@@ -2777,8 +2792,33 @@
       "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
       "sourceLocator": "RB-P39-V01",
       "authority": "official-primary",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-OBJECTIVE-FULFILLMENT-001",
+        "SEM-OBJECTIVE-VARIANT-BOUNDARIES-001",
+        "SEM-OBJECTIVE-FACE-CHECK-001",
+        "SEM-MISSION-TASK-CHECK-001",
+        "SEM-OBJECTIVE-OFFICIAL-P1-MO-OFFICIAL-ORDER-3-001",
+        "SEM-OBJECTIVE-OFFICIAL-P1-MO-ULTERIOR-MOTIVE-001",
+        "SEM-OBJECTIVE-OFFICIAL-P1-MO-SELF-SERVING-001",
+        "SEM-MISSION-TASK-OFFICIAL-P1-MT-ESCORT-MISSION-001",
+        "SEM-MISSION-TASK-OFFICIAL-P1-MT-ESSENTIAL-DATA-001",
+        "SEM-MISSION-TASK-OFFICIAL-P1-MT-THE-SUPPLY-ROUTE-001",
+        "SEM-MISSION-TASK-OFFICIAL-P1-MT-PRIMARY-SAMPLES-001",
+        "SEM-MISSION-TASK-OFFICIAL-P1-MT-RECONNAISSANCE-001",
+        "SEM-MISSION-TASK-OFFICIAL-P1-MT-PERIMETER-CLEARING-001",
+        "SEM-MISSION-TASK-OFFICIAL-P1-MT-FACILITY-RESTART-001",
+        "SEM-MISSION-TASK-OFFICIAL-P1-MT-ERADICATION-001",
+        "SEM-OBJECTIVE-OFFICIAL-P2-PO-CORPORATE-CONTRACT-001",
+        "SEM-OBJECTIVE-OFFICIAL-P2-PO-LUXURIOUS-OFFER-001",
+        "SEM-OBJECTIVE-OFFICIAL-P2-PO-QUARANTINE-001",
+        "SEM-OBJECTIVE-OFFICIAL-P2-PO-STATES-EVIDENCE-001",
+        "SEM-OBJECTIVE-OFFICIAL-P2-PO-SHUTDOWN-001",
+        "SEM-OBJECTIVE-OFFICIAL-P2-PO-EXPERIMENTAL-SUBJECTS-001",
+        "SEM-OBJECTIVE-OFFICIAL-P2-PO-WEVE-GOT-HISTORY-001",
+        "SEM-OBJECTIVE-OFFICIAL-P2-PO-THE-GREAT-HUNT-001",
+        "SEM-OBJECTIVE-OFFICIAL-P2-PO-VENI-VIDI-VICI-001"
+      ],
       "blockers": []
     },
     {
@@ -3313,8 +3353,10 @@
       "sourcePath": "docs/rulebooks/Nemesis_RT_Objectives_Sheet.pdf",
       "sourceLocator": "P1-GT-01",
       "authority": "official-component-reference",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-OBJECTIVE-FULFILLMENT-001"
+      ],
       "blockers": []
     },
     {
@@ -3324,8 +3366,10 @@
       "sourcePath": "docs/rulebooks/Nemesis_RT_Objectives_Sheet.pdf",
       "sourceLocator": "P1-GT-02",
       "authority": "official-component-reference",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-OBJECTIVE-SURVIVOR-001"
+      ],
       "blockers": []
     },
     {
@@ -3335,8 +3379,10 @@
       "sourcePath": "docs/rulebooks/Nemesis_RT_Objectives_Sheet.pdf",
       "sourceLocator": "P1-GT-03",
       "authority": "official-component-reference",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-OBJECTIVE-ESCAPE-001"
+      ],
       "blockers": []
     },
     {
@@ -3346,8 +3392,10 @@
       "sourcePath": "docs/rulebooks/Nemesis_RT_Objectives_Sheet.pdf",
       "sourceLocator": "P1-GT-04",
       "authority": "official-component-reference",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-DATA-TOKEN-001"
+      ],
       "blockers": []
     },
     {
@@ -3357,8 +3405,10 @@
       "sourcePath": "docs/rulebooks/Nemesis_RT_Objectives_Sheet.pdf",
       "sourceLocator": "P1-GT-05",
       "authority": "official-component-reference",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-FACILITY-DESTRUCTION-001"
+      ],
       "blockers": []
     },
     {
@@ -3381,8 +3431,10 @@
       "sourcePath": "docs/rulebooks/Nemesis_RT_Objectives_Sheet.pdf",
       "sourceLocator": "P1-GT-07",
       "authority": "official-component-reference",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-NEST-DESTROYED-001"
+      ],
       "blockers": []
     },
     {
@@ -3392,8 +3444,10 @@
       "sourcePath": "docs/rulebooks/Nemesis_RT_Objectives_Sheet.pdf",
       "sourceLocator": "P1-MO-OFFICIAL-ORDER-1",
       "authority": "official-component-reference",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-OBJECTIVE-VARIANT-BOUNDARIES-001"
+      ],
       "blockers": [
         "physical-occlusion"
       ]
@@ -3405,8 +3459,10 @@
       "sourcePath": "docs/rulebooks/Nemesis_RT_Objectives_Sheet.pdf",
       "sourceLocator": "P1-MO-OFFICIAL-ORDER-2",
       "authority": "official-component-reference",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-OBJECTIVE-VARIANT-BOUNDARIES-001"
+      ],
       "blockers": [
         "physical-occlusion"
       ]
@@ -3418,8 +3474,10 @@
       "sourcePath": "docs/rulebooks/Nemesis_RT_Objectives_Sheet.pdf",
       "sourceLocator": "P1-MO-OFFICIAL-ORDER-3",
       "authority": "official-component-reference",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-OBJECTIVE-OFFICIAL-P1-MO-OFFICIAL-ORDER-3-001"
+      ],
       "blockers": []
     },
     {
@@ -3429,8 +3487,10 @@
       "sourcePath": "docs/rulebooks/Nemesis_RT_Objectives_Sheet.pdf",
       "sourceLocator": "P1-MO-OFFICIAL-ORDER-4",
       "authority": "official-component-reference",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-OBJECTIVE-VARIANT-BOUNDARIES-001"
+      ],
       "blockers": [
         "physical-occlusion"
       ]
@@ -3442,8 +3502,10 @@
       "sourcePath": "docs/rulebooks/Nemesis_RT_Objectives_Sheet.pdf",
       "sourceLocator": "P1-MO-OFFICIAL-ORDER-5",
       "authority": "official-component-reference",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-OBJECTIVE-VARIANT-BOUNDARIES-001"
+      ],
       "blockers": [
         "physical-occlusion"
       ]
@@ -3455,8 +3517,10 @@
       "sourcePath": "docs/rulebooks/Nemesis_RT_Objectives_Sheet.pdf",
       "sourceLocator": "P1-MO-ULTERIOR-MOTIVE",
       "authority": "official-component-reference",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-OBJECTIVE-OFFICIAL-P1-MO-ULTERIOR-MOTIVE-001"
+      ],
       "blockers": []
     },
     {
@@ -3466,8 +3530,10 @@
       "sourcePath": "docs/rulebooks/Nemesis_RT_Objectives_Sheet.pdf",
       "sourceLocator": "P1-MO-SELF-SERVING",
       "authority": "official-component-reference",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-OBJECTIVE-OFFICIAL-P1-MO-SELF-SERVING-001"
+      ],
       "blockers": []
     },
     {
@@ -3477,8 +3543,10 @@
       "sourcePath": "docs/rulebooks/Nemesis_RT_Objectives_Sheet.pdf",
       "sourceLocator": "P1-MT-ESCORT-MISSION",
       "authority": "official-component-reference",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-MISSION-TASK-OFFICIAL-P1-MT-ESCORT-MISSION-001"
+      ],
       "blockers": []
     },
     {
@@ -3488,8 +3556,10 @@
       "sourcePath": "docs/rulebooks/Nemesis_RT_Objectives_Sheet.pdf",
       "sourceLocator": "P1-MT-ESSENTIAL-DATA",
       "authority": "official-component-reference",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-MISSION-TASK-OFFICIAL-P1-MT-ESSENTIAL-DATA-001"
+      ],
       "blockers": []
     },
     {
@@ -3499,8 +3569,10 @@
       "sourcePath": "docs/rulebooks/Nemesis_RT_Objectives_Sheet.pdf",
       "sourceLocator": "P1-MT-THE-SUPPLY-ROUTE",
       "authority": "official-component-reference",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-MISSION-TASK-OFFICIAL-P1-MT-THE-SUPPLY-ROUTE-001"
+      ],
       "blockers": []
     },
     {
@@ -3510,8 +3582,10 @@
       "sourcePath": "docs/rulebooks/Nemesis_RT_Objectives_Sheet.pdf",
       "sourceLocator": "P1-MT-PRIMARY-SAMPLES",
       "authority": "official-component-reference",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-MISSION-TASK-OFFICIAL-P1-MT-PRIMARY-SAMPLES-001"
+      ],
       "blockers": []
     },
     {
@@ -3521,8 +3595,10 @@
       "sourcePath": "docs/rulebooks/Nemesis_RT_Objectives_Sheet.pdf",
       "sourceLocator": "P1-MT-RECONNAISSANCE",
       "authority": "official-component-reference",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-MISSION-TASK-OFFICIAL-P1-MT-RECONNAISSANCE-001"
+      ],
       "blockers": []
     },
     {
@@ -3532,8 +3608,10 @@
       "sourcePath": "docs/rulebooks/Nemesis_RT_Objectives_Sheet.pdf",
       "sourceLocator": "P1-MT-PERIMETER-CLEARING",
       "authority": "official-component-reference",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-MISSION-TASK-OFFICIAL-P1-MT-PERIMETER-CLEARING-001"
+      ],
       "blockers": []
     },
     {
@@ -3543,8 +3621,10 @@
       "sourcePath": "docs/rulebooks/Nemesis_RT_Objectives_Sheet.pdf",
       "sourceLocator": "P1-MT-FACILITY-RESTART",
       "authority": "official-component-reference",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-MISSION-TASK-OFFICIAL-P1-MT-FACILITY-RESTART-001"
+      ],
       "blockers": []
     },
     {
@@ -3554,8 +3634,10 @@
       "sourcePath": "docs/rulebooks/Nemesis_RT_Objectives_Sheet.pdf",
       "sourceLocator": "P1-MT-ERADICATION",
       "authority": "official-component-reference",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-MISSION-TASK-OFFICIAL-P1-MT-ERADICATION-001"
+      ],
       "blockers": []
     },
     {
@@ -3565,8 +3647,10 @@
       "sourcePath": "docs/rulebooks/Nemesis_RT_Objectives_Sheet.pdf",
       "sourceLocator": "P2-GT-01",
       "authority": "official-component-reference",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-OBJECTIVE-FULFILLMENT-001"
+      ],
       "blockers": []
     },
     {
@@ -3576,8 +3660,10 @@
       "sourcePath": "docs/rulebooks/Nemesis_RT_Objectives_Sheet.pdf",
       "sourceLocator": "P2-GT-02",
       "authority": "official-component-reference",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-OBJECTIVE-SURVIVOR-001"
+      ],
       "blockers": []
     },
     {
@@ -3587,8 +3673,10 @@
       "sourcePath": "docs/rulebooks/Nemesis_RT_Objectives_Sheet.pdf",
       "sourceLocator": "P2-GT-03",
       "authority": "official-component-reference",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-OBJECTIVE-ESCAPE-001"
+      ],
       "blockers": []
     },
     {
@@ -3598,8 +3686,10 @@
       "sourcePath": "docs/rulebooks/Nemesis_RT_Objectives_Sheet.pdf",
       "sourceLocator": "P2-GT-04",
       "authority": "official-component-reference",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-DATA-TOKEN-001"
+      ],
       "blockers": []
     },
     {
@@ -3609,8 +3699,10 @@
       "sourcePath": "docs/rulebooks/Nemesis_RT_Objectives_Sheet.pdf",
       "sourceLocator": "P2-GT-05",
       "authority": "official-component-reference",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-FACILITY-DESTRUCTION-001"
+      ],
       "blockers": []
     },
     {
@@ -3633,8 +3725,10 @@
       "sourcePath": "docs/rulebooks/Nemesis_RT_Objectives_Sheet.pdf",
       "sourceLocator": "P2-GT-07",
       "authority": "official-component-reference",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-NEST-DESTROYED-001"
+      ],
       "blockers": []
     },
     {
@@ -3644,8 +3738,10 @@
       "sourcePath": "docs/rulebooks/Nemesis_RT_Objectives_Sheet.pdf",
       "sourceLocator": "P2-PO-AN-OLD-FEUD",
       "authority": "official-component-reference",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-OBJECTIVE-VARIANT-BOUNDARIES-001"
+      ],
       "blockers": [
         "physical-occlusion"
       ]
@@ -3657,8 +3753,10 @@
       "sourcePath": "docs/rulebooks/Nemesis_RT_Objectives_Sheet.pdf",
       "sourceLocator": "P2-PO-CORPORATE-CONTRACT",
       "authority": "official-component-reference",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-OBJECTIVE-OFFICIAL-P2-PO-CORPORATE-CONTRACT-001"
+      ],
       "blockers": []
     },
     {
@@ -3668,8 +3766,10 @@
       "sourcePath": "docs/rulebooks/Nemesis_RT_Objectives_Sheet.pdf",
       "sourceLocator": "P2-PO-GREENER-PASTURES",
       "authority": "official-component-reference",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-OBJECTIVE-VARIANT-BOUNDARIES-001"
+      ],
       "blockers": [
         "physical-occlusion"
       ]
@@ -3681,8 +3781,10 @@
       "sourcePath": "docs/rulebooks/Nemesis_RT_Objectives_Sheet.pdf",
       "sourceLocator": "P2-PO-HOSTILE-TAKEOVER",
       "authority": "official-component-reference",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-OBJECTIVE-VARIANT-BOUNDARIES-001"
+      ],
       "blockers": [
         "physical-occlusion"
       ]
@@ -3694,8 +3796,10 @@
       "sourcePath": "docs/rulebooks/Nemesis_RT_Objectives_Sheet.pdf",
       "sourceLocator": "P2-PO-THE-RIGHT-MOMENT-TO-STRIKE",
       "authority": "official-component-reference",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-OBJECTIVE-VARIANT-BOUNDARIES-001"
+      ],
       "blockers": [
         "physical-occlusion"
       ]
@@ -3707,8 +3811,10 @@
       "sourcePath": "docs/rulebooks/Nemesis_RT_Objectives_Sheet.pdf",
       "sourceLocator": "P2-PO-LUXURIOUS-OFFER",
       "authority": "official-component-reference",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-OBJECTIVE-OFFICIAL-P2-PO-LUXURIOUS-OFFER-001"
+      ],
       "blockers": []
     },
     {
@@ -3718,8 +3824,10 @@
       "sourcePath": "docs/rulebooks/Nemesis_RT_Objectives_Sheet.pdf",
       "sourceLocator": "P2-PO-QUARANTINE",
       "authority": "official-component-reference",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-OBJECTIVE-OFFICIAL-P2-PO-QUARANTINE-001"
+      ],
       "blockers": []
     },
     {
@@ -3729,8 +3837,10 @@
       "sourcePath": "docs/rulebooks/Nemesis_RT_Objectives_Sheet.pdf",
       "sourceLocator": "P2-PO-INSIDER-INFORMATION",
       "authority": "official-component-reference",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-OBJECTIVE-VARIANT-BOUNDARIES-001"
+      ],
       "blockers": [
         "physical-occlusion"
       ]
@@ -3742,8 +3852,10 @@
       "sourcePath": "docs/rulebooks/Nemesis_RT_Objectives_Sheet.pdf",
       "sourceLocator": "P2-PO-STATES-EVIDENCE",
       "authority": "official-component-reference",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-OBJECTIVE-OFFICIAL-P2-PO-STATES-EVIDENCE-001"
+      ],
       "blockers": []
     },
     {
@@ -3753,8 +3865,10 @@
       "sourcePath": "docs/rulebooks/Nemesis_RT_Objectives_Sheet.pdf",
       "sourceLocator": "P2-PO-SHUTDOWN",
       "authority": "official-component-reference",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-OBJECTIVE-OFFICIAL-P2-PO-SHUTDOWN-001"
+      ],
       "blockers": []
     },
     {
@@ -3764,8 +3878,10 @@
       "sourcePath": "docs/rulebooks/Nemesis_RT_Objectives_Sheet.pdf",
       "sourceLocator": "P2-PO-EXPERIMENTAL-SUBJECTS",
       "authority": "official-component-reference",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-OBJECTIVE-OFFICIAL-P2-PO-EXPERIMENTAL-SUBJECTS-001"
+      ],
       "blockers": []
     },
     {
@@ -3775,8 +3891,10 @@
       "sourcePath": "docs/rulebooks/Nemesis_RT_Objectives_Sheet.pdf",
       "sourceLocator": "P2-PO-CREWS-FAVORITE",
       "authority": "official-component-reference",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-OBJECTIVE-VARIANT-BOUNDARIES-001"
+      ],
       "blockers": [
         "physical-occlusion"
       ]
@@ -3788,8 +3906,10 @@
       "sourcePath": "docs/rulebooks/Nemesis_RT_Objectives_Sheet.pdf",
       "sourceLocator": "P2-PO-WEVE-GOT-HISTORY",
       "authority": "official-component-reference",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-OBJECTIVE-OFFICIAL-P2-PO-WEVE-GOT-HISTORY-001"
+      ],
       "blockers": []
     },
     {
@@ -3799,8 +3919,10 @@
       "sourcePath": "docs/rulebooks/Nemesis_RT_Objectives_Sheet.pdf",
       "sourceLocator": "P2-PO-THE-GREAT-HUNT",
       "authority": "official-component-reference",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-OBJECTIVE-OFFICIAL-P2-PO-THE-GREAT-HUNT-001"
+      ],
       "blockers": []
     },
     {
@@ -3810,8 +3932,10 @@
       "sourcePath": "docs/rulebooks/Nemesis_RT_Objectives_Sheet.pdf",
       "sourceLocator": "P2-PO-VENI-VIDI-VICI",
       "authority": "official-component-reference",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-OBJECTIVE-OFFICIAL-P2-PO-VENI-VIDI-VICI-001"
+      ],
       "blockers": []
     },
     {
@@ -3821,8 +3945,11 @@
       "sourcePath": "docs/rulebooks/Nemesis_RT_Objectives_Sheet.pdf",
       "sourceLocator": "P2-NOTE-RANKING-CHOICE",
       "authority": "official-component-reference",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-OBJECTIVE-FULFILLMENT-001",
+        "SEM-OBJECTIVE-OFFICIAL-P2-PO-WEVE-GOT-HISTORY-001"
+      ],
       "blockers": []
     },
     {
@@ -6403,8 +6530,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-056.png",
       "sourceLocator": "09eb22e4ef093e0f8f27fc0995b2d323dd9ed5c8e847fdcf18750c13b3c8d066",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-MISSION-TASK-TASK-557000-22342F-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -6416,8 +6545,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-101.jpg",
       "sourceLocator": "da1772dcacfcc25d6e4ba8a61fc292f78764a196d08a0ed5e6170cb5a2b48504",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-MISSION-TASK-TASK-590700-C59EC7-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -6429,8 +6560,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-110.png",
       "sourceLocator": "910da6e4468d14603c7e513d76eb7f856535defece8d46c011f88c6972d6e302",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-MISSION-TASK-TASK-553400-ED0104-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -6442,8 +6575,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-116.jpg",
       "sourceLocator": "c1adf21143fb353e2253fa99feb8f50b93fb246d8d0bd91701690a4033c658e6",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-MISSION-TASK-TASK-585900-D6EED2-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -6455,8 +6590,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-123.jpg",
       "sourceLocator": "1f8bb94fc434f1bd7861d76fe7db86cd7174f9c36ca1aaaf03601952896f4597",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-MISSION-TASK-TASK-581800-A9FAAD-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -6468,8 +6605,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-138.jpg",
       "sourceLocator": "41e770cd697f8226ffcc5bbcab0abee6612e525a6fc23cf3d0906f3ff456dcc8",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-MISSION-TASK-TASK-530400-CA25DA-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -6481,8 +6620,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-160_cards/card-00.png",
       "sourceLocator": "c2d4bb142b03891040b8bf52a7cb4b1457b8e040b187abd2c1be003e4a1d9d2c",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-OBJECTIVE-VARIANT-BOUNDARIES-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -6494,8 +6635,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-160_cards/card-01.png",
       "sourceLocator": "3cd13d793b369d06429494d3d04f991e454349be0cfc4b05805029e6b03261c3",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-MISSION-TASK-TASK-393801-ABFBDE-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -6507,8 +6650,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-160_cards/card-02.png",
       "sourceLocator": "11d743898e231415232b6ad79ab88c1e4d0e31f277c0a0385abb27a997d47b48",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-OBJECTIVE-VARIANT-BOUNDARIES-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -6520,8 +6665,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-160_cards/card-03.png",
       "sourceLocator": "2b2042f9604da8c62c67c80b9953fe959c4c82ac93a56f2e258c473f85248e9f",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-OBJECTIVE-VARIANT-BOUNDARIES-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -6533,8 +6680,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-160_cards/card-04.png",
       "sourceLocator": "3ff9ae783d02bbc700c294c837917e9d3037034dcd7b45ea571ed295430128d2",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-OBJECTIVE-VARIANT-BOUNDARIES-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -6546,8 +6695,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-160_cards/card-05.png",
       "sourceLocator": "6876c41ee8d1f660f4c2ba8012c8caf0f2ccb55ca7677dfcccfb2a69e4c43e42",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-OBJECTIVE-VARIANT-BOUNDARIES-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -6559,8 +6710,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-160_cards/card-06.png",
       "sourceLocator": "f2bde768819f1158a25be0304bced07328ae7dd23b71247ebafd8fb76e9fd586",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-OBJECTIVE-VARIANT-BOUNDARIES-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -6572,8 +6725,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-160_cards/card-07.png",
       "sourceLocator": "fd728cde25c6429689b8c4d1208c269e80aa2031a0f2a538f9f03b9ff6769c85",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-OBJECTIVE-VARIANT-BOUNDARIES-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -6585,8 +6740,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-160_cards/card-08.png",
       "sourceLocator": "e3f3266defff5ad4ade7327a85ebc8878d10bcd18ad85816212c60300472ad68",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-OBJECTIVE-VARIANT-BOUNDARIES-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -6598,8 +6755,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-160_cards/card-09.png",
       "sourceLocator": "5de3719f349157e4b5cda76358b68c59278ca278084c7779fed2507a3b229f4c",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-OBJECTIVE-VARIANT-BOUNDARIES-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -7105,8 +7264,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-060.jpg",
       "sourceLocator": "a9fd755086b0399a89adcb5d2ed4e351674cfb2a039d7bd148c268d6a1252001",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-OBJECTIVE-MISSION-529900-37829F-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -7118,8 +7279,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-070.jpg",
       "sourceLocator": "f62fadd79394572a6f593e17f9a2470cf03d99f833cb3145253a7c19f6f0bb25",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-OBJECTIVE-MISSION-553000-D711AB-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -7131,8 +7294,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-162_cards/card-00.png",
       "sourceLocator": "10357f3fdbce0dd9b6bfd9f297c965234e6cfbad9427d917a7b6b29384952a7d",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-OBJECTIVE-VARIANT-BOUNDARIES-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -7144,8 +7309,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-162_cards/card-01.png",
       "sourceLocator": "fd4010eb58756e3de8ddb635a7325e569401d9244c37627d659f52d369dd9522",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-OBJECTIVE-MISSION-394401-2E948E-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -7157,8 +7324,13 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-162_cards/card-02.png",
       "sourceLocator": "76866355163159b1cadefc9cde089972b36bea6af9c41a2e5dd636cae7d6d663",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-OBJECTIVE-MISSION-394402-60A237-001",
+        "SEM-OBJECTIVE-MISSION-394402-659A35-001",
+        "SEM-OBJECTIVE-MISSION-394402-DF6765-001",
+        "SEM-OBJECTIVE-MISSION-394402-6BF621-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -7170,8 +7342,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-162_cards/card-03.png",
       "sourceLocator": "d27fc8c094ad7030557fe0d9fad0edffeee0c289ca181f05d5fba28db45bd064",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-OBJECTIVE-VARIANT-BOUNDARIES-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -7183,8 +7357,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-162_cards/card-04.png",
       "sourceLocator": "2274d4d189d85a2a885478757d7aa13b07c48b912663a264c1dc7c0f9b2702b4",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-OBJECTIVE-VARIANT-BOUNDARIES-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -7196,8 +7372,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-162_cards/card-05.png",
       "sourceLocator": "be5a8b408b777fd45b519176f4851b1e3af42b8f6a011470fc4b361d0d2cf10c",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-OBJECTIVE-VARIANT-BOUNDARIES-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -7209,8 +7387,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-162_cards/card-06.png",
       "sourceLocator": "ee17501afeb2c1fbdc1d63378869644b9cdc9cc34c14e688c8bc0284d4093368",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-OBJECTIVE-PRIVATE-394106-9BFB37-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -7222,8 +7402,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-162_cards/card-07.png",
       "sourceLocator": "1633b48e698f6a00101d5189f5de7b05e4250f39d3f8df30f6c952b654f33848",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-OBJECTIVE-VARIANT-BOUNDARIES-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -7235,8 +7417,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-162_cards/card-08.png",
       "sourceLocator": "0992c5b74134390a6b8dc6bb0794f40037a0e8f6b46d6268a64b26c2b975b0b8",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-OBJECTIVE-VARIANT-BOUNDARIES-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -7248,8 +7432,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-162_cards/card-09.png",
       "sourceLocator": "30c6cf858a1428f2817cca3afb8959973ff59a81932d94918cc31a8b10b1a38f",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-OBJECTIVE-VARIANT-BOUNDARIES-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -7261,8 +7447,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-162_cards/card-10.png",
       "sourceLocator": "27ea16e7ccca56021ba1b7189c0d8b3359102995caa169a15184c74e22574c6d",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-OBJECTIVE-PRIVATE-394110-AFFE59-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -7274,8 +7462,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-162_cards/card-11.png",
       "sourceLocator": "d6ccc53b53a98ce5e212d701c0523d8a2a343d1e6d759318585a8dc278b316b2",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-OBJECTIVE-PRIVATE-394111-6FF7F8-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -7287,8 +7477,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-162_cards/card-12.png",
       "sourceLocator": "0c8456bddc9b959a53b9cd56994555a71f8f2595b9361416e1c6985c8e749092",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-OBJECTIVE-PRIVATE-394112-8D1916-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -7300,8 +7492,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-162_cards/card-13.png",
       "sourceLocator": "36f51a02097dfa1beadb7519fd46df8aade3c8132583a8e74ca3b4a9cac14727",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-OBJECTIVE-PRIVATE-394113-6BEC70-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -7313,8 +7507,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-162_cards/card-14.png",
       "sourceLocator": "9a2ab1c3cb5d743381be7df987e96f47bdeaf729d82fe18052409b42d42d762d",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-OBJECTIVE-PRIVATE-394114-8E35E7-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -7326,8 +7522,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-162_cards/card-15.png",
       "sourceLocator": "1f94620da15b61eaa4dce6ba5533b57c38502cb6112599cba09786659db7f083",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-OBJECTIVE-PRIVATE-394115-F1AFB5-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -7339,8 +7537,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-162_cards/card-16.png",
       "sourceLocator": "9e42ffc3f4c75305c8eae3d8f25856d3625cc112c9b231ad4030708ff4952446",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-OBJECTIVE-VARIANT-BOUNDARIES-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -7352,8 +7552,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-162_cards/card-17.png",
       "sourceLocator": "0d8879f3bcd2191607423ce00eaa1e4da150c151b3f5583c661903a3568b8168",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-OBJECTIVE-PRIVATE-394117-F5D0A6-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -7365,8 +7567,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-162_cards/card-18.png",
       "sourceLocator": "d7066d565c1617eee42cfca1a8099623975ecdaed9d63fae9563cd7f4b0c3b23",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-OBJECTIVE-VARIANT-BOUNDARIES-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -7378,8 +7582,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-162_cards/card-19.png",
       "sourceLocator": "518f750e52720a13a626822da482dc87879fa47751cad7d583e482e315b8e5b8",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-OBJECTIVE-PRIVATE-394119-79AFC8-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -7391,8 +7597,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-162_cards/card-20.png",
       "sourceLocator": "86c8acf32ca511709d86d2633a6f586259fe52c82c0f2c08775d9fb0788649ec",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-OBJECTIVE-PRIVATE-394120-F4ABBA-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -7404,8 +7612,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectivePersonalDeck-014.jpg",
       "sourceLocator": "628fc9f78b4a26e405034fcf3f0d855b010d7125e173d79fbcca6c3668e95892",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-OBJECTIVE-PRIVATE-530100-6FD912-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -7417,8 +7627,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectivePersonalDeck-043.jpg",
       "sourceLocator": "de1213ee6a5b5489a9c7463e9532d2d4ae40b07975db38b9472f72d590f6218c",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-OBJECTIVE-PRIVATE-529700-72E954-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -7430,8 +7642,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectivePersonalDeck-066.jpg",
       "sourceLocator": "616161bbdb4c758a5b864d514cf12087c7de6cbc293287558a261fd0bbe5960a",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-OBJECTIVE-PRIVATE-530000-E5ECAA-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -7443,8 +7657,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectivePersonalDeck-091.jpg",
       "sourceLocator": "9958d19068c020fd4fa6410016726bb697d55a30328e80c06f8d3885b9fa0f4b",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-OBJECTIVE-PRIVATE-590600-0DF957-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -7456,8 +7672,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectivePersonalDeck-095.jpg",
       "sourceLocator": "144260585a868a5317b9f4a49b9b8942dc9373158237e72063fdc5388edac197",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-OBJECTIVE-PRIVATE-529800-E0580B-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -7469,8 +7687,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectivePersonalDeck-156.jpg",
       "sourceLocator": "e5400e99d8671d21bdb4e16506a4533e4f4405e0a402217b039ba3326fcf178b",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-OBJECTIVE-VARIANT-BOUNDARIES-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -7482,8 +7702,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectivePersonalDeck-157.jpg",
       "sourceLocator": "f420a43cbda8bc562b02eb0656f0f1cf80bdd97d95092a9ad84a69e12c089b02",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-OBJECTIVE-VARIANT-BOUNDARIES-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -7495,8 +7717,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectivePersonalDeck-158.jpg",
       "sourceLocator": "8d2cfe3ee15534d8388721d1de501f9611146adffaf51f6c3588bccede1b2f73",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-OBJECTIVE-VARIANT-BOUNDARIES-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -7508,8 +7732,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectivePersonalDeck-159.jpg",
       "sourceLocator": "fc0a267123d785703162e31ecfb91b68d3a43c9b53c3a2532cc6dc4932a7457f",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-OBJECTIVE-VARIANT-BOUNDARIES-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -7521,8 +7747,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectivePersonalDeck-161.jpg",
       "sourceLocator": "3aec90a31ada20f22218d01aab15694a3be8c41a831a578db6c4d607cc42085a",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-OBJECTIVE-VARIANT-BOUNDARIES-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]

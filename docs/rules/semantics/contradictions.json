@@ -3,10 +3,10 @@
   "recordType": "semantic-conflict-register",
   "policy": "Readable source differences remain separate. Authority may resolve a general rule without rewriting lower-authority component wording; unresolved conflicts never receive a default.",
   "counts": {
-    "conflicts": 58,
+    "conflicts": 69,
     "resolvedByAuthority": 14,
-    "unresolved": 25,
-    "preservedBoundary": 19
+    "unresolved": 27,
+    "preservedBoundary": 28
   },
   "conflicts": [
     {
@@ -1259,6 +1259,329 @@
       ],
       "difference": "Eight TTS physical main panels visibly carry COMMAND headings, while seven licensed rows set command=true because Officer's Channel references playing another Command rather than being flagged as one.",
       "resolution": "Preserve panel headings and licensed booleans as different source fields; never flatten one into the other."
+    },
+    {
+      "conflictId": "SC-059",
+      "title": "Official 7/15/8 inventory versus TTS 11/20/8 competitive roots",
+      "status": "preserved-boundary",
+      "questionId": null,
+      "affectedRuleIds": [
+        "SEM-OBJECTIVE-SETUP-001",
+        "SEM-OBJECTIVE-VARIANT-BOUNDARIES-001"
+      ],
+      "evidenceRefs": [
+        "SRC-RULEBOOK",
+        "SRC-OBJECTIVE-MISSION-ROOT",
+        "SRC-OBJECTIVE-PRIVATE-ROOT",
+        "SRC-MISSION-TASK-ROOT"
+      ],
+      "difference": "Official base inventory is 7 Mission Objectives, 15 Private Objectives, and 8 Mission Tasks. TTS roots contain 11, 20, and 8 children; exact GMNotes/Lua filtering leaves 7 + 15 + 8 and excludes four high-count Mission plus five Corporate prototype Private children.",
+      "resolution": "Preserve all 39 root children and exact exclusions. Never lower the official inventory, promote high-count prototypes, or identify copies by title/order."
+    },
+    {
+      "conflictId": "SC-060",
+      "title": "Shared Objective sheet contains multiple categories and unselected/prototype variants",
+      "status": "preserved-boundary",
+      "questionId": null,
+      "affectedRuleIds": [
+        "SEM-OBJECTIVE-VARIANT-BOUNDARIES-001",
+        "SEM-OBJECTIVE-MISSION-394402-60A237-001",
+        "SEM-OBJECTIVE-MISSION-394401-2E948E-001",
+        "SEM-OBJECTIVE-MISSION-394402-659A35-001",
+        "SEM-OBJECTIVE-MISSION-394402-DF6765-001",
+        "SEM-OBJECTIVE-MISSION-394402-6BF621-001",
+        "SEM-OBJECTIVE-MISSION-529900-37829F-001",
+        "SEM-OBJECTIVE-MISSION-553000-D711AB-001",
+        "SEM-OBJECTIVE-PRIVATE-590600-0DF957-001",
+        "SEM-OBJECTIVE-PRIVATE-394106-9BFB37-001",
+        "SEM-OBJECTIVE-PRIVATE-529800-E0580B-001",
+        "SEM-OBJECTIVE-PRIVATE-530000-E5ECAA-001",
+        "SEM-OBJECTIVE-PRIVATE-394110-AFFE59-001",
+        "SEM-OBJECTIVE-PRIVATE-394111-6FF7F8-001",
+        "SEM-OBJECTIVE-PRIVATE-394112-8D1916-001",
+        "SEM-OBJECTIVE-PRIVATE-394113-6BEC70-001",
+        "SEM-OBJECTIVE-PRIVATE-394114-8E35E7-001",
+        "SEM-OBJECTIVE-PRIVATE-394115-F1AFB5-001",
+        "SEM-OBJECTIVE-PRIVATE-394120-F4ABBA-001",
+        "SEM-OBJECTIVE-PRIVATE-530100-6FD912-001",
+        "SEM-OBJECTIVE-PRIVATE-529700-72E954-001",
+        "SEM-OBJECTIVE-PRIVATE-394117-F5D0A6-001",
+        "SEM-OBJECTIVE-PRIVATE-394119-79AFC8-001",
+        "SEM-MISSION-TASK-TASK-557000-22342F-001",
+        "SEM-MISSION-TASK-TASK-530400-CA25DA-001",
+        "SEM-MISSION-TASK-TASK-393801-ABFBDE-001",
+        "SEM-MISSION-TASK-TASK-553400-ED0104-001",
+        "SEM-MISSION-TASK-TASK-581800-A9FAAD-001",
+        "SEM-MISSION-TASK-TASK-590700-C59EC7-001",
+        "SEM-MISSION-TASK-TASK-585900-D6EED2-001"
+      ],
+      "evidenceRefs": [
+        "SRC-OBJECTIVE-PARENT-SHEET",
+        "docs/rules/semantics/objective-mission-source-index.json"
+      ],
+      "difference": "The 7×3 sheet contains Mission and Personal faces; only exact full selectors choose twelve base cells, while nine cells are base selector gaps and one gap is selected only by a high-count prototype root child.",
+      "resolution": "Keep sheet/hash/grid/cell and each exact selector. Category/footer/title/cell/modulo never supplies membership or identity."
+    },
+    {
+      "conflictId": "SC-061",
+      "title": "PERSONAL OBJECTIVE versus Private Objective is exact-source scoped",
+      "status": "preserved-boundary",
+      "questionId": null,
+      "affectedRuleIds": [
+        "SEM-OBJECTIVE-VARIANT-BOUNDARIES-001",
+        "SEM-OBJECTIVE-PRIVATE-590600-0DF957-001",
+        "SEM-OBJECTIVE-PRIVATE-394106-9BFB37-001",
+        "SEM-OBJECTIVE-PRIVATE-529800-E0580B-001",
+        "SEM-OBJECTIVE-PRIVATE-530000-E5ECAA-001",
+        "SEM-OBJECTIVE-PRIVATE-394110-AFFE59-001",
+        "SEM-OBJECTIVE-PRIVATE-394111-6FF7F8-001",
+        "SEM-OBJECTIVE-PRIVATE-394112-8D1916-001",
+        "SEM-OBJECTIVE-PRIVATE-394113-6BEC70-001",
+        "SEM-OBJECTIVE-PRIVATE-394114-8E35E7-001",
+        "SEM-OBJECTIVE-PRIVATE-394115-F1AFB5-001",
+        "SEM-OBJECTIVE-PRIVATE-394120-F4ABBA-001",
+        "SEM-OBJECTIVE-PRIVATE-530100-6FD912-001",
+        "SEM-OBJECTIVE-PRIVATE-529700-72E954-001",
+        "SEM-OBJECTIVE-PRIVATE-394117-F5D0A6-001",
+        "SEM-OBJECTIVE-PRIVATE-394119-79AFC8-001"
+      ],
+      "evidenceRefs": [
+        "docs/rules/vocabulary/alias-registry.json:AL-003",
+        "SRC-OBJECTIVE-PRIVATE-ROOT"
+      ],
+      "difference": "Selected TTS source tuples print PERSONAL OBJECTIVE while the current official category is Private Objective; Corporate prototypes print another footer and the Lua role name is technical/misspelled.",
+      "resolution": "Apply AL-003 only to its exact listed tuples. No global Personal/Private, role-name, footer, or category alias is created."
+    },
+    {
+      "conflictId": "SC-062",
+      "title": "Current and TTS Mission Task wording/panel variants",
+      "status": "preserved-boundary",
+      "questionId": null,
+      "affectedRuleIds": [
+        "SEM-OBJECTIVE-VARIANT-BOUNDARIES-001",
+        "SEM-MISSION-TASK-TASK-557000-22342F-001",
+        "SEM-MISSION-TASK-TASK-530400-CA25DA-001",
+        "SEM-MISSION-TASK-TASK-393801-ABFBDE-001",
+        "SEM-MISSION-TASK-TASK-553400-ED0104-001",
+        "SEM-MISSION-TASK-TASK-581800-A9FAAD-001",
+        "SEM-MISSION-TASK-TASK-590700-C59EC7-001",
+        "SEM-MISSION-TASK-TASK-585900-D6EED2-001",
+        "SEM-MISSION-TASK-OFFICIAL-P1-MT-ESCORT-MISSION-001",
+        "SEM-MISSION-TASK-OFFICIAL-P1-MT-ESSENTIAL-DATA-001",
+        "SEM-MISSION-TASK-OFFICIAL-P1-MT-THE-SUPPLY-ROUTE-001",
+        "SEM-MISSION-TASK-OFFICIAL-P1-MT-PRIMARY-SAMPLES-001",
+        "SEM-MISSION-TASK-OFFICIAL-P1-MT-RECONNAISSANCE-001",
+        "SEM-MISSION-TASK-OFFICIAL-P1-MT-PERIMETER-CLEARING-001",
+        "SEM-MISSION-TASK-OFFICIAL-P1-MT-FACILITY-RESTART-001",
+        "SEM-MISSION-TASK-OFFICIAL-P1-MT-ERADICATION-001"
+      ],
+      "evidenceRefs": [
+        "SRC-OBJECTIVE-HELP",
+        "SRC-MISSION-TASK-ROOT"
+      ],
+      "difference": "Eradication, Primary Samples, Perimeter Clearing, and other TTS faces differ in killed/dead, cannot/NOT, cargo cohort, Room wording, thresholds, and checkbox/panel detail from current visible Help occurrences.",
+      "resolution": "Official visible wording controls only exact publisher occurrences; every TTS physical occurrence remains verbatim. No title/body counterpart join is asserted."
+    },
+    {
+      "conflictId": "SC-063",
+      "title": "TTS FACILITY RESTART exact source blocker versus complete current/licensed variants",
+      "status": "preserved-boundary",
+      "questionId": null,
+      "affectedRuleIds": [
+        "SEM-OBJECTIVE-VARIANT-BOUNDARIES-001",
+        "SEM-MISSION-TASK-OFFICIAL-P1-MT-FACILITY-RESTART-001",
+        "SEM-MISSION-TASK-BGA-FACILITYRESTART-001"
+      ],
+      "evidenceRefs": [
+        "docs/rules/source-extraction/card-gap-adjudications.json",
+        "SRC-OBJECTIVE-HELP",
+        "SRC-BGA-OBJECTIVES-MISSIONS"
+      ],
+      "difference": "The exact TTS physical face visibly ends one condition at ‘Systems must be’ with no recoverable following mark. Current official and licensed Facility Restart records are materially different complete occurrences.",
+      "resolution": "Retain the one card backlog unit source-blocked. Neither current official nor BGA wording fills the physical TTS face."
+    },
+    {
+      "conflictId": "SC-064",
+      "title": "Private Objective current/TTS/licensed text and title variants",
+      "status": "preserved-boundary",
+      "questionId": null,
+      "affectedRuleIds": [
+        "SEM-OBJECTIVE-VARIANT-BOUNDARIES-001",
+        "SEM-OBJECTIVE-PRIVATE-590600-0DF957-001",
+        "SEM-OBJECTIVE-PRIVATE-394106-9BFB37-001",
+        "SEM-OBJECTIVE-PRIVATE-529800-E0580B-001",
+        "SEM-OBJECTIVE-PRIVATE-530000-E5ECAA-001",
+        "SEM-OBJECTIVE-PRIVATE-394110-AFFE59-001",
+        "SEM-OBJECTIVE-PRIVATE-394111-6FF7F8-001",
+        "SEM-OBJECTIVE-PRIVATE-394112-8D1916-001",
+        "SEM-OBJECTIVE-PRIVATE-394113-6BEC70-001",
+        "SEM-OBJECTIVE-PRIVATE-394114-8E35E7-001",
+        "SEM-OBJECTIVE-PRIVATE-394115-F1AFB5-001",
+        "SEM-OBJECTIVE-PRIVATE-394120-F4ABBA-001",
+        "SEM-OBJECTIVE-PRIVATE-530100-6FD912-001",
+        "SEM-OBJECTIVE-PRIVATE-529700-72E954-001",
+        "SEM-OBJECTIVE-PRIVATE-394117-F5D0A6-001",
+        "SEM-OBJECTIVE-PRIVATE-394119-79AFC8-001",
+        "SEM-OBJECTIVE-OFFICIAL-P2-PO-CORPORATE-CONTRACT-001",
+        "SEM-OBJECTIVE-OFFICIAL-P2-PO-LUXURIOUS-OFFER-001",
+        "SEM-OBJECTIVE-OFFICIAL-P2-PO-QUARANTINE-001",
+        "SEM-OBJECTIVE-OFFICIAL-P2-PO-STATES-EVIDENCE-001",
+        "SEM-OBJECTIVE-OFFICIAL-P2-PO-SHUTDOWN-001",
+        "SEM-OBJECTIVE-OFFICIAL-P2-PO-EXPERIMENTAL-SUBJECTS-001",
+        "SEM-OBJECTIVE-OFFICIAL-P2-PO-WEVE-GOT-HISTORY-001",
+        "SEM-OBJECTIVE-OFFICIAL-P2-PO-THE-GREAT-HUNT-001",
+        "SEM-OBJECTIVE-OFFICIAL-P2-PO-VENI-VIDI-VICI-001",
+        "SEM-OBJECTIVE-BGA-OBJECTIVE-VENIVIDIVICI-001",
+        "SEM-OBJECTIVE-BGA-OBJECTIVE-THEGREATHUNT-001",
+        "SEM-OBJECTIVE-BGA-OBJECTIVE-QUARANTINE-001",
+        "SEM-OBJECTIVE-BGA-OBJECTIVE-SHUTDOWN-001",
+        "SEM-OBJECTIVE-BGA-OBJECTIVE-CREWSFAVORITE-001",
+        "SEM-OBJECTIVE-BGA-OBJECTIVE-WEVEGOTHISTORY-001",
+        "SEM-OBJECTIVE-BGA-OBJECTIVE-THERIGHTMOMENTTOSTRIKE-001",
+        "SEM-OBJECTIVE-BGA-OBJECTIVE-GREENERPASTURES-001",
+        "SEM-OBJECTIVE-BGA-OBJECTIVE-ANOLDFEUD-001",
+        "SEM-OBJECTIVE-BGA-OBJECTIVE-HOSTILETAKEOVER-001",
+        "SEM-OBJECTIVE-BGA-OBJECTIVE-CORPORATECONTRACT-001",
+        "SEM-OBJECTIVE-BGA-OBJECTIVE-EXPERIMENTALSUBJECTS-001",
+        "SEM-OBJECTIVE-BGA-OBJECTIVE-INSIDERINFORMATION-001",
+        "SEM-OBJECTIVE-BGA-OBJECTIVE-STATESEVIDENCE-001",
+        "SEM-OBJECTIVE-BGA-OBJECTIVE-LUXURIOUSOFFER-001"
+      ],
+      "evidenceRefs": [
+        "SRC-OBJECTIVE-HELP",
+        "SRC-OBJECTIVE-PRIVATE-ROOT",
+        "SRC-BGA-OBJECTIVES-MISSIONS"
+      ],
+      "difference": "TTS and current/licensed occurrences differ for Favourites/Crew’s Favorite/We’ve Got History, Veni, Great Hunt, Quarantine, Shutdown, Experimental Subjects, Insider/State’s Evidence, Luxurious Offer, and numbered targets; duplicate wording/titles also occur under distinct keys/copies.",
+      "resolution": "Preserve all exact occurrences and authority. Matching title/body/function never identifies a physical copy or authorizes text replacement."
+    },
+    {
+      "conflictId": "SC-065",
+      "title": "Player-count metadata conflicts across TTS and current visible occurrences",
+      "status": "preserved-boundary",
+      "questionId": null,
+      "affectedRuleIds": [
+        "SEM-OBJECTIVE-SETUP-001",
+        "SEM-OBJECTIVE-VARIANT-BOUNDARIES-001"
+      ],
+      "evidenceRefs": [
+        "SRC-OBJECTIVE-HELP",
+        "SRC-OBJECTIVE-PRIVATE-ROOT",
+        "SRC-MISSION-TASK-ROOT",
+        "assets/tts-mod/extract/selected-card-text-evidence.json"
+      ],
+      "difference": "Exact TTS metadata/visible variants include Perimeter Clearing 1+, An Old Feud 3+, and Hostile Takeover 4+, while current Help shows 2+, 2+, and 3+. Licensed rows omit player-count metadata.",
+      "resolution": "Keep applicability source-scoped. No title correspondence, licensed omission, or GMNotes technical value silently overwrites another occurrence."
+    },
+    {
+      "conflictId": "SC-066",
+      "title": "Ten official Help card occurrences are physically occluded",
+      "status": "preserved-boundary",
+      "questionId": null,
+      "affectedRuleIds": [
+        "SEM-OBJECTIVE-VARIANT-BOUNDARIES-001"
+      ],
+      "evidenceRefs": [
+        "SRC-OBJECTIVE-HELP",
+        "docs/rules/source-extraction/objective-help-sheet-layout.json"
+      ],
+      "difference": "Four Official Order copies and six Private Objective occurrences have physically occluded title/count/body/icon/footer spans. Searchable PDF text-layer metadata exists for some but is not visible face evidence.",
+      "resolution": "Index each occurrence and visible fragment independently. Do not create effect records from hidden metadata or fill them with TTS/BGA rows."
+    },
+    {
+      "conflictId": "SC-067",
+      "title": "Ulterior Motive ‘remain UNFULFILLED’ timing",
+      "status": "unresolved",
+      "questionId": "SEM-Q-076",
+      "affectedRuleIds": [
+        "SEM-OBJECTIVE-BGA-OBJECTIVE-ULTERIORMOTIVE-001",
+        "SEM-OBJECTIVE-FULFILLMENT-001",
+        "SEM-OBJECTIVE-MISSION-553000-D711AB-001",
+        "SEM-OBJECTIVE-OFFICIAL-P1-MO-ULTERIOR-MOTIVE-001"
+      ],
+      "evidenceRefs": [
+        "SRC-OBJECTIVE-HELP",
+        "SRC-RULEBOOK",
+        "SRC-BGA-OBJECTIVES-MISSIONS"
+      ],
+      "difference": "Ulterior Motive says the Mission Task must remain UNFULFILLED, while the general definition evaluates fulfillment when conditions are met at the end of the game.",
+      "resolution": "No default; SEM-Q-076 retains continuous, endgame-snapshot, and later-window readings."
+    },
+    {
+      "conflictId": "SC-068",
+      "title": "Objective OR-branch choice and late endgame choice/reveal ordering",
+      "status": "unresolved",
+      "questionId": "SEM-Q-075",
+      "affectedRuleIds": [
+        "SEM-ENDGAME-001",
+        "SEM-OBJECTIVE-BGA-OBJECTIVE-ANOLDFEUD-001",
+        "SEM-OBJECTIVE-BGA-OBJECTIVE-CORPORATECONTRACT-001",
+        "SEM-OBJECTIVE-BGA-OBJECTIVE-CREWSFAVORITE-001",
+        "SEM-OBJECTIVE-BGA-OBJECTIVE-GREENERPASTURES-001",
+        "SEM-OBJECTIVE-BGA-OBJECTIVE-HOSTILETAKEOVER-001",
+        "SEM-OBJECTIVE-BGA-OBJECTIVE-THERIGHTMOMENTTOSTRIKE-001",
+        "SEM-OBJECTIVE-BGA-OBJECTIVE-WEVEGOTHISTORY-001",
+        "SEM-OBJECTIVE-FACE-CHECK-001",
+        "SEM-OBJECTIVE-FULFILLMENT-001",
+        "SEM-OBJECTIVE-OFFICIAL-P2-PO-CORPORATE-CONTRACT-001",
+        "SEM-OBJECTIVE-OFFICIAL-P2-PO-WEVE-GOT-HISTORY-001",
+        "SEM-OBJECTIVE-PRIVATE-394110-AFFE59-001",
+        "SEM-OBJECTIVE-PRIVATE-394111-6FF7F8-001",
+        "SEM-OBJECTIVE-PRIVATE-394112-8D1916-001",
+        "SEM-OBJECTIVE-PRIVATE-394113-6BEC70-001",
+        "SEM-OBJECTIVE-PRIVATE-394114-8E35E7-001",
+        "SEM-OBJECTIVE-PRIVATE-394115-F1AFB5-001",
+        "SEM-OBJECTIVE-PRIVATE-394120-F4ABBA-001"
+      ],
+      "evidenceRefs": [
+        "SRC-RULEBOOK",
+        "SRC-OBJECTIVE-HELP"
+      ],
+      "difference": "Cards and the Help note bar owner-specific branches but do not state branch commitment timing; endgame allows a late Objective choice before reveals without specifying full track/reward handling, chooser order, or reveal/check order.",
+      "resolution": "No default; SEM-Q-075, SEM-Q-077, and SEM-Q-078 preserve the separate choices/order questions."
+    },
+    {
+      "conflictId": "SC-069",
+      "title": "Licensed competitive/Solo-Coop rows and TTS Solo/Coop roots remain outside standard copy identity",
+      "status": "preserved-boundary",
+      "questionId": null,
+      "affectedRuleIds": [
+        "SEM-OBJECTIVE-VARIANT-BOUNDARIES-001",
+        "SEM-MISSION-TASK-BGA-ERADICATION-001",
+        "SEM-MISSION-TASK-BGA-ESCORTMISSION-001",
+        "SEM-MISSION-TASK-BGA-ESSENTIALDATA-001",
+        "SEM-MISSION-TASK-BGA-FACILITYRESTART-001",
+        "SEM-MISSION-TASK-BGA-PERIMETERCLEARING-001",
+        "SEM-MISSION-TASK-BGA-PRIMARYSAMPLES-001",
+        "SEM-MISSION-TASK-BGA-RECONNAISSANCE-001",
+        "SEM-MISSION-TASK-BGA-THESUPPLYROUTE-001",
+        "SEM-OBJECTIVE-BGA-OBJECTIVE-OFFICIALORDER-001",
+        "SEM-OBJECTIVE-BGA-OBJECTIVE-SELFSERVING-001",
+        "SEM-OBJECTIVE-BGA-OBJECTIVE-ULTERIORMOTIVE-001",
+        "SEM-OBJECTIVE-BGA-OBJECTIVE-VENIVIDIVICI-001",
+        "SEM-OBJECTIVE-BGA-OBJECTIVE-THEGREATHUNT-001",
+        "SEM-OBJECTIVE-BGA-OBJECTIVE-QUARANTINE-001",
+        "SEM-OBJECTIVE-BGA-OBJECTIVE-SHUTDOWN-001",
+        "SEM-OBJECTIVE-BGA-OBJECTIVE-CREWSFAVORITE-001",
+        "SEM-OBJECTIVE-BGA-OBJECTIVE-WEVEGOTHISTORY-001",
+        "SEM-OBJECTIVE-BGA-OBJECTIVE-THERIGHTMOMENTTOSTRIKE-001",
+        "SEM-OBJECTIVE-BGA-OBJECTIVE-GREENERPASTURES-001",
+        "SEM-OBJECTIVE-BGA-OBJECTIVE-ANOLDFEUD-001",
+        "SEM-OBJECTIVE-BGA-OBJECTIVE-HOSTILETAKEOVER-001",
+        "SEM-OBJECTIVE-BGA-OBJECTIVE-CORPORATECONTRACT-001",
+        "SEM-OBJECTIVE-BGA-OBJECTIVE-EXPERIMENTALSUBJECTS-001",
+        "SEM-OBJECTIVE-BGA-OBJECTIVE-INSIDERINFORMATION-001",
+        "SEM-OBJECTIVE-BGA-OBJECTIVE-STATESEVIDENCE-001",
+        "SEM-OBJECTIVE-BGA-OBJECTIVE-LUXURIOUSOFFER-001"
+      ],
+      "evidenceRefs": [
+        "SRC-BGA-OBJECTIVES-MISSIONS",
+        "SRC-OBJECTIVE-SOLO-COOP-ROOT",
+        "SRC-OBJECTIVE-SOLO-COOP-CUSTOM-ROOT",
+        "SRC-RULEBOOK"
+      ],
+      "difference": "BGA stores 26 competitive and 12 Solo/Coop rows. TTS separately stores 12 official-style and 26 custom Solo/Coop selectors; official inventory says 12 Solo/Coop cards and standard rules do not use them.",
+      "resolution": "Retain all counts without forcing equality or a copy crosswalk. Solo/Coop and custom roots are indexed exclusions from base-competitive conclusions."
     }
   ]
 }

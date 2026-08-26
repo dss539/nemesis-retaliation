@@ -3,11 +3,11 @@
   "recordType": "semantic-review-gates",
   "status": "pilot built with deferred questions and explicit alternatives; no default answer adopted",
   "counts": {
-    "questions": 79,
-    "officialClarificationPreferred": 44,
-    "sourceAmbiguitiesIntroducedByPilot": 35,
+    "questions": 83,
+    "officialClarificationPreferred": 47,
+    "sourceAmbiguitiesIntroducedByPilot": 36,
     "resolved": 0,
-    "open": 79
+    "open": 83
   },
   "questions": [
     {
@@ -2742,6 +2742,154 @@
           "alternativeId": "SEM-Q-074-C",
           "description": "Use another source-defined cancellation/payment/refund boundary.",
           "support": "different Chain variants say cancel versus ignore and no general cancellation rule applies"
+        }
+      ]
+    },
+    {
+      "questionId": "SEM-Q-075",
+      "title": "Objective OR-branch commitment, timing, and unavailable-option handling",
+      "decisionClass": "official-clarification-preferred",
+      "blocksRuleIds": [
+        "SEM-OBJECTIVE-BGA-OBJECTIVE-ANOLDFEUD-001",
+        "SEM-OBJECTIVE-BGA-OBJECTIVE-CORPORATECONTRACT-001",
+        "SEM-OBJECTIVE-BGA-OBJECTIVE-CREWSFAVORITE-001",
+        "SEM-OBJECTIVE-BGA-OBJECTIVE-GREENERPASTURES-001",
+        "SEM-OBJECTIVE-BGA-OBJECTIVE-HOSTILETAKEOVER-001",
+        "SEM-OBJECTIVE-BGA-OBJECTIVE-THERIGHTMOMENTTOSTRIKE-001",
+        "SEM-OBJECTIVE-BGA-OBJECTIVE-WEVEGOTHISTORY-001",
+        "SEM-OBJECTIVE-FULFILLMENT-001",
+        "SEM-OBJECTIVE-OFFICIAL-P2-PO-CORPORATE-CONTRACT-001",
+        "SEM-OBJECTIVE-OFFICIAL-P2-PO-WEVE-GOT-HISTORY-001",
+        "SEM-OBJECTIVE-PRIVATE-394110-AFFE59-001",
+        "SEM-OBJECTIVE-PRIVATE-394111-6FF7F8-001",
+        "SEM-OBJECTIVE-PRIVATE-394112-8D1916-001",
+        "SEM-OBJECTIVE-PRIVATE-394113-6BEC70-001",
+        "SEM-OBJECTIVE-PRIVATE-394114-8E35E7-001",
+        "SEM-OBJECTIVE-PRIVATE-394115-F1AFB5-001",
+        "SEM-OBJECTIVE-PRIVATE-394120-F4ABBA-001"
+      ],
+      "plannedRuleIds": [],
+      "defaultProhibited": true,
+      "sourceEvidenceRefs": [
+        "docs/rules/source-extraction/objective-help-sheet.json:P2-NOTE-RANKING-CHOICE",
+        "docs/rulebooks/rulebook_text.txt:lines 3076–3094,6267–6293",
+        "docs/rules/semantics/objective-mission-source-index.json"
+      ],
+      "alternatives": [
+        {
+          "alternativeId": "SEM-Q-075-A",
+          "description": "The Objective owner commits to one currently available branch when choosing the Objective; only that branch may fulfill it.",
+          "support": "the Help note says the owner cannot choose an unavailable option, suggesting a branch choice, but gives no timing"
+        },
+        {
+          "alternativeId": "SEM-Q-075-B",
+          "description": "The Objective owner chooses one available branch only when revealing/checking at endgame.",
+          "support": "the branch affects only the endgame predicate and no earlier commitment procedure is printed"
+        },
+        {
+          "alternativeId": "SEM-Q-075-C",
+          "description": "No commitment is required; the Objective is fulfilled if any branch that is not barred for that owner is true at endgame.",
+          "support": "ordinary OR can be a logical alternative, while the Help note may only remove impossible branches"
+        }
+      ]
+    },
+    {
+      "questionId": "SEM-Q-076",
+      "title": "Ulterior Motive ‘remain UNFULFILLED’ continuous history versus endgame snapshot",
+      "decisionClass": "official-clarification-preferred",
+      "blocksRuleIds": [
+        "SEM-OBJECTIVE-BGA-OBJECTIVE-ULTERIORMOTIVE-001",
+        "SEM-OBJECTIVE-FULFILLMENT-001",
+        "SEM-OBJECTIVE-MISSION-553000-D711AB-001",
+        "SEM-OBJECTIVE-OFFICIAL-P1-MO-ULTERIOR-MOTIVE-001"
+      ],
+      "plannedRuleIds": [],
+      "defaultProhibited": true,
+      "sourceEvidenceRefs": [
+        "docs/rules/source-extraction/objective-help-sheet.json:P1-MO-ULTERIOR-MOTIVE",
+        "docs/rulebooks/rulebook_text.txt:lines 786–790,6277–6290",
+        "docs/rules/semantics/objective-mission-source-index.json"
+      ],
+      "alternatives": [
+        {
+          "alternativeId": "SEM-Q-076-A",
+          "description": "The selected Mission Task must never become fulfilled at any point after setup; an earlier fulfilled state fails Ulterior Motive even if conditions later cease.",
+          "support": "the word remain suggests a continuous historical constraint"
+        },
+        {
+          "alternativeId": "SEM-Q-076-B",
+          "description": "Only the ordinary endgame fulfillment snapshot matters; the selected Mission Task must be Unfulfilled when checked.",
+          "support": "FULFILLED is defined by conditions at the end of the game"
+        },
+        {
+          "alternativeId": "SEM-Q-076-C",
+          "description": "Use another source-defined historical window, such as from Objective choice rather than setup.",
+          "support": "the source does not state when the remain constraint begins"
+        }
+      ]
+    },
+    {
+      "questionId": "SEM-Q-077",
+      "title": "Late endgame Objective choice procedure, Objective Choice track reward, and chooser order",
+      "decisionClass": "official-clarification-preferred",
+      "blocksRuleIds": [
+        "SEM-ENDGAME-001"
+      ],
+      "plannedRuleIds": [],
+      "defaultProhibited": true,
+      "sourceEvidenceRefs": [
+        "docs/rulebooks/rulebook_text.txt:lines 3076–3094,6267–6273",
+        "docs/rules/source-extraction/rulebook-visual-obligations.json:RB-P13-V02",
+        "docs/rules/semantics/objective-mission-source-index.json"
+      ],
+      "alternatives": [
+        {
+          "alternativeId": "SEM-Q-077-A",
+          "description": "Late choice performs only the private remove/retain steps; it does not move the track or draw Action cards, and multiple late choosers use a source-defined but currently unstated order.",
+          "support": "endgame says simply choose now; Action-card rewards have no stated use after Infection/Eclosion"
+        },
+        {
+          "alternativeId": "SEM-Q-077-B",
+          "description": "Late choice invokes the complete ordinary choice procedure, including post-move track reward, before reveals.",
+          "support": "‘simply do so now’ may refer back to the full Choosing an Objective procedure"
+        },
+        {
+          "alternativeId": "SEM-Q-077-C",
+          "description": "All late choosers choose simultaneously/private, with a source-defined aggregate track/reward treatment.",
+          "support": "all must choose before other Objectives reveal, but no chooser order is printed"
+        }
+      ]
+    },
+    {
+      "questionId": "SEM-Q-078",
+      "title": "Endgame chosen-Objective reveal and check order among surviving Characters",
+      "decisionClass": "source-ambiguity-owner-decision-after-source-search",
+      "blocksRuleIds": [
+        "SEM-ENDGAME-001",
+        "SEM-OBJECTIVE-FACE-CHECK-001",
+        "SEM-OBJECTIVE-FULFILLMENT-001"
+      ],
+      "plannedRuleIds": [],
+      "defaultProhibited": true,
+      "sourceEvidenceRefs": [
+        "docs/rulebooks/rulebook_text.txt:lines 6251–6273",
+        "docs/rules/semantics/objective-mission-source-index.json"
+      ],
+      "alternatives": [
+        {
+          "alternativeId": "SEM-Q-078-A",
+          "description": "Reveal and check in current Turn order after all late choices finish.",
+          "support": "many cohort procedures use Turn order, but this Objective step does not state it"
+        },
+        {
+          "alternativeId": "SEM-Q-078-B",
+          "description": "Reveal all chosen Objectives simultaneously, then check all conditions.",
+          "support": "the prose addresses each Character without an explicit sequence"
+        },
+        {
+          "alternativeId": "SEM-Q-078-C",
+          "description": "Each surviving owner chooses when to reveal/check, subject to all late choices completing first.",
+          "support": "physical play may permit voluntary ordering, but no owner is named"
         }
       ]
     }

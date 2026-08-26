@@ -83,6 +83,17 @@ from semantic_action_records import (
     build_action_source_index,
     integrate_action_shared_records,
 )
+from semantic_objective_records import (
+    OBJECTIVE_REUSABLE_RULE_IDS,
+    build_objective_conflicts,
+    build_objective_question_rows,
+    build_objective_records,
+    build_objective_source_index,
+    finalize_objective_conflict_blocks,
+    finalize_objective_question_blocks,
+    integrate_objective_shared_records,
+    objective_source_registry_rows,
+)
 from room_icon_denotations import build_room_icon_denotations
 
 REPO = Path(__file__).resolve().parents[1]
@@ -111,6 +122,7 @@ green_item_source_index = build_green_item_source_index(REPO)
 red_item_source_index = build_red_item_source_index(REPO)
 yellow_item_source_index = build_yellow_item_source_index(REPO)
 action_source_index = build_action_source_index(REPO)
+objective_source_index = build_objective_source_index(REPO)
 
 sources = {
     'SRC-RULEBOOK': {
@@ -179,6 +191,8 @@ for source in yellow_item_source_registry_rows(yellow_item_source_index):
     sources[source['sourceId']] = source
 for source in action_source_registry_rows(action_source_index):
     sources[source['sourceId']] = source
+for source in objective_source_registry_rows(objective_source_index):
+    sources[source['sourceId']] = source
 source_registry = {
     'schemaVersion': 1, 'recordType': 'semantic-source-registry',
     'authorityOrder': ['official-errata', 'official-primary', 'official-component-reference', 'source-bound-component-scan', 'licensed-digital-secondary', 'project-interpretation'],
@@ -203,7 +217,7 @@ semantic_schema = {
         'status': {'enum':['source-backed','source-backed-with-open-question','source-variant']},
         'ruleKind': {'enum':['sequence','procedure','action','reaction','component-effect','event','dispatcher','endgame','constraint']},
         'applicability': {'type':'object','required':['game','mode','playerCount'], 'properties':{'game':{'const':'Nemesis: Retaliation'},'mode':{'enum':['base','base-standard']},'playerCount':{'type':['object','null']}}},
-        'authority': {'type':'object','required':['highest','interpretation'], 'properties':{'highest':{'enum':['official-errata','official-primary','official-component-reference','source-bound-component-scan']},'interpretation':{'enum':['verbatim-structure','source-composed','open-alternatives']}}},
+        'authority': {'type':'object','required':['highest','interpretation'], 'properties':{'highest':{'enum':['official-errata','official-primary','official-component-reference','source-bound-component-scan','licensed-digital-secondary']},'interpretation':{'enum':['verbatim-structure','source-composed','open-alternatives']}}},
         'sourceAssertions': {'type':'array','minItems':1},
         'termRefs': {'type':'array'}, 'taxonRefs': {'type':'array'}, 'namedIdentityRefs': {'type':'array'},
         'timing': {'type':'object'}, 'participants': {'type':'array'}, 'modality': {'enum':['must','may','cannot','if-able','mixed']},
@@ -436,6 +450,8 @@ records.extend(build_yellow_item_records(REPO, yellow_item_source_index, record,
 integrate_yellow_item_shared_records(records, yellow_item_source_index, assertion, operation)
 records.extend(build_action_records(REPO, action_source_index, record, assertion, timing, participant, condition, decision, operation))
 integrate_action_shared_records(records, assertion, operation)
+records.extend(build_objective_records(REPO, objective_source_index, record, assertion, timing, participant, condition, decision, operation))
+integrate_objective_shared_records(records, objective_source_index, assertion, decision, operation)
 records.sort(key=lambda item: item['ruleId'])
 
 semantic_questions = {
@@ -506,6 +522,8 @@ semantic_questions = {
     ],
 }
 semantic_questions['questions'].extend(build_action_question_rows())
+semantic_questions['questions'].extend(build_objective_question_rows())
+finalize_objective_question_blocks(records, semantic_questions['questions'])
 semantic_questions['counts'] = {
     'questions': len(semantic_questions['questions']),
     'officialClarificationPreferred': sum(row['decisionClass'] == 'official-clarification-preferred' for row in semantic_questions['questions']),
@@ -572,6 +590,9 @@ contradictions = {
     ],
 }
 contradictions['conflicts'].extend(build_action_conflicts())
+objective_conflicts = build_objective_conflicts(objective_source_index)
+finalize_objective_conflict_blocks(records, objective_conflicts)
+contradictions['conflicts'].extend(objective_conflicts)
 contradictions['counts'] = {
     'conflicts': len(contradictions['conflicts']),
     'resolvedByAuthority': sum(row['status'] == 'resolved-by-authority' for row in contradictions['conflicts']),
@@ -597,7 +618,7 @@ coverage = {
         {'system':'base Event card effects','ruleIds':[ *EVENT_RULE_IDS, 'SEM-EVENT-INTRUDER-MOVEMENT-001','SEM-FIRE-SPREAD-001','SEM-INFECTION-PROCEDURE-001','SEM-ECLOSION-PROCEDURE-001']},
         {'system':'Intruder Help dispatcher','ruleIds':sorted(item['ruleId'] for item in records if item['ruleId'].startswith('SEM-IH-'))},
         {'system':'endgame/open alternatives','ruleIds':['SEM-ENDGAME-001']},
-        {'system':'objective choice','ruleIds':['SEM-RT-010']},
+        {'system':'base competitive Objective and Mission Task family','ruleIds':['SEM-RT-010',*OBJECTIVE_REUSABLE_RULE_IDS,*sorted(item['ruleId'] for item in records if (item['ruleId'].startswith('SEM-OBJECTIVE-') or item['ruleId'].startswith('SEM-MISSION-TASK-')) and item['ruleId'] not in OBJECTIVE_REUSABLE_RULE_IDS)]},
         {'system':'Intruder Phase','ruleIds':['SEM-RT-008']},
         {'system':'Event Phase and Bag Development','ruleIds':['SEM-RT-009','SEM-EVENT-GENERAL-001','SEM-RT-011']},
         {'system':'Cleanup Phase','ruleIds':['SEM-RT-012']},
@@ -614,9 +635,10 @@ coverage = {
         {'system':'complete base Action card/component family','ruleIds':[*ACTION_REUSABLE_RULE_IDS,*ACTION_RULE_IDS,*[rule_id for rule_id in ACTION_REACTION_DISPATCH_RULE_IDS if rule_id != 'SEM-REACTION-DUCK-001']]},
     ],
     'counts':{'systems':24,'pilotRecords':len(records),'fullBaseSemanticCoverageClaimed':False},
-    'notYetCovered':['remaining card corpus outside the closed 20-card Event, 12-card Exploration, 6-card Robot, 20-occurrence Intruder Attack, 12-occurrence Queen Health, 27-occurrence Serious Wound, 23-occurrence regular Green Item, 21-occurrence source-clear regular Red Item, 24-occurrence source-clear regular Yellow Item, and 60-occurrence base Action families','seven Heavy Green occurrences, three explicit Heavy Red occurrences, six Military Taser Red class-conflict occurrences, six Fire Extinguisher/Robot Controller Yellow class-conflict occurrences, plus remaining Heavy/Equipment/Starting, Objective, Mission Task, and other component effects','all remaining Objectives/Mission Tasks outside the linked Queen-death Help units','remaining setup, map, procedure, and component lifecycle rules'],
+    'notYetCovered':['remaining card corpus outside the closed 20-card Event, 12-card Exploration, 6-card Robot, 20-occurrence Intruder Attack, 12-occurrence Queen Health, 27-occurrence Serious Wound, 23-occurrence regular Green Item, 21-occurrence source-clear regular Red Item, 24-occurrence source-clear regular Yellow Item, 60-occurrence base Action, and source-clear base competitive Objective/Mission Task families','seven Heavy Green occurrences, three explicit Heavy Red occurrences, six Military Taser Red class-conflict occurrences, six Fire Extinguisher/Robot Controller Yellow class-conflict occurrences, plus remaining Heavy/Equipment/Starting and other component effects','the one exact TTS FACILITY RESTART operative span remains source-blocked; ten official Help card occurrences remain physically occluded boundaries; Solo/Coop and prototype/high-count Objectives remain indexed exclusions rather than competitive conclusions','remaining setup, map, procedure, and component lifecycle rules'],
 }
 
+write('objective-mission-source-index.json', objective_source_index)
 write('action-source-index.json', action_source_index)
 write('yellow-item-source-index.json', yellow_item_source_index)
 write('red-item-source-index.json', red_item_source_index)

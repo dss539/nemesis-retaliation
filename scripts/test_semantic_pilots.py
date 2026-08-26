@@ -10,7 +10,7 @@ import unittest
 REPO=Path(__file__).resolve().parents[1]
 DIR=REPO/'docs/rules/semantics'
 VALIDATOR=REPO/'scripts/validate_semantic_pilots.py'
-FILES=('event-source-index.json','exploration-source-index.json','robot-source-index.json','attack-source-index.json','queen-health-source-index.json','serious-wound-source-index.json','green-item-source-index.json','red-item-source-index.json','yellow-item-source-index.json','action-source-index.json','source-registry.json','semantic-rule.schema.json','semantic-vocabulary.json','room-icon-denotations.json','pilots.json','review-gates.json','contradictions.json','coverage.json','backlog.json')
+FILES=('event-source-index.json','exploration-source-index.json','robot-source-index.json','attack-source-index.json','queen-health-source-index.json','serious-wound-source-index.json','green-item-source-index.json','red-item-source-index.json','yellow-item-source-index.json','action-source-index.json','objective-mission-source-index.json','source-registry.json','semantic-rule.schema.json','semantic-vocabulary.json','room-icon-denotations.json','pilots.json','review-gates.json','contradictions.json','coverage.json','backlog.json')
 
 
 def load(path): return json.loads(path.read_text(encoding='utf-8'))
@@ -19,7 +19,7 @@ def load(path): return json.loads(path.read_text(encoding='utf-8'))
 class SemanticPilotTests(unittest.TestCase):
     def run_validator(self, root=None, skip=False):
         base=root or DIR
-        command=['python3',str(VALIDATOR),'--event-source-index',str(base/'event-source-index.json'),'--exploration-source-index',str(base/'exploration-source-index.json'),'--robot-source-index',str(base/'robot-source-index.json'),'--attack-source-index',str(base/'attack-source-index.json'),'--queen-health-source-index',str(base/'queen-health-source-index.json'),'--serious-wound-source-index',str(base/'serious-wound-source-index.json'),'--green-item-source-index',str(base/'green-item-source-index.json'),'--red-item-source-index',str(base/'red-item-source-index.json'),'--yellow-item-source-index',str(base/'yellow-item-source-index.json'),'--action-source-index',str(base/'action-source-index.json'),'--source-registry',str(base/'source-registry.json'),'--schema',str(base/'semantic-rule.schema.json'),'--semantic-vocabulary',str(base/'semantic-vocabulary.json'),'--room-icon-denotations',str(base/'room-icon-denotations.json'),'--pilots',str(base/'pilots.json'),'--review-gates',str(base/'review-gates.json'),'--contradictions',str(base/'contradictions.json'),'--coverage',str(base/'coverage.json'),'--backlog',str(base/'backlog.json')]
+        command=['python3',str(VALIDATOR),'--event-source-index',str(base/'event-source-index.json'),'--exploration-source-index',str(base/'exploration-source-index.json'),'--robot-source-index',str(base/'robot-source-index.json'),'--attack-source-index',str(base/'attack-source-index.json'),'--queen-health-source-index',str(base/'queen-health-source-index.json'),'--serious-wound-source-index',str(base/'serious-wound-source-index.json'),'--green-item-source-index',str(base/'green-item-source-index.json'),'--red-item-source-index',str(base/'red-item-source-index.json'),'--yellow-item-source-index',str(base/'yellow-item-source-index.json'),'--action-source-index',str(base/'action-source-index.json'),'--objective-source-index',str(base/'objective-mission-source-index.json'),'--source-registry',str(base/'source-registry.json'),'--schema',str(base/'semantic-rule.schema.json'),'--semantic-vocabulary',str(base/'semantic-vocabulary.json'),'--room-icon-denotations',str(base/'room-icon-denotations.json'),'--pilots',str(base/'pilots.json'),'--review-gates',str(base/'review-gates.json'),'--contradictions',str(base/'contradictions.json'),'--coverage',str(base/'coverage.json'),'--backlog',str(base/'backlog.json')]
         if skip: command.append('--skip-reproducibility')
         run=subprocess.run(command,cwd=REPO,check=False,capture_output=True,text=True,timeout=300)
         return run,json.loads(run.stdout)
@@ -28,17 +28,17 @@ class SemanticPilotTests(unittest.TestCase):
         run,report=self.run_validator()
         self.assertEqual(run.returncode,0,run.stdout+run.stderr)
         self.assertTrue(report['passed'])
-        self.assertEqual(report['checks']['records'],363)
-        self.assertEqual(report['checks']['operations'],1572)
+        self.assertEqual(report['checks']['records'],447)
+        self.assertEqual(report['checks']['operations'],1853)
         self.assertEqual(report['checks']['decisions'],294)
         self.assertEqual(report['checks']['targets'],515)
-        self.assertEqual(report['checks']['conditions'],1335)
-        self.assertEqual(report['checks']['openQuestionReferences'],360)
-        self.assertEqual(report['checks']['openQuestions'],79)
+        self.assertEqual(report['checks']['conditions'],1342)
+        self.assertEqual(report['checks']['openQuestionReferences'],385)
+        self.assertEqual(report['checks']['openQuestions'],83)
         self.assertEqual(report['checks']['semanticNodes'],26)
-        self.assertEqual(report['checks']['conflicts'],58)
+        self.assertEqual(report['checks']['conflicts'],69)
         self.assertEqual(report['checks']['backlogUnits'],600)
-        self.assertEqual(report['checks']['backlogPilotCovered'],348)
+        self.assertEqual(report['checks']['backlogPilotCovered'],443)
         self.assertEqual(report['checks']['eventIdentities'],20)
         self.assertEqual(report['checks']['eventRecords'],20)
         self.assertEqual(report['checks']['eventBacklogTuples'],20)
@@ -130,6 +130,32 @@ class SemanticPilotTests(unittest.TestCase):
         self.assertEqual(report['checks']['actionLicensedOccurrences'],60)
         self.assertEqual(report['checks']['actionRecords'],60)
         self.assertEqual(report['checks']['actionBacklogTuples'],89)
+        self.assertEqual(report['checks']['objectivePhysicalOccurrences'],30)
+        self.assertEqual(report['checks']['objectiveMissionPhysicalOccurrences'],7)
+        self.assertEqual(report['checks']['objectivePrivatePhysicalOccurrences'],15)
+        self.assertEqual(report['checks']['missionTaskPhysicalOccurrences'],8)
+        self.assertEqual(report['checks']['objectiveSourceClearPhysicalOccurrences'],29)
+        self.assertEqual(report['checks']['objectiveSourceBlockedPhysicalOccurrences'],1)
+        self.assertEqual(report['checks']['objectiveGeneratedPhysicalOccurrences'],16)
+        self.assertEqual(report['checks']['objectiveDirectPhysicalOccurrences'],14)
+        self.assertEqual(report['checks']['objectivePrototypePhysicalExclusions'],9)
+        self.assertEqual(report['checks']['objectiveSoloCoopPhysicalExclusions'],38)
+        self.assertEqual(report['checks']['objectiveSourceFaceAssets'],50)
+        self.assertEqual(report['checks']['objectiveSelectorGapAssets'],18)
+        self.assertEqual(report['checks']['objectiveSourceSheetCells'],31)
+        self.assertEqual(report['checks']['objectiveSharedBackReferences'],44)
+        self.assertEqual(report['checks']['objectivePhysicalPanels'],149)
+        self.assertEqual(report['checks']['objectivePrintedSentences'],53)
+        self.assertEqual(report['checks']['objectiveFunctionalIconOccurrences'],39)
+        self.assertEqual(report['checks']['objectiveOfficialHelpUnits'],45)
+        self.assertEqual(report['checks']['objectiveOfficialVisibleUnits'],35)
+        self.assertEqual(report['checks']['objectiveOfficialOccludedUnits'],10)
+        self.assertEqual(report['checks']['objectiveLicensedRows'],38)
+        self.assertEqual(report['checks']['objectiveLicensedCompetitiveRows'],26)
+        self.assertEqual(report['checks']['objectiveSemanticFamilyRecords'],85)
+        self.assertEqual(report['checks']['objectiveCardBacklogTuples'],50)
+        self.assertEqual(report['checks']['objectiveCoveredCardBacklogTuples'],49)
+        self.assertEqual(report['checks']['objectiveHelpBacklogUnits'],45)
         self.assertEqual(report['checks']['roomIconDenotations'],112)
 
     def test_high_risk_semantic_boundaries(self):
@@ -165,7 +191,7 @@ class SemanticPilotTests(unittest.TestCase):
         endgame=next(row for row in pilots['records'] if row['ruleId']=='SEM-ENDGAME-001')
         step=next(row for row in endgame['operations'] if row['stepId']=='S04')
         guard=next(row for row in endgame['preconditions'] if row['conditionId']=='S04-C01')
-        self.assertEqual(endgame['unresolvedQuestionRefs'],['OQ-001'])
+        self.assertEqual(endgame['unresolvedQuestionRefs'],['OQ-001','SEM-Q-077','SEM-Q-078'])
         self.assertNotIn('OQ-002',{row['questionId'] for row in review['questions']})
         self.assertIn('when the Eclosion cohort step is reached',step['subjectRef'])
         self.assertIn('during this Sequence',step['notes'])
@@ -1909,6 +1935,155 @@ class SemanticPilotTests(unittest.TestCase):
         checks=run_mutation(coordinated_backlog_lowering)
         self.assertIn('Action exact backlog tuple projection',checks)
         self.assertIn('Action exact overlapping backlog-obligation closure',checks)
+
+    def test_base_objective_mission_family_semantic_closure(self):
+        source=load(DIR/'objective-mission-source-index.json')
+        by_id={row['ruleId']:row for row in load(DIR/'pilots.json')['records']}
+        backlog={row['semanticUnitId']:row for row in load(DIR/'backlog.json')['units']}
+        registry={row['sourceId']:row for row in load(DIR/'source-registry.json')['sources']}
+        self.assertEqual(len(source['physicalFaces']),30)
+        self.assertEqual({category:sum(row['category']==category for row in source['physicalFaces']) for category in ('mission-objective','private-objective','mission-task')},{'mission-objective':7,'private-objective':15,'mission-task':8})
+        self.assertEqual(sum(row['printedTitle']=='OFFICIAL ORDER' for row in source['physicalFaces']),5)
+        self.assertEqual(len({row['copyId'] for row in source['physicalFaces']}),30)
+        self.assertEqual(sum(row['semanticRuleId'] is not None for row in source['physicalFaces']),29)
+        self.assertEqual(len(source['excludedPhysicalOccurrences']),9)
+        self.assertEqual([row['physicalOccurrences'] for row in source['excludedSoloCoopRoots']],[12,26])
+        self.assertEqual(len(source['sourceFaceAssets']),50)
+        self.assertEqual(sum(row['baseSelectorGap'] is not None for row in source['sourceFaceAssets']),18)
+        self.assertEqual([len(row['baseSelectedCells']) for row in source['sourceSheets']],[12,1])
+        self.assertEqual([row['globalReferenceCount'] for row in source['sharedBacks']],[33,11])
+        self.assertEqual(len(source['officialHelpOccurrences']),45)
+        self.assertEqual(sum(row['visibility']=='fully-visible' for row in source['officialHelpOccurrences']),35)
+        self.assertEqual(sum(row['visibility']=='partially-occluded' for row in source['officialHelpOccurrences']),10)
+        self.assertEqual(len(source['licensedDigitalOccurrences']),38)
+        self.assertEqual(sum(row['competitiveDisposition']=='base-competitive-licensed-occurrence' for row in source['licensedDigitalOccurrences']),26)
+        self.assertTrue(all(not row['assertedTtsPhysicalIdentityLinks'] for row in source['licensedDigitalOccurrences']))
+        for face in source['physicalFaces']:
+            registered=registry[face['sourceId']]
+            self.assertEqual((registered['path'],registered['sha256'],registered['occurrenceId']),(face['sourcePath'],face['sourceSha256'],face['occurrenceId']))
+            self.assertFalse(any(face['identityJoinEvidence'][key] for key in ('titleOnlyJoin','bodySimilarityJoin','categoryLabelOnlyJoin','privatePersonalGlobalAliasJoin','folderOnlyJoin','sourceOrderOnlyJoin','sourceSheetOnlyJoin','generatedCellOnlyJoin','cardIdModuloJoin','licensedKeyJoin','officialHelpTitleJoin')))
+            if face['semanticRuleId']:
+                self.assertIn(face['semanticRuleId'],by_id)
+            else:
+                self.assertEqual(backlog[face['backlogUnitId']]['status'],'source-blocked')
+        self.assertIn('logs',json.dumps(by_id['SEM-OBJECTIVE-SECRECY-001']))
+        self.assertIn('accessibility',json.dumps(by_id['SEM-OBJECTIVE-SECRECY-001']))
+        self.assertEqual(by_id['SEM-RT-010']['operations'][-1]['repeat']['drawCountByChoiceOrdinal'],{'1':3,'2':2,'3':2,'4':1,'5':1})
+        self.assertEqual(by_id['SEM-ENDGAME-001']['unresolvedQuestionRefs'],['OQ-001','SEM-Q-077','SEM-Q-078'])
+        self.assertEqual({row['questionId'] for row in load(DIR/'review-gates.json')['questions'] if row['questionId'].startswith('SEM-Q-07')},{'SEM-Q-070','SEM-Q-071','SEM-Q-072','SEM-Q-073','SEM-Q-074','SEM-Q-075','SEM-Q-076','SEM-Q-077','SEM-Q-078'})
+
+    def test_objective_specific_adversarial_corruptions_are_rejected(self):
+        def run_mutation(mutate):
+            with tempfile.TemporaryDirectory(prefix='semantic-objective-negative-') as temp_dir:
+                root=Path(temp_dir)
+                data={name:load(DIR/name) for name in FILES}
+                mutate(data)
+                for name,payload in data.items():
+                    (root/name).write_text(json.dumps(payload,indent=2,ensure_ascii=False)+'\n',encoding='utf-8')
+                run,report=self.run_validator(root,skip=True)
+            self.assertNotEqual(run.returncode,0)
+            return {failure['check'] for failure in report['failures']}
+
+        def duplicate_copy(data):
+            source=data['objective-mission-source-index.json']
+            source['physicalFaces'][0]=json.loads(json.dumps(source['physicalFaces'][1]))
+        checks=run_mutation(duplicate_copy)
+        self.assertIn('Objective/Mission dropped/duplicated physical copy closure',checks)
+        self.assertIn('Objective/Mission exact physical tuple/panel/text/icon/condition projection',checks)
+
+        def collapse_category_title_alias(data):
+            source=data['objective-mission-source-index.json']
+            task=next(row for row in source['physicalFaces'] if row['category']=='mission-task')
+            task['category']='mission-objective'; task['deckId']='BASE-MISSION-OBJECTIVE-DECK'; task['printedTitle']='OFFICIAL ORDER'
+            private=next(row for row in source['physicalFaces'] if row['printedFooter']=='PERSONAL OBJECTIVE')
+            private['identityJoinEvidence']['privatePersonalGlobalAliasJoin']=True
+            private['privatePersonalAliasProjection']['globalAliasUsed']=True
+        checks=run_mutation(collapse_category_title_alias)
+        self.assertIn('Objective/Mission exact category/deck/copy partition',checks)
+        self.assertIn('Objective title/body/category/alias/folder/order/sheet/cell/modulo join prohibited',checks)
+
+        def sheet_cell_modulo_and_back_inversion(data):
+            face=next(row for row in data['objective-mission-source-index.json']['physicalFaces'] if row['sourceSelector']['generatedSpriteSheetCell'])
+            face['sourceSelector']['generatedCell']=0
+            face['sourceSelector']['cardIdModuloJoinUsed']=True
+            face['sourceSelector']['url']=face['sourceSelector']['backUrl']
+            face['identityJoinEvidence']['generatedCellOnlyJoin']=True
+            face['identityJoinEvidence']['cardIdModuloJoin']=True
+        checks=run_mutation(sheet_cell_modulo_and_back_inversion)
+        self.assertIn('Objective title/body/category/alias/folder/order/sheet/cell/modulo join prohibited',checks)
+        self.assertIn('Objective selector/back inversion',checks)
+
+        def player_count_panel_icon_checkbox_and_grouping_drift(data):
+            source=data['objective-mission-source-index.json']
+            face=next(row for row in source['physicalFaces'] if row['checkboxPanels'])
+            face['playerCountMetadata']['ttsGmNotesMinimum']=5
+            face['printedCondition']+='!'
+            face['checkboxPanels']=[]
+            face['conditionConnectorCounts']['AND']=0
+            face['panels'][0]['readingOrder']=99
+            face['iconOccurrences'][0]['semanticReferenceId']='icon.queen'
+        checks=run_mutation(player_count_panel_icon_checkbox_and_grouping_drift)
+        self.assertIn('Objective/Mission exact physical tuple/panel/text/icon/condition projection',checks)
+        self.assertIn('Objective panel/body/punctuation/order closure',checks)
+
+        def promote_occluded_text(data):
+            row=next(item for item in data['objective-mission-source-index.json']['officialHelpOccurrences'] if item['visibility']=='partially-occluded')
+            row['visibility']='fully-visible'; row['printedCondition']='borrowed licensed body'; row['semanticRuleId']='SEM-OBJECTIVE-BGA-OBJECTIVE-ANOLDFEUD-001'; row['boundaryRuleId']=None; row['occludedMetadataPromotedToVisibleEvidence']=True
+        checks=run_mutation(promote_occluded_text)
+        self.assertIn('Objective occluded-text non-promotion lock',checks)
+        self.assertIn('Objective exact official Help visible/occluded projection',checks)
+
+        def leak_identity_and_invent_default(data):
+            secrecy=next(row for row in data['pilots.json']['records'] if row['ruleId']=='SEM-OBJECTIVE-SECRECY-001')
+            secrecy['informationPolicy'][0]['audience']='public'
+            question=next(row for row in data['review-gates.json']['questions'] if row['questionId']=='SEM-Q-075')
+            question['defaultProhibited']=False
+        checks=run_mutation(leak_identity_and_invent_default)
+        self.assertIn('Objective private identity/removal/inspection/no-exposure lock',checks)
+        self.assertIn('Objective ambiguity owner/timing/default linkage',checks)
+
+        def lifecycle_and_fulfillment_drift(data):
+            records={row['ruleId']:row for row in data['pilots.json']['records']}
+            choice=records['SEM-RT-010']; choice['operations'][3],choice['operations'][4]=choice['operations'][4],choice['operations'][3]
+            for index,op in enumerate(choice['operations'],1): op['sequence']=index; op['stepId']=f'S{index:02d}'
+            endgame=records['SEM-ENDGAME-001']; endgame['operations']=[op for op in endgame['operations'] if op['stepId']!='S07']
+            for index,op in enumerate(endgame['operations'],1): op['sequence']=index; op['stepId']=f'S{index:02d}'
+            face=next(row for row in data['objective-mission-source-index.json']['physicalFaces'] if row['semanticRuleId'] and len(row['conditionTree']['clauses'])>1)
+            face['conditionTree']['clauses']=list(reversed(face['conditionTree']['clauses']))
+        checks=run_mutation(lifecycle_and_fulfillment_drift)
+        self.assertIn('Objective Choice post-move track/draw/lifecycle lock',checks)
+        self.assertIn('Objective late-choice/reveal/endgame lifecycle lock',checks)
+        self.assertIn('Objective/Mission exact physical tuple/panel/text/icon/condition projection',checks)
+
+        def lose_variant_authority_and_leak_solo(data):
+            source=data['objective-mission-source-index.json']
+            source['licensedDigitalOccurrences'][0]=json.loads(json.dumps(source['licensedDigitalOccurrences'][1]))
+            solo=next(row for row in source['licensedDigitalOccurrences'] if row['competitiveDisposition']=='solo-coop-excluded')
+            solo['competitiveDisposition']='base-competitive-licensed-occurrence'; solo['semanticRuleId']='SEM-OBJECTIVE-BGA-OBJECTIVE-OFFICIALORDER-001'
+            source['officialHelpOccurrences']=[row for row in source['officialHelpOccurrences'] if row['sourceUnitId']!='P1-MO-OFFICIAL-ORDER-1']
+        checks=run_mutation(lose_variant_authority_and_leak_solo)
+        self.assertIn('Objective exact independent licensed row/variant closure',checks)
+        self.assertIn('Objective exact official Help visible/occluded projection',checks)
+
+        def promote_blocked_face(data):
+            source=data['objective-mission-source-index.json']
+            face=next(row for row in source['physicalFaces'] if row['sourcePath'].endswith('missionTaskDeck-023.png'))
+            face['semanticRuleId']='SEM-MISSION-TASK-OFFICIAL-P1-MT-FACILITY-RESTART-001'
+            face['printedCondition']=face['printedCondition'].replace('[illegible]','[lifeSupportActive]')
+        checks=run_mutation(promote_blocked_face)
+        self.assertIn('Objective FACILITY RESTART source-blocker/no-substitution lock',checks)
+
+        def coordinated_backlog_lowering(data):
+            source=data['objective-mission-source-index.json']; backlog=data['backlog.json']
+            target=next(unit_id for unit_id in source['familyCountEvidence']['backlog']['linkedUnitIds'] if unit_id.startswith('CARD:') and unit_id!='CARD:eaa728ca02c48c33')
+            backlog['units']=[row for row in backlog['units'] if row['semanticUnitId']!=target]
+            backlog['counts']['units']-=1; backlog['counts']['byChannel']['card-reference-source-tuple']-=1; backlog['counts']['byStatus']['pilot-covered']-=1
+            source['familyCountEvidence']['backlog']['linkedUnitIds'].remove(target)
+            source['familyCountEvidence']['backlog']['cardUnitIds'].remove(target)
+            source['counts']['cardBacklogTuples']-=1; source['counts']['overlappingBacklogObligationsLinked']-=1
+        checks=run_mutation(coordinated_backlog_lowering)
+        self.assertIn('Objective exact overlapping backlog-obligation closure',checks)
+        self.assertIn('semantic backlog declared counts',checks)
 
     def test_adversarial_corruptions_are_rejected(self):
         with tempfile.TemporaryDirectory(prefix='semantic-negative-') as temp_dir:
