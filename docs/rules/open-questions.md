@@ -11,17 +11,24 @@ Use this ledger for ambiguities that the official rulebook and FAQ do not settle
 - **Candidate readings:** distinguish evidence from inference.
 - **Status:** open, awaiting official clarification, resolved by official source, or resolved by project decision.
 
+## Evidence authority and provenance
+
+- The current Awaken Realms official English rulebook and official FAQ v1.2, dated 2026-06-08, remain the primary sources. The applicable publisher FAQ/errata takes precedence over the rulebook under the corpus authority policy.
+- BoardGameGeek’s “Unofficial FAQ / Errata 1.0” is a community-maintained compilation by Bagern, not a publisher-issued FAQ or errata document. Its general statement that answers were developer-confirmed does not provide per-answer provenance.
+- BoardGameGeek user GodlyWoof is Michał Lach, credited in the official rulebook for Tests and Development and for the Rulebook. A directly authored answer from that account is treated here as a named developer/rulebook-author clarification, but it remains below publisher-issued FAQ/errata. Other BoardGameGeek answers remain community interpretations unless stronger provenance is established.
+
 ## Entries
 
 ### OQ-001 — Eclosion existing-hand behavior
 
 - **Question:** Does the Eclosion Procedure check only the 4 newly drawn cards, or all cards in hand after drawing?
 - **Why it matters:** A Character holding Contamination cards from prior turns would die more often under the literal reading.
-- **Sources checked:** Rulebook p. 38 (lines 6099–6116). The procedure says “draw 4 cards from your Action deck” then checks for Contamination “in your hand,” but does not say to clear the existing hand first.
+- **Official evidence:** Current official English Rulebook p. 38 (lines 6099–6116) first says to draw 4 cards, then checks whether “any of your cards in hand” is a Contamination card, and later directs a surviving Character to “Discard all cards from your hand.” It neither clears the existing hand before the draw nor limits the check to the 4 newly drawn cards.
+- **Community research provenance:** A community question asked this exact all-current-hand-versus-four-new-cards ambiguity and received no answer: <https://boardgamegeek.com/thread/3607782/article/47625955>. The unanswered post records the clarification search only and supplies no ruling.
 - **Candidate readings:**
   - (a) Literal: check all cards in hand after drawing, including pre-existing cards.
   - (b) Intent: check only the 4 newly drawn cards.
-- **Status:** Open. The literal reading is (a); confirm via official ruling if (b) is desired.
+- **Status:** Open. Reading (a), all cards currently in hand, is the strong literal reading; no implementation default is adopted without a publisher ruling or explicit project decision.
 
 ### OQ-002 — Endgame Larva iteration timing
 
@@ -39,21 +46,23 @@ Use this ledger for ambiguities that the official rulebook and FAQ do not settle
 
 - **Question:** What happens when the Starting Player token would pass clockwise to a Character who is dead, escaped, or hibernated?
 - **Why it matters:** Affects turn order and who acts first each Round.
-- **Sources checked:** Rulebook p. 15 (lines 3398–3400) says “next player.” Rulebook p. 18 says a dead Character “no longer takes part.” No explicit procedural rule for this case.
+- **Official evidence:** Current official English Rulebook p. 15 (lines 3398–3403) says the token passes clockwise to the “next player.” Rulebook p. 18 (lines 3760–3763) says a dead Character no longer takes part; pp. 37–38 likewise say Characters who have launched in the Lander, escaped by Shuttle, or Hibernated take no further part until the End of Game check. No checked rule says whether “next player” skips such a nonparticipant.
+- **Lander scope distinction:** A Character waiting inside an unlaunched Lander is not yet in that category. Rulebook p. 37 (lines 6042–6058) explicitly says their Turns are skipped without Passing, but they still take part in standard Cleanup, draw Action cards, and may receive the Starting Player token.
 - **Candidate readings:**
-  - (a) Skip to the next eligible (alive, non-escaped, non-hibernated) Character.
-  - (b) Token stays on the dead/escaped/hibernated Character and turn order proceeds from there.
-- **Status:** Open. Reading (a) is the natural rules-level conclusion but is not explicitly stated.
+  - (a) Skip to the next eligible Character who still takes part; an occupant waiting in the Lander remains eligible.
+  - (b) Pass to the next seat/player even if that Character no longer takes part, with the downstream turn-order effect unstated; an occupant waiting in the Lander remains eligible either way.
+- **Status:** Open. Reading (a) is the natural rules-level conclusion, but the skip procedure is not explicit and no default is adopted.
 
 ### OQ-004 — Player Phase recalculation after mid-Turn death
 
 - **Question:** How is a partially completed Player Phase recalculated when a Character dies during a Turn?
 - **Why it matters:** Determines whether the dead Character’s remaining Turn is skipped and how turn order continues.
-- **Sources checked:** Rulebook p. 13 (lines 2987–2994); Rulebook p. 18 (lines 3750–3763). The rulebook says dead Characters “no longer take part” but provides no dedicated procedural rule for mid-Phase advancement.
+- **Official evidence:** Current official English Rulebook p. 12 (lines 2854–2868, 2929–2934) separately requires a Turn to resolve two Actions, Oxygen Loss, and Fire Damage in that order. Rulebook p. 18 (lines 3758–3763) says that on death the miniature is removed, carried Items are lost, and the Character no longer takes part. Rulebook p. 13 (lines 2987–2994) defines clockwise Player Phase rotation but gives no death interrupt.
+- **Procedure gap:** The sources establish the resulting nonparticipation state, but do not define the exact partial-resolution boundary, whether any remaining Turn steps resolve after death, or how the active-actor/turn cursor advances from that interrupt point.
 - **Candidate readings:**
   - (a) The dead Character has no later Turn; proceed to the next eligible Character.
   - (b) More specific advancement algorithm needed.
-- **Status:** Open. Reading (a) is the safe rules-level conclusion; do not invent a more specific algorithm without a source.
+- **Status:** Open. Reading (a) is the natural rules-level direction, but no exact partial-resolution or actor-cursor procedure is source-defined and no default is adopted.
 
 ### OQ-005 — Rest Action card full text
 
@@ -75,11 +84,14 @@ Use this ledger for ambiguities that the official rulebook and FAQ do not settle
 
 - **Question:** When multiple Intruders enter a secured Room simultaneously, does each entering Intruder consume one Secure token, or does one token prevent all?
 - **Why it matters:** Determines how long Secure tokens last against group entry.
-- **Sources checked:** Rulebook p. 23 (lines 4396–4413); FAQ v1.2, “General rules” #11 (lines 70–72). The general rule says discard one Secure “whenever an Intruder enters,” but no explicit multi-Intruder simultaneous-entry example is given.
+- **Official evidence:** Current official English Rulebook p. 23 (lines 4396–4413) says, “Whenever an Intruder enters a Room with at least 1 Character and a Secure token, 1 Secure token is discarded instead of resolving the Intruder Attack.” Official FAQ v1.2 p. 2, “General rules” #11 (`FQ-P02-U13`), confirms that Secure tokens prevent Attacks from Intruders being placed in the Room. Neither gives a simultaneous-multiple-entrant allocation example.
+- **Developer/rulebook-author clarification:** On 2025-08-28, Michał Lach/GodlyWoof answered, “Dev here, Secure tokens prevent Attacks from Intruders being placed by hazard result. Have fun. ;)”: <https://boardgamegeek.com/thread/3566131/article/46534345>. This named clarification directly confirms the Hazard-placement case, but remains below publisher FAQ/errata and does not specify true simultaneous-entry allocation or shortage handling.
+- **Community compilation:** Bagern’s community-maintained BGG “Unofficial FAQ / Errata 1.0” says groups move together and only one Intruder enters from one group: <https://boardgamegeek.com/thread/3535082/article/46274801>. It is not publisher-issued and gives no per-answer provenance, so that group-movement statement is a secondary lead rather than a ruling.
 - **Candidate readings:**
-  - (a) Each separate entering Intruder consumes one token.
+  - (a) Each actual entering Intruder consumes one token and prevents its own entry-generated Attack.
   - (b) One token prevents the entire group.
-- **Status:** Open, leaning toward (a) based on the per-entry wording.
+- **Remaining boundary:** Even under reading (a), the checked sources do not define allocation/order when Intruders truly enter simultaneously from distinct groups or Corridors and fewer Secure tokens are available than entry-generated Attacks.
+- **Status:** Open with a strong lead. One token per actual entrant/Attack is the strongest implementation reading, but no default is adopted; true simultaneous entrants from distinct groups/Corridors and Secure-token shortage remain unresolved.
 
 ### OQ-008 — Not-in-Combat icon associations
 
@@ -93,9 +105,10 @@ Use this ledger for ambiguities that the official rulebook and FAQ do not settle
 
 - **Question:** When an official event/effect instructs placement, activation, or resolution at the Nest before it has been explored, what exact physical-game procedure applies?
 - **Why it matters:** The digital edition must reproduce the physical result, rather than reserve, defer, or relocate Nest occupants as a digital design decision.
-- **Sources checked:** Canonical event source tuples `event-090.png` (Hatching: place a Larva in the Nest) and `event-179.png` (Egg Protection: place 2 Drones in the Nest); rulebook and FAQ extraction. The card instructions are now readable, but no checked authoritative source states what to do if the Nest Room is not yet on the map.
-- **Candidate readings:** None adopted. Reserving, deferring, relocating, or forcing discovery would each add a procedure absent from the checked sources.
-- **Status:** **Open genuine semantic/source ambiguity.** The missing information is no longer card transcription; it is the physical resolution procedure for a nonexistent/Undiscovered Nest location.
+- **Official evidence:** Canonical event source tuples `event-090.png` (Hatching: place a Larva in the Nest) and `event-179.png` (Egg Protection: place 2 Drones in the Nest) are readable. Current official English Rulebook p. 20 (lines 3988–4001) makes the Section C Egg space an extension of the Nest Room tile, while p. 15 (lines 3269–3277) says to ignore an impossible Event sentence and continue. Neither rule states whether or where an Intruder is placed before the Nest Room is discovered, or whether that placement sentence is considered impossible.
+- **Community research provenance:** Conflicting replies in one community discussion propose skipping the placement versus staging the Intruder at the Egg space/border under a “Nightmare Rule”: <https://boardgamegeek.com/thread/3553947/article/46426695> and <https://boardgamegeek.com/thread/3553947/article/46436250>. Neither answer has publisher provenance; both are house interpretations and neither is adopted.
+- **Candidate readings:** None adopted. Skipping, staging at the Egg space/border, reserving, deferring, relocating, or forcing discovery would each select or add a procedure not specified by the checked official sources.
+- **Status:** **Open genuine semantic/source ambiguity.** The missing information is no longer card transcription; it is the physical resolution procedure for a nonexistent/Undiscovered Nest location. No implementation default is adopted.
 
 ### OQ-010 — Action card source inventory and authority reconciliation
 
