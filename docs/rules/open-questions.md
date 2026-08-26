@@ -125,6 +125,14 @@ Use this ledger for ambiguities that the official rulebook and FAQ do not settle
   - (b) Other combat-related restriction
 - **Status:** RESOLVED — page 40 labels its crossed-out-Intruder symbol **Not In Combat**: an Action with this icon cannot be performed in a Room with Intruders. Printed Action cards may instead use a white-gun/red-X symbol; the user confirmed that card-art variant has the same meaning. Reading (a) adopted; canonical identifier `[notInCombat]`.
 
+### SEM-Q-002 — Exploration Entrance-effect Noise
+
+- **Question:** When Movement explores an Undiscovered Room, does a Noise-roll Entrance Effect satisfy the post-Movement Noise requirement, or is it additional to a separate universal Noise roll?
+- **Why it matters:** It determines whether an exploratory Move can cause zero, one, or two Noise rolls depending on the drawn Exploration card.
+- **Official sources checked:** Current official English rulebook passages for Movement, Exploration Entrance Effects, and mandatory post-Movement Noise; official FAQ v1.2 dated 8.06.2026. The FAQ does not reconcile the passages.
+- **Secondary strong lead (not an official ruling):** The licensed Board Game Arena adaptation is published by Awaken Realms, developed by Tisaac and KuWizard, and currently labeled BETA. Its example replay at release `260617-1110` (played 2026-06-22) logs exactly one roll at Move 26 when the Entrance Effect says “Make a Noise roll,” and no automatic post-Exploration roll at Move 37 when the Entrance Effect is not a Noise roll. Sources: <https://en.boardgamearena.com/archive/replay/260617-1110/?table=872060252&player=89879864&comments=> and <https://boardgamearena.com/gamepanel?game=nemesisretaliation>.
+- **Status:** Open. This is a strong secondary lead for one Entrance-effect roll total and no automatic roll when the Entrance Effect is non-Noise, but it does not override the unresolved official wording. `docs/rules/semantics/review-gates.json` retains both alternatives and prohibits a default.
+
 ### SEM-Q-005 — Drilling Station new-Corridor endpoint selection
 
 - **Question:** When the Drilling Station says to place a new Corridor leading from the Room with the Robot, who selects the legal edge or endpoint if more than one placement is possible?
