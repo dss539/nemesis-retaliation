@@ -145,8 +145,16 @@
 ## ACT-ROBOT-001 — Activate Robot
 
 - **Cost:** 1 Action card.
-- **Source:** Rulebook p. 12, “Basic Actions List” (line 2891); Rulebook p. 37, “Robot.”
-- **Plain rule:** Activate the Robot per its printed rules. Detailed Robot rules to be transcribed from Rulebook p. 37.
+- **Restriction:** Not In Combat. The selected Robot card must have been revealed and the Robot must not have a Malfunction marker.
+- **Source:** Rulebook p. 8, “Game Setup” (lines 2421–2459); p. 12, “Basic Actions List” and `RB-P12-V02`; pp. 14 and 17, “Effects” and “Golden Rules”; p. 37, “Robot”; exact component family in `docs/rules/semantics/robot-source-index.json`.
+- **Activation route:**
+  - **Local:** the acting Character is in the Robot’s Room; pay only the normal 1-card cost.
+  - **Remote:** the acting Character is in a Computer Room; discard 1 additional Action card.
+  - A Character with a Data token may Activate remotely without the additional card; the Data token is not spent.
+- **Effect:** Resolve one entirely resolvable option on the exact revealed Robot face. The six base faces and their variants remain keyed by source occurrence, not title alone.
+- **Movement constraints:** Each Robot move is Room-to-neighboring-Room, cannot cross a Closed Door, ignores Intruders, and normally cannot traverse an Unexplored Corridor or make Noise. Exploration Robot is the sole printed exception.
+- **Tactical Gear:** The Robot starts with 1 full Ammo and 1 Oxygen token. A co-located Character performing Use Any Tactical Gear may use Robot-held tokens and transfer tokens between compatible Character/Robot slots, even while the Robot is malfunctioned.
+- **Open boundaries:** `SEM-Q-010` and `SEM-Q-012`–`SEM-Q-019` in `docs/rules/semantics/review-gates.json`; no default is adopted for the affected clauses.
 
 ## ACT-TRADE-001 — Trade
 

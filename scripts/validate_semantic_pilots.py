@@ -15,20 +15,25 @@ DIR = REPO / 'docs/rules/semantics'
 VOCAB = REPO / 'docs/rules/vocabulary'
 ONTOLOGY = REPO / 'docs/rules/ontology'
 EXPECTED = {
-    'sources': 44, 'semanticNodes': 22, 'records': 111, 'sourceBacked': 74, 'withOpenQuestion': 37,
-    'sourceVariants': 0, 'sourceAssertions': 308, 'conditions': 391,
-    'operations': 500, 'decisions': 49, 'informationPolicies': 123,
-    'costs': 3, 'targets': 142, 'openQuestionReferences': 42,
-    'variantReferences': 37, 'questions': 17, 'openQuestions': 17, 'systems': 18,
-    'conflicts': 13, 'unresolvedConflicts': 7,
+    'sources': 52, 'semanticNodes': 26, 'records': 124, 'sourceBacked': 78, 'withOpenQuestion': 46,
+    'sourceVariants': 0, 'sourceAssertions': 338, 'conditions': 444,
+    'operations': 567, 'decisions': 73, 'informationPolicies': 137,
+    'costs': 6, 'targets': 152, 'openQuestionReferences': 59,
+    'variantReferences': 46, 'questions': 25, 'openQuestions': 25, 'systems': 18,
+    'conflicts': 14, 'unresolvedConflicts': 7,
     'roomIconDenotations': 112,
-    'backlogUnits': 600, 'backlogPilotCovered': 119, 'backlogSourceBlocked': 1,
+    'backlogUnits': 600, 'backlogPilotCovered': 132, 'backlogSourceBlocked': 1,
     'eventIdentities': 20, 'eventScanOccurrences': 20, 'eventLicensedOccurrences': 20,
     'eventOfficialOccurrences': 4, 'eventRecords': 20, 'eventBacklogTuples': 20,
     'explorationIdentities': 12, 'explorationScanOccurrences': 12,
     'explorationLicensedOccurrences': 12, 'explorationOfficialOccurrences': 3,
     'explorationPrintedSentences': 46, 'explorationIconOccurrences': 60,
     'explorationRecords': 12, 'explorationBacklogTuples': 12,
+    'robotIdentities': 6, 'robotScanOccurrences': 6, 'robotSharedBackOccurrences': 1,
+    'robotLicensedOccurrences': 6, 'robotOfficialOccurrences': 2,
+    'robotPhysicalPanels': 24, 'robotOperativePanels': 12, 'robotActionOptions': 13,
+    'robotPrintedSentences': 16, 'robotIconOccurrences': 23,
+    'robotRecords': 6, 'robotBacklogTuples': 6,
 }
 PINNED_HELP_SOURCE_HASHES = {
     'docs/rules/source-extraction/intruder-help-sheet.json': 'e07f2703a6ad1b49c06389f79d3b1ffd6f5fd1d98604bf14b405fee49d9679e6',
@@ -36,6 +41,7 @@ PINNED_HELP_SOURCE_HASHES = {
     'docs/rules/source-extraction/room-help-sheet-source-fidelity-lock.json': '27c23c1c885e2ab851bef0bfb43b7471ea862af9d0308f9b3e70026320b4d8b4',
 }
 PINNED_EXPLORATION_SOURCE_INDEX_HASH = 'd95dc30738ce2efbb4cf696671388aaf731626f167601fdca70c6fee74dc95bd'
+PINNED_ROBOT_SOURCE_INDEX_HASH = 'd5c0f1abb5794cdddebba42b38580627122a43da96f8da0ff289d5b917c9b6a4'
 EXPECTED_EVENT_OCCURRENCES = {
     5609: ('SRC-EVENT-5609','assets/tts-mod/extract/v2-dl/tree/cards/game/event-099.png','0d5da2c8e1b6ccb6a30c83f9006aa924f4fc2f1f14d360d153bc5ea6f73770ed','Event_SystemFailure','SEM-EVENT-SYSTEM-FAILURE-001','SYSTEM FAILURE'),
     5610: ('SRC-EVENT-5610','assets/tts-mod/extract/v2-dl/tree/cards/game/event-009.png','92bc91f54116780d214aefd7925a46897d811f699c5921edd55f45b40deb989d','Event_NoWayOut','SEM-EVENT-NO-WAY-OUT-001','NO WAY OUT'),
@@ -71,7 +77,7 @@ EXPECTED_EVENT_QUESTION_REFS = {
     'SEM-EVENT-GENERATORS-OVERHEAT-001': ['SEM-Q-008'],
     'SEM-EVENT-OVERWHELMING-ENEMIES-001': ['SEM-Q-007'],
     'SEM-EVENT-REACTOR-OVERHEATING-001': ['SEM-Q-008'],
-    'SEM-EVENT-RISE-OF-THE-MACHINE-001': ['SEM-Q-010'],
+    'SEM-EVENT-RISE-OF-THE-MACHINE-001': ['SEM-Q-010','SEM-Q-012'],
 }
 EXPECTED_EVENT_RECORD_DIGESTS = {
     'SEM-ECLOSION-PROCEDURE-001': '353ee18e5b0f66d237cb84c0f5af55bdf68a2e80628d51e563ce3c84d780eb4d',
@@ -92,7 +98,7 @@ EXPECTED_EVENT_RECORD_DIGESTS = {
     'SEM-EVENT-PANIC-001': 'c5c497eac399b2e83ca96324b97bb56d6270fc2d79b83cc78caa73780494c374',
     'SEM-EVENT-PROTECT-AND-SERVE-001': '2889b8f62a546327ce5197aea65a46695e389b7c63896de3d4dfb5af62add55b',
     'SEM-EVENT-REACTOR-OVERHEATING-001': 'f84eeab2ee28282885036e0ff2a9af8f13ac0e7163980b7c8de1f96785d82623',
-    'SEM-EVENT-RISE-OF-THE-MACHINE-001': 'd2027c3f7e07242fecd318223f83b1210430d3c7089d971864a5fc432dbd76c7',
+    'SEM-EVENT-RISE-OF-THE-MACHINE-001': '1c93407dad63f2e01b75302501ab7722b7c5ff4a7f40f8de19fd10cf9bf6090f',
     'SEM-EVENT-SCENT-OF-PREY-001': '7d70eca226175371c6bc5925d724566cca6813f73bc3e10a8bdfdf3b233cfd73',
     'SEM-EVENT-SHORT-CIRCUIT-001': '6e3445c62a1f08bfa5af65d93b3520f9dd051e596a12a53b33639f50f290737d',
     'SEM-EVENT-SYSTEM-FAILURE-001': 'adb43651ddb31059424d57517f86abb98de6b25ca10292de3e4d0e1ff9f7b936',
@@ -130,6 +136,51 @@ EXPECTED_EXPLORATION_RECORD_DIGESTS = {
     'SEM-EXPLORATION-5638-001': 'fd8933c8bccf4c8a1bec6c3c3b9efd5c9ef95c326660c91b40211b704a925fa9',
     'SEM-EXPLORATION-5639-001': 'be75a3b593a4557f183ce4fc64859c53fb08af2e62bb822dce05de5e0de82fe2',
     'SEM-EXPLORATION-5640-001': '83c7ada5593f49b1dbde1559e658e3f0ed71f0a7bc09b7de77b80492ca81a81d',
+}
+EXPECTED_ROBOT_COUNTS = {
+    'robotIdentities':6,'ttsFaceOccurrences':6,'directCompositeFaceSelectors':6,
+    'generatedSpriteSheetCells':0,'selectorGaps':0,'ttsSharedBackOccurrences':1,
+    'baseBackSelectorReferences':7,'prototypeBackSelectorReferencesExcluded':2,
+    'canonicalCorpusFaces':4,'sourceBoundDraftFaces':2,'licensedDigitalOccurrences':6,
+    'officialVisibleComponentOccurrences':2,'officialVisibleComponentIdentities':2,
+    'physicalPanels':24,'operativePanels':12,'actionOptions':13,'printedSentences':16,
+    'functionalIconOccurrences':23,'officialVisibleFaceIconOccurrences':8,
+    'licensedPlaceholderOccurrences':23,'rulebookTextOccurrences':27,
+    'rulebookVisualOccurrences':8,'baseFaqOccurrences':1,'excludedExpansionFaqOccurrences':2,
+    'prototypeRobotCardsExcluded':2,'expansionRobotCardsExcluded':3,
+    'securityRobotRoomNameCollisionsExcluded':4,'backlogTuples':6,'backlogObligationsLinked':18,
+}
+EXPECTED_ROBOT_OCCURRENCES = {
+    506400: {'sourceId':'SRC-ROBOT-506400','path':'assets/tts-mod/extract/v2-dl/tree/cards/game/robotDeck-068.jpg','sha256':'e613b1e23d25d91e1fe5ccfe925426396c0866c5a36cba91a69dcdb493f2b2a6','guid':'cd319d','rootDeckNumber':'5064','childDeckNums':['5064'],'bgaKey':'ServerRobot','ruleId':'SEM-ROBOT-SERVER-001','title':'SERVER ROBOT','sentenceIds':['RB506400-O1-S01','RB506400-O2-S01'],'optionIds':['O1','O2'],'iconRefs':['icon.robot','icon.robot','icon.computer','icon.malfunction'],'official':['RB-P03-V01-ROBOT-SERVER']},
+    510800: {'sourceId':'SRC-ROBOT-510800','path':'assets/tts-mod/extract/v2-dl/tree/cards/game/robotDeck-173.jpg','sha256':'0e8c91aac8c15e467bbf177ddb3b8fd06600353b3f7af2f1af933b24fb1f1386','guid':'6a5c53','rootDeckNumber':'5108','childDeckNums':['5108'],'bgaKey':'SecuringRobot','ruleId':'SEM-ROBOT-SECURING-001','title':'SECURING ROBOT','sentenceIds':['RB510800-O1-S01','RB510800-O2-S01','RB510800-O3-S01'],'optionIds':['O1','O2','O3'],'iconRefs':['icon.robot','icon.robot','icon.secure','icon.robot'],'official':[]},
+    529300: {'sourceId':'SRC-ROBOT-529300','path':'assets/tts-mod/extract/v2-dl/tree/cards/game/robotDeck-004.jpg','sha256':'c78d2a69189749dcd4578ee7e270b83c6115510988286431943ba6039b2abc56','guid':'5f4876','rootDeckNumber':'5293','childDeckNums':['5293'],'bgaKey':'ExplorationRobot','ruleId':'SEM-ROBOT-EXPLORATION-001','title':'EXPLORATION ROBOT','sentenceIds':['RB529300-O1-S01','RB529300-O2-S01','RB529300-O2-S02'],'optionIds':['O1','O2'],'iconRefs':['icon.robot','icon.robot'],'official':[]},
+    529400: {'sourceId':'SRC-ROBOT-529400','path':'assets/tts-mod/extract/v2-dl/tree/cards/game/robotDeck-137.jpg','sha256':'db583cb973497fd2fba3b588d233d7c79db48e30d51e3cb0a4483524aa89fbbb','guid':'c5b268','rootDeckNumber':'5294','childDeckNums':['5107'],'bgaKey':'TechnicalRobot','ruleId':'SEM-ROBOT-TECHNICAL-001','title':'TECHNICAL ROBOT','sentenceIds':['RB529400-O1-S01','RB529400-O2-S01'],'optionIds':['O1','O2'],'iconRefs':['icon.robot','icon.malfunction','icon.fire','icon.robot'],'official':['RB-P03-V01-ROBOT-TECHNICAL']},
+    529500: {'sourceId':'SRC-ROBOT-529500','path':'assets/tts-mod/extract/v2-dl/tree/cards/game/robotDeck-130.jpg','sha256':'40751b42f461036517fa1ebc098de646dcf3a58d3407a288e54bb0da0a091dfb','guid':'90c510','rootDeckNumber':'5295','childDeckNums':['5109'],'bgaKey':'MedicalRobot','ruleId':'SEM-ROBOT-MEDICAL-001','title':'MEDICAL ROBOT','sentenceIds':['RB529500-O1-S01','RB529500-O2-S01'],'optionIds':['O1','O2'],'iconRefs':['icon.robot','icon.character','icon.robot','icon.characterHealth'],'official':[]},
+    529600: {'sourceId':'SRC-ROBOT-529600','path':'assets/tts-mod/extract/v2-dl/tree/cards/game/robotDeck-175.jpg','sha256':'27a7014ae8011fa68b71a60365b11ca0392b4e66c7d9bdfbe46eec3a6bb21411','guid':'fbe18a','rootDeckNumber':'5296','childDeckNums':['5110'],'bgaKey':'MilitaryRobot','ruleId':'SEM-ROBOT-MILITARY-001','title':'MILITARY ROBOT','sentenceIds':['RB529600-O1-S01','RB529600-O2-S01','RB529600-O2-S02','RB529600-O2-S03'],'optionIds':['O1','O2'],'iconRefs':['icon.robot','icon.robot','icon.burstDieAdditionalEffects','icon.malfunction','icon.robot'],'official':[]},
+}
+EXPECTED_ROBOT_QUESTION_REFS = {
+    'SEM-ROBOT-SERVER-001':['SEM-Q-013','SEM-Q-018'],
+    'SEM-ROBOT-SECURING-001':['SEM-Q-013','SEM-Q-016','SEM-Q-017'],
+    'SEM-ROBOT-EXPLORATION-001':['SEM-Q-013','SEM-Q-014'],
+    'SEM-ROBOT-TECHNICAL-001':['SEM-Q-013','SEM-Q-019'],
+    'SEM-ROBOT-MEDICAL-001':['SEM-Q-013','SEM-Q-015'],
+    'SEM-ROBOT-MILITARY-001':['SEM-Q-013'],
+}
+EXPECTED_ROBOT_RECORD_DIGESTS = {
+    'SEM-ACT-ROBOT-001':'33ff47a7627a4ac72740e494f9e4705e7eb31587890dad2a7b9f34a75ded8e5d',
+    'SEM-ACT-TACTICAL-001':'1821c405707f323cfe69251b3bb2bd3c27ac615ba828dbc6c2f2277dd410c7b3',
+    'SEM-ROBOT-EXPLORATION-001':'e970129e3eb71ba8ad3d19f8aafa0d6a66d25f3d7891cc6d83c63aa35e2aeeca',
+    'SEM-ROBOT-MALFUNCTION-001':'9be79b5b00465585133f5b98bbdea70bb6fa8d1465d224c1f379308b75922e75',
+    'SEM-ROBOT-MALFUNCTION-PLACEMENT-001':'5c7cb67aa0bd467409ec713302b3067f4caae14cc03d5c8d4438f77a6352cb62',
+    'SEM-ROBOT-MEDICAL-001':'4bcefa735746a996833ca4ee37aa37046687cd574031b43265621d3e3e01aa3c',
+    'SEM-ROBOT-MILITARY-001':'0871a479ab66e1a91db61c2b87fdd1c158ba2e5a3af6387578bb1683d78ee461',
+    'SEM-ROBOT-MOVEMENT-001':'bd4067f3ba534f45eb190b99a89e7f49b2ac84da007ba8427656386abf91773b',
+    'SEM-ROBOT-REVEAL-001':'42c86df72e194a4fa9756e368ae601957d621d7ffbd29382e94bf4fdf53395f4',
+    'SEM-ROBOT-SECURING-001':'12f70d443d36d6c70baca7963e844bc8294c9f6b26dde38d4c418f27d940924a',
+    'SEM-ROBOT-SERVER-001':'988fea5c5495daa519ba7a21ba4bf36b2d0ef2a229fd153612f80608d5228114',
+    'SEM-ROBOT-SETUP-001':'f54d0fea3120855aefcccc96bd2b224ef65537368fa3eb664abfb812e8774a9c',
+    'SEM-ROBOT-TACTICAL-GEAR-001':'ede891a4cb8ab75989d0ba9f331487df49e39dc324f44e472449b2bc0c45c972',
+    'SEM-ROBOT-TECHNICAL-001':'fbd73f3be0af16f3ec41af5ece34b4829a47eee66ff9020fcb0c5ec18c2a07e3',
 }
 ALLOWED_OPERATIONS = {
     'branch','change-value','choose','draw-random','end-process','evaluate-condition',
@@ -184,10 +235,11 @@ def cardinality_valid(value: dict) -> bool:
     return isinstance(maximum, int) and not isinstance(maximum, bool) and maximum >= minimum
 
 
-def validate(event_source_path: Path, exploration_source_path: Path, source_path: Path, schema_path: Path, semantic_vocabulary_path: Path, room_icon_path: Path, pilots_path: Path, review_path: Path, contradictions_path: Path, coverage_path: Path, backlog_path: Path, *, reproducibility: bool) -> dict:
+def validate(event_source_path: Path, exploration_source_path: Path, robot_source_path: Path, source_path: Path, schema_path: Path, semantic_vocabulary_path: Path, room_icon_path: Path, pilots_path: Path, review_path: Path, contradictions_path: Path, coverage_path: Path, backlog_path: Path, *, reproducibility: bool) -> dict:  # pyright: ignore[reportGeneralTypeIssues]
     failures: list[dict] = []
     event_sources = load(event_source_path)
     exploration_sources = load(exploration_source_path)
+    robot_sources = load(robot_source_path)
     sources_data = load(source_path)
     schema = load(schema_path)
     semantic_vocabulary = load(semantic_vocabulary_path)
@@ -216,7 +268,7 @@ def validate(event_source_path: Path, exploration_source_path: Path, source_path
     if len(semantic_node_ids) != len(semantic_node_rows) or any(not re.fullmatch(r'sem\.[a-z0-9.-]+', item or '') for item in semantic_node_ids):
         failures.append({'check': 'semantic node IDs'})
     semantic_kind_counts = {kind: sum(item.get('kind') == kind for item in semantic_node_rows) for kind in ('state-value','zone','position','visibility-scope')}
-    if semantic_vocabulary.get('counts') != {'nodes':22,'stateValues':15,'zones':2,'positions':2,'visibilityScopes':3} or semantic_kind_counts != {'state-value':15,'zone':2,'position':2,'visibility-scope':3}:
+    if semantic_vocabulary.get('counts') != {'nodes':26,'stateValues':19,'zones':2,'positions':2,'visibilityScopes':3} or semantic_kind_counts != {'state-value':19,'zone':2,'position':2,'visibility-scope':3}:
         failures.append({'check': 'semantic node counts'})
     for item in semantic_node_rows:
         if not item.get('label') or not item.get('sourceEvidence') or any((evidence_path(ref) is None or not evidence_path(ref).exists()) for ref in item.get('sourceEvidence') or []):
@@ -470,6 +522,167 @@ def validate(event_source_path: Path, exploration_source_path: Path, source_path
     if actual_exploration_source_ids != expected_exploration_source_ids or bga_exploration_registry.get('authority') != 'licensed-digital-secondary' or bga_exploration_registry.get('occurrenceId') != 'EXPLORATION_CARDS_DATA' or actual_back_tuple != expected_back_tuple or (back_registry.get('path'),back_registry.get('sha256'),back_registry.get('occurrenceId')) != (expected_back_tuple[0],expected_back_tuple[1],'TTS-EXPLORATION-SHARED-BACK'):
         failures.append({'check':'Exploration source-registry face/back/licensed closure'})
 
+    # Independent base-Robot family lock. Full CardID/GUID/FaceURL/root-deck
+    # tuples, not names or folders, define the six operative faces. Shared-back,
+    # prototype, expansion, Room-name, and TTS runtime-state artifacts remain
+    # explicit but cannot become extra rules faces.
+    robot_rows = robot_sources.get('faces') or []
+    robot_by_card = {row.get('ttsCardId'):row for row in robot_rows}
+    if sha(robot_source_path) != PINNED_ROBOT_SOURCE_INDEX_HASH:
+        failures.append({'check':'pinned Robot source index'})
+    if robot_sources.get('counts') != EXPECTED_ROBOT_COUNTS or set(robot_by_card) != set(EXPECTED_ROBOT_OCCURRENCES) or len(robot_by_card) != len(robot_rows):
+        failures.append({'check':'Robot source-index exact identity count'})
+    base_robot_role = next((row for row in roles if row.get('role') == 'robotDeck' and row.get('guid') == '98925d'), {})
+    root_robot_object = next((row for row in objects if row.get('guid') == '98925d'), {})
+    expected_robot_deck_nums = ['5064','5108','5293','5294','5295','5296']
+    if base_robot_role.get('deck_nums') != expected_robot_deck_nums or base_robot_role.get('n_urls') != 7 or base_robot_role.get('type') != 'DeckCustom' or root_robot_object.get('parent') != [] or root_robot_object.get('type') != 'DeckCustom':
+        failures.append({'check':'Robot root Lua role/deck/container closure'})
+    robot_provenance_by_card = {}
+    robot_back_provenance_rows = []
+    for provenance_row in provenance:
+        for obj in provenance_row.get('objects') or []:
+            if obj.get('key') == 'BackURL' and obj.get('guid') == '98925d':
+                robot_back_provenance_rows.append(provenance_row)
+            if obj.get('key') != 'FaceURL' or obj.get('type') != 'CardCustom' or not obj.get('cardId') or ['DeckCustom','98925d',''] not in (obj.get('parent') or []):
+                continue
+            card_id = int(obj['cardId'])
+            if card_id in EXPECTED_ROBOT_OCCURRENCES:
+                robot_provenance_by_card.setdefault(card_id,[]).append((provenance_row,obj))
+    if set(robot_provenance_by_card) != set(EXPECTED_ROBOT_OCCURRENCES) or any(len(rows) != 1 for rows in robot_provenance_by_card.values()) or len(robot_back_provenance_rows) != 1:
+        failures.append({'check':'Robot FaceURL/BackURL provenance closure'})
+    robot_table = next((row for row in secondary['licensedDigital']['structuredIndex']['tables'] if row.get('name') == 'ROBOT_CARDS_DATA'), {})
+    expected_robot_bga_keys = {row['bgaKey'] for row in EXPECTED_ROBOT_OCCURRENCES.values()}
+    if robot_table.get('count') != 6 or set(robot_table.get('keys') or []) != expected_robot_bga_keys:
+        failures.append({'check':'Robot licensed-digital independent index closure'})
+    visual_source = load(REPO/'docs/rules/source-extraction/rulebook-visual-obligations.json')
+    visual_by_id = {unit['occurrenceId']:unit for page in visual_source['pages'] for unit in page.get('visualUnits') or []}
+    expected_robot_visual_ids = ['RB-P03-V01','RB-P05-V01','RB-P05-V02','RB-P08-V03','RB-P09-V01','RB-P12-V02','RB-P37-V01','RB-P40-V02']
+    official_visual_rows = robot_sources.get('officialVisualOccurrences') or []
+    if [row.get('occurrenceId') for row in official_visual_rows] != expected_robot_visual_ids or any(row.get('visualType') != (visual_by_id.get(row.get('occurrenceId')) or {}).get('type') or row.get('bbox160Dpi') != (visual_by_id.get(row.get('occurrenceId')) or {}).get('bbox') for row in official_visual_rows):
+        failures.append({'check':'Robot official rulebook visual-obligation closure'})
+    expected_robot_text_ids = [
+        'RB-ROBOT-SETUP-01','RB-ROBOT-SETUP-02','RB-ROBOT-SETUP-03','RB-ROBOT-SETUP-04',
+        'RB-ROBOT-ACTION-01','RB-ROBOT-EFFECT-01','RB-ROBOT-LOCAL-01','RB-ROBOT-COMPONENT-LIMIT-01',
+        'RB-ROBOT-WOUND-01','RB-ROBOT-MALFUNCTION-01','RB-ROBOT-MALFUNCTION-02','RB-ROBOT-SECURE-01',
+        'RB-ROBOT-MALFUNCTION-LIMIT-01','RB-ROBOT-INTRO-01','RB-ROBOT-REVEAL-01','RB-ROBOT-INTRUDER-01',
+        'RB-ROBOT-FAMILY-01','RB-ROBOT-ACTIVATE-LOCAL-01','RB-ROBOT-ACTIVATE-REMOTE-01','RB-ROBOT-DATA-01',
+        'RB-ROBOT-MALFUNCTION-P37-01','RB-ROBOT-MOVE-01','RB-ROBOT-MOVE-02','RB-ROBOT-MOVE-03',
+        'RB-ROBOT-GEAR-01','RB-ROBOT-GEAR-02','RB-ROBOT-BURST-01',
+    ]
+    robot_text_rows = robot_sources.get('officialRulebookTextOccurrences') or []
+    if [row.get('occurrenceId') for row in robot_text_rows] != expected_robot_text_ids or any(not row.get('section') or not row.get('locator') or not row.get('sourceText') for row in robot_text_rows):
+        failures.append({'check':'Robot official rulebook text-occurrence closure'})
+    official_pixel_locks = {
+        506400: ('RB-P03-V01-ROBOT-SERVER',115,62,0.5391,0.5666,[1063.81,2798.88,1268.62,3084.55]),
+        529400: ('RB-P03-V01-ROBOT-TECHNICAL',134,46,0.3433,0.5303,[1201.81,2750.24,1383.27,3024.36]),
+    }
+    expected_robot_source_ids = set()
+    for card_id, expected in EXPECTED_ROBOT_OCCURRENCES.items():
+        face = robot_by_card.get(card_id) or {}
+        expected_robot_source_ids.add(expected['sourceId'])
+        actual_tuple = (face.get('sourceId'),face.get('sourcePath'),face.get('sourceSha256'),face.get('ttsCardGuid'),face.get('ttsRootDeckNumber'),face.get('ttsChildObjectDeckNums'),(face.get('bgaOccurrence') or {}).get('key'),face.get('semanticRuleId'),face.get('printedTitle'))
+        expected_tuple = (expected['sourceId'],expected['path'],expected['sha256'],expected['guid'],expected['rootDeckNumber'],expected['childDeckNums'],expected['bgaKey'],expected['ruleId'],expected['title'])
+        if actual_tuple != expected_tuple:
+            failures.append({'check':'independently locked Robot occurrence crosswalk','ttsCardId':card_id})
+        source_file = REPO/expected['path']
+        if not source_file.is_file() or sha(source_file) != expected['sha256']:
+            failures.append({'check':'Robot live source hash','ttsCardId':card_id})
+        provenance_rows = robot_provenance_by_card.get(card_id) or []
+        if provenance_rows:
+            provenance_row,obj = provenance_rows[0]
+            selector = face.get('sourceSelector') or {}
+            derived_path = 'assets/tts-mod/extract/v2-dl/tree/' + provenance_row.get('file','')
+            if derived_path != expected['path'] or int(obj.get('cardId',0)) != card_id or obj.get('guid') != expected['guid'] or selector.get('key') != 'FaceURL' or selector.get('objectType') != 'CardCustom' or selector.get('cardId') != card_id or selector.get('guid') != expected['guid'] or selector.get('parentDeckGuid') != '98925d' or selector.get('url') != provenance_row.get('url') or selector.get('sideRole') != 'operative-face' or selector.get('selectorStatus') != 'exact-composite-card-reference' or selector.get('singularUrlSelector') is not False or selector.get('generatedSpriteSheetCell') is not False or selector.get('selectorGap') is not None:
+                failures.append({'check':'Robot exact CardID/GUID/FaceURL selector projection','ttsCardId':card_id})
+        corpus_row = corpus_by_path.get(expected['path']) or {}
+        if corpus_row.get('sourceSha256') != expected['sha256'] or corpus_row.get('printedData',{}).get('body') != face.get('printedBody') or not corpus_row.get('rulesTextPresent') or corpus_row.get('extractionState') not in {'verified-canonical','draft-full'}:
+            failures.append({'check':'Robot closed-corpus face projection','ttsCardId':card_id})
+        registry = source_by_id.get(expected['sourceId']) or {}
+        if (registry.get('path'),registry.get('sha256'),registry.get('authority'),registry.get('occurrenceId'),registry.get('evidenceRecord')) != (expected['path'],expected['sha256'],'source-bound-component-scan',f'TTS-ROBOT-{card_id}-FACE',expected['sha256']):
+            failures.append({'check':'Robot source-registry exact face tuple','ttsCardId':card_id})
+        panels = face.get('panels') or []
+        panel_tuple = [(row.get('panelId'),row.get('readingOrder'),row.get('role'),row.get('operative')) for row in panels]
+        expected_panel_tuple = [('P1',1,'title',False),('P2',2,'artwork',False),('P3',3,'first-option-rules-plaque',True),('P4',4,'remaining-options-rules-field',True)]
+        if panel_tuple != expected_panel_tuple or (panels and (panels[0].get('exactText') != expected['title'] or panels[1].get('exactText') != '')):
+            failures.append({'check':'Robot exact panel roles/order','ttsCardId':card_id})
+        body = face.get('printedBody') or ''
+        for panel in panels[2:]:
+            start,end = panel.get('bodyStart'),panel.get('bodyEnd')
+            if not isinstance(start,int) or not isinstance(end,int) or body[start:end] != panel.get('exactText'):
+                failures.append({'check':'Robot exact panel text/span projection','ttsCardId':card_id,'panelId':panel.get('panelId')})
+        sentences = face.get('sentences') or []
+        if [row.get('sentenceId') for row in sentences] != expected['sentenceIds'] or [row.get('sequence') for row in sentences] != list(range(1,len(sentences)+1)) or [row.get('panelId') for row in sentences] != ['P3',*(['P4']*(len(sentences)-1))]:
+            failures.append({'check':'Robot source sentence IDs/panel order','ttsCardId':card_id})
+        cursor = 0
+        for sentence in sentences:
+            start,end = sentence.get('start'),sentence.get('end')
+            if not isinstance(start,int) or not isinstance(end,int) or start < cursor or body[start:end] != sentence.get('exactText'):
+                failures.append({'check':'Robot exact sentence span projection','ttsCardId':card_id,'sentenceId':sentence.get('sentenceId')})
+            cursor = end if isinstance(end,int) else cursor
+        options = face.get('actionOptions') or []
+        if [row.get('optionId') for row in options] != expected['optionIds'] or [row.get('sequence') for row in options] != list(range(1,len(options)+1)) or [sentence_id for option in options for sentence_id in option.get('sentenceIds') or []] != expected['sentenceIds']:
+            failures.append({'check':'Robot exact option/sentence grouping','ttsCardId':card_id})
+        icons = face.get('iconOccurrences') or []
+        if [row.get('semanticReferenceId') for row in icons] != expected['iconRefs'] or [row.get('sequence') for row in icons] != list(range(1,len(icons)+1)) or len({row.get('occurrenceId') for row in icons}) != len(icons):
+            failures.append({'check':'Robot exact source-local icon occurrence projection','ttsCardId':card_id})
+        for icon in icons:
+            start,end = icon.get('start'),icon.get('end')
+            if not isinstance(start,int) or not isinstance(end,int) or body[start:end] != f"[{icon.get('sourceToken')}]" or icon.get('semanticReferenceId') != f"icon.{icon.get('sourceToken')}":
+                failures.append({'check':'Robot exact icon token/span projection','ttsCardId':card_id,'occurrenceId':icon.get('occurrenceId')})
+        states = face.get('cardStateRoles') or {}
+        if states != {'initial':'face-down-unrevealed','afterRevealTrigger':'face-up-revealed','sharedBackSourceId':'SRC-ROBOT-BACK','separateRulesFaceOnBack':False}:
+            failures.append({'check':'Robot face/back and reveal-state role projection','ttsCardId':card_id})
+        bga = face.get('bgaOccurrence') or {}
+        if bga.get('sourceId') != 'SRC-BGA-ROBOTS' or bga.get('sourceSha256') != sha(REPO/'docs/rules/source-extraction/secondary/bga-staticData-260622-1220.js') or not bga.get('sourceBlockText') or (bga.get('sourceBlockText') or '') not in bga_text or not isinstance(bga.get('desc'),list):
+            failures.append({'check':'Robot licensed occurrence exact projection','ttsCardId':card_id})
+        official_ids = [row.get('sourceOccurrenceId') for row in face.get('officialOccurrences') or []]
+        if official_ids != expected['official']:
+            failures.append({'check':'Robot official visible-face occurrence projection','ttsCardId':card_id})
+        if card_id in official_pixel_locks:
+            official = (face.get('officialOccurrences') or [{}])[0]
+            pixel = official.get('pixelMatch') or {}
+            expected_pixel = official_pixel_locks[card_id]
+            actual_pixel = (official.get('sourceOccurrenceId'),pixel.get('ratioMatches'),pixel.get('ransacInliers'),pixel.get('inlierRatio'),pixel.get('medianReprojectionError'),pixel.get('bbox'))
+            if pixel.get('renderDpi') != 300 or actual_pixel != expected_pixel:
+                failures.append({'check':'Robot official face pixel-match lock','ttsCardId':card_id})
+        join = face.get('joinEvidence') or {}
+        basis_text = ' '.join(join.get('basis') or []).lower()
+        if join.get('titleOnlyJoin') is not False or join.get('identityJoin') != 'explicit occurrence crosswalk' or any(fragment not in basis_text for fragment in ('cardid','guid','faceurl','sha-256','panel','ordered')) or any(fragment in basis_text for fragment in ('folder-only','title-only','cardid modulo')):
+            failures.append({'check':'Robot title/folder/modulo join prohibited','ttsCardId':card_id})
+        backlog_id = 'CARD:' + expected['sha256'][:16]
+        backlog_row = backlog_rows_by_id.get(backlog_id) or {}
+        if face.get('backlogUnitId') != backlog_id or backlog_row.get('sourcePath') != expected['path'] or backlog_row.get('sourceLocator') != expected['sha256'] or backlog_row.get('pilotRuleIds') != [expected['ruleId']] or backlog_row.get('status') != 'pilot-covered':
+            failures.append({'check':'Robot exact backlog tuple projection','ttsCardId':card_id})
+    actual_robot_source_ids = {row.get('sourceId') for row in source_rows if row.get('occurrenceId','').startswith('TTS-ROBOT-') and row.get('occurrenceId') != 'TTS-ROBOT-SHARED-BACK'}
+    robot_bga_registry = source_by_id.get('SRC-BGA-ROBOTS') or {}
+    robot_back_registry = source_by_id.get('SRC-ROBOT-BACK') or {}
+    robot_back = robot_sources.get('sharedBack') or {}
+    robot_back_selector = robot_back.get('sourceSelector') or {}
+    expected_robot_back_tuple = ('assets/tts-mod/extract/v2-dl/tree/cards/game/robotDeck-155.jpg','9cf67e814071c67c598456070306951e3e24cb00a274b20d736596acfeb67c39','BackURL','DeckCustom','98925d','shared-non-operative-back',1,6,2,False,False)
+    actual_robot_back_tuple = (robot_back.get('sourcePath'),robot_back.get('sourceSha256'),robot_back_selector.get('key'),robot_back_selector.get('objectType'),robot_back_selector.get('guid'),robot_back_selector.get('sideRole'),robot_back_selector.get('rootDeckSelectorCount'),robot_back_selector.get('baseCardSelectorCount'),robot_back_selector.get('prototypeSelectorCountExcluded'),robot_back.get('rulesTextPresent'),robot_back.get('separateRulesFace'))
+    if actual_robot_source_ids != expected_robot_source_ids or robot_bga_registry.get('authority') != 'licensed-digital-secondary' or robot_bga_registry.get('occurrenceId') != 'ROBOT_CARDS_DATA' or actual_robot_back_tuple != expected_robot_back_tuple or (robot_back_registry.get('path'),robot_back_registry.get('sha256'),robot_back_registry.get('occurrenceId')) != (expected_robot_back_tuple[0],expected_robot_back_tuple[1],'TTS-ROBOT-SHARED-BACK'):
+        failures.append({'check':'Robot source-registry face/back/licensed closure'})
+    runtime = robot_sources.get('ttsRuntimeStateProvenance') or {}
+    role_tuples = [(row.get('role'),row.get('guid'),row.get('objectType')) for row in runtime.get('roleBindings') or []]
+    reveal_runtime = runtime.get('reveal') or {}
+    if role_tuples != [('robot','cbf1f3','Custom_Model'),('robotDeck','98925d','DeckCustom'),('robotToken','828c1d','Custom_Token')] or runtime.get('authorityBoundary') != 'TTS automation/provenance only; never rules authority' or (reveal_runtime.get('modelStateTransition') or {}) != {'fromGmNotes':'','toGmNotes':'active'} or (reveal_runtime.get('helperTokenStateTransition') or {}).get('toStateId') != 1 or 'not inferred' not in (reveal_runtime.get('helperTokenStateTransition') or {}).get('semanticImageIdentity',''):
+        failures.append({'check':'Robot TTS runtime state/side provenance boundary'})
+    faq_boundary = robot_sources.get('faqBoundary') or {}
+    if [row.get('sourceUnitId') for row in faq_boundary.get('baseApplicable') or []] != ['FQ-P02-U17'] or [(row.get('sourceUnitId'),row.get('applicability')) for row in faq_boundary.get('excludedExpansion') or []] != [('FQ-P03-U15','expansion-neoflesh'),('FQ-P03-U17','expansion-neoflesh')] or 'do not resolve' not in faq_boundary.get('boundary',''):
+        failures.append({'check':'Robot FAQ base/expansion applicability boundary'})
+    excluded = robot_sources.get('excludedContent') or {}
+    if {(row.get('guid'),row.get('cardId'),row.get('verdict')) for row in excluded.get('prototypeRobotCards') or []} != {('c24f3f',4404,'junk'),('d65fd6',4406,'junk')} or {(row.get('guid'),row.get('cardId'),row.get('verdict')) for row in excluded.get('expansionRobotCards') or []} != {('492017',591300,'expansion'),('a81e7e',591400,'expansion'),('37d67f',591500,'expansion')} or {row.get('guid') for row in excluded.get('securityRobotRoomNameCollisions') or []} != {'f4e834','9d92bc','4d4428','eb7a24'}:
+        failures.append({'check':'Robot prototype/expansion/Room collision exclusion boundary'})
+    robot_linked_backlog_ids = (robot_sources.get('familyCountEvidence',{}).get('backlog') or {}).get('linkedUnitIds') or []
+    expected_linked_robot_backlog_ids = [
+        'CARD:e613b1e23d25d91e','CARD:0e8c91aac8c15e46','CARD:c78d2a69189749dc',
+        'CARD:db583cb973497fd2','CARD:40751b42f4610365','CARD:27a7014ae8011fa6',
+        'RULE:ACT-ROBOT-001','RULE:ACT-TACTICAL-001','RULE:ITM-005','FAQ:FQ-P02-U17',
+        *[f'VIS:{occurrence_id}' for occurrence_id in expected_robot_visual_ids],
+    ]
+    if robot_linked_backlog_ids != expected_linked_robot_backlog_ids or any((backlog_rows_by_id.get(unit_id) or {}).get('status') != 'pilot-covered' for unit_id in expected_linked_robot_backlog_ids):
+        failures.append({'check':'Robot exact overlapping backlog-obligation closure'})
+
     required_fields = schema.get('required') or []
     schema_fields = set((schema.get('properties') or {}).keys())
     if set(required_fields) != schema_fields or schema.get('additionalProperties') is not False:
@@ -530,7 +743,7 @@ def validate(event_source_path: Path, exploration_source_path: Path, source_path
             path = evidence_path(reference)
             if path is None or not path.exists():
                 failures.append({'check': 'semantic conflict evidence', 'conflictId': conflict.get('conflictId'), 'reference': reference})
-    if contradictions.get('counts') != {'conflicts':13,'resolvedByAuthority':4,'unresolved':7,'preservedBoundary':2}:
+    if contradictions.get('counts') != {'conflicts':14,'resolvedByAuthority':5,'unresolved':7,'preservedBoundary':2}:
         failures.append({'check': 'semantic conflict declared counts'})
 
     for record in records:
@@ -1037,6 +1250,123 @@ def validate(event_source_path: Path, exploration_source_path: Path, source_path
     not_yet_text = ' '.join(coverage.get('notYetCovered') or [])
     if 'base Exploration' not in next((row.get('system','') for row in coverage.get('systems') or [] if expected_exploration_rule_ids.issubset(set(row.get('ruleIds') or []))), '') or any(fragment in not_yet_text for fragment in ('all 12 Exploration','all Exploration cards')):
         failures.append({'check':'Exploration coverage stale not-yet-covered claim'})
+
+    expected_robot_rule_ids = {row['ruleId'] for row in EXPECTED_ROBOT_OCCURRENCES.values()}
+    actual_robot_rule_ids = {rule_id for rule_id in record_by_id if rule_id in expected_robot_rule_ids}
+    if actual_robot_rule_ids != expected_robot_rule_ids:
+        failures.append({'check':'Robot semantic face-record closure','missing':sorted(expected_robot_rule_ids-actual_robot_rule_ids),'extra':sorted(actual_robot_rule_ids-expected_robot_rule_ids)})
+    for card_id,expected in EXPECTED_ROBOT_OCCURRENCES.items():
+        source_face = robot_by_card.get(card_id) or {}
+        item = record_by_id.get(expected['ruleId']) or {}
+        assertions = {row.get('assertionId'):row for row in item.get('sourceAssertions') or []}
+        scan = assertions.get(f'SA-RBT-{card_id}-SCAN') or {}
+        bga = assertions.get(f'SA-RBT-{card_id}-BGA') or {}
+        if (scan.get('sourceId'),scan.get('sourceSha256'),scan.get('sourceText'),scan.get('textKind')) != (expected['sourceId'],expected['sha256'],source_face.get('printedBody'),'verbatim'):
+            failures.append({'check':'Robot exact scan assertion projection','ttsCardId':card_id})
+        if (bga.get('sourceId'),bga.get('sourceText'),bga.get('textKind')) != ('SRC-BGA-ROBOTS',(source_face.get('bgaOccurrence') or {}).get('sourceBlockText'),'verbatim'):
+            failures.append({'check':'Robot exact licensed assertion projection','ttsCardId':card_id})
+        variants = item.get('sourceVariants') or []
+        expected_variants = [(f'SV-RBT-{card_id}-BGA','SRC-BGA-ROBOTS',f'SA-RBT-{card_id}-BGA')]
+        expected_variants.extend((f'SV-RBT-{card_id}-OFFICIAL-{index:02d}','SRC-RULEBOOK',f'SA-RBT-{card_id}-OFFICIAL-{index:02d}') for index in range(1,len(expected['official'])+1))
+        actual_variants = [(row.get('variantId'),row.get('sourceId'),row.get('sourceAssertionId')) for row in variants]
+        if actual_variants != expected_variants or any(not row.get('difference') or not row.get('resolution') for row in variants):
+            failures.append({'check':'Robot licensed/official source-variant closure','ttsCardId':card_id})
+        sentence_by_id = {row.get('sentenceId'):row for row in source_face.get('sentences') or []}
+        source_ops = [row for row in item.get('operations') or [] if row.get('sourceSentenceId')]
+        first_sentence_order = list(dict.fromkeys(row.get('sourceSentenceId') for row in source_ops))
+        if not source_ops or first_sentence_order != expected['sentenceIds'] or any(row.get('sourceSentenceId') not in sentence_by_id or row.get('sourcePanelId') != sentence_by_id.get(row.get('sourceSentenceId'),{}).get('panelId') or row.get('sourceOptionId') != sentence_by_id.get(row.get('sourceSentenceId'),{}).get('optionId') for row in source_ops):
+            failures.append({'check':'Robot semantic sentence/panel/option order projection','ttsCardId':card_id})
+        if item.get('unresolvedQuestionRefs') != EXPECTED_ROBOT_QUESTION_REFS[expected['ruleId']] or item.get('status') != 'source-backed-with-open-question':
+            failures.append({'check':'Robot no-default question projection','ttsCardId':card_id})
+        if item.get('authority',{}).get('highest') != 'official-primary':
+            failures.append({'check':'Robot authority lock','ttsCardId':card_id})
+        target_ids = {row.get('targetId') for row in item.get('targets') or []}
+        used_targets = {row.get('targetRef') for row in item.get('operations') or [] if row.get('targetRef')}
+        if target_ids != used_targets:
+            failures.append({'check':'Robot target usage closure','ttsCardId':card_id})
+        if item.get('partialResolution',{}).get('policy') != 'all-or-nothing-selection' or item.get('title') != expected['title'].title():
+            failures.append({'check':'Robot face option legality/title projection','ttsCardId':card_id})
+    activate_robot = record_by_id.get('SEM-ACT-ROBOT-001') or {}
+    activation_dispatch = next((row.get('dispatchRuleIds') for row in activate_robot.get('operations') or [] if row.get('dispatchRuleIds')), None)
+    activation_costs = [(row.get('costId'),row.get('quantity')) for row in activate_robot.get('costs') or []]
+    if activation_dispatch != [EXPECTED_ROBOT_OCCURRENCES[card_id]['ruleId'] for card_id in sorted(EXPECTED_ROBOT_OCCURRENCES)] or activation_costs != [('COST-ACT-ROBOT-BASE',1),('COST-ACT-ROBOT-REMOTE',1)] or 'Not In Combat' not in json.dumps(activate_robot,ensure_ascii=False) or 'Data token' not in json.dumps(activate_robot,ensure_ascii=False):
+        failures.append({'check':'Robot activation cost/availability/exact dispatch'})
+    setup_robot = record_by_id.get('SEM-ROBOT-SETUP-001') or {}
+    setup_text = json.dumps(setup_robot,ensure_ascii=False)
+    if not all(fragment in setup_text for fragment in ('hidden-from-all','five unselected Robot cards unseen in box','"Ammo": 20','"Oxygen": 20','"finiteRobotModels": 1','sem.state.robot-card.unrevealed')) or not any((row.get('transition') or {}).get('to') == 'tax.scaffold.zone.removed-from-game' for row in setup_robot.get('operations') or []):
+        failures.append({'check':'Robot hidden random setup/finite-component lifecycle'})
+    reveal_robot = record_by_id.get('SEM-ROBOT-REVEAL-001') or {}
+    reveal_information = reveal_robot.get('informationPolicy') or []
+    if reveal_robot.get('unresolvedQuestionRefs') != ['SEM-Q-012'] or not any(row.get('audience') == 'hidden-from-all-before-trigger; public-after-trigger' and 'first Room connected' in row.get('revealTrigger','') for row in reveal_information) or not any(row.get('operationType') == 'resolve-open-alternative' and 'SEM-Q-012' in row.get('objectRef','') for row in reveal_robot.get('operations') or []):
+        failures.append({'check':'Robot reveal/visibility no-leak boundary'})
+    movement_robot = record_by_id.get('SEM-ROBOT-MOVEMENT-001') or {}
+    movement_decisions = movement_robot.get('decisions') or []
+    movement_targets = movement_robot.get('targets') or []
+    movement_text = json.dumps(movement_robot,ensure_ascii=False)
+    if movement_robot.get('unresolvedQuestionRefs') != ['SEM-Q-013'] or len(movement_decisions) != 1 or movement_decisions[0].get('selectionMode') != 'unresolved' or movement_decisions[0].get('ownerRef') != 'P-MOVE-OWNER' or movement_decisions[0].get('cardinality') != {'min':0,'max':1} or len(movement_targets) != 1 or movement_targets[0].get('selectorRef') != 'unresolved-by-source' or movement_targets[0].get('selectionMode') != 'unresolved-when-multiple' or not all(fragment in movement_text for fragment in ('zeroStepsLegal','no Noise roll','Closed Door','Unexplored Corridor')):
+        failures.append({'check':'Robot movement no invented owner/target/default'})
+    robot_gear = record_by_id.get('SEM-ROBOT-TACTICAL-GEAR-001') or {}
+    if not all(fragment in json.dumps(robot_gear,ensure_ascii=False) for fragment in ('same Room','robotMalfunctionDoesNotBlock','between compatible Character and Robot')):
+        failures.append({'check':'Robot Tactical Gear co-location/malfunction boundary'})
+    robot_malfunction = record_by_id.get('SEM-ROBOT-MALFUNCTION-001') or {}
+    malfunction_placement = record_by_id.get('SEM-ROBOT-MALFUNCTION-PLACEMENT-001') or {}
+    if robot_malfunction.get('unresolvedQuestionRefs') != ['SEM-Q-010'] or len(robot_malfunction.get('sourceAssertions') or []) != 2 or not any(row.get('operationType') == 'resolve-open-alternative' for row in robot_malfunction.get('operations') or []):
+        failures.append({'check':'Robot equal-authority contradiction boundary'})
+    malfunction_text = json.dumps(malfunction_placement,ensure_ascii=False)
+    if malfunction_placement.get('unresolvedQuestionRefs') != ['SEM-Q-010','SEM-Q-012'] or not all(fragment in malfunction_text for fragment in ('14 finite Malfunctions','9 finite Fire','sem.state.robot.broken','tax.scaffold.supply-pool','SEM-Q-010','SEM-Q-012')) or 'Robot destroyed' in malfunction_text or 'destroyed Robot' in malfunction_text:
+        failures.append({'check':'Robot Malfunction placement/repeat/fallback lifecycle'})
+    rise = record_by_id.get('SEM-EVENT-RISE-OF-THE-MACHINE-001') or {}
+    if rise.get('unresolvedQuestionRefs') != ['SEM-Q-010','SEM-Q-012'] or not any(row.get('invokeRuleId') == 'SEM-ROBOT-MALFUNCTION-PLACEMENT-001' for row in rise.get('operations') or []):
+        failures.append({'check':'Rise of the Machine Robot reusable placement/pre-reveal boundary'})
+    exploration_robot = record_by_id.get('SEM-ROBOT-EXPLORATION-001') or {}
+    exploration_dispatch = next((row.get('dispatchRuleIds') for row in exploration_robot.get('operations') or [] if row.get('dispatchRuleIds')), None)
+    if exploration_dispatch != [EXPECTED_EXPLORATION_OCCURRENCES[card_id]['ruleId'] for card_id in sorted(EXPECTED_EXPLORATION_OCCURRENCES)] or not any('ignores every Entrance-effect' in row.get('objectRef','') for row in exploration_robot.get('operations') or []) or not any('SEM-Q-014' in row.get('objectRef','') for row in exploration_robot.get('operations') or []):
+        failures.append({'check':'Exploration Robot exact dispatch/Entrance/Noise boundary'})
+    securing_robot = record_by_id.get('SEM-ROBOT-SECURING-001') or {}
+    securing_text = json.dumps(securing_robot,ensure_ascii=False)
+    if not all(fragment in securing_text for fragment in ('SEM-Q-016','SEM-Q-017','"globalFiniteSupply": 20','"perRoomMaximum": 3','"partialPlacement": "SEM-Q-017 unresolved"')):
+        failures.append({'check':'Securing Robot Door/Secure no-default finite boundary'})
+    server_robot = record_by_id.get('SEM-ROBOT-SERVER-001') or {}
+    if not any(row.get('operationType') == 'invoke-selected-process' and row.get('dispatchRuleIds') == [f'SEM-ROOM-{index:02d}' for index in range(1,26)] and 'No second Basic-Action cost' in row.get('notes','') for row in server_robot.get('operations') or []) or any(row.get('invokeRuleId') == 'SEM-USE-ROOM-001' for row in server_robot.get('operations') or []):
+        failures.append({'check':'Server Robot Room actor/cost no-default boundary'})
+    medical_robot = record_by_id.get('SEM-ROBOT-MEDICAL-001') or {}
+    if not any(row.get('operationType') == 'resolve-open-alternative' and 'SEM-Q-015' in row.get('objectRef','') for row in medical_robot.get('operations') or []) or not any((row.get('valueChange') or {}).get('amount') == '0 through +2 chosen under SEM-Q-015' for row in medical_robot.get('operations') or []):
+        failures.append({'check':'Medical Robot branch/restoration owner boundary'})
+    technical_robot = record_by_id.get('SEM-ROBOT-TECHNICAL-001') or {}
+    if not any(row.get('operationType') == 'resolve-open-alternative' and 'SEM-Q-019' in row.get('objectRef','') for row in technical_robot.get('operations') or []) or 'automatic self-repair' not in json.dumps(technical_robot,ensure_ascii=False):
+        failures.append({'check':'Technical Robot marker-target scope boundary'})
+    military_robot = record_by_id.get('SEM-ROBOT-MILITARY-001') or {}
+    military_types = [row.get('operationType') for row in military_robot.get('operations') or [] if row.get('sourceOptionId') == 'O2']
+    if military_types != ['select-target','draw-random','change-value','invoke-process'] or not any(row.get('invokeRuleId') == 'SEM-ROBOT-MALFUNCTION-PLACEMENT-001' for row in military_robot.get('operations') or []) or 'spends no Ammo' not in json.dumps(military_robot,ensure_ascii=False):
+        failures.append({'check':'Military Robot target/Hit/additional-effect order'})
+    question_by_id = {row.get('questionId'):row for row in question_rows}
+    robot_question_blocks = {
+        'SEM-Q-012':['SEM-ROBOT-REVEAL-001','SEM-ROBOT-MALFUNCTION-PLACEMENT-001','SEM-EVENT-RISE-OF-THE-MACHINE-001'],
+        'SEM-Q-013':['SEM-ROBOT-MOVEMENT-001',*[EXPECTED_ROBOT_OCCURRENCES[card_id]['ruleId'] for card_id in sorted(EXPECTED_ROBOT_OCCURRENCES)]],
+        'SEM-Q-014':['SEM-ROBOT-EXPLORATION-001'],'SEM-Q-015':['SEM-ROBOT-MEDICAL-001'],
+        'SEM-Q-016':['SEM-ROBOT-SECURING-001'],'SEM-Q-017':['SEM-ROBOT-SECURING-001'],
+        'SEM-Q-018':['SEM-ROBOT-SERVER-001'],'SEM-Q-019':['SEM-ROBOT-TECHNICAL-001'],
+    }
+    for question_id,blocks in robot_question_blocks.items():
+        question = question_by_id.get(question_id) or {}
+        if question.get('defaultProhibited') is not True or question.get('blocksRuleIds') != blocks or len(question.get('alternatives') or []) != 3:
+            failures.append({'check':'Robot ambiguity no-default alternatives/linkage','questionId':question_id})
+    q10 = question_by_id.get('SEM-Q-010') or {}
+    q10_alternative_ids = [row.get('alternativeId') for row in q10.get('alternatives') or []]
+    if q10.get('defaultProhibited') is not True or q10.get('blocksRuleIds') != ['SEM-ROBOT-MALFUNCTION-001','SEM-ROBOT-MALFUNCTION-PLACEMENT-001','SEM-EVENT-RISE-OF-THE-MACHINE-001'] or q10_alternative_ids != ['SEM-Q-010-A','SEM-Q-010-B','SEM-Q-010-C'] or 'Page 22 controls' not in (q10.get('alternatives') or [{}])[0].get('description','') or 'Page 37 controls' not in (q10.get('alternatives') or [{},{}])[1].get('description',''):
+        failures.append({'check':'SEM-Q-010 exact unresolved contradiction preservation'})
+    actual_robot_lock_ids = set(EXPECTED_ROBOT_RECORD_DIGESTS) & set(record_by_id)
+    if actual_robot_lock_ids != set(EXPECTED_ROBOT_RECORD_DIGESTS):
+        failures.append({'check':'independently locked Robot semantic projection','missing':sorted(set(EXPECTED_ROBOT_RECORD_DIGESTS)-actual_robot_lock_ids)})
+    for rule_id,expected_digest in EXPECTED_ROBOT_RECORD_DIGESTS.items():
+        item = record_by_id.get(rule_id)
+        actual_digest = hashlib.sha256(json.dumps(item,sort_keys=True,ensure_ascii=False,separators=(',',':')).encode()).hexdigest() if item else None
+        if actual_digest != expected_digest:
+            failures.append({'check':'independently locked Robot semantic projection','ruleId':rule_id,'actual':actual_digest})
+    robot_system = next((row for row in coverage.get('systems') or [] if row.get('system') == 'base Robot card/component family'), {})
+    expected_robot_system_ids = ['SEM-ACT-ROBOT-001','SEM-ROBOT-SETUP-001','SEM-ROBOT-REVEAL-001','SEM-ROBOT-MOVEMENT-001','SEM-ROBOT-TACTICAL-GEAR-001','SEM-ROBOT-MALFUNCTION-001','SEM-ROBOT-MALFUNCTION-PLACEMENT-001',*[EXPECTED_ROBOT_OCCURRENCES[card_id]['ruleId'] for card_id in sorted(EXPECTED_ROBOT_OCCURRENCES)]]
+    if robot_system.get('ruleIds') != expected_robot_system_ids or any(fragment in not_yet_text for fragment in ('all Robot','Item/Robot/Attack')):
+        failures.append({'check':'Robot coverage stale not-yet-covered claim'})
     semantic_relation_ids = set(ontology_review.get('deferredSemanticRelationIds') or [])
     if semantic_relation_ids != {'rel.phase-part-of-round','rel.round-has-phase','rel.precedes','rel.follows','rel.turn-occurs-in-phase','rel.phase-has-turn','rel.process-has-timing-window','rel.decision-owned-by','rel.owns-decision','rel.information-visible-to','rel.transition-from','rel.transition-to'}:
         failures.append({'check': 'semantic relation handoff'})
@@ -1077,11 +1407,23 @@ def validate(event_source_path: Path, exploration_source_path: Path, source_path
         'explorationIconOccurrences': sum(len(item.get('iconOccurrences') or []) for item in exploration_rows),
         'explorationRecords': len(actual_exploration_rule_ids),
         'explorationBacklogTuples': sum((backlog_rows_by_id.get('CARD:'+value['sha256'][:16]) or {}).get('pilotRuleIds') == [value['ruleId']] for value in EXPECTED_EXPLORATION_OCCURRENCES.values()),
+        'robotIdentities': len(robot_rows),
+        'robotScanOccurrences': len(robot_rows),
+        'robotSharedBackOccurrences': int(bool(robot_sources.get('sharedBack'))),
+        'robotLicensedOccurrences': len({(item.get('bgaOccurrence') or {}).get('key') for item in robot_rows}),
+        'robotOfficialOccurrences': sum(len(item.get('officialOccurrences') or []) for item in robot_rows),
+        'robotPhysicalPanels': sum(len(item.get('panels') or []) for item in robot_rows),
+        'robotOperativePanels': sum(sum(panel.get('operative') is True for panel in item.get('panels') or []) for item in robot_rows),
+        'robotActionOptions': sum(len(item.get('actionOptions') or []) for item in robot_rows),
+        'robotPrintedSentences': sum(len(item.get('sentences') or []) for item in robot_rows),
+        'robotIconOccurrences': sum(len(item.get('iconOccurrences') or []) for item in robot_rows),
+        'robotRecords': len(actual_robot_rule_ids),
+        'robotBacklogTuples': sum((backlog_rows_by_id.get('CARD:'+value['sha256'][:16]) or {}).get('pilotRuleIds') == [value['ruleId']] for value in EXPECTED_ROBOT_OCCURRENCES.values()),
     }
     if actual_counts != EXPECTED:
         failures.append({'check': 'hard-coded semantic pilot counts', 'expected': EXPECTED, 'actual': actual_counts})
     expected_pilot_counts = {key: actual_counts[key] for key in ('records','sourceBacked','withOpenQuestion','sourceVariants','sourceAssertions','conditions','operations','decisions','informationPolicies','costs','targets','openQuestionReferences','variantReferences')}
-    if pilots.get('counts') != expected_pilot_counts or sources_data.get('counts') != {'sources': 44} or review.get('counts') != {'questions':17,'officialClarificationPreferred':7,'sourceAmbiguitiesIntroducedByPilot':10,'resolved':0,'open':17} or coverage.get('counts') != {'systems':18,'pilotRecords':111,'fullBaseSemanticCoverageClaimed':False}:
+    if pilots.get('counts') != expected_pilot_counts or sources_data.get('counts') != {'sources': 52} or review.get('counts') != {'questions':25,'officialClarificationPreferred':7,'sourceAmbiguitiesIntroducedByPilot':18,'resolved':0,'open':25} or coverage.get('counts') != {'systems':18,'pilotRecords':124,'fullBaseSemanticCoverageClaimed':False}:
         failures.append({'check': 'declared semantic counts'})
     covered_rule_ids = [rule_id for system in coverage.get('systems') or [] for rule_id in system.get('ruleIds') or []]
     if set(covered_rule_ids) != set(record_ids) or len(covered_rule_ids) != len(set(covered_rule_ids)) or coverage.get('counts', {}).get('fullBaseSemanticCoverageClaimed') is not False:
@@ -1110,7 +1452,7 @@ def validate(event_source_path: Path, exploration_source_path: Path, source_path
     if len(blocked_units) != 1 or not blocked_units[0].get('sourcePath','').endswith('missionTaskDeck-023.png') or 'exact-source-operative-span' not in blocked_units[0].get('blockers',[]):
         failures.append({'check': 'semantic backlog inherited source blocker'})
     expected_backlog_channels = {'card-reference-source-tuple':350,'interpreted-rule-record':54,'intruder-help-instruction':18,'objective-help-unit':45,'official-faq-unit':28,'room-help-entry':25,'rulebook-visual-obligation':80}
-    expected_backlog_status = {'pending':480,'pilot-covered':119,'source-blocked':1}
+    expected_backlog_status = {'pending':467,'pilot-covered':132,'source-blocked':1}
     if backlog.get('counts') != {'units':600,'byChannel':expected_backlog_channels,'byStatus':expected_backlog_status}:
         failures.append({'check': 'semantic backlog declared counts'})
 
@@ -1128,7 +1470,7 @@ def validate(event_source_path: Path, exploration_source_path: Path, source_path
                     failures.append({'check': 'semantic backlog rebuild execution', 'seed': seed, 'locale':locale_name, 'stderr': backlog_run.stderr})
                     continue
                 hashes = {}
-                for name, tracked in [('event-source-index.json',event_source_path),('exploration-source-index.json',exploration_source_path),('source-registry.json',source_path),('semantic-rule.schema.json',schema_path),('semantic-vocabulary.json',semantic_vocabulary_path),('room-icon-denotations.json',room_icon_path),('pilots.json',pilots_path),('review-gates.json',review_path),('contradictions.json',contradictions_path),('coverage.json',coverage_path),('backlog.json',backlog_path)]:
+                for name, tracked in [('event-source-index.json',event_source_path),('exploration-source-index.json',exploration_source_path),('robot-source-index.json',robot_source_path),('source-registry.json',source_path),('semantic-rule.schema.json',schema_path),('semantic-vocabulary.json',semantic_vocabulary_path),('room-icon-denotations.json',room_icon_path),('pilots.json',pilots_path),('review-gates.json',review_path),('contradictions.json',contradictions_path),('coverage.json',coverage_path),('backlog.json',backlog_path)]:
                     rebuilt = Path(temp_dir) / name
                     hashes[name] = sha(rebuilt) if rebuilt.is_file() else None
                     if not rebuilt.is_file() or hashes[name] != sha(tracked):
@@ -1144,6 +1486,7 @@ def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument('--event-source-index', type=Path, default=DIR/'event-source-index.json')
     parser.add_argument('--exploration-source-index', type=Path, default=DIR/'exploration-source-index.json')
+    parser.add_argument('--robot-source-index', type=Path, default=DIR/'robot-source-index.json')
     parser.add_argument('--source-registry', type=Path, default=DIR/'source-registry.json')
     parser.add_argument('--schema', type=Path, default=DIR/'semantic-rule.schema.json')
     parser.add_argument('--semantic-vocabulary', type=Path, default=DIR/'semantic-vocabulary.json')
@@ -1157,7 +1500,7 @@ def main() -> int:
     parser.add_argument('--report', action='store_true')
     args = parser.parse_args()
     try:
-        report = validate(args.event_source_index,args.exploration_source_index,args.source_registry,args.schema,args.semantic_vocabulary,args.room_icon_denotations,args.pilots,args.review_gates,args.contradictions,args.coverage,args.backlog,reproducibility=not args.skip_reproducibility)
+        report = validate(args.event_source_index,args.exploration_source_index,args.robot_source_index,args.source_registry,args.schema,args.semantic_vocabulary,args.room_icon_denotations,args.pilots,args.review_gates,args.contradictions,args.coverage,args.backlog,reproducibility=not args.skip_reproducibility)
     except (DuplicateJsonKeyError,json.JSONDecodeError) as error:
         report = {'schemaVersion':1,'passed':False,'checks':{},'failureCount':1,'failures':[{'check':'strict JSON parsing','error':str(error)}]}
     if args.report and args.pilots.resolve() == (DIR/'pilots.json').resolve():

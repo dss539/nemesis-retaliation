@@ -9,10 +9,11 @@ This directory is the first implementation-neutral semantic layer built over the
 - `room-icon-denotations.json` — source-scoped semantic projection of all 112 Room Help functional-icon occurrences; literal extraction remains unchanged.
 - `event-source-index.json` — mechanically derived closure of the 20 base Event face occurrences against TTS role/card IDs, source bytes, corpus/backlog tuples, official visible occurrences, and the licensed-digital table; title-only joins are prohibited.
 - `exploration-source-index.json` — mechanically derived closure of all 12 untitled base Exploration faces, their exact TTS CardID/GUID/FaceURL and shared BackURL provenance, 46 printed sentences, 12 diagrams, 60 source-local icon occurrences, official/FAQ occurrences, licensed variants, and backlog tuples; title/folder/modulo joins are prohibited.
-- `source-registry.json` — 44 exact source tuples, hashes, versions, authority, occurrence identities, and extraction-index links used by the corpus.
-- `pilots.json` — 111 validated semantic records across 18 systems; the historical filename is retained while coverage expands.
-- `review-gates.json` — seventeen explicit open semantic questions with alternatives; no default is adopted.
-- `contradictions.json` — thirteen source/semantic conflicts: four authority-resolved, seven unresolved, and two preserved boundaries.
+- `robot-source-index.json` — mechanically derived closure of the six base Robot faces, one shared non-operative back, exact root-role/CardID/GUID/FaceURL/container provenance, 24 panels, 16 sentences, 23 icons, official/FAQ/runtime-state boundaries, licensed variants, exclusions, and backlog tuples; title/folder/modulo joins are prohibited.
+- `source-registry.json` — 52 exact source tuples, hashes, versions, authority, occurrence identities, and extraction-index links used by the corpus.
+- `pilots.json` — 124 validated semantic records across 18 systems; the historical filename is retained while coverage expands.
+- `review-gates.json` — twenty-five explicit open semantic questions with alternatives; no default is adopted.
+- `contradictions.json` — fourteen source/semantic conflicts: five authority-resolved, seven unresolved, and two preserved boundaries.
 - `coverage.json` — pilot scope and the large remaining base-game semantic surface.
 - `backlog.json` — 600 source-obligation units across rule records, FAQ, visual obligations, Help sheets, and independent card/reference tuples; overlapping variants are intentionally retained.
 - `validation.json` — deterministic validation report.
@@ -42,7 +43,7 @@ Every pilot carries:
 
 ## Current coverage
 
-The 99 records cover the original reusable-procedure set plus:
+The 124 records cover the original reusable-procedure set plus:
 
 1. Round phase sequence;
 2. Player Phase rotation;
@@ -76,11 +77,12 @@ The 99 records cover the original reusable-procedure set plus:
 30. per-Corridor Noise movement/Attack ordering;
 31. all 20 mechanically closed base Event face occurrences, with exact sentence/section order, one licensed-digital variant per face, and generic occurrence-based dispatch;
 32. reusable Event movement, Noise-marker, Hazard, Secure-entry, Fire-spread, Infection, and Eclosion procedures needed by those faces; and
-33. all 12 mechanically closed untitled base Exploration face occurrences, with exact placement/reminder/Entrance/lifecycle order, source-local six-slot diagrams and icon identities, one licensed-digital variant per face, three official visible occurrences, and occurrence-based dispatch from the generic Exploration Sequence.
+33. all 12 mechanically closed untitled base Exploration face occurrences, with exact placement/reminder/Entrance/lifecycle order, source-local six-slot diagrams and icon identities, one licensed-digital variant per face, three official visible occurrences, and occurrence-based dispatch from the generic Exploration Sequence; and
+34. the complete six-face base Robot family, with one shared back, random hidden setup/reveal, local/remote Activation and Data-token costs, movement and Tactical Gear procedures, finite Malfunction/Fire/Secure handling, exact panel/sentence/icon order, six licensed variants, two official visible face occurrences, and eight new no-default questions.
 
 This is representative, **not full base-game semantic coverage**.
 
-The backlog currently records 119 covered source obligations, 480 pending obligations, and one inherited exact-source blocker (`FACILITY RESTART`). The Event and Exploration batches link all 32 exact card tuples plus overlapping rule, FAQ, and official visual obligations. These are source-obligation counts, not a claim that 600 distinct game effects exist.
+The backlog currently records 132 covered source obligations, 467 pending obligations, and one inherited exact-source blocker (`FACILITY RESTART`). The Event, Exploration, and Robot batches link all 38 exact card tuples plus overlapping rule, FAQ, and official visual obligations. These are source-obligation counts, not a claim that 600 distinct game effects exist.
 
 ## Open questions carried without defaults
 
@@ -101,8 +103,16 @@ The backlog currently records 119 covered source obligations, 480 pending obliga
 - SEM-Q-009 — Fire-spread source snapshot versus propagation during one Event sentence.
 - SEM-Q-010 — the page-22/page-37 Robot Malfunction effect-availability contradiction.
 - SEM-Q-011 — assignment/order of random Corridor draws and scarce finite components across multiple Exploration diagram slots.
+- SEM-Q-012 — external Robot-referencing effects before the selected Robot face is revealed.
+- SEM-Q-013 — Robot movement destination owner and multi-step route timing.
+- SEM-Q-014 — Exploration Robot Noise modality and timing.
+- SEM-Q-015 — Medical Robot branch and reduced-restoration decision owner.
+- SEM-Q-016 — Securing Robot “accessible” Door eligibility.
+- SEM-Q-017 — Securing Robot exact-two Secure placement under scarcity/capacity.
+- SEM-Q-018 — Server Robot Room-effect actor, local context, and nested costs.
+- SEM-Q-019 — Technical Robot Malfunction-removal target scope.
 
-- OQ-001, OQ-002, OQ-003, OQ-004, OQ-007, OQ-009, and SEM-Q-010 prefer official clarification. SEM-Q-001 through SEM-Q-009 and SEM-Q-011 otherwise require further source searching before any owner decision.
+- OQ-001, OQ-002, OQ-003, OQ-004, OQ-007, OQ-009, and SEM-Q-010 prefer official clarification. SEM-Q-001 through SEM-Q-009 and SEM-Q-011 through SEM-Q-019 otherwise require further source searching before any owner decision.
 
 ## Fidelity boundaries exercised
 
@@ -113,6 +123,10 @@ The backlog currently records 119 covered source obligations, 480 pending obliga
 - All 20 Event faces preserve exact movement/main/secondary sentence order; generic draw/discard is not duplicated into each face.
 - All 12 Exploration faces remain untitled and are keyed by stable occurrence identity; no BGA number, filename, folder, display name, or invented slug becomes a printed title.
 - Exploration diagrams retain exact source-local Corridor/Noise slots, Room markers, reminder glyph occurrences, three independent remove-from-game sentences, and the paired non-operative back. No inactive/active system icon is inferred where none is printed.
+- Robot faces are keyed by the exact root `robotDeck` role plus full CardID/GUID/FaceURL/parent-deck tuple, not display title, folder, shared URL, or CardID modulo. The anomalous child object deck numbers remain literal provenance rather than being repaired.
+- The shared Robot back, Robot model, Lua helper-state token, prototype Robot cards, advanced expansion Robots, and Security Robot Room name collisions remain distinct from the six operative faces. TTS flipping/GMNotes/state-1 behavior is runtime evidence only.
+- The selected Robot face and five excluded faces remain hidden exactly as setup states; no pre-reveal inspection, route choice, Door range, Secure scarcity policy, nested Room actor, or marker target is silently automated.
+- `SEM-Q-010` remains unresolved. The Neoflesh-specific FAQ Robot answers are retained as expansion evidence and do not override the contradictory base rulebook passages.
 - FAQ authority keeps remove-from-game outside the Entrance Effect, so all three removal transitions remain unconditional when Entrance Effects are ignored; close-Doors effects target only Doors touching the new Room.
 - Random-Corridor and finite-component assignment across multiple diagram slots remains SEM-Q-011 with no player owner, spatial order, or additional randomness invented.
 - Hatching and Egg Protection retain the Undiscovered-Nest question, and simultaneous Egg Protection entry retains OQ-007.
@@ -127,4 +141,4 @@ The backlog currently records 119 covered source obligations, 480 pending obliga
 
 ## Validation
 
-Validation rejects duplicate JSON keys, broken hashes/citations, authority-precedence errors, stale vocabulary/ontology references, missing owners/visibility/timing, invalid cardinality, dangling decisions/targets/conditions, source-variant loss, partial-resolution drift, invented defaults, implementation leakage, coverage overclaims, and non-reproducible builds. Event-specific controls reject dropped records, valid-source swaps, title-only joins, sentence-order changes, invented glyph defaults, lost licensed variants, authority inversion, and coordinated backlog-count lowering. Exploration-specific controls additionally reject dropped/duplicated faces, title/folder/modulo joins, source-face swaps, FaceURL/BackURL inversion, source-unit reordering, remove-from-game scope drift, invented titles/system icons/defaults, lost variants, authority inversion, and coordinated backlog lowering. Two builds run under different hash seeds/locales and must be byte-identical.
+Validation rejects duplicate JSON keys, broken hashes/citations, authority-precedence errors, stale vocabulary/ontology references, missing owners/visibility/timing, invalid cardinality, dangling decisions/targets/conditions, source-variant loss, partial-resolution drift, invented defaults, implementation leakage, coverage overclaims, and non-reproducible builds. Event-specific controls reject dropped records, valid-source swaps, title-only joins, sentence-order changes, invented glyph defaults, lost licensed variants, authority inversion, and coordinated backlog-count lowering. Exploration-specific controls additionally reject dropped/duplicated faces, title/folder/modulo joins, source-face swaps, FaceURL/BackURL inversion, source-unit reordering, remove-from-game scope drift, invented titles/system icons/defaults, lost variants, authority inversion, and coordinated backlog lowering. Robot-specific controls reject dropped/duplicated faces, title-only joins, face/back or runtime-state inversion, wrong GUID/CardID, sentence/panel/icon reordering or loss, reveal leakage, Malfunction contradiction flattening, invented movement owners/defaults, lost variants, authority inversion, and coordinated backlog lowering. Two builds run under different hash seeds/locales and must be byte-identical.

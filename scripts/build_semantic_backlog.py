@@ -58,21 +58,25 @@ for row in corpus['records']:
 
 event_sources=load('docs/rules/semantics/event-source-index.json')
 exploration_sources=load('docs/rules/semantics/exploration-source-index.json')
+robot_sources=load('docs/rules/semantics/robot-source-index.json')
 exploration_rule_ids=[row['semanticRuleId'] for row in exploration_sources['faces']]
+robot_rule_ids=[row['semanticRuleId'] for row in robot_sources['faces']]
 
 # Pilot-to-source obligation links. These are evidence coverage links, not claims
 # that the entire channel/category is semantically complete.
 links={
  'RULE:FND-003':['SEM-EVENT-GENERAL-001'],
  'RULE:RT-001':['SEM-RT-001'],'RULE:RT-004':['SEM-RT-004'],'RULE:RT-005':['SEM-RT-005'],'RULE:RT-007':['SEM-RT-007'],'RULE:RT-008':['SEM-RT-008'],'RULE:RT-009':['SEM-RT-009','SEM-EVENT-GENERAL-001'],'RULE:RT-010':['SEM-RT-010'],'RULE:RT-011':['SEM-RT-011'],'RULE:RT-012':['SEM-RT-012'],
- 'RULE:ACT-MOVE-001':['SEM-ACT-MOVE-001'],'RULE:ACT-EXPLORE-001':['SEM-ACT-EXPLORE-001',*exploration_rule_ids],'RULE:ACT-SEARCH-001':['SEM-ACT-SEARCH-001'],'RULE:ACT-ROBOT-001':['SEM-ROBOT-MALFUNCTION-001'],
- 'RULE:ACT-CARD-001':['SEM-ACT-SEARCH-001','SEM-ACT-REST-001'],'RULE:INT-001':['SEM-IH-QA-R-01'],'RULE:INT-004':['SEM-INT-004'],'RULE:INT-006':['SEM-INT-006'],'RULE:INT-008':['SEM-ACT-REST-001','SEM-ENDGAME-001'],'RULE:INT-010':['SEM-AUTODESTRUCTION-001'],'RULE:INT-011':['SEM-ENDGAME-001'],'RULE:ITM-005':['SEM-ITM-005'],
+ 'RULE:ACT-MOVE-001':['SEM-ACT-MOVE-001'],'RULE:ACT-EXPLORE-001':['SEM-ACT-EXPLORE-001',*exploration_rule_ids],'RULE:ACT-SEARCH-001':['SEM-ACT-SEARCH-001'],'RULE:ACT-ROBOT-001':['SEM-ACT-ROBOT-001','SEM-ROBOT-SETUP-001','SEM-ROBOT-REVEAL-001','SEM-ROBOT-MOVEMENT-001','SEM-ROBOT-MALFUNCTION-001','SEM-ROBOT-MALFUNCTION-PLACEMENT-001',*robot_rule_ids],
+ 'RULE:ACT-TACTICAL-001':['SEM-ACT-TACTICAL-001','SEM-ROBOT-TACTICAL-GEAR-001'],'RULE:ACT-CARD-001':['SEM-ACT-SEARCH-001','SEM-ACT-REST-001'],'RULE:INT-001':['SEM-IH-QA-R-01'],'RULE:INT-004':['SEM-INT-004'],'RULE:INT-006':['SEM-INT-006'],'RULE:INT-008':['SEM-ACT-REST-001','SEM-ENDGAME-001'],'RULE:INT-010':['SEM-AUTODESTRUCTION-001'],'RULE:INT-011':['SEM-ENDGAME-001'],'RULE:ITM-005':['SEM-ITM-005','SEM-ACT-TACTICAL-001','SEM-ROBOT-TACTICAL-GEAR-001'],
  'VIS:RB-P12-V02':['SEM-ACT-MOVE-001','SEM-ROOM-01'],'ROOM:01':['SEM-ROOM-01'],'INTR:QA-R-01':['SEM-IH-QA-R-01'],
  'CARD:b34d341ff67972b8':['SEM-ACT-SEARCH-001'],'CARD:69eee8ba31616f20':['SEM-ACT-REST-001'],'CARD:a3ad029d27fc444d':['SEM-REACTION-DUCK-001'],'CARD:45b5845d04f57b1':['SEM-EVENT-HATCHING-001'],
 }
 for event in event_sources['events']:
  links[event['backlogUnitId']]=[event['semanticRuleId']]
 for face in exploration_sources['faces']:
+ links[face['backlogUnitId']]=[face['semanticRuleId']]
+for face in robot_sources['faces']:
  links[face['backlogUnitId']]=[face['semanticRuleId']]
 links['FAQ:FQ-P02-U06']=['SEM-ACT-EXPLORE-001',*[row['semanticRuleId'] for row in exploration_sources['faces'] if any(item['sourceUnitId']=='FQ-P02-U06' for item in row['faqOccurrences'])]]
 links['FAQ:FQ-P02-U07']=['SEM-ACT-EXPLORE-001',*[row['semanticRuleId'] for row in exploration_sources['faces'] if any(item['sourceUnitId']=='FQ-P02-U07' for item in row['faqOccurrences'])]]
@@ -85,6 +89,14 @@ links['FAQ:FQ-P02-U11']=['SEM-EVENT-LEAVING-THE-SHELL-001','SEM-EVENT-REACTOR-OV
 links['FAQ:FQ-P02-U12']=['SEM-EVENT-INTRUDER-MOVEMENT-001']
 links['FAQ:FQ-P02-U13']=['SEM-SECURE-ENTRY-001']
 links['VIS:RB-P03-V01']=['SEM-EVENT-REACTOR-OVERHEATING-001','SEM-EVENT-SCENT-OF-PREY-001']
+links['VIS:RB-P03-V01'].extend(['SEM-ROBOT-SETUP-001','SEM-ROBOT-SERVER-001','SEM-ROBOT-TECHNICAL-001'])
+links['VIS:RB-P05-V01']=['SEM-ROBOT-SETUP-001','SEM-ROBOT-MALFUNCTION-PLACEMENT-001','SEM-ROBOT-SECURING-001','SEM-ROBOT-TACTICAL-GEAR-001']
+links['VIS:RB-P05-V02']=['SEM-ROBOT-SETUP-001']
+links['VIS:RB-P08-V03']=['SEM-ROBOT-SETUP-001','SEM-ROBOT-REVEAL-001']
+links['VIS:RB-P09-V01']=['SEM-ROBOT-SETUP-001']
+links['VIS:RB-P12-V02'].extend(['SEM-ACT-ROBOT-001','SEM-ACT-TACTICAL-001'])
+links['VIS:RB-P37-V01']=['SEM-ACT-ROBOT-001','SEM-ROBOT-REVEAL-001','SEM-ROBOT-MOVEMENT-001','SEM-ROBOT-TACTICAL-GEAR-001','SEM-ROBOT-MALFUNCTION-001']
+links['VIS:RB-P40-V02']=['SEM-ACT-ROBOT-001',*robot_rule_ids]
 links['VIS:RB-P14-V01']=['SEM-EVENT-GENERAL-001','SEM-EVENT-RISE-OF-THE-MACHINE-001']
 links['VIS:RB-P14-V02']=['SEM-EVENT-INTRUDER-MOVEMENT-001']
 links['VIS:RB-P31-V01']=['SEM-EVENT-INTRUDER-MOVEMENT-001','SEM-EVENT-SHORT-CIRCUIT-001']

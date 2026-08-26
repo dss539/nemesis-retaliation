@@ -75,4 +75,4 @@ coverage, validation, and two owner-review gates. It deliberately contains no ta
 
 A rule enters the corpus only when it has a source citation or is explicitly labeled as a project decision. When source text is ambiguous, preserve the ambiguity and add an open question rather than inventing a definitive mechanic.
 
-The extraction and controlled-vocabulary layers now include component/reference/card evidence. The next structural layer is the taxonomy/ontology proposal; executable card/Room/Event semantics remain deliberately separate and later.
+Extraction, controlled vocabulary, and static ontology gates are passed. The implementation-neutral semantic corpus is now expanding by bounded source/component families while unresolved timing, ownership, visibility, lifecycle, and variant questions remain explicit; implementation is still frozen.

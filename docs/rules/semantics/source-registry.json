@@ -10,7 +10,7 @@
     "project-interpretation"
   ],
   "counts": {
-    "sources": 44
+    "sources": 52
   },
   "sources": [
     {
@@ -32,6 +32,16 @@
       "occurrenceId": "EXPLORATION_CARDS_DATA",
       "evidenceIndexPath": "docs/rules/source-extraction/secondary-evidence-index.json",
       "evidenceRecord": "EXPLORATION_CARDS_DATA"
+    },
+    {
+      "sourceId": "SRC-BGA-ROBOTS",
+      "authority": "licensed-digital-secondary",
+      "version": "licensed BGA immutable build 260622-1220 / ROBOT_CARDS_DATA",
+      "path": "docs/rules/source-extraction/secondary/bga-staticData-260622-1220.js",
+      "sha256": "18cd8f4a2883d4f6662ed170095ff07e0d9f5da508064ed1d6bfc124f5a274ae",
+      "occurrenceId": "ROBOT_CARDS_DATA",
+      "evidenceIndexPath": "docs/rules/source-extraction/secondary-evidence-index.json",
+      "evidenceRecord": "ROBOT_CARDS_DATA"
     },
     {
       "sourceId": "SRC-CARD-DUCK",
@@ -451,6 +461,83 @@
       "path": "assets/tts-mod/extract/v2-dl/tree/cards/reference/card-069.png",
       "sha256": "4b0690bfe144ec9b57220b4564bc9dfc5e452cd770cbe5a085d54534cd6460cc",
       "evidenceIndexPath": "docs/rules/source-extraction/intruder-help-sheet.json"
+    },
+    {
+      "sourceId": "SRC-ROBOT-506400",
+      "authority": "source-bound-component-scan",
+      "version": "TTS base Robot face / root deck 98925d / CardID 506400",
+      "path": "assets/tts-mod/extract/v2-dl/tree/cards/game/robotDeck-068.jpg",
+      "sha256": "e613b1e23d25d91e1fe5ccfe925426396c0866c5a36cba91a69dcdb493f2b2a6",
+      "occurrenceId": "TTS-ROBOT-506400-FACE",
+      "evidenceIndexPath": "assets/tts-mod/extract/card-text-corpus.json",
+      "evidenceRecord": "e613b1e23d25d91e1fe5ccfe925426396c0866c5a36cba91a69dcdb493f2b2a6",
+      "provenanceIndexPath": "assets/tts-mod/extract/card-provenance-inventory.json"
+    },
+    {
+      "sourceId": "SRC-ROBOT-510800",
+      "authority": "source-bound-component-scan",
+      "version": "TTS base Robot face / root deck 98925d / CardID 510800",
+      "path": "assets/tts-mod/extract/v2-dl/tree/cards/game/robotDeck-173.jpg",
+      "sha256": "0e8c91aac8c15e467bbf177ddb3b8fd06600353b3f7af2f1af933b24fb1f1386",
+      "occurrenceId": "TTS-ROBOT-510800-FACE",
+      "evidenceIndexPath": "assets/tts-mod/extract/card-text-corpus.json",
+      "evidenceRecord": "0e8c91aac8c15e467bbf177ddb3b8fd06600353b3f7af2f1af933b24fb1f1386",
+      "provenanceIndexPath": "assets/tts-mod/extract/card-provenance-inventory.json"
+    },
+    {
+      "sourceId": "SRC-ROBOT-529300",
+      "authority": "source-bound-component-scan",
+      "version": "TTS base Robot face / root deck 98925d / CardID 529300",
+      "path": "assets/tts-mod/extract/v2-dl/tree/cards/game/robotDeck-004.jpg",
+      "sha256": "c78d2a69189749dcd4578ee7e270b83c6115510988286431943ba6039b2abc56",
+      "occurrenceId": "TTS-ROBOT-529300-FACE",
+      "evidenceIndexPath": "assets/tts-mod/extract/card-text-corpus.json",
+      "evidenceRecord": "c78d2a69189749dcd4578ee7e270b83c6115510988286431943ba6039b2abc56",
+      "provenanceIndexPath": "assets/tts-mod/extract/card-provenance-inventory.json"
+    },
+    {
+      "sourceId": "SRC-ROBOT-529400",
+      "authority": "source-bound-component-scan",
+      "version": "TTS base Robot face / root deck 98925d / CardID 529400",
+      "path": "assets/tts-mod/extract/v2-dl/tree/cards/game/robotDeck-137.jpg",
+      "sha256": "db583cb973497fd2fba3b588d233d7c79db48e30d51e3cb0a4483524aa89fbbb",
+      "occurrenceId": "TTS-ROBOT-529400-FACE",
+      "evidenceIndexPath": "assets/tts-mod/extract/card-text-corpus.json",
+      "evidenceRecord": "db583cb973497fd2fba3b588d233d7c79db48e30d51e3cb0a4483524aa89fbbb",
+      "provenanceIndexPath": "assets/tts-mod/extract/card-provenance-inventory.json"
+    },
+    {
+      "sourceId": "SRC-ROBOT-529500",
+      "authority": "source-bound-component-scan",
+      "version": "TTS base Robot face / root deck 98925d / CardID 529500",
+      "path": "assets/tts-mod/extract/v2-dl/tree/cards/game/robotDeck-130.jpg",
+      "sha256": "40751b42f461036517fa1ebc098de646dcf3a58d3407a288e54bb0da0a091dfb",
+      "occurrenceId": "TTS-ROBOT-529500-FACE",
+      "evidenceIndexPath": "assets/tts-mod/extract/card-text-corpus.json",
+      "evidenceRecord": "40751b42f461036517fa1ebc098de646dcf3a58d3407a288e54bb0da0a091dfb",
+      "provenanceIndexPath": "assets/tts-mod/extract/card-provenance-inventory.json"
+    },
+    {
+      "sourceId": "SRC-ROBOT-529600",
+      "authority": "source-bound-component-scan",
+      "version": "TTS base Robot face / root deck 98925d / CardID 529600",
+      "path": "assets/tts-mod/extract/v2-dl/tree/cards/game/robotDeck-175.jpg",
+      "sha256": "27a7014ae8011fa68b71a60365b11ca0392b4e66c7d9bdfbe46eec3a6bb21411",
+      "occurrenceId": "TTS-ROBOT-529600-FACE",
+      "evidenceIndexPath": "assets/tts-mod/extract/card-text-corpus.json",
+      "evidenceRecord": "27a7014ae8011fa68b71a60365b11ca0392b4e66c7d9bdfbe46eec3a6bb21411",
+      "provenanceIndexPath": "assets/tts-mod/extract/card-provenance-inventory.json"
+    },
+    {
+      "sourceId": "SRC-ROBOT-BACK",
+      "authority": "source-bound-component-scan",
+      "version": "TTS shared base Robot back / root deck 98925d",
+      "path": "assets/tts-mod/extract/v2-dl/tree/cards/game/robotDeck-155.jpg",
+      "sha256": "9cf67e814071c67c598456070306951e3e24cb00a274b20d736596acfeb67c39",
+      "occurrenceId": "TTS-ROBOT-SHARED-BACK",
+      "evidenceIndexPath": "assets/tts-mod/extract/card-text-corpus.json",
+      "evidenceRecord": "9cf67e814071c67c598456070306951e3e24cb00a274b20d736596acfeb67c39",
+      "provenanceIndexPath": "assets/tts-mod/extract/card-provenance-inventory.json"
     },
     {
       "sourceId": "SRC-ROOM-HELP",

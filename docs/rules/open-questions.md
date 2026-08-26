@@ -153,3 +153,51 @@ Use this ledger for ambiguities that the official rulebook and FAQ do not settle
   - (b) A fixed source-local order begins from the printed North orientation and proceeds in an unstated direction.
   - (c) Draws/components are randomly assigned among eligible slots.
 - **Status:** Open. No checked source names an owner, start slot, direction, or additional randomization. `docs/rules/semantics/review-gates.json` prohibits a default while every exact diagram remains independently preserved.
+
+### SEM-Q-012 — Unrevealed Robot and non-Activation effects
+
+- **Question:** Before the first Room connects to the Hibernatorium, which external effects may target, require, or otherwise mention the face-down Robot without inspecting its identity?
+- **Sources checked:** Rulebook pp. 8, 22, and 37; FAQ v1.2. The base rules prohibit Activation and inspection before reveal but do not give a general external-effect policy. The apparent Rise of the Machine/Robot answers on FAQ p. 3 are explicitly Neoflesh-expansion units and do not settle the base game.
+- **Status:** Open. The card stays hidden and printed Robot Actions are unavailable; no broader external-effect default is adopted.
+
+### SEM-Q-013 — Robot movement destination owner and route timing
+
+- **Question:** Who chooses each neighboring Room during a Robot effect that says “Move ... up to N times,” and is a multi-step route committed up front or chosen one step at a time?
+- **Sources checked:** Rulebook p. 37 and all six exact Robot faces. The rules establish adjacency, Closed-Door, Unexplored-Corridor, Intruder, and Noise constraints, but name no destination owner or route timing.
+- **Status:** Open. Zero steps remains legal under “up to”; no destination or tie-break is automated.
+
+### SEM-Q-014 — Exploration Robot Noise modality and timing
+
+- **Question:** After the Exploration Robot traverses an Unexplored Corridor while suppressing the Entrance Effect, must, may, or never make a Noise roll, and at what point?
+- **Sources checked:** Rulebook p. 37 and exact Exploration Robot face `robotDeck-004.jpg`. The rulebook says the Robot normally never rolls Noise and the Exploration Robot “could” make one, without stating modality or timing.
+- **Status:** Open. This is distinct from SEM-Q-002 and receives no default.
+
+### SEM-Q-015 — Medical Robot branch and restoration decision owner
+
+- **Question:** After the activating player chooses a Character, who chooses discard-one-Serious-Wound versus restore-Health, and who chooses the allowed reduced restoration amount?
+- **Sources checked:** Exact Medical Robot face and rulebook p. 18 Serious Wound/restoration rules. The face explicitly assigns only the Character target to “your choice”; ordinary health rules assign Wound and reduced-restoration choices to a player without resolving this split.
+- **Status:** Open. Target selection, branch selection, Wound selection, and restoration amount remain separate decisions.
+
+### SEM-Q-016 — Securing Robot “accessible” Door scope
+
+- **Question:** Which Doors are “accessible to the Robot” for its Open/Close option?
+- **Sources checked:** Exact Securing Robot face and rulebook Door/Robot movement passages. No checked source defines the range of “accessible” or says whether it means only Door slots touching the Robot’s Room.
+- **Status:** Open. No eligible Door set or tie-break is inferred.
+
+### SEM-Q-017 — Securing Robot exact-two placement under scarcity
+
+- **Question:** If fewer than two Secure tokens can be placed because of the finite pool or three-token Room capacity, is the option illegal, partially resolved, or a complete no-op?
+- **Sources checked:** Exact Securing Robot face; rulebook pp. 14, 17, and 23 on whole-effect legality, Component Limits, and Secure capacity; official inventory count of 20 Secure tokens.
+- **Status:** Open. The exact printed quantity and all three alternatives remain explicit; no partial-placement policy is selected.
+
+### SEM-Q-018 — Server Robot Room-effect actor and nested costs
+
+- **Question:** When Server Robot says to “use the Room (even with a Malfunction),” who is the acting/local entity for Character-specific predicates, and does any part of the ordinary two-card Use the Room Action apply again?
+- **Sources checked:** Exact Server Robot face, official page-3 visible occurrence, and rulebook effect/local/Robot/Room rules. The face clearly bypasses the Room Malfunction restriction but does not define actor substitution or nested Basic-Action costs.
+- **Status:** Open. The semantic record invokes the exact Room effect directly while preserving actor/context/cost alternatives; it does not silently charge or waive unstated requirements.
+
+### SEM-Q-019 — Technical Robot Malfunction-removal target scope
+
+- **Question:** Does “Discard a Malfunction ... from the Room with the Robot” mean only a marker on the Room component, or may it include a marker on an Item or the Robot in that Room under the general discard-Malfunction rule?
+- **Sources checked:** Exact Technical Robot face, official page-3 visible occurrence, and rulebook pp. 17 and 22 local/discard-Malfunction passages.
+- **Status:** Open. Fire remains a Room marker; no automatic self-repair or broader Malfunction target is adopted.

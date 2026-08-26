@@ -189,7 +189,8 @@
     {
       "system": "Tactical Gear",
       "ruleIds": [
-        "SEM-ITM-005"
+        "SEM-ITM-005",
+        "SEM-ACT-TACTICAL-001"
       ]
     },
     {
@@ -199,21 +200,33 @@
       ]
     },
     {
-      "system": "Robot Malfunction",
+      "system": "base Robot card/component family",
       "ruleIds": [
-        "SEM-ROBOT-MALFUNCTION-001"
+        "SEM-ACT-ROBOT-001",
+        "SEM-ROBOT-SETUP-001",
+        "SEM-ROBOT-REVEAL-001",
+        "SEM-ROBOT-MOVEMENT-001",
+        "SEM-ROBOT-TACTICAL-GEAR-001",
+        "SEM-ROBOT-MALFUNCTION-001",
+        "SEM-ROBOT-MALFUNCTION-PLACEMENT-001",
+        "SEM-ROBOT-SERVER-001",
+        "SEM-ROBOT-SECURING-001",
+        "SEM-ROBOT-EXPLORATION-001",
+        "SEM-ROBOT-TECHNICAL-001",
+        "SEM-ROBOT-MEDICAL-001",
+        "SEM-ROBOT-MILITARY-001"
       ]
     }
   ],
   "counts": {
     "systems": 18,
-    "pilotRecords": 111,
+    "pilotRecords": 124,
     "fullBaseSemanticCoverageClaimed": false
   },
   "notYetCovered": [
-    "remaining card corpus outside the closed 20-card base Event and 12-card base Exploration families",
+    "remaining card corpus outside the closed 20-card Event, 12-card Exploration, and 6-card Robot families",
     "all Objectives/Mission Tasks",
-    "all Item/Robot/Attack/Queen Health/Serious Wound effects",
+    "all remaining Item/Attack/Queen Health/Serious Wound effects",
     "remaining setup, map, procedure, and component lifecycle rules"
   ]
 }

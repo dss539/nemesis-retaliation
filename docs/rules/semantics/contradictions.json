@@ -3,8 +3,8 @@
   "recordType": "semantic-conflict-register",
   "policy": "Readable source differences remain separate. Authority may resolve a general rule without rewriting lower-authority component wording; unresolved conflicts never receive a default.",
   "counts": {
-    "conflicts": 13,
-    "resolvedByAuthority": 4,
+    "conflicts": 14,
+    "resolvedByAuthority": 5,
     "unresolved": 7,
     "preservedBoundary": 2
   },
@@ -220,6 +220,21 @@
       ],
       "difference": "Each face shows two to four source-local Corridor slots and some show multiple Noise/Door placements, while the rulebook says to place a random Corridor in each shown space and treats components as finite without assigning draws or scarce components among slots.",
       "resolution": "No default; preserve exact slot sets and all alternatives in review-gates.json without inventing a player choice, spatial order, or extra randomization."
+    },
+    {
+      "conflictId": "SC-014",
+      "title": "Military Robot scan punctuation versus licensed occurrence",
+      "status": "resolved-by-authority",
+      "questionId": null,
+      "affectedRuleIds": [
+        "SEM-ROBOT-MILITARY-001"
+      ],
+      "evidenceRefs": [
+        "SRC-ROBOT-529600",
+        "SRC-BGA-ROBOTS"
+      ],
+      "difference": "The exact TTS component scan ends the additional-effect instruction with a period after the Robot glyph; the licensed ROBOT_CARDS_DATA occurrence omits that final period.",
+      "resolution": "The source-bound component scan controls over the licensed-digital secondary occurrence; preserve both verbatim without normalizing the BGA record."
     }
   ]
 }

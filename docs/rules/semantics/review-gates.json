@@ -3,11 +3,11 @@
   "recordType": "semantic-review-gates",
   "status": "pilot built with deferred questions and explicit alternatives; no default answer adopted",
   "counts": {
-    "questions": 17,
+    "questions": 25,
     "officialClarificationPreferred": 7,
-    "sourceAmbiguitiesIntroducedByPilot": 10,
+    "sourceAmbiguitiesIntroducedByPilot": 18,
     "resolved": 0,
-    "open": 17
+    "open": 25
   },
   "questions": [
     {
@@ -447,6 +447,7 @@
       "decisionClass": "official-clarification-preferred",
       "blocksRuleIds": [
         "SEM-ROBOT-MALFUNCTION-001",
+        "SEM-ROBOT-MALFUNCTION-PLACEMENT-001",
         "SEM-EVENT-RISE-OF-THE-MACHINE-001"
       ],
       "plannedRuleIds": [],
@@ -512,6 +513,262 @@
           "alternativeId": "SEM-Q-011-C",
           "description": "Randomly assign drawn Corridors and scarce components among the remaining eligible source-local slots.",
           "support": "Corridor identity is random, but the source does not extend randomness to slot assignment"
+        }
+      ]
+    },
+    {
+      "questionId": "SEM-Q-012",
+      "title": "Unrevealed Robot and non-Activation effects",
+      "decisionClass": "source-ambiguity-owner-decision-after-source-search",
+      "blocksRuleIds": [
+        "SEM-ROBOT-REVEAL-001",
+        "SEM-ROBOT-MALFUNCTION-PLACEMENT-001",
+        "SEM-EVENT-RISE-OF-THE-MACHINE-001"
+      ],
+      "plannedRuleIds": [],
+      "defaultProhibited": true,
+      "sourceEvidenceRefs": [
+        "docs/rulebooks/rulebook_text.txt:lines 2421–2426, 2446–2448, 4383–4391, 5982–5996",
+        "docs/rules/semantics/robot-source-index.json"
+      ],
+      "alternatives": [
+        {
+          "alternativeId": "SEM-Q-012-A",
+          "description": "Before reveal, printed Robot actions/text remain inaccessible but external effects that need only the physical Robot/card may resolve without inspection.",
+          "support": "card is face down and Activation is barred; page 22 distinguishes effects that only require a Robot"
+        },
+        {
+          "alternativeId": "SEM-Q-012-B",
+          "description": "All Robot-referencing effects are unavailable until the reveal trigger.",
+          "support": "possible extension of pre-reveal Activation unavailability; not stated"
+        },
+        {
+          "alternativeId": "SEM-Q-012-C",
+          "description": "A source-specific external effect may reveal or inspect the face before the normal trigger.",
+          "support": "no checked base source grants that access"
+        }
+      ]
+    },
+    {
+      "questionId": "SEM-Q-013",
+      "title": "Robot movement destination owner and multi-step route timing",
+      "decisionClass": "source-ambiguity-owner-decision-after-source-search",
+      "blocksRuleIds": [
+        "SEM-ROBOT-MOVEMENT-001",
+        "SEM-ROBOT-SERVER-001",
+        "SEM-ROBOT-SECURING-001",
+        "SEM-ROBOT-EXPLORATION-001",
+        "SEM-ROBOT-TECHNICAL-001",
+        "SEM-ROBOT-MEDICAL-001",
+        "SEM-ROBOT-MILITARY-001"
+      ],
+      "plannedRuleIds": [],
+      "defaultProhibited": true,
+      "sourceEvidenceRefs": [
+        "docs/rulebooks/rulebook_text.txt:lines 6023–6032",
+        "docs/rules/semantics/robot-source-index.json"
+      ],
+      "alternatives": [
+        {
+          "alternativeId": "SEM-Q-013-A",
+          "description": "The activating player selects each legal neighboring destination as each step is reached and may stop at zero through the printed maximum.",
+          "support": "movement comes from player Actions and the faces say up to; selection timing is not explicit"
+        },
+        {
+          "alternativeId": "SEM-Q-013-B",
+          "description": "The activating player commits the complete route when choosing the movement option.",
+          "support": "possible single-effect resolution; not stated"
+        },
+        {
+          "alternativeId": "SEM-Q-013-C",
+          "description": "Another source-defined owner or worst-case physical resolution selects destinations.",
+          "support": "Golden Rule supplies a physical worst-case fallback but no deterministic target/tie-break suitable as a silent default"
+        }
+      ]
+    },
+    {
+      "questionId": "SEM-Q-014",
+      "title": "Exploration Robot Noise modality and timing",
+      "decisionClass": "source-ambiguity-owner-decision-after-source-search",
+      "blocksRuleIds": [
+        "SEM-ROBOT-EXPLORATION-001"
+      ],
+      "plannedRuleIds": [],
+      "defaultProhibited": true,
+      "sourceEvidenceRefs": [
+        "docs/rulebooks/rulebook_text.txt:lines 6023–6032",
+        "assets/tts-mod/extract/v2-dl/tree/cards/game/robotDeck-004.jpg"
+      ],
+      "alternatives": [
+        {
+          "alternativeId": "SEM-Q-014-A",
+          "description": "After the Robot explores, resolve one mandatory post-Movement Noise roll despite ignored Entrance Effects.",
+          "support": "the Exploration Robot is the sole no-Noise exception and “could make” may describe this case"
+        },
+        {
+          "alternativeId": "SEM-Q-014-B",
+          "description": "Resolve no Noise because the Robot normally never rolls Noise and the card suppresses the Entrance Effect.",
+          "support": "the exception wording is permissive rather than mandatory"
+        },
+        {
+          "alternativeId": "SEM-Q-014-C",
+          "description": "Resolve Noise only when another source-specific part of the selected Exploration occurrence requires it.",
+          "support": "possible scoped meaning of “could”; no timing rule recovered"
+        }
+      ]
+    },
+    {
+      "questionId": "SEM-Q-015",
+      "title": "Medical Robot branch and reduced-restoration decision owner",
+      "decisionClass": "source-ambiguity-owner-decision-after-source-search",
+      "blocksRuleIds": [
+        "SEM-ROBOT-MEDICAL-001"
+      ],
+      "plannedRuleIds": [],
+      "defaultProhibited": true,
+      "sourceEvidenceRefs": [
+        "docs/rulebooks/rulebook_text.txt:lines 3797–3813",
+        "assets/tts-mod/extract/v2-dl/tree/cards/game/robotDeck-130.jpg"
+      ],
+      "alternatives": [
+        {
+          "alternativeId": "SEM-Q-015-A",
+          "description": "The activating player chooses the target and discard-versus-restore branch; the target owner chooses the Wound and restoration amount.",
+          "support": "face explicitly gives “your choice” only for the Character; general health rules give affected player choices"
+        },
+        {
+          "alternativeId": "SEM-Q-015-B",
+          "description": "The targeted Character’s player chooses the branch as well as Wound/restoration amount.",
+          "support": "the target resolves “discards ... or restores”; branch owner is not explicit"
+        },
+        {
+          "alternativeId": "SEM-Q-015-C",
+          "description": "The activating player owns every choice.",
+          "support": "possible effect-owner reading; conflicts with ordinary affected-player health choices"
+        }
+      ]
+    },
+    {
+      "questionId": "SEM-Q-016",
+      "title": "Securing Robot accessible Door eligibility",
+      "decisionClass": "source-ambiguity-owner-decision-after-source-search",
+      "blocksRuleIds": [
+        "SEM-ROBOT-SECURING-001"
+      ],
+      "plannedRuleIds": [],
+      "defaultProhibited": true,
+      "sourceEvidenceRefs": [
+        "assets/tts-mod/extract/v2-dl/tree/cards/game/robotDeck-173.jpg",
+        "docs/rulebooks/rulebook_text.txt:lines 4243–4287, 6023–6032"
+      ],
+      "alternatives": [
+        {
+          "alternativeId": "SEM-Q-016-A",
+          "description": "Eligible Doors are Door slots directly touching the Robot’s current Room.",
+          "support": "local physical access reading; “accessible” is not defined"
+        },
+        {
+          "alternativeId": "SEM-Q-016-B",
+          "description": "Eligible Doors include another source-defined nearby/reachable set.",
+          "support": "the word accessible may be broader than touching; no range is stated"
+        },
+        {
+          "alternativeId": "SEM-Q-016-C",
+          "description": "Apply the ordinary local-effect rule from the activating Character’s Room.",
+          "support": "general default exists, but the face explicitly anchors access to the Robot instead"
+        }
+      ]
+    },
+    {
+      "questionId": "SEM-Q-017",
+      "title": "Securing Robot exact-two Secure placement under scarcity/capacity",
+      "decisionClass": "source-ambiguity-owner-decision-after-source-search",
+      "blocksRuleIds": [
+        "SEM-ROBOT-SECURING-001"
+      ],
+      "plannedRuleIds": [],
+      "defaultProhibited": true,
+      "sourceEvidenceRefs": [
+        "docs/rulebooks/rulebook_text.txt:lines 3187–3198, 3543–3548, 4396–4405",
+        "assets/tts-mod/extract/v2-dl/tree/cards/game/robotDeck-173.jpg"
+      ],
+      "alternatives": [
+        {
+          "alternativeId": "SEM-Q-017-A",
+          "description": "The option is selectable only when exactly 2 Secure tokens can be placed within supply and Room capacity.",
+          "support": "chosen effects must resolve entirely"
+        },
+        {
+          "alternativeId": "SEM-Q-017-B",
+          "description": "Place available tokens sequentially and let each unavailable placement do nothing under Component Limits.",
+          "support": "generic unavailable components do nothing; quantity grouping is unspecified"
+        },
+        {
+          "alternativeId": "SEM-Q-017-C",
+          "description": "If both cannot be placed, the complete placement instruction does nothing.",
+          "support": "possible whole-instruction reading of Component Limits"
+        }
+      ]
+    },
+    {
+      "questionId": "SEM-Q-018",
+      "title": "Server Robot Room-effect actor, costs, and local context",
+      "decisionClass": "source-ambiguity-owner-decision-after-source-search",
+      "blocksRuleIds": [
+        "SEM-ROBOT-SERVER-001"
+      ],
+      "plannedRuleIds": [],
+      "defaultProhibited": true,
+      "sourceEvidenceRefs": [
+        "assets/tts-mod/extract/v2-dl/tree/cards/game/robotDeck-068.jpg",
+        "docs/rulebooks/rulebook_text.txt:lines 3187–3198, 3537–3542, 5982–6041"
+      ],
+      "alternatives": [
+        {
+          "alternativeId": "SEM-Q-018-A",
+          "description": "The activating player resolves the Robot Room’s printed effect using the activating Character for “you” predicates, with no second Basic-Action cost and only the Room Malfunction restriction bypassed.",
+          "support": "Robot option is already the selected effect; actor substitution is not stated"
+        },
+        {
+          "alternativeId": "SEM-Q-018-B",
+          "description": "The Robot is the local acting entity and the activating player owns choices, so Character-specific predicates may be unavailable.",
+          "support": "face anchors the Room to the Robot"
+        },
+        {
+          "alternativeId": "SEM-Q-018-C",
+          "description": "Invoke the complete Use the Room Basic Action except for the printed Malfunction override.",
+          "support": "literal “use the Room” wording; would add cost/restrictions not printed on the Robot face"
+        }
+      ]
+    },
+    {
+      "questionId": "SEM-Q-019",
+      "title": "Technical Robot Malfunction-removal target scope",
+      "decisionClass": "source-ambiguity-owner-decision-after-source-search",
+      "blocksRuleIds": [
+        "SEM-ROBOT-TECHNICAL-001"
+      ],
+      "plannedRuleIds": [],
+      "defaultProhibited": true,
+      "sourceEvidenceRefs": [
+        "assets/tts-mod/extract/v2-dl/tree/cards/game/robotDeck-137.jpg",
+        "docs/rulebooks/rulebook_text.txt:lines 3537–3542, 4392–4395"
+      ],
+      "alternatives": [
+        {
+          "alternativeId": "SEM-Q-019-A",
+          "description": "“From the Room” targets only a marker physically on the Room component; Fire has the same scope.",
+          "support": "face names the Room rather than an object in it"
+        },
+        {
+          "alternativeId": "SEM-Q-019-B",
+          "description": "The general discard-Malfunction rule permits a marker on the Room, an Item, or the Robot in that Room, while Fire remains on the Room.",
+          "support": "page 22 broadens local discard-Malfunction effects unless stated otherwise"
+        },
+        {
+          "alternativeId": "SEM-Q-019-C",
+          "description": "Another target owner/scope applies because the activating Character may be remote.",
+          "support": "general local effects anchor to a Character, but this face explicitly anchors to the Robot Room"
         }
       ]
     }

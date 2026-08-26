@@ -14,8 +14,8 @@
       "rulebook-visual-obligation": 80
     },
     "byStatus": {
-      "pending": 480,
-      "pilot-covered": 119,
+      "pending": 467,
+      "pilot-covered": 132,
       "source-blocked": 1
     }
   },
@@ -376,7 +376,18 @@
       "authority": "project-interpretation",
       "status": "pilot-covered",
       "pilotRuleIds": [
-        "SEM-ROBOT-MALFUNCTION-001"
+        "SEM-ACT-ROBOT-001",
+        "SEM-ROBOT-SETUP-001",
+        "SEM-ROBOT-REVEAL-001",
+        "SEM-ROBOT-MOVEMENT-001",
+        "SEM-ROBOT-MALFUNCTION-001",
+        "SEM-ROBOT-MALFUNCTION-PLACEMENT-001",
+        "SEM-ROBOT-SERVER-001",
+        "SEM-ROBOT-SECURING-001",
+        "SEM-ROBOT-EXPLORATION-001",
+        "SEM-ROBOT-TECHNICAL-001",
+        "SEM-ROBOT-MEDICAL-001",
+        "SEM-ROBOT-MILITARY-001"
       ],
       "blockers": []
     },
@@ -420,8 +431,11 @@
       "sourcePath": "docs/rules/02-character-actions.md",
       "sourceLocator": "ACT-TACTICAL-001",
       "authority": "project-interpretation",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ACT-TACTICAL-001",
+        "SEM-ROBOT-TACTICAL-GEAR-001"
+      ],
       "blockers": []
     },
     {
@@ -636,7 +650,9 @@
       "authority": "project-interpretation",
       "status": "pilot-covered",
       "pilotRuleIds": [
-        "SEM-ITM-005"
+        "SEM-ITM-005",
+        "SEM-ACT-TACTICAL-001",
+        "SEM-ROBOT-TACTICAL-GEAR-001"
       ],
       "blockers": []
     },
@@ -1048,7 +1064,10 @@
       "status": "pilot-covered",
       "pilotRuleIds": [
         "SEM-EVENT-REACTOR-OVERHEATING-001",
-        "SEM-EVENT-SCENT-OF-PREY-001"
+        "SEM-EVENT-SCENT-OF-PREY-001",
+        "SEM-ROBOT-SETUP-001",
+        "SEM-ROBOT-SERVER-001",
+        "SEM-ROBOT-TECHNICAL-001"
       ],
       "blockers": []
     },
@@ -1081,8 +1100,13 @@
       "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
       "sourceLocator": "RB-P05-V01",
       "authority": "official-primary",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ROBOT-SETUP-001",
+        "SEM-ROBOT-MALFUNCTION-PLACEMENT-001",
+        "SEM-ROBOT-SECURING-001",
+        "SEM-ROBOT-TACTICAL-GEAR-001"
+      ],
       "blockers": []
     },
     {
@@ -1092,8 +1116,10 @@
       "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
       "sourceLocator": "RB-P05-V02",
       "authority": "official-primary",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ROBOT-SETUP-001"
+      ],
       "blockers": []
     },
     {
@@ -1136,8 +1162,11 @@
       "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
       "sourceLocator": "RB-P08-V03",
       "authority": "official-primary",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ROBOT-SETUP-001",
+        "SEM-ROBOT-REVEAL-001"
+      ],
       "blockers": []
     },
     {
@@ -1147,8 +1176,10 @@
       "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
       "sourceLocator": "RB-P09-V01",
       "authority": "official-primary",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ROBOT-SETUP-001"
+      ],
       "blockers": []
     },
     {
@@ -1216,7 +1247,9 @@
       "status": "pilot-covered",
       "pilotRuleIds": [
         "SEM-ACT-MOVE-001",
-        "SEM-ROOM-01"
+        "SEM-ROOM-01",
+        "SEM-ACT-ROBOT-001",
+        "SEM-ACT-TACTICAL-001"
       ],
       "blockers": []
     },
@@ -1862,8 +1895,14 @@
       "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
       "sourceLocator": "RB-P37-V01",
       "authority": "official-primary",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ACT-ROBOT-001",
+        "SEM-ROBOT-REVEAL-001",
+        "SEM-ROBOT-MOVEMENT-001",
+        "SEM-ROBOT-TACTICAL-GEAR-001",
+        "SEM-ROBOT-MALFUNCTION-001"
+      ],
       "blockers": []
     },
     {
@@ -1917,8 +1956,16 @@
       "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
       "sourceLocator": "RB-P40-V02",
       "authority": "official-primary",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ACT-ROBOT-001",
+        "SEM-ROBOT-SERVER-001",
+        "SEM-ROBOT-SECURING-001",
+        "SEM-ROBOT-EXPLORATION-001",
+        "SEM-ROBOT-TECHNICAL-001",
+        "SEM-ROBOT-MEDICAL-001",
+        "SEM-ROBOT-MILITARY-001"
+      ],
       "blockers": []
     },
     {
@@ -6506,8 +6553,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/robotDeck-004.jpg",
       "sourceLocator": "c78d2a69189749dcd4578ee7e270b83c6115510988286431943ba6039b2abc56",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ROBOT-EXPLORATION-001"
+      ],
       "blockers": []
     },
     {
@@ -6517,8 +6566,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/robotDeck-068.jpg",
       "sourceLocator": "e613b1e23d25d91e1fe5ccfe925426396c0866c5a36cba91a69dcdb493f2b2a6",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ROBOT-SERVER-001"
+      ],
       "blockers": []
     },
     {
@@ -6528,8 +6579,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/robotDeck-130.jpg",
       "sourceLocator": "40751b42f461036517fa1ebc098de646dcf3a58d3407a288e54bb0da0a091dfb",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ROBOT-MEDICAL-001"
+      ],
       "blockers": []
     },
     {
@@ -6539,8 +6592,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/robotDeck-137.jpg",
       "sourceLocator": "db583cb973497fd2fba3b588d233d7c79db48e30d51e3cb0a4483524aa89fbbb",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ROBOT-TECHNICAL-001"
+      ],
       "blockers": []
     },
     {
@@ -6550,8 +6605,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/robotDeck-173.jpg",
       "sourceLocator": "0e8c91aac8c15e467bbf177ddb3b8fd06600353b3f7af2f1af933b24fb1f1386",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ROBOT-SECURING-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -6563,8 +6620,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/robotDeck-175.jpg",
       "sourceLocator": "27a7014ae8011fa68b71a60365b11ca0392b4e66c7d9bdfbe46eec3a6bb21411",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ROBOT-MILITARY-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]

@@ -862,6 +862,7 @@ def build_event_records(repo: Path, event_source_index: dict, record, assertion,
         if card_id == 5627:
             assertions.append(assertion(f"SA-EVT-{code}-ROBOT-P22", "SRC-RULEBOOK", "printed page 22 / Malfunction on a Robot", ["operations", "unresolvedQuestionRefs", "sourceVariants"], "A malfunctioned Robot has no text/icons and cannot be used, but effects that only require a Robot can still be used; another Robot Malfunction placement is ignored.", "docs/rulebooks/rulebook_text.txt:lines 4383–4391"))
             assertions.append(assertion(f"SA-EVT-{code}-ROBOT-P37", "SRC-RULEBOOK", "printed page 37 / Malfunction marker on the Robot", ["operations", "unresolvedQuestionRefs", "sourceVariants"], "A Robot with a Malfunction has no Action and all game effects mentioning the Robot are unavailable.", "docs/rulebooks/rulebook_text.txt:lines 6015–6022"))
+            assertions.append(assertion(f"SA-EVT-{code}-ROBOT-REVEAL", "SRC-RULEBOOK", "printed pages 8 and 37 / unrevealed Robot", ["operations", "unresolvedQuestionRefs", "sourceVariants"], "The selected Robot card begins face down and the Robot cannot be Activated until a Room first connects to the Hibernatorium, but the checked base rules do not state a general pre-reveal policy for external Robot-referencing effects.", "docs/rulebooks/rulebook_text.txt:lines 2421–2426, 2446–2448, 5982–5996"))
 
         participants = [participant("P-RULES", "rules-system")]
         information = [{"informationId": f"I-EVT-{code}-PUBLIC", "subjectRef": "drawn Event identity, printed sentences, targets, and results", "audience": "public", "revealTrigger": "Event draw/resolution", "secrecy": "remaining Event-deck order stays unrevealed"}]
@@ -1080,13 +1081,13 @@ def build_event_records(repo: Path, event_source_index: dict, record, assertion,
             add_move("EV5627-MOVE-01", "Intruders in NW–SE Corridors")
             add_move("EV5627-MOVE-02", "Intruders in every Room")
             add("EV5627-MAIN-01", "resolve-open-alternative", "must", "P-RULES", "SEM-Q-010 Robot-malfunction passage conflict", source_ids=[scan_assertion_id, f"SA-EVT-{code}-ROBOT-P22", f"SA-EVT-{code}-ROBOT-P37"], conditions=["Robot already has a Malfunction"])
-            add("EV5627-MAIN-01", "place-component", "if-able", "P-RULES", "1 Malfunction marker on the Robot", source_ids=[scan_assertion_id, supplement_id, f"SA-EVT-{code}-ROBOT-P22", f"SA-EVT-{code}-ROBOT-P37"])
+            add("EV5627-MAIN-01", "invoke-process", "must", "P-RULES", "source-composed Robot Malfunction placement, including pre-reveal and repeated-placement boundaries", source_ids=[scan_assertion_id, supplement_id, f"SA-EVT-{code}-ROBOT-P22", f"SA-EVT-{code}-ROBOT-P37", f"SA-EVT-{code}-ROBOT-REVEAL"], invoke="SEM-ROBOT-MALFUNCTION-PLACEMENT-001")
             target_id = add_target("T-EV5627-ROBOT-ROOM", ["tax.entity.spatial.room"])
             add("EV5627-MAIN-02", "place-component", "if-able", "P-RULES", "1 Malfunction marker in the Room containing the Robot", source_ids=[scan_assertion_id, supplement_id, f"SA-EVT-{code}-ROBOT-P22", f"SA-EVT-{code}-ROBOT-P37"], target_ref=target_id)
             char_target = add_target("T-EV5627-CHARACTERS", ["tax.entity.agent.character"], mode="deterministic-turn-order")
             add("EV5627-MAIN-03", "change-value", "if-able", "each Character in that Room in Turn order", "Character Health", target_ref=char_target, value_change={"amount": -2, "valueTaxonId": "tax.state.health.point"}, repeat={"order": "Turn order"}, notes="Characters inside the Lander are not in the Room and are not affected.")
             add_noise_placement("EV5627-SECONDARY-01")
-            terms.extend(["icon.malfunction", "icon.robot", "icon.character", "icon.characterHealth"]); taxa.extend(["tax.entity.component.marker.malfunction", "tax.entity.agent.robot", "tax.entity.agent.character", "tax.state.health.point"]); unresolved.append("SEM-Q-010")
+            terms.extend(["icon.malfunction", "icon.robot", "icon.character", "icon.characterHealth"]); taxa.extend(["tax.entity.component.marker.malfunction", "tax.entity.agent.robot", "tax.entity.agent.character", "tax.state.health.point"]); unresolved.extend(["SEM-Q-010", "SEM-Q-012"])
         elif card_id == 5628:
             add_move("EV5628-MOVE-01", "Intruders in NE–SW Corridors")
             add_move("EV5628-MOVE-02", "Intruders in every Room")

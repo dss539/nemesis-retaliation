@@ -10,7 +10,7 @@ import unittest
 REPO=Path(__file__).resolve().parents[1]
 DIR=REPO/'docs/rules/semantics'
 VALIDATOR=REPO/'scripts/validate_semantic_pilots.py'
-FILES=('event-source-index.json','exploration-source-index.json','source-registry.json','semantic-rule.schema.json','semantic-vocabulary.json','room-icon-denotations.json','pilots.json','review-gates.json','contradictions.json','coverage.json','backlog.json')
+FILES=('event-source-index.json','exploration-source-index.json','robot-source-index.json','source-registry.json','semantic-rule.schema.json','semantic-vocabulary.json','room-icon-denotations.json','pilots.json','review-gates.json','contradictions.json','coverage.json','backlog.json')
 
 
 def load(path): return json.loads(path.read_text(encoding='utf-8'))
@@ -19,7 +19,7 @@ def load(path): return json.loads(path.read_text(encoding='utf-8'))
 class SemanticPilotTests(unittest.TestCase):
     def run_validator(self, root=None, skip=False):
         base=root or DIR
-        command=['python3',str(VALIDATOR),'--event-source-index',str(base/'event-source-index.json'),'--exploration-source-index',str(base/'exploration-source-index.json'),'--source-registry',str(base/'source-registry.json'),'--schema',str(base/'semantic-rule.schema.json'),'--semantic-vocabulary',str(base/'semantic-vocabulary.json'),'--room-icon-denotations',str(base/'room-icon-denotations.json'),'--pilots',str(base/'pilots.json'),'--review-gates',str(base/'review-gates.json'),'--contradictions',str(base/'contradictions.json'),'--coverage',str(base/'coverage.json'),'--backlog',str(base/'backlog.json')]
+        command=['python3',str(VALIDATOR),'--event-source-index',str(base/'event-source-index.json'),'--exploration-source-index',str(base/'exploration-source-index.json'),'--robot-source-index',str(base/'robot-source-index.json'),'--source-registry',str(base/'source-registry.json'),'--schema',str(base/'semantic-rule.schema.json'),'--semantic-vocabulary',str(base/'semantic-vocabulary.json'),'--room-icon-denotations',str(base/'room-icon-denotations.json'),'--pilots',str(base/'pilots.json'),'--review-gates',str(base/'review-gates.json'),'--contradictions',str(base/'contradictions.json'),'--coverage',str(base/'coverage.json'),'--backlog',str(base/'backlog.json')]
         if skip: command.append('--skip-reproducibility')
         run=subprocess.run(command,cwd=REPO,check=False,capture_output=True,text=True,timeout=300)
         return run,json.loads(run.stdout)
@@ -28,15 +28,15 @@ class SemanticPilotTests(unittest.TestCase):
         run,report=self.run_validator()
         self.assertEqual(run.returncode,0,run.stdout+run.stderr)
         self.assertTrue(report['passed'])
-        self.assertEqual(report['checks']['records'],111)
-        self.assertEqual(report['checks']['operations'],500)
-        self.assertEqual(report['checks']['decisions'],49)
-        self.assertEqual(report['checks']['targets'],142)
-        self.assertEqual(report['checks']['openQuestions'],17)
-        self.assertEqual(report['checks']['semanticNodes'],22)
-        self.assertEqual(report['checks']['conflicts'],13)
+        self.assertEqual(report['checks']['records'],124)
+        self.assertEqual(report['checks']['operations'],567)
+        self.assertEqual(report['checks']['decisions'],73)
+        self.assertEqual(report['checks']['targets'],152)
+        self.assertEqual(report['checks']['openQuestions'],25)
+        self.assertEqual(report['checks']['semanticNodes'],26)
+        self.assertEqual(report['checks']['conflicts'],14)
         self.assertEqual(report['checks']['backlogUnits'],600)
-        self.assertEqual(report['checks']['backlogPilotCovered'],119)
+        self.assertEqual(report['checks']['backlogPilotCovered'],132)
         self.assertEqual(report['checks']['eventIdentities'],20)
         self.assertEqual(report['checks']['eventRecords'],20)
         self.assertEqual(report['checks']['eventBacklogTuples'],20)
@@ -45,6 +45,12 @@ class SemanticPilotTests(unittest.TestCase):
         self.assertEqual(report['checks']['explorationPrintedSentences'],46)
         self.assertEqual(report['checks']['explorationIconOccurrences'],60)
         self.assertEqual(report['checks']['explorationBacklogTuples'],12)
+        self.assertEqual(report['checks']['robotIdentities'],6)
+        self.assertEqual(report['checks']['robotRecords'],6)
+        self.assertEqual(report['checks']['robotPhysicalPanels'],24)
+        self.assertEqual(report['checks']['robotPrintedSentences'],16)
+        self.assertEqual(report['checks']['robotIconOccurrences'],23)
+        self.assertEqual(report['checks']['robotBacklogTuples'],6)
         self.assertEqual(report['checks']['roomIconDenotations'],112)
 
     def test_high_risk_semantic_boundaries(self):
@@ -270,6 +276,186 @@ class SemanticPilotTests(unittest.TestCase):
             backlog['counts']['byChannel']['card-reference-source-tuple']-=1
             backlog['counts']['byStatus']['pilot-covered']-=1
         self.assertIn('Exploration exact backlog tuple projection',run_mutation(lower_backlog))
+
+    def test_base_robot_family_semantic_closure(self):
+        source=load(DIR/'robot-source-index.json')
+        registry={row['sourceId']:row for row in load(DIR/'source-registry.json')['sources']}
+        by_id={row['ruleId']:row for row in load(DIR/'pilots.json')['records']}
+        backlog={row['semanticUnitId']:row for row in load(DIR/'backlog.json')['units']}
+        self.assertEqual(source['counts'],{
+            'robotIdentities':6,'ttsFaceOccurrences':6,'directCompositeFaceSelectors':6,
+            'generatedSpriteSheetCells':0,'selectorGaps':0,'ttsSharedBackOccurrences':1,
+            'baseBackSelectorReferences':7,'prototypeBackSelectorReferencesExcluded':2,
+            'canonicalCorpusFaces':4,'sourceBoundDraftFaces':2,'licensedDigitalOccurrences':6,
+            'officialVisibleComponentOccurrences':2,'officialVisibleComponentIdentities':2,
+            'physicalPanels':24,'operativePanels':12,'actionOptions':13,'printedSentences':16,
+            'functionalIconOccurrences':23,'officialVisibleFaceIconOccurrences':8,
+            'licensedPlaceholderOccurrences':23,'rulebookTextOccurrences':27,
+            'rulebookVisualOccurrences':8,'baseFaqOccurrences':1,'excludedExpansionFaqOccurrences':2,
+            'prototypeRobotCardsExcluded':2,'expansionRobotCardsExcluded':3,
+            'securityRobotRoomNameCollisionsExcluded':4,'backlogTuples':6,'backlogObligationsLinked':18,
+        })
+        card_ids=[506400,510800,529300,529400,529500,529600]
+        self.assertEqual([row['ttsCardId'] for row in source['faces']],card_ids)
+        self.assertEqual(source['familyCountEvidence']['ttsRole']['rootDeckNumbers'],['5064','5108','5293','5294','5295','5296'])
+        self.assertEqual(source['sharedBack']['sourceSelector'],{
+            'key':'BackURL','objectType':'DeckCustom','guid':'98925d',
+            'url':'https://steamusercontent-a.akamaihd.net/ugc/2468613527880246407/895F8FE734520A2A146ED7B3557FB72CAA491CBF/',
+            'sideRole':'shared-non-operative-back','rootDeckSelectorCount':1,
+            'baseCardSelectorCount':6,'prototypeSelectorCountExcluded':2,
+        })
+        self.assertFalse(source['sharedBack']['rulesTextPresent'])
+        self.assertFalse(source['sharedBack']['separateRulesFace'])
+        self.assertEqual([(row['sourceOccurrenceId'],row['pixelMatch']['ransacInliers']) for face in source['faces'] for row in face['officialOccurrences']],[('RB-P03-V01-ROBOT-SERVER',62),('RB-P03-V01-ROBOT-TECHNICAL',46)])
+        rule_ids=[]
+        for face in source['faces']:
+            rule=by_id[face['semanticRuleId']]
+            rule_ids.append(face['semanticRuleId'])
+            self.assertEqual(face['sourceSelector']['key'],'FaceURL')
+            self.assertEqual(face['sourceSelector']['cardId'],face['ttsCardId'])
+            self.assertEqual(face['sourceSelector']['guid'],face['ttsCardGuid'])
+            self.assertEqual(face['sourceSelector']['parentDeckGuid'],'98925d')
+            self.assertFalse(face['joinEvidence']['titleOnlyJoin'])
+            self.assertEqual([row['panelId'] for row in face['panels']],['P1','P2','P3','P4'])
+            sentence_ids=[row['sentenceId'] for row in face['sentences']]
+            semantic_sentence_ids=[row['sourceSentenceId'] for row in rule['operations'] if row.get('sourceSentenceId')]
+            self.assertEqual(list(dict.fromkeys(semantic_sentence_ids)),sentence_ids)
+            self.assertEqual(backlog[face['backlogUnitId']]['pilotRuleIds'],[face['semanticRuleId']])
+            self.assertEqual(backlog[face['backlogUnitId']]['status'],'pilot-covered')
+            registered=registry[face['sourceId']]
+            self.assertEqual((registered['path'],registered['sha256'],registered['occurrenceId']),(face['sourcePath'],face['sourceSha256'],face['robotOccurrenceId']))
+            self.assertGreaterEqual(len(rule['sourceVariants']),1)
+            self.assertEqual(rule['sourceVariants'][0]['sourceId'],'SRC-BGA-ROBOTS')
+            self.assertIn('SEM-Q-013',rule['unresolvedQuestionRefs'])
+        activate=by_id['SEM-ACT-ROBOT-001']
+        dispatch=next(row['dispatchRuleIds'] for row in activate['operations'] if row.get('dispatchRuleIds'))
+        self.assertEqual(dispatch,rule_ids)
+        self.assertEqual(by_id['SEM-ROBOT-MOVEMENT-001']['decisions'][0]['selectionMode'],'unresolved')
+        self.assertIn('SEM-Q-012',by_id['SEM-ROBOT-REVEAL-001']['unresolvedQuestionRefs'])
+        self.assertEqual(by_id['SEM-ROBOT-MALFUNCTION-001']['unresolvedQuestionRefs'],['SEM-Q-010'])
+        self.assertEqual(by_id['SEM-ROBOT-MALFUNCTION-PLACEMENT-001']['unresolvedQuestionRefs'],['SEM-Q-010','SEM-Q-012'])
+        self.assertNotIn('destroyed Robot',json.dumps({rule_id:by_id[rule_id] for rule_id in rule_ids},ensure_ascii=False))
+        questions={row['questionId']:row for row in load(DIR/'review-gates.json')['questions']}
+        for question_id in [f'SEM-Q-{index:03d}' for index in range(10,20)]:
+            self.assertTrue(questions[question_id]['defaultProhibited'])
+
+    def test_robot_specific_adversarial_corruptions_are_rejected(self):
+        def run_mutation(mutate):
+            with tempfile.TemporaryDirectory(prefix='semantic-robot-negative-') as temp_dir:
+                root=Path(temp_dir)
+                data={name:load(DIR/name) for name in FILES}
+                mutate(data)
+                for name,payload in data.items():
+                    (root/name).write_text(json.dumps(payload,indent=2,ensure_ascii=False)+'\n',encoding='utf-8')
+                run,report=self.run_validator(root,skip=True)
+            self.assertNotEqual(run.returncode,0)
+            return {failure['check'] for failure in report['failures']}
+
+        def drop_face(data):
+            source=data['robot-source-index.json']
+            source['faces']=source['faces'][1:]
+            for key in ('robotIdentities','ttsFaceOccurrences','directCompositeFaceSelectors','backlogTuples'):
+                source['counts'][key]-=1
+        self.assertIn('Robot source-index exact identity count',run_mutation(drop_face))
+
+        def duplicate_face(data):
+            source=data['robot-source-index.json']
+            source['faces'].append(json.loads(json.dumps(source['faces'][0])))
+            for key in ('robotIdentities','ttsFaceOccurrences','directCompositeFaceSelectors','backlogTuples'):
+                source['counts'][key]+=1
+        self.assertIn('Robot source-index exact identity count',run_mutation(duplicate_face))
+
+        def title_only_join(data):
+            join=data['robot-source-index.json']['faces'][0]['joinEvidence']
+            join.update({'identityJoin':'display title','titleOnlyJoin':True,'basis':['display title']})
+        self.assertIn('Robot title/folder/modulo join prohibited',run_mutation(title_only_join))
+
+        def invert_face_back(data):
+            face=data['robot-source-index.json']['faces'][0]
+            face['sourceSelector'].update({'key':'BackURL','sideRole':'shared-non-operative-back','url':data['robot-source-index.json']['sharedBack']['sourceSelector']['url']})
+            face['cardStateRoles'].update({'initial':'face-up-revealed','afterRevealTrigger':'face-down-unrevealed','separateRulesFaceOnBack':True})
+        checks=run_mutation(invert_face_back)
+        self.assertIn('Robot exact CardID/GUID/FaceURL selector projection',checks)
+        self.assertIn('Robot face/back and reveal-state role projection',checks)
+
+        def wrong_guid_cardid(data):
+            face=data['robot-source-index.json']['faces'][2]
+            face['ttsCardGuid']='cd319d'
+            face['ttsCardId']=506400
+            face['sourceSelector'].update({'guid':'cd319d','cardId':506400})
+        self.assertIn('independently locked Robot occurrence crosswalk',run_mutation(wrong_guid_cardid))
+
+        def reorder_sentences_and_panels(data):
+            face=data['robot-source-index.json']['faces'][1]
+            face['sentences'][0],face['sentences'][1]=face['sentences'][1],face['sentences'][0]
+            for sequence,row in enumerate(face['sentences'],1): row['sequence']=sequence
+            face['panels'][2],face['panels'][3]=face['panels'][3],face['panels'][2]
+            for reading,row in enumerate(face['panels'],1): row['readingOrder']=reading
+        checks=run_mutation(reorder_sentences_and_panels)
+        self.assertIn('Robot source sentence IDs/panel order',checks)
+        self.assertIn('Robot exact panel roles/order',checks)
+
+        def drop_icon_with_coordinated_count(data):
+            source=data['robot-source-index.json']
+            source['faces'][1]['iconOccurrences'].pop()
+            source['counts']['functionalIconOccurrences']-=1
+        self.assertIn('Robot exact source-local icon occurrence projection',run_mutation(drop_icon_with_coordinated_count))
+
+        def invert_runtime_state(data):
+            source=data['robot-source-index.json']
+            source['ttsRuntimeStateProvenance']['reveal']['modelStateTransition']={'fromGmNotes':'active','toGmNotes':''}
+            source['ttsRuntimeStateProvenance']['reveal']['helperTokenStateTransition']['toStateId']=2
+        self.assertIn('Robot TTS runtime state/side provenance boundary',run_mutation(invert_runtime_state))
+
+        def leak_reveal(data):
+            rule=next(row for row in data['pilots.json']['records'] if row['ruleId']=='SEM-ROBOT-REVEAL-001')
+            rule['informationPolicy'][0].update({'audience':'public','revealTrigger':'setup'})
+        self.assertIn('Robot reveal/visibility no-leak boundary',run_mutation(leak_reveal))
+
+        def flatten_malfunction(data):
+            question=next(row for row in data['review-gates.json']['questions'] if row['questionId']=='SEM-Q-010')
+            question['defaultProhibited']=False
+            question['alternatives']=question['alternatives'][:1]
+            rule=next(row for row in data['pilots.json']['records'] if row['ruleId']=='SEM-ROBOT-MALFUNCTION-001')
+            rule['unresolvedQuestionRefs']=[]
+            rule['status']='source-backed'
+        self.assertIn('SEM-Q-010 exact unresolved contradiction preservation',run_mutation(flatten_malfunction))
+
+        def invent_movement_owner(data):
+            rule=next(row for row in data['pilots.json']['records'] if row['ruleId']=='SEM-ROBOT-MOVEMENT-001')
+            rule['decisions'][0].update({'selectionMode':'player-choice','ownerRef':'P-MOVE-OWNER'})
+            rule['targets'][0].update({'selectorRef':'P-MOVE-OWNER','selectionMode':'player-choice'})
+            question=next(row for row in data['review-gates.json']['questions'] if row['questionId']=='SEM-Q-013')
+            question['defaultProhibited']=False
+        self.assertIn('Robot movement no invented owner/target/default',run_mutation(invent_movement_owner))
+
+        def lose_variants(data):
+            rule=next(row for row in data['pilots.json']['records'] if row['ruleId']=='SEM-ROBOT-SERVER-001')
+            removed=len(rule['sourceVariants'])
+            rule['sourceVariants']=[]
+            data['pilots.json']['counts']['variantReferences']-=removed
+        self.assertIn('Robot licensed/official source-variant closure',run_mutation(lose_variants))
+
+        def invert_authority(data):
+            rule=next(row for row in data['pilots.json']['records'] if row['ruleId']=='SEM-ROBOT-MILITARY-001')
+            rule['authority']['highest']='source-bound-component-scan'
+        self.assertIn('Robot authority lock',run_mutation(invert_authority))
+
+        def lower_backlog(data):
+            backlog=data['backlog.json']; target='CARD:e613b1e23d25d91e'
+            backlog['units']=[row for row in backlog['units'] if row['semanticUnitId']!=target]
+            backlog['counts']['units']-=1
+            backlog['counts']['byChannel']['card-reference-source-tuple']-=1
+            backlog['counts']['byStatus']['pilot-covered']-=1
+            source=data['robot-source-index.json']
+            source['familyCountEvidence']['backlog']['faceTupleCount']-=1
+            source['familyCountEvidence']['backlog']['faceUnitIds'].remove(target)
+            source['familyCountEvidence']['backlog']['linkedUnitIds'].remove(target)
+            source['counts']['backlogTuples']-=1
+            source['counts']['backlogObligationsLinked']-=1
+        checks=run_mutation(lower_backlog)
+        self.assertIn('Robot exact backlog tuple projection',checks)
+        self.assertIn('Robot exact overlapping backlog-obligation closure',checks)
 
     def test_base_event_family_semantic_closure(self):
         source=load(DIR/'event-source-index.json')

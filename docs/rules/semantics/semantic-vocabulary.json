@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "recordType": "semantic-node-registry",
   "counts": {
-    "nodes": 22,
-    "stateValues": 15,
+    "nodes": 26,
+    "stateValues": 19,
     "zones": 2,
     "positions": 2,
     "visibilityScopes": 3
@@ -128,6 +128,38 @@
       "sourceEvidence": [
         "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf:printed page 7",
         "docs/rulebooks/Nemesis_RT_FAQ_v1.2.pdf:Rooms #4"
+      ]
+    },
+    {
+      "semanticNodeId": "sem.state.robot-card.unrevealed",
+      "kind": "state-value",
+      "label": "Selected Robot card face down and unrevealed",
+      "sourceEvidence": [
+        "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf:printed pages 8 and 37"
+      ]
+    },
+    {
+      "semanticNodeId": "sem.state.robot-card.revealed",
+      "kind": "state-value",
+      "label": "Selected Robot card face up and public",
+      "sourceEvidence": [
+        "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf:printed page 37"
+      ]
+    },
+    {
+      "semanticNodeId": "sem.state.robot.operational",
+      "kind": "state-value",
+      "label": "Robot operational and available for otherwise legal activation",
+      "sourceEvidence": [
+        "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf:printed page 37"
+      ]
+    },
+    {
+      "semanticNodeId": "sem.state.robot.broken",
+      "kind": "state-value",
+      "label": "Robot broken by a Malfunction marker",
+      "sourceEvidence": [
+        "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf:printed pages 22 and 37"
       ]
     },
     {

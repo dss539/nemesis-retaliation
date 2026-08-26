@@ -4,19 +4,19 @@
   "schemaPath": "docs/rules/semantics/semantic-rule.schema.json",
   "scope": "base-game representative pilot; not full semantic coverage",
   "counts": {
-    "records": 111,
-    "sourceBacked": 74,
-    "withOpenQuestion": 37,
+    "records": 124,
+    "sourceBacked": 78,
+    "withOpenQuestion": 46,
     "sourceVariants": 0,
-    "sourceAssertions": 308,
-    "conditions": 391,
-    "operations": 500,
-    "decisions": 49,
-    "informationPolicies": 123,
-    "costs": 3,
-    "targets": 142,
-    "openQuestionReferences": 42,
-    "variantReferences": 37
+    "sourceAssertions": 338,
+    "conditions": 444,
+    "operations": 567,
+    "decisions": 73,
+    "informationPolicies": 137,
+    "costs": 6,
+    "targets": 152,
+    "openQuestionReferences": 59,
+    "variantReferences": 46
   },
   "records": [
     {
@@ -1025,6 +1025,341 @@
       "schemaVersion": 1,
       "recordType": "semantic-rule",
       "recordRevision": 1,
+      "ruleId": "SEM-ACT-ROBOT-001",
+      "title": "Activate the Robot Basic Action",
+      "status": "source-backed",
+      "ruleKind": "action",
+      "applicability": {
+        "game": "Nemesis: Retaliation",
+        "mode": "base-standard",
+        "playerCount": null
+      },
+      "authority": {
+        "highest": "official-primary",
+        "interpretation": "source-composed"
+      },
+      "sourceAssertions": [
+        {
+          "assertionId": "SA-ACT-ROBOT-RB",
+          "sourceId": "SRC-RULEBOOK",
+          "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
+          "sourceSha256": "e3cda0d7a91bd090cec45dbc8ce89e2015e2202173357c374ff49365f9c29ddd",
+          "sourceAuthority": "official-primary",
+          "sourceVersion": "base rulebook, local official PDF",
+          "locator": "printed pages 12, 14, and 37 / Basic Actions, Effects, and Activating the Robot",
+          "supportsFields": [
+            "timing",
+            "preconditions",
+            "decisions",
+            "informationPolicy",
+            "costs",
+            "targets",
+            "operations",
+            "partialResolution"
+          ],
+          "sourceText": "Activate the Robot is Not In Combat and costs 1 Action card locally in the Robot's Room, or 2 remotely from a Computer Room; a Data token waives the additional remote card. Select only a fully resolvable printed Robot effect.",
+          "textKind": "normalized-paraphrase",
+          "evidenceRecord": "docs/rules/semantics/robot-source-index.json:RB-ROBOT-ACTIVATE-LOCAL-01"
+        }
+      ],
+      "termRefs": [
+        "icon.actionCard",
+        "icon.computer",
+        "icon.notInCombat",
+        "term.action",
+        "term.data-token",
+        "term.robot-card"
+      ],
+      "taxonRefs": [
+        "tax.entity.agent.robot",
+        "tax.entity.component.card.action",
+        "tax.entity.component.card.robot",
+        "tax.entity.component.token.data",
+        "tax.process.action.basic",
+        "tax.state.combat.not-in-combat"
+      ],
+      "namedIdentityRefs": [],
+      "timing": {
+        "windowId": "TW-ACT-ROBOT",
+        "anchorTaxonId": "tax.process.temporal.turn",
+        "relation": "during",
+        "recurrence": "per-selected-Activate-Robot-Action"
+      },
+      "participants": [
+        {
+          "participantId": "P-PLAYER",
+          "participantKind": "decision-owner",
+          "taxonId": "tax.entity.agent.player",
+          "role": null
+        },
+        {
+          "participantId": "P-CHARACTER",
+          "participantKind": "actor",
+          "taxonId": "tax.entity.agent.character",
+          "role": null
+        },
+        {
+          "participantId": "P-ROBOT",
+          "participantKind": "affected",
+          "taxonId": "tax.entity.agent.robot",
+          "role": null
+        },
+        {
+          "participantId": "P-RULES",
+          "participantKind": "rules-system",
+          "taxonId": null,
+          "role": null
+        }
+      ],
+      "modality": "must",
+      "preconditions": [
+        {
+          "conditionId": "C-ACT-ROBOT",
+          "scope": "record-precondition",
+          "expression": {
+            "operator": "all",
+            "args": [
+              {
+                "predicate": "Robot card is revealed"
+              },
+              {
+                "predicate": "Robot has no Malfunction marker"
+              },
+              {
+                "predicate": "Character is Not In Combat"
+              },
+              {
+                "predicate": "local or remote activation route is legal"
+              },
+              {
+                "predicate": "at least one printed Robot option is entirely resolvable"
+              }
+            ]
+          },
+          "sourceAssertionIds": [
+            "SA-ACT-ROBOT-RB"
+          ]
+        },
+        {
+          "conditionId": "S03-C01",
+          "scope": "operation-guard",
+          "expression": {
+            "operator": "predicate",
+            "args": [
+              {
+                "predicate": "remote mode selected"
+              }
+            ]
+          },
+          "sourceAssertionIds": [
+            "SA-ACT-ROBOT-RB"
+          ]
+        },
+        {
+          "conditionId": "S03-C02",
+          "scope": "operation-guard",
+          "expression": {
+            "operator": "predicate",
+            "args": [
+              {
+                "predicate": "Character has no Data token"
+              }
+            ]
+          },
+          "sourceAssertionIds": [
+            "SA-ACT-ROBOT-RB"
+          ]
+        }
+      ],
+      "decisions": [
+        {
+          "decisionId": "D-ACT-ROBOT-MODE",
+          "ownerRef": "P-PLAYER",
+          "selectionMode": "player-choice",
+          "cardinality": {
+            "min": 1,
+            "max": 1
+          },
+          "declineAllowed": false,
+          "visibility": "public-on-declaration",
+          "options": [
+            "local",
+            "remote using Data token",
+            "remote with additional Action-card payment"
+          ]
+        },
+        {
+          "decisionId": "D-ACT-ROBOT-BASE-PAY",
+          "ownerRef": "P-PLAYER",
+          "selectionMode": "player-choice",
+          "cardinality": {
+            "min": 1,
+            "max": 1
+          },
+          "declineAllowed": false,
+          "visibility": "owner-private-until-discard",
+          "options": [
+            "own Action cards in hand"
+          ]
+        },
+        {
+          "decisionId": "D-ACT-ROBOT-REMOTE-PAY",
+          "ownerRef": "P-PLAYER",
+          "selectionMode": "player-choice",
+          "cardinality": {
+            "min": 0,
+            "max": 1
+          },
+          "declineAllowed": true,
+          "visibility": "owner-private-until-discard",
+          "options": [
+            "own additional Action card when remote and no Data token"
+          ]
+        }
+      ],
+      "informationPolicy": [
+        {
+          "informationId": "I-ACT-ROBOT",
+          "subjectRef": "activation mode, discarded payment cards, revealed Robot identity, and resolved option",
+          "audience": "public-on-declaration/payment",
+          "revealTrigger": "Action declaration",
+          "secrecy": "unselected hand cards remain private"
+        }
+      ],
+      "costs": [
+        {
+          "costId": "COST-ACT-ROBOT-BASE",
+          "payerRef": "P-PLAYER",
+          "resourceTermId": "icon.actionCard",
+          "quantity": 1,
+          "selectionDecisionRef": "D-ACT-ROBOT-BASE-PAY",
+          "transition": {
+            "from": "tax.scaffold.zone.hand",
+            "to": "tax.scaffold.zone.discard-pile"
+          }
+        },
+        {
+          "costId": "COST-ACT-ROBOT-REMOTE",
+          "payerRef": "P-PLAYER",
+          "resourceTermId": "icon.actionCard",
+          "quantity": 1,
+          "selectionDecisionRef": "D-ACT-ROBOT-REMOTE-PAY",
+          "transition": {
+            "from": "tax.scaffold.zone.hand",
+            "to": "tax.scaffold.zone.discard-pile"
+          }
+        }
+      ],
+      "targets": [],
+      "operations": [
+        {
+          "stepId": "S01",
+          "sequence": 1,
+          "operationType": "choose",
+          "modality": "must",
+          "subjectRef": "P-PLAYER",
+          "objectRef": "legal local/remote activation mode",
+          "conditionRefs": [],
+          "decisionRef": "D-ACT-ROBOT-MODE",
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-ACT-ROBOT-RB"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S02",
+          "sequence": 2,
+          "operationType": "pay-cost",
+          "modality": "must",
+          "subjectRef": "P-PLAYER",
+          "objectRef": "COST-ACT-ROBOT-BASE",
+          "conditionRefs": [],
+          "decisionRef": "D-ACT-ROBOT-BASE-PAY",
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-ACT-ROBOT-RB"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S03",
+          "sequence": 3,
+          "operationType": "pay-cost",
+          "modality": "if-able",
+          "subjectRef": "P-PLAYER",
+          "objectRef": "COST-ACT-ROBOT-REMOTE",
+          "conditionRefs": [
+            "S03-C01",
+            "S03-C02"
+          ],
+          "decisionRef": "D-ACT-ROBOT-REMOTE-PAY",
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-ACT-ROBOT-RB"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S04",
+          "sequence": 4,
+          "operationType": "invoke-selected-process",
+          "modality": "must",
+          "subjectRef": "P-ROBOT",
+          "objectRef": "exact Robot-face semantic record selected by full locked occurrence identity",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-ACT-ROBOT-RB"
+          ],
+          "notes": "Dispatch uses the selected face's full CardID/GUID/FaceURL tuple, never title, folder, shared back, or CardID modulo.",
+          "dispatchRuleIds": [
+            "SEM-ROBOT-SERVER-001",
+            "SEM-ROBOT-SECURING-001",
+            "SEM-ROBOT-EXPLORATION-001",
+            "SEM-ROBOT-TECHNICAL-001",
+            "SEM-ROBOT-MEDICAL-001",
+            "SEM-ROBOT-MILITARY-001"
+          ]
+        }
+      ],
+      "partialResolution": {
+        "policy": "all-or-nothing-selection",
+        "unit": "Activate Robot Action and one selected printed option",
+        "onImpossible": "the Action/option may not be selected unless payment, route, Robot availability, and the whole chosen option are resolvable"
+      },
+      "duration": {
+        "kind": "instantaneous-basic-action"
+      },
+      "stacking": {
+        "policy": "repeatable only through distinct legal Actions"
+      },
+      "outcomes": [],
+      "unresolvedQuestionRefs": [],
+      "sourceVariants": [],
+      "implementationBoundary": "implementation-neutral; no engine, UI, network, storage, or serialization mapping"
+    },
+    {
+      "schemaVersion": 1,
+      "recordType": "semantic-rule",
+      "recordRevision": 1,
       "ruleId": "SEM-ACT-SEARCH-001",
       "title": "Search Action-card effect",
       "status": "source-backed",
@@ -1335,6 +1670,270 @@
           "resolution": "official-primary rulebook controls the general Search procedure while exact optionality/destination card wording remains preserved"
         }
       ],
+      "implementationBoundary": "implementation-neutral; no engine, UI, network, storage, or serialization mapping"
+    },
+    {
+      "schemaVersion": 1,
+      "recordType": "semantic-rule",
+      "recordRevision": 1,
+      "ruleId": "SEM-ACT-TACTICAL-001",
+      "title": "Use Any Tactical Gear Basic Action",
+      "status": "source-backed",
+      "ruleKind": "action",
+      "applicability": {
+        "game": "Nemesis: Retaliation",
+        "mode": "base-standard",
+        "playerCount": null
+      },
+      "authority": {
+        "highest": "official-primary",
+        "interpretation": "verbatim-structure"
+      },
+      "sourceAssertions": [
+        {
+          "assertionId": "SA-ACT-GEAR-RB",
+          "sourceId": "SRC-RULEBOOK",
+          "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
+          "sourceSha256": "e3cda0d7a91bd090cec45dbc8ce89e2015e2202173357c374ff49365f9c29ddd",
+          "sourceAuthority": "official-primary",
+          "sourceVersion": "base rulebook, local official PDF",
+          "locator": "printed pages 12 and 16 / Basic Actions and Use Any Tactical Gear Action",
+          "supportsFields": [
+            "timing",
+            "decisions",
+            "informationPolicy",
+            "costs",
+            "targets",
+            "operations",
+            "partialResolution"
+          ],
+          "sourceText": "Discard 1 Action card, choose any number of own Tactical Gear tokens, apply their effects, then discard them except Ammo moved to Weapons; any number of own tokens may also move between compatible own slots.",
+          "textKind": "normalized-paraphrase",
+          "evidenceRecord": "docs/rulebooks/rulebook_text.txt:lines 2876–2895, 3469–3490"
+        }
+      ],
+      "termRefs": [
+        "icon.actionCard",
+        "icon.ammoToken",
+        "term.action",
+        "term.tactical-gear-slot",
+        "term.tactical-gear-token"
+      ],
+      "taxonRefs": [
+        "tax.entity.component.card.action",
+        "tax.entity.component.slot.tactical-gear",
+        "tax.entity.component.token.tactical-gear",
+        "tax.process.action.basic"
+      ],
+      "namedIdentityRefs": [],
+      "timing": {
+        "windowId": "TW-ACT-GEAR",
+        "anchorTaxonId": "tax.process.temporal.turn",
+        "relation": "during",
+        "recurrence": "per-selected-Use-Any-Tactical-Gear-Action"
+      },
+      "participants": [
+        {
+          "participantId": "P-PLAYER",
+          "participantKind": "decision-owner",
+          "taxonId": "tax.entity.agent.player",
+          "role": null
+        },
+        {
+          "participantId": "P-CHARACTER",
+          "participantKind": "actor",
+          "taxonId": "tax.entity.agent.character",
+          "role": null
+        },
+        {
+          "participantId": "P-RULES",
+          "participantKind": "rules-system",
+          "taxonId": null,
+          "role": null
+        }
+      ],
+      "modality": "must",
+      "preconditions": [],
+      "decisions": [
+        {
+          "decisionId": "D-ACT-GEAR-PAY",
+          "ownerRef": "P-PLAYER",
+          "selectionMode": "player-choice",
+          "cardinality": {
+            "min": 1,
+            "max": 1
+          },
+          "declineAllowed": false,
+          "visibility": "owner-private-until-discard",
+          "options": [
+            "own Action cards in hand"
+          ]
+        },
+        {
+          "decisionId": "D-ACT-GEAR-USE",
+          "ownerRef": "P-PLAYER",
+          "selectionMode": "player-choice",
+          "cardinality": {
+            "min": 0,
+            "max": null
+          },
+          "declineAllowed": true,
+          "visibility": "public-on-use",
+          "options": [
+            "any subset of own Tactical Gear tokens"
+          ]
+        },
+        {
+          "decisionId": "D-ACT-GEAR-MOVE",
+          "ownerRef": "P-PLAYER",
+          "selectionMode": "player-choice",
+          "cardinality": {
+            "min": 0,
+            "max": null
+          },
+          "declineAllowed": true,
+          "visibility": "public-on-move",
+          "options": [
+            "any legal transfers among own compatible Tactical Gear slots"
+          ]
+        }
+      ],
+      "informationPolicy": [
+        {
+          "informationId": "I-ACT-GEAR",
+          "subjectRef": "paid card, selected token identities/sides, effects, and slot transfers",
+          "audience": "public-on-payment/use",
+          "revealTrigger": "Action resolution",
+          "secrecy": "unselected hand cards remain private"
+        }
+      ],
+      "costs": [
+        {
+          "costId": "COST-ACT-GEAR",
+          "payerRef": "P-PLAYER",
+          "resourceTermId": "icon.actionCard",
+          "quantity": 1,
+          "selectionDecisionRef": "D-ACT-GEAR-PAY",
+          "transition": {
+            "from": "tax.scaffold.zone.hand",
+            "to": "tax.scaffold.zone.discard-pile"
+          }
+        }
+      ],
+      "targets": [],
+      "operations": [
+        {
+          "stepId": "S01",
+          "sequence": 1,
+          "operationType": "pay-cost",
+          "modality": "must",
+          "subjectRef": "P-PLAYER",
+          "objectRef": "COST-ACT-GEAR",
+          "conditionRefs": [],
+          "decisionRef": "D-ACT-GEAR-PAY",
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-ACT-GEAR-RB"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S02",
+          "sequence": 2,
+          "operationType": "choose",
+          "modality": "may",
+          "subjectRef": "P-PLAYER",
+          "objectRef": "any subset of own Tactical Gear tokens to use",
+          "conditionRefs": [],
+          "decisionRef": "D-ACT-GEAR-USE",
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-ACT-GEAR-RB"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S03",
+          "sequence": 3,
+          "operationType": "invoke-selected-process",
+          "modality": "if-able",
+          "subjectRef": "P-CHARACTER",
+          "objectRef": "each selected Tactical Gear token effect",
+          "conditionRefs": [],
+          "decisionRef": "D-ACT-GEAR-USE",
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": {
+            "scope": "each selected token"
+          },
+          "sourceAssertionIds": [
+            "SA-ACT-GEAR-RB"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S04",
+          "sequence": 4,
+          "operationType": "remove-component",
+          "modality": "if-able",
+          "subjectRef": "P-RULES",
+          "objectRef": "each used non-Ammo Tactical Gear token back to its finite pool",
+          "conditionRefs": [],
+          "decisionRef": "D-ACT-GEAR-USE",
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-ACT-GEAR-RB"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S05",
+          "sequence": 5,
+          "operationType": "move-entity",
+          "modality": "may",
+          "subjectRef": "P-PLAYER",
+          "objectRef": "selected legal Tactical Gear transfers among compatible own slots",
+          "conditionRefs": [],
+          "decisionRef": "D-ACT-GEAR-MOVE",
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-ACT-GEAR-RB"
+          ],
+          "notes": null
+        }
+      ],
+      "partialResolution": {
+        "policy": "source-conditional-steps",
+        "unit": "one selected token effect or slot transfer",
+        "onImpossible": "only legal compatible transfers and resolvable selected token effects may be chosen; zero tokens/transfers is source-permitted"
+      },
+      "duration": {
+        "kind": "instantaneous-basic-action"
+      },
+      "stacking": {
+        "policy": "each physical token occupies at most one compatible slot"
+      },
+      "outcomes": [],
+      "unresolvedQuestionRefs": [],
+      "sourceVariants": [],
       "implementationBoundary": "implementation-neutral; no engine, UI, network, storage, or serialization mapping"
     },
     {
@@ -8609,6 +9208,23 @@
           "sourceText": "A Robot with a Malfunction has no Action and all game effects mentioning the Robot are unavailable.",
           "textKind": "normalized-paraphrase",
           "evidenceRecord": "docs/rulebooks/rulebook_text.txt:lines 6015–6022"
+        },
+        {
+          "assertionId": "SA-EVT-5627-ROBOT-REVEAL",
+          "sourceId": "SRC-RULEBOOK",
+          "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
+          "sourceSha256": "e3cda0d7a91bd090cec45dbc8ce89e2015e2202173357c374ff49365f9c29ddd",
+          "sourceAuthority": "official-primary",
+          "sourceVersion": "base rulebook, local official PDF",
+          "locator": "printed pages 8 and 37 / unrevealed Robot",
+          "supportsFields": [
+            "operations",
+            "unresolvedQuestionRefs",
+            "sourceVariants"
+          ],
+          "sourceText": "The selected Robot card begins face down and the Robot cannot be Activated until a Room first connects to the Hibernatorium, but the checked base rules do not state a general pre-reveal policy for external Robot-referencing effects.",
+          "textKind": "normalized-paraphrase",
+          "evidenceRecord": "docs/rulebooks/rulebook_text.txt:lines 2421–2426, 2446–2448, 5982–5996"
         }
       ],
       "termRefs": [
@@ -8821,22 +9437,23 @@
         {
           "stepId": "S04",
           "sequence": 4,
-          "operationType": "place-component",
-          "modality": "if-able",
+          "operationType": "invoke-process",
+          "modality": "must",
           "subjectRef": "P-RULES",
-          "objectRef": "1 Malfunction marker on the Robot",
+          "objectRef": "source-composed Robot Malfunction placement, including pre-reveal and repeated-placement boundaries",
           "conditionRefs": [],
           "decisionRef": null,
           "targetRef": null,
           "transition": null,
           "valueChange": null,
-          "invokeRuleId": null,
+          "invokeRuleId": "SEM-ROBOT-MALFUNCTION-PLACEMENT-001",
           "repeat": null,
           "sourceAssertionIds": [
             "SA-EVT-5627-SCAN",
             "SA-EVT-5627-MARKERS",
             "SA-EVT-5627-ROBOT-P22",
-            "SA-EVT-5627-ROBOT-P37"
+            "SA-EVT-5627-ROBOT-P37",
+            "SA-EVT-5627-ROBOT-REVEAL"
           ],
           "notes": null,
           "sourceSentenceId": "EV5627-MAIN-01",
@@ -8927,7 +9544,8 @@
       },
       "outcomes": [],
       "unresolvedQuestionRefs": [
-        "SEM-Q-010"
+        "SEM-Q-010",
+        "SEM-Q-012"
       ],
       "sourceVariants": [
         {
@@ -25433,6 +26051,577 @@
       "schemaVersion": 1,
       "recordType": "semantic-rule",
       "recordRevision": 1,
+      "ruleId": "SEM-ROBOT-EXPLORATION-001",
+      "title": "Exploration Robot",
+      "status": "source-backed-with-open-question",
+      "ruleKind": "component-effect",
+      "applicability": {
+        "game": "Nemesis: Retaliation",
+        "mode": "base-standard",
+        "playerCount": null
+      },
+      "authority": {
+        "highest": "official-primary",
+        "interpretation": "open-alternatives"
+      },
+      "sourceAssertions": [
+        {
+          "assertionId": "SA-RBT-529300-SCAN",
+          "sourceId": "SRC-ROBOT-529300",
+          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/robotDeck-004.jpg",
+          "sourceSha256": "c78d2a69189749dcd4578ee7e270b83c6115510988286431943ba6039b2abc56",
+          "sourceAuthority": "source-bound-component-scan",
+          "sourceVersion": "TTS base Robot face / root deck 98925d / CardID 529300",
+          "locator": "TTS-ROBOT-529300-FACE / exact face panels and sentences",
+          "supportsFields": [
+            "timing",
+            "preconditions",
+            "decisions",
+            "informationPolicy",
+            "targets",
+            "operations",
+            "partialResolution",
+            "sourceVariants",
+            "unresolvedQuestionRefs"
+          ],
+          "sourceText": "Move the [robot] up to 2 times.\nOR\nMove the [robot] through\nan Unexplored Corridor\nand resolve an Exploration\nSequence. Do not resolve\nthe Entrance effect.",
+          "textKind": "verbatim",
+          "evidenceRecord": "docs/rules/semantics/robot-source-index.json:TTS-ROBOT-529300-FACE"
+        },
+        {
+          "assertionId": "SA-RBT-529300-GENERAL",
+          "sourceId": "SRC-RULEBOOK",
+          "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
+          "sourceSha256": "e3cda0d7a91bd090cec45dbc8ce89e2015e2202173357c374ff49365f9c29ddd",
+          "sourceAuthority": "official-primary",
+          "sourceVersion": "base rulebook, local official PDF",
+          "locator": "printed pages 14, 17, 22–23, 33, and 37 / effect legality and Robot procedures",
+          "supportsFields": [
+            "timing",
+            "preconditions",
+            "decisions",
+            "informationPolicy",
+            "targets",
+            "operations",
+            "partialResolution",
+            "duration",
+            "stacking",
+            "unresolvedQuestionRefs",
+            "sourceVariants"
+          ],
+          "sourceText": "Resolve one entirely legal printed Robot option through the official Robot movement, health, Burst, Door, marker, Room, Exploration, and finite-component rules that apply to that option.",
+          "textKind": "normalized-paraphrase",
+          "evidenceRecord": "docs/rules/semantics/robot-source-index.json:officialRulebookTextOccurrences"
+        },
+        {
+          "assertionId": "SA-RBT-529300-BGA",
+          "sourceId": "SRC-BGA-ROBOTS",
+          "sourcePath": "docs/rules/source-extraction/secondary/bga-staticData-260622-1220.js",
+          "sourceSha256": "18cd8f4a2883d4f6662ed170095ff07e0d9f5da508064ed1d6bfc124f5a274ae",
+          "sourceAuthority": "licensed-digital-secondary",
+          "sourceVersion": "licensed BGA immutable build 260622-1220 / ROBOT_CARDS_DATA",
+          "locator": "ROBOT_CARDS_DATA.ExplorationRobot",
+          "supportsFields": [
+            "sourceVariants"
+          ],
+          "sourceText": "  ExplorationRobot: {\n    name: 'Exploration Robot',\n    desc: [\n      'Move the <ROBOT> up to 2 times.',\n      'Move the <ROBOT> through an Unexplored Corridor and resolve an Exploration Sequence. Do not resolve the Entrance effect.',\n    ],\n    color: 'yellow',\n  },",
+          "textKind": "verbatim",
+          "evidenceRecord": "docs/rules/semantics/robot-source-index.json:TTS-ROBOT-529300-FACE.bgaOccurrence"
+        }
+      ],
+      "termRefs": [
+        "icon.robot",
+        "term.closed",
+        "term.corridor",
+        "term.exploration-card",
+        "term.exploration-sequence",
+        "term.noise-roll",
+        "term.robot-card",
+        "term.room",
+        "term.unexplored-corridor"
+      ],
+      "taxonRefs": [
+        "tax.entity.agent.robot",
+        "tax.entity.component.card.exploration",
+        "tax.entity.component.card.robot",
+        "tax.entity.spatial.corridor",
+        "tax.entity.spatial.room",
+        "tax.process.sequence.exploration",
+        "tax.process.sequence.noise-roll",
+        "tax.state.closed",
+        "tax.state.corridor.unexplored"
+      ],
+      "namedIdentityRefs": [],
+      "timing": {
+        "windowId": "TW-RBT-529300",
+        "anchorTaxonId": "tax.process.action.basic",
+        "relation": "during",
+        "recurrence": "when-this-exact-revealed-Robot-face-is-Activated"
+      },
+      "participants": [
+        {
+          "participantId": "P-PLAYER",
+          "participantKind": "decision-owner",
+          "taxonId": "tax.entity.agent.player",
+          "role": null
+        },
+        {
+          "participantId": "P-CHARACTER",
+          "participantKind": "actor",
+          "taxonId": "tax.entity.agent.character",
+          "role": null
+        },
+        {
+          "participantId": "P-ROBOT",
+          "participantKind": "affected",
+          "taxonId": "tax.entity.agent.robot",
+          "role": null
+        },
+        {
+          "participantId": "P-RULES",
+          "participantKind": "rules-system",
+          "taxonId": null,
+          "role": null
+        }
+      ],
+      "modality": "must",
+      "preconditions": [
+        {
+          "conditionId": "C-RBT-529300-FACE",
+          "scope": "record-precondition",
+          "expression": {
+            "operator": "all",
+            "args": [
+              {
+                "predicate": "revealed Robot occurrence identity is TTS-ROBOT-529300-FACE"
+              },
+              {
+                "predicate": "Robot has no Malfunction marker"
+              },
+              {
+                "predicate": "selected printed option is entirely resolvable"
+              }
+            ]
+          },
+          "sourceAssertionIds": [
+            "SA-RBT-529300-SCAN",
+            "SA-RBT-529300-GENERAL"
+          ]
+        },
+        {
+          "conditionId": "S02-C01",
+          "scope": "operation-guard",
+          "expression": {
+            "operator": "predicate",
+            "args": [
+              {
+                "predicate": "movement option selected"
+              }
+            ]
+          },
+          "sourceAssertionIds": [
+            "SA-RBT-529300-SCAN",
+            "SA-RBT-529300-GENERAL"
+          ]
+        },
+        {
+          "conditionId": "S03-C01",
+          "scope": "operation-guard",
+          "expression": {
+            "operator": "predicate",
+            "args": [
+              {
+                "predicate": "Exploration option selected"
+              }
+            ]
+          },
+          "sourceAssertionIds": [
+            "SA-RBT-529300-SCAN",
+            "SA-RBT-529300-GENERAL"
+          ]
+        },
+        {
+          "conditionId": "S04-C01",
+          "scope": "operation-guard",
+          "expression": {
+            "operator": "predicate",
+            "args": [
+              {
+                "predicate": "Exploration option selected"
+              }
+            ]
+          },
+          "sourceAssertionIds": [
+            "SA-RBT-529300-SCAN",
+            "SA-RBT-529300-GENERAL"
+          ]
+        },
+        {
+          "conditionId": "S05-C01",
+          "scope": "operation-guard",
+          "expression": {
+            "operator": "predicate",
+            "args": [
+              {
+                "predicate": "Exploration option selected"
+              }
+            ]
+          },
+          "sourceAssertionIds": [
+            "SA-RBT-529300-SCAN",
+            "SA-RBT-529300-GENERAL"
+          ]
+        },
+        {
+          "conditionId": "S06-C01",
+          "scope": "operation-guard",
+          "expression": {
+            "operator": "predicate",
+            "args": [
+              {
+                "predicate": "Exploration option selected"
+              }
+            ]
+          },
+          "sourceAssertionIds": [
+            "SA-RBT-529300-SCAN",
+            "SA-RBT-529300-GENERAL"
+          ]
+        },
+        {
+          "conditionId": "S07-C01",
+          "scope": "operation-guard",
+          "expression": {
+            "operator": "predicate",
+            "args": [
+              {
+                "predicate": "Exploration option selected"
+              }
+            ]
+          },
+          "sourceAssertionIds": [
+            "SA-RBT-529300-SCAN",
+            "SA-RBT-529300-GENERAL"
+          ]
+        },
+        {
+          "conditionId": "S08-C01",
+          "scope": "operation-guard",
+          "expression": {
+            "operator": "predicate",
+            "args": [
+              {
+                "predicate": "Exploration option selected"
+              }
+            ]
+          },
+          "sourceAssertionIds": [
+            "SA-RBT-529300-SCAN",
+            "SA-RBT-529300-GENERAL"
+          ]
+        }
+      ],
+      "decisions": [
+        {
+          "decisionId": "D-RBT-529300-OPTION",
+          "ownerRef": "P-PLAYER",
+          "selectionMode": "player-choice",
+          "cardinality": {
+            "min": 1,
+            "max": 1
+          },
+          "declineAllowed": false,
+          "visibility": "public-on-declaration",
+          "options": [
+            "option O1",
+            "option O2"
+          ]
+        },
+        {
+          "decisionId": "D-RBT-529300-CORRIDOR",
+          "ownerRef": "P-ROBOT",
+          "selectionMode": "unresolved",
+          "cardinality": {
+            "min": 1,
+            "max": 1
+          },
+          "declineAllowed": false,
+          "visibility": "source-unspecified",
+          "options": [
+            "one adjacent Unexplored Corridor not blocked by a Closed Door"
+          ]
+        }
+      ],
+      "informationPolicy": [
+        {
+          "informationId": "I-RBT-529300",
+          "subjectRef": "revealed exact Robot face, selected option, targets, random results, and state changes",
+          "audience": "public",
+          "revealTrigger": "option declaration/resolution",
+          "secrecy": "remaining five Robot cards stay unseen and out of this game"
+        }
+      ],
+      "costs": [],
+      "targets": [
+        {
+          "targetId": "T-RBT-529300-CORRIDOR",
+          "selectorRef": "unresolved-by-source",
+          "eligibleTaxonIds": [
+            "tax.entity.spatial.corridor"
+          ],
+          "cardinality": {
+            "min": 1,
+            "max": 1
+          },
+          "selectionMode": "unresolved-when-multiple",
+          "visibility": "public"
+        }
+      ],
+      "operations": [
+        {
+          "stepId": "S01",
+          "sequence": 1,
+          "operationType": "choose",
+          "modality": "must",
+          "subjectRef": "P-PLAYER",
+          "objectRef": "one printed Robot option",
+          "conditionRefs": [],
+          "decisionRef": "D-RBT-529300-OPTION",
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-RBT-529300-SCAN",
+            "SA-RBT-529300-GENERAL"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S02",
+          "sequence": 2,
+          "operationType": "invoke-process",
+          "modality": "may",
+          "subjectRef": "P-ROBOT",
+          "objectRef": "move zero through 2 neighboring-Room steps",
+          "conditionRefs": [
+            "S02-C01"
+          ],
+          "decisionRef": "D-RBT-529300-OPTION",
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": "SEM-ROBOT-MOVEMENT-001",
+          "repeat": {
+            "printedMaximumSteps": 2,
+            "zeroStepsLegal": true
+          },
+          "sourceAssertionIds": [
+            "SA-RBT-529300-SCAN",
+            "SA-RBT-529300-GENERAL"
+          ],
+          "notes": null,
+          "sourceSentenceId": "RB529300-O1-S01",
+          "sourcePanelId": "P3",
+          "sourceOptionId": "O1"
+        },
+        {
+          "stepId": "S03",
+          "sequence": 3,
+          "operationType": "select-target",
+          "modality": "must",
+          "subjectRef": "P-ROBOT",
+          "objectRef": "one adjacent Unexplored Corridor",
+          "conditionRefs": [
+            "S03-C01"
+          ],
+          "decisionRef": "D-RBT-529300-CORRIDOR",
+          "targetRef": "T-RBT-529300-CORRIDOR",
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-RBT-529300-SCAN",
+            "SA-RBT-529300-GENERAL"
+          ],
+          "notes": null,
+          "sourceSentenceId": "RB529300-O2-S01",
+          "sourcePanelId": "P4",
+          "sourceOptionId": "O2"
+        },
+        {
+          "stepId": "S04",
+          "sequence": 4,
+          "operationType": "move-entity",
+          "modality": "must",
+          "subjectRef": "P-ROBOT",
+          "objectRef": "through selected Unexplored Corridor",
+          "conditionRefs": [
+            "S04-C01"
+          ],
+          "decisionRef": "D-RBT-529300-CORRIDOR",
+          "targetRef": "T-RBT-529300-CORRIDOR",
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-RBT-529300-SCAN",
+            "SA-RBT-529300-GENERAL"
+          ],
+          "notes": "This is the sole source exception to ordinary Robot unexplored-Corridor prohibition; Intruders are ignored and a Closed Door still blocks.",
+          "sourceSentenceId": "RB529300-O2-S01",
+          "sourcePanelId": "P4",
+          "sourceOptionId": "O2"
+        },
+        {
+          "stepId": "S05",
+          "sequence": 5,
+          "operationType": "draw-random",
+          "modality": "must",
+          "subjectRef": "P-RULES",
+          "objectRef": "top Exploration card into resolution, reshuffling eligible discard cards first if needed",
+          "conditionRefs": [
+            "S05-C01"
+          ],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-RBT-529300-SCAN",
+            "SA-RBT-529300-GENERAL"
+          ],
+          "notes": null,
+          "sourceSentenceId": "RB529300-O2-S01",
+          "sourcePanelId": "P4",
+          "sourceOptionId": "O2"
+        },
+        {
+          "stepId": "S06",
+          "sequence": 6,
+          "operationType": "set-state",
+          "modality": "must",
+          "subjectRef": "P-RULES",
+          "objectRef": "current Exploration invocation ignores every Entrance-effect source unit",
+          "conditionRefs": [
+            "S06-C01"
+          ],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-RBT-529300-SCAN",
+            "SA-RBT-529300-GENERAL"
+          ],
+          "notes": null,
+          "sourceSentenceId": "RB529300-O2-S02",
+          "sourcePanelId": "P4",
+          "sourceOptionId": "O2"
+        },
+        {
+          "stepId": "S07",
+          "sequence": 7,
+          "operationType": "invoke-selected-process",
+          "modality": "must",
+          "subjectRef": "P-RULES",
+          "objectRef": "exact Exploration occurrence with Robot as explorer and Entrance Effects suppressed",
+          "conditionRefs": [
+            "S07-C01"
+          ],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-RBT-529300-SCAN",
+            "SA-RBT-529300-GENERAL"
+          ],
+          "notes": "Occurrence dispatch preserves exact diagrams and unconditional lifecycle; it does not substitute a Character or grant Moving Cautiously Secure placement.",
+          "sourceSentenceId": "RB529300-O2-S01",
+          "sourcePanelId": "P4",
+          "sourceOptionId": "O2",
+          "dispatchRuleIds": [
+            "SEM-EXPLORATION-5629-001",
+            "SEM-EXPLORATION-5630-001",
+            "SEM-EXPLORATION-5631-001",
+            "SEM-EXPLORATION-5632-001",
+            "SEM-EXPLORATION-5633-001",
+            "SEM-EXPLORATION-5634-001",
+            "SEM-EXPLORATION-5635-001",
+            "SEM-EXPLORATION-5636-001",
+            "SEM-EXPLORATION-5637-001",
+            "SEM-EXPLORATION-5638-001",
+            "SEM-EXPLORATION-5639-001",
+            "SEM-EXPLORATION-5640-001"
+          ]
+        },
+        {
+          "stepId": "S08",
+          "sequence": 8,
+          "operationType": "resolve-open-alternative",
+          "modality": "must",
+          "subjectRef": "P-RULES",
+          "objectRef": "SEM-Q-014 whether/when the Exploration Robot makes a Noise roll",
+          "conditionRefs": [
+            "S08-C01"
+          ],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-RBT-529300-SCAN",
+            "SA-RBT-529300-GENERAL"
+          ],
+          "notes": null,
+          "sourceSentenceId": "RB529300-O2-S02",
+          "sourcePanelId": "P4",
+          "sourceOptionId": "O2"
+        }
+      ],
+      "partialResolution": {
+        "policy": "all-or-nothing-selection",
+        "unit": "one printed option and each sourceSentenceId within that option",
+        "onImpossible": "an option may not be selected unless it resolves entirely; explicit component-limit behavior and each no-default question remain source-scoped"
+      },
+      "duration": {
+        "kind": "instantaneous-Robot-option-resolution"
+      },
+      "stacking": {
+        "policy": "one option per Activate Robot Action; printed up-to movement permits zero steps; no face effects stack by name"
+      },
+      "outcomes": [],
+      "unresolvedQuestionRefs": [
+        "SEM-Q-013",
+        "SEM-Q-014"
+      ],
+      "sourceVariants": [
+        {
+          "variantId": "SV-RBT-529300-BGA",
+          "sourceId": "SRC-BGA-ROBOTS",
+          "sourceAssertionId": "SA-RBT-529300-BGA",
+          "difference": "The licensed occurrence normalizes line grouping and placeholder notation while retaining the same two alternatives; it remains secondary.",
+          "resolution": "Retain the licensed structured occurrence as secondary evidence; exact scan and applicable official general/component text control by authority without rewriting the variant."
+        }
+      ],
+      "implementationBoundary": "implementation-neutral; no engine, UI, network, storage, or serialization mapping"
+    },
+    {
+      "schemaVersion": 1,
+      "recordType": "semantic-rule",
+      "recordRevision": 1,
       "ruleId": "SEM-ROBOT-MALFUNCTION-001",
       "title": "Robot Malfunction effects",
       "status": "source-backed-with-open-question",
@@ -25601,6 +26790,3810 @@
         "SEM-Q-010"
       ],
       "sourceVariants": [],
+      "implementationBoundary": "implementation-neutral; no engine, UI, network, storage, or serialization mapping"
+    },
+    {
+      "schemaVersion": 1,
+      "recordType": "semantic-rule",
+      "recordRevision": 1,
+      "ruleId": "SEM-ROBOT-MALFUNCTION-PLACEMENT-001",
+      "title": "Place a Malfunction on the Robot",
+      "status": "source-backed-with-open-question",
+      "ruleKind": "procedure",
+      "applicability": {
+        "game": "Nemesis: Retaliation",
+        "mode": "base-standard",
+        "playerCount": null
+      },
+      "authority": {
+        "highest": "official-primary",
+        "interpretation": "open-alternatives"
+      },
+      "sourceAssertions": [
+        {
+          "assertionId": "SA-ROBOT-MALF-PLACE-P22",
+          "sourceId": "SRC-RULEBOOK",
+          "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
+          "sourceSha256": "e3cda0d7a91bd090cec45dbc8ce89e2015e2202173357c374ff49365f9c29ddd",
+          "sourceAuthority": "official-primary",
+          "sourceVersion": "base rulebook, local official PDF",
+          "locator": "printed pages 22–23 / Malfunction on Robot and marker limits",
+          "supportsFields": [
+            "timing",
+            "preconditions",
+            "operations",
+            "partialResolution",
+            "duration",
+            "stacking",
+            "unresolvedQuestionRefs"
+          ],
+          "sourceText": "Place a Malfunction marker on the Robot card; repeated placement is ignored. If no Malfunction is available, place Fire in the Room if possible, and if required Fire supply is empty the Facility is destroyed.",
+          "textKind": "normalized-paraphrase",
+          "evidenceRecord": "docs/rules/semantics/robot-source-index.json:RB-ROBOT-MALFUNCTION-01"
+        },
+        {
+          "assertionId": "SA-ROBOT-MALF-PLACE-P37",
+          "sourceId": "SRC-RULEBOOK",
+          "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
+          "sourceSha256": "e3cda0d7a91bd090cec45dbc8ce89e2015e2202173357c374ff49365f9c29ddd",
+          "sourceAuthority": "official-primary",
+          "sourceVersion": "base rulebook, local official PDF",
+          "locator": "printed page 37 / Malfunction Marker on the Robot",
+          "supportsFields": [
+            "preconditions",
+            "operations",
+            "duration",
+            "unresolvedQuestionRefs"
+          ],
+          "sourceText": "A Robot with Malfunction has no Action and all game effects mentioning it are unavailable.",
+          "textKind": "normalized-paraphrase",
+          "evidenceRecord": "docs/rules/semantics/robot-source-index.json:RB-ROBOT-MALFUNCTION-P37-01"
+        }
+      ],
+      "termRefs": [
+        "icon.fire",
+        "icon.malfunction",
+        "icon.robot"
+      ],
+      "taxonRefs": [
+        "tax.entity.agent.robot",
+        "tax.entity.component.card.robot",
+        "tax.entity.component.marker.fire",
+        "tax.entity.component.marker.malfunction",
+        "tax.scaffold.supply-pool"
+      ],
+      "namedIdentityRefs": [],
+      "timing": {
+        "windowId": "TW-ROBOT-MALF-PLACE",
+        "anchorTaxonId": "tax.entity.agent.robot",
+        "relation": "when-triggered",
+        "recurrence": "per-effect-requesting-Robot-Malfunction-placement"
+      },
+      "participants": [
+        {
+          "participantId": "P-RULES",
+          "participantKind": "rules-system",
+          "taxonId": null,
+          "role": null
+        },
+        {
+          "participantId": "P-ROBOT",
+          "participantKind": "affected",
+          "taxonId": "tax.entity.agent.robot",
+          "role": null
+        }
+      ],
+      "modality": "must",
+      "preconditions": [
+        {
+          "conditionId": "S02-C01",
+          "scope": "operation-guard",
+          "expression": {
+            "operator": "predicate",
+            "args": [
+              {
+                "predicate": "Robot has no Malfunction marker"
+              }
+            ]
+          },
+          "sourceAssertionIds": [
+            "SA-ROBOT-MALF-PLACE-P22",
+            "SA-ROBOT-MALF-PLACE-P37"
+          ]
+        },
+        {
+          "conditionId": "S02-C02",
+          "scope": "operation-guard",
+          "expression": {
+            "operator": "predicate",
+            "args": [
+              {
+                "predicate": "a Malfunction marker is available"
+              }
+            ]
+          },
+          "sourceAssertionIds": [
+            "SA-ROBOT-MALF-PLACE-P22",
+            "SA-ROBOT-MALF-PLACE-P37"
+          ]
+        },
+        {
+          "conditionId": "S03-C01",
+          "scope": "operation-guard",
+          "expression": {
+            "operator": "predicate",
+            "args": [
+              {
+                "predicate": "Malfunction marker was placed"
+              }
+            ]
+          },
+          "sourceAssertionIds": [
+            "SA-ROBOT-MALF-PLACE-P22",
+            "SA-ROBOT-MALF-PLACE-P37"
+          ]
+        },
+        {
+          "conditionId": "S04-C01",
+          "scope": "operation-guard",
+          "expression": {
+            "operator": "predicate",
+            "args": [
+              {
+                "predicate": "Robot already has a Malfunction marker"
+              }
+            ]
+          },
+          "sourceAssertionIds": [
+            "SA-ROBOT-MALF-PLACE-P22",
+            "SA-ROBOT-MALF-PLACE-P37"
+          ]
+        },
+        {
+          "conditionId": "S05-C01",
+          "scope": "operation-guard",
+          "expression": {
+            "operator": "predicate",
+            "args": [
+              {
+                "predicate": "Robot has no Malfunction marker"
+              }
+            ]
+          },
+          "sourceAssertionIds": [
+            "SA-ROBOT-MALF-PLACE-P22"
+          ]
+        },
+        {
+          "conditionId": "S05-C02",
+          "scope": "operation-guard",
+          "expression": {
+            "operator": "predicate",
+            "args": [
+              {
+                "predicate": "no Malfunction marker is available"
+              }
+            ]
+          },
+          "sourceAssertionIds": [
+            "SA-ROBOT-MALF-PLACE-P22"
+          ]
+        },
+        {
+          "conditionId": "S05-C03",
+          "scope": "operation-guard",
+          "expression": {
+            "operator": "predicate",
+            "args": [
+              {
+                "predicate": "Fire placement is possible"
+              }
+            ]
+          },
+          "sourceAssertionIds": [
+            "SA-ROBOT-MALF-PLACE-P22"
+          ]
+        },
+        {
+          "conditionId": "S06-C01",
+          "scope": "operation-guard",
+          "expression": {
+            "operator": "predicate",
+            "args": [
+              {
+                "predicate": "required fallback Fire cannot be placed because Fire supply is empty"
+              }
+            ]
+          },
+          "sourceAssertionIds": [
+            "SA-ROBOT-MALF-PLACE-P22"
+          ]
+        }
+      ],
+      "decisions": [],
+      "informationPolicy": [
+        {
+          "informationId": "I-ROBOT-MALF-PLACE",
+          "subjectRef": "Robot marker state, finite marker pools, fallback Fire, and Facility outcome",
+          "audience": "public",
+          "revealTrigger": "placement resolution",
+          "secrecy": "face identity remains governed by SEM-ROBOT-REVEAL-001"
+        }
+      ],
+      "costs": [],
+      "targets": [],
+      "operations": [
+        {
+          "stepId": "S01",
+          "sequence": 1,
+          "operationType": "resolve-open-alternative",
+          "modality": "must",
+          "subjectRef": "P-RULES",
+          "objectRef": "SEM-Q-012 pre-reveal applicability when caller targets an unrevealed Robot card",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-ROBOT-MALF-PLACE-P22",
+            "SA-ROBOT-MALF-PLACE-P37"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S02",
+          "sequence": 2,
+          "operationType": "transition-zone",
+          "modality": "if-able",
+          "subjectRef": "P-RULES",
+          "objectRef": "1 Malfunction marker onto the Robot card",
+          "conditionRefs": [
+            "S02-C01",
+            "S02-C02"
+          ],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": {
+            "from": "tax.scaffold.supply-pool",
+            "to": "Robot card"
+          },
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-ROBOT-MALF-PLACE-P22",
+            "SA-ROBOT-MALF-PLACE-P37"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S03",
+          "sequence": 3,
+          "operationType": "set-state",
+          "modality": "if-able",
+          "subjectRef": "P-ROBOT",
+          "objectRef": "sem.state.robot.broken",
+          "conditionRefs": [
+            "S03-C01"
+          ],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-ROBOT-MALF-PLACE-P22",
+            "SA-ROBOT-MALF-PLACE-P37"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S04",
+          "sequence": 4,
+          "operationType": "resolve-open-alternative",
+          "modality": "must",
+          "subjectRef": "P-RULES",
+          "objectRef": "SEM-Q-010 repeated-placement/effect-availability conflict when Robot already has Malfunction",
+          "conditionRefs": [
+            "S04-C01"
+          ],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-ROBOT-MALF-PLACE-P22",
+            "SA-ROBOT-MALF-PLACE-P37"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S05",
+          "sequence": 5,
+          "operationType": "place-component",
+          "modality": "if-able",
+          "subjectRef": "P-RULES",
+          "objectRef": "1 Fire marker in the Robot's Room as finite-Malfunction fallback",
+          "conditionRefs": [
+            "S05-C01",
+            "S05-C02",
+            "S05-C03"
+          ],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-ROBOT-MALF-PLACE-P22"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S06",
+          "sequence": 6,
+          "operationType": "invoke-process",
+          "modality": "if-able",
+          "subjectRef": "P-RULES",
+          "objectRef": "Facility destruction and End of the Game",
+          "conditionRefs": [
+            "S06-C01"
+          ],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": "SEM-ENDGAME-001",
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-ROBOT-MALF-PLACE-P22"
+          ],
+          "notes": null
+        }
+      ],
+      "partialResolution": {
+        "policy": "if-not-possible-fallback",
+        "unit": "one requested Robot Malfunction placement",
+        "onImpossible": "apply the explicit Fire fallback and Facility-destruction rule; repeated placement and pre-reveal applicability remain no-default questions"
+      },
+      "duration": {
+        "kind": "persistent-marker-until-source-defined-removal"
+      },
+      "stacking": {
+        "policy": "at most one Robot Malfunction marker; 14 finite Malfunctions and 9 finite Fire markers globally; no destroyed-Robot state is source-defined"
+      },
+      "outcomes": [],
+      "unresolvedQuestionRefs": [
+        "SEM-Q-010",
+        "SEM-Q-012"
+      ],
+      "sourceVariants": [],
+      "implementationBoundary": "implementation-neutral; no engine, UI, network, storage, or serialization mapping"
+    },
+    {
+      "schemaVersion": 1,
+      "recordType": "semantic-rule",
+      "recordRevision": 1,
+      "ruleId": "SEM-ROBOT-MEDICAL-001",
+      "title": "Medical Robot",
+      "status": "source-backed-with-open-question",
+      "ruleKind": "component-effect",
+      "applicability": {
+        "game": "Nemesis: Retaliation",
+        "mode": "base-standard",
+        "playerCount": null
+      },
+      "authority": {
+        "highest": "official-primary",
+        "interpretation": "open-alternatives"
+      },
+      "sourceAssertions": [
+        {
+          "assertionId": "SA-RBT-529500-SCAN",
+          "sourceId": "SRC-ROBOT-529500",
+          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/robotDeck-130.jpg",
+          "sourceSha256": "40751b42f461036517fa1ebc098de646dcf3a58d3407a288e54bb0da0a091dfb",
+          "sourceAuthority": "source-bound-component-scan",
+          "sourceVersion": "TTS base Robot face / root deck 98925d / CardID 529500",
+          "locator": "TTS-ROBOT-529500-FACE / exact face panels and sentences",
+          "supportsFields": [
+            "timing",
+            "preconditions",
+            "decisions",
+            "informationPolicy",
+            "targets",
+            "operations",
+            "partialResolution",
+            "sourceVariants",
+            "unresolvedQuestionRefs"
+          ],
+          "sourceText": "Move the [robot] up to 2 times.\nOR\nA [character] of your choice\nin a Room with the [robot]\ndiscards 1 Serious Wound\nor restores 2 [characterHealth].",
+          "textKind": "verbatim",
+          "evidenceRecord": "docs/rules/semantics/robot-source-index.json:TTS-ROBOT-529500-FACE"
+        },
+        {
+          "assertionId": "SA-RBT-529500-GENERAL",
+          "sourceId": "SRC-RULEBOOK",
+          "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
+          "sourceSha256": "e3cda0d7a91bd090cec45dbc8ce89e2015e2202173357c374ff49365f9c29ddd",
+          "sourceAuthority": "official-primary",
+          "sourceVersion": "base rulebook, local official PDF",
+          "locator": "printed pages 14, 17, 22–23, 33, and 37 / effect legality and Robot procedures",
+          "supportsFields": [
+            "timing",
+            "preconditions",
+            "decisions",
+            "informationPolicy",
+            "targets",
+            "operations",
+            "partialResolution",
+            "duration",
+            "stacking",
+            "unresolvedQuestionRefs",
+            "sourceVariants"
+          ],
+          "sourceText": "Resolve one entirely legal printed Robot option through the official Robot movement, health, Burst, Door, marker, Room, Exploration, and finite-component rules that apply to that option.",
+          "textKind": "normalized-paraphrase",
+          "evidenceRecord": "docs/rules/semantics/robot-source-index.json:officialRulebookTextOccurrences"
+        },
+        {
+          "assertionId": "SA-RBT-529500-BGA",
+          "sourceId": "SRC-BGA-ROBOTS",
+          "sourcePath": "docs/rules/source-extraction/secondary/bga-staticData-260622-1220.js",
+          "sourceSha256": "18cd8f4a2883d4f6662ed170095ff07e0d9f5da508064ed1d6bfc124f5a274ae",
+          "sourceAuthority": "licensed-digital-secondary",
+          "sourceVersion": "licensed BGA immutable build 260622-1220 / ROBOT_CARDS_DATA",
+          "locator": "ROBOT_CARDS_DATA.MedicalRobot",
+          "supportsFields": [
+            "sourceVariants"
+          ],
+          "sourceText": "  MedicalRobot: {\n    name: 'Medical Robot',\n    desc: [\n      'Move the <ROBOT> up to 2 times.',\n      'A <CHARACTER> of your choice in a Room with the <ROBOT> discards 1 Serious Wound or restores 2<HP>.',\n    ],\n    color: 'green',\n  },",
+          "textKind": "verbatim",
+          "evidenceRecord": "docs/rules/semantics/robot-source-index.json:TTS-ROBOT-529500-FACE.bgaOccurrence"
+        }
+      ],
+      "termRefs": [
+        "icon.character",
+        "icon.characterHealth",
+        "icon.robot",
+        "term.character-health",
+        "term.closed",
+        "term.corridor",
+        "term.robot-card",
+        "term.room",
+        "term.serious-wound-card"
+      ],
+      "taxonRefs": [
+        "tax.entity.agent.character",
+        "tax.entity.agent.robot",
+        "tax.entity.component.card.robot",
+        "tax.entity.component.card.serious-wound",
+        "tax.entity.spatial.corridor",
+        "tax.entity.spatial.room",
+        "tax.state.closed",
+        "tax.state.health.point"
+      ],
+      "namedIdentityRefs": [],
+      "timing": {
+        "windowId": "TW-RBT-529500",
+        "anchorTaxonId": "tax.process.action.basic",
+        "relation": "during",
+        "recurrence": "when-this-exact-revealed-Robot-face-is-Activated"
+      },
+      "participants": [
+        {
+          "participantId": "P-PLAYER",
+          "participantKind": "decision-owner",
+          "taxonId": "tax.entity.agent.player",
+          "role": null
+        },
+        {
+          "participantId": "P-CHARACTER",
+          "participantKind": "actor",
+          "taxonId": "tax.entity.agent.character",
+          "role": null
+        },
+        {
+          "participantId": "P-ROBOT",
+          "participantKind": "affected",
+          "taxonId": "tax.entity.agent.robot",
+          "role": null
+        },
+        {
+          "participantId": "P-RULES",
+          "participantKind": "rules-system",
+          "taxonId": null,
+          "role": null
+        },
+        {
+          "participantId": "P-TARGET-OWNER",
+          "participantKind": "affected-decision-owner",
+          "taxonId": "tax.entity.agent.player",
+          "role": null
+        }
+      ],
+      "modality": "must",
+      "preconditions": [
+        {
+          "conditionId": "C-RBT-529500-FACE",
+          "scope": "record-precondition",
+          "expression": {
+            "operator": "all",
+            "args": [
+              {
+                "predicate": "revealed Robot occurrence identity is TTS-ROBOT-529500-FACE"
+              },
+              {
+                "predicate": "Robot has no Malfunction marker"
+              },
+              {
+                "predicate": "selected printed option is entirely resolvable"
+              }
+            ]
+          },
+          "sourceAssertionIds": [
+            "SA-RBT-529500-SCAN",
+            "SA-RBT-529500-GENERAL"
+          ]
+        },
+        {
+          "conditionId": "S02-C01",
+          "scope": "operation-guard",
+          "expression": {
+            "operator": "predicate",
+            "args": [
+              {
+                "predicate": "movement option selected"
+              }
+            ]
+          },
+          "sourceAssertionIds": [
+            "SA-RBT-529500-SCAN",
+            "SA-RBT-529500-GENERAL"
+          ]
+        },
+        {
+          "conditionId": "S03-C01",
+          "scope": "operation-guard",
+          "expression": {
+            "operator": "predicate",
+            "args": [
+              {
+                "predicate": "medical option selected"
+              }
+            ]
+          },
+          "sourceAssertionIds": [
+            "SA-RBT-529500-SCAN",
+            "SA-RBT-529500-GENERAL"
+          ]
+        },
+        {
+          "conditionId": "S04-C01",
+          "scope": "operation-guard",
+          "expression": {
+            "operator": "predicate",
+            "args": [
+              {
+                "predicate": "medical option selected"
+              }
+            ]
+          },
+          "sourceAssertionIds": [
+            "SA-RBT-529500-SCAN",
+            "SA-RBT-529500-GENERAL"
+          ]
+        },
+        {
+          "conditionId": "S05-C01",
+          "scope": "operation-guard",
+          "expression": {
+            "operator": "predicate",
+            "args": [
+              {
+                "predicate": "discard-Wound branch selected"
+              }
+            ]
+          },
+          "sourceAssertionIds": [
+            "SA-RBT-529500-SCAN",
+            "SA-RBT-529500-GENERAL"
+          ]
+        },
+        {
+          "conditionId": "S06-C01",
+          "scope": "operation-guard",
+          "expression": {
+            "operator": "predicate",
+            "args": [
+              {
+                "predicate": "restore-Health branch selected"
+              }
+            ]
+          },
+          "sourceAssertionIds": [
+            "SA-RBT-529500-SCAN",
+            "SA-RBT-529500-GENERAL"
+          ]
+        }
+      ],
+      "decisions": [
+        {
+          "decisionId": "D-RBT-529500-OPTION",
+          "ownerRef": "P-PLAYER",
+          "selectionMode": "player-choice",
+          "cardinality": {
+            "min": 1,
+            "max": 1
+          },
+          "declineAllowed": false,
+          "visibility": "public-on-declaration",
+          "options": [
+            "option O1",
+            "option O2"
+          ]
+        },
+        {
+          "decisionId": "D-RBT-529500-TARGET",
+          "ownerRef": "P-PLAYER",
+          "selectionMode": "player-choice",
+          "cardinality": {
+            "min": 1,
+            "max": 1
+          },
+          "declineAllowed": false,
+          "visibility": "public-on-declaration",
+          "options": [
+            "one Character in the Room with the Robot"
+          ]
+        },
+        {
+          "decisionId": "D-RBT-529500-BRANCH",
+          "ownerRef": "P-TARGET-OWNER",
+          "selectionMode": "unresolved",
+          "cardinality": {
+            "min": 1,
+            "max": 1
+          },
+          "declineAllowed": false,
+          "visibility": "source-unspecified",
+          "options": [
+            "discard 1 Serious Wound",
+            "restore 0–2 Health points"
+          ]
+        },
+        {
+          "decisionId": "D-RBT-529500-WOUND",
+          "ownerRef": "P-TARGET-OWNER",
+          "selectionMode": "player-choice",
+          "cardinality": {
+            "min": 0,
+            "max": 1
+          },
+          "declineAllowed": true,
+          "visibility": "public-on-discard",
+          "options": [
+            "one owned Serious Wound when discard branch is chosen"
+          ]
+        }
+      ],
+      "informationPolicy": [
+        {
+          "informationId": "I-RBT-529500",
+          "subjectRef": "revealed exact Robot face, selected option, targets, random results, and state changes",
+          "audience": "public",
+          "revealTrigger": "option declaration/resolution",
+          "secrecy": "remaining five Robot cards stay unseen and out of this game"
+        }
+      ],
+      "costs": [],
+      "targets": [
+        {
+          "targetId": "T-RBT-529500-CHARACTER",
+          "selectorRef": "P-PLAYER",
+          "eligibleTaxonIds": [
+            "tax.entity.agent.character"
+          ],
+          "cardinality": {
+            "min": 1,
+            "max": 1
+          },
+          "selectionMode": "player-choice",
+          "visibility": "public"
+        },
+        {
+          "targetId": "T-RBT-529500-WOUND",
+          "selectorRef": "P-TARGET-OWNER",
+          "eligibleTaxonIds": [
+            "tax.entity.component.card.serious-wound"
+          ],
+          "cardinality": {
+            "min": 0,
+            "max": 1
+          },
+          "selectionMode": "player-choice",
+          "visibility": "public"
+        }
+      ],
+      "operations": [
+        {
+          "stepId": "S01",
+          "sequence": 1,
+          "operationType": "choose",
+          "modality": "must",
+          "subjectRef": "P-PLAYER",
+          "objectRef": "one printed Robot option",
+          "conditionRefs": [],
+          "decisionRef": "D-RBT-529500-OPTION",
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-RBT-529500-SCAN",
+            "SA-RBT-529500-GENERAL"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S02",
+          "sequence": 2,
+          "operationType": "invoke-process",
+          "modality": "may",
+          "subjectRef": "P-ROBOT",
+          "objectRef": "move zero through 2 neighboring-Room steps",
+          "conditionRefs": [
+            "S02-C01"
+          ],
+          "decisionRef": "D-RBT-529500-OPTION",
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": "SEM-ROBOT-MOVEMENT-001",
+          "repeat": {
+            "printedMaximumSteps": 2,
+            "zeroStepsLegal": true
+          },
+          "sourceAssertionIds": [
+            "SA-RBT-529500-SCAN",
+            "SA-RBT-529500-GENERAL"
+          ],
+          "notes": null,
+          "sourceSentenceId": "RB529500-O1-S01",
+          "sourcePanelId": "P3",
+          "sourceOptionId": "O1"
+        },
+        {
+          "stepId": "S03",
+          "sequence": 3,
+          "operationType": "select-target",
+          "modality": "must",
+          "subjectRef": "P-PLAYER",
+          "objectRef": "one Character in the Room with the Robot",
+          "conditionRefs": [
+            "S03-C01"
+          ],
+          "decisionRef": "D-RBT-529500-TARGET",
+          "targetRef": "T-RBT-529500-CHARACTER",
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-RBT-529500-SCAN",
+            "SA-RBT-529500-GENERAL"
+          ],
+          "notes": null,
+          "sourceSentenceId": "RB529500-O2-S01",
+          "sourcePanelId": "P4",
+          "sourceOptionId": "O2"
+        },
+        {
+          "stepId": "S04",
+          "sequence": 4,
+          "operationType": "resolve-open-alternative",
+          "modality": "must",
+          "subjectRef": "P-RULES",
+          "objectRef": "SEM-Q-015 owner of the discard-versus-restore branch and reduced restoration",
+          "conditionRefs": [
+            "S04-C01"
+          ],
+          "decisionRef": "D-RBT-529500-BRANCH",
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-RBT-529500-SCAN",
+            "SA-RBT-529500-GENERAL"
+          ],
+          "notes": null,
+          "sourceSentenceId": "RB529500-O2-S01",
+          "sourcePanelId": "P4",
+          "sourceOptionId": "O2"
+        },
+        {
+          "stepId": "S05",
+          "sequence": 5,
+          "operationType": "remove-component",
+          "modality": "if-able",
+          "subjectRef": "P-RULES",
+          "objectRef": "one Serious Wound selected by the affected Character's player",
+          "conditionRefs": [
+            "S05-C01"
+          ],
+          "decisionRef": "D-RBT-529500-WOUND",
+          "targetRef": "T-RBT-529500-WOUND",
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-RBT-529500-SCAN",
+            "SA-RBT-529500-GENERAL"
+          ],
+          "notes": null,
+          "sourceSentenceId": "RB529500-O2-S01",
+          "sourcePanelId": "P4",
+          "sourceOptionId": "O2"
+        },
+        {
+          "stepId": "S06",
+          "sequence": 6,
+          "operationType": "change-value",
+          "modality": "if-able",
+          "subjectRef": "P-RULES",
+          "objectRef": "selected Character Health",
+          "conditionRefs": [
+            "S06-C01"
+          ],
+          "decisionRef": "D-RBT-529500-BRANCH",
+          "targetRef": "T-RBT-529500-CHARACTER",
+          "transition": null,
+          "valueChange": {
+            "amount": "0 through +2 chosen under SEM-Q-015",
+            "valueTaxonId": "tax.state.health.point"
+          },
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-RBT-529500-SCAN",
+            "SA-RBT-529500-GENERAL"
+          ],
+          "notes": null,
+          "sourceSentenceId": "RB529500-O2-S01",
+          "sourcePanelId": "P4",
+          "sourceOptionId": "O2"
+        }
+      ],
+      "partialResolution": {
+        "policy": "all-or-nothing-selection",
+        "unit": "one printed option and each sourceSentenceId within that option",
+        "onImpossible": "an option may not be selected unless it resolves entirely; explicit component-limit behavior and each no-default question remain source-scoped"
+      },
+      "duration": {
+        "kind": "instantaneous-Robot-option-resolution"
+      },
+      "stacking": {
+        "policy": "one option per Activate Robot Action; printed up-to movement permits zero steps; no face effects stack by name"
+      },
+      "outcomes": [],
+      "unresolvedQuestionRefs": [
+        "SEM-Q-013",
+        "SEM-Q-015"
+      ],
+      "sourceVariants": [
+        {
+          "variantId": "SV-RBT-529500-BGA",
+          "sourceId": "SRC-BGA-ROBOTS",
+          "sourceAssertionId": "SA-RBT-529500-BGA",
+          "difference": "The licensed occurrence normalizes the exact line grouping and icon placeholders; the scan remains an independent component occurrence.",
+          "resolution": "Retain the licensed structured occurrence as secondary evidence; exact scan and applicable official general/component text control by authority without rewriting the variant."
+        }
+      ],
+      "implementationBoundary": "implementation-neutral; no engine, UI, network, storage, or serialization mapping"
+    },
+    {
+      "schemaVersion": 1,
+      "recordType": "semantic-rule",
+      "recordRevision": 1,
+      "ruleId": "SEM-ROBOT-MILITARY-001",
+      "title": "Military Robot",
+      "status": "source-backed-with-open-question",
+      "ruleKind": "component-effect",
+      "applicability": {
+        "game": "Nemesis: Retaliation",
+        "mode": "base-standard",
+        "playerCount": null
+      },
+      "authority": {
+        "highest": "official-primary",
+        "interpretation": "open-alternatives"
+      },
+      "sourceAssertions": [
+        {
+          "assertionId": "SA-RBT-529600-SCAN",
+          "sourceId": "SRC-ROBOT-529600",
+          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/robotDeck-175.jpg",
+          "sourceSha256": "27a7014ae8011fa68b71a60365b11ca0392b4e66c7d9bdfbe46eec3a6bb21411",
+          "sourceAuthority": "source-bound-component-scan",
+          "sourceVersion": "TTS base Robot face / root deck 98925d / CardID 529600",
+          "locator": "TTS-ROBOT-529600-FACE / exact face panels and sentences",
+          "supportsFields": [
+            "timing",
+            "preconditions",
+            "decisions",
+            "informationPolicy",
+            "targets",
+            "operations",
+            "partialResolution",
+            "sourceVariants",
+            "unresolvedQuestionRefs"
+          ],
+          "sourceText": "Move the [robot] once.\n\nOR\n\nChoose a Corridor adjacent\nto the [robot] and roll a Burst\ndie. Deal Hits equal to the\nresult in that Corridor.\n[burstDieAdditionalEffects]: Place a [malfunction] on the [robot].",
+          "textKind": "verbatim",
+          "evidenceRecord": "docs/rules/semantics/robot-source-index.json:TTS-ROBOT-529600-FACE"
+        },
+        {
+          "assertionId": "SA-RBT-529600-GENERAL",
+          "sourceId": "SRC-RULEBOOK",
+          "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
+          "sourceSha256": "e3cda0d7a91bd090cec45dbc8ce89e2015e2202173357c374ff49365f9c29ddd",
+          "sourceAuthority": "official-primary",
+          "sourceVersion": "base rulebook, local official PDF",
+          "locator": "printed pages 14, 17, 22–23, 33, and 37 / effect legality and Robot procedures",
+          "supportsFields": [
+            "timing",
+            "preconditions",
+            "decisions",
+            "informationPolicy",
+            "targets",
+            "operations",
+            "partialResolution",
+            "duration",
+            "stacking",
+            "unresolvedQuestionRefs",
+            "sourceVariants"
+          ],
+          "sourceText": "Resolve one entirely legal printed Robot option through the official Robot movement, health, Burst, Door, marker, Room, Exploration, and finite-component rules that apply to that option.",
+          "textKind": "normalized-paraphrase",
+          "evidenceRecord": "docs/rules/semantics/robot-source-index.json:officialRulebookTextOccurrences"
+        },
+        {
+          "assertionId": "SA-RBT-529600-BGA",
+          "sourceId": "SRC-BGA-ROBOTS",
+          "sourcePath": "docs/rules/source-extraction/secondary/bga-staticData-260622-1220.js",
+          "sourceSha256": "18cd8f4a2883d4f6662ed170095ff07e0d9f5da508064ed1d6bfc124f5a274ae",
+          "sourceAuthority": "licensed-digital-secondary",
+          "sourceVersion": "licensed BGA immutable build 260622-1220 / ROBOT_CARDS_DATA",
+          "locator": "ROBOT_CARDS_DATA.MilitaryRobot",
+          "supportsFields": [
+            "sourceVariants"
+          ],
+          "sourceText": "  MilitaryRobot: {\n    name: 'Military Robot',\n    desc: [\n      'Move the <ROBOT> once.',\n      'Choose a Corridor adjacent to the <ROBOT> and roll a Burst die. Deal Hits equal to the result in that Corridor.\\n<DICE-BURST>: Place a <MALFUNCTION> on the <ROBOT>',\n    ],\n    color: 'red',\n  },",
+          "textKind": "verbatim",
+          "evidenceRecord": "docs/rules/semantics/robot-source-index.json:TTS-ROBOT-529600-FACE.bgaOccurrence"
+        }
+      ],
+      "termRefs": [
+        "icon.burstDieAdditionalEffects",
+        "icon.malfunction",
+        "icon.robot",
+        "term.burst",
+        "term.closed",
+        "term.corridor",
+        "term.hit",
+        "term.robot-card",
+        "term.room"
+      ],
+      "taxonRefs": [
+        "tax.entity.agent.intruder",
+        "tax.entity.agent.robot",
+        "tax.entity.component.card.robot",
+        "tax.entity.component.marker.malfunction",
+        "tax.entity.spatial.corridor",
+        "tax.entity.spatial.room",
+        "tax.process.action.attack.burst",
+        "tax.process.operation.hit",
+        "tax.state.closed",
+        "tax.symbol.die-result"
+      ],
+      "namedIdentityRefs": [
+        "NI-0300"
+      ],
+      "timing": {
+        "windowId": "TW-RBT-529600",
+        "anchorTaxonId": "tax.process.action.basic",
+        "relation": "during",
+        "recurrence": "when-this-exact-revealed-Robot-face-is-Activated"
+      },
+      "participants": [
+        {
+          "participantId": "P-PLAYER",
+          "participantKind": "decision-owner",
+          "taxonId": "tax.entity.agent.player",
+          "role": null
+        },
+        {
+          "participantId": "P-CHARACTER",
+          "participantKind": "actor",
+          "taxonId": "tax.entity.agent.character",
+          "role": null
+        },
+        {
+          "participantId": "P-ROBOT",
+          "participantKind": "affected",
+          "taxonId": "tax.entity.agent.robot",
+          "role": null
+        },
+        {
+          "participantId": "P-RULES",
+          "participantKind": "rules-system",
+          "taxonId": null,
+          "role": null
+        }
+      ],
+      "modality": "must",
+      "preconditions": [
+        {
+          "conditionId": "C-RBT-529600-FACE",
+          "scope": "record-precondition",
+          "expression": {
+            "operator": "all",
+            "args": [
+              {
+                "predicate": "revealed Robot occurrence identity is TTS-ROBOT-529600-FACE"
+              },
+              {
+                "predicate": "Robot has no Malfunction marker"
+              },
+              {
+                "predicate": "selected printed option is entirely resolvable"
+              }
+            ]
+          },
+          "sourceAssertionIds": [
+            "SA-RBT-529600-SCAN",
+            "SA-RBT-529600-GENERAL"
+          ]
+        },
+        {
+          "conditionId": "S02-C01",
+          "scope": "operation-guard",
+          "expression": {
+            "operator": "predicate",
+            "args": [
+              {
+                "predicate": "movement option selected"
+              }
+            ]
+          },
+          "sourceAssertionIds": [
+            "SA-RBT-529600-SCAN",
+            "SA-RBT-529600-GENERAL"
+          ]
+        },
+        {
+          "conditionId": "S03-C01",
+          "scope": "operation-guard",
+          "expression": {
+            "operator": "predicate",
+            "args": [
+              {
+                "predicate": "Burst-roll option selected"
+              }
+            ]
+          },
+          "sourceAssertionIds": [
+            "SA-RBT-529600-SCAN",
+            "SA-RBT-529600-GENERAL"
+          ]
+        },
+        {
+          "conditionId": "S04-C01",
+          "scope": "operation-guard",
+          "expression": {
+            "operator": "predicate",
+            "args": [
+              {
+                "predicate": "Burst-roll option selected"
+              }
+            ]
+          },
+          "sourceAssertionIds": [
+            "SA-RBT-529600-SCAN",
+            "SA-RBT-529600-GENERAL"
+          ]
+        },
+        {
+          "conditionId": "S05-C01",
+          "scope": "operation-guard",
+          "expression": {
+            "operator": "predicate",
+            "args": [
+              {
+                "predicate": "Burst-roll option selected"
+              }
+            ]
+          },
+          "sourceAssertionIds": [
+            "SA-RBT-529600-SCAN",
+            "SA-RBT-529600-GENERAL"
+          ]
+        },
+        {
+          "conditionId": "S06-C01",
+          "scope": "operation-guard",
+          "expression": {
+            "operator": "predicate",
+            "args": [
+              {
+                "predicate": "Burst additional-effects symbol was rolled"
+              }
+            ]
+          },
+          "sourceAssertionIds": [
+            "SA-RBT-529600-SCAN",
+            "SA-RBT-529600-GENERAL"
+          ]
+        }
+      ],
+      "decisions": [
+        {
+          "decisionId": "D-RBT-529600-OPTION",
+          "ownerRef": "P-PLAYER",
+          "selectionMode": "player-choice",
+          "cardinality": {
+            "min": 1,
+            "max": 1
+          },
+          "declineAllowed": false,
+          "visibility": "public-on-declaration",
+          "options": [
+            "option O1",
+            "option O2"
+          ]
+        },
+        {
+          "decisionId": "D-RBT-529600-CORRIDOR",
+          "ownerRef": "P-PLAYER",
+          "selectionMode": "player-choice",
+          "cardinality": {
+            "min": 1,
+            "max": 1
+          },
+          "declineAllowed": false,
+          "visibility": "public-on-declaration",
+          "options": [
+            "one legally accessible adjacent Corridor"
+          ]
+        },
+        {
+          "decisionId": "D-RBT-529600-HITS",
+          "ownerRef": "P-PLAYER",
+          "selectionMode": "player-choice",
+          "cardinality": {
+            "min": 0,
+            "max": 4
+          },
+          "declineAllowed": true,
+          "visibility": "public-on-allocation",
+          "options": [
+            "legal Burst-Hit allocations among Intruders in selected Corridor"
+          ]
+        }
+      ],
+      "informationPolicy": [
+        {
+          "informationId": "I-RBT-529600",
+          "subjectRef": "revealed exact Robot face, selected option, targets, random results, and state changes",
+          "audience": "public",
+          "revealTrigger": "option declaration/resolution",
+          "secrecy": "remaining five Robot cards stay unseen and out of this game"
+        }
+      ],
+      "costs": [],
+      "targets": [
+        {
+          "targetId": "T-RBT-529600-CORRIDOR",
+          "selectorRef": "P-PLAYER",
+          "eligibleTaxonIds": [
+            "tax.entity.spatial.corridor"
+          ],
+          "cardinality": {
+            "min": 1,
+            "max": 1
+          },
+          "selectionMode": "player-choice",
+          "visibility": "public"
+        },
+        {
+          "targetId": "T-RBT-529600-INTRUDERS",
+          "selectorRef": "P-PLAYER",
+          "eligibleTaxonIds": [
+            "tax.entity.agent.intruder"
+          ],
+          "cardinality": {
+            "min": 0,
+            "max": null
+          },
+          "selectionMode": "player-choice",
+          "visibility": "public"
+        }
+      ],
+      "operations": [
+        {
+          "stepId": "S01",
+          "sequence": 1,
+          "operationType": "choose",
+          "modality": "must",
+          "subjectRef": "P-PLAYER",
+          "objectRef": "one printed Robot option",
+          "conditionRefs": [],
+          "decisionRef": "D-RBT-529600-OPTION",
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-RBT-529600-SCAN",
+            "SA-RBT-529600-GENERAL"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S02",
+          "sequence": 2,
+          "operationType": "invoke-process",
+          "modality": "must",
+          "subjectRef": "P-ROBOT",
+          "objectRef": "move exactly one neighboring-Room step",
+          "conditionRefs": [
+            "S02-C01"
+          ],
+          "decisionRef": "D-RBT-529600-OPTION",
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": "SEM-ROBOT-MOVEMENT-001",
+          "repeat": {
+            "printedMaximumSteps": 1,
+            "zeroStepsLegal": false
+          },
+          "sourceAssertionIds": [
+            "SA-RBT-529600-SCAN",
+            "SA-RBT-529600-GENERAL"
+          ],
+          "notes": null,
+          "sourceSentenceId": "RB529600-O1-S01",
+          "sourcePanelId": "P3",
+          "sourceOptionId": "O1"
+        },
+        {
+          "stepId": "S03",
+          "sequence": 3,
+          "operationType": "select-target",
+          "modality": "must",
+          "subjectRef": "P-PLAYER",
+          "objectRef": "one adjacent Corridor not blocked by a Closed Door",
+          "conditionRefs": [
+            "S03-C01"
+          ],
+          "decisionRef": "D-RBT-529600-CORRIDOR",
+          "targetRef": "T-RBT-529600-CORRIDOR",
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-RBT-529600-SCAN",
+            "SA-RBT-529600-GENERAL"
+          ],
+          "notes": null,
+          "sourceSentenceId": "RB529600-O2-S01",
+          "sourcePanelId": "P4",
+          "sourceOptionId": "O2"
+        },
+        {
+          "stepId": "S04",
+          "sequence": 4,
+          "operationType": "draw-random",
+          "modality": "must",
+          "subjectRef": "P-RULES",
+          "objectRef": "one Burst die result; this is not a Character Burst Action and spends no Ammo",
+          "conditionRefs": [
+            "S04-C01"
+          ],
+          "decisionRef": "D-RBT-529600-OPTION",
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-RBT-529600-SCAN",
+            "SA-RBT-529600-GENERAL"
+          ],
+          "notes": null,
+          "sourceSentenceId": "RB529600-O2-S01",
+          "sourcePanelId": "P4",
+          "sourceOptionId": "O2"
+        },
+        {
+          "stepId": "S05",
+          "sequence": 5,
+          "operationType": "change-value",
+          "modality": "must",
+          "subjectRef": "P-PLAYER",
+          "objectRef": "rolled Hits allocated among Intruders in selected Corridor under standard type limits",
+          "conditionRefs": [
+            "S05-C01"
+          ],
+          "decisionRef": "D-RBT-529600-HITS",
+          "targetRef": "T-RBT-529600-INTRUDERS",
+          "transition": null,
+          "valueChange": {
+            "amount": "Burst die numeric result",
+            "valueTaxonId": "tax.process.operation.hit"
+          },
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-RBT-529600-SCAN",
+            "SA-RBT-529600-GENERAL"
+          ],
+          "notes": "At most 1 per Adult/Larva, exactly 2 per Drone, any number up to Queen maximum; leftovers are lost.",
+          "sourceSentenceId": "RB529600-O2-S02",
+          "sourcePanelId": "P4",
+          "sourceOptionId": "O2"
+        },
+        {
+          "stepId": "S06",
+          "sequence": 6,
+          "operationType": "invoke-process",
+          "modality": "if-able",
+          "subjectRef": "P-RULES",
+          "objectRef": "place a Malfunction on the Robot after numeric Hits resolve",
+          "conditionRefs": [
+            "S06-C01"
+          ],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": "SEM-ROBOT-MALFUNCTION-PLACEMENT-001",
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-RBT-529600-SCAN",
+            "SA-RBT-529600-GENERAL"
+          ],
+          "notes": "The additional-effects symbol shares the 4 face; resolve 4 Hits and then this effect.",
+          "sourceSentenceId": "RB529600-O2-S03",
+          "sourcePanelId": "P4",
+          "sourceOptionId": "O2"
+        }
+      ],
+      "partialResolution": {
+        "policy": "all-or-nothing-selection",
+        "unit": "one printed option and each sourceSentenceId within that option",
+        "onImpossible": "an option may not be selected unless it resolves entirely; explicit component-limit behavior and each no-default question remain source-scoped"
+      },
+      "duration": {
+        "kind": "instantaneous-Robot-option-resolution"
+      },
+      "stacking": {
+        "policy": "one option per Activate Robot Action; printed up-to movement permits zero steps; no face effects stack by name"
+      },
+      "outcomes": [],
+      "unresolvedQuestionRefs": [
+        "SEM-Q-013"
+      ],
+      "sourceVariants": [
+        {
+          "variantId": "SV-RBT-529600-BGA",
+          "sourceId": "SRC-BGA-ROBOTS",
+          "sourceAssertionId": "SA-RBT-529600-BGA",
+          "difference": "The licensed Military Robot occurrence omits the final period after its Robot placeholder; the source scan retains that punctuation and controls over the lower-authority variant.",
+          "resolution": "Retain the licensed structured occurrence as secondary evidence; exact scan and applicable official general/component text control by authority without rewriting the variant."
+        }
+      ],
+      "implementationBoundary": "implementation-neutral; no engine, UI, network, storage, or serialization mapping"
+    },
+    {
+      "schemaVersion": 1,
+      "recordType": "semantic-rule",
+      "recordRevision": 1,
+      "ruleId": "SEM-ROBOT-MOVEMENT-001",
+      "title": "Robot movement procedure",
+      "status": "source-backed-with-open-question",
+      "ruleKind": "procedure",
+      "applicability": {
+        "game": "Nemesis: Retaliation",
+        "mode": "base-standard",
+        "playerCount": null
+      },
+      "authority": {
+        "highest": "official-primary",
+        "interpretation": "open-alternatives"
+      },
+      "sourceAssertions": [
+        {
+          "assertionId": "SA-ROBOT-MOVE-RB",
+          "sourceId": "SRC-RULEBOOK",
+          "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
+          "sourceSha256": "e3cda0d7a91bd090cec45dbc8ce89e2015e2202173357c374ff49365f9c29ddd",
+          "sourceAuthority": "official-primary",
+          "sourceVersion": "base rulebook, local official PDF",
+          "locator": "printed page 37 / Robot Movement",
+          "supportsFields": [
+            "timing",
+            "preconditions",
+            "decisions",
+            "targets",
+            "operations",
+            "partialResolution",
+            "unresolvedQuestionRefs"
+          ],
+          "sourceText": "Robot movement occurs only through player Actions. Each move is between neighboring Rooms, ignores Intruders, cannot pass a Closed Door, normally cannot use an Unexplored Corridor, and makes no Noise roll except for the Exploration Robot exception.",
+          "textKind": "normalized-paraphrase",
+          "evidenceRecord": "docs/rules/semantics/robot-source-index.json:RB-ROBOT-MOVE-01"
+        }
+      ],
+      "termRefs": [
+        "icon.robot",
+        "term.closed",
+        "term.corridor",
+        "term.noise-roll",
+        "term.room",
+        "term.unexplored-corridor"
+      ],
+      "taxonRefs": [
+        "tax.entity.agent.robot",
+        "tax.entity.spatial.corridor",
+        "tax.entity.spatial.room",
+        "tax.process.sequence.noise-roll",
+        "tax.state.closed",
+        "tax.state.corridor.unexplored"
+      ],
+      "namedIdentityRefs": [],
+      "timing": {
+        "windowId": "TW-ROBOT-MOVE",
+        "anchorTaxonId": "tax.entity.agent.robot",
+        "relation": "when-triggered",
+        "recurrence": "per-caller-requested-step-up-to-printed-maximum"
+      },
+      "participants": [
+        {
+          "participantId": "P-MOVE-OWNER",
+          "participantKind": "source-unspecified-decision-owner",
+          "taxonId": null,
+          "role": null
+        },
+        {
+          "participantId": "P-ROBOT",
+          "participantKind": "actor",
+          "taxonId": "tax.entity.agent.robot",
+          "role": null
+        },
+        {
+          "participantId": "P-RULES",
+          "participantKind": "rules-system",
+          "taxonId": null,
+          "role": null
+        }
+      ],
+      "modality": "must",
+      "preconditions": [
+        {
+          "conditionId": "C-ROBOT-MOVE-LEGAL",
+          "scope": "record-precondition",
+          "expression": {
+            "operator": "all",
+            "args": [
+              {
+                "predicate": "destination is a neighboring Room"
+              },
+              {
+                "predicate": "path has no Closed Door"
+              },
+              {
+                "predicate": "path is not an Unexplored Corridor unless caller is Exploration Robot's exception"
+              }
+            ]
+          },
+          "sourceAssertionIds": [
+            "SA-ROBOT-MOVE-RB"
+          ]
+        },
+        {
+          "conditionId": "S03-C01",
+          "scope": "operation-guard",
+          "expression": {
+            "operator": "predicate",
+            "args": [
+              {
+                "predicate": "a destination rather than stop was selected"
+              }
+            ]
+          },
+          "sourceAssertionIds": [
+            "SA-ROBOT-MOVE-RB"
+          ]
+        }
+      ],
+      "decisions": [
+        {
+          "decisionId": "D-ROBOT-MOVE-STEP",
+          "ownerRef": "P-MOVE-OWNER",
+          "selectionMode": "unresolved",
+          "cardinality": {
+            "min": 0,
+            "max": 1
+          },
+          "declineAllowed": true,
+          "visibility": "source-unspecified",
+          "options": [
+            "stop",
+            "one legal neighboring destination for the next movement step"
+          ]
+        }
+      ],
+      "informationPolicy": [
+        {
+          "informationId": "I-ROBOT-MOVE",
+          "subjectRef": "Robot origin, eligible neighboring destinations, selected step, and remaining printed movement allowance",
+          "audience": "public",
+          "revealTrigger": "each movement step",
+          "secrecy": "none"
+        }
+      ],
+      "costs": [],
+      "targets": [
+        {
+          "targetId": "T-ROBOT-MOVE-DEST",
+          "selectorRef": "unresolved-by-source",
+          "eligibleTaxonIds": [
+            "tax.entity.spatial.room"
+          ],
+          "cardinality": {
+            "min": 0,
+            "max": 1
+          },
+          "selectionMode": "unresolved-when-multiple",
+          "visibility": "public"
+        }
+      ],
+      "operations": [
+        {
+          "stepId": "S01",
+          "sequence": 1,
+          "operationType": "resolve-open-alternative",
+          "modality": "must",
+          "subjectRef": "P-RULES",
+          "objectRef": "SEM-Q-013 Robot movement destination/route decision owner and step timing",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-ROBOT-MOVE-RB"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S02",
+          "sequence": 2,
+          "operationType": "select-target",
+          "modality": "may",
+          "subjectRef": "P-MOVE-OWNER",
+          "objectRef": "stop or one legal neighboring Room",
+          "conditionRefs": [],
+          "decisionRef": "D-ROBOT-MOVE-STEP",
+          "targetRef": "T-ROBOT-MOVE-DEST",
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-ROBOT-MOVE-RB"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S03",
+          "sequence": 3,
+          "operationType": "move-entity",
+          "modality": "if-able",
+          "subjectRef": "P-ROBOT",
+          "objectRef": "selected neighboring Room",
+          "conditionRefs": [
+            "S03-C01"
+          ],
+          "decisionRef": "D-ROBOT-MOVE-STEP",
+          "targetRef": "T-ROBOT-MOVE-DEST",
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": {
+            "maximumSteps": "caller-supplied printed value",
+            "zeroStepsLegal": true,
+            "reselectionTiming": "SEM-Q-013 unresolved"
+          },
+          "sourceAssertionIds": [
+            "SA-ROBOT-MOVE-RB"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S04",
+          "sequence": 4,
+          "operationType": "evaluate-condition",
+          "modality": "must",
+          "subjectRef": "P-RULES",
+          "objectRef": "ordinary Robot movement produces no Noise roll and no Intruder interaction",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-ROBOT-MOVE-RB"
+          ],
+          "notes": null
+        }
+      ],
+      "partialResolution": {
+        "policy": "source-conditional-steps",
+        "unit": "one optional movement step up to caller maximum",
+        "onImpossible": "stop is legal because the face says up to; never route through a Closed Door or ordinary Unexplored Corridor, and do not invent a destination owner/tie-break"
+      },
+      "duration": {
+        "kind": "instantaneous-caller-bounded-movement"
+      },
+      "stacking": {
+        "policy": "one Room-to-neighboring-Room transition per selected step"
+      },
+      "outcomes": [],
+      "unresolvedQuestionRefs": [
+        "SEM-Q-013"
+      ],
+      "sourceVariants": [],
+      "implementationBoundary": "implementation-neutral; no engine, UI, network, storage, or serialization mapping"
+    },
+    {
+      "schemaVersion": 1,
+      "recordType": "semantic-rule",
+      "recordRevision": 1,
+      "ruleId": "SEM-ROBOT-REVEAL-001",
+      "title": "Robot-card reveal and pre-reveal availability",
+      "status": "source-backed-with-open-question",
+      "ruleKind": "procedure",
+      "applicability": {
+        "game": "Nemesis: Retaliation",
+        "mode": "base-standard",
+        "playerCount": null
+      },
+      "authority": {
+        "highest": "official-primary",
+        "interpretation": "open-alternatives"
+      },
+      "sourceAssertions": [
+        {
+          "assertionId": "SA-ROBOT-REVEAL-RB",
+          "sourceId": "SRC-RULEBOOK",
+          "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
+          "sourceSha256": "e3cda0d7a91bd090cec45dbc8ce89e2015e2202173357c374ff49365f9c29ddd",
+          "sourceAuthority": "official-primary",
+          "sourceVersion": "base rulebook, local official PDF",
+          "locator": "printed pages 8 and 37 / Hibernatorium discovery and Robot reveal",
+          "supportsFields": [
+            "timing",
+            "preconditions",
+            "informationPolicy",
+            "operations",
+            "duration",
+            "unresolvedQuestionRefs"
+          ],
+          "sourceText": "The Robot cannot be Activated while the Hibernatorium is Undiscovered. When any Room is connected to it for the first time, reveal the Robot card; the Robot can then be Activated.",
+          "textKind": "normalized-paraphrase",
+          "evidenceRecord": "docs/rules/semantics/robot-source-index.json:RB-ROBOT-REVEAL-01"
+        }
+      ],
+      "termRefs": [
+        "icon.robot",
+        "term.robot-card"
+      ],
+      "taxonRefs": [
+        "tax.entity.agent.robot",
+        "tax.entity.component.card.robot",
+        "tax.entity.spatial.room.hibernatorium"
+      ],
+      "namedIdentityRefs": [],
+      "timing": {
+        "windowId": "TW-ROBOT-REVEAL",
+        "anchorTaxonId": "tax.entity.spatial.room.hibernatorium",
+        "relation": "when-triggered",
+        "recurrence": "first-Room-connection-only"
+      },
+      "participants": [
+        {
+          "participantId": "P-RULES",
+          "participantKind": "rules-system",
+          "taxonId": null,
+          "role": null
+        }
+      ],
+      "modality": "must",
+      "preconditions": [
+        {
+          "conditionId": "C-ROBOT-REVEAL",
+          "scope": "record-precondition",
+          "expression": {
+            "operator": "predicate",
+            "args": [
+              {
+                "predicate": "a Room is connected to the Hibernatorium for the first time"
+              }
+            ]
+          },
+          "sourceAssertionIds": [
+            "SA-ROBOT-REVEAL-RB"
+          ]
+        },
+        {
+          "conditionId": "S05-C01",
+          "scope": "operation-guard",
+          "expression": {
+            "operator": "predicate",
+            "args": [
+              {
+                "predicate": "Robot has no Malfunction marker"
+              }
+            ]
+          },
+          "sourceAssertionIds": [
+            "SA-ROBOT-REVEAL-RB"
+          ]
+        }
+      ],
+      "decisions": [],
+      "informationPolicy": [
+        {
+          "informationId": "I-ROBOT-IDENTITY",
+          "subjectRef": "selected Robot-card face, title, and printed effect",
+          "audience": "hidden-from-all-before-trigger; public-after-trigger",
+          "revealTrigger": "first Room connected to Hibernatorium",
+          "secrecy": "no player may inspect the face before the source reveal trigger"
+        }
+      ],
+      "costs": [],
+      "targets": [],
+      "operations": [
+        {
+          "stepId": "S01",
+          "sequence": 1,
+          "operationType": "evaluate-condition",
+          "modality": "must",
+          "subjectRef": "P-RULES",
+          "objectRef": "Robot Activation remains unavailable before the reveal trigger",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-ROBOT-REVEAL-RB"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S02",
+          "sequence": 2,
+          "operationType": "resolve-open-alternative",
+          "modality": "must",
+          "subjectRef": "P-RULES",
+          "objectRef": "SEM-Q-012 applicability of non-Activation Robot-referencing effects before reveal",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-ROBOT-REVEAL-RB"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S03",
+          "sequence": 3,
+          "operationType": "reveal",
+          "modality": "must",
+          "subjectRef": "P-RULES",
+          "objectRef": "selected Robot card",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-ROBOT-REVEAL-RB"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S04",
+          "sequence": 4,
+          "operationType": "set-state",
+          "modality": "must",
+          "subjectRef": "selected Robot card",
+          "objectRef": "sem.state.robot-card.revealed",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-ROBOT-REVEAL-RB"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S05",
+          "sequence": 5,
+          "operationType": "set-state",
+          "modality": "if-able",
+          "subjectRef": "Robot",
+          "objectRef": "sem.state.robot.operational",
+          "conditionRefs": [
+            "S05-C01"
+          ],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-ROBOT-REVEAL-RB"
+          ],
+          "notes": null
+        }
+      ],
+      "partialResolution": {
+        "policy": "ordered-complete",
+        "unit": "first Hibernatorium-connection trigger",
+        "onImpossible": "Activation remains unavailable before reveal; non-Activation effect applicability remains SEM-Q-012 without a default"
+      },
+      "duration": {
+        "kind": "unrevealed-until-first-connection-then-public"
+      },
+      "stacking": {
+        "policy": "irreversible single reveal; no separate back rules face"
+      },
+      "outcomes": [],
+      "unresolvedQuestionRefs": [
+        "SEM-Q-012"
+      ],
+      "sourceVariants": [],
+      "implementationBoundary": "implementation-neutral; no engine, UI, network, storage, or serialization mapping"
+    },
+    {
+      "schemaVersion": 1,
+      "recordType": "semantic-rule",
+      "recordRevision": 1,
+      "ruleId": "SEM-ROBOT-SECURING-001",
+      "title": "Securing Robot",
+      "status": "source-backed-with-open-question",
+      "ruleKind": "component-effect",
+      "applicability": {
+        "game": "Nemesis: Retaliation",
+        "mode": "base-standard",
+        "playerCount": null
+      },
+      "authority": {
+        "highest": "official-primary",
+        "interpretation": "open-alternatives"
+      },
+      "sourceAssertions": [
+        {
+          "assertionId": "SA-RBT-510800-SCAN",
+          "sourceId": "SRC-ROBOT-510800",
+          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/robotDeck-173.jpg",
+          "sourceSha256": "0e8c91aac8c15e467bbf177ddb3b8fd06600353b3f7af2f1af933b24fb1f1386",
+          "sourceAuthority": "source-bound-component-scan",
+          "sourceVersion": "TTS base Robot face / root deck 98925d / CardID 510800",
+          "locator": "TTS-ROBOT-510800-FACE / exact face panels and sentences",
+          "supportsFields": [
+            "timing",
+            "preconditions",
+            "decisions",
+            "informationPolicy",
+            "targets",
+            "operations",
+            "partialResolution",
+            "sourceVariants",
+            "unresolvedQuestionRefs"
+          ],
+          "sourceText": "Move the [robot] up to 3 times.\n\nOR\n\nOpen or Close 1 Door\naccessible to the [robot].\n\nOR\n\nPlace 2 [secure] in a Room\nwith the [robot].",
+          "textKind": "verbatim",
+          "evidenceRecord": "docs/rules/semantics/robot-source-index.json:TTS-ROBOT-510800-FACE"
+        },
+        {
+          "assertionId": "SA-RBT-510800-GENERAL",
+          "sourceId": "SRC-RULEBOOK",
+          "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
+          "sourceSha256": "e3cda0d7a91bd090cec45dbc8ce89e2015e2202173357c374ff49365f9c29ddd",
+          "sourceAuthority": "official-primary",
+          "sourceVersion": "base rulebook, local official PDF",
+          "locator": "printed pages 14, 17, 22–23, 33, and 37 / effect legality and Robot procedures",
+          "supportsFields": [
+            "timing",
+            "preconditions",
+            "decisions",
+            "informationPolicy",
+            "targets",
+            "operations",
+            "partialResolution",
+            "duration",
+            "stacking",
+            "unresolvedQuestionRefs",
+            "sourceVariants"
+          ],
+          "sourceText": "Resolve one entirely legal printed Robot option through the official Robot movement, health, Burst, Door, marker, Room, Exploration, and finite-component rules that apply to that option.",
+          "textKind": "normalized-paraphrase",
+          "evidenceRecord": "docs/rules/semantics/robot-source-index.json:officialRulebookTextOccurrences"
+        },
+        {
+          "assertionId": "SA-RBT-510800-BGA",
+          "sourceId": "SRC-BGA-ROBOTS",
+          "sourcePath": "docs/rules/source-extraction/secondary/bga-staticData-260622-1220.js",
+          "sourceSha256": "18cd8f4a2883d4f6662ed170095ff07e0d9f5da508064ed1d6bfc124f5a274ae",
+          "sourceAuthority": "licensed-digital-secondary",
+          "sourceVersion": "licensed BGA immutable build 260622-1220 / ROBOT_CARDS_DATA",
+          "locator": "ROBOT_CARDS_DATA.SecuringRobot",
+          "supportsFields": [
+            "sourceVariants"
+          ],
+          "sourceText": "  SecuringRobot: {\n    name: 'Securing Robot',\n    desc: [\n      'Move the <ROBOT> up to 3 times.',\n      'Open or Close 1 Door accessible to the <ROBOT>.',\n      'Place 2 <SECURE> in a Room with the <ROBOT>.',\n    ],\n    color: 'other',\n  },",
+          "textKind": "verbatim",
+          "evidenceRecord": "docs/rules/semantics/robot-source-index.json:TTS-ROBOT-510800-FACE.bgaOccurrence"
+        }
+      ],
+      "termRefs": [
+        "icon.robot",
+        "icon.secure",
+        "term.closed",
+        "term.corridor",
+        "term.door",
+        "term.opened",
+        "term.robot-card",
+        "term.room"
+      ],
+      "taxonRefs": [
+        "tax.entity.agent.robot",
+        "tax.entity.component.card.robot",
+        "tax.entity.component.token.secure",
+        "tax.entity.spatial.corridor",
+        "tax.entity.spatial.door",
+        "tax.entity.spatial.room",
+        "tax.state.closed",
+        "tax.state.opened"
+      ],
+      "namedIdentityRefs": [
+        "NI-0431"
+      ],
+      "timing": {
+        "windowId": "TW-RBT-510800",
+        "anchorTaxonId": "tax.process.action.basic",
+        "relation": "during",
+        "recurrence": "when-this-exact-revealed-Robot-face-is-Activated"
+      },
+      "participants": [
+        {
+          "participantId": "P-PLAYER",
+          "participantKind": "decision-owner",
+          "taxonId": "tax.entity.agent.player",
+          "role": null
+        },
+        {
+          "participantId": "P-CHARACTER",
+          "participantKind": "actor",
+          "taxonId": "tax.entity.agent.character",
+          "role": null
+        },
+        {
+          "participantId": "P-ROBOT",
+          "participantKind": "affected",
+          "taxonId": "tax.entity.agent.robot",
+          "role": null
+        },
+        {
+          "participantId": "P-RULES",
+          "participantKind": "rules-system",
+          "taxonId": null,
+          "role": null
+        }
+      ],
+      "modality": "must",
+      "preconditions": [
+        {
+          "conditionId": "C-RBT-510800-FACE",
+          "scope": "record-precondition",
+          "expression": {
+            "operator": "all",
+            "args": [
+              {
+                "predicate": "revealed Robot occurrence identity is TTS-ROBOT-510800-FACE"
+              },
+              {
+                "predicate": "Robot has no Malfunction marker"
+              },
+              {
+                "predicate": "selected printed option is entirely resolvable"
+              }
+            ]
+          },
+          "sourceAssertionIds": [
+            "SA-RBT-510800-SCAN",
+            "SA-RBT-510800-GENERAL"
+          ]
+        },
+        {
+          "conditionId": "S02-C01",
+          "scope": "operation-guard",
+          "expression": {
+            "operator": "predicate",
+            "args": [
+              {
+                "predicate": "movement option selected"
+              }
+            ]
+          },
+          "sourceAssertionIds": [
+            "SA-RBT-510800-SCAN",
+            "SA-RBT-510800-GENERAL"
+          ]
+        },
+        {
+          "conditionId": "S03-C01",
+          "scope": "operation-guard",
+          "expression": {
+            "operator": "predicate",
+            "args": [
+              {
+                "predicate": "Door option selected"
+              }
+            ]
+          },
+          "sourceAssertionIds": [
+            "SA-RBT-510800-SCAN",
+            "SA-RBT-510800-GENERAL"
+          ]
+        },
+        {
+          "conditionId": "S04-C01",
+          "scope": "operation-guard",
+          "expression": {
+            "operator": "predicate",
+            "args": [
+              {
+                "predicate": "Door option selected"
+              }
+            ]
+          },
+          "sourceAssertionIds": [
+            "SA-RBT-510800-SCAN",
+            "SA-RBT-510800-GENERAL"
+          ]
+        },
+        {
+          "conditionId": "S05-C01",
+          "scope": "operation-guard",
+          "expression": {
+            "operator": "predicate",
+            "args": [
+              {
+                "predicate": "Door option selected"
+              }
+            ]
+          },
+          "sourceAssertionIds": [
+            "SA-RBT-510800-SCAN",
+            "SA-RBT-510800-GENERAL"
+          ]
+        },
+        {
+          "conditionId": "S06-C01",
+          "scope": "operation-guard",
+          "expression": {
+            "operator": "predicate",
+            "args": [
+              {
+                "predicate": "Secure option selected"
+              }
+            ]
+          },
+          "sourceAssertionIds": [
+            "SA-RBT-510800-SCAN",
+            "SA-RBT-510800-GENERAL"
+          ]
+        },
+        {
+          "conditionId": "S07-C01",
+          "scope": "operation-guard",
+          "expression": {
+            "operator": "predicate",
+            "args": [
+              {
+                "predicate": "Secure option selected"
+              }
+            ]
+          },
+          "sourceAssertionIds": [
+            "SA-RBT-510800-SCAN",
+            "SA-RBT-510800-GENERAL"
+          ]
+        },
+        {
+          "conditionId": "S07-C02",
+          "scope": "operation-guard",
+          "expression": {
+            "operator": "predicate",
+            "args": [
+              {
+                "predicate": "Room contains no Intruder"
+              }
+            ]
+          },
+          "sourceAssertionIds": [
+            "SA-RBT-510800-SCAN",
+            "SA-RBT-510800-GENERAL"
+          ]
+        },
+        {
+          "conditionId": "S07-C03",
+          "scope": "operation-guard",
+          "expression": {
+            "operator": "predicate",
+            "args": [
+              {
+                "predicate": "Room is not Secure-prohibited"
+              }
+            ]
+          },
+          "sourceAssertionIds": [
+            "SA-RBT-510800-SCAN",
+            "SA-RBT-510800-GENERAL"
+          ]
+        }
+      ],
+      "decisions": [
+        {
+          "decisionId": "D-RBT-510800-OPTION",
+          "ownerRef": "P-PLAYER",
+          "selectionMode": "player-choice",
+          "cardinality": {
+            "min": 1,
+            "max": 1
+          },
+          "declineAllowed": false,
+          "visibility": "public-on-declaration",
+          "options": [
+            "option O1",
+            "option O2",
+            "option O3"
+          ]
+        },
+        {
+          "decisionId": "D-RBT-510800-DOOR",
+          "ownerRef": "P-PLAYER",
+          "selectionMode": "player-choice",
+          "cardinality": {
+            "min": 1,
+            "max": 1
+          },
+          "declineAllowed": false,
+          "visibility": "public-on-declaration",
+          "options": [
+            "one source-eligible accessible Door"
+          ]
+        },
+        {
+          "decisionId": "D-RBT-510800-DOOR-STATE",
+          "ownerRef": "P-PLAYER",
+          "selectionMode": "player-choice",
+          "cardinality": {
+            "min": 1,
+            "max": 1
+          },
+          "declineAllowed": false,
+          "visibility": "public-on-declaration",
+          "options": [
+            "Open",
+            "Closed"
+          ]
+        }
+      ],
+      "informationPolicy": [
+        {
+          "informationId": "I-RBT-510800",
+          "subjectRef": "revealed exact Robot face, selected option, targets, random results, and state changes",
+          "audience": "public",
+          "revealTrigger": "option declaration/resolution",
+          "secrecy": "remaining five Robot cards stay unseen and out of this game"
+        }
+      ],
+      "costs": [],
+      "targets": [
+        {
+          "targetId": "T-RBT-510800-DOOR",
+          "selectorRef": "P-PLAYER",
+          "eligibleTaxonIds": [
+            "tax.entity.spatial.door"
+          ],
+          "cardinality": {
+            "min": 1,
+            "max": 1
+          },
+          "selectionMode": "unresolved-when-multiple",
+          "visibility": "public"
+        },
+        {
+          "targetId": "T-RBT-510800-ROOM",
+          "selectorRef": "rules-system",
+          "eligibleTaxonIds": [
+            "tax.entity.spatial.room"
+          ],
+          "cardinality": {
+            "min": 1,
+            "max": 1
+          },
+          "selectionMode": "deterministic-state-filter",
+          "visibility": "public"
+        }
+      ],
+      "operations": [
+        {
+          "stepId": "S01",
+          "sequence": 1,
+          "operationType": "choose",
+          "modality": "must",
+          "subjectRef": "P-PLAYER",
+          "objectRef": "one printed Robot option",
+          "conditionRefs": [],
+          "decisionRef": "D-RBT-510800-OPTION",
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-RBT-510800-SCAN",
+            "SA-RBT-510800-GENERAL"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S02",
+          "sequence": 2,
+          "operationType": "invoke-process",
+          "modality": "may",
+          "subjectRef": "P-ROBOT",
+          "objectRef": "move zero through 3 neighboring-Room steps",
+          "conditionRefs": [
+            "S02-C01"
+          ],
+          "decisionRef": "D-RBT-510800-OPTION",
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": "SEM-ROBOT-MOVEMENT-001",
+          "repeat": {
+            "printedMaximumSteps": 3,
+            "zeroStepsLegal": true
+          },
+          "sourceAssertionIds": [
+            "SA-RBT-510800-SCAN",
+            "SA-RBT-510800-GENERAL"
+          ],
+          "notes": null,
+          "sourceSentenceId": "RB510800-O1-S01",
+          "sourcePanelId": "P3",
+          "sourceOptionId": "O1"
+        },
+        {
+          "stepId": "S03",
+          "sequence": 3,
+          "operationType": "resolve-open-alternative",
+          "modality": "must",
+          "subjectRef": "P-RULES",
+          "objectRef": "SEM-Q-016 meaning of a Door accessible to the Robot",
+          "conditionRefs": [
+            "S03-C01"
+          ],
+          "decisionRef": "D-RBT-510800-DOOR",
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-RBT-510800-SCAN",
+            "SA-RBT-510800-GENERAL"
+          ],
+          "notes": null,
+          "sourceSentenceId": "RB510800-O2-S01",
+          "sourcePanelId": "P4",
+          "sourceOptionId": "O2"
+        },
+        {
+          "stepId": "S04",
+          "sequence": 4,
+          "operationType": "select-target",
+          "modality": "must",
+          "subjectRef": "P-PLAYER",
+          "objectRef": "one source-eligible accessible Door",
+          "conditionRefs": [
+            "S04-C01"
+          ],
+          "decisionRef": "D-RBT-510800-DOOR",
+          "targetRef": "T-RBT-510800-DOOR",
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-RBT-510800-SCAN",
+            "SA-RBT-510800-GENERAL"
+          ],
+          "notes": null,
+          "sourceSentenceId": "RB510800-O2-S01",
+          "sourcePanelId": "P4",
+          "sourceOptionId": "O2"
+        },
+        {
+          "stepId": "S05",
+          "sequence": 5,
+          "operationType": "set-state",
+          "modality": "must",
+          "subjectRef": "P-RULES",
+          "objectRef": "selected Door Open or Closed under ordinary Door-state constraints",
+          "conditionRefs": [
+            "S05-C01"
+          ],
+          "decisionRef": "D-RBT-510800-DOOR-STATE",
+          "targetRef": "T-RBT-510800-DOOR",
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": "SEM-DOOR-001",
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-RBT-510800-SCAN",
+            "SA-RBT-510800-GENERAL"
+          ],
+          "notes": null,
+          "sourceSentenceId": "RB510800-O2-S01",
+          "sourcePanelId": "P4",
+          "sourceOptionId": "O2"
+        },
+        {
+          "stepId": "S06",
+          "sequence": 6,
+          "operationType": "resolve-open-alternative",
+          "modality": "must",
+          "subjectRef": "P-RULES",
+          "objectRef": "SEM-Q-017 finite-supply/capacity behavior for the printed quantity 2",
+          "conditionRefs": [
+            "S06-C01"
+          ],
+          "decisionRef": "D-RBT-510800-OPTION",
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-RBT-510800-SCAN",
+            "SA-RBT-510800-GENERAL"
+          ],
+          "notes": null,
+          "sourceSentenceId": "RB510800-O3-S01",
+          "sourcePanelId": "P4",
+          "sourceOptionId": "O3"
+        },
+        {
+          "stepId": "S07",
+          "sequence": 7,
+          "operationType": "place-component",
+          "modality": "if-able",
+          "subjectRef": "P-RULES",
+          "objectRef": "exactly 2 Secure tokens in the Room containing the Robot",
+          "conditionRefs": [
+            "S07-C01",
+            "S07-C02",
+            "S07-C03"
+          ],
+          "decisionRef": "D-RBT-510800-OPTION",
+          "targetRef": "T-RBT-510800-ROOM",
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": {
+            "requested": 2,
+            "globalFiniteSupply": 20,
+            "perRoomMaximum": 3,
+            "partialPlacement": "SEM-Q-017 unresolved"
+          },
+          "sourceAssertionIds": [
+            "SA-RBT-510800-SCAN",
+            "SA-RBT-510800-GENERAL"
+          ],
+          "notes": null,
+          "sourceSentenceId": "RB510800-O3-S01",
+          "sourcePanelId": "P4",
+          "sourceOptionId": "O3"
+        }
+      ],
+      "partialResolution": {
+        "policy": "all-or-nothing-selection",
+        "unit": "one printed option and each sourceSentenceId within that option",
+        "onImpossible": "an option may not be selected unless it resolves entirely; explicit component-limit behavior and each no-default question remain source-scoped"
+      },
+      "duration": {
+        "kind": "instantaneous-Robot-option-resolution"
+      },
+      "stacking": {
+        "policy": "one option per Activate Robot Action; printed up-to movement permits zero steps; no face effects stack by name"
+      },
+      "outcomes": [],
+      "unresolvedQuestionRefs": [
+        "SEM-Q-013",
+        "SEM-Q-016",
+        "SEM-Q-017"
+      ],
+      "sourceVariants": [
+        {
+          "variantId": "SV-RBT-510800-BGA",
+          "sourceId": "SRC-BGA-ROBOTS",
+          "sourceAssertionId": "SA-RBT-510800-BGA",
+          "difference": "The licensed occurrence corroborates all three option strings with normalized placeholders and line grouping; it remains a separate secondary occurrence.",
+          "resolution": "Retain the licensed structured occurrence as secondary evidence; exact scan and applicable official general/component text control by authority without rewriting the variant."
+        }
+      ],
+      "implementationBoundary": "implementation-neutral; no engine, UI, network, storage, or serialization mapping"
+    },
+    {
+      "schemaVersion": 1,
+      "recordType": "semantic-rule",
+      "recordRevision": 1,
+      "ruleId": "SEM-ROBOT-SERVER-001",
+      "title": "Server Robot",
+      "status": "source-backed-with-open-question",
+      "ruleKind": "component-effect",
+      "applicability": {
+        "game": "Nemesis: Retaliation",
+        "mode": "base-standard",
+        "playerCount": null
+      },
+      "authority": {
+        "highest": "official-primary",
+        "interpretation": "open-alternatives"
+      },
+      "sourceAssertions": [
+        {
+          "assertionId": "SA-RBT-506400-SCAN",
+          "sourceId": "SRC-ROBOT-506400",
+          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/robotDeck-068.jpg",
+          "sourceSha256": "e613b1e23d25d91e1fe5ccfe925426396c0866c5a36cba91a69dcdb493f2b2a6",
+          "sourceAuthority": "source-bound-component-scan",
+          "sourceVersion": "TTS base Robot face / root deck 98925d / CardID 506400",
+          "locator": "TTS-ROBOT-506400-FACE / exact face panels and sentences",
+          "supportsFields": [
+            "timing",
+            "preconditions",
+            "decisions",
+            "informationPolicy",
+            "targets",
+            "operations",
+            "partialResolution",
+            "sourceVariants",
+            "unresolvedQuestionRefs"
+          ],
+          "sourceText": "Move the [robot] up to 3 times.\n\nOR\n\nIf the [robot] is in a [computer] Room, use\nthe Room (even with a [malfunction]).",
+          "textKind": "verbatim",
+          "evidenceRecord": "docs/rules/semantics/robot-source-index.json:TTS-ROBOT-506400-FACE"
+        },
+        {
+          "assertionId": "SA-RBT-506400-GENERAL",
+          "sourceId": "SRC-RULEBOOK",
+          "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
+          "sourceSha256": "e3cda0d7a91bd090cec45dbc8ce89e2015e2202173357c374ff49365f9c29ddd",
+          "sourceAuthority": "official-primary",
+          "sourceVersion": "base rulebook, local official PDF",
+          "locator": "printed pages 14, 17, 22–23, 33, and 37 / effect legality and Robot procedures",
+          "supportsFields": [
+            "timing",
+            "preconditions",
+            "decisions",
+            "informationPolicy",
+            "targets",
+            "operations",
+            "partialResolution",
+            "duration",
+            "stacking",
+            "unresolvedQuestionRefs",
+            "sourceVariants"
+          ],
+          "sourceText": "Resolve one entirely legal printed Robot option through the official Robot movement, health, Burst, Door, marker, Room, Exploration, and finite-component rules that apply to that option.",
+          "textKind": "normalized-paraphrase",
+          "evidenceRecord": "docs/rules/semantics/robot-source-index.json:officialRulebookTextOccurrences"
+        },
+        {
+          "assertionId": "SA-RBT-506400-BGA",
+          "sourceId": "SRC-BGA-ROBOTS",
+          "sourcePath": "docs/rules/source-extraction/secondary/bga-staticData-260622-1220.js",
+          "sourceSha256": "18cd8f4a2883d4f6662ed170095ff07e0d9f5da508064ed1d6bfc124f5a274ae",
+          "sourceAuthority": "licensed-digital-secondary",
+          "sourceVersion": "licensed BGA immutable build 260622-1220 / ROBOT_CARDS_DATA",
+          "locator": "ROBOT_CARDS_DATA.ServerRobot",
+          "supportsFields": [
+            "sourceVariants"
+          ],
+          "sourceText": "  ServerRobot: {\n    name: 'Server Robot',\n    desc: [\n      'Move the <ROBOT> up to 3 times.',\n      'If the <ROBOT> is in a <COMPUTER> Room, use the Room (even with a <MALFUNCTION>).',\n    ],\n    color: 'other',\n  },",
+          "textKind": "verbatim",
+          "evidenceRecord": "docs/rules/semantics/robot-source-index.json:TTS-ROBOT-506400-FACE.bgaOccurrence"
+        },
+        {
+          "assertionId": "SA-RBT-506400-OFFICIAL-01",
+          "sourceId": "SRC-RULEBOOK",
+          "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
+          "sourceSha256": "e3cda0d7a91bd090cec45dbc8ce89e2015e2202173357c374ff49365f9c29ddd",
+          "sourceAuthority": "official-primary",
+          "sourceVersion": "base rulebook, local official PDF",
+          "locator": "unprinted PDF page 3 / lower Robot-card row / rulebook_text lines 140–148",
+          "supportsFields": [
+            "operations",
+            "targets",
+            "sourceVariants"
+          ],
+          "sourceText": "Move the [robot] up to 3 times.\n\nOR\n\nIf the [robot] is in a [computer] Room, use\nthe Room (even with a [malfunction]).",
+          "textKind": "verbatim",
+          "evidenceRecord": "docs/rules/source-extraction/rulebook-visual-obligations.json:RB-P03-V01"
+        }
+      ],
+      "termRefs": [
+        "icon.computer",
+        "icon.malfunction",
+        "icon.robot",
+        "term.closed",
+        "term.corridor",
+        "term.robot-card",
+        "term.room"
+      ],
+      "taxonRefs": [
+        "tax.entity.agent.robot",
+        "tax.entity.component.card.robot",
+        "tax.entity.component.marker.malfunction",
+        "tax.entity.spatial.corridor",
+        "tax.entity.spatial.room",
+        "tax.state.closed"
+      ],
+      "namedIdentityRefs": [],
+      "timing": {
+        "windowId": "TW-RBT-506400",
+        "anchorTaxonId": "tax.process.action.basic",
+        "relation": "during",
+        "recurrence": "when-this-exact-revealed-Robot-face-is-Activated"
+      },
+      "participants": [
+        {
+          "participantId": "P-PLAYER",
+          "participantKind": "decision-owner",
+          "taxonId": "tax.entity.agent.player",
+          "role": null
+        },
+        {
+          "participantId": "P-CHARACTER",
+          "participantKind": "actor",
+          "taxonId": "tax.entity.agent.character",
+          "role": null
+        },
+        {
+          "participantId": "P-ROBOT",
+          "participantKind": "affected",
+          "taxonId": "tax.entity.agent.robot",
+          "role": null
+        },
+        {
+          "participantId": "P-RULES",
+          "participantKind": "rules-system",
+          "taxonId": null,
+          "role": null
+        }
+      ],
+      "modality": "must",
+      "preconditions": [
+        {
+          "conditionId": "C-RBT-506400-FACE",
+          "scope": "record-precondition",
+          "expression": {
+            "operator": "all",
+            "args": [
+              {
+                "predicate": "revealed Robot occurrence identity is TTS-ROBOT-506400-FACE"
+              },
+              {
+                "predicate": "Robot has no Malfunction marker"
+              },
+              {
+                "predicate": "selected printed option is entirely resolvable"
+              }
+            ]
+          },
+          "sourceAssertionIds": [
+            "SA-RBT-506400-SCAN",
+            "SA-RBT-506400-GENERAL"
+          ]
+        },
+        {
+          "conditionId": "S02-C01",
+          "scope": "operation-guard",
+          "expression": {
+            "operator": "predicate",
+            "args": [
+              {
+                "predicate": "movement option selected"
+              }
+            ]
+          },
+          "sourceAssertionIds": [
+            "SA-RBT-506400-SCAN",
+            "SA-RBT-506400-GENERAL"
+          ]
+        },
+        {
+          "conditionId": "S03-C01",
+          "scope": "operation-guard",
+          "expression": {
+            "operator": "predicate",
+            "args": [
+              {
+                "predicate": "Room-use option selected"
+              }
+            ]
+          },
+          "sourceAssertionIds": [
+            "SA-RBT-506400-SCAN",
+            "SA-RBT-506400-GENERAL"
+          ]
+        },
+        {
+          "conditionId": "S03-C02",
+          "scope": "operation-guard",
+          "expression": {
+            "operator": "predicate",
+            "args": [
+              {
+                "predicate": "Robot is in a Room with Computer"
+              }
+            ]
+          },
+          "sourceAssertionIds": [
+            "SA-RBT-506400-SCAN",
+            "SA-RBT-506400-GENERAL"
+          ]
+        }
+      ],
+      "decisions": [
+        {
+          "decisionId": "D-RBT-506400-OPTION",
+          "ownerRef": "P-PLAYER",
+          "selectionMode": "player-choice",
+          "cardinality": {
+            "min": 1,
+            "max": 1
+          },
+          "declineAllowed": false,
+          "visibility": "public-on-declaration",
+          "options": [
+            "option O1",
+            "option O2"
+          ]
+        }
+      ],
+      "informationPolicy": [
+        {
+          "informationId": "I-RBT-506400",
+          "subjectRef": "revealed exact Robot face, selected option, targets, random results, and state changes",
+          "audience": "public",
+          "revealTrigger": "option declaration/resolution",
+          "secrecy": "remaining five Robot cards stay unseen and out of this game"
+        }
+      ],
+      "costs": [],
+      "targets": [
+        {
+          "targetId": "T-RBT-506400-ROOM",
+          "selectorRef": "rules-system",
+          "eligibleTaxonIds": [
+            "tax.entity.spatial.room"
+          ],
+          "cardinality": {
+            "min": 1,
+            "max": 1
+          },
+          "selectionMode": "deterministic-state-filter",
+          "visibility": "public"
+        }
+      ],
+      "operations": [
+        {
+          "stepId": "S01",
+          "sequence": 1,
+          "operationType": "choose",
+          "modality": "must",
+          "subjectRef": "P-PLAYER",
+          "objectRef": "one printed Robot option",
+          "conditionRefs": [],
+          "decisionRef": "D-RBT-506400-OPTION",
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-RBT-506400-SCAN",
+            "SA-RBT-506400-GENERAL"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S02",
+          "sequence": 2,
+          "operationType": "invoke-process",
+          "modality": "may",
+          "subjectRef": "P-ROBOT",
+          "objectRef": "move zero through 3 neighboring-Room steps",
+          "conditionRefs": [
+            "S02-C01"
+          ],
+          "decisionRef": "D-RBT-506400-OPTION",
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": "SEM-ROBOT-MOVEMENT-001",
+          "repeat": {
+            "printedMaximumSteps": 3,
+            "zeroStepsLegal": true
+          },
+          "sourceAssertionIds": [
+            "SA-RBT-506400-SCAN",
+            "SA-RBT-506400-GENERAL"
+          ],
+          "notes": null,
+          "sourceSentenceId": "RB506400-O1-S01",
+          "sourcePanelId": "P3",
+          "sourceOptionId": "O1"
+        },
+        {
+          "stepId": "S03",
+          "sequence": 3,
+          "operationType": "invoke-selected-process",
+          "modality": "must",
+          "subjectRef": "P-PLAYER",
+          "objectRef": "Room effect for the Computer Room containing the Robot, bypassing that Room's Malfunction restriction",
+          "conditionRefs": [
+            "S03-C01",
+            "S03-C02"
+          ],
+          "decisionRef": "D-RBT-506400-OPTION",
+          "targetRef": "T-RBT-506400-ROOM",
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-RBT-506400-SCAN",
+            "SA-RBT-506400-GENERAL"
+          ],
+          "notes": "No second Basic-Action cost or generic SEM-USE-ROOM-001 invocation is adopted; actor/context ownership remains SEM-Q-018.",
+          "sourceSentenceId": "RB506400-O2-S01",
+          "sourcePanelId": "P4",
+          "sourceOptionId": "O2",
+          "dispatchRuleIds": [
+            "SEM-ROOM-01",
+            "SEM-ROOM-02",
+            "SEM-ROOM-03",
+            "SEM-ROOM-04",
+            "SEM-ROOM-05",
+            "SEM-ROOM-06",
+            "SEM-ROOM-07",
+            "SEM-ROOM-08",
+            "SEM-ROOM-09",
+            "SEM-ROOM-10",
+            "SEM-ROOM-11",
+            "SEM-ROOM-12",
+            "SEM-ROOM-13",
+            "SEM-ROOM-14",
+            "SEM-ROOM-15",
+            "SEM-ROOM-16",
+            "SEM-ROOM-17",
+            "SEM-ROOM-18",
+            "SEM-ROOM-19",
+            "SEM-ROOM-20",
+            "SEM-ROOM-21",
+            "SEM-ROOM-22",
+            "SEM-ROOM-23",
+            "SEM-ROOM-24",
+            "SEM-ROOM-25"
+          ]
+        }
+      ],
+      "partialResolution": {
+        "policy": "all-or-nothing-selection",
+        "unit": "one printed option and each sourceSentenceId within that option",
+        "onImpossible": "an option may not be selected unless it resolves entirely; explicit component-limit behavior and each no-default question remain source-scoped"
+      },
+      "duration": {
+        "kind": "instantaneous-Robot-option-resolution"
+      },
+      "stacking": {
+        "policy": "one option per Activate Robot Action; printed up-to movement permits zero steps; no face effects stack by name"
+      },
+      "outcomes": [],
+      "unresolvedQuestionRefs": [
+        "SEM-Q-013",
+        "SEM-Q-018"
+      ],
+      "sourceVariants": [
+        {
+          "variantId": "SV-RBT-506400-BGA",
+          "sourceId": "SRC-BGA-ROBOTS",
+          "sourceAssertionId": "SA-RBT-506400-BGA",
+          "difference": "The licensed record normalizes line wrapping and placeholder notation; the exact scan and official visible occurrence remain independent.",
+          "resolution": "Retain the licensed structured occurrence as secondary evidence; exact scan and applicable official general/component text control by authority without rewriting the variant."
+        },
+        {
+          "variantId": "SV-RBT-506400-OFFICIAL-01",
+          "sourceId": "SRC-RULEBOOK",
+          "sourceAssertionId": "SA-RBT-506400-OFFICIAL-01",
+          "difference": "A deterministic feature match establishes this exact face as a scaled official page-3 occurrence. Preserve it independently even where its visible wording matches the TTS scan.",
+          "resolution": "The official-primary visible component occurrence is retained separately and controls over the lower-authority scan where they differ; no difference is invented where pixels match."
+        }
+      ],
+      "implementationBoundary": "implementation-neutral; no engine, UI, network, storage, or serialization mapping"
+    },
+    {
+      "schemaVersion": 1,
+      "recordType": "semantic-rule",
+      "recordRevision": 1,
+      "ruleId": "SEM-ROBOT-SETUP-001",
+      "title": "Robot setup and finite starting components",
+      "status": "source-backed",
+      "ruleKind": "procedure",
+      "applicability": {
+        "game": "Nemesis: Retaliation",
+        "mode": "base-standard",
+        "playerCount": null
+      },
+      "authority": {
+        "highest": "official-primary",
+        "interpretation": "verbatim-structure"
+      },
+      "sourceAssertions": [
+        {
+          "assertionId": "SA-ROBOT-SETUP-RB",
+          "sourceId": "SRC-RULEBOOK",
+          "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
+          "sourceSha256": "e3cda0d7a91bd090cec45dbc8ce89e2015e2202173357c374ff49365f9c29ddd",
+          "sourceAuthority": "official-primary",
+          "sourceVersion": "base rulebook, local official PDF",
+          "locator": "printed pages 3, 5, and 8 / Robot inventory and Section Setup steps 2, 8–10",
+          "supportsFields": [
+            "timing",
+            "preconditions",
+            "informationPolicy",
+            "targets",
+            "operations",
+            "partialResolution",
+            "duration",
+            "stacking"
+          ],
+          "sourceText": "Shuffle all 6 Robot cards, draw 1 without looking and place it face down on the Robot slot; leave the other 5 unseen in the box. Place 1 full Ammo and 1 Oxygen by the card and the one Robot model on the Hibernatorium.",
+          "textKind": "normalized-paraphrase",
+          "evidenceRecord": "docs/rules/semantics/robot-source-index.json:RB-ROBOT-SETUP-02"
+        },
+        {
+          "assertionId": "SA-ROBOT-BACK",
+          "sourceId": "SRC-ROBOT-BACK",
+          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/robotDeck-155.jpg",
+          "sourceSha256": "9cf67e814071c67c598456070306951e3e24cb00a274b20d736596acfeb67c39",
+          "sourceAuthority": "source-bound-component-scan",
+          "sourceVersion": "TTS shared base Robot back / root deck 98925d",
+          "locator": "TTS-ROBOT-SHARED-BACK / paired non-operative side",
+          "supportsFields": [
+            "informationPolicy",
+            "sourceVariants"
+          ],
+          "sourceText": "The six base Robot faces share one generic back with no operative text; two prototype cards reference the same pixels but are excluded by container identity.",
+          "textKind": "normalized-paraphrase",
+          "evidenceRecord": "docs/rules/semantics/robot-source-index.json:TTS-ROBOT-SHARED-BACK"
+        }
+      ],
+      "termRefs": [
+        "icon.ammoToken",
+        "icon.oxygenToken",
+        "icon.robot",
+        "term.robot-card"
+      ],
+      "taxonRefs": [
+        "tax.entity.agent.robot",
+        "tax.entity.component.card.robot",
+        "tax.entity.component.token.tactical-gear",
+        "tax.entity.spatial.room.hibernatorium",
+        "tax.scaffold.zone.removed-from-game"
+      ],
+      "namedIdentityRefs": [],
+      "timing": {
+        "windowId": "TW-ROBOT-SETUP",
+        "anchorTaxonId": "tax.entity.component.card.robot",
+        "relation": "when-triggered",
+        "recurrence": "once-during-game-setup"
+      },
+      "participants": [
+        {
+          "participantId": "P-RULES",
+          "participantKind": "rules-system",
+          "taxonId": null,
+          "role": null
+        }
+      ],
+      "modality": "must",
+      "preconditions": [],
+      "decisions": [],
+      "informationPolicy": [
+        {
+          "informationId": "I-ROBOT-SETUP-SELECTED",
+          "subjectRef": "selected Robot-card identity and face",
+          "audience": "hidden-from-all",
+          "revealTrigger": "SEM-ROBOT-REVEAL-001 only",
+          "secrecy": "draw without looking and keep face down"
+        },
+        {
+          "informationId": "I-ROBOT-SETUP-UNSELECTED",
+          "subjectRef": "five unselected Robot-card identities",
+          "audience": "hidden-from-all",
+          "revealTrigger": "never in this game",
+          "secrecy": "leave unseen in the box"
+        }
+      ],
+      "costs": [],
+      "targets": [],
+      "operations": [
+        {
+          "stepId": "S01",
+          "sequence": 1,
+          "operationType": "shuffle",
+          "modality": "must",
+          "subjectRef": "P-RULES",
+          "objectRef": "all 6 Robot cards",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-ROBOT-SETUP-RB"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S02",
+          "sequence": 2,
+          "operationType": "draw-random",
+          "modality": "must",
+          "subjectRef": "P-RULES",
+          "objectRef": "1 Robot card without inspection",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-ROBOT-SETUP-RB"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S03",
+          "sequence": 3,
+          "operationType": "set-state",
+          "modality": "must",
+          "subjectRef": "selected Robot card",
+          "objectRef": "sem.state.robot-card.unrevealed",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-ROBOT-SETUP-RB"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S04",
+          "sequence": 4,
+          "operationType": "transition-zone",
+          "modality": "must",
+          "subjectRef": "P-RULES",
+          "objectRef": "five unselected Robot cards unseen in box",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": {
+            "from": "Robot-card setup set",
+            "to": "tax.scaffold.zone.removed-from-game"
+          },
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-ROBOT-SETUP-RB"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S05",
+          "sequence": 5,
+          "operationType": "place-component",
+          "modality": "must",
+          "subjectRef": "P-RULES",
+          "objectRef": "1 full Ammo token and 1 Oxygen token in the Robot's corresponding Tactical Gear slots",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": {
+            "finiteSupply": {
+              "Ammo": 20,
+              "Oxygen": 20
+            },
+            "startingQuantity": {
+              "Ammo": 1,
+              "Oxygen": 1
+            },
+            "ammoSide": "full"
+          },
+          "sourceAssertionIds": [
+            "SA-ROBOT-SETUP-RB"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S06",
+          "sequence": 6,
+          "operationType": "place-component",
+          "modality": "must",
+          "subjectRef": "P-RULES",
+          "objectRef": "the sole Robot model in the Hibernatorium",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": {
+            "finiteRobotModels": 1
+          },
+          "sourceAssertionIds": [
+            "SA-ROBOT-SETUP-RB"
+          ],
+          "notes": null
+        }
+      ],
+      "partialResolution": {
+        "policy": "ordered-complete",
+        "unit": "Robot setup step",
+        "onImpossible": "the source assumes the listed physical components are present; no substitute component or face may be invented"
+      },
+      "duration": {
+        "kind": "persistent-game-setup"
+      },
+      "stacking": {
+        "policy": "exactly one selected face, five unseen excluded faces, one model, and one starting token of each stated type"
+      },
+      "outcomes": [],
+      "unresolvedQuestionRefs": [],
+      "sourceVariants": [
+        {
+          "variantId": "SV-ROBOT-BACK-PROTOTYPE-REFS",
+          "sourceId": "SRC-ROBOT-BACK",
+          "sourceAssertionId": "SA-ROBOT-BACK",
+          "difference": "Two junk/prototype Robot cards also reference the same BackURL pixels.",
+          "resolution": "Container/GUID/CardID provenance excludes those selectors from the six-card base family; shared pixels do not create rules-face identity."
+        }
+      ],
+      "implementationBoundary": "implementation-neutral; no engine, UI, network, storage, or serialization mapping"
+    },
+    {
+      "schemaVersion": 1,
+      "recordType": "semantic-rule",
+      "recordRevision": 1,
+      "ruleId": "SEM-ROBOT-TACTICAL-GEAR-001",
+      "title": "Robot Tactical Gear access and transfer extension",
+      "status": "source-backed",
+      "ruleKind": "constraint",
+      "applicability": {
+        "game": "Nemesis: Retaliation",
+        "mode": "base-standard",
+        "playerCount": null
+      },
+      "authority": {
+        "highest": "official-primary",
+        "interpretation": "source-composed"
+      },
+      "sourceAssertions": [
+        {
+          "assertionId": "SA-ROBOT-GEAR-RB",
+          "sourceId": "SRC-RULEBOOK",
+          "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
+          "sourceSha256": "e3cda0d7a91bd090cec45dbc8ce89e2015e2202173357c374ff49365f9c29ddd",
+          "sourceAuthority": "official-primary",
+          "sourceVersion": "base rulebook, local official PDF",
+          "locator": "printed pages 16 and 37 / Robot's Tactical Gear Slots",
+          "supportsFields": [
+            "timing",
+            "preconditions",
+            "decisions",
+            "informationPolicy",
+            "targets",
+            "operations",
+            "partialResolution",
+            "duration",
+            "stacking"
+          ],
+          "sourceText": "While a Character in the Robot's Room performs Use Any Tactical Gear, Robot tokens may also be used and tokens may move between Character and Robot compatible slots. Robot Tactical Gear remains usable while the Robot is malfunctioned.",
+          "textKind": "normalized-paraphrase",
+          "evidenceRecord": "docs/rules/semantics/robot-source-index.json:RB-ROBOT-GEAR-02"
+        }
+      ],
+      "termRefs": [
+        "icon.ammoToken",
+        "icon.oxygenToken",
+        "icon.robot",
+        "term.tactical-gear-slot",
+        "term.tactical-gear-token"
+      ],
+      "taxonRefs": [
+        "tax.entity.agent.character",
+        "tax.entity.agent.robot",
+        "tax.entity.component.slot.tactical-gear",
+        "tax.entity.component.token.tactical-gear"
+      ],
+      "namedIdentityRefs": [],
+      "timing": {
+        "windowId": "TW-ROBOT-GEAR",
+        "anchorTaxonId": "tax.process.action.basic",
+        "relation": "during",
+        "recurrence": "per-co-located-Use-Any-Tactical-Gear-Action"
+      },
+      "participants": [
+        {
+          "participantId": "P-PLAYER",
+          "participantKind": "decision-owner",
+          "taxonId": "tax.entity.agent.player",
+          "role": null
+        },
+        {
+          "participantId": "P-CHARACTER",
+          "participantKind": "actor",
+          "taxonId": "tax.entity.agent.character",
+          "role": null
+        },
+        {
+          "participantId": "P-ROBOT",
+          "participantKind": "component-holder",
+          "taxonId": "tax.entity.agent.robot",
+          "role": null
+        },
+        {
+          "participantId": "P-RULES",
+          "participantKind": "rules-system",
+          "taxonId": null,
+          "role": null
+        }
+      ],
+      "modality": "may",
+      "preconditions": [
+        {
+          "conditionId": "C-ROBOT-GEAR",
+          "scope": "record-precondition",
+          "expression": {
+            "operator": "all",
+            "args": [
+              {
+                "predicate": "Character is performing SEM-ACT-TACTICAL-001"
+              },
+              {
+                "predicate": "Character and Robot occupy the same Room"
+              }
+            ]
+          },
+          "sourceAssertionIds": [
+            "SA-ROBOT-GEAR-RB"
+          ]
+        }
+      ],
+      "decisions": [
+        {
+          "decisionId": "D-ROBOT-GEAR-USE",
+          "ownerRef": "P-PLAYER",
+          "selectionMode": "player-choice",
+          "cardinality": {
+            "min": 0,
+            "max": null
+          },
+          "declineAllowed": true,
+          "visibility": "public-on-use",
+          "options": [
+            "any subset of Tactical Gear tokens on the Robot"
+          ]
+        },
+        {
+          "decisionId": "D-ROBOT-GEAR-MOVE",
+          "ownerRef": "P-PLAYER",
+          "selectionMode": "player-choice",
+          "cardinality": {
+            "min": 0,
+            "max": null
+          },
+          "declineAllowed": true,
+          "visibility": "public-on-move",
+          "options": [
+            "legal compatible transfers between Character and Robot slots"
+          ]
+        }
+      ],
+      "informationPolicy": [
+        {
+          "informationId": "I-ROBOT-GEAR",
+          "subjectRef": "Robot token types/sides, slots, use, and transfers",
+          "audience": "public",
+          "revealTrigger": "continuous/use",
+          "secrecy": "none"
+        }
+      ],
+      "costs": [],
+      "targets": [],
+      "operations": [
+        {
+          "stepId": "S01",
+          "sequence": 1,
+          "operationType": "choose",
+          "modality": "may",
+          "subjectRef": "P-PLAYER",
+          "objectRef": "Robot Tactical Gear tokens to include in the current Gear Action",
+          "conditionRefs": [],
+          "decisionRef": "D-ROBOT-GEAR-USE",
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-ROBOT-GEAR-RB"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S02",
+          "sequence": 2,
+          "operationType": "invoke-selected-process",
+          "modality": "if-able",
+          "subjectRef": "P-CHARACTER",
+          "objectRef": "each selected Robot-held Tactical Gear effect",
+          "conditionRefs": [],
+          "decisionRef": "D-ROBOT-GEAR-USE",
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": {
+            "scope": "each selected token",
+            "robotMalfunctionDoesNotBlock": true
+          },
+          "sourceAssertionIds": [
+            "SA-ROBOT-GEAR-RB"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S03",
+          "sequence": 3,
+          "operationType": "move-entity",
+          "modality": "may",
+          "subjectRef": "P-PLAYER",
+          "objectRef": "selected tokens between compatible Character and Robot Tactical Gear slots",
+          "conditionRefs": [],
+          "decisionRef": "D-ROBOT-GEAR-MOVE",
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-ROBOT-GEAR-RB"
+          ],
+          "notes": null
+        }
+      ],
+      "partialResolution": {
+        "policy": "source-conditional-steps",
+        "unit": "one selected Robot token use or transfer",
+        "onImpossible": "incompatible or occupied target slots are unavailable; zero Robot tokens/transfers remains legal"
+      },
+      "duration": {
+        "kind": "continuous-extension-during-one-Gear-Action"
+      },
+      "stacking": {
+        "policy": "one physical token per compatible slot; no duplication; malfunction does not suppress tokens"
+      },
+      "outcomes": [],
+      "unresolvedQuestionRefs": [],
+      "sourceVariants": [],
+      "implementationBoundary": "implementation-neutral; no engine, UI, network, storage, or serialization mapping"
+    },
+    {
+      "schemaVersion": 1,
+      "recordType": "semantic-rule",
+      "recordRevision": 1,
+      "ruleId": "SEM-ROBOT-TECHNICAL-001",
+      "title": "Technical Robot",
+      "status": "source-backed-with-open-question",
+      "ruleKind": "component-effect",
+      "applicability": {
+        "game": "Nemesis: Retaliation",
+        "mode": "base-standard",
+        "playerCount": null
+      },
+      "authority": {
+        "highest": "official-primary",
+        "interpretation": "open-alternatives"
+      },
+      "sourceAssertions": [
+        {
+          "assertionId": "SA-RBT-529400-SCAN",
+          "sourceId": "SRC-ROBOT-529400",
+          "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/robotDeck-137.jpg",
+          "sourceSha256": "db583cb973497fd2fba3b588d233d7c79db48e30d51e3cb0a4483524aa89fbbb",
+          "sourceAuthority": "source-bound-component-scan",
+          "sourceVersion": "TTS base Robot face / root deck 98925d / CardID 529400",
+          "locator": "TTS-ROBOT-529400-FACE / exact face panels and sentences",
+          "supportsFields": [
+            "timing",
+            "preconditions",
+            "decisions",
+            "informationPolicy",
+            "targets",
+            "operations",
+            "partialResolution",
+            "sourceVariants",
+            "unresolvedQuestionRefs"
+          ],
+          "sourceText": "Move the [robot] up to 2 times.\nOR\nDiscard a [malfunction] or a [fire]\nfrom the Room with the [robot].",
+          "textKind": "verbatim",
+          "evidenceRecord": "docs/rules/semantics/robot-source-index.json:TTS-ROBOT-529400-FACE"
+        },
+        {
+          "assertionId": "SA-RBT-529400-GENERAL",
+          "sourceId": "SRC-RULEBOOK",
+          "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
+          "sourceSha256": "e3cda0d7a91bd090cec45dbc8ce89e2015e2202173357c374ff49365f9c29ddd",
+          "sourceAuthority": "official-primary",
+          "sourceVersion": "base rulebook, local official PDF",
+          "locator": "printed pages 14, 17, 22–23, 33, and 37 / effect legality and Robot procedures",
+          "supportsFields": [
+            "timing",
+            "preconditions",
+            "decisions",
+            "informationPolicy",
+            "targets",
+            "operations",
+            "partialResolution",
+            "duration",
+            "stacking",
+            "unresolvedQuestionRefs",
+            "sourceVariants"
+          ],
+          "sourceText": "Resolve one entirely legal printed Robot option through the official Robot movement, health, Burst, Door, marker, Room, Exploration, and finite-component rules that apply to that option.",
+          "textKind": "normalized-paraphrase",
+          "evidenceRecord": "docs/rules/semantics/robot-source-index.json:officialRulebookTextOccurrences"
+        },
+        {
+          "assertionId": "SA-RBT-529400-BGA",
+          "sourceId": "SRC-BGA-ROBOTS",
+          "sourcePath": "docs/rules/source-extraction/secondary/bga-staticData-260622-1220.js",
+          "sourceSha256": "18cd8f4a2883d4f6662ed170095ff07e0d9f5da508064ed1d6bfc124f5a274ae",
+          "sourceAuthority": "licensed-digital-secondary",
+          "sourceVersion": "licensed BGA immutable build 260622-1220 / ROBOT_CARDS_DATA",
+          "locator": "ROBOT_CARDS_DATA.TechnicalRobot",
+          "supportsFields": [
+            "sourceVariants"
+          ],
+          "sourceText": "  TechnicalRobot: {\n    name: 'Technical Robot',\n    desc: ['Move the <ROBOT> up to 2 times.', 'Discard a <MALFUNCTION> or a <FIRE> from the Room with the <ROBOT>.'],\n    color: 'yellow',\n  },",
+          "textKind": "verbatim",
+          "evidenceRecord": "docs/rules/semantics/robot-source-index.json:TTS-ROBOT-529400-FACE.bgaOccurrence"
+        },
+        {
+          "assertionId": "SA-RBT-529400-OFFICIAL-01",
+          "sourceId": "SRC-RULEBOOK",
+          "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
+          "sourceSha256": "e3cda0d7a91bd090cec45dbc8ce89e2015e2202173357c374ff49365f9c29ddd",
+          "sourceAuthority": "official-primary",
+          "sourceVersion": "base rulebook, local official PDF",
+          "locator": "unprinted PDF page 3 / lower Robot-card row / rulebook_text lines 99–111",
+          "supportsFields": [
+            "operations",
+            "targets",
+            "sourceVariants"
+          ],
+          "sourceText": "Move the [robot] up to 2 times.\nOR\nDiscard a [malfunction] or a [fire]\nfrom the Room with the [robot].",
+          "textKind": "verbatim",
+          "evidenceRecord": "docs/rules/source-extraction/rulebook-visual-obligations.json:RB-P03-V01"
+        }
+      ],
+      "termRefs": [
+        "icon.fire",
+        "icon.malfunction",
+        "icon.robot",
+        "term.closed",
+        "term.corridor",
+        "term.robot-card",
+        "term.room"
+      ],
+      "taxonRefs": [
+        "tax.entity.agent.robot",
+        "tax.entity.component.card.robot",
+        "tax.entity.component.marker.fire",
+        "tax.entity.component.marker.malfunction",
+        "tax.entity.spatial.corridor",
+        "tax.entity.spatial.room",
+        "tax.state.closed"
+      ],
+      "namedIdentityRefs": [],
+      "timing": {
+        "windowId": "TW-RBT-529400",
+        "anchorTaxonId": "tax.process.action.basic",
+        "relation": "during",
+        "recurrence": "when-this-exact-revealed-Robot-face-is-Activated"
+      },
+      "participants": [
+        {
+          "participantId": "P-PLAYER",
+          "participantKind": "decision-owner",
+          "taxonId": "tax.entity.agent.player",
+          "role": null
+        },
+        {
+          "participantId": "P-CHARACTER",
+          "participantKind": "actor",
+          "taxonId": "tax.entity.agent.character",
+          "role": null
+        },
+        {
+          "participantId": "P-ROBOT",
+          "participantKind": "affected",
+          "taxonId": "tax.entity.agent.robot",
+          "role": null
+        },
+        {
+          "participantId": "P-RULES",
+          "participantKind": "rules-system",
+          "taxonId": null,
+          "role": null
+        },
+        {
+          "participantId": "P-TECHNICAL-TARGET-OWNER",
+          "participantKind": "source-unspecified-decision-owner",
+          "taxonId": null,
+          "role": null
+        }
+      ],
+      "modality": "must",
+      "preconditions": [
+        {
+          "conditionId": "C-RBT-529400-FACE",
+          "scope": "record-precondition",
+          "expression": {
+            "operator": "all",
+            "args": [
+              {
+                "predicate": "revealed Robot occurrence identity is TTS-ROBOT-529400-FACE"
+              },
+              {
+                "predicate": "Robot has no Malfunction marker"
+              },
+              {
+                "predicate": "selected printed option is entirely resolvable"
+              }
+            ]
+          },
+          "sourceAssertionIds": [
+            "SA-RBT-529400-SCAN",
+            "SA-RBT-529400-GENERAL"
+          ]
+        },
+        {
+          "conditionId": "S02-C01",
+          "scope": "operation-guard",
+          "expression": {
+            "operator": "predicate",
+            "args": [
+              {
+                "predicate": "movement option selected"
+              }
+            ]
+          },
+          "sourceAssertionIds": [
+            "SA-RBT-529400-SCAN",
+            "SA-RBT-529400-GENERAL"
+          ]
+        },
+        {
+          "conditionId": "S03-C01",
+          "scope": "operation-guard",
+          "expression": {
+            "operator": "predicate",
+            "args": [
+              {
+                "predicate": "repair option selected"
+              }
+            ]
+          },
+          "sourceAssertionIds": [
+            "SA-RBT-529400-SCAN",
+            "SA-RBT-529400-GENERAL"
+          ]
+        },
+        {
+          "conditionId": "S04-C01",
+          "scope": "operation-guard",
+          "expression": {
+            "operator": "predicate",
+            "args": [
+              {
+                "predicate": "repair option selected"
+              }
+            ]
+          },
+          "sourceAssertionIds": [
+            "SA-RBT-529400-SCAN",
+            "SA-RBT-529400-GENERAL"
+          ]
+        }
+      ],
+      "decisions": [
+        {
+          "decisionId": "D-RBT-529400-OPTION",
+          "ownerRef": "P-PLAYER",
+          "selectionMode": "player-choice",
+          "cardinality": {
+            "min": 1,
+            "max": 1
+          },
+          "declineAllowed": false,
+          "visibility": "public-on-declaration",
+          "options": [
+            "option O1",
+            "option O2"
+          ]
+        },
+        {
+          "decisionId": "D-RBT-529400-MARKER",
+          "ownerRef": "P-TECHNICAL-TARGET-OWNER",
+          "selectionMode": "unresolved",
+          "cardinality": {
+            "min": 1,
+            "max": 1
+          },
+          "declineAllowed": false,
+          "visibility": "source-unspecified",
+          "options": [
+            "one Fire marker on the Room",
+            "one eligible Malfunction marker under SEM-Q-019"
+          ]
+        }
+      ],
+      "informationPolicy": [
+        {
+          "informationId": "I-RBT-529400",
+          "subjectRef": "revealed exact Robot face, selected option, targets, random results, and state changes",
+          "audience": "public",
+          "revealTrigger": "option declaration/resolution",
+          "secrecy": "remaining five Robot cards stay unseen and out of this game"
+        }
+      ],
+      "costs": [],
+      "targets": [
+        {
+          "targetId": "T-RBT-529400-MARKER",
+          "selectorRef": "unresolved-by-source",
+          "eligibleTaxonIds": [
+            "tax.entity.component.marker.malfunction",
+            "tax.entity.component.marker.fire"
+          ],
+          "cardinality": {
+            "min": 1,
+            "max": 1
+          },
+          "selectionMode": "unresolved-when-multiple",
+          "visibility": "public"
+        }
+      ],
+      "operations": [
+        {
+          "stepId": "S01",
+          "sequence": 1,
+          "operationType": "choose",
+          "modality": "must",
+          "subjectRef": "P-PLAYER",
+          "objectRef": "one printed Robot option",
+          "conditionRefs": [],
+          "decisionRef": "D-RBT-529400-OPTION",
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-RBT-529400-SCAN",
+            "SA-RBT-529400-GENERAL"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S02",
+          "sequence": 2,
+          "operationType": "invoke-process",
+          "modality": "may",
+          "subjectRef": "P-ROBOT",
+          "objectRef": "move zero through 2 neighboring-Room steps",
+          "conditionRefs": [
+            "S02-C01"
+          ],
+          "decisionRef": "D-RBT-529400-OPTION",
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": "SEM-ROBOT-MOVEMENT-001",
+          "repeat": {
+            "printedMaximumSteps": 2,
+            "zeroStepsLegal": true
+          },
+          "sourceAssertionIds": [
+            "SA-RBT-529400-SCAN",
+            "SA-RBT-529400-GENERAL"
+          ],
+          "notes": null,
+          "sourceSentenceId": "RB529400-O1-S01",
+          "sourcePanelId": "P3",
+          "sourceOptionId": "O1"
+        },
+        {
+          "stepId": "S03",
+          "sequence": 3,
+          "operationType": "resolve-open-alternative",
+          "modality": "must",
+          "subjectRef": "P-RULES",
+          "objectRef": "SEM-Q-019 scope of ‘from the Room with the Robot’ for a Malfunction marker",
+          "conditionRefs": [
+            "S03-C01"
+          ],
+          "decisionRef": "D-RBT-529400-MARKER",
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-RBT-529400-SCAN",
+            "SA-RBT-529400-GENERAL"
+          ],
+          "notes": null,
+          "sourceSentenceId": "RB529400-O2-S01",
+          "sourcePanelId": "P4",
+          "sourceOptionId": "O2"
+        },
+        {
+          "stepId": "S04",
+          "sequence": 4,
+          "operationType": "remove-component",
+          "modality": "must",
+          "subjectRef": "P-RULES",
+          "objectRef": "selected Fire/Malfunction marker back to its finite pool",
+          "conditionRefs": [
+            "S04-C01"
+          ],
+          "decisionRef": "D-RBT-529400-MARKER",
+          "targetRef": "T-RBT-529400-MARKER",
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-RBT-529400-SCAN",
+            "SA-RBT-529400-GENERAL"
+          ],
+          "notes": "No destroyed-Robot state or automatic self-repair target is adopted.",
+          "sourceSentenceId": "RB529400-O2-S01",
+          "sourcePanelId": "P4",
+          "sourceOptionId": "O2"
+        }
+      ],
+      "partialResolution": {
+        "policy": "all-or-nothing-selection",
+        "unit": "one printed option and each sourceSentenceId within that option",
+        "onImpossible": "an option may not be selected unless it resolves entirely; explicit component-limit behavior and each no-default question remain source-scoped"
+      },
+      "duration": {
+        "kind": "instantaneous-Robot-option-resolution"
+      },
+      "stacking": {
+        "policy": "one option per Activate Robot Action; printed up-to movement permits zero steps; no face effects stack by name"
+      },
+      "outcomes": [],
+      "unresolvedQuestionRefs": [
+        "SEM-Q-013",
+        "SEM-Q-019"
+      ],
+      "sourceVariants": [
+        {
+          "variantId": "SV-RBT-529400-BGA",
+          "sourceId": "SRC-BGA-ROBOTS",
+          "sourceAssertionId": "SA-RBT-529400-BGA",
+          "difference": "The licensed record normalizes line wrapping and placeholders; the scan and official visible occurrence remain independently traceable.",
+          "resolution": "Retain the licensed structured occurrence as secondary evidence; exact scan and applicable official general/component text control by authority without rewriting the variant."
+        },
+        {
+          "variantId": "SV-RBT-529400-OFFICIAL-01",
+          "sourceId": "SRC-RULEBOOK",
+          "sourceAssertionId": "SA-RBT-529400-OFFICIAL-01",
+          "difference": "A deterministic feature match establishes this exact face as a scaled official page-3 occurrence. Preserve it independently even where its visible wording matches the TTS scan.",
+          "resolution": "The official-primary visible component occurrence is retained separately and controls over the lower-authority scan where they differ; no difference is invented where pixels match."
+        }
+      ],
       "implementationBoundary": "implementation-neutral; no engine, UI, network, storage, or serialization mapping"
     },
     {
