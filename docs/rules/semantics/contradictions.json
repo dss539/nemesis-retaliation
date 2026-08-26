@@ -3,10 +3,10 @@
   "recordType": "semantic-conflict-register",
   "policy": "Readable source differences remain separate. Authority may resolve a general rule without rewriting lower-authority component wording; unresolved conflicts never receive a default.",
   "counts": {
-    "conflicts": 40,
+    "conflicts": 48,
     "resolvedByAuthority": 14,
-    "unresolved": 16,
-    "preservedBoundary": 10
+    "unresolved": 22,
+    "preservedBoundary": 12
   },
   "conflicts": [
     {
@@ -762,6 +762,199 @@
       ],
       "difference": "Direct Ammo Magazine gains 1 Ammo while unselected cell 0 gains up to 2 and licensed Ammo uses another title; direct Grenade has verified grenadeToken glyphs while unselected cell 5 retains three local no-matches.",
       "resolution": "Exact direct root selectors control only their physical occurrences. Preserve sheet and licensed variants independently; no title/body/art/token expectation supplies identity."
+    },
+    {
+      "conflictId": "SC-041",
+      "title": "Thirty-card Yellow root versus regular/Heavy-candidate physical-class boundary",
+      "status": "unresolved",
+      "questionId": "SEM-Q-052",
+      "affectedRuleIds": [
+        "SEM-YELLOW-ITEM-DECK-001",
+        "SEM-YELLOW-ITEM-VARIANT-BOUNDARIES-001"
+      ],
+      "evidenceRefs": [
+        "SRC-RULEBOOK",
+        "SRC-YELLOW-ITEM-ROOT-DECK",
+        "SRC-BGA-YELLOW-ITEMS",
+        "docs/rules/semantics/yellow-item-source-index.json",
+        "docs/rules/04-items-and-equipment.md:ITM-003/ITM-004"
+      ],
+      "difference": "The exact root has 24 source-clear regular faces, five portrait ONE USE ONLY. SPECIAL WEAPON Fire Extinguisher selectors, and one portrait no-HEAVY Robot Controller selector. Licensed data has 24 regular/6 Heavy while downstream ITM-003/004 says color decks contain only regular Items.",
+      "resolution": "No default for the six TTS selectors. Keep every root copy/class/source occurrence intact; only 24 source-clear regular faces dispatch in this batch."
+    },
+    {
+      "conflictId": "SC-042",
+      "title": "Selected Yellow crossed glyphs versus licensed noIntruders fields",
+      "status": "unresolved",
+      "questionId": "SEM-Q-051",
+      "affectedRuleIds": [
+        "SEM-YELLOW-ITEM-VARIANT-BOUNDARIES-001",
+        "SEM-YELLOW-ITEM-3403-2171B1-001",
+        "SEM-YELLOW-ITEM-3403-41A9C1-001",
+        "SEM-YELLOW-ITEM-3403-F456C3-001",
+        "SEM-YELLOW-ITEM-3403-4EFD6D-001",
+        "SEM-YELLOW-ITEM-3403-9D4208-001",
+        "SEM-YELLOW-ITEM-3403-D2ECEC-001",
+        "SEM-YELLOW-ITEM-395400-6A29B0-001",
+        "SEM-YELLOW-ITEM-395400-0B949C-001",
+        "SEM-YELLOW-ITEM-395400-8F66F9-001",
+        "SEM-YELLOW-ITEM-395400-11861A-001",
+        "SEM-YELLOW-ITEM-395400-988612-001",
+        "SEM-YELLOW-ITEM-3400-801470-001",
+        "SEM-YELLOW-ITEM-3400-A29F14-001",
+        "SEM-YELLOW-ITEM-3400-2284BD-001",
+        "SEM-YELLOW-ITEM-3400-534B88-001",
+        "SEM-YELLOW-ITEM-3400-BEA081-001"
+      ],
+      "evidenceRefs": [
+        "SRC-BGA-YELLOW-ITEMS",
+        "assets/tts-mod/extract/selected-card-text-evidence.json",
+        "docs/rules/semantics/yellow-item-source-index.json"
+      ],
+      "difference": "Duct Tape, direct Phosphates, and Tools retain source-local upper-right all-glossary no-matches; licensed rows mark all three noIntruders. Current official Duct Tape shows a corner restriction occurrence but identifies no TTS GUID or exact selected morphology.",
+      "resolution": "No default and no position/Yellow-color/utility-art alias. Licensed and official occurrences remain independent leads."
+    },
+    {
+      "conflictId": "SC-043",
+      "title": "Yellow parent sheets, unique-back cells, cross-family cells, and exact root selectors",
+      "status": "preserved-boundary",
+      "questionId": null,
+      "affectedRuleIds": [
+        "SEM-YELLOW-ITEM-VARIANT-BOUNDARIES-001"
+      ],
+      "evidenceRefs": [
+        "SRC-YELLOW-ITEM-SHEET-33",
+        "SRC-YELLOW-ITEM-SHEET-34",
+        "SRC-YELLOW-ITEM-SHARED-BACK",
+        "SRC-YELLOW-ITEM-UNIQUE-BACK-SHEET-33",
+        "docs/rules/semantics/yellow-item-source-index.json"
+      ],
+      "difference": "Two 2x2 face sheets retain five Yellow-root selector gaps, including a Red-root Military Taser cell and one non-rules cell. CustomDeck 33 uses cell-matched UniqueBack art shared with the Red root; CustomDeck 34/direct cards use one shared Yellow back.",
+      "resolution": "Retain every sheet/hash/grid/cell/UniqueBack/gap tuple. Never repair or invert a selector/back from title, color, art, body, folder, CardID modulo, or expected logic."
+    },
+    {
+      "conflictId": "SC-044",
+      "title": "Duct Tape TTS self-placement versus current official/FAQ One Use stacking",
+      "status": "unresolved",
+      "questionId": "SEM-Q-053",
+      "affectedRuleIds": [
+        "SEM-YELLOW-ITEM-ONE-USE-001",
+        "SEM-YELLOW-ITEM-ONE-USE-001",
+        "SEM-YELLOW-ITEM-3400-801470-001",
+        "SEM-YELLOW-ITEM-3400-A29F14-001",
+        "SEM-YELLOW-ITEM-3400-2284BD-001",
+        "SEM-YELLOW-ITEM-3400-534B88-001",
+        "SEM-YELLOW-ITEM-3400-BEA081-001"
+      ],
+      "evidenceRefs": [
+        "SRC-RULEBOOK",
+        "SRC-FAQ",
+        "docs/rules/semantics/yellow-item-source-index.json"
+      ],
+      "difference": "Five exact TTS copies say to place this Item and another Heavy Item under a Heavy Item. Current official Duct Tape says place one Heavy Item above another, generic One Use says discard Duct Tape when Used, and FAQ permits a third Item in one Hand. No official occurrence identifies a TTS GUID.",
+      "resolution": "No default; preserve exact occurrences and all three SEM-Q-053 alternatives without title-only correspondence."
+    },
+    {
+      "conflictId": "SC-045",
+      "title": "Duct Tape stack later lifecycle and Trade are source-unspecified",
+      "status": "unresolved",
+      "questionId": "SEM-Q-054",
+      "affectedRuleIds": [
+        "SEM-ITEM-TRADE-GAIN-001",
+        "SEM-YELLOW-ITEM-3400-801470-001",
+        "SEM-YELLOW-ITEM-3400-A29F14-001",
+        "SEM-YELLOW-ITEM-3400-2284BD-001",
+        "SEM-YELLOW-ITEM-3400-534B88-001",
+        "SEM-YELLOW-ITEM-3400-BEA081-001"
+      ],
+      "evidenceRefs": [
+        "SRC-RULEBOOK",
+        "SRC-FAQ",
+        "docs/rules/semantics/yellow-item-source-index.json"
+      ],
+      "difference": "FAQ confirms a third Item may occupy one Hand, but checked sources do not state whether further Items may be added or how discard, loss, Malfunction, token loss, Trade, ownership, and separation affect a stack.",
+      "resolution": "No default; ordinary Item/Trade transitions do not silently detach, transfer as a group, preserve, or collapse stacked physical copies."
+    },
+    {
+      "conflictId": "SC-046",
+      "title": "Direct Phosphates versus selector-gap and licensed target/body variants",
+      "status": "unresolved",
+      "questionId": "SEM-Q-055",
+      "affectedRuleIds": [
+        "SEM-YELLOW-ITEM-VARIANT-BOUNDARIES-001",
+        "SEM-YELLOW-ITEM-395400-6A29B0-001",
+        "SEM-YELLOW-ITEM-395400-0B949C-001",
+        "SEM-YELLOW-ITEM-395400-8F66F9-001",
+        "SEM-YELLOW-ITEM-395400-11861A-001",
+        "SEM-YELLOW-ITEM-395400-988612-001"
+      ],
+      "evidenceRefs": [
+        "SRC-BGA-YELLOW-ITEMS",
+        "docs/rules/semantics/yellow-item-source-index.json"
+      ],
+      "difference": "Five direct root copies say Reinforce 1 empty Corridor OR discard Fire without an adjacency/chooser qualifier. Unselected sheet cell 2 replaces Fire with place 2 Secure; licensed Phosphates adds adjacent to the Reinforce branch.",
+      "resolution": "No default for target owner/range. Exact direct selectors alone dispatch; sheet/licensed wording remains independent."
+    },
+    {
+      "conflictId": "SC-047",
+      "title": "Tools scan Door scope versus licensed accessible-Door qualifier",
+      "status": "unresolved",
+      "questionId": "SEM-Q-056",
+      "affectedRuleIds": [
+        "SEM-YELLOW-ITEM-3403-2171B1-001",
+        "SEM-YELLOW-ITEM-3403-41A9C1-001",
+        "SEM-YELLOW-ITEM-3403-F456C3-001",
+        "SEM-YELLOW-ITEM-3403-4EFD6D-001",
+        "SEM-YELLOW-ITEM-3403-9D4208-001",
+        "SEM-YELLOW-ITEM-3403-D2ECEC-001"
+      ],
+      "evidenceRefs": [
+        "SRC-BGA-YELLOW-ITEMS",
+        "SRC-RULEBOOK",
+        "docs/rules/semantics/yellow-item-source-index.json"
+      ],
+      "difference": "Six exact Tools copies say Open or Close 1 Door without naming chooser, target range, or accessibility. Licensed Tools adds accessible; ordinary Door/local rules supply constraints but no exact target owner or same-source qualifier.",
+      "resolution": "No default; preserve ordinary constraints and all SEM-Q-056 alternatives without importing Robot or Portable Barrier effects."
+    },
+    {
+      "conflictId": "SC-048",
+      "title": "Oxygen Tank, Robot Controller, and Fire Extinguisher direct/sheet/licensed representation boundaries",
+      "status": "preserved-boundary",
+      "questionId": null,
+      "affectedRuleIds": [
+        "SEM-YELLOW-ITEM-VARIANT-BOUNDARIES-001",
+        "SEM-YELLOW-ITEM-3403-2171B1-001",
+        "SEM-YELLOW-ITEM-3403-41A9C1-001",
+        "SEM-YELLOW-ITEM-3403-F456C3-001",
+        "SEM-YELLOW-ITEM-3403-4EFD6D-001",
+        "SEM-YELLOW-ITEM-3403-9D4208-001",
+        "SEM-YELLOW-ITEM-3403-D2ECEC-001",
+        "SEM-YELLOW-ITEM-395400-6A29B0-001",
+        "SEM-YELLOW-ITEM-395400-0B949C-001",
+        "SEM-YELLOW-ITEM-395400-8F66F9-001",
+        "SEM-YELLOW-ITEM-395400-11861A-001",
+        "SEM-YELLOW-ITEM-395400-988612-001",
+        "SEM-YELLOW-ITEM-532000-CE55D9-001",
+        "SEM-YELLOW-ITEM-532000-45F0F3-001",
+        "SEM-YELLOW-ITEM-532000-28907A-001",
+        "SEM-YELLOW-ITEM-532000-8A4908-001",
+        "SEM-YELLOW-ITEM-532000-490933-001",
+        "SEM-YELLOW-ITEM-532000-1FF6E7-001",
+        "SEM-YELLOW-ITEM-532000-5DB915-001",
+        "SEM-YELLOW-ITEM-532000-CE5897-001",
+        "SEM-YELLOW-ITEM-3400-801470-001",
+        "SEM-YELLOW-ITEM-3400-A29F14-001",
+        "SEM-YELLOW-ITEM-3400-2284BD-001",
+        "SEM-YELLOW-ITEM-3400-534B88-001",
+        "SEM-YELLOW-ITEM-3400-BEA081-001"
+      ],
+      "evidenceRefs": [
+        "SRC-BGA-YELLOW-ITEMS",
+        "docs/rules/semantics/yellow-item-source-index.json",
+        "assets/tts-mod/extract/selected-card-text-evidence.json"
+      ],
+      "difference": "Direct Oxygen Tank is selected by eight root GUIDs while a same-title sheet cell is unselected and has independent Not In Combat/normalized-placeholder evidence. Direct Robot Controller is a root class conflict while a materially different sheet cell is unselected. Fire Extinguisher is selected only at sheet cell 1 and licensed as Heavy.",
+      "resolution": "Keep all direct/generated/corpus/selected/licensed occurrences and representation discrepancies explicit. Same title, body similarity, Yellow art, cell, or multiplicity creates no identity or effect crosswalk."
     }
   ]
 }

@@ -6,7 +6,7 @@ from pathlib import Path
 import re
 
 
-PINNED_RED_ITEM_SOURCE_INDEX_HASH = "6d8875f4955a77e200ee00150042ab6f1304ce9af6157174cf9024a01c6ffbc0"
+PINNED_RED_ITEM_SOURCE_INDEX_HASH = "35a167b27291bdb7cf5d119d036018c9a7537ec8e4e7b5eba3d546a247f8f929"
 
 EXPECTED_RED_ITEM_COUNTS = {
     "rootPhysicalOccurrences": 30,
@@ -135,8 +135,8 @@ EXPECTED_RED_ITEM_REUSABLE_RULE_IDS = [
 ]
 
 EXPECTED_RED_ITEM_RECORD_DIGESTS: dict[str, str] = {
-    "SEM-USE-ITEM-001": "f2a0fbec9136ae5a628ecb72e11b8679da84df0fb95f4a6f99323e959c5748d3",
-    "SEM-ITEM-TRADE-GAIN-001": "f9f9904385716e605e0bb632168f3edb115f6dbea5068deaee39b2c741e853f7",
+    "SEM-USE-ITEM-001": "34b9b0c38b32a6c77cbb30f9c2c3649318e115a3de654c4a29214fb39e77ff14",
+    "SEM-ITEM-TRADE-GAIN-001": "0ca46870c3dff50cf649d74724bd41087382bb80955eda32a0bb08d92f5eff9a",
     "SEM-ACT-TACTICAL-001": "23da207776a84f3bc7fa9e1851b28db427779cc7b92a401a3e40e19fb11a3f9e",
     "SEM-RED-ITEM-DECK-001": "cc027bdd1bc81134bd7c1e60ae249ac517cb4a51c8b9200b42ba26fb10900526",
     "SEM-RED-ITEM-ONE-USE-001": "87023177bf157ddc9468ad3c19e2904228355bb8c0aad6d74a2fffd58463e8d2",
@@ -409,7 +409,15 @@ def validate_red_item_family(
 
     backlog_ledger = (source.get("familyCountEvidence", {}).get("backlog") or {})
     linked_ids = backlog_ledger.get("linkedUnitIds") or []
-    if backlog_ledger.get("faceTupleCount") != 7 or backlog_ledger.get("variantTupleCount") != 4 or backlog_ledger.get("physicalFaceLinkCount") != 21 or backlog_ledger.get("obligationCount") != 43 or len(linked_ids) != 43 or any((backlog_by_id.get(unit_id) or {}).get("status") != "pilot-covered" for unit_id in linked_ids):
+    if (
+        backlog_ledger.get("faceTupleCount") != 7 or backlog_ledger.get("variantTupleCount") != 4
+        or backlog_ledger.get("physicalFaceLinkCount") != 21 or backlog_ledger.get("obligationCount") != 43 or len(linked_ids) != 43
+        or any((backlog_by_id.get(unit_id) or {}).get("status") != "pilot-covered" for unit_id in linked_ids)
+        or backlog_ledger.get("crossFamilyPendingUnitIds") != ["CARD:326e23792c922ed0"]
+        or backlog_ledger.get("crossFamilyCoveredByYellowUnitIds") != ["CARD:6dc2643df6e90da0"]
+        or (backlog_by_id.get("CARD:326e23792c922ed0") or {}).get("status") != "pending"
+        or (backlog_by_id.get("CARD:6dc2643df6e90da0") or {}).get("status") != "pilot-covered"
+    ):
         failures.append({"check": "Red Item exact overlapping backlog-obligation closure"})
 
     expected_rule_ids = [_rule_id(card_id, guid) for _, card_id, guid, _, _, disposition in EXPECTED_RED_ITEM_ROOT if disposition == "included-regular-red-item-face"]
@@ -456,12 +464,12 @@ def validate_red_item_family(
     use_ops = use.get("operations") or []
     use_dispatch = next((op.get("dispatchRuleIds") for op in use_ops if op.get("stepId") == "S05"), None)
     lifecycle_dispatch = next((op.get("dispatchRuleIds") for op in use_ops if op.get("stepId") == "S06"), None)
-    if not use_dispatch or use_dispatch[-21:] != expected_rule_ids or lifecycle_dispatch != ["SEM-GREEN-ITEM-ONE-USE-001", "SEM-RED-ITEM-ONE-USE-001"] or [op.get("operationType") for op in use_ops] != ["select-target", "resolve-open-alternative", "pay-cost", "reveal", "invoke-selected-process", "invoke-selected-process"] or use.get("unresolvedQuestionRefs") != ["SEM-Q-039"]:
+    if not use_dispatch or use_dispatch[-45:-24] != expected_rule_ids or lifecycle_dispatch != ["SEM-GREEN-ITEM-ONE-USE-001", "SEM-RED-ITEM-ONE-USE-001", "SEM-YELLOW-ITEM-ONE-USE-001"] or [op.get("operationType") for op in use_ops] != ["select-target", "resolve-open-alternative", "pay-cost", "reveal", "invoke-selected-process", "invoke-selected-process"] or use.get("unresolvedQuestionRefs") != ["SEM-Q-039"]:
         failures.append({"check": "Red Item shared Use/payment/reveal/dispatch/lifecycle lock"})
     trade = record_by_id.get("SEM-ITEM-TRADE-GAIN-001") or {}
     trade_dispatch = (trade.get("operations") or [{}])[-1].get("dispatchRuleIds")
     tactical = record_by_id.get("SEM-ACT-TACTICAL-001") or {}
-    if trade_dispatch != ["SEM-GREEN-ITEM-IMMEDIATE-USE-001", "SEM-RED-ITEM-IMMEDIATE-USE-001"] or tactical.get("authority", {}).get("highest") != "official-errata" or not any(row.get("selectionMode") == "player-choice-sequential" for row in tactical.get("decisions") or []) or "one selected token at a time" not in json.dumps(tactical, ensure_ascii=False):
+    if trade_dispatch != ["SEM-GREEN-ITEM-IMMEDIATE-USE-001", "SEM-RED-ITEM-IMMEDIATE-USE-001", "SEM-YELLOW-ITEM-IMMEDIATE-USE-001"] or tactical.get("authority", {}).get("highest") != "official-errata" or not any(row.get("selectionMode") == "player-choice-sequential" for row in tactical.get("decisions") or []) or "one selected token at a time" not in json.dumps(tactical, ensure_ascii=False):
         failures.append({"check": "Red Item Trade/immediate and Tactical Gear sequential reuse lock"})
 
     deck = record_by_id.get("SEM-RED-ITEM-DECK-001") or {}
@@ -516,7 +524,8 @@ def validate_red_item_family(
     for question_id, suffix in expected_combined_suffixes.items():
         question = question_by_id.get(question_id) or {}
         actual_blocks = question.get("blocksRuleIds") or []
-        if question.get("defaultProhibited") is not True or actual_blocks[-len(suffix):] != suffix or len(question.get("alternatives") or []) != 3:
+        filtered = [rule_id for rule_id in actual_blocks if rule_id in set(suffix)]
+        if question.get("defaultProhibited") is not True or filtered != suffix or len(question.get("alternatives") or []) != 3:
             failures.append({"check": "Red Item shared ambiguity no-default family linkage", "questionId": question_id})
 
     red_conflicts = {row.get("conflictId"): row for row in conflict_rows if row.get("conflictId") in {f"SC-{index:03d}" for index in range(34, 41)}}
@@ -532,7 +541,7 @@ def validate_red_item_family(
     system = next((row for row in coverage.get("systems") or [] if row.get("system") == "base source-clear regular Red Item card/component family"), {})
     expected_system_ids = [*EXPECTED_RED_ITEM_REUSABLE_RULE_IDS, *expected_rule_ids]
     not_yet = " ".join(coverage.get("notYetCovered") or [])
-    if system.get("ruleIds") != expected_system_ids or "21-occurrence source-clear regular Red Item" not in not_yet or "three explicit Heavy Red occurrences" not in not_yet or "six Military Taser class-conflict occurrences" not in not_yet:
+    if system.get("ruleIds") != expected_system_ids or "21-occurrence source-clear regular Red Item" not in not_yet or "three explicit Heavy Red occurrences" not in not_yet or "six Military Taser Red class-conflict occurrences" not in not_yet:
         failures.append({"check": "Red Item coverage/class-boundary/no-full-coverage claim"})
 
     return {

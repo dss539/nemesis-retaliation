@@ -3,11 +3,11 @@
   "recordType": "semantic-review-gates",
   "status": "pilot built with deferred questions and explicit alternatives; no default answer adopted",
   "counts": {
-    "questions": 55,
-    "officialClarificationPreferred": 24,
-    "sourceAmbiguitiesIntroducedByPilot": 31,
+    "questions": 61,
+    "officialClarificationPreferred": 29,
+    "sourceAmbiguitiesIntroducedByPilot": 32,
     "resolved": 0,
-    "open": 55
+    "open": 61
   },
   "questions": [
     {
@@ -1440,14 +1440,16 @@
       "blocksRuleIds": [
         "SEM-USE-ITEM-001",
         "SEM-GREEN-ITEM-ONE-USE-001",
-        "SEM-RED-ITEM-ONE-USE-001"
+        "SEM-RED-ITEM-ONE-USE-001",
+        "SEM-YELLOW-ITEM-ONE-USE-001"
       ],
       "plannedRuleIds": [],
       "defaultProhibited": true,
       "sourceEvidenceRefs": [
         "docs/rulebooks/rulebook_text.txt:lines 2889, 4882–4951",
         "docs/rules/semantics/green-item-source-index.json",
-        "docs/rules/semantics/red-item-source-index.json"
+        "docs/rules/semantics/red-item-source-index.json",
+        "docs/rules/semantics/yellow-item-source-index.json"
       ],
       "alternatives": [
         {
@@ -1474,14 +1476,16 @@
       "blocksRuleIds": [
         "SEM-GREEN-ITEM-DECK-001",
         "SEM-ACT-SEARCH-001",
-        "SEM-RED-ITEM-DECK-001"
+        "SEM-RED-ITEM-DECK-001",
+        "SEM-YELLOW-ITEM-DECK-001"
       ],
       "plannedRuleIds": [],
       "defaultProhibited": true,
       "sourceEvidenceRefs": [
         "docs/rulebooks/rulebook_text.txt:lines 2593–2600, 3530–3548, 4849–4865",
         "docs/rules/semantics/green-item-source-index.json",
-        "docs/rules/semantics/red-item-source-index.json"
+        "docs/rules/semantics/red-item-source-index.json",
+        "docs/rules/semantics/yellow-item-source-index.json"
       ],
       "alternatives": [
         {
@@ -1636,7 +1640,15 @@
         "SEM-RED-ITEM-531000-EBC22D-001",
         "SEM-RED-ITEM-531100-5108BC-001",
         "SEM-RED-ITEM-531200-11F04F-001",
-        "SEM-RED-ITEM-531300-DC960F-001"
+        "SEM-RED-ITEM-531300-DC960F-001",
+        "SEM-YELLOW-ITEM-532000-CE55D9-001",
+        "SEM-YELLOW-ITEM-532000-45F0F3-001",
+        "SEM-YELLOW-ITEM-532000-28907A-001",
+        "SEM-YELLOW-ITEM-532000-8A4908-001",
+        "SEM-YELLOW-ITEM-532000-490933-001",
+        "SEM-YELLOW-ITEM-532000-1FF6E7-001",
+        "SEM-YELLOW-ITEM-532000-5DB915-001",
+        "SEM-YELLOW-ITEM-532000-CE5897-001"
       ],
       "plannedRuleIds": [],
       "defaultProhibited": true,
@@ -1645,12 +1657,13 @@
         "docs/rulebooks/rulebook_text.txt:lines 5079–5096",
         "docs/rules/source-extraction/faq-v1.2-source-extraction.json:FQ-P03-U07",
         "docs/rules/semantics/green-item-source-index.json",
-        "docs/rules/semantics/red-item-source-index.json"
+        "docs/rules/semantics/red-item-source-index.json",
+        "docs/rules/semantics/yellow-item-source-index.json"
       ],
       "alternatives": [
         {
           "alternativeId": "SEM-Q-044-A",
-          "description": "The visually lost glyph after “Gaining” denotes Tactical Gear-token gain, so MEDKIT, Ammo Magazine, and Grenade gain branches may target a consenting co-located Character.",
+          "description": "The visually lost glyph after “Gaining” denotes Tactical Gear-token gain, so MEDKIT, Ammo Magazine, Grenade, and Oxygen Tank token-gain branches may target a consenting co-located Character.",
           "support": "likely visual class and FAQ context, but no source-bound exact glyph identity is recorded"
         },
         {
@@ -1688,7 +1701,16 @@
         "SEM-RED-ITEM-531000-EBC22D-001",
         "SEM-RED-ITEM-531100-5108BC-001",
         "SEM-RED-ITEM-531200-11F04F-001",
-        "SEM-RED-ITEM-531300-DC960F-001"
+        "SEM-RED-ITEM-531300-DC960F-001",
+        "SEM-YELLOW-ITEM-IMMEDIATE-USE-001",
+        "SEM-YELLOW-ITEM-532000-CE55D9-001",
+        "SEM-YELLOW-ITEM-532000-45F0F3-001",
+        "SEM-YELLOW-ITEM-532000-28907A-001",
+        "SEM-YELLOW-ITEM-532000-8A4908-001",
+        "SEM-YELLOW-ITEM-532000-490933-001",
+        "SEM-YELLOW-ITEM-532000-1FF6E7-001",
+        "SEM-YELLOW-ITEM-532000-5DB915-001",
+        "SEM-YELLOW-ITEM-532000-CE5897-001"
       ],
       "plannedRuleIds": [],
       "defaultProhibited": true,
@@ -1696,9 +1718,11 @@
         "assets/tts-mod/extract/v2-dl/tree/cards/game/greenitem-120.png",
         "assets/tts-mod/extract/v2-dl/tree/cards/game/reditem-059.png",
         "assets/tts-mod/extract/v2-dl/tree/cards/game/reditem-128.png",
+        "assets/tts-mod/extract/v2-dl/tree/cards/game/yellowitem-050.png",
         "docs/rules/source-extraction/faq-v1.2-source-extraction.json:FQ-P03-U04",
         "docs/rules/semantics/green-item-source-index.json",
-        "docs/rules/semantics/red-item-source-index.json"
+        "docs/rules/semantics/red-item-source-index.json",
+        "docs/rules/semantics/yellow-item-source-index.json"
       ],
       "alternatives": [
         {
@@ -1887,6 +1911,239 @@
           "alternativeId": "SEM-Q-050-C",
           "description": "Use another source-defined target owner, accessible range, finite-component handling, and post-open lifecycle.",
           "support": "the TTS face only says Place a closed Door and its local upper glyph remains unresolved"
+        }
+      ]
+    },
+    {
+      "questionId": "SEM-Q-051",
+      "title": "Selected Yellow upper-right crossed-glyph identities and use restrictions",
+      "decisionClass": "source-ambiguity-owner-decision-after-source-search",
+      "blocksRuleIds": [
+        "SEM-YELLOW-ITEM-3403-2171B1-001",
+        "SEM-YELLOW-ITEM-3403-41A9C1-001",
+        "SEM-YELLOW-ITEM-3403-F456C3-001",
+        "SEM-YELLOW-ITEM-3403-4EFD6D-001",
+        "SEM-YELLOW-ITEM-3403-9D4208-001",
+        "SEM-YELLOW-ITEM-3403-D2ECEC-001",
+        "SEM-YELLOW-ITEM-395400-6A29B0-001",
+        "SEM-YELLOW-ITEM-395400-0B949C-001",
+        "SEM-YELLOW-ITEM-395400-8F66F9-001",
+        "SEM-YELLOW-ITEM-395400-11861A-001",
+        "SEM-YELLOW-ITEM-395400-988612-001",
+        "SEM-YELLOW-ITEM-3400-801470-001",
+        "SEM-YELLOW-ITEM-3400-A29F14-001",
+        "SEM-YELLOW-ITEM-3400-2284BD-001",
+        "SEM-YELLOW-ITEM-3400-534B88-001",
+        "SEM-YELLOW-ITEM-3400-BEA081-001"
+      ],
+      "plannedRuleIds": [],
+      "defaultProhibited": true,
+      "sourceEvidenceRefs": [
+        "assets/tts-mod/extract/v2-dl/tree/cards/game/yellowitem-021.png",
+        "assets/tts-mod/extract/v2-dl/tree/cards/game/yellowitem-145_cards/card-00.png",
+        "assets/tts-mod/extract/v2-dl/tree/cards/game/yellowitem-145_cards/card-03.png",
+        "assets/tts-mod/extract/selected-card-text-evidence.json",
+        "docs/rules/semantics/yellow-item-source-index.json"
+      ],
+      "alternatives": [
+        {
+          "alternativeId": "SEM-Q-051-A",
+          "description": "The selected Duct Tape, Phosphates, and Tools crossed glyphs impose Not In Combat, following licensed noIntruders fields and the current official Duct Tape corner occurrence.",
+          "support": "licensed/current-source leads exist, but no exact source-scoped match identifies the selected TTS morphologies"
+        },
+        {
+          "alternativeId": "SEM-Q-051-B",
+          "description": "Keep each selected TTS morphology literal and impose no restriction until exact source-scoped evidence exists.",
+          "support": "all-glossary comparisons record explicit no-matches; separate Oxygen/Robot occurrences do not generalize by position or color"
+        },
+        {
+          "alternativeId": "SEM-Q-051-C",
+          "description": "Assign another source-local restriction established by future exact component evidence.",
+          "support": "title, Yellow color, utility art, expected logic, and BGA flags cannot establish identity"
+        }
+      ]
+    },
+    {
+      "questionId": "SEM-Q-052",
+      "title": "Yellow-root Fire Extinguisher and Robot Controller physical class/current-source correspondence",
+      "decisionClass": "official-clarification-preferred",
+      "blocksRuleIds": [
+        "SEM-YELLOW-ITEM-DECK-001"
+      ],
+      "plannedRuleIds": [],
+      "defaultProhibited": true,
+      "sourceEvidenceRefs": [
+        "assets/tts-mod/extract/v2-dl/tree/cards/game/yellowitem-097.png",
+        "assets/tts-mod/extract/v2-dl/tree/cards/game/yellowitem-146_cards/card-01.png",
+        "docs/rules/source-extraction/secondary/bga-staticData-260622-1220.js:ITEMS_DATA.FireExtinguisher/RobotController",
+        "docs/rules/semantics/yellow-item-source-index.json"
+      ],
+      "alternatives": [
+        {
+          "alternativeId": "SEM-Q-052-A",
+          "description": "Treat the six portrait TTS root selectors as regular Backpack Items with their exact TTS bodies.",
+          "support": "literal root and face evidence, but conflicts with licensed Heavy class and downstream color-deck interpretation"
+        },
+        {
+          "alternativeId": "SEM-Q-052-B",
+          "description": "Treat the five Fire Extinguisher and one Robot Controller selectors as current Heavy copies with licensed class/effects and Hand storage.",
+          "support": "licensed aggregate and same titles agree, but no exact physical copy/correspondence is established"
+        },
+        {
+          "alternativeId": "SEM-Q-052-C",
+          "description": "Keep all six non-dispatchable class/source conflicts until an exact current component crosswalk or publisher ruling exists.",
+          "support": "title, Yellow back, utility art, and aggregate 24/6 cannot identify or rewrite physical occurrences"
+        }
+      ]
+    },
+    {
+      "questionId": "SEM-Q-053",
+      "title": "Duct Tape source wording, One Use disposition, and confirmed third-Item arrangement",
+      "decisionClass": "official-clarification-preferred",
+      "blocksRuleIds": [
+        "SEM-YELLOW-ITEM-ONE-USE-001",
+        "SEM-YELLOW-ITEM-3400-801470-001",
+        "SEM-YELLOW-ITEM-3400-A29F14-001",
+        "SEM-YELLOW-ITEM-3400-2284BD-001",
+        "SEM-YELLOW-ITEM-3400-534B88-001",
+        "SEM-YELLOW-ITEM-3400-BEA081-001"
+      ],
+      "plannedRuleIds": [],
+      "defaultProhibited": true,
+      "sourceEvidenceRefs": [
+        "assets/tts-mod/extract/v2-dl/tree/cards/game/yellowitem-145_cards/card-00.png",
+        "docs/rules/source-extraction/rulebook-visual-obligations.json:RB-P28-V03",
+        "docs/rules/source-extraction/faq-v1.2-source-extraction.json:FQ-P03-U05",
+        "docs/rules/semantics/yellow-item-source-index.json"
+      ],
+      "alternatives": [
+        {
+          "alternativeId": "SEM-Q-053-A",
+          "description": "Current official/FAQ composition controls: discard Duct Tape as One Use, place one Heavy Item above another in a Hand slot, and a later Duct Tape may add a third Item.",
+          "support": "official face and FAQ are highest authority, but no official occurrence identifies a TTS GUID copy"
+        },
+        {
+          "alternativeId": "SEM-Q-053-B",
+          "description": "Apply the exact TTS wording literally: place this Duct Tape and one other Heavy Item under an anchor Heavy Item, despite the generic One Use discard rule.",
+          "support": "exact root scan wording; creates a direct lifecycle conflict"
+        },
+        {
+          "alternativeId": "SEM-Q-053-C",
+          "description": "Use another source-defined arrangement/disposition that reconciles the source versions and One Use rule.",
+          "support": "checked sources do not supply an occurrence crosswalk or reconciliation procedure"
+        }
+      ]
+    },
+    {
+      "questionId": "SEM-Q-054",
+      "title": "Duct Tape stack cardinality and later discard/loss/Malfunction/Trade lifecycle",
+      "decisionClass": "official-clarification-preferred",
+      "blocksRuleIds": [
+        "SEM-ITEM-TRADE-GAIN-001",
+        "SEM-YELLOW-ITEM-3400-801470-001",
+        "SEM-YELLOW-ITEM-3400-A29F14-001",
+        "SEM-YELLOW-ITEM-3400-2284BD-001",
+        "SEM-YELLOW-ITEM-3400-534B88-001",
+        "SEM-YELLOW-ITEM-3400-BEA081-001"
+      ],
+      "plannedRuleIds": [],
+      "defaultProhibited": true,
+      "sourceEvidenceRefs": [
+        "docs/rules/source-extraction/faq-v1.2-source-extraction.json:FQ-P03-U05",
+        "docs/rulebooks/rulebook_text.txt:lines 3665–3673,4933–4951,5024–5029,5077–5078,5097–5103",
+        "docs/rules/semantics/yellow-item-source-index.json"
+      ],
+      "alternatives": [
+        {
+          "alternativeId": "SEM-Q-054-A",
+          "description": "Each later Duct Tape may add one more Heavy Item without a fixed cap; removing/trading one physical Item leaves the others stacked in the same Hand if at least one anchor remains.",
+          "support": "FAQ confirms a third Item but states neither unlimited repetition nor later lifecycle"
+        },
+        {
+          "alternativeId": "SEM-Q-054-B",
+          "description": "The FAQ authorizes exactly three Items maximum; losing, discarding, malfunctioning, or trading any stack member separates the remaining Items and immediately reapplies normal Hand capacity.",
+          "support": "possible bounded physical interpretation; no such separation rule is printed"
+        },
+        {
+          "alternativeId": "SEM-Q-054-C",
+          "description": "Use another source-defined stack topology, maximum, token-loss, ownership, transfer, and separation procedure.",
+          "support": "generic Item loss/Trade rules do not address a multi-Item Hand-slot attachment"
+        }
+      ]
+    },
+    {
+      "questionId": "SEM-Q-055",
+      "title": "Phosphates Empty Corridor target owner, locality, and eligibility",
+      "decisionClass": "official-clarification-preferred",
+      "blocksRuleIds": [
+        "SEM-YELLOW-ITEM-395400-6A29B0-001",
+        "SEM-YELLOW-ITEM-395400-0B949C-001",
+        "SEM-YELLOW-ITEM-395400-8F66F9-001",
+        "SEM-YELLOW-ITEM-395400-11861A-001",
+        "SEM-YELLOW-ITEM-395400-988612-001"
+      ],
+      "plannedRuleIds": [],
+      "defaultProhibited": true,
+      "sourceEvidenceRefs": [
+        "assets/tts-mod/extract/v2-dl/tree/cards/game/yellowitem-021.png",
+        "assets/tts-mod/extract/v2-dl/tree/cards/game/yellowitem-145_cards/card-02.png",
+        "docs/rulebooks/rulebook_text.txt:lines 3537–3548,4150–4157,4243–4268",
+        "docs/rules/source-extraction/secondary/bga-staticData-260622-1220.js:ITEMS_DATA.Phosphates",
+        "docs/rules/semantics/yellow-item-source-index.json"
+      ],
+      "alternatives": [
+        {
+          "alternativeId": "SEM-Q-055-A",
+          "description": "The Item user selects one adjacent Empty Corridor not blocked by a Closed Door and not leading to the Hibernatorium.",
+          "support": "licensed adjacent wording plus official local/Reinforce rules; licensed row is secondary and no copy crosswalk exists"
+        },
+        {
+          "alternativeId": "SEM-Q-055-B",
+          "description": "The exact TTS unqualified text permits another Empty Corridor in the source-defined local scope, with target selection resolved by a different owner/tie-break.",
+          "support": "scan omits adjacent and does not say choose"
+        },
+        {
+          "alternativeId": "SEM-Q-055-C",
+          "description": "Use another source-defined target owner/range/Closed-Door eligibility while preserving the direct Fire branch and selector-gap Secure branch independently.",
+          "support": "same-title variants differ materially and create no target default"
+        }
+      ]
+    },
+    {
+      "questionId": "SEM-Q-056",
+      "title": "Tools Door target/state owner, local range, and accessibility",
+      "decisionClass": "official-clarification-preferred",
+      "blocksRuleIds": [
+        "SEM-YELLOW-ITEM-3403-2171B1-001",
+        "SEM-YELLOW-ITEM-3403-41A9C1-001",
+        "SEM-YELLOW-ITEM-3403-F456C3-001",
+        "SEM-YELLOW-ITEM-3403-4EFD6D-001",
+        "SEM-YELLOW-ITEM-3403-9D4208-001",
+        "SEM-YELLOW-ITEM-3403-D2ECEC-001"
+      ],
+      "plannedRuleIds": [],
+      "defaultProhibited": true,
+      "sourceEvidenceRefs": [
+        "assets/tts-mod/extract/v2-dl/tree/cards/game/yellowitem-145_cards/card-03.png",
+        "docs/rulebooks/rulebook_text.txt:lines 3537–3548,4243–4287",
+        "docs/rules/source-extraction/secondary/bga-staticData-260622-1220.js:ITEMS_DATA.Tools",
+        "docs/rules/semantics/yellow-item-source-index.json"
+      ],
+      "alternatives": [
+        {
+          "alternativeId": "SEM-Q-056-A",
+          "description": "The Item user selects one ordinary accessible/local Door and chooses Open or Closed, subject to Door-slot, Destroyed, and blocking constraints.",
+          "support": "natural Item-owner reading plus licensed accessible wording; target/owner is not explicit on the scan"
+        },
+        {
+          "alternativeId": "SEM-Q-056-B",
+          "description": "A source-defined deterministic/local rule selects the Door or state rather than the Item user.",
+          "support": "the scan says one Door but not chosen or accessible"
+        },
+        {
+          "alternativeId": "SEM-Q-056-C",
+          "description": "Use another source-defined owner/range/eligibility rule without importing Portable Barrier overrides or Robot-specific accessibility.",
+          "support": "similar Door effects are distinct source occurrences and cannot be joined by function"
         }
       ]
     }

@@ -459,3 +459,45 @@ Use this ledger for ambiguities that the official rulebook and FAQ do not settle
 - **Sources checked:** Exact two selected root occurrences; rulebook Local Effects, whole-effect, Component Limits, and Door rules; FAQ `FQ-P03-U08`; licensed `ITEMS_DATA.PortableBarrier`.
 - **Candidate readings:** (a) ordinary local Door eligibility with an Item-user choice; (b) licensed destroyed/no-slot override plus FAQ gone-after-open lifecycle; (c) another source-defined owner/range/finite/lifecycle rule.
 - **Status:** Open; official clarification preferred. No target, override, FAQ identity, marker allocation, or re-close lifecycle is defaulted.
+
+### SEM-Q-051 — Selected Yellow upper-right crossed-glyph identities and restrictions
+
+- **Question:** What exact restrictions are denoted by the source-local upper-right crossed glyphs on selected DUCT TAPE, direct PHOSPHATES, and TOOLS occurrences?
+- **Sources checked:** Exact root selectors/faces, selected all-glossary no-match evidence, current official Duct Tape occurrence `RB-P28-V03`, page-40 glossary, FAQ v1.2, and licensed `noIntruders` fields.
+- **Candidate readings:** (a) Not In Combat, following licensed/current-source leads; (b) no semantic restriction until exact source-scoped evidence exists; (c) another source-local restriction.
+- **Status:** Open. Sixteen physical no-match occurrences remain literal; direct Robot Controller and selector-gap Oxygen Tank matches create no position-, color-, title-, or utility-art-wide alias.
+
+### SEM-Q-052 — Yellow-root Fire Extinguisher/Robot Controller physical class
+
+- **Question:** How should five portrait FIRE EXTINGUISHER selectors and one portrait no-HEAVY ROBOT CONTROLLER selector be classified when licensed same-title rows classify all six copies as Heavy?
+- **Sources checked:** Raw `yellowItemsDeck` full CardID/GUID/CustomDeck selectors, exact source faces, official regular/Heavy rules, licensed `ITEMS_DATA`, and the 30/24/6 aggregate reconciliation in `semantics/yellow-item-source-index.json`.
+- **Candidate readings:** (a) exact TTS regular Backpack occurrences; (b) current Heavy copies using licensed class/effects; (c) non-dispatchable class/source conflicts pending an exact current crosswalk.
+- **Status:** Open; official clarification or exact current component evidence required. Title, Yellow back, utility art, and aggregate multiplicity supply no default.
+
+### SEM-Q-053 — Duct Tape source wording and One Use disposition
+
+- **Question:** Does exact TTS DUCT TAPE place itself and another Heavy Item under an anchor, or does current official/FAQ composition discard Duct Tape as One Use while stacking Heavy Items without it?
+- **Sources checked:** Five exact root selectors, selected TTS face, current official face `RB-P28-V03`, rulebook One Use/Heavy rules, and FAQ `FQ-P03-U05` permitting a third Item in one Hand.
+- **Candidate readings:** (a) current official/FAQ effect plus ordinary One Use discard; (b) exact TTS self-placement despite the generic discard rule; (c) another source-defined reconciliation/arrangement.
+- **Status:** Open; official clarification preferred. No official occurrence identifies a TTS GUID copy, so source variants remain independent.
+
+### SEM-Q-054 — Duct Tape stack cardinality and later lifecycle
+
+- **Question:** After Duct Tape creates a multi-Heavy-Item Hand stack, what is its maximum size and what happens when a member is discarded, lost, malfunctioned, traded, or separated?
+- **Sources checked:** FAQ `FQ-P03-U05`; rulebook One Use, Hand capacity, Item loss/Tactical Gear, voluntary discard, and Trade rules; exact Duct Tape occurrences.
+- **Candidate readings:** (a) repeatably add one Item with no fixed cap and preserve remaining attachment; (b) exactly three Items maximum and separate/reapply capacity when any member leaves; (c) another source-defined topology, maximum, ownership, token-loss, transfer, and separation procedure.
+- **Status:** Open; official clarification preferred. Generic Item/Trade rules do not silently define a stacked-group lifecycle.
+
+### SEM-Q-055 — Phosphates Corridor target owner and scope
+
+- **Question:** Who selects the Empty Corridor for direct PHOSPHATES, and must it be adjacent/local and reachable without crossing a Closed Door?
+- **Sources checked:** Five exact direct selectors, unselected same-title sheet cell 2, rulebook Local Effects/Reinforced Corridor/Closed Door rules, FAQ `FQ-P02-U10`, and licensed `ITEMS_DATA.Phosphates`.
+- **Candidate readings:** (a) Item user chooses one adjacent source-legal Empty Corridor; (b) exact unqualified TTS wording uses another local scope/owner; (c) another source-defined target/range rule.
+- **Status:** Open; official clarification preferred. The direct Fire branch, selector-gap Secure branch, and licensed adjacency wording remain independent.
+
+### SEM-Q-056 — Tools Door target/state owner and accessibility
+
+- **Question:** Who selects the Door and Open/Closed state for TOOLS, and what local/accessibility range and ordinary Door constraints apply?
+- **Sources checked:** Six exact root selectors, rulebook Local Effects and Door rules, FAQ v1.2, and licensed `ITEMS_DATA.Tools` with its `accessible Door` qualifier.
+- **Candidate readings:** (a) Item user chooses one ordinary accessible/local Door and state; (b) a deterministic/local rule selects it; (c) another source-defined owner/range/eligibility rule.
+- **Status:** Open; official clarification preferred. No Portable Barrier override or Robot-specific accessibility rule is imported.

@@ -64,6 +64,7 @@ queen_health_sources=load('docs/rules/semantics/queen-health-source-index.json')
 serious_wound_sources=load('docs/rules/semantics/serious-wound-source-index.json')
 green_item_sources=load('docs/rules/semantics/green-item-source-index.json')
 red_item_sources=load('docs/rules/semantics/red-item-source-index.json')
+yellow_item_sources=load('docs/rules/semantics/yellow-item-source-index.json')
 exploration_rule_ids=[row['semanticRuleId'] for row in exploration_sources['faces']]
 robot_rule_ids=[row['semanticRuleId'] for row in robot_sources['faces']]
 attack_rule_ids=[row['semanticRuleId'] for row in attack_sources['faces']]
@@ -71,6 +72,7 @@ queen_health_rule_ids=[row['semanticRuleId'] for row in queen_health_sources['fa
 serious_wound_rule_ids=[row['semanticRuleId'] for row in serious_wound_sources['faces']]
 green_item_rule_ids=[row['semanticRuleId'] for row in green_item_sources['faces']]
 red_item_rule_ids=[row['semanticRuleId'] for row in red_item_sources['faces']]
+yellow_item_rule_ids=[row['semanticRuleId'] for row in yellow_item_sources['faces']]
 
 # Pilot-to-source obligation links. These are evidence coverage links, not claims
 # that the entire channel/category is semantically complete.
@@ -110,6 +112,13 @@ for asset in red_item_sources['sourceFaceAssets']:
   links[unit_id]=physical_rule_ids
  elif asset['selectedDisposition']=='red-selector-gap':
   links[unit_id]=['SEM-RED-ITEM-VARIANT-BOUNDARIES-001']
+for asset in yellow_item_sources['sourceFaceAssets']:
+ unit_id='CARD:'+asset['sourceSha256'][:16]
+ physical_rule_ids=[row['semanticRuleId'] for row in yellow_item_sources['faces'] if row['sourcePath']==asset['sourcePath']]
+ if physical_rule_ids:
+  links[unit_id]=physical_rule_ids
+ elif asset['selectedDisposition']=='yellow-selector-gap':
+  links[unit_id]=['SEM-YELLOW-ITEM-VARIANT-BOUNDARIES-001']
 links['FAQ:FQ-P02-U06']=['SEM-ACT-EXPLORE-001',*[row['semanticRuleId'] for row in exploration_sources['faces'] if any(item['sourceUnitId']=='FQ-P02-U06' for item in row['faqOccurrences'])]]
 links['FAQ:FQ-P02-U07']=['SEM-ACT-EXPLORE-001',*[row['semanticRuleId'] for row in exploration_sources['faces'] if any(item['sourceUnitId']=='FQ-P02-U07' for item in row['faqOccurrences'])]]
 links['VIS:RB-P24-V01']=['SEM-ACT-EXPLORE-001','SEM-EXPLORATION-5639-001']
@@ -234,6 +243,41 @@ links['VIS:RB-P29-V03']=['SEM-ITM-005','SEM-AMMO-TOKEN-LIFECYCLE-001','SEM-GRENA
 links['VIS:RB-P33-V03']=['SEM-AMMO-TOKEN-LIFECYCLE-001']
 links['VIS:RB-P37-V02']=['SEM-ANTI-AIRCRAFT-TOKEN-STATE-001',*red_anti_ids]
 links['VIS:RB-P40-V02']=[*links.get('VIS:RB-P40-V02',[]),'SEM-RED-ITEM-DECK-001','SEM-AMMO-TOKEN-LIFECYCLE-001','SEM-GRENADE-TOKEN-EFFECT-001',*red_item_rule_ids]
+yellow_tools_ids=[row['semanticRuleId'] for row in yellow_item_sources['faces'] if row['effectKind']=='discard-malfunction-or-door']
+yellow_phosphates_ids=[row['semanticRuleId'] for row in yellow_item_sources['faces'] if row['effectKind']=='reinforce-or-discard-fire']
+yellow_oxygen_ids=[row['semanticRuleId'] for row in yellow_item_sources['faces'] if row['effectKind']=='gain-oxygen-or-token']
+yellow_duct_ids=[row['semanticRuleId'] for row in yellow_item_sources['faces'] if row['effectKind']=='discard-malfunction-or-stack-heavy']
+links['RULE:ACT-ITEM-001']=[*links.get('RULE:ACT-ITEM-001',[]),'SEM-YELLOW-ITEM-ONE-USE-001',*yellow_item_rule_ids]
+links['RULE:ACT-TRADE-001']=[*links.get('RULE:ACT-TRADE-001',[]),'SEM-YELLOW-ITEM-IMMEDIATE-USE-001',*yellow_duct_ids]
+links['RULE:ACT-TACTICAL-001']=[*links.get('RULE:ACT-TACTICAL-001',[]),'SEM-OXYGEN-TOKEN-EFFECT-001']
+links['RULE:ITM-001']=[*links.get('RULE:ITM-001',[]),'SEM-YELLOW-ITEM-DECK-001']
+links['RULE:ITM-002']=[*links.get('RULE:ITM-002',[]),'SEM-YELLOW-ITEM-VARIANT-BOUNDARIES-001',*yellow_duct_ids]
+links['RULE:ITM-003']=[*links.get('RULE:ITM-003',[]),'SEM-YELLOW-ITEM-DECK-001','SEM-YELLOW-ITEM-VARIANT-BOUNDARIES-001']
+links['RULE:ITM-004']=[*links.get('RULE:ITM-004',[]),'SEM-YELLOW-ITEM-DECK-001','SEM-YELLOW-ITEM-VARIANT-BOUNDARIES-001']
+links['RULE:ITM-005']=[*links.get('RULE:ITM-005',[]),'SEM-OXYGEN-TOKEN-EFFECT-001',*yellow_oxygen_ids]
+links['RULE:ITM-006']=[*links.get('RULE:ITM-006',[]),'SEM-YELLOW-ITEM-DECK-001']
+links['RULE:ITM-008']=[*links.get('RULE:ITM-008',[]),'SEM-YELLOW-ITEM-VARIANT-BOUNDARIES-001',*yellow_item_rule_ids]
+links['FAQ:FQ-P02-U10']=[*links.get('FAQ:FQ-P02-U10',[]),'SEM-REINFORCE-CORRIDOR-001',*yellow_phosphates_ids,*yellow_tools_ids]
+links['FAQ:FQ-P02-U18']=[*links.get('FAQ:FQ-P02-U18',[]),'SEM-YELLOW-ITEM-VARIANT-BOUNDARIES-001']
+links['FAQ:FQ-P03-U04']=[*links.get('FAQ:FQ-P03-U04',[]),'SEM-YELLOW-ITEM-IMMEDIATE-USE-001',*yellow_oxygen_ids]
+links['FAQ:FQ-P03-U05']=[*yellow_duct_ids,'SEM-YELLOW-ITEM-ONE-USE-001','SEM-YELLOW-ITEM-VARIANT-BOUNDARIES-001']
+links['FAQ:FQ-P03-U06']=[*links.get('FAQ:FQ-P03-U06',[]),'SEM-OXYGEN-TOKEN-EFFECT-001']
+links['FAQ:FQ-P03-U07']=[*links.get('FAQ:FQ-P03-U07',[]),'SEM-DISCARD-MALFUNCTION-001',*yellow_duct_ids,*yellow_tools_ids,*yellow_oxygen_ids]
+links['VIS:RB-P03-V01']=[*links.get('VIS:RB-P03-V01',[]),'SEM-YELLOW-ITEM-DECK-001','SEM-YELLOW-ITEM-VARIANT-BOUNDARIES-001']
+links['VIS:RB-P05-V01']=[*links.get('VIS:RB-P05-V01',[]),'SEM-OXYGEN-TOKEN-EFFECT-001','SEM-DISCARD-MALFUNCTION-001']
+links['VIS:RB-P09-V01']=[*links.get('VIS:RB-P09-V01',[]),'SEM-YELLOW-ITEM-DECK-001']
+links['VIS:RB-P12-V02']=[*links.get('VIS:RB-P12-V02',[]),'SEM-USE-ITEM-001']
+links['VIS:RB-P16-V02']=[*links.get('VIS:RB-P16-V02',[]),'SEM-OXYGEN-TOKEN-EFFECT-001',*yellow_oxygen_ids]
+links['VIS:RB-P17-V01']=[*links.get('VIS:RB-P17-V01',[]),'SEM-GAIN-OXYGEN-001','SEM-OXYGEN-TOKEN-EFFECT-001',*yellow_oxygen_ids]
+links['VIS:RB-P21-V01']=['SEM-REINFORCE-CORRIDOR-001',*yellow_phosphates_ids]
+links['VIS:RB-P22-V01']=['SEM-DOOR-001',*yellow_tools_ids]
+links['VIS:RB-P23-V02']=['SEM-DISCARD-MALFUNCTION-001',*yellow_tools_ids,*yellow_phosphates_ids]
+links['VIS:RB-P28-V02']=[*links.get('VIS:RB-P28-V02',[]),'SEM-YELLOW-ITEM-DECK-001']
+links['VIS:RB-P28-V03']=[*links.get('VIS:RB-P28-V03',[]),'SEM-YELLOW-ITEM-ONE-USE-001','SEM-YELLOW-ITEM-VARIANT-BOUNDARIES-001',*yellow_duct_ids]
+links['VIS:RB-P29-V01']=[*links.get('VIS:RB-P29-V01',[]),'SEM-YELLOW-ITEM-VARIANT-BOUNDARIES-001']
+links['VIS:RB-P29-V03']=[*links.get('VIS:RB-P29-V03',[]),'SEM-OXYGEN-TOKEN-EFFECT-001',*yellow_oxygen_ids]
+links['VIS:RB-P37-V01']=[*links.get('VIS:RB-P37-V01',[]),'SEM-YELLOW-ITEM-VARIANT-BOUNDARIES-001']
+links['VIS:RB-P40-V02']=[*links.get('VIS:RB-P40-V02',[]),'SEM-YELLOW-ITEM-DECK-001','SEM-OXYGEN-TOKEN-EFFECT-001','SEM-DISCARD-MALFUNCTION-001',*yellow_item_rule_ids]
 for unit_id,rule_ids in links.items():
  links[unit_id]=list(dict.fromkeys(rule_ids))
 for unit in units:

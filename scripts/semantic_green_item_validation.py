@@ -232,11 +232,11 @@ EXPECTED_GREEN_ITEM_RECORD_DIGESTS: dict[str, str] = {
     "SEM-GREEN-ITEM-ONE-USE-001": "4becefcc234b3d79849e517ef00a54b9e956b40bb514cc22de2a18c17e9e1212",
     "SEM-GREEN-ITEM-VARIANT-BOUNDARIES-001": "eff7408269b01aef8e11c470c95cd2cb4ce5ceceb8a3cf6bb6e2139b5fb49765",
     "SEM-ITEM-INTERPLAY-001": "32d807b142fd5590e9895600d680fc198528d0ebdf9043872eca040efbb0c7a2",
-    "SEM-ITEM-TRADE-GAIN-001": "f9f9904385716e605e0bb632168f3edb115f6dbea5068deaee39b2c741e853f7",
+    "SEM-ITEM-TRADE-GAIN-001": "0ca46870c3dff50cf649d74724bd41087382bb80955eda32a0bb08d92f5eff9a",
     "SEM-ITEM-VOLUNTARY-DISCARD-001": "bfd02f8ce71ec824b9ce4f1fb61ede73003e6eaed3356e6e294edc85ed162df0",
     "SEM-REGULAR-ITEM-BACKPACK-001": "df430b81ed6580ac93c77f906affb8638464294ddc84f9945085b2cc94d3a190",
     "SEM-RESTORE-HEALTH-001": "ad41f5d9d717bfa419b8fb882c122f62ea0783e1ba5eba02a81f5b188573e3ca",
-    "SEM-USE-ITEM-001": "f2a0fbec9136ae5a628ecb72e11b8679da84df0fb95f4a6f99323e959c5748d3",
+    "SEM-USE-ITEM-001": "34b9b0c38b32a6c77cbb30f9c2c3649318e115a3de654c4a29214fb39e77ff14",
 }
 
 
@@ -677,7 +677,7 @@ def validate_green_item_family(
         use_dispatch[:len(expected_rule_ids)] != expected_rule_ids
         or len(use_dispatch) != len(set(use_dispatch))
         or [op.get("operationType") for op in use_ops] != ["select-target", "resolve-open-alternative", "pay-cost", "reveal", "invoke-selected-process", "invoke-selected-process"]
-        or use_ops[-1].get("dispatchRuleIds") != ["SEM-GREEN-ITEM-ONE-USE-001", "SEM-RED-ITEM-ONE-USE-001"]
+        or use_ops[-1].get("dispatchRuleIds") != ["SEM-GREEN-ITEM-ONE-USE-001", "SEM-RED-ITEM-ONE-USE-001", "SEM-YELLOW-ITEM-ONE-USE-001"]
         or use.get("costs", [{}])[0].get("quantity") != 1
         or use.get("decisions", [{}])[0].get("ownerRef") != "P-PLAYER"
         or use.get("unresolvedQuestionRefs") != ["SEM-Q-039"]
@@ -713,7 +713,7 @@ def validate_green_item_family(
     voluntary = record_by_id.get("SEM-ITEM-VOLUNTARY-DISCARD-001") or {}
     if (
         not any(decision.get("selectionMode") == "mutual-consent" for decision in trade.get("decisions") or [])
-        or trade.get("unresolvedQuestionRefs") != ["SEM-Q-045"]
+        or trade.get("unresolvedQuestionRefs") != ["SEM-Q-045", "SEM-Q-054"]
         or not any(decision.get("selectionMode") == "consent" and decision.get("declineAllowed") for decision in interplay.get("decisions") or [])
         or interplay.get("unresolvedQuestionRefs") != ["SEM-Q-044"]
         or restore.get("decisions", [{}])[0].get("ownerRef") != "P-RULES"

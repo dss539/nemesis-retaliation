@@ -803,14 +803,16 @@ def build_red_item_source_index(repo: Path) -> dict:
     face_unit_ids = sorted({"CARD:" + row["sourceSha256"][:16] for row in selected_regular_assets})
     variant_unit_ids = sorted({"CARD:" + row["sourceSha256"][:16] for row in red_gap_assets})
     excluded_unit_ids = sorted({"CARD:" + row["sourceSha256"][:16] for row in excluded_assets})
-    cross_family_pending_ids = sorted({"CARD:" + row["sourceSha256"][:16] for row in cross_family_gap_assets if row["rulesTextPresent"]})
+    cross_family_unit_ids = sorted({"CARD:" + row["sourceSha256"][:16] for row in cross_family_gap_assets if row["rulesTextPresent"]})
+    cross_family_pending_ids = [unit_id for unit_id in cross_family_unit_ids if (backlog_by_id.get(unit_id) or {}).get("status") == "pending"]
+    cross_family_covered_by_yellow_ids = [unit_id for unit_id in cross_family_unit_ids if (backlog_by_id.get(unit_id) or {}).get("status") == "pilot-covered"]
     overlapping_unit_ids = [
         "RULE:ACT-ITEM-001", "RULE:ACT-MOVE-001", "RULE:ACT-EXPLORE-001", "RULE:ACT-TRADE-001", "RULE:ACT-TACTICAL-001",
         "RULE:ITM-001", "RULE:ITM-002", "RULE:ITM-003", "RULE:ITM-004", "RULE:ITM-005", "RULE:ITM-006", "RULE:ITM-008",
         *[f"FAQ:{source_id}" for source_id in relevant_faq_ids], *[f"VIS:{source_id}" for source_id in official_ids],
     ]
     linked_unit_ids = sorted(set(face_unit_ids + variant_unit_ids + overlapping_unit_ids))
-    if any(unit_id not in backlog_by_id for unit_id in linked_unit_ids + excluded_unit_ids + cross_family_pending_ids):
+    if any(unit_id not in backlog_by_id for unit_id in linked_unit_ids + excluded_unit_ids + cross_family_unit_ids):
         raise AssertionError("Red Item backlog obligation ID missing")
 
     title_multiplicity = dict(sorted(Counter(row["printedTitle"] for row in regular_faces).items()))
@@ -867,6 +869,7 @@ def build_red_item_source_index(repo: Path) -> dict:
             "reconciliation": "Official inventory, the exact root, and licensed aggregate each retain 30. Licensed 21/9 agrees with 21 source-clear regular plus all nine current Heavy candidates, but the six exact TTS Military Taser occurrences remain portrait SPECIAL WEAPON variants under SEM-Q-047; aggregate equality is not a copy crosswalk.",
             "backlog": {
                 "faceUnitIds": face_unit_ids, "variantUnitIds": variant_unit_ids, "excludedHeavyOrConflictUnitIds": excluded_unit_ids, "crossFamilyPendingUnitIds": cross_family_pending_ids,
+                "crossFamilyCoveredByYellowUnitIds": cross_family_covered_by_yellow_ids,
                 "overlappingUnitIds": sorted(overlapping_unit_ids), "linkedUnitIds": linked_unit_ids, "faceTupleCount": len(face_unit_ids), "variantTupleCount": len(variant_unit_ids),
                 "physicalFaceLinkCount": len(regular_faces), "obligationCount": len(linked_unit_ids),
             },
