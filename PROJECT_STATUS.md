@@ -20,17 +20,17 @@ Encode the **highest-value source-clear semantic backlog** without touching bloc
 - Objective Help and Mission Task semantics after source-visible/occluded boundaries are preserved;
 - exact FAQ overrides and per-sentence partial-resolution scope;
 - source-obligation links and contradiction coverage after every batch;
-- continue independent validation and source searching for the forty-four open questions, but adopt no default.
+- continue independent validation and source searching for the forty-three open questions, but adopt no default.
 
 Prioritize reusable procedures and cross-cutting rules before hundreds of individual component effects.
 
 ## Resume Checkpoint
 
-- Verified semantic data checkpoint: `78935e352fcd97f911b1e6cbfdef2bd467909568` (`Add base Serious Wound card semantics`).
-- Branch `work/card-corpus-extraction` will be fourteen local commits ahead of `origin/work/card-corpus-extraction` after this separate progress checkpoint; nothing has been pushed. No PR or deployment exists.
-- The only remaining dirty path after this progress checkpoint is `AGENTS.md`. Its protected phase update predates the checkpoint and says ten open questions instead of the verified forty-four. Preserve it byte-for-byte for explicit review rather than discarding or staging it implicitly.
-- Full verification passed: semantic validator with cross-seed/cross-locale rebuilds and 20 tests including Serious Wound corruption controls; ontology validator and 4 tests; vocabulary validator; global card-corpus/vision/reproducibility validators and 24 tests; Room Help source-fidelity validator and 3 tests; FAQ, secondary, visual, Player Help, card-gap, full source-extraction, and 9/9 closure validators; project-status validator; `git diff --check`.
-- Resume with `semantic-components`: mechanically derive one base Item deck before encoding it, beginning with Green Items, then expand remaining cards, Objectives/Mission Tasks, and component lifecycles while preserving variants and authority conflicts. Current source-obligation boundary is 189 covered / 410 pending / 1 source-blocked; 44 semantic questions remain no-default.
+- Verified semantic data checkpoint: `950bdf22f579f96afc565f8605572f7f25029865` (`Resolve official endgame Larva timing`).
+- Branch `work/card-corpus-extraction` will be sixteen local commits ahead of `origin/work/card-corpus-extraction` after this separate status checkpoint; nothing has been pushed. No PR or deployment exists.
+- The only remaining dirty path after this status checkpoint is `AGENTS.md`. Its protected phase update predates the checkpoint and says ten open questions instead of the verified forty-three. Preserve it byte-for-byte for explicit review rather than discarding or staging it implicitly.
+- Full correction verification passed: semantic validator with cross-seed/cross-locale rebuilds and 21 tests including fixed OQ-002 snapshot/eligibility corruption controls; ontology validator/rebuild and 4 tests; vocabulary validator; full source-extraction validator; the documented six-command global card-corpus/vision/reproducibility gate; project-status validator; `git diff --check`.
+- Resume with `semantic-components`: mechanically derive one base Item deck before encoding it, beginning with Green Items, then expand remaining cards, Objectives/Mission Tasks, and component lifecycles while preserving variants and authority conflicts. Current source-obligation boundary is 189 covered / 410 pending / 1 source-blocked; 43 semantic questions remain no-default.
 
 ## Verified Checkpoint
 
@@ -122,12 +122,12 @@ Machine-readable evidence: `docs/rules/source-extraction/validation.json`.
 - 91 source-backed
 - 107 source-backed with open questions
 - 1 source-variant boundary record
-- 610 source assertions / 747 structured conditions and guards
+- 610 source assertions / 748 structured conditions and guards
 - 858 ordered operations
 - 83 actor-owned decisions / 214 information policies
 - 9 explicit costs / 265 target specifications
 - 109 preserved source-variant references
-- 44 open semantic questions with explicit alternatives and defaults prohibited
+- 43 open semantic questions with explicit alternatives and defaults prohibited
 - 28 registered conflicts: 13 authority-resolved, 11 unresolved, 4 preserved boundaries
 - base Event family: **20/20 identities represented**
   - 20 exact Event scan occurrences
@@ -186,7 +186,7 @@ Machine-readable evidence: `docs/rules/source-extraction/validation.json`.
 - full base-game semantic coverage explicitly not claimed
 - four-workstream independent review incorporated
 - cross-seed/cross-locale byte-identical rebuilds and expanded adversarial corruption tests pass
-- `scripts/validate_semantic_pilots.py`: **passed with 0 failures**, including cross-seed/cross-locale rebuilds and 20 focused/adversarial tests
+- `scripts/validate_semantic_pilots.py`: **passed with 0 failures**, including cross-seed/cross-locale rebuilds and 21 focused/adversarial tests
 
 ### Taxonomy/ontology — independently reviewed and passed
 
@@ -244,7 +244,7 @@ Machine-readable evidence: `docs/rules/source-extraction/validation.json`.
 - Closed the six-card base Robot family mechanically from the root TTS role and exact full CardID/GUID/FaceURL/container tuples, retained one shared back, six licensed variants, two official visible face occurrences, literal runtime-state/prototype/expansion boundaries, 24 panels/16 sentences/23 icons, and advanced source-obligation coverage to 132 while twenty-five questions remain no-default.
 - Closed the 20-occurrence base Intruder Attack family mechanically from the raw root TTS `DeckCustom`, retained repeated physical copies, 19 generated cells plus one direct face, one shared back, one unused selector-gap cell, 57 source-scoped applicability badges, 15 licensed variants and three official face counterparts, encoded 54 sentences plus reusable Contamination gain, and advanced source-obligation coverage to 154 while thirty questions remain no-default.
 - Closed the 12-occurrence base Queen Health family mechanically from the raw root TTS `Deck`, retained 10 face assets as 12 physical CardID/GUID occurrences, one shared back, duplicate-copy and licensed-ordinal boundaries, 24 panels/37 sentences/28 functional symbols, official track/card/FAQ/Objective counterparts, reusable Queen combat/lifecycle procedures, and advanced source-obligation coverage to 174 while thirty-five questions remain no-default.
-- Closed the 27-occurrence base Serious Wound family mechanically from the raw root TTS `Deck`, retained all repeated physical copies, seven selected generated cells plus six direct LEG/KNEE copies, two selector-gap source variants, one parent sheet/shared back, 54 panels/81 regions/42 sentences/30 physical symbols, independent official/licensed occurrences, reusable finite gain/discard/stacking lifecycle, and advanced source-obligation coverage to 189 while forty-four questions remain no-default.
+- Closed the 27-occurrence base Serious Wound family mechanically from the raw root TTS `Deck`, retained all repeated physical copies, seven selected generated cells plus six direct LEG/KNEE copies, two selector-gap source variants, one parent sheet/shared back, 54 panels/81 regions/42 sentences/30 physical symbols, independent official/licensed occurrences, reusable finite gain/discard/stacking lifecycle, and advanced source-obligation coverage to 189 while forty-four questions remained no-default at that batch checkpoint.
 - Created the closed source inventory, card-gap inventory, secondary-source inventory, Room layout inventory, roadmap, and deterministic validator.
 
 ## Remaining Work — Ordered
@@ -300,7 +300,8 @@ All of the following are true:
 
 - One prototype `FACILITY RESTART` face visibly ends a condition at “Systems must be”; no following mark is recoverable from the exact pixels, and materially different same-title/current-official variants cannot be substituted.
 - Vocabulary gates `VG-001` and `VG-002` are resolved; `PERSONAL OBJECTIVE` remains source-scoped and `Drilling Room` aliases `DRILLING STATION` with both official labels preserved.
-- Forty-four semantic/source questions remain explicit: OQ-001, OQ-002, OQ-003, OQ-004, OQ-007, OQ-009, and SEM-Q-001 through SEM-Q-038. They block only affected clauses/records, not unrelated coverage work.
+- Forty-three semantic/source questions remain explicit: OQ-001, OQ-003, OQ-004, OQ-007, OQ-009, and SEM-Q-001 through SEM-Q-038. They block only affected clauses/records, not unrelated coverage work.
+- OQ-002 is resolved by current official rulebook p. 39 (lines 6251–6265): evaluate Larva eligibility when the Eclosion cohort step is reached, including a Larva gained during the preceding Infection step. OQ-001 and multi-Character cohort ordering remain unresolved and unchanged.
 - SEM-Q-011 retains the source-unspecified assignment of random Corridor draws and scarce finite components across multiple Exploration diagram slots; no player owner, spatial order, or additional randomization is adopted.
 - SEM-Q-012 through SEM-Q-019 retain Robot reveal/effect availability, movement ownership, Exploration Noise, Medical choices, Securing Door/supply behavior, Server Room context, and Technical marker scope without defaults. SEM-Q-020 through SEM-Q-024 retain Attack scope, continuation, timing, Wound assignment, and no-badge applicability. SEM-Q-025 through SEM-Q-029 retain Queen Health trigger timing, Character attribution, final-card death, Malfunction/Unreinforce ownership/location, and terminal-glyph scope. Neoflesh-only FAQ answers remain excluded from base conclusions.
 - SEM-Q-030 through SEM-Q-038 retain Serious Wound reveal/placement visibility, no-empty-section and Heavily-Injured displacement, direct KNEE/LUNGS local glyphs, BODY Hand Size scope, effect activation timing, Pass-trigger order, and grouped multi-Wound ordering without defaults.
