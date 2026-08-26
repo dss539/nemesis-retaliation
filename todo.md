@@ -1986,9 +1986,11 @@ task workspace.
 - [x] Encode source-clear Objective choice, Intruder/Event/Cleanup phases, Event procedure, Bag Development, Door, Noise, Intruder Attack, Health/Wound, and Tactical Gear rules.
 - [x] Encode all 18 Intruder Help instructions and all 25 Room effects in source-bounded batches, including source-scoped icon denotations.
 - [x] Correct row dispatch, finite token/model limits, immediate Room-entry Attacks, Room source authority, operation ordering, and Room-specific lifecycle/state constraints after independent audit.
-- [ ] Expand through Events/cards/components while retaining all source variants and authority boundaries.
+- [x] Close all 20 base Event identities by exact TTS occurrence/card ID, with official and licensed variants retained independently.
+- [ ] Expand through remaining cards/components while retaining all source variants and authority boundaries.
 - [x] Advance the 600-unit source-obligation backlog from 25 covered / 574 pending / 1 blocked to 71 covered / 528 pending / 1 blocked.
-- [ ] Continue source search for eleven scoped open questions; ask the owner only after all unaffected work is exhausted.
+- [x] Advance the backlog through the Event batch to 102 covered / 497 pending / 1 blocked without lowering the 600-unit total.
+- [ ] Continue source search for sixteen scoped open questions; ask the owner only after all unaffected work is exhausted.
 
 ## DONE — Intruder Help and Room semantic audit closure (2026-08-25)
 
@@ -1998,6 +2000,13 @@ task workspace.
 - [x] Added explicit Room targets, optional choices, finite supplies, linked intrinsic Oxygen payment, Support Equipment storage/discard transitions, Surgery return-then-reshuffle order, and per-Corridor Noise/Attack ordering.
 - [x] Added independent exact Room icon denotation locks and adversarial checks for count-preserving semantic swaps, dispatch substitutions, missing operation assertions, and stale coverage projections.
 - [x] Final generated semantic checkpoint: 73 records / 18 systems / 281 operations / 48 decisions / 20 targets; 11 open questions, 8 conflicts, 71 pilot-covered backlog units.
+
+## DONE — Base Event semantic batch (2026-08-26)
+
+- [x] Derived 20 base Event face identities from TTS role/card IDs, FaceURL provenance, closed corpus/hash tuples, backlog rows, and the 20-key licensed table; excluded the one shared non-operative back.
+- [x] Preserved 20 exact component scans, 20 licensed-digital variants, four official visible component occurrences, and 88 movement/main/secondary sentences without title-only joins.
+- [x] Added 20 Event records plus seven reusable movement, Noise, Hazard, Secure-entry, Fire-spread, Infection, and Eclosion procedures; retained five newly exposed questions and three conflicts with defaults prohibited.
+- [x] Final generated checkpoint: 99 records / 18 systems / 397 operations / 49 decisions / 98 targets; 16 questions, 11 conflicts, and 102 covered / 497 pending / 1 blocked obligations. Event-specific corruption controls and two-seed rebuilds pass.
 
 ## DONE — Independent Room Help fidelity hardening (2026-08-24T10:04:12Z)
 

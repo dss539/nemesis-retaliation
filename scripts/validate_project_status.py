@@ -15,6 +15,7 @@ SOURCE_VALIDATION = REPO / "docs/rules/source-extraction/validation.json"
 VOCAB_VALIDATION = REPO / "docs/rules/vocabulary/validation.json"
 ONTOLOGY_VALIDATION = REPO / "docs/rules/ontology/validation.json"
 SEMANTIC_VALIDATION = REPO / "docs/rules/semantics/validation.json"
+SEMANTIC_CONTRADICTIONS = REPO / "docs/rules/semantics/contradictions.json"
 
 
 def require(condition: bool, message: str, failures: list[str]) -> None:
@@ -33,6 +34,7 @@ def main() -> None:
     vocab_validation = json.loads(VOCAB_VALIDATION.read_text(encoding="utf-8"))
     ontology_validation = json.loads(ONTOLOGY_VALIDATION.read_text(encoding="utf-8"))
     semantic_validation = json.loads(SEMANTIC_VALIDATION.read_text(encoding="utf-8"))
+    semantic_contradictions = json.loads(SEMANTIC_CONTRADICTIONS.read_text(encoding="utf-8"))
 
     require("PROJECT_STATUS.md" in agents, "AGENTS.md must point to PROJECT_STATUS.md", failures)
     require("Current implementation work is out of scope" in agents, "AGENTS.md must freeze legacy implementation work", failures)
@@ -142,7 +144,12 @@ def main() -> None:
         f"- {semantic_validation['checks']['costs']} explicit costs / {semantic_validation['checks']['targets']} target specifications",
         f"- {semantic_validation['checks']['variantReferences']} preserved source-variant references",
         f"- {semantic_validation['checks']['openQuestions']} open semantic questions with explicit alternatives and defaults prohibited",
-        f"- {semantic_validation['checks']['conflicts']} registered conflicts: 2 authority-resolved, {semantic_validation['checks']['unresolvedConflicts']} unresolved, 2 preserved boundaries",
+        f"- {semantic_validation['checks']['conflicts']} registered conflicts: {semantic_contradictions['counts']['resolvedByAuthority']} authority-resolved, {semantic_validation['checks']['unresolvedConflicts']} unresolved, {semantic_contradictions['counts']['preservedBoundary']} preserved boundaries",
+        f"- base Event family: **{semantic_validation['checks']['eventIdentities']}/{semantic_validation['checks']['eventIdentities']} identities represented**",
+        f"  - {semantic_validation['checks']['eventScanOccurrences']} exact Event scan occurrences",
+        f"  - {semantic_validation['checks']['eventLicensedOccurrences']} licensed-digital Event occurrences retained as variants",
+        f"  - {semantic_validation['checks']['eventOfficialOccurrences']} official visible component occurrences",
+        f"  - {semantic_validation['checks']['eventRecords']} Event semantic records / {semantic_validation['checks']['eventBacklogTuples']} exact Event backlog tuples",
         f"- {semantic_validation['checks']['backlogUnits']} source-obligation backlog units",
         f"  - {semantic_validation['checks']['backlogPilotCovered']} pilot-covered",
         f"  - {semantic_validation['checks']['backlogUnits'] - semantic_validation['checks']['backlogPilotCovered'] - semantic_validation['checks']['backlogSourceBlocked']} pending",
