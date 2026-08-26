@@ -15,22 +15,22 @@ The current implementation remains frozen. Semantic records remain independent o
 
 Encode the **highest-value source-clear semantic backlog** without touching blocked decisions:
 
-- remaining setup, map, combat, Queen, Lander, procedure, Item, and component lifecycle rules not yet represented by the 124-record corpus;
-- remaining source-clear card/component families outside the closed 20-card Event, 12-card Exploration, and 6-card Robot families, next beginning with a mechanically bounded base Intruder Attack family, with explicit variants;
+- remaining setup, map, combat, Queen, Lander, procedure, Item, and component lifecycle rules not yet represented by the 145-record corpus;
+- remaining source-clear card/component families outside the closed 20-card Event, 12-card Exploration, 6-card Robot, and 20-occurrence Intruder Attack families, next beginning with a mechanically bounded base Queen Health family, with explicit variants;
 - Objective Help and Mission Task semantics after source-visible/occluded boundaries are preserved;
 - exact FAQ overrides and per-sentence partial-resolution scope;
 - source-obligation links and contradiction coverage after every batch;
-- continue independent validation and source searching for the twenty-five open questions, but adopt no default.
+- continue independent validation and source searching for the thirty open questions, but adopt no default.
 
 Prioritize reusable procedures and cross-cutting rules before hundreds of individual component effects.
 
 ## Resume Checkpoint
 
-- Verified semantic data checkpoint: `bdfcfa4953396dad10d7e4eb1b319039aa870397` (`Add base Robot card semantics`).
-- Branch `work/card-corpus-extraction` will be eight local commits ahead of `origin/work/card-corpus-extraction` after this separate progress checkpoint; nothing has been pushed. No PR or deployment exists.
-- The only remaining dirty path after this progress checkpoint is `AGENTS.md`. Its protected phase update predates the checkpoint and says ten open questions instead of the verified twenty-five. Preserve it byte-for-byte for explicit review rather than discarding or staging it implicitly.
-- Full verification passed: semantic validator with cross-seed/cross-locale rebuilds and 14 tests including Robot corruption controls; ontology validator and 4 tests; vocabulary validator; global card-corpus/vision/reproducibility validators and 24 tests; Room Help source-fidelity validator and 3 tests; FAQ/source-extraction and 9/9 closure validators; project-status validator; `git diff --check`.
-- Resume with `semantic-components`: mechanically close the base Intruder Attack family, then expand remaining cards, Objectives/Mission Tasks, and component lifecycles while preserving variants and authority conflicts. Current source-obligation boundary is 132 covered / 467 pending / 1 source-blocked; 25 semantic questions remain no-default.
+- Verified semantic data checkpoint: `251b692184ad6935600c3b34faa38baefd7a5a3a` (`Add base Intruder Attack card semantics`).
+- Branch `work/card-corpus-extraction` will be ten local commits ahead of `origin/work/card-corpus-extraction` after this separate progress checkpoint; nothing has been pushed. No PR or deployment exists.
+- The only remaining dirty path after this progress checkpoint is `AGENTS.md`. Its protected phase update predates the checkpoint and says ten open questions instead of the verified thirty. Preserve it byte-for-byte for explicit review rather than discarding or staging it implicitly.
+- Full verification passed: semantic validator with cross-seed/cross-locale rebuilds and 16 tests including Attack corruption controls; ontology validator and 4 tests; vocabulary validator; global card-corpus/vision/reproducibility validators and 24 tests; Room Help source-fidelity validator and 3 tests; FAQ/source-extraction and 9/9 closure validators; project-status validator; `git diff --check`.
+- Resume with `semantic-components`: mechanically close the base Queen Health family, then expand remaining cards, Objectives/Mission Tasks, and component lifecycles while preserving variants and authority conflicts. Current source-obligation boundary is 154 covered / 445 pending / 1 source-blocked; 30 semantic questions remain no-default.
 
 ## Verified Checkpoint
 
@@ -116,18 +116,18 @@ Machine-readable evidence: `docs/rules/source-extraction/validation.json`.
 
 ### Semantic schema and expanding corpus — independently locked and passed
 
-- 52 exact source registry tuples
+- 75 exact source registry tuples
 - 26 semantic-only state/zone/position/visibility nodes
-- 124 pilot records across 18 systems
-- 78 source-backed
-- 46 source-backed with open questions
-- 338 source assertions / 444 structured conditions and guards
-- 567 ordered operations
-- 73 actor-owned decisions / 137 information policies
-- 6 explicit costs / 152 target specifications
-- 46 preserved source-variant references
-- 25 open semantic questions with explicit alternatives and defaults prohibited
-- 14 registered conflicts: 5 authority-resolved, 7 unresolved, 2 preserved boundaries
+- 145 pilot records across 18 systems
+- 83 source-backed
+- 62 source-backed with open questions
+- 448 source assertions / 591 structured conditions and guards
+- 672 ordered operations
+- 73 actor-owned decisions / 158 information policies
+- 6 explicit costs / 177 target specifications
+- 74 preserved source-variant references
+- 30 open semantic questions with explicit alternatives and defaults prohibited
+- 18 registered conflicts: 8 authority-resolved, 8 unresolved, 2 preserved boundaries
 - base Event family: **20/20 identities represented**
   - 20 exact Event scan occurrences
   - 20 licensed-digital Event occurrences retained as variants
@@ -149,12 +149,21 @@ Machine-readable evidence: `docs/rules/source-extraction/validation.json`.
   - 6 Robot-face semantic records / 6 exact Robot backlog tuples
   - 7 new reusable setup, reveal, Activation, movement, Tactical Gear, and Malfunction-placement records; existing `SEM-ROBOT-MALFUNCTION-001` remains unresolved under `SEM-Q-010`
   - shared back, Lua model/helper state, two prototype cards, three expansion Robot cards, and four Security Robot Room name collisions remain excluded from the six rules faces
+- base Intruder Attack family: **20/20 mechanically selected physical occurrences represented**
+  - 19 exact generated-cell full-CardID/GUID/CustomDeck/FaceURL occurrences plus 1 direct Blood Sense occurrence
+  - 8 printed titles with multiplicities preserved, including 6 distinct Bite copies; no title/cell/folder/modulo join
+  - 1 shared non-operative BackURL, 1 parent 5×4 source sheet, and 1 unused selector-gap `SUMMONING` cell explicitly excluded from rules-face counts
+  - 69 physical panels / 29 operative effect panels / 54 exact printed sentences
+  - 57 literal applicability badges projected source-scoped from page-32 Adult/Drone/Queen templates, plus 13 independently resolved inline icons; all 55 selected no-match rows remain intact
+  - 15 licensed structured variants linked across 20 physical occurrences, 3 official-visible face counterparts, and 1 official-visible back counterpart retained independently
+  - 20 Attack-face semantic records plus reusable finite Contamination gain and exact dispatch from `SEM-INT-004`; five new no-default questions preserve Fury scope, dead-target continuation, Blood Sense timing, Deadly Claws Wound order, and MISS applicability
+  - three expansion Attack decks, the parent sheet, shared back, unused `SUMMONING` cell, and duplicate evidence references remain excluded from the 20 base rules occurrences
 - all 18 Intruder Help instructions represented and row-locked
 - all 25 Room Help entries represented, plus generic Use Room and cross-cutting Room constraints
 - all 112 source-local Room Help functional-icon occurrences mapped source-scoped without changing extraction records
 - 600 source-obligation backlog units
-  - 132 pilot-covered
-  - 467 pending
+  - 154 pilot-covered
+  - 445 pending
   - 1 inherited exact-source blocker
 - full base-game semantic coverage explicitly not claimed
 - four-workstream independent review incorporated
@@ -215,6 +224,7 @@ Machine-readable evidence: `docs/rules/source-extraction/validation.json`.
 - Closed the 20-card base Event family mechanically by TTS card ID/source tuple rather than title, retained 20 licensed variants and four official visible occurrences, encoded 88 exact printed sentences plus reusable Event procedures, and advanced source-obligation coverage to 102 while sixteen scoped questions remain no-default.
 - Closed the entire 12-card base Exploration family mechanically from the root TTS deck and exact CardID/GUID/FaceURL tuples, retained the shared back, 12 licensed variants and three official visual occurrences, encoded 46 printed sentences plus 12 diagrams/60 icon occurrences without inventing titles, and advanced source-obligation coverage to 119 while seventeen questions remain no-default.
 - Closed the six-card base Robot family mechanically from the root TTS role and exact full CardID/GUID/FaceURL/container tuples, retained one shared back, six licensed variants, two official visible face occurrences, literal runtime-state/prototype/expansion boundaries, 24 panels/16 sentences/23 icons, and advanced source-obligation coverage to 132 while twenty-five questions remain no-default.
+- Closed the 20-occurrence base Intruder Attack family mechanically from the raw root TTS `DeckCustom`, retained repeated physical copies, 19 generated cells plus one direct face, one shared back, one unused selector-gap cell, 57 source-scoped applicability badges, 15 licensed variants and three official face counterparts, encoded 54 sentences plus reusable Contamination gain, and advanced source-obligation coverage to 154 while thirty questions remain no-default.
 - Created the closed source inventory, card-gap inventory, secondary-source inventory, Room layout inventory, roadmap, and deterministic validator.
 
 ## Remaining Work — Ordered
@@ -270,9 +280,9 @@ All of the following are true:
 
 - One prototype `FACILITY RESTART` face visibly ends a condition at “Systems must be”; no following mark is recoverable from the exact pixels, and materially different same-title/current-official variants cannot be substituted.
 - Vocabulary gates `VG-001` and `VG-002` are resolved; `PERSONAL OBJECTIVE` remains source-scoped and `Drilling Room` aliases `DRILLING STATION` with both official labels preserved.
-- Twenty-five semantic/source questions remain explicit: OQ-001, OQ-002, OQ-003, OQ-004, OQ-007, OQ-009, and SEM-Q-001 through SEM-Q-019. They block only affected clauses/records, not unrelated coverage work.
+- Thirty semantic/source questions remain explicit: OQ-001, OQ-002, OQ-003, OQ-004, OQ-007, OQ-009, and SEM-Q-001 through SEM-Q-024. They block only affected clauses/records, not unrelated coverage work.
 - SEM-Q-011 retains the source-unspecified assignment of random Corridor draws and scarce finite components across multiple Exploration diagram slots; no player owner, spatial order, or additional randomization is adopted.
-- SEM-Q-012 through SEM-Q-019 retain Robot reveal/effect availability, movement ownership, Exploration Noise, Medical choices, Securing Door/supply behavior, Server Room context, and Technical marker scope without defaults. Neoflesh-only FAQ answers remain excluded from base conclusions.
+- SEM-Q-012 through SEM-Q-019 retain Robot reveal/effect availability, movement ownership, Exploration Noise, Medical choices, Securing Door/supply behavior, Server Room context, and Technical marker scope without defaults. SEM-Q-020 through SEM-Q-024 retain Attack scope, continuation, timing, Wound assignment, and no-badge applicability without defaults. Neoflesh-only FAQ answers remain excluded from base conclusions.
 - The 25 Room Help entries versus 23 Room tiles relationship is unresolved.
 - Source/version conflicts remain in several card families and must not be flattened.
 - Genuine rules ambiguities remain in `docs/rules/open-questions.md`; some stale extraction blockers there must later be re-audited against newly collected evidence.
