@@ -3,11 +3,11 @@
   "recordType": "semantic-review-gates",
   "status": "pilot built with deferred questions and explicit alternatives; no default answer adopted",
   "counts": {
-    "questions": 35,
-    "officialClarificationPreferred": 10,
-    "sourceAmbiguitiesIntroducedByPilot": 25,
+    "questions": 44,
+    "officialClarificationPreferred": 16,
+    "sourceAmbiguitiesIntroducedByPilot": 28,
     "resolved": 0,
-    "open": 35
+    "open": 44
   },
   "questions": [
     {
@@ -1130,6 +1130,331 @@
           "alternativeId": "SEM-Q-029-C",
           "description": "Use another source-scoped lethal-result relation established by future official component/icon evidence.",
           "support": "current evidence supports the trigger prose but not a page-40, color-wide, shape-wide, or global alias"
+        }
+      ]
+    },
+    {
+      "questionId": "SEM-Q-030",
+      "title": "Serious Wound draw, reveal, and face-up placement timing",
+      "decisionClass": "official-clarification-preferred",
+      "blocksRuleIds": [
+        "SEM-SERIOUS-WOUND-GAIN-001"
+      ],
+      "plannedRuleIds": [],
+      "defaultProhibited": true,
+      "sourceEvidenceRefs": [
+        "docs/rulebooks/rulebook_text.txt:lines 2594–2600, 3790–3796",
+        "docs/rules/source-extraction/rulebook-visual-obligations.json:RB-P18-V03",
+        "docs/rules/semantics/serious-wound-source-index.json"
+      ],
+      "alternatives": [
+        {
+          "alternativeId": "SEM-Q-030-A",
+          "description": "Reveal the random face immediately after drawing, then place it face up in the leftmost eligible Health Section.",
+          "support": "the official placement visual shows a readable face, but prose does not state the reveal point"
+        },
+        {
+          "alternativeId": "SEM-Q-030-B",
+          "description": "Place the random card first, then reveal it only after placement and Health displacement.",
+          "support": "setup explicitly says face down while gain prose says draw/place without a reveal verb"
+        },
+        {
+          "alternativeId": "SEM-Q-030-C",
+          "description": "Use another source-defined visibility/orientation sequence while keeping all unselected fronts and deck order hidden.",
+          "support": "no checked source states a complete draw-to-placement information policy"
+        }
+      ]
+    },
+    {
+      "questionId": "SEM-Q-031",
+      "title": "Serious Wound gain with no empty Health Section",
+      "decisionClass": "official-clarification-preferred",
+      "blocksRuleIds": [
+        "SEM-SERIOUS-WOUND-GAIN-001"
+      ],
+      "plannedRuleIds": [],
+      "defaultProhibited": true,
+      "sourceEvidenceRefs": [
+        "docs/rulebooks/rulebook_text.txt:lines 3784–3796",
+        "docs/rules/semantics/serious-wound-source-index.json"
+      ],
+      "alternatives": [
+        {
+          "alternativeId": "SEM-Q-031-A",
+          "description": "Do not draw or place a Wound because no source-defined destination exists.",
+          "support": "the placement instruction requires a Health Section without a Wound"
+        },
+        {
+          "alternativeId": "SEM-Q-031-B",
+          "description": "Draw the card, then apply a source-defined discard, replacement, overflow, or death consequence.",
+          "support": "a gain may still begin before destination feasibility is checked, but no consequence is printed"
+        },
+        {
+          "alternativeId": "SEM-Q-031-C",
+          "description": "Use another physical placement procedure outside or over an occupied Section.",
+          "support": "no checked source supplies one"
+        }
+      ]
+    },
+    {
+      "questionId": "SEM-Q-032",
+      "title": "Wound placement while the Health marker is in Heavily Injured",
+      "decisionClass": "official-clarification-preferred",
+      "blocksRuleIds": [
+        "SEM-SERIOUS-WOUND-GAIN-001"
+      ],
+      "plannedRuleIds": [],
+      "defaultProhibited": true,
+      "sourceEvidenceRefs": [
+        "docs/rulebooks/rulebook_text.txt:lines 3750–3759, 3794–3796",
+        "docs/rules/source-extraction/rulebook-visual-obligations.json:RB-P18-V01/RB-P18-V03"
+      ],
+      "alternatives": [
+        {
+          "alternativeId": "SEM-Q-032-A",
+          "description": "Displacement proceeds beyond Heavily Injured to the Skull and the Character dies.",
+          "support": "the Health track ends at the Skull, but the Wound rule says next Section rather than Skull"
+        },
+        {
+          "alternativeId": "SEM-Q-032-B",
+          "description": "The placement/displacement is impossible because there is no next Health Section.",
+          "support": "literal next-Section requirement has no target"
+        },
+        {
+          "alternativeId": "SEM-Q-032-C",
+          "description": "Apply another source-defined terminal displacement or death check.",
+          "support": "no checked text or visual states one"
+        }
+      ]
+    },
+    {
+      "questionId": "SEM-Q-033",
+      "title": "Direct KNEE local action glyph identity and scope",
+      "decisionClass": "source-ambiguity-owner-decision-after-source-search",
+      "blocksRuleIds": [
+        "SEM-SERIOUS-WOUND-404800-FD77B5-001",
+        "SEM-SERIOUS-WOUND-404800-1642C4-001",
+        "SEM-SERIOUS-WOUND-404800-A0A4F8-001"
+      ],
+      "plannedRuleIds": [],
+      "defaultProhibited": true,
+      "sourceEvidenceRefs": [
+        "assets/tts-mod/extract/v2-dl/tree/cards/game/seriouswound-028.png",
+        "assets/tts-mod/extract/selected-card-text-evidence.json",
+        "docs/rules/semantics/serious-wound-source-index.json"
+      ],
+      "alternatives": [
+        {
+          "alternativeId": "SEM-Q-033-A",
+          "description": "The local two-lobe glyph denotes Make a Move Cautiously or a source-scoped cautious-movement action.",
+          "support": "licensed KNEE and the unselected sheet cell are secondary/source-variant leads, not an exact glyph match"
+        },
+        {
+          "alternativeId": "SEM-Q-033-B",
+          "description": "It denotes another local movement/action subtype.",
+          "support": "the literal morphology has no authoritative page-40 match"
+        },
+        {
+          "alternativeId": "SEM-Q-033-C",
+          "description": "The direct face remains non-dispatchable beyond its literal quoted local-glyph Action until exact source evidence is found.",
+          "support": "false canonicalization is prohibited"
+        }
+      ]
+    },
+    {
+      "questionId": "SEM-Q-034",
+      "title": "LUNGS terminal local glyph identity",
+      "decisionClass": "source-ambiguity-owner-decision-after-source-search",
+      "blocksRuleIds": [
+        "SEM-SERIOUS-WOUND-3801-6466B5-001",
+        "SEM-SERIOUS-WOUND-3801-17CCB1-001",
+        "SEM-SERIOUS-WOUND-3801-5444E8-001"
+      ],
+      "plannedRuleIds": [],
+      "defaultProhibited": true,
+      "sourceEvidenceRefs": [
+        "assets/tts-mod/extract/v2-dl/tree/cards/game/seriouswound-149_cards/card-01.png",
+        "assets/tts-mod/extract/selected-card-text-evidence.json",
+        "docs/rules/semantics/serious-wound-source-index.json"
+      ],
+      "alternatives": [
+        {
+          "alternativeId": "SEM-Q-034-A",
+          "description": "The standalone stepped zigzag denotes Character Health loss, as suggested by licensed <HP>.",
+          "support": "licensed data is secondary and the source glyph did not exactly match the page-40 Character Health icon"
+        },
+        {
+          "alternativeId": "SEM-Q-034-B",
+          "description": "It denotes another source-local health/status quantity.",
+          "support": "literal morphology is distinct from the registered cross-plus-heartbeat glyph"
+        },
+        {
+          "alternativeId": "SEM-Q-034-C",
+          "description": "Preserve only “lose 2 [local glyph] instead” until an exact source-scoped identity is established.",
+          "support": "no default may be inferred from expected game logic"
+        }
+      ]
+    },
+    {
+      "questionId": "SEM-Q-035",
+      "title": "BODY “Hand Size” semantic scope",
+      "decisionClass": "source-ambiguity-owner-decision-after-source-search",
+      "blocksRuleIds": [
+        "SEM-SERIOUS-WOUND-3805-351AA8-001",
+        "SEM-SERIOUS-WOUND-3805-6175A8-001",
+        "SEM-SERIOUS-WOUND-3805-74C9B5-001"
+      ],
+      "plannedRuleIds": [],
+      "defaultProhibited": true,
+      "sourceEvidenceRefs": [
+        "assets/tts-mod/extract/v2-dl/tree/cards/game/seriouswound-149_cards/card-05.png",
+        "docs/rulebooks/rulebook_text.txt:lines 3398–3400",
+        "docs/rules/semantics/serious-wound-source-index.json"
+      ],
+      "alternatives": [
+        {
+          "alternativeId": "SEM-Q-035-A",
+          "description": "Reduce only the Cleanup Action-card refill target from 5 to 4.",
+          "support": "licensed BODY states this explicitly, but remains secondary"
+        },
+        {
+          "alternativeId": "SEM-Q-035-B",
+          "description": "Create a persistent maximum hand size of 4, including a rule for excess cards.",
+          "support": "literal TTS “Hand Size” may be broader, but no excess-card procedure is printed"
+        },
+        {
+          "alternativeId": "SEM-Q-035-C",
+          "description": "Apply another source-defined use of Hand Size without inventing a discard cap.",
+          "support": "the official rulebook does not define the term"
+        }
+      ]
+    },
+    {
+      "questionId": "SEM-Q-036",
+      "title": "Serious Wound effect activation order",
+      "decisionClass": "official-clarification-preferred",
+      "blocksRuleIds": [
+        "SEM-SERIOUS-WOUND-GAIN-001",
+        "SEM-SERIOUS-WOUND-3800-EE102C-001",
+        "SEM-SERIOUS-WOUND-3800-C85059-001",
+        "SEM-SERIOUS-WOUND-3800-213CA0-001",
+        "SEM-SERIOUS-WOUND-3807-89F2F0-001",
+        "SEM-SERIOUS-WOUND-3807-4D4710-001",
+        "SEM-SERIOUS-WOUND-3807-655132-001",
+        "SEM-SERIOUS-WOUND-3808-55F79E-001",
+        "SEM-SERIOUS-WOUND-3808-68A1CF-001",
+        "SEM-SERIOUS-WOUND-3808-928C60-001",
+        "SEM-SERIOUS-WOUND-3801-6466B5-001",
+        "SEM-SERIOUS-WOUND-3801-17CCB1-001",
+        "SEM-SERIOUS-WOUND-3801-5444E8-001",
+        "SEM-SERIOUS-WOUND-3805-351AA8-001",
+        "SEM-SERIOUS-WOUND-3805-6175A8-001",
+        "SEM-SERIOUS-WOUND-3805-74C9B5-001",
+        "SEM-SERIOUS-WOUND-404800-FD77B5-001",
+        "SEM-SERIOUS-WOUND-404800-1642C4-001",
+        "SEM-SERIOUS-WOUND-404800-A0A4F8-001",
+        "SEM-SERIOUS-WOUND-3802-AD7826-001",
+        "SEM-SERIOUS-WOUND-3802-2202B4-001",
+        "SEM-SERIOUS-WOUND-3802-06BE60-001",
+        "SEM-SERIOUS-WOUND-543900-03D258-001",
+        "SEM-SERIOUS-WOUND-543900-864D90-001",
+        "SEM-SERIOUS-WOUND-543900-DBCA72-001",
+        "SEM-SERIOUS-WOUND-3803-AA0B48-001",
+        "SEM-SERIOUS-WOUND-3803-235EB5-001",
+        "SEM-SERIOUS-WOUND-3803-6564CB-001"
+      ],
+      "plannedRuleIds": [],
+      "defaultProhibited": true,
+      "sourceEvidenceRefs": [
+        "docs/rulebooks/rulebook_text.txt:lines 3784–3796",
+        "docs/rules/semantics/serious-wound-source-index.json"
+      ],
+      "alternatives": [
+        {
+          "alternativeId": "SEM-Q-036-A",
+          "description": "Place and reveal the Wound, complete Health displacement/Armor/death, then activate its immediate and persistent effect.",
+          "support": "placement prose precedes displacement, but effect activation is not explicitly sequenced"
+        },
+        {
+          "alternativeId": "SEM-Q-036-B",
+          "description": "Activate the printed effect immediately on placement before displacement and death checks.",
+          "support": "the card introduces its negative effect as soon as gained"
+        },
+        {
+          "alternativeId": "SEM-Q-036-C",
+          "description": "Use another source-defined interrupt sequence, including whether an immediate clause resolves after the Character dies.",
+          "support": "no checked source states the boundary"
+        }
+      ]
+    },
+    {
+      "questionId": "SEM-Q-037",
+      "title": "Whenever-you-Pass Wound trigger order",
+      "decisionClass": "official-clarification-preferred",
+      "blocksRuleIds": [
+        "SEM-SERIOUS-WOUND-3807-89F2F0-001",
+        "SEM-SERIOUS-WOUND-3807-4D4710-001",
+        "SEM-SERIOUS-WOUND-3807-655132-001",
+        "SEM-SERIOUS-WOUND-3808-55F79E-001",
+        "SEM-SERIOUS-WOUND-3808-68A1CF-001",
+        "SEM-SERIOUS-WOUND-3808-928C60-001",
+        "SEM-SERIOUS-WOUND-3801-6466B5-001",
+        "SEM-SERIOUS-WOUND-3801-17CCB1-001",
+        "SEM-SERIOUS-WOUND-3801-5444E8-001"
+      ],
+      "plannedRuleIds": [],
+      "defaultProhibited": true,
+      "sourceEvidenceRefs": [
+        "docs/rulebooks/rulebook_text.txt:lines 3130–3165",
+        "docs/rules/semantics/serious-wound-source-index.json"
+      ],
+      "alternatives": [
+        {
+          "alternativeId": "SEM-Q-037-A",
+          "description": "Resolve active LUNGS/GUTS/BLEEDING effects when Pass is declared, before optional hand discards and Passed-state completion.",
+          "support": "Whenever may trigger at declaration"
+        },
+        {
+          "alternativeId": "SEM-Q-037-B",
+          "description": "Complete optional Pass discards and Passed state, then resolve all active Wound triggers before Turn-end Oxygen/Fire.",
+          "support": "Pass procedure may complete before triggered consequences"
+        },
+        {
+          "alternativeId": "SEM-Q-037-C",
+          "description": "Use another source-defined order among multiple active Wounds and Turn-end consequences.",
+          "support": "no checked source supplies trigger ordering or simultaneous tie-breaks"
+        }
+      ]
+    },
+    {
+      "questionId": "SEM-Q-038",
+      "title": "Multiple Serious Wound draw, placement, and shortfall order",
+      "decisionClass": "official-clarification-preferred",
+      "blocksRuleIds": [
+        "SEM-SERIOUS-WOUND-GAIN-001"
+      ],
+      "plannedRuleIds": [],
+      "defaultProhibited": true,
+      "sourceEvidenceRefs": [
+        "docs/rulebooks/rulebook_text.txt:lines 3538–3548, 3790–3796",
+        "docs/rules/open-questions.md:SEM-Q-023",
+        "docs/rules/semantics/serious-wound-source-index.json"
+      ],
+      "alternatives": [
+        {
+          "alternativeId": "SEM-Q-038-A",
+          "description": "Resolve each requested Wound completely in source order—draw, place, displace, activate—before the next.",
+          "support": "ordinary singular gain procedure can be repeated, but grouped effects do not always state order"
+        },
+        {
+          "alternativeId": "SEM-Q-038-B",
+          "description": "Draw all available Wounds first, then assign/place/activate them by another physical order.",
+          "support": "some effects describe several Wounds as one grouped result"
+        },
+        {
+          "alternativeId": "SEM-Q-038-C",
+          "description": "Use another source-defined simultaneous assignment and finite-deck shortfall procedure; retain SEM-Q-023 for Deadly Claws slot assignment.",
+          "support": "no universal owner/tie-break is printed"
         }
       ]
     }

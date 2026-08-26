@@ -301,3 +301,66 @@ Use this ledger for ambiguities that the official rulebook and FAQ do not settle
   - (b) Track-terminal marker only; FAQ supplies a separate lethal Shoot rule.
   - (c) Another source-scoped relation requiring future official icon/component evidence.
 - **Status:** Open; official clarification preferred. The two literal occurrences remain unmapped and create no page-40, color-wide, shape-wide, or global alias.
+
+### SEM-Q-030 — Serious Wound draw, reveal, and face-up placement timing
+
+- **Question:** At what exact point does a random Serious Wound become public/face up between the face-down draw, placement, Health displacement, and effect activation?
+- **Sources checked:** Rulebook pp. 9 and 18; official visual `RB-P18-V03`; all exact base selectors and faces in `semantics/serious-wound-source-index.json`; FAQ v1.2.
+- **Candidate readings:** (a) reveal immediately after drawing; (b) place first and reveal after placement/displacement; (c) another source-defined visibility sequence.
+- **Status:** Open; official clarification preferred. The unselected deck fronts and order remain hidden, and no digital face-up default is adopted.
+
+### SEM-Q-031 — Serious Wound gain with no empty Health Section
+
+- **Question:** If all three Health Sections already contain Serious Wounds, is another Wound drawn, and if so where does it go or what consequence replaces placement?
+- **Sources checked:** Rulebook p. 18 Serious Wound placement and p. 17 Component Limits; official Health/placement visuals; FAQ v1.2.
+- **Candidate readings:** (a) no draw/placement; (b) draw followed by a source-defined discard, replacement, overflow, or death consequence; (c) another physical placement procedure.
+- **Status:** Open; official clarification preferred. No fourth slot, replacement, automatic death, or discard destination is invented.
+
+### SEM-Q-032 — Wound placement while the Health marker is Heavily Injured
+
+- **Question:** When a Wound is placed in the occupied Heavily Injured Section, what is the “first empty slot in the next Section,” given that the track instead ends at the Skull?
+- **Sources checked:** Rulebook p. 18 Health/death/Wound prose and visuals `RB-P18-V01`/`RB-P18-V03`; FAQ v1.2.
+- **Candidate readings:** (a) displace to the Skull and die; (b) placement/displacement is impossible because no next Section exists; (c) another terminal procedure applies.
+- **Status:** Open; official clarification preferred. Death is not inferred solely from track adjacency.
+
+### SEM-Q-033 — Direct KNEE local action glyph identity and scope
+
+- **Question:** What exact Action is denoted by the unmatched two-overlapping-angular-lobes glyph on the three direct KNEE physical copies?
+- **Sources checked:** Direct face `seriouswound-028.png`, its three full CardID/GUID selectors, all-49 icon comparison, unselected sheet cell 6, licensed `SERIOUS_WOUNDS_DATA.Knee`, rulebook, and FAQ v1.2.
+- **Candidate readings:** (a) Make a Move Cautiously or a source-scoped cautious-movement Action; (b) another movement/action subtype; (c) remain literal and undispatched until exact evidence exists.
+- **Status:** Open. The recognized Secure glyph on selector-gap cell 6 and the licensed wording are separate variants, not aliases for the direct glyph.
+
+### SEM-Q-034 — LUNGS terminal local glyph identity
+
+- **Question:** What quantity/effect is denoted by the standalone stepped-zigzag glyph after “lose 2” on the three LUNGS physical copies?
+- **Sources checked:** Exact generated cell 1 and its three selectors, all-49 icon comparison, page-40 Character Health crop, licensed `SERIOUS_WOUNDS_DATA.Lungs`, rulebook, and FAQ v1.2.
+- **Candidate readings:** (a) Character Health, as licensed `<HP>` suggests; (b) another local health/status quantity; (c) preserve only the literal operation pending exact evidence.
+- **Status:** Open. The glyph did not exactly match the registered Character Health cross-plus-heartbeat morphology; expected effect logic is not evidence.
+
+### SEM-Q-035 — BODY “Hand Size” semantic scope
+
+- **Question:** Does “Your Hand Size is 1 lower” modify only Cleanup refill, impose a persistent maximum with an excess-card procedure, or affect another rule-defined quantity?
+- **Sources checked:** Exact BODY sheet cell 5 and three physical selectors; Cleanup rules; licensed `SERIOUS_WOUNDS_DATA.Body`; rulebook and FAQ v1.2.
+- **Candidate readings:** (a) draw to 4 instead of 5 during Cleanup, as licensed data says; (b) maximum hand size 4 plus an unstated excess-card rule; (c) another source-defined scope.
+- **Status:** Open. The literal TTS modifier is retained, but the licensed Cleanup-only behavior is not promoted above it and no discard cap is invented.
+
+### SEM-Q-036 — Serious Wound effect activation order
+
+- **Question:** When does a newly placed Wound’s immediate/persistent effect begin relative to reveal, placement, Health displacement, Armor loss, and Character death?
+- **Sources checked:** Rulebook p. 18; all 27 physical occurrences and exact effect regions; official visuals; FAQ v1.2.
+- **Candidate readings:** (a) complete placement/displacement/death before activating the effect; (b) activate immediately on placement; (c) another source-defined interrupt sequence, including continuation after death.
+- **Status:** Open; official clarification preferred. Placement and effect activation remain separately structured with no default.
+
+### SEM-Q-037 — Whenever-you-Pass Wound trigger order
+
+- **Question:** In what order do active LUNGS, GUTS, and BLEEDING effects resolve relative to optional Pass discards, setting Passed, ending the Action window, and mandatory Turn-end Oxygen/Fire?
+- **Sources checked:** Rulebook Passing/Turn sequence; all nine exact Pass-trigger Wound occurrences; FAQ v1.2.
+- **Candidate readings:** (a) trigger at Pass declaration before optional discards; (b) complete Pass, then resolve Wounds before Turn-end consequences; (c) another order among multiple active triggers and Turn-end effects.
+- **Status:** Open; official clarification preferred. No simultaneous-trigger owner or ordering rule is invented.
+
+### SEM-Q-038 — Multiple Serious Wound draw, placement, and shortfall order
+
+- **Question:** When one source requests several Serious Wounds, are they each fully resolved in source order, all drawn before assignment, or handled by another simultaneous procedure—especially if the deck/slots run short or an earlier Wound causes death?
+- **Sources checked:** Rulebook pp. 17–18; all Serious Wound selectors/faces; multi-Wound Attack effects; FAQ v1.2; `SEM-Q-023` for Deadly Claws’ narrower slot-assignment issue.
+- **Candidate readings:** (a) complete each singular gain before the next; (b) draw all available cards first, then assign/place/activate; (c) another source-defined simultaneous/shortfall procedure.
+- **Status:** Open; official clarification preferred. `SEM-Q-023` remains independently open; neither question supplies a default for the other.

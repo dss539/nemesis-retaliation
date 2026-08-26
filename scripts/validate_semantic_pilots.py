@@ -15,14 +15,14 @@ DIR = REPO / 'docs/rules/semantics'
 VOCAB = REPO / 'docs/rules/vocabulary'
 ONTOLOGY = REPO / 'docs/rules/ontology'
 EXPECTED = {
-    'sources': 90, 'semanticNodes': 26, 'records': 167, 'sourceBacked': 88, 'withOpenQuestion': 79,
-    'sourceVariants': 0, 'sourceAssertions': 519, 'conditions': 680,
-    'operations': 773, 'decisions': 80, 'informationPolicies': 181,
-    'costs': 9, 'targets': 203, 'openQuestionReferences': 114,
-    'variantReferences': 95, 'questions': 35, 'openQuestions': 35, 'systems': 19,
-    'conflicts': 22, 'unresolvedConflicts': 9,
+    'sources': 122, 'semanticNodes': 26, 'records': 199, 'sourceBacked': 91, 'withOpenQuestion': 107,
+    'sourceVariants': 1, 'sourceAssertions': 610, 'conditions': 747,
+    'operations': 858, 'decisions': 83, 'informationPolicies': 214,
+    'costs': 9, 'targets': 265, 'openQuestionReferences': 164,
+    'variantReferences': 109, 'questions': 44, 'openQuestions': 44, 'systems': 20,
+    'conflicts': 28, 'unresolvedConflicts': 11,
     'roomIconDenotations': 112,
-    'backlogUnits': 600, 'backlogPilotCovered': 174, 'backlogSourceBlocked': 1,
+    'backlogUnits': 600, 'backlogPilotCovered': 189, 'backlogSourceBlocked': 1,
     'eventIdentities': 20, 'eventScanOccurrences': 20, 'eventLicensedOccurrences': 20,
     'eventOfficialOccurrences': 4, 'eventRecords': 20, 'eventBacklogTuples': 20,
     'explorationIdentities': 12, 'explorationScanOccurrences': 12,
@@ -50,6 +50,18 @@ EXPECTED = {
     'queenHealthLocalDisplayOccurrences': 12, 'queenHealthMatchedIconOccurrences': 16,
     'queenHealthFunctionalIconOccurrences': 28, 'queenHealthRecords': 12,
     'queenHealthBacklogTuples': 10,
+    'seriousWoundPhysicalOccurrences': 27, 'seriousWoundUniqueTitles': 9,
+    'seriousWoundSelectedFaceAssets': 9, 'seriousWoundSourceFaceAssets': 11,
+    'seriousWoundGeneratedOccurrences': 21, 'seriousWoundDirectOccurrences': 6,
+    'seriousWoundSharedBackOccurrences': 1, 'seriousWoundSourceSheets': 1,
+    'seriousWoundSelectorGaps': 2, 'seriousWoundPhysicalRegions': 81,
+    'seriousWoundOperativeRegions': 27, 'seriousWoundPhysicalPanels': 54,
+    'seriousWoundOperativePanels': 27, 'seriousWoundPrintedSentences': 42,
+    'seriousWoundFunctionalIconOccurrences': 30, 'seriousWoundMatchedIconOccurrences': 24,
+    'seriousWoundUnresolvedLocalGlyphOccurrences': 6,
+    'seriousWoundLicensedOccurrences': 9, 'seriousWoundOfficialFaceOccurrences': 3,
+    'seriousWoundOfficialBackOccurrences': 2, 'seriousWoundRecords': 27,
+    'seriousWoundBacklogTuples': 11,
 }
 PINNED_HELP_SOURCE_HASHES = {
     'docs/rules/source-extraction/intruder-help-sheet.json': 'e07f2703a6ad1b49c06389f79d3b1ffd6f5fd1d98604bf14b405fee49d9679e6',
@@ -60,6 +72,7 @@ PINNED_EXPLORATION_SOURCE_INDEX_HASH = 'd95dc30738ce2efbb4cf696671388aaf731626f1
 PINNED_ROBOT_SOURCE_INDEX_HASH = 'd5c0f1abb5794cdddebba42b38580627122a43da96f8da0ff289d5b917c9b6a4'
 PINNED_ATTACK_SOURCE_INDEX_HASH = 'c7b26acaccdb08f166a5618fa9c140189239f50645e1e6601ecc7dfda210f6b3'
 PINNED_QUEEN_HEALTH_SOURCE_INDEX_HASH = '74fc260e2d09f4676b186431f59d8564b7f9bb3f3e8091d50b80e003fbc29988'
+PINNED_SERIOUS_WOUND_SOURCE_INDEX_HASH = '417798990fd5e9a857db6af10c2343f522b6041dc87e3231b0a7a10787c1ad27'
 EXPECTED_EVENT_OCCURRENCES = {
     5609: ('SRC-EVENT-5609','assets/tts-mod/extract/v2-dl/tree/cards/game/event-099.png','0d5da2c8e1b6ccb6a30c83f9006aa924f4fc2f1f14d360d153bc5ea6f73770ed','Event_SystemFailure','SEM-EVENT-SYSTEM-FAILURE-001','SYSTEM FAILURE'),
     5610: ('SRC-EVENT-5610','assets/tts-mod/extract/v2-dl/tree/cards/game/event-009.png','92bc91f54116780d214aefd7925a46897d811f699c5921edd55f45b40deb989d','Event_NoWayOut','SEM-EVENT-NO-WAY-OUT-001','NO WAY OUT'),
@@ -190,7 +203,7 @@ EXPECTED_ROBOT_RECORD_DIGESTS = {
     'SEM-ROBOT-EXPLORATION-001':'e970129e3eb71ba8ad3d19f8aafa0d6a66d25f3d7891cc6d83c63aa35e2aeeca',
     'SEM-ROBOT-MALFUNCTION-001':'9be79b5b00465585133f5b98bbdea70bb6fa8d1465d224c1f379308b75922e75',
     'SEM-ROBOT-MALFUNCTION-PLACEMENT-001':'5c7cb67aa0bd467409ec713302b3067f4caae14cc03d5c8d4438f77a6352cb62',
-    'SEM-ROBOT-MEDICAL-001':'4bcefa735746a996833ca4ee37aa37046687cd574031b43265621d3e3e01aa3c',
+    'SEM-ROBOT-MEDICAL-001':'dda3cc6eb577d80c81237ce090041a72b6c1fe406a7a412c4677564bfb4be697',
     'SEM-ROBOT-MILITARY-001':'0871a479ab66e1a91db61c2b87fdd1c158ba2e5a3af6387578bb1683d78ee461',
     'SEM-ROBOT-MOVEMENT-001':'bd4067f3ba534f45eb190b99a89e7f49b2ac84da007ba8427656386abf91773b',
     'SEM-ROBOT-REVEAL-001':'42c86df72e194a4fa9756e368ae601957d621d7ffbd29382e94bf4fdf53395f4',
@@ -298,6 +311,97 @@ EXPECTED_QUEEN_HEALTH_RECORD_DIGESTS = {
     'SEM-QUEEN-HIT-001':'372acf3d0fff4555ba5de4a1e06d46b1dd9b038cc936b7818357ef55183ec60a',
     'SEM-ROOM-MALFUNCTION-PLACEMENT-001':'c2954c90e774324267041aba20fa1938e2b28d26118215866048c5242eea8676',
 }
+EXPECTED_SERIOUS_WOUND_COUNTS = {
+    'physicalFaceOccurrences':27,'uniquePrintedTitles':9,'uniqueSelectedFaceAssets':9,'sourceFaceAssets':11,
+    'generatedPhysicalFaceOccurrences':21,'directPhysicalFaceOccurrences':6,'sourceSheets':1,'sourceSheetCells':9,
+    'selectedGeneratedCells':7,'selectorGapCells':2,'sharedBackOccurrences':1,'sharedBackSelectorReferences':28,
+    'sourceSheetSelectorReferences':22,'rootCustomDeckEntries':3,'physicalRegions':81,'operativeRegions':27,
+    'physicalPanels':54,'operativePanels':27,
+    'headingRegionOccurrences':27,'artworkInterfaceRegionOccurrences':27,'sourceAssetRegions':33,
+    'sourceAssetPanels':22,
+    'printedSentenceOccurrences':42,'sourceAssetSentenceOccurrences':16,'physicalFunctionalIconOccurrences':30,
+    'physicalMatchedIconOccurrences':24,'physicalUnresolvedLocalGlyphOccurrences':6,
+    'selectedAssetFunctionalIconOccurrences':10,'allSourceAssetFunctionalIconOccurrences':15,
+    'allSourceAssetMatchedIconOccurrences':13,'allSourceAssetUnresolvedLocalGlyphOccurrences':2,
+    'literalAnatomyOrRegionHeadingOccurrences':24,'literalConditionHeadingOccurrences':3,
+    'licensedDigitalOccurrences':9,'licensedPlaceholderOccurrences':10,'licensedPhysicalIdentityLinks':0,
+    'officialVisibleFaceOccurrences':3,'officialVisibleBackOccurrences':2,'officialRulebookTextOccurrences':7,
+    'officialRulebookVisualObligations':7,'baseApplicableFaqOccurrences':0,'excludedExpansionFaqOccurrences':1,
+    'excludedExpansionSeriousWoundDecks':0,'excludedWoundLikeExpansionComponents':1,
+    'excludedParentSheetsFromFaceCount':1,'excludedBacksFromFaceCount':1,'excludedNonRulesOverlayClasses':4,
+    'backlogTuples':11,'backlogPhysicalFaceLinks':27,'backlogObligationsLinked':26,'semanticPhysicalFaceRecords':27,
+}
+EXPECTED_SERIOUS_WOUND_ASSETS = {
+    'sheet-00':('assets/tts-mod/extract/v2-dl/tree/cards/game/seriouswound-149_cards/card-00.png','66db7a2fc44c3a8e278b2b7fd0ae40d3932f26667b568ad3b3271b6373f80998','EYES','generated-cell-face',0,1,(), 'e7ce41d2079b7a475fb779b51db1ace1749dcf9bd45ac4683e6810e31335ddc7'),
+    'sheet-01':('assets/tts-mod/extract/v2-dl/tree/cards/game/seriouswound-149_cards/card-01.png','42980fa5cef70e8ed40649d1495fc75c015c43f60ebb52961031d18f8f3e1564','LUNGS','generated-cell-face',1,3,('icon.oxygen','icon.lifeSupportActive','icon.oxygen',None), '27539ae22f639285a0306eace391a7b3fee5269b01fd50b81951b7c5eeeb1de7'),
+    'sheet-02':('assets/tts-mod/extract/v2-dl/tree/cards/game/seriouswound-149_cards/card-02.png','e6ec34b2dde06f1cd76e958af3d24ee1bcc4fa177e4d214b086c70d82a8a2322','HAND','generated-cell-face',2,1,('icon.actionCard',), 'dff61b53d4d009117bbfd5b0a40f39d8f07e5716fb6c20ec56d768db4f834faa'),
+    'sheet-03':('assets/tts-mod/extract/v2-dl/tree/cards/game/seriouswound-149_cards/card-03.png','322587af9825baec2c8786a0f5e15a657257a5633f025e694de2c962127b44f9','ARM','generated-cell-face',3,2,(), '0df3e6bdc14e09e31d507662542e8f9422087cea24f5760172c46cbb51350f5d'),
+    'sheet-04':('assets/tts-mod/extract/v2-dl/tree/cards/game/seriouswound-149_cards/card-04.png','522c29d0874334cac9dda75c4cd0182fca35dbc7402c4b7231c1c8a6c6b1ec18','LEG','generated-cell-selector-gap-variant',4,1,('icon.intruder','icon.intruder','icon.actionCard'), '3c621db2074915f41e391377be083fd71ca711bbcaac41d139badb3c0ad3045d'),
+    'sheet-05':('assets/tts-mod/extract/v2-dl/tree/cards/game/seriouswound-149_cards/card-05.png','69fa0f09363ab35f1e547a60e64e1b011702a7469755835bf002e0739b0a33f2','BODY','generated-cell-face',5,1,(), 'cd2765d919768c748014bedb4d4abf1a273c196b5ae2fd3651821554b678c842'),
+    'sheet-06':('assets/tts-mod/extract/v2-dl/tree/cards/game/seriouswound-149_cards/card-06.png','1027d7f87a80b4a7d32eb40e9d336c9557c032a33ab6fdc08912a5beeb3e2dcb','KNEE','generated-cell-selector-gap-variant',6,1,('icon.secure','icon.actionCard'), '405e10bcc3c42e65d9f6578e1bee44d9702b433e138a6e19e4ff44cb040efe74'),
+    'sheet-07':('assets/tts-mod/extract/v2-dl/tree/cards/game/seriouswound-149_cards/card-07.png','b485840032e9abcaeec0bf614e7df0e5487aa52d43005615eeb6950aed44f09f','GUTS','generated-cell-face',7,2,(), '8ffcd528173e1cc40ce3f8dadab03f290195ce46222811e483aa7beee94cc9bd'),
+    'sheet-08':('assets/tts-mod/extract/v2-dl/tree/cards/game/seriouswound-149_cards/card-08.png','2316dd24439f588422fce16da610e59e2609973f968bf0cb7dfb18b8d8f21f40','BLEEDING','generated-cell-face',8,2,('icon.characterHealth',), 'd3152cc568e31e0fdc8ba740c1587fd84810949fc1c20abce7b0afa3981e689d'),
+    'direct-4048':('assets/tts-mod/extract/v2-dl/tree/cards/game/seriouswound-028.png','cfc93364f9ec257e07bc84989bbea9709ecdc9519d11f2bc7fd4c5b519ab3f6f','KNEE','direct-face',None,1,(None,'icon.actionCard'), '56ea72605d52330ba3458f31e226408d06c95085fda6849d380b916c4db344ac'),
+    'direct-5439':('assets/tts-mod/extract/v2-dl/tree/cards/game/seriouswound-104.png','a8e96bccf2270724b257a20bcc55e24c2e78a161f8bb5ae6256f433c82ecd4e7','LEG','direct-face',None,1,('icon.intruder','icon.actionCard'), 'baf1a62980591ff1822b1b63fd040ea88048192f14ac76a8aea5fb2640b2a6cd'),
+}
+EXPECTED_SERIOUS_WOUND_GROUPS = [
+    (3800,'sheet-00',['ee102c','c85059','213ca0']),
+    (3807,'sheet-07',['89f2f0','4d4710','655132']),
+    (3808,'sheet-08',['55f79e','68a1cf','928c60']),
+    (3801,'sheet-01',['6466b5','17ccb1','5444e8']),
+    (3805,'sheet-05',['351aa8','6175a8','74c9b5']),
+    (404800,'direct-4048',['fd77b5','1642c4','a0a4f8']),
+    (3802,'sheet-02',['ad7826','2202b4','06be60']),
+    (543900,'direct-5439',['03d258','864d90','dbca72']),
+    (3803,'sheet-03',['aa0b48','235eb5','6564cb']),
+]
+EXPECTED_SERIOUS_WOUND_OCCURRENCES = {}
+_serious_wound_sequence = 1
+for _card_id, _asset_key, _guids in EXPECTED_SERIOUS_WOUND_GROUPS:
+    _asset_path,_asset_sha,_title,_source_role,_cell,_sentences,_icon_refs,_body_digest = EXPECTED_SERIOUS_WOUND_ASSETS[_asset_key]
+    _custom_deck_id = '4048' if _asset_key == 'direct-4048' else '5439' if _asset_key == 'direct-5439' else '38'
+    for _guid in _guids:
+        _code = f'{_card_id}-{_guid.upper()}'
+        EXPECTED_SERIOUS_WOUND_OCCURRENCES[f'TTS-SERIOUS-WOUND-{_code}-FACE'] = {
+            'sequence':_serious_wound_sequence,'cardId':_card_id,'guid':_guid,'customDeckId':_custom_deck_id,
+            'path':_asset_path,'sha256':_asset_sha,'title':_title,'sourceRole':_source_role,'cell':_cell,
+            'ruleId':f'SEM-SERIOUS-WOUND-{_code}-001','sentences':_sentences,'iconRefs':list(_icon_refs),'bodyDigest':_body_digest,
+        }
+        _serious_wound_sequence += 1
+EXPECTED_SERIOUS_WOUND_RECORD_DIGESTS = {
+    'SEM-SERIOUS-WOUND-3800-213CA0-001':'e1cad3aac2dcaa47b0a6e104f8a9c54800ac80d8ac860509a8c9b7f81e9aa2f4',
+    'SEM-SERIOUS-WOUND-3800-C85059-001':'298b286ca4236819635ef6d11c5bb9b5474307a9619a08beee4b7cff00104808',
+    'SEM-SERIOUS-WOUND-3800-EE102C-001':'561b418c5b7e8b953be38f42155947a691a1d175604e4925e336fec144cd7adf',
+    'SEM-SERIOUS-WOUND-3801-17CCB1-001':'37ce02dda8236a62112df782e402b32a1d00d2acd490c91c1d23dd34a500c615',
+    'SEM-SERIOUS-WOUND-3801-5444E8-001':'59c16ffaed771c6bbc16052890053d245225a74954c5fe1c2f8121d8f756fa2f',
+    'SEM-SERIOUS-WOUND-3801-6466B5-001':'c952ca5de7e2c6c13a5287c953614c46532552080d40de94ffee6f677386128d',
+    'SEM-SERIOUS-WOUND-3802-06BE60-001':'26b92ef84a830a06429fb65844ae9ceee4f252d8a3f9500c663516cf69ae58f1',
+    'SEM-SERIOUS-WOUND-3802-2202B4-001':'45614badf4ac2042bf54c09d2280b34b19720256b7f5851cc732d96cffd6780a',
+    'SEM-SERIOUS-WOUND-3802-AD7826-001':'ff7cec42c8e5fcbc678db15c253093182472a42f5032e4747aebd48a52aa09b8',
+    'SEM-SERIOUS-WOUND-3803-235EB5-001':'9f62589661d3b7db87ecadc9c400703b947972b54467fff0e7533a8994d24edf',
+    'SEM-SERIOUS-WOUND-3803-6564CB-001':'181bc4e7aa6c5ced0ae333c9e8f2af58ca090cc4a8e6d00ab4b71381427d440d',
+    'SEM-SERIOUS-WOUND-3803-AA0B48-001':'44ec89264f777e51311daf780367d55b9e8701dbb6e9a41ce09bd2741279ecaf',
+    'SEM-SERIOUS-WOUND-3805-351AA8-001':'c84701932aa26229ec2db3ade4c28f83f95039b72d63c501f0ec3b65bba8340e',
+    'SEM-SERIOUS-WOUND-3805-6175A8-001':'afe07bc3cb741b8edcf84c62fe9b98851229e9074cfa7f2ff5002dbe811f1d78',
+    'SEM-SERIOUS-WOUND-3805-74C9B5-001':'627eb6d02d27e8efbc3863809d672326a8a5985610e9c752371ef89394f04819',
+    'SEM-SERIOUS-WOUND-3807-4D4710-001':'2e3e76ec4934f11b79a901c1f820f6044feae307020087b2ea0f8cb098a75a69',
+    'SEM-SERIOUS-WOUND-3807-655132-001':'b8d96e95f954822fc504b4b0b5688d8f7c3fc219cdffee816e151eb3e5bf6b1a',
+    'SEM-SERIOUS-WOUND-3807-89F2F0-001':'6c9ad0a8c57d8435636d980e3480ea34a6d27dd6e5747fbb7f6995e5dd2da602',
+    'SEM-SERIOUS-WOUND-3808-55F79E-001':'078cd1145b891ed0ce286350d30fdd88dc953740fca93eeb3c5906b861ec1aba',
+    'SEM-SERIOUS-WOUND-3808-68A1CF-001':'7d7587b17c82861bcc0fc523d9fe3348b1f7ae229c6396b4821086eab252f742',
+    'SEM-SERIOUS-WOUND-3808-928C60-001':'03e714959d4108b197d6b32589e3d0b37d4a779adb1a0e7c7ee19fc850cdd18c',
+    'SEM-SERIOUS-WOUND-404800-1642C4-001':'f288f023055a7b5fddbe6adc1919916b306d54f664b1151adc1863ec713db8b0',
+    'SEM-SERIOUS-WOUND-404800-A0A4F8-001':'ab9bf9d3a9ea974548fc1b00884c4bd25897242bb9c5cc375303fd59f7ce572c',
+    'SEM-SERIOUS-WOUND-404800-FD77B5-001':'f4b690afc56367fc55ffae102e389178808895850d7c781193fc5d882b9cde3b',
+    'SEM-SERIOUS-WOUND-543900-03D258-001':'b3002afd5094983efc6ab35619993a29a3d8986468f1d7d021839043ef6def2c',
+    'SEM-SERIOUS-WOUND-543900-864D90-001':'d4487cdf3cf02cde253ca4d9d0ef52c986d314aad45d83fa3f072ab5265431dd',
+    'SEM-SERIOUS-WOUND-543900-DBCA72-001':'c7ee47c644f653e5ba555b22ff14d6cc9870b8a1b531bb8ca6a4c78119776404',
+    'SEM-SERIOUS-WOUND-DISCARD-001':'3c4f65750a113c44de67fa3f683974b67d9a023381b76a5708134ba0ea0b6928',
+    'SEM-SERIOUS-WOUND-GAIN-001':'a74a95aabc5dfd5018f908085c5a5fe00375aa711c0744da84fc9b089bd9cc65',
+    'SEM-SERIOUS-WOUND-SETUP-001':'ef7e3a3917571b72e936388e59f1b2257f5a9b6ec765bcf6e296703ef094928d',
+    'SEM-SERIOUS-WOUND-STACKING-001':'42dda9b5e09a973f050c7cc7ef8295d2a6403fccb85f497103b2ae3a46055a88',
+    'SEM-SERIOUS-WOUND-VARIANT-BOUNDARIES-001':'0653c1bb992d67bf79f99b3955aa76bb1235851b9aefff3ed06adc6ce75e721b',
+}
 ALLOWED_OPERATIONS = {
     'branch','change-value','choose','draw-random','end-process','evaluate-condition',
     'inspect-private','invoke-process','invoke-selected-process','move-entity','pay-cost','end-action-window',
@@ -351,13 +455,14 @@ def cardinality_valid(value: dict) -> bool:
     return isinstance(maximum, int) and not isinstance(maximum, bool) and maximum >= minimum
 
 
-def validate(event_source_path: Path, exploration_source_path: Path, robot_source_path: Path, attack_source_path: Path, queen_health_source_path: Path, source_path: Path, schema_path: Path, semantic_vocabulary_path: Path, room_icon_path: Path, pilots_path: Path, review_path: Path, contradictions_path: Path, coverage_path: Path, backlog_path: Path, *, reproducibility: bool) -> dict:  # pyright: ignore[reportGeneralTypeIssues]
+def validate(event_source_path: Path, exploration_source_path: Path, robot_source_path: Path, attack_source_path: Path, queen_health_source_path: Path, serious_wound_source_path: Path, source_path: Path, schema_path: Path, semantic_vocabulary_path: Path, room_icon_path: Path, pilots_path: Path, review_path: Path, contradictions_path: Path, coverage_path: Path, backlog_path: Path, *, reproducibility: bool) -> dict:  # pyright: ignore[reportGeneralTypeIssues]
     failures: list[dict] = []
     event_sources = load(event_source_path)
     exploration_sources = load(exploration_source_path)
     robot_sources = load(robot_source_path)
     attack_sources = load(attack_source_path)
     queen_health_sources = load(queen_health_source_path)
+    serious_wound_sources = load(serious_wound_source_path)
     sources_data = load(source_path)
     schema = load(schema_path)
     semantic_vocabulary = load(semantic_vocabulary_path)
@@ -1105,6 +1210,155 @@ def validate(event_source_path: Path, exploration_source_path: Path, robot_sourc
     if queen_linked_backlog_ids != expected_linked_queen_backlog_ids or any((backlog_rows_by_id.get(unit_id) or {}).get('status') != 'pilot-covered' for unit_id in expected_linked_queen_backlog_ids):
         failures.append({'check':'Queen Health exact overlapping backlog-obligation closure'})
 
+    # Independent base Serious Wound family lock. The raw root Deck contains
+    # 27 physical CardID/GUID selectors: seven selected 3x3-sheet cells with
+    # three copies each and two direct faces with three copies each. Two other
+    # generated cells remain selector-gap variants; title/body/modulo joins are
+    # prohibited across TTS, official, and licensed occurrences.
+    serious_wound_rows = serious_wound_sources.get('faces') or []
+    serious_wound_by_occurrence = {row.get('seriousWoundOccurrenceId'):row for row in serious_wound_rows}
+    serious_wound_assets = serious_wound_sources.get('sourceFaceAssets') or []
+    serious_wound_assets_by_key = {row.get('assetKey'):row for row in serious_wound_assets}
+    expected_serious_wound_ids = list(EXPECTED_SERIOUS_WOUND_OCCURRENCES)
+    if sha(serious_wound_source_path) != PINNED_SERIOUS_WOUND_SOURCE_INDEX_HASH:
+        failures.append({'check':'pinned Serious Wound source index'})
+    if serious_wound_sources.get('counts') != EXPECTED_SERIOUS_WOUND_COUNTS or list(serious_wound_by_occurrence) != expected_serious_wound_ids or len(serious_wound_rows) != 27:
+        failures.append({'check':'Serious Wound source-index exact physical occurrence count'})
+    if set(serious_wound_assets_by_key) != set(EXPECTED_SERIOUS_WOUND_ASSETS) or len(serious_wound_assets_by_key) != len(serious_wound_assets):
+        failures.append({'check':'Serious Wound exact source-face asset/variant closure'})
+    base_wound_role = next((row for row in roles if row.get('role') == 'seriouswoundDeck' and row.get('guid') == 'b75145'), {})
+    all_wound_roles = [row for row in roles if row.get('role') == 'seriouswoundDeck']
+    root_wound_object = next((row for row in objects if row.get('guid') == 'b75145'), {})
+    wound_children = [row for row in objects if ['Deck','b75145',''] in (row.get('parent') or []) and row.get('gmnotes') == 'wound']
+    all_wound_tagged = [row for row in objects if row.get('gmnotes') == 'wound']
+    expected_wound_child_tuples = {(row['cardId'],row['guid']) for row in EXPECTED_SERIOUS_WOUND_OCCURRENCES.values()}
+    if len(all_wound_roles) != 1 or base_wound_role.get('type') != 'Deck' or base_wound_role.get('n_urls') != 4 or base_wound_role.get('deck_nums') != ['38','4048','5439'] or root_wound_object.get('type') != 'Deck' or root_wound_object.get('parent') != [] or len(wound_children) != 27 or len(all_wound_tagged) != 27 or {(int(row['card_id']),row['guid']) for row in wound_children} != expected_wound_child_tuples:
+        failures.append({'check':'Serious Wound root Lua role/deck/tag/container closure'})
+    expected_saved_wound_ids = [EXPECTED_SERIOUS_WOUND_OCCURRENCES[occurrence_id]['cardId'] for occurrence_id in expected_serious_wound_ids]
+    raw_wound_evidence = serious_wound_sources.get('familyCountEvidence',{}).get('rawTtsDeck') or {}
+    if raw_wound_evidence.get('sourcePath') != 'assets/tts-mod/extract/nemesis_script_mod.bin' or raw_wound_evidence.get('sourceSha256') != '8592c12556630d20c2443a2bd26059ddd8c38d64d91a695c2cfe3542914d1c68' or raw_wound_evidence.get('deckIdsInSavedOrder') != expected_saved_wound_ids or raw_wound_evidence.get('savedOrderIsGameplayDeckOrder') is not False or raw_wound_evidence.get('setupRequiresShuffle') is not True or raw_wound_evidence.get('physicalFaceCount') != 27:
+        failures.append({'check':'Serious Wound raw DeckIDs/saved-order/setup-shuffle lock'})
+    expected_title_multiplicity = {'ARM':3,'BLEEDING':3,'BODY':3,'EYES':3,'GUTS':3,'HAND':3,'KNEE':3,'LEG':3,'LUNGS':3}
+    if serious_wound_sources.get('titleMultiplicity') != expected_title_multiplicity:
+        failures.append({'check':'Serious Wound repeated-title multiplicity/no-collapse lock'})
+
+    for asset_key,expected in EXPECTED_SERIOUS_WOUND_ASSETS.items():
+        expected_path,expected_sha,expected_title,expected_role,expected_cell,expected_sentence_count,expected_icon_refs,expected_body_digest = expected
+        asset = serious_wound_assets_by_key.get(asset_key) or {}
+        actual_tuple = (asset.get('sourcePath'),asset.get('sourceSha256'),asset.get('printedTitle'),asset.get('sourceRole'),asset.get('generatedCell'))
+        if actual_tuple != expected[:5] or not (REPO/expected_path).is_file() or sha(REPO/expected_path) != expected_sha:
+            failures.append({'check':'Serious Wound independently locked source-face asset tuple','assetKey':asset_key})
+        body = asset.get('printedBody') or ''
+        if hashlib.sha256(body.encode()).hexdigest() != expected_body_digest:
+            failures.append({'check':'Serious Wound exact body/punctuation/order lock','assetKey':asset_key})
+        regions = asset.get('regions') or []
+        if [row.get('regionId') for row in regions] != ['R1','R2','R3'] or [row.get('role') for row in regions] != ['artwork-and-diagnostic-interface','printed-heading','operative-effect'] or [row.get('operative') for row in regions] != [False,False,True] or (regions[1] if len(regions)>1 else {}).get('exactText') != expected_title or (regions[2] if len(regions)>2 else {}).get('exactText') != body or asset.get('semanticBodyPartTraitOrSeverityInferred') is not False:
+            failures.append({'check':'Serious Wound exact region roles/order/no-inferred-anatomy lock','assetKey':asset_key})
+        panels = asset.get('panels') or []
+        if [row.get('panelId') for row in panels] != ['P1','P2'] or [row.get('role') for row in panels] != ['printed-title-panel','operative-effect-panel'] or [row.get('operative') for row in panels] != [False,True] or [row.get('regionId') for row in panels] != ['R2','R3'] or (panels[0] if panels else {}).get('exactText') != expected_title or (panels[1] if len(panels)>1 else {}).get('exactText') != body:
+            failures.append({'check':'Serious Wound exact source panel roles/order/region linkage','assetKey':asset_key})
+        sentences = asset.get('sentences') or []
+        if len(sentences) != expected_sentence_count or [row.get('sequence') for row in sentences] != list(range(1,len(sentences)+1)) or len({row.get('sentenceId') for row in sentences}) != len(sentences):
+            failures.append({'check':'Serious Wound exact sentence occurrence count/order','assetKey':asset_key})
+        cursor = 0
+        for sentence in sentences:
+            start,end = sentence.get('start'),sentence.get('end')
+            if not isinstance(start,int) or not isinstance(end,int) or start < cursor or body[start:end] != sentence.get('exactText') or sentence.get('regionId') != 'R3' or sentence.get('panelId') != 'P2':
+                failures.append({'check':'Serious Wound exact sentence span/punctuation lock','assetKey':asset_key,'sentenceId':sentence.get('sentenceId')})
+            cursor = end if isinstance(end,int) else cursor
+        icons = asset.get('iconOccurrences') or []
+        if [row.get('semanticReferenceId') for row in icons] != list(expected_icon_refs) or [row.get('sequence') for row in icons] != list(range(1,len(icons)+1)) or len({row.get('assetIconOccurrenceId') for row in icons}) != len(icons) or any((row.get('semanticReferenceId') is None) != (row.get('page40TokenAssigned') is False) or row.get('panelId') != 'P2' for row in icons):
+            failures.append({'check':'Serious Wound exact source-local icon occurrence projection','assetKey':asset_key})
+        selected = expected_role != 'generated-cell-selector-gap-variant'
+        gap = asset.get('selectorGap')
+        if asset.get('selectedByRootDeck') is not selected or (selected and gap is not None) or (not selected and (not isinstance(gap,dict) or gap.get('status') != 'explicit-no-root-DeckID-GUID-selector' or gap.get('cardIdModuloJoinUsed') is not False)):
+            failures.append({'check':'Serious Wound generated selector-gap closure','assetKey':asset_key})
+
+    expected_serious_wound_source_ids = set()
+    expected_wound_backlog_rules = {}
+    for occurrence_id,expected in EXPECTED_SERIOUS_WOUND_OCCURRENCES.items():
+        face = serious_wound_by_occurrence.get(occurrence_id) or {}
+        code = occurrence_id.removeprefix('TTS-SERIOUS-WOUND-').removesuffix('-FACE')
+        expected_source_id = 'SRC-SERIOUS-WOUND-'+code
+        expected_serious_wound_source_ids.add(expected_source_id)
+        selector = face.get('sourceSelector') or {}
+        actual_tuple = (face.get('ttsSavedSequence'),face.get('ttsCardId'),face.get('ttsCardGuid'),face.get('customDeckId'),face.get('sourcePath'),face.get('sourceSha256'),face.get('printedTitle'),selector.get('sourceRole'),selector.get('generatedCell'),face.get('semanticRuleId'))
+        expected_tuple = (expected['sequence'],expected['cardId'],expected['guid'],expected['customDeckId'],expected['path'],expected['sha256'],expected['title'],expected['sourceRole'],expected['cell'],expected['ruleId'])
+        if actual_tuple != expected_tuple:
+            failures.append({'check':'independently locked Serious Wound physical occurrence crosswalk','occurrenceId':occurrence_id})
+        if selector.get('key') != 'FaceURL' or selector.get('fullCardId') != expected['cardId'] or selector.get('guid') != expected['guid'] or selector.get('parentDeckGuid') != 'b75145' or selector.get('customDeckId') != expected['customDeckId'] or selector.get('sideRole') != 'operative-serious-wound-face' or selector.get('selectorGap') is not None or selector.get('cardIdModuloJoinUsed') is not False or selector.get('backUrl') != 'https://steamusercontent-a.akamaihd.net/ugc/2468613527880235898/A32D91672CA7CCBA01C44C27791836D0E634CE2A/':
+            failures.append({'check':'Serious Wound exact CardID/GUID/FaceURL/BackURL selector projection','occurrenceId':occurrence_id})
+        if expected['sourceRole'] == 'generated-cell-face':
+            if selector.get('generatedSpriteSheetCell') is not True or selector.get('sourceSheetPath') != 'assets/tts-mod/extract/v2-dl/tree/cards/game/seriouswound-149.jpg' or selector.get('sourceSheetSha256') != 'fe8ce9585027cdde1bef962dbbafd5d615ef9ffe060d1114d1ec3fd55682349b' or selector.get('sourceSheetGrid') != {'columns':3,'rows':3} or selector.get('generatedCell') != expected['cell']:
+                failures.append({'check':'Serious Wound generated sheet/hash/grid/cell selector projection','occurrenceId':occurrence_id})
+        elif selector.get('generatedSpriteSheetCell') is not False or selector.get('sourceSheetPath') is not None or selector.get('generatedCell') is not None:
+            failures.append({'check':'Serious Wound direct/generated face selector inversion','occurrenceId':occurrence_id})
+        if hashlib.sha256((face.get('printedBody') or '').encode()).hexdigest() != expected['bodyDigest']:
+            failures.append({'check':'Serious Wound exact body/punctuation/order lock','occurrenceId':occurrence_id})
+        regions = face.get('regions') or []
+        if len(regions) != 3 or [row.get('role') for row in regions] != ['artwork-and-diagnostic-interface','printed-heading','operative-effect'] or [row.get('operative') for row in regions] != [False,False,True] or not all(row.get('regionId','').startswith(f'SW-{expected["cardId"]}-{expected["guid"].upper()}-R') for row in regions):
+            failures.append({'check':'Serious Wound exact physical region roles/order','occurrenceId':occurrence_id})
+        panels = face.get('panels') or []
+        if len(panels) != 2 or [row.get('role') for row in panels] != ['printed-title-panel','operative-effect-panel'] or [row.get('operative') for row in panels] != [False,True] or panels[0].get('regionId') != regions[1].get('regionId') or panels[1].get('regionId') != regions[2].get('regionId'):
+            failures.append({'check':'Serious Wound exact physical panel roles/order/region linkage','occurrenceId':occurrence_id})
+        if len(face.get('sentences') or []) != expected['sentences'] or [row.get('semanticReferenceId') for row in face.get('iconOccurrences') or []] != expected['iconRefs'] or any(row.get('panelId') != (panels[1].get('panelId') if len(panels)>1 else None) for row in (face.get('sentences') or []) + (face.get('iconOccurrences') or [])):
+            failures.append({'check':'Serious Wound exact physical text/icon projection','occurrenceId':occurrence_id})
+        join = face.get('joinEvidence') or {}
+        basis = ' '.join(join.get('basis') or []).lower()
+        if join.get('identityJoin') != 'exact physical occurrence and source-asset projection' or any(join.get(key) is not False for key in ('titleOnlyJoin','bodyResemblanceJoin','folderOnlyJoin','sequenceOnlyJoin','cardIdModuloJoin','licensedKeyJoin')) or any(fragment not in basis for fragment in ('full cardid/guid','faceurl','backurl','sha-256')):
+            failures.append({'check':'Serious Wound title/body/folder/sequence/modulo/licensed join prohibited','occurrenceId':occurrence_id})
+        if (face.get('licensedCrosswalk') or {}).get('status') != 'not-asserted' or (face.get('officialCrosswalk') or {}).get('status') != 'not-asserted' or face.get('semanticBodyPartTraitOrSeverityInferred') is not False:
+            failures.append({'check':'Serious Wound authority/variant/anatomy non-join boundary','occurrenceId':occurrence_id})
+        registry = source_by_id.get(expected_source_id) or {}
+        if (registry.get('path'),registry.get('sha256'),registry.get('authority'),registry.get('occurrenceId'),registry.get('evidenceRecord')) != (expected['path'],expected['sha256'],'source-bound-component-scan',occurrence_id,expected['sha256']):
+            failures.append({'check':'Serious Wound source-registry exact physical tuple','occurrenceId':occurrence_id})
+        backlog_id = 'CARD:'+expected['sha256'][:16]
+        expected_wound_backlog_rules.setdefault(backlog_id,[]).append(expected['ruleId'])
+        if face.get('backlogUnitId') != backlog_id:
+            failures.append({'check':'Serious Wound exact backlog tuple projection','occurrenceId':occurrence_id})
+
+    for asset_key in ('sheet-04','sheet-06'):
+        expected_path,expected_sha,*_ = EXPECTED_SERIOUS_WOUND_ASSETS[asset_key]
+        expected_wound_backlog_rules['CARD:'+expected_sha[:16]] = ['SEM-SERIOUS-WOUND-VARIANT-BOUNDARIES-001']
+    for backlog_id,rule_ids in expected_wound_backlog_rules.items():
+        expected_path = next(value[0] for value in EXPECTED_SERIOUS_WOUND_ASSETS.values() if 'CARD:'+value[1][:16] == backlog_id)
+        expected_sha = next(value[1] for value in EXPECTED_SERIOUS_WOUND_ASSETS.values() if 'CARD:'+value[1][:16] == backlog_id)
+        backlog_row = backlog_rows_by_id.get(backlog_id) or {}
+        if backlog_row.get('sourcePath') != expected_path or backlog_row.get('sourceLocator') != expected_sha or backlog_row.get('pilotRuleIds') != rule_ids or backlog_row.get('status') != 'pilot-covered':
+            failures.append({'check':'Serious Wound exact backlog tuple projection','backlogUnitId':backlog_id})
+
+    actual_serious_wound_source_ids = {row.get('sourceId') for row in source_rows if row.get('occurrenceId','').startswith('TTS-SERIOUS-WOUND-') and '-VARIANT-' not in row.get('occurrenceId','') and row.get('occurrenceId') not in {'TTS-SERIOUS-WOUND-PARENT-SHEET-38','TTS-SERIOUS-WOUND-SHARED-BACK'}}
+    sheet = serious_wound_sources.get('sourceSheet') or {}
+    back = serious_wound_sources.get('sharedBack') or {}
+    sheet_selector = sheet.get('sourceSelector') or {}
+    back_selector = back.get('sourceSelector') or {}
+    if actual_serious_wound_source_ids != expected_serious_wound_source_ids or (sheet.get('sourcePath'),sheet.get('sourceSha256'),sheet_selector.get('key'),sheet_selector.get('customDeckId'),sheet_selector.get('grid'),sheet_selector.get('referenceCount'),sheet.get('rulesFaceCounted')) != ('assets/tts-mod/extract/v2-dl/tree/cards/game/seriouswound-149.jpg','fe8ce9585027cdde1bef962dbbafd5d615ef9ffe060d1114d1ec3fd55682349b','FaceURL','38',{'columns':3,'rows':3},22,False) or (back.get('sourcePath'),back.get('sourceSha256'),back_selector.get('key'),back_selector.get('url'),back_selector.get('rootDeckSelectorCount'),back_selector.get('baseCardSelectorCount'),back_selector.get('referenceCount'),back.get('rulesTextPresent'),back.get('separateRulesFace')) != ('assets/tts-mod/extract/v2-dl/tree/cards/game/seriouswound-150.jpg','6a2376fb486c6a85f02da22f7c479b4aa7ccf6d4bd0cf0db65479cc89b3c96cb','BackURL','https://steamusercontent-a.akamaihd.net/ugc/2468613527880235898/A32D91672CA7CCBA01C44C27791836D0E634CE2A/',1,27,28,False,False):
+        failures.append({'check':'Serious Wound source-registry face/sheet/back closure'})
+    gap_cells = [row.get('generatedCell') for row in serious_wound_assets if not row.get('selectedByRootDeck')]
+    if gap_cells != [4,6] or [row.get('cell') for row in (sheet.get('cells') or [])] != list(range(9)) or [row.get('selectedByRootDeck') for row in sheet.get('cells') or []] != [True,True,True,True,False,True,False,True,True]:
+        failures.append({'check':'Serious Wound exact selected/generated-cell selector-gap lock'})
+    licensed_wounds = serious_wound_sources.get('licensedDigitalOccurrences') or []
+    expected_licensed_wound_keys = ['Bleeding','Leg','Arm','Eyes','Guts','Body','Hand','Knee','Lungs']
+    serious_wound_table = next((row for row in secondary['licensedDigital']['structuredIndex']['tables'] if row.get('name') == 'SERIOUS_WOUNDS_DATA'), {})
+    if [row.get('key') for row in licensed_wounds] != expected_licensed_wound_keys or serious_wound_table.get('count') != 9 or list(serious_wound_table.get('keys') or []) != expected_licensed_wound_keys or any(row.get('identityCrosswalkStatus') != 'independent licensed occurrence; no TTS/official identity join asserted' or not row.get('sourceBlockText') or row.get('sourceBlockText') not in bga_text for row in licensed_wounds) or serious_wound_sources.get('counts',{}).get('licensedPhysicalIdentityLinks') != 0:
+        failures.append({'check':'Serious Wound licensed independent occurrence/no-title-crosswalk closure'})
+    official_wounds = serious_wound_sources.get('officialVisibleCounterparts') or []
+    expected_official_wound_ids = ['RB-P03-V01-SW-EYES','RB-P03-V01-SW-ARM-PARTIAL','RB-P03-V01-SW-BACK','RB-P18-V03-SW-EYES','RB-P18-V03-SW-BACK']
+    if [row.get('sourceOccurrenceId') for row in official_wounds] != expected_official_wound_ids or [row.get('parentOccurrenceId') for row in official_wounds] != ['RB-P03-V01','RB-P03-V01','RB-P03-V01','RB-P18-V03','RB-P18-V03'] or any(row.get('sourceScopedOnly') is not True or row.get('physicalCopyCorrespondence') not in {'not established','shared back only'} for row in official_wounds):
+        failures.append({'check':'Serious Wound official face/back occurrence authority closure'})
+    faq_closure = serious_wound_sources.get('faqSearchClosure') or {}
+    excluded = serious_wound_sources.get('excludedContent') or {}
+    if faq_closure.get('baseApplicableOccurrences') != [] or len(faq_closure.get('excludedExpansionOccurrences') or []) != 1 or excluded.get('expansionSeriousWoundDecks') != [] or len(excluded.get('expansionWoundLikeComponents') or []) != 1 or 'not a twenty-eighth rules face' not in excluded.get('parentSheetBoundary','') or 'not a twenty-eighth rules face' not in excluded.get('sharedBackBoundary','') or 'no root DeckID/GUID selector' not in excluded.get('selectorGapBoundary',''):
+        failures.append({'check':'Serious Wound FAQ/expansion/parent/back/overlay exclusion boundary'})
+    serious_wound_linked_backlog_ids = (serious_wound_sources.get('familyCountEvidence',{}).get('backlog') or {}).get('linkedUnitIds') or []
+    expected_linked_serious_wound_ids = [
+        *['CARD:'+EXPECTED_SERIOUS_WOUND_ASSETS[key][1][:16] for key in EXPECTED_SERIOUS_WOUND_ASSETS],
+        'RULE:ACT-MOVE-001','RULE:ACT-CARD-001','RULE:INT-006','RULE:INT-008','RULE:RT-007','RULE:RT-012','ROOM:03','ROOM:16',
+        'VIS:RB-P03-V01','VIS:RB-P09-V01','VIS:RB-P17-V03','VIS:RB-P18-V01','VIS:RB-P18-V02','VIS:RB-P18-V03','VIS:RB-P40-V02',
+    ]
+    if serious_wound_linked_backlog_ids != expected_linked_serious_wound_ids or any((backlog_rows_by_id.get(unit_id) or {}).get('status') != 'pilot-covered' for unit_id in expected_linked_serious_wound_ids):
+        failures.append({'check':'Serious Wound exact overlapping backlog-obligation closure'})
+
     required_fields = schema.get('required') or []
     schema_fields = set((schema.get('properties') or {}).keys())
     if set(required_fields) != schema_fields or schema.get('additionalProperties') is not False:
@@ -1165,7 +1419,7 @@ def validate(event_source_path: Path, exploration_source_path: Path, robot_sourc
             path = evidence_path(reference)
             if path is None or not path.exists():
                 failures.append({'check': 'semantic conflict evidence', 'conflictId': conflict.get('conflictId'), 'reference': reference})
-    if contradictions.get('counts') != {'conflicts':22,'resolvedByAuthority':10,'unresolved':9,'preservedBoundary':3}:
+    if contradictions.get('counts') != {'conflicts':28,'resolvedByAuthority':13,'unresolved':11,'preservedBoundary':4}:
         failures.append({'check': 'semantic conflict declared counts'})
 
     for record in records:
@@ -2012,6 +2266,109 @@ def validate(event_source_path: Path, exploration_source_path: Path, robot_sourc
     expected_queen_system_ids = ['SEM-ACT-SHOOT-001','SEM-ACT-BURST-001','SEM-ACTION-CARD-DRAW-001','SEM-INTRUDER-REPEL-001','SEM-QUEEN-ACTIVATION-001','SEM-QUEEN-HEALTH-SETUP-001','SEM-QUEEN-HIT-001','SEM-QUEEN-HEALTH-RESOLUTION-001','SEM-QUEEN-DEATH-001',*expected_queen_dispatch]
     if queen_system.get('ruleIds') != expected_queen_system_ids or any(fragment in not_yet_text for fragment in ('all remaining Item/Queen Health','all Queen Health')):
         failures.append({'check':'Queen Health coverage stale not-yet-covered claim'})
+
+    expected_serious_wound_rule_ids = {expected['ruleId'] for expected in EXPECTED_SERIOUS_WOUND_OCCURRENCES.values()}
+    actual_serious_wound_rule_ids = {rule_id for rule_id in record_by_id if re.fullmatch(r'SEM-SERIOUS-WOUND-\d+-[A-Z0-9]+-001',rule_id)}
+    if actual_serious_wound_rule_ids != expected_serious_wound_rule_ids:
+        failures.append({'check':'Serious Wound semantic physical face-record closure','missing':sorted(expected_serious_wound_rule_ids-actual_serious_wound_rule_ids),'extra':sorted(actual_serious_wound_rule_ids-expected_serious_wound_rule_ids)})
+    for occurrence_id,expected in EXPECTED_SERIOUS_WOUND_OCCURRENCES.items():
+        source_face = serious_wound_by_occurrence.get(occurrence_id) or {}
+        item = record_by_id.get(expected['ruleId']) or {}
+        code = occurrence_id.removeprefix('TTS-SERIOUS-WOUND-').removesuffix('-FACE')
+        assertions = {row.get('assertionId'):row for row in item.get('sourceAssertions') or []}
+        scan = assertions.get(f'SA-SWF-{code}-SCAN') or {}
+        general = assertions.get(f'SA-SWF-{code}-GENERAL') or {}
+        expected_source_id = 'SRC-SERIOUS-WOUND-'+code
+        if (scan.get('sourceId'),scan.get('sourceSha256'),scan.get('sourceText'),scan.get('textKind')) != (expected_source_id,expected['sha256'],source_face.get('printedBody'),'verbatim') or general.get('sourceId') != 'SRC-RULEBOOK':
+            failures.append({'check':'Serious Wound semantic exact scan/general assertion projection','occurrenceId':occurrence_id})
+        if item.get('title') != f'Serious Wound physical occurrence {code}' or item.get('status') != 'source-backed-with-open-question' or item.get('authority',{}).get('highest') != 'official-primary' or item.get('namedIdentityRefs') != [] or item.get('sourceVariants') != []:
+            failures.append({'check':'Serious Wound face authority/no-title-identity-join lock','occurrenceId':occurrence_id})
+        expected_questions = ['SEM-Q-036']
+        if expected['title'] in {'LUNGS','GUTS','BLEEDING'}:
+            expected_questions.append('SEM-Q-037')
+        if expected['title'] == 'LUNGS':
+            expected_questions.insert(1,'SEM-Q-034')
+        if expected['title'] == 'BODY':
+            expected_questions.append('SEM-Q-035')
+        if expected['cardId'] == 404800:
+            expected_questions.append('SEM-Q-033')
+        expected_questions = list(dict.fromkeys(expected_questions))
+        if item.get('unresolvedQuestionRefs') != expected_questions:
+            failures.append({'check':'Serious Wound face exact no-default question projection','occurrenceId':occurrence_id})
+        operations = item.get('operations') or []
+        if not operations or any(op.get('sourceSentenceId') not in {row.get('sentenceId') for row in source_face.get('sentences') or []} or op.get('sourceRegionId') != (source_face.get('regions') or [{},{},{}])[2].get('regionId') or op.get('sourcePanelId') != (source_face.get('panels') or [{},{}])[1].get('panelId') for op in operations):
+            failures.append({'check':'Serious Wound face operation-to-sentence/panel/region closure','occurrenceId':occurrence_id})
+        if item.get('duration',{}).get('kind') != 'persistent-while-this-physical-card-is-owned; triggered clauses recur only at their printed timing' or 'exact selected FaceURL/source SHA-256' not in item.get('stacking',{}).get('policy',''):
+            failures.append({'check':'Serious Wound immediate/persistent duration and exact-duplicate stacking lock','occurrenceId':occurrence_id})
+        if expected['title'] == 'LUNGS':
+            local_ops = [op for op in operations if 'SEM-Q-034' in op.get('objectRef','')]
+            if len(local_ops) != 1 or any(op.get('invokeRuleId') == 'SEM-INT-006' and 'local' in op.get('objectRef','').lower() for op in operations):
+                failures.append({'check':'Serious Wound LUNGS local glyph no-default lock','occurrenceId':occurrence_id})
+        if expected['cardId'] == 404800 and not any(op.get('operationType') == 'resolve-open-alternative' and 'SEM-Q-033' in op.get('objectRef','') for op in operations):
+            failures.append({'check':'Serious Wound KNEE local glyph no-default lock','occurrenceId':occurrence_id})
+        if expected['title'] == 'BODY' and not any(op.get('operationType') == 'resolve-open-alternative' and 'SEM-Q-035' in op.get('objectRef','') for op in operations):
+            failures.append({'check':'Serious Wound BODY Hand Size no-default lock','occurrenceId':occurrence_id})
+
+    serious_wound_gain = record_by_id.get('SEM-SERIOUS-WOUND-GAIN-001') or {}
+    gain_ops = serious_wound_gain.get('operations') or []
+    gain_dispatch = next((op.get('dispatchRuleIds') for op in gain_ops if op.get('dispatchRuleIds')), None)
+    expected_serious_wound_dispatch = [EXPECTED_SERIOUS_WOUND_OCCURRENCES[occurrence_id]['ruleId'] for occurrence_id in expected_serious_wound_ids]
+    if gain_dispatch != expected_serious_wound_dispatch or [op.get('operationType') for op in gain_ops] != ['evaluate-condition','resolve-open-alternative','draw-random','resolve-open-alternative','select-target','place-component','resolve-open-alternative','change-value','resolve-open-alternative','invoke-selected-process','invoke-process','resolve-open-alternative'] or (gain_ops[4] if len(gain_ops)>4 else {}).get('objectRef') != 'leftmost Health Section without a Serious Wound' or 'all three slots' not in (gain_ops[5] if len(gain_ops)>5 else {}).get('objectRef',''):
+        failures.append({'check':'Serious Wound finite draw/place/displace/activate/dispatch operation order lock'})
+    if any(op.get('operationType') == 'shuffle' for op in gain_ops) or 'never reshuffle' not in serious_wound_gain.get('partialResolution',{}).get('onImpossible','') or serious_wound_gain.get('unresolvedQuestionRefs') != ['SEM-Q-030','SEM-Q-031','SEM-Q-032','SEM-Q-036','SEM-Q-038']:
+        failures.append({'check':'Serious Wound lifecycle/no-reshuffle/no-default gain lock'})
+    serious_wound_setup = record_by_id.get('SEM-SERIOUS-WOUND-SETUP-001') or {}
+    setup_ops = serious_wound_setup.get('operations') or []
+    if [op.get('operationType') for op in setup_ops] != ['shuffle','transition-zone','set-state'] or (setup_ops[0].get('repeat') or {}).get('physicalCardCount') != 27 or (setup_ops[1].get('transition') or {}).get('to') != 'tax.scaffold.zone.deck' or 'face down' not in setup_ops[1].get('objectRef',''):
+        failures.append({'check':'Serious Wound exact 27-card face-down setup lock'})
+    serious_wound_discard = record_by_id.get('SEM-SERIOUS-WOUND-DISCARD-001') or {}
+    discard_ops = serious_wound_discard.get('operations') or []
+    if [op.get('operationType') for op in discard_ops] != ['select-target','transition-zone','set-state','evaluate-condition','set-state'] or (discard_ops[1].get('transition') or {}).get('to') != 'tax.scaffold.zone.discard-pile' or 'slide' not in discard_ops[2].get('objectRef','') or 'does not move' not in discard_ops[3].get('objectRef','') or serious_wound_discard.get('decisions',[{}])[0].get('ownerRef') != 'P-OWNER':
+        failures.append({'check':'Serious Wound discard/owner/slide/no-Health-move lifecycle lock'})
+    serious_wound_stacking = record_by_id.get('SEM-SERIOUS-WOUND-STACKING-001') or {}
+    if [op.get('operationType') for op in serious_wound_stacking.get('operations') or []] != ['evaluate-condition','set-state','evaluate-condition'] or 'exact selected FaceURL' not in json.dumps(serious_wound_stacking,ensure_ascii=False) or 'title' not in (serious_wound_stacking.get('operations') or [{},{},{}])[2].get('objectRef','').lower():
+        failures.append({'check':'Serious Wound duplicate exact-asset stacking/no-title-default lock'})
+    variant_boundary = record_by_id.get('SEM-SERIOUS-WOUND-VARIANT-BOUNDARIES-001') or {}
+    variant_rows = variant_boundary.get('sourceVariants') or []
+    if variant_boundary.get('status') != 'source-variant' or len(variant_rows) != 14 or len(variant_boundary.get('sourceAssertions') or []) != 6 or len(variant_boundary.get('operations') or []) != 15 or any(row.get('sourceAssertionId') not in {assertion.get('assertionId') for assertion in variant_boundary.get('sourceAssertions') or []} for row in variant_rows) or 'no display-title' not in (variant_boundary.get('operations') or [{}])[-1].get('objectRef',''):
+        failures.append({'check':'Serious Wound selector-gap/licensed/official variant preservation lock'})
+    health_record = record_by_id.get('SEM-INT-006') or {}
+    health_invokes = [op.get('invokeRuleId') for op in health_record.get('operations') or [] if op.get('invokeRuleId')]
+    room03_invokes = [op.get('invokeRuleId') for op in (record_by_id.get('SEM-ROOM-03') or {}).get('operations') or [] if op.get('invokeRuleId')]
+    room16_ops = (record_by_id.get('SEM-ROOM-16') or {}).get('operations') or []
+    robot_medical_invokes = [op.get('invokeRuleId') for op in (record_by_id.get('SEM-ROBOT-MEDICAL-001') or {}).get('operations') or [] if op.get('invokeRuleId')]
+    if health_invokes != ['SEM-SERIOUS-WOUND-GAIN-001','SEM-SERIOUS-WOUND-DISCARD-001'] or room03_invokes[-1:] != ['SEM-SERIOUS-WOUND-DISCARD-001'] or len(room16_ops) < 2 or room16_ops[-1].get('invokeRuleId') != 'SEM-SERIOUS-WOUND-DISCARD-001' or not room16_ops[1].get('conditionRefs') or robot_medical_invokes[-1:] != ['SEM-SERIOUS-WOUND-DISCARD-001']:
+        failures.append({'check':'Serious Wound Health/Room/Surgery/Robot reusable-procedure integration lock'})
+    expected_serious_wound_question_blocks = {
+        'SEM-Q-030':['SEM-SERIOUS-WOUND-GAIN-001'],
+        'SEM-Q-031':['SEM-SERIOUS-WOUND-GAIN-001'],
+        'SEM-Q-032':['SEM-SERIOUS-WOUND-GAIN-001'],
+        'SEM-Q-033':[expected['ruleId'] for expected in EXPECTED_SERIOUS_WOUND_OCCURRENCES.values() if expected['cardId']==404800],
+        'SEM-Q-034':[expected['ruleId'] for expected in EXPECTED_SERIOUS_WOUND_OCCURRENCES.values() if expected['title']=='LUNGS'],
+        'SEM-Q-035':[expected['ruleId'] for expected in EXPECTED_SERIOUS_WOUND_OCCURRENCES.values() if expected['title']=='BODY'],
+        'SEM-Q-036':['SEM-SERIOUS-WOUND-GAIN-001',*expected_serious_wound_dispatch],
+        'SEM-Q-037':[expected['ruleId'] for expected in EXPECTED_SERIOUS_WOUND_OCCURRENCES.values() if expected['title'] in {'LUNGS','GUTS','BLEEDING'}],
+        'SEM-Q-038':['SEM-SERIOUS-WOUND-GAIN-001'],
+    }
+    for question_id,blocks in expected_serious_wound_question_blocks.items():
+        question = question_by_id.get(question_id) or {}
+        if question.get('defaultProhibited') is not True or question.get('blocksRuleIds') != blocks or len(question.get('alternatives') or []) != 3:
+            failures.append({'check':'Serious Wound ambiguity no-default alternatives/linkage','questionId':question_id})
+    serious_wound_conflicts = {row.get('conflictId'):row for row in conflict_rows if row.get('conflictId') in {'SC-023','SC-024','SC-025','SC-026','SC-027','SC-028'}}
+    if set(serious_wound_conflicts) != {'SC-023','SC-024','SC-025','SC-026','SC-027','SC-028'} or [serious_wound_conflicts[key].get('status') for key in ('SC-023','SC-024','SC-025','SC-026','SC-027','SC-028')] != ['resolved-by-authority','resolved-by-authority','preserved-boundary','resolved-by-authority','unresolved','unresolved'] or serious_wound_conflicts['SC-027'].get('questionId') != 'SEM-Q-033' or serious_wound_conflicts['SC-028'].get('questionId') != 'SEM-Q-034':
+        failures.append({'check':'Serious Wound source-variant authority/conflict closure'})
+    actual_serious_wound_lock_ids = set(EXPECTED_SERIOUS_WOUND_RECORD_DIGESTS) & set(record_by_id)
+    if actual_serious_wound_lock_ids != set(EXPECTED_SERIOUS_WOUND_RECORD_DIGESTS):
+        failures.append({'check':'independently locked Serious Wound semantic projection','missing':sorted(set(EXPECTED_SERIOUS_WOUND_RECORD_DIGESTS)-actual_serious_wound_lock_ids)})
+    for rule_id,expected_digest in EXPECTED_SERIOUS_WOUND_RECORD_DIGESTS.items():
+        item = record_by_id.get(rule_id)
+        actual_digest = hashlib.sha256(json.dumps(item,sort_keys=True,ensure_ascii=False,separators=(',',':')).encode()).hexdigest() if item else None
+        if actual_digest != expected_digest:
+            failures.append({'check':'independently locked Serious Wound semantic projection','ruleId':rule_id,'actual':actual_digest})
+    serious_wound_system = next((row for row in coverage.get('systems') or [] if row.get('system') == 'base Serious Wound card/component family'), {})
+    expected_serious_wound_system_ids = ['SEM-SERIOUS-WOUND-SETUP-001','SEM-SERIOUS-WOUND-GAIN-001','SEM-SERIOUS-WOUND-DISCARD-001','SEM-SERIOUS-WOUND-STACKING-001','SEM-SERIOUS-WOUND-VARIANT-BOUNDARIES-001',*expected_serious_wound_dispatch]
+    if serious_wound_system.get('ruleIds') != expected_serious_wound_system_ids or any(fragment in not_yet_text for fragment in ('all remaining Item/Serious Wound','all Serious Wound effects')):
+        failures.append({'check':'Serious Wound coverage stale not-yet-covered claim'})
     semantic_relation_ids = set(ontology_review.get('deferredSemanticRelationIds') or [])
     if semantic_relation_ids != {'rel.phase-part-of-round','rel.round-has-phase','rel.precedes','rel.follows','rel.turn-occurs-in-phase','rel.phase-has-turn','rel.process-has-timing-window','rel.decision-owned-by','rel.owns-decision','rel.information-visible-to','rel.transition-from','rel.transition-to'}:
         failures.append({'check': 'semantic relation handoff'})
@@ -2097,11 +2454,33 @@ def validate(event_source_path: Path, exploration_source_path: Path, robot_sourc
         'queenHealthFunctionalIconOccurrences': sum(len(item.get('iconOccurrences') or []) for item in queen_rows),
         'queenHealthRecords': len(actual_queen_rule_ids),
         'queenHealthBacklogTuples': sum((backlog_rows_by_id.get(backlog_id) or {}).get('pilotRuleIds') == rule_ids for backlog_id,rule_ids in expected_backlog_rules.items()),
+        'seriousWoundPhysicalOccurrences': len(serious_wound_rows),
+        'seriousWoundUniqueTitles': len({item.get('printedTitle') for item in serious_wound_rows}),
+        'seriousWoundSelectedFaceAssets': len({item.get('sourceSha256') for item in serious_wound_rows}),
+        'seriousWoundSourceFaceAssets': len(serious_wound_assets),
+        'seriousWoundGeneratedOccurrences': sum((item.get('sourceSelector') or {}).get('generatedSpriteSheetCell') is True for item in serious_wound_rows),
+        'seriousWoundDirectOccurrences': sum((item.get('sourceSelector') or {}).get('generatedSpriteSheetCell') is False for item in serious_wound_rows),
+        'seriousWoundSharedBackOccurrences': int(bool(serious_wound_sources.get('sharedBack'))),
+        'seriousWoundSourceSheets': int(bool(serious_wound_sources.get('sourceSheet'))),
+        'seriousWoundSelectorGaps': sum(not item.get('selectedByRootDeck') for item in serious_wound_assets),
+        'seriousWoundPhysicalRegions': sum(len(item.get('regions') or []) for item in serious_wound_rows),
+        'seriousWoundOperativeRegions': sum(sum(region.get('operative') is True for region in item.get('regions') or []) for item in serious_wound_rows),
+        'seriousWoundPhysicalPanels': sum(len(item.get('panels') or []) for item in serious_wound_rows),
+        'seriousWoundOperativePanels': sum(sum(panel.get('operative') is True for panel in item.get('panels') or []) for item in serious_wound_rows),
+        'seriousWoundPrintedSentences': sum(len(item.get('sentences') or []) for item in serious_wound_rows),
+        'seriousWoundFunctionalIconOccurrences': sum(len(item.get('iconOccurrences') or []) for item in serious_wound_rows),
+        'seriousWoundMatchedIconOccurrences': sum(sum(icon.get('semanticReferenceId') is not None for icon in item.get('iconOccurrences') or []) for item in serious_wound_rows),
+        'seriousWoundUnresolvedLocalGlyphOccurrences': sum(sum(icon.get('semanticReferenceId') is None for icon in item.get('iconOccurrences') or []) for item in serious_wound_rows),
+        'seriousWoundLicensedOccurrences': len(licensed_wounds),
+        'seriousWoundOfficialFaceOccurrences': sum(row.get('kind') in {'face','partial-face'} for row in official_wounds),
+        'seriousWoundOfficialBackOccurrences': sum(row.get('kind') == 'shared-back' for row in official_wounds),
+        'seriousWoundRecords': len(actual_serious_wound_rule_ids),
+        'seriousWoundBacklogTuples': sum((backlog_rows_by_id.get(backlog_id) or {}).get('pilotRuleIds') == rule_ids for backlog_id,rule_ids in expected_wound_backlog_rules.items()),
     }
     if actual_counts != EXPECTED:
         failures.append({'check': 'hard-coded semantic pilot counts', 'expected': EXPECTED, 'actual': actual_counts})
     expected_pilot_counts = {key: actual_counts[key] for key in ('records','sourceBacked','withOpenQuestion','sourceVariants','sourceAssertions','conditions','operations','decisions','informationPolicies','costs','targets','openQuestionReferences','variantReferences')}
-    if pilots.get('counts') != expected_pilot_counts or sources_data.get('counts') != {'sources': 90} or review.get('counts') != {'questions':35,'officialClarificationPreferred':10,'sourceAmbiguitiesIntroducedByPilot':25,'resolved':0,'open':35} or coverage.get('counts') != {'systems':19,'pilotRecords':167,'fullBaseSemanticCoverageClaimed':False}:
+    if pilots.get('counts') != expected_pilot_counts or sources_data.get('counts') != {'sources': 122} or review.get('counts') != {'questions':44,'officialClarificationPreferred':16,'sourceAmbiguitiesIntroducedByPilot':28,'resolved':0,'open':44} or coverage.get('counts') != {'systems':20,'pilotRecords':199,'fullBaseSemanticCoverageClaimed':False}:
         failures.append({'check': 'declared semantic counts'})
     covered_rule_ids = [rule_id for system in coverage.get('systems') or [] for rule_id in system.get('ruleIds') or []]
     if set(covered_rule_ids) != set(record_ids) or len(covered_rule_ids) != len(set(covered_rule_ids)) or coverage.get('counts', {}).get('fullBaseSemanticCoverageClaimed') is not False:
@@ -2130,7 +2509,7 @@ def validate(event_source_path: Path, exploration_source_path: Path, robot_sourc
     if len(blocked_units) != 1 or not blocked_units[0].get('sourcePath','').endswith('missionTaskDeck-023.png') or 'exact-source-operative-span' not in blocked_units[0].get('blockers',[]):
         failures.append({'check': 'semantic backlog inherited source blocker'})
     expected_backlog_channels = {'card-reference-source-tuple':350,'interpreted-rule-record':54,'intruder-help-instruction':18,'objective-help-unit':45,'official-faq-unit':28,'room-help-entry':25,'rulebook-visual-obligation':80}
-    expected_backlog_status = {'pending':425,'pilot-covered':174,'source-blocked':1}
+    expected_backlog_status = {'pending':410,'pilot-covered':189,'source-blocked':1}
     if backlog.get('counts') != {'units':600,'byChannel':expected_backlog_channels,'byStatus':expected_backlog_status}:
         failures.append({'check': 'semantic backlog declared counts'})
 
@@ -2148,7 +2527,7 @@ def validate(event_source_path: Path, exploration_source_path: Path, robot_sourc
                     failures.append({'check': 'semantic backlog rebuild execution', 'seed': seed, 'locale':locale_name, 'stderr': backlog_run.stderr})
                     continue
                 hashes = {}
-                for name, tracked in [('event-source-index.json',event_source_path),('exploration-source-index.json',exploration_source_path),('robot-source-index.json',robot_source_path),('attack-source-index.json',attack_source_path),('queen-health-source-index.json',queen_health_source_path),('source-registry.json',source_path),('semantic-rule.schema.json',schema_path),('semantic-vocabulary.json',semantic_vocabulary_path),('room-icon-denotations.json',room_icon_path),('pilots.json',pilots_path),('review-gates.json',review_path),('contradictions.json',contradictions_path),('coverage.json',coverage_path),('backlog.json',backlog_path)]:
+                for name, tracked in [('event-source-index.json',event_source_path),('exploration-source-index.json',exploration_source_path),('robot-source-index.json',robot_source_path),('attack-source-index.json',attack_source_path),('queen-health-source-index.json',queen_health_source_path),('serious-wound-source-index.json',serious_wound_source_path),('source-registry.json',source_path),('semantic-rule.schema.json',schema_path),('semantic-vocabulary.json',semantic_vocabulary_path),('room-icon-denotations.json',room_icon_path),('pilots.json',pilots_path),('review-gates.json',review_path),('contradictions.json',contradictions_path),('coverage.json',coverage_path),('backlog.json',backlog_path)]:
                     rebuilt = Path(temp_dir) / name
                     hashes[name] = sha(rebuilt) if rebuilt.is_file() else None
                     if not rebuilt.is_file() or hashes[name] != sha(tracked):
@@ -2167,6 +2546,7 @@ def main() -> int:
     parser.add_argument('--robot-source-index', type=Path, default=DIR/'robot-source-index.json')
     parser.add_argument('--attack-source-index', type=Path, default=DIR/'attack-source-index.json')
     parser.add_argument('--queen-health-source-index', type=Path, default=DIR/'queen-health-source-index.json')
+    parser.add_argument('--serious-wound-source-index', type=Path, default=DIR/'serious-wound-source-index.json')
     parser.add_argument('--source-registry', type=Path, default=DIR/'source-registry.json')
     parser.add_argument('--schema', type=Path, default=DIR/'semantic-rule.schema.json')
     parser.add_argument('--semantic-vocabulary', type=Path, default=DIR/'semantic-vocabulary.json')
@@ -2180,7 +2560,7 @@ def main() -> int:
     parser.add_argument('--report', action='store_true')
     args = parser.parse_args()
     try:
-        report = validate(args.event_source_index,args.exploration_source_index,args.robot_source_index,args.attack_source_index,args.queen_health_source_index,args.source_registry,args.schema,args.semantic_vocabulary,args.room_icon_denotations,args.pilots,args.review_gates,args.contradictions,args.coverage,args.backlog,reproducibility=not args.skip_reproducibility)
+        report = validate(args.event_source_index,args.exploration_source_index,args.robot_source_index,args.attack_source_index,args.queen_health_source_index,args.serious_wound_source_index,args.source_registry,args.schema,args.semantic_vocabulary,args.room_icon_denotations,args.pilots,args.review_gates,args.contradictions,args.coverage,args.backlog,reproducibility=not args.skip_reproducibility)
     except (DuplicateJsonKeyError,json.JSONDecodeError) as error:
         report = {'schemaVersion':1,'passed':False,'checks':{},'failureCount':1,'failures':[{'check':'strict JSON parsing','error':str(error)}]}
     if args.report and args.pilots.resolve() == (DIR/'pilots.json').resolve():

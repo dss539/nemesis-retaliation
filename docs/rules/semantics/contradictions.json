@@ -3,10 +3,10 @@
   "recordType": "semantic-conflict-register",
   "policy": "Readable source differences remain separate. Authority may resolve a general rule without rewriting lower-authority component wording; unresolved conflicts never receive a default.",
   "counts": {
-    "conflicts": 22,
-    "resolvedByAuthority": 10,
-    "unresolved": 9,
-    "preservedBoundary": 3
+    "conflicts": 28,
+    "resolvedByAuthority": 13,
+    "unresolved": 11,
+    "preservedBoundary": 4
   },
   "conflicts": [
     {
@@ -393,6 +393,114 @@
       ],
       "difference": "Every TTS face includes “If the card was drawn by a Character” while QUEEN_CARDS_DATA stores only discard/effect fields. BGA keys 1–12 form twelve independent licensed rows, but their suffixes are not printed numbers or source-backed TTS deck order; duplicate Repel/Activate rows cannot be paired one-to-one with duplicate TTS GUIDs by ordinal.",
       "resolution": "Retain all twelve TTS physical occurrences, ten asset tuples, and twelve BGA rows independently. Candidate sets use exact structured tuples and multiplicity only; they never become title, filename, ordinal, or arbitrary duplicate-copy identity joins."
+    },
+    {
+      "conflictId": "SC-023",
+      "title": "Official EYES “Shoot results” versus TTS “Shoot values” and licensed lowercase result",
+      "status": "resolved-by-authority",
+      "questionId": null,
+      "affectedRuleIds": [
+        "SEM-SERIOUS-WOUND-VARIANT-BOUNDARIES-001"
+      ],
+      "evidenceRefs": [
+        "SRC-RULEBOOK",
+        "SRC-BGA-SERIOUS-WOUNDS",
+        "docs/rules/semantics/serious-wound-source-index.json"
+      ],
+      "difference": "Two official visible EYES occurrences say “+1 to all your Shoot results.”; the selected TTS sheet face says “Shoot values”; the licensed row says lowercase “shoot results.” No official occurrence identifies a TTS GUID copy.",
+      "resolution": "Official wording controls only each exact publisher occurrence. Preserve all three TTS physical copies and the licensed row independently; do not create a title-only copy crosswalk."
+    },
+    {
+      "conflictId": "SC-024",
+      "title": "Official partial ARM wording versus TTS and licensed variants",
+      "status": "resolved-by-authority",
+      "questionId": null,
+      "affectedRuleIds": [
+        "SEM-SERIOUS-WOUND-VARIANT-BOUNDARIES-001"
+      ],
+      "evidenceRefs": [
+        "SRC-RULEBOOK",
+        "SRC-BGA-SERIOUS-WOUNDS",
+        "docs/rules/semantics/serious-wound-source-index.json"
+      ],
+      "difference": "The official page-3 exposed fragment uses “immediately” and plural “Items”; TTS uses “instantly” and singular “the Item”; licensed uses “immediately” and lowercase plural “items.” The official face is partly overlapped.",
+      "resolution": "The official visible fragment controls only that partial occurrence; no missing text is reconstructed and no TTS physical copy is selected by title."
+    },
+    {
+      "conflictId": "SC-025",
+      "title": "Direct LEG/KNEE root selectors versus unselected sheet cells and licensed rows",
+      "status": "preserved-boundary",
+      "questionId": null,
+      "affectedRuleIds": [
+        "SEM-SERIOUS-WOUND-VARIANT-BOUNDARIES-001"
+      ],
+      "evidenceRefs": [
+        "SRC-SERIOUS-WOUND-SHEET",
+        "SRC-SERIOUS-WOUND-VARIANT-38-CELL-04",
+        "SRC-SERIOUS-WOUND-VARIANT-38-CELL-06",
+        "SRC-BGA-SERIOUS-WOUNDS",
+        "docs/rules/semantics/serious-wound-source-index.json"
+      ],
+      "difference": "The root deck selects three direct KNEE and three direct LEG faces. Same-title sheet cells 6 and 4 print materially different scope/timing but have no root DeckID/GUID selector; licensed rows differ again.",
+      "resolution": "Only full raw CardID/GUID/CustomDeck/URL tuples define the six physical copies. Keep both selector-gap cells and all licensed rows independent; title, body, source cell, and CardID modulo never pair them."
+    },
+    {
+      "conflictId": "SC-026",
+      "title": "BODY Hand Size versus licensed Cleanup-only refill wording",
+      "status": "resolved-by-authority",
+      "questionId": null,
+      "affectedRuleIds": [
+        "SEM-SERIOUS-WOUND-VARIANT-BOUNDARIES-001",
+        "SEM-SERIOUS-WOUND-3805-351AA8-001",
+        "SEM-SERIOUS-WOUND-3805-6175A8-001",
+        "SEM-SERIOUS-WOUND-3805-74C9B5-001"
+      ],
+      "evidenceRefs": [
+        "SRC-BGA-SERIOUS-WOUNDS",
+        "docs/rules/semantics/serious-wound-source-index.json",
+        "docs/rules/open-questions.md:SEM-Q-035"
+      ],
+      "difference": "TTS says “Your Hand Size is 1 lower.” while licensed BODY says to draw to 4 instead of 5 during Drawing Action Cards. The rulebook does not define Hand Size.",
+      "resolution": "The exact TTS text remains authoritative for its source-bound physical occurrences and licensed wording remains independent; semantic scope is unresolved under SEM-Q-035."
+    },
+    {
+      "conflictId": "SC-027",
+      "title": "Direct KNEE local glyph versus sheet Secure and licensed cautious wording",
+      "status": "unresolved",
+      "questionId": "SEM-Q-033",
+      "affectedRuleIds": [
+        "SEM-SERIOUS-WOUND-VARIANT-BOUNDARIES-001",
+        "SEM-SERIOUS-WOUND-404800-FD77B5-001",
+        "SEM-SERIOUS-WOUND-404800-1642C4-001",
+        "SEM-SERIOUS-WOUND-404800-A0A4F8-001"
+      ],
+      "evidenceRefs": [
+        "SRC-SERIOUS-WOUND-VARIANT-38-CELL-06",
+        "SRC-BGA-SERIOUS-WOUNDS",
+        "docs/rules/semantics/serious-wound-source-index.json",
+        "docs/rules/open-questions.md:SEM-Q-033"
+      ],
+      "difference": "The three direct physical KNEE copies contain an unmatched two-lobe glyph. The unselected sheet cell uses the recognized Secure glyph and first-Action timing; licensed text names a malformed Make a Move Cautiously phrase.",
+      "resolution": "No default; retain the direct local glyph, selector-gap sheet face, and licensed row independently."
+    },
+    {
+      "conflictId": "SC-028",
+      "title": "LUNGS local terminal glyph versus licensed HP placeholder",
+      "status": "unresolved",
+      "questionId": "SEM-Q-034",
+      "affectedRuleIds": [
+        "SEM-SERIOUS-WOUND-VARIANT-BOUNDARIES-001",
+        "SEM-SERIOUS-WOUND-3801-6466B5-001",
+        "SEM-SERIOUS-WOUND-3801-17CCB1-001",
+        "SEM-SERIOUS-WOUND-3801-5444E8-001"
+      ],
+      "evidenceRefs": [
+        "SRC-BGA-SERIOUS-WOUNDS",
+        "docs/rules/semantics/serious-wound-source-index.json",
+        "docs/rules/open-questions.md:SEM-Q-034"
+      ],
+      "difference": "The TTS LUNGS face uses a standalone stepped-zigzag glyph that did not exactly match page-40 Character Health; licensed LUNGS uses <HP>.",
+      "resolution": "No default; preserve literal morphology and licensed placeholder independently until exact source-scoped evidence establishes identity."
     }
   ]
 }

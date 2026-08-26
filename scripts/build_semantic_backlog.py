@@ -61,10 +61,12 @@ exploration_sources=load('docs/rules/semantics/exploration-source-index.json')
 robot_sources=load('docs/rules/semantics/robot-source-index.json')
 attack_sources=load('docs/rules/semantics/attack-source-index.json')
 queen_health_sources=load('docs/rules/semantics/queen-health-source-index.json')
+serious_wound_sources=load('docs/rules/semantics/serious-wound-source-index.json')
 exploration_rule_ids=[row['semanticRuleId'] for row in exploration_sources['faces']]
 robot_rule_ids=[row['semanticRuleId'] for row in robot_sources['faces']]
 attack_rule_ids=[row['semanticRuleId'] for row in attack_sources['faces']]
 queen_health_rule_ids=[row['semanticRuleId'] for row in queen_health_sources['faces']]
+serious_wound_rule_ids=[row['semanticRuleId'] for row in serious_wound_sources['faces']]
 
 # Pilot-to-source obligation links. These are evidence coverage links, not claims
 # that the entire channel/category is semantically complete.
@@ -86,6 +88,10 @@ for face in attack_sources['faces']:
  links[face['backlogUnitId']]=[face['semanticRuleId']]
 for face in queen_health_sources['faces']:
  links.setdefault(face['backlogUnitId'],[]).append(face['semanticRuleId'])
+for asset in serious_wound_sources['sourceFaceAssets']:
+ unit_id='CARD:'+asset['sourceSha256'][:16]
+ physical_rule_ids=[row['semanticRuleId'] for row in serious_wound_sources['faces'] if row['sourcePath']==asset['sourcePath']]
+ links[unit_id]=physical_rule_ids or ['SEM-SERIOUS-WOUND-VARIANT-BOUNDARIES-001']
 links['FAQ:FQ-P02-U06']=['SEM-ACT-EXPLORE-001',*[row['semanticRuleId'] for row in exploration_sources['faces'] if any(item['sourceUnitId']=='FQ-P02-U06' for item in row['faqOccurrences'])]]
 links['FAQ:FQ-P02-U07']=['SEM-ACT-EXPLORE-001',*[row['semanticRuleId'] for row in exploration_sources['faces'] if any(item['sourceUnitId']=='FQ-P02-U07' for item in row['faqOccurrences'])]]
 links['VIS:RB-P24-V01']=['SEM-ACT-EXPLORE-001','SEM-EXPLORATION-5639-001']
@@ -128,6 +134,28 @@ links['VIS:RB-P35-V02']=['SEM-QUEEN-HEALTH-RESOLUTION-001',*queen_health_rule_id
 links['VIS:RB-P35-V03']=['SEM-QUEEN-HIT-001','SEM-QUEEN-HEALTH-RESOLUTION-001']
 links['OBJ:P1-GT-06']=['SEM-QUEEN-DEATH-001']
 links['OBJ:P2-GT-06']=['SEM-QUEEN-DEATH-001']
+serious_wound_setup_ids=['SEM-SERIOUS-WOUND-SETUP-001','SEM-SERIOUS-WOUND-GAIN-001','SEM-SERIOUS-WOUND-DISCARD-001','SEM-SERIOUS-WOUND-STACKING-001','SEM-SERIOUS-WOUND-VARIANT-BOUNDARIES-001']
+serious_wound_pass_ids=[row['semanticRuleId'] for row in serious_wound_sources['faces'] if row['effectKind'] in {'pass-oxygen-or-local-glyph','pass-contamination','pass-health-loss'}]
+serious_wound_body_ids=[row['semanticRuleId'] for row in serious_wound_sources['faces'] if row['effectKind']=='hand-size-modifier']
+serious_wound_move_ids=[row['semanticRuleId'] for row in serious_wound_sources['faces'] if row['effectKind'] in {'move-cost-modifier','local-action-cost-modifier'}]
+serious_wound_hand_ids=[row['semanticRuleId'] for row in serious_wound_sources['faces'] if row['effectKind']=='use-item-cost-modifier']
+serious_wound_guts_ids=[row['semanticRuleId'] for row in serious_wound_sources['faces'] if row['effectKind']=='pass-contamination']
+serious_wound_lungs_ids=[row['semanticRuleId'] for row in serious_wound_sources['faces'] if row['effectKind']=='pass-oxygen-or-local-glyph']
+links['RULE:INT-006']=[*links.get('RULE:INT-006',[]),*serious_wound_setup_ids,*serious_wound_rule_ids]
+links['RULE:RT-007']=[*links.get('RULE:RT-007',[]),*serious_wound_pass_ids]
+links['RULE:RT-012']=[*links.get('RULE:RT-012',[]),*serious_wound_body_ids]
+links['RULE:ACT-MOVE-001']=[*links.get('RULE:ACT-MOVE-001',[]),*serious_wound_move_ids]
+links['RULE:ACT-CARD-001']=[*links.get('RULE:ACT-CARD-001',[]),*serious_wound_hand_ids]
+links['RULE:INT-008']=[*links.get('RULE:INT-008',[]),*serious_wound_guts_ids]
+links['ROOM:03']=[*links.get('ROOM:03',[]),'SEM-SERIOUS-WOUND-DISCARD-001']
+links['ROOM:16']=[*links.get('ROOM:16',[]),'SEM-SERIOUS-WOUND-DISCARD-001']
+links['VIS:RB-P03-V01']=[*links.get('VIS:RB-P03-V01',[]),'SEM-SERIOUS-WOUND-SETUP-001','SEM-SERIOUS-WOUND-VARIANT-BOUNDARIES-001']
+links['VIS:RB-P09-V01']=[*links.get('VIS:RB-P09-V01',[]),'SEM-SERIOUS-WOUND-SETUP-001']
+links['VIS:RB-P17-V03']=[*serious_wound_lungs_ids]
+links['VIS:RB-P18-V01']=['SEM-SERIOUS-WOUND-GAIN-001','SEM-SERIOUS-WOUND-DISCARD-001','SEM-SERIOUS-WOUND-STACKING-001']
+links['VIS:RB-P18-V02']=['SEM-SERIOUS-WOUND-GAIN-001']
+links['VIS:RB-P18-V03']=['SEM-SERIOUS-WOUND-SETUP-001','SEM-SERIOUS-WOUND-GAIN-001','SEM-SERIOUS-WOUND-VARIANT-BOUNDARIES-001']
+links['VIS:RB-P40-V02']=[*links.get('VIS:RB-P40-V02',[]),*serious_wound_rule_ids]
 for unit_id,rule_ids in links.items():
  links[unit_id]=list(dict.fromkeys(rule_ids))
 for unit in units:

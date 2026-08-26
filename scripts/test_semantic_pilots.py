@@ -10,7 +10,7 @@ import unittest
 REPO=Path(__file__).resolve().parents[1]
 DIR=REPO/'docs/rules/semantics'
 VALIDATOR=REPO/'scripts/validate_semantic_pilots.py'
-FILES=('event-source-index.json','exploration-source-index.json','robot-source-index.json','attack-source-index.json','queen-health-source-index.json','source-registry.json','semantic-rule.schema.json','semantic-vocabulary.json','room-icon-denotations.json','pilots.json','review-gates.json','contradictions.json','coverage.json','backlog.json')
+FILES=('event-source-index.json','exploration-source-index.json','robot-source-index.json','attack-source-index.json','queen-health-source-index.json','serious-wound-source-index.json','source-registry.json','semantic-rule.schema.json','semantic-vocabulary.json','room-icon-denotations.json','pilots.json','review-gates.json','contradictions.json','coverage.json','backlog.json')
 
 
 def load(path): return json.loads(path.read_text(encoding='utf-8'))
@@ -19,7 +19,7 @@ def load(path): return json.loads(path.read_text(encoding='utf-8'))
 class SemanticPilotTests(unittest.TestCase):
     def run_validator(self, root=None, skip=False):
         base=root or DIR
-        command=['python3',str(VALIDATOR),'--event-source-index',str(base/'event-source-index.json'),'--exploration-source-index',str(base/'exploration-source-index.json'),'--robot-source-index',str(base/'robot-source-index.json'),'--attack-source-index',str(base/'attack-source-index.json'),'--queen-health-source-index',str(base/'queen-health-source-index.json'),'--source-registry',str(base/'source-registry.json'),'--schema',str(base/'semantic-rule.schema.json'),'--semantic-vocabulary',str(base/'semantic-vocabulary.json'),'--room-icon-denotations',str(base/'room-icon-denotations.json'),'--pilots',str(base/'pilots.json'),'--review-gates',str(base/'review-gates.json'),'--contradictions',str(base/'contradictions.json'),'--coverage',str(base/'coverage.json'),'--backlog',str(base/'backlog.json')]
+        command=['python3',str(VALIDATOR),'--event-source-index',str(base/'event-source-index.json'),'--exploration-source-index',str(base/'exploration-source-index.json'),'--robot-source-index',str(base/'robot-source-index.json'),'--attack-source-index',str(base/'attack-source-index.json'),'--queen-health-source-index',str(base/'queen-health-source-index.json'),'--serious-wound-source-index',str(base/'serious-wound-source-index.json'),'--source-registry',str(base/'source-registry.json'),'--schema',str(base/'semantic-rule.schema.json'),'--semantic-vocabulary',str(base/'semantic-vocabulary.json'),'--room-icon-denotations',str(base/'room-icon-denotations.json'),'--pilots',str(base/'pilots.json'),'--review-gates',str(base/'review-gates.json'),'--contradictions',str(base/'contradictions.json'),'--coverage',str(base/'coverage.json'),'--backlog',str(base/'backlog.json')]
         if skip: command.append('--skip-reproducibility')
         run=subprocess.run(command,cwd=REPO,check=False,capture_output=True,text=True,timeout=300)
         return run,json.loads(run.stdout)
@@ -28,15 +28,15 @@ class SemanticPilotTests(unittest.TestCase):
         run,report=self.run_validator()
         self.assertEqual(run.returncode,0,run.stdout+run.stderr)
         self.assertTrue(report['passed'])
-        self.assertEqual(report['checks']['records'],167)
-        self.assertEqual(report['checks']['operations'],773)
-        self.assertEqual(report['checks']['decisions'],80)
-        self.assertEqual(report['checks']['targets'],203)
-        self.assertEqual(report['checks']['openQuestions'],35)
+        self.assertEqual(report['checks']['records'],199)
+        self.assertEqual(report['checks']['operations'],858)
+        self.assertEqual(report['checks']['decisions'],83)
+        self.assertEqual(report['checks']['targets'],265)
+        self.assertEqual(report['checks']['openQuestions'],44)
         self.assertEqual(report['checks']['semanticNodes'],26)
-        self.assertEqual(report['checks']['conflicts'],22)
+        self.assertEqual(report['checks']['conflicts'],28)
         self.assertEqual(report['checks']['backlogUnits'],600)
-        self.assertEqual(report['checks']['backlogPilotCovered'],174)
+        self.assertEqual(report['checks']['backlogPilotCovered'],189)
         self.assertEqual(report['checks']['eventIdentities'],20)
         self.assertEqual(report['checks']['eventRecords'],20)
         self.assertEqual(report['checks']['eventBacklogTuples'],20)
@@ -65,6 +65,15 @@ class SemanticPilotTests(unittest.TestCase):
         self.assertEqual(report['checks']['queenHealthFunctionalIconOccurrences'],28)
         self.assertEqual(report['checks']['queenHealthRecords'],12)
         self.assertEqual(report['checks']['queenHealthBacklogTuples'],10)
+        self.assertEqual(report['checks']['seriousWoundPhysicalOccurrences'],27)
+        self.assertEqual(report['checks']['seriousWoundUniqueTitles'],9)
+        self.assertEqual(report['checks']['seriousWoundSelectedFaceAssets'],9)
+        self.assertEqual(report['checks']['seriousWoundSourceFaceAssets'],11)
+        self.assertEqual(report['checks']['seriousWoundPhysicalRegions'],81)
+        self.assertEqual(report['checks']['seriousWoundPrintedSentences'],42)
+        self.assertEqual(report['checks']['seriousWoundFunctionalIconOccurrences'],30)
+        self.assertEqual(report['checks']['seriousWoundRecords'],27)
+        self.assertEqual(report['checks']['seriousWoundBacklogTuples'],11)
         self.assertEqual(report['checks']['roomIconDenotations'],112)
 
     def test_high_risk_semantic_boundaries(self):
@@ -820,6 +829,177 @@ class SemanticPilotTests(unittest.TestCase):
         checks=run_mutation(lower_backlog_coordinated)
         self.assertIn('Queen Health exact backlog tuple projection',checks)
         self.assertIn('Queen Health exact overlapping backlog-obligation closure',checks)
+
+    def test_base_serious_wound_family_semantic_closure(self):
+        source=load(DIR/'serious-wound-source-index.json')
+        registry={row['sourceId']:row for row in load(DIR/'source-registry.json')['sources']}
+        by_id={row['ruleId']:row for row in load(DIR/'pilots.json')['records']}
+        backlog={row['semanticUnitId']:row for row in load(DIR/'backlog.json')['units']}
+        self.assertEqual(source['counts']['physicalFaceOccurrences'],27)
+        self.assertEqual(source['counts']['uniquePrintedTitles'],9)
+        self.assertEqual(source['counts']['uniqueSelectedFaceAssets'],9)
+        self.assertEqual(source['counts']['sourceFaceAssets'],11)
+        self.assertEqual(source['counts']['generatedPhysicalFaceOccurrences'],21)
+        self.assertEqual(source['counts']['directPhysicalFaceOccurrences'],6)
+        self.assertEqual(source['counts']['sourceSheetCells'],9)
+        self.assertEqual(source['counts']['selectedGeneratedCells'],7)
+        self.assertEqual(source['counts']['selectorGapCells'],2)
+        self.assertEqual(source['counts']['sharedBackSelectorReferences'],28)
+        self.assertEqual(source['counts']['physicalRegions'],81)
+        self.assertEqual(source['counts']['physicalPanels'],54)
+        self.assertEqual(source['counts']['operativePanels'],27)
+        self.assertEqual(source['counts']['printedSentenceOccurrences'],42)
+        self.assertEqual(source['counts']['physicalFunctionalIconOccurrences'],30)
+        self.assertEqual(source['counts']['physicalMatchedIconOccurrences'],24)
+        self.assertEqual(source['counts']['physicalUnresolvedLocalGlyphOccurrences'],6)
+        self.assertEqual(source['titleMultiplicity'],{title:3 for title in ('ARM','BLEEDING','BODY','EYES','GUTS','HAND','KNEE','LEG','LUNGS')})
+        self.assertEqual([row['generatedCell'] for row in source['sourceFaceAssets'] if not row['selectedByRootDeck']],[4,6])
+        self.assertTrue(all(row['licensedCrosswalk']['status']=='not-asserted' and row['officialCrosswalk']['status']=='not-asserted' for row in source['faces']))
+        self.assertTrue(all(row['semanticBodyPartTraitOrSeverityInferred'] is False for row in source['faces']))
+        self.assertEqual(len({row['seriousWoundOccurrenceId'] for row in source['faces']}),27)
+        self.assertEqual(len({row['ttsCardGuid'] for row in source['faces']}),27)
+        self.assertEqual(len({row['semanticRuleId'] for row in source['faces']}),27)
+        self.assertEqual(source['sharedBack']['rulesTextPresent'],False)
+        self.assertEqual(source['sharedBack']['separateRulesFace'],False)
+        self.assertEqual(source['familyCountEvidence']['licensedDigital']['physicalIdentityCrosswalkAsserted'],False)
+        self.assertEqual(source['faqSearchClosure']['baseApplicableOccurrences'],[])
+        self.assertEqual(len(source['licensedDigitalOccurrences']),9)
+        self.assertEqual(len(source['officialVisibleCounterparts']),5)
+        self.assertEqual(sum(row['kind'] in {'face','partial-face'} for row in source['officialVisibleCounterparts']),3)
+        self.assertEqual(sum(row['kind']=='shared-back' for row in source['officialVisibleCounterparts']),2)
+        physical_rule_ids=[row['semanticRuleId'] for row in source['faces']]
+        self.assertEqual(next(op['dispatchRuleIds'] for op in by_id['SEM-SERIOUS-WOUND-GAIN-001']['operations'] if op.get('dispatchRuleIds')),physical_rule_ids)
+        self.assertFalse(any(op['operationType']=='shuffle' for op in by_id['SEM-SERIOUS-WOUND-GAIN-001']['operations']))
+        self.assertEqual(by_id['SEM-SERIOUS-WOUND-SETUP-001']['operations'][0]['repeat']['physicalCardCount'],27)
+        self.assertEqual(by_id['SEM-SERIOUS-WOUND-DISCARD-001']['decisions'][0]['ownerRef'],'P-OWNER')
+        self.assertEqual(by_id['SEM-SERIOUS-WOUND-DISCARD-001']['operations'][1]['transition']['to'],'tax.scaffold.zone.discard-pile')
+        self.assertEqual(len(by_id['SEM-SERIOUS-WOUND-VARIANT-BOUNDARIES-001']['sourceVariants']),14)
+        for row in source['faces']:
+            self.assertIn(row['semanticRuleId'],by_id)
+            self.assertEqual(len(row['regions']),3)
+            self.assertEqual([region['role'] for region in row['regions']],['artwork-and-diagnostic-interface','printed-heading','operative-effect'])
+            self.assertEqual(len(row['panels']),2)
+            self.assertEqual([panel['role'] for panel in row['panels']],['printed-title-panel','operative-effect-panel'])
+            self.assertEqual(backlog[row['backlogUnitId']]['status'],'pilot-covered')
+            self.assertEqual(registry[row['sourceId']]['occurrenceId'],row['seriousWoundOccurrenceId'])
+        questions={row['questionId']:row for row in load(DIR/'review-gates.json')['questions']}
+        for question_id in [f'SEM-Q-{index:03d}' for index in range(30,39)]:
+            self.assertTrue(questions[question_id]['defaultProhibited'])
+
+    def test_serious_wound_specific_adversarial_corruptions_are_rejected(self):
+        def run_mutation(mutate):
+            with tempfile.TemporaryDirectory(prefix='semantic-serious-wound-negative-') as temp_dir:
+                root=Path(temp_dir)
+                data={name:load(DIR/name) for name in FILES}
+                mutate(data)
+                for name,payload in data.items():
+                    (root/name).write_text(json.dumps(payload,indent=2,ensure_ascii=False)+'\n',encoding='utf-8')
+                run,report=self.run_validator(root,skip=True)
+            self.assertNotEqual(run.returncode,0)
+            return {failure['check'] for failure in report['failures']}
+
+        def drop_face(data):
+            source=data['serious-wound-source-index.json']; source['faces']=source['faces'][1:]
+            source['counts']['physicalFaceOccurrences']-=1; source['counts']['generatedPhysicalFaceOccurrences']-=1
+            source['counts']['physicalRegions']-=3; source['counts']['operativeRegions']-=1
+        self.assertIn('Serious Wound source-index exact physical occurrence count',run_mutation(drop_face))
+
+        def duplicate_face(data):
+            source=data['serious-wound-source-index.json']; source['faces'].append(json.loads(json.dumps(source['faces'][0])))
+            source['counts']['physicalFaceOccurrences']+=1; source['counts']['generatedPhysicalFaceOccurrences']+=1
+            source['counts']['physicalRegions']+=3; source['counts']['operativeRegions']+=1
+        self.assertIn('Serious Wound source-index exact physical occurrence count',run_mutation(duplicate_face))
+
+        def collapse_repeated_title(data):
+            data['serious-wound-source-index.json']['titleMultiplicity']['EYES']=1
+        self.assertIn('Serious Wound repeated-title multiplicity/no-collapse lock',run_mutation(collapse_repeated_title))
+
+        def swap_sheet_cells(data):
+            assets=data['serious-wound-source-index.json']['sourceFaceAssets']
+            first=next(row for row in assets if row['assetKey']=='sheet-00'); second=next(row for row in assets if row['assetKey']=='sheet-01')
+            first['generatedCell'],second['generatedCell']=second['generatedCell'],first['generatedCell']
+        self.assertIn('Serious Wound independently locked source-face asset tuple',run_mutation(swap_sheet_cells))
+
+        def invent_modulo_join(data):
+            join=data['serious-wound-source-index.json']['faces'][0]['joinEvidence']
+            join.update({'identityJoin':'CardID modulo','cardIdModuloJoin':True,'basis':['cardId % 100']})
+        self.assertIn('Serious Wound title/body/folder/sequence/modulo/licensed join prohibited',run_mutation(invent_modulo_join))
+
+        def drift_selector(data):
+            data['serious-wound-source-index.json']['faces'][0]['sourceSelector']['guid']='ffffff'
+        self.assertIn('Serious Wound exact CardID/GUID/FaceURL/BackURL selector projection',run_mutation(drift_selector))
+
+        def invert_face_back(data):
+            face=data['serious-wound-source-index.json']['faces'][0]
+            face['sourceSelector'].update({'key':'BackURL','url':data['serious-wound-source-index.json']['sharedBack']['sourceSelector']['url'],'sideRole':'shared-non-operative-back'})
+        self.assertIn('Serious Wound exact CardID/GUID/FaceURL/BackURL selector projection',run_mutation(invert_face_back))
+
+        def swap_regions(data):
+            regions=data['serious-wound-source-index.json']['faces'][0]['regions']; regions[1],regions[2]=regions[2],regions[1]
+        self.assertIn('Serious Wound exact physical region roles/order',run_mutation(swap_regions))
+
+        def swap_panels(data):
+            panels=data['serious-wound-source-index.json']['faces'][0]['panels']; panels[0],panels[1]=panels[1],panels[0]
+        self.assertIn('Serious Wound exact physical panel roles/order/region linkage',run_mutation(swap_panels))
+
+        def swap_health_slot(data):
+            rule=next(row for row in data['pilots.json']['records'] if row['ruleId']=='SEM-SERIOUS-WOUND-GAIN-001')
+            rule['operations'][4]['objectRef']='rightmost Health Section without a Serious Wound'
+        self.assertIn('Serious Wound finite draw/place/displace/activate/dispatch operation order lock',run_mutation(swap_health_slot))
+
+        def swap_icons(data):
+            lungs=next(row for row in data['serious-wound-source-index.json']['faces'] if row['printedTitle']=='LUNGS')
+            lungs['iconOccurrences'][0]['semanticReferenceId'],lungs['iconOccurrences'][1]['semanticReferenceId']=lungs['iconOccurrences'][1]['semanticReferenceId'],lungs['iconOccurrences'][0]['semanticReferenceId']
+        self.assertIn('Serious Wound exact physical text/icon projection',run_mutation(swap_icons))
+
+        def drift_body(data):
+            data['serious-wound-source-index.json']['faces'][0]['printedBody']=data['serious-wound-source-index.json']['faces'][0]['printedBody'].replace('values.','values!')
+        self.assertIn('Serious Wound exact body/punctuation/order lock',run_mutation(drift_body))
+
+        def flatten_immediate_persistent(data):
+            rule=next(row for row in data['pilots.json']['records'] if row['ruleId']=='SEM-SERIOUS-WOUND-3803-AA0B48-001')
+            rule['duration']['kind']='instantaneous'
+        self.assertIn('Serious Wound immediate/persistent duration and exact-duplicate stacking lock',run_mutation(flatten_immediate_persistent))
+
+        def invent_title_stacking(data):
+            rule=next(row for row in data['pilots.json']['records'] if row['ruleId']=='SEM-SERIOUS-WOUND-STACKING-001')
+            rule['operations'][0]['objectRef']='whether owned Wounds share a display title'
+            rule['operations'][2]['objectRef']='display title establishes stacking equivalence'
+        self.assertIn('Serious Wound duplicate exact-asset stacking/no-title-default lock',run_mutation(invent_title_stacking))
+
+        def invent_reshuffle(data):
+            rule=next(row for row in data['pilots.json']['records'] if row['ruleId']=='SEM-SERIOUS-WOUND-GAIN-001')
+            rule['operations'].insert(1,json.loads(json.dumps(rule['operations'][0])))
+            for index,op in enumerate(rule['operations'],1): op['sequence']=index; op['stepId']=f'S{index:02d}'
+            rule['operations'][1]['operationType']='shuffle'; rule['operations'][1]['objectRef']='Serious Wound discard into deck'
+            data['pilots.json']['counts']['operations']+=1
+        self.assertIn('Serious Wound lifecycle/no-reshuffle/no-default gain lock',run_mutation(invent_reshuffle))
+
+        def lose_variant(data):
+            rule=next(row for row in data['pilots.json']['records'] if row['ruleId']=='SEM-SERIOUS-WOUND-VARIANT-BOUNDARIES-001')
+            rule['sourceVariants'].pop(); data['pilots.json']['counts']['variantReferences']-=1
+        self.assertIn('Serious Wound selector-gap/licensed/official variant preservation lock',run_mutation(lose_variant))
+
+        def invert_authority(data):
+            rule=next(row for row in data['pilots.json']['records'] if row['ruleId']=='SEM-SERIOUS-WOUND-3800-EE102C-001')
+            rule['authority']['highest']='source-bound-component-scan'
+        self.assertIn('Serious Wound face authority/no-title-identity-join lock',run_mutation(invert_authority))
+
+        def invent_default(data):
+            question=next(row for row in data['review-gates.json']['questions'] if row['questionId']=='SEM-Q-033')
+            question['defaultProhibited']=False
+        self.assertIn('Serious Wound ambiguity no-default alternatives/linkage',run_mutation(invent_default))
+
+        def lower_backlog_coordinated(data):
+            target='CARD:522c29d0874334ca'; backlog=data['backlog.json']
+            backlog['units']=[row for row in backlog['units'] if row['semanticUnitId']!=target]
+            backlog['counts']['units']-=1; backlog['counts']['byChannel']['card-reference-source-tuple']-=1; backlog['counts']['byStatus']['pilot-covered']-=1
+            source=data['serious-wound-source-index.json']; ledger=source['familyCountEvidence']['backlog']
+            ledger['faceUnitIds'].remove(target); ledger['linkedUnitIds'].remove(target); ledger['faceTupleCount']-=1
+            source['counts']['backlogTuples']-=1; source['counts']['backlogObligationsLinked']-=1
+        checks=run_mutation(lower_backlog_coordinated)
+        self.assertIn('Serious Wound exact backlog tuple projection',checks)
+        self.assertIn('Serious Wound exact overlapping backlog-obligation closure',checks)
 
     def test_base_event_family_semantic_closure(self):
         source=load(DIR/'event-source-index.json')
