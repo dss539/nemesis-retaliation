@@ -14,8 +14,8 @@
       "rulebook-visual-obligation": 80
     },
     "byStatus": {
-      "pending": 353,
-      "pilot-covered": 246,
+      "pending": 251,
+      "pilot-covered": 348,
       "source-blocked": 1
     }
   },
@@ -97,8 +97,12 @@
       "sourcePath": "docs/rules/01-round-and-turns.md",
       "sourceLocator": "RT-002",
       "authority": "project-interpretation",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ACTION-CARD-REACTION-001",
+        "SEM-ACTION-OFF-567800-961585-001",
+        "SEM-ACTION-OFF-568000-5A4763-001"
+      ],
       "blockers": []
     },
     {
@@ -108,8 +112,16 @@
       "sourcePath": "docs/rules/01-round-and-turns.md",
       "sourceLocator": "RT-003",
       "authority": "project-interpretation",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ACTION-CARD-REACTION-001",
+        "SEM-REACTION-DUCK-001",
+        "SEM-ACTION-REACTION-CE-569400-774D62-001",
+        "SEM-ACTION-REACTION-HGO-570700-AE6BC0-001",
+        "SEM-ACTION-REACTION-MS-569400-962AD8-001",
+        "SEM-ACTION-REACTION-OFF-568000-5A4763-001",
+        "SEM-ACTION-REACTION-REC-569000-06BD33-001"
+      ],
       "blockers": []
     },
     {
@@ -145,8 +157,11 @@
       "sourcePath": "docs/rules/01-round-and-turns.md",
       "sourceLocator": "RT-006",
       "authority": "project-interpretation",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ACTION-CARD-PLAY-001",
+        "SEM-ACTION-CARD-PAYMENT-001"
+      ],
       "blockers": []
     },
     {
@@ -237,7 +252,9 @@
         "SEM-RT-012",
         "SEM-SERIOUS-WOUND-3805-351AA8-001",
         "SEM-SERIOUS-WOUND-3805-6175A8-001",
-        "SEM-SERIOUS-WOUND-3805-74C9B5-001"
+        "SEM-SERIOUS-WOUND-3805-74C9B5-001",
+        "SEM-ACTION-DECK-SETUP-001",
+        "SEM-ACTION-CARD-DRAW-001"
       ],
       "blockers": []
     },
@@ -248,8 +265,18 @@
       "sourcePath": "docs/rules/01-round-and-turns.md",
       "sourceLocator": "RT-013",
       "authority": "project-interpretation",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ACTION-CARD-COMMAND-001",
+        "SEM-ACTION-OFF-567700-1325B4-001",
+        "SEM-ACTION-CE-569400-774D62-001",
+        "SEM-ACTION-HGO-570700-AE6BC0-001",
+        "SEM-ACTION-MS-569400-962AD8-001",
+        "SEM-ACTION-REC-569000-06BD33-001",
+        "SEM-ACTION-OFF-567800-961585-001",
+        "SEM-ACTION-OFF-567900-96DBDB-001",
+        "SEM-ACTION-OFF-568000-5A4763-001"
+      ],
       "blockers": []
     },
     {
@@ -303,8 +330,10 @@
       "sourcePath": "docs/rules/02-character-actions.md",
       "sourceLocator": "ACT-MOVE-002",
       "authority": "project-interpretation",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ACTION-REC-599300-83C5B5-001"
+      ],
       "blockers": []
     },
     {
@@ -371,8 +400,11 @@
       "sourcePath": "docs/rules/02-character-actions.md",
       "sourceLocator": "ACT-MELEE-001",
       "authority": "project-interpretation",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ACTION-CON-567514-35D06D-001",
+        "SEM-ACTION-MS-569900-CD0684-001"
+      ],
       "blockers": []
     },
     {
@@ -526,8 +558,15 @@
       "sourcePath": "docs/rules/02-character-actions.md",
       "sourceLocator": "ACT-SECURE-001",
       "authority": "project-interpretation",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ACTION-HGO-570300-461DC0-001",
+        "SEM-ACTION-MS-569500-7654B2-001",
+        "SEM-ACTION-OFF-567600-ECD451-001",
+        "SEM-ACTION-REC-568900-443817-001",
+        "SEM-ACTION-CE-567428-84096B-001",
+        "SEM-ACTION-CON-567513-F809A3-001"
+      ],
       "blockers": []
     },
     {
@@ -537,8 +576,12 @@
       "sourcePath": "docs/rules/02-character-actions.md",
       "sourceLocator": "ACT-ROOM-001",
       "authority": "project-interpretation",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ACTION-CE-569300-28D06B-001",
+        "SEM-ACTION-CON-571000-B27C01-001",
+        "SEM-ACTION-CON-570800-8C77FB-001"
+      ],
       "blockers": []
     },
     {
@@ -571,7 +614,74 @@
         "SEM-ACT-REST-001",
         "SEM-SERIOUS-WOUND-3802-AD7826-001",
         "SEM-SERIOUS-WOUND-3802-2202B4-001",
-        "SEM-SERIOUS-WOUND-3802-06BE60-001"
+        "SEM-SERIOUS-WOUND-3802-06BE60-001",
+        "SEM-ACTION-DECK-SETUP-001",
+        "SEM-ACTION-CARD-PLAY-001",
+        "SEM-ACTION-CARD-PAYMENT-001",
+        "SEM-ACTION-CARD-REACTION-001",
+        "SEM-ACTION-CARD-COMMAND-001",
+        "SEM-ACTION-CARD-VARIANT-BOUNDARIES-001",
+        "SEM-ACTION-CARD-DRAW-001",
+        "SEM-ACTION-CE-592400-164B84-001",
+        "SEM-ACTION-CE-567424-B5EE2B-001",
+        "SEM-ACTION-CE-567428-84096B-001",
+        "SEM-ACTION-CE-567426-E4355B-001",
+        "SEM-ACTION-CE-567427-20F4E2-001",
+        "SEM-ACTION-CE-568800-4907B2-001",
+        "SEM-ACTION-CE-569000-1892A7-001",
+        "SEM-ACTION-CE-569100-750970-001",
+        "SEM-ACTION-CE-569300-28D06B-001",
+        "SEM-ACTION-CE-569400-774D62-001",
+        "SEM-ACTION-HGO-592400-B36EF3-001",
+        "SEM-ACTION-HGO-567414-320528-001",
+        "SEM-ACTION-HGO-567416-12B5C5-001",
+        "SEM-ACTION-HGO-567417-650559-001",
+        "SEM-ACTION-HGO-567418-32B36F-001",
+        "SEM-ACTION-HGO-570300-461DC0-001",
+        "SEM-ACTION-HGO-570500-F97AD0-001",
+        "SEM-ACTION-HGO-570600-03260A-001",
+        "SEM-ACTION-HGO-570800-F30901-001",
+        "SEM-ACTION-HGO-570700-AE6BC0-001",
+        "SEM-ACTION-MS-570400-D17C81-001",
+        "SEM-ACTION-MS-569400-962AD8-001",
+        "SEM-ACTION-MS-569500-7654B2-001",
+        "SEM-ACTION-MS-569600-1864BB-001",
+        "SEM-ACTION-MS-569700-49120B-001",
+        "SEM-ACTION-MS-569800-1688A1-001",
+        "SEM-ACTION-MS-569900-CD0684-001",
+        "SEM-ACTION-MS-570000-3E472F-001",
+        "SEM-ACTION-MS-570200-176BDB-001",
+        "SEM-ACTION-MS-570300-239ACD-001",
+        "SEM-ACTION-CON-567514-35D06D-001",
+        "SEM-ACTION-CON-571000-B27C01-001",
+        "SEM-ACTION-CON-570600-D30470-001",
+        "SEM-ACTION-CON-570700-E2EF18-001",
+        "SEM-ACTION-CON-570800-8C77FB-001",
+        "SEM-ACTION-CON-567513-F809A3-001",
+        "SEM-ACTION-CON-567512-A8C697-001",
+        "SEM-ACTION-CON-567511-46E6C0-001",
+        "SEM-ACTION-CON-571000-AD29B5-001",
+        "SEM-ACTION-CON-567510-10707C-001",
+        "SEM-ACTION-OFF-567436-56D897-001",
+        "SEM-ACTION-OFF-567600-ECD451-001",
+        "SEM-ACTION-OFF-567800-961585-001",
+        "SEM-ACTION-OFF-567900-96DBDB-001",
+        "SEM-ACTION-OFF-568000-5A4763-001",
+        "SEM-ACTION-OFF-567435-017D60-001",
+        "SEM-ACTION-OFF-567437-7909AA-001",
+        "SEM-ACTION-OFF-567433-5D3E97-001",
+        "SEM-ACTION-OFF-567700-1325B4-001",
+        "SEM-ACTION-OFF-592400-BBD2B9-001",
+        "SEM-ACTION-REC-592400-8AF78A-001",
+        "SEM-ACTION-REC-567403-83078C-001",
+        "SEM-ACTION-REC-567406-59DEA3-001",
+        "SEM-ACTION-REC-567404-62092F-001",
+        "SEM-ACTION-REC-568600-662FA5-001",
+        "SEM-ACTION-REC-568700-D711D5-001",
+        "SEM-ACTION-REC-568900-443817-001",
+        "SEM-ACTION-REC-569000-06BD33-001",
+        "SEM-ACTION-REC-599300-83C5B5-001",
+        "SEM-ACTION-REC-567409-BB47F4-001"
       ],
       "blockers": []
     },
@@ -582,8 +692,11 @@
       "sourcePath": "docs/rules/02-character-actions.md",
       "sourceLocator": "ACT-CARD-002",
       "authority": "project-interpretation",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ACTION-CARD-PAYMENT-001",
+        "SEM-RT-007"
+      ],
       "blockers": []
     },
     {
@@ -1208,7 +1321,8 @@
         "SEM-YELLOW-ITEM-3403-F456C3-001",
         "SEM-YELLOW-ITEM-3403-4EFD6D-001",
         "SEM-YELLOW-ITEM-3403-9D4208-001",
-        "SEM-YELLOW-ITEM-3403-D2ECEC-001"
+        "SEM-YELLOW-ITEM-3403-D2ECEC-001",
+        "SEM-ACTION-CARD-COMMAND-001"
       ],
       "blockers": []
     },
@@ -1223,7 +1337,9 @@
       "pilotRuleIds": [
         "SEM-EVENT-LEAVING-THE-SHELL-001",
         "SEM-EVENT-REACTOR-OVERHEATING-001",
-        "SEM-ATTACK-394912-001"
+        "SEM-ATTACK-394912-001",
+        "SEM-ACTION-CARD-PLAY-001",
+        "SEM-ACTION-CARD-DRAW-001"
       ],
       "blockers": []
     },
@@ -1260,8 +1376,10 @@
       "sourcePath": "docs/rulebooks/Nemesis_RT_FAQ_v1.2.pdf",
       "sourceLocator": "FQ-P02-U14",
       "authority": "official-errata",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ACTION-OFF-567800-961585-001"
+      ],
       "blockers": []
     },
     {
@@ -1271,8 +1389,10 @@
       "sourcePath": "docs/rulebooks/Nemesis_RT_FAQ_v1.2.pdf",
       "sourceLocator": "FQ-P02-U15",
       "authority": "official-errata",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ACTION-REC-568700-D711D5-001"
+      ],
       "blockers": []
     },
     {
@@ -1285,7 +1405,10 @@
       "status": "pilot-covered",
       "pilotRuleIds": [
         "SEM-INT-004",
-        "SEM-REACTION-DUCK-001"
+        "SEM-REACTION-DUCK-001",
+        "SEM-ACTION-CON-570600-D30470-001",
+        "SEM-ACTION-CE-569000-1892A7-001",
+        "SEM-ACTION-HGO-570800-F30901-001"
       ],
       "blockers": []
     },
@@ -1357,8 +1480,11 @@
       "sourcePath": "docs/rulebooks/Nemesis_RT_FAQ_v1.2.pdf",
       "sourceLocator": "FQ-P03-U01",
       "authority": "official-errata",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ACTION-HGO-570600-03260A-001",
+        "SEM-ACTION-CE-569000-1892A7-001"
+      ],
       "blockers": []
     },
     {
@@ -1368,8 +1494,13 @@
       "sourcePath": "docs/rulebooks/Nemesis_RT_FAQ_v1.2.pdf",
       "sourceLocator": "FQ-P03-U02",
       "authority": "official-errata",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ACTION-HGO-570600-03260A-001",
+        "SEM-ACTION-CE-569000-1892A7-001",
+        "SEM-ACTION-HGO-570800-F30901-001",
+        "SEM-ACTION-HGO-570500-F97AD0-001"
+      ],
       "blockers": []
     },
     {
@@ -1511,7 +1642,10 @@
         "SEM-YELLOW-ITEM-532000-490933-001",
         "SEM-YELLOW-ITEM-532000-1FF6E7-001",
         "SEM-YELLOW-ITEM-532000-5DB915-001",
-        "SEM-YELLOW-ITEM-532000-CE5897-001"
+        "SEM-YELLOW-ITEM-532000-CE5897-001",
+        "SEM-ACTION-MS-570400-D17C81-001",
+        "SEM-ACTION-MS-570000-3E472F-001",
+        "SEM-ACTION-MS-570300-239ACD-001"
       ],
       "blockers": []
     },
@@ -1595,7 +1729,10 @@
         "SEM-RED-ITEM-DECK-001",
         "SEM-RED-ITEM-VARIANT-BOUNDARIES-001",
         "SEM-YELLOW-ITEM-DECK-001",
-        "SEM-YELLOW-ITEM-VARIANT-BOUNDARIES-001"
+        "SEM-YELLOW-ITEM-VARIANT-BOUNDARIES-001",
+        "SEM-ACTION-DECK-SETUP-001",
+        "SEM-ACTION-CARD-VARIANT-BOUNDARIES-001",
+        "SEM-ACTION-CON-567514-35D06D-001"
       ],
       "blockers": []
     },
@@ -1748,8 +1885,12 @@
       "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
       "sourceLocator": "RB-P11-V01",
       "authority": "official-primary",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ACTION-DECK-SETUP-001",
+        "SEM-ACTION-CARD-PLAY-001",
+        "SEM-ACTION-CARD-PAYMENT-001"
+      ],
       "blockers": []
     },
     {
@@ -1788,7 +1929,9 @@
         "SEM-ACT-ROBOT-001",
         "SEM-ACT-TACTICAL-001",
         "SEM-USE-ITEM-001",
-        "SEM-ITEM-TRADE-GAIN-001"
+        "SEM-ITEM-TRADE-GAIN-001",
+        "SEM-ACTION-CARD-PLAY-001",
+        "SEM-ACTION-CARD-PAYMENT-001"
       ],
       "blockers": []
     },
@@ -1810,8 +1953,14 @@
       "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
       "sourceLocator": "RB-P13-V01",
       "authority": "official-primary",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ACTION-CARD-PLAY-001",
+        "SEM-ACTION-CARD-REACTION-001",
+        "SEM-REACTION-DUCK-001",
+        "SEM-ACTION-CON-570600-D30470-001",
+        "SEM-ACTION-REC-568600-662FA5-001"
+      ],
       "blockers": []
     },
     {
@@ -2294,7 +2443,13 @@
         "SEM-GREEN-ITEM-DECK-001",
         "SEM-REGULAR-ITEM-BACKPACK-001",
         "SEM-RED-ITEM-DECK-001",
-        "SEM-YELLOW-ITEM-DECK-001"
+        "SEM-YELLOW-ITEM-DECK-001",
+        "SEM-ACTION-CE-567427-20F4E2-001",
+        "SEM-ACTION-HGO-567418-32B36F-001",
+        "SEM-ACTION-MS-569600-1864BB-001",
+        "SEM-ACTION-CON-567512-A8C697-001",
+        "SEM-ACTION-OFF-567437-7909AA-001",
+        "SEM-ACTION-REC-567406-59DEA3-001"
       ],
       "blockers": []
     },
@@ -2554,8 +2709,11 @@
       "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
       "sourceLocator": "RB-P36-V01",
       "authority": "official-primary",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ACTION-DECK-SETUP-001",
+        "SEM-ACTION-CARD-PAYMENT-001"
+      ],
       "blockers": []
     },
     {
@@ -2751,7 +2909,68 @@
         "SEM-YELLOW-ITEM-3400-A29F14-001",
         "SEM-YELLOW-ITEM-3400-2284BD-001",
         "SEM-YELLOW-ITEM-3400-534B88-001",
-        "SEM-YELLOW-ITEM-3400-BEA081-001"
+        "SEM-YELLOW-ITEM-3400-BEA081-001",
+        "SEM-ACTION-CARD-VARIANT-BOUNDARIES-001",
+        "SEM-ACTION-CE-592400-164B84-001",
+        "SEM-ACTION-CE-567424-B5EE2B-001",
+        "SEM-ACTION-CE-567428-84096B-001",
+        "SEM-ACTION-CE-567426-E4355B-001",
+        "SEM-ACTION-CE-567427-20F4E2-001",
+        "SEM-ACTION-CE-568800-4907B2-001",
+        "SEM-ACTION-CE-569000-1892A7-001",
+        "SEM-ACTION-CE-569100-750970-001",
+        "SEM-ACTION-CE-569300-28D06B-001",
+        "SEM-ACTION-CE-569400-774D62-001",
+        "SEM-ACTION-HGO-592400-B36EF3-001",
+        "SEM-ACTION-HGO-567414-320528-001",
+        "SEM-ACTION-HGO-567416-12B5C5-001",
+        "SEM-ACTION-HGO-567417-650559-001",
+        "SEM-ACTION-HGO-567418-32B36F-001",
+        "SEM-ACTION-HGO-570300-461DC0-001",
+        "SEM-ACTION-HGO-570500-F97AD0-001",
+        "SEM-ACTION-HGO-570600-03260A-001",
+        "SEM-ACTION-HGO-570800-F30901-001",
+        "SEM-ACTION-HGO-570700-AE6BC0-001",
+        "SEM-ACTION-MS-570400-D17C81-001",
+        "SEM-ACTION-MS-569400-962AD8-001",
+        "SEM-ACTION-MS-569500-7654B2-001",
+        "SEM-ACTION-MS-569600-1864BB-001",
+        "SEM-ACTION-MS-569700-49120B-001",
+        "SEM-ACTION-MS-569800-1688A1-001",
+        "SEM-ACTION-MS-569900-CD0684-001",
+        "SEM-ACTION-MS-570000-3E472F-001",
+        "SEM-ACTION-MS-570200-176BDB-001",
+        "SEM-ACTION-MS-570300-239ACD-001",
+        "SEM-ACTION-CON-567514-35D06D-001",
+        "SEM-ACTION-CON-571000-B27C01-001",
+        "SEM-ACTION-CON-570600-D30470-001",
+        "SEM-ACTION-CON-570700-E2EF18-001",
+        "SEM-ACTION-CON-570800-8C77FB-001",
+        "SEM-ACTION-CON-567513-F809A3-001",
+        "SEM-ACTION-CON-567512-A8C697-001",
+        "SEM-ACTION-CON-567511-46E6C0-001",
+        "SEM-ACTION-CON-571000-AD29B5-001",
+        "SEM-ACTION-CON-567510-10707C-001",
+        "SEM-ACTION-OFF-567436-56D897-001",
+        "SEM-ACTION-OFF-567600-ECD451-001",
+        "SEM-ACTION-OFF-567800-961585-001",
+        "SEM-ACTION-OFF-567900-96DBDB-001",
+        "SEM-ACTION-OFF-568000-5A4763-001",
+        "SEM-ACTION-OFF-567435-017D60-001",
+        "SEM-ACTION-OFF-567437-7909AA-001",
+        "SEM-ACTION-OFF-567433-5D3E97-001",
+        "SEM-ACTION-OFF-567700-1325B4-001",
+        "SEM-ACTION-OFF-592400-BBD2B9-001",
+        "SEM-ACTION-REC-592400-8AF78A-001",
+        "SEM-ACTION-REC-567403-83078C-001",
+        "SEM-ACTION-REC-567406-59DEA3-001",
+        "SEM-ACTION-REC-567404-62092F-001",
+        "SEM-ACTION-REC-568600-662FA5-001",
+        "SEM-ACTION-REC-568700-D711D5-001",
+        "SEM-ACTION-REC-568900-443817-001",
+        "SEM-ACTION-REC-569000-06BD33-001",
+        "SEM-ACTION-REC-599300-83C5B5-001",
+        "SEM-ACTION-REC-567409-BB47F4-001"
       ],
       "blockers": []
     },
@@ -3847,8 +4066,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/combat-engineer-010.png",
       "sourceLocator": "c747f2bb764568d14320fba4ad9bb9b8ff8ba1390c915282104f1cb9146e3583",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ACTION-CE-568800-4907B2-001"
+      ],
       "blockers": []
     },
     {
@@ -3858,8 +4079,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/combat-engineer-017.png",
       "sourceLocator": "1a32f93be99dd88a2507788d0138592999aadae0904f3fc8c7f67d606cb42b07",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ACTION-CE-569400-774D62-001"
+      ],
       "blockers": []
     },
     {
@@ -3869,8 +4092,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/combat-engineer-020.png",
       "sourceLocator": "da55e1c1e1e584a8ff9eba51b24b2ef0598e6619df280941a672cfc9468dc256",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ACTION-CE-569100-750970-001"
+      ],
       "blockers": []
     },
     {
@@ -3891,8 +4116,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/combat-engineer-027.png",
       "sourceLocator": "6a338a566b9787f8205c63e95c24a57c0ccf01fd2e2af64be1f8769233a75fc6",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ACTION-CE-569300-28D06B-001"
+      ],
       "blockers": []
     },
     {
@@ -3902,8 +4129,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/combat-engineer-031.png",
       "sourceLocator": "3f6f1ff21d0904d700cc395dbbe5cabd9046b3c11128b333ee0170f359221f1b",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ACTION-CE-592400-164B84-001"
+      ],
       "blockers": []
     },
     {
@@ -3913,8 +4142,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/combat-engineer-034.png",
       "sourceLocator": "c80aa23ac14fc2196ebd47eb19ba6bc8b70cdfd0ef45dbdc208a1aa1c20e108f",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ACTION-CE-569000-1892A7-001"
+      ],
       "blockers": []
     },
     {
@@ -3924,8 +4155,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/contractor-004.jpg",
       "sourceLocator": "31d0467ff29f0c4ea848d7eef47fa130741509f49bde2d1abf6e9d2685830d71",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ACTION-CON-571000-B27C01-001"
+      ],
       "blockers": []
     },
     {
@@ -3937,7 +4170,7 @@
       "authority": "mixed-source-bound",
       "status": "pilot-covered",
       "pilotRuleIds": [
-        "SEM-REACTION-DUCK-001"
+        "SEM-ACTION-CON-570600-D30470-001"
       ],
       "blockers": []
     },
@@ -3948,8 +4181,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/contractor-029.jpg",
       "sourceLocator": "37996ec30873469ca855e68b36795db9a7ea20bd89ae53b417263a0be9623ae2",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ACTION-CON-570700-E2EF18-001"
+      ],
       "blockers": []
     },
     {
@@ -3992,8 +4227,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/contractor-053.png",
       "sourceLocator": "5d8b26a2f96709ba66f3aa1cfe69922603d966c4408932bf61b2a39e6fb14a85",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ACTION-CON-570800-8C77FB-001"
+      ],
       "blockers": []
     },
     {
@@ -4003,8 +4240,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-002.png",
       "sourceLocator": "bf291b1225967cd81453c6bf5910b6ce0b5a14e417ae58e20c036775ae962362",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ACTION-HGO-570600-03260A-001"
+      ],
       "blockers": []
     },
     {
@@ -4014,8 +4253,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-003.png",
       "sourceLocator": "543b2513b11f2cbd42943d5c4e68abf2e4e2596f4fe833f3d1c837b7d46102fa",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ACTION-HGO-570300-461DC0-001"
+      ],
       "blockers": []
     },
     {
@@ -4025,8 +4266,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-005.png",
       "sourceLocator": "da7f6eb1576e889ed50efd57630d12d115de3828b79342971c1a0189df13a16a",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ACTION-HGO-570800-F30901-001"
+      ],
       "blockers": []
     },
     {
@@ -4036,8 +4279,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-018.png",
       "sourceLocator": "201feb535e9d2c69c79b7043dae5213676e40e7ab3131b1d3899dea3f37d902b",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ACTION-HGO-570700-AE6BC0-001"
+      ],
       "blockers": []
     },
     {
@@ -4058,8 +4303,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-030.png",
       "sourceLocator": "ed6065b8d6a65b2dacdab5b34fc0a40998f07bc3398848db896c29ee565e5367",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ACTION-HGO-592400-B36EF3-001"
+      ],
       "blockers": []
     },
     {
@@ -4069,8 +4316,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-035.png",
       "sourceLocator": "14ae427b2e3a6b2489c1a49485069cfad36d0325579f7f736ef971791d75906c",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ACTION-HGO-570500-F97AD0-001"
+      ],
       "blockers": []
     },
     {
@@ -4080,8 +4329,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-00.png",
       "sourceLocator": "de97374d9cc8ed9f9141a4539386fd6b8979b4230f4eee8ae04925622fc07fed",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ACTION-CARD-VARIANT-BOUNDARIES-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -4093,8 +4344,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-01.png",
       "sourceLocator": "d293abad16af07498d8f485bd1ab67426be66a64d78c2fbd085ec4bac7dc0f4f",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ACTION-CARD-VARIANT-BOUNDARIES-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -4106,8 +4359,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-02.png",
       "sourceLocator": "4718ad2194859f3f1d1ecb72e52481616156dcacad27f46e4969c98cd64eddab",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ACTION-CARD-VARIANT-BOUNDARIES-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -4119,8 +4374,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-03.png",
       "sourceLocator": "7fcd46223405ea191339e3968e50dcc2063e52aac4476768743f5685993433d7",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ACTION-REC-567403-83078C-001"
+      ],
       "blockers": []
     },
     {
@@ -4130,8 +4387,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-04.png",
       "sourceLocator": "2599ea56dcd973920e169ea3e0cef78d4a3347b475333899861db9660434983e",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ACTION-REC-567404-62092F-001"
+      ],
       "blockers": []
     },
     {
@@ -4141,8 +4400,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-05.png",
       "sourceLocator": "27a5c1a5959ed93f93d508e0f0a8d07999e0d929a0b9874848c2c10b3accf4e7",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ACTION-CARD-VARIANT-BOUNDARIES-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -4154,8 +4415,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-06.png",
       "sourceLocator": "90cb405743269046b530add3108500d2e0eaefbd66fb9d55d7b42dd0cbbffa30",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ACTION-REC-567406-59DEA3-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -4167,8 +4430,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-07.png",
       "sourceLocator": "b10da0bc490a8433e1061c77d4d45fce0cabf818fc81af1dd301f969c91d27ba",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ACTION-CARD-VARIANT-BOUNDARIES-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -4180,8 +4445,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-08.png",
       "sourceLocator": "3857d50481da9f212645e101932cfc3658beb376d3d599cd76954f32736cfd3b",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ACTION-CARD-VARIANT-BOUNDARIES-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -4193,8 +4460,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-09.png",
       "sourceLocator": "958a914c17883be687d15197b0ff85ff7a3b2dbf5d3e6bddb4dac881fb41cfc0",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ACTION-REC-567409-BB47F4-001"
+      ],
       "blockers": []
     },
     {
@@ -4204,8 +4473,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-10.png",
       "sourceLocator": "d8e12e0209d014f6a18e716b3bf0aa7b75f8c49b61b6d7579c36fdb5dc9b805d",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ACTION-CARD-VARIANT-BOUNDARIES-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -4217,8 +4488,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-11.png",
       "sourceLocator": "6dc254bf10b41c217cdfe6c4d3d3ca3a8bedd7eded6f7ae6e0a07b9f71d6a19e",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ACTION-CARD-VARIANT-BOUNDARIES-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -4230,8 +4503,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-12.png",
       "sourceLocator": "071501844b55d42daa48430786b944d8cf1fea711ad6994abf6d3a9c61b18245",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ACTION-CARD-VARIANT-BOUNDARIES-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -4243,8 +4518,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-13.png",
       "sourceLocator": "b3b209538a4ac8554ae6e5230f4a98b1fa1ff3bd8f89b3ccfbee53d115997e9e",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ACTION-CARD-VARIANT-BOUNDARIES-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -4256,8 +4533,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-14.png",
       "sourceLocator": "7184602a20c836f0f855bec8618becebcc4a0cc59967d9533d346dcc64982503",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ACTION-HGO-567414-320528-001"
+      ],
       "blockers": []
     },
     {
@@ -4267,8 +4546,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-15.png",
       "sourceLocator": "e063664e4e786d66092f347f444c9a9184ae0a9f51547158f98e8b25e300b39a",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ACTION-CARD-VARIANT-BOUNDARIES-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -4280,8 +4561,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-16.png",
       "sourceLocator": "2598eafaf860423a8b1155380eebba7a94a340df8a2c8564c515292f27f0f66b",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ACTION-HGO-567416-12B5C5-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -4293,8 +4576,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-17.png",
       "sourceLocator": "822d3a69d4539a3b9a5e1de1c23b4f1ee96a837faec0cd923bde98137dc78bda",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ACTION-HGO-567417-650559-001"
+      ],
       "blockers": []
     },
     {
@@ -4304,8 +4589,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-18.png",
       "sourceLocator": "b7d5ce6b5886084917bdb4e0cd9a0d5f53240f0479312ec02ca06b889ad3f7d7",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ACTION-HGO-567418-32B36F-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -4317,8 +4604,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-19.png",
       "sourceLocator": "5296cfc77f60016f714ff5ad2d9ab4c57f8c53fab78c442a7cac11e12b757b5a",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ACTION-CARD-VARIANT-BOUNDARIES-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -4330,8 +4619,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-20.png",
       "sourceLocator": "5cf922bfbd054365bcd02cb7d3c5ada9565205c392bcee4d47d8ce6d05ec3d3a",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ACTION-CARD-VARIANT-BOUNDARIES-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -4343,8 +4634,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-21.png",
       "sourceLocator": "60034e6222e807d3520be87006f9fc8a896afe1b20688b5872d9ebaf225328e1",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ACTION-CARD-VARIANT-BOUNDARIES-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -4356,8 +4649,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-22.png",
       "sourceLocator": "522c4d1186d5d61253c58e33cf56b1ba8da3b2ecd735626a2746b274e3b15d4a",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ACTION-CARD-VARIANT-BOUNDARIES-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -4369,8 +4664,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-23.png",
       "sourceLocator": "9f6538d0b8149c09bfc374ec6c4b99419d13dd5b178288410d4034d32e60f32b",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ACTION-CARD-VARIANT-BOUNDARIES-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -4382,8 +4679,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-24.png",
       "sourceLocator": "1ae144254000046b4bc6f4b18e9166356ad61443725d5c88cb09e563081ca647",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ACTION-CE-567424-B5EE2B-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -4395,8 +4694,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-25.png",
       "sourceLocator": "3a3767110f4ec8265d5c57584d7bab060827ae087c53477061adfadc9fa5ffc7",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ACTION-CARD-VARIANT-BOUNDARIES-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -4408,8 +4709,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-26.png",
       "sourceLocator": "6b1d57ea0593c85321331cf66b9339d5746165dff6735eaf2a870957e93e3433",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ACTION-CE-567426-E4355B-001"
+      ],
       "blockers": []
     },
     {
@@ -4419,8 +4722,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-27.png",
       "sourceLocator": "be41f58fd5e1bc3231001c5940ac5d6464ff8d625b08b45a0edc6311b2466354",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ACTION-CE-567427-20F4E2-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -4432,8 +4737,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-28.png",
       "sourceLocator": "2b494cca689d55e033d706ddde24b5f7db9b44d11f9281d48bcb2ecd4b246620",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ACTION-CE-567428-84096B-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -4445,8 +4752,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-29.png",
       "sourceLocator": "21459d06d2bcaf2a8a4ed8cc0310f431770ceab9f67e0541e0ee9940eae183f7",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ACTION-CARD-VARIANT-BOUNDARIES-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -4458,8 +4767,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-30.png",
       "sourceLocator": "ac03ac0e56b1ec80da6113e1bd76bd82b8fc4bf323dc1a542db868437c35dc5d",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ACTION-CARD-VARIANT-BOUNDARIES-001"
+      ],
       "blockers": []
     },
     {
@@ -4469,8 +4780,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-31.png",
       "sourceLocator": "a2da1cf2ade5f1143862acb9f15eb6ff3514aa3075fb203a54a10fd792ea4811",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ACTION-CARD-VARIANT-BOUNDARIES-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -4482,8 +4795,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-32.png",
       "sourceLocator": "17a045a9854b2ead965271d05f09b262bad958a7f320edab1ca1224b5e7a6be8",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ACTION-CARD-VARIANT-BOUNDARIES-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -4495,8 +4810,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-33.png",
       "sourceLocator": "be751ea90d12fc610244af03c2cdf4bc3dc94835abf7bd7fa029464dd8886a56",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ACTION-OFF-567433-5D3E97-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -4508,8 +4825,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-34.png",
       "sourceLocator": "b83e077646664641300d4026832e8bd08f4ff39e7fde4ec8ef0575c45e8daf69",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ACTION-CARD-VARIANT-BOUNDARIES-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -4521,8 +4840,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-35.png",
       "sourceLocator": "fdd8e0d9d9b1dba19bc5625a412ca9be6c924cb55e569e8307a8168f7f6920e5",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ACTION-OFF-567435-017D60-001"
+      ],
       "blockers": []
     },
     {
@@ -4532,8 +4853,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-36.png",
       "sourceLocator": "81c8cd82215a42bafa5fa3f43a41319b2cec45b8624908c424fc84c088c44f41",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ACTION-OFF-567436-56D897-001"
+      ],
       "blockers": []
     },
     {
@@ -4543,8 +4866,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-37.png",
       "sourceLocator": "ca8567698ffc856ccefbb67be26522690a196579f8af7a21f5789bbd3fc303d9",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ACTION-OFF-567437-7909AA-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -4556,8 +4881,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-38.png",
       "sourceLocator": "0552286f57fa7bd931211671372be695a22592dce514cd0fcdb61af9932d5bbb",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ACTION-CARD-VARIANT-BOUNDARIES-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -4569,8 +4896,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-39.png",
       "sourceLocator": "1c25ec21d75d2de30d2290ffad6fb0642667c04705d2ab416267c73448d3b788",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ACTION-CARD-VARIANT-BOUNDARIES-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -4582,8 +4911,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-40.png",
       "sourceLocator": "53bc3aaf80863df6a37a13178a694b0e95fc3ea5fa81ecb563233a6b8664fa2b",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ACTION-CARD-VARIANT-BOUNDARIES-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -4595,8 +4926,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-41.png",
       "sourceLocator": "3ba7bb25d52420edc6dcd5fc8d3c95fcd2fcb9789a782f1628c7f740d9bd0c46",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ACTION-CARD-VARIANT-BOUNDARIES-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -4608,8 +4941,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-42.png",
       "sourceLocator": "b80ea144828d5458a1a55e9e7ddff3b7bb4a77d7bc92a5de228e57a08e31a35e",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ACTION-CARD-VARIANT-BOUNDARIES-001"
+      ],
       "blockers": []
     },
     {
@@ -4619,8 +4954,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-43.png",
       "sourceLocator": "2fb897b4334969099a6eaa48abad62972bf37ef91c6e5a853d9206ccce4d80dd",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ACTION-CARD-VARIANT-BOUNDARIES-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -4632,8 +4969,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-44.png",
       "sourceLocator": "75f580be00a5a0784ad3f8a03db1b69b6c54ccc7904e61eb49500d21029f92aa",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ACTION-CARD-VARIANT-BOUNDARIES-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -4645,8 +4984,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/medical-support-022.jpg",
       "sourceLocator": "ea82b58b58b9ce9dd01dcd21f7b73616a50751208d7f38b304e1029a422b7527",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ACTION-MS-569700-49120B-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -4658,8 +4999,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/medical-support-023.jpg",
       "sourceLocator": "71ed551e4eed6b33469b286d8dc0d2ddcc910cef22fb522097a0a24ae2ba0f72",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ACTION-MS-570400-D17C81-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -4684,8 +5027,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/medical-support-028.jpg",
       "sourceLocator": "72b34b7b800a2109094cca515eb22e69fff016edded20ace0f15857296712180",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ACTION-MS-570000-3E472F-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -4697,8 +5042,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/medical-support-033.jpg",
       "sourceLocator": "1682f8c99e00bf187c8a97a252f314482df8b75380a3a826e944e982d90d31d0",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ACTION-MS-570300-239ACD-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -4710,8 +5057,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/medical-support-039.jpg",
       "sourceLocator": "fff2d4e05861cf518ef43deb85733f9bc0caa6fb315d86c74337f1e4bfc2c76c",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ACTION-MS-569500-7654B2-001"
+      ],
       "blockers": []
     },
     {
@@ -4721,8 +5070,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/medical-support-040.jpg",
       "sourceLocator": "d1bacfc5e1fc4d26394b41dc2d3e43c08f98f28d01f58af5a9b671aa0f7837f3",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ACTION-MS-569900-CD0684-001"
+      ],
       "blockers": []
     },
     {
@@ -4734,7 +5085,7 @@
       "authority": "mixed-source-bound",
       "status": "pilot-covered",
       "pilotRuleIds": [
-        "SEM-ACT-SEARCH-001"
+        "SEM-ACTION-MS-569600-1864BB-001"
       ],
       "blockers": []
     },
@@ -4745,8 +5096,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/medical-support-048.jpg",
       "sourceLocator": "cb2e610ea7597cbec82cb925576832b5d72652f0878e91641f14f048ce553a7d",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ACTION-MS-569800-1688A1-001"
+      ],
       "blockers": []
     },
     {
@@ -4756,8 +5109,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/medical-support-049.jpg",
       "sourceLocator": "8b21eac1a4c1a2697c8f0184703e32f3984a25b847f14869c73cf7aa63645aa6",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ACTION-MS-570200-176BDB-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -4769,8 +5124,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/medical-support-050.jpg",
       "sourceLocator": "207d9cd90028a00a4fd758b8a586717176ba0f82a08b07685ca4f81f71156e71",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ACTION-MS-569400-962AD8-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -4782,8 +5139,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/officer-001.png",
       "sourceLocator": "a9c5e332f3f7908a0c3d2e9c367e55d11a294ad9dc4107bac87cb1c540be7776",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ACTION-OFF-592400-BBD2B9-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -4795,8 +5154,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/officer-009.png",
       "sourceLocator": "636b473e04f0e0f43bad9d30767092b44f3e822c924ff74f7e1f3c728bfbd6b0",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ACTION-OFF-567600-ECD451-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -4808,8 +5169,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/officer-014.png",
       "sourceLocator": "2227cfc5384d21fd8457d8c840c616630cdd7a634e41006ff8c681ecc5bd35f9",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ACTION-OFF-567800-961585-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -4821,8 +5184,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/officer-015.png",
       "sourceLocator": "6325ff534d7432a61888fa3c322e5cd30f2378a355d012b6eb3f94bd003bdaf1",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ACTION-OFF-568000-5A4763-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -4834,8 +5199,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/officer-016.png",
       "sourceLocator": "6b2af9761f5e92a08103a6f5ed94d339beaa510231e111634cdf6ed9fe0bb000",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ACTION-OFF-567700-1325B4-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -4847,8 +5214,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/officer-037.png",
       "sourceLocator": "9a915886a7fe172599bb89e19b6913a58bb437038747817a245128ef6d391e89",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ACTION-OFF-567900-96DBDB-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -4873,8 +5242,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/recon-006.png",
       "sourceLocator": "3f4b593acd2b05f96655a659332b0e99de53422c86817f79006787aca8dfbb14",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ACTION-REC-568600-662FA5-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -4886,8 +5257,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/recon-007.png",
       "sourceLocator": "3a2daeb6540b9c4bee6ca1842ef5ccb4fb9b1e1621013835e2ffb87af3e6a588",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ACTION-REC-568900-443817-001"
+      ],
       "blockers": []
     },
     {
@@ -4897,8 +5270,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/recon-019.png",
       "sourceLocator": "b2361593ff5f03a812f76a73900beda2dcd7e99091d13209ca8d10e487dfe8ef",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ACTION-REC-569000-06BD33-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -4923,8 +5298,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/recon-036.png",
       "sourceLocator": "245c4cacbe84a84a46819cffc5ddb0946e7af7f6ea3ac32c323e42bae57ac7f8",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ACTION-REC-568700-D711D5-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -4936,8 +5313,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/recon-043.png",
       "sourceLocator": "961372f54320d3fe89cfdf160487197ef8a98d490e07c92fd2b7c9ad802a16ee",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ACTION-REC-599300-83C5B5-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -4949,8 +5328,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/recon-051.png",
       "sourceLocator": "318546349ba9ded87455d6608112a0cdb7a5bf826eff07c64c106ed1289ec32d",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ACTION-REC-592400-8AF78A-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -4962,8 +5343,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/action/action-001.png",
       "sourceLocator": "88738773d773c4e33c35251b627fe5e0a51fd21c73ad4192115fa2f3f473f6aa",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ACTION-CON-567512-A8C697-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -4975,8 +5358,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/action/action-002.png",
       "sourceLocator": "4db93fc8c2347cb5f4875b08ca40dd3aa98b7af98fda5c944c3bf92c0daf4f53",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ACTION-CON-567513-F809A3-001"
+      ],
       "blockers": []
     },
     {
@@ -4986,8 +5371,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/action/action-003.png",
       "sourceLocator": "01c14b5b4e853c3efb923c37b1540661291f7abf1362d987e91993eb6453f2d6",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ACTION-CON-567514-35D06D-001"
+      ],
       "blockers": []
     },
     {
@@ -4997,8 +5384,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/action/action-135.png",
       "sourceLocator": "f44d6891a916de28ad22d1c493a6508d6e24956a8fa8dc5b73f38fe371e97d85",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ACTION-CON-571000-AD29B5-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -5010,8 +5399,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/action/repairs.png",
       "sourceLocator": "502270edf106357e993edbbfc3055cd684671b694e756da219c2fdcdf5aa25e3",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ACTION-CON-567510-10707C-001"
+      ],
       "blockers": []
     },
     {
@@ -5023,7 +5414,7 @@
       "authority": "mixed-source-bound",
       "status": "pilot-covered",
       "pilotRuleIds": [
-        "SEM-ACT-REST-001"
+        "SEM-ACTION-CON-567511-46E6C0-001"
       ],
       "blockers": []
     },

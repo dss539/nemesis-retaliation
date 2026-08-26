@@ -72,6 +72,17 @@ from semantic_yellow_item_records import (
     integrate_yellow_item_shared_records,
     yellow_item_source_registry_rows,
 )
+from semantic_action_records import (
+    ACTION_REACTION_DISPATCH_RULE_IDS,
+    ACTION_REUSABLE_RULE_IDS,
+    ACTION_RULE_IDS,
+    action_source_registry_rows,
+    build_action_conflicts,
+    build_action_question_rows,
+    build_action_records,
+    build_action_source_index,
+    integrate_action_shared_records,
+)
 from room_icon_denotations import build_room_icon_denotations
 
 REPO = Path(__file__).resolve().parents[1]
@@ -99,6 +110,7 @@ serious_wound_source_index = build_serious_wound_source_index(REPO)
 green_item_source_index = build_green_item_source_index(REPO)
 red_item_source_index = build_red_item_source_index(REPO)
 yellow_item_source_index = build_yellow_item_source_index(REPO)
+action_source_index = build_action_source_index(REPO)
 
 sources = {
     'SRC-RULEBOOK': {
@@ -164,6 +176,8 @@ for source in green_item_source_registry_rows(green_item_source_index):
 for source in red_item_source_registry_rows(red_item_source_index):
     sources[source['sourceId']] = source
 for source in yellow_item_source_registry_rows(yellow_item_source_index):
+    sources[source['sourceId']] = source
+for source in action_source_registry_rows(action_source_index):
     sources[source['sourceId']] = source
 source_registry = {
     'schemaVersion': 1, 'recordType': 'semantic-source-registry',
@@ -420,6 +434,8 @@ records.extend(build_red_item_records(REPO, red_item_source_index, record, asser
 integrate_red_item_shared_records(records, red_item_source_index, assertion, operation)
 records.extend(build_yellow_item_records(REPO, yellow_item_source_index, record, assertion, timing, participant, condition, decision, operation))
 integrate_yellow_item_shared_records(records, yellow_item_source_index, assertion, operation)
+records.extend(build_action_records(REPO, action_source_index, record, assertion, timing, participant, condition, decision, operation))
+integrate_action_shared_records(records, assertion, operation)
 records.sort(key=lambda item: item['ruleId'])
 
 semantic_questions = {
@@ -489,6 +505,14 @@ semantic_questions = {
         {'questionId':'SEM-Q-056','title':'Tools Door target/state owner, local range, and accessibility','decisionClass':'official-clarification-preferred','blocksRuleIds':YELLOW_ITEM_QUESTION_BLOCKS['SEM-Q-056'],'plannedRuleIds':[],'defaultProhibited':True,'sourceEvidenceRefs':['assets/tts-mod/extract/v2-dl/tree/cards/game/yellowitem-145_cards/card-03.png','docs/rulebooks/rulebook_text.txt:lines 3537–3548,4243–4287','docs/rules/source-extraction/secondary/bga-staticData-260622-1220.js:ITEMS_DATA.Tools','docs/rules/semantics/yellow-item-source-index.json'],'alternatives':[{'alternativeId':'SEM-Q-056-A','description':'The Item user selects one ordinary accessible/local Door and chooses Open or Closed, subject to Door-slot, Destroyed, and blocking constraints.','support':'natural Item-owner reading plus licensed accessible wording; target/owner is not explicit on the scan'},{'alternativeId':'SEM-Q-056-B','description':'A source-defined deterministic/local rule selects the Door or state rather than the Item user.','support':'the scan says one Door but not chosen or accessible'},{'alternativeId':'SEM-Q-056-C','description':'Use another source-defined owner/range/eligibility rule without importing Portable Barrier overrides or Robot-specific accessibility.','support':'similar Door effects are distinct source occurrences and cannot be joined by function'}]},
     ],
 }
+semantic_questions['questions'].extend(build_action_question_rows())
+semantic_questions['counts'] = {
+    'questions': len(semantic_questions['questions']),
+    'officialClarificationPreferred': sum(row['decisionClass'] == 'official-clarification-preferred' for row in semantic_questions['questions']),
+    'sourceAmbiguitiesIntroducedByPilot': sum(row['decisionClass'] == 'source-ambiguity-owner-decision-after-source-search' for row in semantic_questions['questions']),
+    'resolved': 0,
+    'open': len(semantic_questions['questions']),
+}
 
 
 contradictions = {
@@ -547,10 +571,17 @@ contradictions = {
         {'conflictId':'SC-048','title':'Oxygen Tank, Robot Controller, and Fire Extinguisher direct/sheet/licensed representation boundaries','status':'preserved-boundary','questionId':None,'affectedRuleIds':['SEM-YELLOW-ITEM-VARIANT-BOUNDARIES-001',*YELLOW_ITEM_RULE_IDS],'evidenceRefs':['SRC-BGA-YELLOW-ITEMS','docs/rules/semantics/yellow-item-source-index.json','assets/tts-mod/extract/selected-card-text-evidence.json'],'difference':'Direct Oxygen Tank is selected by eight root GUIDs while a same-title sheet cell is unselected and has independent Not In Combat/normalized-placeholder evidence. Direct Robot Controller is a root class conflict while a materially different sheet cell is unselected. Fire Extinguisher is selected only at sheet cell 1 and licensed as Heavy.','resolution':'Keep all direct/generated/corpus/selected/licensed occurrences and representation discrepancies explicit. Same title, body similarity, Yellow art, cell, or multiplicity creates no identity or effect crosswalk.'},
     ],
 }
+contradictions['conflicts'].extend(build_action_conflicts())
+contradictions['counts'] = {
+    'conflicts': len(contradictions['conflicts']),
+    'resolvedByAuthority': sum(row['status'] == 'resolved-by-authority' for row in contradictions['conflicts']),
+    'unresolved': sum(row['status'] == 'unresolved' for row in contradictions['conflicts']),
+    'preservedBoundary': sum(row['status'] == 'preserved-boundary' for row in contradictions['conflicts']),
+}
 
 pilot = {
     'schemaVersion':1,'recordType':'semantic-rule-pilot-corpus','schemaPath':'docs/rules/semantics/semantic-rule.schema.json',
-    'scope':'base-game representative pilot; not full semantic coverage',
+    'scope':'base-game expanding semantic corpus; closed bounded families do not imply full semantic coverage',
     'counts':{'records':len(records),'sourceBacked':sum(r['status']=='source-backed' for r in records),'withOpenQuestion':sum(r['status']=='source-backed-with-open-question' for r in records),'sourceVariants':sum(r['status']=='source-variant' for r in records),'sourceAssertions':sum(len(r['sourceAssertions']) for r in records),'conditions':sum(len(r['preconditions']) for r in records),'operations':sum(len(r['operations']) for r in records),'decisions':sum(len(r['decisions']) for r in records),'informationPolicies':sum(len(r['informationPolicy']) for r in records),'costs':sum(len(r['costs']) for r in records),'targets':sum(len(r['targets']) for r in records),'openQuestionReferences':sum(len(r['unresolvedQuestionRefs']) for r in records),'variantReferences':sum(len(r['sourceVariants']) for r in records)},
     'records':records,
 }
@@ -580,11 +611,13 @@ coverage = {
         {'system':'base regular Green Item card/component family','ruleIds':['SEM-GREEN-ITEM-DECK-001','SEM-REGULAR-ITEM-BACKPACK-001','SEM-USE-ITEM-001','SEM-GREEN-ITEM-ONE-USE-001','SEM-ITEM-VOLUNTARY-DISCARD-001','SEM-ITEM-TRADE-GAIN-001','SEM-ITEM-INTERPLAY-001','SEM-RESTORE-HEALTH-001','SEM-GREEN-ITEM-IMMEDIATE-USE-001','SEM-GREEN-ITEM-VARIANT-BOUNDARIES-001',*GREEN_ITEM_RULE_IDS]},
         {'system':'base source-clear regular Red Item card/component family','ruleIds':['SEM-RED-ITEM-DECK-001','SEM-RED-ITEM-ONE-USE-001','SEM-AMMO-TOKEN-LIFECYCLE-001','SEM-GRENADE-TOKEN-EFFECT-001','SEM-ANTI-AIRCRAFT-TOKEN-STATE-001','SEM-RED-ITEM-IMMEDIATE-USE-001','SEM-RED-ITEM-VARIANT-BOUNDARIES-001',*RED_ITEM_RULE_IDS]},
         {'system':'base source-clear regular Yellow Item card/component family','ruleIds':['SEM-YELLOW-ITEM-DECK-001','SEM-YELLOW-ITEM-ONE-USE-001','SEM-YELLOW-ITEM-IMMEDIATE-USE-001','SEM-GAIN-OXYGEN-001','SEM-OXYGEN-TOKEN-EFFECT-001','SEM-DISCARD-MALFUNCTION-001','SEM-REINFORCE-CORRIDOR-001','SEM-YELLOW-ITEM-VARIANT-BOUNDARIES-001',*YELLOW_ITEM_RULE_IDS]},
+        {'system':'complete base Action card/component family','ruleIds':[*ACTION_REUSABLE_RULE_IDS,*ACTION_RULE_IDS,*[rule_id for rule_id in ACTION_REACTION_DISPATCH_RULE_IDS if rule_id != 'SEM-REACTION-DUCK-001']]},
     ],
-    'counts':{'systems':23,'pilotRecords':len(records),'fullBaseSemanticCoverageClaimed':False},
-    'notYetCovered':['remaining card corpus outside the closed 20-card Event, 12-card Exploration, 6-card Robot, 20-occurrence Intruder Attack, 12-occurrence Queen Health, 27-occurrence Serious Wound, 23-occurrence regular Green Item, 21-occurrence source-clear regular Red Item, and 24-occurrence source-clear regular Yellow Item families','seven Heavy Green occurrences, three explicit Heavy Red occurrences, six Military Taser Red class-conflict occurrences, six Fire Extinguisher/Robot Controller Yellow class-conflict occurrences, and all remaining Heavy/Equipment/Starting, Action, Objective, Mission Task, and other component effects','all remaining Objectives/Mission Tasks outside the linked Queen-death Help units','remaining setup, map, procedure, and component lifecycle rules'],
+    'counts':{'systems':24,'pilotRecords':len(records),'fullBaseSemanticCoverageClaimed':False},
+    'notYetCovered':['remaining card corpus outside the closed 20-card Event, 12-card Exploration, 6-card Robot, 20-occurrence Intruder Attack, 12-occurrence Queen Health, 27-occurrence Serious Wound, 23-occurrence regular Green Item, 21-occurrence source-clear regular Red Item, 24-occurrence source-clear regular Yellow Item, and 60-occurrence base Action families','seven Heavy Green occurrences, three explicit Heavy Red occurrences, six Military Taser Red class-conflict occurrences, six Fire Extinguisher/Robot Controller Yellow class-conflict occurrences, plus remaining Heavy/Equipment/Starting, Objective, Mission Task, and other component effects','all remaining Objectives/Mission Tasks outside the linked Queen-death Help units','remaining setup, map, procedure, and component lifecycle rules'],
 }
 
+write('action-source-index.json', action_source_index)
 write('yellow-item-source-index.json', yellow_item_source_index)
 write('red-item-source-index.json', red_item_source_index)
 write('green-item-source-index.json', green_item_source_index)

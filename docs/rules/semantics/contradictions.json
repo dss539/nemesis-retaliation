@@ -3,10 +3,10 @@
   "recordType": "semantic-conflict-register",
   "policy": "Readable source differences remain separate. Authority may resolve a general rule without rewriting lower-authority component wording; unresolved conflicts never receive a default.",
   "counts": {
-    "conflicts": 48,
+    "conflicts": 58,
     "resolvedByAuthority": 14,
-    "unresolved": 22,
-    "preservedBoundary": 12
+    "unresolved": 25,
+    "preservedBoundary": 19
   },
   "conflicts": [
     {
@@ -955,6 +955,310 @@
       ],
       "difference": "Direct Oxygen Tank is selected by eight root GUIDs while a same-title sheet cell is unselected and has independent Not In Combat/normalized-placeholder evidence. Direct Robot Controller is a root class conflict while a materially different sheet cell is unselected. Fire Extinguisher is selected only at sheet cell 1 and licensed as Heavy.",
       "resolution": "Keep all direct/generated/corpus/selected/licensed occurrences and representation discrepancies explicit. Same title, body similarity, Yellow art, cell, or multiplicity creates no identity or effect crosswalk."
+    },
+    {
+      "conflictId": "SC-049",
+      "title": "Seven TTS roots versus six final Character Action decks",
+      "status": "preserved-boundary",
+      "questionId": null,
+      "affectedRuleIds": [
+        "SEM-ACTION-DECK-SETUP-001",
+        "SEM-ACTION-CARD-VARIANT-BOUNDARIES-001"
+      ],
+      "evidenceRefs": [
+        "SRC-RULEBOOK",
+        "SRC-ACTION-DECK-CON",
+        "SRC-ACTION-DECK-CON-SHARED",
+        "docs/rules/semantics/action-source-index.json"
+      ],
+      "difference": "Five Contractor kit cards and five Shared Contractor cards occupy two TTS roots, while the official base rules require one shuffled ten-card Contractor deck and ignore the printed distinction.",
+      "resolution": "Compose exact membership only for Contractor setup; preserve both root segments and every physical selector."
+    },
+    {
+      "conflictId": "SC-050",
+      "title": "Action sheet selected cells, base selector gaps, and expansion cells",
+      "status": "preserved-boundary",
+      "questionId": null,
+      "affectedRuleIds": [
+        "SEM-ACTION-CARD-VARIANT-BOUNDARIES-001"
+      ],
+      "evidenceRefs": [
+        "SRC-ACTION-SHEET-5674",
+        "SRC-ACTION-SHEET-5675",
+        "docs/rules/semantics/action-source-index.json"
+      ],
+      "difference": "CustomDeck 5674 has 16 selected base physical cells plus 29 base-Character selector gaps; CustomDeck 5675 selects base cells 10–14 while forty other cells are expansion Characters.",
+      "resolution": "Retain sheet/hash/grid/cell evidence; gaps and expansion cells never become base physical copies."
+    },
+    {
+      "conflictId": "SC-051",
+      "title": "Selected Action crossed upper-right glyphs versus licensed noIntruders",
+      "status": "unresolved",
+      "questionId": "SEM-Q-057",
+      "affectedRuleIds": [
+        "SEM-ACTION-CE-567424-B5EE2B-001",
+        "SEM-ACTION-CE-567428-84096B-001",
+        "SEM-ACTION-CE-567427-20F4E2-001",
+        "SEM-ACTION-HGO-567416-12B5C5-001",
+        "SEM-ACTION-HGO-567418-32B36F-001",
+        "SEM-ACTION-OFF-567437-7909AA-001",
+        "SEM-ACTION-OFF-567433-5D3E97-001",
+        "SEM-ACTION-REC-567406-59DEA3-001",
+        "SEM-ACTION-CARD-VARIANT-BOUNDARIES-001"
+      ],
+      "evidenceRefs": [
+        "SRC-BGA-ACTION-CARDS",
+        "assets/tts-mod/extract/selected-card-text-evidence.json",
+        "docs/rules/semantics/action-source-index.json"
+      ],
+      "difference": "Eight selected generated occurrences retain unresolved/no-match crossed morphologies while licensed rows expose booleans; aggregate true counts and exact occurrence representations are not a source identity crosswalk.",
+      "resolution": "No Not In Combat default; retain exact literal art and independent licensed flags."
+    },
+    {
+      "conflictId": "SC-052",
+      "title": "Selected Search octagons versus current official Item Icons",
+      "status": "unresolved",
+      "questionId": "SEM-Q-058",
+      "affectedRuleIds": [
+        "SEM-ACTION-CE-567427-20F4E2-001",
+        "SEM-ACTION-HGO-567418-32B36F-001",
+        "SEM-ACTION-OFF-567437-7909AA-001",
+        "SEM-ACTION-REC-567406-59DEA3-001",
+        "SEM-ACTION-CON-567512-A8C697-001",
+        "SEM-ACTION-CARD-VARIANT-BOUNDARIES-001"
+      ],
+      "evidenceRefs": [
+        "SRC-RULEBOOK",
+        "SRC-BGA-ACTION-CARDS",
+        "assets/tts-mod/extract/selected-card-text-evidence.json"
+      ],
+      "difference": "Five selected TTS Search faces show local solid octagons with no exact approved glossary match; the current official Search occurrence and licensed rows say Item Icon(s) and corresponding type.",
+      "resolution": "Official procedure remains independent; no title/body-based mapping to TTS local glyphs."
+    },
+    {
+      "conflictId": "SC-053",
+      "title": "Selected pixel evidence versus stale Action corpus projections",
+      "status": "preserved-boundary",
+      "questionId": null,
+      "affectedRuleIds": [
+        "SEM-ACTION-CARD-VARIANT-BOUNDARIES-001",
+        "SEM-ACTION-CE-592400-164B84-001",
+        "SEM-ACTION-CE-567424-B5EE2B-001",
+        "SEM-ACTION-CE-567428-84096B-001",
+        "SEM-ACTION-CE-567426-E4355B-001",
+        "SEM-ACTION-CE-567427-20F4E2-001",
+        "SEM-ACTION-CE-568800-4907B2-001",
+        "SEM-ACTION-CE-569000-1892A7-001",
+        "SEM-ACTION-CE-569100-750970-001",
+        "SEM-ACTION-CE-569300-28D06B-001",
+        "SEM-ACTION-CE-569400-774D62-001",
+        "SEM-ACTION-HGO-592400-B36EF3-001",
+        "SEM-ACTION-HGO-567414-320528-001",
+        "SEM-ACTION-HGO-567416-12B5C5-001",
+        "SEM-ACTION-HGO-567417-650559-001",
+        "SEM-ACTION-HGO-567418-32B36F-001",
+        "SEM-ACTION-HGO-570300-461DC0-001",
+        "SEM-ACTION-HGO-570500-F97AD0-001",
+        "SEM-ACTION-HGO-570600-03260A-001",
+        "SEM-ACTION-HGO-570800-F30901-001",
+        "SEM-ACTION-HGO-570700-AE6BC0-001",
+        "SEM-ACTION-MS-570400-D17C81-001",
+        "SEM-ACTION-MS-569400-962AD8-001",
+        "SEM-ACTION-MS-569500-7654B2-001",
+        "SEM-ACTION-MS-569600-1864BB-001",
+        "SEM-ACTION-MS-569700-49120B-001",
+        "SEM-ACTION-MS-569800-1688A1-001",
+        "SEM-ACTION-MS-569900-CD0684-001",
+        "SEM-ACTION-MS-570000-3E472F-001",
+        "SEM-ACTION-MS-570200-176BDB-001",
+        "SEM-ACTION-MS-570300-239ACD-001",
+        "SEM-ACTION-CON-567514-35D06D-001",
+        "SEM-ACTION-CON-571000-B27C01-001",
+        "SEM-ACTION-CON-570600-D30470-001",
+        "SEM-ACTION-CON-570700-E2EF18-001",
+        "SEM-ACTION-CON-570800-8C77FB-001",
+        "SEM-ACTION-CON-567513-F809A3-001",
+        "SEM-ACTION-CON-567512-A8C697-001",
+        "SEM-ACTION-CON-567511-46E6C0-001",
+        "SEM-ACTION-CON-571000-AD29B5-001",
+        "SEM-ACTION-CON-567510-10707C-001",
+        "SEM-ACTION-OFF-567436-56D897-001",
+        "SEM-ACTION-OFF-567600-ECD451-001",
+        "SEM-ACTION-OFF-567800-961585-001",
+        "SEM-ACTION-OFF-567900-96DBDB-001",
+        "SEM-ACTION-OFF-568000-5A4763-001",
+        "SEM-ACTION-OFF-567435-017D60-001",
+        "SEM-ACTION-OFF-567437-7909AA-001",
+        "SEM-ACTION-OFF-567433-5D3E97-001",
+        "SEM-ACTION-OFF-567700-1325B4-001",
+        "SEM-ACTION-OFF-592400-BBD2B9-001",
+        "SEM-ACTION-REC-592400-8AF78A-001",
+        "SEM-ACTION-REC-567403-83078C-001",
+        "SEM-ACTION-REC-567406-59DEA3-001",
+        "SEM-ACTION-REC-567404-62092F-001",
+        "SEM-ACTION-REC-568600-662FA5-001",
+        "SEM-ACTION-REC-568700-D711D5-001",
+        "SEM-ACTION-REC-568900-443817-001",
+        "SEM-ACTION-REC-569000-06BD33-001",
+        "SEM-ACTION-REC-599300-83C5B5-001",
+        "SEM-ACTION-REC-567409-BB47F4-001"
+      ],
+      "evidenceRefs": [
+        "assets/tts-mod/extract/card-text-corpus.json",
+        "assets/tts-mod/extract/selected-card-text-evidence.json",
+        "docs/rules/semantics/action-source-index.json"
+      ],
+      "difference": "Twenty-six selected physical faces have one or more title/body/footer/upper-right representation differences from earlier corpus printedData, including Combat Drugs Medpack and several Lander/Reaction reads.",
+      "resolution": "Selected source-bound pixel evidence controls the semantic projection; both representations remain recorded without rewriting extraction history."
+    },
+    {
+      "conflictId": "SC-054",
+      "title": "Sixty physical TTS copies versus sixty licensed Action rows",
+      "status": "preserved-boundary",
+      "questionId": null,
+      "affectedRuleIds": [
+        "SEM-ACTION-CARD-VARIANT-BOUNDARIES-001",
+        "SEM-ACTION-CE-592400-164B84-001",
+        "SEM-ACTION-CE-567424-B5EE2B-001",
+        "SEM-ACTION-CE-567428-84096B-001",
+        "SEM-ACTION-CE-567426-E4355B-001",
+        "SEM-ACTION-CE-567427-20F4E2-001",
+        "SEM-ACTION-CE-568800-4907B2-001",
+        "SEM-ACTION-CE-569000-1892A7-001",
+        "SEM-ACTION-CE-569100-750970-001",
+        "SEM-ACTION-CE-569300-28D06B-001",
+        "SEM-ACTION-CE-569400-774D62-001",
+        "SEM-ACTION-HGO-592400-B36EF3-001",
+        "SEM-ACTION-HGO-567414-320528-001",
+        "SEM-ACTION-HGO-567416-12B5C5-001",
+        "SEM-ACTION-HGO-567417-650559-001",
+        "SEM-ACTION-HGO-567418-32B36F-001",
+        "SEM-ACTION-HGO-570300-461DC0-001",
+        "SEM-ACTION-HGO-570500-F97AD0-001",
+        "SEM-ACTION-HGO-570600-03260A-001",
+        "SEM-ACTION-HGO-570800-F30901-001",
+        "SEM-ACTION-HGO-570700-AE6BC0-001",
+        "SEM-ACTION-MS-570400-D17C81-001",
+        "SEM-ACTION-MS-569400-962AD8-001",
+        "SEM-ACTION-MS-569500-7654B2-001",
+        "SEM-ACTION-MS-569600-1864BB-001",
+        "SEM-ACTION-MS-569700-49120B-001",
+        "SEM-ACTION-MS-569800-1688A1-001",
+        "SEM-ACTION-MS-569900-CD0684-001",
+        "SEM-ACTION-MS-570000-3E472F-001",
+        "SEM-ACTION-MS-570200-176BDB-001",
+        "SEM-ACTION-MS-570300-239ACD-001",
+        "SEM-ACTION-CON-567514-35D06D-001",
+        "SEM-ACTION-CON-571000-B27C01-001",
+        "SEM-ACTION-CON-570600-D30470-001",
+        "SEM-ACTION-CON-570700-E2EF18-001",
+        "SEM-ACTION-CON-570800-8C77FB-001",
+        "SEM-ACTION-CON-567513-F809A3-001",
+        "SEM-ACTION-CON-567512-A8C697-001",
+        "SEM-ACTION-CON-567511-46E6C0-001",
+        "SEM-ACTION-CON-571000-AD29B5-001",
+        "SEM-ACTION-CON-567510-10707C-001",
+        "SEM-ACTION-OFF-567436-56D897-001",
+        "SEM-ACTION-OFF-567600-ECD451-001",
+        "SEM-ACTION-OFF-567800-961585-001",
+        "SEM-ACTION-OFF-567900-96DBDB-001",
+        "SEM-ACTION-OFF-568000-5A4763-001",
+        "SEM-ACTION-OFF-567435-017D60-001",
+        "SEM-ACTION-OFF-567437-7909AA-001",
+        "SEM-ACTION-OFF-567433-5D3E97-001",
+        "SEM-ACTION-OFF-567700-1325B4-001",
+        "SEM-ACTION-OFF-592400-BBD2B9-001",
+        "SEM-ACTION-REC-592400-8AF78A-001",
+        "SEM-ACTION-REC-567403-83078C-001",
+        "SEM-ACTION-REC-567406-59DEA3-001",
+        "SEM-ACTION-REC-567404-62092F-001",
+        "SEM-ACTION-REC-568600-662FA5-001",
+        "SEM-ACTION-REC-568700-D711D5-001",
+        "SEM-ACTION-REC-568900-443817-001",
+        "SEM-ACTION-REC-569000-06BD33-001",
+        "SEM-ACTION-REC-599300-83C5B5-001",
+        "SEM-ACTION-REC-567409-BB47F4-001"
+      ],
+      "evidenceRefs": [
+        "SRC-BGA-ACTION-CARDS",
+        "docs/rules/semantics/action-source-index.json"
+      ],
+      "difference": "Counts partition 10×6 in both sources, but no licensed key identifies a TTS deck GUID/full CardID/GUID/cell copy and wording/layout fields differ.",
+      "resolution": "Retain sixty plus sixty independent occurrences with zero asserted physical identity links."
+    },
+    {
+      "conflictId": "SC-055",
+      "title": "Sprint TTS/corpus/current-official wording and resource representation",
+      "status": "preserved-boundary",
+      "questionId": null,
+      "affectedRuleIds": [
+        "SEM-ACTION-REC-568600-662FA5-001",
+        "SEM-ACTION-CARD-VARIANT-BOUNDARIES-001"
+      ],
+      "evidenceRefs": [
+        "SRC-RULEBOOK",
+        "SRC-BGA-ACTION-CARDS",
+        "docs/rules/semantics/action-source-index.json"
+      ],
+      "difference": "Selected TTS says lose 1 Oxygen, an earlier corpus projection emitted Oxygen token, and current official/licensed wording says spend 1 Oxygen; no official visual occurrence identifies the TTS GUID.",
+      "resolution": "Encode exact selected TTS occurrence and preserve current official/licensed occurrences independently."
+    },
+    {
+      "conflictId": "SC-056",
+      "title": "Stay Calm local draw glyph versus licensed Action-card placeholder",
+      "status": "unresolved",
+      "questionId": "SEM-Q-068",
+      "affectedRuleIds": [
+        "SEM-ACTION-OFF-568000-5A4763-001"
+      ],
+      "evidenceRefs": [
+        "SRC-BGA-ACTION-CARDS",
+        "assets/tts-mod/extract/selected-card-text-evidence.json",
+        "docs/rules/semantics/action-source-index.json"
+      ],
+      "difference": "Selected source evidence leaves the upright card/tile glyph unresolved while licensed Stay Calm says each Character draws one Action card.",
+      "resolution": "No draw target default; unaffected Lander/Room/Reaction clauses remain encoded."
+    },
+    {
+      "conflictId": "SC-057",
+      "title": "Weak Spots TTS plural versus current official/licensed Weak Spot",
+      "status": "preserved-boundary",
+      "questionId": null,
+      "affectedRuleIds": [
+        "SEM-ACTION-CON-567514-35D06D-001",
+        "SEM-ACTION-CARD-VARIANT-BOUNDARIES-001"
+      ],
+      "evidenceRefs": [
+        "SRC-RULEBOOK",
+        "SRC-BGA-ACTION-CARDS",
+        "SRC-ACTION-SHEET-5675"
+      ],
+      "difference": "The selected TTS face is WEAK SPOTS and says chosen Intruder in your Room; current official visible/licensed occurrences are Weak spot/Weak Spot with their own punctuation/wording.",
+      "resolution": "Current official controls only its exact publisher occurrence; no title normalization or GUID substitution."
+    },
+    {
+      "conflictId": "SC-058",
+      "title": "Printed Command headings versus licensed command flags",
+      "status": "preserved-boundary",
+      "questionId": null,
+      "affectedRuleIds": [
+        "SEM-ACTION-CARD-COMMAND-001",
+        "SEM-ACTION-CARD-VARIANT-BOUNDARIES-001",
+        "SEM-ACTION-CE-569400-774D62-001",
+        "SEM-ACTION-HGO-570700-AE6BC0-001",
+        "SEM-ACTION-MS-569400-962AD8-001",
+        "SEM-ACTION-OFF-567800-961585-001",
+        "SEM-ACTION-OFF-567900-96DBDB-001",
+        "SEM-ACTION-OFF-568000-5A4763-001",
+        "SEM-ACTION-OFF-567700-1325B4-001",
+        "SEM-ACTION-REC-569000-06BD33-001"
+      ],
+      "evidenceRefs": [
+        "SRC-BGA-ACTION-CARDS",
+        "docs/rules/semantics/action-source-index.json"
+      ],
+      "difference": "Eight TTS physical main panels visibly carry COMMAND headings, while seven licensed rows set command=true because Officer's Channel references playing another Command rather than being flagged as one.",
+      "resolution": "Preserve panel headings and licensed booleans as different source fields; never flatten one into the other."
     }
   ]
 }

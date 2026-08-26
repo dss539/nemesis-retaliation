@@ -203,7 +203,7 @@ EXPECTED_GREEN_ITEM_REUSABLE_RULE_IDS = [
 # Filled from the independently generated, reviewed projection. Includes Search
 # because this batch adds its explicit Green-deck exhaustion no-default gate.
 EXPECTED_GREEN_ITEM_RECORD_DIGESTS: dict[str, str] = {
-    "SEM-ACT-SEARCH-001": "f843fdb95ecb7f1c375d71c4030ef120fa5d0330a190f77dc7c92013cc7af1dd",
+    "SEM-ACT-SEARCH-001": "dde0f860199caec057477654cd682ee18c6341ff1da4999a0eb660257e5a1bcc",
     "SEM-GREEN-ITEM-3700-7E1C40-001": "5c497697a359c324757eb7371599a3bee0963b4d3e263dc1186dbb06eefbd00c",
     "SEM-GREEN-ITEM-3700-CEFCF6-001": "7ff15f4cbd1e3eb1b3f30677fa6a118ca32a7bdcab73164cacc8bacc363e6c63",
     "SEM-GREEN-ITEM-3700-EABBA4-001": "ab4c5a659e2ec7ef66d8b459fb27711a817c616c4e815b60fbe909c46f11d2ad",

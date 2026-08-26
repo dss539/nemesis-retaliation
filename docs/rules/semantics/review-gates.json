@@ -3,11 +3,11 @@
   "recordType": "semantic-review-gates",
   "status": "pilot built with deferred questions and explicit alternatives; no default answer adopted",
   "counts": {
-    "questions": 61,
-    "officialClarificationPreferred": 29,
-    "sourceAmbiguitiesIntroducedByPilot": 32,
+    "questions": 79,
+    "officialClarificationPreferred": 44,
+    "sourceAmbiguitiesIntroducedByPilot": 35,
     "resolved": 0,
-    "open": 61
+    "open": 79
   },
   "questions": [
     {
@@ -2144,6 +2144,604 @@
           "alternativeId": "SEM-Q-056-C",
           "description": "Use another source-defined owner/range/eligibility rule without importing Portable Barrier overrides or Robot-specific accessibility.",
           "support": "similar Door effects are distinct source occurrences and cannot be joined by function"
+        }
+      ]
+    },
+    {
+      "questionId": "SEM-Q-057",
+      "title": "Selected Action upper-right crossed-glyph denotations and scope",
+      "decisionClass": "source-ambiguity-owner-decision-after-source-search",
+      "blocksRuleIds": [
+        "SEM-ACTION-CE-567424-B5EE2B-001",
+        "SEM-ACTION-CE-567428-84096B-001",
+        "SEM-ACTION-CE-567427-20F4E2-001",
+        "SEM-ACTION-HGO-567416-12B5C5-001",
+        "SEM-ACTION-HGO-567418-32B36F-001",
+        "SEM-ACTION-OFF-567437-7909AA-001",
+        "SEM-ACTION-OFF-567433-5D3E97-001",
+        "SEM-ACTION-REC-567406-59DEA3-001"
+      ],
+      "plannedRuleIds": [],
+      "defaultProhibited": true,
+      "sourceEvidenceRefs": [
+        "docs/rules/semantics/action-source-index.json",
+        "assets/tts-mod/extract/selected-card-text-evidence.json"
+      ],
+      "alternatives": [
+        {
+          "alternativeId": "SEM-Q-057-A",
+          "description": "Treat only independently matched/canonical occurrences as Not In Combat; keep eight selected local morphologies undispatched.",
+          "support": "selected comparisons are unresolved/no-match and no approved source-scoped alias exists"
+        },
+        {
+          "alternativeId": "SEM-Q-057-B",
+          "description": "Map one or more exact local occurrences to Not In Combat after a reviewed page-40/source-scoped artwork match.",
+          "support": "licensed noIntruders and expected tactics are leads, not source identity"
+        },
+        {
+          "alternativeId": "SEM-Q-057-C",
+          "description": "Establish another exact source-local restriction for individual occurrences.",
+          "support": "position/color/crossed-gun appearance cannot establish a global alias"
+        }
+      ]
+    },
+    {
+      "questionId": "SEM-Q-058",
+      "title": "Selected Search octagon identity and corresponding Item-deck mapping",
+      "decisionClass": "source-ambiguity-owner-decision-after-source-search",
+      "blocksRuleIds": [
+        "SEM-ACTION-CE-567427-20F4E2-001",
+        "SEM-ACTION-HGO-567418-32B36F-001",
+        "SEM-ACTION-OFF-567437-7909AA-001",
+        "SEM-ACTION-REC-567406-59DEA3-001",
+        "SEM-ACTION-CON-567512-A8C697-001"
+      ],
+      "plannedRuleIds": [],
+      "defaultProhibited": true,
+      "sourceEvidenceRefs": [
+        "docs/rules/semantics/action-source-index.json",
+        "assets/tts-mod/extract/selected-card-text-evidence.json",
+        "docs/rules/source-extraction/rulebook-visual-obligations.json:RB-P28-V02"
+      ],
+      "alternatives": [
+        {
+          "alternativeId": "SEM-Q-058-A",
+          "description": "Apply the official Search Item-Icon procedure to these exact TTS occurrences after establishing that each local octagon denotes the printed Room Item Icons collectively.",
+          "support": "official Search is a strong procedure counterpart but does not identify each TTS cell glyph"
+        },
+        {
+          "alternativeId": "SEM-Q-058-B",
+          "description": "Keep the local octagons literal and do not dispatch Item decks until an exact source-scoped match exists.",
+          "support": "selected evidence records explicit no-matches"
+        },
+        {
+          "alternativeId": "SEM-Q-058-C",
+          "description": "Map individual octagons to another source-defined icon/deck relation.",
+          "support": "title/body similarity and licensed text cannot create identity"
+        }
+      ]
+    },
+    {
+      "questionId": "SEM-Q-059",
+      "title": "Command nested-Action costs, resources, legality, and remaining choices",
+      "decisionClass": "official-clarification-preferred",
+      "blocksRuleIds": [
+        "SEM-ACTION-CARD-COMMAND-001",
+        "SEM-ACTION-CE-569400-774D62-001",
+        "SEM-ACTION-HGO-570700-AE6BC0-001",
+        "SEM-ACTION-MS-569400-962AD8-001",
+        "SEM-ACTION-OFF-567800-961585-001",
+        "SEM-ACTION-OFF-567900-96DBDB-001",
+        "SEM-ACTION-OFF-568000-5A4763-001",
+        "SEM-ACTION-OFF-567700-1325B4-001",
+        "SEM-ACTION-REC-569000-06BD33-001"
+      ],
+      "plannedRuleIds": [],
+      "defaultProhibited": true,
+      "sourceEvidenceRefs": [
+        "docs/rules/semantics/action-source-index.json",
+        "docs/rulebooks/rulebook_text.txt:lines 3095–3105",
+        "docs/rules/source-extraction/faq-v1.2-source-extraction.json:FQ-P02-U10"
+      ],
+      "alternatives": [
+        {
+          "alternativeId": "SEM-Q-059-A",
+          "description": "Ordered Move/Shoot/Burst pays no normal Action-card Basic-Action cost, but the ordered Character supplies source-required Weapon/Ammo and the effect owner makes source-assigned choices.",
+          "support": "cards already resolve as effects and often say the owner makes choices; payment exception is not explicit"
+        },
+        {
+          "alternativeId": "SEM-Q-059-B",
+          "description": "Apply the complete normal Action cost/resource procedure to the ordered Character or effect owner.",
+          "support": "rulebook calls the nested operation an Action but does not name payer"
+        },
+        {
+          "alternativeId": "SEM-Q-059-C",
+          "description": "Use another source-defined split of Action-card payment, equipment/resources, target/weapon choices, and legality.",
+          "support": "Fire At Will assigns Corridor and Weapon owners specially, proving one global guess is unsafe"
+        }
+      ]
+    },
+    {
+      "questionId": "SEM-Q-060",
+      "title": "Reaction priority, simultaneous windows, replacement order, and stacking",
+      "decisionClass": "official-clarification-preferred",
+      "blocksRuleIds": [
+        "SEM-ACTION-CARD-REACTION-001",
+        "SEM-REACTION-DUCK-001",
+        "SEM-ACTION-REACTION-CE-569400-774D62-001",
+        "SEM-ACTION-REACTION-HGO-570700-AE6BC0-001",
+        "SEM-ACTION-REACTION-MS-569400-962AD8-001",
+        "SEM-ACTION-REACTION-OFF-568000-5A4763-001",
+        "SEM-ACTION-REACTION-REC-569000-06BD33-001"
+      ],
+      "plannedRuleIds": [],
+      "defaultProhibited": true,
+      "sourceEvidenceRefs": [
+        "docs/rules/semantics/action-source-index.json",
+        "docs/rulebooks/rulebook_text.txt:lines 3067–3075,3180–3186"
+      ],
+      "alternatives": [
+        {
+          "alternativeId": "SEM-Q-060-A",
+          "description": "Trigger owner chooses whether/which eligible Reaction to resolve, one complete Reaction at a time, with a source-defined priority among different owners.",
+          "support": "optional play is clear; priority/order is absent"
+        },
+        {
+          "alternativeId": "SEM-Q-060-B",
+          "description": "Use turn order for simultaneously eligible Reaction owners and re-evaluate after each replacement/cancellation.",
+          "support": "turn order is the common tie-break but not stated for Reactions"
+        },
+        {
+          "alternativeId": "SEM-Q-060-C",
+          "description": "Allow another source-defined interrupt/stack procedure.",
+          "support": "no checked source defines a stack, priority pass, or conflicting prevention order"
+        }
+      ]
+    },
+    {
+      "questionId": "SEM-Q-061",
+      "title": "Action-card continuation and discard after acting Character death/escape",
+      "decisionClass": "official-clarification-preferred",
+      "blocksRuleIds": [
+        "SEM-ACTION-CARD-PLAY-001",
+        "SEM-ACTION-CE-569000-1892A7-001",
+        "SEM-ACTION-HGO-570800-F30901-001",
+        "SEM-ACTION-MS-570400-D17C81-001",
+        "SEM-ACTION-MS-569900-CD0684-001",
+        "SEM-ACTION-CON-567514-35D06D-001",
+        "SEM-ACTION-CON-570800-8C77FB-001",
+        "SEM-ACTION-OFF-567433-5D3E97-001",
+        "SEM-ACTION-REC-568700-D711D5-001"
+      ],
+      "plannedRuleIds": [],
+      "defaultProhibited": true,
+      "sourceEvidenceRefs": [
+        "docs/rules/semantics/action-source-index.json",
+        "docs/rulebooks/rulebook_text.txt:lines 3161–3198,3750–3763"
+      ],
+      "alternatives": [
+        {
+          "alternativeId": "SEM-Q-061-A",
+          "description": "Stop later actor-bound operations when the Character no longer participates, but always discard the resolving Action card.",
+          "support": "death ends participation while play rule still says discard after resolution"
+        },
+        {
+          "alternativeId": "SEM-Q-061-B",
+          "description": "Finish every already-selected card operation despite death/escape, then discard.",
+          "support": "effect was legal and selected before the interruption"
+        },
+        {
+          "alternativeId": "SEM-Q-061-C",
+          "description": "Use another source-defined per-operation interruption boundary.",
+          "support": "nested Attacks/Movement/Commands can remove the actor and no general continuation rule is printed"
+        }
+      ]
+    },
+    {
+      "questionId": "SEM-Q-062",
+      "title": "Continuous Fire zero-card legality, Hit allocation, and optional Burst",
+      "decisionClass": "official-clarification-preferred",
+      "blocksRuleIds": [
+        "SEM-ACTION-HGO-570500-F97AD0-001"
+      ],
+      "plannedRuleIds": [],
+      "defaultProhibited": true,
+      "sourceEvidenceRefs": [
+        "docs/rules/semantics/action-source-index.json"
+      ],
+      "alternatives": [
+        {
+          "alternativeId": "SEM-Q-062-A",
+          "description": "Any number includes zero; owner allocates one Hit per discarded card in one adjacent Corridor, then independently may Burst.",
+          "support": "literal any-number/may reading; zero-card legality may trivialize the effect"
+        },
+        {
+          "alternativeId": "SEM-Q-062-B",
+          "description": "At least one Action card must be discarded and all Hit targets/stacking must be declared for whole-effect legality.",
+          "support": "effect purpose suggests a positive payment but source says no minimum"
+        },
+        {
+          "alternativeId": "SEM-Q-062-C",
+          "description": "Use another source-defined allocation/order among multiple Intruders and the optional Burst.",
+          "support": "source gives no allocation or death/order procedure"
+        }
+      ]
+    },
+    {
+      "questionId": "SEM-Q-063",
+      "title": "Always Prepared multi-Intruder Attack order and continuation",
+      "decisionClass": "official-clarification-preferred",
+      "blocksRuleIds": [
+        "SEM-ACTION-CON-570800-8C77FB-001"
+      ],
+      "plannedRuleIds": [],
+      "defaultProhibited": true,
+      "sourceEvidenceRefs": [
+        "docs/rules/semantics/action-source-index.json"
+      ],
+      "alternatives": [
+        {
+          "alternativeId": "SEM-Q-063-A",
+          "description": "Resolve attacking Intruders largest-first and continue to the next only while the actor remains participating.",
+          "support": "Intruder Phase supplies an order but this is a card effect"
+        },
+        {
+          "alternativeId": "SEM-Q-063-B",
+          "description": "Resolve all Intruders in another source-defined order even after intermediate death.",
+          "support": "card says all Attack; no interruption clause"
+        },
+        {
+          "alternativeId": "SEM-Q-063-C",
+          "description": "Apply turn/map/physical ordering with explicit death/escape continuation.",
+          "support": "checked sources do not assign it"
+        }
+      ]
+    },
+    {
+      "questionId": "SEM-Q-064",
+      "title": "Always Prepared Item draw privacy, optional keep, destination, and shortage",
+      "decisionClass": "official-clarification-preferred",
+      "blocksRuleIds": [
+        "SEM-ACTION-CON-570800-8C77FB-001"
+      ],
+      "plannedRuleIds": [],
+      "defaultProhibited": true,
+      "sourceEvidenceRefs": [
+        "docs/rules/semantics/action-source-index.json"
+      ],
+      "alternatives": [
+        {
+          "alternativeId": "SEM-Q-064-A",
+          "description": "Privately inspect two, keep zero or one, and put every unkept card in that Item deck's discard pile.",
+          "support": "card says may keep 1 and discard the other, but zero-choice grammar is incomplete"
+        },
+        {
+          "alternativeId": "SEM-Q-064-B",
+          "description": "Keeping exactly one is required if two are drawn; discard the other publicly.",
+          "support": "the singular other supports exact-one"
+        },
+        {
+          "alternativeId": "SEM-Q-064-C",
+          "description": "Use official Search bottom/private procedure or another source-defined shortage/destination rule.",
+          "support": "this card is not labeled Search and cannot inherit by body similarity"
+        }
+      ]
+    },
+    {
+      "questionId": "SEM-Q-065",
+      "title": "Medical Action target consent and Field Surgery payment/choice ownership",
+      "decisionClass": "official-clarification-preferred",
+      "blocksRuleIds": [
+        "SEM-ACTION-MS-570400-D17C81-001",
+        "SEM-ACTION-MS-570000-3E472F-001",
+        "SEM-ACTION-MS-570300-239ACD-001"
+      ],
+      "plannedRuleIds": [],
+      "defaultProhibited": true,
+      "sourceEvidenceRefs": [
+        "docs/rules/semantics/action-source-index.json",
+        "docs/rules/source-extraction/faq-v1.2-source-extraction.json:FQ-P03-U07"
+      ],
+      "alternatives": [
+        {
+          "alternativeId": "SEM-Q-065-A",
+          "description": "Action owner chooses target/branch and pays; receiving Character consents and owns Serious Wound selection.",
+          "support": "Interplay requires consent and affected owner normally chooses Wound"
+        },
+        {
+          "alternativeId": "SEM-Q-065-B",
+          "description": "Receiving Character owns branch/payment consequence as well as Wound selection.",
+          "support": "card says that Character gains Contamination but does not assign the Medpack-or-Contamination choice"
+        },
+        {
+          "alternativeId": "SEM-Q-065-C",
+          "description": "Use another source-defined split for First Aid, Field Surgery, and Combat Drugs.",
+          "support": "FAQ broadens Interplay but does not fully assign nested choices"
+        }
+      ]
+    },
+    {
+      "questionId": "SEM-Q-066",
+      "title": "Weak Spots/Hippocratic Oath setup Hits before required attack",
+      "decisionClass": "official-clarification-preferred",
+      "blocksRuleIds": [
+        "SEM-ACTION-MS-569900-CD0684-001",
+        "SEM-ACTION-CON-567514-35D06D-001"
+      ],
+      "plannedRuleIds": [],
+      "defaultProhibited": true,
+      "sourceEvidenceRefs": [
+        "docs/rules/semantics/action-source-index.json"
+      ],
+      "alternatives": [
+        {
+          "alternativeId": "SEM-Q-066-A",
+          "description": "Card is legal only if the same target remains legal for the required Shoot/Melee after setup Hits.",
+          "support": "whole effect must resolve entirely"
+        },
+        {
+          "alternativeId": "SEM-Q-066-B",
+          "description": "Deal setup Hits, then skip an impossible required attack if the target is removed or otherwise ineligible.",
+          "support": "later eligibility can change only during resolution"
+        },
+        {
+          "alternativeId": "SEM-Q-066-C",
+          "description": "Use another source-defined target/death continuation boundary.",
+          "support": "no example covers Larva/Queen or target removal between clauses"
+        }
+      ]
+    },
+    {
+      "questionId": "SEM-Q-067",
+      "title": "Officer Channel nested Command card lifecycle and Room substitution",
+      "decisionClass": "official-clarification-preferred",
+      "blocksRuleIds": [
+        "SEM-ACTION-OFF-567900-96DBDB-001"
+      ],
+      "plannedRuleIds": [],
+      "defaultProhibited": true,
+      "sourceEvidenceRefs": [
+        "docs/rules/semantics/action-source-index.json"
+      ],
+      "alternatives": [
+        {
+          "alternativeId": "SEM-Q-067-A",
+          "description": "Choose another Command card from hand, reveal it, open its Reaction window, resolve it with any Facility Room substituted, then discard both cards in nested order.",
+          "support": "natural play-card reading; no nested lifecycle is printed"
+        },
+        {
+          "alternativeId": "SEM-Q-067-B",
+          "description": "Resolve only another Command effect without playing/discarding its physical card or opening Reactions.",
+          "support": "effect may reference card text as an option rather than a second play"
+        },
+        {
+          "alternativeId": "SEM-Q-067-C",
+          "description": "Use another source-defined card source, cost, Room, Reaction, and discard order.",
+          "support": "licensed wording does not settle physical lifecycle"
+        }
+      ]
+    },
+    {
+      "questionId": "SEM-Q-068",
+      "title": "Stay Calm local draw-glyph identity",
+      "decisionClass": "source-ambiguity-owner-decision-after-source-search",
+      "blocksRuleIds": [
+        "SEM-ACTION-OFF-568000-5A4763-001"
+      ],
+      "plannedRuleIds": [],
+      "defaultProhibited": true,
+      "sourceEvidenceRefs": [
+        "docs/rules/semantics/action-source-index.json",
+        "assets/tts-mod/extract/selected-card-text-evidence.json",
+        "docs/rules/source-extraction/secondary/bga-staticData-260622-1220.js:ACTION_CARDS_DATA.Officer_StayCalm"
+      ],
+      "alternatives": [
+        {
+          "alternativeId": "SEM-Q-068-A",
+          "description": "The source-local upright card/tile denotes Action card, following the licensed row.",
+          "support": "licensed occurrence is a strong lead but lower authority"
+        },
+        {
+          "alternativeId": "SEM-Q-068-B",
+          "description": "Keep the glyph literal and do not draw until exact source-scoped evidence resolves it.",
+          "support": "selected comparison is an explicit no-match"
+        },
+        {
+          "alternativeId": "SEM-Q-068-C",
+          "description": "Assign another source-local component meaning.",
+          "support": "shape and expected tactics cannot establish identity"
+        }
+      ]
+    },
+    {
+      "questionId": "SEM-Q-069",
+      "title": "Let's Go companion owner, consent, Movement, and Noise/Attack scope",
+      "decisionClass": "official-clarification-preferred",
+      "blocksRuleIds": [
+        "SEM-ACTION-OFF-567433-5D3E97-001"
+      ],
+      "plannedRuleIds": [],
+      "defaultProhibited": true,
+      "sourceEvidenceRefs": [
+        "docs/rules/semantics/action-source-index.json"
+      ],
+      "alternatives": [
+        {
+          "alternativeId": "SEM-Q-069-A",
+          "description": "Officer chooses one consenting co-located Character; both move through one legal Corridor, only Officer rolls Noise, and each resolves source-defined opportunity consequences.",
+          "support": "co-movement effects elsewhere state consent, but this face omits it"
+        },
+        {
+          "alternativeId": "SEM-Q-069-B",
+          "description": "Officer may move another Character without consent and owns route/target choices.",
+          "support": "literal card gives no consent"
+        },
+        {
+          "alternativeId": "SEM-Q-069-C",
+          "description": "Use another source-defined companion, range, attack, and interruption procedure.",
+          "support": "card gives only the Noise exception"
+        }
+      ]
+    },
+    {
+      "questionId": "SEM-Q-070",
+      "title": "Taking Aim reroll scope and second-result acceptance",
+      "decisionClass": "official-clarification-preferred",
+      "blocksRuleIds": [
+        "SEM-ACTION-REC-567409-BB47F4-001"
+      ],
+      "plannedRuleIds": [],
+      "defaultProhibited": true,
+      "sourceEvidenceRefs": [
+        "docs/rules/semantics/action-source-index.json"
+      ],
+      "alternatives": [
+        {
+          "alternativeId": "SEM-Q-070-A",
+          "description": "Reroll exactly the first Shoot/Burst die result and must accept the second result.",
+          "support": "licensed row states acceptance; TTS face only says can reroll"
+        },
+        {
+          "alternativeId": "SEM-Q-070-B",
+          "description": "Reroll the first result and retain a choice between first and second.",
+          "support": "ordinary language does not say replace/accept"
+        },
+        {
+          "alternativeId": "SEM-Q-070-C",
+          "description": "Apply reroll to another source-defined die/result set, including additional Weapon dice.",
+          "support": "no general reroll rule was found"
+        }
+      ]
+    },
+    {
+      "questionId": "SEM-Q-071",
+      "title": "Explosives new-Corridor endpoint, geometry, orientation, and finite supply",
+      "decisionClass": "official-clarification-preferred",
+      "blocksRuleIds": [
+        "SEM-ACTION-CE-568800-4907B2-001"
+      ],
+      "plannedRuleIds": [],
+      "defaultProhibited": true,
+      "sourceEvidenceRefs": [
+        "docs/rules/semantics/action-source-index.json"
+      ],
+      "alternatives": [
+        {
+          "alternativeId": "SEM-Q-071-A",
+          "description": "Effect owner chooses another Explored Room and a source-legal pair of free edges; place an available Corridor with Door orientation under ordinary rules.",
+          "support": "natural owner/local/geometry composition; chooser/edges are not printed"
+        },
+        {
+          "alternativeId": "SEM-Q-071-B",
+          "description": "Use a random/deterministic physical placement among legal endpoints/components.",
+          "support": "Corridor components are random/finite in other procedures but not here"
+        },
+        {
+          "alternativeId": "SEM-Q-071-C",
+          "description": "The branch is illegal unless another source-defined direct connection placement is fully available.",
+          "support": "whole-effect legality is clear but exact geometry is absent"
+        }
+      ]
+    },
+    {
+      "questionId": "SEM-Q-072",
+      "title": "Action draw shortage and multi-recipient ordering",
+      "decisionClass": "official-clarification-preferred",
+      "blocksRuleIds": [
+        "SEM-ACTION-CARD-DRAW-001",
+        "SEM-RT-012",
+        "SEM-ACTION-MS-570300-239ACD-001",
+        "SEM-ACTION-OFF-568000-5A4763-001"
+      ],
+      "plannedRuleIds": [],
+      "defaultProhibited": true,
+      "sourceEvidenceRefs": [
+        "docs/rules/semantics/action-source-index.json",
+        "docs/rulebooks/rulebook_text.txt:lines 3401–3403,3434–3438",
+        "docs/rules/source-extraction/faq-v1.2-source-extraction.json:FQ-P02-U11"
+      ],
+      "alternatives": [
+        {
+          "alternativeId": "SEM-Q-072-A",
+          "description": "Draw sequentially; renew from discard when needed; stop without substitution when deck and discard are empty, using source order among recipients.",
+          "support": "finite physical deck implies shortfall but source never says stop/order"
+        },
+        {
+          "alternativeId": "SEM-Q-072-B",
+          "description": "A draw-to-count effect is illegal unless the complete requested count can be supplied.",
+          "support": "whole-effect rule may precheck draws"
+        },
+        {
+          "alternativeId": "SEM-Q-072-C",
+          "description": "Use another source-defined shortage/allocation procedure among multiple Characters.",
+          "support": "Cleanup, Combat Drugs, and Stay Calm have different recipient shapes"
+        }
+      ]
+    },
+    {
+      "questionId": "SEM-Q-073",
+      "title": "Movement-card interrupt, prevention, companion, and continuation windows",
+      "decisionClass": "official-clarification-preferred",
+      "blocksRuleIds": [
+        "SEM-ACTION-CE-569000-1892A7-001",
+        "SEM-ACTION-HGO-570800-F30901-001",
+        "SEM-ACTION-CON-570600-D30470-001",
+        "SEM-ACTION-OFF-567433-5D3E97-001",
+        "SEM-ACTION-REC-568700-D711D5-001"
+      ],
+      "plannedRuleIds": [],
+      "defaultProhibited": true,
+      "sourceEvidenceRefs": [
+        "docs/rules/semantics/action-source-index.json",
+        "docs/rules/source-extraction/faq-v1.2-source-extraction.json:FQ-P02-U15/FQ-P02-U16"
+      ],
+      "alternatives": [
+        {
+          "alternativeId": "SEM-Q-073-A",
+          "description": "Resolve printed card costs, then Movement in normal order; prevention covers only selected Opportunity Attacks; pause at printed Shoot/Burst windows and resume if actor remains participating.",
+          "support": "FAQ settles Hazard scope and Shoot First availability but not all ordering"
+        },
+        {
+          "alternativeId": "SEM-Q-073-B",
+          "description": "Choose/predeclare prevention and optional attacks at another point, with source-specific continuation after death/escape.",
+          "support": "cards phrase windows differently"
+        },
+        {
+          "alternativeId": "SEM-Q-073-C",
+          "description": "Use another source-defined sequence for companions and nested Movement effects.",
+          "support": "no unified interrupt stack or continuation rule is printed"
+        }
+      ]
+    },
+    {
+      "questionId": "SEM-Q-074",
+      "title": "Chain of Command Reaction cancellation cost meaning and timing",
+      "decisionClass": "official-clarification-preferred",
+      "blocksRuleIds": [
+        "SEM-ACTION-REACTION-CE-569400-774D62-001",
+        "SEM-ACTION-REACTION-HGO-570700-AE6BC0-001",
+        "SEM-ACTION-REACTION-REC-569000-06BD33-001"
+      ],
+      "plannedRuleIds": [],
+      "defaultProhibited": true,
+      "sourceEvidenceRefs": [
+        "docs/rules/semantics/action-source-index.json"
+      ],
+      "alternatives": [
+        {
+          "alternativeId": "SEM-Q-074-A",
+          "description": "Cancel after the Command card and all printed additional Action-card costs are paid; return no resource and discard the Command normally.",
+          "support": "TTS says the Character must still pay the Action's cost"
+        },
+        {
+          "alternativeId": "SEM-Q-074-B",
+          "description": "Only the zero-cost Play-an-Action-card cost is retained; nested Action resources/additional printed costs are not spent.",
+          "support": "Action card itself costs zero and Command payment is unresolved"
+        },
+        {
+          "alternativeId": "SEM-Q-074-C",
+          "description": "Use another source-defined cancellation/payment/refund boundary.",
+          "support": "different Chain variants say cancel versus ignore and no general cancellation rule applies"
         }
       ]
     }
