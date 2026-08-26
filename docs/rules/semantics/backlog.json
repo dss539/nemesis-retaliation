@@ -14,8 +14,8 @@
       "rulebook-visual-obligation": 80
     },
     "byStatus": {
-      "pending": 467,
-      "pilot-covered": 132,
+      "pending": 445,
+      "pilot-covered": 154,
       "source-blocked": 1
     }
   },
@@ -507,7 +507,27 @@
       "authority": "project-interpretation",
       "status": "pilot-covered",
       "pilotRuleIds": [
-        "SEM-INT-004"
+        "SEM-INT-004",
+        "SEM-ATTACK-394900-001",
+        "SEM-ATTACK-394901-001",
+        "SEM-ATTACK-394902-001",
+        "SEM-ATTACK-394903-001",
+        "SEM-ATTACK-394904-001",
+        "SEM-ATTACK-394905-001",
+        "SEM-ATTACK-394906-001",
+        "SEM-ATTACK-394907-001",
+        "SEM-ATTACK-394908-001",
+        "SEM-ATTACK-394909-001",
+        "SEM-ATTACK-394910-001",
+        "SEM-ATTACK-394911-001",
+        "SEM-ATTACK-394912-001",
+        "SEM-ATTACK-394913-001",
+        "SEM-ATTACK-394914-001",
+        "SEM-ATTACK-394915-001",
+        "SEM-ATTACK-394916-001",
+        "SEM-ATTACK-394918-001",
+        "SEM-ATTACK-394919-001",
+        "SEM-ATTACK-399100-001"
       ],
       "blockers": []
     },
@@ -531,7 +551,27 @@
       "authority": "project-interpretation",
       "status": "pilot-covered",
       "pilotRuleIds": [
-        "SEM-INT-006"
+        "SEM-INT-006",
+        "SEM-ATTACK-394900-001",
+        "SEM-ATTACK-394901-001",
+        "SEM-ATTACK-394902-001",
+        "SEM-ATTACK-394903-001",
+        "SEM-ATTACK-394904-001",
+        "SEM-ATTACK-394905-001",
+        "SEM-ATTACK-394906-001",
+        "SEM-ATTACK-394907-001",
+        "SEM-ATTACK-394908-001",
+        "SEM-ATTACK-394909-001",
+        "SEM-ATTACK-394910-001",
+        "SEM-ATTACK-394911-001",
+        "SEM-ATTACK-394912-001",
+        "SEM-ATTACK-394913-001",
+        "SEM-ATTACK-394914-001",
+        "SEM-ATTACK-394915-001",
+        "SEM-ATTACK-394916-001",
+        "SEM-ATTACK-394918-001",
+        "SEM-ATTACK-394919-001",
+        "SEM-ATTACK-399100-001"
       ],
       "blockers": []
     },
@@ -556,7 +596,28 @@
       "status": "pilot-covered",
       "pilotRuleIds": [
         "SEM-ACT-REST-001",
-        "SEM-ENDGAME-001"
+        "SEM-ENDGAME-001",
+        "SEM-CONTAMINATION-GAIN-001",
+        "SEM-ATTACK-394900-001",
+        "SEM-ATTACK-394901-001",
+        "SEM-ATTACK-394902-001",
+        "SEM-ATTACK-394903-001",
+        "SEM-ATTACK-394904-001",
+        "SEM-ATTACK-394905-001",
+        "SEM-ATTACK-394906-001",
+        "SEM-ATTACK-394907-001",
+        "SEM-ATTACK-394908-001",
+        "SEM-ATTACK-394909-001",
+        "SEM-ATTACK-394910-001",
+        "SEM-ATTACK-394911-001",
+        "SEM-ATTACK-394912-001",
+        "SEM-ATTACK-394913-001",
+        "SEM-ATTACK-394914-001",
+        "SEM-ATTACK-394915-001",
+        "SEM-ATTACK-394916-001",
+        "SEM-ATTACK-394918-001",
+        "SEM-ATTACK-394919-001",
+        "SEM-ATTACK-399100-001"
       ],
       "blockers": []
     },
@@ -820,7 +881,8 @@
       "status": "pilot-covered",
       "pilotRuleIds": [
         "SEM-EVENT-LEAVING-THE-SHELL-001",
-        "SEM-EVENT-REACTOR-OVERHEATING-001"
+        "SEM-EVENT-REACTOR-OVERHEATING-001",
+        "SEM-ATTACK-394912-001"
       ],
       "blockers": []
     },
@@ -879,8 +941,11 @@
       "sourcePath": "docs/rulebooks/Nemesis_RT_FAQ_v1.2.pdf",
       "sourceLocator": "FQ-P02-U16",
       "authority": "official-errata",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-INT-004",
+        "SEM-REACTION-DUCK-001"
+      ],
       "blockers": []
     },
     {
@@ -1065,6 +1130,15 @@
       "pilotRuleIds": [
         "SEM-EVENT-REACTOR-OVERHEATING-001",
         "SEM-EVENT-SCENT-OF-PREY-001",
+        "SEM-INT-004",
+        "SEM-ATTACK-394900-001",
+        "SEM-ATTACK-394901-001",
+        "SEM-ATTACK-394902-001",
+        "SEM-ATTACK-394903-001",
+        "SEM-ATTACK-394904-001",
+        "SEM-ATTACK-394905-001",
+        "SEM-ATTACK-394907-001",
+        "SEM-ATTACK-394911-001",
         "SEM-ROBOT-SETUP-001",
         "SEM-ROBOT-SERVER-001",
         "SEM-ROBOT-TECHNICAL-001"
@@ -1785,8 +1859,11 @@
       "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
       "sourceLocator": "RB-P32-V01",
       "authority": "official-primary",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-INT-004",
+        "SEM-ATTACK-394911-001"
+      ],
       "blockers": []
     },
     {
@@ -4243,8 +4320,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/attack-022.png",
       "sourceLocator": "8f188df6aa3b9fa96531894f49b9727ce79558e11023fba10d8758af3400319b",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ATTACK-399100-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -4256,8 +4335,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/attack-151_cards/card-00.png",
       "sourceLocator": "72e8782d5b98ee1d46045a4efd6c47dec40ec9aa552a3f44c894da0fdb6a2fb8",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ATTACK-394900-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -4269,8 +4350,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/attack-151_cards/card-01.png",
       "sourceLocator": "0ba1a8b7b73127a004bba592c091924ec985eef51eaecf85adb2282593983832",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ATTACK-394901-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -4282,8 +4365,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/attack-151_cards/card-02.png",
       "sourceLocator": "088924b9742db513130b51fd8750cf80ab95fd3a0f33f150287b33fcf82fe501",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ATTACK-394902-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -4295,8 +4380,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/attack-151_cards/card-03.png",
       "sourceLocator": "9c988ba455dd17dfa1dc34eb2fb26cfebb6c17c9f21cb6a60af473ca0c441afc",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ATTACK-394903-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -4308,8 +4395,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/attack-151_cards/card-04.png",
       "sourceLocator": "881d97fc90030383652122b2108825aea2a4b8adc610e3cee9f7c22632d12720",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ATTACK-394904-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -4321,8 +4410,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/attack-151_cards/card-05.png",
       "sourceLocator": "c551ca1229e55b435145ef80bf5dccc3f54e293d3a1d8edd765582fd273813ab",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ATTACK-394905-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -4334,8 +4425,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/attack-151_cards/card-06.png",
       "sourceLocator": "b732ca40c7c54b4c85901c16fab368a614b278c651079135fcec192a13bccf39",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ATTACK-394906-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -4347,8 +4440,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/attack-151_cards/card-07.png",
       "sourceLocator": "8299612f643cc485002f3680abe8e65a581dfff1fa6895fa7368aefce9010234",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ATTACK-394907-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -4360,8 +4455,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/attack-151_cards/card-08.png",
       "sourceLocator": "29ce4c3b52ac34cd53ecaa67482df6356507eda0e168c8bb840c3af2a0ded2c3",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ATTACK-394908-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -4373,8 +4470,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/attack-151_cards/card-09.png",
       "sourceLocator": "11d94012916309b1d4d770012d59c8dc3ac81196826dc2cce3aab56339a1818e",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ATTACK-394909-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -4386,8 +4485,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/attack-151_cards/card-10.png",
       "sourceLocator": "15e1e762d38794914d42a2a9bf1d16e8db88ce195099faff043ad4aa25bd0dc0",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ATTACK-394910-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -4399,8 +4500,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/attack-151_cards/card-11.png",
       "sourceLocator": "73e6cec9de20bcc116f70de3dc46df16671a77bac9e02d1145061d8068d517f3",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ATTACK-394911-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -4412,8 +4515,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/attack-151_cards/card-12.png",
       "sourceLocator": "c4e671e3504c36647e657f1e2fbe1ba12bda9e4998fa763beed24b70bd4fce60",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ATTACK-394912-001"
+      ],
       "blockers": []
     },
     {
@@ -4423,8 +4528,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/attack-151_cards/card-13.png",
       "sourceLocator": "e23333f920163dc0a9342ef6d348855b0dbb3e2b7a769ec735e3d4460c2d89cf",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ATTACK-394913-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -4436,8 +4543,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/attack-151_cards/card-14.png",
       "sourceLocator": "241bd0d208b745a41e9ee671e55138b71669ef12b3bf8b1086922f85fc126963",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ATTACK-394914-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -4449,8 +4558,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/attack-151_cards/card-15.png",
       "sourceLocator": "20ced3626bd007e388acda4ccc96dfcd59e72bcf3cf7ae84ad1693e5ba0a924d",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ATTACK-394915-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -4462,8 +4573,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/attack-151_cards/card-16.png",
       "sourceLocator": "eb422e05e6ec47d486f08c873f4fd1c5427e79904f16fab88a140bd46a390e6a",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ATTACK-394916-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -4488,8 +4601,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/attack-151_cards/card-18.png",
       "sourceLocator": "a5d496cfe387ac69a361b62b659047238d348f4db329583a6d3f5b562d0fbce3",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ATTACK-394918-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]
@@ -4501,8 +4616,10 @@
       "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/attack-151_cards/card-19.png",
       "sourceLocator": "8a8f393e64f6f0d5d1bf569afbff6b1737615c269b09f5e3bd11711f7e396e16",
       "authority": "mixed-source-bound",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ATTACK-394919-001"
+      ],
       "blockers": [
         "source-variant-or-promotion-boundary"
       ]

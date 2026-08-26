@@ -10,7 +10,7 @@ import unittest
 REPO=Path(__file__).resolve().parents[1]
 DIR=REPO/'docs/rules/semantics'
 VALIDATOR=REPO/'scripts/validate_semantic_pilots.py'
-FILES=('event-source-index.json','exploration-source-index.json','robot-source-index.json','source-registry.json','semantic-rule.schema.json','semantic-vocabulary.json','room-icon-denotations.json','pilots.json','review-gates.json','contradictions.json','coverage.json','backlog.json')
+FILES=('event-source-index.json','exploration-source-index.json','robot-source-index.json','attack-source-index.json','source-registry.json','semantic-rule.schema.json','semantic-vocabulary.json','room-icon-denotations.json','pilots.json','review-gates.json','contradictions.json','coverage.json','backlog.json')
 
 
 def load(path): return json.loads(path.read_text(encoding='utf-8'))
@@ -19,7 +19,7 @@ def load(path): return json.loads(path.read_text(encoding='utf-8'))
 class SemanticPilotTests(unittest.TestCase):
     def run_validator(self, root=None, skip=False):
         base=root or DIR
-        command=['python3',str(VALIDATOR),'--event-source-index',str(base/'event-source-index.json'),'--exploration-source-index',str(base/'exploration-source-index.json'),'--robot-source-index',str(base/'robot-source-index.json'),'--source-registry',str(base/'source-registry.json'),'--schema',str(base/'semantic-rule.schema.json'),'--semantic-vocabulary',str(base/'semantic-vocabulary.json'),'--room-icon-denotations',str(base/'room-icon-denotations.json'),'--pilots',str(base/'pilots.json'),'--review-gates',str(base/'review-gates.json'),'--contradictions',str(base/'contradictions.json'),'--coverage',str(base/'coverage.json'),'--backlog',str(base/'backlog.json')]
+        command=['python3',str(VALIDATOR),'--event-source-index',str(base/'event-source-index.json'),'--exploration-source-index',str(base/'exploration-source-index.json'),'--robot-source-index',str(base/'robot-source-index.json'),'--attack-source-index',str(base/'attack-source-index.json'),'--source-registry',str(base/'source-registry.json'),'--schema',str(base/'semantic-rule.schema.json'),'--semantic-vocabulary',str(base/'semantic-vocabulary.json'),'--room-icon-denotations',str(base/'room-icon-denotations.json'),'--pilots',str(base/'pilots.json'),'--review-gates',str(base/'review-gates.json'),'--contradictions',str(base/'contradictions.json'),'--coverage',str(base/'coverage.json'),'--backlog',str(base/'backlog.json')]
         if skip: command.append('--skip-reproducibility')
         run=subprocess.run(command,cwd=REPO,check=False,capture_output=True,text=True,timeout=300)
         return run,json.loads(run.stdout)
@@ -28,15 +28,15 @@ class SemanticPilotTests(unittest.TestCase):
         run,report=self.run_validator()
         self.assertEqual(run.returncode,0,run.stdout+run.stderr)
         self.assertTrue(report['passed'])
-        self.assertEqual(report['checks']['records'],124)
-        self.assertEqual(report['checks']['operations'],567)
+        self.assertEqual(report['checks']['records'],145)
+        self.assertEqual(report['checks']['operations'],672)
         self.assertEqual(report['checks']['decisions'],73)
-        self.assertEqual(report['checks']['targets'],152)
-        self.assertEqual(report['checks']['openQuestions'],25)
+        self.assertEqual(report['checks']['targets'],177)
+        self.assertEqual(report['checks']['openQuestions'],30)
         self.assertEqual(report['checks']['semanticNodes'],26)
-        self.assertEqual(report['checks']['conflicts'],14)
+        self.assertEqual(report['checks']['conflicts'],18)
         self.assertEqual(report['checks']['backlogUnits'],600)
-        self.assertEqual(report['checks']['backlogPilotCovered'],132)
+        self.assertEqual(report['checks']['backlogPilotCovered'],154)
         self.assertEqual(report['checks']['eventIdentities'],20)
         self.assertEqual(report['checks']['eventRecords'],20)
         self.assertEqual(report['checks']['eventBacklogTuples'],20)
@@ -51,6 +51,13 @@ class SemanticPilotTests(unittest.TestCase):
         self.assertEqual(report['checks']['robotPrintedSentences'],16)
         self.assertEqual(report['checks']['robotIconOccurrences'],23)
         self.assertEqual(report['checks']['robotBacklogTuples'],6)
+        self.assertEqual(report['checks']['attackIdentities'],20)
+        self.assertEqual(report['checks']['attackRecords'],20)
+        self.assertEqual(report['checks']['attackPhysicalPanels'],69)
+        self.assertEqual(report['checks']['attackPrintedSentences'],54)
+        self.assertEqual(report['checks']['attackBadgeOccurrences'],57)
+        self.assertEqual(report['checks']['attackInlineIconOccurrences'],13)
+        self.assertEqual(report['checks']['attackBacklogTuples'],20)
         self.assertEqual(report['checks']['roomIconDenotations'],112)
 
     def test_high_risk_semantic_boundaries(self):
@@ -456,6 +463,175 @@ class SemanticPilotTests(unittest.TestCase):
         checks=run_mutation(lower_backlog)
         self.assertIn('Robot exact backlog tuple projection',checks)
         self.assertIn('Robot exact overlapping backlog-obligation closure',checks)
+
+    def test_base_attack_family_semantic_closure(self):
+        source=load(DIR/'attack-source-index.json')
+        registry={row['sourceId']:row for row in load(DIR/'source-registry.json')['sources']}
+        by_id={row['ruleId']:row for row in load(DIR/'pilots.json')['records']}
+        backlog={row['semanticUnitId']:row for row in load(DIR/'backlog.json')['units']}
+        self.assertEqual(source['counts'],{
+            'attackOccurrences':20,'uniquePrintedTitles':8,'generatedFaceOccurrences':19,'directFaceOccurrences':1,
+            'generatedSourceSheetCells':20,'selectedGeneratedCells':19,'excludedSelectorGaps':1,
+            'sharedBackOccurrences':1,'sharedBackSelectorReferences':21,'sourceSheets':1,
+            'canonicalCorpusFaces':1,'sourceBoundDraftFaces':19,'physicalPanels':69,'operativePanels':29,
+            'printedSentences':54,'applicabilityBadgeOccurrences':57,'inlineIconOccurrences':13,
+            'functionalSymbolOccurrences':70,'selectedEvidenceNoMatchOccurrences':55,
+            'selectedEvidenceMatchedOccurrences':14,'licensedStructuredVariants':15,'licensedFaceLinks':20,
+            'officialVisibleFaceCounterparts':3,'officialVisibleBackCounterparts':1,'officialFaceLinks':8,
+            'officialRulebookTextOccurrences':9,'officialRulebookVisualObligations':2,'faqOccurrences':3,
+            'excludedExpansionAttackDecks':3,'excludedUnusedGeneratedFaces':1,'backlogTuples':20,'backlogObligationsLinked':28,
+        })
+        self.assertEqual(source['titleMultiplicity'],{'BITE':6,'BLOOD SENSE':1,'DEADLY CLAWS':3,'FURY':2,'INFECTING':1,'MISS':1,'SCRATCH':4,'TAIL ATTACK':2})
+        self.assertEqual([row['ttsCardId'] for row in source['faces']],[*range(394900,394917),394918,394919,399100])
+        self.assertEqual(source['sourceSheet']['grid'],{'columns':5,'rows':4,'cellWidth':827,'cellHeight':1111})
+        self.assertEqual(source['sharedBack']['sourceSelector']['referenceCount'],21)
+        self.assertFalse(source['sharedBack']['rulesTextPresent'])
+        self.assertEqual(source['excludedContent']['unusedGeneratedCell']['cellIndex'],17)
+        self.assertEqual(source['excludedContent']['unusedGeneratedCell']['printedTitle'],'SUMMONING')
+        self.assertIn('No root DeckID',source['excludedContent']['unusedGeneratedCell']['selectorGap'])
+        rule_ids=[]
+        for face in source['faces']:
+            card_id=face['ttsCardId']; rule=by_id[face['semanticRuleId']]; rule_ids.append(face['semanticRuleId'])
+            selector=face['sourceSelector']
+            self.assertEqual(selector['fullCardId'],card_id)
+            self.assertEqual(selector['guid'],face['ttsCardGuid'])
+            self.assertEqual(selector['parentDeckGuid'],'34c73e')
+            self.assertFalse(selector['cardIdModuloJoinUsed'])
+            self.assertFalse(face['joinEvidence']['titleOnlyJoin'])
+            self.assertFalse(face['joinEvidence']['sourceCellOnlyJoin'])
+            self.assertEqual((registry[face['sourceId']]['path'],registry[face['sourceId']]['sha256'],registry[face['sourceId']]['occurrenceId']),(face['sourcePath'],face['sourceSha256'],face['attackOccurrenceId']))
+            self.assertEqual(backlog[face['backlogUnitId']]['pilotRuleIds'],[face['semanticRuleId']])
+            self.assertEqual(backlog[face['backlogUnitId']]['status'],'pilot-covered')
+            self.assertEqual([row['sequence'] for row in face['sentences']],list(range(1,len(face['sentences'])+1)))
+            self.assertEqual([row['sourceSentenceId'] for row in rule['operations'] if row.get('sourceSentenceId')][0],face['sentences'][0]['sentenceId'])
+            self.assertEqual(rule['decisions'],[])
+            self.assertGreaterEqual(len(rule['sourceVariants']),1)
+            self.assertEqual(rule['sourceVariants'][0]['sourceId'],'SRC-BGA-INTRUDER-ATTACKS')
+        attack=by_id['SEM-INT-004']
+        dispatch=next(row['dispatchRuleIds'] for row in attack['operations'] if row.get('dispatchRuleIds'))
+        self.assertEqual(dispatch,rule_ids)
+        discard=next(row for row in attack['operations'] if row['operationType']=='transition-zone')
+        self.assertIn('still in resolution',discard['objectRef'])
+        self.assertTrue(discard['conditionRefs'])
+        self.assertEqual([row['sourceScopedResolution']['intruderType'] for row in source['faces'][6]['applicabilityBadgeOccurrences']],['Adult','Drone','Queen'])
+        self.assertEqual([row['sourceScopedResolution']['intruderType'] for row in source['faces'][11]['applicabilityBadgeOccurrences']],['Adult','Queen','Drone'])
+        self.assertEqual(source['faces'][6]['inlineIconOccurrences'][0]['sourceToken'],'LOCAL_ICON:INLINE-1')
+        self.assertEqual(source['faces'][6]['inlineIconOccurrences'][0]['semanticReferenceId'],'icon.characterHealth')
+        miss=by_id['SEM-ATTACK-394912-001']
+        self.assertIn('SEM-Q-024',miss['unresolvedQuestionRefs'])
+        self.assertTrue(any(row['operationType']=='shuffle' and 'including this MISS card' in row['objectRef'] for row in miss['operations']))
+        questions={row['questionId']:row for row in load(DIR/'review-gates.json')['questions']}
+        for question_id in ('SEM-Q-020','SEM-Q-021','SEM-Q-022','SEM-Q-023','SEM-Q-024'):
+            self.assertTrue(questions[question_id]['defaultProhibited'])
+
+    def test_attack_specific_adversarial_corruptions_are_rejected(self):
+        def run_mutation(mutate):
+            with tempfile.TemporaryDirectory(prefix='semantic-attack-negative-') as temp_dir:
+                root=Path(temp_dir)
+                data={name:load(DIR/name) for name in FILES}
+                mutate(data)
+                for name,payload in data.items():
+                    (root/name).write_text(json.dumps(payload,indent=2,ensure_ascii=False)+'\n',encoding='utf-8')
+                run,report=self.run_validator(root,skip=True)
+            self.assertNotEqual(run.returncode,0)
+            return {failure['check'] for failure in report['failures']}
+
+        def drop_occurrence(data):
+            source=data['attack-source-index.json']; source['faces']=source['faces'][1:]
+            source['counts']['attackOccurrences']-=1; source['counts']['generatedFaceOccurrences']-=1
+        self.assertIn('Attack source-index exact occurrence count',run_mutation(drop_occurrence))
+
+        def duplicate_occurrence(data):
+            source=data['attack-source-index.json']; source['faces'].append(json.loads(json.dumps(source['faces'][0])))
+            source['counts']['attackOccurrences']+=1; source['counts']['generatedFaceOccurrences']+=1
+        self.assertIn('Attack source-index exact occurrence count',run_mutation(duplicate_occurrence))
+
+        def collapse_repeated_title(data):
+            data['attack-source-index.json']['titleMultiplicity']['BITE']=1
+        self.assertIn('Attack repeated-title occurrence multiplicity lock',run_mutation(collapse_repeated_title))
+
+        def swap_cells_and_sheets(data):
+            first,second=data['attack-source-index.json']['faces'][:2]
+            first['sourceSelector']['generatedCell'],second['sourceSelector']['generatedCell']=second['sourceSelector']['generatedCell'],first['sourceSelector']['generatedCell']
+        checks=run_mutation(swap_cells_and_sheets)
+        self.assertIn('independently locked Attack occurrence crosswalk',checks)
+        self.assertIn('Attack generated sheet/hash/grid/cell selector projection',checks)
+
+        def modulo_join(data):
+            join=data['attack-source-index.json']['faces'][0]['joinEvidence']
+            join.update({'identityJoin':'CardID modulo','cardIdModuloJoin':True,'basis':['cardId % 100']})
+        self.assertIn('Attack title/cell/folder/modulo join prohibited',run_mutation(modulo_join))
+
+        def selector_drift(data):
+            selector=data['attack-source-index.json']['faces'][2]['sourceSelector']
+            selector.update({'fullCardId':394900,'guid':'5afea3'})
+        self.assertIn('Attack exact full CardID/GUID/CustomDeck selector projection',run_mutation(selector_drift))
+
+        def invert_face_back(data):
+            face=data['attack-source-index.json']['faces'][3]
+            face['sourceSelector']['url'],face['sourceSelector']['backUrl']=face['sourceSelector']['backUrl'],face['sourceSelector']['url']
+            face['sourceSelector']['key']='BackURL'
+        self.assertIn('Attack FaceURL/BackURL role projection',run_mutation(invert_face_back))
+
+        def swap_applicability(data):
+            badges=data['attack-source-index.json']['faces'][6]['applicabilityBadgeOccurrences']
+            badges[0]['sourceScopedResolution']['intruderType'],badges[1]['sourceScopedResolution']['intruderType']=badges[1]['sourceScopedResolution']['intruderType'],badges[0]['sourceScopedResolution']['intruderType']
+        self.assertIn('Attack exact source-scoped applicability badge projection',run_mutation(swap_applicability))
+
+        def move_badge_count_preserving(data):
+            faces=data['attack-source-index.json']['faces']; moved=faces[0]['applicabilityBadgeOccurrences'].pop(); faces[1]['applicabilityBadgeOccurrences'].append(moved)
+        self.assertIn('Attack exact source-scoped applicability badge projection',run_mutation(move_badge_count_preserving))
+
+        def drift_body_punctuation(data):
+            face=data['attack-source-index.json']['faces'][13]
+            face['printedBody']=face['printedBody'].replace('Contamination.','Contamination!')
+        self.assertIn('Attack exact body/punctuation/order drift',run_mutation(drift_body_punctuation))
+
+        def flatten_branch(data):
+            rule=next(row for row in data['pilots.json']['records'] if row['ruleId']=='SEM-ATTACK-394900-001')
+            next(row for row in rule['operations'] if row['operationType']=='branch')['operationType']='evaluate-condition'
+        self.assertIn('Attack condition/otherwise branch preservation',run_mutation(flatten_branch))
+
+        def reorder_operations_cleanly(data):
+            rule=next(row for row in data['pilots.json']['records'] if row['ruleId']=='SEM-ATTACK-394919-001')
+            rule['operations'][0],rule['operations'][1]=rule['operations'][1],rule['operations'][0]
+            for index,row in enumerate(rule['operations'],1): row['sequence']=index; row['stepId']=f'S{index:02d}'
+        self.assertIn('Attack semantic sentence/panel order projection',run_mutation(reorder_operations_cleanly))
+
+        def lose_variants(data):
+            rule=next(row for row in data['pilots.json']['records'] if row['ruleId']=='SEM-ATTACK-394907-001')
+            removed=len(rule['sourceVariants']); rule['sourceVariants']=[]; data['pilots.json']['counts']['variantReferences']-=removed
+        self.assertIn('Attack licensed/official source-variant closure',run_mutation(lose_variants))
+
+        def invert_authority(data):
+            rule=next(row for row in data['pilots.json']['records'] if row['ruleId']=='SEM-ATTACK-394911-001')
+            rule['authority']['highest']='source-bound-component-scan'
+        self.assertIn('Attack authority lock',run_mutation(invert_authority))
+
+        def invent_default_owner(data):
+            question=next(row for row in data['review-gates.json']['questions'] if row['questionId']=='SEM-Q-020'); question['defaultProhibited']=False
+            rule=next(row for row in data['pilots.json']['records'] if row['ruleId']=='SEM-ATTACK-394909-001')
+            rule['decisions']=[{'decisionId':'D-ATK-INVENTED','ownerRef':'P-RULES','selectionMode':'deterministic','cardinality':{'min':1,'max':1},'declineAllowed':False,'visibility':'public','options':['attacking Room']}]
+            data['pilots.json']['counts']['decisions']+=1
+        checks=run_mutation(invent_default_owner)
+        self.assertIn('Attack ambiguity no-default alternatives/linkage',checks)
+        self.assertIn('Attack no invented face decision owner',checks)
+
+        def invent_local_icon(data):
+            icon=data['attack-source-index.json']['faces'][6]['inlineIconOccurrences'][0]
+            icon['semanticReferenceId']='icon.intruder'; icon['templateMatchScore']=1.0
+        self.assertIn('Attack local Character Health independent-resolution boundary',run_mutation(invent_local_icon))
+
+        def lower_backlog_coordinated(data):
+            target='CARD:72e8782d5b98ee1d'; backlog=data['backlog.json']
+            backlog['units']=[row for row in backlog['units'] if row['semanticUnitId']!=target]
+            backlog['counts']['units']-=1; backlog['counts']['byChannel']['card-reference-source-tuple']-=1; backlog['counts']['byStatus']['pilot-covered']-=1
+            source=data['attack-source-index.json']; linked=source['familyCountEvidence']['backlog']['linkedUnitIds']; source['familyCountEvidence']['backlog']['linkedUnitIds']=[row for row in linked if row!=target]
+            source['familyCountEvidence']['backlog']['faceUnitIds']=[row for row in source['familyCountEvidence']['backlog']['faceUnitIds'] if row!=target]
+            source['familyCountEvidence']['backlog']['faceTupleCount']-=1; source['counts']['backlogTuples']-=1; source['counts']['backlogObligationsLinked']-=1
+        checks=run_mutation(lower_backlog_coordinated)
+        self.assertIn('Attack exact backlog tuple projection',checks)
+        self.assertIn('Attack exact overlapping backlog-obligation closure',checks)
 
     def test_base_event_family_semantic_closure(self):
         source=load(DIR/'event-source-index.json')

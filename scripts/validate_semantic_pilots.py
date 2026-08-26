@@ -15,14 +15,14 @@ DIR = REPO / 'docs/rules/semantics'
 VOCAB = REPO / 'docs/rules/vocabulary'
 ONTOLOGY = REPO / 'docs/rules/ontology'
 EXPECTED = {
-    'sources': 52, 'semanticNodes': 26, 'records': 124, 'sourceBacked': 78, 'withOpenQuestion': 46,
-    'sourceVariants': 0, 'sourceAssertions': 338, 'conditions': 444,
-    'operations': 567, 'decisions': 73, 'informationPolicies': 137,
-    'costs': 6, 'targets': 152, 'openQuestionReferences': 59,
-    'variantReferences': 46, 'questions': 25, 'openQuestions': 25, 'systems': 18,
-    'conflicts': 14, 'unresolvedConflicts': 7,
+    'sources': 75, 'semanticNodes': 26, 'records': 145, 'sourceBacked': 83, 'withOpenQuestion': 62,
+    'sourceVariants': 0, 'sourceAssertions': 448, 'conditions': 591,
+    'operations': 672, 'decisions': 73, 'informationPolicies': 158,
+    'costs': 6, 'targets': 177, 'openQuestionReferences': 80,
+    'variantReferences': 74, 'questions': 30, 'openQuestions': 30, 'systems': 18,
+    'conflicts': 18, 'unresolvedConflicts': 8,
     'roomIconDenotations': 112,
-    'backlogUnits': 600, 'backlogPilotCovered': 132, 'backlogSourceBlocked': 1,
+    'backlogUnits': 600, 'backlogPilotCovered': 154, 'backlogSourceBlocked': 1,
     'eventIdentities': 20, 'eventScanOccurrences': 20, 'eventLicensedOccurrences': 20,
     'eventOfficialOccurrences': 4, 'eventRecords': 20, 'eventBacklogTuples': 20,
     'explorationIdentities': 12, 'explorationScanOccurrences': 12,
@@ -34,6 +34,15 @@ EXPECTED = {
     'robotPhysicalPanels': 24, 'robotOperativePanels': 12, 'robotActionOptions': 13,
     'robotPrintedSentences': 16, 'robotIconOccurrences': 23,
     'robotRecords': 6, 'robotBacklogTuples': 6,
+    'attackIdentities': 20, 'attackScanOccurrences': 20,
+    'attackGeneratedOccurrences': 19, 'attackDirectOccurrences': 1,
+    'attackSharedBackOccurrences': 1, 'attackSourceSheets': 1, 'attackSelectorGaps': 1,
+    'attackLicensedVariants': 15, 'attackLicensedFaceLinks': 20,
+    'attackOfficialFaceCounterparts': 3, 'attackOfficialBackCounterparts': 1,
+    'attackPhysicalPanels': 69, 'attackOperativePanels': 29,
+    'attackPrintedSentences': 54, 'attackBadgeOccurrences': 57,
+    'attackInlineIconOccurrences': 13, 'attackFunctionalSymbolOccurrences': 70,
+    'attackSelectedNoMatches': 55, 'attackRecords': 20, 'attackBacklogTuples': 20,
 }
 PINNED_HELP_SOURCE_HASHES = {
     'docs/rules/source-extraction/intruder-help-sheet.json': 'e07f2703a6ad1b49c06389f79d3b1ffd6f5fd1d98604bf14b405fee49d9679e6',
@@ -42,6 +51,7 @@ PINNED_HELP_SOURCE_HASHES = {
 }
 PINNED_EXPLORATION_SOURCE_INDEX_HASH = 'd95dc30738ce2efbb4cf696671388aaf731626f167601fdca70c6fee74dc95bd'
 PINNED_ROBOT_SOURCE_INDEX_HASH = 'd5c0f1abb5794cdddebba42b38580627122a43da96f8da0ff289d5b917c9b6a4'
+PINNED_ATTACK_SOURCE_INDEX_HASH = 'c7b26acaccdb08f166a5618fa9c140189239f50645e1e6601ecc7dfda210f6b3'
 EXPECTED_EVENT_OCCURRENCES = {
     5609: ('SRC-EVENT-5609','assets/tts-mod/extract/v2-dl/tree/cards/game/event-099.png','0d5da2c8e1b6ccb6a30c83f9006aa924f4fc2f1f14d360d153bc5ea6f73770ed','Event_SystemFailure','SEM-EVENT-SYSTEM-FAILURE-001','SYSTEM FAILURE'),
     5610: ('SRC-EVENT-5610','assets/tts-mod/extract/v2-dl/tree/cards/game/event-009.png','92bc91f54116780d214aefd7925a46897d811f699c5921edd55f45b40deb989d','Event_NoWayOut','SEM-EVENT-NO-WAY-OUT-001','NO WAY OUT'),
@@ -182,6 +192,48 @@ EXPECTED_ROBOT_RECORD_DIGESTS = {
     'SEM-ROBOT-TACTICAL-GEAR-001':'ede891a4cb8ab75989d0ba9f331487df49e39dc324f44e472449b2bc0c45c972',
     'SEM-ROBOT-TECHNICAL-001':'fbd73f3be0af16f3ec41af5ece34b4829a47eee66ff9020fcb0c5ec18c2a07e3',
 }
+EXPECTED_ATTACK_COUNTS = {
+    'attackOccurrences':20,'uniquePrintedTitles':8,'generatedFaceOccurrences':19,'directFaceOccurrences':1,
+    'generatedSourceSheetCells':20,'selectedGeneratedCells':19,'excludedSelectorGaps':1,
+    'sharedBackOccurrences':1,'sharedBackSelectorReferences':21,'sourceSheets':1,
+    'canonicalCorpusFaces':1,'sourceBoundDraftFaces':19,'physicalPanels':69,'operativePanels':29,
+    'printedSentences':54,'applicabilityBadgeOccurrences':57,'inlineIconOccurrences':13,
+    'functionalSymbolOccurrences':70,'selectedEvidenceNoMatchOccurrences':55,
+    'selectedEvidenceMatchedOccurrences':14,'licensedStructuredVariants':15,'licensedFaceLinks':20,
+    'officialVisibleFaceCounterparts':3,'officialVisibleBackCounterparts':1,'officialFaceLinks':8,
+    'officialRulebookTextOccurrences':9,'officialRulebookVisualObligations':2,'faqOccurrences':3,
+    'excludedExpansionAttackDecks':3,'excludedUnusedGeneratedFaces':1,'backlogTuples':20,
+    'backlogObligationsLinked':28,
+}
+EXPECTED_ATTACK_OCCURRENCES = {
+    394900: ('SRC-ATTACK-394900','assets/tts-mod/extract/v2-dl/tree/cards/game/attack-151_cards/card-00.png','72e8782d5b98ee1d46045a4efd6c47dec40ec9aa552a3f44c894da0fdb6a2fb8','5afea3',0,'IntruderAttack_Bite','SEM-ATTACK-394900-001','BITE',('Adult','Queen','Drone'),('P3','P3','P3'),3,2,(),('RB-P03-V01-ATTACK-BITE',),('SEM-Q-021',)),
+    394901: ('SRC-ATTACK-394901','assets/tts-mod/extract/v2-dl/tree/cards/game/attack-151_cards/card-01.png','0ba1a8b7b73127a004bba592c091924ec985eef51eaecf85adb2282593983832','f59fca',1,'IntruderAttack_Bite','SEM-ATTACK-394901-001','BITE',('Adult','Queen','Drone'),('P3','P3','P3'),3,2,(),('RB-P03-V01-ATTACK-BITE',),('SEM-Q-021',)),
+    394902: ('SRC-ATTACK-394902','assets/tts-mod/extract/v2-dl/tree/cards/game/attack-151_cards/card-02.png','088924b9742db513130b51fd8750cf80ab95fd3a0f33f150287b33fcf82fe501','ca7eaf',2,'IntruderAttack_Bite','SEM-ATTACK-394902-001','BITE',('Adult','Queen','Drone'),('P3','P3','P3'),3,2,(),('RB-P03-V01-ATTACK-BITE',),('SEM-Q-021',)),
+    394903: ('SRC-ATTACK-394903','assets/tts-mod/extract/v2-dl/tree/cards/game/attack-151_cards/card-03.png','9c988ba455dd17dfa1dc34eb2fb26cfebb6c17c9f21cb6a60af473ca0c441afc','d4547c',3,'IntruderAttack_Bite','SEM-ATTACK-394903-001','BITE',('Adult','Queen','Drone'),('P3','P3','P3'),3,2,(),('RB-P03-V01-ATTACK-BITE',),('SEM-Q-021',)),
+    394904: ('SRC-ATTACK-394904','assets/tts-mod/extract/v2-dl/tree/cards/game/attack-151_cards/card-04.png','881d97fc90030383652122b2108825aea2a4b8adc610e3cee9f7c22632d12720','5e9926',4,'IntruderAttack_Bite','SEM-ATTACK-394904-001','BITE',('Adult','Queen','Drone'),('P3','P3','P3'),3,2,(),('RB-P03-V01-ATTACK-BITE',),('SEM-Q-021',)),
+    394905: ('SRC-ATTACK-394905','assets/tts-mod/extract/v2-dl/tree/cards/game/attack-151_cards/card-05.png','c551ca1229e55b435145ef80bf5dccc3f54e293d3a1d8edd765582fd273813ab','d98fc8',5,'IntruderAttack_Bite','SEM-ATTACK-394905-001','BITE',('Adult','Queen','Drone'),('P3','P3','P3'),3,2,(),('RB-P03-V01-ATTACK-BITE',),('SEM-Q-021',)),
+    394906: ('SRC-ATTACK-394906','assets/tts-mod/extract/v2-dl/tree/cards/game/attack-151_cards/card-06.png','b732ca40c7c54b4c85901c16fab368a614b278c651079135fcec192a13bccf39','aa3f4a',6,'IntruderAttack_DeadlyClaws1','SEM-ATTACK-394906-001','DEADLY CLAWS',('Adult','Drone','Queen'),('P3','P3','P4'),4,4,('icon.characterHealth',),(),('SEM-Q-021','SEM-Q-023')),
+    394907: ('SRC-ATTACK-394907','assets/tts-mod/extract/v2-dl/tree/cards/game/attack-151_cards/card-07.png','8299612f643cc485002f3680abe8e65a581dfff1fa6895fa7368aefce9010234','58a1fa',7,'IntruderAttack_DeadlyClaws2','SEM-ATTACK-394907-001','DEADLY CLAWS',('Adult','Drone','Queen'),('P3','P3','P4'),4,5,('icon.characterHealth',),('RB-P03-V01-ATTACK-DEADLY-CLAWS',),('SEM-Q-021','SEM-Q-023')),
+    394908: ('SRC-ATTACK-394908','assets/tts-mod/extract/v2-dl/tree/cards/game/attack-151_cards/card-08.png','29ce4c3b52ac34cd53ecaa67482df6356507eda0e168c8bb840c3af2a0ded2c3','2bc4ac',8,'IntruderAttack_DeadlyClaws3','SEM-ATTACK-394908-001','DEADLY CLAWS',('Adult','Drone','Queen'),('P3','P3','P4'),4,4,('icon.characterHealth',),(),('SEM-Q-021','SEM-Q-023')),
+    394909: ('SRC-ATTACK-394909','assets/tts-mod/extract/v2-dl/tree/cards/game/attack-151_cards/card-09.png','11d94012916309b1d4d770012d59c8dc3ac81196826dc2cce3aab56339a1818e','a58129',9,'IntruderAttack_Fury1','SEM-ATTACK-394909-001','FURY',('Adult','Queen','Drone'),('P3','P4','P4'),4,4,('icon.characterHealth',),(),('SEM-Q-020','SEM-Q-021')),
+    394910: ('SRC-ATTACK-394910','assets/tts-mod/extract/v2-dl/tree/cards/game/attack-151_cards/card-10.png','15e1e762d38794914d42a2a9bf1d16e8db88ce195099faff043ad4aa25bd0dc0','d78969',10,'IntruderAttack_Fury2','SEM-ATTACK-394910-001','FURY',('Adult','Queen','Drone'),('P3','P4','P4'),4,4,('icon.characterHealth',),(),('SEM-Q-020','SEM-Q-021')),
+    394911: ('SRC-ATTACK-394911','assets/tts-mod/extract/v2-dl/tree/cards/game/attack-151_cards/card-11.png','73e6cec9de20bcc116f70de3dc46df16671a77bac9e02d1145061d8068d517f3','f8df5b',11,'IntruderAttack_Infecting','SEM-ATTACK-394911-001','INFECTING',('Adult','Queen','Drone'),('P3','P3','P4'),4,3,('icon.characterHealth',),('RB-P32-V01-ATTACK-INFECTING',),()),
+    394912: ('SRC-ATTACK-394912','assets/tts-mod/extract/v2-dl/tree/cards/game/attack-151_cards/card-12.png','c4e671e3504c36647e657f1e2fbe1ba12bda9e4998fa763beed24b70bd4fce60','0959a7',12,'IntruderAttack_Miss','SEM-ATTACK-394912-001','MISS',(),(),3,2,(),(),('SEM-Q-024',)),
+    394913: ('SRC-ATTACK-394913','assets/tts-mod/extract/v2-dl/tree/cards/game/attack-151_cards/card-13.png','e23333f920163dc0a9342ef6d348855b0dbb3e2b7a769ec735e3d4460c2d89cf','e8555f',13,'IntruderAttack_Scratch1','SEM-ATTACK-394913-001','SCRATCH',('Adult','Queen','Drone'),('P3','P3','P3'),3,1,(),(),()),
+    394914: ('SRC-ATTACK-394914','assets/tts-mod/extract/v2-dl/tree/cards/game/attack-151_cards/card-14.png','241bd0d208b745a41e9ee671e55138b71669ef12b3bf8b1086922f85fc126963','09613e',14,'IntruderAttack_Scratch2','SEM-ATTACK-394914-001','SCRATCH',('Adult','Queen','Drone'),('P3','P3','P3'),3,2,('icon.characterHealth',),(),('SEM-Q-021',)),
+    394915: ('SRC-ATTACK-394915','assets/tts-mod/extract/v2-dl/tree/cards/game/attack-151_cards/card-15.png','20ced3626bd007e388acda4ccc96dfcd59e72bcf3cf7ae84ad1693e5ba0a924d','e7be5a',15,'IntruderAttack_Scratch3','SEM-ATTACK-394915-001','SCRATCH',('Adult','Queen','Drone'),('P3','P3','P3'),3,1,('icon.characterHealth',),(),()),
+    394916: ('SRC-ATTACK-394916','assets/tts-mod/extract/v2-dl/tree/cards/game/attack-151_cards/card-16.png','eb422e05e6ec47d486f08c873f4fd1c5427e79904f16fab88a140bd46a390e6a','b9afbe',16,'IntruderAttack_Scratch4','SEM-ATTACK-394916-001','SCRATCH',('Adult','Queen','Drone'),('P3','P3','P3'),3,1,('icon.characterHealth',),(),()),
+    394918: ('SRC-ATTACK-394918','assets/tts-mod/extract/v2-dl/tree/cards/game/attack-151_cards/card-18.png','a5d496cfe387ac69a361b62b659047238d348f4db329583a6d3f5b562d0fbce3','f08b5b',18,'IntruderAttack_TailAttack1','SEM-ATTACK-394918-001','TAIL ATTACK',('Adult','Queen','Drone'),('P3','P3','P4'),4,3,(),(),('SEM-Q-021',)),
+    394919: ('SRC-ATTACK-394919','assets/tts-mod/extract/v2-dl/tree/cards/game/attack-151_cards/card-19.png','8a8f393e64f6f0d5d1bf569afbff6b1737615c269b09f5e3bd11711f7e396e16','6caa45',19,'IntruderAttack_TailAttack2','SEM-ATTACK-394919-001','TAIL ATTACK',('Adult','Queen','Drone'),('P3','P3','P4'),4,4,('icon.characterHealth',),(),('SEM-Q-021',)),
+    399100: ('SRC-ATTACK-399100','assets/tts-mod/extract/v2-dl/tree/cards/game/attack-022.png','8f188df6aa3b9fa96531894f49b9727ce79558e11023fba10d8758af3400319b','50e156',None,'IntruderAttack_BloodSense','SEM-ATTACK-399100-001','BLOOD SENSE',('Adult','Drone','Queen'),('P3','P4','P4'),4,4,('icon.characterHealth','icon.characterHealth','icon.intruder'),(),('SEM-Q-022',)),
+}
+EXPECTED_ATTACK_BODY_DIGESTS = {
+    394900:'d9915a0bd1f2bbae48771a1fc26bb067bc82011e16ce6ccfa55a008f03de360d',394901:'d9915a0bd1f2bbae48771a1fc26bb067bc82011e16ce6ccfa55a008f03de360d',394902:'d9915a0bd1f2bbae48771a1fc26bb067bc82011e16ce6ccfa55a008f03de360d',394903:'d9915a0bd1f2bbae48771a1fc26bb067bc82011e16ce6ccfa55a008f03de360d',394904:'d9915a0bd1f2bbae48771a1fc26bb067bc82011e16ce6ccfa55a008f03de360d',394905:'d9915a0bd1f2bbae48771a1fc26bb067bc82011e16ce6ccfa55a008f03de360d',
+    394906:'a5c001325a3906c92ffa722352f554597e6074c510ed08cc83cc74fc2cf449a8',394907:'7b2e2fac83924c93533fa2b5bd975b109571615061b76c0a16096261405273b7',394908:'ca35f3e8bfbc5d3b73ffb97eaa82816301dd9b673f20f1f38516802c329b3aef',394909:'b713d4ee27d392cf576fc8b523197fff7c25f4d3999b05dc9207fb23286cb638',394910:'4d6d15bc9b95103d5727e739854b8e30a7e7b9f042b384886ca71e641cd79cbd',394911:'2da2600e3cbf971de3c3dcb7476601d43f9d78c1f8d272fe9308945c99397f52',394912:'54b0477e15ecc4d06de4b20310bc47ec5fd4dc7ff41870c1c1ae9eff369bc67e',394913:'9c421286599daf6cb972b591f5bc44d1420016cd2afb1328438487821cc125f5',394914:'b2d7ab5df3935cad699abcdb6b5fc91ba8e46b223a023e560b0a3d7af3db940d',394915:'fd2b0b78ad1d80f5fc57322568cb70158a2a623911a3eaabb4ac5330f9020413',394916:'82545fc67a91744372c21f531f67f8f067ba359585d177c94713da0ff3c9e029',394918:'4dde86319aaefb9b84a8866db7e72648bb726b3e7ad7158ec13ccb38df739e18',394919:'c4437d99cfd8a11136c72f1bc66bec6fb5da0fa34caee4cb1ab4008d0c4f30e4',399100:'24f5851fe754c14d55fa6751c8c68b74c6a3f32ef61fdc4981729c274b7d2283',
+}
+EXPECTED_ATTACK_RECORD_DIGESTS = {
+    'SEM-ATTACK-394900-001':'b363d61ef96b239f83e04bc00867d2943a7da868438484d802bfd54b5d888c84','SEM-ATTACK-394901-001':'cb09dbe29c77e9655279b52c6061f46013da0b1686c779b49363038be067275c','SEM-ATTACK-394902-001':'fbe74107fd5766b9812c7d78f9729c2a5c2b12bebdb82b3c5bd216ebf7de9fe1','SEM-ATTACK-394903-001':'ecfc2a2e4f1ab416634a3cebe988bb82903f48c91d4745f0445e2be65bf871f4','SEM-ATTACK-394904-001':'0fda12666d53361403fd60e597a812784b17f2fb9f7ca1725e1463d42a595dc2','SEM-ATTACK-394905-001':'a4a2b485e8ca2ae13481ec799f986e1d78ce6abe1702664086b2df7eb55681ce','SEM-ATTACK-394906-001':'363be26edf170bc7df8344817fbe313a4df63aeb06d8c6307b9b04b0a09b250c','SEM-ATTACK-394907-001':'d00202c7f465423b10f943791aa5bb62245701348345cf3701debbdfbde89d10','SEM-ATTACK-394908-001':'28c7d244ecdc45f0624c1a0a43085e4de732a11b13cb6279fd25350ea32099d6','SEM-ATTACK-394909-001':'4564b6f6b6e9a5b1e2d7e860cd4254e055689f02038d2d70a2951e11aa35441b','SEM-ATTACK-394910-001':'360814f4b3f7df57e3c00c683349a2b7204a48e2f6e4e0a0092f3d5e1ae03018','SEM-ATTACK-394911-001':'566f1d1b2ddc77b08dc741a300d8596c0f90238636d830ecc591a5e06fb6d335','SEM-ATTACK-394912-001':'f23f2616dfd0894cad070e8910f1c1c7a6011f61dd6c856041f413a84e5fdbc6','SEM-ATTACK-394913-001':'82f959a00970278f4d0e40f9769d849eceee6cfc695e06eef631dc7049b9a996','SEM-ATTACK-394914-001':'2077903a59bd34a3c7d47fdc771436be117df0f9d403e464556f5c9e8bad4a19','SEM-ATTACK-394915-001':'cffaac76cb2054586bbdfa93c2ef97e973d0d599d8922dcdaf6709e902ce1630','SEM-ATTACK-394916-001':'881b144695663b5d3e0b061517a42973b0f232d06a2df03de68a450b733628df','SEM-ATTACK-394918-001':'7e9050f736b63d7fd5c5336160fc2c4ff3cb2a6ccfad70396b8226198ac3697f','SEM-ATTACK-394919-001':'39a77c3ee127e0c3eb77a1aa0e8c4d38c29fe1f069eb32c712eb05831ad5d80b','SEM-ATTACK-399100-001':'603b47857c36fb72e6e48b244d0cb879286b105c4944fe2204322aa4ba4fd369','SEM-CONTAMINATION-GAIN-001':'de8256656ec5d3d98079726883c49e0753e9f48b469445b6db6a1fb47a763638','SEM-INT-004':'fef1c6058aaab9a28794e2d89486cb88d52f279ae686f4e77a588b7879a7b0b9',
+}
 ALLOWED_OPERATIONS = {
     'branch','change-value','choose','draw-random','end-process','evaluate-condition',
     'inspect-private','invoke-process','invoke-selected-process','move-entity','pay-cost','end-action-window',
@@ -235,11 +287,12 @@ def cardinality_valid(value: dict) -> bool:
     return isinstance(maximum, int) and not isinstance(maximum, bool) and maximum >= minimum
 
 
-def validate(event_source_path: Path, exploration_source_path: Path, robot_source_path: Path, source_path: Path, schema_path: Path, semantic_vocabulary_path: Path, room_icon_path: Path, pilots_path: Path, review_path: Path, contradictions_path: Path, coverage_path: Path, backlog_path: Path, *, reproducibility: bool) -> dict:  # pyright: ignore[reportGeneralTypeIssues]
+def validate(event_source_path: Path, exploration_source_path: Path, robot_source_path: Path, attack_source_path: Path, source_path: Path, schema_path: Path, semantic_vocabulary_path: Path, room_icon_path: Path, pilots_path: Path, review_path: Path, contradictions_path: Path, coverage_path: Path, backlog_path: Path, *, reproducibility: bool) -> dict:  # pyright: ignore[reportGeneralTypeIssues]
     failures: list[dict] = []
     event_sources = load(event_source_path)
     exploration_sources = load(exploration_source_path)
     robot_sources = load(robot_source_path)
+    attack_sources = load(attack_source_path)
     sources_data = load(source_path)
     schema = load(schema_path)
     semantic_vocabulary = load(semantic_vocabulary_path)
@@ -683,6 +736,149 @@ def validate(event_source_path: Path, exploration_source_path: Path, robot_sourc
     if robot_linked_backlog_ids != expected_linked_robot_backlog_ids or any((backlog_rows_by_id.get(unit_id) or {}).get('status') != 'pilot-covered' for unit_id in expected_linked_robot_backlog_ids):
         failures.append({'check':'Robot exact overlapping backlog-obligation closure'})
 
+    # Independent base Intruder Attack family lock. The exact raw root-deck
+    # children and full selectors define 19 generated cells plus one direct
+    # face. Repeated titles, the parent sheet, the shared back, unused cell 17,
+    # expansion decks, and licensed structured variants remain non-isomorphic.
+    attack_rows = attack_sources.get('faces') or []
+    attack_by_card = {row.get('ttsCardId'):row for row in attack_rows}
+    if sha(attack_source_path) != PINNED_ATTACK_SOURCE_INDEX_HASH:
+        failures.append({'check':'pinned Attack source index'})
+    if attack_sources.get('counts') != EXPECTED_ATTACK_COUNTS or set(attack_by_card) != set(EXPECTED_ATTACK_OCCURRENCES) or len(attack_by_card) != len(attack_rows):
+        failures.append({'check':'Attack source-index exact occurrence count'})
+    expected_title_multiplicity = {'BITE':6,'BLOOD SENSE':1,'DEADLY CLAWS':3,'FURY':2,'INFECTING':1,'MISS':1,'SCRATCH':4,'TAIL ATTACK':2}
+    if attack_sources.get('titleMultiplicity') != expected_title_multiplicity:
+        failures.append({'check':'Attack repeated-title occurrence multiplicity lock'})
+    base_attack_role = next((row for row in roles if row.get('role') == 'attacksDeck' and row.get('guid') == '34c73e'), {})
+    root_attack_object = next((row for row in objects if row.get('guid') == '34c73e'), {})
+    if base_attack_role.get('type') != 'DeckCustom' or base_attack_role.get('deck_nums') != ['3949','3991'] or base_attack_role.get('n_urls') != 3 or root_attack_object.get('parent') != [] or root_attack_object.get('type') != 'DeckCustom':
+        failures.append({'check':'Attack root Lua role/CustomDeck closure'})
+    attack_children = [row for row in objects if ['DeckCustom','34c73e',''] in (row.get('parent') or []) and row.get('gmnotes') == 'attack']
+    attack_children_by_card = {int(row['card_id']):row for row in attack_children if row.get('card_id')}
+    if set(attack_children_by_card) != set(EXPECTED_ATTACK_OCCURRENCES) or len(attack_children) != 20:
+        failures.append({'check':'Attack exact full CardID child closure'})
+    attack_table = next((row for row in secondary['licensedDigital']['structuredIndex']['tables'] if row.get('name') == 'INTRUDER_ATTACKS_DATA'), {})
+    expected_attack_bga_keys = {value[5] for value in EXPECTED_ATTACK_OCCURRENCES.values()}
+    if attack_table.get('count') != 15 or set(attack_table.get('keys') or []) != expected_attack_bga_keys:
+        failures.append({'check':'Attack licensed-digital independent index closure'})
+    attack_sheet_provenance = next((row for row in provenance if row.get('file') == 'cards/game/attack-151.jpg'), {})
+    attack_back_provenance = next((row for row in provenance if row.get('file') == 'cards/game/attack-020.png'), {})
+    attack_direct_provenance = next((row for row in provenance if row.get('file') == 'cards/game/attack-022.png'), {})
+    if (attack_sheet_provenance.get('refs'),attack_back_provenance.get('refs'),attack_direct_provenance.get('refs')) != (20,21,2):
+        failures.append({'check':'Attack FaceURL/BackURL provenance reference closure'})
+    expected_attack_source_ids = set()
+    for card_id,expected in EXPECTED_ATTACK_OCCURRENCES.items():
+        source_id,path_value,source_sha,guid,cell,bga_key,rule_id,title,badge_types,badge_panels,panel_count,sentence_count,inline_refs,official_refs,question_refs = expected
+        face = attack_by_card.get(card_id) or {}
+        expected_attack_source_ids.add(source_id)
+        selector = face.get('sourceSelector') or {}
+        generated = selector.get('generatedCell')
+        actual_tuple = (face.get('sourceId'),face.get('sourcePath'),face.get('sourceSha256'),face.get('ttsCardGuid'),(generated or {}).get('cellIndex'),(face.get('bgaOccurrence') or {}).get('key'),face.get('semanticRuleId'),face.get('printedTitle'))
+        if actual_tuple != expected[:8]:
+            failures.append({'check':'independently locked Attack occurrence crosswalk','ttsCardId':card_id})
+        source_file = REPO/path_value
+        if not source_file.is_file() or sha(source_file) != source_sha:
+            failures.append({'check':'Attack live source hash','ttsCardId':card_id})
+        child = attack_children_by_card.get(card_id) or {}
+        expected_object_type = 'CardCustom' if cell is None else 'Card'
+        expected_custom_deck = '3991' if cell is None else '3949'
+        if child.get('guid') != guid or child.get('type') != expected_object_type or selector.get('key') != 'FaceURL' or selector.get('objectType') != expected_object_type or selector.get('fullCardId') != card_id or selector.get('guid') != guid or selector.get('parentDeckGuid') != '34c73e' or selector.get('customDeckId') != expected_custom_deck or selector.get('sideRole') != 'operative-face' or selector.get('cardIdModuloJoinUsed') is not False or selector.get('selectorGap') is not None:
+            failures.append({'check':'Attack exact full CardID/GUID/CustomDeck selector projection','ttsCardId':card_id})
+        if selector.get('backUrl') != 'https://steamusercontent-a.akamaihd.net/ugc/11924678148411699/14FCBEEBC01824DE1591E0218355C01ECC48C923/' or selector.get('url') == selector.get('backUrl'):
+            failures.append({'check':'Attack FaceURL/BackURL role projection','ttsCardId':card_id})
+        if cell is None:
+            if generated is not None or selector.get('sourceRole') != 'direct-face' or selector.get('url') != 'https://steamusercontent-a.akamaihd.net/ugc/11925215517129770/8DF8175468EFA277EC2BD907070B7070D7810F54/':
+                failures.append({'check':'Attack exact direct-face selector projection','ttsCardId':card_id})
+        else:
+            expected_cell_path = f'assets/tts-mod/extract/v2-dl/tree/cards/game/attack-151_cards/card-{cell:02d}.png'
+            expected_grid = {'columns':5,'rows':4,'cellWidth':827,'cellHeight':1111}
+            if selector.get('sourceRole') != 'generated-cell-face' or not isinstance(generated,dict) or generated.get('sourceSheetId') != 'SRC-ATTACK-SHEET' or generated.get('sourceSheetPath') != 'assets/tts-mod/extract/v2-dl/tree/cards/game/attack-151.jpg' or generated.get('sourceSheetSha256') != '7dd1613a0c9be312e4d4be2040469b9aac2775c9e178060a7346844bf8d23dce' or generated.get('grid') != expected_grid or generated.get('cellIndex') != cell or generated.get('row') != cell//5 or generated.get('column') != cell%5 or generated.get('cellPath') != expected_cell_path or selector.get('url') != 'https://steamusercontent-a.akamaihd.net/ugc/2468613527880234536/A0DC2BC12F4C9ECFE5AF1398ED52FD8746072DD8/':
+                failures.append({'check':'Attack generated sheet/hash/grid/cell selector projection','ttsCardId':card_id})
+        corpus_row = corpus_by_path.get(path_value) or {}
+        if corpus_row.get('sourceSha256') != source_sha or not corpus_row.get('rulesTextPresent') or corpus_row.get('extractionState') not in {'verified-canonical','draft-full'}:
+            failures.append({'check':'Attack closed-corpus occurrence projection','ttsCardId':card_id})
+        body = face.get('printedBody') or ''
+        if hashlib.sha256(body.encode()).hexdigest() != EXPECTED_ATTACK_BODY_DIGESTS[card_id]:
+            failures.append({'check':'Attack exact body/punctuation/order drift','ttsCardId':card_id})
+        panels = face.get('panels') or []
+        panel_tuple = [(row.get('panelId'),row.get('readingOrder'),row.get('role'),row.get('operative')) for row in panels]
+        expected_panel_tuple = [('P1',1,'title',False),('P2',2,'artwork',False),*[(f'P{index}',index,'applicability-and-effect-panel',True) for index in range(3,panel_count+1)]]
+        if panel_tuple != expected_panel_tuple or (panels and panels[0].get('exactText') != title):
+            failures.append({'check':'Attack exact physical panel roles/order','ttsCardId':card_id})
+        for panel in panels[2:]:
+            start,end = panel.get('bodyStart'),panel.get('bodyEnd')
+            if not isinstance(start,int) or not isinstance(end,int) or body[start:end] != panel.get('exactText'):
+                failures.append({'check':'Attack exact panel text/span projection','ttsCardId':card_id,'panelId':panel.get('panelId')})
+        sentences = face.get('sentences') or []
+        if len(sentences) != sentence_count or [row.get('sequence') for row in sentences] != list(range(1,sentence_count+1)) or len({row.get('sentenceId') for row in sentences}) != sentence_count:
+            failures.append({'check':'Attack exact sentence IDs/order','ttsCardId':card_id})
+        cursor = 0
+        for sentence in sentences:
+            start,end = sentence.get('start'),sentence.get('end')
+            if not isinstance(start,int) or not isinstance(end,int) or start < cursor or body[start:end] != sentence.get('exactText') or sentence.get('panelId') not in {row.get('panelId') for row in panels if row.get('operative')}:
+                failures.append({'check':'Attack exact sentence text/span/panel projection','ttsCardId':card_id,'sentenceId':sentence.get('sentenceId')})
+            cursor = end if isinstance(end,int) else cursor
+        badges = face.get('applicabilityBadgeOccurrences') or []
+        actual_badge_types = tuple((row.get('sourceScopedResolution') or {}).get('intruderType') for row in badges)
+        actual_badge_panels = tuple(row.get('panelId') for row in badges)
+        if actual_badge_types != badge_types or actual_badge_panels != badge_panels or [row.get('sequence') for row in badges] != list(range(1,len(badges)+1)) or any(not row.get('literalSourceToken') or not row.get('literalCyanComponentBbox') or (row.get('sourceScopedResolution') or {}).get('page40GlossaryAliasCreated') is not False or row.get('mappingScope') != f'exact Attack source occurrence TTS-ATTACK-{card_id}-FACE only' for row in badges):
+            failures.append({'check':'Attack exact source-scoped applicability badge projection','ttsCardId':card_id})
+        inline = face.get('inlineIconOccurrences') or []
+        if tuple(row.get('semanticReferenceId') for row in inline) != inline_refs or [row.get('sequence') for row in inline] != list(range(1,len(inline)+1)) or any(row.get('mappingScope') != f'exact Attack source occurrence TTS-ATTACK-{card_id}-FACE only' for row in inline):
+            failures.append({'check':'Attack exact inline icon occurrence projection','ttsCardId':card_id})
+        if card_id == 394906 and (len(inline) != 1 or inline[0].get('sourceToken') != 'LOCAL_ICON:INLINE-1' or inline[0].get('semanticReferenceId') != 'icon.characterHealth' or inline[0].get('templateMatchScore') != 0.955931 or 'no-match row remains unchanged' not in inline[0].get('literalResolutionBoundary','')):
+            failures.append({'check':'Attack local Character Health independent-resolution boundary'})
+        selected_comparisons = face.get('selectedEvidenceComparisons') or {}
+        if selected_comparisons.get('boundary') != 'Literal selected no-match/match rows are retained verbatim; source-scoped semantic projections do not rewrite them.':
+            failures.append({'check':'Attack literal selected badge/icon evidence preservation','ttsCardId':card_id})
+        bga = face.get('bgaOccurrence') or {}
+        if bga.get('sourceId') != 'SRC-BGA-INTRUDER-ATTACKS' or bga.get('sourceSha256') != sha(REPO/'docs/rules/source-extraction/secondary/bga-staticData-260622-1220.js') or bga.get('key') != bga_key or not bga.get('sourceBlockText') or bga.get('sourceBlockText') not in bga_text or not isinstance(bga.get('effectDesc'),list):
+            failures.append({'check':'Attack licensed variant exact projection','ttsCardId':card_id})
+        if tuple(face.get('officialCounterpartRefs') or []) != official_refs:
+            failures.append({'check':'Attack official-visible counterpart projection','ttsCardId':card_id})
+        join = face.get('joinEvidence') or {}
+        basis_text = ' '.join(join.get('basis') or []).lower()
+        if join.get('identityJoin') != 'explicit full occurrence crosswalk' or join.get('titleOnlyJoin') is not False or join.get('sourceCellOnlyJoin') is not False or join.get('folderOnlyJoin') is not False or join.get('cardIdModuloJoin') is not False or any(fragment not in basis_text for fragment in ('full cardid','guid','customdeck','faceurl','backurl','sheet/hash/grid/cell','ordered panels')):
+            failures.append({'check':'Attack title/cell/folder/modulo join prohibited','ttsCardId':card_id})
+        registry = source_by_id.get(source_id) or {}
+        if (registry.get('path'),registry.get('sha256'),registry.get('authority'),registry.get('occurrenceId'),registry.get('evidenceRecord')) != (path_value,source_sha,'source-bound-component-scan',f'TTS-ATTACK-{card_id}-FACE',source_sha):
+            failures.append({'check':'Attack source-registry exact face tuple','ttsCardId':card_id})
+        backlog_id = 'CARD:' + source_sha[:16]
+        backlog_row = backlog_rows_by_id.get(backlog_id) or {}
+        if face.get('backlogUnitId') != backlog_id or backlog_row.get('sourcePath') != path_value or backlog_row.get('sourceLocator') != source_sha or backlog_row.get('pilotRuleIds') != [rule_id] or backlog_row.get('status') != 'pilot-covered':
+            failures.append({'check':'Attack exact backlog tuple projection','ttsCardId':card_id})
+    source_sheet = attack_sources.get('sourceSheet') or {}
+    source_sheet_selector = source_sheet.get('sourceSelector') or {}
+    expected_sheet_tuple = ('assets/tts-mod/extract/v2-dl/tree/cards/game/attack-151.jpg','7dd1613a0c9be312e4d4be2040469b9aac2775c9e178060a7346844bf8d23dce',[4135,4444],{'columns':5,'rows':4,'cellWidth':827,'cellHeight':1111},'FaceURL','3949',20,True)
+    actual_sheet_tuple = (source_sheet.get('sourcePath'),source_sheet.get('sourceSha256'),source_sheet.get('dimensions'),source_sheet.get('grid'),source_sheet_selector.get('key'),source_sheet_selector.get('customDeckId'),source_sheet_selector.get('referenceCount'),source_sheet_selector.get('parentSheetNotRulesFace'))
+    shared_back = attack_sources.get('sharedBack') or {}
+    shared_back_selector = shared_back.get('sourceSelector') or {}
+    expected_back_tuple = ('assets/tts-mod/extract/v2-dl/tree/cards/game/attack-020.png','3b99e8a683f506df4c33000ce62077770078f532b4c7d108846d4798c46ab6bd','BackURL','34c73e',1,20,21,False,False)
+    actual_back_tuple = (shared_back.get('sourcePath'),shared_back.get('sourceSha256'),shared_back_selector.get('key'),shared_back_selector.get('guid'),shared_back_selector.get('rootDeckSelectorCount'),shared_back_selector.get('baseCardSelectorCount'),shared_back_selector.get('referenceCount'),shared_back.get('rulesTextPresent'),shared_back.get('separateRulesFace'))
+    attack_sheet_registry = source_by_id.get('SRC-ATTACK-SHEET') or {}
+    attack_back_registry = source_by_id.get('SRC-ATTACK-BACK') or {}
+    attack_bga_registry = source_by_id.get('SRC-BGA-INTRUDER-ATTACKS') or {}
+    actual_attack_source_ids = {row.get('sourceId') for row in source_rows if row.get('occurrenceId','').startswith('TTS-ATTACK-') and row.get('occurrenceId') not in {'TTS-ATTACK-GENERATED-SHEET','TTS-ATTACK-SHARED-BACK'}}
+    if actual_sheet_tuple != expected_sheet_tuple or actual_back_tuple != expected_back_tuple or actual_attack_source_ids != expected_attack_source_ids or (attack_sheet_registry.get('path'),attack_sheet_registry.get('sha256'),attack_sheet_registry.get('occurrenceId')) != (expected_sheet_tuple[0],expected_sheet_tuple[1],'TTS-ATTACK-GENERATED-SHEET') or (attack_back_registry.get('path'),attack_back_registry.get('sha256'),attack_back_registry.get('occurrenceId')) != (expected_back_tuple[0],expected_back_tuple[1],'TTS-ATTACK-SHARED-BACK') or attack_bga_registry.get('occurrenceId') != 'INTRUDER_ATTACKS_DATA':
+        failures.append({'check':'Attack source-registry face/sheet/back/licensed closure'})
+    badge_method = attack_sources.get('badgeResolutionMethod') or {}
+    if badge_method.get('mappingScope') != 'only the 57 exact badge occurrences enumerated below' or badge_method.get('familyMinimumWinningIou') != 0.8241 or badge_method.get('familyMinimumWinningMargin') != 0.3549 or badge_method.get('referenceTemplateOccurrenceIds') != ['ATK-394906-B01','ATK-394906-B02','ATK-394906-B03'] or 'no page-40' not in badge_method.get('literalNoMatchPreservation',''):
+        failures.append({'check':'Attack applicability badge authority/no-alias lock'})
+    official_counterparts = attack_sources.get('officialVisibleCounterparts') or []
+    expected_official_ids = ['RB-P03-V01-ATTACK-BACK','RB-P03-V01-ATTACK-BITE','RB-P03-V01-ATTACK-DEADLY-CLAWS','RB-P32-V01-ATTACK-INFECTING']
+    if [row.get('sourceOccurrenceId') for row in official_counterparts] != expected_official_ids or [row.get('parentOccurrenceId') for row in official_counterparts] != ['RB-P03-V01','RB-P03-V01','RB-P03-V01','RB-P32-V01']:
+        failures.append({'check':'Attack official visual/text counterpart closure'})
+    excluded_attack = attack_sources.get('excludedContent') or {}
+    unused_cell = excluded_attack.get('unusedGeneratedCell') or {}
+    expansion_decks = excluded_attack.get('expansionAttackDecks') or []
+    if (unused_cell.get('cellIndex'),unused_cell.get('sourceSha256'),unused_cell.get('printedTitle'),unused_cell.get('backlogStatus')) != (17,'75dda99e22f47ea06d533242f1646707edbebf6378651002cc10a23047bfec44','SUMMONING','pending') or 'No root DeckID' not in unused_cell.get('selectorGap','') or {(row.get('guid'),row.get('scope')) for row in expansion_decks} != {('61a87c','expansion; excluded from base conclusions'),('3a25fc','expansion; excluded from base conclusions'),('9aefbc','expansion; excluded from base conclusions')}:
+        failures.append({'check':'Attack unused-cell/expansion exclusion boundary'})
+    attack_linked_backlog_ids = (attack_sources.get('familyCountEvidence',{}).get('backlog') or {}).get('linkedUnitIds') or []
+    expected_attack_face_backlog_ids = ['CARD:'+EXPECTED_ATTACK_OCCURRENCES[card_id][2][:16] for card_id in sorted(EXPECTED_ATTACK_OCCURRENCES)]
+    expected_linked_attack_backlog_ids = [*expected_attack_face_backlog_ids,'RULE:INT-004','RULE:INT-006','RULE:INT-008','FAQ:FQ-P02-U11','FAQ:FQ-P02-U16','FAQ:FQ-P02-U19','VIS:RB-P03-V01','VIS:RB-P32-V01']
+    if attack_linked_backlog_ids != expected_linked_attack_backlog_ids or any((backlog_rows_by_id.get(unit_id) or {}).get('status') != 'pilot-covered' for unit_id in expected_linked_attack_backlog_ids):
+        failures.append({'check':'Attack exact overlapping backlog-obligation closure'})
+
     required_fields = schema.get('required') or []
     schema_fields = set((schema.get('properties') or {}).keys())
     if set(required_fields) != schema_fields or schema.get('additionalProperties') is not False:
@@ -743,7 +939,7 @@ def validate(event_source_path: Path, exploration_source_path: Path, robot_sourc
             path = evidence_path(reference)
             if path is None or not path.exists():
                 failures.append({'check': 'semantic conflict evidence', 'conflictId': conflict.get('conflictId'), 'reference': reference})
-    if contradictions.get('counts') != {'conflicts':14,'resolvedByAuthority':5,'unresolved':7,'preservedBoundary':2}:
+    if contradictions.get('counts') != {'conflicts':18,'resolvedByAuthority':8,'unresolved':8,'preservedBoundary':2}:
         failures.append({'check': 'semantic conflict declared counts'})
 
     for record in records:
@@ -1367,6 +1563,107 @@ def validate(event_source_path: Path, exploration_source_path: Path, robot_sourc
     expected_robot_system_ids = ['SEM-ACT-ROBOT-001','SEM-ROBOT-SETUP-001','SEM-ROBOT-REVEAL-001','SEM-ROBOT-MOVEMENT-001','SEM-ROBOT-TACTICAL-GEAR-001','SEM-ROBOT-MALFUNCTION-001','SEM-ROBOT-MALFUNCTION-PLACEMENT-001',*[EXPECTED_ROBOT_OCCURRENCES[card_id]['ruleId'] for card_id in sorted(EXPECTED_ROBOT_OCCURRENCES)]]
     if robot_system.get('ruleIds') != expected_robot_system_ids or any(fragment in not_yet_text for fragment in ('all Robot','Item/Robot/Attack')):
         failures.append({'check':'Robot coverage stale not-yet-covered claim'})
+
+    expected_attack_rule_ids = {value[6] for value in EXPECTED_ATTACK_OCCURRENCES.values()}
+    actual_attack_rule_ids = {rule_id for rule_id in record_by_id if rule_id.startswith('SEM-ATTACK-')}
+    if actual_attack_rule_ids != expected_attack_rule_ids:
+        failures.append({'check':'Attack semantic face-record closure','missing':sorted(expected_attack_rule_ids-actual_attack_rule_ids),'extra':sorted(actual_attack_rule_ids-expected_attack_rule_ids)})
+    branch_families = {'BITE','DEADLY CLAWS','TAIL ATTACK'}
+    for card_id,expected in EXPECTED_ATTACK_OCCURRENCES.items():
+        source_id,path_value,source_sha,guid,cell,bga_key,rule_id,title,badge_types,badge_panels,panel_count,sentence_count,inline_refs,official_refs,question_refs = expected
+        source_face = attack_by_card.get(card_id) or {}
+        item = record_by_id.get(rule_id) or {}
+        assertions = {row.get('assertionId'):row for row in item.get('sourceAssertions') or []}
+        scan = assertions.get(f'SA-ATK-{card_id}-SCAN') or {}
+        licensed = assertions.get(f'SA-ATK-{card_id}-BGA') or {}
+        if (scan.get('sourceId'),scan.get('sourceSha256'),scan.get('sourceText'),scan.get('textKind')) != (source_id,source_sha,source_face.get('printedBody'),'verbatim'):
+            failures.append({'check':'Attack exact scan assertion projection','ttsCardId':card_id})
+        if (licensed.get('sourceId'),licensed.get('sourceText'),licensed.get('textKind')) != ('SRC-BGA-INTRUDER-ATTACKS',(source_face.get('bgaOccurrence') or {}).get('sourceBlockText'),'verbatim'):
+            failures.append({'check':'Attack exact licensed assertion projection','ttsCardId':card_id})
+        variants = item.get('sourceVariants') or []
+        expected_variants = [(f'SV-ATK-{card_id}-BGA','SRC-BGA-INTRUDER-ATTACKS',f'SA-ATK-{card_id}-BGA')]
+        expected_variants.extend((f'SV-ATK-{card_id}-OFFICIAL-{index:02d}','SRC-RULEBOOK',f'SA-ATK-{card_id}-OFFICIAL-{index:02d}') for index in range(1,len(official_refs)+1))
+        actual_variants = [(row.get('variantId'),row.get('sourceId'),row.get('sourceAssertionId')) for row in variants]
+        if actual_variants != expected_variants or any(not row.get('difference') or not row.get('resolution') for row in variants):
+            failures.append({'check':'Attack licensed/official source-variant closure','ttsCardId':card_id})
+        sentence_by_id = {row.get('sentenceId'):row for row in source_face.get('sentences') or []}
+        operations = item.get('operations') or []
+        operation_sentence_ids = [row.get('sourceSentenceId') for row in operations]
+        first_sentence_order = list(dict.fromkeys(operation_sentence_ids))
+        expected_sentence_order = [row.get('sentenceId') for row in source_face.get('sentences') or []]
+        if not operations or first_sentence_order != expected_sentence_order or any(row.get('sourceSentenceId') not in sentence_by_id or row.get('sourcePanelId') != sentence_by_id.get(row.get('sourceSentenceId'),{}).get('panelId') for row in operations):
+            failures.append({'check':'Attack semantic sentence/panel order projection','ttsCardId':card_id})
+        badge_by_panel = {}
+        for badge in source_face.get('applicabilityBadgeOccurrences') or []:
+            badge_by_panel.setdefault(badge.get('panelId'),[]).append(badge.get('occurrenceId'))
+        for op in operations:
+            expected_badges = badge_by_panel.get(op.get('sourcePanelId'),[])
+            if op.get('sourceApplicabilityBadgeIds') != expected_badges:
+                failures.append({'check':'Attack semantic applicability badge linkage','ttsCardId':card_id,'stepId':op.get('stepId')})
+        if tuple(item.get('unresolvedQuestionRefs') or []) != question_refs or (item.get('status') == 'source-backed-with-open-question') != bool(question_refs):
+            failures.append({'check':'Attack no-default question projection','ttsCardId':card_id})
+        expected_authority = 'official-errata' if card_id == 394912 else 'official-primary'
+        if item.get('authority',{}).get('highest') != expected_authority:
+            failures.append({'check':'Attack authority lock','ttsCardId':card_id})
+        if item.get('decisions'):
+            failures.append({'check':'Attack no invented face decision owner','ttsCardId':card_id})
+        target_ids = {row.get('targetId') for row in item.get('targets') or []}
+        used_targets = {row.get('targetRef') for row in operations if row.get('targetRef')}
+        if target_ids != used_targets:
+            failures.append({'check':'Attack target usage closure','ttsCardId':card_id})
+        if title in branch_families and not any(row.get('operationType') == 'branch' for row in operations):
+            failures.append({'check':'Attack condition/otherwise branch preservation','ttsCardId':card_id})
+        condition_text = json.dumps(item.get('preconditions') or [],ensure_ascii=False)
+        if f'TTS-ATTACK-{card_id}-FACE' not in condition_text or (badge_types and not all(f'ATK-{card_id}-B{index:02d}' in condition_text for index in range(1,len(badge_types)+1))):
+            failures.append({'check':'Attack exact occurrence/applicability precondition','ttsCardId':card_id})
+        if any((row.get('transition') or {}).get('to') == 'tax.scaffold.zone.discard-pile' and 'Contamination' not in row.get('objectRef','') for row in operations):
+            failures.append({'check':'Attack generic draw/discard ownership','ttsCardId':card_id})
+        if item.get('partialResolution',{}).get('unit') != 'one exact source panel selected by one attacking-Intruder badge occurrence' or str(card_id) not in item.get('title',''):
+            failures.append({'check':'Attack occurrence title/partial-resolution lock','ttsCardId':card_id})
+    generic_attack = record_by_id.get('SEM-INT-004') or {}
+    generic_attack_dispatch = next((row.get('dispatchRuleIds') for row in generic_attack.get('operations') or [] if row.get('dispatchRuleIds')), None)
+    expected_attack_dispatch = [EXPECTED_ATTACK_OCCURRENCES[card_id][6] for card_id in sorted(EXPECTED_ATTACK_OCCURRENCES)]
+    generic_attack_discard = next((row for row in generic_attack.get('operations') or [] if row.get('operationType') == 'transition-zone'), {})
+    if generic_attack_dispatch != expected_attack_dispatch or (generic_attack_discard.get('transition') or {}).get('from') != 'sem.zone.card-in-resolution' or not generic_attack_discard.get('conditionRefs') or 'still in resolution' not in generic_attack_discard.get('objectRef',''):
+        failures.append({'check':'Generic Attack exact occurrence dispatch/conditional discard'})
+    miss = record_by_id.get('SEM-ATTACK-394912-001') or {}
+    miss_text = json.dumps(miss,ensure_ascii=False)
+    if miss.get('unresolvedQuestionRefs') != ['SEM-Q-024'] or not any(row.get('operationType') == 'transition-zone' and (row.get('transition') or {}).get('to') == 'tax.scaffold.zone.deck' for row in miss.get('operations') or []) or not any(row.get('operationType') == 'shuffle' and 'including this MISS card' in row.get('objectRef','') for row in miss.get('operations') or []) or 'FQ-P02-U11' not in miss_text:
+        failures.append({'check':'Attack MISS applicability/self-inclusive reshuffle boundary'})
+    contamination_gain = record_by_id.get('SEM-CONTAMINATION-GAIN-001') or {}
+    contamination_types = [row.get('operationType') for row in contamination_gain.get('operations') or []]
+    if contamination_types != ['draw-random','transition-zone'] or (contamination_gain.get('operations') or [{},{}])[1].get('transition') != {'from':'tax.scaffold.zone.deck','to':'tax.scaffold.zone.discard-pile','positionRef':'sem.position.deck-top'} or '27' not in json.dumps(contamination_gain):
+        failures.append({'check':'Attack reusable finite Contamination gain procedure'})
+    question_by_id = {row.get('questionId'):row for row in question_rows}
+    expected_attack_question_blocks = {
+        question_id:[EXPECTED_ATTACK_OCCURRENCES[card_id][6] for card_id in sorted(EXPECTED_ATTACK_OCCURRENCES) if question_id in EXPECTED_ATTACK_OCCURRENCES[card_id][14]]
+        for question_id in ('SEM-Q-020','SEM-Q-021','SEM-Q-022','SEM-Q-023','SEM-Q-024')
+    }
+    for question_id,blocks in expected_attack_question_blocks.items():
+        question = question_by_id.get(question_id) or {}
+        if question.get('defaultProhibited') is not True or question.get('blocksRuleIds') != blocks or len(question.get('alternatives') or []) != 3:
+            failures.append({'check':'Attack ambiguity no-default alternatives/linkage','questionId':question_id})
+    deadly = [record_by_id.get(f'SEM-ATTACK-{card_id}-001') or {} for card_id in (394906,394907,394908)]
+    infecting = record_by_id.get('SEM-ATTACK-394911-001') or {}
+    tails = [record_by_id.get(f'SEM-ATTACK-{card_id}-001') or {} for card_id in (394918,394919)]
+    fury = [record_by_id.get(f'SEM-ATTACK-{card_id}-001') or {} for card_id in (394909,394910)]
+    if not all('Adult or Drone' in json.dumps(row) and 'attacking type is Queen' in json.dumps(row) for row in deadly) or 'Adult or Queen in this exact scan occurrence' not in json.dumps(infecting) or not all('Adult or Queen in this exact scan occurrence' in json.dumps(row) and 'attacking type is Drone' in json.dumps(row) for row in tails) or not all('SEM-Q-020' in row.get('unresolvedQuestionRefs',[]) for row in fury):
+        failures.append({'check':'Attack exact variant applicability/branch preservation'})
+    attack_conflicts = {row.get('conflictId'):row for row in conflict_rows if row.get('conflictId') in {'SC-015','SC-016','SC-017','SC-018'}}
+    if set(attack_conflicts) != {'SC-015','SC-016','SC-017','SC-018'} or attack_conflicts.get('SC-018',{}).get('questionId') != 'SEM-Q-020' or any(attack_conflicts.get(conflict_id,{}).get('status') != 'resolved-by-authority' for conflict_id in ('SC-015','SC-016','SC-017')):
+        failures.append({'check':'Attack source-variant authority/conflict closure'})
+    actual_attack_lock_ids = set(EXPECTED_ATTACK_RECORD_DIGESTS) & set(record_by_id)
+    if actual_attack_lock_ids != set(EXPECTED_ATTACK_RECORD_DIGESTS):
+        failures.append({'check':'independently locked Attack semantic projection','missing':sorted(set(EXPECTED_ATTACK_RECORD_DIGESTS)-actual_attack_lock_ids)})
+    for rule_id,expected_digest in EXPECTED_ATTACK_RECORD_DIGESTS.items():
+        item = record_by_id.get(rule_id)
+        actual_digest = hashlib.sha256(json.dumps(item,sort_keys=True,ensure_ascii=False,separators=(',',':')).encode()).hexdigest() if item else None
+        if actual_digest != expected_digest:
+            failures.append({'check':'independently locked Attack semantic projection','ruleId':rule_id,'actual':actual_digest})
+    attack_system = next((row for row in coverage.get('systems') or [] if row.get('system') == 'Intruder Attack, base Attack cards, Secure entry, and Character Health'), {})
+    expected_attack_system_ids = ['SEM-INT-004','SEM-SECURE-ENTRY-001','SEM-INT-006','SEM-CONTAMINATION-GAIN-001',*[EXPECTED_ATTACK_OCCURRENCES[card_id][6] for card_id in sorted(EXPECTED_ATTACK_OCCURRENCES)]]
+    if attack_system.get('ruleIds') != expected_attack_system_ids or any(fragment in not_yet_text for fragment in ('Item/Attack','remaining Item/Attack','all Attack')):
+        failures.append({'check':'Attack coverage stale not-yet-covered claim'})
     semantic_relation_ids = set(ontology_review.get('deferredSemanticRelationIds') or [])
     if semantic_relation_ids != {'rel.phase-part-of-round','rel.round-has-phase','rel.precedes','rel.follows','rel.turn-occurs-in-phase','rel.phase-has-turn','rel.process-has-timing-window','rel.decision-owned-by','rel.owns-decision','rel.information-visible-to','rel.transition-from','rel.transition-to'}:
         failures.append({'check': 'semantic relation handoff'})
@@ -1419,11 +1716,31 @@ def validate(event_source_path: Path, exploration_source_path: Path, robot_sourc
         'robotIconOccurrences': sum(len(item.get('iconOccurrences') or []) for item in robot_rows),
         'robotRecords': len(actual_robot_rule_ids),
         'robotBacklogTuples': sum((backlog_rows_by_id.get('CARD:'+value['sha256'][:16]) or {}).get('pilotRuleIds') == [value['ruleId']] for value in EXPECTED_ROBOT_OCCURRENCES.values()),
+        'attackIdentities': len(attack_rows),
+        'attackScanOccurrences': len(attack_rows),
+        'attackGeneratedOccurrences': sum((item.get('sourceSelector') or {}).get('sourceRole') == 'generated-cell-face' for item in attack_rows),
+        'attackDirectOccurrences': sum((item.get('sourceSelector') or {}).get('sourceRole') == 'direct-face' for item in attack_rows),
+        'attackSharedBackOccurrences': int(bool(attack_sources.get('sharedBack'))),
+        'attackSourceSheets': int(bool(attack_sources.get('sourceSheet'))),
+        'attackSelectorGaps': attack_sources.get('counts',{}).get('excludedSelectorGaps'),
+        'attackLicensedVariants': len({(item.get('bgaOccurrence') or {}).get('key') for item in attack_rows}),
+        'attackLicensedFaceLinks': sum(bool(item.get('bgaOccurrence')) for item in attack_rows),
+        'attackOfficialFaceCounterparts': sum(row.get('kind') != 'shared-back' for row in official_counterparts),
+        'attackOfficialBackCounterparts': sum(row.get('kind') == 'shared-back' for row in official_counterparts),
+        'attackPhysicalPanels': sum(len(item.get('panels') or []) for item in attack_rows),
+        'attackOperativePanels': sum(sum(panel.get('operative') is True for panel in item.get('panels') or []) for item in attack_rows),
+        'attackPrintedSentences': sum(len(item.get('sentences') or []) for item in attack_rows),
+        'attackBadgeOccurrences': sum(len(item.get('applicabilityBadgeOccurrences') or []) for item in attack_rows),
+        'attackInlineIconOccurrences': sum(len(item.get('inlineIconOccurrences') or []) for item in attack_rows),
+        'attackFunctionalSymbolOccurrences': sum(len(item.get('applicabilityBadgeOccurrences') or []) + len(item.get('inlineIconOccurrences') or []) for item in attack_rows),
+        'attackSelectedNoMatches': sum(len((item.get('selectedEvidenceComparisons') or {}).get('unresolvedIconOccurrences') or []) for item in attack_rows),
+        'attackRecords': len(actual_attack_rule_ids),
+        'attackBacklogTuples': sum((backlog_rows_by_id.get('CARD:'+value[2][:16]) or {}).get('pilotRuleIds') == [value[6]] for value in EXPECTED_ATTACK_OCCURRENCES.values()),
     }
     if actual_counts != EXPECTED:
         failures.append({'check': 'hard-coded semantic pilot counts', 'expected': EXPECTED, 'actual': actual_counts})
     expected_pilot_counts = {key: actual_counts[key] for key in ('records','sourceBacked','withOpenQuestion','sourceVariants','sourceAssertions','conditions','operations','decisions','informationPolicies','costs','targets','openQuestionReferences','variantReferences')}
-    if pilots.get('counts') != expected_pilot_counts or sources_data.get('counts') != {'sources': 52} or review.get('counts') != {'questions':25,'officialClarificationPreferred':7,'sourceAmbiguitiesIntroducedByPilot':18,'resolved':0,'open':25} or coverage.get('counts') != {'systems':18,'pilotRecords':124,'fullBaseSemanticCoverageClaimed':False}:
+    if pilots.get('counts') != expected_pilot_counts or sources_data.get('counts') != {'sources': 75} or review.get('counts') != {'questions':30,'officialClarificationPreferred':7,'sourceAmbiguitiesIntroducedByPilot':23,'resolved':0,'open':30} or coverage.get('counts') != {'systems':18,'pilotRecords':145,'fullBaseSemanticCoverageClaimed':False}:
         failures.append({'check': 'declared semantic counts'})
     covered_rule_ids = [rule_id for system in coverage.get('systems') or [] for rule_id in system.get('ruleIds') or []]
     if set(covered_rule_ids) != set(record_ids) or len(covered_rule_ids) != len(set(covered_rule_ids)) or coverage.get('counts', {}).get('fullBaseSemanticCoverageClaimed') is not False:
@@ -1452,7 +1769,7 @@ def validate(event_source_path: Path, exploration_source_path: Path, robot_sourc
     if len(blocked_units) != 1 or not blocked_units[0].get('sourcePath','').endswith('missionTaskDeck-023.png') or 'exact-source-operative-span' not in blocked_units[0].get('blockers',[]):
         failures.append({'check': 'semantic backlog inherited source blocker'})
     expected_backlog_channels = {'card-reference-source-tuple':350,'interpreted-rule-record':54,'intruder-help-instruction':18,'objective-help-unit':45,'official-faq-unit':28,'room-help-entry':25,'rulebook-visual-obligation':80}
-    expected_backlog_status = {'pending':467,'pilot-covered':132,'source-blocked':1}
+    expected_backlog_status = {'pending':445,'pilot-covered':154,'source-blocked':1}
     if backlog.get('counts') != {'units':600,'byChannel':expected_backlog_channels,'byStatus':expected_backlog_status}:
         failures.append({'check': 'semantic backlog declared counts'})
 
@@ -1470,7 +1787,7 @@ def validate(event_source_path: Path, exploration_source_path: Path, robot_sourc
                     failures.append({'check': 'semantic backlog rebuild execution', 'seed': seed, 'locale':locale_name, 'stderr': backlog_run.stderr})
                     continue
                 hashes = {}
-                for name, tracked in [('event-source-index.json',event_source_path),('exploration-source-index.json',exploration_source_path),('robot-source-index.json',robot_source_path),('source-registry.json',source_path),('semantic-rule.schema.json',schema_path),('semantic-vocabulary.json',semantic_vocabulary_path),('room-icon-denotations.json',room_icon_path),('pilots.json',pilots_path),('review-gates.json',review_path),('contradictions.json',contradictions_path),('coverage.json',coverage_path),('backlog.json',backlog_path)]:
+                for name, tracked in [('event-source-index.json',event_source_path),('exploration-source-index.json',exploration_source_path),('robot-source-index.json',robot_source_path),('attack-source-index.json',attack_source_path),('source-registry.json',source_path),('semantic-rule.schema.json',schema_path),('semantic-vocabulary.json',semantic_vocabulary_path),('room-icon-denotations.json',room_icon_path),('pilots.json',pilots_path),('review-gates.json',review_path),('contradictions.json',contradictions_path),('coverage.json',coverage_path),('backlog.json',backlog_path)]:
                     rebuilt = Path(temp_dir) / name
                     hashes[name] = sha(rebuilt) if rebuilt.is_file() else None
                     if not rebuilt.is_file() or hashes[name] != sha(tracked):
@@ -1487,6 +1804,7 @@ def main() -> int:
     parser.add_argument('--event-source-index', type=Path, default=DIR/'event-source-index.json')
     parser.add_argument('--exploration-source-index', type=Path, default=DIR/'exploration-source-index.json')
     parser.add_argument('--robot-source-index', type=Path, default=DIR/'robot-source-index.json')
+    parser.add_argument('--attack-source-index', type=Path, default=DIR/'attack-source-index.json')
     parser.add_argument('--source-registry', type=Path, default=DIR/'source-registry.json')
     parser.add_argument('--schema', type=Path, default=DIR/'semantic-rule.schema.json')
     parser.add_argument('--semantic-vocabulary', type=Path, default=DIR/'semantic-vocabulary.json')
@@ -1500,7 +1818,7 @@ def main() -> int:
     parser.add_argument('--report', action='store_true')
     args = parser.parse_args()
     try:
-        report = validate(args.event_source_index,args.exploration_source_index,args.robot_source_index,args.source_registry,args.schema,args.semantic_vocabulary,args.room_icon_denotations,args.pilots,args.review_gates,args.contradictions,args.coverage,args.backlog,reproducibility=not args.skip_reproducibility)
+        report = validate(args.event_source_index,args.exploration_source_index,args.robot_source_index,args.attack_source_index,args.source_registry,args.schema,args.semantic_vocabulary,args.room_icon_denotations,args.pilots,args.review_gates,args.contradictions,args.coverage,args.backlog,reproducibility=not args.skip_reproducibility)
     except (DuplicateJsonKeyError,json.JSONDecodeError) as error:
         report = {'schemaVersion':1,'passed':False,'checks':{},'failureCount':1,'failures':[{'check':'strict JSON parsing','error':str(error)}]}
     if args.report and args.pilots.resolve() == (DIR/'pilots.json').resolve():

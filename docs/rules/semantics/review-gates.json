@@ -3,11 +3,11 @@
   "recordType": "semantic-review-gates",
   "status": "pilot built with deferred questions and explicit alternatives; no default answer adopted",
   "counts": {
-    "questions": 25,
+    "questions": 30,
     "officialClarificationPreferred": 7,
-    "sourceAmbiguitiesIntroducedByPilot": 18,
+    "sourceAmbiguitiesIntroducedByPilot": 23,
     "resolved": 0,
-    "open": 25
+    "open": 30
   },
   "questions": [
     {
@@ -769,6 +769,177 @@
           "alternativeId": "SEM-Q-019-C",
           "description": "Another target owner/scope applies because the activating Character may be remote.",
           "support": "general local effects anchor to a Character, but this face explicitly anchors to the Robot Room"
+        }
+      ]
+    },
+    {
+      "questionId": "SEM-Q-020",
+      "title": "Fury Character scope omitted by the TTS scan",
+      "decisionClass": "source-ambiguity-owner-decision-after-source-search",
+      "blocksRuleIds": [
+        "SEM-ATTACK-394909-001",
+        "SEM-ATTACK-394910-001"
+      ],
+      "plannedRuleIds": [],
+      "defaultProhibited": true,
+      "sourceEvidenceRefs": [
+        "docs/rules/semantics/attack-source-index.json",
+        "docs/rules/open-questions.md:SEM-Q-020"
+      ],
+      "alternatives": [
+        {
+          "alternativeId": "SEM-Q-020-A",
+          "description": "Apply both Fury cohorts to all Characters in the game, following the scan’s unqualified “All Characters.”",
+          "support": "literal source-bound TTS wording"
+        },
+        {
+          "alternativeId": "SEM-Q-020-B",
+          "description": "Apply both cohorts only in the attacking Intruder’s Room, following the licensed record.",
+          "support": "licensed INTRUDER_ATTACKS_DATA explicitly says “in your Room”; secondary only"
+        },
+        {
+          "alternativeId": "SEM-Q-020-C",
+          "description": "Apply another source-defined local-effect scope.",
+          "support": "the general local-effect rule is Character-actor framed and does not clearly name an Intruder Attack actor/context"
+        }
+      ]
+    },
+    {
+      "questionId": "SEM-Q-021",
+      "title": "Compound Attack effects after an intermediate Character death",
+      "decisionClass": "source-ambiguity-owner-decision-after-source-search",
+      "blocksRuleIds": [
+        "SEM-ATTACK-394900-001",
+        "SEM-ATTACK-394901-001",
+        "SEM-ATTACK-394902-001",
+        "SEM-ATTACK-394903-001",
+        "SEM-ATTACK-394904-001",
+        "SEM-ATTACK-394905-001",
+        "SEM-ATTACK-394906-001",
+        "SEM-ATTACK-394907-001",
+        "SEM-ATTACK-394908-001",
+        "SEM-ATTACK-394909-001",
+        "SEM-ATTACK-394910-001",
+        "SEM-ATTACK-394914-001",
+        "SEM-ATTACK-394918-001",
+        "SEM-ATTACK-394919-001"
+      ],
+      "plannedRuleIds": [],
+      "defaultProhibited": true,
+      "sourceEvidenceRefs": [
+        "docs/rules/semantics/attack-source-index.json",
+        "docs/rules/open-questions.md:SEM-Q-021"
+      ],
+      "alternatives": [
+        {
+          "alternativeId": "SEM-Q-021-A",
+          "description": "Stop later Character-bound operations in the selected panel when an earlier Health/Wound operation kills that Character.",
+          "support": "a dead Character no longer participates, but no Attack-card continuation sentence states this"
+        },
+        {
+          "alternativeId": "SEM-Q-021-B",
+          "description": "Complete every remaining printed operation in the selected panel even after death, including later Contamination/Wound instructions.",
+          "support": "standard Attacks say resolve the associated effect before discarding; no explicit stop-on-death rule"
+        },
+        {
+          "alternativeId": "SEM-Q-021-C",
+          "description": "Treat coordinated Wound/Contamination outcomes as simultaneous before applying death.",
+          "support": "some faces use “and,” but no simultaneous-resolution procedure is supplied"
+        }
+      ]
+    },
+    {
+      "questionId": "SEM-Q-022",
+      "title": "Blood Sense Movement check and relocation after death/interruption",
+      "decisionClass": "source-ambiguity-owner-decision-after-source-search",
+      "blocksRuleIds": [
+        "SEM-ATTACK-399100-001"
+      ],
+      "plannedRuleIds": [],
+      "defaultProhibited": true,
+      "sourceEvidenceRefs": [
+        "docs/rules/semantics/attack-source-index.json",
+        "docs/rules/open-questions.md:SEM-Q-022"
+      ],
+      "alternatives": [
+        {
+          "alternativeId": "SEM-Q-022-A",
+          "description": "Evaluate “If you are Moving” when Blood Sense is resolved and relocate the attacker to the already selected Movement destination even if the target dies before arriving.",
+          "support": "literal future destination wording; death consequence is not addressed"
+        },
+        {
+          "alternativeId": "SEM-Q-022-B",
+          "description": "Relocate only if the target remains alive and completes Movement to the selected destination.",
+          "support": "“where your Movement ends” may require an actually completed Movement"
+        },
+        {
+          "alternativeId": "SEM-Q-022-C",
+          "description": "Use another destination or cancellation rule when death/interruption ends Movement early.",
+          "support": "no checked source names one"
+        }
+      ]
+    },
+    {
+      "questionId": "SEM-Q-023",
+      "title": "Deadly Claws random Wound assignment and finite order",
+      "decisionClass": "source-ambiguity-owner-decision-after-source-search",
+      "blocksRuleIds": [
+        "SEM-ATTACK-394906-001",
+        "SEM-ATTACK-394907-001",
+        "SEM-ATTACK-394908-001"
+      ],
+      "plannedRuleIds": [],
+      "defaultProhibited": true,
+      "sourceEvidenceRefs": [
+        "docs/rules/semantics/attack-source-index.json",
+        "docs/rules/open-questions.md:SEM-Q-023"
+      ],
+      "alternatives": [
+        {
+          "alternativeId": "SEM-Q-023-A",
+          "description": "Fill eligible slots from left to right with sequential random Wound draws, then resolve the final additional Wound.",
+          "support": "physical track order is visually available, but the card does not state an assignment direction"
+        },
+        {
+          "alternativeId": "SEM-Q-023-B",
+          "description": "Randomly assign drawn Wounds among the eligible slots before the final additional Wound.",
+          "support": "Wound identities are random, but slot assignment randomization is not stated"
+        },
+        {
+          "alternativeId": "SEM-Q-023-C",
+          "description": "Apply another source-defined simultaneous/physical assignment, including finite-deck exhaustion handling.",
+          "support": "no owner, tie-break, or shortage order is printed"
+        }
+      ]
+    },
+    {
+      "questionId": "SEM-Q-024",
+      "title": "MISS applicability with no printed Intruder-type badges",
+      "decisionClass": "source-ambiguity-owner-decision-after-source-search",
+      "blocksRuleIds": [
+        "SEM-ATTACK-394912-001"
+      ],
+      "plannedRuleIds": [],
+      "defaultProhibited": true,
+      "sourceEvidenceRefs": [
+        "docs/rules/semantics/attack-source-index.json",
+        "docs/rules/open-questions.md:SEM-Q-024"
+      ],
+      "alternatives": [
+        {
+          "alternativeId": "SEM-Q-024-A",
+          "description": "A no-badge MISS panel applies universally to Adult, Drone, and Queen Attacks.",
+          "support": "licensed record explicitly lists all three types; scan layout likely uses omission as universal, but no checked official convention says so"
+        },
+        {
+          "alternativeId": "SEM-Q-024-B",
+          "description": "No matching badge means no associated effect; the scan card is discarded without reshuffling.",
+          "support": "official Standard Attacks instruct finding a matching type icon"
+        },
+        {
+          "alternativeId": "SEM-Q-024-C",
+          "description": "Another source-local universal-applicability convention applies.",
+          "support": "the face visibly has text but no printed badge or explanatory marker"
         }
       ]
     }

@@ -201,3 +201,53 @@ Use this ledger for ambiguities that the official rulebook and FAQ do not settle
 - **Question:** Does “Discard a Malfunction ... from the Room with the Robot” mean only a marker on the Room component, or may it include a marker on an Item or the Robot in that Room under the general discard-Malfunction rule?
 - **Sources checked:** Exact Technical Robot face, official page-3 visible occurrence, and rulebook pp. 17 and 22 local/discard-Malfunction passages.
 - **Status:** Open. Fire remains a Room marker; no automatic self-repair or broader Malfunction target is adopted.
+
+### SEM-Q-020 — Fury affected-Character scope
+
+- **Question:** Do the Fury clauses “All Heavily Injured Characters die” and “All Characters who survived” affect every Character in the game or only Characters in the attacking Intruder’s Room?
+- **Sources checked:** Exact TTS Fury occurrences `394909` and `394910`; rulebook pp. 14, 17, and 32; FAQ v1.2; licensed `INTRUDER_ATTACKS_DATA.IntruderAttack_Fury1/2`.
+- **Candidate readings:**
+  - (a) Global: apply the scan’s unqualified “All Characters” literally.
+  - (b) Attacking Room: follow the licensed wording “in your Room” / “Each other Character in the Room.”
+  - (c) Another source-defined local-effect scope applies.
+- **Status:** Open. The licensed local scope is a secondary lead, not an override. No scope default is adopted.
+
+### SEM-Q-021 — Compound Attack effects after intermediate death
+
+- **Question:** If Health loss or a Serious Wound kills the attacked Character before a later operation in the same selected Attack panel, does that later operation still resolve?
+- **Sources checked:** Exact Bite, Deadly Claws, Fury, Scratch, and Tail Attack occurrences; rulebook pp. 18 and 32; FAQ v1.2.
+- **Candidate readings:**
+  - (a) Stop later Character-bound operations when the Character dies and no longer participates.
+  - (b) Complete the entire associated printed panel before discarding the Attack card.
+  - (c) Treat coordinated Wound/Contamination outcomes as simultaneous before applying death.
+- **Status:** Open. Printed order is retained, but continuation after death is default-prohibited.
+
+### SEM-Q-022 — Blood Sense Movement condition and relocation
+
+- **Question:** When Blood Sense resolves during Movement, when is “If you are Moving” checked, and is the attacking Intruder still placed in the selected destination if Health loss kills the Character or otherwise interrupts Movement first?
+- **Sources checked:** Exact direct face `399100`; rulebook Movement, opportunity-Attack, death, and standard-Attack passages; FAQ v1.2; licensed `IntruderAttack_BloodSense`.
+- **Candidate readings:**
+  - (a) Check during card resolution and use the already selected Movement destination even if the Character dies before arrival.
+  - (b) Relocate only if the Character remains alive and completes Movement.
+  - (c) Apply another source-defined cancellation or destination rule.
+- **Status:** Open. No death/interruption destination is invented; the printed one-relocation no-repeat-Attack clause remains explicit.
+
+### SEM-Q-023 — Deadly Claws Wound-to-slot assignment order
+
+- **Question:** When Deadly Claws places random Serious Wounds on multiple empty slots to the right of the Health marker, what order assigns random draws to those slots and spends the finite Wound deck before the final additional Wound?
+- **Sources checked:** Exact TTS Deadly Claws occurrences `394906`–`394908`; rulebook pp. 17, 18, and 32; FAQ v1.2; official-visible and licensed current variants.
+- **Candidate readings:**
+  - (a) Fill eligible slots left to right, then resolve the final additional Wound.
+  - (b) Randomly assign the random Wound draws among eligible slots.
+  - (c) Apply another physical/simultaneous assignment and shortage procedure.
+- **Status:** Open. No owner, direction, tie-break, or coordinated finite-deck order is adopted.
+
+### SEM-Q-024 — MISS applicability without type badges
+
+- **Question:** Does the MISS face apply to every Adult, Drone, and Queen Attack even though the exact scan prints no Intruder-type applicability badges?
+- **Sources checked:** Exact TTS occurrence `394912`; rulebook p. 32 type-icon lookup and reshuffle rule; FAQ v1.2 self-inclusive reshuffle ruling; licensed `IntruderAttack_Miss`.
+- **Candidate readings:**
+  - (a) No badges is a universal-panel convention; the licensed record’s three-type list is a secondary lead.
+  - (b) No matching badge means no associated effect, so the card is discarded without applying its text.
+  - (c) Another source-local universal marker/convention applies.
+- **Status:** Open. Universal applicability is not inferred from absence alone; reshuffling is encoded only behind this no-default gate.

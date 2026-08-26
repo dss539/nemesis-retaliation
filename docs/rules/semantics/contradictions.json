@@ -3,9 +3,9 @@
   "recordType": "semantic-conflict-register",
   "policy": "Readable source differences remain separate. Authority may resolve a general rule without rewriting lower-authority component wording; unresolved conflicts never receive a default.",
   "counts": {
-    "conflicts": 14,
-    "resolvedByAuthority": 5,
-    "unresolved": 7,
+    "conflicts": 18,
+    "resolvedByAuthority": 8,
+    "unresolved": 8,
     "preservedBoundary": 2
   },
   "conflicts": [
@@ -235,6 +235,77 @@
       ],
       "difference": "The exact TTS component scan ends the additional-effect instruction with a period after the Robot glyph; the licensed ROBOT_CARDS_DATA occurrence omits that final period.",
       "resolution": "The source-bound component scan controls over the licensed-digital secondary occurrence; preserve both verbatim without normalizing the BGA record."
+    },
+    {
+      "conflictId": "SC-015",
+      "title": "Deadly Claws badge applicability and branch bodies differ by source version",
+      "status": "resolved-by-authority",
+      "questionId": null,
+      "affectedRuleIds": [
+        "SEM-ATTACK-394906-001",
+        "SEM-ATTACK-394907-001",
+        "SEM-ATTACK-394908-001"
+      ],
+      "evidenceRefs": [
+        "SRC-RULEBOOK",
+        "SRC-ATTACK-394906",
+        "SRC-ATTACK-394907",
+        "SRC-ATTACK-394908",
+        "SRC-BGA-INTRUDER-ATTACKS"
+      ],
+      "difference": "TTS scans assign Adult+Drone to the Health panels and Queen to a multi-Wound branch; current official-visible/licensed variants assign Adult+Queen to Health and Drone to a different injured-state branch.",
+      "resolution": "The official-visible current Lose-2 occurrence controls its matched counterpart; otherwise exact TTS and licensed variants remain occurrence-scoped under the authority order and are never flattened by title."
+    },
+    {
+      "conflictId": "SC-016",
+      "title": "Infecting Adult/Drone/Queen applicability differs between official and TTS",
+      "status": "resolved-by-authority",
+      "questionId": null,
+      "affectedRuleIds": [
+        "SEM-ATTACK-394911-001"
+      ],
+      "evidenceRefs": [
+        "SRC-RULEBOOK",
+        "SRC-ATTACK-394911",
+        "SRC-BGA-INTRUDER-ATTACKS"
+      ],
+      "difference": "The TTS scan assigns Adult+Queen to Lose 2 and Drone to Contamination/Larva placement; official page 32 and BGA assign Adult+Drone and Queen respectively.",
+      "resolution": "Official page-32 row alignment controls the current visible counterpart. Preserve the exact TTS badge projection and licensed record as separate variants."
+    },
+    {
+      "conflictId": "SC-017",
+      "title": "Tail Attack Queen/Drone applicability differs between scan and licensed data",
+      "status": "resolved-by-authority",
+      "questionId": null,
+      "affectedRuleIds": [
+        "SEM-ATTACK-394918-001",
+        "SEM-ATTACK-394919-001"
+      ],
+      "evidenceRefs": [
+        "SRC-ATTACK-394918",
+        "SRC-ATTACK-394919",
+        "SRC-BGA-INTRUDER-ATTACKS"
+      ],
+      "difference": "The TTS scans assign Adult+Queen to the first panel and Drone to the lethal branch; BGA assigns Adult+Drone to the first panel and Queen to the lethal branch.",
+      "resolution": "The exact source-bound scan controls over licensed-digital secondary data for these occurrences; both variants remain verbatim and source scoped."
+    },
+    {
+      "conflictId": "SC-018",
+      "title": "Fury scan omits the licensed attacking-Room scope",
+      "status": "unresolved",
+      "questionId": "SEM-Q-020",
+      "affectedRuleIds": [
+        "SEM-ATTACK-394909-001",
+        "SEM-ATTACK-394910-001"
+      ],
+      "evidenceRefs": [
+        "SRC-ATTACK-394909",
+        "SRC-ATTACK-394910",
+        "SRC-BGA-INTRUDER-ATTACKS",
+        "docs/rules/open-questions.md:SEM-Q-020"
+      ],
+      "difference": "The scans say all Heavily Injured Characters die and all survivors gain cards with no Room qualifier; BGA says those Characters are in your Room and then affects each other Character there.",
+      "resolution": "No default; preserve literal scan scope, the licensed local-scope lead, and all alternatives in review-gates.json."
     }
   ]
 }
