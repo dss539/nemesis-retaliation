@@ -15,8 +15,8 @@ The current implementation remains frozen. Semantic records remain independent o
 
 Encode the **highest-value source-clear semantic backlog** without touching blocked decisions:
 
-- remaining setup, map, combat, Queen, Lander, procedure, Item, and component lifecycle rules not yet represented by the 99-record corpus;
-- remaining source-clear card/component families outside the closed 20-card base Event family, with explicit variants;
+- remaining setup, map, combat, Queen, Lander, procedure, Item, and component lifecycle rules not yet represented by the 111-record corpus;
+- remaining source-clear card/component families outside the closed 20-card base Event and 12-card base Exploration families, beginning with a bounded Robot-card family, with explicit variants;
 - Objective Help and Mission Task semantics after source-visible/occluded boundaries are preserved;
 - exact FAQ overrides and per-sentence partial-resolution scope;
 - source-obligation links and contradiction coverage after every batch;
@@ -26,11 +26,11 @@ Prioritize reusable procedures and cross-cutting rules before hundreds of indivi
 
 ## Resume Checkpoint
 
-- Verified semantic data checkpoint: `5f44549b577c0b850e5dffa41c1f2689642dbd2d` (`Expand semantic coverage across base Events`).
-- Branch `work/card-corpus-extraction` is three local commits ahead of `origin/work/card-corpus-extraction` including this progress checkpoint; nothing has been pushed. No PR or deployment exists.
-- The only remaining dirty path after this progress checkpoint is `AGENTS.md`. Its protected phase update predates the checkpoint and says ten open questions instead of the verified sixteen. Preserve it byte-for-byte for explicit review rather than discarding or staging it implicitly.
-- Full verification passed: semantic validator with two-seed rebuilds and 10 tests; ontology validator and 4 tests; vocabulary validator; card-corpus validator; Room Help source-fidelity validator and 3 tests; FAQ/source-extraction and 9/9 closure validators; project-status validator; `git diff --check`.
-- Resume with `semantic-components`: expand remaining cards, Objectives/Mission Tasks, and component lifecycles while preserving variants and authority conflicts. Current source-obligation boundary is 102 covered / 497 pending / 1 source-blocked; 16 semantic questions remain no-default.
+- Verified semantic data checkpoint: `4752aaf5699806bb548ca7fb72144127616616c6` (`Add base Exploration card semantics`).
+- Branch `work/card-corpus-extraction` is six local commits ahead of `origin/work/card-corpus-extraction` including this progress checkpoint; nothing has been pushed. No PR or deployment exists.
+- The only remaining dirty path after this progress checkpoint is `AGENTS.md`. Its protected phase update predates the checkpoint and says ten open questions instead of the verified seventeen. Preserve it byte-for-byte for explicit review rather than discarding or staging it implicitly.
+- Full verification passed: semantic validator with cross-seed/cross-locale rebuilds and 12 tests; ontology validator and 4 tests; vocabulary validator; global card-corpus/vision/reproducibility validators and 24 tests; Room Help source-fidelity validator and 3 tests; FAQ/source-extraction and 9/9 closure validators; project-status validator; `git diff --check`.
+- Resume with `semantic-components`: expand remaining cards, Objectives/Mission Tasks, and component lifecycles while preserving variants and authority conflicts. Current source-obligation boundary is 119 covered / 480 pending / 1 source-blocked; 17 semantic questions remain no-default.
 
 ## Verified Checkpoint
 
@@ -116,33 +116,40 @@ Machine-readable evidence: `docs/rules/source-extraction/validation.json`.
 
 ### Semantic schema and expanding corpus — independently reviewed and passed
 
-- 30 exact source registry tuples
+- 44 exact source registry tuples
 - 22 semantic-only state/zone/position/visibility nodes
-- 99 pilot records across 18 systems
+- 111 pilot records across 18 systems
 - 74 source-backed
-- 25 source-backed with open questions
-- 252 source assertions / 248 structured conditions and guards
-- 397 ordered operations
-- 49 actor-owned decisions / 111 information policies
-- 3 explicit costs / 98 target specifications
-- 22 preserved source-variant references
-- 16 open semantic questions with explicit alternatives and defaults prohibited
-- 11 registered conflicts: 3 authority-resolved, 6 unresolved, 2 preserved boundaries
+- 37 source-backed with open questions
+- 308 source assertions / 391 structured conditions and guards
+- 500 ordered operations
+- 49 actor-owned decisions / 123 information policies
+- 3 explicit costs / 142 target specifications
+- 37 preserved source-variant references
+- 17 open semantic questions with explicit alternatives and defaults prohibited
+- 13 registered conflicts: 4 authority-resolved, 7 unresolved, 2 preserved boundaries
 - base Event family: **20/20 identities represented**
   - 20 exact Event scan occurrences
   - 20 licensed-digital Event occurrences retained as variants
   - 4 official visible component occurrences
   - 20 Event semantic records / 20 exact Event backlog tuples
+- base Exploration family: **12/12 untitled identities represented**
+  - 12 exact TTS CardID/GUID/FaceURL scan occurrences and 1 shared BackURL occurrence
+  - 12 licensed-digital Exploration occurrences retained as variants
+  - 3 official visible occurrences across 2 component identities
+  - 46 exact printed sentences / 12 source-local diagrams / 60 functional icon occurrences
+  - 12 Exploration semantic records / 12 exact Exploration backlog tuples
+  - 0 generated sprite-sheet cells and 0 selector gaps in the mechanically derived base family
 - all 18 Intruder Help instructions represented and row-locked
 - all 25 Room Help entries represented, plus generic Use Room and cross-cutting Room constraints
 - all 112 source-local Room Help functional-icon occurrences mapped source-scoped without changing extraction records
 - 600 source-obligation backlog units
-  - 102 pilot-covered
-  - 497 pending
+  - 119 pilot-covered
+  - 480 pending
   - 1 inherited exact-source blocker
 - full base-game semantic coverage explicitly not claimed
 - four-workstream independent review incorporated
-- two-seed byte-identical rebuilds and expanded adversarial corruption tests pass
+- cross-seed/cross-locale byte-identical rebuilds and expanded adversarial corruption tests pass
 - `scripts/validate_semantic_pilots.py`: **passed with 0 failures**
 
 ### Taxonomy/ontology — independently reviewed and passed
@@ -197,6 +204,7 @@ Machine-readable evidence: `docs/rules/source-extraction/validation.json`.
 - Expanded the corpus to 24 records / 16 systems with Objective choice, Intruder/Event/Cleanup phases, generic Event resolution, Bag Development, Doors, Noise, Intruder Attacks, Health/Wounds, and Tactical Gear; covered source obligations rose from 17 to 25.
 - Expanded and independently audited the corpus to 73 records / 18 systems: all 18 Intruder Help instructions, all 25 Room effects, generic Use Room, all 112 Room icon denotations, Robot/Data/Autodestruction/Nest constraints, exact FAQ overrides, and corrected per-Corridor Noise/Attack ordering; covered source obligations rose to 71 while eleven questions remain no-default.
 - Closed the 20-card base Event family mechanically by TTS card ID/source tuple rather than title, retained 20 licensed variants and four official visible occurrences, encoded 88 exact printed sentences plus reusable Event procedures, and advanced source-obligation coverage to 102 while sixteen scoped questions remain no-default.
+- Closed the entire 12-card base Exploration family mechanically from the root TTS deck and exact CardID/GUID/FaceURL tuples, retained the shared back, 12 licensed variants and three official visual occurrences, encoded 46 printed sentences plus 12 diagrams/60 icon occurrences without inventing titles, and advanced source-obligation coverage to 119 while seventeen questions remain no-default.
 - Created the closed source inventory, card-gap inventory, secondary-source inventory, Room layout inventory, roadmap, and deterministic validator.
 
 ## Remaining Work — Ordered
@@ -252,7 +260,8 @@ All of the following are true:
 
 - One prototype `FACILITY RESTART` face visibly ends a condition at “Systems must be”; no following mark is recoverable from the exact pixels, and materially different same-title/current-official variants cannot be substituted.
 - Vocabulary gates `VG-001` and `VG-002` are resolved; `PERSONAL OBJECTIVE` remains source-scoped and `Drilling Room` aliases `DRILLING STATION` with both official labels preserved.
-- Sixteen semantic/source questions remain explicit: OQ-001, OQ-002, OQ-003, OQ-004, OQ-007, OQ-009, and SEM-Q-001 through SEM-Q-010. They block only affected clauses/records, not unrelated coverage work.
+- Seventeen semantic/source questions remain explicit: OQ-001, OQ-002, OQ-003, OQ-004, OQ-007, OQ-009, and SEM-Q-001 through SEM-Q-011. They block only affected clauses/records, not unrelated coverage work.
+- SEM-Q-011 retains the source-unspecified assignment of random Corridor draws and scarce finite components across multiple Exploration diagram slots; no player owner, spatial order, or additional randomization is adopted.
 - The 25 Room Help entries versus 23 Room tiles relationship is unresolved.
 - Source/version conflicts remain in several card families and must not be flattened.
 - Genuine rules ambiguities remain in `docs/rules/open-questions.md`; some stale extraction blockers there must later be re-audited against newly collected evidence.
