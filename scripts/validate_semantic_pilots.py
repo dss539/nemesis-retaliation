@@ -10,19 +10,21 @@ import subprocess
 import tempfile
 from pathlib import Path
 
+from semantic_green_item_validation import validate_green_item_family
+
 REPO = Path(__file__).resolve().parents[1]
 DIR = REPO / 'docs/rules/semantics'
 VOCAB = REPO / 'docs/rules/vocabulary'
 ONTOLOGY = REPO / 'docs/rules/ontology'
 EXPECTED = {
-    'sources': 122, 'semanticNodes': 26, 'records': 199, 'sourceBacked': 91, 'withOpenQuestion': 107,
-    'sourceVariants': 1, 'sourceAssertions': 610, 'conditions': 748,
-    'operations': 858, 'decisions': 83, 'informationPolicies': 214,
-    'costs': 9, 'targets': 265, 'openQuestionReferences': 163,
-    'variantReferences': 109, 'questions': 43, 'openQuestions': 43, 'systems': 20,
-    'conflicts': 28, 'unresolvedConflicts': 11,
+    'sources': 160, 'semanticNodes': 26, 'records': 232, 'sourceBacked': 99, 'withOpenQuestion': 131,
+    'sourceVariants': 2, 'sourceAssertions': 732, 'conditions': 855,
+    'operations': 995, 'decisions': 113, 'informationPolicies': 247,
+    'costs': 11, 'targets': 328, 'openQuestionReferences': 198,
+    'variantReferences': 130, 'questions': 50, 'openQuestions': 50, 'systems': 21,
+    'conflicts': 33, 'unresolvedConflicts': 12,
     'roomIconDenotations': 112,
-    'backlogUnits': 600, 'backlogPilotCovered': 189, 'backlogSourceBlocked': 1,
+    'backlogUnits': 600, 'backlogPilotCovered': 215, 'backlogSourceBlocked': 1,
     'eventIdentities': 20, 'eventScanOccurrences': 20, 'eventLicensedOccurrences': 20,
     'eventOfficialOccurrences': 4, 'eventRecords': 20, 'eventBacklogTuples': 20,
     'explorationIdentities': 12, 'explorationScanOccurrences': 12,
@@ -62,6 +64,21 @@ EXPECTED = {
     'seriousWoundLicensedOccurrences': 9, 'seriousWoundOfficialFaceOccurrences': 3,
     'seriousWoundOfficialBackOccurrences': 2, 'seriousWoundRecords': 27,
     'seriousWoundBacklogTuples': 11,
+    'greenItemRootOccurrences': 30, 'greenItemPhysicalOccurrences': 23,
+    'greenItemExcludedHeavyOccurrences': 7, 'greenItemUniqueTitles': 8,
+    'greenItemSelectedFaceAssets': 8, 'greenItemSourceFaceAssets': 14,
+    'greenItemGeneratedOccurrences': 15, 'greenItemDirectOccurrences': 8,
+    'greenItemSharedBackOccurrences': 1, 'greenItemSourceSheets': 1,
+    'greenItemSelectorGaps': 4, 'greenItemPhysicalRegions': 69,
+    'greenItemOperativeRegions': 46, 'greenItemPhysicalPanels': 85,
+    'greenItemOperativePanels': 62, 'greenItemPrintedSentences': 46,
+    'greenItemFunctionalIconOccurrences': 46, 'greenItemMatchedIconOccurrences': 37,
+    'greenItemUnresolvedLocalGlyphOccurrences': 9,
+    'greenItemLicensedOccurrences': 10, 'greenItemLicensedCopies': 30,
+    'greenItemLicensedRegularCopies': 23, 'greenItemLicensedHeavyCopies': 7,
+    'greenItemOfficialFaceOccurrences': 0, 'greenItemOfficialBackOccurrences': 0,
+    'greenItemOfficialFamilyOccurrences': 7, 'greenItemRecords': 23,
+    'greenItemBacklogTuples': 12,
 }
 PINNED_HELP_SOURCE_HASHES = {
     'docs/rules/source-extraction/intruder-help-sheet.json': 'e07f2703a6ad1b49c06389f79d3b1ffd6f5fd1d98604bf14b405fee49d9679e6',
@@ -408,9 +425,10 @@ ALLOWED_OPERATIONS = {
     'place-component','play-card','remove-component','replace-target','resolve-attacks',
     'reveal','select-target','set-state','transition-zone','shuffle','resolve-open-alternative',
 }
-ALLOWED_TIMING = {'before-attack-resolution','during','during-event-card-resolution','when-action-card-played','when-triggered'}
-ALLOWED_PARTIAL = {'all-or-nothing-selection','if-not-possible-fallback','ordered-complete','per-sentence-continue','replacement-effect','source-conditional-steps','per-effect-check','source-limited-components'}
-ALLOWED_TARGET_SELECTION = {'player-choice','random','deterministic-turn-order','unresolved-when-multiple','deterministic-state-filter','unresolved-order'}
+ALLOWED_TIMING = {'before-attack-resolution','during','during-event-card-resolution','when-action-card-played','when-triggered','immediately-after-gain'}
+ALLOWED_PARTIAL = {'all-or-nothing-selection','if-not-possible-fallback','ordered-complete','per-sentence-continue','replacement-effect','source-conditional-steps','per-effect-check','source-limited-components','per-selected-component','mutual-consent-per-transfer','consent-and-effect-class-gated','up-to-source-maximum','one-optional-window-per-exact-gain','per-proposed-source-merge'}
+ALLOWED_TARGET_SELECTION = {'player-choice','random','deterministic-turn-order','unresolved-when-multiple','deterministic-state-filter','unresolved-order','player-choice-with-consent','player-choice-without-scan','mutual-consent','deterministic-exact-face-filter'}
+ALLOWED_DECISION_SELECTION = {'player-choice','random','deterministic','unresolved','player-choice-sequential','mutual-consent','consent'}
 FORBIDDEN_IMPLEMENTATION_TEXT = re.compile(r'\b(?:engine\.js|data\.js|network\.js|PeerJS|DOM|WebRTC|serialization|database schema|UI widget)\b', re.IGNORECASE)
 
 
@@ -455,7 +473,7 @@ def cardinality_valid(value: dict) -> bool:
     return isinstance(maximum, int) and not isinstance(maximum, bool) and maximum >= minimum
 
 
-def validate(event_source_path: Path, exploration_source_path: Path, robot_source_path: Path, attack_source_path: Path, queen_health_source_path: Path, serious_wound_source_path: Path, source_path: Path, schema_path: Path, semantic_vocabulary_path: Path, room_icon_path: Path, pilots_path: Path, review_path: Path, contradictions_path: Path, coverage_path: Path, backlog_path: Path, *, reproducibility: bool) -> dict:  # pyright: ignore[reportGeneralTypeIssues]
+def validate(event_source_path: Path, exploration_source_path: Path, robot_source_path: Path, attack_source_path: Path, queen_health_source_path: Path, serious_wound_source_path: Path, green_item_source_path: Path, source_path: Path, schema_path: Path, semantic_vocabulary_path: Path, room_icon_path: Path, pilots_path: Path, review_path: Path, contradictions_path: Path, coverage_path: Path, backlog_path: Path, *, reproducibility: bool) -> dict:  # pyright: ignore[reportGeneralTypeIssues]
     failures: list[dict] = []
     event_sources = load(event_source_path)
     exploration_sources = load(exploration_source_path)
@@ -463,6 +481,7 @@ def validate(event_source_path: Path, exploration_source_path: Path, robot_sourc
     attack_sources = load(attack_source_path)
     queen_health_sources = load(queen_health_source_path)
     serious_wound_sources = load(serious_wound_source_path)
+    green_item_sources = load(green_item_source_path)
     sources_data = load(source_path)
     schema = load(schema_path)
     semantic_vocabulary = load(semantic_vocabulary_path)
@@ -1419,8 +1438,15 @@ def validate(event_source_path: Path, exploration_source_path: Path, robot_sourc
             path = evidence_path(reference)
             if path is None or not path.exists():
                 failures.append({'check': 'semantic conflict evidence', 'conflictId': conflict.get('conflictId'), 'reference': reference})
-    if contradictions.get('counts') != {'conflicts':28,'resolvedByAuthority':13,'unresolved':11,'preservedBoundary':4}:
+    if contradictions.get('counts') != {'conflicts':33,'resolvedByAuthority':14,'unresolved':12,'preservedBoundary':7}:
         failures.append({'check': 'semantic conflict declared counts'})
+
+    question_by_id = {row.get('questionId'): row for row in question_rows}
+    green_validation = validate_green_item_family(
+        REPO, green_item_source_path, green_item_sources, source_by_id, backlog_rows_by_id,
+        roles, load(REPO/'assets/tts-mod/extract/v2/objects.json'), secondary, bga_text,
+        record_by_id, question_by_id, conflict_rows, coverage, failures,
+    )
 
     for record in records:
         rule_id = record['ruleId']
@@ -1428,7 +1454,7 @@ def validate(event_source_path: Path, exploration_source_path: Path, robot_sourc
             failures.append({'check': 'record schema fields', 'ruleId': rule_id, 'missing': sorted(schema_fields - set(record)), 'extra': sorted(set(record) - schema_fields)})
         if record.get('schemaVersion') != 1 or record.get('recordType') != 'semantic-rule' or not isinstance(record.get('recordRevision'), int) or isinstance(record.get('recordRevision'), bool) or record.get('recordRevision', 0) < 1:
             failures.append({'check': 'record schema/version', 'ruleId': rule_id})
-        if record.get('status') not in schema['properties']['status']['enum'] or record.get('ruleKind') not in schema['properties']['ruleKind']['enum'] or record.get('modality') not in {'must','may','cannot'}:
+        if record.get('status') not in schema['properties']['status']['enum'] or record.get('ruleKind') not in schema['properties']['ruleKind']['enum'] or record.get('modality') not in schema['properties']['modality']['enum']:
             failures.append({'check': 'record controlled facets', 'ruleId': rule_id})
         if record.get('implementationBoundary') != 'implementation-neutral; no engine, UI, network, storage, or serialization mapping':
             failures.append({'check': 'implementation boundary', 'ruleId': rule_id})
@@ -1500,7 +1526,7 @@ def validate(event_source_path: Path, exploration_source_path: Path, robot_sourc
         if len(decision_ids) != len(decision_set):
             failures.append({'check': 'decision IDs', 'ruleId': rule_id})
         for item in decisions:
-            if item.get('ownerRef') not in participant_set or item.get('selectionMode') not in {'player-choice','random','deterministic','unresolved'} or not cardinality_valid(item.get('cardinality')) or not isinstance(item.get('declineAllowed'), bool) or not item.get('visibility') or not item.get('options'):
+            if item.get('ownerRef') not in participant_set or item.get('selectionMode') not in ALLOWED_DECISION_SELECTION or not cardinality_valid(item.get('cardinality')) or not isinstance(item.get('declineAllowed'), bool) or not item.get('visibility') or not item.get('options'):
                 failures.append({'check': 'decision completeness', 'ruleId': rule_id, 'decisionId': item.get('decisionId')})
 
         information = record.get('informationPolicy') or []
@@ -1593,9 +1619,10 @@ def validate(event_source_path: Path, exploration_source_path: Path, robot_sourc
 
     # High-risk pilot fidelity invariants.
     search = record_by_id.get('SEM-ACT-SEARCH-001') or {}
-    search_operations = {item.get('stepId'): item for item in search.get('operations') or []}
+    search_operations = search.get('operations') or []
     search_information = search.get('informationPolicy') or []
-    if (search_operations.get('S04', {}).get('transition') or {}).get('to') != 'tax.scaffold.zone.deck' or (search_operations.get('S04', {}).get('transition') or {}).get('positionRef') != 'sem.position.deck-bottom' or not any('unchosen Items must not be revealed' in item.get('secrecy','') for item in search_information):
+    search_bottom = next((item for item in search_operations if (item.get('transition') or {}).get('positionRef') == 'sem.position.deck-bottom'), {})
+    if (search_bottom.get('transition') or {}).get('to') != 'tax.scaffold.zone.deck' or not any('unchosen Items must not be revealed' in item.get('secrecy','') for item in search_information) or 'SEM-Q-040' not in search.get('unresolvedQuestionRefs',[]) or not any(item.get('operationType') == 'resolve-open-alternative' and 'SEM-Q-040' in item.get('objectRef','') for item in search_operations):
         failures.append({'check': 'Search bottom/private fidelity'})
     duck = record_by_id.get('SEM-REACTION-DUCK-001') or {}
     if duck.get('ruleKind') != 'reaction' or 'SEM-Q-001' not in duck.get('unresolvedQuestionRefs', []):
@@ -2508,11 +2535,39 @@ def validate(event_source_path: Path, exploration_source_path: Path, robot_sourc
         'seriousWoundOfficialBackOccurrences': sum(row.get('kind') == 'shared-back' for row in official_wounds),
         'seriousWoundRecords': len(actual_serious_wound_rule_ids),
         'seriousWoundBacklogTuples': sum((backlog_rows_by_id.get(backlog_id) or {}).get('pilotRuleIds') == rule_ids for backlog_id,rule_ids in expected_wound_backlog_rules.items()),
+        'greenItemRootOccurrences': len((green_item_sources.get('rootDeckEvidence') or {}).get('fullContainedSelectors') or []),
+        'greenItemPhysicalOccurrences': len(green_validation['rows']),
+        'greenItemExcludedHeavyOccurrences': len(green_validation['excluded']),
+        'greenItemUniqueTitles': len({item.get('printedTitle') for item in green_validation['rows']}),
+        'greenItemSelectedFaceAssets': len({item.get('sourceSha256') for item in green_validation['rows']}),
+        'greenItemSourceFaceAssets': len(green_validation['assets']),
+        'greenItemGeneratedOccurrences': sum((item.get('sourceSelector') or {}).get('generatedSpriteSheetCell') is True for item in green_validation['rows']),
+        'greenItemDirectOccurrences': sum((item.get('sourceSelector') or {}).get('generatedSpriteSheetCell') is False for item in green_validation['rows']),
+        'greenItemSharedBackOccurrences': int(bool(green_item_sources.get('sharedBack'))),
+        'greenItemSourceSheets': int(bool(green_item_sources.get('sourceSheet'))),
+        'greenItemSelectorGaps': sum(item.get('sourceRole') == 'generated-cell-selector-gap-variant' for item in green_validation['assets']),
+        'greenItemPhysicalRegions': sum(len(item.get('regions') or []) for item in green_validation['rows']),
+        'greenItemOperativeRegions': sum(sum(region.get('operative') is True for region in item.get('regions') or []) for item in green_validation['rows']),
+        'greenItemPhysicalPanels': sum(len(item.get('panels') or []) for item in green_validation['rows']),
+        'greenItemOperativePanels': sum(sum(panel.get('operative') is True for panel in item.get('panels') or []) for item in green_validation['rows']),
+        'greenItemPrintedSentences': sum(len(item.get('sentences') or []) for item in green_validation['rows']),
+        'greenItemFunctionalIconOccurrences': sum(len(item.get('iconOccurrences') or []) for item in green_validation['rows']),
+        'greenItemMatchedIconOccurrences': sum(sum(icon.get('semanticReferenceId') is not None for icon in item.get('iconOccurrences') or []) for item in green_validation['rows']),
+        'greenItemUnresolvedLocalGlyphOccurrences': sum(sum(icon.get('semanticReferenceId') is None for icon in item.get('iconOccurrences') or []) for item in green_validation['rows']),
+        'greenItemLicensedOccurrences': len(green_validation['licensed']),
+        'greenItemLicensedCopies': sum(item.get('nbr',0) for item in green_validation['licensed']),
+        'greenItemLicensedRegularCopies': sum(item.get('nbr',0) for item in green_validation['licensed'] if not item.get('heavy') and not item.get('armor')),
+        'greenItemLicensedHeavyCopies': sum(item.get('nbr',0) for item in green_validation['licensed'] if item.get('heavy') or item.get('armor')),
+        'greenItemOfficialFaceOccurrences': sum(item.get('exactGreenRulesFace') is True for item in green_validation['official']),
+        'greenItemOfficialBackOccurrences': sum(item.get('kind') == 'shared-back' for item in green_validation['official']),
+        'greenItemOfficialFamilyOccurrences': len(green_validation['official']),
+        'greenItemRecords': len(green_validation['actualRuleIds']),
+        'greenItemBacklogTuples': sum((backlog_rows_by_id.get(backlog_id) or {}).get('pilotRuleIds') == rule_ids for backlog_id,rule_ids in green_validation['expectedBacklogRules'].items()),
     }
     if actual_counts != EXPECTED:
         failures.append({'check': 'hard-coded semantic pilot counts', 'expected': EXPECTED, 'actual': actual_counts})
     expected_pilot_counts = {key: actual_counts[key] for key in ('records','sourceBacked','withOpenQuestion','sourceVariants','sourceAssertions','conditions','operations','decisions','informationPolicies','costs','targets','openQuestionReferences','variantReferences')}
-    if pilots.get('counts') != expected_pilot_counts or sources_data.get('counts') != {'sources': 122} or review.get('counts') != {'questions':43,'officialClarificationPreferred':15,'sourceAmbiguitiesIntroducedByPilot':28,'resolved':0,'open':43} or coverage.get('counts') != {'systems':20,'pilotRecords':199,'fullBaseSemanticCoverageClaimed':False}:
+    if pilots.get('counts') != expected_pilot_counts or sources_data.get('counts') != {'sources': 160} or review.get('counts') != {'questions':50,'officialClarificationPreferred':21,'sourceAmbiguitiesIntroducedByPilot':29,'resolved':0,'open':50} or coverage.get('counts') != {'systems':21,'pilotRecords':232,'fullBaseSemanticCoverageClaimed':False}:
         failures.append({'check': 'declared semantic counts'})
     covered_rule_ids = [rule_id for system in coverage.get('systems') or [] for rule_id in system.get('ruleIds') or []]
     if set(covered_rule_ids) != set(record_ids) or len(covered_rule_ids) != len(set(covered_rule_ids)) or coverage.get('counts', {}).get('fullBaseSemanticCoverageClaimed') is not False:
@@ -2541,7 +2596,7 @@ def validate(event_source_path: Path, exploration_source_path: Path, robot_sourc
     if len(blocked_units) != 1 or not blocked_units[0].get('sourcePath','').endswith('missionTaskDeck-023.png') or 'exact-source-operative-span' not in blocked_units[0].get('blockers',[]):
         failures.append({'check': 'semantic backlog inherited source blocker'})
     expected_backlog_channels = {'card-reference-source-tuple':350,'interpreted-rule-record':54,'intruder-help-instruction':18,'objective-help-unit':45,'official-faq-unit':28,'room-help-entry':25,'rulebook-visual-obligation':80}
-    expected_backlog_status = {'pending':410,'pilot-covered':189,'source-blocked':1}
+    expected_backlog_status = {'pending':384,'pilot-covered':215,'source-blocked':1}
     if backlog.get('counts') != {'units':600,'byChannel':expected_backlog_channels,'byStatus':expected_backlog_status}:
         failures.append({'check': 'semantic backlog declared counts'})
 
@@ -2559,7 +2614,7 @@ def validate(event_source_path: Path, exploration_source_path: Path, robot_sourc
                     failures.append({'check': 'semantic backlog rebuild execution', 'seed': seed, 'locale':locale_name, 'stderr': backlog_run.stderr})
                     continue
                 hashes = {}
-                for name, tracked in [('event-source-index.json',event_source_path),('exploration-source-index.json',exploration_source_path),('robot-source-index.json',robot_source_path),('attack-source-index.json',attack_source_path),('queen-health-source-index.json',queen_health_source_path),('serious-wound-source-index.json',serious_wound_source_path),('source-registry.json',source_path),('semantic-rule.schema.json',schema_path),('semantic-vocabulary.json',semantic_vocabulary_path),('room-icon-denotations.json',room_icon_path),('pilots.json',pilots_path),('review-gates.json',review_path),('contradictions.json',contradictions_path),('coverage.json',coverage_path),('backlog.json',backlog_path)]:
+                for name, tracked in [('event-source-index.json',event_source_path),('exploration-source-index.json',exploration_source_path),('robot-source-index.json',robot_source_path),('attack-source-index.json',attack_source_path),('queen-health-source-index.json',queen_health_source_path),('serious-wound-source-index.json',serious_wound_source_path),('green-item-source-index.json',green_item_source_path),('source-registry.json',source_path),('semantic-rule.schema.json',schema_path),('semantic-vocabulary.json',semantic_vocabulary_path),('room-icon-denotations.json',room_icon_path),('pilots.json',pilots_path),('review-gates.json',review_path),('contradictions.json',contradictions_path),('coverage.json',coverage_path),('backlog.json',backlog_path)]:
                     rebuilt = Path(temp_dir) / name
                     hashes[name] = sha(rebuilt) if rebuilt.is_file() else None
                     if not rebuilt.is_file() or hashes[name] != sha(tracked):
@@ -2579,6 +2634,7 @@ def main() -> int:
     parser.add_argument('--attack-source-index', type=Path, default=DIR/'attack-source-index.json')
     parser.add_argument('--queen-health-source-index', type=Path, default=DIR/'queen-health-source-index.json')
     parser.add_argument('--serious-wound-source-index', type=Path, default=DIR/'serious-wound-source-index.json')
+    parser.add_argument('--green-item-source-index', type=Path, default=DIR/'green-item-source-index.json')
     parser.add_argument('--source-registry', type=Path, default=DIR/'source-registry.json')
     parser.add_argument('--schema', type=Path, default=DIR/'semantic-rule.schema.json')
     parser.add_argument('--semantic-vocabulary', type=Path, default=DIR/'semantic-vocabulary.json')
@@ -2592,7 +2648,7 @@ def main() -> int:
     parser.add_argument('--report', action='store_true')
     args = parser.parse_args()
     try:
-        report = validate(args.event_source_index,args.exploration_source_index,args.robot_source_index,args.attack_source_index,args.queen_health_source_index,args.serious_wound_source_index,args.source_registry,args.schema,args.semantic_vocabulary,args.room_icon_denotations,args.pilots,args.review_gates,args.contradictions,args.coverage,args.backlog,reproducibility=not args.skip_reproducibility)
+        report = validate(args.event_source_index,args.exploration_source_index,args.robot_source_index,args.attack_source_index,args.queen_health_source_index,args.serious_wound_source_index,args.green_item_source_index,args.source_registry,args.schema,args.semantic_vocabulary,args.room_icon_denotations,args.pilots,args.review_gates,args.contradictions,args.coverage,args.backlog,reproducibility=not args.skip_reproducibility)
     except (DuplicateJsonKeyError,json.JSONDecodeError) as error:
         report = {'schemaVersion':1,'passed':False,'checks':{},'failureCount':1,'failures':[{'check':'strict JSON parsing','error':str(error)}]}
     if args.report and args.pilots.resolve() == (DIR/'pilots.json').resolve():

@@ -3,11 +3,11 @@
   "recordType": "semantic-review-gates",
   "status": "pilot built with deferred questions and explicit alternatives; no default answer adopted",
   "counts": {
-    "questions": 43,
-    "officialClarificationPreferred": 15,
-    "sourceAmbiguitiesIntroducedByPilot": 28,
+    "questions": 50,
+    "officialClarificationPreferred": 21,
+    "sourceAmbiguitiesIntroducedByPilot": 29,
     "resolved": 0,
-    "open": 43
+    "open": 50
   },
   "questions": [
     {
@@ -1430,6 +1430,258 @@
           "alternativeId": "SEM-Q-038-C",
           "description": "Use another source-defined simultaneous assignment and finite-deck shortfall procedure; retain SEM-Q-023 for Deadly Claws slot assignment.",
           "support": "no universal owner/tie-break is printed"
+        }
+      ]
+    },
+    {
+      "questionId": "SEM-Q-039",
+      "title": "Use Item declaration, payment, reveal, effect, and One Use Only discard order",
+      "decisionClass": "official-clarification-preferred",
+      "blocksRuleIds": [
+        "SEM-USE-ITEM-001",
+        "SEM-GREEN-ITEM-ONE-USE-001"
+      ],
+      "plannedRuleIds": [],
+      "defaultProhibited": true,
+      "sourceEvidenceRefs": [
+        "docs/rulebooks/rulebook_text.txt:lines 2889, 4882–4951",
+        "docs/rules/semantics/green-item-source-index.json"
+      ],
+      "alternatives": [
+        {
+          "alternativeId": "SEM-Q-039-A",
+          "description": "Declare/reveal the selected Item, pay the Action-card cost, resolve its effect, then discard the One Use Only card.",
+          "support": "ordinary action presentation and effect-before-cleanup reading; exact sequence is not stated"
+        },
+        {
+          "alternativeId": "SEM-Q-039-B",
+          "description": "Pay and discard the Item when it is Used, then resolve its printed effect from resolution.",
+          "support": "the trait says discarded “when Used,” which may place discard before effect completion"
+        },
+        {
+          "alternativeId": "SEM-Q-039-C",
+          "description": "Use another source-defined order, including the free immediate window and discard-pile face visibility.",
+          "support": "checked sources define the transitions but not their complete relative timing/visibility"
+        }
+      ]
+    },
+    {
+      "questionId": "SEM-Q-040",
+      "title": "Green Item deck exhaustion, discard recycling, and multi-draw shortage",
+      "decisionClass": "official-clarification-preferred",
+      "blocksRuleIds": [
+        "SEM-GREEN-ITEM-DECK-001",
+        "SEM-ACT-SEARCH-001"
+      ],
+      "plannedRuleIds": [],
+      "defaultProhibited": true,
+      "sourceEvidenceRefs": [
+        "docs/rulebooks/rulebook_text.txt:lines 2593–2600, 3530–3548, 4849–4865",
+        "docs/rules/semantics/green-item-source-index.json"
+      ],
+      "alternatives": [
+        {
+          "alternativeId": "SEM-Q-040-A",
+          "description": "An Action/effect requiring a Green draw is not selectable unless every required draw is available; no discard reshuffle occurs.",
+          "support": "whole-effect legality plus no checked Item reshuffle rule"
+        },
+        {
+          "alternativeId": "SEM-Q-040-B",
+          "description": "Resolve available draws and let unavailable requested cards do nothing under Component Limits.",
+          "support": "generic unavailable-component rule; assignment among multiple draws remains unstated"
+        },
+        {
+          "alternativeId": "SEM-Q-040-C",
+          "description": "Return or reshuffle the Green discard pile, or apply another source-defined exhaustion procedure.",
+          "support": "TTS runtime has discard-return helpers, but runtime behavior is secondary and the official rule is absent"
+        }
+      ]
+    },
+    {
+      "questionId": "SEM-Q-041",
+      "title": "Selected Green face local draw and crossed-device glyph identities",
+      "decisionClass": "source-ambiguity-owner-decision-after-source-search",
+      "blocksRuleIds": [
+        "SEM-GREEN-ITEM-3700-EABBA4-001",
+        "SEM-GREEN-ITEM-3700-7E1C40-001",
+        "SEM-GREEN-ITEM-3700-CEFCF6-001",
+        "SEM-GREEN-ITEM-3707-79581A-001",
+        "SEM-GREEN-ITEM-3707-64DF0B-001",
+        "SEM-GREEN-ITEM-3707-30F2F8-001"
+      ],
+      "plannedRuleIds": [],
+      "defaultProhibited": true,
+      "sourceEvidenceRefs": [
+        "assets/tts-mod/extract/v2-dl/tree/cards/game/greenitem-181_cards/card-00.png",
+        "assets/tts-mod/extract/v2-dl/tree/cards/game/greenitem-181_cards/card-07.png",
+        "assets/tts-mod/extract/selected-card-text-evidence.json",
+        "docs/rules/semantics/green-item-source-index.json"
+      ],
+      "alternatives": [
+        {
+          "alternativeId": "SEM-Q-041-A",
+          "description": "The blank draw rectangles denote Action cards and the Stimulants crossed device denotes Not In Combat, following licensed placeholders/flags.",
+          "support": "licensed Adrenaline/Stimulants rows supply ACTION-CARD and noIntruders; secondary only"
+        },
+        {
+          "alternativeId": "SEM-Q-041-B",
+          "description": "Keep every selected TTS occurrence literal and undispatched until exact source-scoped icon evidence exists.",
+          "support": "selected all-glossary comparisons record explicit no-matches"
+        },
+        {
+          "alternativeId": "SEM-Q-041-C",
+          "description": "Assign another source-local card/restriction meaning established by future exact component evidence.",
+          "support": "color, position, expected logic, and nearby matched faces cannot establish identity"
+        }
+      ]
+    },
+    {
+      "questionId": "SEM-Q-042",
+      "title": "Contamination Codes Door placement eligibility and scarce-token allocation",
+      "decisionClass": "official-clarification-preferred",
+      "blocksRuleIds": [
+        "SEM-GREEN-ITEM-3703-C1BEF4-001"
+      ],
+      "plannedRuleIds": [],
+      "defaultProhibited": true,
+      "sourceEvidenceRefs": [
+        "assets/tts-mod/extract/v2-dl/tree/cards/game/greenitem-181_cards/card-03.png",
+        "docs/rulebooks/rulebook_text.txt:lines 3530–3548, 4243–4287",
+        "docs/rules/semantics/green-item-source-index.json"
+      ],
+      "alternatives": [
+        {
+          "alternativeId": "SEM-Q-042-A",
+          "description": "Apply ordinary Door rules: only eligible Door slots, no Destroyed Door closure; the Action is legal only if every required placement can resolve.",
+          "support": "official generic Door and whole-effect rules outrank lower evidence"
+        },
+        {
+          "alternativeId": "SEM-Q-042-B",
+          "description": "The card’s “place a closed Door in each adjacent Corridor” overrides ordinary slot/existing/Destroyed constraints.",
+          "support": "licensed Termination Codes expressly says even destroyed/no-slot, but no identity crosswalk to the TTS face is asserted"
+        },
+        {
+          "alternativeId": "SEM-Q-042-C",
+          "description": "Apply available Doors to a source-defined subset/order and let unavailable placements do nothing.",
+          "support": "Component Limits allows unavailable components to do nothing but supplies no adjacent-Corridor allocation order"
+        }
+      ]
+    },
+    {
+      "questionId": "SEM-Q-043",
+      "title": "Restoration-amount owner when an Item is used through Interplay",
+      "decisionClass": "official-clarification-preferred",
+      "blocksRuleIds": [
+        "SEM-RESTORE-HEALTH-001",
+        "SEM-GREEN-ITEM-536700-96F194-001",
+        "SEM-GREEN-ITEM-536700-63664D-001",
+        "SEM-GREEN-ITEM-536700-A35EFF-001",
+        "SEM-GREEN-ITEM-536700-7ABA7A-001",
+        "SEM-GREEN-ITEM-3705-824BE4-001",
+        "SEM-GREEN-ITEM-3705-B9C9DF-001",
+        "SEM-GREEN-ITEM-3705-6F0675-001",
+        "SEM-GREEN-ITEM-3705-271CED-001",
+        "SEM-GREEN-ITEM-3705-1A13AB-001",
+        "SEM-GREEN-ITEM-3707-79581A-001",
+        "SEM-GREEN-ITEM-3707-64DF0B-001",
+        "SEM-GREEN-ITEM-3707-30F2F8-001"
+      ],
+      "plannedRuleIds": [],
+      "defaultProhibited": true,
+      "sourceEvidenceRefs": [
+        "docs/rulebooks/rulebook_text.txt:lines 3811–3823, 5079–5096",
+        "docs/rules/source-extraction/faq-v1.2-source-extraction.json:FQ-P03-U07",
+        "docs/rules/semantics/green-item-source-index.json"
+      ],
+      "alternatives": [
+        {
+          "alternativeId": "SEM-Q-043-A",
+          "description": "The Item user chooses the amount from zero through the printed maximum after the recipient consents.",
+          "support": "effect owner selects the Item/branch, but “a player” is not assigned"
+        },
+        {
+          "alternativeId": "SEM-Q-043-B",
+          "description": "The receiving Character’s owner chooses the lesser restoration amount.",
+          "support": "the affected Character owns ordinary Health/Wound choices"
+        },
+        {
+          "alternativeId": "SEM-Q-043-C",
+          "description": "Use another source-defined split of target, branch, consent, and amount ownership.",
+          "support": "FAQ broadens Interplay but does not assign the amount choice"
+        }
+      ]
+    },
+    {
+      "questionId": "SEM-Q-044",
+      "title": "Interplay “Gaining” local glyph and MEDKIT Medpack-target scope",
+      "decisionClass": "official-clarification-preferred",
+      "blocksRuleIds": [
+        "SEM-ITEM-INTERPLAY-001",
+        "SEM-GREEN-ITEM-536700-96F194-001",
+        "SEM-GREEN-ITEM-536700-63664D-001",
+        "SEM-GREEN-ITEM-536700-A35EFF-001",
+        "SEM-GREEN-ITEM-536700-7ABA7A-001"
+      ],
+      "plannedRuleIds": [],
+      "defaultProhibited": true,
+      "sourceEvidenceRefs": [
+        "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf:printed page 29 Interplay",
+        "docs/rulebooks/rulebook_text.txt:lines 5079–5096",
+        "docs/rules/source-extraction/faq-v1.2-source-extraction.json:FQ-P03-U07",
+        "docs/rules/semantics/green-item-source-index.json"
+      ],
+      "alternatives": [
+        {
+          "alternativeId": "SEM-Q-044-A",
+          "description": "The visually lost glyph after “Gaining” denotes Tactical Gear/Medpack gain, so the regular MEDKIT gain branch may target a consenting co-located Character.",
+          "support": "likely visual class and FAQ context, but no source-bound exact glyph identity is recorded"
+        },
+        {
+          "alternativeId": "SEM-Q-044-B",
+          "description": "MEDKIT’s Medpack-token gain targets only the using Character; Interplay’s missing glyph denotes another quantity.",
+          "support": "card uses second-person “Gain” and exact official visual identity is absent"
+        },
+        {
+          "alternativeId": "SEM-Q-044-C",
+          "description": "Preserve the local rulebook glyph and target scope unresolved until rendered-pixel evidence establishes the exact class.",
+          "support": "no default may be inferred from token color or expected utility"
+        }
+      ]
+    },
+    {
+      "questionId": "SEM-Q-045",
+      "title": "Multiple gained Items with immediate-use windows",
+      "decisionClass": "official-clarification-preferred",
+      "blocksRuleIds": [
+        "SEM-ITEM-TRADE-GAIN-001",
+        "SEM-GREEN-ITEM-IMMEDIATE-USE-001",
+        "SEM-GREEN-ITEM-536700-96F194-001",
+        "SEM-GREEN-ITEM-536700-63664D-001",
+        "SEM-GREEN-ITEM-536700-A35EFF-001",
+        "SEM-GREEN-ITEM-536700-7ABA7A-001"
+      ],
+      "plannedRuleIds": [],
+      "defaultProhibited": true,
+      "sourceEvidenceRefs": [
+        "assets/tts-mod/extract/v2-dl/tree/cards/game/greenitem-120.png",
+        "docs/rules/source-extraction/faq-v1.2-source-extraction.json:FQ-P03-U04",
+        "docs/rules/semantics/green-item-source-index.json"
+      ],
+      "alternatives": [
+        {
+          "alternativeId": "SEM-Q-045-A",
+          "description": "Resolve each gained Item and its optional immediate-use window sequentially in transfer/source order before the next gain.",
+          "support": "physical sequential handling is possible; no order is stated for multi-Item Trade"
+        },
+        {
+          "alternativeId": "SEM-Q-045-B",
+          "description": "Complete all gains first, then the receiving owner orders and independently accepts/declines each immediate window.",
+          "support": "all Trade transfers may form one exchange; owner ordering is not stated"
+        },
+        {
+          "alternativeId": "SEM-Q-045-C",
+          "description": "Use another source-defined simultaneous-window order, including consequences of an earlier use changing later legality.",
+          "support": "checked FAQ confirms gain/immediate permission but not multi-window timing"
         }
       ]
     }

@@ -62,11 +62,13 @@ robot_sources=load('docs/rules/semantics/robot-source-index.json')
 attack_sources=load('docs/rules/semantics/attack-source-index.json')
 queen_health_sources=load('docs/rules/semantics/queen-health-source-index.json')
 serious_wound_sources=load('docs/rules/semantics/serious-wound-source-index.json')
+green_item_sources=load('docs/rules/semantics/green-item-source-index.json')
 exploration_rule_ids=[row['semanticRuleId'] for row in exploration_sources['faces']]
 robot_rule_ids=[row['semanticRuleId'] for row in robot_sources['faces']]
 attack_rule_ids=[row['semanticRuleId'] for row in attack_sources['faces']]
 queen_health_rule_ids=[row['semanticRuleId'] for row in queen_health_sources['faces']]
 serious_wound_rule_ids=[row['semanticRuleId'] for row in serious_wound_sources['faces']]
+green_item_rule_ids=[row['semanticRuleId'] for row in green_item_sources['faces']]
 
 # Pilot-to-source obligation links. These are evidence coverage links, not claims
 # that the entire channel/category is semantically complete.
@@ -92,6 +94,13 @@ for asset in serious_wound_sources['sourceFaceAssets']:
  unit_id='CARD:'+asset['sourceSha256'][:16]
  physical_rule_ids=[row['semanticRuleId'] for row in serious_wound_sources['faces'] if row['sourcePath']==asset['sourcePath']]
  links[unit_id]=physical_rule_ids or ['SEM-SERIOUS-WOUND-VARIANT-BOUNDARIES-001']
+for asset in green_item_sources['sourceFaceAssets']:
+ unit_id='CARD:'+asset['sourceSha256'][:16]
+ physical_rule_ids=[row['semanticRuleId'] for row in green_item_sources['faces'] if row['sourcePath']==asset['sourcePath']]
+ if physical_rule_ids:
+  links[unit_id]=physical_rule_ids
+ elif asset['sourceRole']=='generated-cell-selector-gap-variant':
+  links[unit_id]=['SEM-GREEN-ITEM-VARIANT-BOUNDARIES-001']
 links['FAQ:FQ-P02-U06']=['SEM-ACT-EXPLORE-001',*[row['semanticRuleId'] for row in exploration_sources['faces'] if any(item['sourceUnitId']=='FQ-P02-U06' for item in row['faqOccurrences'])]]
 links['FAQ:FQ-P02-U07']=['SEM-ACT-EXPLORE-001',*[row['semanticRuleId'] for row in exploration_sources['faces'] if any(item['sourceUnitId']=='FQ-P02-U07' for item in row['faqOccurrences'])]]
 links['VIS:RB-P24-V01']=['SEM-ACT-EXPLORE-001','SEM-EXPLORATION-5639-001']
@@ -156,6 +165,27 @@ links['VIS:RB-P18-V01']=['SEM-SERIOUS-WOUND-GAIN-001','SEM-SERIOUS-WOUND-DISCARD
 links['VIS:RB-P18-V02']=['SEM-SERIOUS-WOUND-GAIN-001']
 links['VIS:RB-P18-V03']=['SEM-SERIOUS-WOUND-SETUP-001','SEM-SERIOUS-WOUND-GAIN-001','SEM-SERIOUS-WOUND-VARIANT-BOUNDARIES-001']
 links['VIS:RB-P40-V02']=[*links.get('VIS:RB-P40-V02',[]),*serious_wound_rule_ids]
+green_restore_ids=[row['semanticRuleId'] for row in green_item_sources['faces'] if row['effectKind'] in {'restore-or-gain-medpack','discard-wound-or-restore','restore-or-local-draw'}]
+green_medkit_ids=[row['semanticRuleId'] for row in green_item_sources['faces'] if row['effectKind']=='restore-or-gain-medpack']
+green_life_support_ids=[row['semanticRuleId'] for row in green_item_sources['faces'] if row['effectKind']=='flip-life-support']
+links['RULE:ACT-ITEM-001']=['SEM-USE-ITEM-001','SEM-GREEN-ITEM-ONE-USE-001','SEM-REGULAR-ITEM-BACKPACK-001',*green_item_rule_ids]
+links['RULE:ACT-TRADE-001']=['SEM-ITEM-TRADE-GAIN-001','SEM-REGULAR-ITEM-BACKPACK-001','SEM-GREEN-ITEM-IMMEDIATE-USE-001']
+links['RULE:ITM-001']=['SEM-GREEN-ITEM-DECK-001']
+links['RULE:ITM-002']=['SEM-REGULAR-ITEM-BACKPACK-001','SEM-GREEN-ITEM-VARIANT-BOUNDARIES-001']
+links['RULE:ITM-003']=['SEM-GREEN-ITEM-DECK-001','SEM-GREEN-ITEM-VARIANT-BOUNDARIES-001']
+links['RULE:ITM-004']=['SEM-GREEN-ITEM-DECK-001','SEM-GREEN-ITEM-VARIANT-BOUNDARIES-001']
+links['RULE:ITM-006']=[*links.get('RULE:ITM-006',[]),'SEM-ACT-SEARCH-001','SEM-GREEN-ITEM-DECK-001']
+links['RULE:ITM-008']=['SEM-GREEN-ITEM-VARIANT-BOUNDARIES-001',*green_item_rule_ids]
+links['FAQ:FQ-P02-U04']=[*links.get('FAQ:FQ-P02-U04',[]),*green_life_support_ids]
+links['FAQ:FQ-P03-U04']=['SEM-ITEM-TRADE-GAIN-001','SEM-GREEN-ITEM-IMMEDIATE-USE-001',*green_medkit_ids]
+links['FAQ:FQ-P03-U07']=['SEM-ITEM-INTERPLAY-001','SEM-RESTORE-HEALTH-001',*green_restore_ids]
+links['VIS:RB-P03-V01']=[*links.get('VIS:RB-P03-V01',[]),'SEM-GREEN-ITEM-DECK-001','SEM-GREEN-ITEM-VARIANT-BOUNDARIES-001']
+links['VIS:RB-P09-V01']=[*links.get('VIS:RB-P09-V01',[]),'SEM-GREEN-ITEM-DECK-001']
+links['VIS:RB-P12-V02']=[*links.get('VIS:RB-P12-V02',[]),'SEM-USE-ITEM-001','SEM-ITEM-TRADE-GAIN-001']
+links['VIS:RB-P28-V02']=['SEM-ACT-SEARCH-001','SEM-GREEN-ITEM-DECK-001','SEM-REGULAR-ITEM-BACKPACK-001']
+links['VIS:RB-P28-V03']=['SEM-USE-ITEM-001','SEM-GREEN-ITEM-ONE-USE-001','SEM-REGULAR-ITEM-BACKPACK-001']
+links['VIS:RB-P29-V01']=['SEM-GREEN-ITEM-DECK-001','SEM-GREEN-ITEM-VARIANT-BOUNDARIES-001']
+links['VIS:RB-P40-V02']=[*links.get('VIS:RB-P40-V02',[]),'SEM-GREEN-ITEM-DECK-001',*green_item_rule_ids]
 for unit_id,rule_ids in links.items():
  links[unit_id]=list(dict.fromkeys(rule_ids))
 for unit in units:

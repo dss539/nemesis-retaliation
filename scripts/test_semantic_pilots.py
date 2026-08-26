@@ -10,7 +10,7 @@ import unittest
 REPO=Path(__file__).resolve().parents[1]
 DIR=REPO/'docs/rules/semantics'
 VALIDATOR=REPO/'scripts/validate_semantic_pilots.py'
-FILES=('event-source-index.json','exploration-source-index.json','robot-source-index.json','attack-source-index.json','queen-health-source-index.json','serious-wound-source-index.json','source-registry.json','semantic-rule.schema.json','semantic-vocabulary.json','room-icon-denotations.json','pilots.json','review-gates.json','contradictions.json','coverage.json','backlog.json')
+FILES=('event-source-index.json','exploration-source-index.json','robot-source-index.json','attack-source-index.json','queen-health-source-index.json','serious-wound-source-index.json','green-item-source-index.json','source-registry.json','semantic-rule.schema.json','semantic-vocabulary.json','room-icon-denotations.json','pilots.json','review-gates.json','contradictions.json','coverage.json','backlog.json')
 
 
 def load(path): return json.loads(path.read_text(encoding='utf-8'))
@@ -19,7 +19,7 @@ def load(path): return json.loads(path.read_text(encoding='utf-8'))
 class SemanticPilotTests(unittest.TestCase):
     def run_validator(self, root=None, skip=False):
         base=root or DIR
-        command=['python3',str(VALIDATOR),'--event-source-index',str(base/'event-source-index.json'),'--exploration-source-index',str(base/'exploration-source-index.json'),'--robot-source-index',str(base/'robot-source-index.json'),'--attack-source-index',str(base/'attack-source-index.json'),'--queen-health-source-index',str(base/'queen-health-source-index.json'),'--serious-wound-source-index',str(base/'serious-wound-source-index.json'),'--source-registry',str(base/'source-registry.json'),'--schema',str(base/'semantic-rule.schema.json'),'--semantic-vocabulary',str(base/'semantic-vocabulary.json'),'--room-icon-denotations',str(base/'room-icon-denotations.json'),'--pilots',str(base/'pilots.json'),'--review-gates',str(base/'review-gates.json'),'--contradictions',str(base/'contradictions.json'),'--coverage',str(base/'coverage.json'),'--backlog',str(base/'backlog.json')]
+        command=['python3',str(VALIDATOR),'--event-source-index',str(base/'event-source-index.json'),'--exploration-source-index',str(base/'exploration-source-index.json'),'--robot-source-index',str(base/'robot-source-index.json'),'--attack-source-index',str(base/'attack-source-index.json'),'--queen-health-source-index',str(base/'queen-health-source-index.json'),'--serious-wound-source-index',str(base/'serious-wound-source-index.json'),'--green-item-source-index',str(base/'green-item-source-index.json'),'--source-registry',str(base/'source-registry.json'),'--schema',str(base/'semantic-rule.schema.json'),'--semantic-vocabulary',str(base/'semantic-vocabulary.json'),'--room-icon-denotations',str(base/'room-icon-denotations.json'),'--pilots',str(base/'pilots.json'),'--review-gates',str(base/'review-gates.json'),'--contradictions',str(base/'contradictions.json'),'--coverage',str(base/'coverage.json'),'--backlog',str(base/'backlog.json')]
         if skip: command.append('--skip-reproducibility')
         run=subprocess.run(command,cwd=REPO,check=False,capture_output=True,text=True,timeout=300)
         return run,json.loads(run.stdout)
@@ -28,17 +28,17 @@ class SemanticPilotTests(unittest.TestCase):
         run,report=self.run_validator()
         self.assertEqual(run.returncode,0,run.stdout+run.stderr)
         self.assertTrue(report['passed'])
-        self.assertEqual(report['checks']['records'],199)
-        self.assertEqual(report['checks']['operations'],858)
-        self.assertEqual(report['checks']['decisions'],83)
-        self.assertEqual(report['checks']['targets'],265)
-        self.assertEqual(report['checks']['conditions'],748)
-        self.assertEqual(report['checks']['openQuestionReferences'],163)
-        self.assertEqual(report['checks']['openQuestions'],43)
+        self.assertEqual(report['checks']['records'],232)
+        self.assertEqual(report['checks']['operations'],995)
+        self.assertEqual(report['checks']['decisions'],113)
+        self.assertEqual(report['checks']['targets'],328)
+        self.assertEqual(report['checks']['conditions'],855)
+        self.assertEqual(report['checks']['openQuestionReferences'],198)
+        self.assertEqual(report['checks']['openQuestions'],50)
         self.assertEqual(report['checks']['semanticNodes'],26)
-        self.assertEqual(report['checks']['conflicts'],28)
+        self.assertEqual(report['checks']['conflicts'],33)
         self.assertEqual(report['checks']['backlogUnits'],600)
-        self.assertEqual(report['checks']['backlogPilotCovered'],189)
+        self.assertEqual(report['checks']['backlogPilotCovered'],215)
         self.assertEqual(report['checks']['eventIdentities'],20)
         self.assertEqual(report['checks']['eventRecords'],20)
         self.assertEqual(report['checks']['eventBacklogTuples'],20)
@@ -76,13 +76,24 @@ class SemanticPilotTests(unittest.TestCase):
         self.assertEqual(report['checks']['seriousWoundFunctionalIconOccurrences'],30)
         self.assertEqual(report['checks']['seriousWoundRecords'],27)
         self.assertEqual(report['checks']['seriousWoundBacklogTuples'],11)
+        self.assertEqual(report['checks']['greenItemRootOccurrences'],30)
+        self.assertEqual(report['checks']['greenItemPhysicalOccurrences'],23)
+        self.assertEqual(report['checks']['greenItemExcludedHeavyOccurrences'],7)
+        self.assertEqual(report['checks']['greenItemUniqueTitles'],8)
+        self.assertEqual(report['checks']['greenItemSelectedFaceAssets'],8)
+        self.assertEqual(report['checks']['greenItemSourceFaceAssets'],14)
+        self.assertEqual(report['checks']['greenItemPhysicalPanels'],85)
+        self.assertEqual(report['checks']['greenItemPrintedSentences'],46)
+        self.assertEqual(report['checks']['greenItemFunctionalIconOccurrences'],46)
+        self.assertEqual(report['checks']['greenItemRecords'],23)
+        self.assertEqual(report['checks']['greenItemBacklogTuples'],12)
         self.assertEqual(report['checks']['roomIconDenotations'],112)
 
     def test_high_risk_semantic_boundaries(self):
         pilots=load(DIR/'pilots.json'); by_id={r['ruleId']:r for r in pilots['records']}
-        search_steps={item['stepId']:item for item in by_id['SEM-ACT-SEARCH-001']['operations']}
-        self.assertEqual(search_steps['S04']['transition']['to'],'tax.scaffold.zone.deck')
-        self.assertEqual(search_steps['S04']['transition']['positionRef'],'sem.position.deck-bottom')
+        search_bottom=next(item for item in by_id['SEM-ACT-SEARCH-001']['operations'] if (item.get('transition') or {}).get('positionRef')=='sem.position.deck-bottom')
+        self.assertEqual(search_bottom['transition']['to'],'tax.scaffold.zone.deck')
+        self.assertIn('SEM-Q-040',by_id['SEM-ACT-SEARCH-001']['unresolvedQuestionRefs'])
         self.assertIn('unchosen Items must not be revealed',json.dumps(by_id['SEM-ACT-SEARCH-001']))
         self.assertEqual(by_id['SEM-EVENT-HATCHING-001']['partialResolution']['policy'],'per-sentence-continue')
         self.assertIn('OQ-009',by_id['SEM-EVENT-HATCHING-001']['unresolvedQuestionRefs'])
@@ -877,6 +888,180 @@ class SemanticPilotTests(unittest.TestCase):
         checks=run_mutation(lower_backlog_coordinated)
         self.assertIn('Queen Health exact backlog tuple projection',checks)
         self.assertIn('Queen Health exact overlapping backlog-obligation closure',checks)
+
+    def test_base_green_item_family_source_closure(self):
+        source=load(DIR/'green-item-source-index.json')
+        registry={row['sourceId']:row for row in load(DIR/'source-registry.json')['sources']}
+        backlog={row['semanticUnitId']:row for row in load(DIR/'backlog.json')['units']}
+        self.assertEqual(source['counts']['rootPhysicalOccurrences'],30)
+        self.assertEqual(source['counts']['physicalFaceOccurrences'],23)
+        self.assertEqual(source['counts']['excludedHeavyPhysicalOccurrences'],7)
+        self.assertEqual(source['counts']['uniquePrintedTitles'],8)
+        self.assertEqual(source['counts']['uniqueSelectedFaceAssets'],8)
+        self.assertEqual(source['counts']['sourceFaceAssets'],14)
+        self.assertEqual(source['counts']['generatedPhysicalFaceOccurrences'],15)
+        self.assertEqual(source['counts']['directPhysicalFaceOccurrences'],8)
+        self.assertEqual(source['counts']['sourceSheetCells'],9)
+        self.assertEqual(source['counts']['selectedGeneratedCells'],5)
+        self.assertEqual(source['counts']['selectorGapCells'],4)
+        self.assertEqual(source['counts']['sharedBackSelectorReferences'],31)
+        self.assertEqual(source['counts']['sourceSheetSelectorReferences'],16)
+        self.assertEqual(source['counts']['physicalPanels'],85)
+        self.assertEqual(source['counts']['operativePanels'],62)
+        self.assertEqual(source['counts']['printedSentenceOccurrences'],46)
+        self.assertEqual(source['counts']['physicalFunctionalIconOccurrences'],46)
+        self.assertEqual(source['counts']['physicalMatchedIconOccurrences'],37)
+        self.assertEqual(source['counts']['physicalUnresolvedLocalGlyphOccurrences'],9)
+        self.assertEqual(source['counts']['selectorGapFunctionalIconOccurrences'],11)
+        self.assertEqual(source['counts']['licensedDigitalOccurrences'],10)
+        self.assertEqual(source['counts']['licensedDigitalPhysicalCopies'],30)
+        self.assertEqual(source['counts']['licensedRegularPhysicalCopies'],23)
+        self.assertEqual(source['counts']['licensedHeavyPhysicalCopies'],7)
+        self.assertEqual(source['titleMultiplicity'],{
+            'ADRENALINE\nINJECTION':3,'ANTISEPTIC':3,'CAFFEINE PILLS':3,'CONTAMINATION\nCODES':1,
+            'EMERGENCY LIFE\nSUPPORT CODES':1,'MEDICAL\nSTAPLER':5,'MEDKIT':4,'STIMULANTS':3,
+        })
+        self.assertEqual([row['generatedCell'] for row in source['sourceFaceAssets'] if row['sourceRole']=='generated-cell-selector-gap-variant'],[2,4,6,8])
+        self.assertEqual([row['rootSequence'] for row in source['excludedHeavyFaces']],list(range(9,16)))
+        self.assertTrue(all(row['physicalClass']=='heavy-item' and row['semanticRuleId'] is None for row in source['excludedHeavyFaces']))
+        self.assertTrue(all(row['physicalClass']=='regular-item' and row['batchDisposition']=='included-regular-green-item-face' for row in source['faces']))
+        self.assertEqual(len({row['greenItemOccurrenceId'] for row in source['faces']}),23)
+        self.assertEqual(len({row['ttsCardGuid'] for row in [*source['faces'],*source['excludedHeavyFaces']]}),30)
+        self.assertEqual(source['sharedBack']['rulesTextPresent'],False)
+        self.assertEqual(source['sharedBack']['separateRulesFace'],False)
+        self.assertEqual(source['sourceSheet']['selectedCells'],[0,1,3,5,7])
+        self.assertEqual(source['sourceSheet']['selectorGapCells'],[2,4,6,8])
+        self.assertTrue(all(row['licensedCrosswalk']['status']=='not-asserted' and row['officialCrosswalk']['status']=='not-asserted' for row in [*source['faces'],*source['excludedHeavyFaces']]))
+        self.assertTrue(all(row['exactGreenRulesFace'] is False for row in source['officialVisibleCounterparts']))
+        for row in [*source['faces'],*source['excludedHeavyFaces']]:
+            self.assertEqual(registry[row['sourceId']]['occurrenceId'],row['greenItemOccurrenceId'])
+        for unit_id in source['familyCountEvidence']['backlog']['linkedUnitIds']:
+            self.assertEqual(backlog[unit_id]['status'],'pilot-covered')
+        for unit_id in source['familyCountEvidence']['backlog']['excludedHeavyUnitIds']:
+            self.assertEqual(backlog[unit_id]['status'],'pending')
+
+    def test_base_green_item_family_semantic_closure(self):
+        source=load(DIR/'green-item-source-index.json')
+        by_id={row['ruleId']:row for row in load(DIR/'pilots.json')['records']}
+        questions={row['questionId']:row for row in load(DIR/'review-gates.json')['questions']}
+        face_rule_ids=[row['semanticRuleId'] for row in source['faces']]
+        use=by_id['SEM-USE-ITEM-001']
+        self.assertEqual(next(op['dispatchRuleIds'] for op in use['operations'] if op.get('dispatchRuleIds')),face_rule_ids)
+        self.assertEqual([op['operationType'] for op in use['operations']],['select-target','resolve-open-alternative','pay-cost','reveal','invoke-selected-process','invoke-process'])
+        self.assertEqual(use['costs'][0]['quantity'],1)
+        self.assertEqual(use['unresolvedQuestionRefs'],['SEM-Q-039'])
+        deck=by_id['SEM-GREEN-ITEM-DECK-001']
+        self.assertEqual(deck['operations'][0]['repeat'],{'rootPhysicalCardCount':30,'regularBatchFaceCount':23,'excludedHeavyCount':7})
+        self.assertFalse(any(op['operationType']=='shuffle' and 'discard' in op['objectRef'].lower() for op in deck['operations'][1:]))
+        self.assertEqual(by_id['SEM-GREEN-ITEM-ONE-USE-001']['operations'][1]['transition']['to'],'tax.scaffold.zone.discard-pile')
+        self.assertEqual(by_id['SEM-RESTORE-HEALTH-001']['decisions'][0]['ownerRef'],'P-RULES')
+        self.assertEqual(by_id['SEM-RESTORE-HEALTH-001']['decisions'][0]['selectionMode'],'unresolved')
+        self.assertTrue(by_id['SEM-GREEN-ITEM-IMMEDIATE-USE-001']['decisions'][0]['declineAllowed'])
+        self.assertEqual(by_id['SEM-GREEN-ITEM-IMMEDIATE-USE-001']['decisions'][0]['cardinality'],{'min':0,'max':1})
+        self.assertTrue(any(decision['selectionMode']=='mutual-consent' for decision in by_id['SEM-ITEM-TRADE-GAIN-001']['decisions']))
+        self.assertTrue(any(decision['selectionMode']=='consent' for decision in by_id['SEM-ITEM-INTERPLAY-001']['decisions']))
+        self.assertFalse(any(op.get('invokeRuleId') for op in by_id['SEM-ITEM-VOLUNTARY-DISCARD-001']['operations']))
+        self.assertEqual(len(by_id['SEM-GREEN-ITEM-VARIANT-BOUNDARIES-001']['sourceVariants']),21)
+        for row in source['faces']:
+            rule=by_id[row['semanticRuleId']]
+            self.assertEqual(rule['authority']['highest'],'official-primary')
+            self.assertEqual(rule['sourceVariants'],[])
+            self.assertEqual(len(row['regions']),3)
+            self.assertEqual([region['role'] for region in row['regions']],['artwork-and-interface','identity-trait-and-restriction','operative-effect-body'])
+            self.assertEqual(len(row['panels']),len(next(asset for asset in source['sourceFaceAssets'] if asset['assetKey']==row['sourceAssetKey'])['panels']))
+            self.assertTrue(all(op['sourceSentenceId'] in {sentence['sentenceId'] for sentence in row['sentences']} for op in rule['operations']))
+        local_rules=[by_id[row['semanticRuleId']] for row in source['faces'] if row['effectKind'] in {'adrenaline-action-window','restore-or-local-draw'}]
+        self.assertTrue(all('icon.actionCard' not in rule['termRefs'] and 'SEM-Q-041' in rule['unresolvedQuestionRefs'] for rule in local_rules))
+        for question_id in [f'SEM-Q-{index:03d}' for index in range(39,46)]:
+            self.assertTrue(questions[question_id]['defaultProhibited'])
+            self.assertEqual(len(questions[question_id]['alternatives']),3)
+
+    def test_green_item_specific_adversarial_corruptions_are_rejected(self):
+        def run_mutation(mutate):
+            with tempfile.TemporaryDirectory(prefix='semantic-green-item-negative-') as temp_dir:
+                root=Path(temp_dir)
+                data={name:load(DIR/name) for name in FILES}
+                mutate(data)
+                for name,payload in data.items():
+                    (root/name).write_text(json.dumps(payload,indent=2,ensure_ascii=False)+'\n',encoding='utf-8')
+                run,report=self.run_validator(root,skip=True)
+            self.assertNotEqual(run.returncode,0)
+            return {failure['check'] for failure in report['failures']}
+
+        def drop_copy(data):
+            source=data['green-item-source-index.json']; source['faces']=source['faces'][1:]
+            source['counts']['physicalFaceOccurrences']-=1; source['counts']['directPhysicalFaceOccurrences']-=1
+        self.assertIn('Green Item source-index exact physical/root/Heavy occurrence count',run_mutation(drop_copy))
+
+        def duplicate_copy(data):
+            source=data['green-item-source-index.json']; source['faces'].append(json.loads(json.dumps(source['faces'][0])))
+            source['counts']['physicalFaceOccurrences']+=1; source['counts']['directPhysicalFaceOccurrences']+=1
+        self.assertIn('Green Item source-index exact physical/root/Heavy occurrence count',run_mutation(duplicate_copy))
+
+        def collapse_title(data): data['green-item-source-index.json']['titleMultiplicity']['MEDICAL\nSTAPLER']=1
+        self.assertIn('Green Item repeated-title/copy multiplicity no-collapse lock',run_mutation(collapse_title))
+
+        def swap_cells(data):
+            assets=data['green-item-source-index.json']['sourceFaceAssets']; a=next(row for row in assets if row['assetKey']=='sheet-00'); b=next(row for row in assets if row['assetKey']=='sheet-01'); a['generatedCell'],b['generatedCell']=b['generatedCell'],a['generatedCell']
+        self.assertIn('Green Item independently locked source-face asset tuple',run_mutation(swap_cells))
+
+        def invent_join(data):
+            join=data['green-item-source-index.json']['faces'][0]['joinEvidence']; join.update({'identityJoin':'title/color/modulo','titleOnlyJoin':True,'colorOnlyJoin':True,'cardIdModuloJoin':True,'basis':['title','green','cardId % 100']})
+        self.assertIn('Green Item title/color/body/folder/order/cell/modulo/licensed join prohibited',run_mutation(invent_join))
+
+        def drift_selector(data): data['green-item-source-index.json']['faces'][0]['sourceSelector']['guid']='ffffff'
+        self.assertIn('Green Item exact CardID/GUID/FaceURL/BackURL selector projection',run_mutation(drift_selector))
+
+        def invert_face_back(data):
+            source=data['green-item-source-index.json']; face=source['faces'][0]; face['sourceSelector'].update({'key':'BackURL','url':source['sharedBack']['sourceSelector']['url'],'sideRole':'shared-non-operative-green-item-back'})
+        self.assertIn('Green Item exact CardID/GUID/FaceURL/BackURL selector projection',run_mutation(invert_face_back))
+
+        def leak_heavy(data):
+            source=data['green-item-source-index.json']; source['faces'].append(source['excludedHeavyFaces'].pop(0)); source['counts']['physicalFaceOccurrences']+=1; source['counts']['excludedHeavyPhysicalOccurrences']-=1
+        self.assertIn('Green Item source-index exact physical/root/Heavy occurrence count',run_mutation(leak_heavy))
+
+        def swap_panels(data):
+            panels=data['green-item-source-index.json']['faces'][0]['panels']; panels[1],panels[2]=panels[2],panels[1]
+        self.assertIn('Green Item exact physical panel roles/order/region linkage',run_mutation(swap_panels))
+
+        def swap_icons(data):
+            icons=data['green-item-source-index.json']['faces'][0]['iconOccurrences']; icons[0]['semanticReferenceId'],icons[1]['semanticReferenceId']=icons[1]['semanticReferenceId'],icons[0]['semanticReferenceId']
+        self.assertIn('Green Item exact physical sentence/panel/icon projection',run_mutation(swap_icons))
+
+        def drift_body(data): data['green-item-source-index.json']['faces'][0]['printedBody']=data['green-item-source-index.json']['faces'][0]['printedBody'].replace('Section.','Section!')
+        self.assertIn('Green Item exact physical title/body/punctuation/order lock',run_mutation(drift_body))
+
+        def invent_owner(data):
+            rule=next(row for row in data['pilots.json']['records'] if row['ruleId']=='SEM-RESTORE-HEALTH-001'); rule['decisions'][0]['ownerRef']='P-USING-PLAYER'; rule['decisions'][0]['selectionMode']='player-choice'
+        self.assertIn('Green Item consent/restore-owner/immediate-option/voluntary-no-use lock',run_mutation(invent_owner))
+
+        def invent_default(data): data['review-gates.json']['questions'][-5]['defaultProhibited']=False
+        self.assertIn('Green Item ambiguity no-default alternatives/linkage',run_mutation(invent_default))
+
+        def invent_reshuffle(data):
+            pilots=data['pilots.json']; rule=next(row for row in pilots['records'] if row['ruleId']=='SEM-GREEN-ITEM-DECK-001'); op=json.loads(json.dumps(rule['operations'][0])); op['objectRef']='Green Item discard pile into deck'; rule['operations'].append(op)
+            for index,item in enumerate(rule['operations'],1): item['stepId']=f'S{index:02d}'; item['sequence']=index
+            pilots['counts']['operations']+=1
+        self.assertIn('Green Item finite deck/root-class/exhaustion/no-reshuffle lock',run_mutation(invent_reshuffle))
+
+        def invent_title_stacking(data):
+            rule=next(row for row in data['pilots.json']['records'] if row['ruleId'].startswith('SEM-GREEN-ITEM-536600-')); rule['stacking']['policy']='same title copies collapse to one runtime card'
+        self.assertIn('Green Item physical-copy/no-title stacking lock',run_mutation(invent_title_stacking))
+
+        def lose_variant(data):
+            pilots=data['pilots.json']; rule=next(row for row in pilots['records'] if row['ruleId']=='SEM-GREEN-ITEM-VARIANT-BOUNDARIES-001'); rule['sourceVariants'].pop(); pilots['counts']['variantReferences']-=1
+        self.assertIn('Green Item Heavy/gap/licensed variant preservation lock',run_mutation(lose_variant))
+
+        def invert_authority(data):
+            rule=next(row for row in data['pilots.json']['records'] if row['ruleId']=='SEM-GREEN-ITEM-536500-DC077A-001'); rule['authority']['highest']='source-bound-component-scan'
+        self.assertIn('Green Item face exact scan/general/authority/no-variant projection',run_mutation(invert_authority))
+
+        def lower_backlog_coordinated(data):
+            target='CARD:59518a4d288b71cf'; backlog=data['backlog.json']; backlog['units']=[row for row in backlog['units'] if row['semanticUnitId']!=target]; backlog['counts']['units']-=1; backlog['counts']['byChannel']['card-reference-source-tuple']-=1; backlog['counts']['byStatus']['pilot-covered']-=1
+            source=data['green-item-source-index.json']; ledger=source['familyCountEvidence']['backlog']; ledger['faceUnitIds'].remove(target); ledger['linkedUnitIds'].remove(target); ledger['faceTupleCount']-=1; ledger['obligationCount']-=1; source['counts']['backlogTuples']-=1; source['counts']['backlogObligationsLinked']-=1
+        checks=run_mutation(lower_backlog_coordinated)
+        self.assertIn('Green Item exact backlog tuple projection',checks)
+        self.assertIn('Green Item exact overlapping backlog-obligation closure',checks)
 
     def test_base_serious_wound_family_semantic_closure(self):
         source=load(DIR/'serious-wound-source-index.json')

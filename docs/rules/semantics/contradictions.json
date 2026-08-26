@@ -3,10 +3,10 @@
   "recordType": "semantic-conflict-register",
   "policy": "Readable source differences remain separate. Authority may resolve a general rule without rewriting lower-authority component wording; unresolved conflicts never receive a default.",
   "counts": {
-    "conflicts": 28,
-    "resolvedByAuthority": 13,
-    "unresolved": 11,
-    "preservedBoundary": 4
+    "conflicts": 33,
+    "resolvedByAuthority": 14,
+    "unresolved": 12,
+    "preservedBoundary": 7
   },
   "conflicts": [
     {
@@ -501,6 +501,121 @@
       ],
       "difference": "The TTS LUNGS face uses a standalone stepped-zigzag glyph that did not exactly match page-40 Character Health; licensed LUNGS uses <HP>.",
       "resolution": "No default; preserve literal morphology and licensed placeholder independently until exact source-scoped evidence establishes identity."
+    },
+    {
+      "conflictId": "SC-029",
+      "title": "Thirty-card Green color deck versus regular/Heavy physical-class boundary",
+      "status": "preserved-boundary",
+      "questionId": null,
+      "affectedRuleIds": [
+        "SEM-GREEN-ITEM-DECK-001",
+        "SEM-GREEN-ITEM-VARIANT-BOUNDARIES-001"
+      ],
+      "evidenceRefs": [
+        "SRC-RULEBOOK",
+        "SRC-GREEN-ITEM-ROOT-DECK",
+        "SRC-BGA-GREEN-ITEMS",
+        "docs/rules/04-items-and-equipment.md:ITM-003/ITM-004"
+      ],
+      "difference": "Official inventory, the TTS root, and licensed multiplicities all preserve 30 Green-type cards. Exact TTS and licensed evidence independently partition 23 regular and 7 Heavy copies, while the downstream ITM-003/004 interpretation says color decks contain only regular Items.",
+      "resolution": "Keep the 30-card root and 23/7 physical-class evidence intact. This bounded batch dispatches only the 23 regular/Backpack faces and leaves the seven Heavy occurrences explicit; do not silently rewrite either source evidence or the downstream interpretation."
+    },
+    {
+      "conflictId": "SC-030",
+      "title": "Selected Green local glyphs versus licensed ACTION-CARD/noIntruders fields",
+      "status": "unresolved",
+      "questionId": "SEM-Q-041",
+      "affectedRuleIds": [
+        "SEM-GREEN-ITEM-VARIANT-BOUNDARIES-001",
+        "SEM-GREEN-ITEM-3700-EABBA4-001",
+        "SEM-GREEN-ITEM-3700-7E1C40-001",
+        "SEM-GREEN-ITEM-3700-CEFCF6-001",
+        "SEM-GREEN-ITEM-3707-79581A-001",
+        "SEM-GREEN-ITEM-3707-64DF0B-001",
+        "SEM-GREEN-ITEM-3707-30F2F8-001"
+      ],
+      "evidenceRefs": [
+        "SRC-BGA-GREEN-ITEMS",
+        "assets/tts-mod/extract/selected-card-text-evidence.json",
+        "docs/rules/semantics/green-item-source-index.json"
+      ],
+      "difference": "Selected Adrenaline/Stimulants faces retain blank draw rectangles and a crossed-device upper glyph with explicit no-match evidence; licensed rows name ACTION-CARD draws and mark Stimulants noIntruders.",
+      "resolution": "No default. Licensed fields remain lower-authority variants and do not assign the literal TTS glyphs by expected effect, position, color, or resemblance."
+    },
+    {
+      "conflictId": "SC-031",
+      "title": "Contamination Codes root face versus independent licensed Termination Codes row",
+      "status": "resolved-by-authority",
+      "questionId": null,
+      "affectedRuleIds": [
+        "SEM-GREEN-ITEM-VARIANT-BOUNDARIES-001",
+        "SEM-GREEN-ITEM-3703-C1BEF4-001"
+      ],
+      "evidenceRefs": [
+        "SRC-GREEN-ITEM-3703-C1BEF4",
+        "SRC-BGA-GREEN-ITEMS"
+      ],
+      "difference": "The exact selected TTS occurrence is titled CONTAMINATION CODES and says to place a closed Door in each adjacent Corridor; licensed TerminationCodes has another title and expressly includes destroyed/no-slot placements. No physical identity crosswalk is asserted.",
+      "resolution": "The exact source-bound face controls only its root CardID/GUID occurrence over the lower licensed table. Preserve the licensed row independently; do not join by one-copy multiplicity or functional resemblance."
+    },
+    {
+      "conflictId": "SC-032",
+      "title": "Regular MEDKIT, Heavy MEDKIT, and licensed Medkit/Medpack boundaries",
+      "status": "preserved-boundary",
+      "questionId": null,
+      "affectedRuleIds": [
+        "SEM-GREEN-ITEM-VARIANT-BOUNDARIES-001",
+        "SEM-GREEN-ITEM-536500-DC077A-001",
+        "SEM-GREEN-ITEM-536600-D4829E-001",
+        "SEM-GREEN-ITEM-536600-F2503B-001",
+        "SEM-GREEN-ITEM-536600-4995A3-001",
+        "SEM-GREEN-ITEM-536700-96F194-001",
+        "SEM-GREEN-ITEM-536700-63664D-001",
+        "SEM-GREEN-ITEM-536700-A35EFF-001",
+        "SEM-GREEN-ITEM-536700-7ABA7A-001",
+        "SEM-GREEN-ITEM-3700-EABBA4-001",
+        "SEM-GREEN-ITEM-3700-7E1C40-001",
+        "SEM-GREEN-ITEM-3700-CEFCF6-001",
+        "SEM-GREEN-ITEM-3701-2E0877-001",
+        "SEM-GREEN-ITEM-3701-2F0205-001",
+        "SEM-GREEN-ITEM-3701-E2E7D7-001",
+        "SEM-GREEN-ITEM-3703-C1BEF4-001",
+        "SEM-GREEN-ITEM-3705-824BE4-001",
+        "SEM-GREEN-ITEM-3705-B9C9DF-001",
+        "SEM-GREEN-ITEM-3705-6F0675-001",
+        "SEM-GREEN-ITEM-3705-271CED-001",
+        "SEM-GREEN-ITEM-3705-1A13AB-001",
+        "SEM-GREEN-ITEM-3707-79581A-001",
+        "SEM-GREEN-ITEM-3707-64DF0B-001",
+        "SEM-GREEN-ITEM-3707-30F2F8-001"
+      ],
+      "evidenceRefs": [
+        "SRC-GREEN-ITEM-536700-96F194",
+        "SRC-GREEN-ITEM-EXCLUDED-HEAVY-415900-9BD717",
+        "SRC-BGA-GREEN-ITEMS",
+        "docs/rules/semantics/green-item-source-index.json"
+      ],
+      "difference": "Four regular TTS MEDKIT copies grant free immediate restore-or-Medpack use; four horizontal Heavy TTS MEDKIT copies print a different Wound/Health effect; licensed Medpack and Heavy Medkit rows are independent.",
+      "resolution": "Only exact physical selectors define regular versus Heavy copies. Preserve all same-title/body/class variants; title, case, effect, multiplicity, or licensed key creates no identity join."
+    },
+    {
+      "conflictId": "SC-033",
+      "title": "Green parent-sheet selector gaps versus selected direct/generated faces",
+      "status": "preserved-boundary",
+      "questionId": null,
+      "affectedRuleIds": [
+        "SEM-GREEN-ITEM-VARIANT-BOUNDARIES-001"
+      ],
+      "evidenceRefs": [
+        "SRC-GREEN-ITEM-SHEET",
+        "SRC-GREEN-ITEM-VARIANT-37-CELL-02",
+        "SRC-GREEN-ITEM-VARIANT-37-CELL-04",
+        "SRC-GREEN-ITEM-VARIANT-37-CELL-06",
+        "SRC-GREEN-ITEM-VARIANT-37-CELL-08",
+        "docs/rules/semantics/green-item-source-index.json"
+      ],
+      "difference": "Cells 2, 4, 6, and 8 visibly preserve Caffeine Pills, Emergency Life Support Codes, MEDKIT, and Synthetic Food variants but have no root full CardID/GUID selector; selected direct/sheet faces differ in text and glyphs.",
+      "resolution": "Retain all four source variants and selector gaps. Never substitute them into the physical deck from title, body, cell position, CardID modulo, or expected game logic."
     }
   ]
 }

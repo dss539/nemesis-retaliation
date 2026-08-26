@@ -366,3 +366,48 @@ Use this ledger for ambiguities that the official rulebook and FAQ do not settle
 - **Sources checked:** Rulebook pp. 17–18; all Serious Wound selectors/faces; multi-Wound Attack effects; FAQ v1.2; `SEM-Q-023` for Deadly Claws’ narrower slot-assignment issue.
 - **Candidate readings:** (a) complete each singular gain before the next; (b) draw all available cards first, then assign/place/activate; (c) another source-defined simultaneous/shortfall procedure.
 - **Status:** Open; official clarification preferred. `SEM-Q-023` remains independently open; neither question supplies a default for the other.
+
+### SEM-Q-039 — Use Item and One Use Only ordering
+
+- **Question:** What is the exact order of Item declaration, Backpack reveal, Action-card payment, printed effect resolution, and the One Use Only discard transition—including the free immediate-use window and discard-pile face visibility?
+- **Sources checked:** Rulebook pp. 12, 17, 28–29; all 23 exact regular Green physical occurrences in `semantics/green-item-source-index.json`; FAQ v1.2.
+- **Candidate readings:** (a) reveal/pay, resolve, then discard; (b) pay/discard when Used, then resolve from the resolution zone; (c) another source-defined order.
+- **Status:** Open; official clarification preferred. No payment, reveal, effect, discard, or visibility order is defaulted.
+
+### SEM-Q-040 — Green Item deck exhaustion and multi-draw shortage
+
+- **Question:** When a Green draw is required but the finite deck has insufficient cards, is the enclosing Action illegal, do available draws resolve with unavailable cards doing nothing, does the discard pile return/reshuffle, or does another procedure apply—and how are scarce cards assigned across multiple requests?
+- **Sources checked:** Rulebook pp. 9, 17, and 28; exact 30-child TTS root and 30 licensed multiplicities; FAQ v1.2. TTS discard-return helpers remain runtime evidence only.
+- **Status:** Open; official clarification preferred. No reshuffle, return, partial-draw assignment, or exhausted-deck policy is adopted.
+
+### SEM-Q-041 — Selected Green local draw and crossed-device glyphs
+
+- **Question:** What exact components/restrictions are denoted by the blank draw rectangles on selected ADRENALINE INJECTION/STIMULANTS faces and the crossed upper-right device on selected STIMULANTS copies?
+- **Sources checked:** Exact generated cells 0 and 7, all selected physical CardID/GUID selectors, selected all-glossary no-match evidence, page-40 glossary, FAQ v1.2, and licensed Adrenaline/Stimulants rows.
+- **Candidate readings:** (a) Action cards and Not In Combat, following lower-authority licensed fields; (b) another source-local card/restriction identity; (c) remain literal and undispatched pending exact evidence.
+- **Status:** Open. Licensed placeholders/flags do not overwrite the explicit TTS no-matches; no color-, position-, title-, or expected-logic alias is created.
+
+### SEM-Q-042 — Contamination Codes Door eligibility and allocation
+
+- **Question:** Does selected TTS CONTAMINATION CODES obey ordinary Door-slot/Destroyed-Door rules, override them, or use another procedure—and which adjacent Corridors receive finite Door tokens if not all placements are possible?
+- **Sources checked:** Exact generated cell 3/CardID 3703/GUID `c1bef4`; rulebook Door, whole-effect, local-effect, and Component Limits rules; FAQ v1.2; independent licensed `TerminationCodes` row.
+- **Candidate readings:** (a) ordinary Door constraints and whole-effect legality; (b) an override like the independent licensed row; (c) source-defined partial placement/allocation.
+- **Status:** Open; official clarification preferred. The licensed one-copy row has no physical identity crosswalk and supplies no default.
+
+### SEM-Q-043 — Restoration-amount owner under Item Interplay
+
+- **Question:** When one Character uses an Item to restore a consenting co-located Character, who chooses the amount from zero through the printed maximum: the Item user, the receiving Character’s owner, or another actor?
+- **Sources checked:** Rulebook pp. 18 and 29; FAQ v1.2 Items/Tactical Gear #8; exact regular MEDKIT, MEDICAL STAPLER, and STIMULANTS occurrences.
+- **Status:** Open; official clarification preferred. Target, consent, branch, Serious Wound selection, and restoration amount remain distinct decisions.
+
+### SEM-Q-044 — Interplay “Gaining” glyph and MEDKIT target scope
+
+- **Question:** What is the exact rendered glyph/object after “Gaining” in the rulebook’s four Interplay classes, and does it authorize a regular MEDKIT’s “Gain 1 Medpack token” branch on another consenting Character?
+- **Sources checked:** Official rulebook p. 29 rendered Interplay area/text extraction, FAQ v1.2 Items/Tactical Gear #8, exact regular MEDKIT occurrences, and page-40 glossary.
+- **Status:** Open; official rendered-pixel clarification/extraction preferred. The missing local glyph is not inferred from the token’s green color or expected medical role.
+
+### SEM-Q-045 — Multiple gained immediate-use windows
+
+- **Question:** When one Trade/effect causes several Items with immediate-use permissions to be gained, are gain/use windows resolved one by one, are all gains completed before the recipient orders windows, or does another simultaneous timing rule apply?
+- **Sources checked:** Exact four regular MEDKIT occurrences; FAQ v1.2 Items/Tactical Gear #5; rulebook Trade/Interplay and Action timing.
+- **Status:** Open; official clarification preferred. Each may-window remains independently declineable; no automatic order, stacking, or merged multi-Item resolution is adopted.
