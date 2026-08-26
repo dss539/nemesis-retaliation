@@ -9,13 +9,13 @@
     "withOpenQuestion": 107,
     "sourceVariants": 1,
     "sourceAssertions": 610,
-    "conditions": 747,
+    "conditions": 748,
     "operations": 858,
     "decisions": 83,
     "informationPolicies": 214,
     "costs": 9,
     "targets": 265,
-    "openQuestionReferences": 164,
+    "openQuestionReferences": 163,
     "variantReferences": 109
   },
   "records": [
@@ -14537,13 +14537,14 @@
           "locator": "printed page 39 / lines 6238–6273",
           "supportsFields": [
             "preconditions",
+            "timing",
             "operations",
             "outcomes",
             "unresolvedQuestionRefs"
           ],
-          "sourceText": "Game ends at Round 14, when all players are dead/Escaped/Hibernated, or Facility destruction; then resolve Infection, Eclosion, Objective reveal/check, and winners.",
+          "sourceText": "Game ends at Round 14, when all players are dead/Escaped/Hibernated, or Facility destruction. Alive Escaped/Hibernated Characters resolve the listed checks in order: Infection for those without a Larva, then Eclosion for each Character that currently has a Larva. The note states that a Character may have gained a Larva “during this Sequence,” so Eclosion eligibility is evaluated when that cohort step is reached and includes a Larva gained during the preceding Infection step; then Objectives are revealed/checked and winners determined.",
           "textKind": "normalized-paraphrase",
-          "evidenceRecord": "docs/rules/03-intruders-and-survival.md:INT-011"
+          "evidenceRecord": "docs/rulebooks/rulebook_text.txt:lines 6238–6273"
         },
         {
           "assertionId": "SA-END-2",
@@ -14635,6 +14636,21 @@
             "args": [
               {
                 "predicate": "Round 14 trigger"
+              }
+            ]
+          },
+          "sourceAssertionIds": [
+            "SA-END-1"
+          ]
+        },
+        {
+          "conditionId": "S04-C01",
+          "scope": "operation-guard",
+          "expression": {
+            "operator": "predicate",
+            "args": [
+              {
+                "predicate": "Character has a Larva on their Character board when the Eclosion cohort step is reached, including a Larva gained during the preceding Infection step"
               }
             ]
           },
@@ -14742,9 +14758,11 @@
           "sequence": 4,
           "operationType": "invoke-process",
           "modality": "must",
-          "subjectRef": "each alive Escaped/Hibernated Character currently with Larva",
+          "subjectRef": "each alive Escaped/Hibernated Character with a Larva when the Eclosion cohort step is reached",
           "objectRef": "Eclosion Procedure",
-          "conditionRefs": [],
+          "conditionRefs": [
+            "S04-C01"
+          ],
           "decisionRef": null,
           "targetRef": null,
           "transition": null,
@@ -14754,7 +14772,7 @@
           "sourceAssertionIds": [
             "SA-END-1"
           ],
-          "notes": "Whether “currently” includes a Larva gained in S03 is OQ-002."
+          "notes": "Eligibility is evaluated at S04 after S03; the official note “A Character may have gained a Larva during the game or during this Sequence” excludes an endgame-start snapshot."
         },
         {
           "stepId": "S05",
@@ -14836,7 +14854,7 @@
       "partialResolution": {
         "policy": "ordered-complete",
         "unit": "endgame sequence step",
-        "onImpossible": "source-specific; unresolved iteration questions remain explicit"
+        "onImpossible": "source-specific; OQ-001 remains explicit for the invoked Eclosion hand check, while Larva cohort eligibility is source-resolved at S04"
       },
       "duration": {
         "kind": "end-of-game"
@@ -14851,8 +14869,7 @@
         }
       ],
       "unresolvedQuestionRefs": [
-        "OQ-001",
-        "OQ-002"
+        "OQ-001"
       ],
       "sourceVariants": [],
       "implementationBoundary": "implementation-neutral; no engine, UI, network, storage, or serialization mapping"

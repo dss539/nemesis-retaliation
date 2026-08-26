@@ -61,8 +61,8 @@ It does **not** instantiate card/Room/Event effects or encode their legality and
 
 Twelve timing/order, Turn/Phase, decision-owner, visibility, and lifecycle-transition relation IDs are explicitly deferred and absent from the static relation set.
 
-Open rules questions OQ-001, OQ-002, OQ-003, OQ-004, OQ-007, and OQ-009 are carried as non-blocking semantic questions. Rest, Intruder Help transcription, Not-in-Combat associations, and Action-deck source inventory are no longer extraction blockers.
+Open rules questions OQ-001, OQ-003, OQ-004, OQ-007, and OQ-009 are carried as non-blocking semantic questions. OQ-002 is resolved by the current official rulebook p. 39: Larva eligibility is evaluated when the Eclosion cohort step is reached, including a Larva gained during the preceding Infection step. This timing rule remains in the semantic layer and adds no relation or assertion to the static ontology. Rest, Intruder Help transcription, Not-in-Combat associations, and Action-deck source inventory are no longer extraction blockers.
 
 ## Review status
 
-Four independent workstreams were incorporated. They found no owner decision blocking static ontology after the corrections in `independent-review.md`. The static proposal passes its gate: deterministic validation, two-seed rebuilds, and corruption tests pass with no owner gate. Semantic modeling is now the active separate phase and must carry the six genuine semantic questions explicitly.
+Four independent workstreams were incorporated. They found no owner decision blocking static ontology after the corrections in `independent-review.md`. The static proposal passes its gate: deterministic validation, two-seed rebuilds, and corruption tests pass with no owner gate. Semantic modeling is now the active separate phase and must carry the five remaining genuine semantic questions explicitly.

@@ -9,7 +9,7 @@ Use this ledger for ambiguities that the official rulebook and FAQ do not settle
 - **Why it matters:** user-facing consequence.
 - **Sources checked:** rulebook and FAQ citations.
 - **Candidate readings:** distinguish evidence from inference.
-- **Status:** open, awaiting official clarification, or resolved by project decision.
+- **Status:** open, awaiting official clarification, resolved by official source, or resolved by project decision.
 
 ## Entries
 
@@ -27,11 +27,13 @@ Use this ledger for ambiguities that the official rulebook and FAQ do not settle
 
 - **Question:** Does a Larva acquired in endgame step 2 (Infection) make a Character eligible for step 3 (Eclosion)?
 - **Why it matters:** Determines whether a Character can die from eclosion triggered by an infection gained during the endgame sequence itself.
-- **Sources checked:** Rulebook p. 39 (lines 6249–6273). The note says a Character may gain a Larva “during this Sequence.”
+- **Sources checked:** Current official English Rulebook p. 39 (lines 6249–6273). The Eclosion cohort is “Each Character that currently has a Larva on their Character board,” and the immediately following note says, “A Character may have gained a Larva during the game or during this Sequence.”
 - **Candidate readings:**
   - (a) Sequential: evaluate “currently has a Larva” when step 3 is reached; a Larva from step 2 qualifies.
   - (b) Snapshot: evaluate Larva status as of endgame start.
-- **Status:** Open, leaning toward (a) based on the rulebook note. Mark as an implementation interpretation until officially confirmed.
+- **Resolved rule:** Evaluate Larva eligibility when the Eclosion cohort step is reached. A Larva gained during the preceding endgame Infection step qualifies.
+- **Scope boundary:** This does not resolve OQ-001, the order in which multiple Characters resolve within a cohort, or any other endgame question.
+- **Status:** **Resolved by official source.** Reading (a) is required by the ordered sequence, “currently,” and the express “during this Sequence” note. Reading (b) is retained above only as superseded review history and is not an open alternative or implementation interpretation.
 
 ### OQ-003 — Starting Player token passing to dead/escaped/hibernated Characters
 

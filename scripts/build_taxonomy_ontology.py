@@ -519,8 +519,7 @@ review_gates = {
         'rel.transition-from', 'rel.transition-to',
     ],
     'deferredNonBlockingQuestions': [
-        {'questionId':'ONTO-DQ-001','sourceQuestionId':'OQ-001','classification':'semantic-procedure ambiguity','reason':'Eclosion hand snapshot/iteration semantics do not alter static classes or relations.'},
-        {'questionId':'ONTO-DQ-002','sourceQuestionId':'OQ-002','classification':'semantic timing ambiguity','reason':'Endgame Larva iteration timing is an ordered-procedure issue.'},
+        {'questionId':'ONTO-DQ-001','sourceQuestionId':'OQ-001','classification':'semantic-procedure ambiguity','reason':'Eclosion existing-hand scope does not alter static classes or relations.'},
         {'questionId':'ONTO-DQ-003','sourceQuestionId':'OQ-003','classification':'semantic role-transfer ambiguity','reason':'Starting Player eligibility/transfer algorithm is not needed to define Player, role, or token classes.'},
         {'questionId':'ONTO-DQ-004','sourceQuestionId':'OQ-004','classification':'semantic timing ambiguity','reason':'Mid-Turn death advancement belongs to turn-resolution semantics.'},
         {'questionId':'ONTO-DQ-005','sourceQuestionId':'OQ-007','classification':'semantic cardinality-per-event ambiguity','reason':'Secure consumption during simultaneous entry is effect resolution, not static component cardinality.'},

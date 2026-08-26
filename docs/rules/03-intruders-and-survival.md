@@ -311,9 +311,9 @@ The game ends when:
 4. For each still-alive Character: if no Objective previously chosen, choose now; reveal and check the chosen Objective.
 5. Each remaining Character whose Objective is fulfilled wins.
 
-### Timing interpretation
+### Official Larva eligibility timing
 
-“Currently has a Larva” in step 3 should be evaluated when step 3 is reached. A Larva acquired in step 2 is eligible for eclosion. This is supported by the rulebook note that a Character may gain a Larva “during this Sequence.” This should be marked as an implementation interpretation.
+“Currently has a Larva” in step 3 is evaluated when step 3 is reached. A Larva acquired in the preceding step 2 Infection Procedure qualifies for eclosion. The current official rulebook expressly notes that a Character may have gained a Larva “during this Sequence,” so this is a source-resolved rule rather than an implementation interpretation. It does not determine the order in which multiple Characters resolve within either cohort and does not resolve OQ-001.
 
 ### Objective semantics
 

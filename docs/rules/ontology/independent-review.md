@@ -44,7 +44,7 @@ No project-owner decision blocks the static ontology. The review did find materi
 
 5. **Semantic relations deferred:** twelve timing/order, Turn/Phase, decision-owner, visibility, and lifecycle-transition relation IDs are reserved but absent from the static ontology. Their classes remain as scaffolding; actual relations and assertions belong to semantic modeling.
 
-6. **Open-question cleanup:** former extraction blockers for Rest, Intruder Help, Not-in-Combat associations, and Action-deck inventory were resolved. OQ-001, OQ-002, OQ-003, OQ-004, OQ-007, and OQ-009 remain semantic/source questions and do not block static ontology.
+6. **Open-question cleanup:** former extraction blockers for Rest, Intruder Help, Not-in-Combat associations, and Action-deck inventory were resolved. The original review deferred OQ-001, OQ-002, OQ-003, OQ-004, OQ-007, and OQ-009 without blocking the static ontology. OQ-002 has since been resolved directly from current official rulebook p. 39 and its stale deferred mapping has been removed; OQ-001, OQ-003, OQ-004, OQ-007, and OQ-009 remain semantic/source questions.
 
 7. **Validator hardening:**
    - strict duplicate-key JSON parsing;
@@ -62,4 +62,4 @@ No project-owner decision blocks the static ontology. The review did find materi
 
 ## Gate conclusion
 
-The static taxonomy/ontology may pass without an owner question after these corrections and deterministic validation. This does **not** authorize semantic effect modeling automatically; the next layer must carry the six genuine semantic questions explicitly and model timing, decisions, visibility, and lifecycle transitions without guessing.
+The static taxonomy/ontology may pass without an owner question after these corrections and deterministic validation. This does **not** authorize semantic effect modeling automatically; the next layer must carry the five remaining genuine semantic questions explicitly and model timing, decisions, visibility, and lifecycle transitions without guessing. The official-source resolution of OQ-002 belongs only in that semantic layer and does not alter this static model.

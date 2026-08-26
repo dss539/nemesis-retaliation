@@ -16,10 +16,10 @@ VOCAB = REPO / 'docs/rules/vocabulary'
 ONTOLOGY = REPO / 'docs/rules/ontology'
 EXPECTED = {
     'sources': 122, 'semanticNodes': 26, 'records': 199, 'sourceBacked': 91, 'withOpenQuestion': 107,
-    'sourceVariants': 1, 'sourceAssertions': 610, 'conditions': 747,
+    'sourceVariants': 1, 'sourceAssertions': 610, 'conditions': 748,
     'operations': 858, 'decisions': 83, 'informationPolicies': 214,
-    'costs': 9, 'targets': 265, 'openQuestionReferences': 164,
-    'variantReferences': 109, 'questions': 44, 'openQuestions': 44, 'systems': 20,
+    'costs': 9, 'targets': 265, 'openQuestionReferences': 163,
+    'variantReferences': 109, 'questions': 43, 'openQuestions': 43, 'systems': 20,
     'conflicts': 28, 'unresolvedConflicts': 11,
     'roomIconDenotations': 112,
     'backlogUnits': 600, 'backlogPilotCovered': 189, 'backlogSourceBlocked': 1,
@@ -1607,6 +1607,38 @@ def validate(event_source_path: Path, exploration_source_path: Path, robot_sourc
     passing = record_by_id.get('SEM-RT-007') or {}
     if not any(item.get('operationType') == 'end-action-window' for item in passing.get('operations') or []) or any(item.get('operationType') == 'end-process' for item in passing.get('operations') or []):
         failures.append({'check': 'Pass Turn-end effect fidelity'})
+    endgame = record_by_id.get('SEM-ENDGAME-001') or {}
+    endgame_assertion = next((item for item in endgame.get('sourceAssertions') or [] if item.get('assertionId') == 'SA-END-1'), {})
+    endgame_step = next((item for item in endgame.get('operations') or [] if item.get('stepId') == 'S04'), {})
+    endgame_guard = next((item for item in endgame.get('preconditions') or [] if item.get('conditionId') == 'S04-C01'), {})
+    expected_endgame_assertion = {
+        'locator': 'printed page 39 / lines 6238–6273',
+        'supportsFields': ['preconditions','timing','operations','outcomes','unresolvedQuestionRefs'],
+        'sourceText': 'Game ends at Round 14, when all players are dead/Escaped/Hibernated, or Facility destruction. Alive Escaped/Hibernated Characters resolve the listed checks in order: Infection for those without a Larva, then Eclosion for each Character that currently has a Larva. The note states that a Character may have gained a Larva “during this Sequence,” so Eclosion eligibility is evaluated when that cohort step is reached and includes a Larva gained during the preceding Infection step; then Objectives are revealed/checked and winners determined.',
+        'evidenceRecord': 'docs/rulebooks/rulebook_text.txt:lines 6238–6273',
+    }
+    expected_endgame_step = {
+        'stepId':'S04','sequence':4,'operationType':'invoke-process','modality':'must',
+        'subjectRef':'each alive Escaped/Hibernated Character with a Larva when the Eclosion cohort step is reached',
+        'objectRef':'Eclosion Procedure','conditionRefs':['S04-C01'],'decisionRef':None,'targetRef':None,
+        'transition':None,'valueChange':None,'invokeRuleId':'SEM-ECLOSION-PROCEDURE-001','repeat':None,
+        'sourceAssertionIds':['SA-END-1'],
+        'notes':'Eligibility is evaluated at S04 after S03; the official note “A Character may have gained a Larva during the game or during this Sequence” excludes an endgame-start snapshot.',
+    }
+    expected_endgame_guard = {
+        'conditionId':'S04-C01','scope':'operation-guard',
+        'expression':{'operator':'predicate','args':[{'predicate':'Character has a Larva on their Character board when the Eclosion cohort step is reached, including a Larva gained during the preceding Infection step'}]},
+        'sourceAssertionIds':['SA-END-1'],
+    }
+    if (
+        any(endgame_assertion.get(key) != value for key,value in expected_endgame_assertion.items())
+        or endgame_step != expected_endgame_step
+        or endgame_guard != expected_endgame_guard
+        or endgame.get('unresolvedQuestionRefs') != ['OQ-001']
+        or (endgame.get('partialResolution') or {}).get('onImpossible') != 'source-specific; OQ-001 remains explicit for the invoked Eclosion hand check, while Larva cohort eligibility is source-resolved at S04'
+        or 'OQ-002' in json.dumps({'review':review,'endgame':endgame}, ensure_ascii=False)
+    ):
+        failures.append({'check':'Endgame Larva step-time official-source lock'})
     intruder_help = load(REPO/'docs/rules/source-extraction/intruder-help-sheet.json')
     help_rows = {}
     for side in intruder_help['sides']:
@@ -2480,7 +2512,7 @@ def validate(event_source_path: Path, exploration_source_path: Path, robot_sourc
     if actual_counts != EXPECTED:
         failures.append({'check': 'hard-coded semantic pilot counts', 'expected': EXPECTED, 'actual': actual_counts})
     expected_pilot_counts = {key: actual_counts[key] for key in ('records','sourceBacked','withOpenQuestion','sourceVariants','sourceAssertions','conditions','operations','decisions','informationPolicies','costs','targets','openQuestionReferences','variantReferences')}
-    if pilots.get('counts') != expected_pilot_counts or sources_data.get('counts') != {'sources': 122} or review.get('counts') != {'questions':44,'officialClarificationPreferred':16,'sourceAmbiguitiesIntroducedByPilot':28,'resolved':0,'open':44} or coverage.get('counts') != {'systems':20,'pilotRecords':199,'fullBaseSemanticCoverageClaimed':False}:
+    if pilots.get('counts') != expected_pilot_counts or sources_data.get('counts') != {'sources': 122} or review.get('counts') != {'questions':43,'officialClarificationPreferred':15,'sourceAmbiguitiesIntroducedByPilot':28,'resolved':0,'open':43} or coverage.get('counts') != {'systems':20,'pilotRecords':199,'fullBaseSemanticCoverageClaimed':False}:
         failures.append({'check': 'declared semantic counts'})
     covered_rule_ids = [rule_id for system in coverage.get('systems') or [] for rule_id in system.get('ruleIds') or []]
     if set(covered_rule_ids) != set(record_ids) or len(covered_rule_ids) != len(set(covered_rule_ids)) or coverage.get('counts', {}).get('fullBaseSemanticCoverageClaimed') is not False:

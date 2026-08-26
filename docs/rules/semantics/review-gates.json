@@ -3,11 +3,11 @@
   "recordType": "semantic-review-gates",
   "status": "pilot built with deferred questions and explicit alternatives; no default answer adopted",
   "counts": {
-    "questions": 44,
-    "officialClarificationPreferred": 16,
+    "questions": 43,
+    "officialClarificationPreferred": 15,
     "sourceAmbiguitiesIntroducedByPilot": 28,
     "resolved": 0,
-    "open": 44
+    "open": 43
   },
   "questions": [
     {
@@ -33,31 +33,6 @@
           "alternativeId": "OQ-001-B",
           "description": "Check only the four newly drawn cards.",
           "support": "possible procedure intent; not stated"
-        }
-      ]
-    },
-    {
-      "questionId": "OQ-002",
-      "title": "Endgame Larva iteration timing",
-      "decisionClass": "official-clarification-preferred",
-      "blocksRuleIds": [
-        "SEM-ENDGAME-001"
-      ],
-      "plannedRuleIds": [],
-      "defaultProhibited": true,
-      "sourceEvidenceRefs": [
-        "docs/rules/open-questions.md:OQ-002"
-      ],
-      "alternatives": [
-        {
-          "alternativeId": "OQ-002-A",
-          "description": "Evaluate “currently has a Larva” when the Eclosion cohort step is reached, including Larvae gained in the preceding Infection step.",
-          "support": "sequential text and “during this Sequence” note"
-        },
-        {
-          "alternativeId": "OQ-002-B",
-          "description": "Snapshot Larva status at the start of endgame.",
-          "support": "possible cohort-intent reading; not explicit"
         }
       ]
     },

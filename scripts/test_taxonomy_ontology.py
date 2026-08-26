@@ -85,6 +85,10 @@ class TaxonomyOntologyTests(unittest.TestCase):
         }
         self.assertTrue(required_static.issubset(relation_ids))
         self.assertTrue(set(review['deferredSemanticRelationIds']).isdisjoint(relation_ids))
+        self.assertEqual(
+            [(item['questionId'],item['sourceQuestionId']) for item in review['deferredNonBlockingQuestions']],
+            [('ONTO-DQ-001','OQ-001'),('ONTO-DQ-003','OQ-003'),('ONTO-DQ-004','OQ-004'),('ONTO-DQ-005','OQ-007'),('ONTO-DQ-006','OQ-009')],
+        )
 
     def test_structural_and_phase_boundary_corruptions_are_rejected(self):
         with tempfile.TemporaryDirectory(prefix='ontology-negative-control-') as temp_dir:

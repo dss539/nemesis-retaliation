@@ -32,7 +32,9 @@ class SemanticPilotTests(unittest.TestCase):
         self.assertEqual(report['checks']['operations'],858)
         self.assertEqual(report['checks']['decisions'],83)
         self.assertEqual(report['checks']['targets'],265)
-        self.assertEqual(report['checks']['openQuestions'],44)
+        self.assertEqual(report['checks']['conditions'],748)
+        self.assertEqual(report['checks']['openQuestionReferences'],163)
+        self.assertEqual(report['checks']['openQuestions'],43)
         self.assertEqual(report['checks']['semanticNodes'],26)
         self.assertEqual(report['checks']['conflicts'],28)
         self.assertEqual(report['checks']['backlogUnits'],600)
@@ -103,6 +105,52 @@ class SemanticPilotTests(unittest.TestCase):
         self.assertIn('OQ-003',by_id['SEM-RT-012']['unresolvedQuestionRefs'])
         self.assertTrue(any(item['objectRef']=='sem.state.participation.dead' for item in by_id['SEM-INT-006']['operations']))
         self.assertTrue(any('Noise markers may still be placed/discarded' in item['objectRef'] for item in by_id['SEM-DOOR-001']['operations']))
+
+    def test_endgame_larva_step_time_resolution_and_negative_controls(self):
+        pilots=load(DIR/'pilots.json'); review=load(DIR/'review-gates.json')
+        endgame=next(row for row in pilots['records'] if row['ruleId']=='SEM-ENDGAME-001')
+        step=next(row for row in endgame['operations'] if row['stepId']=='S04')
+        guard=next(row for row in endgame['preconditions'] if row['conditionId']=='S04-C01')
+        self.assertEqual(endgame['unresolvedQuestionRefs'],['OQ-001'])
+        self.assertNotIn('OQ-002',{row['questionId'] for row in review['questions']})
+        self.assertIn('when the Eclosion cohort step is reached',step['subjectRef'])
+        self.assertIn('during this Sequence',step['notes'])
+        self.assertIn('preceding Infection step',guard['expression']['args'][0]['predicate'])
+
+        def run_mutation(mutate):
+            with tempfile.TemporaryDirectory(prefix='semantic-endgame-negative-') as temp_dir:
+                root=Path(temp_dir)
+                data={name:load(DIR/name) for name in FILES}
+                mutate(data)
+                for name,payload in data.items():
+                    (root/name).write_text(json.dumps(payload,indent=2,ensure_ascii=False)+'\n',encoding='utf-8')
+                run,report=self.run_validator(root,skip=True)
+            self.assertNotEqual(run.returncode,0)
+            return {failure['check'] for failure in report['failures']}
+
+        def reintroduce_snapshot(data):
+            record=next(row for row in data['pilots.json']['records'] if row['ruleId']=='SEM-ENDGAME-001')
+            operation=next(row for row in record['operations'] if row['stepId']=='S04')
+            operation['subjectRef']='each alive Escaped/Hibernated Character who had a Larva at the start of endgame'
+            operation['notes']='Larva eligibility is snapshotted at the start of endgame.'
+            condition=next(row for row in record['preconditions'] if row['conditionId']=='S04-C01')
+            condition['expression']['args'][0]['predicate']='Character had a Larva on their Character board at the start of endgame'
+            record['unresolvedQuestionRefs'].append('OQ-002')
+            data['pilots.json']['counts']['openQuestionReferences']+=1
+            review=data['review-gates.json']
+            review['questions'].insert(1,{'questionId':'OQ-002','title':'Endgame Larva iteration timing','decisionClass':'official-clarification-preferred','blocksRuleIds':['SEM-ENDGAME-001'],'plannedRuleIds':[],'defaultProhibited':True,'sourceEvidenceRefs':['docs/rules/open-questions.md:OQ-002'],'alternatives':[{'alternativeId':'OQ-002-A','description':'Evaluate eligibility at the Eclosion cohort step.','support':'ordered source text'},{'alternativeId':'OQ-002-B','description':'Snapshot Larva status at the start of endgame.','support':'superseded alternative'}]})
+            review['counts'].update({'questions':44,'officialClarificationPreferred':16,'open':44})
+        self.assertIn('Endgame Larva step-time official-source lock',run_mutation(reintroduce_snapshot))
+
+        def remove_during_sequence_eligibility(data):
+            record=next(row for row in data['pilots.json']['records'] if row['ruleId']=='SEM-ENDGAME-001')
+            assertion=next(row for row in record['sourceAssertions'] if row['assertionId']=='SA-END-1')
+            assertion['sourceText']=assertion['sourceText'].replace('during this Sequence','earlier in the game')
+            operation=next(row for row in record['operations'] if row['stepId']=='S04')
+            operation['notes']='Eligibility is evaluated at S04 after S03.'
+            condition=next(row for row in record['preconditions'] if row['conditionId']=='S04-C01')
+            condition['expression']['args'][0]['predicate']='Character has a Larva on their Character board when the Eclosion cohort step is reached'
+        self.assertIn('Endgame Larva step-time official-source lock',run_mutation(remove_during_sequence_eligibility))
 
     def test_intruder_help_semantic_closure(self):
         source=load(REPO/'docs/rules/source-extraction/intruder-help-sheet.json')

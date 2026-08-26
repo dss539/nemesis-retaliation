@@ -296,7 +296,14 @@ def validate(taxonomy_path: Path, mappings_path: Path, ontology_path: Path, revi
     if review_counts != {'reviewGates': 0, 'resolved': 0, 'open': 0} or review.get('gates') != []:
         failures.append({'check': 'ontology review gate declaration'})
     deferred = review.get('deferredNonBlockingQuestions') or []
-    if len(deferred) != 6 or len({item.get('questionId') for item in deferred}) != 6:
+    expected_deferred = [
+        {'questionId':'ONTO-DQ-001','sourceQuestionId':'OQ-001','classification':'semantic-procedure ambiguity','reason':'Eclosion existing-hand scope does not alter static classes or relations.'},
+        {'questionId':'ONTO-DQ-003','sourceQuestionId':'OQ-003','classification':'semantic role-transfer ambiguity','reason':'Starting Player eligibility/transfer algorithm is not needed to define Player, role, or token classes.'},
+        {'questionId':'ONTO-DQ-004','sourceQuestionId':'OQ-004','classification':'semantic timing ambiguity','reason':'Mid-Turn death advancement belongs to turn-resolution semantics.'},
+        {'questionId':'ONTO-DQ-005','sourceQuestionId':'OQ-007','classification':'semantic cardinality-per-event ambiguity','reason':'Secure consumption during simultaneous entry is effect resolution, not static component cardinality.'},
+        {'questionId':'ONTO-DQ-006','sourceQuestionId':'OQ-009','classification':'semantic placement ambiguity','reason':'Nest event before discovery concerns effect timing/placement.'},
+    ]
+    if deferred != expected_deferred:
         failures.append({'check': 'deferred question ledger'})
     audit = review.get('independentAudit') or {}
     if audit.get('delegationId') != 'deleg_0cdda6e9' or audit.get('workstreams') != 4 or len(audit.get('incorporatedFindings') or []) != 7 or not review.get('status', '').startswith('independent taxonomy'):

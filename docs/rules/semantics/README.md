@@ -15,7 +15,7 @@ This directory is the first implementation-neutral semantic layer built over the
 - `serious-wound-source-index.json` — mechanically derived closure of all 27 base Serious Wound physical occurrences: 21 generated selections across seven 3×3-sheet cells plus six direct LEG/KNEE copies, two explicit selector-gap cells, one shared back, 54 panels/81 regions, exact text/icons, official-visible occurrences, nine independent licensed rows, exclusions, and backlog tuples.
 - `source-registry.json` — 122 exact source tuples, hashes, versions, authority, occurrence identities, and extraction-index links used by the corpus.
 - `pilots.json` — 199 validated semantic records across 20 systems; the historical filename is retained while coverage expands.
-- `review-gates.json` — forty-four explicit open semantic questions with alternatives; no default is adopted.
+- `review-gates.json` — forty-three explicit open semantic questions with alternatives; no default is adopted.
 - `contradictions.json` — twenty-eight source/semantic conflicts: thirteen authority-resolved, eleven unresolved, and four preserved boundaries.
 - `coverage.json` — pilot scope and the large remaining base-game semantic surface.
 - `backlog.json` — 600 source-obligation units across rule records, FAQ, visual obligations, Help sheets, and independent card/reference tuples; 189 are covered, 410 pending, and one source-blocked, with overlapping variants intentionally retained.
@@ -92,8 +92,9 @@ The backlog currently records 189 covered source obligations, 410 pending obliga
 
 ## Open questions carried without defaults
 
+OQ-002 is no longer an open gate. Current official rulebook p. 39 (lines 6251–6265) orders Infection before Eclosion, applies Eclosion to each Character who “currently has a Larva,” and states that a Character may have gained a Larva “during this Sequence.” `SEM-ENDGAME-001` therefore evaluates Larva eligibility when the Eclosion cohort step is reached and includes a Larva gained during the preceding Infection step. OQ-001 and multi-Character cohort ordering remain untouched.
+
 - OQ-001 — Eclosion existing-hand behavior;
-- OQ-002 — endgame Larva iteration timing;
 - OQ-003 — Starting Player transfer over nonparticipants;
 - OQ-004 — mid-Turn death advancement;
 - OQ-007 — simultaneous multi-Intruder Secure consumption;
@@ -137,7 +138,7 @@ The backlog currently records 189 covered source obligations, 410 pending obliga
 - SEM-Q-037 — Whenever-you-Pass Wound trigger order.
 - SEM-Q-038 — multiple-Wound draw/placement/shortfall order.
 
-- OQ-001, OQ-002, OQ-003, OQ-004, OQ-007, OQ-009, SEM-Q-010, SEM-Q-025, SEM-Q-027, SEM-Q-029, SEM-Q-030, SEM-Q-031, SEM-Q-032, SEM-Q-036, SEM-Q-037, and SEM-Q-038 prefer official clarification. The other SEM questions require further source searching before any owner decision.
+- OQ-001, OQ-003, OQ-004, OQ-007, OQ-009, SEM-Q-010, SEM-Q-025, SEM-Q-027, SEM-Q-029, SEM-Q-030, SEM-Q-031, SEM-Q-032, SEM-Q-036, SEM-Q-037, and SEM-Q-038 prefer official clarification. The other SEM questions require further source searching before any owner decision.
 
 ## Fidelity boundaries exercised
 
