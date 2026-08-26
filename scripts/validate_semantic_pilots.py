@@ -15,22 +15,27 @@ DIR = REPO / 'docs/rules/semantics'
 VOCAB = REPO / 'docs/rules/vocabulary'
 ONTOLOGY = REPO / 'docs/rules/ontology'
 EXPECTED = {
-    'sources': 30, 'semanticNodes': 22, 'records': 99, 'sourceBacked': 74, 'withOpenQuestion': 25,
-    'sourceVariants': 0, 'sourceAssertions': 252, 'conditions': 248,
-    'operations': 397, 'decisions': 49, 'informationPolicies': 111,
-    'costs': 3, 'targets': 98, 'openQuestionReferences': 30,
-    'variantReferences': 22, 'questions': 16, 'openQuestions': 16, 'systems': 18,
-    'conflicts': 11, 'unresolvedConflicts': 6,
+    'sources': 44, 'semanticNodes': 22, 'records': 111, 'sourceBacked': 74, 'withOpenQuestion': 37,
+    'sourceVariants': 0, 'sourceAssertions': 308, 'conditions': 391,
+    'operations': 500, 'decisions': 49, 'informationPolicies': 123,
+    'costs': 3, 'targets': 142, 'openQuestionReferences': 42,
+    'variantReferences': 37, 'questions': 17, 'openQuestions': 17, 'systems': 18,
+    'conflicts': 13, 'unresolvedConflicts': 7,
     'roomIconDenotations': 112,
-    'backlogUnits': 600, 'backlogPilotCovered': 102, 'backlogSourceBlocked': 1,
+    'backlogUnits': 600, 'backlogPilotCovered': 119, 'backlogSourceBlocked': 1,
     'eventIdentities': 20, 'eventScanOccurrences': 20, 'eventLicensedOccurrences': 20,
     'eventOfficialOccurrences': 4, 'eventRecords': 20, 'eventBacklogTuples': 20,
+    'explorationIdentities': 12, 'explorationScanOccurrences': 12,
+    'explorationLicensedOccurrences': 12, 'explorationOfficialOccurrences': 3,
+    'explorationPrintedSentences': 46, 'explorationIconOccurrences': 60,
+    'explorationRecords': 12, 'explorationBacklogTuples': 12,
 }
 PINNED_HELP_SOURCE_HASHES = {
     'docs/rules/source-extraction/intruder-help-sheet.json': 'e07f2703a6ad1b49c06389f79d3b1ffd6f5fd1d98604bf14b405fee49d9679e6',
     'docs/rules/source-extraction/room-help-sheet.json': 'ad3d6bb66de939fe1036ecca3fc8d8d9b41fe41e1065f7bd9611df8263480177',
     'docs/rules/source-extraction/room-help-sheet-source-fidelity-lock.json': '27c23c1c885e2ab851bef0bfb43b7471ea862af9d0308f9b3e70026320b4d8b4',
 }
+PINNED_EXPLORATION_SOURCE_INDEX_HASH = 'd95dc30738ce2efbb4cf696671388aaf731626f167601fdca70c6fee74dc95bd'
 EXPECTED_EVENT_OCCURRENCES = {
     5609: ('SRC-EVENT-5609','assets/tts-mod/extract/v2-dl/tree/cards/game/event-099.png','0d5da2c8e1b6ccb6a30c83f9006aa924f4fc2f1f14d360d153bc5ea6f73770ed','Event_SystemFailure','SEM-EVENT-SYSTEM-FAILURE-001','SYSTEM FAILURE'),
     5610: ('SRC-EVENT-5610','assets/tts-mod/extract/v2-dl/tree/cards/game/event-009.png','92bc91f54116780d214aefd7925a46897d811f699c5921edd55f45b40deb989d','Event_NoWayOut','SEM-EVENT-NO-WAY-OUT-001','NO WAY OUT'),
@@ -98,6 +103,34 @@ EXPECTED_EVENT_RECORD_DIGESTS = {
     'SEM-NOISE-MARKER-001': '2178186f1b94ce67935a1c5b0165d1dfa466ccc5f3705d33c10982a279c41407',
     'SEM-SECURE-ENTRY-001': '74836078c570e2be6c092add9fb4d027ce18b8f70ee5dad26e27c5a4ca0ae4d2',
 }
+EXPECTED_EXPLORATION_OCCURRENCES = {
+    5629: {'sourceId':'SRC-EXPLORATION-5629','path':'assets/tts-mod/extract/v2-dl/tree/cards/game/exploration-027.png','sha256':'3da198b348a70d64e20de051034e98aa2454ef1912df3cf18e78eaf7c4800043','guid':'f1056e','bgaKey':'ExplorationCard9','ruleId':'SEM-EXPLORATION-5629-001','roomType':'ABC','corridors':[1,2,3],'noise':[2],'roomIcons':[],'sentences':3,'icons':5,'adultCount':0,'closeDoor':False,'removeFromGame':False,'official':[]},
+    5630: {'sourceId':'SRC-EXPLORATION-5630','path':'assets/tts-mod/extract/v2-dl/tree/cards/game/exploration-107.png','sha256':'daf8fb6f2bc9836bf7d457acf909fdd033aa55e182308e61b2d59e952bbced7c','guid':'4cc309','bgaKey':'ExplorationCard10','ruleId':'SEM-EXPLORATION-5630-001','roomType':'ABC','corridors':[0,2,3],'noise':[0,3],'roomIcons':[],'sentences':4,'icons':5,'adultCount':2,'closeDoor':False,'removeFromGame':False,'official':[]},
+    5631: {'sourceId':'SRC-EXPLORATION-5631','path':'assets/tts-mod/extract/v2-dl/tree/cards/game/exploration-062.png','sha256':'b3be8596be1e99b3b520b0ce2c37e7f14a48c6a90dc4e422d32ae92592fbab38','guid':'0fc783','bgaKey':'ExplorationCard11','ruleId':'SEM-EXPLORATION-5631-001','roomType':'ABC','corridors':[2,5],'noise':[2],'roomIcons':[],'sentences':4,'icons':4,'adultCount':3,'closeDoor':False,'removeFromGame':False,'official':[]},
+    5632: {'sourceId':'SRC-EXPLORATION-5632','path':'assets/tts-mod/extract/v2-dl/tree/cards/game/exploration-031.png','sha256':'549bb22b017b6df982c3378f613294969d7043a1a87a1e4b4f5d704308d2ceb0','guid':'307c1a','bgaKey':'ExplorationCard5','ruleId':'SEM-EXPLORATION-5632-001','roomType':'ABC','corridors':[1,2],'noise':[2],'roomIcons':['malfunction'],'sentences':4,'icons':5,'adultCount':0,'closeDoor':True,'removeFromGame':False,'official':[]},
+    5633: {'sourceId':'SRC-EXPLORATION-5633','path':'assets/tts-mod/extract/v2-dl/tree/cards/game/exploration-025.png','sha256':'774b6ed8ea4492bfae38145c828ae47c61536855ec1ffb86702d1fb2d2d09d8b','guid':'caf17f','bgaKey':'ExplorationCard4','ruleId':'SEM-EXPLORATION-5633-001','roomType':'ABC','corridors':[1,2,3],'noise':[1],'roomIcons':['malfunction'],'sentences':3,'icons':5,'adultCount':0,'closeDoor':False,'removeFromGame':False,'official':[]},
+    5634: {'sourceId':'SRC-EXPLORATION-5634','path':'assets/tts-mod/extract/v2-dl/tree/cards/game/exploration-024.png','sha256':'3cfb21c76b93ba8e23abf464321e7071d73aac0c23b0dc1763702206fe80854f','guid':'d80a23','bgaKey':'ExplorationCard6','ruleId':'SEM-EXPLORATION-5634-001','roomType':'ABC','corridors':[1,3],'noise':[3],'roomIcons':['fire'],'sentences':3,'icons':5,'adultCount':0,'closeDoor':False,'removeFromGame':False,'official':['RB-P26-V01','RB-P27-V01']},
+    5635: {'sourceId':'SRC-EXPLORATION-5635','path':'assets/tts-mod/extract/v2-dl/tree/cards/game/exploration-032.png','sha256':'9c521a0ca8f9303363e69266962c20bee13b7a03cc8d05410399755ea42c684b','guid':'41c838','bgaKey':'ExplorationCard12','ruleId':'SEM-EXPLORATION-5635-001','roomType':'ABC','corridors':[1,2,4],'noise':[1],'roomIcons':[],'sentences':4,'icons':4,'adultCount':4,'closeDoor':False,'removeFromGame':False,'official':[]},
+    5636: {'sourceId':'SRC-EXPLORATION-5636','path':'assets/tts-mod/extract/v2-dl/tree/cards/game/exploration-026.png','sha256':'08445a3d8b18081d7396756f407ac058c383c3aee05bde76e80393b0af4b741d','guid':'ab7ffb','bgaKey':'ExplorationCard7','ruleId':'SEM-EXPLORATION-5636-001','roomType':'ABC','corridors':[2,3],'noise':[],'roomIcons':['fire'],'sentences':4,'icons':4,'adultCount':0,'closeDoor':True,'removeFromGame':False,'official':[]},
+    5637: {'sourceId':'SRC-EXPLORATION-5637','path':'assets/tts-mod/extract/v2-dl/tree/cards/game/exploration-037.png','sha256':'3101f9f9a5df9d01aa07073837412496355c63df94216ab1550abc6a21221516','guid':'3c770d','bgaKey':'ExplorationCard3','ruleId':'SEM-EXPLORATION-5637-001','roomType':'?','corridors':[1,3,4],'noise':[1],'roomIcons':[],'sentences':4,'icons':5,'adultCount':0,'closeDoor':False,'removeFromGame':True,'official':[]},
+    5638: {'sourceId':'SRC-EXPLORATION-5638','path':'assets/tts-mod/extract/v2-dl/tree/cards/game/exploration-036.png','sha256':'160d5d76b631d1ccbd1e4ea981313a1edbd83a6e9eda34dd825fafc2f9cbdd4d','guid':'2e1fdc','bgaKey':'ExplorationCard2','ruleId':'SEM-EXPLORATION-5638-001','roomType':'?','corridors':[0,1,3],'noise':[1],'roomIcons':['malfunction','fire'],'sentences':5,'icons':6,'adultCount':0,'closeDoor':True,'removeFromGame':True,'official':[]},
+    5639: {'sourceId':'SRC-EXPLORATION-5639','path':'assets/tts-mod/extract/v2-dl/tree/cards/game/exploration-087.png','sha256':'d52ff877e59bfda1b306074b5567b4c0bf93a0be9b4e257acc88b38f87a7c85f','guid':'2c8495','bgaKey':'ExplorationCard1','ruleId':'SEM-EXPLORATION-5639-001','roomType':'?','corridors':[0,1,3,4],'noise':[0,1,3,4],'roomIcons':['malfunction'],'sentences':4,'icons':8,'adultCount':0,'closeDoor':True,'removeFromGame':True,'official':['RB-P24-V01']},
+    5640: {'sourceId':'SRC-EXPLORATION-5640','path':'assets/tts-mod/extract/v2-dl/tree/cards/game/exploration-076.png','sha256':'e4e92cae40da14f30ee73a8f27ea8291d0861db0688ac207219fa475f24cd832','guid':'046266','bgaKey':'ExplorationCard8','ruleId':'SEM-EXPLORATION-5640-001','roomType':'ABC','corridors':[2,5],'noise':[],'roomIcons':[],'sentences':4,'icons':4,'adultCount':0,'closeDoor':True,'removeFromGame':False,'official':[]},
+}
+EXPECTED_EXPLORATION_RECORD_DIGESTS = {
+    'SEM-EXPLORATION-5629-001': 'c67774e8b9cf5d7bff4d2f93c73e35a993eddf165c1b8fbd928ba4e95ccec37e',
+    'SEM-EXPLORATION-5630-001': '227f17240e9b6b4cf1e8dfe125262794f1ef985026372b1f24be70bb43bebbb5',
+    'SEM-EXPLORATION-5631-001': 'b96b3900c52310914c582ff94fbcf9de22a56016716d2ae740eb3737f3fd426e',
+    'SEM-EXPLORATION-5632-001': 'f3218b560fb059cf136f525c89528c8ef1a5dbbee625bd09e9f1d7826c9c0452',
+    'SEM-EXPLORATION-5633-001': '09c982f40224ec0ec1d1547ee96de4bc2b86551ce3cda4b994f45c7e7e499d0d',
+    'SEM-EXPLORATION-5634-001': 'd691d6ece935fc194256bc0bf1a38bb671f38f73fe68a1de3f6640c08af0abfa',
+    'SEM-EXPLORATION-5635-001': '49534f7ec83a49e71db3eb91f473a1c3cbabcdabd5eaa15be0f88634140d8c4a',
+    'SEM-EXPLORATION-5636-001': '5488ab19858e5ee999dff21c5685ba2dab1c3ba716548b4db030f56ccf3ce665',
+    'SEM-EXPLORATION-5637-001': 'f6e4958eb800a5d2c87909d2d6d0c2edc5432d988c7f8f628f21e855ae5c1786',
+    'SEM-EXPLORATION-5638-001': 'fd8933c8bccf4c8a1bec6c3c3b9efd5c9ef95c326660c91b40211b704a925fa9',
+    'SEM-EXPLORATION-5639-001': 'be75a3b593a4557f183ce4fc64859c53fb08af2e62bb822dce05de5e0de82fe2',
+    'SEM-EXPLORATION-5640-001': '83c7ada5593f49b1dbde1559e658e3f0ed71f0a7bc09b7de77b80492ca81a81d',
+}
 ALLOWED_OPERATIONS = {
     'branch','change-value','choose','draw-random','end-process','evaluate-condition',
     'inspect-private','invoke-process','invoke-selected-process','move-entity','pay-cost','end-action-window',
@@ -151,9 +184,10 @@ def cardinality_valid(value: dict) -> bool:
     return isinstance(maximum, int) and not isinstance(maximum, bool) and maximum >= minimum
 
 
-def validate(event_source_path: Path, source_path: Path, schema_path: Path, semantic_vocabulary_path: Path, room_icon_path: Path, pilots_path: Path, review_path: Path, contradictions_path: Path, coverage_path: Path, backlog_path: Path, *, reproducibility: bool) -> dict:
+def validate(event_source_path: Path, exploration_source_path: Path, source_path: Path, schema_path: Path, semantic_vocabulary_path: Path, room_icon_path: Path, pilots_path: Path, review_path: Path, contradictions_path: Path, coverage_path: Path, backlog_path: Path, *, reproducibility: bool) -> dict:
     failures: list[dict] = []
     event_sources = load(event_source_path)
+    exploration_sources = load(exploration_source_path)
     sources_data = load(source_path)
     schema = load(schema_path)
     semantic_vocabulary = load(semantic_vocabulary_path)
@@ -301,6 +335,141 @@ def validate(event_source_path: Path, source_path: Path, schema_path: Path, sema
     if (leaving.get('printedBody') or '').count('[ICON: solid white rectangular block]') != 3 or (leaving.get('bgaOccurrence',{}).get('sourceBlockText') or '').count('ACTION-CARD') != 3:
         failures.append({'check': 'Leaving the Shell unresolved glyph boundary'})
 
+    # Independent base-Exploration occurrence lock. The generated source index
+    # is pinned and also re-derived from root-role/CardID/GUID/FaceURL evidence,
+    # exact corpus bytes, untitled face text, literal diagrams, paired BackURL,
+    # official visuals, FAQ units, backlog tuples, and the licensed table.
+    expected_exploration_counts = {
+        'explorationIdentities':12,'ttsFaceOccurrences':12,'ttsSharedBackOccurrences':1,
+        'directFaceSelectors':12,'generatedSpriteSheetCells':0,'selectorGaps':0,
+        'untitledFaces':12,'sourceBoundDraftFaces':12,'licensedDigitalOccurrences':12,
+        'officialVisibleComponentOccurrences':3,'officialVisibleComponentIdentities':2,
+        'faqOccurrences':8,'printedSentences':46,'sourceLocalDiagrams':12,
+        'functionalIconOccurrences':60,'backlogTuples':12,
+    }
+    exploration_rows = exploration_sources.get('faces') or []
+    exploration_by_card = {row.get('ttsCardId'):row for row in exploration_rows}
+    if sha(exploration_source_path) != PINNED_EXPLORATION_SOURCE_INDEX_HASH:
+        failures.append({'check':'pinned Exploration source index'})
+    if exploration_sources.get('counts') != expected_exploration_counts or set(exploration_by_card) != set(EXPECTED_EXPLORATION_OCCURRENCES) or len(exploration_by_card) != len(exploration_rows):
+        failures.append({'check':'Exploration source-index exact identity count'})
+    base_exploration_role = next((row for row in roles if row.get('role') == 'explorationDeck' and row.get('guid') == '63add2'), {})
+    exploration_role_ids = sorted(int(value) for value in base_exploration_role.get('deck_nums') or [])
+    objects = load(REPO/'assets/tts-mod/extract/v2/objects.json')
+    base_exploration_object = next((row for row in objects if row.get('guid') == '63add2'), {})
+    if exploration_role_ids != list(range(5629,5641)) or base_exploration_role.get('n_urls') != 13 or base_exploration_object.get('parent') != []:
+        failures.append({'check':'Exploration root TTS role/CardID closure'})
+    expected_excluded_roles = {('xyrianExplorationDeck','6b2b69'),('explorationDeck','a24dc8'),('explorationDeck','dd1eda'),('explorationDeck','2e8e9d')}
+    actual_excluded_roles = {(row.get('role'),row.get('guid')) for row in exploration_sources.get('excludedExpansionRoles') or []}
+    if actual_excluded_roles != expected_excluded_roles or any('expansion' not in (row.get('scope') or '').lower() for row in exploration_sources.get('excludedExpansionRoles') or []):
+        failures.append({'check':'Exploration base/expansion scope boundary'})
+    exploration_provenance_by_card = {}
+    exploration_deck_backs = []
+    exploration_card_backs = []
+    for provenance_row in provenance:
+        for obj in provenance_row.get('objects') or []:
+            if obj.get('key') == 'BackURL' and obj.get('guid') == '63add2':
+                exploration_deck_backs.append((provenance_row,obj))
+            if obj.get('key') == 'BackURL' and obj.get('gmnotes') == 'exploration' and ['Deck','63add2',''] in (obj.get('parent') or []):
+                exploration_card_backs.append((provenance_row,obj))
+            if obj.get('key') != 'FaceURL' or obj.get('type') != 'CardCustom' or obj.get('gmnotes') != 'exploration' or not obj.get('cardId') or ['Deck','63add2',''] not in (obj.get('parent') or []):
+                continue
+            card_id = int(obj['cardId']) // 100
+            if card_id in EXPECTED_EXPLORATION_OCCURRENCES:
+                exploration_provenance_by_card.setdefault(card_id,[]).append((provenance_row,obj))
+    if set(exploration_provenance_by_card) != set(EXPECTED_EXPLORATION_OCCURRENCES) or any(len(rows) != 1 for rows in exploration_provenance_by_card.values()) or len(exploration_deck_backs) != 1 or len(exploration_card_backs) != 12:
+        failures.append({'check':'Exploration FaceURL/BackURL provenance closure'})
+    exploration_table = next((row for row in secondary['licensedDigital']['structuredIndex']['tables'] if row.get('name') == 'EXPLORATION_CARDS_DATA'), {})
+    expected_exploration_bga_keys = {row['bgaKey'] for row in EXPECTED_EXPLORATION_OCCURRENCES.values()}
+    if exploration_table.get('count') != 12 or set(exploration_table.get('keys') or []) != expected_exploration_bga_keys:
+        failures.append({'check':'Exploration licensed-digital independent index closure'})
+    slot_labels = {0:'upper-left',1:'upper-right',2:'right',3:'lower-right',4:'lower-left',5:'left'}
+    expected_exploration_source_ids = set()
+    for card_id, expected in EXPECTED_EXPLORATION_OCCURRENCES.items():
+        face = exploration_by_card.get(card_id) or {}
+        expected_exploration_source_ids.add(expected['sourceId'])
+        actual_tuple = (face.get('sourceId'),face.get('sourcePath'),face.get('sourceSha256'),face.get('ttsCardGuid'),(face.get('bgaOccurrence') or {}).get('key'),face.get('semanticRuleId'),face.get('printedTitle'))
+        expected_tuple = (expected['sourceId'],expected['path'],expected['sha256'],expected['guid'],expected['bgaKey'],expected['ruleId'],'')
+        if actual_tuple != expected_tuple:
+            failures.append({'check':'independently locked Exploration occurrence crosswalk','ttsCardId':card_id})
+        source_file = REPO/expected['path']
+        if not source_file.is_file() or sha(source_file) != expected['sha256']:
+            failures.append({'check':'Exploration live source hash','ttsCardId':card_id})
+        provenance_rows = exploration_provenance_by_card.get(card_id) or []
+        if provenance_rows:
+            provenance_row,obj = provenance_rows[0]
+            derived_path = 'assets/tts-mod/extract/v2-dl/tree/' + provenance_row.get('file','')
+            selector = face.get('sourceSelector') or {}
+            if derived_path != expected['path'] or int(obj.get('cardId',0)) != card_id*100 or obj.get('guid') != expected['guid'] or selector.get('key') != 'FaceURL' or selector.get('objectType') != 'CardCustom' or selector.get('cardId') != card_id*100 or selector.get('guid') != expected['guid'] or selector.get('parentDeckGuid') != '63add2' or selector.get('url') != provenance_row.get('url') or selector.get('generatedSpriteSheetCell') is not False or selector.get('selectorGap') is not None:
+                failures.append({'check':'Exploration exact FaceURL selector/provenance projection','ttsCardId':card_id})
+        corpus_row = corpus_by_path.get(expected['path']) or {}
+        if corpus_row.get('sourceSha256') != expected['sha256'] or corpus_row.get('printedData',{}).get('body') != face.get('printedBody') or corpus_row.get('printedData',{}).get('title') != '' or face.get('printedTitle') != '' or corpus_row.get('extractionState') != 'draft-full' or not corpus_row.get('rulesTextPresent'):
+            failures.append({'check':'Exploration closed-corpus untitled projection','ttsCardId':card_id})
+        registry = source_by_id.get(expected['sourceId']) or {}
+        if (registry.get('path'),registry.get('sha256'),registry.get('authority'),registry.get('occurrenceId'),registry.get('evidenceRecord')) != (expected['path'],expected['sha256'],'source-bound-component-scan',f'TTS-EXPLORATION-{card_id}-FACE',expected['sha256']):
+            failures.append({'check':'Exploration source-registry exact scan tuple','ttsCardId':card_id})
+        units = face.get('sourceUnits') or []
+        if [row.get('sequence') for row in units] != list(range(1,len(units)+1)) or len({row.get('unitId') for row in units}) != len(units):
+            failures.append({'check':'Exploration source-unit IDs/order','ttsCardId':card_id})
+        printed_units = [row for row in units if row.get('unitKind') == 'printed-sentence']
+        diagrams = [row for row in units if row.get('unitKind') == 'source-local-diagram']
+        procedure_lifecycle = [row for row in units if row.get('unitKind') == 'official-procedure-lifecycle']
+        if len(printed_units) != expected['sentences'] or len(diagrams) != 1 or len(procedure_lifecycle) != (0 if expected['removeFromGame'] else 1):
+            failures.append({'check':'Exploration exact sentence/diagram/lifecycle counts','ttsCardId':card_id})
+        body = face.get('printedBody') or ''
+        cursor = 0
+        for unit in units:
+            start,end = unit.get('start'),unit.get('end')
+            if unit.get('unitKind') in {'printed-sentence','source-local-diagram'}:
+                if not isinstance(start,int) or not isinstance(end,int) or start < cursor or body[start:end] != unit.get('exactText'):
+                    failures.append({'check':'Exploration exact source-unit span projection','ttsCardId':card_id,'unitId':unit.get('unitId')})
+                cursor = end if isinstance(end,int) else cursor
+            elif unit.get('unitKind') == 'official-procedure-lifecycle' and (start is not None or end is not None or unit.get('section') != 'lifecycle'):
+                failures.append({'check':'Exploration official discard source-unit projection','ttsCardId':card_id})
+        diagram = diagrams[0] if diagrams else {}
+        diagram_tuple = (
+            diagram.get('roomType'),
+            [row.get('slotIndex') for row in diagram.get('corridorSlots') or []],
+            [row.get('slotIndex') for row in diagram.get('noiseSlots') or []],
+            (diagram.get('roomIcons') or [])[1:],
+        )
+        if diagram_tuple != (expected['roomType'],expected['corridors'],expected['noise'],expected['roomIcons']) or any(row.get('slotLabel') != slot_labels.get(row.get('slotIndex')) for row in (diagram.get('corridorSlots') or []) + (diagram.get('noiseSlots') or [])):
+            failures.append({'check':'independently locked Exploration source-local diagram','ttsCardId':card_id})
+        icons = face.get('iconOccurrences') or []
+        icon_refs = [row.get('semanticReferenceId') for row in icons]
+        expected_icon_refs = ['icon.character', *[f'icon.{value}' for value in expected['roomIcons']], *(['icon.noise']*len(expected['noise'])), 'icon.secure','icon.secure']
+        if (face.get('printedBody') or '').count('[noiseDieHazard]'):
+            expected_icon_refs.append('icon.noiseDieHazard')
+        if len(icons) != expected['icons'] or icon_refs != expected_icon_refs or [row.get('sequence') for row in icons] != list(range(1,len(icons)+1)) or len({row.get('occurrenceId') for row in icons}) != len(icons) or any(ref in {'icon.lifeSupportActive','icon.lifeSupportInactive','icon.hibernatoriumActive','icon.hibernatoriumInactive'} for ref in icon_refs):
+            failures.append({'check':'Exploration exact source-local icon occurrence projection','ttsCardId':card_id})
+        bga = face.get('bgaOccurrence') or {}
+        bga_tuple = (bga.get('type'),bga.get('corridors'),bga.get('corridorsWithNoise'),bga.get('otherTokens'),bga.get('intrudersToAdd'),bga.get('closeDoor'),bga.get('removeFromGame'))
+        if bga_tuple != (expected['roomType'],expected['corridors'],expected['noise'],expected['roomIcons'],expected['adultCount'],expected['closeDoor'],expected['removeFromGame']) or bga.get('sourceId') != 'SRC-BGA-EXPLORATION' or bga.get('sourceSha256') != sha(REPO/'docs/rules/source-extraction/secondary/bga-staticData-260622-1220.js') or not bga.get('sourceBlockText') or (bga.get('sourceBlockText') or '') not in bga_text:
+            failures.append({'check':'Exploration licensed occurrence exact field projection','ttsCardId':card_id})
+        official_ids = [row.get('occurrenceId') for row in face.get('officialOccurrences') or []]
+        if official_ids != expected['official']:
+            failures.append({'check':'Exploration official visible-occurrence projection','ttsCardId':card_id})
+        expected_faq = (["FQ-P02-U06"] if expected['closeDoor'] else []) + (["FQ-P02-U07"] if expected['removeFromGame'] else [])
+        if [row.get('sourceUnitId') for row in face.get('faqOccurrences') or []] != expected_faq:
+            failures.append({'check':'Exploration FAQ occurrence projection','ttsCardId':card_id})
+        join = face.get('joinEvidence') or {}
+        basis_text = ' '.join(join.get('basis') or []).lower()
+        if join.get('titleOnlyJoin') is not False or join.get('identityJoin') != 'explicit occurrence crosswalk' or 'cardid' not in basis_text or 'guid' not in basis_text or 'sha-256' not in basis_text or 'diagram' not in basis_text or 'ordered' not in basis_text:
+            failures.append({'check':'Exploration title/folder/modulo join prohibited','ttsCardId':card_id})
+        backlog_id = 'CARD:' + expected['sha256'][:16]
+        backlog_row = backlog_rows_by_id.get(backlog_id) or {}
+        if face.get('backlogUnitId') != backlog_id or backlog_row.get('sourcePath') != expected['path'] or backlog_row.get('sourceLocator') != expected['sha256'] or backlog_row.get('pilotRuleIds') != [expected['ruleId']] or backlog_row.get('status') != 'pilot-covered':
+            failures.append({'check':'Exploration exact backlog tuple projection','ttsCardId':card_id})
+    actual_exploration_source_ids = {row.get('sourceId') for row in source_rows if row.get('occurrenceId','').startswith('TTS-EXPLORATION-') and row.get('occurrenceId') != 'TTS-EXPLORATION-SHARED-BACK'}
+    bga_exploration_registry = source_by_id.get('SRC-BGA-EXPLORATION') or {}
+    back_registry = source_by_id.get('SRC-EXPLORATION-BACK') or {}
+    shared_back = exploration_sources.get('sharedBack') or {}
+    expected_back_tuple = ('assets/tts-mod/extract/v2-dl/tree/cards/game/exploration-092.jpg','41ad850b1367a2c59049ea3b62f4ff0375d28545cb963ec18bfd3cfb07048db5','BackURL','Deck','63add2',1,12,False)
+    back_selector = shared_back.get('sourceSelector') or {}
+    actual_back_tuple = (shared_back.get('sourcePath'),shared_back.get('sourceSha256'),back_selector.get('key'),back_selector.get('objectType'),back_selector.get('guid'),back_selector.get('deckSelectorCount'),back_selector.get('cardSelectorCount'),shared_back.get('rulesTextPresent'))
+    if actual_exploration_source_ids != expected_exploration_source_ids or bga_exploration_registry.get('authority') != 'licensed-digital-secondary' or bga_exploration_registry.get('occurrenceId') != 'EXPLORATION_CARDS_DATA' or actual_back_tuple != expected_back_tuple or (back_registry.get('path'),back_registry.get('sha256'),back_registry.get('occurrenceId')) != (expected_back_tuple[0],expected_back_tuple[1],'TTS-EXPLORATION-SHARED-BACK'):
+        failures.append({'check':'Exploration source-registry face/back/licensed closure'})
+
     required_fields = schema.get('required') or []
     schema_fields = set((schema.get('properties') or {}).keys())
     if set(required_fields) != schema_fields or schema.get('additionalProperties') is not False:
@@ -361,7 +530,7 @@ def validate(event_source_path: Path, source_path: Path, schema_path: Path, sema
             path = evidence_path(reference)
             if path is None or not path.exists():
                 failures.append({'check': 'semantic conflict evidence', 'conflictId': conflict.get('conflictId'), 'reference': reference})
-    if contradictions.get('counts') != {'conflicts':11,'resolvedByAuthority':3,'unresolved':6,'preservedBoundary':2}:
+    if contradictions.get('counts') != {'conflicts':13,'resolvedByAuthority':4,'unresolved':7,'preservedBoundary':2}:
         failures.append({'check': 'semantic conflict declared counts'})
 
     for record in records:
@@ -767,6 +936,107 @@ def validate(event_source_path: Path, source_path: Path, schema_path: Path, sema
             failures.append({'check': 'independently locked Event semantic projection', 'ruleId':rule_id})
     if any(fragment in ' '.join(coverage.get('notYetCovered') or []) for fragment in ('all 20 Events','all Events')):
         failures.append({'check': 'Event coverage stale not-yet-covered claim'})
+
+    expected_exploration_rule_ids = {row['ruleId'] for row in EXPECTED_EXPLORATION_OCCURRENCES.values()}
+    actual_exploration_rule_ids = {rule_id for rule_id in record_by_id if rule_id.startswith('SEM-EXPLORATION-')}
+    if actual_exploration_rule_ids != expected_exploration_rule_ids:
+        failures.append({'check':'Exploration semantic record closure','missing':sorted(expected_exploration_rule_ids-actual_exploration_rule_ids),'extra':sorted(actual_exploration_rule_ids-expected_exploration_rule_ids)})
+    for card_id,expected in EXPECTED_EXPLORATION_OCCURRENCES.items():
+        source_face = exploration_by_card.get(card_id) or {}
+        item = record_by_id.get(expected['ruleId']) or {}
+        assertions = {row.get('assertionId'):row for row in item.get('sourceAssertions') or []}
+        scan_assertion = assertions.get(f'SA-EXP-{card_id}-SCAN') or {}
+        bga_assertion = assertions.get(f'SA-EXP-{card_id}-BGA') or {}
+        if (scan_assertion.get('sourceId'),scan_assertion.get('sourceSha256'),scan_assertion.get('sourceText'),scan_assertion.get('textKind')) != (expected['sourceId'],expected['sha256'],source_face.get('printedBody'),'verbatim'):
+            failures.append({'check':'Exploration exact scan assertion projection','ttsCardId':card_id})
+        if (bga_assertion.get('sourceId'),bga_assertion.get('sourceText'),bga_assertion.get('textKind')) != ('SRC-BGA-EXPLORATION',(source_face.get('bgaOccurrence') or {}).get('sourceBlockText'),'verbatim'):
+            failures.append({'check':'Exploration exact licensed assertion projection','ttsCardId':card_id})
+        variants = item.get('sourceVariants') or []
+        expected_variants = [(f'SV-EXP-{card_id}-BGA','SRC-BGA-EXPLORATION',f'SA-EXP-{card_id}-BGA')]
+        expected_variants.extend((f'SV-EXP-{card_id}-OFFICIAL-{index:02d}','SRC-RULEBOOK',f'SA-EXP-{card_id}-OFFICIAL-{index:02d}') for index in range(1,len(expected['official'])+1))
+        actual_variants = [(row.get('variantId'),row.get('sourceId'),row.get('sourceAssertionId')) for row in variants]
+        if actual_variants != expected_variants or any(not row.get('difference') or not row.get('resolution') for row in variants):
+            failures.append({'check':'Exploration licensed/official source-variant closure','ttsCardId':card_id})
+        source_units = source_face.get('sourceUnits') or []
+        source_unit_by_id = {row.get('unitId'):row for row in source_units}
+        operations = item.get('operations') or []
+        operation_unit_ids = [row.get('sourceUnitId') for row in operations]
+        first_occurrence_order = list(dict.fromkeys(operation_unit_ids))
+        expected_unit_order = [row.get('unitId') for row in source_units]
+        if not operations or any(unit_id not in source_unit_by_id for unit_id in operation_unit_ids) or first_occurrence_order != expected_unit_order:
+            failures.append({'check':'Exploration semantic source-unit order projection','ttsCardId':card_id})
+        for op in operations:
+            unit = source_unit_by_id.get(op.get('sourceUnitId')) or {}
+            if op.get('sourceUnitKind') != unit.get('unitKind'):
+                failures.append({'check':'Exploration semantic source-unit kind projection','ttsCardId':card_id,'stepId':op.get('stepId')})
+        target_ids = {row.get('targetId') for row in item.get('targets') or []}
+        used_targets = {row.get('targetRef') for row in operations if row.get('targetRef')}
+        if target_ids != used_targets:
+            failures.append({'check':'Exploration target usage closure','ttsCardId':card_id})
+        transitions = [row for row in operations if row.get('operationType') == 'transition-zone']
+        expected_destination = 'tax.scaffold.zone.removed-from-game' if expected['removeFromGame'] else 'tax.scaffold.zone.discard-pile'
+        if len(transitions) != 1 or (transitions[0].get('transition') or {}).get('from') != 'sem.zone.card-in-resolution' or (transitions[0].get('transition') or {}).get('to') != expected_destination or (transitions[0].get('conditionRefs') or []):
+            failures.append({'check':'Exploration remove/discard lifecycle transition lock','ttsCardId':card_id})
+        if expected['removeFromGame']:
+            lifecycle_unit = source_unit_by_id.get(transitions[0].get('sourceUnitId')) or {}
+            faq_assertion_id = f"SA-EXP-{card_id}-FAQ-U07"
+            if lifecycle_unit.get('section') != 'lifecycle' or faq_assertion_id not in (transitions[0].get('sourceAssertionIds') or []) or (transitions[0].get('conditionRefs') or []) or 'still resolves when Entrance Effects are ignored' not in (transitions[0].get('notes') or ''):
+                failures.append({'check':'Exploration remove-from-game scope outside Entrance effect','ttsCardId':card_id})
+        condition_by_id = {row.get('conditionId'):row for row in item.get('preconditions') or []}
+        for op in operations:
+            unit = source_unit_by_id.get(op.get('sourceUnitId')) or {}
+            if unit.get('section') != 'entrance':
+                continue
+            guard_text = json.dumps([condition_by_id.get(ref) for ref in op.get('conditionRefs') or []],ensure_ascii=False)
+            if 'caller does not explicitly ignore Entrance Effects' not in guard_text:
+                failures.append({'check':'Exploration Entrance-effect ignore guard','ttsCardId':card_id,'stepId':op.get('stepId')})
+        diagram_ops = [row for row in operations if (source_unit_by_id.get(row.get('sourceUnitId')) or {}).get('unitKind') == 'source-local-diagram']
+        corridor_op = next((row for row in diagram_ops if row.get('objectRef') == 'one random Corridor in each eligible source-local diagram slot'), {})
+        corridor_repeat = corridor_op.get('repeat') or {}
+        if corridor_repeat.get('slotIndices') != expected['corridors'] or corridor_repeat.get('assignmentOrder') != 'SEM-Q-011 unresolved' or corridor_op.get('targetRef') is None:
+            failures.append({'check':'Exploration no invented multi-slot assignment default','ttsCardId':card_id})
+        room_marker_ops = [row for row in diagram_ops if row.get('objectRef') == 'all source-depicted markers in the new Room']
+        noise_marker_ops = [row for row in diagram_ops if row.get('objectRef') == 'source-depicted Noise markers in placed diagram Corridors']
+        if bool(room_marker_ops) != bool(expected['roomIcons']) or (room_marker_ops and (room_marker_ops[0].get('targetRef') != f'T-EXP-{card_id}-NEW-ROOM' or (room_marker_ops[0].get('repeat') or {}).get('roomMarkerOccurrences') != expected['roomIcons'])):
+            failures.append({'check':'Exploration Room-marker target/source occurrence projection','ttsCardId':card_id})
+        if bool(noise_marker_ops) != bool(expected['noise']) or (noise_marker_ops and (noise_marker_ops[0].get('targetRef') != f'T-EXP-{card_id}-DIAGRAM-SLOTS' or (noise_marker_ops[0].get('repeat') or {}).get('noiseSlotIndices') != expected['noise'])):
+            failures.append({'check':'Exploration Corridor-Noise target/source occurrence projection','ttsCardId':card_id})
+        if item.get('title') != f'Untitled Exploration occurrence {card_id}' or item.get('namedIdentityRefs') or item.get('unresolvedQuestionRefs') != ['SEM-Q-011'] or item.get('status') != 'source-backed-with-open-question':
+            failures.append({'check':'Exploration untitled identity/no-default question projection','ttsCardId':card_id})
+        expected_authority = 'official-errata' if source_face.get('faqOccurrences') else 'official-primary'
+        if item.get('authority',{}).get('highest') != expected_authority:
+            failures.append({'check':'Exploration authority lock','ttsCardId':card_id})
+        if expected['adultCount']:
+            adult_types = [row.get('operationType') for row in operations if 'Corridor just passed through' in row.get('objectRef','')]
+            if adult_types != ['remove-component','place-component'] or any(row.get('invokeRuleId') == 'SEM-SECURE-ENTRY-001' for row in operations):
+                failures.append({'check':'Exploration Adult placement/Noise/no-entry-Attack order','ttsCardId':card_id})
+        if expected['closeDoor'] and not any(row.get('invokeRuleId') == 'SEM-DOOR-001' and 'touching the new Room' in row.get('objectRef','') for row in operations):
+            failures.append({'check':'Exploration FAQ Door scope','ttsCardId':card_id})
+        if (source_face.get('printedBody') or '').count('[noiseDieHazard]') and not any(row.get('invokeRuleId') == 'SEM-NOISE-HAZARD-001' for row in operations):
+            failures.append({'check':'Exploration reusable Hazard procedure','ttsCardId':card_id})
+        if 'Noise roll' in (source_face.get('printedBody') or '') and not any(row.get('invokeRuleId') == 'SEM-NOISE-001' for row in operations):
+            failures.append({'check':'Exploration reusable Entrance Noise procedure','ttsCardId':card_id})
+        searchable = json.dumps(item,ensure_ascii=False)
+        if any(fragment in searchable for fragment in ('icon.lifeSupportActive','icon.lifeSupportInactive','icon.hibernatoriumActive','icon.hibernatoriumInactive','Exploration Card 1 effect','Exploration Card 2 effect')):
+            failures.append({'check':'Exploration no invented title/system icon','ttsCardId':card_id})
+    generic_exploration = record_by_id.get('SEM-ACT-EXPLORE-001') or {}
+    generic_exploration_dispatch = next((op.get('dispatchRuleIds') for op in generic_exploration.get('operations') or [] if op.get('dispatchRuleIds')), None)
+    if generic_exploration_dispatch != [EXPECTED_EXPLORATION_OCCURRENCES[card_id]['ruleId'] for card_id in sorted(EXPECTED_EXPLORATION_OCCURRENCES)] or 'SEM-Q-002' not in generic_exploration.get('unresolvedQuestionRefs',[]):
+        failures.append({'check':'Generic Exploration exact untitled occurrence dispatch/SEM-Q-002'})
+    exploration_question = next((row for row in question_rows if row.get('questionId') == 'SEM-Q-011'), {})
+    if exploration_question.get('defaultProhibited') is not True or exploration_question.get('blocksRuleIds') != [EXPECTED_EXPLORATION_OCCURRENCES[card_id]['ruleId'] for card_id in sorted(EXPECTED_EXPLORATION_OCCURRENCES)] or len(exploration_question.get('alternatives') or []) != 3:
+        failures.append({'check':'Exploration multi-slot question no-default alternatives'})
+    actual_exploration_lock_ids = set(EXPECTED_EXPLORATION_RECORD_DIGESTS) & set(record_by_id)
+    if actual_exploration_lock_ids != set(EXPECTED_EXPLORATION_RECORD_DIGESTS):
+        failures.append({'check':'independently locked Exploration semantic projection','missing':sorted(set(EXPECTED_EXPLORATION_RECORD_DIGESTS)-actual_exploration_lock_ids)})
+    for rule_id,expected_digest in EXPECTED_EXPLORATION_RECORD_DIGESTS.items():
+        item = record_by_id.get(rule_id)
+        actual_digest = hashlib.sha256(json.dumps(item,sort_keys=True,ensure_ascii=False,separators=(',',':')).encode()).hexdigest() if item else None
+        if actual_digest != expected_digest:
+            failures.append({'check':'independently locked Exploration semantic projection','ruleId':rule_id,'actual':actual_digest})
+    not_yet_text = ' '.join(coverage.get('notYetCovered') or [])
+    if 'base Exploration' not in next((row.get('system','') for row in coverage.get('systems') or [] if expected_exploration_rule_ids.issubset(set(row.get('ruleIds') or []))), '') or any(fragment in not_yet_text for fragment in ('all 12 Exploration','all Exploration cards')):
+        failures.append({'check':'Exploration coverage stale not-yet-covered claim'})
     semantic_relation_ids = set(ontology_review.get('deferredSemanticRelationIds') or [])
     if semantic_relation_ids != {'rel.phase-part-of-round','rel.round-has-phase','rel.precedes','rel.follows','rel.turn-occurs-in-phase','rel.phase-has-turn','rel.process-has-timing-window','rel.decision-owned-by','rel.owns-decision','rel.information-visible-to','rel.transition-from','rel.transition-to'}:
         failures.append({'check': 'semantic relation handoff'})
@@ -799,11 +1069,19 @@ def validate(event_source_path: Path, source_path: Path, schema_path: Path, sema
         'eventOfficialOccurrences': sum(len(item.get('officialOccurrences') or []) for item in event_rows),
         'eventRecords': len(actual_event_rule_ids),
         'eventBacklogTuples': sum((backlog_rows_by_id.get('CARD:'+value[2][:16]) or {}).get('pilotRuleIds') == [value[4]] for value in EXPECTED_EVENT_OCCURRENCES.values()),
+        'explorationIdentities': len(exploration_rows),
+        'explorationScanOccurrences': len(exploration_rows),
+        'explorationLicensedOccurrences': len({(item.get('bgaOccurrence') or {}).get('key') for item in exploration_rows}),
+        'explorationOfficialOccurrences': sum(len(item.get('officialOccurrences') or []) for item in exploration_rows),
+        'explorationPrintedSentences': sum(sum(unit.get('unitKind') == 'printed-sentence' for unit in item.get('sourceUnits') or []) for item in exploration_rows),
+        'explorationIconOccurrences': sum(len(item.get('iconOccurrences') or []) for item in exploration_rows),
+        'explorationRecords': len(actual_exploration_rule_ids),
+        'explorationBacklogTuples': sum((backlog_rows_by_id.get('CARD:'+value['sha256'][:16]) or {}).get('pilotRuleIds') == [value['ruleId']] for value in EXPECTED_EXPLORATION_OCCURRENCES.values()),
     }
     if actual_counts != EXPECTED:
         failures.append({'check': 'hard-coded semantic pilot counts', 'expected': EXPECTED, 'actual': actual_counts})
     expected_pilot_counts = {key: actual_counts[key] for key in ('records','sourceBacked','withOpenQuestion','sourceVariants','sourceAssertions','conditions','operations','decisions','informationPolicies','costs','targets','openQuestionReferences','variantReferences')}
-    if pilots.get('counts') != expected_pilot_counts or sources_data.get('counts') != {'sources': 30} or review.get('counts') != {'questions':16,'officialClarificationPreferred':7,'sourceAmbiguitiesIntroducedByPilot':9,'resolved':0,'open':16} or coverage.get('counts') != {'systems':18,'pilotRecords':99,'fullBaseSemanticCoverageClaimed':False}:
+    if pilots.get('counts') != expected_pilot_counts or sources_data.get('counts') != {'sources': 44} or review.get('counts') != {'questions':17,'officialClarificationPreferred':7,'sourceAmbiguitiesIntroducedByPilot':10,'resolved':0,'open':17} or coverage.get('counts') != {'systems':18,'pilotRecords':111,'fullBaseSemanticCoverageClaimed':False}:
         failures.append({'check': 'declared semantic counts'})
     covered_rule_ids = [rule_id for system in coverage.get('systems') or [] for rule_id in system.get('ruleIds') or []]
     if set(covered_rule_ids) != set(record_ids) or len(covered_rule_ids) != len(set(covered_rule_ids)) or coverage.get('counts', {}).get('fullBaseSemanticCoverageClaimed') is not False:
@@ -832,29 +1110,29 @@ def validate(event_source_path: Path, source_path: Path, schema_path: Path, sema
     if len(blocked_units) != 1 or not blocked_units[0].get('sourcePath','').endswith('missionTaskDeck-023.png') or 'exact-source-operative-span' not in blocked_units[0].get('blockers',[]):
         failures.append({'check': 'semantic backlog inherited source blocker'})
     expected_backlog_channels = {'card-reference-source-tuple':350,'interpreted-rule-record':54,'intruder-help-instruction':18,'objective-help-unit':45,'official-faq-unit':28,'room-help-entry':25,'rulebook-visual-obligation':80}
-    expected_backlog_status = {'pending':497,'pilot-covered':102,'source-blocked':1}
+    expected_backlog_status = {'pending':480,'pilot-covered':119,'source-blocked':1}
     if backlog.get('counts') != {'units':600,'byChannel':expected_backlog_channels,'byStatus':expected_backlog_status}:
         failures.append({'check': 'semantic backlog declared counts'})
 
     if reproducibility:
         builds = []
-        for seed in ('1','777'):
+        for seed, locale_name in (('1','C'),('777','C.utf8')):
             with tempfile.TemporaryDirectory(prefix=f'semantic-rebuild-{seed}-') as temp_dir:
-                env = {**os.environ, 'LC_ALL':'C', 'TZ':'UTC', 'PYTHONHASHSEED':seed}
+                env = {**os.environ, 'LC_ALL':locale_name, 'TZ':'UTC', 'PYTHONHASHSEED':seed}
                 run = subprocess.run(['python3', str(REPO / 'scripts/build_semantic_pilots.py'), '--output-dir', temp_dir], cwd=REPO, env=env, check=False, capture_output=True, text=True)
                 if run.returncode != 0:
-                    failures.append({'check': 'semantic rebuild execution', 'seed': seed, 'stderr': run.stderr})
+                    failures.append({'check': 'semantic rebuild execution', 'seed': seed, 'locale':locale_name, 'stderr': run.stderr})
                     continue
                 backlog_run = subprocess.run(['python3', str(REPO / 'scripts/build_semantic_backlog.py'), '--output', str(Path(temp_dir) / 'backlog.json')], cwd=REPO, env=env, check=False, capture_output=True, text=True)
                 if backlog_run.returncode != 0:
-                    failures.append({'check': 'semantic backlog rebuild execution', 'seed': seed, 'stderr': backlog_run.stderr})
+                    failures.append({'check': 'semantic backlog rebuild execution', 'seed': seed, 'locale':locale_name, 'stderr': backlog_run.stderr})
                     continue
                 hashes = {}
-                for name, tracked in [('event-source-index.json',event_source_path),('source-registry.json',source_path),('semantic-rule.schema.json',schema_path),('semantic-vocabulary.json',semantic_vocabulary_path),('room-icon-denotations.json',room_icon_path),('pilots.json',pilots_path),('review-gates.json',review_path),('contradictions.json',contradictions_path),('coverage.json',coverage_path),('backlog.json',backlog_path)]:
+                for name, tracked in [('event-source-index.json',event_source_path),('exploration-source-index.json',exploration_source_path),('source-registry.json',source_path),('semantic-rule.schema.json',schema_path),('semantic-vocabulary.json',semantic_vocabulary_path),('room-icon-denotations.json',room_icon_path),('pilots.json',pilots_path),('review-gates.json',review_path),('contradictions.json',contradictions_path),('coverage.json',coverage_path),('backlog.json',backlog_path)]:
                     rebuilt = Path(temp_dir) / name
                     hashes[name] = sha(rebuilt) if rebuilt.is_file() else None
                     if not rebuilt.is_file() or hashes[name] != sha(tracked):
-                        failures.append({'check': 'semantic reproducibility', 'seed': seed, 'file': name})
+                        failures.append({'check': 'semantic reproducibility', 'seed': seed, 'locale':locale_name, 'file': name})
                 builds.append(hashes)
         if len(builds) == 2 and builds[0] != builds[1]:
             failures.append({'check': 'semantic hash-seed reproducibility'})
@@ -865,6 +1143,7 @@ def validate(event_source_path: Path, source_path: Path, schema_path: Path, sema
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument('--event-source-index', type=Path, default=DIR/'event-source-index.json')
+    parser.add_argument('--exploration-source-index', type=Path, default=DIR/'exploration-source-index.json')
     parser.add_argument('--source-registry', type=Path, default=DIR/'source-registry.json')
     parser.add_argument('--schema', type=Path, default=DIR/'semantic-rule.schema.json')
     parser.add_argument('--semantic-vocabulary', type=Path, default=DIR/'semantic-vocabulary.json')
@@ -878,7 +1157,7 @@ def main() -> int:
     parser.add_argument('--report', action='store_true')
     args = parser.parse_args()
     try:
-        report = validate(args.event_source_index,args.source_registry,args.schema,args.semantic_vocabulary,args.room_icon_denotations,args.pilots,args.review_gates,args.contradictions,args.coverage,args.backlog,reproducibility=not args.skip_reproducibility)
+        report = validate(args.event_source_index,args.exploration_source_index,args.source_registry,args.schema,args.semantic_vocabulary,args.room_icon_denotations,args.pilots,args.review_gates,args.contradictions,args.coverage,args.backlog,reproducibility=not args.skip_reproducibility)
     except (DuplicateJsonKeyError,json.JSONDecodeError) as error:
         report = {'schemaVersion':1,'passed':False,'checks':{},'failureCount':1,'failures':[{'check':'strict JSON parsing','error':str(error)}]}
     if args.report and args.pilots.resolve() == (DIR/'pilots.json').resolve():

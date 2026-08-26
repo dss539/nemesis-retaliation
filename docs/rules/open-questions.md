@@ -142,3 +142,14 @@ Use this ledger for ambiguities that the official rulebook and FAQ do not settle
   - (a) The player chooses a legal edge/end point.
   - (b) A physical-game placement procedure or deterministic edge rule applies.
 - **Status:** Open. The semantic pilot preserves the decision as source-unspecified and adopts no default.
+
+### SEM-Q-011 — Exploration multi-slot Corridor draw and finite-component allocation order
+
+- **Question:** When an Exploration face shows multiple eligible Corridor slots, what assigns each random Corridor draw—and any last available finite Corridor, Noise, or Door component—to a particular source-local slot when assignment can affect the result?
+- **Why it matters:** Corridor values and Door slots differ, and component scarcity can make only a subset of depicted placements possible. Choosing, ordering, or randomizing the slot assignment changes the map and cannot be automated without a source-backed owner or tie-break.
+- **Sources checked:** Rulebook p. 17, “Component Limits” (lines 3538–3548); p. 24, “Set up the Corridors” and “Set up markers and tokens” (lines 4502–4522); all 12 exact base face diagrams and the licensed structured variants in `docs/rules/semantics/exploration-source-index.json`; FAQ v1.2.
+- **Candidate readings:**
+  - (a) The exploring player assigns each random draw or last available component to an eligible depicted slot.
+  - (b) A fixed source-local order begins from the printed North orientation and proceeds in an unstated direction.
+  - (c) Draws/components are randomly assigned among eligible slots.
+- **Status:** Open. No checked source names an owner, start slot, direction, or additional randomization. `docs/rules/semantics/review-gates.json` prohibits a default while every exact diagram remains independently preserved.

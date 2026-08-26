@@ -14,6 +14,12 @@ from semantic_event_records import (
     build_event_source_index,
     event_source_registry_rows,
 )
+from semantic_exploration_records import (
+    EXPLORATION_RULE_IDS,
+    build_exploration_records,
+    build_exploration_source_index,
+    exploration_source_registry_rows,
+)
 from room_icon_denotations import build_room_icon_denotations
 
 REPO = Path(__file__).resolve().parents[1]
@@ -33,6 +39,7 @@ def write(name: str, value: dict) -> None:
 
 
 event_source_index = build_event_source_index(REPO)
+exploration_source_index = build_exploration_source_index(REPO)
 
 sources = {
     'SRC-RULEBOOK': {
@@ -82,6 +89,8 @@ sources = {
     },
 }
 for source in event_source_registry_rows(event_source_index):
+    sources[source['sourceId']] = source
+for source in exploration_source_registry_rows(exploration_source_index):
     sources[source['sourceId']] = source
 source_registry = {
     'schemaVersion': 1, 'recordType': 'semantic-source-registry',
@@ -255,8 +264,9 @@ records.append(record(
     ['term.exploration-sequence','term.exploration-card','term.unexplored-corridor','term.undiscovered','term.discovered'],['tax.process.sequence.exploration','tax.entity.component.card.exploration','tax.state.corridor.unexplored','tax.state.discovery.undiscovered','tax.state.discovery.discovered'],[],
     timing('TW-EXPLORE','tax.process.sequence.movement','when-triggered','per-Unexplored-destination'),[participant('P-EXPLORER','actor','tax.entity.agent.character'),participant('P-RULES','rules-system')],'must',
     [condition('C-EXPLORE','all',[{'predicate':'Movement reaches an Unexplored Corridor'},{'predicate':'destination Room slot is empty and Undiscovered'}],['SA-EXP-1'])],[],[{'informationId':'I-EXPLORATION-CARD','subjectRef':'drawn Exploration card','audience':'public','revealTrigger':'draw','secrecy':'none'}],[],[],
-    [operation('S01',1,'shuffle','if-able','P-RULES','non-removed Exploration discard cards into Exploration deck',['SA-EXP-1'],conditions=['Exploration deck is empty']),operation('S02',2,'draw-random','must','P-RULES','top Exploration card',['SA-EXP-1']),operation('S03',3,'place-component','must','P-RULES','random Room of required A/B/C type; use ? if exhausted',['SA-EXP-1']),operation('S04',4,'place-component','if-able','P-RULES','each indicated Corridor',['SA-EXP-1'],notes='Omit a Corridor that would leave the Facility or connect to an already placed Room.'),operation('S05',5,'place-component','if-able','P-RULES','depicted markers/tokens',['SA-EXP-1']),operation('S06',6,'move-entity','must','P-EXPLORER','newly placed Room',['SA-EXP-1']),operation('S07',7,'invoke-process','if-able','P-RULES','Entrance Effect',['SA-EXP-1']),operation('S08',8,'resolve-open-alternative','must','P-RULES','SEM-Q-002 post-Movement Noise accounting',['SA-EXP-3'],notes='No default: either the Entrance Noise satisfies the universal roll or a separate universal roll also occurs.'),operation('S09',9,'transition-zone','must','P-RULES','Exploration card',['SA-EXP-1','SA-EXP-2'],transition={'from':'sem.zone.card-in-resolution','to':'discard-or-removed-as-printed'})],
-    {'policy':'source-conditional-steps','unit':'indicated Corridor/marker and sentence','onImpossible':'Omit only source-defined invalid Corridors; remove-from-game instruction still resolves when Entrance Effect is ignored'}, {'kind':'instantaneous-sequence'}, {'policy':'not-applicable'}, [], ['SEM-Q-002'], []))
+    [operation('S01',1,'shuffle','if-able','P-RULES','non-removed Exploration discard cards into Exploration deck',['SA-EXP-1'],conditions=['Exploration deck is empty']),operation('S02',2,'draw-random','must','P-RULES','top Exploration card into resolution',['SA-EXP-1']),operation('S03',3,'invoke-selected-process','must','P-RULES','exact Exploration-card semantic record selected by locked untitled source occurrence identity',['SA-EXP-1','SA-EXP-2'],notes='Dispatch uses the exact TTS CardID/GUID/source tuple and diagram crosswalk, never title, folder, display name, BGA number alone, or CardID modulo.'),operation('S04',4,'resolve-open-alternative','must','P-RULES','SEM-Q-002 post-Movement Noise accounting',['SA-EXP-3'],notes='No default: either the Entrance Noise satisfies the universal roll or a separate universal roll also occurs.')],
+    {'policy':'source-conditional-steps','unit':'draw/dispatch and exact occurrence-level source unit','onImpossible':'The invoked occurrence owns invalid-Corridor, finite-component, Entrance-effect, and lifecycle boundaries; SEM-Q-002 remains unresolved'}, {'kind':'instantaneous-sequence'}, {'policy':'not-applicable'}, [], ['SEM-Q-002'], []))
+records[-1]['operations'][2]['dispatchRuleIds']=list(EXPLORATION_RULE_IDS)
 
 records.append(record(
     'SEM-ACT-SEARCH-001','Search Action-card effect','source-backed','component-effect','official-primary','source-composed',
@@ -322,11 +332,12 @@ records.extend(build_general_records(record, assertion, timing, participant, con
 records.extend(build_intruder_help_records(REPO, record, assertion, timing, participant, condition, operation))
 records.extend(build_room_records(REPO, record, assertion, timing, participant, condition, decision, operation))
 records.extend(build_event_records(REPO, event_source_index, record, assertion, timing, participant, condition, decision, operation))
+records.extend(build_exploration_records(REPO, exploration_source_index, record, assertion, timing, participant, condition, decision, operation))
 records.sort(key=lambda item: item['ruleId'])
 
 semantic_questions = {
     'schemaVersion':1,'recordType':'semantic-review-gates','status':'pilot built with deferred questions and explicit alternatives; no default answer adopted',
-    'counts':{'questions':16,'officialClarificationPreferred':7,'sourceAmbiguitiesIntroducedByPilot':9,'resolved':0,'open':16},
+    'counts':{'questions':17,'officialClarificationPreferred':7,'sourceAmbiguitiesIntroducedByPilot':10,'resolved':0,'open':17},
     'questions':[
         {'questionId':'OQ-001','title':'Eclosion existing-hand behavior','decisionClass':'official-clarification-preferred','blocksRuleIds':['SEM-ENDGAME-001','SEM-ECLOSION-PROCEDURE-001'],'plannedRuleIds':[],'defaultProhibited':True,'sourceEvidenceRefs':['docs/rules/open-questions.md:OQ-001'],'alternatives':[{'alternativeId':'OQ-001-A','description':'Check all cards in hand after drawing, including pre-existing cards.','support':'literal “in hand” wording'},{'alternativeId':'OQ-001-B','description':'Check only the four newly drawn cards.','support':'possible procedure intent; not stated'}]},
         {'questionId':'OQ-002','title':'Endgame Larva iteration timing','decisionClass':'official-clarification-preferred','blocksRuleIds':['SEM-ENDGAME-001'],'plannedRuleIds':[],'defaultProhibited':True,'sourceEvidenceRefs':['docs/rules/open-questions.md:OQ-002'],'alternatives':[{'alternativeId':'OQ-002-A','description':'Evaluate “currently has a Larva” when the Eclosion cohort step is reached, including Larvae gained in the preceding Infection step.','support':'sequential text and “during this Sequence” note'},{'alternativeId':'OQ-002-B','description':'Snapshot Larva status at the start of endgame.','support':'possible cohort-intent reading; not explicit'}]},
@@ -344,6 +355,7 @@ semantic_questions = {
         {'questionId':'SEM-Q-008','title':'Finite Malfunction allocation and fallback order across Event target Rooms','decisionClass':'source-ambiguity-owner-decision-after-source-search','blocksRuleIds':['SEM-EVENT-SYSTEM-FAILURE-001','SEM-EVENT-DAMAGE-001','SEM-EVENT-LIFE-SUPPORT-FAILURE-001','SEM-EVENT-DAMAGING-FIRE-001','SEM-EVENT-GENERATORS-OVERHEAT-001','SEM-EVENT-REACTOR-OVERHEATING-001'],'plannedRuleIds':[],'defaultProhibited':True,'sourceEvidenceRefs':['docs/rulebooks/rulebook_text.txt:lines 3269–3299, 4368–4375, 4414–4426','docs/rules/semantics/event-source-index.json'],'alternatives':[{'alternativeId':'SEM-Q-008-A','description':'Resolve eligible Rooms top-left row by row, spending remaining Malfunctions and then applying Fire fallback.','support':'a deterministic spatial order exists for Noise effects, not for these marker placements'},{'alternativeId':'SEM-Q-008-B','description':'Treat the whole multi-Room printed sentence as simultaneous and apply one source-defined aggregate fallback.','support':'Event impossibility is sentence-scoped, but no aggregate finite-pool rule is stated'},{'alternativeId':'SEM-Q-008-C','description':'A player chooses which eligible Rooms receive remaining Malfunctions versus fallback Fire.','support':'would allocate scarcity but no decision owner is named'}]},
         {'questionId':'SEM-Q-009','title':'Fire-spread source snapshot versus propagation during one Event sentence','decisionClass':'source-ambiguity-owner-decision-after-source-search','blocksRuleIds':['SEM-FIRE-SPREAD-001','SEM-EVENT-FIRE-BREATH-001','SEM-EVENT-DAMAGING-FIRE-001'],'plannedRuleIds':[],'defaultProhibited':True,'sourceEvidenceRefs':['docs/rulebooks/rulebook_text.txt:lines 4284–4287, 4436–4456','assets/tts-mod/extract/v2-dl/tree/cards/game/event-052.png','assets/tts-mod/extract/v2-dl/tree/cards/game/event-167.png'],'alternatives':[{'alternativeId':'SEM-Q-009-A','description':'Snapshot source Rooms containing Fire when the printed spread sentence begins.','support':'bounded reading of “From each Room with Fire”'},{'alternativeId':'SEM-Q-009-B','description':'A newly placed Fire becomes another source during the same sentence and may propagate further.','support':'literal state can satisfy “Room with Fire” after placement; no stop rule is stated'},{'alternativeId':'SEM-Q-009-C','description':'Use another source-defined simultaneous spread procedure.','support':'no checked ordering/snapshot procedure was recovered'}]},
         {'questionId':'SEM-Q-010','title':'Robot Malfunction effect-availability contradiction','decisionClass':'official-clarification-preferred','blocksRuleIds':['SEM-ROBOT-MALFUNCTION-001','SEM-EVENT-RISE-OF-THE-MACHINE-001'],'plannedRuleIds':[],'defaultProhibited':True,'sourceEvidenceRefs':['docs/rulebooks/rulebook_text.txt:lines 4383–4391, 6015–6022','assets/tts-mod/extract/v2-dl/tree/cards/game/event-166.jpg'],'alternatives':[{'alternativeId':'SEM-Q-010-A','description':'Page 22 controls: effects that only require a Robot remain available, and a repeated Robot Malfunction placement is ignored.','support':'specific Malfunction-on-Robot passage on page 22'},{'alternativeId':'SEM-Q-010-B','description':'Page 37 controls: all game effects mentioning a malfunctioned Robot are unavailable.','support':'later Robot-specific passage on page 37'},{'alternativeId':'SEM-Q-010-C','description':'Harmonize by distinguishing using Robot text/Actions from external effects that merely locate or require the Robot.','support':'possible scoped reading, but the source does not state the boundary'}]},
+        {'questionId':'SEM-Q-011','title':'Exploration multi-slot Corridor draw and finite-component allocation order','decisionClass':'source-ambiguity-owner-decision-after-source-search','blocksRuleIds':EXPLORATION_RULE_IDS,'plannedRuleIds':[],'defaultProhibited':True,'sourceEvidenceRefs':['docs/rulebooks/rulebook_text.txt:lines 3538–3548, 4502–4522','docs/rules/semantics/exploration-source-index.json'],'alternatives':[{'alternativeId':'SEM-Q-011-A','description':'The exploring player assigns each random Corridor draw and each last available finite component to one eligible source-local slot.','support':'physical handling could permit player placement, but the source names no decision owner'},{'alternativeId':'SEM-Q-011-B','description':'Use a fixed source-local spatial order anchored to the printed North orientation for Corridor draws and scarce components.','support':'the card has a North orientation and exact slots, but no clockwise/counterclockwise/start-slot rule is stated'},{'alternativeId':'SEM-Q-011-C','description':'Randomly assign drawn Corridors and scarce components among the remaining eligible source-local slots.','support':'Corridor identity is random, but the source does not extend randomness to slot assignment'}]},
     ],
 }
 
@@ -352,7 +364,7 @@ contradictions = {
     'schemaVersion': 1,
     'recordType': 'semantic-conflict-register',
     'policy': 'Readable source differences remain separate. Authority may resolve a general rule without rewriting lower-authority component wording; unresolved conflicts never receive a default.',
-    'counts': {'conflicts': 11, 'resolvedByAuthority': 3, 'unresolved': 6, 'preservedBoundary': 2},
+    'counts': {'conflicts': 13, 'resolvedByAuthority': 4, 'unresolved': 7, 'preservedBoundary': 2},
     'conflicts': [
         {'conflictId':'SC-001','title':'Search keep optionality and unchosen destination','status':'resolved-by-authority','questionId':None,'affectedRuleIds':['SEM-ACT-SEARCH-001'],'evidenceRefs':['SRC-RULEBOOK','SRC-CARD-SEARCH-MEDICAL'],'difference':'Card says may keep 1 / discard the rest; rulebook says pick 1, put unchosen cards on respective deck bottoms, and do not reveal them.','resolution':'Official-primary rulebook controls the general Search procedure; exact card wording remains a source variant.'},
         {'conflictId':'SC-002','title':'Rest Uninfected/non-Infected wording and destination','status':'resolved-by-authority','questionId':None,'affectedRuleIds':['SEM-ACT-REST-001'],'evidenceRefs':['SRC-RULEBOOK','SRC-CARD-REST','SRC-CARD-REST-MEDICAL'],'difference':'Reviewed face says remove all Uninfected; Medical Support variant says remove non-Infected instead of discarding; ordinary Infection Procedure discards all Contaminations.','resolution':'Each component variant is retained. Pilot composes the reviewed face as a destination override over the official Procedure.'},
@@ -365,6 +377,8 @@ contradictions = {
         {'conflictId':'SC-009','title':'Leaving the Shell source glyphs versus licensed semantic placeholders','status':'unresolved','questionId':'SEM-Q-006','affectedRuleIds':['SEM-EVENT-LEAVING-THE-SHELL-001'],'evidenceRefs':['SRC-EVENT-5614','SRC-BGA-EVENTS','assets/tts-mod/extract/selected-card-text-evidence.json'],'difference':'The component scan preserves three featureless white rectangles with explicit no-match decisions; the licensed record labels all three ACTION-CARD.','resolution':'No default; retain the literal scan and licensed semantic occurrence independently until current official component evidence resolves identity.'},
         {'conflictId':'SC-010','title':'Reactor Overheating licensed movement sentence omits its verb','status':'resolved-by-authority','questionId':None,'affectedRuleIds':['SEM-EVENT-REACTOR-OVERHEATING-001'],'evidenceRefs':['SRC-RULEBOOK','SRC-EVENT-5626','SRC-BGA-EVENTS'],'difference':'The official rulebook component occurrence and TTS scan say the three Corridor-orientation Intruders move; the BGA movement entry ends after the orientation list without “move.”','resolution':'Official/current visible component evidence and the exact scan control; preserve the BGA omission as a lower-authority variant.'},
         {'conflictId':'SC-011','title':'Robot Malfunction effect availability on rulebook pages 22 and 37','status':'unresolved','questionId':'SEM-Q-010','affectedRuleIds':['SEM-ROBOT-MALFUNCTION-001','SEM-EVENT-RISE-OF-THE-MACHINE-001'],'evidenceRefs':['SRC-RULEBOOK','SRC-EVENT-5627'],'difference':'Page 22 permits effects that only require a broken Robot and ignores repeated Robot Malfunction placement; page 37 says all game effects mentioning the broken Robot are unavailable.','resolution':'No default; both equal-authority passages and their Rise of the Machine consequence remain explicit.'},
+        {'conflictId':'SC-012','title':'Current official Exploration wording versus untitled TTS face wording','status':'resolved-by-authority','questionId':None,'affectedRuleIds':['SEM-EXPLORATION-5634-001','SEM-EXPLORATION-5639-001'],'evidenceRefs':['SRC-RULEBOOK','SRC-EXPLORATION-5634','SRC-EXPLORATION-5639','SRC-BGA-EXPLORATION'],'difference':'Official visible faces spell out current Room placement and Moving Cautiously wording; the TTS faces abbreviate placement and print two source-local Secure glyph occurrences in the reminder.','resolution':'Official-primary visible wording controls the matching current occurrences; exact untitled TTS and licensed structured variants remain independently preserved.'},
+        {'conflictId':'SC-013','title':'Exploration multi-slot assignment has no source-named owner or order','status':'unresolved','questionId':'SEM-Q-011','affectedRuleIds':EXPLORATION_RULE_IDS,'evidenceRefs':['SRC-RULEBOOK','docs/rules/semantics/exploration-source-index.json'],'difference':'Each face shows two to four source-local Corridor slots and some show multiple Noise/Door placements, while the rulebook says to place a random Corridor in each shown space and treats components as finite without assigning draws or scarce components among slots.','resolution':'No default; preserve exact slot sets and all alternatives in review-gates.json without inventing a player choice, spatial order, or extra randomization.'},
     ],
 }
 
@@ -378,7 +392,7 @@ coverage = {
     'schemaVersion':1,'recordType':'semantic-pilot-coverage','status':'representative pilot only',
     'systems':[
         {'system':'round/phase/turn','ruleIds':['SEM-RT-001','SEM-RT-004','SEM-RT-005','SEM-RT-007']},
-        {'system':'movement/exploration','ruleIds':['SEM-ACT-MOVE-001','SEM-ACT-EXPLORE-001']},
+        {'system':'movement/base Exploration cards','ruleIds':['SEM-ACT-MOVE-001','SEM-ACT-EXPLORE-001',*EXPLORATION_RULE_IDS]},
         {'system':'private search/zone handling','ruleIds':['SEM-ACT-SEARCH-001']},
         {'system':'infection/card modifier','ruleIds':['SEM-ACT-REST-001']},
         {'system':'reaction/replacement target','ruleIds':['SEM-REACTION-DUCK-001']},
@@ -397,9 +411,10 @@ coverage = {
         {'system':'Robot Malfunction','ruleIds':['SEM-ROBOT-MALFUNCTION-001']},
     ],
     'counts':{'systems':18,'pilotRecords':len(records),'fullBaseSemanticCoverageClaimed':False},
-    'notYetCovered':['remaining card corpus outside the closed 20-card base Event family','all Objectives/Mission Tasks','all Item/Robot/Attack/Queen Health/Serious Wound effects','remaining setup, map, procedure, and component lifecycle rules'],
+    'notYetCovered':['remaining card corpus outside the closed 20-card base Event and 12-card base Exploration families','all Objectives/Mission Tasks','all Item/Robot/Attack/Queen Health/Serious Wound effects','remaining setup, map, procedure, and component lifecycle rules'],
 }
 
+write('exploration-source-index.json', exploration_source_index)
 write('event-source-index.json', event_source_index)
 write('source-registry.json', source_registry)
 write('semantic-rule.schema.json', semantic_schema)

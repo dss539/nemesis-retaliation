@@ -47,7 +47,7 @@ The wording “must,” “may,” and “cannot” is deliberate:
 - `03-intruders-and-survival.md` — intruder bag, movement, attacks, health, contamination, eclosion, escape, endgame resolution (INT-001–011, 6 examples).
 - `04-items-and-equipment.md` — source-backed Item physical classes, source families, storage, Tactical Gear, and Item Icons (ITM-001–008).
 - `deviations.md` — deliberate digital adaptations only; currently one recorded proposal. Implementation bugs never belong there.
-- `open-questions.md` — 12 tracked questions: six genuine semantic/source ambiguities remain open and six former extraction/vision questions are explicitly resolved.
+- `open-questions.md` — source ambiguities and resolved former extraction/vision questions; semantic no-default gates are enumerated authoritatively in `semantics/review-gates.json`.
 - `sources.md` — source editions and citation conventions.
 - `vocabulary/` — approved controlled terms, aliases, source-term inventory, named identity observations, and validation.
 - `ontology/` — independently reviewed taxonomy/ontology, complete vocabulary/identity/alias mappings, static relationship shapes, constraints, and validation.

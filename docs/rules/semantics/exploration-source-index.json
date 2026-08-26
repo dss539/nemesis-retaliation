@@ -1,0 +1,2729 @@
+{
+  "schemaVersion": 1,
+  "recordType": "semantic-exploration-source-index",
+  "scope": "entire base-game Exploration-card family; source versions and untitled occurrences remain independent",
+  "derivationPolicy": "Derive base faces from the root TTS role, exact CardID/GUID/FaceURL provenance, closed-corpus bytes, literal diagrams, and ordered source units; crosswalk explicitly to licensed and official visible occurrences without title, folder, display-name, or modulo joins.",
+  "counts": {
+    "explorationIdentities": 12,
+    "ttsFaceOccurrences": 12,
+    "ttsSharedBackOccurrences": 1,
+    "directFaceSelectors": 12,
+    "generatedSpriteSheetCells": 0,
+    "selectorGaps": 0,
+    "untitledFaces": 12,
+    "sourceBoundDraftFaces": 12,
+    "licensedDigitalOccurrences": 12,
+    "officialVisibleComponentOccurrences": 3,
+    "officialVisibleComponentIdentities": 2,
+    "faqOccurrences": 8,
+    "printedSentences": 46,
+    "sourceLocalDiagrams": 12,
+    "functionalIconOccurrences": 60,
+    "backlogTuples": 12
+  },
+  "familyCountEvidence": {
+    "officialRulebook": {
+      "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
+      "locator": "unprinted PDF page 3 / component list / rulebook_text line 535",
+      "printedCount": 12
+    },
+    "ttsRole": {
+      "sourcePath": "assets/tts-mod/extract/v2/lua_roles.json",
+      "deckGuid": "63add2",
+      "rootParent": [],
+      "nUrls": 13,
+      "faceCardIds": [
+        5629,
+        5630,
+        5631,
+        5632,
+        5633,
+        5634,
+        5635,
+        5636,
+        5637,
+        5638,
+        5639,
+        5640
+      ],
+      "faceCount": 12,
+      "sharedBackCount": 1
+    },
+    "closedCorpus": {
+      "sourcePath": "assets/tts-mod/extract/card-text-corpus.json",
+      "faceCount": 12,
+      "generatedSpriteSheetCells": 0,
+      "sourcePaths": [
+        "assets/tts-mod/extract/v2-dl/tree/cards/game/exploration-027.png",
+        "assets/tts-mod/extract/v2-dl/tree/cards/game/exploration-107.png",
+        "assets/tts-mod/extract/v2-dl/tree/cards/game/exploration-062.png",
+        "assets/tts-mod/extract/v2-dl/tree/cards/game/exploration-031.png",
+        "assets/tts-mod/extract/v2-dl/tree/cards/game/exploration-025.png",
+        "assets/tts-mod/extract/v2-dl/tree/cards/game/exploration-024.png",
+        "assets/tts-mod/extract/v2-dl/tree/cards/game/exploration-032.png",
+        "assets/tts-mod/extract/v2-dl/tree/cards/game/exploration-026.png",
+        "assets/tts-mod/extract/v2-dl/tree/cards/game/exploration-037.png",
+        "assets/tts-mod/extract/v2-dl/tree/cards/game/exploration-036.png",
+        "assets/tts-mod/extract/v2-dl/tree/cards/game/exploration-087.png",
+        "assets/tts-mod/extract/v2-dl/tree/cards/game/exploration-076.png"
+      ]
+    },
+    "licensedDigital": {
+      "sourcePath": "docs/rules/source-extraction/secondary/bga-staticData-260622-1220.js",
+      "indexPath": "docs/rules/source-extraction/secondary-evidence-index.json",
+      "table": "EXPLORATION_CARDS_DATA",
+      "count": 12,
+      "keys": [
+        "ExplorationCard1",
+        "ExplorationCard10",
+        "ExplorationCard11",
+        "ExplorationCard12",
+        "ExplorationCard2",
+        "ExplorationCard3",
+        "ExplorationCard4",
+        "ExplorationCard5",
+        "ExplorationCard6",
+        "ExplorationCard7",
+        "ExplorationCard8",
+        "ExplorationCard9"
+      ]
+    },
+    "officialVisuals": {
+      "sourcePath": "docs/rules/source-extraction/rulebook-visual-obligations.json",
+      "occurrenceIds": [
+        "RB-P24-V01",
+        "RB-P26-V01",
+        "RB-P27-V01"
+      ],
+      "occurrenceCount": 3,
+      "componentIdentityCount": 2
+    },
+    "backlog": {
+      "sourcePath": "docs/rules/semantics/backlog.json",
+      "count": 12,
+      "unitIds": [
+        "CARD:3da198b348a70d64",
+        "CARD:daf8fb6f2bc9836b",
+        "CARD:b3be8596be1e99b3",
+        "CARD:549bb22b017b6df9",
+        "CARD:774b6ed8ea4492bf",
+        "CARD:3cfb21c76b93ba8e",
+        "CARD:9c521a0ca8f93033",
+        "CARD:08445a3d8b18081d",
+        "CARD:3101f9f9a5df9d01",
+        "CARD:160d5d76b631d1cc",
+        "CARD:d52ff877e59bfda1",
+        "CARD:e4e92cae40da14f3"
+      ]
+    }
+  },
+  "excludedExpansionRoles": [
+    {
+      "role": "xyrianExplorationDeck",
+      "guid": "6b2b69",
+      "scope": "Xyrian expansion",
+      "cardIds": [
+        5431,
+        5432,
+        5433
+      ],
+      "reason": "expansion material excluded from the base-game semantic batch"
+    },
+    {
+      "role": "explorationDeck",
+      "guid": "a24dc8",
+      "scope": "Neoflesh expansion",
+      "cardIds": [
+        5641,
+        5642,
+        5643,
+        5644,
+        5645,
+        5646,
+        5647,
+        5648,
+        5649,
+        5650,
+        5651,
+        5652
+      ],
+      "reason": "expansion material excluded from the base-game semantic batch"
+    },
+    {
+      "role": "explorationDeck",
+      "guid": "dd1eda",
+      "scope": "Sangrevores expansion",
+      "cardIds": [
+        4671,
+        4672,
+        4673,
+        4692,
+        4694,
+        4695,
+        4696,
+        4697,
+        5025,
+        5450,
+        5451,
+        5452
+      ],
+      "reason": "expansion material excluded from the base-game semantic batch"
+    },
+    {
+      "role": "explorationDeck",
+      "guid": "2e8e9d",
+      "scope": "Carnomorph expansion",
+      "cardIds": [
+        5674,
+        5675,
+        5676,
+        5677,
+        5678,
+        5679,
+        5680,
+        5681,
+        5682,
+        5683,
+        5684,
+        5685
+      ],
+      "reason": "expansion material excluded from the base-game semantic batch"
+    }
+  ],
+  "sharedBack": {
+    "sourceId": "SRC-EXPLORATION-BACK",
+    "occurrenceId": "TTS-EXPLORATION-SHARED-BACK",
+    "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/exploration-092.jpg",
+    "sourceSha256": "41ad850b1367a2c59049ea3b62f4ff0375d28545cb963ec18bfd3cfb07048db5",
+    "sourceAuthority": "source-bound-component-scan",
+    "sourceVersion": "TTS shared base Exploration back / deck 63add2",
+    "sourceSelector": {
+      "key": "BackURL",
+      "objectType": "Deck",
+      "guid": "63add2",
+      "url": "https://steamusercontent-a.akamaihd.net/ugc/15409166541023885571/68D5B02068C5FFB6F00EF285E5C7B10D20B6D6E0/",
+      "deckSelectorCount": 1,
+      "cardSelectorCount": 12
+    },
+    "corpusEvidencePath": "assets/tts-mod/extract/card-text-corpus.json",
+    "provenanceEvidencePath": "assets/tts-mod/extract/card-provenance-inventory.json",
+    "rulesTextPresent": false,
+    "printedBackLabel": "EXPLORATION\nPRIMEBLOOD",
+    "role": "paired non-operative shared card back"
+  },
+  "faces": [
+    {
+      "explorationOccurrenceId": "TTS-EXPLORATION-5629-FACE",
+      "ttsDeckGuid": "63add2",
+      "ttsCardGuid": "f1056e",
+      "ttsCardId": 5629,
+      "ttsRole": "explorationDeck",
+      "ttsClassification": "exploration",
+      "sourceSelector": {
+        "key": "FaceURL",
+        "objectType": "CardCustom",
+        "cardId": 562900,
+        "guid": "f1056e",
+        "parentDeckGuid": "63add2",
+        "url": "https://steamusercontent-a.akamaihd.net/ugc/11925215518050719/4C6CCB5E2452EE1966E603E99743C8BAC852419E/",
+        "selectorStatus": "exact",
+        "selectorGap": null,
+        "generatedSpriteSheetCell": false
+      },
+      "sourceId": "SRC-EXPLORATION-5629",
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/exploration-027.png",
+      "sourceSha256": "3da198b348a70d64e20de051034e98aa2454ef1912df3cf18e78eaf7c4800043",
+      "sourceAuthority": "source-bound-component-scan",
+      "sourceVersion": "TTS base Exploration face / deck 63add2 / cardId 5629",
+      "corpusEvidencePath": "assets/tts-mod/extract/card-text-corpus.json",
+      "provenanceEvidencePath": "assets/tts-mod/extract/card-provenance-inventory.json",
+      "visionEvidencePath": "assets/tts-mod/extract/vision-progress.json",
+      "printedTitle": "",
+      "identityLabel": "untitled TTS Exploration occurrence 5629",
+      "printedBody": "Place A/B/C Room\ndepending on your Section.\n\n[character]\n[noise]\n\nReminder:\nPlace 1 [secure] if you are Moving with [secure].\n\nResolve\n[noiseDieHazard]",
+      "extractionState": "draft-full",
+      "rulesInformationReadiness": "draft-text-complete",
+      "sourceUnits": [
+        {
+          "sentenceId": "EX5629-PLACEMENT-01",
+          "section": "placement",
+          "exactText": "Place A/B/C Room\ndepending on your Section.",
+          "unitId": "EX5629-PLACEMENT-01",
+          "unitKind": "printed-sentence",
+          "sequence": 1,
+          "start": 0,
+          "end": 43
+        },
+        {
+          "unitId": "EX5629-DIAGRAM-01",
+          "unitKind": "source-local-diagram",
+          "section": "diagram",
+          "sequence": 2,
+          "start": 45,
+          "end": 64,
+          "exactText": "[character]\n[noise]",
+          "roomType": "ABC",
+          "corridorSlots": [
+            {
+              "slotIndex": 1,
+              "slotLabel": "upper-right"
+            },
+            {
+              "slotIndex": 2,
+              "slotLabel": "right"
+            },
+            {
+              "slotIndex": 3,
+              "slotLabel": "lower-right"
+            }
+          ],
+          "noiseSlots": [
+            {
+              "slotIndex": 2,
+              "slotLabel": "right"
+            }
+          ],
+          "roomIcons": [
+            "character"
+          ],
+          "resolutionOrder": "source-unspecified; SEM-Q-011"
+        },
+        {
+          "sentenceId": "EX5629-REMINDER-01",
+          "section": "reminder",
+          "exactText": "Reminder:\nPlace 1 [secure] if you are Moving with [secure].",
+          "unitId": "EX5629-REMINDER-01",
+          "unitKind": "printed-sentence",
+          "sequence": 3,
+          "start": 66,
+          "end": 125
+        },
+        {
+          "sentenceId": "EX5629-ENTRANCE-01",
+          "section": "entrance",
+          "exactText": "Resolve\n[noiseDieHazard]",
+          "unitId": "EX5629-ENTRANCE-01",
+          "unitKind": "printed-sentence",
+          "sequence": 4,
+          "start": 127,
+          "end": 151
+        },
+        {
+          "unitId": "EX5629-PROCEDURE-DISCARD",
+          "unitKind": "official-procedure-lifecycle",
+          "section": "lifecycle",
+          "sequence": 5,
+          "start": null,
+          "end": null,
+          "exactText": "Discard the Exploration card – Unless it was already removed as a part of the Entrance Effect.",
+          "sourceId": "SRC-RULEBOOK",
+          "locator": "printed page 24 / Exploration Sequence step 7"
+        }
+      ],
+      "iconOccurrences": [
+        {
+          "occurrenceId": "TTS-EXPLORATION-5629-ICON-01",
+          "sequence": 1,
+          "region": "diagram-room",
+          "printedToken": "[character]",
+          "semanticReferenceId": "icon.character",
+          "sourceLocation": "center of depicted Room"
+        },
+        {
+          "occurrenceId": "TTS-EXPLORATION-5629-ICON-02",
+          "sequence": 2,
+          "region": "diagram-corridor",
+          "printedToken": "[noise]",
+          "semanticReferenceId": "icon.noise",
+          "sourceLocation": "source-local right Corridor slot"
+        },
+        {
+          "occurrenceId": "TTS-EXPLORATION-5629-ICON-03",
+          "sequence": 3,
+          "region": "reminder",
+          "printedToken": "[secure]",
+          "semanticReferenceId": "icon.secure",
+          "sourceLocation": "component to place in the reminder sentence"
+        },
+        {
+          "occurrenceId": "TTS-EXPLORATION-5629-ICON-04",
+          "sequence": 4,
+          "region": "reminder",
+          "printedToken": "[secure]",
+          "semanticReferenceId": "icon.secure",
+          "sourceLocation": "source-local icon after “Moving with” in the reminder sentence"
+        },
+        {
+          "occurrenceId": "TTS-EXPLORATION-5629-ICON-05",
+          "sequence": 5,
+          "region": "entrance",
+          "printedToken": "[noiseDieHazard]",
+          "semanticReferenceId": "icon.noiseDieHazard",
+          "sourceLocation": "EX5629-ENTRANCE-01"
+        }
+      ],
+      "semanticRuleId": "SEM-EXPLORATION-5629-001",
+      "backlogUnitId": "CARD:3da198b348a70d64",
+      "bgaOccurrence": {
+        "sourceId": "SRC-BGA-EXPLORATION",
+        "sourcePath": "docs/rules/source-extraction/secondary/bga-staticData-260622-1220.js",
+        "sourceSha256": "18cd8f4a2883d4f6662ed170095ff07e0d9f5da508064ed1d6bfc124f5a274ae",
+        "sourceVersion": "licensed BGA immutable build 260622-1220 / EXPLORATION_CARDS_DATA",
+        "table": "EXPLORATION_CARDS_DATA",
+        "key": "ExplorationCard9",
+        "number": 9,
+        "type": "ABC",
+        "corridors": [
+          1,
+          2,
+          3
+        ],
+        "corridorsWithNoise": [
+          2
+        ],
+        "otherTokens": [],
+        "effectDesc": [
+          "Resolve <HAZARD>"
+        ],
+        "closeDoor": false,
+        "noiseRoll": false,
+        "hazard": true,
+        "intrudersToAdd": 0,
+        "removeFromGame": false,
+        "sourceBlockText": "  ExplorationCard9: {\n    number: 9,\n    type: 'ABC',\n    corridors: [1, 2, 3],\n    corridorsWithNoise: [2],\n    otherTokens: [],\n    effectDesc: ['Resolve <HAZARD>'],\n    closeDoor: false,\n    noiseRoll: false,\n    hazard: true,\n    intrudersToAdd: 0,\n    removeFromGame: false,\n  },",
+        "variantDifference": "The licensed occurrence supplies a numbered structured identity and normalized room/diagram/effect fields but no printed title or full reminder wording. It remains secondary and does not rewrite the exact untitled scan."
+      },
+      "officialOccurrences": [],
+      "faqOccurrences": [],
+      "joinEvidence": {
+        "identityJoin": "explicit occurrence crosswalk",
+        "titleOnlyJoin": false,
+        "basis": [
+          "root base Exploration TTS role and exact cardId",
+          "exact CardCustom FaceURL GUID and parent deck GUID",
+          "closed-corpus source path and live SHA-256",
+          "literal six-slot Corridor/Noise/Room-icon diagram",
+          "ordered printed placement/reminder/Entrance/lifecycle units",
+          "explicit licensed EXPLORATION_CARDS_DATA key and exact structured fields"
+        ]
+      }
+    },
+    {
+      "explorationOccurrenceId": "TTS-EXPLORATION-5630-FACE",
+      "ttsDeckGuid": "63add2",
+      "ttsCardGuid": "4cc309",
+      "ttsCardId": 5630,
+      "ttsRole": "explorationDeck",
+      "ttsClassification": "exploration",
+      "sourceSelector": {
+        "key": "FaceURL",
+        "objectType": "CardCustom",
+        "cardId": 563000,
+        "guid": "4cc309",
+        "parentDeckGuid": "63add2",
+        "url": "https://steamusercontent-a.akamaihd.net/ugc/15944356819487116580/AB8C22425275DBA955145FED1C5BFE8759D2635E/",
+        "selectorStatus": "exact",
+        "selectorGap": null,
+        "generatedSpriteSheetCell": false
+      },
+      "sourceId": "SRC-EXPLORATION-5630",
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/exploration-107.png",
+      "sourceSha256": "daf8fb6f2bc9836bf7d457acf909fdd033aa55e182308e61b2d59e952bbced7c",
+      "sourceAuthority": "source-bound-component-scan",
+      "sourceVersion": "TTS base Exploration face / deck 63add2 / cardId 5630",
+      "corpusEvidencePath": "assets/tts-mod/extract/card-text-corpus.json",
+      "provenanceEvidencePath": "assets/tts-mod/extract/card-provenance-inventory.json",
+      "visionEvidencePath": "assets/tts-mod/extract/vision-progress.json",
+      "printedTitle": "",
+      "identityLabel": "untitled TTS Exploration occurrence 5630",
+      "printedBody": "Place A/B/C Room\ndepending on your Section.\n\n[noise]\n[character]\n[noise]\n\nReminder:\nPlace 1 [secure] if you are Moving with [secure].\n\nEntrance Effect:\nPlace 2 Adults in the Corridor\nyou have just passed through.\nThen, make a Noise roll.",
+      "extractionState": "draft-full",
+      "rulesInformationReadiness": "draft-text-complete",
+      "sourceUnits": [
+        {
+          "sentenceId": "EX5630-PLACEMENT-01",
+          "section": "placement",
+          "exactText": "Place A/B/C Room\ndepending on your Section.",
+          "unitId": "EX5630-PLACEMENT-01",
+          "unitKind": "printed-sentence",
+          "sequence": 1,
+          "start": 0,
+          "end": 43
+        },
+        {
+          "unitId": "EX5630-DIAGRAM-01",
+          "unitKind": "source-local-diagram",
+          "section": "diagram",
+          "sequence": 2,
+          "start": 45,
+          "end": 72,
+          "exactText": "[noise]\n[character]\n[noise]",
+          "roomType": "ABC",
+          "corridorSlots": [
+            {
+              "slotIndex": 0,
+              "slotLabel": "upper-left"
+            },
+            {
+              "slotIndex": 2,
+              "slotLabel": "right"
+            },
+            {
+              "slotIndex": 3,
+              "slotLabel": "lower-right"
+            }
+          ],
+          "noiseSlots": [
+            {
+              "slotIndex": 0,
+              "slotLabel": "upper-left"
+            },
+            {
+              "slotIndex": 3,
+              "slotLabel": "lower-right"
+            }
+          ],
+          "roomIcons": [
+            "character"
+          ],
+          "resolutionOrder": "source-unspecified; SEM-Q-011"
+        },
+        {
+          "sentenceId": "EX5630-REMINDER-01",
+          "section": "reminder",
+          "exactText": "Reminder:\nPlace 1 [secure] if you are Moving with [secure].",
+          "unitId": "EX5630-REMINDER-01",
+          "unitKind": "printed-sentence",
+          "sequence": 3,
+          "start": 74,
+          "end": 133
+        },
+        {
+          "sentenceId": "EX5630-ENTRANCE-01",
+          "section": "entrance",
+          "exactText": "Entrance Effect:\nPlace 2 Adults in the Corridor\nyou have just passed through.",
+          "unitId": "EX5630-ENTRANCE-01",
+          "unitKind": "printed-sentence",
+          "sequence": 4,
+          "start": 135,
+          "end": 212
+        },
+        {
+          "sentenceId": "EX5630-ENTRANCE-02",
+          "section": "entrance",
+          "exactText": "Then, make a Noise roll.",
+          "unitId": "EX5630-ENTRANCE-02",
+          "unitKind": "printed-sentence",
+          "sequence": 5,
+          "start": 213,
+          "end": 237
+        },
+        {
+          "unitId": "EX5630-PROCEDURE-DISCARD",
+          "unitKind": "official-procedure-lifecycle",
+          "section": "lifecycle",
+          "sequence": 6,
+          "start": null,
+          "end": null,
+          "exactText": "Discard the Exploration card – Unless it was already removed as a part of the Entrance Effect.",
+          "sourceId": "SRC-RULEBOOK",
+          "locator": "printed page 24 / Exploration Sequence step 7"
+        }
+      ],
+      "iconOccurrences": [
+        {
+          "occurrenceId": "TTS-EXPLORATION-5630-ICON-01",
+          "sequence": 1,
+          "region": "diagram-room",
+          "printedToken": "[character]",
+          "semanticReferenceId": "icon.character",
+          "sourceLocation": "center of depicted Room"
+        },
+        {
+          "occurrenceId": "TTS-EXPLORATION-5630-ICON-02",
+          "sequence": 2,
+          "region": "diagram-corridor",
+          "printedToken": "[noise]",
+          "semanticReferenceId": "icon.noise",
+          "sourceLocation": "source-local upper-left Corridor slot"
+        },
+        {
+          "occurrenceId": "TTS-EXPLORATION-5630-ICON-03",
+          "sequence": 3,
+          "region": "diagram-corridor",
+          "printedToken": "[noise]",
+          "semanticReferenceId": "icon.noise",
+          "sourceLocation": "source-local lower-right Corridor slot"
+        },
+        {
+          "occurrenceId": "TTS-EXPLORATION-5630-ICON-04",
+          "sequence": 4,
+          "region": "reminder",
+          "printedToken": "[secure]",
+          "semanticReferenceId": "icon.secure",
+          "sourceLocation": "component to place in the reminder sentence"
+        },
+        {
+          "occurrenceId": "TTS-EXPLORATION-5630-ICON-05",
+          "sequence": 5,
+          "region": "reminder",
+          "printedToken": "[secure]",
+          "semanticReferenceId": "icon.secure",
+          "sourceLocation": "source-local icon after “Moving with” in the reminder sentence"
+        }
+      ],
+      "semanticRuleId": "SEM-EXPLORATION-5630-001",
+      "backlogUnitId": "CARD:daf8fb6f2bc9836b",
+      "bgaOccurrence": {
+        "sourceId": "SRC-BGA-EXPLORATION",
+        "sourcePath": "docs/rules/source-extraction/secondary/bga-staticData-260622-1220.js",
+        "sourceSha256": "18cd8f4a2883d4f6662ed170095ff07e0d9f5da508064ed1d6bfc124f5a274ae",
+        "sourceVersion": "licensed BGA immutable build 260622-1220 / EXPLORATION_CARDS_DATA",
+        "table": "EXPLORATION_CARDS_DATA",
+        "key": "ExplorationCard10",
+        "number": 10,
+        "type": "ABC",
+        "corridors": [
+          0,
+          2,
+          3
+        ],
+        "corridorsWithNoise": [
+          0,
+          3
+        ],
+        "otherTokens": [],
+        "effectDesc": [
+          "Place 2 Adults in the Corridor you have just passed through.",
+          "Then, make a Noise roll."
+        ],
+        "closeDoor": false,
+        "noiseRoll": true,
+        "hazard": false,
+        "intrudersToAdd": 2,
+        "removeFromGame": false,
+        "sourceBlockText": "  ExplorationCard10: {\n    number: 10,\n    type: 'ABC',\n    corridors: [0, 2, 3],\n    corridorsWithNoise: [0, 3],\n    otherTokens: [],\n    effectDesc: ['Place 2 Adults in the Corridor you have just passed through.', 'Then, make a Noise roll.'],\n    closeDoor: false,\n    noiseRoll: true,\n    hazard: false,\n    intrudersToAdd: 2,\n    removeFromGame: false,\n  },",
+        "variantDifference": "The licensed occurrence supplies a numbered structured identity and normalized room/diagram/effect fields but no printed title or full reminder wording. It remains secondary and does not rewrite the exact untitled scan."
+      },
+      "officialOccurrences": [],
+      "faqOccurrences": [],
+      "joinEvidence": {
+        "identityJoin": "explicit occurrence crosswalk",
+        "titleOnlyJoin": false,
+        "basis": [
+          "root base Exploration TTS role and exact cardId",
+          "exact CardCustom FaceURL GUID and parent deck GUID",
+          "closed-corpus source path and live SHA-256",
+          "literal six-slot Corridor/Noise/Room-icon diagram",
+          "ordered printed placement/reminder/Entrance/lifecycle units",
+          "explicit licensed EXPLORATION_CARDS_DATA key and exact structured fields"
+        ]
+      }
+    },
+    {
+      "explorationOccurrenceId": "TTS-EXPLORATION-5631-FACE",
+      "ttsDeckGuid": "63add2",
+      "ttsCardGuid": "0fc783",
+      "ttsCardId": 5631,
+      "ttsRole": "explorationDeck",
+      "ttsClassification": "exploration",
+      "sourceSelector": {
+        "key": "FaceURL",
+        "objectType": "CardCustom",
+        "cardId": 563100,
+        "guid": "0fc783",
+        "parentDeckGuid": "63add2",
+        "url": "https://steamusercontent-a.akamaihd.net/ugc/13386594386037118922/8B5181C4D9A8102F1DA255D9F7CC6413FF89ABBA/",
+        "selectorStatus": "exact",
+        "selectorGap": null,
+        "generatedSpriteSheetCell": false
+      },
+      "sourceId": "SRC-EXPLORATION-5631",
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/exploration-062.png",
+      "sourceSha256": "b3be8596be1e99b3b520b0ce2c37e7f14a48c6a90dc4e422d32ae92592fbab38",
+      "sourceAuthority": "source-bound-component-scan",
+      "sourceVersion": "TTS base Exploration face / deck 63add2 / cardId 5631",
+      "corpusEvidencePath": "assets/tts-mod/extract/card-text-corpus.json",
+      "provenanceEvidencePath": "assets/tts-mod/extract/card-provenance-inventory.json",
+      "visionEvidencePath": "assets/tts-mod/extract/vision-progress.json",
+      "printedTitle": "",
+      "identityLabel": "untitled TTS Exploration occurrence 5631",
+      "printedBody": "Place A/B/C Room\ndepending on your Section.\n\n[character]\n[noise]\n\nReminder:\nPlace 1 [secure] if you are Moving with [secure].\n\nEntrance Effect:\nPlace 3 Adults in the Corridor\nyou have just passed through.\nThen, make a Noise roll.",
+      "extractionState": "draft-full",
+      "rulesInformationReadiness": "draft-text-complete",
+      "sourceUnits": [
+        {
+          "sentenceId": "EX5631-PLACEMENT-01",
+          "section": "placement",
+          "exactText": "Place A/B/C Room\ndepending on your Section.",
+          "unitId": "EX5631-PLACEMENT-01",
+          "unitKind": "printed-sentence",
+          "sequence": 1,
+          "start": 0,
+          "end": 43
+        },
+        {
+          "unitId": "EX5631-DIAGRAM-01",
+          "unitKind": "source-local-diagram",
+          "section": "diagram",
+          "sequence": 2,
+          "start": 45,
+          "end": 64,
+          "exactText": "[character]\n[noise]",
+          "roomType": "ABC",
+          "corridorSlots": [
+            {
+              "slotIndex": 2,
+              "slotLabel": "right"
+            },
+            {
+              "slotIndex": 5,
+              "slotLabel": "left"
+            }
+          ],
+          "noiseSlots": [
+            {
+              "slotIndex": 2,
+              "slotLabel": "right"
+            }
+          ],
+          "roomIcons": [
+            "character"
+          ],
+          "resolutionOrder": "source-unspecified; SEM-Q-011"
+        },
+        {
+          "sentenceId": "EX5631-REMINDER-01",
+          "section": "reminder",
+          "exactText": "Reminder:\nPlace 1 [secure] if you are Moving with [secure].",
+          "unitId": "EX5631-REMINDER-01",
+          "unitKind": "printed-sentence",
+          "sequence": 3,
+          "start": 66,
+          "end": 125
+        },
+        {
+          "sentenceId": "EX5631-ENTRANCE-01",
+          "section": "entrance",
+          "exactText": "Entrance Effect:\nPlace 3 Adults in the Corridor\nyou have just passed through.",
+          "unitId": "EX5631-ENTRANCE-01",
+          "unitKind": "printed-sentence",
+          "sequence": 4,
+          "start": 127,
+          "end": 204
+        },
+        {
+          "sentenceId": "EX5631-ENTRANCE-02",
+          "section": "entrance",
+          "exactText": "Then, make a Noise roll.",
+          "unitId": "EX5631-ENTRANCE-02",
+          "unitKind": "printed-sentence",
+          "sequence": 5,
+          "start": 205,
+          "end": 229
+        },
+        {
+          "unitId": "EX5631-PROCEDURE-DISCARD",
+          "unitKind": "official-procedure-lifecycle",
+          "section": "lifecycle",
+          "sequence": 6,
+          "start": null,
+          "end": null,
+          "exactText": "Discard the Exploration card – Unless it was already removed as a part of the Entrance Effect.",
+          "sourceId": "SRC-RULEBOOK",
+          "locator": "printed page 24 / Exploration Sequence step 7"
+        }
+      ],
+      "iconOccurrences": [
+        {
+          "occurrenceId": "TTS-EXPLORATION-5631-ICON-01",
+          "sequence": 1,
+          "region": "diagram-room",
+          "printedToken": "[character]",
+          "semanticReferenceId": "icon.character",
+          "sourceLocation": "center of depicted Room"
+        },
+        {
+          "occurrenceId": "TTS-EXPLORATION-5631-ICON-02",
+          "sequence": 2,
+          "region": "diagram-corridor",
+          "printedToken": "[noise]",
+          "semanticReferenceId": "icon.noise",
+          "sourceLocation": "source-local right Corridor slot"
+        },
+        {
+          "occurrenceId": "TTS-EXPLORATION-5631-ICON-03",
+          "sequence": 3,
+          "region": "reminder",
+          "printedToken": "[secure]",
+          "semanticReferenceId": "icon.secure",
+          "sourceLocation": "component to place in the reminder sentence"
+        },
+        {
+          "occurrenceId": "TTS-EXPLORATION-5631-ICON-04",
+          "sequence": 4,
+          "region": "reminder",
+          "printedToken": "[secure]",
+          "semanticReferenceId": "icon.secure",
+          "sourceLocation": "source-local icon after “Moving with” in the reminder sentence"
+        }
+      ],
+      "semanticRuleId": "SEM-EXPLORATION-5631-001",
+      "backlogUnitId": "CARD:b3be8596be1e99b3",
+      "bgaOccurrence": {
+        "sourceId": "SRC-BGA-EXPLORATION",
+        "sourcePath": "docs/rules/source-extraction/secondary/bga-staticData-260622-1220.js",
+        "sourceSha256": "18cd8f4a2883d4f6662ed170095ff07e0d9f5da508064ed1d6bfc124f5a274ae",
+        "sourceVersion": "licensed BGA immutable build 260622-1220 / EXPLORATION_CARDS_DATA",
+        "table": "EXPLORATION_CARDS_DATA",
+        "key": "ExplorationCard11",
+        "number": 11,
+        "type": "ABC",
+        "corridors": [
+          2,
+          5
+        ],
+        "corridorsWithNoise": [
+          2
+        ],
+        "otherTokens": [],
+        "effectDesc": [
+          "Place 3 Adults in the Corridor you have just passed through.",
+          "Then, make a Noise roll."
+        ],
+        "closeDoor": false,
+        "noiseRoll": true,
+        "hazard": false,
+        "intrudersToAdd": 3,
+        "removeFromGame": false,
+        "sourceBlockText": "  ExplorationCard11: {\n    number: 11,\n    type: 'ABC',\n    corridors: [2, 5],\n    corridorsWithNoise: [2],\n    otherTokens: [],\n    effectDesc: ['Place 3 Adults in the Corridor you have just passed through.', 'Then, make a Noise roll.'],\n    closeDoor: false,\n    noiseRoll: true,\n    hazard: false,\n    intrudersToAdd: 3,\n    removeFromGame: false,\n  },",
+        "variantDifference": "The licensed occurrence supplies a numbered structured identity and normalized room/diagram/effect fields but no printed title or full reminder wording. It remains secondary and does not rewrite the exact untitled scan."
+      },
+      "officialOccurrences": [],
+      "faqOccurrences": [],
+      "joinEvidence": {
+        "identityJoin": "explicit occurrence crosswalk",
+        "titleOnlyJoin": false,
+        "basis": [
+          "root base Exploration TTS role and exact cardId",
+          "exact CardCustom FaceURL GUID and parent deck GUID",
+          "closed-corpus source path and live SHA-256",
+          "literal six-slot Corridor/Noise/Room-icon diagram",
+          "ordered printed placement/reminder/Entrance/lifecycle units",
+          "explicit licensed EXPLORATION_CARDS_DATA key and exact structured fields"
+        ]
+      }
+    },
+    {
+      "explorationOccurrenceId": "TTS-EXPLORATION-5632-FACE",
+      "ttsDeckGuid": "63add2",
+      "ttsCardGuid": "307c1a",
+      "ttsCardId": 5632,
+      "ttsRole": "explorationDeck",
+      "ttsClassification": "exploration",
+      "sourceSelector": {
+        "key": "FaceURL",
+        "objectType": "CardCustom",
+        "cardId": 563200,
+        "guid": "307c1a",
+        "parentDeckGuid": "63add2",
+        "url": "https://steamusercontent-a.akamaihd.net/ugc/11925215518030670/599A7276F04BC15021BEA3056C9637EFEDCC6796/",
+        "selectorStatus": "exact",
+        "selectorGap": null,
+        "generatedSpriteSheetCell": false
+      },
+      "sourceId": "SRC-EXPLORATION-5632",
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/exploration-031.png",
+      "sourceSha256": "549bb22b017b6df982c3378f613294969d7043a1a87a1e4b4f5d704308d2ceb0",
+      "sourceAuthority": "source-bound-component-scan",
+      "sourceVersion": "TTS base Exploration face / deck 63add2 / cardId 5632",
+      "corpusEvidencePath": "assets/tts-mod/extract/card-text-corpus.json",
+      "provenanceEvidencePath": "assets/tts-mod/extract/card-provenance-inventory.json",
+      "visionEvidencePath": "assets/tts-mod/extract/vision-progress.json",
+      "printedTitle": "",
+      "identityLabel": "untitled TTS Exploration occurrence 5632",
+      "printedBody": "Place A/B/C Room\ndepending on your Section.\n\n[character] [malfunction]\n[noise]\n\nReminder:\nPlace 1 [secure] if you are Moving with [secure].\n\nClose all doors around this room.\n\nMake a Noise roll.",
+      "extractionState": "draft-full",
+      "rulesInformationReadiness": "draft-text-complete",
+      "sourceUnits": [
+        {
+          "sentenceId": "EX5632-PLACEMENT-01",
+          "section": "placement",
+          "exactText": "Place A/B/C Room\ndepending on your Section.",
+          "unitId": "EX5632-PLACEMENT-01",
+          "unitKind": "printed-sentence",
+          "sequence": 1,
+          "start": 0,
+          "end": 43
+        },
+        {
+          "unitId": "EX5632-DIAGRAM-01",
+          "unitKind": "source-local-diagram",
+          "section": "diagram",
+          "sequence": 2,
+          "start": 45,
+          "end": 78,
+          "exactText": "[character] [malfunction]\n[noise]",
+          "roomType": "ABC",
+          "corridorSlots": [
+            {
+              "slotIndex": 1,
+              "slotLabel": "upper-right"
+            },
+            {
+              "slotIndex": 2,
+              "slotLabel": "right"
+            }
+          ],
+          "noiseSlots": [
+            {
+              "slotIndex": 2,
+              "slotLabel": "right"
+            }
+          ],
+          "roomIcons": [
+            "character",
+            "malfunction"
+          ],
+          "resolutionOrder": "source-unspecified; SEM-Q-011"
+        },
+        {
+          "sentenceId": "EX5632-REMINDER-01",
+          "section": "reminder",
+          "exactText": "Reminder:\nPlace 1 [secure] if you are Moving with [secure].",
+          "unitId": "EX5632-REMINDER-01",
+          "unitKind": "printed-sentence",
+          "sequence": 3,
+          "start": 80,
+          "end": 139
+        },
+        {
+          "sentenceId": "EX5632-ENTRANCE-01",
+          "section": "entrance",
+          "exactText": "Close all doors around this room.",
+          "unitId": "EX5632-ENTRANCE-01",
+          "unitKind": "printed-sentence",
+          "sequence": 4,
+          "start": 141,
+          "end": 174
+        },
+        {
+          "sentenceId": "EX5632-ENTRANCE-02",
+          "section": "entrance",
+          "exactText": "Make a Noise roll.",
+          "unitId": "EX5632-ENTRANCE-02",
+          "unitKind": "printed-sentence",
+          "sequence": 5,
+          "start": 176,
+          "end": 194
+        },
+        {
+          "unitId": "EX5632-PROCEDURE-DISCARD",
+          "unitKind": "official-procedure-lifecycle",
+          "section": "lifecycle",
+          "sequence": 6,
+          "start": null,
+          "end": null,
+          "exactText": "Discard the Exploration card – Unless it was already removed as a part of the Entrance Effect.",
+          "sourceId": "SRC-RULEBOOK",
+          "locator": "printed page 24 / Exploration Sequence step 7"
+        }
+      ],
+      "iconOccurrences": [
+        {
+          "occurrenceId": "TTS-EXPLORATION-5632-ICON-01",
+          "sequence": 1,
+          "region": "diagram-room",
+          "printedToken": "[character]",
+          "semanticReferenceId": "icon.character",
+          "sourceLocation": "center of depicted Room"
+        },
+        {
+          "occurrenceId": "TTS-EXPLORATION-5632-ICON-02",
+          "sequence": 2,
+          "region": "diagram-room",
+          "printedToken": "[malfunction]",
+          "semanticReferenceId": "icon.malfunction",
+          "sourceLocation": "depicted malfunction occurrence in new Room"
+        },
+        {
+          "occurrenceId": "TTS-EXPLORATION-5632-ICON-03",
+          "sequence": 3,
+          "region": "diagram-corridor",
+          "printedToken": "[noise]",
+          "semanticReferenceId": "icon.noise",
+          "sourceLocation": "source-local right Corridor slot"
+        },
+        {
+          "occurrenceId": "TTS-EXPLORATION-5632-ICON-04",
+          "sequence": 4,
+          "region": "reminder",
+          "printedToken": "[secure]",
+          "semanticReferenceId": "icon.secure",
+          "sourceLocation": "component to place in the reminder sentence"
+        },
+        {
+          "occurrenceId": "TTS-EXPLORATION-5632-ICON-05",
+          "sequence": 5,
+          "region": "reminder",
+          "printedToken": "[secure]",
+          "semanticReferenceId": "icon.secure",
+          "sourceLocation": "source-local icon after “Moving with” in the reminder sentence"
+        }
+      ],
+      "semanticRuleId": "SEM-EXPLORATION-5632-001",
+      "backlogUnitId": "CARD:549bb22b017b6df9",
+      "bgaOccurrence": {
+        "sourceId": "SRC-BGA-EXPLORATION",
+        "sourcePath": "docs/rules/source-extraction/secondary/bga-staticData-260622-1220.js",
+        "sourceSha256": "18cd8f4a2883d4f6662ed170095ff07e0d9f5da508064ed1d6bfc124f5a274ae",
+        "sourceVersion": "licensed BGA immutable build 260622-1220 / EXPLORATION_CARDS_DATA",
+        "table": "EXPLORATION_CARDS_DATA",
+        "key": "ExplorationCard5",
+        "number": 5,
+        "type": "ABC",
+        "corridors": [
+          1,
+          2
+        ],
+        "corridorsWithNoise": [
+          2
+        ],
+        "otherTokens": [
+          "malfunction"
+        ],
+        "effectDesc": [
+          "Close all Doors around this Room.",
+          "Make a Noise roll."
+        ],
+        "closeDoor": true,
+        "noiseRoll": true,
+        "hazard": false,
+        "intrudersToAdd": 0,
+        "removeFromGame": false,
+        "sourceBlockText": "  ExplorationCard5: {\n    number: 5,\n    type: 'ABC',\n    corridors: [1, 2],\n    corridorsWithNoise: [2],\n    otherTokens: ['malfunction'],\n    effectDesc: ['Close all Doors around this Room.', 'Make a Noise roll.'],\n    closeDoor: true,\n    noiseRoll: true,\n    hazard: false,\n    intrudersToAdd: 0,\n    removeFromGame: false,\n  },",
+        "variantDifference": "The licensed occurrence supplies a numbered structured identity and normalized room/diagram/effect fields but no printed title or full reminder wording. It remains secondary and does not rewrite the exact untitled scan."
+      },
+      "officialOccurrences": [],
+      "faqOccurrences": [
+        {
+          "sourceId": "SRC-FAQ",
+          "sourceUnitId": "FQ-P02-U06",
+          "printedText": "Q: An Exploration card tells me to close doors around a newly explored room. Do you only close doors touching the room or all doors in corridors next to the room? What about the hibernatorium doors?\nA: Only close doors touching the new room. Hibernatorium doors will never close that way, since Exploration is not resolve in the Hibernatorium."
+        }
+      ],
+      "joinEvidence": {
+        "identityJoin": "explicit occurrence crosswalk",
+        "titleOnlyJoin": false,
+        "basis": [
+          "root base Exploration TTS role and exact cardId",
+          "exact CardCustom FaceURL GUID and parent deck GUID",
+          "closed-corpus source path and live SHA-256",
+          "literal six-slot Corridor/Noise/Room-icon diagram",
+          "ordered printed placement/reminder/Entrance/lifecycle units",
+          "explicit licensed EXPLORATION_CARDS_DATA key and exact structured fields"
+        ]
+      }
+    },
+    {
+      "explorationOccurrenceId": "TTS-EXPLORATION-5633-FACE",
+      "ttsDeckGuid": "63add2",
+      "ttsCardGuid": "caf17f",
+      "ttsCardId": 5633,
+      "ttsRole": "explorationDeck",
+      "ttsClassification": "exploration",
+      "sourceSelector": {
+        "key": "FaceURL",
+        "objectType": "CardCustom",
+        "cardId": 563300,
+        "guid": "caf17f",
+        "parentDeckGuid": "63add2",
+        "url": "https://steamusercontent-a.akamaihd.net/ugc/11925215518030311/1D1C8104FBBBC2C0C1D0C3D181D19BCBC82DABFD/",
+        "selectorStatus": "exact",
+        "selectorGap": null,
+        "generatedSpriteSheetCell": false
+      },
+      "sourceId": "SRC-EXPLORATION-5633",
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/exploration-025.png",
+      "sourceSha256": "774b6ed8ea4492bfae38145c828ae47c61536855ec1ffb86702d1fb2d2d09d8b",
+      "sourceAuthority": "source-bound-component-scan",
+      "sourceVersion": "TTS base Exploration face / deck 63add2 / cardId 5633",
+      "corpusEvidencePath": "assets/tts-mod/extract/card-text-corpus.json",
+      "provenanceEvidencePath": "assets/tts-mod/extract/card-provenance-inventory.json",
+      "visionEvidencePath": "assets/tts-mod/extract/vision-progress.json",
+      "printedTitle": "",
+      "identityLabel": "untitled TTS Exploration occurrence 5633",
+      "printedBody": "Place A/B/C Room\ndepending on your Section.\n\n[character] [malfunction]\n[noise]\n\nReminder:\nPlace 1 [secure] if you are Moving with [secure].\n\nMake a Noise roll.",
+      "extractionState": "draft-full",
+      "rulesInformationReadiness": "draft-text-complete",
+      "sourceUnits": [
+        {
+          "sentenceId": "EX5633-PLACEMENT-01",
+          "section": "placement",
+          "exactText": "Place A/B/C Room\ndepending on your Section.",
+          "unitId": "EX5633-PLACEMENT-01",
+          "unitKind": "printed-sentence",
+          "sequence": 1,
+          "start": 0,
+          "end": 43
+        },
+        {
+          "unitId": "EX5633-DIAGRAM-01",
+          "unitKind": "source-local-diagram",
+          "section": "diagram",
+          "sequence": 2,
+          "start": 45,
+          "end": 78,
+          "exactText": "[character] [malfunction]\n[noise]",
+          "roomType": "ABC",
+          "corridorSlots": [
+            {
+              "slotIndex": 1,
+              "slotLabel": "upper-right"
+            },
+            {
+              "slotIndex": 2,
+              "slotLabel": "right"
+            },
+            {
+              "slotIndex": 3,
+              "slotLabel": "lower-right"
+            }
+          ],
+          "noiseSlots": [
+            {
+              "slotIndex": 1,
+              "slotLabel": "upper-right"
+            }
+          ],
+          "roomIcons": [
+            "character",
+            "malfunction"
+          ],
+          "resolutionOrder": "source-unspecified; SEM-Q-011"
+        },
+        {
+          "sentenceId": "EX5633-REMINDER-01",
+          "section": "reminder",
+          "exactText": "Reminder:\nPlace 1 [secure] if you are Moving with [secure].",
+          "unitId": "EX5633-REMINDER-01",
+          "unitKind": "printed-sentence",
+          "sequence": 3,
+          "start": 80,
+          "end": 139
+        },
+        {
+          "sentenceId": "EX5633-ENTRANCE-01",
+          "section": "entrance",
+          "exactText": "Make a Noise roll.",
+          "unitId": "EX5633-ENTRANCE-01",
+          "unitKind": "printed-sentence",
+          "sequence": 4,
+          "start": 141,
+          "end": 159
+        },
+        {
+          "unitId": "EX5633-PROCEDURE-DISCARD",
+          "unitKind": "official-procedure-lifecycle",
+          "section": "lifecycle",
+          "sequence": 5,
+          "start": null,
+          "end": null,
+          "exactText": "Discard the Exploration card – Unless it was already removed as a part of the Entrance Effect.",
+          "sourceId": "SRC-RULEBOOK",
+          "locator": "printed page 24 / Exploration Sequence step 7"
+        }
+      ],
+      "iconOccurrences": [
+        {
+          "occurrenceId": "TTS-EXPLORATION-5633-ICON-01",
+          "sequence": 1,
+          "region": "diagram-room",
+          "printedToken": "[character]",
+          "semanticReferenceId": "icon.character",
+          "sourceLocation": "center of depicted Room"
+        },
+        {
+          "occurrenceId": "TTS-EXPLORATION-5633-ICON-02",
+          "sequence": 2,
+          "region": "diagram-room",
+          "printedToken": "[malfunction]",
+          "semanticReferenceId": "icon.malfunction",
+          "sourceLocation": "depicted malfunction occurrence in new Room"
+        },
+        {
+          "occurrenceId": "TTS-EXPLORATION-5633-ICON-03",
+          "sequence": 3,
+          "region": "diagram-corridor",
+          "printedToken": "[noise]",
+          "semanticReferenceId": "icon.noise",
+          "sourceLocation": "source-local upper-right Corridor slot"
+        },
+        {
+          "occurrenceId": "TTS-EXPLORATION-5633-ICON-04",
+          "sequence": 4,
+          "region": "reminder",
+          "printedToken": "[secure]",
+          "semanticReferenceId": "icon.secure",
+          "sourceLocation": "component to place in the reminder sentence"
+        },
+        {
+          "occurrenceId": "TTS-EXPLORATION-5633-ICON-05",
+          "sequence": 5,
+          "region": "reminder",
+          "printedToken": "[secure]",
+          "semanticReferenceId": "icon.secure",
+          "sourceLocation": "source-local icon after “Moving with” in the reminder sentence"
+        }
+      ],
+      "semanticRuleId": "SEM-EXPLORATION-5633-001",
+      "backlogUnitId": "CARD:774b6ed8ea4492bf",
+      "bgaOccurrence": {
+        "sourceId": "SRC-BGA-EXPLORATION",
+        "sourcePath": "docs/rules/source-extraction/secondary/bga-staticData-260622-1220.js",
+        "sourceSha256": "18cd8f4a2883d4f6662ed170095ff07e0d9f5da508064ed1d6bfc124f5a274ae",
+        "sourceVersion": "licensed BGA immutable build 260622-1220 / EXPLORATION_CARDS_DATA",
+        "table": "EXPLORATION_CARDS_DATA",
+        "key": "ExplorationCard4",
+        "number": 4,
+        "type": "ABC",
+        "corridors": [
+          1,
+          2,
+          3
+        ],
+        "corridorsWithNoise": [
+          1
+        ],
+        "otherTokens": [
+          "malfunction"
+        ],
+        "effectDesc": [
+          "Make a Noise roll."
+        ],
+        "closeDoor": false,
+        "noiseRoll": true,
+        "hazard": false,
+        "intrudersToAdd": 0,
+        "removeFromGame": false,
+        "sourceBlockText": "  ExplorationCard4: {\n    number: 4,\n    type: 'ABC',\n    corridors: [1, 2, 3],\n    corridorsWithNoise: [1],\n    otherTokens: ['malfunction'],\n    effectDesc: ['Make a Noise roll.'],\n    closeDoor: false,\n    noiseRoll: true,\n    hazard: false,\n    intrudersToAdd: 0,\n    removeFromGame: false,\n  },",
+        "variantDifference": "The licensed occurrence supplies a numbered structured identity and normalized room/diagram/effect fields but no printed title or full reminder wording. It remains secondary and does not rewrite the exact untitled scan."
+      },
+      "officialOccurrences": [],
+      "faqOccurrences": [],
+      "joinEvidence": {
+        "identityJoin": "explicit occurrence crosswalk",
+        "titleOnlyJoin": false,
+        "basis": [
+          "root base Exploration TTS role and exact cardId",
+          "exact CardCustom FaceURL GUID and parent deck GUID",
+          "closed-corpus source path and live SHA-256",
+          "literal six-slot Corridor/Noise/Room-icon diagram",
+          "ordered printed placement/reminder/Entrance/lifecycle units",
+          "explicit licensed EXPLORATION_CARDS_DATA key and exact structured fields"
+        ]
+      }
+    },
+    {
+      "explorationOccurrenceId": "TTS-EXPLORATION-5634-FACE",
+      "ttsDeckGuid": "63add2",
+      "ttsCardGuid": "d80a23",
+      "ttsCardId": 5634,
+      "ttsRole": "explorationDeck",
+      "ttsClassification": "exploration",
+      "sourceSelector": {
+        "key": "FaceURL",
+        "objectType": "CardCustom",
+        "cardId": 563400,
+        "guid": "d80a23",
+        "parentDeckGuid": "63add2",
+        "url": "https://steamusercontent-a.akamaihd.net/ugc/11925215518029019/7E4DA810CF614AB25FDC991C3344162086A818CF/",
+        "selectorStatus": "exact",
+        "selectorGap": null,
+        "generatedSpriteSheetCell": false
+      },
+      "sourceId": "SRC-EXPLORATION-5634",
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/exploration-024.png",
+      "sourceSha256": "3cfb21c76b93ba8e23abf464321e7071d73aac0c23b0dc1763702206fe80854f",
+      "sourceAuthority": "source-bound-component-scan",
+      "sourceVersion": "TTS base Exploration face / deck 63add2 / cardId 5634",
+      "corpusEvidencePath": "assets/tts-mod/extract/card-text-corpus.json",
+      "provenanceEvidencePath": "assets/tts-mod/extract/card-provenance-inventory.json",
+      "visionEvidencePath": "assets/tts-mod/extract/vision-progress.json",
+      "printedTitle": "",
+      "identityLabel": "untitled TTS Exploration occurrence 5634",
+      "printedBody": "Place A/B/C Room\ndepending on your Section.\n\n[character] [fire]\n[noise]\n\nReminder:\nPlace 1 [secure] if you are Moving with [secure].\n\nMake a Noise roll.",
+      "extractionState": "draft-full",
+      "rulesInformationReadiness": "draft-text-complete",
+      "sourceUnits": [
+        {
+          "sentenceId": "EX5634-PLACEMENT-01",
+          "section": "placement",
+          "exactText": "Place A/B/C Room\ndepending on your Section.",
+          "unitId": "EX5634-PLACEMENT-01",
+          "unitKind": "printed-sentence",
+          "sequence": 1,
+          "start": 0,
+          "end": 43
+        },
+        {
+          "unitId": "EX5634-DIAGRAM-01",
+          "unitKind": "source-local-diagram",
+          "section": "diagram",
+          "sequence": 2,
+          "start": 45,
+          "end": 71,
+          "exactText": "[character] [fire]\n[noise]",
+          "roomType": "ABC",
+          "corridorSlots": [
+            {
+              "slotIndex": 1,
+              "slotLabel": "upper-right"
+            },
+            {
+              "slotIndex": 3,
+              "slotLabel": "lower-right"
+            }
+          ],
+          "noiseSlots": [
+            {
+              "slotIndex": 3,
+              "slotLabel": "lower-right"
+            }
+          ],
+          "roomIcons": [
+            "character",
+            "fire"
+          ],
+          "resolutionOrder": "source-unspecified; SEM-Q-011"
+        },
+        {
+          "sentenceId": "EX5634-REMINDER-01",
+          "section": "reminder",
+          "exactText": "Reminder:\nPlace 1 [secure] if you are Moving with [secure].",
+          "unitId": "EX5634-REMINDER-01",
+          "unitKind": "printed-sentence",
+          "sequence": 3,
+          "start": 73,
+          "end": 132
+        },
+        {
+          "sentenceId": "EX5634-ENTRANCE-01",
+          "section": "entrance",
+          "exactText": "Make a Noise roll.",
+          "unitId": "EX5634-ENTRANCE-01",
+          "unitKind": "printed-sentence",
+          "sequence": 4,
+          "start": 134,
+          "end": 152
+        },
+        {
+          "unitId": "EX5634-PROCEDURE-DISCARD",
+          "unitKind": "official-procedure-lifecycle",
+          "section": "lifecycle",
+          "sequence": 5,
+          "start": null,
+          "end": null,
+          "exactText": "Discard the Exploration card – Unless it was already removed as a part of the Entrance Effect.",
+          "sourceId": "SRC-RULEBOOK",
+          "locator": "printed page 24 / Exploration Sequence step 7"
+        }
+      ],
+      "iconOccurrences": [
+        {
+          "occurrenceId": "TTS-EXPLORATION-5634-ICON-01",
+          "sequence": 1,
+          "region": "diagram-room",
+          "printedToken": "[character]",
+          "semanticReferenceId": "icon.character",
+          "sourceLocation": "center of depicted Room"
+        },
+        {
+          "occurrenceId": "TTS-EXPLORATION-5634-ICON-02",
+          "sequence": 2,
+          "region": "diagram-room",
+          "printedToken": "[fire]",
+          "semanticReferenceId": "icon.fire",
+          "sourceLocation": "depicted fire occurrence in new Room"
+        },
+        {
+          "occurrenceId": "TTS-EXPLORATION-5634-ICON-03",
+          "sequence": 3,
+          "region": "diagram-corridor",
+          "printedToken": "[noise]",
+          "semanticReferenceId": "icon.noise",
+          "sourceLocation": "source-local lower-right Corridor slot"
+        },
+        {
+          "occurrenceId": "TTS-EXPLORATION-5634-ICON-04",
+          "sequence": 4,
+          "region": "reminder",
+          "printedToken": "[secure]",
+          "semanticReferenceId": "icon.secure",
+          "sourceLocation": "component to place in the reminder sentence"
+        },
+        {
+          "occurrenceId": "TTS-EXPLORATION-5634-ICON-05",
+          "sequence": 5,
+          "region": "reminder",
+          "printedToken": "[secure]",
+          "semanticReferenceId": "icon.secure",
+          "sourceLocation": "source-local icon after “Moving with” in the reminder sentence"
+        }
+      ],
+      "semanticRuleId": "SEM-EXPLORATION-5634-001",
+      "backlogUnitId": "CARD:3cfb21c76b93ba8e",
+      "bgaOccurrence": {
+        "sourceId": "SRC-BGA-EXPLORATION",
+        "sourcePath": "docs/rules/source-extraction/secondary/bga-staticData-260622-1220.js",
+        "sourceSha256": "18cd8f4a2883d4f6662ed170095ff07e0d9f5da508064ed1d6bfc124f5a274ae",
+        "sourceVersion": "licensed BGA immutable build 260622-1220 / EXPLORATION_CARDS_DATA",
+        "table": "EXPLORATION_CARDS_DATA",
+        "key": "ExplorationCard6",
+        "number": 6,
+        "type": "ABC",
+        "corridors": [
+          1,
+          3
+        ],
+        "corridorsWithNoise": [
+          3
+        ],
+        "otherTokens": [
+          "fire"
+        ],
+        "effectDesc": [
+          "Make a Noise roll."
+        ],
+        "closeDoor": false,
+        "noiseRoll": true,
+        "hazard": false,
+        "intrudersToAdd": 0,
+        "removeFromGame": false,
+        "sourceBlockText": "  ExplorationCard6: {\n    number: 6,\n    type: 'ABC',\n    corridors: [1, 3],\n    corridorsWithNoise: [3],\n    otherTokens: ['fire'],\n    effectDesc: ['Make a Noise roll.'],\n    closeDoor: false,\n    noiseRoll: true,\n    hazard: false,\n    intrudersToAdd: 0,\n    removeFromGame: false,\n  },",
+        "variantDifference": "The licensed occurrence supplies a numbered structured identity and normalized room/diagram/effect fields but no printed title or full reminder wording. It remains secondary and does not rewrite the exact untitled scan."
+      },
+      "officialOccurrences": [
+        {
+          "occurrenceId": "RB-P26-V01",
+          "locator": "printed page 26 / RB-P26-V01 / worked example panels 1–2",
+          "visibleText": "Place a Room of the A, B, or C type depending on the Section the Room is being placed in. Reminder: Place 1 [source glyph] if you are Moving Cautiously. Entrance Effect: Make a Noise roll.",
+          "sourceId": "SRC-RULEBOOK",
+          "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
+          "visualType": "worked-movement-exploration-sequence-panels-1-2",
+          "obligationClass": "worked-example-visual",
+          "variantDifference": "The current official visible occurrence uses full current Room-placement and Moving Cautiously wording; the untitled TTS face preserves abbreviated prototype wording and two source-local Secure glyph occurrences."
+        },
+        {
+          "occurrenceId": "RB-P27-V01",
+          "locator": "printed page 27 / RB-P27-V01 / worked example panels 3–4",
+          "visibleText": "The same illustrated Exploration face continues through Character movement, Entrance-effect Noise, and discard.",
+          "sourceId": "SRC-RULEBOOK",
+          "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
+          "visualType": "worked-movement-exploration-sequence-panels-3-4",
+          "obligationClass": "worked-example-visual",
+          "variantDifference": "The current official visible occurrence uses full current Room-placement and Moving Cautiously wording; the untitled TTS face preserves abbreviated prototype wording and two source-local Secure glyph occurrences."
+        }
+      ],
+      "faqOccurrences": [],
+      "joinEvidence": {
+        "identityJoin": "explicit occurrence crosswalk",
+        "titleOnlyJoin": false,
+        "basis": [
+          "root base Exploration TTS role and exact cardId",
+          "exact CardCustom FaceURL GUID and parent deck GUID",
+          "closed-corpus source path and live SHA-256",
+          "literal six-slot Corridor/Noise/Room-icon diagram",
+          "ordered printed placement/reminder/Entrance/lifecycle units",
+          "explicit licensed EXPLORATION_CARDS_DATA key and exact structured fields"
+        ]
+      }
+    },
+    {
+      "explorationOccurrenceId": "TTS-EXPLORATION-5635-FACE",
+      "ttsDeckGuid": "63add2",
+      "ttsCardGuid": "41c838",
+      "ttsCardId": 5635,
+      "ttsRole": "explorationDeck",
+      "ttsClassification": "exploration",
+      "sourceSelector": {
+        "key": "FaceURL",
+        "objectType": "CardCustom",
+        "cardId": 563500,
+        "guid": "41c838",
+        "parentDeckGuid": "63add2",
+        "url": "https://steamusercontent-a.akamaihd.net/ugc/11925215518027499/4D0592E08E56B9B14B770435CA4F1558A03F505A/",
+        "selectorStatus": "exact",
+        "selectorGap": null,
+        "generatedSpriteSheetCell": false
+      },
+      "sourceId": "SRC-EXPLORATION-5635",
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/exploration-032.png",
+      "sourceSha256": "9c521a0ca8f9303363e69266962c20bee13b7a03cc8d05410399755ea42c684b",
+      "sourceAuthority": "source-bound-component-scan",
+      "sourceVersion": "TTS base Exploration face / deck 63add2 / cardId 5635",
+      "corpusEvidencePath": "assets/tts-mod/extract/card-text-corpus.json",
+      "provenanceEvidencePath": "assets/tts-mod/extract/card-provenance-inventory.json",
+      "visionEvidencePath": "assets/tts-mod/extract/vision-progress.json",
+      "printedTitle": "",
+      "identityLabel": "untitled TTS Exploration occurrence 5635",
+      "printedBody": "Place A/B/C Room\ndepending on your Section.\n\n[character]\n[noise]\n\nReminder:\nPlace 1 [secure] if you are Moving with [secure].\n\nPlace 4 Adults in the Corridor\nyou have just passed through.\nThen, make a Noise roll as normal.",
+      "extractionState": "draft-full",
+      "rulesInformationReadiness": "draft-text-complete",
+      "sourceUnits": [
+        {
+          "sentenceId": "EX5635-PLACEMENT-01",
+          "section": "placement",
+          "exactText": "Place A/B/C Room\ndepending on your Section.",
+          "unitId": "EX5635-PLACEMENT-01",
+          "unitKind": "printed-sentence",
+          "sequence": 1,
+          "start": 0,
+          "end": 43
+        },
+        {
+          "unitId": "EX5635-DIAGRAM-01",
+          "unitKind": "source-local-diagram",
+          "section": "diagram",
+          "sequence": 2,
+          "start": 45,
+          "end": 64,
+          "exactText": "[character]\n[noise]",
+          "roomType": "ABC",
+          "corridorSlots": [
+            {
+              "slotIndex": 1,
+              "slotLabel": "upper-right"
+            },
+            {
+              "slotIndex": 2,
+              "slotLabel": "right"
+            },
+            {
+              "slotIndex": 4,
+              "slotLabel": "lower-left"
+            }
+          ],
+          "noiseSlots": [
+            {
+              "slotIndex": 1,
+              "slotLabel": "upper-right"
+            }
+          ],
+          "roomIcons": [
+            "character"
+          ],
+          "resolutionOrder": "source-unspecified; SEM-Q-011"
+        },
+        {
+          "sentenceId": "EX5635-REMINDER-01",
+          "section": "reminder",
+          "exactText": "Reminder:\nPlace 1 [secure] if you are Moving with [secure].",
+          "unitId": "EX5635-REMINDER-01",
+          "unitKind": "printed-sentence",
+          "sequence": 3,
+          "start": 66,
+          "end": 125
+        },
+        {
+          "sentenceId": "EX5635-ENTRANCE-01",
+          "section": "entrance",
+          "exactText": "Place 4 Adults in the Corridor\nyou have just passed through.",
+          "unitId": "EX5635-ENTRANCE-01",
+          "unitKind": "printed-sentence",
+          "sequence": 4,
+          "start": 127,
+          "end": 187
+        },
+        {
+          "sentenceId": "EX5635-ENTRANCE-02",
+          "section": "entrance",
+          "exactText": "Then, make a Noise roll as normal.",
+          "unitId": "EX5635-ENTRANCE-02",
+          "unitKind": "printed-sentence",
+          "sequence": 5,
+          "start": 188,
+          "end": 222
+        },
+        {
+          "unitId": "EX5635-PROCEDURE-DISCARD",
+          "unitKind": "official-procedure-lifecycle",
+          "section": "lifecycle",
+          "sequence": 6,
+          "start": null,
+          "end": null,
+          "exactText": "Discard the Exploration card – Unless it was already removed as a part of the Entrance Effect.",
+          "sourceId": "SRC-RULEBOOK",
+          "locator": "printed page 24 / Exploration Sequence step 7"
+        }
+      ],
+      "iconOccurrences": [
+        {
+          "occurrenceId": "TTS-EXPLORATION-5635-ICON-01",
+          "sequence": 1,
+          "region": "diagram-room",
+          "printedToken": "[character]",
+          "semanticReferenceId": "icon.character",
+          "sourceLocation": "center of depicted Room"
+        },
+        {
+          "occurrenceId": "TTS-EXPLORATION-5635-ICON-02",
+          "sequence": 2,
+          "region": "diagram-corridor",
+          "printedToken": "[noise]",
+          "semanticReferenceId": "icon.noise",
+          "sourceLocation": "source-local upper-right Corridor slot"
+        },
+        {
+          "occurrenceId": "TTS-EXPLORATION-5635-ICON-03",
+          "sequence": 3,
+          "region": "reminder",
+          "printedToken": "[secure]",
+          "semanticReferenceId": "icon.secure",
+          "sourceLocation": "component to place in the reminder sentence"
+        },
+        {
+          "occurrenceId": "TTS-EXPLORATION-5635-ICON-04",
+          "sequence": 4,
+          "region": "reminder",
+          "printedToken": "[secure]",
+          "semanticReferenceId": "icon.secure",
+          "sourceLocation": "source-local icon after “Moving with” in the reminder sentence"
+        }
+      ],
+      "semanticRuleId": "SEM-EXPLORATION-5635-001",
+      "backlogUnitId": "CARD:9c521a0ca8f93033",
+      "bgaOccurrence": {
+        "sourceId": "SRC-BGA-EXPLORATION",
+        "sourcePath": "docs/rules/source-extraction/secondary/bga-staticData-260622-1220.js",
+        "sourceSha256": "18cd8f4a2883d4f6662ed170095ff07e0d9f5da508064ed1d6bfc124f5a274ae",
+        "sourceVersion": "licensed BGA immutable build 260622-1220 / EXPLORATION_CARDS_DATA",
+        "table": "EXPLORATION_CARDS_DATA",
+        "key": "ExplorationCard12",
+        "number": 12,
+        "type": "ABC",
+        "corridors": [
+          1,
+          2,
+          4
+        ],
+        "corridorsWithNoise": [
+          1
+        ],
+        "otherTokens": [],
+        "effectDesc": [
+          "Place 4 Adults in the Corridor you have just passed through.",
+          "Then, make a Noise roll."
+        ],
+        "closeDoor": false,
+        "noiseRoll": true,
+        "hazard": false,
+        "intrudersToAdd": 4,
+        "removeFromGame": false,
+        "sourceBlockText": "  ExplorationCard12: {\n    number: 12,\n    type: 'ABC',\n    corridors: [1, 2, 4],\n    corridorsWithNoise: [1],\n    otherTokens: [],\n    effectDesc: ['Place 4 Adults in the Corridor you have just passed through.', 'Then, make a Noise roll.'],\n    closeDoor: false,\n    noiseRoll: true,\n    hazard: false,\n    intrudersToAdd: 4,\n    removeFromGame: false,\n  },",
+        "variantDifference": "The licensed occurrence supplies a numbered structured identity and normalized room/diagram/effect fields but no printed title or full reminder wording. It remains secondary and does not rewrite the exact untitled scan."
+      },
+      "officialOccurrences": [],
+      "faqOccurrences": [],
+      "joinEvidence": {
+        "identityJoin": "explicit occurrence crosswalk",
+        "titleOnlyJoin": false,
+        "basis": [
+          "root base Exploration TTS role and exact cardId",
+          "exact CardCustom FaceURL GUID and parent deck GUID",
+          "closed-corpus source path and live SHA-256",
+          "literal six-slot Corridor/Noise/Room-icon diagram",
+          "ordered printed placement/reminder/Entrance/lifecycle units",
+          "explicit licensed EXPLORATION_CARDS_DATA key and exact structured fields"
+        ]
+      }
+    },
+    {
+      "explorationOccurrenceId": "TTS-EXPLORATION-5636-FACE",
+      "ttsDeckGuid": "63add2",
+      "ttsCardGuid": "ab7ffb",
+      "ttsCardId": 5636,
+      "ttsRole": "explorationDeck",
+      "ttsClassification": "exploration",
+      "sourceSelector": {
+        "key": "FaceURL",
+        "objectType": "CardCustom",
+        "cardId": 563600,
+        "guid": "ab7ffb",
+        "parentDeckGuid": "63add2",
+        "url": "https://steamusercontent-a.akamaihd.net/ugc/11925215518029621/DCB70EAF3D848DE18CA7FE9DECD76846047A23CB/",
+        "selectorStatus": "exact",
+        "selectorGap": null,
+        "generatedSpriteSheetCell": false
+      },
+      "sourceId": "SRC-EXPLORATION-5636",
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/exploration-026.png",
+      "sourceSha256": "08445a3d8b18081d7396756f407ac058c383c3aee05bde76e80393b0af4b741d",
+      "sourceAuthority": "source-bound-component-scan",
+      "sourceVersion": "TTS base Exploration face / deck 63add2 / cardId 5636",
+      "corpusEvidencePath": "assets/tts-mod/extract/card-text-corpus.json",
+      "provenanceEvidencePath": "assets/tts-mod/extract/card-provenance-inventory.json",
+      "visionEvidencePath": "assets/tts-mod/extract/vision-progress.json",
+      "printedTitle": "",
+      "identityLabel": "untitled TTS Exploration occurrence 5636",
+      "printedBody": "Place A/B/C Room\ndepending on your Section.\n\n[character] [fire]\n\nReminder:\nPlace 1 [secure] if you are Moving with [secure].\n\nClose all doors around this room.\n\nMake a Noise roll.",
+      "extractionState": "draft-full",
+      "rulesInformationReadiness": "draft-text-complete",
+      "sourceUnits": [
+        {
+          "sentenceId": "EX5636-PLACEMENT-01",
+          "section": "placement",
+          "exactText": "Place A/B/C Room\ndepending on your Section.",
+          "unitId": "EX5636-PLACEMENT-01",
+          "unitKind": "printed-sentence",
+          "sequence": 1,
+          "start": 0,
+          "end": 43
+        },
+        {
+          "unitId": "EX5636-DIAGRAM-01",
+          "unitKind": "source-local-diagram",
+          "section": "diagram",
+          "sequence": 2,
+          "start": 45,
+          "end": 63,
+          "exactText": "[character] [fire]",
+          "roomType": "ABC",
+          "corridorSlots": [
+            {
+              "slotIndex": 2,
+              "slotLabel": "right"
+            },
+            {
+              "slotIndex": 3,
+              "slotLabel": "lower-right"
+            }
+          ],
+          "noiseSlots": [],
+          "roomIcons": [
+            "character",
+            "fire"
+          ],
+          "resolutionOrder": "source-unspecified; SEM-Q-011"
+        },
+        {
+          "sentenceId": "EX5636-REMINDER-01",
+          "section": "reminder",
+          "exactText": "Reminder:\nPlace 1 [secure] if you are Moving with [secure].",
+          "unitId": "EX5636-REMINDER-01",
+          "unitKind": "printed-sentence",
+          "sequence": 3,
+          "start": 65,
+          "end": 124
+        },
+        {
+          "sentenceId": "EX5636-ENTRANCE-01",
+          "section": "entrance",
+          "exactText": "Close all doors around this room.",
+          "unitId": "EX5636-ENTRANCE-01",
+          "unitKind": "printed-sentence",
+          "sequence": 4,
+          "start": 126,
+          "end": 159
+        },
+        {
+          "sentenceId": "EX5636-ENTRANCE-02",
+          "section": "entrance",
+          "exactText": "Make a Noise roll.",
+          "unitId": "EX5636-ENTRANCE-02",
+          "unitKind": "printed-sentence",
+          "sequence": 5,
+          "start": 161,
+          "end": 179
+        },
+        {
+          "unitId": "EX5636-PROCEDURE-DISCARD",
+          "unitKind": "official-procedure-lifecycle",
+          "section": "lifecycle",
+          "sequence": 6,
+          "start": null,
+          "end": null,
+          "exactText": "Discard the Exploration card – Unless it was already removed as a part of the Entrance Effect.",
+          "sourceId": "SRC-RULEBOOK",
+          "locator": "printed page 24 / Exploration Sequence step 7"
+        }
+      ],
+      "iconOccurrences": [
+        {
+          "occurrenceId": "TTS-EXPLORATION-5636-ICON-01",
+          "sequence": 1,
+          "region": "diagram-room",
+          "printedToken": "[character]",
+          "semanticReferenceId": "icon.character",
+          "sourceLocation": "center of depicted Room"
+        },
+        {
+          "occurrenceId": "TTS-EXPLORATION-5636-ICON-02",
+          "sequence": 2,
+          "region": "diagram-room",
+          "printedToken": "[fire]",
+          "semanticReferenceId": "icon.fire",
+          "sourceLocation": "depicted fire occurrence in new Room"
+        },
+        {
+          "occurrenceId": "TTS-EXPLORATION-5636-ICON-03",
+          "sequence": 3,
+          "region": "reminder",
+          "printedToken": "[secure]",
+          "semanticReferenceId": "icon.secure",
+          "sourceLocation": "component to place in the reminder sentence"
+        },
+        {
+          "occurrenceId": "TTS-EXPLORATION-5636-ICON-04",
+          "sequence": 4,
+          "region": "reminder",
+          "printedToken": "[secure]",
+          "semanticReferenceId": "icon.secure",
+          "sourceLocation": "source-local icon after “Moving with” in the reminder sentence"
+        }
+      ],
+      "semanticRuleId": "SEM-EXPLORATION-5636-001",
+      "backlogUnitId": "CARD:08445a3d8b18081d",
+      "bgaOccurrence": {
+        "sourceId": "SRC-BGA-EXPLORATION",
+        "sourcePath": "docs/rules/source-extraction/secondary/bga-staticData-260622-1220.js",
+        "sourceSha256": "18cd8f4a2883d4f6662ed170095ff07e0d9f5da508064ed1d6bfc124f5a274ae",
+        "sourceVersion": "licensed BGA immutable build 260622-1220 / EXPLORATION_CARDS_DATA",
+        "table": "EXPLORATION_CARDS_DATA",
+        "key": "ExplorationCard7",
+        "number": 7,
+        "type": "ABC",
+        "corridors": [
+          2,
+          3
+        ],
+        "corridorsWithNoise": [],
+        "otherTokens": [
+          "fire"
+        ],
+        "effectDesc": [
+          "Close all Doors around this Room.",
+          "Make a Noise roll."
+        ],
+        "closeDoor": true,
+        "noiseRoll": true,
+        "hazard": false,
+        "intrudersToAdd": 0,
+        "removeFromGame": false,
+        "sourceBlockText": "  ExplorationCard7: {\n    number: 7,\n    type: 'ABC',\n    corridors: [2, 3],\n    corridorsWithNoise: [],\n    otherTokens: ['fire'],\n    effectDesc: ['Close all Doors around this Room.', 'Make a Noise roll.'],\n    closeDoor: true,\n    noiseRoll: true,\n    hazard: false,\n    intrudersToAdd: 0,\n    removeFromGame: false,\n  },",
+        "variantDifference": "The licensed occurrence supplies a numbered structured identity and normalized room/diagram/effect fields but no printed title or full reminder wording. It remains secondary and does not rewrite the exact untitled scan."
+      },
+      "officialOccurrences": [],
+      "faqOccurrences": [
+        {
+          "sourceId": "SRC-FAQ",
+          "sourceUnitId": "FQ-P02-U06",
+          "printedText": "Q: An Exploration card tells me to close doors around a newly explored room. Do you only close doors touching the room or all doors in corridors next to the room? What about the hibernatorium doors?\nA: Only close doors touching the new room. Hibernatorium doors will never close that way, since Exploration is not resolve in the Hibernatorium."
+        }
+      ],
+      "joinEvidence": {
+        "identityJoin": "explicit occurrence crosswalk",
+        "titleOnlyJoin": false,
+        "basis": [
+          "root base Exploration TTS role and exact cardId",
+          "exact CardCustom FaceURL GUID and parent deck GUID",
+          "closed-corpus source path and live SHA-256",
+          "literal six-slot Corridor/Noise/Room-icon diagram",
+          "ordered printed placement/reminder/Entrance/lifecycle units",
+          "explicit licensed EXPLORATION_CARDS_DATA key and exact structured fields"
+        ]
+      }
+    },
+    {
+      "explorationOccurrenceId": "TTS-EXPLORATION-5637-FACE",
+      "ttsDeckGuid": "63add2",
+      "ttsCardGuid": "3c770d",
+      "ttsCardId": 5637,
+      "ttsRole": "explorationDeck",
+      "ttsClassification": "exploration",
+      "sourceSelector": {
+        "key": "FaceURL",
+        "objectType": "CardCustom",
+        "cardId": 563700,
+        "guid": "3c770d",
+        "parentDeckGuid": "63add2",
+        "url": "https://steamusercontent-a.akamaihd.net/ugc/11927200046573937/52D39376A8EA1E6846E32B4300139EAC3676DC37/",
+        "selectorStatus": "exact",
+        "selectorGap": null,
+        "generatedSpriteSheetCell": false
+      },
+      "sourceId": "SRC-EXPLORATION-5637",
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/exploration-037.png",
+      "sourceSha256": "3101f9f9a5df9d01aa07073837412496355c63df94216ab1550abc6a21221516",
+      "sourceAuthority": "source-bound-component-scan",
+      "sourceVersion": "TTS base Exploration face / deck 63add2 / cardId 5637",
+      "corpusEvidencePath": "assets/tts-mod/extract/card-text-corpus.json",
+      "provenanceEvidencePath": "assets/tts-mod/extract/card-provenance-inventory.json",
+      "visionEvidencePath": "assets/tts-mod/extract/vision-progress.json",
+      "printedTitle": "",
+      "identityLabel": "untitled TTS Exploration occurrence 5637",
+      "printedBody": "Place a “?” Room tile.\n\n[character]\n[noise]\n\nReminder:\nPlace 1 [secure] if you are Moving with [secure].\n\nResolve\n[noiseDieHazard]\n\nRemove this card from the game.",
+      "extractionState": "draft-full",
+      "rulesInformationReadiness": "draft-text-complete",
+      "sourceUnits": [
+        {
+          "sentenceId": "EX5637-PLACEMENT-01",
+          "section": "placement",
+          "exactText": "Place a “?” Room tile.",
+          "unitId": "EX5637-PLACEMENT-01",
+          "unitKind": "printed-sentence",
+          "sequence": 1,
+          "start": 0,
+          "end": 22
+        },
+        {
+          "unitId": "EX5637-DIAGRAM-01",
+          "unitKind": "source-local-diagram",
+          "section": "diagram",
+          "sequence": 2,
+          "start": 24,
+          "end": 43,
+          "exactText": "[character]\n[noise]",
+          "roomType": "?",
+          "corridorSlots": [
+            {
+              "slotIndex": 1,
+              "slotLabel": "upper-right"
+            },
+            {
+              "slotIndex": 3,
+              "slotLabel": "lower-right"
+            },
+            {
+              "slotIndex": 4,
+              "slotLabel": "lower-left"
+            }
+          ],
+          "noiseSlots": [
+            {
+              "slotIndex": 1,
+              "slotLabel": "upper-right"
+            }
+          ],
+          "roomIcons": [
+            "character"
+          ],
+          "resolutionOrder": "source-unspecified; SEM-Q-011"
+        },
+        {
+          "sentenceId": "EX5637-REMINDER-01",
+          "section": "reminder",
+          "exactText": "Reminder:\nPlace 1 [secure] if you are Moving with [secure].",
+          "unitId": "EX5637-REMINDER-01",
+          "unitKind": "printed-sentence",
+          "sequence": 3,
+          "start": 45,
+          "end": 104
+        },
+        {
+          "sentenceId": "EX5637-ENTRANCE-01",
+          "section": "entrance",
+          "exactText": "Resolve\n[noiseDieHazard]",
+          "unitId": "EX5637-ENTRANCE-01",
+          "unitKind": "printed-sentence",
+          "sequence": 4,
+          "start": 106,
+          "end": 130
+        },
+        {
+          "sentenceId": "EX5637-LIFECYCLE-01",
+          "section": "lifecycle",
+          "exactText": "Remove this card from the game.",
+          "unitId": "EX5637-LIFECYCLE-01",
+          "unitKind": "printed-sentence",
+          "sequence": 5,
+          "start": 132,
+          "end": 163
+        }
+      ],
+      "iconOccurrences": [
+        {
+          "occurrenceId": "TTS-EXPLORATION-5637-ICON-01",
+          "sequence": 1,
+          "region": "diagram-room",
+          "printedToken": "[character]",
+          "semanticReferenceId": "icon.character",
+          "sourceLocation": "center of depicted Room"
+        },
+        {
+          "occurrenceId": "TTS-EXPLORATION-5637-ICON-02",
+          "sequence": 2,
+          "region": "diagram-corridor",
+          "printedToken": "[noise]",
+          "semanticReferenceId": "icon.noise",
+          "sourceLocation": "source-local upper-right Corridor slot"
+        },
+        {
+          "occurrenceId": "TTS-EXPLORATION-5637-ICON-03",
+          "sequence": 3,
+          "region": "reminder",
+          "printedToken": "[secure]",
+          "semanticReferenceId": "icon.secure",
+          "sourceLocation": "component to place in the reminder sentence"
+        },
+        {
+          "occurrenceId": "TTS-EXPLORATION-5637-ICON-04",
+          "sequence": 4,
+          "region": "reminder",
+          "printedToken": "[secure]",
+          "semanticReferenceId": "icon.secure",
+          "sourceLocation": "source-local icon after “Moving with” in the reminder sentence"
+        },
+        {
+          "occurrenceId": "TTS-EXPLORATION-5637-ICON-05",
+          "sequence": 5,
+          "region": "entrance",
+          "printedToken": "[noiseDieHazard]",
+          "semanticReferenceId": "icon.noiseDieHazard",
+          "sourceLocation": "EX5637-ENTRANCE-01"
+        }
+      ],
+      "semanticRuleId": "SEM-EXPLORATION-5637-001",
+      "backlogUnitId": "CARD:3101f9f9a5df9d01",
+      "bgaOccurrence": {
+        "sourceId": "SRC-BGA-EXPLORATION",
+        "sourcePath": "docs/rules/source-extraction/secondary/bga-staticData-260622-1220.js",
+        "sourceSha256": "18cd8f4a2883d4f6662ed170095ff07e0d9f5da508064ed1d6bfc124f5a274ae",
+        "sourceVersion": "licensed BGA immutable build 260622-1220 / EXPLORATION_CARDS_DATA",
+        "table": "EXPLORATION_CARDS_DATA",
+        "key": "ExplorationCard3",
+        "number": 3,
+        "type": "?",
+        "corridors": [
+          1,
+          3,
+          4
+        ],
+        "corridorsWithNoise": [
+          1
+        ],
+        "otherTokens": [],
+        "effectDesc": [
+          "Resolve <HAZARD>",
+          "Remove this card from the game."
+        ],
+        "closeDoor": false,
+        "noiseRoll": false,
+        "hazard": true,
+        "intrudersToAdd": 0,
+        "removeFromGame": true,
+        "sourceBlockText": "  ExplorationCard3: {\n    number: 3,\n    type: '?',\n    corridors: [1, 3, 4],\n    corridorsWithNoise: [1],\n    otherTokens: [],\n    effectDesc: ['Resolve <HAZARD>', 'Remove this card from the game.'],\n    closeDoor: false,\n    noiseRoll: false,\n    hazard: true,\n    intrudersToAdd: 0,\n    removeFromGame: true,\n  },",
+        "variantDifference": "The licensed occurrence supplies a numbered structured identity and normalized room/diagram/effect fields but no printed title or full reminder wording. It remains secondary and does not rewrite the exact untitled scan."
+      },
+      "officialOccurrences": [],
+      "faqOccurrences": [
+        {
+          "sourceId": "SRC-FAQ",
+          "sourceUnitId": "FQ-P02-U07",
+          "printedText": "Q: On Exploration cards, is the “Remove this card from the game” part of the Entrance effect?\nA: No. Effects that Explore ignoring Entrance effects still remove those Exploration cards from the game."
+        }
+      ],
+      "joinEvidence": {
+        "identityJoin": "explicit occurrence crosswalk",
+        "titleOnlyJoin": false,
+        "basis": [
+          "root base Exploration TTS role and exact cardId",
+          "exact CardCustom FaceURL GUID and parent deck GUID",
+          "closed-corpus source path and live SHA-256",
+          "literal six-slot Corridor/Noise/Room-icon diagram",
+          "ordered printed placement/reminder/Entrance/lifecycle units",
+          "explicit licensed EXPLORATION_CARDS_DATA key and exact structured fields"
+        ]
+      }
+    },
+    {
+      "explorationOccurrenceId": "TTS-EXPLORATION-5638-FACE",
+      "ttsDeckGuid": "63add2",
+      "ttsCardGuid": "2e1fdc",
+      "ttsCardId": 5638,
+      "ttsRole": "explorationDeck",
+      "ttsClassification": "exploration",
+      "sourceSelector": {
+        "key": "FaceURL",
+        "objectType": "CardCustom",
+        "cardId": 563800,
+        "guid": "2e1fdc",
+        "parentDeckGuid": "63add2",
+        "url": "https://steamusercontent-a.akamaihd.net/ugc/11927200046571277/C93D9F935166EB7C954DAD938F5AA78A09F262C7/",
+        "selectorStatus": "exact",
+        "selectorGap": null,
+        "generatedSpriteSheetCell": false
+      },
+      "sourceId": "SRC-EXPLORATION-5638",
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/exploration-036.png",
+      "sourceSha256": "160d5d76b631d1ccbd1e4ea981313a1edbd83a6e9eda34dd825fafc2f9cbdd4d",
+      "sourceAuthority": "source-bound-component-scan",
+      "sourceVersion": "TTS base Exploration face / deck 63add2 / cardId 5638",
+      "corpusEvidencePath": "assets/tts-mod/extract/card-text-corpus.json",
+      "provenanceEvidencePath": "assets/tts-mod/extract/card-provenance-inventory.json",
+      "visionEvidencePath": "assets/tts-mod/extract/vision-progress.json",
+      "printedTitle": "",
+      "identityLabel": "untitled TTS Exploration occurrence 5638",
+      "printedBody": "Place a “?” Room tile.\n\n[character] [malfunction] [fire]\n[noise]\n\nReminder:\nPlace 1 [secure] if you are Moving with [secure].\n\nClose all doors around this room.\n\nMake a Noise roll.\nRemove this card from the game.",
+      "extractionState": "draft-full",
+      "rulesInformationReadiness": "draft-text-complete",
+      "sourceUnits": [
+        {
+          "sentenceId": "EX5638-PLACEMENT-01",
+          "section": "placement",
+          "exactText": "Place a “?” Room tile.",
+          "unitId": "EX5638-PLACEMENT-01",
+          "unitKind": "printed-sentence",
+          "sequence": 1,
+          "start": 0,
+          "end": 22
+        },
+        {
+          "unitId": "EX5638-DIAGRAM-01",
+          "unitKind": "source-local-diagram",
+          "section": "diagram",
+          "sequence": 2,
+          "start": 24,
+          "end": 64,
+          "exactText": "[character] [malfunction] [fire]\n[noise]",
+          "roomType": "?",
+          "corridorSlots": [
+            {
+              "slotIndex": 0,
+              "slotLabel": "upper-left"
+            },
+            {
+              "slotIndex": 1,
+              "slotLabel": "upper-right"
+            },
+            {
+              "slotIndex": 3,
+              "slotLabel": "lower-right"
+            }
+          ],
+          "noiseSlots": [
+            {
+              "slotIndex": 1,
+              "slotLabel": "upper-right"
+            }
+          ],
+          "roomIcons": [
+            "character",
+            "malfunction",
+            "fire"
+          ],
+          "resolutionOrder": "source-unspecified; SEM-Q-011"
+        },
+        {
+          "sentenceId": "EX5638-REMINDER-01",
+          "section": "reminder",
+          "exactText": "Reminder:\nPlace 1 [secure] if you are Moving with [secure].",
+          "unitId": "EX5638-REMINDER-01",
+          "unitKind": "printed-sentence",
+          "sequence": 3,
+          "start": 66,
+          "end": 125
+        },
+        {
+          "sentenceId": "EX5638-ENTRANCE-01",
+          "section": "entrance",
+          "exactText": "Close all doors around this room.",
+          "unitId": "EX5638-ENTRANCE-01",
+          "unitKind": "printed-sentence",
+          "sequence": 4,
+          "start": 127,
+          "end": 160
+        },
+        {
+          "sentenceId": "EX5638-ENTRANCE-02",
+          "section": "entrance",
+          "exactText": "Make a Noise roll.",
+          "unitId": "EX5638-ENTRANCE-02",
+          "unitKind": "printed-sentence",
+          "sequence": 5,
+          "start": 162,
+          "end": 180
+        },
+        {
+          "sentenceId": "EX5638-LIFECYCLE-01",
+          "section": "lifecycle",
+          "exactText": "Remove this card from the game.",
+          "unitId": "EX5638-LIFECYCLE-01",
+          "unitKind": "printed-sentence",
+          "sequence": 6,
+          "start": 181,
+          "end": 212
+        }
+      ],
+      "iconOccurrences": [
+        {
+          "occurrenceId": "TTS-EXPLORATION-5638-ICON-01",
+          "sequence": 1,
+          "region": "diagram-room",
+          "printedToken": "[character]",
+          "semanticReferenceId": "icon.character",
+          "sourceLocation": "center of depicted Room"
+        },
+        {
+          "occurrenceId": "TTS-EXPLORATION-5638-ICON-02",
+          "sequence": 2,
+          "region": "diagram-room",
+          "printedToken": "[malfunction]",
+          "semanticReferenceId": "icon.malfunction",
+          "sourceLocation": "depicted malfunction occurrence in new Room"
+        },
+        {
+          "occurrenceId": "TTS-EXPLORATION-5638-ICON-03",
+          "sequence": 3,
+          "region": "diagram-room",
+          "printedToken": "[fire]",
+          "semanticReferenceId": "icon.fire",
+          "sourceLocation": "depicted fire occurrence in new Room"
+        },
+        {
+          "occurrenceId": "TTS-EXPLORATION-5638-ICON-04",
+          "sequence": 4,
+          "region": "diagram-corridor",
+          "printedToken": "[noise]",
+          "semanticReferenceId": "icon.noise",
+          "sourceLocation": "source-local upper-right Corridor slot"
+        },
+        {
+          "occurrenceId": "TTS-EXPLORATION-5638-ICON-05",
+          "sequence": 5,
+          "region": "reminder",
+          "printedToken": "[secure]",
+          "semanticReferenceId": "icon.secure",
+          "sourceLocation": "component to place in the reminder sentence"
+        },
+        {
+          "occurrenceId": "TTS-EXPLORATION-5638-ICON-06",
+          "sequence": 6,
+          "region": "reminder",
+          "printedToken": "[secure]",
+          "semanticReferenceId": "icon.secure",
+          "sourceLocation": "source-local icon after “Moving with” in the reminder sentence"
+        }
+      ],
+      "semanticRuleId": "SEM-EXPLORATION-5638-001",
+      "backlogUnitId": "CARD:160d5d76b631d1cc",
+      "bgaOccurrence": {
+        "sourceId": "SRC-BGA-EXPLORATION",
+        "sourcePath": "docs/rules/source-extraction/secondary/bga-staticData-260622-1220.js",
+        "sourceSha256": "18cd8f4a2883d4f6662ed170095ff07e0d9f5da508064ed1d6bfc124f5a274ae",
+        "sourceVersion": "licensed BGA immutable build 260622-1220 / EXPLORATION_CARDS_DATA",
+        "table": "EXPLORATION_CARDS_DATA",
+        "key": "ExplorationCard2",
+        "number": 2,
+        "type": "?",
+        "corridors": [
+          0,
+          1,
+          3
+        ],
+        "corridorsWithNoise": [
+          1
+        ],
+        "otherTokens": [
+          "malfunction",
+          "fire"
+        ],
+        "effectDesc": [
+          "Close all Doors around this Room.",
+          "Make a Noise roll.",
+          "Remove this card from the game."
+        ],
+        "closeDoor": true,
+        "noiseRoll": true,
+        "hazard": false,
+        "intrudersToAdd": 0,
+        "removeFromGame": true,
+        "sourceBlockText": "  ExplorationCard2: {\n    number: 2,\n    type: '?',\n    corridors: [0, 1, 3],\n    corridorsWithNoise: [1],\n    otherTokens: ['malfunction', 'fire'],\n    effectDesc: ['Close all Doors around this Room.', 'Make a Noise roll.', 'Remove this card from the game.'],\n    closeDoor: true,\n    noiseRoll: true,\n    hazard: false,\n    intrudersToAdd: 0,\n    removeFromGame: true,\n  },",
+        "variantDifference": "The licensed occurrence supplies a numbered structured identity and normalized room/diagram/effect fields but no printed title or full reminder wording. It remains secondary and does not rewrite the exact untitled scan."
+      },
+      "officialOccurrences": [],
+      "faqOccurrences": [
+        {
+          "sourceId": "SRC-FAQ",
+          "sourceUnitId": "FQ-P02-U06",
+          "printedText": "Q: An Exploration card tells me to close doors around a newly explored room. Do you only close doors touching the room or all doors in corridors next to the room? What about the hibernatorium doors?\nA: Only close doors touching the new room. Hibernatorium doors will never close that way, since Exploration is not resolve in the Hibernatorium."
+        },
+        {
+          "sourceId": "SRC-FAQ",
+          "sourceUnitId": "FQ-P02-U07",
+          "printedText": "Q: On Exploration cards, is the “Remove this card from the game” part of the Entrance effect?\nA: No. Effects that Explore ignoring Entrance effects still remove those Exploration cards from the game."
+        }
+      ],
+      "joinEvidence": {
+        "identityJoin": "explicit occurrence crosswalk",
+        "titleOnlyJoin": false,
+        "basis": [
+          "root base Exploration TTS role and exact cardId",
+          "exact CardCustom FaceURL GUID and parent deck GUID",
+          "closed-corpus source path and live SHA-256",
+          "literal six-slot Corridor/Noise/Room-icon diagram",
+          "ordered printed placement/reminder/Entrance/lifecycle units",
+          "explicit licensed EXPLORATION_CARDS_DATA key and exact structured fields"
+        ]
+      }
+    },
+    {
+      "explorationOccurrenceId": "TTS-EXPLORATION-5639-FACE",
+      "ttsDeckGuid": "63add2",
+      "ttsCardGuid": "2c8495",
+      "ttsCardId": 5639,
+      "ttsRole": "explorationDeck",
+      "ttsClassification": "exploration",
+      "sourceSelector": {
+        "key": "FaceURL",
+        "objectType": "CardCustom",
+        "cardId": 563900,
+        "guid": "2c8495",
+        "parentDeckGuid": "63add2",
+        "url": "https://steamusercontent-a.akamaihd.net/ugc/14891405559263764302/CD5E77AC6A6DBAF16A726554A22E19FA20323C11/",
+        "selectorStatus": "exact",
+        "selectorGap": null,
+        "generatedSpriteSheetCell": false
+      },
+      "sourceId": "SRC-EXPLORATION-5639",
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/exploration-087.png",
+      "sourceSha256": "d52ff877e59bfda1b306074b5567b4c0bf93a0be9b4e257acc88b38f87a7c85f",
+      "sourceAuthority": "source-bound-component-scan",
+      "sourceVersion": "TTS base Exploration face / deck 63add2 / cardId 5639",
+      "corpusEvidencePath": "assets/tts-mod/extract/card-text-corpus.json",
+      "provenanceEvidencePath": "assets/tts-mod/extract/card-provenance-inventory.json",
+      "visionEvidencePath": "assets/tts-mod/extract/vision-progress.json",
+      "printedTitle": "",
+      "identityLabel": "untitled TTS Exploration occurrence 5639",
+      "printedBody": "Place a “?” Room tile.\n\n[noise] [noise]\n[character] [malfunction]\n[noise] [noise]\n\nReminder:\nPlace 1 [secure] if you are Moving with [secure].\n\nEntrance Effect:\nClose all Doors around this Room.\nRemove this card from the game.",
+      "extractionState": "draft-full",
+      "rulesInformationReadiness": "draft-text-complete",
+      "sourceUnits": [
+        {
+          "sentenceId": "EX5639-PLACEMENT-01",
+          "section": "placement",
+          "exactText": "Place a “?” Room tile.",
+          "unitId": "EX5639-PLACEMENT-01",
+          "unitKind": "printed-sentence",
+          "sequence": 1,
+          "start": 0,
+          "end": 22
+        },
+        {
+          "unitId": "EX5639-DIAGRAM-01",
+          "unitKind": "source-local-diagram",
+          "section": "diagram",
+          "sequence": 2,
+          "start": 24,
+          "end": 81,
+          "exactText": "[noise] [noise]\n[character] [malfunction]\n[noise] [noise]",
+          "roomType": "?",
+          "corridorSlots": [
+            {
+              "slotIndex": 0,
+              "slotLabel": "upper-left"
+            },
+            {
+              "slotIndex": 1,
+              "slotLabel": "upper-right"
+            },
+            {
+              "slotIndex": 3,
+              "slotLabel": "lower-right"
+            },
+            {
+              "slotIndex": 4,
+              "slotLabel": "lower-left"
+            }
+          ],
+          "noiseSlots": [
+            {
+              "slotIndex": 0,
+              "slotLabel": "upper-left"
+            },
+            {
+              "slotIndex": 1,
+              "slotLabel": "upper-right"
+            },
+            {
+              "slotIndex": 3,
+              "slotLabel": "lower-right"
+            },
+            {
+              "slotIndex": 4,
+              "slotLabel": "lower-left"
+            }
+          ],
+          "roomIcons": [
+            "character",
+            "malfunction"
+          ],
+          "resolutionOrder": "source-unspecified; SEM-Q-011"
+        },
+        {
+          "sentenceId": "EX5639-REMINDER-01",
+          "section": "reminder",
+          "exactText": "Reminder:\nPlace 1 [secure] if you are Moving with [secure].",
+          "unitId": "EX5639-REMINDER-01",
+          "unitKind": "printed-sentence",
+          "sequence": 3,
+          "start": 83,
+          "end": 142
+        },
+        {
+          "sentenceId": "EX5639-ENTRANCE-01",
+          "section": "entrance",
+          "exactText": "Entrance Effect:\nClose all Doors around this Room.",
+          "unitId": "EX5639-ENTRANCE-01",
+          "unitKind": "printed-sentence",
+          "sequence": 4,
+          "start": 144,
+          "end": 194
+        },
+        {
+          "sentenceId": "EX5639-LIFECYCLE-01",
+          "section": "lifecycle",
+          "exactText": "Remove this card from the game.",
+          "unitId": "EX5639-LIFECYCLE-01",
+          "unitKind": "printed-sentence",
+          "sequence": 5,
+          "start": 195,
+          "end": 226
+        }
+      ],
+      "iconOccurrences": [
+        {
+          "occurrenceId": "TTS-EXPLORATION-5639-ICON-01",
+          "sequence": 1,
+          "region": "diagram-room",
+          "printedToken": "[character]",
+          "semanticReferenceId": "icon.character",
+          "sourceLocation": "center of depicted Room"
+        },
+        {
+          "occurrenceId": "TTS-EXPLORATION-5639-ICON-02",
+          "sequence": 2,
+          "region": "diagram-room",
+          "printedToken": "[malfunction]",
+          "semanticReferenceId": "icon.malfunction",
+          "sourceLocation": "depicted malfunction occurrence in new Room"
+        },
+        {
+          "occurrenceId": "TTS-EXPLORATION-5639-ICON-03",
+          "sequence": 3,
+          "region": "diagram-corridor",
+          "printedToken": "[noise]",
+          "semanticReferenceId": "icon.noise",
+          "sourceLocation": "source-local upper-left Corridor slot"
+        },
+        {
+          "occurrenceId": "TTS-EXPLORATION-5639-ICON-04",
+          "sequence": 4,
+          "region": "diagram-corridor",
+          "printedToken": "[noise]",
+          "semanticReferenceId": "icon.noise",
+          "sourceLocation": "source-local upper-right Corridor slot"
+        },
+        {
+          "occurrenceId": "TTS-EXPLORATION-5639-ICON-05",
+          "sequence": 5,
+          "region": "diagram-corridor",
+          "printedToken": "[noise]",
+          "semanticReferenceId": "icon.noise",
+          "sourceLocation": "source-local lower-right Corridor slot"
+        },
+        {
+          "occurrenceId": "TTS-EXPLORATION-5639-ICON-06",
+          "sequence": 6,
+          "region": "diagram-corridor",
+          "printedToken": "[noise]",
+          "semanticReferenceId": "icon.noise",
+          "sourceLocation": "source-local lower-left Corridor slot"
+        },
+        {
+          "occurrenceId": "TTS-EXPLORATION-5639-ICON-07",
+          "sequence": 7,
+          "region": "reminder",
+          "printedToken": "[secure]",
+          "semanticReferenceId": "icon.secure",
+          "sourceLocation": "component to place in the reminder sentence"
+        },
+        {
+          "occurrenceId": "TTS-EXPLORATION-5639-ICON-08",
+          "sequence": 8,
+          "region": "reminder",
+          "printedToken": "[secure]",
+          "semanticReferenceId": "icon.secure",
+          "sourceLocation": "source-local icon after “Moving with” in the reminder sentence"
+        }
+      ],
+      "semanticRuleId": "SEM-EXPLORATION-5639-001",
+      "backlogUnitId": "CARD:d52ff877e59bfda1",
+      "bgaOccurrence": {
+        "sourceId": "SRC-BGA-EXPLORATION",
+        "sourcePath": "docs/rules/source-extraction/secondary/bga-staticData-260622-1220.js",
+        "sourceSha256": "18cd8f4a2883d4f6662ed170095ff07e0d9f5da508064ed1d6bfc124f5a274ae",
+        "sourceVersion": "licensed BGA immutable build 260622-1220 / EXPLORATION_CARDS_DATA",
+        "table": "EXPLORATION_CARDS_DATA",
+        "key": "ExplorationCard1",
+        "number": 1,
+        "type": "?",
+        "corridors": [
+          0,
+          1,
+          3,
+          4
+        ],
+        "corridorsWithNoise": [
+          0,
+          1,
+          3,
+          4
+        ],
+        "otherTokens": [
+          "malfunction"
+        ],
+        "effectDesc": [
+          "Close all Doors around this Room.",
+          "Remove this card from the game."
+        ],
+        "closeDoor": true,
+        "noiseRoll": false,
+        "hazard": false,
+        "intrudersToAdd": 0,
+        "removeFromGame": true,
+        "sourceBlockText": "  ExplorationCard1: {\n    number: 1,\n    type: '?',\n    corridors: [0, 1, 3, 4],\n    corridorsWithNoise: [0, 1, 3, 4],\n    otherTokens: ['malfunction'],\n    effectDesc: ['Close all Doors around this Room.', 'Remove this card from the game.'],\n    closeDoor: true,\n    noiseRoll: false,\n    hazard: false,\n    intrudersToAdd: 0,\n    removeFromGame: true,\n  },",
+        "variantDifference": "The licensed occurrence supplies a numbered structured identity and normalized room/diagram/effect fields but no printed title or full reminder wording. It remains secondary and does not rewrite the exact untitled scan."
+      },
+      "officialOccurrences": [
+        {
+          "occurrenceId": "RB-P24-V01",
+          "locator": "printed page 24 / RB-P24-V01 / Exploration-card anatomy diagram",
+          "visibleText": "Place a Room of the ? type. Reminder: Place 1 [source glyph] if you are Moving Cautiously. Entrance Effect: Close all Doors around this Room. Remove this card from the game.",
+          "sourceId": "SRC-RULEBOOK",
+          "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
+          "visualType": "exploration-card-anatomy-diagram",
+          "obligationClass": "normative-visual-obligation",
+          "variantDifference": "The current official visible occurrence uses full current Room-placement and Moving Cautiously wording; the untitled TTS face preserves abbreviated prototype wording and two source-local Secure glyph occurrences."
+        }
+      ],
+      "faqOccurrences": [
+        {
+          "sourceId": "SRC-FAQ",
+          "sourceUnitId": "FQ-P02-U06",
+          "printedText": "Q: An Exploration card tells me to close doors around a newly explored room. Do you only close doors touching the room or all doors in corridors next to the room? What about the hibernatorium doors?\nA: Only close doors touching the new room. Hibernatorium doors will never close that way, since Exploration is not resolve in the Hibernatorium."
+        },
+        {
+          "sourceId": "SRC-FAQ",
+          "sourceUnitId": "FQ-P02-U07",
+          "printedText": "Q: On Exploration cards, is the “Remove this card from the game” part of the Entrance effect?\nA: No. Effects that Explore ignoring Entrance effects still remove those Exploration cards from the game."
+        }
+      ],
+      "joinEvidence": {
+        "identityJoin": "explicit occurrence crosswalk",
+        "titleOnlyJoin": false,
+        "basis": [
+          "root base Exploration TTS role and exact cardId",
+          "exact CardCustom FaceURL GUID and parent deck GUID",
+          "closed-corpus source path and live SHA-256",
+          "literal six-slot Corridor/Noise/Room-icon diagram",
+          "ordered printed placement/reminder/Entrance/lifecycle units",
+          "explicit licensed EXPLORATION_CARDS_DATA key and exact structured fields"
+        ]
+      }
+    },
+    {
+      "explorationOccurrenceId": "TTS-EXPLORATION-5640-FACE",
+      "ttsDeckGuid": "63add2",
+      "ttsCardGuid": "046266",
+      "ttsCardId": 5640,
+      "ttsRole": "explorationDeck",
+      "ttsClassification": "exploration",
+      "sourceSelector": {
+        "key": "FaceURL",
+        "objectType": "CardCustom",
+        "cardId": 564000,
+        "guid": "046266",
+        "parentDeckGuid": "63add2",
+        "url": "https://steamusercontent-a.akamaihd.net/ugc/14376835786799513645/5E74EEB37B4E4F58BB27E7EAFB2F71C56205DD63/",
+        "selectorStatus": "exact",
+        "selectorGap": null,
+        "generatedSpriteSheetCell": false
+      },
+      "sourceId": "SRC-EXPLORATION-5640",
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/exploration-076.png",
+      "sourceSha256": "e4e92cae40da14f30ee73a8f27ea8291d0861db0688ac207219fa475f24cd832",
+      "sourceAuthority": "source-bound-component-scan",
+      "sourceVersion": "TTS base Exploration face / deck 63add2 / cardId 5640",
+      "corpusEvidencePath": "assets/tts-mod/extract/card-text-corpus.json",
+      "provenanceEvidencePath": "assets/tts-mod/extract/card-provenance-inventory.json",
+      "visionEvidencePath": "assets/tts-mod/extract/vision-progress.json",
+      "printedTitle": "",
+      "identityLabel": "untitled TTS Exploration occurrence 5640",
+      "printedBody": "Place A/B/C Room\ndepending on your Section.\n\n[character]\n\nReminder:\nPlace 1 [secure] if you are Moving with [secure].\n\nEntrance Effect:\nClose all Doors around this Room.\nResolve [noiseDieHazard].",
+      "extractionState": "draft-full",
+      "rulesInformationReadiness": "draft-text-complete",
+      "sourceUnits": [
+        {
+          "sentenceId": "EX5640-PLACEMENT-01",
+          "section": "placement",
+          "exactText": "Place A/B/C Room\ndepending on your Section.",
+          "unitId": "EX5640-PLACEMENT-01",
+          "unitKind": "printed-sentence",
+          "sequence": 1,
+          "start": 0,
+          "end": 43
+        },
+        {
+          "unitId": "EX5640-DIAGRAM-01",
+          "unitKind": "source-local-diagram",
+          "section": "diagram",
+          "sequence": 2,
+          "start": 45,
+          "end": 56,
+          "exactText": "[character]",
+          "roomType": "ABC",
+          "corridorSlots": [
+            {
+              "slotIndex": 2,
+              "slotLabel": "right"
+            },
+            {
+              "slotIndex": 5,
+              "slotLabel": "left"
+            }
+          ],
+          "noiseSlots": [],
+          "roomIcons": [
+            "character"
+          ],
+          "resolutionOrder": "source-unspecified; SEM-Q-011"
+        },
+        {
+          "sentenceId": "EX5640-REMINDER-01",
+          "section": "reminder",
+          "exactText": "Reminder:\nPlace 1 [secure] if you are Moving with [secure].",
+          "unitId": "EX5640-REMINDER-01",
+          "unitKind": "printed-sentence",
+          "sequence": 3,
+          "start": 58,
+          "end": 117
+        },
+        {
+          "sentenceId": "EX5640-ENTRANCE-01",
+          "section": "entrance",
+          "exactText": "Entrance Effect:\nClose all Doors around this Room.",
+          "unitId": "EX5640-ENTRANCE-01",
+          "unitKind": "printed-sentence",
+          "sequence": 4,
+          "start": 119,
+          "end": 169
+        },
+        {
+          "sentenceId": "EX5640-ENTRANCE-02",
+          "section": "entrance",
+          "exactText": "Resolve [noiseDieHazard].",
+          "unitId": "EX5640-ENTRANCE-02",
+          "unitKind": "printed-sentence",
+          "sequence": 5,
+          "start": 170,
+          "end": 195
+        },
+        {
+          "unitId": "EX5640-PROCEDURE-DISCARD",
+          "unitKind": "official-procedure-lifecycle",
+          "section": "lifecycle",
+          "sequence": 6,
+          "start": null,
+          "end": null,
+          "exactText": "Discard the Exploration card – Unless it was already removed as a part of the Entrance Effect.",
+          "sourceId": "SRC-RULEBOOK",
+          "locator": "printed page 24 / Exploration Sequence step 7"
+        }
+      ],
+      "iconOccurrences": [
+        {
+          "occurrenceId": "TTS-EXPLORATION-5640-ICON-01",
+          "sequence": 1,
+          "region": "diagram-room",
+          "printedToken": "[character]",
+          "semanticReferenceId": "icon.character",
+          "sourceLocation": "center of depicted Room"
+        },
+        {
+          "occurrenceId": "TTS-EXPLORATION-5640-ICON-02",
+          "sequence": 2,
+          "region": "reminder",
+          "printedToken": "[secure]",
+          "semanticReferenceId": "icon.secure",
+          "sourceLocation": "component to place in the reminder sentence"
+        },
+        {
+          "occurrenceId": "TTS-EXPLORATION-5640-ICON-03",
+          "sequence": 3,
+          "region": "reminder",
+          "printedToken": "[secure]",
+          "semanticReferenceId": "icon.secure",
+          "sourceLocation": "source-local icon after “Moving with” in the reminder sentence"
+        },
+        {
+          "occurrenceId": "TTS-EXPLORATION-5640-ICON-04",
+          "sequence": 4,
+          "region": "entrance",
+          "printedToken": "[noiseDieHazard]",
+          "semanticReferenceId": "icon.noiseDieHazard",
+          "sourceLocation": "EX5640-ENTRANCE-02"
+        }
+      ],
+      "semanticRuleId": "SEM-EXPLORATION-5640-001",
+      "backlogUnitId": "CARD:e4e92cae40da14f3",
+      "bgaOccurrence": {
+        "sourceId": "SRC-BGA-EXPLORATION",
+        "sourcePath": "docs/rules/source-extraction/secondary/bga-staticData-260622-1220.js",
+        "sourceSha256": "18cd8f4a2883d4f6662ed170095ff07e0d9f5da508064ed1d6bfc124f5a274ae",
+        "sourceVersion": "licensed BGA immutable build 260622-1220 / EXPLORATION_CARDS_DATA",
+        "table": "EXPLORATION_CARDS_DATA",
+        "key": "ExplorationCard8",
+        "number": 8,
+        "type": "ABC",
+        "corridors": [
+          2,
+          5
+        ],
+        "corridorsWithNoise": [],
+        "otherTokens": [],
+        "effectDesc": [
+          "Close all Doors around this Room.",
+          "Resolve <HAZARD>"
+        ],
+        "closeDoor": true,
+        "noiseRoll": false,
+        "hazard": true,
+        "intrudersToAdd": 0,
+        "removeFromGame": false,
+        "sourceBlockText": "  ExplorationCard8: {\n    number: 8,\n    type: 'ABC',\n    corridors: [2, 5],\n    corridorsWithNoise: [],\n    otherTokens: [],\n    effectDesc: ['Close all Doors around this Room.', 'Resolve <HAZARD>'],\n    closeDoor: true,\n    noiseRoll: false,\n    hazard: true,\n    intrudersToAdd: 0,\n    removeFromGame: false,\n  },",
+        "variantDifference": "The licensed occurrence supplies a numbered structured identity and normalized room/diagram/effect fields but no printed title or full reminder wording. It remains secondary and does not rewrite the exact untitled scan."
+      },
+      "officialOccurrences": [],
+      "faqOccurrences": [
+        {
+          "sourceId": "SRC-FAQ",
+          "sourceUnitId": "FQ-P02-U06",
+          "printedText": "Q: An Exploration card tells me to close doors around a newly explored room. Do you only close doors touching the room or all doors in corridors next to the room? What about the hibernatorium doors?\nA: Only close doors touching the new room. Hibernatorium doors will never close that way, since Exploration is not resolve in the Hibernatorium."
+        }
+      ],
+      "joinEvidence": {
+        "identityJoin": "explicit occurrence crosswalk",
+        "titleOnlyJoin": false,
+        "basis": [
+          "root base Exploration TTS role and exact cardId",
+          "exact CardCustom FaceURL GUID and parent deck GUID",
+          "closed-corpus source path and live SHA-256",
+          "literal six-slot Corridor/Noise/Room-icon diagram",
+          "ordered printed placement/reminder/Entrance/lifecycle units",
+          "explicit licensed EXPLORATION_CARDS_DATA key and exact structured fields"
+        ]
+      }
+    }
+  ]
+}

@@ -57,19 +57,28 @@ for row in corpus['records']:
  add(f"CARD:{row['sourceSha256'][:16]}",'card-reference-source-tuple',label,row['sourcePath'],row['sourceSha256'],authority='mixed-source-bound',blockers=blockers)
 
 event_sources=load('docs/rules/semantics/event-source-index.json')
+exploration_sources=load('docs/rules/semantics/exploration-source-index.json')
+exploration_rule_ids=[row['semanticRuleId'] for row in exploration_sources['faces']]
 
 # Pilot-to-source obligation links. These are evidence coverage links, not claims
 # that the entire channel/category is semantically complete.
 links={
  'RULE:FND-003':['SEM-EVENT-GENERAL-001'],
  'RULE:RT-001':['SEM-RT-001'],'RULE:RT-004':['SEM-RT-004'],'RULE:RT-005':['SEM-RT-005'],'RULE:RT-007':['SEM-RT-007'],'RULE:RT-008':['SEM-RT-008'],'RULE:RT-009':['SEM-RT-009','SEM-EVENT-GENERAL-001'],'RULE:RT-010':['SEM-RT-010'],'RULE:RT-011':['SEM-RT-011'],'RULE:RT-012':['SEM-RT-012'],
- 'RULE:ACT-MOVE-001':['SEM-ACT-MOVE-001'],'RULE:ACT-EXPLORE-001':['SEM-ACT-EXPLORE-001'],'RULE:ACT-SEARCH-001':['SEM-ACT-SEARCH-001'],'RULE:ACT-ROBOT-001':['SEM-ROBOT-MALFUNCTION-001'],
+ 'RULE:ACT-MOVE-001':['SEM-ACT-MOVE-001'],'RULE:ACT-EXPLORE-001':['SEM-ACT-EXPLORE-001',*exploration_rule_ids],'RULE:ACT-SEARCH-001':['SEM-ACT-SEARCH-001'],'RULE:ACT-ROBOT-001':['SEM-ROBOT-MALFUNCTION-001'],
  'RULE:ACT-CARD-001':['SEM-ACT-SEARCH-001','SEM-ACT-REST-001'],'RULE:INT-001':['SEM-IH-QA-R-01'],'RULE:INT-004':['SEM-INT-004'],'RULE:INT-006':['SEM-INT-006'],'RULE:INT-008':['SEM-ACT-REST-001','SEM-ENDGAME-001'],'RULE:INT-010':['SEM-AUTODESTRUCTION-001'],'RULE:INT-011':['SEM-ENDGAME-001'],'RULE:ITM-005':['SEM-ITM-005'],
  'VIS:RB-P12-V02':['SEM-ACT-MOVE-001','SEM-ROOM-01'],'ROOM:01':['SEM-ROOM-01'],'INTR:QA-R-01':['SEM-IH-QA-R-01'],
  'CARD:b34d341ff67972b8':['SEM-ACT-SEARCH-001'],'CARD:69eee8ba31616f20':['SEM-ACT-REST-001'],'CARD:a3ad029d27fc444d':['SEM-REACTION-DUCK-001'],'CARD:45b5845d04f57b1':['SEM-EVENT-HATCHING-001'],
 }
 for event in event_sources['events']:
  links[event['backlogUnitId']]=[event['semanticRuleId']]
+for face in exploration_sources['faces']:
+ links[face['backlogUnitId']]=[face['semanticRuleId']]
+links['FAQ:FQ-P02-U06']=['SEM-ACT-EXPLORE-001',*[row['semanticRuleId'] for row in exploration_sources['faces'] if any(item['sourceUnitId']=='FQ-P02-U06' for item in row['faqOccurrences'])]]
+links['FAQ:FQ-P02-U07']=['SEM-ACT-EXPLORE-001',*[row['semanticRuleId'] for row in exploration_sources['faces'] if any(item['sourceUnitId']=='FQ-P02-U07' for item in row['faqOccurrences'])]]
+links['VIS:RB-P24-V01']=['SEM-ACT-EXPLORE-001','SEM-EXPLORATION-5639-001']
+links['VIS:RB-P26-V01']=['SEM-ACT-EXPLORE-001','SEM-EXPLORATION-5634-001']
+links['VIS:RB-P27-V01']=['SEM-ACT-EXPLORE-001','SEM-EXPLORATION-5634-001']
 links['FAQ:FQ-P02-U08']=['SEM-NOISE-MARKER-001','SEM-EVENT-SYSTEM-FAILURE-001','SEM-EVENT-PANIC-001','SEM-EVENT-BREAKING-IN-001','SEM-EVENT-HATCHING-001']
 links['FAQ:FQ-P02-U09']=['SEM-FIRE-SPREAD-001','SEM-EVENT-FIRE-BREATH-001','SEM-EVENT-DAMAGING-FIRE-001']
 links['FAQ:FQ-P02-U11']=['SEM-EVENT-LEAVING-THE-SHELL-001','SEM-EVENT-REACTOR-OVERHEATING-001']

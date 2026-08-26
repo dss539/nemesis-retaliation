@@ -3,9 +3,9 @@
   "recordType": "semantic-conflict-register",
   "policy": "Readable source differences remain separate. Authority may resolve a general rule without rewriting lower-authority component wording; unresolved conflicts never receive a default.",
   "counts": {
-    "conflicts": 11,
-    "resolvedByAuthority": 3,
-    "unresolved": 6,
+    "conflicts": 13,
+    "resolvedByAuthority": 4,
+    "unresolved": 7,
     "preservedBoundary": 2
   },
   "conflicts": [
@@ -176,6 +176,50 @@
       ],
       "difference": "Page 22 permits effects that only require a broken Robot and ignores repeated Robot Malfunction placement; page 37 says all game effects mentioning the broken Robot are unavailable.",
       "resolution": "No default; both equal-authority passages and their Rise of the Machine consequence remain explicit."
+    },
+    {
+      "conflictId": "SC-012",
+      "title": "Current official Exploration wording versus untitled TTS face wording",
+      "status": "resolved-by-authority",
+      "questionId": null,
+      "affectedRuleIds": [
+        "SEM-EXPLORATION-5634-001",
+        "SEM-EXPLORATION-5639-001"
+      ],
+      "evidenceRefs": [
+        "SRC-RULEBOOK",
+        "SRC-EXPLORATION-5634",
+        "SRC-EXPLORATION-5639",
+        "SRC-BGA-EXPLORATION"
+      ],
+      "difference": "Official visible faces spell out current Room placement and Moving Cautiously wording; the TTS faces abbreviate placement and print two source-local Secure glyph occurrences in the reminder.",
+      "resolution": "Official-primary visible wording controls the matching current occurrences; exact untitled TTS and licensed structured variants remain independently preserved."
+    },
+    {
+      "conflictId": "SC-013",
+      "title": "Exploration multi-slot assignment has no source-named owner or order",
+      "status": "unresolved",
+      "questionId": "SEM-Q-011",
+      "affectedRuleIds": [
+        "SEM-EXPLORATION-5629-001",
+        "SEM-EXPLORATION-5630-001",
+        "SEM-EXPLORATION-5631-001",
+        "SEM-EXPLORATION-5632-001",
+        "SEM-EXPLORATION-5633-001",
+        "SEM-EXPLORATION-5634-001",
+        "SEM-EXPLORATION-5635-001",
+        "SEM-EXPLORATION-5636-001",
+        "SEM-EXPLORATION-5637-001",
+        "SEM-EXPLORATION-5638-001",
+        "SEM-EXPLORATION-5639-001",
+        "SEM-EXPLORATION-5640-001"
+      ],
+      "evidenceRefs": [
+        "SRC-RULEBOOK",
+        "docs/rules/semantics/exploration-source-index.json"
+      ],
+      "difference": "Each face shows two to four source-local Corridor slots and some show multiple Noise/Door placements, while the rulebook says to place a random Corridor in each shown space and treats components as finite without assigning draws or scarce components among slots.",
+      "resolution": "No default; preserve exact slot sets and all alternatives in review-gates.json without inventing a player choice, spatial order, or extra randomization."
     }
   ]
 }

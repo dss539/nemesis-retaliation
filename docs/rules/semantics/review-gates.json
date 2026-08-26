@@ -3,11 +3,11 @@
   "recordType": "semantic-review-gates",
   "status": "pilot built with deferred questions and explicit alternatives; no default answer adopted",
   "counts": {
-    "questions": 16,
+    "questions": 17,
     "officialClarificationPreferred": 7,
-    "sourceAmbiguitiesIntroducedByPilot": 9,
+    "sourceAmbiguitiesIntroducedByPilot": 10,
     "resolved": 0,
-    "open": 16
+    "open": 17
   },
   "questions": [
     {
@@ -470,6 +470,48 @@
           "alternativeId": "SEM-Q-010-C",
           "description": "Harmonize by distinguishing using Robot text/Actions from external effects that merely locate or require the Robot.",
           "support": "possible scoped reading, but the source does not state the boundary"
+        }
+      ]
+    },
+    {
+      "questionId": "SEM-Q-011",
+      "title": "Exploration multi-slot Corridor draw and finite-component allocation order",
+      "decisionClass": "source-ambiguity-owner-decision-after-source-search",
+      "blocksRuleIds": [
+        "SEM-EXPLORATION-5629-001",
+        "SEM-EXPLORATION-5630-001",
+        "SEM-EXPLORATION-5631-001",
+        "SEM-EXPLORATION-5632-001",
+        "SEM-EXPLORATION-5633-001",
+        "SEM-EXPLORATION-5634-001",
+        "SEM-EXPLORATION-5635-001",
+        "SEM-EXPLORATION-5636-001",
+        "SEM-EXPLORATION-5637-001",
+        "SEM-EXPLORATION-5638-001",
+        "SEM-EXPLORATION-5639-001",
+        "SEM-EXPLORATION-5640-001"
+      ],
+      "plannedRuleIds": [],
+      "defaultProhibited": true,
+      "sourceEvidenceRefs": [
+        "docs/rulebooks/rulebook_text.txt:lines 3538–3548, 4502–4522",
+        "docs/rules/semantics/exploration-source-index.json"
+      ],
+      "alternatives": [
+        {
+          "alternativeId": "SEM-Q-011-A",
+          "description": "The exploring player assigns each random Corridor draw and each last available finite component to one eligible source-local slot.",
+          "support": "physical handling could permit player placement, but the source names no decision owner"
+        },
+        {
+          "alternativeId": "SEM-Q-011-B",
+          "description": "Use a fixed source-local spatial order anchored to the printed North orientation for Corridor draws and scarce components.",
+          "support": "the card has a North orientation and exact slots, but no clockwise/counterclockwise/start-slot rule is stated"
+        },
+        {
+          "alternativeId": "SEM-Q-011-C",
+          "description": "Randomly assign drawn Corridors and scarce components among the remaining eligible source-local slots.",
+          "support": "Corridor identity is random, but the source does not extend randomness to slot assignment"
         }
       ]
     }

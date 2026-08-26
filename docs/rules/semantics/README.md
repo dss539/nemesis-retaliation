@@ -8,10 +8,11 @@ This directory is the first implementation-neutral semantic layer built over the
 - `semantic-vocabulary.json` — semantic-only states, temporary zones, deck positions, and visibility scopes that must not be confused with static ontology classes/processes.
 - `room-icon-denotations.json` — source-scoped semantic projection of all 112 Room Help functional-icon occurrences; literal extraction remains unchanged.
 - `event-source-index.json` — mechanically derived closure of the 20 base Event face occurrences against TTS role/card IDs, source bytes, corpus/backlog tuples, official visible occurrences, and the licensed-digital table; title-only joins are prohibited.
-- `source-registry.json` — 30 exact source tuples, hashes, versions, authority, occurrence identities, and extraction-index links used by the corpus.
-- `pilots.json` — 99 validated semantic records across 18 systems; the historical filename is retained while coverage expands.
-- `review-gates.json` — sixteen explicit open semantic questions with alternatives; no default is adopted.
-- `contradictions.json` — eleven source/semantic conflicts: three authority-resolved, six unresolved, and two preserved boundaries.
+- `exploration-source-index.json` — mechanically derived closure of all 12 untitled base Exploration faces, their exact TTS CardID/GUID/FaceURL and shared BackURL provenance, 46 printed sentences, 12 diagrams, 60 source-local icon occurrences, official/FAQ occurrences, licensed variants, and backlog tuples; title/folder/modulo joins are prohibited.
+- `source-registry.json` — 44 exact source tuples, hashes, versions, authority, occurrence identities, and extraction-index links used by the corpus.
+- `pilots.json` — 111 validated semantic records across 18 systems; the historical filename is retained while coverage expands.
+- `review-gates.json` — seventeen explicit open semantic questions with alternatives; no default is adopted.
+- `contradictions.json` — thirteen source/semantic conflicts: four authority-resolved, seven unresolved, and two preserved boundaries.
 - `coverage.json` — pilot scope and the large remaining base-game semantic surface.
 - `backlog.json` — 600 source-obligation units across rule records, FAQ, visual obligations, Help sheets, and independent card/reference tuples; overlapping variants are intentionally retained.
 - `validation.json` — deterministic validation report.
@@ -73,12 +74,13 @@ The 99 records cover the original reusable-procedure set plus:
 28. FAQ-controlled Shelter, Drilling Station, Technical Corridor Entrance, and Nest behavior;
 29. Robot Malfunction, Data-token persistence, Autodestruction, and Nest-destruction constraints; and
 30. per-Corridor Noise movement/Attack ordering;
-31. all 20 mechanically closed base Event face occurrences, with exact sentence/section order, one licensed-digital variant per face, and generic occurrence-based dispatch; and
-32. reusable Event movement, Noise-marker, Hazard, Secure-entry, Fire-spread, Infection, and Eclosion procedures needed by those faces.
+31. all 20 mechanically closed base Event face occurrences, with exact sentence/section order, one licensed-digital variant per face, and generic occurrence-based dispatch;
+32. reusable Event movement, Noise-marker, Hazard, Secure-entry, Fire-spread, Infection, and Eclosion procedures needed by those faces; and
+33. all 12 mechanically closed untitled base Exploration face occurrences, with exact placement/reminder/Entrance/lifecycle order, source-local six-slot diagrams and icon identities, one licensed-digital variant per face, three official visible occurrences, and occurrence-based dispatch from the generic Exploration Sequence.
 
 This is representative, **not full base-game semantic coverage**.
 
-The backlog currently records 102 covered source obligations, 497 pending obligations, and one inherited exact-source blocker (`FACILITY RESTART`). The Event batch added links for all 20 card tuples plus overlapping rule, FAQ, and official visual obligations. These are source-obligation counts, not a claim that 600 distinct game effects exist.
+The backlog currently records 119 covered source obligations, 480 pending obligations, and one inherited exact-source blocker (`FACILITY RESTART`). The Event and Exploration batches link all 32 exact card tuples plus overlapping rule, FAQ, and official visual obligations. These are source-obligation counts, not a claim that 600 distinct game effects exist.
 
 ## Open questions carried without defaults
 
@@ -98,8 +100,9 @@ The backlog currently records 102 covered source obligations, 497 pending obliga
 - SEM-Q-008 — finite Malfunction/fallback allocation across multiple Event target Rooms.
 - SEM-Q-009 — Fire-spread source snapshot versus propagation during one Event sentence.
 - SEM-Q-010 — the page-22/page-37 Robot Malfunction effect-availability contradiction.
+- SEM-Q-011 — assignment/order of random Corridor draws and scarce finite components across multiple Exploration diagram slots.
 
-- OQ-001, OQ-002, OQ-003, OQ-004, OQ-007, OQ-009, and SEM-Q-010 prefer official clarification. SEM-Q-001 through SEM-Q-009 otherwise require further source searching before any owner decision.
+- OQ-001, OQ-002, OQ-003, OQ-004, OQ-007, OQ-009, and SEM-Q-010 prefer official clarification. SEM-Q-001 through SEM-Q-009 and SEM-Q-011 otherwise require further source searching before any owner decision.
 
 ## Fidelity boundaries exercised
 
@@ -108,6 +111,10 @@ The backlog currently records 102 covered source obligations, 497 pending obliga
 - Rest preserves exact source variants rather than rewriting one face from another.
 - Event impossibility applies per sentence and continuation is mandatory.
 - All 20 Event faces preserve exact movement/main/secondary sentence order; generic draw/discard is not duplicated into each face.
+- All 12 Exploration faces remain untitled and are keyed by stable occurrence identity; no BGA number, filename, folder, display name, or invented slug becomes a printed title.
+- Exploration diagrams retain exact source-local Corridor/Noise slots, Room markers, reminder glyph occurrences, three independent remove-from-game sentences, and the paired non-operative back. No inactive/active system icon is inferred where none is printed.
+- FAQ authority keeps remove-from-game outside the Entrance Effect, so all three removal transitions remain unconditional when Entrance Effects are ignored; close-Doors effects target only Doors touching the new Room.
+- Random-Corridor and finite-component assignment across multiple diagram slots remains SEM-Q-011 with no player owner, spatial order, or additional randomness invented.
 - Hatching and Egg Protection retain the Undiscovered-Nest question, and simultaneous Egg Protection entry retains OQ-007.
 - Event reshuffles include the resolving card under FAQ authority; generic discard applies only if the card remains in resolution.
 - `LEAVING THE SHELL` retains three literal no-match white rectangles while the lower-authority licensed Action-card placeholders remain a no-default variant.
@@ -120,4 +127,4 @@ The backlog currently records 102 covered source obligations, 497 pending obliga
 
 ## Validation
 
-Validation rejects duplicate JSON keys, broken hashes/citations, authority-precedence errors, stale vocabulary/ontology references, missing owners/visibility/timing, invalid cardinality, dangling decisions/targets/conditions, source-variant loss, partial-resolution drift, invented defaults, implementation leakage, coverage overclaims, and non-reproducible builds. Event-specific negative controls also reject dropped records, valid-source swaps, title-only joins, sentence-order changes, invented glyph defaults, lost licensed variants, authority inversion, and coordinated backlog-count lowering. Two builds run under different hash seeds/locales and must be byte-identical.
+Validation rejects duplicate JSON keys, broken hashes/citations, authority-precedence errors, stale vocabulary/ontology references, missing owners/visibility/timing, invalid cardinality, dangling decisions/targets/conditions, source-variant loss, partial-resolution drift, invented defaults, implementation leakage, coverage overclaims, and non-reproducible builds. Event-specific controls reject dropped records, valid-source swaps, title-only joins, sentence-order changes, invented glyph defaults, lost licensed variants, authority inversion, and coordinated backlog-count lowering. Exploration-specific controls additionally reject dropped/duplicated faces, title/folder/modulo joins, source-face swaps, FaceURL/BackURL inversion, source-unit reordering, remove-from-game scope drift, invented titles/system icons/defaults, lost variants, authority inversion, and coordinated backlog lowering. Two builds run under different hash seeds/locales and must be byte-identical.
