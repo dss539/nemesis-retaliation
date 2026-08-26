@@ -89,7 +89,7 @@ def build_intruder_help_records(repo, record, assertion, timing, participant, co
         explicit_lifecycle=occurrence_id in {'QD-C-01','QD-R-01','QD-B-01','QA-BOTTOM-01','QD-BOTTOM-01'}
         if context=='room' and occurrence_id in {'QA-R-01','QA-R-02','QD-R-01','QD-R-02'}:
             targets=[{'targetId':f'T-{occurrence_id}-ATTACK','selectorRef':'rules-system','eligibleTaxonIds':['tax.entity.agent.character'],'cardinality':{'min':0,'max':1},'selectionMode':'deterministic-turn-order','visibility':'public'}]
-            attack_op=operation('S99',99,'invoke-process','if-able','newly placed Intruder','immediate Intruder Attack',[f'SA-{occurrence_id}-LIFE'],conditions=['caller Room contains at least one Character'],invoke='SEM-INT-004')
+            attack_op=operation('S99',99,'invoke-process','if-able','newly placed Intruder','Secure-entry/Attack resolution',[f'SA-{occurrence_id}-LIFE'],conditions=['caller Room contains at least one Character'],invoke='SEM-SECURE-ENTRY-001')
             attack_op['targetRef']=f'T-{occurrence_id}-ATTACK'
             if occurrence_id=='QD-R-01':
                 ops.insert(1,attack_op)

@@ -3,11 +3,11 @@
   "recordType": "semantic-review-gates",
   "status": "pilot built with deferred questions and explicit alternatives; no default answer adopted",
   "counts": {
-    "questions": 11,
-    "officialClarificationPreferred": 6,
-    "sourceAmbiguitiesIntroducedByPilot": 5,
+    "questions": 16,
+    "officialClarificationPreferred": 7,
+    "sourceAmbiguitiesIntroducedByPilot": 9,
     "resolved": 0,
-    "open": 11
+    "open": 16
   },
   "questions": [
     {
@@ -15,7 +15,8 @@
       "title": "Eclosion existing-hand behavior",
       "decisionClass": "official-clarification-preferred",
       "blocksRuleIds": [
-        "SEM-ENDGAME-001"
+        "SEM-ENDGAME-001",
+        "SEM-ECLOSION-PROCEDURE-001"
       ],
       "plannedRuleIds": [],
       "defaultProhibited": true,
@@ -114,10 +115,11 @@
       "questionId": "OQ-007",
       "title": "Secure tokens and simultaneous multi-Intruder entry",
       "decisionClass": "official-clarification-preferred",
-      "blocksRuleIds": [],
-      "plannedRuleIds": [
-        "SEM-SECURE-ENTRY-001"
+      "blocksRuleIds": [
+        "SEM-SECURE-ENTRY-001",
+        "SEM-EVENT-EGG-PROTECTION-001"
       ],
+      "plannedRuleIds": [],
       "defaultProhibited": true,
       "sourceEvidenceRefs": [
         "docs/rules/open-questions.md:OQ-007"
@@ -140,7 +142,8 @@
       "title": "Nest placement before discovery",
       "decisionClass": "official-clarification-preferred",
       "blocksRuleIds": [
-        "SEM-EVENT-HATCHING-001"
+        "SEM-EVENT-HATCHING-001",
+        "SEM-EVENT-EGG-PROTECTION-001"
       ],
       "plannedRuleIds": [],
       "defaultProhibited": true,
@@ -298,6 +301,174 @@
           "alternativeId": "SEM-Q-005-B",
           "description": "Use a physical-game placement procedure or deterministic edge rule.",
           "support": "source says leading from the Room but gives no selector/tie-break"
+        }
+      ]
+    },
+    {
+      "questionId": "SEM-Q-006",
+      "title": "Leaving the Shell white-rectangle glyph identity",
+      "decisionClass": "source-ambiguity-owner-decision-after-source-search",
+      "blocksRuleIds": [
+        "SEM-EVENT-LEAVING-THE-SHELL-001"
+      ],
+      "plannedRuleIds": [],
+      "defaultProhibited": true,
+      "sourceEvidenceRefs": [
+        "assets/tts-mod/extract/v2-dl/tree/cards/game/event-054.png",
+        "assets/tts-mod/extract/selected-card-text-evidence.json",
+        "docs/rules/source-extraction/secondary/bga-staticData-260622-1220.js"
+      ],
+      "alternatives": [
+        {
+          "alternativeId": "SEM-Q-006-A",
+          "description": "Treat all three white rectangles as Action-card denotations, following the licensed-digital occurrence.",
+          "support": "EVENT_CARDS_DATA.Event_LeavingTheShell names ACTION-CARD in all three positions; secondary only"
+        },
+        {
+          "alternativeId": "SEM-Q-006-B",
+          "description": "Retain the three source-local glyphs without a semantic card identity until current official component evidence is obtained.",
+          "support": "direct pixel comparison found featureless rectangles with no authoritative canonical match"
+        },
+        {
+          "alternativeId": "SEM-Q-006-C",
+          "description": "Apply another source-local card-type identity established by future official evidence.",
+          "support": "the scan morphology does not discriminate a current glossary token"
+        }
+      ]
+    },
+    {
+      "questionId": "SEM-Q-007",
+      "title": "Finite Intruder allocation across multiple Event target spaces",
+      "decisionClass": "source-ambiguity-owner-decision-after-source-search",
+      "blocksRuleIds": [
+        "SEM-EVENT-NO-WAY-OUT-001",
+        "SEM-EVENT-HATCHING-001",
+        "SEM-EVENT-EGG-PROTECTION-001",
+        "SEM-EVENT-OVERWHELMING-ENEMIES-001"
+      ],
+      "plannedRuleIds": [],
+      "defaultProhibited": true,
+      "sourceEvidenceRefs": [
+        "docs/rulebooks/rulebook_text.txt:lines 5189–5198, 5298–5355",
+        "docs/rules/semantics/event-source-index.json"
+      ],
+      "alternatives": [
+        {
+          "alternativeId": "SEM-Q-007-A",
+          "description": "Allocate limited models by Facility top-left row order.",
+          "support": "Event movement and Noise effects use spatial orders, but no placement-order extension is stated"
+        },
+        {
+          "alternativeId": "SEM-Q-007-B",
+          "description": "An affected/active player chooses which eligible spaces receive the limited models.",
+          "support": "could resolve physical scarcity, but no decision owner is named"
+        },
+        {
+          "alternativeId": "SEM-Q-007-C",
+          "description": "Use another simultaneous or physical allocation procedure.",
+          "support": "the limited-model rule says place as many as possible but gives no multi-space tie-break"
+        }
+      ]
+    },
+    {
+      "questionId": "SEM-Q-008",
+      "title": "Finite Malfunction allocation and fallback order across Event target Rooms",
+      "decisionClass": "source-ambiguity-owner-decision-after-source-search",
+      "blocksRuleIds": [
+        "SEM-EVENT-SYSTEM-FAILURE-001",
+        "SEM-EVENT-DAMAGE-001",
+        "SEM-EVENT-LIFE-SUPPORT-FAILURE-001",
+        "SEM-EVENT-DAMAGING-FIRE-001",
+        "SEM-EVENT-GENERATORS-OVERHEAT-001",
+        "SEM-EVENT-REACTOR-OVERHEATING-001"
+      ],
+      "plannedRuleIds": [],
+      "defaultProhibited": true,
+      "sourceEvidenceRefs": [
+        "docs/rulebooks/rulebook_text.txt:lines 3269–3299, 4368–4375, 4414–4426",
+        "docs/rules/semantics/event-source-index.json"
+      ],
+      "alternatives": [
+        {
+          "alternativeId": "SEM-Q-008-A",
+          "description": "Resolve eligible Rooms top-left row by row, spending remaining Malfunctions and then applying Fire fallback.",
+          "support": "a deterministic spatial order exists for Noise effects, not for these marker placements"
+        },
+        {
+          "alternativeId": "SEM-Q-008-B",
+          "description": "Treat the whole multi-Room printed sentence as simultaneous and apply one source-defined aggregate fallback.",
+          "support": "Event impossibility is sentence-scoped, but no aggregate finite-pool rule is stated"
+        },
+        {
+          "alternativeId": "SEM-Q-008-C",
+          "description": "A player chooses which eligible Rooms receive remaining Malfunctions versus fallback Fire.",
+          "support": "would allocate scarcity but no decision owner is named"
+        }
+      ]
+    },
+    {
+      "questionId": "SEM-Q-009",
+      "title": "Fire-spread source snapshot versus propagation during one Event sentence",
+      "decisionClass": "source-ambiguity-owner-decision-after-source-search",
+      "blocksRuleIds": [
+        "SEM-FIRE-SPREAD-001",
+        "SEM-EVENT-FIRE-BREATH-001",
+        "SEM-EVENT-DAMAGING-FIRE-001"
+      ],
+      "plannedRuleIds": [],
+      "defaultProhibited": true,
+      "sourceEvidenceRefs": [
+        "docs/rulebooks/rulebook_text.txt:lines 4284–4287, 4436–4456",
+        "assets/tts-mod/extract/v2-dl/tree/cards/game/event-052.png",
+        "assets/tts-mod/extract/v2-dl/tree/cards/game/event-167.png"
+      ],
+      "alternatives": [
+        {
+          "alternativeId": "SEM-Q-009-A",
+          "description": "Snapshot source Rooms containing Fire when the printed spread sentence begins.",
+          "support": "bounded reading of “From each Room with Fire”"
+        },
+        {
+          "alternativeId": "SEM-Q-009-B",
+          "description": "A newly placed Fire becomes another source during the same sentence and may propagate further.",
+          "support": "literal state can satisfy “Room with Fire” after placement; no stop rule is stated"
+        },
+        {
+          "alternativeId": "SEM-Q-009-C",
+          "description": "Use another source-defined simultaneous spread procedure.",
+          "support": "no checked ordering/snapshot procedure was recovered"
+        }
+      ]
+    },
+    {
+      "questionId": "SEM-Q-010",
+      "title": "Robot Malfunction effect-availability contradiction",
+      "decisionClass": "official-clarification-preferred",
+      "blocksRuleIds": [
+        "SEM-ROBOT-MALFUNCTION-001",
+        "SEM-EVENT-RISE-OF-THE-MACHINE-001"
+      ],
+      "plannedRuleIds": [],
+      "defaultProhibited": true,
+      "sourceEvidenceRefs": [
+        "docs/rulebooks/rulebook_text.txt:lines 4383–4391, 6015–6022",
+        "assets/tts-mod/extract/v2-dl/tree/cards/game/event-166.jpg"
+      ],
+      "alternatives": [
+        {
+          "alternativeId": "SEM-Q-010-A",
+          "description": "Page 22 controls: effects that only require a Robot remain available, and a repeated Robot Malfunction placement is ignored.",
+          "support": "specific Malfunction-on-Robot passage on page 22"
+        },
+        {
+          "alternativeId": "SEM-Q-010-B",
+          "description": "Page 37 controls: all game effects mentioning a malfunctioned Robot are unavailable.",
+          "support": "later Robot-specific passage on page 37"
+        },
+        {
+          "alternativeId": "SEM-Q-010-C",
+          "description": "Harmonize by distinguishing using Robot text/Actions from external effects that merely locate or require the Robot.",
+          "support": "possible scoped reading, but the source does not state the boundary"
         }
       ]
     }

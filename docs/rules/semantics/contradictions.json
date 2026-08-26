@@ -3,9 +3,9 @@
   "recordType": "semantic-conflict-register",
   "policy": "Readable source differences remain separate. Authority may resolve a general rule without rewriting lower-authority component wording; unresolved conflicts never receive a default.",
   "counts": {
-    "conflicts": 8,
-    "resolvedByAuthority": 2,
-    "unresolved": 4,
+    "conflicts": 11,
+    "resolvedByAuthority": 3,
+    "unresolved": 6,
     "preservedBoundary": 2
   },
   "conflicts": [
@@ -76,13 +76,15 @@
       "status": "unresolved",
       "questionId": "OQ-009",
       "affectedRuleIds": [
-        "SEM-EVENT-HATCHING-001"
+        "SEM-EVENT-HATCHING-001",
+        "SEM-EVENT-EGG-PROTECTION-001"
       ],
       "evidenceRefs": [
         "SRC-EVENT-HATCHING",
+        "SRC-EVENT-5617",
         "SRC-RULEBOOK"
       ],
-      "difference": "Event requires placement in the Nest; checked sources do not define placement when the Nest Room is absent.",
+      "difference": "Events require placement in the Nest; checked sources do not define placement when the Nest Room is absent.",
       "resolution": "No default; Event impossible-sentence rule is one candidate, not silently adopted."
     },
     {
@@ -125,6 +127,54 @@
       ],
       "difference": "Printed “You may keep 2” does not unambiguously state optional exact-two versus any subset up to two.",
       "resolution": "No default; explicit alternatives in review-gates.json."
+    },
+    {
+      "conflictId": "SC-009",
+      "title": "Leaving the Shell source glyphs versus licensed semantic placeholders",
+      "status": "unresolved",
+      "questionId": "SEM-Q-006",
+      "affectedRuleIds": [
+        "SEM-EVENT-LEAVING-THE-SHELL-001"
+      ],
+      "evidenceRefs": [
+        "SRC-EVENT-5614",
+        "SRC-BGA-EVENTS",
+        "assets/tts-mod/extract/selected-card-text-evidence.json"
+      ],
+      "difference": "The component scan preserves three featureless white rectangles with explicit no-match decisions; the licensed record labels all three ACTION-CARD.",
+      "resolution": "No default; retain the literal scan and licensed semantic occurrence independently until current official component evidence resolves identity."
+    },
+    {
+      "conflictId": "SC-010",
+      "title": "Reactor Overheating licensed movement sentence omits its verb",
+      "status": "resolved-by-authority",
+      "questionId": null,
+      "affectedRuleIds": [
+        "SEM-EVENT-REACTOR-OVERHEATING-001"
+      ],
+      "evidenceRefs": [
+        "SRC-RULEBOOK",
+        "SRC-EVENT-5626",
+        "SRC-BGA-EVENTS"
+      ],
+      "difference": "The official rulebook component occurrence and TTS scan say the three Corridor-orientation Intruders move; the BGA movement entry ends after the orientation list without “move.”",
+      "resolution": "Official/current visible component evidence and the exact scan control; preserve the BGA omission as a lower-authority variant."
+    },
+    {
+      "conflictId": "SC-011",
+      "title": "Robot Malfunction effect availability on rulebook pages 22 and 37",
+      "status": "unresolved",
+      "questionId": "SEM-Q-010",
+      "affectedRuleIds": [
+        "SEM-ROBOT-MALFUNCTION-001",
+        "SEM-EVENT-RISE-OF-THE-MACHINE-001"
+      ],
+      "evidenceRefs": [
+        "SRC-RULEBOOK",
+        "SRC-EVENT-5627"
+      ],
+      "difference": "Page 22 permits effects that only require a broken Robot and ignores repeated Robot Malfunction placement; page 37 says all game effects mentioning the broken Robot are unavailable.",
+      "resolution": "No default; both equal-authority passages and their Rise of the Machine consequence remain explicit."
     }
   ]
 }

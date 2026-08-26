@@ -15,19 +15,88 @@ DIR = REPO / 'docs/rules/semantics'
 VOCAB = REPO / 'docs/rules/vocabulary'
 ONTOLOGY = REPO / 'docs/rules/ontology'
 EXPECTED = {
-    'sources': 10, 'semanticNodes': 22, 'records': 73, 'sourceBacked': 64, 'withOpenQuestion': 9,
-    'sourceVariants': 0, 'sourceAssertions': 155, 'conditions': 221,
-    'operations': 281, 'decisions': 48, 'informationPolicies': 80,
-    'costs': 3, 'targets': 20, 'openQuestionReferences': 10,
-    'variantReferences': 2, 'questions': 11, 'openQuestions': 11, 'systems': 18,
-    'conflicts': 8, 'unresolvedConflicts': 4,
+    'sources': 30, 'semanticNodes': 22, 'records': 99, 'sourceBacked': 74, 'withOpenQuestion': 25,
+    'sourceVariants': 0, 'sourceAssertions': 252, 'conditions': 248,
+    'operations': 397, 'decisions': 49, 'informationPolicies': 111,
+    'costs': 3, 'targets': 98, 'openQuestionReferences': 30,
+    'variantReferences': 22, 'questions': 16, 'openQuestions': 16, 'systems': 18,
+    'conflicts': 11, 'unresolvedConflicts': 6,
     'roomIconDenotations': 112,
-    'backlogUnits': 600, 'backlogPilotCovered': 71, 'backlogSourceBlocked': 1,
+    'backlogUnits': 600, 'backlogPilotCovered': 102, 'backlogSourceBlocked': 1,
+    'eventIdentities': 20, 'eventScanOccurrences': 20, 'eventLicensedOccurrences': 20,
+    'eventOfficialOccurrences': 4, 'eventRecords': 20, 'eventBacklogTuples': 20,
 }
 PINNED_HELP_SOURCE_HASHES = {
     'docs/rules/source-extraction/intruder-help-sheet.json': 'e07f2703a6ad1b49c06389f79d3b1ffd6f5fd1d98604bf14b405fee49d9679e6',
     'docs/rules/source-extraction/room-help-sheet.json': 'ad3d6bb66de939fe1036ecca3fc8d8d9b41fe41e1065f7bd9611df8263480177',
     'docs/rules/source-extraction/room-help-sheet-source-fidelity-lock.json': '27c23c1c885e2ab851bef0bfb43b7471ea862af9d0308f9b3e70026320b4d8b4',
+}
+EXPECTED_EVENT_OCCURRENCES = {
+    5609: ('SRC-EVENT-5609','assets/tts-mod/extract/v2-dl/tree/cards/game/event-099.png','0d5da2c8e1b6ccb6a30c83f9006aa924f4fc2f1f14d360d153bc5ea6f73770ed','Event_SystemFailure','SEM-EVENT-SYSTEM-FAILURE-001','SYSTEM FAILURE'),
+    5610: ('SRC-EVENT-5610','assets/tts-mod/extract/v2-dl/tree/cards/game/event-009.png','92bc91f54116780d214aefd7925a46897d811f699c5921edd55f45b40deb989d','Event_NoWayOut','SEM-EVENT-NO-WAY-OUT-001','NO WAY OUT'),
+    5611: ('SRC-EVENT-5611','assets/tts-mod/extract/v2-dl/tree/cards/game/event-072.png','890259ff52beb7bb5235f2efd010b4e54ee752e9d85cb27f2de2576257fa33bb','Event_TheQueenAwakens','SEM-EVENT-THE-QUEEN-AWAKENS-001','THE QUEEN AWAKENS'),
+    5612: ('SRC-EVENT-5612','assets/tts-mod/extract/v2-dl/tree/cards/game/event-100.png','592afbb981cdb9bcae45812d38285a7e7cc1dd41bb21446861d51d000e9b0070','Event_ScentOfPrey','SEM-EVENT-SCENT-OF-PREY-001','SCENT OF PREY'),
+    5613: ('SRC-EVENT-5613','assets/tts-mod/extract/v2-dl/tree/cards/game/event-170.png','86ba726fa9fa4a8d9ed2913f6619db2d5df1b5ad1e3c69bd0b380993c9e8967e','Event_Panic','SEM-EVENT-PANIC-001','PANIC'),
+    5614: ('SRC-EVENT-5614','assets/tts-mod/extract/v2-dl/tree/cards/game/event-054.png','ac3dc8c20efc3e964383bb9956b264bf3f4a64762d8d8920f5c612d1841ec4bf','Event_LeavingTheShell','SEM-EVENT-LEAVING-THE-SHELL-001','LEAVING THE SHELL'),
+    5615: ('SRC-EVENT-5615','assets/tts-mod/extract/v2-dl/tree/cards/game/event-086.png','fe6a4f8faae5efdecb02b1ec436c605f792f5f78dd332e1cf64cffc532631ab0','Event_BreakingIn','SEM-EVENT-BREAKING-IN-001','BREAKING IN'),
+    5616: ('SRC-EVENT-HATCHING','assets/tts-mod/extract/v2-dl/tree/cards/game/event-090.png','45b5845d04f57b10dff6e73005be88cba0107a1a15da83f581df6531390d1ac9','Event_Hatching','SEM-EVENT-HATCHING-001','HATCHING'),
+    5617: ('SRC-EVENT-5617','assets/tts-mod/extract/v2-dl/tree/cards/game/event-179.png','72a3270de96356e8ea1e64b9bf1d2b90e189a7ae6f1031d03b6db453d3f93eab','Event_EggProtection','SEM-EVENT-EGG-PROTECTION-001','EGG PROTECTION'),
+    5618: ('SRC-EVENT-5618','assets/tts-mod/extract/v2-dl/tree/cards/game/event-096.png','85d08e0de5b2710ed0e1ac0295ed27da3b4d0da9eb2419aa0f0093d94f1b70d5','Event_LandingZoneExplodes','SEM-EVENT-LANDING-ZONE-EXPLODES-001','LANDING ZONE EXPLODES'),
+    5619: ('SRC-EVENT-5619','assets/tts-mod/extract/v2-dl/tree/cards/game/event-139.png','53351204890c5e98381a1fc4712e574a701659ec913b5f9c3f838ac6074c9614','Event_Damage','SEM-EVENT-DAMAGE-001','DAMAGE'),
+    5620: ('SRC-EVENT-5620','assets/tts-mod/extract/v2-dl/tree/cards/game/event-064.png','93bd00726c0683feb10a47c85c86055438114c3a8c5fbb33500325fa195d2158','Event_LifeSupportFailure','SEM-EVENT-LIFE-SUPPORT-FAILURE-001','LIFE SUPPORT FAILURE'),
+    5621: ('SRC-EVENT-5621','assets/tts-mod/extract/v2-dl/tree/cards/game/event-052.png','22f94926170929195f8bd6cea3b09090d24121d4803f77d99636ec85bafdb0ae','Event_FireBreath','SEM-EVENT-FIRE-BREATH-001','FIRE BREATH'),
+    5622: ('SRC-EVENT-5622','assets/tts-mod/extract/v2-dl/tree/cards/game/event-167.png','37bbf022f99ef62a18a5225aaf31347f6299f72672603547f51918502241f27b','Event_DamagingFire','SEM-EVENT-DAMAGING-FIRE-001','DAMAGING FIRE'),
+    5623: ('SRC-EVENT-5623','assets/tts-mod/extract/v2-dl/tree/cards/game/event-172.jpg','33625882c8388c183850eaf236af6c6ffd22368d06d1875681db607bce5be07c','Event_GeneratorsOverheat','SEM-EVENT-GENERATORS-OVERHEAT-001','GENERATORS OVERHEAT'),
+    5624: ('SRC-EVENT-5624','assets/tts-mod/extract/v2-dl/tree/cards/game/event-051.jpg','2eb453e8f770bbee9ab5b951fb22e952d34c1250876b88e878a461c11f7f8ded','Event_OverwhelmingEnemies','SEM-EVENT-OVERWHELMING-ENEMIES-001','OVERWHELMING ENEMIES'),
+    5625: ('SRC-EVENT-5625','assets/tts-mod/extract/v2-dl/tree/cards/game/event-093.jpg','6f93c7b3d25bb4fcbf6b7d786f31172b09a65f888b9fdb707917a7fae916b868','Event_ProtectServe','SEM-EVENT-PROTECT-AND-SERVE-001','PROTECT & SERVE'),
+    5626: ('SRC-EVENT-5626','assets/tts-mod/extract/v2-dl/tree/cards/game/event-006.jpg','50f71404b19fc4c65f970fffb229f8b92b2db6b73fa2daea73d90d522f12f9fc','Event_ReactorOverheating','SEM-EVENT-REACTOR-OVERHEATING-001','REACTOR OVERHEATING'),
+    5627: ('SRC-EVENT-5627','assets/tts-mod/extract/v2-dl/tree/cards/game/event-166.jpg','dfeef8373c59637e6a30eeb6e6d43f47e3a138e562a520ba0e15198a35c787f9','Event_RiseOfTheMachine','SEM-EVENT-RISE-OF-THE-MACHINE-001','RISE OF THE MACHINE'),
+    5628: ('SRC-EVENT-5628','assets/tts-mod/extract/v2-dl/tree/cards/game/event-058.jpg','cdf03513025769517d9a0e05ac3881120176a1d506db118fd3db50b6c82d9762','Event_ShortCircuit','SEM-EVENT-SHORT-CIRCUIT-001','SHORT CIRCUIT'),
+}
+EXPECTED_EVENT_QUESTION_REFS = {
+    'SEM-EVENT-SYSTEM-FAILURE-001': ['SEM-Q-008'],
+    'SEM-EVENT-NO-WAY-OUT-001': ['SEM-Q-007'],
+    'SEM-EVENT-LEAVING-THE-SHELL-001': ['SEM-Q-006'],
+    'SEM-EVENT-HATCHING-001': ['OQ-009','SEM-Q-007'],
+    'SEM-EVENT-EGG-PROTECTION-001': ['OQ-007','OQ-009','SEM-Q-007'],
+    'SEM-EVENT-DAMAGE-001': ['SEM-Q-008'],
+    'SEM-EVENT-LIFE-SUPPORT-FAILURE-001': ['SEM-Q-008'],
+    'SEM-EVENT-FIRE-BREATH-001': ['SEM-Q-009'],
+    'SEM-EVENT-DAMAGING-FIRE-001': ['SEM-Q-008','SEM-Q-009'],
+    'SEM-EVENT-GENERATORS-OVERHEAT-001': ['SEM-Q-008'],
+    'SEM-EVENT-OVERWHELMING-ENEMIES-001': ['SEM-Q-007'],
+    'SEM-EVENT-REACTOR-OVERHEATING-001': ['SEM-Q-008'],
+    'SEM-EVENT-RISE-OF-THE-MACHINE-001': ['SEM-Q-010'],
+}
+EXPECTED_EVENT_RECORD_DIGESTS = {
+    'SEM-ECLOSION-PROCEDURE-001': '353ee18e5b0f66d237cb84c0f5af55bdf68a2e80628d51e563ce3c84d780eb4d',
+    'SEM-EVENT-BREAKING-IN-001': 'da7f0f0a0ad3478b3caa3bd41efa9e9538fac69adb0a7d17201a9291d76efbd8',
+    'SEM-EVENT-DAMAGE-001': 'a252b148517f13e9d9eb30fe288443f522c451101547e59cf6fb9cc519800168',
+    'SEM-EVENT-DAMAGING-FIRE-001': 'e8c718ae5c00d6e8f4abccb1b864c7885a2fb56a95b89797df53a00d45f9ca89',
+    'SEM-EVENT-EGG-PROTECTION-001': 'c046e6445641ec4225834dadc9f439400d9dfa6888943f893f82a06697003ffe',
+    'SEM-EVENT-FIRE-BREATH-001': 'b9edf7973c9cefc9aa47fdbd385acccaf831572c63a28714115072b2c0ef8b4c',
+    'SEM-EVENT-GENERAL-001': '58f8169335e0a66b9b66e6fd89ce7734f10ab8888136fd7518aeb072d3b4c5df',
+    'SEM-EVENT-GENERATORS-OVERHEAT-001': '1e6055ca03a72b58d1711bc92fae0a4bb9ba57dd9fe1b1ab0e4cf80f58c81eeb',
+    'SEM-EVENT-HATCHING-001': '0860d2870d18b7baca933486da02f3c8a89984cd2c4f222d8985f19c32a9c5a8',
+    'SEM-EVENT-INTRUDER-MOVEMENT-001': '4c703bc0874fd8da6dcbe3317c63e415852e16ff7fb0674bfe6d1f67f614fdd9',
+    'SEM-EVENT-LANDING-ZONE-EXPLODES-001': '2c8b1b9ae1df5d2d158ef9552fd46757678ffe3a00e0090773548a21c36719d4',
+    'SEM-EVENT-LEAVING-THE-SHELL-001': 'a1e778e6a95c105e711da9081802de11af3b10bb7d406867d039a5a699e9ea94',
+    'SEM-EVENT-LIFE-SUPPORT-FAILURE-001': 'a310c84257048566ffa23e12812626079aa5cea054759fddf5a5e1dbe8d2a678',
+    'SEM-EVENT-NO-WAY-OUT-001': '35e2f08f513d5f8f3a5337adc3d29f0b1ded3dbe6201beab746e3d15af4fc33a',
+    'SEM-EVENT-OVERWHELMING-ENEMIES-001': 'd12457f82c6387f60b980dd42c8a2e16269efe8e45065c2fa9930ed8deddd82c',
+    'SEM-EVENT-PANIC-001': 'c5c497eac399b2e83ca96324b97bb56d6270fc2d79b83cc78caa73780494c374',
+    'SEM-EVENT-PROTECT-AND-SERVE-001': '2889b8f62a546327ce5197aea65a46695e389b7c63896de3d4dfb5af62add55b',
+    'SEM-EVENT-REACTOR-OVERHEATING-001': 'f84eeab2ee28282885036e0ff2a9af8f13ac0e7163980b7c8de1f96785d82623',
+    'SEM-EVENT-RISE-OF-THE-MACHINE-001': 'd2027c3f7e07242fecd318223f83b1210430d3c7089d971864a5fc432dbd76c7',
+    'SEM-EVENT-SCENT-OF-PREY-001': '7d70eca226175371c6bc5925d724566cca6813f73bc3e10a8bdfdf3b233cfd73',
+    'SEM-EVENT-SHORT-CIRCUIT-001': '6e3445c62a1f08bfa5af65d93b3520f9dd051e596a12a53b33639f50f290737d',
+    'SEM-EVENT-SYSTEM-FAILURE-001': 'adb43651ddb31059424d57517f86abb98de6b25ca10292de3e4d0e1ff9f7b936',
+    'SEM-EVENT-THE-QUEEN-AWAKENS-001': 'c34b54c4f99ea51600c7aafe97fa3347c33c7e23e946e3eace460deea8380840',
+    'SEM-FIRE-SPREAD-001': '6aa2dc4b0e05a34f9e63e440ed361f288eee92b87a435cd93598e1bccf0319ee',
+    'SEM-INFECTION-PROCEDURE-001': 'bde76697380555865279565e575a4a2eb75321d1058c59260573b35e00da9320',
+    'SEM-NOISE-HAZARD-001': '2d7aa66a6162c167575bcec4035ce796bbfcb66002322a076e712e9df2910429',
+    'SEM-NOISE-MARKER-001': '2178186f1b94ce67935a1c5b0165d1dfa466ccc5f3705d33c10982a279c41407',
+    'SEM-SECURE-ENTRY-001': '74836078c570e2be6c092add9fb4d027ce18b8f70ee5dad26e27c5a4ca0ae4d2',
 }
 ALLOWED_OPERATIONS = {
     'branch','change-value','choose','draw-random','end-process','evaluate-condition',
@@ -37,6 +106,7 @@ ALLOWED_OPERATIONS = {
 }
 ALLOWED_TIMING = {'before-attack-resolution','during','during-event-card-resolution','when-action-card-played','when-triggered'}
 ALLOWED_PARTIAL = {'all-or-nothing-selection','if-not-possible-fallback','ordered-complete','per-sentence-continue','replacement-effect','source-conditional-steps','per-effect-check','source-limited-components'}
+ALLOWED_TARGET_SELECTION = {'player-choice','random','deterministic-turn-order','unresolved-when-multiple','deterministic-state-filter','unresolved-order'}
 FORBIDDEN_IMPLEMENTATION_TEXT = re.compile(r'\b(?:engine\.js|data\.js|network\.js|PeerJS|DOM|WebRTC|serialization|database schema|UI widget)\b', re.IGNORECASE)
 
 
@@ -81,8 +151,9 @@ def cardinality_valid(value: dict) -> bool:
     return isinstance(maximum, int) and not isinstance(maximum, bool) and maximum >= minimum
 
 
-def validate(source_path: Path, schema_path: Path, semantic_vocabulary_path: Path, room_icon_path: Path, pilots_path: Path, review_path: Path, contradictions_path: Path, coverage_path: Path, backlog_path: Path, *, reproducibility: bool) -> dict:
+def validate(event_source_path: Path, source_path: Path, schema_path: Path, semantic_vocabulary_path: Path, room_icon_path: Path, pilots_path: Path, review_path: Path, contradictions_path: Path, coverage_path: Path, backlog_path: Path, *, reproducibility: bool) -> dict:
     failures: list[dict] = []
+    event_sources = load(event_source_path)
     sources_data = load(source_path)
     schema = load(schema_path)
     semantic_vocabulary = load(semantic_vocabulary_path)
@@ -137,6 +208,98 @@ def validate(source_path: Path, schema_path: Path, semantic_vocabulary_path: Pat
             failures.append({'check': 'source evidence/authority', 'sourceId': source.get('sourceId')})
     if sources_data.get('counts') != {'sources': len(source_rows)}:
         failures.append({'check': 'source registry declared count'})
+
+    # Independent base-Event occurrence lock. This re-derives the family from
+    # role/cardId/FaceURL provenance and checks the generated crosswalk without
+    # trusting display-name uniqueness or directory placement.
+    event_rows = event_sources.get('events') or []
+    event_by_card = {row.get('ttsCardId'): row for row in event_rows}
+    expected_event_counts = {
+        'eventIdentities':20,'ttsFaceOccurrences':20,'ttsSharedBackOccurrencesExcluded':1,
+        'canonicalCorpusFaces':19,'sourceBoundDraftFaces':1,'licensedDigitalOccurrences':20,
+        'officialVisibleComponentOccurrences':4,'backlogTuples':20,
+    }
+    if event_sources.get('counts') != expected_event_counts or set(event_by_card) != set(EXPECTED_EVENT_OCCURRENCES) or len(event_by_card) != len(event_rows):
+        failures.append({'check': 'Event source-index exact identity count'})
+    corpus = load(REPO/'assets/tts-mod/extract/card-text-corpus.json')
+    corpus_by_path = {row['sourcePath']:row for row in corpus['records']}
+    provenance = load(REPO/'assets/tts-mod/extract/card-provenance-inventory.json')
+    roles = load(REPO/'assets/tts-mod/extract/v2/lua_roles.json')
+    base_event_role = next((row for row in roles if row.get('role') == 'eventDeck' and row.get('guid') == '0d3dae'), {})
+    role_card_ids = sorted(int(value) for value in base_event_role.get('deck_nums') or [])
+    if role_card_ids != list(range(5609,5629)) or base_event_role.get('n_urls') != 21:
+        failures.append({'check': 'Event TTS role/cardId closure'})
+    provenance_by_card = {}
+    shared_event_backs = set()
+    for provenance_row in provenance:
+        for obj in provenance_row.get('objects') or []:
+            if obj.get('key') == 'BackURL' and obj.get('guid') == '0d3dae':
+                shared_event_backs.add(provenance_row.get('file'))
+            if obj.get('key') != 'FaceURL' or obj.get('gmnotes') != 'event' or not obj.get('cardId') or ['DeckCustom','0d3dae',''] not in (obj.get('parent') or []):
+                continue
+            card_id = int(obj['cardId']) // 100
+            if card_id in EXPECTED_EVENT_OCCURRENCES:
+                provenance_by_card.setdefault(card_id,[]).append((provenance_row,obj))
+    if set(provenance_by_card) != set(EXPECTED_EVENT_OCCURRENCES) or any(len(rows) != 1 for rows in provenance_by_card.values()) or len(shared_event_backs) != 1:
+        failures.append({'check': 'Event FaceURL provenance closure'})
+    bga_text = (REPO/'docs/rules/source-extraction/secondary/bga-staticData-260622-1220.js').read_text(encoding='utf-8')
+    secondary = load(REPO/'docs/rules/source-extraction/secondary-evidence-index.json')
+    bga_table = next((row for row in secondary['licensedDigital']['structuredIndex']['tables'] if row.get('name') == 'EVENT_CARDS_DATA'), {})
+    expected_bga_keys = {value[3] for value in EXPECTED_EVENT_OCCURRENCES.values()}
+    if bga_table.get('count') != 20 or set(bga_table.get('keys') or []) != expected_bga_keys:
+        failures.append({'check': 'Event licensed-digital independent index closure'})
+    backlog_rows_by_id = {row.get('semanticUnitId'):row for row in backlog.get('units') or []}
+    for card_id, expected in EXPECTED_EVENT_OCCURRENCES.items():
+        expected_source_id,expected_path,expected_sha,expected_bga_key,expected_rule_id,expected_title = expected
+        event = event_by_card.get(card_id) or {}
+        actual_tuple = (event.get('sourceId'),event.get('sourcePath'),event.get('sourceSha256'),(event.get('bgaOccurrence') or {}).get('key'),event.get('semanticRuleId'),event.get('visibleTitle'))
+        if actual_tuple != expected:
+            failures.append({'check': 'independently locked Event occurrence crosswalk', 'ttsCardId':card_id})
+        source_file = REPO/expected_path
+        if not source_file.is_file() or sha(source_file) != expected_sha:
+            failures.append({'check': 'Event live source hash', 'ttsCardId':card_id})
+        provenance_rows = provenance_by_card.get(card_id) or []
+        if provenance_rows:
+            provenance_row,obj = provenance_rows[0]
+            derived_path = 'assets/tts-mod/extract/v2-dl/tree/' + provenance_row.get('file','')
+            if derived_path != expected_path or int(obj.get('cardId',0)) != card_id*100 or obj.get('guid') != event.get('ttsCardGuid'):
+                failures.append({'check': 'Event occurrence role/provenance projection', 'ttsCardId':card_id})
+        corpus_row = corpus_by_path.get(expected_path) or {}
+        if corpus_row.get('sourceSha256') != expected_sha or corpus_row.get('printedData',{}).get('body') != event.get('printedBody') or not corpus_row.get('rulesTextPresent'):
+            failures.append({'check': 'Event closed-corpus projection', 'ttsCardId':card_id})
+        registry = source_by_id.get(expected_source_id) or {}
+        if (registry.get('path'),registry.get('sha256'),registry.get('authority'),registry.get('occurrenceId'),registry.get('evidenceRecord')) != (expected_path,expected_sha,'source-bound-component-scan',f'TTS-EVENT-{card_id}-FACE',expected_sha):
+            failures.append({'check': 'Event source-registry exact scan tuple', 'ttsCardId':card_id})
+        sentences = event.get('sentences') or []
+        if [row.get('sequence') for row in sentences] != list(range(1,len(sentences)+1)) or len({row.get('sentenceId') for row in sentences}) != len(sentences):
+            failures.append({'check': 'Event source sentence IDs/order', 'ttsCardId':card_id})
+        body = event.get('printedBody') or ''
+        cursor = 0
+        for sentence in sentences:
+            start,end = sentence.get('start'),sentence.get('end')
+            if not isinstance(start,int) or not isinstance(end,int) or start < cursor or body[start:end] != sentence.get('exactText') or sentence.get('section') not in {'movement','main','secondary'}:
+                failures.append({'check': 'Event exact sentence span projection', 'ttsCardId':card_id, 'sentenceId':sentence.get('sentenceId')})
+            cursor = end if isinstance(end,int) else cursor
+        bga = event.get('bgaOccurrence') or {}
+        bga_block = bga.get('sourceBlockText') or ''
+        if bga.get('sourceId') != 'SRC-BGA-EVENTS' or bga.get('sourceSha256') != sha(REPO/'docs/rules/source-extraction/secondary/bga-staticData-260622-1220.js') or not bga_block or bga_block not in bga_text:
+            failures.append({'check': 'Event licensed occurrence exact projection', 'ttsCardId':card_id})
+        join = event.get('joinEvidence') or {}
+        basis_text = ' '.join(join.get('basis') or []).lower()
+        if join.get('titleOnlyJoin') is not False or join.get('identityJoin') != 'explicit occurrence crosswalk' or 'cardid' not in basis_text or 'sha-256' not in basis_text or 'ordered' not in basis_text:
+            failures.append({'check': 'Event title-only join prohibited', 'ttsCardId':card_id})
+        backlog_id = 'CARD:' + expected_sha[:16]
+        backlog_row = backlog_rows_by_id.get(backlog_id) or {}
+        if event.get('backlogUnitId') != backlog_id or backlog_row.get('sourcePath') != expected_path or backlog_row.get('sourceLocator') != expected_sha or backlog_row.get('pilotRuleIds') != [expected_rule_id] or backlog_row.get('status') != 'pilot-covered':
+            failures.append({'check': 'Event exact backlog tuple projection', 'ttsCardId':card_id})
+    expected_event_source_ids = {value[0] for value in EXPECTED_EVENT_OCCURRENCES.values()}
+    actual_event_source_ids = {row.get('sourceId') for row in source_rows if row.get('occurrenceId','').startswith('TTS-EVENT-')}
+    bga_registry = source_by_id.get('SRC-BGA-EVENTS') or {}
+    if actual_event_source_ids != expected_event_source_ids or bga_registry.get('authority') != 'licensed-digital-secondary' or bga_registry.get('occurrenceId') != 'EVENT_CARDS_DATA':
+        failures.append({'check': 'Event source-registry family closure'})
+    leaving = event_by_card.get(5614) or {}
+    if (leaving.get('printedBody') or '').count('[ICON: solid white rectangular block]') != 3 or (leaving.get('bgaOccurrence',{}).get('sourceBlockText') or '').count('ACTION-CARD') != 3:
+        failures.append({'check': 'Leaving the Shell unresolved glyph boundary'})
 
     required_fields = schema.get('required') or []
     schema_fields = set((schema.get('properties') or {}).keys())
@@ -198,7 +361,7 @@ def validate(source_path: Path, schema_path: Path, semantic_vocabulary_path: Pat
             path = evidence_path(reference)
             if path is None or not path.exists():
                 failures.append({'check': 'semantic conflict evidence', 'conflictId': conflict.get('conflictId'), 'reference': reference})
-    if contradictions.get('counts') != {'conflicts':8,'resolvedByAuthority':2,'unresolved':4,'preservedBoundary':2}:
+    if contradictions.get('counts') != {'conflicts':11,'resolvedByAuthority':3,'unresolved':6,'preservedBoundary':2}:
         failures.append({'check': 'semantic conflict declared counts'})
 
     for record in records:
@@ -305,7 +468,7 @@ def validate(source_path: Path, schema_path: Path, semantic_vocabulary_path: Pat
         if len(target_ids) != len(target_set):
             failures.append({'check': 'target IDs', 'ruleId': rule_id})
         for item in targets:
-            if any(taxon not in taxon_ids for taxon in item.get('eligibleTaxonIds') or []) or not cardinality_valid(item.get('cardinality')) or item.get('selectionMode') not in {'player-choice','random','deterministic-turn-order','unresolved-when-multiple'} or not item.get('visibility'):
+            if any(taxon not in taxon_ids for taxon in item.get('eligibleTaxonIds') or []) or not cardinality_valid(item.get('cardinality')) or item.get('selectionMode') not in ALLOWED_TARGET_SELECTION or not item.get('visibility'):
                 failures.append({'check': 'target completeness', 'ruleId': rule_id, 'targetId': item.get('targetId')})
             selector = item.get('selectorRef')
             if selector not in participant_set and selector != 'rules-system' and not str(selector).startswith('unresolved-'):
@@ -416,7 +579,7 @@ def validate(source_path: Path, schema_path: Path, semantic_vocabulary_path: Pat
                     failures.append({'check': 'Intruder Help Corridor capacity', 'occurrenceId': occurrence_id})
                 if op.get('operationType') == 'transition-zone' and (op.get('transition') or {}).get('positionRef') is not None:
                     failures.append({'check': 'Intruder Help non-Bag pile ordering', 'occurrenceId': occurrence_id})
-        if context == 'room' and occurrence_id.endswith(('R-01','R-02')) and not any(op.get('invokeRuleId') == 'SEM-INT-004' for op in operations):
+        if context == 'room' and occurrence_id.endswith(('R-01','R-02')) and not any(op.get('invokeRuleId') == 'SEM-SECURE-ENTRY-001' for op in operations):
             failures.append({'check': 'Intruder Help Room Surprise Attack', 'occurrenceId': occurrence_id})
         if occurrence_id in {'QA-C-02','QD-C-02'}:
             placement = next((op for op in operations if op.get('operationType') == 'place-component'), {})
@@ -428,10 +591,20 @@ def validate(source_path: Path, schema_path: Path, semantic_vocabulary_path: Pat
     if bag_dispatch != expected_help_dispatch:
         failures.append({'check': 'Bag Development exact Queen-side Help dispatch', 'actual': sorted(bag_dispatch)})
     expected_room_dispatch = {'SEM-IH-QA-R-01','SEM-IH-QA-R-02','SEM-IH-QD-R-01','SEM-IH-QD-R-02'}
-    for source_rule in ('SEM-NOISE-001','SEM-ROOM-10'):
+    for source_rule in ('SEM-NOISE-HAZARD-001','SEM-ROOM-10'):
         dispatches={ref for op in (record_by_id.get(source_rule) or {}).get('operations') or [] for ref in op.get('dispatchRuleIds') or []}
         if dispatches != expected_room_dispatch:
             failures.append({'check': 'Room-context exact Help dispatch', 'ruleId': source_rule, 'actual': sorted(dispatches)})
+    expected_corridor_dispatch = {'SEM-IH-QA-C-01','SEM-IH-QA-C-02','SEM-IH-QA-C-03','SEM-IH-QD-C-01','SEM-IH-QD-C-02','SEM-IH-QD-C-03'}
+    noise_marker_dispatch = {ref for op in (record_by_id.get('SEM-NOISE-MARKER-001') or {}).get('operations') or [] for ref in op.get('dispatchRuleIds') or []}
+    if noise_marker_dispatch != expected_corridor_dispatch:
+        failures.append({'check': 'Corridor-context exact Help dispatch', 'actual':sorted(noise_marker_dispatch)})
+    noise_invocations = [op.get('invokeRuleId') for op in (record_by_id.get('SEM-NOISE-001') or {}).get('operations') or [] if op.get('invokeRuleId')]
+    if 'SEM-NOISE-MARKER-001' not in noise_invocations or 'SEM-NOISE-HAZARD-001' not in noise_invocations:
+        failures.append({'check': 'Noise reusable marker/Hazard dispatch'})
+    numeric_invocations = [op.get('invokeRuleId') for op in (record_by_id.get('SEM-NOISE-NUMERIC-CORRIDOR-001') or {}).get('operations') or [] if op.get('invokeRuleId')]
+    if numeric_invocations != ['SEM-SECURE-ENTRY-001']:
+        failures.append({'check': 'Numeric Noise Secure-entry dispatch'})
     room_help = load(REPO/'docs/rules/source-extraction/room-help-sheet.json')
     def room_key(value):
         return re.sub(r'[^a-z0-9]+','-',value.lower()).strip('-')
@@ -521,6 +694,79 @@ def validate(source_path: Path, schema_path: Path, semantic_vocabulary_path: Pat
     hatching = record_by_id.get('SEM-EVENT-HATCHING-001') or {}
     if hatching.get('partialResolution', {}).get('policy') != 'per-sentence-continue' or 'OQ-009' not in hatching.get('unresolvedQuestionRefs', []):
         failures.append({'check': 'Event partial/Nest ambiguity fidelity'})
+    expected_event_rule_ids = {value[4] for value in EXPECTED_EVENT_OCCURRENCES.values()}
+    actual_event_rule_ids = {rule_id for rule_id,item in record_by_id.items() if item.get('ruleKind') == 'event' and rule_id not in {'SEM-EVENT-GENERAL-001'}}
+    if actual_event_rule_ids != expected_event_rule_ids:
+        failures.append({'check': 'Event semantic record closure', 'missing':sorted(expected_event_rule_ids-actual_event_rule_ids), 'extra':sorted(actual_event_rule_ids-expected_event_rule_ids)})
+    faq_event_cards = {5609,5613,5614,5615,5616,5621,5622,5626}
+    for card_id,expected in EXPECTED_EVENT_OCCURRENCES.items():
+        expected_source_id,_,expected_sha,_,rule_id,_ = expected
+        source_event = event_by_card.get(card_id) or {}
+        item = record_by_id.get(rule_id) or {}
+        assertions = {row.get('assertionId'):row for row in item.get('sourceAssertions') or []}
+        scan_assertion = assertions.get(f'SA-EVT-{card_id}-SCAN') or {}
+        bga_assertion = assertions.get(f'SA-EVT-{card_id}-BGA') or {}
+        if (scan_assertion.get('sourceId'),scan_assertion.get('sourceSha256'),scan_assertion.get('sourceText'),scan_assertion.get('textKind')) != (expected_source_id,expected_sha,source_event.get('printedBody'),'verbatim'):
+            failures.append({'check': 'Event exact scan assertion projection', 'ttsCardId':card_id})
+        if (bga_assertion.get('sourceId'),bga_assertion.get('sourceText'),bga_assertion.get('textKind')) != ('SRC-BGA-EVENTS',(source_event.get('bgaOccurrence') or {}).get('sourceBlockText'),'verbatim'):
+            failures.append({'check': 'Event exact licensed assertion projection', 'ttsCardId':card_id})
+        variants = item.get('sourceVariants') or []
+        expected_variant = (f'SV-EVT-{card_id}-BGA','SRC-BGA-EVENTS',f'SA-EVT-{card_id}-BGA')
+        if len(variants) != 1 or (variants[0].get('variantId'),variants[0].get('sourceId'),variants[0].get('sourceAssertionId')) != expected_variant or not variants[0].get('difference') or not variants[0].get('resolution'):
+            failures.append({'check': 'Event licensed source-variant closure', 'ttsCardId':card_id})
+        expected_sentence_ids = [row.get('sentenceId') for row in source_event.get('sentences') or []]
+        source_section_by_sentence = {row.get('sentenceId'):row.get('section') for row in source_event.get('sentences') or []}
+        operation_sentence_ids = [row.get('sourceSentenceId') for row in item.get('operations') or []]
+        first_occurrence_order = list(dict.fromkeys(operation_sentence_ids))
+        if not operation_sentence_ids or any(sentence_id not in source_section_by_sentence for sentence_id in operation_sentence_ids) or first_occurrence_order != expected_sentence_ids:
+            failures.append({'check': 'Event semantic sentence-order projection', 'ttsCardId':card_id})
+        for op in item.get('operations') or []:
+            if op.get('sourceSection') != source_section_by_sentence.get(op.get('sourceSentenceId')):
+                failures.append({'check': 'Event semantic sentence-section projection', 'ttsCardId':card_id, 'stepId':op.get('stepId')})
+        if item.get('partialResolution') != {'policy':'per-sentence-continue','unit':'sourceSentenceId / exact printed Event-card sentence','onImpossible':'ignore exactly the impossible printed sentence and continue later sentence IDs; do not invent target-level partial resolution or a tie-break, except the explicit finite-Intruder-model rule'}:
+            failures.append({'check': 'Event per-sentence continuation lock', 'ttsCardId':card_id})
+        expected_questions = EXPECTED_EVENT_QUESTION_REFS.get(rule_id,[])
+        if item.get('unresolvedQuestionRefs') != expected_questions or (item.get('status') == 'source-backed-with-open-question') != bool(expected_questions):
+            failures.append({'check': 'Event no-default question projection', 'ttsCardId':card_id})
+        expected_authority = 'official-errata' if card_id in faq_event_cards else 'official-primary'
+        if item.get('authority',{}).get('highest') != expected_authority:
+            failures.append({'check': 'Event authority lock', 'ttsCardId':card_id})
+        target_ids = {target.get('targetId') for target in item.get('targets') or []}
+        used_targets = {op.get('targetRef') for op in item.get('operations') or [] if op.get('targetRef')}
+        if target_ids != used_targets:
+            failures.append({'check': 'Event target usage closure', 'ttsCardId':card_id})
+        if any((op.get('transition') or {}).get('to') == 'tax.scaffold.zone.discard-pile' for op in item.get('operations') or []):
+            failures.append({'check': 'Event generic-discard ownership', 'ttsCardId':card_id})
+    event_generic = record_by_id.get('SEM-EVENT-GENERAL-001') or {}
+    generic_dispatch = next((op.get('dispatchRuleIds') for op in event_generic.get('operations') or [] if op.get('dispatchRuleIds')), None)
+    expected_dispatch = [EXPECTED_EVENT_OCCURRENCES[card_id][4] for card_id in sorted(EXPECTED_EVENT_OCCURRENCES)]
+    generic_discard = next((op for op in event_generic.get('operations') or [] if op.get('operationType') == 'transition-zone'), {})
+    if generic_dispatch != expected_dispatch or not generic_discard.get('conditionRefs') or (generic_discard.get('transition') or {}).get('from') != 'sem.zone.card-in-resolution':
+        failures.append({'check': 'Generic Event exact occurrence dispatch/discard'})
+    leaving_record = record_by_id.get('SEM-EVENT-LEAVING-THE-SHELL-001') or {}
+    leaving_alternatives = [op for op in leaving_record.get('operations') or [] if op.get('operationType') == 'resolve-open-alternative' and 'SEM-Q-006' in op.get('objectRef','')]
+    if len(leaving_alternatives) != 3 or 'icon.actionCard' in (leaving_record.get('termRefs') or []) or 'SEM-Q-006' not in leaving_record.get('unresolvedQuestionRefs',[]):
+        failures.append({'check': 'Leaving the Shell no invented glyph default'})
+    for reshuffle_rule in ('SEM-EVENT-LEAVING-THE-SHELL-001','SEM-EVENT-REACTOR-OVERHEATING-001'):
+        reshuffle_ops = (record_by_id.get(reshuffle_rule) or {}).get('operations') or []
+        if not any(op.get('operationType') == 'transition-zone' and (op.get('transition') or {}).get('to') == 'tax.scaffold.zone.deck' for op in reshuffle_ops) or not any(op.get('operationType') == 'shuffle' for op in reshuffle_ops):
+            failures.append({'check': 'Event self-inclusive reshuffle fidelity', 'ruleId':reshuffle_rule})
+    secure = record_by_id.get('SEM-SECURE-ENTRY-001') or {}
+    if 'OQ-007' not in secure.get('unresolvedQuestionRefs',[]) or not any(op.get('invokeRuleId') == 'SEM-INT-004' for op in secure.get('operations') or []):
+        failures.append({'check': 'Secure-entry single/multiple boundary'})
+    robot = record_by_id.get('SEM-ROBOT-MALFUNCTION-001') or {}
+    if 'SEM-Q-010' not in robot.get('unresolvedQuestionRefs',[]) or len(robot.get('sourceAssertions') or []) != 2 or not any(op.get('operationType') == 'resolve-open-alternative' for op in robot.get('operations') or []):
+        failures.append({'check': 'Robot equal-authority contradiction boundary'})
+    actual_event_lock_ids = set(EXPECTED_EVENT_RECORD_DIGESTS) & set(record_by_id)
+    if actual_event_lock_ids != set(EXPECTED_EVENT_RECORD_DIGESTS):
+        failures.append({'check': 'independently locked Event semantic projection', 'missing':sorted(set(EXPECTED_EVENT_RECORD_DIGESTS)-actual_event_lock_ids)})
+    for rule_id,expected_digest in EXPECTED_EVENT_RECORD_DIGESTS.items():
+        item = record_by_id.get(rule_id)
+        actual_digest = hashlib.sha256(json.dumps(item,sort_keys=True,ensure_ascii=False,separators=(',',':')).encode()).hexdigest() if item else None
+        if actual_digest != expected_digest:
+            failures.append({'check': 'independently locked Event semantic projection', 'ruleId':rule_id})
+    if any(fragment in ' '.join(coverage.get('notYetCovered') or []) for fragment in ('all 20 Events','all Events')):
+        failures.append({'check': 'Event coverage stale not-yet-covered claim'})
     semantic_relation_ids = set(ontology_review.get('deferredSemanticRelationIds') or [])
     if semantic_relation_ids != {'rel.phase-part-of-round','rel.round-has-phase','rel.precedes','rel.follows','rel.turn-occurs-in-phase','rel.phase-has-turn','rel.process-has-timing-window','rel.decision-owned-by','rel.owns-decision','rel.information-visible-to','rel.transition-from','rel.transition-to'}:
         failures.append({'check': 'semantic relation handoff'})
@@ -547,11 +793,17 @@ def validate(source_path: Path, schema_path: Path, semantic_vocabulary_path: Pat
         'backlogUnits': len(backlog.get('units') or []),
         'backlogPilotCovered': sum(item.get('status') == 'pilot-covered' for item in backlog.get('units') or []),
         'backlogSourceBlocked': sum(item.get('status') == 'source-blocked' for item in backlog.get('units') or []),
+        'eventIdentities': len(event_rows),
+        'eventScanOccurrences': len(event_rows),
+        'eventLicensedOccurrences': len({(item.get('bgaOccurrence') or {}).get('key') for item in event_rows}),
+        'eventOfficialOccurrences': sum(len(item.get('officialOccurrences') or []) for item in event_rows),
+        'eventRecords': len(actual_event_rule_ids),
+        'eventBacklogTuples': sum((backlog_rows_by_id.get('CARD:'+value[2][:16]) or {}).get('pilotRuleIds') == [value[4]] for value in EXPECTED_EVENT_OCCURRENCES.values()),
     }
     if actual_counts != EXPECTED:
         failures.append({'check': 'hard-coded semantic pilot counts', 'expected': EXPECTED, 'actual': actual_counts})
     expected_pilot_counts = {key: actual_counts[key] for key in ('records','sourceBacked','withOpenQuestion','sourceVariants','sourceAssertions','conditions','operations','decisions','informationPolicies','costs','targets','openQuestionReferences','variantReferences')}
-    if pilots.get('counts') != expected_pilot_counts or sources_data.get('counts') != {'sources': 10} or review.get('counts') != {'questions':11,'officialClarificationPreferred':6,'sourceAmbiguitiesIntroducedByPilot':5,'resolved':0,'open':11} or coverage.get('counts') != {'systems':18,'pilotRecords':73,'fullBaseSemanticCoverageClaimed':False}:
+    if pilots.get('counts') != expected_pilot_counts or sources_data.get('counts') != {'sources': 30} or review.get('counts') != {'questions':16,'officialClarificationPreferred':7,'sourceAmbiguitiesIntroducedByPilot':9,'resolved':0,'open':16} or coverage.get('counts') != {'systems':18,'pilotRecords':99,'fullBaseSemanticCoverageClaimed':False}:
         failures.append({'check': 'declared semantic counts'})
     covered_rule_ids = [rule_id for system in coverage.get('systems') or [] for rule_id in system.get('ruleIds') or []]
     if set(covered_rule_ids) != set(record_ids) or len(covered_rule_ids) != len(set(covered_rule_ids)) or coverage.get('counts', {}).get('fullBaseSemanticCoverageClaimed') is not False:
@@ -580,7 +832,7 @@ def validate(source_path: Path, schema_path: Path, semantic_vocabulary_path: Pat
     if len(blocked_units) != 1 or not blocked_units[0].get('sourcePath','').endswith('missionTaskDeck-023.png') or 'exact-source-operative-span' not in blocked_units[0].get('blockers',[]):
         failures.append({'check': 'semantic backlog inherited source blocker'})
     expected_backlog_channels = {'card-reference-source-tuple':350,'interpreted-rule-record':54,'intruder-help-instruction':18,'objective-help-unit':45,'official-faq-unit':28,'room-help-entry':25,'rulebook-visual-obligation':80}
-    expected_backlog_status = {'pending':528,'pilot-covered':71,'source-blocked':1}
+    expected_backlog_status = {'pending':497,'pilot-covered':102,'source-blocked':1}
     if backlog.get('counts') != {'units':600,'byChannel':expected_backlog_channels,'byStatus':expected_backlog_status}:
         failures.append({'check': 'semantic backlog declared counts'})
 
@@ -598,7 +850,7 @@ def validate(source_path: Path, schema_path: Path, semantic_vocabulary_path: Pat
                     failures.append({'check': 'semantic backlog rebuild execution', 'seed': seed, 'stderr': backlog_run.stderr})
                     continue
                 hashes = {}
-                for name, tracked in [('source-registry.json',source_path),('semantic-rule.schema.json',schema_path),('semantic-vocabulary.json',semantic_vocabulary_path),('room-icon-denotations.json',room_icon_path),('pilots.json',pilots_path),('review-gates.json',review_path),('contradictions.json',contradictions_path),('coverage.json',coverage_path),('backlog.json',backlog_path)]:
+                for name, tracked in [('event-source-index.json',event_source_path),('source-registry.json',source_path),('semantic-rule.schema.json',schema_path),('semantic-vocabulary.json',semantic_vocabulary_path),('room-icon-denotations.json',room_icon_path),('pilots.json',pilots_path),('review-gates.json',review_path),('contradictions.json',contradictions_path),('coverage.json',coverage_path),('backlog.json',backlog_path)]:
                     rebuilt = Path(temp_dir) / name
                     hashes[name] = sha(rebuilt) if rebuilt.is_file() else None
                     if not rebuilt.is_file() or hashes[name] != sha(tracked):
@@ -612,6 +864,7 @@ def validate(source_path: Path, schema_path: Path, semantic_vocabulary_path: Pat
 
 def main() -> int:
     parser = argparse.ArgumentParser()
+    parser.add_argument('--event-source-index', type=Path, default=DIR/'event-source-index.json')
     parser.add_argument('--source-registry', type=Path, default=DIR/'source-registry.json')
     parser.add_argument('--schema', type=Path, default=DIR/'semantic-rule.schema.json')
     parser.add_argument('--semantic-vocabulary', type=Path, default=DIR/'semantic-vocabulary.json')
@@ -625,7 +878,7 @@ def main() -> int:
     parser.add_argument('--report', action='store_true')
     args = parser.parse_args()
     try:
-        report = validate(args.source_registry,args.schema,args.semantic_vocabulary,args.room_icon_denotations,args.pilots,args.review_gates,args.contradictions,args.coverage,args.backlog,reproducibility=not args.skip_reproducibility)
+        report = validate(args.event_source_index,args.source_registry,args.schema,args.semantic_vocabulary,args.room_icon_denotations,args.pilots,args.review_gates,args.contradictions,args.coverage,args.backlog,reproducibility=not args.skip_reproducibility)
     except (DuplicateJsonKeyError,json.JSONDecodeError) as error:
         report = {'schemaVersion':1,'passed':False,'checks':{},'failureCount':1,'failures':[{'check':'strict JSON parsing','error':str(error)}]}
     if args.report and args.pilots.resolve() == (DIR/'pilots.json').resolve():

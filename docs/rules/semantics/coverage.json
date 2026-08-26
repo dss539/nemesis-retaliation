@@ -73,9 +73,32 @@
       ]
     },
     {
-      "system": "Event partial resolution",
+      "system": "base Event card effects",
       "ruleIds": [
-        "SEM-EVENT-HATCHING-001"
+        "SEM-EVENT-SYSTEM-FAILURE-001",
+        "SEM-EVENT-NO-WAY-OUT-001",
+        "SEM-EVENT-THE-QUEEN-AWAKENS-001",
+        "SEM-EVENT-SCENT-OF-PREY-001",
+        "SEM-EVENT-PANIC-001",
+        "SEM-EVENT-LEAVING-THE-SHELL-001",
+        "SEM-EVENT-BREAKING-IN-001",
+        "SEM-EVENT-HATCHING-001",
+        "SEM-EVENT-EGG-PROTECTION-001",
+        "SEM-EVENT-LANDING-ZONE-EXPLODES-001",
+        "SEM-EVENT-DAMAGE-001",
+        "SEM-EVENT-LIFE-SUPPORT-FAILURE-001",
+        "SEM-EVENT-FIRE-BREATH-001",
+        "SEM-EVENT-DAMAGING-FIRE-001",
+        "SEM-EVENT-GENERATORS-OVERHEAT-001",
+        "SEM-EVENT-OVERWHELMING-ENEMIES-001",
+        "SEM-EVENT-PROTECT-AND-SERVE-001",
+        "SEM-EVENT-REACTOR-OVERHEATING-001",
+        "SEM-EVENT-RISE-OF-THE-MACHINE-001",
+        "SEM-EVENT-SHORT-CIRCUIT-001",
+        "SEM-EVENT-INTRUDER-MOVEMENT-001",
+        "SEM-FIRE-SPREAD-001",
+        "SEM-INFECTION-PROCEDURE-001",
+        "SEM-ECLOSION-PROCEDURE-001"
       ]
     },
     {
@@ -138,13 +161,16 @@
       "ruleIds": [
         "SEM-DOOR-001",
         "SEM-NOISE-001",
-        "SEM-NOISE-NUMERIC-CORRIDOR-001"
+        "SEM-NOISE-NUMERIC-CORRIDOR-001",
+        "SEM-NOISE-MARKER-001",
+        "SEM-NOISE-HAZARD-001"
       ]
     },
     {
-      "system": "Intruder Attack and Character Health",
+      "system": "Intruder Attack, Secure entry, and Character Health",
       "ruleIds": [
         "SEM-INT-004",
+        "SEM-SECURE-ENTRY-001",
         "SEM-INT-006"
       ]
     },
@@ -169,12 +195,11 @@
   ],
   "counts": {
     "systems": 18,
-    "pilotRecords": 73,
+    "pilotRecords": 99,
     "fullBaseSemanticCoverageClaimed": false
   },
   "notYetCovered": [
-    "complete card corpus",
-    "all 20 Events",
+    "remaining card corpus outside the closed 20-card base Event family",
     "all Objectives/Mission Tasks",
     "all Item/Robot/Attack/Queen Health/Serious Wound effects",
     "remaining setup, map, procedure, and component lifecycle rules"

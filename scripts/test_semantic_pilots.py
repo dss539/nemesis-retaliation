@@ -10,7 +10,7 @@ import unittest
 REPO=Path(__file__).resolve().parents[1]
 DIR=REPO/'docs/rules/semantics'
 VALIDATOR=REPO/'scripts/validate_semantic_pilots.py'
-FILES=('source-registry.json','semantic-rule.schema.json','semantic-vocabulary.json','room-icon-denotations.json','pilots.json','review-gates.json','contradictions.json','coverage.json','backlog.json')
+FILES=('event-source-index.json','source-registry.json','semantic-rule.schema.json','semantic-vocabulary.json','room-icon-denotations.json','pilots.json','review-gates.json','contradictions.json','coverage.json','backlog.json')
 
 
 def load(path): return json.loads(path.read_text(encoding='utf-8'))
@@ -19,7 +19,7 @@ def load(path): return json.loads(path.read_text(encoding='utf-8'))
 class SemanticPilotTests(unittest.TestCase):
     def run_validator(self, root=None, skip=False):
         base=root or DIR
-        command=['python3',str(VALIDATOR),'--source-registry',str(base/'source-registry.json'),'--schema',str(base/'semantic-rule.schema.json'),'--semantic-vocabulary',str(base/'semantic-vocabulary.json'),'--room-icon-denotations',str(base/'room-icon-denotations.json'),'--pilots',str(base/'pilots.json'),'--review-gates',str(base/'review-gates.json'),'--contradictions',str(base/'contradictions.json'),'--coverage',str(base/'coverage.json'),'--backlog',str(base/'backlog.json')]
+        command=['python3',str(VALIDATOR),'--event-source-index',str(base/'event-source-index.json'),'--source-registry',str(base/'source-registry.json'),'--schema',str(base/'semantic-rule.schema.json'),'--semantic-vocabulary',str(base/'semantic-vocabulary.json'),'--room-icon-denotations',str(base/'room-icon-denotations.json'),'--pilots',str(base/'pilots.json'),'--review-gates',str(base/'review-gates.json'),'--contradictions',str(base/'contradictions.json'),'--coverage',str(base/'coverage.json'),'--backlog',str(base/'backlog.json')]
         if skip: command.append('--skip-reproducibility')
         run=subprocess.run(command,cwd=REPO,check=False,capture_output=True,text=True,timeout=300)
         return run,json.loads(run.stdout)
@@ -28,15 +28,18 @@ class SemanticPilotTests(unittest.TestCase):
         run,report=self.run_validator()
         self.assertEqual(run.returncode,0,run.stdout+run.stderr)
         self.assertTrue(report['passed'])
-        self.assertEqual(report['checks']['records'],73)
-        self.assertEqual(report['checks']['operations'],281)
-        self.assertEqual(report['checks']['decisions'],48)
-        self.assertEqual(report['checks']['targets'],20)
-        self.assertEqual(report['checks']['openQuestions'],11)
+        self.assertEqual(report['checks']['records'],99)
+        self.assertEqual(report['checks']['operations'],397)
+        self.assertEqual(report['checks']['decisions'],49)
+        self.assertEqual(report['checks']['targets'],98)
+        self.assertEqual(report['checks']['openQuestions'],16)
         self.assertEqual(report['checks']['semanticNodes'],22)
-        self.assertEqual(report['checks']['conflicts'],8)
+        self.assertEqual(report['checks']['conflicts'],11)
         self.assertEqual(report['checks']['backlogUnits'],600)
-        self.assertEqual(report['checks']['backlogPilotCovered'],71)
+        self.assertEqual(report['checks']['backlogPilotCovered'],102)
+        self.assertEqual(report['checks']['eventIdentities'],20)
+        self.assertEqual(report['checks']['eventRecords'],20)
+        self.assertEqual(report['checks']['eventBacklogTuples'],20)
         self.assertEqual(report['checks']['roomIconDenotations'],112)
 
     def test_high_risk_semantic_boundaries(self):
@@ -56,7 +59,8 @@ class SemanticPilotTests(unittest.TestCase):
         self.assertFalse(any(item.get('operationType')=='end-process' for item in by_id['SEM-RT-007']['operations']))
         self.assertTrue(all(r['implementationBoundary'].startswith('implementation-neutral') for r in pilots['records']))
         self.assertEqual({item.get('invokeRuleId') for item in by_id['SEM-RT-011']['operations'] if item.get('invokeRuleId')},{'SEM-IH-QA-B-01','SEM-IH-QD-B-01','SEM-IH-QA-B-02','SEM-IH-QD-B-02','SEM-IH-QA-B-03','SEM-IH-QD-B-03','SEM-IH-QA-BOTTOM-01','SEM-IH-QD-BOTTOM-01'})
-        self.assertIn('dispatchRuleIds',json.dumps(by_id['SEM-NOISE-001']))
+        self.assertIn('dispatchRuleIds',json.dumps(by_id['SEM-NOISE-HAZARD-001']))
+        self.assertIn('dispatchRuleIds',json.dumps(by_id['SEM-NOISE-MARKER-001']))
 
     def test_cross_cutting_general_rule_boundaries(self):
         by_id={r['ruleId']:r for r in load(DIR/'pilots.json')['records']}
@@ -81,7 +85,7 @@ class SemanticPilotTests(unittest.TestCase):
             self.assertIn('C-TOKEN',{item['conditionId'] for item in by_id[rule_id]['preconditions']})
         for occurrence_id in ('QA-R-01','QA-R-02','QD-R-01','QD-R-02'):
             rule_id=f'SEM-IH-{occurrence_id}'
-            self.assertTrue(any(item.get('invokeRuleId')=='SEM-INT-004' for item in by_id[rule_id]['operations']))
+            self.assertTrue(any(item.get('invokeRuleId')=='SEM-SECURE-ENTRY-001' for item in by_id[rule_id]['operations']))
 
     def test_room_help_semantic_closure(self):
         source=load(REPO/'docs/rules/source-extraction/room-help-sheet.json')
@@ -104,6 +108,115 @@ class SemanticPilotTests(unittest.TestCase):
         self.assertTrue(by_id['SEM-ROOM-11']['decisions'][2]['declineAllowed'])
         self.assertTrue(any(item.get('operationType')=='pay-cost' and item.get('objectRef')=='COST-ROOM-13-OXYGEN' for item in by_id['SEM-ROOM-13']['operations']))
         self.assertTrue(any(item.get('invokeRuleId')=='SEM-NEST-DESTROYED-001' for item in by_id['SEM-ROOM-25']['operations']))
+
+    def test_base_event_family_semantic_closure(self):
+        source=load(DIR/'event-source-index.json')
+        registry={row['sourceId']:row for row in load(DIR/'source-registry.json')['sources']}
+        pilots=load(DIR/'pilots.json'); by_id={row['ruleId']:row for row in pilots['records']}
+        backlog={row['semanticUnitId']:row for row in load(DIR/'backlog.json')['units']}
+        self.assertEqual(source['counts'],{
+            'eventIdentities':20,'ttsFaceOccurrences':20,'ttsSharedBackOccurrencesExcluded':1,
+            'canonicalCorpusFaces':19,'sourceBoundDraftFaces':1,'licensedDigitalOccurrences':20,
+            'officialVisibleComponentOccurrences':4,'backlogTuples':20,
+        })
+        self.assertEqual([row['ttsCardId'] for row in source['events']],list(range(5609,5629)))
+        event_rule_ids=[row['semanticRuleId'] for row in source['events']]
+        self.assertEqual(len(event_rule_ids),len(set(event_rule_ids)))
+        for event in source['events']:
+            rule=by_id[event['semanticRuleId']]
+            registered=registry[event['sourceId']]
+            self.assertEqual((registered['path'],registered['sha256'],registered['occurrenceId']),(event['sourcePath'],event['sourceSha256'],event['eventOccurrenceId']))
+            self.assertFalse(event['joinEvidence']['titleOnlyJoin'])
+            self.assertEqual(backlog[event['backlogUnitId']]['pilotRuleIds'],[event['semanticRuleId']])
+            self.assertEqual(backlog[event['backlogUnitId']]['status'],'pilot-covered')
+            sentence_ids=[row['sentenceId'] for row in event['sentences']]
+            operation_sentences=[row['sourceSentenceId'] for row in rule['operations']]
+            self.assertEqual(list(dict.fromkeys(operation_sentences)),sentence_ids)
+            self.assertEqual(rule['partialResolution']['policy'],'per-sentence-continue')
+            self.assertEqual(len(rule['sourceVariants']),1)
+            self.assertEqual(rule['sourceVariants'][0]['sourceId'],'SRC-BGA-EVENTS')
+        generic=by_id['SEM-EVENT-GENERAL-001']
+        dispatch=next(row['dispatchRuleIds'] for row in generic['operations'] if row.get('dispatchRuleIds'))
+        self.assertEqual(dispatch,event_rule_ids)
+        self.assertIn('OQ-009',by_id['SEM-EVENT-EGG-PROTECTION-001']['unresolvedQuestionRefs'])
+        self.assertIn('OQ-007',by_id['SEM-EVENT-EGG-PROTECTION-001']['unresolvedQuestionRefs'])
+        leaving=by_id['SEM-EVENT-LEAVING-THE-SHELL-001']
+        self.assertIn('SEM-Q-006',leaving['unresolvedQuestionRefs'])
+        self.assertNotIn('icon.actionCard',leaving['termRefs'])
+        self.assertEqual(sum(row['operationType']=='resolve-open-alternative' and 'SEM-Q-006' in row['objectRef'] for row in leaving['operations']),3)
+        for rule_id in ('SEM-EVENT-LEAVING-THE-SHELL-001','SEM-EVENT-REACTOR-OVERHEATING-001'):
+            transitions=[row.get('transition') or {} for row in by_id[rule_id]['operations']]
+            self.assertTrue(any(row.get('to')=='tax.scaffold.zone.deck' for row in transitions))
+
+    def test_event_specific_adversarial_corruptions_are_rejected(self):
+        def run_mutation(mutate):
+            with tempfile.TemporaryDirectory(prefix='semantic-event-negative-') as temp_dir:
+                root=Path(temp_dir)
+                data={name:load(DIR/name) for name in FILES}
+                mutate(data)
+                for name,payload in data.items():
+                    (root/name).write_text(json.dumps(payload,indent=2,ensure_ascii=False)+'\n',encoding='utf-8')
+                run,report=self.run_validator(root,skip=True)
+            self.assertNotEqual(run.returncode,0)
+            return {failure['check'] for failure in report['failures']}
+
+        def drop_event(data):
+            pilots=data['pilots.json']; coverage=data['coverage.json']
+            target='SEM-EVENT-SYSTEM-FAILURE-001'
+            pilots['records']=[row for row in pilots['records'] if row['ruleId']!=target]
+            pilots['counts']['records']-=1
+            for system in coverage['systems']:
+                system['ruleIds']=[rule_id for rule_id in system['ruleIds'] if rule_id!=target]
+            coverage['counts']['pilotRecords']-=1
+        self.assertIn('Event semantic record closure',run_mutation(drop_event))
+
+        def swap_source(data):
+            by_id={row['ruleId']:row for row in data['pilots.json']['records']}
+            source_by_id={row['sourceId']:row for row in data['source-registry.json']['sources']}
+            assertion=next(row for row in by_id['SEM-EVENT-SYSTEM-FAILURE-001']['sourceAssertions'] if row['assertionId']=='SA-EVT-5609-SCAN')
+            replacement=source_by_id['SRC-EVENT-5610']
+            assertion.update({'sourceId':replacement['sourceId'],'sourcePath':replacement['path'],'sourceSha256':replacement['sha256'],'sourceAuthority':replacement['authority'],'sourceVersion':replacement['version']})
+        self.assertIn('Event exact scan assertion projection',run_mutation(swap_source))
+
+        def title_only_join(data):
+            join=data['event-source-index.json']['events'][0]['joinEvidence']
+            join.update({'identityJoin':'display title','titleOnlyJoin':True,'basis':['display title']})
+        self.assertIn('Event title-only join prohibited',run_mutation(title_only_join))
+
+        def reorder_sentences(data):
+            by_id={row['ruleId']:row for row in data['pilots.json']['records']}
+            first,second=by_id['SEM-EVENT-SYSTEM-FAILURE-001']['operations'][:2]
+            first['sourceSentenceId'],second['sourceSentenceId']=second['sourceSentenceId'],first['sourceSentenceId']
+            first['sourceSection'],second['sourceSection']=second['sourceSection'],first['sourceSection']
+        self.assertIn('Event semantic sentence-order projection',run_mutation(reorder_sentences))
+
+        def invent_default(data):
+            question=next(row for row in data['review-gates.json']['questions'] if row['questionId']=='SEM-Q-006')
+            question['defaultProhibited']=False
+            leaving=next(row for row in data['pilots.json']['records'] if row['ruleId']=='SEM-EVENT-LEAVING-THE-SHELL-001')
+            leaving['termRefs'].append('icon.actionCard'); leaving['termRefs'].sort()
+        checks=run_mutation(invent_default)
+        self.assertIn('semantic question no-default/linkage',checks)
+        self.assertIn('Leaving the Shell no invented glyph default',checks)
+
+        def lose_variant(data):
+            event=next(row for row in data['pilots.json']['records'] if row['ruleId']=='SEM-EVENT-NO-WAY-OUT-001')
+            event['sourceVariants']=[]
+            data['pilots.json']['counts']['variantReferences']-=1
+        self.assertIn('Event licensed source-variant closure',run_mutation(lose_variant))
+
+        def invert_authority(data):
+            event=next(row for row in data['pilots.json']['records'] if row['ruleId']=='SEM-EVENT-SYSTEM-FAILURE-001')
+            event['authority']['highest']='source-bound-component-scan'
+        self.assertIn('Event authority lock',run_mutation(invert_authority))
+
+        def lower_backlog(data):
+            backlog=data['backlog.json']; target='CARD:0d5da2c8e1b6ccb6'
+            backlog['units']=[row for row in backlog['units'] if row['semanticUnitId']!=target]
+            backlog['counts']['units']-=1
+            backlog['counts']['byChannel']['card-reference-source-tuple']-=1
+            backlog['counts']['byStatus']['pilot-covered']-=1
+        self.assertIn('Event exact backlog tuple projection',run_mutation(lower_backlog))
 
     def test_adversarial_corruptions_are_rejected(self):
         with tempfile.TemporaryDirectory(prefix='semantic-negative-') as temp_dir:
@@ -164,9 +277,9 @@ class SemanticPilotTests(unittest.TestCase):
             by_id={row['ruleId']:row for row in pilots['records']}
             token_repeat=next(op for op in by_id['SEM-IH-QA-C-02']['operations'] if op['operationType']=='place-component')['repeat']
             token_repeat['tokenFaceResolutions']['2']['adultCount']=99
-            next(op for op in by_id['SEM-NOISE-001']['operations'] if op.get('dispatchRuleIds')).pop('dispatchRuleIds')
+            next(op for op in by_id['SEM-NOISE-HAZARD-001']['operations'] if op.get('dispatchRuleIds')).pop('dispatchRuleIds')
             by_id['SEM-RT-011']['operations'][2]['invokeRuleId']='SEM-IH-QD-B-02'
-            hatch_assertion=next(row for row in by_id['SEM-EVENT-HATCHING-001']['sourceAssertions'] if row['assertionId']=='SA-HATCH-2')
+            hatch_assertion=next(row for row in by_id['SEM-EVENT-HATCHING-001']['sourceAssertions'] if row['assertionId']=='SA-EVT-5616-SCAN')
             hatch_assertion['supportsFields']=[field for field in hatch_assertion['supportsFields'] if field!='operations']
             (root/'room-icon-denotations.json').write_text(json.dumps(room_icons,indent=2,ensure_ascii=False)+'\n',encoding='utf-8')
             (root/'pilots.json').write_text(json.dumps({'schemaVersion':1,'recordType':'semantic-rule-pilot-corpus','scope':'test','counts':pilots['counts'],'records':list(by_id.values())},indent=2,ensure_ascii=False)+'\n',encoding='utf-8')
