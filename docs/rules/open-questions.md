@@ -374,10 +374,10 @@ Use this ledger for ambiguities that the official rulebook and FAQ do not settle
 - **Candidate readings:** (a) reveal/pay, resolve, then discard; (b) pay/discard when Used, then resolve from the resolution zone; (c) another source-defined order.
 - **Status:** Open; official clarification preferred. No payment, reveal, effect, discard, or visibility order is defaulted.
 
-### SEM-Q-040 — Green Item deck exhaustion and multi-draw shortage
+### SEM-Q-040 — Item color-deck exhaustion and multi-draw shortage
 
-- **Question:** When a Green draw is required but the finite deck has insufficient cards, is the enclosing Action illegal, do available draws resolve with unavailable cards doing nothing, does the discard pile return/reshuffle, or does another procedure apply—and how are scarce cards assigned across multiple requests?
-- **Sources checked:** Rulebook pp. 9, 17, and 28; exact 30-child TTS root and 30 licensed multiplicities; FAQ v1.2. TTS discard-return helpers remain runtime evidence only.
+- **Question:** When a Green, Red, or later Yellow draw is required but the finite color deck has insufficient cards, is the enclosing Action illegal, do available draws resolve with unavailable cards doing nothing, does the affected discard pile return/reshuffle, or does another procedure apply—and how are scarce cards assigned across multiple requests/decks?
+- **Sources checked:** Rulebook pp. 9, 17, and 28; exact 30-child Green and Red TTS roots and their independent 30-copy licensed multiplicities; FAQ v1.2. TTS discard-return helpers remain runtime evidence only.
 - **Status:** Open; official clarification preferred. No reshuffle, return, partial-draw assignment, or exhausted-deck policy is adopted.
 
 ### SEM-Q-041 — Selected Green local draw and crossed-device glyphs
@@ -400,14 +400,49 @@ Use this ledger for ambiguities that the official rulebook and FAQ do not settle
 - **Sources checked:** Rulebook pp. 18 and 29; FAQ v1.2 Items/Tactical Gear #8; exact regular MEDKIT, MEDICAL STAPLER, and STIMULANTS occurrences.
 - **Status:** Open; official clarification preferred. Target, consent, branch, Serious Wound selection, and restoration amount remain distinct decisions.
 
-### SEM-Q-044 — Interplay “Gaining” glyph and MEDKIT target scope
+### SEM-Q-044 — Interplay “Gaining” glyph and Tactical Gear gain-target scope
 
-- **Question:** What is the exact rendered glyph/object after “Gaining” in the rulebook’s four Interplay classes, and does it authorize a regular MEDKIT’s “Gain 1 Medpack token” branch on another consenting Character?
-- **Sources checked:** Official rulebook p. 29 rendered Interplay area/text extraction, FAQ v1.2 Items/Tactical Gear #8, exact regular MEDKIT occurrences, and page-40 glossary.
+- **Question:** What is the exact rendered glyph/object after “Gaining” in the rulebook’s four Interplay classes, and does it authorize regular MEDKIT, AMMO MAGAZINE, and GRENADE Tactical Gear gain branches on another consenting Character?
+- **Sources checked:** Official rulebook p. 29 rendered Interplay area/text extraction, FAQ v1.2 Items/Tactical Gear #8, exact regular MEDKIT/AMMO MAGAZINE/GRENADE occurrences, and page-40 glossary.
 - **Status:** Open; official rendered-pixel clarification/extraction preferred. The missing local glyph is not inferred from the token’s green color or expected medical role.
 
 ### SEM-Q-045 — Multiple gained immediate-use windows
 
 - **Question:** When one Trade/effect causes several Items with immediate-use permissions to be gained, are gain/use windows resolved one by one, are all gains completed before the recipient orders windows, or does another simultaneous timing rule apply?
-- **Sources checked:** Exact four regular MEDKIT occurrences; FAQ v1.2 Items/Tactical Gear #5; rulebook Trade/Interplay and Action timing.
+- **Sources checked:** Exact four regular MEDKIT, seven AMMO MAGAZINE, and five GRENADE occurrences; FAQ v1.2 Items/Tactical Gear #5; rulebook Trade/Interplay and Action timing.
 - **Status:** Open; official clarification preferred. Each may-window remains independently declineable; no automatic order, stacking, or merged multi-Item resolution is adopted.
+
+### SEM-Q-046 — Selected Red upper-right crossed-glyph identities and use restrictions
+
+- **Question:** What exact restrictions are denoted by the selected source-local upper-right crossed glyphs on ANTI-AIRCRAFT CODES, PERSONAL LOG CODES, and PORTABLE BARRIER?
+- **Sources checked:** Exact selected cells 1, 6, and 7 of Red CustomDeck 36; selected all-glossary no-match evidence; exact direct EXPLORING DRONE Not In Combat match; page-40 glossary; FAQ v1.2; licensed `noIntruders` fields.
+- **Candidate readings:** (a) Not In Combat, following licensed data; (b) no semantic restriction until exact evidence exists; (c) another source-local restriction.
+- **Status:** Open. The three morphologies remain literal no-matches; the independently matched EXPLORING DRONE glyph creates no position-, color-, title-, or shape-wide alias.
+
+### SEM-Q-047 — Military Taser Red-root physical class and current-source correspondence
+
+- **Question:** How should the six exact Red-root MILITARY TASER selectors be classified and resolved when their portrait TTS face says `ONE USE ONLY. SPECIAL WEAPON`, while the official page-29 occurrence and licensed six-copy row are Heavy and print materially different effects?
+- **Sources checked:** Raw `redItemsDeck` full CardID/GUID/CustomDeck 35 selectors; generated Yellow-sheet cell 0; official rulebook p. 29 visual `RB-P29-V01`; licensed `ITEMS_DATA.MilitaryTaser`; FAQ v1.2.
+- **Candidate readings:** (a) preserve each exact TTS occurrence as a regular Backpack Special Weapon; (b) treat the six as current Heavy copies; (c) leave all six non-dispatchable until an exact edition/copy correspondence is established.
+- **Status:** Open; official clarification or an exact current component crosswalk is required. Title equality and matching six-copy aggregates do not establish physical identity.
+
+### SEM-Q-048 — Exploring Drone neighboring target owner and remote Exploration context
+
+- **Question:** Who selects the neighboring Room for direct EXPLORING DRONE, which neighboring Room/Corridor states are eligible, and what exact caller context is passed into the Exploration Sequence when Character Movement and the Entrance effect are both suppressed?
+- **Sources checked:** Exact two direct root selectors/face; unselected same-title Red-sheet cell 3; all twelve Exploration faces; rulebook pp. 22 and 24–25; FAQ v1.2; licensed `ExploringDrone` row.
+- **Candidate readings:** (a) the Item user selects one source-legal neighboring Undiscovered Room/slot; (b) a deterministic/random rule selects it; (c) another source-defined remote-Exploration context applies.
+- **Status:** Open. Exact Exploration-card occurrence dispatch remains preserved; no target owner, Door/Corridor override, title join, or secondary wording default is adopted.
+
+### SEM-Q-049 — Personal Log Codes target, inspector, range, and Objective secrecy
+
+- **Question:** Who chooses the Character, who may inspect that Character’s Objective cards, what range applies, and may any inspected identity be revealed or logged?
+- **Sources checked:** Exact selected PERSONAL LOG CODES face; rulebook Local Effects and Objective secrecy/choice rules; FAQ v1.2; licensed row stating “of 1 Character of your choice in the Facility.”
+- **Candidate readings:** (a) the Item user selects a local Character and privately inspects; (b) the Item user selects any Character in the Facility; (c) the chosen Character’s owner or another actor owns selection/inspection.
+- **Status:** Open; official clarification preferred. Inspection remains temporary private information with no public reveal, client/log/accessibility/spectator exposure, Objective movement, choice, or fulfillment effect.
+
+### SEM-Q-050 — Portable Barrier Door target, override, and Portable Barricade FAQ applicability
+
+- **Question:** Who selects the Door for exact TTS PORTABLE BARRIER, what counts as eligible/accessible, does the effect override Destroyed/no-slot rules, and does FAQ v1.2’s differently named “Portable Barricade” post-open ruling apply?
+- **Sources checked:** Exact two selected root occurrences; rulebook Local Effects, whole-effect, Component Limits, and Door rules; FAQ `FQ-P03-U08`; licensed `ITEMS_DATA.PortableBarrier`.
+- **Candidate readings:** (a) ordinary local Door eligibility with an Item-user choice; (b) licensed destroyed/no-slot override plus FAQ gone-after-open lifecycle; (c) another source-defined owner/range/finite/lifecycle rule.
+- **Status:** Open; official clarification preferred. No target, override, FAQ identity, marker allocation, or re-close lifecycle is defaulted.

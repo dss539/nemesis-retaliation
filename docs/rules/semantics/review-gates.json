@@ -3,11 +3,11 @@
   "recordType": "semantic-review-gates",
   "status": "pilot built with deferred questions and explicit alternatives; no default answer adopted",
   "counts": {
-    "questions": 50,
-    "officialClarificationPreferred": 21,
-    "sourceAmbiguitiesIntroducedByPilot": 29,
+    "questions": 55,
+    "officialClarificationPreferred": 24,
+    "sourceAmbiguitiesIntroducedByPilot": 31,
     "resolved": 0,
-    "open": 50
+    "open": 55
   },
   "questions": [
     {
@@ -1439,13 +1439,15 @@
       "decisionClass": "official-clarification-preferred",
       "blocksRuleIds": [
         "SEM-USE-ITEM-001",
-        "SEM-GREEN-ITEM-ONE-USE-001"
+        "SEM-GREEN-ITEM-ONE-USE-001",
+        "SEM-RED-ITEM-ONE-USE-001"
       ],
       "plannedRuleIds": [],
       "defaultProhibited": true,
       "sourceEvidenceRefs": [
         "docs/rulebooks/rulebook_text.txt:lines 2889, 4882–4951",
-        "docs/rules/semantics/green-item-source-index.json"
+        "docs/rules/semantics/green-item-source-index.json",
+        "docs/rules/semantics/red-item-source-index.json"
       ],
       "alternatives": [
         {
@@ -1467,32 +1469,34 @@
     },
     {
       "questionId": "SEM-Q-040",
-      "title": "Green Item deck exhaustion, discard recycling, and multi-draw shortage",
+      "title": "Item color-deck exhaustion, discard recycling, and multi-draw shortage",
       "decisionClass": "official-clarification-preferred",
       "blocksRuleIds": [
         "SEM-GREEN-ITEM-DECK-001",
-        "SEM-ACT-SEARCH-001"
+        "SEM-ACT-SEARCH-001",
+        "SEM-RED-ITEM-DECK-001"
       ],
       "plannedRuleIds": [],
       "defaultProhibited": true,
       "sourceEvidenceRefs": [
         "docs/rulebooks/rulebook_text.txt:lines 2593–2600, 3530–3548, 4849–4865",
-        "docs/rules/semantics/green-item-source-index.json"
+        "docs/rules/semantics/green-item-source-index.json",
+        "docs/rules/semantics/red-item-source-index.json"
       ],
       "alternatives": [
         {
           "alternativeId": "SEM-Q-040-A",
-          "description": "An Action/effect requiring a Green draw is not selectable unless every required draw is available; no discard reshuffle occurs.",
+          "description": "An Action/effect requiring a color-deck draw is not selectable unless every required draw is available; no discard reshuffle occurs.",
           "support": "whole-effect legality plus no checked Item reshuffle rule"
         },
         {
           "alternativeId": "SEM-Q-040-B",
           "description": "Resolve available draws and let unavailable requested cards do nothing under Component Limits.",
-          "support": "generic unavailable-component rule; assignment among multiple draws remains unstated"
+          "support": "generic unavailable-component rule; assignment among multiple draws/decks remains unstated"
         },
         {
           "alternativeId": "SEM-Q-040-C",
-          "description": "Return or reshuffle the Green discard pile, or apply another source-defined exhaustion procedure.",
+          "description": "Return or reshuffle the affected color discard pile, or apply another source-defined exhaustion procedure.",
           "support": "TTS runtime has discard-return helpers, but runtime behavior is secondary and the official rule is absent"
         }
       ]
@@ -1613,14 +1617,26 @@
     },
     {
       "questionId": "SEM-Q-044",
-      "title": "Interplay “Gaining” local glyph and MEDKIT Medpack-target scope",
+      "title": "Interplay “Gaining” local glyph and Tactical Gear gain-target scope",
       "decisionClass": "official-clarification-preferred",
       "blocksRuleIds": [
         "SEM-ITEM-INTERPLAY-001",
         "SEM-GREEN-ITEM-536700-96F194-001",
         "SEM-GREEN-ITEM-536700-63664D-001",
         "SEM-GREEN-ITEM-536700-A35EFF-001",
-        "SEM-GREEN-ITEM-536700-7ABA7A-001"
+        "SEM-GREEN-ITEM-536700-7ABA7A-001",
+        "SEM-RED-ITEM-543800-01970B-001",
+        "SEM-RED-ITEM-543800-D8D841-001",
+        "SEM-RED-ITEM-543800-43AC80-001",
+        "SEM-RED-ITEM-543800-EA2857-001",
+        "SEM-RED-ITEM-543800-AF5A2D-001",
+        "SEM-RED-ITEM-543800-EAF654-001",
+        "SEM-RED-ITEM-543800-EE51D1-001",
+        "SEM-RED-ITEM-530900-9CDA71-001",
+        "SEM-RED-ITEM-531000-EBC22D-001",
+        "SEM-RED-ITEM-531100-5108BC-001",
+        "SEM-RED-ITEM-531200-11F04F-001",
+        "SEM-RED-ITEM-531300-DC960F-001"
       ],
       "plannedRuleIds": [],
       "defaultProhibited": true,
@@ -1628,22 +1644,23 @@
         "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf:printed page 29 Interplay",
         "docs/rulebooks/rulebook_text.txt:lines 5079–5096",
         "docs/rules/source-extraction/faq-v1.2-source-extraction.json:FQ-P03-U07",
-        "docs/rules/semantics/green-item-source-index.json"
+        "docs/rules/semantics/green-item-source-index.json",
+        "docs/rules/semantics/red-item-source-index.json"
       ],
       "alternatives": [
         {
           "alternativeId": "SEM-Q-044-A",
-          "description": "The visually lost glyph after “Gaining” denotes Tactical Gear/Medpack gain, so the regular MEDKIT gain branch may target a consenting co-located Character.",
+          "description": "The visually lost glyph after “Gaining” denotes Tactical Gear-token gain, so MEDKIT, Ammo Magazine, and Grenade gain branches may target a consenting co-located Character.",
           "support": "likely visual class and FAQ context, but no source-bound exact glyph identity is recorded"
         },
         {
           "alternativeId": "SEM-Q-044-B",
-          "description": "MEDKIT’s Medpack-token gain targets only the using Character; Interplay’s missing glyph denotes another quantity.",
-          "support": "card uses second-person “Gain” and exact official visual identity is absent"
+          "description": "Each printed second-person gain branch targets only the using Character; Interplay’s missing glyph denotes another quantity or narrower class.",
+          "support": "the cards say Gain and exact official visual identity/scope is absent"
         },
         {
           "alternativeId": "SEM-Q-044-C",
-          "description": "Preserve the local rulebook glyph and target scope unresolved until rendered-pixel evidence establishes the exact class.",
+          "description": "Preserve the local rulebook glyph and every gain-target scope unresolved until rendered-pixel evidence establishes the exact class.",
           "support": "no default may be inferred from token color or expected utility"
         }
       ]
@@ -1658,14 +1675,30 @@
         "SEM-GREEN-ITEM-536700-96F194-001",
         "SEM-GREEN-ITEM-536700-63664D-001",
         "SEM-GREEN-ITEM-536700-A35EFF-001",
-        "SEM-GREEN-ITEM-536700-7ABA7A-001"
+        "SEM-GREEN-ITEM-536700-7ABA7A-001",
+        "SEM-RED-ITEM-IMMEDIATE-USE-001",
+        "SEM-RED-ITEM-543800-01970B-001",
+        "SEM-RED-ITEM-543800-D8D841-001",
+        "SEM-RED-ITEM-543800-43AC80-001",
+        "SEM-RED-ITEM-543800-EA2857-001",
+        "SEM-RED-ITEM-543800-AF5A2D-001",
+        "SEM-RED-ITEM-543800-EAF654-001",
+        "SEM-RED-ITEM-543800-EE51D1-001",
+        "SEM-RED-ITEM-530900-9CDA71-001",
+        "SEM-RED-ITEM-531000-EBC22D-001",
+        "SEM-RED-ITEM-531100-5108BC-001",
+        "SEM-RED-ITEM-531200-11F04F-001",
+        "SEM-RED-ITEM-531300-DC960F-001"
       ],
       "plannedRuleIds": [],
       "defaultProhibited": true,
       "sourceEvidenceRefs": [
         "assets/tts-mod/extract/v2-dl/tree/cards/game/greenitem-120.png",
+        "assets/tts-mod/extract/v2-dl/tree/cards/game/reditem-059.png",
+        "assets/tts-mod/extract/v2-dl/tree/cards/game/reditem-128.png",
         "docs/rules/source-extraction/faq-v1.2-source-extraction.json:FQ-P03-U04",
-        "docs/rules/semantics/green-item-source-index.json"
+        "docs/rules/semantics/green-item-source-index.json",
+        "docs/rules/semantics/red-item-source-index.json"
       ],
       "alternatives": [
         {
@@ -1682,6 +1715,178 @@
           "alternativeId": "SEM-Q-045-C",
           "description": "Use another source-defined simultaneous-window order, including consequences of an earlier use changing later legality.",
           "support": "checked FAQ confirms gain/immediate permission but not multi-window timing"
+        }
+      ]
+    },
+    {
+      "questionId": "SEM-Q-046",
+      "title": "Selected Red upper-right crossed-glyph identities and use restrictions",
+      "decisionClass": "source-ambiguity-owner-decision-after-source-search",
+      "blocksRuleIds": [
+        "SEM-RED-ITEM-3601-2BC2DB-001",
+        "SEM-RED-ITEM-3606-EA89DA-001",
+        "SEM-RED-ITEM-3607-3DAD95-001",
+        "SEM-RED-ITEM-3607-7AFBE8-001"
+      ],
+      "plannedRuleIds": [],
+      "defaultProhibited": true,
+      "sourceEvidenceRefs": [
+        "assets/tts-mod/extract/v2-dl/tree/cards/game/reditem-148_cards/card-01.png",
+        "assets/tts-mod/extract/v2-dl/tree/cards/game/reditem-148_cards/card-06.png",
+        "assets/tts-mod/extract/v2-dl/tree/cards/game/reditem-148_cards/card-07.png",
+        "assets/tts-mod/extract/selected-card-text-evidence.json",
+        "docs/rules/semantics/red-item-source-index.json"
+      ],
+      "alternatives": [
+        {
+          "alternativeId": "SEM-Q-046-A",
+          "description": "The selected local crossed glyphs impose Not In Combat, following licensed noIntruders fields.",
+          "support": "licensed Anti-aircraft Codes, Personal Log Codes, and Portable Barrier rows set noIntruders; secondary only"
+        },
+        {
+          "alternativeId": "SEM-Q-046-B",
+          "description": "Keep each selected TTS morphology literal and impose no semantic restriction until exact source-scoped evidence exists.",
+          "support": "all-glossary comparisons record explicit no-matches; nearby Exploring Drone separately matches Not In Combat"
+        },
+        {
+          "alternativeId": "SEM-Q-046-C",
+          "description": "Assign another source-local restriction established by future exact component evidence.",
+          "support": "position, color, title, and expected logic cannot establish identity"
+        }
+      ]
+    },
+    {
+      "questionId": "SEM-Q-047",
+      "title": "Military Taser Red-root physical class and current-source correspondence",
+      "decisionClass": "official-clarification-preferred",
+      "blocksRuleIds": [
+        "SEM-RED-ITEM-DECK-001"
+      ],
+      "plannedRuleIds": [],
+      "defaultProhibited": true,
+      "sourceEvidenceRefs": [
+        "assets/tts-mod/extract/v2-dl/tree/cards/game/yellowitem-146_cards/card-00.png",
+        "docs/rules/source-extraction/rulebook-visual-obligations.json:RB-P29-V01",
+        "docs/rules/source-extraction/secondary/bga-staticData-260622-1220.js:ITEMS_DATA.MilitaryTaser",
+        "docs/rules/semantics/red-item-source-index.json"
+      ],
+      "alternatives": [
+        {
+          "alternativeId": "SEM-Q-047-A",
+          "description": "Treat each exact portrait TTS SPECIAL WEAPON selector as a regular Backpack Item with its TTS body.",
+          "support": "literal selected pixels/root selectors, but conflicts with current official Heavy occurrence and licensed class"
+        },
+        {
+          "alternativeId": "SEM-Q-047-B",
+          "description": "Treat the six root selectors as current Heavy Military Taser copies with the official/licensed effect and Hand storage.",
+          "support": "current official page 29 and licensed multiplicity agree, but no exact TTS copy/correspondence is established"
+        },
+        {
+          "alternativeId": "SEM-Q-047-C",
+          "description": "Preserve the six occurrences as non-dispatchable class/source conflicts until an exact edition/copy crosswalk or replacement source exists.",
+          "support": "title and aggregate count cannot identify or rewrite physical occurrences"
+        }
+      ]
+    },
+    {
+      "questionId": "SEM-Q-048",
+      "title": "Exploring Drone neighboring target owner and remote Exploration context",
+      "decisionClass": "source-ambiguity-owner-decision-after-source-search",
+      "blocksRuleIds": [
+        "SEM-RED-ITEM-530700-ED1060-001",
+        "SEM-RED-ITEM-530800-301A8B-001"
+      ],
+      "plannedRuleIds": [],
+      "defaultProhibited": true,
+      "sourceEvidenceRefs": [
+        "assets/tts-mod/extract/v2-dl/tree/cards/game/reditem-112.png",
+        "docs/rulebooks/rulebook_text.txt:lines 4502–4760",
+        "docs/rules/semantics/exploration-source-index.json",
+        "docs/rules/semantics/red-item-source-index.json"
+      ],
+      "alternatives": [
+        {
+          "alternativeId": "SEM-Q-048-A",
+          "description": "The Item user chooses one source-legal neighboring Undiscovered Room/slot and resolves its Exploration card without Character Movement or Entrance effect.",
+          "support": "player-owned Item effect is a natural reading, but the face does not say choose or define the target corridor"
+        },
+        {
+          "alternativeId": "SEM-Q-048-B",
+          "description": "A deterministic or random source rule selects among eligible neighboring targets.",
+          "support": "Exploration cards/random Rooms are random, but target assignment has no printed tie-break"
+        },
+        {
+          "alternativeId": "SEM-Q-048-C",
+          "description": "Use another source-defined remote Exploration target/context, including exact eligibility when Doors/Corridors differ.",
+          "support": "same-title sheet/licensed variants differ and create no identity/default"
+        }
+      ]
+    },
+    {
+      "questionId": "SEM-Q-049",
+      "title": "Personal Log Codes target, inspector, range, and Objective secrecy",
+      "decisionClass": "official-clarification-preferred",
+      "blocksRuleIds": [
+        "SEM-RED-ITEM-3606-EA89DA-001"
+      ],
+      "plannedRuleIds": [],
+      "defaultProhibited": true,
+      "sourceEvidenceRefs": [
+        "assets/tts-mod/extract/v2-dl/tree/cards/game/reditem-148_cards/card-06.png",
+        "docs/rulebooks/rulebook_text.txt:lines 3537–3542",
+        "docs/rules/source-extraction/secondary/bga-staticData-260622-1220.js:ITEMS_DATA.PersonalLogCodes",
+        "docs/rules/semantics/red-item-source-index.json"
+      ],
+      "alternatives": [
+        {
+          "alternativeId": "SEM-Q-049-A",
+          "description": "The Item user chooses a local Character and privately inspects all of that Character’s current Objective cards.",
+          "support": "official local-effect rule plus ordinary effect-owner handling; inspector is not expressly named"
+        },
+        {
+          "alternativeId": "SEM-Q-049-B",
+          "description": "The Item user chooses any Character in the Facility and privately inspects them.",
+          "support": "licensed row expressly says your choice in the Facility; secondary occurrence only"
+        },
+        {
+          "alternativeId": "SEM-Q-049-C",
+          "description": "The chosen Character’s owner or another source-defined actor owns selection/inspection or reveal scope.",
+          "support": "the face says a chosen Character and Check, but assigns neither owner nor information audience"
+        }
+      ]
+    },
+    {
+      "questionId": "SEM-Q-050",
+      "title": "Portable Barrier Door target, override, and Portable Barricade FAQ applicability",
+      "decisionClass": "official-clarification-preferred",
+      "blocksRuleIds": [
+        "SEM-RED-ITEM-3607-3DAD95-001",
+        "SEM-RED-ITEM-3607-7AFBE8-001"
+      ],
+      "plannedRuleIds": [],
+      "defaultProhibited": true,
+      "sourceEvidenceRefs": [
+        "assets/tts-mod/extract/v2-dl/tree/cards/game/reditem-148_cards/card-07.png",
+        "docs/rulebooks/rulebook_text.txt:lines 3537–3548,4243–4287",
+        "docs/rules/source-extraction/faq-v1.2-source-extraction.json:FQ-P03-U08",
+        "docs/rules/source-extraction/secondary/bga-staticData-260622-1220.js:ITEMS_DATA.PortableBarrier",
+        "docs/rules/semantics/red-item-source-index.json"
+      ],
+      "alternatives": [
+        {
+          "alternativeId": "SEM-Q-050-A",
+          "description": "Apply ordinary local Door rules: the Item user selects one eligible Door slot in their Room; no Destroyed/no-slot closure override.",
+          "support": "official local/whole-effect/Door rules outrank secondary structured data"
+        },
+        {
+          "alternativeId": "SEM-Q-050-B",
+          "description": "Apply the licensed accessible-Door override, including Destroyed or no-slot placement, and the Portable Barricade FAQ’s gone-after-open lifecycle.",
+          "support": "licensed/FAQ current-source lead, but title/applicability and exact physical identity are not established"
+        },
+        {
+          "alternativeId": "SEM-Q-050-C",
+          "description": "Use another source-defined target owner, accessible range, finite-component handling, and post-open lifecycle.",
+          "support": "the TTS face only says Place a closed Door and its local upper glyph remains unresolved"
         }
       ]
     }

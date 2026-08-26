@@ -232,11 +232,11 @@ EXPECTED_GREEN_ITEM_RECORD_DIGESTS: dict[str, str] = {
     "SEM-GREEN-ITEM-ONE-USE-001": "4becefcc234b3d79849e517ef00a54b9e956b40bb514cc22de2a18c17e9e1212",
     "SEM-GREEN-ITEM-VARIANT-BOUNDARIES-001": "eff7408269b01aef8e11c470c95cd2cb4ce5ceceb8a3cf6bb6e2139b5fb49765",
     "SEM-ITEM-INTERPLAY-001": "32d807b142fd5590e9895600d680fc198528d0ebdf9043872eca040efbb0c7a2",
-    "SEM-ITEM-TRADE-GAIN-001": "45f226b5bdfa62d21916a78379dd14706b97e73877cddf990b462ecc8e251776",
+    "SEM-ITEM-TRADE-GAIN-001": "f9f9904385716e605e0bb632168f3edb115f6dbea5068deaee39b2c741e853f7",
     "SEM-ITEM-VOLUNTARY-DISCARD-001": "bfd02f8ce71ec824b9ce4f1fb61ede73003e6eaed3356e6e294edc85ed162df0",
     "SEM-REGULAR-ITEM-BACKPACK-001": "df430b81ed6580ac93c77f906affb8638464294ddc84f9945085b2cc94d3a190",
     "SEM-RESTORE-HEALTH-001": "ad41f5d9d717bfa419b8fb882c122f62ea0783e1ba5eba02a81f5b188573e3ca",
-    "SEM-USE-ITEM-001": "c883a80d9f525548cc337196b581a0c6f747ecb3fe98eea23a48765a636ff246",
+    "SEM-USE-ITEM-001": "f2a0fbec9136ae5a628ecb72e11b8679da84df0fb95f4a6f99323e959c5748d3",
 }
 
 
@@ -672,10 +672,12 @@ def validate_green_item_family(
 
     use = record_by_id.get("SEM-USE-ITEM-001") or {}
     use_ops = use.get("operations") or []
-    use_dispatch = next((op.get("dispatchRuleIds") for op in use_ops if op.get("dispatchRuleIds")), None)
+    use_dispatch = next((op.get("dispatchRuleIds") for op in use_ops if op.get("dispatchRuleIds")), [])
     if (
-        use_dispatch != expected_rule_ids
-        or [op.get("operationType") for op in use_ops] != ["select-target", "resolve-open-alternative", "pay-cost", "reveal", "invoke-selected-process", "invoke-process"]
+        use_dispatch[:len(expected_rule_ids)] != expected_rule_ids
+        or len(use_dispatch) != len(set(use_dispatch))
+        or [op.get("operationType") for op in use_ops] != ["select-target", "resolve-open-alternative", "pay-cost", "reveal", "invoke-selected-process", "invoke-selected-process"]
+        or use_ops[-1].get("dispatchRuleIds") != ["SEM-GREEN-ITEM-ONE-USE-001", "SEM-RED-ITEM-ONE-USE-001"]
         or use.get("costs", [{}])[0].get("quantity") != 1
         or use.get("decisions", [{}])[0].get("ownerRef") != "P-PLAYER"
         or use.get("unresolvedQuestionRefs") != ["SEM-Q-039"]
@@ -752,7 +754,9 @@ def validate_green_item_family(
     }
     for question_id, blocks in expected_question_blocks.items():
         question = question_by_id.get(question_id) or {}
-        if question.get("defaultProhibited") is not True or question.get("blocksRuleIds") != blocks or len(question.get("alternatives") or []) != 3:
+        actual_blocks = question.get("blocksRuleIds") or []
+        combined_family_question = question_id in {"SEM-Q-039", "SEM-Q-040", "SEM-Q-044", "SEM-Q-045"}
+        if question.get("defaultProhibited") is not True or (actual_blocks[:len(blocks)] != blocks if combined_family_question else actual_blocks != blocks) or len(question.get("alternatives") or []) != 3:
             failures.append({"check": "Green Item ambiguity no-default alternatives/linkage", "questionId": question_id})
 
     green_conflicts = {row.get("conflictId"): row for row in conflict_rows if row.get("conflictId") in {"SC-029", "SC-030", "SC-031", "SC-032", "SC-033"}}
@@ -776,7 +780,7 @@ def validate_green_item_family(
     system = next((row for row in coverage.get("systems") or [] if row.get("system") == "base regular Green Item card/component family"), {})
     expected_system_ids = [*EXPECTED_GREEN_ITEM_REUSABLE_RULE_IDS, *expected_rule_ids]
     not_yet = " ".join(coverage.get("notYetCovered") or [])
-    if system.get("ruleIds") != expected_system_ids or "23-occurrence regular Green Item" not in not_yet or "seven Heavy occurrences" not in not_yet:
+    if system.get("ruleIds") != expected_system_ids or "23-occurrence regular Green Item" not in not_yet or "seven Heavy Green occurrences" not in not_yet:
         failures.append({"check": "Green Item coverage/Heavy-boundary/no-full-coverage claim"})
 
     return {

@@ -3,10 +3,10 @@
   "recordType": "semantic-conflict-register",
   "policy": "Readable source differences remain separate. Authority may resolve a general rule without rewriting lower-authority component wording; unresolved conflicts never receive a default.",
   "counts": {
-    "conflicts": 33,
+    "conflicts": 40,
     "resolvedByAuthority": 14,
-    "unresolved": 12,
-    "preservedBoundary": 7
+    "unresolved": 16,
+    "preservedBoundary": 10
   },
   "conflicts": [
     {
@@ -616,6 +616,152 @@
       ],
       "difference": "Cells 2, 4, 6, and 8 visibly preserve Caffeine Pills, Emergency Life Support Codes, MEDKIT, and Synthetic Food variants but have no root full CardID/GUID selector; selected direct/sheet faces differ in text and glyphs.",
       "resolution": "Retain all four source variants and selector gaps. Never substitute them into the physical deck from title, body, cell position, CardID modulo, or expected game logic."
+    },
+    {
+      "conflictId": "SC-034",
+      "title": "Thirty-card Red root versus regular/Heavy/Military Taser physical-class boundary",
+      "status": "unresolved",
+      "questionId": "SEM-Q-047",
+      "affectedRuleIds": [
+        "SEM-RED-ITEM-DECK-001",
+        "SEM-RED-ITEM-VARIANT-BOUNDARIES-001"
+      ],
+      "evidenceRefs": [
+        "SRC-RULEBOOK",
+        "SRC-RED-ITEM-ROOT-DECK",
+        "SRC-BGA-RED-ITEMS",
+        "docs/rules/semantics/red-item-source-index.json",
+        "docs/rules/04-items-and-equipment.md:ITM-003/ITM-004"
+      ],
+      "difference": "The exact root has 21 source-clear regular, three HEAVY Remote Detonator, and six portrait SPECIAL WEAPON Military Taser selectors. Licensed data has 21 regular/9 Heavy and official page 29 shows a materially different Heavy Military Taser, while downstream ITM-003/004 says color decks contain only regular Items.",
+      "resolution": "No default for the six TTS selectors. Keep every root copy/class/source occurrence intact; only 21 source-clear regular faces dispatch in this batch."
+    },
+    {
+      "conflictId": "SC-035",
+      "title": "Selected Red crossed glyphs versus licensed noIntruders fields",
+      "status": "unresolved",
+      "questionId": "SEM-Q-046",
+      "affectedRuleIds": [
+        "SEM-RED-ITEM-VARIANT-BOUNDARIES-001",
+        "SEM-RED-ITEM-3601-2BC2DB-001",
+        "SEM-RED-ITEM-3606-EA89DA-001",
+        "SEM-RED-ITEM-3607-3DAD95-001",
+        "SEM-RED-ITEM-3607-7AFBE8-001"
+      ],
+      "evidenceRefs": [
+        "SRC-BGA-RED-ITEMS",
+        "assets/tts-mod/extract/selected-card-text-evidence.json",
+        "docs/rules/semantics/red-item-source-index.json"
+      ],
+      "difference": "Anti-Aircraft Codes, Personal Log Codes, and Portable Barrier selected faces retain source-local upper-right all-glossary no-matches; licensed rows mark noIntruders. A separate Exploring Drone occurrence independently matches Not In Combat.",
+      "resolution": "No default and no position/color-wide alias. Licensed fields remain independent lower-authority variants."
+    },
+    {
+      "conflictId": "SC-036",
+      "title": "Red and cross-family parent-sheet gaps versus exact root selectors",
+      "status": "preserved-boundary",
+      "questionId": null,
+      "affectedRuleIds": [
+        "SEM-RED-ITEM-VARIANT-BOUNDARIES-001"
+      ],
+      "evidenceRefs": [
+        "SRC-RED-ITEM-SHEET-36",
+        "SRC-RED-ITEM-CROSS-FAMILY-SHEET-35",
+        "docs/rules/semantics/red-item-source-index.json"
+      ],
+      "difference": "Four Red-sheet cells and three Yellow-sheet cells have no Red-root full CardID/GUID selector. Several share titles/body concepts with selected direct faces; one cross-family cell is non-rules.",
+      "resolution": "Retain all sheet/hash/grid/cell/gap tuples. Never repair a selector by title, color, art, body, cell, folder, CardID modulo, or expected logic."
+    },
+    {
+      "conflictId": "SC-037",
+      "title": "Portable Barrier scan versus licensed override and Portable Barricade FAQ",
+      "status": "unresolved",
+      "questionId": "SEM-Q-050",
+      "affectedRuleIds": [
+        "SEM-RED-ITEM-VARIANT-BOUNDARIES-001",
+        "SEM-RED-ITEM-3607-3DAD95-001",
+        "SEM-RED-ITEM-3607-7AFBE8-001"
+      ],
+      "evidenceRefs": [
+        "SRC-BGA-RED-ITEMS",
+        "SRC-FAQ",
+        "docs/rules/semantics/red-item-source-index.json"
+      ],
+      "difference": "TTS says only “Place a closed Door.” Licensed PortableBarrier adds accessible/destroyed/no-slot scope; FAQ names Portable Barricade and says an opened placed Door is gone. Exact applicability/identity and target owner are not stated.",
+      "resolution": "No default; preserve ordinary official Door/local rules and both lower/current-source leads without merging them into the exact scan."
+    },
+    {
+      "conflictId": "SC-038",
+      "title": "Personal Log Codes local unspecified target versus licensed Facility scope",
+      "status": "unresolved",
+      "questionId": "SEM-Q-049",
+      "affectedRuleIds": [
+        "SEM-RED-ITEM-3606-EA89DA-001"
+      ],
+      "evidenceRefs": [
+        "SRC-RULEBOOK",
+        "SRC-BGA-RED-ITEMS",
+        "docs/rules/semantics/red-item-source-index.json"
+      ],
+      "difference": "TTS says Check all Objective cards of a chosen Character without naming chooser, inspector, audience, or range. Official local-effect rules imply local scope; licensed data says your choice in the Facility.",
+      "resolution": "No default for choice/inspection/secrecy or cross-source correspondence; unauthorized Objective exposure remains prohibited."
+    },
+    {
+      "conflictId": "SC-039",
+      "title": "Exploring Drone direct root face versus selector-gap and licensed wording",
+      "status": "preserved-boundary",
+      "questionId": null,
+      "affectedRuleIds": [
+        "SEM-RED-ITEM-VARIANT-BOUNDARIES-001",
+        "SEM-RED-ITEM-530700-ED1060-001",
+        "SEM-RED-ITEM-530800-301A8B-001"
+      ],
+      "evidenceRefs": [
+        "SRC-BGA-RED-ITEMS",
+        "docs/rules/semantics/red-item-source-index.json"
+      ],
+      "difference": "Two exact direct root selectors say Exploration Sequence for a neighboring Room without Moving and suppress Entrance effect. Unselected sheet cell 3 says Exploration Procedure through an empty Open Corridor; licensed wording is another independent variant.",
+      "resolution": "Only full direct selectors dispatch. Same title, nearby cell, and licensed multiplicity create no effect identity; target ownership remains SEM-Q-048."
+    },
+    {
+      "conflictId": "SC-040",
+      "title": "Ammo Magazine and Grenade direct faces versus sheet/licensed variants",
+      "status": "preserved-boundary",
+      "questionId": null,
+      "affectedRuleIds": [
+        "SEM-RED-ITEM-VARIANT-BOUNDARIES-001",
+        "SEM-RED-ITEM-543800-01970B-001",
+        "SEM-RED-ITEM-543800-D8D841-001",
+        "SEM-RED-ITEM-543800-43AC80-001",
+        "SEM-RED-ITEM-543800-EA2857-001",
+        "SEM-RED-ITEM-543800-AF5A2D-001",
+        "SEM-RED-ITEM-543800-EAF654-001",
+        "SEM-RED-ITEM-543800-EE51D1-001",
+        "SEM-RED-ITEM-530900-9CDA71-001",
+        "SEM-RED-ITEM-531000-EBC22D-001",
+        "SEM-RED-ITEM-531100-5108BC-001",
+        "SEM-RED-ITEM-531200-11F04F-001",
+        "SEM-RED-ITEM-531300-DC960F-001",
+        "SEM-RED-ITEM-IMMEDIATE-USE-001",
+        "SEM-RED-ITEM-543800-01970B-001",
+        "SEM-RED-ITEM-543800-D8D841-001",
+        "SEM-RED-ITEM-543800-43AC80-001",
+        "SEM-RED-ITEM-543800-EA2857-001",
+        "SEM-RED-ITEM-543800-AF5A2D-001",
+        "SEM-RED-ITEM-543800-EAF654-001",
+        "SEM-RED-ITEM-543800-EE51D1-001",
+        "SEM-RED-ITEM-530900-9CDA71-001",
+        "SEM-RED-ITEM-531000-EBC22D-001",
+        "SEM-RED-ITEM-531100-5108BC-001",
+        "SEM-RED-ITEM-531200-11F04F-001",
+        "SEM-RED-ITEM-531300-DC960F-001"
+      ],
+      "evidenceRefs": [
+        "SRC-BGA-RED-ITEMS",
+        "docs/rules/semantics/red-item-source-index.json"
+      ],
+      "difference": "Direct Ammo Magazine gains 1 Ammo while unselected cell 0 gains up to 2 and licensed Ammo uses another title; direct Grenade has verified grenadeToken glyphs while unselected cell 5 retains three local no-matches.",
+      "resolution": "Exact direct root selectors control only their physical occurrences. Preserve sheet and licensed variants independently; no title/body/art/token expectation supplies identity."
     }
   ]
 }

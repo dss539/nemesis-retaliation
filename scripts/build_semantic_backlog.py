@@ -63,12 +63,14 @@ attack_sources=load('docs/rules/semantics/attack-source-index.json')
 queen_health_sources=load('docs/rules/semantics/queen-health-source-index.json')
 serious_wound_sources=load('docs/rules/semantics/serious-wound-source-index.json')
 green_item_sources=load('docs/rules/semantics/green-item-source-index.json')
+red_item_sources=load('docs/rules/semantics/red-item-source-index.json')
 exploration_rule_ids=[row['semanticRuleId'] for row in exploration_sources['faces']]
 robot_rule_ids=[row['semanticRuleId'] for row in robot_sources['faces']]
 attack_rule_ids=[row['semanticRuleId'] for row in attack_sources['faces']]
 queen_health_rule_ids=[row['semanticRuleId'] for row in queen_health_sources['faces']]
 serious_wound_rule_ids=[row['semanticRuleId'] for row in serious_wound_sources['faces']]
 green_item_rule_ids=[row['semanticRuleId'] for row in green_item_sources['faces']]
+red_item_rule_ids=[row['semanticRuleId'] for row in red_item_sources['faces']]
 
 # Pilot-to-source obligation links. These are evidence coverage links, not claims
 # that the entire channel/category is semantically complete.
@@ -101,6 +103,13 @@ for asset in green_item_sources['sourceFaceAssets']:
   links[unit_id]=physical_rule_ids
  elif asset['sourceRole']=='generated-cell-selector-gap-variant':
   links[unit_id]=['SEM-GREEN-ITEM-VARIANT-BOUNDARIES-001']
+for asset in red_item_sources['sourceFaceAssets']:
+ unit_id='CARD:'+asset['sourceSha256'][:16]
+ physical_rule_ids=[row['semanticRuleId'] for row in red_item_sources['faces'] if row['sourcePath']==asset['sourcePath']]
+ if physical_rule_ids:
+  links[unit_id]=physical_rule_ids
+ elif asset['selectedDisposition']=='red-selector-gap':
+  links[unit_id]=['SEM-RED-ITEM-VARIANT-BOUNDARIES-001']
 links['FAQ:FQ-P02-U06']=['SEM-ACT-EXPLORE-001',*[row['semanticRuleId'] for row in exploration_sources['faces'] if any(item['sourceUnitId']=='FQ-P02-U06' for item in row['faqOccurrences'])]]
 links['FAQ:FQ-P02-U07']=['SEM-ACT-EXPLORE-001',*[row['semanticRuleId'] for row in exploration_sources['faces'] if any(item['sourceUnitId']=='FQ-P02-U07' for item in row['faqOccurrences'])]]
 links['VIS:RB-P24-V01']=['SEM-ACT-EXPLORE-001','SEM-EXPLORATION-5639-001']
@@ -186,6 +195,45 @@ links['VIS:RB-P28-V02']=['SEM-ACT-SEARCH-001','SEM-GREEN-ITEM-DECK-001','SEM-REG
 links['VIS:RB-P28-V03']=['SEM-USE-ITEM-001','SEM-GREEN-ITEM-ONE-USE-001','SEM-REGULAR-ITEM-BACKPACK-001']
 links['VIS:RB-P29-V01']=['SEM-GREEN-ITEM-DECK-001','SEM-GREEN-ITEM-VARIANT-BOUNDARIES-001']
 links['VIS:RB-P40-V02']=[*links.get('VIS:RB-P40-V02',[]),'SEM-GREEN-ITEM-DECK-001',*green_item_rule_ids]
+red_ammo_ids=[row['semanticRuleId'] for row in red_item_sources['faces'] if row['effectKind']=='gain-ammo']
+red_anti_ids=[row['semanticRuleId'] for row in red_item_sources['faces'] if row['effectKind']=='reorder-anti-aircraft']
+red_exploring_ids=[row['semanticRuleId'] for row in red_item_sources['faces'] if row['effectKind']=='remote-exploration']
+red_flashbang_ids=[row['semanticRuleId'] for row in red_item_sources['faces'] if row['effectKind']=='flashbang-movement']
+red_grenade_ids=[row['semanticRuleId'] for row in red_item_sources['faces'] if row['effectKind']=='grenade-effect-or-gain']
+red_personal_ids=[row['semanticRuleId'] for row in red_item_sources['faces'] if row['effectKind']=='inspect-objectives']
+red_portable_ids=[row['semanticRuleId'] for row in red_item_sources['faces'] if row['effectKind']=='place-closed-door']
+links['RULE:ACT-ITEM-001']=[*links.get('RULE:ACT-ITEM-001',[]),'SEM-RED-ITEM-ONE-USE-001',*red_item_rule_ids]
+links['RULE:ACT-MOVE-001']=[*links.get('RULE:ACT-MOVE-001',[]),*red_flashbang_ids]
+links['RULE:ACT-EXPLORE-001']=[*links.get('RULE:ACT-EXPLORE-001',[]),*red_exploring_ids]
+links['RULE:ACT-TRADE-001']=[*links.get('RULE:ACT-TRADE-001',[]),'SEM-RED-ITEM-IMMEDIATE-USE-001']
+links['RULE:ACT-TACTICAL-001']=[*links.get('RULE:ACT-TACTICAL-001',[]),'SEM-AMMO-TOKEN-LIFECYCLE-001','SEM-GRENADE-TOKEN-EFFECT-001']
+links['RULE:ITM-001']=[*links.get('RULE:ITM-001',[]),'SEM-RED-ITEM-DECK-001']
+links['RULE:ITM-002']=[*links.get('RULE:ITM-002',[]),'SEM-RED-ITEM-VARIANT-BOUNDARIES-001']
+links['RULE:ITM-003']=[*links.get('RULE:ITM-003',[]),'SEM-RED-ITEM-DECK-001','SEM-RED-ITEM-VARIANT-BOUNDARIES-001']
+links['RULE:ITM-004']=[*links.get('RULE:ITM-004',[]),'SEM-RED-ITEM-DECK-001','SEM-RED-ITEM-VARIANT-BOUNDARIES-001']
+links['RULE:ITM-005']=[*links.get('RULE:ITM-005',[]),'SEM-AMMO-TOKEN-LIFECYCLE-001','SEM-GRENADE-TOKEN-EFFECT-001',*red_ammo_ids,*red_grenade_ids]
+links['RULE:ITM-006']=[*links.get('RULE:ITM-006',[]),'SEM-RED-ITEM-DECK-001']
+links['RULE:ITM-008']=[*links.get('RULE:ITM-008',[]),'SEM-RED-ITEM-VARIANT-BOUNDARIES-001',*red_item_rule_ids]
+links['FAQ:FQ-P02-U04']=[*links.get('FAQ:FQ-P02-U04',[]),*red_anti_ids,*red_personal_ids]
+links['FAQ:FQ-P02-U10']=['SEM-DOOR-001','SEM-GRENADE-TOKEN-EFFECT-001',*red_grenade_ids,*red_portable_ids]
+links['FAQ:FQ-P03-U04']=[*links.get('FAQ:FQ-P03-U04',[]),'SEM-RED-ITEM-IMMEDIATE-USE-001',*red_ammo_ids,*red_grenade_ids]
+links['FAQ:FQ-P03-U06']=['SEM-ACT-TACTICAL-001','SEM-GRENADE-TOKEN-EFFECT-001']
+links['FAQ:FQ-P03-U07']=[*links.get('FAQ:FQ-P03-U07',[]),'SEM-ITEM-INTERPLAY-001',*red_ammo_ids,*red_grenade_ids]
+links['FAQ:FQ-P03-U08']=['SEM-RED-ITEM-VARIANT-BOUNDARIES-001',*red_portable_ids]
+links['VIS:RB-P03-V01']=[*links.get('VIS:RB-P03-V01',[]),'SEM-RED-ITEM-DECK-001','SEM-RED-ITEM-VARIANT-BOUNDARIES-001']
+links['VIS:RB-P05-V01']=[*links.get('VIS:RB-P05-V01',[]),'SEM-ITM-005','SEM-AMMO-TOKEN-LIFECYCLE-001','SEM-GRENADE-TOKEN-EFFECT-001']
+links['VIS:RB-P09-V01']=[*links.get('VIS:RB-P09-V01',[]),'SEM-RED-ITEM-DECK-001']
+links['VIS:RB-P12-V02']=[*links.get('VIS:RB-P12-V02',[]),'SEM-USE-ITEM-001']
+links['VIS:RB-P16-V02']=['SEM-ITM-005',*red_ammo_ids]
+links['VIS:RB-P16-V03']=['SEM-AMMO-TOKEN-LIFECYCLE-001']
+links['VIS:RB-P17-V01']=['SEM-GRENADE-TOKEN-EFFECT-001',*red_grenade_ids]
+links['VIS:RB-P28-V02']=[*links.get('VIS:RB-P28-V02',[]),'SEM-RED-ITEM-DECK-001']
+links['VIS:RB-P28-V03']=[*links.get('VIS:RB-P28-V03',[]),'SEM-RED-ITEM-ONE-USE-001']
+links['VIS:RB-P29-V01']=[*links.get('VIS:RB-P29-V01',[]),'SEM-RED-ITEM-VARIANT-BOUNDARIES-001']
+links['VIS:RB-P29-V03']=['SEM-ITM-005','SEM-AMMO-TOKEN-LIFECYCLE-001','SEM-GRENADE-TOKEN-EFFECT-001']
+links['VIS:RB-P33-V03']=['SEM-AMMO-TOKEN-LIFECYCLE-001']
+links['VIS:RB-P37-V02']=['SEM-ANTI-AIRCRAFT-TOKEN-STATE-001',*red_anti_ids]
+links['VIS:RB-P40-V02']=[*links.get('VIS:RB-P40-V02',[]),'SEM-RED-ITEM-DECK-001','SEM-AMMO-TOKEN-LIFECYCLE-001','SEM-GRENADE-TOKEN-EFFECT-001',*red_item_rule_ids]
 for unit_id,rule_ids in links.items():
  links[unit_id]=list(dict.fromkeys(rule_ids))
 for unit in units:
