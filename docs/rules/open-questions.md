@@ -526,3 +526,19 @@ The following 18 semantic questions were added by the bounded Heavy/Equipment/We
 - **SEM-Q-096** — active/One Use Heavy payment, effect, discard/remove, and partial-resolution order.
 
 The batch preserves the 12 Red/Yellow physical class conflicts, the two audited Automatic Shotgun/BF Gun prototype/current conflicts, all Support selector gaps, and all independent TTS/current-official/licensed variants without converting any of those boundaries into a default.
+
+## Core Combat, Attacks, and Noise/Hazard batch questions
+
+The bounded core Combat/Attacks/Noise/Hazard source audit added nine no-default questions. Exact alternatives, affected rule IDs, evidence tuples, and `defaultProhibited` flags are authoritative in `docs/rules/semantics/review-gates.json`:
+
+- **SEM-Q-097** — order among multiple matching Corridors in one numeric Noise result;
+- **SEM-Q-098** — required Intruder-token draw when the Intruder bag is empty;
+- **SEM-Q-099** — side-level Blank Help-row applicability in Corridor and Room draws;
+- **SEM-Q-100** — remaining Opportunity Attacks and Movement after mover death, escape, or other participation loss;
+- **SEM-Q-101** — standard Intruder Attack draw when the finite Attack deck is empty;
+- **SEM-Q-102** — order among equal-size Intruders in an Intruder Phase Room cohort;
+- **SEM-Q-103** — Shoot/Melee roll and added-effect continuation after an initial Hit kills a Room Larva;
+- **SEM-Q-104** — Burst multi-target Hit resolution order, Queen interrupt, and continuation;
+- **SEM-Q-105** — Adult/Drone allocation when mixed token-back counts meet Corridor capacity or exact-type model shortage.
+
+Official Retaliation Noise semantics remain the closed `1`/`2`/`3`/`4`/`Hazard` set. Preserved TTS Lua branches containing `Silence unless Slimed`, `DANGER`, or `Mars Surface` are unbound lower-authority runtime provenance, not open current-rule alternatives. The Blank token always returns to the bag; only the side-level panel’s add-Adults applicability outside Bag Development remains unresolved under SEM-Q-099.

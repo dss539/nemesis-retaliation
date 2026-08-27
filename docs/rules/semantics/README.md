@@ -19,12 +19,13 @@ This directory is the first implementation-neutral semantic layer built over the
 - `equipment-source-index.json` — mechanically derived closure of the base Heavy/Support Equipment/Weapon/Armor/Character Starting Item batch: the exact 24-card `startItemDeck` root, 40 source face assets with 16 selector gaps, 7 Character-kit occurrences, 10 color-root Heavy occurrences, 12 non-dispatchable class conflicts, 6 official-visible current occurrences, 6 non-operative back assets, 37 independent licensed rows, slot/track evidence, FAQ boundaries, and exact backlog links.
 - `action-source-index.json` — mechanically derived closure of all 60 base Action physical occurrences across six Characters: seven TTS root segments, 39 direct faces, 21 selected generated cells, 29 base selector-gap variants, 40 excluded expansion cells, two 9×5 sheets, one shared back, exact anatomy/text/icons/costs, official/FAQ evidence, 60 independent licensed rows, and backlog closure.
 - `objective-mission-source-index.json` — mechanically derived closure of the base competitive Objective/Mission family: 30 exact physical copies across three TTS roots, 50 source-face assets, two sheets/two backs, 18 selector gaps, nine prototype/high-count physical exclusions, 45 official Help units with the 35-visible/10-occluded boundary intact, 38 independent licensed rows, and exact Solo/Coop exclusions.
+- `combat-source-index.json` — pinned source projection for core Character/Intruder Combat, reusable paid-action versus procedure boundaries, Movement/Opportunity timing, Noise/Hazard spawning, Intruder token/front/back/type handling, nine rendered visual obligations, exact FAQ scope, finite components, and excluded stale TTS Silence/Danger runtime branches.
 - `source-registry.json` — 468 exact source tuples, hashes, versions, authority, occurrence identities, and extraction-index links used by the corpus.
-- `pilots.json` — 506 validated semantic records across 25 systems; the historical filename is retained while coverage expands.
-- `review-gates.json` — 101 explicit open semantic questions with alternatives; no default is adopted.
-- `contradictions.json` — 80 source/semantic conflicts: 18 authority-resolved, 30 unresolved, and 32 preserved boundaries.
+- `pilots.json` — 520 validated semantic records across 25 systems; the historical filename is retained while coverage expands.
+- `review-gates.json` — 110 explicit open semantic questions with alternatives; no default is adopted.
+- `contradictions.json` — 82 source/semantic conflicts: 19 authority-resolved, 31 unresolved, and 32 preserved boundaries.
 - `coverage.json` — pilot scope and the large remaining base-game semantic surface.
-- `backlog.json` — 600 source-obligation units across rule records, FAQ, visual obligations, Help sheets, and independent card/reference tuples; 499 are covered, 100 pending, and one source-blocked, with overlapping variants intentionally retained.
+- `backlog.json` — 600 source-obligation units across rule records, FAQ, visual obligations, Help sheets, and independent card/reference tuples; 510 are covered, 89 pending, and one source-blocked, with overlapping variants intentionally retained.
 - `validation.json` — deterministic validation report.
 - `independent-review.md` — four-workstream review findings and incorporated corrections.
 
@@ -52,7 +53,7 @@ Every pilot carries:
 
 ## Current coverage
 
-The 506 records cover the original reusable-procedure set plus:
+The 520 records cover the original reusable-procedure set plus:
 
 1. Round phase sequence;
 2. Player Phase rotation;
@@ -97,10 +98,11 @@ The 506 records cover the original reusable-procedure set plus:
 41. all 60 mechanically derived base Action physical occurrences, with 55 Character-kit selectors plus five Shared Contractor selectors, 39 direct faces, 21 selected generated cells, 29 base selector-gap variants, 40 excluded expansion cells, two parent sheets, one 273-reference shared back, 290 panels, 164 sentences, 143 physical symbols, exact setup/play/payment/draw/Reaction/Command lifecycle, 60 independent licensed rows, and eighteen new no-default questions.
 42. the source-clear base competitive Objective/Mission family: 7 Mission Objective, 15 Private Objective, and 8 Mission Task physical copies; 29 source-clear physical effect records plus the one retained `FACILITY RESTART` blocker; 20 fully visible official card occurrences; 26 independent competitive licensed rows; exact setup, secrecy, discussion/lying, remove/retain, Objective Choice reward, reveal, fulfillment, Survivor/Escape, Facility destruction, checkbox, and occurrence dispatch procedures; all 45 Objective Help obligations linked without promoting ten occluded bodies; nine prototype/high-count and 38 Solo/Coop TTS physical selectors retained as exclusions; and four new no-default timing/branch questions.
 43. the bounded base Heavy/Support Equipment/Weapon/Armor/Character Starting Item family: exact 24-card Support root with 22 direct and 2 generated selections, 40 source face assets including 16 selector gaps, 19 Heavy and 5 Armor Support occurrences, 12 Support Weapons (9 Ranged/3 Melee), one 72-reference shared Support back, 7 Character-kit occurrences with 5 source-clear TTS variants and 2 Automatic Shotgun/BF Gun prototype/current exclusions, 7 Green Heavy plus 3 Red Heavy source-clear color-root occurrences, 12 Red/Yellow class conflicts retained non-dispatchable, 6 official-visible current occurrences, 37 independent BGA rows, 52 source-face backlog tuples, reusable setup/draft/Hand/Armor/load/use/passive/loss/Malfunction/die-result/Grenade Launcher procedures, and 18 new no-default questions. Exact titles, bodies, punctuation, panels, local icons, slots, tracks, backs, copies, authorities, and variants remain source-scoped.
+44. core Combat, Attacks, and Noise/Hazard spawning: paid Move/Shoot/Burst/Melee Basic Actions are separated from reusable source-effect sequences; normal/Cautious/effect/Intruder/Robot/Repel movement and Opportunity/Hazard/entry/phase/Melee-response attack classes remain distinct; official Noise results are exactly 1/2/3/4/Hazard; Shoot/Burst/Melee result tables, Burst allocation and post-Hit additional effects, Intruder type Health, token front/back/context, immediate entry Attack, Secure replacement, finite supply, and Deadly dual values are ordered and source-linked. Nine no-default questions retain source-unspecified order, exhaustion, Blank scope, interruption, and mixed-type allocation.
 
 This is representative, **not full base-game semantic coverage**.
 
-The backlog currently records 499 covered source obligations, 100 pending obligations, and one inherited exact-source blocker (`FACILITY RESTART`). The closed source-clear component batches now include the base Heavy/Equipment/Weapon/Armor/Starting Item family while retaining twelve class-conflict occurrences, two audited prototype/current conflicts, sixteen Support selector gaps, ten physically occluded official Objective card occurrences, and all Solo/Coop roots outside competitive dispatch. These are overlapping source-obligation counts, not a claim that 600 distinct game effects exist.
+The backlog currently records 510 covered source obligations, 89 pending obligations, and one inherited exact-source blocker (`FACILITY RESTART`). The closed source-clear batches now include core Combat/Attacks/Noise/Hazard/entry procedures and the base Heavy/Equipment/Weapon/Armor/Starting Item family while retaining all no-default order/exhaustion boundaries, twelve class-conflict occurrences, two audited prototype/current conflicts, sixteen Support selector gaps, ten physically occluded official Objective card occurrences, and all Solo/Coop roots outside competitive dispatch. These are overlapping source-obligation counts, not a claim that 600 distinct game effects exist.
 
 ## Open questions carried without defaults
 
@@ -189,8 +191,18 @@ OQ-002 is no longer an open gate. Current official rulebook p. 39 (lines 6251–
 - SEM-Q-076 — Ulterior Motive “remain UNFULFILLED” continuous history versus endgame snapshot.
 - SEM-Q-077 — late endgame Objective choice procedure, Objective Choice reward, and chooser order.
 - SEM-Q-078 — endgame chosen-Objective reveal/check order among surviving Characters.
+- SEM-Q-079–096 — Heavy/Equipment roster, supply, capacity, lifecycle, glyph, target, Weapon-result, Malfunction, Grenade Launcher, and Motion Tracker boundaries.
+- SEM-Q-097 — order among multiple matching Corridors in one numeric Noise result.
+- SEM-Q-098 — required Intruder-token draw when the bag is empty.
+- SEM-Q-099 — side-level Blank Help-row applicability in Corridor and Room draws.
+- SEM-Q-100 — Opportunity cohort and Movement continuation after mover participation loss.
+- SEM-Q-101 — standard Intruder Attack draw when the Attack deck is empty.
+- SEM-Q-102 — equal-size Intruder order in an Intruder Phase Room cohort.
+- SEM-Q-103 — Shoot/Melee continuation after the initial Hit kills a Room Larva.
+- SEM-Q-104 — Burst multi-target resolution order, Queen interrupt, and continuation.
+- SEM-Q-105 — mixed Adult/Drone allocation under token-back counts, Corridor capacity, and finite supply.
 
-- OQ-001, OQ-003, OQ-004, OQ-007, OQ-009, SEM-Q-010, SEM-Q-025, SEM-Q-027, SEM-Q-029, SEM-Q-030, SEM-Q-031, SEM-Q-032, SEM-Q-036, SEM-Q-037, SEM-Q-038, SEM-Q-039, SEM-Q-040, SEM-Q-042, SEM-Q-043, SEM-Q-044, SEM-Q-045, SEM-Q-047, SEM-Q-049, SEM-Q-050, SEM-Q-052 through SEM-Q-056, SEM-Q-059 through SEM-Q-067, and SEM-Q-069 through SEM-Q-077 prefer official clarification. The other SEM questions require further source searching before any owner decision.
+- OQ-001, OQ-003, OQ-004, OQ-007, OQ-009, SEM-Q-010, SEM-Q-025, SEM-Q-027, SEM-Q-029, SEM-Q-030, SEM-Q-031, SEM-Q-032, SEM-Q-036, SEM-Q-037, SEM-Q-038, SEM-Q-039, SEM-Q-040, SEM-Q-042, SEM-Q-043, SEM-Q-044, SEM-Q-045, SEM-Q-047, SEM-Q-049, SEM-Q-050, SEM-Q-052 through SEM-Q-056, SEM-Q-059 through SEM-Q-067, SEM-Q-069 through SEM-Q-077, SEM-Q-079 through SEM-Q-096, SEM-Q-098 through SEM-Q-101, and SEM-Q-103 through SEM-Q-105 prefer official clarification. The other SEM questions require further source searching before any owner decision.
 
 ## Fidelity boundaries exercised
 
@@ -269,9 +281,14 @@ OQ-002 is no longer an open gate. Current official rulebook p. 39 (lines 6251–
 - Room Help extraction remains literal/source-local; semantic icon mappings live only in `room-icon-denotations.json`.
 - Static Room prohibition graphics are persistent properties, not removable Secure/Malfunction components.
 - Intruder Help dispatch preserves front icon, back count/color, finite supply, model capacity, immediate Attack order, and discard/return lifecycle separately.
+- The side-level Intruder Help Blank panel is dispatched without assigning its add-Adults clause to Corridor/Room draws; universal return-to-bag is retained while SEM-Q-099 prohibits a scope default.
+- Official Retaliation Noise results remain exactly 1/2/3/4/Hazard. Unbound TTS black/orange runtime branches containing Silence, Danger, or Mars Surface remain secondary provenance and never enter current semantics.
+- Paid Move/Shoot/Burst/Melee Basic Actions invoke reusable sequences; source effects invoke those sequences directly and never inherit a silent Basic-Action cost.
+- Opportunity, Hazard entry, other entry, Intruder Phase, Melee response, and redirected Intruder Attacks retain structured class/target/timing discriminators. Movement-limited prevention remains Opportunity-only under FAQ authority.
+- Shoot Ammo loss and Melee Ineffective remain different outcomes of the same physical face; the Burst additional-effects glyph remains co-located with 4 Hits and resolves only after normal Hit resolution.
 - Basic Action costs and Action-card play/discard are not conflated.
 - No engine, UI, networking, persistence, or serialization mapping appears in semantic data.
 
 ## Validation
 
-Validation rejects duplicate JSON keys, broken hashes/citations, authority-precedence errors, stale vocabulary/ontology references, missing owners/visibility/timing, invalid cardinality, dangling decisions/targets/conditions, source-variant loss, partial-resolution drift, invented defaults, implementation leakage, coverage overclaims, and non-reproducible builds. Prior family controls remain locked. Objective/Mission controls reject dropped/duplicated copies, category/deck/title collapse, Private/Personal alias overreach, Mission Objective/Task and Solo/Coop leakage, sheet/cell/modulo/folder joins, selector/back inversion, player-count/icon/checkbox/AND-OR/body/punctuation/order drift, occluded-text promotion, visibility/owner/default invention, fulfillment/choice/reveal lifecycle drift, blocker or variant/authority loss, and coordinated backlog lowering. Two builds run under different hash seeds/locales and must be byte-identical.
+Validation rejects duplicate JSON keys, broken hashes/citations, authority-precedence errors, stale vocabulary/ontology references, missing owners/visibility/timing, invalid cardinality, dangling decisions/targets/conditions, source-variant loss, partial-resolution drift, invented defaults, implementation leakage, coverage overclaims, and non-reproducible builds. Prior family controls remain locked. Combat controls reject Noise/Hazard collapse, token/bag/type/order loss, attack-class collapse, Shoot/Burst/Melee substitution, target/owner/default invention, movement/reaction timing flattening, same-count type swaps, visual/authority drift, finite-supply invention, and coordinated backlog lowering. Objective/Mission controls retain their prior copy/category/alias/visibility/lifecycle/blocker locks. Two builds run under different hash seeds/locales and must be byte-identical.

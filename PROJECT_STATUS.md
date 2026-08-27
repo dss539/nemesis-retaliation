@@ -15,22 +15,22 @@ The current implementation remains frozen. Semantic records remain independent o
 
 Encode the **highest-value source-clear semantic backlog** without touching blocked decisions:
 
-- remaining setup, map, combat, Lander, procedure, Item, and component lifecycle rules not yet represented by the 506-record corpus;
+- remaining setup, Facility/map topology, Lander, procedure, Item, and component lifecycle rules not yet represented by the 520-record corpus;
 - remaining source-clear card/component families outside the closed 20-card Event, 12-card Exploration, 6-card Robot, 20-occurrence Intruder Attack, 12-occurrence Queen Health, 27-occurrence Serious Wound, 23-occurrence regular Green Item, 21-occurrence source-clear regular Red Item, 24-occurrence source-clear regular Yellow Item, complete 60-occurrence base Action, and source-clear base competitive Objective/Mission families;
-- highest-value remaining setup/map/combat/Lander/component-lifecycle obligations, preserving exact physical/source variants and source-visible/occluded boundaries;
+- next bounded batch: source-clear Facility/map topology and setup-state obligations, including exact applicable rendered visual geometry, while leaving Lander/endgame/card batches separate;
 - exact FAQ overrides and per-sentence partial-resolution scope;
 - source-obligation links and contradiction coverage after every batch;
-- continue independent validation and source searching for the eighty-three open questions, but adopt no default.
+- continue independent validation and source searching for the 110 open questions, but adopt no default.
 
 Prioritize reusable procedures and cross-cutting rules before hundreds of individual component effects.
 
 ## Resume Checkpoint
 
-- Verified semantic data checkpoint: `17781d2ec2fa9b786ed296c82f14c3ee092a4ccd` before the Heavy/Equipment batch.
-- Branch `work/card-corpus-extraction` remains twenty-seven local commits ahead of `origin/work/card-corpus-extraction`; nothing has been pushed. No PR or deployment exists.
+- Verified semantic data checkpoint: `3070ca6fde51b54ccbd7f7a3257a67e043f5095d` for the core Combat/Attacks/Noise/Hazard data and adversarial suite.
+- Branch `work/card-corpus-extraction` is thirty-one local commits ahead of `origin/work/card-corpus-extraction` including this status checkpoint; nothing has been pushed. No PR or deployment exists.
 - The protected pre-existing `AGENTS.md` change remains untouched and retains SHA-256 `2c65f66c7e88e0e154fb5c7c77e1131f1bf66acb1f7eb3964b20236442740344`; it is not part of this batch.
-- The Heavy/Equipment/Weapon/Armor/Starting Item batch is integrated; semantic, source, vocabulary, ontology, card-corpus, visual, Room, card-evidence, and status validation gates pass.
-- Resume with `semantic-components`: expand the highest-value remaining setup/map/combat/Lander/component lifecycles while preserving physical copies, source-visible/occluded boundaries, variants, and authority conflicts. Current source-obligation boundary is 499 covered / 100 pending / 1 source-blocked; 101 semantic questions remain no-default.
+- The core Combat/Attacks/Noise/Hazard/entry batch is integrated over the prior Heavy/Equipment work; deterministic semantic rebuilds and 48 focused/adversarial tests pass, including the new independent Combat projection.
+- Resume with `semantic-components`: close source-clear Facility/map topology and setup-state obligations while preserving physical copies, rendered geometry, variants, and authority conflicts. Current source-obligation boundary is 510 covered / 89 pending / 1 source-blocked; 110 semantic questions remain no-default.
 
 ## Verified Checkpoint
 
@@ -118,17 +118,17 @@ Machine-readable evidence: `docs/rules/source-extraction/validation.json`.
 
 - 468 exact source registry tuples
 - 26 semantic-only state/zone/position/visibility nodes
-- 506 pilot records across 25 systems
-- 183 source-backed
-- 300 source-backed with open questions
+- 520 pilot records across 25 systems
+- 173 source-backed
+- 324 source-backed with open questions
 - 23 source-variant boundary records
-- 1340 source assertions / 1479 structured conditions and guards
-- 2151 ordered operations
-- 329 actor-owned decisions / 526 information policies
-- 36 explicit costs / 540 target specifications
+- 1361 source assertions / 1541 structured conditions and guards
+- 2220 ordered operations
+- 336 actor-owned decisions / 540 information policies
+- 37 explicit costs / 556 target specifications
 - 248 preserved source-variant references
-- 101 open semantic questions with explicit alternatives and defaults prohibited
-- 80 registered conflicts: 18 authority-resolved, 30 unresolved, 32 preserved boundaries
+- 110 open semantic questions with explicit alternatives and defaults prohibited
+- 82 registered conflicts: 19 authority-resolved, 31 unresolved, 32 preserved boundaries
 - base Event family: **20/20 identities represented**
   - 20 exact Event scan occurrences
   - 20 licensed-digital Event occurrences retained as variants
@@ -222,14 +222,21 @@ Machine-readable evidence: `docs/rules/source-extraction/validation.json`.
 - all 18 Intruder Help instructions represented and row-locked
 - all 25 Room Help entries represented, plus generic Use Room and cross-cutting Room constraints
 - all 112 source-local Room Help functional-icon occurrences mapped source-scoped without changing extraction records
+- core Combat/Attacks/Noise/Hazard/entry batch closed at its source-clear boundary
+  - paid Move/Shoot/Burst/Melee Basic Actions separated from reusable source-effect sequences
+  - 9 attack classes and 6 movement classes retained without flattening; immediate entry/Secure/prevention timing is explicit
+  - exact official Noise `1`/`2`/`3`/`4`/`Hazard`, Deadly dual values, Shoot/Burst/Melee result tables, Hit allocation, Intruder type Health, token front/back/context, and finite supply encoded
+  - 9 rendered visual obligations closed: `RB-P24-V02`, `RB-P25-V01/V02`, `RB-P30-V01/V02`, `RB-P33-V01/V02`, `RB-P34-V01`, and `RB-P40-V01`
+  - 9 new no-default questions retain Corridor/Intruder order, bag/Attack-deck exhaustion, Blank-row scope, death interruption, Larva continuation, Burst resolution, and mixed Adult/Drone allocation
+  - 2 new conflicts preserve the official current Noise set versus stale unbound TTS Silence/Danger branches and the side-level Blank-panel scope boundary
 - 600 source-obligation backlog units
-  - 499 pilot-covered
-  - 100 pending
+  - 510 pilot-covered
+  - 89 pending
   - 1 inherited exact-source blocker
 - full base-game semantic coverage explicitly not claimed
 - four-workstream independent review incorporated
 - cross-seed/cross-locale byte-identical rebuilds and expanded adversarial corruption tests pass
-- `scripts/validate_semantic_pilots.py`: **passed with 0 failures**, including cross-seed/cross-locale rebuilds and 42 focused/adversarial tests
+- `scripts/validate_semantic_pilots.py`: **passed with 0 failures**, including cross-seed/cross-locale rebuilds and 48 focused/adversarial tests
 
 ### Taxonomy/ontology — independently reviewed and passed
 
@@ -294,6 +301,7 @@ Machine-readable evidence: `docs/rules/source-extraction/validation.json`.
 - Closed the complete 60-occurrence base Action family mechanically from six Character kits plus the Shared Contractor root, retained 39 direct faces, 21 exact generated selections, 29 base selector-gap variants, 40 excluded expansion cells, two parent sheets, one 273-reference shared back, 290 panels/164 sentences/143 physical symbols, 60 independent licensed rows, exact setup/play/payment/draw/Reaction/Command lifecycle, and advanced source-obligation coverage to 348 while seventy-nine questions remain no-default.
 - Closed the source-clear base competitive Objective/Mission family mechanically from three exact TTS roots, retained all 30 physical copies (29 source-clear plus one blocker), 50 source-face assets, 18 base selector gaps, nine prototype/high-count and 38 Solo/Coop physical exclusions, two parent sheets/two backs, 149 panels/53 sentences/39 physical symbols, all 45 official Help units with ten occlusions intact, 38 independent licensed rows, exact setup/secrecy/choice/fulfillment/endgame lifecycle, and advanced source-obligation coverage to 443 while eighty-three questions remain no-default.
 - Closed the bounded base Heavy/Support Equipment/Weapon/Armor/Character Starting Item family: exact 24-card Support root with 22 direct and 2 generated selections, 40 source face assets/16 selector gaps, 19 Heavy and 5 Armor Support occurrences, 12 Support Weapons (9 Ranged/3 Melee), one 72-reference shared back, 7 Character-kit occurrences with 5 source-clear TTS variants and 2 Automatic Shotgun/BF Gun prototype/current exclusions, 7 Green Heavy plus 3 Red Heavy source-clear occurrences, 12 Red/Yellow class conflicts kept non-dispatchable, 6 current official-visible occurrences, 37 independent licensed rows, reusable setup/draft/Hand/Armor/load/use/passive/loss/Malfunction/die-result/Grenade Launcher records, and 18 no-default questions; semantic validation and exact root/kit/class/backlog locks pass at 499 covered / 100 pending / 1 blocked.
+- Closed core Combat, Character/Intruder Attacks, Movement/Opportunity timing, Noise/Hazard spawning, and Intruder entry procedures: split paid Basic Actions from reusable sequences, retained exact attack/movement classes and FAQ scope, encoded official die result keys, Deadly values, Hit/type/token/component lifecycles, closed 11 exact backlog obligations, and advanced coverage to 510 / 89 / 1 while nine new questions remain no-default.
 - Created the closed source inventory, card-gap inventory, secondary-source inventory, Room layout inventory, roadmap, and deterministic validator.
 
 ## Remaining Work — Ordered
@@ -349,7 +357,7 @@ All of the following are true:
 
 - One prototype `FACILITY RESTART` face visibly ends a condition at “Systems must be”; no following mark is recoverable from the exact pixels, and materially different same-title/current-official variants cannot be substituted.
 - Vocabulary gates `VG-001` and `VG-002` are resolved; `PERSONAL OBJECTIVE` remains source-scoped and `Drilling Room` aliases `DRILLING STATION` with both official labels preserved.
-- Eighty-three semantic/source questions remain explicit: OQ-001, OQ-003, OQ-004, OQ-007, OQ-009, and SEM-Q-001 through SEM-Q-078. They block only affected clauses/records, not unrelated coverage work.
+- 110 semantic/source questions remain explicit: OQ-001, OQ-003, OQ-004, OQ-007, OQ-009, and SEM-Q-001 through SEM-Q-105. They block only affected clauses/records, not unrelated coverage work.
 - OQ-002 is resolved by current official rulebook p. 39 (lines 6251–6265): evaluate Larva eligibility when the Eclosion cohort step is reached, including a Larva gained during the preceding Infection step. OQ-001 and multi-Character cohort ordering remain unresolved and unchanged.
 - SEM-Q-011 retains the source-unspecified assignment of random Corridor draws and scarce finite components across multiple Exploration diagram slots; no player owner, spatial order, or additional randomization is adopted.
 - SEM-Q-012 through SEM-Q-019 retain Robot reveal/effect availability, movement ownership, Exploration Noise, Medical choices, Securing Door/supply behavior, Server Room context, and Technical marker scope without defaults. SEM-Q-020 through SEM-Q-024 retain Attack scope, continuation, timing, Wound assignment, and no-badge applicability. SEM-Q-025 through SEM-Q-029 retain Queen Health trigger timing, Character attribution, final-card death, Malfunction/Unreinforce ownership/location, and terminal-glyph scope. Neoflesh-only FAQ answers remain excluded from base conclusions.
@@ -359,6 +367,8 @@ All of the following are true:
 - SEM-Q-051 through SEM-Q-056 retain selected Yellow upper-right glyph restrictions, Fire Extinguisher/Robot Controller class correspondence, Duct Tape source/One Use/stacking/Trade lifecycle, Phosphates Corridor targeting, and Tools Door ownership/accessibility without defaults. SEM-Q-040, SEM-Q-044, and SEM-Q-045 now also cover Yellow color-deck exhaustion, Oxygen-token gain-target scope, and Yellow immediate-use windows.
 - SEM-Q-057 through SEM-Q-074 retain Action-card upper-right and Search/draw glyphs, Command costs/owners, Reaction priority, death/escape continuation, multi-target order, consent, nested Command lifecycle, rerolls, Corridor placement, finite draw shortage, Movement interrupts, and cancellation payment timing without defaults.
 - SEM-Q-075 through SEM-Q-078 retain Objective OR-branch commitment/availability, Ulterior Motive continuous-versus-endgame fulfillment timing, late Objective choice/reward/chooser ordering, and endgame reveal/check ordering without defaults.
+- SEM-Q-079 through SEM-Q-096 retain Heavy/Equipment roster, supply, capacity, lifecycle, glyph, target, Weapon-result, Malfunction, Grenade Launcher, and Motion Tracker boundaries without defaults.
+- SEM-Q-097 through SEM-Q-105 retain numeric-Noise Corridor order, Intruder-bag and Attack-deck exhaustion, side-level Blank scope, Movement interruption, equal-size Intruder order, dead-Larva continuation, Burst multi-target resolution, and mixed Adult/Drone allocation without defaults.
 - The 25 Room Help entries versus 23 Room tiles relationship is unresolved.
 - Source/version conflicts remain in several card families and must not be flattened.
 - Genuine rules ambiguities remain in `docs/rules/open-questions.md`; some stale extraction blockers there must later be re-audited against newly collected evidence.
