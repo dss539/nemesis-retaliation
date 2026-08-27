@@ -1,0 +1,3247 @@
+{
+  "schemaVersion": 1,
+  "recordType": "semantic-facility-map-source-index",
+  "scope": "base Facility/map topology and source-clear setup-state only; no implementation coordinates or full lifecycle engine semantics",
+  "authorityPolicy": "Official rulebook/FAQ/component references control rules. The rendered p.19 visual census controls source-local geometry and visual associations. FND-005 is the project-confirmed six-sided geometry invariant. TTS is provenance/evidence only.",
+  "sourceDocuments": {
+    "SRC-RULEBOOK": {
+      "path": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
+      "sha256": "e3cda0d7a91bd090cec45dbc8ce89e2015e2202173357c374ff49365f9c29ddd",
+      "authority": "official-primary"
+    },
+    "SRC-FND-005": {
+      "path": "docs/rules/00-foundations.md",
+      "sha256": "46dc52f449799bf7617a52d98b1b0d90b47fff9ec3406acbd2de49bc973d713d",
+      "authority": "project-interpretation"
+    },
+    "SRC-VISUAL-CENSUS": {
+      "path": "docs/rules/source-extraction/rulebook-visual-obligations.json",
+      "sha256": "454d6ed8ca95da3aae486fcd0f3a7513dc28ab922a8d8ac2378ec061d145e783",
+      "authority": "official-primary-visual-census"
+    }
+  },
+  "sourceSegments": [
+    {
+      "sourceUnitId": "RB-FACILITY-SETUP-ROOM-CORRIDOR",
+      "printedLineStart": 2399,
+      "printedLineEnd": 2406,
+      "role": "initial Landing Zone Corridor and Room-stack setup",
+      "checkedExtractionText": "15. One by one, draw 3 random Corridor tiles and connect them \nto the Landing Zone – place them face up (showing the side \nwith the non-zero values). \nIf any of those Corridors have a Door slot, they should be \nplaced with the slot on an entrance to the Landing Zone.\n16. Take all Room tiles. Sort them by their backs into 4 stacks – \n“A”, “B”, “C” and “?”. Shufﬂe each stack and place it face \ndown near the Corridor tiles."
+    },
+    {
+      "sourceUnitId": "RB-FACILITY-SETUP-SECTIONS",
+      "printedLineStart": 2413,
+      "printedLineEnd": 2444,
+      "role": "Section border, fixed-space, track, system, and Robot setup",
+      "checkedExtractionText": "game setup\nA fully setup game can be seen. To set up the game perform the fol-\nlowing in order:\na. sections setup\n1.\nFind the 3 Section border pieces and 3 Round track border \npieces, connect them to each other and place them on the table.\n2.\nPlace the Undiscovered Hibernatorium tile on top of the Hi-\nbernatorium Room.\nNote: This tile rests there until Characters reach the Hiberna-\ntorium. Until then, the Hibernatorium is considered Undiscov-\nered, Noise tokens cannot be placed on the connected Corri-\ndors and the Robot cannot be Activated.\n3.\nPlace the Round marker on the 1st slot of the Round track.\n4.\nPlace the Lander token (\n) on the “10” slot of the Round track.\n5.\nPlace the Autodestruction token (\n) on the corresponding \nslot above the Round track.\n6.\nPlace 1 Universal marker on the top-most space of the Ob-\njective Choice section.\n7.\nPlace all 3 Life Support tokens and the Hibernatorium token\nInactive side up (\n and \n) on the corresponding \nslots of the 3 Section border pieces."
+    },
+    {
+      "sourceUnitId": "RB-FACILITY-SETUP-CORRIDOR-SUPPLY",
+      "printedLineStart": 2461,
+      "printedLineEnd": 2476,
+      "role": "Anti-Aircraft, Eggs, Landing Zone supplies, and hidden Corridor supply",
+      "checkedExtractionText": "11. Shufﬂe and place both Anti-Aircraft tokens face down, one \non top of the other, in the Anti-Aircraft slot on the Section “B” \nborder piece.\n12. Place 5 Egg tokens in the Eggs space on the Section “C” \nborder piece.\n13. Take 4 Ammo tokens (full side up), 4 Grenade tokens (\n), 4 \nOxygen tokens (\n) and 4 Medpack tokens (\n) and place \nthem on their corresponding slots next to the Landing Zone.\n14. Shufﬂe all Corridor tiles, put them inside a Corridor insert \nand place it near the Round track. \nYou will be drawing Corridors from that  insert throughout \nthe game in a way to avoid seeing the fronts of the Corri-\ndors (the side with the non-zero value) before they are drawn."
+    },
+    {
+      "sourceUnitId": "RB-FACILITY-MAP-STRUCTURE",
+      "printedLineStart": 3884,
+      "printedLineEnd": 3951,
+      "role": "three-section Facility, named spaces, and Facility boundary",
+      "checkedExtractionText": "section b\nSection B is the middle Section with the Hibernatorium Room – one \nway to safely ﬁnish the run in the Facility. Important Rooms include:\nHibernatorium – Provides a way to ensure safety for multiple Char-\nacters. It is both Undiscovered and turned off (\n) at the start, \nwhich means it cannot be Used, but it can be turned on in Life Sup-\nport Control “C”.\nMore on Hibernatorium: see Rooms Help Sheet and page 38.\nCooling System – Allows you to turn on the Autodestruction Proce-\ndure in case of emergencies.\nMore on Autodestruction Procedure: see page 38.\nLife Support Control “B” – Turns on/off Life Support Systems in \nSection B. You can also check and change the status of Anti-Aircraft \nsystems here.\nMore on Anti-Aircraft systems: see page 37.\nServer Room – Its most important function is allowing you to gather \na Data token required for some Objectives.\nsection c\nSection C is the most dangerous Section. Important Rooms include:\nLife Support Control “C” – Turns on/off Life Support Systems in \nSection C. You can also turn on the Hibernatorium here.\nThe Nest – Dangerous Room with Intruder Eggs. \nMore on the Nest: see the next page.\nThe Reactor – An extremely important Room. This completely shuts \noff the power in the Facility, turning off (and preventing from turning \non again) all Life Support Control Systems, the Autodestruction sys-\ntem and the Anti-Aircraft system.\nThe Escape Shuttle – An emergency escape from the Facility, but \nonly for 1 person.\nMore on Escaping: see page 38.\nThe Map in Nemesis shows a Facility which is divided into 3 Sec-\ntions – A, B, and C. The Facility consists of Rooms, which are al-\nways placed in one of the 3 Sections. The Rooms are connected by \nadjacent Corridors.\nCharacters may only be placed in Rooms, while Intruders (\n) may \nbe placed both in Rooms and in Corridors.\nsections\nThere are 2 important pieces of information about each Section:\n•\nEach one has its own Life Support System that may be either \nActive (\n) or Inactive (\n). Changing the  status \nof those systems is possible in Life Support Control Rooms \nwhich can be found in every Section. \nMore on Rooms: see Rooms Help Sheet.\n•\nEach Section has its own dedicated Section Rooms described \nbelow (and marked with “A”, “B”, and “C” symbol). Those Rooms \nare frequently required to  fulﬁll Objectives. All other Rooms \n(marked with “?”) are random and may appear in any Section.\nsection a\nSection A is an Entrance Section – where you start your mission \nand most likely end it. Important Rooms include:\nLanding Zone – One of the ways of Escaping the Facility and a place \nwhere Characters can restock their supplies. Characters start here.\nDrilling Room – A Room which allows drilling new Corridors. \nLife Support Control “A” – Turns on/off Life Support Systems in \nSection A. It also allows putting out ﬁres.\nSurgery Room  – Provides the  easiest way to  discard Serious \nWounds and even a Larva Infection if it were to occur.\nFACILITY SIZE\nThe Section border pieces and the Round track border pieces \ncreate the borders of the Facility. No Room and no Corridor can \never be placed on those pieces or outside of those borders. \nThis also applies to the right and the bottom side of the Facility."
+    },
+    {
+      "sourceUnitId": "RB-FACILITY-NEST",
+      "printedLineStart": 3988,
+      "printedLineEnd": 4005,
+      "role": "Nest border-piece space, Eggs, Universal marker, and Fire",
+      "checkedExtractionText": "nest\nThe Nest has its own space on Section C border piece which con-\ntains 5 Egg tokens at the start of the game. This space is consid-\nered to be an extension of the Nest Room tile, meaning Characters \nin the Nest Room may interact with Egg tokens and are considered \nto be in a Room with Egg tokens.\nEggs are treated as Heavy Items and may be picked up using the Nest \nRoom Action.\nMore on Heavy Items: see page 29.\nYou can destroy the Nest by removing all Eggs from the Eggs space \n(by using the Nest’s Room Action). When there are no more Eggs \nthere, place a Universal marker on the Eggs space – this signiﬁes \nthe Nest being destroyed. It stays destroyed even if other effects \nwould add new Eggs there.\nFIRE DESTROYING EGGS\nIf a Fire (\n) is in the Nest, it removes 1 Egg from there during \neach Intruder Burning Phase step."
+    },
+    {
+      "sourceUnitId": "RB-FACILITY-ROOMS",
+      "printedLineStart": 4007,
+      "printedLineEnd": 4040,
+      "role": "Room classes, Room anatomy, and printed restrictions",
+      "checkedExtractionText": "Rooms are the main structure of the game – Characters (\n) Move \nbetween neighboring Rooms. Each Room has plenty of icons related \nto it. \nRooms are divided into 2 types – Section Rooms (“A”, “B”, and “C”) \nwhich belong to an associated Section and can always be found in \nthe game, and random Rooms (“?”), which are not certain to appear \nin the game.\nRoom tiles contain the following information:\nA.\nName\nB.\nEffect – A short description of the Room’s effect when Using \na Room.\nC.\nItem Icons – Shows which types of Items can be found in \na given Room. Mostly referenced by the Search Action card.\nD.\nComputer Icon – Shows whether the Room contains a con-\nnection to the server. The icon does nothing on its own but is \nfrequently referenced by other Actions and effects.\nE.\nRoom Type and Room ID  – Shows whether the  Room is \na Section Room (“A”, “B”, or “C”) or a random Room (“?”). \nThe Identyfying number is used for various tie-breakers.\nF.\nOther Icons – Rooms may also feature some other icons, \nshowing special rules:\n – Such Rooms are never Secured and can never have Se-\ncure tokens placed on them.\nMore on Secure tokens: see page 23.\n  – These Rooms can never be broken. A Malfunction \nmarker is never placed on them.\nMore on Malfunction markers: see page 23."
+    },
+    {
+      "sourceUnitId": "RB-FACILITY-CORRIDORS",
+      "printedLineStart": 4150,
+      "printedLineEnd": 4194,
+      "role": "Reinforced, Empty, Unexplored, Corridor anatomy, and adjacency",
+      "checkedExtractionText": "reinforced corridor\nEmpty Corridors may be Reinforced by Characters during the game.\nWhen a Corridor is Reinforced, discard a Noise marker from it (if there \nis any) and ﬂip it to the other side. That side has a “0” value shown. \nNoise markers won’t be placed on such a Corridor as a result of a Noise \nroll (since there is no 0 on the die).\nHowever, Intruders can still move into such a Corridor.\nNote: Corridors leading to the Hibernatorium can never be Reinforced.\ncommon corridor keywords\nEMPTY CORRIDOR\nA Corridor is considered empty, when there are no Intruders in that Cor-\nridor. A Corridor containing a Noise marker is also empty.\nUNEXPLORED CORRIDOR\nA Corridor that is connected with only 1 Room is considered Unexplored.\ny\np\nINTRUDERS AND NOISE MARKERS\nWhen an Intruder is placed or moved to a Corridor with a Noise \nmarker, discard the Noise marker ﬁrst. \nNoise markers are never placed in Corridors containing Intruders.\ncorridors\nTo Move from Room to Room Characters use adjacent Corridors. As \na result of Movement and other Actions, Noise markers (\n) are \nplaced in Corridors alerting you to incoming danger. \nNoise may ﬁnally turn into Intruders (\n), which are placed in Corri-\ndors – such Intruders will then move between Corridors and Rooms.\nMore on Noise markers: see page 25.\nA.\nCorridor Noise value – Used when making Noise rolls to \ncheck in which Corridors Noise markers are to be placed.\nB.\nDeadly mode Noise value – Some Corridors contain a sec-\nond Noise value used only in the Deadly mode.\nC.\nDoor slot – Shows where Doors are available. They can be \nOpen, Closed or Destroyed.\nD.\nID number – Identifying number. Used to break ties during \nIntruder movements. Note that  this number always starts \nwith the Corridor front Noise value.\nEach Corridor connected to a  Room is considered adjacent \nto that Room regardless of other components on the board (such as \nIntruders or Doors). "
+    },
+    {
+      "sourceUnitId": "RB-FACILITY-DOORS",
+      "printedLineStart": 4243,
+      "printedLineEnd": 4287,
+      "role": "Door slots, orientation, adjacency, blocking, and states",
+      "checkedExtractionText": "doors\nSome Corridors may come with Door slots – this means that there \nare Open Doors there. With appropriate effects Doors can be Closed \n– signiﬁed by placing Door tokens on Door slots.\nA Room and a Corridor joined by a Closed Door are still considered \nadjacent (and 2 Rooms with a Door in between are still considered \nneighboring), but the Door imposes some limitations – such as pre-\nventing Movement or Bursting.\nNote: All Corridors, at the moment of placement, should be oriented \nwith a Door slot in the direction of the Room just placed.\noo s\nCLOSED DOORS\nDESTROYED DOORS\nblocking path\nClosed Doors block access to anything (with the exception of a Noise \nmarker) on the other side. Characters cannot perform any Actions \nthat inﬂuence objects behind Closed Doors. \nNote: Effects that speciﬁcally call out “any object in the Facility”, like \nMoving to any Room in the Facility, still work and allow you to Move \neven to a Room closed by Doors from all sides. Those effects allow \nyou to reach the Room in another way, like moving through a venti-\nlation corridor.\nCharacters (\n) cannot Move, Burst etc. through a Corridor with \nClosed Doors  – they must Open or Destroy the  given Door ﬁrst \n(mostly as a result of using Actions or Item cards).\nIntruders (\n), when attempting to move through Closed Doors, \nDestroy them instead.\nMore on Intruder Movement: see page 30.\nINTERACTING WITH DOORS\nDoors may become: \n•\nClosed – Doors can only be Closed in places with Door slots. \nWhen Closing a Door, simply place a Door token there.\n•\nOpened – Remove the Door token from the board.\n•\nDestroyed – If there is a Closed Door, it may be Destroyed – \nlay the Door token down. Such a Door is now considered to be \nthe same as Open, but cannot be Closed again.\nDOORS AND SPREADING FIRE \nEvent cards and other effects may Spread Fire between Rooms. If Fire \nwould spread between 2 Rooms blocked by Closed Doors, ignore \nthat spread instead – Closed Doors block spreading Fire."
+    },
+    {
+      "sourceUnitId": "RB-FACILITY-MARKERS",
+      "printedLineStart": 4368,
+      "printedLineEnd": 4470,
+      "role": "Room/Corridor marker surfaces, finite marker limits, and state effects",
+      "checkedExtractionText": "1. ON ROOMS\nEach Room may only contain 1 Malfunction marker. If a Malfunc-\ntion marker is to be placed in a Room with one already, simply ig-\nnore it – this includes the Malfunction Markers Limit rule described \nin the box below. \nIf a Room has a Malfunction marker its Room Action is unavailable, \nand cannot be performed in any way. It does not affect Item icons \nin this Room.\n2. ON HEAVY ITEMS\nWhen a Malfunction marker is placed on a Heavy Item, it cannot be \nused in any way (its Action cannot be used, and that Item cannot be \nused to Shoot nor Burst) and is treated as if that Item had no effect’s \ntext and no icons. Tactical Gear tokens on Items can still be used.\nWhen a Malfunction marker is to be placed on an Item with one already \nthere, the Item is destroyed and must be discarded instead. \n3. ON A ROBOT\nWhen placed on a Robot card, the Robot (\n) cannot be used in any \nway (neither Rooms interacting with the Robot, nor Robot Actions). \nTreat the Robot card as having no text and no icons. Tactical Gear to-\nkens on the Robot are still available. Effects that only require a Robot \ncan still be used however (for example a Secure Action card).\nIf a Malfunction marker is to be placed on a Robot when there is one \nthere already, simply ignore it.\nDISCARDING MALFUNCTION MARKERS\nMany effects allow you to  discard Malfunction markers  – you \ncan do so from the Room your Character is in, or any Item/Robot in \nthat Room (unless the effect states otherwise).\n secure tokens\nSecuring Rooms is one of the Actions that allow Characters to pre-\npare for Intruder Attacks. Secure tokens protect Characters from At-\ntacks directed by Intruders entering the Room. \nMany Actions may place Secure tokens in Rooms. There is a limit of \n3 Secure tokens in any given Room.\nCharacters may never Secure a Room with an Intruder inside.\nNote: Some Rooms may be impossible to Secure (such as the Nest \nRoom) and some Rooms are always Secured (such as the Shelter \nRoom).\nRESOLVING SECURE TOKENS:\nWhenever an  Intruder enters a  Room with at least 1 Character \nand a Secure token, 1 Secure token is discarded instead of resolving \nthe Intruder Attack.\nDiscarding Secure tokens is a result of Intruder movement and may \nnever be prevented.\nSecure tokens do NOT protect from Intruder Attacks made by Intruders \nthat are already in a Room (for example, during the Intruder Attack step).\nMALFUNCTION MARKERS LIMIT\nIf at any point you must place a Malfunction marker and there \nare no more markers available, place a Fire marker in the Room \ninstead, if possible.\nExample: You must place a Malfunction marker on your Weapon \nand there are no more markers available. You instead place \na Fire marker in your Room.\nMALFUNCTION MARKERS LIMIT\nIf at any point you must place a Malfunction marker and there\nare no more markers available, place a Fire marker in the Room\nExample: You must place a Malfunction marker on your Weapon \nand there are no more markers available. You instead place \na Fire marker in your Room.\nmap markers and tokens\nIn Nemesis various markers and tokens may be placed in the Facility \nportraying various states of Rooms and Corridors.\nNoise markers (\n) may be placed in Corridors and are explained \nmore in the Character Movement part of the Rulebook.\nFire markers and Secure tokens are placed in Rooms and only af-\nfect the Rooms they are in. Malfunction Markers may be placed on \na variety of components.\nfire markers\nFires are a common occurence in destroyed Facilities. They are equally \ndangerous for humans and Intruders alike. Yet, the biggest danger is \nthe possibility of Fires spreading and enveloping the whole base.\nFire markers are placed in Rooms. Each Room may contain only 1 \nFire marker. If a Fire marker is to be placed in a Room with one al-\nready, simply ignore it.\nFire markers affect the game in three ways:\n1.\nWhen a  Character ends their Turn in a  Room with a  Fire \nmarker, they lose 1 Health point (\n).\n2.\nDuring the Intruder Phase each Intruder in a Room with a Fire \nmarker is dealt 1 Hit. If Fire is in the Nest, 1 Egg is discarded \nfrom there.\n3.\nFire markers may spread as a result of some Events. Spread-\ning Fire means placing Fire markers in neighboring Rooms \naccording to the instructions on a given card. \nClosed Doors prevent Fire from spreading this way.\nmalfunction markers\nMalfunction markers represent something being broken and impos-\nsible to use. They may be placed on many different components such \nas Rooms, Heavy Items, and Robot cards. When discarded they go \nback to the pool.\nRegardless what they are placed on, that component cannot be used. \nYou can ﬁnd speciﬁc information on how Malfunction markers inter-\nact with components as follows:\nOVERWHELMING FIRE\nIf at any point you must place a Fire marker and there are no \nmore Fire markers available, the Facility is destroyed and the \ngame ends. \nMore about Destroyed Facility: see page 39.\n24"
+    },
+    {
+      "sourceUnitId": "RB-FACILITY-EXPLORATION-PLACEMENT",
+      "printedLineStart": 4494,
+      "printedLineEnd": 4535,
+      "role": "source-clear Room/Corridor/marker placement and orientation",
+      "checkedExtractionText": "1.\nSet up the Room – Check the type of Room described on \nthe top of the card (“A”, “B”, “C”, or “?”), draw a random \nRoom of that type and place it face up in an empty space on \nthe exit of the Corridor you are Moving through.\nIf there are no more Rooms of the required type, place the \nrandom “?” Room instead.\n2.\nSet up the Corridors – Around the new Room, place a ran-\ndom Corridor face up in each space shown on the card, if its \nnot already there. \nIf a Corridor has a Door slot – place it so the Door slot con-\nnects with the newly Explored Room. \nThere are 2 exceptions to this step:\na. No Corridors lead out of the Facility – If a Corridor leads \nto a space that is outside the Facility’s border, do not \nset it up.\nb. No Corridors lead to already placed Rooms – \nIf a Corridor leads to a Room that is already placed \non the map, do not set it up.\nNote: Corridors do not lead to already placed Rooms, because Corri-\ndors should not appear out of nowhere around Rooms that were es-\ntablished to have only certain entrances.\n3.\nSet up markers and tokens – Place all markers and tokens \non Corridors and Rooms as shown on the Exploration card. \nDo not place a Noise marker (\n) in a Corridor that already \nhas one – nothing happens in that case.\n4.\nMovement and Securing Reminder – Move your Character to \nthe Room. If you’re Moving Cautiously, place a\nin that Room.\n5.\nEntrance Effect – Some cards may have an additional effect \nthat should be resolved at this point. The most common one \nis making a Noise roll.\n6.\nInsider icon – This icon is not used in the base game, ignore it.\n7.\nDiscard the Exploration card – Unless it was already re-\nmoved as a part of the Entrance Effect."
+    },
+    {
+      "sourceUnitId": "RB-FACILITY-EXPLORATION-DISCOVERY",
+      "printedLineStart": 4571,
+      "printedLineEnd": 4585,
+      "role": "Exploration trigger, empty slot, map orientation, and Undiscovered state",
+      "checkedExtractionText": "exploration sequence\nAt the  start of the  game, the  Facility is mostly unexplored. New \nRooms and Corridors appear as a result of Characters Moving to un-\ncharted territory and exploring on their own.\nWhenever a Character Moves through an Unexplored Corridor they \nmust resolve the Exploration Sequence (as mentioned in the Move-\nment section above).\nThe Exploration Sequence is resolved by drawing an Exploration card \nand resolving it in the empty Room slot at the end of the Unexplored \nCorridor the Character Moved through. The Exploration card must be \noriented the same way as the map – note the North icon on the card \nand the top-left side of the map.\nNote: Exploration cards do not always show the Corridor the Charac-\nter has Moved through, since their purpose is to show new Corridors \nto be placed."
+    },
+    {
+      "sourceUnitId": "RB-FACILITY-CHARACTER-SETUP",
+      "printedLineStart": 2630,
+      "printedLineEnd": 2746,
+      "role": "Character-board initial slots, starting placement, and beginning state",
+      "checkedExtractionText": "player setup\nobjective setup \nand character draft\nTo setup the players, perform the following:\n1.\nFind Help cards with numbers corresponding to the number \nof players taking part in the game (e.g. if there are 3 players in \nthe game, ﬁnd cards “1”, “2”, and “3”). Shufﬂe them and deal \none Help card to each player. Each player reveals their card. \nNote: The number shown on the Help card is used in the fol-\nlowing Character Draft, as well as for determining some Ob-\njectives during the game.\n2.\nTake all Objective cards and divide them into 2 decks – Pri-\nvate and Mission. Also, take the Mission Task deck. From \neach deck remove all cards with a  Number of Characters \nsymbol higher than the number of Characters taking part in \nthe game. Then, shufﬂe each deck separately and:\na. Deal 1 random Private Objective card and 1 random Mis-\nsion Objective card to each player face down. Put the rest \nof those cards back in the box unseen.\nDo not show Objective cards to other players at any point \nduring the game. They can only be revealed at the End \nof the Game. Objective cards may still be discussed and \nlied about.\nb. Draw 1 random Mission Task card and place it face up \non the Mission Task slot on the bottom Round track tile. \nPut the rest back in the box.\n3.\nShufﬂe all Character draft cards. Deal 2 of those cards \nto Player  1  – they should remain secret for  other play-\ners. That player chooses one of those cards (a Character to \nplay as) and reveals it. The other card is shufﬂed back into \nthe deck unseen. Repeat this sequence for each other player \nin ascending player number order.\ncharacter setup\nEach player performs the following:\n1.\nTake 1 Character board and place it in front of you. Then, \nplace the Character tile matching your chosen Character in \nthe Character board.\n2.\nTake 1 Universal marker and place it in the left-most slot of \nthe Health track on the bottom of the Character board.\n3.\nSet your Oxygen counter to the max value: 7.\n4.\nTake your chosen Character’s miniature, place it in the col-\nored ring matching your Character’s color, and place the min-\niature in the Landing Zone.\n5.\nTake the  Backpack card holder with your player number \nand place it above your Character board.\n6.\nTake all Action cards for  your Character, shufﬂe them \nand  place them to the  left of your Character board, face \ndown – leave some space to the right of your Character board \nfor an Action cards discard pile.\nNote: The Contractor has 5 cards marked as Contractor and 5 cards \nmarked as Contractor: Consultant. This distinction is needed only in \nExpansions and should be ignored for now.\n7.\nTake your Character Item card – If it’s a Heavy Item, place it \non one of the Hands slots of your Character board. If it’s Ar-\nmor, place it in the Heavily Injured section of the Health track. \nThen, if the  Item has Ammo slots, place 1  Ammo token \n(\n) from the insert full-side up on each such slot.\nNote: The Contractor starts with 2 Character Items.\n8.\nFinally, take all Character Draft cards and put them back into \nthe box.\nsupport Equipment draft\nThese steps only apply to Characters other than the Contractor. Since \nthe Contractor already starts with 2 Items, they do not take part in \nthe Support Equipment draft.\nPerform the following: \n1.\nTake the Support Equipment deck, shufﬂe it, draw 7 cards \nfrom it and reveal them to all players.\n2.\nThe player with the highest player number chooses 1 of those \ncards and places it in the appropriate place in their player \narea – Heavy Item in an empty Hand slot, Armor on the Heav-\nily Injured part of the Health track.\n3.\nEach other player, in descending player number order, chooses 1 \nSupport Equipment, until all players have 1 Support Equipment.\n4.\nIf any of the  chosen Equipment have empty Tactical Gear \nslots, ﬁll them with appropriate Tactical Gear tokens from \nthe insert.\nTactical Gear tokens can be placed only in Tactical Gear slots \nof the corresponding colors. \nIn Gray slots any Tactical Gear token can be placed. \nMore about Tactical Gear tokens: see page 16.\n5.\nRemove the unchosen Support Equipment from the game and \nleave the Support Equipment deck close to the Item decks. \nThey may be used during the game.\n6.\nAs the last step, each player chooses 4 Tactical Gear tokens \nof their choice in any combination from the insert, and places \nthem in their Tactical Belt on the left side of the Character \nboard. Ammo tokens are placed full-side up. This choice can \nbe done simultaneously, but if necessary perform it in de-\nscending player number order. \nNote: For the ﬁrst game we recommend starting with 1 to-\nken of each type.\nbeginning of the game\n1.\nEach player draws 5 Action cards to their hand from their \nAction deck.\n2.\nPlayer 1 receives the Starting Player token.\n3.\nThe game begins with the Starting Player!"
+    }
+  ],
+  "visualObligations": [
+    {
+      "occurrenceId": "RB-P04-V01",
+      "pdfPageIndex": 4,
+      "visiblePrintedPageNumber": null,
+      "pageRole": "component-inventory",
+      "renderEvidence": {
+        "dpi": 160,
+        "dimensions": [
+          1361,
+          1834
+        ],
+        "imageSha256": "667d8bf30c45fdfd13cf57627670a2ed2a06358b69f80be9acc4e3e8917e2094",
+        "freshPageTextSha256": "fb208ec5350a3b74197da5d98bb46c0e17ab5a66510c7be6865c3a2776e2956d",
+        "freshPageTextCharacters": 129174
+      },
+      "visualUnit": {
+        "occurrenceId": "RB-P04-V01",
+        "type": "illustrated-main-component-inventory",
+        "bbox": [
+          200,
+          120,
+          1200,
+          1220
+        ],
+        "classification": "normative physical component counts and subtype quantities",
+        "visibleLabels": [
+          "MAIN COMPONENTS"
+        ],
+        "rows": [
+          {
+            "label": "Round track border pieces",
+            "count": 3
+          },
+          {
+            "label": "Section border pieces",
+            "count": 3
+          },
+          {
+            "label": "Room tiles",
+            "count": 23,
+            "note": "3 “A”, 3 “B”, 4 “C”, 13 “?”"
+          },
+          {
+            "label": "Corridor tiles",
+            "count": 40,
+            "note": "10 each of values 1, 2, 3 and 4"
+          },
+          {
+            "label": "Character boards",
+            "count": 5
+          },
+          {
+            "label": "Character Tiles",
+            "count": 6
+          },
+          {
+            "label": "Scanner",
+            "count": 1
+          },
+          {
+            "label": "Intruder bag",
+            "count": 1
+          },
+          {
+            "label": "numbered Backpack card holders",
+            "count": 5
+          },
+          {
+            "label": "Room Help sheet",
+            "count": 1
+          },
+          {
+            "label": "Objective Help sheet",
+            "count": 1
+          },
+          {
+            "label": "colored plastic rings",
+            "count": 6
+          },
+          {
+            "label": "Intruder Help sheet",
+            "count": 1
+          },
+          {
+            "label": "six-sided Burst dice",
+            "count": 2
+          },
+          {
+            "label": "eight-sided Shoot dice",
+            "count": 2
+          },
+          {
+            "label": "ten-sided Noise dice",
+            "count": 2
+          }
+        ],
+        "spatialRelationshipLostInPlainText": "Each quantity is bound to a pictured component; parenthetical subtype breakdowns attach only to Room and Corridor rows; three differently shaped/colored dice groups are tied to die names and side counts.",
+        "obligationClass": "normative-visual-obligation",
+        "textLayerComparison": {
+          "status": "partial-visual-structure-lost",
+          "reason": "Some printed labels/prose may survive text extraction, but the recorded spatial/graphical relation, component pixels, color/state pairing, arrows, topology, row alignment, or orientation does not.",
+          "labelsChecked": 17,
+          "labelsMatchedFreshPage": 16,
+          "labelsMatchedCheckedExtraction": 17,
+          "labelEvidence": [
+            {
+              "label": "MAIN COMPONENTS",
+              "inFreshPageText": true,
+              "inCheckedText": true
+            },
+            {
+              "label": "Round track border pieces",
+              "inFreshPageText": true,
+              "inCheckedText": true
+            },
+            {
+              "label": "Section border pieces",
+              "inFreshPageText": true,
+              "inCheckedText": true
+            },
+            {
+              "label": "Room tiles",
+              "inFreshPageText": true,
+              "inCheckedText": true
+            },
+            {
+              "label": "Corridor tiles",
+              "inFreshPageText": true,
+              "inCheckedText": true
+            },
+            {
+              "label": "Character boards",
+              "inFreshPageText": true,
+              "inCheckedText": true
+            },
+            {
+              "label": "Character Tiles",
+              "inFreshPageText": true,
+              "inCheckedText": true
+            },
+            {
+              "label": "Scanner",
+              "inFreshPageText": true,
+              "inCheckedText": true
+            },
+            {
+              "label": "Intruder bag",
+              "inFreshPageText": true,
+              "inCheckedText": true
+            },
+            {
+              "label": "numbered Backpack card holders",
+              "inFreshPageText": false,
+              "inCheckedText": true
+            },
+            {
+              "label": "Room Help sheet",
+              "inFreshPageText": true,
+              "inCheckedText": true
+            },
+            {
+              "label": "Objective Help sheet",
+              "inFreshPageText": true,
+              "inCheckedText": true
+            },
+            {
+              "label": "colored plastic rings",
+              "inFreshPageText": true,
+              "inCheckedText": true
+            },
+            {
+              "label": "Intruder Help sheet",
+              "inFreshPageText": true,
+              "inCheckedText": true
+            },
+            {
+              "label": "six-sided Burst dice",
+              "inFreshPageText": true,
+              "inCheckedText": true
+            },
+            {
+              "label": "eight-sided Shoot dice",
+              "inFreshPageText": true,
+              "inCheckedText": true
+            },
+            {
+              "label": "ten-sided Noise dice",
+              "inFreshPageText": true,
+              "inCheckedText": true
+            }
+          ]
+        }
+      }
+    },
+    {
+      "occurrenceId": "RB-P08-V01",
+      "pdfPageIndex": 8,
+      "visiblePrintedPageNumber": 8,
+      "pageRole": "setup-rules-with-placement-diagram",
+      "renderEvidence": {
+        "dpi": 160,
+        "dimensions": [
+          1361,
+          1834
+        ],
+        "imageSha256": "75cae1de522a18166b95850e1f0957fb8c4a7fabf7d95d218aac13a9d69f61fb",
+        "freshPageTextSha256": "23dadfd6a41f406ffa109d65bd822fd82aa8d0d2bf344dd3a662c57ec6af3fee",
+        "freshPageTextCharacters": 5725
+      },
+      "visualUnit": {
+        "occurrenceId": "RB-P08-V01",
+        "type": "two-sided-token-face-comparison",
+        "bbox": [
+          235,
+          970,
+          700,
+          1080
+        ],
+        "classification": "normative setup note illustration",
+        "visibleLabels": [],
+        "description": "Two red Ammo-token faces are shown side by side: one face depicts a full magazine and the other a half-full magazine.",
+        "spatialRelationshipLostInPlainText": "The note’s 'full side' and 'half-full side' terms are associated with exact pictured token faces.",
+        "obligationClass": "normative-visual-obligation",
+        "textLayerComparison": {
+          "status": "partial-visual-structure-lost",
+          "reason": "Some printed labels/prose may survive text extraction, but the recorded spatial/graphical relation, component pixels, color/state pairing, arrows, topology, row alignment, or orientation does not.",
+          "labelsChecked": 0,
+          "labelsMatchedFreshPage": 0,
+          "labelsMatchedCheckedExtraction": 0,
+          "labelEvidence": []
+        }
+      }
+    },
+    {
+      "occurrenceId": "RB-P08-V02",
+      "pdfPageIndex": 8,
+      "visiblePrintedPageNumber": 8,
+      "pageRole": "setup-rules-with-placement-diagram",
+      "renderEvidence": {
+        "dpi": 160,
+        "dimensions": [
+          1361,
+          1834
+        ],
+        "imageSha256": "75cae1de522a18166b95850e1f0957fb8c4a7fabf7d95d218aac13a9d69f61fb",
+        "freshPageTextSha256": "23dadfd6a41f406ffa109d65bd822fd82aa8d0d2bf344dd3a662c57ec6af3fee",
+        "freshPageTextCharacters": 5725
+      },
+      "visualUnit": {
+        "occurrenceId": "RB-P08-V02",
+        "type": "terminology-icon-equivalence",
+        "bbox": [
+          720,
+          405,
+          1195,
+          575
+        ],
+        "classification": "normative terminology note",
+        "visibleLabels": [
+          "PRIMEBLOODS ARE INTRUDERS"
+        ],
+        "description": "The prose equates Primebloods and Intruders and prints a circular creature-like icon immediately after 'Intruders'.",
+        "spatialRelationshipLostInPlainText": "The named term is tied to a specific printed glyph occurrence.",
+        "obligationClass": "normative-visual-obligation",
+        "textLayerComparison": {
+          "status": "partial-visual-structure-lost",
+          "reason": "Some printed labels/prose may survive text extraction, but the recorded spatial/graphical relation, component pixels, color/state pairing, arrows, topology, row alignment, or orientation does not.",
+          "labelsChecked": 1,
+          "labelsMatchedFreshPage": 1,
+          "labelsMatchedCheckedExtraction": 1,
+          "labelEvidence": [
+            {
+              "label": "PRIMEBLOODS ARE INTRUDERS",
+              "inFreshPageText": true,
+              "inCheckedText": true
+            }
+          ]
+        }
+      }
+    },
+    {
+      "occurrenceId": "RB-P09-V02",
+      "pdfPageIndex": 9,
+      "visiblePrintedPageNumber": 9,
+      "pageRole": "setup-rules-with-placement-diagram",
+      "renderEvidence": {
+        "dpi": 160,
+        "dimensions": [
+          1361,
+          1834
+        ],
+        "imageSha256": "a7aebe3a7a160662bf1d3aa647d0787b2c4b856d88ebb0283b7266bc7f67e652",
+        "freshPageTextSha256": "08a8a4ad245571e7e36f67dc4e51966e27094388ca87d0b3e3024c1dc6f94521",
+        "freshPageTextCharacters": 10135
+      },
+      "visualUnit": {
+        "occurrenceId": "RB-P09-V02",
+        "type": "inline-icon-association",
+        "bbox": [
+          710,
+          380,
+          875,
+          440
+        ],
+        "classification": "normative component-list icon association",
+        "description": "The written 'Noise markers' list item is immediately followed by a yellow triangular/radiating glyph.",
+        "spatialRelationshipLostInPlainText": "The component name is tied to a specific printed icon occurrence.",
+        "obligationClass": "normative-visual-obligation",
+        "textLayerComparison": {
+          "status": "partial-visual-structure-lost",
+          "reason": "Some printed labels/prose may survive text extraction, but the recorded spatial/graphical relation, component pixels, color/state pairing, arrows, topology, row alignment, or orientation does not.",
+          "labelsChecked": 0,
+          "labelsMatchedFreshPage": 0,
+          "labelsMatchedCheckedExtraction": 0,
+          "labelEvidence": []
+        }
+      }
+    },
+    {
+      "occurrenceId": "RB-P10-V01",
+      "pdfPageIndex": 10,
+      "visiblePrintedPageNumber": 10,
+      "pageRole": "setup-rules-prose",
+      "renderEvidence": {
+        "dpi": 160,
+        "dimensions": [
+          1361,
+          1834
+        ],
+        "imageSha256": "6b968c62c5b0674824bd0d756c3ee570125d6faa4b575a3b0b1341085be96196",
+        "freshPageTextSha256": "11cbb31bc630a80ec74500ef49b5574abaa293e7a328458cb3bb29f796ad05a5",
+        "freshPageTextCharacters": 6406
+      },
+      "visualUnit": {
+        "occurrenceId": "RB-P10-V01",
+        "type": "inline-token-face-association",
+        "bbox": [
+          285,
+          1445,
+          540,
+          1515
+        ],
+        "classification": "normative Character Setup icon association",
+        "description": "Character Setup step 7 prints a red full-magazine token face immediately after 'place 1 Ammo token' and before the phrase 'from the insert full-side up'.",
+        "spatialRelationshipLostInPlainText": "The term 'Ammo token' and 'full-side up' are tied to the exact pictured face.",
+        "obligationClass": "normative-visual-obligation",
+        "textLayerComparison": {
+          "status": "partial-visual-structure-lost",
+          "reason": "Some printed labels/prose may survive text extraction, but the recorded spatial/graphical relation, component pixels, color/state pairing, arrows, topology, row alignment, or orientation does not.",
+          "labelsChecked": 0,
+          "labelsMatchedFreshPage": 0,
+          "labelsMatchedCheckedExtraction": 0,
+          "labelEvidence": []
+        }
+      }
+    },
+    {
+      "occurrenceId": "RB-P11-V02",
+      "pdfPageIndex": 11,
+      "visiblePrintedPageNumber": 11,
+      "pageRole": "setup-illustrations",
+      "renderEvidence": {
+        "dpi": 160,
+        "dimensions": [
+          1361,
+          1834
+        ],
+        "imageSha256": "fcdbd6217b11175e4f11fcedaaa91c733bd4720b7ab3139acf649964a921145a",
+        "freshPageTextSha256": "1b112aa7d0b462b7a61493dba49f98115ecee69fb2293a92d344f07818e7ae17",
+        "freshPageTextCharacters": 1304
+      },
+      "visualUnit": {
+        "occurrenceId": "RB-P11-V02",
+        "type": "character-board-assembly-diagram",
+        "bbox": [
+          385,
+          980,
+          1155,
+          1525
+        ],
+        "classification": "normative assembly diagram",
+        "visibleLabels": [
+          "CHARACTER BOARD ASSEMBLY"
+        ],
+        "description": "Angled Character board image with two red arrows from black pin silhouettes: one arrow points to a board aperture, and one points from an Oxygen counter/pin assembly toward another board aperture.",
+        "spatialRelationshipLostInPlainText": "Arrow direction and target apertures establish how the pins/counter are inserted and where each assembled element belongs.",
+        "obligationClass": "normative-visual-obligation",
+        "textLayerComparison": {
+          "status": "partial-visual-structure-lost",
+          "reason": "Some printed labels/prose may survive text extraction, but the recorded spatial/graphical relation, component pixels, color/state pairing, arrows, topology, row alignment, or orientation does not.",
+          "labelsChecked": 1,
+          "labelsMatchedFreshPage": 0,
+          "labelsMatchedCheckedExtraction": 1,
+          "labelEvidence": [
+            {
+              "label": "CHARACTER BOARD ASSEMBLY",
+              "inFreshPageText": false,
+              "inCheckedText": true
+            }
+          ]
+        }
+      }
+    },
+    {
+      "occurrenceId": "RB-P12-V01",
+      "pdfPageIndex": 12,
+      "visiblePrintedPageNumber": 12,
+      "pageRole": "round-and-turn-rules-with-icon-keyed-lists",
+      "renderEvidence": {
+        "dpi": 160,
+        "dimensions": [
+          1361,
+          1834
+        ],
+        "imageSha256": "8055ca67a89668e42eb3606ec36be23b88b43ecfeb6cda69d8b2a58ad8d04d92",
+        "freshPageTextSha256": "33930b97fd24404456fcfb5b7a1ea59e79edc4de7d348476317d9c77a63c303d",
+        "freshPageTextCharacters": 7421
+      },
+      "visualUnit": {
+        "occurrenceId": "RB-P12-V01",
+        "type": "icon-keyed-round-sequence-summary",
+        "bbox": [
+          235,
+          355,
+          710,
+          800
+        ],
+        "classification": "normative short Round sequence",
+        "description": "The numbered Player/Intruder/Event/Cleanup summary embeds source glyphs beside Inactive Life Support Systems, Oxygen, Fire, Health, Intruders, and Characters.",
+        "spatialRelationshipLostInPlainText": "Each named state/component is associated with a specific printed glyph within its numbered step, and Player/Intruder/Event/Cleanup subheadings group step numbers into phase order.",
+        "obligationClass": "normative-visual-obligation",
+        "textLayerComparison": {
+          "status": "partial-visual-structure-lost",
+          "reason": "Some printed labels/prose may survive text extraction, but the recorded spatial/graphical relation, component pixels, color/state pairing, arrows, topology, row alignment, or orientation does not.",
+          "labelsChecked": 0,
+          "labelsMatchedFreshPage": 0,
+          "labelsMatchedCheckedExtraction": 0,
+          "labelEvidence": []
+        }
+      }
+    },
+    {
+      "occurrenceId": "RB-P14-V03",
+      "pdfPageIndex": 14,
+      "visiblePrintedPageNumber": 14,
+      "pageRole": "phase-rules-with-event-card-anatomy",
+      "renderEvidence": {
+        "dpi": 160,
+        "dimensions": [
+          1361,
+          1834
+        ],
+        "imageSha256": "fa3ceaa48e9abd76794ced104f0c724250c30a733143ca46166dc00f1a2e8e22",
+        "freshPageTextSha256": "3bc9c2058f03ac8b057ed642f51345b2eedec71aca50a8e2617f06ee6289e40a",
+        "freshPageTextCharacters": 6203
+      },
+      "visualUnit": {
+        "occurrenceId": "RB-P14-V03",
+        "type": "inline-phase-icon-associations",
+        "bbox": [
+          235,
+          175,
+          705,
+          510
+        ],
+        "classification": "normative Intruder Phase icon associations",
+        "description": "Creature-like and flame glyphs are embedded beside Intruders and Fire in the phase prose and burning rule.",
+        "spatialRelationshipLostInPlainText": "Named entities/states are tied to printed glyph occurrences within numbered phase steps.",
+        "obligationClass": "normative-visual-obligation",
+        "textLayerComparison": {
+          "status": "partial-visual-structure-lost",
+          "reason": "Some printed labels/prose may survive text extraction, but the recorded spatial/graphical relation, component pixels, color/state pairing, arrows, topology, row alignment, or orientation does not.",
+          "labelsChecked": 0,
+          "labelsMatchedFreshPage": 0,
+          "labelsMatchedCheckedExtraction": 0,
+          "labelEvidence": []
+        }
+      }
+    },
+    {
+      "occurrenceId": "RB-P15-V01",
+      "pdfPageIndex": 15,
+      "visiblePrintedPageNumber": 15,
+      "pageRole": "bag-development-and-cleanup-rules",
+      "renderEvidence": {
+        "dpi": 160,
+        "dimensions": [
+          1361,
+          1834
+        ],
+        "imageSha256": "28c6c925ddaff810c4b338bc2ff8d0eaf6a84f968495044d605765adb1fa36db",
+        "freshPageTextSha256": "df1123c1172c49bda7e5f3408e52ed3ddbd86c546284603038f8c3691ff76f04",
+        "freshPageTextCharacters": 11573
+      },
+      "visualUnit": {
+        "occurrenceId": "RB-P15-V01",
+        "type": "token-outcome-reference-table",
+        "bbox": [
+          170,
+          485,
+          635,
+          1295
+        ],
+        "classification": "normative Bag Development token-effect reference",
+        "visibleLabels": [
+          "BAG DEVELOPMENT ON INTRUDER HELP SHEET",
+          "QUEEN",
+          "ADULT",
+          "DRONE",
+          "LARVA"
+        ],
+        "rows": [
+          {
+            "tokenFace": "QUEEN",
+            "printedOutcome": "If the Queen is on the map — Activate the Queen. Otherwise — Add 2 Larva tokens to the bag."
+          },
+          {
+            "tokenFace": "ADULT and DRONE",
+            "printedOutcome": "Add 2 Queen tokens to the bag."
+          },
+          {
+            "tokenFace": "LARVA",
+            "printedOutcome": "Add 2 random Drone tokens to the bag."
+          },
+          {
+            "tokenFace": "Blank",
+            "printedOutcome": "Add 2 random Adult tokens to the bag. Return the Blank token to the bag."
+          }
+        ],
+        "spatialRelationshipLostInPlainText": "Each outcome is bound to a pictured token face; ADULT and DRONE share one outcome row; the blank teal face is distinguished by absence of a creature/word.",
+        "obligationClass": "normative-visual-obligation",
+        "textLayerComparison": {
+          "status": "partial-visual-structure-lost",
+          "reason": "Some printed labels/prose may survive text extraction, but the recorded spatial/graphical relation, component pixels, color/state pairing, arrows, topology, row alignment, or orientation does not.",
+          "labelsChecked": 7,
+          "labelsMatchedFreshPage": 6,
+          "labelsMatchedCheckedExtraction": 6,
+          "labelEvidence": [
+            {
+              "label": "BAG DEVELOPMENT ON INTRUDER HELP SHEET",
+              "inFreshPageText": true,
+              "inCheckedText": true
+            },
+            {
+              "label": "QUEEN",
+              "inFreshPageText": true,
+              "inCheckedText": true
+            },
+            {
+              "label": "ADULT",
+              "inFreshPageText": true,
+              "inCheckedText": true
+            },
+            {
+              "label": "DRONE",
+              "inFreshPageText": true,
+              "inCheckedText": true
+            },
+            {
+              "label": "LARVA",
+              "inFreshPageText": true,
+              "inCheckedText": true
+            },
+            {
+              "label": "ADULT and DRONE",
+              "inFreshPageText": false,
+              "inCheckedText": false
+            },
+            {
+              "label": "Blank",
+              "inFreshPageText": true,
+              "inCheckedText": true
+            }
+          ]
+        }
+      }
+    },
+    {
+      "occurrenceId": "RB-P15-V02",
+      "pdfPageIndex": 15,
+      "visiblePrintedPageNumber": 15,
+      "pageRole": "bag-development-and-cleanup-rules",
+      "renderEvidence": {
+        "dpi": 160,
+        "dimensions": [
+          1361,
+          1834
+        ],
+        "imageSha256": "28c6c925ddaff810c4b338bc2ff8d0eaf6a84f968495044d605765adb1fa36db",
+        "freshPageTextSha256": "df1123c1172c49bda7e5f3408e52ed3ddbd86c546284603038f8c3691ff76f04",
+        "freshPageTextCharacters": 11573
+      },
+      "visualUnit": {
+        "occurrenceId": "RB-P15-V02",
+        "type": "round-track-token-resolution-key",
+        "bbox": [
+          660,
+          640,
+          1185,
+          1145
+        ],
+        "classification": "normative Time Advancement token definitions",
+        "visibleLabels": [
+          "AUTODESTRUCTION TOKEN",
+          "LANDER TOKEN",
+          "INACTIVE",
+          "ACTIVE"
+        ],
+        "description": "Autodestruction and Lander token glyphs appear beside their timing rules; the Lander rule also pictures the green INACTIVE and red ACTIVE Anti-Aircraft faces within the relevant branches.",
+        "spatialRelationshipLostInPlainText": "Token images identify the exact Round-track markers and Anti-Aircraft face/state associated with successful versus destroyed Lander outcomes.",
+        "obligationClass": "normative-visual-obligation",
+        "textLayerComparison": {
+          "status": "partial-visual-structure-lost",
+          "reason": "Some printed labels/prose may survive text extraction, but the recorded spatial/graphical relation, component pixels, color/state pairing, arrows, topology, row alignment, or orientation does not.",
+          "labelsChecked": 4,
+          "labelsMatchedFreshPage": 4,
+          "labelsMatchedCheckedExtraction": 4,
+          "labelEvidence": [
+            {
+              "label": "AUTODESTRUCTION TOKEN",
+              "inFreshPageText": true,
+              "inCheckedText": true
+            },
+            {
+              "label": "LANDER TOKEN",
+              "inFreshPageText": true,
+              "inCheckedText": true
+            },
+            {
+              "label": "INACTIVE",
+              "inFreshPageText": true,
+              "inCheckedText": true
+            },
+            {
+              "label": "ACTIVE",
+              "inFreshPageText": true,
+              "inCheckedText": true
+            }
+          ]
+        }
+      }
+    },
+    {
+      "occurrenceId": "RB-P16-V01",
+      "pdfPageIndex": 16,
+      "visiblePrintedPageNumber": 16,
+      "pageRole": "character-board-anatomy-and-gear-rules",
+      "renderEvidence": {
+        "dpi": 160,
+        "dimensions": [
+          1361,
+          1834
+        ],
+        "imageSha256": "e0de67818077cbfeeb6385d0a837351a711ab567accc1ba65f02caa64f1291c9",
+        "freshPageTextSha256": "6e28acad16a957171afde90c13987d1f6d8270740253da01183f8315ad03e634",
+        "freshPageTextCharacters": 4932
+      },
+      "visualUnit": {
+        "occurrenceId": "RB-P16-V01",
+        "type": "character-board-anatomy-diagram",
+        "bbox": [
+          230,
+          515,
+          1190,
+          945
+        ],
+        "classification": "normative component anatomy",
+        "visibleLabels": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "D",
+          "E",
+          "F",
+          "G",
+          "G",
+          "MEDICAL SUPPORT",
+          "TACTICAL BELT",
+          "BACKPACK",
+          "BASIC ACTIONS",
+          "ACTION CARD DISCARD",
+          "HEALTHY",
+          "INJURED",
+          "HEAVILY INJURED"
+        ],
+        "description": "Red outlines and white letters mark multiple regions on one assembled Character board/tile: title/rank area, Health track, Tactical Belt, two Hand Slots, Oxygen area, Basic Actions, Action-card discard area, and lateral item spaces.",
+        "spatialRelationshipLostInPlainText": "Repeated labels D and G bind one concept to two separate physical regions; outlines establish exact boundaries and adjacency of every board part.",
+        "obligationClass": "normative-visual-obligation",
+        "textLayerComparison": {
+          "status": "partial-visual-structure-lost",
+          "reason": "Some printed labels/prose may survive text extraction, but the recorded spatial/graphical relation, component pixels, color/state pairing, arrows, topology, row alignment, or orientation does not.",
+          "labelsChecked": 8,
+          "labelsMatchedFreshPage": 2,
+          "labelsMatchedCheckedExtraction": 8,
+          "labelEvidence": [
+            {
+              "label": "MEDICAL SUPPORT",
+              "inFreshPageText": true,
+              "inCheckedText": true
+            },
+            {
+              "label": "TACTICAL BELT",
+              "inFreshPageText": true,
+              "inCheckedText": true
+            },
+            {
+              "label": "BACKPACK",
+              "inFreshPageText": false,
+              "inCheckedText": true
+            },
+            {
+              "label": "BASIC ACTIONS",
+              "inFreshPageText": false,
+              "inCheckedText": true
+            },
+            {
+              "label": "ACTION CARD DISCARD",
+              "inFreshPageText": false,
+              "inCheckedText": true
+            },
+            {
+              "label": "HEALTHY",
+              "inFreshPageText": false,
+              "inCheckedText": true
+            },
+            {
+              "label": "INJURED",
+              "inFreshPageText": false,
+              "inCheckedText": true
+            },
+            {
+              "label": "HEAVILY INJURED",
+              "inFreshPageText": false,
+              "inCheckedText": true
+            }
+          ]
+        }
+      }
+    },
+    {
+      "occurrenceId": "RB-P19-V01",
+      "pdfPageIndex": 19,
+      "visiblePrintedPageNumber": 19,
+      "pageRole": "map-sections-rules-and-slot-diagram",
+      "renderEvidence": {
+        "dpi": 160,
+        "dimensions": [
+          1361,
+          1834
+        ],
+        "imageSha256": "13ccec5174fa7ce56ceae4b2f2e8afa2b75b70bc528c9a732cd0d53c5d50a44c",
+        "freshPageTextSha256": "f96ccb02cd4b27425953a563fe80d234f4fb0a9d49ef4195eb5b625b213078a5",
+        "freshPageTextCharacters": 10554
+      },
+      "visualUnit": {
+        "occurrenceId": "RB-P19-V01",
+        "type": "facility-section-slot-boundary-diagram",
+        "bbox": [
+          165,
+          1080,
+          1135,
+          1725
+        ],
+        "classification": "normative map boundary and legal-slot diagram",
+        "visibleLabels": [
+          "SECTIONS IN THE FACILITY",
+          "SECTION A",
+          "SECTION B",
+          "SECTION C",
+          "This illustration shows all slots in which Rooms and Corridors may appear."
+        ],
+        "description": "Top-down empty Facility silhouette uses green outlines for Section A, blue for Section B, and red for Section C, with all Room and Corridor slot outlines, border pieces, Round track, and Hibernatorium/Landing Zone area.",
+        "spatialRelationshipLostInPlainText": "Exact legal Room/Corridor slots, outer Facility boundary, stepped section extents, inter-section borders, cross-border slots, and section color membership are carried only by geometry.",
+        "obligationClass": "normative-visual-obligation",
+        "textLayerComparison": {
+          "status": "partial-visual-structure-lost",
+          "reason": "Some printed labels/prose may survive text extraction, but the recorded spatial/graphical relation, component pixels, color/state pairing, arrows, topology, row alignment, or orientation does not.",
+          "labelsChecked": 5,
+          "labelsMatchedFreshPage": 3,
+          "labelsMatchedCheckedExtraction": 5,
+          "labelEvidence": [
+            {
+              "label": "SECTIONS IN THE FACILITY",
+              "inFreshPageText": false,
+              "inCheckedText": true
+            },
+            {
+              "label": "SECTION A",
+              "inFreshPageText": true,
+              "inCheckedText": true
+            },
+            {
+              "label": "SECTION B",
+              "inFreshPageText": true,
+              "inCheckedText": true
+            },
+            {
+              "label": "SECTION C",
+              "inFreshPageText": true,
+              "inCheckedText": true
+            },
+            {
+              "label": "This illustration shows all slots in which Rooms and Corridors may appear.",
+              "inFreshPageText": false,
+              "inCheckedText": true
+            }
+          ]
+        }
+      }
+    },
+    {
+      "occurrenceId": "RB-P19-V02",
+      "pdfPageIndex": 19,
+      "visiblePrintedPageNumber": 19,
+      "pageRole": "map-sections-rules-and-slot-diagram",
+      "renderEvidence": {
+        "dpi": 160,
+        "dimensions": [
+          1361,
+          1834
+        ],
+        "imageSha256": "13ccec5174fa7ce56ceae4b2f2e8afa2b75b70bc528c9a732cd0d53c5d50a44c",
+        "freshPageTextSha256": "f96ccb02cd4b27425953a563fe80d234f4fb0a9d49ef4195eb5b625b213078a5",
+        "freshPageTextCharacters": 10554
+      },
+      "visualUnit": {
+        "occurrenceId": "RB-P19-V02",
+        "type": "life-support-state-icon-definition",
+        "bbox": [
+          220,
+          565,
+          620,
+          675
+        ],
+        "classification": "normative Section state icon association",
+        "description": "Uncrossed and diagonally crossed cyan capsule-like glyphs are printed after Active and Inactive in the Life Support System bullet.",
+        "spatialRelationshipLostInPlainText": "The two state words are tied to exact paired glyph variants.",
+        "obligationClass": "normative-visual-obligation",
+        "textLayerComparison": {
+          "status": "partial-visual-structure-lost",
+          "reason": "Some printed labels/prose may survive text extraction, but the recorded spatial/graphical relation, component pixels, color/state pairing, arrows, topology, row alignment, or orientation does not.",
+          "labelsChecked": 0,
+          "labelsMatchedFreshPage": 0,
+          "labelsMatchedCheckedExtraction": 0,
+          "labelEvidence": []
+        }
+      }
+    },
+    {
+      "occurrenceId": "RB-P20-V01",
+      "pdfPageIndex": 20,
+      "visiblePrintedPageNumber": 20,
+      "pageRole": "room-anatomy-and-room-rules",
+      "renderEvidence": {
+        "dpi": 160,
+        "dimensions": [
+          1361,
+          1834
+        ],
+        "imageSha256": "7dbd473b9c26b957eac14ba36946f6d5a4530e765c489eba85ed682e7ae83818",
+        "freshPageTextSha256": "bbc423d99ca7cafb30d674b0bb3bd4ffdd4fc8c2c4c16d9aa6ab00a131de4653",
+        "freshPageTextCharacters": 3538
+      },
+      "visualUnit": {
+        "occurrenceId": "RB-P20-V01",
+        "type": "room-tile-front-back-anatomy-diagram",
+        "bbox": [
+          225,
+          135,
+          1195,
+          555
+        ],
+        "classification": "normative component anatomy",
+        "visibleLabels": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F",
+          "LIFE SUPPORT CONTROL “A”",
+          "A",
+          "15"
+        ],
+        "parts": [
+          {
+            "label": "A",
+            "printedExplanation": "Name"
+          },
+          {
+            "label": "B",
+            "printedExplanation": "Effect"
+          },
+          {
+            "label": "C",
+            "printedExplanation": "Item Icons"
+          },
+          {
+            "label": "D",
+            "printedExplanation": "Computer Icon"
+          },
+          {
+            "label": "E",
+            "printedExplanation": "Room Type and Room ID"
+          },
+          {
+            "label": "F",
+            "printedExplanation": "Other Icons"
+          }
+        ],
+        "description": "A face-up Life Support Control A Room and an A-backed Room are shown. Red outlines and letters point to title, effect panel, two Item icons, Computer icon, type/ID field, other-icon area, and back letter.",
+        "spatialRelationshipLostInPlainText": "A–F outlines identify exact front-face regions; E binds both Section letter and numeric ID; the separate back image shows how Section type is encoded face down.",
+        "obligationClass": "normative-visual-obligation",
+        "textLayerComparison": {
+          "status": "partial-visual-structure-lost",
+          "reason": "Some printed labels/prose may survive text extraction, but the recorded spatial/graphical relation, component pixels, color/state pairing, arrows, topology, row alignment, or orientation does not.",
+          "labelsChecked": 8,
+          "labelsMatchedFreshPage": 8,
+          "labelsMatchedCheckedExtraction": 8,
+          "labelEvidence": [
+            {
+              "label": "LIFE SUPPORT CONTROL “A”",
+              "inFreshPageText": true,
+              "inCheckedText": true
+            },
+            {
+              "label": "15",
+              "inFreshPageText": true,
+              "inCheckedText": true
+            },
+            {
+              "label": "Name",
+              "inFreshPageText": true,
+              "inCheckedText": true
+            },
+            {
+              "label": "Effect",
+              "inFreshPageText": true,
+              "inCheckedText": true
+            },
+            {
+              "label": "Item Icons",
+              "inFreshPageText": true,
+              "inCheckedText": true
+            },
+            {
+              "label": "Computer Icon",
+              "inFreshPageText": true,
+              "inCheckedText": true
+            },
+            {
+              "label": "Room Type and Room ID",
+              "inFreshPageText": true,
+              "inCheckedText": true
+            },
+            {
+              "label": "Other Icons",
+              "inFreshPageText": true,
+              "inCheckedText": true
+            }
+          ]
+        }
+      }
+    },
+    {
+      "occurrenceId": "RB-P20-V02",
+      "pdfPageIndex": 20,
+      "visiblePrintedPageNumber": 20,
+      "pageRole": "room-anatomy-and-room-rules",
+      "renderEvidence": {
+        "dpi": 160,
+        "dimensions": [
+          1361,
+          1834
+        ],
+        "imageSha256": "7dbd473b9c26b957eac14ba36946f6d5a4530e765c489eba85ed682e7ae83818",
+        "freshPageTextSha256": "bbc423d99ca7cafb30d674b0bb3bd4ffdd4fc8c2c4c16d9aa6ab00a131de4653",
+        "freshPageTextCharacters": 3538
+      },
+      "visualUnit": {
+        "occurrenceId": "RB-P20-V02",
+        "type": "room-restriction-glyph-definitions",
+        "bbox": [
+          240,
+          1040,
+          700,
+          1235
+        ],
+        "classification": "normative Other Icons definitions",
+        "description": "Two red prohibition-style glyphs precede separate bullets: one marks Rooms that are never Secured and cannot receive Secure tokens; one marks Rooms that can never be broken and never receive a Malfunction marker.",
+        "spatialRelationshipLostInPlainText": "Each visually similar crossed glyph is tied to a different base silhouette and distinct restriction.",
+        "obligationClass": "normative-visual-obligation",
+        "textLayerComparison": {
+          "status": "partial-visual-structure-lost",
+          "reason": "Some printed labels/prose may survive text extraction, but the recorded spatial/graphical relation, component pixels, color/state pairing, arrows, topology, row alignment, or orientation does not.",
+          "labelsChecked": 0,
+          "labelsMatchedFreshPage": 0,
+          "labelsMatchedCheckedExtraction": 0,
+          "labelEvidence": []
+        }
+      }
+    },
+    {
+      "occurrenceId": "RB-P20-V03",
+      "pdfPageIndex": 20,
+      "visiblePrintedPageNumber": 20,
+      "pageRole": "room-anatomy-and-room-rules",
+      "renderEvidence": {
+        "dpi": 160,
+        "dimensions": [
+          1361,
+          1834
+        ],
+        "imageSha256": "7dbd473b9c26b957eac14ba36946f6d5a4530e765c489eba85ed682e7ae83818",
+        "freshPageTextSha256": "bbc423d99ca7cafb30d674b0bb3bd4ffdd4fc8c2c4c16d9aa6ab00a131de4653",
+        "freshPageTextCharacters": 3538
+      },
+      "visualUnit": {
+        "occurrenceId": "RB-P20-V03",
+        "type": "inline-nest-fire-icon-association",
+        "bbox": [
+          720,
+          920,
+          1185,
+          1025
+        ],
+        "classification": "normative Fire/Nest association",
+        "visibleLabels": [
+          "FIRE DESTROYING EGGS"
+        ],
+        "description": "A flame glyph is embedded after 'If a Fire' in the Nest callout.",
+        "spatialRelationshipLostInPlainText": "The named Fire state is tied to a printed glyph occurrence.",
+        "obligationClass": "normative-visual-obligation",
+        "textLayerComparison": {
+          "status": "partial-visual-structure-lost",
+          "reason": "Some printed labels/prose may survive text extraction, but the recorded spatial/graphical relation, component pixels, color/state pairing, arrows, topology, row alignment, or orientation does not.",
+          "labelsChecked": 1,
+          "labelsMatchedFreshPage": 1,
+          "labelsMatchedCheckedExtraction": 1,
+          "labelEvidence": [
+            {
+              "label": "FIRE DESTROYING EGGS",
+              "inFreshPageText": true,
+              "inCheckedText": true
+            }
+          ]
+        }
+      }
+    },
+    {
+      "occurrenceId": "RB-P21-V02",
+      "pdfPageIndex": 21,
+      "visiblePrintedPageNumber": 21,
+      "pageRole": "corridor-anatomy-and-capacity-rules",
+      "renderEvidence": {
+        "dpi": 160,
+        "dimensions": [
+          1361,
+          1834
+        ],
+        "imageSha256": "066dcb7a7797b3bf66bc17789bbd4ded47b8f2340a34f447d718c0c7eb8d230f",
+        "freshPageTextSha256": "d3fbf149aded3f7c56417867b8207f083794d663763475f4c124395d977496ad",
+        "freshPageTextCharacters": 10566
+      },
+      "visualUnit": {
+        "occurrenceId": "RB-P21-V02",
+        "type": "unexplored-corridor-topology-example",
+        "bbox": [
+          660,
+          955,
+          1135,
+          1350
+        ],
+        "classification": "normative illustrated definition/example",
+        "visibleLabels": [
+          "UNEXPLORED CORRIDORS"
+        ],
+        "description": "Several Room/Corridor clusters are pictured; red outlines trace Corridors connected to only one Room, while other board elements remain unoutlined.",
+        "spatialRelationshipLostInPlainText": "The topology of one-ended versus two-ended Corridors, and which exact component boundaries count as an Unexplored Corridor, is shown graphically.",
+        "obligationClass": "normative-visual-obligation",
+        "textLayerComparison": {
+          "status": "partial-visual-structure-lost",
+          "reason": "Some printed labels/prose may survive text extraction, but the recorded spatial/graphical relation, component pixels, color/state pairing, arrows, topology, row alignment, or orientation does not.",
+          "labelsChecked": 1,
+          "labelsMatchedFreshPage": 1,
+          "labelsMatchedCheckedExtraction": 1,
+          "labelEvidence": [
+            {
+              "label": "UNEXPLORED CORRIDORS",
+              "inFreshPageText": true,
+              "inCheckedText": true
+            }
+          ]
+        }
+      }
+    },
+    {
+      "occurrenceId": "RB-P22-V02",
+      "pdfPageIndex": 22,
+      "visiblePrintedPageNumber": 22,
+      "pageRole": "door-state-and-blocking-rules-with-example",
+      "renderEvidence": {
+        "dpi": 160,
+        "dimensions": [
+          1361,
+          1834
+        ],
+        "imageSha256": "f6739d84908e0d2cfe08b77a3e8cf41c2ecdec11fb12d1ba6d2f25b0a6928b01",
+        "freshPageTextSha256": "bfb95256704e2d96bc4c811087cee7b97ddee7860d252c54763020a6b180e240",
+        "freshPageTextCharacters": 3726
+      },
+      "visualUnit": {
+        "occurrenceId": "RB-P22-V02",
+        "type": "door-blocking-worked-map-example",
+        "bbox": [
+          185,
+          695,
+          705,
+          1670
+        ],
+        "classification": "worked explanatory example",
+        "visibleLabels": [
+          "CORRIDOR A",
+          "CORRIDOR B",
+          "CORRIDOR C"
+        ],
+        "description": "Four Rooms and three Corridors form a branching map. Door slots/tokens are highlighted yellow, Intruder models in Corridors A and C are highlighted green, and prose explains which Doors may open and which Intruders can be Burst.",
+        "spatialRelationshipLostInPlainText": "The outcome depends on exact model positions, intervening Door locations/states, branching paths, and Corridor labels; highlights bind prose references to those positions.",
+        "obligationClass": "worked-example-visual",
+        "textLayerComparison": {
+          "status": "partial-visual-structure-lost",
+          "reason": "Some printed labels/prose may survive text extraction, but the recorded spatial/graphical relation, component pixels, color/state pairing, arrows, topology, row alignment, or orientation does not.",
+          "labelsChecked": 3,
+          "labelsMatchedFreshPage": 3,
+          "labelsMatchedCheckedExtraction": 3,
+          "labelEvidence": [
+            {
+              "label": "CORRIDOR A",
+              "inFreshPageText": true,
+              "inCheckedText": true
+            },
+            {
+              "label": "CORRIDOR B",
+              "inFreshPageText": true,
+              "inCheckedText": true
+            },
+            {
+              "label": "CORRIDOR C",
+              "inFreshPageText": true,
+              "inCheckedText": true
+            }
+          ]
+        }
+      }
+    },
+    {
+      "occurrenceId": "RB-P23-V01",
+      "pdfPageIndex": 23,
+      "visiblePrintedPageNumber": 23,
+      "pageRole": "map-marker-token-rules",
+      "renderEvidence": {
+        "dpi": 160,
+        "dimensions": [
+          1361,
+          1834
+        ],
+        "imageSha256": "92599ab0d939392f28b878e57a6c38e68dee43e39695134a05d565401c55dd8f",
+        "freshPageTextSha256": "dc85ed2c8e64982e45113e3ab511bfa4d1ce0357f50ffca786300d024d8b97dd",
+        "freshPageTextCharacters": 11929
+      },
+      "visualUnit": {
+        "occurrenceId": "RB-P23-V01",
+        "type": "room-marker-token-placement-example",
+        "bbox": [
+          170,
+          180,
+          640,
+          620
+        ],
+        "classification": "illustrated state example",
+        "description": "One Room tile contains a Character model/ring, two blue shield-like tokens, one orange flame marker, and Room-side Item icons/metadata.",
+        "spatialRelationshipLostInPlainText": "The example shows which marker/token types occupy a Room, how multiple pieces coexist, and the physical distinction between markers on the Room and printed Room icons.",
+        "obligationClass": "worked-example-visual",
+        "textLayerComparison": {
+          "status": "partial-visual-structure-lost",
+          "reason": "Some printed labels/prose may survive text extraction, but the recorded spatial/graphical relation, component pixels, color/state pairing, arrows, topology, row alignment, or orientation does not.",
+          "labelsChecked": 0,
+          "labelsMatchedFreshPage": 0,
+          "labelsMatchedCheckedExtraction": 0,
+          "labelEvidence": []
+        }
+      }
+    }
+  ],
+  "componentInventory": [
+    {
+      "label": "Round track border pieces",
+      "count": 3
+    },
+    {
+      "label": "Section border pieces",
+      "count": 3
+    },
+    {
+      "label": "Room tiles",
+      "count": 23,
+      "breakdown": {
+        "A": 3,
+        "B": 3,
+        "C": 4,
+        "?": 13
+      }
+    },
+    {
+      "label": "Corridor tiles",
+      "count": 40,
+      "breakdown": {
+        "1": 10,
+        "2": 10,
+        "3": 10,
+        "4": 10
+      }
+    },
+    {
+      "label": "Character boards",
+      "count": 5
+    },
+    {
+      "label": "Character Tiles",
+      "count": 6
+    },
+    {
+      "label": "Scanner",
+      "count": 1
+    },
+    {
+      "label": "Intruder bag",
+      "count": 1
+    },
+    {
+      "label": "numbered Backpack card holders",
+      "count": 5
+    },
+    {
+      "label": "Room Help sheet",
+      "count": 1
+    },
+    {
+      "label": "Objective Help sheet",
+      "count": 1
+    },
+    {
+      "label": "colored plastic rings",
+      "count": 6
+    },
+    {
+      "label": "Intruder Help sheet",
+      "count": 1
+    },
+    {
+      "label": "six-sided Burst dice",
+      "count": 2
+    },
+    {
+      "label": "eight-sided Shoot dice",
+      "count": 2
+    },
+    {
+      "label": "ten-sided Noise dice",
+      "count": 2
+    }
+  ],
+  "roomSlots": [
+    {
+      "slotId": "A-R01",
+      "slotKind": "variable-room-slot",
+      "section": "A",
+      "allowedRoomTypes": [
+        "A",
+        "?"
+      ],
+      "shape": "regular-pointy-top-hexagon",
+      "edgeDirections": [
+        "NE",
+        "E",
+        "SE",
+        "SW",
+        "W",
+        "NW"
+      ],
+      "sourceLocalBbox": [
+        230,
+        104,
+        72,
+        65
+      ],
+      "fullPageBbox": [
+        395,
+        1184,
+        467,
+        1249
+      ],
+      "sourceLocalCenter": [
+        265.5,
+        136.0
+      ],
+      "fullPageCenter": [
+        430.5,
+        1216.0
+      ],
+      "reservedCorridorSpaceOnAllEdges": true
+    },
+    {
+      "slotId": "A-R02",
+      "slotKind": "variable-room-slot",
+      "section": "A",
+      "allowedRoomTypes": [
+        "A",
+        "?"
+      ],
+      "shape": "regular-pointy-top-hexagon",
+      "edgeDirections": [
+        "NE",
+        "E",
+        "SE",
+        "SW",
+        "W",
+        "NW"
+      ],
+      "sourceLocalBbox": [
+        349,
+        104,
+        72,
+        65
+      ],
+      "fullPageBbox": [
+        514,
+        1184,
+        586,
+        1249
+      ],
+      "sourceLocalCenter": [
+        384.5,
+        136.0
+      ],
+      "fullPageCenter": [
+        549.5,
+        1216.0
+      ],
+      "reservedCorridorSpaceOnAllEdges": true
+    },
+    {
+      "slotId": "A-R03",
+      "slotKind": "variable-room-slot",
+      "section": "A",
+      "allowedRoomTypes": [
+        "A",
+        "?"
+      ],
+      "shape": "regular-pointy-top-hexagon",
+      "edgeDirections": [
+        "NE",
+        "E",
+        "SE",
+        "SW",
+        "W",
+        "NW"
+      ],
+      "sourceLocalBbox": [
+        290,
+        207,
+        71,
+        65
+      ],
+      "fullPageBbox": [
+        455,
+        1287,
+        526,
+        1352
+      ],
+      "sourceLocalCenter": [
+        325.0,
+        239.0
+      ],
+      "fullPageCenter": [
+        490.0,
+        1319.0
+      ],
+      "reservedCorridorSpaceOnAllEdges": true
+    },
+    {
+      "slotId": "A-R04",
+      "slotKind": "variable-room-slot",
+      "section": "A",
+      "allowedRoomTypes": [
+        "A",
+        "?"
+      ],
+      "shape": "regular-pointy-top-hexagon",
+      "edgeDirections": [
+        "NE",
+        "E",
+        "SE",
+        "SW",
+        "W",
+        "NW"
+      ],
+      "sourceLocalBbox": [
+        348,
+        308,
+        73,
+        68
+      ],
+      "fullPageBbox": [
+        513,
+        1388,
+        586,
+        1456
+      ],
+      "sourceLocalCenter": [
+        384.0,
+        341.5
+      ],
+      "fullPageCenter": [
+        549.0,
+        1421.5
+      ],
+      "reservedCorridorSpaceOnAllEdges": true
+    },
+    {
+      "slotId": "A-R05",
+      "slotKind": "variable-room-slot",
+      "section": "A",
+      "allowedRoomTypes": [
+        "A",
+        "?"
+      ],
+      "shape": "regular-pointy-top-hexagon",
+      "edgeDirections": [
+        "NE",
+        "E",
+        "SE",
+        "SW",
+        "W",
+        "NW"
+      ],
+      "sourceLocalBbox": [
+        290,
+        413,
+        71,
+        64
+      ],
+      "fullPageBbox": [
+        455,
+        1493,
+        526,
+        1557
+      ],
+      "sourceLocalCenter": [
+        325.0,
+        444.5
+      ],
+      "fullPageCenter": [
+        490.0,
+        1524.5
+      ],
+      "reservedCorridorSpaceOnAllEdges": true
+    },
+    {
+      "slotId": "A-R06",
+      "slotKind": "variable-room-slot",
+      "section": "A",
+      "allowedRoomTypes": [
+        "A",
+        "?"
+      ],
+      "shape": "regular-pointy-top-hexagon",
+      "edgeDirections": [
+        "NE",
+        "E",
+        "SE",
+        "SW",
+        "W",
+        "NW"
+      ],
+      "sourceLocalBbox": [
+        230,
+        516,
+        72,
+        64
+      ],
+      "fullPageBbox": [
+        395,
+        1596,
+        467,
+        1660
+      ],
+      "sourceLocalCenter": [
+        265.5,
+        547.5
+      ],
+      "fullPageCenter": [
+        430.5,
+        1627.5
+      ],
+      "reservedCorridorSpaceOnAllEdges": true
+    },
+    {
+      "slotId": "A-R07",
+      "slotKind": "variable-room-slot",
+      "section": "A",
+      "allowedRoomTypes": [
+        "A",
+        "?"
+      ],
+      "shape": "regular-pointy-top-hexagon",
+      "edgeDirections": [
+        "NE",
+        "E",
+        "SE",
+        "SW",
+        "W",
+        "NW"
+      ],
+      "sourceLocalBbox": [
+        349,
+        515,
+        72,
+        65
+      ],
+      "fullPageBbox": [
+        514,
+        1595,
+        586,
+        1660
+      ],
+      "sourceLocalCenter": [
+        384.5,
+        547.0
+      ],
+      "fullPageCenter": [
+        549.5,
+        1627.0
+      ],
+      "reservedCorridorSpaceOnAllEdges": true
+    },
+    {
+      "slotId": "B-R01",
+      "slotKind": "variable-room-slot",
+      "section": "B",
+      "allowedRoomTypes": [
+        "B",
+        "?"
+      ],
+      "shape": "regular-pointy-top-hexagon",
+      "edgeDirections": [
+        "NE",
+        "E",
+        "SE",
+        "SW",
+        "W",
+        "NW"
+      ],
+      "sourceLocalBbox": [
+        408,
+        207,
+        73,
+        64
+      ],
+      "fullPageBbox": [
+        573,
+        1287,
+        646,
+        1351
+      ],
+      "sourceLocalCenter": [
+        444.0,
+        238.5
+      ],
+      "fullPageCenter": [
+        609.0,
+        1318.5
+      ],
+      "reservedCorridorSpaceOnAllEdges": true
+    },
+    {
+      "slotId": "B-R02",
+      "slotKind": "variable-room-slot",
+      "section": "B",
+      "allowedRoomTypes": [
+        "B",
+        "?"
+      ],
+      "shape": "regular-pointy-top-hexagon",
+      "edgeDirections": [
+        "NE",
+        "E",
+        "SE",
+        "SW",
+        "W",
+        "NW"
+      ],
+      "sourceLocalBbox": [
+        528,
+        207,
+        72,
+        64
+      ],
+      "fullPageBbox": [
+        693,
+        1287,
+        765,
+        1351
+      ],
+      "sourceLocalCenter": [
+        563.5,
+        238.5
+      ],
+      "fullPageCenter": [
+        728.5,
+        1318.5
+      ],
+      "reservedCorridorSpaceOnAllEdges": true
+    },
+    {
+      "slotId": "B-R03",
+      "slotKind": "variable-room-slot",
+      "section": "B",
+      "allowedRoomTypes": [
+        "B",
+        "?"
+      ],
+      "shape": "regular-pointy-top-hexagon",
+      "edgeDirections": [
+        "NE",
+        "E",
+        "SE",
+        "SW",
+        "W",
+        "NW"
+      ],
+      "sourceLocalBbox": [
+        468,
+        310,
+        72,
+        64
+      ],
+      "fullPageBbox": [
+        633,
+        1390,
+        705,
+        1454
+      ],
+      "sourceLocalCenter": [
+        503.5,
+        341.5
+      ],
+      "fullPageCenter": [
+        668.5,
+        1421.5
+      ],
+      "reservedCorridorSpaceOnAllEdges": true
+    },
+    {
+      "slotId": "B-R04",
+      "slotKind": "variable-room-slot",
+      "section": "B",
+      "allowedRoomTypes": [
+        "B",
+        "?"
+      ],
+      "shape": "regular-pointy-top-hexagon",
+      "edgeDirections": [
+        "NE",
+        "E",
+        "SE",
+        "SW",
+        "W",
+        "NW"
+      ],
+      "sourceLocalBbox": [
+        408,
+        413,
+        73,
+        64
+      ],
+      "fullPageBbox": [
+        573,
+        1493,
+        646,
+        1557
+      ],
+      "sourceLocalCenter": [
+        444.0,
+        444.5
+      ],
+      "fullPageCenter": [
+        609.0,
+        1524.5
+      ],
+      "reservedCorridorSpaceOnAllEdges": true
+    },
+    {
+      "slotId": "B-R05",
+      "slotKind": "variable-room-slot",
+      "section": "B",
+      "allowedRoomTypes": [
+        "B",
+        "?"
+      ],
+      "shape": "regular-pointy-top-hexagon",
+      "edgeDirections": [
+        "NE",
+        "E",
+        "SE",
+        "SW",
+        "W",
+        "NW"
+      ],
+      "sourceLocalBbox": [
+        528,
+        413,
+        72,
+        64
+      ],
+      "fullPageBbox": [
+        693,
+        1493,
+        765,
+        1557
+      ],
+      "sourceLocalCenter": [
+        563.5,
+        444.5
+      ],
+      "fullPageCenter": [
+        728.5,
+        1524.5
+      ],
+      "reservedCorridorSpaceOnAllEdges": true
+    },
+    {
+      "slotId": "B-R06",
+      "slotKind": "variable-room-slot",
+      "section": "B",
+      "allowedRoomTypes": [
+        "B",
+        "?"
+      ],
+      "shape": "regular-pointy-top-hexagon",
+      "edgeDirections": [
+        "NE",
+        "E",
+        "SE",
+        "SW",
+        "W",
+        "NW"
+      ],
+      "sourceLocalBbox": [
+        468,
+        515,
+        71,
+        65
+      ],
+      "fullPageBbox": [
+        633,
+        1595,
+        704,
+        1660
+      ],
+      "sourceLocalCenter": [
+        503.0,
+        547.0
+      ],
+      "fullPageCenter": [
+        668.0,
+        1627.0
+      ],
+      "reservedCorridorSpaceOnAllEdges": true
+    },
+    {
+      "slotId": "C-R01",
+      "slotKind": "variable-room-slot",
+      "section": "C",
+      "allowedRoomTypes": [
+        "C",
+        "?"
+      ],
+      "shape": "regular-pointy-top-hexagon",
+      "edgeDirections": [
+        "NE",
+        "E",
+        "SE",
+        "SW",
+        "W",
+        "NW"
+      ],
+      "sourceLocalBbox": [
+        587,
+        104,
+        71,
+        64
+      ],
+      "fullPageBbox": [
+        752,
+        1184,
+        823,
+        1248
+      ],
+      "sourceLocalCenter": [
+        622.0,
+        135.5
+      ],
+      "fullPageCenter": [
+        787.0,
+        1215.5
+      ],
+      "reservedCorridorSpaceOnAllEdges": true
+    },
+    {
+      "slotId": "C-R02",
+      "slotKind": "variable-room-slot",
+      "section": "C",
+      "allowedRoomTypes": [
+        "C",
+        "?"
+      ],
+      "shape": "regular-pointy-top-hexagon",
+      "edgeDirections": [
+        "NE",
+        "E",
+        "SE",
+        "SW",
+        "W",
+        "NW"
+      ],
+      "sourceLocalBbox": [
+        706,
+        104,
+        71,
+        64
+      ],
+      "fullPageBbox": [
+        871,
+        1184,
+        942,
+        1248
+      ],
+      "sourceLocalCenter": [
+        741.0,
+        135.5
+      ],
+      "fullPageCenter": [
+        906.0,
+        1215.5
+      ],
+      "reservedCorridorSpaceOnAllEdges": true
+    },
+    {
+      "slotId": "C-R03",
+      "slotKind": "variable-room-slot",
+      "section": "C",
+      "allowedRoomTypes": [
+        "C",
+        "?"
+      ],
+      "shape": "regular-pointy-top-hexagon",
+      "edgeDirections": [
+        "NE",
+        "E",
+        "SE",
+        "SW",
+        "W",
+        "NW"
+      ],
+      "sourceLocalBbox": [
+        646,
+        207,
+        72,
+        65
+      ],
+      "fullPageBbox": [
+        811,
+        1287,
+        883,
+        1352
+      ],
+      "sourceLocalCenter": [
+        681.5,
+        239.0
+      ],
+      "fullPageCenter": [
+        846.5,
+        1319.0
+      ],
+      "reservedCorridorSpaceOnAllEdges": true
+    },
+    {
+      "slotId": "C-R04",
+      "slotKind": "variable-room-slot",
+      "section": "C",
+      "allowedRoomTypes": [
+        "C",
+        "?"
+      ],
+      "shape": "regular-pointy-top-hexagon",
+      "edgeDirections": [
+        "NE",
+        "E",
+        "SE",
+        "SW",
+        "W",
+        "NW"
+      ],
+      "sourceLocalBbox": [
+        587,
+        310,
+        71,
+        64
+      ],
+      "fullPageBbox": [
+        752,
+        1390,
+        823,
+        1454
+      ],
+      "sourceLocalCenter": [
+        622.0,
+        341.5
+      ],
+      "fullPageCenter": [
+        787.0,
+        1421.5
+      ],
+      "reservedCorridorSpaceOnAllEdges": true
+    },
+    {
+      "slotId": "C-R05",
+      "slotKind": "variable-room-slot",
+      "section": "C",
+      "allowedRoomTypes": [
+        "C",
+        "?"
+      ],
+      "shape": "regular-pointy-top-hexagon",
+      "edgeDirections": [
+        "NE",
+        "E",
+        "SE",
+        "SW",
+        "W",
+        "NW"
+      ],
+      "sourceLocalBbox": [
+        705,
+        310,
+        72,
+        64
+      ],
+      "fullPageBbox": [
+        870,
+        1390,
+        942,
+        1454
+      ],
+      "sourceLocalCenter": [
+        740.5,
+        341.5
+      ],
+      "fullPageCenter": [
+        905.5,
+        1421.5
+      ],
+      "reservedCorridorSpaceOnAllEdges": true
+    },
+    {
+      "slotId": "C-R06",
+      "slotKind": "variable-room-slot",
+      "section": "C",
+      "allowedRoomTypes": [
+        "C",
+        "?"
+      ],
+      "shape": "regular-pointy-top-hexagon",
+      "edgeDirections": [
+        "NE",
+        "E",
+        "SE",
+        "SW",
+        "W",
+        "NW"
+      ],
+      "sourceLocalBbox": [
+        646,
+        413,
+        71,
+        64
+      ],
+      "fullPageBbox": [
+        811,
+        1493,
+        882,
+        1557
+      ],
+      "sourceLocalCenter": [
+        681.0,
+        444.5
+      ],
+      "fullPageCenter": [
+        846.0,
+        1524.5
+      ],
+      "reservedCorridorSpaceOnAllEdges": true
+    },
+    {
+      "slotId": "C-R07",
+      "slotKind": "variable-room-slot",
+      "section": "C",
+      "allowedRoomTypes": [
+        "C",
+        "?"
+      ],
+      "shape": "regular-pointy-top-hexagon",
+      "edgeDirections": [
+        "NE",
+        "E",
+        "SE",
+        "SW",
+        "W",
+        "NW"
+      ],
+      "sourceLocalBbox": [
+        587,
+        516,
+        72,
+        63
+      ],
+      "fullPageBbox": [
+        752,
+        1596,
+        824,
+        1659
+      ],
+      "sourceLocalCenter": [
+        622.5,
+        547.0
+      ],
+      "fullPageCenter": [
+        787.5,
+        1627.0
+      ],
+      "reservedCorridorSpaceOnAllEdges": true
+    },
+    {
+      "slotId": "C-R08",
+      "slotKind": "variable-room-slot",
+      "section": "C",
+      "allowedRoomTypes": [
+        "C",
+        "?"
+      ],
+      "shape": "regular-pointy-top-hexagon",
+      "edgeDirections": [
+        "NE",
+        "E",
+        "SE",
+        "SW",
+        "W",
+        "NW"
+      ],
+      "sourceLocalBbox": [
+        706,
+        516,
+        71,
+        63
+      ],
+      "fullPageBbox": [
+        871,
+        1596,
+        942,
+        1659
+      ],
+      "sourceLocalCenter": [
+        741.0,
+        547.0
+      ],
+      "fullPageCenter": [
+        906.0,
+        1627.0
+      ],
+      "reservedCorridorSpaceOnAllEdges": true
+    }
+  ],
+  "fixedMapSpaces": [
+    {
+      "spaceId": "A-LANDING-ZONE",
+      "spaceKind": "fixed-named-room-space",
+      "section": "A",
+      "roomHelpNumber": "14",
+      "sourceTerm": "Landing Zone",
+      "surface": "Section A border-piece named space",
+      "regularRoomTile": false,
+      "initialState": "source-defined starting named Room space",
+      "geometryBoundary": "special border-piece geometry; not flattened into a regular variable hex slot",
+      "adjacentSlotCrosswalk": "not assigned where the rendered special-space boundary does not provide an unambiguous regular-slot pair"
+    },
+    {
+      "spaceId": "B-HIBERNATORIUM",
+      "spaceKind": "fixed-named-room-space",
+      "section": "B",
+      "roomHelpNumber": "18",
+      "sourceTerm": "Hibernatorium",
+      "surface": "Section B border-piece named space",
+      "regularRoomTile": false,
+      "initialState": "Undiscovered and Inactive; covered by Undiscovered Hibernatorium tile",
+      "suppressedStates": [
+        "Noise markers cannot be placed on connected Corridors",
+        "Robot cannot be Activated"
+      ],
+      "geometryBoundary": "special border-piece geometry; not flattened into a regular variable hex slot",
+      "adjacentSlotCrosswalk": "not assigned where the rendered special-space boundary does not provide an unambiguous regular-slot pair"
+    }
+  ],
+  "topologyProjection": {
+    "renderEvidence": {
+      "sourceVisualObligation": "RB-P19-V01",
+      "pdfPageIndex": 19,
+      "visiblePrintedPageNumber": 19,
+      "dpi": 160,
+      "fullPageDimensions": [
+        1361,
+        1834
+      ],
+      "sourceLocalCropOrigin": [
+        165,
+        1080
+      ],
+      "sourceLocalCropDimensions": [
+        970,
+        645
+      ],
+      "renderedPageImageSha256": "13ccec5174fa7ce56ceae4b2f2e8afa2b75b70bc528c9a732cd0d53c5d50a44c"
+    },
+    "sectionColors": {
+      "A": "green",
+      "B": "blue",
+      "C": "red"
+    },
+    "regularRoomSlotShape": "regular-pointy-top-hexagon",
+    "roomEdgeDirections": [
+      "NE",
+      "E",
+      "SE",
+      "SW",
+      "W",
+      "NW"
+    ],
+    "centerStepProjection": {
+      "horizontalPixels": 119.0,
+      "diagonalPixels": "approximately 119.0",
+      "rowStepPixels": 103.0
+    },
+    "corridorGapProjection": {
+      "purpose": "reserved space beyond every Room edge",
+      "horizontalMeasuredRoomWidthPixels": "71–73",
+      "horizontalCenterStepPixels": 119.0,
+      "derivedMinimumGapPixels": 46.0,
+      "notAnOccupiedCorridor": true
+    },
+    "edgeAdjacency": [
+      {
+        "gapId": "CORRIDOR-GAP-001",
+        "roomSlotA": "A-R01",
+        "roomSlotB": "A-R02",
+        "edgeFromA": "E",
+        "edgeFromB": "W",
+        "centerDistancePixels": 119.0,
+        "reservedGapState": "empty-unoccupied-until-Corridor-placement",
+        "isGameplayCorridor": false
+      },
+      {
+        "gapId": "CORRIDOR-GAP-002",
+        "roomSlotA": "A-R01",
+        "roomSlotB": "A-R03",
+        "edgeFromA": "SE",
+        "edgeFromB": "NW",
+        "centerDistancePixels": 118.951,
+        "reservedGapState": "empty-unoccupied-until-Corridor-placement",
+        "isGameplayCorridor": false
+      },
+      {
+        "gapId": "CORRIDOR-GAP-003",
+        "roomSlotA": "A-R02",
+        "roomSlotB": "A-R03",
+        "edgeFromA": "SW",
+        "edgeFromB": "NE",
+        "centerDistancePixels": 118.951,
+        "reservedGapState": "empty-unoccupied-until-Corridor-placement",
+        "isGameplayCorridor": false
+      },
+      {
+        "gapId": "CORRIDOR-GAP-004",
+        "roomSlotA": "A-R02",
+        "roomSlotB": "B-R01",
+        "edgeFromA": "SE",
+        "edgeFromB": "NW",
+        "centerDistancePixels": 118.518,
+        "reservedGapState": "empty-unoccupied-until-Corridor-placement",
+        "isGameplayCorridor": false
+      },
+      {
+        "gapId": "CORRIDOR-GAP-005",
+        "roomSlotA": "A-R03",
+        "roomSlotB": "A-R04",
+        "edgeFromA": "SE",
+        "edgeFromB": "NW",
+        "centerDistancePixels": 118.268,
+        "reservedGapState": "empty-unoccupied-until-Corridor-placement",
+        "isGameplayCorridor": false
+      },
+      {
+        "gapId": "CORRIDOR-GAP-006",
+        "roomSlotA": "A-R03",
+        "roomSlotB": "B-R01",
+        "edgeFromA": "E",
+        "edgeFromB": "W",
+        "centerDistancePixels": 119.001,
+        "reservedGapState": "empty-unoccupied-until-Corridor-placement",
+        "isGameplayCorridor": false
+      },
+      {
+        "gapId": "CORRIDOR-GAP-007",
+        "roomSlotA": "A-R04",
+        "roomSlotB": "A-R05",
+        "edgeFromA": "SW",
+        "edgeFromB": "NE",
+        "centerDistancePixels": 118.701,
+        "reservedGapState": "empty-unoccupied-until-Corridor-placement",
+        "isGameplayCorridor": false
+      },
+      {
+        "gapId": "CORRIDOR-GAP-008",
+        "roomSlotA": "A-R04",
+        "roomSlotB": "B-R01",
+        "edgeFromA": "NE",
+        "edgeFromB": "SW",
+        "centerDistancePixels": 119.202,
+        "reservedGapState": "empty-unoccupied-until-Corridor-placement",
+        "isGameplayCorridor": false
+      },
+      {
+        "gapId": "CORRIDOR-GAP-009",
+        "roomSlotA": "A-R04",
+        "roomSlotB": "B-R03",
+        "edgeFromA": "E",
+        "edgeFromB": "W",
+        "centerDistancePixels": 119.5,
+        "reservedGapState": "empty-unoccupied-until-Corridor-placement",
+        "isGameplayCorridor": false
+      },
+      {
+        "gapId": "CORRIDOR-GAP-010",
+        "roomSlotA": "A-R04",
+        "roomSlotB": "B-R04",
+        "edgeFromA": "SE",
+        "edgeFromB": "NW",
+        "centerDistancePixels": 119.202,
+        "reservedGapState": "empty-unoccupied-until-Corridor-placement",
+        "isGameplayCorridor": false
+      },
+      {
+        "gapId": "CORRIDOR-GAP-011",
+        "roomSlotA": "A-R05",
+        "roomSlotB": "A-R06",
+        "edgeFromA": "SW",
+        "edgeFromB": "NE",
+        "centerDistancePixels": 118.951,
+        "reservedGapState": "empty-unoccupied-until-Corridor-placement",
+        "isGameplayCorridor": false
+      },
+      {
+        "gapId": "CORRIDOR-GAP-012",
+        "roomSlotA": "A-R05",
+        "roomSlotB": "A-R07",
+        "edgeFromA": "SE",
+        "edgeFromB": "NW",
+        "centerDistancePixels": 118.518,
+        "reservedGapState": "empty-unoccupied-until-Corridor-placement",
+        "isGameplayCorridor": false
+      },
+      {
+        "gapId": "CORRIDOR-GAP-013",
+        "roomSlotA": "A-R05",
+        "roomSlotB": "B-R04",
+        "edgeFromA": "E",
+        "edgeFromB": "W",
+        "centerDistancePixels": 119.0,
+        "reservedGapState": "empty-unoccupied-until-Corridor-placement",
+        "isGameplayCorridor": false
+      },
+      {
+        "gapId": "CORRIDOR-GAP-014",
+        "roomSlotA": "A-R06",
+        "roomSlotB": "A-R07",
+        "edgeFromA": "E",
+        "edgeFromB": "W",
+        "centerDistancePixels": 119.001,
+        "reservedGapState": "empty-unoccupied-until-Corridor-placement",
+        "isGameplayCorridor": false
+      },
+      {
+        "gapId": "CORRIDOR-GAP-015",
+        "roomSlotA": "A-R07",
+        "roomSlotB": "B-R04",
+        "edgeFromA": "NE",
+        "edgeFromB": "SW",
+        "centerDistancePixels": 118.518,
+        "reservedGapState": "empty-unoccupied-until-Corridor-placement",
+        "isGameplayCorridor": false
+      },
+      {
+        "gapId": "CORRIDOR-GAP-016",
+        "roomSlotA": "A-R07",
+        "roomSlotB": "B-R06",
+        "edgeFromA": "E",
+        "edgeFromB": "W",
+        "centerDistancePixels": 118.5,
+        "reservedGapState": "empty-unoccupied-until-Corridor-placement",
+        "isGameplayCorridor": false
+      },
+      {
+        "gapId": "CORRIDOR-GAP-017",
+        "roomSlotA": "B-R01",
+        "roomSlotB": "B-R02",
+        "edgeFromA": "E",
+        "edgeFromB": "W",
+        "centerDistancePixels": 119.5,
+        "reservedGapState": "empty-unoccupied-until-Corridor-placement",
+        "isGameplayCorridor": false
+      },
+      {
+        "gapId": "CORRIDOR-GAP-018",
+        "roomSlotA": "B-R01",
+        "roomSlotB": "B-R03",
+        "edgeFromA": "SE",
+        "edgeFromB": "NW",
+        "centerDistancePixels": 118.951,
+        "reservedGapState": "empty-unoccupied-until-Corridor-placement",
+        "isGameplayCorridor": false
+      },
+      {
+        "gapId": "CORRIDOR-GAP-019",
+        "roomSlotA": "B-R02",
+        "roomSlotB": "B-R03",
+        "edgeFromA": "SW",
+        "edgeFromB": "NE",
+        "centerDistancePixels": 119.202,
+        "reservedGapState": "empty-unoccupied-until-Corridor-placement",
+        "isGameplayCorridor": false
+      },
+      {
+        "gapId": "CORRIDOR-GAP-020",
+        "roomSlotA": "B-R02",
+        "roomSlotB": "C-R01",
+        "edgeFromA": "NE",
+        "edgeFromB": "SW",
+        "centerDistancePixels": 118.454,
+        "reservedGapState": "empty-unoccupied-until-Corridor-placement",
+        "isGameplayCorridor": false
+      },
+      {
+        "gapId": "CORRIDOR-GAP-021",
+        "roomSlotA": "B-R02",
+        "roomSlotB": "C-R03",
+        "edgeFromA": "E",
+        "edgeFromB": "W",
+        "centerDistancePixels": 118.001,
+        "reservedGapState": "empty-unoccupied-until-Corridor-placement",
+        "isGameplayCorridor": false
+      },
+      {
+        "gapId": "CORRIDOR-GAP-022",
+        "roomSlotA": "B-R02",
+        "roomSlotB": "C-R04",
+        "edgeFromA": "SE",
+        "edgeFromB": "NW",
+        "centerDistancePixels": 118.454,
+        "reservedGapState": "empty-unoccupied-until-Corridor-placement",
+        "isGameplayCorridor": false
+      },
+      {
+        "gapId": "CORRIDOR-GAP-023",
+        "roomSlotA": "B-R03",
+        "roomSlotB": "B-R04",
+        "edgeFromA": "SW",
+        "edgeFromB": "NE",
+        "centerDistancePixels": 118.951,
+        "reservedGapState": "empty-unoccupied-until-Corridor-placement",
+        "isGameplayCorridor": false
+      },
+      {
+        "gapId": "CORRIDOR-GAP-024",
+        "roomSlotA": "B-R03",
+        "roomSlotB": "B-R05",
+        "edgeFromA": "SE",
+        "edgeFromB": "NW",
+        "centerDistancePixels": 119.202,
+        "reservedGapState": "empty-unoccupied-until-Corridor-placement",
+        "isGameplayCorridor": false
+      },
+      {
+        "gapId": "CORRIDOR-GAP-025",
+        "roomSlotA": "B-R03",
+        "roomSlotB": "C-R04",
+        "edgeFromA": "E",
+        "edgeFromB": "W",
+        "centerDistancePixels": 118.5,
+        "reservedGapState": "empty-unoccupied-until-Corridor-placement",
+        "isGameplayCorridor": false
+      },
+      {
+        "gapId": "CORRIDOR-GAP-026",
+        "roomSlotA": "B-R04",
+        "roomSlotB": "B-R05",
+        "edgeFromA": "E",
+        "edgeFromB": "W",
+        "centerDistancePixels": 119.5,
+        "reservedGapState": "empty-unoccupied-until-Corridor-placement",
+        "isGameplayCorridor": false
+      },
+      {
+        "gapId": "CORRIDOR-GAP-027",
+        "roomSlotA": "B-R04",
+        "roomSlotB": "B-R06",
+        "edgeFromA": "SE",
+        "edgeFromB": "NW",
+        "centerDistancePixels": 118.268,
+        "reservedGapState": "empty-unoccupied-until-Corridor-placement",
+        "isGameplayCorridor": false
+      },
+      {
+        "gapId": "CORRIDOR-GAP-028",
+        "roomSlotA": "B-R05",
+        "roomSlotB": "B-R06",
+        "edgeFromA": "SW",
+        "edgeFromB": "NE",
+        "centerDistancePixels": 119.023,
+        "reservedGapState": "empty-unoccupied-until-Corridor-placement",
+        "isGameplayCorridor": false
+      },
+      {
+        "gapId": "CORRIDOR-GAP-029",
+        "roomSlotA": "B-R05",
+        "roomSlotB": "C-R04",
+        "edgeFromA": "NE",
+        "edgeFromB": "SW",
+        "centerDistancePixels": 118.454,
+        "reservedGapState": "empty-unoccupied-until-Corridor-placement",
+        "isGameplayCorridor": false
+      },
+      {
+        "gapId": "CORRIDOR-GAP-030",
+        "roomSlotA": "B-R05",
+        "roomSlotB": "C-R06",
+        "edgeFromA": "E",
+        "edgeFromB": "W",
+        "centerDistancePixels": 117.5,
+        "reservedGapState": "empty-unoccupied-until-Corridor-placement",
+        "isGameplayCorridor": false
+      },
+      {
+        "gapId": "CORRIDOR-GAP-031",
+        "roomSlotA": "B-R05",
+        "roomSlotB": "C-R07",
+        "edgeFromA": "SE",
+        "edgeFromB": "NW",
+        "centerDistancePixels": 118.268,
+        "reservedGapState": "empty-unoccupied-until-Corridor-placement",
+        "isGameplayCorridor": false
+      },
+      {
+        "gapId": "CORRIDOR-GAP-032",
+        "roomSlotA": "B-R06",
+        "roomSlotB": "C-R07",
+        "edgeFromA": "E",
+        "edgeFromB": "W",
+        "centerDistancePixels": 119.5,
+        "reservedGapState": "empty-unoccupied-until-Corridor-placement",
+        "isGameplayCorridor": false
+      },
+      {
+        "gapId": "CORRIDOR-GAP-033",
+        "roomSlotA": "C-R01",
+        "roomSlotB": "C-R02",
+        "edgeFromA": "E",
+        "edgeFromB": "W",
+        "centerDistancePixels": 119.0,
+        "reservedGapState": "empty-unoccupied-until-Corridor-placement",
+        "isGameplayCorridor": false
+      },
+      {
+        "gapId": "CORRIDOR-GAP-034",
+        "roomSlotA": "C-R01",
+        "roomSlotB": "C-R03",
+        "edgeFromA": "SE",
+        "edgeFromB": "NW",
+        "centerDistancePixels": 119.384,
+        "reservedGapState": "empty-unoccupied-until-Corridor-placement",
+        "isGameplayCorridor": false
+      },
+      {
+        "gapId": "CORRIDOR-GAP-035",
+        "roomSlotA": "C-R02",
+        "roomSlotB": "C-R03",
+        "edgeFromA": "SW",
+        "edgeFromB": "NE",
+        "centerDistancePixels": 119.384,
+        "reservedGapState": "empty-unoccupied-until-Corridor-placement",
+        "isGameplayCorridor": false
+      },
+      {
+        "gapId": "CORRIDOR-GAP-036",
+        "roomSlotA": "C-R03",
+        "roomSlotB": "C-R04",
+        "edgeFromA": "SW",
+        "edgeFromB": "NE",
+        "centerDistancePixels": 118.518,
+        "reservedGapState": "empty-unoccupied-until-Corridor-placement",
+        "isGameplayCorridor": false
+      },
+      {
+        "gapId": "CORRIDOR-GAP-037",
+        "roomSlotA": "C-R03",
+        "roomSlotB": "C-R05",
+        "edgeFromA": "SE",
+        "edgeFromB": "NW",
+        "centerDistancePixels": 118.268,
+        "reservedGapState": "empty-unoccupied-until-Corridor-placement",
+        "isGameplayCorridor": false
+      },
+      {
+        "gapId": "CORRIDOR-GAP-038",
+        "roomSlotA": "C-R04",
+        "roomSlotB": "C-R05",
+        "edgeFromA": "E",
+        "edgeFromB": "W",
+        "centerDistancePixels": 118.5,
+        "reservedGapState": "empty-unoccupied-until-Corridor-placement",
+        "isGameplayCorridor": false
+      },
+      {
+        "gapId": "CORRIDOR-GAP-039",
+        "roomSlotA": "C-R04",
+        "roomSlotB": "C-R06",
+        "edgeFromA": "SE",
+        "edgeFromB": "NW",
+        "centerDistancePixels": 118.701,
+        "reservedGapState": "empty-unoccupied-until-Corridor-placement",
+        "isGameplayCorridor": false
+      },
+      {
+        "gapId": "CORRIDOR-GAP-040",
+        "roomSlotA": "C-R05",
+        "roomSlotB": "C-R06",
+        "edgeFromA": "SW",
+        "edgeFromB": "NE",
+        "centerDistancePixels": 118.951,
+        "reservedGapState": "empty-unoccupied-until-Corridor-placement",
+        "isGameplayCorridor": false
+      },
+      {
+        "gapId": "CORRIDOR-GAP-041",
+        "roomSlotA": "C-R06",
+        "roomSlotB": "C-R07",
+        "edgeFromA": "SW",
+        "edgeFromB": "NE",
+        "centerDistancePixels": 118.019,
+        "reservedGapState": "empty-unoccupied-until-Corridor-placement",
+        "isGameplayCorridor": false
+      },
+      {
+        "gapId": "CORRIDOR-GAP-042",
+        "roomSlotA": "C-R06",
+        "roomSlotB": "C-R08",
+        "edgeFromA": "SE",
+        "edgeFromB": "NW",
+        "centerDistancePixels": 118.77,
+        "reservedGapState": "empty-unoccupied-until-Corridor-placement",
+        "isGameplayCorridor": false
+      },
+      {
+        "gapId": "CORRIDOR-GAP-043",
+        "roomSlotA": "C-R07",
+        "roomSlotB": "C-R08",
+        "edgeFromA": "E",
+        "edgeFromB": "W",
+        "centerDistancePixels": 118.5,
+        "reservedGapState": "empty-unoccupied-until-Corridor-placement",
+        "isGameplayCorridor": false
+      }
+    ],
+    "corridorEndpointPolicy": "Each paired gap has two immediate Room-edge endpoints. Unpaired outer edges remain reserved only where a source-defined Corridor can be placed; outside-border placement is prohibited. This index does not invent a source-local endpoint assignment for special border-piece spaces.",
+    "proximityBoundary": "A measured neighbouring slot pair is a physical connector gap, not gameplay adjacency until a legal Corridor occupies it; a Corridor never spans an intervening Room."
+  },
+  "ttsProvenance": {
+    "rawSave": {
+      "path": "assets/tts-mod/extract/nemesis_script_mod.bin",
+      "sha256": "8592c12556630d20c2443a2bd26059ddd8c38d64d91a695c2cfe3542914d1c68",
+      "sourceRole": "secondary-evidence-only"
+    },
+    "roles": {
+      "path": "assets/tts-mod/extract/v2/lua_roles.json",
+      "sha256": "9f45b811a7ac2375681ac173043db12da2eeaaa359cd2c2b5c0d14db5721c49a",
+      "sourceRole": "secondary-role-provenance"
+    },
+    "objects": {
+      "path": "assets/tts-mod/extract/v2/objects.json",
+      "sha256": "107f917269c73746affce85ef871d983e7d033c32bad3e1e524c3fafd1f220c2",
+      "sourceRole": "secondary-object-provenance"
+    },
+    "lua": {
+      "path": "assets/tts-mod/extract/v2/lua_script.lua",
+      "sha256": "0bcc12026d4e35d26dc5b168b826f861acf82bb486c8a79ea801867af1aface5",
+      "sourceRole": "secondary-runtime-evidence-only"
+    },
+    "manifest": {
+      "path": "assets/tts-mod/extract/v2-dl/tree/manifest.json",
+      "sha256": "8bc6d3add705eae4453d77e0b1ce14b788c4435322214af790eb18251b2145a1",
+      "sourceRole": "secondary-asset-provenance"
+    },
+    "roleObjects": [
+      {
+        "role": "hiddenRoom",
+        "roleTuple": {
+          "guid": "3d73e4",
+          "type": "Custom_Model",
+          "nickname": "HIBERNATORIUM",
+          "gmnotes": "18",
+          "n_urls": 3,
+          "deck_nums": [],
+          "contained": 1
+        },
+        "objectTuple": {
+          "guid": "3d73e4",
+          "type": "Custom_Model",
+          "nickname": "HIBERNATORIUM",
+          "gmnotes": "18",
+          "parent": [],
+          "transform": {
+            "posX": -0.0021372814662754536,
+            "posY": 1.2799999713897705,
+            "posZ": 18.06999969482422,
+            "rotX": -4.561357229704299e-07,
+            "rotY": 180.0,
+            "rotZ": -1.2520997643150622e-06,
+            "scaleX": 1.7899999618530273,
+            "scaleY": 1.5800000429153442,
+            "scaleZ": 1.7899999618530273
+          }
+        }
+      },
+      {
+        "role": "hibUnexplored",
+        "roleTuple": {
+          "guid": "3817bc",
+          "type": "Custom_Token",
+          "nickname": "",
+          "gmnotes": "-",
+          "n_urls": 2,
+          "deck_nums": [],
+          "contained": 1
+        },
+        "objectTuple": {
+          "guid": "3817bc",
+          "type": "Custom_Token",
+          "nickname": "",
+          "gmnotes": "",
+          "parent": [],
+          "transform": {
+            "posX": 0.0015355360228568316,
+            "posY": 1.7007007598876953,
+            "posZ": 16.50724220275879,
+            "rotX": -2.9207256375229917e-05,
+            "rotY": 180.00534057617188,
+            "rotZ": 3.4649738154257648e-06,
+            "scaleX": 2.249138832092285,
+            "scaleY": 1.0,
+            "scaleZ": 2.281466245651245
+          }
+        }
+      },
+      {
+        "role": "boarderTile",
+        "roleTuple": {
+          "guid": "006497",
+          "type": "Custom_Token",
+          "nickname": "",
+          "gmnotes": "-",
+          "n_urls": 2,
+          "deck_nums": [],
+          "contained": 1
+        },
+        "objectTuple": {
+          "guid": "006497",
+          "type": "Custom_Token",
+          "nickname": "",
+          "gmnotes": "",
+          "parent": [],
+          "transform": {
+            "posX": -0.5997210144996643,
+            "posY": 1.5539990663528442,
+            "posZ": 7.128216743469238,
+            "rotX": 2.1262158611534687e-07,
+            "rotY": 179.992431640625,
+            "rotZ": -1.0077953049858479e-07,
+            "scaleX": 8.702214241027832,
+            "scaleY": 1.0,
+            "scaleZ": 8.679366111755371
+          }
+        }
+      },
+      {
+        "role": "landingZone",
+        "roleTuple": {
+          "guid": "8e0bfa",
+          "type": "Custom_Model",
+          "nickname": "",
+          "gmnotes": "14",
+          "n_urls": 3,
+          "deck_nums": [],
+          "contained": 1
+        },
+        "objectTuple": {
+          "guid": "8e0bfa",
+          "type": "Custom_Model",
+          "nickname": "",
+          "gmnotes": "14",
+          "parent": [],
+          "transform": {
+            "posX": -13.854207992553711,
+            "posY": 1.4600000381469727,
+            "posZ": 6.009422302246094,
+            "rotX": -4.561357229704299e-07,
+            "rotY": 180.0,
+            "rotZ": -1.2520997643150622e-06,
+            "scaleX": 1.190000057220459,
+            "scaleY": 1.5800005197525024,
+            "scaleZ": 1.190000057220459
+          }
+        }
+      },
+      {
+        "role": "roomIABag",
+        "roleTuple": {
+          "guid": "4b5bf1",
+          "type": "Custom_Model_Bag",
+          "nickname": "",
+          "gmnotes": "-",
+          "n_urls": 3,
+          "deck_nums": [],
+          "contained": 1
+        },
+        "objectTuple": {
+          "guid": "4b5bf1",
+          "type": "Custom_Model_Bag",
+          "nickname": "",
+          "gmnotes": "",
+          "parent": [],
+          "transform": {
+            "posX": -20.0,
+            "posY": 1.4814932346343994,
+            "posZ": 12.0,
+            "rotX": -4.570968492600969e-09,
+            "rotY": 179.96861267089844,
+            "rotZ": -3.647012647434167e-08,
+            "scaleX": 1.190000057220459,
+            "scaleY": 5.8100056648254395,
+            "scaleZ": 1.190000057220459
+          }
+        }
+      },
+      {
+        "role": "roomIBBag",
+        "roleTuple": {
+          "guid": "40de95",
+          "type": "Custom_Model_Bag",
+          "nickname": "",
+          "gmnotes": "-",
+          "n_urls": 3,
+          "deck_nums": [],
+          "contained": 1
+        },
+        "objectTuple": {
+          "guid": "40de95",
+          "type": "Custom_Model_Bag",
+          "nickname": "",
+          "gmnotes": "",
+          "parent": [],
+          "transform": {
+            "posX": -20.0,
+            "posY": 1.4814931154251099,
+            "posZ": 16.0,
+            "rotX": -4.441499754648248e-07,
+            "rotY": 180.0,
+            "rotZ": 2.6215596449219447e-07,
+            "scaleX": 1.190000057220459,
+            "scaleY": 5.8100056648254395,
+            "scaleZ": 1.190000057220459
+          }
+        }
+      },
+      {
+        "role": "roomICBag",
+        "roleTuple": {
+          "guid": "94cb25",
+          "type": "Custom_Model_Bag",
+          "nickname": "",
+          "gmnotes": "-",
+          "n_urls": 3,
+          "deck_nums": [],
+          "contained": 1
+        },
+        "objectTuple": {
+          "guid": "94cb25",
+          "type": "Custom_Model_Bag",
+          "nickname": "",
+          "gmnotes": "",
+          "parent": [],
+          "transform": {
+            "posX": -20.0,
+            "posY": 1.4814929962158203,
+            "posZ": 20.0,
+            "rotX": -3.961253014495014e-07,
+            "rotY": 180.0,
+            "rotZ": -6.858817869215272e-08,
+            "scaleX": 1.190000057220459,
+            "scaleY": 5.8100056648254395,
+            "scaleZ": 1.190000057220459
+          }
+        }
+      },
+      {
+        "role": "roomIIBag",
+        "roleTuple": {
+          "guid": "e548bf",
+          "type": "Custom_Model_Bag",
+          "nickname": "",
+          "gmnotes": "-",
+          "n_urls": 3,
+          "deck_nums": [],
+          "contained": 1
+        },
+        "objectTuple": {
+          "guid": "e548bf",
+          "type": "Custom_Model_Bag",
+          "nickname": "",
+          "gmnotes": "",
+          "parent": [],
+          "transform": {
+            "posX": -20.0,
+            "posY": 1.4814931154251099,
+            "posZ": 8.0,
+            "rotX": 1.0101408776108656e-07,
+            "rotY": 180.0,
+            "rotZ": -1.2473805099944002e-07,
+            "scaleX": 1.190000057220459,
+            "scaleY": 5.8100056648254395,
+            "scaleZ": 1.190000057220459
+          }
+        }
+      },
+      {
+        "role": "corridorBag",
+        "roleTuple": {
+          "guid": "527c41",
+          "type": "Custom_Model_Bag",
+          "nickname": "",
+          "gmnotes": "-",
+          "n_urls": 3,
+          "deck_nums": [],
+          "contained": 1
+        },
+        "objectTuple": {
+          "guid": "527c41",
+          "type": "Custom_Model_Bag",
+          "nickname": "",
+          "gmnotes": "",
+          "parent": [],
+          "transform": {
+            "posX": -20.0,
+            "posY": 1.4814990758895874,
+            "posZ": 4.0,
+            "rotX": 6.189272028223058e-08,
+            "rotY": 180.00152587890625,
+            "rotZ": -2.9632030873472104e-07,
+            "scaleX": 1.190000057220459,
+            "scaleY": 5.8100056648254395,
+            "scaleZ": 1.190000057220459
+          }
+        }
+      },
+      {
+        "role": "doorBag",
+        "roleTuple": {
+          "guid": "435a9a",
+          "type": "Custom_Model_Bag",
+          "nickname": "Doors",
+          "gmnotes": "-",
+          "n_urls": 3,
+          "deck_nums": [],
+          "contained": 1
+        },
+        "objectTuple": {
+          "guid": "435a9a",
+          "type": "Custom_Model_Bag",
+          "nickname": "Doors",
+          "gmnotes": "",
+          "parent": [],
+          "transform": {
+            "posX": -20.005361557006836,
+            "posY": 1.4814987182617188,
+            "posZ": -2.3625526428222656,
+            "rotX": 0.00012779724784195423,
+            "rotY": 180.0,
+            "rotZ": -2.952916838694364e-05,
+            "scaleX": 1.7000000476837158,
+            "scaleY": 1.6999995708465576,
+            "scaleZ": 1.6999995708465576
+          }
+        }
+      },
+      {
+        "role": "roundTile",
+        "roleTuple": {
+          "guid": "dfc0e5",
+          "type": "Custom_Model",
+          "nickname": "",
+          "gmnotes": "-",
+          "n_urls": 2,
+          "deck_nums": [],
+          "contained": 1
+        },
+        "objectTuple": {
+          "guid": "dfc0e5",
+          "type": "Custom_Model",
+          "nickname": "",
+          "gmnotes": "",
+          "parent": [],
+          "transform": {
+            "posX": -15.520757675170898,
+            "posY": 1.6316510438919067,
+            "posZ": -8.944487571716309,
+            "rotX": 2.646555685714702e-08,
+            "rotY": 180.01629638671875,
+            "rotZ": -1.9359579255251447e-06,
+            "scaleX": 1.1500000953674316,
+            "scaleY": 1.1500000953674316,
+            "scaleZ": 1.1500000953674316
+          }
+        }
+      },
+      {
+        "role": "autoDestructionToken",
+        "roleTuple": {
+          "guid": "d24061",
+          "type": "Custom_Tile",
+          "nickname": "",
+          "gmnotes": "-",
+          "n_urls": 2,
+          "deck_nums": [],
+          "contained": 1
+        },
+        "objectTuple": {
+          "guid": "d24061",
+          "type": "Custom_Tile",
+          "nickname": "",
+          "gmnotes": "",
+          "parent": [],
+          "transform": {
+            "posX": -15.393267631530762,
+            "posY": 1.6264991760253906,
+            "posZ": 15.783291816711426,
+            "rotX": -1.1764261671487475e-06,
+            "rotY": 180.011474609375,
+            "rotZ": 1.0083704182761721e-06,
+            "scaleX": 0.4169292449951172,
+            "scaleY": 1.0,
+            "scaleZ": 0.4169292449951172
+          }
+        }
+      },
+      {
+        "role": "turnMarker",
+        "roleTuple": {
+          "guid": "513438",
+          "type": "go_game_piece_white",
+          "nickname": "turnMarker",
+          "gmnotes": "-",
+          "n_urls": 0,
+          "deck_nums": [],
+          "contained": 1
+        },
+        "objectTuple": {
+          "guid": "513438",
+          "type": "go_game_piece_white",
+          "nickname": "turnMarker",
+          "gmnotes": "",
+          "parent": [],
+          "transform": {
+            "posX": -16.54789924621582,
+            "posY": 1.8003475666046143,
+            "posZ": 14.580978393554688,
+            "rotX": -6.853644663351588e-06,
+            "rotY": 0.02142144925892353,
+            "rotZ": 7.292466307262657e-06,
+            "scaleX": 0.9500000476837158,
+            "scaleY": 0.9500000476837158,
+            "scaleZ": 0.9500000476837158
+          }
+        }
+      }
+    ],
+    "authorityBoundary": "TTS roles, objects, transforms, and runtime variables preserve component provenance only; they do not override official rulebook text or rendered geometry."
+  },
+  "closedPendingBacklogUnitIds": [
+    "RULE:FND-005",
+    "VIS:RB-P04-V01",
+    "VIS:RB-P08-V01",
+    "VIS:RB-P08-V02",
+    "VIS:RB-P09-V02",
+    "VIS:RB-P10-V01",
+    "VIS:RB-P11-V02",
+    "VIS:RB-P12-V01",
+    "VIS:RB-P14-V03",
+    "VIS:RB-P15-V01",
+    "VIS:RB-P15-V02",
+    "VIS:RB-P16-V01",
+    "VIS:RB-P19-V01",
+    "VIS:RB-P19-V02",
+    "VIS:RB-P20-V01",
+    "VIS:RB-P20-V02",
+    "VIS:RB-P20-V03",
+    "VIS:RB-P21-V02",
+    "VIS:RB-P22-V02",
+    "VIS:RB-P23-V01"
+  ],
+  "backlogRuleLinks": {
+    "RULE:FND-005": [
+      "SEM-FACILITY-TOPOLOGY-001"
+    ],
+    "VIS:RB-P04-V01": [
+      "SEM-FACILITY-COMPONENT-INVENTORY-001",
+      "SEM-FACILITY-VISUAL-ASSOCIATIONS-001"
+    ],
+    "VIS:RB-P08-V01": [
+      "SEM-FACILITY-VISUAL-ASSOCIATIONS-001"
+    ],
+    "VIS:RB-P08-V02": [
+      "SEM-FACILITY-VISUAL-ASSOCIATIONS-001"
+    ],
+    "VIS:RB-P09-V02": [
+      "SEM-MAP-MARKER-PLACEMENT-001",
+      "SEM-FACILITY-VISUAL-ASSOCIATIONS-001"
+    ],
+    "VIS:RB-P10-V01": [
+      "SEM-CHARACTER-BOARD-SETUP-001",
+      "SEM-FACILITY-VISUAL-ASSOCIATIONS-001"
+    ],
+    "VIS:RB-P11-V02": [
+      "SEM-CHARACTER-BOARD-SETUP-001",
+      "SEM-FACILITY-VISUAL-ASSOCIATIONS-001"
+    ],
+    "VIS:RB-P12-V01": [
+      "SEM-FACILITY-VISUAL-ASSOCIATIONS-001"
+    ],
+    "VIS:RB-P14-V03": [
+      "SEM-FACILITY-VISUAL-ASSOCIATIONS-001"
+    ],
+    "VIS:RB-P15-V01": [
+      "SEM-FACILITY-VISUAL-ASSOCIATIONS-001"
+    ],
+    "VIS:RB-P15-V02": [
+      "SEM-ROUND-TRACK-SETUP-001",
+      "SEM-FACILITY-VISUAL-ASSOCIATIONS-001"
+    ],
+    "VIS:RB-P16-V01": [
+      "SEM-CHARACTER-BOARD-SETUP-001",
+      "SEM-FACILITY-VISUAL-ASSOCIATIONS-001"
+    ],
+    "VIS:RB-P19-V01": [
+      "SEM-FACILITY-TOPOLOGY-001",
+      "SEM-FACILITY-VISUAL-ASSOCIATIONS-001"
+    ],
+    "VIS:RB-P19-V02": [
+      "SEM-ROUND-TRACK-SETUP-001",
+      "SEM-FACILITY-VISUAL-ASSOCIATIONS-001"
+    ],
+    "VIS:RB-P20-V01": [
+      "SEM-ROOM-TILE-STATE-001",
+      "SEM-FACILITY-VISUAL-ASSOCIATIONS-001"
+    ],
+    "VIS:RB-P20-V02": [
+      "SEM-ROOM-TILE-STATE-001",
+      "SEM-ROOM-STATIC-PROHIBITIONS",
+      "SEM-FACILITY-VISUAL-ASSOCIATIONS-001"
+    ],
+    "VIS:RB-P20-V03": [
+      "SEM-NEST-DESTROYED-001",
+      "SEM-FACILITY-VISUAL-ASSOCIATIONS-001"
+    ],
+    "VIS:RB-P21-V02": [
+      "SEM-FACILITY-TOPOLOGY-001",
+      "SEM-FACILITY-CORRIDOR-SETUP-001",
+      "SEM-FACILITY-VISUAL-ASSOCIATIONS-001"
+    ],
+    "VIS:RB-P22-V02": [
+      "SEM-DOOR-001",
+      "SEM-FACILITY-VISUAL-ASSOCIATIONS-001"
+    ],
+    "VIS:RB-P23-V01": [
+      "SEM-MAP-MARKER-PLACEMENT-001",
+      "SEM-FACILITY-VISUAL-ASSOCIATIONS-001"
+    ]
+  },
+  "counts": {
+    "sourceSegments": 12,
+    "visualObligations": 19,
+    "componentInventoryRows": 16,
+    "regularRoomSlots": 21,
+    "fixedMapSpaces": 2,
+    "roomEdgeDirections": 6,
+    "roomEdgeEndpoints": 126,
+    "pairedConnectorGaps": 43,
+    "ttsFacilityRoles": 13,
+    "closedPendingBacklogUnits": 20
+  }
+}

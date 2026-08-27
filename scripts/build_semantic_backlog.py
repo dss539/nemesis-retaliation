@@ -69,6 +69,7 @@ equipment_sources=load('docs/rules/semantics/equipment-source-index.json')
 action_sources=load('docs/rules/semantics/action-source-index.json')
 objective_sources=load('docs/rules/semantics/objective-mission-source-index.json')
 combat_sources=load('docs/rules/semantics/combat-source-index.json')
+facility_sources=load('docs/rules/semantics/facility-source-index.json')
 exploration_rule_ids=[row['semanticRuleId'] for row in exploration_sources['faces']]
 robot_rule_ids=[row['semanticRuleId'] for row in robot_sources['faces']]
 attack_rule_ids=[row['semanticRuleId'] for row in attack_sources['faces']]
@@ -475,6 +476,8 @@ combat_links={
  'VIS:RB-P40-V01':['SEM-NOISE-DEADLY-MODE-001'],
 }
 for unit_id,rule_ids in combat_links.items():
+ merge_link(unit_id,rule_ids)
+for unit_id,rule_ids in facility_sources['backlogRuleLinks'].items():
  merge_link(unit_id,rule_ids)
 if combat_sources.get('closedPendingBacklogUnitIds') != ['RULE:INT-002','RULE:INT-005','VIS:RB-P24-V02','VIS:RB-P25-V01','VIS:RB-P25-V02','VIS:RB-P30-V01','VIS:RB-P30-V02','VIS:RB-P33-V01','VIS:RB-P33-V02','VIS:RB-P34-V01','VIS:RB-P40-V01']:
  raise AssertionError('Combat exact pending backlog closure drift')

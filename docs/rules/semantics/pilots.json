@@ -4,18 +4,18 @@
   "schemaPath": "docs/rules/semantics/semantic-rule.schema.json",
   "scope": "base-game expanding semantic corpus; closed bounded families do not imply full semantic coverage",
   "counts": {
-    "records": 520,
-    "sourceBacked": 173,
-    "withOpenQuestion": 324,
+    "records": 529,
+    "sourceBacked": 177,
+    "withOpenQuestion": 329,
     "sourceVariants": 23,
-    "sourceAssertions": 1361,
-    "conditions": 1541,
-    "operations": 2220,
-    "decisions": 336,
-    "informationPolicies": 540,
+    "sourceAssertions": 1405,
+    "conditions": 1543,
+    "operations": 2290,
+    "decisions": 337,
+    "informationPolicies": 549,
     "costs": 37,
     "targets": 556,
-    "openQuestionReferences": 576,
+    "openQuestionReferences": 585,
     "variantReferences": 248
   },
   "records": [
@@ -36334,6 +36334,333 @@
       "schemaVersion": 1,
       "recordType": "semantic-rule",
       "recordRevision": 1,
+      "ruleId": "SEM-CHARACTER-BOARD-SETUP-001",
+      "title": "Character-board slots and initial player-area state",
+      "status": "source-backed",
+      "ruleKind": "procedure",
+      "applicability": {
+        "game": "Nemesis: Retaliation",
+        "mode": "base-standard",
+        "playerCount": null
+      },
+      "authority": {
+        "highest": "official-primary",
+        "interpretation": "verbatim-structure"
+      },
+      "sourceAssertions": [
+        {
+          "assertionId": "SA-FACILITY-CHARACTER-SETUP-RB",
+          "sourceId": "SRC-RULEBOOK",
+          "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
+          "sourceSha256": "e3cda0d7a91bd090cec45dbc8ce89e2015e2202173357c374ff49365f9c29ddd",
+          "sourceAuthority": "official-primary",
+          "sourceVersion": "base rulebook, local official PDF",
+          "locator": "printed pages 10–11 / lines 2665–2701,2741–2746",
+          "supportsFields": [
+            "operations",
+            "preconditions",
+            "informationPolicy",
+            "duration"
+          ],
+          "sourceText": "Each player places the matching Character tile in a Character board, puts a Universal marker in the left-most Health slot, sets Oxygen to 7, puts the color-matched miniature in the Landing Zone, places their numbered Backpack holder above the board, shuffles their Action deck to the left with discard space to the right, and places the Character Item in the class-defined slot; Contractor starts with two Character Items.",
+          "textKind": "normalized-paraphrase",
+          "evidenceRecord": "docs/rulebooks/rulebook_text.txt:lines 2665–2701,2741–2746"
+        },
+        {
+          "assertionId": "SA-FACILITY-CHARACTER-ASSEMBLY-VIS",
+          "sourceId": "SRC-RULEBOOK",
+          "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
+          "sourceSha256": "e3cda0d7a91bd090cec45dbc8ce89e2015e2202173357c374ff49365f9c29ddd",
+          "sourceAuthority": "official-primary",
+          "sourceVersion": "base rulebook, local official PDF",
+          "locator": "printed page 11 / RB-P11-V02 / Character-board assembly diagram",
+          "supportsFields": [
+            "operations",
+            "informationPolicy"
+          ],
+          "sourceText": "Arrow direction binds the Oxygen counter/pin assembly and other pins to their Character-board apertures.",
+          "textKind": "normalized-paraphrase",
+          "evidenceRecord": "docs/rules/source-extraction/rulebook-visual-obligations.json:RB-P11-V02"
+        },
+        {
+          "assertionId": "SA-FACILITY-CHARACTER-ANATOMY-VIS",
+          "sourceId": "SRC-RULEBOOK",
+          "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
+          "sourceSha256": "e3cda0d7a91bd090cec45dbc8ce89e2015e2202173357c374ff49365f9c29ddd",
+          "sourceAuthority": "official-primary",
+          "sourceVersion": "base rulebook, local official PDF",
+          "locator": "printed page 16 / RB-P16-V01 / Character-board anatomy diagram",
+          "supportsFields": [
+            "operations",
+            "informationPolicy"
+          ],
+          "sourceText": "The anatomy diagram binds Health, Tactical Belt, Hand slots, Oxygen area, Basic Actions, discard area, and lateral item spaces to separate board regions.",
+          "textKind": "normalized-paraphrase",
+          "evidenceRecord": "docs/rules/source-extraction/rulebook-visual-obligations.json:RB-P16-V01"
+        },
+        {
+          "assertionId": "SA-FACILITY-AMMO-SETUP-VIS",
+          "sourceId": "SRC-RULEBOOK",
+          "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
+          "sourceSha256": "e3cda0d7a91bd090cec45dbc8ce89e2015e2202173357c374ff49365f9c29ddd",
+          "sourceAuthority": "official-primary",
+          "sourceVersion": "base rulebook, local official PDF",
+          "locator": "printed page 10 / RB-P10-V01 / full Ammo token face association",
+          "supportsFields": [
+            "operations",
+            "informationPolicy"
+          ],
+          "sourceText": "Character Setup step 7 binds the red full-magazine face to the Ammo token placed on each starting Ammo slot.",
+          "textKind": "normalized-paraphrase",
+          "evidenceRecord": "docs/rules/source-extraction/rulebook-visual-obligations.json:RB-P10-V01"
+        }
+      ],
+      "termRefs": [
+        "icon.actionCard",
+        "icon.ammoToken",
+        "icon.oxygenToken",
+        "term.backpack",
+        "term.character-health",
+        "term.heavy-item",
+        "term.landing-zone",
+        "term.tactical-gear-token"
+      ],
+      "taxonRefs": [
+        "tax.entity.component.card.action",
+        "tax.entity.component.card.item.armor",
+        "tax.entity.component.card.item.heavy",
+        "tax.entity.component.slot.hand",
+        "tax.entity.component.token.tactical-gear",
+        "tax.entity.component.token.tactical-gear.ammo",
+        "tax.entity.component.token.tactical-gear.oxygen",
+        "tax.entity.spatial.room.landing-zone",
+        "tax.scaffold.zone.backpack",
+        "tax.scaffold.zone.character-board",
+        "tax.state.health",
+        "tax.value.resource.oxygen"
+      ],
+      "namedIdentityRefs": [],
+      "timing": {
+        "windowId": "TW-CHARACTER-BOARD-SETUP",
+        "anchorTaxonId": "tax.scaffold.zone.character-board",
+        "relation": "when-triggered",
+        "recurrence": "once-per-Character-setup"
+      },
+      "participants": [
+        {
+          "participantId": "P-PLAYER",
+          "participantKind": "decision-owner",
+          "taxonId": "tax.entity.agent.player",
+          "role": null
+        },
+        {
+          "participantId": "P-CHARACTER",
+          "participantKind": "affected",
+          "taxonId": "tax.entity.agent.character",
+          "role": null
+        },
+        {
+          "participantId": "P-SETUP",
+          "participantKind": "setup-procedure",
+          "taxonId": null,
+          "role": null
+        }
+      ],
+      "modality": "must",
+      "preconditions": [],
+      "decisions": [],
+      "informationPolicy": [
+        {
+          "informationId": "I-CHARACTER-BOARD-SETUP",
+          "subjectRef": "board/tile, Health/Oxygen initial state, public Landing Zone model, deck/discard positions, and class-defined starting-item slots",
+          "audience": "public-except-shuffled-hand-and-deck-identities",
+          "revealTrigger": "setup/placement",
+          "secrecy": "Action deck order, hand identities, and unrevealed Objective identities remain owner-private under their own source procedures"
+        }
+      ],
+      "costs": [],
+      "targets": [],
+      "operations": [
+        {
+          "stepId": "S01",
+          "sequence": 1,
+          "operationType": "place-component",
+          "modality": "must",
+          "subjectRef": "P-PLAYER",
+          "objectRef": "one matching Character tile in one Character board",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-FACILITY-CHARACTER-SETUP-RB",
+            "SA-FACILITY-CHARACTER-ANATOMY-VIS"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S02",
+          "sequence": 2,
+          "operationType": "place-component",
+          "modality": "must",
+          "subjectRef": "P-SETUP",
+          "objectRef": "one Universal marker in the left-most Health-track slot",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-FACILITY-CHARACTER-SETUP-RB",
+            "SA-FACILITY-CHARACTER-ANATOMY-VIS"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S03",
+          "sequence": 3,
+          "operationType": "set-state",
+          "modality": "must",
+          "subjectRef": "P-SETUP",
+          "objectRef": "Character Oxygen counter at maximum value 7",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-FACILITY-CHARACTER-SETUP-RB",
+            "SA-FACILITY-CHARACTER-ASSEMBLY-VIS"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S04",
+          "sequence": 4,
+          "operationType": "place-component",
+          "modality": "must",
+          "subjectRef": "P-SETUP",
+          "objectRef": "chosen Character miniature in its matching colored ring and in the Landing Zone",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-FACILITY-CHARACTER-SETUP-RB",
+            "SA-FACILITY-CHARACTER-ANATOMY-VIS"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S05",
+          "sequence": 5,
+          "operationType": "place-component",
+          "modality": "must",
+          "subjectRef": "P-SETUP",
+          "objectRef": "numbered Backpack holder above the Character board",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-FACILITY-CHARACTER-SETUP-RB",
+            "SA-FACILITY-CHARACTER-ANATOMY-VIS"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S06",
+          "sequence": 6,
+          "operationType": "shuffle",
+          "modality": "must",
+          "subjectRef": "P-SETUP",
+          "objectRef": "all Action cards for the Character face down to the left of the board, leaving discard space to the right",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-FACILITY-CHARACTER-SETUP-RB",
+            "SA-FACILITY-CHARACTER-ANATOMY-VIS"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S07",
+          "sequence": 7,
+          "operationType": "place-component",
+          "modality": "must",
+          "subjectRef": "P-SETUP",
+          "objectRef": "Character Item in Hand slot if Heavy or Heavily Injured Health section if Armor; fill every starting Ammo slot with one full-side-up Ammo token",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-FACILITY-CHARACTER-SETUP-RB",
+            "SA-FACILITY-AMMO-SETUP-VIS"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S08",
+          "sequence": 8,
+          "operationType": "evaluate-condition",
+          "modality": "must",
+          "subjectRef": "P-SETUP",
+          "objectRef": "Contractor starts with two Character Items; other Character setup uses its one Character Item",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-FACILITY-CHARACTER-SETUP-RB"
+          ],
+          "notes": null
+        }
+      ],
+      "partialResolution": {
+        "policy": "ordered-complete",
+        "unit": "one Character setup instruction",
+        "onImpossible": "No alternate board slot, ring, starting location, item-class placement, or Ammo-face fallback is supplied by the source."
+      },
+      "duration": {
+        "kind": "initial-character-board-state"
+      },
+      "stacking": {
+        "policy": "one physical board/tile/holder/miniature assignment per Character; starting slots do not merge with later lifecycle"
+      },
+      "outcomes": [],
+      "unresolvedQuestionRefs": [],
+      "sourceVariants": [],
+      "implementationBoundary": "implementation-neutral; no engine, UI, network, storage, or serialization mapping"
+    },
+    {
+      "schemaVersion": 1,
+      "recordType": "semantic-rule",
+      "recordRevision": 1,
       "ruleId": "SEM-CHARACTER-ITEM-CON-545000-BAC443-001",
       "title": "Exact character-item occurrence TTS-CHARACTER-ITEM-CON-545000-BAC443-FACE",
       "status": "source-backed-with-open-question",
@@ -58722,6 +59049,501 @@
       "schemaVersion": 1,
       "recordType": "semantic-rule",
       "recordRevision": 1,
+      "ruleId": "SEM-FACILITY-COMPONENT-INVENTORY-001",
+      "title": "Facility and map component inventory",
+      "status": "source-backed",
+      "ruleKind": "constraint",
+      "applicability": {
+        "game": "Nemesis: Retaliation",
+        "mode": "base-standard",
+        "playerCount": null
+      },
+      "authority": {
+        "highest": "official-primary",
+        "interpretation": "verbatim-structure"
+      },
+      "sourceAssertions": [
+        {
+          "assertionId": "SA-FACILITY-INVENTORY-RB",
+          "sourceId": "SRC-RULEBOOK",
+          "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
+          "sourceSha256": "e3cda0d7a91bd090cec45dbc8ce89e2015e2202173357c374ff49365f9c29ddd",
+          "sourceAuthority": "official-primary",
+          "sourceVersion": "base rulebook, local official PDF",
+          "locator": "printed page 4 / main component inventory; extracted lines 965–988 and 2152–2185",
+          "supportsFields": [
+            "operations",
+            "informationPolicy"
+          ],
+          "sourceText": "The base inventory includes 3 Round track border pieces, 3 Section border pieces, 23 Room tiles (3 A, 3 B, 4 C, 13 ?), and 40 Corridor tiles (10 each of 1, 2, 3, and 4), with the numbered marker/token/component quantities retained source-locally.",
+          "textKind": "normalized-paraphrase",
+          "evidenceRecord": "docs/rulebooks/rulebook_text.txt:lines 965–988,2152–2185"
+        },
+        {
+          "assertionId": "SA-FACILITY-INVENTORY-VIS",
+          "sourceId": "SRC-RULEBOOK",
+          "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
+          "sourceSha256": "e3cda0d7a91bd090cec45dbc8ce89e2015e2202173357c374ff49365f9c29ddd",
+          "sourceAuthority": "official-primary",
+          "sourceVersion": "base rulebook, local official PDF",
+          "locator": "printed page 4 / RB-P04-V01 / illustrated main component inventory",
+          "supportsFields": [
+            "operations",
+            "informationPolicy"
+          ],
+          "sourceText": "Each inventory quantity is bound to its pictured component; Room and Corridor parenthetical subtype counts remain attached to their own rows.",
+          "textKind": "normalized-paraphrase",
+          "evidenceRecord": "docs/rules/source-extraction/rulebook-visual-obligations.json:RB-P04-V01"
+        }
+      ],
+      "termRefs": [
+        "term.corridor",
+        "term.door",
+        "term.facility",
+        "term.hibernatorium",
+        "term.landing-zone",
+        "term.map",
+        "term.nest",
+        "term.room",
+        "term.round-marker",
+        "term.section",
+        "term.tactical-gear-token",
+        "term.universal-marker"
+      ],
+      "taxonRefs": [
+        "tax.entity.component.marker.universal",
+        "tax.entity.component.token.round",
+        "tax.entity.component.token.tactical-gear",
+        "tax.entity.spatial.corridor",
+        "tax.entity.spatial.door",
+        "tax.entity.spatial.facility",
+        "tax.entity.spatial.map",
+        "tax.entity.spatial.room",
+        "tax.entity.spatial.room.hibernatorium",
+        "tax.entity.spatial.room.landing-zone",
+        "tax.entity.spatial.room.nest",
+        "tax.entity.spatial.section",
+        "tax.scaffold.supply-pool"
+      ],
+      "namedIdentityRefs": [],
+      "timing": {
+        "windowId": "TW-FACILITY-INVENTORY",
+        "anchorTaxonId": "tax.entity.spatial.facility",
+        "relation": "when-triggered",
+        "recurrence": "once-per-base-game-setup"
+      },
+      "participants": [
+        {
+          "participantId": "P-RULES",
+          "participantKind": "rules-system",
+          "taxonId": null,
+          "role": null
+        },
+        {
+          "participantId": "P-SETUP",
+          "participantKind": "setup-procedure",
+          "taxonId": null,
+          "role": null
+        }
+      ],
+      "modality": "must",
+      "preconditions": [],
+      "decisions": [],
+      "informationPolicy": [
+        {
+          "informationId": "I-FACILITY-INVENTORY",
+          "subjectRef": "finite map components, subtype quantities, and separate fixed named spaces",
+          "audience": "public",
+          "revealTrigger": "setup",
+          "secrecy": "no inventory quantity or map-space identity is hidden"
+        }
+      ],
+      "costs": [],
+      "targets": [],
+      "operations": [
+        {
+          "stepId": "S01",
+          "sequence": 1,
+          "operationType": "evaluate-condition",
+          "modality": "must",
+          "subjectRef": "P-RULES",
+          "objectRef": "exact base component inventory rows and quantities",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-FACILITY-INVENTORY-RB",
+            "SA-FACILITY-INVENTORY-VIS"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S02",
+          "sequence": 2,
+          "operationType": "evaluate-condition",
+          "modality": "must",
+          "subjectRef": "P-RULES",
+          "objectRef": "23 physical Room tiles partitioned 3 A, 3 B, 4 C, and 13 ?",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-FACILITY-INVENTORY-RB",
+            "SA-FACILITY-INVENTORY-VIS"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S03",
+          "sequence": 3,
+          "operationType": "evaluate-condition",
+          "modality": "must",
+          "subjectRef": "P-RULES",
+          "objectRef": "40 physical Corridor tiles partitioned into ten each of values 1, 2, 3, and 4",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-FACILITY-INVENTORY-RB",
+            "SA-FACILITY-INVENTORY-VIS"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S04",
+          "sequence": 4,
+          "operationType": "evaluate-condition",
+          "modality": "must",
+          "subjectRef": "P-RULES",
+          "objectRef": "finite Section/Round border pieces and map marker/token pools remain distinct components",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-FACILITY-INVENTORY-RB"
+          ],
+          "notes": null
+        }
+      ],
+      "partialResolution": {
+        "policy": "source-limited-components",
+        "unit": "one named inventory row and subtype breakdown",
+        "onImpossible": "No setup replacement, proxy, or shortage fallback is supplied by these source rows; SEM-Q-109 prohibits invention."
+      },
+      "duration": {
+        "kind": "finite-physical-inventory"
+      },
+      "stacking": {
+        "policy": "counts do not identify semantic copies or merge map surfaces"
+      },
+      "outcomes": [],
+      "unresolvedQuestionRefs": [],
+      "sourceVariants": [],
+      "implementationBoundary": "implementation-neutral; no engine, UI, network, storage, or serialization mapping"
+    },
+    {
+      "schemaVersion": 1,
+      "recordType": "semantic-rule",
+      "recordRevision": 1,
+      "ruleId": "SEM-FACILITY-CORRIDOR-SETUP-001",
+      "title": "Corridor supply, initial Landing Zone links, and endpoint state",
+      "status": "source-backed-with-open-question",
+      "ruleKind": "procedure",
+      "applicability": {
+        "game": "Nemesis: Retaliation",
+        "mode": "base-standard",
+        "playerCount": null
+      },
+      "authority": {
+        "highest": "official-primary",
+        "interpretation": "open-alternatives"
+      },
+      "sourceAssertions": [
+        {
+          "assertionId": "SA-FACILITY-CORRIDOR-SETUP-RB",
+          "sourceId": "SRC-RULEBOOK",
+          "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
+          "sourceSha256": "e3cda0d7a91bd090cec45dbc8ce89e2015e2202173357c374ff49365f9c29ddd",
+          "sourceAuthority": "official-primary",
+          "sourceVersion": "base rulebook, local official PDF",
+          "locator": "printed page 8 / lines 2399–2403 and 2472–2476",
+          "supportsFields": [
+            "operations",
+            "preconditions",
+            "informationPolicy",
+            "duration"
+          ],
+          "sourceText": "Draw three random Corridor tiles one by one and connect them to the Landing Zone face up with non-zero values; if a tile has a Door slot, orient that slot toward the Landing Zone entrance. Shuffle the remaining Corridor tiles into an insert and avoid seeing fronts before drawing.",
+          "textKind": "normalized-paraphrase",
+          "evidenceRecord": "docs/rulebooks/rulebook_text.txt:lines 2399–2403,2472–2476"
+        },
+        {
+          "assertionId": "SA-FACILITY-CORRIDOR-MAP-RB",
+          "sourceId": "SRC-RULEBOOK",
+          "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
+          "sourceSha256": "e3cda0d7a91bd090cec45dbc8ce89e2015e2202173357c374ff49365f9c29ddd",
+          "sourceAuthority": "official-primary",
+          "sourceVersion": "base rulebook, local official PDF",
+          "locator": "printed pages 21–22 / lines 4180–4194,4244–4252",
+          "supportsFields": [
+            "operations",
+            "preconditions",
+            "informationPolicy"
+          ],
+          "sourceText": "A Corridor has source-defined values and a Door slot where present; each Corridor connected to a Room is adjacent to that Room regardless of Doors or Intruders, and newly placed Corridors with Door slots orient that slot toward the Room just placed.",
+          "textKind": "normalized-paraphrase",
+          "evidenceRecord": "docs/rulebooks/rulebook_text.txt:lines 4180–4194,4244–4252"
+        },
+        {
+          "assertionId": "SA-FACILITY-CORRIDOR-VIS",
+          "sourceId": "SRC-RULEBOOK",
+          "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
+          "sourceSha256": "e3cda0d7a91bd090cec45dbc8ce89e2015e2202173357c374ff49365f9c29ddd",
+          "sourceAuthority": "official-primary",
+          "sourceVersion": "base rulebook, local official PDF",
+          "locator": "printed page 21 / RB-P21-V02 / unexplored Corridor topology example",
+          "supportsFields": [
+            "operations",
+            "informationPolicy"
+          ],
+          "sourceText": "The visual example binds Unexplored Corridor status to a Corridor connected with only one Room, not to a generic empty gap or a collapsed Room edge.",
+          "textKind": "normalized-paraphrase",
+          "evidenceRecord": "docs/rules/source-extraction/rulebook-visual-obligations.json:RB-P21-V02"
+        }
+      ],
+      "termRefs": [
+        "term.corridor",
+        "term.discovered",
+        "term.door",
+        "term.empty-corridor",
+        "term.landing-zone",
+        "term.room",
+        "term.undiscovered",
+        "term.unexplored-corridor"
+      ],
+      "taxonRefs": [
+        "tax.entity.spatial.corridor",
+        "tax.entity.spatial.door",
+        "tax.entity.spatial.room",
+        "tax.entity.spatial.room.landing-zone",
+        "tax.scaffold.supply-pool",
+        "tax.state.corridor.empty",
+        "tax.state.corridor.unexplored",
+        "tax.state.discovery.discovered",
+        "tax.state.discovery.undiscovered"
+      ],
+      "namedIdentityRefs": [],
+      "timing": {
+        "windowId": "TW-CORRIDOR-SETUP",
+        "anchorTaxonId": "tax.entity.spatial.corridor",
+        "relation": "when-triggered",
+        "recurrence": "per-physical-Corridor-placement"
+      },
+      "participants": [
+        {
+          "participantId": "P-SETUP",
+          "participantKind": "setup-procedure",
+          "taxonId": null,
+          "role": null
+        },
+        {
+          "participantId": "P-RULES",
+          "participantKind": "rules-system",
+          "taxonId": null,
+          "role": null
+        }
+      ],
+      "modality": "must",
+      "preconditions": [],
+      "decisions": [
+        {
+          "decisionId": "D-CORRIDOR-DOOR-ORIENTATION",
+          "ownerRef": "P-RULES",
+          "selectionMode": "unresolved",
+          "cardinality": {
+            "min": 1,
+            "max": 1
+          },
+          "declineAllowed": false,
+          "visibility": "source-unspecified",
+          "options": [
+            "Door slot toward the selected Landing Zone entrance",
+            "another source-defined initial entrance/orientation rule"
+          ]
+        }
+      ],
+      "informationPolicy": [
+        {
+          "informationId": "I-CORRIDOR-SETUP",
+          "subjectRef": "Corridor face, non-zero value, Door slot orientation, endpoint occupancy, and one-ended Unexplored state",
+          "audience": "public-after-draw",
+          "revealTrigger": "draw/placement",
+          "secrecy": "Corridor fronts remain hidden in the insert before draw; placed Corridor state is public"
+        }
+      ],
+      "costs": [],
+      "targets": [],
+      "operations": [
+        {
+          "stepId": "S01",
+          "sequence": 1,
+          "operationType": "shuffle",
+          "modality": "must",
+          "subjectRef": "P-SETUP",
+          "objectRef": "all 40 Corridor tiles into the Corridor insert",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-FACILITY-CORRIDOR-SETUP-RB"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S02",
+          "sequence": 2,
+          "operationType": "draw-random",
+          "modality": "must",
+          "subjectRef": "P-SETUP",
+          "objectRef": "one Corridor tile at a time until three have been drawn",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": {
+            "quantity": 3,
+            "order": "one-by-one",
+            "frontHiddenBeforeDraw": true
+          },
+          "sourceAssertionIds": [
+            "SA-FACILITY-CORRIDOR-SETUP-RB"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S03",
+          "sequence": 3,
+          "operationType": "place-component",
+          "modality": "must",
+          "subjectRef": "P-SETUP",
+          "objectRef": "each drawn Corridor face up with its non-zero side visible, connected to the Landing Zone",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-FACILITY-CORRIDOR-SETUP-RB"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S04",
+          "sequence": 4,
+          "operationType": "resolve-open-alternative",
+          "modality": "must",
+          "subjectRef": "P-RULES",
+          "objectRef": "SEM-Q-108 Door-slot orientation and initial Landing Zone entrance assignment",
+          "conditionRefs": [],
+          "decisionRef": "D-CORRIDOR-DOOR-ORIENTATION",
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-FACILITY-CORRIDOR-SETUP-RB",
+            "SA-FACILITY-CORRIDOR-MAP-RB"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S05",
+          "sequence": 5,
+          "operationType": "set-state",
+          "modality": "must",
+          "subjectRef": "P-RULES",
+          "objectRef": "Corridor connected to exactly one Room is Unexplored; a Corridor with no Intruders is Empty even if it has a Noise marker",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-FACILITY-CORRIDOR-MAP-RB",
+            "SA-FACILITY-CORRIDOR-VIS"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S06",
+          "sequence": 6,
+          "operationType": "evaluate-condition",
+          "modality": "must",
+          "subjectRef": "P-RULES",
+          "objectRef": "actual Corridor occupancy is distinct from a reserved empty connector gap and from Room adjacency by proximity alone",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-FACILITY-CORRIDOR-MAP-RB"
+          ],
+          "notes": null
+        }
+      ],
+      "partialResolution": {
+        "policy": "ordered-complete",
+        "unit": "one Corridor draw or placement",
+        "onImpossible": "Do not place outside the Facility or invent an endpoint/entrance assignment; SEM-Q-107/108 retain source-unspecified crosswalk/orientation alternatives."
+      },
+      "duration": {
+        "kind": "finite-corridor-supply-and-map-state"
+      },
+      "stacking": {
+        "policy": "one physical Corridor occupies one source-defined gap; face state and Door state remain separate"
+      },
+      "outcomes": [],
+      "unresolvedQuestionRefs": [
+        "SEM-Q-107",
+        "SEM-Q-108"
+      ],
+      "sourceVariants": [],
+      "implementationBoundary": "implementation-neutral; no engine, UI, network, storage, or serialization mapping"
+    },
+    {
+      "schemaVersion": 1,
+      "recordType": "semantic-rule",
+      "recordRevision": 1,
       "ruleId": "SEM-FACILITY-DESTRUCTION-001",
       "title": "Facility destruction and Objective consequences",
       "status": "source-backed",
@@ -58915,6 +59737,1393 @@
           "result": "Queen and Nest destruction predicates are true; only previously Escaped Characters avoid this death cause"
         }
       ],
+      "unresolvedQuestionRefs": [],
+      "sourceVariants": [],
+      "implementationBoundary": "implementation-neutral; no engine, UI, network, storage, or serialization mapping"
+    },
+    {
+      "schemaVersion": 1,
+      "recordType": "semantic-rule",
+      "recordRevision": 1,
+      "ruleId": "SEM-FACILITY-ROOM-SETUP-001",
+      "title": "Room-tile stacks, fixed spaces, and discovery state",
+      "status": "source-backed-with-open-question",
+      "ruleKind": "procedure",
+      "applicability": {
+        "game": "Nemesis: Retaliation",
+        "mode": "base-standard",
+        "playerCount": null
+      },
+      "authority": {
+        "highest": "official-primary",
+        "interpretation": "open-alternatives"
+      },
+      "sourceAssertions": [
+        {
+          "assertionId": "SA-FACILITY-ROOM-SETUP-RB",
+          "sourceId": "SRC-RULEBOOK",
+          "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
+          "sourceSha256": "e3cda0d7a91bd090cec45dbc8ce89e2015e2202173357c374ff49365f9c29ddd",
+          "sourceAuthority": "official-primary",
+          "sourceVersion": "base rulebook, local official PDF",
+          "locator": "printed page 8 / lines 2404–2426 and page 20 / lines 4011–4014",
+          "supportsFields": [
+            "operations",
+            "preconditions",
+            "informationPolicy",
+            "duration"
+          ],
+          "sourceText": "Sort Room tiles by backs into A, B, C, and ? stacks, shuffle each stack, and keep them face down. Section Rooms belong to their associated Section; ? Rooms are random and may appear in any Section. The Undiscovered Hibernatorium tile covers the fixed Hibernatorium space until discovery; while it is covered, Noise markers cannot be placed on connected Corridors and the Robot cannot be Activated.",
+          "textKind": "normalized-paraphrase",
+          "evidenceRecord": "docs/rulebooks/rulebook_text.txt:lines 2404–2426,4011–4014"
+        },
+        {
+          "assertionId": "SA-FACILITY-ROOM-SETUP-VIS",
+          "sourceId": "SRC-RULEBOOK",
+          "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
+          "sourceSha256": "e3cda0d7a91bd090cec45dbc8ce89e2015e2202173357c374ff49365f9c29ddd",
+          "sourceAuthority": "official-primary",
+          "sourceVersion": "base rulebook, local official PDF",
+          "locator": "printed page 20 / RB-P20-V01 / Room-tile front/back anatomy",
+          "supportsFields": [
+            "operations",
+            "informationPolicy"
+          ],
+          "sourceText": "Room front/back anatomy binds Name, Effect, Item Icons, Computer Icon, Room Type/ID, Other Icons, and the face-down Section-letter back to distinct physical regions.",
+          "textKind": "normalized-paraphrase",
+          "evidenceRecord": "docs/rules/source-extraction/rulebook-visual-obligations.json:RB-P20-V01"
+        }
+      ],
+      "termRefs": [
+        "term.discovered",
+        "term.hibernatorium",
+        "term.landing-zone",
+        "term.room",
+        "term.section",
+        "term.section-a",
+        "term.section-b",
+        "term.section-c",
+        "term.undiscovered"
+      ],
+      "taxonRefs": [
+        "tax.entity.spatial.room",
+        "tax.entity.spatial.room.hibernatorium",
+        "tax.entity.spatial.room.landing-zone",
+        "tax.entity.spatial.section",
+        "tax.entity.spatial.section.a",
+        "tax.entity.spatial.section.b",
+        "tax.entity.spatial.section.c",
+        "tax.scaffold.supply-pool",
+        "tax.state.discovery.discovered",
+        "tax.state.discovery.undiscovered"
+      ],
+      "namedIdentityRefs": [],
+      "timing": {
+        "windowId": "TW-ROOM-SETUP",
+        "anchorTaxonId": "tax.entity.spatial.room",
+        "relation": "when-triggered",
+        "recurrence": "per-physical-Room-stack-or-placement"
+      },
+      "participants": [
+        {
+          "participantId": "P-SETUP",
+          "participantKind": "setup-procedure",
+          "taxonId": null,
+          "role": null
+        },
+        {
+          "participantId": "P-RULES",
+          "participantKind": "rules-system",
+          "taxonId": null,
+          "role": null
+        }
+      ],
+      "modality": "must",
+      "preconditions": [],
+      "decisions": [],
+      "informationPolicy": [
+        {
+          "informationId": "I-ROOM-SETUP",
+          "subjectRef": "Room stack type, face-down/face-up state, Room ID, and fixed-space cover state",
+          "audience": "public-after-placement-except-unrevealed-Room-face",
+          "revealTrigger": "Room draw/placement/discovery",
+          "secrecy": "Unselected stack faces remain hidden; a placed Room is face up when source-directed"
+        }
+      ],
+      "costs": [],
+      "targets": [],
+      "operations": [
+        {
+          "stepId": "S01",
+          "sequence": 1,
+          "operationType": "evaluate-condition",
+          "modality": "must",
+          "subjectRef": "P-SETUP",
+          "objectRef": "23 physical Room tiles are sorted into four back-type stacks A, B, C, and ?",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-FACILITY-ROOM-SETUP-RB"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S02",
+          "sequence": 2,
+          "operationType": "shuffle",
+          "modality": "must",
+          "subjectRef": "P-SETUP",
+          "objectRef": "each Room stack separately and keep it face down",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-FACILITY-ROOM-SETUP-RB"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S03",
+          "sequence": 3,
+          "operationType": "place-component",
+          "modality": "must",
+          "subjectRef": "P-SETUP",
+          "objectRef": "Undiscovered Hibernatorium tile on the fixed Hibernatorium space",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-FACILITY-ROOM-SETUP-RB"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S04",
+          "sequence": 4,
+          "operationType": "set-state",
+          "modality": "must",
+          "subjectRef": "P-RULES",
+          "objectRef": "Hibernatorium is Undiscovered and cannot be Used until its source-defined discovery trigger; Noise markers cannot be placed on connected Corridors and the Robot cannot be Activated while covered",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-FACILITY-ROOM-SETUP-RB"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S05",
+          "sequence": 5,
+          "operationType": "evaluate-condition",
+          "modality": "must",
+          "subjectRef": "P-RULES",
+          "objectRef": "Section Room type is placed only in its matching Section; ? Room may appear in any Section",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-FACILITY-ROOM-SETUP-RB"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S06",
+          "sequence": 6,
+          "operationType": "evaluate-condition",
+          "modality": "must",
+          "subjectRef": "P-RULES",
+          "objectRef": "face-up placed Room exposes its source-defined front anatomy and ID; an unplaced/covered Room remains face down",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-FACILITY-ROOM-SETUP-RB",
+            "SA-FACILITY-ROOM-SETUP-VIS"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S07",
+          "sequence": 7,
+          "operationType": "resolve-open-alternative",
+          "modality": "must",
+          "subjectRef": "P-RULES",
+          "objectRef": "SEM-Q-109 setup shortage/replacement and physical stack atomicity",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-FACILITY-ROOM-SETUP-RB"
+          ],
+          "notes": null
+        }
+      ],
+      "partialResolution": {
+        "policy": "ordered-complete",
+        "unit": "Room stack or fixed-space setup step",
+        "onImpossible": "No substitute Room, stack, face, or shortage fallback is source-defined; SEM-Q-109 prohibits invention."
+      },
+      "duration": {
+        "kind": "setup-and-discovery-state"
+      },
+      "stacking": {
+        "policy": "one physical tile remains one occurrence; fixed named spaces are not converted into random tile copies"
+      },
+      "outcomes": [],
+      "unresolvedQuestionRefs": [
+        "SEM-Q-106",
+        "SEM-Q-109"
+      ],
+      "sourceVariants": [],
+      "implementationBoundary": "implementation-neutral; no engine, UI, network, storage, or serialization mapping"
+    },
+    {
+      "schemaVersion": 1,
+      "recordType": "semantic-rule",
+      "recordRevision": 1,
+      "ruleId": "SEM-FACILITY-TOPOLOGY-001",
+      "title": "Facility sections, Room-slot geometry, and Corridor gaps",
+      "status": "source-backed-with-open-question",
+      "ruleKind": "constraint",
+      "applicability": {
+        "game": "Nemesis: Retaliation",
+        "mode": "base-standard",
+        "playerCount": null
+      },
+      "authority": {
+        "highest": "official-primary",
+        "interpretation": "open-alternatives"
+      },
+      "sourceAssertions": [
+        {
+          "assertionId": "SA-FACILITY-TOPOLOGY-RB",
+          "sourceId": "SRC-RULEBOOK",
+          "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
+          "sourceSha256": "e3cda0d7a91bd090cec45dbc8ce89e2015e2202173357c374ff49365f9c29ddd",
+          "sourceAuthority": "official-primary",
+          "sourceVersion": "base rulebook, local official PDF",
+          "locator": "printed pages 19–21 / extracted lines 3915–3951,4007–4014,4171–4194",
+          "supportsFields": [
+            "preconditions",
+            "operations",
+            "informationPolicy",
+            "duration"
+          ],
+          "sourceText": "The Facility is divided into Sections A, B, and C. Rooms belong to one Section and are connected by adjacent Corridors; Characters occupy Rooms and Intruders may occupy Rooms or Corridors. Section border and Round track pieces form the Facility boundary.",
+          "textKind": "normalized-paraphrase",
+          "evidenceRecord": "docs/rulebooks/rulebook_text.txt:lines 3915–3951,4007–4014,4171–4194"
+        },
+        {
+          "assertionId": "SA-FACILITY-TOPOLOGY-FND",
+          "sourceId": "SRC-FND-005",
+          "sourcePath": "docs/rules/00-foundations.md",
+          "sourceSha256": "46dc52f449799bf7617a52d98b1b0d90b47fff9ec3406acbd2de49bc973d713d",
+          "sourceAuthority": "project-interpretation",
+          "sourceVersion": "FND-005 project-confirmed geometry invariant",
+          "locator": "FND-005 / Room geometry and Corridor spacing",
+          "supportsFields": [
+            "operations",
+            "preconditions",
+            "informationPolicy",
+            "unresolvedQuestionRefs"
+          ],
+          "sourceText": "Every Room and empty Room slot uses a regular pointy-top hexagon with six named directions; all six edges retain reserved Corridor spacing; a Corridor connects only immediately adjacent Room edges and visual proximity alone is not gameplay adjacency.",
+          "textKind": "normalized-paraphrase",
+          "evidenceRecord": "docs/rules/00-foundations.md:FND-005"
+        },
+        {
+          "assertionId": "SA-FACILITY-TOPOLOGY-VIS",
+          "sourceId": "SRC-RULEBOOK",
+          "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
+          "sourceSha256": "e3cda0d7a91bd090cec45dbc8ce89e2015e2202173357c374ff49365f9c29ddd",
+          "sourceAuthority": "official-primary",
+          "sourceVersion": "base rulebook, local official PDF",
+          "locator": "printed page 19 / RB-P19-V01 / facility-section-slot-boundary diagram",
+          "supportsFields": [
+            "operations",
+            "informationPolicy"
+          ],
+          "sourceText": "The rendered map diagram supplies the green A, blue B, and red C section boundaries, 21 regular variable Room-slot contours, the Facility boundary, and separate border-piece named-space geometry.",
+          "textKind": "normalized-paraphrase",
+          "evidenceRecord": "docs/rules/source-extraction/rulebook-visual-obligations.json:RB-P19-V01"
+        },
+        {
+          "assertionId": "SA-FACILITY-TOPOLOGY-CORRIDOR-VIS",
+          "sourceId": "SRC-RULEBOOK",
+          "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
+          "sourceSha256": "e3cda0d7a91bd090cec45dbc8ce89e2015e2202173357c374ff49365f9c29ddd",
+          "sourceAuthority": "official-primary",
+          "sourceVersion": "base rulebook, local official PDF",
+          "locator": "printed page 21 / RB-P21-V02 / unexplored Corridor topology example",
+          "supportsFields": [
+            "operations",
+            "informationPolicy"
+          ],
+          "sourceText": "The illustrated example distinguishes one-ended Unexplored Corridors from the surrounding Room/Corridor topology.",
+          "textKind": "normalized-paraphrase",
+          "evidenceRecord": "docs/rules/source-extraction/rulebook-visual-obligations.json:RB-P21-V02"
+        }
+      ],
+      "termRefs": [
+        "icon.intruder",
+        "term.corridor",
+        "term.discovered",
+        "term.empty-corridor",
+        "term.facility",
+        "term.hibernatorium",
+        "term.landing-zone",
+        "term.map",
+        "term.room",
+        "term.section",
+        "term.section-a",
+        "term.section-b",
+        "term.section-c",
+        "term.undiscovered",
+        "term.unexplored-corridor"
+      ],
+      "taxonRefs": [
+        "tax.entity.agent.intruder",
+        "tax.entity.spatial.corridor",
+        "tax.entity.spatial.facility",
+        "tax.entity.spatial.map",
+        "tax.entity.spatial.room",
+        "tax.entity.spatial.room-slot",
+        "tax.entity.spatial.room.hibernatorium",
+        "tax.entity.spatial.room.landing-zone",
+        "tax.entity.spatial.section",
+        "tax.entity.spatial.section.a",
+        "tax.entity.spatial.section.b",
+        "tax.entity.spatial.section.c",
+        "tax.state.corridor.empty",
+        "tax.state.corridor.unexplored",
+        "tax.state.discovery.discovered",
+        "tax.state.discovery.undiscovered"
+      ],
+      "namedIdentityRefs": [],
+      "timing": {
+        "windowId": "TW-FACILITY-TOPOLOGY",
+        "anchorTaxonId": "tax.entity.spatial.facility",
+        "relation": "when-triggered",
+        "recurrence": "per-map-state-check"
+      },
+      "participants": [
+        {
+          "participantId": "P-RULES",
+          "participantKind": "rules-system",
+          "taxonId": null,
+          "role": null
+        },
+        {
+          "participantId": "P-FACILITY",
+          "participantKind": "map-state",
+          "taxonId": "tax.entity.spatial.facility",
+          "role": null
+        }
+      ],
+      "modality": "must",
+      "preconditions": [
+        {
+          "conditionId": "C-FACILITY-BOUNDARY",
+          "scope": "record-precondition",
+          "expression": {
+            "operator": "all",
+            "args": [
+              {
+                "predicate": "destination is inside the official Facility boundary"
+              },
+              {
+                "predicate": "Room/Corridor occupies a source-defined slot or reserved connector gap"
+              }
+            ]
+          },
+          "sourceAssertionIds": [
+            "SA-FACILITY-TOPOLOGY-RB",
+            "SA-FACILITY-TOPOLOGY-VIS"
+          ]
+        }
+      ],
+      "decisions": [],
+      "informationPolicy": [
+        {
+          "informationId": "I-FACILITY-TOPOLOGY",
+          "subjectRef": "section membership, six-sided Room-slot boundary, reserved Corridor gaps, special named spaces, and actual Corridor occupancy",
+          "audience": "public",
+          "revealTrigger": "setup/placement/continuous",
+          "secrecy": "source geometry and current map state are public; no unexplored Room face is exposed before source-defined discovery"
+        }
+      ],
+      "costs": [],
+      "targets": [],
+      "operations": [
+        {
+          "stepId": "S01",
+          "sequence": 1,
+          "operationType": "set-state",
+          "modality": "must",
+          "subjectRef": "P-RULES",
+          "objectRef": "Facility divided into exactly Sections A, B, and C",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-FACILITY-TOPOLOGY-RB",
+            "SA-FACILITY-TOPOLOGY-VIS"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S02",
+          "sequence": 2,
+          "operationType": "evaluate-condition",
+          "modality": "must",
+          "subjectRef": "P-RULES",
+          "objectRef": "each regular variable Room slot belongs to exactly one rendered section color and permits its Section type or ? Room type",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-FACILITY-TOPOLOGY-RB",
+            "SA-FACILITY-TOPOLOGY-VIS"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S03",
+          "sequence": 3,
+          "operationType": "set-state",
+          "modality": "must",
+          "subjectRef": "P-RULES",
+          "objectRef": "each regular Room slot has a regular pointy-top six-edge boundary and reserved spacing on NE/E/SE/SW/W/NW",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-FACILITY-TOPOLOGY-FND",
+            "SA-FACILITY-TOPOLOGY-VIS"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S04",
+          "sequence": 4,
+          "operationType": "evaluate-condition",
+          "modality": "must",
+          "subjectRef": "P-RULES",
+          "objectRef": "paired connector gap joins only the two immediately adjacent Room-edge endpoints and is not itself a gameplay Corridor until a Corridor is placed",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-FACILITY-TOPOLOGY-FND",
+            "SA-FACILITY-TOPOLOGY-VIS"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S05",
+          "sequence": 5,
+          "operationType": "evaluate-condition",
+          "modality": "must",
+          "subjectRef": "P-RULES",
+          "objectRef": "Room/Corridor placement outside the Facility border is illegal",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-FACILITY-TOPOLOGY-RB",
+            "SA-FACILITY-TOPOLOGY-VIS"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S06",
+          "sequence": 6,
+          "operationType": "resolve-open-alternative",
+          "modality": "must",
+          "subjectRef": "P-RULES",
+          "objectRef": "SEM-Q-106 section-piece orientation and fixed-space edge crosswalk",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-FACILITY-TOPOLOGY-RB",
+            "SA-FACILITY-TOPOLOGY-VIS",
+            "SA-FACILITY-TOPOLOGY-FND"
+          ],
+          "notes": null
+        }
+      ],
+      "partialResolution": {
+        "policy": "per-effect-check",
+        "unit": "map slot, edge, or connector-gap state",
+        "onImpossible": "Reject off-board, unconnected, intervening-slot, or geometry-collapsing representations; SEM-Q-106/107 retain source-unspecified physical orientation/crosswalk alternatives."
+      },
+      "duration": {
+        "kind": "persistent-map-geometry"
+      },
+      "stacking": {
+        "policy": "Room-slot geometry and actual Corridor occupancy remain distinct"
+      },
+      "outcomes": [],
+      "unresolvedQuestionRefs": [
+        "SEM-Q-106",
+        "SEM-Q-107"
+      ],
+      "sourceVariants": [],
+      "implementationBoundary": "implementation-neutral; no engine, UI, network, storage, or serialization mapping"
+    },
+    {
+      "schemaVersion": 1,
+      "recordType": "semantic-rule",
+      "recordRevision": 1,
+      "ruleId": "SEM-FACILITY-VISUAL-ASSOCIATIONS-001",
+      "title": "Facility/setup visual associations without text or geometry flattening",
+      "status": "source-backed",
+      "ruleKind": "constraint",
+      "applicability": {
+        "game": "Nemesis: Retaliation",
+        "mode": "base-standard",
+        "playerCount": null
+      },
+      "authority": {
+        "highest": "official-primary",
+        "interpretation": "verbatim-structure"
+      },
+      "sourceAssertions": [
+        {
+          "assertionId": "SA-FACILITY-RB-P04-V01",
+          "sourceId": "SRC-RULEBOOK",
+          "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
+          "sourceSha256": "e3cda0d7a91bd090cec45dbc8ce89e2015e2202173357c374ff49365f9c29ddd",
+          "sourceAuthority": "official-primary",
+          "sourceVersion": "base rulebook, local official PDF",
+          "locator": "printed page None / RB-P04-V01 / illustrated-main-component-inventory",
+          "supportsFields": [
+            "operations",
+            "informationPolicy",
+            "sourceVariants"
+          ],
+          "sourceText": "normative physical component counts and subtype quantities",
+          "textKind": "normalized-paraphrase",
+          "evidenceRecord": "docs/rules/source-extraction/rulebook-visual-obligations.json:RB-P04-V01"
+        },
+        {
+          "assertionId": "SA-FACILITY-RB-P08-V01",
+          "sourceId": "SRC-RULEBOOK",
+          "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
+          "sourceSha256": "e3cda0d7a91bd090cec45dbc8ce89e2015e2202173357c374ff49365f9c29ddd",
+          "sourceAuthority": "official-primary",
+          "sourceVersion": "base rulebook, local official PDF",
+          "locator": "printed page 8 / RB-P08-V01 / two-sided-token-face-comparison",
+          "supportsFields": [
+            "operations",
+            "informationPolicy",
+            "sourceVariants"
+          ],
+          "sourceText": "Two red Ammo-token faces are shown side by side: one face depicts a full magazine and the other a half-full magazine.",
+          "textKind": "normalized-paraphrase",
+          "evidenceRecord": "docs/rules/source-extraction/rulebook-visual-obligations.json:RB-P08-V01"
+        },
+        {
+          "assertionId": "SA-FACILITY-RB-P08-V02",
+          "sourceId": "SRC-RULEBOOK",
+          "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
+          "sourceSha256": "e3cda0d7a91bd090cec45dbc8ce89e2015e2202173357c374ff49365f9c29ddd",
+          "sourceAuthority": "official-primary",
+          "sourceVersion": "base rulebook, local official PDF",
+          "locator": "printed page 8 / RB-P08-V02 / terminology-icon-equivalence",
+          "supportsFields": [
+            "operations",
+            "informationPolicy",
+            "sourceVariants"
+          ],
+          "sourceText": "The prose equates Primebloods and Intruders and prints a circular creature-like icon immediately after 'Intruders'.",
+          "textKind": "normalized-paraphrase",
+          "evidenceRecord": "docs/rules/source-extraction/rulebook-visual-obligations.json:RB-P08-V02"
+        },
+        {
+          "assertionId": "SA-FACILITY-RB-P09-V02",
+          "sourceId": "SRC-RULEBOOK",
+          "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
+          "sourceSha256": "e3cda0d7a91bd090cec45dbc8ce89e2015e2202173357c374ff49365f9c29ddd",
+          "sourceAuthority": "official-primary",
+          "sourceVersion": "base rulebook, local official PDF",
+          "locator": "printed page 9 / RB-P09-V02 / inline-icon-association",
+          "supportsFields": [
+            "operations",
+            "informationPolicy",
+            "sourceVariants"
+          ],
+          "sourceText": "The written 'Noise markers' list item is immediately followed by a yellow triangular/radiating glyph.",
+          "textKind": "normalized-paraphrase",
+          "evidenceRecord": "docs/rules/source-extraction/rulebook-visual-obligations.json:RB-P09-V02"
+        },
+        {
+          "assertionId": "SA-FACILITY-RB-P10-V01",
+          "sourceId": "SRC-RULEBOOK",
+          "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
+          "sourceSha256": "e3cda0d7a91bd090cec45dbc8ce89e2015e2202173357c374ff49365f9c29ddd",
+          "sourceAuthority": "official-primary",
+          "sourceVersion": "base rulebook, local official PDF",
+          "locator": "printed page 10 / RB-P10-V01 / inline-token-face-association",
+          "supportsFields": [
+            "operations",
+            "informationPolicy",
+            "sourceVariants"
+          ],
+          "sourceText": "Character Setup step 7 prints a red full-magazine token face immediately after 'place 1 Ammo token' and before the phrase 'from the insert full-side up'.",
+          "textKind": "normalized-paraphrase",
+          "evidenceRecord": "docs/rules/source-extraction/rulebook-visual-obligations.json:RB-P10-V01"
+        },
+        {
+          "assertionId": "SA-FACILITY-RB-P11-V02",
+          "sourceId": "SRC-RULEBOOK",
+          "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
+          "sourceSha256": "e3cda0d7a91bd090cec45dbc8ce89e2015e2202173357c374ff49365f9c29ddd",
+          "sourceAuthority": "official-primary",
+          "sourceVersion": "base rulebook, local official PDF",
+          "locator": "printed page 11 / RB-P11-V02 / character-board-assembly-diagram",
+          "supportsFields": [
+            "operations",
+            "informationPolicy",
+            "sourceVariants"
+          ],
+          "sourceText": "Angled Character board image with two red arrows from black pin silhouettes: one arrow points to a board aperture, and one points from an Oxygen counter/pin assembly toward another board aperture.",
+          "textKind": "normalized-paraphrase",
+          "evidenceRecord": "docs/rules/source-extraction/rulebook-visual-obligations.json:RB-P11-V02"
+        },
+        {
+          "assertionId": "SA-FACILITY-RB-P12-V01",
+          "sourceId": "SRC-RULEBOOK",
+          "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
+          "sourceSha256": "e3cda0d7a91bd090cec45dbc8ce89e2015e2202173357c374ff49365f9c29ddd",
+          "sourceAuthority": "official-primary",
+          "sourceVersion": "base rulebook, local official PDF",
+          "locator": "printed page 12 / RB-P12-V01 / icon-keyed-round-sequence-summary",
+          "supportsFields": [
+            "operations",
+            "informationPolicy",
+            "sourceVariants"
+          ],
+          "sourceText": "The numbered Player/Intruder/Event/Cleanup summary embeds source glyphs beside Inactive Life Support Systems, Oxygen, Fire, Health, Intruders, and Characters.",
+          "textKind": "normalized-paraphrase",
+          "evidenceRecord": "docs/rules/source-extraction/rulebook-visual-obligations.json:RB-P12-V01"
+        },
+        {
+          "assertionId": "SA-FACILITY-RB-P14-V03",
+          "sourceId": "SRC-RULEBOOK",
+          "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
+          "sourceSha256": "e3cda0d7a91bd090cec45dbc8ce89e2015e2202173357c374ff49365f9c29ddd",
+          "sourceAuthority": "official-primary",
+          "sourceVersion": "base rulebook, local official PDF",
+          "locator": "printed page 14 / RB-P14-V03 / inline-phase-icon-associations",
+          "supportsFields": [
+            "operations",
+            "informationPolicy",
+            "sourceVariants"
+          ],
+          "sourceText": "Creature-like and flame glyphs are embedded beside Intruders and Fire in the phase prose and burning rule.",
+          "textKind": "normalized-paraphrase",
+          "evidenceRecord": "docs/rules/source-extraction/rulebook-visual-obligations.json:RB-P14-V03"
+        },
+        {
+          "assertionId": "SA-FACILITY-RB-P15-V01",
+          "sourceId": "SRC-RULEBOOK",
+          "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
+          "sourceSha256": "e3cda0d7a91bd090cec45dbc8ce89e2015e2202173357c374ff49365f9c29ddd",
+          "sourceAuthority": "official-primary",
+          "sourceVersion": "base rulebook, local official PDF",
+          "locator": "printed page 15 / RB-P15-V01 / token-outcome-reference-table",
+          "supportsFields": [
+            "operations",
+            "informationPolicy",
+            "sourceVariants"
+          ],
+          "sourceText": "normative Bag Development token-effect reference",
+          "textKind": "normalized-paraphrase",
+          "evidenceRecord": "docs/rules/source-extraction/rulebook-visual-obligations.json:RB-P15-V01"
+        },
+        {
+          "assertionId": "SA-FACILITY-RB-P15-V02",
+          "sourceId": "SRC-RULEBOOK",
+          "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
+          "sourceSha256": "e3cda0d7a91bd090cec45dbc8ce89e2015e2202173357c374ff49365f9c29ddd",
+          "sourceAuthority": "official-primary",
+          "sourceVersion": "base rulebook, local official PDF",
+          "locator": "printed page 15 / RB-P15-V02 / round-track-token-resolution-key",
+          "supportsFields": [
+            "operations",
+            "informationPolicy",
+            "sourceVariants"
+          ],
+          "sourceText": "Autodestruction and Lander token glyphs appear beside their timing rules; the Lander rule also pictures the green INACTIVE and red ACTIVE Anti-Aircraft faces within the relevant branches.",
+          "textKind": "normalized-paraphrase",
+          "evidenceRecord": "docs/rules/source-extraction/rulebook-visual-obligations.json:RB-P15-V02"
+        },
+        {
+          "assertionId": "SA-FACILITY-RB-P16-V01",
+          "sourceId": "SRC-RULEBOOK",
+          "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
+          "sourceSha256": "e3cda0d7a91bd090cec45dbc8ce89e2015e2202173357c374ff49365f9c29ddd",
+          "sourceAuthority": "official-primary",
+          "sourceVersion": "base rulebook, local official PDF",
+          "locator": "printed page 16 / RB-P16-V01 / character-board-anatomy-diagram",
+          "supportsFields": [
+            "operations",
+            "informationPolicy",
+            "sourceVariants"
+          ],
+          "sourceText": "Red outlines and white letters mark multiple regions on one assembled Character board/tile: title/rank area, Health track, Tactical Belt, two Hand Slots, Oxygen area, Basic Actions, Action-card discard area, and lateral item spaces.",
+          "textKind": "normalized-paraphrase",
+          "evidenceRecord": "docs/rules/source-extraction/rulebook-visual-obligations.json:RB-P16-V01"
+        },
+        {
+          "assertionId": "SA-FACILITY-RB-P19-V01",
+          "sourceId": "SRC-RULEBOOK",
+          "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
+          "sourceSha256": "e3cda0d7a91bd090cec45dbc8ce89e2015e2202173357c374ff49365f9c29ddd",
+          "sourceAuthority": "official-primary",
+          "sourceVersion": "base rulebook, local official PDF",
+          "locator": "printed page 19 / RB-P19-V01 / facility-section-slot-boundary-diagram",
+          "supportsFields": [
+            "operations",
+            "informationPolicy",
+            "sourceVariants"
+          ],
+          "sourceText": "Top-down empty Facility silhouette uses green outlines for Section A, blue for Section B, and red for Section C, with all Room and Corridor slot outlines, border pieces, Round track, and Hibernatorium/Landing Zone area.",
+          "textKind": "normalized-paraphrase",
+          "evidenceRecord": "docs/rules/source-extraction/rulebook-visual-obligations.json:RB-P19-V01"
+        },
+        {
+          "assertionId": "SA-FACILITY-RB-P19-V02",
+          "sourceId": "SRC-RULEBOOK",
+          "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
+          "sourceSha256": "e3cda0d7a91bd090cec45dbc8ce89e2015e2202173357c374ff49365f9c29ddd",
+          "sourceAuthority": "official-primary",
+          "sourceVersion": "base rulebook, local official PDF",
+          "locator": "printed page 19 / RB-P19-V02 / life-support-state-icon-definition",
+          "supportsFields": [
+            "operations",
+            "informationPolicy",
+            "sourceVariants"
+          ],
+          "sourceText": "Uncrossed and diagonally crossed cyan capsule-like glyphs are printed after Active and Inactive in the Life Support System bullet.",
+          "textKind": "normalized-paraphrase",
+          "evidenceRecord": "docs/rules/source-extraction/rulebook-visual-obligations.json:RB-P19-V02"
+        },
+        {
+          "assertionId": "SA-FACILITY-RB-P20-V01",
+          "sourceId": "SRC-RULEBOOK",
+          "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
+          "sourceSha256": "e3cda0d7a91bd090cec45dbc8ce89e2015e2202173357c374ff49365f9c29ddd",
+          "sourceAuthority": "official-primary",
+          "sourceVersion": "base rulebook, local official PDF",
+          "locator": "printed page 20 / RB-P20-V01 / room-tile-front-back-anatomy-diagram",
+          "supportsFields": [
+            "operations",
+            "informationPolicy",
+            "sourceVariants"
+          ],
+          "sourceText": "A face-up Life Support Control A Room and an A-backed Room are shown. Red outlines and letters point to title, effect panel, two Item icons, Computer icon, type/ID field, other-icon area, and back letter.",
+          "textKind": "normalized-paraphrase",
+          "evidenceRecord": "docs/rules/source-extraction/rulebook-visual-obligations.json:RB-P20-V01"
+        },
+        {
+          "assertionId": "SA-FACILITY-RB-P20-V02",
+          "sourceId": "SRC-RULEBOOK",
+          "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
+          "sourceSha256": "e3cda0d7a91bd090cec45dbc8ce89e2015e2202173357c374ff49365f9c29ddd",
+          "sourceAuthority": "official-primary",
+          "sourceVersion": "base rulebook, local official PDF",
+          "locator": "printed page 20 / RB-P20-V02 / room-restriction-glyph-definitions",
+          "supportsFields": [
+            "operations",
+            "informationPolicy",
+            "sourceVariants"
+          ],
+          "sourceText": "Two red prohibition-style glyphs precede separate bullets: one marks Rooms that are never Secured and cannot receive Secure tokens; one marks Rooms that can never be broken and never receive a Malfunction marker.",
+          "textKind": "normalized-paraphrase",
+          "evidenceRecord": "docs/rules/source-extraction/rulebook-visual-obligations.json:RB-P20-V02"
+        },
+        {
+          "assertionId": "SA-FACILITY-RB-P20-V03",
+          "sourceId": "SRC-RULEBOOK",
+          "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
+          "sourceSha256": "e3cda0d7a91bd090cec45dbc8ce89e2015e2202173357c374ff49365f9c29ddd",
+          "sourceAuthority": "official-primary",
+          "sourceVersion": "base rulebook, local official PDF",
+          "locator": "printed page 20 / RB-P20-V03 / inline-nest-fire-icon-association",
+          "supportsFields": [
+            "operations",
+            "informationPolicy",
+            "sourceVariants"
+          ],
+          "sourceText": "A flame glyph is embedded after 'If a Fire' in the Nest callout.",
+          "textKind": "normalized-paraphrase",
+          "evidenceRecord": "docs/rules/source-extraction/rulebook-visual-obligations.json:RB-P20-V03"
+        },
+        {
+          "assertionId": "SA-FACILITY-RB-P21-V02",
+          "sourceId": "SRC-RULEBOOK",
+          "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
+          "sourceSha256": "e3cda0d7a91bd090cec45dbc8ce89e2015e2202173357c374ff49365f9c29ddd",
+          "sourceAuthority": "official-primary",
+          "sourceVersion": "base rulebook, local official PDF",
+          "locator": "printed page 21 / RB-P21-V02 / unexplored-corridor-topology-example",
+          "supportsFields": [
+            "operations",
+            "informationPolicy",
+            "sourceVariants"
+          ],
+          "sourceText": "Several Room/Corridor clusters are pictured; red outlines trace Corridors connected to only one Room, while other board elements remain unoutlined.",
+          "textKind": "normalized-paraphrase",
+          "evidenceRecord": "docs/rules/source-extraction/rulebook-visual-obligations.json:RB-P21-V02"
+        },
+        {
+          "assertionId": "SA-FACILITY-RB-P22-V02",
+          "sourceId": "SRC-RULEBOOK",
+          "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
+          "sourceSha256": "e3cda0d7a91bd090cec45dbc8ce89e2015e2202173357c374ff49365f9c29ddd",
+          "sourceAuthority": "official-primary",
+          "sourceVersion": "base rulebook, local official PDF",
+          "locator": "printed page 22 / RB-P22-V02 / door-blocking-worked-map-example",
+          "supportsFields": [
+            "operations",
+            "informationPolicy",
+            "sourceVariants"
+          ],
+          "sourceText": "Four Rooms and three Corridors form a branching map. Door slots/tokens are highlighted yellow, Intruder models in Corridors A and C are highlighted green, and prose explains which Doors may open and which Intruders can be Burst.",
+          "textKind": "normalized-paraphrase",
+          "evidenceRecord": "docs/rules/source-extraction/rulebook-visual-obligations.json:RB-P22-V02"
+        },
+        {
+          "assertionId": "SA-FACILITY-RB-P23-V01",
+          "sourceId": "SRC-RULEBOOK",
+          "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
+          "sourceSha256": "e3cda0d7a91bd090cec45dbc8ce89e2015e2202173357c374ff49365f9c29ddd",
+          "sourceAuthority": "official-primary",
+          "sourceVersion": "base rulebook, local official PDF",
+          "locator": "printed page 23 / RB-P23-V01 / room-marker-token-placement-example",
+          "supportsFields": [
+            "operations",
+            "informationPolicy",
+            "sourceVariants"
+          ],
+          "sourceText": "One Room tile contains a Character model/ring, two blue shield-like tokens, one orange flame marker, and Room-side Item icons/metadata.",
+          "textKind": "normalized-paraphrase",
+          "evidenceRecord": "docs/rules/source-extraction/rulebook-visual-obligations.json:RB-P23-V01"
+        }
+      ],
+      "termRefs": [
+        "icon.ammoToken",
+        "icon.autodestruction",
+        "icon.fire",
+        "icon.intruder",
+        "icon.lander",
+        "icon.lifeSupportActive",
+        "icon.lifeSupportInactive",
+        "icon.malfunction",
+        "icon.noise",
+        "icon.oxygenToken",
+        "icon.secure",
+        "term.corridor",
+        "term.door",
+        "term.facility",
+        "term.hibernatorium",
+        "term.landing-zone",
+        "term.map",
+        "term.nest",
+        "term.room",
+        "term.round-marker",
+        "term.section",
+        "term.tactical-gear-token",
+        "term.universal-marker"
+      ],
+      "taxonRefs": [
+        "tax.entity.agent.intruder",
+        "tax.entity.component.marker.fire",
+        "tax.entity.component.marker.malfunction",
+        "tax.entity.component.marker.noise",
+        "tax.entity.component.marker.universal",
+        "tax.entity.component.token.autodestruction",
+        "tax.entity.component.token.lander",
+        "tax.entity.component.token.round",
+        "tax.entity.component.token.secure",
+        "tax.entity.component.token.tactical-gear",
+        "tax.entity.spatial.corridor",
+        "tax.entity.spatial.door",
+        "tax.entity.spatial.facility",
+        "tax.entity.spatial.map",
+        "tax.entity.spatial.room",
+        "tax.entity.spatial.room.hibernatorium",
+        "tax.entity.spatial.room.landing-zone",
+        "tax.entity.spatial.room.nest",
+        "tax.entity.spatial.section"
+      ],
+      "namedIdentityRefs": [],
+      "timing": {
+        "windowId": "TW-FACILITY-VISUAL",
+        "anchorTaxonId": "tax.entity.spatial.map",
+        "relation": "when-triggered",
+        "recurrence": "once-per-exact-visual-occurrence"
+      },
+      "participants": [
+        {
+          "participantId": "P-RULES",
+          "participantKind": "rules-system",
+          "taxonId": null,
+          "role": null
+        },
+        {
+          "participantId": "P-SOURCE-AUDIT",
+          "participantKind": "source-audit",
+          "taxonId": null,
+          "role": null
+        }
+      ],
+      "modality": "must",
+      "preconditions": [],
+      "decisions": [],
+      "informationPolicy": [
+        {
+          "informationId": "I-FACILITY-VISUAL",
+          "subjectRef": "exact source visual, labels, icon/face association, geometry, orientation, arrows, section color, and overlay relation",
+          "audience": "public-source-evidence",
+          "revealTrigger": "source audit",
+          "secrecy": "visual associations do not expose hidden runtime component identities or create gameplay aliases"
+        }
+      ],
+      "costs": [],
+      "targets": [],
+      "operations": [
+        {
+          "stepId": "S01",
+          "sequence": 1,
+          "operationType": "evaluate-condition",
+          "modality": "must",
+          "subjectRef": "P-RULES",
+          "objectRef": "exact illustrated component inventory rows and subtype counts",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-FACILITY-RB-P04-V01"
+          ],
+          "notes": "source-local visual projection only; it does not create a global icon, geometry, component, or terminology alias."
+        },
+        {
+          "stepId": "S02",
+          "sequence": 2,
+          "operationType": "evaluate-condition",
+          "modality": "must",
+          "subjectRef": "P-RULES",
+          "objectRef": "full versus half-full Ammo token faces as two distinct faces of one token family",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-FACILITY-RB-P08-V01"
+          ],
+          "notes": "source-local visual projection only; it does not create a global icon, geometry, component, or terminology alias."
+        },
+        {
+          "stepId": "S03",
+          "sequence": 3,
+          "operationType": "evaluate-condition",
+          "modality": "must",
+          "subjectRef": "P-RULES",
+          "objectRef": "Primebloods/Intruders terminology and its exact inline creature glyph occurrence",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-FACILITY-RB-P08-V02"
+          ],
+          "notes": "source-local visual projection only; it does not create a global icon, geometry, component, or terminology alias."
+        },
+        {
+          "stepId": "S04",
+          "sequence": 4,
+          "operationType": "evaluate-condition",
+          "modality": "must",
+          "subjectRef": "P-RULES",
+          "objectRef": "Noise marker name and exact inline glyph association",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-FACILITY-RB-P09-V02"
+          ],
+          "notes": "source-local visual projection only; it does not create a global icon, geometry, component, or terminology alias."
+        },
+        {
+          "stepId": "S05",
+          "sequence": 5,
+          "operationType": "evaluate-condition",
+          "modality": "must",
+          "subjectRef": "P-RULES",
+          "objectRef": "starting full Ammo face and full-side-up placement association",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-FACILITY-RB-P10-V01"
+          ],
+          "notes": "source-local visual projection only; it does not create a global icon, geometry, component, or terminology alias."
+        },
+        {
+          "stepId": "S06",
+          "sequence": 6,
+          "operationType": "evaluate-condition",
+          "modality": "must",
+          "subjectRef": "P-RULES",
+          "objectRef": "Character-board pin/counter assembly arrows and apertures",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-FACILITY-RB-P11-V02"
+          ],
+          "notes": "source-local visual projection only; it does not create a global icon, geometry, component, or terminology alias."
+        },
+        {
+          "stepId": "S07",
+          "sequence": 7,
+          "operationType": "evaluate-condition",
+          "modality": "must",
+          "subjectRef": "P-RULES",
+          "objectRef": "icon-keyed Round summary associations without adding unrelated phase rules",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-FACILITY-RB-P12-V01"
+          ],
+          "notes": "source-local visual projection only; it does not create a global icon, geometry, component, or terminology alias."
+        },
+        {
+          "stepId": "S08",
+          "sequence": 8,
+          "operationType": "evaluate-condition",
+          "modality": "must",
+          "subjectRef": "P-RULES",
+          "objectRef": "Intruder and Fire icon associations without adding unrelated phase rules",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-FACILITY-RB-P14-V03"
+          ],
+          "notes": "source-local visual projection only; it does not create a global icon, geometry, component, or terminology alias."
+        },
+        {
+          "stepId": "S09",
+          "sequence": 9,
+          "operationType": "evaluate-condition",
+          "modality": "must",
+          "subjectRef": "P-RULES",
+          "objectRef": "token-face-to-outcome-row associations as a visual reference projection",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-FACILITY-RB-P15-V01"
+          ],
+          "notes": "source-local visual projection only; it does not create a global icon, geometry, component, or terminology alias."
+        },
+        {
+          "stepId": "S10",
+          "sequence": 10,
+          "operationType": "evaluate-condition",
+          "modality": "must",
+          "subjectRef": "P-RULES",
+          "objectRef": "Round-track token and Anti-Aircraft face/outcome associations for setup/track state",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-FACILITY-RB-P15-V02"
+          ],
+          "notes": "source-local visual projection only; it does not create a global icon, geometry, component, or terminology alias."
+        },
+        {
+          "stepId": "S11",
+          "sequence": 11,
+          "operationType": "evaluate-condition",
+          "modality": "must",
+          "subjectRef": "P-RULES",
+          "objectRef": "Character-board slot and anatomy boundaries",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-FACILITY-RB-P16-V01"
+          ],
+          "notes": "source-local visual projection only; it does not create a global icon, geometry, component, or terminology alias."
+        },
+        {
+          "stepId": "S12",
+          "sequence": 12,
+          "operationType": "evaluate-condition",
+          "modality": "must",
+          "subjectRef": "P-RULES",
+          "objectRef": "three-section color boundary, 21 regular slot contours, and fixed-space geometry boundary",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-FACILITY-RB-P19-V01"
+          ],
+          "notes": "source-local visual projection only; it does not create a global icon, geometry, component, or terminology alias."
+        },
+        {
+          "stepId": "S13",
+          "sequence": 13,
+          "operationType": "evaluate-condition",
+          "modality": "must",
+          "subjectRef": "P-RULES",
+          "objectRef": "Active/Inactive Life Support glyph pairing",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-FACILITY-RB-P19-V02"
+          ],
+          "notes": "source-local visual projection only; it does not create a global icon, geometry, component, or terminology alias."
+        },
+        {
+          "stepId": "S14",
+          "sequence": 14,
+          "operationType": "evaluate-condition",
+          "modality": "must",
+          "subjectRef": "P-RULES",
+          "objectRef": "Room front/back anatomy and type/ID placement",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-FACILITY-RB-P20-V01"
+          ],
+          "notes": "source-local visual projection only; it does not create a global icon, geometry, component, or terminology alias."
+        },
+        {
+          "stepId": "S15",
+          "sequence": 15,
+          "operationType": "evaluate-condition",
+          "modality": "must",
+          "subjectRef": "P-RULES",
+          "objectRef": "Room restriction glyph definitions as printed tile metadata",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-FACILITY-RB-P20-V02"
+          ],
+          "notes": "source-local visual projection only; it does not create a global icon, geometry, component, or terminology alias."
+        },
+        {
+          "stepId": "S16",
+          "sequence": 16,
+          "operationType": "evaluate-condition",
+          "modality": "must",
+          "subjectRef": "P-RULES",
+          "objectRef": "Nest/Fire icon association as source-local Room/map state",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-FACILITY-RB-P20-V03"
+          ],
+          "notes": "source-local visual projection only; it does not create a global icon, geometry, component, or terminology alias."
+        },
+        {
+          "stepId": "S17",
+          "sequence": 17,
+          "operationType": "evaluate-condition",
+          "modality": "must",
+          "subjectRef": "P-RULES",
+          "objectRef": "one-ended Unexplored Corridor topology example",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-FACILITY-RB-P21-V02"
+          ],
+          "notes": "source-local visual projection only; it does not create a global icon, geometry, component, or terminology alias."
+        },
+        {
+          "stepId": "S18",
+          "sequence": 18,
+          "operationType": "evaluate-condition",
+          "modality": "must",
+          "subjectRef": "P-RULES",
+          "objectRef": "Door-blocking worked map labels and intervening topology",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-FACILITY-RB-P22-V02"
+          ],
+          "notes": "source-local visual projection only; it does not create a global icon, geometry, component, or terminology alias."
+        },
+        {
+          "stepId": "S19",
+          "sequence": 19,
+          "operationType": "evaluate-condition",
+          "modality": "must",
+          "subjectRef": "P-RULES",
+          "objectRef": "coexisting Room markers/tokens versus printed Room metadata",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-FACILITY-RB-P23-V01"
+          ],
+          "notes": "source-local visual projection only; it does not create a global icon, geometry, component, or terminology alias."
+        }
+      ],
+      "partialResolution": {
+        "policy": "per-effect-check",
+        "unit": "one exact rulebook visual obligation",
+        "onImpossible": "Preserve the visual obligation as source evidence and do not substitute nearby text, color, shape, title, or implementation behavior."
+      },
+      "duration": {
+        "kind": "source-visual-association-projection"
+      },
+      "stacking": {
+        "policy": "visual geometry/text/icon/face associations are independent projections"
+      },
+      "outcomes": [],
       "unresolvedQuestionRefs": [],
       "sourceVariants": [],
       "implementationBoundary": "implementation-neutral; no engine, UI, network, storage, or serialization mapping"
@@ -81979,6 +84188,268 @@
       },
       "outcomes": [],
       "unresolvedQuestionRefs": [],
+      "sourceVariants": [],
+      "implementationBoundary": "implementation-neutral; no engine, UI, network, storage, or serialization mapping"
+    },
+    {
+      "schemaVersion": 1,
+      "recordType": "semantic-rule",
+      "recordRevision": 1,
+      "ruleId": "SEM-MAP-MARKER-PLACEMENT-001",
+      "title": "Map marker surfaces, printed Room icons, and finite marker state",
+      "status": "source-backed-with-open-question",
+      "ruleKind": "constraint",
+      "applicability": {
+        "game": "Nemesis: Retaliation",
+        "mode": "base-standard",
+        "playerCount": null
+      },
+      "authority": {
+        "highest": "official-primary",
+        "interpretation": "open-alternatives"
+      },
+      "sourceAssertions": [
+        {
+          "assertionId": "SA-FACILITY-MARKERS-RB",
+          "sourceId": "SRC-RULEBOOK",
+          "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
+          "sourceSha256": "e3cda0d7a91bd090cec45dbc8ce89e2015e2202173357c374ff49365f9c29ddd",
+          "sourceAuthority": "official-primary",
+          "sourceVersion": "base rulebook, local official PDF",
+          "locator": "printed page 23 / lines 4427–4468",
+          "supportsFields": [
+            "preconditions",
+            "operations",
+            "partialResolution",
+            "duration",
+            "stacking"
+          ],
+          "sourceText": "Noise markers are placed in Corridors; Fire markers and Secure tokens are placed in Rooms; Malfunction markers may be placed on Rooms, Heavy Items, and Robot cards. Room Fire and Malfunction markers have one-per-Room limits, repeated placement is ignored, and finite marker-limit fallback is source-defined.",
+          "textKind": "normalized-paraphrase",
+          "evidenceRecord": "docs/rulebooks/rulebook_text.txt:lines 4427–4468"
+        },
+        {
+          "assertionId": "SA-FACILITY-MARKERS-VIS",
+          "sourceId": "SRC-RULEBOOK",
+          "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
+          "sourceSha256": "e3cda0d7a91bd090cec45dbc8ce89e2015e2202173357c374ff49365f9c29ddd",
+          "sourceAuthority": "official-primary",
+          "sourceVersion": "base rulebook, local official PDF",
+          "locator": "printed page 23 / RB-P23-V01 / Room marker/token placement example",
+          "supportsFields": [
+            "operations",
+            "informationPolicy"
+          ],
+          "sourceText": "The worked Room example distinguishes Character model/ring, Secure tokens, Fire marker, and printed Room Item metadata as separate coexisting physical elements.",
+          "textKind": "normalized-paraphrase",
+          "evidenceRecord": "docs/rules/source-extraction/rulebook-visual-obligations.json:RB-P23-V01"
+        },
+        {
+          "assertionId": "SA-FACILITY-NOISE-ICON-VIS",
+          "sourceId": "SRC-RULEBOOK",
+          "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
+          "sourceSha256": "e3cda0d7a91bd090cec45dbc8ce89e2015e2202173357c374ff49365f9c29ddd",
+          "sourceAuthority": "official-primary",
+          "sourceVersion": "base rulebook, local official PDF",
+          "locator": "printed page 9 / RB-P09-V02 / Noise marker inline icon association",
+          "supportsFields": [
+            "operations",
+            "informationPolicy"
+          ],
+          "sourceText": "The component-list Noise marker name is bound to its yellow triangular/radiating icon occurrence.",
+          "textKind": "normalized-paraphrase",
+          "evidenceRecord": "docs/rules/source-extraction/rulebook-visual-obligations.json:RB-P09-V02"
+        }
+      ],
+      "termRefs": [
+        "icon.fire",
+        "icon.malfunction",
+        "icon.noise",
+        "icon.secure",
+        "term.corridor",
+        "term.room",
+        "term.universal-marker"
+      ],
+      "taxonRefs": [
+        "tax.entity.component.marker.fire",
+        "tax.entity.component.marker.malfunction",
+        "tax.entity.component.marker.noise",
+        "tax.entity.component.marker.universal",
+        "tax.entity.component.token.secure",
+        "tax.entity.spatial.corridor",
+        "tax.entity.spatial.room",
+        "tax.scaffold.supply-pool"
+      ],
+      "namedIdentityRefs": [],
+      "timing": {
+        "windowId": "TW-MAP-MARKERS",
+        "anchorTaxonId": "tax.entity.spatial.facility",
+        "relation": "when-triggered",
+        "recurrence": "per-marker-placement-or-discard"
+      },
+      "participants": [
+        {
+          "participantId": "P-RULES",
+          "participantKind": "rules-system",
+          "taxonId": null,
+          "role": null
+        },
+        {
+          "participantId": "P-EFFECT",
+          "participantKind": "effect-owner",
+          "taxonId": null,
+          "role": null
+        }
+      ],
+      "modality": "must",
+      "preconditions": [],
+      "decisions": [],
+      "informationPolicy": [
+        {
+          "informationId": "I-MAP-MARKERS",
+          "subjectRef": "marker/token kind, map surface, host component, count, and printed-versus-runtime distinction",
+          "audience": "public",
+          "revealTrigger": "placement/continuous",
+          "secrecy": "markers and their hosts are public; no source-defined hidden marker face is invented"
+        }
+      ],
+      "costs": [],
+      "targets": [],
+      "operations": [
+        {
+          "stepId": "S01",
+          "sequence": 1,
+          "operationType": "place-component",
+          "modality": "if-able",
+          "subjectRef": "P-RULES",
+          "objectRef": "Noise marker only in a Corridor",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-FACILITY-MARKERS-RB",
+            "SA-FACILITY-NOISE-ICON-VIS"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S02",
+          "sequence": 2,
+          "operationType": "place-component",
+          "modality": "if-able",
+          "subjectRef": "P-RULES",
+          "objectRef": "Fire marker only in a Room and at most one Fire marker per Room",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-FACILITY-MARKERS-RB",
+            "SA-FACILITY-MARKERS-VIS"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S03",
+          "sequence": 3,
+          "operationType": "place-component",
+          "modality": "if-able",
+          "subjectRef": "P-RULES",
+          "objectRef": "Secure token only in a Room, subject to Room-specific Secure restrictions and existing generic Secure limits",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-FACILITY-MARKERS-RB",
+            "SA-FACILITY-MARKERS-VIS"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S04",
+          "sequence": 4,
+          "operationType": "place-component",
+          "modality": "if-able",
+          "subjectRef": "P-RULES",
+          "objectRef": "Malfunction marker on a source-eligible component; at most one on a Room and repeated Room placement is ignored",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-FACILITY-MARKERS-RB"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S05",
+          "sequence": 5,
+          "operationType": "evaluate-condition",
+          "modality": "must",
+          "subjectRef": "P-RULES",
+          "objectRef": "printed Room Item/Computer/Other icons are tile metadata, not runtime marker tokens",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-FACILITY-MARKERS-RB",
+            "SA-FACILITY-MARKERS-VIS"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S06",
+          "sequence": 6,
+          "operationType": "evaluate-condition",
+          "modality": "must",
+          "subjectRef": "P-RULES",
+          "objectRef": "marker supply is finite and no unlisted Room-marker, Exploration-marker, or Suppression-marker component is invented",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-FACILITY-MARKERS-RB"
+          ],
+          "notes": null
+        }
+      ],
+      "partialResolution": {
+        "policy": "source-limited-components",
+        "unit": "one marker placement",
+        "onImpossible": "Apply source-defined one-per-host/Room restrictions and finite marker rules; do not substitute an unnamed marker or silently move a marker to another surface."
+      },
+      "duration": {
+        "kind": "persistent-public-marker-state"
+      },
+      "stacking": {
+        "policy": "runtime markers and printed tile icons never stack as one semantic component"
+      },
+      "outcomes": [],
+      "unresolvedQuestionRefs": [
+        "SEM-Q-110"
+      ],
       "sourceVariants": [],
       "implementationBoundary": "implementation-neutral; no engine, UI, network, storage, or serialization mapping"
     },
@@ -133723,6 +136194,616 @@
       },
       "outcomes": [],
       "unresolvedQuestionRefs": [],
+      "sourceVariants": [],
+      "implementationBoundary": "implementation-neutral; no engine, UI, network, storage, or serialization mapping"
+    },
+    {
+      "schemaVersion": 1,
+      "recordType": "semantic-rule",
+      "recordRevision": 1,
+      "ruleId": "SEM-ROOM-TILE-STATE-001",
+      "title": "Room-tile face/back, discovery, and printed restriction state",
+      "status": "source-backed",
+      "ruleKind": "constraint",
+      "applicability": {
+        "game": "Nemesis: Retaliation",
+        "mode": "base-standard",
+        "playerCount": null
+      },
+      "authority": {
+        "highest": "official-primary",
+        "interpretation": "source-composed"
+      },
+      "sourceAssertions": [
+        {
+          "assertionId": "SA-FACILITY-ROOM-TILE-RB",
+          "sourceId": "SRC-RULEBOOK",
+          "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
+          "sourceSha256": "e3cda0d7a91bd090cec45dbc8ce89e2015e2202173357c374ff49365f9c29ddd",
+          "sourceAuthority": "official-primary",
+          "sourceVersion": "base rulebook, local official PDF",
+          "locator": "printed page 20 / lines 4007–4040",
+          "supportsFields": [
+            "operations",
+            "preconditions",
+            "informationPolicy",
+            "duration"
+          ],
+          "sourceText": "Rooms are Section Rooms A/B/C, which always appear in their associated Section, or random ? Rooms, which may appear in any Section. The Room tile front has Name, Effect, Item Icons, Computer Icon, Type/ID, and Other Icons; printed restrictions govern Secure/Malfunction eligibility.",
+          "textKind": "normalized-paraphrase",
+          "evidenceRecord": "docs/rulebooks/rulebook_text.txt:lines 4007–4040"
+        },
+        {
+          "assertionId": "SA-FACILITY-ROOM-TILE-VIS",
+          "sourceId": "SRC-RULEBOOK",
+          "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
+          "sourceSha256": "e3cda0d7a91bd090cec45dbc8ce89e2015e2202173357c374ff49365f9c29ddd",
+          "sourceAuthority": "official-primary",
+          "sourceVersion": "base rulebook, local official PDF",
+          "locator": "printed page 20 / RB-P20-V01 / Room-tile front/back anatomy",
+          "supportsFields": [
+            "operations",
+            "informationPolicy"
+          ],
+          "sourceText": "The front/back diagram binds the Room front anatomy and Section-letter back to separate physical sides/regions.",
+          "textKind": "normalized-paraphrase",
+          "evidenceRecord": "docs/rules/source-extraction/rulebook-visual-obligations.json:RB-P20-V01"
+        },
+        {
+          "assertionId": "SA-FACILITY-ROOM-RESTRICTION-VIS",
+          "sourceId": "SRC-RULEBOOK",
+          "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
+          "sourceSha256": "e3cda0d7a91bd090cec45dbc8ce89e2015e2202173357c374ff49365f9c29ddd",
+          "sourceAuthority": "official-primary",
+          "sourceVersion": "base rulebook, local official PDF",
+          "locator": "printed page 20 / RB-P20-V02 / Room restriction glyph definitions",
+          "supportsFields": [
+            "operations",
+            "informationPolicy"
+          ],
+          "sourceText": "The Room restriction glyphs are distinct printed Other Icons and remain separate from runtime Secure/Malfunction markers.",
+          "textKind": "normalized-paraphrase",
+          "evidenceRecord": "docs/rules/source-extraction/rulebook-visual-obligations.json:RB-P20-V02"
+        },
+        {
+          "assertionId": "SA-FACILITY-NEST-FIRE-VIS",
+          "sourceId": "SRC-RULEBOOK",
+          "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
+          "sourceSha256": "e3cda0d7a91bd090cec45dbc8ce89e2015e2202173357c374ff49365f9c29ddd",
+          "sourceAuthority": "official-primary",
+          "sourceVersion": "base rulebook, local official PDF",
+          "locator": "printed page 20 / RB-P20-V03 / Nest/Fire icon association",
+          "supportsFields": [
+            "operations",
+            "informationPolicy"
+          ],
+          "sourceText": "The Nest and Fire icon occurrence is bound to the named Room/map-state context; it is not a generic Fire marker alias for every Room icon.",
+          "textKind": "normalized-paraphrase",
+          "evidenceRecord": "docs/rules/source-extraction/rulebook-visual-obligations.json:RB-P20-V03"
+        }
+      ],
+      "termRefs": [
+        "icon.fire",
+        "icon.malfunction",
+        "icon.secure",
+        "term.discovered",
+        "term.nest",
+        "term.room",
+        "term.section",
+        "term.undiscovered"
+      ],
+      "taxonRefs": [
+        "tax.entity.component.marker.fire",
+        "tax.entity.component.marker.malfunction",
+        "tax.entity.component.token.secure",
+        "tax.entity.information.component-definition.room",
+        "tax.entity.spatial.room",
+        "tax.entity.spatial.room.nest",
+        "tax.entity.spatial.section",
+        "tax.state.discovery.discovered",
+        "tax.state.discovery.undiscovered"
+      ],
+      "namedIdentityRefs": [],
+      "timing": {
+        "windowId": "TW-ROOM-TILE-STATE",
+        "anchorTaxonId": "tax.entity.spatial.room",
+        "relation": "when-triggered",
+        "recurrence": "per-Room-tile-state"
+      },
+      "participants": [
+        {
+          "participantId": "P-RULES",
+          "participantKind": "rules-system",
+          "taxonId": null,
+          "role": null
+        },
+        {
+          "participantId": "P-ROOM",
+          "participantKind": "map-state",
+          "taxonId": "tax.entity.spatial.room",
+          "role": null
+        }
+      ],
+      "modality": "must",
+      "preconditions": [],
+      "decisions": [],
+      "informationPolicy": [
+        {
+          "informationId": "I-ROOM-TILE-STATE",
+          "subjectRef": "Room face/back, Name/Effect/icons/Type/ID, discovery state, and printed restriction glyphs",
+          "audience": "public-after-discovery",
+          "revealTrigger": "Room placement/discovery",
+          "secrecy": "face-down Room identity remains hidden until source-defined placement/discovery"
+        }
+      ],
+      "costs": [],
+      "targets": [],
+      "operations": [
+        {
+          "stepId": "S01",
+          "sequence": 1,
+          "operationType": "evaluate-condition",
+          "modality": "must",
+          "subjectRef": "P-RULES",
+          "objectRef": "face-up Room exposes Name, Effect, Item Icons, Computer Icon, Type/ID, and Other Icons as separate front regions",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-FACILITY-ROOM-TILE-RB",
+            "SA-FACILITY-ROOM-TILE-VIS"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S02",
+          "sequence": 2,
+          "operationType": "set-state",
+          "modality": "must",
+          "subjectRef": "P-RULES",
+          "objectRef": "face-down Room tile/back is Undiscovered or unrevealed until its source-defined placement/discovery",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-FACILITY-ROOM-TILE-RB",
+            "SA-FACILITY-ROOM-TILE-VIS"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S03",
+          "sequence": 3,
+          "operationType": "evaluate-condition",
+          "modality": "must",
+          "subjectRef": "P-RULES",
+          "objectRef": "A/B/C Section type and ? random type remain distinct; Room ID remains source-local tie-break metadata",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-FACILITY-ROOM-TILE-RB"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S04",
+          "sequence": 4,
+          "operationType": "set-state",
+          "modality": "must",
+          "subjectRef": "P-RULES",
+          "objectRef": "printed no-Secure/no-Malfunction Room restrictions remain persistent tile properties and do not become removable runtime markers",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-FACILITY-ROOM-RESTRICTION-VIS"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S05",
+          "sequence": 5,
+          "operationType": "evaluate-condition",
+          "modality": "must",
+          "subjectRef": "P-RULES",
+          "objectRef": "Nest/Fire printed icon association remains source-scoped to the Nest Room/map-state",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-FACILITY-NEST-FIRE-VIS"
+          ],
+          "notes": null
+        }
+      ],
+      "partialResolution": {
+        "policy": "per-effect-check",
+        "unit": "one Room tile side or printed feature",
+        "onImpossible": "Do not reveal a face-down tile early, convert a printed icon into a runtime token, or merge fixed named spaces with random Room-tile identities."
+      },
+      "duration": {
+        "kind": "room-definition-and-discovery-state"
+      },
+      "stacking": {
+        "policy": "front/back and printed/runtime states remain separate"
+      },
+      "outcomes": [],
+      "unresolvedQuestionRefs": [],
+      "sourceVariants": [],
+      "implementationBoundary": "implementation-neutral; no engine, UI, network, storage, or serialization mapping"
+    },
+    {
+      "schemaVersion": 1,
+      "recordType": "semantic-rule",
+      "recordRevision": 1,
+      "ruleId": "SEM-ROUND-TRACK-SETUP-001",
+      "title": "Round track, Section-border, and fixed-system setup state",
+      "status": "source-backed-with-open-question",
+      "ruleKind": "procedure",
+      "applicability": {
+        "game": "Nemesis: Retaliation",
+        "mode": "base-standard",
+        "playerCount": null
+      },
+      "authority": {
+        "highest": "official-primary",
+        "interpretation": "open-alternatives"
+      },
+      "sourceAssertions": [
+        {
+          "assertionId": "SA-FACILITY-TRACK-SETUP-RB",
+          "sourceId": "SRC-RULEBOOK",
+          "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
+          "sourceSha256": "e3cda0d7a91bd090cec45dbc8ce89e2015e2202173357c374ff49365f9c29ddd",
+          "sourceAuthority": "official-primary",
+          "sourceVersion": "base rulebook, local official PDF",
+          "locator": "printed page 8 / lines 2428–2471",
+          "supportsFields": [
+            "operations",
+            "preconditions",
+            "informationPolicy",
+            "duration"
+          ],
+          "sourceText": "Place the Round marker on Round 1, Lander on Round 10, Autodestruction above the Round track, Universal marker on the top Objective Choice space, systems/Anti-Aircraft/Eggs in their Section-border slots, and the four initial Tactical Gear groups beside the Landing Zone.",
+          "textKind": "normalized-paraphrase",
+          "evidenceRecord": "docs/rulebooks/rulebook_text.txt:lines 2428–2471"
+        },
+        {
+          "assertionId": "SA-FACILITY-TRACK-VIS",
+          "sourceId": "SRC-RULEBOOK",
+          "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
+          "sourceSha256": "e3cda0d7a91bd090cec45dbc8ce89e2015e2202173357c374ff49365f9c29ddd",
+          "sourceAuthority": "official-primary",
+          "sourceVersion": "base rulebook, local official PDF",
+          "locator": "printed page 15 / RB-P15-V02 / Round-track token-resolution key",
+          "supportsFields": [
+            "operations",
+            "informationPolicy"
+          ],
+          "sourceText": "The visual key binds Autodestruction and Lander token glyphs and the green/red Anti-Aircraft faces to the Round-track collision outcomes; this record models setup/track state only, not full Lander escape or movement.",
+          "textKind": "normalized-paraphrase",
+          "evidenceRecord": "docs/rules/source-extraction/rulebook-visual-obligations.json:RB-P15-V02"
+        },
+        {
+          "assertionId": "SA-FACILITY-LIFE-SUPPORT-VIS",
+          "sourceId": "SRC-RULEBOOK",
+          "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
+          "sourceSha256": "e3cda0d7a91bd090cec45dbc8ce89e2015e2202173357c374ff49365f9c29ddd",
+          "sourceAuthority": "official-primary",
+          "sourceVersion": "base rulebook, local official PDF",
+          "locator": "printed page 19 / RB-P19-V02 / Life Support state/icon definition",
+          "supportsFields": [
+            "operations",
+            "informationPolicy"
+          ],
+          "sourceText": "Active and Inactive Life Support words are tied to distinct paired printed glyphs.",
+          "textKind": "normalized-paraphrase",
+          "evidenceRecord": "docs/rules/source-extraction/rulebook-visual-obligations.json:RB-P19-V02"
+        }
+      ],
+      "termRefs": [
+        "icon.ammoToken",
+        "icon.autodestruction",
+        "icon.hibernatoriumActive",
+        "icon.hibernatoriumInactive",
+        "icon.lander",
+        "icon.lifeSupportActive",
+        "icon.lifeSupportInactive",
+        "icon.oxygenToken",
+        "term.hibernatorium",
+        "term.landing-zone",
+        "term.nest",
+        "term.round-marker",
+        "term.section",
+        "term.section-a",
+        "term.section-b",
+        "term.section-c",
+        "term.universal-marker"
+      ],
+      "taxonRefs": [
+        "tax.entity.component.marker.universal",
+        "tax.entity.component.token.anti-aircraft",
+        "tax.entity.component.token.autodestruction",
+        "tax.entity.component.token.egg",
+        "tax.entity.component.token.lander",
+        "tax.entity.component.token.round",
+        "tax.entity.component.token.tactical-gear.ammo",
+        "tax.entity.component.token.tactical-gear.oxygen",
+        "tax.entity.spatial.room.hibernatorium",
+        "tax.entity.spatial.room.landing-zone",
+        "tax.entity.spatial.room.nest",
+        "tax.entity.spatial.section",
+        "tax.entity.spatial.section.a",
+        "tax.entity.spatial.section.b",
+        "tax.entity.spatial.section.c"
+      ],
+      "namedIdentityRefs": [],
+      "timing": {
+        "windowId": "TW-ROUND-TRACK-SETUP",
+        "anchorTaxonId": "tax.entity.component.token.round",
+        "relation": "when-triggered",
+        "recurrence": "once-per-game-setup"
+      },
+      "participants": [
+        {
+          "participantId": "P-SETUP",
+          "participantKind": "setup-procedure",
+          "taxonId": null,
+          "role": null
+        },
+        {
+          "participantId": "P-RULES",
+          "participantKind": "rules-system",
+          "taxonId": null,
+          "role": null
+        }
+      ],
+      "modality": "must",
+      "preconditions": [
+        {
+          "conditionId": "S09-C01",
+          "scope": "operation-guard",
+          "expression": {
+            "operator": "predicate",
+            "args": [
+              {
+                "predicate": "physical border-piece orientation or simultaneous placement affects the initial state"
+              }
+            ]
+          },
+          "sourceAssertionIds": [
+            "SA-FACILITY-TRACK-SETUP-RB"
+          ]
+        }
+      ],
+      "decisions": [],
+      "informationPolicy": [
+        {
+          "informationId": "I-TRACK-SETUP",
+          "subjectRef": "Round marker, Lander, Autodestruction, Universal, Life Support, Hibernatorium, Anti-Aircraft, Eggs, and Landing Zone supply states",
+          "audience": "public",
+          "revealTrigger": "setup",
+          "secrecy": "Anti-Aircraft token identities remain face down; all other listed setup states are public"
+        }
+      ],
+      "costs": [],
+      "targets": [],
+      "operations": [
+        {
+          "stepId": "S01",
+          "sequence": 1,
+          "operationType": "place-component",
+          "modality": "must",
+          "subjectRef": "P-SETUP",
+          "objectRef": "Round marker on first Round-track slot",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-FACILITY-TRACK-SETUP-RB"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S02",
+          "sequence": 2,
+          "operationType": "place-component",
+          "modality": "must",
+          "subjectRef": "P-SETUP",
+          "objectRef": "Lander token on Round-track slot 10",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-FACILITY-TRACK-SETUP-RB",
+            "SA-FACILITY-TRACK-VIS"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S03",
+          "sequence": 3,
+          "operationType": "place-component",
+          "modality": "must",
+          "subjectRef": "P-SETUP",
+          "objectRef": "Autodestruction token on its corresponding slot above the Round track",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-FACILITY-TRACK-SETUP-RB",
+            "SA-FACILITY-TRACK-VIS"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S04",
+          "sequence": 4,
+          "operationType": "place-component",
+          "modality": "must",
+          "subjectRef": "P-SETUP",
+          "objectRef": "Universal marker on the top-most Objective Choice space",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-FACILITY-TRACK-SETUP-RB"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S05",
+          "sequence": 5,
+          "operationType": "place-component",
+          "modality": "must",
+          "subjectRef": "P-SETUP",
+          "objectRef": "three Life Support tokens and Hibernatorium token Inactive side up on their Section-border slots",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-FACILITY-TRACK-SETUP-RB",
+            "SA-FACILITY-LIFE-SUPPORT-VIS"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S06",
+          "sequence": 6,
+          "operationType": "shuffle",
+          "modality": "must",
+          "subjectRef": "P-SETUP",
+          "objectRef": "both Anti-Aircraft tokens face down, one atop the other, in Section B's Anti-Aircraft slot",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-FACILITY-TRACK-SETUP-RB",
+            "SA-FACILITY-TRACK-VIS"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S07",
+          "sequence": 7,
+          "operationType": "place-component",
+          "modality": "must",
+          "subjectRef": "P-SETUP",
+          "objectRef": "five Egg tokens in the Eggs space on the Section C border piece",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-FACILITY-TRACK-SETUP-RB"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S08",
+          "sequence": 8,
+          "operationType": "place-component",
+          "modality": "must",
+          "subjectRef": "P-SETUP",
+          "objectRef": "four full Ammo, four Grenade, four Oxygen, and four Medpack tokens on corresponding slots next to the Landing Zone",
+          "conditionRefs": [],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-FACILITY-TRACK-SETUP-RB"
+          ],
+          "notes": null
+        },
+        {
+          "stepId": "S09",
+          "sequence": 9,
+          "operationType": "resolve-open-alternative",
+          "modality": "must",
+          "subjectRef": "P-RULES",
+          "objectRef": "SEM-Q-106 section-border orientation and simultaneous fixed-system placement boundary",
+          "conditionRefs": [
+            "S09-C01"
+          ],
+          "decisionRef": null,
+          "targetRef": null,
+          "transition": null,
+          "valueChange": null,
+          "invokeRuleId": null,
+          "repeat": null,
+          "sourceAssertionIds": [
+            "SA-FACILITY-TRACK-SETUP-RB"
+          ],
+          "notes": null
+        }
+      ],
+      "partialResolution": {
+        "policy": "ordered-complete",
+        "unit": "one source-numbered setup placement",
+        "onImpossible": "No replacement token, alternate slot, or shortage fallback is defined; SEM-Q-106/109 prohibit invention. Anti-Aircraft face identity remains hidden."
+      },
+      "duration": {
+        "kind": "initial-public-track-and-border-state"
+      },
+      "stacking": {
+        "policy": "one physical token/component per listed slot or finite supply instruction"
+      },
+      "outcomes": [],
+      "unresolvedQuestionRefs": [
+        "SEM-Q-106",
+        "SEM-Q-109"
+      ],
       "sourceVariants": [],
       "implementationBoundary": "implementation-neutral; no engine, UI, network, storage, or serialization mapping"
     },

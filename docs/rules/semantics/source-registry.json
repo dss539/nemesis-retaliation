@@ -10,7 +10,7 @@
     "project-interpretation"
   ],
   "counts": {
-    "sources": 468
+    "sources": 474
   },
   "sources": [
     {
@@ -2441,6 +2441,14 @@
       "evidenceIndexPath": "docs/rules/source-extraction/faq-v1.2-source-extraction.json"
     },
     {
+      "sourceId": "SRC-FND-005",
+      "authority": "project-interpretation",
+      "version": "FND-005 project-confirmed geometry invariant",
+      "path": "docs/rules/00-foundations.md",
+      "sha256": "46dc52f449799bf7617a52d98b1b0d90b47fff9ec3406acbd2de49bc973d713d",
+      "evidenceIndexPath": "docs/rules/00-foundations.md"
+    },
+    {
       "sourceId": "SRC-GREEN-ITEM-3700-7E1C40",
       "authority": "source-bound-component-scan",
       "version": "TTS source-bound base greenItemsDeck root occurrence 17 / full CardID 3700 / GUID 7e1c40",
@@ -4692,6 +4700,56 @@
       "evidenceIndexPath": "assets/tts-mod/extract/card-text-corpus.json",
       "evidenceRecord": "1027d7f87a80b4a7d32eb40e9d336c9557c032a33ab6fdc08912a5beeb3e2dcb",
       "provenanceIndexPath": "assets/tts-mod/extract/low-confidence-review.json"
+    },
+    {
+      "sourceId": "SRC-TTS-FACILITY-LUA",
+      "authority": "source-bound-component-scan",
+      "version": "Workshop 3256296893 extracted Lua runtime evidence",
+      "path": "assets/tts-mod/extract/v2/lua_script.lua",
+      "sha256": "0bcc12026d4e35d26dc5b168b826f861acf82bb486c8a79ea801867af1aface5",
+      "evidenceIndexPath": "docs/rules/semantics/facility-source-index.json",
+      "occurrenceId": "facility-lua",
+      "evidenceRecord": "docs/rules/semantics/facility-source-index.json:ttsProvenance.lua"
+    },
+    {
+      "sourceId": "SRC-TTS-FACILITY-MANIFEST",
+      "authority": "source-bound-component-scan",
+      "version": "Workshop 3256296893 downloaded asset manifest",
+      "path": "assets/tts-mod/extract/v2-dl/tree/manifest.json",
+      "sha256": "8bc6d3add705eae4453d77e0b1ce14b788c4435322214af790eb18251b2145a1",
+      "evidenceIndexPath": "docs/rules/semantics/facility-source-index.json",
+      "occurrenceId": "facility-manifest",
+      "evidenceRecord": "docs/rules/semantics/facility-source-index.json:ttsProvenance.manifest"
+    },
+    {
+      "sourceId": "SRC-TTS-FACILITY-OBJECTS",
+      "authority": "source-bound-component-scan",
+      "version": "Workshop 3256296893 extracted object projection",
+      "path": "assets/tts-mod/extract/v2/objects.json",
+      "sha256": "107f917269c73746affce85ef871d983e7d033c32bad3e1e524c3fafd1f220c2",
+      "evidenceIndexPath": "docs/rules/semantics/facility-source-index.json",
+      "occurrenceId": "facility-objects",
+      "evidenceRecord": "docs/rules/semantics/facility-source-index.json:ttsProvenance.objects"
+    },
+    {
+      "sourceId": "SRC-TTS-FACILITY-RAW",
+      "authority": "source-bound-component-scan",
+      "version": "Workshop 3256296893 extracted raw save",
+      "path": "assets/tts-mod/extract/nemesis_script_mod.bin",
+      "sha256": "8592c12556630d20c2443a2bd26059ddd8c38d64d91a695c2cfe3542914d1c68",
+      "evidenceIndexPath": "docs/rules/semantics/facility-source-index.json",
+      "occurrenceId": "facility-rawSave",
+      "evidenceRecord": "docs/rules/semantics/facility-source-index.json:ttsProvenance.rawSave"
+    },
+    {
+      "sourceId": "SRC-TTS-FACILITY-ROLES",
+      "authority": "source-bound-component-scan",
+      "version": "Workshop 3256296893 extracted Lua role projection",
+      "path": "assets/tts-mod/extract/v2/lua_roles.json",
+      "sha256": "9f45b811a7ac2375681ac173043db12da2eeaaa359cd2c2b5c0d14db5721c49a",
+      "evidenceIndexPath": "docs/rules/semantics/facility-source-index.json",
+      "occurrenceId": "facility-roles",
+      "evidenceRecord": "docs/rules/semantics/facility-source-index.json:ttsProvenance.roles"
     },
     {
       "sourceId": "SRC-YELLOW-ITEM-3400-2284BD",

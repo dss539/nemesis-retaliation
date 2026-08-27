@@ -3,10 +3,10 @@
   "recordType": "semantic-conflict-register",
   "policy": "Readable source differences remain separate. Authority may resolve a general rule without rewriting lower-authority component wording; unresolved conflicts never receive a default.",
   "counts": {
-    "conflicts": 82,
-    "resolvedByAuthority": 19,
-    "unresolved": 31,
-    "preservedBoundary": 32
+    "conflicts": 88,
+    "resolvedByAuthority": 21,
+    "unresolved": 34,
+    "preservedBoundary": 33
   },
   "conflicts": [
     {
@@ -1935,6 +1935,114 @@
       ],
       "difference": "Each component side places Blank in a separate lower P5 panel outside Corridor/Room/Bag columns. Page 15 explicitly reproduces the add-Adults result for Bag Development; page 25 says Blank always returns to the bag but does not textually assign the add-Adults clause to Corridor/Room draws.",
       "resolution": "No default. Bag Development add-Adults and universal return-to-bag remain source-clear; Corridor/Room add-Adults applicability remains SEM-Q-099."
+    },
+    {
+      "conflictId": "SC-083",
+      "title": "Twenty-three physical Room tiles versus twenty-five Room Help entries",
+      "status": "resolved-by-authority",
+      "questionId": null,
+      "affectedRuleIds": [
+        "SEM-FACILITY-COMPONENT-INVENTORY-001",
+        "SEM-FACILITY-ROOM-SETUP-001",
+        "SEM-ROOM-TILE-STATE-001"
+      ],
+      "evidenceRefs": [
+        "SRC-RULEBOOK",
+        "SRC-ROOM-HELP",
+        "docs/rules/source-extraction/rulebook-visual-obligations.json:RB-P04-V01",
+        "docs/rules/source-extraction/rulebook-visual-obligations.json:RB-P19-V01"
+      ],
+      "difference": "The main component inventory gives 23 Room tiles, while the Room Help sheet has 25 numbered effects and includes Landing Zone and Hibernatorium fixed-space entries in addition to the 23 tile-backed effects.",
+      "resolution": "Keep 23 physical tiles and the two fixed named spaces separate. Room Help numbering is an effect/reference inventory, not a 25-tile physical count."
+    },
+    {
+      "conflictId": "SC-084",
+      "title": "Official three-section map prose versus source-local rendered section geometry",
+      "status": "resolved-by-authority",
+      "questionId": null,
+      "affectedRuleIds": [
+        "SEM-FACILITY-TOPOLOGY-001",
+        "SEM-FACILITY-VISUAL-ASSOCIATIONS-001"
+      ],
+      "evidenceRefs": [
+        "SRC-RULEBOOK",
+        "SRC-FND-005",
+        "docs/rules/source-extraction/rulebook-visual-obligations.json:RB-P19-V01"
+      ],
+      "difference": "The official prose names three Sections A/B/C, while the rendered diagram carries exact colored boundaries, special border-piece spaces, and 21 regular variable contours that plain text cannot preserve.",
+      "resolution": "Use the official three-section proposition and the independently pinned rendered geometry together; do not replace the geometry with a text-only rectangular or four-section map."
+    },
+    {
+      "conflictId": "SC-085",
+      "title": "Room-edge proximity versus legal Corridor adjacency",
+      "status": "preserved-boundary",
+      "questionId": null,
+      "affectedRuleIds": [
+        "SEM-FACILITY-TOPOLOGY-001",
+        "SEM-FACILITY-CORRIDOR-SETUP-001",
+        "SEM-DOOR-001"
+      ],
+      "evidenceRefs": [
+        "SRC-RULEBOOK",
+        "SRC-FND-005",
+        "docs/rules/source-extraction/rulebook-visual-obligations.json:RB-P19-V01",
+        "docs/rules/source-extraction/rulebook-visual-obligations.json:RB-P21-V02"
+      ],
+      "difference": "The visual projection identifies reserved edge gaps and one-ended Corridor topology, while source rules make actual Room movement/connection depend on a placed legal Corridor and preserve adjacency through a Door.",
+      "resolution": "Retain paired edge gaps, Corridor endpoints, actual Corridor occupancy, and Door blocking as separate states. Proximity never creates a gameplay connection."
+    },
+    {
+      "conflictId": "SC-086",
+      "title": "Fixed Landing Zone/Hibernatorium border geometry lacks a complete text-labeled endpoint crosswalk",
+      "status": "unresolved",
+      "questionId": "SEM-Q-107",
+      "affectedRuleIds": [
+        "SEM-FACILITY-TOPOLOGY-001",
+        "SEM-FACILITY-CORRIDOR-SETUP-001"
+      ],
+      "evidenceRefs": [
+        "SRC-RULEBOOK",
+        "docs/rules/source-extraction/rulebook-visual-obligations.json:RB-P19-V01",
+        "docs/rules/semantics/facility-source-index.json:fixedMapSpaces"
+      ],
+      "difference": "The rendered diagram visibly separates fixed border-piece named spaces from regular hex contours, but the checked prose does not assign every special-space edge to a named regular Corridor endpoint.",
+      "resolution": "No default. Preserve the special-space geometry and leave the exact endpoint crosswalk under SEM-Q-107."
+    },
+    {
+      "conflictId": "SC-087",
+      "title": "Setup imperative quantities versus generic finite-component fallback",
+      "status": "unresolved",
+      "questionId": "SEM-Q-109",
+      "affectedRuleIds": [
+        "SEM-FACILITY-COMPONENT-INVENTORY-001",
+        "SEM-FACILITY-ROOM-SETUP-001",
+        "SEM-FACILITY-CORRIDOR-SETUP-001",
+        "SEM-ROUND-TRACK-SETUP-001"
+      ],
+      "evidenceRefs": [
+        "SRC-RULEBOOK",
+        "docs/rules/source-extraction/rulebook-visual-obligations.json:RB-P04-V01"
+      ],
+      "difference": "Setup directs exact quantities and positions, while the generic Component Limits rule says unavailable components do nothing for effects; no source explicitly extends that fallback to setup or defines replacement/atomicity.",
+      "resolution": "No default. Do not substitute, duplicate, proxy, or partially resolve a setup component request until SEM-Q-109 is answered."
+    },
+    {
+      "conflictId": "SC-088",
+      "title": "Named map markers versus possible unnamed visual overlay components",
+      "status": "unresolved",
+      "questionId": "SEM-Q-110",
+      "affectedRuleIds": [
+        "SEM-MAP-MARKER-PLACEMENT-001",
+        "SEM-ROOM-TILE-STATE-001"
+      ],
+      "evidenceRefs": [
+        "SRC-RULEBOOK",
+        "docs/rules/source-extraction/rulebook-visual-obligations.json:RB-P23-V01",
+        "docs/rules/source-extraction/rulebook-visual-obligations.json:RB-P20-V02",
+        "docs/rules/semantics/facility-source-index.json:componentInventory"
+      ],
+      "difference": "The checked map-marker text names Noise, Fire, Malfunction, Secure, and Universal components, while the bounded task vocabulary also uses Room-marker/Exploration/Suppression language and visual examples do not create a verified separate physical component identity.",
+      "resolution": "No generic alias or hidden component is invented. Keep printed Room icons, named runtime markers, Hibernatorium cover, and Universal marker distinct under SEM-Q-110."
     }
   ]
 }

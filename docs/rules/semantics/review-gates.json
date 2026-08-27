@@ -3,11 +3,11 @@
   "recordType": "semantic-review-gates",
   "status": "pilot built with deferred questions and explicit alternatives; no default answer adopted",
   "counts": {
-    "questions": 110,
-    "officialClarificationPreferred": 70,
-    "sourceAmbiguitiesIntroducedByPilot": 40,
+    "questions": 115,
+    "officialClarificationPreferred": 71,
+    "sourceAmbiguitiesIntroducedByPilot": 44,
     "resolved": 0,
-    "open": 110
+    "open": 115
   },
   "questions": [
     {
@@ -3892,6 +3892,173 @@
           "alternativeId": "SEM-Q-105-C",
           "description": "Use another simultaneous/player/random allocation while preserving exact requested counts.",
           "support": "general model limit says place as many as possible but gives no mixed-type scarcity/capacity tie-break"
+        }
+      ]
+    },
+    {
+      "questionId": "SEM-Q-106",
+      "title": "Section-border orientation and fixed Landing Zone/Hibernatorium edge crosswalk",
+      "decisionClass": "source-ambiguity-owner-decision-after-source-search",
+      "blocksRuleIds": [
+        "SEM-FACILITY-TOPOLOGY-001",
+        "SEM-FACILITY-ROOM-SETUP-001",
+        "SEM-ROUND-TRACK-SETUP-001"
+      ],
+      "plannedRuleIds": [],
+      "defaultProhibited": true,
+      "sourceEvidenceRefs": [
+        "docs/rulebooks/rulebook_text.txt:lines 2417–2444",
+        "docs/rules/source-extraction/rulebook-visual-obligations.json:RB-P19-V01",
+        "docs/rules/semantics/facility-source-index.json:topologyProjection"
+      ],
+      "alternatives": [
+        {
+          "alternativeId": "SEM-Q-106-A",
+          "description": "The single illustrated Section-border arrangement is the required physical orientation and fixes the special-space edge crosswalk.",
+          "support": "setup says connect and place the border pieces; the p.19 diagram shows one exact arrangement but does not state whether rotation is legal"
+        },
+        {
+          "alternativeId": "SEM-Q-106-B",
+          "description": "The pieces may be physically rotated or equivalently arranged while preserving Section A/B/C identities and all slot geometry.",
+          "support": "the prose does not expressly prohibit rotation; no alternate arrangement is illustrated"
+        },
+        {
+          "alternativeId": "SEM-Q-106-C",
+          "description": "A separate source-defined physical orientation/crosswalk applies to the fixed Landing Zone/Hibernatorium spaces.",
+          "support": "the rendered special border-piece spaces are not regular variable hex slots and their exact edge pairing is not textually assigned"
+        }
+      ]
+    },
+    {
+      "questionId": "SEM-Q-107",
+      "title": "Special-space Corridor endpoints and fixed-space connector assignment",
+      "decisionClass": "source-ambiguity-owner-decision-after-source-search",
+      "blocksRuleIds": [
+        "SEM-FACILITY-TOPOLOGY-001",
+        "SEM-FACILITY-CORRIDOR-SETUP-001"
+      ],
+      "plannedRuleIds": [],
+      "defaultProhibited": true,
+      "sourceEvidenceRefs": [
+        "docs/rulebooks/rulebook_text.txt:lines 2399–2403,3915–3921",
+        "docs/rules/source-extraction/rulebook-visual-obligations.json:RB-P19-V01/RB-P21-V02",
+        "docs/rules/semantics/facility-source-index.json:fixedMapSpaces"
+      ],
+      "alternatives": [
+        {
+          "alternativeId": "SEM-Q-107-A",
+          "description": "Only the measured paired regular-slot gaps are legal Corridor connectors; fixed named spaces use their own source-defined border-piece entrances.",
+          "support": "the visual separates special border-piece geometry from regular Room contours"
+        },
+        {
+          "alternativeId": "SEM-Q-107-B",
+          "description": "One or more fixed-space edges are also regular Corridor endpoints and must be crosswalked to named variable slots.",
+          "support": "Hibernatorium/Landing Zone are Rooms in source prose and can be connected by Corridors, but the exact rendered edge pairing is not assigned"
+        },
+        {
+          "alternativeId": "SEM-Q-107-C",
+          "description": "Another source-defined special-space connector topology applies.",
+          "support": "no complete labeled endpoint map is present in the checked text"
+        }
+      ]
+    },
+    {
+      "questionId": "SEM-Q-108",
+      "title": "Initial Landing Zone entrance selection for Corridor Door-slot orientation",
+      "decisionClass": "source-ambiguity-owner-decision-after-source-search",
+      "blocksRuleIds": [
+        "SEM-FACILITY-CORRIDOR-SETUP-001"
+      ],
+      "plannedRuleIds": [],
+      "defaultProhibited": true,
+      "sourceEvidenceRefs": [
+        "docs/rulebooks/rulebook_text.txt:lines 2399–2403,4244–4252",
+        "docs/rules/source-extraction/rulebook-visual-obligations.json:RB-P19-V01",
+        "docs/rules/semantics/facility-source-index.json:topologyProjection"
+      ],
+      "alternatives": [
+        {
+          "alternativeId": "SEM-Q-108-A",
+          "description": "Each initial Corridor with a Door slot is oriented toward the one source-defined Landing Zone entrance used by the physical map.",
+          "support": "the setup instruction uses singular “an entrance to the Landing Zone” but does not name a selector"
+        },
+        {
+          "alternativeId": "SEM-Q-108-B",
+          "description": "The setup actor chooses among multiple legal Landing Zone entrances independently for each drawn Corridor.",
+          "support": "the prose says connect three Corridors one by one but does not state an entrance choice or order"
+        },
+        {
+          "alternativeId": "SEM-Q-108-C",
+          "description": "A deterministic physical edge/order rule assigns each Door-slot Corridor entrance.",
+          "support": "a digital implementation would need a tie-break, but no source tie-break is stated"
+        }
+      ]
+    },
+    {
+      "questionId": "SEM-Q-109",
+      "title": "Setup component shortage, replacement, and simultaneous placement atomicity",
+      "decisionClass": "official-clarification-preferred",
+      "blocksRuleIds": [
+        "SEM-FACILITY-COMPONENT-INVENTORY-001",
+        "SEM-FACILITY-ROOM-SETUP-001",
+        "SEM-FACILITY-CORRIDOR-SETUP-001",
+        "SEM-ROUND-TRACK-SETUP-001"
+      ],
+      "plannedRuleIds": [],
+      "defaultProhibited": true,
+      "sourceEvidenceRefs": [
+        "docs/rulebooks/rulebook_text.txt:lines 2399–2476",
+        "docs/rulebooks/rulebook_text.txt:lines 2659–2746",
+        "docs/rulebooks/rulebook_text.txt:lines 3530–3548",
+        "docs/rules/source-extraction/rulebook-visual-obligations.json:RB-P04-V01"
+      ],
+      "alternatives": [
+        {
+          "alternativeId": "SEM-Q-109-A",
+          "description": "Setup cannot begin or the affected setup step is invalid when a required physical component is unavailable.",
+          "support": "setup uses exact imperative quantities and supplies no replacement"
+        },
+        {
+          "alternativeId": "SEM-Q-109-B",
+          "description": "Use the generic finite-component rule and place/add only available components, leaving excess requests unresolved.",
+          "support": "the general component-limit rule covers gameplay effects but does not expressly extend to setup"
+        },
+        {
+          "alternativeId": "SEM-Q-109-C",
+          "description": "Apply another source-defined shortage, proxy, replacement, or atomic-group rule.",
+          "support": "no checked setup passage states one"
+        }
+      ]
+    },
+    {
+      "questionId": "SEM-Q-110",
+      "title": "Unnamed Room-marker, Exploration-marker, or Suppression-marker component identity",
+      "decisionClass": "source-ambiguity-owner-decision-after-source-search",
+      "blocksRuleIds": [
+        "SEM-MAP-MARKER-PLACEMENT-001"
+      ],
+      "plannedRuleIds": [],
+      "defaultProhibited": true,
+      "sourceEvidenceRefs": [
+        "docs/rulebooks/rulebook_text.txt:lines 4427–4468",
+        "docs/rules/source-extraction/rulebook-visual-obligations.json:RB-P23-V01",
+        "docs/rules/semantics/facility-source-index.json:componentInventory"
+      ],
+      "alternatives": [
+        {
+          "alternativeId": "SEM-Q-110-A",
+          "description": "No separate generic Room-marker, Exploration-marker, or Suppression-marker component exists; use only the named Fire, Malfunction, Noise, Secure, Universal, and source-defined cover/token components.",
+          "support": "the checked inventory and map-marker section name specific components but no generic Room-marker family"
+        },
+        {
+          "alternativeId": "SEM-Q-110-B",
+          "description": "A source-local unnamed marker is a distinct physical component whose identity/face and placement surface remain to be recovered.",
+          "support": "visual examples can show pieces whose extracted labels are absent; no exact component crosswalk is currently established"
+        },
+        {
+          "alternativeId": "SEM-Q-110-C",
+          "description": "One of the named marker/token families is intended as the generic Room/Exploration/Suppression marker in a source-specific context.",
+          "support": "contextual use may be suggested by diagrams but no global alias is authoritative"
         }
       ]
     }

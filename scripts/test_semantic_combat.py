@@ -66,7 +66,7 @@ class CombatSemanticAdversarialTests(unittest.TestCase):
         self.assertEqual(report["checks"]["combatVisualObligations"], 9)
         self.assertEqual(report["checks"]["combatNewRecords"], 14)
         self.assertEqual(report["checks"]["combatClosedBacklogUnits"], 11)
-        self.assertEqual(report["checks"]["backlogPilotCovered"], 510)
+        self.assertEqual(report["checks"]["backlogPilotCovered"], 530)
 
     def test_noise_hazard_branch_collapse_is_rejected(self):
         def mutate(value):

@@ -419,7 +419,7 @@ def validate_combat_family(
     if backlog.get("counts") != {
         "units": 600,
         "byChannel": {"card-reference-source-tuple": 350, "interpreted-rule-record": 54, "intruder-help-instruction": 18, "objective-help-unit": 45, "official-faq-unit": 28, "room-help-entry": 25, "rulebook-visual-obligation": 80},
-        "byStatus": {"pending": 89, "pilot-covered": 510, "source-blocked": 1},
+        "byStatus": {"pending": 69, "pilot-covered": 530, "source-blocked": 1},
     }:
         _fail(failures, "Combat coordinated backlog lowering")
     blocked = [row for row in backlog.get("units") or [] if row.get("status") == "source-blocked"]
