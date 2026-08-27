@@ -1,0 +1,367 @@
+{
+  "model": "glm-5.3-flash",
+  "review": {
+    "requirements": [
+      {
+        "id": "B-1",
+        "behavior": "Search is an Action card with 0 Action-card cost; it is played by performing the 'Play an Action card' Action.",
+        "source_lines": [
+          "2871-2875"
+        ],
+        "implementation_relevance": "Gate Search resolution behind the Play-an-Action-card Action; no Action-card resource is consumed."
+      },
+      {
+        "id": "B-2",
+        "behavior": "When 'Play an Action card' is performed, the player reveals the chosen Action card from hand, resolves its effect, then places it on top of the discard pile.",
+        "source_lines": [
+          "3177-3179"
+        ],
+        "implementation_relevance": "The Search card is revealed at play; after the draw/keep/discard resolution completes, it goes to the top of the Action discard pile."
+      },
+      {
+        "id": "B-3",
+        "behavior": "A chosen effect must be resolvable entirely; if impossible, that effect may not be chosen.",
+        "source_lines": [
+          "3188-3191"
+        ],
+        "implementation_relevance": "Legality gate on choosing Search; whether 'entirely' is checkable pre-reveal given random draws and storage limits is unresolved (A-2, A-3)."
+      },
+      {
+        "id": "B-4",
+        "behavior": "Search draws 1 Item card for each Item Icon (green, yellow, red) on the Room the acting character is Searching in, each of the corresponding color/type.",
+        "source_lines": [
+          "4849-4865",
+          "Search card face"
+        ],
+        "implementation_relevance": "Draw count and per-color deck sourcing derive from the acting character's current Room icon profile."
+      },
+      {
+        "id": "B-5",
+        "behavior": "After drawing, the player picks 1 of the drawn cards to keep and discards the rest to the bottom of their respective (per-color) decks.",
+        "source_lines": [
+          "4849-4865",
+          "Search card face"
+        ],
+        "implementation_relevance": "Keep-selection step; returns go to the bottom of the matching color deck. Card face says 'may keep 1' vs rulebook 'pick 1' \u2014 discrepancy tracked as A-7, not resolved here."
+      },
+      {
+        "id": "B-6",
+        "behavior": "Searched but unchosen Item cards must not be revealed to other players.",
+        "source_lines": [
+          "4849-4865"
+        ],
+        "implementation_relevance": "Unchosen identities are hidden from opponents; bottom-of-deck returns must not expose them."
+      },
+      {
+        "id": "B-7",
+        "behavior": "Items found during the game are gained with all Tactical Gear slots filled, if the Item has any.",
+        "source_lines": [
+          "4899-4904"
+        ],
+        "implementation_relevance": "The stored chosen Item is instantiated with filled Tactical Gear slots; no player choice."
+      },
+      {
+        "id": "B-8",
+        "behavior": "All regular Items are placed in a Backpack card holder on gain; no limit on regular Items held; Backpack contents are secret until used.",
+        "source_lines": [
+          "4905-4910"
+        ],
+        "implementation_relevance": "Default storage for a kept non-Heavy Item; stored state must be hidden from other players until used."
+      },
+      {
+        "id": "B-9",
+        "behavior": "All horizontal Items are Heavy; Heavy Items (including Weapons and Intruder Eggs) do not fit in a Backpack and must be held in a Hand slot, 1 Item per Hand slot; if all Hand slots are occupied when a Heavy Item is gained, the Character may first discard one held Item to make space.",
+        "source_lines": [
+          "5024-5034",
+          "4933-4948"
+        ],
+        "implementation_relevance": "Storage routing for a kept Heavy Item, bypassing Backpack placement; includes an optional discard-to-make-space decision."
+      },
+      {
+        "id": "B-10",
+        "behavior": "Armor Items are placed on the Heavily Injured Health-track section; only one Armor may be worn; when gaining Armor while already using one, the Character may first discard the old Armor; if the Health marker is already on Heavily Injured, the Armor cannot be gained and is discarded instead.",
+        "source_lines": [
+          "5045-5057"
+        ],
+        "implementation_relevance": "Storage routing for a kept Armor Item, optional swap decision, and a forced-discard failure path."
+      },
+      {
+        "id": "B-11",
+        "behavior": "Search carries the Not In Combat restriction and may not be played while the acting character is In Combat.",
+        "source_lines": [
+          "Search card face"
+        ],
+        "implementation_relevance": "Additional precondition on choosing Search beyond B-3."
+      },
+      {
+        "id": "B-12",
+        "behavior": "Components without a specific exhaustion rule are limited: if one is to be used and none are available, nothing happens instead (e.g., no Ammo gain when all are held).",
+        "source_lines": [
+          "3543-3548"
+        ],
+        "implementation_relevance": "Candidate rule for empty-deck draws, but its interaction with B-3 full-resolvability is unresolved (A-1); do not apply it to Search draws without a ruling."
+      }
+    ],
+    "ambiguities": [
+      {
+        "id": "A-1",
+        "question": "If an Item deck required by the Room's icons is empty (before or mid-Search), does the 'nothing happens instead' rule (3543-3548) apply to that draw, or does full-resolvability (3188-3191) make Search unchoosable? DO NOT DEFAULT.",
+        "plausible_alternatives": [
+          "Empty-deck draw is a no-op; Search still resolves and the keep choice covers whatever was drawn",
+          "Search cannot be chosen if any required deck is empty",
+          "Search is choosable only if at least one required deck is non-empty"
+        ],
+        "default_prohibited": true,
+        "source_lines": [
+          "3543-3548",
+          "3188-3191",
+          "4849-4865"
+        ]
+      },
+      {
+        "id": "A-2",
+        "question": "Must Search legality be knowable before the random reveal (e.g., that some storable result exists), or is legality assessed only on pre-draw facts (Room icons, combat status) and re-checked after the reveal? DO NOT DEFAULT.",
+        "plausible_alternatives": [
+          "Legality assessed pre-draw from icon counts and combat status only",
+          "Legality requires a legal storage outcome for every possible draw",
+          "Legality re-evaluated post-draw; effect proceeds only if at least one drawn card is storable"
+        ],
+        "default_prohibited": true,
+        "source_lines": [
+          "3188-3191",
+          "4849-4865",
+          "5024-5034",
+          "5045-5057"
+        ]
+      },
+      {
+        "id": "A-3",
+        "question": "If only some randomly drawn Items can be legally gained/stored (e.g., only Armor drawn while the Health marker is on Heavily Injured, or only Heavy drawn with full Hand slots and the player declines to discard), may the player choose among the legally storable ones, or was the whole effect illegal? DO NOT DEFAULT.",
+        "plausible_alternatives": [
+          "Player keeps 1 among the legally storable drawn cards; the rest return to deck bottoms",
+          "The whole effect is illegal and could not be chosen",
+          "The effect unwinds: all drawn cards return and the Search card is not treated as played"
+        ],
+        "default_prohibited": true,
+        "source_lines": [
+          "3188-3191",
+          "4849-4865",
+          "5024-5034",
+          "5045-5057"
+        ]
+      },
+      {
+        "id": "A-4",
+        "question": "What is the visibility model for drawn candidate identities before the keep choice: private to the acting owner, merely unrevealed to other players, or public until only the unchosen ones become hidden? DO NOT DEFAULT.",
+        "plausible_alternatives": [
+          "Acting player views drawn cards privately; no other player sees any identity",
+          "Cards are unrevealed to others; whether the acting player may view them is unspecified",
+          "Cards are public on reveal; only unchosen cards become hidden afterward"
+        ],
+        "default_prohibited": true,
+        "source_lines": [
+          "4849-4865",
+          "4905-4910"
+        ]
+      },
+      {
+        "id": "A-5",
+        "question": "Does the chosen Item become public when stored outside the Backpack (Hand slot for Heavy, Health-track for Armor), or does it stay secret until used like Backpack contents? DO NOT DEFAULT.",
+        "plausible_alternatives": [
+          "Public once placed in a Hand slot or worn as Armor",
+          "Secret until used, extended from the Backpack rule",
+          "Visibility changes only when used/equipped"
+        ],
+        "default_prohibited": true,
+        "source_lines": [
+          "4905-4910",
+          "5024-5034",
+          "5045-5057"
+        ]
+      },
+      {
+        "id": "A-6",
+        "question": "When the Search effect cannot legally be chosen (Not In Combat, or B-3 blocks it), is the Search card discarded per the play sequence, or is it never played and retained in hand? DO NOT DEFAULT.",
+        "plausible_alternatives": [
+          "Never played; retained in hand",
+          "Revealed and placed on the discard pile without effect",
+          "Discarded only if legality fails after play begins"
+        ],
+        "default_prohibited": true,
+        "source_lines": [
+          "3177-3179",
+          "3188-3191",
+          "Search card face"
+        ]
+      },
+      {
+        "id": "A-7",
+        "question": "Card face says 'You may keep 1 of them' while the rulebook says 'you pick 1 of those cards to keep' \u2014 must exactly one be kept, or may the player keep zero and discard all drawn cards? DO NOT DEFAULT.",
+        "plausible_alternatives": [
+          "Exactly 1 must be kept whenever at least 1 card was drawn",
+          "Keeping is optional (0 or 1)",
+          "Mandatory only when at least one card was drawn"
+        ],
+        "default_prohibited": true,
+        "source_lines": [
+          "4849-4865",
+          "Search card face"
+        ]
+      },
+      {
+        "id": "A-8",
+        "question": "Where do 'discarded' Items go outside the Search return rule \u2014 the held Item discarded to free a Hand slot, the old Armor on swap, and the Armor discarded when gain is impossible (discard pile vs bottom of their decks)? DO NOT DEFAULT.",
+        "plausible_alternatives": [
+          "To a shared discard pile",
+          "To the bottom of their respective color decks, matching the Search return rule",
+          "Owner's choice of destination"
+        ],
+        "default_prohibited": true,
+        "source_lines": [
+          "5024-5034",
+          "5045-5057",
+          "4849-4865"
+        ]
+      }
+    ],
+    "minimum_state": [
+      "Acting character's Room icon profile (green/yellow/red counts) and the acting character's In Combat status.",
+      "Search card presence in the acting player's hand; Action card discard pile with top-of-pile placement.",
+      "Per-color Item decks (green/yellow/red) supporting top-draw and bottom-return, with each physical card occurrence uniquely identifiable even when titles repeat.",
+      "Drawn candidate set for the current Search with per-observer visibility flags (acting player vs other players), pending A-4.",
+      "Pending keep decision (exactly-1 vs optional per A-7) and pending optional discards: held Item to free a Hand slot (B-9), old Armor on swap (B-10).",
+      "Character storage containers: Backpack (unbounded regular Items, secret until used), Hand slots (each capacity 1, with occupant identity), Armor slot (worn Armor or none), Health marker position relative to the Heavily Injured section.",
+      "Gained Item's Tactical Gear slots recorded as filled (B-7)."
+    ],
+    "acceptance_scenarios": [
+      {
+        "id": "S-1",
+        "given": "Acting character not In Combat; Search card in hand; their Room has one green and one red Item Icon.",
+        "when": "The player performs 'Play an Action card' choosing Search and it resolves.",
+        "then": [
+          "The Search card is revealed from hand",
+          "Exactly 1 green and 1 red Item are drawn from the respective decks",
+          "The player keeps 1 of the two drawn cards",
+          "The unchosen card is placed on the bottom of its color deck without being revealed to other players",
+          "The Search card is placed on top of the discard pile"
+        ],
+        "source_lines": [
+          "4849-4865",
+          "3177-3179",
+          "Search card face"
+        ]
+      },
+      {
+        "id": "S-2",
+        "given": "Acting character's Room has two icons of the same color (e.g., two green).",
+        "when": "Search resolves.",
+        "then": [
+          "2 Items are drawn from the green deck",
+          "1 is kept and 1 is returned to the bottom of the green deck, hidden from other players"
+        ],
+        "source_lines": [
+          "4849-4865"
+        ]
+      },
+      {
+        "id": "S-3",
+        "given": "The kept card is a regular (non-Heavy, non-Armor) Item.",
+        "when": "It is gained.",
+        "then": [
+          "It is placed in a Backpack card holder",
+          "It is not revealed to other players until used"
+        ],
+        "source_lines": [
+          "4905-4910"
+        ]
+      },
+      {
+        "id": "S-4",
+        "given": "The kept card is a Heavy Item and at least one Hand slot is empty.",
+        "when": "It is gained.",
+        "then": [
+          "It is placed in a Hand slot, not the Backpack",
+          "It is the only Item in that Hand slot"
+        ],
+        "source_lines": [
+          "5024-5034"
+        ]
+      },
+      {
+        "id": "S-5",
+        "given": "The kept card is a Heavy Item and all Hand slots are occupied.",
+        "when": "It is gained.",
+        "then": [
+          "The player may first discard one held Item to make space",
+          "Only after space is made is the Heavy Item held in a Hand slot; it never goes to the Backpack"
+        ],
+        "source_lines": [
+          "5024-5034"
+        ]
+      },
+      {
+        "id": "S-6",
+        "given": "The kept card is an Armor Item; no Armor is worn; the Health marker is not on Heavily Injured.",
+        "when": "It is gained.",
+        "then": [
+          "It is placed on the Heavily Injured Health-track section",
+          "It is gained with all its Tactical Gear slots filled"
+        ],
+        "source_lines": [
+          "5045-5057",
+          "4899-4904"
+        ]
+      },
+      {
+        "id": "S-7",
+        "given": "The kept card is an Armor Item while an Armor is already worn; the Health marker is not on Heavily Injured.",
+        "when": "It is gained.",
+        "then": [
+          "The player may first discard the old Armor",
+          "The new Armor is then worn; only one Armor is worn afterward"
+        ],
+        "source_lines": [
+          "5045-5057"
+        ]
+      },
+      {
+        "id": "S-8",
+        "given": "The kept card is an Armor Item and the Health marker is already on Heavily Injured.",
+        "when": "The gain is attempted.",
+        "then": [
+          "The Armor cannot be gained",
+          "It is discarded instead (destination per A-8; no default applied)"
+        ],
+        "source_lines": [
+          "5045-5057"
+        ]
+      },
+      {
+        "id": "S-9",
+        "given": "The acting character is In Combat.",
+        "when": "The player attempts to choose Search via 'Play an Action card'.",
+        "then": [
+          "Search may not be chosen or resolved (Not In Combat restriction)",
+          "Disposition of the Search card in this case follows A-6; no default applied"
+        ],
+        "source_lines": [
+          "Search card face",
+          "3177-3179",
+          "3188-3191"
+        ]
+      }
+    ],
+    "unsafe_assumptions": [
+      "Treating an empty required Item deck as a silent no-op draw, or as automatically making Search unchoosable \u2014 the 3543-3548 exhaustion rule and the 3188-3191 full-resolvability rule conflict and no source resolves it (A-1).",
+      "Assuming Search legality is fully checkable before the random reveal, or that post-draw storage failure either voids or permits the effect (A-2, A-3).",
+      "Assuming any specific visibility model for drawn candidates; only the unchosen cards' secrecy from other players is explicit (4849-4865) (A-4).",
+      "Assuming a Hand-slot Heavy Item or worn Armor is public (or secret) by analogy to the Backpack secrecy rule; only Backpack secrecy is explicit (4905-4910) (A-5).",
+      "Assuming the Search card is discarded after an illegal/blocked play attempt, or that it is retained; 3177-3179 covers only the successfully played path (A-6).",
+      "Resolving the 'may keep 1' (card face) vs 'pick 1' (rulebook) discrepancy in either direction, including whether keeping zero is legal (A-7).",
+      "Assuming 'discarded' Items (freed Hand slot, failed Armor gain, swapped old Armor) go to a discard pile rather than the bottom of their decks, or vice versa (A-8).",
+      "Treating duplicate-titled Item cards as interchangeable; each physical card occurrence must remain uniquely identifiable per scope, and no source line defines identity merging.",
+      "Assuming any post-gain use, equipping, or transfer of the gained Item is part of Search resolution; that is explicitly out of scope and unsupported by the excerpts.",
+      "Assuming 'regular Items' (4905-4910) is a defined term covering Heavy or Armor Items for Backpack placement; the explicit routing rules (5024-5034, 5045-5057) place them elsewhere, and 'regular' is not defined."
+    ]
+  }
+}

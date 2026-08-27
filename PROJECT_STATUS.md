@@ -1,28 +1,27 @@
 # Nemesis: Retaliation — Project Status
 
 **Status date:** 2026-08-27
-**Active phase:** Semantic coverage expansion (pilot gate passed)
+**Active phase:** Implementation-readiness proof-of-value (semantic expansion frozen)
 **Active branch:** `work/card-corpus-extraction`
 **Implementation status:** Frozen; a clean rewrite will begin only after rules-layer readiness and explicit approval
 
 ## Current Objective
 
-Expand the independently reviewed semantic model from representative pilots to complete base-game source-obligation coverage while preserving variants, conflicts, and unresolved alternatives.
+Freeze further semantic expansion and test whether the existing rules work materially improves implementation through one preregistered, source-linked executable slice.
 
-The current implementation remains frozen. Semantic records remain independent of any future engine/UI architecture.
+The current implementation remains frozen. Existing semantic records are evidence only and may not be changed during the pilot.
 
 ## Immediate Next Deliverable
 
-Encode the **highest-value source-clear semantic backlog** without touching blocked decisions:
+Complete the preregistered **Search → Item gain implementation-readiness pilot**:
 
-- remaining source-clear setup, Lander, procedure, Item, and component lifecycle rules not yet represented by the 529-record corpus;
-- remaining source-clear card/component families outside the closed 20-card Event, 12-card Exploration, 6-card Robot, 20-occurrence Intruder Attack, 12-occurrence Queen Health, 27-occurrence Serious Wound, 23-occurrence regular Green Item, 21-occurrence source-clear regular Red Item, 24-occurrence source-clear regular Yellow Item, complete 60-occurrence base Action, and source-clear base competitive Objective/Mission families;
-- next bounded batch: remaining source-clear setup/procedure/component lifecycle obligations, while leaving Lander/endgame/card batches separate;
-- exact FAQ overrides and per-sentence partial-resolution scope;
-- source-obligation links and contradiction coverage after every batch;
-- continue independent validation and source searching for the 115 open questions, but adopt no default.
+- build a compact source-linked executable reference contract outside production code;
+- kill the fourteen preregistered defects or preserve the affected source question as blocked;
+- compare raw sources, the locked GLM blind baseline, concise Markdown, and the frozen semantic corpus;
+- obtain isolated adversarial review from different Ollama Cloud models and independently disposition findings;
+- recommend whether the semantic projection has earned further use.
 
-Prioritize reusable procedures and cross-cutting rules before hundreds of individual component effects.
+Authority and gate details: `docs/rules/implementation-readiness.md`.
 
 ## Resume Checkpoint
 
@@ -312,9 +311,10 @@ Machine-readable evidence: `docs/rules/source-extraction/validation.json`.
 
 ## Remaining Work — Ordered
 
-1. **Semantic coverage expansion** — encode source-clear general rules/procedures, then component effects, while preserving questions and variants.
-2. **Semantic closure audit** — completeness, contradiction, authority, citation, terminology, and scenario coverage.
-3. Define implementation-readiness criteria and seek explicit approval before a clean rewrite.
+1. **Implementation-readiness proof-of-value** — finish the preregistered Search pilot without changing production or semantic artifacts.
+2. **Owner gate** — review measured semantic utility and decide whether to retain, reduce, or retire further semantic projection work.
+3. **Correctness audit** — run a stratified blind source audit before any clean rewrite approval.
+4. Choose the new architecture independently and seek explicit approval before implementation.
 
 Detailed phase plan: `docs/rules/source-extraction/extraction-roadmap.md`.
 

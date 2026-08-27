@@ -1,0 +1,60 @@
+You are an isolated rules/specification reviewer. You have no access to the project semantic corpus. Derive an implementation contract ONLY from the raw official-source excerpts below. Do not silently resolve omissions. Return only JSON with this shape:
+{
+  "requirements":[{"id":"B-...","behavior":"...","source_lines":["..."],"implementation_relevance":"..."}],
+  "ambiguities":[{"id":"A-...","question":"...","plausible_alternatives":["..."],"default_prohibited":true,"source_lines":["..."]}],
+  "minimum_state":["..."],
+  "acceptance_scenarios":[{"id":"S-...","given":"...","when":"...","then":["..."],"source_lines":["..."]}],
+  "unsafe_assumptions":["..."]
+}
+
+Scope: the Search Action-card effect through gaining/storing the selected Item. Base competitive game only. Do not cover using the gained Item after gain. Treat each physical card occurrence as capable of having a unique identity even if titles repeat.
+
+Authority: the current official rulebook is primary. The exact card face is component evidence. No FAQ excerpt below addresses Search directly.
+
+RAW OFFICIAL RULEBOOK EXCERPTS
+
+Rulebook lines 2871–2875:
+Costing 0 Action cards:
+• Play an Action card
+• Pass
+
+Rulebook lines 3177–3179:
+When the “Play an Action card” Action is performed, the player reveals the chosen Action card from their hand, resolves its effect, and then places it on top of the discard pile.
+
+Rulebook lines 3188–3191:
+When choosing an effect (from Action card, Item card, Rooms etc.) You must be able to resolve the effect entirely. If it’s impossible, you may not choose that effect.
+
+Rulebook lines 3543–3548:
+Component Limits – Most components are limited and have special rules on what happens if they run out. For any other components, consider them limited with no special rules – if they are to be used, and no more are available, nothing happens instead. For example: Characters cannot gain Ammo tokens if all are already in players’ possession.
+
+Rulebook lines 4849–4865:
+Items are most commonly gained by using the Search Action card. The Search Action card allows you to draw 1 Item card for each Item Icon (green, yellow, and red) on the Room you are Searching in. Then, you pick 1 of those cards to keep and discard the rest to the bottom of their respective decks. Items that were Searched but not chosen should not be revealed to other players. Example: searching a Room with one green and one red icon draws one green and one red Item, keeps one, and puts the other on the bottom of its corresponding deck.
+
+Rulebook lines 4899–4904:
+During the game Items are always found with all Tactical Gear slots filled, if they have any.
+
+Rulebook lines 4905–4910:
+All regular Items are always placed in a Backpack card holder. There is no limit to the number of regular Items that may be held in the Backpack. Items in the Backpack are secret information and should not be revealed to other players until used.
+
+Rulebook lines 4933–4948:
+Most Items come with Traits below their name. Heavy: horizontal Items placed only in Hand slots. Armor: Items marked Armor. One Use Only: discarded when Used. Ranged Weapon and Melee Weapon are descriptive traits. Requires no Ammo has its printed meaning.
+
+Rulebook lines 5024–5034:
+All horizontal Items are Heavy. Heavy Items do not fit in a Backpack and must be held in a Hand slot. Only 1 Item may be carried in a Hand slot. If a Heavy Item is gained when all Hand slots are occupied, the Character may first discard one held Item to make space. Weapons and Intruder Eggs are Heavy.
+
+Rulebook lines 5045–5057:
+Armor Items have the Armor keyword and are placed on the Heavily Injured Health-track section. Only one Armor may be worn. When gaining Armor while already using one, the Character may first discard the old Armor to gain the new one. If the Health marker is already on Heavily Injured, the Character cannot gain the Armor and it is discarded instead.
+
+EXACT SEARCH ACTION-CARD FACE
+For each Item Icon in your Room draw 1 Item of the corresponding type. You may keep 1 of them and discard the rest.
+Restriction glyph: Not In Combat.
+
+Important audit questions to preserve if the source does not answer them:
+- What happens if a required Item deck is empty before Search?
+- Must Search legality be knowable before random cards reveal whether the selected result can be stored?
+- If only some randomly drawn Items can be legally gained, may the player choose among those or was the whole effect illegal?
+- Are drawn candidate identities private to the acting owner, merely unrevealed to other players, or public until only the unchosen ones become hidden?
+- Does the chosen Item become public when stored outside the Backpack?
+- Is the Search card discarded when the effect cannot legally be chosen, or is it never played?
+
+Be adversarial: distinguish explicit rules, direct logical consequences, and missing policy. Do not make the contract convenient by inventing defaults.

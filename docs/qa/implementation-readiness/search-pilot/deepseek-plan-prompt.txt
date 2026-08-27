@@ -1,0 +1,18 @@
+You are an isolated adversarial reviewer. Do not modify files. Return only JSON matching this shape: {"verdict":"...","load_bearing_risks":[...],"better_pilot":"...","missing_acceptance_tests":[...],"stop_conditions":[...],"minimum_artifacts":[...]}.
+
+Context:
+- Nemesis: Retaliation rules work extracted and indexed all base sources, then built vocabulary, ontology, and 529 implementation-neutral semantic records.
+- Audit found the provenance/source layer useful, but the 410,000-line semantic projection is overengineered and has no production consumer.
+- We are freezing semantic expansion and need a proof-of-value gate before any more modeling or rewrite authorization.
+- Current implementation is frozen and non-authoritative. No production engine changes are allowed.
+
+Proposed bounded experiment:
+1. Add a concise implementation-readiness document that freezes semantic expansion and defines pass/fail gates.
+2. Build a small executable JavaScript reference specification outside the production engine for generic Event-card resolution.
+3. Source behavior: draw an Event; resolve Intruder Movement, main effect, and secondary effect in order; if one sentence is impossible, skip only that sentence and continue; discard the card after resolution unless a source-defined effect already relocated it; dispatch exact card occurrences rather than matching titles.
+4. Add source-linked acceptance tests for ordering, one impossible sentence with later continuation, multiple sentences in one section, exact occurrence dispatch for duplicate titles, conditional discard after relocation, and no state mutation outside declared operations.
+5. Compare what each requirement came from: raw rulebook/FAQ, concise Markdown corpus, large semantic corpus. Record whether the semantic corpus uniquely prevented an implementation defect.
+6. Gate: continue using the large semantic layer only if the experiment demonstrates at least one material, independently verified benefit that cannot be achieved more simply with concise source-linked contracts and tests. Otherwise retain extraction/provenance/questions and stop expanding the semantic projection.
+7. After implementation, ask a different model to red-team the code/tests and incorporate only verified findings.
+
+Attack the methodology, not formatting. In particular: Is this pilot discriminating or designed to confirm usefulness? Is generic Event resolution too trivial? Does the gate make continuation too easy or too hard? Could this accidentally become yet another custom layer? What should be removed or changed?

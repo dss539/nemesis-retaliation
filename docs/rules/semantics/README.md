@@ -54,7 +54,7 @@ Every pilot carries:
 
 ## Current coverage
 
-The 520 records cover the original reusable-procedure set plus:
+The 529 records cover the original reusable-procedure set plus:
 
 1. Round phase sequence;
 2. Player Phase rotation;
@@ -104,7 +104,7 @@ Facility/map topology and setup-state batch: exact three-section rendered geomet
 
 This is representative, **not full base-game semantic coverage**.
 
-The backlog currently records 510 covered source obligations, 89 pending obligations, and one inherited exact-source blocker (`FACILITY RESTART`). The closed source-clear batches now include core Combat/Attacks/Noise/Hazard/entry procedures and the base Heavy/Equipment/Weapon/Armor/Starting Item family while retaining all no-default order/exhaustion boundaries, twelve class-conflict occurrences, two audited prototype/current conflicts, sixteen Support selector gaps, ten physically occluded official Objective card occurrences, and all Solo/Coop roots outside competitive dispatch. These are overlapping source-obligation counts, not a claim that 600 distinct game effects exist.
+The backlog currently records 530 covered source obligations, 69 pending obligations, and one inherited exact-source blocker (`FACILITY RESTART`). The closed source-clear batches now include core Combat/Attacks/Noise/Hazard/entry procedures and the base Heavy/Equipment/Weapon/Armor/Starting Item family while retaining all no-default order/exhaustion boundaries, twelve class-conflict occurrences, two audited prototype/current conflicts, sixteen Support selector gaps, ten physically occluded official Objective card occurrences, and all Solo/Coop roots outside competitive dispatch. These are overlapping source-obligation counts, not a claim that 600 distinct game effects exist.
 
 ## Open questions carried without defaults
 

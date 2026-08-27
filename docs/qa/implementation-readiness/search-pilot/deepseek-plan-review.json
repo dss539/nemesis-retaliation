@@ -1,0 +1,50 @@
+{
+  "model": "deepseek-v4-pro:0813",
+  "review": {
+    "verdict": "unsound as a proof-of-value gate; needs revision",
+    "load_bearing_risks": [
+      "The chosen slice (generic Event-card resolution) is too trivial and already specified in the prompt; it cannot exercise the semantic layer's claimed value in cross-card interactions, errata, ambiguity, or timing. A negative result will not generalize, and a positive result can be manufactured.",
+      "The comparison is circular if the concise Markdown corpus was derived from or influenced by the semantic corpus. The prompt's own source behavior is already a concise contract, so the semantic layer is unlikely to add anything.",
+      "The gate criteria 'material benefit' and 'more simply' are undefined and subjective, making the decision gameable and not independently verifiable.",
+      "The JS reference spec may become a new custom layer or de facto source of truth, especially if it is later used to guide production or expanded beyond the pilot.",
+      "The experiment is outside the production engine, so it cannot test integration, state management, performance, or real card data where the semantic layer might matter.",
+      "The red-team step is good but 'different model' does not guarantee independence, and 'incorporate only verified findings' may filter out important challenges.",
+      "The gate is one-sided: a single negative result on a narrow slice can kill the entire semantic layer, while a positive result may be contrived by adding a test only the semantic layer can pass.",
+      "The implementation-readiness doc is self-authored and may not be externally reviewed, so the pass/fail gates may be weak or self-serving."
+    ],
+    "better_pilot": "Select a representative hard slice of 10-20 actual Event cards with cross-card interactions, errata, duplicate titles, and ambiguous timing. Pre-register a falsifiable hypothesis such as 'The semantic corpus will catch at least one seeded defect that concise source-linked contracts miss.' Build two disposable implementations: one using only an independently written concise corpus, one using the semantic corpus. Use mutation testing to inject defects into both and measure detection rates. Keep the reference spec outside production with a hard size cap and no production imports. Have an external reviewer not involved in authoring verify any claimed benefit. If no benefit is found, stop semantic expansion but do not generalize beyond the slice; if benefit is found, document exactly which semantic records were necessary and why concise contracts failed.",
+    "missing_acceptance_tests": [
+      "A test that defines 'impossible' precisely (missing target, illegal move, effect already applied) and verifies skip-only-that-sentence behavior for each interpretation.",
+      "A test for multiple impossible sentences in different sections with later continuation after each.",
+      "A test for relocation in main effect followed by secondary effect referencing the new location, ensuring no incorrect discard.",
+      "A test for exact occurrence dispatch when two cards have identical titles but different IDs/zones, including copies and tokens.",
+      "A test for no state mutation outside declared operations using a frozen state snapshot before and after failed and successful resolutions.",
+      "A test for source-linked traceability: each acceptance test must cite raw/concise/semantic source and show which layer was necessary.",
+      "A test for effects that relocate a card to a hidden zone and later sentences cannot find it, ensuring skip-only-that-sentence.",
+      "A test that the reference spec does not import or depend on the semantic corpus, to prevent it becoming a new layer.",
+      "A regression test for every verified red-team finding."
+    ],
+    "stop_conditions": [
+      "Stop if the reference spec exceeds a predefined size cap (e.g., 2,000 LOC) or is imported by production.",
+      "Stop if the concise corpus is found to be derived from or influenced by the semantic corpus; the comparison is invalid.",
+      "Stop if no pre-registered falsifiable hypothesis and success criteria are defined before implementation.",
+      "Stop if the red-team cannot be performed by a genuinely different model/team with no prior involvement.",
+      "Stop if the semantic layer shows no benefit on the representative slice; retain provenance but do not expand semantic projection.",
+      "Stop if the semantic layer shows benefit only for contrived tests that are not production-relevant.",
+      "Stop if the implementation-readiness doc is not externally reviewed or if the freeze is violated.",
+      "Stop if the pilot starts to influence production engine changes or if the semantic layer is modified during the pilot.",
+      "Stop if the gate decision is made without independent verification of the claimed benefit."
+    ],
+    "minimum_artifacts": [
+      "Pre-registered hypothesis, slice selection criteria, and success metrics before implementation.",
+      "Implementation-readiness doc with freeze and gates, externally reviewed.",
+      "Disposable JS reference spec with size cap and no production imports.",
+      "Source-linked acceptance tests with a traceability matrix mapping each requirement to raw/concise/semantic sources.",
+      "Independent baseline implementation using only concise contracts (not derived from semantic layer).",
+      "Seeded defect/mutation testing results comparing detection rates between baseline and semantic-assisted implementations.",
+      "Red-team report from a different model/team with all findings logged and dispositions.",
+      "Decision record showing whether the semantic corpus uniquely prevented a defect, with specific semantic records cited.",
+      "A stop/continue recommendation scoped to the slice, not the entire semantic layer."
+    ]
+  }
+}
