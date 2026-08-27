@@ -1981,16 +1981,24 @@ task workspace.
 - [x] Add exact source-tuple assertions, semantic state/zone nodes, explicit question alternatives, conflict register, and stronger validation.
 - [x] Defer owner decisions; no unrelated semantic work is blocked by the nine scoped questions.
 
-## IN PROGRESS — Semantic coverage expansion (2026-08-25)
+## FROZEN — Semantic coverage expansion (2026-08-25 through 2026-08-27)
 
-- [x] Encode source-clear Objective choice, Intruder/Event/Cleanup phases, Event procedure, Bag Development, Door, Noise, Intruder Attack, Health/Wound, and Tactical Gear rules.
-- [x] Encode all 18 Intruder Help instructions and all 25 Room effects in source-bounded batches, including source-scoped icon denotations.
-- [x] Correct row dispatch, finite token/model limits, immediate Room-entry Attacks, Room source authority, operation ordering, and Room-specific lifecycle/state constraints after independent audit.
-- [x] Close all 20 base Event identities by exact TTS occurrence/card ID, with official and licensed variants retained independently.
-- [ ] Expand through remaining cards/components while retaining all source variants and authority boundaries.
-- [x] Advance the 600-unit source-obligation backlog from 25 covered / 574 pending / 1 blocked to 71 covered / 528 pending / 1 blocked.
-- [x] Advance the backlog through the Event batch to 102 covered / 497 pending / 1 blocked without lowering the 600-unit total.
-- [ ] Continue source search for sixteen scoped open questions; ask the owner only after all unaffected work is exhausted.
+- [x] Expanded the corpus through source-clear general procedures, Room/Intruder Help, Event, Exploration, Robot, Intruder Attack, Queen Health, Serious Wound, Green/Red/Yellow Item, Action, competitive Objective/Mission, Heavy/Equipment, Combat, and Facility/setup batches.
+- [x] Reached the verified frozen boundary: 529 semantic records, 530 covered / 69 pending / 1 source-blocked obligations, 115 no-default questions, and 88 conflicts.
+- [x] Preserved exact physical occurrences, source variants, authority boundaries, and deterministic/adversarial validation.
+- [x] Froze expansion after the Search proof-of-value failed to demonstrate unique implementation utility for the large semantic representation.
+- [ ] Do not add semantic records or families unless the project owner explicitly reverses the freeze after reviewing measured evidence.
+
+## IN PROGRESS — Rules correctness and implementation-readiness owner gate (2026-08-27)
+
+- [x] Preregister and execute the Search → Item gain proof-of-value without production changes.
+- [x] Pass 22/22 acceptance tests and kill 17/17 mutations within the 800-line cap.
+- [x] Use `deepseek-v4-pro:0813` for adversarial plan/code review and `glm-5.3-flash` for a blind raw-source baseline; independently verify and disposition findings.
+- [x] Correct stale concise Item-class rules and retain the semantic corpus as audit/reference evidence rather than implementation authority.
+- [ ] Owner gate: accept, reject, or modify the recommendation to keep semantic expansion frozen.
+- [ ] Stage 1 blind correctness audit: all 56 concise rules, all 28 base-applicable FAQ units, and a 56-unit stratified component sample (140 units total).
+- [ ] Escalate affected families, or all approximately 339 primary audit units, only if Stage 1 finds critical errors or a recurring defect pattern.
+- [ ] After the correctness gate, choose a clean architecture independently and obtain explicit owner approval before implementation.
 
 ## DONE — Intruder Help and Room semantic audit closure (2026-08-25)
 

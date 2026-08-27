@@ -92,3 +92,25 @@ Model diversity is useful for finding blind spots but is not human-independent v
 The Search → Item gain pilot is complete. The compact contract passed 22 acceptance tests and killed 17 mutations within the 800-line cap. The semantic utility gate failed for this slice: no verified semantic contribution provided implementation protection that could not be replaced by a short source-linked rule and focused scenario. Semantic expansion remains frozen pending the project-owner gate.
 
 Detailed result: `docs/qa/implementation-readiness/search-pilot/utility-report.md`.
+
+## Proposed correctness audit after the owner gate
+
+Do not audit all 529 semantic records. They are frozen reference evidence, not the proposed implementation specification.
+
+### Stage 1 — 140-unit decision audit
+
+Audit blindly against original sources:
+
+- all **56 concise rule records** across foundations, rounds/turns, actions, intruders/survival, and Items;
+- all **28 base-applicable FAQ units**;
+- **56 stratified component effects**: 5 Rooms, 4 Intruder Help rows, 4 Events, 3 Exploration cards, 2 Robots, 2 Intruder Attacks, 2 Queen Health faces, 2 Serious Wounds, 6 Green/Red/Yellow Item faces, 12 Action cards, 6 Objectives/Mission Tasks, and 8 Equipment/Starting Item faces.
+
+The 115 open questions and 88 conflicts are triaged through the affected audited clauses; they are not 203 additional independent audit units.
+
+Stage 1 may pass without expansion only if it finds zero critical errors, zero invented authority overrides, zero hidden defaults, no recurring defect pattern, and at most two isolated material errors in the component sample.
+
+### Escalation boundary
+
+If Stage 1 finds a critical or recurring problem, expand the affected family. Escalate to the full audit only when defects appear systemic. The full base competitive planning inventory is approximately **339 primary units**: 84 core rule/FAQ units plus 255 distinct gameplay/component effects. Byte-identical copies need mechanical reconciliation, not redundant semantic review; source-different same-title occurrences remain separate.
+
+Solo/Coop and expansions remain outside initial rewrite readiness unless the owner changes scope.
