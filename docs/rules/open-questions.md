@@ -501,3 +501,28 @@ Use this ledger for ambiguities that the official rulebook and FAQ do not settle
 - **Sources checked:** Six exact root selectors, rulebook Local Effects and Door rules, FAQ v1.2, and licensed `ITEMS_DATA.Tools` with its `accessible Door` qualifier.
 - **Candidate readings:** (a) Item user chooses one ordinary accessible/local Door and state; (b) a deterministic/local rule selects it; (c) another source-defined owner/range/eligibility rule.
 - **Status:** Open; official clarification preferred. No Portable Barrier override or Robot-specific accessibility rule is imported.
+
+## Heavy/Equipment/Weapon/Armor/Starting Item batch questions
+
+The following 18 semantic questions were added by the bounded Heavy/Equipment/Weapon/Armor/Starting Item source audit. Their exact alternatives, affected records, and `defaultProhibited` flags are authoritative in `docs/rules/semantics/review-gates.json`; no default is adopted:
+
+- **SEM-Q-079** — complete current Character Item roster, owner, and source-copy crosswalk;
+- **SEM-Q-080** — remaining Support Equipment deck access, exhaustion, and later use;
+- **SEM-Q-081** — Hand capacity with Duct Tape, Bayonet, gains, discard, and attachment topology;
+- **SEM-Q-082** — Armor break, damage, attached-token loss, replacement, and terminal Health order;
+- **SEM-Q-083** — exact TTS Tactical Gear slot type/count and non-card tracks;
+- **SEM-Q-084** — Fully Loaded Any-slot choice, simultaneous allocation, and finite shortage;
+- **SEM-Q-085** — Trade/transfer capacity, owner consent, attachments, and Character Item replacement;
+- **SEM-Q-086** — passive Item visibility, duration, duplicate stacking, trigger order, and Malfunction suppression;
+- **SEM-Q-087** — death, escape, Starting Item loss destination, replacement, and recovery;
+- **SEM-Q-088** — Weapon trigger timing, added-result order, targeting, allocation, and continuation;
+- **SEM-Q-089** — Weapon Malfunction repair, destruction destination, attached-token return, and pending-effect continuation;
+- **SEM-Q-090** — Grenade Launcher token count, before/instead timing, variant scope, and the malfunction exception;
+- **SEM-Q-091** — source-local Heavy/Weapon glyph identities and restrictions;
+- **SEM-Q-092** — Supporting Robot Controller and Portable Device actor/reveal/remote context;
+- **SEM-Q-093** — Security, Entrenching, and Engineering target/owner/scarce-component order;
+- **SEM-Q-094** — RPG, Remote Detonator, and Military Taser area targets/allocation/continuation;
+- **SEM-Q-095** — Motion Tracker target, Hazard suppression, Noise equality, and Encounter timing;
+- **SEM-Q-096** — active/One Use Heavy payment, effect, discard/remove, and partial-resolution order.
+
+The batch preserves the 12 Red/Yellow physical class conflicts, the two audited Automatic Shotgun/BF Gun prototype/current conflicts, all Support selector gaps, and all independent TTS/current-official/licensed variants without converting any of those boundaries into a default.

@@ -1,6 +1,6 @@
 # Nemesis: Retaliation — Project Status
 
-**Status date:** 2026-08-26
+**Status date:** 2026-08-27
 **Active phase:** Semantic coverage expansion (pilot gate passed)
 **Active branch:** `work/card-corpus-extraction`
 **Implementation status:** Frozen; a clean rewrite will begin only after rules-layer readiness and explicit approval
@@ -15,7 +15,7 @@ The current implementation remains frozen. Semantic records remain independent o
 
 Encode the **highest-value source-clear semantic backlog** without touching blocked decisions:
 
-- remaining setup, map, combat, Lander, procedure, Item, and component lifecycle rules not yet represented by the 447-record corpus;
+- remaining setup, map, combat, Lander, procedure, Item, and component lifecycle rules not yet represented by the 506-record corpus;
 - remaining source-clear card/component families outside the closed 20-card Event, 12-card Exploration, 6-card Robot, 20-occurrence Intruder Attack, 12-occurrence Queen Health, 27-occurrence Serious Wound, 23-occurrence regular Green Item, 21-occurrence source-clear regular Red Item, 24-occurrence source-clear regular Yellow Item, complete 60-occurrence base Action, and source-clear base competitive Objective/Mission families;
 - highest-value remaining setup/map/combat/Lander/component-lifecycle obligations, preserving exact physical/source variants and source-visible/occluded boundaries;
 - exact FAQ overrides and per-sentence partial-resolution scope;
@@ -26,11 +26,11 @@ Prioritize reusable procedures and cross-cutting rules before hundreds of indivi
 
 ## Resume Checkpoint
 
-- Verified semantic data checkpoint: `1d1ab1ff67e4b465714eed613ac0bc1795c96dab` (`Add base Objective and Mission Task semantics`).
-- Branch `work/card-corpus-extraction` will be twenty-seven local commits ahead of `origin/work/card-corpus-extraction` after this separate status checkpoint; nothing has been pushed. No PR or deployment exists.
-- The only remaining dirty path after this status checkpoint is `AGENTS.md`. Its protected phase update predates the checkpoint and says ten open questions instead of the verified eighty-three. Preserve it byte-for-byte for explicit review rather than discarding or staging it implicitly.
-- Full batch verification passed: semantic validator with cross-seed/cross-locale rebuilds and 33 focused/adversarial tests; ontology validator/rebuild and 4 tests; vocabulary validator; full source-extraction/FAQ/secondary/visual/Objective Help/Player Help/card-gap/Room validation; 3 Room fidelity tests; all 24 card-evidence tests; the documented six-command global card-corpus/vision/reproducibility gate; project-status validator; `git diff --check`.
-- Resume with `semantic-components`: expand the highest-value remaining setup/map/combat/Lander/component lifecycles while preserving physical copies, source-visible/occluded boundaries, variants, and authority conflicts. Current source-obligation boundary is 443 covered / 156 pending / 1 source-blocked; 83 semantic questions remain no-default.
+- Verified semantic data checkpoint: `17781d2ec2fa9b786ed296c82f14c3ee092a4ccd` before the Heavy/Equipment batch.
+- Branch `work/card-corpus-extraction` remains twenty-seven local commits ahead of `origin/work/card-corpus-extraction`; nothing has been pushed. No PR or deployment exists.
+- The protected pre-existing `AGENTS.md` change remains untouched and retains SHA-256 `2c65f66c7e88e0e154fb5c7c77e1131f1bf66acb1f7eb3964b20236442740344`; it is not part of this batch.
+- The Heavy/Equipment/Weapon/Armor/Starting Item batch is integrated; semantic, source, vocabulary, ontology, card-corpus, visual, Room, card-evidence, and status validation gates pass.
+- Resume with `semantic-components`: expand the highest-value remaining setup/map/combat/Lander/component lifecycles while preserving physical copies, source-visible/occluded boundaries, variants, and authority conflicts. Current source-obligation boundary is 499 covered / 100 pending / 1 source-blocked; 101 semantic questions remain no-default.
 
 ## Verified Checkpoint
 
@@ -116,19 +116,19 @@ Machine-readable evidence: `docs/rules/source-extraction/validation.json`.
 
 ### Semantic schema and expanding corpus — independently locked and passed
 
-- 412 exact source registry tuples
+- 468 exact source registry tuples
 - 26 semantic-only state/zone/position/visibility nodes
-- 447 pilot records across 24 systems
+- 506 pilot records across 25 systems
 - 183 source-backed
-- 242 source-backed with open questions
-- 22 source-variant boundary records
-- 1228 source assertions / 1342 structured conditions and guards
-- 1853 ordered operations
-- 294 actor-owned decisions / 467 information policies
-- 31 explicit costs / 515 target specifications
-- 175 preserved source-variant references
-- 83 open semantic questions with explicit alternatives and defaults prohibited
-- 69 registered conflicts: 14 authority-resolved, 27 unresolved, 28 preserved boundaries
+- 300 source-backed with open questions
+- 23 source-variant boundary records
+- 1340 source assertions / 1479 structured conditions and guards
+- 2151 ordered operations
+- 329 actor-owned decisions / 526 information policies
+- 36 explicit costs / 540 target specifications
+- 248 preserved source-variant references
+- 101 open semantic questions with explicit alternatives and defaults prohibited
+- 80 registered conflicts: 18 authority-resolved, 30 unresolved, 32 preserved boundaries
 - base Event family: **20/20 identities represented**
   - 20 exact Event scan occurrences
   - 20 licensed-digital Event occurrences retained as variants
@@ -223,13 +223,13 @@ Machine-readable evidence: `docs/rules/source-extraction/validation.json`.
 - all 25 Room Help entries represented, plus generic Use Room and cross-cutting Room constraints
 - all 112 source-local Room Help functional-icon occurrences mapped source-scoped without changing extraction records
 - 600 source-obligation backlog units
-  - 443 pilot-covered
-  - 156 pending
+  - 499 pilot-covered
+  - 100 pending
   - 1 inherited exact-source blocker
 - full base-game semantic coverage explicitly not claimed
 - four-workstream independent review incorporated
 - cross-seed/cross-locale byte-identical rebuilds and expanded adversarial corruption tests pass
-- `scripts/validate_semantic_pilots.py`: **passed with 0 failures**, including cross-seed/cross-locale rebuilds and 31 focused/adversarial tests
+- `scripts/validate_semantic_pilots.py`: **passed with 0 failures**, including cross-seed/cross-locale rebuilds and 42 focused/adversarial tests
 
 ### Taxonomy/ontology — independently reviewed and passed
 
@@ -293,6 +293,7 @@ Machine-readable evidence: `docs/rules/source-extraction/validation.json`.
 - Closed the 24-occurrence source-clear regular Yellow Item family mechanically from the raw 30-child TTS `Deck`, retained all repeated physical copies, eleven selected generated copies plus thirteen direct copies, five selector gaps, six class-conflict root exclusions, two parent sheets and shared/UniqueBack forms, 128 regular panels/72 regions/56 sentences/48 physical symbols, independent official/licensed evidence, reusable Oxygen/Malfunction/Reinforce/Duct lifecycle boundaries, and advanced source-obligation coverage to 246 while sixty-one questions remain no-default.
 - Closed the complete 60-occurrence base Action family mechanically from six Character kits plus the Shared Contractor root, retained 39 direct faces, 21 exact generated selections, 29 base selector-gap variants, 40 excluded expansion cells, two parent sheets, one 273-reference shared back, 290 panels/164 sentences/143 physical symbols, 60 independent licensed rows, exact setup/play/payment/draw/Reaction/Command lifecycle, and advanced source-obligation coverage to 348 while seventy-nine questions remain no-default.
 - Closed the source-clear base competitive Objective/Mission family mechanically from three exact TTS roots, retained all 30 physical copies (29 source-clear plus one blocker), 50 source-face assets, 18 base selector gaps, nine prototype/high-count and 38 Solo/Coop physical exclusions, two parent sheets/two backs, 149 panels/53 sentences/39 physical symbols, all 45 official Help units with ten occlusions intact, 38 independent licensed rows, exact setup/secrecy/choice/fulfillment/endgame lifecycle, and advanced source-obligation coverage to 443 while eighty-three questions remain no-default.
+- Closed the bounded base Heavy/Support Equipment/Weapon/Armor/Character Starting Item family: exact 24-card Support root with 22 direct and 2 generated selections, 40 source face assets/16 selector gaps, 19 Heavy and 5 Armor Support occurrences, 12 Support Weapons (9 Ranged/3 Melee), one 72-reference shared back, 7 Character-kit occurrences with 5 source-clear TTS variants and 2 Automatic Shotgun/BF Gun prototype/current exclusions, 7 Green Heavy plus 3 Red Heavy source-clear occurrences, 12 Red/Yellow class conflicts kept non-dispatchable, 6 current official-visible occurrences, 37 independent licensed rows, reusable setup/draft/Hand/Armor/load/use/passive/loss/Malfunction/die-result/Grenade Launcher records, and 18 no-default questions; semantic validation and exact root/kit/class/backlog locks pass at 499 covered / 100 pending / 1 blocked.
 - Created the closed source inventory, card-gap inventory, secondary-source inventory, Room layout inventory, roadmap, and deterministic validator.
 
 ## Remaining Work — Ordered
