@@ -18,7 +18,7 @@ EXPECTED_BACK_PROJECTION_DIGEST = "262aee533bea7b5170c4290e778f3ada2ca13392dafd8
 EXPECTED_LICENSED_PROJECTION_DIGEST = "83e78aa89738f7aa76fbad4063522ffcad906fc3fe20227755f5d3c477163772"
 EXPECTED_OFFICIAL_PROJECTION_DIGEST = "033871678f9869dede9b86587b2324de561fbab4905055f636011bd26d12c2ad"
 EXPECTED_FAQ_PROJECTION_DIGEST = "1406f37475cef9cf843cea7bfb7b35e3df477da4f7f237103a810ca66f9f8c9c"
-EXPECTED_RECORD_PROJECTION_DIGEST = "bf274259dd596a8046e34301ec7becc094bf68ea887458bcfae5db8dcedf05ce"
+EXPECTED_RECORD_PROJECTION_DIGEST = "591a65da9a56dd556af61941416257d70ac8abe680804cb0244185de5e5f0a4a"
 EXPECTED_RECORD_ID_DIGEST = "a8de8dd8fa6c3bed398252232d1cbe370f31107f1644b54424eedce32ca80278"
 EXPECTED_LINKED_BACKLOG_ID_DIGEST = "0ff7c2fcca6d3dac5ea3389a70af1db265dbfd9ed169d6885ffe3a50c9e8403e"
 
@@ -279,7 +279,8 @@ def validate_action_family(
     for question_id in action_question_ids:
         question = question_by_id.get(question_id) or {}
         actual_blocked = sorted(rule_id for rule_id, record in semantic_records.items() if question_id in (record.get("unresolvedQuestionRefs") or []))
-        if question.get("defaultProhibited") is not True or sorted(question.get("blocksRuleIds") or []) != actual_blocked or not actual_blocked:
+        expected_action_blocks = sorted(rule_id for rule_id in question.get("blocksRuleIds") or [] if rule_id in semantic_records)
+        if question.get("defaultProhibited") is not True or expected_action_blocks != actual_blocked or not actual_blocked:
             failures.append({"check": "Action ambiguity owner/target/consent/default linkage", "questionId": question_id})
     action_conflicts = [row for row in conflict_rows if row.get("conflictId") in {f"SC-{number:03d}" for number in range(49, 59)}]
     if [row.get("conflictId") for row in action_conflicts] != [f"SC-{number:03d}" for number in range(49, 59)] or Counter(row.get("status") for row in action_conflicts) != Counter({"preserved-boundary": 7, "unresolved": 3}):

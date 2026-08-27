@@ -14,8 +14,8 @@
       "rulebook-visual-obligation": 80
     },
     "byStatus": {
-      "pending": 100,
-      "pilot-covered": 499,
+      "pending": 89,
+      "pilot-covered": 510,
       "source-blocked": 1
     }
   },
@@ -195,7 +195,8 @@
       "authority": "project-interpretation",
       "status": "pilot-covered",
       "pilotRuleIds": [
-        "SEM-RT-008"
+        "SEM-RT-008",
+        "SEM-INT-004"
       ],
       "blockers": []
     },
@@ -320,7 +321,9 @@
         "SEM-SERIOUS-WOUND-543900-DBCA72-001",
         "SEM-RED-ITEM-3604-82349F-001",
         "SEM-RED-ITEM-3604-8BFA0B-001",
-        "SEM-RED-ITEM-3604-1DF1C5-001"
+        "SEM-RED-ITEM-3604-1DF1C5-001",
+        "SEM-MOVEMENT-SEQUENCE-001",
+        "SEM-OPPORTUNITY-ATTACK-001"
       ],
       "blockers": []
     },
@@ -333,7 +336,10 @@
       "authority": "project-interpretation",
       "status": "pilot-covered",
       "pilotRuleIds": [
-        "SEM-ACTION-REC-599300-83C5B5-001"
+        "SEM-ACTION-REC-599300-83C5B5-001",
+        "SEM-ACT-MOVE-CAUTIOUSLY-001",
+        "SEM-MOVEMENT-SEQUENCE-001",
+        "SEM-OPPORTUNITY-ATTACK-001"
       ],
       "blockers": []
     },
@@ -377,7 +383,10 @@
         "SEM-QUEEN-HIT-001",
         "SEM-QUEEN-HEALTH-RESOLUTION-001",
         "SEM-WEAPON-MALFUNCTION-LIFECYCLE-001",
-        "SEM-WEAPON-DIE-RESULT-ADDITION-001"
+        "SEM-WEAPON-DIE-RESULT-ADDITION-001",
+        "SEM-SHOOT-SEQUENCE-001",
+        "SEM-SHOOT-DIE-RESULT-001",
+        "SEM-INTRUDER-HIT-RESOLUTION-001"
       ],
       "blockers": []
     },
@@ -395,7 +404,10 @@
         "SEM-QUEEN-HEALTH-RESOLUTION-001",
         "SEM-WEAPON-DIE-RESULT-ADDITION-001",
         "SEM-GRENADE-LAUNCHER-MALFUNCTION-001",
-        "SEM-WEAPON-MALFUNCTION-LIFECYCLE-001"
+        "SEM-WEAPON-MALFUNCTION-LIFECYCLE-001",
+        "SEM-BURST-SEQUENCE-001",
+        "SEM-BURST-DIE-RESULT-001",
+        "SEM-INTRUDER-HIT-RESOLUTION-001"
       ],
       "blockers": []
     },
@@ -410,7 +422,11 @@
       "pilotRuleIds": [
         "SEM-ACTION-CON-567514-35D06D-001",
         "SEM-ACTION-MS-569900-CD0684-001",
-        "SEM-WEAPON-MALFUNCTION-LIFECYCLE-001"
+        "SEM-WEAPON-MALFUNCTION-LIFECYCLE-001",
+        "SEM-ACT-MELEE-001",
+        "SEM-MELEE-SEQUENCE-001",
+        "SEM-MELEE-SHOOT-DIE-RESULT-001",
+        "SEM-INTRUDER-HIT-RESOLUTION-001"
       ],
       "blockers": []
     },
@@ -763,7 +779,8 @@
       "pilotRuleIds": [
         "SEM-IH-QA-R-01",
         "SEM-QUEEN-HEALTH-SETUP-001",
-        "SEM-QUEEN-HEALTH-504000-919263-001"
+        "SEM-QUEEN-HEALTH-504000-919263-001",
+        "SEM-COMBAT-COMPONENT-LIMITS-001"
       ],
       "blockers": []
     },
@@ -774,8 +791,28 @@
       "sourcePath": "docs/rules/03-intruders-and-survival.md",
       "sourceLocator": "INT-002",
       "authority": "project-interpretation",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-NOISE-001",
+        "SEM-NOISE-RESULT-001",
+        "SEM-NOISE-DEADLY-MODE-001",
+        "SEM-NOISE-NUMERIC-CORRIDOR-001",
+        "SEM-NOISE-MARKER-001",
+        "SEM-NOISE-HAZARD-001",
+        "SEM-COMBAT-COMPONENT-LIMITS-001",
+        "SEM-IH-QA-C-01",
+        "SEM-IH-QA-C-02",
+        "SEM-IH-QA-C-03",
+        "SEM-IH-QA-R-01",
+        "SEM-IH-QA-R-02",
+        "SEM-IH-QA-BOTTOM-01",
+        "SEM-IH-QD-C-01",
+        "SEM-IH-QD-C-02",
+        "SEM-IH-QD-C-03",
+        "SEM-IH-QD-R-01",
+        "SEM-IH-QD-R-02",
+        "SEM-IH-QD-BOTTOM-01"
+      ],
       "blockers": []
     },
     {
@@ -821,7 +858,10 @@
         "SEM-ATTACK-394916-001",
         "SEM-ATTACK-394918-001",
         "SEM-ATTACK-394919-001",
-        "SEM-ATTACK-399100-001"
+        "SEM-ATTACK-399100-001",
+        "SEM-SECURE-ENTRY-001",
+        "SEM-OPPORTUNITY-ATTACK-001",
+        "SEM-MELEE-SEQUENCE-001"
       ],
       "blockers": []
     },
@@ -832,8 +872,12 @@
       "sourcePath": "docs/rules/03-intruders-and-survival.md",
       "sourceLocator": "INT-005",
       "authority": "project-interpretation",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-MOVEMENT-SEQUENCE-001",
+        "SEM-OPPORTUNITY-ATTACK-001",
+        "SEM-INT-004"
+      ],
       "blockers": []
     },
     {
@@ -928,7 +972,8 @@
         "SEM-QUEEN-HEALTH-424100-A10F34-001",
         "SEM-QUEEN-HEALTH-458100-6BA0A2-001",
         "SEM-QUEEN-HEALTH-429200-48A2AE-001",
-        "SEM-QUEEN-HEALTH-429200-0FBF8D-001"
+        "SEM-QUEEN-HEALTH-429200-0FBF8D-001",
+        "SEM-INTRUDER-HIT-RESOLUTION-001"
       ],
       "blockers": []
     },
@@ -1330,7 +1375,9 @@
       "pilotRuleIds": [
         "SEM-ACT-SHOOT-001",
         "SEM-QUEEN-HIT-001",
-        "SEM-QUEEN-HEALTH-RESOLUTION-001"
+        "SEM-QUEEN-HEALTH-RESOLUTION-001",
+        "SEM-SHOOT-SEQUENCE-001",
+        "SEM-SHOOT-DIE-RESULT-001"
       ],
       "blockers": []
     },
@@ -1456,7 +1503,8 @@
         "SEM-YELLOW-ITEM-3403-4EFD6D-001",
         "SEM-YELLOW-ITEM-3403-9D4208-001",
         "SEM-YELLOW-ITEM-3403-D2ECEC-001",
-        "SEM-ACTION-CARD-COMMAND-001"
+        "SEM-ACTION-CARD-COMMAND-001",
+        "SEM-BURST-SEQUENCE-001"
       ],
       "blockers": []
     },
@@ -1499,7 +1547,8 @@
       "authority": "official-errata",
       "status": "pilot-covered",
       "pilotRuleIds": [
-        "SEM-SECURE-ENTRY-001"
+        "SEM-SECURE-ENTRY-001",
+        "SEM-NOISE-HAZARD-001"
       ],
       "blockers": []
     },
@@ -1512,7 +1561,8 @@
       "authority": "official-errata",
       "status": "pilot-covered",
       "pilotRuleIds": [
-        "SEM-ACTION-OFF-567800-961585-001"
+        "SEM-ACTION-OFF-567800-961585-001",
+        "SEM-BURST-SEQUENCE-001"
       ],
       "blockers": []
     },
@@ -1525,7 +1575,10 @@
       "authority": "official-errata",
       "status": "pilot-covered",
       "pilotRuleIds": [
-        "SEM-ACTION-REC-568700-D711D5-001"
+        "SEM-ACTION-REC-568700-D711D5-001",
+        "SEM-MOVEMENT-SEQUENCE-001",
+        "SEM-SHOOT-SEQUENCE-001",
+        "SEM-BURST-SEQUENCE-001"
       ],
       "blockers": []
     },
@@ -1542,7 +1595,10 @@
         "SEM-REACTION-DUCK-001",
         "SEM-ACTION-CON-570600-D30470-001",
         "SEM-ACTION-CE-569000-1892A7-001",
-        "SEM-ACTION-HGO-570800-F30901-001"
+        "SEM-ACTION-HGO-570800-F30901-001",
+        "SEM-MOVEMENT-SEQUENCE-001",
+        "SEM-OPPORTUNITY-ATTACK-001",
+        "SEM-NOISE-HAZARD-001"
       ],
       "blockers": []
     },
@@ -1605,7 +1661,9 @@
       "authority": "official-errata",
       "status": "pilot-covered",
       "pilotRuleIds": [
-        "SEM-WEAPON-DIE-RESULT-ADDITION-001"
+        "SEM-WEAPON-DIE-RESULT-ADDITION-001",
+        "SEM-SHOOT-DIE-RESULT-001",
+        "SEM-BURST-DIE-RESULT-001"
       ],
       "blockers": []
     },
@@ -1620,7 +1678,8 @@
       "pilotRuleIds": [
         "SEM-ACTION-HGO-570600-03260A-001",
         "SEM-ACTION-CE-569000-1892A7-001",
-        "SEM-WEAPON-MALFUNCTION-LIFECYCLE-001"
+        "SEM-WEAPON-MALFUNCTION-LIFECYCLE-001",
+        "SEM-SHOOT-SEQUENCE-001"
       ],
       "blockers": []
     },
@@ -1638,7 +1697,9 @@
         "SEM-ACTION-HGO-570800-F30901-001",
         "SEM-ACTION-HGO-570500-F97AD0-001",
         "SEM-WEAPON-MALFUNCTION-LIFECYCLE-001",
-        "SEM-GRENADE-LAUNCHER-MALFUNCTION-001"
+        "SEM-GRENADE-LAUNCHER-MALFUNCTION-001",
+        "SEM-SHOOT-SEQUENCE-001",
+        "SEM-BURST-SEQUENCE-001"
       ],
       "blockers": []
     },
@@ -2521,8 +2582,11 @@
       "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
       "sourceLocator": "RB-P24-V02",
       "authority": "official-primary",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-MOVEMENT-SEQUENCE-001",
+        "SEM-OPPORTUNITY-ATTACK-001"
+      ],
       "blockers": []
     },
     {
@@ -2532,8 +2596,11 @@
       "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
       "sourceLocator": "RB-P25-V01",
       "authority": "official-primary",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-NOISE-001",
+        "SEM-NOISE-RESULT-001"
+      ],
       "blockers": []
     },
     {
@@ -2543,8 +2610,23 @@
       "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
       "sourceLocator": "RB-P25-V02",
       "authority": "official-primary",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-NOISE-MARKER-001",
+        "SEM-NOISE-HAZARD-001",
+        "SEM-IH-QA-C-01",
+        "SEM-IH-QA-C-02",
+        "SEM-IH-QA-C-03",
+        "SEM-IH-QA-R-01",
+        "SEM-IH-QA-R-02",
+        "SEM-IH-QA-BOTTOM-01",
+        "SEM-IH-QD-C-01",
+        "SEM-IH-QD-C-02",
+        "SEM-IH-QD-C-03",
+        "SEM-IH-QD-R-01",
+        "SEM-IH-QD-R-02",
+        "SEM-IH-QD-BOTTOM-01"
+      ],
       "blockers": []
     },
     {
@@ -2706,8 +2788,12 @@
       "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
       "sourceLocator": "RB-P30-V01",
       "authority": "official-primary",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-COMBAT-COMPONENT-LIMITS-001",
+        "SEM-NOISE-MARKER-001",
+        "SEM-NOISE-HAZARD-001"
+      ],
       "blockers": []
     },
     {
@@ -2717,8 +2803,11 @@
       "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
       "sourceLocator": "RB-P30-V02",
       "authority": "official-primary",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-INT-004",
+        "SEM-SECURE-ENTRY-001"
+      ],
       "blockers": []
     },
     {
@@ -2769,8 +2858,12 @@
       "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
       "sourceLocator": "RB-P33-V01",
       "authority": "official-primary",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ACT-SHOOT-001",
+        "SEM-SHOOT-SEQUENCE-001",
+        "SEM-SHOOT-DIE-RESULT-001"
+      ],
       "blockers": []
     },
     {
@@ -2780,8 +2873,13 @@
       "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
       "sourceLocator": "RB-P33-V02",
       "authority": "official-primary",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ACT-BURST-001",
+        "SEM-BURST-SEQUENCE-001",
+        "SEM-BURST-DIE-RESULT-001",
+        "SEM-INTRUDER-HIT-RESOLUTION-001"
+      ],
       "blockers": []
     },
     {
@@ -2804,8 +2902,12 @@
       "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
       "sourceLocator": "RB-P34-V01",
       "authority": "official-primary",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-ACT-MELEE-001",
+        "SEM-MELEE-SEQUENCE-001",
+        "SEM-MELEE-SHOOT-DIE-RESULT-001"
+      ],
       "blockers": []
     },
     {
@@ -2974,8 +3076,10 @@
       "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
       "sourceLocator": "RB-P40-V01",
       "authority": "official-primary",
-      "status": "pending",
-      "pilotRuleIds": [],
+      "status": "pilot-covered",
+      "pilotRuleIds": [
+        "SEM-NOISE-DEADLY-MODE-001"
+      ],
       "blockers": []
     },
     {

@@ -107,6 +107,15 @@ from semantic_objective_records import (
     integrate_objective_shared_records,
     objective_source_registry_rows,
 )
+from semantic_combat_records import (
+    COMBAT_NEW_RULE_IDS,
+    build_combat_conflicts,
+    build_combat_question_rows,
+    build_combat_records,
+    build_combat_source_index,
+    finalize_combat_question_blocks,
+    integrate_combat_shared_records,
+)
 from room_icon_denotations import build_room_icon_denotations
 
 REPO = Path(__file__).resolve().parents[1]
@@ -137,6 +146,7 @@ yellow_item_source_index = build_yellow_item_source_index(REPO)
 equipment_source_index = build_equipment_source_index(REPO, green_item_source_index, red_item_source_index, yellow_item_source_index)
 action_source_index = build_action_source_index(REPO)
 objective_source_index = build_objective_source_index(REPO)
+combat_source_index = build_combat_source_index(REPO)
 
 sources = {
     'SRC-RULEBOOK': {
@@ -470,6 +480,8 @@ records.extend(build_action_records(REPO, action_source_index, record, assertion
 integrate_action_shared_records(records, assertion, operation)
 records.extend(build_objective_records(REPO, objective_source_index, record, assertion, timing, participant, condition, decision, operation))
 integrate_objective_shared_records(records, objective_source_index, assertion, decision, operation)
+records.extend(build_combat_records(record, assertion, timing, participant, condition, decision, operation))
+integrate_combat_shared_records(records, record, assertion, timing, participant, condition, decision, operation, ATTACK_RULE_IDS)
 records.sort(key=lambda item: item['ruleId'])
 
 semantic_questions = {
@@ -542,8 +554,10 @@ semantic_questions = {
 semantic_questions['questions'].extend(build_action_question_rows())
 semantic_questions['questions'].extend(build_objective_question_rows())
 semantic_questions['questions'].extend(build_equipment_question_rows(equipment_source_index))
+semantic_questions['questions'].extend(build_combat_question_rows())
 finalize_objective_question_blocks(records, semantic_questions['questions'])
 finalize_equipment_question_blocks(records, semantic_questions['questions'])
+finalize_combat_question_blocks(records, semantic_questions['questions'])
 semantic_questions['counts'] = {
     'questions': len(semantic_questions['questions']),
     'officialClarificationPreferred': sum(row['decisionClass'] == 'official-clarification-preferred' for row in semantic_questions['questions']),
@@ -614,6 +628,7 @@ objective_conflicts = build_objective_conflicts(objective_source_index)
 finalize_objective_conflict_blocks(records, objective_conflicts)
 contradictions['conflicts'].extend(objective_conflicts)
 contradictions['conflicts'].extend(build_equipment_conflicts(equipment_source_index))
+contradictions['conflicts'].extend(build_combat_conflicts())
 contradictions['counts'] = {
     'conflicts': len(contradictions['conflicts']),
     'resolvedByAuthority': sum(row['status'] == 'resolved-by-authority' for row in contradictions['conflicts']),
@@ -631,7 +646,7 @@ coverage = {
     'schemaVersion':1,'recordType':'semantic-pilot-coverage','status':'representative pilot only',
     'systems':[
         {'system':'round/phase/turn','ruleIds':['SEM-RT-001','SEM-RT-004','SEM-RT-005','SEM-RT-007']},
-        {'system':'movement/base Exploration cards','ruleIds':['SEM-ACT-MOVE-001','SEM-ACT-EXPLORE-001',*EXPLORATION_RULE_IDS]},
+        {'system':'movement/base Exploration cards','ruleIds':['SEM-ACT-MOVE-001','SEM-ACT-MOVE-CAUTIOUSLY-001','SEM-MOVEMENT-SEQUENCE-001','SEM-OPPORTUNITY-ATTACK-001','SEM-ACT-EXPLORE-001',*EXPLORATION_RULE_IDS]},
         {'system':'private search/zone handling','ruleIds':['SEM-ACT-SEARCH-001']},
         {'system':'infection/card modifier','ruleIds':['SEM-ACT-REST-001']},
         {'system':'reaction/replacement target','ruleIds':['SEM-REACTION-DUCK-001']},
@@ -643,12 +658,12 @@ coverage = {
         {'system':'Intruder Phase','ruleIds':['SEM-RT-008']},
         {'system':'Event Phase and Bag Development','ruleIds':['SEM-RT-009','SEM-EVENT-GENERAL-001','SEM-RT-011']},
         {'system':'Cleanup Phase','ruleIds':['SEM-RT-012']},
-        {'system':'Doors and Noise','ruleIds':['SEM-DOOR-001','SEM-NOISE-001','SEM-NOISE-NUMERIC-CORRIDOR-001','SEM-NOISE-MARKER-001','SEM-NOISE-HAZARD-001']},
-        {'system':'Intruder Attack, base Attack cards, Secure entry, and Character Health','ruleIds':['SEM-INT-004','SEM-SECURE-ENTRY-001','SEM-INT-006','SEM-CONTAMINATION-GAIN-001',*ATTACK_RULE_IDS]},
+        {'system':'Doors and Noise','ruleIds':['SEM-DOOR-001','SEM-COMBAT-COMPONENT-LIMITS-001','SEM-NOISE-DEADLY-MODE-001','SEM-NOISE-001','SEM-NOISE-RESULT-001','SEM-NOISE-NUMERIC-CORRIDOR-001','SEM-NOISE-MARKER-001','SEM-NOISE-HAZARD-001']},
+        {'system':'core Combat, Intruder Attack, base Attack cards, Secure entry, and Character Health','ruleIds':['SEM-ACT-SHOOT-001','SEM-SHOOT-SEQUENCE-001','SEM-SHOOT-DIE-RESULT-001','SEM-ACT-BURST-001','SEM-BURST-SEQUENCE-001','SEM-BURST-DIE-RESULT-001','SEM-ACT-MELEE-001','SEM-MELEE-SEQUENCE-001','SEM-MELEE-SHOOT-DIE-RESULT-001','SEM-INTRUDER-HIT-RESOLUTION-001','SEM-INT-004','SEM-SECURE-ENTRY-001','SEM-INT-006','SEM-CONTAMINATION-GAIN-001',*ATTACK_RULE_IDS]},
         {'system':'Tactical Gear','ruleIds':['SEM-ITM-005','SEM-ACT-TACTICAL-001']},
         {'system':'Autodestruction Procedure','ruleIds':['SEM-AUTODESTRUCTION-001']},
         {'system':'base Robot card/component family','ruleIds':['SEM-ACT-ROBOT-001','SEM-ROBOT-SETUP-001','SEM-ROBOT-REVEAL-001','SEM-ROBOT-MOVEMENT-001','SEM-ROBOT-TACTICAL-GEAR-001','SEM-ROBOT-MALFUNCTION-001','SEM-ROBOT-MALFUNCTION-PLACEMENT-001',*ROBOT_RULE_IDS]},
-        {'system':'base Queen Health card/component family','ruleIds':['SEM-ACT-SHOOT-001','SEM-ACT-BURST-001','SEM-ACTION-CARD-DRAW-001','SEM-INTRUDER-REPEL-001','SEM-QUEEN-ACTIVATION-001','SEM-QUEEN-HEALTH-SETUP-001','SEM-QUEEN-HIT-001','SEM-QUEEN-HEALTH-RESOLUTION-001','SEM-QUEEN-DEATH-001',*QUEEN_HEALTH_RULE_IDS]},
+        {'system':'base Queen Health card/component family','ruleIds':['SEM-ACTION-CARD-DRAW-001','SEM-INTRUDER-REPEL-001','SEM-QUEEN-ACTIVATION-001','SEM-QUEEN-HEALTH-SETUP-001','SEM-QUEEN-HIT-001','SEM-QUEEN-HEALTH-RESOLUTION-001','SEM-QUEEN-DEATH-001',*QUEEN_HEALTH_RULE_IDS]},
         {'system':'base Serious Wound card/component family','ruleIds':['SEM-SERIOUS-WOUND-SETUP-001','SEM-SERIOUS-WOUND-GAIN-001','SEM-SERIOUS-WOUND-DISCARD-001','SEM-SERIOUS-WOUND-STACKING-001','SEM-SERIOUS-WOUND-VARIANT-BOUNDARIES-001',*SERIOUS_WOUND_RULE_IDS]},
         {'system':'base regular Green Item card/component family','ruleIds':['SEM-GREEN-ITEM-DECK-001','SEM-REGULAR-ITEM-BACKPACK-001','SEM-USE-ITEM-001','SEM-GREEN-ITEM-ONE-USE-001','SEM-ITEM-VOLUNTARY-DISCARD-001','SEM-ITEM-TRADE-GAIN-001','SEM-ITEM-INTERPLAY-001','SEM-RESTORE-HEALTH-001','SEM-GREEN-ITEM-IMMEDIATE-USE-001','SEM-GREEN-ITEM-VARIANT-BOUNDARIES-001',*GREEN_ITEM_RULE_IDS]},
         {'system':'base source-clear regular Red Item card/component family','ruleIds':['SEM-RED-ITEM-DECK-001','SEM-RED-ITEM-ONE-USE-001','SEM-AMMO-TOKEN-LIFECYCLE-001','SEM-GRENADE-TOKEN-EFFECT-001','SEM-ANTI-AIRCRAFT-TOKEN-STATE-001','SEM-RED-ITEM-IMMEDIATE-USE-001','SEM-RED-ITEM-VARIANT-BOUNDARIES-001',*RED_ITEM_RULE_IDS]},
@@ -657,9 +672,10 @@ coverage = {
         {'system':'complete base Action card/component family','ruleIds':[*ACTION_REUSABLE_RULE_IDS,*ACTION_RULE_IDS,*[rule_id for rule_id in ACTION_REACTION_DISPATCH_RULE_IDS if rule_id != 'SEM-REACTION-DUCK-001']]},
     ],
     'counts':{'systems':25,'pilotRecords':len(records),'fullBaseSemanticCoverageClaimed':False},
-    'notYetCovered':['remaining card corpus outside the closed 20-card Event, 12-card Exploration, 6-card Robot, 20-occurrence Intruder Attack, 12-occurrence Queen Health, 27-occurrence Serious Wound, 23-occurrence regular Green Item, 21-occurrence source-clear regular Red Item, 24-occurrence source-clear regular Yellow Item, 60-occurrence base Action, and source-clear base competitive Objective/Mission Task families','the twelve unresolved Red/Yellow Heavy/class-conflict occurrences, two audited prototype Character Item faces, sixteen Support parent-sheet selector gaps, unresolved current seven-card Character Item roster, unresolved slot/glyph/target/owner/lifecycle questions, and independent licensed/official variants remain explicit non-dispatchable or no-default boundaries','the one exact TTS FACILITY RESTART operative span remains source-blocked; ten official Help card occurrences remain physically occluded boundaries; Solo/Coop and prototype/high-count Objectives remain indexed exclusions rather than competitive conclusions','remaining setup, map, procedure, and component lifecycle rules outside the covered Heavy/Equipment/Starting Item family'],
+    'notYetCovered':['remaining card corpus outside the closed 20-card Event, 12-card Exploration, 6-card Robot, 20-occurrence Intruder Attack, 12-occurrence Queen Health, 27-occurrence Serious Wound, 23-occurrence regular Green Item, 21-occurrence source-clear regular Red Item, 24-occurrence source-clear regular Yellow Item, 60-occurrence base Action, and source-clear base competitive Objective/Mission Task families','the twelve unresolved Red/Yellow Heavy/class-conflict occurrences, two audited prototype Character Item faces, sixteen Support parent-sheet selector gaps, unresolved current seven-card Character Item roster, unresolved slot/glyph/target/owner/lifecycle questions, and independent licensed/official variants remain explicit non-dispatchable or no-default boundaries','the one exact TTS FACILITY RESTART operative span remains source-blocked; ten official Help card occurrences remain physically occluded boundaries; Solo/Coop and prototype/high-count Objectives remain indexed exclusions rather than competitive conclusions','remaining setup, map, Lander, procedure, and component lifecycle rules outside the covered core Combat/Noise/Hazard/entry and Heavy/Equipment families'],
 }
 
+write('combat-source-index.json', combat_source_index)
 write('objective-mission-source-index.json', objective_source_index)
 write('action-source-index.json', action_source_index)
 write('yellow-item-source-index.json', yellow_item_source_index)
@@ -680,4 +696,4 @@ write('pilots.json', pilot)
 write('review-gates.json', semantic_questions)
 write('contradictions.json', contradictions)
 write('coverage.json', coverage)
-print(json.dumps({'sources':source_registry['counts'],'semanticNodes':semantic_nodes['counts'],'pilots':pilot['counts'],'questions':semantic_questions['counts'],'contradictions':contradictions['counts'],'coverage':coverage['counts']},indent=2))
+print(json.dumps({'sources':source_registry['counts'],'semanticNodes':semantic_nodes['counts'],'combat':combat_source_index['counts'],'pilots':pilot['counts'],'questions':semantic_questions['counts'],'contradictions':contradictions['counts'],'coverage':coverage['counts']},indent=2))

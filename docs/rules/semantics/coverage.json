@@ -16,6 +16,9 @@
       "system": "movement/base Exploration cards",
       "ruleIds": [
         "SEM-ACT-MOVE-001",
+        "SEM-ACT-MOVE-CAUTIOUSLY-001",
+        "SEM-MOVEMENT-SEQUENCE-001",
+        "SEM-OPPORTUNITY-ATTACK-001",
         "SEM-ACT-EXPLORE-001",
         "SEM-EXPLORATION-5629-001",
         "SEM-EXPLORATION-5630-001",
@@ -257,15 +260,28 @@
       "system": "Doors and Noise",
       "ruleIds": [
         "SEM-DOOR-001",
+        "SEM-COMBAT-COMPONENT-LIMITS-001",
+        "SEM-NOISE-DEADLY-MODE-001",
         "SEM-NOISE-001",
+        "SEM-NOISE-RESULT-001",
         "SEM-NOISE-NUMERIC-CORRIDOR-001",
         "SEM-NOISE-MARKER-001",
         "SEM-NOISE-HAZARD-001"
       ]
     },
     {
-      "system": "Intruder Attack, base Attack cards, Secure entry, and Character Health",
+      "system": "core Combat, Intruder Attack, base Attack cards, Secure entry, and Character Health",
       "ruleIds": [
+        "SEM-ACT-SHOOT-001",
+        "SEM-SHOOT-SEQUENCE-001",
+        "SEM-SHOOT-DIE-RESULT-001",
+        "SEM-ACT-BURST-001",
+        "SEM-BURST-SEQUENCE-001",
+        "SEM-BURST-DIE-RESULT-001",
+        "SEM-ACT-MELEE-001",
+        "SEM-MELEE-SEQUENCE-001",
+        "SEM-MELEE-SHOOT-DIE-RESULT-001",
+        "SEM-INTRUDER-HIT-RESOLUTION-001",
         "SEM-INT-004",
         "SEM-SECURE-ENTRY-001",
         "SEM-INT-006",
@@ -326,8 +342,6 @@
     {
       "system": "base Queen Health card/component family",
       "ruleIds": [
-        "SEM-ACT-SHOOT-001",
-        "SEM-ACT-BURST-001",
         "SEM-ACTION-CARD-DRAW-001",
         "SEM-INTRUDER-REPEL-001",
         "SEM-QUEEN-ACTIVATION-001",
@@ -637,13 +651,13 @@
   ],
   "counts": {
     "systems": 25,
-    "pilotRecords": 506,
+    "pilotRecords": 520,
     "fullBaseSemanticCoverageClaimed": false
   },
   "notYetCovered": [
     "remaining card corpus outside the closed 20-card Event, 12-card Exploration, 6-card Robot, 20-occurrence Intruder Attack, 12-occurrence Queen Health, 27-occurrence Serious Wound, 23-occurrence regular Green Item, 21-occurrence source-clear regular Red Item, 24-occurrence source-clear regular Yellow Item, 60-occurrence base Action, and source-clear base competitive Objective/Mission Task families",
     "the twelve unresolved Red/Yellow Heavy/class-conflict occurrences, two audited prototype Character Item faces, sixteen Support parent-sheet selector gaps, unresolved current seven-card Character Item roster, unresolved slot/glyph/target/owner/lifecycle questions, and independent licensed/official variants remain explicit non-dispatchable or no-default boundaries",
     "the one exact TTS FACILITY RESTART operative span remains source-blocked; ten official Help card occurrences remain physically occluded boundaries; Solo/Coop and prototype/high-count Objectives remain indexed exclusions rather than competitive conclusions",
-    "remaining setup, map, procedure, and component lifecycle rules outside the covered Heavy/Equipment/Starting Item family"
+    "remaining setup, map, Lander, procedure, and component lifecycle rules outside the covered core Combat/Noise/Hazard/entry and Heavy/Equipment families"
   ]
 }

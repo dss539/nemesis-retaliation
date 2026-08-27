@@ -1,0 +1,1984 @@
+{
+  "schemaVersion": 1,
+  "recordType": "semantic-combat-source-projection",
+  "scope": "base-game core Combat, Character/Intruder Attacks, Noise/Hazard spawning, Movement/Opportunity timing, and exact adjacent visual obligations",
+  "authorityBoundary": "Official FAQ v1.2 controls exact propositions, then official rulebook/rendered visuals, then source-bound Intruder Help evidence. TTS runtime branches remain secondary provenance and never override official results.",
+  "counts": {
+    "sourceSegments": 15,
+    "closedPendingBacklogUnits": 11,
+    "visualObligationsClosed": 9,
+    "dependencyVisualObligations": 2,
+    "faqUnits": 11,
+    "intruderHelpSides": 2,
+    "intruderHelpCorridorRows": 6,
+    "intruderHelpRoomRows": 4,
+    "intruderHelpSideLevelBlankRows": 2,
+    "diceKinds": 3,
+    "officialDistinctDieResultTerms": 16,
+    "attackClasses": 9,
+    "movementClasses": 6,
+    "newSemanticRecords": 14,
+    "replacedSemanticRecords": 10,
+    "newNoDefaultQuestions": 9
+  },
+  "sourceDocuments": {
+    "rulebook": {
+      "path": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
+      "sha256": "e3cda0d7a91bd090cec45dbc8ce89e2015e2202173357c374ff49365f9c29ddd"
+    },
+    "rulebookTextAid": {
+      "path": "docs/rulebooks/rulebook_text.txt",
+      "sha256": "b89552f02686559e2efa284dc8a18afc16bfb753b2de8afebe62c5243ca45a0a"
+    },
+    "faqExtraction": {
+      "path": "docs/rules/source-extraction/faq-v1.2-source-extraction.json",
+      "sha256": "fe5adc438355a046ecfbd9d9a88e9433427fcc49a36479a6b5d29c66687b7ced"
+    },
+    "visualCensus": {
+      "path": "docs/rules/source-extraction/rulebook-visual-obligations.json",
+      "sha256": "454d6ed8ca95da3aae486fcd0f3a7513dc28ab922a8d8ac2378ec061d145e783"
+    },
+    "intruderHelpExtraction": {
+      "path": "docs/rules/source-extraction/intruder-help-sheet.json",
+      "sha256": "e07f2703a6ad1b49c06389f79d3b1ffd6f5fd1d98604bf14b405fee49d9679e6"
+    },
+    "ttsLua": {
+      "path": "assets/tts-mod/extract/v2/lua_script.lua",
+      "sha256": "0bcc12026d4e35d26dc5b168b826f861acf82bb486c8a79ea801867af1aface5",
+      "authority": "secondary-runtime-provenance-only"
+    }
+  },
+  "sourceSegments": [
+    {
+      "sourceUnitId": "RB-COMPONENT-DICE",
+      "printedLineStart": 965,
+      "printedLineEnd": 983,
+      "role": "physical dice and component counts",
+      "checkedExtractionText": "6 Characters\n8 Drones in 4 poses\n3 Round track border pieces\n40 Corridor tiles \n(10 each of values 1,2,3 and 4)\nNote: Depending on your version of the game, \nyou will ﬁnd either miniatures or standees in your box. \nRegardless of the version, they will be refered to as “models”.\n1 Scanner\n1 Room Help sheet and\n1 Objective Help sheet.\n6 colored plastic rings\n1 Intruder bag\n5 numbered Backpack card \nholders\n2 six-sided Burst dice, \n2 eight-sided Shoot dice, \n2 ten-sided Noise dice\n1 Intruder Help sheet"
+    },
+    {
+      "sourceUnitId": "RB-COMPONENT-TOKENS-MODELS",
+      "printedLineStart": 2152,
+      "printedLineEnd": 2185,
+      "role": "finite marker, token, and model counts",
+      "checkedExtractionText": "markers and tokens\n9 Fire markers\n1 Round marker\n14 Door tokens \nwith standee bases\n2 Anti-Aircraft tokens\n1 Starting Player token\n14 Malfunction markers\n5 Egg tokens\n5 Data tokens\n1 Autodestruction and 1 Lander \ntoken\n1 Hibernatorium token\n40 Intruder tokens\n(1 Blank, 9 Queens, \n8 Drones, 16 Adults, 6 Larvae)\n30 Noise markers\n80 Tactical Gear tokens \n(20 Ammo, 20 Grenades, \n20 Oxygen, 20 Medpack)\n1 Undiscovered \nHibernatorium tile\n5 Suffocating tokens\n30 Universal markers\n20 Secure tokens\n3 Life Support tokens\n5 Oxygen counters \nand 5 sets of Oxygen counter pins \n(to be assembled with Character \nboards)\n36 Adults in 6 poses\n1 Queen\n6 Larvae\n1 Robot"
+    },
+    {
+      "sourceUnitId": "RB-BASIC-ACTIONS",
+      "printedLineStart": 2865,
+      "printedLineEnd": 2905,
+      "role": "Basic Action costs and Not In Combat boundary",
+      "checkedExtractionText": "1. RESOLVING ACTIONS\nIn a given Turn a player must perform 2 Actions choosing from the list \non the Character board (see below). If they are unable to perform any \nother Action they must perform the “Pass” Action. Players may per-\nform the same Action multiple times in any given Turn.\n- – Basic Actions List – -\nCosting 0 Action cards:\n•\nPlay an Action card\n•\nPass\nCosting 1 Action card:\n•\nMake a Move – See Movement (on page 24)\n•\nPlace 1\n – See Secure tokens (on page 23)\n•\nFire a Shot in a Room – See Shooting (on page 32)\n•\nFire a Burst at a Corridor – See Bursting (on page 32)\n•\nPerform a Melee Attack – See Melee Attack (on page 33)\n•\nUse an Item – See Use Item (on page 28)\n•\nActivate the Robot – See Activating Robot (on page 37)\n•\nTrade – See Trade (on page 29) \n•\nUse any Tactical Gear – See Tactical Belt (on page 16)\nCosting 2 Action cards:\n•\nUse the Room – See Rooms (on page 20) \n•\nMake a Move Cautiously – See Movement (on page 24) \n NOT IN COMBAT \nSome Actions (marked with \n) may only be per-\nformed, when a Character is not engaged in Combat. A Char-\nacter is considered to be in Combat when they are in a Room "
+    },
+    {
+      "sourceUnitId": "RB-INTRUDER-PHASE-ATTACKS",
+      "printedLineStart": 3313,
+      "printedLineEnd": 3324,
+      "role": "Intruder Phase attack cohort ordering",
+      "checkedExtractionText": "2. intruder attacks\nEach Intruder in each Room Attacks a Character (if there is any). If \nthere is more than 1 Character in a Room, it Attacks the Character \nﬁrst in Turn order.\nEach Attack is resolved separately starting with the Room on the top-\nleft of the Facility and going row by row. \nIf there is more than one Intruder in a Room, start with the largest \nIntruders ﬁrst – they all Attack the same Character ﬁrst in Turn or-\nder, unless that Character dies or leaves the Room. If that happens \nthe Intruders who have not Attacked yet, do so against the next Char-\nacter in Turn order.\nMore on Intruder Attacks: see page 32."
+    },
+    {
+      "sourceUnitId": "RB-COMPONENT-LIMITS",
+      "printedLineStart": 3543,
+      "printedLineEnd": 3548,
+      "role": "generic finite-component fallback",
+      "checkedExtractionText": "Component Limits – Most components are limited and have spe-\ncial rules on what happens if they run out. For any other compo-\nnents, consider them limited with no special rules – if they are \nto be used, and no more are available, nothing happens instead.\nFor example: Characters cannot gain Ammo tokens if all are al-\nready in players’ possession."
+    },
+    {
+      "sourceUnitId": "RB-MOVEMENT",
+      "printedLineStart": 4541,
+      "printedLineEnd": 4576,
+      "role": "Movement Sequence and Opportunity Attacks",
+      "checkedExtractionText": "movement sequence\nCharacters (\n) may Move as a result of many different effects, \nmost commonly by performing the “Make a Move” Action. Character \nMovement is always done from a Room to another Room. Characters \nare never placed in Corridors.\nThe Movement sequence goes as follows:\n1.\nChoose Direction – Choose an adjacent Corridor your Char-\nacter is going to Move through.\n2.\nResolve Opportunity Attacks – If there are any Intruders \n(\n) in the same Room as the Character and/or in the Corri-\ndor the Character wants to Move through – for each such In-\ntruder, starting with the largest Intruders, resolve an Intruder \nAttack (up to 3 Attacks maximum).\nMore on Intruder Attacks: see page 32.\n3.\nSee the effect of your Movement: \na. If you are Moving to an already Discovered Room:\n– Move your Character there.\n– If you are Moving Cautiously place a Secure token \n(\n) there.\n– Make a Noise roll.\nMore on Noise rolls: see the next page.\nb. If you are Moving through an Unexplored Corridor \nto an Undiscovered Room – Resolve the Exploration \nSequence.\nexploration sequence\nAt the  start of the  game, the  Facility is mostly unexplored. New \nRooms and Corridors appear as a result of Characters Moving to un-\ncharted territory and exploring on their own.\nWhenever a Character Moves through an Unexplored Corridor they \nmust resolve the Exploration Sequence (as mentioned in the Move-"
+    },
+    {
+      "sourceUnitId": "RB-NOISE",
+      "printedLineStart": 4655,
+      "printedLineEnd": 4710,
+      "role": "Noise marker, Noise roll, Hazard, and immediate entry attack",
+      "checkedExtractionText": "resolving Noise markers (\n)\nNoise markers are resolved most frequently as a  result of rolling \nthe Noise die, but may also occur from other effects, such as from \nEvent cards. Resolving a Noise marker is understood as a chance of \nIntruders appearing in Corridors.\nTo resolve a Noise marker remove it, draw a random Intruder to-\nken from the Intruder bag and resolve it in the same Corridor ac-\ncording to the Intruder Help sheet. The number on the token’s back \nshows you how many Intruders are placed in the Corridor. Red num-\nber shows how many Drones are placed in the Corridor. Red number\nshows how many Drones are placed in the Corridor.\nThen, discard the token back to the Intruder piles (unless stated otherwise).\nNote: The Blank token is always returned to the bag. \nnoise roll\nA Noise roll is performed as a result of many different Actions and ef-\nfects (most commonly as a result of Movement) and is also the main \nway of Noise markers (\n) appearing on the map.\nWhen making a Noise roll, take the Noise die, roll it and resolve ef-\nfects depending on the result of the roll:\n•\n1 , 2 , 3 , 4 Number result – Find all Corridors ad-\njacent to the Room your Character is in that share the rolled \nvalue. For each such Corridor, resolve the following in order:\n– If the Corridor contains at least 1 Intruder: One Intruder \nmanaged to breach your defenses. \nThe largest Intruder from that Corridor moves to the Room \ncontaining your Character.\n– If the Corridor already contains a Noise marker: Intruders \nappeared in the Corridor. \nResolve the Noise marker there according to the Intruder \nHelp Sheet (see further).\n– If the Corridor has NO Noise markers: You’ve heard \nsomething.\nPlace a Noise marker there.\nIf there is no Corridor of the corresponding value – nothing \nhappens.\n•\nHazard result – Something jumps from the ceiling.\nDraw an Intruder token from the Intruder bag and resolve it \naccording to the Intruder Help sheet (see below). \nRolling this result will, most of the time, place 1 Intruder in the \nRoom with the Character. You are only interested in the icon of \nthe drawn token – it shows the kind of Intruder being placed. \nDisregard the value on the back of the token completely.\nDiscard the token back to the Intruder piles afterward.\nNOISE ROLL AFTER EVERY MOVEMENT\nA Noise roll must be made after each Movement - even when Mov-\ning to a Room with another Character and/or Intruder. Only some \nspecial effects allow for Movement without making a Noise roll.\np\nSURPRISE ATTACKS\nWhen an Intruder is placed in a Room/moved to a Room (for \nany reason), it immediately tries to Attack a Character inside. \nMore on Intruder Attacks: see page 32."
+    },
+    {
+      "sourceUnitId": "RB-INTRUDER-MOVEMENT-TARGETS",
+      "printedLineStart": 5125,
+      "printedLineEnd": 5159,
+      "role": "Intruder movement and target priorities",
+      "checkedExtractionText": "general rules:\n•\nIntruders move to the closest Character (\n) using the \nshortest route – Intruders move as a group in the direc-\ntion of closest Character (unless speciﬁed otherwise) using \nthe shortest possible route.\n– Doors are completely disregarded when Intruders choose \nthe shortest route.\n•\nIntruders move between Rooms and Corridors – If the mov-\ning Intruders are in a Corridor, they move to an adjacent Room. \nIf they are in a Room, they move to an adjacent Corridor.\n•\nOnly 1 Intruder enters a Room with a Character – When-\never Intruders move from 1 Corridor to a Room with a Char-\nacter, only the largest Intruder moves to that Room instead.\n•\nIntruders Attack when moving to a Room with a Char-\nacter – Whenever an Intruder enters a Room with a Charac-\nter it always Attacks (some effects may allow you to prevent \nthat Attack, such as Secure tokens).\n•\nIntruders stay in Combat – Intruders do not move when \nthey are in the same Room as a Character. They do not move \naway from Combat, unless Repelled.\nINTRUDERS TARGETING\nWhen Intruders have multiple Characters they could Attack/move \nto, they choose the target by following this pattern:\n> Closest Character\n> If there are multiple Characters in the same distance, then \nout of them the Character Activating the Attack/movement \n(if there is any)\n> If there is still a tie, then out of possible Characters, the \none that is ﬁrst in Turn order."
+    },
+    {
+      "sourceUnitId": "RB-INTRUDER-TYPES-BAG-LIMIT",
+      "printedLineStart": 5164,
+      "printedLineEnd": 5198,
+      "role": "type order, bag lifecycle, capacity, and model limits",
+      "checkedExtractionText": "intruders\nQUEEN\nLARVA\nADULT\nDRONE\nQUEEN\nLARVA\nADULT\nDRONE\nintruder types\nIntruders in Nemesis come in the 4 different types seen above. Start-\ning from the largest:\nThe Queen is only one, an extremely durable and aggressive enemy.\nDrones are rare but more dangerous than typical Adults.\nAdults are the most standard type seen very frequently. They com-\nmonly hunt with other Intruders as a group.\nLarvae are not as deadly as the other Intruders, but come with a nasty \nsurprise.\nintruder bag\nDuring many different Phases you draw tokens from the  Intruder \nbag – any time this happens, resolve the token according to the spe-\nciﬁc column of the Intruder Help sheet and remove the token from \nthe bag. Tokens are always removed upon being resolved, and placed \nback in the Intruder token piles. The blank token is the only exception \n– it is always put back into the bag.\nINTRUDERS LIMIT\nIntruders may be placed in both Rooms and Corridors. While \nRooms can hold any number of Intruders, the maximum num-\nber of Intruders that may be placed in any Corridor is 6 (with \nthe Queen counting as 4 Intruders).\nMore on Corridors: see page 21.\nIntruder models are a limited component – if you are ever in-\nstructed to place more models of a certain type than available, \nplace as many as you can and ignore the rest – it cannot get \nworse."
+    },
+    {
+      "sourceUnitId": "RB-INTRUDER-ATTACK",
+      "printedLineStart": 5393,
+      "printedLineEnd": 5430,
+      "role": "standard/Larva Attacks, prevention, and entry target",
+      "checkedExtractionText": "Intruders (\n) attack Characters (\n) on many different occasions. \nMost commonly this happens when an Intruder enters a Room with \na Character or in the Intruder Phase.\nstandard attacks\nWhenever an Intruder Attacks a Character, draw a random Intruder \nAttack card (with the exception of Larvae Attacks, which are de-\nscribed below). \nThe card is resolved by ﬁnding an icon matching the Attacking In-\ntruder type (A) and resolving the associated effect (B). Then, the card \nis discarded.\nThe  Intruder Attack deck is only reshufﬂed when instructed by \nthe game.\nLarva Attacks\nWhen a Larva is Attacking a Character, instead perform the following:\n1.\nThe Attacked Character gains 1 Contamination and places it \non their discard pile.\n2.\nPlace the Attacking Larva on the Character board – the Char-\nacter is now Infected with a Larva. \nIf the Attacked Character already has a Larva on their Charac-\nter board – simply discard the Attacking Larva instead.\nMore on Contamination cards: see page 36.\npreventing Attacks\nVarious effects on Action cards and Items may allow a Character to \nPrevent an Intruder Attack.\nIf that happens, ignore the entire Intruder Attack – do not apply any \nadditional effects of that Intruder Attack and do NOT draw an Intruder \nAttack card.\nINTRUDERS CHOOSING A TARGET\nWhenever an Intruder enters a Room with at least 1 Character, \nthe Intruder resolves an Intruder Attack (unless prevented by \na Secure token or another in-game effect). \nIf the Intruder entered as a result of a player effect, they Attack \nthat Character if possible. \nOtherwise, they Attack the Character ﬁrst in Turn order."
+    },
+    {
+      "sourceUnitId": "RB-BURST",
+      "printedLineStart": 5490,
+      "printedLineEnd": 5537,
+      "role": "Burst die, allocation, resolution, and additional result",
+      "checkedExtractionText": "bursting\nWhen Intruders are cramped in \na narrow Corridor it’s time to Burst \nﬁre. It uses a signiﬁcant amount of \nAmmo, but it’s well worth it. \nCharacters may only Burst at In-\ntruders in an adjacent Corridor \nand only if they have a working, \nloaded Ranged Weapon.\nMore on Heavy Items: see page 28.\nBursts always spend Ammo, but allow you to score multiple Hits pos-\nsibly killing multiple Intruders at once.\nBursting is resolved in the following way:\n1.\nChoose a Weapon and a Corridor – Choose a Weapon in \na Hand without a Malfunction marker and with at least 1 Ammo \ntoken on it (it doesn’t have to be a full Ammo token). Then, \nchoose an adjacent Corridor to Burst at.\n2.\nSpend \n and make a Burst roll – The number on the die \nshows how many Hits will be applied to Intruders in the cho-\nsen Corridor.\n3.\nApply Hits – Apply Hits to Intruders in the Corridor in any way \nyou decide. The number rolled on the Burst die shows how \nmany Hits you apply – 1 , 2 , 3 or 4 .\n– You may only apply 1 Hit per Adult and 1 Hit per Larva.\n– You may only apply exactly 2 Hits per Drone.\n– You may apply any number of Hits to the Queen, up to \nher Hits track maximum.\n– Any leftover Hits are lost.\n4.\nResolve Hits – Hits are resolved differently depending on the \nIntruder: \n– Adults and Larvae with 1 Hit and Drones with 2 Hits die. \nPlace them back in the Intruder pool.\n– For each Hit applied to the Queen advance the Univer-\nsal marker on the Queen’s Hits track by 1 up to the \nspace. This may apply additional effects.\nMore on Queen Health: see page 35.\n5.\n – If you rolled this symbol, check for any additional ef-\nfects that may apply from the used Weapon or Action. If you \nhave no additional effects, this symbol does not do anything.\nNote: The \n is on the same face of the Burst die as the 4 – roll-\ning this result means applying both 4 Hits and the additional effects."
+    },
+    {
+      "sourceUnitId": "RB-WEAPON-RESULTS",
+      "printedLineStart": 5542,
+      "printedLineEnd": 5553,
+      "role": "Weapon modifiers and additional die results",
+      "checkedExtractionText": "No matter which type of Combat occurs, the effect of such always re-\nsults in assigning Hits to Intruders. When Adult Intruders are in Cor-\nridors each Hit kills a single Adult Intruder (by simply removing them \nfrom the map). When they are in a Room each Hit should be under-\nstood as an injury dealt to an Intruder (by placing Universal markers by \nthe Intruder’s model).\nWEAPONS\nNearly all Combat in Nemesis is done using Weapons. When \na Weapon is chosen to be used in an Action, all effects and mod-\niﬁers from the chosen Weapon must be applied, unless stated oth-\nerwise. Effects of rolling a speciﬁc result are described on Weapon \ncards and are done in addition to the standard result provided below."
+    },
+    {
+      "sourceUnitId": "RB-SHOOT",
+      "printedLineStart": 5560,
+      "printedLineEnd": 5620,
+      "role": "Shoot procedure, die results, Ammo, and Character target prohibition",
+      "checkedExtractionText": "shooting\nIntruders are very agile so Shoot-\ning at them in cramped Room is a \ndifﬁcult task. Shooting in Neme-\nsis produces singular Hits. Each \nHit increases the  likelihood of \nan  Intruder dying, but that  is \nnever certain.\nCharacters may only Shoot at In-\ntruders in the same Room and \nonly if they have a working, loaded \nRanged Weapon.\nMore on Weapons: see page 28.\nShooting does not, however, spend Ammo (except for one speciﬁc re-\nsult of the roll, see further below) – Characters use advanced equip-\nment where a single bullet loss is not signiﬁcant.\nShooting is resolved in the following way:\n1.\nChoose a Weapon and a target – Choose a Weapon in a Hand \nwithout a Malfunction marker and with at least 1 Ammo token \non it (it doesn’t have to be a full Ammo token). Then, choose \nan Intruder in the same Room as the Character.\n2.\nDeal 1 Hit – place 1 Universal marker next to the Intruder’s \nbase.\n3.\nMake a Shoot roll – Roll a Shoot die and resolve the result to \ncheck if the Intruder dies.\n–\n: Critical hit. \nThe Intruder dies – Place the Intruder back in the In-\ntruder pool.\n–\n2\n3\n4\n5 : Normal hit that sometimes kills. \nIf the number rolled is lower or equal to the number of \nHits on the Intruder, the Intruder dies – place it back in \nthe Intruder pool.\n–\n: You’ve lost too many bullets.\nSpend \n.\nNote: Larvae and the Queen are dealt Hits the same way, but their \nHealth is resolved differently. For details see the next page.\nSPEND \nAn Ammo token can be spent twice before it’s \ndepleted. If you have a full Ammo token and the \ngame instructs you to spend it – ﬂip it.\nIf you have a half-full Ammo token and the game instructs you \nto spend it – discard it.\nATTACKING OTHER CHARACTERS\nTo prevent serious conﬂict among the  crew, humanity has \nequipped their members with implants that create a strong psy-\nchic barrier and inhibit direct violence against homo sapiens. \nThis is why directly attacking is impossible.\nCharacters cannot directly Attack other Characters. Yet it is \nstill possible (accidentally or intentionally) to harm other Char-\nacters as a side effect of Actions. \nAfter all, trapping someone in a Room on ﬁre is not an Attack."
+    },
+    {
+      "sourceUnitId": "RB-MELEE",
+      "printedLineStart": 5628,
+      "printedLineEnd": 5687,
+      "role": "Melee, response prevention, type Health, and Corridor Hit markers",
+      "checkedExtractionText": "melee attack\nIn dire situations, a Character (\n) may choose to  Melee Attack \nan Intruder (\n) in the same Room. This should be done only as \na last resort, because if the Intruder lives through the Attack it will \ntry to retaliate.\nTo perform a Melee Attack resolve the following:\n1.\nGain 1 Contamination card – Getting that close to Intruders \nis always a bad idea.\n2.\nChoose a target – This must be an Intruder in the same \nRoom as the Character.\n3.\nDeal 1 Hit – Place 1 Universal marker next to the Intrud-\ner’s base.\n4.\nMake a roll – Roll a Shoot die and resolve the result to check \nif the Intruder dies.\n–\n: Critical hit.\nThe Intruder dies – place it back in the Intruder pool.\n–\n2\n3\n4\n5 : Normal hit that sometimes kills. \nIf the number rolled is lower or equal than the number of \nHits on the Intruder, the Intruder dies – place it back in \nthe Intruder pool.\n–\n – : Ineffective attack. Nothing happens.\n5.\nIntruder Response OR Prevent – If the Intruder has not died \nit tries to retaliate. You may choose to place a Malfunction \nmarker on any of your Weapons to Prevent this Attack. Other-\nwise, resolve the Intruder Attack.\nNote: Placing a Malfunction marker on a Weapon that already \nhad one destroys the Weapon.\nNote: Larvae and the Queen are dealt Hits the same way, but \ntheir Health is resolved differently. For details see below.\nhealth of other \nintruders\nlarva health\nIn a Corridor 1 Hit is enough to kill a Larva.\nIn a Room 1 Hit is also enough to kill a Larva – regardless of the num-\nber rolled on a Shoot die.\ndrone health\nKilling Drones is only harder when they are in Corridors (2 Hits are \nneeded to kill them). \nShooting them in Rooms is always resolved the same as Shooting \nAdult Intruders.\nqueen health\nDetails about the Queen are described on the next page.\nINTRUDER HIT MARKERS\nIntruders in Corridors never have left-over Hit markers placed \nbeside them. \nAn injured Intruder moving to a Corridor discards all Hit mark-\ners they may have had."
+    },
+    {
+      "sourceUnitId": "RB-DEADLY-MODE",
+      "printedLineStart": 6401,
+      "printedLineEnd": 6411,
+      "role": "dual Noise values, Secure 0, and tie-break value",
+      "checkedExtractionText": "Deadly Mode\nThis mode increases the difﬁculty of the game and is available both \nin the standard and in the Solo/Coop version of the game.\nIf you wish to play with this mode during the game, use both the stan-\ndard Noise values and the second, smaller Noise values found on \nsome Corridors.\nCorridors are treated as having both of those Noise values for any effects. \nThis means that Noise rolls are much more dangerous as the chances of \nIntruders appearing and entering Rooms are higly increased.\nNote: Secured Corridors still have only one value of 0.\nFor the sake of any tie-breaks use only the standard Noise value."
+    }
+  ],
+  "visualObligations": [
+    {
+      "occurrenceId": "RB-P21-V01",
+      "pdfPageIndex": 21,
+      "visiblePrintedPageNumber": 21,
+      "pageRole": "corridor-anatomy-and-capacity-rules",
+      "renderEvidence": {
+        "dpi": 160,
+        "dimensions": [
+          1361,
+          1834
+        ],
+        "imageSha256": "066dcb7a7797b3bf66bc17789bbd4ded47b8f2340a34f447d718c0c7eb8d230f",
+        "freshPageTextSha256": "d3fbf149aded3f7c56417867b8207f083794d663763475f4c124395d977496ad",
+        "freshPageTextCharacters": 10566
+      },
+      "visualUnit": {
+        "occurrenceId": "RB-P21-V01",
+        "type": "corridor-front-back-anatomy-diagram",
+        "bbox": [
+          170,
+          320,
+          645,
+          1110
+        ],
+        "classification": "normative component anatomy and two-sided state",
+        "visibleLabels": [
+          "FRONT",
+          "BACK (REINFORCED)",
+          "A",
+          "B",
+          "C",
+          "D",
+          "1",
+          "4",
+          "0"
+        ],
+        "parts": [
+          {
+            "label": "A",
+            "printedExplanation": "Corridor Noise value"
+          },
+          {
+            "label": "B",
+            "printedExplanation": "Deadly mode Noise value"
+          },
+          {
+            "label": "C",
+            "printedExplanation": "Door slot"
+          },
+          {
+            "label": "D",
+            "printedExplanation": "ID number"
+          }
+        ],
+        "description": "Front and reinforced-back images of one Corridor are outlined and arrow-labeled. The front shows a large 1, smaller 4, ID 110, and Door-slot shape; the back shows large 0s, ID 101, and highlighted Door-slot strip.",
+        "spatialRelationshipLostInPlainText": "A–D arrows bind values/ID/slot to exact face regions; rotation changes the ID; flipping associates reinforced state with 0 Noise; Door-slot geometry is visual.",
+        "obligationClass": "normative-visual-obligation",
+        "textLayerComparison": {
+          "status": "partial-visual-structure-lost",
+          "reason": "Some printed labels/prose may survive text extraction, but the recorded spatial/graphical relation, component pixels, color/state pairing, arrows, topology, row alignment, or orientation does not.",
+          "labelsChecked": 6,
+          "labelsMatchedFreshPage": 5,
+          "labelsMatchedCheckedExtraction": 6,
+          "labelEvidence": [
+            {
+              "label": "FRONT",
+              "inFreshPageText": true,
+              "inCheckedText": true
+            },
+            {
+              "label": "BACK (REINFORCED)",
+              "inFreshPageText": false,
+              "inCheckedText": true
+            },
+            {
+              "label": "Corridor Noise value",
+              "inFreshPageText": true,
+              "inCheckedText": true
+            },
+            {
+              "label": "Deadly mode Noise value",
+              "inFreshPageText": true,
+              "inCheckedText": true
+            },
+            {
+              "label": "Door slot",
+              "inFreshPageText": true,
+              "inCheckedText": true
+            },
+            {
+              "label": "ID number",
+              "inFreshPageText": true,
+              "inCheckedText": true
+            }
+          ]
+        }
+      }
+    },
+    {
+      "occurrenceId": "RB-P24-V02",
+      "pdfPageIndex": 24,
+      "visiblePrintedPageNumber": 24,
+      "pageRole": "movement-and-exploration-rules-with-card-anatomy",
+      "renderEvidence": {
+        "dpi": 160,
+        "dimensions": [
+          1361,
+          1834
+        ],
+        "imageSha256": "64137cf05b8b8efb5320d4c3e989020578c9fe5c33ef8a787c0260299fb8b5c3",
+        "freshPageTextSha256": "301b2a72a284d77ee28805bc70e552fefcef19d0571f5f1d5cc46606d1a81d09",
+        "freshPageTextCharacters": 7030
+      },
+      "visualUnit": {
+        "occurrenceId": "RB-P24-V02",
+        "type": "inline-movement-icon-associations",
+        "bbox": [
+          235,
+          230,
+          705,
+          720
+        ],
+        "classification": "normative movement-step glyph associations",
+        "description": "Character, Intruder, Secure, and Noise-related glyphs are embedded within the numbered Movement Sequence prose.",
+        "spatialRelationshipLostInPlainText": "Named actors/tokens and specific step effects are tied to printed glyph occurrences.",
+        "obligationClass": "normative-visual-obligation",
+        "textLayerComparison": {
+          "status": "partial-visual-structure-lost",
+          "reason": "Some printed labels/prose may survive text extraction, but the recorded spatial/graphical relation, component pixels, color/state pairing, arrows, topology, row alignment, or orientation does not.",
+          "labelsChecked": 0,
+          "labelsMatchedFreshPage": 0,
+          "labelsMatchedCheckedExtraction": 0,
+          "labelEvidence": []
+        }
+      }
+    },
+    {
+      "occurrenceId": "RB-P25-V01",
+      "pdfPageIndex": 25,
+      "visiblePrintedPageNumber": 25,
+      "pageRole": "noise-die-and-marker-resolution-rules",
+      "renderEvidence": {
+        "dpi": 160,
+        "dimensions": [
+          1361,
+          1834
+        ],
+        "imageSha256": "6d1a73dad9d8a58ab36deab4b0cdadb39668c958cb9292d83539d4d78dbe0b68",
+        "freshPageTextSha256": "8d2fb80e4721553e616f0b999966621ba6d40f502279ac3a967c646a564ad2ce",
+        "freshPageTextCharacters": 10038
+      },
+      "visualUnit": {
+        "occurrenceId": "RB-P25-V01",
+        "type": "noise-die-result-key",
+        "bbox": [
+          175,
+          140,
+          640,
+          1000
+        ],
+        "classification": "normative die-result table/list",
+        "rows": [
+          {
+            "visibleFaces": [
+              "yellow triangular face 1",
+              "yellow triangular face 2",
+              "yellow triangular face 3",
+              "yellow triangular face 4"
+            ],
+            "printedLabel": "Number result"
+          },
+          {
+            "visibleFaces": [
+              "yellow hazard/silhouette face"
+            ],
+            "printedLabel": "Hazard result"
+          }
+        ],
+        "spatialRelationshipLostInPlainText": "Four numbered die-face images are grouped under one branch, while a distinct nonnumeric face starts a separate branch; exact face art and grouping determine the result class.",
+        "obligationClass": "normative-visual-obligation",
+        "textLayerComparison": {
+          "status": "partial-visual-structure-lost",
+          "reason": "Some printed labels/prose may survive text extraction, but the recorded spatial/graphical relation, component pixels, color/state pairing, arrows, topology, row alignment, or orientation does not.",
+          "labelsChecked": 7,
+          "labelsMatchedFreshPage": 2,
+          "labelsMatchedCheckedExtraction": 2,
+          "labelEvidence": [
+            {
+              "label": "Number result",
+              "inFreshPageText": true,
+              "inCheckedText": true
+            },
+            {
+              "label": "yellow triangular face 1",
+              "inFreshPageText": false,
+              "inCheckedText": false
+            },
+            {
+              "label": "yellow triangular face 2",
+              "inFreshPageText": false,
+              "inCheckedText": false
+            },
+            {
+              "label": "yellow triangular face 3",
+              "inFreshPageText": false,
+              "inCheckedText": false
+            },
+            {
+              "label": "yellow triangular face 4",
+              "inFreshPageText": false,
+              "inCheckedText": false
+            },
+            {
+              "label": "Hazard result",
+              "inFreshPageText": true,
+              "inCheckedText": true
+            },
+            {
+              "label": "yellow hazard/silhouette face",
+              "inFreshPageText": false,
+              "inCheckedText": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "occurrenceId": "RB-P25-V02",
+      "pdfPageIndex": 25,
+      "visiblePrintedPageNumber": 25,
+      "pageRole": "noise-die-and-marker-resolution-rules",
+      "renderEvidence": {
+        "dpi": 160,
+        "dimensions": [
+          1361,
+          1834
+        ],
+        "imageSha256": "6d1a73dad9d8a58ab36deab4b0cdadb39668c958cb9292d83539d4d78dbe0b68",
+        "freshPageTextSha256": "8d2fb80e4721553e616f0b999966621ba6d40f502279ac3a967c646a564ad2ce",
+        "freshPageTextCharacters": 10038
+      },
+      "visualUnit": {
+        "occurrenceId": "RB-P25-V02",
+        "type": "intruder-help-sheet-reproduction",
+        "bbox": [
+          170,
+          1150,
+          1130,
+          1705
+        ],
+        "classification": "normative quick-reference reproduction",
+        "visibleLabels": [
+          "INTRUDER HELP SHEET",
+          "THE QUEEN IS ALIVE",
+          "RESOLVE IN A CORRIDOR",
+          "RESOLVE IN A ROOM",
+          "BAG DEVELOPMENT"
+        ],
+        "description": "Three-column help sheet reproduction binds Intruder token faces/number backs to Corridor placement, Room placement, and bag-development outcomes, plus a bottom Blank-token row.",
+        "spatialRelationshipLostInPlainText": "Column context changes token outcomes; pictured token fronts/backs and row grouping carry exact applicability; the dim Bag Development column remains a distinct section.",
+        "obligationClass": "normative-visual-obligation",
+        "textLayerComparison": {
+          "status": "partial-visual-structure-lost",
+          "reason": "Some printed labels/prose may survive text extraction, but the recorded spatial/graphical relation, component pixels, color/state pairing, arrows, topology, row alignment, or orientation does not.",
+          "labelsChecked": 5,
+          "labelsMatchedFreshPage": 1,
+          "labelsMatchedCheckedExtraction": 3,
+          "labelEvidence": [
+            {
+              "label": "INTRUDER HELP SHEET",
+              "inFreshPageText": true,
+              "inCheckedText": true
+            },
+            {
+              "label": "THE QUEEN IS ALIVE",
+              "inFreshPageText": false,
+              "inCheckedText": true
+            },
+            {
+              "label": "RESOLVE IN A CORRIDOR",
+              "inFreshPageText": false,
+              "inCheckedText": false
+            },
+            {
+              "label": "RESOLVE IN A ROOM",
+              "inFreshPageText": false,
+              "inCheckedText": false
+            },
+            {
+              "label": "BAG DEVELOPMENT",
+              "inFreshPageText": false,
+              "inCheckedText": true
+            }
+          ]
+        }
+      }
+    },
+    {
+      "occurrenceId": "RB-P30-V01",
+      "pdfPageIndex": 30,
+      "visiblePrintedPageNumber": 30,
+      "pageRole": "intruder-types-and-general-movement-rules",
+      "renderEvidence": {
+        "dpi": 160,
+        "dimensions": [
+          1361,
+          1834
+        ],
+        "imageSha256": "8f76bfdc43ba4de97b43a922c4a00d663f06c950074aa1eb9df66cbfc1410306",
+        "freshPageTextSha256": "731c35d58a4cc0297cd544c10fd2f698a5a7410598276d5b5886e664352c5a42",
+        "freshPageTextCharacters": 5590
+      },
+      "visualUnit": {
+        "occurrenceId": "RB-P30-V01",
+        "type": "intruder-type-token-face-key",
+        "bbox": [
+          230,
+          210,
+          1190,
+          435
+        ],
+        "classification": "normative type/name/model-icon association",
+        "rows": [
+          {
+            "label": "QUEEN",
+            "description": "large circular teal token with pale Queen model silhouette"
+          },
+          {
+            "label": "DRONE",
+            "description": "circular teal token with pale Drone model silhouette"
+          },
+          {
+            "label": "ADULT",
+            "description": "circular teal token with pale Adult model silhouette"
+          },
+          {
+            "label": "LARVA",
+            "description": "circular teal token with pale Larva model silhouette"
+          }
+        ],
+        "spatialRelationshipLostInPlainText": "The four printed type names are tied to exact token/model silhouettes; their left-to-right order visually accompanies the following 'starting from the largest' prose.",
+        "obligationClass": "normative-visual-obligation",
+        "textLayerComparison": {
+          "status": "partial-visual-structure-lost",
+          "reason": "Some printed labels/prose may survive text extraction, but the recorded spatial/graphical relation, component pixels, color/state pairing, arrows, topology, row alignment, or orientation does not.",
+          "labelsChecked": 4,
+          "labelsMatchedFreshPage": 4,
+          "labelsMatchedCheckedExtraction": 4,
+          "labelEvidence": [
+            {
+              "label": "QUEEN",
+              "inFreshPageText": true,
+              "inCheckedText": true
+            },
+            {
+              "label": "DRONE",
+              "inFreshPageText": true,
+              "inCheckedText": true
+            },
+            {
+              "label": "ADULT",
+              "inFreshPageText": true,
+              "inCheckedText": true
+            },
+            {
+              "label": "LARVA",
+              "inFreshPageText": true,
+              "inCheckedText": true
+            }
+          ]
+        }
+      }
+    },
+    {
+      "occurrenceId": "RB-P30-V02",
+      "pdfPageIndex": 30,
+      "visiblePrintedPageNumber": 30,
+      "pageRole": "intruder-types-and-general-movement-rules",
+      "renderEvidence": {
+        "dpi": 160,
+        "dimensions": [
+          1361,
+          1834
+        ],
+        "imageSha256": "8f76bfdc43ba4de97b43a922c4a00d663f06c950074aa1eb9df66cbfc1410306",
+        "freshPageTextSha256": "731c35d58a4cc0297cd544c10fd2f698a5a7410598276d5b5886e664352c5a42",
+        "freshPageTextCharacters": 5590
+      },
+      "visualUnit": {
+        "occurrenceId": "RB-P30-V02",
+        "type": "inline-intruder-character-glyph-associations",
+        "bbox": [
+          230,
+          435,
+          1125,
+          1125
+        ],
+        "classification": "normative actor/icon associations",
+        "description": "Creature-like Intruder and suited Character glyphs are embedded in general movement/targeting prose.",
+        "spatialRelationshipLostInPlainText": "Named actors are tied to repeated printed glyph occurrences in movement and targeting rules.",
+        "obligationClass": "normative-visual-obligation",
+        "textLayerComparison": {
+          "status": "partial-visual-structure-lost",
+          "reason": "Some printed labels/prose may survive text extraction, but the recorded spatial/graphical relation, component pixels, color/state pairing, arrows, topology, row alignment, or orientation does not.",
+          "labelsChecked": 0,
+          "labelsMatchedFreshPage": 0,
+          "labelsMatchedCheckedExtraction": 0,
+          "labelEvidence": []
+        }
+      }
+    },
+    {
+      "occurrenceId": "RB-P33-V01",
+      "pdfPageIndex": 33,
+      "visiblePrintedPageNumber": 33,
+      "pageRole": "combat-dice-and-ammo-rules",
+      "renderEvidence": {
+        "dpi": 160,
+        "dimensions": [
+          1361,
+          1834
+        ],
+        "imageSha256": "cbbb411d4117b9d08e61a5f84dd5606c5e35849d6f33a599d4b91a6aac940967",
+        "freshPageTextSha256": "9bdf6701e4dc38396a59e574fc10f2cab9ec902e584b72aced7346b452082eb2",
+        "freshPageTextCharacters": 12407
+      },
+      "visualUnit": {
+        "occurrenceId": "RB-P33-V01",
+        "type": "shoot-die-face-result-key",
+        "bbox": [
+          175,
+          700,
+          635,
+          1470
+        ],
+        "classification": "normative Shoot die-face table/list",
+        "rows": [
+          {
+            "visibleFace": "red triangular face with white critical-like internal mark",
+            "printedLabel": "Critical hit"
+          },
+          {
+            "visibleFaces": [
+              "red triangular 2",
+              "red triangular 3",
+              "red triangular 4",
+              "red triangular 5"
+            ],
+            "printedLabel": "Normal hit that sometimes kills"
+          },
+          {
+            "visibleFace": "red triangular face with white repeated-bar/ammunition-like internal mark",
+            "printedLabel": "You've lost too many bullets; Spend [Ammo source glyph]"
+          }
+        ],
+        "spatialRelationshipLostInPlainText": "Exact die-face art distinguishes critical, numeric, and ammo-loss branches; the four number faces are grouped under one rule.",
+        "obligationClass": "normative-visual-obligation",
+        "textLayerComparison": {
+          "status": "partial-visual-structure-lost",
+          "reason": "Some printed labels/prose may survive text extraction, but the recorded spatial/graphical relation, component pixels, color/state pairing, arrows, topology, row alignment, or orientation does not.",
+          "labelsChecked": 7,
+          "labelsMatchedFreshPage": 2,
+          "labelsMatchedCheckedExtraction": 2,
+          "labelEvidence": [
+            {
+              "label": "Critical hit",
+              "inFreshPageText": true,
+              "inCheckedText": true
+            },
+            {
+              "label": "Normal hit that sometimes kills",
+              "inFreshPageText": true,
+              "inCheckedText": true
+            },
+            {
+              "label": "red triangular 2",
+              "inFreshPageText": false,
+              "inCheckedText": false
+            },
+            {
+              "label": "red triangular 3",
+              "inFreshPageText": false,
+              "inCheckedText": false
+            },
+            {
+              "label": "red triangular 4",
+              "inFreshPageText": false,
+              "inCheckedText": false
+            },
+            {
+              "label": "red triangular 5",
+              "inFreshPageText": false,
+              "inCheckedText": false
+            },
+            {
+              "label": "You've lost too many bullets; Spend [Ammo source glyph]",
+              "inFreshPageText": false,
+              "inCheckedText": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "occurrenceId": "RB-P33-V02",
+      "pdfPageIndex": 33,
+      "visiblePrintedPageNumber": 33,
+      "pageRole": "combat-dice-and-ammo-rules",
+      "renderEvidence": {
+        "dpi": 160,
+        "dimensions": [
+          1361,
+          1834
+        ],
+        "imageSha256": "cbbb411d4117b9d08e61a5f84dd5606c5e35849d6f33a599d4b91a6aac940967",
+        "freshPageTextSha256": "9bdf6701e4dc38396a59e574fc10f2cab9ec902e584b72aced7346b452082eb2",
+        "freshPageTextCharacters": 12407
+      },
+      "visualUnit": {
+        "occurrenceId": "RB-P33-V02",
+        "type": "burst-die-face-and-hit-allocation-key",
+        "bbox": [
+          655,
+          700,
+          1130,
+          1665
+        ],
+        "classification": "normative Burst die-face results and allocation limits",
+        "description": "Purple Burst dice are pictured above rules mapping printed values 1, 2, 3, and 4 to Hits; a purple rounded-square special glyph starts step 5, and a note states it shares a die face with the 4 result.",
+        "spatialRelationshipLostInPlainText": "Purple face/number colors and same-face coexistence of the special glyph with 4 are graphical; allocation limits are grouped by Intruder type below the roll result.",
+        "obligationClass": "normative-visual-obligation",
+        "textLayerComparison": {
+          "status": "partial-visual-structure-lost",
+          "reason": "Some printed labels/prose may survive text extraction, but the recorded spatial/graphical relation, component pixels, color/state pairing, arrows, topology, row alignment, or orientation does not.",
+          "labelsChecked": 0,
+          "labelsMatchedFreshPage": 0,
+          "labelsMatchedCheckedExtraction": 0,
+          "labelEvidence": []
+        }
+      }
+    },
+    {
+      "occurrenceId": "RB-P34-V01",
+      "pdfPageIndex": 34,
+      "visiblePrintedPageNumber": 34,
+      "pageRole": "melee-and-other-intruder-health-rules",
+      "renderEvidence": {
+        "dpi": 160,
+        "dimensions": [
+          1361,
+          1834
+        ],
+        "imageSha256": "6db1b6de4075d590096ef3e75ac2828864a5708d23de4e06537935c95e828448",
+        "freshPageTextSha256": "f74a1bd9bc06ee3cb248ed139550472e5e0578fd985b392317b3769129d55444",
+        "freshPageTextCharacters": 2385
+      },
+      "visualUnit": {
+        "occurrenceId": "RB-P34-V01",
+        "type": "inline-melee-shoot-die-result-key",
+        "bbox": [
+          725,
+          430,
+          1185,
+          655
+        ],
+        "classification": "normative Melee roll branch icons",
+        "rows": [
+          {
+            "visibleFace": "red triangular critical-like face",
+            "printedLabel": "Critical hit"
+          },
+          {
+            "visibleFaces": [
+              "red triangular 2",
+              "red triangular 3",
+              "red triangular 4",
+              "red triangular 5"
+            ],
+            "printedLabel": "Normal hit that sometimes kills"
+          },
+          {
+            "visibleFace": "red triangular repeated-bar face",
+            "printedLabel": "Ineffective attack"
+          }
+        ],
+        "spatialRelationshipLostInPlainText": "The same die-face set is associated with different Melee outcomes, including a different label for the repeated-bar face than in Shooting.",
+        "obligationClass": "normative-visual-obligation",
+        "textLayerComparison": {
+          "status": "partial-visual-structure-lost",
+          "reason": "Some printed labels/prose may survive text extraction, but the recorded spatial/graphical relation, component pixels, color/state pairing, arrows, topology, row alignment, or orientation does not.",
+          "labelsChecked": 7,
+          "labelsMatchedFreshPage": 3,
+          "labelsMatchedCheckedExtraction": 3,
+          "labelEvidence": [
+            {
+              "label": "Critical hit",
+              "inFreshPageText": true,
+              "inCheckedText": true
+            },
+            {
+              "label": "Normal hit that sometimes kills",
+              "inFreshPageText": true,
+              "inCheckedText": true
+            },
+            {
+              "label": "red triangular 2",
+              "inFreshPageText": false,
+              "inCheckedText": false
+            },
+            {
+              "label": "red triangular 3",
+              "inFreshPageText": false,
+              "inCheckedText": false
+            },
+            {
+              "label": "red triangular 4",
+              "inFreshPageText": false,
+              "inCheckedText": false
+            },
+            {
+              "label": "red triangular 5",
+              "inFreshPageText": false,
+              "inCheckedText": false
+            },
+            {
+              "label": "Ineffective attack",
+              "inFreshPageText": true,
+              "inCheckedText": true
+            }
+          ]
+        }
+      }
+    },
+    {
+      "occurrenceId": "RB-P40-V01",
+      "pdfPageIndex": 40,
+      "visiblePrintedPageNumber": 40,
+      "pageRole": "additional-modes-and-icon-glossary",
+      "renderEvidence": {
+        "dpi": 160,
+        "dimensions": [
+          1361,
+          1834
+        ],
+        "imageSha256": "a23c45c45244b1bc7115f4e6a11238be46c9de1da86afa075e950584992867ed",
+        "freshPageTextSha256": "e4d14f71f981fe5863211d376c23d38feb8d3fd56acfdd00fca681d84a310ea7",
+        "freshPageTextCharacters": 7268
+      },
+      "visualUnit": {
+        "occurrenceId": "RB-P40-V01",
+        "type": "deadly-mode-dual-noise-value-corridor-example",
+        "bbox": [
+          235,
+          415,
+          705,
+          525
+        ],
+        "classification": "normative mode comparison",
+        "description": "Corridor front image shows a large standard yellow Noise value 1 and a second smaller value 1 beneath it, plus ID 107.",
+        "spatialRelationshipLostInPlainText": "Relative size distinguishes standard from Deadly-mode Noise value; both coexist on one Corridor but Secure still uses only 0.",
+        "obligationClass": "normative-visual-obligation",
+        "textLayerComparison": {
+          "status": "partial-visual-structure-lost",
+          "reason": "Some printed labels/prose may survive text extraction, but the recorded spatial/graphical relation, component pixels, color/state pairing, arrows, topology, row alignment, or orientation does not.",
+          "labelsChecked": 0,
+          "labelsMatchedFreshPage": 0,
+          "labelsMatchedCheckedExtraction": 0,
+          "labelEvidence": []
+        }
+      }
+    },
+    {
+      "occurrenceId": "RB-P40-V02",
+      "pdfPageIndex": 40,
+      "visiblePrintedPageNumber": 40,
+      "pageRole": "additional-modes-and-icon-glossary",
+      "renderEvidence": {
+        "dpi": 160,
+        "dimensions": [
+          1361,
+          1834
+        ],
+        "imageSha256": "a23c45c45244b1bc7115f4e6a11238be46c9de1da86afa075e950584992867ed",
+        "freshPageTextSha256": "e4d14f71f981fe5863211d376c23d38feb8d3fd56acfdd00fca681d84a310ea7",
+        "freshPageTextCharacters": 7268
+      },
+      "visualUnit": {
+        "occurrenceId": "RB-P40-V02",
+        "type": "authoritative-icon-glossary",
+        "bbox": [
+          720,
+          195,
+          1185,
+          1550
+        ],
+        "classification": "normative printed name-to-glyph dictionary",
+        "groups": [
+          {
+            "heading": "DICE-RELATED ICONS",
+            "occurrenceCount": 16,
+            "labels": [
+              "Shoot die icons",
+              "Burst die icons",
+              "Noise die icons"
+            ]
+          },
+          {
+            "heading": "MAP-RELATED ICONS",
+            "occurrenceCount": 17,
+            "labels": [
+              "Red, Yellow, Green Item",
+              "Computer",
+              "Fire marker",
+              "Malfunction marker",
+              "Noise marker",
+              "Secure token",
+              "Corridor icons (the rotation of the icon is important)",
+              "Active/Inactive Life Support Systems",
+              "Active/Inactive Hibernatorium",
+              "Lander token",
+              "Autodestruction token"
+            ]
+          },
+          {
+            "heading": "TACTICAL GEAR ICONS",
+            "occurrenceCount": 4,
+            "labels": [
+              "Oxygen Tactical Gear token",
+              "Ammo Tactical Gear token",
+              "Grenade Tactical Gear token",
+              "Medpack Tactical Gear token"
+            ]
+          },
+          {
+            "heading": "TACTICAL GEAR SLOTS",
+            "occurrenceCount": 5,
+            "labels": [
+              "Tactical Gear slot for an Ammo token",
+              "Tactical Gear slot for a Grenade token",
+              "Tactical Gear slot for an Oxygen token",
+              "Tactical Gear slot for a Medpack token",
+              "Tactical Gear slot for any token"
+            ]
+          },
+          {
+            "heading": "GENERAL",
+            "occurrenceCount": 7,
+            "labels": [
+              "Character",
+              "Oxygen",
+              "Character Health points",
+              "Action card",
+              "Robot",
+              "Not In Combat",
+              "Intruder"
+            ]
+          }
+        ],
+        "totalOccurrenceCount": 49,
+        "spatialRelationshipLostInPlainText": "Every printed label is bound to one or more exact glyphs; paired active/inactive forms, five die result sequences, three rotated Corridor orientations, slot colors, and source colors/shapes are normative and cannot be reconstructed from labels alone.",
+        "obligationClass": "normative-visual-obligation",
+        "textLayerComparison": {
+          "status": "partial-visual-structure-lost",
+          "reason": "Some printed labels/prose may survive text extraction, but the recorded spatial/graphical relation, component pixels, color/state pairing, arrows, topology, row alignment, or orientation does not.",
+          "labelsChecked": 35,
+          "labelsMatchedFreshPage": 34,
+          "labelsMatchedCheckedExtraction": 34,
+          "labelEvidence": [
+            {
+              "label": "DICE-RELATED ICONS",
+              "inFreshPageText": true,
+              "inCheckedText": true
+            },
+            {
+              "label": "Shoot die icons",
+              "inFreshPageText": true,
+              "inCheckedText": true
+            },
+            {
+              "label": "Burst die icons",
+              "inFreshPageText": true,
+              "inCheckedText": true
+            },
+            {
+              "label": "Noise die icons",
+              "inFreshPageText": true,
+              "inCheckedText": true
+            },
+            {
+              "label": "MAP-RELATED ICONS",
+              "inFreshPageText": true,
+              "inCheckedText": true
+            },
+            {
+              "label": "Red, Yellow, Green Item",
+              "inFreshPageText": true,
+              "inCheckedText": true
+            },
+            {
+              "label": "Computer",
+              "inFreshPageText": true,
+              "inCheckedText": true
+            },
+            {
+              "label": "Fire marker",
+              "inFreshPageText": true,
+              "inCheckedText": true
+            },
+            {
+              "label": "Malfunction marker",
+              "inFreshPageText": true,
+              "inCheckedText": true
+            },
+            {
+              "label": "Noise marker",
+              "inFreshPageText": true,
+              "inCheckedText": true
+            },
+            {
+              "label": "Secure token",
+              "inFreshPageText": true,
+              "inCheckedText": true
+            },
+            {
+              "label": "Corridor icons (the rotation of the icon is important)",
+              "inFreshPageText": false,
+              "inCheckedText": false
+            },
+            {
+              "label": "Active/Inactive Life Support Systems",
+              "inFreshPageText": true,
+              "inCheckedText": true
+            },
+            {
+              "label": "Active/Inactive Hibernatorium",
+              "inFreshPageText": true,
+              "inCheckedText": true
+            },
+            {
+              "label": "Lander token",
+              "inFreshPageText": true,
+              "inCheckedText": true
+            },
+            {
+              "label": "Autodestruction token",
+              "inFreshPageText": true,
+              "inCheckedText": true
+            },
+            {
+              "label": "TACTICAL GEAR ICONS",
+              "inFreshPageText": true,
+              "inCheckedText": true
+            },
+            {
+              "label": "Oxygen Tactical Gear token",
+              "inFreshPageText": true,
+              "inCheckedText": true
+            },
+            {
+              "label": "Ammo Tactical Gear token",
+              "inFreshPageText": true,
+              "inCheckedText": true
+            },
+            {
+              "label": "Grenade Tactical Gear token",
+              "inFreshPageText": true,
+              "inCheckedText": true
+            },
+            {
+              "label": "Medpack Tactical Gear token",
+              "inFreshPageText": true,
+              "inCheckedText": true
+            },
+            {
+              "label": "TACTICAL GEAR SLOTS",
+              "inFreshPageText": true,
+              "inCheckedText": true
+            },
+            {
+              "label": "Tactical Gear slot for an Ammo token",
+              "inFreshPageText": true,
+              "inCheckedText": true
+            },
+            {
+              "label": "Tactical Gear slot for a Grenade token",
+              "inFreshPageText": true,
+              "inCheckedText": true
+            },
+            {
+              "label": "Tactical Gear slot for an Oxygen token",
+              "inFreshPageText": true,
+              "inCheckedText": true
+            },
+            {
+              "label": "Tactical Gear slot for a Medpack token",
+              "inFreshPageText": true,
+              "inCheckedText": true
+            },
+            {
+              "label": "Tactical Gear slot for any token",
+              "inFreshPageText": true,
+              "inCheckedText": true
+            },
+            {
+              "label": "GENERAL",
+              "inFreshPageText": true,
+              "inCheckedText": true
+            },
+            {
+              "label": "Character",
+              "inFreshPageText": true,
+              "inCheckedText": true
+            },
+            {
+              "label": "Oxygen",
+              "inFreshPageText": true,
+              "inCheckedText": true
+            },
+            {
+              "label": "Character Health points",
+              "inFreshPageText": true,
+              "inCheckedText": true
+            },
+            {
+              "label": "Action card",
+              "inFreshPageText": true,
+              "inCheckedText": true
+            },
+            {
+              "label": "Robot",
+              "inFreshPageText": true,
+              "inCheckedText": true
+            },
+            {
+              "label": "Not In Combat",
+              "inFreshPageText": true,
+              "inCheckedText": true
+            },
+            {
+              "label": "Intruder",
+              "inFreshPageText": true,
+              "inCheckedText": true
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "faqUnits": [
+    {
+      "pageLocalNumber": 1,
+      "section": "GENERAL RULES",
+      "unitKind": "faq-ruling",
+      "applicability": "base-game",
+      "column": "left",
+      "bbox": [
+        118,
+        676,
+        812,
+        854
+      ],
+      "printedLines": [
+        "How does shooting at the Queen work exactly?",
+        "Shooting at the Queen works exactly the same as it does for Adult Intruders, but instead of removing the miniature from the board, you resolve the Queen health card instead. Shooting a Queen with 2 hits will result in resolving the top card of the Queen Health Deck, if a player rolls a 2 (or fewer) or a skull symbol."
+      ],
+      "printedText": "How does shooting at the Queen work exactly?\nShooting at the Queen works exactly the same as it does for Adult Intruders, but instead of removing the miniature from the board, you resolve the Queen health card instead. Shooting a Queen with 2 hits will result in resolving the top card of the Queen Health Deck, if a player rolls a 2 (or fewer) or a skull symbol.",
+      "questionText": "How does shooting at the Queen work exactly?",
+      "answerText": "Shooting at the Queen works exactly the same as it does for Adult Intruders, but instead of removing the miniature from the board, you resolve the Queen health card instead. Shooting a Queen with 2 hits will result in resolving the top card of the Queen Health Deck, if a player rolls a 2 (or fewer) or a skull symbol.",
+      "sourceUnitId": "FQ-P02-U03",
+      "textLayerComparison": {
+        "status": "partial-column-scope-structure-lost",
+        "questionOrLocatorFoundInFreshPageText": true,
+        "questionOrLocatorFoundInCheckedExtraction": true,
+        "lostInformation": "Two-column reading order, section/scope heading association, numbering hierarchy, and any inline source glyphs are not fully preserved by the checked text extraction."
+      }
+    },
+    {
+      "pageLocalNumber": 8,
+      "section": "GENERAL RULES",
+      "unitKind": "faq-ruling",
+      "applicability": "base-game",
+      "column": "left",
+      "bbox": [
+        118,
+        1802,
+        811,
+        1980
+      ],
+      "printedLines": [
+        "Q: Can I do (...) through Closed Doors? What exactly are Objects?",
+        "A: Objects include Doors, Character, Intruders, basically everything excluding Noise markers. Through doors you cannot Reinforce a Corridor, Command another Character, Burst, throw Grenades, etc. You can place and discard Noise markers."
+      ],
+      "printedText": "Q: Can I do (...) through Closed Doors? What exactly are Objects?\nA: Objects include Doors, Character, Intruders, basically everything excluding Noise markers. Through doors you cannot Reinforce a Corridor, Command another Character, Burst, throw Grenades, etc. You can place and discard Noise markers.",
+      "questionText": "Q: Can I do (...) through Closed Doors? What exactly are Objects?",
+      "answerText": "A: Objects include Doors, Character, Intruders, basically everything excluding Noise markers. Through doors you cannot Reinforce a Corridor, Command another Character, Burst, throw Grenades, etc. You can place and discard Noise markers.",
+      "sourceUnitId": "FQ-P02-U10",
+      "textLayerComparison": {
+        "status": "partial-column-scope-structure-lost",
+        "questionOrLocatorFoundInFreshPageText": true,
+        "questionOrLocatorFoundInCheckedExtraction": true,
+        "lostInformation": "Two-column reading order, section/scope heading association, numbering hierarchy, and any inline source glyphs are not fully preserved by the checked text extraction."
+      }
+    },
+    {
+      "pageLocalNumber": 9,
+      "section": "GENERAL RULES",
+      "unitKind": "faq-ruling",
+      "applicability": "base-game",
+      "column": "left",
+      "bbox": [
+        118,
+        2011,
+        811,
+        2217
+      ],
+      "printedLines": [
+        "Q: When a card tells me to reshuffle the deck, does it include the card itself?",
+        "A: Yes. Note that it differs from reshuffling the Action deck due to drawing cards. Meaning that, if an Action card allows you to draw more cards, the cards are drawn (which may force you to reshuffle the deck) before the card itself is discarded. In turn, it is not reshuffled."
+      ],
+      "printedText": "Q: When a card tells me to reshuffle the deck, does it include the card itself?\nA: Yes. Note that it differs from reshuffling the Action deck due to drawing cards. Meaning that, if an Action card allows you to draw more cards, the cards are drawn (which may force you to reshuffle the deck) before the card itself is discarded. In turn, it is not reshuffled.",
+      "questionText": "Q: When a card tells me to reshuffle the deck, does it include the card itself?",
+      "answerText": "A: Yes. Note that it differs from reshuffling the Action deck due to drawing cards. Meaning that, if an Action card allows you to draw more cards, the cards are drawn (which may force you to reshuffle the deck) before the card itself is discarded. In turn, it is not reshuffled.",
+      "sourceUnitId": "FQ-P02-U11",
+      "textLayerComparison": {
+        "status": "partial-column-scope-structure-lost",
+        "questionOrLocatorFoundInFreshPageText": false,
+        "questionOrLocatorFoundInCheckedExtraction": true,
+        "lostInformation": "Two-column reading order, section/scope heading association, numbering hierarchy, and any inline source glyphs are not fully preserved by the checked text extraction."
+      }
+    },
+    {
+      "pageLocalNumber": 11,
+      "section": "GENERAL RULES",
+      "unitKind": "faq-ruling",
+      "applicability": "base-game",
+      "column": "right",
+      "bbox": [
+        890,
+        304,
+        1428,
+        397
+      ],
+      "printedLines": [
+        "Q: Do Secure tokens prevent Attacks from Intruder being placed in the room?",
+        "A: Yes."
+      ],
+      "printedText": "Q: Do Secure tokens prevent Attacks from Intruder being placed in the room?\nA: Yes.",
+      "questionText": "Q: Do Secure tokens prevent Attacks from Intruder being placed in the room?",
+      "answerText": "A: Yes.",
+      "sourceUnitId": "FQ-P02-U13",
+      "textLayerComparison": {
+        "status": "partial-column-scope-structure-lost",
+        "questionOrLocatorFoundInFreshPageText": true,
+        "questionOrLocatorFoundInCheckedExtraction": true,
+        "lostInformation": "Two-column reading order, section/scope heading association, numbering hierarchy, and any inline source glyphs are not fully preserved by the checked text extraction."
+      }
+    },
+    {
+      "pageLocalNumber": 1,
+      "section": "ACTION CARDS",
+      "unitKind": "faq-ruling",
+      "applicability": "base-game",
+      "column": "right",
+      "bbox": [
+        890,
+        541,
+        1583,
+        719
+      ],
+      "printedLines": [
+        "Q: Fire At Will – How exactly does that card work?",
+        "A: The Officer chooses their room or the neighboring one. Then, each Character in a Turn Order Bursts at a Corridor chosen by the Officer. The Officer may choose a different Corridor for each Character to Burst at. Characters, when Bursting, may choose which Weapon to use."
+      ],
+      "printedText": "Q: Fire At Will – How exactly does that card work?\nA: The Officer chooses their room or the neighboring one. Then, each Character in a Turn Order Bursts at a Corridor chosen by the Officer. The Officer may choose a different Corridor for each Character to Burst at. Characters, when Bursting, may choose which Weapon to use.",
+      "questionText": "Q: Fire At Will – How exactly does that card work?",
+      "answerText": "A: The Officer chooses their room or the neighboring one. Then, each Character in a Turn Order Bursts at a Corridor chosen by the Officer. The Officer may choose a different Corridor for each Character to Burst at. Characters, when Bursting, may choose which Weapon to use.",
+      "sourceUnitId": "FQ-P02-U14",
+      "textLayerComparison": {
+        "status": "partial-column-scope-structure-lost",
+        "questionOrLocatorFoundInFreshPageText": true,
+        "questionOrLocatorFoundInCheckedExtraction": true,
+        "lostInformation": "Two-column reading order, section/scope heading association, numbering hierarchy, and any inline source glyphs are not fully preserved by the checked text extraction."
+      }
+    },
+    {
+      "pageLocalNumber": 2,
+      "section": "ACTION CARDS",
+      "unitKind": "faq-ruling",
+      "applicability": "base-game",
+      "column": "right",
+      "bbox": [
+        890,
+        751,
+        1499,
+        843
+      ],
+      "printedLines": [
+        "Q: Shoot First – Can I Shoot/Burst at Intruders that appear as a result of my movement, due to a Noise roll?",
+        "A: Yes."
+      ],
+      "printedText": "Q: Shoot First – Can I Shoot/Burst at Intruders that appear as a result of my movement, due to a Noise roll?\nA: Yes.",
+      "questionText": "Q: Shoot First – Can I Shoot/Burst at Intruders that appear as a result of my movement, due to a Noise roll?",
+      "answerText": "A: Yes.",
+      "sourceUnitId": "FQ-P02-U15",
+      "textLayerComparison": {
+        "status": "partial-column-scope-structure-lost",
+        "questionOrLocatorFoundInFreshPageText": false,
+        "questionOrLocatorFoundInCheckedExtraction": true,
+        "lostInformation": "Two-column reading order, section/scope heading association, numbering hierarchy, and any inline source glyphs are not fully preserved by the checked text extraction."
+      }
+    },
+    {
+      "pageLocalNumber": 3,
+      "section": "ACTION CARDS",
+      "unitKind": "faq-ruling",
+      "applicability": "base-game",
+      "column": "right",
+      "bbox": [
+        890,
+        875,
+        1583,
+        996
+      ],
+      "printedLines": [
+        "Q: Will using an Action, like Duck and Cover, prevent an Intruder Attack caused by a Hazard roll?",
+        "A: No. Cards that allow you to prevent an Intruder Attack during a Movement, apply only to Opportunity Attacks."
+      ],
+      "printedText": "Q: Will using an Action, like Duck and Cover, prevent an Intruder Attack caused by a Hazard roll?\nA: No. Cards that allow you to prevent an Intruder Attack during a Movement, apply only to Opportunity Attacks.",
+      "questionText": "Q: Will using an Action, like Duck and Cover, prevent an Intruder Attack caused by a Hazard roll?",
+      "answerText": "A: No. Cards that allow you to prevent an Intruder Attack during a Movement, apply only to Opportunity Attacks.",
+      "sourceUnitId": "FQ-P02-U16",
+      "textLayerComparison": {
+        "status": "partial-column-scope-structure-lost",
+        "questionOrLocatorFoundInFreshPageText": true,
+        "questionOrLocatorFoundInCheckedExtraction": true,
+        "lostInformation": "Two-column reading order, section/scope heading association, numbering hierarchy, and any inline source glyphs are not fully preserved by the checked text extraction."
+      }
+    },
+    {
+      "pageLocalNumber": 3,
+      "section": "ROOMS",
+      "unitKind": "faq-ruling",
+      "applicability": "base-game",
+      "column": "right",
+      "bbox": [
+        890,
+        1588,
+        1582,
+        1681
+      ],
+      "printedLines": [
+        "Q: Technical Corridor Entrance – can the Attack as a result of using this room be prevented with effects that Prevent Intruder Attacks?",
+        "A: Yes."
+      ],
+      "printedText": "Q: Technical Corridor Entrance – can the Attack as a result of using this room be prevented with effects that Prevent Intruder Attacks?\nA: Yes.",
+      "questionText": "Q: Technical Corridor Entrance – can the Attack as a result of using this room be prevented with effects that Prevent Intruder Attacks?",
+      "answerText": "A: Yes.",
+      "sourceUnitId": "FQ-P02-U19",
+      "textLayerComparison": {
+        "status": "partial-column-scope-structure-lost",
+        "questionOrLocatorFoundInFreshPageText": false,
+        "questionOrLocatorFoundInCheckedExtraction": true,
+        "lostInformation": "Two-column reading order, section/scope heading association, numbering hierarchy, and any inline source glyphs are not fully preserved by the checked text extraction."
+      }
+    },
+    {
+      "pageLocalNumber": 1,
+      "section": "ITEMS AND TACTICAL GEAR",
+      "unitKind": "faq-ruling",
+      "applicability": "base-game",
+      "column": "right",
+      "bbox": [
+        890,
+        1950,
+        1583,
+        2131
+      ],
+      "printedLines": [
+        "Q: Are effects on Weapons, when rolling a specific result on a die, in addition to a standard result, or instead of it?",
+        "A: Unless the Weapon instructs you to specifically do something “instead”, the effect described is resolved in addition to any standard effect.",
+        "For example, when rolling an [FQ-P02-U21-I01] on a Shoot die, you still spend Ammo, even if your Weapon allows you to “[FQ-P02-U21-I02]: resolve [FQ-P02-U21-I03]”."
+      ],
+      "printedText": "Q: Are effects on Weapons, when rolling a specific result on a die, in addition to a standard result, or instead of it?\nA: Unless the Weapon instructs you to specifically do something “instead”, the effect described is resolved in addition to any standard effect.\nFor example, when rolling an [FQ-P02-U21-I01] on a Shoot die, you still spend Ammo, even if your Weapon allows you to “[FQ-P02-U21-I02]: resolve [FQ-P02-U21-I03]”.",
+      "questionText": "Q: Are effects on Weapons, when rolling a specific result on a die, in addition to a standard result, or instead of it?",
+      "answerText": "A: Unless the Weapon instructs you to specifically do something “instead”, the effect described is resolved in addition to any standard effect. For example, when rolling an [FQ-P02-U21-I01] on a Shoot die, you still spend Ammo, even if your Weapon allows you to “[FQ-P02-U21-I02]: resolve [FQ-P02-U21-I03]”.",
+      "sourceUnitId": "FQ-P02-U21",
+      "visualOccurrences": [
+        {
+          "occurrenceId": "FQ-P02-U21-I01",
+          "location": "answer example after “rolling an”",
+          "literalAppearance": "red triangular die-face glyph with white repeated vertical ammunition-like marks"
+        },
+        {
+          "occurrenceId": "FQ-P02-U21-I02",
+          "location": "quoted Weapon instruction before a colon",
+          "literalAppearance": "same red triangular repeated-bar die-face glyph"
+        },
+        {
+          "occurrenceId": "FQ-P02-U21-I03",
+          "location": "quoted Weapon instruction after “resolve”",
+          "literalAppearance": "small dark horned/skull-like result glyph"
+        }
+      ],
+      "textLayerComparison": {
+        "status": "partial-inline-glyphs-and-column-scope-lost",
+        "questionOrLocatorFoundInFreshPageText": true,
+        "questionOrLocatorFoundInCheckedExtraction": true,
+        "lostInformation": "Two-column reading order, section/scope heading association, numbering hierarchy, and any inline source glyphs are not fully preserved by the checked text extraction."
+      }
+    },
+    {
+      "pageLocalNumber": 2,
+      "section": "ITEMS AND TACTICAL GEAR",
+      "unitKind": "faq-ruling",
+      "applicability": "base-game",
+      "column": "left",
+      "bbox": [
+        118,
+        208,
+        811,
+        301
+      ],
+      "printedLines": [
+        "Q: Can you spend ammo from “Requires no Ammo” Weapons using an Action card or other effect?",
+        "A: You may “spend” Ammo from a weapon with “Requires no Ammo” trait."
+      ],
+      "printedText": "Q: Can you spend ammo from “Requires no Ammo” Weapons using an Action card or other effect?\nA: You may “spend” Ammo from a weapon with “Requires no Ammo” trait.",
+      "questionText": "Q: Can you spend ammo from “Requires no Ammo” Weapons using an Action card or other effect?",
+      "answerText": "A: You may “spend” Ammo from a weapon with “Requires no Ammo” trait.",
+      "sourceUnitId": "FQ-P03-U01",
+      "textLayerComparison": {
+        "status": "partial-column-scope-structure-lost",
+        "questionOrLocatorFoundInFreshPageText": false,
+        "questionOrLocatorFoundInCheckedExtraction": true,
+        "lostInformation": "Two-column reading order, section/scope heading association, numbering hierarchy, and any inline source glyphs are not fully preserved by the checked text extraction."
+      }
+    },
+    {
+      "pageLocalNumber": 3,
+      "section": "ITEMS AND TACTICAL GEAR",
+      "unitKind": "faq-ruling",
+      "applicability": "base-game",
+      "column": "left",
+      "bbox": [
+        118,
+        332,
+        756,
+        425
+      ],
+      "printedLines": [
+        "Q: Can I spend ammo from a malfunctioned Weapon for other effects like for an Action card?",
+        "A: No, ammo can not be spent from malfunctioned Weapons."
+      ],
+      "printedText": "Q: Can I spend ammo from a malfunctioned Weapon for other effects like for an Action card?\nA: No, ammo can not be spent from malfunctioned Weapons.",
+      "questionText": "Q: Can I spend ammo from a malfunctioned Weapon for other effects like for an Action card?",
+      "answerText": "A: No, ammo can not be spent from malfunctioned Weapons.",
+      "sourceUnitId": "FQ-P03-U02",
+      "textLayerComparison": {
+        "status": "partial-column-scope-structure-lost",
+        "questionOrLocatorFoundInFreshPageText": true,
+        "questionOrLocatorFoundInCheckedExtraction": true,
+        "lostInformation": "Two-column reading order, section/scope heading association, numbering hierarchy, and any inline source glyphs are not fully preserved by the checked text extraction."
+      }
+    }
+  ],
+  "intruderHelp": {
+    "sides": [
+      {
+        "sideId": "queen-alive",
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/reference/card-053.png",
+        "sourceSha256": "c3480ca3c7524dd09b7a841d33ff109500b2f46b684f616d35e7007b29edf593",
+        "columns": [
+          {
+            "columnId": "corridor",
+            "heading": "RESOLVE\nIN A CORRIDOR",
+            "rows": [
+              {
+                "occurrenceId": "QA-C-01",
+                "sourceTokenAppearance": "mint-rimmed circular marker with an unlabeled pale upright multi-limbed figure",
+                "printedInstruction": "Activate the Queen.\nIf not possible – place her\nin the Corridor."
+              },
+              {
+                "occurrenceId": "QA-C-02",
+                "sourceTokenFaces": [
+                  "2",
+                  "3",
+                  "4",
+                  "1+1",
+                  "2+1",
+                  "3+1"
+                ],
+                "printedInstruction": "Place the\nnumber of\nIntruders\nshown on the\ntoken (Adults\nand Drones) in\nthe Corridor."
+              },
+              {
+                "occurrenceId": "QA-C-03",
+                "sourceTokenAppearance": "mint-rimmed circular marker with pale brackets and an unlabeled small curled figure",
+                "printedInstruction": "Place 1 Larva\nin the Corridor."
+              }
+            ]
+          },
+          {
+            "columnId": "room",
+            "heading": "RESOLVE\nIN A ROOM",
+            "rows": [
+              {
+                "occurrenceId": "QA-R-01",
+                "sourceTokenPrintedLabel": "QUEEN",
+                "printedInstruction": "Activate the Queen.\nIf not possible – place her\nin the Room."
+              },
+              {
+                "occurrenceId": "QA-R-02",
+                "sourceTokenPrintedLabels": [
+                  "DRONE",
+                  "ADULT",
+                  "LARVA"
+                ],
+                "printedInstruction": "Place 1 Intruder\nof the type shown\non the token\nin the Room."
+              }
+            ]
+          },
+          {
+            "columnId": "bag-development",
+            "heading": "BAG\nDEVELOPMENT",
+            "rows": [
+              {
+                "occurrenceId": "QA-B-01",
+                "sourceTokenPrintedLabel": "QUEEN",
+                "printedInstruction": "Activate the Queen.\nIf not possible – add 2 Larva\ntokens to the bag."
+              },
+              {
+                "occurrenceId": "QA-B-02",
+                "sourceTokenPrintedLabels": [
+                  "DRONE",
+                  "ADULT"
+                ],
+                "printedInstruction": "Add 2 Queen tokens\nto the bag."
+              },
+              {
+                "occurrenceId": "QA-B-03",
+                "sourceTokenPrintedLabel": "LARVA",
+                "printedInstruction": "Add 2 random Drone\ntokens to the bag."
+              }
+            ]
+          }
+        ],
+        "bottomRow": {
+          "occurrenceId": "QA-BOTTOM-01",
+          "sourceTokenAppearance": "unlabeled dark circular marker with a thin mint outline",
+          "printedInstruction": "Add 2 random Adult tokens\nto the bag. Add this token back\nto the bag."
+        }
+      },
+      {
+        "sideId": "queen-dead",
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/reference/card-069.png",
+        "sourceSha256": "4b0690bfe144ec9b57220b4564bc9dfc5e452cd770cbe5a085d54534cd6460cc",
+        "columns": [
+          {
+            "columnId": "corridor",
+            "heading": "RESOLVE\nIN A CORRIDOR",
+            "rows": [
+              {
+                "occurrenceId": "QD-C-01",
+                "sourceTokenAppearance": "mint-rimmed circular marker with an unlabeled pale upright multi-limbed figure",
+                "printedInstruction": "Place 1 Drone in the Corridor.\nRemove this token from\nthe game."
+              },
+              {
+                "occurrenceId": "QD-C-02",
+                "sourceTokenFaces": [
+                  "2",
+                  "3",
+                  "4",
+                  "1+1",
+                  "2+1",
+                  "3+1"
+                ],
+                "printedInstruction": "Place the\nnumber of\nIntruders\nshown on the\ntoken (Adults\nand Drones) in\nthe Corridor."
+              },
+              {
+                "occurrenceId": "QD-C-03",
+                "sourceTokenAppearance": "mint-rimmed circular marker with pale brackets and an unlabeled small curled figure",
+                "printedInstruction": "Place 1 Larva\nin the Corridor."
+              }
+            ]
+          },
+          {
+            "columnId": "room",
+            "heading": "RESOLVE\nIN A ROOM",
+            "rows": [
+              {
+                "occurrenceId": "QD-R-01",
+                "sourceTokenPrintedLabel": "QUEEN",
+                "printedInstruction": "Place 1 Drone in the Room.\nRemove this token from\nthe game."
+              },
+              {
+                "occurrenceId": "QD-R-02",
+                "sourceTokenPrintedLabels": [
+                  "DRONE",
+                  "ADULT",
+                  "LARVA"
+                ],
+                "printedInstruction": "Place 1 Intruder\nof the type shown\non the token\nin the Room."
+              }
+            ]
+          },
+          {
+            "columnId": "bag-development",
+            "heading": "BAG\nDEVELOPMENT",
+            "rows": [
+              {
+                "occurrenceId": "QD-B-01",
+                "sourceTokenPrintedLabel": "QUEEN",
+                "printedInstruction": "Add 2 random Drone\ntokens to the bag.\nRemove this token\nfrom the game."
+              },
+              {
+                "occurrenceId": "QD-B-02",
+                "sourceTokenPrintedLabels": [
+                  "DRONE",
+                  "ADULT"
+                ],
+                "printedInstruction": "Add 2 Larva tokens\nto the bag."
+              },
+              {
+                "occurrenceId": "QD-B-03",
+                "sourceTokenPrintedLabel": "LARVA",
+                "printedInstruction": "Add 2 random Drone\ntokens to the bag."
+              }
+            ]
+          }
+        ],
+        "bottomRow": {
+          "occurrenceId": "QD-BOTTOM-01",
+          "sourceTokenAppearance": "unlabeled dark circular marker with a thin mint outline",
+          "printedInstruction": "Add 2 random Adult tokens\nto the bag. Add this token back\nto the bag."
+        }
+      }
+    ],
+    "queenAliveVisualEvidence": {
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/reference/card-053.png",
+      "sourceSha256": "c3480ca3c7524dd09b7a841d33ff109500b2f46b684f616d35e7007b29edf593",
+      "panelStructure": [
+        {
+          "panelId": "P1",
+          "location": "Raised top-center tab spanning the area above the three columns.",
+          "visualBoundary": "Dark horizontal title strip enclosed by the stepped cyan-lit outer frame.",
+          "readingOrder": 1
+        },
+        {
+          "panelId": "P2",
+          "location": "Left third.",
+          "visualBoundary": "Orange-gold polygonal column frame with an orange header and three stacked dark instruction bands.",
+          "readingOrder": 2
+        },
+        {
+          "panelId": "P3",
+          "location": "Center third.",
+          "visualBoundary": "Red polygonal column frame with a red header, one upper dark instruction band, and one large lower dark instruction band.",
+          "readingOrder": 3
+        },
+        {
+          "panelId": "P4",
+          "location": "Right third.",
+          "visualBoundary": "Blue polygonal column frame with a blue header and three stacked dark instruction bands.",
+          "readingOrder": 4
+        },
+        {
+          "panelId": "P5",
+          "location": "Lower-center projection beneath the three main columns.",
+          "visualBoundary": "Black plaque with a thin cyan outline and clipped/slanted corners, enclosed by the cyan-lit lower projection.",
+          "readingOrder": 5
+        }
+      ],
+      "visibleSections": [
+        {
+          "panelId": "P1",
+          "heading": "THE QUEEN IS ALIVE",
+          "text": ""
+        },
+        {
+          "panelId": "P2",
+          "heading": "RESOLVE\nIN A CORRIDOR",
+          "text": "[ICON: mint-rimmed circular marker with an unlabeled pale multi-limbed figure]\nActivate the Queen.\nIf not possible – place her\nin the Corridor.\n\n[ICON: circular marker printed 2] [ICON: circular marker printed 3] [ICON: circular marker printed 4]\n[ICON: circular marker printed 1+1] [ICON: circular marker printed 2+1] [ICON: circular marker printed 3+1]\nPlace the\nnumber of\nIntruders\nshown on the\ntoken (Adults\nand Drones) in\nthe Corridor.\n\n[ICON: mint-rimmed circular marker with pale brackets and an unlabeled curled figure]\nPlace 1 Larva\nin the Corridor."
+        },
+        {
+          "panelId": "P3",
+          "heading": "RESOLVE\nIN A ROOM",
+          "text": "[ICON: mint-rimmed circular marker with printed label QUEEN]\nActivate the Queen.\nIf not possible – place her\nin the Room.\n\n[ICON: mint-rimmed circular marker with printed label DRONE] [ICON: mint-rimmed circular marker with printed label ADULT]\n[ICON: mint-rimmed circular marker with printed label LARVA]\nPlace 1 Intruder\nof the type shown\non the token\nin the Room."
+        },
+        {
+          "panelId": "P4",
+          "heading": "BAG\nDEVELOPMENT",
+          "text": "[ICON: mint-rimmed circular marker with printed label QUEEN]\nActivate the Queen.\nIf not possible – add 2 Larva\ntokens to the bag.\n\n[ICON: mint-rimmed circular marker with printed label DRONE]\n[ICON: mint-rimmed circular marker with printed label ADULT]\nAdd 2 Queen tokens\nto the bag.\n\n[ICON: mint-rimmed circular marker with printed label LARVA]\nAdd 2 random Drone\ntokens to the bag."
+        },
+        {
+          "panelId": "P5",
+          "heading": "",
+          "text": "[ICON: unlabeled mint-outlined dark circular marker]\nAdd 2 random Adult tokens\nto the bag. Add this token back\nto the bag."
+        }
+      ],
+      "blankPanelRelation": {
+        "panelId": "P5",
+        "location": "Lower-center projection beneath the three main columns.",
+        "visualBoundary": "Black plaque with a thin cyan outline and clipped/slanted corners, enclosed by the cyan-lit lower projection.",
+        "readingOrder": 5
+      }
+    },
+    "queenDeadVisualEvidence": {
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/reference/card-069.png",
+      "sourceSha256": "4b0690bfe144ec9b57220b4564bc9dfc5e452cd770cbe5a085d54534cd6460cc",
+      "panelStructure": [
+        {
+          "panelId": "P1",
+          "location": "Top center above the three columns",
+          "visualBoundary": "Raised dark trapezoidal title field bounded by the angular metallic outer frame",
+          "readingOrder": 1
+        },
+        {
+          "panelId": "P2",
+          "location": "Left third",
+          "visualBoundary": "Tall dark panel enclosed by an angular gold-yellow outline; beneath its header are three horizontally separated instruction bands",
+          "readingOrder": 2
+        },
+        {
+          "panelId": "P3",
+          "location": "Center third",
+          "visualBoundary": "Tall dark burgundy panel enclosed by an angular red-magenta outline; beneath its header are one upper instruction band and one larger lower field",
+          "readingOrder": 3
+        },
+        {
+          "panelId": "P4",
+          "location": "Right third",
+          "visualBoundary": "Tall dark blue-black panel enclosed by an angular blue outline; beneath its header are three horizontally separated instruction bands",
+          "readingOrder": 4
+        },
+        {
+          "panelId": "P5",
+          "location": "Centered along the bottom, projecting below P3",
+          "visualBoundary": "Small dark rectangular tab with angled upper corners and a thin pale outline, integrated into the lower metallic perimeter",
+          "readingOrder": 5
+        }
+      ],
+      "visibleSections": [
+        {
+          "panelId": "P2",
+          "heading": "RESOLVE\nIN A CORRIDOR",
+          "text": "Place 1 Drone in the Corridor.\nRemove this token from\nthe game.\n\n2     3     4\n1+1   2+1   3+1\n\nPlace the\nnumber of\nIntruders\nshown on the\ntoken (Adults\nand Drones) in\nthe Corridor.\n\nPlace 1 Larva\nin the Corridor."
+        },
+        {
+          "panelId": "P3",
+          "heading": "RESOLVE\nIN A ROOM",
+          "text": "QUEEN\nPlace 1 Drone in the Room.\nRemove this token from\nthe game.\n\nDRONE\nADULT\nLARVA\n\nPlace 1 Intruder\nof the type shown\non the token\nin the Room."
+        },
+        {
+          "panelId": "P4",
+          "heading": "BAG\nDEVELOPMENT",
+          "text": "QUEEN\nAdd 2 random Drone\ntokens to the bag.\nRemove this token\nfrom the game.\n\nDRONE\nADULT\nAdd 2 Larva tokens\nto the bag.\n\nLARVA\nAdd 2 random Drone\ntokens to the bag."
+        },
+        {
+          "panelId": "P5",
+          "heading": "",
+          "text": "Add 2 random Adult tokens\nto the bag. Add this token back\nto the bag."
+        }
+      ],
+      "blankPanelRelation": {
+        "panelId": "P5",
+        "location": "Centered along the bottom, projecting below P3",
+        "visualBoundary": "Small dark rectangular tab with angled upper corners and a thin pale outline, integrated into the lower metallic perimeter",
+        "readingOrder": 5
+      }
+    },
+    "blankScopeBoundary": "Each Blank row is a separate side-level P5 panel below the three P2/P3/P4 context columns. Bag Development applicability is independently official; Corridor/Room applicability remains SEM-Q-099 with no default."
+  },
+  "dice": [
+    {
+      "dieKind": "Shoot",
+      "physicalCount": 2,
+      "sides": 8,
+      "officialResultTermIds": [
+        "icon.shootDie2",
+        "icon.shootDie3",
+        "icon.shootDie4",
+        "icon.shootDie5",
+        "icon.shootDieAmmoLoss",
+        "icon.shootDieCritical"
+      ],
+      "ttsRole": "shootRollDice",
+      "ttsGuid": "d8282d",
+      "ttsType": "Custom_Dice",
+      "ttsImageUrl": "https://steamusercontent-a.akamaihd.net/ugc/18069866785114859808/BEC0598D133D8728F0F3CECDAA6EEB88D3BAD8B0/",
+      "ttsImagePath": "assets/tts-mod/extract/v2-dl/tree/tokens/table/dice-001.png",
+      "ttsImageSha256": "cef6e6fedd9d9e169a365fd43357d4a08264d79230286fcf1f0f90615d897823",
+      "authorityBoundary": "TTS role/texture/runtime evidence is secondary provenance; official result names and procedures control"
+    },
+    {
+      "dieKind": "Burst",
+      "physicalCount": 2,
+      "sides": 6,
+      "officialResultTermIds": [
+        "icon.burstDie1",
+        "icon.burstDie2",
+        "icon.burstDie3",
+        "icon.burstDie4",
+        "icon.burstDieAdditionalEffects"
+      ],
+      "ttsRole": "burstRollDice",
+      "ttsGuid": "9cd65f",
+      "ttsType": "Custom_Dice",
+      "ttsImageUrl": "https://steamusercontent-a.akamaihd.net/ugc/2468613527880236055/39A10A2C0EBFE72390C857B49256809AF5E2C808/",
+      "ttsImagePath": "assets/tts-mod/extract/v2-dl/tree/tokens/table/dice-003.jpg",
+      "ttsImageSha256": "7d79c34802a613d8c016ccdb2b56c30ec6ad9f54cc9480b17c975aeb8a48267c",
+      "authorityBoundary": "TTS role/texture/runtime evidence is secondary provenance; official result names and procedures control"
+    },
+    {
+      "dieKind": "Noise",
+      "physicalCount": 2,
+      "sides": 10,
+      "officialResultTermIds": [
+        "icon.noiseDie1",
+        "icon.noiseDie2",
+        "icon.noiseDie3",
+        "icon.noiseDie4",
+        "icon.noiseDieHazard"
+      ],
+      "ttsRole": "noiseRollDice",
+      "ttsGuid": "effa9f",
+      "ttsType": "Custom_Dice",
+      "ttsImageUrl": "https://steamusercontent-a.akamaihd.net/ugc/2468613527880236003/6AB3ABB10A330C206A164D2E8B3D105604A98FB8/",
+      "ttsImagePath": "assets/tts-mod/extract/v2-dl/tree/tokens/table/dice-002.jpg",
+      "ttsImageSha256": "2992465cbc5ffefdfa7d8f393c7836f8609eae7de1f67d4af619f60ce40db7af",
+      "authorityBoundary": "TTS role/texture/runtime evidence is secondary provenance; official result names and procedures control"
+    }
+  ],
+  "runtimeNoiseBoundaries": {
+    "currentRetaliationResultBranch": {
+      "diceBranch": "yellow",
+      "lineStart": 5898,
+      "lineEnd": 5915,
+      "text": "\telseif dice == 'yellow' then\n\t\tyellowOneroll = roll\n\t\t--1 2 2 3 3 4 4 4 Enc Enc\n\t\tif roll == 1 then\n\t\t\tyellowOne = \"Noise in corridor 1\"\n\t\t\n\t\telseif roll == 2 or roll == 3 then\n\t\t\tyellowOne = \"Noise in corridor 2\"\n\n\t\telseif roll == 4 or roll == 5 then\n\t\t\tyellowOne = \"Noise in corridor 3\"\n\t\t\t\n\t\telseif roll > 5 and roll < 9 then\n\t\t\tyellowOne = \"Noise in corridor 4\"\n\t\t\t\n\t\telseif roll > 8 then\n\t\t\tyellowOne = \"Hazard !!\"\n\t\tend",
+      "allowedLabels": [
+        "Noise in corridor 1",
+        "Noise in corridor 2",
+        "Noise in corridor 3",
+        "Noise in corridor 4",
+        "Hazard !!"
+      ]
+    },
+    "excludedUnboundLegacyBranches": {
+      "diceBranches": [
+        "black",
+        "orange"
+      ],
+      "lineStart": 5839,
+      "lineEnd": 5871,
+      "text": "\telseif dice == 'black' then\n\t\tblackOneroll = roll\n\t\tif roll == 1 or roll == 2 then\n\t\t\tblackOne = \"Noise in corridor 1\"\n\t\telseif roll == 3 or roll == 4 then\n\t\t\tblackOne = \"Noise in corridor 2\"\n\t\telseif roll == 5 or roll == 6 then\n\t\t\tblackOne = \"Noise in corridor 3\"\n\t\telseif roll == 7 or roll == 8 then\n\t\t\tblackOne = \"Noise in corridor 4\"\t\n\t\telseif roll == 9 then\n\t\t\tblackOne = \"Silence unless Slimed\"\n\t\telseif roll == 10 then\n\t\t\tblackOne = \"!!! DANGER !!!\"\n\t\tend\n\t\n\telseif dice == 'orange' then\n\t\torangeOneroll = roll\n\t\tif roll == 1 or roll == 2 then\n\t\t\torangeOne = \"Noise in corridor 1\"\n\t\telseif roll == 3 or roll == 4 then\n\t\t\torangeOne = \"Noise in corridor 2\"\n\t\telseif roll == 5 or roll == 6 then\n\t\t\torangeOne = \"Noise in corridor 3\"\n\t\telseif roll == 7 or roll == 8 then\n\t\t\torangeOne = \"Noise in corridor 4\"\t\n\t\telseif roll == 9 then\n\t\t\torangeOne = \"Silence unless Slimed\"\n\t\telseif roll == 10 then\n\t\t\torangeOne = \"!!! DANGER !!!\"\n\t\telseif roll == 11 or roll == 12 then\t\n\t\t\torangeOne = \"Mars Surface\"\n\t\tend",
+      "excludedLabels": [
+        "Silence unless Slimed",
+        "!!! DANGER !!!",
+        "Mars Surface"
+      ],
+      "boundary": "These branches are not the exact Lua role-bound Retaliation noiseRollDice result set and cannot create official base-game Noise outcomes."
+    },
+    "noOfficialFaceMultiplicityProjection": true
+  },
+  "componentCounts": {
+    "burstDice": 2,
+    "shootDice": 2,
+    "noiseDice": 2,
+    "intruderTokens": {
+      "total": 40,
+      "Blank": 1,
+      "Queen": 9,
+      "Drone": 8,
+      "Adult": 16,
+      "Larva": 6
+    },
+    "intruderModels": {
+      "Queen": 1,
+      "Drone": 8,
+      "Adult": 36,
+      "Larva": 6
+    },
+    "noiseMarkers": 30,
+    "universalMarkers": 30,
+    "secureTokens": 20
+  },
+  "attackClasses": [
+    {
+      "attackClass": "character-shoot",
+      "actor": "Character",
+      "target": "one Intruder in the same Room",
+      "procedureRuleId": "SEM-SHOOT-SEQUENCE-001"
+    },
+    {
+      "attackClass": "character-burst",
+      "actor": "Character",
+      "target": "Intruders in one adjacent Corridor",
+      "procedureRuleId": "SEM-BURST-SEQUENCE-001"
+    },
+    {
+      "attackClass": "character-melee",
+      "actor": "Character",
+      "target": "one Intruder in the same Room",
+      "procedureRuleId": "SEM-MELEE-SEQUENCE-001"
+    },
+    {
+      "attackClass": "opportunity",
+      "actor": "Intruder",
+      "target": "moving Character",
+      "procedureRuleId": "SEM-OPPORTUNITY-ATTACK-001"
+    },
+    {
+      "attackClass": "intruder-phase",
+      "actor": "Intruder",
+      "target": "first eligible Character in Turn order",
+      "procedureRuleId": "SEM-INT-004"
+    },
+    {
+      "attackClass": "noise-entry",
+      "actor": "entering Intruder",
+      "target": "Noise-rolling Character",
+      "procedureRuleId": "SEM-SECURE-ENTRY-001"
+    },
+    {
+      "attackClass": "hazard-entry",
+      "actor": "Hazard-placed Intruder",
+      "target": "affected Character or source-defined entry target",
+      "procedureRuleId": "SEM-SECURE-ENTRY-001"
+    },
+    {
+      "attackClass": "other-entry",
+      "actor": "entering/placed Intruder",
+      "target": "source Character if possible, otherwise first in Turn order",
+      "procedureRuleId": "SEM-SECURE-ENTRY-001"
+    },
+    {
+      "attackClass": "melee-response",
+      "actor": "surviving Melee target",
+      "target": "Melee attacker",
+      "procedureRuleId": "SEM-INT-004"
+    }
+  ],
+  "movementClasses": [
+    {
+      "movementClass": "basic-normal",
+      "costRuleId": "SEM-ACT-MOVE-001",
+      "sequenceRuleId": "SEM-MOVEMENT-SEQUENCE-001"
+    },
+    {
+      "movementClass": "basic-cautious",
+      "costRuleId": "SEM-ACT-MOVE-CAUTIOUSLY-001",
+      "sequenceRuleId": "SEM-MOVEMENT-SEQUENCE-001"
+    },
+    {
+      "movementClass": "source-effect",
+      "costRuleId": null,
+      "sequenceRuleId": "SEM-MOVEMENT-SEQUENCE-001"
+    },
+    {
+      "movementClass": "intruder-movement",
+      "costRuleId": null,
+      "sequenceRuleId": null
+    },
+    {
+      "movementClass": "robot-movement",
+      "costRuleId": null,
+      "sequenceRuleId": null
+    },
+    {
+      "movementClass": "repel",
+      "costRuleId": null,
+      "sequenceRuleId": null
+    }
+  ],
+  "closedPendingBacklogUnitIds": [
+    "RULE:INT-002",
+    "RULE:INT-005",
+    "VIS:RB-P24-V02",
+    "VIS:RB-P25-V01",
+    "VIS:RB-P25-V02",
+    "VIS:RB-P30-V01",
+    "VIS:RB-P30-V02",
+    "VIS:RB-P33-V01",
+    "VIS:RB-P33-V02",
+    "VIS:RB-P34-V01",
+    "VIS:RB-P40-V01"
+  ],
+  "newSemanticRuleIds": [
+    "SEM-ACT-MOVE-CAUTIOUSLY-001",
+    "SEM-ACT-MELEE-001",
+    "SEM-BURST-DIE-RESULT-001",
+    "SEM-BURST-SEQUENCE-001",
+    "SEM-COMBAT-COMPONENT-LIMITS-001",
+    "SEM-INTRUDER-HIT-RESOLUTION-001",
+    "SEM-MELEE-SEQUENCE-001",
+    "SEM-MELEE-SHOOT-DIE-RESULT-001",
+    "SEM-MOVEMENT-SEQUENCE-001",
+    "SEM-NOISE-DEADLY-MODE-001",
+    "SEM-NOISE-RESULT-001",
+    "SEM-OPPORTUNITY-ATTACK-001",
+    "SEM-SHOOT-DIE-RESULT-001",
+    "SEM-SHOOT-SEQUENCE-001"
+  ],
+  "replacedSemanticRuleIds": [
+    "SEM-ACT-BURST-001",
+    "SEM-ACT-MOVE-001",
+    "SEM-ACT-SHOOT-001",
+    "SEM-INT-004",
+    "SEM-NOISE-001",
+    "SEM-NOISE-HAZARD-001",
+    "SEM-NOISE-MARKER-001",
+    "SEM-NOISE-NUMERIC-CORRIDOR-001",
+    "SEM-RT-008",
+    "SEM-SECURE-ENTRY-001"
+  ],
+  "newQuestionIds": [
+    "SEM-Q-097",
+    "SEM-Q-098",
+    "SEM-Q-099",
+    "SEM-Q-100",
+    "SEM-Q-101",
+    "SEM-Q-102",
+    "SEM-Q-103",
+    "SEM-Q-104",
+    "SEM-Q-105"
+  ],
+  "fullBaseSemanticCoverageClaimed": false
+}

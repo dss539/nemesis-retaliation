@@ -3,9 +3,9 @@
   "recordType": "semantic-conflict-register",
   "policy": "Readable source differences remain separate. Authority may resolve a general rule without rewriting lower-authority component wording; unresolved conflicts never receive a default.",
   "counts": {
-    "conflicts": 80,
-    "resolvedByAuthority": 18,
-    "unresolved": 30,
+    "conflicts": 82,
+    "resolvedByAuthority": 19,
+    "unresolved": 31,
     "preservedBoundary": 32
   },
   "conflicts": [
@@ -1898,6 +1898,43 @@
       ],
       "difference": "One generic SUPPORT ITEM back is shared by 24 Support and two Character-kit faces; five other backs are Character/source variants, including obsolete labels. A back label can conflict with current face owner.",
       "resolution": "Backs remain non-operative source sides and never identify a current face, owner, class, or extra card."
+    },
+    {
+      "conflictId": "SC-081",
+      "title": "Current Retaliation Noise results versus unbound legacy TTS Silence/Danger branches",
+      "status": "resolved-by-authority",
+      "questionId": null,
+      "affectedRuleIds": [
+        "SEM-NOISE-001",
+        "SEM-NOISE-RESULT-001"
+      ],
+      "evidenceRefs": [
+        "SRC-RULEBOOK",
+        "assets/tts-mod/extract/v2/lua_script.lua",
+        "docs/rules/semantics/combat-source-index.json"
+      ],
+      "difference": "Official page 25/page 40 and the exact Retaliation noiseRollDice role use only 1/2/3/4/Hazard. The preserved TTS Lua also contains separate black/orange branches saying Silence unless Slimed, DANGER, and Mars Surface; those branches are not the role-bound Retaliation result set.",
+      "resolution": "Official-primary closed result vocabulary controls. Preserve the stale/unbound runtime branches as secondary provenance only; never add Silence, Danger, Mars Surface, or marker-limit Hazard to current base semantics."
+    },
+    {
+      "conflictId": "SC-082",
+      "title": "Intruder Help Blank row is visually side-level but its Corridor/Room applicability is unstated",
+      "status": "unresolved",
+      "questionId": "SEM-Q-099",
+      "affectedRuleIds": [
+        "SEM-IH-QA-BOTTOM-01",
+        "SEM-IH-QD-BOTTOM-01",
+        "SEM-NOISE-MARKER-001",
+        "SEM-NOISE-HAZARD-001"
+      ],
+      "evidenceRefs": [
+        "docs/rules/source-extraction/intruder-help-sheet.json",
+        "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-33-20260821T172305Z-p465856-36ac0c/results/W33-020.json",
+        "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-33-20260821T172305Z-p465856-36ac0c/results/W33-021.json",
+        "SRC-RULEBOOK"
+      ],
+      "difference": "Each component side places Blank in a separate lower P5 panel outside Corridor/Room/Bag columns. Page 15 explicitly reproduces the add-Adults result for Bag Development; page 25 says Blank always returns to the bag but does not textually assign the add-Adults clause to Corridor/Room draws.",
+      "resolution": "No default. Bag Development add-Adults and universal return-to-bag remain source-clear; Corridor/Room add-Adults applicability remains SEM-Q-099."
     }
   ]
 }

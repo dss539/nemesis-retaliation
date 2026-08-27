@@ -16,20 +16,21 @@ from semantic_yellow_item_validation import validate_yellow_item_family
 from semantic_action_validation import validate_action_family
 from semantic_objective_validation import validate_objective_family
 from semantic_equipment_validation import validate_equipment_family
+from semantic_combat_validation import validate_combat_family
 
 REPO = Path(__file__).resolve().parents[1]
 DIR = REPO / 'docs/rules/semantics'
 VOCAB = REPO / 'docs/rules/vocabulary'
 ONTOLOGY = REPO / 'docs/rules/ontology'
 EXPECTED = {
-    'sources': 468, 'semanticNodes': 26, 'records': 506, 'sourceBacked': 183, 'withOpenQuestion': 300,
-    'sourceVariants': 23, 'sourceAssertions': 1340, 'conditions': 1479,
-    'operations': 2151, 'decisions': 329, 'informationPolicies': 526,
-    'costs': 36, 'targets': 540, 'openQuestionReferences': 513,
-    'variantReferences': 248, 'questions': 101, 'openQuestions': 101, 'systems': 25,
-    'conflicts': 80, 'unresolvedConflicts': 30,
+    'sources': 468, 'semanticNodes': 26, 'records': 520, 'sourceBacked': 173, 'withOpenQuestion': 324,
+    'sourceVariants': 23, 'sourceAssertions': 1361, 'conditions': 1541,
+    'operations': 2220, 'decisions': 336, 'informationPolicies': 540,
+    'costs': 37, 'targets': 556, 'openQuestionReferences': 576,
+    'variantReferences': 248, 'questions': 110, 'openQuestions': 110, 'systems': 25,
+    'conflicts': 82, 'unresolvedConflicts': 31,
     'roomIconDenotations': 112,
-    'backlogUnits': 600, 'backlogPilotCovered': 499, 'backlogSourceBlocked': 1,
+    'backlogUnits': 600, 'backlogPilotCovered': 510, 'backlogSourceBlocked': 1,
     'eventIdentities': 20, 'eventScanOccurrences': 20, 'eventLicensedOccurrences': 20,
     'eventOfficialOccurrences': 4, 'eventRecords': 20, 'eventBacklogTuples': 20,
     'explorationIdentities': 12, 'explorationScanOccurrences': 12,
@@ -182,6 +183,11 @@ EXPECTED = {
     },
     'equipmentTtsPhysicalFaceRecords': 39, 'equipmentOfficialFaceRecords': 6,
     'equipmentClassConflictExclusions': 12, 'equipmentBacklogSourceFaceTuples': 52,
+    'combatSourceSegments': 15, 'combatVisualObligations': 9,
+    'combatDependencyVisualObligations': 2, 'combatFaqUnits': 11,
+    'combatDiceKinds': 3, 'combatAttackClasses': 9, 'combatMovementClasses': 6,
+    'combatNewRecords': 14, 'combatReplacedRecords': 10,
+    'combatNewQuestions': 9, 'combatNewConflicts': 2, 'combatClosedBacklogUnits': 11,
 }
 PINNED_HELP_SOURCE_HASHES = {
     'docs/rules/source-extraction/intruder-help-sheet.json': 'e07f2703a6ad1b49c06389f79d3b1ffd6f5fd1d98604bf14b405fee49d9679e6',
@@ -256,9 +262,9 @@ EXPECTED_EVENT_RECORD_DIGESTS = {
     'SEM-EVENT-THE-QUEEN-AWAKENS-001': 'c34b54c4f99ea51600c7aafe97fa3347c33c7e23e946e3eace460deea8380840',
     'SEM-FIRE-SPREAD-001': '6aa2dc4b0e05a34f9e63e440ed361f288eee92b87a435cd93598e1bccf0319ee',
     'SEM-INFECTION-PROCEDURE-001': 'bde76697380555865279565e575a4a2eb75321d1058c59260573b35e00da9320',
-    'SEM-NOISE-HAZARD-001': '2d7aa66a6162c167575bcec4035ce796bbfcb66002322a076e712e9df2910429',
-    'SEM-NOISE-MARKER-001': '2178186f1b94ce67935a1c5b0165d1dfa466ccc5f3705d33c10982a279c41407',
-    'SEM-SECURE-ENTRY-001': '74836078c570e2be6c092add9fb4d027ce18b8f70ee5dad26e27c5a4ca0ae4d2',
+    'SEM-NOISE-HAZARD-001': 'f98bd0c39c38315075615e9cb5240874d259dd1d6ecf109a2079b52c426b6a78',
+    'SEM-NOISE-MARKER-001': '0becae133c01b8bd30c882483a02accffbc571c759bdc51274889d684f8f0ffb',
+    'SEM-SECURE-ENTRY-001': 'ead8a6e5d28af66607e402eacc709c9a765dce4ec0e8f4ab91305b77099c6afb',
 }
 EXPECTED_EXPLORATION_OCCURRENCES = {
     5629: {'sourceId':'SRC-EXPLORATION-5629','path':'assets/tts-mod/extract/v2-dl/tree/cards/game/exploration-027.png','sha256':'3da198b348a70d64e20de051034e98aa2454ef1912df3cf18e78eaf7c4800043','guid':'f1056e','bgaKey':'ExplorationCard9','ruleId':'SEM-EXPLORATION-5629-001','roomType':'ABC','corridors':[1,2,3],'noise':[2],'roomIcons':[],'sentences':3,'icons':5,'adultCount':0,'closeDoor':False,'removeFromGame':False,'official':[]},
@@ -375,6 +381,7 @@ EXPECTED_ATTACK_BODY_DIGESTS = {
 EXPECTED_ATTACK_RECORD_DIGESTS = {
     'SEM-ATTACK-394900-001':'b363d61ef96b239f83e04bc00867d2943a7da868438484d802bfd54b5d888c84','SEM-ATTACK-394901-001':'cb09dbe29c77e9655279b52c6061f46013da0b1686c779b49363038be067275c','SEM-ATTACK-394902-001':'fbe74107fd5766b9812c7d78f9729c2a5c2b12bebdb82b3c5bd216ebf7de9fe1','SEM-ATTACK-394903-001':'ecfc2a2e4f1ab416634a3cebe988bb82903f48c91d4745f0445e2be65bf871f4','SEM-ATTACK-394904-001':'0fda12666d53361403fd60e597a812784b17f2fb9f7ca1725e1463d42a595dc2','SEM-ATTACK-394905-001':'a4a2b485e8ca2ae13481ec799f986e1d78ce6abe1702664086b2df7eb55681ce','SEM-ATTACK-394906-001':'363be26edf170bc7df8344817fbe313a4df63aeb06d8c6307b9b04b0a09b250c','SEM-ATTACK-394907-001':'d00202c7f465423b10f943791aa5bb62245701348345cf3701debbdfbde89d10','SEM-ATTACK-394908-001':'28c7d244ecdc45f0624c1a0a43085e4de732a11b13cb6279fd25350ea32099d6','SEM-ATTACK-394909-001':'4564b6f6b6e9a5b1e2d7e860cd4254e055689f02038d2d70a2951e11aa35441b','SEM-ATTACK-394910-001':'360814f4b3f7df57e3c00c683349a2b7204a48e2f6e4e0a0092f3d5e1ae03018','SEM-ATTACK-394911-001':'566f1d1b2ddc77b08dc741a300d8596c0f90238636d830ecc591a5e06fb6d335','SEM-ATTACK-394912-001':'f23f2616dfd0894cad070e8910f1c1c7a6011f61dd6c856041f413a84e5fdbc6','SEM-ATTACK-394913-001':'82f959a00970278f4d0e40f9769d849eceee6cfc695e06eef631dc7049b9a996','SEM-ATTACK-394914-001':'2077903a59bd34a3c7d47fdc771436be117df0f9d403e464556f5c9e8bad4a19','SEM-ATTACK-394915-001':'cffaac76cb2054586bbdfa93c2ef97e973d0d599d8922dcdaf6709e902ce1630','SEM-ATTACK-394916-001':'881b144695663b5d3e0b061517a42973b0f232d06a2df03de68a450b733628df','SEM-ATTACK-394918-001':'7e9050f736b63d7fd5c5336160fc2c4ff3cb2a6ccfad70396b8226198ac3697f','SEM-ATTACK-394919-001':'39a77c3ee127e0c3eb77a1aa0e8c4d38c29fe1f069eb32c712eb05831ad5d80b','SEM-ATTACK-399100-001':'603b47857c36fb72e6e48b244d0cb879286b105c4944fe2204322aa4ba4fd369','SEM-CONTAMINATION-GAIN-001':'de8256656ec5d3d98079726883c49e0753e9f48b469445b6db6a1fb47a763638','SEM-INT-004':'fef1c6058aaab9a28794e2d89486cb88d52f279ae686f4e77a588b7879a7b0b9',
 }
+EXPECTED_ATTACK_RECORD_DIGESTS['SEM-INT-004'] = '6114daf84e9a3ecd4b4d05e356358fdef85bc5fab205c729b21a8e3eee2a32fc'
 EXPECTED_QUEEN_HEALTH_COUNTS = {
     'physicalFaceOccurrences':12,'uniqueFaceAssets':10,'uniqueFullCardIds':11,'uniqueCardGuids':12,
     'rootCustomDeckEntries':11,'rootUniqueFaceUrls':10,'directFaceOccurrences':12,'generatedFaceOccurrences':0,
@@ -408,8 +415,8 @@ EXPECTED_QUEEN_HEALTH_OCCURRENCES = {
     'TTS-QUEEN-HEALTH-429200-0FBF8D-FACE': {'sequence':12,'cardId':429200,'guid':'0fbf8d','customDeckId':'4292','path':'assets/tts-mod/extract/v2-dl/tree/cards/game/queenHealthDeck-045.png','sha256':'133a975dc072a169ceed85615ab2e5a6cde0f80a23f18e61948f0a963c9e98e2','discard':3,'bgaKeys':['QueenHealthCard10','QueenHealthCard11'],'ruleId':'SEM-QUEEN-HEALTH-429200-0FBF8D-001','sentences':3,'iconRefs':[None,'icon.character'],'official':[],'bodyDigest':'94eb3ec782f5d5851e0f927584b156e3304cd140b6954c5904ee71ac8ef74d06'},
 }
 EXPECTED_QUEEN_HEALTH_RECORD_DIGESTS = {
-    'SEM-ACT-BURST-001':'259ea7a58a2f41d7fc9b04462e90a46e18d506cbb1d8cc79aaeab3fd07ebb21c',
-    'SEM-ACT-SHOOT-001':'8015e439e91a95ba4223aacb33dbe3f453c2d5eb3317bb14ed32d7d42e3bdffe',
+    'SEM-ACT-BURST-001':'f80dd5869a4d741506c82139664e222dfcd5c38a20cbf03a66dfa8be430bbf72',
+    'SEM-ACT-SHOOT-001':'93d966c8c93a4e814e5408b3c8d6e440a4f912a6294b11efb98cc48b62730082',
     'SEM-ACTION-CARD-DRAW-001':'714329d94ad900193f70f93842dfd603a043a85d6566531f3cfaa33488e2285c',
     'SEM-INTRUDER-REPEL-001':'5c030ed830b2d16b44fc662b223cca11f4f35ac443774b77f5607a83905bff8a',
     'SEM-QUEEN-ACTIVATION-001':'7d1f7fed31ee55757d6e840517aad0d651c0b120aaea37cba221d166a3a62dc6',
@@ -577,7 +584,7 @@ def cardinality_valid(value: dict) -> bool:
     return isinstance(maximum, int) and not isinstance(maximum, bool) and maximum >= minimum
 
 
-def validate(event_source_path: Path, exploration_source_path: Path, robot_source_path: Path, attack_source_path: Path, queen_health_source_path: Path, serious_wound_source_path: Path, green_item_source_path: Path, red_item_source_path: Path, yellow_item_source_path: Path, equipment_source_path: Path, action_source_path: Path, objective_source_path: Path, source_path: Path, schema_path: Path, semantic_vocabulary_path: Path, room_icon_path: Path, pilots_path: Path, review_path: Path, contradictions_path: Path, coverage_path: Path, backlog_path: Path, *, reproducibility: bool) -> dict:  # pyright: ignore[reportGeneralTypeIssues]
+def validate(event_source_path: Path, exploration_source_path: Path, robot_source_path: Path, attack_source_path: Path, queen_health_source_path: Path, serious_wound_source_path: Path, green_item_source_path: Path, red_item_source_path: Path, yellow_item_source_path: Path, equipment_source_path: Path, action_source_path: Path, objective_source_path: Path, combat_source_path: Path, source_path: Path, schema_path: Path, semantic_vocabulary_path: Path, room_icon_path: Path, pilots_path: Path, review_path: Path, contradictions_path: Path, coverage_path: Path, backlog_path: Path, *, reproducibility: bool) -> dict:  # pyright: ignore[reportGeneralTypeIssues]
     failures: list[dict] = []
     event_sources = load(event_source_path)
     exploration_sources = load(exploration_source_path)
@@ -591,6 +598,7 @@ def validate(event_source_path: Path, exploration_source_path: Path, robot_sourc
     equipment_sources = load(equipment_source_path)
     action_sources = load(action_source_path)
     objective_sources = load(objective_source_path)
+    combat_sources = load(combat_source_path)
     sources_data = load(source_path)
     schema = load(schema_path)
     semantic_vocabulary = load(semantic_vocabulary_path)
@@ -1547,7 +1555,7 @@ def validate(event_source_path: Path, exploration_source_path: Path, robot_sourc
             path = evidence_path(reference)
             if path is None or not path.exists():
                 failures.append({'check': 'semantic conflict evidence', 'conflictId': conflict.get('conflictId'), 'reference': reference})
-    if contradictions.get('counts') != {'conflicts':80,'resolvedByAuthority':18,'unresolved':30,'preservedBoundary':32}:
+    if contradictions.get('counts') != {'conflicts':82,'resolvedByAuthority':19,'unresolved':31,'preservedBoundary':32}:
         failures.append({'check': 'semantic conflict declared counts'})
 
     question_by_id = {row.get('questionId'): row for row in question_rows}
@@ -1577,6 +1585,10 @@ def validate(event_source_path: Path, exploration_source_path: Path, robot_sourc
     equipment_validation = validate_equipment_family(
         REPO, equipment_source_path, equipment_sources, source_by_id, backlog_rows_by_id,
         record_by_id, question_by_id, conflict_rows, coverage, failures,
+    )
+    combat_validation = validate_combat_family(
+        REPO, combat_source_path, combat_sources, record_by_id, question_by_id,
+        conflict_rows, coverage, backlog, backlog_rows_by_id, failures,
     )
 
     for record in records:
@@ -1804,7 +1816,7 @@ def validate(event_source_path: Path, exploration_source_path: Path, robot_sourc
             for row in column['rows']:
                 help_rows[row['occurrenceId']] = (side['sideId'], row['printedInstruction'], column['columnId'])
         row = side['bottomRow']
-        help_rows[row['occurrenceId']] = (side['sideId'], row['printedInstruction'], 'bag-development')
+        help_rows[row['occurrenceId']] = (side['sideId'], row['printedInstruction'], 'all-token-draw-contexts')
     expected_help_rule_ids = {f'SEM-IH-{occurrence_id}' for occurrence_id in help_rows}
     actual_help_rule_ids = {rule_id for rule_id in record_by_id if rule_id.startswith('SEM-IH-')}
     if actual_help_rule_ids != expected_help_rule_ids:
@@ -1838,20 +1850,20 @@ def validate(event_source_path: Path, exploration_source_path: Path, robot_sourc
     bag_dispatch = {op.get('invokeRuleId') for op in (record_by_id.get('SEM-RT-011') or {}).get('operations') or [] if op.get('invokeRuleId')}
     if bag_dispatch != expected_help_dispatch:
         failures.append({'check': 'Bag Development exact Queen-side Help dispatch', 'actual': sorted(bag_dispatch)})
-    expected_room_dispatch = {'SEM-IH-QA-R-01','SEM-IH-QA-R-02','SEM-IH-QD-R-01','SEM-IH-QD-R-02'}
+    expected_room_dispatch = {'SEM-IH-QA-R-01','SEM-IH-QA-R-02','SEM-IH-QA-BOTTOM-01','SEM-IH-QD-R-01','SEM-IH-QD-R-02','SEM-IH-QD-BOTTOM-01'}
     for source_rule in ('SEM-NOISE-HAZARD-001','SEM-ROOM-10'):
         dispatches={ref for op in (record_by_id.get(source_rule) or {}).get('operations') or [] for ref in op.get('dispatchRuleIds') or []}
         if dispatches != expected_room_dispatch:
             failures.append({'check': 'Room-context exact Help dispatch', 'ruleId': source_rule, 'actual': sorted(dispatches)})
-    expected_corridor_dispatch = {'SEM-IH-QA-C-01','SEM-IH-QA-C-02','SEM-IH-QA-C-03','SEM-IH-QD-C-01','SEM-IH-QD-C-02','SEM-IH-QD-C-03'}
+    expected_corridor_dispatch = {'SEM-IH-QA-C-01','SEM-IH-QA-C-02','SEM-IH-QA-C-03','SEM-IH-QA-BOTTOM-01','SEM-IH-QD-C-01','SEM-IH-QD-C-02','SEM-IH-QD-C-03','SEM-IH-QD-BOTTOM-01'}
     noise_marker_dispatch = {ref for op in (record_by_id.get('SEM-NOISE-MARKER-001') or {}).get('operations') or [] for ref in op.get('dispatchRuleIds') or []}
     if noise_marker_dispatch != expected_corridor_dispatch:
         failures.append({'check': 'Corridor-context exact Help dispatch', 'actual':sorted(noise_marker_dispatch)})
     noise_invocations = [op.get('invokeRuleId') for op in (record_by_id.get('SEM-NOISE-001') or {}).get('operations') or [] if op.get('invokeRuleId')]
-    if 'SEM-NOISE-MARKER-001' not in noise_invocations or 'SEM-NOISE-HAZARD-001' not in noise_invocations:
+    if noise_invocations != ['SEM-NOISE-RESULT-001']:
         failures.append({'check': 'Noise reusable marker/Hazard dispatch'})
     numeric_invocations = [op.get('invokeRuleId') for op in (record_by_id.get('SEM-NOISE-NUMERIC-CORRIDOR-001') or {}).get('operations') or [] if op.get('invokeRuleId')]
-    if numeric_invocations != ['SEM-SECURE-ENTRY-001']:
+    if numeric_invocations != ['SEM-SECURE-ENTRY-001','SEM-NOISE-MARKER-001']:
         failures.append({'check': 'Numeric Noise Secure-entry dispatch'})
     room_help = load(REPO/'docs/rules/source-extraction/room-help-sheet.json')
     def room_key(value):
@@ -2330,8 +2342,8 @@ def validate(event_source_path: Path, exploration_source_path: Path, robot_sourc
         actual_digest = hashlib.sha256(json.dumps(item,sort_keys=True,ensure_ascii=False,separators=(',',':')).encode()).hexdigest() if item else None
         if actual_digest != expected_digest:
             failures.append({'check':'independently locked Attack semantic projection','ruleId':rule_id,'actual':actual_digest})
-    attack_system = next((row for row in coverage.get('systems') or [] if row.get('system') == 'Intruder Attack, base Attack cards, Secure entry, and Character Health'), {})
-    expected_attack_system_ids = ['SEM-INT-004','SEM-SECURE-ENTRY-001','SEM-INT-006','SEM-CONTAMINATION-GAIN-001',*[EXPECTED_ATTACK_OCCURRENCES[card_id][6] for card_id in sorted(EXPECTED_ATTACK_OCCURRENCES)]]
+    attack_system = next((row for row in coverage.get('systems') or [] if row.get('system') == 'core Combat, Intruder Attack, base Attack cards, Secure entry, and Character Health'), {})
+    expected_attack_system_ids = ['SEM-ACT-SHOOT-001','SEM-SHOOT-SEQUENCE-001','SEM-SHOOT-DIE-RESULT-001','SEM-ACT-BURST-001','SEM-BURST-SEQUENCE-001','SEM-BURST-DIE-RESULT-001','SEM-ACT-MELEE-001','SEM-MELEE-SEQUENCE-001','SEM-MELEE-SHOOT-DIE-RESULT-001','SEM-INTRUDER-HIT-RESOLUTION-001','SEM-INT-004','SEM-SECURE-ENTRY-001','SEM-INT-006','SEM-CONTAMINATION-GAIN-001',*[EXPECTED_ATTACK_OCCURRENCES[card_id][6] for card_id in sorted(EXPECTED_ATTACK_OCCURRENCES)]]
     if attack_system.get('ruleIds') != expected_attack_system_ids or any(fragment in not_yet_text for fragment in ('Item/Attack','remaining Item/Attack','all Attack')):
         failures.append({'check':'Attack coverage stale not-yet-covered claim'})
 
@@ -2406,15 +2418,15 @@ def validate(event_source_path: Path, exploration_source_path: Path, robot_sourc
     hit_repeat = hit_change.get('repeat') or {}
     if queen_hit.get('unresolvedQuestionRefs') != ['SEM-Q-025','SEM-Q-029'] or hit_repeat != {'sourceAssignedHits':'one at a time','sameActionOverflow':'ignored after trigger','crossActionCarry':True} or not any(row.get('operationType') == 'set-state' and 'ignore all later Hits' in row.get('objectRef','') for row in hit_ops) or not any(row.get('invokeRuleId') == 'SEM-QUEEN-HEALTH-RESOLUTION-001' for row in hit_ops):
         failures.append({'check':'Queen Health Hit carry/threshold/overflow/default lock'})
-    shoot = record_by_id.get('SEM-ACT-SHOOT-001') or {}
-    burst = record_by_id.get('SEM-ACT-BURST-001') or {}
+    shoot = record_by_id.get('SEM-SHOOT-SEQUENCE-001') or {}
+    burst = record_by_id.get('SEM-BURST-SEQUENCE-001') or {}
     shoot_ops = shoot.get('operations') or []
     burst_ops = burst.get('operations') or []
-    shoot_initial = next((index for index,row in enumerate(shoot_ops) if row.get('invokeRuleId') == 'SEM-QUEEN-HIT-001' and 'initial Shoot Hit' in row.get('objectRef','')), None)
-    shoot_roll = next((index for index,row in enumerate(shoot_ops) if row.get('operationType') == 'draw-random'), None)
-    burst_queen = next((index for index,row in enumerate(burst_ops) if row.get('invokeRuleId') == 'SEM-QUEEN-HIT-001'), None)
-    burst_extra = next((index for index,row in enumerate(burst_ops) if 'additional-effects symbol' in row.get('objectRef','')), None)
-    if shoot.get('unresolvedQuestionRefs') != ['SEM-Q-025','SEM-Q-029'] or burst.get('unresolvedQuestionRefs') != ['SEM-Q-025'] or shoot_initial is None or shoot_roll is None or shoot_initial >= shoot_roll or burst_queen is None or burst_extra is None or burst_queen >= burst_extra or (burst_ops[burst_queen].get('repeat') or {}).get('sameActionOverflow') != 'lost':
+    shoot_initial = next((index for index,row in enumerate(shoot_ops) if row.get('invokeRuleId') == 'SEM-INTRUDER-HIT-RESOLUTION-001' and 'initial Shoot Hit' in row.get('objectRef','')), None)
+    shoot_roll = next((index for index,row in enumerate(shoot_ops) if row.get('invokeRuleId') == 'SEM-SHOOT-DIE-RESULT-001'), None)
+    burst_queen = next((index for index,row in enumerate(burst_ops) if row.get('invokeRuleId') == 'SEM-INTRUDER-HIT-RESOLUTION-001'), None)
+    burst_extra = next((index for index,row in enumerate(burst_ops) if row.get('invokeRuleId') == 'SEM-WEAPON-DIE-RESULT-ADDITION-001'), None)
+    if shoot.get('unresolvedQuestionRefs') != ['SEM-Q-025','SEM-Q-029','SEM-Q-088','SEM-Q-103'] or burst.get('unresolvedQuestionRefs') != ['SEM-Q-025','SEM-Q-088','SEM-Q-104'] or shoot_initial is None or shoot_roll is None or shoot_initial >= shoot_roll or burst_queen is None or burst_extra is None or burst_queen >= burst_extra:
         failures.append({'check':'Queen Health Shoot-versus-Burst timing/allocation boundary'})
     queen_death = record_by_id.get('SEM-QUEEN-DEATH-001') or {}
     death_text = json.dumps(queen_death,ensure_ascii=False)
@@ -2431,11 +2443,11 @@ def validate(event_source_path: Path, exploration_source_path: Path, robot_sourc
         failures.append({'check':'Queen Health per-Character Noise/immediate consequence order'})
     question_by_id = {row.get('questionId'):row for row in question_rows}
     expected_queen_question_blocks = {
-        'SEM-Q-025':['SEM-ACT-SHOOT-001','SEM-ACT-BURST-001','SEM-QUEEN-HIT-001','SEM-QUEEN-HEALTH-RESOLUTION-001'],
+        'SEM-Q-025':['SEM-ACT-SHOOT-001','SEM-ACT-BURST-001','SEM-QUEEN-HIT-001','SEM-QUEEN-HEALTH-RESOLUTION-001','SEM-SHOOT-SEQUENCE-001','SEM-BURST-SEQUENCE-001','SEM-MELEE-SEQUENCE-001','SEM-SHOOT-DIE-RESULT-001','SEM-MELEE-SHOOT-DIE-RESULT-001','SEM-INTRUDER-HIT-RESOLUTION-001'],
         'SEM-Q-026':['SEM-QUEEN-HEALTH-RESOLUTION-001',*expected_queen_dispatch],
         'SEM-Q-027':['SEM-QUEEN-HEALTH-RESOLUTION-001','SEM-QUEEN-DEATH-001',*expected_queen_dispatch],
         'SEM-Q-028':['SEM-QUEEN-HEALTH-458100-6BA0A2-001'],
-        'SEM-Q-029':['SEM-ACT-SHOOT-001','SEM-QUEEN-HIT-001'],
+        'SEM-Q-029':['SEM-ACT-SHOOT-001','SEM-QUEEN-HIT-001','SEM-SHOOT-SEQUENCE-001','SEM-MELEE-SEQUENCE-001','SEM-SHOOT-DIE-RESULT-001','SEM-MELEE-SHOOT-DIE-RESULT-001'],
     }
     for question_id,blocks in expected_queen_question_blocks.items():
         question = question_by_id.get(question_id) or {}
@@ -2453,7 +2465,7 @@ def validate(event_source_path: Path, exploration_source_path: Path, robot_sourc
         if actual_digest != expected_digest:
             failures.append({'check':'independently locked Queen Health semantic projection','ruleId':rule_id,'actual':actual_digest})
     queen_system = next((row for row in coverage.get('systems') or [] if row.get('system') == 'base Queen Health card/component family'), {})
-    expected_queen_system_ids = ['SEM-ACT-SHOOT-001','SEM-ACT-BURST-001','SEM-ACTION-CARD-DRAW-001','SEM-INTRUDER-REPEL-001','SEM-QUEEN-ACTIVATION-001','SEM-QUEEN-HEALTH-SETUP-001','SEM-QUEEN-HIT-001','SEM-QUEEN-HEALTH-RESOLUTION-001','SEM-QUEEN-DEATH-001',*expected_queen_dispatch]
+    expected_queen_system_ids = ['SEM-ACTION-CARD-DRAW-001','SEM-INTRUDER-REPEL-001','SEM-QUEEN-ACTIVATION-001','SEM-QUEEN-HEALTH-SETUP-001','SEM-QUEEN-HIT-001','SEM-QUEEN-HEALTH-RESOLUTION-001','SEM-QUEEN-DEATH-001',*expected_queen_dispatch]
     if queen_system.get('ruleIds') != expected_queen_system_ids or any(fragment in not_yet_text for fragment in ('all remaining Item/Queen Health','all Queen Health')):
         failures.append({'check':'Queen Health coverage stale not-yet-covered claim'})
 
@@ -2831,11 +2843,23 @@ def validate(event_source_path: Path, exploration_source_path: Path, robot_sourc
         'objectiveCoveredCardBacklogTuples': sum(unit_id.startswith('CARD:') for unit_id in objective_validation['expectedBacklogRules']),
         'objectiveHelpBacklogUnits': sum(unit_id.startswith('OBJ:') for unit_id in objective_validation['expectedBacklogRules']),
         'objectiveLinkedBacklogObligations': len(objective_validation['linkedBacklogIds']),
+        'combatSourceSegments': combat_validation['sourceSegments'],
+        'combatVisualObligations': combat_validation['visualObligations'],
+        'combatDependencyVisualObligations': combat_validation['dependencyVisualObligations'],
+        'combatFaqUnits': combat_validation['faqUnits'],
+        'combatDiceKinds': combat_validation['diceKinds'],
+        'combatAttackClasses': combat_validation['attackClasses'],
+        'combatMovementClasses': combat_validation['movementClasses'],
+        'combatNewRecords': combat_validation['newRecords'],
+        'combatReplacedRecords': combat_validation['replacedRecords'],
+        'combatNewQuestions': combat_validation['newQuestions'],
+        'combatNewConflicts': combat_validation['newConflicts'],
+        'combatClosedBacklogUnits': combat_validation['closedBacklogUnits'],
     }
     if actual_counts != EXPECTED:
         failures.append({'check': 'hard-coded semantic pilot counts', 'expected': EXPECTED, 'actual': actual_counts})
     expected_pilot_counts = {key: actual_counts[key] for key in ('records','sourceBacked','withOpenQuestion','sourceVariants','sourceAssertions','conditions','operations','decisions','informationPolicies','costs','targets','openQuestionReferences','variantReferences')}
-    if pilots.get('counts') != expected_pilot_counts or sources_data.get('counts') != {'sources': 468} or review.get('counts') != {'questions':101,'officialClarificationPreferred':63,'sourceAmbiguitiesIntroducedByPilot':38,'resolved':0,'open':101} or coverage.get('counts') != {'systems':25,'pilotRecords':506,'fullBaseSemanticCoverageClaimed':False}:
+    if pilots.get('counts') != expected_pilot_counts or sources_data.get('counts') != {'sources': 468} or review.get('counts') != {'questions':110,'officialClarificationPreferred':70,'sourceAmbiguitiesIntroducedByPilot':40,'resolved':0,'open':110} or coverage.get('counts') != {'systems':25,'pilotRecords':520,'fullBaseSemanticCoverageClaimed':False}:
         failures.append({'check': 'declared semantic counts'})
     covered_rule_ids = [rule_id for system in coverage.get('systems') or [] for rule_id in system.get('ruleIds') or []]
     if set(covered_rule_ids) != set(record_ids) or len(covered_rule_ids) != len(set(covered_rule_ids)) or coverage.get('counts', {}).get('fullBaseSemanticCoverageClaimed') is not False:
@@ -2864,7 +2888,7 @@ def validate(event_source_path: Path, exploration_source_path: Path, robot_sourc
     if len(blocked_units) != 1 or not blocked_units[0].get('sourcePath','').endswith('missionTaskDeck-023.png') or 'exact-source-operative-span' not in blocked_units[0].get('blockers',[]):
         failures.append({'check': 'semantic backlog inherited source blocker'})
     expected_backlog_channels = {'card-reference-source-tuple':350,'interpreted-rule-record':54,'intruder-help-instruction':18,'objective-help-unit':45,'official-faq-unit':28,'room-help-entry':25,'rulebook-visual-obligation':80}
-    expected_backlog_status = {'pending':100,'pilot-covered':499,'source-blocked':1}
+    expected_backlog_status = {'pending':89,'pilot-covered':510,'source-blocked':1}
     if backlog.get('counts') != {'units':600,'byChannel':expected_backlog_channels,'byStatus':expected_backlog_status}:
         failures.append({'check': 'semantic backlog declared counts'})
 
@@ -2882,7 +2906,7 @@ def validate(event_source_path: Path, exploration_source_path: Path, robot_sourc
                     failures.append({'check': 'semantic backlog rebuild execution', 'seed': seed, 'locale':locale_name, 'stderr': backlog_run.stderr})
                     continue
                 hashes = {}
-                for name, tracked in [('event-source-index.json',event_source_path),('exploration-source-index.json',exploration_source_path),('robot-source-index.json',robot_source_path),('attack-source-index.json',attack_source_path),('queen-health-source-index.json',queen_health_source_path),('serious-wound-source-index.json',serious_wound_source_path),('green-item-source-index.json',green_item_source_path),('red-item-source-index.json',red_item_source_path),('yellow-item-source-index.json',yellow_item_source_path),('equipment-source-index.json',equipment_source_path),('action-source-index.json',action_source_path),('objective-mission-source-index.json',objective_source_path),('source-registry.json',source_path),('semantic-rule.schema.json',schema_path),('semantic-vocabulary.json',semantic_vocabulary_path),('room-icon-denotations.json',room_icon_path),('pilots.json',pilots_path),('review-gates.json',review_path),('contradictions.json',contradictions_path),('coverage.json',coverage_path),('backlog.json',backlog_path)]:
+                for name, tracked in [('event-source-index.json',event_source_path),('exploration-source-index.json',exploration_source_path),('robot-source-index.json',robot_source_path),('attack-source-index.json',attack_source_path),('queen-health-source-index.json',queen_health_source_path),('serious-wound-source-index.json',serious_wound_source_path),('green-item-source-index.json',green_item_source_path),('red-item-source-index.json',red_item_source_path),('yellow-item-source-index.json',yellow_item_source_path),('equipment-source-index.json',equipment_source_path),('action-source-index.json',action_source_path),('objective-mission-source-index.json',objective_source_path),('combat-source-index.json',combat_source_path),('source-registry.json',source_path),('semantic-rule.schema.json',schema_path),('semantic-vocabulary.json',semantic_vocabulary_path),('room-icon-denotations.json',room_icon_path),('pilots.json',pilots_path),('review-gates.json',review_path),('contradictions.json',contradictions_path),('coverage.json',coverage_path),('backlog.json',backlog_path)]:
                     rebuilt = Path(temp_dir) / name
                     hashes[name] = sha(rebuilt) if rebuilt.is_file() else None
                     if not rebuilt.is_file() or hashes[name] != sha(tracked):
@@ -2908,6 +2932,7 @@ def main() -> int:
     parser.add_argument('--equipment-source-index', type=Path, default=DIR/'equipment-source-index.json')
     parser.add_argument('--action-source-index', type=Path, default=DIR/'action-source-index.json')
     parser.add_argument('--objective-source-index', type=Path, default=DIR/'objective-mission-source-index.json')
+    parser.add_argument('--combat-source-index', type=Path, default=DIR/'combat-source-index.json')
     parser.add_argument('--source-registry', type=Path, default=DIR/'source-registry.json')
     parser.add_argument('--schema', type=Path, default=DIR/'semantic-rule.schema.json')
     parser.add_argument('--semantic-vocabulary', type=Path, default=DIR/'semantic-vocabulary.json')
@@ -2921,7 +2946,7 @@ def main() -> int:
     parser.add_argument('--report', action='store_true')
     args = parser.parse_args()
     try:
-        report = validate(args.event_source_index,args.exploration_source_index,args.robot_source_index,args.attack_source_index,args.queen_health_source_index,args.serious_wound_source_index,args.green_item_source_index,args.red_item_source_index,args.yellow_item_source_index,args.equipment_source_index,args.action_source_index,args.objective_source_index,args.source_registry,args.schema,args.semantic_vocabulary,args.room_icon_denotations,args.pilots,args.review_gates,args.contradictions,args.coverage,args.backlog,reproducibility=not args.skip_reproducibility)
+        report = validate(args.event_source_index,args.exploration_source_index,args.robot_source_index,args.attack_source_index,args.queen_health_source_index,args.serious_wound_source_index,args.green_item_source_index,args.red_item_source_index,args.yellow_item_source_index,args.equipment_source_index,args.action_source_index,args.objective_source_index,args.combat_source_index,args.source_registry,args.schema,args.semantic_vocabulary,args.room_icon_denotations,args.pilots,args.review_gates,args.contradictions,args.coverage,args.backlog,reproducibility=not args.skip_reproducibility)
     except (DuplicateJsonKeyError,json.JSONDecodeError) as error:
         report = {'schemaVersion':1,'passed':False,'checks':{},'failureCount':1,'failures':[{'check':'strict JSON parsing','error':str(error)}]}
     if args.report and args.pilots.resolve() == (DIR/'pilots.json').resolve():

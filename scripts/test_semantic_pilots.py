@@ -10,7 +10,7 @@ import unittest
 REPO=Path(__file__).resolve().parents[1]
 DIR=REPO/'docs/rules/semantics'
 VALIDATOR=REPO/'scripts/validate_semantic_pilots.py'
-FILES=('event-source-index.json','exploration-source-index.json','robot-source-index.json','attack-source-index.json','queen-health-source-index.json','serious-wound-source-index.json','green-item-source-index.json','red-item-source-index.json','yellow-item-source-index.json','equipment-source-index.json','action-source-index.json','objective-mission-source-index.json','source-registry.json','semantic-rule.schema.json','semantic-vocabulary.json','room-icon-denotations.json','pilots.json','review-gates.json','contradictions.json','coverage.json','backlog.json')
+FILES=('event-source-index.json','exploration-source-index.json','robot-source-index.json','attack-source-index.json','queen-health-source-index.json','serious-wound-source-index.json','green-item-source-index.json','red-item-source-index.json','yellow-item-source-index.json','equipment-source-index.json','action-source-index.json','objective-mission-source-index.json','combat-source-index.json','source-registry.json','semantic-rule.schema.json','semantic-vocabulary.json','room-icon-denotations.json','pilots.json','review-gates.json','contradictions.json','coverage.json','backlog.json')
 
 
 def load(path): return json.loads(path.read_text(encoding='utf-8'))
@@ -19,7 +19,7 @@ def load(path): return json.loads(path.read_text(encoding='utf-8'))
 class SemanticPilotTests(unittest.TestCase):
     def run_validator(self, root=None, skip=False):
         base=root or DIR
-        command=['python3',str(VALIDATOR),'--event-source-index',str(base/'event-source-index.json'),'--exploration-source-index',str(base/'exploration-source-index.json'),'--robot-source-index',str(base/'robot-source-index.json'),'--attack-source-index',str(base/'attack-source-index.json'),'--queen-health-source-index',str(base/'queen-health-source-index.json'),'--serious-wound-source-index',str(base/'serious-wound-source-index.json'),'--green-item-source-index',str(base/'green-item-source-index.json'),'--red-item-source-index',str(base/'red-item-source-index.json'),'--yellow-item-source-index',str(base/'yellow-item-source-index.json'),'--equipment-source-index',str(base/'equipment-source-index.json'),'--action-source-index',str(base/'action-source-index.json'),'--objective-source-index',str(base/'objective-mission-source-index.json'),'--source-registry',str(base/'source-registry.json'),'--schema',str(base/'semantic-rule.schema.json'),'--semantic-vocabulary',str(base/'semantic-vocabulary.json'),'--room-icon-denotations',str(base/'room-icon-denotations.json'),'--pilots',str(base/'pilots.json'),'--review-gates',str(base/'review-gates.json'),'--contradictions',str(base/'contradictions.json'),'--coverage',str(base/'coverage.json'),'--backlog',str(base/'backlog.json')]
+        command=['python3',str(VALIDATOR),'--event-source-index',str(base/'event-source-index.json'),'--exploration-source-index',str(base/'exploration-source-index.json'),'--robot-source-index',str(base/'robot-source-index.json'),'--attack-source-index',str(base/'attack-source-index.json'),'--queen-health-source-index',str(base/'queen-health-source-index.json'),'--serious-wound-source-index',str(base/'serious-wound-source-index.json'),'--green-item-source-index',str(base/'green-item-source-index.json'),'--red-item-source-index',str(base/'red-item-source-index.json'),'--yellow-item-source-index',str(base/'yellow-item-source-index.json'),'--equipment-source-index',str(base/'equipment-source-index.json'),'--action-source-index',str(base/'action-source-index.json'),'--objective-source-index',str(base/'objective-mission-source-index.json'),'--combat-source-index',str(base/'combat-source-index.json'),'--source-registry',str(base/'source-registry.json'),'--schema',str(base/'semantic-rule.schema.json'),'--semantic-vocabulary',str(base/'semantic-vocabulary.json'),'--room-icon-denotations',str(base/'room-icon-denotations.json'),'--pilots',str(base/'pilots.json'),'--review-gates',str(base/'review-gates.json'),'--contradictions',str(base/'contradictions.json'),'--coverage',str(base/'coverage.json'),'--backlog',str(base/'backlog.json')]
         if skip: command.append('--skip-reproducibility')
         run=subprocess.run(command,cwd=REPO,check=False,capture_output=True,text=True,timeout=300)
         return run,json.loads(run.stdout)
@@ -28,17 +28,17 @@ class SemanticPilotTests(unittest.TestCase):
         run,report=self.run_validator()
         self.assertEqual(run.returncode,0,run.stdout+run.stderr)
         self.assertTrue(report['passed'])
-        self.assertEqual(report['checks']['records'],506)
-        self.assertEqual(report['checks']['operations'],2151)
-        self.assertEqual(report['checks']['decisions'],329)
-        self.assertEqual(report['checks']['targets'],540)
-        self.assertEqual(report['checks']['conditions'],1479)
-        self.assertEqual(report['checks']['openQuestionReferences'],513)
-        self.assertEqual(report['checks']['openQuestions'],101)
+        self.assertEqual(report['checks']['records'],520)
+        self.assertEqual(report['checks']['operations'],2220)
+        self.assertEqual(report['checks']['decisions'],336)
+        self.assertEqual(report['checks']['targets'],556)
+        self.assertEqual(report['checks']['conditions'],1541)
+        self.assertEqual(report['checks']['openQuestionReferences'],576)
+        self.assertEqual(report['checks']['openQuestions'],110)
         self.assertEqual(report['checks']['semanticNodes'],26)
-        self.assertEqual(report['checks']['conflicts'],80)
+        self.assertEqual(report['checks']['conflicts'],82)
         self.assertEqual(report['checks']['backlogUnits'],600)
-        self.assertEqual(report['checks']['backlogPilotCovered'],499)
+        self.assertEqual(report['checks']['backlogPilotCovered'],510)
         self.assertEqual(report['checks']['sources'],468)
         self.assertEqual(report['checks']['systems'],25)
         self.assertEqual(report['checks']['equipmentTtsPhysicalFaceRecords'],39)
@@ -2155,7 +2155,7 @@ class SemanticPilotTests(unittest.TestCase):
             token_repeat=next(op for op in by_id['SEM-IH-QA-C-02']['operations'] if op['operationType']=='place-component')['repeat']
             token_repeat['tokenFaceResolutions']['2']['adultCount']=99
             next(op for op in by_id['SEM-NOISE-HAZARD-001']['operations'] if op.get('dispatchRuleIds')).pop('dispatchRuleIds')
-            by_id['SEM-RT-011']['operations'][2]['invokeRuleId']='SEM-IH-QD-B-02'
+            next(op for op in by_id['SEM-RT-011']['operations'] if op.get('invokeRuleId')=='SEM-IH-QA-B-01')['invokeRuleId']='SEM-IH-QD-B-02'
             hatch_assertion=next(row for row in by_id['SEM-EVENT-HATCHING-001']['sourceAssertions'] if row['assertionId']=='SA-EVT-5616-SCAN')
             hatch_assertion['supportsFields']=[field for field in hatch_assertion['supportsFields'] if field!='operations']
             (root/'room-icon-denotations.json').write_text(json.dumps(room_icons,indent=2,ensure_ascii=False)+'\n',encoding='utf-8')

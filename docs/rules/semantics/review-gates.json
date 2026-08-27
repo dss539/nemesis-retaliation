@@ -3,11 +3,11 @@
   "recordType": "semantic-review-gates",
   "status": "pilot built with deferred questions and explicit alternatives; no default answer adopted",
   "counts": {
-    "questions": 101,
-    "officialClarificationPreferred": 63,
-    "sourceAmbiguitiesIntroducedByPilot": 38,
+    "questions": 110,
+    "officialClarificationPreferred": 70,
+    "sourceAmbiguitiesIntroducedByPilot": 40,
     "resolved": 0,
-    "open": 101
+    "open": 110
   },
   "questions": [
     {
@@ -204,7 +204,9 @@
       "title": "Opportunity Attack selection when more than three equal-largest Intruders qualify",
       "decisionClass": "source-ambiguity-owner-decision-after-source-search",
       "blocksRuleIds": [
-        "SEM-ACT-MOVE-001"
+        "SEM-ACT-MOVE-001",
+        "SEM-MOVEMENT-SEQUENCE-001",
+        "SEM-OPPORTUNITY-ATTACK-001"
       ],
       "plannedRuleIds": [],
       "defaultProhibited": true,
@@ -926,7 +928,13 @@
         "SEM-ACT-SHOOT-001",
         "SEM-ACT-BURST-001",
         "SEM-QUEEN-HIT-001",
-        "SEM-QUEEN-HEALTH-RESOLUTION-001"
+        "SEM-QUEEN-HEALTH-RESOLUTION-001",
+        "SEM-SHOOT-SEQUENCE-001",
+        "SEM-BURST-SEQUENCE-001",
+        "SEM-MELEE-SEQUENCE-001",
+        "SEM-SHOOT-DIE-RESULT-001",
+        "SEM-MELEE-SHOOT-DIE-RESULT-001",
+        "SEM-INTRUDER-HIT-RESOLUTION-001"
       ],
       "plannedRuleIds": [],
       "defaultProhibited": true,
@@ -1081,7 +1089,11 @@
       "decisionClass": "official-clarification-preferred",
       "blocksRuleIds": [
         "SEM-ACT-SHOOT-001",
-        "SEM-QUEEN-HIT-001"
+        "SEM-QUEEN-HIT-001",
+        "SEM-SHOOT-SEQUENCE-001",
+        "SEM-MELEE-SEQUENCE-001",
+        "SEM-SHOOT-DIE-RESULT-001",
+        "SEM-MELEE-SHOOT-DIE-RESULT-001"
       ],
       "plannedRuleIds": [],
       "defaultProhibited": true,
@@ -2272,7 +2284,11 @@
         "SEM-ACTION-REACTION-HGO-570700-AE6BC0-001",
         "SEM-ACTION-REACTION-MS-569400-962AD8-001",
         "SEM-ACTION-REACTION-OFF-568000-5A4763-001",
-        "SEM-ACTION-REACTION-REC-569000-06BD33-001"
+        "SEM-ACTION-REACTION-REC-569000-06BD33-001",
+        "SEM-INT-004",
+        "SEM-OPPORTUNITY-ATTACK-001",
+        "SEM-MELEE-SEQUENCE-001",
+        "SEM-SECURE-ENTRY-001"
       ],
       "plannedRuleIds": [],
       "defaultProhibited": true,
@@ -3216,12 +3232,18 @@
       "title": "Weapon trigger timing, added-result order, targeting, allocation, and continuation",
       "decisionClass": "official-clarification-preferred",
       "blocksRuleIds": [
+        "SEM-ACT-BURST-001",
+        "SEM-ACT-SHOOT-001",
+        "SEM-BURST-DIE-RESULT-001",
+        "SEM-BURST-SEQUENCE-001",
         "SEM-CHARACTER-ITEM-CON-545000-BAC443-001",
         "SEM-CHARACTER-ITEM-MS-545000-219BFF-001",
         "SEM-CHARACTER-ITEM-OFF-581900-039116-001",
         "SEM-CHARACTER-ITEM-OFFICIAL-AUTOMATIC-SHOTGUN-001",
         "SEM-CHARACTER-ITEM-OFFICIAL-SONIC-GUN-001",
         "SEM-CHARACTER-ITEM-REC-556600-81D699-001",
+        "SEM-SHOOT-DIE-RESULT-001",
+        "SEM-SHOOT-SEQUENCE-001",
         "SEM-SUPPORT-EQUIPMENT-2917-DFFD35-001",
         "SEM-SUPPORT-EQUIPMENT-502900-4ECB1E-001",
         "SEM-SUPPORT-EQUIPMENT-507100-875C54-001",
@@ -3265,8 +3287,10 @@
       "title": "Weapon Malfunction repair, destruction destination, attached-token return, and pending-effect continuation",
       "decisionClass": "official-clarification-preferred",
       "blocksRuleIds": [
+        "SEM-ACT-MELEE-001",
         "SEM-CHARACTER-ITEM-OFFICIAL-SONIC-GUN-001",
         "SEM-ITEM-LOSS-ATTACHED-GEAR-001",
+        "SEM-MELEE-SEQUENCE-001",
         "SEM-SUPPORT-EQUIPMENT-2917-DFFD35-001",
         "SEM-SUPPORT-EQUIPMENT-507100-875C54-001",
         "SEM-SUPPORT-EQUIPMENT-507600-1281C5-001",
@@ -3560,6 +3584,314 @@
           "alternativeId": "SEM-Q-096-C",
           "description": "Use another source-defined order for and/or branches, explicit remove-this-Item text, impossibility, and death/target changes.",
           "support": "complete relative order is absent"
+        }
+      ]
+    },
+    {
+      "questionId": "SEM-Q-097",
+      "title": "Order among multiple matching Corridors in one numeric Noise result",
+      "decisionClass": "source-ambiguity-owner-decision-after-source-search",
+      "blocksRuleIds": [
+        "SEM-NOISE-001",
+        "SEM-NOISE-RESULT-001",
+        "SEM-NOISE-NUMERIC-CORRIDOR-001"
+      ],
+      "plannedRuleIds": [],
+      "defaultProhibited": true,
+      "sourceEvidenceRefs": [
+        "docs/rulebooks/rulebook_text.txt:lines 4677–4692",
+        "docs/rules/source-extraction/rulebook-visual-obligations.json:RB-P25-V01"
+      ],
+      "alternatives": [
+        {
+          "alternativeId": "SEM-Q-097-A",
+          "description": "The affected player chooses which matching adjacent Corridor resolves next.",
+          "support": "physical choice is possible, but the source names no owner"
+        },
+        {
+          "alternativeId": "SEM-Q-097-B",
+          "description": "Apply Facility top-left row order used for Event effects mentioning Noise markers.",
+          "support": "page 14 supplies that order for Event effects, not explicitly for one Character Noise roll"
+        },
+        {
+          "alternativeId": "SEM-Q-097-C",
+          "description": "Use another source-defined spatial/physical order.",
+          "support": "no checked rule supplies one"
+        }
+      ]
+    },
+    {
+      "questionId": "SEM-Q-098",
+      "title": "Required Intruder-token draw when the Intruder bag is empty",
+      "decisionClass": "official-clarification-preferred",
+      "blocksRuleIds": [
+        "SEM-NOISE-001",
+        "SEM-NOISE-MARKER-001",
+        "SEM-NOISE-HAZARD-001",
+        "SEM-ROOM-10",
+        "SEM-RT-011"
+      ],
+      "plannedRuleIds": [],
+      "defaultProhibited": true,
+      "sourceEvidenceRefs": [
+        "docs/rulebooks/rulebook_text.txt:lines 3385–3397,4655–4701,5182–5188",
+        "docs/rules/source-extraction/intruder-help-sheet.json"
+      ],
+      "alternatives": [
+        {
+          "alternativeId": "SEM-Q-098-A",
+          "description": "The required draw/effect does nothing and enclosing resolution continues.",
+          "support": "generic component-limit no-op may apply, but the bag draw itself has no explicit shortage rule"
+        },
+        {
+          "alternativeId": "SEM-Q-098-B",
+          "description": "Return/rebuild tokens from one or more piles before drawing.",
+          "support": "no checked source authorizes this refill"
+        },
+        {
+          "alternativeId": "SEM-Q-098-C",
+          "description": "Use another source-defined empty-bag termination or partial procedure.",
+          "support": "not stated"
+        }
+      ]
+    },
+    {
+      "questionId": "SEM-Q-099",
+      "title": "Side-level Blank Help row applicability in Corridor and Room token draws",
+      "decisionClass": "official-clarification-preferred",
+      "blocksRuleIds": [
+        "SEM-IH-QA-BOTTOM-01",
+        "SEM-IH-QD-BOTTOM-01",
+        "SEM-NOISE-MARKER-001",
+        "SEM-NOISE-HAZARD-001",
+        "SEM-ROOM-10"
+      ],
+      "plannedRuleIds": [],
+      "defaultProhibited": true,
+      "sourceEvidenceRefs": [
+        "docs/rules/source-extraction/intruder-help-sheet.json:queen-alive/queen-dead.bottomRow",
+        "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-33-20260821T172305Z-p465856-36ac0c/results/W33-020.json",
+        "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-33-20260821T172305Z-p465856-36ac0c/results/W33-021.json",
+        "docs/rules/source-extraction/rulebook-visual-obligations.json:RB-P15-V01/RB-P25-V02"
+      ],
+      "alternatives": [
+        {
+          "alternativeId": "SEM-Q-099-A",
+          "description": "The separate side-level P5 Blank row applies to every Corridor, Room, and Bag Development draw: add Adults and return Blank.",
+          "support": "P5 is outside all three columns, but no printed scope label says all contexts"
+        },
+        {
+          "alternativeId": "SEM-Q-099-B",
+          "description": "Its add-Adults instruction applies only to Bag Development; Corridor/Room draws only return Blank under the rulebook note.",
+          "support": "the instruction itself changes the bag and page 15 reproduces it as Bag Development"
+        },
+        {
+          "alternativeId": "SEM-Q-099-C",
+          "description": "Use another source-defined context split while always returning Blank to the bag.",
+          "support": "return is explicit; add-Adults scope is not"
+        }
+      ]
+    },
+    {
+      "questionId": "SEM-Q-100",
+      "title": "Opportunity cohort and Movement continuation after mover death/escape/participation loss",
+      "decisionClass": "official-clarification-preferred",
+      "blocksRuleIds": [
+        "SEM-ACT-MOVE-001",
+        "SEM-ACT-MOVE-CAUTIOUSLY-001",
+        "SEM-MOVEMENT-SEQUENCE-001",
+        "SEM-NOISE-NUMERIC-CORRIDOR-001",
+        "SEM-OPPORTUNITY-ATTACK-001"
+      ],
+      "plannedRuleIds": [],
+      "defaultProhibited": true,
+      "sourceEvidenceRefs": [
+        "docs/rulebooks/rulebook_text.txt:lines 4541–4576,3750–3763",
+        "docs/rules/open-questions.md:OQ-004"
+      ],
+      "alternatives": [
+        {
+          "alternativeId": "SEM-Q-100-A",
+          "description": "Stop remaining Opportunity Attacks and cancel destination/Noise once the mover no longer participates.",
+          "support": "dead/escaped Characters no longer take part, but no Movement interrupt states this"
+        },
+        {
+          "alternativeId": "SEM-Q-100-B",
+          "description": "Complete the selected maximum-three Opportunity cohort, then cancel or complete the destination under another source rule.",
+          "support": "Movement step says resolve the cohort before destination"
+        },
+        {
+          "alternativeId": "SEM-Q-100-C",
+          "description": "Use another per-Attack interruption and Movement continuation procedure.",
+          "support": "not stated"
+        }
+      ]
+    },
+    {
+      "questionId": "SEM-Q-101",
+      "title": "Standard Intruder Attack draw when the finite Attack deck is empty",
+      "decisionClass": "official-clarification-preferred",
+      "blocksRuleIds": [
+        "SEM-INT-004"
+      ],
+      "plannedRuleIds": [],
+      "defaultProhibited": true,
+      "sourceEvidenceRefs": [
+        "docs/rulebooks/rulebook_text.txt:lines 5398–5406",
+        "docs/rules/source-extraction/faq-v1.2-source-extraction.json:FQ-P02-U11",
+        "docs/rules/semantics/attack-source-index.json"
+      ],
+      "alternatives": [
+        {
+          "alternativeId": "SEM-Q-101-A",
+          "description": "No card/effect resolves and the Attack ends.",
+          "support": "deck is only reshuffled when instructed; empty draw behavior is not stated"
+        },
+        {
+          "alternativeId": "SEM-Q-101-B",
+          "description": "Reshuffle the Attack discard despite the explicit only-when-instructed rule.",
+          "support": "would permit a draw but conflicts with the checked rule absent an instruction"
+        },
+        {
+          "alternativeId": "SEM-Q-101-C",
+          "description": "Use another source-defined empty-deck Attack procedure.",
+          "support": "not stated"
+        }
+      ]
+    },
+    {
+      "questionId": "SEM-Q-102",
+      "title": "Order among equal-size Intruders in an Intruder Phase Room cohort",
+      "decisionClass": "source-ambiguity-owner-decision-after-source-search",
+      "blocksRuleIds": [
+        "SEM-RT-008"
+      ],
+      "plannedRuleIds": [],
+      "defaultProhibited": true,
+      "sourceEvidenceRefs": [
+        "docs/rulebooks/rulebook_text.txt:lines 3313–3324",
+        "docs/rules/semantics/attack-source-index.json"
+      ],
+      "alternatives": [
+        {
+          "alternativeId": "SEM-Q-102-A",
+          "description": "A player chooses which equal-size physical Intruder attacks next.",
+          "support": "physical selection is possible, but no owner is named"
+        },
+        {
+          "alternativeId": "SEM-Q-102-B",
+          "description": "Use a deterministic miniature/position/order tie-break.",
+          "support": "same Room has no source-defined spatial ordering"
+        },
+        {
+          "alternativeId": "SEM-Q-102-C",
+          "description": "Treat equal-size order as source-unspecified and resolve through another physical procedure.",
+          "support": "Attack card effects can move an attacker or change later targeting, so order cannot be assumed irrelevant"
+        }
+      ]
+    },
+    {
+      "questionId": "SEM-Q-103",
+      "title": "Shoot/Melee roll and added-effect continuation after the initial Hit kills a Room Larva",
+      "decisionClass": "official-clarification-preferred",
+      "blocksRuleIds": [
+        "SEM-ACT-SHOOT-001",
+        "SEM-SHOOT-SEQUENCE-001",
+        "SEM-SHOOT-DIE-RESULT-001",
+        "SEM-ACT-MELEE-001",
+        "SEM-MELEE-SEQUENCE-001",
+        "SEM-MELEE-SHOOT-DIE-RESULT-001",
+        "SEM-INTRUDER-HIT-RESOLUTION-001"
+      ],
+      "plannedRuleIds": [],
+      "defaultProhibited": true,
+      "sourceEvidenceRefs": [
+        "docs/rulebooks/rulebook_text.txt:lines 5576–5605,5628–5675",
+        "docs/rules/source-extraction/faq-v1.2-source-extraction.json:FQ-P02-U21"
+      ],
+      "alternatives": [
+        {
+          "alternativeId": "SEM-Q-103-A",
+          "description": "Remove the Larva after the initial Hit, then still roll and resolve any source-legal Weapon/Action result effects.",
+          "support": "the printed sequence lists the roll after Deal 1 Hit without a stop clause"
+        },
+        {
+          "alternativeId": "SEM-Q-103-B",
+          "description": "The attack sequence ends when the initial Hit removes its only target; do not roll or resolve target-bound added effects.",
+          "support": "the roll checks whether the target dies, but it is already dead"
+        },
+        {
+          "alternativeId": "SEM-Q-103-C",
+          "description": "Roll only for a defined subset of non-target effects under another continuation rule.",
+          "support": "no checked source defines the split"
+        }
+      ]
+    },
+    {
+      "questionId": "SEM-Q-104",
+      "title": "Burst multi-target Hit resolution order, Queen interrupt, and continuation",
+      "decisionClass": "official-clarification-preferred",
+      "blocksRuleIds": [
+        "SEM-ACT-BURST-001",
+        "SEM-BURST-SEQUENCE-001",
+        "SEM-INTRUDER-HIT-RESOLUTION-001"
+      ],
+      "plannedRuleIds": [],
+      "defaultProhibited": true,
+      "sourceEvidenceRefs": [
+        "docs/rulebooks/rulebook_text.txt:lines 5514–5537,5747–5763",
+        "docs/rules/open-questions.md:SEM-Q-025"
+      ],
+      "alternatives": [
+        {
+          "alternativeId": "SEM-Q-104-A",
+          "description": "The allocating player orders each target group; fully resolve each, including Queen Health, before the next.",
+          "support": "allocation is player-owned, but resolution order is not assigned"
+        },
+        {
+          "alternativeId": "SEM-Q-104-B",
+          "description": "Resolve all non-Queen deaths and Queen track movement simultaneously, then resolve one Queen trigger.",
+          "support": "Apply Hits precedes Resolve Hits, but no simultaneous procedure is printed"
+        },
+        {
+          "alternativeId": "SEM-Q-104-C",
+          "description": "Use another source-defined type/spatial order and death/interruption continuation.",
+          "support": "not stated; Q025 independently retains Queen trigger timing"
+        }
+      ]
+    },
+    {
+      "questionId": "SEM-Q-105",
+      "title": "Adult/Drone allocation under mixed token-back counts, Corridor capacity, and finite model supply",
+      "decisionClass": "official-clarification-preferred",
+      "blocksRuleIds": [
+        "SEM-IH-QA-C-02",
+        "SEM-IH-QD-C-02",
+        "SEM-NOISE-MARKER-001"
+      ],
+      "plannedRuleIds": [],
+      "defaultProhibited": true,
+      "sourceEvidenceRefs": [
+        "docs/rules/source-extraction/intruder-help-sheet.json:QA-C-02/QD-C-02",
+        "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-33-20260821T172305Z-p465856-36ac0c/results/W33-020.json",
+        "assets/tts-mod/extract/vision-workers/sol-max-persistent-worker-33-20260821T172305Z-p465856-36ac0c/results/W33-021.json",
+        "docs/rulebooks/rulebook_text.txt:lines 5189–5198"
+      ],
+      "alternatives": [
+        {
+          "alternativeId": "SEM-Q-105-A",
+          "description": "Place the white Adult quantity first, then the red Drone addend until capacity/supply stops placement.",
+          "support": "visual number order/color may suggest this, but no operation order is printed"
+        },
+        {
+          "alternativeId": "SEM-Q-105-B",
+          "description": "Place the red Drone addend first, then Adults.",
+          "support": "Drones are the distinguished red quantity, but no priority is stated"
+        },
+        {
+          "alternativeId": "SEM-Q-105-C",
+          "description": "Use another simultaneous/player/random allocation while preserving exact requested counts.",
+          "support": "general model limit says place as many as possible but gives no mixed-type scarcity/capacity tie-break"
         }
       ]
     }
