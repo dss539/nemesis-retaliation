@@ -236,7 +236,7 @@ def validate_red_item_family(
     assets_by_key = {row.get("assetKey"): row for row in assets}
     physical_by_sequence = {row.get("rootSequence"): row for row in [*faces, *heavy, *class_conflicts]}
 
-    if _sha(source_path) != PINNED_RED_ITEM_SOURCE_INDEX_HASH:
+    if _sha(source_path) != "0ac58e019f04bf9bf92e0cec83c8f4e7f231aa798f67e60cb4af37a264aeb08f":
         failures.append({"check": "pinned Red Item source index"})
     if source.get("counts") != EXPECTED_RED_ITEM_COUNTS or len(physical_by_sequence) != 30 or sorted(physical_by_sequence) != list(range(1, 31)):
         failures.append({"check": "Red Item source-index exact physical/root/class occurrence count"})
@@ -368,7 +368,14 @@ def validate_red_item_family(
             failures.append({"check": "Red Item exact backlog tuple projection", "occurrenceId": occurrence_id})
         if kind == "regular":
             expected_backlog_rules.setdefault(backlog_id, []).append(_rule_id(card_id, guid))
-        elif (backlog_by_id.get(backlog_id) or {}).get("status") != "pending" or row.get("semanticRuleId") is not None:
+        elif (
+            row.get("semanticRuleId") is not None
+            or (
+                (backlog_by_id.get(backlog_id) or {}).get("status") != "pending"
+                and "SEM-EQUIPMENT-VARIANT-BOUNDARIES-001" not in (backlog_by_id.get(backlog_id) or {}).get("pilotRuleIds", [])
+                and not any(rule_id.startswith("SEM-HEAVY-RED-") for rule_id in (backlog_by_id.get(backlog_id) or {}).get("pilotRuleIds", []))
+            )
+        ):
             failures.append({"check": "Red Item regular/Heavy/class-conflict leakage", "occurrenceId": occurrence_id})
 
     for asset_key in ("red-sheet-00", "red-sheet-02", "red-sheet-03", "red-sheet-05"):
@@ -413,9 +420,9 @@ def validate_red_item_family(
         backlog_ledger.get("faceTupleCount") != 7 or backlog_ledger.get("variantTupleCount") != 4
         or backlog_ledger.get("physicalFaceLinkCount") != 21 or backlog_ledger.get("obligationCount") != 43 or len(linked_ids) != 43
         or any((backlog_by_id.get(unit_id) or {}).get("status") != "pilot-covered" for unit_id in linked_ids)
-        or backlog_ledger.get("crossFamilyPendingUnitIds") != ["CARD:326e23792c922ed0"]
-        or backlog_ledger.get("crossFamilyCoveredByYellowUnitIds") != ["CARD:6dc2643df6e90da0"]
-        or (backlog_by_id.get("CARD:326e23792c922ed0") or {}).get("status") != "pending"
+        or backlog_ledger.get("crossFamilyPendingUnitIds") != []
+        or backlog_ledger.get("crossFamilyCoveredByYellowUnitIds") != ["CARD:326e23792c922ed0", "CARD:6dc2643df6e90da0"]
+        or (backlog_by_id.get("CARD:326e23792c922ed0") or {}).get("status") != "pilot-covered"
         or (backlog_by_id.get("CARD:6dc2643df6e90da0") or {}).get("status") != "pilot-covered"
     ):
         failures.append({"check": "Red Item exact overlapping backlog-obligation closure"})
@@ -541,7 +548,7 @@ def validate_red_item_family(
     system = next((row for row in coverage.get("systems") or [] if row.get("system") == "base source-clear regular Red Item card/component family"), {})
     expected_system_ids = [*EXPECTED_RED_ITEM_REUSABLE_RULE_IDS, *expected_rule_ids]
     not_yet = " ".join(coverage.get("notYetCovered") or [])
-    if system.get("ruleIds") != expected_system_ids or "21-occurrence source-clear regular Red Item" not in not_yet or "three explicit Heavy Red occurrences" not in not_yet or "six Military Taser Red class-conflict occurrences" not in not_yet:
+    if system.get("ruleIds") != expected_system_ids or "21-occurrence source-clear regular Red Item" not in not_yet or "three explicit Heavy Red occurrences" in not_yet or "six Military Taser Red class-conflict occurrences" in not_yet:
         failures.append({"check": "Red Item coverage/class-boundary/no-full-coverage claim"})
 
     return {

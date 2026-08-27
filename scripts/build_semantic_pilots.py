@@ -72,6 +72,19 @@ from semantic_yellow_item_records import (
     integrate_yellow_item_shared_records,
     yellow_item_source_registry_rows,
 )
+from semantic_equipment_sources import (
+    build_equipment_source_index,
+    equipment_source_registry_rows,
+)
+from semantic_equipment_records import (
+    build_equipment_conflicts,
+    build_equipment_question_rows,
+    build_equipment_records,
+    equipment_question_blocks,
+    equipment_rule_ids,
+    finalize_equipment_question_blocks,
+    integrate_equipment_shared_records,
+)
 from semantic_action_records import (
     ACTION_REACTION_DISPATCH_RULE_IDS,
     ACTION_REUSABLE_RULE_IDS,
@@ -121,6 +134,7 @@ serious_wound_source_index = build_serious_wound_source_index(REPO)
 green_item_source_index = build_green_item_source_index(REPO)
 red_item_source_index = build_red_item_source_index(REPO)
 yellow_item_source_index = build_yellow_item_source_index(REPO)
+equipment_source_index = build_equipment_source_index(REPO, green_item_source_index, red_item_source_index, yellow_item_source_index)
 action_source_index = build_action_source_index(REPO)
 objective_source_index = build_objective_source_index(REPO)
 
@@ -188,6 +202,8 @@ for source in green_item_source_registry_rows(green_item_source_index):
 for source in red_item_source_registry_rows(red_item_source_index):
     sources[source['sourceId']] = source
 for source in yellow_item_source_registry_rows(yellow_item_source_index):
+    sources[source['sourceId']] = source
+for source in equipment_source_registry_rows(equipment_source_index):
     sources[source['sourceId']] = source
 for source in action_source_registry_rows(action_source_index):
     sources[source['sourceId']] = source
@@ -448,6 +464,8 @@ records.extend(build_red_item_records(REPO, red_item_source_index, record, asser
 integrate_red_item_shared_records(records, red_item_source_index, assertion, operation)
 records.extend(build_yellow_item_records(REPO, yellow_item_source_index, record, assertion, timing, participant, condition, decision, operation))
 integrate_yellow_item_shared_records(records, yellow_item_source_index, assertion, operation)
+records.extend(build_equipment_records(REPO, equipment_source_index, record, assertion, timing, participant, condition, decision, operation))
+integrate_equipment_shared_records(records, equipment_source_index, assertion, operation)
 records.extend(build_action_records(REPO, action_source_index, record, assertion, timing, participant, condition, decision, operation))
 integrate_action_shared_records(records, assertion, operation)
 records.extend(build_objective_records(REPO, objective_source_index, record, assertion, timing, participant, condition, decision, operation))
@@ -523,7 +541,9 @@ semantic_questions = {
 }
 semantic_questions['questions'].extend(build_action_question_rows())
 semantic_questions['questions'].extend(build_objective_question_rows())
+semantic_questions['questions'].extend(build_equipment_question_rows(equipment_source_index))
 finalize_objective_question_blocks(records, semantic_questions['questions'])
+finalize_equipment_question_blocks(records, semantic_questions['questions'])
 semantic_questions['counts'] = {
     'questions': len(semantic_questions['questions']),
     'officialClarificationPreferred': sum(row['decisionClass'] == 'official-clarification-preferred' for row in semantic_questions['questions']),
@@ -593,6 +613,7 @@ contradictions['conflicts'].extend(build_action_conflicts())
 objective_conflicts = build_objective_conflicts(objective_source_index)
 finalize_objective_conflict_blocks(records, objective_conflicts)
 contradictions['conflicts'].extend(objective_conflicts)
+contradictions['conflicts'].extend(build_equipment_conflicts(equipment_source_index))
 contradictions['counts'] = {
     'conflicts': len(contradictions['conflicts']),
     'resolvedByAuthority': sum(row['status'] == 'resolved-by-authority' for row in contradictions['conflicts']),
@@ -632,15 +653,17 @@ coverage = {
         {'system':'base regular Green Item card/component family','ruleIds':['SEM-GREEN-ITEM-DECK-001','SEM-REGULAR-ITEM-BACKPACK-001','SEM-USE-ITEM-001','SEM-GREEN-ITEM-ONE-USE-001','SEM-ITEM-VOLUNTARY-DISCARD-001','SEM-ITEM-TRADE-GAIN-001','SEM-ITEM-INTERPLAY-001','SEM-RESTORE-HEALTH-001','SEM-GREEN-ITEM-IMMEDIATE-USE-001','SEM-GREEN-ITEM-VARIANT-BOUNDARIES-001',*GREEN_ITEM_RULE_IDS]},
         {'system':'base source-clear regular Red Item card/component family','ruleIds':['SEM-RED-ITEM-DECK-001','SEM-RED-ITEM-ONE-USE-001','SEM-AMMO-TOKEN-LIFECYCLE-001','SEM-GRENADE-TOKEN-EFFECT-001','SEM-ANTI-AIRCRAFT-TOKEN-STATE-001','SEM-RED-ITEM-IMMEDIATE-USE-001','SEM-RED-ITEM-VARIANT-BOUNDARIES-001',*RED_ITEM_RULE_IDS]},
         {'system':'base source-clear regular Yellow Item card/component family','ruleIds':['SEM-YELLOW-ITEM-DECK-001','SEM-YELLOW-ITEM-ONE-USE-001','SEM-YELLOW-ITEM-IMMEDIATE-USE-001','SEM-GAIN-OXYGEN-001','SEM-OXYGEN-TOKEN-EFFECT-001','SEM-DISCARD-MALFUNCTION-001','SEM-REINFORCE-CORRIDOR-001','SEM-YELLOW-ITEM-VARIANT-BOUNDARIES-001',*YELLOW_ITEM_RULE_IDS]},
+        {'system':'base Heavy, Support Equipment, Weapon, Armor, and Character Starting Item family','ruleIds':[*equipment_rule_ids(equipment_source_index)['reusable'],*equipment_rule_ids(equipment_source_index)['allFaces']]},
         {'system':'complete base Action card/component family','ruleIds':[*ACTION_REUSABLE_RULE_IDS,*ACTION_RULE_IDS,*[rule_id for rule_id in ACTION_REACTION_DISPATCH_RULE_IDS if rule_id != 'SEM-REACTION-DUCK-001']]},
     ],
-    'counts':{'systems':24,'pilotRecords':len(records),'fullBaseSemanticCoverageClaimed':False},
-    'notYetCovered':['remaining card corpus outside the closed 20-card Event, 12-card Exploration, 6-card Robot, 20-occurrence Intruder Attack, 12-occurrence Queen Health, 27-occurrence Serious Wound, 23-occurrence regular Green Item, 21-occurrence source-clear regular Red Item, 24-occurrence source-clear regular Yellow Item, 60-occurrence base Action, and source-clear base competitive Objective/Mission Task families','seven Heavy Green occurrences, three explicit Heavy Red occurrences, six Military Taser Red class-conflict occurrences, six Fire Extinguisher/Robot Controller Yellow class-conflict occurrences, plus remaining Heavy/Equipment/Starting and other component effects','the one exact TTS FACILITY RESTART operative span remains source-blocked; ten official Help card occurrences remain physically occluded boundaries; Solo/Coop and prototype/high-count Objectives remain indexed exclusions rather than competitive conclusions','remaining setup, map, procedure, and component lifecycle rules'],
+    'counts':{'systems':25,'pilotRecords':len(records),'fullBaseSemanticCoverageClaimed':False},
+    'notYetCovered':['remaining card corpus outside the closed 20-card Event, 12-card Exploration, 6-card Robot, 20-occurrence Intruder Attack, 12-occurrence Queen Health, 27-occurrence Serious Wound, 23-occurrence regular Green Item, 21-occurrence source-clear regular Red Item, 24-occurrence source-clear regular Yellow Item, 60-occurrence base Action, and source-clear base competitive Objective/Mission Task families','the twelve unresolved Red/Yellow Heavy/class-conflict occurrences, two audited prototype Character Item faces, sixteen Support parent-sheet selector gaps, unresolved current seven-card Character Item roster, unresolved slot/glyph/target/owner/lifecycle questions, and independent licensed/official variants remain explicit non-dispatchable or no-default boundaries','the one exact TTS FACILITY RESTART operative span remains source-blocked; ten official Help card occurrences remain physically occluded boundaries; Solo/Coop and prototype/high-count Objectives remain indexed exclusions rather than competitive conclusions','remaining setup, map, procedure, and component lifecycle rules outside the covered Heavy/Equipment/Starting Item family'],
 }
 
 write('objective-mission-source-index.json', objective_source_index)
 write('action-source-index.json', action_source_index)
 write('yellow-item-source-index.json', yellow_item_source_index)
+write('equipment-source-index.json', equipment_source_index)
 write('red-item-source-index.json', red_item_source_index)
 write('green-item-source-index.json', green_item_source_index)
 write('serious-wound-source-index.json', serious_wound_source_index)

@@ -3,11 +3,11 @@
   "recordType": "semantic-review-gates",
   "status": "pilot built with deferred questions and explicit alternatives; no default answer adopted",
   "counts": {
-    "questions": 83,
-    "officialClarificationPreferred": 47,
-    "sourceAmbiguitiesIntroducedByPilot": 36,
+    "questions": 101,
+    "officialClarificationPreferred": 63,
+    "sourceAmbiguitiesIntroducedByPilot": 38,
     "resolved": 0,
-    "open": 83
+    "open": 101
   },
   "questions": [
     {
@@ -2890,6 +2890,676 @@
           "alternativeId": "SEM-Q-078-C",
           "description": "Each surviving owner chooses when to reveal/check, subject to all late choices completing first.",
           "support": "physical play may permit voluntary ordering, but no owner is named"
+        }
+      ]
+    },
+    {
+      "questionId": "SEM-Q-079",
+      "title": "Complete current Character Item roster, owner, and source-copy crosswalk",
+      "decisionClass": "official-clarification-preferred",
+      "blocksRuleIds": [
+        "SEM-CHARACTER-ITEM-CON-545000-BAC443-001",
+        "SEM-CHARACTER-ITEM-CON-591300-21BD03-001",
+        "SEM-CHARACTER-ITEM-MS-545000-219BFF-001",
+        "SEM-CHARACTER-ITEM-OFF-581900-039116-001",
+        "SEM-CHARACTER-ITEM-REC-556600-81D699-001",
+        "SEM-CHARACTER-ITEM-SETUP-001"
+      ],
+      "plannedRuleIds": [],
+      "defaultProhibited": true,
+      "sourceEvidenceRefs": [
+        "docs/rules/semantics/equipment-source-index.json",
+        "docs/rulebooks/rulebook_text.txt:lines 2692–2736,3469–3548,3657–3673,3750–3763,4882–5103,5576–5667",
+        "docs/rules/source-extraction/faq-v1.2-source-extraction.json:FQ-P02-U21/FQ-P03-U01–U07"
+      ],
+      "alternatives": [
+        {
+          "alternativeId": "SEM-Q-079-A",
+          "description": "Current official owner/text is known only for visible Automatic Shotgun and Sonic Gun; leave all other current identities/owners unresolved.",
+          "support": "official page 3 directly resolves two occurrences only"
+        },
+        {
+          "alternativeId": "SEM-Q-079-B",
+          "description": "Use the seven TTS kit occurrences as the current roster after applying only the explicit Automatic/BF corrections.",
+          "support": "exact kit count/ancestry exists, but remaining TTS version currency is not established"
+        },
+        {
+          "alternativeId": "SEM-Q-079-C",
+          "description": "Use the seven licensed item-* rows as the current roster.",
+          "support": "licensed count is complete but BF/Automatic already conflicts with official current evidence"
+        }
+      ]
+    },
+    {
+      "questionId": "SEM-Q-080",
+      "title": "Remaining Support Equipment deck access, exhaustion, and later use",
+      "decisionClass": "official-clarification-preferred",
+      "blocksRuleIds": [
+        "SEM-SUPPORT-EQUIPMENT-DRAFT-001"
+      ],
+      "plannedRuleIds": [],
+      "defaultProhibited": true,
+      "sourceEvidenceRefs": [
+        "docs/rules/semantics/equipment-source-index.json",
+        "docs/rulebooks/rulebook_text.txt:lines 2692–2736,3469–3548,3657–3673,3750–3763,4882–5103,5576–5667",
+        "docs/rules/source-extraction/faq-v1.2-source-extraction.json:FQ-P02-U21/FQ-P03-U01–U07"
+      ],
+      "alternatives": [
+        {
+          "alternativeId": "SEM-Q-080-A",
+          "description": "The remaining deck is accessed only by explicit future effects; no generic draw/use procedure exists.",
+          "support": "setup says it may be used but names no access action"
+        },
+        {
+          "alternativeId": "SEM-Q-080-B",
+          "description": "A general source-defined later Support Equipment draw/draft procedure exists.",
+          "support": "phrase “may be used during the game” suggests access but does not specify it"
+        },
+        {
+          "alternativeId": "SEM-Q-080-C",
+          "description": "Apply another finite-deck exhaustion/removal/return procedure.",
+          "support": "no reshuffle or shortage rule is stated"
+        }
+      ]
+    },
+    {
+      "questionId": "SEM-Q-081",
+      "title": "Hand capacity with Duct Tape, Bayonet, gains, discard, and attachment topology",
+      "decisionClass": "official-clarification-preferred",
+      "blocksRuleIds": [
+        "SEM-HEAVY-ITEM-HAND-CAPACITY-001",
+        "SEM-SUPPORT-EQUIPMENT-507900-DF46D6-001"
+      ],
+      "plannedRuleIds": [],
+      "defaultProhibited": true,
+      "sourceEvidenceRefs": [
+        "docs/rules/semantics/equipment-source-index.json",
+        "docs/rulebooks/rulebook_text.txt:lines 2692–2736,3469–3548,3657–3673,3750–3763,4882–5103,5576–5667",
+        "docs/rules/source-extraction/faq-v1.2-source-extraction.json:FQ-P02-U21/FQ-P03-U01–U07"
+      ],
+      "alternatives": [
+        {
+          "alternativeId": "SEM-Q-081-A",
+          "description": "Each explicit co-occupancy exception changes only the named Items; owner chooses any source-legal discard before a gain.",
+          "support": "narrow exception reading"
+        },
+        {
+          "alternativeId": "SEM-Q-081-B",
+          "description": "Attachment groups occupy one Hand as a unit and transfer/discard/separate together.",
+          "support": "possible physical arrangement; lifecycle unstated"
+        },
+        {
+          "alternativeId": "SEM-Q-081-C",
+          "description": "Use another source-defined occupancy, ordering, and separation rule without auto-discarding.",
+          "support": "generic Hand rules do not resolve attachments"
+        }
+      ]
+    },
+    {
+      "questionId": "SEM-Q-082",
+      "title": "Armor break, damage, attached-token loss, replacement, and terminal Health order",
+      "decisionClass": "official-clarification-preferred",
+      "blocksRuleIds": [
+        "SEM-ARMOR-ITEM-LIFECYCLE-001",
+        "SEM-CHARACTER-ITEM-CON-591300-21BD03-001",
+        "SEM-ITEM-LOSS-ATTACHED-GEAR-001",
+        "SEM-SUPPORT-EQUIPMENT-424800-881635-001",
+        "SEM-SUPPORT-EQUIPMENT-466100-4912A1-001",
+        "SEM-SUPPORT-EQUIPMENT-508000-0F51F3-001",
+        "SEM-SUPPORT-OFFICIAL-HEAVY-ARMOR-001"
+      ],
+      "plannedRuleIds": [],
+      "defaultProhibited": true,
+      "sourceEvidenceRefs": [
+        "docs/rules/semantics/equipment-source-index.json",
+        "docs/rulebooks/rulebook_text.txt:lines 2692–2736,3469–3548,3657–3673,3750–3763,4882–5103,5576–5667",
+        "docs/rules/source-extraction/faq-v1.2-source-extraction.json:FQ-P02-U21/FQ-P03-U01–U07"
+      ],
+      "alternatives": [
+        {
+          "alternativeId": "SEM-Q-082-A",
+          "description": "Discard Armor, return attached tokens, then apply all remaining damage and death checks.",
+          "support": "prose says discard then continue moving Health"
+        },
+        {
+          "alternativeId": "SEM-Q-082-B",
+          "description": "Apply damage/Health movement as one operation and resolve Armor/token loss during it.",
+          "support": "possible simultaneous physical handling"
+        },
+        {
+          "alternativeId": "SEM-Q-082-C",
+          "description": "Use another source-defined order for replacement, Serious-Wound substitution, damage, token loss, and death.",
+          "support": "nested passives and simultaneous effects are not fully ordered"
+        }
+      ]
+    },
+    {
+      "questionId": "SEM-Q-083",
+      "title": "Exact TTS Tactical Gear slot type/count and non-card tracks",
+      "decisionClass": "source-ambiguity-owner-decision-after-source-search",
+      "blocksRuleIds": [
+        "SEM-CHARACTER-ITEM-CON-545000-BAC443-001",
+        "SEM-CHARACTER-ITEM-MS-545000-219BFF-001",
+        "SEM-CHARACTER-ITEM-OFF-581900-039116-001",
+        "SEM-CHARACTER-ITEM-REC-556600-81D699-001",
+        "SEM-EQUIPMENT-FULLY-LOADED-001",
+        "SEM-SUPPORT-EQUIPMENT-410400-A242E6-001",
+        "SEM-SUPPORT-EQUIPMENT-424900-8AE645-001",
+        "SEM-SUPPORT-EQUIPMENT-507000-1F3CA2-001",
+        "SEM-SUPPORT-EQUIPMENT-507800-F56191-001",
+        "SEM-SUPPORT-EQUIPMENT-508100-785B03-001"
+      ],
+      "plannedRuleIds": [],
+      "defaultProhibited": true,
+      "sourceEvidenceRefs": [
+        "docs/rules/semantics/equipment-source-index.json",
+        "docs/rulebooks/rulebook_text.txt:lines 2692–2736,3469–3548,3657–3673,3750–3763,4882–5103,5576–5667",
+        "docs/rules/source-extraction/faq-v1.2-source-extraction.json:FQ-P02-U21/FQ-P03-U01–U07"
+      ],
+      "alternatives": [
+        {
+          "alternativeId": "SEM-Q-083-A",
+          "description": "Promote only tracked exact source-resolved slot tokens and exact official arrow/caption occurrences; leave other TTS slots literal.",
+          "support": "satisfies pixel/source requirement"
+        },
+        {
+          "alternativeId": "SEM-Q-083-B",
+          "description": "Use TTS GMNotes letters or licensed slots to fill missing TTS slot types/counts.",
+          "support": "corroboration exists but is prohibited as sole authority"
+        },
+        {
+          "alternativeId": "SEM-Q-083-C",
+          "description": "Obtain exact authoritative slot/track pixel matches before any additional semantic slot assignment.",
+          "support": "color/title/art/orientation cannot decide"
+        }
+      ]
+    },
+    {
+      "questionId": "SEM-Q-084",
+      "title": "Fully Loaded Any-slot choice, simultaneous allocation, and finite shortage",
+      "decisionClass": "official-clarification-preferred",
+      "blocksRuleIds": [
+        "SEM-EQUIPMENT-FULLY-LOADED-001",
+        "SEM-SUPPORT-EQUIPMENT-DRAFT-001"
+      ],
+      "plannedRuleIds": [],
+      "defaultProhibited": true,
+      "sourceEvidenceRefs": [
+        "docs/rules/semantics/equipment-source-index.json",
+        "docs/rulebooks/rulebook_text.txt:lines 2692–2736,3469–3548,3657–3673,3750–3763,4882–5103,5576–5667",
+        "docs/rules/source-extraction/faq-v1.2-source-extraction.json:FQ-P02-U21/FQ-P03-U01–U07"
+      ],
+      "alternatives": [
+        {
+          "alternativeId": "SEM-Q-084-A",
+          "description": "Item owner chooses each compatible token/Any slot sequentially in setup/player order.",
+          "support": "player ownership plausible; source assigns no Any-slot chooser"
+        },
+        {
+          "alternativeId": "SEM-Q-084-B",
+          "description": "Apply deterministic slot order and finite availability.",
+          "support": "source gives no order"
+        },
+        {
+          "alternativeId": "SEM-Q-084-C",
+          "description": "Use another source-defined simultaneous allocation/shortage procedure.",
+          "support": "component limits do not assign scarce tokens among slots"
+        }
+      ]
+    },
+    {
+      "questionId": "SEM-Q-085",
+      "title": "Trade/transfer capacity, owner consent, attachments, and Character Item replacement",
+      "decisionClass": "official-clarification-preferred",
+      "blocksRuleIds": [
+        "SEM-ARMOR-ITEM-LIFECYCLE-001",
+        "SEM-HEAVY-ITEM-HAND-CAPACITY-001"
+      ],
+      "plannedRuleIds": [],
+      "defaultProhibited": true,
+      "sourceEvidenceRefs": [
+        "docs/rules/semantics/equipment-source-index.json",
+        "docs/rulebooks/rulebook_text.txt:lines 2692–2736,3469–3548,3657–3673,3750–3763,4882–5103,5576–5667",
+        "docs/rules/source-extraction/faq-v1.2-source-extraction.json:FQ-P02-U21/FQ-P03-U01–U07"
+      ],
+      "alternatives": [
+        {
+          "alternativeId": "SEM-Q-085-A",
+          "description": "Every transfer requires recipient capacity after source-legal optional discard; attachments transfer only when each component is consented.",
+          "support": "narrow consent/capacity composition"
+        },
+        {
+          "alternativeId": "SEM-Q-085-B",
+          "description": "A transfer may temporarily exceed capacity and resolves attachments as a unit.",
+          "support": "possible physical handling; unstated"
+        },
+        {
+          "alternativeId": "SEM-Q-085-C",
+          "description": "Use another source-defined failure/order/replacement procedure; never auto-transfer or auto-discard.",
+          "support": "generic Trade omits these edges"
+        }
+      ]
+    },
+    {
+      "questionId": "SEM-Q-086",
+      "title": "Passive Item visibility, duration, duplicate stacking, trigger order, and Malfunction suppression",
+      "decisionClass": "official-clarification-preferred",
+      "blocksRuleIds": [
+        "SEM-CHARACTER-ITEM-CON-591300-21BD03-001",
+        "SEM-ITEM-PASSIVE-EFFECT-001",
+        "SEM-SUPPORT-EQUIPMENT-424800-881635-001",
+        "SEM-SUPPORT-EQUIPMENT-424900-8AE645-001",
+        "SEM-SUPPORT-EQUIPMENT-466100-4912A1-001",
+        "SEM-SUPPORT-EQUIPMENT-508000-0F51F3-001",
+        "SEM-SUPPORT-OFFICIAL-HEAVY-ARMOR-001"
+      ],
+      "plannedRuleIds": [],
+      "defaultProhibited": true,
+      "sourceEvidenceRefs": [
+        "docs/rules/semantics/equipment-source-index.json",
+        "docs/rulebooks/rulebook_text.txt:lines 2692–2736,3469–3548,3657–3673,3750–3763,4882–5103,5576–5667",
+        "docs/rules/source-extraction/faq-v1.2-source-extraction.json:FQ-P02-U21/FQ-P03-U01–U07"
+      ],
+      "alternatives": [
+        {
+          "alternativeId": "SEM-Q-086-A",
+          "description": "All equipped Heavy/Armor faces and passives are public and each distinct passive stacks unless identical-source rule says otherwise.",
+          "support": "physical equipped state; no general duplicate rule"
+        },
+        {
+          "alternativeId": "SEM-Q-086-B",
+          "description": "Matching passives do not stack and owner orders simultaneous triggers.",
+          "support": "possible analogy to Wounds; no Item rule"
+        },
+        {
+          "alternativeId": "SEM-Q-086-C",
+          "description": "Use another source-defined visibility/stacking/suppression/order policy.",
+          "support": "Malfunction effect availability is not globally defined for passive Items"
+        }
+      ]
+    },
+    {
+      "questionId": "SEM-Q-087",
+      "title": "Death, escape, Starting Item loss destination, replacement, and recovery",
+      "decisionClass": "official-clarification-preferred",
+      "blocksRuleIds": [
+        "SEM-CHARACTER-ITEM-SETUP-001",
+        "SEM-ITEM-LOSS-ATTACHED-GEAR-001"
+      ],
+      "plannedRuleIds": [],
+      "defaultProhibited": true,
+      "sourceEvidenceRefs": [
+        "docs/rules/semantics/equipment-source-index.json",
+        "docs/rulebooks/rulebook_text.txt:lines 2692–2736,3469–3548,3657–3673,3750–3763,4882–5103,5576–5667",
+        "docs/rules/source-extraction/faq-v1.2-source-extraction.json:FQ-P02-U21/FQ-P03-U01–U07"
+      ],
+      "alternatives": [
+        {
+          "alternativeId": "SEM-Q-087-A",
+          "description": "Death sends carried Items to the Item discard pile and tokens to pool; escaped/hibernated Characters retain Items.",
+          "support": "ordinary discard destination plus no escape-loss text"
+        },
+        {
+          "alternativeId": "SEM-Q-087-B",
+          "description": "Death removes Character/Starting Items from the game or returns unique Items to a source pool.",
+          "support": "“lost” is not “discarded” and destination unstated"
+        },
+        {
+          "alternativeId": "SEM-Q-087-C",
+          "description": "Use another source-defined destination/replacement/recovery policy without creating replacement copies.",
+          "support": "no checked rule restores a lost Starting Item"
+        }
+      ]
+    },
+    {
+      "questionId": "SEM-Q-088",
+      "title": "Weapon trigger timing, added-result order, targeting, allocation, and continuation",
+      "decisionClass": "official-clarification-preferred",
+      "blocksRuleIds": [
+        "SEM-CHARACTER-ITEM-CON-545000-BAC443-001",
+        "SEM-CHARACTER-ITEM-MS-545000-219BFF-001",
+        "SEM-CHARACTER-ITEM-OFF-581900-039116-001",
+        "SEM-CHARACTER-ITEM-OFFICIAL-AUTOMATIC-SHOTGUN-001",
+        "SEM-CHARACTER-ITEM-OFFICIAL-SONIC-GUN-001",
+        "SEM-CHARACTER-ITEM-REC-556600-81D699-001",
+        "SEM-SUPPORT-EQUIPMENT-2917-DFFD35-001",
+        "SEM-SUPPORT-EQUIPMENT-502900-4ECB1E-001",
+        "SEM-SUPPORT-EQUIPMENT-507100-875C54-001",
+        "SEM-SUPPORT-EQUIPMENT-507200-2F41B8-001",
+        "SEM-SUPPORT-EQUIPMENT-507600-1281C5-001",
+        "SEM-SUPPORT-EQUIPMENT-507700-4E708D-001",
+        "SEM-SUPPORT-EQUIPMENT-507800-F56191-001",
+        "SEM-SUPPORT-EQUIPMENT-508300-FD46EC-001",
+        "SEM-SUPPORT-EQUIPMENT-556600-A0DAEF-001",
+        "SEM-SUPPORT-OFFICIAL-TACTICAL-HATCHET-001",
+        "SEM-WEAPON-DIE-RESULT-ADDITION-001",
+        "SEM-WEAPON-MALFUNCTION-LIFECYCLE-001"
+      ],
+      "plannedRuleIds": [],
+      "defaultProhibited": true,
+      "sourceEvidenceRefs": [
+        "docs/rules/semantics/equipment-source-index.json",
+        "docs/rulebooks/rulebook_text.txt:lines 2692–2736,3469–3548,3657–3673,3750–3763,4882–5103,5576–5667",
+        "docs/rules/source-extraction/faq-v1.2-source-extraction.json:FQ-P02-U21/FQ-P03-U01–U07"
+      ],
+      "alternatives": [
+        {
+          "alternativeId": "SEM-Q-088-A",
+          "description": "Resolve standard die result first, then exact additional Weapon effect; stop target-bound followups if target dies.",
+          "support": "FAQ establishes addition, not complete order"
+        },
+        {
+          "alternativeId": "SEM-Q-088-B",
+          "description": "Resolve Weapon effect before/within standard result and finish all printed operations after death.",
+          "support": "some effects alter/prepend results"
+        },
+        {
+          "alternativeId": "SEM-Q-088-C",
+          "description": "Use source-specific order for each Weapon trigger; preserve target/Hit allocation and continuation alternatives.",
+          "support": "one universal order is not stated"
+        }
+      ]
+    },
+    {
+      "questionId": "SEM-Q-089",
+      "title": "Weapon Malfunction repair, destruction destination, attached-token return, and pending-effect continuation",
+      "decisionClass": "official-clarification-preferred",
+      "blocksRuleIds": [
+        "SEM-CHARACTER-ITEM-OFFICIAL-SONIC-GUN-001",
+        "SEM-ITEM-LOSS-ATTACHED-GEAR-001",
+        "SEM-SUPPORT-EQUIPMENT-2917-DFFD35-001",
+        "SEM-SUPPORT-EQUIPMENT-507100-875C54-001",
+        "SEM-SUPPORT-EQUIPMENT-507600-1281C5-001",
+        "SEM-SUPPORT-EQUIPMENT-507900-DF46D6-001",
+        "SEM-SUPPORT-EQUIPMENT-556600-A0DAEF-001",
+        "SEM-SUPPORT-OFFICIAL-TACTICAL-HATCHET-001",
+        "SEM-WEAPON-MALFUNCTION-LIFECYCLE-001"
+      ],
+      "plannedRuleIds": [],
+      "defaultProhibited": true,
+      "sourceEvidenceRefs": [
+        "docs/rules/semantics/equipment-source-index.json",
+        "docs/rulebooks/rulebook_text.txt:lines 2692–2736,3469–3548,3657–3673,3750–3763,4882–5103,5576–5667",
+        "docs/rules/source-extraction/faq-v1.2-source-extraction.json:FQ-P02-U21/FQ-P03-U01–U07"
+      ],
+      "alternatives": [
+        {
+          "alternativeId": "SEM-Q-089-A",
+          "description": "Second Malfunction immediately destroys/discards Weapon and returns attached tokens before later Weapon operations stop.",
+          "support": "strong physical reading; continuation not explicit"
+        },
+        {
+          "alternativeId": "SEM-Q-089-B",
+          "description": "Finish the triggering Weapon effect, then discard Weapon/tokens.",
+          "support": "possible complete-effect reading"
+        },
+        {
+          "alternativeId": "SEM-Q-089-C",
+          "description": "Use another source-defined repair/destruction/loss order and destination.",
+          "support": "checked sources do not define all edges"
+        }
+      ]
+    },
+    {
+      "questionId": "SEM-Q-090",
+      "title": "Grenade Launcher token count, before/instead timing, variant scope, and malfunction exception",
+      "decisionClass": "official-clarification-preferred",
+      "blocksRuleIds": [
+        "SEM-GRENADE-LAUNCHER-MALFUNCTION-001",
+        "SEM-SUPPORT-EQUIPMENT-410400-A242E6-001",
+        "SEM-SUPPORT-OFFICIAL-GRENADE-LAUNCHER-001"
+      ],
+      "plannedRuleIds": [],
+      "defaultProhibited": true,
+      "sourceEvidenceRefs": [
+        "docs/rules/semantics/equipment-source-index.json",
+        "docs/rulebooks/rulebook_text.txt:lines 2692–2736,3469–3548,3657–3673,3750–3763,4882–5103,5576–5667",
+        "docs/rules/source-extraction/faq-v1.2-source-extraction.json:FQ-P02-U21/FQ-P03-U01–U07"
+      ],
+      "alternatives": [
+        {
+          "alternativeId": "SEM-Q-090-A",
+          "description": "Owner selects each attached Grenade sequentially before deciding whether to perform normal Burst; malfunction blocks Weapon Burst but not Tactical Gear token use.",
+          "support": "FAQ exact exception plus sequential token ruling"
+        },
+        {
+          "alternativeId": "SEM-Q-090-B",
+          "description": "Commit token count and before-versus-instead branch up front.",
+          "support": "possible single-effect selection"
+        },
+        {
+          "alternativeId": "SEM-Q-090-C",
+          "description": "Use another source-defined order; never generalize malfunction bypass to Ammo/Shoot/Burst or merge TTS/official variants.",
+          "support": "FAQ proposition is narrow"
+        }
+      ]
+    },
+    {
+      "questionId": "SEM-Q-091",
+      "title": "Source-local Heavy/Weapon glyph identities and restrictions",
+      "decisionClass": "source-ambiguity-owner-decision-after-source-search",
+      "blocksRuleIds": [
+        "SEM-CHARACTER-ITEM-OFF-581900-039116-001",
+        "SEM-HEAVY-GREEN-400100-1CECCD-001",
+        "SEM-HEAVY-GREEN-400100-4B18B1-001",
+        "SEM-HEAVY-GREEN-400100-4FF8A4-001",
+        "SEM-HEAVY-RED-531400-5DF671-001",
+        "SEM-HEAVY-RED-531500-810D80-001",
+        "SEM-HEAVY-RED-531600-0C0643-001",
+        "SEM-SUPPORT-EQUIPMENT-507100-875C54-001",
+        "SEM-SUPPORT-EQUIPMENT-507200-2F41B8-001",
+        "SEM-SUPPORT-EQUIPMENT-507300-A9FAB3-001",
+        "SEM-SUPPORT-EQUIPMENT-507800-F56191-001",
+        "SEM-SUPPORT-OFFICIAL-TACTICAL-HATCHET-001"
+      ],
+      "plannedRuleIds": [],
+      "defaultProhibited": true,
+      "sourceEvidenceRefs": [
+        "docs/rules/semantics/equipment-source-index.json",
+        "docs/rulebooks/rulebook_text.txt:lines 2692–2736,3469–3548,3657–3673,3750–3763,4882–5103,5576–5667",
+        "docs/rules/source-extraction/faq-v1.2-source-extraction.json:FQ-P02-U21/FQ-P03-U01–U07"
+      ],
+      "alternatives": [
+        {
+          "alternativeId": "SEM-Q-091-A",
+          "description": "Retain every unmatched isolated kill/resource/crossed glyph literally and dispatch only source-resolved operations.",
+          "support": "direct authoritative comparisons do not establish all semantics"
+        },
+        {
+          "alternativeId": "SEM-Q-091-B",
+          "description": "Use licensed placeholders or surrounding tactics to assign likely meanings.",
+          "support": "secondary/semantic context only; prohibited default"
+        },
+        {
+          "alternativeId": "SEM-Q-091-C",
+          "description": "Resolve each exact morphology against applicable current official component evidence before promotion.",
+          "support": "source-scoped evidence requirement"
+        }
+      ]
+    },
+    {
+      "questionId": "SEM-Q-092",
+      "title": "Supporting Robot Controller and Portable Device actor/reveal/remote context",
+      "decisionClass": "official-clarification-preferred",
+      "blocksRuleIds": [
+        "SEM-EQUIPMENT-OCCURRENCE-DISPATCH-001",
+        "SEM-SUPPORT-EQUIPMENT-507400-BADAD6-001",
+        "SEM-SUPPORT-EQUIPMENT-507500-33C9E4-001"
+      ],
+      "plannedRuleIds": [],
+      "defaultProhibited": true,
+      "sourceEvidenceRefs": [
+        "docs/rules/semantics/equipment-source-index.json",
+        "docs/rulebooks/rulebook_text.txt:lines 2692–2736,3469–3548,3657–3673,3750–3763,4882–5103,5576–5667",
+        "docs/rules/source-extraction/faq-v1.2-source-extraction.json:FQ-P02-U21/FQ-P03-U01–U07"
+      ],
+      "alternatives": [
+        {
+          "alternativeId": "SEM-Q-092-A",
+          "description": "Item owner controls branch/Robot/Room choices; exact text bypasses only stated locality/Malfunction restrictions.",
+          "support": "natural owner reading; nested context unstated"
+        },
+        {
+          "alternativeId": "SEM-Q-092-B",
+          "description": "Robot/Room is the local actor and external effects remain unavailable before normal reveal.",
+          "support": "possible object-centered context"
+        },
+        {
+          "alternativeId": "SEM-Q-092-C",
+          "description": "Use another source-defined actor/cost/reveal/availability procedure while retaining SEM-Q-012/013/018.",
+          "support": "no implication resolves those wider questions"
+        }
+      ]
+    },
+    {
+      "questionId": "SEM-Q-093",
+      "title": "Security, Entrenching, and Engineering target/owner/scarce-component order",
+      "decisionClass": "official-clarification-preferred",
+      "blocksRuleIds": [
+        "SEM-EQUIPMENT-OCCURRENCE-DISPATCH-001",
+        "SEM-SUPPORT-EQUIPMENT-493400-85096E-001",
+        "SEM-SUPPORT-EQUIPMENT-502900-4ECB1E-001",
+        "SEM-SUPPORT-EQUIPMENT-508200-A0F5B7-001"
+      ],
+      "plannedRuleIds": [],
+      "defaultProhibited": true,
+      "sourceEvidenceRefs": [
+        "docs/rules/semantics/equipment-source-index.json",
+        "docs/rulebooks/rulebook_text.txt:lines 2692–2736,3469–3548,3657–3673,3750–3763,4882–5103,5576–5667",
+        "docs/rules/source-extraction/faq-v1.2-source-extraction.json:FQ-P02-U21/FQ-P03-U01–U07"
+      ],
+      "alternatives": [
+        {
+          "alternativeId": "SEM-Q-093-A",
+          "description": "Item owner chooses every legal Room/Corridor/Door/marker and finite placements resolve in printed order.",
+          "support": "effect-owner reading; some verbs omit choose"
+        },
+        {
+          "alternativeId": "SEM-Q-093-B",
+          "description": "Apply ordinary local deterministic scope and whole-effect legality.",
+          "support": "general local rule; allocation still unstated"
+        },
+        {
+          "alternativeId": "SEM-Q-093-C",
+          "description": "Use another source-defined target/owner/shortage order without importing similar card variants.",
+          "support": "source faces differ materially"
+        }
+      ]
+    },
+    {
+      "questionId": "SEM-Q-094",
+      "title": "RPG, Remote Detonator, and Military Taser area targets/allocation/continuation",
+      "decisionClass": "official-clarification-preferred",
+      "blocksRuleIds": [
+        "SEM-EQUIPMENT-OCCURRENCE-DISPATCH-001",
+        "SEM-HEAVY-OFFICIAL-MILITARY-TASER-001",
+        "SEM-HEAVY-RED-531400-5DF671-001",
+        "SEM-HEAVY-RED-531500-810D80-001",
+        "SEM-HEAVY-RED-531600-0C0643-001",
+        "SEM-SUPPORT-EQUIPMENT-507300-A9FAB3-001"
+      ],
+      "plannedRuleIds": [],
+      "defaultProhibited": true,
+      "sourceEvidenceRefs": [
+        "docs/rules/semantics/equipment-source-index.json",
+        "docs/rulebooks/rulebook_text.txt:lines 2692–2736,3469–3548,3657–3673,3750–3763,4882–5103,5576–5667",
+        "docs/rules/source-extraction/faq-v1.2-source-extraction.json:FQ-P02-U21/FQ-P03-U01–U07"
+      ],
+      "alternatives": [
+        {
+          "alternativeId": "SEM-Q-094-A",
+          "description": "Owner chooses exact Room/Corridor/targets and all named entities resolve sequentially in printed order.",
+          "support": "explicit choice exists only on some faces"
+        },
+        {
+          "alternativeId": "SEM-Q-094-B",
+          "description": "Use local/deterministic scope and treat grouped outcomes simultaneously.",
+          "support": "possible area-effect reading"
+        },
+        {
+          "alternativeId": "SEM-Q-094-C",
+          "description": "Use another source-defined target, Hit/result allocation, Door, death, and continuation policy.",
+          "support": "checked text does not settle every nested edge"
+        }
+      ]
+    },
+    {
+      "questionId": "SEM-Q-095",
+      "title": "Motion Tracker target, Hazard suppression, Noise equality, and Encounter timing",
+      "decisionClass": "official-clarification-preferred",
+      "blocksRuleIds": [
+        "SEM-EQUIPMENT-OCCURRENCE-DISPATCH-001",
+        "SEM-SUPPORT-EQUIPMENT-2910-D29216-001",
+        "SEM-SUPPORT-EQUIPMENT-410200-98AD4C-001"
+      ],
+      "plannedRuleIds": [],
+      "defaultProhibited": true,
+      "sourceEvidenceRefs": [
+        "docs/rules/semantics/equipment-source-index.json",
+        "docs/rulebooks/rulebook_text.txt:lines 2692–2736,3469–3548,3657–3673,3750–3763,4882–5103,5576–5667",
+        "docs/rules/source-extraction/faq-v1.2-source-extraction.json:FQ-P02-U21/FQ-P03-U01–U07"
+      ],
+      "alternatives": [
+        {
+          "alternativeId": "SEM-Q-095-A",
+          "description": "Owner chooses any eligible Corridor; compare the final die result to its printed number and immediately resolve Encounter.",
+          "support": "likely effect-owner reading"
+        },
+        {
+          "alternativeId": "SEM-Q-095-B",
+          "description": "Use deterministic/local target or compare another Noise value/source state.",
+          "support": "text omits chooser in some variants"
+        },
+        {
+          "alternativeId": "SEM-Q-095-C",
+          "description": "Use another source-defined Hazard/Exploration/Encounter order without joining Combat Motion Tracker, Motion Tracker, Noise Scanner, or Perimeter Device by title/function.",
+          "support": "variants differ"
+        }
+      ]
+    },
+    {
+      "questionId": "SEM-Q-096",
+      "title": "Active/One Use Heavy payment, effect, discard/remove, and partial-resolution order",
+      "decisionClass": "official-clarification-preferred",
+      "blocksRuleIds": [
+        "SEM-HEAVY-GREEN-400100-1CECCD-001",
+        "SEM-HEAVY-GREEN-400100-4B18B1-001",
+        "SEM-HEAVY-GREEN-400100-4FF8A4-001",
+        "SEM-HEAVY-GREEN-415900-339846-001",
+        "SEM-HEAVY-GREEN-415900-9BD717-001",
+        "SEM-HEAVY-GREEN-416000-C8E79C-001",
+        "SEM-HEAVY-GREEN-416100-61A77C-001",
+        "SEM-HEAVY-ITEM-ONE-USE-001",
+        "SEM-HEAVY-ITEM-USE-001",
+        "SEM-HEAVY-OFFICIAL-MILITARY-TASER-001",
+        "SEM-HEAVY-RED-531400-5DF671-001",
+        "SEM-HEAVY-RED-531500-810D80-001",
+        "SEM-HEAVY-RED-531600-0C0643-001",
+        "SEM-SUPPORT-EQUIPMENT-493400-85096E-001",
+        "SEM-SUPPORT-EQUIPMENT-507300-A9FAB3-001"
+      ],
+      "plannedRuleIds": [],
+      "defaultProhibited": true,
+      "sourceEvidenceRefs": [
+        "docs/rules/semantics/equipment-source-index.json",
+        "docs/rulebooks/rulebook_text.txt:lines 2692–2736,3469–3548,3657–3673,3750–3763,4882–5103,5576–5667",
+        "docs/rules/source-extraction/faq-v1.2-source-extraction.json:FQ-P02-U21/FQ-P03-U01–U07"
+      ],
+      "alternatives": [
+        {
+          "alternativeId": "SEM-Q-096-A",
+          "description": "Declare target/branch, pay, resolve full effect, return attached tokens, then discard/remove exact Item.",
+          "support": "ordinary action/effect cleanup reading"
+        },
+        {
+          "alternativeId": "SEM-Q-096-B",
+          "description": "Discard/remove Item and tokens when Used before resolving from card-in-resolution.",
+          "support": "One Use says discarded when Used"
+        },
+        {
+          "alternativeId": "SEM-Q-096-C",
+          "description": "Use another source-defined order for and/or branches, explicit remove-this-Item text, impossibility, and death/target changes.",
+          "support": "complete relative order is absent"
         }
       ]
     }

@@ -728,7 +728,8 @@ def build_yellow_item_source_index(repo: Path) -> dict:
     face_unit_ids = sorted({"CARD:" + row["sourceSha256"][:16] for row in selected_regular_assets})
     variant_unit_ids = sorted({"CARD:" + row["sourceSha256"][:16] for row in variant_assets})
     excluded_unit_ids = sorted({"CARD:" + row["sourceSha256"][:16] for row in excluded_assets})
-    cross_family_pending_ids = sorted({"CARD:" + row["sourceSha256"][:16] for row in cross_family_gap_assets if row["rulesTextPresent"]})
+    cross_family_pending_ids = sorted({"CARD:" + row["sourceSha256"][:16] for row in cross_family_gap_assets if row["rulesTextPresent"] and (backlog_by_id.get("CARD:" + row["sourceSha256"][:16]) or {}).get("status") != "pilot-covered"})
+    cross_family_covered_by_equipment_ids = sorted({"CARD:" + row["sourceSha256"][:16] for row in cross_family_gap_assets if row["rulesTextPresent"] and "SEM-EQUIPMENT-VARIANT-BOUNDARIES-001" in (backlog_by_id.get("CARD:" + row["sourceSha256"][:16]) or {}).get("pilotRuleIds", [])})
     overlapping_unit_ids = [
         "RULE:ACT-ITEM-001", "RULE:ACT-TRADE-001", "RULE:ACT-TACTICAL-001",
         "RULE:ITM-001", "RULE:ITM-002", "RULE:ITM-003", "RULE:ITM-004", "RULE:ITM-005", "RULE:ITM-006", "RULE:ITM-008",
@@ -865,6 +866,7 @@ def build_yellow_item_source_index(repo: Path) -> dict:
                 "variantUnitIds": variant_unit_ids,
                 "excludedClassConflictUnitIds": excluded_unit_ids,
                 "crossFamilyPendingUnitIds": cross_family_pending_ids,
+                "crossFamilyCoveredByEquipmentUnitIds": cross_family_covered_by_equipment_ids,
                 "nonRulesGapPaths": [row["sourcePath"] for row in non_rules_gap_assets],
                 "overlappingUnitIds": sorted(overlapping_unit_ids),
                 "linkedUnitIds": linked_unit_ids,

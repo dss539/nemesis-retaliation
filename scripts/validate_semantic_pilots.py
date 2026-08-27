@@ -15,20 +15,21 @@ from semantic_red_item_validation import validate_red_item_family
 from semantic_yellow_item_validation import validate_yellow_item_family
 from semantic_action_validation import validate_action_family
 from semantic_objective_validation import validate_objective_family
+from semantic_equipment_validation import validate_equipment_family
 
 REPO = Path(__file__).resolve().parents[1]
 DIR = REPO / 'docs/rules/semantics'
 VOCAB = REPO / 'docs/rules/vocabulary'
 ONTOLOGY = REPO / 'docs/rules/ontology'
 EXPECTED = {
-    'sources': 412, 'semanticNodes': 26, 'records': 447, 'sourceBacked': 183, 'withOpenQuestion': 242,
-    'sourceVariants': 22, 'sourceAssertions': 1228, 'conditions': 1342,
-    'operations': 1853, 'decisions': 294, 'informationPolicies': 467,
-    'costs': 31, 'targets': 515, 'openQuestionReferences': 385,
-    'variantReferences': 175, 'questions': 83, 'openQuestions': 83, 'systems': 24,
-    'conflicts': 69, 'unresolvedConflicts': 27,
+    'sources': 468, 'semanticNodes': 26, 'records': 506, 'sourceBacked': 183, 'withOpenQuestion': 300,
+    'sourceVariants': 23, 'sourceAssertions': 1340, 'conditions': 1479,
+    'operations': 2151, 'decisions': 329, 'informationPolicies': 526,
+    'costs': 36, 'targets': 540, 'openQuestionReferences': 513,
+    'variantReferences': 248, 'questions': 101, 'openQuestions': 101, 'systems': 25,
+    'conflicts': 80, 'unresolvedConflicts': 30,
     'roomIconDenotations': 112,
-    'backlogUnits': 600, 'backlogPilotCovered': 443, 'backlogSourceBlocked': 1,
+    'backlogUnits': 600, 'backlogPilotCovered': 499, 'backlogSourceBlocked': 1,
     'eventIdentities': 20, 'eventScanOccurrences': 20, 'eventLicensedOccurrences': 20,
     'eventOfficialOccurrences': 4, 'eventRecords': 20, 'eventBacklogTuples': 20,
     'explorationIdentities': 12, 'explorationScanOccurrences': 12,
@@ -150,6 +151,37 @@ EXPECTED = {
     'objectiveSemanticFamilyRecords': 85, 'objectiveCardBacklogTuples': 50,
     'objectiveCoveredCardBacklogTuples': 49, 'objectiveHelpBacklogUnits': 45,
     'objectiveLinkedBacklogObligations': 102,
+    'equipmentSourceIndexCounts': {
+        'officialCharacterItemCards': 7, 'officialSupportEquipmentCards': 24,
+        'supportRootPhysicalOccurrences': 24, 'supportRootDirectPhysicalOccurrences': 22,
+        'supportRootGeneratedPhysicalOccurrences': 2, 'supportRootUniquePrintedTitles': 24,
+        'supportRootHeavyPhysicalOccurrences': 19, 'supportRootArmorPhysicalOccurrences': 5,
+        'supportRootWeaponPhysicalOccurrences': 12, 'supportRootRangedWeaponPhysicalOccurrences': 9,
+        'supportRootMeleeWeaponPhysicalOccurrences': 3, 'supportSourceFaceAssets': 40,
+        'supportSelectedSourceFaceAssets': 24, 'supportSelectorGapSourceFaceAssets': 16,
+        'supportParentSheets': 1, 'supportParentSheetCells': 18, 'supportSelectedGeneratedCells': 2,
+        'supportSharedBacks': 1, 'supportSharedBackGlobalReferences': 72,
+        'characterKitPhysicalOccurrences': 7, 'characterKitSourceClearVariantOccurrences': 5,
+        'characterKitPrototypeExclusions': 2, 'characterKitDistinctBackAssets': 6,
+        'contractorCharacterItemOccurrences': 2, 'greenRootHeavyPhysicalOccurrences': 7,
+        'redRootExplicitHeavyPhysicalOccurrences': 3, 'redRootClassConflictPhysicalOccurrences': 6,
+        'yellowRootClassConflictPhysicalOccurrences': 6, 'colorRootHeavySemanticOccurrences': 10,
+        'classConflictSemanticExclusions': 12, 'officialVisibleCurrentFaceOccurrences': 6,
+        'officialVisibleCurrentCharacterItemOccurrences': 2, 'officialVisibleCurrentSupportOccurrences': 3,
+        'officialVisibleCurrentOtherHeavyOccurrences': 1, 'officialResolvedTacticalGearSlotOccurrences': 5,
+        'ttsSourceResolvedTacticalGearSlotOccurrences': 5, 'ttsSlotEvidenceUnresolvedOccurrences': 12,
+        'dedicatedPrintedCardTrackOccurrences': 0, 'officialCharacterHealthTrackOccurrences': 1,
+        'supportPhysicalPanels': 99, 'supportPrintedSentences': 33, 'supportFunctionalIconOccurrences': 52,
+        'supportMatchedIconOccurrences': 48, 'supportLiteralNoMatchIconOccurrences': 4,
+        'characterPhysicalPanels': 28, 'characterPrintedSentences': 8, 'characterFunctionalIconOccurrences': 10,
+        'licensedRelevantRows': 37, 'licensedSupportRows': 24, 'licensedCharacterRows': 7,
+        'licensedColorHeavyOrConflictRows': 6, 'licensedDeclaredRelevantCopies': 53,
+        'baseApplicableFaqOccurrences': 8, 'officialRulebookVisualOccurrences': 13,
+        'semanticTtsPhysicalFaceRecords': 39, 'semanticOfficialFaceRecords': 6,
+        'backlogSourceFaceTuples': 52, 'backlogObligationsLinked': 84,
+    },
+    'equipmentTtsPhysicalFaceRecords': 39, 'equipmentOfficialFaceRecords': 6,
+    'equipmentClassConflictExclusions': 12, 'equipmentBacklogSourceFaceTuples': 52,
 }
 PINNED_HELP_SOURCE_HASHES = {
     'docs/rules/source-extraction/intruder-help-sheet.json': 'e07f2703a6ad1b49c06389f79d3b1ffd6f5fd1d98604bf14b405fee49d9679e6',
@@ -545,7 +577,7 @@ def cardinality_valid(value: dict) -> bool:
     return isinstance(maximum, int) and not isinstance(maximum, bool) and maximum >= minimum
 
 
-def validate(event_source_path: Path, exploration_source_path: Path, robot_source_path: Path, attack_source_path: Path, queen_health_source_path: Path, serious_wound_source_path: Path, green_item_source_path: Path, red_item_source_path: Path, yellow_item_source_path: Path, action_source_path: Path, objective_source_path: Path, source_path: Path, schema_path: Path, semantic_vocabulary_path: Path, room_icon_path: Path, pilots_path: Path, review_path: Path, contradictions_path: Path, coverage_path: Path, backlog_path: Path, *, reproducibility: bool) -> dict:  # pyright: ignore[reportGeneralTypeIssues]
+def validate(event_source_path: Path, exploration_source_path: Path, robot_source_path: Path, attack_source_path: Path, queen_health_source_path: Path, serious_wound_source_path: Path, green_item_source_path: Path, red_item_source_path: Path, yellow_item_source_path: Path, equipment_source_path: Path, action_source_path: Path, objective_source_path: Path, source_path: Path, schema_path: Path, semantic_vocabulary_path: Path, room_icon_path: Path, pilots_path: Path, review_path: Path, contradictions_path: Path, coverage_path: Path, backlog_path: Path, *, reproducibility: bool) -> dict:  # pyright: ignore[reportGeneralTypeIssues]
     failures: list[dict] = []
     event_sources = load(event_source_path)
     exploration_sources = load(exploration_source_path)
@@ -556,6 +588,7 @@ def validate(event_source_path: Path, exploration_source_path: Path, robot_sourc
     green_item_sources = load(green_item_source_path)
     red_item_sources = load(red_item_source_path)
     yellow_item_sources = load(yellow_item_source_path)
+    equipment_sources = load(equipment_source_path)
     action_sources = load(action_source_path)
     objective_sources = load(objective_source_path)
     sources_data = load(source_path)
@@ -1514,7 +1547,7 @@ def validate(event_source_path: Path, exploration_source_path: Path, robot_sourc
             path = evidence_path(reference)
             if path is None or not path.exists():
                 failures.append({'check': 'semantic conflict evidence', 'conflictId': conflict.get('conflictId'), 'reference': reference})
-    if contradictions.get('counts') != {'conflicts':69,'resolvedByAuthority':14,'unresolved':27,'preservedBoundary':28}:
+    if contradictions.get('counts') != {'conflicts':80,'resolvedByAuthority':18,'unresolved':30,'preservedBoundary':32}:
         failures.append({'check': 'semantic conflict declared counts'})
 
     question_by_id = {row.get('questionId'): row for row in question_rows}
@@ -1539,6 +1572,10 @@ def validate(event_source_path: Path, exploration_source_path: Path, robot_sourc
     )
     objective_validation = validate_objective_family(
         REPO, objective_source_path, objective_sources, source_by_id, backlog_rows_by_id,
+        record_by_id, question_by_id, conflict_rows, coverage, failures,
+    )
+    equipment_validation = validate_equipment_family(
+        REPO, equipment_source_path, equipment_sources, source_by_id, backlog_rows_by_id,
         record_by_id, question_by_id, conflict_rows, coverage, failures,
     )
 
@@ -2718,6 +2755,11 @@ def validate(event_source_path: Path, exploration_source_path: Path, robot_sourc
         'yellowItemOfficialFamilyOccurrences': len(yellow_validation['official']),
         'yellowItemRecords': len(yellow_validation['actualRuleIds']),
         'yellowItemBacklogTuples': sum((backlog_rows_by_id.get(backlog_id) or {}).get('pilotRuleIds') == rule_ids for backlog_id,rule_ids in yellow_validation['expectedBacklogRules'].items()),
+        'equipmentSourceIndexCounts': equipment_sources.get('counts'),
+        'equipmentTtsPhysicalFaceRecords': len(equipment_validation['faceRuleIds']),
+        'equipmentOfficialFaceRecords': len(equipment_validation['officialRuleIds']),
+        'equipmentClassConflictExclusions': len(equipment_validation['conflicts']),
+        'equipmentBacklogSourceFaceTuples': sum(unit_id.startswith('CARD:') for unit_id in equipment_validation['linkedBacklogIds']),
         'actionPhysicalOccurrences': len(action_validation['faces']),
         'actionCharacterDecks': len(action_validation['decks']),
         'actionRootDecks': len(action_validation['roots']),
@@ -2793,7 +2835,7 @@ def validate(event_source_path: Path, exploration_source_path: Path, robot_sourc
     if actual_counts != EXPECTED:
         failures.append({'check': 'hard-coded semantic pilot counts', 'expected': EXPECTED, 'actual': actual_counts})
     expected_pilot_counts = {key: actual_counts[key] for key in ('records','sourceBacked','withOpenQuestion','sourceVariants','sourceAssertions','conditions','operations','decisions','informationPolicies','costs','targets','openQuestionReferences','variantReferences')}
-    if pilots.get('counts') != expected_pilot_counts or sources_data.get('counts') != {'sources': 412} or review.get('counts') != {'questions':83,'officialClarificationPreferred':47,'sourceAmbiguitiesIntroducedByPilot':36,'resolved':0,'open':83} or coverage.get('counts') != {'systems':24,'pilotRecords':447,'fullBaseSemanticCoverageClaimed':False}:
+    if pilots.get('counts') != expected_pilot_counts or sources_data.get('counts') != {'sources': 468} or review.get('counts') != {'questions':101,'officialClarificationPreferred':63,'sourceAmbiguitiesIntroducedByPilot':38,'resolved':0,'open':101} or coverage.get('counts') != {'systems':25,'pilotRecords':506,'fullBaseSemanticCoverageClaimed':False}:
         failures.append({'check': 'declared semantic counts'})
     covered_rule_ids = [rule_id for system in coverage.get('systems') or [] for rule_id in system.get('ruleIds') or []]
     if set(covered_rule_ids) != set(record_ids) or len(covered_rule_ids) != len(set(covered_rule_ids)) or coverage.get('counts', {}).get('fullBaseSemanticCoverageClaimed') is not False:
@@ -2822,7 +2864,7 @@ def validate(event_source_path: Path, exploration_source_path: Path, robot_sourc
     if len(blocked_units) != 1 or not blocked_units[0].get('sourcePath','').endswith('missionTaskDeck-023.png') or 'exact-source-operative-span' not in blocked_units[0].get('blockers',[]):
         failures.append({'check': 'semantic backlog inherited source blocker'})
     expected_backlog_channels = {'card-reference-source-tuple':350,'interpreted-rule-record':54,'intruder-help-instruction':18,'objective-help-unit':45,'official-faq-unit':28,'room-help-entry':25,'rulebook-visual-obligation':80}
-    expected_backlog_status = {'pending':156,'pilot-covered':443,'source-blocked':1}
+    expected_backlog_status = {'pending':100,'pilot-covered':499,'source-blocked':1}
     if backlog.get('counts') != {'units':600,'byChannel':expected_backlog_channels,'byStatus':expected_backlog_status}:
         failures.append({'check': 'semantic backlog declared counts'})
 
@@ -2840,7 +2882,7 @@ def validate(event_source_path: Path, exploration_source_path: Path, robot_sourc
                     failures.append({'check': 'semantic backlog rebuild execution', 'seed': seed, 'locale':locale_name, 'stderr': backlog_run.stderr})
                     continue
                 hashes = {}
-                for name, tracked in [('event-source-index.json',event_source_path),('exploration-source-index.json',exploration_source_path),('robot-source-index.json',robot_source_path),('attack-source-index.json',attack_source_path),('queen-health-source-index.json',queen_health_source_path),('serious-wound-source-index.json',serious_wound_source_path),('green-item-source-index.json',green_item_source_path),('red-item-source-index.json',red_item_source_path),('yellow-item-source-index.json',yellow_item_source_path),('action-source-index.json',action_source_path),('objective-mission-source-index.json',objective_source_path),('source-registry.json',source_path),('semantic-rule.schema.json',schema_path),('semantic-vocabulary.json',semantic_vocabulary_path),('room-icon-denotations.json',room_icon_path),('pilots.json',pilots_path),('review-gates.json',review_path),('contradictions.json',contradictions_path),('coverage.json',coverage_path),('backlog.json',backlog_path)]:
+                for name, tracked in [('event-source-index.json',event_source_path),('exploration-source-index.json',exploration_source_path),('robot-source-index.json',robot_source_path),('attack-source-index.json',attack_source_path),('queen-health-source-index.json',queen_health_source_path),('serious-wound-source-index.json',serious_wound_source_path),('green-item-source-index.json',green_item_source_path),('red-item-source-index.json',red_item_source_path),('yellow-item-source-index.json',yellow_item_source_path),('equipment-source-index.json',equipment_source_path),('action-source-index.json',action_source_path),('objective-mission-source-index.json',objective_source_path),('source-registry.json',source_path),('semantic-rule.schema.json',schema_path),('semantic-vocabulary.json',semantic_vocabulary_path),('room-icon-denotations.json',room_icon_path),('pilots.json',pilots_path),('review-gates.json',review_path),('contradictions.json',contradictions_path),('coverage.json',coverage_path),('backlog.json',backlog_path)]:
                     rebuilt = Path(temp_dir) / name
                     hashes[name] = sha(rebuilt) if rebuilt.is_file() else None
                     if not rebuilt.is_file() or hashes[name] != sha(tracked):
@@ -2863,6 +2905,7 @@ def main() -> int:
     parser.add_argument('--green-item-source-index', type=Path, default=DIR/'green-item-source-index.json')
     parser.add_argument('--red-item-source-index', type=Path, default=DIR/'red-item-source-index.json')
     parser.add_argument('--yellow-item-source-index', type=Path, default=DIR/'yellow-item-source-index.json')
+    parser.add_argument('--equipment-source-index', type=Path, default=DIR/'equipment-source-index.json')
     parser.add_argument('--action-source-index', type=Path, default=DIR/'action-source-index.json')
     parser.add_argument('--objective-source-index', type=Path, default=DIR/'objective-mission-source-index.json')
     parser.add_argument('--source-registry', type=Path, default=DIR/'source-registry.json')
@@ -2878,7 +2921,7 @@ def main() -> int:
     parser.add_argument('--report', action='store_true')
     args = parser.parse_args()
     try:
-        report = validate(args.event_source_index,args.exploration_source_index,args.robot_source_index,args.attack_source_index,args.queen_health_source_index,args.serious_wound_source_index,args.green_item_source_index,args.red_item_source_index,args.yellow_item_source_index,args.action_source_index,args.objective_source_index,args.source_registry,args.schema,args.semantic_vocabulary,args.room_icon_denotations,args.pilots,args.review_gates,args.contradictions,args.coverage,args.backlog,reproducibility=not args.skip_reproducibility)
+        report = validate(args.event_source_index,args.exploration_source_index,args.robot_source_index,args.attack_source_index,args.queen_health_source_index,args.serious_wound_source_index,args.green_item_source_index,args.red_item_source_index,args.yellow_item_source_index,args.equipment_source_index,args.action_source_index,args.objective_source_index,args.source_registry,args.schema,args.semantic_vocabulary,args.room_icon_denotations,args.pilots,args.review_gates,args.contradictions,args.coverage,args.backlog,reproducibility=not args.skip_reproducibility)
     except (DuplicateJsonKeyError,json.JSONDecodeError) as error:
         report = {'schemaVersion':1,'passed':False,'checks':{},'failureCount':1,'failures':[{'check':'strict JSON parsing','error':str(error)}]}
     if args.report and args.pilots.resolve() == (DIR/'pilots.json').resolve():

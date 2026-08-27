@@ -10,7 +10,7 @@ import unittest
 REPO=Path(__file__).resolve().parents[1]
 DIR=REPO/'docs/rules/semantics'
 VALIDATOR=REPO/'scripts/validate_semantic_pilots.py'
-FILES=('event-source-index.json','exploration-source-index.json','robot-source-index.json','attack-source-index.json','queen-health-source-index.json','serious-wound-source-index.json','green-item-source-index.json','red-item-source-index.json','yellow-item-source-index.json','action-source-index.json','objective-mission-source-index.json','source-registry.json','semantic-rule.schema.json','semantic-vocabulary.json','room-icon-denotations.json','pilots.json','review-gates.json','contradictions.json','coverage.json','backlog.json')
+FILES=('event-source-index.json','exploration-source-index.json','robot-source-index.json','attack-source-index.json','queen-health-source-index.json','serious-wound-source-index.json','green-item-source-index.json','red-item-source-index.json','yellow-item-source-index.json','equipment-source-index.json','action-source-index.json','objective-mission-source-index.json','source-registry.json','semantic-rule.schema.json','semantic-vocabulary.json','room-icon-denotations.json','pilots.json','review-gates.json','contradictions.json','coverage.json','backlog.json')
 
 
 def load(path): return json.loads(path.read_text(encoding='utf-8'))
@@ -19,7 +19,7 @@ def load(path): return json.loads(path.read_text(encoding='utf-8'))
 class SemanticPilotTests(unittest.TestCase):
     def run_validator(self, root=None, skip=False):
         base=root or DIR
-        command=['python3',str(VALIDATOR),'--event-source-index',str(base/'event-source-index.json'),'--exploration-source-index',str(base/'exploration-source-index.json'),'--robot-source-index',str(base/'robot-source-index.json'),'--attack-source-index',str(base/'attack-source-index.json'),'--queen-health-source-index',str(base/'queen-health-source-index.json'),'--serious-wound-source-index',str(base/'serious-wound-source-index.json'),'--green-item-source-index',str(base/'green-item-source-index.json'),'--red-item-source-index',str(base/'red-item-source-index.json'),'--yellow-item-source-index',str(base/'yellow-item-source-index.json'),'--action-source-index',str(base/'action-source-index.json'),'--objective-source-index',str(base/'objective-mission-source-index.json'),'--source-registry',str(base/'source-registry.json'),'--schema',str(base/'semantic-rule.schema.json'),'--semantic-vocabulary',str(base/'semantic-vocabulary.json'),'--room-icon-denotations',str(base/'room-icon-denotations.json'),'--pilots',str(base/'pilots.json'),'--review-gates',str(base/'review-gates.json'),'--contradictions',str(base/'contradictions.json'),'--coverage',str(base/'coverage.json'),'--backlog',str(base/'backlog.json')]
+        command=['python3',str(VALIDATOR),'--event-source-index',str(base/'event-source-index.json'),'--exploration-source-index',str(base/'exploration-source-index.json'),'--robot-source-index',str(base/'robot-source-index.json'),'--attack-source-index',str(base/'attack-source-index.json'),'--queen-health-source-index',str(base/'queen-health-source-index.json'),'--serious-wound-source-index',str(base/'serious-wound-source-index.json'),'--green-item-source-index',str(base/'green-item-source-index.json'),'--red-item-source-index',str(base/'red-item-source-index.json'),'--yellow-item-source-index',str(base/'yellow-item-source-index.json'),'--equipment-source-index',str(base/'equipment-source-index.json'),'--action-source-index',str(base/'action-source-index.json'),'--objective-source-index',str(base/'objective-mission-source-index.json'),'--source-registry',str(base/'source-registry.json'),'--schema',str(base/'semantic-rule.schema.json'),'--semantic-vocabulary',str(base/'semantic-vocabulary.json'),'--room-icon-denotations',str(base/'room-icon-denotations.json'),'--pilots',str(base/'pilots.json'),'--review-gates',str(base/'review-gates.json'),'--contradictions',str(base/'contradictions.json'),'--coverage',str(base/'coverage.json'),'--backlog',str(base/'backlog.json')]
         if skip: command.append('--skip-reproducibility')
         run=subprocess.run(command,cwd=REPO,check=False,capture_output=True,text=True,timeout=300)
         return run,json.loads(run.stdout)
@@ -28,17 +28,23 @@ class SemanticPilotTests(unittest.TestCase):
         run,report=self.run_validator()
         self.assertEqual(run.returncode,0,run.stdout+run.stderr)
         self.assertTrue(report['passed'])
-        self.assertEqual(report['checks']['records'],447)
-        self.assertEqual(report['checks']['operations'],1853)
-        self.assertEqual(report['checks']['decisions'],294)
-        self.assertEqual(report['checks']['targets'],515)
-        self.assertEqual(report['checks']['conditions'],1342)
-        self.assertEqual(report['checks']['openQuestionReferences'],385)
-        self.assertEqual(report['checks']['openQuestions'],83)
+        self.assertEqual(report['checks']['records'],506)
+        self.assertEqual(report['checks']['operations'],2151)
+        self.assertEqual(report['checks']['decisions'],329)
+        self.assertEqual(report['checks']['targets'],540)
+        self.assertEqual(report['checks']['conditions'],1479)
+        self.assertEqual(report['checks']['openQuestionReferences'],513)
+        self.assertEqual(report['checks']['openQuestions'],101)
         self.assertEqual(report['checks']['semanticNodes'],26)
-        self.assertEqual(report['checks']['conflicts'],69)
+        self.assertEqual(report['checks']['conflicts'],80)
         self.assertEqual(report['checks']['backlogUnits'],600)
-        self.assertEqual(report['checks']['backlogPilotCovered'],443)
+        self.assertEqual(report['checks']['backlogPilotCovered'],499)
+        self.assertEqual(report['checks']['sources'],468)
+        self.assertEqual(report['checks']['systems'],25)
+        self.assertEqual(report['checks']['equipmentTtsPhysicalFaceRecords'],39)
+        self.assertEqual(report['checks']['equipmentOfficialFaceRecords'],6)
+        self.assertEqual(report['checks']['equipmentClassConflictExclusions'],12)
+        self.assertEqual(report['checks']['equipmentBacklogSourceFaceTuples'],52)
         self.assertEqual(report['checks']['eventIdentities'],20)
         self.assertEqual(report['checks']['eventRecords'],20)
         self.assertEqual(report['checks']['eventBacklogTuples'],20)
@@ -1007,7 +1013,8 @@ class SemanticPilotTests(unittest.TestCase):
         for unit_id in source['familyCountEvidence']['backlog']['linkedUnitIds']:
             self.assertEqual(backlog[unit_id]['status'],'pilot-covered')
         for unit_id in source['familyCountEvidence']['backlog']['excludedHeavyUnitIds']:
-            self.assertEqual(backlog[unit_id]['status'],'pending')
+            self.assertEqual(backlog[unit_id]['status'],'pilot-covered')
+            self.assertTrue(any(rule_id.startswith('SEM-HEAVY-GREEN-') for rule_id in backlog[unit_id]['pilotRuleIds']))
 
     def test_base_green_item_family_semantic_closure(self):
         source=load(DIR/'green-item-source-index.json')
@@ -1181,7 +1188,8 @@ class SemanticPilotTests(unittest.TestCase):
         for unit_id in source['familyCountEvidence']['backlog']['linkedUnitIds']:
             self.assertEqual(backlog[unit_id]['status'],'pilot-covered')
         for unit_id in source['familyCountEvidence']['backlog']['excludedHeavyOrConflictUnitIds']:
-            self.assertEqual(backlog[unit_id]['status'],'pending')
+            self.assertEqual(backlog[unit_id]['status'],'pilot-covered')
+            self.assertIn('SEM-EQUIPMENT-VARIANT-BOUNDARIES-001',backlog[unit_id]['pilotRuleIds'])
         for unit_id in source['familyCountEvidence']['backlog']['crossFamilyPendingUnitIds']:
             self.assertEqual(backlog[unit_id]['status'],'pending')
         for unit_id in source['familyCountEvidence']['backlog']['crossFamilyCoveredByYellowUnitIds']:
@@ -1375,9 +1383,11 @@ class SemanticPilotTests(unittest.TestCase):
         for unit_id in source['familyCountEvidence']['backlog']['linkedUnitIds']:
             self.assertEqual(backlog[unit_id]['status'],'pilot-covered')
         for unit_id in source['familyCountEvidence']['backlog']['excludedClassConflictUnitIds']:
-            self.assertEqual(backlog[unit_id]['status'],'pending')
+            self.assertEqual(backlog[unit_id]['status'],'pilot-covered')
+            self.assertIn('SEM-EQUIPMENT-VARIANT-BOUNDARIES-001',backlog[unit_id]['pilotRuleIds'])
         for unit_id in source['familyCountEvidence']['backlog']['crossFamilyPendingUnitIds']:
             self.assertEqual(backlog[unit_id]['status'],'pending')
+        self.assertEqual(source['familyCountEvidence']['backlog']['crossFamilyCoveredByEquipmentUnitIds'],['CARD:41183eb8c34b083a'])
 
         face_rule_ids=[row['semanticRuleId'] for row in source['faces']]
         use=by_id['SEM-USE-ITEM-001']
@@ -1970,7 +1980,7 @@ class SemanticPilotTests(unittest.TestCase):
         self.assertIn('accessibility',json.dumps(by_id['SEM-OBJECTIVE-SECRECY-001']))
         self.assertEqual(by_id['SEM-RT-010']['operations'][-1]['repeat']['drawCountByChoiceOrdinal'],{'1':3,'2':2,'3':2,'4':1,'5':1})
         self.assertEqual(by_id['SEM-ENDGAME-001']['unresolvedQuestionRefs'],['OQ-001','SEM-Q-077','SEM-Q-078'])
-        self.assertEqual({row['questionId'] for row in load(DIR/'review-gates.json')['questions'] if row['questionId'].startswith('SEM-Q-07')},{'SEM-Q-070','SEM-Q-071','SEM-Q-072','SEM-Q-073','SEM-Q-074','SEM-Q-075','SEM-Q-076','SEM-Q-077','SEM-Q-078'})
+        self.assertEqual({row['questionId'] for row in load(DIR/'review-gates.json')['questions'] if row['questionId'].startswith('SEM-Q-07')},{'SEM-Q-070','SEM-Q-071','SEM-Q-072','SEM-Q-073','SEM-Q-074','SEM-Q-075','SEM-Q-076','SEM-Q-077','SEM-Q-078','SEM-Q-079'})
 
     def test_objective_specific_adversarial_corruptions_are_rejected(self):
         def run_mutation(mutate):

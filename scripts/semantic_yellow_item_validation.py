@@ -6,7 +6,7 @@ from pathlib import Path
 import re
 
 
-PINNED_YELLOW_ITEM_SOURCE_INDEX_HASH = "c1b9602eae9ed8ec292465015b110278eec5c7d1f25de702ba36f0dd44b6758e"
+PINNED_YELLOW_ITEM_SOURCE_INDEX_HASH = "7e49fdee1d324b2ff2384828c2ed82d941686f976d39043ff03f9aa920bde43b"
 
 EXPECTED_YELLOW_ITEM_COUNTS = {
     "rootPhysicalOccurrences": 30,
@@ -377,7 +377,13 @@ def validate_yellow_item_family(
             failures.append({"check": "Yellow Item exact backlog tuple projection", "occurrenceId": occurrence_id})
         if regular:
             expected_backlog_rules.setdefault(backlog_id, []).append(_rule_id(card_id, guid))
-        elif (backlog_by_id.get(backlog_id) or {}).get("status") != "pending" or row.get("semanticRuleId") is not None:
+        elif (
+            row.get("semanticRuleId") is not None
+            or (
+                (backlog_by_id.get(backlog_id) or {}).get("status") != "pending"
+                and "SEM-EQUIPMENT-VARIANT-BOUNDARIES-001" not in (backlog_by_id.get(backlog_id) or {}).get("pilotRuleIds", [])
+            )
+        ):
             failures.append({"check": "Yellow Item regular/class-conflict leakage", "occurrenceId": occurrence_id})
 
     for asset_key in ("sheet34-01", "sheet34-02", "sheet33-02"):
@@ -388,8 +394,10 @@ def validate_yellow_item_family(
         asset = next(item for item in assets if "CARD:" + item["sourceSha256"][:16] == backlog_id)
         if backlog.get("sourcePath") != asset.get("sourcePath") or backlog.get("sourceLocator") != asset.get("sourceSha256") or backlog.get("pilotRuleIds") != rule_ids or backlog.get("status") != "pilot-covered":
             failures.append({"check": "Yellow Item exact backlog tuple projection", "backlogUnitId": backlog_id})
-    if (backlog_by_id.get("CARD:41183eb8c34b083a") or {}).get("status") != "pending":
+    if (backlog_by_id.get("CARD:41183eb8c34b083a") or {}).get("status") != "pilot-covered" or "SEM-EQUIPMENT-VARIANT-BOUNDARIES-001" not in (backlog_by_id.get("CARD:41183eb8c34b083a") or {}).get("pilotRuleIds", []):
         failures.append({"check": "Yellow Item cross-family Military Taser backlog boundary"})
+    if (source.get("familyCountEvidence", {}).get("backlog") or {}).get("crossFamilyPendingUnitIds") != [] or (source.get("familyCountEvidence", {}).get("backlog") or {}).get("crossFamilyCoveredByEquipmentUnitIds") != ["CARD:41183eb8c34b083a"]:
+        failures.append({"check": "Yellow Item equipment cross-family status projection"})
 
     sheets = source.get("sourceSheets") or []
     backs = source.get("rootBacks") or []
@@ -541,7 +549,7 @@ def validate_yellow_item_family(
     system = next((row for row in coverage.get("systems") or [] if row.get("system") == "base source-clear regular Yellow Item card/component family"), {})
     expected_system_ids = [*EXPECTED_YELLOW_ITEM_REUSABLE_RULE_IDS, *expected_rule_ids]
     not_yet = " ".join(coverage.get("notYetCovered") or [])
-    if system.get("ruleIds") != expected_system_ids or "24-occurrence source-clear regular Yellow Item" not in not_yet or "six Fire Extinguisher/Robot Controller Yellow class-conflict occurrences" not in not_yet:
+    if system.get("ruleIds") != expected_system_ids or "24-occurrence source-clear regular Yellow Item" not in not_yet or "six Fire Extinguisher/Robot Controller Yellow class-conflict occurrences" in not_yet:
         failures.append({"check": "Yellow Item coverage/class-boundary/no-full-coverage claim"})
 
     return {

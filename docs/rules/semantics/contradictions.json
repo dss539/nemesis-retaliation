@@ -3,10 +3,10 @@
   "recordType": "semantic-conflict-register",
   "policy": "Readable source differences remain separate. Authority may resolve a general rule without rewriting lower-authority component wording; unresolved conflicts never receive a default.",
   "counts": {
-    "conflicts": 69,
-    "resolvedByAuthority": 14,
-    "unresolved": 27,
-    "preservedBoundary": 28
+    "conflicts": 80,
+    "resolvedByAuthority": 18,
+    "unresolved": 30,
+    "preservedBoundary": 32
   },
   "conflicts": [
     {
@@ -1582,6 +1582,322 @@
       ],
       "difference": "BGA stores 26 competitive and 12 Solo/Coop rows. TTS separately stores 12 official-style and 26 custom Solo/Coop selectors; official inventory says 12 Solo/Coop cards and standard rules do not use them.",
       "resolution": "Retain all counts without forcing equality or a copy crosswalk. Solo/Coop and custom roots are indexed exclusions from base-competitive conclusions."
+    },
+    {
+      "conflictId": "SC-070",
+      "title": "Current official Automatic Shotgun versus TTS Automatic/BF Gun variants",
+      "status": "resolved-by-authority",
+      "questionId": null,
+      "affectedRuleIds": [
+        "SEM-CHARACTER-ITEM-OFFICIAL-AUTOMATIC-SHOTGUN-001",
+        "SEM-EQUIPMENT-VARIANT-BOUNDARIES-001"
+      ],
+      "evidenceRefs": [
+        "SRC-RULEBOOK",
+        "SRC-EQUIPMENT-CHARACTER-CE-431200-2059A7",
+        "SRC-EQUIPMENT-CHARACTER-HGO-524700-427C1A",
+        "SRC-BGA-EQUIPMENT-ITEMS"
+      ],
+      "difference": "Official page 3 assigns current Automatic Shotgun to Heavy Gun Operator with Heavy/Before/if-able wording; TTS misnests an obsolete Rifle/On Hit variant under Combat Engineer and carries obsolete BF Gun under HGO; licensed rows follow the obsolete owner split.",
+      "resolution": "Official current occurrence controls. Exclude both audited TTS prototypes from current dispatch while retaining exact source faces/backs/kit ancestry."
+    },
+    {
+      "conflictId": "SC-071",
+      "title": "Seven Character Item count versus incomplete current identity/owner crosswalk",
+      "status": "unresolved",
+      "questionId": "SEM-Q-079",
+      "affectedRuleIds": [
+        "SEM-CHARACTER-ITEM-SETUP-001",
+        "SEM-EQUIPMENT-VARIANT-BOUNDARIES-001",
+        "SEM-CHARACTER-ITEM-MS-545000-219BFF-001",
+        "SEM-CHARACTER-ITEM-CON-545000-BAC443-001",
+        "SEM-CHARACTER-ITEM-CON-591300-21BD03-001",
+        "SEM-CHARACTER-ITEM-OFF-581900-039116-001",
+        "SEM-CHARACTER-ITEM-REC-556600-81D699-001"
+      ],
+      "evidenceRefs": [
+        "SRC-RULEBOOK",
+        "SRC-EQUIPMENT-SUPPORT-ROOT",
+        "SRC-BGA-EQUIPMENT-ITEMS"
+      ],
+      "difference": "Official inventory/setup gives seven and Contractor two, but only two current Character Item owner/face occurrences are fully visible; TTS and licensed seven-row rosters contain known obsolete conflicts.",
+      "resolution": "No default; preserve each source roster/occurrence independently."
+    },
+    {
+      "conflictId": "SC-072",
+      "title": "Exact 24-card Support root versus 24 independent licensed rows",
+      "status": "preserved-boundary",
+      "questionId": null,
+      "affectedRuleIds": [
+        "SEM-SUPPORT-EQUIPMENT-DRAFT-001",
+        "SEM-EQUIPMENT-VARIANT-BOUNDARIES-001",
+        "SEM-SUPPORT-EQUIPMENT-556600-A0DAEF-001",
+        "SEM-SUPPORT-EQUIPMENT-507800-F56191-001",
+        "SEM-SUPPORT-EQUIPMENT-508200-A0F5B7-001",
+        "SEM-SUPPORT-EQUIPMENT-502900-4ECB1E-001",
+        "SEM-SUPPORT-EQUIPMENT-507200-2F41B8-001",
+        "SEM-SUPPORT-EQUIPMENT-507600-1281C5-001",
+        "SEM-SUPPORT-EQUIPMENT-507300-A9FAB3-001",
+        "SEM-SUPPORT-EQUIPMENT-507400-BADAD6-001",
+        "SEM-SUPPORT-EQUIPMENT-507500-33C9E4-001",
+        "SEM-SUPPORT-EQUIPMENT-507700-4E708D-001",
+        "SEM-SUPPORT-EQUIPMENT-507100-875C54-001",
+        "SEM-SUPPORT-EQUIPMENT-410200-98AD4C-001",
+        "SEM-SUPPORT-EQUIPMENT-493400-85096E-001",
+        "SEM-SUPPORT-EQUIPMENT-2917-DFFD35-001",
+        "SEM-SUPPORT-EQUIPMENT-424900-8AE645-001",
+        "SEM-SUPPORT-EQUIPMENT-508300-FD46EC-001",
+        "SEM-SUPPORT-EQUIPMENT-410400-A242E6-001",
+        "SEM-SUPPORT-EQUIPMENT-507000-1F3CA2-001",
+        "SEM-SUPPORT-EQUIPMENT-507900-DF46D6-001",
+        "SEM-SUPPORT-EQUIPMENT-466100-4912A1-001",
+        "SEM-SUPPORT-EQUIPMENT-424800-881635-001",
+        "SEM-SUPPORT-EQUIPMENT-508100-785B03-001",
+        "SEM-SUPPORT-EQUIPMENT-2910-D29216-001",
+        "SEM-SUPPORT-EQUIPMENT-508000-0F51F3-001"
+      ],
+      "evidenceRefs": [
+        "SRC-RULEBOOK",
+        "SRC-EQUIPMENT-SUPPORT-ROOT",
+        "SRC-BGA-EQUIPMENT-ITEMS"
+      ],
+      "difference": "Counts reconcile at 24, but direct/sheet TTS titles/text/classes/slots and licensed rows differ and no copy selector crosses sources.",
+      "resolution": "Aggregate equality is not a one-to-one crosswalk; retain all physical and licensed occurrences."
+    },
+    {
+      "conflictId": "SC-073",
+      "title": "Support 6x3 parent-sheet selected cells versus sixteen selector gaps",
+      "status": "preserved-boundary",
+      "questionId": null,
+      "affectedRuleIds": [
+        "SEM-EQUIPMENT-VARIANT-BOUNDARIES-001"
+      ],
+      "evidenceRefs": [
+        "SRC-EQUIPMENT-SUPPORT-SHEET-29"
+      ],
+      "difference": "Only exact full CardIDs 2910 and 2917 select cells 10 and 17; sixteen readable cells have no root full CardID/GUID selector and several share titles with direct faces.",
+      "resolution": "Preserve all sheet/hash/grid/cell tuples; no title/body/cell/modulo repair."
+    },
+    {
+      "conflictId": "SC-074",
+      "title": "Printed Tactical Gear slot evidence versus GMNotes/licensed slots",
+      "status": "unresolved",
+      "questionId": "SEM-Q-083",
+      "affectedRuleIds": [
+        "SEM-EQUIPMENT-FULLY-LOADED-001",
+        "SEM-EQUIPMENT-VARIANT-BOUNDARIES-001",
+        "SEM-SUPPORT-EQUIPMENT-507800-F56191-001",
+        "SEM-SUPPORT-EQUIPMENT-424900-8AE645-001",
+        "SEM-SUPPORT-EQUIPMENT-410400-A242E6-001",
+        "SEM-SUPPORT-EQUIPMENT-507000-1F3CA2-001",
+        "SEM-SUPPORT-EQUIPMENT-508100-785B03-001",
+        "SEM-CHARACTER-ITEM-MS-545000-219BFF-001",
+        "SEM-CHARACTER-ITEM-CON-545000-BAC443-001",
+        "SEM-CHARACTER-ITEM-OFF-581900-039116-001",
+        "SEM-CHARACTER-ITEM-REC-556600-81D699-001"
+      ],
+      "evidenceRefs": [
+        "SRC-RULEBOOK",
+        "SRC-EQUIPMENT-SUPPORT-ROOT",
+        "SRC-BGA-EQUIPMENT-ITEMS"
+      ],
+      "difference": "Some tracked TTS faces lack source-scoped authoritative slot matches while GMNotes and licensed rows supply plausible counts/types; exact official Heavy Armor/Grenade Launcher slots are separately visible.",
+      "resolution": "No color/title/art/orientation/GMNotes/BGA default; retain literal/corroborating evidence."
+    },
+    {
+      "conflictId": "SC-075",
+      "title": "Color-root Heavy occurrences versus stale all-regular downstream interpretation",
+      "status": "resolved-by-authority",
+      "questionId": null,
+      "affectedRuleIds": [
+        "SEM-HEAVY-GREEN-415900-9BD717-001",
+        "SEM-HEAVY-GREEN-415900-339846-001",
+        "SEM-HEAVY-GREEN-416000-C8E79C-001",
+        "SEM-HEAVY-GREEN-416100-61A77C-001",
+        "SEM-HEAVY-GREEN-400100-4FF8A4-001",
+        "SEM-HEAVY-GREEN-400100-4B18B1-001",
+        "SEM-HEAVY-GREEN-400100-1CECCD-001",
+        "SEM-HEAVY-RED-531600-0C0643-001",
+        "SEM-HEAVY-RED-531500-810D80-001",
+        "SEM-HEAVY-RED-531400-5DF671-001",
+        "SEM-EQUIPMENT-VARIANT-BOUNDARIES-001"
+      ],
+      "evidenceRefs": [
+        "SRC-RULEBOOK",
+        "docs/rules/semantics/green-item-source-index.json",
+        "docs/rules/semantics/red-item-source-index.json",
+        "docs/rules/04-items-and-equipment.md:ITM-003/ITM-004"
+      ],
+      "difference": "Exact Green root has seven Heavy and Red root three explicit Heavy faces, contradicting the old project statement that color roots contain only regular Backpack Items.",
+      "resolution": "Correct the project interpretation; exact physical occurrences/class rules control, while color remains a source family rather than class."
+    },
+    {
+      "conflictId": "SC-076",
+      "title": "Red/Yellow Heavy candidates remain physical-class/source conflicts",
+      "status": "unresolved",
+      "questionId": "SEM-Q-052",
+      "affectedRuleIds": [
+        "SEM-EQUIPMENT-VARIANT-BOUNDARIES-001"
+      ],
+      "evidenceRefs": [
+        "docs/rules/semantics/red-item-source-index.json",
+        "docs/rules/semantics/yellow-item-source-index.json",
+        "SRC-BGA-EQUIPMENT-ITEMS"
+      ],
+      "difference": "Six portrait Red Military Taser and six portrait Yellow Fire Extinguisher/Robot Controller selectors conflict with current/licensed Heavy class occurrences without exact copy links.",
+      "resolution": "Keep all twelve out of Heavy/Equipment effect dispatch under SEM-Q-047/052."
+    },
+    {
+      "conflictId": "SC-077",
+      "title": "Weapon die-result additional versus replacement scope",
+      "status": "resolved-by-authority",
+      "questionId": null,
+      "affectedRuleIds": [
+        "SEM-WEAPON-DIE-RESULT-ADDITION-001",
+        "SEM-SUPPORT-EQUIPMENT-556600-A0DAEF-001",
+        "SEM-SUPPORT-EQUIPMENT-507800-F56191-001",
+        "SEM-SUPPORT-EQUIPMENT-508200-A0F5B7-001",
+        "SEM-SUPPORT-EQUIPMENT-502900-4ECB1E-001",
+        "SEM-SUPPORT-EQUIPMENT-507200-2F41B8-001",
+        "SEM-SUPPORT-EQUIPMENT-507600-1281C5-001",
+        "SEM-SUPPORT-EQUIPMENT-507300-A9FAB3-001",
+        "SEM-SUPPORT-EQUIPMENT-507400-BADAD6-001",
+        "SEM-SUPPORT-EQUIPMENT-507500-33C9E4-001",
+        "SEM-SUPPORT-EQUIPMENT-507700-4E708D-001",
+        "SEM-SUPPORT-EQUIPMENT-507100-875C54-001",
+        "SEM-SUPPORT-EQUIPMENT-410200-98AD4C-001",
+        "SEM-SUPPORT-EQUIPMENT-493400-85096E-001",
+        "SEM-SUPPORT-EQUIPMENT-2917-DFFD35-001",
+        "SEM-SUPPORT-EQUIPMENT-424900-8AE645-001",
+        "SEM-SUPPORT-EQUIPMENT-508300-FD46EC-001",
+        "SEM-SUPPORT-EQUIPMENT-410400-A242E6-001",
+        "SEM-SUPPORT-EQUIPMENT-507000-1F3CA2-001",
+        "SEM-SUPPORT-EQUIPMENT-507900-DF46D6-001",
+        "SEM-SUPPORT-EQUIPMENT-466100-4912A1-001",
+        "SEM-SUPPORT-EQUIPMENT-424800-881635-001",
+        "SEM-SUPPORT-EQUIPMENT-508100-785B03-001",
+        "SEM-SUPPORT-EQUIPMENT-2910-D29216-001",
+        "SEM-SUPPORT-EQUIPMENT-508000-0F51F3-001",
+        "SEM-CHARACTER-ITEM-MS-545000-219BFF-001",
+        "SEM-CHARACTER-ITEM-CON-545000-BAC443-001",
+        "SEM-CHARACTER-ITEM-CON-591300-21BD03-001",
+        "SEM-CHARACTER-ITEM-OFF-581900-039116-001",
+        "SEM-CHARACTER-ITEM-REC-556600-81D699-001",
+        "SEM-HEAVY-GREEN-415900-9BD717-001",
+        "SEM-HEAVY-GREEN-415900-339846-001",
+        "SEM-HEAVY-GREEN-416000-C8E79C-001",
+        "SEM-HEAVY-GREEN-416100-61A77C-001",
+        "SEM-HEAVY-GREEN-400100-4FF8A4-001",
+        "SEM-HEAVY-GREEN-400100-4B18B1-001",
+        "SEM-HEAVY-GREEN-400100-1CECCD-001",
+        "SEM-HEAVY-RED-531600-0C0643-001",
+        "SEM-HEAVY-RED-531500-810D80-001",
+        "SEM-HEAVY-RED-531400-5DF671-001",
+        "SEM-CHARACTER-ITEM-OFFICIAL-AUTOMATIC-SHOTGUN-001",
+        "SEM-SUPPORT-OFFICIAL-TACTICAL-HATCHET-001",
+        "SEM-CHARACTER-ITEM-OFFICIAL-SONIC-GUN-001",
+        "SEM-HEAVY-OFFICIAL-MILITARY-TASER-001",
+        "SEM-SUPPORT-OFFICIAL-HEAVY-ARMOR-001",
+        "SEM-SUPPORT-OFFICIAL-GRENADE-LAUNCHER-001"
+      ],
+      "evidenceRefs": [
+        "SRC-FAQ"
+      ],
+      "difference": "Earlier component/secondary readings could treat a Weapon-specific result as replacing the standard die result.",
+      "resolution": "FQ-P02-U21 controls only this proposition: effects are additional unless the exact instruction specifically says instead; standard Ammo loss still occurs. Wider timing/targets remain SEM-Q-088."
+    },
+    {
+      "conflictId": "SC-078",
+      "title": "Grenade Launcher malfunction exception versus general malfunction prohibition",
+      "status": "resolved-by-authority",
+      "questionId": null,
+      "affectedRuleIds": [
+        "SEM-GRENADE-LAUNCHER-MALFUNCTION-001",
+        "SEM-WEAPON-MALFUNCTION-LIFECYCLE-001",
+        "SEM-SUPPORT-EQUIPMENT-410400-A242E6-001",
+        "SEM-SUPPORT-OFFICIAL-GRENADE-LAUNCHER-001"
+      ],
+      "evidenceRefs": [
+        "SRC-FAQ"
+      ],
+      "difference": "General rules/FAQ block Weapon use and Ammo spending while malfunctioned; FQ-P03-U03 allows attached Grenade tokens through Use Any Tactical Gear.",
+      "resolution": "Apply the exact token-use carveout only; do not enable Shoot/Burst, Ammo, repair, or other effects."
+    },
+    {
+      "conflictId": "SC-079",
+      "title": "Same-title direct, sheet, official, and licensed Equipment wording",
+      "status": "preserved-boundary",
+      "questionId": null,
+      "affectedRuleIds": [
+        "SEM-EQUIPMENT-VARIANT-BOUNDARIES-001",
+        "SEM-SUPPORT-EQUIPMENT-556600-A0DAEF-001",
+        "SEM-SUPPORT-EQUIPMENT-507800-F56191-001",
+        "SEM-SUPPORT-EQUIPMENT-508200-A0F5B7-001",
+        "SEM-SUPPORT-EQUIPMENT-502900-4ECB1E-001",
+        "SEM-SUPPORT-EQUIPMENT-507200-2F41B8-001",
+        "SEM-SUPPORT-EQUIPMENT-507600-1281C5-001",
+        "SEM-SUPPORT-EQUIPMENT-507300-A9FAB3-001",
+        "SEM-SUPPORT-EQUIPMENT-507400-BADAD6-001",
+        "SEM-SUPPORT-EQUIPMENT-507500-33C9E4-001",
+        "SEM-SUPPORT-EQUIPMENT-507700-4E708D-001",
+        "SEM-SUPPORT-EQUIPMENT-507100-875C54-001",
+        "SEM-SUPPORT-EQUIPMENT-410200-98AD4C-001",
+        "SEM-SUPPORT-EQUIPMENT-493400-85096E-001",
+        "SEM-SUPPORT-EQUIPMENT-2917-DFFD35-001",
+        "SEM-SUPPORT-EQUIPMENT-424900-8AE645-001",
+        "SEM-SUPPORT-EQUIPMENT-508300-FD46EC-001",
+        "SEM-SUPPORT-EQUIPMENT-410400-A242E6-001",
+        "SEM-SUPPORT-EQUIPMENT-507000-1F3CA2-001",
+        "SEM-SUPPORT-EQUIPMENT-507900-DF46D6-001",
+        "SEM-SUPPORT-EQUIPMENT-466100-4912A1-001",
+        "SEM-SUPPORT-EQUIPMENT-424800-881635-001",
+        "SEM-SUPPORT-EQUIPMENT-508100-785B03-001",
+        "SEM-SUPPORT-EQUIPMENT-2910-D29216-001",
+        "SEM-SUPPORT-EQUIPMENT-508000-0F51F3-001",
+        "SEM-CHARACTER-ITEM-MS-545000-219BFF-001",
+        "SEM-CHARACTER-ITEM-CON-545000-BAC443-001",
+        "SEM-CHARACTER-ITEM-CON-591300-21BD03-001",
+        "SEM-CHARACTER-ITEM-OFF-581900-039116-001",
+        "SEM-CHARACTER-ITEM-REC-556600-81D699-001",
+        "SEM-HEAVY-GREEN-415900-9BD717-001",
+        "SEM-HEAVY-GREEN-415900-339846-001",
+        "SEM-HEAVY-GREEN-416000-C8E79C-001",
+        "SEM-HEAVY-GREEN-416100-61A77C-001",
+        "SEM-HEAVY-GREEN-400100-4FF8A4-001",
+        "SEM-HEAVY-GREEN-400100-4B18B1-001",
+        "SEM-HEAVY-GREEN-400100-1CECCD-001",
+        "SEM-HEAVY-RED-531600-0C0643-001",
+        "SEM-HEAVY-RED-531500-810D80-001",
+        "SEM-HEAVY-RED-531400-5DF671-001",
+        "SEM-CHARACTER-ITEM-OFFICIAL-AUTOMATIC-SHOTGUN-001",
+        "SEM-SUPPORT-OFFICIAL-TACTICAL-HATCHET-001",
+        "SEM-CHARACTER-ITEM-OFFICIAL-SONIC-GUN-001",
+        "SEM-HEAVY-OFFICIAL-MILITARY-TASER-001",
+        "SEM-SUPPORT-OFFICIAL-HEAVY-ARMOR-001",
+        "SEM-SUPPORT-OFFICIAL-GRENADE-LAUNCHER-001"
+      ],
+      "evidenceRefs": [
+        "SRC-EQUIPMENT-SUPPORT-ROOT",
+        "SRC-EQUIPMENT-SUPPORT-SHEET-29",
+        "SRC-RULEBOOK",
+        "SRC-BGA-EQUIPMENT-ITEMS"
+      ],
+      "difference": "Gatling, Plasma, Flamethrower, Tactical Hatchet, Sonic, Motion/Scanner, Engineering, Robot Controller, Grenade Launcher, and other variants differ in titles, traits, bodies, punctuation, slots, or local glyphs.",
+      "resolution": "Exact occurrence authority applies; never flatten by title/body/function or multiplicity."
+    },
+    {
+      "conflictId": "SC-080",
+      "title": "Generic and Character-labeled BackURLs versus face ownership/class",
+      "status": "preserved-boundary",
+      "questionId": null,
+      "affectedRuleIds": [
+        "SEM-EQUIPMENT-VARIANT-BOUNDARIES-001"
+      ],
+      "evidenceRefs": [
+        "docs/rules/semantics/equipment-source-index.json:sharedBacks"
+      ],
+      "difference": "One generic SUPPORT ITEM back is shared by 24 Support and two Character-kit faces; five other backs are Character/source variants, including obsolete labels. A back label can conflict with current face owner.",
+      "resolution": "Backs remain non-operative source sides and never identify a current face, owner, class, or extra card."
     }
   ]
 }

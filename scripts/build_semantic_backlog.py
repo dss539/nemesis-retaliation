@@ -65,6 +65,7 @@ serious_wound_sources=load('docs/rules/semantics/serious-wound-source-index.json
 green_item_sources=load('docs/rules/semantics/green-item-source-index.json')
 red_item_sources=load('docs/rules/semantics/red-item-source-index.json')
 yellow_item_sources=load('docs/rules/semantics/yellow-item-source-index.json')
+equipment_sources=load('docs/rules/semantics/equipment-source-index.json')
 action_sources=load('docs/rules/semantics/action-source-index.json')
 objective_sources=load('docs/rules/semantics/objective-mission-source-index.json')
 exploration_rule_ids=[row['semanticRuleId'] for row in exploration_sources['faces']]
@@ -75,6 +76,9 @@ serious_wound_rule_ids=[row['semanticRuleId'] for row in serious_wound_sources['
 green_item_rule_ids=[row['semanticRuleId'] for row in green_item_sources['faces']]
 red_item_rule_ids=[row['semanticRuleId'] for row in red_item_sources['faces']]
 yellow_item_rule_ids=[row['semanticRuleId'] for row in yellow_item_sources['faces']]
+equipment_reusable_rule_ids=[row for row in ['SEM-CHARACTER-ITEM-SETUP-001','SEM-SUPPORT-EQUIPMENT-DRAFT-001','SEM-HEAVY-ITEM-HAND-CAPACITY-001','SEM-ARMOR-ITEM-LIFECYCLE-001','SEM-EQUIPMENT-FULLY-LOADED-001','SEM-HEAVY-ITEM-USE-001','SEM-HEAVY-ITEM-ONE-USE-001','SEM-ITEM-PASSIVE-EFFECT-001','SEM-ITEM-LOSS-ATTACHED-GEAR-001','SEM-WEAPON-MALFUNCTION-LIFECYCLE-001','SEM-WEAPON-DIE-RESULT-ADDITION-001','SEM-GRENADE-LAUNCHER-MALFUNCTION-001','SEM-EQUIPMENT-OCCURRENCE-DISPATCH-001','SEM-EQUIPMENT-VARIANT-BOUNDARIES-001']]
+equipment_tts_rule_ids=[row['semanticRuleId'] for row in equipment_sources['supportEquipmentFaces']]+[row['semanticRuleId'] for row in equipment_sources['characterItemTtsFaces'] if row.get('semanticRuleId')]+[row['semanticRuleId'] for row in equipment_sources['colorRootHeavyFaces']]
+equipment_official_rule_ids=[row['semanticRuleId'] for row in equipment_sources['officialVisibleOccurrences']]
 action_rule_ids=[row['semanticRuleId'] for row in action_sources['faces']]
 action_reaction_rule_ids=[row['reactionRuleId'] for row in action_sources['faces'] if row.get('reactionRuleId')]
 objective_physical_rule_ids=[row['semanticRuleId'] for row in objective_sources['physicalFaces'] if row.get('semanticRuleId')]
@@ -308,6 +312,41 @@ links['VIS:RB-P29-V01']=[*links.get('VIS:RB-P29-V01',[]),'SEM-YELLOW-ITEM-VARIAN
 links['VIS:RB-P29-V03']=[*links.get('VIS:RB-P29-V03',[]),'SEM-OXYGEN-TOKEN-EFFECT-001',*yellow_oxygen_ids]
 links['VIS:RB-P37-V01']=[*links.get('VIS:RB-P37-V01',[]),'SEM-YELLOW-ITEM-VARIANT-BOUNDARIES-001']
 links['VIS:RB-P40-V02']=[*links.get('VIS:RB-P40-V02',[]),'SEM-YELLOW-ITEM-DECK-001','SEM-OXYGEN-TOKEN-EFFECT-001','SEM-DISCARD-MALFUNCTION-001',*yellow_item_rule_ids]
+links['RULE:ITM-001']=[*links.get('RULE:ITM-001',[]),*equipment_reusable_rule_ids]
+links['RULE:ITM-002']=[*links.get('RULE:ITM-002',[]), 'SEM-EQUIPMENT-OCCURRENCE-DISPATCH-001', 'SEM-EQUIPMENT-VARIANT-BOUNDARIES-001']
+links['RULE:ITM-003']=[*links.get('RULE:ITM-003',[]), 'SEM-EQUIPMENT-VARIANT-BOUNDARIES-001']
+links['RULE:ITM-004']=[*links.get('RULE:ITM-004',[]), 'SEM-EQUIPMENT-VARIANT-BOUNDARIES-001']
+links['RULE:ITM-005']=[*links.get('RULE:ITM-005',[]), 'SEM-EQUIPMENT-FULLY-LOADED-001', 'SEM-WEAPON-MALFUNCTION-LIFECYCLE-001', 'SEM-GRENADE-LAUNCHER-MALFUNCTION-001']
+links['RULE:ITM-008']=[*links.get('RULE:ITM-008',[]), 'SEM-EQUIPMENT-VARIANT-BOUNDARIES-001', *equipment_tts_rule_ids]
+links['RULE:ACT-ITEM-001']=[*links.get('RULE:ACT-ITEM-001',[]), 'SEM-HEAVY-ITEM-USE-001', 'SEM-HEAVY-ITEM-ONE-USE-001', 'SEM-EQUIPMENT-OCCURRENCE-DISPATCH-001', *equipment_tts_rule_ids]
+links['RULE:ACT-TRADE-001']=[*links.get('RULE:ACT-TRADE-001',[]), 'SEM-CHARACTER-ITEM-SETUP-001', 'SEM-HEAVY-ITEM-HAND-CAPACITY-001', 'SEM-ITEM-LOSS-ATTACHED-GEAR-001']
+links['RULE:ACT-SHOOT-001']=[*links.get('RULE:ACT-SHOOT-001',[]), 'SEM-WEAPON-MALFUNCTION-LIFECYCLE-001', 'SEM-WEAPON-DIE-RESULT-ADDITION-001']
+links['RULE:ACT-BURST-001']=[*links.get('RULE:ACT-BURST-001',[]), 'SEM-WEAPON-DIE-RESULT-ADDITION-001', 'SEM-GRENADE-LAUNCHER-MALFUNCTION-001']
+links['RULE:ACT-MELEE-001']=[*links.get('RULE:ACT-MELEE-001',[]), 'SEM-WEAPON-MALFUNCTION-LIFECYCLE-001']
+links['RULE:INT-006']=[*links.get('RULE:INT-006',[]), 'SEM-ARMOR-ITEM-LIFECYCLE-001', 'SEM-ITEM-LOSS-ATTACHED-GEAR-001']
+links['FAQ:FQ-P02-U21']=['SEM-WEAPON-DIE-RESULT-ADDITION-001']
+links['FAQ:FQ-P03-U01']=['SEM-WEAPON-MALFUNCTION-LIFECYCLE-001']
+links['FAQ:FQ-P03-U02']=['SEM-WEAPON-MALFUNCTION-LIFECYCLE-001', 'SEM-GRENADE-LAUNCHER-MALFUNCTION-001']
+links['FAQ:FQ-P03-U03']=['SEM-GRENADE-LAUNCHER-MALFUNCTION-001']
+links['FAQ:FQ-P03-U04']=[*links.get('FAQ:FQ-P03-U04',[]), 'SEM-CHARACTER-ITEM-SETUP-001']
+links['FAQ:FQ-P03-U05']=[*links.get('FAQ:FQ-P03-U05',[]), 'SEM-HEAVY-ITEM-HAND-CAPACITY-001', 'SEM-EQUIPMENT-VARIANT-BOUNDARIES-001']
+links['FAQ:FQ-P03-U06']=[*links.get('FAQ:FQ-P03-U06',[]), 'SEM-GRENADE-LAUNCHER-MALFUNCTION-001']
+links['FAQ:FQ-P03-U07']=[*links.get('FAQ:FQ-P03-U07',[]), 'SEM-ITEM-LOSS-ATTACHED-GEAR-001']
+for occurrence in equipment_sources['officialVisibleOccurrences']:
+    links.setdefault(occurrence['backlogUnitId'], []).append(occurrence['semanticRuleId'])
+for face in equipment_sources['supportEquipmentFaces']:
+    if face.get('backlogUnitId'):
+        links.setdefault(face['backlogUnitId'], []).append(face['semanticRuleId'])
+for asset in equipment_sources['supportSourceFaceAssets']:
+    if asset.get('backlogUnitId'):
+        links.setdefault(asset['backlogUnitId'], []).append(asset.get('sourceId') and 'SEM-EQUIPMENT-VARIANT-BOUNDARIES-001' or 'SEM-EQUIPMENT-VARIANT-BOUNDARIES-001')
+for face in equipment_sources['characterItemTtsFaces']:
+    if face.get('backlogUnitId'):
+        links.setdefault(face['backlogUnitId'], []).append(face.get('semanticRuleId') or 'SEM-EQUIPMENT-VARIANT-BOUNDARIES-001')
+for face in equipment_sources['colorRootHeavyFaces']:
+    links.setdefault(face['backlogUnitId'], []).append(face['semanticRuleId'])
+for face in equipment_sources['physicalClassConflictExclusions']:
+    links.setdefault(face['backlogUnitId'], []).append('SEM-EQUIPMENT-VARIANT-BOUNDARIES-001')
 action_by_kind={}
 for face in action_sources['faces']:
  action_by_kind.setdefault(face['effectKind'],[]).append(face['semanticRuleId'])
@@ -344,6 +383,61 @@ links['VIS:RB-P03-V01']=[*links.get('VIS:RB-P03-V01',[]),'SEM-OBJECTIVE-SETUP-00
 links['VIS:RB-P11-V01']=[*links.get('VIS:RB-P11-V01',[]),'SEM-OBJECTIVE-SETUP-001','SEM-OBJECTIVE-SECRECY-001']
 links['VIS:RB-P13-V02']=['SEM-RT-010']
 links['VIS:RB-P39-V01']=['SEM-OBJECTIVE-FULFILLMENT-001','SEM-OBJECTIVE-VARIANT-BOUNDARIES-001','SEM-OBJECTIVE-FACE-CHECK-001','SEM-MISSION-TASK-CHECK-001',*objective_official_rule_ids]
+# Equipment/Heavy/Weapon/Armor/Starting Item links are merged after all
+# cross-family assignments so later Action/Objective projections cannot erase
+# this bounded batch's exact source tuples.
+def merge_link(unit_id, rule_ids):
+ if unit_id:
+  links.setdefault(unit_id, []).extend(rule_ids)
+for unit_id in equipment_sources['familyCountEvidence']['backlog'].get('sourceFaceUnitIds',[]):
+ merge_link(unit_id, ['SEM-EQUIPMENT-VARIANT-BOUNDARIES-001'])
+for face in equipment_sources['supportEquipmentFaces']:
+ merge_link(face.get('backlogUnitId'), [face['semanticRuleId']])
+for face in equipment_sources['characterItemTtsFaces']:
+ merge_link(face.get('backlogUnitId'), [face.get('semanticRuleId') or 'SEM-EQUIPMENT-VARIANT-BOUNDARIES-001'])
+for face in equipment_sources['colorRootHeavyFaces']:
+ merge_link(face.get('backlogUnitId'), [face['semanticRuleId']])
+for face in equipment_sources['physicalClassConflictExclusions']:
+ merge_link(face.get('backlogUnitId'), ['SEM-EQUIPMENT-VARIANT-BOUNDARIES-001'])
+for occurrence in equipment_sources['officialVisibleOccurrences']:
+ merge_link(occurrence.get('backlogUnitId'), [occurrence['semanticRuleId']])
+for rule_id, unit_ids in {
+ 'SEM-CHARACTER-ITEM-SETUP-001':['RULE:ITM-001','RULE:ITM-002','RULE:ITM-003','RULE:ITM-004'],
+ 'SEM-SUPPORT-EQUIPMENT-DRAFT-001':['RULE:ITM-001','RULE:ITM-005'],
+ 'SEM-HEAVY-ITEM-HAND-CAPACITY-001':['RULE:ITM-002','RULE:ITM-004'],
+ 'SEM-ARMOR-ITEM-LIFECYCLE-001':['RULE:ITM-004','RULE:INT-006'],
+ 'SEM-EQUIPMENT-FULLY-LOADED-001':['RULE:ITM-005'],
+ 'SEM-HEAVY-ITEM-USE-001':['RULE:ACT-ITEM-001'],
+ 'SEM-HEAVY-ITEM-ONE-USE-001':['RULE:ACT-ITEM-001'],
+ 'SEM-ITEM-PASSIVE-EFFECT-001':['RULE:ITM-002'],
+ 'SEM-ITEM-LOSS-ATTACHED-GEAR-001':['RULE:ITM-002','RULE:INT-006'],
+ 'SEM-WEAPON-MALFUNCTION-LIFECYCLE-001':['RULE:ACT-SHOOT-001','RULE:ACT-BURST-001','RULE:ACT-MELEE-001','RULE:ITM-005'],
+ 'SEM-WEAPON-DIE-RESULT-ADDITION-001':['RULE:ACT-SHOOT-001','RULE:ACT-BURST-001'],
+ 'SEM-GRENADE-LAUNCHER-MALFUNCTION-001':['RULE:ACT-BURST-001','RULE:ACT-TACTICAL-001'],
+ 'SEM-EQUIPMENT-OCCURRENCE-DISPATCH-001':['RULE:ACT-ITEM-001'],
+ 'SEM-EQUIPMENT-VARIANT-BOUNDARIES-001':['RULE:ITM-001','RULE:ITM-002','RULE:ITM-003','RULE:ITM-004','RULE:ITM-005','RULE:ITM-008'],
+}.items():
+ for unit_id in unit_ids:
+  links.setdefault(unit_id, []).append(rule_id)
+for faq_id, rule_ids in {
+ 'FAQ:FQ-P02-U21':['SEM-WEAPON-DIE-RESULT-ADDITION-001'],
+ 'FAQ:FQ-P03-U01':['SEM-WEAPON-MALFUNCTION-LIFECYCLE-001'],
+ 'FAQ:FQ-P03-U02':['SEM-WEAPON-MALFUNCTION-LIFECYCLE-001','SEM-GRENADE-LAUNCHER-MALFUNCTION-001'],
+ 'FAQ:FQ-P03-U03':['SEM-GRENADE-LAUNCHER-MALFUNCTION-001'],
+ 'FAQ:FQ-P03-U04':['SEM-CHARACTER-ITEM-SETUP-001'],
+ 'FAQ:FQ-P03-U05':['SEM-HEAVY-ITEM-HAND-CAPACITY-001','SEM-EQUIPMENT-VARIANT-BOUNDARIES-001'],
+ 'FAQ:FQ-P03-U06':['SEM-GRENADE-LAUNCHER-MALFUNCTION-001'],
+ 'FAQ:FQ-P03-U07':['SEM-ITEM-LOSS-ATTACHED-GEAR-001'],
+}.items():
+ merge_link(faq_id, rule_ids)
+for visual_id, rule_ids in {
+ 'VIS:RB-P03-V01':['SEM-CHARACTER-ITEM-SETUP-001'],
+ 'VIS:RB-P29-V01':['SEM-HEAVY-OFFICIAL-MILITARY-TASER-001'],
+ 'VIS:RB-P29-V02':['SEM-SUPPORT-OFFICIAL-HEAVY-ARMOR-001'],
+ 'VIS:RB-P29-V04':['SEM-SUPPORT-OFFICIAL-GRENADE-LAUNCHER-001'],
+ 'VIS:RB-P40-V02':['SEM-EQUIPMENT-VARIANT-BOUNDARIES-001'],
+}.items():
+ merge_link(visual_id, rule_ids)
 for unit_id,rule_ids in links.items():
  links[unit_id]=list(dict.fromkeys(rule_ids))
 for unit in units:

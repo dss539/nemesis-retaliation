@@ -534,7 +534,11 @@ def validate_green_item_family(
             failures.append({"check": "Green Item exact backlog tuple projection", "occurrenceId": occurrence_id})
         if regular:
             expected_backlog_rules.setdefault(backlog_id, []).append(_rule_id(card_id, guid))
-        elif (backlog_by_id.get(backlog_id) or {}).get("status") != "pending":
+        elif not (
+            (backlog_by_id.get(backlog_id) or {}).get("status") == "pending"
+            or "SEM-EQUIPMENT-VARIANT-BOUNDARIES-001" in (backlog_by_id.get(backlog_id) or {}).get("pilotRuleIds", [])
+            or any(rule_id.startswith("SEM-HEAVY-GREEN-") for rule_id in (backlog_by_id.get(backlog_id) or {}).get("pilotRuleIds", []))
+        ):
             failures.append({"check": "Green Item Heavy/item-family exclusion leakage", "occurrenceId": occurrence_id})
 
     for asset_key in ("sheet-02", "sheet-04", "sheet-06", "sheet-08"):
@@ -780,7 +784,7 @@ def validate_green_item_family(
     system = next((row for row in coverage.get("systems") or [] if row.get("system") == "base regular Green Item card/component family"), {})
     expected_system_ids = [*EXPECTED_GREEN_ITEM_REUSABLE_RULE_IDS, *expected_rule_ids]
     not_yet = " ".join(coverage.get("notYetCovered") or [])
-    if system.get("ruleIds") != expected_system_ids or "23-occurrence regular Green Item" not in not_yet or "seven Heavy Green occurrences" not in not_yet:
+    if system.get("ruleIds") != expected_system_ids or "23-occurrence regular Green Item" not in not_yet or "seven Heavy Green occurrences" in not_yet:
         failures.append({"check": "Green Item coverage/Heavy-boundary/no-full-coverage claim"})
 
     return {
