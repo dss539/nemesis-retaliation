@@ -15,22 +15,22 @@ The current implementation remains frozen. Semantic records remain independent o
 
 Encode the **highest-value source-clear semantic backlog** without touching blocked decisions:
 
-- remaining setup, Facility/map topology, Lander, procedure, Item, and component lifecycle rules not yet represented by the 520-record corpus;
+- remaining source-clear setup, Lander, procedure, Item, and component lifecycle rules not yet represented by the 529-record corpus;
 - remaining source-clear card/component families outside the closed 20-card Event, 12-card Exploration, 6-card Robot, 20-occurrence Intruder Attack, 12-occurrence Queen Health, 27-occurrence Serious Wound, 23-occurrence regular Green Item, 21-occurrence source-clear regular Red Item, 24-occurrence source-clear regular Yellow Item, complete 60-occurrence base Action, and source-clear base competitive Objective/Mission families;
-- next bounded batch: source-clear Facility/map topology and setup-state obligations, including exact applicable rendered visual geometry, while leaving Lander/endgame/card batches separate;
+- next bounded batch: remaining source-clear setup/procedure/component lifecycle obligations, while leaving Lander/endgame/card batches separate;
 - exact FAQ overrides and per-sentence partial-resolution scope;
 - source-obligation links and contradiction coverage after every batch;
-- continue independent validation and source searching for the 110 open questions, but adopt no default.
+- continue independent validation and source searching for the 115 open questions, but adopt no default.
 
 Prioritize reusable procedures and cross-cutting rules before hundreds of individual component effects.
 
 ## Resume Checkpoint
 
-- Verified semantic data checkpoint: `3070ca6fde51b54ccbd7f7a3257a67e043f5095d` for the core Combat/Attacks/Noise/Hazard data and adversarial suite.
-- Branch `work/card-corpus-extraction` is thirty-one local commits ahead of `origin/work/card-corpus-extraction` including this status checkpoint; nothing has been pushed. No PR or deployment exists.
+- Verified semantic data checkpoint: `f3fbd28` for the Facility/map topology/setup batch integrated over the prior Combat/Attacks/Noise/Hazard data and adversarial suite.
+- Branch `work/card-corpus-extraction` is thirty-three local commits ahead of `origin/work/card-corpus-extraction` including this status checkpoint; nothing has been pushed. No PR or deployment exists.
 - The protected pre-existing `AGENTS.md` change remains untouched and retains SHA-256 `2c65f66c7e88e0e154fb5c7c77e1131f1bf66acb1f7eb3964b20236442740344`; it is not part of this batch.
 - The core Combat/Attacks/Noise/Hazard/entry batch is integrated over the prior Heavy/Equipment work; deterministic semantic rebuilds and 48 focused/adversarial tests pass, including the new independent Combat projection.
-- Resume with `semantic-components`: close source-clear Facility/map topology and setup-state obligations while preserving physical copies, rendered geometry, variants, and authority conflicts. Current source-obligation boundary is 510 covered / 89 pending / 1 source-blocked; 110 semantic questions remain no-default.
+- Resume with `semantic-components`: the Facility/map topology and setup-state batch is now closed at its source boundary while preserving physical copies, rendered geometry, variants, and authority conflicts. Current source-obligation boundary is 530 covered / 69 pending / 1 source-blocked; 115 semantic questions remain no-default.
 
 ## Verified Checkpoint
 
@@ -116,19 +116,19 @@ Machine-readable evidence: `docs/rules/source-extraction/validation.json`.
 
 ### Semantic schema and expanding corpus — independently locked and passed
 
-- 468 exact source registry tuples
+- 474 exact source registry tuples
 - 26 semantic-only state/zone/position/visibility nodes
-- 520 pilot records across 25 systems
-- 173 source-backed
-- 324 source-backed with open questions
+- 529 pilot records across 26 systems
+- 177 source-backed
+- 329 source-backed with open questions
 - 23 source-variant boundary records
-- 1361 source assertions / 1541 structured conditions and guards
-- 2220 ordered operations
-- 336 actor-owned decisions / 540 information policies
+- 1405 source assertions / 1543 structured conditions and guards
+- 2290 ordered operations
+- 337 actor-owned decisions / 549 information policies
 - 37 explicit costs / 556 target specifications
 - 248 preserved source-variant references
-- 110 open semantic questions with explicit alternatives and defaults prohibited
-- 82 registered conflicts: 19 authority-resolved, 31 unresolved, 32 preserved boundaries
+- 115 open semantic questions with explicit alternatives and defaults prohibited
+- 88 registered conflicts: 21 authority-resolved, 34 unresolved, 33 preserved boundaries
 - base Event family: **20/20 identities represented**
   - 20 exact Event scan occurrences
   - 20 licensed-digital Event occurrences retained as variants
@@ -229,9 +229,15 @@ Machine-readable evidence: `docs/rules/source-extraction/validation.json`.
   - 9 rendered visual obligations closed: `RB-P24-V02`, `RB-P25-V01/V02`, `RB-P30-V01/V02`, `RB-P33-V01/V02`, `RB-P34-V01`, and `RB-P40-V01`
   - 9 new no-default questions retain Corridor/Intruder order, bag/Attack-deck exhaustion, Blank-row scope, death interruption, Larva continuation, Burst resolution, and mixed Adult/Drone allocation
   - 2 new conflicts preserve the official current Noise set versus stale unbound TTS Silence/Danger branches and the side-level Blank-panel scope boundary
-- 600 source-obligation backlog units
-  - 510 pilot-covered
-  - 89 pending
+  - bounded Facility/map topology and setup-state batch closed at its source boundary
+    - 12 exact rulebook setup/map source segments, 21 regular rendered Room slots, 6 edge directions, and 43 reserved paired Corridor gaps
+    - three Sections corrected as A/green, B/blue, and C/red; Landing Zone and Hibernatorium remain separate fixed border-piece named spaces
+    - 23 Room tiles and 40 Corridor tiles retain exact subtype/value counts; Room/Corridor/round-track/Character-board/marker setup states remain distinct from later lifecycle
+    - 19 selected setup/map visual obligations, including map geometry, Room/Door/marker/token faces, are source-linked without text/geometry flattening
+    - 5 new no-default setup questions and 6 new conflicts preserve orientation, special-space endpoint, shortage, marker identity, and proximity/connection boundaries
+  - 600 source-obligation backlog units
+  - 530 pilot-covered
+  - 69 pending
   - 1 inherited exact-source blocker
 - full base-game semantic coverage explicitly not claimed
 - four-workstream independent review incorporated
@@ -357,7 +363,7 @@ All of the following are true:
 
 - One prototype `FACILITY RESTART` face visibly ends a condition at “Systems must be”; no following mark is recoverable from the exact pixels, and materially different same-title/current-official variants cannot be substituted.
 - Vocabulary gates `VG-001` and `VG-002` are resolved; `PERSONAL OBJECTIVE` remains source-scoped and `Drilling Room` aliases `DRILLING STATION` with both official labels preserved.
-- 110 semantic/source questions remain explicit: OQ-001, OQ-003, OQ-004, OQ-007, OQ-009, and SEM-Q-001 through SEM-Q-105. They block only affected clauses/records, not unrelated coverage work.
+- 115 semantic/source questions remain explicit: OQ-001, OQ-003, OQ-004, OQ-007, OQ-009, and SEM-Q-001 through SEM-Q-110. They block only affected clauses/records, not unrelated coverage work.
 - OQ-002 is resolved by current official rulebook p. 39 (lines 6251–6265): evaluate Larva eligibility when the Eclosion cohort step is reached, including a Larva gained during the preceding Infection step. OQ-001 and multi-Character cohort ordering remain unresolved and unchanged.
 - SEM-Q-011 retains the source-unspecified assignment of random Corridor draws and scarce finite components across multiple Exploration diagram slots; no player owner, spatial order, or additional randomization is adopted.
 - SEM-Q-012 through SEM-Q-019 retain Robot reveal/effect availability, movement ownership, Exploration Noise, Medical choices, Securing Door/supply behavior, Server Room context, and Technical marker scope without defaults. SEM-Q-020 through SEM-Q-024 retain Attack scope, continuation, timing, Wound assignment, and no-badge applicability. SEM-Q-025 through SEM-Q-029 retain Queen Health trigger timing, Character attribution, final-card death, Malfunction/Unreinforce ownership/location, and terminal-glyph scope. Neoflesh-only FAQ answers remain excluded from base conclusions.
@@ -369,7 +375,8 @@ All of the following are true:
 - SEM-Q-075 through SEM-Q-078 retain Objective OR-branch commitment/availability, Ulterior Motive continuous-versus-endgame fulfillment timing, late Objective choice/reward/chooser ordering, and endgame reveal/check ordering without defaults.
 - SEM-Q-079 through SEM-Q-096 retain Heavy/Equipment roster, supply, capacity, lifecycle, glyph, target, Weapon-result, Malfunction, Grenade Launcher, and Motion Tracker boundaries without defaults.
 - SEM-Q-097 through SEM-Q-105 retain numeric-Noise Corridor order, Intruder-bag and Attack-deck exhaustion, side-level Blank scope, Movement interruption, equal-size Intruder order, dead-Larva continuation, Burst multi-target resolution, and mixed Adult/Drone allocation without defaults.
-- The 25 Room Help entries versus 23 Room tiles relationship is unresolved.
+- SEM-Q-106 through SEM-Q-110 retain Section-border/special-space orientation and endpoint crosswalk, initial Landing Zone Door entrance assignment, setup shortage/replacement/atomicity, and unnamed Room/Exploration/Suppression marker identity without defaults.
+- The 25 Room Help entries versus 23 physical Room tiles relationship is resolved: the two additional entries are the fixed Landing Zone and Hibernatorium named-space effects, not extra Room tiles.
 - Source/version conflicts remain in several card families and must not be flattened.
 - Genuine rules ambiguities remain in `docs/rules/open-questions.md`; some stale extraction blockers there must later be re-audited against newly collected evidence.
 

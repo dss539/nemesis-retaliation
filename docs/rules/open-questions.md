@@ -542,3 +542,15 @@ The bounded core Combat/Attacks/Noise/Hazard source audit added nine no-default 
 - **SEM-Q-105** — Adult/Drone allocation when mixed token-back counts meet Corridor capacity or exact-type model shortage.
 
 Official Retaliation Noise semantics remain the closed `1`/`2`/`3`/`4`/`Hazard` set. Preserved TTS Lua branches containing `Silence unless Slimed`, `DANGER`, or `Mars Surface` are unbound lower-authority runtime provenance, not open current-rule alternatives. The Blank token always returns to the bag; only the side-level panel’s add-Adults applicability outside Bag Development remains unresolved under SEM-Q-099.
+
+## Facility/map topology and setup-state batch questions
+
+The bounded Facility/map batch added five no-default questions. Exact alternatives, affected records, and `defaultProhibited` flags are authoritative in `docs/rules/semantics/review-gates.json`:
+
+- **SEM-Q-106** — Section-border orientation and the fixed Landing Zone/Hibernatorium edge crosswalk. The p.19 diagram shows one three-section arrangement and distinct special border-piece spaces, but the checked setup prose does not say whether border pieces may rotate or assign every special-space edge to a regular Corridor endpoint.
+- **SEM-Q-107** — Special-space Corridor endpoints and fixed-space connector assignment. The Landing Zone and Hibernatorium are named Room spaces in the rules but are not regular variable hex slots in the rendered geometry; no complete text-labeled endpoint crosswalk was recovered.
+- **SEM-Q-108** — Initial Landing Zone entrance selection for Corridor Door-slot orientation. Setup says a Door slot is placed toward “an entrance to the Landing Zone” but does not identify a single entrance, a player choice, or a deterministic assignment among multiple drawn Corridors.
+- **SEM-Q-109** — Setup component shortage, replacement, and simultaneous placement atomicity. Setup prescribes exact quantities and placements, while the generic Component Limits rule addresses unavailable components in effects; no source extends that fallback to setup or defines replacement/partial-group behavior.
+- **SEM-Q-110** — Unnamed Room-marker, Exploration-marker, or Suppression-marker component identity. The checked inventory and map-marker prose name Fire, Malfunction, Noise, Secure, Universal, and the Undiscovered Hibernatorium tile, but no separate generic marker identity or face/placement rule was established.
+
+Status: all five remain open, with no orientation, endpoint, shortage, marker identity, or replacement default adopted. The batch resolved the 25 Room Help-entry versus 23 physical Room-tile count boundary by retaining Landing Zone and Hibernatorium as the two additional fixed-space effects.
