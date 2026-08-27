@@ -86,3 +86,9 @@ Use isolated reviewers at meaningful checkpoints:
 4. verify reviewer findings independently before changing artifacts.
 
 Model diversity is useful for finding blind spots but is not human-independent validation. Record the exact model tag, supplied evidence boundary, finding, disposition, and verification result.
+
+## First-pilot outcome
+
+The Search → Item gain pilot is complete. The compact contract passed 22 acceptance tests and killed 17 mutations within the 800-line cap. The semantic utility gate failed for this slice: no verified semantic contribution provided implementation protection that could not be replaced by a short source-linked rule and focused scenario. Semantic expansion remains frozen pending the project-owner gate.
+
+Detailed result: `docs/qa/implementation-readiness/search-pilot/utility-report.md`.

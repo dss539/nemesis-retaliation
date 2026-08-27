@@ -28,6 +28,7 @@ Source excerpts:
 - Lines 3177–3179: reveal, resolve, discard Action card.
 - Lines 3188–3191: selected effects must resolve entirely.
 - Lines 3543–3548: finite-component fallback.
+- Lines 3665–3673: all discarded Items go to the Items discard pile.
 - Lines 4849–4865: draw per Room Item icon, keep, corresponding deck-bottom return, unchosen secrecy.
 - Lines 4899–4904: found Items are fully loaded.
 - Lines 4905–4910: regular Item Backpack storage and secrecy.
@@ -68,7 +69,7 @@ The frozen semantic corpus contains at least one source-correct, implementation-
 | M11 | Permit Search while the acting Character is In Combat. |
 | M12 | Resolve an empty required Item deck using an invented reshuffle, partial draw, or no-op policy. |
 | M13 | Invent mandatory-zero or mandatory-one behavior for the card-face `may keep 1` versus rulebook `pick 1` conflict without recording authority/interpretation. |
-| M14 | Invent a discard destination for displaced Heavy/Armor Items where the supplied source does not define it. |
+| M14 | Send a discarded Heavy/Armor Item anywhere other than the source-defined Items discard pile. |
 
 ## Source-clear scenarios
 
@@ -92,7 +93,6 @@ The reference contract must return a typed unresolved result and leave state unc
 - empty required Item deck (A-1);
 - post-random-draw legality/storage interaction (A-2/A-3);
 - zero-versus-one keep conflict if no authority decision is encoded (A-7);
-- unknown discard destination for displaced/failed gain Items (A-8);
 - any visibility claim for non-Backpack stored Items not supported by supplied source (A-5).
 
 ## Measurements
@@ -128,3 +128,27 @@ Stop without expanding scope if:
 - `docs/rules/semantics/validation.json`: `052d27d3187a74c8ca7b0f0a1f7756a8398c5bf917b8e6f75502f6a77ab1afb8`
 - `scripts/build_semantic_pilots.py`: `b84a307f85c1a3fdecb0d9c8c9dde477faabfb78950de71541200359eacf7b1a`
 - `scripts/validate_semantic_pilots.py`: `14e8b7877a4900abe49ac9b38cdd26167c8c4bead752805ca4386d56df71b48c`
+
+## Source-completeness amendment
+
+After the preregistration commit and before the utility verdict, direct source comparison found that the blind GLM packet omitted rulebook lines 3665–3673: all discarded Items go to the Items discard pile. Therefore:
+
+- blind-baseline ambiguity A-8 is an input-omission artifact, not a publisher ambiguity;
+- the baseline JSON remains unchanged as audit evidence;
+- M14 now mutates the explicit Items-discard destination to a wrong destination;
+- Heavy displacement, Armor replacement, and failed Armor gain use the Items discard pile without an external policy;
+- this correction cannot be counted as unique semantic utility unless the semantic record's source support is itself complete and the benefit cannot be expressed by the one compact rule above.
+
+The original preregistration wording remains recoverable in parent commit `491d23d`; this amendment does not rewrite history.
+
+## Post-review additions
+
+Adversarial review added two source-policy gaps and three mutations without changing the original M01–M14 pass criterion:
+
+- **A-9:** ordering when more than one unchosen card returns to the bottom of the same deck;
+- **A-10:** exact Fully Loaded token allocation under Any slots, compatibility, and finite shortage;
+- **M15:** invent a Tactical Gear allocation when none was supplied;
+- **M16:** ignore exact slot/token compatibility;
+- **M17:** create/use Tactical Gear despite exhausted finite supply.
+
+All M01–M17 are now killed. These additions are labeled post-prereg rather than retroactively presented as original hypotheses.

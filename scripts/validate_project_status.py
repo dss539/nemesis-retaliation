@@ -44,14 +44,17 @@ def main() -> None:
     require(source_validation.get("passed") is True and source_validation.get("failureCount") == 0,
             "source-extraction validation must pass", failures)
     if vocab_validation["checks"]["openReviewGates"] == 0:
-        require("Implementation-readiness proof-of-value (semantic expansion frozen)" in status,
+        require("Owner gate (Search proof-of-value complete; semantic expansion frozen)" in status,
                 "PROJECT_STATUS.md must record the active implementation-readiness freeze", failures)
         readiness = (REPO / "docs/rules/implementation-readiness.md").read_text(encoding="utf-8")
         preregistration = (REPO / "docs/qa/implementation-readiness/search-pilot/preregistration.md").read_text(encoding="utf-8")
+        result = (REPO / "docs/qa/implementation-readiness/search-pilot/metrics.json").read_text(encoding="utf-8")
         require("Semantic coverage expansion is frozen" in readiness,
                 "implementation-readiness authority must freeze semantic expansion", failures)
-        require("Pre-registered mutations" in preregistration and "M14" in preregistration,
-                "Search pilot must retain its preregistered mutation boundary", failures)
+        require("Pre-registered mutations" in preregistration and "M17" in preregistration,
+                "Search pilot must retain preregistered and adversarial mutation boundaries", failures)
+        require('"acceptanceTestsPassed": 22' in result and '"mutationsKilled": 17' in result,
+                "Search pilot result metrics must retain the verified gate outcome", failures)
     else:
         require("Canonical vocabulary and source-scoped aliases (extraction gate passed)" in status,
                 "PROJECT_STATUS.md must remain in vocabulary phase while review gates are open", failures)

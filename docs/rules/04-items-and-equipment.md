@@ -30,19 +30,23 @@ are categorized and named in the card database.
 - **Source:** RB p. 29 (extracted lines 5024–5057).
 - **USER:** The physical classes are orthogonal to card color. A card's color (red/green/yellow) does not determine whether it is heavy, armor, or regular.
 
-## ITM-003 — Color decks are always Backpack cards
+## ITM-003 — Color-deck membership does not determine physical class
 
-- **Plain rule:** The red, green, and yellow Item decks contain only Regular (Backpack) cards. No color-deck card is a Heavy Item or an Armor Item.
-- **Source:** RB p. 29 — the "gaining items" section immediately defines the drawn cards as "regular items" (lines 4849–4883). TTS — the color decks (`redItemsDeck`/`greenItemsDeck`/`yellowItemsDeck`) contain 30 anonymous cards each tagged `reditem`/`greenitem`/`yellowitem`, none carrying heavy/weapon/armor tags; the heavy weapons (GATLING GUN, ASSAULT SHOTGUN, PLASMA GUN, FLAMETHROWER, TACTICAL HATCHET, etc.) all live in the separate `startItemDeck` (TTS `objects.json`).
-- **USER:** Confirmed from the physical game — the color-deck cards are small cards; the heavy items are physically larger, horizontal cards from the equipment deck, held in a Hand slot.
+- **Plain rule:** Red, green, and yellow are Search/source families. A card's physical class must be read from its exact source occurrence; color/root membership alone does not prove Regular, Heavy, or Armor class.
+- **Official boundary:** The rulebook fixes 30 cards per color and separately defines Regular, Heavy, and Armor classes, but does not publish a per-color class partition in the checked prose.
+- **Preserved source evidence:**
+  - Green TTS root: 23 source-clear Regular occurrences and 7 Heavy occurrences; the licensed aggregate independently records 23 Regular / 7 Heavy.
+  - Red TTS root: 21 source-clear Regular, 3 explicit Heavy, and 6 Military Taser class-conflict occurrences; the licensed aggregate independently records 21 Regular / 9 Heavy.
+  - Yellow TTS root: 24 source-clear Regular and 6 Fire Extinguisher/Robot Controller class-conflict occurrences; the licensed aggregate independently records 24 Regular / 6 Heavy.
+- **Source:** Rulebook component list and p. 29; exact roots and authority boundaries in `semantics/green-item-source-index.json`, `red-item-source-index.json`, `yellow-item-source-index.json`, and `equipment-source-index.json`.
+- **Boundary:** Aggregate agreement does not identify a TTS physical copy with a licensed/current official copy. Class-conflict occurrences remain non-dispatchable until resolved source-scoped; they are not repaired by title, artwork, color, root, or count.
 
-## ITM-004 — Heavy Items are not drawn from the color decks
+## ITM-004 — Search dispatches storage by the exact drawn Item class
 
-- **Plain rule:** No red, green, or yellow Item-deck card is itself a Heavy Item or an Armor Item. Heavy Items (including Weapons) are obtained as physical cards from the Character Item cards and the Support Equipment deck, not from the color Item decks.
-- **Scope boundary:** This rule concerns the *physical class of the card drawn*. It does NOT restrict what a color-deck card's *effect* may do. A color-deck card's effect may grant, place, or otherwise produce a Heavy Item (e.g. an effect that says "gain a Weapon"); that is a separate matter from the card's own physical class.
-- **Source:** RB p. 4 setup (lines 2692–2714) — Character Items and Support Equipment are placed as Heavy Items in Hand slots or Armor on the Health track. RB p. 29 (lines 5024–5034) — Heavy Items are horizontal and held in Hands.
-- **TTS:** The `startItemDeck` (equipment) is the deck that contains the heavy weapons; the color decks contain only backpack cards.
-- **USER:** A color-deck card does not itself become a heavy item; heavy items are separate, larger cards. (Whether a color-deck effect can grant a heavy item is left open pending card inspection.)
+- **Plain rule:** Search draws the top exact physical occurrence from each corresponding color deck. After the player selects the kept occurrence, gain/storage follows that occurrence's source-supported class: Regular to Backpack, Heavy to a Hand position, Armor to the Health-track Armor position.
+- **Identity rule:** Repeated titles remain separate physical occurrences. Never select, store, or dispatch by title alone.
+- **Unresolved boundary:** Exact class-conflict copies may not be made playable by importing another version's class. Empty-deck, random post-draw storage legality, and affected policy gaps remain explicit in the implementation-readiness pilot.
+- **Source:** Rulebook lines 4849–4865, 4905–4910, and 5024–5057; exact occurrence indexes cited in ITM-003.
 
 ## ITM-005 — Tactical Gear tokens and slots
 

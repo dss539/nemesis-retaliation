@@ -1,0 +1,94 @@
+{
+  "model": "deepseek-v4-pro:0813",
+  "review": {
+    "verdict": "reject",
+    "findings": [
+      {
+        "id": "F-1",
+        "severity": "high",
+        "claim": "Failed Armor gain at Heavily Injured incorrectly requires an external nonBackpackVisibility policy and can reveal the discarded armor, contradicting the source-completeness amendment that failed Armor gain uses the Items discard pile without an external policy and the A-5 block scope (non-Backpack stored Items only).",
+        "evidence": "planStorage checks `if (!policies.nonBackpackVisibility) return { gaps: [SEARCH_GAPS.NON_BACKPACK_VISIBILITY] };` before the `healthSection === 'heavily-injured'` branch; publicGainEvent includes `itemId` for `item-discard` when visibility is 'public'.",
+        "disposition_test": "Call resolveSearch with armor at heavily-injured and no nonBackpackVisibility policy; expected resolved with itemDiscard ['a1'] and no public itemId; actual unresolved NON_BACKPACK_VISIBILITY."
+      },
+      {
+        "id": "F-2",
+        "severity": "medium",
+        "claim": "The action-card reveal event is emitted after resolution/storage effects, not before resolution as RB 3177-3179 requires.",
+        "evidence": "Code pushes `action-card-revealed` after `applyStorage` and after the action card is removed from hand and placed on discard.",
+        "disposition_test": "Inspect publicEvents and state at the point the reveal event is emitted; expected reveal before storage/discard; actual storage and discard already applied."
+      },
+      {
+        "id": "F-3",
+        "severity": "medium",
+        "claim": "The zero-or-one keep policy silently defaults the return order for multiple unchosen same-color cards to draw order, a source ambiguity not recorded as a gap.",
+        "evidence": "The return loop pushes unchosen candidates in draw order; source only says 'others to respective deck bottoms' without ordering.",
+        "disposition_test": "Room with two green icons, policy zero-or-one, no keep; expected unresolved or explicit order policy; actual resolved with deck ['g3','g1','g2']."
+      },
+      {
+        "id": "F-4",
+        "severity": "low",
+        "claim": "The nonBackpackVisibility policy accepts any truthy value and treats anything other than exactly 'public' as secret, a hidden default.",
+        "evidence": "`if (plan.storage !== 'backpack' && plan.visibility === 'public')` with no validation of the policy value.",
+        "disposition_test": "Pass `nonBackpackVisibility: 'banana'`; expected invalid or unresolved; actual resolved with secret visibility."
+      },
+      {
+        "id": "F-5",
+        "severity": "low",
+        "claim": "`tacticalGearFilled` defaults to 0 when `tacticalGearSlots` is undefined, potentially masking missing item data.",
+        "evidence": "`state.itemRuntime[itemId] = { tacticalGearFilled: item.tacticalGearSlots ?? 0 };`",
+        "disposition_test": "Item definition without `tacticalGearSlots`; expected unresolved or explicit; actual resolved with 0."
+      },
+      {
+        "id": "F-6",
+        "severity": "low",
+        "claim": "`validateInput` rejects rooms with no item icons, an invented restriction not present in the supplied source.",
+        "evidence": "`if (!Array.isArray(room.itemIcons) || room.itemIcons.length === 0) return 'room-has-no-item-icons';`",
+        "disposition_test": "Room with empty itemIcons; expected resolved with no draws or unresolved; actual illegal."
+      },
+      {
+        "id": "F-7",
+        "severity": "low",
+        "claim": "`appliedSources` cites RB:3543-3548 finite-component fallback, but the contract returns unresolved for an empty deck rather than applying that fallback.",
+        "evidence": "appliedSources includes 'RB:3543-3548'; empty deck returns unresolved EMPTY_ITEM_DECK.",
+        "disposition_test": "Empty required deck; citation is misleading because the finite-component fallback is not applied."
+      },
+      {
+        "id": "F-8",
+        "severity": "medium",
+        "claim": "The M05 mutation is a strawman: it changes selection to title comparison but leaves the input as an occurrence id, so the kill is due to type mismatch rather than duplicate-title distinction.",
+        "evidence": "Mutation `candidates.find(({ itemId }) => next.items[itemId].title === keepOccurrenceId)` with test input `keepOccurrenceId: 'g2'`; title 'MEDKIT' !== 'g2'.",
+        "disposition_test": "A faithful title-selection mutation would require a title input; the current kill does not demonstrate protection against title-based selection."
+      },
+      {
+        "id": "F-9",
+        "severity": "low",
+        "claim": "The keep-cardinality policy is not recorded in the resolved result, so the authority/interpretation is not auditable downstream.",
+        "evidence": "Result includes `appliedSources` but not the `policies` used; preregistration M13 says 'without recording authority/interpretation'.",
+        "disposition_test": "Resolved result with policy exactly-one; expected policy recorded; actual absent."
+      },
+      {
+        "id": "F-10",
+        "severity": "low",
+        "claim": "Not-in-combat rejection returns gap A-6 even though preregistration scenario 10 treats rejection without state mutation as source-clear.",
+        "evidence": "`return invalid(state, 'not-in-combat', [SEARCH_GAPS.ILLEGAL_PLAY_DISPOSITION]);`",
+        "disposition_test": "Not-in-combat play; expected illegal with no gaps; actual gaps [A-6]."
+      }
+    ],
+    "mutation_adequacy": [
+      "M01-M04 and M06-M14 are killed by non-tautological assertions; M05 kill is weak/strawman (F-8).",
+      "Harness anchor count assertions pass; no mutation survives the acceptance suite.",
+      "M12 kill relies on undefined itemId propagation but still fails the status assertion."
+    ],
+    "utility_gate_risks": [
+      "The compact contract already encodes all source decisions and gaps, so the semantic corpus may have no unique utility (H2 risk).",
+      "The failed-Armor visibility overreach could mask a semantic contribution about discarded-item visibility.",
+      "Coarse gaps A-2/A-3 and A-5 may hide finer semantic distinctions the corpus could provide."
+    ],
+    "must_fix_before_verdict": [
+      "F-1: remove the nonBackpackVisibility requirement for the failed Armor gain path and do not reveal discarded armor unless source-supported.",
+      "F-2: emit action-card-revealed before resolution effects per RB 3177-3179.",
+      "F-3: record the multi-unchosen return-order ambiguity as a gap or require an explicit order policy for zero-or-one.",
+      "F-8: replace the M05 mutation with a faithful title-selection mutation or add a title-input test."
+    ]
+  }
+}

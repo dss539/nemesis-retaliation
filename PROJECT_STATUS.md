@@ -1,35 +1,36 @@
 # Nemesis: Retaliation — Project Status
 
 **Status date:** 2026-08-27
-**Active phase:** Implementation-readiness proof-of-value (semantic expansion frozen)
+**Active phase:** Owner gate (Search proof-of-value complete; semantic expansion frozen)
 **Active branch:** `work/card-corpus-extraction`
 **Implementation status:** Frozen; a clean rewrite will begin only after rules-layer readiness and explicit approval
 
 ## Current Objective
 
-Freeze further semantic expansion and test whether the existing rules work materially improves implementation through one preregistered, source-linked executable slice.
+Present the completed Search proof-of-value result for owner review, then run a stratified blind correctness audit before any rewrite approval.
 
-The current implementation remains frozen. Existing semantic records are evidence only and may not be changed during the pilot.
+The current implementation remains frozen. Existing semantic records remain immutable audit/reference evidence; expansion is not recommended.
 
 ## Immediate Next Deliverable
 
-Complete the preregistered **Search → Item gain implementation-readiness pilot**:
+Review the completed **Search → Item gain proof-of-value** and approve the next rules-readiness method:
 
-- build a compact source-linked executable reference contract outside production code;
-- kill the fourteen preregistered defects or preserve the affected source question as blocked;
-- compare raw sources, the locked GLM blind baseline, concise Markdown, and the frozen semantic corpus;
-- obtain isolated adversarial review from different Ollama Cloud models and independently disposition findings;
-- recommend whether the semantic projection has earned further use.
+- compact contract: 22/22 acceptance tests passed;
+- mutation controls: 17/17 killed (14 preregistered + 3 adversarial additions);
+- complexity: 800 physical / 744 nonblank code-and-test lines;
+- H1 compact sufficiency: passed for this slice;
+- H2 unique semantic utility: failed for this slice;
+- recommendation: keep semantic expansion frozen and proceed to stratified blind correctness auditing.
 
-Authority and gate details: `docs/rules/implementation-readiness.md`.
+Evidence: `docs/qa/implementation-readiness/search-pilot/utility-report.md`.
 
 ## Resume Checkpoint
 
 - Verified semantic data checkpoint: `f3fbd28` for the Facility/map topology/setup batch integrated over the prior Combat/Attacks/Noise/Hazard data and adversarial suite.
-- Branch `work/card-corpus-extraction` is thirty-three local commits ahead of `origin/work/card-corpus-extraction` including this status checkpoint; nothing has been pushed. No PR or deployment exists.
+- Branch `work/card-corpus-extraction` is thirty-six local commits ahead of `origin/work/card-corpus-extraction` including the implementation-readiness result; nothing has been pushed. No PR or deployment exists.
 - The protected pre-existing `AGENTS.md` change remains untouched and retains SHA-256 `2c65f66c7e88e0e154fb5c7c77e1131f1bf66acb1f7eb3964b20236442740344`; it is not part of this batch.
 - The core Combat/Attacks/Noise/Hazard/entry batch is integrated over the prior Heavy/Equipment work; deterministic semantic rebuilds and 48 focused/adversarial tests pass, including the new independent Combat projection.
-- Resume with `semantic-components`: the Facility/map topology and setup-state batch is now closed at its source boundary while preserving physical copies, rendered geometry, variants, and authority conflicts. Current source-obligation boundary is 530 covered / 69 pending / 1 source-blocked; 115 semantic questions remain no-default.
+- Resume at the owner gate: the Search proof-of-value passed compact correctness/mutation criteria but did not demonstrate unique semantic implementation utility. Semantic expansion remains frozen; current source-obligation boundary remains 530 covered / 69 pending / 1 source-blocked with 115 no-default semantic questions.
 
 ## Verified Checkpoint
 
@@ -311,9 +312,9 @@ Machine-readable evidence: `docs/rules/source-extraction/validation.json`.
 
 ## Remaining Work — Ordered
 
-1. **Implementation-readiness proof-of-value** — finish the preregistered Search pilot without changing production or semantic artifacts.
-2. **Owner gate** — review measured semantic utility and decide whether to retain, reduce, or retire further semantic projection work.
-3. **Correctness audit** — run a stratified blind source audit before any clean rewrite approval.
+1. **Owner gate** — accept, reject, or modify the recommendation to keep semantic expansion frozen.
+2. **Correctness audit** — run a stratified blind source audit before any clean rewrite approval.
+3. Repair confirmed concise-rule defects and preserve unresolved policy as explicit gates.
 4. Choose the new architecture independently and seek explicit approval before implementation.
 
 Detailed phase plan: `docs/rules/source-extraction/extraction-roadmap.md`.

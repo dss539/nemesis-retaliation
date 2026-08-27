@@ -134,7 +134,8 @@
   - Regular Items enter the Backpack; Backpack capacity is unlimited and its contents remain secret until used.
   - Heavy Items require a Hand slot. If both Hands are occupied when gaining one, the Character may discard a held Item first to make room.
   - Only one Armor may be worn; a newly gained Armor may replace the current Armor.
-  - **Source:** Rulebook pp. 28–29, “Backpack,” “Heavy Items,” “Armor Items.”
+  - Any Item discarded for displacement, replacement, or another effect goes to the Items discard pile.
+  - **Source:** Rulebook pp. 17 and 28–29, “Discarding Items and Tactical Gear Tokens,” “Backpack,” “Heavy Items,” “Armor Items” (lines 3665–3673, 4849–4910, 5024–5057).
 
 ## ACT-ITEM-001 — Use Item
 

@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "pilot": "search-item-gain",
+  "startingHead": "2be8256e2d071f6c8d94d91a323fb231b2aead45",
+  "preregistrationCommit": "491d23d",
+  "implementationCommit": "a1c04e4",
+  "models": {
+    "planAndCodeAdversary": "deepseek-v4-pro:0813",
+    "blindBaseline": "glm-5.3-flash"
+  },
+  "blindBaseline": {
+    "requirements": 12,
+    "ambiguities": 8,
+    "acceptanceScenarios": 9,
+    "sourcePacketOmissionArtifacts": ["A-8"]
+  },
+  "verification": {
+    "acceptanceTests": 22,
+    "acceptanceTestsPassed": 22,
+    "preregisteredMutations": 14,
+    "postReviewMutations": 3,
+    "mutationsKilled": 17,
+    "physicalCodeAndTestLines": 800,
+    "nonblankCodeAndTestLines": 744,
+    "productionImports": 0,
+    "semanticFrozenHashesChanged": 0
+  },
+  "hypotheses": {
+    "compactContractSufficiency": "pass-for-slice",
+    "uniqueSemanticUtility": "fail-for-slice"
+  },
+  "recommendation": "keep semantic expansion frozen; retain corpus as audit/reference evidence; use compact source-linked executable scenarios for implementation"
+}
