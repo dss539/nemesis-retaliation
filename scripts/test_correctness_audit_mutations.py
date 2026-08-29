@@ -274,7 +274,57 @@ class AuditMutationTests(unittest.TestCase):
         self.h.blind["packetPath"] = str(outside)
         self.h.blind["packetSha256"] = sha(outside)
         self.h.resign_packet_chain()
-        self.assertFails("path escapes")
+        self.assertFails("path is not a canonical repository-relative POSIX path")
+
+    def test_source_allowlist_traversal_rejected(self) -> None:
+        traversal = "docs/rulebooks/../rules/semantics/event-source-index.json"
+        target_path = target.ROOT / "docs/rules/semantics/event-source-index.json"
+        target_hash = sha(target_path)
+        self.h.packet["sourceDocuments"][0].update({"sourcePath": traversal, "sourceSha256": target_hash})
+        self.h.packet["evidence"][0].update({"sourcePath": traversal, "sourceSha256": target_hash})
+        self.h.packet["searchCoverage"]["searchedSourcePaths"][0].update({"sourcePath": traversal, "sourceSha256": target_hash})
+        self.h.blind["unitResults"][0]["requirements"][0]["citations"][0]["sourcePath"] = traversal
+        self.h.blind["unitResults"][0]["acceptanceScenarios"][0]["citations"][0]["sourcePath"] = traversal
+        self.h.resign_packet_chain()
+        self.assertFails("disallowed source document")
+
+    def test_symlink_artifact_path_rejected(self) -> None:
+        link = self.h.packet_dir / "packet-link.json"
+        link.symlink_to(self.h.packet_path.name)
+        link_rel = str(link.relative_to(target.ROOT))
+        self.h.review["packetPath"] = link_rel
+        self.h.review["packetSha256"] = sha(link)
+        dump(self.h.review_path, self.h.review)
+        self.h.blind["packetPath"] = link_rel
+        self.h.blind["packetSha256"] = sha(link)
+        self.h.blind["completenessReviewSha256"] = sha(self.h.review_path)
+        dump(self.h.blind_path, self.h.blind)
+        self.h.result["blindDerivationRef"]["sha256"] = sha(self.h.blind_path)
+        dump(self.h.result_path, self.h.result)
+        self.h.progress["units"][0]["blindSha256"] = sha(self.h.blind_path)
+        self.h.progress["units"][0]["resultSha256"] = sha(self.h.result_path)
+        self.h.write_inputs()
+        self.assertFails("symlink path component is forbidden")
+
+    def test_blind_citation_must_be_exact_packet_evidence(self) -> None:
+        self.h.blind["unitResults"][0]["requirements"][0]["citations"][0]["locator"] = "invented locator"
+        self.h.resign_packet_chain()
+        self.assertFails("citation is not exact packet evidence")
+
+    def test_result_evidence_reference_must_resolve_to_packet(self) -> None:
+        self.h.result["comparison"]["discrepancies"][0]["evidenceRefs"] = ["NOT-IN-PACKET"]
+        self.h.resign_packet_chain()
+        self.assertFails("cites evidence outside the source packet")
+
+    def test_nonmatch_cannot_use_none_severity(self) -> None:
+        self.h.result["comparison"]["discrepancies"][0]["classification"] = "downstream-omission"
+        self.h.resign_packet_chain()
+        self.assertFails("is not one of")
+
+    def test_repaired_verified_requires_repair_proof(self) -> None:
+        self.h.result["resolution"]["status"] = "repaired-verified"
+        self.h.resign_packet_chain()
+        self.assertFails("should be non-empty")
 
     def test_forbidden_prompt_token_rejected(self) -> None:
         self.h.prompt_path.write_text('Use "physicalClass" from downstream.\n', encoding="utf-8")

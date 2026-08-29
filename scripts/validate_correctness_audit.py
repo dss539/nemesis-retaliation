@@ -19,7 +19,7 @@ import subprocess
 import sys
 from collections import Counter
 from datetime import datetime
-from pathlib import Path
+from pathlib import Path, PurePosixPath
 from typing import Any
 
 try:
@@ -147,12 +147,23 @@ def repo_path(value: Any, failures: list[str], label: str, parent: Path = ROOT) 
     if not isinstance(value, str) or not value:
         failures.append(f"{label}: missing path")
         return None
-    path = ROOT / value
+    lexical = PurePosixPath(value)
+    if lexical.is_absolute() or lexical.as_posix() != value or any(part in {".", ".."} for part in lexical.parts):
+        failures.append(f"{label}: path is not a canonical repository-relative POSIX path")
+        return None
+    path = ROOT.joinpath(*lexical.parts)
     try:
-        path.resolve().relative_to(parent.resolve())
-    except ValueError:
+        resolved = path.resolve(strict=False)
+        resolved.relative_to(parent.resolve())
+    except (OSError, ValueError):
         failures.append(f"{label}: path escapes {parent.relative_to(ROOT) if parent != ROOT else 'repository'}")
         return None
+    current = ROOT
+    for part in lexical.parts:
+        current = current / part
+        if current.is_symlink():
+            failures.append(f"{label}: symlink path component is forbidden")
+            return None
     return path
 
 
@@ -326,7 +337,19 @@ def validate_reviewer(reviewer: Any, failures: list[str], label: str) -> dict[st
 
 
 def is_allowed_source(relative: str) -> bool:
-    return any(relative.startswith(prefix) for prefix in ALLOWED_SOURCE_PREFIXES)
+    failures: list[str] = []
+    path = repo_path(relative, failures, "source allowlist")
+    if path is None or failures:
+        return False
+    resolved = path.resolve(strict=False)
+    for prefix in ALLOWED_SOURCE_PREFIXES:
+        allowed_root = (ROOT / prefix).resolve()
+        try:
+            resolved.relative_to(allowed_root)
+            return True
+        except ValueError:
+            continue
+    return False
 
 
 def validate_packet(
@@ -344,6 +367,7 @@ def validate_packet(
     validate_seal_head(packet, failures, f"{path}: packet")
     packet_ids = packet.get("auditUnitIds", [])
     add(failures, set(packet_ids).issubset(manifest_ids), f"{path}: unknown audit unit")
+    covered_unit_ids: set[str] = set()
     for index, row in enumerate(packet.get("sourceDocuments", [])):
         relative = row.get("sourcePath", "") if isinstance(row, dict) else ""
         add(failures, is_allowed_source(relative), f"{path}: disallowed source document {relative}")
@@ -351,6 +375,9 @@ def validate_packet(
     for index, row in enumerate(packet.get("evidence", [])):
         if not isinstance(row, dict):
             continue
+        row_unit_ids = set(row.get("auditUnitIds", []))
+        add(failures, row_unit_ids.issubset(set(packet_ids)), f"{path}: evidence[{index}] references a unit outside the packet")
+        covered_unit_ids.update(row_unit_ids)
         relative = row.get("sourcePath", "")
         add(failures, is_allowed_source(relative), f"{path}: disallowed evidence source {relative}")
         checked_file(relative, row.get("sourceSha256"), failures, f"{path}: evidence[{index}]")
@@ -371,6 +398,7 @@ def validate_packet(
         checked_file(relative, row.get("sourceSha256"), failures, f"{path}: searchedSource[{index}]")
     add(failures, packet.get("sourceOnlyAttestation") is True, f"{path}: no source-only attestation")
     add(failures, packet.get("forbiddenDownstreamSourcesIncluded") == [], f"{path}: downstream source included")
+    add(failures, covered_unit_ids == set(packet_ids), f"{path}: packet unit lacks direct evidence")
     return packet
 
 
@@ -470,6 +498,36 @@ def validate_blind(
     add(failures, len(result_ids) == len(set(result_ids)), f"{path}: duplicate blind unit result")
     if packet:
         add(failures, result_ids == packet.get("auditUnitIds"), f"{path}: submitted/returned unit IDs or order differ")
+        packet_citations: dict[tuple[str, str], set[str]] = {}
+        for evidence in packet.get("evidence", []):
+            if not isinstance(evidence, dict):
+                continue
+            key = (str(evidence.get("sourcePath")), str(evidence.get("locator")))
+            packet_citations.setdefault(key, set()).update(evidence.get("auditUnitIds", []))
+        for unit_result in blind.get("unitResults", []):
+            if not isinstance(unit_result, dict):
+                continue
+            unit_id = unit_result.get("auditUnitId")
+            cited_rows: list[dict[str, Any]] = []
+            for requirement in unit_result.get("requirements", []):
+                if isinstance(requirement, dict):
+                    cited_rows.extend(row for row in requirement.get("citations", []) if isinstance(row, dict))
+            for ambiguity in unit_result.get("ambiguities", []):
+                if isinstance(ambiguity, dict):
+                    cited_rows.extend(row for row in ambiguity.get("citations", []) if isinstance(row, dict))
+            for scenario in unit_result.get("acceptanceScenarios", []):
+                if isinstance(scenario, dict):
+                    cited_rows.extend(row for row in scenario.get("citations", []) if isinstance(row, dict))
+            for citation in cited_rows:
+                key = (str(citation.get("sourcePath")), str(citation.get("locator")))
+                add(
+                    failures,
+                    unit_id in packet_citations.get(key, set()),
+                    f"{path}: {unit_id} citation is not exact packet evidence: {key}",
+                )
+        blind["__packetEvidenceIds"] = {
+            row.get("evidenceId") for row in packet.get("evidence", []) if isinstance(row, dict)
+        }
     packet_time = parse_time(packet.get("sealedAtUtc"), failures, f"{path}: packet time") if packet else None
     review_time = parse_time(review.get("sealedAtUtc"), failures, f"{path}: review time") if review else None
     blind_time = parse_time(blind.get("sealedAtUtc"), failures, f"{path}: blind time")
@@ -516,6 +574,8 @@ def validate_result(
         f"{unit_id}: comparator is not independent of blind reviewer",
     )
     discrepancies = result.get("comparison", {}).get("discrepancies", [])
+    packet_evidence_ids = blind.get("__packetEvidenceIds", set())
+    add(failures, isinstance(packet_evidence_ids, set) and bool(packet_evidence_ids), f"{unit_id}: packet evidence index absent")
     severities = [row.get("severity") for row in discrepancies if isinstance(row, dict)]
     classifications = [row.get("classification") for row in discrepancies if isinstance(row, dict)]
     authority_override = any(row.get("authorityOverride") is True for row in discrepancies if isinstance(row, dict))
@@ -538,17 +598,29 @@ def validate_result(
             add(failures, row.get("authorityOverride") is True, f"{unit_id}: authority inversion flag false")
         if row.get("classification") == "hidden-default":
             add(failures, row.get("hiddenDefault") is True, f"{unit_id}: hidden-default flag false")
+        add(
+            failures,
+            set(row.get("evidenceRefs", [])).issubset(packet_evidence_ids),
+            f"{unit_id}: discrepancy {index} cites evidence outside the source packet",
+        )
     discrepancy_ids = {row.get("discrepancyId") for row in discrepancies if isinstance(row, dict)}
     reviewed_ids: set[str] = set()
+    verification_review_ids: set[str] = set()
     for review in result.get("verificationReviews", []):
         if not isinstance(review, dict):
             continue
+        verification_review_ids.add(review.get("reviewId"))
         validate_reviewer(review.get("reviewer"), failures, f"{unit_id}: verification reviewer")
         identity = reviewer_identity(review.get("reviewer"))
         add(failures, identity != reviewer_identity(result.get("comparator")), f"{unit_id}: verification reviewer equals comparator")
         add(failures, identity != reviewer_identity(blind.get("reviewer")), f"{unit_id}: verification reviewer equals blind reviewer")
         ids = set(review.get("reviewedDiscrepancyIds", []))
         add(failures, ids.issubset(discrepancy_ids), f"{unit_id}: verification references unknown discrepancy")
+        add(
+            failures,
+            set(review.get("evidenceRefs", [])).issubset(packet_evidence_ids),
+            f"{unit_id}: verification cites evidence outside the source packet",
+        )
         reviewed_ids.update(ids)
     mandatory = {
         row.get("discrepancyId")
@@ -566,6 +638,23 @@ def validate_result(
     }
     if status not in {"compared"}:
         add(failures, mandatory.issubset(reviewed_ids), f"{unit_id}: mandatory discrepancy lacks independent verification")
+    resolution = result.get("resolution", {})
+    resolution_refs = set(resolution.get("verificationEvidenceRefs", []))
+    add(
+        failures,
+        resolution_refs.issubset(packet_evidence_ids | verification_review_ids),
+        f"{unit_id}: resolution cites unknown verification evidence",
+    )
+    if resolution.get("status") == "repaired-verified":
+        seal_head = result.get("sealedAtGitHead")
+        for repair_path in resolution.get("repairPaths", []):
+            canonical = repo_path(repair_path, failures, f"{unit_id}: repair path")
+            if canonical is not None and isinstance(seal_head, str):
+                add(
+                    failures,
+                    git("cat-file", "-e", f"{seal_head}:{repair_path}").returncode == 0,
+                    f"{unit_id}: repair path absent from sealed Git commit: {repair_path}",
+                )
     blind_time = parse_time(blind.get("sealedAtUtc"), failures, f"{unit_id}: blind time")
     result_time = parse_time(result.get("sealedAtUtc"), failures, f"{unit_id}: result time")
     if blind_time and result_time:

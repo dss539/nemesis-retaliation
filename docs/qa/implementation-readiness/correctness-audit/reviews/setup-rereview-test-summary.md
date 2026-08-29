@@ -2,7 +2,7 @@
 
 Executed with pinned `jsonschema[format]==4.25.1` through isolated `uv`.
 
-## Structural/content mutations — 26/26 passed
+## Structural/content mutations — 32/32 passed
 
 1. candidate-universe tamper rejected;
 2. completeness and blind reviewer reuse rejected;
@@ -29,20 +29,28 @@ Executed with pinned `jsonschema[format]==4.25.1` through isolated `uv`.
 23. empty actor/decision behavioral dimension rejected;
 24. material discrepancy without root cause rejected;
 25. authority-inversion classification without its Boolean flag rejected;
-26. final non-match without independent verification rejected.
+26. final non-match without independent verification rejected;
+27. `..` source-allowlist traversal rejected;
+28. symlink artifact path rejected;
+29. blind citation outside exact packet evidence rejected;
+30. comparison evidence ID outside the packet rejected;
+31. behavioral non-match with `none` severity rejected;
+32. `repaired-verified` without repair/evidence proof rejected.
 
-Command outcome: `Ran 26 tests ... OK`.
+Command outcome: `Ran 32 tests ... OK`.
 
-## Decision-gate controls — 6/6 passed
+## Decision-gate controls — 8/8 passed
 
 1. unfinished audit cannot produce a decision;
 2. clean 140-unit synthetic fixture passes audited units only and selects 23 deterministic clean-match reviews;
 3. one critical error forces full escalation;
 4. three component material errors exceed the limit;
 5. one material root cause across two families is recurring;
-6. one unverified deterministic clean match blocks the decision.
+6. one unverified deterministic clean match blocks the decision;
+7. a behavioral non-match with `none` severity fails when the pure evaluator is called directly;
+8. `repaired-verified` with empty proof remains unresolved when the pure evaluator is called directly.
 
-Command outcome: `Ran 6 tests ... OK`.
+Command outcome: `Ran 8 tests ... OK`.
 
 ## Other verified commands
 

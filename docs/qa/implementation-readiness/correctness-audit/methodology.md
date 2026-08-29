@@ -55,6 +55,8 @@ Allowed evidence paths are mechanically restricted to:
 - `docs/rules/source-extraction/`;
 - `assets/tts-mod/extract/`.
 
+Every path must be canonical repository-relative POSIX syntax: no absolute path, `.`/`..` segment, backslash normalization, or symlink component is accepted. Allowlisting is evaluated against the resolved allowed root, not by lexical prefix.
+
 Concise-rule files, semantic projections, conflict dispositions, physical-class conclusions, and implementation files are not valid packet evidence. Source indexes may help the supervisor locate original bytes but are not transmitted as blind evidence.
 
 Every packet records nonempty:
@@ -75,7 +77,7 @@ A mechanical field allowlist is appropriate; an n-gram ban is not. Official text
 
 An isolated reviewer receives only the accepted packet, neutral instructions, and the closed blind output contract. The exact prompt is retained under `packets/` with its SHA-256. It may not contain downstream rule paths, semantic paths, or conclusion fields.
 
-`blind-derivation.schema.json` requires one returned result per submitted unit, in the same order. A source-derived unit must contain at least one cited requirement and one cited acceptance scenario. A blocked unit must state the blocker instead of inventing a rule. Every unresolved point records at least two alternatives and `defaultProhibited: true`.
+`blind-derivation.schema.json` requires one returned result per submitted unit, in the same order. A source-derived unit must contain at least one cited requirement and one cited acceptance scenario. Every blind citation must exactly match a source-path/locator tuple in packet evidence assigned to that unit. A blocked unit must state the blocker instead of inventing a rule. Every unresolved point records at least two alternatives and `defaultProhibited: true`.
 
 The reviewer derives:
 
@@ -115,7 +117,9 @@ Every comparison contains one or more classified rows:
 - `transcription-or-packet-gap`;
 - `presentation-only`.
 
-Material and critical discrepancies require a stable `rootCauseId`. Authority inversions and hidden defaults have mandatory Boolean flags independent of severity wording. The validator derives status consistency from the discrepancies, so a material result cannot be marked accepted.
+Material and critical discrepancies require a stable `rootCauseId`. Authority inversions and hidden defaults have mandatory Boolean flags and critical severity. `match` requires `none`; behavioral omission/overstatement/lost-ambiguity/flattened-conflict/packet-gap classes cannot use `none`; preserved ambiguities/conflicts and presentation-only rows retain their bounded non-defect severities. Every comparison and verification evidence reference must resolve to the sealed source packet. The validator derives status consistency from the discrepancies, so a material result cannot be marked accepted.
+
+`repaired-verified` is not a label-only escape. It requires at least one canonical repair path present in the sealed Git commit plus at least one known packet/verification evidence reference. `not-required` and `pending` carry no repair proof; a source-blocked resolution carries verification evidence but no repair path.
 
 ## Lane D — independent verification
 

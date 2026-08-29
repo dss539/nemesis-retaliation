@@ -96,6 +96,31 @@ class DecisionTests(unittest.TestCase):
         decision = target.evaluate_records(MANIFEST, progress, results)
         self.assertEqual(decision["failures"]["unverifiedDeterministicMatchSample"], [sample[0]])
 
+    def test_nonmatch_none_severity_cannot_pass_direct_evaluator(self) -> None:
+        progress, results = clean_fixture()
+        uid = MANIFEST["units"][0]["auditUnitId"]
+        results[uid]["comparison"]["discrepancies"][0]["classification"] = "downstream-omission"
+        decision = target.evaluate_records(MANIFEST, progress, results)
+        self.assertEqual(decision["failures"]["invalidClassificationSeverityUnits"], [uid])
+        self.assertEqual(decision["decision"], "fail-or-escalate")
+
+    def test_empty_repair_proof_remains_unresolved(self) -> None:
+        progress, results = clean_fixture()
+        uid = MANIFEST["units"][0]["auditUnitId"]
+        results[uid]["status"] = "material-error"
+        results[uid]["comparison"]["discrepancies"][0].update({
+            "classification": "downstream-omission",
+            "severity": "material",
+            "rootCauseId": "RC-REPAIR",
+        })
+        results[uid]["resolution"] = {
+            "status": "repaired-verified",
+            "repairPaths": [],
+            "verificationEvidenceRefs": [],
+        }
+        decision = target.evaluate_records(MANIFEST, progress, results)
+        self.assertEqual(decision["failures"]["unresolvedCoreMaterialErrors"], [uid])
+
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)

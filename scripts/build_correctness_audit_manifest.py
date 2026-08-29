@@ -39,6 +39,9 @@ FROZEN_SEMANTIC_PATHS = [
     "scripts/validate_semantic_pilots.py",
 ]
 SELECTION_INPUT_PATHS = RULE_FILES + [
+    "docs/qa/implementation-readiness/correctness-audit/methodology.md",
+    "docs/rules/implementation-readiness.md",
+    "scripts/build_correctness_audit_manifest.py",
     "docs/rulebooks/Nemesis_RT_FAQ_v1.2.pdf",
     "docs/rules/source-extraction/faq-v1.2-source-extraction.json",
     "docs/rules/source-extraction/room-help-sheet.json",

@@ -56,10 +56,24 @@
       "required": ["status", "repairPaths", "verificationEvidenceRefs", "notes"],
       "properties": {
         "status": {"enum": ["pending", "not-required", "repaired-verified", "source-blocked"]},
-        "repairPaths": {"type": "array", "items": {"type": "string"}},
-        "verificationEvidenceRefs": {"type": "array", "items": {"type": "string"}},
-        "notes": {"type": "string"}
-      }
+        "repairPaths": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+        "verificationEvidenceRefs": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+        "notes": {"type": "string", "minLength": 1}
+      },
+      "allOf": [
+        {
+          "if": {"properties": {"status": {"const": "repaired-verified"}}, "required": ["status"]},
+          "then": {"properties": {"repairPaths": {"minItems": 1}, "verificationEvidenceRefs": {"minItems": 1}}}
+        },
+        {
+          "if": {"properties": {"status": {"enum": ["pending", "not-required"]}}, "required": ["status"]},
+          "then": {"properties": {"repairPaths": {"maxItems": 0}, "verificationEvidenceRefs": {"maxItems": 0}}}
+        },
+        {
+          "if": {"properties": {"status": {"const": "source-blocked"}}, "required": ["status"]},
+          "then": {"properties": {"repairPaths": {"maxItems": 0}, "verificationEvidenceRefs": {"minItems": 1}}}
+        }
+      ]
     }
   },
   "allOf": [
@@ -134,16 +148,46 @@
       },
       "allOf": [
         {
+          "if": {"properties": {"classification": {"const": "match"}}, "required": ["classification"]},
+          "then": {
+            "properties": {
+              "severity": {"const": "none"},
+              "rootCauseId": {"type": "null"},
+              "authorityOverride": {"const": false},
+              "hiddenDefault": {"const": false}
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "classification": {
+                "enum": ["downstream-omission", "downstream-overstatement", "source-ambiguity-lost", "source-conflict-flattened", "transcription-or-packet-gap"]
+              }
+            },
+            "required": ["classification"]
+          },
+          "then": {"properties": {"severity": {"enum": ["minor", "material", "critical", "blocked"]}}}
+        },
+        {
+          "if": {"properties": {"classification": {"enum": ["source-ambiguity-preserved", "source-conflict-preserved"]}}, "required": ["classification"]},
+          "then": {"properties": {"severity": {"const": "none"}}}
+        },
+        {
+          "if": {"properties": {"classification": {"const": "presentation-only"}}, "required": ["classification"]},
+          "then": {"properties": {"severity": {"enum": ["none", "minor"]}}}
+        },
+        {
           "if": {"properties": {"severity": {"enum": ["material", "critical"]}}, "required": ["severity"]},
           "then": {"properties": {"rootCauseId": {"type": "string", "minLength": 1}}}
         },
         {
           "if": {"properties": {"classification": {"const": "authority-inversion"}}, "required": ["classification"]},
-          "then": {"properties": {"authorityOverride": {"const": true}}}
+          "then": {"properties": {"authorityOverride": {"const": true}, "severity": {"const": "critical"}}}
         },
         {
           "if": {"properties": {"classification": {"const": "hidden-default"}}, "required": ["classification"]},
-          "then": {"properties": {"hiddenDefault": {"const": true}}}
+          "then": {"properties": {"hiddenDefault": {"const": true}, "severity": {"const": "critical"}}}
         }
       ]
     },

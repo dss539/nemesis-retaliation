@@ -24,6 +24,17 @@ The DeepSeek helper's console summary reported zero findings because it looked f
 | R2-F-06 blind behavioral dimensions may be empty/absent | Accepted | Actor/decision owner, target/cardinality/decline rights, visibility, costs/payment, ordered operations, finite supply, impossible instructions, and partial resolution are now required and nonempty. Explicit `not applicable` is required where appropriate. |
 | R2-F-07 final non-matches may evade verification | Rejected as a code-blind claim; test added | `validate_result()` already requires every final minor/material/critical/blocked/presentation/preserved ambiguity/conflict row to appear in an independent verification review. `compared` is intentionally an intermediate pre-Lane-D state and cannot produce a decision. A final-unverified mutation now proves enforcement. |
 
+## Read-only local code-critic disposition
+
+After the Ollama reviews, a separate read-only local worker inspected the live validator, evaluator, schemas, tests, and manifest. It was stopped after a bounded window; its final transcript was truncated, so only independently reproduced findings were accepted:
+
+| Finding | Disposition and fix |
+|---|---|
+| Critical: lexical source allowlist accepted `docs/rulebooks/../rules/semantics/...`; symlink components were also insufficiently guarded | Reproduced and accepted. All paths now require canonical repository-relative POSIX syntax, no `.`/`..`, and no symlink component; allowed source roots are checked after resolution. Both traversal and symlink mutations pass. Commit `e46f88f` is retained only as a pre-lock checkpoint and is not the audit baseline. |
+| Material: behavioral non-match could use severity `none` and evade both defect counts and the clean-match verification sample | Reproduced and accepted. Classification/severity contracts are now conditional in the schema, and a focused mutation rejects the bypass. Preserved ambiguity/conflict and presentation-only rows remain explicitly bounded and independently reviewed. |
+| Material: `repaired-verified` could carry no repair path or verification evidence | Reproduced and accepted. Repair proof is now nonempty, canonical, present at the sealed Git commit, and linked to known packet/verification evidence. |
+| Citation/evidence closure risk discovered while tracing the path finding | Independently confirmed and fixed. Packet evidence must cover every packet unit; blind citations must exactly match packet source-path/locator tuples for that unit; comparison and verification evidence IDs must resolve to packet evidence. |
+
 ## Residual limitations
 
 - The setup rereview that succeeded did not contain validator/test source, so it could verify methodology and schemas but not cross-file enforcement. The separate read-only local code critic covers that boundary.
@@ -33,7 +44,7 @@ The DeepSeek helper's console summary reported zero findings because it looked f
 
 ## Verification after R2 fixes
 
-- 26/26 structural/content mutation controls pass.
-- 6/6 decision-gate tests pass.
+- 32/32 structural/content mutation controls pass.
+- 8/8 decision-gate tests pass.
 - The valid synthetic packet → completeness → blind → comparison chain passes Draft 2020-12 schemas and the cross-file validator.
 - No semantic record, concise rule, source extraction, or game implementation file was changed by the harness fixes.

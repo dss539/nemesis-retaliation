@@ -50,7 +50,7 @@ The following overlapping findings were accepted and corrected:
 
 ## Verification added after review
 
-- 26/26 structural/content mutations pass.
-- 6/6 decision-gate tests pass.
+- 32/32 structural/content mutations pass.
+- 8/8 decision-gate tests pass.
 - A valid synthetic packet → completeness → blind → comparison chain passes the real schemas and validator.
 - Semantic leakage fields, incomplete search records, empty derivations, one-option ambiguities, path escapes, reviewer reuse, seal-order reversal, severity downgrade, threshold drift, universe drift, and selection-coverage drift are all rejected.

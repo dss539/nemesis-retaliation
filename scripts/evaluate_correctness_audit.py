@@ -43,6 +43,28 @@ def verification_covers(result: dict[str, Any]) -> bool:
     return expected.issubset(reviewed)
 
 
+def valid_classification_severity(row: dict[str, Any]) -> bool:
+    classification = row.get("classification")
+    severity = row.get("severity")
+    if classification == "match":
+        return severity == "none"
+    if classification in {
+        "downstream-omission",
+        "downstream-overstatement",
+        "source-ambiguity-lost",
+        "source-conflict-flattened",
+        "transcription-or-packet-gap",
+    }:
+        return severity in {"minor", "material", "critical", "blocked"}
+    if classification in {"authority-inversion", "hidden-default"}:
+        return severity == "critical"
+    if classification in {"source-ambiguity-preserved", "source-conflict-preserved"}:
+        return severity == "none"
+    if classification == "presentation-only":
+        return severity in {"none", "minor"}
+    return False
+
+
 def select_match_review_sample(
     manifest: dict[str, Any], results: dict[str, dict[str, Any]]
 ) -> list[str]:
@@ -81,6 +103,7 @@ def evaluate_records(
     material_component_units: set[str] = set()
     unresolved_core_material_units: set[str] = set()
     source_blocked_units: set[str] = set()
+    invalid_classification_units: set[str] = set()
     root_units: dict[str, set[str]] = defaultdict(set)
     root_families: dict[str, set[str]] = defaultdict(set)
 
@@ -91,11 +114,20 @@ def evaluate_records(
         if result["status"] == "material-error":
             if unit["unitClass"] == "sampled-component-effect":
                 material_component_units.add(unit_id)
-            elif result["resolution"]["status"] != "repaired-verified":
-                unresolved_core_material_units.add(unit_id)
+            else:
+                resolution = result["resolution"]
+                repair_verified = (
+                    resolution["status"] == "repaired-verified"
+                    and bool(resolution["repairPaths"])
+                    and bool(resolution["verificationEvidenceRefs"])
+                )
+                if not repair_verified:
+                    unresolved_core_material_units.add(unit_id)
         if result["status"] == "source-blocked":
             source_blocked_units.add(unit_id)
         for row in result["comparison"]["discrepancies"]:
+            if not valid_classification_severity(row):
+                invalid_classification_units.add(unit_id)
             if row["authorityOverride"]:
                 authority_units.add(unit_id)
             if row["hiddenDefault"]:
@@ -125,6 +157,7 @@ def evaluate_records(
         > manifest["passThreshold"]["maximumIsolatedMaterialErrorsInComponentSample"]
         else [],
         "sourceBlockedUnits": sorted(source_blocked_units),
+        "invalidClassificationSeverityUnits": sorted(invalid_classification_units),
         "unverifiedDeterministicMatchSample": unverified_match_sample,
     }
     passed = not any(failures.values())
@@ -134,6 +167,7 @@ def evaluate_records(
         or authority_units
         or hidden_default_units
         or recurring
+        or invalid_classification_units
         or len(material_component_units)
         > manifest["passThreshold"]["maximumIsolatedMaterialErrorsInComponentSample"]
     )
@@ -158,6 +192,7 @@ def evaluate_records(
             "unresolvedCoreMaterialErrorUnits": len(unresolved_core_material_units),
             "componentMaterialErrorUnits": len(material_component_units),
             "sourceBlockedUnits": len(source_blocked_units),
+            "invalidClassificationSeverityUnits": len(invalid_classification_units),
             "deterministicMatchReviewSample": len(match_sample),
             "unverifiedMatchSampleUnits": len(unverified_match_sample),
         },
