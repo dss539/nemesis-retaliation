@@ -1987,15 +1987,16 @@ task workspace.
 - [x] Reached the verified frozen boundary: 529 semantic records, 530 covered / 69 pending / 1 source-blocked obligations, 115 no-default questions, and 88 conflicts.
 - [x] Preserved exact physical occurrences, source variants, authority boundaries, and deterministic/adversarial validation.
 - [x] Froze expansion after the Search proof-of-value failed to demonstrate unique implementation utility for the large semantic representation.
-- [ ] Do not add semantic records or families unless the project owner explicitly reverses the freeze after reviewing measured evidence.
+- [x] The project owner accepted the measured recommendation to keep semantic expansion frozen; do not add semantic records or families unless that decision is explicitly reversed.
 
-## IN PROGRESS — Rules correctness and implementation-readiness owner gate (2026-08-27)
+## IN PROGRESS — Stage 1 blind rules correctness audit (2026-08-29)
 
 - [x] Preregister and execute the Search → Item gain proof-of-value without production changes.
 - [x] Pass 22/22 acceptance tests and kill 17/17 mutations within the 800-line cap.
 - [x] Use `deepseek-v4-pro:0813` for adversarial plan/code review and `glm-5.3-flash` for a blind raw-source baseline; independently verify and disposition findings.
 - [x] Correct stale concise Item-class rules and retain the semantic corpus as audit/reference evidence rather than implementation authority.
-- [ ] Owner gate: accept, reject, or modify the recommendation to keep semantic expansion frozen.
+- [x] Owner gate: accepted the recommendation to keep semantic expansion frozen and authorized Stage 1.
+- [ ] Freeze the externally reviewed, deterministic 140-unit audit harness behind its Git baseline and audit lock.
 - [ ] Stage 1 blind correctness audit: all 56 concise rules, all 28 base-applicable FAQ units, and a 56-unit stratified component sample (140 units total).
 - [ ] Escalate affected families, or all approximately 339 primary audit units, only if Stage 1 finds critical errors or a recurring defect pattern.
 - [ ] After the correctness gate, choose a clean architecture independently and obtain explicit owner approval before implementation.

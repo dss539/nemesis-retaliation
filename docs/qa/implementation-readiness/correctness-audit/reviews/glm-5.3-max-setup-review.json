@@ -1,0 +1,205 @@
+{
+  "schemaVersion": 1,
+  "recordType": "ollama-cloud-audit-review",
+  "provider": "ollama-cloud",
+  "requestedModel": "glm-5.3",
+  "responseModel": "glm-5.3",
+  "requestedReasoning": "max",
+  "stream": false,
+  "format": "json",
+  "promptPath": "docs/qa/implementation-readiness/correctness-audit/reviews/setup-review-prompt.txt",
+  "promptSha256": "3286d90dc23385cd4bad4f73163a1170d4145dcbc6681e026fb5fab475af6923",
+  "responseCreatedAt": "2026-08-29T04:37:02.187984478Z",
+  "done": true,
+  "doneReason": "stop",
+  "review": {
+    "verdict": "accept-with-fixes",
+    "strengths": [
+      "The manifest is re-derived byte-exactly from hashed source inputs (build_correctness_audit_manifest.py --check, executed by validate_correctness_audit.py), so the selected population is reproducible from the sources and manifest/source drift is detected rather than trusted.",
+      "The validator independently recomputes every component selection score from seedMaterial, verifies selected-source hashes and all frozen semantic/concise/selection-input hashes, enforces progress-to-manifest ID ordering and per-status count recomputation, rejects duplicate JSON keys, and confines packet/result paths with resolve()-based containment checks.",
+      "The result schema gives the no-default rule real teeth for ambiguities (alternatives minItems 2, defaultProhibited const true) and requires citations on requirements, scenarios, and discrepancies.",
+      "The blindness boundary is explicitly enumerated (allowed vs withheld lists), frozen semantic artifacts are hash-pinned, and the methodology explicitly demotes semantic records and model review to non-validating comparison/advisory roles rather than treating them as evidence of blind correctness.",
+      "The mutation suite provides genuine negative controls for core integrity checks (duplicate keys, count drift, selection-score drift, source/frozen hash drift, path escape, premature result attachment), and the control test runs the real validator including the rebuild check."
+    ],
+    "findings": [
+      {
+        "id": "F-001",
+        "severity": "critical",
+        "category": "validator",
+        "claim": "The validator and schema jointly accept contentless audit results: a unit can reach status 'accepted' with zero requirements, zero acceptance scenarios, null comparison, and null verification, so a passing validation does not evidence that any derivation, comparison, or verification occurred.",
+        "evidence": [
+          "docs/qa/implementation-readiness/correctness-audit/audit-result.schema.json: blindDerivation.properties.requirements and acceptanceScenarios are arrays with no minItems; comparison and verification are oneOf null; status enum includes 'accepted' with no conditional requirement on comparison/verification",
+          "scripts/validate_correctness_audit.py: validate_result_shape() checks only key presence, HEX64 hash patterns, packet path/hash, list-ness of requirements/ambiguities/acceptanceScenarios, and ambiguity defaultProhibited; it never requires non-null comparison or verification for 'accepted' and never requires non-empty requirements",
+          "scripts/validate_correctness_audit.py: progress loop enforces only result-file existence, hash match, and auditUnitId/status match; no lane-ordering rule (pending -> blind-derived -> compared -> accepted) exists, so a unit can jump directly to 'accepted'"
+        ],
+        "failure_mode": "Hollow or forged results pass validation; a green readiness decision is structurally indistinguishable from no audit at all, defeating the harness's stated purpose of never marking items complete from intent or unverified responses.",
+        "required_fix": "Enforce conditional contracts: 'accepted' requires non-null comparison and non-null verification; any non-pending status requires at least one cited requirement and at least one acceptance scenario; enforce status-transition ordering in progress.json.",
+        "test_or_negative_control": "Mutation: mark a unit 'accepted' with requirements=[], comparison=null, verification=null, and a valid packet hash; the validator must reject it (it currently passes)."
+      },
+      {
+        "id": "F-002",
+        "severity": "material",
+        "category": "reproducibility",
+        "claim": "The 'locked' population is anchored only to mutable repo state: lockedStartingHead is declared and seeded but never verified against actual git HEAD, and no supplied artifact pins the manifest hash at that commit, so coordinated regeneration after tampering with sources remains fully self-consistent and undetected.",
+        "evidence": [
+          "docs/qa/implementation-readiness/correctness-audit/manifest.json: lockedStartingHead '8d95b94f3e5c8d5ffb3a1c9835dd2512be88bc93' and seedMaterial embedding it",
+          "scripts/build_correctness_audit_manifest.py: main() regenerates manifest.json unconditionally on the non-check path; no supplied script compares git HEAD to lockedStartingHead",
+          "docs/qa/implementation-readiness/correctness-audit/methodology.md 'Required verification': lists git diff --check (whitespace/conflict markers only), not HEAD equality or manifest-hash pinning",
+          "scripts/test_correctness_audit_mutations.py: no coordinated source-tamper + rebuild + progress-reinit mutation"
+        ],
+        "failure_mode": "An operator can silently regenerate the manifest, progress, and all hashes around tampered sources or an inconvenient selection, violating the methodology's own 'do not silently regenerate around an inconvenient selection' rule with no mechanical trace; the 140-unit and family locks reduce to reproducibility, not tamper-evidence.",
+        "required_fix": "Verify git rev-parse HEAD equals lockedStartingHead (or verify manifest.json's SHA-256 against a value recorded in the locked commit or tag) inside validate_correctness_audit.py and fail on mismatch; require an explicit manifest version bump and disposition record for any change.",
+        "test_or_negative_control": "Negative control: run the validator in a checkout whose HEAD differs from lockedStartingHead with an otherwise self-consistent regenerated tree; it must fail."
+      },
+      {
+        "id": "F-003",
+        "severity": "material",
+        "category": "selection",
+        "claim": "Deterministic rank prevents cherry-picking only within author-defined strata; the strata, quotas, and eligibility filters themselves can exclude or dilute known-hard cases, and the attack design audits exactly one occurrence per selected title, so source-different same-title flattening is structurally near-undetectable.",
+        "evidence": [
+          "scripts/build_correctness_audit_manifest.py intruder_help_sample(): only 4 (sideId, context) strata are sampled from 18 asserted candidates; the remaining 7 candidates (including both bottom-row entries and the queen-alive:room and queen-dead:corridor strata) are never eligible",
+          "scripts/build_correctness_audit_manifest.py equipment_sample(): the character-starting stratum filters batchDisposition == 'source-clear-tts-character-kit-variant' (disputed items ineligible there), and all conflict/boundary sources (non-source-clear characterItemTtsFaces plus physicalClassConflictExclusions) compete for a single 'equipment:source-variant-boundary' slot out of 8 equipment units",
+          "scripts/build_correctness_audit_manifest.py attack_sample(): select(occurrence_candidates, 1, f'intruder-attack:title:{title}') selects one occurrence per title although manifest.json shows candidateCount 4 for the SCRATCH title stratum (COMPONENT:intruder-attack:TTS-ATTACK-394915-FACE)",
+          "docs/qa/implementation-readiness/correctness-audit/methodology.md 'Frozen selection': claims the method 'prevents outcome-driven cherry-picking'"
+        ],
+        "failure_mode": "Bias at the stratum level: hard cases (conflicted starting equipment, bottom-row instructions, same-title print variants) are under-sampled by construction, so a passing audit systematically under-detects 'source-conflict-flattened' and boundary defects while the methodology claims cherry-picking is prevented.",
+        "required_fix": "Preregister strata with recorded justification and an eligibility-coverage table (e.g., 11/18 intruder-help candidates eligible); either audit all source-variant/class-conflict equipment sources or raise their quota; for the two selected attack titles audit at least two source-different occurrences each, or document the flattening-detection limitation as a scope caveat in the readiness claim.",
+        "test_or_negative_control": "Negative control: inject a known source-different same-title attack pair and a known conflicted starting item into the indexes and verify the audit design would surface flattening/conflict defects; publish stratum eligibility coverage in the manifest."
+      },
+      {
+        "id": "F-004",
+        "severity": "material",
+        "category": "blindness",
+        "claim": "Manifest unit rows carry harness semantic conclusions (physicalClass, equipmentStratum, category, disposition='base-competitive', and batchDisposition-derived labels) that packet preparation can ingest, while no supplied control restricts packet contents to source-local material, so the blind lane's source-only boundary is enforced only by prose.",
+        "evidence": [
+          "docs/qa/implementation-readiness/correctness-audit/manifest.json: COMPONENT:equipment-starting:TTS-SUPPORT-EQUIPMENT-556600-A0DAEF-FACE carries physicalClass 'ranged-weapon' and equipmentStratum 'support-ranged-weapon'; COMPONENT:objective-mission units carry category ('mission-objective'/'private-objective'/'mission-task') and disposition 'base-competitive'",
+          "scripts/build_correctness_audit_manifest.py equipment_sample(): starting and conflict candidates set disposition=row['batchDisposition'] (conflict-derived dispositions flow into unit metadata)",
+          "docs/qa/implementation-readiness/correctness-audit/methodology.md Lane A: 'semantic projections, conclusions, named rule mappings, and conflict dispositions are not included' in packets",
+          "docs/qa/implementation-readiness/correctness-audit/manifest.json blindnessBoundary.allowedBeforeDerivation admits 'source extraction/provenance indexes' wholesale",
+          "scripts/validate_correctness_audit.py: packet checks are limited to path containment within packets/ and SHA-256 match; no content allowlist or blindness scan exists"
+        ],
+        "failure_mode": "Packets can pre-answer audited questions (e.g., telling the blind reviewer an item is a 'ranged-weapon' or an objective is 'base-competitive' pre-decides physical-class and scope questions the derivation is supposed to settle from source), contaminating Lane B with no detectable trace.",
+        "required_fix": "Define a mechanical packet field allowlist (source bytes/crops, locators, authority/version metadata, source-local IDs and printed labels only); strip or forbid physicalClass/category/disposition/equipmentStratum from packets; add a validator check that packet text contains no concise-rule or semantic-record content (e.g., n-gram scan against the five rule files and frozen semantic artifacts).",
+        "test_or_negative_control": "Negative control: build a packet containing a concise-rule sentence or a physicalClass field; the packet builder/validator must reject it."
+      },
+      {
+        "id": "F-005",
+        "severity": "material",
+        "category": "source-packet",
+        "claim": "The packet-completeness safeguard's required records (files searched, locators, search terms, neighboring sections, channels checked, exclusions with reasons) are not represented in the result schema, so reviewed=true with empty findings passes and the anti-false-ambiguity control is unverifiable from artifacts.",
+        "evidence": [
+          "docs/qa/implementation-readiness/correctness-audit/methodology.md 'Source-packet completeness safeguard': 'every packet records: source files searched; exact included locators; search terms and neighboring sections checked; relevant FAQ/component channels checked; known exclusions and why they are irrelevant'",
+          "docs/qa/implementation-readiness/correctness-audit/audit-result.schema.json: packetCompleteness contains only reviewed (boolean), critic, findings (free-text string array), dispositions (free-text string array)",
+          "scripts/validate_correctness_audit.py: no validation of packetCompleteness contents"
+        ],
+        "failure_mode": "The Search-pilot failure mode (an omitted cross-cutting passage manufacturing a false ambiguity, or an omitted FAQ override manufacturing a false match) recurs without trace; completeness review becomes an unchecked checkbox, and free-text critic findings could also embed downstream conclusions into the pre-derivation record.",
+        "required_fix": "Extend the schema with structured completeness records (searchedPaths, includedLocators, searchTerms, neighboringSections, channelsChecked, exclusions with reasons) required non-empty whenever reviewed=true; constrain critic findings to source-locator references; validate all of it.",
+        "test_or_negative_control": "Mutation: reviewed=true with empty structured records must fail validation."
+      },
+      {
+        "id": "F-006",
+        "severity": "material",
+        "category": "severity-threshold",
+        "claim": "Severity and recurring-pattern thresholds are not mechanically computable or enforced: discrepancies carry no root-cause field, no supplied code aggregates root causes or evaluates passThreshold (which the validator never reads and whose tampering is undetected), and Lane D exempts minor, presentation-only, and preserved-ambiguity dispositions from independent attack, creating a downgrade escape.",
+        "evidence": [
+          "docs/qa/implementation-readiness/correctness-audit/audit-result.schema.json $defs.discrepancy: fields are discrepancyId/classification/severity/claim/sourceFinding/evidenceRefs with no rootCause",
+          "docs/qa/implementation-readiness/correctness-audit/methodology.md Lane D: 'attacks every critical/material discrepancy and a deterministic sample of matches' with the sample rule and size unspecified; minor/'presentation-only'/'source-ambiguity-preserved' dispositions are never independently attacked",
+          "docs/qa/implementation-readiness/correctness-audit/manifest.json passThreshold; scripts/validate_correctness_audit.py never references passThreshold",
+          "scripts/test_correctness_audit_mutations.py: no mutation for passThreshold tampering or for splitting one root cause across units"
+        ],
+        "failure_mode": "A comparator can downgrade material defects to minor or presentation-only to dodge both Lane D attack and the 'no unresolved material error' gate; root-cause splitting defeats the recurring-pattern escalation; thresholds can be edited without detection; the zero inventedAuthorityOverrides/hiddenDefaults counts have no defined mapping (an 'authority-inversion' labeled 'minor' has no stated treatment).",
+        "required_fix": "Add a rootCause field to discrepancies; compute recurring patterns (same rootCause in >=3 units or >=2 families) and passThreshold satisfaction mechanically from result records; define the Lane D match-sampling rule; independently verify a fixed sample of minor and presentation-only dispositions; define the severity mapping for the zero-override and zero-hidden-default thresholds.",
+        "test_or_negative_control": "Mutations: (a) edit passThreshold in the manifest and the validator must fail; (b) split one root cause across three units and aggregation must flag a recurring pattern; (c) downgrade a material discrepancy to minor and sampled minor verification must still reach it."
+      },
+      {
+        "id": "F-007",
+        "severity": "material",
+        "category": "validator",
+        "claim": "The shipped JSON schema is never applied to results: the validator loads audit-result.schema.json only to assert top-level additionalProperties=false, while validate_result_shape is a weaker hand-rolled subset that omits reviewer subfield requirements, requirement required-fields, citation minItems, ambiguity alternatives minItems=2, and scenario then minItems=1, so results can pass the validator while violating the stated contract.",
+        "evidence": [
+          "scripts/validate_correctness_audit.py: schema = strict_load(SCHEMA_PATH) is used only for add(failures, schema.get('additionalProperties') is False, ...); validate_result_shape() enforces none of the nested required/minItems constraints",
+          "docs/qa/implementation-readiness/correctness-audit/audit-result.schema.json: requirement.required lists nine fields with citations minItems 1; ambiguity.alternatives minItems 2; scenario.then minItems 1; reviewer.required lists five fields; none of these are enforced by the validator"
+        ],
+        "failure_mode": "Contract drift: schema, validator, and actual results diverge silently; the 'closed per-unit result contract' is asserted but not enforced, so non-conforming results contaminate counts and decisions.",
+        "required_fix": "Validate every result with a real JSON Schema 2020-12 implementation against audit-result.schema.json in addition to the structural checks (or delete the divergent hand-rolled subset); keep schema and validator in lockstep.",
+        "test_or_negative_control": "Mutations: a result with a requirement missing citations, an ambiguity with one alternative, a reviewer missing 'model', and an extra nested property must each fail."
+      },
+      {
+        "id": "F-008",
+        "severity": "material",
+        "category": "mutation-control",
+        "claim": "The mutation suite covers manifest/progress integrity but omits result-content mutations and coordinated corruption: result auditUnitId/status mismatch, packet path escape, packet hash mismatch, ambiguity defaultProhibited=false, progress manifestSha256 tamper, passThreshold tamper, and source-tamper-plus-regeneration are untested, leaving several validator branches and all builder assertions without negative controls.",
+        "evidence": [
+          "scripts/test_correctness_audit_mutations.py: test list ends at test_pending_result_attachment_rejected; no result-content or coordinated mutations exist",
+          "scripts/build_correctness_audit_manifest.py: asserts len(units)==56, len(candidates)==18, len(result)==8, and the character-set equality are not exercised by any mutation",
+          "scripts/test_correctness_audit_mutations.py test_result_path_escape_rejected: depends on /etc/hosts existing (errors rather than fails where absent)"
+        ],
+        "failure_mode": "Untested validator branches may be broken or regress silently; the known limit (coordinated forgery passing a self-referential hash chain) is neither tested nor documented, overstating what a passing suite proves.",
+        "required_fix": "Add the listed mutations, including a coordinated-corruption test that demonstrates what is and is not detected and ties detection to the git anchor required by F-002; replace the /etc/hosts dependency with a temp file.",
+        "test_or_negative_control": "Each new mutation must fail against the current validator where a check exists; the coordinated test must explicitly document residual undetected risk."
+      },
+      {
+        "id": "F-009",
+        "severity": "material",
+        "category": "reproducibility",
+        "claim": "Lane sealing and model provenance are unverifiable from artifacts: prompts are recorded only as promptSha256 with no retained preimage, reviewer.responsePath is nullable, reviewer.reasoning is an unconstrained string that could retain private reasoning traces contrary to policy, and no result carries timestamps or commit binding.",
+        "evidence": [
+          "docs/qa/implementation-readiness/correctness-audit/audit-result.schema.json: blindDerivation has promptSha256 but no promptPath; reviewer $defs: reasoning is a free string and responsePath is string|null; no temporal fields exist anywhere in the schema",
+          "docs/qa/implementation-readiness/correctness-audit/methodology.md Lane B: 'persisted and hashed before the reviewer can see downstream material'; Lane D: record 'exact tag, provider, request mode, packet hash, prompt hash, final response' and 'Do not retain or publish provider reasoning traces'",
+          "scripts/validate_correctness_audit.py: no check that model-assisted reviews retain a response or that prompts are stored"
+        ],
+        "failure_mode": "The prompt is an unmonitored input channel: conclusions could be fed to the 'blind' reviewer via prompt text with only an unverifiable hash recorded; sealing order (Lane B before Lane C) and model-review provenance rest on unfalsifiable claims; the 'reasoning' field invites trace retention.",
+        "required_fix": "Store prompt text as a packets/ artifact with path and hash (promptPath); constrain reviewer.reasoning to a request-mode enum (rename to requestMode); require non-null responsePath for kind='model-assisted'; add sealedAt timestamps or commit binding to results.",
+        "test_or_negative_control": "Validator must reject model-assisted results with null responsePath or a missing prompt artifact; a scan must confirm no provider reasoning traces appear in any retained field."
+      },
+      {
+        "id": "F-010",
+        "severity": "minor",
+        "category": "readiness-claim",
+        "claim": "A passing audit cannot support any population-level claim about the roughly 283 unaudited component effects (deterministic rank selection is not a probability sample, so no defect-rate bound follows), and the decision threshold is silent on source-blocked units, so the readiness claim must be explicitly scoped to audited units with blocked units enumerated.",
+        "evidence": [
+          "docs/qa/implementation-readiness/correctness-audit/methodology.md 'Decision threshold': 'at most two isolated material errors in the 56-component sample' and 'Escalate toward the approximately 339-unit full audit only if defects are systemic'",
+          "docs/qa/implementation-readiness/correctness-audit/manifest.json passThreshold: no field or rule addressing 'source-blocked' units although statusValues include it and 'Not a defect' covers retained blockers",
+          "docs/qa/implementation-readiness/correctness-audit/methodology.md scope: readiness claim limited to the base-competitive layer but no unaudited-population accounting is required"
+        ],
+        "failure_mode": "Over-broad readiness claim: a clean 56-unit sample is read as component-layer correctness, and source-blocked units vanish from the decision without disposition.",
+        "required_fix": "Require the final decision report to enumerate source-blocked units with dispositions and to state the claim as 'the 140 audited units are source-faithful; the remaining component effects remain unaudited', with any broader claim explicitly justified.",
+        "test_or_negative_control": "Decision-report check: the report must fail validation if unaudited-population accounting or blocked-unit enumeration is missing."
+      }
+    ],
+    "missing_controls": [
+      "Git anchoring of the locked population: verification that HEAD (or a pinned commit/tag) matches lockedStartingHead and that the manifest hash matches the value recorded at that commit.",
+      "A packet content allowlist plus a mechanical blindness scan (no concise-rule or semantic-record text; no physicalClass/category/disposition fields) enforced at packet build and validation time.",
+      "Application of audit-result.schema.json to every result using a real JSON Schema validator.",
+      "Minimum-content and lane-ordering contracts (accepted implies non-null comparison and verification; at least one cited requirement and one acceptance scenario per derived unit).",
+      "Root-cause tagging plus mechanical recurring-pattern aggregation and passThreshold evaluation in code.",
+      "Independent verification sampling of minor, presentation-only, and preserved-ambiguity dispositions to close the downgrade escape.",
+      "Structured packet-completeness records (searched paths, terms, exclusions with reasons) required by the schema.",
+      "Prompt retention (path plus hash), timestamps or commit binding for lane sealing, and batch manifests linking each prompt hash to its submitted unit-ID set so batching rules (returned count equals submitted count) are verifiable.",
+      "Decision-report requirements: enumerate source-blocked units and the unaudited component population; scope the readiness claim to audited units."
+    ],
+    "questions": [
+      "manifest.json action-card rows TTS-ACTION-CE-567428, TTS-ACTION-OFF-567437, and TTS-ACTION-REC-567404 all point into assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/ while their character fields are Combat Engineer, Officer, and Recon: is the sourcePath-to-character attribution in action-source-index.json correct, or would packets bind these derivations to the wrong card faces? (The index is not supplied.)",
+      "Is there evidence (commit timestamp or preregistration record) that seedMaterial, including the 'v1' suffix knob, was fixed before the selection outcome was observed? Nothing supplied prevents seed iteration until a favorable sample appeared.",
+      "Do packets/ artifacts and a packet builder exist with any source-only allowlist enforcement, or is packet composition entirely manual? (packets/ contents are not supplied.)",
+      "Does any unsupplied script (e.g., scripts/validate_project_status.py) verify git HEAD against lockedStartingHead or evaluate passThreshold against results? If so, F-002 and F-006 may be partially mitigated; please supply it for review.",
+      "How are inventedAuthorityOverrides and hiddenDefaults counted against the zero thresholds: by classification regardless of severity, or only at material/critical severity? An 'authority-inversion' labeled 'minor' currently has no defined treatment.",
+      "What is the Lane D 'deterministic sample of matches' rule (size, strata, seed), and where is it recorded?",
+      "The 28-unit base-applicability classification is prior semantic work that defines the audited FAQ population: was it independently source-verified, and what happens if a base-relevant FAQ unit was misclassified out?",
+      "scripts/build_correctness_audit_manifest.py faq_units() resolves pdfPageIndex via value equality (row in page['units']); if the extraction ever contained value-identical unit dicts on different pages, the page would be misattributed. Does validate_source_extraction.py guarantee per-page unit uniqueness (e.g., unique sourceUnitId)?",
+      "The supplied manifest.json excerpt is truncated mid-unit (after COMPONENT:equipment-starting:TTS-SUPPORT-EQUIPMENT-507100-875C54-FACE); the remaining equipment-starting units were not reviewable here. The byte-exact rebuild check covers them mechanically, but can a complete manifest be supplied for human review?",
+      "Does scripts/validate_source_extraction.py verify transcription fidelity against rendered pixels (crop/OCR checks), given Lane A packets rely on 'exact source-bound card/help-sheet pixels or transcriptions' and the extraction JSONs are not supplied?"
+    ],
+    "minimum_fixes_before_audit": [
+      "F-001 (critical): enforce minimum-content and lane-ordering contracts before any result can be recorded.",
+      "F-004: implement the packet field allowlist and blindness scan before any packet is prepared.",
+      "F-005: add structured packet-completeness records before packets are reviewed.",
+      "F-007: apply audit-result.schema.json to results before the first result is written.",
+      "F-002: add git-anchor verification before the manifest is relied on for selection.",
+      "F-006: at minimum, add passThreshold tamper detection and root-cause fields before comparison lanes open; complete mechanical threshold evaluation before any decision.",
+      "F-003 (partial, before selection is relied upon): publish the stratum eligibility-coverage table and either expand the single conflict/boundary equipment slot and same-title attack coverage, or record the flattening-detection limitation as an explicit scope caveat.",
+      "F-008: add the missing result-content mutations alongside the F-001/F-007 fixes so the new contracts are negative-control tested."
+    ]
+  },
+  "thinkingRetained": false
+}

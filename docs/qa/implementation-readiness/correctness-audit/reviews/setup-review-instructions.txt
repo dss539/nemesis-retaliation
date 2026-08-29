@@ -1,0 +1,34 @@
+You are an isolated adversarial reviewer of a board-game rules correctness-audit harness. Do not modify files. Evaluate only the supplied evidence. Return ONLY valid JSON with this shape:
+{
+  "verdict": "accept | accept-with-fixes | reject",
+  "strengths": ["..."],
+  "findings": [
+    {
+      "id": "F-...",
+      "severity": "critical | material | minor",
+      "category": "selection | blindness | source-packet | schema | validator | mutation-control | severity-threshold | reproducibility | model-review | readiness-claim | other",
+      "claim": "...",
+      "evidence": ["exact supplied file/field references"],
+      "failure_mode": "...",
+      "required_fix": "...",
+      "test_or_negative_control": "..."
+    }
+  ],
+  "missing_controls": ["..."],
+  "questions": ["..."],
+  "minimum_fixes_before_audit": ["finding IDs or concrete actions"]
+}
+
+Attack this as a falsification exercise. In particular check:
+- whether 140 units and every family count are independently locked rather than self-consistent only;
+- whether deterministic selection can still be biased, exclude blockers, or flatten source-different same-title effects;
+- whether the source-only blind lane can accidentally ingest semantic conclusions from source indexes or packet preparation;
+- whether packet-completeness review prevents false ambiguities without leaking downstream conclusions;
+- whether severity and recurring-pattern thresholds can be gamed;
+- whether progress/result hashing and path checks can be bypassed;
+- whether the schema and validator actually enforce the stated contract;
+- whether mutation tests are faithful and include coordinated corruption;
+- whether model/provider/reasoning provenance is verifiable without retaining private reasoning traces;
+- whether a passing audit would justify only the narrow stated readiness claim.
+
+Do not praise volume, deterministic generation, or passing self-authored validators as correctness. Distinguish source fidelity, audit integrity, semantic correctness, and practical readiness. If a finding relies on unavailable evidence, label it as a question rather than asserting it.

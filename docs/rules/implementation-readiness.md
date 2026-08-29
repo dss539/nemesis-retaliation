@@ -93,9 +93,11 @@ The Search → Item gain pilot is complete. The compact contract passed 22 accep
 
 Detailed result: `docs/qa/implementation-readiness/search-pilot/utility-report.md`.
 
-## Proposed correctness audit after the owner gate
+## Authorized correctness audit after the owner gate
 
 Do not audit all 529 semantic records. They are frozen reference evidence, not the proposed implementation specification.
+
+On 2026-08-29 the project owner accepted the recommendation to keep semantic expansion frozen and authorized this audit. The executable harness, locked population, source-only packet rules, sealed blind derivation, post-reveal comparison, independent verification sampling, and decision evaluator live under `docs/qa/implementation-readiness/correctness-audit/` and `scripts/*correctness_audit*.py`.
 
 ### Stage 1 — 140-unit decision audit
 

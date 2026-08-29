@@ -1,36 +1,29 @@
 # Nemesis: Retaliation — Project Status
 
-**Status date:** 2026-08-27
-**Active phase:** Owner gate (Search proof-of-value complete; semantic expansion frozen)
+**Status date:** 2026-08-29
+**Active phase:** Stage 1 blind correctness audit (semantic expansion frozen)
 **Active branch:** `work/card-corpus-extraction`
 **Implementation status:** Frozen; a clean rewrite will begin only after rules-layer readiness and explicit approval
 
 ## Current Objective
 
-Present the completed Search proof-of-value result for owner review, then run a stratified blind correctness audit before any rewrite approval.
+Execute the authorized, locked 140-unit blind correctness audit before any rewrite approval.
 
 The current implementation remains frozen. Existing semantic records remain immutable audit/reference evidence; expansion is not recommended.
 
 ## Immediate Next Deliverable
 
-Review the completed **Search → Item gain proof-of-value** and approve the next rules-readiness method:
+Freeze the externally reviewed 140-unit audit harness, then execute source-only packet, sealed blind derivation, post-reveal comparison, and independent verification batches. The audit population is 56 concise rules + 28 base-applicable FAQ units + 56 stratified component effects.
 
-- compact contract: 22/22 acceptance tests passed;
-- mutation controls: 17/17 killed (14 preregistered + 3 adversarial additions);
-- complexity: 800 physical / 744 nonblank code-and-test lines;
-- H1 compact sufficiency: passed for this slice;
-- H2 unique semantic utility: failed for this slice;
-- recommendation: keep semantic expansion frozen and proceed to stratified blind correctness auditing.
-
-Evidence: `docs/qa/implementation-readiness/search-pilot/utility-report.md`.
+Evidence: `docs/qa/implementation-readiness/correctness-audit/`.
 
 ## Resume Checkpoint
 
 - Verified semantic data checkpoint: `f3fbd28` for the Facility/map topology/setup batch integrated over the prior Combat/Attacks/Noise/Hazard data and adversarial suite.
-- Branch `work/card-corpus-extraction` is thirty-six local commits ahead of `origin/work/card-corpus-extraction` including the implementation-readiness result; nothing has been pushed. No PR or deployment exists.
+- Branch `work/card-corpus-extraction` contains the local implementation-readiness checkpoints; nothing from the correctness audit has been pushed. No PR or deployment exists.
 - The protected pre-existing `AGENTS.md` change remains untouched and retains SHA-256 `2c65f66c7e88e0e154fb5c7c77e1131f1bf66acb1f7eb3964b20236442740344`; it is not part of this batch.
 - The core Combat/Attacks/Noise/Hazard/entry batch is integrated over the prior Heavy/Equipment work; deterministic semantic rebuilds and 48 focused/adversarial tests pass, including the new independent Combat projection.
-- Resume at the owner gate: the Search proof-of-value passed compact correctness/mutation criteria but did not demonstrate unique semantic implementation utility. Semantic expansion remains frozen; current source-obligation boundary remains 530 covered / 69 pending / 1 source-blocked with 115 no-default semantic questions.
+- Resume in Stage 1: the owner accepted the recommendation to keep semantic expansion frozen and authorized the 140-unit blind correctness audit. Current source-obligation boundary remains 530 covered / 69 pending / 1 source-blocked with 115 no-default semantic questions.
 
 ## Verified Checkpoint
 
@@ -312,9 +305,9 @@ Machine-readable evidence: `docs/rules/source-extraction/validation.json`.
 
 ## Remaining Work — Ordered
 
-1. **Owner gate** — accept, reject, or modify the recommendation to keep semantic expansion frozen.
-2. **Correctness audit** — run a stratified blind source audit before any clean rewrite approval.
-3. Repair confirmed concise-rule defects and preserve unresolved policy as explicit gates.
+1. **Correctness audit** — execute the locked 140-unit stratified blind source audit.
+2. Repair confirmed concise-rule defects and preserve unresolved policy as explicit gates.
+3. Expand affected families or the full planning inventory only if the preregistered error thresholds require it.
 4. Choose the new architecture independently and seek explicit approval before implementation.
 
 Detailed phase plan: `docs/rules/source-extraction/extraction-roadmap.md`.

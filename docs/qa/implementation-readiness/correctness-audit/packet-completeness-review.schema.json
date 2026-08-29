@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://dss539.github.io/nemesis-retaliation/schema/stage1-packet-completeness-review-v1.json",
+  "title": "Stage 1 packet completeness review",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "recordType", "reviewId", "sealedAtUtc", "sealedAtGitHead", "packetPath", "packetSha256", "reviewer", "findings", "accepted", "unresolvedMaterialFindingIds"],
+  "properties": {
+    "schemaVersion": {"const": 1},
+    "recordType": {"const": "stage-1-packet-completeness-review"},
+    "reviewId": {"type": "string", "minLength": 1},
+    "sealedAtUtc": {"type": "string", "format": "date-time"},
+    "sealedAtGitHead": {"type": "string", "pattern": "^[0-9a-f]{40}$"},
+    "packetPath": {"type": "string", "minLength": 1},
+    "packetSha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "reviewer": {"$ref": "#/$defs/reviewer"},
+    "findings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["findingId", "severity", "claim", "evidenceRefs", "disposition", "dispositionReason"],
+        "properties": {
+          "findingId": {"type": "string", "minLength": 1},
+          "severity": {"enum": ["minor", "material", "critical"]},
+          "claim": {"type": "string", "minLength": 1},
+          "evidenceRefs": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+          "disposition": {"enum": ["corrected", "rejected", "unresolved"]},
+          "dispositionReason": {"type": "string", "minLength": 1}
+        }
+      }
+    },
+    "accepted": {"type": "boolean"},
+    "unresolvedMaterialFindingIds": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {"type": "string", "minLength": 1}
+    }
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"accepted": {"const": true}}},
+      "then": {"properties": {"unresolvedMaterialFindingIds": {"maxItems": 0}}}
+    }
+  ],
+  "$defs": {
+    "reviewer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "provider", "requestedModel", "responseModel", "requestedReasoning", "requestMode", "responsePath", "responseSha256", "thinkingRetained"],
+      "properties": {
+        "kind": {"enum": ["agent", "model-assisted", "human"]},
+        "provider": {"type": "string"},
+        "requestedModel": {"type": "string"},
+        "responseModel": {"type": "string"},
+        "requestedReasoning": {"type": "string"},
+        "requestMode": {"type": "string"},
+        "responsePath": {"type": ["string", "null"]},
+        "responseSha256": {"type": ["string", "null"], "pattern": "^[0-9a-f]{64}$"},
+        "thinkingRetained": {"const": false}
+      },
+      "allOf": [
+        {
+          "if": {"properties": {"responsePath": {"type": "string"}}, "required": ["responsePath"]},
+          "then": {"properties": {"responseSha256": {"type": "string"}}}
+        },
+        {
+          "if": {"properties": {"responseSha256": {"type": "string"}}, "required": ["responseSha256"]},
+          "then": {"properties": {"responsePath": {"type": "string"}}}
+        }
+      ]
+    }
+  }
+}

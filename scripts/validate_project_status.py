@@ -44,8 +44,11 @@ def main() -> None:
     require(source_validation.get("passed") is True and source_validation.get("failureCount") == 0,
             "source-extraction validation must pass", failures)
     if vocab_validation["checks"]["openReviewGates"] == 0:
-        require("Owner gate (Search proof-of-value complete; semantic expansion frozen)" in status,
-                "PROJECT_STATUS.md must record the active implementation-readiness freeze", failures)
+        status_lower = status.lower()
+        require("semantic expansion frozen" in status_lower,
+                "PROJECT_STATUS.md must record the semantic-expansion freeze", failures)
+        require("stage 1 blind correctness audit" in status_lower,
+                "PROJECT_STATUS.md must record the authorized Stage 1 audit", failures)
         readiness = (REPO / "docs/rules/implementation-readiness.md").read_text(encoding="utf-8")
         preregistration = (REPO / "docs/qa/implementation-readiness/search-pilot/preregistration.md").read_text(encoding="utf-8")
         result = (REPO / "docs/qa/implementation-readiness/search-pilot/metrics.json").read_text(encoding="utf-8")

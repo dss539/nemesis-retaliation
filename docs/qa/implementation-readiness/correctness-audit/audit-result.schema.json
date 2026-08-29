@@ -1,0 +1,165 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://dss539.github.io/nemesis-retaliation/schema/stage1-correctness-audit-result-v2.json",
+  "title": "Stage 1 post-reveal correctness audit unit result",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "recordType",
+    "auditUnitId",
+    "sealedAtUtc",
+    "sealedAtGitHead",
+    "family",
+    "status",
+    "blindDerivationRef",
+    "comparator",
+    "comparison",
+    "verificationReviews",
+    "resolution"
+  ],
+  "properties": {
+    "schemaVersion": {"const": 2},
+    "recordType": {"const": "stage-1-post-reveal-correctness-audit-result"},
+    "auditUnitId": {"type": "string", "minLength": 1},
+    "sealedAtUtc": {"type": "string", "format": "date-time"},
+    "sealedAtGitHead": {"type": "string", "pattern": "^[0-9a-f]{40}$"},
+    "family": {"type": "string", "minLength": 1},
+    "status": {"enum": ["compared", "accepted", "material-error", "critical-error", "source-blocked"]},
+    "blindDerivationRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "sha256", "auditUnitId"],
+      "properties": {
+        "path": {"type": "string", "minLength": 1},
+        "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "auditUnitId": {"type": "string", "minLength": 1}
+      }
+    },
+    "comparator": {"$ref": "#/$defs/reviewer"},
+    "comparison": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["revealedPaths", "semanticRecordIds", "questionIds", "conflictIds", "discrepancies"],
+      "properties": {
+        "revealedPaths": {"type": "array", "items": {"type": "string"}},
+        "semanticRecordIds": {"type": "array", "items": {"type": "string"}},
+        "questionIds": {"type": "array", "items": {"type": "string"}},
+        "conflictIds": {"type": "array", "items": {"type": "string"}},
+        "discrepancies": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/discrepancy"}}
+      }
+    },
+    "verificationReviews": {"type": "array", "items": {"$ref": "#/$defs/verification"}},
+    "resolution": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "repairPaths", "verificationEvidenceRefs", "notes"],
+      "properties": {
+        "status": {"enum": ["pending", "not-required", "repaired-verified", "source-blocked"]},
+        "repairPaths": {"type": "array", "items": {"type": "string"}},
+        "verificationEvidenceRefs": {"type": "array", "items": {"type": "string"}},
+        "notes": {"type": "string"}
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"status": {"enum": ["material-error", "critical-error", "source-blocked"]}}, "required": ["status"]},
+      "then": {"properties": {"verificationReviews": {"minItems": 1}}}
+    },
+    {
+      "if": {"properties": {"status": {"const": "accepted"}}, "required": ["status"]},
+      "then": {"properties": {"resolution": {"properties": {"status": {"const": "not-required"}}}}}
+    },
+    {
+      "if": {"properties": {"status": {"const": "source-blocked"}}, "required": ["status"]},
+      "then": {"properties": {"resolution": {"properties": {"status": {"const": "source-blocked"}}}}}
+    }
+  ],
+  "$defs": {
+    "reviewer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "provider", "requestedModel", "responseModel", "requestedReasoning", "requestMode", "responsePath", "responseSha256", "thinkingRetained"],
+      "properties": {
+        "kind": {"enum": ["agent", "model-assisted", "human"]},
+        "provider": {"type": "string"},
+        "requestedModel": {"type": "string"},
+        "responseModel": {"type": "string"},
+        "requestedReasoning": {"type": "string"},
+        "requestMode": {"type": "string"},
+        "responsePath": {"type": ["string", "null"]},
+        "responseSha256": {"type": ["string", "null"], "pattern": "^[0-9a-f]{64}$"},
+        "thinkingRetained": {"const": false}
+      },
+      "allOf": [
+        {
+          "if": {"properties": {"responsePath": {"type": "string"}}, "required": ["responsePath"]},
+          "then": {"properties": {"responseSha256": {"type": "string"}}}
+        },
+        {
+          "if": {"properties": {"responseSha256": {"type": "string"}}, "required": ["responseSha256"]},
+          "then": {"properties": {"responsePath": {"type": "string"}}}
+        }
+      ]
+    },
+    "discrepancy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["discrepancyId", "classification", "severity", "rootCauseId", "authorityOverride", "hiddenDefault", "claim", "sourceFinding", "evidenceRefs"],
+      "properties": {
+        "discrepancyId": {"type": "string", "minLength": 1},
+        "classification": {
+          "enum": [
+            "match",
+            "downstream-omission",
+            "downstream-overstatement",
+            "authority-inversion",
+            "hidden-default",
+            "source-ambiguity-preserved",
+            "source-ambiguity-lost",
+            "source-conflict-preserved",
+            "source-conflict-flattened",
+            "transcription-or-packet-gap",
+            "presentation-only"
+          ]
+        },
+        "severity": {"enum": ["none", "minor", "material", "critical", "blocked"]},
+        "rootCauseId": {"type": ["string", "null"]},
+        "authorityOverride": {"type": "boolean"},
+        "hiddenDefault": {"type": "boolean"},
+        "claim": {"type": "string"},
+        "sourceFinding": {"type": "string"},
+        "evidenceRefs": {"type": "array", "minItems": 1, "items": {"type": "string"}}
+      },
+      "allOf": [
+        {
+          "if": {"properties": {"severity": {"enum": ["material", "critical"]}}, "required": ["severity"]},
+          "then": {"properties": {"rootCauseId": {"type": "string", "minLength": 1}}}
+        },
+        {
+          "if": {"properties": {"classification": {"const": "authority-inversion"}}, "required": ["classification"]},
+          "then": {"properties": {"authorityOverride": {"const": true}}}
+        },
+        {
+          "if": {"properties": {"classification": {"const": "hidden-default"}}, "required": ["classification"]},
+          "then": {"properties": {"hiddenDefault": {"const": true}}}
+        }
+      ]
+    },
+    "verification": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["reviewId", "reviewer", "reviewedDiscrepancyIds", "sourceChecked", "finding", "disposition", "evidenceRefs"],
+      "properties": {
+        "reviewId": {"type": "string", "minLength": 1},
+        "reviewer": {"$ref": "#/$defs/reviewer"},
+        "reviewedDiscrepancyIds": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+        "sourceChecked": {"const": true},
+        "finding": {"type": "string"},
+        "disposition": {"type": "string"},
+        "evidenceRefs": {"type": "array", "minItems": 1, "items": {"type": "string"}}
+      }
+    }
+  }
+}
