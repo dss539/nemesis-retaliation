@@ -112,7 +112,7 @@ def main() -> int:
         counts[validation.STATUS_COUNT_KEYS[item["status"]]] += 1
     progress["counts"] = {"total": len(progress["units"]), **counts}
 
-    PROGRESS.write_text(json.dumps(progress, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    PROGRESS.write_bytes(validation.canonical_progress_bytes(progress))
     try:
         report = validation.validate(
             require_lock=validation.LOCK_PATH.is_file(),

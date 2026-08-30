@@ -6,6 +6,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import re
 from pathlib import Path, PurePosixPath
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -25,7 +26,7 @@ def strict_pairs(pairs):
     return result
 
 
-SOURCE_ONLY_FORBIDDEN_TOKENS = (
+SOURCE_ONLY_FIXED_PATH_TOKENS = {
     "docs/rules/00-foundations.md",
     "docs/rules/01-round-and-turns.md",
     "docs/rules/02-character-actions.md",
@@ -40,6 +41,8 @@ SOURCE_ONLY_FORBIDDEN_TOKENS = (
     "index.html",
     "js/",
     "css/",
+}
+SOURCE_ONLY_FIXED_IDENTIFIERS = {
     "downstreamPath",
     "extractionPath",
     "revealedArtifacts",
@@ -54,7 +57,91 @@ SOURCE_ONLY_FORBIDDEN_TOKENS = (
     "physicalClass",
     "batchDisposition",
     "equipmentStratum",
+}
+SOURCE_ONLY_SHARED_IDENTIFIERS = {
+    "schemaVersion",
+    "recordType",
+    "auditUnitId",
+    "sealedAtUtc",
+    "sealedAtGitHead",
+    "reviewer",
+    "reviewId",
+    "kind",
+    "reviewerId",
+    "provider",
+    "requestedModel",
+    "responseModel",
+    "requestedReasoning",
+    "requestMode",
+    "promptPath",
+    "promptSha256",
+    "responsePath",
+    "responseSha256",
+    "thinkingRetained",
+    "path",
+    "sha256",
+    "role",
+    "evidenceRefs",
+}
+ALLOWED_SOURCE_PATH_PREFIXES = (
+    "docs/rulebooks/",
+    "docs/rules/source-extraction/",
+    "assets/tts-mod/extract/",
 )
+
+
+def schema_property_names(value) -> set[str]:
+    names: set[str] = set()
+    if isinstance(value, dict):
+        properties = value.get("properties")
+        if isinstance(properties, dict):
+            names.update(str(key) for key in properties)
+        for child in value.values():
+            names.update(schema_property_names(child))
+    elif isinstance(value, list):
+        for child in value:
+            names.update(schema_property_names(child))
+    return names
+
+
+def source_only_forbidden_inventory() -> tuple[set[str], set[str]]:
+    forbidden_paths = set(SOURCE_ONLY_FIXED_PATH_TOKENS)
+    forbidden_identifiers = set(SOURCE_ONLY_FIXED_IDENTIFIERS)
+    manifest_path = AUDIT_DIR / "manifest.json"
+    if manifest_path.is_file():
+        manifest = json.loads(
+            manifest_path.read_text(encoding="utf-8"),
+            object_pairs_hook=strict_pairs,
+        )
+        for section in (
+            "frozenSemanticHashes",
+            "frozenConciseRuleHashes",
+            "selectionInputHashes",
+        ):
+            mapping = manifest.get(section, {})
+            if isinstance(mapping, dict):
+                forbidden_paths.update(
+                    str(path)
+                    for path in mapping
+                    if not str(path).startswith(ALLOWED_SOURCE_PATH_PREFIXES)
+                )
+        for unit in manifest.get("units", []):
+            if not isinstance(unit, dict):
+                continue
+            for field in ("downstreamPath", "extractionPath"):
+                path = unit.get(field)
+                if isinstance(path, str) and not path.startswith(ALLOWED_SOURCE_PATH_PREFIXES):
+                    forbidden_paths.add(path)
+    for schema_name in ("comparison.schema.json", "audit-result.schema.json"):
+        schema_path = AUDIT_DIR / schema_name
+        if schema_path.is_file():
+            schema = json.loads(
+                schema_path.read_text(encoding="utf-8"),
+                object_pairs_hook=strict_pairs,
+            )
+            forbidden_identifiers.update(schema_property_names(schema))
+    forbidden_identifiers.difference_update(SOURCE_ONLY_SHARED_IDENTIFIERS)
+    return forbidden_paths, forbidden_identifiers
 
 
 def source_only_payload_failures(value, location: str = "<root>") -> list[str]:
@@ -66,10 +153,27 @@ def source_only_payload_failures(value, location: str = "<root>") -> list[str]:
         for index, child in enumerate(value):
             failures.extend(source_only_payload_failures(child, f"{location}/{index}"))
     elif isinstance(value, str):
-        for token in SOURCE_ONLY_FORBIDDEN_TOKENS:
-            if token in value:
-                failures.append(f"source-only payload {location} contains forbidden token {token}")
+        forbidden_paths, forbidden_identifiers = source_only_forbidden_inventory()
+        for token in sorted(forbidden_paths):
+            if re.search(
+                rf"(?<![A-Za-z0-9_.-]){re.escape(token)}",
+                value,
+            ):
+                failures.append(f"source-only payload {location} contains forbidden path {token}")
+        for identifier in sorted(forbidden_identifiers):
+            if re.search(
+                rf"(?<![A-Za-z0-9_]){re.escape(identifier)}(?![A-Za-z0-9_])",
+                value,
+            ):
+                failures.append(
+                    f"source-only payload {location} contains forbidden identifier {identifier}"
+                )
     return failures
+
+
+SOURCE_ONLY_FORBIDDEN_TOKENS = tuple(
+    sorted(SOURCE_ONLY_FIXED_PATH_TOKENS | SOURCE_ONLY_FIXED_IDENTIFIERS)
+)
 
 
 def validate_source_only_json(path: Path) -> None:

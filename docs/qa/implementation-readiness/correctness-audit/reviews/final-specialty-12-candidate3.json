@@ -1,0 +1,200 @@
+{
+  "schemaVersion": 1,
+  "recordType": "stage-1-v2-final-specialty-rereview",
+  "reviewerId": "final3-specialty-12",
+  "specialty": 12,
+  "specialtyName": "worktree-safe source staging, root resolution, exact prelock commands, methodology/status consistency, and repository-free blind policy",
+  "candidateHead": "6a13b9e6f57307a76756cf90da2aaa7682aa699b",
+  "candidateParent": "ee42f3522859d1dd7ce782c801023cb71fd53071",
+  "candidateBranch": "review/stage1-v2-r12",
+  "workspaceRoot": "/home/smithers/projects/nemesis-audit-r12",
+  "repositoryPath": "/home/smithers/projects/nemesis-audit-r12/repos/nemesis-retaliation",
+  "verdict": "issues",
+  "findingCount": 1,
+  "summary": "Candidate 3 fixes the two material candidate-2 S12 defects. Isolated source stage/check each verified 1,098 files with zero copies and reported the assigned worktree ROOT; the prior bounded public-CLI probe now rejects source-root and intermediate-source symlinks while preserving tracked targets; and every command in the exact documented prelock matrix passed (140-unit manifest/prelock gate, 92 mutation tests, 15 decision tests, source extraction, project status, and diff whitespace). The candidate also has no legacy implementation or semantic-corpus delta, and the repository-free blind policy remains consistent with empty pre-execution lane state. One minor handoff inconsistency remains: the first-stop status and TODO still describe candidate 3 as a future commit/run, while the specialty brief still says to review the second candidate, even though this exact third candidate is the commit under review.",
+  "candidate2S12Recheck": [
+    {
+      "findingId": "S12-R12-001",
+      "candidate3Result": "fixed",
+      "evidence": "scripts/stage_correctness_audit_sources.py checks the raw source-root and source-tree prefixes before resolution. The unchanged bounded probe /home/smithers/projects/nemesis-audit-r12/s12_source_staging_probe.py (SHA-256 f4f971d0435a9d3a2ffb4b783c9f2753907ef5b10058ffbda9e2cb7659ae1dcd) returned sourceRootSymlink accepted=false/rc=1 and sourceIntermediateSymlink accepted=false/rc=1. Source-leaf and target-intermediate symlinks were rejected; a differing tracked target was rejected with its before/after SHA-256 unchanged."
+    },
+    {
+      "findingId": "S12-R12-002",
+      "candidate3Result": "fixed",
+      "evidence": "methodology.md now separates exact prelock and post-lock checkpoint matrices. The complete prelock matrix ran literally and passed, including validate_correctness_audit.py --prelock with failureCount=0 and all 140 rows pending."
+    },
+    {
+      "findingId": "S12-R12-003",
+      "candidate3Result": "not-fixed",
+      "evidence": "PROJECT_STATUS.md:16,23,28-29,37 and todo.md:2002-2003 still present candidate 3 as future work rather than the exact snapshot currently under review. The review brief adds a direct ordinal conflict at docs/qa/implementation-readiness/correctness-audit/reviews/prelock-specialty-final-prompt.md:3 by instructing this candidate-3 wave to review the second candidate."
+    }
+  ],
+  "findings": [
+    {
+      "findingId": "S12-R12-C3-001",
+      "severity": "minor",
+      "status": "reproduced",
+      "title": "Candidate-3 status handoff remains future-tense and the specialty brief names candidate 2",
+      "contract": "PROJECT_STATUS.md is the first-stop current-state authority, todo.md is its detailed handoff companion, and the final specialty brief must identify the lifecycle state being reviewed without directing workers back to a superseded candidate.",
+      "evidence": [
+        {
+          "path": "PROJECT_STATUS.md",
+          "startLine": 16,
+          "endLine": 16,
+          "detail": "The immediate deliverable still says to integrate candidate-2 findings as a third candidate and rerun the review, although HEAD is that third candidate and this rerun is in progress."
+        },
+        {
+          "path": "PROJECT_STATUS.md",
+          "startLine": 23,
+          "endLine": 29,
+          "detail": "The checkpoint says candidate-2 fixes are dirty and pending candidate 3, neighboring checks will run before candidate 3, and candidate 3 still requires the final wave; the exact reviewed HEAD is already candidate 3 and those checks have now run."
+        },
+        {
+          "path": "PROJECT_STATUS.md",
+          "startLine": 37,
+          "endLine": 37,
+          "detail": "The handoff again tells the next worker to commit the exact third review candidate rather than disposition the candidate-3 wave."
+        },
+        {
+          "path": "todo.md",
+          "startLine": 2002,
+          "endLine": 2003,
+          "detail": "The detailed tracker says to rerun checks before candidate 3 and rerun the twelve specialties on candidate 3, describing the active exact-candidate work as future."
+        },
+        {
+          "path": "docs/qa/implementation-readiness/correctness-audit/reviews/prelock-specialty-final-prompt.md",
+          "startLine": 3,
+          "endLine": 3,
+          "detail": "The candidate-3 specialty brief still says Review the exact second non-authoritative candidate, while its own line 9 requires the diff from candidate 2 and the holistic brief correctly names the third candidate."
+        }
+      ],
+      "reproduction": {
+        "command": "git show -s --format='%H%n%P%n%ad%n%s' --date=iso-strict HEAD",
+        "observed": [
+          "HEAD 6a13b9e6f57307a76756cf90da2aaa7682aa699b",
+          "parent ee42f3522859d1dd7ce782c801023cb71fd53071",
+          "subject chore: close Stage 1 v2 prelock review findings",
+          "branch review/stage1-v2-r12"
+        ]
+      },
+      "impact": "A resume worker or reviewer following the repository authorities can attempt to create candidate 3 again or interpret the specialty wave as targeting the superseded second candidate. The externally supplied exact SHA limits the current run's risk, but the repository handoff remains internally contradictory and repeats the candidate-2 S12 status defect.",
+      "minimalFix": [
+        "Use self-reference-safe wording that the containing snapshot is candidate 3 under exact-candidate review and that disposition of the active twelve-specialty/holistic wave is next.",
+        "Update todo.md from future rerun language to the current candidate-3 review/disposition state.",
+        "Change prelock-specialty-final-prompt.md:3 from second to third non-authoritative candidate."
+      ]
+    }
+  ],
+  "verifiedControls": [
+    {
+      "control": "Isolated source stage/check and worktree ROOT",
+      "status": "verified",
+      "evidence": "Stage and --check both returned rc=0, sourceRoot=/home/smithers/nemesis-retaliation, worktreeRoot=/home/smithers/projects/nemesis-audit-r12/repos/nemesis-retaliation, 1,098 already-current/checked files, zero copies, and zero copied bytes. The foreign-cwd probe reported the same exact worktree root."
+    },
+    {
+      "control": "Source/target symlink and tracked-overwrite refusal",
+      "status": "verified",
+      "evidence": "The bounded public-CLI probe rejected source-root, source-intermediate, source-leaf, and target-intermediate symlinks. It rejected a differing tracked target and preserved SHA-256 7fb2721b02d3582869a91d8521a5d246a7e6bbf2b4d2413fd0af058136149dd4."
+    },
+    {
+      "control": "Exact prelock command matrix",
+      "status": "verified",
+      "evidence": "Manifest freshness passed at 140 units; pinned isolated prelock validation passed with zero failures and 140 pending rows; 92/92 mutation/provenance/path/evidence/render/wave/progress/rollback tests and 15/15 decision tests passed; source extraction and project-status validation each passed with zero failures; git diff --check passed."
+    },
+    {
+      "control": "No implementation or semantic changes",
+      "status": "verified",
+      "evidence": "git diff --exit-code ee42f3522859d1dd7ce782c801023cb71fd53071..6a13b9e6f57307a76756cf90da2aaa7682aa699b -- index.html css js docs/rules/semantics returned 0."
+    },
+    {
+      "control": "Population/progress consistency",
+      "status": "verified",
+      "evidence": "Manifest and progress each contain 140 units; all 140 progress rows remain pending-blind-derivation; no v2 lock or substantive audit judgment exists."
+    },
+    {
+      "control": "Repository-free blind policy",
+      "status": "policy-consistent-runtime-pending",
+      "evidence": "methodology.md:171, PROJECT_STATUS.md:40, and todo.md:2008 consistently restrict blind workers to isolated non-repository directories containing only accepted sealed packets, fixed instructions/prompts, and the blind schema. workspace list showed nemesis-blind-b01 through nemesis-blind-b21 with zero repositories, dirty entries, or missing entries. git ls-files returned no tracked packet, blind, comparison, adjudication, or reviews/raw lane artifact. No substantive blind derivation has run, so dispatch-byte enforcement remains a later runtime acceptance check."
+    }
+  ],
+  "testsRun": [
+    {
+      "command": "python3 scripts/stage_correctness_audit_sources.py --source-root /home/smithers/nemesis-retaliation",
+      "result": "PASS: 1,098 current/checked, 0 copied"
+    },
+    {
+      "command": "python3 scripts/stage_correctness_audit_sources.py --source-root /home/smithers/nemesis-retaliation --check",
+      "result": "PASS: 1,098 checked, 0 copied"
+    },
+    {
+      "command": "python3 /home/smithers/projects/nemesis-audit-r12/s12_source_staging_probe.py",
+      "result": "PASS: candidate-2 source-root/intermediate-symlink bypasses rejected; ROOT, leaf/target symlink, and tracked-overwrite controls passed"
+    },
+    {
+      "command": "python3 scripts/build_correctness_audit_manifest.py --check",
+      "result": "PASS: current, 140 units"
+    },
+    {
+      "command": "uv run --isolated --with-requirements docs/qa/implementation-readiness/correctness-audit/requirements-audit.txt python3 scripts/validate_correctness_audit.py --prelock",
+      "result": "PASS: failureCount=0, 140/140 pending"
+    },
+    {
+      "command": "uv run --isolated --with-requirements docs/qa/implementation-readiness/correctness-audit/requirements-audit.txt python3 scripts/test_correctness_audit_mutations.py",
+      "result": "PASS: 92/92"
+    },
+    {
+      "command": "uv run --isolated --with-requirements docs/qa/implementation-readiness/correctness-audit/requirements-audit.txt python3 scripts/test_correctness_audit_decision.py",
+      "result": "PASS: 15/15"
+    },
+    {
+      "command": "python3 scripts/validate_source_extraction.py",
+      "result": "PASS: failureCount=0"
+    },
+    {
+      "command": "python3 scripts/validate_project_status.py",
+      "result": "PASS: failureCount=0; validator does not detect the candidate-lifecycle wording contradiction"
+    },
+    {
+      "command": "git diff --check",
+      "result": "PASS"
+    },
+    {
+      "command": "git diff --exit-code ee42f3522859d1dd7ce782c801023cb71fd53071..6a13b9e6f57307a76756cf90da2aaa7682aa699b -- index.html css js docs/rules/semantics",
+      "result": "PASS: no legacy implementation or semantic-corpus delta"
+    }
+  ],
+  "repositoryState": {
+    "exactHeadVerified": true,
+    "trackedStateCleanAtStart": true,
+    "trackedStateCleanAfterChecks": true,
+    "repositoryFilesModified": [],
+    "sourceTreesProvisionedOrChecked": [
+      "docs/rulebooks",
+      "assets/tts-mod/extract"
+    ],
+    "implementationOrSemanticFilesChangedByCandidate": []
+  },
+  "workspaceLock": {
+    "path": "/home/smithers/projects/nemesis-audit-r12/.workspace.lock",
+    "permissions": "0600",
+    "mode": "exclusive nonblocking root flock",
+    "heldForReview": true,
+    "releaseRequiredBeforeReturn": true
+  },
+  "externalArtifacts": [
+    {
+      "path": "/home/smithers/projects/nemesis-audit-r12/s12_source_staging_probe.py",
+      "sha256": "f4f971d0435a9d3a2ffb4b783c9f2753907ef5b10058ffbda9e2cb7659ae1dcd",
+      "purpose": "Reused bounded candidate-2 source-staging negative and ROOT probe; not modified."
+    },
+    {
+      "path": "/home/smithers/projects/nemesis-audit-r12/final-review-candidate3.json",
+      "purpose": "This complete candidate-3 specialty report outside Git."
+    }
+  ],
+  "residualRisks": [
+    "No substantive blind derivation has run; the integrator must verify the actual repository-free worker roots and delivered bytes before accepting Lane B evidence.",
+    "Source and target paths are inspected and later opened by pathname, so a check/use component-swap race remains if an external concurrent actor can mutate the source checkout; this was already recorded as residual risk in candidate 2 and was not elevated without a new reproduced bypass.",
+    "The full lock creator was not run because this is a read-only non-authoritative prelock review and successful execution could create audit-lock.json."
+  ]
+}

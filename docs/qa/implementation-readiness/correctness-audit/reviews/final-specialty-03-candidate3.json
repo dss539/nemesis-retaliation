@@ -1,0 +1,132 @@
+{
+  "schemaVersion": 1,
+  "recordType": "stage-1-v2-final-candidate3-specialty-review",
+  "reviewerId": "final3-specialty-03",
+  "specialty": {
+    "number": 3,
+    "name": "canonical POSIX path, backslash, symlink, containment, and worktree safety"
+  },
+  "generatedAtUtc": "2026-08-30T10:27:35Z",
+  "candidateHead": "6a13b9e6f57307a76756cf90da2aaa7682aa699b",
+  "candidateBranch": "review/stage1-v2-r03",
+  "supersededCandidateHead": "ee42f3522859d1dd7ce782c801023cb71fd53071",
+  "workspace": {
+    "root": "/home/smithers/projects/nemesis-audit-r03",
+    "worktree": "/home/smithers/projects/nemesis-audit-r03/repos/nemesis-retaliation",
+    "lockPath": "/home/smithers/projects/nemesis-audit-r03/.workspace.lock",
+    "lockType": "regular empty file",
+    "lockMode": "0600",
+    "lockDevice": 64518,
+    "lockInode": 4220527,
+    "lockIsSymlink": false,
+    "lockHeldForFullReview": true,
+    "competingStatusExitCodeWhileHeld": 75,
+    "competingStatusResult": "workspace 'nemesis-audit-r03' is locked by another worker"
+  },
+  "verdict": "issues",
+  "findingCount": 1,
+  "findings": [
+    {
+      "findingId": "PATH-003",
+      "severity": "material",
+      "status": "reproduced",
+      "title": "Source staging writes through a dangling final target symlink",
+      "requirement": "The source-staging helper must reject every symlink component and confine staged copies to the isolated worktree.",
+      "evidence": [
+        {
+          "path": "docs/qa/implementation-readiness/correctness-audit/methodology.md",
+          "lines": "162-171",
+          "observation": "The committed method states that source staging rejects every symlink component, verifies each file by SHA-256, and leaves tracked repository files unchanged."
+        },
+        {
+          "path": "scripts/stage_correctness_audit_sources.py",
+          "lines": "56-70",
+          "observation": "target_path rejects a target component only when current.exists() and current.is_symlink() are both true. For a dangling final symlink, exists() follows the missing referent and returns false while is_symlink() is true, so the symlink bypasses this gate."
+        },
+        {
+          "path": "scripts/stage_correctness_audit_sources.py",
+          "lines": "127-135",
+          "observation": "Write mode repeats the exists()-before-is_symlink() guard and then calls shutil.copy2(source, target). copy2 follows the dangling destination symlink, creates its referent outside the worktree, hashes through that alias, and reports success."
+        }
+      ],
+      "reproduction": {
+        "probePath": "/home/smithers/projects/nemesis-audit-r03/probes/final3-path-scope-probe.py",
+        "probeSha256": "fed81ee17b16f9a05e8330b0a6797eeb42893326969ac4ae748fe0bfbb381a2d",
+        "resultPath": "/home/smithers/projects/nemesis-audit-r03/probes/final3-path-scope-results.json",
+        "resultSha256": "3469ee2299bd2657c8d2b90724817f6f1ccb52d305d66309e04f0c3e83b9fa29",
+        "command": "python3 /home/smithers/projects/nemesis-audit-r03/probes/final3-path-scope-probe.py",
+        "exitCode": 0,
+        "observations": [
+          "The bounded fixture placed docs/rulebooks/rulebook.pdf as a symlink to a nonexistent file outside the synthetic target root; before staging, is_symlink() was true, exists() was false, and the external referent did not exist.",
+          "The public stager main returned 0, retained the symlink, created the external referent, copied the exact source bytes through the symlink, and reported successful staging.",
+          "The same probe confirmed that an existing intermediate target symlink is rejected, isolating the bypass to dangling target components hidden by exists()."
+        ]
+      },
+      "impact": "A pre-existing dangling target symlink can redirect a nominally worktree-confined source copy to create a file outside the worktree while the helper returns success and verifies the bytes through the alias. This violates the documented every-component and containment guarantees and makes the reported worktree staging result unreliable.",
+      "recommendedFix": "Reject current.is_symlink() unconditionally in target_path, before any exists() test, and reject target.is_symlink() before the write-mode regular-file guard. Prefer a dirfd/O_NOFOLLOW-based destination open to bind the check to the copy. Add a public-main regression with a dangling final target symlink and assert both nonzero exit and absence of the external referent."
+    }
+  ],
+  "verifiedNonfindings": {
+    "PATH-002": {
+      "result": "pass",
+      "details": [
+        "Canonical write and --check positive controls returned 0.",
+        "Empty, backslash, leading-dot, dot, dotdot, duplicate-separator, trailing-separator, absolute-in-repository, and sibling-prefix output aliases were rejected.",
+        "Each of the eight output components from docs through the final filename was replaced in turn by an in-root symlink; write and --check mode rejected all sixteen cases before any rejected-case filesystem change."
+      ]
+    },
+    "PATH-003RequestedControls": {
+      "result": "pass",
+      "details": [
+        "The public stager rejected a raw --source-root symlink and a symlink in an ancestor of the raw source-root path.",
+        "The public stager rejected source-prefix symlinks at docs, docs/rulebooks, assets, assets/tts-mod, and assets/tts-mod/extract, plus descendant directory and source-file symlinks.",
+        "A source-relative filename containing a literal backslash was rejected as noncanonical.",
+        "Canonical synthetic stage/check controls returned 0, and the real isolated-worktree --check verified 1,098 files with zero copies."
+      ]
+    }
+  },
+  "testsRun": [
+    {
+      "command": "python3 scripts/stage_correctness_audit_sources.py --source-root /home/smithers/nemesis-retaliation --check",
+      "exitCode": 0,
+      "result": "1,098 files current/checked; zero copies and zero copied bytes"
+    },
+    {
+      "command": "uv run --isolated --with-requirements docs/qa/implementation-readiness/correctness-audit/requirements-audit.txt python3 scripts/test_correctness_audit_mutations.py PromptOutputPathTests.test_prompt_output_rejects_noncanonical_and_symlink_paths SourceStagingPathTests.test_source_root_and_intermediate_symlinks_are_rejected",
+      "exitCode": 0,
+      "result": "2 focused tests passed"
+    },
+    {
+      "command": "uv run --isolated --with-requirements docs/qa/implementation-readiness/correctness-audit/requirements-audit.txt python3 scripts/test_correctness_audit_mutations.py",
+      "exitCode": 0,
+      "result": "92 tests passed in 16.956 seconds"
+    },
+    {
+      "command": "python3 /home/smithers/projects/nemesis-audit-r03/probes/final3-path-scope-probe.py",
+      "exitCode": 0,
+      "result": "PATH-002 and requested PATH-003 controls passed; dangling final target-symlink write-through reproduced"
+    },
+    {
+      "command": "git diff --check; git diff --quiet HEAD --",
+      "exitCode": 0,
+      "result": "exact candidate worktree remained clean with no tracked repository modifications"
+    }
+  ],
+  "files": {
+    "repositoryFilesModified": [],
+    "reportPath": "/home/smithers/projects/nemesis-audit-r03/final-review-candidate3.json",
+    "outsideGitArtifacts": [
+      {
+        "path": "/home/smithers/projects/nemesis-audit-r03/probes/final3-path-scope-probe.py",
+        "sha256": "fed81ee17b16f9a05e8330b0a6797eeb42893326969ac4ae748fe0bfbb381a2d"
+      },
+      {
+        "path": "/home/smithers/projects/nemesis-audit-r03/probes/final3-path-scope-results.json",
+        "sha256": "3469ee2299bd2657c8d2b90724817f6f1ccb52d305d66309e04f0c3e83b9fa29"
+      }
+    ]
+  },
+  "issuesEncountered": [
+    "The first custom-probe run incorrectly required zero target writes before an assets-prefix source symlink was reached, even though the helper processes the valid docs tree first. That probe-only assertion was corrected; the complete probe reran from fresh temporary roots and exited 0. No failed probe output was used as candidate evidence."
+  ]
+}

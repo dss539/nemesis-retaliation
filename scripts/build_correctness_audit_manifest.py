@@ -781,7 +781,9 @@ def progress_bytes(manifest_bytes: bytes) -> bytes:
             for row in manifest["units"]
         ],
     }
-    return (json.dumps(progress, indent=2, ensure_ascii=False) + "\n").encode()
+    return (
+        json.dumps(progress, indent=2, ensure_ascii=False, sort_keys=True) + "\n"
+    ).encode()
 
 
 def validate_progress_transition(

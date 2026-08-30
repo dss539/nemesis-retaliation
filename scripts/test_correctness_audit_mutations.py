@@ -787,6 +787,17 @@ class SourceStagingPathTests(unittest.TestCase):
                 )
             with self.assertRaisesRegex(SystemExit, "noncanonical source-relative path"):
                 stage_target.target_path(Path("docs/rulebooks\\bad.pdf"))
+            original_root = stage_target.ROOT
+            try:
+                stage_target.ROOT = root / "target"
+                dangling = stage_target.ROOT / "docs" / "rulebooks" / "dangling.pdf"
+                dangling.parent.mkdir(parents=True)
+                dangling.symlink_to(root / "outside" / "created.pdf")
+                with self.assertRaisesRegex(SystemExit, "target path contains a symlink"):
+                    stage_target.target_path(Path("docs/rulebooks/dangling.pdf"))
+                self.assertFalse((root / "outside" / "created.pdf").exists())
+            finally:
+                stage_target.ROOT = original_root
 
 
 class PendingProgressRefreshTests(unittest.TestCase):
@@ -931,8 +942,13 @@ class ProgressHistoryContractTests(unittest.TestCase):
         failures: list[str] = []
         self.assertIsNone(target.parse_time("2026-08-30", failures, "date-only"))
         self.assertTrue(any("invalid UTC date-time" in row for row in failures))
+        reordered = {key: blind[key] for key in reversed(tuple(blind))}
+        self.assertEqual(
+            target.canonical_progress_bytes(blind),
+            target.canonical_progress_bytes(reordered),
+        )
         self.assertNotEqual(
-            json.dumps(blind, sort_keys=True).encode(),
+            json.dumps(blind, indent=2).encode(),
             target.canonical_progress_bytes(blind),
         )
 
@@ -1278,7 +1294,7 @@ class AuditMutationTests(unittest.TestCase):
             "docs/rules/semantics/pilots.json"
         ]
         dump(self.h.packet_path, self.h.packet)
-        with self.assertRaisesRegex(ValueError, "forbidden token"):
+        with self.assertRaisesRegex(ValueError, "forbidden (?:path|identifier)"):
             prompt_target.canonical_prompt_bytes("completeness", self.h.packet_path)
 
         self.h.packet["searchCoverage"]["searchTerms"] = ["fixture"]
@@ -1293,12 +1309,35 @@ class AuditMutationTests(unittest.TestCase):
         }]
         self.h.review["packetSha256"] = sha(self.h.packet_path)
         dump(self.h.review_path, self.h.review)
-        with self.assertRaisesRegex(ValueError, "forbidden token"):
+        with self.assertRaisesRegex(ValueError, "forbidden (?:path|identifier)"):
             prompt_target.canonical_prompt_bytes(
                 "blind",
                 self.h.packet_path,
                 self.h.review_path,
             )
+
+    def test_source_only_inventory_covers_frozen_paths_and_post_reveal_ids(self) -> None:
+        forbidden_paths, forbidden_ids = prompt_target.source_only_forbidden_inventory()
+        self.assertIn("scripts/build_semantic_pilots.py", forbidden_paths)
+        for identifier in (
+            "rootCauseId",
+            "authorityOverride",
+            "classification",
+            "hiddenDefault",
+            "verificationEvidenceRefs",
+            "reviewedDiscrepancyIds",
+        ):
+            self.assertIn(identifier, forbidden_ids)
+            self.assertTrue(
+                prompt_target.source_only_payload_failures(
+                    {"value": f"fixture {identifier} fixture"}
+                )
+            )
+        self.assertTrue(
+            prompt_target.source_only_payload_failures(
+                {"value": "scripts/build_semantic_pilots.py"}
+            )
+        )
 
     def test_duplicate_packet_evidence_ids_are_rejected(self) -> None:
         duplicate = copy.deepcopy(self.h.packet["evidence"][0])
@@ -1402,13 +1441,131 @@ class AuditMutationTests(unittest.TestCase):
 
     def test_pdf_visual_must_equal_deterministic_page_render(self) -> None:
         source = ROOT / "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf"
-        rendered_hash = target.rendered_pdf_page_sha256(
-            str(source.relative_to(ROOT)),
-            sha(source),
-            1,
-            160,
+        manifest_units = {
+            row["auditUnitId"]: row
+            for row in self.h.manifest["units"]
+        }
+        schema_failures: list[str] = []
+        validators = target.schema_validators(schema_failures)
+        self.assertEqual(schema_failures, [])
+
+        failures: list[str] = []
+        target.validate_packet(
+            self.h.packet_path,
+            validators,
+            manifest_units,
+            failures,
+            enforce_seals=True,
         )
-        self.assertNotEqual(rendered_hash, sha(self.h.visual_path))
+        self.assertTrue(
+            any("not the deterministic cited PDF page render" in row for row in failures),
+            failures,
+        )
+
+        with tempfile.TemporaryDirectory(prefix="independent-pdf-render-") as directory:
+            prefix = Path(directory) / "page"
+            subprocess.run(
+                [
+                    "pdftoppm",
+                    "-f",
+                    "1",
+                    "-l",
+                    "1",
+                    "-singlefile",
+                    "-png",
+                    "-r",
+                    "160",
+                    str(source),
+                    str(prefix),
+                ],
+                check=True,
+                capture_output=True,
+            )
+            self.h.visual_path.write_bytes(prefix.with_suffix(".png").read_bytes())
+        self.h.packet["evidence"][0]["visualEvidenceSha256"] = sha(self.h.visual_path)
+        dump(self.h.packet_path, self.h.packet)
+        failures = []
+        target.validate_packet(
+            self.h.packet_path,
+            validators,
+            manifest_units,
+            failures,
+            enforce_seals=True,
+        )
+        self.assertFalse(
+            any("not the deterministic cited PDF page render" in row for row in failures),
+            failures,
+        )
+
+        with tempfile.TemporaryDirectory(prefix="wrong-pdf-render-") as directory:
+            prefix = Path(directory) / "page"
+            subprocess.run(
+                [
+                    "pdftoppm",
+                    "-f",
+                    "2",
+                    "-l",
+                    "2",
+                    "-singlefile",
+                    "-png",
+                    "-r",
+                    "160",
+                    str(source),
+                    str(prefix),
+                ],
+                check=True,
+                capture_output=True,
+            )
+            self.h.visual_path.write_bytes(prefix.with_suffix(".png").read_bytes())
+        self.h.packet["evidence"][0]["visualEvidenceSha256"] = sha(self.h.visual_path)
+        dump(self.h.packet_path, self.h.packet)
+        failures = []
+        target.validate_packet(
+            self.h.packet_path,
+            validators,
+            manifest_units,
+            failures,
+            enforce_seals=True,
+        )
+        self.assertTrue(
+            any("not the deterministic cited PDF page render" in row for row in failures),
+            failures,
+        )
+
+        with tempfile.TemporaryDirectory(prefix="wrong-dpi-pdf-render-") as directory:
+            prefix = Path(directory) / "page"
+            subprocess.run(
+                [
+                    "pdftoppm",
+                    "-f",
+                    "1",
+                    "-l",
+                    "1",
+                    "-singlefile",
+                    "-png",
+                    "-r",
+                    "161",
+                    str(source),
+                    str(prefix),
+                ],
+                check=True,
+                capture_output=True,
+            )
+            self.h.visual_path.write_bytes(prefix.with_suffix(".png").read_bytes())
+        self.h.packet["evidence"][0]["visualEvidenceSha256"] = sha(self.h.visual_path)
+        dump(self.h.packet_path, self.h.packet)
+        failures = []
+        target.validate_packet(
+            self.h.packet_path,
+            validators,
+            manifest_units,
+            failures,
+            enforce_seals=True,
+        )
+        self.assertTrue(
+            any("not the deterministic cited PDF page render" in row for row in failures),
+            failures,
+        )
 
     def test_visual_evidence_requires_hash(self) -> None:
         evidence = self.h.packet["evidence"][0]
@@ -1625,6 +1782,11 @@ class AuditMutationTests(unittest.TestCase):
         failures: list[str] = []
         self.assertFalse(target.valid_model_response_envelope(body, failures, "fixture"))
         self.assertTrue(any("keys drift" in failure for failure in failures))
+        self.assertTrue(any("schemaVersion drift" in failure for failure in failures))
+        body.pop("unexpected")
+        body["schemaVersion"] = True
+        failures = []
+        self.assertFalse(target.valid_model_response_envelope(body, failures, "fixture"))
         self.assertTrue(any("schemaVersion drift" in failure for failure in failures))
 
     def test_model_reviewer_provenance_mismatch_rejected(self) -> None:

@@ -65,7 +65,7 @@ def target_path(relative: Path) -> Path:
     current = ROOT
     for part in relative.parts:
         current = current / part
-        if current.exists() and current.is_symlink():
+        if current.is_symlink():
             raise SystemExit(f"target path contains a symlink: {current}")
     return target
 
@@ -125,8 +125,8 @@ def main() -> int:
                 checked += 1
                 continue
             target.parent.mkdir(parents=True, exist_ok=True)
-            if target.exists() and (not target.is_file() or target.is_symlink()):
-                raise SystemExit(f"refusing non-regular target: {target}")
+            if target.is_symlink() or (target.exists() and not target.is_file()):
+                raise SystemExit(f"refusing non-regular or symlink target: {target}")
             if target.is_file() and sha256(target) == source_hash:
                 checked += 1
                 continue

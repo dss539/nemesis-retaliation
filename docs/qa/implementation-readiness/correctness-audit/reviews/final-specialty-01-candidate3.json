@@ -1,0 +1,125 @@
+{
+  "specialty": "pre-seal/full-history/linear Git provenance and wave seals",
+  "reviewerId": "final3-specialty-01",
+  "workspace": "/home/smithers/projects/nemesis-audit-r01",
+  "repository": "/home/smithers/projects/nemesis-audit-r01/repos/nemesis-retaliation",
+  "branch": "review/stage1-v2-r01",
+  "candidateHead": "6a13b9e6f57307a76756cf90da2aaa7682aa699b",
+  "verdict": "blocker",
+  "findingCount": 1,
+  "findings": [
+    {
+      "id": "PROV-002",
+      "severity": "critical",
+      "title": "Post-lock validation still accepts a merge in lockedStartingHead..baseline",
+      "claim": "Candidate 3 fixes full-history lane-path traversal and makes the lock creator reject prebaseline merges, but the independent post-lock validator does not enforce the same linear-history contract. A manually constructed, otherwise creator-equivalent direct-child lock on a merge baseline passes the complete public post-lock validator with zero failures when the merge contains no lane artifact. Thus later validation cannot prove that the reviewed baseline was reached by the required linear prebaseline chain; it relies on the one-time creator having been used honestly.",
+      "evidence": [
+        "scripts/create_correctness_audit_lock.py:101-117 now uses git log --full-history, so a lane artifact introduced/deleted on a merged side branch is detected.",
+        "scripts/create_correctness_audit_lock.py:120-130 detects merges in lockedStartingHead..baseline, and lines 195-199 invoke that check in the creator.",
+        "scripts/validate_correctness_audit.py:39-42 imports historical_lane_files and required_locked_files but not starting_head_failures.",
+        "scripts/validate_correctness_audit.py:531-552 rejects merges only in baseline..HEAD, then checks starting-head ancestry and historical lane paths; it never rejects merge commits in lockedStartingHead..baseline.",
+        "/home/smithers/projects/nemesis-audit-r01/probes/candidate3-postlock-e2e-results.json (SHA-256 af39ad8d6470006616d76b4b203e6026a815d6eb4421641d9017a535065e5f65) records a two-parent baseline, creatorStartingHeadFailures=[\"prebaseline audit history contains a merge commit\"], historicalLaneFiles=[], and complete postlockValidation passed=true/failureCount=0 on exact candidate code."
+      ],
+      "reproduction": "Run the saved bounded candidate3_postlock_e2e_probe.py through the pinned audit uv environment. It clones exact candidate 6a13b9e6f57307a76756cf90da2aaa7682aa699b into a temporary repository, hardlinks and byte-preserves the 1,098 gitignored source files, creates a no-content prebaseline side commit and a two-parent merge baseline, manually writes the exact creator-format lock with the complete required locked-file hash map, commits that lock as the baseline's immediate direct child, and calls validate_correctness_audit.validate(require_lock=True). The creator helper rejects the merge, but the complete post-lock validator returns passed=true with zero failures and the clone remains clean.",
+      "recommendation": "Make post-lock validate_lock enforce the same starting-head contract as the creator, preferably by importing and applying starting_head_failures(lockedStartingHead, baseline) or by directly rejecting any git rev-list --merges lockedStartingHead..baseline result. Add an end-to-end post-lock negative control whose otherwise valid direct-child lock sits on a merge baseline and require the complete validator to fail."
+    }
+  ],
+  "verifiedFixes": [
+    {
+      "id": "PROV-002-full-history",
+      "result": "PASS",
+      "evidence": "The exact-candidate merged introduce/delete side-branch probe reports simplifiedLogContainsLeak=false, fullHistoryLogContainsLeak=true, and historicalLaneFilesResult containing the leaked packet path."
+    },
+    {
+      "id": "WAVE-001",
+      "result": "PASS",
+      "evidence": "The exact-candidate diagonal pipeline produces two seal commits in each populated packet/completeness/blind/comparison wave; single_wave_failures returns one rejection for every populated wave. validate() collects packet, review, blind, comparison, and adjudication seal commits at scripts/validate_correctness_audit.py:2075-2080, 2145-2153, 2191-2192, 2251-2254 and applies the cardinality gate at 2261-2273."
+    }
+  ],
+  "testsRun": [
+    {
+      "command": "python3 scripts/stage_correctness_audit_sources.py --source-root /home/smithers/nemesis-retaliation --check",
+      "result": "PASS; check mode verified 1,098 files across docs/rulebooks and assets/tts-mod/extract, copied 0 files/0 bytes."
+    },
+    {
+      "command": "python3 scripts/build_correctness_audit_manifest.py --check",
+      "result": "PASS; manifest current with 140 units."
+    },
+    {
+      "command": "uv run --isolated --with-requirements docs/qa/implementation-readiness/correctness-audit/requirements-audit.txt python3 /home/smithers/projects/nemesis-audit-r01/probes/run_prelock_readonly.py --scripts scripts --output /home/smithers/projects/nemesis-audit-r01/probes/candidate3-prelock-readonly-results.json",
+      "result": "PASS; prelock validation passed with failureCount 0, 140 manifest/progress units, all 140 pending, auditDecisionReady=false. Output SHA-256 5704fc3ea5a77df5e674ed8418ae6aefd6474419aa33ea6d4d44625646a8aa23."
+    },
+    {
+      "command": "uv run --isolated --with-requirements docs/qa/implementation-readiness/correctness-audit/requirements-audit.txt python3 scripts/test_correctness_audit_mutations.py",
+      "result": "PASS; 92/92 tests in 16.701s. Provenance/wave controls include direct-child seals, same-wave sharing, split-wave rejection, creator merge rejection, full-history merged deleted prebaseline lane detection, post-seal side-branch mutation rejection, lane dependency order, and all-comparisons-before-adjudication ancestry."
+    },
+    {
+      "command": "exact-candidate saved full provenance/diagonal probe",
+      "result": "PASS for candidate-1 PROV-001 and PROV-002 full-history repair; post-seal side-branch mutation rejected, merge detected, and merged deleted prebaseline lane path recovered only by full-history traversal. Diagonal pipeline retained two commits per dependency lane for the WAVE-001 negative control. Output /home/smithers/projects/nemesis-audit-r01/probes/candidate3-prov-results.json, SHA-256 be58c7588df3a533fa855bd439ef24f3e5dda4eeb10ffbea253333d53fc015a4."
+    },
+    {
+      "command": "exact-candidate saved specialty-01 verification probe",
+      "result": "WAVE-001 PASS: packet, completeness, blind, and comparison split waves each emitted an explicit 'artifacts do not share one wave seal commit' failure. PROV-002 RED: isolated validate_lock accepted a merge baseline while creatorStartingHeadFailures rejected it. Output /home/smithers/projects/nemesis-audit-r01/probes/candidate3-specialty01-results.json, SHA-256 86e679158effb7f5df5dab9e99e61dd4ab4eef438f2c9261693ee6f9d65418c2."
+    },
+    {
+      "command": "exact-candidate temporary-clone complete post-lock validation probe",
+      "result": "RED reproduced end to end: baseline had two parents; creator helper rejected prebaseline merge; complete validate(require_lock=True) accepted the manually constructed creator-equivalent direct-child lock with passed=true and failureCount=0; temporary clone tracked state was clean. Output /home/smithers/projects/nemesis-audit-r01/probes/candidate3-postlock-e2e-results.json, SHA-256 af39ad8d6470006616d76b4b203e6026a815d6eb4421641d9017a535065e5f65."
+    },
+    {
+      "command": "git rev-parse HEAD; git branch --show-current; git status --short --untracked-files=all; git diff --quiet; git diff --cached --quiet; git diff --check",
+      "result": "PASS; exact candidate and branch confirmed before and after tests; repository tracked/index state remained clean with no whitespace errors."
+    }
+  ],
+  "residualRisks": [
+    "Candidate 3 is intentionally prelock and has no real 140-unit post-lock lane graph. WAVE-001 was verified with exact-candidate committed temporary histories, the 92-test suite, and the validator's global commit-set gate, not with production audit artifacts.",
+    "The end-to-end PROV-002 attack manually creates the lock only after confirming the official creator rejects the merge. This is the relevant adversarial boundary: post-lock validation must independently reject an invalid but internally consistent committed lock topology.",
+    "No additional provenance or wave defect was reproduced. Post-seal full-history mutation rejection, creator-side prebaseline merge rejection, prebaseline full-history lane detection, per-lane dependency ordering, and common wave-commit cardinality all held in executed controls."
+  ],
+  "boundedProbeArtifacts": [
+    {
+      "path": "/home/smithers/projects/nemesis-audit-r01/probes/final_specialty_01_probe.py",
+      "sha256": "1c7e638729e0fd0b986184edfceda79440a9f8be3f5129ed9bd25a3a0bf7adb9"
+    },
+    {
+      "path": "/home/smithers/projects/nemesis-audit-r01/probes/candidate3-prov-results.json",
+      "sha256": "be58c7588df3a533fa855bd439ef24f3e5dda4eeb10ffbea253333d53fc015a4"
+    },
+    {
+      "path": "/home/smithers/projects/nemesis-audit-r01/probes/candidate3_specialty01_probe.py",
+      "sha256": "cbe683c760c994bf527784fbb3a86734be04adaa48553f602ccfbbe7548e98d9"
+    },
+    {
+      "path": "/home/smithers/projects/nemesis-audit-r01/probes/candidate3-specialty01-results.json",
+      "sha256": "86e679158effb7f5df5dab9e99e61dd4ab4eef438f2c9261693ee6f9d65418c2"
+    },
+    {
+      "path": "/home/smithers/projects/nemesis-audit-r01/probes/candidate3_postlock_e2e_probe.py",
+      "sha256": "5a26d3b78e8b9ec0da4609549c96c6971ad877cf2b5774ff602846d003b0758c"
+    },
+    {
+      "path": "/home/smithers/projects/nemesis-audit-r01/probes/candidate3-postlock-e2e-results.json",
+      "sha256": "af39ad8d6470006616d76b4b203e6026a815d6eb4421641d9017a535065e5f65"
+    },
+    {
+      "path": "/home/smithers/projects/nemesis-audit-r01/probes/run_prelock_readonly.py",
+      "sha256": "not-recomputed-existing-helper"
+    },
+    {
+      "path": "/home/smithers/projects/nemesis-audit-r01/probes/candidate3-prelock-readonly-results.json",
+      "sha256": "5704fc3ea5a77df5e674ed8418ae6aefd6474419aa33ea6d4d44625646a8aa23"
+    }
+  ],
+  "repositoryFilesModified": [],
+  "workspaceFilesCreated": [
+    "/home/smithers/projects/nemesis-audit-r01/probes/candidate3-prov-results.json",
+    "/home/smithers/projects/nemesis-audit-r01/probes/candidate3_specialty01_probe.py",
+    "/home/smithers/projects/nemesis-audit-r01/probes/candidate3-specialty01-results.json",
+    "/home/smithers/projects/nemesis-audit-r01/probes/candidate3_postlock_e2e_probe.py",
+    "/home/smithers/projects/nemesis-audit-r01/probes/candidate3-postlock-e2e-results.json",
+    "/home/smithers/projects/nemesis-audit-r01/probes/candidate3-prelock-readonly-results.json",
+    "/home/smithers/projects/nemesis-audit-r01/final-review-candidate3.json"
+  ],
+  "trackedStateUnchanged": true,
+  "rootLockHeldForReview": true,
+  "lockReleased": true
+}

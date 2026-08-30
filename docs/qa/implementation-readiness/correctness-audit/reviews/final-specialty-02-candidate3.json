@@ -1,0 +1,90 @@
+{
+  "schemaVersion": 1,
+  "recordType": "stage-1-v2-final-specialty-review",
+  "reviewerId": "final3-specialty-02",
+  "specialty": 2,
+  "specialtyScope": "lock lifecycle verification for gitignored allowed source hash pins and baseline Git blobs for tracked frozen artifacts",
+  "candidateHead": "6a13b9e6f57307a76756cf90da2aaa7682aa699b",
+  "branch": "review/stage1-v2-r02",
+  "workspace": "/home/smithers/projects/nemesis-audit-r02",
+  "repository": "/home/smithers/projects/nemesis-audit-r02/repos/nemesis-retaliation",
+  "verdict": "pass",
+  "findingCount": 0,
+  "summary": "S2-004 is verified fixed. From the exact candidate, the creator emitted a 66-file lock, the lock was committed as the only path in a direct child of the candidate, and the full pinned post-lock validator passed with zero failures. The sole untracked frozen path was the allowed, gitignored FAQ PDF and its local SHA-256 matched the manifest pin; all 52 tracked frozen paths retained matching baseline Git blobs.",
+  "findings": [],
+  "candidate2FindingVerification": [
+    {
+      "findingId": "S2-004",
+      "status": "verified-fixed",
+      "detail": "An isolated clone at exact candidate 6a13b9e6f57307a76756cf90da2aaa7682aa699b was provisioned with the required gitignored sources. create_correctness_audit_lock.py exited 0 and generated a 66-file lock. Committing only audit-lock.json produced direct child f1955e4ed2dd7fa18e52ba9248105ea1dfbea062. The full uv-isolated post-lock validator exited 0 with passed=true and failureCount=0."
+    }
+  ],
+  "scopeResults": {
+    "rootLockAndCandidate": {
+      "passed": true,
+      "detail": "The regular mode-0600 workspace root lock was held for the review. The assigned worktree was clean on review/stage1-v2-r02 at exact candidate 6a13b9e6f57307a76756cf90da2aaa7682aa699b."
+    },
+    "sourceProvisioning": {
+      "passed": true,
+      "detail": "stage_correctness_audit_sources.py --check byte-checked 1,098 files from /home/smithers/nemesis-retaliation with zero copies; the lifecycle clone then staged the same 1,098 files."
+    },
+    "creatorDirectChildLock": {
+      "passed": true,
+      "detail": "The creator generated audit-lock.json against baseline 6a13b9e6f57307a76756cf90da2aaa7682aa699b. The staged path set contained only audit-lock.json. Temporary commit f1955e4ed2dd7fa18e52ba9248105ea1dfbea062 had exactly one parent, the exact candidate. Current and committed lock SHA-256 were both 5e4ec1bac08b52145fc9e86322ece3bae4a972c3e911e4e0bb04442346ba727d."
+    },
+    "gitignoredAllowedSourcePins": {
+      "passed": true,
+      "detail": "Of 53 unique frozen manifest paths, exactly one was untracked: docs/rulebooks/Nemesis_RT_FAQ_v1.2.pdf. Git identified it as ignored by .gitignore:2, is_allowed_source returned true, and its current SHA-256 equaled the manifest pin 611ae20dc0b3e04f3c0d99f294a92fc95460c042565b12d1c808b1282ae0e0d8. No disallowed untracked frozen path existed."
+    },
+    "trackedFrozenBaselineBlobs": {
+      "passed": true,
+      "detail": "All 52 tracked frozen manifest paths resolved to blobs at baseline 6a13b9e6f57307a76756cf90da2aaa7682aa699b, and every baseline blob SHA-256 matched its frozen manifest hash."
+    },
+    "fullPostLockValidation": {
+      "passed": true,
+      "detail": "The mandatory uv-isolated full validator accepted the creator-produced direct-child lock: passed=true, failureCount=0, 140 manifest units, and 140 pending progress units."
+    }
+  },
+  "testsRun": [
+    {
+      "command": "python3 scripts/stage_correctness_audit_sources.py --source-root /home/smithers/nemesis-retaliation --check",
+      "result": "pass",
+      "detail": "1,098 files byte-checked; zero copies; assigned candidate remained clean."
+    },
+    {
+      "command": "python3 scripts/build_correctness_audit_manifest.py --check",
+      "result": "pass",
+      "detail": "Manifest current with 140 units."
+    },
+    {
+      "command": "uv run --isolated --with-requirements docs/qa/implementation-readiness/correctness-audit/requirements-audit.txt python3 scripts/test_correctness_audit_mutations.py",
+      "result": "pass",
+      "detail": "92/92 tests passed."
+    },
+    {
+      "command": "isolated exact-candidate lifecycle: stage sources; run creator; commit only audit-lock.json as a direct child; run full pinned validator",
+      "result": "pass",
+      "detail": "Creator exit 0; direct-child lock commit verified; full validator exit 0 with zero failures."
+    },
+    {
+      "command": "bounded S2-004 frozen-path invariant probe",
+      "result": "pass",
+      "detail": "53 unique frozen paths: 52 tracked paths with matching baseline blobs and one gitignored allowed source path with a matching local hash; zero failures."
+    }
+  ],
+  "probeArtifacts": [
+    {
+      "path": "/tmp/nemesis-final3-s2-r02.AMCoL95Y",
+      "status": "removed before lock release",
+      "purpose": "Ephemeral shared clone, committed-lock byte copy, and bounded S2-004 frozen-path probe."
+    }
+  ],
+  "repositoryState": {
+    "initialHead": "6a13b9e6f57307a76756cf90da2aaa7682aa699b",
+    "finalHead": "6a13b9e6f57307a76756cf90da2aaa7682aa699b",
+    "initialTrackedStateClean": true,
+    "finalTrackedStateClean": true,
+    "repositoryFilesModified": []
+  },
+  "residualRisks": []
+}

@@ -1,6 +1,6 @@
 # Stage 1 v2 final twelve-specialty rereview brief
 
-Review the exact second non-authoritative candidate commit named by the integrator. This is a read-only prelock correctness review, not implementation work.
+Review the exact non-authoritative candidate commit named by the integrator. This is a read-only prelock correctness review, not implementation work.
 
 For each specialty:
 

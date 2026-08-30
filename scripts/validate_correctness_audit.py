@@ -39,6 +39,7 @@ from build_correctness_audit_prompt import (
 from create_correctness_audit_lock import (
     historical_lane_files,
     required_locked_files,
+    starting_head_failures,
 )
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -544,6 +545,8 @@ def validate_lock(manifest: dict[str, Any], failures: list[str], require_lock: b
     starting = str(lock.get("lockedStartingHead", ""))
     add(failures, bool(HEX40.fullmatch(starting)), "lockedStartingHead invalid")
     if HEX40.fullmatch(starting):
+        for starting_failure in starting_head_failures(starting, baseline):
+            failures.append(f"audit lock: {starting_failure}")
         add(failures, git("merge-base", "--is-ancestor", starting, baseline).returncode == 0, "starting HEAD is not an ancestor of baseline")
         add(
             failures,
@@ -678,7 +681,7 @@ def valid_model_response_envelope(body: Any, failures: list[str], label: str) ->
     checks = (
         (isinstance(body, dict), "response envelope is not an object"),
         (isinstance(body, dict) and set(body) == MODEL_RESPONSE_KEYS, "response envelope keys drift"),
-        (isinstance(body, dict) and body.get("schemaVersion") == 1, "response envelope schemaVersion drift"),
+        (isinstance(body, dict) and type(body.get("schemaVersion")) is int and body.get("schemaVersion") == 1, "response envelope schemaVersion drift"),
         (isinstance(body, dict) and body.get("recordType") == "ollama-cloud-audit-review", "response envelope recordType drift"),
         (isinstance(body, dict) and body.get("stream") is False, "response envelope stream drift"),
         (isinstance(body, dict) and body.get("format") == "json", "response envelope format drift"),
@@ -1009,7 +1012,9 @@ def strict_json_bytes(data: bytes) -> dict[str, Any]:
 
 
 def canonical_progress_bytes(progress: dict[str, Any]) -> bytes:
-    return (json.dumps(progress, indent=2, ensure_ascii=False) + "\n").encode("utf-8")
+    return (
+        json.dumps(progress, indent=2, ensure_ascii=False, sort_keys=True) + "\n"
+    ).encode("utf-8")
 
 
 def committed_transition_artifact_failures(
