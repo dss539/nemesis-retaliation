@@ -1,0 +1,298 @@
+{
+  "schemaVersion": 1,
+  "recordType": "stage-1-v2-final-specialty-review",
+  "reviewerId": "final-specialty-11",
+  "specialty": 11,
+  "reviewedAtUtc": "2026-08-30T08:57:12Z",
+  "candidateHead": "ee42f3522859d1dd7ce782c801023cb71fd53071",
+  "candidateBranch": "review/stage1-v2-r11",
+  "workspace": "/home/smithers/projects/nemesis-audit-r11",
+  "worktree": "/home/smithers/projects/nemesis-audit-r11/repos/nemesis-retaliation",
+  "verdict": "issues",
+  "summary": "The current code passes all 73 mutation/provenance/progress controls and all 11 decision tests, but those suites do not cover every stated contract. Bounded probes found one source-provenance input that survives validation, seven representative malformed inputs that crash instead of returning failures, nine behavior-changing equivalent mutants that leave the declared suites green, and an untested rollback mutant. No game implementation or semantic corpus behavior was reviewed or changed.",
+  "findingCount": 5,
+  "findings": [
+    {
+      "findingId": "S11-001",
+      "severity": "material",
+      "kind": "malformed-input-crash",
+      "title": "Schema-invalid JSON can crash the validator after schema diagnostics are collected",
+      "contract": "Specialty 11 requires non-crashing failure behavior; malformed lane data must produce a failed validation report rather than terminate validation.",
+      "evidence": [
+        {
+          "path": "scripts/validate_correctness_audit.py",
+          "lines": "280-294, 717-807, 1247-1466, 1656-1764",
+          "detail": "apply_schema() returns whether validation succeeded, but callers continue into operations that assume schema-valid mappings, arrays, and hashable strings. The top-level manifest/progress path likewise calls .get() without first requiring an object."
+        },
+        {
+          "path": "scripts/test_correctness_audit_mutations.py",
+          "lines": "1065-1087, 1295-1299",
+          "detail": "The suite covers two unhashable ID cases and duplicate JSON keys, but not wrong top-level/container types or unhashable evidence references."
+        }
+      ],
+      "reproduction": {
+        "command": "uv run --isolated --with-requirements /home/smithers/projects/nemesis-audit-r11/repos/nemesis-retaliation/docs/qa/implementation-readiness/correctness-audit/requirements-audit.txt python3 /home/smithers/projects/nemesis-audit-r11/probes/run_specialty11_probes.py",
+        "resultPath": "/home/smithers/projects/nemesis-audit-r11/probes/specialty11-probe-results.json",
+        "resultSha256": "5b9033a4061e0978b8a4aabdcc87bee6b75ff6b2bb71e87988e5b0a06248d67e",
+        "observed": [
+          "manifest top-level [] -> AttributeError at validate_correctness_audit.py:1694",
+          "progress top-level [] -> AttributeError at validate_correctness_audit.py:1758",
+          "packet auditUnitIds containing [] -> TypeError at validate_correctness_audit.py:739",
+          "packet sourceDocuments null -> TypeError at validate_correctness_audit.py:742",
+          "packet searchCoverage [] -> AttributeError at validate_correctness_audit.py:782",
+          "comparison discrepancy evidenceRefs containing [] -> TypeError at validate_correctness_audit.py:1458",
+          "comparison body [] -> AttributeError at validate_correctness_audit.py:1431"
+        ]
+      },
+      "minimalCorrection": "Short-circuit semantic checks for any artifact whose schema check fails, require object top levels before .get(), and make collection/set conversions type-safe. Add a table-driven control asserting each malformed case returns passed=false without raising."
+    },
+    {
+      "findingId": "S11-002",
+      "severity": "material",
+      "kind": "surviving-contract-violation",
+      "title": "Any structurally valid PNG can satisfy the PDF same-source-region visual contract",
+      "contract": "methodology.md:62 requires every PDF-derived exactText row to carry a hash-pinned rendered PNG from the same source region.",
+      "evidence": [
+        {
+          "path": "docs/qa/implementation-readiness/correctness-audit/methodology.md",
+          "lines": "60-63",
+          "detail": "The declared provenance requirement is same source region, not merely a nontrivial PNG."
+        },
+        {
+          "path": "docs/qa/implementation-readiness/correctness-audit/source-packet.schema.json",
+          "lines": "52-80",
+          "detail": "The schema binds only visualEvidencePath and visualEvidenceSha256; it has no PDF page/region/render provenance fields."
+        },
+        {
+          "path": "scripts/validate_correctness_audit.py",
+          "lines": "756-781",
+          "detail": "Validation requires a visual, checks its hash, .png suffix, dimensions, chunks, CRCs, IDAT, and IEND, but does not bind it to the cited PDF locator or source region."
+        },
+        {
+          "path": "scripts/test_correctness_audit_mutations.py",
+          "lines": "38-50, 92-94, 100-115, 818-820",
+          "detail": "The passing control fixture itself uses a generated gray 64x64 PNG unrelated to its cited rulebook PDF text."
+        }
+      ],
+      "reproduction": {
+        "probeCase": "synthetic-unrelated-pdf-visual",
+        "syntheticPngSha256": "46413733d372fc240720093ecf681356ca21331bda64d538b21549391906a71a",
+        "observed": "validate() returned passed=true with failureCount=0 for exactText attributed to the official rulebook PDF and a synthetic fixture_png(64,64) generated independently of that PDF."
+      },
+      "minimalCorrection": "Add source-render provenance sufficient to bind each visual to the exact PDF hash, page, and crop/region, and validate it against a locked render inventory or deterministic re-render. Add a control that swaps in a different valid PNG and requires rejection."
+    },
+    {
+      "findingId": "S11-003",
+      "severity": "material",
+      "kind": "equivalent-mutant-gap",
+      "title": "Three of four substantive raw-response bindings can be disabled without failing the 73 controls",
+      "contract": "Every completeness, blind, comparison, and verification raw response must substantively equal the sealed lane conclusion, not merely be nonempty and hash-pinned.",
+      "evidence": [
+        {
+          "path": "scripts/validate_correctness_audit.py",
+          "lines": "1085-1094, 1151-1155, 1410-1418, 1571-1580",
+          "detail": "The current implementation contains all four binding checks."
+        },
+        {
+          "path": "scripts/test_correctness_audit_mutations.py",
+          "lines": "822-839",
+          "detail": "Only the comparator has an unrelated-but-hash-pinned response mutation. There are no equivalent completeness, blind, or verification response-content mutations."
+        }
+      ],
+      "reproduction": {
+        "mutants": [
+          "disable failure marker 'completeness response content differs from sealed review'",
+          "disable failure marker 'blind response content differs from sealed derivation'",
+          "disable failure marker 'verification response content differs from sealed review'"
+        ],
+        "observed": "Each external validator mutant ran all 73 tests with returnCode=0 and OK (13.501s, 13.845s, and 11.586s in the retained rerun).",
+        "resultPath": "/home/smithers/projects/nemesis-audit-r11/probes/specialty11-probe-results.json"
+      },
+      "minimalCorrection": "Add one unrelated-but-hash-pinned raw response mutation for completeness, blind derivation, and verification, mirroring the existing comparator control."
+    },
+    {
+      "findingId": "S11-004",
+      "severity": "material",
+      "kind": "equivalent-mutant-gap",
+      "title": "Decision tests omit threshold boundaries, same-family recurrence, explicit override/default gates, and affected-family reporting",
+      "contract": "The decision gate allows no more than two isolated component material errors, treats one root cause in at least three units as recurring, fails authority overrides and hidden defaults, and enumerates affected families.",
+      "evidence": [
+        {
+          "path": "docs/qa/implementation-readiness/correctness-audit/methodology.md",
+          "lines": "191-210",
+          "detail": "These boundaries and report obligations are explicit."
+        },
+        {
+          "path": "scripts/evaluate_correctness_audit.py",
+          "lines": "144-180, 181-218",
+          "detail": "The current evaluator implements the gates and report field, but the associated branches are not fully mutation-locked."
+        },
+        {
+          "path": "scripts/test_correctness_audit_decision.py",
+          "lines": "47-204",
+          "detail": "The suite tests three component errors and two-family recurrence, but not the allowed value two, three same-family units, standalone authority override, standalone hidden default, or affectedFamilyEscalationCandidates."
+        }
+      ],
+      "reproduction": {
+        "equivalentMutantsAllPassing11Of11": [
+          "change both component-limit comparisons from > to >=, incorrectly rejecting exactly two",
+          "change same-root recurrence from >=3 units to >=4",
+          "disable authorityOverride collection",
+          "disable hiddenDefault collection",
+          "replace affected family enumeration with an empty list"
+        ],
+        "boundaryChecksOnUnmutatedCode": {
+          "exactlyTwoIsolatedComponentMaterialErrors": "pass-audited-units-only",
+          "threeRoomUnitsWithOneRootCause": "fail-or-escalate with RC-SAME-FAMILY-THREE"
+        },
+        "observed": "Every external decision mutant ran all 11 tests with returnCode=0 and OK."
+      },
+      "minimalCorrection": "Add positive and negative boundary tests for exactly two versus three isolated component errors, a three-unit one-family root, standalone authority override and hidden default rows, and exact affected-family output."
+    },
+    {
+      "findingId": "S11-005",
+      "severity": "material",
+      "kind": "equivalent-mutant-gap",
+      "title": "The progress updater's transactional rollback is not exercised by the 73 controls",
+      "contract": "methodology.md:222 states that advance_correctness_audit_progress.py runs full validation and rolls back on failure.",
+      "evidence": [
+        {
+          "path": "scripts/advance_correctness_audit_progress.py",
+          "lines": "52-60, 108-125",
+          "detail": "The updater snapshots original bytes, writes the transition, validates, and restores original bytes in the exception path."
+        },
+        {
+          "path": "scripts/test_correctness_audit_mutations.py",
+          "lines": "18-21, 665-803",
+          "detail": "The mutation suite does not import or execute advance_correctness_audit_progress; it tests refresh and progress_snapshot_failures directly."
+        }
+      ],
+      "reproduction": {
+        "mutant": "remove PROGRESS.write_bytes(original) from the updater exception path",
+        "replacementCount": 1,
+        "observed": "The external rollback-restoration-disabled mutant ran all 73 tests with returnCode=0 and OK in 11.552s; AST inventory confirmed advance_correctness_audit_progress is not imported by the suite."
+      },
+      "minimalCorrection": "Add an updater-level test that forces post-write validation failure and asserts byte-for-byte progress restoration, plus a successful one-step transition smoke test in an isolated fixture."
+    }
+  ],
+  "contractCoverage": [
+    {
+      "area": "Frozen population, thresholds, selection coverage, and all 56 comparison targets",
+      "status": "covered",
+      "controls": "manifest freshness, threshold/candidate-universe/selection mutation controls, target presence/frozen-hash controls"
+    },
+    {
+      "area": "Git baseline, direct-child/wave seals, full-history mutation detection, lane order, and prelock closure",
+      "status": "covered",
+      "controls": "15 ArtifactSealGitTests, including side-branch merge, restore, intervening commit, shared wave, and prebaseline deletion cases"
+    },
+    {
+      "area": "Canonical paths, allowlisted source containment, source tuple binding, packet completeness, and exact citations",
+      "status": "partial",
+      "gaps": ["S11-001", "S11-002"]
+    },
+    {
+      "area": "Blind batch cardinality/order, nonempty behavioral dimensions, ambiguity defaults, canonical prompts, and response provenance",
+      "status": "partial",
+      "gaps": ["S11-001", "S11-003"]
+    },
+    {
+      "area": "Reveal targets/roles, frozen hashes, semantic IDs, discrepancy classification, status derivation, and independent verification",
+      "status": "partial",
+      "gaps": ["S11-001", "S11-003"]
+    },
+    {
+      "area": "Progress refresh shape, committed one-step history, artifact fields, counts, timestamps, and rollback",
+      "status": "partial",
+      "gaps": ["S11-001", "S11-005"]
+    },
+    {
+      "area": "Executable decision thresholds, deterministic 23-unit sample, escalation, and report enumeration",
+      "status": "partial",
+      "gaps": ["S11-004"]
+    },
+    {
+      "area": "Strict JSON duplicate-key rejection and non-crashing malformed-input handling",
+      "status": "partial",
+      "gaps": ["S11-001"]
+    }
+  ],
+  "testsRun": [
+    {
+      "command": "python3 scripts/stage_correctness_audit_sources.py --source-root /home/smithers/nemesis-retaliation",
+      "exitCode": 0,
+      "result": "1098 files already current; 0 copied"
+    },
+    {
+      "command": "python3 scripts/stage_correctness_audit_sources.py --source-root /home/smithers/nemesis-retaliation --check",
+      "exitCode": 0,
+      "result": "1098 files byte-checked"
+    },
+    {
+      "command": "python3 scripts/build_correctness_audit_manifest.py --check",
+      "exitCode": 0,
+      "result": "manifest current: 140 units"
+    },
+    {
+      "command": "uv run --isolated --with-requirements docs/qa/implementation-readiness/correctness-audit/requirements-audit.txt python3 scripts/validate_correctness_audit.py --prelock",
+      "exitCode": 0,
+      "result": "passed=true, failureCount=0, 140 pending"
+    },
+    {
+      "command": "uv run --isolated --with-requirements docs/qa/implementation-readiness/correctness-audit/requirements-audit.txt python3 scripts/test_correctness_audit_mutations.py",
+      "exitCode": 0,
+      "result": "73 tests, OK"
+    },
+    {
+      "command": "uv run --isolated --with-requirements docs/qa/implementation-readiness/correctness-audit/requirements-audit.txt python3 scripts/test_correctness_audit_decision.py",
+      "exitCode": 0,
+      "result": "11 tests, OK"
+    },
+    {
+      "command": "python3 scripts/validate_source_extraction.py",
+      "exitCode": 0,
+      "result": "passed=true, failureCount=0"
+    },
+    {
+      "command": "python3 scripts/validate_project_status.py",
+      "exitCode": 0,
+      "result": "passed=true, failureCount=0"
+    },
+    {
+      "command": "uv run --isolated --with-requirements docs/qa/implementation-readiness/correctness-audit/requirements-audit.txt python3 scripts/evaluate_correctness_audit.py --output /home/smithers/projects/nemesis-audit-r11/probes/prelock-decision.json",
+      "exitCode": 2,
+      "result": "expected prelock incomplete decision; decisionReady=false with all 140 unfinished units"
+    },
+    {
+      "command": "git diff --check; git status --short --branch --untracked-files=no; git rev-parse HEAD",
+      "exitCode": 0,
+      "result": "clean tracked state on review/stage1-v2-r11 at exact candidate HEAD"
+    }
+  ],
+  "probeArtifacts": [
+    {
+      "path": "/home/smithers/projects/nemesis-audit-r11/probes/run_specialty11_probes.py",
+      "sha256": "8a8ce6d8cb5742d1c52b90c57651ab9a1f2f995cf234652067be909b8e23ea2b",
+      "purpose": "saved bounded probe and mutant runner outside the reviewed repository"
+    },
+    {
+      "path": "/home/smithers/projects/nemesis-audit-r11/probes/specialty11-probe-results.json",
+      "sha256": "5b9033a4061e0978b8a4aabdcc87bee6b75ff6b2bb71e87988e5b0a06248d67e",
+      "purpose": "full malformed-input, survivor, inventory, boundary, and mutant evidence"
+    },
+    {
+      "path": "/home/smithers/projects/nemesis-audit-r11/probes/prelock-decision.json",
+      "sha256": "05019175cca4303d662c65110183492b8f349d6e882268a9539e1b06bef2a335",
+      "purpose": "expected current prelock evaluator output"
+    },
+    {
+      "path": "/home/smithers/projects/nemesis-audit-r11/probes/generated-mutants",
+      "purpose": "outside-repository copies of the exact behavior-changing mutants exercised against the committed suites"
+    }
+  ],
+  "repositoryChanges": [],
+  "issuesEncountered": [
+    "An initial parallel request specified a 900-second foreground timeout for the mutation suite; the tool rejected that request before execution. The exact suite was immediately rerun with the supported 600-second timeout and passed 73/73."
+  ],
+  "residualRisks": []
+}

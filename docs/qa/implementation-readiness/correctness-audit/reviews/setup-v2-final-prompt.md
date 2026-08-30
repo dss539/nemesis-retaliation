@@ -1,8 +1,8 @@
 # Stage 1 v2 final holistic setup-review brief
 
-Independently review the exact second non-authoritative candidate commit named by the integrator after the twelve specialty reports are available.
+Independently review the exact third non-authoritative candidate commit named by the integrator after the twelve candidate-3 specialty reports are available.
 
-Hold the assigned workspace root lock for the full run, verify exact clean HEAD, stage/check the gitignored source trees with the locked helper, and inspect all Stage 1 methodology, schemas, builders, lock/progress/validator/evaluator code, candidate-1 disposition, final specialty reports, source-staging procedure, and focused tests. Run the documented manifest, 73-control (or later exact count), decision, prelock, source-extraction, project-status, and diff-whitespace checks from the isolated worktree.
+Hold the assigned workspace root lock for the full run, verify exact clean HEAD, stage/check the gitignored source trees with the locked helper, and inspect all Stage 1 methodology, schemas, builders, lock/progress/validator/evaluator code, candidate-1 and candidate-2 dispositions, candidate-3 specialty reports, source-staging procedure, and focused tests. Run the documented manifest, exact 92-control (or later) mutation suite, exact 15-test (or later) decision suite, prelock, source-extraction, project-status, source-staging, and diff-whitespace checks from the isolated worktree.
 
 Assess whether the candidate can safely become the v2 baseline and whether `scripts/create_correctness_audit_lock.py` can create a lock that will validate in the immediate direct-child commit. Confirm:
 

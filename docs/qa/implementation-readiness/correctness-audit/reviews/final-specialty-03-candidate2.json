@@ -1,0 +1,268 @@
+{
+  "schemaVersion": 1,
+  "recordType": "stage-1-v2-final-specialty-rereview",
+  "reviewerId": "final-specialty-03",
+  "specialty": {
+    "number": 3,
+    "name": "canonical POSIX path, backslash, symlink, containment, and worktree safety"
+  },
+  "generatedAtUtc": "2026-08-30T08:55:52Z",
+  "candidateHead": "ee42f3522859d1dd7ce782c801023cb71fd53071",
+  "candidateBranch": "review/stage1-v2-r03",
+  "candidate1Head": "5e525e12c105edb7565fa310ae16a526bc131025",
+  "workspace": {
+    "root": "/home/smithers/projects/nemesis-audit-r03",
+    "worktree": "/home/smithers/projects/nemesis-audit-r03/repos/nemesis-retaliation",
+    "lockPath": "/home/smithers/projects/nemesis-audit-r03/.workspace.lock",
+    "lockMode": "0600",
+    "lockDevice": 64518,
+    "lockInode": 4220527,
+    "lockHeldForFullReview": true,
+    "competingStatusExitCodeWhileHeld": 75,
+    "competingStatusResult": "workspace 'nemesis-audit-r03' is locked by another worker"
+  },
+  "verdict": "issues",
+  "findingCount": 2,
+  "summary": {
+    "priorPath001": "fixed and reproduced red-before-green",
+    "validatorArtifactPaths": "canonical/backslash/dot/dotdot/absolute/prefix-collision/intermediate-symlink controls passed",
+    "promptInputPaths": "backslash/dotdot/absolute-outside/prefix-collision/intermediate-symlink controls passed",
+    "promptOutputPaths": "failed canonical and every-symlink-component controls",
+    "sourceStaging": "real 1,098-file --check passed, but synthetic public-boundary source symlink controls failed",
+    "worktreeCommonDir": "passed; all three module roots equal the isolated worktree top and not the linked-worktree common Git directory"
+  },
+  "findings": [
+    {
+      "findingId": "PATH-002",
+      "severity": "material",
+      "status": "reproduced",
+      "title": "Prompt output accepts noncanonical and symlinked paths, then writes through the unchecked lexical alias",
+      "requirement": "Canonical prompt artifacts must remain repository-relative POSIX paths under correctness-audit/packets/prompts, with backslashes, dot/dotdot forms, absolute escapes, prefix collisions, and every symlink component rejected before either check or write.",
+      "evidence": [
+        {
+          "path": "scripts/build_correctness_audit_prompt.py",
+          "lines": "111-115",
+          "observation": "The output gate checks only output.resolve(strict=False).relative_to(prompts.resolve()); it does not reject backslashes, dot/dotdot lexical forms, or a symlink whose resolved target remains inside the prompt root."
+        },
+        {
+          "path": "scripts/build_correctness_audit_prompt.py",
+          "lines": "117-124",
+          "observation": "Both --check and write mode operate on the original unresolved output Path and report output.relative_to(ROOT), so a noncanonical alias survives after the resolved containment check."
+        },
+        {
+          "path": "scripts/validate_correctness_audit.py",
+          "lines": "222-248",
+          "observation": "The validator has the required canonical POSIX and component-by-component symlink policy, but the prompt output sink does not reuse it."
+        }
+      ],
+      "reproduction": {
+        "probePath": "/tmp/nemesis-r03-final-specialty-03-748901/path_controls_probe.py",
+        "probeSha256": "9bbf457dcbc181bf0a289ae69887d87804a8f197f7991551a473d409f978715c",
+        "resultPath": "/tmp/nemesis-r03-final-specialty-03-748901/path_controls_probe.json",
+        "resultSha256": "b983728cac3e5f342b53ffcf2ca3d57359d704402b5e1b926081b6ee238a8ae6",
+        "command": "uv run --isolated --with-requirements docs/qa/implementation-readiness/correctness-audit/requirements-audit.txt python3 /tmp/nemesis-r03-final-specialty-03-748901/path_controls_probe.py",
+        "exitCode": 0,
+        "observations": [
+          "A prompt output containing a literal backslash was accepted, created, and reported as audit/packets/prompts/bad\\name.txt.",
+          "A prompt output containing subdir/../ was accepted, created, and reported with the dotdot segment intact.",
+          "An output file symlink to another file inside the prompt root was accepted and the target sentinel was overwritten.",
+          "An intermediate output-directory symlink to another directory inside the prompt root was accepted and created the target file through that component.",
+          "Absolute-outside and prompts-versus-prompts-evil prefix-collision controls were correctly rejected."
+        ]
+      },
+      "impact": "The canonical builder can claim success for an artifact path that the downstream validator must reject, and it can overwrite a different in-tree prompt through a symlink before later validation detects drift. Resolved containment alone therefore does not make the write sink fail-closed.",
+      "recommendedFix": "Validate the raw --output token as a canonical repository-relative POSIX path before converting it to Path; reject backslash, absolute, empty, repeated-separator, dot, and dotdot forms; walk every existing component from the resolved worktree root and reject symlinks including the final path. Apply the same gate in --check mode and use a no-follow/dirfd-based final open where practical to close the check/use race. Add public-main controls for file symlinks, directory symlinks, backslash, dotdot, absolute escape, and sibling-prefix collision."
+    },
+    {
+      "findingId": "PATH-003",
+      "severity": "material",
+      "status": "reproduced",
+      "title": "Source staging resolves away source-root symlinks and misses symlinked source-prefix components",
+      "requirement": "The isolated-worktree source-staging helper is documented to copy only the two source trees and reject every symlink component while preserving canonical repository-relative POSIX target names.",
+      "evidence": [
+        {
+          "path": "docs/qa/implementation-readiness/correctness-audit/methodology.md",
+          "lines": "162-171",
+          "observation": "The committed method says the helper rejects every symlink component and verifies the isolated worktree sources byte-for-byte."
+        },
+        {
+          "path": "scripts/stage_correctness_audit_sources.py",
+          "lines": "80-82",
+          "observation": "args.source_root.resolve(strict=True) executes before is_symlink(), erasing a symlink supplied as --source-root and making the subsequent check ineffective for that component."
+        },
+        {
+          "path": "scripts/stage_correctness_audit_sources.py",
+          "lines": "28-38",
+          "observation": "require_regular_tree checks only the final tree path and yielded descendants; it does not inspect source_root/docs or other prefix components leading to the tree."
+        },
+        {
+          "path": "scripts/stage_correctness_audit_sources.py",
+          "lines": "46-55",
+          "observation": "The target-side walk rejects symlinks, but target_path has no explicit literal-backslash rejection and Path-relative inputs can therefore name noncanonical POSIX artifacts."
+        }
+      ],
+      "reproduction": {
+        "probePath": "/tmp/nemesis-r03-final-specialty-03-748901/path_controls_probe.py",
+        "probeSha256": "9bbf457dcbc181bf0a289ae69887d87804a8f197f7991551a473d409f978715c",
+        "resultPath": "/tmp/nemesis-r03-final-specialty-03-748901/path_controls_probe.json",
+        "resultSha256": "b983728cac3e5f342b53ffcf2ca3d57359d704402b5e1b926081b6ee238a8ae6",
+        "command": "uv run --isolated --with-requirements docs/qa/implementation-readiness/correctness-audit/requirements-audit.txt python3 /tmp/nemesis-r03-final-specialty-03-748901/path_controls_probe.py",
+        "exitCode": 0,
+        "observations": [
+          "The public stager main accepted a source root whose docs component was a directory symlink, copied two files, and returned success.",
+          "The public stager main accepted --source-root as a symlink, reported only the resolved real path, copied/checked both source trees, and returned success.",
+          "target_path accepted a source-relative filename containing a literal backslash.",
+          "The positive target-side intermediate-symlink rejection control fired as expected."
+        ]
+      },
+      "impact": "The helper hashes bytes from the path it actually follows, so its byte check cannot distinguish the intended explicit source checkout from an aliased source tree. The successful result therefore overstates the documented source-path provenance and every-component guarantee.",
+      "recommendedFix": "Inspect the raw --source-root path with lstat component-by-component before resolving it, and inspect every component from that root through each SOURCE_TREES prefix. Reject literal backslashes and all noncanonical relative forms before deriving targets. Use no-follow descriptor-based opens for source and target files where practical, then retain the existing post-copy SHA-256 verification. Add public-main tests for a symlinked source root, symlinked docs/assets prefix, descendant symlink, target prefix symlink, and backslash filename."
+    }
+  ],
+  "priorFindingReproduction": {
+    "findingId": "PATH-001",
+    "disposition": "fixed",
+    "counterfactualPath": "/tmp/nemesis-r03-final-specialty-03-748901/path001_counterfactual.py",
+    "counterfactualSha256": "6700b2855eb45897025394ede4c3be5b13ccd457501b25242629ccf2406c71ca",
+    "resultPath": "/tmp/nemesis-r03-final-specialty-03-748901/path001_counterfactual.json",
+    "resultSha256": "7965c95ac64c84894117589c328e585d2b6d5eb48e29f8d7680b665fabac8b03",
+    "result": {
+      "candidate1Validator": "accepted docs/rulebooks\\fixture.pdf with no failure",
+      "candidateValidator": "rejected it as not a canonical repository-relative POSIX path",
+      "candidate1PromptBuilder": "accepted the literal-backslash filename",
+      "candidatePromptBuilder": "rejected it as noncanonical"
+    },
+    "sourceEvidence": [
+      "scripts/validate_correctness_audit.py:222-248",
+      "scripts/build_correctness_audit_prompt.py:23-48",
+      "scripts/test_correctness_audit_mutations.py:992-1002"
+    ]
+  },
+  "controlsVerified": [
+    {
+      "control": "validator canonical repository-relative POSIX paths",
+      "result": "pass",
+      "cases": [
+        "canonical accepted",
+        "literal backslash rejected",
+        "dot rejected",
+        "dotdot rejected",
+        "absolute rejected",
+        "duplicate slash rejected",
+        "rulebooks versus rulebooks-evil prefix collision rejected",
+        "intermediate symlink inside allowed root rejected"
+      ]
+    },
+    {
+      "control": "prompt input containment",
+      "result": "pass",
+      "cases": [
+        "literal backslash rejected",
+        "dotdot rejected",
+        "absolute outside required root rejected",
+        "packets versus packets-evil prefix collision rejected",
+        "intermediate symlink rejected"
+      ]
+    },
+    {
+      "control": "worktree/common-dir separation",
+      "result": "pass",
+      "details": {
+        "showToplevel": "/home/smithers/projects/nemesis-audit-r03/repos/nemesis-retaliation",
+        "gitDir": "/home/smithers/nemesis-retaliation/.git/worktrees/nemesis-retaliation3",
+        "gitCommonDir": "/home/smithers/nemesis-retaliation/.git",
+        "moduleRootsEqualShowToplevel": true,
+        "moduleRootsDifferFromCommonDir": true
+      }
+    },
+    {
+      "control": "real isolated-worktree source check",
+      "result": "pass",
+      "details": {
+        "sourceRoot": "/home/smithers/nemesis-retaliation",
+        "worktreeRoot": "/home/smithers/projects/nemesis-audit-r03/repos/nemesis-retaliation",
+        "checkedFiles": 1098,
+        "copiedFiles": 0,
+        "copiedBytes": 0
+      }
+    }
+  ],
+  "testsRun": [
+    {
+      "command": "python3 scripts/stage_correctness_audit_sources.py --source-root /home/smithers/nemesis-retaliation --check",
+      "exitCode": 0,
+      "result": "1,098 source files current/checked; zero copies"
+    },
+    {
+      "command": "python3 scripts/build_correctness_audit_manifest.py --check",
+      "exitCode": 0,
+      "result": "manifest current; 140 units"
+    },
+    {
+      "command": "uv run --isolated --with-requirements docs/qa/implementation-readiness/correctness-audit/requirements-audit.txt python3 scripts/validate_correctness_audit.py --prelock",
+      "exitCode": 0,
+      "result": "passed=true; failureCount=0; 140 manifest and progress units"
+    },
+    {
+      "command": "uv run --isolated --with-requirements docs/qa/implementation-readiness/correctness-audit/requirements-audit.txt python3 scripts/test_correctness_audit_mutations.py",
+      "exitCode": 0,
+      "result": "73 tests passed"
+    },
+    {
+      "command": "uv run --isolated --with-requirements docs/qa/implementation-readiness/correctness-audit/requirements-audit.txt python3 scripts/test_correctness_audit_mutations.py AuditMutationTests.test_backslash_paths_are_rejected_by_validator_and_prompt_builder AuditMutationTests.test_source_allowlist_traversal_rejected AuditMutationTests.test_symlink_artifact_path_rejected",
+      "exitCode": 0,
+      "result": "3 focused PATH-001/traversal/symlink tests passed"
+    },
+    {
+      "command": "uv run --isolated --with-requirements docs/qa/implementation-readiness/correctness-audit/requirements-audit.txt python3 /tmp/nemesis-r03-final-specialty-03-748901/path001_counterfactual.py",
+      "exitCode": 0,
+      "result": "candidate 1 accepted and exact candidate rejected literal-backslash paths in both validator and prompt input helper"
+    },
+    {
+      "command": "uv run --isolated --with-requirements docs/qa/implementation-readiness/correctness-audit/requirements-audit.txt python3 /tmp/nemesis-r03-final-specialty-03-748901/path_controls_probe.py",
+      "exitCode": 0,
+      "result": "positive controls passed; PATH-002 and PATH-003 reproduced through bounded synthetic roots outside the repository"
+    },
+    {
+      "command": "git diff --check",
+      "exitCode": 0,
+      "result": "clean"
+    },
+    {
+      "command": "git diff --quiet HEAD --",
+      "exitCode": 0,
+      "result": "no tracked repository modifications"
+    }
+  ],
+  "residualRisks": [
+    "The probes are single-process. The code performs path inspection and later I/O by pathname, so a component-swap check/use race remains unless no-follow descriptor-based I/O is adopted; the workspace lock does not control the external source checkout.",
+    "build_correctness_audit_prompt.canonical_repo_file accepts absolute in-repository Path objects as an internal API and emits canonical relative metadata. That internal behavior was not classified as a defect; the reproduced finding is the public output sink's noncanonical and symlink acceptance.",
+    "Later validator/lock checks can detect many resulting aliases or byte drifts, but those checks occur after the prompt builder or source stager has already performed its filesystem action."
+  ],
+  "files": {
+    "repositoryFilesModified": [],
+    "reportPath": "/home/smithers/projects/nemesis-audit-r03/final-review.json",
+    "outsideGitScratchDirectory": "/tmp/nemesis-r03-final-specialty-03-748901",
+    "savedProbeArtifacts": [
+      {
+        "path": "/tmp/nemesis-r03-final-specialty-03-748901/path_controls_probe.py",
+        "sha256": "9bbf457dcbc181bf0a289ae69887d87804a8f197f7991551a473d409f978715c"
+      },
+      {
+        "path": "/tmp/nemesis-r03-final-specialty-03-748901/path_controls_probe.json",
+        "sha256": "b983728cac3e5f342b53ffcf2ca3d57359d704402b5e1b926081b6ee238a8ae6"
+      },
+      {
+        "path": "/tmp/nemesis-r03-final-specialty-03-748901/path001_counterfactual.py",
+        "sha256": "6700b2855eb45897025394ede4c3be5b13ccd457501b25242629ccf2406c71ca"
+      },
+      {
+        "path": "/tmp/nemesis-r03-final-specialty-03-748901/path001_counterfactual.json",
+        "sha256": "7965c95ac64c84894117589c328e585d2b6d5eb48e29f8d7680b665fabac8b03"
+      }
+    ]
+  },
+  "issuesEncountered": [
+    "An initial version of the custom source-stager probe reused a target path and failed in the probe fixture before exercising candidate code; the fixture was corrected and the complete bounded probe reran with exit 0. This was not treated as candidate evidence."
+  ]
+}

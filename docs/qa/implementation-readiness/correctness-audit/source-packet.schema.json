@@ -55,7 +55,7 @@
       "items": {
         "type": "object",
         "additionalProperties": false,
-        "required": ["evidenceId", "auditUnitIds", "sourcePath", "sourceSha256", "locator", "evidenceKind", "exactText", "visualEvidencePath", "visualEvidenceSha256"],
+        "required": ["evidenceId", "auditUnitIds", "sourcePath", "sourceSha256", "locator", "evidenceKind", "exactText", "visualEvidencePath", "visualEvidenceSha256", "pdfPageIndex", "renderDpi"],
         "properties": {
           "evidenceId": {"type": "string", "minLength": 1},
           "auditUnitIds": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
@@ -65,7 +65,9 @@
           "evidenceKind": {"enum": ["official-text", "official-rendered-visual", "component-face", "component-source-bound-transcription", "source-scope-metadata"]},
           "exactText": {"type": ["string", "null"]},
           "visualEvidencePath": {"type": ["string", "null"]},
-          "visualEvidenceSha256": {"type": ["string", "null"], "pattern": "^[0-9a-f]{64}$"}
+          "visualEvidenceSha256": {"type": ["string", "null"], "pattern": "^[0-9a-f]{64}$"},
+          "pdfPageIndex": {"type": ["integer", "null"], "minimum": 1},
+          "renderDpi": {"type": ["integer", "null"], "minimum": 72, "maximum": 600}
         },
         "allOf": [
           {

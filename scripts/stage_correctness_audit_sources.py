@@ -27,6 +27,7 @@ def sha256(path: Path) -> str:
 
 def require_regular_tree(root: Path, relative: Path) -> list[Path]:
     tree = root / relative
+    reject_symlink_components(tree, "source tree")
     if not tree.is_dir() or tree.is_symlink():
         raise SystemExit(f"source tree missing or not a regular directory: {tree}")
     files: list[Path] = []
@@ -43,8 +44,22 @@ def require_regular_tree(root: Path, relative: Path) -> list[Path]:
     return files
 
 
+def reject_symlink_components(path: Path, label: str) -> None:
+    absolute = path if path.is_absolute() else Path.cwd() / path
+    current = Path(absolute.anchor)
+    for part in absolute.parts[1:]:
+        current = current / part
+        if current.is_symlink():
+            raise SystemExit(f"{label} contains a symlink component: {current}")
+
+
 def target_path(relative: Path) -> Path:
-    if relative.is_absolute() or ".." in relative.parts or "." in relative.parts:
+    if (
+        relative.is_absolute()
+        or "\\" in relative.as_posix()
+        or ".." in relative.parts
+        or "." in relative.parts
+    ):
         raise SystemExit(f"noncanonical source-relative path: {relative}")
     target = ROOT / relative
     current = ROOT
@@ -77,7 +92,9 @@ def main() -> int:
     parser.add_argument("--check", action="store_true")
     args = parser.parse_args()
 
-    source_root = args.source_root.resolve(strict=True)
+    source_argument = args.source_root.expanduser()
+    reject_symlink_components(source_argument, "--source-root")
+    source_root = source_argument.resolve(strict=True)
     if not source_root.is_dir() or source_root.is_symlink():
         raise SystemExit("--source-root must be a regular directory")
 

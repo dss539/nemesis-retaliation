@@ -6,7 +6,7 @@ For each specialty:
 
 1. Hold the assigned task workspace's regular mode-`0600` root flock for the full review.
 2. Verify assigned branch, exact candidate HEAD, and clean tracked state before reading.
-3. Read `AGENTS.md`, `PROJECT_STATUS.md`, the Stage 1 methodology, candidate-1 disposition, relevant schemas/scripts/tests, and exact diff from candidate 1.
+3. Read `AGENTS.md`, `PROJECT_STATUS.md`, the Stage 1 methodology, candidate-1 and candidate-2 dispositions, all prior specialty reports relevant to the assigned topic, relevant schemas/scripts/tests, and the exact diff from candidate 2.
 4. Provision and byte-check gitignored sources with `scripts/stage_correctness_audit_sources.py` before any test that requires them.
 5. Make no repository edit, commit, push, PR, profile, implementation change, or semantic expansion.
 6. Avoid pipes, heredocs, inline scripts, broad cleanup/reset/stash operations, or commands assembled from file/model output. Bounded saved probes may be written outside the repository and must be reported.

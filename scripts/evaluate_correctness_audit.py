@@ -119,13 +119,43 @@ def evaluate_records(
             row["status"] not in {"pending-blind-derivation", "blind-derived"}
             for row in progress["units"]
         )
+        partial_source_blocked = sorted(
+            unit_id
+            for unit_id, result in results.items()
+            if result.get("status") == "source-blocked"
+            or any(
+                row.get("severity") == "blocked"
+                for row in result.get("__comparison", {}).get("discrepancies", [])
+                if isinstance(row, dict)
+            )
+        )
+        partial_affected_families = sorted(
+            {
+                result.get("family")
+                for result in results.values()
+                if isinstance(result.get("family"), str)
+                and any(
+                    row.get("severity") in {"material", "critical", "blocked"}
+                    or row.get("authorityOverride") is True
+                    or row.get("hiddenDefault") is True
+                    for row in result.get("__comparison", {}).get("discrepancies", [])
+                    if isinstance(row, dict)
+                )
+            }
+        )
         decision = {
             "schemaVersion": 1,
             "recordType": "stage-1-correctness-audit-decision",
             "decision": "incomplete",
             "decisionReady": False,
             "unfinishedUnitIds": unfinished,
-            "claimScope": "No correctness or rewrite-readiness conclusion is authorized while any unit is unfinished.",
+            "sourceBlockedUnitIds": partial_source_blocked,
+            "affectedFamilyEscalationCandidates": partial_affected_families,
+            "claimScope": (
+                "No correctness or rewrite-readiness conclusion is authorized while any unit is unfinished. "
+                "The audit covers 140 units only and does not establish correctness of the approximately "
+                "199 unaudited primary component-effect units."
+            ),
         }
         if comparisons_complete:
             decision["deterministicMatchReviewSampleUnitIds"] = match_sample
@@ -210,10 +240,23 @@ def evaluate_records(
         or len(material_component_units)
         > manifest["passThreshold"]["maximumIsolatedMaterialErrorsInComponentSample"]
     )
+    recurring_units = {
+        uid
+        for root in recurring
+        for uid in root_units[root]
+    }
     affected_families = sorted(
         {
             results[uid]["family"]
-            for uid in critical_units | material_component_units | authority_units | hidden_default_units
+            for uid in (
+                critical_units
+                | material_component_units
+                | unresolved_core_material_units
+                | source_blocked_units
+                | authority_units
+                | hidden_default_units
+                | recurring_units
+            )
         }
     )
     return {
@@ -221,6 +264,7 @@ def evaluate_records(
         "recordType": "stage-1-correctness-audit-decision",
         "decision": decision,
         "decisionReady": True,
+        "unfinishedUnitIds": [],
         "thresholdsSatisfied": passed,
         "failures": failures,
         "observedCounts": {

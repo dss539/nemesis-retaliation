@@ -1,0 +1,227 @@
+{
+  "schemaVersion": 1,
+  "recordType": "stage-1-v2-final-specialty-review",
+  "reviewerId": "final-specialty-10",
+  "specialty": 10,
+  "specialtyName": "progress refresh, transactional rollback, committed history, timestamps, and artifact/HEAD binding",
+  "completedAtUtc": "2026-08-30T09:14:57Z",
+  "candidateHead": "ee42f3522859d1dd7ce782c801023cb71fd53071",
+  "candidateBranch": "review/stage1-v2-r10",
+  "workspace": "/home/smithers/projects/nemesis-audit-r10",
+  "repository": "/home/smithers/projects/nemesis-audit-r10/repos/nemesis-retaliation",
+  "reviewMode": "read-only",
+  "verdict": "issues",
+  "findingCount": 3,
+  "summary": "Candidate-1 S10 defects are substantially fixed: the refresh gate now requires the exact all-pending shape, validator-failure rollback restores the original ledger, one-step status changes/counts/stage fields are checked, and post-baseline merges are rejected. Three committed-history gaps remain: a progress transition can precede and be backfilled by its artifact, unchanged rows are compared as parsed objects rather than immutable bytes, and date-only/non-UTC timestamps are accepted.",
+  "priorFindingDisposition": {
+    "findingId": "S10-001",
+    "status": "partially-fixed",
+    "verifiedFixes": [
+      {
+        "claim": "The lock creator no longer crashes from an undefined sys name and builds the pinned isolated prelock command.",
+        "evidence": [
+          "scripts/create_correctness_audit_lock.py:8-10",
+          "scripts/create_correctness_audit_lock.py:129-139",
+          "scripts/test_correctness_audit_mutations.py:435-450"
+        ],
+        "verification": "ArtifactSealGitTests.test_lock_creator_has_runnable_python_and_pinned_prelock_command passed."
+      },
+      {
+        "claim": "The prelock v2 refresh accepts only the exact canonical all-pending ledger shape.",
+        "evidence": [
+          "scripts/build_correctness_audit_manifest.py:816-883"
+        ],
+        "verification": "The saved S10 probe accepted the canonical ledger and rejected all 13 tested mutations: missing/extra top fields, schema, record type, manifest path/hash, ID order, missing/extra row fields, non-pending status, timestamp, artifact, and counts."
+      },
+      {
+        "claim": "The updater restores the original progress bytes when post-write validation fails.",
+        "evidence": [
+          "scripts/advance_correctness_audit_progress.py:52-60",
+          "scripts/advance_correctness_audit_progress.py:108-125"
+        ],
+        "verification": "A forced post-write validator failure returned 'transition rolled back' and the saved probe confirmed byte equality with the original ledger."
+      },
+      {
+        "claim": "Legal one-step transitions pass while skips, value mutations on unchanged rows, count drift, and wrong stage fields are rejected; global post-baseline merge rejection is present.",
+        "evidence": [
+          "scripts/validate_correctness_audit.py:818-947",
+          "scripts/validate_correctness_audit.py:951-999",
+          "scripts/validate_correctness_audit.py:502-506"
+        ],
+        "verification": "The focused progress-history control and the full 73-test mutation suite passed; the saved probe independently accepted pending-to-blind and rejected pending-to-compared plus an unchanged-row value mutation."
+      },
+      {
+        "claim": "Current artifact paths, SHA-256 values, unit IDs, and lane artifact pre-seal HEADs receive final-state validation.",
+        "evidence": [
+          "scripts/validate_correctness_audit.py:222-265",
+          "scripts/validate_correctness_audit.py:319-387",
+          "scripts/validate_correctness_audit.py:1794-1894"
+        ],
+        "verification": "Direct-child, false-preseal, intervening-commit, later-mutation, symlink, path, hash, and unit/status controls passed in the 73-test suite. Finding S10-R2-001 is limited to binding those artifacts to the progress-transition commit itself."
+      }
+    ]
+  },
+  "findings": [
+    {
+      "id": "S10-R2-001",
+      "severity": "high",
+      "title": "Committed progress transitions are not bound to artifact bytes that existed at the transition commit",
+      "claim": "progress_snapshot_failures only requires newly attached stage fields to be nonempty strings. validate_progress_history parses the progress snapshot at each progress-changing commit, but never reads the referenced artifact from that commit or requires the artifact's derived seal commit to be an ancestor of the progress transition. The final validator checks the artifact only at current HEAD. A manual transition can therefore be committed while its artifact is absent, followed by a later direct-child artifact seal that backfills the claim; committed history accepts the sequence.",
+      "evidence": [
+        {
+          "path": "scripts/validate_correctness_audit.py",
+          "lines": "910-929",
+          "detail": "Stage transitions check nonempty blind/comparison/result fields but do not resolve the unit/path/hash at the transition commit."
+        },
+        {
+          "path": "scripts/validate_correctness_audit.py",
+          "lines": "951-997",
+          "detail": "History traversal loads only progress.json snapshots; it does not git-show stage artifacts at each transition commit."
+        },
+        {
+          "path": "scripts/validate_correctness_audit.py",
+          "lines": "251-265,319-387,1806-1894",
+          "detail": "Path/hash/seal checks use current filesystem and current HEAD, allowing a referenced artifact to be added after its progress transition."
+        },
+        {
+          "path": "docs/qa/implementation-readiness/correctness-audit/methodology.md",
+          "lines": "214-222",
+          "detail": "The declared updater/history contract requires artifact containment/hashes and mechanically enforced committed lane order."
+        }
+      ],
+      "reproduction": {
+        "probePath": "/home/smithers/projects/nemesis-audit-r10/s10_probe.py",
+        "probeSha256": "964908298fff1e4e9ef94d1dc0249de6cf9104f6fa8da66808f9e6245c7f470f",
+        "steps": "The probe created a temporary Git repository, committed a pending-to-blind progress snapshot naming a nonexistent blind artifact, then committed that artifact later without changing progress and invoked validate_progress_history.",
+        "observed": "committedLateArtifactHistoryFailures was an empty array.",
+        "expected": "History must reject the transition because its referenced artifact did not exist, did not hash-match, and was not sealed by the transition commit."
+      },
+      "impact": "The immutable progress history can attest that a lane completed before its evidence existed. Later content can retroactively satisfy final-HEAD validation, weakening the sequencing and provenance guarantee that the progress ledger is intended to provide.",
+      "minimalFix": "Pass the progress transition commit into snapshot validation. For every newly attached stage, require git show <transition-commit>:<artifact-path> to exist and hash to the row value; parse that committed artifact and verify the exact auditUnitId/status or blind batch membership; derive its seal commit and require that seal commit to be an ancestor of the progress transition commit. Add a negative Git-history control that commits progress before the artifact and seals the artifact later."
+    },
+    {
+      "id": "S10-R2-002",
+      "severity": "medium",
+      "title": "Unchanged-row immutability is semantic, not byte-for-byte",
+      "claim": "For an unchanged status, the history validator compares parsed Python dictionaries with row != prior. Dictionary equality ignores key order and all original JSON lexical representation. A committed unchanged row can therefore be rewritten byte-differently while history reports no failure, contrary to the explicit byte-for-byte preservation contract.",
+      "evidence": [
+        {
+          "path": "scripts/validate_correctness_audit.py",
+          "lines": "849-850,883-892",
+          "detail": "Snapshots are parsed into dictionaries and unchanged rows are checked only with dictionary equality."
+        },
+        {
+          "path": "docs/qa/implementation-readiness/correctness-audit/methodology.md",
+          "lines": "214-222",
+          "detail": "The methodology says unchanged rows are preserved byte-for-byte."
+        }
+      ],
+      "reproduction": {
+        "probePath": "/home/smithers/projects/nemesis-audit-r10/s10_probe.py",
+        "probeSha256": "964908298fff1e4e9ef94d1dc0249de6cf9104f6fa8da66808f9e6245c7f470f",
+        "steps": "The probe reversed the key order of one pending row without changing parsed values, confirmed the serialized row bytes differed, committed that snapshot in a temporary first-parent history, and invoked validate_progress_history.",
+        "observed": "reorderedUnchangedRowBytesDiffer was true while committedReorderedUnchangedRowFailures was an empty array.",
+        "expected": "A byte-different unchanged row must be rejected."
+      },
+      "impact": "The validator overstates byte immutability and permits unapproved lexical rewrites in supposedly untouched rows. Although the demonstrated key-order change does not alter JSON meaning, it breaks exact provenance and leaves no enforceable canonical-byte contract.",
+      "minimalFix": "Define one canonical progress serialization with a fixed top-level/count/row key order and require every committed snapshot to equal it byte-for-byte. Compare canonical or raw row bytes for unchanged rows rather than parsed dict equality, and add a committed key-order/escape/whitespace mutation control."
+    },
+    {
+      "id": "S10-R2-003",
+      "severity": "medium",
+      "title": "lastUpdatedUtc accepts date-only and offset-naive timestamps",
+      "claim": "Both the snapshot validator and the current-state validator use datetime.fromisoformat after replacing a trailing Z, but they do not require a time component, timezone awareness, or UTC. A first transition timestamp such as 2026-08-30 is accepted despite the lastUpdatedUtc contract and despite the updater always emitting a UTC Z timestamp.",
+      "evidence": [
+        {
+          "path": "scripts/advance_correctness_audit_progress.py",
+          "lines": "108-109",
+          "detail": "The authorized updater emits an aware UTC timestamp with a Z suffix."
+        },
+        {
+          "path": "scripts/validate_correctness_audit.py",
+          "lines": "810-815,896-908",
+          "detail": "Date parsing accepts Python's broad ISO forms and does not assert timezone/UTC."
+        },
+        {
+          "path": "scripts/validate_correctness_audit.py",
+          "lines": "1842-1844,1878-1880,1892-1894",
+          "detail": "Current rows use the same permissive parse_time check."
+        }
+      ],
+      "reproduction": {
+        "probePath": "/home/smithers/projects/nemesis-audit-r10/s10_probe.py",
+        "probeSha256": "964908298fff1e4e9ef94d1dc0249de6cf9104f6fa8da66808f9e6245c7f470f",
+        "steps": "The probe used 2026-08-30 as the first pending-to-blind lastUpdatedUtc value and tested both progress_snapshot_failures and a committed temporary first-parent history.",
+        "observed": "dateOnlyTimestampParseFailures, dateOnlyTimestampFailures, and committedDateOnlyTimestampFailures were all empty; parse_time returned 2026-08-30T00:00:00 without timezone information.",
+        "expected": "lastUpdatedUtc must reject date-only, offset-naive, and non-UTC values."
+      },
+      "impact": "Committed audit chronology can contain timestamps that are not UTC instants. A later updater-generated aware UTC value can also encounter an aware/naive comparison error, making an accepted first transition impossible to advance without superseding history.",
+      "minimalFix": "Require strict RFC 3339 UTC syntax with a time and trailing Z, parse to an aware UTC datetime, and reject naive/non-UTC values before comparison. Add first-transition date-only, naive-time, and non-UTC-offset controls."
+    }
+  ],
+  "testsRun": [
+    {
+      "command": "python3 scripts/stage_correctness_audit_sources.py --source-root /home/smithers/nemesis-retaliation --check",
+      "result": "pass",
+      "detail": "1,098 files checked; 0 copied."
+    },
+    {
+      "command": "python3 scripts/build_correctness_audit_manifest.py --check",
+      "result": "pass",
+      "detail": "Manifest current with 140 units."
+    },
+    {
+      "command": "uv run --isolated --with-requirements docs/qa/implementation-readiness/correctness-audit/requirements-audit.txt python3 scripts/test_correctness_audit_mutations.py",
+      "result": "pass",
+      "detail": "73/73 tests passed, including focused refresh/history, lock creator, seal, merge-side-branch, path/hash, stage, and mutation controls."
+    },
+    {
+      "command": "uv run --isolated --with-requirements docs/qa/implementation-readiness/correctness-audit/requirements-audit.txt python3 scripts/test_correctness_audit_decision.py",
+      "result": "pass",
+      "detail": "11/11 tests passed."
+    },
+    {
+      "command": "uv run --isolated --with-requirements repos/nemesis-retaliation/docs/qa/implementation-readiness/correctness-audit/requirements-audit.txt python3 s10_probe.py",
+      "result": "issues-reproduced",
+      "detail": "Prelock validate() passed with 0 failures and 140/140 pending; 13/13 malformed pending-refresh cases were rejected; validator-failure rollback restored bytes; legal one-step passed and skip/value mutation failed; late-artifact, byte-reordered unchanged-row, and date-only committed-history probes were accepted unexpectedly."
+    },
+    {
+      "command": "python3 scripts/validate_source_extraction.py",
+      "result": "pass",
+      "detail": "0 failures."
+    },
+    {
+      "command": "python3 scripts/validate_project_status.py",
+      "result": "pass",
+      "detail": "0 failures."
+    },
+    {
+      "command": "git rev-parse HEAD; git status --short; git diff --check",
+      "result": "pass",
+      "detail": "HEAD remained ee42f3522859d1dd7ce782c801023cb71fd53071; tracked state and diff check were clean."
+    }
+  ],
+  "residualRisks": [
+    "No active v2 audit-lock.json or real post-lock lane history exists yet, so post-lock progress replay was exercised in isolated temporary Git histories rather than against a production audit chain.",
+    "The updater writes progress.json in place before validation and restores on ordinary exceptions. Forced validator-failure rollback was verified, but crash/power-loss/partial-filesystem-write atomicity was not established; an atomic temporary-file replace would be stronger.",
+    "One optional command to materialize prior-head scripts outside the repository was denied before execution and created no files. Candidate-1 provenance was checked from the committed disposition and exact candidate diff; candidate behavior and the retained gaps were independently exercised on ee42f3522859d1dd7ce782c801023cb71fd53071."
+  ],
+  "externalArtifacts": [
+    {
+      "path": "/home/smithers/projects/nemesis-audit-r10/s10_probe.py",
+      "sha256": "964908298fff1e4e9ef94d1dc0249de6cf9104f6fa8da66808f9e6245c7f470f",
+      "purpose": "Bounded read-only specialty probe; all mutable fixtures used temporary directories outside the repository and were removed automatically."
+    },
+    {
+      "path": "/home/smithers/projects/nemesis-audit-r10/final-review.json",
+      "purpose": "This review report; SHA-256 is returned separately to avoid self-reference."
+    }
+  ],
+  "repositoryFilesModified": [],
+  "workspaceLock": {
+    "path": "/home/smithers/projects/nemesis-audit-r10/.workspace.lock",
+    "mode": "0600",
+    "heldForReview": true,
+    "releaseRequiredBeforeReturn": true
+  }
+}

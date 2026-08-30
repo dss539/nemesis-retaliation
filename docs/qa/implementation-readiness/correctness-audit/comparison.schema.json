@@ -170,13 +170,16 @@
           ]
         },
         "provider": {
-          "type": "string"
+          "type": "string",
+          "minLength": 1
         },
         "requestedModel": {
-          "type": "string"
+          "type": "string",
+          "minLength": 1
         },
         "responseModel": {
-          "type": "string"
+          "type": "string",
+          "minLength": 1
         },
         "requestedReasoning": {
           "type": "string"

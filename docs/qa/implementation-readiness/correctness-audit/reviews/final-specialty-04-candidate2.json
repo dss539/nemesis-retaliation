@@ -1,0 +1,967 @@
+{
+  "schemaVersion": 1,
+  "recordType": "stage1-v2-final-specialty-rereview",
+  "reviewerId": "final-specialty-04",
+  "specialty": "frozen maps, component targets, and comparison role binding",
+  "reviewedAtUtc": "2026-08-30T08:50:36Z",
+  "candidateHead": "ee42f3522859d1dd7ce782c801023cb71fd53071",
+  "candidateBranch": "review/stage1-v2-r04",
+  "workspaceRoot": "/home/smithers/projects/nemesis-audit-r04",
+  "repositoryPath": "/home/smithers/projects/nemesis-audit-r04/repos/nemesis-retaliation",
+  "lock": {
+    "path": "/home/smithers/projects/nemesis-audit-r04/.workspace.lock",
+    "mode": "exclusive flock",
+    "permissionsRequired": "0600",
+    "heldForFullReview": true
+  },
+  "verdict": "issues",
+  "findingCount": 1,
+  "summary": {
+    "s4_001": "historical defect reproduced at candidate 1 and verified repaired at the exact candidate",
+    "all56Targets": "verified: every sampled component has a canonical existing extractionPath whose current SHA-256 equals every containing frozen manifest map",
+    "frozenMapCollisions": "verified: all 17 cross-map path collisions carry identical SHA-256 values and a disagreement mutation is rejected",
+    "downstreamTargetBinding": "verified: missing, wrong, unfrozen, and duplicate/cross-role target mutations are rejected",
+    "semanticProjectionBinding": "defective: a frozen *-source-index.json passes when relabeled semantic-projection"
+  },
+  "findings": [
+    {
+      "findingId": "S4-002",
+      "severity": "material",
+      "status": "reproduced",
+      "title": "A source index can masquerade as the required semantic projection",
+      "contract": "Every comparison must reveal the required frozen downstream target exactly once and at least one actual manifest-frozen semantic projection, with source indexes retaining their distinct source-index role.",
+      "evidence": [
+        {
+          "path": "docs/qa/implementation-readiness/correctness-audit/methodology.md",
+          "startLine": 103,
+          "endLine": 115,
+          "detail": "Lane C distinguishes relevant frozen semantic records from source indexes and requires at least one semantic-projection so omissions cannot pass after inspecting only source-side material."
+        },
+        {
+          "path": "scripts/validate_correctness_audit.py",
+          "startLine": 1332,
+          "endLine": 1357,
+          "detail": "The semantic-projection branch accepts any frozenSemanticHashes member under docs/rules/semantics, docs/rules/ontology, or docs/rules/vocabulary; it does not exclude *-source-index.json or require an actual behavior projection."
+        },
+        {
+          "path": "scripts/validate_correctness_audit.py",
+          "startLine": 1359,
+          "endLine": 1368,
+          "detail": "The adjacent source-index branch explicitly recognizes *-source-index.json, proving the roles are intended to remain distinct."
+        },
+        {
+          "path": "scripts/test_correctness_audit_mutations.py",
+          "startLine": 907,
+          "endLine": 912,
+          "detail": "The committed negative control checks only complete absence of a semantic-projection role; it does not attempt a source index mislabeled with that role."
+        }
+      ],
+      "reproduction": {
+        "probePath": "/home/smithers/projects/nemesis-audit-r04-specialty04/probe.py",
+        "resultPath": "/home/smithers/projects/nemesis-audit-r04-specialty04/probe-results.json",
+        "command": "uv run --isolated --with-requirements docs/qa/implementation-readiness/correctness-audit/requirements-audit.txt python3 /home/smithers/projects/nemesis-audit-r04-specialty04/probe.py",
+        "cleanControl": {
+          "passed": true,
+          "failureCount": 0,
+          "failures": []
+        },
+        "mutation": {
+          "replacementPath": "docs/rules/semantics/facility-source-index.json",
+          "declaredRole": "semantic-projection",
+          "result": {
+            "passed": true,
+            "failureCount": 0,
+            "failures": []
+          }
+        },
+        "discriminator": {
+          "samePathDeclaredAs": "source-index",
+          "result": {
+            "passed": false,
+            "failureCount": 1,
+            "failures": [
+              "RULE:FND-001: no frozen semantic projection was revealed"
+            ]
+          }
+        },
+        "conclusion": "The clean fixture passes. Replacing pilots.json with facility-source-index.json while declaring semantic-projection also passes with zero failures. Declaring that same file honestly as source-index fails solely because no semantic projection was revealed. The role label, not the artifact's semantic function, currently satisfies the gate."
+      },
+      "impact": "A comparator can reveal the frozen downstream target plus an unrelated frozen source index, inspect no semantic rule projection, and still produce a structurally valid comparison. This defeats the omission-detection purpose of the mandatory semantic projection across all 140 units.",
+      "minimalFix": [
+        "Define a closed allowlist for artifacts that can carry semantic-projection and exclude all source-extraction files, *-source-index.json files, source-registry.json, schemas, validators, and other non-projection metadata.",
+        "Require at least one actual behavior projection for every comparison; with the current corpus this should include docs/rules/semantics/pilots.json, while questions/conflicts may be additional semantic artifacts.",
+        "Add negative controls showing that every frozen source-index path is rejected under semantic-projection and that a real projection still passes."
+      ]
+    }
+  ],
+  "s4_001_reproduction": {
+    "historicalCandidate": "5e525e12c105edb7565fa310ae16a526bc131025",
+    "historicalMissingExtractionPathCount": 19,
+    "historicalMissingExtractionPathIds": [
+      "COMPONENT:event:TTS-EVENT-5609-FACE",
+      "COMPONENT:event:TTS-EVENT-5612-FACE",
+      "COMPONENT:event:TTS-EVENT-5628-FACE",
+      "COMPONENT:event:TTS-EVENT-5618-FACE",
+      "COMPONENT:exploration:TTS-EXPLORATION-5632-FACE",
+      "COMPONENT:exploration:TTS-EXPLORATION-5630-FACE",
+      "COMPONENT:exploration:TTS-EXPLORATION-5637-FACE",
+      "COMPONENT:robot:TTS-ROBOT-506400-FACE",
+      "COMPONENT:robot:TTS-ROBOT-529400-FACE",
+      "COMPONENT:queen-health:TTS-QUEEN-HEALTH-424500-0DD25F-FACE",
+      "COMPONENT:queen-health:TTS-QUEEN-HEALTH-424100-A10F34-FACE",
+      "COMPONENT:serious-wound:TTS-SERIOUS-WOUND-3801-17CCB1-FACE",
+      "COMPONENT:serious-wound:TTS-SERIOUS-WOUND-3807-4D4710-FACE",
+      "COMPONENT:green-item:TTS-GREEN-ITEM-3707-30F2F8-FACE",
+      "COMPONENT:green-item:TTS-GREEN-ITEM-3701-2E0877-FACE",
+      "COMPONENT:red-item:TTS-RED-ITEM-530900-9CDA71-FACE",
+      "COMPONENT:red-item:TTS-RED-ITEM-3606-EA89DA-FACE",
+      "COMPONENT:yellow-item:TTS-YELLOW-ITEM-3400-2284BD-FACE",
+      "COMPONENT:yellow-item:TTS-YELLOW-ITEM-532000-1FF6E7-FACE"
+    ],
+    "exactCandidateMissingExtractionPathCount": 0,
+    "repairedRowCount": 19,
+    "repairedRowIds": [
+      "COMPONENT:event:TTS-EVENT-5609-FACE",
+      "COMPONENT:event:TTS-EVENT-5612-FACE",
+      "COMPONENT:event:TTS-EVENT-5628-FACE",
+      "COMPONENT:event:TTS-EVENT-5618-FACE",
+      "COMPONENT:exploration:TTS-EXPLORATION-5632-FACE",
+      "COMPONENT:exploration:TTS-EXPLORATION-5630-FACE",
+      "COMPONENT:exploration:TTS-EXPLORATION-5637-FACE",
+      "COMPONENT:robot:TTS-ROBOT-506400-FACE",
+      "COMPONENT:robot:TTS-ROBOT-529400-FACE",
+      "COMPONENT:queen-health:TTS-QUEEN-HEALTH-424500-0DD25F-FACE",
+      "COMPONENT:queen-health:TTS-QUEEN-HEALTH-424100-A10F34-FACE",
+      "COMPONENT:serious-wound:TTS-SERIOUS-WOUND-3801-17CCB1-FACE",
+      "COMPONENT:serious-wound:TTS-SERIOUS-WOUND-3807-4D4710-FACE",
+      "COMPONENT:green-item:TTS-GREEN-ITEM-3707-30F2F8-FACE",
+      "COMPONENT:green-item:TTS-GREEN-ITEM-3701-2E0877-FACE",
+      "COMPONENT:red-item:TTS-RED-ITEM-530900-9CDA71-FACE",
+      "COMPONENT:red-item:TTS-RED-ITEM-3606-EA89DA-FACE",
+      "COMPONENT:yellow-item:TTS-YELLOW-ITEM-3400-2284BD-FACE",
+      "COMPONENT:yellow-item:TTS-YELLOW-ITEM-532000-1FF6E7-FACE"
+    ],
+    "eachRepairedRowChangedOnlyByAddingExtractionPath": true,
+    "unitIdsAndOrderUnchanged": true,
+    "componentSelectionPayloadUnchangedIgnoringExtractionPath": true,
+    "builderOutputEqualsCommittedManifest": true
+  },
+  "componentTargetAudit": {
+    "sampledComponentCount": 56,
+    "familyCounts": {
+      "action-card": 12,
+      "equipment-starting": 8,
+      "event": 4,
+      "exploration": 3,
+      "green-item": 2,
+      "intruder-attack": 2,
+      "intruder-help": 4,
+      "objective-mission": 6,
+      "queen-health": 2,
+      "red-item": 2,
+      "robot": 2,
+      "room": 5,
+      "serious-wound": 2,
+      "yellow-item": 2
+    },
+    "distinctExtractionPathCount": 14,
+    "extractionPathCounts": {
+      "docs/rules/semantics/action-source-index.json": 12,
+      "docs/rules/semantics/attack-source-index.json": 2,
+      "docs/rules/semantics/equipment-source-index.json": 8,
+      "docs/rules/semantics/event-source-index.json": 4,
+      "docs/rules/semantics/exploration-source-index.json": 3,
+      "docs/rules/semantics/green-item-source-index.json": 2,
+      "docs/rules/semantics/objective-mission-source-index.json": 6,
+      "docs/rules/semantics/queen-health-source-index.json": 2,
+      "docs/rules/semantics/red-item-source-index.json": 2,
+      "docs/rules/semantics/robot-source-index.json": 2,
+      "docs/rules/semantics/serious-wound-source-index.json": 2,
+      "docs/rules/semantics/yellow-item-source-index.json": 2,
+      "docs/rules/source-extraction/intruder-help-sheet.json": 4,
+      "docs/rules/source-extraction/room-help-sheet.json": 5
+    },
+    "targetErrorCount": 0,
+    "targets": [
+      {
+        "auditUnitId": "COMPONENT:room:ROOM-HELP-10",
+        "family": "room",
+        "extractionPath": "docs/rules/source-extraction/room-help-sheet.json",
+        "frozenMapMemberships": [
+          "selectionInputHashes"
+        ],
+        "sha256": "ad3d6bb66de939fe1036ecca3fc8d8d9b41fe41e1065f7bd9611df8263480177",
+        "errors": []
+      },
+      {
+        "auditUnitId": "COMPONENT:room:ROOM-HELP-07",
+        "family": "room",
+        "extractionPath": "docs/rules/source-extraction/room-help-sheet.json",
+        "frozenMapMemberships": [
+          "selectionInputHashes"
+        ],
+        "sha256": "ad3d6bb66de939fe1036ecca3fc8d8d9b41fe41e1065f7bd9611df8263480177",
+        "errors": []
+      },
+      {
+        "auditUnitId": "COMPONENT:room:ROOM-HELP-17",
+        "family": "room",
+        "extractionPath": "docs/rules/source-extraction/room-help-sheet.json",
+        "frozenMapMemberships": [
+          "selectionInputHashes"
+        ],
+        "sha256": "ad3d6bb66de939fe1036ecca3fc8d8d9b41fe41e1065f7bd9611df8263480177",
+        "errors": []
+      },
+      {
+        "auditUnitId": "COMPONENT:room:ROOM-HELP-19",
+        "family": "room",
+        "extractionPath": "docs/rules/source-extraction/room-help-sheet.json",
+        "frozenMapMemberships": [
+          "selectionInputHashes"
+        ],
+        "sha256": "ad3d6bb66de939fe1036ecca3fc8d8d9b41fe41e1065f7bd9611df8263480177",
+        "errors": []
+      },
+      {
+        "auditUnitId": "COMPONENT:room:ROOM-HELP-25",
+        "family": "room",
+        "extractionPath": "docs/rules/source-extraction/room-help-sheet.json",
+        "frozenMapMemberships": [
+          "selectionInputHashes"
+        ],
+        "sha256": "ad3d6bb66de939fe1036ecca3fc8d8d9b41fe41e1065f7bd9611df8263480177",
+        "errors": []
+      },
+      {
+        "auditUnitId": "COMPONENT:intruder-help:QD-C-01",
+        "family": "intruder-help",
+        "extractionPath": "docs/rules/source-extraction/intruder-help-sheet.json",
+        "frozenMapMemberships": [
+          "selectionInputHashes"
+        ],
+        "sha256": "e07f2703a6ad1b49c06389f79d3b1ffd6f5fd1d98604bf14b405fee49d9679e6",
+        "errors": []
+      },
+      {
+        "auditUnitId": "COMPONENT:intruder-help:QD-R-02",
+        "family": "intruder-help",
+        "extractionPath": "docs/rules/source-extraction/intruder-help-sheet.json",
+        "frozenMapMemberships": [
+          "selectionInputHashes"
+        ],
+        "sha256": "e07f2703a6ad1b49c06389f79d3b1ffd6f5fd1d98604bf14b405fee49d9679e6",
+        "errors": []
+      },
+      {
+        "auditUnitId": "COMPONENT:intruder-help:QA-B-02",
+        "family": "intruder-help",
+        "extractionPath": "docs/rules/source-extraction/intruder-help-sheet.json",
+        "frozenMapMemberships": [
+          "selectionInputHashes"
+        ],
+        "sha256": "e07f2703a6ad1b49c06389f79d3b1ffd6f5fd1d98604bf14b405fee49d9679e6",
+        "errors": []
+      },
+      {
+        "auditUnitId": "COMPONENT:intruder-help:QA-BOTTOM-01",
+        "family": "intruder-help",
+        "extractionPath": "docs/rules/source-extraction/intruder-help-sheet.json",
+        "frozenMapMemberships": [
+          "selectionInputHashes"
+        ],
+        "sha256": "e07f2703a6ad1b49c06389f79d3b1ffd6f5fd1d98604bf14b405fee49d9679e6",
+        "errors": []
+      },
+      {
+        "auditUnitId": "COMPONENT:event:TTS-EVENT-5609-FACE",
+        "family": "event",
+        "extractionPath": "docs/rules/semantics/event-source-index.json",
+        "frozenMapMemberships": [
+          "frozenSemanticHashes",
+          "selectionInputHashes"
+        ],
+        "sha256": "5e034b4012986a5e7b3614d91bab576cd3af359d923769f92a691bf5e6fb07dc",
+        "errors": []
+      },
+      {
+        "auditUnitId": "COMPONENT:event:TTS-EVENT-5612-FACE",
+        "family": "event",
+        "extractionPath": "docs/rules/semantics/event-source-index.json",
+        "frozenMapMemberships": [
+          "frozenSemanticHashes",
+          "selectionInputHashes"
+        ],
+        "sha256": "5e034b4012986a5e7b3614d91bab576cd3af359d923769f92a691bf5e6fb07dc",
+        "errors": []
+      },
+      {
+        "auditUnitId": "COMPONENT:event:TTS-EVENT-5628-FACE",
+        "family": "event",
+        "extractionPath": "docs/rules/semantics/event-source-index.json",
+        "frozenMapMemberships": [
+          "frozenSemanticHashes",
+          "selectionInputHashes"
+        ],
+        "sha256": "5e034b4012986a5e7b3614d91bab576cd3af359d923769f92a691bf5e6fb07dc",
+        "errors": []
+      },
+      {
+        "auditUnitId": "COMPONENT:event:TTS-EVENT-5618-FACE",
+        "family": "event",
+        "extractionPath": "docs/rules/semantics/event-source-index.json",
+        "frozenMapMemberships": [
+          "frozenSemanticHashes",
+          "selectionInputHashes"
+        ],
+        "sha256": "5e034b4012986a5e7b3614d91bab576cd3af359d923769f92a691bf5e6fb07dc",
+        "errors": []
+      },
+      {
+        "auditUnitId": "COMPONENT:exploration:TTS-EXPLORATION-5632-FACE",
+        "family": "exploration",
+        "extractionPath": "docs/rules/semantics/exploration-source-index.json",
+        "frozenMapMemberships": [
+          "frozenSemanticHashes",
+          "selectionInputHashes"
+        ],
+        "sha256": "d95dc30738ce2efbb4cf696671388aaf731626f167601fdca70c6fee74dc95bd",
+        "errors": []
+      },
+      {
+        "auditUnitId": "COMPONENT:exploration:TTS-EXPLORATION-5630-FACE",
+        "family": "exploration",
+        "extractionPath": "docs/rules/semantics/exploration-source-index.json",
+        "frozenMapMemberships": [
+          "frozenSemanticHashes",
+          "selectionInputHashes"
+        ],
+        "sha256": "d95dc30738ce2efbb4cf696671388aaf731626f167601fdca70c6fee74dc95bd",
+        "errors": []
+      },
+      {
+        "auditUnitId": "COMPONENT:exploration:TTS-EXPLORATION-5637-FACE",
+        "family": "exploration",
+        "extractionPath": "docs/rules/semantics/exploration-source-index.json",
+        "frozenMapMemberships": [
+          "frozenSemanticHashes",
+          "selectionInputHashes"
+        ],
+        "sha256": "d95dc30738ce2efbb4cf696671388aaf731626f167601fdca70c6fee74dc95bd",
+        "errors": []
+      },
+      {
+        "auditUnitId": "COMPONENT:robot:TTS-ROBOT-506400-FACE",
+        "family": "robot",
+        "extractionPath": "docs/rules/semantics/robot-source-index.json",
+        "frozenMapMemberships": [
+          "frozenSemanticHashes",
+          "selectionInputHashes"
+        ],
+        "sha256": "d5c0f1abb5794cdddebba42b38580627122a43da96f8da0ff289d5b917c9b6a4",
+        "errors": []
+      },
+      {
+        "auditUnitId": "COMPONENT:robot:TTS-ROBOT-529400-FACE",
+        "family": "robot",
+        "extractionPath": "docs/rules/semantics/robot-source-index.json",
+        "frozenMapMemberships": [
+          "frozenSemanticHashes",
+          "selectionInputHashes"
+        ],
+        "sha256": "d5c0f1abb5794cdddebba42b38580627122a43da96f8da0ff289d5b917c9b6a4",
+        "errors": []
+      },
+      {
+        "auditUnitId": "COMPONENT:intruder-attack:TTS-ATTACK-394916-FACE",
+        "family": "intruder-attack",
+        "extractionPath": "docs/rules/semantics/attack-source-index.json",
+        "frozenMapMemberships": [
+          "frozenSemanticHashes",
+          "selectionInputHashes"
+        ],
+        "sha256": "c7b26acaccdb08f166a5618fa9c140189239f50645e1e6601ecc7dfda210f6b3",
+        "errors": []
+      },
+      {
+        "auditUnitId": "COMPONENT:intruder-attack:TTS-ATTACK-394918-FACE",
+        "family": "intruder-attack",
+        "extractionPath": "docs/rules/semantics/attack-source-index.json",
+        "frozenMapMemberships": [
+          "frozenSemanticHashes",
+          "selectionInputHashes"
+        ],
+        "sha256": "c7b26acaccdb08f166a5618fa9c140189239f50645e1e6601ecc7dfda210f6b3",
+        "errors": []
+      },
+      {
+        "auditUnitId": "COMPONENT:queen-health:TTS-QUEEN-HEALTH-424500-0DD25F-FACE",
+        "family": "queen-health",
+        "extractionPath": "docs/rules/semantics/queen-health-source-index.json",
+        "frozenMapMemberships": [
+          "frozenSemanticHashes",
+          "selectionInputHashes"
+        ],
+        "sha256": "74fc260e2d09f4676b186431f59d8564b7f9bb3f3e8091d50b80e003fbc29988",
+        "errors": []
+      },
+      {
+        "auditUnitId": "COMPONENT:queen-health:TTS-QUEEN-HEALTH-424100-A10F34-FACE",
+        "family": "queen-health",
+        "extractionPath": "docs/rules/semantics/queen-health-source-index.json",
+        "frozenMapMemberships": [
+          "frozenSemanticHashes",
+          "selectionInputHashes"
+        ],
+        "sha256": "74fc260e2d09f4676b186431f59d8564b7f9bb3f3e8091d50b80e003fbc29988",
+        "errors": []
+      },
+      {
+        "auditUnitId": "COMPONENT:serious-wound:TTS-SERIOUS-WOUND-3801-17CCB1-FACE",
+        "family": "serious-wound",
+        "extractionPath": "docs/rules/semantics/serious-wound-source-index.json",
+        "frozenMapMemberships": [
+          "frozenSemanticHashes",
+          "selectionInputHashes"
+        ],
+        "sha256": "417798990fd5e9a857db6af10c2343f522b6041dc87e3231b0a7a10787c1ad27",
+        "errors": []
+      },
+      {
+        "auditUnitId": "COMPONENT:serious-wound:TTS-SERIOUS-WOUND-3807-4D4710-FACE",
+        "family": "serious-wound",
+        "extractionPath": "docs/rules/semantics/serious-wound-source-index.json",
+        "frozenMapMemberships": [
+          "frozenSemanticHashes",
+          "selectionInputHashes"
+        ],
+        "sha256": "417798990fd5e9a857db6af10c2343f522b6041dc87e3231b0a7a10787c1ad27",
+        "errors": []
+      },
+      {
+        "auditUnitId": "COMPONENT:green-item:TTS-GREEN-ITEM-3707-30F2F8-FACE",
+        "family": "green-item",
+        "extractionPath": "docs/rules/semantics/green-item-source-index.json",
+        "frozenMapMemberships": [
+          "frozenSemanticHashes",
+          "selectionInputHashes"
+        ],
+        "sha256": "62074d2aa9cf18f1abf2cbb99bddc000ab25552122c99973bf760ebe2b0bef2b",
+        "errors": []
+      },
+      {
+        "auditUnitId": "COMPONENT:green-item:TTS-GREEN-ITEM-3701-2E0877-FACE",
+        "family": "green-item",
+        "extractionPath": "docs/rules/semantics/green-item-source-index.json",
+        "frozenMapMemberships": [
+          "frozenSemanticHashes",
+          "selectionInputHashes"
+        ],
+        "sha256": "62074d2aa9cf18f1abf2cbb99bddc000ab25552122c99973bf760ebe2b0bef2b",
+        "errors": []
+      },
+      {
+        "auditUnitId": "COMPONENT:red-item:TTS-RED-ITEM-530900-9CDA71-FACE",
+        "family": "red-item",
+        "extractionPath": "docs/rules/semantics/red-item-source-index.json",
+        "frozenMapMemberships": [
+          "frozenSemanticHashes",
+          "selectionInputHashes"
+        ],
+        "sha256": "0ac58e019f04bf9bf92e0cec83c8f4e7f231aa798f67e60cb4af37a264aeb08f",
+        "errors": []
+      },
+      {
+        "auditUnitId": "COMPONENT:red-item:TTS-RED-ITEM-3606-EA89DA-FACE",
+        "family": "red-item",
+        "extractionPath": "docs/rules/semantics/red-item-source-index.json",
+        "frozenMapMemberships": [
+          "frozenSemanticHashes",
+          "selectionInputHashes"
+        ],
+        "sha256": "0ac58e019f04bf9bf92e0cec83c8f4e7f231aa798f67e60cb4af37a264aeb08f",
+        "errors": []
+      },
+      {
+        "auditUnitId": "COMPONENT:yellow-item:TTS-YELLOW-ITEM-3400-2284BD-FACE",
+        "family": "yellow-item",
+        "extractionPath": "docs/rules/semantics/yellow-item-source-index.json",
+        "frozenMapMemberships": [
+          "frozenSemanticHashes",
+          "selectionInputHashes"
+        ],
+        "sha256": "7e49fdee1d324b2ff2384828c2ed82d941686f976d39043ff03f9aa920bde43b",
+        "errors": []
+      },
+      {
+        "auditUnitId": "COMPONENT:yellow-item:TTS-YELLOW-ITEM-532000-1FF6E7-FACE",
+        "family": "yellow-item",
+        "extractionPath": "docs/rules/semantics/yellow-item-source-index.json",
+        "frozenMapMemberships": [
+          "frozenSemanticHashes",
+          "selectionInputHashes"
+        ],
+        "sha256": "7e49fdee1d324b2ff2384828c2ed82d941686f976d39043ff03f9aa920bde43b",
+        "errors": []
+      },
+      {
+        "auditUnitId": "COMPONENT:action-card:TTS-ACTION-CE-567428-84096B-FACE",
+        "family": "action-card",
+        "extractionPath": "docs/rules/semantics/action-source-index.json",
+        "frozenMapMemberships": [
+          "frozenSemanticHashes",
+          "selectionInputHashes"
+        ],
+        "sha256": "640aef7685e24a67cb399151a3fdad3c0b349c658860a16edd1add86d6587752",
+        "errors": []
+      },
+      {
+        "auditUnitId": "COMPONENT:action-card:TTS-ACTION-CE-569100-750970-FACE",
+        "family": "action-card",
+        "extractionPath": "docs/rules/semantics/action-source-index.json",
+        "frozenMapMemberships": [
+          "frozenSemanticHashes",
+          "selectionInputHashes"
+        ],
+        "sha256": "640aef7685e24a67cb399151a3fdad3c0b349c658860a16edd1add86d6587752",
+        "errors": []
+      },
+      {
+        "auditUnitId": "COMPONENT:action-card:TTS-ACTION-CON-567514-35D06D-FACE",
+        "family": "action-card",
+        "extractionPath": "docs/rules/semantics/action-source-index.json",
+        "frozenMapMemberships": [
+          "frozenSemanticHashes",
+          "selectionInputHashes"
+        ],
+        "sha256": "640aef7685e24a67cb399151a3fdad3c0b349c658860a16edd1add86d6587752",
+        "errors": []
+      },
+      {
+        "auditUnitId": "COMPONENT:action-card:TTS-ACTION-CON-567510-10707C-FACE",
+        "family": "action-card",
+        "extractionPath": "docs/rules/semantics/action-source-index.json",
+        "frozenMapMemberships": [
+          "frozenSemanticHashes",
+          "selectionInputHashes"
+        ],
+        "sha256": "640aef7685e24a67cb399151a3fdad3c0b349c658860a16edd1add86d6587752",
+        "errors": []
+      },
+      {
+        "auditUnitId": "COMPONENT:action-card:TTS-ACTION-HGO-592400-B36EF3-FACE",
+        "family": "action-card",
+        "extractionPath": "docs/rules/semantics/action-source-index.json",
+        "frozenMapMemberships": [
+          "frozenSemanticHashes",
+          "selectionInputHashes"
+        ],
+        "sha256": "640aef7685e24a67cb399151a3fdad3c0b349c658860a16edd1add86d6587752",
+        "errors": []
+      },
+      {
+        "auditUnitId": "COMPONENT:action-card:TTS-ACTION-HGO-570500-F97AD0-FACE",
+        "family": "action-card",
+        "extractionPath": "docs/rules/semantics/action-source-index.json",
+        "frozenMapMemberships": [
+          "frozenSemanticHashes",
+          "selectionInputHashes"
+        ],
+        "sha256": "640aef7685e24a67cb399151a3fdad3c0b349c658860a16edd1add86d6587752",
+        "errors": []
+      },
+      {
+        "auditUnitId": "COMPONENT:action-card:TTS-ACTION-MS-570300-239ACD-FACE",
+        "family": "action-card",
+        "extractionPath": "docs/rules/semantics/action-source-index.json",
+        "frozenMapMemberships": [
+          "frozenSemanticHashes",
+          "selectionInputHashes"
+        ],
+        "sha256": "640aef7685e24a67cb399151a3fdad3c0b349c658860a16edd1add86d6587752",
+        "errors": []
+      },
+      {
+        "auditUnitId": "COMPONENT:action-card:TTS-ACTION-MS-570200-176BDB-FACE",
+        "family": "action-card",
+        "extractionPath": "docs/rules/semantics/action-source-index.json",
+        "frozenMapMemberships": [
+          "frozenSemanticHashes",
+          "selectionInputHashes"
+        ],
+        "sha256": "640aef7685e24a67cb399151a3fdad3c0b349c658860a16edd1add86d6587752",
+        "errors": []
+      },
+      {
+        "auditUnitId": "COMPONENT:action-card:TTS-ACTION-OFF-567437-7909AA-FACE",
+        "family": "action-card",
+        "extractionPath": "docs/rules/semantics/action-source-index.json",
+        "frozenMapMemberships": [
+          "frozenSemanticHashes",
+          "selectionInputHashes"
+        ],
+        "sha256": "640aef7685e24a67cb399151a3fdad3c0b349c658860a16edd1add86d6587752",
+        "errors": []
+      },
+      {
+        "auditUnitId": "COMPONENT:action-card:TTS-ACTION-OFF-567700-1325B4-FACE",
+        "family": "action-card",
+        "extractionPath": "docs/rules/semantics/action-source-index.json",
+        "frozenMapMemberships": [
+          "frozenSemanticHashes",
+          "selectionInputHashes"
+        ],
+        "sha256": "640aef7685e24a67cb399151a3fdad3c0b349c658860a16edd1add86d6587752",
+        "errors": []
+      },
+      {
+        "auditUnitId": "COMPONENT:action-card:TTS-ACTION-REC-568900-443817-FACE",
+        "family": "action-card",
+        "extractionPath": "docs/rules/semantics/action-source-index.json",
+        "frozenMapMemberships": [
+          "frozenSemanticHashes",
+          "selectionInputHashes"
+        ],
+        "sha256": "640aef7685e24a67cb399151a3fdad3c0b349c658860a16edd1add86d6587752",
+        "errors": []
+      },
+      {
+        "auditUnitId": "COMPONENT:action-card:TTS-ACTION-REC-567404-62092F-FACE",
+        "family": "action-card",
+        "extractionPath": "docs/rules/semantics/action-source-index.json",
+        "frozenMapMemberships": [
+          "frozenSemanticHashes",
+          "selectionInputHashes"
+        ],
+        "sha256": "640aef7685e24a67cb399151a3fdad3c0b349c658860a16edd1add86d6587752",
+        "errors": []
+      },
+      {
+        "auditUnitId": "COMPONENT:objective-mission:TTS-OBJECTIVE-MISSION-553000-D711AB-FACE",
+        "family": "objective-mission",
+        "extractionPath": "docs/rules/semantics/objective-mission-source-index.json",
+        "frozenMapMemberships": [
+          "frozenSemanticHashes",
+          "selectionInputHashes"
+        ],
+        "sha256": "f9000de68c79a786c2d4ea33f6f3f65fb45fe0350b79ca241346e62c2b9070d9",
+        "errors": []
+      },
+      {
+        "auditUnitId": "COMPONENT:objective-mission:TTS-OBJECTIVE-MISSION-394401-2E948E-FACE",
+        "family": "objective-mission",
+        "extractionPath": "docs/rules/semantics/objective-mission-source-index.json",
+        "frozenMapMemberships": [
+          "frozenSemanticHashes",
+          "selectionInputHashes"
+        ],
+        "sha256": "f9000de68c79a786c2d4ea33f6f3f65fb45fe0350b79ca241346e62c2b9070d9",
+        "errors": []
+      },
+      {
+        "auditUnitId": "COMPONENT:objective-mission:TTS-OBJECTIVE-TASK-553400-ED0104-FACE",
+        "family": "objective-mission",
+        "extractionPath": "docs/rules/semantics/objective-mission-source-index.json",
+        "frozenMapMemberships": [
+          "frozenSemanticHashes",
+          "selectionInputHashes"
+        ],
+        "sha256": "f9000de68c79a786c2d4ea33f6f3f65fb45fe0350b79ca241346e62c2b9070d9",
+        "errors": []
+      },
+      {
+        "auditUnitId": "COMPONENT:objective-mission:TTS-OBJECTIVE-TASK-590700-C59EC7-FACE",
+        "family": "objective-mission",
+        "extractionPath": "docs/rules/semantics/objective-mission-source-index.json",
+        "frozenMapMemberships": [
+          "frozenSemanticHashes",
+          "selectionInputHashes"
+        ],
+        "sha256": "f9000de68c79a786c2d4ea33f6f3f65fb45fe0350b79ca241346e62c2b9070d9",
+        "errors": []
+      },
+      {
+        "auditUnitId": "COMPONENT:objective-mission:TTS-OBJECTIVE-PRIVATE-394117-F5D0A6-FACE",
+        "family": "objective-mission",
+        "extractionPath": "docs/rules/semantics/objective-mission-source-index.json",
+        "frozenMapMemberships": [
+          "frozenSemanticHashes",
+          "selectionInputHashes"
+        ],
+        "sha256": "f9000de68c79a786c2d4ea33f6f3f65fb45fe0350b79ca241346e62c2b9070d9",
+        "errors": []
+      },
+      {
+        "auditUnitId": "COMPONENT:objective-mission:TTS-OBJECTIVE-PRIVATE-394106-9BFB37-FACE",
+        "family": "objective-mission",
+        "extractionPath": "docs/rules/semantics/objective-mission-source-index.json",
+        "frozenMapMemberships": [
+          "frozenSemanticHashes",
+          "selectionInputHashes"
+        ],
+        "sha256": "f9000de68c79a786c2d4ea33f6f3f65fb45fe0350b79ca241346e62c2b9070d9",
+        "errors": []
+      },
+      {
+        "auditUnitId": "COMPONENT:equipment-starting:TTS-SUPPORT-EQUIPMENT-556600-A0DAEF-FACE",
+        "family": "equipment-starting",
+        "extractionPath": "docs/rules/semantics/equipment-source-index.json",
+        "frozenMapMemberships": [
+          "frozenSemanticHashes",
+          "selectionInputHashes"
+        ],
+        "sha256": "de37dfbe7434de48c565995ca98a87a02dcd243d92c5eeada473dea8bf153a11",
+        "errors": []
+      },
+      {
+        "auditUnitId": "COMPONENT:equipment-starting:TTS-SUPPORT-EQUIPMENT-507100-875C54-FACE",
+        "family": "equipment-starting",
+        "extractionPath": "docs/rules/semantics/equipment-source-index.json",
+        "frozenMapMemberships": [
+          "frozenSemanticHashes",
+          "selectionInputHashes"
+        ],
+        "sha256": "de37dfbe7434de48c565995ca98a87a02dcd243d92c5eeada473dea8bf153a11",
+        "errors": []
+      },
+      {
+        "auditUnitId": "COMPONENT:equipment-starting:TTS-SUPPORT-EQUIPMENT-2910-D29216-FACE",
+        "family": "equipment-starting",
+        "extractionPath": "docs/rules/semantics/equipment-source-index.json",
+        "frozenMapMemberships": [
+          "frozenSemanticHashes",
+          "selectionInputHashes"
+        ],
+        "sha256": "de37dfbe7434de48c565995ca98a87a02dcd243d92c5eeada473dea8bf153a11",
+        "errors": []
+      },
+      {
+        "auditUnitId": "COMPONENT:equipment-starting:TTS-SUPPORT-EQUIPMENT-424900-8AE645-FACE",
+        "family": "equipment-starting",
+        "extractionPath": "docs/rules/semantics/equipment-source-index.json",
+        "frozenMapMemberships": [
+          "frozenSemanticHashes",
+          "selectionInputHashes"
+        ],
+        "sha256": "de37dfbe7434de48c565995ca98a87a02dcd243d92c5eeada473dea8bf153a11",
+        "errors": []
+      },
+      {
+        "auditUnitId": "COMPONENT:equipment-starting:TTS-CHARACTER-ITEM-CON-591300-21BD03-FACE",
+        "family": "equipment-starting",
+        "extractionPath": "docs/rules/semantics/equipment-source-index.json",
+        "frozenMapMemberships": [
+          "frozenSemanticHashes",
+          "selectionInputHashes"
+        ],
+        "sha256": "de37dfbe7434de48c565995ca98a87a02dcd243d92c5eeada473dea8bf153a11",
+        "errors": []
+      },
+      {
+        "auditUnitId": "COMPONENT:equipment-starting:TTS-RED-ITEM-EXCLUDED-HEAVY-531400-5DF671-FACE",
+        "family": "equipment-starting",
+        "extractionPath": "docs/rules/semantics/equipment-source-index.json",
+        "frozenMapMemberships": [
+          "frozenSemanticHashes",
+          "selectionInputHashes"
+        ],
+        "sha256": "de37dfbe7434de48c565995ca98a87a02dcd243d92c5eeada473dea8bf153a11",
+        "errors": []
+      },
+      {
+        "auditUnitId": "COMPONENT:equipment-starting:CLASS-CONFLICT:326e23792c922ed0",
+        "family": "equipment-starting",
+        "extractionPath": "docs/rules/semantics/equipment-source-index.json",
+        "frozenMapMemberships": [
+          "frozenSemanticHashes",
+          "selectionInputHashes"
+        ],
+        "sha256": "de37dfbe7434de48c565995ca98a87a02dcd243d92c5eeada473dea8bf153a11",
+        "errors": []
+      },
+      {
+        "auditUnitId": "COMPONENT:equipment-starting:TTS-CHARACTER-ITEM-CE-431200-2059A7-FACE",
+        "family": "equipment-starting",
+        "extractionPath": "docs/rules/semantics/equipment-source-index.json",
+        "frozenMapMemberships": [
+          "frozenSemanticHashes",
+          "selectionInputHashes"
+        ],
+        "sha256": "de37dfbe7434de48c565995ca98a87a02dcd243d92c5eeada473dea8bf153a11",
+        "errors": []
+      }
+    ]
+  },
+  "frozenMapAudit": {
+    "collisionCount": 17,
+    "collisions": {
+      "docs/rules/00-foundations.md": [
+        "frozenConciseRuleHashes",
+        "selectionInputHashes"
+      ],
+      "docs/rules/01-round-and-turns.md": [
+        "frozenConciseRuleHashes",
+        "selectionInputHashes"
+      ],
+      "docs/rules/02-character-actions.md": [
+        "frozenConciseRuleHashes",
+        "selectionInputHashes"
+      ],
+      "docs/rules/03-intruders-and-survival.md": [
+        "frozenConciseRuleHashes",
+        "selectionInputHashes"
+      ],
+      "docs/rules/04-items-and-equipment.md": [
+        "frozenConciseRuleHashes",
+        "selectionInputHashes"
+      ],
+      "docs/rules/semantics/action-source-index.json": [
+        "frozenSemanticHashes",
+        "selectionInputHashes"
+      ],
+      "docs/rules/semantics/attack-source-index.json": [
+        "frozenSemanticHashes",
+        "selectionInputHashes"
+      ],
+      "docs/rules/semantics/equipment-source-index.json": [
+        "frozenSemanticHashes",
+        "selectionInputHashes"
+      ],
+      "docs/rules/semantics/event-source-index.json": [
+        "frozenSemanticHashes",
+        "selectionInputHashes"
+      ],
+      "docs/rules/semantics/exploration-source-index.json": [
+        "frozenSemanticHashes",
+        "selectionInputHashes"
+      ],
+      "docs/rules/semantics/green-item-source-index.json": [
+        "frozenSemanticHashes",
+        "selectionInputHashes"
+      ],
+      "docs/rules/semantics/objective-mission-source-index.json": [
+        "frozenSemanticHashes",
+        "selectionInputHashes"
+      ],
+      "docs/rules/semantics/queen-health-source-index.json": [
+        "frozenSemanticHashes",
+        "selectionInputHashes"
+      ],
+      "docs/rules/semantics/red-item-source-index.json": [
+        "frozenSemanticHashes",
+        "selectionInputHashes"
+      ],
+      "docs/rules/semantics/robot-source-index.json": [
+        "frozenSemanticHashes",
+        "selectionInputHashes"
+      ],
+      "docs/rules/semantics/serious-wound-source-index.json": [
+        "frozenSemanticHashes",
+        "selectionInputHashes"
+      ],
+      "docs/rules/semantics/yellow-item-source-index.json": [
+        "frozenSemanticHashes",
+        "selectionInputHashes"
+      ]
+    },
+    "hashMismatchCount": 0,
+    "disagreementMutation": {
+      "passed": false,
+      "failureCount": 2,
+      "failures": [
+        "selectionInputHashes: docs/rules/semantics/event-source-index.json: SHA-256 mismatch",
+        "RULE:FND-001: frozen manifest maps disagree for path: docs/rules/semantics/event-source-index.json"
+      ]
+    }
+  },
+  "comparisonBindingControls": {
+    "missingDownstreamTarget": {
+      "passed": false,
+      "failureCount": 1,
+      "failures": [
+        "RULE:FND-001: required downstream target was not revealed"
+      ]
+    },
+    "extraWrongDownstreamTarget": {
+      "passed": false,
+      "failureCount": 2,
+      "failures": [
+        "RULE:FND-001: downstream target is not uniquely manifest-frozen",
+        "RULE:FND-001: wrong downstream target revealed"
+      ]
+    },
+    "duplicateTargetAcrossRoles": {
+      "passed": false,
+      "failureCount": 3,
+      "failures": [
+        "RULE:FND-001: semantic projection is not frozen",
+        "RULE:FND-001: semantic projection is not in the frozen semantic corpus",
+        "RULE:FND-001: duplicate revealed artifact path"
+      ]
+    },
+    "unfrozenComponentTarget": {
+      "passed": false,
+      "failureCount": 1,
+      "failures": [
+        "sampled component target is not manifest-frozen: COMPONENT:room:ROOM-HELP-10"
+      ]
+    },
+    "semanticProjectionAbsent": {
+      "passed": false,
+      "failureCount": 1,
+      "failures": [
+        "RULE:FND-001: no frozen semantic projection was revealed"
+      ]
+    },
+    "semanticProjectionSourceIndexConfusion": {
+      "passed": true,
+      "failureCount": 0,
+      "failures": []
+    }
+  },
+  "testsRun": [
+    {
+      "command": "python3 scripts/stage_correctness_audit_sources.py --source-root /home/smithers/nemesis-retaliation",
+      "result": "pass; 1098 files verified, 0 copied"
+    },
+    {
+      "command": "python3 scripts/stage_correctness_audit_sources.py --source-root /home/smithers/nemesis-retaliation --check",
+      "result": "pass; 1098 files verified"
+    },
+    {
+      "command": "python3 scripts/build_correctness_audit_manifest.py --check",
+      "result": "pass; committed manifest current at 140 units"
+    },
+    {
+      "command": "uv run --isolated --with-requirements docs/qa/implementation-readiness/correctness-audit/requirements-audit.txt python3 scripts/validate_correctness_audit.py --prelock",
+      "result": "pass; 0 failures, 140 pending units, all 56 component family counts reconciled"
+    },
+    {
+      "command": "uv run --isolated --with-requirements docs/qa/implementation-readiness/correctness-audit/requirements-audit.txt python3 scripts/test_correctness_audit_mutations.py",
+      "result": "pass; 73/73 committed controls"
+    },
+    {
+      "command": "uv run --isolated --with-requirements docs/qa/implementation-readiness/correctness-audit/requirements-audit.txt python3 /home/smithers/projects/nemesis-audit-r04-specialty04/probe.py",
+      "result": "bounded probe passed its census checks and reproduced S4-002"
+    },
+    {
+      "command": "git diff --check",
+      "result": "pass"
+    }
+  ],
+  "residualRisks": [
+    "No post-lock comparison artifacts exist yet; exact-once and role controls were exercised through the repository's synthetic public validator harness with seals disabled, while prelock structure was validated separately.",
+    "The current 73-test committed suite is green but lacks the discriminating source-index-as-semantic-projection mutation reproduced by this review."
+  ],
+  "filesModified": {
+    "repository": [],
+    "externalReviewArtifacts": [
+      "/home/smithers/projects/nemesis-audit-r04-specialty04/probe.py",
+      "/home/smithers/projects/nemesis-audit-r04-specialty04/probe-results.json",
+      "/home/smithers/projects/nemesis-audit-r04/final-review.json"
+    ]
+  },
+  "issuesEncountered": [
+    "A direct system-Python probe import correctly refused to run without jsonschema; the probe was rerun successfully through the methodology's pinned uv requirements environment."
+  ]
+}

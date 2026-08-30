@@ -1,0 +1,303 @@
+{
+  "schemaVersion": 1,
+  "recordType": "stage-1-v2-final-specialty-rereview",
+  "reviewerId": "final-specialty-12",
+  "specialty": 12,
+  "specialtyName": "worktree-safe source staging, root resolution, exact prelock commands, and methodology/status consistency",
+  "reviewedAtUtc": "2026-08-30T08:54:36Z",
+  "candidateHead": "ee42f3522859d1dd7ce782c801023cb71fd53071",
+  "candidateBranch": "review/stage1-v2-r12",
+  "supersededCandidateHead": "5e525e12c105edb7565fa310ae16a526bc131025",
+  "workspaceRoot": "/home/smithers/projects/nemesis-audit-r12",
+  "repositoryPath": "/home/smithers/projects/nemesis-audit-r12/repos/nemesis-retaliation",
+  "verdict": "issues",
+  "findingCount": 3,
+  "summary": "The candidate repairs the candidate-1 S12 source-availability and lock-creator failures: source staging/checking verified 1,098 files in this isolated worktree, ROOT resolved to this worktree even from a foreign cwd, tracked overwrite and direct source/target symlink probes failed closed, the pinned uv prelock command passed with 0 failures, and 73 mutation plus 11 decision tests passed. It must not be promoted yet. The staging helper accepts a symlinked --source-root and a symlink in an intermediate source-tree component despite claiming to reject every symlink component; the Required commands section still mandates a lock-requiring validator at every checkpoint even though that exact command fails in the documented prelock state; and the first-stop status/TODO still describe this already-committed second candidate as pending. Blind-worker isolation policy is consistent across methodology/status/TODO, but no substantive blind root exists yet to verify at runtime.",
+  "findings": [
+    {
+      "findingId": "S12-R12-001",
+      "severity": "material",
+      "status": "reproduced",
+      "title": "Source staging accepts symlinked source-root and intermediate source components",
+      "contract": "The source-provisioning method says the helper rejects every symlink component before copying the two gitignored source trees into an isolated repository worktree.",
+      "evidence": [
+        {
+          "path": "docs/qa/implementation-readiness/correctness-audit/methodology.md",
+          "startLine": 162,
+          "endLine": 171,
+          "detail": "The documented staging contract explicitly says every symlink component is rejected."
+        },
+        {
+          "path": "scripts/stage_correctness_audit_sources.py",
+          "startLine": 28,
+          "endLine": 43,
+          "detail": "require_regular_tree() checks only the final tree path and entries yielded beneath it; it never lstat-walks the source-side path components leading to that tree."
+        },
+        {
+          "path": "scripts/stage_correctness_audit_sources.py",
+          "startLine": 80,
+          "endLine": 82,
+          "detail": "The user-supplied source root is resolved before is_symlink() is checked. Path.resolve() removes the supplied symlink identity, so a symlinked --source-root cannot be rejected by this check."
+        },
+        {
+          "path": "scripts/stage_correctness_audit_sources.py",
+          "startLine": 89,
+          "endLine": 118,
+          "detail": "Files reached through an intermediate source-side symlink are hashed and copied normally once require_regular_tree() accepts the resolved leaf paths."
+        }
+      ],
+      "reproduction": {
+        "probePath": "/home/smithers/projects/nemesis-audit-r12/s12_source_staging_probe.py",
+        "probeSha256": "f4f971d0435a9d3a2ffb4b783c9f2753907ef5b10058ffbda9e2cb7659ae1dcd",
+        "command": "python3 s12_source_staging_probe.py",
+        "observed": [
+          "sourceRootSymlink: returncode=0, accepted=true, 2 files copied; output silently reported the resolved real directory instead of rejecting the supplied symlink alias",
+          "sourceIntermediateSymlink: returncode=0, accepted=true, 2 files copied through a symlinked source/docs component",
+          "sourceLeafSymlink: returncode=1 and source tree contains a symlink",
+          "targetIntermediateSymlink: returncode=1 and target path contains a symlink",
+          "trackedOverwrite: returncode=1, tracked candidate differs from source root; the before/after SHA-256 remained 7fb2721b02d3582869a91d8521a5d246a7e6bbf2b4d2413fd0af058136149dd4"
+        ]
+      },
+      "impact": "An explicit source checkout can be supplied through a symlink alias, or one of its source-tree ancestors can redirect traversal to another directory. The helper will hash and copy the redirected bytes and report the resolved destination, defeating the stated no-symlink provenance boundary. Hash verification then proves only consistency with the redirected source, not that the intended lexical source checkout supplied the bytes.",
+      "minimalFix": [
+        "Validate the lexical --source-root with lstat semantics before resolving it, walking every existing component from the filesystem root and rejecting any symlink.",
+        "For each SOURCE_TREES path, lstat-walk every source-relative ancestor and every traversed entry; do not rely only on tree.is_symlink() after an ancestor may already have redirected resolution.",
+        "Add focused controls for a symlinked --source-root, symlinked source/docs and source/assets ancestors, direct tree symlinks, leaf symlinks, target-side symlinks, and a differing tracked target whose bytes must remain unchanged."
+      ]
+    },
+    {
+      "findingId": "S12-R12-002",
+      "severity": "material",
+      "status": "reproduced",
+      "title": "The exact every-checkpoint validator command cannot pass in the documented prelock state",
+      "contract": "The Stage 1 method must give an exact, reproducible command set for the current prelock gate. The project status says no v2 lock exists, and the separate prelock command is expected to permit that one setup state.",
+      "evidence": [
+        {
+          "path": "docs/qa/implementation-readiness/correctness-audit/methodology.md",
+          "startLine": 224,
+          "endLine": 243,
+          "detail": "The prelock command correctly includes --prelock, while the text says to omit that option only after audit-lock.json is committed."
+        },
+        {
+          "path": "docs/qa/implementation-readiness/correctness-audit/methodology.md",
+          "startLine": 245,
+          "endLine": 258,
+          "detail": "The subsequent command block is labeled At every checkpoint but invokes validate_correctness_audit.py without --prelock."
+        },
+        {
+          "path": "PROJECT_STATUS.md",
+          "startLine": 23,
+          "endLine": 29,
+          "detail": "The current phase is explicitly prelock and no v2 lock exists."
+        },
+        {
+          "path": "scripts/validate_correctness_audit.py",
+          "startLine": 1966,
+          "endLine": 1970,
+          "detail": "Without --prelock, main() calls validate(require_lock=True), so the documented every-checkpoint command necessarily requires audit-lock.json."
+        }
+      ],
+      "reproduction": {
+        "passingCommand": "uv run --isolated --with-requirements docs/qa/implementation-readiness/correctness-audit/requirements-audit.txt python3 scripts/validate_correctness_audit.py --prelock",
+        "passingObserved": "returncode=0, passed=true, failureCount=0, 140/140 pending-blind-derivation",
+        "failingExactEveryCheckpointCommand": "uv run --isolated --with-requirements docs/qa/implementation-readiness/correctness-audit/requirements-audit.txt python3 scripts/validate_correctness_audit.py",
+        "failingObserved": "returncode=1, passed=false, failureCount=1: audit-lock.json is required after setup checkpoint"
+      },
+      "impact": "A reviewer or integrator following all commands literally cannot produce an all-green checkpoint before the lock exists. The ambiguity can cause a false blocker, encourage skipping a declared required command, or lead operators to run the wrong gate for the lifecycle state.",
+      "minimalFix": [
+        "Split the checkpoint block into exact prelock and post-lock command matrices, or show --prelock in the prelock matrix and explicitly state that it is removed only after the direct-child lock commit.",
+        "Keep create_correctness_audit_lock.py's isolated prelock argv identical to the documented prelock command and retain the existing command-shape unit test.",
+        "Add a documentation/command smoke check that executes the full declared prelock command set in a lock-free isolated worktree and requires every expected gate to be green."
+      ]
+    },
+    {
+      "findingId": "S12-R12-003",
+      "severity": "minor",
+      "status": "reproduced",
+      "title": "First-stop status and TODO still describe the second candidate as not yet committed",
+      "contract": "PROJECT_STATUS.md is the first-stop current-state authority, and the detailed TODO must remain consistent with the exact review candidate and next action.",
+      "evidence": [
+        {
+          "path": "PROJECT_STATUS.md",
+          "startLine": 14,
+          "endLine": 17,
+          "detail": "The immediate next deliverable still says to commit the post-review fixes as a second candidate."
+        },
+        {
+          "path": "PROJECT_STATUS.md",
+          "startLine": 20,
+          "endLine": 29,
+          "detail": "The resume checkpoint names candidate 1 as the branch state and says its fixes are pending a second candidate commit, although the exact reviewed HEAD is already that direct child."
+        },
+        {
+          "path": "PROJECT_STATUS.md",
+          "startLine": 34,
+          "endLine": 38,
+          "detail": "The handoff again directs the next worker to commit candidate 2 rather than review the candidate that now exists."
+        },
+        {
+          "path": "todo.md",
+          "startLine": 2000,
+          "endLine": 2005,
+          "detail": "The completed checkpoint still says neighboring checks must run before candidate 2; the next rows assume candidate 2 remains a future handoff while this review is executing against it."
+        }
+      ],
+      "reproduction": {
+        "command": "git show -s --format='%H%n%P%n%ad%n%s' --date=iso-strict HEAD",
+        "observed": [
+          "HEAD ee42f3522859d1dd7ce782c801023cb71fd53071",
+          "parent 5e525e12c105edb7565fa310ae16a526bc131025",
+          "subject chore: harden Stage 1 v2 audit review candidate",
+          "branch review/stage1-v2-r12"
+        ]
+      },
+      "impact": "A resume worker relying on the designated status authority can create an unnecessary third candidate or misunderstand which exact commit the twelve-specialty wave reviewed. This does not change audit semantics, but it weakens the exact-candidate handoff.",
+      "minimalFix": [
+        "Describe ee42f3522859d1dd7ce782c801023cb71fd53071 as the second non-authoritative candidate now under twelve-specialty and holistic rereview.",
+        "Update the immediate next deliverable and TODO so disposition of this wave, not creation of candidate 2, is next.",
+        "Avoid self-referential commit-hash wording when preparing the commit by saying the containing commit is the second candidate; the integrator can bind the resulting SHA in the external handoff."
+      ]
+    }
+  ],
+  "historicalS12Recheck": {
+    "candidate1Findings": [
+      {
+        "finding": "Isolated worktrees lacked gitignored PDFs/component assets",
+        "exactCandidateResult": "repaired",
+        "evidence": "The documented stage and --check commands ran in this isolated worktree and reported 1,098 already-current/checked files, 0 copies, and the exact worktreeRoot. The new helper is included in create_correctness_audit_lock.py's immutable set."
+      },
+      {
+        "finding": "Lock creator crashed on undefined sys and then used an unpinned bare-Python validator",
+        "exactCandidateResult": "repaired",
+        "evidence": "create_correctness_audit_lock.py imports sys at line 10 and builds the uv run --isolated --with-requirements ... python3 ... --prelock argv at lines 129-139. test_lock_creator_has_runnable_python_and_pinned_prelock_command passed, and that exact isolated prelock validator passed against this staged worktree."
+      }
+    ],
+    "qualification": "The historical source-availability repair is not fully promotion-ready because S12-R12-001 violates its stronger no-symlink contract."
+  },
+  "verifiedControls": [
+    {
+      "control": "Workspace/worktree ROOT resolution",
+      "status": "verified",
+      "evidence": "stage_correctness_audit_sources.py, build_correctness_audit_manifest.py, create_correctness_audit_lock.py, build_correctness_audit_prompt.py, and validate_correctness_audit.py all derive ROOT from Path(__file__).resolve().parents[1]. Invoking the staging script by absolute path from /home/smithers/projects/nemesis-audit-r12 still reported /home/smithers/projects/nemesis-audit-r12/repos/nemesis-retaliation as worktreeRoot."
+    },
+    {
+      "control": "Tracked overwrite refusal",
+      "status": "verified",
+      "evidence": "A fake isolated Git target with a tracked docs/rulebooks/rulebook.bin differing from the source root returned 1 with tracked candidate differs from source root; refusing overwrite. Its SHA-256 was unchanged before and after."
+    },
+    {
+      "control": "Direct source and target symlink rejection",
+      "status": "verified-with-S12-R12-001-gap",
+      "evidence": "A source leaf symlink and a target intermediate symlink were rejected. Source-root and source-intermediate symlinks were accepted, as recorded in S12-R12-001."
+    },
+    {
+      "control": "Blind-worker repository/source exclusion",
+      "status": "policy-consistent-runtime-pending",
+      "evidence": "methodology.md:171, PROJECT_STATUS.md:40, and todo.md:2008 consistently require an isolated non-repository blind directory containing only the accepted sealed packet, fixed instructions/prompt, and blind schema; they forbid the staged source trees and full worktree. The canonical blind lane root contains no files and Git HEAD contains no packet/blind/comparison/adjudication/raw lane artifacts. No substantive blind worker root exists yet, so final runtime dispatch must still be inspected."
+    },
+    {
+      "control": "Isolated prelock gate",
+      "status": "verified-except-required-command-wording",
+      "evidence": "Manifest freshness passed for 140 units; the isolated uv prelock validator passed with zero failures and 140 pending rows; 73/73 mutation/provenance/progress tests and 11/11 decision tests passed. The non-prelock command discrepancy is S12-R12-002."
+    },
+    {
+      "control": "No implementation or semantic expansion",
+      "status": "verified",
+      "evidence": "git diff --exit-code candidate1..candidate over index.html, css, js, and docs/rules/semantics returned 0. The 19-path candidate delta is confined to audit harness/scripts/reviews, generated manifest/progress, PROJECT_STATUS.md, and todo.md. No legacy implementation or semantic corpus path changed."
+    },
+    {
+      "control": "Population/progress consistency",
+      "status": "verified",
+      "evidence": "Manifest and progress both contain 140 units; all 140 rows remain pending-blind-derivation; source extraction and project-status validators passed."
+    }
+  ],
+  "testsRun": [
+    {
+      "command": "python3 scripts/stage_correctness_audit_sources.py --source-root /home/smithers/nemesis-retaliation",
+      "result": "PASS: stage mode reported 1,098 current/checked files, 0 copied, 0 copied bytes"
+    },
+    {
+      "command": "python3 scripts/stage_correctness_audit_sources.py --source-root /home/smithers/nemesis-retaliation --check",
+      "result": "PASS: check mode verified 1,098 files, 0 copied"
+    },
+    {
+      "command": "python3 scripts/build_correctness_audit_manifest.py --check",
+      "result": "PASS: manifest current, 140 units"
+    },
+    {
+      "command": "uv run --isolated --with-requirements docs/qa/implementation-readiness/correctness-audit/requirements-audit.txt python3 scripts/validate_correctness_audit.py --prelock",
+      "result": "PASS: 0 failures, 140 manifest/progress units, all pending"
+    },
+    {
+      "command": "uv run --isolated --with-requirements docs/qa/implementation-readiness/correctness-audit/requirements-audit.txt python3 scripts/test_correctness_audit_mutations.py",
+      "result": "PASS: 73/73"
+    },
+    {
+      "command": "uv run --isolated --with-requirements docs/qa/implementation-readiness/correctness-audit/requirements-audit.txt python3 scripts/test_correctness_audit_decision.py",
+      "result": "PASS: 11/11"
+    },
+    {
+      "command": "uv run --isolated --with-requirements docs/qa/implementation-readiness/correctness-audit/requirements-audit.txt python3 scripts/validate_correctness_audit.py",
+      "result": "EXPECTED REPRODUCTION FAILURE: 1 failure, audit-lock.json is required after setup checkpoint; generated validation.json was restored narrowly from HEAD afterward"
+    },
+    {
+      "command": "python3 scripts/validate_source_extraction.py",
+      "result": "PASS: failureCount=0"
+    },
+    {
+      "command": "python3 scripts/validate_project_status.py",
+      "result": "PASS: failureCount=0; it does not detect S12-R12-003"
+    },
+    {
+      "command": "python3 /home/smithers/projects/nemesis-audit-r12/s12_source_staging_probe.py",
+      "result": "REPRODUCED S12-R12-001; verified tracked-overwrite, source-leaf, target-symlink, and foreign-cwd ROOT controls"
+    },
+    {
+      "command": "git diff --check",
+      "result": "PASS"
+    },
+    {
+      "command": "git diff --exit-code 5e525e12c105edb7565fa310ae16a526bc131025..ee42f3522859d1dd7ce782c801023cb71fd53071 -- index.html css js docs/rules/semantics",
+      "result": "PASS: no implementation or semantic-corpus changes"
+    }
+  ],
+  "externalArtifacts": [
+    {
+      "path": "/home/smithers/projects/nemesis-audit-r12/s12_source_staging_probe.py",
+      "sha256": "f4f971d0435a9d3a2ffb4b783c9f2753907ef5b10058ffbda9e2cb7659ae1dcd",
+      "purpose": "Bounded source-staging negative and worktree-ROOT probe outside the repository."
+    },
+    {
+      "path": "/home/smithers/projects/nemesis-audit-r12/final-review.json",
+      "purpose": "This complete specialty rereview report outside Git."
+    }
+  ],
+  "repositoryState": {
+    "exactHeadVerified": true,
+    "trackedStateCleanAtStart": true,
+    "trackedStateCleanAtEnd": true,
+    "repositoryFilesLeftModified": [],
+    "transientGeneratedFileRestored": "docs/qa/implementation-readiness/correctness-audit/validation.json was changed by the intentionally failing exact non-prelock validator command and narrowly restored from HEAD; final tracked state is clean.",
+    "sourceTreesProvisionedOrChecked": [
+      "docs/rulebooks",
+      "assets/tts-mod/extract"
+    ],
+    "implementationOrSemanticFilesChangedByCandidate": []
+  },
+  "workspaceLock": {
+    "path": "/home/smithers/projects/nemesis-audit-r12/.workspace.lock",
+    "mode": "exclusive root flock",
+    "permissions": "0600",
+    "heldForReview": true,
+    "releasedBeforeReturn": true
+  },
+  "issuesEncountered": [
+    "The exact non-prelock validator command intentionally reproduced S12-R12-002 and rewrote tracked validation.json with the failed report; that single generated file was narrowly restored from HEAD immediately, and final tracked state is clean.",
+    "The assigned worktree already contained 51 ignored packets/.mutation-*/visual.png test residues before this review. They are not in Git, no blind files were present, and this review did not remove them because the brief forbids broad cleanup. The lock creator's lane-root check must remain fail-closed until the integrator handles the workspace residue explicitly."
+  ],
+  "residualRisks": [
+    "No substantive blind derivation has run. Repository/source-free blind worker roots are a documented dispatch invariant, not something this prelock candidate can prove; the integrator must inspect actual roots and delivered bytes before accepting Lane B evidence.",
+    "The full lock creator was not executed because this is a read-only non-authoritative candidate review and successful execution could create audit-lock.json. Its exact pinned prelock argv was covered by the passing unit test and by direct execution of that argv.",
+    "Source hashing has an unavoidable check/use race unless the final implementation opens and verifies stable file descriptors or otherwise protects the source tree during staging; S12-R12-001 is the concrete, currently reproduced symlink-ancestor bypass."
+  ]
+}

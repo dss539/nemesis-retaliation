@@ -18,8 +18,10 @@ import json
 import re
 import subprocess
 import sys
+import tempfile
 from collections import Counter
-from datetime import datetime
+from datetime import datetime, timezone
+from functools import lru_cache
 from pathlib import Path, PurePosixPath
 from typing import Any
 
@@ -30,7 +32,10 @@ except ImportError as exc:  # pragma: no cover - exercised by the documented run
         "jsonschema is required; run with uv and requirements-audit.txt"
     ) from exc
 
-from build_correctness_audit_prompt import canonical_prompt_bytes
+from build_correctness_audit_prompt import (
+    SOURCE_ONLY_FORBIDDEN_TOKENS,
+    canonical_prompt_bytes,
+)
 from create_correctness_audit_lock import (
     historical_lane_files,
     required_locked_files,
@@ -114,18 +119,13 @@ ALLOWED_SOURCE_PREFIXES = (
     "docs/rules/source-extraction/",
     "assets/tts-mod/extract/",
 )
-FORBIDDEN_PROMPT_TOKENS = (
-    "docs/rules/semantics/",
-    "docs/rules/00-foundations.md",
-    "docs/rules/01-round-and-turns.md",
-    "docs/rules/02-character-actions.md",
-    "docs/rules/03-intruders-and-survival.md",
-    "docs/rules/04-items-and-equipment.md",
-    '"physicalClass"',
-    '"batchDisposition"',
-    '"equipmentStratum"',
-    '"semanticRecordIds"',
-)
+SEMANTIC_PROJECTION_PATHS = {
+    "docs/rules/semantics/pilots.json",
+    "docs/rules/semantics/review-gates.json",
+    "docs/rules/semantics/contradictions.json",
+}
+REQUIRED_BEHAVIOR_PROJECTION_PATH = "docs/rules/semantics/pilots.json"
+FORBIDDEN_PROMPT_TOKENS = SOURCE_ONLY_FORBIDDEN_TOKENS
 TRACE_KEYS = {"thinking", "reasoningtrace", "chainofthought", "chain_of_thought"}
 
 
@@ -212,6 +212,37 @@ def png_validation_failures(path: Path) -> list[str]:
     if not saw_iend:
         failures.append("PNG lacks IEND")
     return failures
+
+
+@lru_cache(maxsize=128)
+def rendered_pdf_page_sha256(source_path: str, source_sha256: str, page_index: int, dpi: int) -> str:
+    source = ROOT / source_path
+    if sha256_path(source) != source_sha256:
+        raise ValueError("PDF source hash drift before rendering")
+    with tempfile.TemporaryDirectory(prefix="correctness-audit-pdf-render-") as directory:
+        prefix = Path(directory) / "page"
+        result = subprocess.run(
+            [
+                "pdftoppm",
+                "-f",
+                str(page_index),
+                "-l",
+                str(page_index),
+                "-singlefile",
+                "-png",
+                "-r",
+                str(dpi),
+                str(source),
+                str(prefix),
+            ],
+            cwd=ROOT,
+            capture_output=True,
+            check=False,
+        )
+        rendered = prefix.with_suffix(".png")
+        if result.returncode != 0 or not rendered.is_file():
+            raise ValueError("deterministic PDF page render failed")
+        return sha256_path(rendered)
 
 
 def add(failures: list[str], condition: bool, message: str) -> None:
@@ -562,6 +593,22 @@ def validate_lock(manifest: dict[str, Any], failures: list[str], require_lock: b
             )
             frozen_baseline_hashes[relative] = expected_hash
     for relative, expected_hash in frozen_baseline_hashes.items():
+        tracked = git("ls-files", "--error-unmatch", relative).returncode == 0
+        if not tracked:
+            add(
+                failures,
+                is_allowed_source(relative),
+                f"untracked frozen path is not an allowed source input: {relative}",
+            )
+            current = ROOT / relative
+            add(failures, current.is_file(), f"local frozen source missing: {relative}")
+            if current.is_file():
+                add(
+                    failures,
+                    sha256_path(current) == expected_hash,
+                    f"local frozen source hash mismatch: {relative}",
+                )
+            continue
         shown = git_bytes(ROOT, "show", f"{baseline}:{relative}")
         add(failures, shown.returncode == 0, f"frozen file absent from baseline: {relative}")
         if shown.returncode == 0:
@@ -599,9 +646,54 @@ def reviewer_identity(reviewer: Any) -> tuple[Any, ...]:
         return (None,)
     kind = reviewer.get("kind")
     if kind == "model-assisted":
-        model = reviewer.get("responseModel") or reviewer.get("requestedModel")
-        return (kind, reviewer.get("provider"), model)
-    return (kind, reviewer.get("reviewerId"), reviewer.get("provider"))
+        response_model = reviewer.get("responseModel")
+        return (
+            kind,
+            reviewer.get("provider"),
+            response_model if isinstance(response_model, str) and response_model else None,
+        )
+    return (kind, reviewer.get("reviewerId"))
+
+MODEL_RESPONSE_KEYS = {
+    "schemaVersion",
+    "recordType",
+    "provider",
+    "requestedModel",
+    "responseModel",
+    "requestedReasoning",
+    "stream",
+    "format",
+    "promptPath",
+    "promptSha256",
+    "responseCreatedAt",
+    "done",
+    "doneReason",
+    "review",
+    "thinkingRetained",
+}
+
+
+def valid_model_response_envelope(body: Any, failures: list[str], label: str) -> bool:
+    valid = True
+    checks = (
+        (isinstance(body, dict), "response envelope is not an object"),
+        (isinstance(body, dict) and set(body) == MODEL_RESPONSE_KEYS, "response envelope keys drift"),
+        (isinstance(body, dict) and body.get("schemaVersion") == 1, "response envelope schemaVersion drift"),
+        (isinstance(body, dict) and body.get("recordType") == "ollama-cloud-audit-review", "response envelope recordType drift"),
+        (isinstance(body, dict) and body.get("stream") is False, "response envelope stream drift"),
+        (isinstance(body, dict) and body.get("format") == "json", "response envelope format drift"),
+        (isinstance(body, dict) and isinstance(body.get("responseCreatedAt"), str) and bool(body.get("responseCreatedAt")), "response envelope timestamp missing"),
+        (isinstance(body, dict) and body.get("done") is True, "response envelope did not complete"),
+        (isinstance(body, dict) and isinstance(body.get("doneReason"), str) and bool(body.get("doneReason")), "response envelope doneReason missing"),
+        (isinstance(body, dict) and isinstance(body.get("review"), dict), "response envelope review missing"),
+        (isinstance(body, dict) and body.get("thinkingRetained") is False, "response envelope retained thinking"),
+    )
+    for condition, message in checks:
+        if not condition:
+            failures.append(f"{label}: {message}")
+            valid = False
+    return valid
+
 
 def validate_reviewer(
     reviewer: Any,
@@ -615,6 +707,17 @@ def validate_reviewer(
     if not isinstance(reviewer, dict):
         failures.append(f"{label}: reviewer missing")
         return None
+    if reviewer.get("kind") == "model-assisted":
+        add(
+            failures,
+            isinstance(reviewer.get("provider"), str) and bool(reviewer.get("provider")),
+            f"{label}: model provider is empty",
+        )
+        add(
+            failures,
+            isinstance(reviewer.get("responseModel"), str) and bool(reviewer.get("responseModel")),
+            f"{label}: resolved response model is empty",
+        )
     has_prompt_path = isinstance(reviewer.get("promptPath"), str) and bool(reviewer.get("promptPath"))
     has_prompt_hash = isinstance(reviewer.get("promptSha256"), str) and bool(reviewer.get("promptSha256"))
     has_response_path = isinstance(reviewer.get("responsePath"), str) and bool(reviewer.get("responsePath"))
@@ -649,6 +752,8 @@ def validate_reviewer(
             if reviewer.get("kind") != "model-assisted":
                 add(failures, isinstance(body, dict), f"{label}: reviewer response is not an object")
                 return body if isinstance(body, dict) else None
+            if not valid_model_response_envelope(body, failures, label):
+                return None
             if reviewer.get("provider") == "ollama-cloud":
                 add(failures, reviewer.get("requestedReasoning") == "max", f"{label}: Ollama review was not max reasoning")
             add(failures, body.get("recordType") == "ollama-cloud-audit-review", f"{label}: response is not a successful review envelope")
@@ -727,7 +832,8 @@ def validate_packet(
     except Exception as exc:
         failures.append(f"packet parse {path}: {exc}")
         return None, None
-    apply_schema("packet", packet, validators, failures, str(path.relative_to(ROOT)))
+    if not apply_schema("packet", packet, validators, failures, str(path.relative_to(ROOT))):
+        return None, None
     packet_commit = (
         validate_artifact_seal(packet, path, failures, f"{path}: packet")
         if enforce_seals
@@ -739,6 +845,16 @@ def validate_packet(
     add(failures, set(packet_ids).issubset(set(manifest_units)), f"{path}: unknown audit unit")
     covered_unit_ids: set[str] = set()
     evidence_rows: list[dict[str, Any]] = []
+    evidence_ids = [
+        row.get("evidenceId")
+        for row in packet.get("evidence", [])
+        if isinstance(row, dict)
+    ]
+    add(
+        failures,
+        len(evidence_ids) == len(set(evidence_ids)),
+        f"{path}: duplicate packet evidence ID",
+    )
     for index, row in enumerate(packet.get("sourceDocuments", [])):
         relative = row.get("sourcePath", "") if isinstance(row, dict) else ""
         add(failures, is_allowed_source(relative), f"{path}: disallowed source document {relative}")
@@ -754,8 +870,25 @@ def validate_packet(
         add(failures, is_allowed_source(relative), f"{path}: disallowed evidence source {relative}")
         checked_file(relative, row.get("sourceSha256"), failures, f"{path}: evidence[{index}]")
         visual = row.get("visualEvidencePath")
-        if isinstance(row.get("exactText"), str) and relative.lower().endswith(".pdf"):
+        pdf_exact_text = isinstance(row.get("exactText"), str) and relative.lower().endswith(".pdf")
+        if pdf_exact_text:
             add(failures, visual is not None, f"{path}: PDF exactText evidence[{index}] lacks rendered visual evidence")
+            add(
+                failures,
+                isinstance(row.get("pdfPageIndex"), int) and row.get("pdfPageIndex", 0) >= 1,
+                f"{path}: PDF exactText evidence[{index}] lacks a page index",
+            )
+            add(
+                failures,
+                row.get("renderDpi") == 160,
+                f"{path}: PDF exactText evidence[{index}] must use the locked 160 DPI render",
+            )
+        else:
+            add(
+                failures,
+                row.get("pdfPageIndex") is None and row.get("renderDpi") is None,
+                f"{path}: non-PDF evidence[{index}] has PDF render metadata",
+            )
         if visual is not None:
             visual_path = checked_file(
                 visual,
@@ -772,6 +905,21 @@ def validate_packet(
                 )
                 for png_failure in png_validation_failures(visual_path):
                     failures.append(f"{path}: visualEvidence[{index}] {png_failure}")
+                if pdf_exact_text and enforce_seals:
+                    try:
+                        expected_render_hash = rendered_pdf_page_sha256(
+                            relative,
+                            row.get("sourceSha256"),
+                            row.get("pdfPageIndex"),
+                            row.get("renderDpi"),
+                        )
+                        add(
+                            failures,
+                            sha256_path(visual_path) == expected_render_hash,
+                            f"{path}: visualEvidence[{index}] is not the deterministic cited PDF page render",
+                        )
+                    except Exception as exc:
+                        failures.append(f"{path}: visualEvidence[{index}] PDF render verification failed: {exc}")
             if enforce_seals:
                 validate_file_at_commit(
                     visual_path,
@@ -808,11 +956,21 @@ def validate_packet(
 
 
 def parse_time(value: Any, failures: list[str], label: str) -> datetime | None:
-    try:
-        return datetime.fromisoformat(str(value).replace("Z", "+00:00"))
-    except Exception:
-        failures.append(f"{label}: invalid date-time")
+    if not isinstance(value, str) or not re.fullmatch(
+        r"\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?Z",
+        value,
+    ):
+        failures.append(f"{label}: invalid UTC date-time")
         return None
+    try:
+        parsed = datetime.fromisoformat(value[:-1] + "+00:00")
+    except Exception:
+        failures.append(f"{label}: invalid UTC date-time")
+        return None
+    if parsed.tzinfo != timezone.utc:
+        failures.append(f"{label}: date-time is not UTC")
+        return None
+    return parsed
 
 
 PROGRESS_TRANSITIONS = {
@@ -850,11 +1008,92 @@ def strict_json_bytes(data: bytes) -> dict[str, Any]:
     return json.loads(data.decode("utf-8"), object_pairs_hook=strict_pairs)
 
 
+def canonical_progress_bytes(progress: dict[str, Any]) -> bytes:
+    return (json.dumps(progress, indent=2, ensure_ascii=False) + "\n").encode("utf-8")
+
+
+def committed_transition_artifact_failures(
+    row: dict[str, Any],
+    status: str,
+    transition_commit: str,
+    root: Path,
+    label: str,
+) -> list[str]:
+    failures: list[str] = []
+    if status == "blind-derived":
+        path_key, hash_key = "blindPath", "blindSha256"
+    elif status == "compared":
+        path_key, hash_key = "comparisonPath", "comparisonSha256"
+    else:
+        path_key, hash_key = "resultPath", "resultSha256"
+    relative = row.get(path_key)
+    expected_hash = row.get(hash_key)
+    if not isinstance(relative, str) or not isinstance(expected_hash, str):
+        return [f"{label}: transition artifact fields missing"]
+    lexical = PurePosixPath(relative)
+    if lexical.is_absolute() or lexical.as_posix() != relative or any(
+        part in {".", ".."} for part in lexical.parts
+    ):
+        return [f"{label}: transition artifact path is noncanonical"]
+    shown = git_bytes(root, "show", f"{transition_commit}:{relative}")
+    if shown.returncode != 0:
+        return [f"{label}: transition artifact absent at progress commit"]
+    if sha256_bytes(shown.stdout) != expected_hash:
+        failures.append(f"{label}: transition artifact hash mismatch at progress commit")
+        return failures
+    try:
+        artifact = strict_json_bytes(shown.stdout)
+    except Exception as exc:
+        return [f"{label}: transition artifact parse failed: {exc}"]
+    unit_id = row.get("auditUnitId")
+    if status == "blind-derived":
+        ids = [
+            item.get("auditUnitId")
+            for item in artifact.get("unitResults", [])
+            if isinstance(item, dict)
+        ]
+        if unit_id not in ids:
+            failures.append(f"{label}: blind artifact lacks transition unit")
+    else:
+        if artifact.get("auditUnitId") != unit_id:
+            failures.append(f"{label}: transition artifact unit mismatch")
+        expected_status = "compared" if status == "compared" else status
+        if artifact.get("status") != expected_status:
+            failures.append(f"{label}: transition artifact status mismatch")
+    preseal = artifact.get("sealedAtGitHead")
+    if not isinstance(preseal, str) or not HEX40.fullmatch(preseal):
+        failures.append(f"{label}: transition artifact pre-seal invalid")
+        return failures
+    descendants = git_bytes(
+        root,
+        "rev-list",
+        "--first-parent",
+        "--reverse",
+        f"{preseal}..{transition_commit}",
+    )
+    commits = (
+        descendants.stdout.decode("ascii", errors="replace").split()
+        if descendants.returncode == 0
+        else []
+    )
+    if not commits:
+        failures.append(f"{label}: transition artifact seal does not precede progress commit")
+        return failures
+    seal_commit = commits[0]
+    sealed = git_bytes(root, "show", f"{seal_commit}:{relative}")
+    if sealed.returncode != 0 or sealed.stdout != shown.stdout:
+        failures.append(f"{label}: transition artifact is not bound to its derived seal commit")
+    return failures
+
+
 def progress_snapshot_failures(
     previous: dict[str, Any],
     current: dict[str, Any],
     unit_ids: list[str],
     label: str,
+    *,
+    transition_commit: str | None = None,
+    root: Path = ROOT,
 ) -> list[str]:
     failures: list[str] = []
     for name, snapshot in (("previous", previous), ("current", current)):
@@ -894,16 +1133,17 @@ def progress_snapshot_failures(
             failures.append(f"{label}: invalid committed transition {prior_status} -> {status}: {unit_id}")
             continue
         prior_time = None
-        if isinstance(prior.get("lastUpdatedUtc"), str):
-            try:
-                prior_time = datetime.fromisoformat(prior["lastUpdatedUtc"].replace("Z", "+00:00"))
-            except Exception:
-                failures.append(f"{label}: invalid prior update timestamp: {unit_id}")
-        try:
-            current_time = datetime.fromisoformat(str(row.get("lastUpdatedUtc")).replace("Z", "+00:00"))
-        except Exception:
-            failures.append(f"{label}: invalid transition timestamp: {unit_id}")
-            current_time = None
+        if prior.get("lastUpdatedUtc") is not None:
+            prior_time = parse_time(
+                prior.get("lastUpdatedUtc"),
+                failures,
+                f"{label}: prior update timestamp: {unit_id}",
+            )
+        current_time = parse_time(
+            row.get("lastUpdatedUtc"),
+            failures,
+            f"{label}: transition timestamp: {unit_id}",
+        )
         if prior_time is not None and current_time is not None and current_time <= prior_time:
             failures.append(f"{label}: non-increasing transition timestamp: {unit_id}")
 
@@ -927,6 +1167,16 @@ def progress_snapshot_failures(
                 failures.append(f"{label}: final transition changed upstream fields: {unit_id}")
             if not all(isinstance(row.get(key), str) and row.get(key) for key in result_fields):
                 failures.append(f"{label}: final transition lacks result fields: {unit_id}")
+        if transition_commit is not None:
+            failures.extend(
+                committed_transition_artifact_failures(
+                    row,
+                    str(status),
+                    transition_commit,
+                    root,
+                    f"{label}: {unit_id}",
+                )
+            )
 
     status_counts = Counter(
         row.get("status")
@@ -966,6 +1216,8 @@ def validate_progress_history(
             failures.append("progress history: baseline progress missing")
             return
         previous = strict_json_bytes(baseline_bytes.stdout)
+        if baseline_bytes.stdout != canonical_progress_bytes(previous):
+            failures.append("progress history: baseline progress is not canonically serialized")
         history = git_bytes(
             ROOT,
             "rev-list",
@@ -985,11 +1237,22 @@ def validate_progress_history(
                 failures.append(f"progress history: progress missing at {commit}")
                 return
             snapshot = strict_json_bytes(shown.stdout)
+            if shown.stdout != canonical_progress_bytes(snapshot):
+                failures.append(f"progress history: noncanonical progress bytes at {commit}")
             failures.extend(
-                progress_snapshot_failures(previous, snapshot, unit_ids, f"progress history {commit}")
+                progress_snapshot_failures(
+                    previous,
+                    snapshot,
+                    unit_ids,
+                    f"progress history {commit}",
+                    transition_commit=commit,
+                    root=ROOT,
+                )
             )
             previous = snapshot
         if allow_uncommitted_progress:
+            if PROGRESS_PATH.read_bytes() != canonical_progress_bytes(current):
+                failures.append("uncommitted progress is not canonically serialized")
             failures.extend(
                 progress_snapshot_failures(previous, current, unit_ids, "uncommitted progress")
             )
@@ -997,6 +1260,35 @@ def validate_progress_history(
             failures.append("progress history: current progress differs from first-parent history")
     except Exception as exc:
         failures.append(f"progress history validation failed: {exc}")
+
+
+def packet_evidence_indexes(
+    packet: dict[str, Any],
+    failures: list[str],
+    label: str,
+) -> tuple[dict[str, set[str]], dict[str, dict[str, str]]]:
+    evidence_ids_by_unit: dict[str, set[str]] = {}
+    source_hashes_by_unit: dict[str, dict[str, str]] = {}
+    for evidence in packet.get("evidence", []):
+        if not isinstance(evidence, dict):
+            continue
+        evidence_id = evidence.get("evidenceId")
+        source_path = evidence.get("sourcePath")
+        source_hash = evidence.get("sourceSha256")
+        for evidence_unit_id in evidence.get("auditUnitIds", []):
+            if not isinstance(evidence_unit_id, str):
+                continue
+            if isinstance(evidence_id, str):
+                evidence_ids_by_unit.setdefault(evidence_unit_id, set()).add(evidence_id)
+            if isinstance(source_path, str) and isinstance(source_hash, str):
+                existing_hash = source_hashes_by_unit.setdefault(evidence_unit_id, {}).get(source_path)
+                add(
+                    failures,
+                    existing_hash is None or existing_hash == source_hash,
+                    f"{label}: conflicting source hashes for {evidence_unit_id}: {source_path}",
+                )
+                source_hashes_by_unit[evidence_unit_id][source_path] = source_hash
+    return evidence_ids_by_unit, source_hashes_by_unit
 
 
 def validate_blind(
@@ -1012,7 +1304,8 @@ def validate_blind(
     except Exception as exc:
         failures.append(f"blind parse {path}: {exc}")
         return None, None, None
-    apply_schema("blind", blind, validators, failures, str(path.relative_to(ROOT)))
+    if not apply_schema("blind", blind, validators, failures, str(path.relative_to(ROOT))):
+        return None, None, None
 
     packet_path = checked_file(blind.get("packetPath"), blind.get("packetSha256"), failures, f"{path}: packet", AUDIT_DIR / "packets")
     packet: dict[str, Any] | None = None
@@ -1039,7 +1332,8 @@ def validate_blind(
     if review_path and review_path.is_file():
         try:
             review = strict_load(review_path)
-            apply_schema("completeness", review, validators, failures, str(review_path.relative_to(ROOT)))
+            if not apply_schema("completeness", review, validators, failures, str(review_path.relative_to(ROOT))):
+                return None, packet, None
             if enforce_seals:
                 require_lane_preseal(review, packet_commit, failures, f"{path}: completeness review")
                 review_commit = validate_artifact_seal(
@@ -1191,16 +1485,13 @@ def validate_blind(
                     unit_id in packet_citations.get(key, set()),
                     f"{path}: {unit_id} citation is not exact packet evidence: {key}",
                 )
-        blind["__packetEvidenceIds"] = {
-            row.get("evidenceId") for row in packet.get("evidence", []) if isinstance(row, dict)
-        }
-        blind["__packetSourceHashes"] = {
-            row.get("sourcePath"): row.get("sourceSha256")
-            for row in packet.get("evidence", [])
-            if isinstance(row, dict)
-            and isinstance(row.get("sourcePath"), str)
-            and isinstance(row.get("sourceSha256"), str)
-        }
+        evidence_ids_by_unit, source_hashes_by_unit = packet_evidence_indexes(
+            packet,
+            failures,
+            str(path),
+        )
+        blind["__packetEvidenceIdsByUnit"] = evidence_ids_by_unit
+        blind["__packetSourceHashesByUnit"] = source_hashes_by_unit
     packet_time = parse_time(packet.get("sealedAtUtc"), failures, f"{path}: packet time") if packet else None
     review_time = parse_time(review.get("sealedAtUtc"), failures, f"{path}: review time") if review else None
     blind_time = parse_time(blind.get("sealedAtUtc"), failures, f"{path}: blind time")
@@ -1208,6 +1499,9 @@ def validate_blind(
         add(failures, packet_time < review_time, f"{path}: completeness does not strictly follow packet seal")
     if review_time and blind_time:
         add(failures, review_time < blind_time, f"{path}: blind seal does not strictly follow completeness")
+    blind["__packetCommit"] = packet_commit
+    blind["__reviewCommit"] = review_commit
+    blind["__blindCommit"] = blind_commit
     return blind, packet, blind_commit
 
 
@@ -1260,7 +1554,8 @@ def validate_comparison(
     except Exception as exc:
         failures.append(f"comparison parse {path}: {exc}")
         return None, None
-    apply_schema("comparison", comparison, validators, failures, str(path.relative_to(ROOT)))
+    if not apply_schema("comparison", comparison, validators, failures, str(path.relative_to(ROOT))):
+        return None, None
     comparison_commit: str | None = None
     if enforce_seals:
         require_lane_preseal(comparison, blind_commit, failures, f"{path}: comparison")
@@ -1288,7 +1583,7 @@ def validate_comparison(
 
     body = comparison.get("comparison", {})
     revealed = body.get("revealedArtifacts", []) if isinstance(body, dict) else []
-    packet_sources = blind.get("__packetSourceHashes", {})
+    packet_sources = blind.get("__packetSourceHashesByUnit", {}).get(unit_id, {})
     semantic_hashes = reveal_hashes.get("frozenSemanticHashes", {})
     concise_hashes = reveal_hashes.get("frozenConciseRuleHashes", {})
     selection_hashes = reveal_hashes.get("selectionInputHashes", {})
@@ -1348,13 +1643,9 @@ def validate_comparison(
             add(
                 failures,
                 isinstance(relative, str)
-                and relative in reveal_hashes.get("frozenSemanticHashes", {})
-                and relative.startswith((
-                    "docs/rules/semantics/",
-                    "docs/rules/ontology/",
-                    "docs/rules/vocabulary/",
-                )),
-                f"{unit_id}: semantic projection is not in the frozen semantic corpus",
+                and relative in SEMANTIC_PROJECTION_PATHS
+                and relative in reveal_hashes.get("frozenSemanticHashes", {}),
+                f"{unit_id}: semantic-projection role names a non-projection artifact",
             )
         elif role == "source-index":
             add(
@@ -1383,9 +1674,10 @@ def validate_comparison(
         any(
             isinstance(artifact, dict)
             and artifact.get("role") == "semantic-projection"
+            and artifact.get("path") == REQUIRED_BEHAVIOR_PROJECTION_PATH
             for artifact in revealed
         ),
-        f"{unit_id}: no frozen semantic projection was revealed",
+        f"{unit_id}: required behavior projection was not revealed",
     )
     for id_field, known_ids in semantic_id_sets.items():
         declared_ids = body.get(id_field, []) if isinstance(body, dict) else []
@@ -1431,7 +1723,7 @@ def validate_comparison(
     discrepancies = comparison.get("comparison", {}).get("discrepancies", [])
     if not isinstance(discrepancies, list):
         discrepancies = []
-    packet_evidence_ids = blind.get("__packetEvidenceIds", set())
+    packet_evidence_ids = blind.get("__packetEvidenceIdsByUnit", {}).get(unit_id, set())
     add(failures, isinstance(packet_evidence_ids, set) and bool(packet_evidence_ids), f"{unit_id}: packet evidence index absent")
     discrepancy_rows = [row for row in discrepancies if isinstance(row, dict)]
     discrepancy_ids = [
@@ -1482,7 +1774,8 @@ def validate_result(
     except Exception as exc:
         failures.append(f"result parse {path}: {exc}")
         return None
-    apply_schema("result", result, validators, failures, str(path.relative_to(ROOT)))
+    if not apply_schema("result", result, validators, failures, str(path.relative_to(ROOT))):
+        return None
     result_commit: str | None = None
     if enforce_seals:
         require_preseal_at_or_after(result, comparison_commit, failures, f"{path}: adjudication")
@@ -1511,7 +1804,7 @@ def validate_result(
     discrepancies = comparison.get("comparison", {}).get("discrepancies", [])
     if not isinstance(discrepancies, list):
         discrepancies = []
-    packet_evidence_ids = blind.get("__packetEvidenceIds", set())
+    packet_evidence_ids = blind.get("__packetEvidenceIdsByUnit", {}).get(unit_id, set())
     discrepancy_ids = {
         row.get("discrepancyId")
         for row in discrepancies
@@ -1645,12 +1938,21 @@ def validate_result(
     result_time = parse_time(result.get("sealedAtUtc"), failures, f"{unit_id}: result time")
     if comparison_time and result_time:
         add(failures, comparison_time < result_time, f"{unit_id}: adjudication does not strictly follow comparison")
+    result["__sealCommit"] = result_commit
     return result
 
 
 def path_from_root_for(value: dict[str, Any]) -> str:
     marker = value.get("__validatedPath")
     return str(marker) if isinstance(marker, str) else ""
+
+
+def single_wave_failures(waves: dict[str, set[str]]) -> list[str]:
+    return [
+        f"{label} artifacts do not share one wave seal commit"
+        for label, commits in waves.items()
+        if len(commits) > 1
+    ]
 
 
 def validate(
@@ -1675,6 +1977,13 @@ def validate(
         progress = strict_load(progress_path)
     except Exception as exc:
         return {"passed": False, "failureCount": 1, "failures": [f"input parse: {exc}"]}
+    if not isinstance(manifest, dict) or not isinstance(progress, dict):
+        failures.append("manifest and progress must both be JSON objects")
+        return {
+            "passed": False,
+            "failureCount": len(failures),
+            "failures": failures,
+        }
     if require_lock and not allow_uncommitted_progress:
         try:
             progress_relative = progress_path.resolve(strict=False).relative_to(ROOT.resolve()).as_posix()
@@ -1764,7 +2073,11 @@ def validate(
     add(failures, progress_ids == unit_ids, "progress order/IDs differ from manifest")
 
     blind_cache: dict[str, tuple[dict[str, Any], str | None]] = {}
+    packet_wave_commits: set[str] = set()
+    review_wave_commits: set[str] = set()
+    blind_wave_commits: set[str] = set()
     comparison_commits: list[str] = []
+    adjudication_wave_commits: set[str] = set()
     comparison_paths: list[str] = []
     final_candidates: list[
         tuple[dict[str, Any], Path, dict[str, Any], dict[str, Any], str | None]
@@ -1830,6 +2143,14 @@ def validate(
             else:
                 blind, blind_commit = cached
         if blind:
+            for field, bucket in (
+                ("__packetCommit", packet_wave_commits),
+                ("__reviewCommit", review_wave_commits),
+                ("__blindCommit", blind_wave_commits),
+            ):
+                value = blind.get(field)
+                if isinstance(value, str):
+                    bucket.add(value)
             blind_ids = [item.get("auditUnitId") for item in blind.get("unitResults", []) if isinstance(item, dict)]
             add(failures, unit_id in blind_ids, f"{unit_id}: blind batch lacks unit")
             add(failures, row.get("blindUnitResultId") == unit_id, f"{unit_id}: blind unit result key mismatch")
@@ -1928,11 +2249,28 @@ def validate(
             required_comparison_commits=required_comparison_commits,
         )
         if result:
+            seal_commit = result.get("__sealCommit")
+            if isinstance(seal_commit, str):
+                adjudication_wave_commits.add(seal_commit)
             add(
                 failures,
                 result.get("status") == row.get("status"),
                 f"{unit_id}: progress/result status mismatch",
             )
+
+    comparison_wave_commits = set(comparison_commits)
+    if enforce_seals:
+        failures.extend(
+            single_wave_failures(
+                {
+                    "packet": packet_wave_commits,
+                    "completeness": review_wave_commits,
+                    "blind": blind_wave_commits,
+                    "comparison": comparison_wave_commits,
+                    "adjudication": adjudication_wave_commits,
+                }
+            )
+        )
 
     if require_lock:
         validate_progress_history(

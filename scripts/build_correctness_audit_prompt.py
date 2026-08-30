@@ -16,6 +16,69 @@ INSTRUCTION_PATHS = {
 }
 
 
+def strict_pairs(pairs):
+    result = {}
+    for key, value in pairs:
+        if key in result:
+            raise ValueError(f"duplicate JSON key in prompt payload: {key}")
+        result[key] = value
+    return result
+
+
+SOURCE_ONLY_FORBIDDEN_TOKENS = (
+    "docs/rules/00-foundations.md",
+    "docs/rules/01-round-and-turns.md",
+    "docs/rules/02-character-actions.md",
+    "docs/rules/03-intruders-and-survival.md",
+    "docs/rules/04-items-and-equipment.md",
+    "docs/rules/semantics/",
+    "docs/rules/ontology/",
+    "docs/rules/vocabulary/",
+    "docs/rules/implementation-readiness.md",
+    "docs/design/",
+    "archive/design/",
+    "index.html",
+    "js/",
+    "css/",
+    "downstreamPath",
+    "extractionPath",
+    "revealedArtifacts",
+    "semanticRecordIds",
+    "questionIds",
+    "conflictIds",
+    "discrepancies",
+    "blindDerivationRef",
+    "comparisonRef",
+    "verificationReviews",
+    "repairPaths",
+    "physicalClass",
+    "batchDisposition",
+    "equipmentStratum",
+)
+
+
+def source_only_payload_failures(value, location: str = "<root>") -> list[str]:
+    failures = []
+    if isinstance(value, dict):
+        for key, child in value.items():
+            failures.extend(source_only_payload_failures(child, f"{location}/{key}"))
+    elif isinstance(value, list):
+        for index, child in enumerate(value):
+            failures.extend(source_only_payload_failures(child, f"{location}/{index}"))
+    elif isinstance(value, str):
+        for token in SOURCE_ONLY_FORBIDDEN_TOKENS:
+            if token in value:
+                failures.append(f"source-only payload {location} contains forbidden token {token}")
+    return failures
+
+
+def validate_source_only_json(path: Path) -> None:
+    value = json.loads(path.read_text(encoding="utf-8"), object_pairs_hook=strict_pairs)
+    failures = source_only_payload_failures(value)
+    if failures:
+        raise ValueError("; ".join(failures))
+
+
 def sha256(data: bytes) -> str:
     return hashlib.sha256(data).hexdigest()
 
@@ -69,11 +132,13 @@ def canonical_prompt_bytes(
         raise ValueError(f"unknown prompt mode: {mode}")
     instruction_path = canonical_repo_file(INSTRUCTION_PATHS[mode], AUDIT_DIR / "prompts")
     packet_path = canonical_repo_file(packet_path, AUDIT_DIR / "packets")
+    validate_source_only_json(packet_path)
     payloads: list[tuple[str, Path]] = [("SOURCE PACKET", packet_path)]
     if mode == "blind":
         if completeness_path is None:
             raise ValueError("blind prompt requires completeness review")
         completeness_path = canonical_repo_file(completeness_path, AUDIT_DIR / "packets")
+        validate_source_only_json(completeness_path)
         payloads.append(("ACCEPTED COMPLETENESS REVIEW", completeness_path))
     elif completeness_path is not None:
         raise ValueError("completeness prompt does not accept completeness review")
@@ -100,19 +165,46 @@ def canonical_prompt_bytes(
     return output
 
 
+def canonical_output_path(value: str) -> Path:
+    lexical = PurePosixPath(value)
+    if (
+        not value
+        or "\\" in value
+        or lexical.is_absolute()
+        or lexical.as_posix() != value
+        or any(part in {".", ".."} for part in lexical.parts)
+    ):
+        raise ValueError("output is not a canonical repository-relative POSIX path")
+    output = ROOT.joinpath(*lexical.parts)
+    prompt_root = AUDIT_DIR / "packets" / "prompts"
+    try:
+        output.relative_to(prompt_root)
+    except ValueError as exc:
+        raise ValueError("output must be under correctness-audit/packets/prompts") from exc
+    current = ROOT
+    for part in lexical.parts:
+        current = current / part
+        if current.is_symlink():
+            raise ValueError(f"output path contains a symlink component: {value}")
+    try:
+        output.resolve(strict=False).relative_to(prompt_root.resolve())
+    except ValueError as exc:
+        raise ValueError("output must resolve under correctness-audit/packets/prompts") from exc
+    return output
+
+
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--mode", choices=sorted(INSTRUCTION_PATHS), required=True)
     parser.add_argument("--packet", type=Path, required=True)
     parser.add_argument("--completeness", type=Path)
-    parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--output", required=True)
     parser.add_argument("--check", action="store_true")
     args = parser.parse_args()
-    output = args.output if args.output.is_absolute() else ROOT / args.output
     try:
-        output.resolve(strict=False).relative_to((AUDIT_DIR / "packets" / "prompts").resolve())
+        output = canonical_output_path(args.output)
     except ValueError as exc:
-        raise SystemExit("output must be under correctness-audit/packets/prompts") from exc
+        raise SystemExit(str(exc)) from exc
     expected = canonical_prompt_bytes(args.mode, args.packet, args.completeness)
     if args.check:
         if not output.is_file() or output.read_bytes() != expected:

@@ -59,7 +59,7 @@ Allowed evidence paths are mechanically restricted to:
 
 Every path must be canonical repository-relative POSIX syntax: no absolute path, `.`/`..` segment, backslash normalization, or symlink component is accepted. Allowlisting is evaluated against the resolved allowed root, not by lexical prefix.
 
-Any PDF-derived `exactText` also requires a hash-pinned rendered PNG from the same source region. The validator checks PNG structure, chunk CRCs, terminal IEND, and nontrivial dimensions; a renamed text file is not visual evidence.
+Any PDF-derived `exactText` also requires the exact deterministic full-page PNG rendered from the same source PDF and declared 1-based `pdfPageIndex` at the locked 160 DPI; the validator rerenders that page with `pdftoppm` after the lock and requires an identical SHA-256. A crop may be added for reviewer convenience, but it cannot replace the full-page proof. The validator also checks PNG structure, chunk CRCs, terminal IEND, and nontrivial dimensions; a renamed text file or unrelated valid PNG is not visual evidence.
 
 Concise-rule files, semantic projections, conflict dispositions, physical-class conclusions, and implementation files are not valid packet evidence. Source indexes may help the supervisor locate original bytes but are not transmitted as blind evidence.
 
@@ -111,7 +111,7 @@ Only after Lane B is sealed may a different comparator inspect:
 
 `comparison.schema.json` is the immutable post-reveal contract. It contains only a hash reference to the sealed blind file and cannot rewrite blind requirements. It records the comparator, inspected downstream artifacts, and classified discrepancy rows, but it cannot contain verification or final-resolution fields.
 
-Every `revealedArtifact` records canonical path, SHA-256, and a closed role. The required unit target (`downstreamPath` for concise rules or `extractionPath` for FAQ/component units) must appear exactly once as `downstream-target`, and at least one manifest-frozen `semantic-projection` must be revealed so an omission cannot pass by inspecting only the source-side target. Other semantic projections and source indexes must be present in the manifest's frozen hash maps; direct primary sources must already occur in the sealed source packet. Declared semantic rule, open-question, and conflict IDs are validated against the frozen `pilots.json`, `review-gates.json`, and `contradictions.json` indexes.
+Every `revealedArtifact` records canonical path, SHA-256, and a closed role. The required unit target (`downstreamPath` for concise rules or `extractionPath` for FAQ/component units) must appear exactly once as `downstream-target`. Every comparison must reveal `docs/rules/semantics/pilots.json` as the actual behavior `semantic-projection`; `review-gates.json` and `contradictions.json` may be additional semantic projections, but source extraction files, `*-source-index.json`, registries, schemas, validators, and other metadata cannot satisfy that role. Other semantic projections and source indexes must be present in the manifest's frozen hash maps; direct primary sources must already occur in the sealed source packet. Declared semantic rule, open-question, and conflict IDs are validated against the frozen `pilots.json`, `review-gates.json`, and `contradictions.json` indexes.
 
 Every comparison contains one or more classified rows:
 
@@ -141,7 +141,7 @@ All 140 comparison artifacts must be sealed before any final adjudication. They 
 - three clean FAQ matches;
 - one clean match from each of the fourteen component families.
 
-The selected set must contain exactly 23 unique units. If a stratum has no clean comparison, no substitute conclusion is inferred and Stage 1 cannot pass that audit version. `audit-result.schema.json` is the separate final-adjudication contract: it references the immutable comparison by path/hash, contains verification reviews and resolution only, and cannot restate comparison or blind content. The validator derives final status consistency from the comparison rows, so a material result cannot be marked accepted. Reviewer prompts/responses are hash-pinned; reviewer identities must differ from the completeness reviewer, blind reviewer, and comparator. For model-assisted lanes, identity is the provider plus resolved model—changing a run ID or response path does not create independence; agent/human lanes use an explicit stable `reviewerId`. A `not-confirmed` verification requires a superseding comparison instead of final adjudication, and a `source-blocked` verification disposition is valid only on a source-blocked result.
+The selected set must contain exactly 23 unique units. If a stratum has no clean comparison, no substitute conclusion is inferred and Stage 1 cannot pass that audit version. `audit-result.schema.json` is the separate final-adjudication contract: it references the immutable comparison by path/hash, contains verification reviews and resolution only, and cannot restate comparison or blind content. The validator derives final status consistency from the comparison rows, so a material result cannot be marked accepted. Reviewer prompts/responses are hash-pinned; reviewer identities must differ from the completeness reviewer, blind reviewer, and comparator. For model-assisted lanes, identity is the nonempty provider plus nonempty resolved `responseModel`; the requested alias is never an identity fallback, and changing a run ID or response path does not create independence. Agent/human identity is only `(kind, stable reviewerId)`; provider/channel/model/path fields cannot turn the same stable actor into a different reviewer. A `not-confirmed` verification requires a superseding comparison instead of final adjudication, and a `source-blocked` verification disposition is valid only on a source-blocked result.
 
 The current audit version cannot repair a frozen downstream target in place. A material or critical correction requires an explicit superseding manifest/lock and rerun; an unrelated new path cannot convert an error into a pass. `not-required` and `pending` carry no repair proof, while a source-blocked resolution carries verification evidence but no repair path. `evaluate_correctness_audit.py` prevents a final pass while any core material error or selected clean match remains unresolved/unverified.
 
@@ -242,7 +242,27 @@ Then run the full validator without `--prelock`; it derives and verifies that di
 
 After `audit-lock.json` is committed, omit `--prelock`.
 
-At every checkpoint run:
+At every checkpoint run the common checks below, using exactly one lifecycle-specific validator command:
+
+- before the lock commit: `python3 scripts/validate_correctness_audit.py --prelock` through the pinned `uv` environment;
+- after the lock commit: the same command without `--prelock`.
+
+Prelock checkpoint:
+
+```bash
+python3 scripts/build_correctness_audit_manifest.py --check
+uv run --isolated --with-requirements docs/qa/implementation-readiness/correctness-audit/requirements-audit.txt \
+  python3 scripts/validate_correctness_audit.py --prelock
+uv run --isolated --with-requirements docs/qa/implementation-readiness/correctness-audit/requirements-audit.txt \
+  python3 scripts/test_correctness_audit_mutations.py
+uv run --isolated --with-requirements docs/qa/implementation-readiness/correctness-audit/requirements-audit.txt \
+  python3 scripts/test_correctness_audit_decision.py
+python3 scripts/validate_source_extraction.py
+python3 scripts/validate_project_status.py
+git diff --check
+```
+
+Post-lock checkpoint:
 
 ```bash
 python3 scripts/build_correctness_audit_manifest.py --check

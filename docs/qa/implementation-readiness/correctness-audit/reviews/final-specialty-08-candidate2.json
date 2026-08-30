@@ -1,0 +1,154 @@
+{
+  "schemaVersion": 1,
+  "recordType": "stage-1-v2-final-specialty-rereview",
+  "reviewerId": "final-specialty-08",
+  "specialty": 8,
+  "reviewedAtUtc": "2026-08-30T08:48:28Z",
+  "candidateHead": "ee42f3522859d1dd7ce782c801023cb71fd53071",
+  "candidateBranch": "review/stage1-v2-r08",
+  "supersededCandidateHead": "5e525e12c105edb7565fa310ae16a526bc131025",
+  "workspaceRoot": "/home/smithers/projects/nemesis-audit-r08",
+  "repositoryPath": "/home/smithers/projects/nemesis-audit-r08/repos/nemesis-retaliation",
+  "verdict": "pass",
+  "findingCount": 0,
+  "findings": [],
+  "conclusion": "Confirmed the candidate-1 specialty-08 no-defect conclusion. Candidate ee42f3522859d1dd7ce782c801023cb71fd53071 has no concrete regression in deterministic clean-match selection, missing-stratum handling, publication timing, or selected-match verification completeness.",
+  "scopeChecks": [
+    {
+      "topic": "Exact domain separator and deterministic ranking",
+      "result": "pass",
+      "evidence": [
+        "scripts/evaluate_correctness_audit.py:20-21",
+        "scripts/evaluate_correctness_audit.py:78-100"
+      ],
+      "detail": "Ranking is SHA-256 over the exact UTF-8 string nemesis-stage1-lane-d-match-v1| plus auditUnitId, with auditUnitId as the deterministic tie-break. Independent recomputation matched the evaluator for all 140 unit IDs and remained invariant under reversed comparison-map insertion order."
+    },
+    {
+      "topic": "Six concise, three FAQ, and one per fourteen component families",
+      "result": "pass",
+      "evidence": [
+        "scripts/validate_correctness_audit.py:54-69",
+        "scripts/validate_correctness_audit.py:86-102",
+        "scripts/evaluate_correctness_audit.py:91-100"
+      ],
+      "detail": "The independently recomputed all-clean sample contains 6 concise-rule records, 3 base-applicable FAQ units, and 14 sampled-component effects comprising exactly one unit from each expected component family."
+    },
+    {
+      "topic": "Exactly 23 unique units",
+      "result": "pass",
+      "evidence": [
+        "scripts/evaluate_correctness_audit.py:91-100",
+        "scripts/evaluate_correctness_audit.py:184-200",
+        "scripts/validate_correctness_audit.py:1697-1713"
+      ],
+      "detail": "The independently selected list has length 23 and set cardinality 23. Manifest class counts, unique audit IDs, the fixed two class quotas, and fourteen disjoint component-family strata prevent overlap; evaluator pass additionally requires sample length 23."
+    },
+    {
+      "topic": "Clean-match definition",
+      "result": "pass",
+      "evidence": [
+        "scripts/evaluate_correctness_audit.py:43-45",
+        "scripts/evaluate_correctness_audit.py:82-90",
+        "docs/qa/implementation-readiness/correctness-audit/comparison.schema.json:281-308"
+      ],
+      "detail": "A unit is selectable only when discrepancies are nonempty and every row is classification match with severity none. Empty, presentation-only, mixed, and match/minor controls were all excluded."
+    },
+    {
+      "topic": "Missing-stratum behavior without substitution",
+      "result": "pass",
+      "evidence": [
+        "scripts/evaluate_correctness_audit.py:91-100",
+        "scripts/evaluate_correctness_audit.py:184-200",
+        "scripts/test_correctness_audit_decision.py:150-167"
+      ],
+      "detail": "Removing all clean units from each of the sixteen strata independently reduced the sample only by that stratum's quota: 17 for missing concise, 20 for missing FAQ, and 22 for each missing component family. No other stratum backfilled the gap, and the final decision failed the 23-unit size gate."
+    },
+    {
+      "topic": "Publication only after all comparisons",
+      "result": "pass",
+      "evidence": [
+        "scripts/evaluate_correctness_audit.py:115-132",
+        "scripts/validate_correctness_audit.py:1896-1915",
+        "scripts/test_correctness_audit_decision.py:169-179"
+      ],
+      "detail": "The decision omits deterministicMatchReviewSampleUnitIds while any valid progress row is pending-blind-derivation or blind-derived and publishes it once every row is compared or final. Structural validation separately forbids adjudication until 140 valid, distinct comparison artifacts exist."
+    },
+    {
+      "topic": "Selected-match verification completeness",
+      "result": "pass",
+      "evidence": [
+        "scripts/evaluate_correctness_audit.py:48-53",
+        "scripts/evaluate_correctness_audit.py:181-200",
+        "scripts/validate_correctness_audit.py:1550-1624",
+        "docs/qa/implementation-readiness/correctness-audit/audit-result.schema.json:235-284"
+      ],
+      "detail": "Every discrepancy ID in each selected clean comparison must occur in verification review coverage. A selected unit with two match rows and coverage for only one was rejected; covering both restored the clean pass. Structural validation also enforces sourceChecked true, source-packet evidence, independent reviewer identity, substantive response binding, and confirmed disposition for accepted results."
+    }
+  ],
+  "candidateDiffAssessment": {
+    "selectionLogicChangedSinceCandidate1": false,
+    "regressionFound": false,
+    "detail": "The candidate-1-to-candidate diff leaves rank() and select_match_review_sample() unchanged. The evaluator change after selection adds discrepancy-severity accounting so blocked, material, and critical rows cannot be masked by result status; it does not weaken specialty-08 behavior."
+  },
+  "testsRun": [
+    {
+      "command": "python3 scripts/stage_correctness_audit_sources.py --source-root /home/smithers/nemesis-retaliation && python3 scripts/stage_correctness_audit_sources.py --source-root /home/smithers/nemesis-retaliation --check",
+      "result": "pass",
+      "detail": "Byte-checked 1,098 files across docs/rulebooks and assets/tts-mod/extract; zero copies were needed."
+    },
+    {
+      "command": "python3 scripts/build_correctness_audit_manifest.py --check",
+      "result": "pass",
+      "detail": "Manifest current with 140 units."
+    },
+    {
+      "command": "uv run --isolated --with-requirements docs/qa/implementation-readiness/correctness-audit/requirements-audit.txt python3 scripts/test_correctness_audit_decision.py",
+      "result": "pass",
+      "detail": "11/11 decision-gate tests passed."
+    },
+    {
+      "command": "uv run --isolated --with-requirements docs/qa/implementation-readiness/correctness-audit/requirements-audit.txt python3 scripts/test_correctness_audit_mutations.py",
+      "result": "pass",
+      "detail": "73/73 mutation, provenance, seal, and progress controls passed."
+    },
+    {
+      "command": "uv run --isolated --with-requirements docs/qa/implementation-readiness/correctness-audit/requirements-audit.txt python3 /home/smithers/projects/nemesis-audit-r08/specialty-08-probe.py",
+      "result": "pass",
+      "detail": "Independent domain/rank, exact sample composition, uniqueness, clean-definition mutations, all sixteen missing-stratum controls, publication timing, verification coverage, and non-writing prelock structural validation passed; structural validation reported 0 failures."
+    },
+    {
+      "command": "git diff --check",
+      "result": "pass",
+      "detail": "No whitespace errors."
+    }
+  ],
+  "externalArtifacts": [
+    {
+      "path": "/home/smithers/projects/nemesis-audit-r08/specialty-08-probe.py",
+      "sha256": "bd58ed2f6ee066a645d7e430e0f28a4ce3e2f4110793386d2b84f719f817cf2d",
+      "purpose": "Bounded read-only specialty probe outside the repository."
+    },
+    {
+      "path": "/home/smithers/projects/nemesis-audit-r08/final-review.json",
+      "purpose": "This final rereview report outside Git."
+    }
+  ],
+  "repositoryState": {
+    "exactHeadVerified": true,
+    "trackedStateClean": true,
+    "repositoryFilesModifiedByReviewer": [],
+    "sourceTreesProvisionedOrChecked": [
+      "docs/rulebooks",
+      "assets/tts-mod/extract"
+    ]
+  },
+  "workspaceLock": {
+    "path": "/home/smithers/projects/nemesis-audit-r08/.workspace.lock",
+    "mode": "0600",
+    "heldForReview": true,
+    "releasedBeforeReturn": true
+  },
+  "residualRisks": [
+    "This is a prelock harness review. All 140 canonical progress rows remain pending, so no claim is made about future comparison or adjudication content; those artifacts must still pass the locked runtime gates."
+  ]
+}

@@ -104,6 +104,7 @@ def historical_lane_files(starting: str, baseline: str, *, root: Path = ROOT) ->
             row
             for row in git(
                 "log",
+                "--full-history",
                 "--format=",
                 "--name-only",
                 f"{starting}..{baseline}",
@@ -123,6 +124,10 @@ def starting_head_failures(starting: str, baseline: str, *, root: Path = ROOT) -
         return failures
     if git("merge-base", "--is-ancestor", starting, baseline, root=root).returncode != 0:
         failures.append("lockedStartingHead is not an ancestor of baseline")
+        return failures
+    merges = git("rev-list", "--merges", f"{starting}..{baseline}", root=root)
+    if merges.returncode != 0 or merges.stdout.split():
+        failures.append("prebaseline audit history contains a merge commit")
     return failures
 
 

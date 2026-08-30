@@ -10,15 +10,19 @@ import json
 import shutil
 import struct
 import subprocess
+import sys
 import tempfile
 import unittest
 import zlib
 from pathlib import Path
+from unittest import mock
 
 import validate_correctness_audit as target
 import create_correctness_audit_lock as lock_target
 import build_correctness_audit_manifest as manifest_target
 import build_correctness_audit_prompt as prompt_target
+import stage_correctness_audit_sources as stage_target
+import advance_correctness_audit_progress as progress_target
 
 ROOT = target.ROOT
 AUDIT_DIR = target.AUDIT_DIR
@@ -111,7 +115,7 @@ class Harness:
             "scope": "base-competitive-stage1",
             "authorityOrder": ["official-rulebook"],
             "sourceDocuments": [{"sourcePath": source_rel, "sourceSha256": source_hash, "authority": "official-rulebook", "version": "test", "role": "primary-rule-text"}],
-            "evidence": [{"evidenceId": "E1", "auditUnitIds": [unit_id], "sourcePath": source_rel, "sourceSha256": source_hash, "locator": "test locator", "evidenceKind": "official-text", "exactText": "fixture", "visualEvidencePath": str(self.visual_path.relative_to(ROOT)), "visualEvidenceSha256": sha(self.visual_path)}],
+            "evidence": [{"evidenceId": "E1", "auditUnitIds": [unit_id], "sourcePath": source_rel, "sourceSha256": source_hash, "locator": "test locator", "evidenceKind": "official-text", "exactText": "fixture", "visualEvidencePath": str(self.visual_path.relative_to(ROOT)), "visualEvidenceSha256": sha(self.visual_path), "pdfPageIndex": 1, "renderDpi": 160}],
             "searchCoverage": {
                 "searchedSourcePaths": [{"sourcePath": source_rel, "sourceSha256": source_hash}],
                 "searchTerms": ["fixture"],
@@ -463,6 +467,19 @@ class ArtifactSealGitTests(unittest.TestCase):
             lock_target.starting_head_failures(unrelated, self.baseline, root=self.root),
             ["lockedStartingHead is not an ancestor of baseline"],
         )
+        self.git("checkout", "-q", "-b", "prebaseline-side")
+        self.git("commit", "--allow-empty", "-q", "-m", "prebaseline side")
+        self.git("checkout", "-q", main_branch)
+        self.git("merge", "--no-ff", "-q", "-m", "prebaseline merge", "prebaseline-side")
+        merge_baseline = self.git("rev-parse", "HEAD").stdout.strip()
+        self.assertEqual(
+            lock_target.starting_head_failures(
+                self.baseline,
+                merge_baseline,
+                root=self.root,
+            ),
+            ["prebaseline audit history contains a merge commit"],
+        )
 
     def test_required_lock_files_close_prelock_reviews_but_exclude_raw_lane(self) -> None:
         reviews = self.root / "docs/qa/implementation-readiness/correctness-audit/reviews"
@@ -512,6 +529,17 @@ class ArtifactSealGitTests(unittest.TestCase):
             )
             self.assertEqual(actual, wave_commit)
             self.assertEqual(failures, [])
+
+    def test_multiple_commits_in_one_dependency_wave_are_rejected(self) -> None:
+        self.assertEqual(
+            target.single_wave_failures(
+                {
+                    "packet": {"a" * 40, "b" * 40},
+                    "blind": {"c" * 40},
+                }
+            ),
+            ["packet artifacts do not share one wave seal commit"],
+        )
 
     def test_later_modified_artifact_is_rejected(self) -> None:
         record, _ = self.commit_artifact()
@@ -569,6 +597,40 @@ class ArtifactSealGitTests(unittest.TestCase):
         self.assertIn(
             seal_commit,
             self.git("merge-base", "--all", seal_commit, "HEAD").stdout.split(),
+        )
+
+    def test_progress_transition_rejects_artifact_committed_later(self) -> None:
+        artifact = {
+            "sealedAtGitHead": self.baseline,
+            "unitResults": [{"auditUnitId": "UNIT-1"}],
+        }
+        artifact_bytes = (json.dumps(artifact, indent=2) + "\n").encode()
+        row = {
+            "auditUnitId": "UNIT-1",
+            "blindPath": "lane.json",
+            "blindSha256": hashlib.sha256(artifact_bytes).hexdigest(),
+        }
+        failures = target.committed_transition_artifact_failures(
+            row,
+            "blind-derived",
+            self.baseline,
+            self.root,
+            "fixture",
+        )
+        self.assertIn("fixture: transition artifact absent at progress commit", failures)
+        self.artifact.write_bytes(artifact_bytes)
+        self.git("add", "lane.json")
+        self.git("commit", "-q", "-m", "seal artifact after transition")
+        later = self.git("rev-parse", "HEAD").stdout.strip()
+        self.assertEqual(
+            target.committed_transition_artifact_failures(
+                row,
+                "blind-derived",
+                later,
+                self.root,
+                "fixture",
+            ),
+            [],
         )
 
     def test_false_preseal_for_existing_path_is_rejected(self) -> None:
@@ -660,6 +722,71 @@ class ArtifactSealGitTests(unittest.TestCase):
             lock_target.historical_lane_files(self.baseline, baseline, root=self.root),
             [str(lane.relative_to(self.root))],
         )
+    def test_merged_deleted_prebaseline_lane_artifact_is_detected(self) -> None:
+        main_branch = self.git("branch", "--show-current").stdout.strip()
+        self.git("checkout", "-q", "-b", "prebaseline-lane-side")
+        lane = self.root / lock_target.LANE_OUTPUT_ROOTS[0] / "side-leaked.json"
+        lane.parent.mkdir(parents=True, exist_ok=True)
+        lane.write_text("{}\n", encoding="utf-8")
+        self.git("add", str(lane.relative_to(self.root)))
+        self.git("commit", "-q", "-m", "side premature lane artifact")
+        lane.unlink()
+        self.git("add", "-u")
+        self.git("commit", "-q", "-m", "remove side premature lane artifact")
+        self.git("checkout", "-q", main_branch)
+        self.git("merge", "--no-ff", "-q", "-m", "merge restored lane side", "prebaseline-lane-side")
+        baseline = self.git("rev-parse", "HEAD").stdout.strip()
+        self.assertEqual(
+            lock_target.historical_lane_files(self.baseline, baseline, root=self.root),
+            [str(lane.relative_to(self.root))],
+        )
+
+
+class PromptOutputPathTests(unittest.TestCase):
+    def test_prompt_output_rejects_noncanonical_and_symlink_paths(self) -> None:
+        with tempfile.TemporaryDirectory(prefix="correctness-audit-prompt-output-") as directory:
+            original_root = prompt_target.ROOT
+            original_audit = prompt_target.AUDIT_DIR
+            try:
+                prompt_target.ROOT = Path(directory)
+                prompt_target.AUDIT_DIR = (
+                    prompt_target.ROOT
+                    / "docs/qa/implementation-readiness/correctness-audit"
+                )
+                prompt_root = prompt_target.AUDIT_DIR / "packets" / "prompts"
+                prompt_root.mkdir(parents=True)
+                (prompt_root / "real").mkdir()
+                (prompt_root / "alias").symlink_to("real", target_is_directory=True)
+                for value in (
+                    "docs/qa/implementation-readiness/correctness-audit/packets/prompts/bad\\name.txt",
+                    "docs/qa/implementation-readiness/correctness-audit/packets/prompts/sub/../bad.txt",
+                    "docs/qa/implementation-readiness/correctness-audit/packets/prompts/alias/bad.txt",
+                ):
+                    with self.subTest(value=value):
+                        with self.assertRaises(ValueError):
+                            prompt_target.canonical_output_path(value)
+            finally:
+                prompt_target.ROOT = original_root
+                prompt_target.AUDIT_DIR = original_audit
+
+
+class SourceStagingPathTests(unittest.TestCase):
+    def test_source_root_and_intermediate_symlinks_are_rejected(self) -> None:
+        with tempfile.TemporaryDirectory(prefix="correctness-audit-source-path-") as directory:
+            root = Path(directory)
+            real = root / "real-source"
+            (real / "docs" / "rulebooks").mkdir(parents=True)
+            direct_link = root / "source-link"
+            direct_link.symlink_to(real, target_is_directory=True)
+            with self.assertRaisesRegex(SystemExit, "--source-root contains a symlink component"):
+                stage_target.reject_symlink_components(direct_link, "--source-root")
+            with self.assertRaisesRegex(SystemExit, "source tree contains a symlink component"):
+                stage_target.reject_symlink_components(
+                    direct_link / "docs" / "rulebooks",
+                    "source tree",
+                )
+            with self.assertRaisesRegex(SystemExit, "noncanonical source-relative path"):
+                stage_target.target_path(Path("docs/rulebooks\\bad.pdf"))
 
 
 class PendingProgressRefreshTests(unittest.TestCase):
@@ -801,6 +928,45 @@ class ProgressHistoryContractTests(unittest.TestCase):
                 )
             )
         )
+        failures: list[str] = []
+        self.assertIsNone(target.parse_time("2026-08-30", failures, "date-only"))
+        self.assertTrue(any("invalid UTC date-time" in row for row in failures))
+        self.assertNotEqual(
+            json.dumps(blind, sort_keys=True).encode(),
+            target.canonical_progress_bytes(blind),
+        )
+
+
+class ProgressUpdaterRollbackTests(unittest.TestCase):
+    def test_updater_restores_progress_bytes_after_validation_failure(self) -> None:
+        harness = Harness()
+        original_progress_path = progress_target.PROGRESS
+        try:
+            progress = copy.deepcopy(PROGRESS)
+            dump(harness.progress_path, progress)
+            original = harness.progress_path.read_bytes()
+            unit_id = progress["units"][0]["auditUnitId"]
+            progress_target.PROGRESS = harness.progress_path
+            argv = [
+                "advance_correctness_audit_progress.py",
+                "--unit",
+                unit_id,
+                "--to",
+                "blind-derived",
+                "--blind",
+                str(harness.blind_path.relative_to(ROOT)),
+            ]
+            with mock.patch.object(sys, "argv", argv), mock.patch.object(
+                progress_target.validation,
+                "validate",
+                return_value={"passed": False, "failures": ["forced failure"]},
+            ):
+                with self.assertRaisesRegex(SystemExit, "transition rolled back"):
+                    progress_target.main()
+            self.assertEqual(harness.progress_path.read_bytes(), original)
+        finally:
+            progress_target.PROGRESS = original_progress_path
+            harness.close()
 
 
 class AuditMutationTests(unittest.TestCase):
@@ -818,6 +984,45 @@ class AuditMutationTests(unittest.TestCase):
     def test_control_fixture_passes(self) -> None:
         report = self.h.validate()
         self.assertTrue(report["passed"], report["failures"])
+
+    def test_hash_pinned_but_unrelated_completeness_response_is_rejected(self) -> None:
+        dump(self.h.completeness_response_path, {"unrelated": True})
+        self.h.review["reviewer"]["responseSha256"] = sha(self.h.completeness_response_path)
+        dump(self.h.review_path, self.h.review)
+        self.h.prompt_path.write_bytes(
+            target.canonical_prompt_bytes("blind", self.h.packet_path, self.h.review_path)
+        )
+        self.h.blind["completenessReviewSha256"] = sha(self.h.review_path)
+        self.h.blind["promptSha256"] = sha(self.h.prompt_path)
+        self.h.blind["reviewer"]["promptSha256"] = sha(self.h.prompt_path)
+        self.h.resign_from_blind()
+        self.assertFails("completeness response content differs from sealed review")
+
+    def test_hash_pinned_but_unrelated_blind_response_is_rejected(self) -> None:
+        dump(self.h.blind_response_path, {"unrelated": True})
+        self.h.blind["reviewer"]["responseSha256"] = sha(self.h.blind_response_path)
+        self.h.resign_from_blind()
+        self.assertFails("blind response content differs from sealed derivation")
+
+    def test_hash_pinned_but_unrelated_verification_response_is_rejected(self) -> None:
+        self.h.result["verificationReviews"] = [{
+            "reviewId": "VR-UNRELATED",
+            "reviewer": self.h.make_reviewer("unrelated-verifier"),
+            "reviewedDiscrepancyIds": ["D1"],
+            "sourceChecked": True,
+            "finding": "confirmed",
+            "disposition": "confirmed",
+            "evidenceRefs": ["E1"],
+        }]
+        self.h.resign_packet_chain()
+        review = self.h.result["verificationReviews"][0]
+        response_path = ROOT / review["reviewer"]["responsePath"]
+        dump(response_path, {"unrelated": True})
+        review["reviewer"]["responseSha256"] = sha(response_path)
+        dump(self.h.result_path, self.h.result)
+        self.h.progress["units"][0]["resultSha256"] = sha(self.h.result_path)
+        self.h.write_inputs()
+        self.assertFails("verification response content differs from sealed review")
 
     def test_hash_pinned_but_unrelated_comparator_response_is_rejected(self) -> None:
         dump(
@@ -878,7 +1083,7 @@ class AuditMutationTests(unittest.TestCase):
     def test_progress_timestamp_must_be_valid_datetime(self) -> None:
         self.h.progress["units"][0]["lastUpdatedUtc"] = "not-a-date"
         self.h.write_inputs()
-        self.assertFails("progress update time: invalid date-time")
+        self.assertFails("progress update time: invalid UTC date-time")
 
     def test_comparison_cannot_embed_verification(self) -> None:
         self.h.comparison["verificationReviews"] = []
@@ -891,11 +1096,9 @@ class AuditMutationTests(unittest.TestCase):
         self.assertFails("revealed artifact hash differs from frozen source")
 
     def test_required_downstream_target_must_be_revealed(self) -> None:
-        self.h.comparison["comparison"]["revealedArtifacts"][0] = {
-            "path": "docs/rules/semantics/pilots.json",
-            "sha256": self.h.manifest["frozenSemanticHashes"]["docs/rules/semantics/pilots.json"],
-            "role": "semantic-projection",
-        }
+        self.h.comparison["comparison"]["revealedArtifacts"] = [
+            self.h.comparison["comparison"]["revealedArtifacts"][1]
+        ]
         self.h.resign_packet_chain()
         self.assertFails("required downstream target was not revealed")
 
@@ -909,7 +1112,30 @@ class AuditMutationTests(unittest.TestCase):
             self.h.comparison["comparison"]["revealedArtifacts"][0]
         ]
         self.h.resign_packet_chain()
-        self.assertFails("no frozen semantic projection was revealed")
+        self.assertFails("required behavior projection was not revealed")
+
+    def test_source_index_cannot_masquerade_as_semantic_projection(self) -> None:
+        semantic = self.h.comparison["comparison"]["revealedArtifacts"][1]
+        semantic.update(
+            {
+                "path": "docs/rules/semantics/facility-source-index.json",
+                "sha256": self.h.manifest["frozenSemanticHashes"][
+                    "docs/rules/semantics/facility-source-index.json"
+                ],
+                "role": "semantic-projection",
+            }
+        )
+        self.h.resign_packet_chain()
+        report = self.h.validate()
+        self.assertFalse(report["passed"])
+        self.assertTrue(
+            any("semantic-projection role names a non-projection artifact" in row for row in report["failures"]),
+            report["failures"],
+        )
+        self.assertTrue(
+            any("required behavior projection was not revealed" in row for row in report["failures"]),
+            report["failures"],
+        )
 
     def test_adjudication_cannot_embed_comparison_payload(self) -> None:
         self.h.result["comparison"] = copy.deepcopy(self.h.comparison["comparison"])
@@ -1047,6 +1273,64 @@ class AuditMutationTests(unittest.TestCase):
         self.h.write_inputs()
         self.assertFails("symlink path component is forbidden")
 
+    def test_canonical_source_only_prompts_reject_downstream_payloads(self) -> None:
+        self.h.packet["searchCoverage"]["searchTerms"] = [
+            "docs/rules/semantics/pilots.json"
+        ]
+        dump(self.h.packet_path, self.h.packet)
+        with self.assertRaisesRegex(ValueError, "forbidden token"):
+            prompt_target.canonical_prompt_bytes("completeness", self.h.packet_path)
+
+        self.h.packet["searchCoverage"]["searchTerms"] = ["fixture"]
+        dump(self.h.packet_path, self.h.packet)
+        self.h.review["findings"] = [{
+            "findingId": "F-LEAK",
+            "severity": "minor",
+            "claim": "js/engine.js downstreamPath",
+            "evidenceRefs": ["E1"],
+            "disposition": "rejected",
+            "dispositionReason": "fixture",
+        }]
+        self.h.review["packetSha256"] = sha(self.h.packet_path)
+        dump(self.h.review_path, self.h.review)
+        with self.assertRaisesRegex(ValueError, "forbidden token"):
+            prompt_target.canonical_prompt_bytes(
+                "blind",
+                self.h.packet_path,
+                self.h.review_path,
+            )
+
+    def test_duplicate_packet_evidence_ids_are_rejected(self) -> None:
+        duplicate = copy.deepcopy(self.h.packet["evidence"][0])
+        duplicate["locator"] = "different locator"
+        self.h.packet["evidence"].append(duplicate)
+        self.h.resign_packet_chain()
+        self.assertFails("duplicate packet evidence ID")
+
+    def test_packet_evidence_indexes_are_unit_scoped(self) -> None:
+        packet = {
+            "evidence": [
+                {
+                    "evidenceId": "E1",
+                    "auditUnitIds": ["UNIT-A"],
+                    "sourcePath": "source-a",
+                    "sourceSha256": "a" * 64,
+                },
+                {
+                    "evidenceId": "E2",
+                    "auditUnitIds": ["UNIT-B"],
+                    "sourcePath": "source-b",
+                    "sourceSha256": "b" * 64,
+                },
+            ]
+        }
+        failures: list[str] = []
+        ids, sources = target.packet_evidence_indexes(packet, failures, "fixture")
+        self.assertEqual(failures, [])
+        self.assertEqual(ids, {"UNIT-A": {"E1"}, "UNIT-B": {"E2"}})
+        self.assertEqual(sources["UNIT-A"], {"source-a": "a" * 64})
+        self.assertNotIn("source-b", sources["UNIT-A"])
+
     def test_blind_citation_must_be_exact_packet_evidence(self) -> None:
         self.h.blind["unitResults"][0]["requirements"][0]["citations"][0]["locator"] = "invented locator"
         self.h.resign_packet_chain()
@@ -1065,12 +1349,12 @@ class AuditMutationTests(unittest.TestCase):
     def test_unknown_severity_does_not_fall_through_to_accepted(self) -> None:
         self.h.comparison["comparison"]["discrepancies"][0]["severity"] = "mystery"
         self.h.resign_packet_chain()
-        self.assertFails("unknown severity cannot be adjudicated")
+        self.assertFails("is not one of")
 
     def test_unhashable_discrepancy_id_reports_failure_instead_of_crashing(self) -> None:
         self.h.comparison["comparison"]["discrepancies"][0]["discrepancyId"] = []
         self.h.resign_packet_chain()
-        self.assertFails("invalid or duplicate discrepancy ID")
+        self.assertFails("is not of type 'string'")
 
     def test_unhashable_verification_review_id_reports_failure(self) -> None:
         discrepancy_id = self.h.comparison["comparison"]["discrepancies"][0]["discrepancyId"]
@@ -1084,7 +1368,7 @@ class AuditMutationTests(unittest.TestCase):
             "evidenceRefs": ["E1"],
         }]
         self.h.resign_packet_chain()
-        self.assertFails("invalid or duplicate verification review ID")
+        self.assertFails("is not of type 'string'")
 
     def test_repaired_verified_is_forbidden_in_frozen_audit_version(self) -> None:
         self.h.result["resolution"]["status"] = "repaired-verified"
@@ -1110,11 +1394,21 @@ class AuditMutationTests(unittest.TestCase):
             "severity": "material",
             "claim": "fixture",
             "evidenceRefs": ["NOT-IN-PACKET"],
-            "disposition": "accepted",
+            "disposition": "rejected",
             "dispositionReason": "fixture",
         }]
         self.h.resign_packet_chain()
         self.assertFails("cites evidence outside the source packet")
+
+    def test_pdf_visual_must_equal_deterministic_page_render(self) -> None:
+        source = ROOT / "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf"
+        rendered_hash = target.rendered_pdf_page_sha256(
+            str(source.relative_to(ROOT)),
+            sha(source),
+            1,
+            160,
+        )
+        self.assertNotEqual(rendered_hash, sha(self.h.visual_path))
 
     def test_visual_evidence_requires_hash(self) -> None:
         evidence = self.h.packet["evidence"][0]
@@ -1152,8 +1446,9 @@ class AuditMutationTests(unittest.TestCase):
             "findingId": "F1",
             "severity": "material",
             "claim": "missing source",
-            "evidence": ["fixture"],
+            "evidenceRefs": ["E1"],
             "disposition": "unresolved",
+            "dispositionReason": "fixture remains unresolved",
         }]
         self.h.review["accepted"] = True
         self.h.review["unresolvedMaterialFindingIds"] = []
@@ -1213,13 +1508,13 @@ class AuditMutationTests(unittest.TestCase):
         self.h.progress["counts"]["accepted"] -= 1
         self.h.progress["counts"]["materialErrors"] += 1
         self.h.resign_packet_chain()
-        self.assertFails("lacks root cause")
+        self.assertFails("is not of type 'string'")
 
     def test_classification_flags_are_required(self) -> None:
         discrepancy = self.h.comparison["comparison"]["discrepancies"][0]
         discrepancy.update({"classification": "authority-inversion", "severity": "critical", "rootCauseId": "RC1", "authorityOverride": False})
         self.h.resign_packet_chain()
-        self.assertFails("authority inversion flag false")
+        self.assertFails("True was expected")
 
     def test_final_nonmatch_requires_independent_verification(self) -> None:
         discrepancy = self.h.comparison["comparison"]["discrepancies"][0]
@@ -1239,6 +1534,99 @@ class AuditMutationTests(unittest.TestCase):
         second = dict(first, reviewerId="run-b", responsePath="reviews/raw/b.json")
         self.assertEqual(target.reviewer_identity(first), target.reviewer_identity(second))
 
+    def test_agent_identity_ignores_provider_and_model_alias_fields(self) -> None:
+        first = {
+            "kind": "agent",
+            "reviewerId": "stable-agent-42",
+            "provider": "provider-a",
+            "requestedModel": "alias-a",
+            "responseModel": "resolved-a",
+        }
+        second = dict(
+            first,
+            provider="provider-b",
+            requestedModel="alias-b",
+            responseModel="resolved-b",
+        )
+        self.assertEqual(target.reviewer_identity(first), target.reviewer_identity(second))
+
+    def test_model_identity_does_not_fall_back_to_requested_alias(self) -> None:
+        first = {
+            "kind": "model-assisted",
+            "reviewerId": "run-a",
+            "provider": "ollama-cloud",
+            "requestedModel": "alias-a",
+            "responseModel": "",
+        }
+        second = dict(first, reviewerId="run-b", requestedModel="alias-b")
+        self.assertEqual(target.reviewer_identity(first), target.reviewer_identity(second))
+        self.h.blind["reviewer"]["responseModel"] = ""
+        self.h.resign_packet_chain()
+        self.assertFails("should be non-empty")
+
+    def test_schema_invalid_containers_fail_without_crashing(self) -> None:
+        mutations = (
+            lambda harness: harness.packet.__setitem__("auditUnitIds", [[]]),
+            lambda harness: harness.packet.__setitem__("sourceDocuments", None),
+            lambda harness: harness.packet.__setitem__("searchCoverage", []),
+            lambda harness: harness.comparison["comparison"]["discrepancies"][0].__setitem__("evidenceRefs", [[]]),
+            lambda harness: harness.comparison.__setitem__("comparison", []),
+        )
+        for mutation in mutations:
+            harness = Harness()
+            try:
+                mutation(harness)
+                harness.resign_packet_chain()
+                report = harness.validate()
+                self.assertFalse(report["passed"], report)
+            finally:
+                harness.close()
+
+    def test_nonobject_manifest_and_progress_fail_without_crashing(self) -> None:
+        for manifest_value, progress_value in (([], PROGRESS), (MANIFEST, [])):
+            with tempfile.TemporaryDirectory(prefix="audit-nonobject-") as directory:
+                root = Path(directory)
+                manifest_path = root / "manifest.json"
+                progress_path = root / "progress.json"
+                dump(manifest_path, manifest_value)
+                dump(progress_path, progress_value)
+                report = target.validate(
+                    manifest_path,
+                    progress_path,
+                    check_builder=False,
+                    require_lock=False,
+                    enforce_seals=False,
+                )
+                self.assertFalse(report["passed"], report)
+                self.assertTrue(
+                    any("must both be JSON objects" in row for row in report["failures"]),
+                    report,
+                )
+
+    def test_model_response_envelope_rejects_type_and_key_drift(self) -> None:
+        body = {
+            "schemaVersion": [],
+            "recordType": "ollama-cloud-audit-review",
+            "provider": "ollama-cloud",
+            "requestedModel": "model-a",
+            "responseModel": "model-a:cloud",
+            "requestedReasoning": "max",
+            "stream": False,
+            "format": "json",
+            "promptPath": "prompt.txt",
+            "promptSha256": "a" * 64,
+            "responseCreatedAt": "2026-08-30T00:00:00Z",
+            "done": True,
+            "doneReason": "stop",
+            "review": {},
+            "thinkingRetained": False,
+            "unexpected": True,
+        }
+        failures: list[str] = []
+        self.assertFalse(target.valid_model_response_envelope(body, failures, "fixture"))
+        self.assertTrue(any("keys drift" in failure for failure in failures))
+        self.assertTrue(any("schemaVersion drift" in failure for failure in failures))
+
     def test_model_reviewer_provenance_mismatch_rejected(self) -> None:
         raw_root = target.AUDIT_DIR / "reviews" / "raw"
         raw_root.mkdir(parents=True, exist_ok=True)
@@ -1254,8 +1642,13 @@ class AuditMutationTests(unittest.TestCase):
                 "requestedModel": "model-a",
                 "responseModel": "model-a:cloud",
                 "requestedReasoning": "max",
+                "stream": False,
+                "format": "json",
                 "promptPath": str(prompt.relative_to(target.ROOT)),
                 "promptSha256": sha(prompt),
+                "responseCreatedAt": "2026-08-30T00:00:00Z",
+                "done": True,
+                "doneReason": "stop",
                 "review": {"verdict": "accept", "findings": []},
                 "thinkingRetained": False,
             }

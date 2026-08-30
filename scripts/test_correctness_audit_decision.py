@@ -114,6 +114,80 @@ class DecisionTests(unittest.TestCase):
         self.assertEqual(decision["failures"]["criticalErrors"], [second])
         self.assertTrue(decision["fullAuditEscalationRequired"])
 
+    def test_exactly_two_component_material_errors_remain_within_limit(self) -> None:
+        progress, results = clean_fixture()
+        units = [row for row in MANIFEST["units"] if row["unitClass"] == "sampled-component-effect"][:2]
+        for index, unit in enumerate(units):
+            uid = unit["auditUnitId"]
+            results[uid]["status"] = "material-error"
+            results[uid]["__comparison"]["discrepancies"][0].update({
+                "classification": "downstream-omission",
+                "severity": "material",
+                "rootCauseId": f"RC-ISOLATED-{index}",
+            })
+        decision = target.evaluate_records(MANIFEST, progress, results)
+        self.assertEqual(decision["failures"]["componentMaterialErrorsOverLimit"], [])
+
+    def test_three_same_family_units_with_one_root_recur(self) -> None:
+        progress, results = clean_fixture()
+        units = [
+            row
+            for row in MANIFEST["units"]
+            if row.get("family") == "room"
+        ][:3]
+        for unit in units:
+            uid = unit["auditUnitId"]
+            results[uid]["status"] = "material-error"
+            results[uid]["__comparison"]["discrepancies"][0].update({
+                "classification": "downstream-omission",
+                "severity": "material",
+                "rootCauseId": "RC-SAME-FAMILY",
+            })
+        decision = target.evaluate_records(MANIFEST, progress, results)
+        self.assertEqual(decision["failures"]["recurringDefectPatterns"], ["RC-SAME-FAMILY"])
+        self.assertIn("room", decision["affectedFamilyEscalationCandidates"])
+
+    def test_authority_and_hidden_default_gates_and_affected_families(self) -> None:
+        progress, results = clean_fixture()
+        first, second = MANIFEST["units"][:2]
+        for unit, classification, flag in (
+            (first, "authority-inversion", "authorityOverride"),
+            (second, "hidden-default", "hiddenDefault"),
+        ):
+            uid = unit["auditUnitId"]
+            results[uid]["status"] = "critical-error"
+            discrepancy = results[uid]["__comparison"]["discrepancies"][0]
+            discrepancy.update({
+                "classification": classification,
+                "severity": "critical",
+                "rootCauseId": f"RC-{classification}",
+                flag: True,
+            })
+        decision = target.evaluate_records(MANIFEST, progress, results)
+        self.assertEqual(decision["failures"]["inventedAuthorityOverrides"], [first["auditUnitId"]])
+        self.assertEqual(decision["failures"]["hiddenDefaults"], [second["auditUnitId"]])
+        self.assertIn("concise-rule", decision["affectedFamilyEscalationCandidates"])
+
+    def test_incomplete_and_complete_reports_always_enumerate_boundaries(self) -> None:
+        progress, results = clean_fixture()
+        blocked_id = MANIFEST["units"][0]["auditUnitId"]
+        results[blocked_id]["status"] = "source-blocked"
+        results[blocked_id]["__comparison"]["discrepancies"][0].update({
+            "classification": "transcription-or-packet-gap",
+            "severity": "blocked",
+        })
+        progress["units"][0]["status"] = "source-blocked"
+        progress["units"][1]["status"] = "compared"
+        decision = target.evaluate_records(MANIFEST, progress, results)
+        self.assertIn(blocked_id, decision["sourceBlockedUnitIds"])
+        self.assertIn("unfinishedUnitIds", decision)
+        self.assertIn("affectedFamilyEscalationCandidates", decision)
+        self.assertIn("199 unaudited", decision["claimScope"])
+
+        complete_progress, complete_results = clean_fixture()
+        complete = target.evaluate_records(MANIFEST, complete_progress, complete_results)
+        self.assertEqual(complete["unfinishedUnitIds"], [])
+
     def test_three_component_material_errors_exceed_limit(self) -> None:
         progress, results = clean_fixture()
         units = [row for row in MANIFEST["units"] if row["unitClass"] == "sampled-component-effect"][:3]
