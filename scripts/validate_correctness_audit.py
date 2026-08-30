@@ -32,8 +32,8 @@ except ImportError as exc:  # pragma: no cover - exercised by the documented run
 
 from build_correctness_audit_prompt import canonical_prompt_bytes
 from create_correctness_audit_lock import (
-    LOCKED_FILES as REQUIRED_LOCKED_FILES,
     historical_lane_files,
+    required_locked_files,
 )
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -224,7 +224,12 @@ def repo_path(value: Any, failures: list[str], label: str, parent: Path = ROOT) 
         failures.append(f"{label}: missing path")
         return None
     lexical = PurePosixPath(value)
-    if lexical.is_absolute() or lexical.as_posix() != value or any(part in {".", ".."} for part in lexical.parts):
+    if (
+        "\\" in value
+        or lexical.is_absolute()
+        or lexical.as_posix() != value
+        or any(part in {".", ".."} for part in lexical.parts)
+    ):
         failures.append(f"{label}: path is not a canonical repository-relative POSIX path")
         return None
     path = ROOT.joinpath(*lexical.parts)
@@ -297,8 +302,15 @@ def git_bytes(root: Path, *args: str) -> subprocess.CompletedProcess[bytes]:
     return subprocess.run(["git", *args], cwd=root, capture_output=True)
 
 
+def merge_commits_after(root: Path, commit: str) -> list[str]:
+    result = git_bytes(root, "rev-list", "--merges", f"{commit}..HEAD")
+    if result.returncode != 0:
+        return ["<git-error>"]
+    return result.stdout.decode("ascii", errors="replace").split()
+
+
 def commits_touching_path_after(root: Path, commit: str, relative: str) -> list[str]:
-    result = git_bytes(root, "rev-list", f"{commit}..HEAD", "--", relative)
+    result = git_bytes(root, "rev-list", "--full-history", f"{commit}..HEAD", "--", relative)
     if result.returncode != 0:
         return ["<git-error>"]
     return result.stdout.decode("ascii", errors="replace").split()
@@ -487,6 +499,11 @@ def validate_lock(manifest: dict[str, Any], failures: list[str], require_lock: b
         return
     add(failures, git("cat-file", "-e", f"{baseline}^{{commit}}").returncode == 0, "audit lock baseline commit missing")
     add(failures, git("merge-base", "--is-ancestor", baseline, "HEAD").returncode == 0, "audit baseline is not an ancestor of HEAD")
+    add(
+        failures,
+        not merge_commits_after(ROOT, baseline),
+        "audit history contains a merge commit after baseline",
+    )
     lock_commit = validate_artifact_seal(
         {"sealedAtGitHead": baseline},
         LOCK_PATH,
@@ -511,7 +528,7 @@ def validate_lock(manifest: dict[str, Any], failures: list[str], require_lock: b
     if isinstance(locked_files, dict):
         add(
             failures,
-            set(locked_files) == set(REQUIRED_LOCKED_FILES),
+            set(locked_files) == set(required_locked_files()),
             "audit lock lockedFiles set differs from the canonical creator list",
         )
         for relative, expected_hash in locked_files.items():
@@ -625,14 +642,15 @@ def validate_reviewer(
     if enforce_seals:
         validate_file_at_commit(prompt, prompt_commit, failures, f"{label} prompt")
         validate_file_at_commit(response, response_commit, failures, f"{label} response")
-    if reviewer.get("kind") != "model-assisted":
-        return None
-    if reviewer.get("provider") == "ollama-cloud":
-        add(failures, reviewer.get("requestedReasoning") == "max", f"{label}: Ollama review was not max reasoning")
     if response and response.is_file():
         try:
             body = strict_load(response)
             add(failures, not contains_trace_key(body), f"{label}: retained provider reasoning trace")
+            if reviewer.get("kind") != "model-assisted":
+                add(failures, isinstance(body, dict), f"{label}: reviewer response is not an object")
+                return body if isinstance(body, dict) else None
+            if reviewer.get("provider") == "ollama-cloud":
+                add(failures, reviewer.get("requestedReasoning") == "max", f"{label}: Ollama review was not max reasoning")
             add(failures, body.get("recordType") == "ollama-cloud-audit-review", f"{label}: response is not a successful review envelope")
             add(failures, body.get("provider") == reviewer.get("provider"), f"{label}: provider provenance mismatch")
             add(failures, body.get("requestedModel") == reviewer.get("requestedModel"), f"{label}: requested-model provenance mismatch")
@@ -650,7 +668,9 @@ def validate_reviewer(
                 validate_file_at_commit(provenance_prompt, prompt_commit, failures, f"{label} prompt provenance")
             add(failures, body.get("promptPath") == reviewer.get("promptPath"), f"{label}: reviewer prompt path mismatch")
             add(failures, body.get("promptSha256") == reviewer.get("promptSha256"), f"{label}: reviewer prompt hash mismatch")
-            return body
+            review_payload = body.get("review")
+            add(failures, isinstance(review_payload, dict), f"{label}: model response review payload missing")
+            return review_payload if isinstance(review_payload, dict) else None
         except Exception as exc:
             failures.append(f"{label}: response parse: {exc}")
     return None
@@ -697,7 +717,7 @@ def is_allowed_source(relative: str) -> bool:
 def validate_packet(
     path: Path,
     validators: dict[str, Draft202012Validator],
-    manifest_ids: set[str],
+    manifest_units: dict[str, dict[str, Any]],
     failures: list[str],
     enforce_seals: bool = True,
     minimum_preseal: str | None = None,
@@ -716,8 +736,9 @@ def validate_packet(
     if enforce_seals:
         require_preseal_at_or_after(packet, minimum_preseal, failures, f"{path}: packet")
     packet_ids = packet.get("auditUnitIds", [])
-    add(failures, set(packet_ids).issubset(manifest_ids), f"{path}: unknown audit unit")
+    add(failures, set(packet_ids).issubset(set(manifest_units)), f"{path}: unknown audit unit")
     covered_unit_ids: set[str] = set()
+    evidence_rows: list[dict[str, Any]] = []
     for index, row in enumerate(packet.get("sourceDocuments", [])):
         relative = row.get("sourcePath", "") if isinstance(row, dict) else ""
         add(failures, is_allowed_source(relative), f"{path}: disallowed source document {relative}")
@@ -725,6 +746,7 @@ def validate_packet(
     for index, row in enumerate(packet.get("evidence", [])):
         if not isinstance(row, dict):
             continue
+        evidence_rows.append(row)
         row_unit_ids = set(row.get("auditUnitIds", []))
         add(failures, row_unit_ids.issubset(set(packet_ids)), f"{path}: evidence[{index}] references a unit outside the packet")
         covered_unit_ids.update(row_unit_ids)
@@ -766,6 +788,22 @@ def validate_packet(
     add(failures, packet.get("sourceOnlyAttestation") is True, f"{path}: no source-only attestation")
     add(failures, packet.get("forbiddenDownstreamSourcesIncluded") == [], f"{path}: downstream source included")
     add(failures, covered_unit_ids == set(packet_ids), f"{path}: packet unit lacks direct evidence")
+    for unit_id in packet_ids:
+        unit = manifest_units.get(unit_id, {})
+        expected_path = unit.get("sourcePath") if isinstance(unit, dict) else None
+        expected_sha256 = unit.get("sourceSha256") if isinstance(unit, dict) else None
+        if not isinstance(expected_path, str) or not isinstance(expected_sha256, str):
+            continue
+        add(
+            failures,
+            any(
+                unit_id in row.get("auditUnitIds", [])
+                and row.get("sourcePath") == expected_path
+                and row.get("sourceSha256") == expected_sha256
+                for row in evidence_rows
+            ),
+            f"{path}: {unit_id} lacks manifest-bound source evidence",
+        )
     return packet, packet_commit
 
 
@@ -777,10 +815,194 @@ def parse_time(value: Any, failures: list[str], label: str) -> datetime | None:
         return None
 
 
+PROGRESS_TRANSITIONS = {
+    "pending-blind-derivation": {"blind-derived"},
+    "blind-derived": {"compared"},
+    "compared": {"accepted", "material-error", "critical-error", "source-blocked"},
+    "accepted": set(),
+    "material-error": set(),
+    "critical-error": set(),
+    "source-blocked": set(),
+}
+PROGRESS_TOP_KEYS = {
+    "schemaVersion",
+    "recordType",
+    "manifestPath",
+    "manifestSha256",
+    "counts",
+    "units",
+}
+PROGRESS_ROW_KEYS = {
+    "auditUnitId",
+    "status",
+    "blindPath",
+    "blindSha256",
+    "blindUnitResultId",
+    "comparisonPath",
+    "comparisonSha256",
+    "resultPath",
+    "resultSha256",
+    "lastUpdatedUtc",
+}
+
+
+def strict_json_bytes(data: bytes) -> dict[str, Any]:
+    return json.loads(data.decode("utf-8"), object_pairs_hook=strict_pairs)
+
+
+def progress_snapshot_failures(
+    previous: dict[str, Any],
+    current: dict[str, Any],
+    unit_ids: list[str],
+    label: str,
+) -> list[str]:
+    failures: list[str] = []
+    for name, snapshot in (("previous", previous), ("current", current)):
+        if set(snapshot) != PROGRESS_TOP_KEYS:
+            failures.append(f"{label}: {name} progress top-level fields drift")
+        if snapshot.get("schemaVersion") != 2:
+            failures.append(f"{label}: {name} progress schemaVersion drift")
+        if snapshot.get("recordType") != "stage-1-correctness-audit-progress":
+            failures.append(f"{label}: {name} progress recordType drift")
+        rows = snapshot.get("units")
+        if not isinstance(rows, list) or len(rows) != len(unit_ids):
+            failures.append(f"{label}: {name} progress row count drift")
+            continue
+        if [row.get("auditUnitId") for row in rows if isinstance(row, dict)] != unit_ids:
+            failures.append(f"{label}: {name} progress IDs/order drift")
+        if any(not isinstance(row, dict) or set(row) != PROGRESS_ROW_KEYS for row in rows):
+            failures.append(f"{label}: {name} progress row fields drift")
+
+    previous_rows = previous.get("units", [])
+    current_rows = current.get("units", [])
+    if not isinstance(previous_rows, list) or not isinstance(current_rows, list):
+        return failures
+    if len(previous_rows) != len(unit_ids) or len(current_rows) != len(unit_ids):
+        return failures
+
+    for prior, row in zip(previous_rows, current_rows):
+        if not isinstance(prior, dict) or not isinstance(row, dict):
+            continue
+        unit_id = row.get("auditUnitId")
+        prior_status = prior.get("status")
+        status = row.get("status")
+        if status == prior_status:
+            if row != prior:
+                failures.append(f"{label}: unchanged status row mutated: {unit_id}")
+            continue
+        if status not in PROGRESS_TRANSITIONS.get(str(prior_status), set()):
+            failures.append(f"{label}: invalid committed transition {prior_status} -> {status}: {unit_id}")
+            continue
+        prior_time = None
+        if isinstance(prior.get("lastUpdatedUtc"), str):
+            try:
+                prior_time = datetime.fromisoformat(prior["lastUpdatedUtc"].replace("Z", "+00:00"))
+            except Exception:
+                failures.append(f"{label}: invalid prior update timestamp: {unit_id}")
+        try:
+            current_time = datetime.fromisoformat(str(row.get("lastUpdatedUtc")).replace("Z", "+00:00"))
+        except Exception:
+            failures.append(f"{label}: invalid transition timestamp: {unit_id}")
+            current_time = None
+        if prior_time is not None and current_time is not None and current_time <= prior_time:
+            failures.append(f"{label}: non-increasing transition timestamp: {unit_id}")
+
+        blind_fields = ("blindPath", "blindSha256", "blindUnitResultId")
+        comparison_fields = ("comparisonPath", "comparisonSha256")
+        result_fields = ("resultPath", "resultSha256")
+        if status == "blind-derived":
+            if not all(isinstance(row.get(key), str) and row.get(key) for key in blind_fields):
+                failures.append(f"{label}: blind transition lacks artifact fields: {unit_id}")
+            if any(row.get(key) is not None for key in comparison_fields + result_fields):
+                failures.append(f"{label}: blind transition has downstream fields: {unit_id}")
+        elif status == "compared":
+            if any(row.get(key) != prior.get(key) for key in blind_fields):
+                failures.append(f"{label}: compared transition changed blind fields: {unit_id}")
+            if not all(isinstance(row.get(key), str) and row.get(key) for key in comparison_fields):
+                failures.append(f"{label}: compared transition lacks comparison fields: {unit_id}")
+            if any(row.get(key) is not None for key in result_fields):
+                failures.append(f"{label}: compared transition has result fields: {unit_id}")
+        else:
+            if any(row.get(key) != prior.get(key) for key in blind_fields + comparison_fields):
+                failures.append(f"{label}: final transition changed upstream fields: {unit_id}")
+            if not all(isinstance(row.get(key), str) and row.get(key) for key in result_fields):
+                failures.append(f"{label}: final transition lacks result fields: {unit_id}")
+
+    status_counts = Counter(
+        row.get("status")
+        for row in current_rows
+        if isinstance(row, dict)
+    )
+    expected_counts = {
+        "total": len(unit_ids),
+        **{
+            count_key: status_counts.get(status, 0)
+            for status, count_key in STATUS_COUNT_KEYS.items()
+        },
+    }
+    if current.get("counts") != expected_counts:
+        failures.append(f"{label}: progress counts drift")
+    for key in ("manifestPath", "manifestSha256"):
+        if current.get(key) != previous.get(key):
+            failures.append(f"{label}: progress {key} changed")
+    return failures
+
+
+def validate_progress_history(
+    current: dict[str, Any],
+    unit_ids: list[str],
+    failures: list[str],
+    *,
+    allow_uncommitted_progress: bool,
+) -> None:
+    if not LOCK_PATH.is_file():
+        return
+    try:
+        lock = strict_load(LOCK_PATH)
+        baseline = lock["baselineCommit"]
+        relative = PROGRESS_PATH.relative_to(ROOT).as_posix()
+        baseline_bytes = git_bytes(ROOT, "show", f"{baseline}:{relative}")
+        if baseline_bytes.returncode != 0:
+            failures.append("progress history: baseline progress missing")
+            return
+        previous = strict_json_bytes(baseline_bytes.stdout)
+        history = git_bytes(
+            ROOT,
+            "rev-list",
+            "--first-parent",
+            "--reverse",
+            f"{baseline}..HEAD",
+            "--",
+            relative,
+        )
+        if history.returncode != 0:
+            failures.append("progress history: Git traversal failed")
+            return
+        commits = history.stdout.decode("ascii", errors="replace").split()
+        for commit in commits:
+            shown = git_bytes(ROOT, "show", f"{commit}:{relative}")
+            if shown.returncode != 0:
+                failures.append(f"progress history: progress missing at {commit}")
+                return
+            snapshot = strict_json_bytes(shown.stdout)
+            failures.extend(
+                progress_snapshot_failures(previous, snapshot, unit_ids, f"progress history {commit}")
+            )
+            previous = snapshot
+        if allow_uncommitted_progress:
+            failures.extend(
+                progress_snapshot_failures(previous, current, unit_ids, "uncommitted progress")
+            )
+        elif current != previous:
+            failures.append("progress history: current progress differs from first-parent history")
+    except Exception as exc:
+        failures.append(f"progress history validation failed: {exc}")
+
+
 def validate_blind(
     path: Path,
     validators: dict[str, Draft202012Validator],
-    manifest_ids: set[str],
+    manifest_units: dict[str, dict[str, Any]],
     failures: list[str],
     enforce_seals: bool = True,
     minimum_packet_preseal: str | None = None,
@@ -799,7 +1021,7 @@ def validate_blind(
         packet, packet_commit = validate_packet(
             packet_path,
             validators,
-            manifest_ids,
+            manifest_units,
             failures,
             enforce_seals=enforce_seals,
             minimum_preseal=minimum_packet_preseal,
@@ -852,13 +1074,23 @@ def validate_blind(
             add(failures, review.get("packetSha256") == blind.get("packetSha256"), f"{path}: completeness packet hash mismatch")
             add(failures, review.get("accepted") is True, f"{path}: packet completeness not accepted")
             add(failures, review.get("unresolvedMaterialFindingIds") == [], f"{path}: unresolved packet findings")
-            validate_reviewer(
+            completeness_response = validate_reviewer(
                 review.get("reviewer"),
                 failures,
                 f"{path}: completeness reviewer",
                 response_commit=review_commit,
                 prompt_commit=packet_commit,
                 enforce_seals=enforce_seals,
+            )
+            add(
+                failures,
+                completeness_response
+                == {
+                    "findings": review.get("findings"),
+                    "accepted": review.get("accepted"),
+                    "unresolvedMaterialFindingIds": review.get("unresolvedMaterialFindingIds"),
+                },
+                f"{path}: completeness response content differs from sealed review",
             )
             review_prompt = checked_file(
                 review.get("reviewer", {}).get("promptPath"),
@@ -916,9 +1148,11 @@ def validate_blind(
         prompt_commit=blind_commit,
         enforce_seals=enforce_seals,
     )
-    if blind_response:
-        add(failures, blind_response.get("promptPath") == blind.get("promptPath"), f"{path}: blind response prompt path mismatch")
-        add(failures, blind_response.get("promptSha256") == blind.get("promptSha256"), f"{path}: blind response prompt hash mismatch")
+    add(
+        failures,
+        blind_response == {"unitResults": blind.get("unitResults")},
+        f"{path}: blind response content differs from sealed derivation",
+    )
     if review:
         blind["__completenessReviewerIdentity"] = reviewer_identity(review.get("reviewer"))
         add(
@@ -1165,13 +1399,22 @@ def validate_comparison(
             f"{unit_id}: unknown {id_field}",
         )
 
-    validate_reviewer(
+    comparator_response = validate_reviewer(
         comparison.get("comparator"),
         failures,
         f"{unit_id}: comparator",
         response_commit=comparison_commit,
         prompt_commit=comparison_commit,
         enforce_seals=enforce_seals,
+    )
+    add(
+        failures,
+        comparator_response
+        == {
+            "auditUnitId": unit_id,
+            "comparison": body,
+        },
+        f"{unit_id}: comparator response content differs from sealed comparison",
     )
     add(
         failures,
@@ -1277,13 +1520,28 @@ def validate_result(
     severities = [row.get("severity") for row in discrepancies if isinstance(row, dict)]
     authority_override = any(row.get("authorityOverride") is True for row in discrepancies if isinstance(row, dict))
     hidden_default = any(row.get("hiddenDefault") is True for row in discrepancies if isinstance(row, dict))
+    blind_unit = next(
+        (
+            row
+            for row in blind.get("unitResults", [])
+            if isinstance(row, dict) and row.get("auditUnitId") == unit_id
+        ),
+        {},
+    )
+    derivation_source_blocked = blind_unit.get("derivationStatus") == "source-blocked"
+    if derivation_source_blocked:
+        add(
+            failures,
+            "blocked" in severities,
+            f"{unit_id}: source-blocked derivation lacks a blocked comparison row",
+        )
     status = result.get("status")
-    if "critical" in severities or authority_override or hidden_default:
+    if derivation_source_blocked or "blocked" in severities:
+        add(failures, status == "source-blocked", f"{unit_id}: blocked status mismatch")
+    elif "critical" in severities or authority_override or hidden_default:
         add(failures, status == "critical-error", f"{unit_id}: critical/authority/default status mismatch")
     elif "material" in severities:
         add(failures, status == "material-error", f"{unit_id}: material status mismatch")
-    elif "blocked" in severities:
-        add(failures, status == "source-blocked", f"{unit_id}: blocked status mismatch")
     elif all(severity in {"none", "minor"} for severity in severities):
         add(failures, status == "accepted", f"{unit_id}: clean status mismatch")
     else:
@@ -1302,13 +1560,23 @@ def validate_result(
         )
         if isinstance(review_id, str):
             verification_review_ids.add(review_id)
-        validate_reviewer(
+        verification_response = validate_reviewer(
             review.get("reviewer"),
             failures,
             f"{unit_id}: verification reviewer",
             response_commit=result_commit,
             prompt_commit=result_commit,
             enforce_seals=enforce_seals,
+        )
+        add(
+            failures,
+            verification_response
+            == {
+                key: value
+                for key, value in review.items()
+                if key != "reviewer"
+            },
+            f"{unit_id}: verification response content differs from sealed review",
         )
         identity = reviewer_identity(review.get("reviewer"))
         add(failures, identity != reviewer_identity(comparison.get("comparator")), f"{unit_id}: verification reviewer equals comparator")
@@ -1457,6 +1725,11 @@ def validate(
         bucket = coverage.setdefault(str(stratum), {"eligibleCandidates": candidate_count, "selectedUnits": 0})
         add(failures, bucket["eligibleCandidates"] == candidate_count, f"candidate count differs within stratum: {stratum}")
         bucket["selectedUnits"] += 1
+        add(
+            failures,
+            isinstance(row.get("extractionPath"), str) and bool(row.get("extractionPath")),
+            f"sampled component lacks comparison target: {row.get('auditUnitId')}",
+        )
         checked_file(row.get("sourcePath"), row.get("sourceSha256"), failures, f"selected source: {row.get('auditUnitId')}")
     add(failures, manifest.get("selectionCoverage") == dict(sorted(coverage.items())), "selection coverage drift")
 
@@ -1471,6 +1744,14 @@ def validate(
             }
             for relative, expected_hash in mapping.items():
                 checked_file(relative, expected_hash, failures, f"{section}: {relative}")
+    for row in units:
+        if not isinstance(row, dict) or row.get("unitClass") != "sampled-component-effect":
+            continue
+        add(
+            failures,
+            any(row.get("extractionPath") in mapping for mapping in reveal_hashes.values()),
+            f"sampled component target is not manifest-frozen: {row.get('auditUnitId')}",
+        )
     semantic_id_sets = load_semantic_id_sets(failures)
     lock_commit = validate_lock(manifest, failures, require_lock)
 
@@ -1538,7 +1819,7 @@ def validate(
                 blind, _, blind_commit = validate_blind(
                     blind_path,
                     validators,
-                    set(unit_ids),
+                    unit_map,
                     failures,
                     enforce_seals=enforce_seals,
                     minimum_packet_preseal=lock_commit,
@@ -1559,6 +1840,8 @@ def validate(
                 f"blind-derived unit has downstream artifact: {unit_id}",
             )
             add(failures, isinstance(row.get("lastUpdatedUtc"), str), f"{unit_id}: update timestamp missing")
+            if isinstance(row.get("lastUpdatedUtc"), str):
+                parse_time(row.get("lastUpdatedUtc"), failures, f"{unit_id}: progress update time")
             continue
 
         comparison_path = checked_file(
@@ -1593,6 +1876,8 @@ def validate(
                 f"compared unit has final adjudication: {unit_id}",
             )
             add(failures, isinstance(row.get("lastUpdatedUtc"), str), f"{unit_id}: update timestamp missing")
+            if isinstance(row.get("lastUpdatedUtc"), str):
+                parse_time(row.get("lastUpdatedUtc"), failures, f"{unit_id}: progress update time")
             continue
 
         result_path = checked_file(
@@ -1605,6 +1890,8 @@ def validate(
         if result_path and result_path.is_file() and blind and comparison:
             final_candidates.append((row, result_path, blind, comparison, comparison_commit))
         add(failures, isinstance(row.get("lastUpdatedUtc"), str), f"{unit_id}: update timestamp missing")
+        if isinstance(row.get("lastUpdatedUtc"), str):
+            parse_time(row.get("lastUpdatedUtc"), failures, f"{unit_id}: progress update time")
 
     if final_candidates and enforce_seals:
         add(
@@ -1646,6 +1933,14 @@ def validate(
                 result.get("status") == row.get("status"),
                 f"{unit_id}: progress/result status mismatch",
             )
+
+    if require_lock:
+        validate_progress_history(
+            progress,
+            unit_ids,
+            failures,
+            allow_uncommitted_progress=allow_uncommitted_progress,
+        )
 
     declared = progress.get("counts", {})
     add(failures, declared.get("total") == 140, "progress declared total")

@@ -27,7 +27,11 @@ def canonical_repo_file(path: Path, parent: Path) -> Path:
     except ValueError as exc:
         raise ValueError(f"path escapes repository: {path}") from exc
     lexical = PurePosixPath(relative.as_posix())
-    if lexical.is_absolute() or any(part in {".", ".."} for part in lexical.parts):
+    if (
+        "\\" in relative.as_posix()
+        or lexical.is_absolute()
+        or any(part in {".", ".."} for part in lexical.parts)
+    ):
         raise ValueError(f"noncanonical path: {path}")
     current = ROOT
     for part in lexical.parts:

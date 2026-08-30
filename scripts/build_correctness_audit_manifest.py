@@ -346,6 +346,8 @@ def generic_family_sample(
 ) -> list[dict[str, Any]]:
     data = load_json(index_path)
     candidates = unique_source_effects(data[rows_key], family, id_field, label)
+    for row in candidates:
+        row["extractionPath"] = index_path
     return select(candidates, count, f"{family}:unique-source-effect")
 
 
@@ -378,6 +380,8 @@ def item_sample() -> list[dict[str, Any]]:
         candidates = unique_source_effects(
             data["faces"], family, id_field, lambda row: row["printedTitle"]
         )
+        for row in candidates:
+            row["extractionPath"] = path
         result += select(candidates, 2, f"item:{family}:unique-source-effect")
     return result
 
@@ -605,6 +609,10 @@ def component_units() -> list[dict[str, Any]]:
     units += equipment_sample()
     require(len(units) == 56, f"expected 56 units, found {len(units)}")
     require(len({row["auditUnitId"] for row in units}) == 56, "duplicate 56-unit audit ID")
+    require(
+        all(isinstance(row.get("extractionPath"), str) and row["extractionPath"] for row in units),
+        "sampled component unit lacks a comparison target",
+    )
     return units
 
 
@@ -813,6 +821,22 @@ def validate_progress_transition(
     if prior_manifest.get("auditVersion") != AUDIT_VERSION:
         raise SystemExit("--refresh-pending-progress is only valid for an existing v2 manifest")
     existing = json.loads(existing_bytes, object_pairs_hook=strict_pairs)
+    expected_top_keys = {
+        "schemaVersion",
+        "recordType",
+        "manifestPath",
+        "manifestSha256",
+        "counts",
+        "units",
+    }
+    if set(existing) != expected_top_keys:
+        raise SystemExit("existing v2 progress top-level fields drift")
+    if existing.get("schemaVersion") != 2:
+        raise SystemExit("existing v2 progress schemaVersion drift")
+    if existing.get("recordType") != "stage-1-correctness-audit-progress":
+        raise SystemExit("existing v2 progress recordType drift")
+    if existing.get("manifestPath") != str(OUTPUT.relative_to(ROOT)):
+        raise SystemExit("existing v2 progress manifestPath drift")
     expected_ids = [row["auditUnitId"] for row in prior_manifest.get("units", [])]
     existing_rows = existing.get("units", [])
     allowed_row_keys = {
@@ -832,8 +856,8 @@ def validate_progress_transition(
     if [row.get("auditUnitId") for row in existing_rows] != expected_ids:
         raise SystemExit("existing v2 progress IDs/order differ from the prior manifest")
     for row in existing_rows:
-        if not isinstance(row, dict) or not set(row).issubset(allowed_row_keys):
-            raise SystemExit("existing v2 progress has unknown row fields")
+        if not isinstance(row, dict) or set(row) != allowed_row_keys:
+            raise SystemExit("existing v2 progress row fields drift")
         if row.get("status") != "pending-blind-derivation":
             raise SystemExit("refusing to refresh v2 after any unit left pending")
         if row.get("lastUpdatedUtc") is not None:

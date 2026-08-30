@@ -78,9 +78,9 @@
     "docs/rules/02-character-actions.md": "23ea1a64db030f950ac3ffe9d20408f98638f1bf2bf20fb1ad56edd144b8ef91",
     "docs/rules/03-intruders-and-survival.md": "9579307494e97e0d5e2796a719bb60ca5f4ffe2970a37ee4e41fd6d473ba7bc7",
     "docs/rules/04-items-and-equipment.md": "b7b0d7aa8970bfe83184188cd301be6e28272bdfc31d42c259a1e0591136ee9c",
-    "docs/qa/implementation-readiness/correctness-audit/methodology.md": "f2d60a0a1b9e92b4e01d93adae004f2d2a9a77a51caf6be4253b340f36dc2d8e",
+    "docs/qa/implementation-readiness/correctness-audit/methodology.md": "9491afd0d6948b7359743bc27c9badc130ae3a5b48f42b746c4546bfc5a2a7e7",
     "docs/rules/implementation-readiness.md": "eb3c8b5ce7001245aabd6a3125f12e5a549ee264cb606ebbb926ded6626eba16",
-    "scripts/build_correctness_audit_manifest.py": "7cc5a7d091fd5c44a72a7fc75cec57895cd0766493fbe6466eb6ec672fd97e03",
+    "scripts/build_correctness_audit_manifest.py": "f487cd8f5fd93be9979e968137b3cb6a4b44f626101ee2a578594f427a738e44",
     "docs/rulebooks/Nemesis_RT_FAQ_v1.2.pdf": "611ae20dc0b3e04f3c0d99f294a92fc95460c042565b12d1c808b1282ae0e0d8",
     "docs/rules/source-extraction/faq-v1.2-source-extraction.json": "fe5adc438355a046ecfbd9d9a88e9433427fcc49a36479a6b5d29c66687b7ced",
     "docs/rules/source-extraction/room-help-sheet.json": "ad3d6bb66de939fe1036ecca3fc8d8d9b41fe41e1065f7bd9611df8263480177",
@@ -1514,6 +1514,7 @@
       "sourceSha256": "0d5da2c8e1b6ccb6a30c83f9006aa924f4fc2f1f14d360d153bc5ea6f73770ed",
       "status": "pending-blind-derivation",
       "identicalPhysicalCopies": 1,
+      "extractionPath": "docs/rules/semantics/event-source-index.json",
       "selection": {
         "method": "lowest SHA-256 rank",
         "stratum": "event:unique-source-effect",
@@ -1531,6 +1532,7 @@
       "sourceSha256": "592afbb981cdb9bcae45812d38285a7e7cc1dd41bb21446861d51d000e9b0070",
       "status": "pending-blind-derivation",
       "identicalPhysicalCopies": 1,
+      "extractionPath": "docs/rules/semantics/event-source-index.json",
       "selection": {
         "method": "lowest SHA-256 rank",
         "stratum": "event:unique-source-effect",
@@ -1548,6 +1550,7 @@
       "sourceSha256": "cdf03513025769517d9a0e05ac3881120176a1d506db118fd3db50b6c82d9762",
       "status": "pending-blind-derivation",
       "identicalPhysicalCopies": 1,
+      "extractionPath": "docs/rules/semantics/event-source-index.json",
       "selection": {
         "method": "lowest SHA-256 rank",
         "stratum": "event:unique-source-effect",
@@ -1565,6 +1568,7 @@
       "sourceSha256": "85d08e0de5b2710ed0e1ac0295ed27da3b4d0da9eb2419aa0f0093d94f1b70d5",
       "status": "pending-blind-derivation",
       "identicalPhysicalCopies": 1,
+      "extractionPath": "docs/rules/semantics/event-source-index.json",
       "selection": {
         "method": "lowest SHA-256 rank",
         "stratum": "event:unique-source-effect",
@@ -1582,6 +1586,7 @@
       "sourceSha256": "549bb22b017b6df982c3378f613294969d7043a1a87a1e4b4f5d704308d2ceb0",
       "status": "pending-blind-derivation",
       "identicalPhysicalCopies": 1,
+      "extractionPath": "docs/rules/semantics/exploration-source-index.json",
       "selection": {
         "method": "lowest SHA-256 rank",
         "stratum": "exploration:unique-source-effect",
@@ -1599,6 +1604,7 @@
       "sourceSha256": "daf8fb6f2bc9836bf7d457acf909fdd033aa55e182308e61b2d59e952bbced7c",
       "status": "pending-blind-derivation",
       "identicalPhysicalCopies": 1,
+      "extractionPath": "docs/rules/semantics/exploration-source-index.json",
       "selection": {
         "method": "lowest SHA-256 rank",
         "stratum": "exploration:unique-source-effect",
@@ -1616,6 +1622,7 @@
       "sourceSha256": "3101f9f9a5df9d01aa07073837412496355c63df94216ab1550abc6a21221516",
       "status": "pending-blind-derivation",
       "identicalPhysicalCopies": 1,
+      "extractionPath": "docs/rules/semantics/exploration-source-index.json",
       "selection": {
         "method": "lowest SHA-256 rank",
         "stratum": "exploration:unique-source-effect",
@@ -1633,6 +1640,7 @@
       "sourceSha256": "e613b1e23d25d91e1fe5ccfe925426396c0866c5a36cba91a69dcdb493f2b2a6",
       "status": "pending-blind-derivation",
       "identicalPhysicalCopies": 1,
+      "extractionPath": "docs/rules/semantics/robot-source-index.json",
       "selection": {
         "method": "lowest SHA-256 rank",
         "stratum": "robot:unique-source-effect",
@@ -1650,6 +1658,7 @@
       "sourceSha256": "db583cb973497fd2fba3b588d233d7c79db48e30d51e3cb0a4483524aa89fbbb",
       "status": "pending-blind-derivation",
       "identicalPhysicalCopies": 1,
+      "extractionPath": "docs/rules/semantics/robot-source-index.json",
       "selection": {
         "method": "lowest SHA-256 rank",
         "stratum": "robot:unique-source-effect",
@@ -1701,6 +1710,7 @@
       "sourceSha256": "ce7a5fba88dd56f5de2ae77e5fe1647324bdfa9a99ae7f55485cca35eb72b062",
       "status": "pending-blind-derivation",
       "identicalPhysicalCopies": 1,
+      "extractionPath": "docs/rules/semantics/queen-health-source-index.json",
       "selection": {
         "method": "lowest SHA-256 rank",
         "stratum": "queen-health:unique-source-effect",
@@ -1718,6 +1728,7 @@
       "sourceSha256": "fc04bf1a2920fb63ac512d209622b591cdc9f3cb9ca292c97bf874fcddbbd5c8",
       "status": "pending-blind-derivation",
       "identicalPhysicalCopies": 1,
+      "extractionPath": "docs/rules/semantics/queen-health-source-index.json",
       "selection": {
         "method": "lowest SHA-256 rank",
         "stratum": "queen-health:unique-source-effect",
@@ -1735,6 +1746,7 @@
       "sourceSha256": "42980fa5cef70e8ed40649d1495fc75c015c43f60ebb52961031d18f8f3e1564",
       "status": "pending-blind-derivation",
       "identicalPhysicalCopies": 3,
+      "extractionPath": "docs/rules/semantics/serious-wound-source-index.json",
       "selection": {
         "method": "lowest SHA-256 rank",
         "stratum": "serious-wound:unique-source-effect",
@@ -1752,6 +1764,7 @@
       "sourceSha256": "b485840032e9abcaeec0bf614e7df0e5487aa52d43005615eeb6950aed44f09f",
       "status": "pending-blind-derivation",
       "identicalPhysicalCopies": 3,
+      "extractionPath": "docs/rules/semantics/serious-wound-source-index.json",
       "selection": {
         "method": "lowest SHA-256 rank",
         "stratum": "serious-wound:unique-source-effect",
@@ -1769,6 +1782,7 @@
       "sourceSha256": "16941a0010c6dca8e2114c2c3a091649df27d88ab4b52883e9a7b8326cd3de57",
       "status": "pending-blind-derivation",
       "identicalPhysicalCopies": 3,
+      "extractionPath": "docs/rules/semantics/green-item-source-index.json",
       "selection": {
         "method": "lowest SHA-256 rank",
         "stratum": "item:green-item:unique-source-effect",
@@ -1786,6 +1800,7 @@
       "sourceSha256": "612e58e8d7efb308d09796e5ebb446cc2cd8b3ca94f8896a5e430756c1895b7d",
       "status": "pending-blind-derivation",
       "identicalPhysicalCopies": 3,
+      "extractionPath": "docs/rules/semantics/green-item-source-index.json",
       "selection": {
         "method": "lowest SHA-256 rank",
         "stratum": "item:green-item:unique-source-effect",
@@ -1803,6 +1818,7 @@
       "sourceSha256": "3eef2e9fb435151291841b16a1785b5ac98f999c09bcb9f9c5a03b7b61d83ab1",
       "status": "pending-blind-derivation",
       "identicalPhysicalCopies": 5,
+      "extractionPath": "docs/rules/semantics/red-item-source-index.json",
       "selection": {
         "method": "lowest SHA-256 rank",
         "stratum": "item:red-item:unique-source-effect",
@@ -1820,6 +1836,7 @@
       "sourceSha256": "e149151bec4cb0d41875581b66864e5f2dd1465e169158ff46ce62f7aedc7c91",
       "status": "pending-blind-derivation",
       "identicalPhysicalCopies": 1,
+      "extractionPath": "docs/rules/semantics/red-item-source-index.json",
       "selection": {
         "method": "lowest SHA-256 rank",
         "stratum": "item:red-item:unique-source-effect",
@@ -1837,6 +1854,7 @@
       "sourceSha256": "2a1f1d0a0fd3b20522cb04489d624d35a69e5e240ec4c3e768bd705271f442f2",
       "status": "pending-blind-derivation",
       "identicalPhysicalCopies": 5,
+      "extractionPath": "docs/rules/semantics/yellow-item-source-index.json",
       "selection": {
         "method": "lowest SHA-256 rank",
         "stratum": "item:yellow-item:unique-source-effect",
@@ -1854,6 +1872,7 @@
       "sourceSha256": "1b05382453304c010a438486105a4e49a4a4f0ed6f8a86576bbd446014fc1e01",
       "status": "pending-blind-derivation",
       "identicalPhysicalCopies": 8,
+      "extractionPath": "docs/rules/semantics/yellow-item-source-index.json",
       "selection": {
         "method": "lowest SHA-256 rank",
         "stratum": "item:yellow-item:unique-source-effect",

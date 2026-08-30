@@ -37,9 +37,9 @@ Deterministic rank prevents outcome-driven choice **inside declared strata**; it
 - Intruder Attack samples two of twenty source occurrences and is not guaranteed to contain two variants of one title.
 - Two of eight Equipment/Starting Item slots are reserved for known-hard source/class boundaries.
 
-After setup validation, the harness is committed once, then `audit-lock.json` is introduced in the immediate direct-child commit. It binds the manifest and immutable harness files to the baseline commit. The validator verifies that the starting HEAD and baseline remain ancestors, immutable file bytes equal the baseline, and the lock itself is unchanged from that direct-child commit. Any change requires a new audit version and an explicit disposition of the old audit.
+After setup validation, the harness is committed once, then `audit-lock.json` is introduced in the immediate direct-child commit. It binds the manifest and immutable harness files to the baseline commit. The locked set closes over every prelock file under `correctness-audit/reviews/` automatically, while excluding the separately sealed post-lock lane root `reviews/raw/`; a late final review file therefore cannot be omitted by forgetting to edit a static list. The validator verifies that the starting HEAD and baseline remain ancestors, immutable file bytes equal the baseline, and the lock itself is unchanged from that direct-child commit. Any change requires a new audit version and an explicit disposition of the old audit.
 
-For every later lane artifact, `sealedAtGitHead` means the immediate **pre-seal** HEAD, not the commit containing the artifact. The validator derives the seal commit as the first non-merge, first-parent direct child of that HEAD; the versioned artifact path must be absent before the seal and its current bytes must equal the bytes introduced there. Each next lane must follow the preceding lane's derived seal commit. Packet visuals and the canonical completeness prompt are committed with the packet; the completeness response and review are committed next; the canonical blind prompt, response, and derivation follow; comparison prompt/response and comparison follow in Lane C; verification prompts/responses, repair proof, and final adjudication follow separately in Lane D.
+For every later lane artifact, `sealedAtGitHead` means the immediate **pre-seal** HEAD, not the commit containing the artifact. The validator derives the seal commit as the first non-merge, first-parent direct child of that HEAD; the versioned artifact path must be absent before the seal and its current bytes must equal the bytes introduced there. Artifacts at the same dependency level may and, for a multi-unit wave, must share one wave seal commit by declaring the same pre-seal HEAD; seal commits are not required to be distinct per artifact. No later commit may introduce another artifact while claiming the earlier pre-seal HEAD, and no merge commit is permitted anywhere after the v2 baseline. Each dependent lane follows the preceding wave's derived seal commit. Packet visuals and canonical completeness prompts are committed with the packet wave; completeness responses and reviews are committed in the next wave; canonical blind prompts, responses, and derivations follow; comparison prompts/responses and all comparisons follow in Lane C; verification prompts/responses, repair proof, and final adjudications follow separately in Lane D.
 
 ## Lane A — sealed source-only packet
 
@@ -72,6 +72,8 @@ Every packet records nonempty:
 - component/visual channels checked;
 - exclusions and their reasons;
 - applicable FAQ units checked, where any exist.
+
+For every FAQ or sampled component unit whose manifest row pins `sourcePath` and `sourceSha256`, at least one evidence row assigned to that exact unit must use that exact manifest source tuple. Other allowed adjacent, overriding, or negative evidence may be added, but unrelated allowed source evidence cannot satisfy the selected unit's direct-source binding.
 
 A separate source-only critic reviews the packet under `packet-completeness-review.schema.json`. The validator reconciles every unresolved material/critical finding against `unresolvedMaterialFindingIds`; `accepted` must be false whenever that set is nonempty. The packet is eligible for derivation only when the review is accepted and has no unresolved material finding. The packet and completeness review carry hashes, UTC seal times, and Git HEADs. Every reviewer kind, including agent and human reviewers, records hash-pinned prompt and response artifacts.
 
@@ -133,7 +135,7 @@ A reviewer different from the completeness reviewer, blind reviewer, and compara
 - every preserved ambiguity or conflict disposition;
 - a deterministic sample of otherwise clean matches.
 
-All 140 comparisons must be sealed before any final adjudication. The validator requires every comparison commit to be an ancestor of each adjudication pre-seal. Once all comparisons exist, `evaluate_correctness_audit.py` publishes the clean-match sample locked by `SHA-256("nemesis-stage1-lane-d-match-v1|" + auditUnitId)`:
+All 140 comparison artifacts must be sealed before any final adjudication. They use the common Lane C pre-seal HEAD and may share the single Lane C wave seal commit; the validator requires that derived comparison seal commit to be an ancestor of every adjudication pre-seal. Once all comparisons exist, `evaluate_correctness_audit.py` publishes the clean-match sample locked by `SHA-256("nemesis-stage1-lane-d-match-v1|" + auditUnitId)`:
 
 - six clean concise-rule matches;
 - three clean FAQ matches;
@@ -156,6 +158,17 @@ Several units may share one call only when:
 - source-family batching does not expose downstream conclusions.
 
 Component visuals are read only through the verified native Sol Max workflow when a fresh visual read is needed. Existing independently validated source-bound transcriptions may be supplied, but their literal/source role must remain explicit.
+
+## Isolated-worktree source provisioning
+
+Git worktrees do not carry the gitignored official PDFs or extracted component bytes. Before a repository-aware worker runs the audit/source checks in an isolated worktree, stage those source-only trees from the explicit local source checkout and verify them byte-for-byte:
+
+```bash
+python3 scripts/stage_correctness_audit_sources.py --source-root /home/smithers/nemesis-retaliation
+python3 scripts/stage_correctness_audit_sources.py --source-root /home/smithers/nemesis-retaliation --check
+```
+
+The helper copies only `docs/rulebooks/` and `assets/tts-mod/extract/`, rejects every symlink component, verifies each file with SHA-256, and leaves tracked repository files unchanged. Missing sources are a worker-environment blocker, not permission to weaken a validator or substitute another source. Blind-derivation workspaces remain repository-free and receive only the accepted sealed packet, fixed prompt, and blind schema; they never receive these trees.
 
 ## Severity and recurring patterns
 
@@ -206,7 +219,7 @@ pending-blind-derivation -> blind-derived -> compared -> final
 
 Final is one of `accepted`, `material-error`, `critical-error`, or `source-blocked`.
 
-Use `scripts/advance_correctness_audit_progress.py`; direct manual status edits are prohibited. The updater rejects skipped transitions, verifies artifact containment and hashes, updates counts/timestamps, runs the complete validator, and rolls back on failure. Git checkpoints preserve the transition history.
+Use `scripts/advance_correctness_audit_progress.py`; direct manual status edits are prohibited. The updater rejects skipped transitions, verifies artifact containment and hashes, updates counts/timestamps, runs the complete validator, and rolls back on failure. Git checkpoints preserve the transition history. After the lock exists, the validator replays every first-parent `progress.json` snapshot from the baseline, rejects merges, requires exact row shapes and one-step transitions, preserves unchanged rows byte-for-byte, and enforces increasing transition timestamps and stage-appropriate artifact fields.
 
 ## Required commands
 
@@ -216,6 +229,16 @@ Before the baseline lock exists:
 uv run --isolated --with-requirements docs/qa/implementation-readiness/correctness-audit/requirements-audit.txt \
   python3 scripts/validate_correctness_audit.py --prelock
 ```
+
+After the final reviewed baseline commit is clean and all 140 progress rows are still pending, create the lock file, stage only that file, and commit it as the baseline's immediate direct child:
+
+```bash
+python3 scripts/create_correctness_audit_lock.py
+git add docs/qa/implementation-readiness/correctness-audit/audit-lock.json
+git commit -m "chore: lock Stage 1 v2 correctness audit"
+```
+
+Then run the full validator without `--prelock`; it derives and verifies that direct-child lock commit. Do not place another commit between the baseline and lock, and do not stage the protected or unrelated worktree state.
 
 After `audit-lock.json` is committed, omit `--prelock`.
 

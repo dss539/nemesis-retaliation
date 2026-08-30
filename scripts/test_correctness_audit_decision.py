@@ -67,6 +67,53 @@ class DecisionTests(unittest.TestCase):
         self.assertEqual(decision["decision"], "fail-or-escalate")
         self.assertTrue(decision["fullAuditEscalationRequired"])
 
+    def test_blocked_and_critical_discrepancies_cannot_be_masked_by_status(self) -> None:
+        progress, results = clean_fixture()
+        first = MANIFEST["units"][0]["auditUnitId"]
+        second = MANIFEST["units"][1]["auditUnitId"]
+        results[first]["status"] = "material-error"
+        results[first]["__comparison"]["discrepancies"] = [
+            {
+                "discrepancyId": "D-MATERIAL",
+                "classification": "downstream-omission",
+                "severity": "material",
+                "rootCauseId": "RC-MATERIAL",
+                "authorityOverride": False,
+                "hiddenDefault": False,
+            },
+            {
+                "discrepancyId": "D-BLOCKED",
+                "classification": "transcription-or-packet-gap",
+                "severity": "blocked",
+                "rootCauseId": None,
+                "authorityOverride": False,
+                "hiddenDefault": False,
+            },
+        ]
+        results[second]["status"] = "source-blocked"
+        results[second]["__comparison"]["discrepancies"] = [
+            {
+                "discrepancyId": "D-CRITICAL",
+                "classification": "downstream-omission",
+                "severity": "critical",
+                "rootCauseId": "RC-CRITICAL",
+                "authorityOverride": False,
+                "hiddenDefault": False,
+            },
+            {
+                "discrepancyId": "D-BLOCKED-2",
+                "classification": "transcription-or-packet-gap",
+                "severity": "blocked",
+                "rootCauseId": None,
+                "authorityOverride": False,
+                "hiddenDefault": False,
+            },
+        ]
+        decision = target.evaluate_records(MANIFEST, progress, results)
+        self.assertEqual(decision["failures"]["sourceBlockedUnits"], [first, second])
+        self.assertEqual(decision["failures"]["criticalErrors"], [second])
+        self.assertTrue(decision["fullAuditEscalationRequired"])
+
     def test_three_component_material_errors_exceed_limit(self) -> None:
         progress, results = clean_fixture()
         units = [row for row in MANIFEST["units"] if row["unitClass"] == "sampled-component-effect"][:3]

@@ -155,6 +155,15 @@ def evaluate_records(
         for row in result["__comparison"]["discrepancies"]:
             if not valid_classification_severity(row):
                 invalid_classification_units.add(unit_id)
+            if row["severity"] == "critical":
+                critical_units.add(unit_id)
+            elif row["severity"] == "material":
+                if unit["unitClass"] == "sampled-component-effect":
+                    material_component_units.add(unit_id)
+                else:
+                    unresolved_core_material_units.add(unit_id)
+            elif row["severity"] == "blocked":
+                source_blocked_units.add(unit_id)
             if row["authorityOverride"]:
                 authority_units.add(unit_id)
             if row["hiddenDefault"]:

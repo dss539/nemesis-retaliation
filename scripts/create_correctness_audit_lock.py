@@ -5,7 +5,9 @@ from __future__ import annotations
 
 import hashlib
 import json
+import shutil
 import subprocess
+import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -13,7 +15,8 @@ AUDIT = ROOT / "docs/qa/implementation-readiness/correctness-audit"
 LOCK = AUDIT / "audit-lock.json"
 MANIFEST = AUDIT / "manifest.json"
 PROGRESS = AUDIT / "progress.json"
-LOCKED_FILES = [
+REQUIREMENTS = AUDIT / "requirements-audit.txt"
+STATIC_LOCKED_FILES = [
     "docs/qa/implementation-readiness/correctness-audit/audit-lock-v1.json",
     "docs/qa/implementation-readiness/correctness-audit/baseline-v1-supersession.md",
     "docs/qa/implementation-readiness/correctness-audit/manifest.json",
@@ -41,12 +44,27 @@ LOCKED_FILES = [
     "docs/qa/implementation-readiness/correctness-audit/reviews/deepseek-v4-pro-0813-max-setup-rereview.json",
     "docs/qa/implementation-readiness/correctness-audit/reviews/glm-5.3-max-setup-rereview.json",
     "docs/qa/implementation-readiness/correctness-audit/reviews/setup-rereview-disposition.md",
+    "docs/qa/implementation-readiness/correctness-audit/reviews/setup-v2-deepseek-controls-prompt.txt",
+    "docs/qa/implementation-readiness/correctness-audit/reviews/setup-v2-focused-deepseek-prompt.txt",
+    "docs/qa/implementation-readiness/correctness-audit/reviews/setup-v2-focused-glm-prompt.txt",
+    "docs/qa/implementation-readiness/correctness-audit/reviews/setup-v2-glm-provenance-prompt.txt",
+    "docs/qa/implementation-readiness/correctness-audit/reviews/setup-v2-micro-glm-prompt.txt",
+    "docs/qa/implementation-readiness/correctness-audit/reviews/deepseek-v4-pro-0813-max-setup-v2-controls.json",
+    "docs/qa/implementation-readiness/correctness-audit/reviews/deepseek-v4-pro-0813-max-setup-v2-focused.json",
+    "docs/qa/implementation-readiness/correctness-audit/reviews/glm-5.3-max-setup-v2-focused.json",
+    "docs/qa/implementation-readiness/correctness-audit/reviews/glm-5.3-max-setup-v2-micro.json",
+    "docs/qa/implementation-readiness/correctness-audit/reviews/glm-5.3-max-setup-v2-provenance.json",
+    "docs/qa/implementation-readiness/correctness-audit/reviews/setup-v2-lock-creator-deepseek-prompt.txt",
+    "docs/qa/implementation-readiness/correctness-audit/reviews/deepseek-v4-pro-0813-max-setup-v2-lock-creator.json",
+    "docs/qa/implementation-readiness/correctness-audit/reviews/deepseek-v4-pro-0813-max-setup-v2-lock-creator-retry.json",
+    "docs/qa/implementation-readiness/correctness-audit/reviews/prelock-review-candidate-1-disposition.md",
     "scripts/advance_correctness_audit_progress.py",
     "scripts/build_correctness_audit_prompt.py",
     "scripts/build_correctness_audit_manifest.py",
     "scripts/create_correctness_audit_lock.py",
     "scripts/evaluate_correctness_audit.py",
     "scripts/run_ollama_audit_review.py",
+    "scripts/stage_correctness_audit_sources.py",
     "scripts/test_correctness_audit_decision.py",
     "scripts/test_correctness_audit_mutations.py",
     "scripts/validate_correctness_audit.py",
@@ -58,6 +76,18 @@ LANE_OUTPUT_ROOTS = [
     "docs/qa/implementation-readiness/correctness-audit/adjudications",
     "docs/qa/implementation-readiness/correctness-audit/reviews/raw",
 ]
+
+
+def required_locked_files(*, root: Path = ROOT) -> list[str]:
+    reviews_root = root / "docs/qa/implementation-readiness/correctness-audit/reviews"
+    review_files = []
+    if reviews_root.is_dir():
+        for path in reviews_root.rglob("*"):
+            if path == reviews_root / "raw" or (reviews_root / "raw") in path.parents:
+                continue
+            if path.is_file() or path.is_symlink():
+                review_files.append(path.relative_to(root).as_posix())
+    return sorted(set(STATIC_LOCKED_FILES) | set(review_files))
 
 
 def sha(path: Path) -> str:
@@ -84,6 +114,29 @@ def historical_lane_files(starting: str, baseline: str, *, root: Path = ROOT) ->
             if row
         }
     )
+
+
+def starting_head_failures(starting: str, baseline: str, *, root: Path = ROOT) -> list[str]:
+    failures: list[str] = []
+    if git("cat-file", "-e", f"{starting}^{{commit}}", root=root).returncode != 0:
+        failures.append("lockedStartingHead is not a Git commit")
+        return failures
+    if git("merge-base", "--is-ancestor", starting, baseline, root=root).returncode != 0:
+        failures.append("lockedStartingHead is not an ancestor of baseline")
+    return failures
+
+
+def prelock_validation_command(uv_executable: str) -> list[str]:
+    return [
+        uv_executable,
+        "run",
+        "--isolated",
+        "--with-requirements",
+        str(REQUIREMENTS),
+        "python3",
+        str(ROOT / "scripts/validate_correctness_audit.py"),
+        "--prelock",
+    ]
 
 
 def main() -> int:
@@ -122,8 +175,11 @@ def main() -> int:
     if builder_check.returncode != 0:
         raise SystemExit("manifest builder check failed:\n" + builder_check.stdout + builder_check.stderr)
 
+    uv_executable = shutil.which("uv")
+    if uv_executable is None:
+        raise SystemExit("uv is required for isolated correctness-audit validation")
     prelock = subprocess.run(
-        [sys.executable, str(ROOT / "scripts/validate_correctness_audit.py"), "--prelock"],
+        prelock_validation_command(uv_executable),
         cwd=ROOT,
         text=True,
         capture_output=True,
@@ -132,7 +188,11 @@ def main() -> int:
         raise SystemExit("clean pre-lock validation failed:\n" + prelock.stdout + prelock.stderr)
 
     manifest = json.loads(MANIFEST.read_text(encoding="utf-8"))
-    lane_history = historical_lane_files(manifest["lockedStartingHead"], baseline)
+    starting = str(manifest.get("lockedStartingHead", ""))
+    starting_failures = starting_head_failures(starting, baseline)
+    if starting_failures:
+        raise SystemExit("; ".join(starting_failures))
+    lane_history = historical_lane_files(starting, baseline)
     if lane_history:
         raise SystemExit(
             "lane artifacts appeared in Git history before the v2 baseline: "
@@ -142,10 +202,10 @@ def main() -> int:
     if any(row["status"] != "pending-blind-derivation" for row in progress["units"]):
         raise SystemExit("audit lock must be created before the first derivation")
     locked: dict[str, str] = {}
-    for relative in LOCKED_FILES:
+    for relative in required_locked_files():
         path = ROOT / relative
-        if not path.is_file():
-            raise SystemExit(f"locked file missing: {relative}")
+        if not path.is_file() or path.is_symlink():
+            raise SystemExit(f"locked file missing, non-regular, or symlinked: {relative}")
         current = path.read_bytes()
         shown = git("show", f"{baseline}:{relative}", text=False)
         if shown.returncode != 0:

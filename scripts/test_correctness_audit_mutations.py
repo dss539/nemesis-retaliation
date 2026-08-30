@@ -17,6 +17,8 @@ from pathlib import Path
 
 import validate_correctness_audit as target
 import create_correctness_audit_lock as lock_target
+import build_correctness_audit_manifest as manifest_target
+import build_correctness_audit_prompt as prompt_target
 
 ROOT = target.ROOT
 AUDIT_DIR = target.AUDIT_DIR
@@ -282,7 +284,7 @@ class Harness:
         })
         self.progress["counts"]["pendingBlindDerivation"] -= 1
         self.progress["counts"]["accepted"] += 1
-        self.write_inputs()
+        self.resign_packet_chain()
 
     def make_reviewer(self, name: str) -> dict[str, object]:
         prompt = self.comparison_dir / f"{name}-prompt.txt"
@@ -290,6 +292,15 @@ class Harness:
         prompt.write_text(f"Review fixture as {name}.\n", encoding="utf-8")
         dump(response, {"reviewer": name, "result": "fixture"})
         return reviewer(name, prompt, response)
+
+    def write_reviewer_response(
+        self,
+        reviewer_record: dict[str, object],
+        payload: dict[str, object],
+    ) -> None:
+        response_path = ROOT / str(reviewer_record["responsePath"])
+        dump(response_path, payload)
+        reviewer_record["responseSha256"] = sha(response_path)
 
     def write_inputs(self) -> None:
         dump(self.manifest_path, self.manifest)
@@ -304,6 +315,14 @@ class Harness:
             )
         self.review["packetSha256"] = sha(self.packet_path)
         self.review["reviewer"]["promptSha256"] = sha(self.completeness_prompt_path)
+        self.write_reviewer_response(
+            self.review["reviewer"],
+            {
+                "findings": self.review["findings"],
+                "accepted": self.review["accepted"],
+                "unresolvedMaterialFindingIds": self.review["unresolvedMaterialFindingIds"],
+            },
+        )
         dump(self.review_path, self.review)
         if canonicalize_prompts:
             self.prompt_path.write_bytes(
@@ -313,6 +332,44 @@ class Harness:
         self.blind["completenessReviewSha256"] = sha(self.review_path)
         self.blind["promptSha256"] = sha(self.prompt_path)
         self.blind["reviewer"]["promptSha256"] = sha(self.prompt_path)
+        self.write_reviewer_response(
+            self.blind["reviewer"],
+            {"unitResults": self.blind["unitResults"]},
+        )
+        dump(self.blind_path, self.blind)
+        self.comparison["blindDerivationRef"]["sha256"] = sha(self.blind_path)
+        self.comparison["comparator"]["promptSha256"] = sha(self.comparator_prompt_path)
+        self.write_reviewer_response(
+            self.comparison["comparator"],
+            {
+                "auditUnitId": self.comparison["auditUnitId"],
+                "comparison": self.comparison["comparison"],
+            },
+        )
+        dump(self.comparison_path, self.comparison)
+        self.result["comparisonRef"]["sha256"] = sha(self.comparison_path)
+        for review in self.result.get("verificationReviews", []):
+            if not isinstance(review, dict) or not isinstance(review.get("reviewer"), dict):
+                continue
+            reviewer_record = review["reviewer"]
+            prompt_path = ROOT / str(reviewer_record["promptPath"])
+            reviewer_record["promptSha256"] = sha(prompt_path)
+            self.write_reviewer_response(
+                reviewer_record,
+                {
+                    key: value
+                    for key, value in review.items()
+                    if key != "reviewer"
+                },
+            )
+        dump(self.result_path, self.result)
+        row = self.progress["units"][0]
+        row["blindSha256"] = sha(self.blind_path)
+        row["comparisonSha256"] = sha(self.comparison_path)
+        row["resultSha256"] = sha(self.result_path)
+        self.write_inputs()
+
+    def resign_from_blind(self) -> None:
         dump(self.blind_path, self.blind)
         self.comparison["blindDerivationRef"]["sha256"] = sha(self.blind_path)
         dump(self.comparison_path, self.comparison)
@@ -375,6 +432,50 @@ class ArtifactSealGitTests(unittest.TestCase):
         self.git("commit", "-q", "-m", "seal lane")
         return record, self.git("rev-parse", "HEAD").stdout.strip()
 
+    def test_lock_creator_has_runnable_python_and_pinned_prelock_command(self) -> None:
+        self.assertTrue(Path(lock_target.sys.executable).is_file())
+        command = lock_target.prelock_validation_command("/test/uv")
+        self.assertEqual(
+            command,
+            [
+                "/test/uv",
+                "run",
+                "--isolated",
+                "--with-requirements",
+                str(lock_target.REQUIREMENTS),
+                "python3",
+                str(lock_target.ROOT / "scripts/validate_correctness_audit.py"),
+                "--prelock",
+            ],
+        )
+
+    def test_lock_creator_rejects_missing_and_nonancestor_starting_heads(self) -> None:
+        self.assertEqual(
+            lock_target.starting_head_failures("not-a-commit", self.baseline, root=self.root),
+            ["lockedStartingHead is not a Git commit"],
+        )
+        main_branch = self.git("branch", "--show-current").stdout.strip()
+        self.git("checkout", "-q", "--orphan", "unrelated-root")
+        self.git("commit", "--allow-empty", "-q", "-m", "unrelated root")
+        unrelated = self.git("rev-parse", "HEAD").stdout.strip()
+        self.git("checkout", "-q", main_branch)
+        self.assertEqual(
+            lock_target.starting_head_failures(unrelated, self.baseline, root=self.root),
+            ["lockedStartingHead is not an ancestor of baseline"],
+        )
+
+    def test_required_lock_files_close_prelock_reviews_but_exclude_raw_lane(self) -> None:
+        reviews = self.root / "docs/qa/implementation-readiness/correctness-audit/reviews"
+        setup_review = reviews / "final-setup-review.json"
+        raw_response = reviews / "raw" / "lane-response.json"
+        setup_review.parent.mkdir(parents=True, exist_ok=True)
+        raw_response.parent.mkdir(parents=True, exist_ok=True)
+        setup_review.write_text("{}\n", encoding="utf-8")
+        raw_response.write_text("{}\n", encoding="utf-8")
+        locked = lock_target.required_locked_files(root=self.root)
+        self.assertIn(setup_review.relative_to(self.root).as_posix(), locked)
+        self.assertNotIn(raw_response.relative_to(self.root).as_posix(), locked)
+
     def test_committed_direct_child_seal_passes(self) -> None:
         record, seal_commit = self.commit_artifact()
         failures: list[str] = []
@@ -387,6 +488,30 @@ class ArtifactSealGitTests(unittest.TestCase):
         )
         self.assertEqual(actual, seal_commit)
         self.assertEqual(failures, [])
+
+    def test_same_wave_artifacts_share_direct_child_seal(self) -> None:
+        second_artifact = self.root / "lane-2.json"
+        first_record = {"sealedAtGitHead": self.baseline, "payload": "first"}
+        second_record = {"sealedAtGitHead": self.baseline, "payload": "second"}
+        dump(self.artifact, first_record)
+        dump(second_artifact, second_record)
+        self.git("add", "lane.json", "lane-2.json")
+        self.git("commit", "-q", "-m", "seal artifact wave")
+        wave_commit = self.git("rev-parse", "HEAD").stdout.strip()
+        for record, artifact in (
+            (first_record, self.artifact),
+            (second_record, second_artifact),
+        ):
+            failures: list[str] = []
+            actual = target.validate_artifact_seal(
+                record,
+                artifact,
+                failures,
+                "fixture wave",
+                root=self.root,
+            )
+            self.assertEqual(actual, wave_commit)
+            self.assertEqual(failures, [])
 
     def test_later_modified_artifact_is_rejected(self) -> None:
         record, _ = self.commit_artifact()
@@ -422,6 +547,29 @@ class ArtifactSealGitTests(unittest.TestCase):
         failures: list[str] = []
         target.validate_artifact_seal(record, self.artifact, failures, "fixture", root=self.root)
         self.assertTrue(any("changed in Git history" in row for row in failures), failures)
+
+    def test_merged_side_branch_mutation_is_rejected(self) -> None:
+        record, seal_commit = self.commit_artifact()
+        main_branch = self.git("branch", "--show-current").stdout.strip()
+        self.git("checkout", "-q", "-b", "side-mutation")
+        changed = dict(record)
+        changed["payload"] = "side-branch mutation"
+        dump(self.artifact, changed)
+        self.git("add", "lane.json")
+        self.git("commit", "-q", "-m", "mutate artifact on side branch")
+        dump(self.artifact, record)
+        self.git("add", "lane.json")
+        self.git("commit", "-q", "-m", "restore artifact on side branch")
+        self.git("checkout", "-q", main_branch)
+        self.git("merge", "--no-ff", "-q", "-m", "merge restored side branch", "side-mutation")
+        self.assertTrue(target.merge_commits_after(self.root, seal_commit))
+        failures: list[str] = []
+        target.validate_artifact_seal(record, self.artifact, failures, "fixture", root=self.root)
+        self.assertTrue(any("changed in Git history" in row for row in failures), failures)
+        self.assertIn(
+            seal_commit,
+            self.git("merge-base", "--all", seal_commit, "HEAD").stdout.split(),
+        )
 
     def test_false_preseal_for_existing_path_is_rejected(self) -> None:
         _, seal_commit = self.commit_artifact()
@@ -514,6 +662,147 @@ class ArtifactSealGitTests(unittest.TestCase):
         )
 
 
+class PendingProgressRefreshTests(unittest.TestCase):
+    def setUp(self) -> None:
+        self.temp = tempfile.TemporaryDirectory(prefix="correctness-audit-refresh-")
+        self.root = Path(self.temp.name)
+        self.original_root = manifest_target.ROOT
+        self.original_output = manifest_target.OUTPUT
+        self.original_progress = manifest_target.PROGRESS
+        manifest_target.ROOT = self.root
+        manifest_target.OUTPUT = self.root / "manifest.json"
+        manifest_target.PROGRESS = self.root / "progress.json"
+        self.prior_manifest_bytes = (
+            json.dumps(MANIFEST, indent=2, ensure_ascii=False) + "\n"
+        ).encode()
+
+    def tearDown(self) -> None:
+        manifest_target.ROOT = self.original_root
+        manifest_target.OUTPUT = self.original_output
+        manifest_target.PROGRESS = self.original_progress
+        self.temp.cleanup()
+
+    def test_pending_v2_refresh_requires_exact_progress_contract(self) -> None:
+        cases = (
+            (
+                "schemaVersion",
+                lambda progress: progress.__setitem__("schemaVersion", 999),
+                "schemaVersion drift",
+            ),
+            (
+                "unexpected top-level field",
+                lambda progress: progress.__setitem__("unexpected", True),
+                "top-level fields drift",
+            ),
+            (
+                "missing row field",
+                lambda progress: progress["units"][0].pop("blindPath"),
+                "row fields drift",
+            ),
+        )
+        for label, mutate, expected in cases:
+            with self.subTest(label=label):
+                progress = json.loads(
+                    manifest_target.progress_bytes(self.prior_manifest_bytes)
+                )
+                mutate(progress)
+                manifest_target.PROGRESS.write_text(
+                    json.dumps(progress, indent=2) + "\n",
+                    encoding="utf-8",
+                )
+                with self.assertRaisesRegex(SystemExit, expected):
+                    manifest_target.validate_progress_transition(
+                        supersede_v1=False,
+                        refresh_pending_v2=True,
+                        prior_manifest_bytes=self.prior_manifest_bytes,
+                    )
+
+
+class ProgressHistoryContractTests(unittest.TestCase):
+    def setUp(self) -> None:
+        self.unit_ids = [row["auditUnitId"] for row in MANIFEST["units"]]
+        self.baseline = copy.deepcopy(PROGRESS)
+
+    @staticmethod
+    def recount(progress: dict[str, object]) -> None:
+        counts = {key: 0 for key in target.STATUS_COUNT_KEYS.values()}
+        for row in progress["units"]:
+            counts[target.STATUS_COUNT_KEYS[row["status"]]] += 1
+        progress["counts"] = {"total": len(progress["units"]), **counts}
+
+    def test_progress_history_accepts_one_step_and_rejects_skip_or_regression(self) -> None:
+        blind = copy.deepcopy(self.baseline)
+        row = blind["units"][0]
+        row.update(
+            {
+                "status": "blind-derived",
+                "blindPath": "docs/qa/implementation-readiness/correctness-audit/blind/unit.json",
+                "blindSha256": "a" * 64,
+                "blindUnitResultId": row["auditUnitId"],
+                "lastUpdatedUtc": "2026-08-30T08:00:00Z",
+            }
+        )
+        self.recount(blind)
+        self.assertEqual(
+            target.progress_snapshot_failures(
+                self.baseline,
+                blind,
+                self.unit_ids,
+                "legal blind transition",
+            ),
+            [],
+        )
+
+        skipped = copy.deepcopy(self.baseline)
+        row = skipped["units"][0]
+        row.update(
+            {
+                "status": "compared",
+                "blindPath": "docs/qa/implementation-readiness/correctness-audit/blind/unit.json",
+                "blindSha256": "a" * 64,
+                "blindUnitResultId": row["auditUnitId"],
+                "comparisonPath": "docs/qa/implementation-readiness/correctness-audit/comparisons/unit.json",
+                "comparisonSha256": "b" * 64,
+                "lastUpdatedUtc": "2026-08-30T08:00:00Z",
+            }
+        )
+        self.recount(skipped)
+        self.assertTrue(
+            any(
+                "invalid committed transition" in failure
+                for failure in target.progress_snapshot_failures(
+                    self.baseline,
+                    skipped,
+                    self.unit_ids,
+                    "skipped transition",
+                )
+            )
+        )
+
+        compared = copy.deepcopy(blind)
+        row = compared["units"][0]
+        row.update(
+            {
+                "status": "compared",
+                "comparisonPath": "docs/qa/implementation-readiness/correctness-audit/comparisons/unit.json",
+                "comparisonSha256": "b" * 64,
+                "lastUpdatedUtc": "2026-08-30T08:00:00Z",
+            }
+        )
+        self.recount(compared)
+        self.assertTrue(
+            any(
+                "non-increasing transition timestamp" in failure
+                for failure in target.progress_snapshot_failures(
+                    blind,
+                    compared,
+                    self.unit_ids,
+                    "timestamp regression",
+                )
+            )
+        )
+
+
 class AuditMutationTests(unittest.TestCase):
     def setUp(self) -> None:
         self.h = Harness()
@@ -527,7 +816,27 @@ class AuditMutationTests(unittest.TestCase):
         self.assertTrue(any(needle in item for item in report["failures"]), report["failures"])
 
     def test_control_fixture_passes(self) -> None:
-        self.assertTrue(self.h.validate()["passed"])
+        report = self.h.validate()
+        self.assertTrue(report["passed"], report["failures"])
+
+    def test_hash_pinned_but_unrelated_comparator_response_is_rejected(self) -> None:
+        dump(
+            self.h.comparator_response_path,
+            {
+                "auditUnitId": self.h.comparison["auditUnitId"],
+                "comparison": {"unrelated": True},
+            },
+        )
+        self.h.comparison["comparator"]["responseSha256"] = sha(
+            self.h.comparator_response_path
+        )
+        dump(self.h.comparison_path, self.h.comparison)
+        self.h.result["comparisonRef"]["sha256"] = sha(self.h.comparison_path)
+        dump(self.h.result_path, self.h.result)
+        self.h.progress["units"][0]["comparisonSha256"] = sha(self.h.comparison_path)
+        self.h.progress["units"][0]["resultSha256"] = sha(self.h.result_path)
+        self.h.write_inputs()
+        self.assertFails("comparator response content differs from sealed comparison")
 
     def test_threshold_tamper_rejected(self) -> None:
         self.h.manifest["passThreshold"]["criticalErrors"] = 1
@@ -538,6 +847,16 @@ class AuditMutationTests(unittest.TestCase):
         self.h.manifest["counts"]["componentCandidateUniverses"]["room"] = 24
         self.h.write_inputs()
         self.assertFails("candidate universe counts")
+
+    def test_sampled_component_without_comparison_target_is_rejected(self) -> None:
+        component = next(
+            row
+            for row in self.h.manifest["units"]
+            if row.get("unitClass") == "sampled-component-effect"
+        )
+        component.pop("extractionPath", None)
+        self.h.write_inputs()
+        self.assertFails("sampled component lacks comparison target")
 
     def test_selection_coverage_tamper_rejected(self) -> None:
         first = next(iter(self.h.manifest["selectionCoverage"]))
@@ -555,6 +874,11 @@ class AuditMutationTests(unittest.TestCase):
         self.h.progress["schemaVersion"] = 1
         self.h.write_inputs()
         self.assertFails("progress schemaVersion")
+
+    def test_progress_timestamp_must_be_valid_datetime(self) -> None:
+        self.h.progress["units"][0]["lastUpdatedUtc"] = "not-a-date"
+        self.h.write_inputs()
+        self.assertFails("progress update time: invalid date-time")
 
     def test_comparison_cannot_embed_verification(self) -> None:
         self.h.comparison["verificationReviews"] = []
@@ -665,6 +989,18 @@ class AuditMutationTests(unittest.TestCase):
         self.h.resign_packet_chain()
         self.assertFails("path is not a canonical repository-relative POSIX path")
 
+    def test_backslash_paths_are_rejected_by_validator_and_prompt_builder(self) -> None:
+        failures: list[str] = []
+        self.assertIsNone(
+            target.repo_path("docs/rulebooks\\fixture.pdf", failures, "backslash fixture")
+        )
+        self.assertTrue(any("canonical repository-relative POSIX path" in row for row in failures))
+        with self.assertRaisesRegex(ValueError, "noncanonical path"):
+            prompt_target.canonical_repo_file(
+                ROOT / "docs" / "rulebooks\\fixture.pdf",
+                ROOT / "docs" / "rulebooks",
+            )
+
     def test_source_allowlist_traversal_rejected(self) -> None:
         traversal = "docs/rulebooks/../rules/semantics/event-source-index.json"
         target_path = target.ROOT / "docs/rules/semantics/event-source-index.json"
@@ -676,6 +1012,19 @@ class AuditMutationTests(unittest.TestCase):
         self.h.blind["unitResults"][0]["acceptanceScenarios"][0]["citations"][0]["sourcePath"] = traversal
         self.h.resign_packet_chain()
         self.assertFails("disallowed source document")
+
+    def test_manifest_bound_source_evidence_cannot_be_substituted(self) -> None:
+        manifest_bound = next(
+            row
+            for row in self.h.manifest["units"]
+            if isinstance(row.get("sourcePath"), str)
+            and isinstance(row.get("sourceSha256"), str)
+        )
+        fixture_unit = self.h.manifest["units"][0]
+        fixture_unit["sourcePath"] = manifest_bound["sourcePath"]
+        fixture_unit["sourceSha256"] = manifest_bound["sourceSha256"]
+        self.h.resign_packet_chain()
+        self.assertFails("lacks manifest-bound source evidence")
 
     def test_symlink_artifact_path_rejected(self) -> None:
         link = self.h.packet_dir / "packet-link.json"
@@ -819,13 +1168,13 @@ class AuditMutationTests(unittest.TestCase):
     def test_reviewer_path_without_hash_rejected(self) -> None:
         self.h.blind["reviewer"]["responsePath"] = str(self.h.prompt_path.relative_to(target.ROOT))
         self.h.blind["reviewer"]["responseSha256"] = None
-        self.h.resign_packet_chain()
+        self.h.resign_from_blind()
         self.assertFails("is not of type 'string'")
 
     def test_empty_agent_response_rejected(self) -> None:
         self.h.blind_response_path.write_bytes(b"")
         self.h.blind["reviewer"]["responseSha256"] = sha(self.h.blind_response_path)
-        self.h.resign_packet_chain()
+        self.h.resign_from_blind()
         self.assertFails("reviewer response is empty")
 
     def test_packet_scope_and_hollow_evidence_rejected(self) -> None:
