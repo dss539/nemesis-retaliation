@@ -27,7 +27,7 @@ The lowest required ranks are selected. Byte-identical physical copies form one 
 - selected identities and source hashes;
 - all selection-input hashes, including the FAQ PDF;
 - all five concise-rule file hashes;
-- frozen semantic artifact hashes;
+- the full comparator-visible vocabulary, ontology, semantic, conflict/question, coverage/backlog, and source-index artifact hashes;
 - exact family, candidate-universe, eligibility, and selected counts;
 - pass thresholds and the limited claim scope.
 
@@ -37,7 +37,9 @@ Deterministic rank prevents outcome-driven choice **inside declared strata**; it
 - Intruder Attack samples two of twenty source occurrences and is not guaranteed to contain two variants of one title.
 - Two of eight Equipment/Starting Item slots are reserved for known-hard source/class boundaries.
 
-After setup validation, the harness is committed once, then `audit-lock.json` is committed separately. It binds the manifest and immutable harness files to the baseline commit. The validator verifies that the starting HEAD and baseline remain ancestors, immutable file bytes equal the baseline, and the lock has no uncommitted drift. Any change requires a new audit version and an explicit disposition of the old audit.
+After setup validation, the harness is committed once, then `audit-lock.json` is introduced in the immediate direct-child commit. It binds the manifest and immutable harness files to the baseline commit. The validator verifies that the starting HEAD and baseline remain ancestors, immutable file bytes equal the baseline, and the lock itself is unchanged from that direct-child commit. Any change requires a new audit version and an explicit disposition of the old audit.
+
+For every later lane artifact, `sealedAtGitHead` means the immediate **pre-seal** HEAD, not the commit containing the artifact. The validator derives the seal commit as the first non-merge, first-parent direct child of that HEAD; the versioned artifact path must be absent before the seal and its current bytes must equal the bytes introduced there. Each next lane must follow the preceding lane's derived seal commit. Packet visuals and the canonical completeness prompt are committed with the packet; the completeness response and review are committed next; the canonical blind prompt, response, and derivation follow; comparison prompt/response and comparison follow in Lane C; verification prompts/responses, repair proof, and final adjudication follow separately in Lane D.
 
 ## Lane A — sealed source-only packet
 
@@ -57,6 +59,8 @@ Allowed evidence paths are mechanically restricted to:
 
 Every path must be canonical repository-relative POSIX syntax: no absolute path, `.`/`..` segment, backslash normalization, or symlink component is accepted. Allowlisting is evaluated against the resolved allowed root, not by lexical prefix.
 
+Any PDF-derived `exactText` also requires a hash-pinned rendered PNG from the same source region. The validator checks PNG structure, chunk CRCs, terminal IEND, and nontrivial dimensions; a renamed text file is not visual evidence.
+
 Concise-rule files, semantic projections, conflict dispositions, physical-class conclusions, and implementation files are not valid packet evidence. Source indexes may help the supervisor locate original bytes but are not transmitted as blind evidence.
 
 Every packet records nonempty:
@@ -69,13 +73,13 @@ Every packet records nonempty:
 - exclusions and their reasons;
 - applicable FAQ units checked, where any exist.
 
-A separate source-only critic reviews the packet under `packet-completeness-review.schema.json`. The validator reconciles every unresolved material/critical finding against `unresolvedMaterialFindingIds`; `accepted` must be false whenever that set is nonempty. The packet is eligible for derivation only when the review is accepted and has no unresolved material finding. The packet and completeness review carry hashes, UTC seal times, and Git HEADs.
+A separate source-only critic reviews the packet under `packet-completeness-review.schema.json`. The validator reconciles every unresolved material/critical finding against `unresolvedMaterialFindingIds`; `accepted` must be false whenever that set is nonempty. The packet is eligible for derivation only when the review is accepted and has no unresolved material finding. The packet and completeness review carry hashes, UTC seal times, and Git HEADs. Every reviewer kind, including agent and human reviewers, records hash-pinned prompt and response artifacts.
 
 A mechanical field allowlist is appropriate; an n-gram ban is not. Official text may legitimately overlap concise wording because concise rules quote official sources. The protection is source-path provenance, a closed packet schema, an isolated prompt, and a separate completeness review—not lexical suppression of authoritative text.
 
 ## Lane B — separately sealed blind derivation
 
-An isolated reviewer receives only the accepted packet, neutral instructions, and the closed blind output contract. The exact prompt is retained under `packets/` with its SHA-256. It may not contain downstream rule paths, semantic paths, or conclusion fields.
+An isolated reviewer receives only the accepted packet, neutral instructions, and the closed blind output contract. `scripts/build_correctness_audit_prompt.py` generates the exact prompt from locked instructions and sealed payloads; the validator recomputes those bytes. The prompt is retained under `packets/` with its SHA-256 and may not contain downstream rule paths, semantic paths, or conclusion fields.
 
 `blind-derivation.schema.json` requires one returned result per submitted unit, in the same order. A source-derived unit must contain at least one cited requirement and one cited acceptance scenario. Every blind citation must exactly match a source-path/locator tuple in packet evidence assigned to that unit. A blocked unit must state the blocker instead of inventing a rule. Every unresolved point records at least two alternatives and `defaultProhibited: true`.
 
@@ -92,7 +96,7 @@ The reviewer derives:
 
 Every behavioral dimension is nonempty in a derived requirement. When a dimension genuinely does not apply, the reviewer records an explicit source-supported `not applicable` statement instead of leaving the field empty.
 
-The blind file is physically separate from all post-reveal comparison files. It is hashed before Lane C begins and is never rewritten. Packet, completeness-review, prompt, model response, and blind hashes remain independently addressable.
+The blind file is physically separate from all post-reveal comparison files. It is hashed before Lane C begins and is never rewritten. The canonical completeness prompt is introduced with the packet; its response and accepted completeness review are introduced in the next lane; the canonical blind prompt, its response, and the blind artifact are introduced in the following lane. Packet, completeness-review, prompt, response, and blind hashes remain independently addressable.
 
 ## Lane C — reveal and comparison
 
@@ -103,7 +107,9 @@ Only after Lane B is sealed may a different comparator inspect:
 - relevant semantic questions and conflicts;
 - direct primary sources needed to verify a claimed mismatch.
 
-`audit-result.schema.json` is a post-reveal contract containing only a hash reference to the sealed blind file. It cannot rewrite blind requirements.
+`comparison.schema.json` is the immutable post-reveal contract. It contains only a hash reference to the sealed blind file and cannot rewrite blind requirements. It records the comparator, inspected downstream artifacts, and classified discrepancy rows, but it cannot contain verification or final-resolution fields.
+
+Every `revealedArtifact` records canonical path, SHA-256, and a closed role. The required unit target (`downstreamPath` for concise rules or `extractionPath` for FAQ/component units) must appear exactly once as `downstream-target`, and at least one manifest-frozen `semantic-projection` must be revealed so an omission cannot pass by inspecting only the source-side target. Other semantic projections and source indexes must be present in the manifest's frozen hash maps; direct primary sources must already occur in the sealed source packet. Declared semantic rule, open-question, and conflict IDs are validated against the frozen `pilots.json`, `review-gates.json`, and `contradictions.json` indexes.
 
 Every comparison contains one or more classified rows:
 
@@ -117,25 +123,25 @@ Every comparison contains one or more classified rows:
 - `transcription-or-packet-gap`;
 - `presentation-only`.
 
-Material and critical discrepancies require a stable `rootCauseId`. Authority inversions and hidden defaults have mandatory Boolean flags and critical severity. `match` requires `none`; behavioral omission/overstatement/lost-ambiguity/flattened-conflict/packet-gap classes cannot use `none`; preserved ambiguities/conflicts and presentation-only rows retain their bounded non-defect severities. Every comparison and verification evidence reference must resolve to the sealed source packet. The validator derives status consistency from the discrepancies, so a material result cannot be marked accepted.
-
-`repaired-verified` is not a label-only escape. It requires at least one canonical repair path present in the sealed Git commit plus at least one known packet/verification evidence reference. `not-required` and `pending` carry no repair proof; a source-blocked resolution carries verification evidence but no repair path.
+Material and critical discrepancies require a stable `rootCauseId`. Authority inversions and hidden defaults have mandatory Boolean flags and critical severity. `match` requires `none`; behavioral omission/overstatement/lost-ambiguity/flattened-conflict/packet-gap classes cannot use `none`; preserved ambiguities/conflicts and presentation-only rows retain their bounded non-defect severities. Every comparison evidence reference must resolve to the sealed source packet.
 
 ## Lane D — independent verification
 
-A reviewer different from both the blind reviewer and comparator checks direct source evidence for:
+A reviewer different from the completeness reviewer, blind reviewer, and comparator checks direct source evidence for:
 
 - every critical, material, blocked, minor, and presentation-only discrepancy;
 - every preserved ambiguity or conflict disposition;
 - a deterministic sample of otherwise clean matches.
 
-The match sample is locked by `SHA-256("nemesis-stage1-lane-d-match-v1|" + auditUnitId)`:
+All 140 comparisons must be sealed before any final adjudication. The validator requires every comparison commit to be an ancestor of each adjudication pre-seal. Once all comparisons exist, `evaluate_correctness_audit.py` publishes the clean-match sample locked by `SHA-256("nemesis-stage1-lane-d-match-v1|" + auditUnitId)`:
 
 - six clean concise-rule matches;
 - three clean FAQ matches;
 - one clean match from each of the fourteen component families.
 
-If a stratum has no clean accepted match, its defect is already independently reviewed and no substitute conclusion is inferred. `evaluate_correctness_audit.py` prevents a final pass while a selected clean match lacks verification.
+The selected set must contain exactly 23 unique units. If a stratum has no clean comparison, no substitute conclusion is inferred and Stage 1 cannot pass that audit version. `audit-result.schema.json` is the separate final-adjudication contract: it references the immutable comparison by path/hash, contains verification reviews and resolution only, and cannot restate comparison or blind content. The validator derives final status consistency from the comparison rows, so a material result cannot be marked accepted. Reviewer prompts/responses are hash-pinned; reviewer identities must differ from the completeness reviewer, blind reviewer, and comparator. For model-assisted lanes, identity is the provider plus resolved model—changing a run ID or response path does not create independence; agent/human lanes use an explicit stable `reviewerId`. A `not-confirmed` verification requires a superseding comparison instead of final adjudication, and a `source-blocked` verification disposition is valid only on a source-blocked result.
+
+The current audit version cannot repair a frozen downstream target in place. A material or critical correction requires an explicit superseding manifest/lock and rerun; an unrelated new path cannot convert an error into a pass. `not-required` and `pending` carry no repair proof, while a source-blocked resolution carries verification evidence but no repair path. `evaluate_correctness_audit.py` prevents a final pass while any core material error or selected clean match remains unresolved/unverified.
 
 GLM 5.3 and DeepSeek V4 Pro 0813 may be used as isolated advisors/critics through Ollama Cloud with `think: "max"`. Record exact requested/response tags, provider, request mode, prompt/response hashes, and final answer. Never retain `message.thinking` or another reasoning trace. Model findings remain advisory until checked against files or primary sources.
 
@@ -183,7 +189,7 @@ One cause may not be split into cosmetic IDs to avoid escalation.
 - no critical error was found;
 - no authority override or hidden default was found;
 - no recurring defect pattern exists;
-- every core material error is repaired and reverified;
+- no core concise-rule or FAQ material error exists in the current frozen version;
 - no more than two isolated component material errors were found;
 - no audited unit remains source-blocked;
 - the deterministic clean-match review sample is complete.
@@ -238,10 +244,12 @@ Before the final owner decision, rerun vocabulary, ontology, semantic reproducib
 - `source-packet.schema.json` — source-only packet allowlist.
 - `packet-completeness-review.schema.json` — pre-derivation completeness decision.
 - `blind-derivation.schema.json` — separately sealed source-derived requirements.
-- `audit-result.schema.json` — post-reveal comparison and verification.
+- `comparison.schema.json` — immutable post-reveal comparison.
+- `audit-result.schema.json` — later independent verification and final adjudication.
 - `packets/` — packets, prompts, and completeness reviews.
 - `blind/` — immutable blind derivations.
-- `comparisons/` — post-reveal unit results.
+- `comparisons/` — immutable Lane C comparison records.
+- `adjudications/` — separate Lane D final results.
 - `reviews/raw/` — retained model final answers without reasoning traces.
 - `reviews/` — setup reviews and independently verified dispositions.
 - `reports/` — structural and decision reports.

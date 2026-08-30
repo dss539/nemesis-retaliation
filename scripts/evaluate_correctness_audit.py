@@ -24,19 +24,29 @@ def rank(unit_id: str) -> str:
 def result_map(progress: dict[str, Any]) -> dict[str, dict[str, Any]]:
     results: dict[str, dict[str, Any]] = {}
     for row in progress["units"]:
-        if row["status"] not in {"pending-blind-derivation", "blind-derived"}:
-            path = ROOT / row["resultPath"]
-            results[row["auditUnitId"]] = validation.strict_load(path)
+        if row["status"] in FINAL_STATUSES:
+            result = validation.strict_load(ROOT / row["resultPath"])
+            comparison = validation.strict_load(ROOT / row["comparisonPath"])
+            result["__comparison"] = comparison["comparison"]
+            results[row["auditUnitId"]] = result
     return results
 
 
+def comparison_map(progress: dict[str, Any]) -> dict[str, dict[str, Any]]:
+    comparisons: dict[str, dict[str, Any]] = {}
+    for row in progress["units"]:
+        if row["status"] in FINAL_STATUSES | {"compared"}:
+            comparisons[row["auditUnitId"]] = validation.strict_load(ROOT / row["comparisonPath"])
+    return comparisons
+
+
 def pure_match(result: dict[str, Any]) -> bool:
-    rows = result["comparison"]["discrepancies"]
+    rows = result["__comparison"]["discrepancies"]
     return bool(rows) and all(row["classification"] == "match" and row["severity"] == "none" for row in rows)
 
 
 def verification_covers(result: dict[str, Any]) -> bool:
-    expected = {row["discrepancyId"] for row in result["comparison"]["discrepancies"]}
+    expected = {row["discrepancyId"] for row in result["__comparison"]["discrepancies"]}
     reviewed: set[str] = set()
     for review in result["verificationReviews"]:
         reviewed.update(review["reviewedDiscrepancyIds"])
@@ -66,17 +76,27 @@ def valid_classification_severity(row: dict[str, Any]) -> bool:
 
 
 def select_match_review_sample(
-    manifest: dict[str, Any], results: dict[str, dict[str, Any]]
+    manifest: dict[str, Any], comparisons: dict[str, dict[str, Any]]
 ) -> list[str]:
     units = {row["auditUnitId"]: row for row in manifest["units"]}
-    clean = [uid for uid, result in results.items() if result["status"] == "accepted" and pure_match(result)]
+    clean = [
+        uid
+        for uid, comparison in comparisons.items()
+        if bool(comparison["comparison"]["discrepancies"])
+        and all(
+            row["classification"] == "match" and row["severity"] == "none"
+            for row in comparison["comparison"]["discrepancies"]
+        )
+    ]
     chosen: list[str] = []
-    for unit_class, count in (("concise-rule-record", 6), ("base-applicable-faq-unit", 3)):
+    sample_plan = manifest["passThreshold"]["deterministicCleanMatchReviewSample"]
+    for unit_class, count in sample_plan["perUnitClass"].items():
         pool = [uid for uid in clean if units[uid]["unitClass"] == unit_class]
         chosen.extend(sorted(pool, key=lambda uid: (rank(uid), uid))[:count])
     for family in sorted(validation.EXPECTED_FAMILIES):
         pool = [uid for uid in clean if units[uid].get("family") == family]
-        chosen.extend(sorted(pool, key=lambda uid: (rank(uid), uid))[:1])
+        quota = sample_plan["perComponentFamily"]
+        chosen.extend(sorted(pool, key=lambda uid: (rank(uid), uid))[:quota])
     return chosen
 
 
@@ -84,11 +104,22 @@ def evaluate_records(
     manifest: dict[str, Any],
     progress: dict[str, Any],
     results: dict[str, dict[str, Any]],
+    comparisons: dict[str, dict[str, Any]] | None = None,
 ) -> dict[str, Any]:
     units = {row["auditUnitId"]: row for row in manifest["units"]}
+    if comparisons is None:
+        comparisons = {
+            unit_id: {"comparison": result["__comparison"]}
+            for unit_id, result in results.items()
+        }
+    match_sample = select_match_review_sample(manifest, comparisons)
     unfinished = [row["auditUnitId"] for row in progress["units"] if row["status"] not in FINAL_STATUSES]
     if unfinished:
-        return {
+        comparisons_complete = all(
+            row["status"] not in {"pending-blind-derivation", "blind-derived"}
+            for row in progress["units"]
+        )
+        decision = {
             "schemaVersion": 1,
             "recordType": "stage-1-correctness-audit-decision",
             "decision": "incomplete",
@@ -96,6 +127,9 @@ def evaluate_records(
             "unfinishedUnitIds": unfinished,
             "claimScope": "No correctness or rewrite-readiness conclusion is authorized while any unit is unfinished.",
         }
+        if comparisons_complete:
+            decision["deterministicMatchReviewSampleUnitIds"] = match_sample
+        return decision
 
     critical_units: set[str] = set()
     authority_units: set[str] = set()
@@ -115,17 +149,10 @@ def evaluate_records(
             if unit["unitClass"] == "sampled-component-effect":
                 material_component_units.add(unit_id)
             else:
-                resolution = result["resolution"]
-                repair_verified = (
-                    resolution["status"] == "repaired-verified"
-                    and bool(resolution["repairPaths"])
-                    and bool(resolution["verificationEvidenceRefs"])
-                )
-                if not repair_verified:
-                    unresolved_core_material_units.add(unit_id)
+                unresolved_core_material_units.add(unit_id)
         if result["status"] == "source-blocked":
             source_blocked_units.add(unit_id)
-        for row in result["comparison"]["discrepancies"]:
+        for row in result["__comparison"]["discrepancies"]:
             if not valid_classification_severity(row):
                 invalid_classification_units.add(unit_id)
             if row["authorityOverride"]:
@@ -142,10 +169,10 @@ def evaluate_records(
         for root in root_units
         if len(root_units[root]) >= 3 or len(root_families[root]) >= 2
     )
-    match_sample = select_match_review_sample(manifest, results)
     unverified_match_sample = sorted(
         uid for uid in match_sample if not verification_covers(results[uid])
     )
+    expected_match_sample = manifest["passThreshold"]["deterministicCleanMatchReviewSample"]["total"]
     failures = {
         "criticalErrors": sorted(critical_units),
         "inventedAuthorityOverrides": sorted(authority_units),
@@ -158,6 +185,9 @@ def evaluate_records(
         else [],
         "sourceBlockedUnits": sorted(source_blocked_units),
         "invalidClassificationSeverityUnits": sorted(invalid_classification_units),
+        "deterministicMatchSampleSizeMismatch": []
+        if len(match_sample) == expected_match_sample
+        else [{"expected": expected_match_sample, "actual": len(match_sample)}],
         "unverifiedDeterministicMatchSample": unverified_match_sample,
     }
     passed = not any(failures.values())
@@ -220,7 +250,8 @@ def main() -> int:
         raise SystemExit("structural validation failed; decision not evaluated")
     manifest = validation.strict_load(validation.MANIFEST_PATH)
     progress = validation.strict_load(validation.PROGRESS_PATH)
-    decision = evaluate_records(manifest, progress, result_map(progress))
+    comparisons = comparison_map(progress)
+    decision = evaluate_records(manifest, progress, result_map(progress), comparisons)
     output = ROOT / args.output
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(json.dumps(decision, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")

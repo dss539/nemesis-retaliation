@@ -30,7 +30,7 @@ def clean_fixture() -> tuple[dict, dict]:
         results[uid] = {
             "status": "accepted",
             "family": family(unit),
-            "comparison": {"discrepancies": [{
+            "__comparison": {"discrepancies": [{
                 "discrepancyId": did,
                 "classification": "match",
                 "severity": "none",
@@ -62,7 +62,7 @@ class DecisionTests(unittest.TestCase):
         progress, results = clean_fixture()
         uid = MANIFEST["units"][0]["auditUnitId"]
         results[uid]["status"] = "critical-error"
-        results[uid]["comparison"]["discrepancies"][0].update({"classification": "downstream-omission", "severity": "critical", "rootCauseId": "RC-X"})
+        results[uid]["__comparison"]["discrepancies"][0].update({"classification": "downstream-omission", "severity": "critical", "rootCauseId": "RC-X"})
         decision = target.evaluate_records(MANIFEST, progress, results)
         self.assertEqual(decision["decision"], "fail-or-escalate")
         self.assertTrue(decision["fullAuditEscalationRequired"])
@@ -73,7 +73,7 @@ class DecisionTests(unittest.TestCase):
         for index, unit in enumerate(units):
             uid = unit["auditUnitId"]
             results[uid]["status"] = "material-error"
-            results[uid]["comparison"]["discrepancies"][0].update({"classification": "downstream-omission", "severity": "material", "rootCauseId": f"RC-{index}"})
+            results[uid]["__comparison"]["discrepancies"][0].update({"classification": "downstream-omission", "severity": "material", "rootCauseId": f"RC-{index}"})
         decision = target.evaluate_records(MANIFEST, progress, results)
         self.assertEqual(len(decision["failures"]["componentMaterialErrorsOverLimit"]), 3)
 
@@ -85,38 +85,73 @@ class DecisionTests(unittest.TestCase):
         for unit in (first, second):
             uid = unit["auditUnitId"]
             results[uid]["status"] = "material-error"
-            results[uid]["comparison"]["discrepancies"][0].update({"classification": "downstream-omission", "severity": "material", "rootCauseId": "RC-SHARED"})
+            results[uid]["__comparison"]["discrepancies"][0].update({"classification": "downstream-omission", "severity": "material", "rootCauseId": "RC-SHARED"})
         decision = target.evaluate_records(MANIFEST, progress, results)
         self.assertEqual(decision["failures"]["recurringDefectPatterns"], ["RC-SHARED"])
 
     def test_unverified_match_sample_fails(self) -> None:
         progress, results = clean_fixture()
-        sample = target.select_match_review_sample(MANIFEST, results)
+        comparisons = {
+            unit_id: {"comparison": result["__comparison"]}
+            for unit_id, result in results.items()
+        }
+        sample = target.select_match_review_sample(MANIFEST, comparisons)
         results[sample[0]]["verificationReviews"] = []
         decision = target.evaluate_records(MANIFEST, progress, results)
         self.assertEqual(decision["failures"]["unverifiedDeterministicMatchSample"], [sample[0]])
 
+    def test_missing_clean_family_sample_cannot_pass_with_22(self) -> None:
+        progress, results = clean_fixture()
+        family = sorted(validation.EXPECTED_FAMILIES)[0]
+        for result in results.values():
+            if result["family"] != family:
+                continue
+            discrepancy = result["__comparison"]["discrepancies"][0]
+            discrepancy["classification"] = "presentation-only"
+            discrepancy["severity"] = "none"
+            result["verificationReviews"] = [{
+                "reviewedDiscrepancyIds": [discrepancy["discrepancyId"]],
+            }]
+        decision = target.evaluate_records(MANIFEST, progress, results)
+        self.assertFalse(decision["thresholdsSatisfied"])
+        self.assertEqual(
+            decision["failures"]["deterministicMatchSampleSizeMismatch"],
+            [{"expected": 23, "actual": 22}],
+        )
+
+    def test_all_compared_publishes_match_sample_before_adjudication(self) -> None:
+        progress, results = clean_fixture()
+        for row in progress["units"]:
+            row["status"] = "compared"
+        comparisons = {
+            unit_id: {"comparison": result["__comparison"]}
+            for unit_id, result in results.items()
+        }
+        decision = target.evaluate_records(MANIFEST, progress, {}, comparisons)
+        self.assertEqual(decision["decision"], "incomplete")
+        self.assertEqual(len(decision["deterministicMatchReviewSampleUnitIds"]), 23)
+
     def test_nonmatch_none_severity_cannot_pass_direct_evaluator(self) -> None:
         progress, results = clean_fixture()
         uid = MANIFEST["units"][0]["auditUnitId"]
-        results[uid]["comparison"]["discrepancies"][0]["classification"] = "downstream-omission"
+        results[uid]["__comparison"]["discrepancies"][0]["classification"] = "downstream-omission"
         decision = target.evaluate_records(MANIFEST, progress, results)
         self.assertEqual(decision["failures"]["invalidClassificationSeverityUnits"], [uid])
         self.assertEqual(decision["decision"], "fail-or-escalate")
 
-    def test_empty_repair_proof_remains_unresolved(self) -> None:
+    def test_core_material_error_cannot_be_repaired_inside_frozen_version(self) -> None:
         progress, results = clean_fixture()
         uid = MANIFEST["units"][0]["auditUnitId"]
         results[uid]["status"] = "material-error"
-        results[uid]["comparison"]["discrepancies"][0].update({
+        results[uid]["__comparison"]["discrepancies"][0].update({
             "classification": "downstream-omission",
             "severity": "material",
             "rootCauseId": "RC-REPAIR",
         })
         results[uid]["resolution"] = {
             "status": "repaired-verified",
-            "repairPaths": [],
-            "verificationEvidenceRefs": [],
+            "repairPaths": ["docs/rules/00-foundations.md"],
+            "verificationEvidenceRefs": ["VR1"],
         }
         decision = target.evaluate_records(MANIFEST, progress, results)
         self.assertEqual(decision["failures"]["unresolvedCoreMaterialErrors"], [uid])

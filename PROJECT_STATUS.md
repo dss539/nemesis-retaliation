@@ -1,29 +1,45 @@
 # Nemesis: Retaliation — Project Status
 
-**Status date:** 2026-08-29
-**Active phase:** Stage 1 blind correctness audit (semantic expansion frozen)
+**Status date:** 2026-08-30
+**Active phase:** Stage 1 v2 correctness-audit harness prelock (semantic expansion frozen)
 **Active branch:** `work/card-corpus-extraction`
 **Implementation status:** Frozen; a clean rewrite will begin only after rules-layer readiness and explicit approval
 
 ## Current Objective
 
-Execute the authorized, locked 140-unit blind correctness audit before any rewrite approval.
+Finish and independently review the deterministic Stage 1 v2 harness, then lock and execute the authorized 140-unit Stage 1 blind correctness audit before any rewrite approval.
 
 The current implementation remains frozen. Existing semantic records remain immutable audit/reference evidence; expansion is not recommended.
 
 ## Immediate Next Deliverable
 
-Freeze the externally reviewed 140-unit audit harness, then execute source-only packet, sealed blind derivation, post-reveal comparison, and independent verification batches. The audit population is 56 concise rules + 28 base-applicable FAQ units + 56 stratified component effects.
+Commit the green v2 harness as an explicitly non-authoritative review candidate, run the twelve isolated prelock review specialties, obtain and disposition a completed independent setup review, and rerun the complete prelock gate after any verified fixes. Only then commit the v2 baseline and create its immediate direct-child lock before source-only packets or sealed audit lanes begin. The population remains 56 concise rules + 28 base-applicable FAQ units + 56 stratified component effects.
 
 Evidence: `docs/qa/implementation-readiness/correctness-audit/`.
 
 ## Resume Checkpoint
 
 - Verified semantic data checkpoint: `f3fbd28` for the Facility/map topology/setup batch integrated over the prior Combat/Attacks/Noise/Hazard data and adversarial suite.
-- Branch `work/card-corpus-extraction` contains the local implementation-readiness checkpoints; nothing from the correctness audit has been pushed. No PR or deployment exists.
-- The protected pre-existing `AGENTS.md` change remains untouched and retains SHA-256 `2c65f66c7e88e0e154fb5c7c77e1131f1bf66acb1f7eb3964b20236442740344`; it is not part of this batch.
+- Branch `work/card-corpus-extraction` is at the pre-candidate parent `3e23aebf52bac07ca54829fb49e4eb1f375bf599`, 40 commits ahead of origin before the pending review-candidate commit. No audit work has been pushed; no PR or deployment exists.
+- The preserved v1 baseline (`2fe3f0d`) and lock commit (`3e23aeb`) are superseded and cannot authorize execution. `docs/qa/implementation-readiness/correctness-audit/audit-lock-v1.json` is retained; no v2 lock exists.
+- The v2 population is unchanged and ordered: 140 units (56 concise rules, 28 base-applicable FAQ units, 56 component effects), all `pending-blind-derivation`; no substantive audit judgment has begun.
+- The v2 manifest and canonical progress ledger have been regenerated. The manifest diff leaves all unit IDs, order, strata, and counts unchanged; it adds the frozen v2 comparator inputs, refreshes the methodology/builder hashes, and pins the deterministic 23-unit clean-match plan.
+- Fresh validation on 2026-08-30 is green: manifest freshness and prelock validation pass; all 61 mutation controls and all 10 decision tests pass; source extraction and project-status validation pass with zero failures; `git diff --check` is clean.
+- A completed independent v2 setup review and the twelve-specialty review-candidate wave are still required before the baseline/lock can be created. Earlier provider-blocked, interrupted, or empty-content attempts remain non-evidence.
+- The protected pre-existing `AGENTS.md` modification remains out of scope and must not be included accidentally.
 - The core Combat/Attacks/Noise/Hazard/entry batch is integrated over the prior Heavy/Equipment work; deterministic semantic rebuilds and 48 focused/adversarial tests pass, including the new independent Combat projection.
 - Resume in Stage 1: the owner accepted the recommendation to keep semantic expansion frozen and authorized the 140-unit blind correctness audit. Current source-obligation boundary remains 530 covered / 69 pending / 1 source-blocked with 115 no-default semantic questions.
+
+## Next-Session Parallel Handoff
+
+- Use one lock-holding integrator for the canonical `nemesis-card-corpus` workspace and up to 32 isolated workers in dependency-respecting waves. Parallel workers must use separate task-workspace roots, each with its own `.workspace.lock` and repository worktree; putting several worktrees under the canonical workspace root would serialize them behind one lock.
+- The current v2 harness exists only in the dirty canonical worktree. First regenerate the manifest/progress ledger and restore a green prelock suite there. A committed review-candidate snapshot may then fan out to independent worktrees, but it is not the v2 baseline and must not receive an active lock. Run the twelve prelock review specialties detailed in `todo.md` concurrently, independently reproduce each finding, and integrate only verified fixes.
+- After a completed setup review and a completely green prelock gate, the integrator alone commits the final v2 baseline and creates the active v2 audit lock in its immediate direct-child commit. Canonical lane seals, progress transitions, tamper controls, and final adjudication remain serial because the first-parent provenance contract forbids parallel integration.
+- Once v2 is locked, parallelize source-packet preparation and completeness review across the five concise-rule groups, two FAQ groups, and fourteen component families. Use different reviewer identities for completeness. Then run up to 32 balanced source-family batches for blind derivation, comparison, and independent verification.
+- Blind derivation workers must receive only sealed source packets, fixed instructions, and the blind schema in isolated non-repository directories. They must not receive a full worktree or any concise-rule, semantic, conflict, question, implementation, or prior-conclusion artifact. Comparison workers may use full worktrees only after their blind artifacts are sealed.
+- Worker handoffs must identify exact artifact paths, hashes/commits where applicable, tests run, findings, and unresolved risks. Worker claims remain advisory until the integrator verifies them against files or primary sources. Preserve reviewer-identity independence across packet completeness, blind derivation, comparison, and verification.
+- To avoid avoidable approval prompts, prefer file/search/patch tools and saved scripts; do not pipe content into interpreters, use shell heredocs or inline Python/shell programs, interpolate model output into commands, or run broad cleanup/reset/stash operations. Use narrow existing validator commands exactly as documented in the audit methodology.
+- Do not create Hermes profiles, expand semantics, touch the legacy implementation, open a PR, merge, deploy, or push unless separately authorized. A stop/status request preempts worker launches and integration immediately.
 
 ## Verified Checkpoint
 

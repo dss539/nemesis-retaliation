@@ -45,6 +45,7 @@ def main() -> int:
     parser.add_argument("--unit", required=True)
     parser.add_argument("--to", required=True, choices=sorted(TRANSITIONS))
     parser.add_argument("--blind")
+    parser.add_argument("--comparison")
     parser.add_argument("--result")
     args = parser.parse_args()
 
@@ -59,7 +60,7 @@ def main() -> int:
         raise SystemExit(f"invalid transition: {current} -> {args.to}")
 
     if args.to == "blind-derived":
-        if not args.blind:
+        if not args.blind or args.comparison or args.result:
             raise SystemExit("--blind is required")
         blind_path, blind_hash = relative_artifact(args.blind, AUDIT_DIR / "blind")
         blind = validation.strict_load(ROOT / blind_path)
@@ -73,12 +74,32 @@ def main() -> int:
                 "blindUnitResultId": args.unit,
             }
         )
+    elif args.to == "compared":
+        if args.blind or not args.comparison or args.result:
+            raise SystemExit("--comparison alone is required for the compared transition")
+        comparison_path, comparison_hash = relative_artifact(
+            args.comparison,
+            AUDIT_DIR / "comparisons",
+        )
+        comparison = validation.strict_load(ROOT / comparison_path)
+        if comparison.get("auditUnitId") != args.unit or comparison.get("status") != "compared":
+            raise SystemExit("comparison unit/status does not match requested transition")
+        row.update(
+            {
+                "comparisonPath": comparison_path,
+                "comparisonSha256": comparison_hash,
+            }
+        )
     else:
-        if args.blind:
-            raise SystemExit("--blind is valid only for the blind-derived transition")
-        if not args.result:
-            raise SystemExit("--result is required")
-        result_path, result_hash = relative_artifact(args.result, AUDIT_DIR / "comparisons")
+        if args.blind or args.comparison or not args.result:
+            raise SystemExit("--result alone is required for a final transition")
+        if any(
+            isinstance(candidate, dict)
+            and candidate.get("status") in {"pending-blind-derivation", "blind-derived"}
+            for candidate in progress.get("units", [])
+        ):
+            raise SystemExit("final adjudication is blocked until every Stage 1 unit is compared")
+        result_path, result_hash = relative_artifact(args.result, AUDIT_DIR / "adjudications")
         result = validation.strict_load(ROOT / result_path)
         if result.get("auditUnitId") != args.unit or result.get("status") != args.to:
             raise SystemExit("result unit/status does not match requested transition")
@@ -93,7 +114,10 @@ def main() -> int:
 
     PROGRESS.write_text(json.dumps(progress, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     try:
-        report = validation.validate(require_lock=validation.LOCK_PATH.is_file())
+        report = validation.validate(
+            require_lock=validation.LOCK_PATH.is_file(),
+            allow_uncommitted_progress=True,
+        )
         if not report["passed"]:
             raise RuntimeError("; ".join(report["failures"][:10]))
     except Exception as exc:

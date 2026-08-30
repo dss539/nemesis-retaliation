@@ -14,13 +14,18 @@ LOCK = AUDIT / "audit-lock.json"
 MANIFEST = AUDIT / "manifest.json"
 PROGRESS = AUDIT / "progress.json"
 LOCKED_FILES = [
+    "docs/qa/implementation-readiness/correctness-audit/audit-lock-v1.json",
+    "docs/qa/implementation-readiness/correctness-audit/baseline-v1-supersession.md",
     "docs/qa/implementation-readiness/correctness-audit/manifest.json",
     "docs/qa/implementation-readiness/correctness-audit/methodology.md",
     "docs/qa/implementation-readiness/correctness-audit/source-packet.schema.json",
     "docs/qa/implementation-readiness/correctness-audit/packet-completeness-review.schema.json",
     "docs/qa/implementation-readiness/correctness-audit/blind-derivation.schema.json",
+    "docs/qa/implementation-readiness/correctness-audit/comparison.schema.json",
     "docs/qa/implementation-readiness/correctness-audit/audit-result.schema.json",
     "docs/qa/implementation-readiness/correctness-audit/requirements-audit.txt",
+    "docs/qa/implementation-readiness/correctness-audit/prompts/packet-completeness-instructions.txt",
+    "docs/qa/implementation-readiness/correctness-audit/prompts/blind-derivation-instructions.txt",
     "docs/qa/implementation-readiness/correctness-audit/reviews/setup-review-instructions.txt",
     "docs/qa/implementation-readiness/correctness-audit/reviews/setup-review-prompt.txt",
     "docs/qa/implementation-readiness/correctness-audit/reviews/deepseek-v4-pro-0813-max-setup-review.json",
@@ -37,6 +42,7 @@ LOCKED_FILES = [
     "docs/qa/implementation-readiness/correctness-audit/reviews/glm-5.3-max-setup-rereview.json",
     "docs/qa/implementation-readiness/correctness-audit/reviews/setup-rereview-disposition.md",
     "scripts/advance_correctness_audit_progress.py",
+    "scripts/build_correctness_audit_prompt.py",
     "scripts/build_correctness_audit_manifest.py",
     "scripts/create_correctness_audit_lock.py",
     "scripts/evaluate_correctness_audit.py",
@@ -45,21 +51,93 @@ LOCKED_FILES = [
     "scripts/test_correctness_audit_mutations.py",
     "scripts/validate_correctness_audit.py",
 ]
+LANE_OUTPUT_ROOTS = [
+    "docs/qa/implementation-readiness/correctness-audit/packets",
+    "docs/qa/implementation-readiness/correctness-audit/blind",
+    "docs/qa/implementation-readiness/correctness-audit/comparisons",
+    "docs/qa/implementation-readiness/correctness-audit/adjudications",
+    "docs/qa/implementation-readiness/correctness-audit/reviews/raw",
+]
 
 
 def sha(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
-def git(*args: str, text: bool = True) -> subprocess.CompletedProcess:
-    return subprocess.run(["git", *args], cwd=ROOT, text=text, capture_output=True, check=False)
+def git(*args: str, text: bool = True, root: Path = ROOT) -> subprocess.CompletedProcess:
+    return subprocess.run(["git", *args], cwd=root, text=text, capture_output=True, check=False)
+
+
+def historical_lane_files(starting: str, baseline: str, *, root: Path = ROOT) -> list[str]:
+    return sorted(
+        {
+            row
+            for row in git(
+                "log",
+                "--format=",
+                "--name-only",
+                f"{starting}..{baseline}",
+                "--",
+                *LANE_OUTPUT_ROOTS,
+                root=root,
+            ).stdout.splitlines()
+            if row
+        }
+    )
 
 
 def main() -> int:
     if LOCK.exists():
         raise SystemExit("refusing to overwrite existing audit-lock.json")
     baseline = git("rev-parse", "HEAD").stdout.strip()
+    lane_files = sorted(
+        str(path.relative_to(ROOT))
+        for relative in LANE_OUTPUT_ROOTS
+        for path in (ROOT / relative).rglob("*")
+        if path.is_file() or path.is_symlink()
+    )
+    if lane_files:
+        raise SystemExit(
+            "audit lock requires empty lane-output roots; found: " + ", ".join(lane_files)
+        )
+    baseline_lane_files = git(
+        "ls-tree",
+        "-r",
+        "--name-only",
+        baseline,
+        "--",
+        *LANE_OUTPUT_ROOTS,
+    ).stdout.splitlines()
+    if baseline_lane_files:
+        raise SystemExit(
+            "audit baseline already contains lane artifacts: " + ", ".join(baseline_lane_files)
+        )
+
+    builder_check = subprocess.run(
+        [sys.executable, str(ROOT / "scripts/build_correctness_audit_manifest.py"), "--check"],
+        cwd=ROOT,
+        text=True,
+        capture_output=True,
+    )
+    if builder_check.returncode != 0:
+        raise SystemExit("manifest builder check failed:\n" + builder_check.stdout + builder_check.stderr)
+
+    prelock = subprocess.run(
+        [sys.executable, str(ROOT / "scripts/validate_correctness_audit.py"), "--prelock"],
+        cwd=ROOT,
+        text=True,
+        capture_output=True,
+    )
+    if prelock.returncode != 0:
+        raise SystemExit("clean pre-lock validation failed:\n" + prelock.stdout + prelock.stderr)
+
     manifest = json.loads(MANIFEST.read_text(encoding="utf-8"))
+    lane_history = historical_lane_files(manifest["lockedStartingHead"], baseline)
+    if lane_history:
+        raise SystemExit(
+            "lane artifacts appeared in Git history before the v2 baseline: "
+            + ", ".join(lane_history)
+        )
     progress = json.loads(PROGRESS.read_text(encoding="utf-8"))
     if any(row["status"] != "pending-blind-derivation" for row in progress["units"]):
         raise SystemExit("audit lock must be created before the first derivation")

@@ -20,6 +20,7 @@ ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / "docs/qa/implementation-readiness/correctness-audit/manifest.json"
 PROGRESS = ROOT / "docs/qa/implementation-readiness/correctness-audit/progress.json"
 LOCKED_STARTING_HEAD = "8d95b94f3e5c8d5ffb3a1c9835dd2512be88bc93"
+AUDIT_VERSION = "stage1-v2"
 SEED_MATERIAL = (
     "nemesis-retaliation-stage1-correctness-audit-v1|"
     + LOCKED_STARTING_HEAD
@@ -32,9 +33,45 @@ RULE_FILES = [
     "docs/rules/04-items-and-equipment.md",
 ]
 FROZEN_SEMANTIC_PATHS = [
+    "docs/rules/vocabulary/source-term-inventory.json",
+    "docs/rules/vocabulary/named-component-identities.json",
+    "docs/rules/vocabulary/canonical-vocabulary.json",
+    "docs/rules/vocabulary/alias-registry.json",
+    "docs/rules/vocabulary/vocabulary-review-gates.json",
+    "docs/rules/vocabulary/coverage.json",
+    "docs/rules/vocabulary/validation.json",
+    "docs/rules/ontology/taxonomy.json",
+    "docs/rules/ontology/mappings.json",
+    "docs/rules/ontology/ontology.json",
+    "docs/rules/ontology/review-gates.json",
+    "docs/rules/ontology/validation.json",
+    "docs/rules/semantics/semantic-rule.schema.json",
+    "docs/rules/semantics/semantic-vocabulary.json",
+    "docs/rules/semantics/room-icon-denotations.json",
+    "docs/rules/semantics/source-registry.json",
     "docs/rules/semantics/pilots.json",
     "docs/rules/semantics/review-gates.json",
+    "docs/rules/semantics/contradictions.json",
+    "docs/rules/semantics/coverage.json",
+    "docs/rules/semantics/backlog.json",
     "docs/rules/semantics/validation.json",
+    "docs/rules/semantics/event-source-index.json",
+    "docs/rules/semantics/exploration-source-index.json",
+    "docs/rules/semantics/robot-source-index.json",
+    "docs/rules/semantics/attack-source-index.json",
+    "docs/rules/semantics/queen-health-source-index.json",
+    "docs/rules/semantics/serious-wound-source-index.json",
+    "docs/rules/semantics/green-item-source-index.json",
+    "docs/rules/semantics/red-item-source-index.json",
+    "docs/rules/semantics/yellow-item-source-index.json",
+    "docs/rules/semantics/action-source-index.json",
+    "docs/rules/semantics/objective-mission-source-index.json",
+    "docs/rules/semantics/equipment-source-index.json",
+    "docs/rules/semantics/facility-source-index.json",
+    "docs/rules/semantics/combat-source-index.json",
+    "scripts/validate_vocabulary_proposal.py",
+    "scripts/build_taxonomy_ontology.py",
+    "scripts/validate_taxonomy_ontology.py",
     "scripts/build_semantic_pilots.py",
     "scripts/validate_semantic_pilots.py",
 ]
@@ -64,9 +101,23 @@ RULE_HEADING = re.compile(
 )
 
 
+def strict_pairs(pairs: list[tuple[str, Any]]) -> dict[str, Any]:
+    result: dict[str, Any] = {}
+    for key, value in pairs:
+        if key in result:
+            raise ValueError(f"duplicate JSON key: {key}")
+        result[key] = value
+    return result
+
+
+def require(condition: bool, message: str) -> None:
+    if not condition:
+        raise ValueError(message)
+
+
 def load_json(path: str) -> dict[str, Any]:
     with (ROOT / path).open(encoding="utf-8") as handle:
-        return json.load(handle)
+        return json.load(handle, object_pairs_hook=strict_pairs)
 
 
 def file_sha256(path: str) -> str:
@@ -85,8 +136,8 @@ def select(
 ) -> list[dict[str, Any]]:
     rows = list(candidates)
     ids = [row["sourceIdentity"] for row in rows]
-    assert len(ids) == len(set(ids)), f"duplicate candidates in {stratum}"
-    assert len(rows) >= count, f"too few candidates in {stratum}"
+    require(len(ids) == len(set(ids)), f"duplicate candidates in {stratum}")
+    require(len(rows) >= count, f"too few candidates in {stratum}")
     ordered = sorted(rows, key=lambda row: (rank(stratum, row["sourceIdentity"]), row["sourceIdentity"]))
     selected = ordered[:count]
     for row in selected:
@@ -111,7 +162,7 @@ def source_candidate(
     source_sha256: str,
     **extra: Any,
 ) -> dict[str, Any]:
-    assert source_identity and source_path and source_sha256
+    require(bool(source_identity and source_path and source_sha256), "component source identity/path/hash is empty")
     row: dict[str, Any] = {
         "auditUnitId": f"COMPONENT:{family}:{source_identity}",
         "unitClass": "sampled-component-effect",
@@ -170,8 +221,8 @@ def concise_rule_units() -> list[dict[str, Any]]:
                     "status": "pending-blind-derivation",
                 }
             )
-    assert len(units) == 56, len(units)
-    assert len({row["auditUnitId"] for row in units}) == 56
+    require(len(units) == 56, f"expected 56 units, found {len(units)}")
+    require(len({row["auditUnitId"] for row in units}) == 56, "duplicate 56-unit audit ID")
     return units
 
 
@@ -184,7 +235,7 @@ def faq_units() -> list[dict[str, Any]]:
         for unit in page.get("units", [])
         if unit.get("applicability", "").startswith("base-game")
     ]
-    assert len(rows) == 28
+    require(len(rows) == 28, f"expected 28 base-applicable FAQ units, found {len(rows)}")
     return [
         {
             "auditUnitId": f"FAQ:{row['sourceUnitId']}",
@@ -263,7 +314,7 @@ def intruder_help_candidates() -> list[dict[str, Any]]:
                 extractionPath=path,
             )
         )
-    assert len(candidates) == 18
+    require(len(candidates) == 18, f"expected 18 intruder-help candidates, found {len(candidates)}")
     return candidates
 
 
@@ -347,14 +398,14 @@ def action_sample() -> list[dict[str, Any]]:
                 extractionPath=path,
             )
         )
-    assert set(by_character) == {
+    require(set(by_character) == {
         "Combat Engineer",
         "Contractor",
         "Heavy Gun Operator",
         "Medical Support",
         "Officer",
         "Recon",
-    }
+    }, "action-card character universe drift")
     result = []
     for character in sorted(by_character):
         result += select(by_character[character], 2, f"action-card:character:{character}")
@@ -383,7 +434,10 @@ def objective_sample() -> list[dict[str, Any]]:
                 extractionPath=path,
             )
         )
-    assert set(by_category) == {"mission-objective", "private-objective", "mission-task"}
+    require(
+        set(by_category) == {"mission-objective", "private-objective", "mission-task"},
+        "objective/mission category universe drift",
+    )
     result = []
     for category in sorted(by_category):
         result += select(by_category[category], 2, f"objective-mission:category:{category}")
@@ -496,7 +550,7 @@ def equipment_sample() -> list[dict[str, Any]]:
     # Reserve two of eight equipment slots for the known-hard source/physical-
     # class boundary instead of diluting every conflict into one candidate.
     result += select(conflicts, 2, "equipment:source-variant-boundary")
-    assert len(result) == 8
+    require(len(result) == 8, f"expected 8 equipment candidates, found {len(result)}")
     return result
 
 
@@ -549,8 +603,8 @@ def component_units() -> list[dict[str, Any]]:
     units += action_sample()
     units += objective_sample()
     units += equipment_sample()
-    assert len(units) == 56, len(units)
-    assert len({row["auditUnitId"] for row in units}) == 56
+    require(len(units) == 56, f"expected 56 units, found {len(units)}")
+    require(len({row["auditUnitId"] for row in units}) == 56, "duplicate 56-unit audit ID")
     return units
 
 
@@ -559,8 +613,8 @@ def build() -> dict[str, Any]:
     faq = faq_units()
     components = component_units()
     units = concise + faq + components
-    assert len(units) == 140
-    assert len({row["auditUnitId"] for row in units}) == 140
+    require(len(units) == 140, f"expected 140 audit units, found {len(units)}")
+    require(len({row["auditUnitId"] for row in units}) == 140, "duplicate audit unit ID")
     by_family: dict[str, int] = defaultdict(int)
     for row in components:
         by_family[row["family"]] += 1
@@ -580,7 +634,10 @@ def build() -> dict[str, Any]:
         "objective-mission": 6,
         "equipment-starting": 8,
     }
-    assert dict(sorted(by_family.items())) == dict(sorted(expected_families.items()))
+    require(
+        dict(sorted(by_family.items())) == dict(sorted(expected_families.items())),
+        "component family quotas drift",
+    )
     selection_coverage: dict[str, dict[str, int]] = {}
     for row in components:
         stratum = row["selection"]["stratum"]
@@ -589,7 +646,7 @@ def build() -> dict[str, Any]:
             stratum,
             {"eligibleCandidates": candidate_count, "selectedUnits": 0},
         )
-        assert existing["eligibleCandidates"] == candidate_count
+        require(existing["eligibleCandidates"] == candidate_count, f"candidate count differs within stratum {stratum}")
         existing["selectedUnits"] += 1
     component_candidate_universes = {
         "room": 25,
@@ -609,7 +666,7 @@ def build() -> dict[str, Any]:
     }
     return {
         "schemaVersion": 1,
-        "auditVersion": "stage1-v1",
+        "auditVersion": AUDIT_VERSION,
         "recordType": "stage-1-blind-correctness-audit-manifest",
         "scope": "Base competitive game rewrite-readiness decision audit; Solo/Coop and expansions excluded except one FAQ applicability-boundary unit retained by the pre-existing 28-unit base-applicable count.",
         "lockedStartingHead": LOCKED_STARTING_HEAD,
@@ -655,6 +712,14 @@ def build() -> dict[str, Any]:
             "hiddenDefaults": 0,
             "recurringDefectPatterns": 0,
             "maximumIsolatedMaterialErrorsInComponentSample": 2,
+            "deterministicCleanMatchReviewSample": {
+                "total": 23,
+                "perUnitClass": {
+                    "concise-rule-record": 6,
+                    "base-applicable-faq-unit": 3,
+                },
+                "perComponentFamily": 1,
+            },
             "sourceBlockedUnitsMustBeEnumerated": True,
             "readinessClaimMustEnumerateUnauditedComponentEffects": True,
         },
@@ -675,57 +740,168 @@ def serialized() -> bytes:
     return (json.dumps(build(), indent=2, ensure_ascii=False) + "\n").encode()
 
 
+def progress_bytes(manifest_bytes: bytes) -> bytes:
+    manifest = json.loads(manifest_bytes)
+    progress = {
+        "schemaVersion": 2,
+        "recordType": "stage-1-correctness-audit-progress",
+        "manifestPath": str(OUTPUT.relative_to(ROOT)),
+        "manifestSha256": hashlib.sha256(manifest_bytes).hexdigest(),
+        "counts": {
+            "total": len(manifest["units"]),
+            "pendingBlindDerivation": len(manifest["units"]),
+            "blindDerived": 0,
+            "compared": 0,
+            "accepted": 0,
+            "materialErrors": 0,
+            "criticalErrors": 0,
+            "sourceBlocked": 0,
+        },
+        "units": [
+            {
+                "auditUnitId": row["auditUnitId"],
+                "status": "pending-blind-derivation",
+                "blindPath": None,
+                "blindSha256": None,
+                "blindUnitResultId": None,
+                "comparisonPath": None,
+                "comparisonSha256": None,
+                "resultPath": None,
+                "resultSha256": None,
+                "lastUpdatedUtc": None,
+            }
+            for row in manifest["units"]
+        ],
+    }
+    return (json.dumps(progress, indent=2, ensure_ascii=False) + "\n").encode()
+
+
+def validate_progress_transition(
+    *,
+    supersede_v1: bool,
+    refresh_pending_v2: bool,
+    prior_manifest_bytes: bytes | None,
+) -> None:
+    if not PROGRESS.exists():
+        if supersede_v1 or refresh_pending_v2:
+            raise SystemExit("requested progress transition but no existing progress ledger exists")
+        return
+
+    if not supersede_v1 and not refresh_pending_v2:
+        raise SystemExit("refusing to overwrite existing correctness-audit progress")
+
+    existing_bytes = PROGRESS.read_bytes()
+    if supersede_v1:
+        v1_lock_path = OUTPUT.parent / "audit-lock-v1.json"
+        if not v1_lock_path.is_file():
+            raise SystemExit("cannot supersede progress without preserved audit-lock-v1.json")
+        v1_lock = json.loads(v1_lock_path.read_text(encoding="utf-8"))
+        existing = json.loads(existing_bytes)
+        if hashlib.sha256(existing_bytes).hexdigest() != v1_lock.get("initialProgressSha256"):
+            raise SystemExit("existing progress is not the byte-locked v1 initial ledger")
+        if existing.get("manifestSha256") != v1_lock.get("manifestSha256"):
+            raise SystemExit("existing progress does not reference the v1 locked manifest")
+        if any(row.get("status") != "pending-blind-derivation" for row in existing.get("units", [])):
+            raise SystemExit("refusing to supersede v1 after any unit left pending")
+        return
+
+    if (OUTPUT.parent / "audit-lock.json").exists():
+        raise SystemExit("refusing to refresh v2 progress after the v2 audit lock exists")
+    if prior_manifest_bytes is None:
+        raise SystemExit("cannot refresh v2 progress without the prior manifest bytes")
+    prior_manifest = json.loads(prior_manifest_bytes, object_pairs_hook=strict_pairs)
+    if prior_manifest.get("auditVersion") != AUDIT_VERSION:
+        raise SystemExit("--refresh-pending-progress is only valid for an existing v2 manifest")
+    existing = json.loads(existing_bytes, object_pairs_hook=strict_pairs)
+    expected_ids = [row["auditUnitId"] for row in prior_manifest.get("units", [])]
+    existing_rows = existing.get("units", [])
+    allowed_row_keys = {
+        "auditUnitId",
+        "status",
+        "blindPath",
+        "blindSha256",
+        "blindUnitResultId",
+        "comparisonPath",
+        "comparisonSha256",
+        "resultPath",
+        "resultSha256",
+        "lastUpdatedUtc",
+    }
+    if existing.get("manifestSha256") != hashlib.sha256(prior_manifest_bytes).hexdigest():
+        raise SystemExit("existing v2 progress does not reference the prior manifest")
+    if [row.get("auditUnitId") for row in existing_rows] != expected_ids:
+        raise SystemExit("existing v2 progress IDs/order differ from the prior manifest")
+    for row in existing_rows:
+        if not isinstance(row, dict) or not set(row).issubset(allowed_row_keys):
+            raise SystemExit("existing v2 progress has unknown row fields")
+        if row.get("status") != "pending-blind-derivation":
+            raise SystemExit("refusing to refresh v2 after any unit left pending")
+        if row.get("lastUpdatedUtc") is not None:
+            raise SystemExit("existing pending v2 progress has a timestamp")
+        artifact_values = [
+            value
+            for key, value in row.items()
+            if key not in {"auditUnitId", "status", "lastUpdatedUtc"}
+        ]
+        if any(value is not None for value in artifact_values):
+            raise SystemExit("existing pending v2 progress has an attached artifact")
+    expected_counts = {
+        "total": len(expected_ids),
+        "pendingBlindDerivation": len(expected_ids),
+        "blindDerived": 0,
+        "compared": 0,
+        "accepted": 0,
+        "materialErrors": 0,
+        "criticalErrors": 0,
+        "sourceBlocked": 0,
+    }
+    if existing.get("counts") != expected_counts:
+        raise SystemExit("existing v2 progress counts are not all-pending")
+
+
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--check", action="store_true")
     parser.add_argument("--init-progress", action="store_true")
+    transition = parser.add_mutually_exclusive_group()
+    transition.add_argument(
+        "--supersede-v1-progress",
+        action="store_true",
+        help="replace only the byte-locked, all-pending v1 ledger while creating v2",
+    )
+    transition.add_argument(
+        "--refresh-pending-progress",
+        action="store_true",
+        help="refresh only a canonical all-pending v2 ledger before the v2 audit lock exists",
+    )
     args = parser.parse_args()
+    if (args.supersede_v1_progress or args.refresh_pending_progress) and not args.init_progress:
+        raise SystemExit("progress transition flags require --init-progress")
+    if args.check and args.init_progress:
+        raise SystemExit("--check cannot be combined with --init-progress")
+
     expected = serialized()
     if args.check:
         if not OUTPUT.exists() or OUTPUT.read_bytes() != expected:
             raise SystemExit("correctness-audit manifest is stale")
         print("correctness-audit manifest is current: 140 units")
         return 0
+
+    prior_manifest_bytes = OUTPUT.read_bytes() if OUTPUT.exists() else None
+    pending_bytes: bytes | None = None
+    if args.init_progress:
+        validate_progress_transition(
+            supersede_v1=args.supersede_v1_progress,
+            refresh_pending_v2=args.refresh_pending_progress,
+            prior_manifest_bytes=prior_manifest_bytes,
+        )
+        pending_bytes = progress_bytes(expected)
+
     OUTPUT.parent.mkdir(parents=True, exist_ok=True)
     OUTPUT.write_bytes(expected)
     print(f"wrote {OUTPUT.relative_to(ROOT)}: 140 units")
-    if args.init_progress:
-        if PROGRESS.exists():
-            raise SystemExit("refusing to overwrite existing correctness-audit progress")
-        manifest = json.loads(expected)
-        progress = {
-            "schemaVersion": 1,
-            "recordType": "stage-1-correctness-audit-progress",
-            "manifestPath": str(OUTPUT.relative_to(ROOT)),
-            "manifestSha256": hashlib.sha256(expected).hexdigest(),
-            "counts": {
-                "total": len(manifest["units"]),
-                "pendingBlindDerivation": len(manifest["units"]),
-                "blindDerived": 0,
-                "compared": 0,
-                "accepted": 0,
-                "materialErrors": 0,
-                "criticalErrors": 0,
-                "sourceBlocked": 0,
-            },
-            "units": [
-                {
-                    "auditUnitId": row["auditUnitId"],
-                    "status": "pending-blind-derivation",
-                    "blindPath": None,
-                    "blindSha256": None,
-                    "blindUnitResultId": None,
-                    "resultPath": None,
-                    "resultSha256": None,
-                    "lastUpdatedUtc": None,
-                }
-                for row in manifest["units"]
-            ],
-        }
-        PROGRESS.write_text(
-            json.dumps(progress, indent=2, ensure_ascii=False) + "\n",
-            encoding="utf-8",
-        )
+    if pending_bytes is not None:
+        PROGRESS.write_bytes(pending_bytes)
         print(f"initialized {PROGRESS.relative_to(ROOT)}: 140 pending units")
     return 0
 

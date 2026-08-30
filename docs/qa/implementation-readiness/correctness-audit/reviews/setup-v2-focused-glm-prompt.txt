@@ -1,0 +1,996 @@
+You are the final focused provenance critic for the Nemesis Stage 1 v2 correctness-audit harness. Population remains deterministically frozen at 56 concise rules + 28 FAQ units + 56 component effects. Intended order: baseline -> audit lock direct child -> packet -> completeness review -> blind derivation -> all 140 comparisons -> deterministic clean-match sample -> independent adjudications. Current local evidence: 49 mutation controls, 9 decision tests, and clean pre-lock validation. Attack path/symlink confinement, Git ancestry and immutable bytes, packet-after-lock, all-comparisons-before-adjudication, canonical prompt bytes, prompt/response provenance, reviewer identity separation, and PDF visual evidence.
+
+Return only one compact JSON object with keys: verdict, findings, residualRisks. verdict is accept, accept-with-fixes, or reject. Each finding has id, severity (critical/high/medium/low), claim, exact supplied-code evidence, and minimal fix. Report concrete bypasses only; do not invent missing context or provide hidden chain-of-thought.
+
+SOURCE FILE SHA-256:
+{
+  "docs/qa/implementation-readiness/correctness-audit/methodology.md": "6f212134619b02202e419aa62b047584538dc19f1e48b778e7b01817a1a3f489",
+  "scripts/build_correctness_audit_prompt.py": "05911ed63052289ae46b07f78214f0dd243ebd188c4b6a6406f55ac946d184d9",
+  "scripts/create_correctness_audit_lock.py": "dd71031dd4998ac73410eeb645d15f27c0255462e0979d1516477d621db66e90",
+  "scripts/validate_correctness_audit.py": "6fcefed25ae57cd9e0368bd4c5232051deae7d4704e3f6b725de579134bda7ce"
+}
+
+METHODOLOGY CONTRACT:
+After setup validation, the harness is committed once, then `audit-lock.json` is introduced in the immediate direct-child commit. It binds the manifest and immutable harness files to the baseline commit. The validator verifies that the starting HEAD and baseline remain ancestors, immutable file bytes equal the baseline, and the lock itself is unchanged from that direct-child commit. Any change requires a new audit version and an explicit disposition of the old audit.
+
+For every later lane artifact, `sealedAtGitHead` means the immediate **pre-seal** HEAD, not the commit containing the artifact. The validator derives the seal commit as the first non-merge, first-parent direct child of that HEAD; the versioned artifact path must be absent before the seal and its current bytes must equal the bytes introduced there. Each next lane must follow the preceding lane's derived seal commit. Packet visuals and the canonical completeness prompt are committed with the packet; the completeness response and review are committed next; the canonical blind prompt, response, and derivation follow; comparison prompt/response and comparison follow in Lane C; verification prompts/responses, repair proof, and final adjudication follow separately in Lane D.
+
+## Lane A — sealed source-only packet
+
+Each bounded batch receives a packet conforming to `source-packet.schema.json`. The scope is the constant `base-competitive-stage1`; authority and document roles use closed source-local enums rather than free-form conclusions. The closed schema permits only:
+
+- exact official rulebook/FAQ source files and locators;
+- rendered official visuals;
+- exact source-bound component faces or literal transcriptions;
+- authority, version, base-scope, search, and exclusion metadata;
+- neutral audit IDs and source-local printed labels.
+
+Allowed evidence paths are mechanically restricted to:
+
+- `docs/rulebooks/`;
+- `docs/rules/source-extraction/`;
+- `assets/tts-mod/extract/`.
+
+Every path must be canonical repository-relative POSIX syntax: no absolute path, `.`/`..` segment, backslash normalization, or symlink component is accepted. Allowlisting is evaluated against the resolved allowed root, not by lexical prefix.
+
+Concise-rule files, semantic projections, conflict dispositions, physical-class conclusions, and implementation files are not valid packet evidence. Source indexes may help the supervisor locate original bytes but are not transmitted as blind evidence.
+
+Every packet records nonempty:
+
+- searched source files and hashes;
+- exact included locators;
+- search terms;
+- neighboring sections checked;
+- component/visual channels checked;
+- exclusions and their reasons;
+- applicable FAQ units checked, where any exist.
+
+A separate source-only critic reviews the packet under `packet-completeness-review.schema.json`. The validator reconciles every unresolved material/critical finding against `unresolvedMaterialFindingIds`; `accepted` must be false whenever that set is nonempty. The packet is eligible for derivation only when the review is accepted and has no unresolved material finding. The packet and completeness review carry hashes, UTC seal times, and Git HEADs. Every reviewer kind, including agent and human reviewers, records hash-pinned prompt and response artifacts.
+
+A mechanical field allowlist is appropriate; an n-gram ban is not. Official text may legitimately overlap concise wording because concise rules quote official sources. The protection is source-path provenance, a closed packet schema, an isolated prompt, and a separate completeness review—not lexical suppression of authoritative text.
+
+## Lane B — separately sealed blind derivation
+
+An isolated reviewer receives only the accepted packet, neutral instructions, and the closed blind output contract. `scripts/build_correctness_audit_prompt.py` generates the exact prompt from locked instructions and sealed payloads; the validator recomputes those bytes. The prompt is retained under `packets/` with its SHA-256 and may not contain downstream rule paths, semantic paths, or conclusion fields.
+
+`blind-derivation.schema.json` requires one returned result per submitted unit, in the same order. A source-derived unit must contain at least one cited requirement and one cited acceptance scenario. Every blind citation must exactly match a source-path/locator tuple in packet evidence assigned to that unit. A blocked unit must state the blocker instead of inventing a rule. Every unresolved point records at least two alternatives and `defaultProhibited: true`.
+
+The reviewer derives:
+
+- trigger, applicability, preconditions, and timing;
+- actor, decision owner, targets, cardinality, and decline rights;
+- public/private/transient/hidden visibility;
+- costs and ordered operations;
+- finite-supply, impossible-instruction, and partial-resolution behavior;
+- exact authority and citations;
+- unresolved alternatives with no default;
+- implementation-focused acceptance scenarios.
+
+Every behavioral dimension is nonempty in a derived requirement. When a dimension genuinely does not apply, the reviewer records an explicit source-supported `not applicable` statement instead of leaving the field empty.
+
+The blind file is physically separate from all post-reveal comparison files. It is hashed before Lane C begins and is never rewritten. The canonical completeness prompt is introduced with the packet; its response and accepted completeness review are introduced in the next lane; the canonical blind prompt, its response, and the blind artifact are introduced in the following lane. Packet, completeness-review, prompt, response, and blind hashes remain independently addressable.
+
+## Lane C — reveal and comparison
+
+Only after Lane B is sealed may a different comparator inspect:
+
+- the concise rule or FAQ projection under audit;
+- relevant frozen semantic records;
+- relevant semantic questions and conflicts;
+- direct primary sources needed to verify a claimed mismatch.
+
+`comparison.schema.json` is the immutable post-reveal contract. It contains only a hash reference to the sealed blind file and cannot rewrite blind requirements. It records the comparator, inspected downstream artifacts, and classified discrepancy rows, but it cannot contain verification or final-resolution fields.
+
+Every comparison contains one or more classified rows:
+
+- `match`;
+- `downstream-omission`;
+- `downstream-overstatement`;
+- `authority-inversion`;
+- `hidden-default`;
+- `source-ambiguity-preserved` or `source-ambiguity-lost`;
+- `source-conflict-preserved` or `source-conflict-flattened`;
+- `transcription-or-packet-gap`;
+- `presentation-only`.
+
+Material and critical discrepancies require a stable `rootCauseId`. Authority inversions and hidden defaults have mandatory Boolean flags and critical severity. `match` requires `none`; behavioral omission/overstatement/lost-ambiguity/flattened-conflict/packet-gap classes cannot use `none`; preserved ambiguities/conflicts and presentation-only rows retain their bounded non-defect severities. Every comparison evidence reference must resolve to the sealed source packet.
+
+## Lane D — independent verification
+
+A reviewer different from the completeness reviewer, blind reviewer, and comparator checks direct source evidence for:
+
+- every critical, material, blocked, minor, and presentation-only discrepancy;
+- every preserved ambiguity or conflict disposition;
+- a deterministic sample of otherwise clean matches.
+
+All 140 comparisons must be sealed before any final adjudication. The validator requires every comparison commit to be an ancestor of each adjudication pre-seal. Once all comparisons exist, `evaluate_correctness_audit.py` publishes the clean-match sample locked by `SHA-256("nemesis-stage1-lane-d-match-v1|" + auditUnitId)`:
+
+- six clean concise-rule matches;
+- three clean FAQ matches;
+- one clean match from each of the fourteen component families.
+
+If a stratum has no clean comparison, no substitute conclusion is inferred. `audit-result.schema.json` is the separate final-adjudication contract: it references the immutable comparison by path/hash, contains verification reviews and resolution only, and cannot restate comparison or blind content. The validator derives final status consistency from the comparison rows, so a material result cannot be marked accepted.
+
+`repaired-verified` is not a label-only escape. It requires at least one canonical repair path present in the adjudication seal commit plus at least one known packet/verification evidence reference. `not-required` and `pending` carry no repair proof; a source-blocked resolution carries verification evidence but no repair path. `evaluate_correctness_audit.py` prevents a final pass while a selected clean match lacks verification.
+
+GLM 5.3 and DeepSeek V4 Pro 0813 may be used as isolated advisors/critics through Ollama Cloud with `think: "max"`. Record exact requested/response tags, provider, request mode, prompt/response hashes, and final answer. Never retain `message.thinking` or another reasoning trace. Model findings remain advisory until checked against files or primary sources.
+
+
+
+VALIDATOR FUNCTIONS:
+def png_validation_failures(path: Path) -> list[str]:
+    """Return structural failures for a rendered PNG evidence artifact."""
+    try:
+        data = path.read_bytes()
+    except OSError as exc:
+        return [f"cannot read PNG: {exc}"]
+    if not data.startswith(b"\x89PNG\r\n\x1a\n"):
+        return ["missing PNG signature"]
+    position = 8
+    chunk_index = 0
+    saw_ihdr = False
+    saw_idat = False
+    saw_iend = False
+    width = height = 0
+    failures: list[str] = []
+    while position < len(data):
+        if position + 12 > len(data):
+            failures.append("truncated PNG chunk")
+            break
+        length = int.from_bytes(data[position : position + 4], "big")
+        chunk_type = data[position + 4 : position + 8]
+        end = position + 12 + length
+        if end > len(data):
+            failures.append("PNG chunk length exceeds file")
+            break
+        chunk_data = data[position + 8 : position + 8 + length]
+        stored_crc = int.from_bytes(data[position + 8 + length : end], "big")
+        calculated_crc = binascii.crc32(chunk_type + chunk_data) & 0xFFFFFFFF
+        if stored_crc != calculated_crc:
+            failures.append(f"PNG chunk {chunk_index} CRC mismatch")
+        if chunk_index == 0:
+            if chunk_type != b"IHDR" or length != 13:
+                failures.append("first PNG chunk is not a 13-byte IHDR")
+            else:
+                saw_ihdr = True
+                width = int.from_bytes(chunk_data[0:4], "big")
+                height = int.from_bytes(chunk_data[4:8], "big")
+        if chunk_type == b"IDAT":
+            saw_idat = True
+        if chunk_type == b"IEND":
+            saw_iend = True
+            if length != 0:
+                failures.append("PNG IEND chunk is nonempty")
+            if end != len(data):
+                failures.append("PNG has trailing bytes after IEND")
+            position = end
+            break
+        position = end
+        chunk_index += 1
+    if not saw_ihdr:
+        failures.append("PNG lacks IHDR")
+    if width < 32 or height < 32:
+        failures.append("PNG dimensions are below 32x32")
+    if not saw_idat:
+        failures.append("PNG lacks IDAT")
+    if not saw_iend:
+        failures.append("PNG lacks IEND")
+    return failures
+
+
+def repo_path(value: Any, failures: list[str], label: str, parent: Path = ROOT) -> Path | None:
+    if not isinstance(value, str) or not value:
+        failures.append(f"{label}: missing path")
+        return None
+    lexical = PurePosixPath(value)
+    if lexical.is_absolute() or lexical.as_posix() != value or any(part in {".", ".."} for part in lexical.parts):
+        failures.append(f"{label}: path is not a canonical repository-relative POSIX path")
+        return None
+    path = ROOT.joinpath(*lexical.parts)
+    try:
+        resolved = path.resolve(strict=False)
+        resolved.relative_to(parent.resolve())
+    except (OSError, ValueError):
+        failures.append(f"{label}: path escapes {parent.relative_to(ROOT) if parent != ROOT else 'repository'}")
+        return None
+    current = ROOT
+    for part in lexical.parts:
+        current = current / part
+        if current.is_symlink():
+            failures.append(f"{label}: symlink path component is forbidden")
+            return None
+    return path
+
+
+def checked_file(
+    value: Any,
+    expected_hash: Any,
+    failures: list[str],
+    label: str,
+    parent: Path = ROOT,
+) -> Path | None:
+    path = repo_path(value, failures, label, parent)
+    if path is None:
+        return None
+    add(failures, path.is_file(), f"{label}: file missing")
+    add(failures, isinstance(expected_hash, str) and bool(HEX64.fullmatch(expected_hash)), f"{label}: invalid SHA-256")
+    if path.is_file() and isinstance(expected_hash, str):
+        add(failures, sha256_path(path) == expected_hash, f"{label}: SHA-256 mismatch")
+    return path
+
+
+def validate_artifact_seal(
+    record: dict[str, Any],
+    artifact_path: Path | None,
+    failures: list[str],
+    label: str,
+    root: Path = ROOT,
+) -> str | None:
+    """Derive and verify the immutable commit that seals a lane artifact.
+
+    `sealedAtGitHead` is deliberately the pre-seal HEAD. The artifact must be
+    introduced with its exact current bytes in the next non-merge first-parent
+    commit. This avoids the impossible self-reference of embedding a commit ID
+    inside the file whose bytes determine that same commit ID.
+    """
+    if artifact_path is None:
+        return None
+    try:
+        relative = artifact_path.resolve(strict=False).relative_to(root.resolve()).as_posix()
+    except ValueError:
+        failures.append(f"{label}: artifact path escapes repository")
+        return None
+
+    preseal = record.get("sealedAtGitHead")
+    if not isinstance(preseal, str) or not HEX40.fullmatch(preseal):
+        failures.append(f"{label}: invalid pre-seal Git HEAD")
+        return None
+    if git_bytes(root, "cat-file", "-e", f"{preseal}^{{commit}}").returncode != 0:
+        failures.append(f"{label}: seal Git HEAD does not exist")
+        return None
+    if git_bytes(root, "merge-base", "--is-ancestor", preseal, "HEAD").returncode != 0:
+        failures.append(f"{label}: pre-seal Git HEAD is not an ancestor of current HEAD")
+        return None
+
+    descendants = git_bytes(root, "rev-list", "--first-parent", "--reverse", f"{preseal}..HEAD")
+    commits = descendants.stdout.decode("ascii", errors="replace").split() if descendants.returncode == 0 else []
+    if not commits:
+        failures.append(f"{label}: artifact was not committed directly after its declared pre-seal HEAD")
+        return None
+    seal_commit = commits[0]
+    parent_line = git_bytes(root, "rev-list", "--parents", "-n", "1", seal_commit)
+    parents = parent_line.stdout.decode("ascii", errors="replace").split() if parent_line.returncode == 0 else []
+    if len(parents) != 2 or parents[1] != preseal:
+        failures.append(f"{label}: derived seal commit is not a direct non-merge child of pre-seal HEAD")
+        return None
+
+    existed_before = git_bytes(root, "cat-file", "-e", f"{preseal}:{relative}").returncode == 0
+    if existed_before:
+        failures.append(f"{label}: artifact path already existed at pre-seal HEAD; use a new versioned path")
+        return None
+    sealed = git_bytes(root, "show", f"{seal_commit}:{relative}")
+    if sealed.returncode != 0:
+        failures.append(f"{label}: artifact was not committed directly after its declared pre-seal HEAD")
+        return None
+    if not artifact_path.is_file():
+        failures.append(f"{label}: current artifact file missing")
+        return None
+    if sealed.stdout != artifact_path.read_bytes():
+        failures.append(f"{label}: current artifact bytes differ from its derived seal commit")
+        return None
+    return seal_commit
+
+
+def validate_file_at_commit(
+    path: Path | None,
+    commit: str | None,
+    failures: list[str],
+    label: str,
+    root: Path = ROOT,
+) -> None:
+    if path is None or commit is None:
+        return
+    try:
+        relative = path.resolve(strict=False).relative_to(root.resolve()).as_posix()
+    except ValueError:
+        failures.append(f"{label}: path escapes repository")
+        return
+    sealed = git_bytes(root, "show", f"{commit}:{relative}")
+    add(failures, sealed.returncode == 0, f"{label}: file absent from required lane commit")
+    if sealed.returncode == 0 and path.is_file():
+        add(failures, sealed.stdout == path.read_bytes(), f"{label}: current bytes differ from required lane commit")
+
+
+def require_lane_preseal(
+    record: dict[str, Any],
+    expected_preseal: str | None,
+    failures: list[str],
+    label: str,
+) -> None:
+    if expected_preseal is not None:
+        add(
+            failures,
+            record.get("sealedAtGitHead") == expected_preseal,
+            f"{label}: pre-seal HEAD does not equal the preceding lane commit",
+        )
+
+
+def require_preseal_at_or_after(
+    record: dict[str, Any],
+    minimum_commit: str | None,
+    failures: list[str],
+    label: str,
+    root: Path = ROOT,
+) -> None:
+    if minimum_commit is None:
+        return
+    preseal = record.get("sealedAtGitHead")
+    if not isinstance(preseal, str) or not HEX40.fullmatch(preseal):
+        return
+    add(
+        failures,
+        git_bytes(root, "merge-base", "--is-ancestor", minimum_commit, preseal).returncode == 0,
+        f"{label}: pre-seal HEAD predates the audit-lock commit",
+    )
+
+
+def require_preseal_after_all(
+    record: dict[str, Any],
+    required_commits: tuple[str, ...],
+    failures: list[str],
+    label: str,
+    root: Path = ROOT,
+) -> None:
+    preseal = record.get("sealedAtGitHead")
+    if not isinstance(preseal, str) or not HEX40.fullmatch(preseal):
+        return
+    for required_commit in required_commits:
+        add(
+            failures,
+            git_bytes(root, "merge-base", "--is-ancestor", required_commit, preseal).returncode == 0,
+            f"{label}: adjudication predates a Stage 1 comparison commit",
+        )
+
+
+def validate_lock(manifest: dict[str, Any], failures: list[str], require_lock: bool) -> str | None:
+    if not LOCK_PATH.is_file():
+        add(failures, not require_lock, "audit-lock.json is required after setup checkpoint")
+        return
+    try:
+        lock = strict_load(LOCK_PATH)
+    except Exception as exc:
+        failures.append(f"audit lock parse: {exc}")
+        return
+    expected_keys = {
+        "schemaVersion",
+        "recordType",
+        "auditVersion",
+        "baselineCommit",
+        "lockedStartingHead",
+        "manifestSha256",
+        "initialProgressSha256",
+        "lockedFiles",
+        "changePolicy",
+    }
+    add(failures, set(lock) == expected_keys, "audit lock top-level keys drift")
+    add(failures, lock.get("schemaVersion") == 1, "audit lock schemaVersion")
+    add(failures, lock.get("recordType") == "stage-1-correctness-audit-git-lock", "audit lock recordType")
+    add(failures, lock.get("auditVersion") == manifest.get("auditVersion"), "audit lock version mismatch")
+    add(failures, lock.get("lockedStartingHead") == manifest.get("lockedStartingHead"), "audit lock starting HEAD mismatch")
+    add(failures, lock.get("manifestSha256") == sha256_path(MANIFEST_PATH), "audit lock manifest hash mismatch")
+    baseline = lock.get("baselineCommit")
+    if not isinstance(baseline, str) or not HEX40.fullmatch(baseline):
+        failures.append("audit lock baseline commit invalid")
+        return
+    add(failures, git("cat-file", "-e", f"{baseline}^{{commit}}").returncode == 0, "audit lock baseline commit missing")
+    add(failures, git("merge-base", "--is-ancestor", baseline, "HEAD").returncode == 0, "audit baseline is not an ancestor of HEAD")
+    lock_commit = validate_artifact_seal(
+        {"sealedAtGitHead": baseline},
+        LOCK_PATH,
+        failures,
+        "audit lock",
+    )
+    starting = str(lock.get("lockedStartingHead", ""))
+    add(failures, bool(HEX40.fullmatch(starting)), "lockedStartingHead invalid")
+    if HEX40.fullmatch(starting):
+        add(failures, git("merge-base", "--is-ancestor", starting, baseline).returncode == 0, "starting HEAD is not an ancestor of baseline")
+        add(
+            failures,
+            not historical_lane_files(starting, baseline),
+            "lane artifacts appeared in Git history before the v2 baseline",
+        )
+    tracked = git("ls-files", "--error-unmatch", str(LOCK_PATH.relative_to(ROOT)))
+    add(failures, tracked.returncode == 0, "audit lock is not tracked")
+    add(failures, git("diff", "--quiet", "HEAD", "--", str(LOCK_PATH.relative_to(ROOT))).returncode == 0, "audit lock has uncommitted drift")
+
+    locked_files = lock.get("lockedFiles", {})
+    add(failures, isinstance(locked_files, dict) and bool(locked_files), "audit lock files absent")
+    if isinstance(locked_files, dict):
+        add(
+            failures,
+            set(locked_files) == set(REQUIRED_LOCKED_FILES),
+            "audit lock lockedFiles set differs from the canonical creator list",
+        )
+        for relative, expected_hash in locked_files.items():
+            current = ROOT / relative
+            add(failures, current.is_file(), f"locked file missing: {relative}")
+            if current.is_file():
+                add(failures, sha256_path(current) == expected_hash, f"locked file drift: {relative}")
+            shown = git_bytes(ROOT, "show", f"{baseline}:{relative}")
+            add(failures, shown.returncode == 0, f"locked file absent from baseline: {relative}")
+            if shown.returncode == 0:
+                add(failures, sha256_bytes(shown.stdout) == expected_hash, f"baseline hash mismatch: {relative}")
+    shown_progress = git_bytes(ROOT, "show", f"{baseline}:{PROGRESS_PATH.relative_to(ROOT)}")
+    add(failures, shown_progress.returncode == 0, "initial progress absent from baseline")
+    if shown_progress.returncode == 0:
+        add(
+            failures,
+            sha256_bytes(shown_progress.stdout) == lock.get("initialProgressSha256"),
+            "initial progress baseline hash mismatch",
+        )
+    return lock_commit
+
+
+def validate_reviewer(
+    reviewer: Any,
+    failures: list[str],
+    label: str,
+    *,
+    response_commit: str | None = None,
+    prompt_commit: str | None = None,
+    enforce_seals: bool = True,
+) -> dict[str, Any] | None:
+    if not isinstance(reviewer, dict):
+        failures.append(f"{label}: reviewer missing")
+        return None
+    has_prompt_path = isinstance(reviewer.get("promptPath"), str) and bool(reviewer.get("promptPath"))
+    has_prompt_hash = isinstance(reviewer.get("promptSha256"), str) and bool(reviewer.get("promptSha256"))
+    has_response_path = isinstance(reviewer.get("responsePath"), str) and bool(reviewer.get("responsePath"))
+    has_response_hash = isinstance(reviewer.get("responseSha256"), str) and bool(reviewer.get("responseSha256"))
+    add(failures, has_prompt_path == has_prompt_hash, f"{label}: prompt path/hash must be paired")
+    add(failures, has_response_path == has_response_hash, f"{label}: response path/hash must be paired")
+    prompt = checked_file(
+        reviewer.get("promptPath"),
+        reviewer.get("promptSha256"),
+        failures,
+        f"{label} prompt",
+        AUDIT_DIR,
+    )
+    response = checked_file(
+        reviewer.get("responsePath"),
+        reviewer.get("responseSha256"),
+        failures,
+        f"{label} response",
+        AUDIT_DIR / "reviews" / "raw",
+    )
+    if prompt is not None and prompt.is_file():
+        add(failures, prompt.stat().st_size > 0, f"{label}: reviewer prompt is empty")
+    if response is not None and response.is_file():
+        add(failures, response.stat().st_size > 0, f"{label}: reviewer response is empty")
+    if enforce_seals:
+        validate_file_at_commit(prompt, prompt_commit, failures, f"{label} prompt")
+        validate_file_at_commit(response, response_commit, failures, f"{label} response")
+    if reviewer.get("kind") != "model-assisted":
+        return None
+    if reviewer.get("provider") == "ollama-cloud":
+        add(failures, reviewer.get("requestedReasoning") == "max", f"{label}: Ollama review was not max reasoning")
+    if response and response.is_file():
+        try:
+            body = strict_load(response)
+            add(failures, not contains_trace_key(body), f"{label}: retained provider reasoning trace")
+            add(failures, body.get("recordType") == "ollama-cloud-audit-review", f"{label}: response is not a successful review envelope")
+            add(failures, body.get("provider") == reviewer.get("provider"), f"{label}: provider provenance mismatch")
+            add(failures, body.get("requestedModel") == reviewer.get("requestedModel"), f"{label}: requested-model provenance mismatch")
+            add(failures, body.get("responseModel") == reviewer.get("responseModel"), f"{label}: response-model provenance mismatch")
+            add(failures, body.get("requestedReasoning") == reviewer.get("requestedReasoning"), f"{label}: reasoning provenance mismatch")
+            add(failures, body.get("thinkingRetained") is False, f"{label}: response did not attest to discarded reasoning")
+            provenance_prompt = checked_file(
+                body.get("promptPath"),
+                body.get("promptSha256"),
+                failures,
+                f"{label} prompt provenance",
+                AUDIT_DIR,
+            )
+            if enforce_seals:
+                validate_file_at_commit(provenance_prompt, prompt_commit, failures, f"{label} prompt provenance")
+            add(failures, body.get("promptPath") == reviewer.get("promptPath"), f"{label}: reviewer prompt path mismatch")
+            add(failures, body.get("promptSha256") == reviewer.get("promptSha256"), f"{label}: reviewer prompt hash mismatch")
+            return body
+        except Exception as exc:
+            failures.append(f"{label}: response parse: {exc}")
+    return None
+
+
+def validate_canonical_prompt(
+    mode: str,
+    prompt_path: Path | None,
+    packet_path: Path | None,
+    completeness_path: Path | None,
+    failures: list[str],
+    label: str,
+) -> None:
+    if prompt_path is None or packet_path is None:
+        return
+    try:
+        expected = canonical_prompt_bytes(mode, packet_path, completeness_path)
+    except Exception as exc:
+        failures.append(f"{label}: canonical prompt build failed: {exc}")
+        return
+    add(
+        failures,
+        prompt_path.read_bytes() == expected,
+        f"{label}: prompt is not canonical for sealed payloads",
+    )
+
+
+def validate_packet(
+    path: Path,
+    validators: dict[str, Draft202012Validator],
+    manifest_ids: set[str],
+    failures: list[str],
+    enforce_seals: bool = True,
+    minimum_preseal: str | None = None,
+) -> tuple[dict[str, Any] | None, str | None]:
+    try:
+        packet = strict_load(path)
+    except Exception as exc:
+        failures.append(f"packet parse {path}: {exc}")
+        return None, None
+    apply_schema("packet", packet, validators, failures, str(path.relative_to(ROOT)))
+    packet_commit = (
+        validate_artifact_seal(packet, path, failures, f"{path}: packet")
+        if enforce_seals
+        else None
+    )
+    if enforce_seals:
+        require_preseal_at_or_after(packet, minimum_preseal, failures, f"{path}: packet")
+    packet_ids = packet.get("auditUnitIds", [])
+    add(failures, set(packet_ids).issubset(manifest_ids), f"{path}: unknown audit unit")
+    covered_unit_ids: set[str] = set()
+    for index, row in enumerate(packet.get("sourceDocuments", [])):
+        relative = row.get("sourcePath", "") if isinstance(row, dict) else ""
+        add(failures, is_allowed_source(relative), f"{path}: disallowed source document {relative}")
+        checked_file(relative, row.get("sourceSha256") if isinstance(row, dict) else None, failures, f"{path}: sourceDocument[{index}]")
+    for index, row in enumerate(packet.get("evidence", [])):
+        if not isinstance(row, dict):
+            continue
+        row_unit_ids = set(row.get("auditUnitIds", []))
+        add(failures, row_unit_ids.issubset(set(packet_ids)), f"{path}: evidence[{index}] references a unit outside the packet")
+        covered_unit_ids.update(row_unit_ids)
+        relative = row.get("sourcePath", "")
+        add(failures, is_allowed_source(relative), f"{path}: disallowed evidence source {relative}")
+        checked_file(relative, row.get("sourceSha256"), failures, f"{path}: evidence[{index}]")
+        visual = row.get("visualEvidencePath")
+        if isinstance(row.get("exactText"), str) and relative.lower().endswith(".pdf"):
+            add(failures, visual is not None, f"{path}: PDF exactText evidence[{index}] lacks rendered visual evidence")
+        if visual is not None:
+            visual_path = checked_file(
+                visual,
+                row.get("visualEvidenceSha256"),
+                failures,
+                f"{path}: visualEvidence[{index}]",
+                AUDIT_DIR / "packets",
+            )
+            if visual_path is not None and visual_path.is_file():
+                add(
+                    failures,
+                    visual_path.suffix.lower() == ".png",
+                    f"{path}: visualEvidence[{index}] is not a PNG",
+                )
+                for png_failure in png_validation_failures(visual_path):
+                    failures.append(f"{path}: visualEvidence[{index}] {png_failure}")
+            if enforce_seals:
+                validate_file_at_commit(
+                    visual_path,
+                    packet_commit,
+                    failures,
+                    f"{path}: visualEvidence[{index}]",
+                )
+    for index, row in enumerate(packet.get("searchCoverage", {}).get("searchedSourcePaths", [])):
+        if not isinstance(row, dict):
+            continue
+        relative = row.get("sourcePath", "")
+        add(failures, is_allowed_source(relative), f"{path}: disallowed searched source {relative}")
+        checked_file(relative, row.get("sourceSha256"), failures, f"{path}: searchedSource[{index}]")
+    add(failures, packet.get("sourceOnlyAttestation") is True, f"{path}: no source-only attestation")
+    add(failures, packet.get("forbiddenDownstreamSourcesIncluded") == [], f"{path}: downstream source included")
+    add(failures, covered_unit_ids == set(packet_ids), f"{path}: packet unit lacks direct evidence")
+    return packet, packet_commit
+
+
+def validate_comparison(
+    path: Path,
+    blind: dict[str, Any],
+    blind_commit: str | None,
+    unit: dict[str, Any],
+    validators: dict[str, Draft202012Validator],
+    failures: list[str],
+    enforce_seals: bool = True,
+) -> tuple[dict[str, Any] | None, str | None]:
+    try:
+        comparison = strict_load(path)
+    except Exception as exc:
+        failures.append(f"comparison parse {path}: {exc}")
+        return None, None
+    apply_schema("comparison", comparison, validators, failures, str(path.relative_to(ROOT)))
+    comparison_commit: str | None = None
+    if enforce_seals:
+        require_lane_preseal(comparison, blind_commit, failures, f"{path}: comparison")
+        comparison_commit = validate_artifact_seal(
+            comparison,
+            path,
+            failures,
+            f"{path}: comparison",
+        )
+    unit_id = unit["auditUnitId"]
+    add(failures, comparison.get("auditUnitId") == unit_id, f"{unit_id}: comparison ID mismatch")
+    add(failures, comparison.get("family") == expected_family(unit), f"{unit_id}: comparison family mismatch")
+    add(failures, comparison.get("status") == "compared", f"{unit_id}: comparison status mismatch")
+    ref = comparison.get("blindDerivationRef", {})
+    expected_blind_path = path_from_root_for(blind)
+    add(failures, ref.get("path") == expected_blind_path, f"{unit_id}: blind path mismatch")
+    checked_file(
+        ref.get("path"),
+        ref.get("sha256"),
+        failures,
+        f"{unit_id}: comparison blind reference",
+        AUDIT_DIR / "blind",
+    )
+    add(failures, ref.get("auditUnitId") == unit_id, f"{unit_id}: blind unit ref mismatch")
+    validate_reviewer(
+        comparison.get("comparator"),
+        failures,
+        f"{unit_id}: comparator",
+        response_commit=comparison_commit,
+        prompt_commit=comparison_commit,
+        enforce_seals=enforce_seals,
+    )
+    add(
+        failures,
+        reviewer_identity(comparison.get("comparator")) != reviewer_identity(blind.get("reviewer")),
+        f"{unit_id}: comparator is not independent of blind reviewer",
+    )
+    completeness_identity = blind.get("__completenessReviewerIdentity")
+    if completeness_identity is not None:
+        add(
+            failures,
+            reviewer_identity(comparison.get("comparator")) != completeness_identity,
+            f"{unit_id}: comparator is not independent of completeness reviewer",
+        )
+    discrepancies = comparison.get("comparison", {}).get("discrepancies", [])
+    packet_evidence_ids = blind.get("__packetEvidenceIds", set())
+    add(failures, isinstance(packet_evidence_ids, set) and bool(packet_evidence_ids), f"{unit_id}: packet evidence index absent")
+    add(
+        failures,
+        set(comparison.get("comparison", {}).get("evidenceRefs", [])).issubset(packet_evidence_ids),
+        f"{unit_id}: comparison cites evidence outside the source packet",
+    )
+    discrepancy_ids = [row.get("discrepancyId") for row in discrepancies if isinstance(row, dict)]
+    add(failures, len(discrepancy_ids) == len(set(discrepancy_ids)), f"{unit_id}: duplicate discrepancy ID")
+    for index, row in enumerate(discrepancies):
+        if not isinstance(row, dict):
+            continue
+        if row.get("severity") in {"material", "critical"}:
+            add(failures, isinstance(row.get("rootCauseId"), str) and bool(row.get("rootCauseId")), f"{unit_id}: discrepancy {index} lacks root cause")
+        if row.get("classification") == "authority-inversion":
+            add(failures, row.get("authorityOverride") is True, f"{unit_id}: authority inversion flag false")
+        if row.get("classification") == "hidden-default":
+            add(failures, row.get("hiddenDefault") is True, f"{unit_id}: hidden-default flag false")
+        add(
+            failures,
+            set(row.get("evidenceRefs", [])).issubset(packet_evidence_ids),
+            f"{unit_id}: discrepancy {index} cites evidence outside the source packet",
+        )
+    blind_time = parse_time(blind.get("sealedAtUtc"), failures, f"{unit_id}: blind time")
+    comparison_time = parse_time(comparison.get("sealedAtUtc"), failures, f"{unit_id}: comparison time")
+    if blind_time and comparison_time:
+        add(failures, blind_time < comparison_time, f"{unit_id}: comparison does not strictly follow blind seal")
+    comparison["__validatedPath"] = str(path.relative_to(ROOT))
+    return comparison, comparison_commit
+
+
+def validate_result(
+    path: Path,
+    comparison: dict[str, Any],
+    comparison_commit: str | None,
+    blind: dict[str, Any],
+    unit: dict[str, Any],
+    validators: dict[str, Draft202012Validator],
+    failures: list[str],
+    enforce_seals: bool = True,
+    required_comparison_commits: tuple[str, ...] = (),
+) -> dict[str, Any] | None:
+    try:
+        result = strict_load(path)
+    except Exception as exc:
+        failures.append(f"result parse {path}: {exc}")
+        return None
+    apply_schema("result", result, validators, failures, str(path.relative_to(ROOT)))
+    result_commit: str | None = None
+    if enforce_seals:
+        require_preseal_at_or_after(result, comparison_commit, failures, f"{path}: adjudication")
+        require_preseal_after_all(
+            result,
+            required_comparison_commits,
+            failures,
+            f"{path}: adjudication",
+        )
+        result_commit = validate_artifact_seal(result, path, failures, f"{path}: adjudication")
+    unit_id = unit["auditUnitId"]
+    add(failures, result.get("auditUnitId") == unit_id, f"{unit_id}: result ID mismatch")
+    add(failures, result.get("family") == expected_family(unit), f"{unit_id}: result family mismatch")
+    ref = result.get("comparisonRef", {})
+    expected_comparison_path = path_from_root_for(comparison)
+    add(failures, ref.get("path") == expected_comparison_path, f"{unit_id}: comparison path mismatch")
+    checked_file(
+        ref.get("path"),
+        ref.get("sha256"),
+        failures,
+        f"{unit_id}: adjudication comparison reference",
+        AUDIT_DIR / "comparisons",
+    )
+    add(failures, ref.get("auditUnitId") == unit_id, f"{unit_id}: comparison unit ref mismatch")
+
+    discrepancies = comparison.get("comparison", {}).get("discrepancies", [])
+    packet_evidence_ids = blind.get("__packetEvidenceIds", set())
+    discrepancy_ids = {row.get("discrepancyId") for row in discrepancies if isinstance(row, dict)}
+    severities = [row.get("severity") for row in discrepancies if isinstance(row, dict)]
+    authority_override = any(row.get("authorityOverride") is True for row in discrepancies if isinstance(row, dict))
+    hidden_default = any(row.get("hiddenDefault") is True for row in discrepancies if isinstance(row, dict))
+    status = result.get("status")
+    if "critical" in severities or authority_override or hidden_default:
+        add(failures, status == "critical-error", f"{unit_id}: critical/authority/default status mismatch")
+    elif "material" in severities:
+        add(failures, status == "material-error", f"{unit_id}: material status mismatch")
+    elif "blocked" in severities:
+        add(failures, status == "source-blocked", f"{unit_id}: blocked status mismatch")
+    else:
+        add(failures, status == "accepted", f"{unit_id}: clean status mismatch")
+
+    reviewed_ids: set[str] = set()
+    verification_review_ids: set[str] = set()
+    for review in result.get("verificationReviews", []):
+        if not isinstance(review, dict):
+            continue
+        review_id = review.get("reviewId")
+        add(failures, review_id not in verification_review_ids, f"{unit_id}: duplicate verification review ID")
+        verification_review_ids.add(review_id)
+        validate_reviewer(
+            review.get("reviewer"),
+            failures,
+            f"{unit_id}: verification reviewer",
+            response_commit=result_commit,
+            prompt_commit=result_commit,
+            enforce_seals=enforce_seals,
+        )
+        identity = reviewer_identity(review.get("reviewer"))
+        add(failures, identity != reviewer_identity(comparison.get("comparator")), f"{unit_id}: verification reviewer equals comparator")
+        add(failures, identity != reviewer_identity(blind.get("reviewer")), f"{unit_id}: verification reviewer equals blind reviewer")
+        completeness_identity = blind.get("__completenessReviewerIdentity")
+        if completeness_identity is not None:
+            add(failures, identity != completeness_identity, f"{unit_id}: verification reviewer equals completeness reviewer")
+        ids = set(review.get("reviewedDiscrepancyIds", []))
+        add(failures, ids.issubset(discrepancy_ids), f"{unit_id}: verification references unknown discrepancy")
+        add(
+            failures,
+            set(review.get("evidenceRefs", [])).issubset(packet_evidence_ids),
+            f"{unit_id}: verification cites evidence outside the source packet",
+        )
+        reviewed_ids.update(ids)
+    mandatory = {
+        row.get("discrepancyId")
+        for row in discrepancies
+        if isinstance(row, dict)
+        and (
+            row.get("severity") in {"minor", "material", "critical", "blocked"}
+            or row.get("classification")
+            in {"source-ambiguity-preserved", "source-conflict-preserved", "presentation-only"}
+        )
+    }
+    add(failures, mandatory.issubset(reviewed_ids), f"{unit_id}: mandatory discrepancy lacks independent verification")
+
+    resolution = result.get("resolution", {})
+    resolution_status = resolution.get("status")
+    if status == "accepted":
+        add(failures, resolution_status == "not-required", f"{unit_id}: accepted result has nontrivial resolution")
+    elif status == "source-blocked":
+        add(failures, resolution_status == "source-blocked", f"{unit_id}: source-blocked result resolution mismatch")
+    else:
+        add(failures, resolution_status in {"pending", "repaired-verified"}, f"{unit_id}: error result resolution mismatch")
+    resolution_refs = set(resolution.get("verificationEvidenceRefs", []))
+    add(
+        failures,
+        resolution_refs.issubset(packet_evidence_ids | verification_review_ids),
+        f"{unit_id}: resolution cites unknown verification evidence",
+    )
+    if resolution_status == "repaired-verified":
+        for repair_path in resolution.get("repairPaths", []):
+            canonical = repo_path(repair_path, failures, f"{unit_id}: repair path")
+            if canonical is not None and enforce_seals:
+                validate_file_at_commit(canonical, result_commit, failures, f"{unit_id}: repair path")
+    comparison_time = parse_time(comparison.get("sealedAtUtc"), failures, f"{unit_id}: comparison time")
+    result_time = parse_time(result.get("sealedAtUtc"), failures, f"{unit_id}: result time")
+    if comparison_time and result_time:
+        add(failures, comparison_time < result_time, f"{unit_id}: adjudication does not strictly follow comparison")
+    return result
+
+
+LOCK CREATOR FUNCTIONS:
+def git(*args: str, text: bool = True, root: Path = ROOT) -> subprocess.CompletedProcess:
+    return subprocess.run(["git", *args], cwd=root, text=text, capture_output=True, check=False)
+
+
+def historical_lane_files(starting: str, baseline: str, *, root: Path = ROOT) -> list[str]:
+    return sorted(
+        {
+            row
+            for row in git(
+                "log",
+                "--format=",
+                "--name-only",
+                f"{starting}..{baseline}",
+                "--",
+                *LANE_OUTPUT_ROOTS,
+                root=root,
+            ).stdout.splitlines()
+            if row
+        }
+    )
+
+
+def main() -> int:
+    if LOCK.exists():
+        raise SystemExit("refusing to overwrite existing audit-lock.json")
+    baseline = git("rev-parse", "HEAD").stdout.strip()
+    lane_files = sorted(
+        str(path.relative_to(ROOT))
+        for relative in LANE_OUTPUT_ROOTS
+        for path in (ROOT / relative).rglob("*")
+        if path.is_file() or path.is_symlink()
+    )
+    if lane_files:
+        raise SystemExit(
+            "audit lock requires empty lane-output roots; found: " + ", ".join(lane_files)
+        )
+    baseline_lane_files = git(
+        "ls-tree",
+        "-r",
+        "--name-only",
+        baseline,
+        "--",
+        *LANE_OUTPUT_ROOTS,
+    ).stdout.splitlines()
+    if baseline_lane_files:
+        raise SystemExit(
+            "audit baseline already contains lane artifacts: " + ", ".join(baseline_lane_files)
+        )
+    manifest = json.loads(MANIFEST.read_text(encoding="utf-8"))
+    lane_history = historical_lane_files(manifest["lockedStartingHead"], baseline)
+    if lane_history:
+        raise SystemExit(
+            "lane artifacts appeared in Git history before the v2 baseline: "
+            + ", ".join(lane_history)
+        )
+    progress = json.loads(PROGRESS.read_text(encoding="utf-8"))
+    if any(row["status"] != "pending-blind-derivation" for row in progress["units"]):
+        raise SystemExit("audit lock must be created before the first derivation")
+    locked: dict[str, str] = {}
+    for relative in LOCKED_FILES:
+        path = ROOT / relative
+        if not path.is_file():
+            raise SystemExit(f"locked file missing: {relative}")
+        current = path.read_bytes()
+        shown = git("show", f"{baseline}:{relative}", text=False)
+        if shown.returncode != 0:
+            raise SystemExit(f"locked file is not in baseline commit: {relative}")
+        if shown.stdout != current:
+            raise SystemExit(f"locked file differs from baseline commit: {relative}")
+        locked[relative] = hashlib.sha256(current).hexdigest()
+    baseline_progress = git("show", f"{baseline}:{PROGRESS.relative_to(ROOT)}", text=False)
+    if baseline_progress.returncode != 0 or baseline_progress.stdout != PROGRESS.read_bytes():
+        raise SystemExit("initial progress differs from baseline commit")
+    record = {
+        "schemaVersion": 1,
+        "recordType": "stage-1-correctness-audit-git-lock",
+        "auditVersion": manifest["auditVersion"],
+        "baselineCommit": baseline,
+        "lockedStartingHead": manifest["lockedStartingHead"],
+        "manifestSha256": sha(MANIFEST),
+        "initialProgressSha256": sha(PROGRESS),
+        "lockedFiles": locked,
+        "changePolicy": "Any locked-file change requires a new audit version and explicit disposition of this baseline. Progress and result artifacts advance in later commits without changing locked harness bytes.",
+    }
+    LOCK.write_text(json.dumps(record, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    print(json.dumps({"baselineCommit": baseline, "lockedFiles": len(locked), "lockPath": str(LOCK.relative_to(ROOT))}, indent=2))
+    return 0
+
+
+PROMPT BUILDER FUNCTIONS:
+def canonical_repo_file(path: Path, parent: Path) -> Path:
+    path = path if path.is_absolute() else ROOT / path
+    try:
+        relative = path.relative_to(ROOT)
+    except ValueError as exc:
+        raise ValueError(f"path escapes repository: {path}") from exc
+    lexical = PurePosixPath(relative.as_posix())
+    if lexical.is_absolute() or any(part in {".", ".."} for part in lexical.parts):
+        raise ValueError(f"noncanonical path: {path}")
+    current = ROOT
+    for part in lexical.parts:
+        current = current / part
+        if current.is_symlink():
+            raise ValueError(f"symlink path component: {path}")
+    resolved = path.resolve(strict=True)
+    try:
+        resolved.relative_to(parent.resolve())
+    except ValueError as exc:
+        raise ValueError(f"path is outside required root {parent}: {path}") from exc
+    if not resolved.is_file():
+        raise ValueError(f"file missing: {path}")
+    return path
+
+
+def canonical_prompt_bytes(
+    mode: str,
+    packet_path: Path,
+    completeness_path: Path | None = None,
+) -> bytes:
+    if mode not in INSTRUCTION_PATHS:
+        raise ValueError(f"unknown prompt mode: {mode}")
+    instruction_path = canonical_repo_file(INSTRUCTION_PATHS[mode], AUDIT_DIR / "prompts")
+    packet_path = canonical_repo_file(packet_path, AUDIT_DIR / "packets")
+    payloads: list[tuple[str, Path]] = [("SOURCE PACKET", packet_path)]
+    if mode == "blind":
+        if completeness_path is None:
+            raise ValueError("blind prompt requires completeness review")
+        completeness_path = canonical_repo_file(completeness_path, AUDIT_DIR / "packets")
+        payloads.append(("ACCEPTED COMPLETENESS REVIEW", completeness_path))
+    elif completeness_path is not None:
+        raise ValueError("completeness prompt does not accept completeness review")
+
+    header = {
+        "schemaVersion": 1,
+        "recordType": "stage-1-canonical-review-prompt",
+        "mode": mode,
+        "instructionsPath": instruction_path.relative_to(ROOT).as_posix(),
+        "instructionsSha256": sha256(instruction_path.read_bytes()),
+        "payloads": [
+            {
+                "label": label,
+                "path": path.relative_to(ROOT).as_posix(),
+                "sha256": sha256(path.read_bytes()),
+            }
+            for label, path in payloads
+        ],
+    }
+    output = (json.dumps(header, indent=2, ensure_ascii=False) + "\n").encode()
+    output += framed_section("FIXED INSTRUCTIONS", instruction_path)
+    for label, path in payloads:
+        output += framed_section(label, path)
+    return output
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--mode", choices=sorted(INSTRUCTION_PATHS), required=True)
+    parser.add_argument("--packet", type=Path, required=True)
+    parser.add_argument("--completeness", type=Path)
+    parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--check", action="store_true")
+    args = parser.parse_args()
+    output = args.output if args.output.is_absolute() else ROOT / args.output
+    try:
+        output.resolve(strict=False).relative_to((AUDIT_DIR / "packets" / "prompts").resolve())
+    except ValueError as exc:
+        raise SystemExit("output must be under correctness-audit/packets/prompts") from exc
+    expected = canonical_prompt_bytes(args.mode, args.packet, args.completeness)
+    if args.check:
+        if not output.is_file() or output.read_bytes() != expected:
+            raise SystemExit("canonical audit prompt is stale")
+        print(f"canonical audit prompt is current: {output.relative_to(ROOT)}")
+        return 0
+    output.parent.mkdir(parents=True, exist_ok=True)
+    output.write_bytes(expected)
+    print(json.dumps({"output": output.relative_to(ROOT).as_posix(), "sha256": sha256(expected), "mode": args.mode}))
+    return 0
+

@@ -1,0 +1,454 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "comparison.schema.json",
+  "title": "Stage 1 blind comparison",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "recordType",
+    "auditUnitId",
+    "sealedAtUtc",
+    "sealedAtGitHead",
+    "family",
+    "status",
+    "blindDerivationRef",
+    "comparator",
+    "comparison"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": 2
+    },
+    "recordType": {
+      "const": "stage-1-audit-comparison"
+    },
+    "auditUnitId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "sealedAtUtc": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "sealedAtGitHead": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{40}$"
+    },
+    "family": {
+      "type": "string",
+      "minLength": 1
+    },
+    "status": {
+      "const": "compared"
+    },
+    "blindDerivationRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "path",
+        "sha256",
+        "auditUnitId"
+      ],
+      "properties": {
+        "path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "auditUnitId": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "comparator": {
+      "$ref": "#/$defs/reviewer"
+    },
+    "comparison": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "revealedArtifacts",
+        "semanticRecordIds",
+        "questionIds",
+        "conflictIds",
+        "discrepancies"
+      ],
+      "properties": {
+        "semanticRecordIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "questionIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "conflictIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "discrepancies": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/discrepancy"
+          },
+          "uniqueItems": true
+        },
+        "revealedArtifacts": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "path",
+              "sha256",
+              "role"
+            ],
+            "properties": {
+              "path": {
+                "type": "string",
+                "minLength": 1
+              },
+              "sha256": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              },
+              "role": {
+                "enum": [
+                  "downstream-target",
+                  "semantic-projection",
+                  "source-index",
+                  "primary-source"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "reviewer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "kind",
+        "reviewerId",
+        "provider",
+        "requestedModel",
+        "responseModel",
+        "requestedReasoning",
+        "requestMode",
+        "promptPath",
+        "promptSha256",
+        "responsePath",
+        "responseSha256",
+        "thinkingRetained"
+      ],
+      "properties": {
+        "kind": {
+          "enum": [
+            "agent",
+            "model-assisted",
+            "human"
+          ]
+        },
+        "provider": {
+          "type": "string"
+        },
+        "requestedModel": {
+          "type": "string"
+        },
+        "responseModel": {
+          "type": "string"
+        },
+        "requestedReasoning": {
+          "type": "string"
+        },
+        "requestMode": {
+          "type": "string"
+        },
+        "promptPath": {
+          "type": "string",
+          "minLength": 1
+        },
+        "promptSha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "responsePath": {
+          "type": "string",
+          "minLength": 1
+        },
+        "responseSha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "thinkingRetained": {
+          "const": false
+        },
+        "reviewerId": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{2,127}$"
+        }
+      }
+    },
+    "discrepancy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "discrepancyId",
+        "classification",
+        "severity",
+        "rootCauseId",
+        "authorityOverride",
+        "hiddenDefault",
+        "claim",
+        "sourceFinding",
+        "evidenceRefs"
+      ],
+      "properties": {
+        "discrepancyId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "classification": {
+          "enum": [
+            "match",
+            "downstream-omission",
+            "downstream-overstatement",
+            "authority-inversion",
+            "hidden-default",
+            "source-ambiguity-preserved",
+            "source-ambiguity-lost",
+            "source-conflict-preserved",
+            "source-conflict-flattened",
+            "transcription-or-packet-gap",
+            "presentation-only"
+          ]
+        },
+        "severity": {
+          "enum": [
+            "none",
+            "minor",
+            "material",
+            "critical",
+            "blocked"
+          ]
+        },
+        "rootCauseId": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "authorityOverride": {
+          "type": "boolean"
+        },
+        "hiddenDefault": {
+          "type": "boolean"
+        },
+        "claim": {
+          "type": "string"
+        },
+        "sourceFinding": {
+          "type": "string"
+        },
+        "evidenceRefs": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "classification": {
+                "const": "match"
+              }
+            },
+            "required": [
+              "classification"
+            ]
+          },
+          "then": {
+            "properties": {
+              "severity": {
+                "const": "none"
+              },
+              "rootCauseId": {
+                "type": "null"
+              },
+              "authorityOverride": {
+                "const": false
+              },
+              "hiddenDefault": {
+                "const": false
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "classification": {
+                "enum": [
+                  "downstream-omission",
+                  "downstream-overstatement",
+                  "source-ambiguity-lost",
+                  "source-conflict-flattened",
+                  "transcription-or-packet-gap"
+                ]
+              }
+            },
+            "required": [
+              "classification"
+            ]
+          },
+          "then": {
+            "properties": {
+              "severity": {
+                "enum": [
+                  "minor",
+                  "material",
+                  "critical",
+                  "blocked"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "classification": {
+                "enum": [
+                  "source-ambiguity-preserved",
+                  "source-conflict-preserved"
+                ]
+              }
+            },
+            "required": [
+              "classification"
+            ]
+          },
+          "then": {
+            "properties": {
+              "severity": {
+                "const": "none"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "classification": {
+                "const": "presentation-only"
+              }
+            },
+            "required": [
+              "classification"
+            ]
+          },
+          "then": {
+            "properties": {
+              "severity": {
+                "enum": [
+                  "none",
+                  "minor"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "severity": {
+                "enum": [
+                  "material",
+                  "critical"
+                ]
+              }
+            },
+            "required": [
+              "severity"
+            ]
+          },
+          "then": {
+            "properties": {
+              "rootCauseId": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "classification": {
+                "const": "authority-inversion"
+              }
+            },
+            "required": [
+              "classification"
+            ]
+          },
+          "then": {
+            "properties": {
+              "authorityOverride": {
+                "const": true
+              },
+              "severity": {
+                "const": "critical"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "classification": {
+                "const": "hidden-default"
+              }
+            },
+            "required": [
+              "classification"
+            ]
+          },
+          "then": {
+            "properties": {
+              "hiddenDefault": {
+                "const": true
+              },
+              "severity": {
+                "const": "critical"
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}
