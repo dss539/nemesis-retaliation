@@ -1,0 +1,268 @@
+{
+  "schemaVersion": 1,
+  "recordType": "stage-1-v2-candidate5-specialty-review",
+  "batchId": "stage1-v2-candidate5-wave1",
+  "workerId": "c5-r05",
+  "specialty": "ancestry-provenance",
+  "generatedAtUtc": "2026-08-31T05:02:28Z",
+  "candidateHead": "d78e91e9f0d29eab7e9d838d4fc043ba73518cec",
+  "candidateParent": "d3a0bb78ede8d2b587afdd533ff4ec9ec39d6493",
+  "priorCandidateHead": "9af725a59b20d8d70a13487f0e588d7306ee16e6",
+  "publicMainHead": "d221c816465f6aea06f6e485bb6fa2f3ca982ba2",
+  "branch": "review/stage1-v2-c5-r05",
+  "workspace": "/home/smithers/projects/nemesis-c5-r05",
+  "repository": "/home/smithers/projects/nemesis-c5-r05/repos/nemesis-retaliation",
+  "reviewMode": "read-only-exact-head-with-ephemeral-git-probes",
+  "verdict": "blocker",
+  "findingCount": 2,
+  "summary": "The public-main and candidate-4 -> evidence-rescue -> candidate-5 ancestry is exact, linear, first-parent, and merge-free. The canonical source checkout, assigned review worktree, and batch manifest all bind to candidate d78e91e9f0d29eab7e9d838d4fc043ba73518cec, and both Git worktrees were clean on separate branches. No ref tip contains audit-lock.json; the historical v1 lock was explicitly renamed and superseded before any lane transition, all 140 v2 units remain pending, and no prebaseline lane path exists. Baseline promotion is nevertheless blocked: an exact-candidate temporary lifecycle proved that the lock creator accepts staged unrelated bytes and the full post-lock validator accepts those bytes in the direct-child lock commit. PROJECT_STATUS.md also retains a contradictory dirty/pending-candidate-5 statement after candidate 5 is committed and clean.",
+  "findings": [
+    {
+      "id": "C5-ANCESTRY-001",
+      "severity": "critical",
+      "title": "The direct-child lock commit may silently include unreviewed unrelated content",
+      "claim": "create_correctness_audit_lock.py binds baseline to HEAD and checks required locked-file/progress bytes, but it never requires a clean worktree/index. The post-lock validator proves that audit-lock.json is introduced in the baseline's first direct child, but it never constrains the other paths changed by that same commit. A staged unrelated tracked modification can therefore be swept into the authoritative lock commit after the reviewed baseline, and the complete post-lock validator still reports success.",
+      "evidence": [
+        {
+          "path": "scripts/create_correctness_audit_lock.py",
+          "lines": "147-150",
+          "detail": "The creator rejects only an existing current-worktree audit-lock.json and then selects git rev-parse HEAD as baseline; there is no git status/index cleanliness check."
+        },
+        {
+          "path": "scripts/create_correctness_audit_lock.py",
+          "lines": "209-235",
+          "detail": "The creator compares the canonical locked-file set and progress bytes with the baseline, then writes audit-lock.json. It does not reject other dirty or staged paths."
+        },
+        {
+          "path": "scripts/validate_correctness_audit.py",
+          "lines": "358-417, 502-580",
+          "detail": "The seal validator proves direct-child ancestry and exact lock-path bytes, and validate_lock guards locked paths, but neither checks the lock commit's complete changed-path set."
+        },
+        {
+          "probe": "ephemeral exact-candidate dirty creator probe",
+          "observed": "After source staging, readme.md was modified but not staged. git status reported readme.md as .M; create_correctness_audit_lock.py exited 0 and emitted a stage1-v2 lock bound to d78e91e9f0d29eab7e9d838d4fc043ba73518cec with 85 locked files."
+        },
+        {
+          "probe": "ephemeral exact-candidate lock-commit scope and post-lock lifecycle probe",
+          "observed": "readme.md was modified and staged before creator execution. The creator exited 0. A normal commit after adding audit-lock.json produced direct child f6e785b1e5a84d5649c7ac89d90230235b304d43 with parent d78e91e9f0d29eab7e9d838d4fc043ba73518cec and exactly two changed paths: A audit-lock.json and M readme.md. The complete uv-isolated post-lock validator exited 0 with passed=true, failureCount=0, failures=[]. The temporary clone was removed."
+        }
+      ],
+      "reproduction": {
+        "preconditions": "Clone exact candidate d78e91e9f0d29eab7e9d838d4fc043ba73518cec, stage the 1,098 gitignored source files from /home/smithers/nemesis-retaliation, and configure a temporary Git identity.",
+        "steps": [
+          "Modify readme.md and git add readme.md.",
+          "Run python3 scripts/create_correctness_audit_lock.py; observe exit 0.",
+          "git add docs/qa/implementation-readiness/correctness-audit/audit-lock.json and run an ordinary git commit without a path restriction.",
+          "Verify the direct-child commit changes audit-lock.json and readme.md.",
+          "Run the pinned full post-lock validator; observe exit 0 and failureCount 0."
+        ],
+        "expected": "Lock creation must fail when any pre-existing tracked/index/untracked nonignored state is dirty, and post-lock validation must require that the derived lock commit changes only audit-lock.json.",
+        "observed": "Both creator and post-lock validator accepted the unreviewed staged path in the lock commit."
+      },
+      "impact": "The reviewed baseline is no longer the complete reviewed state immediately preceding audit execution: unreviewed policy, documentation, implementation, or other nonlocked bytes can enter the authoritative lock commit and become ancestors of every later lane seal without invalidating the lock. This defeats the claimed clean-baseline/direct-child provenance boundary and makes lock-commit scope depend on operator discipline rather than a replayable invariant.",
+      "recommendation": "Before doing any creator work, require a clean index and clean nonignored worktree (for example, parse git status --porcelain=v2 --untracked-files=all and reject every entry). In validate_lock, derive the lock commit and require its full diff-tree path set to equal only docs/qa/implementation-readiness/correctness-audit/audit-lock.json. Add temporary-Git controls for unstaged, staged, and untracked nonignored pre-creator state and for an otherwise valid direct-child lock commit containing a second path; require both creator and post-lock validator to reject."
+    },
+    {
+      "id": "C5-ANCESTRY-002",
+      "severity": "medium",
+      "title": "The authoritative status still says candidate 5 is pending in a dirty canonical worktree",
+      "claim": "PROJECT_STATUS.md is the declared current-state authority, but its Resume Checkpoint says candidate 4's fix is in the dirty canonical worktree pending candidate 5. In the same file, later bullets say candidate 5 exists, validates green, and is awaiting review. Live Git evidence shows the canonical source checkout and review checkout are both clean at candidate 5. The contradictory committed-vs-dirty statement was not caught by validate_project_status.py.",
+      "evidence": [
+        {
+          "path": "PROJECT_STATUS.md",
+          "lines": "22-29",
+          "detail": "Line 23 says the fix is in the dirty canonical worktree pending candidate 5, while lines 27-29 describe candidate 5 as present, validated, and awaiting baseline review."
+        },
+        {
+          "path": "scripts/validate_project_status.py",
+          "lines": "26-242",
+          "detail": "The status validator checks required phrases, counts, and linked paths but has no consistency assertion for candidate number, committed HEAD, or clean/dirty state."
+        },
+        {
+          "gitEvidence": "Under a separately acquired nonblocking canonical workspace flock, /home/smithers/projects/nemesis-card-corpus/repos/nemesis-retaliation reported branch work/card-corpus-extraction, HEAD d78e91e9f0d29eab7e9d838d4fc043ba73518cec, tree e148ed6db227256b15c1d4ba79c2ebcb1171d4bd, and no status entries. The assigned branch reported the same HEAD/tree and no status entries."
+        }
+      ],
+      "reproduction": "Read PROJECT_STATUS.md:23 at candidate HEAD, then compare git status --porcelain=v2 and git rev-parse HEAD in the canonical source and assigned review worktrees. The text says dirty/pending candidate 5; both repositories are clean at candidate 5.",
+      "impact": "A fresh-session integrator following the declared status authority receives mutually inconsistent provenance state and could incorrectly treat committed candidate-5 bytes as uncommitted or resume candidate creation instead of review/disposition. It also weakens the audit trail for the committed-vs-dirty boundary under review.",
+      "recommendation": "Rewrite the stale bullet as explicitly historical and state that candidate 5 is committed and clean at d78e91e9f0d29eab7e9d838d4fc043ba73518cec. Add a bounded status check that the named active candidate/branch state does not simultaneously contain 'dirty ... pending candidate 5' and 'candidate 5' current-state claims."
+    }
+  ],
+  "verifiedClaims": {
+    "publicMainAncestry": {
+      "passed": true,
+      "remoteOriginMain": "d221c816465f6aea06f6e485bb6fa2f3ca982ba2",
+      "mergeBaseWithCandidate": "d221c816465f6aea06f6e485bb6fa2f3ca982ba2",
+      "publicMainIsAncestor": true,
+      "candidateIsAncestorOfPublicMain": false,
+      "aheadCount": 118,
+      "behindCount": 0,
+      "mergeCommitCountInRange": 0
+    },
+    "candidateFirstParentGraph": {
+      "passed": true,
+      "edges": [
+        {
+          "parent": "9af725a59b20d8d70a13487f0e588d7306ee16e6",
+          "child": "d3a0bb78ede8d2b587afdd533ff4ec9ec39d6493",
+          "subject": "docs: rescue owner-reviewed extraction evidence",
+          "changedPaths": 3
+        },
+        {
+          "parent": "d3a0bb78ede8d2b587afdd533ff4ec9ec39d6493",
+          "child": "d78e91e9f0d29eab7e9d838d4fc043ba73518cec",
+          "subject": "chore: preserve Stage 1 v2 candidate 5",
+          "changedPaths": 11
+        }
+      ],
+      "candidate4ToCandidate5CommitCount": 2,
+      "allThreeCommitsSingleParent": true
+    },
+    "sourceAndCandidateBinding": {
+      "passed": true,
+      "batchManifestCandidateHead": "d78e91e9f0d29eab7e9d838d4fc043ba73518cec",
+      "sourceBranch": "work/card-corpus-extraction",
+      "sourceHead": "d78e91e9f0d29eab7e9d838d4fc043ba73518cec",
+      "sourceTree": "e148ed6db227256b15c1d4ba79c2ebcb1171d4bd",
+      "sourceTrackedStateClean": true,
+      "reviewBranch": "review/stage1-v2-c5-r05",
+      "reviewHead": "d78e91e9f0d29eab7e9d838d4fc043ba73518cec",
+      "reviewTree": "e148ed6db227256b15c1d4ba79c2ebcb1171d4bd",
+      "reviewTrackedAndUntrackedStateClean": true
+    },
+    "branchAndWorktreeSeparation": {
+      "passed": true,
+      "sourceWorkspace": "/home/smithers/projects/nemesis-card-corpus/repos/nemesis-retaliation",
+      "reviewWorkspace": "/home/smithers/projects/nemesis-c5-r05/repos/nemesis-retaliation",
+      "separatePaths": true,
+      "separateBranches": true,
+      "sharedObjectStoreOnly": true,
+      "reviewBranchCheckedOutOnlyInAssignedWorktree": true
+    },
+    "baselinePromotionExpectations": {
+      "passedAsPolicyReading": true,
+      "candidateIsCurrentlyBaseline": false,
+      "activeV2LockExists": false,
+      "requiredBeforePromotion": [
+        "usable candidate-5 independent reviews",
+        "explicit disposition of every report/finding",
+        "completely green final prelock gate",
+        "commit the reviewed baseline",
+        "introduce audit-lock.json in the baseline's immediate direct-child commit before any lane begins"
+      ],
+      "promotionBlockedByThisReview": true
+    },
+    "committedHistoryState": {
+      "startingHead": "8d95b94f3e5c8d5ffb3a1c9835dd2512be88bc93",
+      "startingHeadFailures": [],
+      "prebaselineMergeCount": 0,
+      "historicalLaneFiles": [],
+      "progressUnits": 140,
+      "progressStatuses": {
+        "pending-blind-derivation": 140
+      }
+    },
+    "activeAuditLockSupersession": {
+      "actualStatePassed": true,
+      "refsWithCurrentAuditLockPath": 0,
+      "currentAuditLockPathExistsAtCandidate": false,
+      "preservedV1LockPathExists": true,
+      "v1Baseline": "2fe3f0da7da6e462bbcdcca7db29571b52a2d27c",
+      "v1LockCommit": "3e23aebf52bac07ca54829fb49e4eb1f375bf599",
+      "explicitSupersessionCommit": "5e525e12c105edb7565fa310ae16a526bc131025",
+      "explicitSupersessionBeforeAnyLaneTransition": true,
+      "note": "No actual active lock is being silently superseded in candidate 5. The separate finding concerns future direct-child lock-commit scope, not the disposition of the preserved v1 lock."
+    }
+  },
+  "commands": [
+    {
+      "command": "workspace flock acquisition plus independent nonblocking contender",
+      "exit": 0,
+      "result": "holder remained running; lock mode 0600, device 64518, inode 4998872; contender exited 1 at initial and final checks"
+    },
+    {
+      "command": "git ls-remote --exit-code origin refs/heads/main",
+      "exit": 0,
+      "result": "origin/main exactly d221c816465f6aea06f6e485bb6fa2f3ca982ba2"
+    },
+    {
+      "command": "git merge-base/is-ancestor/rev-list probes for public main, candidate 4, evidence rescue, and candidate 5",
+      "exit": 0,
+      "result": "exact ancestry and first-parent graph verified; candidate is 118 ahead/0 behind public main; 0 merges"
+    },
+    {
+      "command": "canonical source checkout inspection under its own nonblocking workspace flock",
+      "exit": 0,
+      "result": "clean work/card-corpus-extraction at exact candidate and exact candidate tree"
+    },
+    {
+      "command": "scan all local-head and remote-tracking ref tips for audit-lock.json",
+      "exit": 0,
+      "result": "0 refs contain the current active lock path"
+    },
+    {
+      "command": "candidate creator helpers: starting_head_failures, historical_lane_files, required_locked_files",
+      "exit": 0,
+      "result": "starting failures []; historical lane files []; no current lock; 85 canonical locked files"
+    },
+    {
+      "command": "ephemeral exact-candidate dirty-worktree creator probe",
+      "exit": 0,
+      "result": "reproduced finding: creator exited 0 with dirty readme.md and wrote a lock bound to exact candidate"
+    },
+    {
+      "command": "ephemeral exact-candidate staged-path direct-child lock plus full post-lock validation probe",
+      "exit": 0,
+      "result": "reproduced finding: two-path lock commit was direct child; full validator exited 0 with passed=true/failureCount=0"
+    },
+    {
+      "command": "uv-isolated 93 mutation tests in the assigned worktree before source staging",
+      "exit": 1,
+      "result": "non-evidence environment attempt: 71 errors because required gitignored rulebook files were absent; repository remained clean"
+    },
+    {
+      "command": "ephemeral exact-candidate clone; stage 1,098 sources; uv-isolated scripts/test_correctness_audit_mutations.py",
+      "exit": 0,
+      "result": "93/93 tests passed in 43.502s; temporary clone clean and removed"
+    },
+    {
+      "command": "final exact HEAD/branch/status/diff check",
+      "exit": 0,
+      "result": "exact candidate, assigned branch, clean tracked/untracked state, git diff --check passed"
+    }
+  ],
+  "workspaceLock": {
+    "path": "/home/smithers/projects/nemesis-c5-r05/.workspace.lock",
+    "mode": "0600",
+    "device": 64518,
+    "inode": 4998872,
+    "holderProcessSession": "proc_b0c5eca119bd",
+    "heldContinuouslyFromPrerequisiteVerificationThroughReportAndEnvelope": true,
+    "contenderRejected": true,
+    "releaseRequiredOnlyAfterEnvelope": true
+  },
+  "repositoryState": {
+    "initialHead": "d78e91e9f0d29eab7e9d838d4fc043ba73518cec",
+    "finalHead": "d78e91e9f0d29eab7e9d838d4fc043ba73518cec",
+    "initialClean": true,
+    "finalClean": true,
+    "repositoryFilesModified": [],
+    "repositoryCommitsCreated": [],
+    "pushesOrExternalGitWrites": []
+  },
+  "probeArtifacts": [
+    {
+      "kind": "temporary Git clones and captured command outputs",
+      "location": "/tmp/c5-r05-*",
+      "status": "removed before report creation"
+    }
+  ],
+  "externalArtifacts": [
+    "/home/smithers/projects/nemesis-c5-r05/review-output/c5-r05-ancestry-provenance-report.json",
+    "/home/smithers/projects/nemesis-c5-r05/review-output/c5-r05-ancestry-provenance-envelope.json"
+  ],
+  "residualRisks": [
+    "No real v2 lock or production lane history exists yet; lock lifecycle acceptance was tested in exact-candidate temporary Git histories.",
+    "The all-ref lock scan covers current local heads and remote-tracking refs available in the shared repository. origin/main itself was independently checked live with ls-remote and matched d221c816465f6aea06f6e485bb6fa2f3ca982ba2; no fetch or repository mutation was performed.",
+    "The assigned review worktree intentionally lacked gitignored rulebook PDFs. The failed direct suite attempt was superseded by an exact-candidate temporary clone staged from the documented source root, where all 93 tests passed and both lifecycle probes completed."
+  ]
+}

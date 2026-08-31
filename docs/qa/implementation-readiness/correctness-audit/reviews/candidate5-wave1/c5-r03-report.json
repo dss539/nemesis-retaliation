@@ -1,0 +1,327 @@
+{
+  "schemaVersion": 1,
+  "recordType": "stage-1-v2-candidate5-specialty-review",
+  "batchId": "stage1-v2-candidate5-wave1",
+  "workerId": "c5-r03",
+  "reviewerId": "c5-r03",
+  "specialty": "blind-cli-boundary",
+  "generatedAtUtc": "2026-08-31T05:06:37Z",
+  "candidateHead": "d78e91e9f0d29eab7e9d838d4fc043ba73518cec",
+  "priorCandidateHead": "9af725a59b20d8d70a13487f0e588d7306ee16e6",
+  "branch": "review/stage1-v2-c5-r03",
+  "workspace": "/home/smithers/projects/nemesis-c5-r03",
+  "repository": "/home/smithers/projects/nemesis-c5-r03/repos/nemesis-retaliation",
+  "reviewMode": "read-only-exact-head-with-external-real-cli-probes",
+  "verdict": "blocker",
+  "findingCount": 1,
+  "summary": "Candidate 5 rejects every exact member of the independently derived 57-path and 30-identifier forbidden inventory as both JSON keys and string values, flat and nested, through both blind-mode input locations before write; all 1,392 exact real-CLI cases preserved absent or sentinel outputs. All 26 justified shared source-only identifiers remained usable in 208 cases, and 208 exact forbidden descendants under those shared keys were rejected. One concrete bypass remains: object keys are compared to forbidden identifiers only by whole-key equality. A colon-delimited forbidden identifier is therefore a lexical token but not the whole key. All 30 forbidden identifiers were admitted in that form through both packet and completeness inputs with absent and sentinel outputs (120/120 real-CLI admissions). A dedicated rootCauseId reproduction confirmed the exact key bytes were serialized into both emitted blind prompts, creating absent outputs and overwriting sentinel bytes.",
+  "findings": [
+    {
+      "id": "C5-BLIND-CLI-001",
+      "severity": "critical",
+      "status": "confirmed-dynamic",
+      "title": "Delimiter-wrapped post-reveal identifier keys bypass blind prewrite filtering",
+      "contract": "Before either blind canonical prompt input is emitted, every forbidden post-reveal identifier occurring as a lexical identifier token must be rejected in JSON values and object member names. Explicitly shared source-only identifiers may remain usable, but cannot suppress recursive rejection of a forbidden descendant.",
+      "claim": "source_only_payload_failures applies lexical-token matching to string values but tests object member names only for exact set membership. A nested key such as leak:rootCauseId:field contains rootCauseId as a colon-delimited lexical token under the same boundary used for values, yet returns no source-only failure. The real blind CLI then serializes that key into the prompt.",
+      "lexicalTokenClassification": {
+        "pattern": "(?<![A-Za-z0-9_])<forbiddenIdentifier>(?![A-Za-z0-9_])",
+        "admittedCaseCount": 120,
+        "lexicalTokenCaseCount": 120,
+        "arbitrarySubstringOnlyCaseCount": 0,
+        "distinctForbiddenIdentifiers": 30,
+        "renderingTemplate": "leak:<forbiddenIdentifier>:field",
+        "delimiter": ":",
+        "locations": {
+          "packet": 60,
+          "completeness": 60
+        },
+        "initialOutputStates": {
+          "absent": 60,
+          "sentinel": 60
+        }
+      },
+      "evidence": [
+        {
+          "path": "scripts/build_correctness_audit_prompt.py",
+          "lines": "158-190",
+          "detail": "The dict branch at lines 160-171 rejects an identifier only when key in forbidden_identifiers. The string branch at lines 183-190 rejects the same inventory member with explicit left and right lexical boundaries. Therefore leak:rootCauseId:field is rejected as a value but admitted as a key."
+        },
+        {
+          "path": "scripts/build_correctness_audit_prompt.py",
+          "lines": "320-340",
+          "detail": "main computes canonical_prompt_bytes at line 332 before mkdir/write at lines 338-339. This correctly preserves outputs for detected payloads, but admitted keys reach output.write_bytes and are serialized."
+        },
+        {
+          "path": "scripts/test_correctness_audit_mutations.py",
+          "lines": "1320-1350",
+          "detail": "The candidate-5 inventory control covers every identifier as a value and an exact whole key, but does not exercise a lexically delimited identifier within a member name or either real CLI output state."
+        },
+        {
+          "artifact": "/home/smithers/projects/nemesis-c5-r03/review-output/c5-r03/blind-cli-matrix-evidence.json",
+          "sha256": "c62e11e7ed90cddc0ce7a0dd013a619e06170bb549e8bd0852f864da26760e20",
+          "detail": "The real-CLI adversarial-identifier-key-wrapper category contains 120/120 exit-0 admissions: all 30 forbidden identifiers, both blind input locations, and both absent/sentinel initial states. All rendered keys use colon boundaries; programmatic classification found 120 lexical-token cases and zero arbitrary-substring-only cases."
+        },
+        {
+          "artifact": "/home/smithers/projects/nemesis-c5-r03/review-output/c5-r03/admitted-examples/reproduction.json",
+          "sha256": "c1e58d22fbb91928685da83c7b8678b234c92e8216236b5d2c277616588cd7fe",
+          "detail": "A separate real-CLI reproduction used nested key leak:rootCauseId:field under the allowed shared key path. All four runs (packet/completeness x absent/sentinel) exited 0, found the exact JSON key in emitted bytes, created absent outputs, and overwrote sentinel outputs. rootCauseId matched lexical span [5,16] in the key."
+        },
+        {
+          "artifact": "/home/smithers/projects/nemesis-c5-r03/review-output/c5-r03/admitted-examples/packet-absent.prompt.txt",
+          "sha256": "8c3dc9f8cbe044f764471012510227b1722d260c99aa4b32b4e90d059b0ae5f9",
+          "detail": "Preserved emitted packet-mode prompt. Line 33 contains {\"outer\": [{\"path\": {\"leak:rootCauseId:field\": \"post-reveal-value\"}}]}. The packet-sentinel reproduction emitted byte-identical prompt SHA-256 8c3dc9f8cbe044f764471012510227b1722d260c99aa4b32b4e90d059b0ae5f9."
+        },
+        {
+          "artifact": "/home/smithers/projects/nemesis-c5-r03/review-output/c5-r03/admitted-examples/completeness-absent.prompt.txt",
+          "sha256": "e4ba69d1524c5df4497543587bd520c99d66c9155828264ca62a6582d0dcf374",
+          "detail": "Preserved emitted completeness-mode prompt. Line 38 contains the same exact key. The completeness-sentinel reproduction emitted byte-identical prompt SHA-256 e4ba69d1524c5df4497543587bd520c99d66c9155828264ca62a6582d0dcf374."
+        }
+      ],
+      "reproduction": {
+        "input": {
+          "packetOrCompletenessJson": {
+            "outer": [
+              {
+                "path": {
+                  "leak:rootCauseId:field": "post-reveal-value"
+                }
+              }
+            ]
+          },
+          "rootCauseIdIsLexicalToken": true,
+          "rootCauseIdLexicalSpan": [
+            5,
+            16
+          ]
+        },
+        "commandTemplate": "python3 scripts/build_correctness_audit_prompt.py --mode blind --packet <canonical packet> --completeness <canonical review> --output <canonical prompts output>",
+        "observed": "For packet and completeness placement, both an absent output and a pre-existing binary sentinel produced CLI exit 0. The absent output was created; the sentinel SHA-256 c3eab0df90d9c81ced790c3595bece504dd55f1761d9e16dd5fac3caab9d1998 was replaced; the exact forbidden-key bytes were present in each emitted prompt.",
+        "expected": "All four invocations must fail before creating or modifying output because rootCauseId is a forbidden post-reveal identifier serialized as a delimited lexical token in a member name."
+      },
+      "impact": "A source packet or accepted completeness-review JSON can expose any closed post-reveal comparison/adjudication identifier to the isolated blind reviewer by surrounding it with punctuation in a JSON member name. Because the prompt builder does not schema-validate these payloads before serialization, later schema rejection cannot restore blindness once the prompt bytes have been written or sent.",
+      "recommendation": "Apply the same escaped lexical-token matcher used for string values to every object member name, while retaining exact shared-identifier exemptions only for the shared token itself. Add inventory-driven real-CLI controls for every forbidden identifier in delimiter-wrapped keys, in packet and completeness inputs, nested under each class of allowed shared key, with absent-parent, absent-file, and byte-identical sentinel assertions."
+    }
+  ],
+  "inputLocationMatrix": {
+    "inventory": {
+      "forbiddenPathCount": 57,
+      "forbiddenIdentifierCount": 30,
+      "allowedSharedIdentifierCount": 26,
+      "derivedPathInventoryMatchesExpected": true,
+      "derivedIdentifierInventoryMatchesExpected": true
+    },
+    "forms": {
+      "representations": [
+        "object-key",
+        "string-value"
+      ],
+      "depths": [
+        "flat",
+        "nested-object-inside-array"
+      ],
+      "rejectedOutputStates": [
+        "absent",
+        "binary-sentinel"
+      ]
+    },
+    "locations": [
+      {
+        "location": "packet",
+        "exactForbiddenPathCases": 456,
+        "exactForbiddenIdentifierCases": 240,
+        "exactRejectedBeforeWrite": 696,
+        "exactExitCounts": {
+          "1": 696
+        },
+        "sharedAllowedCases": 104,
+        "sharedAllowedExitCounts": {
+          "0": 104
+        },
+        "exactForbiddenDescendantsUnderSharedKeys": 104,
+        "sharedDescendantExitCounts": {
+          "1": 104
+        },
+        "relativePathValueControls": 114,
+        "relativePathExitCounts": {
+          "1": 114
+        },
+        "delimiterWrappedIdentifierKeyCases": 60,
+        "delimiterWrappedIdentifierKeyExitCounts": {
+          "0": 60
+        }
+      },
+      {
+        "location": "completeness",
+        "exactForbiddenPathCases": 456,
+        "exactForbiddenIdentifierCases": 240,
+        "exactRejectedBeforeWrite": 696,
+        "exactExitCounts": {
+          "1": 696
+        },
+        "sharedAllowedCases": 104,
+        "sharedAllowedExitCounts": {
+          "0": 104
+        },
+        "exactForbiddenDescendantsUnderSharedKeys": 104,
+        "sharedDescendantExitCounts": {
+          "1": 104
+        },
+        "relativePathValueControls": 114,
+        "relativePathExitCounts": {
+          "1": 114
+        },
+        "delimiterWrappedIdentifierKeyCases": 60,
+        "delimiterWrappedIdentifierKeyExitCounts": {
+          "0": 60
+        }
+      }
+    ],
+    "totals": {
+      "realCliRows": 2157,
+      "exactForbiddenCases": 1392,
+      "exactForbiddenFailures": 0,
+      "sharedAllowedCases": 208,
+      "sharedAllowedFailures": 0,
+      "sharedRecursionContaminationCases": 208,
+      "sharedRecursionFailures": 0,
+      "relativePathValueCases": 228,
+      "relativePathValueFailures": 0,
+      "delimiterWrappedIdentifierKeyAdmissions": 120
+    }
+  },
+  "outputBytePreservationEvidence": {
+    "matrixSentinelSha256": "75d534589c03d2e8a8c3d96dbb5d0ead76ff965604a8835b5fd58c86be20d6df",
+    "rejectedAbsentOutputsPreservedAbsent": 811,
+    "rejectedSentinelOutputsPreservedByteIdentical": 1018,
+    "writeOrderAbsentParentControl": {
+      "cliExit": 1,
+      "outputAbsentAfter": true,
+      "outputParentAbsentAfter": true
+    },
+    "admittedIdentifierWrapperOutputs": {
+      "absentOutputsCreated": 60,
+      "sentinelOutputsOverwritten": 60,
+      "dedicatedReproductionSentinelSha256": "c3eab0df90d9c81ced790c3595bece504dd55f1761d9e16dd5fac3caab9d1998",
+      "packetPromptSha256": "8c3dc9f8cbe044f764471012510227b1722d260c99aa4b32b4e90d059b0ae5f9",
+      "completenessPromptSha256": "e4ba69d1524c5df4497543587bd520c99d66c9155828264ca62a6582d0dcf374"
+    },
+    "sourceWriteOrdering": "canonical_output_path is checked first; canonical_prompt_bytes and all source-only validation run at line 332; only then do lines 338-339 create the parent and write bytes. Dynamic rejected cases confirm this order. The finding reaches the write only because key matching returns no failure."
+  },
+  "verifiedControls": [
+    {
+      "control": "exact forbidden inventory through the real blind CLI",
+      "status": "pass",
+      "detail": "All 57 forbidden paths and 30 forbidden identifiers were rejected as exact keys and delimited string values, flat and nested, in packet and completeness inputs, for absent and sentinel outputs: 1,392/1,392."
+    },
+    {
+      "control": "shared source-only identifiers",
+      "status": "pass",
+      "detail": "All 26 justified shared identifiers were admitted as safe keys and values, flat and nested, through both input locations: 208/208."
+    },
+    {
+      "control": "recursive contamination beneath shared identifiers",
+      "status": "pass-for-exact-tokens",
+      "detail": "Representative exact forbidden path and identifier keys/values nested under each shared key were rejected in both locations: 208/208. The finding records the separate delimiter-wrapped key bypass nested under shared key path."
+    },
+    {
+      "control": "source staging",
+      "status": "pass",
+      "detail": "The authorized source stager copied 1,098 ignored files from /home/smithers/nemesis-retaliation, and --check then reported copiedFiles=0 and alreadyCurrentOrCheckedFiles=1098."
+    },
+    {
+      "control": "candidate focused unit controls",
+      "status": "pass",
+      "detail": "After source staging, the candidate inventory and canonical source-only prompt tests both passed (2 tests, 0 failures). These exact-key unit tests do not contradict the real-CLI wrapper finding."
+    }
+  ],
+  "commandsAndExits": [
+    {
+      "command": "bounded Python O_NOFOLLOW exclusive-flock holder on /home/smithers/projects/nemesis-c5-r03/.workspace.lock",
+      "exit": null,
+      "result": "running while accepted evidence and this report were created; holder pid 866646; mode 0600; dev 64518; inode 4994982"
+    },
+    {
+      "command": "independent nonblocking contender flock",
+      "exit": 73,
+      "result": "CONTENDER_REJECTED on the same device/inode"
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 review-output/c5-r03/blind_cli_matrix.py --output review-output/c5-r03/blind-cli-matrix-evidence.json",
+      "exit": 0,
+      "result": "Instrumentation completed 2,157 real CLI rows; all expected exact/shared controls passed; 120 identifier-key wrapper admissions recorded as the finding."
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 review-output/c5-r03/reproduce_identifier_key_admission.py",
+      "exit": 0,
+      "result": "All four inner blind CLI runs exited 0 and serialized the exact rootCauseId key into preserved prompt bytes."
+    },
+    {
+      "command": "uv run --isolated --with-requirements ... python3 scripts/test_correctness_audit_mutations.py <two focused tests>",
+      "exit": 1,
+      "result": "Initial prerequisite attempt failed only because docs/rulebooks/Nemesis_RT_Rulebook_official.pdf was absent; excluded as candidate evidence and resolved with the authorized source stager."
+    },
+    {
+      "command": "python3 scripts/stage_correctness_audit_sources.py --source-root /home/smithers/nemesis-retaliation",
+      "exit": 0,
+      "result": "copiedFiles=1098, copiedBytes=2144310324, sourceTrees=[docs/rulebooks, assets/tts-mod/extract]"
+    },
+    {
+      "command": "uv run --isolated --with-requirements ... python3 scripts/test_correctness_audit_mutations.py AuditMutationTests.test_source_only_inventory_covers_frozen_paths_and_post_reveal_ids AuditMutationTests.test_canonical_source_only_prompts_reject_downstream_payloads",
+      "exit": 0,
+      "result": "Ran 2 tests in 0.739s; OK"
+    },
+    {
+      "command": "python3 scripts/stage_correctness_audit_sources.py --source-root /home/smithers/nemesis-retaliation --check",
+      "exit": 0,
+      "result": "copiedFiles=0; alreadyCurrentOrCheckedFiles=1098"
+    },
+    {
+      "command": "git status --porcelain=v1 --untracked-files=all; git diff --check; git rev-parse HEAD; git branch --show-current",
+      "exit": 0,
+      "result": "No status or diff-check output; exact HEAD d78e91e9f0d29eab7e9d838d4fc043ba73518cec; branch review/stage1-v2-c5-r03."
+    }
+  ],
+  "repositoryEvidence": {
+    "exactHeadVerified": true,
+    "candidateHead": "d78e91e9f0d29eab7e9d838d4fc043ba73518cec",
+    "expectedBranchVerified": true,
+    "trackedAndNonignoredStateCleanAtStart": true,
+    "trackedAndNonignoredStateCleanAfterProbes": true,
+    "trackedRepositoryFilesModifiedByReviewer": [],
+    "commitsCreated": 0,
+    "ignoredSourceTreesStagedByAuthorizedStager": [
+      "docs/rulebooks",
+      "assets/tts-mod/extract"
+    ],
+    "reviewArtifactsRoot": "/home/smithers/projects/nemesis-c5-r03/review-output"
+  },
+  "workspaceLockEvidence": {
+    "path": "/home/smithers/projects/nemesis-c5-r03/.workspace.lock",
+    "openFlags": "O_RDWR|O_CREAT|O_NOFOLLOW",
+    "mode": "0600",
+    "holderPid": 866646,
+    "device": 64518,
+    "inode": 4994982,
+    "boundedTimeoutSeconds": 7200,
+    "contenderRejected": true,
+    "contenderExit": 73,
+    "heldContinuouslyForAcceptedEvidenceAndReport": true,
+    "releaseRequiredOnlyAfterEnvelope": true
+  },
+  "artifacts": [
+    "/home/smithers/projects/nemesis-c5-r03/review-output/c5-r03/blind_cli_matrix.py",
+    "/home/smithers/projects/nemesis-c5-r03/review-output/c5-r03/blind-cli-matrix-evidence.json",
+    "/home/smithers/projects/nemesis-c5-r03/review-output/c5-r03/reproduce_identifier_key_admission.py",
+    "/home/smithers/projects/nemesis-c5-r03/review-output/c5-r03/admitted-examples/reproduction.json",
+    "/home/smithers/projects/nemesis-c5-r03/review-output/c5-r03/admitted-examples/packet-absent.prompt.txt",
+    "/home/smithers/projects/nemesis-c5-r03/review-output/c5-r03/admitted-examples/packet-sentinel.prompt.txt",
+    "/home/smithers/projects/nemesis-c5-r03/review-output/c5-r03/admitted-examples/completeness-absent.prompt.txt",
+    "/home/smithers/projects/nemesis-c5-r03/review-output/c5-r03/admitted-examples/completeness-sentinel.prompt.txt"
+  ],
+  "issuesEncountered": [
+    "The focused candidate tests initially lacked staged ignored rulebook sources. That prerequisite-only attempt was excluded, the authorized source stager copied the canonical source trees, the stage check passed, and both focused tests then passed."
+  ],
+  "residualRisks": [
+    "This specialty review targets the blind canonical CLI source-only boundary and does not substitute for the other candidate-5 specialty lanes or the full 140-unit audit."
+  ]
+}

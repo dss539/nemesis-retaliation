@@ -230,7 +230,7 @@ uv run --isolated --with-requirements docs/qa/implementation-readiness/correctne
   python3 scripts/validate_correctness_audit.py --prelock
 ```
 
-After the final reviewed baseline commit is clean and all 140 progress rows are still pending, create the lock file, stage only that file, and commit it as the baseline's immediate direct child:
+After the final reviewed baseline commit is clean and all 140 progress rows are still pending, create the lock file, stage only that file, and commit it as the baseline's immediate direct child. The creator rejects any tracked, staged, or untracked nonignored worktree state, and the post-lock validator requires the direct-child commit's complete changed-path set to contain only `audit-lock.json`:
 
 ```bash
 python3 scripts/create_correctness_audit_lock.py
@@ -256,6 +256,8 @@ uv run --isolated --with-requirements docs/qa/implementation-readiness/correctne
 uv run --isolated --with-requirements docs/qa/implementation-readiness/correctness-audit/requirements-audit.txt \
   python3 scripts/test_correctness_audit_mutations.py
 uv run --isolated --with-requirements docs/qa/implementation-readiness/correctness-audit/requirements-audit.txt \
+  python3 scripts/test_correctness_audit_source_only_cli.py
+uv run --isolated --with-requirements docs/qa/implementation-readiness/correctness-audit/requirements-audit.txt \
   python3 scripts/test_correctness_audit_decision.py
 python3 scripts/validate_source_extraction.py
 python3 scripts/validate_project_status.py
@@ -270,6 +272,8 @@ uv run --isolated --with-requirements docs/qa/implementation-readiness/correctne
   python3 scripts/validate_correctness_audit.py
 uv run --isolated --with-requirements docs/qa/implementation-readiness/correctness-audit/requirements-audit.txt \
   python3 scripts/test_correctness_audit_mutations.py
+uv run --isolated --with-requirements docs/qa/implementation-readiness/correctness-audit/requirements-audit.txt \
+  python3 scripts/test_correctness_audit_source_only_cli.py
 uv run --isolated --with-requirements docs/qa/implementation-readiness/correctness-audit/requirements-audit.txt \
   python3 scripts/test_correctness_audit_decision.py
 python3 scripts/validate_source_extraction.py

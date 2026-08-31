@@ -453,6 +453,48 @@ class ArtifactSealGitTests(unittest.TestCase):
             ],
         )
 
+    def test_lock_creator_requires_clean_tracked_staged_and_untracked_state(self) -> None:
+        lock_target.require_clean_worktree(root=self.root)
+        untracked = self.root / "untracked.txt"
+        untracked.write_text("untracked\n", encoding="utf-8")
+        with self.assertRaisesRegex(SystemExit, "clean tracked, staged, and untracked"):
+            lock_target.require_clean_worktree(root=self.root)
+        untracked.unlink()
+
+        tracked = self.root / "tracked.txt"
+        tracked.write_text("baseline\n", encoding="utf-8")
+        self.git("add", "tracked.txt")
+        with self.assertRaisesRegex(SystemExit, "clean tracked, staged, and untracked"):
+            lock_target.require_clean_worktree(root=self.root)
+        self.git("commit", "-q", "-m", "track fixture")
+        tracked.write_text("dirty\n", encoding="utf-8")
+        with self.assertRaisesRegex(SystemExit, "clean tracked, staged, and untracked"):
+            lock_target.require_clean_worktree(root=self.root)
+
+    def test_lock_commit_changed_path_set_is_exact(self) -> None:
+        lock = self.root / "audit-lock.json"
+        lock.write_text("{}\n", encoding="utf-8")
+        extra = self.root / "extra.txt"
+        extra.write_text("extra\n", encoding="utf-8")
+        self.git("add", "audit-lock.json", "extra.txt")
+        self.git("commit", "-q", "-m", "mixed lock commit")
+        mixed = self.git("rev-parse", "HEAD").stdout.strip()
+        self.assertEqual(
+            target.commit_changed_paths(self.root, mixed),
+            {"audit-lock.json", "extra.txt"},
+        )
+        extra.unlink()
+        self.git("add", "-u")
+        self.git("commit", "-q", "-m", "remove extra")
+        lock.write_text('{"schemaVersion":1}\n', encoding="utf-8")
+        self.git("add", "audit-lock.json")
+        self.git("commit", "-q", "-m", "lock only")
+        lock_only = self.git("rev-parse", "HEAD").stdout.strip()
+        self.assertEqual(
+            target.commit_changed_paths(self.root, lock_only),
+            {"audit-lock.json"},
+        )
+
     def test_lock_creator_rejects_missing_and_nonancestor_starting_heads(self) -> None:
         self.assertEqual(
             lock_target.starting_head_failures("not-a-commit", self.baseline, root=self.root),
@@ -769,6 +811,82 @@ class PromptOutputPathTests(unittest.TestCase):
                 prompt_target.ROOT = original_root
                 prompt_target.AUDIT_DIR = original_audit
 
+    def test_atomic_prompt_write_never_follows_final_symlink(self) -> None:
+        with tempfile.TemporaryDirectory(prefix="correctness-audit-prompt-atomic-") as directory:
+            root = Path(directory)
+            output = root / "packets/prompts/out.txt"
+            output.parent.mkdir(parents=True)
+            external = root / "external.txt"
+            external.write_bytes(b"sentinel\n")
+            output.symlink_to(external)
+            original_root = prompt_target.ROOT
+            try:
+                prompt_target.ROOT = root
+                with self.assertRaisesRegex(ValueError, "non-regular or symlink output"):
+                    prompt_target.write_repo_file_atomic(output, b"prompt\n")
+                self.assertEqual(external.read_bytes(), b"sentinel\n")
+                self.assertTrue(output.is_symlink())
+            finally:
+                prompt_target.ROOT = original_root
+
+    def test_safe_prompt_read_rejects_swapped_symlink(self) -> None:
+        with tempfile.TemporaryDirectory(prefix="correctness-audit-prompt-read-") as directory:
+            root = Path(directory)
+            packet = root / "packets/unit.json"
+            packet.parent.mkdir(parents=True)
+            external = root / "external.json"
+            external.write_text('{"downstreamPath":"leak"}\n', encoding="utf-8")
+            packet.symlink_to(external)
+            original_root = prompt_target.ROOT
+            try:
+                prompt_target.ROOT = root
+                with self.assertRaisesRegex(ValueError, "cannot safely read regular file"):
+                    prompt_target.read_repo_regular_bytes(packet)
+            finally:
+                prompt_target.ROOT = original_root
+
+    def test_main_rejects_output_symlink_installed_after_path_check(self) -> None:
+        with tempfile.TemporaryDirectory(prefix="correctness-audit-prompt-main-race-") as directory:
+            root = Path(directory)
+            audit = root / "docs/qa/implementation-readiness/correctness-audit"
+            prompt_root = audit / "packets/prompts"
+            prompt_root.mkdir(parents=True)
+            output = prompt_root / "out.txt"
+            external = root / "external.txt"
+            external.write_bytes(b"sentinel\n")
+            original_root = prompt_target.ROOT
+            original_audit = prompt_target.AUDIT_DIR
+            original_argv = sys.argv[:]
+
+            def build_then_swap(*_args, **_kwargs) -> bytes:
+                output.symlink_to(external)
+                return b"prompt\n"
+
+            try:
+                prompt_target.ROOT = root
+                prompt_target.AUDIT_DIR = audit
+                sys.argv = [
+                    "build_correctness_audit_prompt.py",
+                    "--mode",
+                    "completeness",
+                    "--packet",
+                    "unused.json",
+                    "--output",
+                    output.relative_to(root).as_posix(),
+                ]
+                with mock.patch.object(
+                    prompt_target,
+                    "canonical_prompt_bytes",
+                    side_effect=build_then_swap,
+                ):
+                    with self.assertRaisesRegex(ValueError, "non-regular or symlink output"):
+                        prompt_target.main()
+                self.assertEqual(external.read_bytes(), b"sentinel\n")
+            finally:
+                prompt_target.ROOT = original_root
+                prompt_target.AUDIT_DIR = original_audit
+                sys.argv = original_argv
+
 
 class SourceStagingPathTests(unittest.TestCase):
     def test_source_root_and_intermediate_symlinks_are_rejected(self) -> None:
@@ -796,6 +914,116 @@ class SourceStagingPathTests(unittest.TestCase):
                 with self.assertRaisesRegex(SystemExit, "target path contains a symlink"):
                     stage_target.target_path(Path("docs/rulebooks/dangling.pdf"))
                 self.assertFalse((root / "outside" / "created.pdf").exists())
+            finally:
+                stage_target.ROOT = original_root
+
+    def test_descriptor_safe_staging_rejects_symlink_swaps(self) -> None:
+        with tempfile.TemporaryDirectory(prefix="correctness-audit-stage-safe-") as directory:
+            root = Path(directory)
+            source_root = root / "source"
+            target_root = root / "target"
+            source = source_root / "docs/rulebooks/a.txt"
+            source.parent.mkdir(parents=True)
+            source.write_bytes(b"source\n")
+            target = target_root / "docs/rulebooks/a.txt"
+            target.parent.mkdir(parents=True)
+            external = root / "external.txt"
+            external.write_bytes(b"sentinel\n")
+            target.symlink_to(external)
+            original_root = stage_target.ROOT
+            try:
+                stage_target.ROOT = target_root
+                with self.assertRaisesRegex(SystemExit, "non-regular or symlink target"):
+                    stage_target.write_regular_file_atomic(
+                        Path("docs/rulebooks/a.txt"),
+                        b"replacement\n",
+                        0o644,
+                    )
+                self.assertEqual(external.read_bytes(), b"sentinel\n")
+
+                source.unlink()
+                source.symlink_to(external)
+                with self.assertRaisesRegex(SystemExit, "cannot safely read candidate source"):
+                    stage_target.read_regular_file(
+                        source_root,
+                        Path("docs/rulebooks/a.txt"),
+                        "candidate source",
+                    )
+
+                source.unlink()
+                source.write_bytes(b"source\n")
+                moved = target_root / "docs-real"
+                (target_root / "docs").rename(moved)
+                (target_root / "docs").symlink_to(moved, target_is_directory=True)
+                with self.assertRaises(OSError):
+                    stage_target.open_directory(
+                        target_root,
+                        ("docs", "rulebooks"),
+                        create=True,
+                    )
+            finally:
+                stage_target.ROOT = original_root
+
+    def test_atomic_stage_write_closes_final_and_intermediate_swap_windows(self) -> None:
+        with tempfile.TemporaryDirectory(prefix="correctness-audit-stage-races-") as directory:
+            root = Path(directory)
+            external = root / "external.txt"
+            external.write_bytes(b"sentinel\n")
+            original_root = stage_target.ROOT
+            real_replace = stage_target.os.replace
+            try:
+                final_root = root / "final-target"
+                final_target = final_root / "docs/rulebooks/a.txt"
+                final_target.parent.mkdir(parents=True)
+                stage_target.ROOT = final_root
+
+                def inject_final_symlink(src, dst, *, src_dir_fd, dst_dir_fd):
+                    final_target.symlink_to(external)
+                    return real_replace(
+                        src,
+                        dst,
+                        src_dir_fd=src_dir_fd,
+                        dst_dir_fd=dst_dir_fd,
+                    )
+
+                with mock.patch.object(stage_target.os, "replace", side_effect=inject_final_symlink):
+                    stage_target.write_regular_file_atomic(
+                        Path("docs/rulebooks/a.txt"),
+                        b"replacement\n",
+                        0o644,
+                    )
+                self.assertEqual(external.read_bytes(), b"sentinel\n")
+                self.assertFalse(final_target.is_symlink())
+                self.assertEqual(final_target.read_bytes(), b"replacement\n")
+
+                intermediate_root = root / "intermediate-target"
+                intermediate_target = intermediate_root / "docs/rulebooks/a.txt"
+                intermediate_target.parent.mkdir(parents=True)
+                outside = root / "outside-tree"
+                (outside / "rulebooks").mkdir(parents=True)
+                stage_target.ROOT = intermediate_root
+
+                def swap_intermediate(src, dst, *, src_dir_fd, dst_dir_fd):
+                    (intermediate_root / "docs").rename(intermediate_root / "pinned-docs")
+                    (intermediate_root / "docs").symlink_to(outside, target_is_directory=True)
+                    return real_replace(
+                        src,
+                        dst,
+                        src_dir_fd=src_dir_fd,
+                        dst_dir_fd=dst_dir_fd,
+                    )
+
+                with mock.patch.object(stage_target.os, "replace", side_effect=swap_intermediate):
+                    stage_target.write_regular_file_atomic(
+                        Path("docs/rulebooks/a.txt"),
+                        b"pinned\n",
+                        0o644,
+                    )
+                self.assertFalse((outside / "rulebooks/a.txt").exists())
+                self.assertEqual(
+                    (intermediate_root / "pinned-docs/rulebooks/a.txt").read_bytes(),
+                    b"pinned\n",
+                )
             finally:
                 stage_target.ROOT = original_root
 
@@ -1203,12 +1431,12 @@ class AuditMutationTests(unittest.TestCase):
     def test_packet_semantic_field_rejected_by_schema(self) -> None:
         self.h.packet["physicalClass"] = "ranged-weapon"
         dump(self.h.packet_path, self.h.packet)
-        with self.assertRaisesRegex(ValueError, "forbidden identifier key physicalClass"):
+        with self.assertRaisesRegex(ValueError, "schema validation failed"):
             target.canonical_prompt_bytes("completeness", self.h.packet_path)
 
     def test_incomplete_search_record_rejected(self) -> None:
         self.h.packet["searchCoverage"]["searchTerms"] = []
-        self.h.resign_packet_chain()
+        self.h.resign_packet_chain(canonicalize_prompts=False)
         self.assertFails("should be non-empty")
 
     def test_empty_derived_result_rejected(self) -> None:
@@ -1318,8 +1546,58 @@ class AuditMutationTests(unittest.TestCase):
             )
 
     def test_source_only_inventory_covers_frozen_paths_and_post_reveal_ids(self) -> None:
+        def schema_names(value) -> set[str]:
+            names: set[str] = set()
+            if isinstance(value, dict):
+                properties = value.get("properties")
+                if isinstance(properties, dict):
+                    names.update(str(key) for key in properties)
+                for child in value.values():
+                    names.update(schema_names(child))
+            elif isinstance(value, list):
+                for child in value:
+                    names.update(schema_names(child))
+            return names
+
+        expected_paths = set(prompt_target.SOURCE_ONLY_FIXED_PATH_TOKENS)
+        manifest = json.loads(
+            (prompt_target.AUDIT_DIR / "manifest.json").read_text(encoding="utf-8")
+        )
+        for section in (
+            "frozenSemanticHashes",
+            "frozenConciseRuleHashes",
+            "selectionInputHashes",
+        ):
+            expected_paths.update(
+                path
+                for path in manifest[section]
+                if not path.startswith(prompt_target.ALLOWED_SOURCE_PATH_PREFIXES)
+            )
+        for unit in manifest["units"]:
+            for field in ("downstreamPath", "extractionPath"):
+                path = unit.get(field)
+                if isinstance(path, str) and not path.startswith(
+                    prompt_target.ALLOWED_SOURCE_PATH_PREFIXES
+                ):
+                    expected_paths.add(path)
+
+        expected_ids = set(prompt_target.SOURCE_ONLY_FIXED_IDENTIFIERS)
+        for schema_name in ("comparison.schema.json", "audit-result.schema.json"):
+            schema = json.loads(
+                (prompt_target.AUDIT_DIR / schema_name).read_text(encoding="utf-8")
+            )
+            expected_ids.update(schema_names(schema))
+        expected_ids.difference_update(prompt_target.SOURCE_ONLY_SHARED_IDENTIFIERS)
+
         forbidden_paths, forbidden_ids = prompt_target.source_only_forbidden_inventory()
-        self.assertIn("scripts/build_semantic_pilots.py", forbidden_paths)
+        key_paths, key_ids = prompt_target.source_only_forbidden_key_inventory()
+        self.assertEqual(len(expected_paths), 57)
+        self.assertEqual(len(expected_ids), 33)
+        self.assertEqual(forbidden_paths, expected_paths)
+        self.assertEqual(key_paths, expected_paths)
+        self.assertEqual(forbidden_ids, expected_ids)
+        self.assertEqual(key_ids, expected_ids)
+        self.assertIn("docs/rules/ontology/mappings.json", forbidden_paths)
         self.assertTrue(
             {
                 "rootCauseId",
@@ -1328,6 +1606,10 @@ class AuditMutationTests(unittest.TestCase):
                 "hiddenDefault",
                 "verificationEvidenceRefs",
                 "reviewedDiscrepancyIds",
+                "sourceFinding",
+                "claim",
+                "severity",
+                "disposition",
             }.issubset(forbidden_ids)
         )
         for identifier in sorted(forbidden_ids):
@@ -1336,9 +1618,11 @@ class AuditMutationTests(unittest.TestCase):
                     {"value": f"fixture {identifier} fixture"}
                 )
             )
-            self.assertTrue(
-                prompt_target.source_only_payload_failures({identifier: "fixture"})
-            )
+            for key in (identifier, f"wrapper:{identifier}:wrapper"):
+                self.assertTrue(
+                    prompt_target.source_only_payload_failures({key: "fixture"}),
+                    key,
+                )
         for path_token in sorted(forbidden_paths):
             self.assertTrue(
                 prompt_target.source_only_payload_failures(
@@ -1348,6 +1632,40 @@ class AuditMutationTests(unittest.TestCase):
             self.assertTrue(
                 prompt_target.source_only_payload_failures({path_token: "fixture"})
             )
+
+    def test_canonical_prompt_schema_rejects_unknown_packet_fields(self) -> None:
+        self.h.packet["unexpectedPacketField"] = "fixture"
+        dump(self.h.packet_path, self.h.packet)
+        with self.assertRaisesRegex(ValueError, "schema validation failed"):
+            prompt_target.canonical_prompt_bytes("completeness", self.h.packet_path)
+        self.h.resign_packet_chain(canonicalize_prompts=False)
+        self.assertFails("Additional properties are not allowed")
+
+    def test_canonical_prompt_uses_one_buffered_packet_snapshot(self) -> None:
+        dump(self.h.packet_path, self.h.packet)
+        external = self.h.packet_path.with_name("raced-packet.json")
+        leaked = copy.deepcopy(self.h.packet)
+        leaked["searchCoverage"]["searchTerms"] = ["downstreamPath"]
+        dump(external, leaked)
+        parked = self.h.packet_path.with_name("parked-packet.json")
+        original_validator = prompt_target.validate_source_only_json
+
+        def validate_then_swap(data: bytes, schema_name: str) -> None:
+            original_validator(data, schema_name)
+            self.h.packet_path.rename(parked)
+            self.h.packet_path.symlink_to(external)
+
+        with mock.patch.object(
+            prompt_target,
+            "validate_source_only_json",
+            side_effect=validate_then_swap,
+        ):
+            rendered = prompt_target.canonical_prompt_bytes(
+                "completeness",
+                self.h.packet_path,
+            )
+        self.assertNotIn(b"downstreamPath", rendered)
+        self.assertIn(str(self.h.packet["packetId"]).encode(), rendered)
 
     def test_duplicate_packet_evidence_ids_are_rejected(self) -> None:
         duplicate = copy.deepcopy(self.h.packet["evidence"][0])
@@ -1581,7 +1899,7 @@ class AuditMutationTests(unittest.TestCase):
         evidence = self.h.packet["evidence"][0]
         evidence["visualEvidencePath"] = str(self.h.prompt_path.relative_to(ROOT))
         evidence["visualEvidenceSha256"] = None
-        self.h.resign_packet_chain()
+        self.h.resign_packet_chain(canonicalize_prompts=False)
         self.assertFails("is not of type 'string'")
 
     def test_text_file_masquerading_as_png_is_rejected(self) -> None:
@@ -1645,7 +1963,7 @@ class AuditMutationTests(unittest.TestCase):
         evidence["exactText"] = ""
         evidence["visualEvidencePath"] = None
         evidence["visualEvidenceSha256"] = None
-        self.h.resign_packet_chain()
+        self.h.resign_packet_chain(canonicalize_prompts=False)
         report = self.h.validate()
         self.assertFalse(report["passed"])
         joined = "\n".join(report["failures"])
@@ -1743,7 +2061,7 @@ class AuditMutationTests(unittest.TestCase):
             harness = Harness()
             try:
                 mutation(harness)
-                harness.resign_packet_chain()
+                harness.resign_packet_chain(canonicalize_prompts=False)
                 report = harness.validate()
                 self.assertFalse(report["passed"], report)
             finally:

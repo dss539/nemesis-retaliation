@@ -1,0 +1,226 @@
+{
+  "schemaVersion": 1,
+  "recordType": "stage-1-v2-candidate-specialty-review",
+  "batchId": "stage1-v2-candidate5-wave1",
+  "workerId": "c5-r02",
+  "specialty": "completeness-cli-boundary",
+  "reviewedAtUtc": "2026-08-31T05:04:39Z",
+  "candidateHead": "d78e91e9f0d29eab7e9d838d4fc043ba73518cec",
+  "priorCandidateHead": "9af725a59b20d8d70a13487f0e588d7306ee16e6",
+  "candidateBranch": "review/stage1-v2-c5-r02",
+  "verdict": "issues",
+  "findingCount": 1,
+  "summary": "The real completeness CLI rejects all 57 currently derived forbidden paths and all 30 identifiers that remain in candidate 5's final inventory in every tested root/nested key/value form, before creating an absent output or changing a sentinel. Candidate 5 nevertheless regresses the closed post-reveal identifier set from 33 to 30: its mode-agnostic subtraction of completeness-review schema properties globally removes claim, disposition, and severity while scanning a source packet. All 24 real-CLI probes for those three identifiers were accepted and wrote output, including 12 source-packet-schema-valid string-value cases and 12 extra-key cases that the CLI does not schema-validate.",
+  "findings": [
+    {
+      "findingId": "C5-R02-001",
+      "severity": "blocker",
+      "status": "reproduced-real-cli",
+      "title": "Completeness-review allowlist removes three post-reveal identifiers from source-packet preflight",
+      "contract": "The canonical completeness CLI must reject every closed post-reveal identifier found in a source packet, whether the identifier is a JSON key or string value and whether it appears at the root or nested, before an absent output is created or an existing output changes. Properties needed by a completeness-review payload may be exempted only in that payload's legitimate key positions; they cannot be globally removed from source-packet key and value checks.",
+      "rootCause": "source_only_forbidden_inventory() first derives identifiers from comparison.schema.json and audit-result.schema.json, but then unconditionally subtracts every property name in both source-packet.schema.json and packet-completeness-review.schema.json. The same reduced set is used for every payload and mode. The completeness-review schema shares claim and severity with the comparison schema and disposition with the adjudication schema, so all three disappear while validating a source packet. canonical_prompt_bytes() does not validate the packet against source-packet.schema.json; main() writes any payload that survives the reduced lexical preflight.",
+      "evidence": [
+        {
+          "path": "scripts/build_correctness_audit_prompt.py",
+          "lines": "107-155",
+          "detail": "Lines 135-142 add every comparison/adjudication schema property; lines 143-154 then remove the shared set and all source-packet plus completeness-review schema properties without distinguishing mode, payload type, key position, or string value."
+        },
+        {
+          "path": "docs/qa/implementation-readiness/correctness-audit/comparison.schema.json",
+          "lines": "215-282",
+          "detail": "The closed post-reveal discrepancy contract defines severity and claim."
+        },
+        {
+          "path": "docs/qa/implementation-readiness/correctness-audit/audit-result.schema.json",
+          "lines": "238-287",
+          "detail": "The closed post-reveal verification contract defines disposition."
+        },
+        {
+          "path": "docs/qa/implementation-readiness/correctness-audit/packet-completeness-review.schema.json",
+          "lines": "50-97",
+          "detail": "The source-only completeness-review contract also defines severity, claim, and disposition. Candidate 5 treats that overlap as a global exemption rather than a payload-specific legitimate-key exemption."
+        },
+        {
+          "path": "docs/qa/implementation-readiness/correctness-audit/source-packet.schema.json",
+          "lines": "5-123",
+          "detail": "The source packet is closed with additionalProperties false and does not define claim, disposition, or severity as keys. Its free string fields still permit those exact strings as values, so schema validation alone would not close the value leak."
+        },
+        {
+          "path": "scripts/build_correctness_audit_prompt.py",
+          "lines": "250-289,320-340",
+          "detail": "canonical_prompt_bytes() performs only canonical path checks and validate_source_only_json(); main() computes expected bytes at line 332 and creates/writes output at lines 338-339. It never invokes the closed packet schema."
+        },
+        {
+          "path": "scripts/test_correctness_audit_mutations.py",
+          "lines": "1320-1350",
+          "detail": "The committed exhaustive control iterates only the already-reduced inventory through source_only_payload_failures(). It does not test nested forms, the CLI entry point, absent/sentinel preservation, or post-reveal names removed by schema interaction, so it cannot detect this regression."
+        },
+        {
+          "path": "/home/smithers/projects/nemesis-c5-r02/review-output/c5-r02/completeness-cli-matrix-results.json",
+          "lines": "2-42,73-127,223-267",
+          "sha256": "9e276ff039e27544e552c2af6553439beb60fe7f01de8f1101ac71b329649817",
+          "detail": "Independent derivation found 33 post-reveal identifiers before payload-schema allowlists and exactly three removed solely by the completeness-review schema: claim, disposition, severity. Every one of their 24 root/nested key/value absent/sentinel real-CLI cases exited 0 and wrote the packet into output."
+        },
+        {
+          "path": "/home/smithers/projects/nemesis-c5-r02/review-output/c5-r02/completeness-cli-matrix-details.jsonl",
+          "lines": "697-720",
+          "sha256": "409067f41482dc08c77d7edf3dfdc24a8fbb84e9737018949841329883552011",
+          "detail": "Per-invocation evidence records all 24 accepted writes. Lines 701-704, 709-712, and 717-720 are source-packet-schema-valid string-value cases; the other 12 show extra-key schema errors yet still exit 0. Each absent case changes null to an output file, and each sentinel case changes SHA-256 bcab8b15964f35b2ef3f3c8f957de25bf521588040d70b10d309c3a876bbcbba to canonical prompt bytes containing the packet."
+        }
+      ],
+      "reproduction": {
+        "probePath": "/home/smithers/projects/nemesis-c5-r02/review-output/c5-r02/completeness_cli_matrix.py",
+        "probeSha256": "0932b8a09960423a11002d52350c9702d05ac47eee9c46ec6f66451cca3d9b6f",
+        "command": "uv run --isolated --with-requirements candidate-snapshot/docs/qa/implementation-readiness/correctness-audit/requirements-audit.txt python3 completeness_cli_matrix.py",
+        "commandExit": 0,
+        "realCliCommandTemplate": "/home/smithers/.cache/uv/builds-v0/.tmpTaA034/bin/python3 /home/smithers/projects/nemesis-c5-r02/review-output/c5-r02/candidate-snapshot/scripts/build_correctness_audit_prompt.py --mode completeness --packet /home/smithers/projects/nemesis-c5-r02/review-output/c5-r02/candidate-snapshot/docs/qa/implementation-readiness/correctness-audit/packets/c5-r02-matrix-packet.json --output docs/qa/implementation-readiness/correctness-audit/packets/prompts/c5-r02-matrix-output.txt",
+        "observed": [
+          "All 696 final-inventory cases exited 1 with the exact forbidden token/type diagnostic and preserved output.",
+          "All 24 allowlist-overlap cases exited 0 and serialized the source packet into the output.",
+          "The benign schema-valid positive control exited 0 and created canonical output, proving the exercised CLI path reaches the actual write branch."
+        ]
+      },
+      "impact": "A source packet can place claim, disposition, or severity in packetId or nested searchTerms while remaining valid under source-packet.schema.json, and the completeness CLI emits the token into canonical prompt bytes. The same identifiers can be placed as root or nested keys; although the source schema would reject those keys later, the CLI writes them first because it does not consult that schema. The prewrite blindness boundary therefore does not meet the candidate-3/candidate-4 closed-identifier contract, and a pre-existing canonical output can be silently replaced by leaked bytes.",
+      "minimalFix": [
+        "Keep the full closed post-reveal identifier set; do not globally subtract packet-completeness-review.schema.json properties from source-packet scanning.",
+        "Make key exemptions payload- and location-specific after validating each payload against its own closed schema. Legitimate completeness-review keys claim, disposition, and severity may be accepted only in that review payload's schema positions, not as source-packet keys or as arbitrary string values.",
+        "Add a real completeness-CLI matrix over the independently derived pre-allowlist post-reveal set and all derived paths, with root/nested key/value placements and both absent and sentinel outputs. Assert rejection and exact output preservation before considering the control exhaustive."
+      ]
+    }
+  ],
+  "realCliMatrixSummary": {
+    "candidateScriptSha256": "93d5c2c2147f265cb7dd44c3b275448747c7075470d3255b6fbedb48174b1599",
+    "candidateScriptMatchesReviewedRepository": true,
+    "mode": "completeness",
+    "derivedForbiddenPaths": 57,
+    "derivedForbiddenIdentifiersAfterCandidateAllowlists": 30,
+    "placementsPerToken": [
+      "key-root",
+      "key-nested",
+      "value-root",
+      "value-nested"
+    ],
+    "outputPreconditionsPerPlacement": [
+      "absent",
+      "sentinel"
+    ],
+    "finalInventoryCaseCount": 696,
+    "finalInventoryRejectedCount": 696,
+    "finalInventoryUnexpectedCount": 0,
+    "finalInventoryExitCodeHistogram": {
+      "1": 696
+    },
+    "postRevealIdentifiersBeforePayloadSchemaAllowlists": 33,
+    "postRevealIdentifiersRemovedOnlyByCompletenessReviewSchema": [
+      "claim",
+      "disposition",
+      "severity"
+    ],
+    "allowlistOverlapCaseCount": 24,
+    "allowlistOverlapAcceptedAndWroteCount": 24,
+    "allowlistOverlapExitCodeHistogram": {
+      "0": 24
+    },
+    "schemaValidAllowlistOverlapStringValueCases": 12,
+    "schemaInvalidAllowlistOverlapExtraKeyCases": 12,
+    "benignPositiveControlExit": 0,
+    "detailsRecordCount": 721
+  },
+  "outputPreservationEvidence": {
+    "finalInventoryAbsentCases": 348,
+    "finalInventoryAbsentOutputsRemainingAbsent": 348,
+    "finalInventorySentinelCases": 348,
+    "finalInventorySentinelsByteAndMetadataIdentical": 348,
+    "sentinelSha256": "bcab8b15964f35b2ef3f3c8f957de25bf521588040d70b10d309c3a876bbcbba",
+    "allowlistOverlapAbsentCases": 12,
+    "allowlistOverlapAbsentOutputsCreated": 12,
+    "allowlistOverlapSentinelCases": 12,
+    "allowlistOverlapSentinelsChanged": 12
+  },
+  "schemaAllowlistAnalysis": {
+    "independentCandidateFormulaReconstruction": "pass",
+    "derivedPathSetExact": true,
+    "derivedIdentifierSetExactUnderCandidateFormula": true,
+    "nonSourceManifestPathCoverage": "All non-source keys in frozenSemanticHashes, frozenConciseRuleHashes, and selectionInputHashes plus unit downstreamPath/extractionPath targets are present; all unit sourcePath values are under the explicit source prefixes.",
+    "defect": "The candidate formula itself is mode-agnostic and overbroad: completeness-review schema properties are subtracted while checking the source packet, shrinking the closed post-reveal set by three."
+  },
+  "commandsAndExits": [
+    {
+      "command": "bounded background exclusive flock holder on /home/smithers/projects/nemesis-c5-r02/.workspace.lock",
+      "result": "running continuously from before evidence through report write; pid 867236; mode 0600"
+    },
+    {
+      "command": "flock -n /home/smithers/projects/nemesis-c5-r02/.workspace.lock true",
+      "exit": 1,
+      "result": "expected contention failure, verified before evidence and again before report"
+    },
+    {
+      "command": "git rev-parse HEAD; git branch --show-current; git status --porcelain=v1 --untracked-files=all",
+      "exit": 0,
+      "result": "HEAD d78e91e9f0d29eab7e9d838d4fc043ba73518cec; branch review/stage1-v2-c5-r02; empty status"
+    },
+    {
+      "command": "git archive --format=tar --output=/home/smithers/projects/nemesis-c5-r02/review-output/c5-r02/candidate-d78e91e9.tar d78e91e9f0d29eab7e9d838d4fc043ba73518cec; tar -xf ... -C candidate-snapshot",
+      "exit": 0,
+      "result": "exact tracked candidate snapshot created outside the repository; archive SHA-256 d82c7fcfb3e648b54bde1cc67e85b5e9118d33db1d98216551f67086046047a6; prompt-builder SHA-256 matches repository"
+    },
+    {
+      "command": "uv run --isolated --with-requirements candidate-snapshot/docs/qa/implementation-readiness/correctness-audit/requirements-audit.txt python3 completeness_cli_matrix.py",
+      "exit": 0,
+      "result": "696/696 final-inventory rejections passed; 24/24 allowlist-overlap cases reproduced accepted writes; benign CLI write control passed"
+    },
+    {
+      "command": "sha256sum completeness_cli_matrix.py completeness-cli-matrix-results.json completeness-cli-matrix-details.jsonl candidate-d78e91e9.tar; wc -l completeness-cli-matrix-details.jsonl",
+      "exit": 0,
+      "result": "probe 0932b8a09960423a11002d52350c9702d05ac47eee9c46ec6f66451cca3d9b6f; summary 9e276ff039e27544e552c2af6553439beb60fe7f01de8f1101ac71b329649817; details 409067f41482dc08c77d7edf3dfdc24a8fbb84e9737018949841329883552011; archive d82c7fcfb3e648b54bde1cc67e85b5e9118d33db1d98216551f67086046047a6; 721 detail records"
+    }
+  ],
+  "repositoryState": {
+    "repositoryPath": "/home/smithers/projects/nemesis-c5-r02/repos/nemesis-retaliation",
+    "exactHeadVerified": true,
+    "branchVerified": true,
+    "trackedStateClean": true,
+    "untrackedStateClean": true,
+    "repositoryFilesModifiedByReviewer": [],
+    "repositoryFilesCreatedByReviewer": [],
+    "ignoredSourcesStaged": false,
+    "ignoredSourcesNeededForReview": false
+  },
+  "workspaceLock": {
+    "path": "/home/smithers/projects/nemesis-c5-r02/.workspace.lock",
+    "mode": "0600 exclusive flock",
+    "inode": "64518:4993037",
+    "holderPid": 867236,
+    "heldContinuouslyForAcceptedEvidenceAndReport": true,
+    "contentionVerified": true,
+    "heldAtReportWrite": true,
+    "releaseRequiredAfterEnvelope": true
+  },
+  "artifacts": [
+    {
+      "path": "/home/smithers/projects/nemesis-c5-r02/review-output/c5-r02/completeness_cli_matrix.py",
+      "sha256": "0932b8a09960423a11002d52350c9702d05ac47eee9c46ec6f66451cca3d9b6f",
+      "purpose": "Reproducible independent inventory derivation, JSON Schema check, and real completeness-CLI matrix."
+    },
+    {
+      "path": "/home/smithers/projects/nemesis-c5-r02/review-output/c5-r02/completeness-cli-matrix-results.json",
+      "sha256": "9e276ff039e27544e552c2af6553439beb60fe7f01de8f1101ac71b329649817",
+      "purpose": "Compact matrix and schema/allowlist summary."
+    },
+    {
+      "path": "/home/smithers/projects/nemesis-c5-r02/review-output/c5-r02/completeness-cli-matrix-details.jsonl",
+      "sha256": "409067f41482dc08c77d7edf3dfdc24a8fbb84e9737018949841329883552011",
+      "purpose": "Per-invocation commands, exits, diagnostics, schema status, and before/after output state."
+    },
+    {
+      "path": "/home/smithers/projects/nemesis-c5-r02/review-output/c5-r02/candidate-d78e91e9.tar",
+      "sha256": "d82c7fcfb3e648b54bde1cc67e85b5e9118d33db1d98216551f67086046047a6",
+      "purpose": "Exact candidate tracked-tree snapshot used to exercise the real CLI without touching repository files."
+    }
+  ],
+  "issuesEncountered": [],
+  "residualRisks": [
+    "This specialty review was intentionally limited to the completeness-mode canonical CLI boundary; it makes no independent acceptance claim for blind mode or the holistic setup/lock lifecycle.",
+    "The full project mutation suite was not rerun because the exhaustive real-CLI matrix is the direct acceptance check for this specialty and does not require ignored official source files."
+  ]
+}

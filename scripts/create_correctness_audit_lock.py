@@ -67,6 +67,7 @@ STATIC_LOCKED_FILES = [
     "scripts/stage_correctness_audit_sources.py",
     "scripts/test_correctness_audit_decision.py",
     "scripts/test_correctness_audit_mutations.py",
+    "scripts/test_correctness_audit_source_only_cli.py",
     "scripts/validate_correctness_audit.py",
 ]
 LANE_OUTPUT_ROOTS = [
@@ -96,6 +97,14 @@ def sha(path: Path) -> str:
 
 def git(*args: str, text: bool = True, root: Path = ROOT) -> subprocess.CompletedProcess:
     return subprocess.run(["git", *args], cwd=root, text=text, capture_output=True, check=False)
+
+
+def require_clean_worktree(*, root: Path = ROOT) -> None:
+    status = git("status", "--porcelain=v2", "-z", "--untracked-files=all", root=root)
+    if status.returncode != 0:
+        raise SystemExit("cannot determine audit baseline worktree status")
+    if status.stdout:
+        raise SystemExit("audit lock requires a clean tracked, staged, and untracked worktree")
 
 
 def historical_lane_files(starting: str, baseline: str, *, root: Path = ROOT) -> list[str]:
@@ -147,6 +156,7 @@ def prelock_validation_command(uv_executable: str) -> list[str]:
 def main() -> int:
     if LOCK.exists():
         raise SystemExit("refusing to overwrite existing audit-lock.json")
+    require_clean_worktree()
     baseline = git("rev-parse", "HEAD").stdout.strip()
     lane_files = sorted(
         str(path.relative_to(ROOT))
@@ -221,6 +231,7 @@ def main() -> int:
     baseline_progress = git("show", f"{baseline}:{PROGRESS.relative_to(ROOT)}", text=False)
     if baseline_progress.returncode != 0 or baseline_progress.stdout != PROGRESS.read_bytes():
         raise SystemExit("initial progress differs from baseline commit")
+    require_clean_worktree()
     record = {
         "schemaVersion": 1,
         "recordType": "stage-1-correctness-audit-git-lock",

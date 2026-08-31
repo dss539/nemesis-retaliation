@@ -334,6 +334,25 @@ def git_bytes(root: Path, *args: str) -> subprocess.CompletedProcess[bytes]:
     return subprocess.run(["git", *args], cwd=root, capture_output=True)
 
 
+def commit_changed_paths(root: Path, commit: str) -> set[str] | None:
+    changed = git_bytes(
+        root,
+        "diff-tree",
+        "--no-commit-id",
+        "--name-only",
+        "-r",
+        "-z",
+        commit,
+    )
+    if changed.returncode != 0:
+        return None
+    return {
+        item.decode("utf-8")
+        for item in changed.stdout.split(b"\0")
+        if item
+    }
+
+
 def merge_commits_after(root: Path, commit: str) -> list[str]:
     result = git_bytes(root, "rev-list", "--merges", f"{commit}..HEAD")
     if result.returncode != 0:
@@ -542,6 +561,14 @@ def validate_lock(manifest: dict[str, Any], failures: list[str], require_lock: b
         failures,
         "audit lock",
     )
+    if lock_commit is not None:
+        lock_relative = str(LOCK_PATH.relative_to(ROOT))
+        changed_paths = commit_changed_paths(ROOT, lock_commit)
+        add(
+            failures,
+            changed_paths == {lock_relative},
+            "audit lock commit must change exactly audit-lock.json",
+        )
     starting = str(lock.get("lockedStartingHead", ""))
     add(failures, bool(HEX40.fullmatch(starting)), "lockedStartingHead invalid")
     if HEX40.fullmatch(starting):
