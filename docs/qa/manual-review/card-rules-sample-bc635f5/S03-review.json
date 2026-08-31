@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "id": "S03",
+  "title": "MILITARY ROBOT",
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/robotDeck-175.jpg",
+  "sourceSha256": "27a7014ae8011fa68b71a60365b11ca0392b4e66c7d9bdfbe46eec3a6bb21411",
+  "sourceDimensions": [
+    850,
+    1262
+  ],
+  "state": "draft-full",
+  "scope": "Manual review of source-bound extraction only; a pass does not promote or canonize the TTS/pre-release source variant.",
+  "storedExtraction": "MILITARY ROBOT\n\nMove the [robot] once.\n\nOR\n\nChoose a Corridor adjacent\nto the [robot] and roll a Burst\ndie. Deal Hits equal to the\nresult in that Corridor.\n[burstDieAdditionalEffects]: Place a\n[malfunction] on the [robot].",
+  "normalizedSymbols": [
+    {
+      "literal": "white domed head with top stalk and two dark circular openings",
+      "token": "robot",
+      "occurrences": 3
+    },
+    {
+      "literal": "purple rounded square with four inward-facing white corner brackets",
+      "token": "burstDieAdditionalEffects",
+      "occurrences": 1
+    },
+    {
+      "literal": "light-gray toothed ring with dark center",
+      "token": "malfunction",
+      "occurrences": 1
+    }
+  ],
+  "decision": "Does the title, exact stored text, and all three symbol mappings pass?",
+  "allowedVerdicts": {
+    "P": "pass",
+    "C": "correction",
+    "U": "uncertain"
+  },
+  "manualReview": {
+    "verdict": "P",
+    "titleExact": true,
+    "bodyExact": true,
+    "symbolsExact": true,
+    "stateAppropriate": true,
+    "notes": "Project owner confirmed S03 P after reviewing the full source, exact stored extraction, and the robot, Burst-die additional-effects, and malfunction mappings.",
+    "reviewedAt": "2026-08-22T09:53:32Z"
+  },
+  "artifacts": {
+    "reviewSheet": "docs/qa/manual-review/card-rules-sample-bc635f5/S03-military-robot-manual-check.png",
+    "rulesZoom": "docs/qa/manual-review/card-rules-sample-bc635f5/S03-military-robot-rules-zoom.png"
+  }
+}

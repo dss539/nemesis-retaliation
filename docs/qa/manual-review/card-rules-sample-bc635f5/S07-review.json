@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "id": "S07",
+  "title": "LEG",
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/seriouswound-149_cards/card-04.png",
+  "sourceSha256": "522c29d0874334cac9dda75c4cd0182fca35dbc7402c4b7231c1c8a6c6b1ec18",
+  "sourceDimensions": [
+    591,
+    863
+  ],
+  "previousState": "draft-partial",
+  "currentState": "draft-full",
+  "ledgerStatus": "deferred",
+  "scope": "Completed manual review of exact TTS source transcription and artwork-vs-rules classification; no canonical promotion.",
+  "storedOperativeRule": "Using the “Make a Move” Action\nfrom a Room with an [intruder]\nor through a Corridor\nwith an [intruder] costs you 1 [actionCard] more.",
+  "canonicalSymbols": [
+    "intruder",
+    "actionCard"
+  ],
+  "artworkOnlyEvidence": {
+    "classification": "The tiny scan-overlay labels, unreadable microtext, line-network nodes, and colored callouts are artwork/interface decoration outside the operative rules panels.",
+    "readableLabels": [
+      "TEMP.",
+      "39.0",
+      "TISSUE DAMAGE"
+    ],
+    "unreadableDetails": [
+      "tiny vertical green interface label near the upper-left edge",
+      "faint green microtext-like marks around scan nodes and horizontal interface lines"
+    ],
+    "dataEffect": "Removed artwork-only illegible and green-node placeholders from rules tokens while retaining the source-art evidence."
+  },
+  "licensedDigitalConflict": {
+    "authority": "licensed-digital-secondary",
+    "build": "260622-1220",
+    "recordKey": "Leg",
+    "text": "The “Make a Move” Action from a Room with an [intruder] costs you 1 [actionCard] more.",
+    "difference": "Omits the TTS source’s Corridor-with-Intruder clause and uses “The” instead of “Using”.",
+    "handling": "Preserve both versions separately; do not substitute secondary wording into the TTS source."
+  },
+  "manualReview": {
+    "verdict": "P",
+    "reviewedAt": "2026-08-22T22:23:11Z",
+    "reviewedBy": "project-owner",
+    "titleExact": true,
+    "bodyExact": true,
+    "symbolsExact": true,
+    "artworkOnlyClassificationApproved": true,
+    "statusAppropriate": true,
+    "notes": "Project owner confirmed the exact TTS rule, all three icon mappings, and that the scan-overlay content is artwork rather than rules text. The source remains deferred and non-canonical."
+  },
+  "artifacts": {
+    "reviewSheet": "docs/qa/manual-review/card-rules-sample-bc635f5/S07-leg-manual-check.png",
+    "rulesZoom": "docs/qa/manual-review/card-rules-sample-bc635f5/S07-leg-rules-zoom.png"
+  },
+  "corpusCommit": "91bd4741003e9885d66106133957ae9ff1f737e4"
+}

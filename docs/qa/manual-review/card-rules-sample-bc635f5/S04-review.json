@@ -1,0 +1,73 @@
+{
+  "schemaVersion": 1,
+  "id": "S04",
+  "title": "WRONG CALL",
+  "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/objectivePersonalDeck-161.jpg",
+  "sourceSha256": "3aec90a31ada20f22218d01aab15694a3be8c41a831a578db6c4d607cc42085a",
+  "sourceDimensions": [
+    579,
+    810
+  ],
+  "state": "draft-full-prototype-deferred",
+  "scope": "Manual review of source-bound prototype extraction only; a pass does not promote or canonize this card.",
+  "selectedExtraction": "WRONG CALL\n\n[numberOfCharacters] 10+\n\nPlayer10's Character cannot survive.\nOR\nYour Character is the only survivor.\n\nI hate to bring this up, but,\nthis is a commercial\nship, not a rescue ship.\n\nFooter: C O R P O R A T E\nOverlay: PROTOTYPE",
+  "materialReviewPoints": [
+    {
+      "field": "firstRuleLine",
+      "selected": "Player10's Character cannot survive.",
+      "priorSnapshot": "Player10s Character cannot survive.",
+      "resolution": "The apostrophe is present but visually crowded by the tight Player10's kerning, making it easy to miss."
+    },
+    {
+      "field": "italicFirstLine",
+      "selected": "I hate to bring this up, but,",
+      "priorSnapshot": "I hate to bring this up, but",
+      "issue": "Confirm the separate comma immediately after but."
+    },
+    {
+      "field": "topGlyph",
+      "visible": "irregular white pointed/figure-like shape above nested blue arcs, followed by 10+",
+      "handling": "normalized as [numberOfCharacters]; official rulebook page 10 calls it the Number of Characters symbol, and the Objectives Help Sheet shows the same artwork before Character-count thresholds"
+    },
+    {
+      "field": "orPlaque",
+      "visible": "beveled gold-rimmed brown plaque labeled OR",
+      "handling": "transcribed as text separator; no glossary token assigned"
+    },
+    {
+      "field": "versionEvidence",
+      "visible": [
+        "PROTOTYPE",
+        "C O R P O R A T E"
+      ],
+      "handling": "preserved outside operative objective text"
+    }
+  ],
+  "decision": "Project owner corrected the confidence note and identified the Objective metadata symbol.",
+  "allowedVerdicts": {
+    "P": "pass",
+    "C": "correction",
+    "U": "uncertain"
+  },
+  "manualReview": {
+    "verdict": "C",
+    "reviewedAt": "2026-08-22T10:35:35Z",
+    "reviewedBy": "project-owner",
+    "apostrophePresent": true,
+    "apostropheNote": "Present but obscured by awful/tight kerning, so it is easy to miss.",
+    "metadataToken": "numberOfCharacters",
+    "metadataThreshold": "10+",
+    "statusAppropriate": true,
+    "notes": "The source remains a deferred PROTOTYPE variant; this correction does not canonize the card."
+  },
+  "officialEvidence": {
+    "publisherTerm": "Number of Characters symbol",
+    "rulebookCitation": "official rulebook, printed page 10, Objective Setup and Character Draft, step 2",
+    "objectivesSheetCitation": "official Objectives Help Sheet, pages 1–2"
+  },
+  "artifacts": {
+    "reviewSheet": "docs/qa/manual-review/card-rules-sample-bc635f5/S04-wrong-call-manual-check.png",
+    "textZoom": "docs/qa/manual-review/card-rules-sample-bc635f5/S04-wrong-call-text-zoom.png",
+    "topGlyphZoom": "docs/qa/manual-review/card-rules-sample-bc635f5/S04-wrong-call-top-glyph-zoom.png"
+  }
+}
