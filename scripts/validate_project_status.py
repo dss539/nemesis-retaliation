@@ -10,6 +10,7 @@ STATUS = REPO / "PROJECT_STATUS.md"
 AGENTS = REPO / "AGENTS.md"
 SUPPLEMENT = REPO / "AGENTS-SUPPLEMENT.md"
 README = REPO / "readme.md"
+METHODOLOGY = REPO / "docs/qa/implementation-readiness/correctness-audit/methodology.md"
 CORPUS = REPO / "assets/tts-mod/extract/card-text-corpus.json"
 SOURCE_VALIDATION = REPO / "docs/rules/source-extraction/validation.json"
 VOCAB_VALIDATION = REPO / "docs/rules/vocabulary/validation.json"
@@ -29,6 +30,7 @@ def main() -> None:
     agents = AGENTS.read_text(encoding="utf-8")
     supplement = SUPPLEMENT.read_text(encoding="utf-8")
     readme = README.read_text(encoding="utf-8")
+    methodology = METHODOLOGY.read_text(encoding="utf-8")
     corpus = json.loads(CORPUS.read_text(encoding="utf-8"))
     source_validation = json.loads(SOURCE_VALIDATION.read_text(encoding="utf-8"))
     vocab_validation = json.loads(VOCAB_VALIDATION.read_text(encoding="utf-8"))
@@ -41,6 +43,28 @@ def main() -> None:
     require("PROJECT_STATUS.md" in supplement, "AGENTS-SUPPLEMENT.md must name PROJECT_STATUS.md as current status home", failures)
     require("PROJECT_STATUS.md" in readme, "readme.md must link to PROJECT_STATUS.md", failures)
     require("legacy implementation is frozen" in readme.lower(), "readme.md must state the legacy implementation boundary", failures)
+    require("## Proportional Review Policy — Mandatory" in agents,
+            "AGENTS.md must retain the proportional-review authority", failures)
+    require("does **not** include a hostile local process" in agents,
+            "AGENTS.md must retain the cooperative-process threat model", failures)
+    require("Default to one worker" in agents and "Worker count is a ceiling" in agents,
+            "AGENTS.md must retain proportional worker defaults", failures)
+    require("Do not start sleep-only lock holders" in supplement,
+            "AGENTS-SUPPLEMENT.md must prohibit sleep-only lock holders", failures)
+    require("required only for larger fixed batches" in supplement,
+            "AGENTS-SUPPLEMENT.md must keep batch machinery proportional", failures)
+    require("## Threat model and proportional execution" in methodology,
+            "correctness-audit methodology must retain its threat model", failures)
+    require("not** a security exercise against a malicious local process" in methodology,
+            "correctness-audit methodology must exclude hostile-local-process hardening", failures)
+    require("A green normal gate is sufficient to proceed" in methodology,
+            "correctness-audit methodology must make the normal gate a stopping condition", failures)
+    require("Do **not** launch another harness review" in status,
+            "PROJECT_STATUS.md must prohibit another harness review", failures)
+    require("one worker; use 2–4" in status,
+            "PROJECT_STATUS.md must retain proportional worker guidance", failures)
+    require("Reviews are proportional" in readme,
+            "readme.md must expose the proportional-review strategy", failures)
     require(source_validation.get("passed") is True and source_validation.get("failureCount") == 0,
             "source-extraction validation must pass", failures)
     if vocab_validation["checks"]["openReviewGates"] == 0:

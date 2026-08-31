@@ -2,9 +2,11 @@
 
 A faithful digital adaptation of the board game **Nemesis: Retaliation** by Awaken Realms.
 
-> **CURRENT STRATEGY:** Finish the base-game source and rules layer before vocabulary, ontology,
-> semantics, or implementation. The legacy implementation is historical evidence only. Start with
-> [`PROJECT_STATUS.md`](PROJECT_STATUS.md).
+> **CURRENT STRATEGY:** Source extraction, vocabulary, ontology, and semantic-pilot work are
+> complete enough for the authorized Stage 1 blind rules correctness audit; semantic expansion and
+> implementation remain frozen. Reviews are proportional: prioritize source fidelity, blindness,
+> deterministic evidence, and substantive rules findings—not hostile-local-process hardening or
+> repeated audit-of-the-audit cycles. Start with [`PROJECT_STATUS.md`](PROJECT_STATUS.md).
 
 ## Source authority
 

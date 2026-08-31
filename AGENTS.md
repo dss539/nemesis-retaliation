@@ -31,6 +31,22 @@ Work in this order:
 
 Do **not** begin vocabulary, alias, taxonomy, ontology, semantic-model, architecture, engine, UI, networking, or implementation work ahead of this sequence.
 
+## Proportional Review Policy — Mandatory
+
+The project optimizes for source fidelity and forward progress, not maximal assurance against hypothetical local attackers. Apply these boundaries to every audit, review, delegation, and handoff:
+
+- The operative threat model is accidental mistakes, stale or malformed artifacts, reviewer anchoring, source omission, and ordinary cooperative-worker overlap. It does **not** include a hostile local process racing filesystem operations.
+- Preserve source provenance, blind downstream conclusions where required, deterministic outputs, closed schemas, exact citations, and independent verification of substantive non-matches. These are load-bearing.
+- Do not launch symlink-swap, TOCTOU, containment-escape, external-overwrite, active-attacker, or similar exploit probes unless the user explicitly expands the threat model or a real observed failure specifically points there.
+- Existing path/race regression controls may remain and run as part of the normal gate; do not deepen, multiply, or rereview them merely for additional assurance.
+- Do not create repeated review-candidate cycles or audit the audit harness after its material findings are fixed and the documented normal gate passes. One reproducible candidate, one proportionate review pass when needed, one serial disposition, and one green gate are enough.
+- Use reviewers for substantive source/rules work. Default to one worker; use 2–4 for genuinely independent specialties; use larger fan-out only for distinct content partitions that materially reduce elapsed time. Worker count is a ceiling, never a target.
+- Read-only reviewers do not need writable worktrees or long-lived sleep-based lock holders. Use immutable bounded packets where practical. Review branches are disposable unless they contain unique commits.
+- Retain compact verdicts and the evidence needed for material findings. Do not preserve full repository clones, raw transcripts, duplicated snapshots, or every exploratory probe as durable evidence.
+- After a wave, integrate verified corrections once, run the normal gate, delete temporary workspaces, and resume rules/source work. Do not turn harness hardening into a separate project.
+
+`docs/qa/implementation-readiness/correctness-audit/methodology.md` owns the Stage 1 threat model and proportional execution details. Historical candidate reports document what happened; they are not instructions for repeating it.
+
 ## Authority and Source Discipline
 
 For rules questions, use this precedence:
@@ -90,11 +106,11 @@ The card/reference evidence corpus and extraction provenance are under `assets/t
 
 ## Current Phase
 
-The active phase is **canonical vocabulary and source-scoped aliases after a passed extraction gate**.
+The active phase is the **Stage 1 blind rules correctness audit** after source extraction, vocabulary, ontology, and semantic-pilot work passed and semantic expansion was frozen.
 
-The vocabulary, static ontology, and independently reviewed semantic pilot gates are passed. The active phase is source-obligation semantic coverage expansion. Work through the 600-unit overlapping source backlog without flattening variants; encode all source-clear rules first, leave nine semantic questions with defaults prohibited, and defer owner questions until every unaffected record and source search is exhausted. Implementation remains frozen.
+Do not restart earlier phases or perform another broad prelock harness review. Follow `PROJECT_STATUS.md` for the exact next transition, then spend reviewer capacity on the 140 substantive rules/FAQ/component units while preserving source variants, blindness, and unresolved no-default questions. Implementation remains frozen.
 
-See `PROJECT_STATUS.md` and `docs/rules/source-extraction/extraction-roadmap.md` for the verified checkpoint and subsequent order.
+See `PROJECT_STATUS.md` and `docs/qa/implementation-readiness/correctness-audit/methodology.md` for the verified checkpoint, threat model, and subsequent order.
 
 ## Extraction Verification
 

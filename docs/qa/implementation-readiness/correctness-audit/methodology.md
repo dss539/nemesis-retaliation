@@ -14,6 +14,41 @@ The existing 529 semantic records are comparison/reference evidence only. They r
 
 A Stage 1 pass applies **only to the 140 audited units**. The sample is not a probability sample and cannot establish a defect-rate bound for the approximately 199 unaudited primary component-effect units in the current ~255-unit planning inventory.
 
+## Threat model and proportional execution
+
+This is a source-fidelity audit run by cooperative local processes. Its purpose is to catch source omissions, anchoring, stale or malformed artifacts, incorrect rules, broken blindness, and ordinary workflow mistakes. It is **not** a security exercise against a malicious local process that races file checks, swaps symlinks, or redirects writes.
+
+The required controls are:
+
+- exact source provenance and authority ordering;
+- closed schemas, deterministic generation, and ordinary canonical-path validation;
+- source-only blind packets and delayed downstream reveal;
+- independent verification of substantive non-matches plus the preregistered clean-match sample;
+- one serial integrator for canonical commits, seals, progress, and final decisions;
+- the normal prelock/post-lock gate in this document.
+
+The following are out of scope unless the project owner explicitly expands the threat model or a real observed failure specifically requires them:
+
+- symlink-swap, TOCTOU, containment-escape, external-overwrite, or active-attacker probes;
+- repeated candidate/rereview cycles after material findings are fixed and the normal gate passes;
+- duplicate critics covering the same harness concern;
+- preserving full clones, transcript dumps, every exploratory probe, or no-op review branches;
+- increasing worker count merely because capacity exists.
+
+Existing filesystem-race regression tests remain part of the normal gate because they already exist; passing them closes that topic. Do not extend or independently rereview those controls without a new in-scope failure.
+
+Use this execution loop:
+
+1. Commit one reproducible candidate or prepare one immutable bounded packet.
+2. Run one proportionate review pass only where independence adds real value.
+3. Preserve compact verdicts and material evidence.
+4. Integrate verified corrections once.
+5. Run the normal gate.
+6. Delete temporary workspaces, snapshots, and branches without unique commits.
+7. Move to the next substantive rules batch.
+
+A green normal gate is sufficient to proceed. Historical candidate reports are evidence, not standing instructions to reopen harness review.
+
 ## Frozen selection and external lock
 
 `scripts/build_correctness_audit_manifest.py` ranks component candidates by:
@@ -149,13 +184,15 @@ GLM 5.3 and DeepSeek V4 Pro 0813 may be used as isolated advisors/critics throug
 
 ## Reviewer batching
 
-Several units may share one call only when:
+Default to one reviewer. Use 2–4 reviewers only for genuinely different source/rules specialties. Larger fan-out is appropriate only when the submitted units form distinct content partitions; worker capacity is not a target. Several units may share one call when:
 
 - every submitted unit ID is returned exactly once and in order;
 - no result merges evidence across unrelated units;
 - packet and prompt hashes are common and recorded;
 - omitted, malformed, or cross-contaminated units are retried independently;
 - source-family batching does not expose downstream conclusions.
+
+Read-only and blind reviewers should receive immutable bounded packets, not writable repository worktrees. A full batch manifest/envelope/aggregation protocol is optional for 1–4 workers and required only when a larger fixed batch benefits from mechanical closure. Passing reviewers return compact results; full durable reports are reserved for material findings or formal acceptance decisions.
 
 Component visuals are read only through the verified native Sol Max workflow when a fresh visual read is needed. Existing independently validated source-bound transcriptions may be supplied, but their literal/source role must remain explicit.
 
@@ -168,7 +205,7 @@ python3 scripts/stage_correctness_audit_sources.py --source-root /home/smithers/
 python3 scripts/stage_correctness_audit_sources.py --source-root /home/smithers/nemesis-retaliation --check
 ```
 
-The helper copies only `docs/rulebooks/` and `assets/tts-mod/extract/`, rejects every symlink component, verifies each file with SHA-256, and leaves tracked repository files unchanged. Missing sources are a worker-environment blocker, not permission to weaken a validator or substitute another source. Blind-derivation workspaces remain repository-free and receive only the accepted sealed packet, fixed prompt, and blind schema; they never receive these trees.
+The helper copies only `docs/rulebooks/` and `assets/tts-mod/extract/`, validates ordinary path/file shape, verifies each file with SHA-256, and leaves tracked repository files unchanged. These checks prevent accidental mis-staging; they do not establish a hostile-filesystem security boundary and must not trigger further race-hardening review. Missing sources are a worker-environment blocker, not permission to weaken a validator or substitute another source. Blind-derivation workspaces remain repository-free and receive only the accepted sealed packet, fixed prompt, and blind schema; they never receive these trees.
 
 ## Severity and recurring patterns
 

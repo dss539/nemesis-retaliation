@@ -1,5 +1,7 @@
 # Stage 1 v2 review-candidate 5 disposition
 
+> **Historical disposition, not a resume instruction.** After this report was written, the project owner accepted the green post-disposition checkpoint under the proportional-review policy in `AGENTS.md` and `docs/qa/implementation-readiness/correctness-audit/methodology.md`. Do not launch another harness review from the older verification boundary below; `PROJECT_STATUS.md` owns the current next step.
+
 - Reviewed candidate: `d78e91e9f0d29eab7e9d838d4fc043ba73518cec`.
 - Batch: `stage1-v2-candidate5-wave1`.
 - Exact batch closure: 8/8 registered workers returned; seven reports are usable evidence and one worker (`c5-r06`) is recorded as interrupted/non-evidence because its final response was blocked after writing its report.
@@ -60,11 +62,11 @@ Disposition: fixed.
 - A separate public-validator control now injects a neutral unknown packet field and requires the closed-schema diagnostic; the physical-class prompt-preflight control remains separate.
 - The inventory control independently recomputes the complete universe from manifest sections, unit fields, closed schemas, fixed sets, and explicit shared identifiers; it asserts exact equality and stable counts of 57 paths and 33 identifiers.
 - The real-CLI matrix supplies the per-member absent/sentinel write-order control that candidate 5 lacked.
-- `PROJECT_STATUS.md` and `todo.md` now identify candidate 5 as rejected, this integration as an unreviewed post-disposition checkpoint, and the absence of any v2 lock.
+- At the time of this disposition, `PROJECT_STATUS.md` and `todo.md` identified candidate 5 as rejected and the integration as unreviewed. That handoff state was later superseded by the owner's proportional-review decision noted above; no v2 lock existed at either checkpoint.
 
-## Verification boundary
+## Historical verification boundary
 
-The post-review checkpoint is not a reviewed baseline and is not authorized for lock creation. Its final local gate requires:
+At the time this disposition was written, the post-review checkpoint was not authorized for lock creation. The owner later replaced the extra-review requirement with the normal green gate. The historical gate was:
 
 1. current 140-unit manifest and all-pending progress;
 2. prelock validator pass;

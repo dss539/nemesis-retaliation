@@ -24,9 +24,20 @@ Use the repository-wide placement policy in `readme.md` and apply these agent ru
 
 ## Stage 1 Autonomous Work Unit
 
-For the machine-wide autonomous fresh-session handoff protocol, one Stage 1 work unit is one review candidate or one dependency wave plus its serial integration, disposition, validation, and durable checkpoint. The next session must resume from `PROJECT_STATUS.md` and repository artifacts, not the previous transcript. A session may schedule the next unit only after the current unit is reproducible and green; audit ancestry, sealing, reviewer independence, blindness, and serial integration remain unchanged.
+One Stage 1 work unit is a substantive content batch plus its serial integration, validation, durable checkpoint, and cleanup. A harness-only review candidate is exceptional, not the default unit. The next session resumes from `PROJECT_STATUS.md` and committed repository artifacts, not the previous transcript or historical candidate reports.
 
-Every parallel Stage 1 review wave must preregister an exact `hermes-worker-result-batch-manifest`, require each reviewer to write its full report plus a `hermes-worker-results make` sidecar, and aggregate exact batch closure with `hermes-worker-results aggregate`. Reviewer final responses contain only the compact sidecar result. Full reports remain audit evidence on disk and are read individually only to reproduce or disposition a concrete finding; live transcripts are recovery evidence, not the normal handoff channel.
+Apply the mandatory proportional-review policy in `AGENTS.md`:
+
+- Spend workers on source packets, blind derivations, comparisons, and verification—not duplicate harness criticism.
+- Default to one worker and use 2–4 only for real independent specialties. Larger waves require distinct content partitions, not multiple agents asking the same question.
+- Use immutable bounded packets for read-only or blind work. Create task workspaces/worktrees only when a worker must write repository artifacts or inspect Git-specific behavior.
+- Hold workspace locks only for actual work. Do not start sleep-only lock holders or preserve review branches that contain no unique commits.
+- For 1–4 workers, compact structured results and exact artifact paths are sufficient. The `hermes-worker-result-batch-manifest` / envelope / aggregate protocol is required only for larger fixed batches where exact mechanical closure materially helps.
+- Write full durable reports only for material findings, formal acceptance decisions, or evidence needed to reproduce them. Passing reviewers should return compact verdicts and checks, not repository snapshots or transcript dumps.
+- Verify source/rules claims against primary evidence. Do not reproduce exploit-style filesystem races outside the declared threat model.
+- Integrate verified corrections once, run the documented normal gate, remove temporary workspaces and unneeded branches immediately, and continue to the next substantive batch.
+
+Fresh-session handoff remains autonomous after a verified checkpoint, but it must not schedule another meta-review merely because a prior session ended. An ordinary green gate is a completion condition, not an invitation to seek another assurance layer.
 
 ## TTS Work Resume Addendum
 
