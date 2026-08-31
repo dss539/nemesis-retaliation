@@ -141,13 +141,33 @@ def source_only_forbidden_inventory() -> tuple[set[str], set[str]]:
             )
             forbidden_identifiers.update(schema_property_names(schema))
     forbidden_identifiers.difference_update(SOURCE_ONLY_SHARED_IDENTIFIERS)
+    for schema_name in (
+        "source-packet.schema.json",
+        "packet-completeness-review.schema.json",
+    ):
+        schema_path = AUDIT_DIR / schema_name
+        if schema_path.is_file():
+            schema = json.loads(
+                schema_path.read_text(encoding="utf-8"),
+                object_pairs_hook=strict_pairs,
+            )
+            forbidden_identifiers.difference_update(schema_property_names(schema))
     return forbidden_paths, forbidden_identifiers
 
 
 def source_only_payload_failures(value, location: str = "<root>") -> list[str]:
     failures = []
     if isinstance(value, dict):
+        forbidden_paths, forbidden_identifiers = source_only_forbidden_inventory()
         for key, child in value.items():
+            if key in forbidden_identifiers:
+                failures.append(
+                    f"source-only payload {location} contains forbidden identifier key {key}"
+                )
+            if any(path_token in key for path_token in forbidden_paths):
+                failures.append(
+                    f"source-only payload {location} contains forbidden path key {key}"
+                )
             failures.extend(source_only_payload_failures(child, f"{location}/{key}"))
     elif isinstance(value, list):
         for index, child in enumerate(value):

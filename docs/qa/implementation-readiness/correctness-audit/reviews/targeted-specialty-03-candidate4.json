@@ -1,0 +1,148 @@
+{
+  "schemaVersion": 1,
+  "recordType": "stage-1-v2-targeted-candidate4-specialty-03-rereview",
+  "generatedAtUtc": "2026-08-30T11:23:18Z",
+  "candidateHead": "9af725a59b20d8d70a13487f0e588d7306ee16e6",
+  "candidateParent": "6a13b9e6f57307a76756cf90da2aaa7682aa699b",
+  "candidateBranch": "review/stage1-v2-r14",
+  "specialty": {
+    "number": 3,
+    "name": "canonical POSIX path, backslash, symlink, containment, and worktree safety",
+    "scope": "Targeted dynamic rereview of prompt/source path controls and the candidate-3 dangling-final-target-symlink fix."
+  },
+  "verdict": "pass",
+  "findingCount": 0,
+  "findings": [],
+  "basis": {
+    "priorReportRead": "docs/qa/implementation-readiness/correctness-audit/reviews/final-specialty-03-candidate3.json",
+    "priorFinding": "PATH-003: source staging wrote through a dangling final target symlink.",
+    "dispositionRead": "docs/qa/implementation-readiness/correctness-audit/reviews/prelock-review-candidate-3-disposition.md",
+    "exactDiffRangeRead": "6a13b9e6f57307a76756cf90da2aaa7682aa699b..9af725a59b20d8d70a13487f0e588d7306ee16e6",
+    "relevantCandidateChanges": [
+      {
+        "path": "scripts/stage_correctness_audit_sources.py",
+        "lines": "65-69",
+        "observation": "target_path now rejects current.is_symlink() without first requiring current.exists(), so dangling target components are visible to the guard."
+      },
+      {
+        "path": "scripts/stage_correctness_audit_sources.py",
+        "lines": "127-133",
+        "observation": "Write mode rechecks target.is_symlink() before the regular-file/current-hash path and before shutil.copy2."
+      },
+      {
+        "path": "scripts/test_correctness_audit_mutations.py",
+        "lines": "773-800",
+        "observation": "The committed focused source-path control includes a dangling final target symlink and asserts rejection plus absent external referent."
+      }
+    ]
+  },
+  "repositoryState": {
+    "worktree": "/home/smithers/projects/nemesis-audit-r14/repos/nemesis-retaliation",
+    "exactHeadVerifiedAtStart": true,
+    "exactHeadVerifiedAfterDynamicChecks": true,
+    "trackedAndUntrackedStatusCleanAtStart": true,
+    "trackedAndUntrackedStatusCleanAfterDynamicChecks": true,
+    "headCommitCheckPassed": true,
+    "parentToHeadDiffCheckPassed": true,
+    "workingTreeDiffCheckPassed": true,
+    "repositoryFilesModified": []
+  },
+  "workspaceLock": {
+    "path": "/home/smithers/projects/nemesis-audit-r14/.workspace.lock",
+    "mode": "exclusive nonblocking flock",
+    "holderPid": 822180,
+    "heldContinuouslyThroughPrerequisitesEvidenceAndReportWrite": true,
+    "releaseRequiredAndPerformedAfterReportHash": true
+  },
+  "testsRun": [
+    {
+      "command": "python3 scripts/stage_correctness_audit_sources.py --source-root /home/smithers/nemesis-retaliation --check",
+      "exitCode": 0,
+      "result": {
+        "mode": "check",
+        "copiedFiles": 0,
+        "alreadyCurrentOrCheckedFiles": 1098,
+        "copiedBytes": 0,
+        "sourceTrees": [
+          "docs/rulebooks",
+          "assets/tts-mod/extract"
+        ]
+      }
+    },
+    {
+      "command": "uv run --isolated --with-requirements docs/qa/implementation-readiness/correctness-audit/requirements-audit.txt python3 scripts/test_correctness_audit_mutations.py PromptOutputPathTests.test_prompt_output_rejects_noncanonical_and_symlink_paths SourceStagingPathTests.test_source_root_and_intermediate_symlinks_are_rejected",
+      "exitCode": 0,
+      "result": "2 focused committed tests passed"
+    },
+    {
+      "command": "python3 /home/smithers/projects/nemesis-audit-r14/targeted-candidate4-path-probe.py",
+      "exitCode": 0,
+      "result": "All bounded public-main and path-alias assertions passed"
+    }
+  ],
+  "dynamicEvidence": {
+    "danglingFinalTargetPublicMain": {
+      "stagerExitCode": 1,
+      "copyCalls": 0,
+      "rejectedBeforeCopy": true,
+      "symlinkRemained": true,
+      "symlinkTextUnchanged": true,
+      "externalReferentStayedAbsent": true,
+      "diagnosticMatched": "target path contains a symlink"
+    },
+    "representativeIntermediateSymlinks": {
+      "source": {
+        "publicMainExitCode": 1,
+        "copyCalls": 0,
+        "symlinkRemained": true,
+        "targetFileStayedAbsent": true,
+        "diagnosticMatched": "source tree contains a symlink component"
+      },
+      "target": {
+        "publicMainExitCode": 1,
+        "copyCalls": 0,
+        "symlinkRemained": true,
+        "externalCopyStayedAbsent": true,
+        "diagnosticMatched": "target path contains a symlink"
+      },
+      "promptOutput": {
+        "rejected": true,
+        "diagnosticMatched": "output path contains a symlink component"
+      }
+    },
+    "representativeNoncanonicalAliases": {
+      "promptOutputRejected": [
+        "backslash",
+        "dotdot",
+        "duplicate separator",
+        "trailing separator",
+        "absolute path",
+        "sibling-prefix path"
+      ],
+      "sourceRelativeRejected": [
+        "backslash",
+        "dotdot",
+        "absolute path"
+      ]
+    }
+  },
+  "conclusion": "The candidate-3 PATH-003 defect is closed on the exact candidate head. The public stager rejects a dangling final target symlink with a nonzero exit before any copy call, preserves the symlink, and leaves the external referent absent. Representative source, target, and prompt intermediate symlink paths and noncanonical aliases also fail closed. No concrete candidate defect was reproduced in the requested scope.",
+  "scopeLimits": [
+    "No broad test suite was run.",
+    "This rereview does not elevate the previously documented pathname check/use race without a newly reproduced bypass."
+  ],
+  "issuesEncountered": [
+    "An initial package-style unittest invocation could not import a sibling scripts module; it was not used as evidence. The exact committed direct-script invocation then passed both focused tests."
+  ],
+  "outsideGitArtifacts": [
+    {
+      "path": "/home/smithers/projects/nemesis-audit-r14/targeted-candidate4-path-probe.py",
+      "sha256": "0262474acc4b5990e689d57ff355a0be87a75fbe9d63177e7f7042c08de8772d",
+      "purpose": "Bounded public-main dangling-final-target, intermediate-symlink, and noncanonical-alias fixture."
+    },
+    {
+      "path": "/home/smithers/projects/nemesis-audit-r14/targeted-candidate4-complete.json",
+      "purpose": "This report outside Git."
+    }
+  ]
+}

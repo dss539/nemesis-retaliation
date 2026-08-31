@@ -1,6 +1,6 @@
 # Nemesis: Retaliation — Project Status
 
-**Status date:** 2026-08-30
+**Status date:** 2026-08-31
 **Active phase:** Stage 1 v2 correctness-audit harness prelock (semantic expansion frozen)
 **Active branch:** `work/card-corpus-extraction`
 **Implementation status:** Frozen; a clean rewrite will begin only after rules-layer readiness and explicit approval
@@ -13,35 +13,31 @@ The current implementation remains frozen. Existing semantic records remain immu
 
 ## Immediate Next Deliverable
 
-Integrate candidate-3 findings as a fourth non-authoritative candidate, obtain targeted rereviews for specialties 1, 3, 5, 7, 10, and 11 plus one holistic setup/lock-lifecycle review, and disposition every result. Only an accepted rereview may become the v2 baseline and receive its immediate direct-child lock before source-only packets or sealed audit lanes begin. The population remains 56 concise rules + 28 base-applicable FAQ units + 56 stratified component effects.
+Review candidate 5 with one targeted source-only inventory rereview and one independent holistic setup/direct-child-lock lifecycle review, then disposition both. If those pass and the complete gate remains green, promote that reviewed commit as the v2 baseline and create its immediate direct-child lock before source-only packets or sealed audit lanes begin. The population remains 56 concise rules + 28 base-applicable FAQ units + 56 stratified component effects.
 
 Evidence: `docs/qa/implementation-readiness/correctness-audit/`.
 
 ## Resume Checkpoint
 
 - Verified semantic data checkpoint: `f3fbd28` for the Facility/map topology/setup batch integrated over the prior Combat/Attacks/Noise/Hazard data and adversarial suite.
-- Branch `work/card-corpus-extraction` contains candidate 3, `6a13b9e6f57307a76756cf90da2aaa7682aa699b`, over candidate 2 `ee42f3522859d1dd7ce782c801023cb71fd53071`; all candidate-3 reports are retained and their reproduced findings are integrated in the dirty canonical worktree pending candidate 4. No audit work has been pushed; no PR or deployment exists.
+- Branch `work/card-corpus-extraction` contains candidate 4, `9af725a59b20d8d70a13487f0e588d7306ee16e6`, over candidate 3 `6a13b9e6f57307a76756cf90da2aaa7682aa699b`; candidate-4 targeted evidence is retained and its sole reproduced key-name blindness finding is fixed in the dirty canonical worktree pending candidate 5. No audit work has been pushed; no PR or deployment exists.
 - The preserved v1 baseline (`2fe3f0d`) and lock commit (`3e23aeb`) are superseded and cannot authorize execution. `docs/qa/implementation-readiness/correctness-audit/audit-lock-v1.json` is retained; no v2 lock exists.
 - The v2 population is unchanged and ordered: 140 units (56 concise rules, 28 base-applicable FAQ units, 56 component effects), all `pending-blind-derivation`; no substantive audit judgment has begun.
-- Candidate-1 criticism is dispositioned in `docs/qa/implementation-readiness/correctness-audit/reviews/prelock-review-candidate-1-disposition.md`. Candidate-2 reports are retained as `docs/qa/implementation-readiness/correctness-audit/reviews/final-specialty-01-candidate2.json` through `docs/qa/implementation-readiness/correctness-audit/reviews/final-specialty-12-candidate2.json`, with dispositions in `docs/qa/implementation-readiness/correctness-audit/reviews/prelock-review-candidate-2-disposition.md`. Reproduced candidate-2 fixes cover prebaseline/full-wave provenance, local frozen sources after lock, prompt/source path safety, semantic projection roles, strict envelopes and non-crashing schema failures, stable reviewer identity, source-only preflight, per-unit evidence, decision enumeration, exact progress/artifact history, and deterministic PDF page renders.
-- Candidate-1 and candidate-2 evidence/dispositions remain retained. Candidate-3 reports are `docs/qa/implementation-readiness/correctness-audit/reviews/final-specialty-01-candidate3.json` through `docs/qa/implementation-readiness/correctness-audit/reviews/final-specialty-12-candidate3.json`, with dispositions in `docs/qa/implementation-readiness/correctness-audit/reviews/prelock-review-candidate-3-disposition.md`. Candidate-3 fixes close post-lock prebaseline merges, dangling target symlinks, exact model-envelope version typing, inventory-derived source-only path/identifier rejection, canonical progress bytes, and public deterministic PDF page/DPI render controls.
-- The v2 manifest and canonical all-pending progress ledger have been regenerated without changing seed, IDs, order, strata, or counts. Every sampled component retains a manifest-frozen comparison target; the deterministic 23-unit clean-match plan is unchanged.
-- Fresh focused validation on 2026-08-30 is green after candidate-3 dispositions: manifest freshness and prelock validation pass; all 93 mutation/provenance/path/evidence/render/wave/progress/rollback controls and all 15 decision tests pass. Source extraction, project status, source staging, and diff checks must be rerun before candidate 4.
-- Candidate 4 still requires the six targeted specialty rereviews and completed holistic setup review before the baseline/lock can be created. Provider-blocked, interrupted, or empty-content attempts remain non-evidence.
-- The protected pre-existing `AGENTS.md` modification remains out of scope and must not be included accidentally.
+- Candidate-1 through candidate-3 reports and dispositions remain retained under `docs/qa/implementation-readiness/correctness-audit/reviews/`. Candidate 4 (`9af725a59b20d8d70a13487f0e588d7306ee16e6`) is a superseded review snapshot: targeted specialties 3, 5, 10, and 11 passed; specialty 7 found one source-only key-name leak; incomplete provenance attempts are non-evidence. `docs/qa/implementation-readiness/correctness-audit/reviews/prelock-review-candidate-4-disposition.md` records the exact evidence and disposition.
+- Candidate 5 fixes the reproduced key-name leak by rejecting every inventory-derived post-reveal identifier in both object keys and values. Its exhaustive inventory control exercises every derived forbidden path and identifier as both a key and a value. The v2 manifest, seed, 140 unit IDs/order/strata/counts, all-pending progress ledger, and deterministic 23-unit clean-match plan remain unchanged.
+- Fresh validation of candidate 5 on 2026-08-31 is green: manifest freshness and prelock validation pass; all 93 mutation/provenance/path/evidence/render/wave/progress/rollback controls and all 15 decision tests pass; source extraction passes; source staging verifies 1,098 files with zero copies; project-status validation and `git diff --check` pass.
+- Candidate 5 is not yet a reviewed baseline. It still requires one targeted source-only inventory rereview and one independent holistic setup/direct-child-lock lifecycle review, followed by disposition and a completely green final prelock gate. Provider-blocked, interrupted, empty, malformed, or contradictory attempts remain non-evidence.
 - The core Combat/Attacks/Noise/Hazard/entry batch is integrated over the prior Heavy/Equipment work; deterministic semantic rebuilds and 48 focused/adversarial tests pass, including the new independent Combat projection.
 - Resume in Stage 1: the owner accepted the recommendation to keep semantic expansion frozen and authorized the 140-unit blind correctness audit. Current source-obligation boundary remains 530 covered / 69 pending / 1 source-blocked with 115 no-default semantic questions.
 
-## Next-Session Parallel Handoff
+## Stage 1 Execution Boundaries
 
-- Use one lock-holding integrator for the canonical `nemesis-card-corpus` workspace and up to 32 isolated workers in dependency-respecting waves. Parallel workers must use separate task-workspace roots, each with its own `.workspace.lock` and repository worktree; putting several worktrees under the canonical workspace root would serialize them behind one lock.
-- Candidate 3 (`6a13b9e6`) is superseded as a review snapshot; all twelve reports and their disposition are retained. Candidate-3 findings are fixed in the dirty canonical worktree. Commit candidate 4, run the six targeted rereviews and holistic setup/lock review, independently reproduce any new finding, and integrate only verified fixes. No candidate is the v2 baseline and no active lock may exist during review.
-- After a completed setup review and a completely green prelock gate, the integrator alone commits the final v2 baseline and creates the active v2 audit lock in its immediate direct-child commit. Canonical lane seals, progress transitions, tamper controls, and final adjudication remain serial because the first-parent provenance contract forbids parallel integration.
-- Once v2 is locked, parallelize source-packet preparation and completeness review across the five concise-rule groups, two FAQ groups, and fourteen component families. Use different reviewer identities for completeness. Then run up to 32 balanced source-family batches for blind derivation, comparison, and independent verification.
-- Blind derivation workers must receive only sealed source packets, fixed instructions, and the blind schema in isolated non-repository directories. They must not receive a full worktree or any concise-rule, semantic, conflict, question, implementation, or prior-conclusion artifact. Comparison workers may use full worktrees only after their blind artifacts are sealed.
-- Worker handoffs must identify exact artifact paths, hashes/commits where applicable, tests run, findings, and unresolved risks. Worker claims remain advisory until the integrator verifies them against files or primary sources. Preserve reviewer-identity independence across packet completeness, blind derivation, comparison, and verification.
-- To avoid avoidable approval prompts, prefer file/search/patch tools and saved scripts; do not pipe content into interpreters, use shell heredocs or inline Python/shell programs, interpolate model output into commands, or run broad cleanup/reset/stash operations. Use narrow existing validator commands exactly as documented in the audit methodology.
-- Do not create Hermes profiles, expand semantics, touch the legacy implementation, open a PR, merge, deploy, or push unless separately authorized. A stop/status request preempts worker launches and integration immediately.
+- The immediate next dependency wave is candidate-5 review: run the targeted inventory rereview and holistic setup/direct-child-lock lifecycle review, disposition both, and rerun the complete prelock gate. Do not start a second candidate or any post-lock lane in the same bounded session.
+- Use one lock-holding integrator for the canonical `nemesis-card-corpus` workspace and up to 32 isolated workers only within a dependency-respecting wave. Each concurrent worker uses a separate task-workspace root, lock, branch, and worktree; blind derivation uses source-only non-repository directories.
+- Parallel review waves must use the compact manifest/envelope/aggregation protocol in `AGENTS-SUPPLEMENT.md`. Full reports remain on disk; the integrator verifies every material claim against report bytes, files, tests, or primary sources before disposition.
+- No candidate is the v2 baseline and no active v2 lock exists. Only after candidate 5 receives usable independent acceptance and the final prelock gate is completely green may the integrator commit the v2 baseline and create the active v2 lock file in its immediate direct-child commit.
+- Baseline/lock creation, first-parent lane seals, progress transitions, tamper controls, and final adjudication remain serial. Once v2 is locked, follow `docs/qa/implementation-readiness/correctness-audit/methodology.md` for the packet, completeness, blind derivation, comparison, and verification waves without weakening blindness or reviewer independence.
+- Do not create Hermes profiles, expand semantics, touch the legacy implementation, open a PR, merge, deploy, or push unless separately authorized. A stop/status request preempts worker launches, integration, and autonomous successor handoff immediately.
 
 ## Verified Checkpoint
 
@@ -412,11 +408,9 @@ Use these records for different questions:
 ## Resume Checklist
 
 1. Use the `nemesis-card-corpus` workspace and hold its root lock.
-2. Read this file.
-3. Read `docs/rules/source-extraction/extraction-roadmap.md`.
-4. Read the relevant source inventory/extraction record.
-5. Load the relevant Hermes skills.
-6. Perform source-bound extraction without normalization.
-7. Run `python3 scripts/validate_source_extraction.py`, `python3 scripts/validate_vocabulary_proposal.py`, `python3 scripts/validate_taxonomy_ontology.py`, and `python3 scripts/validate_project_status.py` through `workspace run`.
-8. Update this file only if material status changed.
-9. Commit and push only within the authorized boundary; do not open a PR or deploy without explicit approval.
+2. Read this file, `AGENTS-SUPPLEMENT.md`, `docs/qa/implementation-readiness/correctness-audit/methodology.md`, and `docs/qa/implementation-readiness/correctness-audit/reviews/prelock-review-candidate-4-disposition.md`.
+3. Verify branch, HEAD, dirty/protected scope, active workers, and that the active v2 lock file is absent; do not infer state from the old session transcript.
+4. Execute only the Immediate Next Deliverable and Stage 1 Execution Boundaries above. Treat candidate 4 as superseded and candidate 5 as unreviewed until its two required reviews are usable and dispositioned.
+5. Run the exact prelock checkpoint commands in `docs/qa/implementation-readiness/correctness-audit/methodology.md` before recording a green candidate or creating the baseline.
+6. Use the autonomous bounded-session and compact worker-result protocols in the project/machine instructions; resume successors from this file and repository artifacts.
+7. Update this file only when material status changes. Commit or push only within the authorized boundary; do not open a PR or deploy without explicit approval.

@@ -22,6 +22,12 @@ Use the repository-wide placement policy in `readme.md` and apply these agent ru
 - Before adding a note, search for an existing authoritative home. If content is misplaced, move it and repair references rather than leaving aliases or duplicate copies.
 - Keep handoff prompts transactional: identify the repository, the authoritative resume documents, the current task/item, and any immediate unresolved state. Do not copy durable procedures or policy into a handoff prompt; update the authoritative document and link to it instead.
 
+## Stage 1 Autonomous Work Unit
+
+For the machine-wide autonomous fresh-session handoff protocol, one Stage 1 work unit is one review candidate or one dependency wave plus its serial integration, disposition, validation, and durable checkpoint. The next session must resume from `PROJECT_STATUS.md` and repository artifacts, not the previous transcript. A session may schedule the next unit only after the current unit is reproducible and green; audit ancestry, sealing, reviewer independence, blindness, and serial integration remain unchanged.
+
+Every parallel Stage 1 review wave must preregister an exact `hermes-worker-result-batch-manifest`, require each reviewer to write its full report plus a `hermes-worker-results make` sidecar, and aggregate exact batch closure with `hermes-worker-results aggregate`. Reviewer final responses contain only the compact sidecar result. Full reports remain audit evidence on disk and are read individually only to reproduce or disposition a concrete finding; live transcripts are recovery evidence, not the normal handoff channel.
+
 ## TTS Work Resume Addendum
 
 For TTS asset, classification, or card-transcription work:

@@ -1,0 +1,83 @@
+{
+  "schemaVersion": 1,
+  "recordType": "stage-1-v2-targeted-final-rereview-candidate4",
+  "reviewerId": "final4-specialty-05",
+  "specialty": 5,
+  "candidateHead": "9af725a59b20d8d70a13487f0e588d7306ee16e6",
+  "candidateBranch": "review/stage1-v2-r15",
+  "workspaceRoot": "/home/smithers/projects/nemesis-audit-r15",
+  "repositoryPath": "/home/smithers/projects/nemesis-audit-r15/repos/nemesis-retaliation",
+  "verdict": "pass",
+  "findingCount": 0,
+  "findings": [],
+  "scopeChecks": [
+    {
+      "topic": "Strict integer schemaVersion 1",
+      "result": "pass",
+      "detail": "At candidate lines 679-698, valid_model_response_envelope requires type(body.get(\"schemaVersion\")) is int and equality to 1. Strict JSON decoding maps true to bool and 1.0 to float, so neither can satisfy the type-identity guard. Invalid envelopes return false; validate_reviewer returns None at lines 758-759 before consuming body.review."
+    },
+    {
+      "topic": "Exact model-response envelope keys and field types",
+      "result": "pass",
+      "detail": "MODEL_RESPONSE_KEYS remains the exact 15-key set and validation requires set(body) equality. Envelope constants, booleans, nonempty strings, and review-object types are checked before payload return; provider/model/reasoning/prompt fields are subsequently bound to the reviewer and checked prompt provenance. The held-lock candidate diff changes only the residual schemaVersion type hole in this specialty area."
+    },
+    {
+      "topic": "Strict artifact schemas and non-crashing failures",
+      "result": "pass",
+      "detail": "The five packet/completeness/blind/comparison/result root schemas retain additionalProperties false. Held-lock source inspection confirmed committed non-crashing controls for malformed schema containers and non-object manifest/progress inputs, plus exception-to-failure handling around strict reviewer-response parsing. No contrary change appeared in the candidate diff."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/qa/implementation-readiness/correctness-audit/reviews/final-specialty-05-candidate3.json",
+      "detail": "Held-lock reread confirmed prior S5-C3-001: JSON true passed the former equality-only schemaVersion check at candidate 6a13b9e6f57307a76756cf90da2aaa7682aa699b."
+    },
+    {
+      "path": "scripts/validate_correctness_audit.py",
+      "lines": "660-698, 751-783",
+      "detail": "Exact 15-key set, type-identity integer guard, and early None return for invalid envelopes."
+    },
+    {
+      "path": "scripts/test_correctness_audit_mutations.py",
+      "lines": "1724-1790",
+      "detail": "Committed malformed-container/non-object controls and boolean-schemaVersion regression control."
+    },
+    {
+      "path": "docs/qa/implementation-readiness/correctness-audit/*.schema.json",
+      "detail": "All five artifact root schemas inspected with additionalProperties false."
+    },
+    {
+      "command": "python3 scripts/stage_correctness_audit_sources.py --source-root /home/smithers/nemesis-retaliation --check",
+      "result": "pass",
+      "detail": "Held-lock source check examined 1,098 files; copiedFiles 0."
+    }
+  ],
+  "candidateDiffAssessment": {
+    "priorFindingFixed": true,
+    "booleanTrueRejected": true,
+    "numericOnePointZeroRejected": true,
+    "exactEnvelopeKeysAndTypesPreserved": true,
+    "nonCrashingArtifactFailuresPreserved": true,
+    "newOrResidualDefectsFound": false
+  },
+  "verificationBoundary": {
+    "mode": "held-lock static targeted rereview plus source-tree byte check",
+    "runtimeProbeExecuted": false,
+    "detail": "A planned isolated runtime probe was not launched after the direct instruction to stop further checks; the verdict rests on the exact type-identity guard, control-flow inspection, committed regression controls, schemas, and candidate diff already examined while locked."
+  },
+  "repositoryState": {
+    "exactHeadVerified": true,
+    "trackedStateClean": true,
+    "assignedRepositoryKeptReadOnly": true,
+    "repositoryFilesModifiedByReviewer": [],
+    "externalProbeClone": "/home/smithers/projects/nemesis-audit-r15/probes-final-specialty-05/candidate-4-clone"
+  },
+  "workspaceLock": {
+    "path": "/home/smithers/projects/nemesis-audit-r15/.workspace.lock",
+    "mode": "0600",
+    "heldForAllAcceptedReviewEvidence": true,
+    "contentionCheckRejectedSecondWorker": true,
+    "reacquiredForFinalReportWrite": true,
+    "releasedBeforeReturn": true
+  }
+}

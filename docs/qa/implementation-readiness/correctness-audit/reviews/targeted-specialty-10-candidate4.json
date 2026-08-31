@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "recordType": "stage-1-v2-final-specialty-review",
+  "reviewerId": "final4-specialty-10",
+  "specialty": 10,
+  "specialtyName": "progress refresh, transactional rollback, committed history, timestamps, and artifact/HEAD binding",
+  "candidateHead": "9af725a59b20d8d70a13487f0e588d7306ee16e6",
+  "candidateParent": "6a13b9e6f57307a76756cf90da2aaa7682aa699b",
+  "candidateBranch": "review/stage1-v2-r17",
+  "workspace": "/home/smithers/projects/nemesis-audit-r17",
+  "repository": "/home/smithers/projects/nemesis-audit-r17/repos/nemesis-retaliation",
+  "reviewMode": "read-only",
+  "verdict": "pass",
+  "findingCount": 0,
+  "summary": "Candidate 4 closes S10-R3-001. canonical_progress_bytes now sorts keys recursively, so equal progress objects serialize to identical UTF-8 bytes regardless input dictionary order. Manifest initialization emits the same sorted, indented bytes and the updater writes through canonical_progress_bytes. Baseline, committed, and allowed-uncommitted history paths compare raw snapshot bytes with that canonical form, so reordered committed JSON is rejected. Candidate 3's strict trailing-Z UTC parser and artifact-at-transition presence, hash, and derived-seal binding remain unchanged in the candidate-4 diff.",
+  "priorFindingDisposition": [
+    {
+      "findingId": "S10-R3-001",
+      "status": "fixed",
+      "verification": "scripts/validate_correctness_audit.py:1014-1017 adds sort_keys=True to canonical_progress_bytes; JSON object sorting is recursive. scripts/build_correctness_audit_manifest.py progress_bytes uses the identical indent=2, ensure_ascii=False, sort_keys=True, trailing-newline encoding, while scripts/advance_correctness_audit_progress.py writes via validation.canonical_progress_bytes. validate_progress_history compares baseline, each first-parent committed snapshot, and allowed uncommitted bytes against canonical_progress_bytes, making any byte-preserving semantic key reorder noncanonical."
+    }
+  ],
+  "verifiedControls": [
+    {
+      "claim": "Canonical progress serialization is independent of input dictionary insertion order.",
+      "evidence": [
+        "scripts/validate_correctness_audit.py:1014-1017",
+        "scripts/test_correctness_audit_mutations.py:945-949"
+      ],
+      "verification": "The serializer passes sort_keys=True to json.dumps, which sorts keys at every object depth. The committed focused test checks reordered top-level input produces identical canonical bytes."
+    },
+    {
+      "claim": "Manifest initialization and the updater emit the canonical byte form.",
+      "evidence": [
+        "scripts/build_correctness_audit_manifest.py:764-798",
+        "scripts/advance_correctness_audit_progress.py:112-124"
+      ],
+      "verification": "Initialization uses the same sort, indentation, Unicode, UTF-8, and terminal-newline choices as canonical_progress_bytes. The updater calls validation.canonical_progress_bytes directly before post-write validation and retains exact-byte rollback on failure."
+    },
+    {
+      "claim": "Committed history rejects a semantically unchanged key-order rewrite.",
+      "evidence": [
+        "scripts/validate_correctness_audit.py:1219-1260",
+        "docs/qa/implementation-readiness/correctness-audit/reviews/final-specialty-10-candidate3.json"
+      ],
+      "verification": "Every baseline and first-parent committed progress blob is parsed and then required to equal sorted canonical bytes. The candidate-3 bypass depended on canonical_progress_bytes reproducing insertion order; sort_keys=True removes that condition, so the same reordered blob now reaches the explicit noncanonical-progress-bytes failure."
+    },
+    {
+      "claim": "Strict UTC trailing-Z validation remains intact.",
+      "evidence": [
+        "scripts/validate_correctness_audit.py:955-973",
+        "scripts/validate_correctness_audit.py:1141-1153",
+        "docs/qa/implementation-readiness/correctness-audit/reviews/final-specialty-10-candidate3.json"
+      ],
+      "verification": "The parser and transition checks are unchanged from candidate 3, where UTC Z passed and date-only, naive, +00:00, and non-UTC offsets failed. The candidate-4 updater still generates timezone-aware UTC and replaces +00:00 with Z."
+    },
+    {
+      "claim": "Transition artifacts remain bound to their progress commit and derived seal commit.",
+      "evidence": [
+        "scripts/validate_correctness_audit.py:1020-1091",
+        "scripts/validate_correctness_audit.py:1175-1184",
+        "docs/qa/implementation-readiness/correctness-audit/reviews/final-specialty-10-candidate3.json"
+      ],
+      "verification": "The artifact-at-transition implementation is unchanged from candidate 3: it requires the blob at the progress commit, checks its declared hash, derives the first child after sealedAtGitHead, and requires identical artifact bytes there. Candidate 3's temporary-Git controls accepted the valid direct child and rejected absence, hash mismatch, intervening-commit binding, and late backfill."
+    }
+  ],
+  "findings": [],
+  "testsRun": [
+    {
+      "command": "workspace-held source/diff rereview of candidate 9af725a59b20d8d70a13487f0e588d7306ee16e6 against 6a13b9e6f57307a76756cf90da2aaa7682aa699b",
+      "result": "pass",
+      "detail": "Reverified exact HEAD and clean tracked state while fd 3 held /home/smithers/projects/nemesis-audit-r17/.workspace.lock; a second nonblocking flock failed as required. Inspected candidate-3 S10, candidate-4 disposition, serializer, initialization, updater, history replay, UTC parser, and transition-artifact binding. No fresh probe was launched after the user's explicit stop instruction."
+    }
+  ],
+  "residualRisks": [
+    "No active v2 audit lock or real post-lock lane history exists; the artifact/history controls retain candidate 3's isolated temporary-Git evidence rather than production lane evidence.",
+    "The manifest initializer duplicates the canonical json.dumps options rather than importing canonical_progress_bytes, although its emitted byte contract is currently identical; a future edit must keep these two call sites synchronized."
+  ],
+  "repositoryFilesModified": [],
+  "workspaceLock": {
+    "path": "/home/smithers/projects/nemesis-audit-r17/.workspace.lock",
+    "mode": "0600",
+    "device": 64518,
+    "inode": 4338004,
+    "heldContinuouslyForEvidenceAndReport": true,
+    "contenderRejected": true,
+    "releaseRequiredBeforeReturn": true
+  }
+}

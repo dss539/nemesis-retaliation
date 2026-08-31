@@ -1202,8 +1202,9 @@ class AuditMutationTests(unittest.TestCase):
 
     def test_packet_semantic_field_rejected_by_schema(self) -> None:
         self.h.packet["physicalClass"] = "ranged-weapon"
-        self.h.resign_packet_chain()
-        self.assertFails("Additional properties are not allowed")
+        dump(self.h.packet_path, self.h.packet)
+        with self.assertRaisesRegex(ValueError, "forbidden identifier key physicalClass"):
+            target.canonical_prompt_bytes("completeness", self.h.packet_path)
 
     def test_incomplete_search_record_rejected(self) -> None:
         self.h.packet["searchCoverage"]["searchTerms"] = []
@@ -1319,25 +1320,34 @@ class AuditMutationTests(unittest.TestCase):
     def test_source_only_inventory_covers_frozen_paths_and_post_reveal_ids(self) -> None:
         forbidden_paths, forbidden_ids = prompt_target.source_only_forbidden_inventory()
         self.assertIn("scripts/build_semantic_pilots.py", forbidden_paths)
-        for identifier in (
-            "rootCauseId",
-            "authorityOverride",
-            "classification",
-            "hiddenDefault",
-            "verificationEvidenceRefs",
-            "reviewedDiscrepancyIds",
-        ):
-            self.assertIn(identifier, forbidden_ids)
+        self.assertTrue(
+            {
+                "rootCauseId",
+                "authorityOverride",
+                "classification",
+                "hiddenDefault",
+                "verificationEvidenceRefs",
+                "reviewedDiscrepancyIds",
+            }.issubset(forbidden_ids)
+        )
+        for identifier in sorted(forbidden_ids):
             self.assertTrue(
                 prompt_target.source_only_payload_failures(
                     {"value": f"fixture {identifier} fixture"}
                 )
             )
-        self.assertTrue(
-            prompt_target.source_only_payload_failures(
-                {"value": "scripts/build_semantic_pilots.py"}
+            self.assertTrue(
+                prompt_target.source_only_payload_failures({identifier: "fixture"})
             )
-        )
+        for path_token in sorted(forbidden_paths):
+            self.assertTrue(
+                prompt_target.source_only_payload_failures(
+                    {"value": f"fixture {path_token} fixture"}
+                )
+            )
+            self.assertTrue(
+                prompt_target.source_only_payload_failures({path_token: "fixture"})
+            )
 
     def test_duplicate_packet_evidence_ids_are_rejected(self) -> None:
         duplicate = copy.deepcopy(self.h.packet["evidence"][0])
