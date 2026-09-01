@@ -18,10 +18,56 @@ ONTOLOGY_VALIDATION = REPO / "docs/rules/ontology/validation.json"
 SEMANTIC_VALIDATION = REPO / "docs/rules/semantics/validation.json"
 SEMANTIC_CONTRADICTIONS = REPO / "docs/rules/semantics/contradictions.json"
 
+FORBIDDEN_AGENT_HEADINGS = (
+    "## Current Strategy",
+    "## Current Phase",
+    "## Current Status",
+    "## Current Objective",
+    "## Active Workspace",
+    "## Current Source Set",
+    "## Immediate Next Deliverable",
+    "## Resume Checkpoint",
+    "## Verified Checkpoint",
+    "## TODO",
+    "## Backlog",
+    "## Future Work",
+)
+FORBIDDEN_AGENT_METADATA = (
+    "**Status date:**",
+    "**Active phase:**",
+    "**Active branch:**",
+    "**Next task:**",
+)
+
 
 def require(condition: bool, message: str, failures: list[str]) -> None:
     if not condition:
         failures.append(message)
+
+
+def validate_static_agent_files(
+    agents: str,
+    supplement: str,
+    failures: list[str],
+) -> None:
+    for label, text in (("AGENTS.md", agents), ("AGENTS-SUPPLEMENT.md", supplement)):
+        for heading in FORBIDDEN_AGENT_HEADINGS:
+            require(
+                heading not in text,
+                f"{label} is static policy/navigation only; forbidden dynamic heading: {heading}",
+                failures,
+            )
+        for marker in FORBIDDEN_AGENT_METADATA:
+            require(
+                marker not in text,
+                f"{label} must not contain dynamic status metadata: {marker}",
+                failures,
+            )
+        require(
+            re.search(r"(?m)^\s*- \[[ xX~]\]", text) is None,
+            f"{label} must not contain TODO/checklist items",
+            failures,
+        )
 
 
 def main() -> None:
@@ -39,32 +85,40 @@ def main() -> None:
     semantic_contradictions = json.loads(SEMANTIC_CONTRADICTIONS.read_text(encoding="utf-8"))
 
     require("PROJECT_STATUS.md" in agents, "AGENTS.md must point to PROJECT_STATUS.md", failures)
-    require("Current implementation work is out of scope" in agents, "AGENTS.md must freeze legacy implementation work", failures)
+    validate_static_agent_files(agents, supplement, failures)
+    require("## ABSOLUTE FILE-ROLE BOUNDARY — NEVER PUT PROJECT STATE HERE" in agents,
+            "AGENTS.md must retain the absolute static-file boundary", failures)
+    require("A normal work session must **not edit `AGENTS.md`**" in agents,
+            "AGENTS.md must prohibit routine self-editing", failures)
+    require("Implementation work is out of scope" in agents,
+            "AGENTS.md must freeze legacy implementation work", failures)
     require("PROJECT_STATUS.md" in supplement, "AGENTS-SUPPLEMENT.md must name PROJECT_STATUS.md as current status home", failures)
     require("PROJECT_STATUS.md" in readme, "readme.md must link to PROJECT_STATUS.md", failures)
     require("legacy implementation is frozen" in readme.lower(), "readme.md must state the legacy implementation boundary", failures)
     require("## Proportional Review Policy — Mandatory" in agents,
             "AGENTS.md must retain the proportional-review authority", failures)
-    require("does **not** include a hostile local process" in agents,
-            "AGENTS.md must retain the cooperative-process threat model", failures)
+    require("**RULES REVIEW ONLY.**" in agents,
+            "AGENTS.md must retain the rules-review-only boundary", failures)
     require("Default to one worker" in agents and "Worker count is a ceiling" in agents,
             "AGENTS.md must retain proportional worker defaults", failures)
     require("Do not start sleep-only lock holders" in supplement,
             "AGENTS-SUPPLEMENT.md must prohibit sleep-only lock holders", failures)
+    require("## ABSOLUTE STATIC-FILE RULE" in supplement,
+            "AGENTS-SUPPLEMENT.md must retain the static-file boundary", failures)
     require("required only for larger fixed batches" in supplement,
             "AGENTS-SUPPLEMENT.md must keep batch machinery proportional", failures)
-    require("## Threat model and proportional execution" in methodology,
-            "correctness-audit methodology must retain its threat model", failures)
-    require("not** a security exercise against a malicious local process" in methodology,
-            "correctness-audit methodology must exclude hostile-local-process hardening", failures)
+    require("## Review scope and proportional execution" in methodology,
+            "correctness-audit methodology must retain its review scope", failures)
+    require("simple rules derivation review" in methodology,
+            "correctness-audit methodology must define Stage 1 as a simple rules review", failures)
     require("A green normal gate is sufficient to proceed" in methodology,
             "correctness-audit methodology must make the normal gate a stopping condition", failures)
     require("Do **not** launch another harness review" in status,
             "PROJECT_STATUS.md must prohibit another harness review", failures)
     require("one worker; use 2–4" in status,
             "PROJECT_STATUS.md must retain proportional worker guidance", failures)
-    require("Reviews are proportional" in readme,
-            "readme.md must expose the proportional-review strategy", failures)
+    require("simple rules derivation review" in readme,
+            "readme.md must expose the simple-review boundary", failures)
     require(source_validation.get("passed") is True and source_validation.get("failureCount") == 0,
             "source-extraction validation must pass", failures)
     if vocab_validation["checks"]["openReviewGates"] == 0:

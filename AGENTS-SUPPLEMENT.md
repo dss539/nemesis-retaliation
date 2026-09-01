@@ -2,6 +2,12 @@
 
 This file supplements `AGENTS.md` with agent-facing documentation practices. It does not replace or modify `AGENTS.md`.
 
+## ABSOLUTE STATIC-FILE RULE
+
+**NEVER PUT PROJECT STATUS, CURRENT PHASE, NEXT WORK, TODO ITEMS, CHECKPOINTS, COUNTS, BRANCH/HEAD STATE, WORKER STATE, OR TEST RESULTS IN `AGENTS.md` OR `AGENTS-SUPPLEMENT.md`.** These are static instruction files. Normal work sessions must not edit them. Mutable state belongs in `PROJECT_STATUS.md`; tasks and history belong in `todo.md`; exact facts belong in generated reports.
+
+Stage 1 is a simple rules derivation review. Do not add unrelated helper-implementation analysis to handoffs or worker assignments.
+
 ## Documentation Practice
 
 Write durable documentation only when the work produces reusable knowledge, a decision, a blocker, or meaningful project state. Do not manufacture a note merely because a session occurred.
@@ -34,7 +40,7 @@ Apply the mandatory proportional-review policy in `AGENTS.md`:
 - Hold workspace locks only for actual work. Do not start sleep-only lock holders or preserve review branches that contain no unique commits.
 - For 1–4 workers, compact structured results and exact artifact paths are sufficient. The `hermes-worker-result-batch-manifest` / envelope / aggregate protocol is required only for larger fixed batches where exact mechanical closure materially helps.
 - Write full durable reports only for material findings, formal acceptance decisions, or evidence needed to reproduce them. Passing reviewers should return compact verdicts and checks, not repository snapshots or transcript dumps.
-- Verify source/rules claims against primary evidence. Do not reproduce exploit-style filesystem races outside the declared threat model.
+- Verify source/rules claims against primary evidence. Keep reviews within the rules-derivation scope.
 - Integrate verified corrections once, run the documented normal gate, remove temporary workspaces and unneeded branches immediately, and continue to the next substantive batch.
 
 Fresh-session handoff remains autonomous after a verified checkpoint, but it must not schedule another meta-review merely because a prior session ended. An ordinary green gate is a completion condition, not an invitation to seek another assurance layer.

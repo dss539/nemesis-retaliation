@@ -5,6 +5,13 @@
 **Active branch:** `work/card-corpus-extraction`
 **Implementation status:** Frozen; a clean rewrite will begin only after rules-layer readiness and explicit approval
 
+## Active Workspace
+
+- Workspace root: `/home/smithers/projects/nemesis-card-corpus/`
+- Repository worktree: `/home/smithers/projects/nemesis-card-corpus/repos/nemesis-retaliation/`
+- Branch: `work/card-corpus-extraction`
+- Canonical lock: `/home/smithers/projects/nemesis-card-corpus/.workspace.lock`
+
 ## Current Objective
 
 Run the normal prelock gate once at the current proportional-review checkpoint, create the v2 baseline/lock transition if green, and execute the authorized Stage 1 blind correctness audit over 140 substantive rules/FAQ/component units before any rewrite approval.
@@ -13,7 +20,7 @@ The current implementation remains frozen. Existing semantic records remain immu
 
 ## Immediate Next Deliverable
 
-Do **not** launch another harness review. The project owner accepted the proportional-review boundary: the normal threat model covers accidental errors, source omission, malformed/stale artifacts, anchoring, blindness, and cooperative-worker overlap—not a hostile local process racing filesystem operations.
+Do **not** launch another harness review. Stage 1 is a simple rules derivation review: assemble source evidence, check completeness, derive rules without downstream anchoring, compare, and verify substantive differences. Helper implementation details are outside the review.
 
 At the current committed checkpoint, run the exact normal prelock commands in `docs/qa/implementation-readiness/correctness-audit/methodology.md`. If the repository is clean and the gate is green, use that commit as the v2 baseline, create audit-lock.json as its immediate direct child, run the post-lock gate, and begin the first substantive source-packet batch. The population remains 56 concise rules + 28 base-applicable FAQ units + 56 stratified component effects.
 
@@ -34,12 +41,12 @@ Evidence: `docs/qa/implementation-readiness/correctness-audit/`.
 
 ## Stage 1 Execution Boundaries
 
-- Follow the proportional-review and threat-model section in `AGENTS.md` and the methodology. Do not perform another broad harness review or exploit-style filesystem probe without explicit new authorization or a concrete in-scope failure.
+- Follow the simple-review boundary in `AGENTS.md` and the methodology. Review rules and source evidence, not helper implementation details. Do not perform another broad harness review.
 - Default to one worker; use 2–4 for genuinely different substantive specialties. Larger fan-out is reserved for distinct rules/content partitions, not duplicate critics. Capacity is not a target.
 - Read-only and blind workers should receive immutable bounded packets. Create separate task workspaces/worktrees only when a worker must write repository artifacts or inspect Git-specific behavior. Never use sleep-only lock holders.
 - For 1–4 workers, compact results are sufficient. Use the manifest/envelope/aggregation protocol only for larger fixed batches where exact closure materially helps. Preserve full reports only for material findings or formal acceptance decisions.
 - No v2 baseline or active v2 lock exists yet. A clean normal prelock gate is sufficient to promote the current checkpoint and create the active v2 lock in its immediate direct-child commit.
-- Baseline/lock creation, first-parent lane seals, progress transitions, tamper controls, and final adjudication remain serial. Once v2 is locked, follow `docs/qa/implementation-readiness/correctness-audit/methodology.md` for the packet, completeness, blind derivation, comparison, and verification waves without weakening blindness or reviewer independence.
+- Baseline/lock creation, first-parent lane seals, progress transitions, ordinary validation checks, and final adjudication remain serial. Once v2 is locked, follow `docs/qa/implementation-readiness/correctness-audit/methodology.md` for the packet, completeness, blind derivation, comparison, and verification steps without weakening blindness or reviewer independence.
 - Do not create Hermes profiles, expand semantics, touch the legacy implementation, open a PR, merge, deploy, or push unless separately authorized. A stop/status request preempts worker launches, integration, and autonomous successor handoff immediately.
 
 ## Verified Checkpoint

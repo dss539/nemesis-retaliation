@@ -4,9 +4,9 @@ A faithful digital adaptation of the board game **Nemesis: Retaliation** by Awak
 
 > **CURRENT STRATEGY:** Source extraction, vocabulary, ontology, and semantic-pilot work are
 > complete enough for the authorized Stage 1 blind rules correctness audit; semantic expansion and
-> implementation remain frozen. Reviews are proportional: prioritize source fidelity, blindness,
-> deterministic evidence, and substantive rules findings—not hostile-local-process hardening or
-> repeated audit-of-the-audit cycles. Start with [`PROJECT_STATUS.md`](PROJECT_STATUS.md).
+> implementation remain frozen. Stage 1 is a simple rules derivation review:
+> prioritize source fidelity, blindness, deterministic evidence, and substantive rules findings,
+> then move forward. Start with [`PROJECT_STATUS.md`](PROJECT_STATUS.md).
 
 ## Source authority
 
@@ -49,6 +49,7 @@ Write durable documentation when new reusable knowledge, a decision, a blocker, 
 
 Use one authoritative home for each fact and link to it elsewhere. Do not copy the same lesson into multiple catch-all files. In particular:
 
+- `AGENTS.md` and `AGENTS-SUPPLEMENT.md` are static policy/navigation only. Never put project status, current work, TODOs, checkpoints, counts, branch state, or test results in them.
 - A durable procedure learned during QA belongs in the relevant topic note; `docs/qa/` keeps only the specific evidence that established or verified it.
 - A source conflict and its evidence belong in a focused source audit; a concise active blocker belongs in `PROJECT_STATUS.md`, detailed work history in `todo.md`, and a genuine rules ambiguity in `docs/rules/open-questions.md`.
 - `readme.md` files are concise entry points and maps, not chronological notebooks.
