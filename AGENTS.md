@@ -36,7 +36,7 @@ Build a source-faithful, reviewable rules layer for the base game of *Nemesis: R
 1. Read `PROJECT_STATUS.md` for all mutable state and the exact next action.
 2. Read `todo.md` only when detailed backlog or historical context is needed.
 3. Read `docs/rules/readme.md` for rules-corpus authority and record conventions.
-4. For Stage 1 audit work, read `docs/qa/implementation-readiness/correctness-audit/methodology.md`.
+4. For audit work, read the owner's fragment-coverage review in `docs/rules/implementation-readiness.md`.
 5. Read `AGENTS-SUPPLEMENT.md` for static documentation and handoff practices.
 6. Load the relevant Hermes skill before acting.
 
@@ -79,7 +79,7 @@ The project optimizes for source fidelity and forward progress, not unrelated re
 - Retain compact passing results and evidence needed for material findings. Do not preserve repository clones, transcript dumps, duplicated snapshots, or no-op branches.
 - Integrate verified corrections once, run the normal gate, remove temporary workspaces, and return to substantive source/rules work.
 
-The stable audit protocol and threat model live in `docs/qa/implementation-readiness/correctness-audit/methodology.md`. Historical reports are evidence, never resume instructions.
+The only authorized audit protocol is the owner's fragment-coverage review in `docs/rules/implementation-readiness.md`.
 
 ## Workspace and Concurrency Discipline
 

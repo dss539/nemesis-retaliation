@@ -1989,7 +1989,7 @@ task workspace.
 - [x] Froze expansion after the Search proof-of-value failed to demonstrate unique implementation utility for the large semantic representation.
 - [x] The project owner accepted the measured recommendation to keep semantic expansion frozen; do not add semantic records or families unless that decision is explicitly reversed.
 
-## IN PROGRESS — Stage 1 blind rules correctness audit (2026-08-29 onward)
+## SUPERSEDED — Stage 1 blind rules correctness audit (2026-08-29 to 2026-09-01)
 
 - [x] Preregister and execute the Search → Item gain proof-of-value without production changes.
 - [x] Pass 22/22 acceptance tests and kill 17/17 mutations within the 800-line cap.
@@ -2006,16 +2006,9 @@ task workspace.
 - [x] Instruction-role repair: `AGENTS.md` and `AGENTS-SUPPLEMENT.md` now contain static policy/navigation only; mutable state lives in `PROJECT_STATUS.md` and tasks/history in `todo.md`. `scripts/validate_project_status.py` rejects dynamic headings, metadata, or checklist items in either instruction file.
 - [x] Promote clean baseline `a38a9ff28b96ab26975675e47701728ecc0bd095`, create direct-child lock commit `0380196b727ef1a864cb31d3a3f54773d835e5e5` containing only `audit-lock.json`, and pass the complete post-lock gate with all 140 units still `pending-blind-derivation`.
 - [x] Stop after the single candidate-5 review wave and serial disposition; no second review wave, post-lock lane, profile, PR, push, merge, deployment, semantic expansion, or implementation work was started.
-- [ ] Lane A packet drafting after the v2 lock: batch 001 is `FAQ:FQ-P02-U04` through `FAQ:FQ-P02-U07`. Use one source-only builder with immutable bounded inputs; commit the packet and canonical completeness prompt in one wave before review.
-- [ ] Lane A completeness review: use a reviewer different from the corresponding builder. A reviewer may cover several related packets in one bounded call. Correct material omissions once, seal the accepted batch, and proceed; do not create a rereview loop for minor or already-fixed harness concerns.
-- [ ] Lane B blind derivation: provide only accepted source packets, fixed instructions, and the blind schema in repository-free directories. Batch related units when IDs/order/citations remain exact; use the smallest worker count that improves elapsed time.
-- [ ] Lane C comparison: after the relevant blind batch is sealed, use different reviewer identities to compare those substantive units. Worktrees are needed only for workers writing repository artifacts; read-only comparison can use immutable packets.
-- [ ] Lane D verification: independently verify substantive non-matches/blockers and the deterministic clean-match sample while maintaining identity separation. Use compact results and preserve full reports only for material findings or formal decisions.
-- [ ] Keep serial-only operations out of worker waves: canonical Git commits/seals, active-lock creation, progress-ledger transitions, clean validation versus tamper controls, finding disposition, and final decision publication. Never run the clean validator concurrently with a mutation of locked files.
-- [ ] Worker operations discipline: hold workspace locks only during actual work, never with sleep-only helpers. Use no profiles, pipe-to-interpreter, heredoc, command built from model output, broad cleanup/reset/stash, PR, merge, deployment, implementation, or semantic expansion. Remove temporary workspaces and no-op branches immediately after integration.
-- [ ] Stage 1 blind correctness audit: all 56 concise rules, all 28 base-applicable FAQ units, and a 56-unit stratified component sample (140 units total).
-- [ ] Escalate affected families, or all approximately 339 primary audit units, only if Stage 1 finds critical errors or a recurring defect pattern.
-- [ ] After the correctness gate, choose a clean architecture independently and obtain explicit owner approval before implementation.
+- [x] 2026-09-01 owner decision: the entire Stage 1 v2 blind-audit methodology above is scrapped — the correctness-audit tree, its ten dedicated scripts, the generic Ollama audit-review runner, the candidate-review evidence, and the uncommitted packet-001 review artifacts were deleted in one teardown commit. The cancelled Lane A–D, escalation, and 339-unit expansion items are dead and will not be executed.
+- [x] Replacement methodology (owner's own): break source artifacts into small fragments, hand each fragment to a child worker, and ask whether the fragment's rules and behavior are already fully and accurately captured. The concrete design awaits owner approval; no sealing, packet, completeness-review, or comparison machinery may be rebuilt.
+- [ ] After the fragment-coverage review passes, choose a clean architecture independently and obtain explicit owner approval before implementation.
 
 ## DONE — Intruder Help and Room semantic audit closure (2026-08-25)
 

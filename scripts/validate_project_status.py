@@ -10,7 +10,6 @@ STATUS = REPO / "PROJECT_STATUS.md"
 AGENTS = REPO / "AGENTS.md"
 SUPPLEMENT = REPO / "AGENTS-SUPPLEMENT.md"
 README = REPO / "readme.md"
-METHODOLOGY = REPO / "docs/qa/implementation-readiness/correctness-audit/methodology.md"
 CORPUS = REPO / "assets/tts-mod/extract/card-text-corpus.json"
 SOURCE_VALIDATION = REPO / "docs/rules/source-extraction/validation.json"
 VOCAB_VALIDATION = REPO / "docs/rules/vocabulary/validation.json"
@@ -76,7 +75,6 @@ def main() -> None:
     agents = AGENTS.read_text(encoding="utf-8")
     supplement = SUPPLEMENT.read_text(encoding="utf-8")
     readme = README.read_text(encoding="utf-8")
-    methodology = METHODOLOGY.read_text(encoding="utf-8")
     corpus = json.loads(CORPUS.read_text(encoding="utf-8"))
     source_validation = json.loads(SOURCE_VALIDATION.read_text(encoding="utf-8"))
     vocab_validation = json.loads(VOCAB_VALIDATION.read_text(encoding="utf-8"))
@@ -107,26 +105,20 @@ def main() -> None:
             "AGENTS-SUPPLEMENT.md must retain the static-file boundary", failures)
     require("required only for larger fixed batches" in supplement,
             "AGENTS-SUPPLEMENT.md must keep batch machinery proportional", failures)
-    require("## Review scope and proportional execution" in methodology,
-            "correctness-audit methodology must retain its review scope", failures)
-    require("simple rules derivation review" in methodology,
-            "correctness-audit methodology must define Stage 1 as a simple rules review", failures)
-    require("A green normal gate is sufficient to proceed" in methodology,
-            "correctness-audit methodology must make the normal gate a stopping condition", failures)
-    require("Do **not** launch another harness review" in status,
-            "PROJECT_STATUS.md must prohibit another harness review", failures)
+    require("must not be rebuilt" in status,
+            "PROJECT_STATUS.md must prohibit rebuilding audit machinery", failures)
     require("one worker; use 2–4" in status,
             "PROJECT_STATUS.md must retain proportional worker guidance", failures)
-    require("simple rules derivation review" in readme,
-            "readme.md must expose the simple-review boundary", failures)
+    require("fragment-coverage review" in readme,
+            "readme.md must expose the owner's fragment-coverage review boundary", failures)
     require(source_validation.get("passed") is True and source_validation.get("failureCount") == 0,
             "source-extraction validation must pass", failures)
     if vocab_validation["checks"]["openReviewGates"] == 0:
         status_lower = status.lower()
         require("semantic expansion frozen" in status_lower,
                 "PROJECT_STATUS.md must record the semantic-expansion freeze", failures)
-        require("stage 1 blind correctness audit" in status_lower,
-                "PROJECT_STATUS.md must record the authorized Stage 1 audit", failures)
+        require("fragment-coverage review" in status_lower,
+                "PROJECT_STATUS.md must record the owner's fragment-coverage review as the active methodology", failures)
         readiness = (REPO / "docs/rules/implementation-readiness.md").read_text(encoding="utf-8")
         preregistration = (REPO / "docs/qa/implementation-readiness/search-pilot/preregistration.md").read_text(encoding="utf-8")
         result = (REPO / "docs/qa/implementation-readiness/search-pilot/metrics.json").read_text(encoding="utf-8")

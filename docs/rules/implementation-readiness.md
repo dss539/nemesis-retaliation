@@ -93,26 +93,14 @@ The Search → Item gain pilot is complete. The compact contract passed 22 accep
 
 Detailed result: `docs/qa/implementation-readiness/search-pilot/utility-report.md`.
 
-## Authorized correctness audit after the owner gate
+## Owner's fragment-coverage review (2026-09-01)
 
-Do not audit all 529 semantic records. They are frozen reference evidence, not the proposed implementation specification.
+On 2026-09-01 the project owner scrapped the previously authorized Stage 1 v2 blind correctness-audit methodology; its harness, scripts, packets, and review evidence were removed from this repository in the same change and must not be rebuilt. The frozen semantic records remain reference evidence and are not the implementation specification.
 
-On 2026-08-29 the project owner accepted the recommendation to keep semantic expansion frozen and authorized this audit. The executable harness, locked population, source-only packet rules, sealed blind derivation, post-reveal comparison, independent verification sampling, and decision evaluator live under `docs/qa/implementation-readiness/correctness-audit/` and `scripts/*correctness_audit*.py`.
+The replacement is the owner's own methodology:
 
-### Stage 1 — 140-unit decision audit
+> Break down source artifacts into small pieces and hand that piece to a child.
+> Ask: "are the rules and behavior documented in this fragment fully and
+> accurately captured already?"
 
-Audit blindly against original sources:
-
-- all **56 concise rule records** across foundations, rounds/turns, actions, intruders/survival, and Items;
-- all **28 base-applicable FAQ units**;
-- **56 stratified component effects**: 5 Rooms, 4 Intruder Help rows, 4 Events, 3 Exploration cards, 2 Robots, 2 Intruder Attacks, 2 Queen Health faces, 2 Serious Wounds, 6 Green/Red/Yellow Item faces, 12 Action cards, 6 Objectives/Mission Tasks, and 8 Equipment/Starting Item faces.
-
-The 115 open questions and 88 conflicts are triaged through the affected audited clauses; they are not 203 additional independent audit units.
-
-Stage 1 may pass without expansion only if it finds zero critical errors, zero invented authority overrides, zero hidden defaults, no recurring defect pattern, and at most two isolated material errors in the component sample.
-
-### Escalation boundary
-
-If Stage 1 finds a critical or recurring problem, expand the affected family. Escalate to the full audit only when defects appear systemic. The full base competitive planning inventory is approximately **339 primary units**: 84 core rule/FAQ units plus 255 distinct gameplay/component effects. Byte-identical copies need mechanical reconciliation, not redundant semantic review; source-different same-title occurrences remain separate.
-
-Solo/Coop and expansions remain outside initial rewrite readiness unless the owner changes scope.
+No execution machinery exists for it yet. A concrete design — fragment definition and size, artifact order, child protocol, and how yes/partial/no answers are recorded — requires owner approval before build-out and must stay proportional to that single question. The 115 open questions and 88 preserved conflicts remain no-default. Solo/Coop and expansions remain outside rewrite readiness unless the owner changes scope.

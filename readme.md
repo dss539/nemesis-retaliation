@@ -3,10 +3,9 @@
 A faithful digital adaptation of the board game **Nemesis: Retaliation** by Awaken Realms.
 
 > **CURRENT STRATEGY:** Source extraction, vocabulary, ontology, and semantic-pilot work are
-> complete enough for the authorized Stage 1 blind rules correctness audit; semantic expansion and
-> implementation remain frozen. Stage 1 is a simple rules derivation review:
-> prioritize source fidelity, blindness, deterministic evidence, and substantive rules findings,
-> then move forward. Start with [`PROJECT_STATUS.md`](PROJECT_STATUS.md).
+> complete and frozen as evidence. The former Stage 1 blind correctness-audit methodology was
+> scrapped by the project owner on 2026-09-01 and replaced by a simple fragment-coverage review;
+> its design awaits owner approval. Start with [`PROJECT_STATUS.md`](PROJECT_STATUS.md).
 
 ## Source authority
 
