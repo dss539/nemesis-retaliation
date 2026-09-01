@@ -1,0 +1,759 @@
+{
+  "schemaVersion": 1,
+  "recordType": "stage-1-canonical-review-prompt",
+  "mode": "completeness",
+  "instructionsPath": "docs/qa/implementation-readiness/correctness-audit/prompts/packet-completeness-instructions.txt",
+  "instructionsSha256": "0517909a9a5be87668aa1169a6f17f162a4629d08a55aa11aead2cbe41b20964",
+  "payloads": [
+    {
+      "label": "SOURCE PACKET",
+      "path": "docs/qa/implementation-readiness/correctness-audit/packets/packet-001-repaired.json",
+      "sha256": "866ad199b44c65f49d34aa28c3589aa1c1f376266586d4e88089074e833be007"
+    }
+  ]
+}
+
+=== BEGIN FIXED INSTRUCTIONS | docs/qa/implementation-readiness/correctness-audit/prompts/packet-completeness-instructions.txt | 1197 bytes | sha256:0517909a9a5be87668aa1169a6f17f162a4629d08a55aa11aead2cbe41b20964 ===
+You are an independent source-packet completeness critic.
+
+Use only the canonical source packet below. Do not use, request, quote, or infer any downstream rules corpus, semantic projection, implementation behavior, or prior conclusion.
+
+Check for:
+- omitted, contrary, adjacent, exception, mode-specific, FAQ/errata, component, and visual evidence;
+- incorrect authority, version, applicability, locator, quotation, or exclusion claims;
+- source channels that were searched inadequately;
+- evidence that does not support every submitted audit unit.
+
+Return one JSON object only:
+{
+  "acceptedRecommendation": true,
+  "findings": [
+    {
+      "findingId": "C-001",
+      "severity": "minor|material|critical",
+      "claim": "falsifiable source-only claim",
+      "evidenceRefs": ["packet evidence ID"],
+      "recommendedCorrection": "specific correction"
+    }
+  ],
+  "coverageAssessment": "concise source-only assessment",
+  "remainingUncertainty": ["source-only uncertainty"]
+}
+
+Use an empty findings array only when there is no concrete defect. Set acceptedRecommendation to false when any material or critical finding exists. Never include hidden reasoning or prose outside the JSON object.
+
+=== END FIXED INSTRUCTIONS ===
+
+=== BEGIN SOURCE PACKET | docs/qa/implementation-readiness/correctness-audit/packets/packet-001-repaired.json | 42088 bytes | sha256:866ad199b44c65f49d34aa28c3589aa1c1f376266586d4e88089074e833be007 ===
+{
+  "schemaVersion": 1,
+  "recordType": "stage-1-source-only-audit-packet",
+  "packetId": "stage1-packet-001-repaired",
+  "sealedAtUtc": "2026-09-01T06:52:23Z",
+  "sealedAtGitHead": "f2c526c6308ddc74e0289dd333c3035121832e68",
+  "auditUnitIds": [
+    "FAQ:FQ-P02-U04",
+    "FAQ:FQ-P02-U05",
+    "FAQ:FQ-P02-U06",
+    "FAQ:FQ-P02-U07"
+  ],
+  "scope": "base-competitive-stage1",
+  "authorityOrder": [
+    "official-faq-v1.2",
+    "official-rulebook",
+    "official-component",
+    "extracted-component-reference"
+  ],
+  "sourceDocuments": [
+    {
+      "sourcePath": "docs/rulebooks/Nemesis_RT_FAQ_v1.2.pdf",
+      "sourceSha256": "611ae20dc0b3e04f3c0d99f294a92fc95460c042565b12d1c808b1282ae0e0d8",
+      "authority": "official-faq-v1.2",
+      "version": "Official Game FAQ v1.2, 8.06.2026",
+      "role": "official-override"
+    },
+    {
+      "sourcePath": "docs/rulebooks/faq_text.txt",
+      "sourceSha256": "9741ca30bf75f834de9fba5752f5355c5cfb9638955efe5cd9c1c181cbb432f5",
+      "authority": "official-faq-v1.2",
+      "version": "Checked page-text extraction accompanying FAQ v1.2",
+      "role": "locator-only"
+    },
+    {
+      "sourcePath": "docs/rules/source-extraction/faq-v1.2-source-extraction.json",
+      "sourceSha256": "fe5adc438355a046ecfbd9d9a88e9433427fcc49a36479a6b5d29c66687b7ced",
+      "authority": "official-faq-v1.2",
+      "version": "Audited source-bound FAQ v1.2 extraction",
+      "role": "locator-only"
+    },
+    {
+      "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
+      "sourceSha256": "e3cda0d7a91bd090cec45dbc8ce89e2015e2202173357c374ff49365f9c29ddd",
+      "authority": "official-rulebook",
+      "version": "Official Nemesis: Retaliation Rulebook",
+      "role": "primary-rule-text"
+    },
+    {
+      "sourcePath": "docs/rulebooks/rulebook_text.txt",
+      "sourceSha256": "b89552f02686559e2efa284dc8a18afc16bfb753b2de8afebe62c5243ca45a0a",
+      "authority": "official-rulebook",
+      "version": "Checked text extraction accompanying official Rulebook",
+      "role": "locator-only"
+    },
+    {
+      "sourcePath": "docs/rules/source-extraction/base-source-inventory.json",
+      "sourceSha256": "c719cd8e4e08f12b0d3b41fa986e3c5eb9ee7927a3a5a4e18b43704ab9ea0f79",
+      "authority": "extracted-component-reference",
+      "version": "Audited base-game source inventory, updated 2026-08-24",
+      "role": "negative-control-search"
+    },
+    {
+      "sourcePath": "docs/rules/source-extraction/extraction-closure-audit.json",
+      "sourceSha256": "a2f6397bbcccc6b853f23667af350fc8c5fded5f219fe8ccfbe8e1adcbd4457d",
+      "authority": "extracted-component-reference",
+      "version": "Audited base-game extraction closure ledger, updated 2026-08-24",
+      "role": "negative-control-search"
+    },
+    {
+      "sourcePath": "assets/tts-mod/extract/card-text-corpus.json",
+      "sourceSha256": "34395bb0fbb665d011e0e4cbbf3adc47898f3cce7522ad7eb9e186475e5ee7cd",
+      "authority": "extracted-component-reference",
+      "version": "Audited source-bound base-game card/reference corpus",
+      "role": "component-text"
+    },
+    {
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/combat-engineer-027.png",
+      "sourceSha256": "6a338a566b9787f8205c63e95c24a57c0ccf01fd2e2af64be1f8769233a75fc6",
+      "authority": "extracted-component-reference",
+      "version": "Audited source-bound component capture: Combat Engineer Computer Skills",
+      "role": "component-text"
+    },
+    {
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/reditem-112.png",
+      "sourceSha256": "b728051696f6e41cefa58c203125c1470a3a48c589820b5b8a82cbf18c28681c",
+      "authority": "extracted-component-reference",
+      "version": "Audited source-bound component capture: Exploring Drone",
+      "role": "component-text"
+    },
+    {
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/robotDeck-004.jpg",
+      "sourceSha256": "c78d2a69189749dcd4578ee7e270b83c6115510988286431943ba6039b2abc56",
+      "authority": "extracted-component-reference",
+      "version": "Audited source-bound component capture: Exploration Robot",
+      "role": "component-text"
+    },
+    {
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/robotDeck-068.jpg",
+      "sourceSha256": "e613b1e23d25d91e1fe5ccfe925426396c0866c5a36cba91a69dcdb493f2b2a6",
+      "authority": "extracted-component-reference",
+      "version": "Audited source-bound component capture: Server Robot",
+      "role": "component-text"
+    },
+    {
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-134.jpg",
+      "sourceSha256": "87b35fe728adbaf7c7568e223b0c5afb6a9265b8065b3349542cc798be9211f6",
+      "authority": "extracted-component-reference",
+      "version": "Audited source-bound component capture: Portable Device",
+      "role": "component-text"
+    },
+    {
+      "sourcePath": "docs/rules/source-extraction/official/gamefound-nemesis-retaliation-20260901.html",
+      "sourceSha256": "dc52b2e15308c5275e7721536871fe0cb9b36e8869e936037f095009a0c9c7db",
+      "authority": "official-component",
+      "version": "Official Gamefound campaign page snapshot captured 2026-09-01",
+      "role": "negative-control-search"
+    },
+    {
+      "sourcePath": "docs/rules/source-extraction/official/gamefound-nemesis-retaliation-updates-20260901.html",
+      "sourceSha256": "bd3b31358489c385f3e3b4893b96ec1100b90f89e657a05945d6d28c847df400",
+      "authority": "official-component",
+      "version": "Official Gamefound updates route snapshot captured 2026-09-01",
+      "role": "negative-control-search"
+    },
+    {
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/reditem-148_cards/card-06.png",
+      "sourceSha256": "e149151bec4cb0d41875581b66864e5f2dd1465e169158ff46ce62f7aedc7c91",
+      "authority": "extracted-component-reference",
+      "version": "Audited source-bound component capture: Personal Log Codes",
+      "role": "component-text"
+    },
+    {
+      "sourcePath": "docs/rules/source-extraction/official/awakenrealms-retaliation-faq-v1.2-20260901.pdf",
+      "sourceSha256": "611ae20dc0b3e04f3c0d99f294a92fc95460c042565b12d1c808b1282ae0e0d8",
+      "authority": "official-faq-v1.2",
+      "version": "Official Awaken Realms Retaliation FAQ v1.2, dated 8.06.2026; direct publisher download captured 2026-09-01",
+      "role": "official-override"
+    },
+    {
+      "sourcePath": "docs/rules/source-extraction/official/awakenrealms-retaliation-faq-v1.1-20260901.pdf",
+      "sourceSha256": "bd41efa25855b80d2145c43031948dd072bc352bf643aafde3092540a7de1cae",
+      "authority": "official-component",
+      "version": "Official Awaken Realms Retaliation FAQ v1.1, dated 19.11.2025; historical version check download captured 2026-09-01",
+      "role": "negative-control-search"
+    },
+    {
+      "sourcePath": "docs/rules/source-extraction/official/awakenrealms-nemesis-retaliation-page-20260901.html",
+      "sourceSha256": "7d0813585805d40392e849212f0b24c3bcbb5b0c5da9d0c3c78719ab2412b3d3",
+      "authority": "official-component",
+      "version": "Official Awaken Realms Nemesis Retaliation page captured 2026-09-01",
+      "role": "negative-control-search"
+    },
+    {
+      "sourcePath": "docs/rules/source-extraction/official/awakenrealms-download-page-20260901.html",
+      "sourceSha256": "3d67aac60354e8af73ce24fcd09e7a7fa2dae87f8040d24ecf90296cce4690db",
+      "authority": "official-component",
+      "version": "Official Awaken Realms Downloads page captured 2026-09-01",
+      "role": "negative-control-search"
+    },
+    {
+      "sourcePath": "docs/rules/source-extraction/official/awakenrealms-support-nemesis-retaliation-faq-folder-20260901.html",
+      "sourceSha256": "cd210c97ae05a26921c2b08ff41f9faffeea47d89bceaed98c89696d98bd0b10",
+      "authority": "official-component",
+      "version": "Official Awaken Realms Support Nemesis Retaliation FAQ folder captured 2026-09-01",
+      "role": "negative-control-search"
+    },
+    {
+      "sourcePath": "docs/rules/source-extraction/official/awakenrealms-support-nemesis-retaliation-solution-20260901.html",
+      "sourceSha256": "62abd6eac46579cd7310927e903e8f01a8991a91c4d68d90098210c8fa99b618",
+      "authority": "official-component",
+      "version": "Official Awaken Realms Support Nemesis Retaliation category page captured 2026-09-01",
+      "role": "negative-control-search"
+    }
+  ],
+  "evidence": [
+    {
+      "evidenceId": "P001-E01",
+      "auditUnitIds": [
+        "FAQ:FQ-P02-U04"
+      ],
+      "sourcePath": "docs/rulebooks/Nemesis_RT_FAQ_v1.2.pdf",
+      "sourceSha256": "611ae20dc0b3e04f3c0d99f294a92fc95460c042565b12d1c808b1282ae0e0d8",
+      "locator": "Official FAQ v1.2 PDF page 2, GENERAL RULES, source unit FQ-P02-U04",
+      "evidenceKind": "official-text",
+      "exactText": "Do Malfunction markers make computer icons unavailable?\nMalfunction markers do not interact with computer icons, unless a specific Item or effect says otherwise.",
+      "visualEvidencePath": "docs/qa/implementation-readiness/correctness-audit/packets/packet-001/faq-v1.2-page-02-160dpi.png",
+      "visualEvidenceSha256": "f17b65035c19a5e8afebce0042f822dc1efa7a77771aaa5fa278dddad57e31ae",
+      "pdfPageIndex": 2,
+      "renderDpi": 160
+    },
+    {
+      "evidenceId": "P001-E02",
+      "auditUnitIds": [
+        "FAQ:FQ-P02-U05"
+      ],
+      "sourcePath": "docs/rulebooks/Nemesis_RT_FAQ_v1.2.pdf",
+      "sourceSha256": "611ae20dc0b3e04f3c0d99f294a92fc95460c042565b12d1c808b1282ae0e0d8",
+      "locator": "Official FAQ v1.2 PDF page 2, GENERAL RULES, source unit FQ-P02-U05",
+      "evidenceKind": "official-text",
+      "exactText": "Q: If the autodestruction is turned on and the game ends, is the autodestruction triggered during end game procedures?\nA: Yes, Autodestruction will still happen, before the end game sequence.",
+      "visualEvidencePath": "docs/qa/implementation-readiness/correctness-audit/packets/packet-001/faq-v1.2-page-02-160dpi.png",
+      "visualEvidenceSha256": "f17b65035c19a5e8afebce0042f822dc1efa7a77771aaa5fa278dddad57e31ae",
+      "pdfPageIndex": 2,
+      "renderDpi": 160
+    },
+    {
+      "evidenceId": "P001-E03",
+      "auditUnitIds": [
+        "FAQ:FQ-P02-U06"
+      ],
+      "sourcePath": "docs/rulebooks/Nemesis_RT_FAQ_v1.2.pdf",
+      "sourceSha256": "611ae20dc0b3e04f3c0d99f294a92fc95460c042565b12d1c808b1282ae0e0d8",
+      "locator": "Official FAQ v1.2 PDF page 2, GENERAL RULES, source unit FQ-P02-U06",
+      "evidenceKind": "official-text",
+      "exactText": "Q: An Exploration card tells me to close doors around a newly explored room. Do you only close doors touching the room or all doors in corridors next to the room? What about the hibernatorium doors?\nA: Only close doors touching the new room. Hibernatorium doors will never close that way, since Exploration is not resolve in the Hibernatorium.",
+      "visualEvidencePath": "docs/qa/implementation-readiness/correctness-audit/packets/packet-001/faq-v1.2-page-02-160dpi.png",
+      "visualEvidenceSha256": "f17b65035c19a5e8afebce0042f822dc1efa7a77771aaa5fa278dddad57e31ae",
+      "pdfPageIndex": 2,
+      "renderDpi": 160
+    },
+    {
+      "evidenceId": "P001-E04",
+      "auditUnitIds": [
+        "FAQ:FQ-P02-U07"
+      ],
+      "sourcePath": "docs/rulebooks/Nemesis_RT_FAQ_v1.2.pdf",
+      "sourceSha256": "611ae20dc0b3e04f3c0d99f294a92fc95460c042565b12d1c808b1282ae0e0d8",
+      "locator": "Official FAQ v1.2 PDF page 2, GENERAL RULES, source unit FQ-P02-U07",
+      "evidenceKind": "official-text",
+      "exactText": "Q: On Exploration cards, is the “Remove this card from the game” part of the Entrance effect?\nA: No. Effects that Explore ignoring Entrance effects still remove those Exploration cards from the game.",
+      "visualEvidencePath": "docs/qa/implementation-readiness/correctness-audit/packets/packet-001/faq-v1.2-page-02-160dpi.png",
+      "visualEvidenceSha256": "f17b65035c19a5e8afebce0042f822dc1efa7a77771aaa5fa278dddad57e31ae",
+      "pdfPageIndex": 2,
+      "renderDpi": 160
+    },
+    {
+      "evidenceId": "P001-E05",
+      "auditUnitIds": [
+        "FAQ:FQ-P02-U05"
+      ],
+      "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
+      "sourceSha256": "e3cda0d7a91bd090cec45dbc8ce89e2015e2202173357c374ff49365f9c29ddd",
+      "locator": "Official Rulebook PDF page 15, AUTODESTRUCTION TOKEN",
+      "evidenceKind": "official-text",
+      "exactText": "If a Round marker enters a space with the Autodestruction token, the Facility explodes and the game ends. All Characters still inside the Facility (as well as Hibernating ones) die, every Room is considered destroyed and all Intruders are considered dead. More on Autodestruction Procedure: see page 38.",
+      "visualEvidencePath": "docs/qa/implementation-readiness/correctness-audit/packets/packet-001/rulebook-page-15-160dpi.png",
+      "visualEvidenceSha256": "28c6c925ddaff810c4b338bc2ff8d0eaf6a84f968495044d605765adb1fa36db",
+      "pdfPageIndex": 15,
+      "renderDpi": 160
+    },
+    {
+      "evidenceId": "P001-E06",
+      "auditUnitIds": [
+        "FAQ:FQ-P02-U04"
+      ],
+      "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
+      "sourceSha256": "e3cda0d7a91bd090cec45dbc8ce89e2015e2202173357c374ff49365f9c29ddd",
+      "locator": "Official Rulebook PDF page 20, room anatomy, D. Computer Icon",
+      "evidenceKind": "official-text",
+      "exactText": "ostly referenced by the Search Action card.         would add new Eggs there.\n  D. Computer Icon – Shows whether the Room contains a con-\n     nection to the server. The icon does nothing on its own but is\n                                                                          FIRE DESTROYING EGGS\n     frequently referenced by other Actions and effects.\n                                                                          If a Fire ( ) is in the Nest, it removes 1 Egg from there during\n  E. Room Type and Room ID – Shows whether the Room is\n                                                                          each Intruder Burning Phase step.\n     a Section Room (“A”, “B”, or “C”) o",
+      "visualEvidencePath": "docs/qa/implementation-readiness/correctness-audit/packets/packet-001/rulebook-page-20-160dpi.png",
+      "visualEvidenceSha256": "7dbd473b9c26b957eac14ba36946f6d5a4530e765c489eba85ed682e7ae83818",
+      "pdfPageIndex": 20,
+      "renderDpi": 160
+    },
+    {
+      "evidenceId": "P001-E07",
+      "auditUnitIds": [
+        "FAQ:FQ-P02-U04"
+      ],
+      "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
+      "sourceSha256": "e3cda0d7a91bd090cec45dbc8ce89e2015e2202173357c374ff49365f9c29ddd",
+      "locator": "Official Rulebook PDF page 23, map markers and tokens, room malfunction",
+      "evidenceKind": "official-text",
+      "exactText": "nore it – this includes the Malfunction Markers Limit rule described\n                                                                                                                                                         Pages 8-11\n                                                                            in the box below.\n                                                                            If a Room has a Malfunction marker its Room Action is unavailable,\n                                                                            and cannot be performed in any way. It does not affect Item icons            GAME ROUND\n                                                                            in this Room.                                                                STRUCTURE\n                                                                                                                                                         Pages 12-15",
+      "visualEvidencePath": "docs/qa/implementation-readiness/correctness-audit/packets/packet-001/rulebook-page-23-160dpi.png",
+      "visualEvidenceSha256": "92599ab0d939392f28b878e57a6c38e68dee43e39695134a05d565401c55dd8f",
+      "pdfPageIndex": 23,
+      "renderDpi": 160
+    },
+    {
+      "evidenceId": "P001-E08",
+      "auditUnitIds": [
+        "FAQ:FQ-P02-U06",
+        "FAQ:FQ-P02-U07"
+      ],
+      "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
+      "sourceSha256": "e3cda0d7a91bd090cec45dbc8ce89e2015e2202173357c374ff49365f9c29ddd",
+      "locator": "Official Rulebook PDF page 24, Exploration Sequence and illustrated Entrance Effect",
+      "evidenceKind": "official-text",
+      "exactText": "– If you are Moving Cautiously place a Secure token                                                                      5\n                                                                                                    Entrance Effect:\n              ( ) there.                                                                   Close all Doors around this Room.\n           – Make a Noise roll.                                                            Remove this card from the game.\n                                                                                                                                    6\n           More on Noise rolls: see the next page.\n       b. If you are Moving through an Unexplored Corridor\n          to an Undiscovered Room – Resolve the Exploration                 1.   Set up the Room – Check the type of Room described on\n          Sequence.                                                              the top of the card (“A”, “B”, “C”,",
+      "visualEvidencePath": "docs/qa/implementation-readiness/correctness-audit/packets/packet-001/rulebook-page-24-160dpi.png",
+      "visualEvidenceSha256": "64137cf05b8b8efb5320d4c3e989020578c9fe5c33ef8a787c0260299fb8b5c3",
+      "pdfPageIndex": 24,
+      "renderDpi": 160
+    },
+    {
+      "evidenceId": "P001-E11",
+      "auditUnitIds": [
+        "FAQ:FQ-P02-U05"
+      ],
+      "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
+      "sourceSha256": "e3cda0d7a91bd090cec45dbc8ce89e2015e2202173357c374ff49365f9c29ddd",
+      "locator": "Official Rulebook PDF page 38, Autodestruction Procedure",
+      "evidenceKind": "official-text",
+      "exactText": "autodestruction procedure\nThe Facility is installed with an Autodestruction Procedure in case of\nemergency. It can be easily turned on, but turning it off is not an easy\ntask, because it requires a complete power shutdown in the Reac-\ntor Room.\nWhen the Procedure is Activated, place the Autodestruction to-\nken ( ) on the Round track 5 spaces ahead of the current Round\nmarker (there should be 4 empty spaces between the Round marker\nand the Autodestruction token). If there are not enough spaces on\nthe Round track, place the Autodestruction token behind the last\nspace – the Autodestruction activates upon the game end instead.\nWhen a Round marker moves to the same space as the Autodestruc-\ntion token, the Facility is destroyed and the game ends.\nThe Autodestruction Procedure may only be turned off in the Reactor\nRoom, with a complete Facility power shut down.\n\n\n   DESTROYED FACILITY\n   When the Facility is destroyed, the game ends – all Charac-\n   ters in the Facility (even Hibernated) and Intruders (including\n   the Queen) are considered dead. All Rooms (including the Nest)\n   are considered Destroyed.\n\n\n\n\n38",
+      "visualEvidencePath": "docs/qa/implementation-readiness/correctness-audit/packets/packet-001/rulebook-page-38-160dpi.png",
+      "visualEvidenceSha256": "56975f8c0b8e0b77f92f7a4500389c2e6e4552d2ff96d0e8bf954ec6b7b223eb",
+      "pdfPageIndex": 38,
+      "renderDpi": 160
+    },
+    {
+      "evidenceId": "P001-E12",
+      "auditUnitIds": [
+        "FAQ:FQ-P02-U05"
+      ],
+      "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
+      "sourceSha256": "e3cda0d7a91bd090cec45dbc8ce89e2015e2202173357c374ff49365f9c29ddd",
+      "locator": "Official Rulebook PDF page 39, End of the Game checks",
+      "evidenceKind": "official-text",
+      "exactText": "When the game ends there are still a few checks that need to be done before players can determine winners. At the end of the game Characters who are still alive, and have Escaped/Hibernated perform the following sequence in order: 1. Each Character without a Larva on their Character board – Draws all cards from the Action deck and discard pile to hand and performs the Infection Procedure. More on Infection Procedure: see the previous page. 2. Each Character that currently has a Larva on their Character board – Gains 1 Contamination card, reshuffles their whole deck (including hand and discard pile) and performs the Eclosion Procedure. More on Eclosion Procedure: see the previous page. Note: A Character may have gained a Larva during the game or during this Sequence. 3. Each Character who is still alive – Reveals and checks their Objective. Note: If a Character has not chosen an Objective until that point, they simply do so now (before other players reveal their Objectives). 4. Each remaining Character who succeeded in completing their Objective wins the game!",
+      "visualEvidencePath": "docs/qa/implementation-readiness/correctness-audit/packets/packet-001/rulebook-page-39-160dpi.png",
+      "visualEvidenceSha256": "d5110decee4ab76f46163dd397bfbcc59d765035fb945f3d6083969a92049316",
+      "pdfPageIndex": 39,
+      "renderDpi": 160
+    },
+    {
+      "evidenceId": "P001-E13",
+      "auditUnitIds": [
+        "FAQ:FQ-P02-U04"
+      ],
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/combat-engineer-027.png",
+      "sourceSha256": "6a338a566b9787f8205c63e95c24a57c0ccf01fd2e2af64be1f8769233a75fc6",
+      "locator": "Audited card-text-corpus record: Combat Engineer / Computer Skills / printedData.body",
+      "evidenceKind": "component-source-bound-transcription",
+      "exactText": "If you are in [computer] Room, use the Room.\n\nOR\n\nIf you are in [computer] Room, Open or Close 1 Door in the Facility.",
+      "visualEvidencePath": null,
+      "visualEvidenceSha256": null,
+      "pdfPageIndex": null,
+      "renderDpi": null
+    },
+    {
+      "evidenceId": "P001-E14",
+      "auditUnitIds": [
+        "FAQ:FQ-P02-U04"
+      ],
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-134.jpg",
+      "sourceSha256": "87b35fe728adbaf7c7568e223b0c5afb6a9265b8065b3349542cc798be9211f6",
+      "locator": "Audited card-text-corpus record: Portable Device / printedData.body",
+      "evidenceKind": "component-source-bound-transcription",
+      "exactText": "If you are in a [computer] Room\nor a Life Support Control Room,\nuse the Room (even with a [malfunction]).",
+      "visualEvidencePath": null,
+      "visualEvidenceSha256": null,
+      "pdfPageIndex": null,
+      "renderDpi": null
+    },
+    {
+      "evidenceId": "P001-E15",
+      "auditUnitIds": [
+        "FAQ:FQ-P02-U04"
+      ],
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/robotDeck-068.jpg",
+      "sourceSha256": "e613b1e23d25d91e1fe5ccfe925426396c0866c5a36cba91a69dcdb493f2b2a6",
+      "locator": "Audited card-text-corpus record: Server Robot / printedData.body",
+      "evidenceKind": "component-source-bound-transcription",
+      "exactText": "Move the [robot] up to 3 times.\n\nOR\n\nIf the [robot] is in a [computer] Room, use\nthe Room (even with a [malfunction]).",
+      "visualEvidencePath": null,
+      "visualEvidenceSha256": null,
+      "pdfPageIndex": null,
+      "renderDpi": null
+    },
+    {
+      "evidenceId": "P001-E16",
+      "auditUnitIds": [
+        "FAQ:FQ-P02-U04"
+      ],
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/reditem-148_cards/card-06.png",
+      "sourceSha256": "e149151bec4cb0d41875581b66864e5f2dd1465e169158ff46ce62f7aedc7c91",
+      "locator": "Audited source-bound component capture: Personal Log Codes card image (source-local card image path); corresponding audited card-text-corpus record is retained as the text transcription cross-index",
+      "evidenceKind": "component-source-bound-transcription",
+      "exactText": "Only in a [computer] Room with no [malfunction].\nCheck all Objective cards\nof a chosen Character.",
+      "visualEvidencePath": null,
+      "visualEvidenceSha256": null,
+      "pdfPageIndex": null,
+      "renderDpi": null
+    },
+    {
+      "evidenceId": "P001-E17",
+      "auditUnitIds": [
+        "FAQ:FQ-P02-U07"
+      ],
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/reditem-112.png",
+      "sourceSha256": "b728051696f6e41cefa58c203125c1470a3a48c589820b5b8a82cbf18c28681c",
+      "locator": "Audited card-text-corpus record: Exploring Drone / printedData.body",
+      "evidenceKind": "component-source-bound-transcription",
+      "exactText": "Resolve Exploration Sequence\nfor a neighboring Room\nwithout Moving.\nDo not resolve the Entrance effect.",
+      "visualEvidencePath": null,
+      "visualEvidenceSha256": null,
+      "pdfPageIndex": null,
+      "renderDpi": null
+    },
+    {
+      "evidenceId": "P001-E18",
+      "auditUnitIds": [
+        "FAQ:FQ-P02-U07"
+      ],
+      "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/robotDeck-004.jpg",
+      "sourceSha256": "c78d2a69189749dcd4578ee7e270b83c6115510988286431943ba6039b2abc56",
+      "locator": "Audited card-text-corpus record: Exploration Robot / printedData.body",
+      "evidenceKind": "component-source-bound-transcription",
+      "exactText": "Move the [robot] up to 2 times.\nOR\nMove the [robot] through\nan Unexplored Corridor\nand resolve an Exploration\nSequence. Do not resolve\nthe Entrance effect.",
+      "visualEvidencePath": null,
+      "visualEvidenceSha256": null,
+      "pdfPageIndex": null,
+      "renderDpi": null
+    },
+    {
+      "evidenceId": "P001-E19",
+      "auditUnitIds": [
+        "FAQ:FQ-P02-U04",
+        "FAQ:FQ-P02-U07"
+      ],
+      "sourcePath": "assets/tts-mod/extract/card-text-corpus.json",
+      "sourceSha256": "34395bb0fbb665d011e0e4cbbf3adc47898f3cce7522ad7eb9e186475e5ee7cd",
+      "locator": "Corpus metadata/counts and bounded source-text search across all 390 records; component families include Items, Actions, Exploration, Robots, Events, Objectives, and character decks",
+      "evidenceKind": "source-scope-metadata",
+      "exactText": "Audited source-bound card/reference corpus: 390 records, 350 with rules text. Bounded source-text search terms were Malfunction, computer, Explore, Entrance, and Remove this card. The search returned 50, 12, 23, 7, and 4 records respectively. Component channels checked were game/startItemDeck, game/greenitem, game/reditem, game/robotDeck, game/exploration, game/action, game/event, and all base character card families. The exact source-bound records relevant to the selected units are included as separate evidence rows; this inventory is scope metadata, not a normalized rule conclusion.",
+      "visualEvidencePath": null,
+      "visualEvidenceSha256": null,
+      "pdfPageIndex": null,
+      "renderDpi": null
+    },
+    {
+      "evidenceId": "P001-E20",
+      "auditUnitIds": [
+        "FAQ:FQ-P02-U04",
+        "FAQ:FQ-P02-U05",
+        "FAQ:FQ-P02-U06",
+        "FAQ:FQ-P02-U07"
+      ],
+      "sourcePath": "docs/rules/source-extraction/official/gamefound-nemesis-retaliation-20260901.html",
+      "sourceSha256": "dc52b2e15308c5275e7721536871fe0cb9b36e8869e936037f095009a0c9c7db",
+      "locator": "Embedded official Gamefound page payload: project metadata, navigation FAQ item, and projectLastUpdate",
+      "evidenceKind": "source-scope-metadata",
+      "exactText": "Official Gamefound page for Nemesis: Retaliation: project creatorName=Awaken Realms; project name=Nemesis: Retaliation; publishedDate=2023-02-28T17:31:21.983Z. Its navigation payload lists FAQ with restrictionReason=The creator hasn't enabled the FAQ section yet. The same project payload records projectLastUpdate=null. The page exposes the Updates route but no publisher FAQ/errata document or superseding FAQ version in this response.",
+      "visualEvidencePath": null,
+      "visualEvidenceSha256": null,
+      "pdfPageIndex": null,
+      "renderDpi": null
+    },
+    {
+      "evidenceId": "P001-E21",
+      "auditUnitIds": [
+        "FAQ:FQ-P02-U04",
+        "FAQ:FQ-P02-U05",
+        "FAQ:FQ-P02-U06",
+        "FAQ:FQ-P02-U07"
+      ],
+      "sourcePath": "docs/rules/source-extraction/official/gamefound-nemesis-retaliation-updates-20260901.html",
+      "sourceSha256": "bd3b31358489c385f3e3b4893b96ec1100b90f89e657a05945d6d28c847df400",
+      "locator": "Official Gamefound /updates route response: ProjectUpdatesContent route and server payload",
+      "evidenceKind": "source-scope-metadata",
+      "exactText": "Official Gamefound updates route checked at /en/projects/awaken-realms/nemesis-retaliation/updates on 2026-09-01. The server response registers ProjectUpdatesContent for the route and contains no embedded publisher FAQ, errata, or newer FAQ-version record; the project metadata in the official campaign response has projectLastUpdate=null. This route check does not assert that an inaccessible external archive is absent.",
+      "visualEvidencePath": null,
+      "visualEvidenceSha256": null,
+      "pdfPageIndex": null,
+      "renderDpi": null
+    },
+    {
+      "evidenceId": "P001-E22",
+      "auditUnitIds": [
+        "FAQ:FQ-P02-U04",
+        "FAQ:FQ-P02-U05",
+        "FAQ:FQ-P02-U06",
+        "FAQ:FQ-P02-U07"
+      ],
+      "sourcePath": "docs/rules/source-extraction/official/awakenrealms-download-page-20260901.html",
+      "sourceSha256": "3d67aac60354e8af73ce24fcd09e7a7fa2dae87f8040d24ecf90296cce4690db",
+      "locator": "Official Awaken Realms Downloads page HTML head: title, canonical URL, author, and description metadata",
+      "evidenceKind": "source-scope-metadata",
+      "exactText": "Official Awaken Realms Downloads page captured at https://awakenrealms.com/download: title=Downloads | Awaken Realms; canonical URL=https://awakenrealms.com/download; author=Awaken Realms. Its description states: Download official rulebooks, FAQs, and free game resources for Awaken Realms board games — Nemesis, ISS Vanguard, Tainted Grail and more. The direct publisher FAQ v1.2 download is captured separately with the same SHA-256 as the selected FAQ source.",
+      "visualEvidencePath": null,
+      "visualEvidenceSha256": null,
+      "pdfPageIndex": null,
+      "renderDpi": null
+    },
+    {
+      "evidenceId": "P001-E23",
+      "auditUnitIds": [
+        "FAQ:FQ-P02-U04",
+        "FAQ:FQ-P02-U05",
+        "FAQ:FQ-P02-U06",
+        "FAQ:FQ-P02-U07"
+      ],
+      "sourcePath": "docs/rules/source-extraction/official/awakenrealms-support-nemesis-retaliation-faq-folder-20260901.html",
+      "sourceSha256": "cd210c97ae05a26921c2b08ff41f9faffeea47d89bceaed98c89696d98bd0b10",
+      "locator": "Official Awaken Realms Support HTML title and article-list body for folder 42000113448",
+      "evidenceKind": "source-scope-metadata",
+      "exactText": "Official Awaken Realms Support page titled Nemesis Retaliation FAQ, captured at https://support.awakenrealms.com/support/solutions/folders/42000113448. The captured body reports: Sorry! nothing found for Nemesis Retaliation FAQ (11), and lists pledge, shipping, and product-support articles rather than a rules FAQ or erratum matching the four selected base-game units.",
+      "visualEvidencePath": null,
+      "visualEvidenceSha256": null,
+      "pdfPageIndex": null,
+      "renderDpi": null
+    },
+    {
+      "evidenceId": "P001-E24",
+      "auditUnitIds": [
+        "FAQ:FQ-P02-U04",
+        "FAQ:FQ-P02-U05",
+        "FAQ:FQ-P02-U06",
+        "FAQ:FQ-P02-U07"
+      ],
+      "sourcePath": "docs/rules/source-extraction/official/awakenrealms-nemesis-retaliation-page-20260901.html",
+      "sourceSha256": "7d0813585805d40392e849212f0b24c3bcbb5b0c5da9d0c3c78719ab2412b3d3",
+      "locator": "Official Awaken Realms Nemesis Retaliation page HTML head: title, canonical URL, and description metadata",
+      "evidenceKind": "source-scope-metadata",
+      "exactText": "Official Awaken Realms page captured at https://awakenrealms.com/games/awaken-realms/nemesis-retaliation: title=Nemesis Retaliation | Awaken Realms; canonical URL matches that address; author=Awaken Realms. Its description identifies Nemesis Retaliation as published by Awaken Realms. No FAQ or erratum text is present in this page response.",
+      "visualEvidencePath": null,
+      "visualEvidenceSha256": null,
+      "pdfPageIndex": null,
+      "renderDpi": null
+    }
+  ],
+  "searchCoverage": {
+    "searchedSourcePaths": [
+      {
+        "sourcePath": "docs/rulebooks/Nemesis_RT_FAQ_v1.2.pdf",
+        "sourceSha256": "611ae20dc0b3e04f3c0d99f294a92fc95460c042565b12d1c808b1282ae0e0d8"
+      },
+      {
+        "sourcePath": "docs/rulebooks/faq_text.txt",
+        "sourceSha256": "9741ca30bf75f834de9fba5752f5355c5cfb9638955efe5cd9c1c181cbb432f5"
+      },
+      {
+        "sourcePath": "docs/rules/source-extraction/faq-v1.2-source-extraction.json",
+        "sourceSha256": "fe5adc438355a046ecfbd9d9a88e9433427fcc49a36479a6b5d29c66687b7ced"
+      },
+      {
+        "sourcePath": "docs/rulebooks/Nemesis_RT_Rulebook_official.pdf",
+        "sourceSha256": "e3cda0d7a91bd090cec45dbc8ce89e2015e2202173357c374ff49365f9c29ddd"
+      },
+      {
+        "sourcePath": "docs/rulebooks/rulebook_text.txt",
+        "sourceSha256": "b89552f02686559e2efa284dc8a18afc16bfb753b2de8afebe62c5243ca45a0a"
+      },
+      {
+        "sourcePath": "docs/rules/source-extraction/base-source-inventory.json",
+        "sourceSha256": "c719cd8e4e08f12b0d3b41fa986e3c5eb9ee7927a3a5a4e18b43704ab9ea0f79"
+      },
+      {
+        "sourcePath": "docs/rules/source-extraction/extraction-closure-audit.json",
+        "sourceSha256": "a2f6397bbcccc6b853f23667af350fc8c5fded5f219fe8ccfbe8e1adcbd4457d"
+      },
+      {
+        "sourcePath": "assets/tts-mod/extract/card-text-corpus.json",
+        "sourceSha256": "34395bb0fbb665d011e0e4cbbf3adc47898f3cce7522ad7eb9e186475e5ee7cd"
+      },
+      {
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/character/combat-engineer-027.png",
+        "sourceSha256": "6a338a566b9787f8205c63e95c24a57c0ccf01fd2e2af64be1f8769233a75fc6"
+      },
+      {
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/reditem-112.png",
+        "sourceSha256": "b728051696f6e41cefa58c203125c1470a3a48c589820b5b8a82cbf18c28681c"
+      },
+      {
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/robotDeck-004.jpg",
+        "sourceSha256": "c78d2a69189749dcd4578ee7e270b83c6115510988286431943ba6039b2abc56"
+      },
+      {
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/robotDeck-068.jpg",
+        "sourceSha256": "e613b1e23d25d91e1fe5ccfe925426396c0866c5a36cba91a69dcdb493f2b2a6"
+      },
+      {
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-134.jpg",
+        "sourceSha256": "87b35fe728adbaf7c7568e223b0c5afb6a9265b8065b3349542cc798be9211f6"
+      },
+      {
+        "sourcePath": "docs/rules/source-extraction/official/gamefound-nemesis-retaliation-20260901.html",
+        "sourceSha256": "dc52b2e15308c5275e7721536871fe0cb9b36e8869e936037f095009a0c9c7db"
+      },
+      {
+        "sourcePath": "docs/rules/source-extraction/official/gamefound-nemesis-retaliation-updates-20260901.html",
+        "sourceSha256": "bd3b31358489c385f3e3b4893b96ec1100b90f89e657a05945d6d28c847df400"
+      },
+      {
+        "sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/game/reditem-148_cards/card-06.png",
+        "sourceSha256": "e149151bec4cb0d41875581b66864e5f2dd1465e169158ff46ce62f7aedc7c91"
+      },
+      {
+        "sourcePath": "docs/rules/source-extraction/official/awakenrealms-retaliation-faq-v1.2-20260901.pdf",
+        "sourceSha256": "611ae20dc0b3e04f3c0d99f294a92fc95460c042565b12d1c808b1282ae0e0d8"
+      },
+      {
+        "sourcePath": "docs/rules/source-extraction/official/awakenrealms-retaliation-faq-v1.1-20260901.pdf",
+        "sourceSha256": "bd41efa25855b80d2145c43031948dd072bc352bf643aafde3092540a7de1cae"
+      },
+      {
+        "sourcePath": "docs/rules/source-extraction/official/awakenrealms-nemesis-retaliation-page-20260901.html",
+        "sourceSha256": "7d0813585805d40392e849212f0b24c3bcbb5b0c5da9d0c3c78719ab2412b3d3"
+      },
+      {
+        "sourcePath": "docs/rules/source-extraction/official/awakenrealms-download-page-20260901.html",
+        "sourceSha256": "3d67aac60354e8af73ce24fcd09e7a7fa2dae87f8040d24ecf90296cce4690db"
+      },
+      {
+        "sourcePath": "docs/rules/source-extraction/official/awakenrealms-support-nemesis-retaliation-faq-folder-20260901.html",
+        "sourceSha256": "cd210c97ae05a26921c2b08ff41f9faffeea47d89bceaed98c89696d98bd0b10"
+      },
+      {
+        "sourcePath": "docs/rules/source-extraction/official/awakenrealms-support-nemesis-retaliation-solution-20260901.html",
+        "sourceSha256": "62abd6eac46579cd7310927e903e8f01a8991a91c4d68d90098210c8fa99b618"
+      }
+    ],
+    "searchTerms": [
+      "Malfunction markers",
+      "computer icons",
+      "Autodestruction",
+      "game ends",
+      "Exploration Sequence",
+      "Entrance Effect",
+      "Close all Doors",
+      "Remove this card from the game",
+      "Hibernatorium",
+      "computer Room",
+      "even with a malfunction",
+      "no [malfunction]",
+      "Do not resolve the Entrance effect",
+      "Exploration Sequence",
+      "official Gamefound FAQ route",
+      "official Gamefound updates route",
+      "projectLastUpdate",
+      "official Awaken Realms Downloads page",
+      "official Awaken Realms Support Nemesis Retaliation FAQ folder",
+      "official Awaken Realms Nemesis Retaliation page",
+      "direct publisher Retaliation FAQ v1.2 download",
+      "historical official Retaliation FAQ v1.1"
+    ],
+    "neighboringSectionsChecked": [
+      "FAQ v1.2 GENERAL RULES",
+      "Rulebook p.15 Autodestruction Token",
+      "Rulebook p.20 Room anatomy and Computer Icon",
+      "Rulebook p.23 Room and Heavy Item Malfunction rules",
+      "Rulebook pp.24-27 Character Movement and Exploration Sequence",
+      "Rulebook p.38 Autodestruction Procedure",
+      "Rulebook p.39 End of the Game",
+      "Audited card/reference corpus: all base Item, Action, Exploration, Robot, Event, and character card families",
+      "Official Gamefound campaign page payload and FAQ navigation state, captured 2026-09-01",
+      "Official Gamefound updates route payload, captured 2026-09-01",
+      "Official Awaken Realms Downloads page metadata and direct FAQ download",
+      "Official Awaken Realms Support Nemesis Retaliation FAQ folder and category page",
+      "Official Awaken Realms Nemesis Retaliation product page",
+      "Official Retaliation FAQ v1.1 historical version check"
+    ],
+    "faqUnitIdsChecked": [
+      "FAQ:FQ-P02-U04",
+      "FAQ:FQ-P02-U05",
+      "FAQ:FQ-P02-U06",
+      "FAQ:FQ-P02-U07"
+    ],
+    "componentChannelsChecked": [
+      "official FAQ PDF page 2 rendered page and checked text extraction",
+      "official Rulebook PDF pages 15, 20, 23, 24, 26, 27, 38, and 39 rendered pages",
+      "audited FAQ source-bound extraction records",
+      "audited Rulebook text extraction",
+      "audited source-bound card/reference corpus inventory and bounded text search",
+      "audited source-bound Item, Action, Exploration, and Robot captures",
+      "official Gamefound campaign page negative-control publication check",
+      "official Gamefound updates-route negative-control publication check",
+      "direct Awaken Realms FAQ v1.2 download and byte identity against selected FAQ source",
+      "official Awaken Realms Downloads page",
+      "official Awaken Realms Support knowledge-base folder and category page",
+      "official Awaken Realms Nemesis Retaliation product page",
+      "official Retaliation FAQ v1.1 historical version source"
+    ],
+    "exclusions": [
+      {
+        "scope": "Expansion-only FAQ and expansion rulebooks",
+        "reason": "The four selected units are base-game GENERAL RULES units; expansion-only rulings are outside this packet scope."
+      },
+      {
+        "scope": "Licensed/TTS secondary data",
+        "reason": "Secondary sources are not needed to establish these official FAQ and Rulebook passages and cannot override them."
+      },
+      {
+        "scope": "Semantic projections, concise rules, legacy implementation, and design files",
+        "reason": "The packet is source-only and intentionally withholds downstream conclusions and implementation behavior."
+      },
+      {
+        "scope": "Unarchived publisher channels outside the captured official Gamefound responses",
+        "reason": "Unaccessible or unarchived external pages are outside the captured source set; the captured official campaign page shows FAQ disabled and no projectLastUpdate, and the captured updates route exposes no embedded FAQ/errata record. This remains a bounded source uncertainty rather than invented negative evidence."
+      },
+      {
+        "scope": "TTS/generated component records not used as sole authority",
+        "reason": "Source-bound component records are corroborative search evidence only; official FAQ and Rulebook passages remain higher in the declared authority order. No canonical vocabulary, semantic projection, or implementation file is included."
+      },
+      {
+        "scope": "Official Retaliation FAQ v1.1 historical version check",
+        "reason": "The 19.11.2025 publisher PDF predates the selected 8.06.2026 FAQ v1.2 and is retained only to detect version succession; it does not override the selected v1.2 source."
+      },
+      {
+        "scope": "Official publisher pages without a matching rules FAQ or erratum response",
+        "reason": "The captured Downloads, product, and Support responses were checked for a newer applicable correction; their observed metadata and article results are recorded as bounded publication-channel evidence, not as a statement about unarchived material."
+      }
+    ]
+  },
+  "sourceOnlyAttestation": true,
+  "forbiddenDownstreamSourcesIncluded": []
+}
+
+=== END SOURCE PACKET ===
