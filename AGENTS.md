@@ -75,7 +75,7 @@ The project optimizes for source fidelity and forward progress, not unrelated re
 - Existing helper regression controls may run in the normal gate; do not deepen or rereview them merely for more assurance.
 - One reproducible candidate, one proportionate review when needed, one serial disposition, and one green normal gate are sufficient. Do not create audit-of-the-audit loops.
 - Default to one worker. Use 2–4 for genuinely independent specialties. Use larger fan-out only for distinct substantive partitions with a real elapsed-time benefit. Worker count is a ceiling, never a target.
-- Read-only reviewers should receive immutable bounded packets rather than writable worktrees.
+- Read-only reviewers should receive the fragment text and citation surface they need rather than writable worktrees.
 - Retain compact passing results and evidence needed for material findings. Do not preserve repository clones, transcript dumps, duplicated snapshots, or no-op branches.
 - Integrate verified corrections once, run the normal gate, remove temporary workspaces, and return to substantive source/rules work.
 

@@ -317,9 +317,9 @@ Machine-readable evidence: `docs/rules/source-extraction/validation.json`.
 
 ## Remaining Work — Ordered
 
-1. **Correctness audit** — execute the locked 140-unit stratified blind source audit.
+1. **Fragment-coverage review** — walk the official source artifacts fragment by fragment, asking whether each fragment's rules and behavior are already fully and accurately captured.
 2. Repair confirmed concise-rule defects and preserve unresolved policy as explicit gates.
-3. Expand affected families or the full planning inventory only if the preregistered error thresholds require it.
+3. Expand affected families only if fragment-coverage findings require it.
 4. Choose the new architecture independently and seek explicit approval before implementation.
 
 Detailed phase plan: `docs/rules/source-extraction/extraction-roadmap.md`.

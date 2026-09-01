@@ -6,7 +6,7 @@ This file supplements `AGENTS.md` with agent-facing documentation practices. It 
 
 **NEVER PUT PROJECT STATUS, CURRENT PHASE, NEXT WORK, TODO ITEMS, CHECKPOINTS, COUNTS, BRANCH/HEAD STATE, WORKER STATE, OR TEST RESULTS IN `AGENTS.md` OR `AGENTS-SUPPLEMENT.md`.** These are static instruction files. Normal work sessions must not edit them. Mutable state belongs in `PROJECT_STATUS.md`; tasks and history belong in `todo.md`; exact facts belong in generated reports.
 
-Stage 1 is a simple rules derivation review. Do not add unrelated helper-implementation analysis to handoffs or worker assignments.
+The rules-layer review is the owner's fragment-coverage methodology. Do not add unrelated helper-implementation analysis to handoffs or worker assignments.
 
 ## Documentation Practice
 
@@ -28,15 +28,15 @@ Use the repository-wide placement policy in `readme.md` and apply these agent ru
 - Before adding a note, search for an existing authoritative home. If content is misplaced, move it and repair references rather than leaving aliases or duplicate copies.
 - Keep handoff prompts transactional: identify the repository, the authoritative resume documents, the current task/item, and any immediate unresolved state. Do not copy durable procedures or policy into a handoff prompt; update the authoritative document and link to it instead.
 
-## Stage 1 Autonomous Work Unit
+## Rules-Review Autonomous Work Unit
 
-One Stage 1 work unit is a substantive content batch plus its serial integration, validation, durable checkpoint, and cleanup. A harness-only review candidate is exceptional, not the default unit. The next session resumes from `PROJECT_STATUS.md` and committed repository artifacts, not the previous transcript or historical candidate reports.
+One work unit is a substantive fragment-coverage batch plus its serial integration, validation, durable checkpoint, and cleanup. The next session resumes from `PROJECT_STATUS.md` and committed repository artifacts, not the previous transcript or historical candidate reports.
 
 Apply the mandatory proportional-review policy in `AGENTS.md`:
 
-- Spend workers on source packets, blind derivations, comparisons, and verification—not duplicate harness criticism.
+- Spend workers on fragment coverage checks — handing each source fragment to a child and recording whether its rules and behavior are already fully and accurately captured — not duplicate harness criticism.
 - Default to one worker and use 2–4 only for real independent specialties. Larger waves require distinct content partitions, not multiple agents asking the same question.
-- Use immutable bounded packets for read-only or blind work. Create task workspaces/worktrees only when a worker must write repository artifacts or inspect Git-specific behavior.
+- Give read-only fragment reviewers the fragment text and the citation surface they need. Create task workspaces/worktrees only when a worker must write repository artifacts or inspect Git-specific behavior.
 - Hold workspace locks only for actual work. Do not start sleep-only lock holders or preserve review branches that contain no unique commits.
 - For 1–4 workers, compact structured results and exact artifact paths are sufficient. The `hermes-worker-result-batch-manifest` / envelope / aggregate protocol is required only for larger fixed batches where exact mechanical closure materially helps.
 - Write full durable reports only for material findings, formal acceptance decisions, or evidence needed to reproduce them. Passing reviewers should return compact verdicts and checks, not repository snapshots or transcript dumps.
