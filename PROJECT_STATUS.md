@@ -1,7 +1,7 @@
 # Nemesis: Retaliation — Project Status
 
-**Status date:** 2026-08-31
-**Active phase:** Stage 1 v2 baseline/lock transition, then substantive blind rules audit (semantic expansion frozen)
+**Status date:** 2026-09-01
+**Active phase:** Stage 1 v2 locked; Lane A source-packet batch 001 (semantic expansion frozen)
 **Active branch:** `work/card-corpus-extraction`
 **Implementation status:** Frozen; a clean rewrite will begin only after rules-layer readiness and explicit approval
 
@@ -14,7 +14,7 @@
 
 ## Current Objective
 
-Run the normal prelock gate once at the current proportional-review checkpoint, create the v2 baseline/lock transition if green, and execute the authorized Stage 1 blind correctness audit over 140 substantive rules/FAQ/component units before any rewrite approval.
+Execute the locked Stage 1 blind correctness audit over 140 substantive rules/FAQ/component units, beginning with a four-unit source-only FAQ packet, before any rewrite approval.
 
 The current implementation remains frozen. Existing semantic records remain immutable audit/reference evidence; expansion is not recommended.
 
@@ -22,20 +22,20 @@ The current implementation remains frozen. Existing semantic records remain immu
 
 Do **not** launch another harness review. Stage 1 is a simple rules derivation review: assemble source evidence, check completeness, derive rules without downstream anchoring, compare, and verify substantive differences. Helper implementation details are outside the review.
 
-At the current committed checkpoint, run the exact normal prelock commands in `docs/qa/implementation-readiness/correctness-audit/methodology.md`. If the repository is clean and the gate is green, use that commit as the v2 baseline, create audit-lock.json as its immediate direct child, run the post-lock gate, and begin the first substantive source-packet batch. The population remains 56 concise rules + 28 base-applicable FAQ units + 56 stratified component effects.
+The v2 baseline is `a38a9ff28b96ab26975675e47701728ecc0bd095`; its immediate direct child `0380196b727ef1a864cb31d3a3f54773d835e5e5` adds only `docs/qa/implementation-readiness/correctness-audit/audit-lock.json`. The full post-lock gate is green. Build and seal batch 001 for `FAQ:FQ-P02-U04` through `FAQ:FQ-P02-U07`, commit its canonical completeness prompt in the same packet wave, obtain an independent Luna Max completeness decision, and proceed to Sol xhigh blind derivation only after the packet is accepted. The population remains 56 concise rules + 28 base-applicable FAQ units + 56 stratified component effects.
 
 Evidence: `docs/qa/implementation-readiness/correctness-audit/`.
 
 ## Resume Checkpoint
 
 - Verified semantic data checkpoint: `f3fbd28` for the Facility/map topology/setup batch integrated over the prior Combat/Attacks/Noise/Hazard data and adversarial suite.
-- Branch `work/card-corpus-extraction` contains the candidate-5 disposition checkpoint (`71a5ba0`) and preserved probe sources (`a833aa5`). The project owner accepted this as sufficient to proceed after the normal gate; it must not trigger another meta-review. No audit work has been pushed; no PR or deployment exists.
-- The preserved v1 baseline (`2fe3f0d`) and lock commit (`3e23aeb`) are superseded and cannot authorize execution. `docs/qa/implementation-readiness/correctness-audit/audit-lock-v1.json` is retained; no v2 lock exists.
+- Branch `work/card-corpus-extraction` contains the cleaned Stage 1 policy checkpoint and active lock. No audit work has been pushed; no PR or deployment exists.
+- The preserved v1 baseline (`2fe3f0d`) and lock commit (`3e23aeb`) remain superseded. The active v2 baseline is `a38a9ff28b96ab26975675e47701728ecc0bd095`; lock commit `0380196b727ef1a864cb31d3a3f54773d835e5e5` is its immediate direct child and changes only `docs/qa/implementation-readiness/correctness-audit/audit-lock.json`.
 - The v2 population is unchanged and ordered: 140 units (56 concise rules, 28 base-applicable FAQ units, 56 component effects), all `pending-blind-derivation`; no substantive audit judgment has begun.
 - Candidate review history remains under `docs/qa/implementation-readiness/correctness-audit/reviews/` as evidence only. New sessions must not read or replay those reports unless diagnosing a concrete regression tied to one of them.
 - The candidate-5 disposition closed the accepted source-only, lock-commit, schema/control, and status findings. Filesystem-race hardening already present is now a closed regression topic outside the ongoing threat model.
-- Fresh final validation of the post-disposition checkpoint on 2026-08-31 is green: manifest freshness and prelock validation pass; all 102 mutation/provenance/path/evidence/render/wave/progress/rollback controls, the complete source-only CLI matrix and its benign controls, and all 15 decision tests pass; source extraction passes; source staging verifies 1,098 files with zero copies; project-status validation and `git diff --check` pass.
-- The normal gate—not another review wave—is the remaining prerequisite to baseline promotion. Provider-blocked, interrupted, empty, malformed, or contradictory substantive audit attempts remain non-evidence.
+- Fresh validation on 2026-09-01 is green at both lifecycle boundaries: clean prelock baseline `a38a9ff28b96ab26975675e47701728ecc0bd095` and post-lock `0380196b727ef1a864cb31d3a3f54773d835e5e5`. Manifest freshness, lock provenance, all 102 mutation/provenance/path/evidence/render/wave/progress/rollback controls, the complete source-only CLI matrix and benign controls, all 15 decision tests, source extraction, project-status validation, and `git diff --check` pass.
+- Baseline promotion is complete. Batch 001 source-packet preparation is the next substantive work. Provider-blocked, interrupted, empty, malformed, or contradictory audit attempts remain non-evidence.
 - The core Combat/Attacks/Noise/Hazard/entry batch is integrated over the prior Heavy/Equipment work; deterministic semantic rebuilds and 48 focused/adversarial tests pass, including the new independent Combat projection.
 - Resume in Stage 1: the owner accepted the recommendation to keep semantic expansion frozen and authorized the 140-unit blind correctness audit. Current source-obligation boundary remains 530 covered / 69 pending / 1 source-blocked with 115 no-default semantic questions.
 
@@ -45,7 +45,7 @@ Evidence: `docs/qa/implementation-readiness/correctness-audit/`.
 - Default to one worker; use 2–4 for genuinely different substantive specialties. Larger fan-out is reserved for distinct rules/content partitions, not duplicate critics. Capacity is not a target.
 - Read-only and blind workers should receive immutable bounded packets. Create separate task workspaces/worktrees only when a worker must write repository artifacts or inspect Git-specific behavior. Never use sleep-only lock holders.
 - For 1–4 workers, compact results are sufficient. Use the manifest/envelope/aggregation protocol only for larger fixed batches where exact closure materially helps. Preserve full reports only for material findings or formal acceptance decisions.
-- No v2 baseline or active v2 lock exists yet. A clean normal prelock gate is sufficient to promote the current checkpoint and create the active v2 lock in its immediate direct-child commit.
+- The active v2 baseline and direct-child lock are `a38a9ff28b96ab26975675e47701728ecc0bd095` and `0380196b727ef1a864cb31d3a3f54773d835e5e5`; all 140 progress rows remain pending.
 - Baseline/lock creation, first-parent lane seals, progress transitions, ordinary validation checks, and final adjudication remain serial. Once v2 is locked, follow `docs/qa/implementation-readiness/correctness-audit/methodology.md` for the packet, completeness, blind derivation, comparison, and verification steps without weakening blindness or reviewer independence.
 - Do not create Hermes profiles, expand semantics, touch the legacy implementation, open a PR, merge, deploy, or push unless separately authorized. A stop/status request preempts worker launches, integration, and autonomous successor handoff immediately.
 
@@ -419,8 +419,8 @@ Use these records for different questions:
 
 1. Use the `nemesis-card-corpus` workspace and hold its root lock only while actual workspace work is running.
 2. Read this file, `AGENTS.md`, `AGENTS-SUPPLEMENT.md`, and the threat-model/proportional-execution section of `docs/qa/implementation-readiness/correctness-audit/methodology.md`. Do not read historical candidate reports unless diagnosing a named regression.
-3. Verify branch, HEAD, dirty/protected scope, active workers, and that the active v2 lock file is absent; do not infer state from an old transcript.
+3. Verify branch, HEAD, dirty/protected scope, active workers, and the active v2 lock provenance; do not infer state from an old transcript.
 4. Execute the Immediate Next Deliverable directly. Do not launch another harness review, create reviewer worktrees for read-only work, or run hostile-filesystem probes.
-5. Run the exact normal prelock commands in the methodology. A clean green gate is sufficient to promote the current checkpoint and create the direct-child lock.
-6. After the lock and post-lock gate pass, continue autonomously with a small substantive source-packet batch. Use compact results; clean temporary workers/workspaces immediately after integration.
+5. Use the post-lock lifecycle command from the methodology at checkpoints; never rerun prelock mode against the active lock.
+6. Continue autonomously with batch 001, preserving packet/completeness/blind identity separation and compact evidence. Clean temporary worker directories immediately after verified integration.
 7. Update this file only when material status changes. Commit or push only within the authorized boundary; do not open a PR or deploy without explicit approval.
