@@ -193,30 +193,29 @@ def slice_player_help(manifest):
 
 def slice_cards(manifest):
     data = load(CORPUS)
-    families = {}
+    n = 0
     for record in data.get("records", []):
         fam = record.get("componentFamily") or "unknown"
-        families.setdefault(fam, []).append(record)
-    n = 0
-    for fam in sorted(families):
-        fid = f"CARD-{fam}"
-        lines = [f"CARD CORPUS — family {fam} ({len(families[fam])} records)"]
-        for record in families[fam]:
-            title = None
-            ident = record.get("sourcePath", "")
-            printed = record.get("printedData") or {}
-            title = printed.get("title") or record.get("identity", {}).get("title") or ""
-            lines.append("")
-            lines.append(f"== {ident} ==")
-            for key in ("typeLine", "body"):
-                if printed.get(key):
-                    lines.append(f"{key}: {printed[key]}")
-            sections = printed.get("sections") or []
-            for sec in sections:
-                if isinstance(sec, dict):
-                    text = sec.get("text") or ""
-                    if text:
-                        lines.append(f"section: {text}")
+        source = record.get("sourcePath", "")
+        tail = source.split("/cards/")[-1] if "/cards/" in source else source
+        stem = tail.replace("/", "-")
+        fid = f"CARD-{fam}-{stem}"
+        printed = record.get("printedData") or {}
+        lines = [f"CARD CORPUS RECORD — {fam} / {stem}"]
+        readiness = record.get("rulesInformationReadiness")
+        if readiness:
+            lines.append(f"extraction state: {record.get('extractionState')}; readiness: {readness}") if False else lines.append(f"extraction state: {record.get('extractionState')}; readiness: {readiness}")
+        lines.append(f"rules text present: {record.get('rulesTextPresent')}")
+        lines.append("")
+        for key in ("title", "typeLine", "body"):
+            if printed.get(key):
+                lines.append(f"{key}: {printed[key]}")
+        for sec in printed.get("sections") or []:
+            if isinstance(sec, dict):
+                text = sec.get("text") or ""
+                if text:
+                    lines.append(f"section: {text}")
+        lines.append(f"source: {source}")
         write_fragment(fid, "\n".join(lines), manifest)
         n += 1
     return n
