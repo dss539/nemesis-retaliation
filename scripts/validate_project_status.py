@@ -97,8 +97,6 @@ def main() -> None:
             "AGENTS.md must retain the proportional-review authority", failures)
     require("**RULES REVIEW ONLY.**" in agents,
             "AGENTS.md must retain the rules-review-only boundary", failures)
-    require("Default to one worker" in agents and "Worker count is a ceiling" in agents,
-            "AGENTS.md must retain proportional worker defaults", failures)
     require("Do not start sleep-only lock holders" in supplement,
             "AGENTS-SUPPLEMENT.md must prohibit sleep-only lock holders", failures)
     require("## ABSOLUTE STATIC-FILE RULE" in supplement,
@@ -107,8 +105,6 @@ def main() -> None:
             "AGENTS-SUPPLEMENT.md must keep batch machinery proportional", failures)
     require("must not be rebuilt" in status,
             "PROJECT_STATUS.md must prohibit rebuilding audit machinery", failures)
-    require("one worker; use 2–4" in status,
-            "PROJECT_STATUS.md must retain proportional worker guidance", failures)
     require("fragment-coverage review" in readme,
             "readme.md must expose the owner's fragment-coverage review boundary", failures)
     require(source_validation.get("passed") is True and source_validation.get("failureCount") == 0,

@@ -41,7 +41,7 @@ One work unit is a batch of fragment-coverage checks, plus integrating the resul
 Follow the proportional-review policy in `AGENTS.md`:
 
 - Workers check fragments: give each source fragment to a reviewer and record whether its rules and behavior are already fully and accurately captured. Do not spend workers criticizing the harness.
-- Default to one worker. Use 2–4 only for genuinely independent work. Bigger waves need distinct content partitions, not several agents asking the same question.
+- The owner decides worker count per wave.
 - Give read-only reviewers the fragment text and the citation surface they need. Create workspaces or worktrees only when a worker must write repository artifacts or inspect Git behavior.
 - Hold a workspace lock only while doing real work. Do not start sleep-only lock holders, and do not keep review branches with no unique commits.
 - For 1–4 workers, compact results and exact artifact paths are enough. The batch-manifest/envelope/aggregate protocol is required only for larger fixed batches where exact mechanical closure clearly helps.

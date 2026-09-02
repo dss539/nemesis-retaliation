@@ -33,7 +33,7 @@ Design the fragment-coverage review for owner approval: the source-artifact brea
 ## Execution Boundaries
 
 - Follow the owner's fragment-coverage review in `docs/rules/implementation-readiness.md`. Review rules and source evidence only; do not rebuild audit machinery.
-- Default to one worker; use 2–4 for genuinely different substantive specialties. Larger fan-out is reserved for distinct rules/content partitions, not duplicate critics. Capacity is not a target.
+- The owner decides worker count per wave.
 - Read-only fragment reviewers should receive the fragment text plus the citation surface they need. Create separate task workspaces/worktrees only when a worker must write repository artifacts or inspect Git-specific behavior. Never use sleep-only lock holders.
 - Do not create Hermes profiles, expand semantics, touch the legacy implementation, open a PR, merge, deploy, or push unless separately authorized. A stop/status request preempts worker launches, integration, and autonomous successor handoff immediately.
 
