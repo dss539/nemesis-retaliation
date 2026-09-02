@@ -38,7 +38,7 @@ are categorized and named in the card database.
   - Green TTS root: 23 source-clear Regular occurrences and 7 Heavy occurrences; the licensed aggregate independently records 23 Regular / 7 Heavy.
   - Red TTS root: 21 source-clear Regular, 3 explicit Heavy, and 6 Military Taser class-conflict occurrences; the licensed aggregate independently records 21 Regular / 9 Heavy.
   - Yellow TTS root: 24 source-clear Regular and 6 Fire Extinguisher/Robot Controller class-conflict occurrences; the licensed aggregate independently records 24 Regular / 6 Heavy.
-- **Source:** Rulebook component list and p. 29; exact roots and authority boundaries in `semantics/green-item-source-index.json`, `red-item-source-index.json`, `yellow-item-source-index.json`, and `equipment-source-index.json`.
+- **Source:** Rulebook component list and p. 29; exact roots and authority boundaries in `archive/obsolete/semantics/data/green-item-source-index.json`, `red-item-source-index.json`, `yellow-item-source-index.json`, and `equipment-source-index.json`.
 - **Boundary:** Aggregate agreement does not identify a TTS physical copy with a licensed/current official copy. Class-conflict occurrences remain non-dispatchable until resolved source-scoped; they are not repaired by title, artwork, color, root, or count.
 
 ## ITM-004 — Search dispatches storage by the exact drawn Item class

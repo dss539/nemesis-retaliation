@@ -2,7 +2,7 @@
 
 ## Current decision
 
-**Semantic coverage expansion is frozen.** The source extraction, provenance, vocabulary, ontology, and existing 529 semantic records remain immutable evidence during the readiness experiment. No additional semantic families or records should be added until the project owner reviews a measured proof-of-value result.
+**Semantic layer — archived as obsolete (2026-09-02).** The former semantic projection failed its proof-of-value gate and was moved to `archive/obsolete/semantics/` by owner decision. It is historical reference only: do not extend, rebuild, or validate it, and verify any of its claims against raw source before relying on them. The rewrite will consume the concise Markdown rules corpus (`docs/rules/00-04`).
 
 This freeze does not discard the rules work. It separates three claims that were previously conflated:
 

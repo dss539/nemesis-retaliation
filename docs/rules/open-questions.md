@@ -115,7 +115,7 @@ Use this ledger for ambiguities that the official rulebook and FAQ do not settle
 - **Question:** What are the named Action card faces in each Character's 10-card deck, and each face's printed effect, Reaction, and Not-in-Combat state?
 - **Why it matters:** Action cards are the player's primary resource and the only way to resolve the zero-cost `Play an Action card` Basic Action. Without real faces, the engine cannot resolve card effects and the UI cannot display a hand faithfully. See ACT-CARD-001 and BUG-023.
 - **Sources checked:** `docs/rulebooks/rulebook_text.txt` — the rulebook pictures only a few example card faces rather than listing decks. Only **Sprint** (Recon) and **Duck and Cover** (Contractor: Consultant) are recoverable, plus the anatomy diagram on p. 14. The component list gives a total of 60 Action cards (line 528) with no per-Character breakdown. Web search returned no authoritative Retaliation-specific card list; results were paywalled or covered the earlier *Nemesis* game, whose card list must not be substituted.
-- **Evidence recovered:** The closed card corpus preserves the source-bound component scans/variants, and immutable licensed-digital build `260622-1220` supplies 60 scoped Action-card rows (10 per Character) with names, effects, Reactions, Command flags, and Not-in-Combat booleans. `semantics/action-source-index.json` independently derives the exact 60 physical TTS occurrences from six Character kits plus the Shared Contractor root, full CardID/GUID/CustomDeck/URL/container tuples, and reviewed generated-cell selectors; the rulebook independently confirms 60 total / 10 per Character.
+- **Evidence recovered:** The closed card corpus preserves the source-bound component scans/variants, and immutable licensed-digital build `260622-1220` supplies 60 scoped Action-card rows (10 per Character) with names, effects, Reactions, Command flags, and Not-in-Combat booleans. `archive/obsolete/semantics/data/action-source-index.json` independently derives the exact 60 physical TTS occurrences from six Character kits plus the Shared Contractor root, full CardID/GUID/CustomDeck/URL/container tuples, and reviewed generated-cell selectors; the rulebook independently confirms 60 total / 10 per Character.
 - **Status:** **Resolved as a missing-source/data blocker, not as an authority merge.** All 60 physical occurrences now have occurrence-keyed semantic records at the current source boundary. The licensed table remains secondary; TTS/prototype/final-source variants, selector gaps, and SEM-Q-057 through SEM-Q-074 remain independent and no face, glyph, owner, timing, or lifecycle default is invented or silently rewritten.
 
 ### OQ-011 — Blue Item Icon
@@ -146,7 +146,7 @@ Use this ledger for ambiguities that the official rulebook and FAQ do not settle
 - **Why it matters:** It determines whether an exploratory Move can cause zero, one, or two Noise rolls depending on the drawn Exploration card.
 - **Official sources checked:** Current official English rulebook passages for Movement, Exploration Entrance Effects, and mandatory post-Movement Noise; official FAQ v1.2 dated 8.06.2026. The FAQ does not reconcile the passages.
 - **Secondary strong lead (not an official ruling):** The licensed Board Game Arena adaptation is published by Awaken Realms, developed by Tisaac and KuWizard, and currently labeled BETA. Its example replay at release `260617-1110` (played 2026-06-22) logs exactly one roll at Move 26 when the Entrance Effect says “Make a Noise roll,” and no automatic post-Exploration roll at Move 37 when the Entrance Effect is not a Noise roll. Sources: <https://en.boardgamearena.com/archive/replay/260617-1110/?table=872060252&player=89879864&comments=> and <https://boardgamearena.com/gamepanel?game=nemesisretaliation>.
-- **Status:** Open. This is a strong secondary lead for one Entrance-effect roll total and no automatic roll when the Entrance Effect is non-Noise, but it does not override the unresolved official wording. `docs/rules/semantics/review-gates.json` retains both alternatives and prohibits a default.
+- **Status:** Open. This is a strong secondary lead for one Entrance-effect roll total and no automatic roll when the Entrance Effect is non-Noise, but it does not override the unresolved official wording. `archive/obsolete/semantics/data/review-gates.json` retains both alternatives and prohibits a default.
 
 ### SEM-Q-005 — Drilling Station new-Corridor endpoint selection
 
@@ -162,12 +162,12 @@ Use this ledger for ambiguities that the official rulebook and FAQ do not settle
 
 - **Question:** When an Exploration face shows multiple eligible Corridor slots, what assigns each random Corridor draw—and any last available finite Corridor, Noise, or Door component—to a particular source-local slot when assignment can affect the result?
 - **Why it matters:** Corridor values and Door slots differ, and component scarcity can make only a subset of depicted placements possible. Choosing, ordering, or randomizing the slot assignment changes the map and cannot be automated without a source-backed owner or tie-break.
-- **Sources checked:** Rulebook p. 17, “Component Limits” (lines 3538–3548); p. 24, “Set up the Corridors” and “Set up markers and tokens” (lines 4502–4522); all 12 exact base face diagrams and the licensed structured variants in `docs/rules/semantics/exploration-source-index.json`; FAQ v1.2.
+- **Sources checked:** Rulebook p. 17, “Component Limits” (lines 3538–3548); p. 24, “Set up the Corridors” and “Set up markers and tokens” (lines 4502–4522); all 12 exact base face diagrams and the licensed structured variants in `archive/obsolete/semantics/data/exploration-source-index.json`; FAQ v1.2.
 - **Candidate readings:**
   - (a) The exploring player assigns each random draw or last available component to an eligible depicted slot.
   - (b) A fixed source-local order begins from the printed North orientation and proceeds in an unstated direction.
   - (c) Draws/components are randomly assigned among eligible slots.
-- **Status:** Open. No checked source names an owner, start slot, direction, or additional randomization. `docs/rules/semantics/review-gates.json` prohibits a default while every exact diagram remains independently preserved.
+- **Status:** Open. No checked source names an owner, start slot, direction, or additional randomization. `archive/obsolete/semantics/data/review-gates.json` prohibits a default while every exact diagram remains independently preserved.
 
 ### SEM-Q-012 — Unrevealed Robot and non-Activation effects
 
@@ -270,7 +270,7 @@ Use this ledger for ambiguities that the official rulebook and FAQ do not settle
 ### SEM-Q-025 — Queen Health trigger timing inside an Action
 
 - **Question:** At what exact interrupt point does a Queen Health card resolve when the Hits marker reaches the final space, or a Shoot roll is otherwise lethal, relative to the remaining Shoot/Burst die, Hit-allocation, and Weapon/Action-effect steps?
-- **Sources checked:** Rulebook pp. 33–35 (Burst, Shoot, Queen Health); FAQ v1.2 General rules #1; exact source index `docs/rules/semantics/queen-health-source-index.json`.
+- **Sources checked:** Rulebook pp. 33–35 (Burst, Shoot, Queen Health); FAQ v1.2 General rules #1; exact source index `archive/obsolete/semantics/data/queen-health-source-index.json`.
 - **Candidate readings:**
   - (a) Resolve immediately at the trigger, then continue only still-legal non-Hit operations while ignoring later Hits in that Action.
   - (b) Finish the enclosing Combat procedure, then resolve one Queen Health card.
@@ -320,7 +320,7 @@ Use this ledger for ambiguities that the official rulebook and FAQ do not settle
 ### SEM-Q-030 — Serious Wound draw, reveal, and face-up placement timing
 
 - **Question:** At what exact point does a random Serious Wound become public/face up between the face-down draw, placement, Health displacement, and effect activation?
-- **Sources checked:** Rulebook pp. 9 and 18; official visual `RB-P18-V03`; all exact base selectors and faces in `semantics/serious-wound-source-index.json`; FAQ v1.2.
+- **Sources checked:** Rulebook pp. 9 and 18; official visual `RB-P18-V03`; all exact base selectors and faces in `archive/obsolete/semantics/data/serious-wound-source-index.json`; FAQ v1.2.
 - **Candidate readings:** (a) reveal immediately after drawing; (b) place first and reveal after placement/displacement; (c) another source-defined visibility sequence.
 - **Status:** Open; official clarification preferred. The unselected deck fronts and order remain hidden, and no digital face-up default is adopted.
 
@@ -383,7 +383,7 @@ Use this ledger for ambiguities that the official rulebook and FAQ do not settle
 ### SEM-Q-039 — Use Item and One Use Only ordering
 
 - **Question:** What is the exact order of Item declaration, Backpack reveal, Action-card payment, printed effect resolution, and the One Use Only discard transition—including the free immediate-use window and discard-pile face visibility?
-- **Sources checked:** Rulebook pp. 12, 17, 28–29; all 23 exact regular Green physical occurrences in `semantics/green-item-source-index.json`; FAQ v1.2.
+- **Sources checked:** Rulebook pp. 12, 17, 28–29; all 23 exact regular Green physical occurrences in `archive/obsolete/semantics/data/green-item-source-index.json`; FAQ v1.2.
 - **Candidate readings:** (a) reveal/pay, resolve, then discard; (b) pay/discard when Used, then resolve from the resolution zone; (c) another source-defined order.
 - **Status:** Open; official clarification preferred. No payment, reveal, effect, discard, or visibility order is defaulted.
 
@@ -470,7 +470,7 @@ Use this ledger for ambiguities that the official rulebook and FAQ do not settle
 ### SEM-Q-052 — Yellow-root Fire Extinguisher/Robot Controller physical class
 
 - **Question:** How should five portrait FIRE EXTINGUISHER selectors and one portrait no-HEAVY ROBOT CONTROLLER selector be classified when licensed same-title rows classify all six copies as Heavy?
-- **Sources checked:** Raw `yellowItemsDeck` full CardID/GUID/CustomDeck selectors, exact source faces, official regular/Heavy rules, licensed `ITEMS_DATA`, and the 30/24/6 aggregate reconciliation in `semantics/yellow-item-source-index.json`.
+- **Sources checked:** Raw `yellowItemsDeck` full CardID/GUID/CustomDeck selectors, exact source faces, official regular/Heavy rules, licensed `ITEMS_DATA`, and the 30/24/6 aggregate reconciliation in `archive/obsolete/semantics/data/yellow-item-source-index.json`.
 - **Candidate readings:** (a) exact TTS regular Backpack occurrences; (b) current Heavy copies using licensed class/effects; (c) non-dispatchable class/source conflicts pending an exact current crosswalk.
 - **Status:** Open; official clarification or exact current component evidence required. Title, Yellow back, utility art, and aggregate multiplicity supply no default.
 
@@ -504,7 +504,7 @@ Use this ledger for ambiguities that the official rulebook and FAQ do not settle
 
 ## Heavy/Equipment/Weapon/Armor/Starting Item batch questions
 
-The following 18 semantic questions were added by the bounded Heavy/Equipment/Weapon/Armor/Starting Item source audit. Their exact alternatives, affected records, and `defaultProhibited` flags are authoritative in `docs/rules/semantics/review-gates.json`; no default is adopted:
+The following 18 semantic questions were added by the bounded Heavy/Equipment/Weapon/Armor/Starting Item source audit. Their exact alternatives, affected records, and `defaultProhibited` flags are authoritative in `archive/obsolete/semantics/data/review-gates.json`; no default is adopted:
 
 - **SEM-Q-079** — complete current Character Item roster, owner, and source-copy crosswalk;
 - **SEM-Q-080** — remaining Support Equipment deck access, exhaustion, and later use;
@@ -529,7 +529,7 @@ The batch preserves the 12 Red/Yellow physical class conflicts, the two audited 
 
 ## Core Combat, Attacks, and Noise/Hazard batch questions
 
-The bounded core Combat/Attacks/Noise/Hazard source audit added nine no-default questions. Exact alternatives, affected rule IDs, evidence tuples, and `defaultProhibited` flags are authoritative in `docs/rules/semantics/review-gates.json`:
+The bounded core Combat/Attacks/Noise/Hazard source audit added nine no-default questions. Exact alternatives, affected rule IDs, evidence tuples, and `defaultProhibited` flags are authoritative in `archive/obsolete/semantics/data/review-gates.json`:
 
 - **SEM-Q-097** — order among multiple matching Corridors in one numeric Noise result;
 - **SEM-Q-098** — required Intruder-token draw when the Intruder bag is empty;
@@ -545,7 +545,7 @@ Official Retaliation Noise semantics remain the closed `1`/`2`/`3`/`4`/`Hazard` 
 
 ## Facility/map topology and setup-state batch questions
 
-The bounded Facility/map batch added five no-default questions. Exact alternatives, affected records, and `defaultProhibited` flags are authoritative in `docs/rules/semantics/review-gates.json`:
+The bounded Facility/map batch added five no-default questions. Exact alternatives, affected records, and `defaultProhibited` flags are authoritative in `archive/obsolete/semantics/data/review-gates.json`:
 
 - **SEM-Q-106** — Section-border orientation and the fixed Landing Zone/Hibernatorium edge crosswalk. The p.19 diagram shows one three-section arrangement and distinct special border-piece spaces, but the checked setup prose does not say whether border pieces may rotate or assign every special-space edge to a regular Corridor endpoint.
 - **SEM-Q-107** — Special-space Corridor endpoints and fixed-space connector assignment. The Landing Zone and Hibernatorium are named Room spaces in the rules but are not regular variable hex slots in the rendered geometry; no complete text-labeled endpoint crosswalk was recovered.

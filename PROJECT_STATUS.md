@@ -119,135 +119,17 @@ Design the fragment-coverage review for owner approval: the source-artifact brea
 Machine-readable evidence: `docs/rules/source-extraction/validation.json`.
 
 
-### Semantic schema and expanding corpus — independently locked and passed
+### Semantic layer — archived 2026-09-02
 
-- 474 exact source registry tuples
-- 26 semantic-only state/zone/position/visibility nodes
-- 529 pilot records across 26 systems
-- 177 source-backed
-- 329 source-backed with open questions
-- 23 source-variant boundary records
-- 1405 source assertions / 1543 structured conditions and guards
-- 2290 ordered operations
-- 337 actor-owned decisions / 549 information policies
-- 37 explicit costs / 556 target specifications
-- 248 preserved source-variant references
-- 115 open semantic questions with explicit alternatives and defaults prohibited
-- 88 registered conflicts: 21 authority-resolved, 34 unresolved, 33 preserved boundaries
-- base Event family: **20/20 identities represented**
-  - 20 exact Event scan occurrences
-  - 20 licensed-digital Event occurrences retained as variants
-  - 4 official visible component occurrences
-  - 20 Event semantic records / 20 exact Event backlog tuples
-- base Exploration family: **12/12 untitled identities represented**
-  - 12 exact TTS CardID/GUID/FaceURL scan occurrences and 1 shared BackURL occurrence
-  - 12 licensed-digital Exploration occurrences retained as variants
-  - 3 official visible occurrences across 2 component identities
-  - 46 exact printed sentences / 12 source-local diagrams / 60 functional icon occurrences
-  - 12 Exploration semantic records / 12 exact Exploration backlog tuples
-  - 0 generated sprite-sheet cells and 0 selector gaps in the mechanically derived base family
-- base Robot family: **6/6 identities represented**
-  - 6 exact TTS full-CardID/GUID/FaceURL scan occurrences and 1 shared non-operative BackURL occurrence
-  - 6 licensed-digital Robot occurrences retained as variants
-  - 2 official visible face occurrences across 2 component identities
-  - 24 physical panels / 12 operative rules panels / 13 printed options
-  - 16 exact printed sentences / 23 functional icon occurrences
-  - 6 Robot-face semantic records / 6 exact Robot backlog tuples
-  - 7 new reusable setup, reveal, Activation, movement, Tactical Gear, and Malfunction-placement records; existing `SEM-ROBOT-MALFUNCTION-001` remains unresolved under `SEM-Q-010`
-  - shared back, Lua model/helper state, two prototype cards, three expansion Robot cards, and four Security Robot Room name collisions remain excluded from the six rules faces
-- base Intruder Attack family: **20/20 mechanically selected physical occurrences represented**
-  - 19 exact generated-cell full-CardID/GUID/CustomDeck/FaceURL occurrences plus 1 direct Blood Sense occurrence
-  - 8 printed titles with multiplicities preserved, including 6 distinct Bite copies; no title/cell/folder/modulo join
-  - 1 shared non-operative BackURL, 1 parent 5×4 source sheet, and 1 unused selector-gap `SUMMONING` cell explicitly excluded from rules-face counts
-  - 69 physical panels / 29 operative effect panels / 54 exact printed sentences
-  - 57 literal applicability badges projected source-scoped from page-32 Adult/Drone/Queen templates, plus 13 independently resolved inline icons; all 55 selected no-match rows remain intact
-  - 15 licensed structured variants linked across 20 physical occurrences, 3 official-visible face counterparts, and 1 official-visible back counterpart retained independently
-  - 20 Attack-face semantic records plus reusable finite Contamination gain and exact dispatch from `SEM-INT-004`; five new no-default questions preserve Fury scope, dead-target continuation, Blood Sense timing, Deadly Claws Wound order, and MISS applicability
-  - three expansion Attack decks, the parent sheet, shared back, unused `SUMMONING` cell, and duplicate evidence references remain excluded from the 20 base rules occurrences
-- base Queen Health family: **12/12 mechanically derived physical occurrences represented**
-  - 10 exact FaceURL assets under 12 full CardID/GUID/CustomDeck occurrences; two `-084` and two `-045` physical copies remain distinct
-  - 1 shared non-operative BackURL with 13 provenance references; 0 generated cells, parent sheets, selector gaps, prototypes, or placeholders in the base root deck
-  - 24 physical/operative panels, 37 exact printed sentences, 12 source-local number displays, and 16 exact page-40 icon matches across 28 functional occurrences
-  - discard-number multiplicity is 0×3, 1×4, 2×2, 3×3; TTS saved order is provenance only because setup shuffles the deck
-  - 12 licensed structured rows remain independent; duplicate keys are candidate sets rather than arbitrary copy pairings, and the Malfunction-only licensed variant does not erase the TTS Unreinforce branch
-  - 3 official-visible face occurrences, 2 official-visible backs, a six-space Queen Hits track, 2 unmapped terminal/inline local symbols, 1 FAQ ruling, and 2 Queen-death Objective Help occurrences are linked source-scoped
-  - 12 physical-face semantic records plus reusable setup, Shoot, Burst, Hits, resolution, death, Activation, Repel, Action-draw, and Room-Malfunction procedures; five new no-default questions retain timing, attribution, final-card death, branch ownership/location, and local-glyph scope
-  - three expansion Queen Health decks, 20 Queen-applicable Attack occurrences, Queen-titled Event/Help/token/model/objective records, the shared back, and duplicate evidence references remain excluded from the 12 base rules occurrences
-- base Serious Wound family: **27/27 mechanically derived physical occurrences represented**
-  - 21 exact generated selections across seven cells of one 3×3 source sheet plus six direct LEG/KNEE full-CardID/GUID/CustomDeck/FaceURL occurrences; all nine printed titles retain multiplicity three
-  - 9 selected face assets, 11 total source face assets, 2 explicit selector-gap cells, 1 parent sheet, and 1 shared non-operative back with 28 provenance references remain distinct
-  - 54 physical panels / 81 physical regions / 27 operative panels and regions, 42 printed sentence occurrences, and 30 physical functional-icon occurrences (24 exact matches + 6 literal local no-matches)
-  - nine licensed structured rows remain independent with zero asserted physical identity links; two official EYES faces, one partial ARM face, and two official backs control only their exact publisher occurrences
-  - reusable finite setup/gain/discard/stacking/variant-boundary procedures integrate Character Health, Attack, Medical Robot, Emergency Room, and Surgery without inventing reshuffles, title joins, or Surgery branch order
-  - nine new no-default questions retain reveal timing, full-slot/terminal displacement, local glyphs, BODY Hand Size, activation timing, Pass triggers, and multi-Wound order
-  - selector-gap cells, the parent sheet, shared back, diagnostic overlays, an expansion Wound-referencing component, placeholders, and duplicate evidence references remain excluded from the 27 physical rules occurrences
-- base regular Green Item family: **23/23 mechanically derived physical occurrences represented**
-  - exact 30-child `greenItemsDeck` root retained as 23 regular/Backpack faces plus 7 horizontal Heavy exclusions; 15 included generated selections across five cells of one 3×3 source sheet plus 8 included direct full-CardID/GUID/CustomDeck/FaceURL occurrences
-  - 8 printed titles / 8 selected face assets, 4 explicit selector-gap cells, 1 parent sheet, and 1 shared non-operative back with 31 provenance references remain distinct; repeated copies and same-title MEDKIT variants are never collapsed
-  - 85 physical panels / 69 physical regions / 62 operative panels / 46 exact printed sentences / 46 physical functional-icon occurrences (37 exact matches + 9 literal local no-matches)
-  - 10 licensed `deck-green` rows / 30 declared copies remain independent and aggregate-reconcile to 23 regular + 7 Heavy without a TTS copy crosswalk; no official visible exact Green face or back is claimed
-  - reusable finite deck, unlimited private Backpack, Use Item, One Use Only, voluntary discard, Trade/gain, Interplay, restoration, and exact MEDKIT immediate-use procedures preserve payment, consent, target, visibility, and lifecycle boundaries
-  - seven new no-default questions retain Use/discard order, deck exhaustion, selected local glyphs, Contamination Codes Door allocation, restoration ownership, Interplay gain-glyph scope, and multiple immediate-use timing
-  - Heavy Items, red/yellow decks, Starting/Equipment Items, Tactical Gear, parent sheet, shared back, selector-gap variants, overlays, placeholders, and duplicate references remain excluded from the 23 regular Green rules occurrences
-- base source-clear regular Red Item family: **21/21 mechanically derived physical occurrences represented**
-  - exact 30-child `redItemsDeck` root retained as 21 source-clear regular faces, 3 explicit Heavy `REMOTE DETONATOR` exclusions, and 6 `MILITARY TASER` physical-class conflicts; 7 included generated selections across four cells of one 4×2 Red sheet plus 14 included direct full-CardID/GUID/CustomDeck/FaceURL occurrences
-  - 7 regular printed titles / 7 selected regular face assets, 4 Red selector-gap variants, 3 cross-family Yellow-sheet selector gaps (including 1 non-rules cell), 2 parent sheets, and 2 non-operative backs remain distinct; repeated copies and same-title Ammo/Grenade/Exploring variants are never collapsed
-  - 87 physical panels / 63 physical regions / 66 operative panels / 45 exact printed sentences / 27 regular physical functional-icon occurrences (23 exact matches + 4 literal local no-matches)
-  - 9 licensed `deck-red` rows / 30 declared copies remain independent and aggregate-reconcile to 21 regular + 9 Heavy without a TTS copy crosswalk; one official-visible Heavy Military Taser occurrence controls only its exact publisher occurrence and identifies no TTS GUID
-  - reusable finite Red-root/One Use/immediate-use, Ammo reload/spend, Grenade effect, and Anti-Aircraft hidden-order/lifecycle procedures reuse generic Backpack/Use/Trade/Interplay/Tactical Gear/Movement/Exploration/Door semantics without inventing nested costs or source identity
-  - five new no-default questions retain selected local glyphs, Military Taser class/current correspondence, Exploring Drone target context, Personal Log Objective secrecy, and Portable Barrier Door/FAQ applicability; shared Item questions now cover Red exhaustion, Interplay gain scope, and multiple immediate-use windows
-  - Green/Yellow decks, Starting/Equipment cards outside exact root selectors, Heavy/class-conflict effects, Tactical Gear/ammo tokens, parent sheets, backs, gaps, overlays, placeholders, and duplicate evidence references remain excluded from the 21 regular Red effect records
-- base source-clear regular Yellow Item family: **24/24 mechanically derived physical occurrences represented**
-  - exact 30-child `yellowItemsDeck` root retained as 24 source-clear regular faces and 6 Fire Extinguisher/Robot Controller physical-class conflicts; 11 included generated selections across Duct Tape/Tools cells plus 13 included direct Phosphates/Oxygen Tank full-CardID/GUID occurrences
-  - 4 regular printed titles / 4 selected regular face assets, 5 selector gaps across two 2×2 sheets, 2 non-operative BackURL forms, and exact `UniqueBack` cell selection remain distinct; repeated copies and same-title direct/sheet variants are never collapsed
-  - complete root anatomy totals 158 panels / 90 regions / 68 printed sentences / 60 functional glyphs (44 exact matches + 16 literal local no-matches); the 24 regular occurrences account for 128 panels / 72 regions / 56 sentences / 48 glyphs (32 matches + 16 no-matches)
-  - 6 licensed `deck-yellow` rows / 30 declared copies remain independent and aggregate-reconcile to 24 regular + 6 Heavy without a TTS copy crosswalk; one official-visible Duct Tape occurrence controls only its exact publisher occurrence and identifies no TTS GUID
-  - reusable finite Yellow-root/One Use/immediate-use, Oxygen gain/token, local Malfunction discard, and Reinforce procedures reuse generic Backpack/Use/Trade/Interplay/Tactical Gear/Door semantics without inventing target owners, class identity, or lifecycle defaults
-  - six new no-default questions retain selected local glyphs, Fire Extinguisher/Robot Controller class correspondence, Duct Tape source/One Use/stacking/Trade lifecycle, Phosphates target scope, and Tools Door ownership/accessibility; shared Item questions now cover Yellow exhaustion, Oxygen-token Interplay scope, and immediate-use windows
-  - Green/Red decks, Starting/Equipment cards outside exact root selectors, six class-conflict effects, Tactical Gear/tokens, parent sheets, backs, gaps, overlays, placeholders, and duplicate evidence references remain excluded from the 24 regular Yellow effect records
-- complete base Action family: **60/60 mechanically derived physical occurrences represented (10 per Character)**
-  - 55 exact Character-kit selectors plus 5 exact Shared Contractor selectors compose six ten-card decks; all copies retain full CardID/GUID/CustomDeck/FaceURL/BackURL/container provenance
-  - 39 direct faces plus 21 selected generated cells across two 9×5 sheets; 29 source-clear base selector-gap cells and 40 expansion cells remain explicit exclusions
-  - 60 selected face assets / 32 printed titles / one shared non-operative back with 273 global references; repeated and cross-Character titles never collapse physical or semantic occurrences
-  - 290 physical panels / 136 operative panels / 164 exact printed sentences / 143 physical functional-icon occurrences (129 source-resolved + 14 literal local no-matches)
-  - 28 source-resolved Not In Combat occurrences, 8 unresolved upper-right local morphologies, and 24 absent upper-right regions remain source-scoped; no licensed-flag default is imported
-  - 60 independent licensed rows retain 6 Reactions, 7 `command=true`, and 35 `noIntruders=true` occurrences with zero asserted TTS-copy identity links; 4 official visible faces, 2 visible backs, and 8 FAQ obligations remain independent
-  - 60 physical main-effect records plus exact Action setup/play/payment/draw/reshuffle/Reaction/Command dispatch and 6 Reaction-panel records; 18 new no-default questions retain glyph, payment, owner, consent, target, ordering, interruption, shortage, and lifecycle boundaries
-  - expansion Character decks, draft cards, Contamination, Starting Items, parent sheets, shared back, selector gaps, cross-family cells, placeholders, and duplicate evidence references remain excluded from the 60 physical rules occurrences
-- base competitive Objective/Mission family: **30/30 mechanically derived physical copies represented at their source boundary (29 source-clear + 1 exact-source blocker)**
-  - exact competitive partition is 7 Mission Objective, 15 Private Objective, and 8 Mission Task copies; five OFFICIAL ORDER copies retain separate root sequence/full CardID/GUID/copy identities despite the repeated label
-  - 16 generated physical copies plus 14 direct physical copies; 50 exact face assets, 13 base-selected cells, 18 base selector-gap cells, two parent sheets, and two shared backs with 33 Objective plus 11 Mission Task global references remain role-distinct
-  - the three competitive TTS roots retain 11 Mission, 20 Personal, and 8 Mission Task children; four high-count Mission and five Corporate prototype selectors are explicit physical exclusions, while two Solo/Coop roots retain 12 + 26 separately excluded selectors
-  - 149 physical panels / 53 exact printed sentence occurrences / 39 physical functional-icon occurrences (7 source-resolved + 32 literal local no-matches) / 1 persistent checkbox occurrence; exact Number-of-Characters metadata, AND/OR grouping, punctuation, sheet cells, source selectors, and visibility remain locked
-  - all 45 official Objective Help units are linked independently: 35 fully visible and 10 physically occluded, with 20 visible card records, 50 fully visible icons, 5 partial icons, and zero promotion of hidden PDF text-layer, TTS, or BGA wording into occluded official faces
-  - 38 licensed rows remain independent: 26 competitive (18 Objectives + 8 Mission Tasks) and 12 Solo/Coop exclusions, with zero asserted physical-to-licensed or physical-to-official identity links
-  - 29 exact TTS physical-face, 20 official-visible-face, and 26 licensed competitive occurrence records plus reusable setup, secrecy/discussion/inspection, Objective Choice, fulfillment, Survivor/Escape, Facility destruction, Mission Task/check, and exact occurrence dispatch procedures; SEM-Q-075–078 retain OR-branch, continuous-unfulfilled, late-choice/reward, and reveal-order alternatives without defaults
-  - Objective Choice now resolves private removal/retention, public track movement, then the post-move 3/2/2/1/1 Action-card reward; removed/dead-owner identities stay private, while selected Mission Tasks and source-defined endgame reveals remain public
-  - the exact TTS `FACILITY RESTART` face remains the sole source-blocked physical occurrence; its materially different fully visible official and licensed occurrences are encoded independently and never substituted into the blocked pixels
-- all 18 Intruder Help instructions represented and row-locked
-- all 25 Room Help entries represented, plus generic Use Room and cross-cutting Room constraints
-- all 112 source-local Room Help functional-icon occurrences mapped source-scoped without changing extraction records
-- core Combat/Attacks/Noise/Hazard/entry batch closed at its source-clear boundary
-  - paid Move/Shoot/Burst/Melee Basic Actions separated from reusable source-effect sequences
-  - 9 attack classes and 6 movement classes retained without flattening; immediate entry/Secure/prevention timing is explicit
-  - exact official Noise `1`/`2`/`3`/`4`/`Hazard`, Deadly dual values, Shoot/Burst/Melee result tables, Hit allocation, Intruder type Health, token front/back/context, and finite supply encoded
-  - 9 rendered visual obligations closed: `RB-P24-V02`, `RB-P25-V01/V02`, `RB-P30-V01/V02`, `RB-P33-V01/V02`, `RB-P34-V01`, and `RB-P40-V01`
-  - 9 new no-default questions retain Corridor/Intruder order, bag/Attack-deck exhaustion, Blank-row scope, death interruption, Larva continuation, Burst resolution, and mixed Adult/Drone allocation
-  - 2 new conflicts preserve the official current Noise set versus stale unbound TTS Silence/Danger branches and the side-level Blank-panel scope boundary
-  - bounded Facility/map topology and setup-state batch closed at its source boundary
-    - 12 exact rulebook setup/map source segments, 21 regular rendered Room slots, 6 edge directions, and 43 reserved paired Corridor gaps
-    - three Sections corrected as A/green, B/blue, and C/red; Landing Zone and Hibernatorium remain separate fixed border-piece named spaces
-    - 23 Room tiles and 40 Corridor tiles retain exact subtype/value counts; Room/Corridor/round-track/Character-board/marker setup states remain distinct from later lifecycle
-    - 19 selected setup/map visual obligations, including map geometry, Room/Door/marker/token faces, are source-linked without text/geometry flattening
-    - 5 new no-default setup questions and 6 new conflicts preserve orientation, special-space endpoint, shortage, marker identity, and proximity/connection boundaries
-  - 600 source-obligation backlog units
-  - 530 pilot-covered
-  - 69 pending
-  - 1 inherited exact-source blocker
-- full base-game semantic coverage explicitly not claimed
-- four-workstream independent review incorporated
-- cross-seed/cross-locale byte-identical rebuilds and expanded adversarial corruption tests pass
-- `scripts/validate_semantic_pilots.py`: **passed with 0 failures**, including cross-seed/cross-locale rebuilds and 48 focused/adversarial tests
+- The semantic projection (26 data files, 34 scripts, 529 records) failed its
+  proof-of-value gate and is **archived as obsolete** under
+  `archive/obsolete/semantics/` (owner decision, 2026-09-02). It is not a live
+  layer; do not extend, rebuild, or validate it.
+- Its historical counts remain recoverable in Git history and in the archived
+  `archive/obsolete/semantics/data/validation.json`.
+- The rewrite will consume the concise Markdown rules corpus (`docs/rules/00-04`).
+- The 115 open no-default questions and 88 preserved conflicts from the semantic
+  layer remain tracked here and in `docs/rules/open-questions.md`; none adopts a default.
 
 ### Taxonomy/ontology — independently reviewed and passed
 
