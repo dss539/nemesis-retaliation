@@ -1,49 +1,55 @@
 # AGENTS.md Supplement
 
-This file supplements `AGENTS.md` with agent-facing documentation practices. It does not replace or modify `AGENTS.md`.
+This file adds documentation rules to `AGENTS.md`. It does not override it.
 
 ## ABSOLUTE STATIC-FILE RULE
 
-**NEVER PUT PROJECT STATUS, CURRENT PHASE, NEXT WORK, TODO ITEMS, CHECKPOINTS, COUNTS, BRANCH/HEAD STATE, WORKER STATE, OR TEST RESULTS IN `AGENTS.md` OR `AGENTS-SUPPLEMENT.md`.** These are static instruction files. Normal work sessions must not edit them. Mutable state belongs in `PROJECT_STATUS.md`; tasks and history belong in `todo.md`; exact facts belong in generated reports.
+`AGENTS.md` and `AGENTS-SUPPLEMENT.md` are fixed instruction files. Never put project status, current phase, next work, TODOs, checkpoints, counts, branch state, worker state, or test results in them. Normal work sessions must not edit them; only the project owner may order a lasting change.
 
-The rules-layer review is the owner's fragment-coverage methodology. Do not add unrelated helper-implementation analysis to handoffs or worker assignments.
+Where things go instead:
+
+- Current status and next action → `PROJECT_STATUS.md`
+- Tasks and history → `todo.md`
+- Exact facts and numbers → generated validation reports
+
+The rules review is the owner's fragment-coverage methodology. Do not drag helper-implementation analysis into handoffs or worker assignments.
 
 ## Documentation Practice
 
-Write durable documentation only when the work produces reusable knowledge, a decision, a blocker, or meaningful project state. Do not manufacture a note merely because a session occurred.
+Write a document only when the work produced something reusable: new knowledge, a decision, a blocker, or a real change in project state. Do not write a note just because a session happened.
 
-Use the repository-wide placement policy in `readme.md` and apply these agent rules:
+Follow the placement policy in `readme.md`:
 
-- Read the destination’s existing purpose before adding information.
-- Put each fact in one authoritative location and link to it elsewhere instead of copying it.
-- Keep project overview and navigation in `readme.md`.
-- Keep the concise current phase, immediate next task, blockers, and readiness gates in `PROJECT_STATUS.md`. Keep detailed backlog and historical checkpoints in `todo.md`; do not use either file as a raw session log.
-- Keep TTS extraction and card-transcription procedures under `assets/tts-mod/notes/`, starting from `assets/tts-mod/readme.md`.
-- Keep official rule interpretations, unresolved source questions, implementation bugs, and declared adaptations in the designated files under `docs/rules/`.
-- Keep `docs/qa/` for verification evidence tied to specific checks: tests, audits, action logs, screenshots, contact sheets, and comparison artifacts. Do not place general workflow notes there.
-- Put cross-project procedures in reusable Hermes skills rather than copying them into this repository.
-- Preserve source conflicts as provenance. Canonical data uses the most authoritative and up-to-date applicable official source; unclear supersession, applicability, or interpretation requires a recorded human decision.
-- When QA produces a reusable lesson, put the lesson once in the relevant topic note and link to the supporting QA artifact. Do not turn the QA report into the procedure manual.
-- Keep readmes short and navigational. Keep topic notes stable and procedural. Keep verified headline status in `PROJECT_STATUS.md`; exact generated counts belong in machine-readable validation outputs, with links rather than duplicated logs.
-- Before adding a note, search for an existing authoritative home. If content is misplaced, move it and repair references rather than leaving aliases or duplicate copies.
-- Keep handoff prompts transactional: identify the repository, the authoritative resume documents, the current task/item, and any immediate unresolved state. Do not copy durable procedures or policy into a handoff prompt; update the authoritative document and link to it instead.
+- Read a destination's purpose before writing to it.
+- Each fact lives in exactly one place. Link to it from anywhere else; do not copy it.
+- Overview and navigation → `readme.md`.
+- Current phase, next task, blockers, gates → `PROJECT_STATUS.md`. Detailed backlog and history → `todo.md`. Neither file is a session log.
+- TTS extraction and transcription procedures → `assets/tts-mod/notes/` (start at `assets/tts-mod/readme.md`).
+- Rule interpretations, open questions, bugs, declared adaptations → the designated files under `docs/rules/`.
+- `docs/qa/` is for evidence from specific checks: tests, audits, logs, screenshots, comparison artifacts. Not general workflow notes.
+- Cross-project procedures → Hermes skills, not this repository.
+- Keep source conflicts verbatim as provenance. Canonical data follows the most authoritative official source. If supersession or interpretation is unclear, a human decides and the decision is recorded.
+- When QA yields a reusable lesson, write it once in the relevant topic note and link the QA artifact. Do not turn the QA report into a manual.
+- Keep readmes short and navigational. Headline status → `PROJECT_STATUS.md`; exact counts → machine-readable validation outputs.
+- Before adding a note, search for its existing authoritative home. If content is misplaced, move it and fix the links rather than leaving copies.
+- Keep handoff prompts transactional: name the repository, the authoritative resume documents, the current task, and any unresolved state. Do not copy procedures or policy into a handoff prompt — update the authoritative document and link it.
 
-## Rules-Review Autonomous Work Unit
+## Rules-Review Work Unit
 
-One work unit is a substantive fragment-coverage batch plus its serial integration, validation, durable checkpoint, and cleanup. The next session resumes from `PROJECT_STATUS.md` and committed repository artifacts, not the previous transcript or historical candidate reports.
+One work unit is a batch of fragment-coverage checks, plus integrating the results, running validation, checkpointing, and cleaning up. The next session resumes from `PROJECT_STATUS.md` and committed artifacts — never from the previous transcript or old reports.
 
-Apply the mandatory proportional-review policy in `AGENTS.md`:
+Follow the proportional-review policy in `AGENTS.md`:
 
-- Spend workers on fragment coverage checks — handing each source fragment to a child and recording whether its rules and behavior are already fully and accurately captured — not duplicate harness criticism.
-- Default to one worker and use 2–4 only for real independent specialties. Larger waves require distinct content partitions, not multiple agents asking the same question.
-- Give read-only fragment reviewers the fragment text and the citation surface they need. Create task workspaces/worktrees only when a worker must write repository artifacts or inspect Git-specific behavior.
-- Hold workspace locks only for actual work. Do not start sleep-only lock holders or preserve review branches that contain no unique commits.
-- For 1–4 workers, compact structured results and exact artifact paths are sufficient. The `hermes-worker-result-batch-manifest` / envelope / aggregate protocol is required only for larger fixed batches where exact mechanical closure materially helps.
-- Write full durable reports only for material findings, formal acceptance decisions, or evidence needed to reproduce them. Passing reviewers should return compact verdicts and checks, not repository snapshots or transcript dumps.
-- Verify source/rules claims against primary evidence. Keep reviews within the rules-derivation scope.
-- Integrate verified corrections once, run the documented normal gate, remove temporary workspaces and unneeded branches immediately, and continue to the next substantive batch.
+- Workers check fragments: give each source fragment to a reviewer and record whether its rules and behavior are already fully and accurately captured. Do not spend workers criticizing the harness.
+- Default to one worker. Use 2–4 only for genuinely independent work. Bigger waves need distinct content partitions, not several agents asking the same question.
+- Give read-only reviewers the fragment text and the citation surface they need. Create workspaces or worktrees only when a worker must write repository artifacts or inspect Git behavior.
+- Hold a workspace lock only while doing real work. Do not start sleep-only lock holders, and do not keep review branches with no unique commits.
+- For 1–4 workers, compact results and exact artifact paths are enough. The batch-manifest/envelope/aggregate protocol is required only for larger fixed batches where exact mechanical closure clearly helps.
+- Write full reports only for material findings or formal decisions. Passing reviewers return short verdicts, not repository snapshots or transcript dumps.
+- Check rules claims against primary evidence. Stay inside the review's scope.
+- Integrate verified corrections once, run the normal gate, remove temporary workspaces and unneeded branches, and move to the next batch.
 
-Fresh-session handoff remains autonomous after a verified checkpoint, but it must not schedule another meta-review merely because a prior session ended. An ordinary green gate is a completion condition, not an invitation to seek another assurance layer.
+A verified checkpoint plus a green gate means the unit is done. Do not schedule another review just because a session ended.
 
 ## TTS Work Resume Addendum
 
@@ -51,7 +57,7 @@ For TTS asset, classification, or card-transcription work:
 
 1. Read `assets/tts-mod/readme.md`.
 2. Read the relevant topic note under `assets/tts-mod/notes/`.
-3. Read `PROJECT_STATUS.md` for the current phase and next task, then `todo.md` only when detailed backlog or historical checkpoint context is needed.
+3. Read `PROJECT_STATUS.md` for the current phase and next task. Read `todo.md` only when you need detailed backlog or history.
 4. Load the `extract-game-mod-assets` skill.
 
-Do not infer current status from historical extraction notes or old implementation documents; `PROJECT_STATUS.md` owns the concise current state and links to the detailed authorities.
+Do not infer current status from old extraction notes or implementation documents. `PROJECT_STATUS.md` owns the current state and links to everything else.
