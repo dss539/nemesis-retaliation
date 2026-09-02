@@ -176,6 +176,22 @@ An Intruder attack is triggered by:
 - On discarding a Wound: the owner chooses which one; slide remaining Wounds left. Do not move Health just because a Wound was discarded.
 - Restoring Health may restore fewer points than an effect offers.
 
+### Serious Wound effects (nine base titles)
+
+Exact physical occurrences are in the card corpus; official and TTS wording variants are preserved per title and never merged into one "canonical" wording.
+
+- **ARM** — You have only 1 Hand slot. If you have Items in both Hand slots, you must instantly discard the Item from one of them.
+- **BLEEDING** — Whenever you Pass: lose 1 Health.
+- **BODY** — Your Hand Size is 1 lower.
+- **EYES** — +1 to all your Shoot results (official wording; the TTS face reads "Shoot values" — variant preserved, see conflicts).
+- **GUTS** — Whenever you Pass: get 1 Contamination card.
+- **HAND** — "Use Item" Action costs you 1 Action card more.
+- **KNEE** — Using "Make a Move" or "Make a Move with Secure token" as your first Action in a Round costs you 1 Action card more. (One TTS variant instead reads: "Make a Move with [two overlapping white angular lobes glyph]" costs you 1 Action card more — variant preserved.)
+- **LEG** — Using the "Make a Move" Action from a Room with an Intruder costs you 1 Action card more. (One TTS variant extends this to "...or through a Corridor with an Intruder" — variant preserved.)
+- **LUNGS** — Whenever you Pass: lose 1 Oxygen (even in a Section with active Life Support). If you already have 0 Oxygen, lose 2 [unresolved local step-glyph on the TTS face; most plausibly Health by analogy with BLEEDING — verify against an official face before implementation].
+
+- **Source:** Rulebook p. 18 (lines 3785–3810); exact per-occurrence text in `assets/tts-mod/extract/card-text-corpus.json` (Serious Wound family).
+
 ### Eclosion death exception
 
 - An eclosion death during the game places one Adult in the dead Character’s Room; it may immediately attack another Character there.

@@ -2033,6 +2033,16 @@ task workspace.
 - [x] Added a pinned independent source-fidelity lock, full PDF text-layer/render identity checks, exact per-entry projections, provenance checks, and hard-coded completeness totals.
 - [x] Added negative controls proving coordinated extraction/layout edits, missing icons, blank/semantic morphology, unreadability drift, incomplete crops, and bad provenance are rejected.
 
+## REPAIR QUEUE — fragment-coverage audit findings
+
+- [ ] **RB-12 (verified true gap):** `docs/rules/03-intruders-and-survival.md` INT-006 covers
+      Serious Wound gain/placement/discard but records **no individual wound effects**. All nine
+      base titles are extracted in `assets/tts-mod/extract/card-text-corpus.json` (ARM, BLEEDING,
+      BODY, EYES, GUTS, HAND, KNEE, LEG, LUNGS) with official/TTS wording variants preserved
+      (e.g. official EYES: "+1 to all your Shoot **results**" vs TTS "values"). Repair: add a
+      wound-effects subsection to INT-006 citing exact occurrences per title, preserving both
+      wordings and the LEG/KNEE/LUNGS per-variant text. Fragment evidence: `audit/fail/RB-12.*`.
+
 ## LATER — Expansions (re-add when user wants them)
 - [ ] Re-extract expansion content from save (see `assets/tts-mod/notes/extraction.md` §15 for all deck GUIDs, intruder bags,
       shared action-154 cells, and classification pitfalls)
