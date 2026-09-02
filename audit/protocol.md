@@ -22,7 +22,9 @@ A child's **fail** is a claim, not a fact. Handle every fail as follows:
 3. **Repair as separate work.** Corpus edits happen as their own commit
    with the status validator run, distinct from verdict commits.
 4. **One re-check, no loops.** After a repair commits, re-run or manually
-   re-check the affected fragment exactly once, then proceed.
+   re-check the affected fragment exactly once, then proceed. When the
+   re-check passes: move the fragment files back to the audit root and
+   delete the `.fail.md` and `.repair.md` sidecars.
 5. **Cluster rule.** If a wave shows a recurring failure pattern across
    fragments (a systemic corpus or methodology problem), stop and report
    to the owner before any repair, rather than making N small edits.
