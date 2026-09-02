@@ -114,7 +114,6 @@ Design the fragment-coverage review for owner approval: the source-artifact brea
   - 1 operative correction recovered (`SUBMACHINE GUN`: colon)
   - 0 remaining no-transcription records
 - Four licensed-digital BGA snapshots inventoried and confirmed byte-identical
-- `scripts/validate_source_extraction.py`: **passed with 0 failures**
 
 Machine-readable evidence: `docs/rules/source-extraction/validation.json`.
 
