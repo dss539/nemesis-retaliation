@@ -2035,13 +2035,9 @@ task workspace.
 
 ## REPAIR QUEUE — fragment-coverage audit findings
 
-- [ ] **RB-12 (verified true gap):** `docs/rules/03-intruders-and-survival.md` INT-006 covers
-      Serious Wound gain/placement/discard but records **no individual wound effects**. All nine
-      base titles are extracted in `assets/tts-mod/extract/card-text-corpus.json` (ARM, BLEEDING,
-      BODY, EYES, GUTS, HAND, KNEE, LEG, LUNGS) with official/TTS wording variants preserved
-      (e.g. official EYES: "+1 to all your Shoot **results**" vs TTS "values"). Repair: add a
-      wound-effects subsection to INT-006 citing exact occurrences per title, preserving both
-      wordings and the LEG/KNEE/LUNGS per-variant text. Fragment evidence: `audit/fail/RB-12.*`.
+Moved to `audit/repair/`: each verified true gap gets its fragment files plus a
+`<ID>.repair.md` sidecar (defect, source content, applied fix, re-check state).
+Do not add repair entries here.
 
 ## LATER — Expansions (re-add when user wants them)
 - [ ] Re-extract expansion content from save (see `assets/tts-mod/notes/extraction.md` §15 for all deck GUIDs, intruder bags,

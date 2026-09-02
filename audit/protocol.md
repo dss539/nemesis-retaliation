@@ -10,8 +10,9 @@ A child's **fail** is a claim, not a fact. Handle every fail as follows:
    the concise corpus before accepting it. One targeted search per claim.
 2. **Triage the cause:**
    - **True gap** — the content is genuinely missing from the corpus →
-     add a repair entry to `todo.md` (target file, section, what to add,
-     the fragment's source citation). The audit records; it never repairs.
+     move the fragment glob to `repair/` and write a `<ID>.repair.md`
+     sidecar (defect, source content, applied fix, re-check state).
+     The audit records; it never repairs.
    - **Slice defect** — the fragment was badly cut or contains noise →
      fix the slicing and re-run that fragment. Do not repair the corpus
      for a bad fragment.
