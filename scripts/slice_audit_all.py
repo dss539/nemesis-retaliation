@@ -39,6 +39,8 @@ def write_fragment(fid, text, manifest):
 
 def slice_rulebook(manifest):
     census = load(EXTRACT / "rulebook-visual-obligations.json")
+    pages_dir = EXTRACT / "rulebook-pages"
+    n = 0
     for page in census["pages"]:
         idx = page["pdfPageIndex"]
         fid = f"RB-{idx:02d}"
@@ -67,8 +69,14 @@ def slice_rulebook(manifest):
             lines.append(f"* {dec.get('description')} [{dec.get('classification')}]")
         if not (page.get("decorativeOrNonNormative") or []):
             lines.append("* none")
-        write_fragment(fid, "\n".join(lines), manifest)
-    return len(census["pages"]) - 1
+        write_fragment(f"{fid}.a.census", "\n".join(lines), manifest)
+        prose = pages_dir / f"page-{idx:02d}.txt"
+        if prose.is_file():
+            text = prose.read_text(encoding="utf-8")
+            header = [f"RULEBOOK PAGE {idx} — prose text layer", ""]
+            write_fragment(f"{fid}.b.textlayer", "\n".join(header) + text, manifest)
+        n += 1
+    return n
 
 
 def slice_faq(manifest):
