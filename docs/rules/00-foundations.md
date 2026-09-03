@@ -25,8 +25,9 @@
 - **Turn:** one player’s ordered opportunity to perform actions and resolve turn-end effects.
 - **Round:** Player Phase, Intruder Phase, Event Phase, then Cleanup Phase.
 - **Room / Corridor:** map spaces referred to by the rulebook. Their mandatory project geometry and relationship are defined by FND-005.
+- **Model:** the rules term for a physical figure, whether a particular edition supplies that figure as a miniature or a standee.
 - **In Combat:** a Character is in a Room with at least one Intruder.
-- **Source:** Rulebook pp. 12–13 (round/turn) and p. 13, “Not in Combat” (extracted text lines 2901–2906).
+- **Source:** Rulebook pp. 12–13 (round/turn), p. 13, “Not in Combat” (extracted text lines 2901–2906), and p. 4, component-model terminology.
 
 ## FND-005 — Room geometry and Corridor spacing
 
@@ -47,3 +48,34 @@
 - **Source fact:** The base-game component inventory contains 6 Character Draft cards.
 - **Source:** Rulebook PDF p. 3, “Standard-sized cards — Character Draft cards” (quantity); Rulebook p. 10, “Player Setup — Objective Setup and Character Draft” (setup role).
 - **Setup relevance:** Character Draft cards are the finite source used by the Character Draft during player setup; do not synthesize additional draft cards beyond this supply.
+
+## FND-007 — Base-game participation and cooperation structure
+
+- **Source:** Rulebook p. 6, introductory game description; Rulebook p. 7, “Game Modes.”
+- **Player count:** The standard base game supports 1–5 players.
+- **Cooperation model:** The game is semi-cooperative, not fully cooperative. The squad has a shared Mission, while each Character also has an individual Objective whose goals may conflict with those of other Characters.
+- **Consequence:** Completing the shared Mission does not make all Characters collective winners; individual Objective and survival checks still determine each Character's outcome under INT-011.
+
+## FND-008 — Gameplay-facing physical supplies
+
+- **Source:** Rulebook pp. 4–5, component inventory.
+- **Boundary:** These are the provided physical supplies needed to represent game state. The quantities do not, by themselves, create a general rule for resolving a shortage unless another rule states one.
+- **Character and shared components:** 5 Character boards, 6 Character tiles, 6 Character models, and 1 Intruder bag.
+- **Resolution dice:** The Burst die has 6 sides, the Shoot die has 8 sides, and the Noise die has 10 sides. Multiple physical copies of a die are convenience components and do not authorize combining their rolls unless a rule explicitly says so.
+- **State-marker supplies:**
+  - 9 Fire markers;
+  - 14 Malfunction markers;
+  - 30 Universal markers;
+  - 1 Round marker;
+  - 5 Egg tokens;
+  - 1 Autodestruction token;
+  - 1 Lander token;
+  - 14 Door tokens;
+  - 5 Data tokens;
+  - 1 Hibernatorium token;
+  - 3 Life Support tokens;
+  - 2 Anti-Aircraft tokens, each with Active and Inactive faces;
+  - 5 Suffocating tokens;
+  - 1 Starting Player token; and
+  - 5 Character Oxygen counters.
+- **Other gameplay models:** 1 Robot model, 6 Larva models, and 1 Queen model. Intruder-model availability is resolved under INT-001.

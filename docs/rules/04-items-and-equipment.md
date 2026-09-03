@@ -59,6 +59,7 @@ are categorized and named in the card database.
 - **Ammo is two-sided:** Ammo tokens have a Full side and a Half-full side. Using an Ammo token Reloads a Weapon — move the Ammo token from a Tactical Gear slot onto the Weapon's slot. An Ammo token already loaded into a Weapon may not be moved. (RB lines 3477–3483.)
 - **Losing an Item loses its tokens:** As a result of losing an Item, the Character also loses all Tactical Gear tokens on that Item. (RB lines 5077–5078.)
 - **Component limit:** Tactical Gear tokens are limited components. If all are already in players' possession, a Character cannot gain more (e.g. cannot gain Ammo tokens if all are held). (RB lines 3543–3548.)
+- **Provided supply:** The game contains 80 Tactical Gear tokens: 20 Ammo, 20 Grenade, 20 Oxygen, and 20 Medpack tokens.
 - **Source:** RB p. 16 (Tactical Gear tokens) and p. 29 (Tactical Gear slots), extracted lines 3523–3528, 3477–3483, 3543–3548, 4900–4901, 5058–5078.
 - **TTS:** The mod encodes slot counts in card GMNotes — `A`=1 Ammo, `AA`=2 Ammo, `AAA`=3 Ammo, `AGG`=Ammo+Grenade+Grenade, `M`=Melee/Malfunction (TTS `objects.json`, `startItemDeck` cards). Useful as a cross-check for the vision phase, not authoritative.
 

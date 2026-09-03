@@ -17,6 +17,7 @@
   - Shuffle each Intruder-type token pile separately, icon-side up.
   - Bag contents: 1 Blank, 2 Larva, 3 random Adult, plus 1 additional random Adult per participating Character.
   - Help Sheet starts on “Queen Alive” side.
+- **Provided Intruder-token supply:** 40 tokens total: 1 Blank, 9 Queen, 8 Drone, 16 Adult, and 6 Larva tokens.
 - **Token lifecycle:** Every bag draw resolves using the context-specific column of the Intruder Help Sheet. Resolved tokens leave the bag. Blank is the sole exception and returns to the bag. Tokens enter the bag only from their type piles and leave it back to those piles.
 - **Component limits:** Place as many models of a requested type as are available, then ignore the excess.
 - **Room capacity:** Unlimited.
@@ -278,6 +279,10 @@ Applies to Landing Zone/Lander, Hibernatorium, and Escape Shuttle:
 
 ### Hibernation
 
+- **Setup source:** Rulebook p. 8, “Sections Setup,” step 2 note.
+- The Hibernatorium begins Undiscovered at its linked map position; leave its Undiscovered tile there until a Character reaches it.
+- While it remains Undiscovered, Noise cannot be placed in any of the three Corridors connected to it.
+- When the first Character reaches the Hibernatorium, it becomes Discovered; the special Noise prohibition then ends.
 - Success only if Hibernatorium is Active.
 - Lock in pod; take no further part until endgame.
 - Facility destruction can still kill a hibernating Character.
@@ -333,6 +338,9 @@ The game ends when:
 
 ### Objective semantics
 
+- At the start of the game, each player is dealt two hidden Objective cards: one Mission Objective and one Private Objective. Their contents are not revealed to other players before the endgame reveal unless a rule explicitly says otherwise.
+- A Mission Objective corresponds to the squad's shared Mission described on the Mission Task card.
+- A Private Objective contains a unique individual Objective for that Character.
 - An Objective is fulfilled when all its conditions are met at the end of the game. It does not matter which player fulfilled them.
 - Each player begins with one Mission Objective and one Private Objective and must choose one.
 - A Mission Task is shared, face-up from setup, and immutable.
