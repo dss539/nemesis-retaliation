@@ -1,7 +1,7 @@
 # Nemesis: Retaliation — Project Status
 
 **Status date:** 2026-09-03
-**Active phase:** Owner's fragment-coverage review underway; the latest systemic failure set is repaired and no fail/repair artifacts remain
+**Active phase:** Owner's fragment-coverage review underway; the 146 repaired-priority fragments and the separate 200-fragment GLM wave are complete, with no fail/repair artifacts remaining
 **Active branch:** `main`
 **Implementation status:** Frozen; a clean rewrite will begin only after rules-layer readiness and explicit approval
 
@@ -20,25 +20,27 @@ The former Stage 1 v2 blind correctness-audit methodology was scrapped by the ow
 
 ## Immediate Next Deliverable
 
-After the owner selects the worker count, continue the root-fragment review, prioritizing 146 known repaired fragments: 25 still pending from earlier repair commits and 121 returned after the one direct post-commit re-check of `9e9148d`. The prior 500-child attempt hit provider HTTP 429 limits; do not infer that all 1,000 assignments ran. Separately re-triage the previously disputed `RB-P08-042` and `RB-P09-002` irrelevant dispositions before treating the irrelevant set as closed.
+Separately re-triage the disputed `RB-P08-042` and `RB-P09-002` irrelevant dispositions. Then, after the owner selects the next worker count, continue the 1,404 root fragments (872 rulebook fragments plus 532 fragments from the other source channels). Use no more than 10 concurrent `glm-5.3-flash:cloud` children unless provider capacity is re-established with evidence.
 
 ## Resume Checkpoint
 
-- The former `work/card-corpus-extraction` worktree content is integrated into `main`; the removed worktree is absent from `git worktree list`, and the current rules-repair commit is `9e9148d`.
-- The prior 78 paired rulebook audit inputs, four rulebook pass artifacts, three slicing scripts, and obsolete rulebook slicing task/stage artifacts were deleted.
+- The former `work/card-corpus-extraction` worktree content is integrated into `main`; the removed worktree is absent from `git worktree list`. The latest concise-corpus repair commit is `1dbd572`.
+- The prior 78 paired rulebook audit inputs, four rulebook pass artifacts, three slicing scripts, and obsolete rulebook slicing task/stage artifacts are deleted in the current atomic-audit checkpoint.
 - The official 40-page rulebook was rendered temporarily and inspected page by page with vision. Pages 1-2 contain no gameplay facts or rules; pages 3-40 yielded 1,597 atomic records: 686 facts and 911 rules.
 - `audit/manifest.json` contains 1,597 rulebook records and 2,129 records overall, with no stale rulebook IDs or missing targets.
 - Atomic-slice validation passes: contiguous per-page IDs, one assertion block per file, filename/classification agreement, required source and visual provenance, no within-page duplicate assertions, and source PDF SHA-256 `e3cda0d7a91bd090cec45dbc8ce89e2015e2202173357c374ff49365f9c29ddd`.
 - The 2026-09-03 500-child attempt assigned 1,000 unique rulebook fragments. It closed 197 pass and 14 unsure verdicts and produced 133 fail claims; 656 assignments remained without a canonical verdict after widespread provider HTTP 429 failures and interruption. Two transient fragment-without-sidecar cases were returned to the audit root.
 - All 133 fail claims were independently triaged: 121 gameplay/state gaps clustered around setup, map semantics, Event/Attack examples, Oxygen/Tactical Gear, exploration, Malfunctions, and Item traits/effects; 12 layout-convenience, recommendation, frequency-commentary, or flavor assertions were gameplay-irrelevant. Commit `9e9148d` repairs the 121 gaps across the concise corpus; each passed one direct post-commit re-check and returned to the audit root.
-- Current rulebook locations reconcile to all 1,597 fragments: 1,218 at the audit root, 307 pass, 0 fail, 29 unsure, 43 irrelevant, and 0 repair. All 2,129 manifest entries are uniquely located and every pass/unsure fragment has exactly its matching sidecar.
+- The 146 repaired-priority fragments are complete: 146 pass, 0 fail, 0 unsure, 0 unreviewed. Eight initial workers were blocked by obsolete workspace-lock instructions; all 11 affected fragments passed in a later owner-authorized lock-free retry.
+- The separate 100-worker GLM assignment is complete: all 200 unique fragments are dispositioned as 181 pass and 19 gameplay-irrelevant, with 0 fail, 0 unsure, 0 repair, and 0 unreviewed. Every genuine gap was repaired centrally and passed one independent re-verification; provider-safe waves of at most 10 children had no observed HTTP 429 failures.
+- Current rulebook locations reconcile to all 1,597 fragments: 872 at the audit root, 634 pass, 0 fail, 29 unsure, 62 irrelevant, and 0 repair. Across all source channels, the 2,129 manifest entries reconcile as 1,404 root, 634 pass, 0 fail, 29 unsure, 62 irrelevant, and 0 repair, with unique locations, matching verdict sidecars, and no orphaned sidecars.
 - The resource monitor covered the 26m18s verifier window. Peak CPU was 26.306%, peak one-minute load 2.175, minimum available memory 21,274,458,112 bytes, and peak WebUI RSS 2,925,813,760 bytes. NVMe utilization peaked at 71.756% with 4 ms maximum read await and 27.008 ms maximum write await; host saturation was not the wave limiter.
 
 ## Execution Boundaries
 
 - Follow the owner's fragment-coverage review in `docs/rules/implementation-readiness.md`. Review rules and source evidence only; do not rebuild audit machinery.
 - The owner decides worker count per wave.
-- Verifiers operate directly and exclusively on their assigned canonical fragments in the defined repository audit folders under the supervisor's inherited root lock. Do not use `/tmp`, copied packets, ad hoc directories, or verifier worktrees. Never use sleep-only lock holders.
+- Verifiers operate directly and exclusively on disjoint assigned canonical fragments in the defined repository audit folders. These fragment/sidecar writes are owner-authorized lock-free work: verifiers must not acquire, inspect, wait on, or touch `.workspace.lock`. Serialize only genuinely shared writes such as corpus repairs and status updates. Do not use `/tmp`, copied packets, ad hoc directories, or verifier worktrees.
 - Do not create Hermes profiles, expand semantics, touch the legacy implementation, open a PR, merge, deploy, or push unless separately authorized. A stop/status request preempts worker launches, integration, and autonomous successor handoff immediately.
 
 ## Verified Checkpoint

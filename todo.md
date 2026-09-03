@@ -10,10 +10,7 @@ asset-workspace entry point.
 the concise current state. This file owns detailed backlog and historical checkpoints. Do not duplicate
 durable knowledge here or update it merely because a session occurred.
 
-Active task workspace: `/home/smithers/projects/nemesis-card-corpus/`
-Repository: `/home/smithers/projects/nemesis-card-corpus/repos/nemesis-retaliation/`
-Working dir (TTS extraction): `/home/smithers/projects/nemesis-card-corpus/repos/nemesis-retaliation/assets/tts-mod/extract/`
-Tree: `/home/smithers/projects/nemesis-card-corpus/repos/nemesis-retaliation/assets/tts-mod/extract/v2-dl/tree/`
+Current workspace, branch, and immediate next action: see `PROJECT_STATUS.md`.
 
 ## Status legend
 - [ ] = not started
@@ -2018,7 +2015,10 @@ task workspace.
 - [x] 2026-09-03 independently triaged all 21 remaining recorded failures: repaired 18 gameplay-facing finite card/deck and Room/Corridor supply gaps in commit `0ce5c45`; moved the Solo/Coop-only Objective supply and two physical border-piece quantities to `audit/irrelevant/` without fail sidecars.
 - [x] 2026-09-03 500-child attempt assigned 1,000 unique rulebook fragments. It closed 197 pass and 14 unsure verdicts, produced 133 fail claims, and left 656 assignments without canonical verdicts after widespread provider HTTP 429 failures and interruption; two fragment-without-sidecar cases were returned to the audit root.
 - [x] 2026-09-03 independently triaged all 133 fail claims: repaired 121 gameplay/state gaps as systemic topic clusters in commit `9e9148d`, moved 12 non-operative layout/recommendation/commentary/flavor fragments to `audit/irrelevant/`, performed one direct post-commit re-check per repair, and returned all 121 repaired fragments to the audit root. No fail or repair artifact remains.
-- [ ] Owner gate: choose the worker count for continued review of the 1,218 root fragments, prioritizing the 146 known repaired fragments (25 older plus 121 from `9e9148d`). Do not treat the 500-child attempt's 1,000 assignments as completed.
+- [x] 2026-09-03 completed fresh verification of all 146 repaired-priority fragments: 146 pass, 0 fail, 0 unsure, and 0 unreviewed. The 11 fragments initially blocked by obsolete workspace-lock instructions all passed in a later owner-authorized lock-free retry.
+- [x] 2026-09-03 completed the separate fixed 100-worker/200-fragment GLM assignment at provider-safe concurrency. Final dispositions are 181 pass and 19 gameplay-irrelevant, with 0 fail, 0 unsure, 0 repair, and 0 unreviewed. All accepted corpus gaps were repaired centrally, independently re-verified once, and checkpointed in `1dbd572`; batches of at most 10 `glm-5.3-flash:cloud` children produced no observed provider throttling.
+- [x] Reconciled all 2,129 manifest entries after both waves: 1,404 root, 634 pass, 0 fail, 29 unsure, 62 irrelevant, and 0 repair; every entry has one canonical location, every verdict-routed fragment has its matching sidecar, and no sidecar is orphaned. Rulebook-only counts are 872 root, 634 pass, 29 unsure, and 62 irrelevant.
+- [ ] Owner gate: choose the worker count for continued review of the 1,404 root fragments (872 rulebook plus 532 other-source fragments). Keep disjoint fragment workers lock-free and do not exceed 10 concurrent `glm-5.3-flash:cloud` children without new provider-capacity evidence.
 - [ ] Separately re-triage disputed prior irrelevant dispositions `RB-P08-042` and `RB-P09-002` before treating the irrelevant set as closed.
 - [ ] After the fragment-coverage review passes, choose a clean architecture independently and obtain explicit owner approval before implementation.
 
