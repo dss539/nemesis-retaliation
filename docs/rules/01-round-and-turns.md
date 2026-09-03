@@ -14,7 +14,7 @@
 ## RT-002 — Turn order
 
 - **Source:** Rulebook p. 13, “Player Phase” (extracted text lines 2987–3004).
-- **Plain rule:** The Starting Player is the player holding the Starting Player token. Turn order starts with the Starting Player and continues clockwise. “First in Turn order” means the Starting Player, or the closest applicable Character clockwise from that player. Player numbers on Help cards do not establish turn order after setup.
+- **Plain rule:** The Starting Player is the player holding the Starting Player token. Turn order starts with the Starting Player and continues clockwise. “First in Turn order” means the Starting Player, or the closest applicable Character clockwise from that player. Player numbers on Help cards do not establish turn order after setup; after setup, those numbers are used only by Objective cards that refer to them.
 
 ## RT-003 — Reactions
 
@@ -73,14 +73,23 @@
 
 ## RT-009 — Event Phase
 
-- **Source:** Rulebook p. 15, “Event card resolution” (extracted text lines 3269–3299).
+- **Source:** Rulebook pp. 14–15 and 31, “Event card resolution,” Event-card anatomy, and “Event Cards” (`RB-P14-016`, `RB-P14-022`–`RB-P14-023`, `RB-P31-005`–`RB-P31-012`).
 - **Procedure:** Draw the top Event card and resolve, in order:
   1. Its specified Intruder movement.
   2. Its main effect.
   3. Its secondary effect.
   4. Discard the card.
+  5. After Event-card resolution, modify the Intruder bag by resolving Bag Development under RT-011.
+- **Card anatomy:** The Intruder Movement icons identify which Intruders move. Event cards use two movement-instruction forms: move Intruders in Corridors of the shown orientation to Rooms, and move Intruders in Rooms to Corridors. Resolve the exact form or ordered combination printed on the card.
 - **Impossible sentence:** Ignore an impossible sentence, then continue resolving the rest of the card.
 - **Order convention:** Character effects resolve in turn order. Noise-marker effects resolve from the Facility’s top-left Corridor, row by row.
+
+### Rulebook-illustrated Event effects
+
+- **Rise of the Machine — secondary effect:** Place a Noise marker in every Unexplored Corridor that does not already have one.
+- **Short Circuit — movement:** First move every Intruder in a Corridor of the diagonal orientation shown on the card; then move every Intruder currently in a Room.
+- **Short Circuit — main effect:** In each Section whose Life Support is inactive, place Fire in every Room with a Computer icon.
+- **Short Circuit — secondary effect:** Each Robot in a Room without a Secure token resolves a Hazard result.
 
 ## RT-009a — Lander-launch timing exception
 
@@ -127,7 +136,7 @@
 
 - **Source:** Rulebook p. 16 (extracted text lines 3410–3431); Rulebook p. 38, “Autodestruction Procedure” (extracted text lines 6122–6140).
 - **Autodestruction token:** The Facility explodes; the game ends. All Characters still inside (including hibernating Characters) die. All Rooms are destroyed. All Intruders die.
-- **Lander token:** Resolve its landing attempt immediately. If anti-aircraft is inactive (or removed), the Lander lands at the Landing Zone and Characters may henceforth attempt escape through it. If active, the Lander is destroyed and removed from the game.
+- **Lander token:** Resolve its landing attempt immediately. If Anti-Aircraft is inactive (or removed), the Lander lands at the Landing Zone, remove the Anti-Aircraft tokens from the game, and Characters may henceforth attempt escape through it. Removed Anti-Aircraft tokens cannot subsequently be changed. If Anti-Aircraft is active, the Lander is destroyed and removed from the game.
 
 ## RT-013 — Orders and Commands
 

@@ -30,6 +30,8 @@
 - **Restriction:** A Closed Door blocks Character movement; it must first be opened or destroyed by an appropriate effect.
 - **Restriction:** Every Movement normally produces a Noise roll, including movement into a Room containing another Character and/or Intruder, unless a special effect explicitly permits movement without one.
   - **Source:** Rulebook p. 25, “Noise Roll After Every Movement” (lines 4702–4705).
+- **Distance-ignoring Movement:** When an effect moves a Character to a specified Room regardless of distance, resolve the normal Movement sequence but skip Choose Direction. All other applicable steps and restrictions still resolve.
+  - **Source:** Rulebook p. 24, “Secret Passages” (`RB-P24-014`).
 - **FAQ:** An action that prevents an Intruder Attack “during a Movement” prevents opportunity attacks only, not a Hazard-result attack from the Noise roll.
   - **Source:** FAQ v1.2, “Action cards” #3 (lines 86–89).
 
@@ -46,11 +48,11 @@
 - **Preconditions:**
   - The normal movement sequence reaches step 3b.
   - The chosen Corridor is Unexplored and leads to an Undiscovered Room.
-  - Orient the drawn Exploration card to the map’s orientation.
+  - Orient the drawn Exploration card to the map’s orientation, using the card's North icon and the map's top-left side as the alignment aid.
 - **Resolution order:**
-  1. Draw an Exploration card.
-  2. Set up Room: draw a random Room of the card’s required type (A, B, or C) and place it in the destination slot. If that type is exhausted, use a random ? Room.
-  3. Set up Corridors: add each indicated Corridor unless it would go outside the Facility border or connect to an already placed Room. Orient a new Corridor’s Door slot toward the newly explored Room.
+  1. Draw an Exploration card. If a draw is required while the deck is empty, shuffle all discarded Exploration cards except those removed from the game to rebuild the deck, then complete the draw.
+  2. Set up Room: use the card header to determine its required type, which may be A, B, C, or `?`. Draw a random Room of that type and place it face-up in the destination slot. If a required A, B, or C stack is exhausted, use a random `?` Room instead. A card that directly requires `?` draws from the `?` stack.
+  3. Set up Corridors: place a random Corridor face-up in every indicated unoccupied slot unless it would go outside the Facility border or connect to an already placed Room. Orient a new Corridor’s Door slot toward the newly explored Room.
   4. Set up markers and tokens: place exactly the markers/tokens depicted, except do not add Noise to a Corridor that was not placed or already has Noise.
   5. Move Character: move the explorer into the new Room; if the originating movement was cautious, place one Secure token there.
   6. Entrance Effect: resolve it, commonly a Noise roll.
@@ -85,7 +87,7 @@
 - **Cost:** 1 Action card.
 - **Source:** Rulebook p. 12, “Basic Actions List” (line 2885); Rulebook p. 33, “Bursting.”
 - **Preconditions:**
-  - Select a working, loaded Ranged Weapon in a Hand.
+  - Select a working, loaded Ranged Weapon in a Hand. A Weapon with the Requires No Ammo trait may Burst without a physical Ammo token and counts as having one for this prerequisite.
   - Select an adjacent Corridor.
   - Closed Doors cannot be crossed to Burst.
 - **Resolution:**
@@ -105,7 +107,7 @@
 
 - **Cost:** 1 Action card.
 - **Source:** Rulebook p. 12, “Basic Actions List” (line 2887); Rulebook p. 34, “Melee Attack” (lines 5628–5667).
-- **Preconditions:** Choose an Intruder in the acting Character’s Room. A weapon is not required.
+- **Preconditions:** Choose an Intruder in the acting Character’s Room. The attack may use a Ranged Weapon, a Melee Weapon, or no Weapon.
 - **Resolution:**
   1. Gain one Contamination card.
   2. Choose target in the same Room.
@@ -127,7 +129,7 @@
   - The played Search card/action is legal under its printed restrictions.
 - **Resolution:**
   1. For each Item icon in the acting Character’s Room, draw one Item from the matching Item deck.
-  2. Choose exactly one drawn Item to keep.
+  2. The player may choose at most one drawn Item to keep.
   3. Place every unchosen drawn Item on the bottom of its respective deck.
   4. Do not reveal searched-but-unchosen Items to other players.
 - **Item placement restrictions:**
@@ -136,6 +138,7 @@
   - Only one Armor may be worn; a newly gained Armor may replace the current Armor.
   - Any Item discarded for displacement, replacement, or another effect goes to the Items discard pile.
   - **Source:** Rulebook pp. 17 and 28–29, “Discarding Items and Tactical Gear Tokens,” “Backpack,” “Heavy Items,” “Armor Items” (lines 3665–3673, 4849–4910, 5024–5057).
+- **Rulebook example:** Life Support Control B has one green and one red Item icon, so Searching there draws one green Item and one red Item before the player decides whether to keep at most one.
 
 ## ACT-ITEM-001 — Use Item
 
@@ -177,7 +180,7 @@
 
 - **Cost:** 1 Action card.
 - **Source:** Rulebook p. 12, “Basic Actions List” (line 2880); Rulebook p. 23, “Secure tokens.”
-- **Preconditions:** The Room must not contain an Intruder. Maximum three Secure tokens per Room.
+- **Preconditions:** The Room must not contain an Intruder. Some Rooms cannot be Secured; the Nest is one such Room. Maximum three Secure tokens per Room.
 - **Effect:** Place one Secure token in the acting Character’s Room.
 - **FAQ:** Secure tokens prevent attacks from Intruders being placed in the Room (consuming one token per entry).
   - **Source:** FAQ v1.2, “General rules” #11 (lines 70–72).
@@ -193,8 +196,27 @@
 - **Cost:** 1 Action card.
 - **Source:** Rulebook p. 12, “Basic Actions List” (line 2895); Rulebook p. 16, “Tactical Belt.”
 - **Plain rule:** Use any Tactical Gear token. Multiple tokens may be used at once; the player chooses which token to use one by one.
+- **Oxygen:** Gain 3 Oxygen and rotate the Oxygen dial to the new value, never above 7.
+- **Grenade:** Choose an adjacent Corridor, roll one Burst die, add 2 to its result, and deal that many Hits in the chosen Corridor. The Ammo-loss face has no effect, this is not a Burst Action, and Weapon effects do not apply.
+- **Medpack:** Restore 2 Health Points.
 - **FAQ:** Grenade Launcher grenades may be thrown from a malfunctioning Grenade Launcher with the Use Any Tactical Gear action.
   - **Source:** FAQ v1.2, “Items and tactical gear” #4 (lines 135–139).
+
+## ACT-OXYGEN-001 — Personal Oxygen and Suffocating
+
+- **Source:** Rulebook p. 17, “Oxygen,” “Oxygen tokens,” and “Suffocating” (`RB-P17-006`, `RB-P17-013`–`RB-P17-016`).
+- **Range:** A Character's Oxygen supply cannot exceed 7. An Action that spends Oxygen is illegal if paying it would reduce Oxygen below 0.
+- **Tracking:** Rotate the Character's Oxygen dial whenever Oxygen is spent or gained so it shows the new value.
+- **Suffocating trigger:** When the Oxygen counter reaches the Suffocating space, gain a Suffocating token and immediately reset the Oxygen dial to 0.
+- **Existing-token consequence:** A Character with a Suffocating token dies the next time they lose Oxygen.
+- **Recovery:** Discard the Suffocating token when that Character gains Oxygen or ends a Turn in a Section with active Life Support.
+
+## Malfunction markers
+
+- **Source:** Rulebook p. 23, “Malfunction Markers” (`RB-P23-019`, `RB-P23-030`, `RB-P23-037`–`RB-P23-046`).
+- **Meaning:** A Malfunction marker represents a broken component whose affected functionality is unavailable under the component-specific rules.
+- **Heavy Item:** Its Action cannot be used. If an effect would place a second Malfunction marker on the Item, destroy and discard the Item instead.
+- **Robot:** A Robot with a Malfunction marker cannot be activated or used by Room interactions or Robot Actions. Treat its card as having no text and no icons. It may still satisfy an effect that merely requires a Robot—for example, a Secure Action card—and Tactical Gear on it remains available under ACT-ROBOT-001. Ignore an instruction to place a second Malfunction marker on it.
 
 ## Doors
 
@@ -213,8 +235,8 @@
   - **Source:** Rulebook p. 22, “Doors” note (line 4253–4255); Rulebook p. 24, “Exploration Sequence” (lines 4505–4508).
 - **Intruder movement:** Intruders attempting to move through a Closed Door destroy the Door instead and do not move in that movement attempt.
   - **Source:** Rulebook p. 31, “Intruders Moving Through Doors.”
-- **Fire:** Closed Doors prevent fire spreading between the blocked Rooms.
-  - **Source:** Rulebook p. 23, “Doors and Spreading Fire.”
+- **Fire:** When a card instructs Fire to spread, place Fire markers in neighboring Rooms exactly as that card directs. Closed Doors prevent Fire spreading between the blocked Rooms unless the responsible effect says otherwise.
+  - **Source:** Rulebook p. 23, “Doors and Spreading Fire” (`RB-P23-017`).
 - **Note:** The rules define Door states and say Doors are opened by an “appropriate Action,” but do not provide a universal `Open Door` Basic Action. Opening/closing is implemented only where a specific Room, Item, Action card, Exploration Entrance Effect, or other effect grants it.
 
 ## Noise
@@ -236,6 +258,7 @@
 - A Corridor with an Intruder cannot receive a Noise marker.
 - If an Intruder enters a Corridor containing Noise, discard the Noise marker first.
 - A Reinforced Corridor has Noise value 0, so a normal numbered Noise roll cannot place Noise there; Intruders can still enter it.
+- Movement and other Actions may place Noise markers in Corridors, subject to these constraints.
 - **FAQ:** “Resolve a Noise marker in each Unexplored Corridor” only resolves markers that already exist—it does not create them.
   - **Source:** FAQ v1.2, “General rules” #6 (lines 42–46).
 - **Source:** Rulebook pp. 21–22, “Reinforced Corridor” / “Intruders and Noise Markers.”
@@ -271,7 +294,7 @@
 - **Naming invariant:** Action card identifiers must not reuse Basic Action names (`move`, `shoot`, `useRoom`, and similar). Reusing them makes the two categories indistinguishable in state, logs, and UI. See BUG-023.
 - **Rulebook-illustrated faces:** These faces are directly illustrated in the rulebook:
   - **Sprint** (Recon) — “Move. Then, you may spend 1 to Move again.” Source: Rulebook Recon card image (extracted text lines ~332–338).
-  - **Duck and Cover** (Contractor: Consultant) — “Discard 1 Action card to Move. During that Movement, Prevent 1 Intruder Attack.” Has a Reaction effect. Source: Rulebook pp. 14 and 13 card image (lines 3118–3127, 3190–3196).
+  - **Duck and Cover** (Contractor: Consultant) — “Discard 1 Action card to Move. During that Movement, Prevent 1 Intruder Attack.” Its Reaction triggers when an Intruder would Attack this Character in a Room with another Character; that Intruder Attacks the other Character instead. Source: Rulebook pp. 14 and 13 card image (`RB-P13-009`–`RB-P13-010`; extracted lines 3118–3127, 3190–3196).
 - **Deck size:** Each Character has their own 10-card Action deck; the rulebook lists 60 Action cards total (line 528). `semantics/action-source-index.json` mechanically reconciles six exact Character memberships from seven TTS root segments (including the five-card Shared Contractor root), while preserving component scans/selector gaps and all 60 licensed-digital rows independently.
 - **Authority boundary:** The former missing-data blocker (OQ-010) is resolved. All 60 exact physical occurrences now have occurrence-keyed semantic records, but licensed rows, current official examples, TTS variants, and unresolved local glyph/Command/Reaction questions remain source-scoped and must not be silently collapsed. This family closure is not full base-game semantic coverage.
 
@@ -314,7 +337,7 @@
 
 - **Given:** A Room has three Item icons.
 - **When:** Its occupant resolves Search.
-- **Then:** Draw the corresponding three Items, keep one, and return the other two face-down to the bottoms of their respective decks.
+- **Then:** Draw the corresponding three Items, optionally keep at most one, and return every unchosen card face-down to the bottom of its respective deck.
 
 ### EX-ACT-006 — Trade and immediate use
 

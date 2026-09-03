@@ -41,11 +41,11 @@ The wording “must,” “may,” and “cannot” is deliberate:
 
 ## Corpus map
 
-- `00-foundations.md` — scope, terminology, participation/cooperation structure, relevant finite supplies, Facility setup, Room geometry, Corridor spacing/extent, and cross-cutting conventions (FND-001–010).
+- `00-foundations.md` — scope, terminology, participation/cooperation structure, relevant finite supplies, Facility and player setup, map-space semantics, Room geometry, Corridor spacing/extent, and cross-cutting conventions (FND-001–012).
 - `01-round-and-turns.md` — round sequence, phases, turns, pass, actions, cleanup, death, endgame triggers (RT-001–015, 7 examples).
 - `02-character-actions.md` — all player action procedures: move, explore, search, shoot, burst, melee, trade, doors, noise, plus Action card identity (ACT-*-001, ACT-CARD-001–002, 8 examples).
 - `03-intruders-and-survival.md` — intruder bag, movement, attacks, health, contamination, eclosion, escape, endgame resolution (INT-001–011, 6 examples).
-- `04-items-and-equipment.md` — source-backed Item physical classes, source families, storage, Tactical Gear, and Item Icons (ITM-001–008).
+- `04-items-and-equipment.md` — source-backed Item physical classes, source families, storage, Tactical Gear, Item Icons, and rulebook-illustrated Item effects (ITM-001–009).
 - `deviations.md` — deliberate digital adaptations only; currently one recorded proposal. Implementation bugs never belong there.
 - `open-questions.md` — source ambiguities and resolved former extraction/vision questions; semantic no-default gates are enumerated authoritatively in the archived `archive/obsolete/semantics/data/review-gates.json` (historical reference; verify against raw source before relying on any record).
 - `sources.md` — source editions and citation conventions.

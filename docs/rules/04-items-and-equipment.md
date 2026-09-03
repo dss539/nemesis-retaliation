@@ -27,6 +27,10 @@ are categorized and named in the card database.
   - **Heavy Item** — horizontal layout. Too big for the Backpack; held in a Hand slot, one per Hand. (RB lines 5024–5029.)
   - **Armor Item** — carries the "Armor" keyword. Worn on the Health track, not in the Backpack. (RB lines 5045–5057.)
 - **Weapon Item** — a subtype of Heavy Item (Ranged or Melee). Ranged Weapons are required to Shoot and Burst. (RB lines 5030–5033.)
+- **Weapon-trait semantics** — the Ranged Weapon and Melee Weapon labels are descriptive and have no standalone effect, although Actions may refer to them. A Weapon with Requires No Ammo may Shoot or Burst without a physical Ammo token and always counts as having one for Action prerequisites.
+- **Intruder Eggs** — Eggs count as Heavy Items.
+- **Armor gain restriction** — if a Character is already Heavily Injured when they would gain Armor, they cannot gain it and discard it instead.
+- **Heavy Armor** — whenever its Character would gain a Serious Wound, they may lose 2 Health instead.
 - **Source:** RB p. 29 (extracted lines 5024–5057).
 - **USER:** The physical classes are orthogonal to card color. A card's color (red/green/yellow) does not determine whether it is heavy, armor, or regular.
 
@@ -90,3 +94,9 @@ are categorized and named in the card database.
 - **Ship/Dropship icon:** The silhouette some vision reads described as an "alien head" is the **Lander**, not an Intruder. Canonical name: `[lander]`.
 - **Scope boundary:** The complete vocabulary, including Tactical Gear slots, markers, Corridor axes, die faces, and general icons, is defined in `docs/rules/icon-glossary.md` and extracted under `assets/icons/`.
 - **Source:** Official rulebook p. 40 icon glossary; ITM-006 and ITM-007.
+
+## ITM-009 — Rulebook-illustrated Item effects
+
+- **Source:** Rulebook p. 28, illustrated Item faces (`RB-P28-009`, `RB-P28-040`).
+- **Perimeter Security Device:** Whenever its Character Discovers a new Room, ignore Hazard results from all sources.
+- **Duct Tape:** One printed option discards 1 Malfunction marker. Its other printed option and exact One Use Only/Not In Combat boundaries remain source-scoped and are not rewritten here.

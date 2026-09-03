@@ -18,10 +18,12 @@
   - Bag contents: 1 Blank, 2 Larva, 3 random Adult, plus 1 additional random Adult per participating Character.
   - Help Sheet starts on “Queen Alive” side.
 - **Provided Intruder-token supply:** 40 tokens total: 1 Blank, 9 Queen, 8 Drone, 16 Adult, and 6 Larva tokens.
+- **Types and default scope:** The four Intruder types are Queen, Drone, Adult, and Larva. General Intruder rules are written from the Adult perspective and apply to all four types unless a rule expressly overrides them.
 - **Token lifecycle:** Every bag draw resolves using the context-specific column of the Intruder Help Sheet. Resolved tokens leave the bag. Blank is the sole exception and returns to the bag. Tokens enter the bag only from their type piles and leave it back to those piles.
 - **Component limits:** Place as many models of a requested type as are available, then ignore the excess.
 - **Room capacity:** Unlimited.
 - **Corridor capacity:** Six Intruder-equivalents; a Queen counts as four.
+- **Placement at capacity:** Prioritize larger Intruders. When placing a larger Intruder into a full Corridor, remove as many smaller Intruders as necessary to make room. Any Intruder still blocked by the capacity limit remains unplaced. Movement-capacity handling is in INT-003.
 - **Help Sheet extraction:** Both Queen Alive and Queen Dead sides are transcribed source-bound in `docs/rules/source-extraction/intruder-help-sheet.json`: 18 instructions with source-local token occurrences, exact front/back pairing, and zero unreadable spans. The TTS component pixels remain below official FAQ/rulebook authority and are not silently normalized.
 
 ## INT-002 — Noise-based spawning and hazard spawning
@@ -69,16 +71,18 @@ A numeric Noise result resolves every adjacent Corridor matching that value, one
 ### Group movement
 
 1. Intruders move as a group toward the closest Character on a shortest route.
-2. Closed Doors do not affect route selection.
-3. If they would move through a Closed Door, destroy that Door and do not move.
-4. Entering an occupied Room from a Corridor: only the largest Intruder enters.
-5. If a preferred destination Corridor is full, use another equally short route if one exists. Otherwise move as many as fit and leave the rest waiting.
-6. Event movement ordering: resolve Facility movement top-left to bottom-right, row by row, one Intruder group at a time.
-7. If equal shortest routes, choose the one beginning with the lowest-ID Corridor/Room.
+2. A normal move alternates space types: from a Corridor into an adjacent Room, or from a Room into an adjacent Corridor.
+3. Closed Doors do not affect route selection.
+4. If they would move through a Closed Door, destroy that Door and do not move.
+5. Entering an occupied Room from a Corridor: only the largest Intruder enters.
+6. If a preferred destination Corridor is full, use another equally short route if one exists. Otherwise move as many as fit and leave the rest waiting.
+7. Event movement ordering: resolve Facility movement top-left to bottom-right, row by row, one Intruder group at a time.
+8. If equal shortest routes, choose the one beginning with the lowest-ID Corridor/Room.
 
 ### Repel
 
 - **Source:** Rulebook p. 31 (lines 5273–5292).
+- A Character may Repel an Intruder only from that Character's Room or an adjacent Corridor.
 - If the Intruder is in the source Room: the affected Character chooses its exit Corridor.
 - Otherwise: move away from source; if multiple destinations, choose Corridor/Room with lowest ID.
 - If traversing a Closed Door: destroy the Door; do not traverse.
@@ -119,6 +123,12 @@ An Intruder attack is triggered by:
 1. Draw a random Intruder Attack card.
 2. Resolve the card’s effect associated with the attacking Intruder type.
 3. Discard the card.
+4. Reshuffle the Intruder Attack deck only when a game effect expressly instructs it.
+
+### Rulebook-illustrated Attack effects
+
+- **Page-18 illustrated attack — Adult, Drone, or Queen:** If the target is Heavily Injured, they die. Otherwise they gain 1 Serious Wound and 1 Contamination.
+- **Infecting — Adult, Drone, or Queen:** The target loses 2 Health and gains 1 Contamination. If they are not already infected with a Larva, place 1 Larva on their Character board.
 
 ### Larva attack resolution
 
@@ -159,6 +169,7 @@ An Intruder attack is triggered by:
 
 ### Health loss
 
+- The Health track has Healthy, Injured, and Heavily Injured sections. A Character's current state is the section containing their Health marker; the section labels have no standalone effect unless another rule refers to that state.
 1. Move the Health marker n slots right.
 2. When crossing into a section occupied by Armor: discard that Armor, then continue movement.
 3. If the marker reaches the Skull: the Character dies.
@@ -283,6 +294,7 @@ Applies to Landing Zone/Lander, Hibernatorium, and Escape Shuttle:
 - The Hibernatorium begins Undiscovered at its linked map position; leave its Undiscovered tile there until a Character reaches it.
 - While it remains Undiscovered, Noise cannot be placed in any of the three Corridors connected to it.
 - When the first Character reaches the Hibernatorium, it becomes Discovered; the special Noise prohibition then ends.
+- The Hibernatorium cannot be Used while Undiscovered and inactive. Once available, it can provide safety to multiple Characters.
 - Success only if Hibernatorium is Active.
 - Lock in pod; take no further part until endgame.
 - Facility destruction can still kill a hibernating Character.
