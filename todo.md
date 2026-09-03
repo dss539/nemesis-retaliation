@@ -2012,7 +2012,9 @@ task workspace.
 - [x] Reconciled `audit/manifest.json` to 2,129 total entries and validated contiguous per-page IDs, one assertion block per file, classification agreement, nonempty source/visual provenance, no within-page exact duplicates, no stale rulebook IDs, and no missing manifest targets against source SHA-256 `e3cda0d7a91bd090cec45dbc8ce89e2015e2202173357c374ff49365f9c29ddd`.
 - [x] 2026-09-03 verifier waves processed 134 distinct rulebook fragments. The latest 100-item wave recorded 23 pass, 66 fail, and 11 unsure with no worker or closure errors.
 - [x] 2026-09-03 triaged all 66 failures from that wave: repaired 47 gameplay-relevant corpus gaps in commit `6a54e92` and returned those exact fragments to the audit root; moved 19 packaging/reference-only assertions to `audit/irrelevant/` without fail sidecars.
-- [ ] Owner gate: choose the worker count for fresh verification of the 47 repaired fragments, then continue the remaining unprocessed rulebook records.
+- [x] 2026-09-03 follow-up wave assigned 10 items each to 10 workers: all 47 prior repairs passed fresh verification; 53 new fragments recorded 10 pass, 41 fail, and 2 unsure with no worker or closure errors.
+- [x] 2026-09-03 triaged all 41 new failures: repaired 33 gameplay-relevant setup and terminology gaps in commit `0a412a1` and returned those exact fragments to the audit root; moved 8 assembly, expansion, insert-placement, or table-layout assertions to `audit/irrelevant/` without fail sidecars.
+- [ ] Owner gate: choose the worker count for fresh verification of the 33 repaired fragments, then continue the remaining unprocessed rulebook records.
 - [ ] After the fragment-coverage review passes, choose a clean architecture independently and obtain explicit owner approval before implementation.
 
 ## DONE — Intruder Help and Room semantic audit closure (2026-08-25)

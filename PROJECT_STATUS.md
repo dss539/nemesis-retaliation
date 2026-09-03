@@ -1,7 +1,7 @@
 # Nemesis: Retaliation — Project Status
 
 **Status date:** 2026-09-03
-**Active phase:** Owner's fragment-coverage review underway; the latest 66-failure cluster has been triaged and repaired
+**Active phase:** Owner's fragment-coverage review underway; the latest 41-failure setup cluster has been triaged and repaired
 **Active branch:** `main`
 **Implementation status:** Frozen; a clean rewrite will begin only after rules-layer readiness and explicit approval
 
@@ -20,16 +20,17 @@ The former Stage 1 v2 blind correctness-audit methodology was scrapped by the ow
 
 ## Immediate Next Deliverable
 
-After the owner selects the worker count, send the exact 47 repaired fragments now back under `audit/` to fresh verifiers. The remaining 19 failures from that wave were packaging/reference-only assertions and have been moved to `audit/irrelevant/`; they must not be reverified.
+After the owner selects the worker count, send the exact 33 repaired fragments now back under `audit/` to fresh verifiers. The remaining 8 failures from that wave were assembly, expansion, insert-placement, or table-layout assertions and have been moved to `audit/irrelevant/`; they must not be reverified.
 
 ## Resume Checkpoint
 
-- The former `work/card-corpus-extraction` worktree content is integrated into `main`; the removed worktree is absent from `git worktree list`, and the current rules-repair commit is `6a54e92`.
+- The former `work/card-corpus-extraction` worktree content is integrated into `main`; the removed worktree is absent from `git worktree list`, and the current rules-repair commit is `0a412a1`.
 - The prior 78 paired rulebook audit inputs, four rulebook pass artifacts, three slicing scripts, and obsolete rulebook slicing task/stage artifacts were deleted.
 - The official 40-page rulebook was rendered temporarily and inspected page by page with vision. Pages 1-2 contain no gameplay facts or rules; pages 3-40 yielded 1,597 atomic records: 686 facts and 911 rules.
 - `audit/manifest.json` contains 1,597 rulebook records and 2,129 records overall, with no stale rulebook IDs or missing targets.
 - Atomic-slice validation passes: contiguous per-page IDs, one assertion block per file, filename/classification agreement, required source and visual provenance, no within-page duplicate assertions, and source PDF SHA-256 `e3cda0d7a91bd090cec45dbc8ce89e2015e2202173357c374ff49365f9c29ddd`.
-- Current rulebook locations reconcile to all 1,597 fragments: 1,510 at the audit root, 33 pass, 21 fail, 13 unsure, 20 irrelevant, and 0 repair. The 47 repaired root fragments are pending fresh verification.
+- The latest 100-item wave recorded 57 pass, 41 fail, and 2 unsure with no worker or closure errors; all 47 previously repaired fragments passed fresh verification.
+- Current rulebook locations reconcile to all 1,597 fragments: 1,443 at the audit root, 90 pass, 21 fail, 15 unsure, 28 irrelevant, and 0 repair. The 33 newly repaired root fragments are pending fresh verification.
 
 ## Execution Boundaries
 
