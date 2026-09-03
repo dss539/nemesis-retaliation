@@ -41,3 +41,9 @@
 - **Legal-target invariant:** A UI must not present off-board, unconnected, direction-mismatched, Closed-Door-blocked, or otherwise illegal destinations as Move choices. Exploration additionally requires an empty valid Room slot, so an occupied slot is not a legal Exploration destination. This does not prohibit an ordinary Move into a discovered Room merely because another Character or an Intruder occupies it. The authoritative rules engine must independently reject illegal targets.
 - **Rendering invariant:** Room outlines, empty slots, status overlays, interaction hit regions, focus treatments, movement targets, and semantic-zoom representations must all preserve the same six-sided boundary. An octagonal or eight-direction representation is a rules-fidelity defect.
 - **Official source boundary:** Rulebook p. 20, “Map” and “Rooms” (extracted text lines 3915–3921 and 4007–4015), establishes that the Facility consists of Rooms connected by adjacent Corridors. Rulebook p. 24, “Exploration Sequence” (extracted text lines 4501–4516), requires Corridors indicated by an Exploration card to be omitted when they would extend outside the Facility border or lead to an already placed Room. The regular pointy-top hexagon and six named directions normalize the physical component geometry as a documented project interpretation under the authority order in [readme.md](readme.md); they are not inferred from those extracted prose passages alone.
+
+## FND-006 — Character Draft supply
+
+- **Source fact:** The base-game component inventory contains 6 Character Draft cards.
+- **Source:** Rulebook PDF p. 3, “Standard-sized cards — Character Draft cards” (quantity); Rulebook p. 10, “Player Setup — Objective Setup and Character Draft” (setup role).
+- **Setup relevance:** Character Draft cards are the finite source used by the Character Draft during player setup; do not synthesize additional draft cards beyond this supply.

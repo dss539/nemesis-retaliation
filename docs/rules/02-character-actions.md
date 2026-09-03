@@ -274,10 +274,11 @@
 - **Deck size:** Each Character has their own 10-card Action deck; the rulebook lists 60 Action cards total (line 528). `semantics/action-source-index.json` mechanically reconciles six exact Character memberships from seven TTS root segments (including the five-card Shared Contractor root), while preserving component scans/selector gaps and all 60 licensed-digital rows independently.
 - **Authority boundary:** The former missing-data blocker (OQ-010) is resolved. All 60 exact physical occurrences now have occurrence-keyed semantic records, but licensed rows, current official examples, TTS variants, and unresolved local glyph/Command/Reaction questions remain source-scoped and must not be silently collapsed. This family closure is not full base-game semantic coverage.
 
-## ACT-CARD-002 — Contamination cards cannot pay Action costs
+## ACT-CARD-002 — Contamination deck identity and Action-cost restriction
 
 - **Classification:** Source-backed rule record.
-- **Source:** Rulebook Contamination card face (extracted text lines ~352–360, “Can’t be discarded for Actions. You may discard this card when you Pass.”); Rulebook p. 14, “Passing.”
+- **Source:** Rulebook PDF p. 3, “Standard-sized cards — Contamination cards”; Rulebook Contamination card face (extracted text lines ~352–360, “Can’t be discarded for Actions. You may discard this card when you Pass.”); Rulebook p. 14, “Passing.”
+- **Deck identity and supply:** The base-game component inventory contains 27 Contamination cards. Although they share a common back with Action cards, the Contamination cards form a separate deck.
 - **Plain rule:** A Contamination card in hand cannot be discarded to pay a Basic Action’s Action-card cost.
 - **Exception:** When a player Passes, they may discard any number of Action **and** Contamination cards (see RT-007).
 - **Invariant:** Contamination cards share a common card back with Action cards specifically so other players cannot tell them apart. A player’s own hand may distinguish them; another player’s view must show only total hand size.
