@@ -19,7 +19,7 @@
 ## RT-003 — Reactions
 
 - **Source:** Rulebook pp. 13–14, “Reactions” (extracted text lines 3067–3075).
-- **Plain rule:** A player may use a Reaction at any point if its card condition is met. Resolve the Reaction effect, then discard that card. A Reaction is not an Action and does not consume either of the player’s two Actions for the Turn. A player who has Passed may still use Reactions.
+- **Plain rule:** A player may use a Reaction at any point if its card condition is met. Place the played Reaction card in front of that player, resolve its Reaction effect, then place the card on top of its discard pile. A Reaction is not an Action and does not consume either of the player’s two Actions for the Turn. A player who has Passed may still use Reactions.
 
 ## RT-004 — Player Phase
 
@@ -73,7 +73,7 @@
 
 ## RT-009 — Event Phase
 
-- **Source:** Rulebook pp. 14–15 and 31, “Event card resolution,” Event-card anatomy, and “Event Cards” (`RB-P14-016`, `RB-P14-022`–`RB-P14-023`, `RB-P31-005`–`RB-P31-012`).
+- **Source:** Rulebook pp. 14–15 and 31, “Event card resolution,” Event-card anatomy, and “Event Cards” (`RB-P14-016`–`RB-P14-023`, `RB-P31-005`–`RB-P31-012`).
 - **Procedure:** Draw the top Event card and resolve, in order:
   1. Its specified Intruder movement.
   2. Its main effect.
@@ -82,10 +82,13 @@
   5. After Event-card resolution, modify the Intruder bag by resolving Bag Development under RT-011.
 - **Card anatomy:** The Intruder Movement icons identify which Intruders move. Event cards use two movement-instruction forms: move Intruders in Corridors of the shown orientation to Rooms, and move Intruders in Rooms to Corridors. Resolve the exact form or ordered combination printed on the card.
 - **Impossible sentence:** Ignore an impossible sentence, then continue resolving the rest of the card.
+- **Room Malfunction placement:** If an Event effect would place a Malfunction marker in a Room that already contains one, ignore that effect.
 - **Order convention:** Character effects resolve in turn order. Noise-marker effects resolve from the Facility’s top-left Corridor, row by row.
 
 ### Rulebook-illustrated Event effects
 
+- **Rise of the Machine — movement:** Move all Drones in Corridors of the shown orientation, then move all Drones in every Room.
+- **Rise of the Machine — main effect:** Place a Malfunction marker on the Robot, then place a Malfunction marker in the Room containing the Robot.
 - **Rise of the Machine — secondary effect:** Place a Noise marker in every Unexplored Corridor that does not already have one.
 - **Short Circuit — movement:** First move every Intruder in a Corridor of the diagonal orientation shown on the card; then move every Intruder currently in a Room.
 - **Short Circuit — main effect:** In each Section whose Life Support is inactive, place Fire in every Room with a Computer icon.
@@ -128,15 +131,16 @@
 - **Source:** Rulebook p. 15, “Cleanup Phase” (extracted text lines 3398–3433).
 - **Procedure:**
   1. Pass the Starting Player token clockwise to the next player.
-  2. Each player draws Action cards until they have five in hand. If an Action deck empties while drawing, reshuffle that Character’s discard pile to form a new Action deck and continue.
+  2. Each player draws Action cards until they have five in hand.
   3. Advance the Round marker one space. If the marker enters a space containing another token, resolve that token immediately.
+- **Action-deck reshuffle:** Whenever a Character must draw an Action card from an empty Action deck, including outside the Cleanup Phase, first reshuffle all cards from that Character’s discard pile to form a new Action deck, then continue drawing.
 - **Round-limit condition:** If the Round marker is already on its final space, do not advance it; proceed to End of the Game instead.
 
 ## RT-012a — Immediate entered-space token effects
 
 - **Source:** Rulebook p. 16 (extracted text lines 3410–3431); Rulebook p. 38, “Autodestruction Procedure” (extracted text lines 6122–6140).
 - **Autodestruction token:** The Facility explodes; the game ends. All Characters still inside (including hibernating Characters) die. All Rooms are destroyed. All Intruders die.
-- **Lander token:** Resolve its landing attempt immediately. If Anti-Aircraft is inactive (or removed), the Lander lands at the Landing Zone, remove the Anti-Aircraft tokens from the game, and Characters may henceforth attempt escape through it. Removed Anti-Aircraft tokens cannot subsequently be changed. If Anti-Aircraft is active, the Lander is destroyed and removed from the game.
+- **Lander token:** Resolve its landing attempt immediately. If Anti-Aircraft tokens remain, reveal the top Anti-Aircraft token to check the systems. If the revealed token is Inactive (or the Anti-Aircraft tokens were already removed), the Lander lands at the Landing Zone, remove the Anti-Aircraft tokens from the game, and Characters may henceforth attempt escape through it. Removed Anti-Aircraft tokens cannot subsequently be changed. If the revealed token is Active, the Lander is destroyed and removed from the game.
 
 ## RT-013 — Orders and Commands
 

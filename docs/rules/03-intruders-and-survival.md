@@ -12,11 +12,12 @@
 
 ## INT-001 — Intruder bag setup and token lifecycle
 
-- **Source:** Rulebook p. 8 (lines 2565–2575, 2589–2591); Rulebook p. 30 (lines 5182–5198).
+- **Source:** Rulebook p. 8 (lines 2565–2575, 2589–2591); Rulebook p. 15, Bag Development Queen-death note; Rulebook p. 30 (lines 5182–5198).
 - **Setup:**
   - Shuffle each Intruder-type token pile separately, icon-side up.
   - Bag contents: 1 Blank, 2 Larva, 3 random Adult, plus 1 additional random Adult per participating Character.
   - Help Sheet starts on “Queen Alive” side.
+- **Queen death:** When the Queen dies, Intruder-token effects change; use the Help Sheet's “Queen Dead” side for subsequent token resolution.
 - **Provided Intruder-token supply:** 40 tokens total: 1 Blank, 9 Queen, 8 Drone, 16 Adult, and 6 Larva tokens.
 - **Types and default scope:** The four Intruder types are Queen, Drone, Adult, and Larva. General Intruder rules are written from the Adult perspective and apply to all four types unless a rule expressly overrides them.
 - **Token lifecycle:** Every bag draw resolves using the context-specific column of the Intruder Help Sheet. Resolved tokens leave the bag. Blank is the sole exception and returns to the bag. Tokens enter the bag only from their type piles and leave it back to those piles.
@@ -165,10 +166,11 @@ An Intruder attack is triggered by:
 
 ## INT-006 — Health, Serious Wounds, and Character death
 
-- **Source:** Rulebook p. 18 (lines 3744–3823).
+- **Source:** Rulebook p. 16, “Character — Health track” (`RB-P16-019`–`RB-P16-020`); Rulebook p. 18 (lines 3744–3823).
 
 ### Health loss
 
+- The Health track shows a Character's current vitality, including injuries taken and exhaustion. This descriptive use of “exhaustion” does not create a separate status or effect without another rule.
 - The Health track has Healthy, Injured, and Heavily Injured sections. A Character's current state is the section containing their Health marker; the section labels have no standalone effect unless another rule refers to that state.
 1. Move the Health marker n slots right.
 2. When crossing into a section occupied by Armor: discard that Armor, then continue movement.

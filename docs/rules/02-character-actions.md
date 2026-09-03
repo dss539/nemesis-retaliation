@@ -5,13 +5,15 @@
 - On a player Turn, resolve in order: (1) exactly two Actions, (2) oxygen loss, (3) fire damage. A player may repeat an Action. If unable to perform another Action, they must Pass.
   - **Source:** Rulebook p. 12, “Players’ Turns” / “Resolving Actions” (extracted text lines 2854–2927).
 - Pay a Basic Action’s cost by discarding that many Action cards face-up to the discard pile; do not resolve discarded cards’ effects. Pay first, then resolve the selected Action.
+- Whenever an Action card is discarded as a result of any effect, place it on the discard pile without resolving that card's printed effect.
   - **Source:** Rulebook p. 12, “Cost in Action Cards” (extracted text lines 2935–2938).
-- An effect or action may be selected only if it can be resolved entirely.
+- An effect or action may be selected only if it can be resolved entirely. Some cards offer more than one effect to choose from; the selected effect must satisfy that restriction.
   - **Source:** Rulebook p. 14, “Effects” (extracted text lines 3187–3197).
 - “Not in Combat” means the acting Character is not in a Room containing at least one Intruder. Rulebook visual unit `RB-P12-V02` preserves the Basic Action associations: Place 1 Secure token, Activate the Robot, Trade, Use the Room, and Make a Move Cautiously carry the restriction glyph. Card-face associations remain source data on each extracted face (`printedData.upperRight`).
   - **Source:** Rulebook p. 12, “Not in Combat” (extracted text lines 2901–2920); `docs/rules/source-extraction/rulebook-visual-obligations.json`; `assets/tts-mod/extract/card-text-corpus.json`.
-- General local-effect default: an unspecified target is in the acting Character’s Room.
-  - **Source:** Rulebook p. 17, “Golden Rules — Local Effects.”
+- General local-effect default: an unspecified target is in the acting Character’s Room. For an unspecified “Discard a Malfunction marker” effect, the local targets include a Malfunction marker on that Room or on any object in the Room, such as a Weapon the Character is holding.
+  - **Boundary:** This example does not settle whether an effect that expressly says “from the Room with the Robot” reaches the Robot or Items there; see `SEM-Q-019`.
+  - **Source:** Rulebook p. 16, “Golden Rules — Local Effects” (`RB-P16-003`–`RB-P16-006`).
 
 ## ACT-MOVE-001 — Move
 
@@ -279,8 +281,9 @@
 ## ACT-CARD-001 — Action card identity and anatomy
 
 - **Classification:** Source-backed rule record. Added from the rulebook’s Action-card anatomy passage and card images.
-- **Source:** Rulebook p. 14, “Action cards” anatomy list A–E (extracted text lines 3161–3179); Rulebook p. 12, “Basic Actions List” (lines 2870–2900).
+- **Source:** Rulebook p. 13, “Playing Action Cards”; p. 14, “Action cards” anatomy list A–E (extracted text lines 3161–3179); Rulebook p. 12, “Basic Actions List” (lines 2870–2900).
 - **Plain rule:** An Action card is a distinct game object from a Basic Action. A Basic Action is a always-available option printed on the Character board and paid for by discarding Action cards. An Action card is a named, Character-specific card with its own printed effect, resolved only through the zero-cost `Play an Action card` Basic Action.
+- **Playing procedure:** Reveal the chosen Action card from hand, resolve its printed Action effect, then place the card on top of its discard pile.
 - **Card anatomy:** Each Action card has these printed parts:
   1. **Not In Combat** symbol, when present — the card cannot be used in a Room with an Intruder.
   2. **Title** — the card’s name.

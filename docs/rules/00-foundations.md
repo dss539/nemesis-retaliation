@@ -10,8 +10,8 @@
 
 - **Plain rule:** A rule procedure is resolved in the order written. Where the source directs a player to choose, the choice belongs to that player unless the source assigns it differently.
 - **Tie-breaking:** When a rule calls for the Character first in turn order, begin with the current Starting Player and proceed clockwise.
-- **Nightmare Rule fallback:** If a player-worst resolution is still unclear, use the outcome worst for the Character first in Turn order.
-- **Source:** Rulebook p. 13, “Turn order as tiebreaker” (extracted text lines 2995–3004); Rulebook p. 16, “Golden Rules — Nightmare Rule” (`RB-P16-002`).
+- **Nightmare Rule:** If a ruling or order of effects remains unresolved, resolve the situation in the worst possible scenario for the players. If the result is still unclear, use the outcome worst for the Character first in Turn order.
+- **Source:** Rulebook p. 13, “Turn order as tiebreaker” (extracted text lines 2995–3004); Rulebook p. 16, “Golden Rules — Nightmare Rule” (`RB-P16-001`–`RB-P16-002`).
 
 ## FND-003 — Impossible instructions
 
@@ -29,7 +29,9 @@
 - **Model:** the rules term for a physical figure, whether a particular edition supplies that figure as a miniature or a standee.
 - **Intruder / Primeblood:** “Intruders” is the collective rules name for alien races in the *Nemesis* universe. The alien race supplied in this box is the Primebloods; during play, “Primebloods” and “Intruders” are equivalent terms.
 - **In Combat:** a Character is in a Room with at least one Intruder.
-- **Source:** Rulebook pp. 12–13 (round/turn), p. 13, “Not in Combat” (extracted text lines 2901–2906), p. 4 (component-model terminology), and p. 8 (Intruders/Primebloods terminology).
+- **Character board:** During setup, a chosen Character tile is placed into a universal Character board. From that point on, the assembled tile and universal board are referred to together as one Character board.
+- **Rank:** Every Character has a Rank, and game effects may refer to it. Specific Action cards may allow a higher-Rank Character to command a lower-Rank Character. The Medical Support shown in the rulebook has Rank 2.
+- **Source:** Rulebook pp. 12–13 (round/turn), p. 13, “Not in Combat” (extracted text lines 2901–2906), p. 4 (component-model terminology), p. 8 (Intruders/Primebloods terminology), and p. 16, “Character” / “Name and Rank” (`RB-P16-012`, `RB-P16-015`–`RB-P16-018`).
 
 ## FND-005 — Room geometry and Corridor spacing
 
@@ -62,8 +64,10 @@
 
 ## FND-008 — Gameplay-facing physical supplies
 
-- **Source:** Rulebook pp. 3–5, component inventory.
-- **Boundary:** These are the provided physical supplies needed to represent game state. The quantities do not, by themselves, create a general rule for resolving a shortage unless another rule states one.
+- **Source:** Rulebook pp. 3–5, component inventory; Rulebook p. 16, “Golden Rules — Component Limits” (`RB-P16-007`–`RB-P16-009`).
+- **Boundary:** These are the provided physical supplies needed to represent game state. The quantities do not, by themselves, create a shortage rule; apply the source-backed Component Limits rule below.
+- **Component Limits:** Most component supplies are limited and have specific rules for exhaustion. Treat every other component as limited even if it has no special exhaustion rule. If such a component is required but none is available, that component use has no effect.
+- **Unresolved boundary:** This default does not choose among eligible recipients or slots, create an allocation order, or determine how the rest of a compound or exact-quantity effect proceeds after an unavailable component use. Preserve the corresponding entries in `open-questions.md`.
 - **Finite card/deck supplies:**
   - 8 Mission Task cards;
   - 22 Objective cards: 7 Mission Objectives and 15 Private Objectives;
@@ -96,12 +100,13 @@
 
 ## FND-009 — Facility setup: tracks and system state
 
-- **Source:** Rulebook p. 8, “Game Setup.”
+- **Source:** Rulebook pp. 8–9, “Game Setup.”
 - **Track setup:**
   1. Place the Round marker on the first Round-track slot.
   2. Place the Lander token on Round-track slot 10.
   3. Place the Autodestruction token on its corresponding slot above the Round track.
   4. Place 1 Universal marker on the topmost Objective Choice space.
+  5. Place 1 Universal marker on space 0 of the Queen's Hits track.
 - **Section-border state:** Place all 3 Life Support tokens inactive-side-up on their corresponding Section-border slots. Place the Hibernatorium token inactive-side-up on its corresponding Section-border slot.
 - **Anti-Aircraft state:** Shuffle both Anti-Aircraft tokens, then stack both face-down in Section B's Anti-Aircraft slot.
 - **Nest state:** Place all 5 Egg tokens in Section C's Eggs space.
@@ -126,7 +131,7 @@
 
 1. Select, shuffle, and deal one Help card per player from the numbers appropriate to the player count. Each player reveals their card; its number is used for the Character Draft and for specified Objectives. After setup, those Objective references are the only use of Help-card player numbers.
 2. Separate Objective cards into Private and Mission decks and take the Mission Task deck. From each of those three decks, remove every card whose Number of Characters exceeds the participating Character count, then shuffle each deck separately.
-3. Deal each player one random Private Objective and one random Mission Objective, face-down. Keep Objective cards hidden from other players until the End of the Game; players may discuss or lie about them without showing them.
+3. Deal each player one random Private Objective and one random Mission Objective, face-down. Return all undealt Private and Mission Objective cards to the box unseen. Keep Objective cards hidden from other players until the End of the Game; players may discuss or lie about them without showing them.
 4. Draw one random Mission Task and place it face-up in the Mission Task slot on the bottom Round-track tile. Return the other Mission Task cards to the box.
 
 ### Character Draft and Character setup
@@ -134,13 +139,13 @@
 1. Shuffle all Character Draft cards. Beginning with Player 1 and continuing in ascending player-number order, deal the drafting player two cards secretly; that player chooses one as their Character and reveals it, then shuffles the unchosen card back into the deck unseen.
 2. Place the chosen Character tile in a universal Character board. Put one Universal marker in the leftmost Health-track slot and set the Oxygen counter to its maximum value of 7.
 3. Place the chosen Character model in the Landing Zone.
-4. Shuffle that Character's Action cards and place the deck face-down to the left of the Character board.
-5. Place the Character Item according to its Item class. Put one full-side-up Ammo token on every Ammo slot on that starting Item.
+4. Shuffle that Character's Action cards and place the deck face-down to the left of the Character board. The Contractor has 5 Action cards marked `Contractor` and 5 marked `Contractor: Consultant`; this label distinction is used only by Expansions and is ignored in the base game.
+5. Place the Character Item according to its Item class: place Armor in the Heavily Injured section of the Health track. Put one full-side-up Ammo token on every Ammo slot on that starting Item.
 
 ### Support Equipment and starting Tactical Gear
 
 1. Every Character except the Contractor participates; the Contractor already starts with two Character Items.
-2. Shuffle the Support Equipment deck, draw seven cards, and reveal them. Starting with the highest-numbered participating player and continuing in descending player-number order, each player chooses one card and places it according to its Item class. Fill its Tactical Gear slots with compatible tokens, then remove the unchosen revealed cards from the game.
+2. Shuffle the Support Equipment deck, draw seven cards, and reveal them. Starting with the highest-numbered participating player and continuing in descending player-number order, each player chooses one card and places it according to its Item class; place chosen Armor in the Heavily Injured section of the Health track. Fill its Tactical Gear slots with compatible tokens, then remove the unchosen revealed cards from the game.
 3. Each player chooses exactly four Tactical Gear tokens in any combination and places them in their Tactical Belt. This choice may be simultaneous; if simultaneous choice is unsuitable, resolve it in descending player-number order. Ammo enters full-side-up.
 
 ### Begin play
