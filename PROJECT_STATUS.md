@@ -1,7 +1,7 @@
 # Nemesis: Retaliation — Project Status
 
 **Status date:** 2026-09-03
-**Active phase:** Owner's fragment-coverage review underway; all recorded failures have been dispositioned
+**Active phase:** Owner's fragment-coverage review underway; the latest systemic failure set is repaired and no fail/repair artifacts remain
 **Active branch:** `main`
 **Implementation status:** Frozen; a clean rewrite will begin only after rules-layer readiness and explicit approval
 
@@ -20,19 +20,19 @@ The former Stage 1 v2 blind correctness-audit methodology was scrapped by the ow
 
 ## Immediate Next Deliverable
 
-After the owner selects the worker count, send the exact 31 repaired fragments now at the audit root to fresh verifiers: 13 remaining from repair commit `0a412a1` and 18 from repair commit `0ce5c45`. Separately re-triage the previously disputed `RB-P08-042` and `RB-P09-002` irrelevant dispositions before treating the irrelevant set as closed.
+After the owner selects the worker count, continue the root-fragment review, prioritizing 146 known repaired fragments: 25 still pending from earlier repair commits and 121 returned after the one direct post-commit re-check of `9e9148d`. The prior 500-child attempt hit provider HTTP 429 limits; do not infer that all 1,000 assignments ran. Separately re-triage the previously disputed `RB-P08-042` and `RB-P09-002` irrelevant dispositions before treating the irrelevant set as closed.
 
 ## Resume Checkpoint
 
-- The former `work/card-corpus-extraction` worktree content is integrated into `main`; the removed worktree is absent from `git worktree list`, and the current rules-repair commit is `0ce5c45`.
+- The former `work/card-corpus-extraction` worktree content is integrated into `main`; the removed worktree is absent from `git worktree list`, and the current rules-repair commit is `9e9148d`.
 - The prior 78 paired rulebook audit inputs, four rulebook pass artifacts, three slicing scripts, and obsolete rulebook slicing task/stage artifacts were deleted.
 - The official 40-page rulebook was rendered temporarily and inspected page by page with vision. Pages 1-2 contain no gameplay facts or rules; pages 3-40 yielded 1,597 atomic records: 686 facts and 911 rules.
 - `audit/manifest.json` contains 1,597 rulebook records and 2,129 records overall, with no stale rulebook IDs or missing targets.
 - Atomic-slice validation passes: contiguous per-page IDs, one assertion block per file, filename/classification agreement, required source and visual provenance, no within-page duplicate assertions, and source PDF SHA-256 `e3cda0d7a91bd090cec45dbc8ce89e2015e2202173357c374ff49365f9c29ddd`.
-- The latest 100-item wave recorded 57 pass, 41 fail, and 2 unsure with no worker or closure errors; all 47 previously repaired fragments passed fresh verification.
-- A subsequent 20-item targeted wave sent two fragments each to 10 verifiers; all 20 passed with no fail, unsure, worker, or closure errors.
-- All 21 remaining recorded failures were independently triaged: 18 gameplay-facing finite card/map-supply gaps were repaired in commit `0ce5c45`, while the Solo/Coop-only Objective supply and two physical border-piece quantities moved to `audit/irrelevant/` without fail sidecars.
-- Current rulebook locations reconcile to all 1,597 fragments: 1,441 at the audit root, 110 pass, 0 fail, 15 unsure, 31 irrelevant, and 0 repair. Exactly 31 repaired root fragments are pending fresh verification.
+- The 2026-09-03 500-child attempt assigned 1,000 unique rulebook fragments. It closed 197 pass and 14 unsure verdicts and produced 133 fail claims; 656 assignments remained without a canonical verdict after widespread provider HTTP 429 failures and interruption. Two transient fragment-without-sidecar cases were returned to the audit root.
+- All 133 fail claims were independently triaged: 121 gameplay/state gaps clustered around setup, map semantics, Event/Attack examples, Oxygen/Tactical Gear, exploration, Malfunctions, and Item traits/effects; 12 layout-convenience, recommendation, frequency-commentary, or flavor assertions were gameplay-irrelevant. Commit `9e9148d` repairs the 121 gaps across the concise corpus; each passed one direct post-commit re-check and returned to the audit root.
+- Current rulebook locations reconcile to all 1,597 fragments: 1,218 at the audit root, 307 pass, 0 fail, 29 unsure, 43 irrelevant, and 0 repair. All 2,129 manifest entries are uniquely located and every pass/unsure fragment has exactly its matching sidecar.
+- The resource monitor covered the 26m18s verifier window. Peak CPU was 26.306%, peak one-minute load 2.175, minimum available memory 21,274,458,112 bytes, and peak WebUI RSS 2,925,813,760 bytes. NVMe utilization peaked at 71.756% with 4 ms maximum read await and 27.008 ms maximum write await; host saturation was not the wave limiter.
 
 ## Execution Boundaries
 
