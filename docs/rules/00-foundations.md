@@ -59,8 +59,18 @@
 
 ## FND-008 — Gameplay-facing physical supplies
 
-- **Source:** Rulebook pp. 4–5, component inventory.
+- **Source:** Rulebook pp. 3–5, component inventory.
 - **Boundary:** These are the provided physical supplies needed to represent game state. The quantities do not, by themselves, create a general rule for resolving a shortage unless another rule states one.
+- **Finite card/deck supplies:**
+  - 8 Mission Task cards;
+  - 22 Objective cards: 7 Mission Objectives and 15 Private Objectives;
+  - 20 Event cards;
+  - 20 Intruder Attack cards;
+  - 27 Serious Wound cards; and
+  - 12 Queen Health cards.
+- **Map-tile supplies:**
+  - 23 Room tiles: 3 `A`, 3 `B`, 4 `C`, and 13 `?` tiles; and
+  - 40 Corridor tiles: 10 each of values 1, 2, 3, and 4.
 - **Character and shared components:** 5 Character boards, 6 Character tiles, 6 Character models, and 1 Intruder bag.
 - **Resolution dice:** The Burst die has 6 sides, the Shoot die has 8 sides, and the Noise die has 10 sides. Multiple physical copies of a die are convenience components and do not authorize combining their rolls unless a rule explicitly says so.
 - **State-marker supplies:**
