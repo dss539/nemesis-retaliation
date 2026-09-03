@@ -6,12 +6,13 @@ your task assignment.
 
 ## Input
 
-Your task names one audit ID (for example `RB-12`). All your input files are
-in this directory (`audit/`) and begin with that ID. Find them with a glob:
-`RB-12.*` (never guess filenames; always glob).
+Your task names one audit ID. Rulebook IDs use `RB-P<PDF-page>-<sequence>`
+(for example `RB-P12-001`) and live directly under `audit/`; every rulebook
+file contains exactly one visually harvested fact or rule. Other source IDs
+remain directly under `audit/` and may comprise more than one file. Resolve
+the exact input path with a glob and never guess filenames.
 
-The files with suffix `.txt` together are the full fragment: official source
-material for one page/entry, already extracted to text. Read all of them.
+The matched `.txt` file or files are the full fragment. Read all of them.
 
 ## The question
 
@@ -39,11 +40,12 @@ plausibly could say.
 
 Exactly one verdict per fragment (not per input file):
 
-- **pass** — every rule and behavior in the fragment is present and correct
-  in the corpus. Move each input file into `pass/` and write one sidecar file
-  per input file moved, named `<ID>.<suffix>.pass.md` (for example
-  `RB-12.a.census.pass.md`), containing only enough to verify the evidence:
-  the corpus file and section that covers the fragment (one or two lines).
+- **pass** — every rule and behavior in the fragment is affirmatively present,
+  settled, and correct in the corpus. Move each input file into `pass/` and
+  write one sidecar file per input file moved, named `<ID>.<suffix>.pass.md`
+  (for example `RB-P12-001.fact.pass.md`), containing only enough to verify
+  the evidence: the corpus file and section that covers the fragment (one or
+  two lines).
 
 - **fail** — something in the fragment is missing from the corpus, or the
   corpus contradicts the fragment. Move each input file into `fail/` and write
@@ -51,14 +53,25 @@ Exactly one verdict per fragment (not per input file):
   exactly what is missing or wrong: e.g. "no mention found anywhere" or
   "only partially satisfied by X (corpus says Y, fragment says Z)".
 
-Keep sidecars minimal — only enough information to verify the evidence or
-the gap. No long analysis, no restating the fragment.
+- **unsure** — you find a potentially relevant entry in `open-questions.md`,
+  or another corpus passage whose settled/operative status is unclear, and
+  therefore cannot confidently classify the fragment as pass or fail. Move
+  each input file into `unsure/` and write one sidecar per input file named
+  `<ID>.<suffix>.unsure.md`, citing the potentially relevant entry and briefly
+  stating what remains uncertain. Do not decide or resolve the open question.
+
+A mention in `open-questions.md` is never a pass by itself. Use **pass** only
+when another clearly settled corpus record fully and accurately captures the
+fragment; otherwise route the open-question match to **unsure**.
+
+Keep sidecars minimal — only enough information to verify the evidence, gap,
+or uncertainty. No long analysis, no restating the fragment.
 
 ## Rules
 
 1. Glob your ID to collect input files; glob again when moving. Do not touch
    any file whose name does not start with your audit ID.
-2. Create `pass/` or `fail/` if it does not exist.
+2. Create `pass/`, `fail/`, or `unsure/` if the required destination does not exist.
 3. Move files; do not copy or leave originals behind.
 4. Do not edit any corpus file, any file outside `audit/`, or this
    instructions file. You are read-only everywhere except your own input
@@ -66,5 +79,6 @@ the gap. No long analysis, no restating the fragment.
 5. No OCR, no vision, no image or PDF review — text files only.
 6. Answer only the coverage question. Do not propose methodology changes,
    new machinery, or corpus edits in your sidecars.
-7. When finished, reply to the parent with: your audit ID, the verdict,
+7. When finished, reply to the parent with: your audit ID, the verdict
+   (`pass`, `fail`, or `unsure`),
    and a one-sentence explanation.
