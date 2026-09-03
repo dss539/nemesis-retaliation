@@ -1,16 +1,16 @@
 # Nemesis: Retaliation — Project Status
 
-**Status date:** 2026-09-01
-**Active phase:** Audit methodology scrapped 2026-09-01; owner's fragment-coverage review design pending owner approval (semantic expansion frozen)
-**Active branch:** `work/card-corpus-extraction`
+**Status date:** 2026-09-03
+**Active phase:** Owner's fragment-coverage review underway; the latest 66-failure cluster has been triaged and repaired
+**Active branch:** `main`
 **Implementation status:** Frozen; a clean rewrite will begin only after rules-layer readiness and explicit approval
 
 ## Active Workspace
 
-- Workspace root: `/home/smithers/projects/nemesis-card-corpus/`
-- Repository worktree: `/home/smithers/projects/nemesis-card-corpus/repos/nemesis-retaliation/`
-- Branch: `work/card-corpus-extraction`
-- Canonical lock: `/home/smithers/projects/nemesis-card-corpus/.workspace.lock`
+- Workspace root: `/home/smithers/nemesis-retaliation/`
+- Repository worktree: `/home/smithers/nemesis-retaliation/`
+- Branch: `main`
+- Canonical lock: `/home/smithers/nemesis-retaliation/.workspace.lock`
 
 ## Current Objective
 
@@ -20,21 +20,22 @@ The former Stage 1 v2 blind correctness-audit methodology was scrapped by the ow
 
 ## Immediate Next Deliverable
 
-Design the fragment-coverage review for owner approval: the source-artifact breakdown into small fragments, the order artifacts are walked, the child protocol, and how yes/partial/no answers and their evidence are recorded. The methodology is the owner's: hand each fragment to a child and ask "are the rules and behavior documented in this fragment fully and accurately captured already?" Keep the design proportional to that single question — no sealing, packet, completeness-review, or comparison machinery.
+After the owner selects the worker count, send the exact 47 repaired fragments now back under `audit/` to fresh verifiers. The remaining 19 failures from that wave were packaging/reference-only assertions and have been moved to `audit/irrelevant/`; they must not be reverified.
 
 ## Resume Checkpoint
 
-- Verified semantic data checkpoint: `f3fbd28` for the Facility/map topology/setup batch integrated over the prior Combat/Attacks/Noise/Hazard data and adversarial suite.
-- Branch `work/card-corpus-extraction` contains the corpus, vocabulary, ontology, and frozen semantic evidence. No audit work has been pushed; no PR or deployment exists.
-- The Stage 1 v2 audit was scrapped on 2026-09-01 before any blind derivation or comparison judgment; no packet, progress ledger, lock, or decision machinery exists anymore. Prior audit evidence is recoverable only from Git history (`d09b04d` and earlier).
-- The core Combat/Attacks/Noise/Hazard/entry batch is integrated over the prior Heavy/Equipment work; deterministic semantic rebuilds and 48 focused/adversarial tests pass, including the new independent Combat projection.
-- Current source-obligation boundary remains 530 covered / 69 pending / 1 source-blocked with 115 no-default semantic questions.
+- The former `work/card-corpus-extraction` worktree content is integrated into `main`; the removed worktree is absent from `git worktree list`, and the current rules-repair commit is `6a54e92`.
+- The prior 78 paired rulebook audit inputs, four rulebook pass artifacts, three slicing scripts, and obsolete rulebook slicing task/stage artifacts were deleted.
+- The official 40-page rulebook was rendered temporarily and inspected page by page with vision. Pages 1-2 contain no gameplay facts or rules; pages 3-40 yielded 1,597 atomic records: 686 facts and 911 rules.
+- `audit/manifest.json` contains 1,597 rulebook records and 2,129 records overall, with no stale rulebook IDs or missing targets.
+- Atomic-slice validation passes: contiguous per-page IDs, one assertion block per file, filename/classification agreement, required source and visual provenance, no within-page duplicate assertions, and source PDF SHA-256 `e3cda0d7a91bd090cec45dbc8ce89e2015e2202173357c374ff49365f9c29ddd`.
+- Current rulebook locations reconcile to all 1,597 fragments: 1,510 at the audit root, 33 pass, 21 fail, 13 unsure, 20 irrelevant, and 0 repair. The 47 repaired root fragments are pending fresh verification.
 
 ## Execution Boundaries
 
 - Follow the owner's fragment-coverage review in `docs/rules/implementation-readiness.md`. Review rules and source evidence only; do not rebuild audit machinery.
 - The owner decides worker count per wave.
-- Read-only fragment reviewers should receive the fragment text plus the citation surface they need. Create separate task workspaces/worktrees only when a worker must write repository artifacts or inspect Git-specific behavior. Never use sleep-only lock holders.
+- Verifiers operate directly and exclusively on their assigned canonical fragments in the defined repository audit folders under the supervisor's inherited root lock. Do not use `/tmp`, copied packets, ad hoc directories, or verifier worktrees. Never use sleep-only lock holders.
 - Do not create Hermes profiles, expand semantics, touch the legacy implementation, open a PR, merge, deploy, or push unless separately authorized. A stop/status request preempts worker launches, integration, and autonomous successor handoff immediately.
 
 ## Verified Checkpoint
@@ -286,7 +287,7 @@ Use these records for different questions:
 
 ## Resume Checklist
 
-1. Use the `nemesis-card-corpus` workspace and hold its root lock only while actual workspace work is running.
+1. Use `/home/smithers/nemesis-retaliation/` and hold its canonical root lock only while actual workspace work is running.
 2. Read this file, `AGENTS.md`, `AGENTS-SUPPLEMENT.md`, and the owner's fragment-coverage review in `docs/rules/implementation-readiness.md`. Do not read historical candidate reports unless diagnosing a named regression; they are recoverable only from Git history.
 3. Verify branch, HEAD, dirty/protected scope, and active workers; do not infer state from an old transcript.
 4. Execute the Immediate Next Deliverable directly. Do not rebuild the scrapped audit machinery, create reviewer worktrees for read-only work, or run hostile-filesystem probes.
