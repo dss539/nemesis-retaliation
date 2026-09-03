@@ -146,6 +146,7 @@
 ## ACT-ROBOT-001 — Activate Robot
 
 - **Cost:** 1 Action card.
+- **Setup:** Shuffle all Robot cards, draw 1 without looking at it, and leave every unselected Robot card unseen in the box. Place the Robot model on the Hibernatorium.
 - **Restriction:** Not In Combat. The selected Robot card must have been revealed and the Robot must not have a Malfunction marker.
 - **Source:** Rulebook p. 8, “Game Setup” (lines 2421–2459); p. 12, “Basic Actions List” and `RB-P12-V02`; pp. 14 and 17, “Effects” and “Golden Rules”; p. 37, “Robot”; exact component family in `docs/rules/semantics/robot-source-index.json`.
 - **Activation route:**

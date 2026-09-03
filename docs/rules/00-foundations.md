@@ -26,8 +26,9 @@
 - **Round:** Player Phase, Intruder Phase, Event Phase, then Cleanup Phase.
 - **Room / Corridor:** map spaces referred to by the rulebook. Their mandatory project geometry and relationship are defined by FND-005.
 - **Model:** the rules term for a physical figure, whether a particular edition supplies that figure as a miniature or a standee.
+- **Intruder / Primeblood:** “Intruders” is the collective rules name for alien races in the *Nemesis* universe. The alien race supplied in this box is the Primebloods; during play, “Primebloods” and “Intruders” are equivalent terms.
 - **In Combat:** a Character is in a Room with at least one Intruder.
-- **Source:** Rulebook pp. 12–13 (round/turn), p. 13, “Not in Combat” (extracted text lines 2901–2906), and p. 4, component-model terminology.
+- **Source:** Rulebook pp. 12–13 (round/turn), p. 13, “Not in Combat” (extracted text lines 2901–2906), p. 4 (component-model terminology), and p. 8 (Intruders/Primebloods terminology).
 
 ## FND-005 — Room geometry and Corridor spacing
 
@@ -79,3 +80,25 @@
   - 1 Starting Player token; and
   - 5 Character Oxygen counters.
 - **Other gameplay models:** 1 Robot model, 6 Larva models, and 1 Queen model. Intruder-model availability is resolved under INT-001.
+
+## FND-009 — Facility setup: tracks and system state
+
+- **Source:** Rulebook p. 8, “Game Setup.”
+- **Track setup:**
+  1. Place the Round marker on the first Round-track slot.
+  2. Place the Lander token on Round-track slot 10.
+  3. Place the Autodestruction token on its corresponding slot above the Round track.
+  4. Place 1 Universal marker on the topmost Objective Choice space.
+- **Section-border state:** Place all 3 Life Support tokens inactive-side-up on their corresponding Section-border slots. Place the Hibernatorium token inactive-side-up on its corresponding Section-border slot.
+- **Anti-Aircraft state:** Shuffle both Anti-Aircraft tokens, then stack both face-down in Section B's Anti-Aircraft slot.
+- **Nest state:** Place all 5 Egg tokens in Section C's Eggs space.
+
+## FND-010 — Facility setup: map tiles and shared decks
+
+- **Source:** Rulebook pp. 8–9, “Game Setup.”
+- **Corridor supply:** Shuffle all Corridor tiles and keep their non-zero-value fronts hidden before each draw.
+- **Deadly Mode values:** Some Corridors have a second, smaller Noise value. Use that smaller value only in Deadly Mode.
+- **Initial Corridors:** Draw 3 random Corridor tiles one at a time, connect them to the Landing Zone, and place them non-zero-value-side-up.
+- **Room-tile supply:** Sort all Room tiles by their backs into A, B, C, and `?` stacks. Shuffle each stack separately and place it face-down.
+- **Exploration deck:** Shuffle the Exploration deck and place it face-down.
+- **Intruder Attack and Event decks:** Shuffle the Intruder Attack deck and Event deck separately and place each face-down.
