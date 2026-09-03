@@ -2014,7 +2014,10 @@ task workspace.
 - [x] 2026-09-03 triaged all 66 failures from that wave: repaired 47 gameplay-relevant corpus gaps in commit `6a54e92` and returned those exact fragments to the audit root; moved 19 packaging/reference-only assertions to `audit/irrelevant/` without fail sidecars.
 - [x] 2026-09-03 follow-up wave assigned 10 items each to 10 workers: all 47 prior repairs passed fresh verification; 53 new fragments recorded 10 pass, 41 fail, and 2 unsure with no worker or closure errors.
 - [x] 2026-09-03 triaged all 41 new failures: repaired 33 gameplay-relevant setup and terminology gaps in commit `0a412a1` and returned those exact fragments to the audit root; moved 8 assembly, expansion, insert-placement, or table-layout assertions to `audit/irrelevant/` without fail sidecars.
-- [ ] Owner gate: choose the worker count for fresh verification of the 33 repaired fragments, then continue the remaining unprocessed rulebook records.
+- [x] 2026-09-03 targeted follow-up sent 20 of those 33 repaired fragments to 10 direct verifiers, two fragments each; all 20 passed with no fail, unsure, worker, or closure errors.
+- [x] 2026-09-03 independently triaged all 21 remaining recorded failures: repaired 18 gameplay-facing finite card/deck and Room/Corridor supply gaps in commit `0ce5c45`; moved the Solo/Coop-only Objective supply and two physical border-piece quantities to `audit/irrelevant/` without fail sidecars.
+- [ ] Owner gate: choose the worker count for fresh verification of the exact 31 repaired root fragments (13 from `0a412a1`, 18 from `0ce5c45`), then continue the remaining unprocessed rulebook records.
+- [ ] Separately re-triage disputed prior irrelevant dispositions `RB-P08-042` and `RB-P09-002` before treating the irrelevant set as closed.
 - [ ] After the fragment-coverage review passes, choose a clean architecture independently and obtain explicit owner approval before implementation.
 
 ## DONE — Intruder Help and Room semantic audit closure (2026-08-25)
