@@ -1,7 +1,7 @@
 # Nemesis: Retaliation — Project Status
 
 **Status date:** 2026-09-04
-**Active phase:** Owner's fragment-coverage review underway; a 100 Luna Max + 100 GLM 5.3 Flash Max self-scheduling verification drain is being launched against the 1,404 unresolved fragments
+**Active phase:** Owner's fragment-coverage review; the raw self-scheduling verifier drain is complete and coordinator disposition is next
 **Active branch:** `main`
 **Implementation status:** Frozen; a clean rewrite will begin only after rules-layer readiness and explicit approval
 
@@ -20,7 +20,7 @@ The former Stage 1 v2 blind correctness-audit methodology was scrapped by the ow
 
 ## Immediate Next Deliverable
 
-Drain the 1,404 unresolved root fragments (872 rulebook fragments plus 532 fragments from the other source channels) with 100 `gpt-5.6-luna` workers and 100 `glm-5.3-flash:cloud` workers at maximum reasoning. Workers randomly self-claim through the same-call per-file flock/rename helper, record actual model/provider metadata, and continue until no root work is visible. Keep the corpus frozen; recover abandoned claims and centrally triage only after the drain.
+Independently disposition all 359 fail claims and 129 unsure verdicts against the frozen concise corpus. Correct known scope-exclusion and malformed-evidence pass defects, classify every confirmed gap into mutually exclusive behavioral clusters, and report those clusters to the owner before any corpus repair.
 
 ## Resume Checkpoint
 
@@ -33,7 +33,7 @@ Drain the 1,404 unresolved root fragments (872 rulebook fragments plus 532 fragm
 - All 133 fail claims were independently triaged: 121 gameplay/state gaps clustered around setup, map semantics, Event/Attack examples, Oxygen/Tactical Gear, exploration, Malfunctions, and Item traits/effects; 12 layout-convenience, recommendation, frequency-commentary, or flavor assertions were gameplay-irrelevant. Commit `9e9148d` repairs the 121 gaps across the concise corpus; each passed one direct post-commit re-check and returned to the audit root.
 - The 146 repaired-priority fragments are complete: 146 pass, 0 fail, 0 unsure, 0 unreviewed. Eight initial workers were blocked by obsolete workspace-lock instructions; all 11 affected fragments passed in a later owner-authorized lock-free retry.
 - The separate 100-worker GLM assignment is complete: all 200 unique fragments are dispositioned as 181 pass and 19 gameplay-irrelevant, with 0 fail, 0 unsure, 0 repair, and 0 unreviewed. Every genuine gap was repaired centrally and passed one independent re-verification; provider-safe waves of at most 10 children had no observed HTTP 429 failures.
-- Current rulebook locations reconcile to all 1,597 fragments: 872 at the audit root, 634 pass, 0 fail, 29 unsure, 62 irrelevant, and 0 repair. Across all source channels, the 2,129 manifest entries reconcile as 1,404 root, 634 pass, 0 fail, 29 unsure, 62 irrelevant, and 0 repair, with unique locations, matching verdict sidecars, and no orphaned sidecars.
+- The raw self-scheduling verifier drain is complete and no verifier worker remains live. Across all source channels, all 2,129 manifest entries reconcile as 0 root, 1,579 pass, 359 fail, 129 unsure, 62 irrelevant, 0 repair, and 0 claimed, with unique locations, matching verdict sidecars, and no orphaned or opposite-verdict sidecars. Fail and unsure are unconfirmed verifier claims pending coordinator disposition; the concise corpus remains frozen.
 - The resource monitor covered the 26m18s verifier window. Peak CPU was 26.306%, peak one-minute load 2.175, minimum available memory 21,274,458,112 bytes, and peak WebUI RSS 2,925,813,760 bytes. NVMe utilization peaked at 71.756% with 4 ms maximum read await and 27.008 ms maximum write await; host saturation was not the wave limiter.
 
 ## Execution Boundaries
@@ -204,8 +204,8 @@ Machine-readable evidence: `docs/rules/source-extraction/validation.json`.
 
 ## Remaining Work — Ordered
 
-1. **Fragment-coverage review** — walk the official source artifacts fragment by fragment, asking whether each fragment's rules and behavior are already fully and accurately captured.
-2. Repair confirmed concise-rule defects and preserve unresolved policy as explicit gates.
+1. **Coordinator disposition** — independently classify every fail and unsure verdict, correct the named pass defects, and report recurring confirmed-gap clusters to the owner.
+2. Repair only the owner-authorized confirmed-gap clusters and preserve unresolved policy as explicit gates.
 3. Expand affected families only if fragment-coverage findings require it.
 4. Choose the new architecture independently and seek explicit approval before implementation.
 

@@ -2018,7 +2018,7 @@ task workspace.
 - [x] 2026-09-03 completed fresh verification of all 146 repaired-priority fragments: 146 pass, 0 fail, 0 unsure, and 0 unreviewed. The 11 fragments initially blocked by obsolete workspace-lock instructions all passed in a later owner-authorized lock-free retry.
 - [x] 2026-09-03 completed the separate fixed 100-worker/200-fragment GLM assignment at provider-safe concurrency. Final dispositions are 181 pass and 19 gameplay-irrelevant, with 0 fail, 0 unsure, 0 repair, and 0 unreviewed. All accepted corpus gaps were repaired centrally, independently re-verified once, and checkpointed in `1dbd572`; batches of at most 10 `glm-5.3-flash:cloud` children produced no observed provider throttling.
 - [x] Reconciled all 2,129 manifest entries after both waves: 1,404 root, 634 pass, 0 fail, 29 unsure, 62 irrelevant, and 0 repair; every entry has one canonical location, every verdict-routed fragment has its matching sidecar, and no sidecar is orphaned. Rulebook-only counts are 872 root, 634 pass, 29 unsure, and 62 irrelevant.
-- [ ] Owner gate: choose the worker count for continued review of the 1,404 root fragments (872 rulebook plus 532 other-source fragments). Keep disjoint fragment workers lock-free and do not exceed 10 concurrent `glm-5.3-flash:cloud` children without new provider-capacity evidence.
+- [x] Owner gate: the owner authorized the 100 Luna Max + 100 GLM 5.3 Flash Max self-scheduling drain of all 1,404 remaining root fragments.
 - [ ] Separately re-triage disputed prior irrelevant dispositions `RB-P08-042` and `RB-P09-002` before treating the irrelevant set as closed.
 - [ ] After the fragment-coverage review passes, choose a clean architecture independently and obtain explicit owner approval before implementation.
 
@@ -2068,5 +2068,6 @@ Do not add repair entries here.
 
 - [x] Define and test the same-call claim transaction: open existing fragment, nonblocking per-file flock, pathname/inode revalidation, atomic same-filesystem move, then unlock.
 - [x] Document `audit/claimed/<worker-id>/`, model/provider sidecars, and abandoned-claim recovery.
-- [ ] Drain all 1,404 unresolved root fragments with 100 Luna Max and 100 GLM 5.3 Flash Max workers.
-- [ ] Recover exited-worker claims, reconcile exact manifest/sidecar closure, centrally triage fail/unsure findings, independently re-verify repairs, and run the normal gates.
+- [x] Drain all 1,404 unresolved root fragments with 100 Luna Max and 100 GLM 5.3 Flash Max workers. Raw closure: 2,129 total = 1,579 pass + 359 fail + 129 unsure + 62 irrelevant; root/repair/claimed are 0 and no verifier worker remains live.
+- [x] Recover exited-worker claims and reconcile raw manifest/sidecar closure: every manifest ID has exactly one canonical location and every pass/fail/unsure fragment has its exact sidecar, with no orphaned or opposite-verdict residue.
+- [ ] Independently disposition all 359 fail claims and 129 unsure verdicts; correct the named scope-exclusion and malformed-evidence pass defects; mechanically cluster every confirmed repair; report recurring clusters to the owner before corpus repair.
