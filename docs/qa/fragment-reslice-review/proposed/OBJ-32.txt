@@ -1,0 +1,39 @@
+PROPOSED SOURCE-PROVENANCE SLICE — NOT A RULES-AUDIT FRAGMENT
+currentAuditId: OBJ-32
+sourceUnitId: P2-PO-HOSTILE-TAKEOVER
+category: private-objective
+source: docs/rulebooks/Nemesis_RT_Objectives_Sheet.pdf, page 2
+visibility: partially-occluded
+
+DIRECTLY VISIBLE PIXEL TEXT ONLY:
+- Remove t[occluded]
+- Progress the Objective Choice tr[occluded]
+- and draw [partially visible white upright rectangular badge; internal mark occluded] accordingly.
+- The [occluded]
+- (unavai[occluded]
+- Yo[occluded]
+- PRIVATE[occluded]
+
+partiallyVisibleIconOccurrence:
+- location: right edge of visible top-instruction strip
+- literalAppearance: left portion of a white upright rectangular badge; internal mark occluded
+completeOperativeAssertionVisible: false
+
+OCCLUDED MATERIAL:
+- title
+- count threshold and icon
+- substantial condition text and icons
+- part of footer
+
+PROVENANCE BOUNDARY:
+The PDF text layer identifies this occurrence as HOSTILE TAKEOVER, threshold 3+, and contains a condition locator. That metadata is physically occluded and is not visible face transcription. It remains preserved only in docs/rules/source-extraction/objective-help-sheet.json and must not be promoted into this visual slice.
+
+VISUAL EVIDENCE:
+renderDpi: 300
+renderDimensions: 3438x3438
+renderedPageSha256: ecf8bea81aaea62326f8be6f5619c7573e7d7cecb9d576554bfa5ca35be29f04
+cropBox: [1330, 200, 1890, 1010]
+cropSha256: 37aefba37e8ca4e9135e157eb37005be2b3481e918505d3f13b3c281d685ca58
+
+PROPOSED ACTION:
+Retire OBJ-32 from the rules-verification manifest because no complete operative source assertion can be sliced from this physical occurrence. Retain the full source-extraction provenance record unchanged. Do not substitute the independently preserved TTS card variant.

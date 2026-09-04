@@ -20,7 +20,7 @@ The former Stage 1 v2 blind correctness-audit methodology was scrapped by the ow
 
 ## Immediate Next Deliverable
 
-Owner decision required before repair: approve the repair-cluster order and scope, and decide whether the five named slice defects should be recut/re-extracted and receive their required one fresh verifier rerun before or alongside corpus repair. Do not edit the concise corpus until that decision.
+Owner review of `docs/qa/fragment-reslice-review/README.md`: approve, reject, or amend the five concrete reslice actions. No canonical slice, manifest, source-extraction record, or concise-corpus rule changes before that decision. The seven repair-cluster labels and counts are not an approval-ready corpus-repair proposal; a concrete corpus diff must be prepared separately after reslice disposition.
 
 ## Resume Checkpoint
 
@@ -38,6 +38,7 @@ Owner decision required before repair: approve the repair-cluster order and scop
 - Coordinator disposition is complete. All 2,129 manifest entries now reconcile as **1,579 pass, 332 repair, 56 unsure, 157 irrelevant, 5 root slice defects, 0 fail, and 0 claimed**. Every repair has a verbatim source assertion, `Applied fix: not yet applied`, and `Re-check: pending`; every remaining unsure sidecar explicitly records coordinator review and the applicable unresolved boundary. No corpus repair has been applied.
 - The 332 repairs are assigned exactly once to seven mutually exclusive behavioral clusters: **14** reference/help-sheet phase sequence and lookup behavior; **67** escape, endgame, Objectives, and Mission Tasks; **72** Facility topology, Rooms, exploration, Doors, and map markers; **57** Character, Robot, Command, and Action-card behavior; **52** Items, equipment, storage, Health, and Tactical Gear; **51** Intruder, combat, Event, contamination, and Queen behavior; **19** setup, finite supplies, component identities, and icons. The cluster sum is **332**.
 - Five bad slices are intentionally returned to the audit root with no verdict sidecars pending recut/re-extraction and one fresh verifier rerun: `OBJ-29`, `OBJ-31`, `OBJ-32`, `CARD-character-heavy-gun-operator-character-heavy-gun-operator-045_cards-card-13.png`, and `CARD-game-missionTaskDeck-game-missionTaskDeck-160_cards-card-08.png`.
+- A concrete owner-review packet now proposes retiring the three physically occluded Objective Help Sheet occurrences from the rules-verification manifest while retaining their source-provenance records, and installing two exact pixel-bound card reslices before one fresh verification each. The packet is proposal-only at `docs/qa/fragment-reslice-review/README.md`; canonical audit state remains unchanged.
 - The resource monitor covered the 26m18s verifier window. Peak CPU was 26.306%, peak one-minute load 2.175, minimum available memory 21,274,458,112 bytes, and peak WebUI RSS 2,925,813,760 bytes. NVMe utilization peaked at 71.756% with 4 ms maximum read await and 27.008 ms maximum write await; host saturation was not the wave limiter.
 
 ## Execution Boundaries
@@ -258,8 +259,8 @@ All of the following are true:
 
 ## Known Current Blockers and Open Evidence
 
-- The protocol's recurring-cluster rule blocks corpus repair until the owner approves a cluster order/scope. The five root slice defects also require a separate recut/re-extraction and fresh-rerun decision; they are not corpus gaps.
-- One prototype `FACILITY RESTART` face visibly ends a condition at “Systems must be”; no following mark is recoverable from the exact pixels, and materially different same-title/current-official variants cannot be substituted.
+- The five root slice defects now have concrete proposed actions in `docs/qa/fragment-reslice-review/README.md`, pending owner review. Corpus repair remains blocked: cluster names and counts alone are not approval-ready, and no proposed concise-corpus diff has yet been prepared.
+- The source-blocked `FACILITY RESTART` prototype is `assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-023.png`, which ends at “Systems must be.” The separate generated `missionTaskDeck-160_cards/card-08.png` face contains a fully visible but unmatched source-local badge and materially conflicts with official Objective Help Sheet unit `P1-MT-FACILITY-RESTART`; these occurrences must remain separate.
 - Vocabulary gates `VG-001` and `VG-002` are resolved; `PERSONAL OBJECTIVE` remains source-scoped and `Drilling Room` aliases `DRILLING STATION` with both official labels preserved.
 - 115 semantic/source questions remain explicit: OQ-001, OQ-003, OQ-004, OQ-007, OQ-009, and SEM-Q-001 through SEM-Q-110. They block only affected clauses/records, not unrelated coverage work.
 - OQ-002 is resolved by current official rulebook p. 39 (lines 6251–6265): evaluate Larva eligibility when the Eclosion cohort step is reached, including a Larva gained during the preceding Infection step. OQ-001 and multi-Character cohort ordering remain unresolved and unchanged.

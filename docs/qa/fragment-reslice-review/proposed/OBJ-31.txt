@@ -1,0 +1,38 @@
+PROPOSED SOURCE-PROVENANCE SLICE — NOT A RULES-AUDIT FRAGMENT
+currentAuditId: OBJ-31
+sourceUnitId: P2-PO-GREENER-PASTURES
+category: private-objective
+source: docs/rulebooks/Nemesis_RT_Objectives_Sheet.pdf, page 2
+visibility: partially-occluded
+
+DIRECTLY VISIBLE PIXEL TEXT ONLY:
+- Remove t[occluded]
+- Progres[occluded]
+- G[occluded]
+- The [occluded]
+- (unavai[occluded]
+- Yo[occluded]
+- PRIVATE[occluded]
+
+directlyVisibleIconOccurrences: none
+completeOperativeAssertionVisible: false
+
+OCCLUDED MATERIAL:
+- part of top instruction
+- count threshold and icon
+- most title
+- substantial condition text and unavailable clause
+- part of footer
+
+PROVENANCE BOUNDARY:
+The PDF text layer identifies this occurrence as GREENER PASTURES, threshold 2+, and contains a condition locator. That metadata is physically occluded and is not visible face transcription. It remains preserved only in docs/rules/source-extraction/objective-help-sheet.json and must not be promoted into this visual slice.
+
+VISUAL EVIDENCE:
+renderDpi: 300
+renderDimensions: 3438x3438
+renderedPageSha256: ecf8bea81aaea62326f8be6f5619c7573e7d7cecb9d576554bfa5ca35be29f04
+cropBox: [1060, 270, 1620, 1060]
+cropSha256: a88565ac93e9bc652ac4cc2ec3adca04ba2e291eac0a5749ec2def9757c8d76a
+
+PROPOSED ACTION:
+Retire OBJ-31 from the rules-verification manifest because no complete operative source assertion can be sliced from this physical occurrence. Retain the full source-extraction provenance record unchanged. Do not substitute the independently preserved TTS card variant.
