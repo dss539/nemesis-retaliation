@@ -1,6 +1,6 @@
 # Five-fragment reslice proposal — owner review
 
-**Status:** owner approved P1–P5 as written on 2026-09-04. The three retirements and two canonical replacement slices are installed; the two fresh verdicts are pending. No concise-corpus rule was changed.
+**Status:** owner approved P1–P5 as written on 2026-09-04. The three retirements and two canonical replacement slices were installed. Each replacement received exactly one fresh Luna Max verifier; both failed coverage and were independently accepted as repair claims. No concise-corpus rule was changed.
 
 **Prepared:** 2026-09-04
 

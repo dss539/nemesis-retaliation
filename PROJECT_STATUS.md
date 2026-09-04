@@ -1,7 +1,7 @@
 # Nemesis: Retaliation — Project Status
 
 **Status date:** 2026-09-04
-**Active phase:** Owner-approved five-fragment reslice is installed; two corrected source-variant slices await one fresh verifier each
+**Active phase:** Owner-approved five-fragment reslice is complete; both corrected source-variant slices failed fresh verification and are confirmed repair claims
 **Active branch:** `main`
 **Implementation status:** Frozen; a clean rewrite will begin only after rules-layer readiness and explicit approval
 
@@ -20,7 +20,7 @@ The former Stage 1 v2 blind correctness-audit methodology was scrapped by the ow
 
 ## Immediate Next Deliverable
 
-Give each of the two corrected root slices exactly one fresh independent fragment-coverage verdict, reconcile the 2,126-entry manifest, and then prepare a concrete source-to-rule mapping and proposed concise-corpus diff for owner review. No corpus repair is authorized yet.
+Prepare a concrete source-to-rule mapping and proposed concise-corpus diff for owner review covering all 334 independently confirmed repair claims. No corpus repair is authorized yet.
 
 ## Resume Checkpoint
 
@@ -37,7 +37,7 @@ Give each of the two corrected root slices exactly one fresh independent fragmen
 - Raw-verdict drain checkpoint: commit `52bcf773af1128e3740af181d94ecc37ce28c26f` records the mechanically closed pre-disposition state above.
 - Coordinator disposition is complete. All 2,129 manifest entries now reconcile as **1,579 pass, 332 repair, 56 unsure, 157 irrelevant, 5 root slice defects, 0 fail, and 0 claimed**. Every repair has a verbatim source assertion, `Applied fix: not yet applied`, and `Re-check: pending`; every remaining unsure sidecar explicitly records coordinator review and the applicable unresolved boundary. No corpus repair has been applied.
 - The 332 repairs are assigned exactly once to seven mutually exclusive behavioral clusters: **14** reference/help-sheet phase sequence and lookup behavior; **67** escape, endgame, Objectives, and Mission Tasks; **72** Facility topology, Rooms, exploration, Doors, and map markers; **57** Character, Robot, Command, and Action-card behavior; **52** Items, equipment, storage, Health, and Tactical Gear; **51** Intruder, combat, Event, contamination, and Queen behavior; **19** setup, finite supplies, component identities, and icons. The cluster sum is **332**.
-- Owner approved P1–P5 from `docs/qa/fragment-reslice-review/README.md`. `OBJ-29`, `OBJ-31`, and `OBJ-32` were retired from the rules-verification manifest because their physical official occurrences expose no complete operative assertion; their source-extraction provenance remains unchanged. The Heavy Gun Operator `DEMOLITION` and TTS-source `FACILITY RESTART` root slices were replaced with the approved pixel-bound records and await one fresh verifier each. Current mechanical state: **2,126 total = 1,579 pass + 332 repair + 56 unsure + 157 irrelevant + 2 root; 0 fail and 0 claimed**.
+- Owner approved P1–P5 from `docs/qa/fragment-reslice-review/README.md`. `OBJ-29`, `OBJ-31`, and `OBJ-32` were retired from the rules-verification manifest because their physical official occurrences expose no complete operative assertion; their source-extraction provenance remains unchanged. The Heavy Gun Operator `DEMOLITION` and TTS-source `FACILITY RESTART` root slices were replaced with the approved pixel-bound records and each received exactly one fresh Luna Max verifier. Both failed because the frozen concise corpus omits their source-variant rules/boundaries, so they were independently converted to repair claims. Current mechanical state: **2,126 total = 1,579 pass + 334 repair + 56 unsure + 157 irrelevant; 0 root, 0 fail, and 0 claimed**.
 - The resource monitor covered the 26m18s verifier window. Peak CPU was 26.306%, peak one-minute load 2.175, minimum available memory 21,274,458,112 bytes, and peak WebUI RSS 2,925,813,760 bytes. NVMe utilization peaked at 71.756% with 4 ms maximum read await and 27.008 ms maximum write await; host saturation was not the wave limiter.
 
 ## Execution Boundaries
@@ -258,7 +258,7 @@ All of the following are true:
 
 ## Known Current Blockers and Open Evidence
 
-- The owner-approved five-fragment reslice has been applied. Three physically occluded official occurrences were retired from verification without altering source provenance; the two corrected source-variant slices await one fresh verdict each. Corpus repair remains blocked because no approval-ready concise-corpus diff has yet been prepared.
+- The owner-approved five-fragment reslice and its fresh verification are complete. Three physically occluded official occurrences were retired from verification without altering source provenance; both corrected source variants failed and are now confirmed repair claims. Corpus repair remains blocked because no approval-ready concise-corpus diff has yet been prepared.
 - The source-blocked `FACILITY RESTART` prototype is `assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-023.png`, which ends at “Systems must be.” The separate generated `missionTaskDeck-160_cards/card-08.png` face contains a fully visible but unmatched source-local badge and materially conflicts with official Objective Help Sheet unit `P1-MT-FACILITY-RESTART`; these occurrences must remain separate.
 - Vocabulary gates `VG-001` and `VG-002` are resolved; `PERSONAL OBJECTIVE` remains source-scoped and `Drilling Room` aliases `DRILLING STATION` with both official labels preserved.
 - 115 semantic/source questions remain explicit: OQ-001, OQ-003, OQ-004, OQ-007, OQ-009, and SEM-Q-001 through SEM-Q-110. They block only affected clauses/records, not unrelated coverage work.

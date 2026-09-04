@@ -1,0 +1,43 @@
+Defect: Exact corpus gap independently confirmed by the fresh verifier: the frozen concise corpus contains generic Mission Task setup and separate facility-token definitions but does not capture this complete TTS source variant, its unresolved local symbols, or its material conflict with the official same-title occurrence.
+Source assertion (verbatim canonical fragment):
+> CARD CORPUS RECORD — game/missionTaskDeck / game-missionTaskDeck-160_cards-card-08.png
+> source: assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-160_cards/card-08.png
+> sourceSha256: e3f3266defff5ad4ade7327a85ebc8878d10bcd18ad85816212c60300472ad68
+> dimensions: 1136x1525
+> extraction state: draft-full
+> readiness: visible text complete; source-local functional symbols unresolved
+> rules text present: True
+> source status: TTS source variant; not authority over the materially different official help-sheet occurrence
+>
+> THRESHOLD:
+> - literal icon: small mostly solid white person-like figure over multiple detached cyan/blue elliptical rings
+> - printed text: 2+
+> - semantic status: unresolved source-local glyph; no-match to the official p.40 general/Character glyph
+>
+> title: FACILITY RESTART
+> body: The Hibernatorium must be [hibernatorium-active]
+> and at least 2 Life Support
+> Systems must be [UNRESOLVED: horizontal cyan-and-white bilateral badge with rounded white end masses, a cyan connector, and a narrow upright central slot/tab].
+>
+> AND
+>
+> The Facility cannot be destroyed.
+> footer: MISSION TASK
+>
+> FUNCTIONAL ICON EVIDENCE:
+> - Hibernatorium badge: previously source-matched to hibernatorium-active
+> - badge after “Systems must be”: fully visible in this source image; approximately bilateral, with two rounded white end masses, cyan connector, and a narrow upright central slot/tab
+> - closest official alternative: p.40 Life Support active glyph
+> - discriminator: the official active reference has a cyan outer capsule with a broad asymmetric white frame-and-connector structure and wider horizontal recess; the inactive reference adds a diagonal slash to that different base morphology
+> - decision: preserve the source-local badge literally; do not emit active, inactive, or another semantic state
+>
+> SOURCE CONFLICT — DO NOT MERGE:
+> Official Objective Help Sheet unit P1-MT-FACILITY-RESTART instead states that the Hibernatorium must be in its shown state (by using Life Support Control C) AND the Reactor (Section C) must be shut down (by using the Room). The official source and this TTS face are materially different occurrences. Neither supersedes the other silently.
+>
+> DISTINCT BLOCKER:
+> The exact source-blocked prototype that visibly ends at “Systems must be” is assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-023.png (SHA-256 eaa728ca02c48c33e27e99fe2ef58c9668e7b8532316d3c6d3c93248a86b627a), not this card-08.png source. Keep them separate.
+
+Applied fix: not yet applied
+Re-check: completed once after owner-approved reslice; fail (`gpt-5.6-luna` / `openai-codex`)
+Cluster: Escape, endgame, Objectives, and Mission Tasks
+Coordinator: parent integration after fresh verifier
