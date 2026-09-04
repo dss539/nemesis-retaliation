@@ -2063,3 +2063,10 @@ Do not add repair entries here.
 - queenhealth Motherbrain icons (intruder head + blob-with-plus)
 - Purpose of art-only "CHARACTER DRAFT" card
 - Why vision_analyze strips images (Hermes-side context management?)
+
+## 2026-09-04 — Active self-scheduling fragment drain
+
+- [x] Define and test the same-call claim transaction: open existing fragment, nonblocking per-file flock, pathname/inode revalidation, atomic same-filesystem move, then unlock.
+- [x] Document `audit/claimed/<worker-id>/`, model/provider sidecars, and abandoned-claim recovery.
+- [ ] Drain all 1,404 unresolved root fragments with 100 Luna Max and 100 GLM 5.3 Flash Max workers.
+- [ ] Recover exited-worker claims, reconcile exact manifest/sidecar closure, centrally triage fail/unsure findings, independently re-verify repairs, and run the normal gates.

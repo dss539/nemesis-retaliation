@@ -1,7 +1,7 @@
 # Nemesis: Retaliation — Project Status
 
-**Status date:** 2026-09-03
-**Active phase:** Owner's fragment-coverage review underway; the 146 repaired-priority fragments and the separate 200-fragment GLM wave are complete, with no fail/repair artifacts remaining
+**Status date:** 2026-09-04
+**Active phase:** Owner's fragment-coverage review underway; a 100 Luna Max + 100 GLM 5.3 Flash Max self-scheduling verification drain is being launched against the 1,404 unresolved fragments
 **Active branch:** `main`
 **Implementation status:** Frozen; a clean rewrite will begin only after rules-layer readiness and explicit approval
 
@@ -20,7 +20,7 @@ The former Stage 1 v2 blind correctness-audit methodology was scrapped by the ow
 
 ## Immediate Next Deliverable
 
-Separately re-triage the disputed `RB-P08-042` and `RB-P09-002` irrelevant dispositions. Then, after the owner selects the next worker count, continue the 1,404 root fragments (872 rulebook fragments plus 532 fragments from the other source channels). Use no more than 10 concurrent `glm-5.3-flash:cloud` children unless provider capacity is re-established with evidence.
+Drain the 1,404 unresolved root fragments (872 rulebook fragments plus 532 fragments from the other source channels) with 100 `gpt-5.6-luna` workers and 100 `glm-5.3-flash:cloud` workers at maximum reasoning. Workers randomly self-claim through the same-call per-file flock/rename helper, record actual model/provider metadata, and continue until no root work is visible. Keep the corpus frozen; recover abandoned claims and centrally triage only after the drain.
 
 ## Resume Checkpoint
 
@@ -40,7 +40,7 @@ Separately re-triage the disputed `RB-P08-042` and `RB-P09-002` irrelevant dispo
 
 - Follow the owner's fragment-coverage review in `docs/rules/implementation-readiness.md`. Review rules and source evidence only; do not rebuild audit machinery.
 - The owner decides worker count per wave.
-- Verifiers operate directly and exclusively on disjoint assigned canonical fragments in the defined repository audit folders. These fragment/sidecar writes are owner-authorized lock-free work: verifiers must not acquire, inspect, wait on, or touch `.workspace.lock`. Serialize only genuinely shared writes such as corpus repairs and status updates. Do not use `/tmp`, copied packets, ad hoc directories, or verifier worktrees.
+- Verifiers operate directly in the defined repository audit folders and self-claim one canonical manifest fragment at a time through `scripts/audit_work_steal.py`. The helper uses only a short per-fragment flock during an atomic same-filesystem move into `audit/claimed/<worker-id>/`; verifiers must not acquire, inspect, wait on, or touch `.workspace.lock`. Serialize only genuinely shared writes such as corpus repairs and status updates. Do not use `/tmp`, copied packets, ad hoc directories, or verifier worktrees.
 - Do not create Hermes profiles, expand semantics, touch the legacy implementation, open a PR, merge, deploy, or push unless separately authorized. A stop/status request preempts worker launches, integration, and autonomous successor handoff immediately.
 
 ## Verified Checkpoint
