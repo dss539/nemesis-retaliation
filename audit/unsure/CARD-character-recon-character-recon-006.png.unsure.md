@@ -1,3 +1,3 @@
-Model: `gpt-5.6-luna`
+Model: `gpt-5.6-sol`
 Provider: `openai-codex`
-Evidence: 02-character-actions.md §ACT-CARD-001 records the rulebook Sprint as “spend 1” without identifying Oxygen, while OQ-010 preserves TTS variants source-scoped; this occurrence’s exact Oxygen cost is unsettled.
+Evidence: Coordinator review confirms this fragment is genuinely unresolved: 02-character-actions.md §ACT-CARD-001 records the rulebook Sprint as “spend 1” without identifying Oxygen, while OQ-010 preserves TTS variants source-scoped; this occurrence’s exact Oxygen cost is unsettled.

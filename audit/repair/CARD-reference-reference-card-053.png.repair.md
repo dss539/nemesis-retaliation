@@ -1,0 +1,59 @@
+Defect: Exact corpus gap independently confirmed by the coordinator: no settled concise-corpus text fully and accurately captures the verbatim operative source assertion below.
+Source assertion (verbatim canonical fragment):
+> CARD CORPUS RECORD — reference / reference-card-053.png
+> extraction state: non-rules-or-reference; readiness: not-rules-bearing-or-reference
+> rules text present: False
+>
+> title: THE QUEEN IS ALIVE
+> section: [ICON: mint-rimmed circular marker with an unlabeled pale multi-limbed figure]
+> Activate the Queen.
+> If not possible – place her
+> in the Corridor.
+>
+> [ICON: circular marker printed 2] [ICON: circular marker printed 3] [ICON: circular marker printed 4]
+> [ICON: circular marker printed 1+1] [ICON: circular marker printed 2+1] [ICON: circular marker printed 3+1]
+> Place the
+> number of
+> Intruders
+> shown on the
+> token (Adults
+> and Drones) in
+> the Corridor.
+>
+> [ICON: mint-rimmed circular marker with pale brackets and an unlabeled curled figure]
+> Place 1 Larva
+> in the Corridor.
+> section: [ICON: mint-rimmed circular marker with printed label QUEEN]
+> Activate the Queen.
+> If not possible – place her
+> in the Room.
+>
+> [ICON: mint-rimmed circular marker with printed label DRONE] [ICON: mint-rimmed circular marker with printed label ADULT]
+> [ICON: mint-rimmed circular marker with printed label LARVA]
+> Place 1 Intruder
+> of the type shown
+> on the token
+> in the Room.
+> section: [ICON: mint-rimmed circular marker with printed label QUEEN]
+> Activate the Queen.
+> If not possible – add 2 Larva
+> tokens to the bag.
+>
+> [ICON: mint-rimmed circular marker with printed label DRONE]
+> [ICON: mint-rimmed circular marker with printed label ADULT]
+> Add 2 Queen tokens
+> to the bag.
+>
+> [ICON: mint-rimmed circular marker with printed label LARVA]
+> Add 2 random Drone
+> tokens to the bag.
+> section: [ICON: unlabeled mint-outlined dark circular marker]
+> Add 2 random Adult tokens
+> to the bag. Add this token back
+> to the bag.
+> source: assets/tts-mod/extract/v2-dl/tree/cards/reference/card-053.png
+
+Applied fix: not yet applied
+Re-check: pending
+Cluster: Reference/help-sheet phase sequence and lookup behavior
+Coordinator: gpt-5.6-sol / openai-codex

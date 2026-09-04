@@ -1,3 +1,3 @@
-Model: `gpt-5.6-luna`
+Model: `gpt-5.6-sol`
 Provider: `openai-codex`
-Evidence: RT-003 and RT-013 cover generic Reactions and Commands, but the exact Stay Calm effects are absent; ACT-CARD-001/OQ-010 preserve unresolved TTS Action-card Command/Reaction variants.
+Evidence: Coordinator review confirms this fragment is genuinely unresolved: OQ-010 retains the authority boundary between this TTS STAY CALM face and unsettled current-source Action-card variants, while SEM-Q-059–074 leave Command and Reaction ordering/priority that can change this face’s application without a default.

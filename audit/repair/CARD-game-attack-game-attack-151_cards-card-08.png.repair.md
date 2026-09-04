@@ -1,0 +1,24 @@
+Defect: Exact corpus gap independently confirmed by the coordinator: no settled concise-corpus text fully and accurately captures the verbatim operative source assertion below.
+Source assertion (verbatim canonical fragment):
+> CARD CORPUS RECORD — game/attack / game-attack-151_cards-card-08.png
+> extraction state: draft-full; readiness: draft-text-complete-symbols-unresolved
+> rules text present: True
+>
+> title: DEADLY CLAWS
+> body: [ICON: cyan circular curled quadrupedal creature glyph]
+> [ICON: cyan circular frontal multi-limbed creature glyph]
+> Lose 3 [characterHealth].
+>
+> [ICON: cyan circular upright clawed creature glyph]
+> If you are Heavily Injured, you die.
+> Otherwise, get a Serious Wound
+> on each empty Serious Wound
+> slot to the right
+> of your Health marker.
+> Then, get 1 Serious Wound more.
+> source: assets/tts-mod/extract/v2-dl/tree/cards/game/attack-151_cards/card-08.png
+
+Applied fix: not yet applied
+Re-check: pending
+Cluster: Intruder, combat, Event, contamination, and Queen behavior
+Coordinator: gpt-5.6-sol / openai-codex

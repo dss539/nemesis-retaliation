@@ -1,0 +1,23 @@
+Defect: Exact corpus gap independently confirmed by the coordinator: no settled concise-corpus text fully and accurately captures the verbatim operative source assertion below.
+Source assertion (verbatim canonical fragment):
+> PLAYER HELP SHEET — front 2
+> sourceUnitId: PH-FRONT-02
+> playerNumber: 2
+> sourcePath: assets/tts-mod/extract/v2-dl/tree/cards/reference/card-034_cards/card-01.png
+> sourceSha256: eb20a78be7d6dac4c6b90d726b4bd8947d0444488eaa968bfe598818e3486e39
+> {"dimensions": [815, 1111]}
+> sourceRole: FaceURL player-number Help reference face
+> {"ttsBagRole": {"bagGuid": "d8a0fb", "nickname": "playerHelpCards"}}
+> sourceSheetPath: assets/tts-mod/extract/v2-dl/tree/cards/reference/card-034.png
+> sourceSheetCellIndex: 1
+> {"objectRefs": [{"ttsGuid": "adba7d", "urlRole": "FaceURL", "cardId": 406904, "objectType": "Card", "parent": [["Bag", "d8a0fb", "playerHelpCards"]]}, {"ttsGuid": "20ad13", "urlRole": "FaceURL", "cardId": 406903, "objectType": "Card", "parent": [["Bag", "d8a0fb", "playerHelpCards"]]}, {"ttsGuid": "ad1d80", "urlRole": "FaceURL", "cardId": 406902, "objectType": "Card", "parent": [["Bag", "d8a0fb", "playerHelpCards"]]}, {"ttsGuid": "2ba1dd", "urlRole": "FaceURL", "cardId": 406901, "objectType": "Card", "parent": [["Bag", "d8a0fb", "playerHelpCards"]]}, {"ttsGuid": "588dba", "urlRole": "FaceURL", "cardId": 409800, "objectType": "Card", "parent": [["Bag", "d8a0fb", "playerHelpCards"]]}]}
+> sourceSelectorStatus: sheet-cell source occurrence; exact per-cell GUID not inferred
+> {"printedData": {"topLine": "- HELP CARD -", "playerLabel": "YOU ARE PLAYER", "playerNumber": "2", "instructionText": "PLAYER PHASE\nPlayers take Turns in Order\n– 2 Actions each Turn,\nuntil all Players have passed.\n\nEVENT PHASE\n1) Escape\n2) Fire Damage\n3) Intruder Attacks\n4) Event Card\n5) Bag Development\n\nCLEANUP PHASE\n6) First Player Change\n7) Drawing Cards\n8) Time Advancement\n\nEND OF ROUND", "headingColors": {"PLAYER PHASE": "blue", "EVENT PHASE": "red", "CLEANUP PHASE": "red", "END OF ROUND": "gray"}, "functionalIconOccurrences": []}}
+> {"pairedBack": {"sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/reference/card-153.jpg", "sourceSha256": "684b4ff724daaaec1aeb083ebba18a743c70566d7ed53807c7d9b9f78186a3eb", "urlRole": "BackURL", "visibleText": "PASS"}}
+> {"corpusProjection": {"extractionState": "complete-non-rules-or-reference", "canonicalPath": null, "sidecarPath": null}}
+> {"materialUnreadableSpans": []}
+
+Applied fix: not yet applied
+Re-check: pending
+Cluster: Reference/help-sheet phase sequence and lookup behavior
+Coordinator: gpt-5.6-sol / openai-codex

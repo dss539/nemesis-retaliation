@@ -1,0 +1,23 @@
+Defect: Exact corpus gap independently confirmed by the coordinator: no settled concise-corpus text fully and accurately captures the verbatim operative source assertion below.
+Source assertion (verbatim canonical fragment):
+> PLAYER HELP SHEET — front 9
+> sourceUnitId: PH-FRONT-09
+> playerNumber: 9
+> sourcePath: assets/tts-mod/extract/v2-dl/tree/cards/reference/card-057.png
+> sourceSha256: 0303f0ca7c1b841d07c5bb4b46d1260c77bb5aaf32f668b62482ba5431a4385c
+> {"dimensions": [817, 1113]}
+> sourceRole: FaceURL player-number Help reference face
+> {"ttsBagRole": {"bagGuid": "d8a0fb", "nickname": "playerHelpCards"}}
+> {"sourceSheetPath": null}
+> {"sourceSheetCellIndex": null}
+> {"objectRefs": [{"ttsGuid": "bd1488", "urlRole": "FaceURL", "cardId": 449100, "objectType": "CardCustom", "parent": [["Bag", "d8a0fb", "playerHelpCards"]]}]}
+> sourceSelectorStatus: individual FaceURL with exact TTS GUID/CardID
+> {"printedData": {"topLine": "- HELP CARD -", "playerLabel": "YOU ARE PLAYER", "playerNumber": "9", "instructionText": "PLAYER PHASE\nPlayers take Turns in Order\n– 2 Actions each Turn,\nuntil all Players have passed.\n\nEVENT PHASE\n1) Escape\n2) Fire Damage\n3) Intruder Attacks\n4) Event Card\n5) Bag Development\n\nCLEANUP PHASE\n6) First Player Change\n7) Drawing Cards\n8) Time Advancement\n\nEND OF ROUND", "headingColors": {"PLAYER PHASE": "blue", "EVENT PHASE": "red", "CLEANUP PHASE": "red", "END OF ROUND": "gray"}, "functionalIconOccurrences": []}}
+> {"pairedBack": {"sourcePath": "assets/tts-mod/extract/v2-dl/tree/cards/reference/card-153.jpg", "sourceSha256": "684b4ff724daaaec1aeb083ebba18a743c70566d7ed53807c7d9b9f78186a3eb", "urlRole": "BackURL", "visibleText": "PASS"}}
+> {"corpusProjection": {"extractionState": "complete-non-rules-or-reference", "canonicalPath": null, "sidecarPath": null}}
+> {"materialUnreadableSpans": []}
+
+Applied fix: not yet applied
+Re-check: pending
+Cluster: Reference/help-sheet phase sequence and lookup behavior
+Coordinator: gpt-5.6-sol / openai-codex

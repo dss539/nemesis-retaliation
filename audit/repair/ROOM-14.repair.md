@@ -1,0 +1,23 @@
+Defect: Exact corpus gap independently confirmed by the coordinator: no settled concise-corpus text fully and accurately captures the verbatim operative source assertion below.
+Source assertion (verbatim canonical fragment):
+> ROOM HELP SHEET — entry 14
+> printedSectionMarker: A
+> printedNumber: 15
+> printedTitle: LIFE SUPPORT CONTROL "A"
+> printedEffect: Flip an [R15-I04] / [R15-I05] in Section A.
+> OR
+> Discard a [R15-I06] from any Room
+> in the Facility.
+> associatedNotes: With this Room’s top effect you can activate or deactivate the Life Support System in the “A” Section.
+> artworkOnlyDetails: Room illustration shows a bright circular life-support mechanism with electrical arcs.
+> visualEvidence.page: 2
+> visualEvidence.gridColumn: 2
+> visualEvidence.gridRow: 1
+> visualEvidence.renderDpi: 300
+> visualEvidence.renderedPageSha256: bb3d64670b68bb35b76a3c6d0b87b0655a3609276a6dc5ea4b6dcc8bf9e9801f
+> visualEvidence.cropSha256: 9f04e6b4e7f59a509676c2bdf10768c7c47e0c74fd790f6337531515966e0b1d
+
+Applied fix: not yet applied
+Re-check: pending
+Cluster: Facility topology, Rooms, exploration, Doors, and map markers
+Coordinator: gpt-5.6-sol / openai-codex

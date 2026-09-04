@@ -1,0 +1,27 @@
+Defect: Exact corpus gap independently confirmed by the coordinator: no settled concise-corpus text fully and accurately captures the verbatim operative source assertion below.
+Source assertion (verbatim canonical fragment):
+> OBJECTIVE HELP SHEET — unit 39
+> sourceUnitId: P2-PO-EXPERIMENTAL-SUBJECTS
+> category: private-objective
+> topInstruction: Remove the other Objective from the game to:
+> Progress the Objective Choice track once
+> and draw [P2-PO-EXPERIMENTAL-SUBJECTS-I01] accordingly.
+> {"countThreshold": {"sourceIconOccurrenceId": "P2-PO-EXPERIMENTAL-SUBJECTS-I02", "printedText": "3+"}}
+> printedTitle: EXPERIMENTAL SUBJECTS
+> printedCondition: All [P2-PO-EXPERIMENTAL-SUBJECTS-I03] who Escape from the Facility
+> must have at least 3 Contaminations
+> in total among them (no matter
+> if they Survive after Escaping).
+> printedFooter: PRIVATE OBJECTIVE
+> associatedNotes: Count all Contaminations in all players’ decks (including yours) who
+> have Escaped from the Facility. It is
+> irrelevant if they die during the final
+> Eclosion Procedure.
+> {"functionalIconOccurrences": [{"occurrenceId": "P2-PO-EXPERIMENTAL-SUBJECTS-I01", "location": "top instruction, immediately after “draw”", "literalAppearance": "small upright white rounded rectangular card-like badge with a dark uppercase A centered inside"}, {"occurrenceId": "P2-PO-EXPERIMENTAL-SUBJECTS-I02", "location": "above the title, immediately before the printed 3+", "literalAppearance": "small white upright person-like silhouette standing above several concentric cyan-blue horizontal rings"}, {"occurrenceId": "P2-PO-EXPERIMENTAL-SUBJECTS-I03", "location": "condition, immediately after “All”", "literalAppearance": "small white suited humanoid silhouette with a rounded helmet, squared torso, articulated arms, and separated lower limbs"}]}
+> {"materialUnreadableSpans": []}
+> {"visualEvidence": {"page": 2, "gridRow": 2, "gridColumn": 4, "renderDpi": 300, "renderDimensions": [3438, 3438], "renderedPageSha256": "ecf8bea81aaea62326f8be6f5619c7573e7d7cecb9d576554bfa5ca35be29f04", "cropBox": [2580, 1120, 3438, 2180], "cropDimensions": [858, 1060], "cropSha256": "669002815446cd5a719a5c4e1058397c02bbe3ac2ae9c251e95775876f8adbfe", "visibility": "fully-visible"}}
+
+Applied fix: not yet applied
+Re-check: pending
+Cluster: Escape, endgame, Objectives, and Mission Tasks
+Coordinator: gpt-5.6-sol / openai-codex

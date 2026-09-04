@@ -1,0 +1,28 @@
+Defect: Exact corpus gap independently confirmed by the coordinator: no settled concise-corpus text fully and accurately captures the verbatim operative source assertion below.
+Source assertion (verbatim canonical fragment):
+> OBJECTIVE HELP SHEET — unit 20
+> sourceUnitId: P1-MT-FACILITY-RESTART
+> category: mission-task
+> {"countThreshold": {"sourceIconOccurrenceId": "P1-MT-FACILITY-RESTART-I01", "printedText": "2+"}}
+> printedTitle: FACILITY RESTART
+> printedCondition: The Hibernatorium must be [P1-MT-FACILITY-RESTART-I02]
+> (by using the Life Support Control C).
+>
+> AND
+>
+> The Reactor (Section C)
+> must be shut down (by using the Room).
+> printedFooter: MISSION TASK
+> associatedNotes: Shutting down the Reactor is not
+> marked during the game but you may
+> check it at the End of the Game by
+> looking if the Autodestruction token
+> has been removed from the game.
+> {"functionalIconOccurrences": [{"occurrenceId": "P1-MT-FACILITY-RESTART-I01", "location": "above the title, immediately before the printed 2+", "literalAppearance": "small white upright person-like silhouette standing above several concentric cyan-blue horizontal rings"}, {"occurrenceId": "P1-MT-FACILITY-RESTART-I02", "location": "first condition, immediately after “must be”", "literalAppearance": "purple horizontal rounded capsule containing a centered white three-lobed fan- or pod-like silhouette"}]}
+> {"materialUnreadableSpans": []}
+> {"visualEvidence": {"page": 1, "gridRow": 3, "gridColumn": 3, "renderDpi": 300, "renderDimensions": [3438, 3438], "renderedPageSha256": "2a9841813f6a09402100f3c5991240f5e3dc5112ff76a2df3ac6d3d8e4aeabff", "cropBox": [2110, 2180, 2700, 3350], "cropDimensions": [590, 1170], "cropSha256": "aea6c5fefa00d8ac8afd1480b2964473275293bff418ed51627fb2f37e969daa", "visibility": "fully-visible"}}
+
+Applied fix: not yet applied
+Re-check: pending
+Cluster: Escape, endgame, Objectives, and Mission Tasks
+Coordinator: gpt-5.6-sol / openai-codex

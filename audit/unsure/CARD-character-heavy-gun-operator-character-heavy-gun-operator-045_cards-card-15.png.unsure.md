@@ -1,3 +1,3 @@
-Model: `glm-5.3-flash:cloud`
-Provider: `ollama-cloud`
-Evidence: Fragment is the Heavy Gun Operator's FORCING FIRE card (spend Rifle token to make Queen or Adults/Drones Escape the Room); corpus has no Heavy Gun Operator card records and no Intruder-Escape-from-Room rule settled anywhere (03-intruders-and-survival.md INT-009 covers only Character escape), so coverage is unclear.
+Model: `gpt-5.6-sol`
+Provider: `openai-codex`
+Evidence: Coordinator review confirms this fragment is genuinely unresolved: the source-local red cost glyph on this exact FORCING FIRE occurrence is not semantically identified, so its spend cost and resulting Queen-versus-Adult/Drone Escape effect cannot be confirmed without inventing a glyph mapping.

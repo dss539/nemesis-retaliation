@@ -1,0 +1,28 @@
+Defect: Exact corpus gap independently confirmed by the coordinator: no settled concise-corpus text fully and accurately captures the verbatim operative source assertion below.
+Source assertion (verbatim canonical fragment):
+> OBJECTIVE HELP SHEET — unit 16
+> sourceUnitId: P1-MT-THE-SUPPLY-ROUTE
+> category: mission-task
+> {"countThreshold": {"sourceIconOccurrenceId": "P1-MT-THE-SUPPLY-ROUTE-I01", "printedText": "3+"}}
+> printedTitle: THE SUPPLY ROUTE
+> printedCondition: There must be a continuous path
+> of Reinforced Corridors
+> from the Landing Zone (Section A)
+> to the Life Support Control C.
+>
+> AND
+>
+> The Facility must NOT be destroyed.
+> printedFooter: MISSION TASK
+> associatedNotes: When checking the path from the
+> Landing Zone to Life Support Control C ignore all Closed Doors and
+> Intruders - they are irrelevant. Only
+> Reinforcement counts.
+> {"functionalIconOccurrences": [{"occurrenceId": "P1-MT-THE-SUPPLY-ROUTE-I01", "location": "above the title, immediately before the printed 3+", "literalAppearance": "small white upright person-like silhouette standing above several concentric cyan-blue horizontal rings"}]}
+> {"materialUnreadableSpans": []}
+> {"visualEvidence": {"page": 1, "gridRow": 2, "gridColumn": 3, "renderDpi": 300, "renderDimensions": [3438, 3438], "renderedPageSha256": "2a9841813f6a09402100f3c5991240f5e3dc5112ff76a2df3ac6d3d8e4aeabff", "cropBox": [2110, 1110, 2700, 2200], "cropDimensions": [590, 1090], "cropSha256": "4fed1f68f34cdd34b9d00ecc1385918c39283d295581edaed747dfd78cb494e3", "visibility": "fully-visible"}}
+
+Applied fix: not yet applied
+Re-check: pending
+Cluster: Escape, endgame, Objectives, and Mission Tasks
+Coordinator: gpt-5.6-sol / openai-codex

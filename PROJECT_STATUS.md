@@ -1,7 +1,7 @@
 # Nemesis: Retaliation — Project Status
 
 **Status date:** 2026-09-04
-**Active phase:** Owner's fragment-coverage review; the raw self-scheduling verifier drain is complete and coordinator disposition is next
+**Active phase:** Owner's fragment-coverage review; coordinator disposition is complete and corpus repair is stopped at the owner cluster gate
 **Active branch:** `main`
 **Implementation status:** Frozen; a clean rewrite will begin only after rules-layer readiness and explicit approval
 
@@ -20,7 +20,7 @@ The former Stage 1 v2 blind correctness-audit methodology was scrapped by the ow
 
 ## Immediate Next Deliverable
 
-Independently disposition all 359 fail claims and 129 unsure verdicts against the frozen concise corpus. Correct known scope-exclusion and malformed-evidence pass defects, classify every confirmed gap into mutually exclusive behavioral clusters, and report those clusters to the owner before any corpus repair.
+Owner decision required before repair: approve the repair-cluster order and scope, and decide whether the five named slice defects should be recut/re-extracted and receive their required one fresh verifier rerun before or alongside corpus repair. Do not edit the concise corpus until that decision.
 
 ## Resume Checkpoint
 
@@ -34,6 +34,10 @@ Independently disposition all 359 fail claims and 129 unsure verdicts against th
 - The 146 repaired-priority fragments are complete: 146 pass, 0 fail, 0 unsure, 0 unreviewed. Eight initial workers were blocked by obsolete workspace-lock instructions; all 11 affected fragments passed in a later owner-authorized lock-free retry.
 - The separate 100-worker GLM assignment is complete: all 200 unique fragments are dispositioned as 181 pass and 19 gameplay-irrelevant, with 0 fail, 0 unsure, 0 repair, and 0 unreviewed. Every genuine gap was repaired centrally and passed one independent re-verification; provider-safe waves of at most 10 children had no observed HTTP 429 failures.
 - The raw self-scheduling verifier drain is complete and no verifier worker remains live. Across all source channels, all 2,129 manifest entries reconcile as 0 root, 1,579 pass, 359 fail, 129 unsure, 62 irrelevant, 0 repair, and 0 claimed, with unique locations, matching verdict sidecars, and no orphaned or opposite-verdict sidecars. Fail and unsure are unconfirmed verifier claims pending coordinator disposition; the concise corpus remains frozen.
+- Raw-verdict drain checkpoint: commit `52bcf773af1128e3740af181d94ecc37ce28c26f` records the mechanically closed pre-disposition state above.
+- Coordinator disposition is complete. All 2,129 manifest entries now reconcile as **1,579 pass, 332 repair, 56 unsure, 157 irrelevant, 5 root slice defects, 0 fail, and 0 claimed**. Every repair has a verbatim source assertion, `Applied fix: not yet applied`, and `Re-check: pending`; every remaining unsure sidecar explicitly records coordinator review and the applicable unresolved boundary. No corpus repair has been applied.
+- The 332 repairs are assigned exactly once to seven mutually exclusive behavioral clusters: **14** reference/help-sheet phase sequence and lookup behavior; **67** escape, endgame, Objectives, and Mission Tasks; **72** Facility topology, Rooms, exploration, Doors, and map markers; **57** Character, Robot, Command, and Action-card behavior; **52** Items, equipment, storage, Health, and Tactical Gear; **51** Intruder, combat, Event, contamination, and Queen behavior; **19** setup, finite supplies, component identities, and icons. The cluster sum is **332**.
+- Five bad slices are intentionally returned to the audit root with no verdict sidecars pending recut/re-extraction and one fresh verifier rerun: `OBJ-29`, `OBJ-31`, `OBJ-32`, `CARD-character-heavy-gun-operator-character-heavy-gun-operator-045_cards-card-13.png`, and `CARD-game-missionTaskDeck-game-missionTaskDeck-160_cards-card-08.png`.
 - The resource monitor covered the 26m18s verifier window. Peak CPU was 26.306%, peak one-minute load 2.175, minimum available memory 21,274,458,112 bytes, and peak WebUI RSS 2,925,813,760 bytes. NVMe utilization peaked at 71.756% with 4 ms maximum read await and 27.008 ms maximum write await; host saturation was not the wave limiter.
 
 ## Execution Boundaries
@@ -254,6 +258,7 @@ All of the following are true:
 
 ## Known Current Blockers and Open Evidence
 
+- The protocol's recurring-cluster rule blocks corpus repair until the owner approves a cluster order/scope. The five root slice defects also require a separate recut/re-extraction and fresh-rerun decision; they are not corpus gaps.
 - One prototype `FACILITY RESTART` face visibly ends a condition at “Systems must be”; no following mark is recoverable from the exact pixels, and materially different same-title/current-official variants cannot be substituted.
 - Vocabulary gates `VG-001` and `VG-002` are resolved; `PERSONAL OBJECTIVE` remains source-scoped and `Drilling Room` aliases `DRILLING STATION` with both official labels preserved.
 - 115 semantic/source questions remain explicit: OQ-001, OQ-003, OQ-004, OQ-007, OQ-009, and SEM-Q-001 through SEM-Q-110. They block only affected clauses/records, not unrelated coverage work.

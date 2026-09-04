@@ -1,0 +1,22 @@
+Defect: Exact corpus gap independently confirmed by the coordinator: no settled concise-corpus text fully and accurately captures the verbatim operative source assertion below.
+Source assertion (verbatim canonical fragment):
+> ROOM HELP SHEET — entry 16
+> printedSectionMarker: A
+> printedNumber: 17
+> printedTitle: DRILLING STATION
+> printedEffect: Place a new Corridor
+> leading from the Room
+> with the [R17-I05].
+> associatedNotes: This Corridor may be placed leading to an already Discovered Room or to an Undiscovered Room.
+> artworkOnlyDetails: Room illustration shows a large drilling mechanism over a red-lit shaft.
+> visualEvidence.page: 2
+> visualEvidence.gridColumn: 4
+> visualEvidence.gridRow: 1
+> visualEvidence.renderDpi: 300
+> visualEvidence.renderedPageSha256: bb3d64670b68bb35b76a3c6d0b87b0655a3609276a6dc5ea4b6dcc8bf9e9801f
+> visualEvidence.cropSha256: 4e69d15fc55fb87ae4559dd2c62b2d1e7b6d8a8647a0a08e0b4c4f7d304709c2
+
+Applied fix: not yet applied
+Re-check: pending
+Cluster: Facility topology, Rooms, exploration, Doors, and map markers
+Coordinator: gpt-5.6-sol / openai-codex

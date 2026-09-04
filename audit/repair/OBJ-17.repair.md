@@ -1,0 +1,21 @@
+Defect: Exact corpus gap independently confirmed by the coordinator: no settled concise-corpus text fully and accurately captures the verbatim operative source assertion below.
+Source assertion (verbatim canonical fragment):
+> OBJECTIVE HELP SHEET — unit 17
+> sourceUnitId: P1-MT-PRIMARY-SAMPLES
+> category: mission-task
+> {"countThreshold": {"sourceIconOccurrenceId": "P1-MT-PRIMARY-SAMPLES-I01", "printedText": "2+"}}
+> printedTitle: PRIMARY SAMPLES
+> printedCondition: All [P1-MT-PRIMARY-SAMPLES-I02] who Escape from the Facility
+> must be carrying at least 2 Eggs
+> in total among them
+> (no matter if they Survive after Escaping).
+> printedFooter: MISSION TASK
+> {"associatedNotes": []}
+> {"functionalIconOccurrences": [{"occurrenceId": "P1-MT-PRIMARY-SAMPLES-I01", "location": "above the title, immediately before the printed 2+", "literalAppearance": "small white upright person-like silhouette standing above several concentric cyan-blue horizontal rings"}, {"occurrenceId": "P1-MT-PRIMARY-SAMPLES-I02", "location": "condition, immediately after “All”", "literalAppearance": "small white suited humanoid silhouette with a rounded helmet, squared torso, articulated arms, and separated lower limbs"}]}
+> {"materialUnreadableSpans": []}
+> {"visualEvidence": {"page": 1, "gridRow": 2, "gridColumn": 4, "renderDpi": 300, "renderDimensions": [3438, 3438], "renderedPageSha256": "2a9841813f6a09402100f3c5991240f5e3dc5112ff76a2df3ac6d3d8e4aeabff", "cropBox": [2730, 1110, 3340, 2070], "cropDimensions": [610, 960], "cropSha256": "06fa4c921178a31bfa31f669c8e4044d95f420bc17637c6c322c827e49ea638b", "visibility": "fully-visible"}}
+
+Applied fix: not yet applied
+Re-check: pending
+Cluster: Escape, endgame, Objectives, and Mission Tasks
+Coordinator: gpt-5.6-sol / openai-codex
