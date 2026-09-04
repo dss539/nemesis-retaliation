@@ -1,12 +1,12 @@
 # Five-fragment reslice proposal — owner review
 
-**Status:** proposal only; no canonical audit fragment, manifest entry, source-extraction record, or concise-corpus rule has been changed.
+**Status:** owner approved P1–P5 as written on 2026-09-04. The three retirements and two canonical replacement slices are installed; the two fresh verdicts are pending. No concise-corpus rule was changed.
 
 **Prepared:** 2026-09-04
 
-## Decision requested
+## Decision recorded
 
-Approve, reject, or amend each proposed action:
+The owner approved P1–P5 as written. The table below preserves the reviewed proposal and its authorized actions.
 
 | Proposal | Current audit ID | Defect | Proposed action after approval |
 |---|---|---|---|
