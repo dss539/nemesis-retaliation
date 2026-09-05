@@ -1,7 +1,7 @@
 # Nemesis: Retaliation — Project Status
 
 **Status date:** 2026-09-05
-**Active phase:** Fragment-coverage audit closed and critic-reviewed; awaiting owner reading of `OWNER-NOTES.md` and rulings on the unsure ledger
+**Active phase:** Fragment-coverage audit closed and critic-reviewed; awaiting owner reading of `docs/qa/repair-review/OWNER-NOTES.md` and rulings on the unsure ledger
 **Active branch:** `main`
 **Implementation status:** Frozen; a clean rewrite will begin only after rules-layer readiness and explicit approval
 
