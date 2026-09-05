@@ -1,7 +1,7 @@
 # Nemesis: Retaliation — Project Status
 
-**Status date:** 2026-09-04
-**Active phase:** Source-to-rule mapping for all 334 confirmed repair claims is drafted and awaiting owner review; corpus remains frozen
+**Status date:** 2026-09-05
+**Active phase:** Fragment-coverage audit mechanically closed after owner-delegated autonomous repair; independent critic review and unsure ledger in progress
 **Active branch:** `main`
 **Implementation status:** Frozen; a clean rewrite will begin only after rules-layer readiness and explicit approval
 
@@ -20,7 +20,7 @@ The former Stage 1 v2 blind correctness-audit methodology was scrapped by the ow
 
 ## Immediate Next Deliverable
 
-Owner decision on `docs/qa/repair-review/README.md` (P1–P7, one per repair cluster). On approval of a P-item: apply that cluster's consolidated edits to `docs/rules/` in one repair commit, run the normal gate, perform the single re-check per repaired ID against the freshly reread corpus, return passing fragments to the audit root without repair sidecars, and dispatch one fresh verifier per returned fragment. No corpus repair is authorized until the owner replies.
+Independently verify any material findings from the two isolated Ollama Cloud critics (`docs/qa/repair-review/critics/`), apply only source-confirmed corrections as a separate commit with one re-verification each, then hand the owner `docs/qa/repair-review/OWNER-NOTES.md` and `docs/qa/repair-review/UNSURE-LEDGER.md`. After that, the remaining substantive work is the 106-fragment unsure pool, which is bounded by open questions and needs owner or publisher input, not more verification.
 
 ## Resume Checkpoint
 
@@ -38,7 +38,8 @@ Owner decision on `docs/qa/repair-review/README.md` (P1–P7, one per repair clu
 - Coordinator disposition is complete. All 2,129 manifest entries now reconcile as **1,579 pass, 332 repair, 56 unsure, 157 irrelevant, 5 root slice defects, 0 fail, and 0 claimed**. Every repair has a verbatim source assertion, `Applied fix: not yet applied`, and `Re-check: pending`; every remaining unsure sidecar explicitly records coordinator review and the applicable unresolved boundary. No corpus repair has been applied.
 - The 332 repairs are assigned exactly once to seven mutually exclusive behavioral clusters: **14** reference/help-sheet phase sequence and lookup behavior; **67** escape, endgame, Objectives, and Mission Tasks; **72** Facility topology, Rooms, exploration, Doors, and map markers; **57** Character, Robot, Command, and Action-card behavior; **52** Items, equipment, storage, Health, and Tactical Gear; **51** Intruder, combat, Event, contamination, and Queen behavior; **19** setup, finite supplies, component identities, and icons. The cluster sum is **332**.
 - Owner approved P1–P5 from `docs/qa/fragment-reslice-review/README.md`. `OBJ-29`, `OBJ-31`, and `OBJ-32` were retired from the rules-verification manifest because their physical official occurrences expose no complete operative assertion; their source-extraction provenance remains unchanged. The Heavy Gun Operator `DEMOLITION` and TTS-source `FACILITY RESTART` root slices were replaced with the approved pixel-bound records and each received exactly one fresh Luna Max verifier. Both failed because the frozen concise corpus omits their source-variant rules/boundaries, so they were independently converted to repair claims. Current mechanical state: **2,126 total = 1,579 pass + 334 repair + 56 unsure + 157 irrelevant; 0 root, 0 fail, and 0 claimed**.
-- The 334-repair source-to-rule mapping is complete at `docs/qa/repair-review/`: seven cluster files under `docs/qa/repair-review/clusters/` (c1-reference 14, c2-endgame 68, c3-facility 72, c4-character 58, c5-items 52, c6-intruder 51, c7-setup 19 = 334), each with a per-ID verbatim-source → target-record → exact-edit table, consolidated per-record edit blocks, flags, and a mechanically verified closure line. Cluster ID lists (`clusters/*.ids`) were regenerated from the `Cluster:` line of every `audit/repair/*.repair.md`. `docs/rules/` and `audit/` have zero diff; the mechanical audit state above is unchanged.
+- The 334-repair source-to-rule mapping (`docs/qa/repair-review/README.md`, P1–P7) was presented; the owner amended P2 to add `Evaluates via:` cross-references (surfacing OQ-013 corpses and OQ-014 Objective eligibility), kept Private Objective flavor text, then delegated the remainder autonomously. All seven clusters were applied to `docs/rules/` (commits `0c3a288`, `5889755`, `02ff0de`; +565/−5 lines), each ID passed one post-repair re-check (`docs/qa/repair-review/recheck/`, 334/334 covered), and all 334 fragments returned to the audit root for one fresh verifier each.
+- Fresh verification closed with 17 fail claims, all coordinator-dispositioned: 15 Objective-family faces converted to unsure (their gap is an open question — OQ-013/OQ-014/OBJ-44 — not an omission), 2 true gaps repaired (`RB-P14-021` Rise of the Machine Health loss; `OBJ-16` Reinforced-path check) and re-verified pass. **Final mechanical state: 2,126 = 1,863 pass + 106 unsure + 157 irrelevant; 0 root, 0 fail, 0 repair, 0 claimed**, confirmed by `scripts/audit_closure_check.py`. Owner-facing notes: `docs/qa/repair-review/OWNER-NOTES.md`.
 - The resource monitor covered the 26m18s verifier window. Peak CPU was 26.306%, peak one-minute load 2.175, minimum available memory 21,274,458,112 bytes, and peak WebUI RSS 2,925,813,760 bytes. NVMe utilization peaked at 71.756% with 4 ms maximum read await and 27.008 ms maximum write await; host saturation was not the wave limiter.
 
 ## Execution Boundaries

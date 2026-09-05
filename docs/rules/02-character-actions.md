@@ -127,7 +127,7 @@
   5. On the special Burst result, also resolve any applicable Weapon/Action extra effect.
 - **FAQ:** Bursting through Closed Doors is prohibited.
   - **Source:** FAQ v1.2, “General rules” #8 (lines 52–57).
-- **Plain rule:** For Fire At Will, the Officer chooses their Room or the neighboring Room. Then each Character in Turn order Bursts at a Corridor chosen by the Officer; the Officer may choose a different Corridor for each Character, and each Character may choose which Weapon to use when Bursting.
+- **Plain rule (FAQ, Officer's Fire At Will Action card):** For Fire At Will, the Officer chooses their Room or the neighboring Room. Then each Character in Turn order Bursts at a Corridor chosen by the Officer; the Officer may choose a different Corridor for each Character, and each Character may choose which Weapon to use when Bursting. **Source:** FAQ v1.2 p. 2, `ACTION CARDS`, `FQ-P02-U14` only; the rulebook does not describe this card.
 - **Plain rule:** For each Burst Hit allocated to the Queen, advance the Queen’s Hits marker 1 space.
 - **Plain rule:** Advancing the Queen’s Hits track may apply additional effects.
 - **Plain rule:** The additional-effect symbol shares the Burst-die face with result 4.
