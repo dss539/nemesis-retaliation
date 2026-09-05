@@ -36,6 +36,9 @@
   - **Source:** Rulebook p. 24, “Secret Passages” (`RB-P24-014`).
 - **FAQ:** An action that prevents an Intruder Attack “during a Movement” prevents opportunity attacks only, not a Hazard-result attack from the Noise roll.
   - **Source:** FAQ v1.2, “Action cards” #3 (lines 86–89).
+- **Facility-wide exception:** Effects that specifically call out “any object in the Facility” still work even when the target is behind a Closed Door. **Source:** Rulebook p. 22, `BLOCKING PATH — Facility-wide exception`.
+- **Destroy eligibility:** Only a Closed Door can be Destroyed. **Source:** Rulebook p. 22, `INTERACTING WITH DOORS — Destroy eligibility`.
+- **Boundary:** The first bullet is an explicit source exception and remains visibly distinct from the existing general Closed-Door blocking bullet. No conflict is silently resolved by this proposal.
 
 ## ACT-MOVE-002 — Move Cautiously
 
@@ -63,6 +66,20 @@
   - **Source:** FAQ v1.2, “General rules” #4 (lines 30–35).
 - **FAQ:** “Remove this card from the game” is not part of the Entrance Effect; an effect that explores while ignoring Entrance Effects still removes such a card.
   - **Source:** FAQ v1.2, “General rules” #5 (lines 37–40).
+
+### Exploration card source occurrences
+
+| Source occurrence | Exact source text to add |
+|---|---|
+| `assets/tts-mod/extract/v2-dl/tree/cards/game/exploration-025.png` | `Place A/B/C Room`<br>`depending on your Section.`<br>`[character] [malfunction]`<br>`[noise]`<br>`Reminder:`<br>`Place 1 [secure] if you are Moving with [secure].`<br>`Make a Noise roll.` |
+| `assets/tts-mod/extract/v2-dl/tree/cards/game/exploration-062.png` | `Place A/B/C Room`<br>`depending on your Section.`<br>`[character]`<br>`[noise]`<br>`Reminder:`<br>`Place 1 [secure] if you are Moving with [secure].`<br>`Entrance Effect:`<br>`Place 3 Adults in the Corridor`<br>`you have just passed through.`<br>`Then, make a Noise roll.` |
+| `assets/tts-mod/extract/v2-dl/tree/cards/game/exploration-107.png` | `Place A/B/C Room`<br>`depending on your Section.`<br>`[noise]`<br>`[character]`<br>`[noise]`<br>`Reminder:`<br>`Place 1 [secure] if you are Moving with [secure].`<br>`Entrance Effect:`<br>`Place 2 Adults in the Corridor`<br>`you have just passed through.`<br>`Then, make a Noise roll.` |
+
+- **Diagram note:** Exploration cards do not always show the Corridor the Character has Moved through. **Source:** Rulebook p. 24, `EXPLORATION SEQUENCE — card purpose note`.
+- **Base-game icon boundary:** The Insider icon has no base-game function. **Source:** Rulebook p. 24, `EXPLORATION SEQUENCE 6 — Insider icon`.
+- **Base-game resolution:** Ignore the Insider icon in base-game play. **Source:** Rulebook p. 24, `EXPLORATION SEQUENCE 6 — ignore`.
+
+- **Boundary:** The card rows remain source occurrences/variants; they do not replace the official Exploration Sequence. `SEM-Q-002` remains open on whether a Noise-roll Entrance Effect is additional to the universal post-Movement Noise requirement.
 
 ## ACT-SHOOT-001 — Shoot
 
@@ -163,6 +180,20 @@
 - **Tactical Gear:** The Robot starts with 1 full Ammo and 1 Oxygen token. A co-located Character performing Use Any Tactical Gear may use Robot-held tokens and transfer tokens between compatible Character/Robot slots, even while the Robot is malfunctioned.
 - **Open boundaries:** `SEM-Q-010` and `SEM-Q-012`–`SEM-Q-019` in `docs/rules/semantics/review-gates.json`; no default is adopted for the affected clauses.
 
+### Source-backed Robot behavior
+
+- **Autonomy:** The Robot does nothing on its own. **Source:** `RB-P37-005` / Rulebook p. 37, `ROBOT — no autonomy`.
+- **Assigned Actions:** The Robot performs only Actions assigned by Characters. **Source:** `RB-P37-006` / Rulebook p. 37, `ROBOT — assigned Actions`.
+- **Intruders:** Intruders always ignore the Robot. **Source:** `RB-P37-009` / Rulebook p. 37, `ROBOT — Intruder immunity`.
+- **Malfunction source wording:** All game effects mentioning the Robot are unavailable while it has a Malfunction marker. **Source:** `RB-P37-020` / Rulebook p. 37, `MALFUNCTION MARKER ON THE ROBOT — effects unavailable`.
+
+### Source-scoped Robot-card occurrences
+
+| Exact source occurrence | Printed Robot-card face text to add verbatim | Source / boundary |
+|---|---|---|
+| `assets/tts-mod/extract/v2-dl/tree/cards/game/robotDeck-068.jpg` | `Move the [robot] up to 3 times.`<br>`OR`<br>`If the [robot] is in a [computer] Room, use the Room (even with a [malfunction]).` | `CARD-game-robotDeck-game-robotDeck-068.jpg`; preserve `SEM-Q-013`, `SEM-Q-018`, and `SEM-Q-010`; explicit “even with a [malfunction]” remains a source conflict, not a default. |
+| `assets/tts-mod/extract/v2-dl/tree/cards/game/robotDeck-137.jpg` | `Move the [robot] up to 2 times.`<br>`OR`<br>`Discard a [malfunction] or a [fire] from the Room with the [robot].` | `CARD-game-robotDeck-game-robotDeck-137.jpg`; preserve `SEM-Q-013` and `SEM-Q-019`; do not choose the marker target scope. |
+
 ## ACT-TRADE-001 — Trade
 
 - **Cost:** 1 Action card.
@@ -192,6 +223,43 @@
 - **Cost:** 2 Action cards.
 - **Source:** Rulebook p. 12, “Basic Actions List” (line 2898); Rulebook pp. 20–23, “Rooms.”
 - **Plain rule:** Resolve the Room effect printed on the Room tile or its Exploration card. Each Room has a specific effect described in the Room section of the rulebook.
+
+- **Drilling Room:** The Drilling Room permits new Corridors to be drilled. **Source:** Rulebook p. 19, `SECTION A — Drilling Room`.
+- **Life Support Control A:** Life Support Control A can remove Fire. **Source:** Rulebook p. 19, `SECTION A — Life Support Control A fire`.
+- **Surgery Room:** The Surgery Room can discard Serious Wounds. **Source:** Rulebook p. 19, `SECTION A — Surgery Room`.
+- **Surgery Room infection:** The Surgery Room can remove a Larva Infection. **Source:** Rulebook p. 19, `SECTION A — Surgery Room infection`.
+- **Life Support Control B:** Life Support Control B changes Section B’s Life Support state. **Source:** Rulebook p. 19, `SECTION B — Life Support Control B`.
+- **Anti-Aircraft:** Life Support Control B can inspect and change the Anti-Aircraft system. **Source:** Rulebook p. 19, `SECTION B — Anti-Aircraft`.
+- **Server Room:** The Server Room can provide a Data token used by some Objectives. **Source:** Rulebook p. 19, `SECTION B — Server Room`.
+- **Room special icons:** Rooms may feature other icons showing special rules. A Room with the crossed-Secure special icon is never Secured. A Room with the crossed-Malfunction special icon cannot be broken and cannot receive a Malfunction marker. **Source:** Rulebook p. 20, `Room-tile anatomy F`, `Room special icon — no Securing`, `Room special icon — unbreakable`, and `Room special icon — no Malfunction marker`.
+- **Life Support Control A printed effect:** `Flip an [Active/Inactive Life Support token glyph] in Section A.` **Source:** Rulebook p. 20, `LIFE SUPPORT CONTROL “A” tile — first effect`. The glyph remains source-local.
+- **Nest pickup:** A Character may pick up an Egg with the Nest Room Action. **Source:** Rulebook p. 20, `NEST — pickup`.
+- **Nest destruction method:** Use the Nest Room Action to remove Eggs for Nest destruction. **Source:** Rulebook p. 20, `NEST — destruction method`.
+- **Nest destruction marker:** When the Eggs space is empty, place a Universal marker on it. A Universal marker on the empty Eggs space signifies that the Nest is destroyed. Once destroyed, the Nest remains destroyed even if Eggs are later added. **Source:** Rulebook p. 20, `NEST — destruction marker`, `NEST — marker meaning`, and `NEST — permanence`.
+
+### Room Help source occurrences
+
+| Entry | Printed section marker | Printed number / title | Exact printed effect | Exact associated note or cross-reference |
+|---|---|---|---|---|
+| 0 | `?` | `01 — SPRINKLERS CONTROL` | `Discard all [R01-I04]`<br>`from a chosen Section.` | — |
+| 12 | `?` | `13 — DECONTAMINATION ROOM` | `Discard all [R13-I04] and spend 2 [R13-I05]`<br>`to remove all Contaminations`<br>`from your deck`<br>`and discard pile`<br>`without scanning.` | `You may not perform this Room Action if you have 1 [R13-I06] or fewer (if you would gain a Suffocation token as a result).` |
+| 14 | `A` | `15 — LIFE SUPPORT CONTROL \"A\"` | `Flip an [R15-I04] / [R15-I05] in Section A.`<br>`OR`<br>`Discard a [R15-I06] from any Room`<br>`in the Facility.` | `With this Room’s top effect you can activate or deactivate the Life Support System in the “A” Section.` |
+| 15 | `A` | `16 — SURGERY ROOM` | `Discard all [R16-I04] to remove a Larva`<br>`from your Character board and scan`<br>`all Contaminations in your deck`<br>`and discard pile.`<br>`Remove the Infected ones from the game.`<br>`OR`<br>`Discard`<br>`1 Serious Wound.` | `You can’t perform this Room’s top effect if you don’t have a Larva on your Character board. However, you don’t need to have any Contamination cards to perform it. \| After performing the Action, place the remaining scanned Contaminations back in your deck and then reshuffle the whole deck.` |
+| 16 | `A` | `17 — DRILLING STATION` | `Place a new Corridor`<br>`leading from the Room`<br>`with the [R17-I05].` | `This Corridor may be placed leading to an already Discovered Room or to an Undiscovered Room.` |
+| 17 | `B` | `18 — HIBERNATORIUM` | `Make a Noise roll to Hibernate.` | `You can only perform this Room’s effect if the Hibernatorium is [R18-I01]. The Hibernatorium can be turned [R18-I02] in Life Support Control C. \| If there is an Intruder in your Room after the Noise roll, this Action fails.`<br>Cross-reference: `More on Hibernating - see Hibernating (page 38).` |
+| 18 | `B` | `19 — LIFE SUPPORT CONTROL \"B\"` | `Flip an [R19-I03] / [R19-I04] in Section B.`<br>`OR`<br>`Look at both Anti-Aircraft tokens`<br>`and place them`<br>`in any order.` | `With this Room’s top effect you can activate or deactivate the Life Support System in the “B” Section. \| Remember that the top Anti-Aircraft token indicates the current status of the Anti-Aircraft system. \| You are not required to share how tokens are placed, nor if you have swapped them or not.` |
+| 19 | `B` | `20 — SERVER ROOM` | `Use any Discovered [R20-I04] Room`<br>`in the Facility.`<br>`OR`<br>`Gain a Data token`<br>`(if you don’t have one).` | `Please note that you may not use a Room with a [R20-I05] in this way.` |
+| 2 | `?` | `03 — EMERGENCY ROOM` | `Restore 2 [R03-I04].`<br>`OR`<br>`Discard`<br>`1 Serious Wound.` | — |
+| 20 | `B` | `21 — COOLING SYSTEM` | `Activate the Autodestruction`<br>`Procedure.` | Cross-reference: `More on Autodestruction Procedure - see page 38.` |
+| 22 | `C` | `23 — REACTOR` | `Remove`<br>`all [R23-I03], [R23-I04], [R23-I05],`<br>`and both Anti-Aircraft tokens`<br>`from the game.` | `After removing these tokens: treat all Sections as [R23-I06]. Treat the Anti-Aircraft System as Inactive. \| Remove the [R23-I07] token even if it is already on the Round track. \| [R23-I08], Anti-Aircraft and [R23-I09] cannot be turned on again.` |
+| 23 | `C` | `24 — ESCAPE SHUTTLE` | `Make a Noise roll to get into`<br>`the Escape Shuttle.` | `If there is an Intruder in your Room after the Noise roll, this Action fails. \| When a Character Escapes using the Escape Shuttle, the Escape Shuttle cannot be used again in that game – there is only 1 shuttle available.`<br>Cross-reference: `More on “getting into the Escape Shuttle” – see Escaping (page 38).` |
+| 3 | `?` | `04 — SUPPLY ROOM` | `Draw 1 Green, 1 Red, and 1 Yellow Item.`<br>`You may keep 2 of them`<br>`and discard`<br>`the rest.` | — |
+| 4 | `?` | `05 — ARMORY` | `Gain any number`<br>`of [R05-I04] and [R05-I05].` | `All gained Tactical Gear tokens must be placed in empty Tactical Gear slots. You may discard any number of your Tactical Gear tokens once, before or during this Action.` |
+| 6 | `?` | `07 — SECURITY ROBOT ROOM` | `Place 1 [R07-I04] in the Room with the [R07-I05].`<br>`OR`<br>`Reinforce an empty Corridor`<br>`adjacent to the Room`<br>`with the [R07-I06].` | — |
+| 7 | `?` | `08 — GUNNERY ROOM` | `Choose a Corridor adjacent to a Room`<br>`with a [R08-I05] and without a [R08-I06].`<br>`Roll a Burst die and deal Hits equal`<br>`to the result in that Corridor.` | `Note that “roll a Burst die” does not mean a Burst Action, so it does not require spending [R08-I07].` |
+| 9 | `?` | `10 — ALARM ROOM` | `Resolve or discard [R10-I04]`<br>`from a chosen Corridor`<br>`in the Facility.` | — |
+
+- **Boundary:** `OQ-009` remains open for the physical resolution of official effects that target an Undiscovered Nest. `SEM-Q-005` remains open for the Drilling Station endpoint selector. The table does not translate any `[R..-I..]` placeholder into a canonical icon or effect beyond the exact source text.
 
 ## ACT-TACTICAL-001 — Use Tactical Gear
 
@@ -303,6 +371,54 @@
   - **Duck and Cover** (Contractor: Consultant) — “Discard 1 Action card to Move. During that Movement, Prevent 1 Intruder Attack.” Its Reaction triggers when an Intruder would Attack this Character in a Room with another Character; that Intruder Attacks the other Character instead. Source: Rulebook pp. 14 and 13 card image (`RB-P13-009`–`RB-P13-010`; extracted lines 3118–3127, 3190–3196).
 - **Deck size:** Each Character has their own 10-card Action deck; the rulebook lists 60 Action cards total (line 528). `semantics/action-source-index.json` mechanically reconciles six exact Character memberships from seven TTS root segments (including the five-card Shared Contractor root), while preserving component scans/selector gaps and all 60 licensed-digital rows independently.
 - **Authority boundary:** The former missing-data blocker (OQ-010) is resolved. All 60 exact physical occurrences now have occurrence-keyed semantic records, but licensed rows, current official examples, TTS variants, and unresolved local glyph/Command/Reaction questions remain source-scoped and must not be silently collapsed. This family closure is not full base-game semantic coverage.
+
+### Source-scoped Action-card occurrences
+
+| Exact source occurrence | Printed face text to add verbatim | Source / boundary |
+|---|---|---|
+| `assets/tts-mod/extract/v2-dl/tree/cards/character/combat-engineer-017.png` | `Move the [lander] by 1 space in any direction.`<br>`OR`<br>`COMMAND` `Choose a lower ranking [character] in your Room or neighbouring one. Make the chosen [character] Move, Shoot, or Burst. (you make all choices).`<br>`REACTION` `When a [character] with a higher Rank plays a Command on you: Cancel the effect of that Command. That [character] must still pay the Action's cost.` | `CARD-character-combat-engineer-character-combat-engineer-017.png`; preserve `RT-003`, `RT-013`, `SEM-Q-059`, `SEM-Q-060`, and `SEM-Q-074`. |
+| `assets/tts-mod/extract/v2-dl/tree/cards/character/combat-engineer-021.png` | `Shoot: On Hit deal 1 more. [shootDieCritical]: Spend [ammoToken].` | `CARD-character-combat-engineer-character-combat-engineer-021.png`; source tokens remain literal. |
+| `assets/tts-mod/extract/v2-dl/tree/cards/character/combat-engineer-034.png` | `Discard 1 [actionCard] and spend [ammoToken] from a Weapon to Move through an empty Corridor.`<br>`You may Move another [character] with you if they agree`<br>`- they do not make a Noise roll.`<br>`During that Movement, prevent all [intruder] Attacks.` | `CARD-character-combat-engineer-character-combat-engineer-034.png`; preserve `SEM-Q-073`. |
+| `assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-002.png` | `Spend [ammoToken] from your Ranged Weapon, Repel all [intruder] from your Room.` | `CARD-character-heavy-gun-operator-character-heavy-gun-operator-002.png`; no Repel scope beyond the face. |
+| `assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-005.png` | `Choose a Weapon with [ammoToken] and Burst using it.`<br>`Then, you may Move through the Corridor you have Bursted at, prevent [intruder] Attacks.` | `CARD-character-heavy-gun-operator-character-heavy-gun-operator-005.png`; preserve `SEM-Q-073`. |
+| `assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-02.png` | `title: DEMOLITION`<br>`Remove 1 Door.`<br>`OR`<br>`Place a [malfunction] in your Room.` | `CARD-character-heavy-gun-operator-character-heavy-gun-operator-045_cards-card-02.png`; `RECON` section metadata retained; separate occurrence. |
+| `assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-03.png` | `Discard 1 [actionCard].`<br>`Discard a [malfunction].`<br>`OR`<br>`Open or Close 1 Door.` | `CARD-character-heavy-gun-operator-character-heavy-gun-operator-045_cards-card-03.png`; separate occurrence. |
+| `assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-05.png` | `title: SCOUTING`<br>`Move.`<br>`Before the Noise roll, place 1 [secure] in the Room you are Moving to.`<br>`section: [ICON: red diagonal X over a white horizontal bar with short red inset marks]` | `CARD-character-heavy-gun-operator-character-heavy-gun-operator-045_cards-card-05.png`; retain `RECON` section and unresolved glyph; preserve `SEM-Q-057`/`SEM-Q-073`. |
+| `assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-07.png` | `title: SECURE`<br>`Place 2 [secure].`<br>`OR`<br>`Reinforce 1 empty Corridor that leads to a Room with a Character or [robot].` | `CARD-character-heavy-gun-operator-character-heavy-gun-operator-045_cards-card-07.png`; source tokens remain literal. |
+| `assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-08.png` | `title: SHOOT FIRST`<br>`typeLine: Move.`<br>`If there is an [intruder] in your Room or an adjacent Corridor, you may Shoot or Burst.`<br>`Resolve it before that Intruder Attacks.` | `CARD-character-heavy-gun-operator-character-heavy-gun-operator-045_cards-card-08.png`; preserve `SEM-Q-073`. |
+| `assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-10.png` | `title: BREAKTHROUGH`<br>`Choose a Rifle with [ammoToken] and Burst using it.`<br>`Then, you may Move through the Corridor you have Bursted at.`<br>`section: [ICON: red X over a white stepped horizontal bar-like glyph]` | `CARD-character-heavy-gun-operator-character-heavy-gun-operator-045_cards-card-10.png`; retain `HEAVY GUN OPERATOR` section and unresolved glyph; preserve `SEM-Q-057`/`SEM-Q-073`. |
+| `assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-13.png` | `title: DEMOLITION`<br>`Remove 1 Door.`<br>`OR`<br>`Place a [malfunction] in your Room.`<br>`footer: HEAVY GUN OPERATOR` | `CARD-character-heavy-gun-operator-character-heavy-gun-operator-045_cards-card-13.png`; generated sheet-cell source variant; `sourceSha256: b3b209538a4ac8554ae6e5230f4a98b1fa1ff3bd8f89b3ccfbee53d115997e9e`; `1052x1433`; functional icon evidence is the source-bound annular cog matching `malfunction`, but promotion remains deferred; no selected base-root CardID/GUID selector. |
+| `assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-14.png` | `Choose a Weapon and perform in any order:`<br>`• Reload the Weapon.`<br>`• Shoot or Burst.` | `CARD-character-heavy-gun-operator-character-heavy-gun-operator-045_cards-card-14.png`; preserve “in any order”. |
+| `assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-16.png` | `title: REPAIRS`<br>`Discard 1 [actionCard]. Discard a [malfunction].`<br>`OR`<br>`Open or Close 1 Door.` | `CARD-character-heavy-gun-operator-character-heavy-gun-operator-045_cards-card-16.png`; separate occurrence. |
+| `assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-19.png` | `title: SECURE`<br>`Place 2 [secure].`<br>`OR`<br>`Reinforce 1 empty Corridor that leads to a Room with a Character or [robot].` | `CARD-character-heavy-gun-operator-character-heavy-gun-operator-045_cards-card-19.png`; separate occurrence. |
+| `assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-20.png` | `title: CHAIN` / `OF COMMAND`<br>`Move the [intruder] by 1 space in any direction.`<br>`OR`<br>`COMMAND` `Choose a Character with a lower Rank. Then, Move, Shoot, or Burst using this Character.`<br>`REACTION` `When a Character with a higher Rank plays a Command on you: Cancel the effect of that Command. That Character must still pay the Action’s cost.` | `CARD-character-heavy-gun-operator-character-heavy-gun-operator-045_cards-card-20.png`; preserve `RT-003`, `RT-013`, `SEM-Q-059`, `SEM-Q-060`, and `SEM-Q-074`. |
+| `assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-21.png` | `title: COMPUTER SKILLS`<br>`If you are in [computer] Room, use the Room.`<br>`OR`<br>`Open or Close 1 chosen Door in the Facility.` | `CARD-character-heavy-gun-operator-character-heavy-gun-operator-045_cards-card-21.png`; no extra Room or Door scope. |
+| `assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-22.png` | `title: DEMOLITION`<br>`Remove 1 Door.`<br>`OR`<br>`Place a [malfunction] in your Room.` | `CARD-character-heavy-gun-operator-character-heavy-gun-operator-045_cards-card-22.png`; separate occurrence. |
+| `assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-24.png` | `title: FAST REPAIRS`<br>`Discard a [ICON: white gear glyph].`<br>`OR`<br>`Open or Close 1 Door.` | `CARD-character-heavy-gun-operator-character-heavy-gun-operator-045_cards-card-24.png`; preserve unresolved glyph literally. |
+| `assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-27.png` | `title: SEARCH`<br>`Draw 1 Item for each [ICON: white filled octagonal glyph] in your Room.`<br>`Keep 1 and discard the rest.` | `CARD-character-heavy-gun-operator-character-heavy-gun-operator-045_cards-card-27.png`; preserve `SEM-Q-058`; generic `ACT-SEARCH-001` is not an icon crosswalk. |
+| `assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-29.png` | `title: TACTICAL RETREAT`<br>`Spend [ICON: red clipped-corner badge with black cartridge-like glyph] from your Ranged Weapon.`<br>`Move. You may Move another Character with you if they agree — only you make a Noise roll.`<br>`Ignore all Opportunity Attacks during that Movement.` | `CARD-character-heavy-gun-operator-character-heavy-gun-operator-045_cards-card-29.png`; preserve `SEM-Q-073`; unresolved resource glyph remains literal. |
+| `assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-31.png` | `title: DEMOLITION`<br>`Remove 1 Door.`<br>`OR`<br>`Place a [malfunction] in your Room.` | `CARD-character-heavy-gun-operator-character-heavy-gun-operator-045_cards-card-31.png`; separate occurrence. |
+| `assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-32.png` | `title: FIRE AT WILL`<br>`Move the [ICON: white jagged silhouette glyph with tall central spike] by 1 in any direction.`<br>`OR`<br>`COMMAND` `All Characters in your Room (including you) Burst at the Corridor of your choice.` | `CARD-character-heavy-gun-operator-character-heavy-gun-operator-045_cards-card-32.png`; preserve `RT-013` and `SEM-Q-059`; unresolved silhouette remains literal. |
+| `assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-33.png` | `title: LET'S GO!`<br>`Move the [ICON: white three-lobed upright silhouette] by 1 in any direction.`<br>`OR`<br>`Move with another Character.`<br>`Only you make a Noise Roll.` | `CARD-character-heavy-gun-operator-character-heavy-gun-operator-045_cards-card-33.png`; preserve `SEM-Q-073`; no consent or glyph default. |
+| `assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-38.png` | `title: SECURE`<br>`Place 2 [secure].`<br>`OR`<br>`Reinforce 1 empty Corridor that leads to a Room with a Character or [robot].` | `CARD-character-heavy-gun-operator-character-heavy-gun-operator-045_cards-card-38.png`; separate occurrence. |
+| `assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-42.png` | `Remove 1 Door.`<br>`OR`<br>`Place a [malfunction] in your Room.` | `CARD-character-heavy-gun-operator-character-heavy-gun-operator-045_cards-card-42.png`; separate occurrence. |
+| `assets/tts-mod/extract/v2-dl/tree/cards/character/heavy-gun-operator-045_cards/card-44.png` | `title: FIRST AID`<br>`Restore 1 [characterHealth].`<br>`OR`<br>`If you are in a Room with [greenItem]: Gain 1 [medpackToken].` | `CARD-character-heavy-gun-operator-character-heavy-gun-operator-045_cards-card-44.png`; source tokens remain literal. |
+| `assets/tts-mod/extract/v2-dl/tree/cards/character/medical-support-023.jpg` | `title: FIELD SURGERY`<br>`Discard 1 [actionCard] to discard 1 Serious Wound from a [character] of your choice in your Room.`<br>`Discard 1 [medpackToken] or that [character] gains 1 Contamination.` | `CARD-character-medical-support-character-medical-support-023.jpg`; preserve `SEM-Q-065`; no choice/consent default. |
+| `assets/tts-mod/extract/v2-dl/tree/cards/character/medical-support-028.jpg` | `title: FIRST AID`<br>`Restore 1 [characterHealth].`<br>`OR`<br>`If you are in a Room with a [greenItem]: Gain 1 [medpackToken].` | `CARD-character-medical-support-character-medical-support-028.jpg`; preserve `SEM-Q-065`; distinct occurrence from HGO card 44. |
+| `assets/tts-mod/extract/v2-dl/tree/cards/character/medical-support-033.jpg` | `title: COMBAT DRUGS`<br>`Discard 1 [greenItem] to choose a [character] in your Room.`<br>`They draw [actionCard] until they have 3 [actionCard] in hand.` | `CARD-character-medical-support-character-medical-support-033.jpg`; preserve `SEM-Q-065` and `SEM-Q-072`. |
+| `assets/tts-mod/extract/v2-dl/tree/cards/character/medical-support-039.jpg` | `Place 2 [secure].`<br>`OR`<br>`Discard 1 [actionCard] to Reinforce 1 empty, adjacent Corridor that leads to a Room with a [character] or the [robot].` | `CARD-character-medical-support-character-medical-support-039.jpg`; retain “empty, adjacent” and source tokens. |
+| `assets/tts-mod/extract/v2-dl/tree/cards/character/medical-support-048.jpg` | `Discard 1 [actionCard] to discard a [malfunction].`<br>`OR`<br>`Open or Close 1 accessible Door.` | `CARD-character-medical-support-character-medical-support-048.jpg`; “accessible Door” remains undefined beyond the face. |
+| `assets/tts-mod/extract/v2-dl/tree/cards/character/medical-support-049.jpg` | `title: DEMOLITION`<br>`Destroy 1 accessible Door.`<br>`OR`<br>`Place a [malfunction] in your Room.` | `CARD-character-medical-support-character-medical-support-049.jpg`; separate occurrence; preserve “accessible Door”. |
+| `assets/tts-mod/extract/v2-dl/tree/cards/character/officer-009.png` | `title: SECURE`<br>`Place 2 [secure].`<br>`OR`<br>`Discard 1 [actionCard]. Reinforce 1 empty Corridor that leads to a Room with a Character or [robot].` | `CARD-character-officer-character-officer-009.png`; separate occurrence. |
+| `assets/tts-mod/extract/v2-dl/tree/cards/character/officer-014.png` | `title: FIRE AT WILL`<br>`Move the [intruder] by 1 in any direction.`<br>`OR`<br>`COMMAND` `Choose your Room or a neighbouring one, each [character] in that Room Burst at an adjacent Corridor of your choice.` | `CARD-character-officer-character-officer-014.png`; preserve `RT-013` and `SEM-Q-059`; no Command-target default. |
+| `assets/tts-mod/extract/v2-dl/tree/cards/character/recon-007.png` | `Place 2 [secure].`<br>`OR`<br>`Discard 1 [actionCard]. Reinforce 1 empty Corridor that leads to a Room with a Character or [robot].` | `CARD-character-recon-character-recon-007.png`; separate occurrence. |
+| `assets/tts-mod/extract/v2-dl/tree/cards/character/recon-019.png` | `Move the [intruder] by 1 space in any direction.`<br>`OR`<br>`COMMAND` `Choose a lower ranking [character] in your Room or neighbouring one. Make the chosen [character] Move, Shoot, or Burst. (you make all choices).`<br>`REACTION` `When a [character] with a higher Rank plays a Command on you: Cancel the effect of that Command. That [character] must still pay the Action's cost.` | `CARD-character-recon-character-recon-019.png`; preserve `RT-003`, `RT-013`, `SEM-Q-059`, `SEM-Q-060`, and `SEM-Q-074`. |
+| `assets/tts-mod/extract/v2-dl/tree/cards/character/recon-043.png` | `title: SCOUTING`<br>`Move Cautiously to a Discovered Room.`<br>`OR`<br>`Move through an Unexplored Corridor for Exploration. Then, draw Items in your Room based on its icons. You may keep 1 of them and discard the rest.` | `CARD-character-recon-character-recon-043.png`; related generic records do not replace this exact combined occurrence; no icon/draw-shortage default. |
+| `assets/tts-mod/extract/v2-dl/tree/cards/game/action/action-001.png` | `title: SEARCH`<br>`Draw 1 Item for each [ICON: white octagonal glyph] in your Room.`<br>`Keep 1 and discard the rest.` | `CARD-game-action-game-action-action-001.png`; preserve `SEM-Q-058`; unresolved octagon remains literal. |
+| `assets/tts-mod/extract/v2-dl/tree/cards/game/action/action-002.png` | `Discard 1 [actionCard]. Place 2 [secure].`<br>`OR`<br>`Discard 1 [actionCard]. Reinforce 1 empty Corridor that leads to a Room with a Character or [robot].` | `CARD-game-action-game-action-action-002.png`; retain separate costs and OR structure. |
+| `assets/tts-mod/extract/v2-dl/tree/cards/game/action/action-135.png` | `title: DEMOLITION`<br>`Destroy 1 accessible Door.`<br>`OR`<br>`Place a [malfunction] in your Room.` | `CARD-game-action-game-action-action-135.png`; preserve “accessible Door” and exact occurrence identity. |
+
+Every row in this table satisfies the corresponding Action-card ID listed above; repeated titles are not merged. `RT-003` and `RT-013` remain the shared Reaction/Command cross-references for the three Chain of Command faces and the other printed Command faces, without resolving `SEM-Q-059`, `SEM-Q-060`, or `SEM-Q-074`.
 
 ## ACT-CARD-002 — Contamination deck identity and Action-cost restriction
 

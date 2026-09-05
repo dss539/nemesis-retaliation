@@ -20,6 +20,15 @@ are categorized and named in the card database.
 - **Source:** RB p. 4 (setup, extracted lines 2692–2728); RB p. 29 (gaining items, lines 4849–4865); RB component list (lines 520–525, 2595).
 - **Note:** The TTS mod models these as `startItemDeck` (equipment), `greenItemsDeck`, `redItemsDeck`, `yellowItemsDeck` (TTS `lua_roles.json`). The mod's `startItemDeck` holds the heavy weapons; the color decks hold the small backpack cards.
 
+### Character-folder Item occurrences
+
+| Exact source occurrence | Printed Item face text to add verbatim | Source / boundary |
+|---|---|---|
+| `assets/tts-mod/extract/v2-dl/tree/cards/character/contractor-044.jpg` | `title: BULLETPROOF VEST`<br>`typeLine: ARMOR`<br>`When you would receive a Serious Wound, discard this Item instead.` | `CARD-character-contractor-character-contractor-044.jpg`; extraction classification says non-rules/reference although the body is operative; retain as source evidence pending re-check. |
+| `assets/tts-mod/extract/v2-dl/tree/cards/character/contractor-052.jpg` | `typeLine: RANGED WEAPON, HEAVY`<br>`Burst: -1 to Burst results.` | `CARD-character-contractor-character-contractor-052.jpg`; no title is present, so none is invented. |
+| `assets/tts-mod/extract/v2-dl/tree/cards/character/medical-support-024.jpg` | `title: CARBINE`<br>`typeLine: RANGED WEAPON, HEAVY`<br>`Shoot: After you don't kill the [intruder], deal 1 Hit.` | `CARD-character-medical-support-character-medical-support-024.jpg`; source-scoped Weapon effect, not a rewrite of `ACT-SHOOT-001`. |
+| `assets/tts-mod/extract/v2-dl/tree/cards/character/officer-041.png` | `title: SAWED-OFF SHOTGUN`<br>`typeLine: RANGED WEAPON`<br>`Shoot: Instead of a normal Shoot, you may spend [ICON: red outlined rectangular glyph with right-side double-lobed protrusion] to Repel 1 Adult from the Room.` | `CARD-character-officer-character-officer-041.png`; unresolved resource glyph remains literal and no Ammo alias is added. |
+
 ## ITM-002 — Physical classes of Item cards
 
 - **Plain rule:** An Item card is classified by its physical layout and keywords into one of:

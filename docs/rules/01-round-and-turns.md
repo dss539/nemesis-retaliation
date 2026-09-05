@@ -133,6 +133,7 @@
   1. Pass the Starting Player token clockwise to the next player.
   2. Each player draws Action cards until they have five in hand.
   3. Advance the Round marker one space. If the marker enters a space containing another token, resolve that token immediately.
+- **Anti-Aircraft trigger:** Resolve Anti-Aircraft tokens when the Round and Lander tokens occupy the same Round-track space, regardless of which token was placed there last. **Source:** `RB-P37-050` / Rulebook p. 37, `RESOLVING ANTI-AIRCRAFT TOKENS — trigger`.
 - **Action-deck reshuffle:** Whenever a Character must draw an Action card from an empty Action deck, including outside the Cleanup Phase, first reshuffle all cards from that Character’s discard pile to form a new Action deck, then continue drawing.
 - **Round-limit condition:** If the Round marker is already on its final space, do not advance it; proceed to End of the Game instead.
 
@@ -163,6 +164,9 @@
   1. Round 14 ends (all Characters who have not escaped or hibernated are considered dead); or
   2. All players have died, escaped, or hibernated; or
   3. The Facility is destroyed (including autodestruction).
+  4. If at any point you must place a Fire marker and there are no more Fire markers available, the Facility is destroyed and the game ends.
+- **Source:** Rulebook p. 23, `OVERWHELMING FIRE — trigger` and `OVERWHELMING FIRE — end`.
+- **Boundary:** The two adjacent fragments are combined only to make the source’s trigger and consequence explicit; no additional trigger is added.
 - Then perform the End of Game sequence to determine winners.
 
 ## Digital disconnection

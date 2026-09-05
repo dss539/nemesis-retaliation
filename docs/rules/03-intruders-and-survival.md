@@ -26,6 +26,34 @@
 - **Corridor capacity:** Six Intruder-equivalents; a Queen counts as four.
 - **Placement at capacity:** Prioritize larger Intruders. When placing a larger Intruder into a full Corridor, remove as many smaller Intruders as necessary to make room. Any Intruder still blocked by the capacity limit remains unplaced. Movement-capacity handling is in INT-003.
 - **Help Sheet extraction:** Both Queen Alive and Queen Dead sides are transcribed source-bound in `docs/rules/source-extraction/intruder-help-sheet.json`: 18 instructions with source-local token occurrences, exact front/back pairing, and zero unreadable spans. The TTS component pixels remain below official FAQ/rulebook authority and are not silently normalized.
+- **Plain rule:** The Intruder Help Sheet supplies context-specific token instructions; this table records the Queen Alive source occurrence without replacing the official Help Sheet or the current `RT-011` Bag Development procedure.
+- **Source:** `assets/tts-mod/extract/v2-dl/tree/cards/reference/card-053.png`; title `THE QUEEN IS ALIVE`.
+
+| Source column and token occurrence | Exact printed instruction |
+|---|---|
+| `RESOLVE IN A CORRIDOR` — unlabeled Queen marker | “Activate the Queen. If not possible – place her in the Corridor.” |
+| `RESOLVE IN A CORRIDOR` — token faces `2`, `3`, `4`, `1+1`, `2+1`, `3+1` | “Place the number of Intruders shown on the token (Adults and Drones) in the Corridor.” |
+| `RESOLVE IN A CORRIDOR` — Larva marker | “Place 1 Larva in the Corridor.” |
+| `RESOLVE IN A ROOM` — `QUEEN` token | “Activate the Queen. If not possible – place her in the Room.” |
+| `RESOLVE IN A ROOM` — `DRONE`, `ADULT`, `LARVA` tokens | “Place 1 Intruder of the type shown on the token in the Room.” |
+| `BAG DEVELOPMENT` — `QUEEN` token | “Activate the Queen. If not possible – add 2 Larva tokens to the bag.” |
+| `BAG DEVELOPMENT` — `DRONE`, `ADULT` tokens | “Add 2 Queen tokens to the bag.” |
+| `BAG DEVELOPMENT` — `LARVA` token | “Add 2 random Drone tokens to the bag.” |
+| bottom row — unlabeled dark marker | “Add 2 random Adult tokens to the bag. Add this token back to the bag.” |
+
+- **Boundary sentence:** This TTS component scan is source-bound secondary evidence. The official rulebook p. 15 and `RT-011` govern current Bag Development, and this table must not be used to assign the bottom-row instruction to an unresolved Corridor or Room context.
+
+### Queen-resolution source occurrences
+
+| Resolution context | Exact source instruction |
+|---|---|
+| Resolve in a Corridor, Queen available | `Activate the Queen.` |
+| Resolve in a Corridor, activation not possible | `If not possible – place her in the Corridor.` |
+| Resolve in a Room, Queen available | `Activate the Queen.` |
+| Resolve in a Room, activation not possible | `If not possible – place her in the Room.` |
+
+- **Source:** Intruder Help Sheet anchors `INTRUDER HELP SHEET — Corridor Queen`, `INTRUDER HELP SHEET — Corridor Queen fallback`, `INTRUDER HELP SHEET — Room Queen`, and `INTRUDER HELP SHEET — Room Queen fallback`.
+- **Boundary:** The phrase “If not possible” remains deliberately undefined; no availability, timing, or alternate placement default is added.
 
 ## INT-002 — Noise-based spawning and hazard spawning
 
@@ -89,6 +117,11 @@ A numeric Noise result resolves every adjacent Corridor matching that value, one
 - If traversing a Closed Door: destroy the Door; do not traverse.
 - If entering an occupied Room: immediate entry attack.
 - If leaving through an Unexplored Corridor: remain in place.
+- **Capacity swap principle:** If necessary, larger Intruders swap places with lower forms. **Source:** Rulebook p. 21, `INTRUDER LIMITS — swap principle`.
+- **Moving swap:** When moving, swap the locations of the larger and smaller Intruders. **Source:** Rulebook p. 21, `INTRUDER LIMITS — moving swap`.
+- **No attack:** A location swap caused by Corridor capacity does not trigger an Intruder Attack. **Source:** Rulebook p. 21, `INTRUDER LIMITS — no Attack on swap`.
+
+- **Boundary:** These bullets do not choose a universal placement algorithm or extend the no-Attack exception beyond the stated capacity swap.
 
 ## INT-004 — Intruder attacks
 
@@ -287,7 +320,9 @@ Applies to Landing Zone/Lander, Hibernatorium, and Escape Shuttle:
 ### Lander
 
 - Success: board the Lander and wait for Event Phase launch. Entry can be undone if an Intruder appears in the Landing Zone.
-- Lander Characters: skip Turns but do not Pass; cannot voluntarily leave; ignore Oxygen and ordinary Health loss; still participate in Cleanup; automatically leave if any Intruder appears in Landing Zone.
+- **Boarded-model placement:** Place models of Characters aboard the Lander on the Anti-Aircraft slot. **Source:** `RB-P37-060` / Rulebook p. 37, `LANDER — boarded model`.
+- Lander Characters: skip Turns but do not Pass; cannot voluntarily leave; still participate in Cleanup; automatically leave if any Intruder appears in Landing Zone.
+- **Health immunity:** A Character inside the Lander cannot lose Health from any effects. **Source:** Rulebook p. 37, `LANDER — Health immunity`.
 - Launch: at the very start of Event Phase, any one Character in the Lander may launch. One decision launches everyone. All boarded Characters are moved to their Character boards and marked Escaped.
 
 ### Hibernation
@@ -305,6 +340,10 @@ Applies to Landing Zone/Lander, Hibernatorium, and Escape Shuttle:
 
 - Success: leave the Facility and take no further part until endgame.
 - Anti-Aircraft does not affect the Escape Shuttle.
+- **Life Support Control C / Hibernatorium:** Life Support Control C can turn on the Hibernatorium. **Source:** Rulebook p. 19, `SECTION B — Hibernatorium activation`.
+- **Life Support Control C / Hibernatorium:** Life Support Control C can activate the Hibernatorium. **Source:** Rulebook p. 19, `SECTION C — Hibernatorium control`.
+- **Escape Shuttle capacity:** The Escape Shuttle can carry only 1 Character. **Source:** Rulebook p. 19, `SECTION C — Escape Shuttle capacity`.
+- **Boundary:** The two Hibernatorium bullets remain separate source occurrences. INT-009’s existing active/inactive, Undiscovered, and escape/hibernate procedures remain in force; the one-use Room Help note is preserved separately in the ACT-ROOM-001 table.
 
 ## INT-010 — Autodestruction and Facility destruction
 
@@ -321,6 +360,7 @@ Applies to Landing Zone/Lander, Hibernatorium, and Escape Shuttle:
 2. Kill all non-Escaped Characters, including Hibernating Characters.
 3. Kill all Intruders including the Queen.
 4. Treat every Room and Nest as destroyed.
+- **Overwhelming Fire:** Running out of Fire markers when one must be placed destroys the Facility (RB p. 23, `RB-P23-010`–`RB-P23-012`); resolve the Facility-destruction consequences above.
 
 ### FAQ precedence
 
@@ -361,6 +401,37 @@ The game ends when:
 - Escape means leaving via Lander or Escape Shuttle—not hibernating.
 - A Survivor did not die during play or final Eclosion.
 - An Escaped Character who later dies in final Eclosion may have fulfilled an “Escape” objective condition but does not win because final winner selection is limited to remaining alive Characters.
+
+- **Plain rule:** Preserve the Objective Help Sheet's game-term definitions and printed Objective effects as source-linked reference text; do not infer semantics beyond the printed wording or icon tokens.
+- **Source:** Official Objective Help Sheet, page 2, reproduced by `assets/tts-mod/extract/v2-dl/tree/cards/reference/objectives-help-sheet-page-2.jpg`.
+
+#### Game Terms
+
+| Source heading | Exact printed definition |
+|---|---|
+| `FULFILLED` | “An Objective is fulfilled when all of its conditions are met at the end of the game. It’s not important which player fulfilled them (or even if this happens as a result of an Event or another non-player effect).” |
+| `SURVIVOR` | “A Character who has not died during the game or during the final Eclosion Procedure at the End of the Game sequence. Remember that all Characters who have not Escaped (using the Lander or the Escape Shuttle) or Hibernated, die after the 14th Round.” |
+| `ESCAPE` | “Characters who leave the Facility using the Lander or the Escape Shuttle, but not those who have Hibernated. It is irrelevant if they die during the final Eclosion Procedure – they still count as a Character who has Escaped.” |
+| `DATA TOKEN` | “Characters can gain a Data token using the Server Room (Section B). Once gained by a Character, a Data token cannot be lost or traded.” |
+| `FACILITY DESTRUCTION` | “The Facility can be Destroyed in a couple of ways during the game. When it is Destroyed, all Characters who have not Escaped die, all Characters who have Hibernated die, and all Intruders (including the Queen) die. The Nest is considered Destroyed. The Facility can be Destroyed as a result of the Autodestruction Procedure or when a Fire marker must be placed and there are no more Fire markers in the pool.” |
+| `QUEEN IS DEAD` | “The Queen is considered dead when the Facility is Destroyed or when the Queen Health deck is empty. A reminder is written down on the Queen Health cards space.” |
+| `NEST IS DESTROYED` | “The Nest is Destroyed when the Facility is Destroyed or when there are no more Eggs as a result of Characters taking or Destroying them on the special space on the Section “C” border piece.” |
+
+#### Objective entries
+
+| Source entry | Exact printed text |
+|---|---|
+| `QUARANTINE` | “Remove the other Objective from the game to: Progress the Objective Choice track once and draw A accordingly.”<br><br>`[ICON: white spike above blue oval] 3+`<br>`QUARANTINE`<br>“No [character] can Escape from the Facility using the [ICON: pale twin-lobed arch-like mark] (Section A).”<br>`PRIVATE OBJECTIVE`<br><br>Associated note: “No [character]” also includes your Character. Characters may still Hibernate and use the Escape Shuttle. |
+| `CORPORATE CONTRACT` | “Remove the other Objective from the game to: Progress the Objective Choice track once and draw A accordingly.”<br><br>`[ICON: white spike above blue oval] 5+`<br>`CORPORATE CONTRACT`<br>“The [character] number 5 must NOT Survive (unavailable if you are the [character] number 5).”<br>`OR`<br>“You must be the only Survivor.”<br>`PRIVATE OBJECTIVE` |
+| `LUXURIOUS OFFER` | “Remove the other Objective from the game to: Progress the Objective Choice track once and draw A accordingly.”<br><br>`[ICON: white spike above blue oval] 2+`<br>`LUXURIOUS OFFER`<br>“You must Survive carrying an Egg from the Nest (Section C).”<br>`PRIVATE OBJECTIVE` |
+| `EXPERIMENTAL SUBJECTS` | “Remove the other Objective from the game to: Progress the Objective Choice track once and draw A accordingly.”<br><br>`[ICON: white spike above blue oval] 3+`<br>`EXPERIMENTAL SUBJECTS`<br>“All [character] who Escape from the Facility must have at least 3 Contaminations in total among them (no matter if they Survive after Escaping).”<br>`PRIVATE OBJECTIVE`<br><br>Associated note: “Count all Contaminations in all players’ decks (including yours) who have Escaped from the Facility. It is irrelevant if they die during the final Eclosion Procedure.” |
+| `STATE'S EVIDENCE` | “Remove the other Objective from the game to: Progress the Objective Choice track once and draw A accordingly.”<br><br>`[ICON: white spike above blue oval] 3+`<br>`STATE'S EVIDENCE`<br>“Out of Surviving Characters you must be the only one with a Data token (from the Server Room in Section B).”<br>`PRIVATE OBJECTIVE` |
+| `SHUTDOWN` | “Remove the other Objective from the game to: Progress the Objective Choice track once and draw A accordingly.”<br><br>`[ICON: white spike above blue oval] 3+`<br>`SHUTDOWN`<br>“All Life Support tokens must be [lifeSupportInactive], or removed from the game.”<br>`AND`<br>“You must have a Data token (from the Server Room in Section B).”<br>`PRIVATE OBJECTIVE`<br><br>Associated note: “You can deactivate Life Support Systems by using Life Support Control Rooms “A”, “B”, and “C”, or by shutting down the Reactor in the Reactor Room in Section C.” |
+| `VENI, VIDI, VICI` | “Remove the other Objective from the game to: Progress the Objective Choice track once and draw A accordingly.”<br><br>`[ICON: white spike above blue oval] 2+`<br>`VENI, VIDI, VICI`<br>“The Nest (Section C) must be destroyed.”<br>`PRIVATE OBJECTIVE` |
+| `WE'VE GOT HISTORY` | “Remove the other Objective from the game to: Progress the Objective Choice track once and draw A accordingly.”<br><br>`[ICON: white spike above blue oval] 4+`<br>`WE'VE GOT HISTORY`<br>“The lowest ranking [character] must Survive (unavailable if you are the lowest ranking [character]).”<br>`OR`<br>“The highest ranking [character] must NOT Survive (unavailable if you are the highest ranking [character]).”<br>`PRIVATE OBJECTIVE`<br><br>Associated note: “If you are the lowest ranking Character you cannot choose the first option. If you are the highest ranking Character you cannot choose the second option.” |
+| `THE GREAT HUNT` | “Remove the other Objective from the game to: Progress the Objective Choice track once and draw A accordingly.”<br><br>`[ICON: white spike above blue oval] 2+`<br>`THE GREAT HUNT`<br>“The Queen must be dead.”<br>`PRIVATE OBJECTIVE` |
+
+- **Boundary sentence:** These tables preserve the exact Objective Help source occurrence; they do not replace the official endgame procedure in `INT-011`, do not interpret the source icon descriptions as new vocabulary, and do not resolve `SEM-Q-027`.
 
 ## Examples
 
