@@ -78,7 +78,9 @@ Page 40 prints **three**, not six, Corridor icons. Corridors are undirected, so 
 - **lifeSupportActive** — Active Life Support Systems token (`assets/icons/map/life-support-active.png`)
 - **lifeSupportInactive** — Inactive Life Support Systems token, crossed out (`assets/icons/map/life-support-inactive.png`)
 - **hibernatoriumActive** — Active Hibernatorium token (`assets/icons/map/hibernatorium-active.png`)
-- **hibernatoriumInactive** — Inactive Hibernatorium token, crossed out (`assets/icons/map/hibernatorium-inactive.png`)
+- **hibernatoriumInactive** — Inactive Hibernatorium token, crossed out (`assets/icons/map/hibernatorium-inactive.png`). The related token can be found on Section “B” border piece.
+  - **Source:** Rulebook p. 40, `ICON GLOSSARY — Hibernatorium token location` (`RB-P40-066`).
+  - **Boundary:** Preserve `SEM-Q-106` and `SEM-Q-107`; this is a source-location note, not a border-orientation or connector rule.
 - **lander** — Lander token (`assets/icons/map/lander.png`)
 - **autodestruction** — Autodestruction token; white three-lobed warning symbol (`assets/icons/map/autodestruction.png`)
 
@@ -89,7 +91,9 @@ Page 40 prints **three**, not six, Corridor icons. Corridors are undirected, so 
 - **oxygenToken** — Yellow Oxygen Tactical Gear token (`assets/icons/tactical-gear/oxygen-token.png`)
 - **ammoToken** — Red Ammo Tactical Gear token (`assets/icons/tactical-gear/ammo-token.png`)
 - **grenadeToken** — Purple Grenade Tactical Gear token (`assets/icons/tactical-gear/grenade-token.png`)
-- **medpackToken** — Green Medpack Tactical Gear token (`assets/icons/tactical-gear/medpack-token.png`)
+- **medpackToken** — The green medical-cross glyph denotes a Medpack Tactical Gear token (assets/icons/tactical-gear/medpack-token.png).
+  - **Source:** Rulebook p. 40, `ICON GLOSSARY — Medpack Gear` (`RB-P40-073`).
+  - **Boundary:** Identity only; no healing amount or other Medpack semantics are inferred.
 
 ---
 

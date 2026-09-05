@@ -203,6 +203,9 @@
 - **Medpack:** Restore 2 Health Points.
 - **FAQ:** Grenade Launcher grenades may be thrown from a malfunctioning Grenade Launcher with the Use Any Tactical Gear action.
   - **Source:** FAQ v1.2, “Items and tactical gear” #4 (lines 135–139).
+- **Plain rule:** Then, discard all chosen tokens (apart from Ammo tokens, which are moved to Weapons as a part of their effect). You may also move any number of your tokens between your Tactical slots.
+- **Source:** Rulebook p. 16, `USE ANY TACTICAL GEAR ACTION` discard and rearrangement clauses (`RB-P16-027` and `RB-P16-029`).
+- **Boundary:** Preserve `ITM-005` slot compatibility, the loaded-Ammo restriction, and the source-stated Ammo transfer exception.
 
 ## ACT-OXYGEN-001 — Personal Oxygen and Suffocating
 

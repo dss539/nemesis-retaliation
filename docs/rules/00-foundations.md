@@ -97,6 +97,12 @@
   - 1 Starting Player token; and
   - 5 Character Oxygen counters.
 - **Other gameplay models:** 1 Robot model, 6 Larva models, and 1 Queen model. Intruder-model availability is resolved under INT-001.
+- **Plain rule:** The base-game component inventory contains `60 Action cards (10 per Character)` and `12 Exploration cards`.
+- **Plain rule:** The provided state-marker supply includes `30 Noise markers` and `20 Secure tokens`.
+- **Plain rule:** The base-game component inventory contains `1 Undiscovered Hibernatorium tile`.
+- **Plain rule:** The provided gameplay-model supply includes `8 Drones` and `36 Adult models`.
+- **Source:** Rulebook pp. 3–5, component-inventory captions at `RB-P03-004`, `RB-P03-013`, `RB-P04-031`, `RB-P05-003`, `RB-P05-009`, `RB-P05-015`, and `RB-P05-034`.
+- **Boundary:** The `in 4 poses` and `in 6 poses` descriptors are not encoded as gameplay supply rules. Existing `OQ-010`, `SEM-Q-011`, `SEM-Q-017`, `SEM-Q-105`, and the other boundaries named in the table remain unchanged.
 
 ## FND-009 — Facility setup: tracks and system state
 
@@ -110,6 +116,11 @@
 - **Section-border state:** Place all 3 Life Support tokens inactive-side-up on their corresponding Section-border slots. Place the Hibernatorium token inactive-side-up on its corresponding Section-border slot.
 - **Anti-Aircraft state:** Shuffle both Anti-Aircraft tokens, then stack both face-down in Section B's Anti-Aircraft slot.
 - **Nest state:** Place all 5 Egg tokens in Section C's Eggs space.
+- **Plain rule:** Find the 3 Section border pieces and 3 Round track border pieces, connect them to each other and place them on the table.
+- **Plain rule:** Until Characters reach the Hibernatorium, the Robot cannot be Activated.
+- **Plain rule:** Place the drawn Robot card face-down on Section A’s Robot slot.
+- **Source:** Rulebook p. 8, `A. SECTIONS SETUP` steps 1, 2 note, and 8 (`RB-P08-006`–`RB-P08-009`, `RB-P08-014`, and `RB-P08-023`).
+- **Boundary:** Preserve `SEM-Q-012`, `SEM-Q-106`, and `SEM-Q-107`; no Robot external-effect policy, border orientation, endpoint assignment, or special-space geometry is added by these edits.
 
 ## FND-010 — Facility setup: map tiles and shared decks
 
@@ -122,6 +133,9 @@
 - **Intruder Attack and Event decks:** Shuffle the Intruder Attack deck and Event deck separately and place each face-down.
 - **Queen Health deck:** Shuffle all Queen Health cards and place them numbers-side-down in the Queen Health-card space on the Section C border piece.
 - **Other shared decks:** Shuffle the red, green, and yellow Item decks, Contamination deck, and Serious Wound deck separately. Place each face-down on the Facility's right side.
+- **Plain rule:** If any of those Corridors have a Door slot, they should be placed with the slot on an entrance to the Landing Zone.
+- **Source:** Rulebook p. 8, `A. SECTIONS SETUP — step 15` (`RB-P08-048`).
+- **Boundary:** Preserve `SEM-Q-107` and `SEM-Q-108`; the edit records the Door-slot orientation requirement but does not choose an entrance, owner, or assignment order.
 
 ## FND-011 — Player setup and game opening
 
@@ -152,6 +166,10 @@
 
 1. Each player draws five cards from their Action deck into hand.
 2. Give the Starting Player token to Player 1; that player takes the first Turn.
+
+- **Plain rule:** The Support Equipment deck may be used during the game.
+- **Source:** Rulebook p. 10, `SUPPORT EQUIPMENT DRAFT — step 5` (`RB-P10-063`).
+- **Boundary:** Preserve `SEM-Q-080`; no later-use timing, access owner, exhaustion, or selection procedure is invented.
 
 ## FND-012 — Facility spaces and printed map semantics
 
