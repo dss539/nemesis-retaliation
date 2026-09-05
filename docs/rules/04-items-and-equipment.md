@@ -43,6 +43,19 @@ are categorized and named in the card database.
 - **Source:** RB p. 29 (extracted lines 5024–5057).
 - **USER:** The physical classes are orthogonal to card color. A card's color (red/green/yellow) does not determine whether it is heavy, armor, or regular.
 
+### Additional physical-class and Weapon-trait source rows
+
+- **Plain rule:** A Character may “spend” Ammo from a Weapon with “Requires no Ammo” trait.
+  - **Source:** FAQ v1.2, printed p. 3, `FQ-P03-U01`.
+- **Plain rule:** Ammo cannot be spent from a malfunctioned Weapon.
+  - **Source:** FAQ v1.2, printed p. 3, `FQ-P03-U02`.
+- **Plain rule:** Every Character has 2 Hand slots at the top of the Character board.
+  - **Source:** Official Rulebook p. 17, “D. HAND SLOTS,” `RB-P17-001`.
+- **Plain rule:** Perimeter Security Device is a Heavy Item.
+  - **Source:** Official Rulebook p. 28, “PERIMETER SECURITY DEVICE — trait,” `RB-P28-007`.
+- **Plain rule:** Grenade Launcher is a Ranged Weapon and Heavy Item.
+  - **Source:** Official Rulebook p. 29, “GRENADE LAUNCHER — traits,” `RB-P29-038`.
+
 ## ITM-003 — Color-deck membership does not determine physical class
 
 - **Plain rule:** Red, green, and yellow are Search/source families. A card's physical class must be read from its exact source occurrence; color/root membership alone does not prove Regular, Heavy, or Armor class.
@@ -77,6 +90,24 @@ are categorized and named in the card database.
 - **Source:** RB p. 8 (Landing Zone setup and full-side-up Ammo); p. 16 (Tactical Gear tokens); and p. 29 (Tactical Gear slots), extracted lines 3523–3528, 3477–3483, 3543–3548, 4900–4901, 5058–5078.
 - **TTS:** The mod encodes slot counts in card GMNotes — `A`=1 Ammo, `AA`=2 Ammo, `AAA`=3 Ammo, `AGG`=Ammo+Grenade+Grenade, `M`=Melee/Malfunction (TTS `objects.json`, `startItemDeck` cards). Useful as a cross-check for the vision phase, not authoritative.
 
+### Additional Oxygen, discarding, and Item-slot source rows
+
+- **Plain rule:** Facility Oxygen is contaminated and cannot be used unless Life Support Systems are working.
+  - **Source:** Official Rulebook p. 17, “E. OXYGEN — contamination,” `RB-P17-011`.
+- **Plain rule:** A Character may discard any number of their Items or Tactical Gear tokens at any time.
+  - **Source:** Official Rulebook p. 17, “DISCARDING ITEMS AND TACTICAL GEAR TOKENS — permission,” `RB-P17-031`.
+- **Plain rule:** Return discarded Tactical Gear tokens to the token pool.
+  - **Source:** Official Rulebook p. 17, “DISCARDING ITEMS AND TACTICAL GEAR TOKENS — tokens,” `RB-P17-032`.
+- **Plain rule:** Grenade Launcher has 1 red Ammo-token slot.
+  - **Source:** Official Rulebook p. 29, “GRENADE LAUNCHER — Ammo slot,” `RB-P29-040`.
+- **Plain rule:** Grenade Launcher has 2 purple Grenade-token slots.
+  - **Source:** Official Rulebook p. 29, “GRENADE LAUNCHER — Grenade slots,” `RB-P29-041`.
+- **Plain rule:** If a Character has a full Ammo token and a rule instructs them to spend it, flip the token to its half-full side.
+- **Plain rule:** If a Character has a half-full Ammo token and a rule instructs them to spend it, discard the token.
+- **Plain rule:** An Ammo token can be spent twice before it is depleted.
+- **Source:** Rulebook p. 33, `SPEND Ammo — full token`, `SPEND Ammo — half-full token`, and `SPEND Ammo — capacity` (`RB-P33-041`, `RB-P33-042`, and `RB-P33-043`).
+- **Boundary:** Preserve the existing `ITM-005` full/half-side and loaded-Ammo restrictions; these sentences do not resolve any Weapon-specific trigger, allocation, or attached-token question.
+
 ## ITM-006 — Item Icons and the Search mechanic
 
 - **Plain rule:** Room tiles display Item Icons showing which types of Items can be found there. The Search Action draws 1 Item card for each Item Icon in the Room, then the player keeps 1 and discards the rest. (RB lines 4022–4023, 4853–4860.)
@@ -109,3 +140,53 @@ are categorized and named in the card database.
 - **Source:** Rulebook p. 28, illustrated Item faces (`RB-P28-009`, `RB-P28-040`).
 - **Perimeter Security Device:** Whenever its Character Discovers a new Room, ignore Hazard results from all sources.
 - **Duct Tape:** One printed option discards 1 Malfunction marker. Its other printed option and exact One Use Only/Not In Combat boundaries remain source-scoped and are not rewritten here.
+
+### Exact Item-card source occurrences
+
+| ID | Exact occurrence metadata | Final proposed row |
+|---|---|---|
+| CARD-game-greenitem-game-greenitem-029.png | `HEAVY OXYGEN TANK`; `ONE USE ONLY, SPECIAL WEAPON` | **Plain rule:** Gain 7 [oxygen].<br>**Source:** TTS source-bound variant, `assets/tts-mod/extract/v2-dl/tree/cards/game/greenitem-029.png`; not an official replacement. |
+| CARD-game-greenitem-game-greenitem-035.png | title not present in fragment; `ONE USE ONLY` | **Plain rule:** Discard 1 Serious Wound and/or restore 3 [characterHealth].<br>**Source:** TTS source-bound variant, `assets/tts-mod/extract/v2-dl/tree/cards/game/greenitem-035.png`; not an official replacement. |
+| CARD-game-greenitem-game-greenitem-120.png | `MEDKIT`; `ONE USE ONLY` | **Plain rule:** You can use this Item for free immediately after gaining it. Restore 2 [characterHealth]. OR Gain 1 [medpackToken].<br>**Source:** TTS source-bound variant, `assets/tts-mod/extract/v2-dl/tree/cards/game/greenitem-120.png`; not an official replacement. |
+| CARD-game-greenitem-game-greenitem-181_cards-card-01.png | title not present in fragment; `ONE USE ONLY` | **Plain rule:** Remove 1 Contamination card from your hand without scanning it.<br>**Source:** TTS source-bound variant, `assets/tts-mod/extract/v2-dl/tree/cards/game/greenitem-181_cards/card-01.png`; not an official replacement. |
+| CARD-game-greenitem-game-greenitem-181_cards-card-03.png | title not present in fragment; `ONE USE ONLY` | **Plain rule:** Only in a [computer] Room without [malfunction]. Choose any Room in the Facility and place a closed Door in each adjacent Corridor.<br>**Source:** TTS source-bound variant, `assets/tts-mod/extract/v2-dl/tree/cards/game/greenitem-181_cards/card-03.png`; not an official replacement. |
+| CARD-game-greenitem-game-greenitem-181_cards-card-04.png | `EMERGENCY LIFE SUPPORT CODES`; `ONE USE ONLY` | **Plain rule:** Only in [computer] Room without [malfunction]. Flip all [ICON: white three-lobed horizontal cluster with cyan center and an outlined upright rounded rectangle]. Flip 1 [ICON: white three-lobed horizontal cluster with gray center and a pale outlined upright rounded rectangle].<br>**Source:** TTS source-bound variant, `assets/tts-mod/extract/v2-dl/tree/cards/game/greenitem-181_cards/card-04.png`; not an official replacement. |
+| CARD-game-greenitem-game-greenitem-181_cards-card-05.png | title not present in fragment; `ONE USE ONLY` | **Plain rule:** Discard 1 Serious Wound. OR Restore 2 [characterHealth].<br>**Source:** TTS source-bound variant, `assets/tts-mod/extract/v2-dl/tree/cards/game/greenitem-181_cards/card-05.png`; not an official replacement. |
+| CARD-game-reditem-game-reditem-148_cards-card-01.png | `ANTI-AIRCRAFT CODES`; `ONE USE ONLY` | **Plain rule:** Only in [computer] Room without [malfunction]. Take both Anti-Aircraft tokens and place them in any order.<br>**Source:** TTS source-bound variant, `assets/tts-mod/extract/v2-dl/tree/cards/game/reditem-148_cards/card-01.png`; not an official replacement. |
+| CARD-game-reditem-game-reditem-148_cards-card-02.png | `CLAYMORE MINE`; `ONE USE ONLY` | **Plain rule:** Place 1 [ICON: red rounded rectangular tile with white upright bulb-shaped inset] in an empty Corridor. When any number of [intruder] are placed in that Corridor, remove the [ICON: red rounded rectangular tile with white upright bulb-shaped inset] and resolve the token effect there.<br>**Source:** TTS source-bound variant, `assets/tts-mod/extract/v2-dl/tree/cards/game/reditem-148_cards/card-02.png`; not an official replacement. |
+| CARD-game-reditem-game-reditem-148_cards-card-04.png | title not present in fragment; `ONE USE ONLY, SPECIAL WEAPON` | **Plain rule:** Move. Ignore all Opportunity Attacks during that Movement.<br>**Source:** TTS source-bound variant, `assets/tts-mod/extract/v2-dl/tree/cards/game/reditem-148_cards/card-04.png`; not an official replacement. |
+| CARD-game-reditem-game-reditem-148_cards-card-07.png | `PORTABLE BARRIER`; `ONE USE ONLY` | **Plain rule:** Place a closed Door.<br>**Source:** TTS source-bound variant, `assets/tts-mod/extract/v2-dl/tree/cards/game/reditem-148_cards/card-07.png`; not an official replacement. |
+| CARD-game-startItemDeck-game-startItemDeck-005.png | `TACTICAL ARMOR`; `ARMOR` | **Plain rule:** Whenever you lose [characterHealth] as a result of an Intruder Attack, lose 1 [characterHealth] less.<br>**Source:** TTS source-bound variant, `assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-005.png`; not an official replacement. |
+| CARD-game-startItemDeck-game-startItemDeck-046.jpg | `BAYONET`; `MELEE WEAPON, HEAVY` | **Plain rule:** You may hold this Item in the same Hand slot as a Ranged Weapon. Whenever you would be Attacked by an [intruder], you may place a [malfunction] on the Bayonet to Prevent the Attack.<br>**Source:** TTS source-bound variant, `assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-046.jpg`; not an official replacement. |
+| CARD-game-startItemDeck-game-startItemDeck-055.jpg | `FLAMETHROWER`; `RANGED WEAPON, REQUIRES NO AMMO, HEAVY` | **Plain rule:** Burst and Shoot: If you are in a Section with an [lifeSupportInactive], spend 1 [oxygen] to use this Weapon. [burstDieAdditionalEffects], [shootDieAmmoLoss]: Place a [fire] in your Room.<br>**Source:** TTS source-bound variant, `assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-055.jpg`; not an official replacement. |
+| CARD-game-startItemDeck-game-startItemDeck-073.jpg | `HAND CANNON`; `RANGED WEAPON, HEAVY` | **Plain rule:** Burst: -1 to Burst results. Shoot: -1 to Shoot results.<br>**Source:** TTS source-bound variant, `assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-073.jpg`; not an official replacement. |
+| CARD-game-startItemDeck-game-startItemDeck-098.jpg | `TACTICAL HATCHET`; `MELEE WEAPON, HEAVY` | **Plain rule:** Melee Attack: Deal [ICON: white crested bulbous silhouette with two dark openings and a notched lower edge] instead of rolling the Shoot die, and place a [malfunction] on this Weapon.<br>**Source:** TTS source-bound variant, `assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-098.jpg`; not an official replacement. |
+| CARD-game-startItemDeck-game-startItemDeck-114.jpg | `PLASMA GUN`; `RANGED WEAPON, REQUIRES NO AMMO, HEAVY` | **Plain rule:** [burstDieAdditionalEffects], [shootDieAmmoLoss]: Lose 2 [characterHealth] for each Universal marker on this Weapon, and then place 1 Universal marker there.<br>**Source:** TTS source-bound variant, `assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-114.jpg`; not an official replacement. |
+| CARD-game-startItemDeck-game-startItemDeck-131.png | `GATLING GUN`; `RANGED WEAPON, RIFLE` | **Plain rule:** Burst: After Bursting, you may Burst a second time at the same Corridor without spending [ammoToken]. [burstDieAdditionalEffects]: Place [malfunction] on this Weapon.<br>**Source:** TTS source-bound variant, `assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-131.png`; not an official replacement. |
+| CARD-game-startItemDeck-game-startItemDeck-144_cards-card-03.png | `ENGINEERING EQUIPMENT` | **Plain rule:** Remove a [malfunction]. OR Remove this Item and Reinforce an empty Corridor.<br>**Source:** TTS source-bound variant, `assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-144_cards/card-03.png`; not an official replacement. |
+| CARD-game-startItemDeck-game-startItemDeck-144_cards-card-04.png | title not present in fragment; `MELEE WEAPON` | **Plain rule:** Destroy 1 Door. OR Place a [malfunction] in your Room.<br>**Source:** TTS source-bound variant, `assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-144_cards/card-04.png`; not an official replacement. |
+| CARD-game-startItemDeck-game-startItemDeck-144_cards-card-05.png | `FLAMETHROWER`; `RANGED WEAPON, REQUIRES NO AMMO` | **Plain rule:** Shoot and Burst: If you are in a Section with an [ICON: white horizontal three-lobed capsule with a gray outlined central vertical block and short top stem] lose 1 [oxygen]. [burstDieAdditionalEffects], [shootDieAmmoLoss]: Place a [fire].<br>**Source:** TTS source-bound variant, `assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-144_cards/card-05.png`; not an official replacement. |
+| CARD-game-startItemDeck-game-startItemDeck-144_cards-card-08.png | `HEAVY HANDGUN`; `RANGED WEAPON` | **Plain rule:** Burst: Reduce Burst roll values by 1. Shoot: Reduce Shoot roll values by 1.<br>**Source:** TTS source-bound variant, `assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-144_cards/card-08.png`; not an official replacement. |
+| CARD-game-startItemDeck-game-startItemDeck-144_cards-card-11.png | `PLASMA GUN`; `RANGED WEAPON. REQUIRES NO AMMO` | **Plain rule:** This Weapon can be used even with a [malfunction] on it and is not discarded when another [malfunction] is placed. [burstDieAdditionalEffects], [shootDieAmmoLoss]: Place a [malfunction] on this Weapon and then lose 2 [characterHealth] for each [malfunction].<br>**Source:** TTS source-bound variant, `assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-144_cards/card-11.png`; not an official replacement. |
+| CARD-game-startItemDeck-game-startItemDeck-144_cards-card-12.png | `PORTABLE DEVICE` | **Plain rule:** You may treat your Room as a [computer] Room.<br>**Source:** TTS source-bound variant, `assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-144_cards/card-12.png`; not an official replacement. |
+| CARD-game-startItemDeck-game-startItemDeck-144_cards-card-14.png | `SUBMACHINE GUN`; `RANGED WEAPON` | **Plain rule:** [shootDie2]: treat this result as a [shootDieCritical] and spend 1 [ICON: red near-square with a split dark rectangular inset] as normal.<br>**Source:** TTS source-bound variant, `assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-144_cards/card-14.png`; not an official replacement. |
+| CARD-game-startItemDeck-game-startItemDeck-144_cards-card-16.png | `TACTICAL HATCHET.`; `MELEE WEAPON` | **Plain rule:** When you Melee attack deal 2 Hits before the Attack roll.<br>**Source:** TTS source-bound variant, `assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-144_cards/card-16.png`; not an official replacement. |
+| CARD-game-startItemDeck-game-startItemDeck-144_cards-card-17.png | `SONIC GUN`; `RANGED WEAPON. REQUIRES NO AMMO` | **Plain rule:** Burst: Treat [burstDie3] and [burstDie4] as [burstDie2]. [burstDieAdditionalEffects], [shootDieAmmoLoss] - Place a [malfunction] in your Room.<br>**Source:** TTS source-bound variant, `assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-144_cards/card-17.png`; not an official replacement. |
+| CARD-game-startItemDeck-game-startItemDeck-163.png | `SECURITY SYSTEM CONTROL`; `HEAVY` | **Plain rule:** Discard 1 [secure] from any Room in your Section to choose a Corridor adjacent to that Room. Roll a Burst die and deal Hits equal to the result in the chosen Corridor. [burstDieAdditionalEffects]: Place a [malfunction] on this Item.<br>**Source:** TTS source-bound variant, `assets/tts-mod/extract/v2-dl/tree/cards/game/startItemDeck-163.png`; not an official replacement. |
+| CARD-game-yellowitem-game-yellowitem-050.png | `OXYGEN TANK`; `ONE USE ONLY, SPECIAL WEAPON` | **Plain rule (extracted text; choice relation not stated):** You can use this Item for free immediately after gaining it. The occurrence contains “Gain 3 [oxygen].” and “Gain 1 [oxygenToken].”<br>**Source:** TTS source-bound variant, `assets/tts-mod/extract/v2-dl/tree/cards/game/yellowitem-050.png`; not an official replacement. |
+| CARD-game-yellowitem-game-yellowitem-097.png | title not present in fragment | **Plain rule:** Use the [robot] from anywhere in the Facility. OR Discard this Item to place corresponding Tactical Gear tokens on empty Robot slots.<br>**Source:** TTS source-bound variant, `assets/tts-mod/extract/v2-dl/tree/cards/game/yellowitem-097.png`; not an official replacement. |
+| CARD-game-yellowitem-game-yellowitem-146_cards-card-01.png | title not present in fragment; `ONE USE ONLY. SPECIAL WEAPON` | **Plain rule (literal source text):** Discard a [fire]. OR 1 chosen [intruder] in your Room Escapes.<br>**Source:** TTS source-bound variant, `assets/tts-mod/extract/v2-dl/tree/cards/game/yellowitem-146_cards/card-01.png`; not an official replacement. |
+| CARD-game-yellowitem-game-yellowitem-146_cards-card-02.png | `ROBOT CONTROLLER` | **Plain rule:** Use the [robot] from anywhere in the Facility. OR If [robot] is not on the board yet, place it in your Room.<br>**Source:** TTS source-bound variant, `assets/tts-mod/extract/v2-dl/tree/cards/game/yellowitem-146_cards/card-02.png`; not an official replacement. |
+| RB-P29-002.rule | official `MILITARY TASER` occurrence | **Plain rule:** Military Taser may Repel 1 Intruder from the Room.<br>**Source:** Official Rulebook p. 29, “MILITARY TASER — first option,” `RB-P29-002`. |
+| RB-P29-039.rule | official `GRENADE LAUNCHER` occurrence | **Plain rule:** When Bursting with Grenade Launcher, the Character may use any number of loaded Grenade tokens from this Weapon before or instead of a normal Burst.<br>**Source:** Official Rulebook p. 29, “GRENADE LAUNCHER — Burst effect,” `RB-P29-039`. |
+
+#### General, passive, and Duct Tape source rows
+
+| ID | Final proposed row |
+|---|---|
+| RB-P28-005.fact | **Plain rule:** A passive Item applies its effect at the timing printed on the card.<br>**Source:** Official Rulebook p. 28, “ITEMS — passive Items,” `RB-P28-005`. |
+| RB-P28-006.rule | **Plain rule:** A passive-effect Item cannot be Used through the Use an Item Basic Action.<br>**Source:** Official Rulebook p. 28, “ITEMS — passive-use prohibition,” `RB-P28-006`. |
+| RB-P28-038.fact | **Plain rule:** Duct Tape is a One Use Only Item.<br>**Source:** Official Rulebook p. 28, “DUCT TAPE — trait,” `RB-P28-038`. |
+| RB-P28-041.rule | **Plain rule:** Duct Tape may place 1 Heavy Item above another Heavy Item in your Hand slot.<br>**Source:** Official Rulebook p. 28, “DUCT TAPE — second option,” `RB-P28-041`. |
+| RB-P28-042.fact | **Plain rule:** Duct Tape’s stacking option allows 2 Heavy Items to occupy one Hand slot.<br>**Source:** Official Rulebook p. 28, “DUCT TAPE — capacity effect,” `RB-P28-042`. |
+| FAQ-FQ-P03-U05 | **Plain rule:** Duct Tape may place a third Item in a single Hand slot.<br>**Source:** FAQ v1.2, printed p. 3, `FQ-P03-U05` (Q: “Can I Duct Tape a 3rd Item in a single hand?” A: “Yes.”). |

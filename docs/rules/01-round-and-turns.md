@@ -94,6 +94,23 @@
 - **Short Circuit — main effect:** In each Section whose Life Support is inactive, place Fire in every Room with a Computer icon.
 - **Short Circuit — secondary effect:** Each Robot in a Room without a Secure token resolves a Hazard result.
 
+### Event-card source occurrences
+
+| Source occurrence | Printed/illustrated effect text | Authority / provenance |
+|---|---|---|
+| `RB-P14-021` — RISE OF THE MACHINE — Event Main Effect | `Each Character in the Robot’s Room loses 2 Health.` | Official Rulebook p. 14; source glyphs `[Character glyph]` and `[Health glyph]` preserved in provenance. |
+| `game/event-051.jpg` | `All [intruder] in each [corridorNESW] move. Then, all [intruder] in every Room move. Place 1 Drone in each Corridor with a [noise] adjacent to a [character]. Each [character] in a Room without a [secure] resolves [noiseDieHazard].` | TTS secondary source occurrence; source-scoped, not an official replacement. |
+| `game/event-052.png` | `All [intruder] in each [corridorEW] move. Then, all [intruder] in every Room move. From each Room with a [fire], spread [fire] to the neighboring Rooms in Sections with [lifeSupportActive]. Each [character] makes a Noise roll.` | TTS secondary source occurrence; source-scoped, not an official replacement. |
+| `game/event-058.jpg` | `All [intruder] in each [corridorNESW] move. Then, all [intruder] in every Room move. In Sections with an [lifeSupportActive]: Place a [fire] in each Room with a [malfunction]. Each [character] in a Room without a [secure] resolves [noiseDieHazard].` | TTS secondary source occurrence; source-scoped, not an official replacement. |
+| `game/event-064.png` | `All [intruder] in each [corridorNESW] move. Then, all [intruder] in every Room move. Flip all [lifeSupportActive] to [lifeSupportInactive]. Place a [malfunction] in each Life Support Control Room. Place a [noise] in each Unexplored Corridor without [noise].` | TTS secondary source occurrence; source-scoped, not an official replacement. |
+| `game/event-096.png` | `All [intruder] in each [corridorEW] move. Then, all [intruder] in every Room move. Place a [fire] and a [malfunction] in the Landing Zone. Place a [noise] in each Unexplored Corridor without [noise].` | TTS secondary source occurrence; source-scoped, not an official replacement. |
+| `game/event-139.png` | `All [intruder] in each [corridorEW] move. Place a [malfunction] in each Room with a [intruder]. Each [character] in a Room without [secure] resolves [noiseDieHazard].` | TTS secondary source occurrence; source-scoped, not an official replacement. |
+| `game/event-167.png` | `All [intruder] in each [corridorNWSE] move. Then, all [intruder] in every Room move. Place a [malfunction] in each Room with a [fire]. From each Room with a [fire], spread it through Corridors with the lowest Noise value. Each [character] in a Room without [secure] resolves [noiseDieHazard].` | TTS secondary source occurrence; source-scoped, not an official replacement. |
+| `game/event-170.png` | `All [intruder] in each [corridorEW] move. Then, all [intruder] in every Room move. Each [character] in a Room with [intruder] or adjacent to a Corridor with [intruder]: Loses 1 [oxygenToken] or spends [ammoToken]. Resolve each [noise] in Unexplored Corridors.` | TTS secondary source occurrence; source-scoped, not an official replacement. |
+
+- **Source:** Official Rulebook p. 14, `RB-P14-021`; exact secondary occurrences at `assets/tts-mod/extract/v2-dl/tree/cards/game/event-051.jpg`, `event-052.png`, `event-058.jpg`, `event-064.png`, `event-096.png`, `event-139.png`, `event-167.png`, and `event-170.png`.
+- **Boundary:** Preserve `SEM-Q-097`, `SEM-Q-099`, `SEM-Q-102`, `SEM-Q-105`, `OQ-007`, and `SEM-Q-012` where named in the table. TTS rows remain variants/evidence and do not replace official wording; no movement, Hazard, Secure, capacity, tie, or unrevealed-Robot default is added.
+
 ## RT-009a — Lander-launch timing exception
 
 - **Source:** Rulebook p. 37, “Lander Launch Decision” (extracted text lines 6063–6074).
@@ -136,6 +153,9 @@
 - **Anti-Aircraft trigger:** Resolve Anti-Aircraft tokens when the Round and Lander tokens occupy the same Round-track space, regardless of which token was placed there last. **Source:** `RB-P37-050` / Rulebook p. 37, `RESOLVING ANTI-AIRCRAFT TOKENS — trigger`.
 - **Action-deck reshuffle:** Whenever a Character must draw an Action card from an empty Action deck, including outside the Cleanup Phase, first reshuffle all cards from that Character’s discard pile to form a new Action deck, then continue drawing.
 - **Round-limit condition:** If the Round marker is already on its final space, do not advance it; proceed to End of the Game instead.
+- **Plain rule:** When a card instructs a deck reshuffle, include that card itself. When an Action card allows additional Action-card draws, complete those draws, including any required Action-deck reshuffle, before discarding the Action card that caused them; that card is not included in that reshuffle.
+- **Source:** FAQ v1.2 p. 2, `GENERAL RULES`, `FQ-P02-U11`.
+- **Boundary:** Preserve the existing Action-deck-empty reshuffle procedure and the FAQ’s special timing for an Action card that causes additional draws; no other deck lifecycle is inferred.
 
 ## RT-012a — Immediate entered-space token effects
 

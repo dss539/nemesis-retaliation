@@ -100,6 +100,12 @@
   - **Source:** FAQ v1.2, “Items and tactical gear” #1 (lines 116–124).
 - **Restriction:** Characters cannot directly attack other Characters.
   - **Source:** Rulebook p. 33, “Attacking Other Characters” (lines 5621–5626).
+- **Plain rule:** An Action may indirectly harm another Character as a side effect of the Action. Trapping a Character in a Room with Fire is not a direct Attack against that Character.
+- **Plain rule:** When a Weapon is chosen for an Action, apply every effect and modifier from that Weapon unless stated otherwise.
+- **Plain rule:** If Shooting kills an Intruder with a Critical result, return that Intruder to the Intruder pool.
+- **Plain rule:** If Shooting kills an Intruder with a normal Shoot result, return that Intruder to the Intruder pool.
+- **Source:** Rulebook p. 33, `RB-P33-010`, `RB-P33-011`, `RB-P33-013`, `RB-P33-032`, and `RB-P33-038`.
+- **Boundary:** Preserve `SEM-Q-088`, `SEM-Q-089`, and `SEM-Q-103`; these additions do not resolve Weapon trigger/continuation or Room-Larva roll timing, nor do they turn indirect harm into a direct Character Attack.
 
 ## ACT-BURST-001 — Burst
 
@@ -107,7 +113,7 @@
 - **Source:** Rulebook p. 12, “Basic Actions List” (line 2885); Rulebook p. 33, “Bursting.”
 - **Preconditions:**
   - Select a working, loaded Ranged Weapon in a Hand. A Weapon with the Requires No Ammo trait may Burst without a physical Ammo token and counts as having one for this prerequisite.
-  - Select an adjacent Corridor.
+  - Select an adjacent Corridor containing at least one Intruder.
   - Closed Doors cannot be crossed to Burst.
 - **Resolution:**
   1. Select Weapon and adjacent target Corridor.
@@ -121,6 +127,12 @@
   5. On the special Burst result, also resolve any applicable Weapon/Action extra effect.
 - **FAQ:** Bursting through Closed Doors is prohibited.
   - **Source:** FAQ v1.2, “General rules” #8 (lines 52–57).
+- **Plain rule:** For Fire At Will, the Officer chooses their Room or the neighboring Room. Then each Character in Turn order Bursts at a Corridor chosen by the Officer; the Officer may choose a different Corridor for each Character, and each Character may choose which Weapon to use when Bursting.
+- **Plain rule:** For each Burst Hit allocated to the Queen, advance the Queen’s Hits marker 1 space.
+- **Plain rule:** Advancing the Queen’s Hits track may apply additional effects.
+- **Plain rule:** The additional-effect symbol shares the Burst-die face with result 4.
+- **Source:** Rulebook p. 33, `RB-P33-047`, `RB-P33-073`, `RB-P33-075`, and `RB-P33-078`; FAQ v1.2 p. 2, `ACTION CARDS`, `FQ-P02-U14`.
+- **Boundary:** Preserve `SEM-Q-025` and `SEM-Q-104`; the additions do not choose a Burst multi-target order, Queen interrupt point, additional-effect order, or unresolved die-symbol semantic beyond the literal shared-face fact.
 
 ## ACT-MELEE-001 — Melee Attack
 
@@ -134,10 +146,13 @@
   4. Roll the Shoot die and resolve lethal/nonlethal outcome:
      - Critical: Intruder dies — place it back in the Intruder pool.
      - Numeric 2–5: Intruder dies if result is less than or equal to its current number of Hits.
+     - **Plain rule:** The Shoot die’s repeated-bar face is an ineffective attack in Melee; resolve it as `Ineffective: Nothing happens.`
      - Ineffective: Nothing happens.
   5. If target survived: either place a Malfunction marker on one of the attacker’s Weapons to prevent the retaliatory attack, or resolve that Intruder Attack.
 - **Note:** Placing a Malfunction marker on a Weapon that already had one destroys the Weapon.
 - **Note:** Larvae and the Queen are dealt Hits the same way, but their Health is resolved differently.
+- **Source:** Rulebook p. 34, `MELEE ATTACK — ineffective face`, `RB-P34-018`.
+- **Boundary:** Preserve the current Melee outcome and do not import the Shoot die’s separate Ammo-loss meaning into Melee.
 
 ## ACT-SEARCH-001 — Search
 
@@ -208,6 +223,9 @@
   - A traded Item is gained immediately and may be used immediately where otherwise legal.
 - **Interplay boundary:** An Item may be used directly on a consenting Character in the same Room only for: restoring Health, discarding Serious Wounds, discarding Malfunction markers, or gaining. For other effects, trade the Item first so the recipient uses it.
   - **Source:** Rulebook p. 29, “Interplay”; FAQ v1.2, “Items and tactical gear” #8 (lines 154–161).
+- **Plain rule:** Action cards, Item cards, Tactical Gear tokens, and other forms of Actions may be used on other Characters as long as the receiving Character allows it and the effect includes 1 of the 4 mentioned in the rulebook. Other types of Actions and effects which are not Actions cannot be used on other Characters.
+  - **Source:** FAQ v1.2, printed p. 3, `FQ-P03-U07`.
+- **Boundary:** Retain `SEM-Q-043`, `SEM-Q-044`, and `SEM-Q-085`; this text does not resolve their owner, glyph, target, capacity, or attachment questions.
 
 ## ACT-SECURE-001 — Place Secure Token
 
@@ -260,6 +278,9 @@
 | 9 | `?` | `10 — ALARM ROOM` | `Resolve or discard [R10-I04]`<br>`from a chosen Corridor`<br>`in the Facility.` | — |
 
 - **Boundary:** `OQ-009` remains open for the physical resolution of official effects that target an Undiscovered Nest. `SEM-Q-005` remains open for the Drilling Station endpoint selector. The table does not translate any `[R..-I..]` placeholder into a canonical icon or effect beyond the exact source text.
+- **Plain rule:** If the Robot is broken, the Drilling Station cannot be used to create a Corridor.
+- **Source:** FAQ v1.2 p. 2, `ROOMS`, `FQ-P02-U17`.
+- **Boundary:** Preserve `SEM-Q-005`; the edit does not select the new-Corridor endpoint or define other Drilling Station restrictions.
 
 ## ACT-TACTICAL-001 — Use Tactical Gear
 

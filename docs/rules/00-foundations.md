@@ -226,3 +226,12 @@
 - **Room marker limits:** A Room can contain at most 1 Fire marker and at most 1 Malfunction marker. **Source:** Rulebook p. 23, `FIRE MARKERS — Room cap` and `MALFUNCTION MARKERS 1. ON ROOMS — cap`.
 
 - **Boundary:** The map-slot and Corridor-ID statements describe source identity/layout and do not create an unstated placement order. Existing boundary bullets remain; these additions make the border-piece, marker-cap, and Reinforced-Corridor assertions explicit.
+- **Plain rule:** When Fire is to be spread through an Open Corridor, do not place a Fire marker.
+- **Plain rule:** If the Nest’s Eggs area is empty, the Nest is destroyed.
+- **Plain rule:** A Fire marker in the Nest does not by itself make the Nest destroyed; if Eggs remain when the game ends, the Nest is not considered destroyed.
+- **Source:** FAQ v1.2 p. 2, `FQ-P02-U09` and `FQ-P02-U20`; Rulebook p. 35, `RB-P35-031`.
+- **Boundary:** Preserve `OQ-009`; these edits do not define an Undiscovered-Nest procedure and do not treat Fire alone as equivalent to an empty Eggs area.
+- **Data token:** “Characters can gain a Data token using the Server Room (Section B). Once gained by a Character, a Data token cannot be lost or traded.” **Source:** Official Objective Help Sheet `P2-GT-04`.
+- **Nest destruction:** “The Nest is Destroyed when the Facility is Destroyed or when there are no more Eggs as a result of Characters taking or Destroying them on the special space on the Section “C” border piece.” **Source:** Official Objective Help Sheet `P2-GT-07` and the separately retained page-1 occurrence `P1-GT-07`.
+
+IDs satisfied: `OBJ-25`, `OBJ-28`, `OBJ-6`.
