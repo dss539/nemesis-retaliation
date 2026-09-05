@@ -57,7 +57,12 @@ def call(model, prompt):
         headers={"Authorization": f"Bearer {key}", "Content-Type": "application/json"},
     )
     with urllib.request.urlopen(req, timeout=1500) as r:
-        return json.load(r)["message"]["content"]
+        msg = json.load(r)["message"]
+        content = (msg.get("content") or "").strip()
+        if not content:
+            think = (msg.get("thinking") or "").strip()
+            content = "(empty content; thinking tail follows)\n\n" + think[-4000:] if think else "(EMPTY RESPONSE — model returned neither content nor thinking)"
+        return content
 
 
 def main():
