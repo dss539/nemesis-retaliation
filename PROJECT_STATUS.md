@@ -1,7 +1,7 @@
 # Nemesis: Retaliation — Project Status
 
 **Status date:** 2026-09-05
-**Active phase:** Fragment-coverage audit mechanically closed after owner-delegated autonomous repair; independent critic review and unsure ledger in progress
+**Active phase:** Fragment-coverage audit closed and critic-reviewed; awaiting owner reading of `OWNER-NOTES.md` and rulings on the unsure ledger
 **Active branch:** `main`
 **Implementation status:** Frozen; a clean rewrite will begin only after rules-layer readiness and explicit approval
 
@@ -20,7 +20,7 @@ The former Stage 1 v2 blind correctness-audit methodology was scrapped by the ow
 
 ## Immediate Next Deliverable
 
-Independently verify any material findings from the two isolated Ollama Cloud critics (`docs/qa/repair-review/critics/`), apply only source-confirmed corrections as a separate commit with one re-verification each, then hand the owner `docs/qa/repair-review/OWNER-NOTES.md` and `docs/qa/repair-review/UNSURE-LEDGER.md`. After that, the remaining substantive work is the 106-fragment unsure pool, which is bounded by open questions and needs owner or publisher input, not more verification.
+Owner reads `docs/qa/repair-review/OWNER-NOTES.md` (7 items) and decides: (a) base-vs-expansion scope for the corpse Objectives (OQ-013); (b) whether to open a publisher/BGG-developer Q&A round using `docs/qa/repair-review/UNSURE-LEDGER.md` (45 questions, 106 fragments); (c) whether the rules layer is now "as solid as reasonably achievable" for the rewrite gate. No further verification wave is warranted; the unsure pool is bounded by open questions, not by missing corpus text.
 
 ## Resume Checkpoint
 
@@ -40,6 +40,7 @@ Independently verify any material findings from the two isolated Ollama Cloud cr
 - Owner approved P1–P5 from `docs/qa/fragment-reslice-review/README.md`. `OBJ-29`, `OBJ-31`, and `OBJ-32` were retired from the rules-verification manifest because their physical official occurrences expose no complete operative assertion; their source-extraction provenance remains unchanged. The Heavy Gun Operator `DEMOLITION` and TTS-source `FACILITY RESTART` root slices were replaced with the approved pixel-bound records and each received exactly one fresh Luna Max verifier. Both failed because the frozen concise corpus omits their source-variant rules/boundaries, so they were independently converted to repair claims. Current mechanical state: **2,126 total = 1,579 pass + 334 repair + 56 unsure + 157 irrelevant; 0 root, 0 fail, and 0 claimed**.
 - The 334-repair source-to-rule mapping (`docs/qa/repair-review/README.md`, P1–P7) was presented; the owner amended P2 to add `Evaluates via:` cross-references (surfacing OQ-013 corpses and OQ-014 Objective eligibility), kept Private Objective flavor text, then delegated the remainder autonomously. All seven clusters were applied to `docs/rules/` (commits `0c3a288`, `5889755`, `02ff0de`; +565/−5 lines), each ID passed one post-repair re-check (`docs/qa/repair-review/recheck/`, 334/334 covered), and all 334 fragments returned to the audit root for one fresh verifier each.
 - Fresh verification closed with 17 fail claims, all coordinator-dispositioned: 15 Objective-family faces converted to unsure (their gap is an open question — OQ-013/OQ-014/OBJ-44 — not an omission), 2 true gaps repaired (`RB-P14-021` Rise of the Machine Health loss; `OBJ-16` Reinforced-path check) and re-verified pass. **Final mechanical state: 2,126 = 1,863 pass + 106 unsure + 157 irrelevant; 0 root, 0 fail, 0 repair, 0 claimed**, confirmed by `scripts/audit_closure_check.py`. Owner-facing notes: `docs/qa/repair-review/OWNER-NOTES.md`.
+- Two isolated Ollama Cloud critics (DeepSeek V4 Pro 0813, GLM 5.3; max reasoning, read-only, diff + cited rulebook pages) reviewed the full repair diff (`docs/qa/repair-review/critics/`). Four findings verified against source and corrected in `02c003b` and `0e97617` (Fire At Will citation scope, Supply Route note scope, unsourced "loaded" Grenade qualifier, p. 23 Robot Malfunction exception); one rejected (FAQ `FQ-P03-U07` is verbatim official text). The 106 unsure fragments are grouped by governing open question in `docs/qa/repair-review/UNSURE-LEDGER.md`.
 - The resource monitor covered the 26m18s verifier window. Peak CPU was 26.306%, peak one-minute load 2.175, minimum available memory 21,274,458,112 bytes, and peak WebUI RSS 2,925,813,760 bytes. NVMe utilization peaked at 71.756% with 4 ms maximum read await and 27.008 ms maximum write await; host saturation was not the wave limiter.
 
 ## Execution Boundaries
