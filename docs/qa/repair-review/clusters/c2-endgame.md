@@ -79,67 +79,130 @@ Proposal only; no repair is applied. Each card occurrence below remains source-k
 
 Add a source-occurrence table under the existing `### Objective semantics` subsection. The following final proposed rows are explicit and remain keyed by the cited occurrence; no row is merged merely because its title repeats:
 
+Each entry carries an Evaluates via: line naming the corpus records that define its referenced states; a link is a pointer for evaluation, not a resolution of the open questions those records carry.
+
 - `assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-056.png` — **ERADICATION:** “Queen must be killed.” AND “The Facility cannot be destroyed.”
+  Evaluates via: INT-007, INT-010
 - `assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-101.jpg` — **RECONNAISSANCE:** “All Rooms of the A, B, and C type must be Discovered.”
+  Evaluates via: ACT-EXPLORE-001, FND-012 (Room types)
 - `assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-116.jpg` — **THE SUPPLY ROUTE:** “There must be a continuous path of Reinforced Corridors from the Landing Zone (Section A) to the Life Support Control C.” AND “The Facility must NOT be destroyed.”
+  Evaluates via: FND-012 Reinforced Corridors (proposed, P3), INT-010
 - `assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-123.jpg` — **ESSENTIAL DATA:** “At least 1 [ICON: compact white outlined rounded-top form with a broad rectangular torso and paired side/lower projections] with a Data token (from the Server Room in Section B) must Escape using the [ICON: broad white three-pronged mound with dark lower cutouts] (Section A).” AND “There must be no Unexplored Corridors in Section A.”
+  Evaluates via: ROOM-19 (proposed, P3), INT-009, INT-011 (Escape definition), RT-009a, FND-012 (Unexplored Corridor); GAP: literal TTS icon identities have no corpus rule
 - `assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-160_cards/card-00.png` — **PRIMARY SAMPLES:** “At least 2 Eggs must be taken out of the Facility using the Lander or Escape Shuttle.”
+  Evaluates via: FND-012 (Nest and Eggs), ITM-002 (Eggs are Heavy Items), INT-009, INT-011 (Escape definition), RT-009a
 - `assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-160_cards/card-01.png` — **PERIMETER CLEARING:** “The Reactor must be shut down.” AND “All Section Rooms A must be Explored.”
+  Evaluates via: FND-012 (Reactor), ROOM-22 Reactor table row (proposed, P3), ACT-EXPLORE-001, FND-012 (Room types)
 - `assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-160_cards/card-02.png` — **THE SUPPLY ROUTE:** “The path from the Landing Zone to the Server Room must be Reinforced. (There is a continuous path of Reinforced Corridors from the Landing zone to the Server Room).” AND “The Facility must not be destroyed.”
+  Evaluates via: FND-012 Reinforced Corridors (proposed, P3), ROOM-19 (proposed, P3), INT-010
 - `assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-160_cards/card-04.png` — **ESSENTIAL DATA:** “At least 1 Character with Data token from the Server Room must Escape using the Lander.”
+  Evaluates via: ROOM-19 (proposed, P3), INT-009, INT-011 (Escape definition), RT-009a
 - `assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-160_cards/card-05.png` — **RETRIEVAL:** “At least 3 corpses from Hibernatorium must be in the Landing Zone.” AND “The Lander must not be destroyed.”
+  Evaluates via: INT-009, INT-011 (Escape definition), RT-009a; GAP: corpses from the Hibernatorium has no corpus rule
 - `assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-160_cards/card-06.png` — **ERADICATION:** “Queen must be killed.” AND “The Nest must be destroyed.”
+  Evaluates via: INT-007, FND-012 (Nest), ACT-ROOM-001 Nest-destruction marker (proposed, P3)
 - `assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-160_cards/card-07.png` — **ESCORT MISSION:** “The Robot must reach the Reactor.”
+  Evaluates via: ACT-ROBOT-001
 - `assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-160_cards/card-08.png` — **FACILITY RESTART:** “The Hibernatorium must be [hibernatorium-active] and at least 2 Life Support Systems must be [UNRESOLVED: horizontal cyan-and-white bilateral badge with rounded white end masses, a cyan connector, and a narrow upright central slot/tab].” AND “The Facility cannot be destroyed.”
+  Evaluates via: INT-009 (Hibernation), FND-009, ROOM-14/18 (proposed, P3), INT-010; GAP: [hibernatorium-active] source-local state token has no corpus rule; GAP: unresolved Life Support badge has no corpus rule
 - `assets/tts-mod/extract/v2-dl/tree/cards/game/missionTaskDeck-160_cards/card-09.png` — **ESSENTIAL DATA:** “All Section Rooms A, B and C must be Explored.”
+  Evaluates via: ACT-EXPLORE-001, FND-012 (Room types)
 - `assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-060.jpg` — **SELF-SERVING:** “You must be the only Survivor.”
+  Evaluates via: INT-011 (Survivor definition), RT-014
 - `assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-162_cards/card-01.png` — **OFFICIAL ORDER:** “The Mission Task must be fulfilled.”
+  Evaluates via: INT-011 (Objective semantics)
 - `assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-162_cards/card-04.png` — **SELF-SERVING:** “You cannot choose this Objective. You must choose the Private Objective instead.”
+  Evaluates via: INT-011 (Objective semantics); GAP: Objective-choice restriction has no corpus rule
 - `assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-162_cards/card-05.png` — **ULTERIOR MOTIVE:** “You must choose this Objective. Mission Task must not be Fulfilled.”
+  Evaluates via: INT-011 (Objective semantics); GAP: Objective-choice restriction has no corpus rule
 - `assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-162_cards/card-06.png` — **VENI, VIDI, VICI:** “The Nest must be destroyed.”
+  Evaluates via: FND-012 (Nest), ACT-ROOM-001 Nest-destruction marker (proposed, P3)
 - `assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-162_cards/card-08.png` — **QUARANTINE:** “No Character can Escape from the Facility using the Lander.”
+  Evaluates via: INT-009, INT-011 (Escape definition), RT-009a
 - `assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-162_cards/card-11.png` — **WE'VE GOT HISTORY:** “You and the Character with the lowest rank must Survive. (If you are a Character with the lowest rank you must fulfill the second option from this Objective) OR The Character with the highest rank must not Survive. (If you are a Character with the highest rank you must fulfill the first option from this Objective)”.
+  Evaluates via: INT-011 (Survivor definition), RT-014, FND-004 (Rank); GAP: Objective option ownership has no corpus rule
 - `assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-162_cards/card-12.png` — **THE RIGHT MOMENT TO STRIKE:** “Character of the Player 1 cannot Survive. (If you are the Player 1 you have to fulfill the second option from this Objective) OR You have to be the only Survivor.”
+  Evaluates via: RT-002, FND-011 (Help-card numbers), INT-011 (Survivor definition), RT-014; GAP: Objective option ownership has no corpus rule
 - `assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-162_cards/card-13.png` — **GREENER PASTURES:** “Character of the Player 2 cannot Survive. (If you are the Player 2 you have to fulfill the second option from this Objective) OR You have to be the only Survivor.”
+  Evaluates via: RT-002, FND-011 (Help-card numbers), INT-011 (Survivor definition), RT-014; GAP: Objective option ownership has no corpus rule
 - `assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-162_cards/card-14.png` — **AN OLD FEUD:** “Character of the Player 3 cannot Survive. (If you are the Player 3 you have to fulfill the second option from this Objective) OR You have to be the only Survivor.”
+  Evaluates via: RT-002, FND-011 (Help-card numbers), INT-011 (Survivor definition), RT-014; GAP: Objective option ownership has no corpus rule
 - `assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-162_cards/card-15.png` — **HOSTILE TAKEOVER:** “Character of the Player 4 cannot Survive. (If you are the Player 4 you have to fulfill the second option from this Objective) OR You have to be the only Survivor.”
+  Evaluates via: RT-002, FND-011 (Help-card numbers), INT-011 (Survivor definition), RT-014; GAP: Objective option ownership has no corpus rule
 - `assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-162_cards/card-16.png` — **LAB RATS:** “All Characters who Escape from the Facility must have at least 3 Contamination cards in total.”
+  Evaluates via: INT-009, INT-011 (Escape definition), RT-009a, INT-008
 - `assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-162_cards/card-17.png` — **INSIDER INFORMATION:** “You must be the only surviving Character with a Data token from the Server Room.”
+  Evaluates via: INT-011 (Survivor definition), RT-014, ROOM-19 (proposed, P3)
 - `assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-162_cards/card-18.png` — **OLD FRIEND:** “You must Escape from the Facility with at least 1 Corpse from the Hibernatorium.”
+  Evaluates via: INT-009, INT-011 (Escape definition), RT-009a; GAP: corpses from the Hibernatorium has no corpus rule
 - `assets/tts-mod/extract/v2-dl/tree/cards/game/objectiveMissonDeck-162_cards/card-19.png` — **LUXURIOUS OFFER:** “You must survive with an Egg.”
+  Evaluates via: INT-011 (Survivor definition), RT-014, FND-012 (Nest and Eggs), ITM-002 (Eggs are Heavy Items)
 - `assets/tts-mod/extract/v2-dl/tree/cards/game/objectivePersonalDeck-014.jpg` — **STATE'S EVIDENCE:** “You must be the only surviving Character with a Data token from the Server Room.”
+  Evaluates via: INT-011 (Survivor definition), RT-014, ROOM-19 (proposed, P3)
 - `assets/tts-mod/extract/v2-dl/tree/cards/game/objectivePersonalDeck-066.jpg` — **SHUTDOWN:** “You must have a Data token (from the Server Room in Section B)” AND “All Life Support tokens must be [lifeSupportInactive] (or removed from the game).”
+  Evaluates via: ROOM-19 (proposed, P3), FND-009, ROOM-14/18 (proposed, P3)
 - `assets/tts-mod/extract/v2-dl/tree/cards/game/objectivePersonalDeck-156.jpg` — **TRAITOR IN PLAIN SIGHT:** “Player 7's Character cannot survive.” OR “Your Character is the only survivor.” Retain “What the fuck is going on?” and “You bitch.” as non-operative source text.
+  Evaluates via: RT-002, FND-011 (Help-card numbers), INT-011 (Survivor definition), RT-014; GAP: Player N eligibility has no corpus rule
 - `assets/tts-mod/extract/v2-dl/tree/cards/game/objectivePersonalDeck-157.jpg` — **STOLEN VALOR:** “Player 8's Character cannot survive.” OR “Your Character is the only survivor.” Retain “Anybody ever tell you you look dead, man?” as non-operative source text.
+  Evaluates via: RT-002, FND-011 (Help-card numbers), INT-011 (Survivor definition), RT-014; GAP: Player N eligibility has no corpus rule
 - `assets/tts-mod/extract/v2-dl/tree/cards/game/objectivePersonalDeck-158.jpg` — **RARE SPECIMEN:** “Player 6's Character cannot survive.” OR “Your Character is the only survivor.” Retain “Paralyses him, puts him in a coma, then keeps him alive.” as non-operative source text.
+  Evaluates via: RT-002, FND-011 (Help-card numbers), INT-011 (Survivor definition), RT-014; GAP: Player N eligibility has no corpus rule
 - `assets/tts-mod/extract/v2-dl/tree/cards/game/objectivePersonalDeck-159.jpg` — **HUNGRY FOR MORE:** “Player 9's Character cannot survive.” OR “Your Character is the only survivor.” Retain “You see, Mr. Parker and I... feel that the bonus situation has never been on an equitable level.” as non-operative source text.
+  Evaluates via: RT-002, FND-011 (Help-card numbers), INT-011 (Survivor definition), RT-014; GAP: Player N eligibility has no corpus rule
 - `assets/tts-mod/extract/v2-dl/tree/cards/game/objectivePersonalDeck-161.jpg` — **WRONG CALL:** “Player10's Character cannot survive.” OR “Your Character is the only survivor.” Retain “I hate to bring this up, but, this is a commercial ship, not a rescue ship.” as non-operative source text, and retain the `[numberOfCharacters] 10+` source-local marker without assigning eligibility.
+  Evaluates via: RT-002, FND-011 (Help-card numbers), INT-011 (Survivor definition), RT-014; GAP: Player N eligibility has no corpus rule; GAP: 10+ source-local scope marker has no corpus rule
 - Official Objective Help Sheet `P1-GT-01` — **FULFILLED:** “An Objective is fulfilled when all of its conditions are met at the end of the game. It’s not important which player fulfilled them (or even if this happens as a result of an Event or another non-player effect).”
+  Evaluates via: INT-011 (Objective semantics)
 - Official Objective Help Sheet `P1-MO-ULTERIOR-MOTIVE` — top instruction “Remove the other Objective from the game to: Progress the Objective Choice track once and draw [P1-MO-ULTERIOR-MOTIVE-I01] accordingly.”; threshold “2+” with `[P1-MO-ULTERIOR-MOTIVE-I02]`; title “ULTERIOR MOTIVE”; condition “Mission Task must remain UNFULFILLED.”; footer “MISSION OBJECTIVE”.
+  Evaluates via: INT-011 (Objective semantics)
 - Official Objective Help Sheet `P1-MO-SELF-SERVING` — top instruction “Remove the other Objective from the game to: Progress the Objective Choice track once and draw [P1-MO-SELF-SERVING-I01] accordingly.”; threshold “2+” with `[P1-MO-SELF-SERVING-I02]`; title “SELF-SERVING”; condition “You must be the only Survivor.”; footer “MISSION OBJECTIVE”.
+  Evaluates via: INT-011 (Survivor definition), RT-014
 - Official Objective Help Sheet `P1-MT-THE-SUPPLY-ROUTE` — threshold “3+” with `[P1-MT-THE-SUPPLY-ROUTE-I01]`; title “THE SUPPLY ROUTE”; condition “There must be a continuous path of Reinforced Corridors from the Landing Zone (Section A) to the Life Support Control C. AND The Facility must NOT be destroyed.”; note “When checking the path from the Landing Zone to Life Support Control C ignore all Closed Doors and Intruders - they are irrelevant. Only Reinforcement counts.”; footer “MISSION TASK”.
+  Evaluates via: FND-012 Reinforced Corridors (proposed, P3), INT-010, 02-character-actions Doors subsection
 - Official Objective Help Sheet `P1-MT-PRIMARY-SAMPLES` — threshold “2+” with `[P1-MT-PRIMARY-SAMPLES-I01]`; title “PRIMARY SAMPLES”; condition “All [P1-MT-PRIMARY-SAMPLES-I02] who Escape from the Facility must be carrying at least 2 Eggs in total among them (no matter if they Survive after Escaping).”; footer “MISSION TASK”.
+  Evaluates via: INT-009, INT-011 (Escape definition), RT-009a, FND-012 (Nest and Eggs), ITM-002 (Eggs are Heavy Items), INT-011 (Survivor definition), RT-014
 - Official Objective Help Sheet `P1-MT-FACILITY-RESTART` — threshold “2+” with `[P1-MT-FACILITY-RESTART-I01]`; title “FACILITY RESTART”; condition “The Hibernatorium must be [P1-MT-FACILITY-RESTART-I02] (by using the Life Support Control C). AND The Reactor (Section C) must be shut down (by using the Room).”; note “Shutting down the Reactor is not marked during the game but you may check it at the End of the Game by looking if the Autodestruction token has been removed from the game.”; footer “MISSION TASK”.
+  Evaluates via: INT-009 (Hibernation), FND-012 (Reactor), ROOM-22 Reactor table row (proposed, P3); evaluation method: official note “Autodestruction token removed from the game”
 - Official Objective Help Sheet `P1-MT-ERADICATION` — threshold “3+” with `[P1-MT-ERADICATION-I01]`; title “ERADICATION”; condition “The Queen must be dead. AND The Facility must NOT be destroyed.”; footer “MISSION TASK”.
+  Evaluates via: INT-007, INT-010
 - Official Objective Help Sheet `P2-GT-01` — retain the separate page-2 **FULFILLED** occurrence with the same exact definition as `P1-GT-01`.
+  Evaluates via: INT-011 (Objective semantics)
 - Official Objective Help Sheet `P2-PO-CORPORATE-CONTRACT` — top instruction “Remove the other Objective from the game to: Progress the Objective Choice track once and draw [P2-PO-CORPORATE-CONTRACT-I01] accordingly.”; threshold “5+” with `[P2-PO-CORPORATE-CONTRACT-I02]`; title “CORPORATE CONTRACT”; condition “The [P2-PO-CORPORATE-CONTRACT-I03] number 5 must NOT Survive (unavailable if you are the [P2-PO-CORPORATE-CONTRACT-I04] number 5). OR You must be the only Survivor.”; footer “PRIVATE OBJECTIVE”.
+  Evaluates via: RT-002, FND-011 (Help-card numbers), INT-011 (Survivor definition), RT-014; GAP: Objective availability restriction has no corpus rule
 - Official Objective Help Sheet `P2-PO-LUXURIOUS-OFFER` — top instruction “Remove the other Objective from the game to: Progress the Objective Choice track once and draw [P2-PO-LUXURIOUS-OFFER-I01] accordingly.”; threshold “2+” with `[P2-PO-LUXURIOUS-OFFER-I02]`; title “LUXURIOUS OFFER”; condition “You must Survive carrying an Egg from the Nest (Section C).”; footer “PRIVATE OBJECTIVE”.
+  Evaluates via: INT-011 (Survivor definition), RT-014, FND-012 (Nest and Eggs), ITM-002 (Eggs are Heavy Items)
 - Official Objective Help Sheet `P2-PO-QUARANTINE` — top instruction “Remove the other Objective from the game to: Progress the Objective Choice track once and draw [P2-PO-QUARANTINE-I01] accordingly.”; threshold “3+” with `[P2-PO-QUARANTINE-I02]`; title “QUARANTINE”; condition “No [P2-PO-QUARANTINE-I03] can Escape from the Facility using the [P2-PO-QUARANTINE-I04] (Section A).”; note “No [P2-PO-QUARANTINE-I05] also includes your Character. Characters may still Hibernate and use the Escape Shuttle.”; footer “PRIVATE OBJECTIVE”.
+  Evaluates via: INT-009, INT-011 (Escape definition), RT-009a
 - Official Objective Help Sheet `P2-PO-INSIDER-INFORMATION` — preserve the metadata-only condition locator “Out of Surviving Characters you must be the only one with a Data token (from the Server Room in Section B).” with the occlusion and non-visible-transcription label; do not complete the face from inference.
+  Evaluates via: INT-011 (Survivor definition), RT-014, ROOM-19 (proposed, P3)
 - Official Objective Help Sheet `P2-PO-SHUTDOWN` — top instruction “Remove the other Objective from the game to: Progress the Objective Choice track once and draw [P2-PO-SHUTDOWN-I01] accordingly.”; threshold “2+” with `[P2-PO-SHUTDOWN-I02]`; title “SHUTDOWN”; condition “All Life Support tokens must be [P2-PO-SHUTDOWN-I03], or removed from the game. AND You must have a Data token (from the Server Room in Section B).”; note “You can deactivate Life Support Systems by using Life Support Control Rooms “A”, “B”, and “C”, or by shutting down the Reactor in the Reactor Room in Section C.”; footer “PRIVATE OBJECTIVE”.
+  Evaluates via: FND-009, ROOM-14/18 (proposed, P3), ROOM-19 (proposed, P3)
 - Official Objective Help Sheet `P2-PO-EXPERIMENTAL-SUBJECTS` — top instruction “Remove the other Objective from the game to: Progress the Objective Choice track once and draw [P2-PO-EXPERIMENTAL-SUBJECTS-I01] accordingly.”; threshold “3+” with `[P2-PO-EXPERIMENTAL-SUBJECTS-I02]`; title “EXPERIMENTAL SUBJECTS”; condition “All [P2-PO-EXPERIMENTAL-SUBJECTS-I03] who Escape from the Facility must have at least 3 Contaminations in total among them (no matter if they Survive after Escaping).”; note “Count all Contaminations in all players’ decks (including yours) who have Escaped from the Facility. It is irrelevant if they die during the final Eclosion Procedure.”; footer “PRIVATE OBJECTIVE”.
+  Evaluates via: INT-009, INT-011 (Escape definition), RT-009a, INT-008, INT-011 (Survivor definition), RT-014
 - Official Objective Help Sheet `P2-PO-THE-GREAT-HUNT` — top instruction “Remove the other Objective from the game to: Progress the Objective Choice track once and draw [P2-PO-THE-GREAT-HUNT-I01] accordingly.”; threshold “2+” with `[P2-PO-THE-GREAT-HUNT-I02]`; title “THE GREAT HUNT”; condition “The Queen must be dead.”; footer “PRIVATE OBJECTIVE”.
+  Evaluates via: INT-007
 - Official Objective Help Sheet `P2-PO-VENI-VIDI-VICI` — top instruction “Remove the other Objective from the game to: Progress the Objective Choice track once and draw [P2-PO-VENI-VIDI-VICI-I01] accordingly.”; threshold “2+” with `[P2-PO-VENI-VIDI-VICI-I02]`; title “VENI, VIDI, VICI”; condition “The Nest (Section C) must be destroyed.”; footer “PRIVATE OBJECTIVE”.
+  Evaluates via: FND-012 (Nest), ACT-ROOM-001 Nest-destruction marker (proposed, P3)
 - Official Objective Help Sheet `P2-NOTE-RANKING-CHOICE` — “If you are the lowest ranking Character you cannot choose the first option. If you are the highest ranking Character you cannot choose the second option.” Retain the note as an explanatory source unit with no assigned card ownership.
+  Evaluates via: FND-004 (Rank); GAP: Objective option ownership has no corpus rule
 - Official Objective Help Sheet `P1-MO-OFFICIAL-ORDER-1` — retain the separately inventoried, partially occluded official occurrence with top instruction “Remove the other Objective from the game to: Progress the Objective Choice track once and draw [P1-MO-OFFICIAL-ORDER-3-I01] accordingly.”; threshold “2+” with `[P1-MO-OFFICIAL-ORDER-3-I02]`; title “OFFICIAL ORDER”; condition “The Mission Task must be fulfilled.”; footer “MISSION OBJECTIVE”.
+  Evaluates via: INT-011 (Objective semantics)
 - Official Objective Help Sheet `P1-MO-OFFICIAL-ORDER-2` — retain the separately inventoried, partially occluded official occurrence with top instruction “Remove the other Objective from the game to: Progress the Objective Choice track once and draw [P1-MO-OFFICIAL-ORDER-3-I01] accordingly.”; threshold “2+” with `[P1-MO-OFFICIAL-ORDER-3-I02]`; title “OFFICIAL ORDER”; condition “The Mission Task must be fulfilled.”; footer “MISSION OBJECTIVE”.
+  Evaluates via: INT-011 (Objective semantics)
 - Official Objective Help Sheet `P1-MO-OFFICIAL-ORDER-3` — retain the fully visible official occurrence with top instruction “Remove the other Objective from the game to: Progress the Objective Choice track once and draw [P1-MO-OFFICIAL-ORDER-3-I01] accordingly.”; threshold “2+” with `[P1-MO-OFFICIAL-ORDER-3-I02]`; title “OFFICIAL ORDER”; condition “The Mission Task must be fulfilled.”; footer “MISSION OBJECTIVE”.
+  Evaluates via: INT-011 (Objective semantics)
 - Rulebook p. 39 `VENI, VIDI, VICI — player count` — “VENI, VIDI, VICI is eligible at 2 or more Characters.”
+  Evaluates via: INT-011 (Objective semantics); GAP: Objective player-count eligibility has no corpus rule
 - Rulebook p. 39 `VENI, VIDI, VICI — requirement` — “VENI, VIDI, VICI requires the Nest in Section C to be destroyed.”
+  Evaluates via: FND-012 (Nest), ACT-ROOM-001 Nest-destruction marker (proposed, P3)
 - Rulebook p. 39 `VENI, VIDI, VICI — type` — “VENI, VIDI, VICI is a Private Objective.”
+  Evaluates via: INT-011 (Objective semantics)
 - Rulebook p. 39 `PRIMARY SAMPLES — Escape group` — “Primary Samples applies to all Characters who Escape.”
+  Evaluates via: INT-009, INT-011 (Escape definition), RT-009a
 - Rulebook p. 39 `PRIMARY SAMPLES — Egg requirement` — “Escaping Characters collectively must carry at least 2 Eggs.”
+  Evaluates via: FND-012 (Nest and Eggs), ITM-002 (Eggs are Heavy Items)
 - Rulebook p. 39 `PRIMARY SAMPLES — type` — “Primary Samples is a Mission Task.”
+  Evaluates via: INT-011 (Objective semantics)
 
 IDs satisfied: `CARD-game-missionTaskDeck-game-missionTaskDeck-056.png`, `CARD-game-missionTaskDeck-game-missionTaskDeck-101.jpg`, `CARD-game-missionTaskDeck-game-missionTaskDeck-116.jpg`, `CARD-game-missionTaskDeck-game-missionTaskDeck-123.jpg`, `CARD-game-missionTaskDeck-game-missionTaskDeck-160_cards-card-00.png`, `CARD-game-missionTaskDeck-game-missionTaskDeck-160_cards-card-01.png`, `CARD-game-missionTaskDeck-game-missionTaskDeck-160_cards-card-02.png`, `CARD-game-missionTaskDeck-game-missionTaskDeck-160_cards-card-04.png`, `CARD-game-missionTaskDeck-game-missionTaskDeck-160_cards-card-05.png`, `CARD-game-missionTaskDeck-game-missionTaskDeck-160_cards-card-06.png`, `CARD-game-missionTaskDeck-game-missionTaskDeck-160_cards-card-07.png`, `CARD-game-missionTaskDeck-game-missionTaskDeck-160_cards-card-08.png`, `CARD-game-missionTaskDeck-game-missionTaskDeck-160_cards-card-09.png`, `CARD-game-objectiveMissonDeck-game-objectiveMissonDeck-060.jpg`, `CARD-game-objectiveMissonDeck-game-objectiveMissonDeck-162_cards-card-01.png`, `CARD-game-objectiveMissonDeck-game-objectiveMissonDeck-162_cards-card-04.png`, `CARD-game-objectiveMissonDeck-game-objectiveMissonDeck-162_cards-card-05.png`, `CARD-game-objectiveMissonDeck-game-objectiveMissonDeck-162_cards-card-06.png`, `CARD-game-objectiveMissonDeck-game-objectiveMissonDeck-162_cards-card-08.png`, `CARD-game-objectiveMissonDeck-game-objectiveMissonDeck-162_cards-card-11.png`, `CARD-game-objectiveMissonDeck-game-objectiveMissonDeck-162_cards-card-12.png`, `CARD-game-objectiveMissonDeck-game-objectiveMissonDeck-162_cards-card-13.png`, `CARD-game-objectiveMissonDeck-game-objectiveMissonDeck-162_cards-card-14.png`, `CARD-game-objectiveMissonDeck-game-objectiveMissonDeck-162_cards-card-15.png`, `CARD-game-objectiveMissonDeck-game-objectiveMissonDeck-162_cards-card-16.png`, `CARD-game-objectiveMissonDeck-game-objectiveMissonDeck-162_cards-card-17.png`, `CARD-game-objectiveMissonDeck-game-objectiveMissonDeck-162_cards-card-18.png`, `CARD-game-objectiveMissonDeck-game-objectiveMissonDeck-162_cards-card-19.png`, `CARD-game-objectivePersonalDeck-game-objectivePersonalDeck-014.jpg`, `CARD-game-objectivePersonalDeck-game-objectivePersonalDeck-066.jpg`, `CARD-game-objectivePersonalDeck-game-objectivePersonalDeck-156.jpg`, `CARD-game-objectivePersonalDeck-game-objectivePersonalDeck-157.jpg`, `CARD-game-objectivePersonalDeck-game-objectivePersonalDeck-158.jpg`, `CARD-game-objectivePersonalDeck-game-objectivePersonalDeck-159.jpg`, `CARD-game-objectivePersonalDeck-game-objectivePersonalDeck-161.jpg`, `OBJ-0`, `OBJ-12`, `OBJ-13`, `OBJ-16`, `OBJ-17`, `OBJ-20`, `OBJ-21`, `OBJ-22`, `OBJ-30`, `OBJ-34`, `OBJ-35`, `OBJ-36`, `OBJ-38`, `OBJ-39`, `OBJ-42`, `OBJ-43`, `OBJ-44`, `OBJ-7`, `OBJ-8`, `OBJ-9`, `RB-P39-022.fact`, `RB-P39-023.rule`, `RB-P39-024.fact`, `RB-P39-027.rule`, `RB-P39-028.rule`, `RB-P39-030.fact`.
 
@@ -165,6 +228,19 @@ The deactivation bullets remain separate: one source states the complete power-s
 
 IDs satisfied: `RB-P38-025.fact`, `RB-P38-032.rule`, `OBJ-26`, `OBJ-4`.
 
+### Evaluation gaps surfaced by cross-referencing
+
+- `literal TTS icon identities`: no corpus rule resolves the source-local icons in the ESSENTIAL DATA occurrence to Character/Lander semantics. Affected ID: `CARD-game-missionTaskDeck-game-missionTaskDeck-123.jpg`.
+- `corpses from the Hibernatorium`: no corpus rule defines the corpse identity, source, or placement. Affected IDs: `CARD-game-missionTaskDeck-game-missionTaskDeck-160_cards-card-05.png`, `CARD-game-objectiveMissonDeck-game-objectiveMissonDeck-162_cards-card-18.png`.
+- `[hibernatorium-active]` source-local state token: no corpus rule defines this literal TTS token without normalizing it to the official Hibernatorium state. Affected ID: `CARD-game-missionTaskDeck-game-missionTaskDeck-160_cards-card-08.png`.
+- `unresolved Life Support badge`: no corpus rule defines this literal TTS badge’s state meaning. Affected ID: `CARD-game-missionTaskDeck-game-missionTaskDeck-160_cards-card-08.png`.
+- `Objective-choice restriction`: no corpus rule maps the TTS instructions not to choose this Objective / to choose the Private Objective, or to choose this Objective. Affected IDs: `CARD-game-objectiveMissonDeck-game-objectiveMissonDeck-162_cards-card-04.png`, `CARD-game-objectiveMissonDeck-game-objectiveMissonDeck-162_cards-card-05.png`.
+- `Objective option ownership`: no corpus rule assigns the printed first/second options to a player or resolves the ranking-note choice restriction. Affected IDs: `CARD-game-objectiveMissonDeck-game-objectiveMissonDeck-162_cards-card-11.png`, `CARD-game-objectiveMissonDeck-game-objectiveMissonDeck-162_cards-card-12.png`, `CARD-game-objectiveMissonDeck-game-objectiveMissonDeck-162_cards-card-13.png`, `CARD-game-objectiveMissonDeck-game-objectiveMissonDeck-162_cards-card-14.png`, `CARD-game-objectiveMissonDeck-game-objectiveMissonDeck-162_cards-card-15.png`, `OBJ-44`.
+- `Player N eligibility`: no corpus rule defines eligibility for the source references to Players 6–10. Affected IDs: `CARD-game-objectivePersonalDeck-game-objectivePersonalDeck-156.jpg`, `CARD-game-objectivePersonalDeck-game-objectivePersonalDeck-157.jpg`, `CARD-game-objectivePersonalDeck-game-objectivePersonalDeck-158.jpg`, `CARD-game-objectivePersonalDeck-game-objectivePersonalDeck-159.jpg`, `CARD-game-objectivePersonalDeck-game-objectivePersonalDeck-161.jpg`.
+- `10+ source-local scope marker`: no corpus rule defines its base-game eligibility. Affected ID: `CARD-game-objectivePersonalDeck-game-objectivePersonalDeck-161.jpg`.
+- `Objective availability restriction`: no corpus rule defines the unavailable-if-number-5 restriction on CORPORATE CONTRACT. Affected ID: `OBJ-30`.
+- `Objective player-count eligibility`: no corpus rule maps the VENI, VIDI, VICI 2+ Character eligibility assertion. Affected ID: `RB-P39-022.fact`.
+
 ## Flags
 
 - `CARD-game-missionTaskDeck-game-missionTaskDeck-056.png`: conflicts with the official ERADICATION occurrence on `killed` versus `dead` and the Facility wording; preserve both source variants.
@@ -189,3 +265,4 @@ IDs satisfied: `RB-P38-025.fact`, `RB-P38-032.rule`, `OBJ-26`, `OBJ-4`.
 ## Closure
 
 IDs assigned: 68. IDs in table: 68. IDs in consolidated blocks: 68.
+Entries with Evaluates via: 61 of 61.
