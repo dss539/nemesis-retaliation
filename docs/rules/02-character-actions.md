@@ -200,7 +200,7 @@
 - **Autonomy:** The Robot does nothing on its own. **Source:** `RB-P37-005` / Rulebook p. 37, `ROBOT — no autonomy`.
 - **Assigned Actions:** The Robot performs only Actions assigned by Characters. **Source:** `RB-P37-006` / Rulebook p. 37, `ROBOT — assigned Actions`.
 - **Intruders:** Intruders always ignore the Robot. **Source:** `RB-P37-009` / Rulebook p. 37, `ROBOT — Intruder immunity`.
-- **Malfunction source wording:** All game effects mentioning the Robot are unavailable while it has a Malfunction marker. **Source:** `RB-P37-020` / Rulebook p. 37, `MALFUNCTION MARKER ON THE ROBOT — effects unavailable`.
+- **Malfunction source wording:** All game effects mentioning the Robot are unavailable while it has a Malfunction marker. **Source:** `RB-P37-020` / Rulebook p. 37, `MALFUNCTION MARKER ON THE ROBOT — effects unavailable`. Rulebook p. 23 states the exception that effects which only require a Robot (its example: a Secure Action card) can still be used and that Tactical Gear tokens on the Robot remain available; see the Malfunction-markers Robot bullet below. The two pages are preserved side by side; no reconciliation is adopted here.
 
 ### Source-scoped Robot-card occurrences
 

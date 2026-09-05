@@ -178,7 +178,7 @@ are categorized and named in the card database.
 | CARD-game-yellowitem-game-yellowitem-146_cards-card-01.png | title not present in fragment; `ONE USE ONLY. SPECIAL WEAPON` | **Plain rule (literal source text):** Discard a [fire]. OR 1 chosen [intruder] in your Room Escapes.<br>**Source:** TTS source-bound variant, `assets/tts-mod/extract/v2-dl/tree/cards/game/yellowitem-146_cards/card-01.png`; not an official replacement. |
 | CARD-game-yellowitem-game-yellowitem-146_cards-card-02.png | `ROBOT CONTROLLER` | **Plain rule:** Use the [robot] from anywhere in the Facility. OR If [robot] is not on the board yet, place it in your Room.<br>**Source:** TTS source-bound variant, `assets/tts-mod/extract/v2-dl/tree/cards/game/yellowitem-146_cards/card-02.png`; not an official replacement. |
 | RB-P29-002.rule | official `MILITARY TASER` occurrence | **Plain rule:** Military Taser may Repel 1 Intruder from the Room.<br>**Source:** Official Rulebook p. 29, “MILITARY TASER — first option,” `RB-P29-002`. |
-| RB-P29-039.rule | official `GRENADE LAUNCHER` occurrence | **Plain rule:** When Bursting with Grenade Launcher, the Character may use any number of loaded Grenade tokens from this Weapon before or instead of a normal Burst.<br>**Source:** Official Rulebook p. 29, “GRENADE LAUNCHER — Burst effect,” `RB-P29-039`. |
+| RB-P29-039.rule | official `GRENADE LAUNCHER` occurrence | **Plain rule:** When Bursting with Grenade Launcher, the Character may use any number of Grenade tokens from this Weapon before or instead of a normal Burst.<br>**Source:** Official Rulebook p. 29, “GRENADE LAUNCHER — Burst effect,” `RB-P29-039`. |
 
 #### General, passive, and Duct Tape source rows
 
