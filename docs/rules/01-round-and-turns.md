@@ -150,6 +150,7 @@
   1. Pass the Starting Player token clockwise to the next player.
   2. Each player draws Action cards until they have five in hand.
   3. Advance the Round marker one space. If the marker enters a space containing another token, resolve that token immediately.
+- **Starting Player Token Passing (Project Interpretation, OQ-003):** When the Starting Player token passes clockwise during Cleanup (step 1), it skips players whose Characters have died, escaped, or hibernated. A Character waiting inside an unlaunched Lander remains eligible to receive the Starting Player token.
 - **Anti-Aircraft trigger:** Resolve Anti-Aircraft tokens when the Round and Lander tokens occupy the same Round-track space, regardless of which token was placed there last. **Source:** `RB-P37-050` / Rulebook p. 37, `RESOLVING ANTI-AIRCRAFT TOKENS — trigger`.
 - **Action-deck reshuffle:** Whenever a Character must draw an Action card from an empty Action deck, including outside the Cleanup Phase, first reshuffle all cards from that Character’s discard pile to form a new Action deck, then continue drawing.
 - **Round-limit condition:** If the Round marker is already on its final space, do not advance it; proceed to End of the Game instead.
@@ -167,6 +168,7 @@
 
 - **Source:** Rulebook p. 13, “Orders and Commands” (extracted text lines 3095–3105).
 - **Plain rule:** Some effects allow a Character to perform an Action using another Character. The owner of that effect chooses the target of the ordered Action. Characters who have Passed may still be ordered.
+- **Nested Command Costs & Resources (Project Interpretation, SEM-Q-059):** The player playing the Command card pays the printed Action card cost of the Command card. The commanded Character does not spend Action cards from hand to perform the ordered Action. If the ordered Action requires specific non-card resources (such as spending an Ammo token to shoot a Weapon), the commanded Character must spend those resources from their own equipment unless the Command card explicitly states otherwise. Choices inherent to the ordered Action (e.g. target, path) are made by the commanding player unless specified by the card.
 - **Restriction:** A command may never result in an Intruder Opportunity Attack against the ordered Character (e.g., ordering a Move out of a Room with Intruders or through a Corridor with them).
 
 ## RT-014 — Death, escape, and hibernation participation

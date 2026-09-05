@@ -79,7 +79,8 @@
 - **Base-game icon boundary:** The Insider icon has no base-game function. **Source:** Rulebook p. 24, `EXPLORATION SEQUENCE 6 — Insider icon`.
 - **Base-game resolution:** Ignore the Insider icon in base-game play. **Source:** Rulebook p. 24, `EXPLORATION SEQUENCE 6 — ignore`.
 
-- **Boundary:** The card rows remain source occurrences/variants; they do not replace the official Exploration Sequence. `SEM-Q-002` remains open on whether a Noise-roll Entrance Effect is additional to the universal post-Movement Noise requirement.
+- **Boundary:** The card rows remain source occurrences/variants; they do not replace the official Exploration Sequence.
+- **Exploration Noise vs. Movement Noise (Project Interpretation, SEM-Q-002):** In accordance with Rulebook p. 24 (Movement Sequence 3.a vs. 3.b), moving into an Undiscovered Room through an Unexplored Corridor replaces step 3.a with the Exploration Sequence (3.b). In step 6 of Exploration (Entrance Effect), a Noise roll occurs **only** if the card’s Entrance Effect explicitly instructs a Noise roll. No additional post-movement Noise roll is made after resolving or discarding the Exploration card.
 
 ## ACT-SHOOT-001 — Shoot
 
@@ -185,6 +186,8 @@
 - **Cost:** 1 Action card.
 - **Setup:** Shuffle all Robot cards, draw 1 without looking at it, and leave every unselected Robot card unseen in the box. Place the Robot model on the Hibernatorium.
 - **Restriction:** Not In Combat. The selected Robot card must have been revealed and the Robot must not have a Malfunction marker.
+- **Robot Movement & Route Timing (Project Interpretation, SEM-Q-013):** When a Robot effect permits moving up to N times, the player who activated the Robot chooses each step sequentially. The route does not have to be predeclared all at once. Moving 0 times is legal under "up to N".
+- **Exploration Robot Noise Modality (Project Interpretation, SEM-Q-014):** When the Exploration Robot enters an Undiscovered Room through an Unexplored Corridor, it resolves Room and Corridor placement but does not resolve the Entrance Effect. In the core base game, the Exploration Robot never makes a Noise roll.
 - **Source:** Rulebook p. 8, “Game Setup” (lines 2421–2459); p. 12, “Basic Actions List” and `RB-P12-V02`; pp. 14 and 17, “Effects” and “Golden Rules”; p. 37, “Robot”; exact component family in `docs/rules/semantics/robot-source-index.json`.
 - **Activation route:**
   - **Local:** the acting Character is in the Robot’s Room; pay only the normal 1-card cost.

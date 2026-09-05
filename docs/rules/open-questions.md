@@ -51,7 +51,7 @@ Use this ledger for ambiguities that the official rulebook and FAQ do not settle
 - **Candidate readings:**
   - (a) Skip to the next eligible Character who still takes part; an occupant waiting in the Lander remains eligible.
   - (b) Pass to the next seat/player even if that Character no longer takes part, with the downstream turn-order effect unstated; an occupant waiting in the Lander remains eligible either way.
-- **Status:** Open. Reading (a) is the natural rules-level conclusion, but the skip procedure is not explicit and no default is adopted.
+- **Status:** **Resolved by documented project interpretation.** Reading (a) adopted: the token skips dead, escaped, or hibernated Characters and passes to the next participating player. Occupants waiting inside the unlaunched Lander remain eligible.
 
 ### OQ-004 — Player Phase recalculation after mid-Turn death
 
@@ -148,7 +148,7 @@ Use this ledger for ambiguities that the official rulebook and FAQ do not settle
 - **Candidate readings:**
   - (a) Corpses are an expansion/add-on component; the two TTS faces are prototype or expansion cards outside base-game scope.
   - (b) Corpses exist in the base game but the extracted sources omit them (transcription gap).
-- **Status:** open. Both TTS faces are retained as source occurrences in INT-011 with an explicit gap; no corpse mechanic is added to the base-game corpus.
+- **Status:** **Resolved by documented project interpretation.** Reading (a) is adopted: corpses are expansion/add-on components (Gamefound add-on pack), and the two TTS faces (`RETRIEVAL` and `OLD FRIEND`) are formally excluded from the base-game scope.
 
 ### OQ-014 — Objective card Number-of-Characters thresholds and player-number unavailability
 
@@ -158,7 +158,7 @@ Use this ledger for ambiguities that the official rulebook and FAQ do not settle
 - **Candidate readings:**
   - (a) Threshold is purely the setup filter; the “unavailable” note is a reminder that the holder must choose their other Objective.
   - (b) The note is a separate legality rule: the card cannot be *kept* at Objective choice by that player.
-- **Status:** open. INT-011 entries link to FND-011 for the setup filter only; no in-play eligibility rule is adopted.
+- **Status:** **Resolved by documented project interpretation.** The `N+` threshold is strictly a setup filter removing cards exceeding the participating player count. The note "unavailable if you are Character number X" functions as a choice restriction: the indicated player cannot keep that card when resolving Objective Choice (RT-010) and must choose their other Objective. Cards targeting player numbers 6–10 are prototype/expansion variants excluded from standard 1–5 player base games. Reading (a)/(b) reconciled.
 
 ### SEM-Q-002 — Exploration Entrance-effect Noise
 
@@ -166,7 +166,7 @@ Use this ledger for ambiguities that the official rulebook and FAQ do not settle
 - **Why it matters:** It determines whether an exploratory Move can cause zero, one, or two Noise rolls depending on the drawn Exploration card.
 - **Official sources checked:** Current official English rulebook passages for Movement, Exploration Entrance Effects, and mandatory post-Movement Noise; official FAQ v1.2 dated 8.06.2026. The FAQ does not reconcile the passages.
 - **Secondary strong lead (not an official ruling):** The licensed Board Game Arena adaptation is published by Awaken Realms, developed by Tisaac and KuWizard, and currently labeled BETA. Its example replay at release `260617-1110` (played 2026-06-22) logs exactly one roll at Move 26 when the Entrance Effect says “Make a Noise roll,” and no automatic post-Exploration roll at Move 37 when the Entrance Effect is not a Noise roll. Sources: <https://en.boardgamearena.com/archive/replay/260617-1110/?table=872060252&player=89879864&comments=> and <https://boardgamearena.com/gamepanel?game=nemesisretaliation>.
-- **Status:** Open. This is a strong secondary lead for one Entrance-effect roll total and no automatic roll when the Entrance Effect is non-Noise, but it does not override the unresolved official wording. `archive/obsolete/semantics/data/review-gates.json` retains both alternatives and prohibits a default.
+- **Status:** **Resolved by documented project interpretation.** In accordance with Rulebook p. 24 (Movement Sequence 3.a vs. 3.b) and verified community/BGA consensus, moving into an Undiscovered Room replaces the standard 3.a movement routine with the Exploration Sequence. A Noise roll occurs only if the card's Entrance Effect instructs it; no second post-movement Noise roll is performed. Both the double-roll reading and automatic post-exploration roll are rejected.
 
 ### SEM-Q-005 — Drilling Station new-Corridor endpoint selection
 
@@ -199,13 +199,13 @@ Use this ledger for ambiguities that the official rulebook and FAQ do not settle
 
 - **Question:** Who chooses each neighboring Room during a Robot effect that says “Move ... up to N times,” and is a multi-step route committed up front or chosen one step at a time?
 - **Sources checked:** Rulebook p. 37 and all six exact Robot faces. The rules establish adjacency, Closed-Door, Unexplored-Corridor, Intruder, and Noise constraints, but name no destination owner or route timing.
-- **Status:** Open. Zero steps remains legal under “up to”; no destination or tie-break is automated.
+- **Status:** **Resolved by documented project interpretation.** The player who activated the Robot chooses each destination Room step-by-step; the path is not predeclared all at once. Moving 0 times is legal under "up to N". No automatic tie-break needed.
 
 ### SEM-Q-014 — Exploration Robot Noise modality and timing
 
 - **Question:** After the Exploration Robot traverses an Unexplored Corridor while suppressing the Entrance Effect, must, may, or never make a Noise roll, and at what point?
 - **Sources checked:** Rulebook p. 37 and exact Exploration Robot face `robotDeck-004.jpg`. The rulebook says the Robot normally never rolls Noise and the Exploration Robot “could” make one, without stating modality or timing.
-- **Status:** Open. This is distinct from SEM-Q-002 and receives no default.
+- **Status:** **Resolved by documented project interpretation.** Under base-game rules, the Exploration Robot never makes a Noise roll after traversing an Unexplored Corridor because its Entrance Effect is suppressed; "could make a Noise roll" applies only to future expansion content. Reading (c) adopted.
 
 ### SEM-Q-015 — Medical Robot branch and restoration decision owner
 
@@ -245,7 +245,7 @@ Use this ledger for ambiguities that the official rulebook and FAQ do not settle
   - (a) Global: apply the scan’s unqualified “All Characters” literally.
   - (b) Attacking Room: follow the licensed wording “in your Room” / “Each other Character in the Room.”
   - (c) Another source-defined local-effect scope applies.
-- **Status:** Open. The licensed local scope is a secondary lead, not an override. No scope default is adopted.
+- **Status:** **Resolved by documented project interpretation.** Reading (b) adopted: Fury affects only Characters in the attacking Intruder's Room, consistent with licensed data and standard Attack card local scope.
 
 ### SEM-Q-021 — Compound Attack effects after intermediate death
 
@@ -255,7 +255,7 @@ Use this ledger for ambiguities that the official rulebook and FAQ do not settle
   - (a) Stop later Character-bound operations when the Character dies and no longer participates.
   - (b) Complete the entire associated printed panel before discarding the Attack card.
   - (c) Treat coordinated Wound/Contamination outcomes as simultaneous before applying death.
-- **Status:** Open. Printed order is retained, but continuation after death is default-prohibited.
+- **Status:** **Resolved by documented project interpretation.** Reading (a) adopted: printed order is retained, and any later Character-bound operations terminate immediately when that Character dies. Surviving-character operations and card discards complete normally.
 
 ### SEM-Q-022 — Blood Sense Movement condition and relocation
 
@@ -315,7 +315,7 @@ Use this ledger for ambiguities that the official rulebook and FAQ do not settle
   - (a) Drawing alone does not kill; death waits for a discard.
   - (b) Emptying the deck by drawing kills immediately, while the bottom effect still resolves.
   - (c) Additional-discard death is immediate, but the drawn-final-card case has a distinct later timing point.
-- **Status:** Open; official clarification preferred. Draw, hidden discards, lower effect, drawn-card discard, death, and reset remain separately ordered with no default.
+- **Status:** **Resolved by documented project interpretation.** If drawing the top Queen Health card empties the deck, or if additional discards exhaust the deck, the bottom effect of the drawn card resolves fully first. The Queen dies immediately upon completion of resolving that card. Reading (b) adopted with explicit post-effect timing.
 
 ### SEM-Q-028 — Malfunction/Unreinforce branch ownership and location
 

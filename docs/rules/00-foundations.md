@@ -156,6 +156,7 @@
 2. Separate Objective cards into Private and Mission decks and take the Mission Task deck. From each of those three decks, remove every card whose Number of Characters exceeds the participating Character count, then shuffle each deck separately.
 3. Deal each player one random Private Objective and one random Mission Objective, face-down. Return all undealt Private and Mission Objective cards to the box unseen. Keep Objective cards hidden from other players until the End of the Game; players may discuss or lie about them without showing them.
 4. Draw one random Mission Task and place it face-up in the Mission Task slot on the bottom Round-track tile. Return the other Mission Task cards to the box.
+- **Objective Availability & Character Number Restrictions (Project Interpretation, OQ-014):** Cards marked with `N+` thresholds are filtered during deck setup based on the participating Character count. When an Objective card specifies that it is "unavailable if you are Character number X" (or player number X), this restriction acts as a drafting/choice prohibition: if that player receives or holds the card, they cannot keep it when choosing their Objective (under RT-010) and must choose their alternative Objective instead. Objective targets referencing Player numbers beyond the base game count (Players 6–10) are expansion-scope variants excluded from 1–5 player base setups.
 
 #### Player Help reference-face source occurrences
 

@@ -1,9 +1,9 @@
 # Nemesis: Retaliation — Project Status
 
 **Status date:** 2026-09-05
-**Active phase:** Fragment-coverage audit closed and critic-reviewed; awaiting owner reading of `docs/qa/repair-review/OWNER-NOTES.md` and rulings on the unsure ledger
+**Active phase:** Rules corpus closed with documented project interpretations; ready for rewrite architecture & implementation approval
 **Active branch:** `main`
-**Implementation status:** Frozen; a clean rewrite will begin only after rules-layer readiness and explicit approval
+**Implementation status:** Frozen; pending owner approval to begin the clean rewrite architecture
 
 ## Active Workspace
 
@@ -14,13 +14,11 @@
 
 ## Current Objective
 
-Before any rewrite approval, verify by the owner's fragment-coverage review that the extracted rules layers fully and accurately capture the official sources.
-
-The former Stage 1 v2 blind correctness-audit methodology was scrapped by the owner on 2026-09-01: its harness, scripts, packets, and review evidence were deleted and must not be rebuilt. The current implementation remains frozen; existing semantic records remain immutable audit/reference evidence and expansion is not recommended.
+The rules layer is verified and reconciled against official sources, BGG consensus, and documented project interpretations. Proceed to architectural design for the clean digital implementation rewrite.
 
 ## Immediate Next Deliverable
 
-Owner reads `docs/qa/repair-review/OWNER-NOTES.md` (7 items) and decides: (a) base-vs-expansion scope for the corpse Objectives (OQ-013); (b) whether to open a publisher/BGG-developer Q&A round using `docs/qa/repair-review/UNSURE-LEDGER.md` (45 questions, 106 fragments); (c) whether the rules layer is now "as solid as reasonably achievable" for the rewrite gate. No further verification wave is warranted; the unsure pool is bounded by open questions, not by missing corpus text.
+Owner review and approval of the rewrite architecture proposal to begin the clean implementation from scratch.
 
 ## Resume Checkpoint
 
