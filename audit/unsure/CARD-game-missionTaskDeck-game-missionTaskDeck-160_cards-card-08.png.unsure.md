@@ -1,0 +1,3 @@
+Model: `gpt-5.6-luna`
+Provider: `openai-codex`
+Evidence: Coordinator review converted verifier fail to unsure: the exact TTS face is captured verbatim in INT-011 with its unresolved badge preserved literally and its conflict with official P1-MT-FACILITY-RESTART recorded; the badge identity is an open source question, not a corpus omission. Verifier finding: 03-intruders-and-survival.md records the TTS occurrence but explicitly lists gaps for this ID: the source-local hibernatorium-active token and unresolved Life Support badge have no corpus-defined meaning; the official Facility Restart occurrence also materially conflicts.

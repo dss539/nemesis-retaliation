@@ -88,7 +88,7 @@
 ### Rulebook-illustrated Event effects
 
 - **Rise of the Machine — movement:** Move all Drones in Corridors of the shown orientation, then move all Drones in every Room.
-- **Rise of the Machine — main effect:** Place a Malfunction marker on the Robot, then place a Malfunction marker in the Room containing the Robot.
+- **Rise of the Machine — main effect:** Place a Malfunction marker on the Robot, then place a Malfunction marker in the Room containing the Robot. Each Character in that Room loses 2 Health. (`RB-P14-019`–`RB-P14-021`.)
 - **Rise of the Machine — secondary effect:** Place a Noise marker in every Unexplored Corridor that does not already have one.
 - **Short Circuit — movement:** First move every Intruder in a Corridor of the diagonal orientation shown on the card; then move every Intruder currently in a Room.
 - **Short Circuit — main effect:** In each Section whose Life Support is inactive, place Fire in every Room with a Computer icon.

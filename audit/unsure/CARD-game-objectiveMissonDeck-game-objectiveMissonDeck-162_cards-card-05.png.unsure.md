@@ -1,0 +1,3 @@
+Model: `gpt-5.6-luna`
+Provider: `openai-codex`
+Evidence: Coordinator review converted verifier fail to unsure: the exact TTS face is captured verbatim in INT-011; the choose/cannot-choose instruction is a source-variant Objective-selection restriction with no official base-game counterpart, and Objective eligibility semantics are held open as OQ-014. Verifier finding: Fail: docs/rules/03-intruders-and-survival.md records the ULTERIOR MOTIVE text, including ‘You must choose this Objective’ and ‘Mission Task must not be Fulfilled,’ but explicitly marks the Objective-choice restriction as uncovered for this occurrence (lines 516, 568).
