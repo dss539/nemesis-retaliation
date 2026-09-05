@@ -140,6 +140,26 @@ Use this ledger for ambiguities that the official rulebook and FAQ do not settle
   - (b) Other combat-related restriction
 - **Status:** RESOLVED — page 40 labels its crossed-out-Intruder symbol **Not In Combat**: an Action with this icon cannot be performed in a Room with Intruders. Printed Action cards may instead use a white-gun/red-X symbol; the user confirmed that card-art variant has the same meaning. Reading (a) adopted; canonical identifier `[notInCombat]`.
 
+### OQ-013 — Hibernatorium corpses as carried Objective items
+
+- **Question:** What is a “Corpse from the Hibernatorium”, how does a Character obtain one, how is it carried, and what happens to it on death, trade, or escape?
+- **Why it matters:** TTS Mission Task `RETRIEVAL` (“At least 3 corpses from Hibernatorium must be in the Landing Zone”) and TTS Mission Objective `OLD FRIEND` (“Escape … with at least 1 Corpse from the Hibernatorium”) cannot be evaluated without a corpse component and pickup rule.
+- **Sources checked:** Official rulebook pp. 3–5 component inventory and pp. 19–21 Room text (`docs/rules/source-extraction/rulebook-pages/`), official Room Help Sheet and Objective Help Sheet extractions, FAQ v1.2 — none mention corpses. The only official-channel mention is the Gamefound store page (`docs/rules/source-extraction/official/gamefound-nemesis-retaliation-20260901.html`) listing corpses among *add-on pack* components.
+- **Candidate readings:**
+  - (a) Corpses are an expansion/add-on component; the two TTS faces are prototype or expansion cards outside base-game scope.
+  - (b) Corpses exist in the base game but the extracted sources omit them (transcription gap).
+- **Status:** open. Both TTS faces are retained as source occurrences in INT-011 with an explicit gap; no corpse mechanic is added to the base-game corpus.
+
+### OQ-014 — Objective card Number-of-Characters thresholds and player-number unavailability
+
+- **Question:** Beyond the setup-time removal step in FND-011 (remove cards whose Number of Characters exceeds the participating count), do the printed `N+` thresholds and per-card notes such as `CORPORATE CONTRACT` “(unavailable if you are the [Character] number 5)” have any in-play effect, and how is a card that becomes unavailable to its holder handled?
+- **Why it matters:** Determines whether an Objective can be dealt to a player who cannot fulfil it, and whether the “unavailable” note is a deal-time filter, a choice-time restriction, or an evaluation-time failure.
+- **Sources checked:** Rulebook p. 10 “Objective Setup” (lines 14–20: remove cards with Number of Characters higher than participants); p. 39 `VENI, VIDI, VICI` example shows `2+`; Objective Help Sheet unit `P2-PO-CORPORATE-CONTRACT`. No source states what “unavailable” means procedurally.
+- **Candidate readings:**
+  - (a) Threshold is purely the setup filter; the “unavailable” note is a reminder that the holder must choose their other Objective.
+  - (b) The note is a separate legality rule: the card cannot be *kept* at Objective choice by that player.
+- **Status:** open. INT-011 entries link to FND-011 for the setup filter only; no in-play eligibility rule is adopted.
+
 ### SEM-Q-002 — Exploration Entrance-effect Noise
 
 - **Question:** When Movement explores an Undiscovered Room, does a Noise-roll Entrance Effect satisfy the post-Movement Noise requirement, or is it additional to a separate universal Noise roll?
