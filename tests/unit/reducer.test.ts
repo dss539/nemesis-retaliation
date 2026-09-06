@@ -92,10 +92,10 @@ describe('Game Reducer & Round/Turn Loop', () => {
     expect(state.characters['officer']?.discardPile.length).toBe(1);
     expect(state.activePlayerIndex).toBe(0); // Still player 1's turn
 
-    // Action 2: Officer performs a basic action (e.g. search, discarding 1 card)
+    // Action 2: Officer performs a basic action (place_secure, discarding 1 card)
     const cardToDiscard = state.characters['officer']!.hand[0]!;
     state = gameReducer(state, {
-      type: 'search',
+      type: 'place_secure',
       characterId: 'officer',
       discardCardIds: [cardToDiscard.id],
       actionId: 4,

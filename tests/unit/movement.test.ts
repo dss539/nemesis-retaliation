@@ -94,7 +94,8 @@ describe('Movement & Exploration Reducer Actions', () => {
     });
 
     const officer = state.characters.officer!;
-    const costCards = [officer.hand[0]!.id, officer.hand[1]!.id];
+    const costCard1 = officer.hand[0]!.id;
+    const costCard2 = officer.hand[1]!.id;
     const targetRoomId = 'slot_0_1';
 
     const nextState = gameReducer(state, {
@@ -102,7 +103,7 @@ describe('Movement & Exploration Reducer Actions', () => {
       type: 'move_cautiously',
       characterId: 'officer',
       targetRoomId,
-      discardCardIds: costCards,
+      discardCardIds: [costCard1, costCard2],
     });
 
     const updatedOfficer = nextState.characters.officer!;

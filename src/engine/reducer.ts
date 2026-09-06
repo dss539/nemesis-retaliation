@@ -15,6 +15,9 @@ import { ItemCard } from './types/items.js';
 import { DoorStateMachine } from './spatial/doors.js';
 import { executeExplorationSequence } from './spatial/exploration.js';
 import { resolveNoiseRoll } from './combat/noise.js';
+import { executeRoomSearch } from './actions/search.js';
+import { executeBurst, executeMelee, executeShoot, executeTrade } from './actions/combat-actions.js';
+import { executeRoomAction } from './actions/room-actions.js';
 
 export interface ReducerResult {
   state: GameState;
@@ -84,14 +87,90 @@ export function gameReducerWithEvents(state: GameState, action: GameAction): Red
       );
       break;
     }
-    case 'shoot':
-    case 'burst':
-    case 'melee':
-    case 'search':
-    case 'use_room':
-    case 'place_secure':
+    case 'shoot': {
+      nextState = handleBasicActionCost(nextState, action.characterId, action.discardCardIds, 'shoot', events, false);
+      const res = executeShoot(nextState, action.characterId, action.targetIntruderId, action.weaponId, prng);
+      nextState = res.state;
+      events.push(...res.events);
+      if (nextState.characters[action.characterId]?.actionsRemaining === 0) {
+        nextState = handleEndPlayerTurn(nextState, action.characterId, events);
+      }
+      break;
+    }
+    case 'burst': {
+      nextState = handleBasicActionCost(nextState, action.characterId, action.discardCardIds, 'burst', events, false);
+      const res = executeBurst(nextState, action.characterId, action.targetCorridorId, action.weaponId, prng);
+      nextState = res.state;
+      events.push(...res.events);
+      if (nextState.characters[action.characterId]?.actionsRemaining === 0) {
+        nextState = handleEndPlayerTurn(nextState, action.characterId, events);
+      }
+      break;
+    }
+    case 'melee': {
+      nextState = handleBasicActionCost(nextState, action.characterId, action.discardCardIds, 'melee', events, false);
+      const res = executeMelee(nextState, action.characterId, action.targetIntruderId, prng);
+      nextState = res.state;
+      events.push(...res.events);
+      if (nextState.characters[action.characterId]?.actionsRemaining === 0) {
+        nextState = handleEndPlayerTurn(nextState, action.characterId, events);
+      }
+      break;
+    }
+    case 'search': {
+      nextState = handleBasicActionCost(nextState, action.characterId, action.discardCardIds, 'search', events, false);
+      const res = executeRoomSearch(nextState, action.characterId, action.chosenItemIndexToKeep ?? 0, prng);
+      nextState = res.state;
+      events.push(...res.events);
+      if (nextState.characters[action.characterId]?.actionsRemaining === 0) {
+        nextState = handleEndPlayerTurn(nextState, action.characterId, events);
+      }
+      break;
+    }
     case 'trade': {
-      nextState = handleBasicActionCost(nextState, action.characterId, action.discardCardIds, action.type, events);
+      nextState = handleBasicActionCost(nextState, action.characterId, action.discardCardIds, 'trade', events, false);
+      const res = executeTrade(
+        nextState,
+        action.characterId,
+        action.targetCharacterId,
+        action.offeredItemIds[0],
+        action.requestedItemIds[0],
+      );
+      nextState = res.state;
+      events.push(...res.events);
+      if (nextState.characters[action.characterId]?.actionsRemaining === 0) {
+        nextState = handleEndPlayerTurn(nextState, action.characterId, events);
+      }
+      break;
+    }
+    case 'use_room': {
+      nextState = handleBasicActionCost(nextState, action.characterId, action.discardCardIds, 'use_room', events, false);
+      const res = executeRoomAction(nextState, action.characterId, prng);
+      nextState = res.state;
+      events.push(...res.events);
+      if (nextState.characters[action.characterId]?.actionsRemaining === 0) {
+        nextState = handleEndPlayerTurn(nextState, action.characterId, events);
+      }
+      break;
+    }
+    case 'place_secure': {
+      nextState = handleBasicActionCost(nextState, action.characterId, action.discardCardIds, 'place_secure', events, true);
+      const char = nextState.characters[action.characterId]!;
+      const r = nextState.board.rooms[char.currentRoomId]!;
+      nextState = {
+        ...nextState,
+        board: {
+          ...nextState.board,
+          rooms: {
+            ...nextState.board.rooms,
+            [r.slotId]: {
+              ...r,
+              secureTokens: r.secureTokens + 1,
+            },
+          },
+        },
+      };
+      events.push(`${char.name} placed a Secure token in ${r.tile?.name ?? r.slotId}`);
       break;
     }
     case 'pass': {
@@ -465,6 +544,7 @@ function handleBasicActionCost(
   discardCardIds: string[],
   actionType: string,
   events: string[],
+  triggerEndTurn: boolean = true,
 ): GameState {
   validatePlayerTurnAction(state, characterId);
 
@@ -499,7 +579,7 @@ function handleBasicActionCost(
     turnActionsTaken: state.turnActionsTaken + 1,
   };
 
-  if (updatedChar.actionsRemaining === 0) {
+  if (triggerEndTurn && updatedChar.actionsRemaining === 0) {
     return handleEndPlayerTurn(updatedState, characterId, events);
   }
 

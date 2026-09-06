@@ -8,7 +8,7 @@ import { CardId, CharacterId, CorridorId, ItemId, PlayerId, RoomId } from './pri
 
 export interface BaseAction {
   actionId: number;
-  timestamp: number;
+  timestamp?: number | undefined;
 }
 
 export interface DraftCharacterAction extends BaseAction {
@@ -60,6 +60,7 @@ export interface SearchAction extends BaseAction {
   type: 'search';
   characterId: CharacterId;
   discardCardIds: [CardId]; // Cost: 1 Action card
+  chosenItemIndexToKeep?: number | undefined;
 }
 
 export interface UseRoomAction extends BaseAction {
