@@ -14,11 +14,11 @@
 
 ## Current Objective
 
-Execute Stage 1 of the accepted rewrite architecture proposal: Headless Rules & State Engine in TypeScript + Vitest, strictly driven by the 2,126 audited rules/facts and documented project interpretations.
+Stage 1 (Headless Rules & State Engine) is complete and verified with 63 tests across 18 test files in Vitest. Proceed to Stage 2: Networking & Peer-to-Peer Synchronization Layer (PeerJS integration, host-coordinator, monotonic sequencing, failover).
 
 ## Immediate Next Deliverable
 
-Stage 1.3: Character Actions & Item Systems (Search, Shoot, Burst, Melee, Trade, Room Actions across 25 room types, and Tactical Gear). Stages 1.1 and 1.2 completed and verified (43 unit tests passing in Vitest).
+Stage 2.1: PeerJS Integration & Connection Lifecycle (room codes `nemesis-rt-XXXX`, virtual host message envelope, heartbeat monitoring, and failover).
 
 ## Resume Checkpoint
 

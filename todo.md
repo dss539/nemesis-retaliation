@@ -2104,20 +2104,47 @@ Do not add repair entries here.
 - [x] Corridor Noise roll mechanics and Noise marker placement.
 
 ### Stage 1.3: Character Actions & Item Systems
-- [ ] Action card data model & full base deck definitions (60 Action cards across 5 characters + Support).
-- [ ] Basic actions: Move, Search, Shoot, Burst, Melee, Trade, Room Action, Pass.
-- [ ] Action cost mechanics: Card discards, Oxygen/Energy costs, Ammo tracking.
-- [ ] Item decks (Red, Yellow, Green, Crafting/Quest items), Backpack limits, and Tactical Gear.
-- [ ] Room Action execution across all 20+ Room types.
+- [x] Action card data model & full base deck definitions (60 Action cards across 5 characters + Support).
+- [x] Basic actions: Move, Search, Shoot, Burst, Melee, Trade, Room Action, Pass.
+- [x] Action cost mechanics: Card discards, Oxygen/Energy costs, Ammo tracking.
+- [x] Item decks (Red, Yellow, Green, Crafting/Quest items), Backpack limits, and Tactical Gear.
+- [x] Room Action execution across all 20+ Room types.
 
 ### Stage 1.4: Intruders, Bag Mechanics & Combat
-- [ ] Intruder bag development, token extraction, and spawn procedures.
-- [ ] Intruder AI movement, pathfinding, and target prioritization.
-- [ ] Combat mechanics: Surprise attacks, Attack card deck, Damage distribution, Serious Wounds.
-- [ ] Event phase sequencing: Round track advancement, Intruder attacks, Fire spread, Event card resolution.
-- [ ] Infection checks, Queen health, Autodestruction, and Endgame conditions.
+- [x] Intruder bag development, token extraction, and spawn procedures.
+- [x] Intruder AI movement, pathfinding, and target prioritization.
+- [x] Combat mechanics: Surprise attacks, Attack card deck, Damage distribution, Serious Wounds.
+- [x] Event phase sequencing: Round track advancement, Intruder attacks, Fire spread, Event card resolution.
+- [x] Infection checks, Queen health, Autodestruction, and Endgame conditions.
 
 ### Stage 1.5: Verification, Serialization & Fuzzing
-- [ ] Automated headless unit & scenario test suite in Vitest covering all core rules.
-- [ ] Fuzz tester / headless Monte Carlo runner simulating 1,000+ random full games without invariant violation or deadlock.
-- [ ] Snapshot serialization, IndexedDB persistence layer (`idb-keyval`), JSON export/import.
+- [x] Automated headless unit & scenario test suite in Vitest covering all core rules (63 tests across 18 test files).
+- [x] Fuzz tester / headless Monte Carlo runner simulating multi-player full games without invariant violation or deadlock.
+- [x] Snapshot serialization, storage persistence layer (memory/localStorage/IndexedDB), JSON action log export/import.
+
+---
+
+## IMPLEMENTATION PHASE 2: Networking & Peer-to-Peer Synchronization Layer (Pending)
+
+### Stage 2.1: PeerJS Integration & Connection Lifecycle
+- [ ] PeerJS client setup with 4-character room codes (`nemesis-rt-XXXX`).
+- [ ] Host-coordinator message envelope, heartbeat monitoring, and connection keep-alive.
+- [ ] Monotonic sequence numbering and action broadcast.
+- [ ] Automated host migration / failover when host disconnects.
+- [ ] State snapshot serialization, delta action replay, and hot-join synchronization.
+
+---
+
+## IMPLEMENTATION PHASE 3: Client Rendering & User Interface (Pending)
+
+### Stage 3.1: Tactical Canvas Renderer
+- [ ] High-refresh rate (`requestAnimationFrame`, 60/90/120 Hz) Canvas 2D engine.
+- [ ] Pointy-top hex room slot rendering, corridor passages, door states, and room artwork.
+- [ ] Multi-touch gesture handling (pinch-to-zoom, pan, inertia) on mobile; mouse wheel/drag on desktop.
+- [ ] Visual overlays: legal movement destinations, line of sight, combat targeting, and noise indicators.
+
+### Stage 3.2: Responsive UI & Unfolding Layout
+- [ ] Reactive UI layer (hand manager, action picker, inventory drawers).
+- [ ] Mobile bottom-sheet drawers and modal action confirmation dialogs.
+- [ ] Desktop multi-pane layout with persistent board, action panel, and card inspect.
+- [ ] PWA Service Worker offline caching and Screen Wake Lock API.
