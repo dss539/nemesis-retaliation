@@ -5,13 +5,16 @@
 
 import { GameAction } from './types/actions.js';
 import { GameState } from './types/state.js';
-import { CharacterId, GamePhase, PlayerId } from './types/primitives.js';
+import { CharacterId, GamePhase, PlayerId, RoomId } from './types/primitives.js';
 import { CharacterState } from './types/characters.js';
 import { Mulberry32 } from './prng/mulberry32.js';
 import { OFFICIAL_CHARACTERS_BY_ID } from '../data/characters.js';
 import { ACTION_CARDS_BY_CHARACTER } from '../data/action-cards.js';
 import { ALL_ITEMS_BY_KEY } from '../data/items.js';
 import { ItemCard } from './types/items.js';
+import { DoorStateMachine } from './spatial/doors.js';
+import { executeExplorationSequence } from './spatial/exploration.js';
+import { resolveNoiseRoll } from './combat/noise.js';
 
 export interface ReducerResult {
   state: GameState;
@@ -56,8 +59,31 @@ export function gameReducerWithEvents(state: GameState, action: GameAction): Red
       nextState = handlePlayActionCard(nextState, action.characterId, action.cardId, events);
       break;
     }
-    case 'move':
-    case 'move_cautiously':
+    case 'move': {
+      nextState = handleMovement(
+        nextState,
+        action.characterId,
+        action.targetRoomId,
+        action.discardCardIds,
+        false,
+        prng,
+        events,
+      );
+      break;
+    }
+    case 'move_cautiously': {
+      nextState = handleMovement(
+        nextState,
+        action.characterId,
+        action.targetRoomId,
+        action.discardCardIds,
+        true,
+        prng,
+        events,
+        action.chosenCorridorId,
+      );
+      break;
+    }
     case 'shoot':
     case 'burst':
     case 'melee':
@@ -303,6 +329,134 @@ function handlePlayActionCard(
   }
 
   return updatedState;
+}
+
+function handleMovement(
+  state: GameState,
+  characterId: CharacterId,
+  targetRoomId: RoomId,
+  discardCardIds: string[],
+  isCautious: boolean,
+  prng: Mulberry32,
+  events: string[],
+  chosenCorridorId?: string,
+): GameState {
+  validatePlayerTurnAction(state, characterId);
+
+  const expectedCost = isCautious ? 2 : 1;
+  if (discardCardIds.length !== expectedCost) {
+    throw new Error(`${isCautious ? 'Cautious Movement' : 'Movement'} requires exactly ${expectedCost} card(s) as cost`);
+  }
+
+  const char = state.characters[characterId]!;
+  const handIds = new Set(char.hand.map(c => c.id));
+  for (const cid of discardCardIds) {
+    if (!handIds.has(cid)) {
+      throw new Error(`Cost card ${cid} is not in ${char.name}'s hand`);
+    }
+  }
+
+  // Find connecting corridor
+  const fromRoomId = char.currentRoomId;
+  const connectingCorridor = Object.values(state.board.corridors).find(
+    c => (c.slotA === fromRoomId && c.slotB === targetRoomId) ||
+         (c.slotB === fromRoomId && c.slotA === targetRoomId),
+  );
+
+  if (!connectingCorridor) {
+    throw new Error(`No corridor connects ${fromRoomId} and ${targetRoomId}`);
+  }
+
+  // Check Door State
+  if (!DoorStateMachine.allowsPassage(connectingCorridor.doorState)) {
+    throw new Error(`Cannot pass through ${connectingCorridor.doorState} door on corridor ${connectingCorridor.corridorId}`);
+  }
+
+  // Pay cost: discard cards from hand
+  const discarded = char.hand.filter(c => discardCardIds.includes(c.id));
+  const newHand = char.hand.filter(c => !discardCardIds.includes(c.id));
+  const newDiscard = [...discarded, ...char.discardPile];
+
+  let nextState: GameState = {
+    ...state,
+    characters: {
+      ...state.characters,
+      [characterId]: {
+        ...char,
+        hand: newHand,
+        discardPile: newDiscard,
+        actionsRemaining: char.actionsRemaining - 1,
+      },
+    },
+    turnActionsTaken: state.turnActionsTaken + 1,
+  };
+
+  const targetRoom = state.board.rooms[targetRoomId];
+  if (!targetRoom) {
+    throw new Error(`Target room slot ${targetRoomId} not found`);
+  }
+
+  // If room is undiscovered -> resolve exploration sequence!
+  if (!targetRoom.isDiscovered) {
+    const exploreRes = executeExplorationSequence(
+      nextState,
+      characterId,
+      connectingCorridor.corridorId,
+      targetRoomId,
+      prng,
+      isCautious,
+    );
+    nextState = exploreRes.state;
+    events.push(...exploreRes.events);
+  } else {
+    // Room is already discovered: simple move
+    const fromRoom = nextState.board.rooms[fromRoomId]!;
+    nextState = {
+      ...nextState,
+      board: {
+        ...nextState.board,
+        rooms: {
+          ...nextState.board.rooms,
+          [fromRoomId]: {
+            ...fromRoom,
+            characterIds: fromRoom.characterIds.filter(id => id !== characterId),
+          },
+          [targetRoomId]: {
+            ...targetRoom,
+            characterIds: [...targetRoom.characterIds, characterId],
+            secureTokens: isCautious ? targetRoom.secureTokens + 1 : targetRoom.secureTokens,
+          },
+        },
+      },
+      characters: {
+        ...nextState.characters,
+        [characterId]: {
+          ...nextState.characters[characterId]!,
+          currentRoomId: targetRoomId,
+        },
+      },
+    };
+
+    events.push(`${char.name} moved from ${fromRoomId} to ${targetRoom.tile?.name ?? targetRoomId}`);
+    if (isCautious) {
+      events.push(`Placed Secure token (Cautious movement) in ${targetRoom.tile?.name ?? targetRoomId}`);
+    } else {
+      // Normal movement into explored room: if room was empty of other characters, roll noise die (Movement step 3.a)
+      const hadOtherCharacters = targetRoom.characterIds.length > 0;
+      if (!hadOtherCharacters) {
+        const noiseRes = resolveNoiseRoll(nextState, characterId, prng, chosenCorridorId);
+        nextState = noiseRes.state;
+        events.push(...noiseRes.events);
+      }
+    }
+  }
+
+  const updatedChar = nextState.characters[characterId]!;
+  if (updatedChar.actionsRemaining === 0) {
+    return handleEndPlayerTurn(nextState, characterId, events);
+  }
+
+  return nextState;
 }
 
 function handleBasicActionCost(

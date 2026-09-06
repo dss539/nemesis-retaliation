@@ -19,7 +19,7 @@ describe('Hex Grid Spatial Engine', () => {
 
     const countsByRow: number[] = [0, 0, 0, 0, 0];
     for (const slot of BOARD_SLOTS) {
-      countsByRow[slot.y]++;
+      countsByRow[slot.y] = (countsByRow[slot.y] ?? 0) + 1;
     }
     expect(countsByRow).toEqual([5, 4, 5, 4, 5]);
   });
