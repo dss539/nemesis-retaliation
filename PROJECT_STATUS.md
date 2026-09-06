@@ -14,11 +14,11 @@
 
 ## Current Objective
 
-Stages 1 (Headless Rules & State Engine), 2 (Networking & P2P Synchronization Layer), and 3 (Tactical Canvas Renderer & Reactive Client UI) are fully implemented, verified, and passing 70 automated tests across 20 test files in Vitest.
+Stages 1, 2, and 3 are implemented and verified with 72 automated tests in Vitest. GitHub Actions workflow configured for CI and GitHub Pages deployment (`https://dss539.github.io/nemesis-retaliation/`).
 
 ## Immediate Next Deliverable
 
-End-to-end integration and visual QA across mobile and desktop viewpoints. All core engine rules, exploration sequences, combat dice, room actions, P2P networking, and canvas rendering are operational and clean.
+Monitor CI/CD deployment pipeline, verify live GitHub Pages site, and perform visual QA across viewpoints.
 
 ## Resume Checkpoint
 

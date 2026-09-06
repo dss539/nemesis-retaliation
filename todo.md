@@ -2148,3 +2148,15 @@ Do not add repair entries here.
 - [x] Mobile bottom-sheet drawers and modal action confirmation dialogs.
 - [x] Desktop multi-pane layout with persistent board, action panel, and card inspect.
 - [x] State persistence and room code multiplayer connection.
+
+---
+
+## IMPLEMENTATION PHASE 4: CI/CD & GitHub Pages Deployment (Active)
+
+### Stage 4.1: Pipeline & Automation
+- [x] Configure Vite build pipeline with `/nemesis-retaliation/` base path.
+- [x] Setup GitHub Actions workflow for typecheck, testing, and GitHub Pages deployment.
+- [x] Enable GitHub Pages with workflow deployment source.
+- [ ] Push commits to `origin/main`.
+- [ ] Monitor GitHub Actions pipeline run and verify green status.
+- [ ] Verify live site on GitHub Pages.
