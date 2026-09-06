@@ -342,6 +342,9 @@ function handleDraftCharacter(
     activePlayerIndex = 0;
     startingPlayerIndex = 0;
     events.push(`All players drafted. Round 1 Player Phase begins. Starting Player: ${updatedPlayers[0]!.name}`);
+  } else {
+    // Advance to next drafting player in ascending order
+    activePlayerIndex = (state.activePlayerIndex + 1) % state.players.length;
   }
 
   return {

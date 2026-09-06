@@ -10,7 +10,7 @@ import { RoomTileData } from '../types/board.js';
 import { EXPLORATION_CARDS, ExplorationCardDefinition } from '../../data/exploration-cards.js';
 import { OFFICIAL_ROOMS, RoomDefinition } from '../../data/rooms.js';
 import { CORRIDOR_TILES, CorridorTileDefinition } from '../../data/corridors.js';
-import { getNeighborPos, makeCorridorId } from './hex.js';
+import { getNeighborPos, getSlotId, makeCorridorId } from './hex.js';
 import { resolveNoiseRoll, spawnIntruder } from '../combat/noise.js';
 
 export interface ExplorationResult {
@@ -87,7 +87,7 @@ export function executeExplorationSequence(
     const neighborPos = getNeighborPos(slotPos, dir);
     if (!neighborPos) continue; // Outside facility border -> omitted
 
-    const neighborSlotId = `slot_${neighborPos.x}_${neighborPos.y}`;
+    const neighborSlotId = getSlotId(neighborPos.x, neighborPos.y);
     const corridorId = makeCorridorId(targetRoomId, neighborSlotId);
 
     // Skip if corridor already exists or neighbor already has a room

@@ -64,6 +64,13 @@ export function isValidSlot(x: number, y: number): boolean {
 }
 
 /**
+ * Gets the canonical slot ID for a grid position.
+ */
+export function getSlotId(x: number, y: number): string {
+  return (x === 0 && y === 2) ? 'landing-zone' : `slot_${x}_${y}`;
+}
+
+/**
  * Returns the opposite direction for a pointy-top hexagon.
  */
 export function getOppositeDirection(dir: Direction): Direction {
