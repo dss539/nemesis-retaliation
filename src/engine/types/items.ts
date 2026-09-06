@@ -17,19 +17,19 @@ export interface ItemCard {
   category: ItemCategory;
   isHeavy: boolean;
   isWeapon: boolean;
-  weaponType?: WeaponType;
-  requiresNoAmmo?: boolean;
-  ammo?: number;
-  maxAmmo?: number;
-  hasMalfunction?: boolean;
-  isOneUse?: boolean;
+  weaponType?: WeaponType | undefined;
+  requiresNoAmmo?: boolean | undefined;
+  ammo?: number | undefined;
+  maxAmmo?: number | undefined;
+  hasMalfunction?: boolean | undefined;
+  isOneUse?: boolean | undefined;
   rulesText: string;
 }
 
 export interface InventoryState {
-  equippedWeapon?: ItemCard;
-  equippedArmor?: ItemCard;
-  heavyItem?: ItemCard; // At most one heavy item in hands
+  equippedWeapon?: ItemCard | undefined;
+  equippedArmor?: ItemCard | undefined;
+  heavyItem?: ItemCard | undefined; // At most one heavy item in hands
   backpack: ItemCard[]; // Limit: 2 items (or expanded with tactical gear)
   tacticalGear: ItemCard[];
 }

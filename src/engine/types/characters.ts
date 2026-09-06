@@ -10,7 +10,7 @@ import { InventoryState } from './items.js';
 export interface PlayerState {
   playerId: PlayerId;
   name: string;
-  characterId?: CharacterId;
+  characterId?: CharacterId | undefined;
   isStartingPlayer: boolean;
 }
 
@@ -21,7 +21,7 @@ export interface CharacterDefinition {
   maxHealth: number;
   startingOxygen: number;
   startingWeaponId: string;
-  startingGearId?: string;
+  startingGearId?: string | undefined;
 }
 
 export interface CharacterState {
@@ -41,7 +41,7 @@ export interface CharacterState {
   contaminationHand: ContaminationCard[];
   inventory: InventoryState;
   heldObjectives: ObjectiveCard[];
-  selectedObjective?: ObjectiveCard;
+  selectedObjective?: ObjectiveCard | undefined;
   hasPassed: boolean;
   actionsRemaining: number; // 0, 1, or 2 during player turn
   isAlive: boolean;

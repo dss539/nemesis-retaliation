@@ -34,7 +34,7 @@ export interface AntiAircraftState {
 
 export interface AutodestructionState {
   isActive: boolean;
-  roundsRemaining?: number;
+  roundsRemaining?: number | undefined;
 }
 
 export interface ItemDecksState {
@@ -88,5 +88,5 @@ export interface GameState {
   actionHistory: GameAction[];
   lastActionId: number;
   isGameOver: boolean;
-  gameResult?: GameResult;
+  gameResult?: GameResult | undefined;
 }

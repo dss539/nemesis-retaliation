@@ -45,7 +45,7 @@ export interface RoomSlotState {
   section: Section;
   isLandingZone: boolean;
   isDiscovered: boolean;
-  tile?: RoomTileData;
+  tile?: RoomTileData | undefined;
   searchTokens: number; // Remaining items to search
   fire: boolean;
   malfunction: boolean;
