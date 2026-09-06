@@ -238,7 +238,7 @@ function handleDraftCharacter(
     id: c.id,
     title: c.title,
     characterId: c.characterId,
-    combatRestricted: c.combatRestricted,
+    inCombat: c.inCombat,
     isReaction: c.isReaction,
     rulesText: c.rulesText,
   }));
@@ -378,11 +378,11 @@ function handlePlayActionCard(
 
   const card = char.hand[cardIndex]!;
 
-  // RT-006: Check Combat Restricted (formerly notInCombat)
-  if (card.combatRestricted) {
+  // Rulebook p. 14 / RT-006: If card cannot be used in combat (!card.inCombat), check for intruders
+  if (!card.inCombat) {
     const currentRoom = state.board.rooms[char.currentRoomId];
     if (currentRoom && currentRoom.intruderIds.length > 0) {
-      throw new Error(`Cannot play ${card.title}: character is in combat in ${currentRoom.slotId}`);
+      throw new Error(`Cannot play ${card.title}: card cannot be used while in combat (room contains intruders)`);
     }
   }
 

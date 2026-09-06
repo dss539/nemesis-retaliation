@@ -112,7 +112,9 @@ export class NemesisApp {
           ${activeChar.hand.map(card => `
             <div style="background: #1e293b; border: 1px solid #475569; border-radius: 6px; padding: 8px; min-width: 130px; font-size: 11px;">
               <div style="font-weight: bold; margin-bottom: 4px; color: #38bdf8;">${card.title}</div>
-              <div style="color: #94a3b8; font-size: 10px;">${card.combatRestricted ? '⚠️ Out of combat only' : '⚡ Any window'}</div>
+              <div style="color: ${card.inCombat ? '#4ade80' : '#f87171'}; font-size: 10px; font-weight: 500;">
+                ${card.inCombat ? '✓ Usable in Combat' : '✗ Safe Rooms Only'}
+              </div>
             </div>
           `).join('')}
         </div>

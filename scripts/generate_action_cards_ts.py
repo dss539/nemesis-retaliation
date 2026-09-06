@@ -62,6 +62,10 @@ for key, card in bga_cards.items():
     else:
         effect_text = str(effects)
 
+    # In BGA source, noIntruders is true if card CANNOT be played with intruders
+    # inCombat indicates if the card IS usable in combat
+    can_use_in_combat = not no_intruders
+
     card_id = f"action-{key.lower().replace('_', '-')}"
 
     ts_lines.append("  {")
@@ -69,7 +73,7 @@ for key, card in bga_cards.items():
     ts_lines.append(f"    key: {json.dumps(key)},")
     ts_lines.append(f"    title: {json.dumps(name)},")
     ts_lines.append(f"    characterId: {json.dumps(char_id)},")
-    ts_lines.append(f"    combatRestricted: {json.dumps(no_intruders)},")
+    ts_lines.append(f"    inCombat: {json.dumps(can_use_in_combat)},")
     ts_lines.append(f"    isReaction: {json.dumps(is_reaction)},")
     ts_lines.append(f"    rulesText: {json.dumps(effect_text)},")
     if is_command:

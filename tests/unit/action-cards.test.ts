@@ -3,7 +3,7 @@ import { createInitialGameState } from '../../src/engine/setup/initial-state.js'
 import { gameReducer } from '../../src/engine/reducer.js';
 
 describe('Action Card Combat Restrictions', () => {
-  it('prohibits playing a combatRestricted card while in a room with an intruder', () => {
+  it('prohibits playing a card with inCombat: false while in a room with an intruder', () => {
     let state = createInitialGameState({ playerCount: 2, seed: 987 });
 
     state = gameReducer(state, {
@@ -21,11 +21,11 @@ describe('Action Card Combat Restrictions', () => {
 
     const officer = state.characters.officer!;
 
-    // Find a combatRestricted card in hand or force one into hand
-    let restrictedCard = officer.hand.find(c => c.combatRestricted);
-    if (!restrictedCard) {
+    // Find a card with inCombat: false (prohibited in combat)
+    let nonCombatCard = officer.hand.find(c => !c.inCombat);
+    if (!nonCombatCard) {
       // Find one in deck and put in hand
-      const fromDeck = officer.drawDeck.find(c => c.combatRestricted);
+      const fromDeck = officer.drawDeck.find(c => !c.inCombat);
       expect(fromDeck).toBeDefined();
       state = {
         ...state,
@@ -37,7 +37,7 @@ describe('Action Card Combat Restrictions', () => {
           },
         },
       };
-      restrictedCard = fromDeck!;
+      nonCombatCard = fromDeck!;
     }
 
     // Place an intruder in Landing Zone (where Officer currently is)
@@ -55,14 +55,14 @@ describe('Action Card Combat Restrictions', () => {
       },
     };
 
-    // Attempting to play the combatRestricted card should throw
+    // Attempting to play the non-combat card should throw
     expect(() => {
       gameReducer(state, {
         actionId: 3,
         type: 'play_action_card',
         characterId: 'officer',
-        cardId: restrictedCard!.id,
+        cardId: nonCombatCard!.id,
       });
-    }).toThrow(/character is in combat/);
+    }).toThrow(/card cannot be used while in combat/);
   });
 });
