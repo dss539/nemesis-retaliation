@@ -1,6 +1,8 @@
 # Unsure Fragment Ledger
 
-This ledger contains all 106 audit fragments still marked unsure after repair. They represent the remaining unsettled rules questions after repair, with each fragment listed under the first governing open question cited by its sidecar or in a no-question section when none is cited.
+This ledger contains the 106 audit fragments originally marked unsure after repair, grouped by governing open question.
+
+> **Status Update (2026-09-05):** The owner ruled on corpse scope (`OQ-013`) and approved documented project interpretations based on BGG consensus and developer clarifications for the primary clusters (`SEM-Q-002`, `SEM-Q-059`, `OQ-014`, `SEM-Q-027`, `SEM-Q-013`, `SEM-Q-014`, `SEM-Q-020`, `SEM-Q-021`, `OQ-003`). The rules corpus files in `docs/rules/` have been updated with these project interpretations.
 
 ### OQ-014 — Objective card Number-of-Characters thresholds and player-number unavailability
 
