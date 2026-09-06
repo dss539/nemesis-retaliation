@@ -130,8 +130,9 @@ export class MonteCarloSimulator {
       if (!room) return null;
 
       // In combat (Intruders in room): Shoot or Melee
-      if (room.intruderIds.length > 0) {
-        const targetIntruderId = room.intruderIds[0]!;
+      const validIntruderId = room.intruderIds.find(id => Boolean(state.intruderInstances[id]));
+      if (validIntruderId) {
+        const targetIntruderId = validIntruderId;
         const weapon = char.inventory.equippedWeapon;
         if (weapon && (weapon.requiresNoAmmo || (weapon.ammo ?? 0) > 0) && char.hand.length >= 1) {
           const costCard = char.hand[0]!;

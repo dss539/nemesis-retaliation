@@ -12,6 +12,8 @@ import { NetworkCoordinator, NetworkTransport } from '../../network/coordinator.
 import { generateRoomCode, formatPeerId } from '../../network/room-code.js';
 import { NetworkMessage } from '../../network/types.js';
 import { BroadcastChannelTransport } from '../../network/broadcast-transport.js';
+import { BOARD_SLOTS } from '../../engine/spatial/hex.js';
+import { RoomId } from '../../engine/types/primitives.js';
 
 export class NemesisApp {
   public state: GameState;
@@ -21,6 +23,9 @@ export class NemesisApp {
   public container: HTMLElement;
   public isDebugOpen: boolean = false;
   public transport: NetworkTransport;
+  public selectedRoomId: string | null = 'landing-zone';
+  public selectedCardId: string | null = null;
+  public toastMessage: { text: string; isError: boolean } | null = null;
 
   constructor(container: HTMLElement, canvas: HTMLCanvasElement) {
     this.container = container;
@@ -93,15 +98,28 @@ export class NemesisApp {
     }
   }
 
+  public showToast(text: string, isError = false): void {
+    this.toastMessage = { text, isError };
+    this.renderUI();
+    setTimeout(() => {
+      if (this.toastMessage?.text === text) {
+        this.toastMessage = null;
+        this.renderUI();
+      }
+    }, 4000);
+  }
+
   public dispatchAction(action: GameAction): void {
     try {
       this.coordinator.submitAction(action);
+      this.selectedCardId = null;
     } catch (err: any) {
-      alert(`Action error: ${err.message}`);
+      this.showToast(err.message, true);
     }
   }
 
   private handleRoomClick(roomId: string): void {
+    this.selectedRoomId = roomId;
     this.renderer.options.selectedRoomId = roomId;
     this.renderUI();
   }
@@ -339,6 +357,72 @@ export class NemesisApp {
           color: #38bdf8;
         }
 
+        .nemesis-action-dock {
+          background: rgba(15, 23, 42, 0.95);
+          border: 1px solid #334155;
+          border-radius: 6px;
+          padding: 8px 12px;
+          margin-bottom: 8px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          flex-wrap: wrap;
+          gap: 8px;
+        }
+        .nemesis-btn-action {
+          padding: 6px 12px;
+          border-radius: 4px;
+          border: none;
+          font-size: 11px;
+          font-weight: bold;
+          cursor: pointer;
+          display: inline-flex;
+          align-items: center;
+          gap: 6px;
+          color: white;
+          white-space: nowrap;
+          transition: transform 0.1s ease, filter 0.15s ease;
+        }
+        .nemesis-btn-action:hover {
+          transform: translateY(-1px);
+          filter: brightness(1.15);
+        }
+        .nemesis-btn-action.move {
+          background: #0284c7;
+        }
+        .nemesis-btn-action.cautious {
+          background: #d97706;
+        }
+        .nemesis-btn-action.search {
+          background: #059669;
+        }
+        .nemesis-btn-action.combat {
+          background: #dc2626;
+        }
+        .nemesis-phase-banner {
+          padding: 10px 14px;
+          border-radius: 6px;
+          margin-bottom: 8px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          flex-wrap: wrap;
+          gap: 10px;
+        }
+        .nemesis-toast {
+          position: fixed;
+          top: 55px;
+          left: 50%;
+          transform: translateX(-50%);
+          z-index: 10000;
+          padding: 8px 16px;
+          border-radius: 6px;
+          font-size: 12px;
+          font-weight: bold;
+          pointer-events: auto;
+          box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+          color: white;
+        }
         @media (max-width: 600px) {
           .nemesis-brand {
             font-size: 12px;
@@ -369,13 +453,48 @@ export class NemesisApp {
 
     const activePlayer = this.state.players[this.state.activePlayerIndex];
     const activeChar = activePlayer?.characterId ? this.state.characters[activePlayer.characterId] : null;
+    const currentRoomId = activeChar?.currentRoomId;
+
+    // Calculate legal move destinations from current room via open corridors
+    const connectedCorridors = currentRoomId
+      ? Object.values(this.state.board.corridors).filter(
+          c => (c.slotA === currentRoomId || c.slotB === currentRoomId) && c.doorState !== 'closed'
+        )
+      : [];
+    const legalMoveRoomIds = connectedCorridors.map(c =>
+      c.slotA === currentRoomId ? c.slotB : c.slotA
+    );
+
+    // Update tactical renderer highlights
+    this.renderer.options.highlightedRoomIds = legalMoveRoomIds;
+    this.renderer.options.selectedRoomId = this.selectedRoomId;
+
+    const selectedSlot = this.selectedRoomId ? BOARD_SLOTS.find(s => s.slotId === this.selectedRoomId) : null;
+    const selectedRoom = this.selectedRoomId ? this.state.board.rooms[this.selectedRoomId] : null;
+    const isSelectedCurrent = Boolean(this.selectedRoomId && this.selectedRoomId === currentRoomId);
+    const isSelectedAdjacent = Boolean(this.selectedRoomId && legalMoveRoomIds.includes(this.selectedRoomId));
+
     const playerInCombat = Boolean(
       activeChar &&
       this.state.board.rooms[activeChar.currentRoomId] &&
       this.state.board.rooms[activeChar.currentRoomId]!.intruderIds.length > 0
     );
 
+    // Selected room name and details
+    let selectedRoomLabel = 'None';
+    if (selectedRoom?.tile) {
+      selectedRoomLabel = `${selectedRoom.tile.name} (${selectedRoom.slotId})`;
+    } else if (selectedSlot) {
+      selectedRoomLabel = `Section ${selectedSlot.section} — Socket ${selectedSlot.slotId.replace('slot_', '')}`;
+    }
+
     uiOverlay.innerHTML = `
+      ${this.toastMessage ? `
+        <div class="nemesis-toast" style="background: ${this.toastMessage.isError ? '#dc2626' : '#0284c7'};">
+          ${this.toastMessage.isError ? '⚠️' : 'ℹ️'} ${this.toastMessage.text}
+        </div>
+      ` : ''}
+
       <div class="nemesis-top-bar">
         <div class="nemesis-top-left">
           <span class="nemesis-brand">NEMESIS: RETALIATION</span>
@@ -394,6 +513,79 @@ export class NemesisApp {
       </div>
 
       <div class="nemesis-bottom-bar">
+        ${this.state.phase === 'intruder' ? `
+          <div class="nemesis-phase-banner" style="background: rgba(153, 27, 27, 0.95); border: 1px solid #ef4444;">
+            <div>
+              <b style="color: #fee2e2;">⚠️ INTRUDER PHASE READY</b>
+              <div style="font-size: 11px; color: #fca5a5;">All players passed. Resolve intruder attacks and movements.</div>
+            </div>
+            <button id="btn-resolve-intruder" class="nemesis-btn-action combat" style="padding: 8px 16px; font-size: 12px;">
+              ⚡ RESOLVE INTRUDER PHASE
+            </button>
+          </div>
+        ` : ''}
+
+        ${this.state.phase === 'event' ? `
+          <div class="nemesis-phase-banner" style="background: rgba(180, 83, 9, 0.95); border: 1px solid #f59e0b;">
+            <div>
+              <b style="color: #fef3c7;">📜 EVENT PHASE READY</b>
+              <div style="font-size: 11px; color: #fde68a;">Draw and execute facility Event card.</div>
+            </div>
+            <button id="btn-resolve-event" class="nemesis-btn-action cautious" style="padding: 8px 16px; font-size: 12px;">
+              🎲 DRAW EVENT CARD
+            </button>
+          </div>
+        ` : ''}
+
+        ${this.state.phase === 'cleanup' ? `
+          <div class="nemesis-phase-banner" style="background: rgba(21, 128, 61, 0.95); border: 1px solid #22c55e;">
+            <div>
+              <b style="color: #dcfce7;">🔄 CLEANUP PHASE READY</b>
+              <div style="font-size: 11px; color: #bbf7d0;">Restore oxygen, replenish hands, and advance round.</div>
+            </div>
+            <button id="btn-resolve-cleanup" class="nemesis-btn-action search" style="padding: 8px 16px; font-size: 12px;">
+              ▶ START ROUND ${this.state.round + 1}
+            </button>
+          </div>
+        ` : ''}
+
+        ${this.state.phase === 'player' && this.selectedRoomId ? `
+          <div class="nemesis-action-dock">
+            <div style="font-size: 12px;">
+              <span style="color: #94a3b8;">Target:</span>
+              <b style="color: #38bdf8; margin-left: 4px;">${selectedRoomLabel}</b>
+              ${isSelectedCurrent ? '<span style="background: #1e293b; color: #a5f3fc; padding: 2px 6px; border-radius: 3px; font-size: 10px; margin-left: 6px;">📍 YOU ARE HERE</span>' : ''}
+              ${isSelectedAdjacent ? '<span style="background: #064e3b; color: #6ee7b7; padding: 2px 6px; border-radius: 3px; font-size: 10px; margin-left: 6px;">🎯 ADJACENT</span>' : ''}
+              ${selectedRoom?.fire ? '<span style="color: #f97316; margin-left: 6px;">🔥 Fire</span>' : ''}
+              ${selectedRoom?.malfunction ? '<span style="color: #eab308; margin-left: 6px;">⚠️ Malfunction</span>' : ''}
+              ${selectedRoom && selectedRoom.searchTokens > 0 ? `<span style="color: #34d399; margin-left: 6px;">🔍 Items (${selectedRoom.searchTokens})</span>` : ''}
+            </div>
+
+            <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+              ${isSelectedAdjacent ? `
+                <button id="btn-act-move" class="nemesis-btn-action move">
+                  🚶 MOVE (1 Card)
+                </button>
+                <button id="btn-act-move-cautious" class="nemesis-btn-action cautious">
+                  🛡️ CAUTIOUS (2 Cards)
+                </button>
+              ` : ''}
+
+              ${isSelectedCurrent && selectedRoom && selectedRoom.searchTokens > 0 ? `
+                <button id="btn-act-search" class="nemesis-btn-action search">
+                  🔍 SEARCH (1 Card)
+                </button>
+              ` : ''}
+
+              ${isSelectedCurrent && selectedRoom && selectedRoom.intruderIds.length > 0 ? `
+                <button id="btn-act-melee" class="nemesis-btn-action combat">
+                  ⚔️ MELEE ATTACK
+                </button>
+              ` : ''}
+            </div>
+          </div>
+        ` : ''}
+
         <div class="nemesis-player-row">
           <div class="nemesis-player-info">
             <b>Active:</b> <span>${activePlayer?.name ?? 'None'} ${activeChar ? `(${activeChar.name})` : ''}</span>
@@ -415,13 +607,18 @@ export class NemesisApp {
         <div class="nemesis-hand-drawer">
           ${activeChar.hand.map(card => {
             const isPlayable = !playerInCombat || card.usableInCombat;
+            const isSelectedCard = this.selectedCardId === card.id;
             return `
-            <div class="nemesis-card" style="background: ${isPlayable ? '#1e293b' : '#1e1b24'}; border: 1px solid ${isPlayable ? '#475569' : '#7f1d1d'}; opacity: ${isPlayable ? '1.0' : '0.6'};">
+            <div class="nemesis-card card-item" data-card-id="${card.id}" style="background: ${isSelectedCard ? '#0e2a47' : (isPlayable ? '#1e293b' : '#1e1b24')}; border: 1.5px solid ${isSelectedCard ? '#38bdf8' : (isPlayable ? '#475569' : '#7f1d1d')}; opacity: ${isPlayable ? '1.0' : '0.6'}; cursor: pointer;">
+              ${isSelectedCard ? '<div style="font-size: 9px; font-weight: bold; color: #38bdf8; margin-bottom: 2px;">✓ SELECTED COST</div>' : ''}
               <div style="font-weight: bold; margin-bottom: 4px; color: ${isPlayable ? '#38bdf8' : '#94a3b8'};">${card.title}</div>
-              <div style="font-size: 10px; margin-top: 4px;">
+              <div style="font-size: 9px; color: #94a3b8; line-height: 1.2; margin-bottom: 4px; flex-grow: 1;">
+                ${card.rulesText ? card.rulesText.slice(0, 60) + '...' : ''}
+              </div>
+              <div style="font-size: 10px; margin-top: auto;">
                 ${card.usableInCombat 
-                  ? '<span style="color: #4ade80;">⚔️ Playable in Combat</span>' 
-                  : '<span style="color: #f87171;">⚠️ Out-of-Combat Only</span>'}
+                  ? '<span style="color: #4ade80;">⚔️ In Combat</span>' 
+                  : '<span style="color: #f87171;">⚠️ Out of Combat</span>'}
               </div>
             </div>
             `;
@@ -480,6 +677,111 @@ export class NemesisApp {
         </div>
       ` : ''}
     `;
+
+    // Bind card selection clicks
+    document.querySelectorAll('.card-item').forEach(cardEl => {
+      cardEl.addEventListener('click', () => {
+        const cardId = cardEl.getAttribute('data-card-id');
+        if (cardId) {
+          this.selectedCardId = (this.selectedCardId === cardId) ? null : cardId;
+          this.renderUI();
+        }
+      });
+    });
+
+    // Action Dock: Move
+    document.getElementById('btn-act-move')?.addEventListener('click', () => {
+      if (!activeChar || !this.selectedRoomId) return;
+      const costCardId = this.selectedCardId || activeChar.hand[0]?.id;
+      if (!costCardId) {
+        this.showToast('No cards in hand to pay Movement cost', true);
+        return;
+      }
+      this.dispatchAction({
+        actionId: this.state.lastActionId + 1,
+        type: 'move',
+        characterId: activeChar.characterId,
+        targetRoomId: this.selectedRoomId as RoomId,
+        discardCardIds: [costCardId],
+      });
+    });
+
+    // Action Dock: Cautious Move
+    document.getElementById('btn-act-move-cautious')?.addEventListener('click', () => {
+      if (!activeChar || !this.selectedRoomId) return;
+      if (activeChar.hand.length < 2) {
+        this.showToast('Cautious movement requires 2 cards in hand', true);
+        return;
+      }
+      const c1 = activeChar.hand[0]?.id;
+      const c2 = activeChar.hand[1]?.id;
+      if (!c1 || !c2) return;
+      this.dispatchAction({
+        actionId: this.state.lastActionId + 1,
+        type: 'move_cautiously',
+        characterId: activeChar.characterId,
+        targetRoomId: this.selectedRoomId as RoomId,
+        discardCardIds: [c1, c2],
+      });
+    });
+
+    // Action Dock: Search
+    document.getElementById('btn-act-search')?.addEventListener('click', () => {
+      if (!activeChar) return;
+      const costCardId = this.selectedCardId || activeChar.hand[0]?.id;
+      if (!costCardId) {
+        this.showToast('No cards in hand to pay Search cost', true);
+        return;
+      }
+      this.dispatchAction({
+        actionId: this.state.lastActionId + 1,
+        type: 'search',
+        characterId: activeChar.characterId,
+        discardCardIds: [costCardId],
+      });
+    });
+
+    // Action Dock: Melee Attack
+    document.getElementById('btn-act-melee')?.addEventListener('click', () => {
+      if (!activeChar) return;
+      const room = this.state.board.rooms[activeChar.currentRoomId];
+      const targetIntruderId = room?.intruderIds[0];
+      if (!targetIntruderId) return;
+      const costCardId = this.selectedCardId || activeChar.hand[0]?.id;
+      if (!costCardId) {
+        this.showToast('No cards in hand to pay Melee cost', true);
+        return;
+      }
+      this.dispatchAction({
+        actionId: this.state.lastActionId + 1,
+        type: 'melee',
+        characterId: activeChar.characterId,
+        targetIntruderId,
+        discardCardIds: [costCardId],
+      });
+    });
+
+    // Phase Transitions
+    document.getElementById('btn-resolve-intruder')?.addEventListener('click', () => {
+      this.dispatchAction({
+        actionId: this.state.lastActionId + 1,
+        type: 'resolve_intruder_phase',
+      });
+    });
+
+    document.getElementById('btn-resolve-event')?.addEventListener('click', () => {
+      this.dispatchAction({
+        actionId: this.state.lastActionId + 1,
+        type: 'resolve_event_phase',
+      });
+    });
+
+    document.getElementById('btn-resolve-cleanup')?.addEventListener('click', () => {
+      this.dispatchAction({
+        actionId: this.state.lastActionId + 1,
+        type: 'resolve_cleanup_phase',
+      });
+    });
 
     document.getElementById('btn-toggle-debug')?.addEventListener('click', () => {
       this.isDebugOpen = !this.isDebugOpen;

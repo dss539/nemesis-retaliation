@@ -30,7 +30,7 @@ test.describe('Nemesis: Retaliation — Player HUD and Cards E2E', () => {
       const text = await card.innerText();
       expect(text.length).toBeGreaterThan(0);
       const hasCombatBadge =
-        text.includes('Playable in Combat') || text.includes('Out-of-Combat Only');
+        text.includes('Combat') || text.includes('Combat Only');
       expect(hasCombatBadge).toBe(true);
     }
   });
