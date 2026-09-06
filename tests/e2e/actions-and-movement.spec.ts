@@ -11,11 +11,15 @@ test.describe('Nemesis: Retaliation — Interactive Actions & Movement E2E', () 
     await expect(overlay).toContainText('Target:');
     await expect(overlay).toContainText('YOU ARE HERE');
 
-    // 1. Select adjacent room slot_1_2 by triggering room selection
-    await page.evaluate(() => {
-      // Trigger selection of adjacent room slot_1_2
-      (window as any).app.handleRoomClick('slot_1_2');
+    // 1. Click on adjacent room slot_1_2 at its real physical canvas screen coordinates
+    const targetPos = await page.evaluate(() => {
+      const app = (window as any).app;
+      const slotDef = app.renderer.getSlotCenter(1, 2); // slot_1_2 at (x=1, y=2)
+      return app.renderer.camera.worldToScreen(slotDef.cx, slotDef.cy);
     });
+
+    // Real user mouse click at (x, y) on the canvas
+    await page.mouse.click(targetPos.x, targetPos.y);
 
     // Action Dock should now show Target: slot_1_2 and MOVE button
     const moveBtn = page.locator('#btn-act-move');
