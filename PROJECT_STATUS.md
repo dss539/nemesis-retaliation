@@ -14,11 +14,11 @@
 
 ## Current Objective
 
-Stages 1, 2, and 3 are implemented and verified with 72 automated tests in Vitest. GitHub Actions workflow configured for CI and GitHub Pages deployment (`https://dss539.github.io/nemesis-retaliation/`).
+Stages 1, 2, and 3 are implemented and verified with 72 automated tests in Vitest. GitHub Actions CI/CD pipeline is live and verified green (`deploy.yml`). GitHub Pages site deployed and verified at `https://dss539.github.io/nemesis-retaliation/`.
 
 ## Immediate Next Deliverable
 
-Monitor CI/CD deployment pipeline, verify live GitHub Pages site, and perform visual QA across viewpoints.
+End-to-end integration and visual QA across viewpoints. Core engine rules, exploration, combat dice, room actions, P2P networking, and canvas rendering are operational and deployed.
 
 ## Resume Checkpoint
 

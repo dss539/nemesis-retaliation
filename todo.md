@@ -2157,6 +2157,6 @@ Do not add repair entries here.
 - [x] Configure Vite build pipeline with `/nemesis-retaliation/` base path.
 - [x] Setup GitHub Actions workflow for typecheck, testing, and GitHub Pages deployment.
 - [x] Enable GitHub Pages with workflow deployment source.
-- [ ] Push commits to `origin/main`.
-- [ ] Monitor GitHub Actions pipeline run and verify green status.
-- [ ] Verify live site on GitHub Pages.
+- [x] Push commits to `origin/main`.
+- [x] Monitor GitHub Actions pipeline run and verify green status.
+- [x] Verify live site on GitHub Pages (`https://dss539.github.io/nemesis-retaliation/`).
