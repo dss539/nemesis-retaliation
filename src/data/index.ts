@@ -4,3 +4,7 @@ export * from './action-cards.js';
 export * from './items.js';
 export * from './exploration-cards.js';
 export * from './corridors.js';
+export * from './attacks.js';
+export * from './events.js';
+export * from './serious-wounds.js';
+export * from './queen-cards.js';

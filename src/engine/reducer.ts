@@ -18,6 +18,9 @@ import { resolveNoiseRoll } from './combat/noise.js';
 import { executeRoomSearch } from './actions/search.js';
 import { executeBurst, executeMelee, executeShoot, executeTrade } from './actions/combat-actions.js';
 import { executeRoomAction } from './actions/room-actions.js';
+import { resolveIntruderPhase } from './phases/intruder-phase.js';
+import { resolveEventPhase } from './phases/event-phase.js';
+import { resolveCleanupPhase } from './phases/cleanup-phase.js';
 
 export interface ReducerResult {
   state: GameState;
@@ -182,11 +185,11 @@ export function gameReducerWithEvents(state: GameState, action: GameAction): Red
       break;
     }
     case 'resolve_intruder_phase': {
-      nextState = handleResolveIntruderPhase(nextState, events);
+      nextState = handleResolveIntruderPhase(nextState, prng, events);
       break;
     }
     case 'resolve_event_phase': {
-      nextState = handleResolveEventPhase(nextState, events);
+      nextState = handleResolveEventPhase(nextState, prng, events);
       break;
     }
     case 'resolve_cleanup_phase': {
@@ -708,30 +711,24 @@ function handleEndPlayerTurn(
   };
 }
 
-function handleResolveIntruderPhase(state: GameState, events: string[]): GameState {
+function handleResolveIntruderPhase(state: GameState, prng: Mulberry32, events: string[]): GameState {
   if (state.phase !== 'intruder') {
     throw new Error(`Cannot resolve Intruder Phase when in ${state.phase} phase`);
   }
 
-  events.push(`Intruder Phase resolved.`);
-  // RT-001: Next phase is Event Phase
-  return {
-    ...state,
-    phase: 'event',
-  };
+  const res = resolveIntruderPhase(state, prng);
+  events.push(...res.events);
+  return res.state;
 }
 
-function handleResolveEventPhase(state: GameState, events: string[]): GameState {
+function handleResolveEventPhase(state: GameState, prng: Mulberry32, events: string[]): GameState {
   if (state.phase !== 'event') {
     throw new Error(`Cannot resolve Event Phase when in ${state.phase} phase`);
   }
 
-  events.push(`Event Phase resolved.`);
-  // RT-001: Next phase is Cleanup Phase
-  return {
-    ...state,
-    phase: 'cleanup',
-  };
+  const res = resolveEventPhase(state, prng);
+  events.push(...res.events);
+  return res.state;
 }
 
 function handleResolveCleanupPhase(state: GameState, prng: Mulberry32, events: string[]): GameState {
@@ -739,71 +736,9 @@ function handleResolveCleanupPhase(state: GameState, prng: Mulberry32, events: s
     throw new Error(`Cannot resolve Cleanup Phase when in ${state.phase} phase`);
   }
 
-  events.push(`Cleanup Phase: Advancing Starting Player and dealing cards.`);
-
-  // 1. Advance Starting Player clockwise (RT-012 step 6)
-  const newStartingPlayerIndex = (state.startingPlayerIndex + 1) % state.players.length;
-  const updatedPlayers = state.players.map((p, idx) => ({
-    ...p,
-    isStartingPlayer: idx === newStartingPlayerIndex,
-  }));
-
-  // 2. Reset passed state and draw cards up to 5 (RT-012 step 7)
-  const updatedCharacters: Partial<Record<CharacterId, CharacterState>> = {};
-  for (const [cid, char] of Object.entries(state.characters)) {
-    if (!char) continue;
-    let hand = [...char.hand];
-    let drawDeck = [...char.drawDeck];
-    let discardPile = [...char.discardPile];
-
-    while (hand.length < 5) {
-      if (drawDeck.length === 0) {
-        if (discardPile.length === 0) break;
-        drawDeck = prng.shuffle(discardPile);
-        discardPile = [];
-      }
-      const drawn = drawDeck.shift();
-      if (drawn) hand.push(drawn);
-    }
-
-    updatedCharacters[cid as CharacterId] = {
-      ...char,
-      hand,
-      drawDeck,
-      discardPile,
-      hasPassed: false,
-      actionsRemaining: 2,
-    };
-  }
-
-  // 3. Time advancement (RT-012 step 8)
-  const nextRound = state.round + 1;
-  if (nextRound > 15) {
-    events.push(`Round 15 exceeded. Game Over: Time limit reached.`);
-    return {
-      ...state,
-      phase: 'game-over',
-      isGameOver: true,
-      gameResult: {
-        winners: [],
-        losers: state.players.map(p => p.playerId),
-        reason: 'Time limit reached (Round track exceeded)',
-      },
-    };
-  }
-
-  events.push(`Beginning Round ${nextRound} Player Phase.`);
-
-  return {
-    ...state,
-    phase: 'player',
-    round: nextRound,
-    players: updatedPlayers,
-    characters: updatedCharacters,
-    startingPlayerIndex: newStartingPlayerIndex,
-    activePlayerIndex: newStartingPlayerIndex,
-    turnActionsTaken: 0,
-  };
+  const res = resolveCleanupPhase(state, prng);
+  events.push(...res.events);
+  return res.state;
 }
 
 function validatePlayerTurnAction(state: GameState, characterId: CharacterId): void {
