@@ -193,6 +193,14 @@ function removeIntruderInstance(state: GameState, intruderId: string): GameState
         intruderIds: r.intruderIds.filter(id => id !== intruderId),
       };
     }
+  } else {
+    const c = nextBoard.corridors[inst.location.corridorId];
+    if (c) {
+      nextBoard.corridors[c.corridorId] = {
+        ...c,
+        intruderIds: c.intruderIds.filter(id => id !== intruderId),
+      };
+    }
   }
 
   return {

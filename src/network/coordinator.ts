@@ -137,6 +137,7 @@ export class NetworkCoordinator {
           this.peers.set(p.peerId, p);
         }
         this.onPeerChange?.(Array.from(this.peers.values()));
+        this.onStateUpdate?.(this.state, {} as any);
         break;
       }
 
@@ -182,6 +183,7 @@ export class NetworkCoordinator {
 
       case 'sync_response': {
         this.state = message.snapshot;
+        this.onStateUpdate?.(this.state, {} as any);
         break;
       }
 

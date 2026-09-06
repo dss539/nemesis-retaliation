@@ -11,6 +11,7 @@ import { DoorStateMachine } from '../spatial/doors.js';
 import { executeRoomSearch } from './search.js';
 import { makeCorridorId } from '../spatial/hex.js';
 import { CharacterState } from '../types/characters.js';
+import { removeIntruder } from './combat-actions.js';
 
 export interface RoomActionResult {
   state: GameState;
@@ -150,9 +151,9 @@ export function executeRoomAction(
             }
           }
           events.push(`Gunnery battery eliminated ${killed.length} Intruder(s)!`);
-          nextState = updateCorridor(nextState, corr.corridorId, {
-            intruderIds: corr.intruderIds.filter(id => !killed.includes(id)),
-          });
+          for (const id of killed) {
+            nextState = removeIntruder(nextState, id);
+          }
         }
       }
       break;

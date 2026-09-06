@@ -41,4 +41,20 @@ describe('Camera2D Viewport & Coordinate Projections', () => {
     expect(cam.transform.zoom).toBeGreaterThan(0.5);
     expect(cam.transform.zoom).toBeLessThanOrEqual(cam.maxZoom);
   });
+
+  it('shifts center upward when bottom inset exceeds top inset', () => {
+    const camNoInsets = new Camera2D();
+    const camWithInsets = new Camera2D();
+    const bounds = { minX: 0, minY: 0, maxX: 1000, maxY: 800 };
+
+    camNoInsets.fitToBounds(bounds, 1200, 900, 20, 0, 0);
+    camWithInsets.fitToBounds(bounds, 1200, 900, 20, 50, 150);
+
+    // World center is y = 400.
+    // Screen center without insets is 900 / 2 = 450.
+    // Screen center with 50 top and 150 bottom is 50 + (900 - 200) / 2 = 400.
+    expect(camNoInsets.worldToScreen(0, 400).y).toBe(450);
+    expect(camWithInsets.worldToScreen(0, 400).y).toBe(400);
+    expect(camWithInsets.worldToScreen(0, 400).y).toBeLessThan(camNoInsets.worldToScreen(0, 400).y);
+  });
 });

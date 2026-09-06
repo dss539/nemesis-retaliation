@@ -133,23 +133,54 @@ export class TacticalRenderer {
 
   private renderSectionBands(): void {
     const { ctx } = this;
-    // Section A (Left third), Section B (Middle third), Section C (Right third)
     const bounds = this.getBoardWorldBounds();
-    const totalW = bounds.maxX - bounds.minX;
-    const thirdW = totalW / 3;
+    const padY = 60;
+    const topY = bounds.minY - padY;
+    const bottomY = bounds.maxY + padY;
+
+    // Seam lines separating A/B and B/C (FND-005, play-area-design.md, render.js)
+    // Seams sit midway through the corridor spaces at effective-column boundaries:
+    // A/B seam: hexW / 2 + 1.25 * stepX
+    // B/C seam: hexW / 2 + 2.75 * stepX
+    const seamAB = this.hexW / 2 + 1.25 * this.stepX + this.hexW;
+    const seamBC = this.hexW / 2 + 2.75 * this.stepX + this.hexW;
 
     ctx.save();
-    // Section A
-    ctx.fillStyle = 'rgba(25, 35, 55, 0.4)';
-    ctx.fillRect(bounds.minX - 50, bounds.minY - 50, thirdW + 50, bounds.maxY - bounds.minY + 100);
 
-    // Section B
-    ctx.fillStyle = 'rgba(35, 45, 35, 0.4)';
-    ctx.fillRect(bounds.minX + thirdW, bounds.minY - 50, thirdW, bounds.maxY - bounds.minY + 100);
+    // Section Labels at top
+    ctx.font = 'bold 12px monospace';
+    ctx.textAlign = 'center';
 
-    // Section C
-    ctx.fillStyle = 'rgba(45, 25, 25, 0.4)';
-    ctx.fillRect(bounds.minX + thirdW * 2, bounds.minY - 50, thirdW + 100, bounds.maxY - bounds.minY + 100);
+    // Section A watermark
+    ctx.fillStyle = '#38bdf8';
+    ctx.fillText('◄ SECTION A · WEST ◄', (bounds.minX + seamAB) / 2, topY + 18);
+
+    // Section B watermark
+    ctx.fillStyle = '#4ade80';
+    ctx.fillText('◆ SECTION B · FACILITY CORE ◆', (seamAB + seamBC) / 2, topY + 18);
+
+    // Section C watermark
+    ctx.fillStyle = '#f87171';
+    ctx.fillText('► SECTION C · EAST ►', (seamBC + bounds.maxX) / 2, topY + 18);
+
+    // Two bright continuous vertical seam lines (playmat design fidelity)
+    const drawSeam = (x: number, label: string) => {
+      ctx.beginPath();
+      ctx.setLineDash([10, 6]);
+      ctx.moveTo(x, topY + 28);
+      ctx.lineTo(x, bottomY - 10);
+      ctx.lineWidth = 2;
+      ctx.strokeStyle = 'rgba(207, 232, 239, 0.45)';
+      ctx.stroke();
+      ctx.setLineDash([]);
+
+      ctx.fillStyle = 'rgba(207, 232, 239, 0.7)';
+      ctx.font = 'bold 10px monospace';
+      ctx.fillText(`SEAM ${label}`, x, bottomY);
+    };
+
+    drawSeam(seamAB, 'A / B');
+    drawSeam(seamBC, 'B / C');
 
     ctx.restore();
   }
@@ -166,28 +197,79 @@ export class TacticalRenderer {
       const posA = this.getSlotCenter(slotA.x, slotA.y);
       const posB = this.getSlotCenter(slotB.x, slotB.y);
 
+      const dx = posB.cx - posA.cx;
+      const dy = posB.cy - posA.cy;
+      const dist = Math.hypot(dx, dy);
+      if (dist === 0) continue;
+
+      const ux = dx / dist;
+      const uy = dy / dist;
+
+      // Span strictly from edge of Room A to edge of Room B (FND-005)
+      const r = this.hexW * 0.48;
+      const startX = posA.cx + ux * r;
+      const startY = posA.cy + uy * r;
+      const endX = posB.cx - ux * r;
+      const endY = posB.cy - uy * r;
+
       ctx.save();
+
+      // Corridor outer walls (steel structure)
       ctx.beginPath();
-      ctx.moveTo(posA.cx, posA.cy);
-      ctx.lineTo(posB.cx, posB.cy);
-      ctx.lineWidth = 14;
-      ctx.strokeStyle = '#2b3342';
+      ctx.moveTo(startX, startY);
+      ctx.lineTo(endX, endY);
+      ctx.lineWidth = 26;
+      ctx.strokeStyle = '#1e293b';
+      ctx.lineCap = 'butt';
       ctx.stroke();
 
-      ctx.lineWidth = 8;
-      ctx.strokeStyle = corridor.hasNoise ? '#e5a50a' : '#1b2230';
+      // Corridor inner floor walkway
+      ctx.lineWidth = 18;
+      ctx.strokeStyle = corridor.hasNoise ? '#78350f' : '#090d16';
       ctx.stroke();
 
-      // Door indicator at midpoint
-      const midX = (posA.cx + posB.cx) / 2;
-      const midY = (posA.cy + posB.cy) / 2;
+      // Midpoint for Doors & Noise
+      const midX = (startX + endX) / 2;
+      const midY = (startY + endY) / 2;
 
+      // Door rendering
       if (corridor.doorState === 'closed') {
-        ctx.fillStyle = '#dc2626';
-        ctx.fillRect(midX - 8, midY - 8, 16, 16);
+        ctx.save();
+        ctx.translate(midX, midY);
+        const angle = Math.atan2(dy, dx);
+        ctx.rotate(angle + Math.PI / 2);
+
+        // Bulkhead door barrier
+        ctx.fillStyle = '#ef4444';
+        ctx.fillRect(-12, -3, 24, 6);
+        ctx.strokeStyle = '#7f1d1d';
+        ctx.lineWidth = 1;
+        ctx.strokeRect(-12, -3, 24, 6);
+
+        ctx.restore();
       } else if (corridor.doorState === 'open') {
-        ctx.fillStyle = '#16a34a';
-        ctx.fillRect(midX - 6, midY - 6, 12, 12);
+        ctx.save();
+        ctx.translate(midX, midY);
+        const angle = Math.atan2(dy, dx);
+        ctx.rotate(angle + Math.PI / 2);
+
+        // Retracted door tracks
+        ctx.fillStyle = '#22c55e';
+        ctx.fillRect(-12, -2, 6, 4);
+        ctx.fillRect(6, -2, 6, 4);
+
+        ctx.restore();
+      }
+
+      // Noise marker
+      if (corridor.hasNoise) {
+        ctx.fillStyle = '#f59e0b';
+        ctx.beginPath();
+        ctx.arc(midX + (corridor.doorState === 'closed' || corridor.doorState === 'open' ? 12 : 0), midY, 5, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.strokeStyle = '#000';
+        ctx.lineWidth = 1;
+        ctx.stroke();
       }
 
       ctx.restore();
@@ -214,34 +296,51 @@ export class TacticalRenderer {
       }
       ctx.closePath();
 
-      // Fill color
+      // Background Fill
       if (isDiscovered) {
-        ctx.fillStyle = '#1e293b';
-      } else {
         ctx.fillStyle = '#0f172a';
+      } else {
+        ctx.fillStyle = '#070b14';
       }
       ctx.fill();
 
-      // Border outline
+      // Outer Border
       if (isSelected) {
-        ctx.lineWidth = 4;
+        ctx.lineWidth = 3.5;
         ctx.strokeStyle = '#facc15';
       } else if (isHighlighted) {
         ctx.lineWidth = 3;
         ctx.strokeStyle = '#22c55e';
+      } else if (isDiscovered) {
+        ctx.lineWidth = 2.5;
+        ctx.strokeStyle = slot.isLandingZone ? '#f59e0b' : '#38bdf8';
       } else {
-        ctx.lineWidth = 2;
-        ctx.strokeStyle = isDiscovered ? '#475569' : '#334155';
+        ctx.lineWidth = 1.5;
+        ctx.strokeStyle = '#1e293b';
       }
       ctx.stroke();
 
-      // Text and badges
-      ctx.fillStyle = '#f8fafc';
-      ctx.font = 'bold 12px sans-serif';
-      ctx.textAlign = 'center';
+      // Subtle inner hex chamfer for tactical socket look
+      ctx.beginPath();
+      const innerScale = 0.88;
+      for (let i = 0; i < vertices.length; i++) {
+        const vx = cx + (vertices[i]![0] - cx) * innerScale;
+        const vy = cy + (vertices[i]![1] - cy) * innerScale;
+        if (i === 0) ctx.moveTo(vx, vy);
+        else ctx.lineTo(vx, vy);
+      }
+      ctx.closePath();
+      ctx.strokeStyle = isDiscovered ? 'rgba(56, 189, 248, 0.15)' : 'rgba(30, 41, 59, 0.4)';
+      ctx.lineWidth = 1;
+      ctx.stroke();
 
+      // Content inside the room
       if (isDiscovered && room?.tile) {
-        ctx.fillText(room.tile.name, cx, cy - 10);
+        // Room Name
+        ctx.fillStyle = '#f8fafc';
+        ctx.font = 'bold 13px sans-serif';
+        ctx.textAlign = 'center';
+        ctx.fillText(room.tile.name, cx, cy - 14);
 
         // Status indicators
         const tokens: string[] = [];
@@ -250,18 +349,41 @@ export class TacticalRenderer {
         if (room.secureTokens > 0) tokens.push(`🛡️ x${room.secureTokens}`);
         if (room.searchTokens > 0) tokens.push(`🔍 x${room.searchTokens}`);
 
-        ctx.font = '10px sans-serif';
-        ctx.fillStyle = '#94a3b8';
-        ctx.fillText(tokens.join(' | '), cx, cy + 10);
+        if (tokens.length > 0) {
+          ctx.font = 'bold 10px sans-serif';
+          ctx.fillStyle = '#fbbf24';
+          ctx.fillText(tokens.join(' · '), cx, cy + 4);
+        }
 
         // Characters present
         if (room.characterIds.length > 0) {
+          const names = room.characterIds.map(id => this.state?.characters[id]?.name ?? id);
+          const label = names.length > 1 ? `👥 ${names.length} Crew (${names.join(', ')})` : `👥 ${names[0] ?? ''}`;
+
+          // Badge pill behind crew
+          ctx.font = 'bold 11px sans-serif';
+          const textW = ctx.measureText(label).width;
+          const badgeW = Math.min(this.hexW - 16, textW + 16);
+
+          ctx.fillStyle = 'rgba(2, 132, 199, 0.35)';
+          ctx.fillRect(cx - badgeW / 2, cy + 14, badgeW, 20);
+          ctx.strokeStyle = '#0284c7';
+          ctx.lineWidth = 1.5;
+          ctx.strokeRect(cx - badgeW / 2, cy + 14, badgeW, 20);
+
           ctx.fillStyle = '#38bdf8';
-          ctx.fillText(`👥 ${room.characterIds.join(', ')}`, cx, cy + 28);
+          ctx.fillText(label, cx, cy + 28);
         }
       } else {
-        ctx.fillStyle = '#64748b';
-        ctx.fillText(`[${slot.section}] ${slot.slotId}`, cx, cy);
+        // Unexplored socket indicator
+        ctx.textAlign = 'center';
+        ctx.font = 'bold 11px monospace';
+        ctx.fillStyle = '#7dd3fc';
+        ctx.fillText(`[SEC ${slot.section}]`, cx, cy - 8);
+
+        ctx.font = 'bold 10px monospace';
+        ctx.fillStyle = '#94a3b8';
+        ctx.fillText(slot.slotId.replace('slot_', ''), cx, cy + 9);
       }
 
       ctx.restore();
@@ -285,11 +407,69 @@ export class TacticalRenderer {
     return { minX, minY, maxX, maxY };
   }
 
+  public focusRoom(roomId: string, zoom = 1.2): void {
+    const slot = BOARD_SLOTS.find(s => s.slotId === roomId);
+    if (!slot) return;
+    const { cx, cy } = this.getSlotCenter(slot.x, slot.y);
+
+    const topBar = document.querySelector('.nemesis-top-bar') as HTMLElement | null;
+    const bottomBar = document.querySelector('.nemesis-bottom-bar') as HTMLElement | null;
+    const topInset = topBar ? topBar.offsetHeight : 50;
+    const bottomInset = bottomBar ? bottomBar.offsetHeight : 140;
+
+    const screenCenterY = topInset + (this.canvas.height - topInset - bottomInset) / 2;
+
+    this.camera.transform.zoom = zoom;
+    this.camera.transform.x = this.canvas.width / 2 - cx * zoom;
+    this.camera.transform.y = screenCenterY - cy * zoom;
+    this.render();
+  }
+
+  public zoomIn(): void {
+    const topBar = document.querySelector('.nemesis-top-bar') as HTMLElement | null;
+    const bottomBar = document.querySelector('.nemesis-bottom-bar') as HTMLElement | null;
+    const topInset = topBar ? topBar.offsetHeight : 50;
+    const bottomInset = bottomBar ? bottomBar.offsetHeight : 140;
+    const centerY = topInset + (this.canvas.height - topInset - bottomInset) / 2;
+    this.camera.zoomAt(this.canvas.width / 2, centerY, 1.25);
+    this.render();
+  }
+
+  public zoomOut(): void {
+    const topBar = document.querySelector('.nemesis-top-bar') as HTMLElement | null;
+    const bottomBar = document.querySelector('.nemesis-bottom-bar') as HTMLElement | null;
+    const topInset = topBar ? topBar.offsetHeight : 50;
+    const bottomInset = bottomBar ? bottomBar.offsetHeight : 140;
+    const centerY = topInset + (this.canvas.height - topInset - bottomInset) / 2;
+    this.camera.zoomAt(this.canvas.width / 2, centerY, 0.8);
+    this.render();
+  }
+
+  public fitToScreen(padding = 16): void {
+    const bounds = this.getBoardWorldBounds();
+    const topBar = document.querySelector('.nemesis-top-bar') as HTMLElement | null;
+    const bottomBar = document.querySelector('.nemesis-bottom-bar') as HTMLElement | null;
+
+    const topInset = topBar ? topBar.offsetHeight : 50;
+    const bottomInset = bottomBar ? bottomBar.offsetHeight : 140;
+
+    this.camera.fitToBounds(
+      bounds,
+      this.canvas.width,
+      this.canvas.height,
+      padding,
+      topInset,
+      bottomInset
+    );
+    this.render();
+  }
+
   private setupEventListeners(): void {
     let isDragging = false;
     let lastX = 0;
     let lastY = 0;
 
+    // Mouse Controls
     this.canvas.addEventListener('mousedown', (e: MouseEvent) => {
       isDragging = true;
       lastX = e.clientX;
@@ -318,7 +498,7 @@ export class TacticalRenderer {
       const factor = e.deltaY < 0 ? 1.1 : 0.9;
       this.camera.zoomAt(mouseX, mouseY, factor);
       this.render();
-    });
+    }, { passive: false });
 
     this.canvas.addEventListener('click', (e: MouseEvent) => {
       const rect = this.canvas.getBoundingClientRect();
@@ -329,6 +509,77 @@ export class TacticalRenderer {
         this.options.onRoomClick(slot.slotId);
       }
     });
+
+    // Touch Controls (Mobile & Tablet: single-touch pan, pinch-to-zoom with seamless finger-lift)
+    let isPinching = false;
+    let initialPinchDistance = 0;
+    let lastTouchX = 0;
+    let lastTouchY = 0;
+
+    this.canvas.addEventListener('touchstart', (e: TouchEvent) => {
+      if (e.touches.length === 1) {
+        isPinching = false;
+        const touch = e.touches[0]!;
+        lastTouchX = touch.clientX;
+        lastTouchY = touch.clientY;
+      } else if (e.touches.length === 2) {
+        isPinching = true;
+        const t1 = e.touches[0]!;
+        const t2 = e.touches[1]!;
+        initialPinchDistance = Math.hypot(t2.clientX - t1.clientX, t2.clientY - t1.clientY);
+      }
+    }, { passive: true });
+
+    this.canvas.addEventListener('touchmove', (e: TouchEvent) => {
+      if (e.touches.length === 1) {
+        const touch = e.touches[0]!;
+        // If we were pinching and lifted one finger, re-anchor coordinates to prevent jumping
+        if (isPinching) {
+          isPinching = false;
+          lastTouchX = touch.clientX;
+          lastTouchY = touch.clientY;
+          return;
+        }
+
+        const dx = touch.clientX - lastTouchX;
+        const dy = touch.clientY - lastTouchY;
+        lastTouchX = touch.clientX;
+        lastTouchY = touch.clientY;
+        this.camera.pan(dx, dy);
+        this.render();
+      } else if (e.touches.length === 2) {
+        isPinching = true;
+        const t1 = e.touches[0]!;
+        const t2 = e.touches[1]!;
+        const currentDist = Math.hypot(t2.clientX - t1.clientX, t2.clientY - t1.clientY);
+        if (initialPinchDistance > 0 && currentDist > 0) {
+          const factor = currentDist / initialPinchDistance;
+          const midX = (t1.clientX + t2.clientX) / 2;
+          const midY = (t1.clientY + t2.clientY) / 2;
+          const rect = this.canvas.getBoundingClientRect();
+          this.camera.zoomAt(midX - rect.left, midY - rect.top, factor);
+          initialPinchDistance = currentDist;
+          this.render();
+        }
+      }
+    }, { passive: true });
+
+    const handleTouchEnd = (e: TouchEvent) => {
+      if (e.touches.length === 1) {
+        // One finger still touching: re-anchor coordinates to prevent jump on subsequent moves
+        const touch = e.touches[0]!;
+        lastTouchX = touch.clientX;
+        lastTouchY = touch.clientY;
+        isPinching = false;
+        initialPinchDistance = 0;
+      } else if (e.touches.length === 0) {
+        isPinching = false;
+        initialPinchDistance = 0;
+      }
+    };
+
+    this.canvas.addEventListener('touchend', handleTouchEnd, { passive: true });
+    this.canvas.addEventListener('touchcancel', handleTouchEnd, { passive: true });
   }
 
   public startAnimationLoop(): void {

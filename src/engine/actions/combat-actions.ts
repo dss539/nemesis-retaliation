@@ -380,7 +380,7 @@ function updateCharacterWeapon(state: GameState, charId: CharacterId, updatedWea
   };
 }
 
-function removeIntruder(state: GameState, intruderId: string): GameState {
+export function removeIntruder(state: GameState, intruderId: string): GameState {
   const inst = state.intruderInstances[intruderId];
   if (!inst) return state;
 

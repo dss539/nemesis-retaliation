@@ -9,16 +9,18 @@
     body, html {
       width: 100%;
       height: 100%;
+      height: 100dvh;
       overflow: hidden;
       background-color: #0b0f19;
       color: #f8fafc;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     }
     #game-container {
-      position: relative;
-      width: 100vw;
-      height: 100vh;
-      display: flex;
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
     }
     #tactical-canvas {
       width: 100%;
@@ -48,9 +50,16 @@
         canvas.height = window.innerHeight;
       };
       resize();
-      window.addEventListener('resize', resize);
 
       const app = new NemesisApp(container, canvas);
+      window.app = app;
+      app.renderer.fitToScreen(window.innerWidth < 768 ? 20 : 60);
+
+      window.addEventListener('resize', () => {
+        resize();
+        app.renderer.fitToScreen(window.innerWidth < 768 ? 20 : 60);
+      });
+
       app.renderer.startAnimationLoop();
     });
   </script>

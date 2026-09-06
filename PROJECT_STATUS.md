@@ -14,11 +14,11 @@
 
 ## Current Objective
 
-Stages 1, 2, and 3 are implemented and verified with 72 automated tests in Vitest. GitHub Actions CI/CD pipeline is live and verified green (`deploy.yml`). GitHub Pages site deployed and verified at `https://dss539.github.io/nemesis-retaliation/`.
+Implementation Phase 1 & 2 operational. Vitest test suite passes 73/73 tests. Playwright E2E suite passes 12/12 tests covering initial load, player HUD/cards, turn rotation, multi-viewport responsive framing (mobile/tablet/desktop), multi-touch pinch gesture stabilization, on-screen camera controls, diagnostics overlay, and two-client P2P action synchronization.
 
 ## Immediate Next Deliverable
 
-End-to-end integration and visual QA across viewpoints. Core engine rules, exploration, combat dice, room actions, P2P networking, and canvas rendering are operational and deployed.
+Stage 3 & 4 full game loop expansion and additional interactive action flows (movement targeting, exploration card resolution, combat rolls) over live P2P network layer.
 
 ## Resume Checkpoint
 

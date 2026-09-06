@@ -71,13 +71,15 @@ export class Camera2D {
     screenWidth: number,
     screenHeight: number,
     padding: number = 40,
+    topInset: number = 0,
+    bottomInset: number = 0,
   ): void {
     const worldW = bounds.maxX - bounds.minX;
     const worldH = bounds.maxY - bounds.minY;
     if (worldW <= 0 || worldH <= 0) return;
 
     const availableW = Math.max(100, screenWidth - padding * 2);
-    const availableH = Math.max(100, screenHeight - padding * 2);
+    const availableH = Math.max(100, screenHeight - topInset - bottomInset - padding * 2);
 
     const fitZoom = Math.min(availableW / worldW, availableH / worldH);
     this.transform.zoom = Math.min(this.maxZoom, Math.max(this.minZoom, fitZoom));
@@ -86,6 +88,7 @@ export class Camera2D {
     const worldCenterY = (bounds.minY + bounds.maxY) / 2;
 
     this.transform.x = screenWidth / 2 - worldCenterX * this.transform.zoom;
-    this.transform.y = screenHeight / 2 - worldCenterY * this.transform.zoom;
+    const screenCenterY = topInset + (screenHeight - topInset - bottomInset) / 2;
+    this.transform.y = screenCenterY - worldCenterY * this.transform.zoom;
   }
 }
