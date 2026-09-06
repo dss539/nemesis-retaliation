@@ -18,7 +18,7 @@ Execute Stage 1 of the accepted rewrite architecture proposal: Headless Rules & 
 
 ## Immediate Next Deliverable
 
-Stage 1.1: Core Types & Foundations (TypeScript setup, deterministic PRNG, core state schemas, basic turn/round loop).
+Stage 1.3: Character Actions & Item Systems (Search, Shoot, Burst, Melee, Trade, Room Actions across 25 room types, and Tactical Gear). Stages 1.1 and 1.2 completed and verified (43 unit tests passing in Vitest).
 
 ## Resume Checkpoint
 

@@ -2089,19 +2089,19 @@ Do not add repair entries here.
 ## IMPLEMENTATION PHASE 1: Headless Rules & State Engine (Active)
 
 ### Stage 1.1: Core Types & Foundations
-- [ ] Initialize project configuration (`package.json`, `tsconfig.json`, `vite.config.ts`, `vitest.config.ts`) with zero runtime server deps.
-- [ ] Port/derive TypeScript types from `docs/rules/vocabulary/` and `docs/rules/ontology/` (Rooms, Corridors, Characters, Items, Intruders, Actions).
-- [ ] Implement deterministic seeded PRNG (`Mulberry32`) with state export/hydration and test coverage.
-- [ ] Implement Game State interfaces: Players, Decks, Bag, Board, Objective assignments.
-- [ ] Implement pure Action-Reducer pattern: Action envelope, dispatch validation, monotonic sequence numbering.
-- [ ] Implement Game Setup reducer (Player count 1-5, Character drafting, Starting item distribution, Deck initialization, Bag initialization).
+- [x] Initialize project configuration (`package.json`, `tsconfig.json`, `vite.config.ts`, `vitest.config.ts`) with zero runtime server deps.
+- [x] Port/derive TypeScript types from `docs/rules/vocabulary/` and `docs/rules/ontology/` (Rooms, Corridors, Characters, Items, Intruders, Actions).
+- [x] Implement deterministic seeded PRNG (`Mulberry32`) with state export/hydration and test coverage.
+- [x] Implement Game State interfaces: Players, Decks, Bag, Board, Objective assignments.
+- [x] Implement pure Action-Reducer pattern: Action envelope, dispatch validation, monotonic sequence numbering.
+- [x] Implement Game Setup reducer (Player count 1-5, Character drafting, Starting item distribution, Deck initialization, Bag initialization).
 
 ### Stage 1.2: Spatial Engine & Exploration
-- [ ] Hex coordinate math (pointy-top 23 room slots, axial coordinates, neighbors, distance).
-- [ ] Corridor network graph, Door state machine (Open, Closed, Destroyed), Technical Corridors.
-- [ ] Movement action validation (Adjacency, Doors, in-combat movement rules, escaped characters).
-- [ ] Room exploration token reveals, Room tile assignment (Site 1 vs Site 2), Exploration effects.
-- [ ] Corridor Noise roll mechanics and Noise marker placement.
+- [x] Hex coordinate math (pointy-top 23 room slots, axial coordinates, neighbors, distance).
+- [x] Corridor network graph, Door state machine (Open, Closed, Destroyed), Technical Corridors.
+- [x] Movement action validation (Adjacency, Doors, in-combat movement rules, escaped characters).
+- [x] Room exploration token reveals, Room tile assignment (Site 1 vs Site 2), Exploration effects.
+- [x] Corridor Noise roll mechanics and Noise marker placement.
 
 ### Stage 1.3: Character Actions & Item Systems
 - [ ] Action card data model & full base deck definitions (60 Action cards across 5 characters + Support).
