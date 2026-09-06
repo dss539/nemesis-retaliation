@@ -509,6 +509,7 @@ export class NemesisApp {
           <span class="nemesis-badge" style="color: ${this.state.lifeSupport.A ? '#22c55e' : '#ef4444'};">Sec A: ${this.state.lifeSupport.A ? 'ON' : 'OFF'}</span>
           <span class="nemesis-badge" style="color: ${this.state.lifeSupport.B ? '#22c55e' : '#ef4444'};">Sec B: ${this.state.lifeSupport.B ? 'ON' : 'OFF'}</span>
           <span class="nemesis-badge" style="color: ${this.state.lifeSupport.C ? '#22c55e' : '#ef4444'};">Sec C: ${this.state.lifeSupport.C ? 'ON' : 'OFF'}</span>
+          <a href="./manual/" target="_blank" rel="noopener noreferrer" class="nemesis-badge" style="color: #38bdf8; text-decoration: none; border-color: #0284c7; background: rgba(2, 132, 199, 0.25); font-weight: bold; cursor: pointer;">📖 MANUAL</a>
         </div>
       </div>
 

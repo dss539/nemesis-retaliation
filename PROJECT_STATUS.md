@@ -16,6 +16,8 @@
 
 Implementation Phase 1, 2, & 5 operational. Vitest test suite passes 73/73 tests. Playwright E2E suite passes 13/13 tests covering initial load, player HUD/cards, turn rotation, interactive room movement & exploration, multi-viewport responsive framing (mobile/tablet/desktop), multi-touch pinch gesture stabilization, on-screen camera controls, diagnostics overlay, and two-client P2P action synchronization.
 
+Player Manual & Quick Reference website created in `public/manual/` with full interactive rules manual, 25-room database, operative dossiers, and quick help card references. Live on Tailnet via `https://smithers.coyote-piranha.ts.net/` and deployed to GitHub Pages alongside the main game under `/manual/`.
+
 ## Immediate Next Deliverable
 
 Stage 3 & 4 full game loop expansion and additional interactive action flows (combat cards, crafting, bag development, objective scoring) over live P2P network layer.

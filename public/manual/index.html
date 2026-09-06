@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nemesis: Retaliation — Operative Manual & Field Reference</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand">
+        <div class="brand-badge">TACTICAL SYSTEM v1.2</div>
+        <h1>NEMESIS: RETALIATION</h1>
+        <div class="brand-sub">OPERATIVE FIELD MANUAL &amp; QUICK REFERENCE</div>
+      </div>
+      <div style="display: flex; gap: 12px; align-items: center; flex-wrap: wrap;">
+        <a href="../" class="game-link-btn" title="Return to tactical game simulation">🎮 Tactical Game</a>
+        <div class="search-box">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="global-search" placeholder="Search rules, actions, rooms, icons, terms." autocomplete="off">
+          <button id="clear-search" class="clear-btn" title="Clear search">×</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navigation Tabs -->
+    <nav class="main-nav">
+      <button class="nav-tab active" data-tab="quick-ref">
+        <span class="tab-icon">⚡</span> Front-Door Quick Reference
+      </button>
+      <button class="nav-tab" data-tab="core-rules">
+        <span class="tab-icon">📖</span> Core Rules Manual
+      </button>
+      <button class="nav-tab" data-tab="rooms-dir">
+        <span class="tab-icon">🗺️</span> Facility Rooms (25)
+      </button>
+      <button class="nav-tab" data-tab="operatives">
+        <span class="tab-icon">👥</span> Operatives &amp; Gear
+      </button>
+      <button class="nav-tab" data-tab="intruders">
+        <span class="tab-icon">👾</span> Intruders &amp; Combat
+      </button>
+      <button class="nav-tab" data-tab="objectives">
+        <span class="tab-icon">🎯</span> Objectives &amp; Escape
+      </button>
+    </nav>
+  </header>
+
+  <!-- Main Content Container -->
+  <main class="main-content">
+
+    <!-- Search Results Panel (Overlay when typing) -->
+    <section id="search-results-panel" class="search-panel hidden">
+      <div class="panel-header">
+        <h3>Search Results for: <span id="search-query-text"></span></h3>
+        <button id="close-search-panel" class="close-btn">Close Results</button>
+      </div>
+      <div id="search-matches" class="matches-list"></div>
+    </section>
+
+    <!-- TAB 1: FRONT-DOOR QUICK REFERENCE (HELP CARDS) -->
+    <section id="tab-quick-ref" class="tab-pane active">
+      <div class="section-intro">
+        <h2>⚡ Front-Door Quick Reference</h2>
+        <p class="lead">Essential cheat-sheets, turn sequences, noise procedures, and dice outcomes needed every turn at the table.</p>
+      </div>
+
+      <!-- Quick Cards Grid -->
+      <div class="quick-cards-grid">
+
+        <!-- Card: Player Turn & Phase Sequence -->
+        <div class="reference-card border-cyan">
+          <div class="card-header bg-cyan">
+            <span class="card-badge">HELP CARD #1</span>
+            <h3>ROUND &amp; TURN SEQUENCE</h3>
+          </div>
+          <div class="card-body">
+            <div class="phase-block">
+              <h4 class="phase-title text-cyan">1. PLAYER PHASE</h4>
+              <p class="phase-desc">Players take turns clockwise starting with First Player.</p>
+              <ul class="clean-list">
+                <li><strong>On your turn:</strong> Perform exactly <strong>2 Actions</strong> (or 1 Action + Pass, or Pass immediately).</li>
+                <li><strong>Keep going around:</strong> Turns continue around the table until <em>all players have Passed</em>.</li>
+                <li><strong>Passing:</strong> Discard any number of Action and/or Contamination cards. You take no further actions this round.</li>
+                <li><span class="tag tag-warning">Oxygen Check:</span> If passing in a Section with <em>Inactive Life Support</em>, you still lose <strong>1 O₂</strong>.</li>
+              </ul>
+            </div>
+
+            <div class="phase-block">
+              <h4 class="phase-title text-orange">2. EVENT PHASE</h4>
+              <ol class="step-list">
+                <li><strong>1) Escape:</strong> Any player in the Lander may choose to launch it now (if AA is cleared). All aboard escape.</li>
+                <li><strong>2) Fire Damage:</strong> Every Character and Intruder in a Room with Fire loses <strong>1 Health</strong>.</li>
+                <li><strong>3) Intruder Attacks:</strong> Intruders in rooms with Characters attack (largest first, targeting active player order).</li>
+                <li><strong>4) Event Card:</strong> Draw 1 Event card. Move Intruders by matching direction icons, then resolve Event text.</li>
+                <li><strong>5) Bag Development:</strong> Draw 1 token from the Intruder Bag and resolve on the Intruder table.</li>
+              </ol>
+            </div>
+
+            <div class="phase-block">
+              <h4 class="phase-title text-purple">3. CLEANUP PHASE</h4>
+              <ol class="step-list" start="6">
+                <li><strong>6) First Player Change:</strong> Pass Starting Player token clockwise (skip dead/escaped/hibernating).</li>
+                <li><strong>7) Drawing Cards:</strong> All players draw up to <strong>5 Action Cards</strong>. (Reshuffle discard if empty).</li>
+                <li><strong>8) Time Advancement:</strong> Advance Round Marker 1 space. Resolve any token in the newly entered space immediately.</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card: Basic Actions Cheat Sheet -->
+        <div class="reference-card border-green">
+          <div class="card-header bg-green">
+            <span class="card-badge">ACTIONS</span>
+            <h3>BASIC ACTIONS LIST</h3>
+          </div>
+          <div class="card-body">
+            <p class="small text-muted mb-2">Spend Action cards from hand to pay action costs (discard face-up, do not resolve card text).</p>
+            <table class="quick-table">
+              <thead>
+                <tr>
+                  <th>Action</th>
+                  <th>Cost</th>
+                  <th>Summary &amp; Key Rules</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Move</strong></td>
+                  <td><span class="cost-badge">1 Card</span></td>
+                  <td>Move to adjacent Room via open corridor. If unexplored, resolve Exploration Sequence. <em>Make a Noise Roll</em> after moving.</td>
+                </tr>
+                <tr>
+                  <td><strong>Move Cautiously</strong></td>
+                  <td><span class="cost-badge">2 Cards</span></td>
+                  <td>Same as Move, but place <strong>1 Secure Token</strong> in destination room after moving. Still roll Noise.</td>
+                </tr>
+                <tr>
+                  <td><strong>Shoot</strong></td>
+                  <td><span class="cost-badge">1 Card</span></td>
+                  <td>Target Intruder in your room with loaded Ranged Weapon. Deal <strong>1 Hit</strong> + roll Shoot Die. (Only spends ammo on ammo-loss roll.).</td>
+                </tr>
+                <tr>
+                  <td><strong>Burst</strong></td>
+                  <td><span class="cost-badge">1 Card</span></td>
+                  <td>Target adjacent Corridor with Intruders. <em>Spend 1 Ammo</em>, roll Burst Die, distribute rolled hits among intruders there.</td>
+                </tr>
+                <tr>
+                  <td><strong>Melee Attack</strong></td>
+                  <td><span class="cost-badge">1 Card</span></td>
+                  <td>Gain <strong>1 Contamination</strong>. Deal 1 Hit to Intruder in your room, roll Shoot die. If it survives, absorb retaliation or damage weapon.</td>
+                </tr>
+                <tr>
+                  <td><strong>Use Room</strong></td>
+                  <td><span class="cost-badge">2 Cards</span></td>
+                  <td>Perform the specific printed action on the Room tile (if room has no Malfunction, or if effect permits).</td>
+                </tr>
+                <tr>
+                  <td><strong>Use Tactical Gear</strong></td>
+                  <td><span class="cost-badge">1 Card</span></td>
+                  <td>Use any number of tokens from your Belt/slots (Ammo to reload, Medpack for +2 HP, Grenade for Burst+2, Oxygen for +3 O₂).</td>
+                </tr>
+                <tr>
+                  <td><strong>Place Secure</strong></td>
+                  <td><span class="cost-badge">1 Card</span></td>
+                  <td>Place 1 Secure token in your Room (Room must be Intruder-free; max 3 Secure tokens per room).</td>
+                </tr>
+                <tr>
+                  <td><strong>Trade</strong></td>
+                  <td><span class="cost-badge">1 Card</span></td>
+                  <td>Exchange items/gear tokens with any consenting Characters in the same Room.</td>
+                </tr>
+                <tr>
+                  <td><strong>Play Action Card</strong></td>
+                  <td><span class="cost-badge">0 Cards</span></td>
+                  <td>Play a Character Action Card from hand. Resolve its printed effect, then discard it to your discard pile.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Card: Noise & Intruder Appearance -->
+        <div class="reference-card border-amber">
+          <div class="card-header bg-amber">
+            <span class="card-badge">HAZARDS</span>
+            <h3>NOISE ROLL &amp; APPEARANCE</h3>
+          </div>
+          <div class="card-body">
+            <p>Roll the <strong>10-sided Noise Die</strong> after every move (unless a card specifically waives it):</p>
+            <div class="roll-callouts">
+              <div class="roll-row">
+                <span class="die-face">1, 2, 3, or 4</span>
+                <div class="roll-details">
+                  <strong>Numbered Corridor Check:</strong> Check every adjacent Corridor matching that number:
+                  <ul>
+                    <li>If it already contains <strong>Intruders</strong>: Largest moves into your Room.</li>
+                    <li>If it has a <strong>Noise Marker</strong>: Remove marker &rarr; draw Intruder token &rarr; place in Corridor.</li>
+                    <li>If it has NO noise and NO intruders: Place <strong>1 Noise Marker</strong> there.</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="roll-row">
+                <span class="die-face danger">HAZARD (Danger)</span>
+                <div class="roll-details">
+                  <strong>Surprise Appearance.</strong> Draw 1 token from the Intruder Bag. Use its type icon to immediately place that Intruder <em>directly in your Room</em>. It makes an immediate Attack.
+                </div>
+              </div>
+
+              <div class="roll-row">
+                <span class="die-face success">BLANK / SILENCE</span>
+                <div class="roll-details">
+                  <strong>Nothing Happens:</strong> The shadows stay quiet. No noise marker placed.
+                </div>
+              </div>
+            </div>
+
+            <div class="info-alert mt-2">
+              <strong>🛡️ SECURE TOKENS:</strong> When an Intruder enters a Room with Secure tokens, discard <strong>1 Secure Token</strong> to cancel its incoming attack. (Only protects against <em>entry</em>, not subsequent round attacks).
+            </div>
+          </div>
+        </div>
+
+        <!-- Card: Bag Development & Intruder Table -->
+        <div class="reference-card border-red">
+          <div class="card-header bg-red">
+            <span class="card-badge">INTRUDER SHEET</span>
+            <h3>BAG DEVELOPMENT TABLE</h3>
+          </div>
+          <div class="card-body">
+            <p class="small text-muted mb-2">Drawn during Event Phase Step 5. Resolve based on current Queen status:</p>
+            <table class="quick-table compact">
+              <thead>
+                <tr>
+                  <th>Token Drawn</th>
+                  <th>👑 While Queen is ALIVE</th>
+                  <th>💀 While Queen is DEAD</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Larva</strong></td>
+                  <td>Add 2 random <em>Drone</em> tokens to bag.</td>
+                  <td>Add 2 random <em>Drone</em> tokens to bag.</td>
+                </tr>
+                <tr>
+                  <td><strong>Drone / Adult</strong></td>
+                  <td>Add 2 <em>Queen</em> tokens to bag.</td>
+                  <td>Add 2 <em>Larva</em> tokens to bag.</td>
+                </tr>
+                <tr>
+                  <td><strong>Queen</strong></td>
+                  <td>If Queen on map: <em>Activate Queen</em> (she moves/attacks).<br>If not on map: Add 2 <em>Larva</em> tokens to bag.</td>
+                  <td>Add 2 random <em>Drone</em> tokens to bag. <em>Remove this token permanently</em>.</td>
+                </tr>
+                <tr>
+                  <td><strong>Blank Token</strong></td>
+                  <td>Add 2 random <em>Adult</em> tokens to bag; return Blank to bag.</td>
+                  <td>Add 2 random <em>Adult</em> tokens to bag; return Blank to bag.</td>
+                </tr>
+              </tbody>
+            </table>
+            <p class="small text-muted mt-2"><em>* Always discard the drawn token to the bottom of its token pile (except Blank, which goes back into the bag).</em></p>
+          </div>
+        </div>
+
+        <!-- Card: Serious Wounds Quick Reference -->
+        <div class="reference-card border-purple">
+          <div class="card-header bg-purple">
+            <span class="card-badge">SURVIVAL</span>
+            <h3>SERIOUS WOUNDS (9 TYPES)</h3>
+          </div>
+          <div class="card-body">
+            <div class="wounds-grid">
+              <div class="wound-item"><strong>ARM</strong> <span>Only 1 Hand slot. Discard excess held Item immediately.</span></div>
+              <div class="wound-item"><strong>BLEEDING</strong> <span>Whenever you Pass: Lose 1 Health Point.</span></div>
+              <div class="wound-item"><strong>BODY</strong> <span>Hand size is reduced by 1 (draw up to 4 instead of 5).</span></div>
+              <div class="wound-item"><strong>EYES</strong> <span>+1 to all your Shoot die results (makes hitting harder.).</span></div>
+              <div class="wound-item"><strong>GUTS</strong> <span>Whenever you Pass: Gain 1 Contamination card.</span></div>
+              <div class="wound-item"><strong>HAND</strong> <span>"Use Item" Action costs 1 Action card more.</span></div>
+              <div class="wound-item"><strong>KNEE</strong> <span>"Move Cautiously" costs 1 Action card more.</span></div>
+              <div class="wound-item"><strong>LEG</strong> <span>"Move" from a Room with an Intruder costs 1 Action card more.</span></div>
+              <div class="wound-item"><strong>LUNGS</strong> <span>Whenever you Pass: Lose 1 O₂ (if at 0 O₂, lose 2 HP instead).</span></div>
+            </div>
+            <div class="tip-box mt-2">
+              <strong>🩹 Treatment:</strong> Discard Serious Wounds at the <em>Emergency Room</em>, <em>Surgery Room</em>, or via <em>Field Surgery / Medical Items</em>.
+            </div>
+          </div>
+        </div>
+
+        <!-- Card: Vital Rules & Traps to Avoid -->
+        <div class="reference-card border-cyan">
+          <div class="card-header bg-cyan">
+            <span class="card-badge">PRO TIPS</span>
+            <h3>CRITICAL RULES MOST PLAYERS MISS</h3>
+          </div>
+          <div class="card-body">
+            <ul class="clean-list bullets">
+              <li><strong>Shooting does NOT automatically spend ammo:</strong> Ammo is ONLY spent when the Shoot Die rolls the Ammo-loss icon. Burst, however, <em>always</em> spends 1 ammo.</li>
+              <li><strong>Passing still costs Oxygen:</strong> If you are in a Section where Life Support is Inactive, passing your turn still drains 1 O₂. Don't linger in unpowered sections.</li>
+              <li><strong>Contamination cards cannot pay costs:</strong> You cannot discard Contamination to pay for Basic Actions. You can only ditch them when you Pass.</li>
+              <li><strong>Closed Doors block almost everything:</strong> You cannot move, burst, shoot, throw grenades, or command through closed doors. Only Noise markers ignore doors.</li>
+              <li><strong>Opportunity attacks max out at 3:</strong> If you flee a room/corridor with a swarm of intruders, only the 3 largest get opportunity attacks before you move.</li>
+              <li><strong>Lander Health Immunity:</strong> Characters sitting safely inside the Lander cannot lose Health from outside effects. But if an Intruder enters the Landing Zone, you get kicked out.</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- TAB 2: CORE RULES MANUAL -->
+    <section id="tab-core-rules" class="tab-pane">
+      <div class="section-intro">
+        <h2>📖 Core Rules Manual</h2>
+        <p class="lead">Structured, unambiguous rules written for rapid understanding, zero fluff, and instant tabletop resolution.</p>
+      </div>
+
+      <div class="rules-container">
+        <!-- Sidebar Navigation for Rules -->
+        <aside class="rules-sidebar">
+          <h4>Rule Topics</h4>
+          <ul class="sidebar-links">
+            <li><a href="#rule-setup">1. Mission Setup</a></li>
+            <li><a href="#rule-structure">2. Turn &amp; Round Flow</a></li>
+            <li><a href="#rule-actions">3. Character Actions</a></li>
+            <li><a href="#rule-exploration">4. Exploration &amp; Doors</a></li>
+            <li><a href="#rule-combat">5. Combat &amp; Weapons</a></li>
+            <li><a href="#rule-intruders">6. Intruders &amp; Noise</a></li>
+            <li><a href="#rule-health">7. Health, O₂ &amp; Wounds</a></li>
+            <li><a href="#rule-contamination">8. Contamination &amp; Eclosion</a></li>
+            <li><a href="#rule-facility">9. Life Support &amp; Systems</a></li>
+            <li><a href="#rule-escape">10. Escape &amp; Endgame</a></li>
+          </ul>
+        </aside>
+
+        <!-- Rules Content Area -->
+        <div class="rules-content">
+
+          <!-- 1. Setup -->
+          <article id="rule-setup" class="rule-article">
+            <h3>1. Mission Setup in 5 Simple Steps</h3>
+            <div class="rule-box">
+              <h4>A. The Facility Board</h4>
+              <p>Assemble Section borders (A, B, C) and Round track. Place the <strong>Landing Zone</strong> in Section A with initial supplies (4 Ammo, 4 Grenade, 4 O₂, 4 Medpack). Shuffle Room stacks (A, B, C, and ?) face-down. Connect 3 initial Corridor tiles to the Landing Zone.</p>
+              
+              <h4>B. Systems Status at Game Start</h4>
+              <ul>
+                <li><strong>Life Support:</strong> All 3 tokens start <em>Inactive-side up</em>.</li>
+                <li><strong>Hibernatorium:</strong> Starts <em>Inactive-side up</em> and <em>Undiscovered</em>.</li>
+                <li><strong>Anti-Aircraft:</strong> Shuffle 2 AA tokens (1 Active, 1 Inactive) face-down in Section B.</li>
+                <li><strong>Nest:</strong> Place all 5 Egg tokens on Section C's Eggs track.</li>
+                <li><strong>Robot:</strong> Place face-down Robot card in Section A and Robot miniature in Hibernatorium.</li>
+              </ul>
+
+              <h4>C. Operative Draft &amp; Equipment</h4>
+              <ol>
+                <li>Deal 1 Help Card per player (sets player number &amp; starting draft order).</li>
+                <li>Player 1 drafts first: draw 2 Character Draft cards, pick 1, return the other.</li>
+                <li>Take Character board, set Health to slot 1 (Healthy), set Oxygen counter to <strong>7</strong>.</li>
+                <li>Take starting Character weapon with full Ammo tokens.</li>
+                <li><strong>Support Equipment Draft:</strong> Reveal 7 Support Equipment cards. In reverse player order (Player 5 down to 1), pick 1 card. Fill its gear slots. (The Contractor skips this draft because they already start with 2 items.).</li>
+                <li>Select <strong>4 starting Tactical Gear tokens</strong> of your choice into your Tactical Belt.</li>
+              </ol>
+
+              <h4>D. Objectives</h4>
+              <p>Deal each player 1 <strong>Mission Objective</strong> and 1 <strong>Private Objective</strong> face-down. Draw 1 face-up <strong>Mission Task</strong> on the Round track.</p>
+            </div>
+          </article>
+
+          <!-- 2. Turn Structure -->
+          <article id="rule-structure" class="rule-article">
+            <h3>2. Turn &amp; Round Flow</h3>
+            <p>A game lasts up to <strong>14 Rounds</strong>. Each round has three distinct phases:</p>
+            
+            <div class="step-card">
+              <h4>Phase 1: Player Phase</h4>
+              <p>Players act in clockwise order starting from First Player. On your turn, you take <strong>2 Actions</strong>. You may:</p>
+              <ul>
+                <li>Perform 2 Basic Actions or played Action cards; OR</li>
+                <li>Perform 1 Action and then Pass; OR</li>
+                <li>Pass immediately.</li>
+              </ul>
+              <p>After your turn, the next clockwise player goes. Play continues looping around until <em>every player has Passed</em>.</p>
+              <div class="note-box">
+                <strong>Objective Selection:</strong> Once per game during your turn (before or after an action), you may discard one of your 2 Objectives and keep the other. Advance the Objective Choice track and draw bonus Action cards.</div>
+            </div>
+
+            <div class="step-card">
+              <h4>Phase 2: Event Phase</h4>
+              <p>Resolved automatically in strict numerical order:</p>
+              <ol>
+                <li><strong>Escape Check:</strong> Any character in the Lander may launch it.</li>
+                <li><strong>Fire Damage:</strong> 1 damage to everything in rooms with Fire markers.</li>
+                <li><strong>Intruder Attacks:</strong> Intruders in rooms with Characters attack (largest first).</li>
+                <li><strong>Event Card:</strong> Draw 1 Event card. Move Intruders by displayed direction icons, then execute card text.</li>
+                <li><strong>Bag Development:</strong> Draw 1 token from the bag and apply the Intruder development table.</li>
+              </ol>
+            </div>
+
+            <div class="step-card">
+              <h4>Phase 3: Cleanup Phase</h4>
+              <ol>
+                <li>Pass First Player token clockwise (skipping dead, escaped, or hibernating players).</li>
+                <li>Draw Action cards from your deck until you have <strong>5 in hand</strong>. (Reshuffle discard if deck is exhausted).</li>
+                <li>Advance Round marker by 1 space. If entering a space with Autodestruction or Lander arrival, resolve immediately.</li>
+              </ol>
+            </div>
+          </article>
+
+          <!-- 3. Character Actions -->
+          <article id="rule-actions" class="rule-article">
+            <h3>3. Character Actions Explained</h3>
+            
+            <div class="sub-rule">
+              <h4>Paying for Actions</h4>
+              <p>Every Basic Action has a cost in Action Cards (1 or 2). To pay, choose cards from your hand and discard them face-up into your discard pile. <em>Their printed text is ignored when spent as payment.</em> Contamination cards in hand <strong>cannot</strong> be used to pay action costs.</p>
+            </div>
+
+            <div class="sub-rule">
+              <h4>Movement &amp; Opportunity Attacks</h4>
+              <p>Characters move Room-to-Room along open Corridors. Characters never stop in Corridors.</p>
+              <ul>
+                <li><strong>Leaving a Room with Intruders:</strong> If you move out of a Room containing Intruders (or through a Corridor containing them), they make an <strong>Opportunity Attack</strong> before you move. Up to 3 largest Intruders attack.</li>
+                <li><strong>Closed Doors:</strong> You cannot move through Closed Doors until opened or destroyed.</li>
+                <li><strong>Noise Roll:</strong> After every move, roll the Noise die unless an effect says otherwise.</li>
+              </ul>
+            </div>
+
+            <div class="sub-rule">
+              <h4>Move Cautiously</h4>
+              <p>Costs <strong>2 Action Cards</strong>. Identical to normal Move, but after entering the destination Room, place <strong>1 Secure Token</strong> there immediately. You still make a Noise roll.</p>
+            </div>
+
+            <div class="sub-rule">
+              <h4>Using Rooms</h4>
+              <p>Costs <strong>2 Action Cards</strong>. Triggers the unique function of the room you occupy. Cannot be used if the room has a <strong>Malfunction Marker</strong> (unless an ability explicitly bypasses malfunctions).</p>
+            </div>
+
+            <div class="sub-rule">
+              <h4>Search Action</h4>
+              <p>Search is played via Action Cards (or Room actions). Look at the Item icons on the room tile (Green, Yellow, Red). Draw 1 card from each matching deck, pick <strong>at most 1</strong> to keep, and place the rest on the bottom of their decks.</p>
+            </div>
+
+            <div class="sub-rule">
+              <h4>Tactical Gear</h4>
+              <p>Costs 1 Action card. You may activate any number of consumable tokens from your belt:</p>
+              <ul>
+                <li><strong>Ammo Token:</strong> Full side flips to Half; Half side discards. Reloads a weapon slot.</li>
+                <li><strong>Medpack Token:</strong> Restore 2 Health Points.</li>
+                <li><strong>Oxygen Token:</strong> Gain +3 Oxygen (max 7).</li>
+                <li><strong>Grenade Token:</strong> Target an adjacent Corridor, roll Burst die + 2 hits.</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- 4. Exploration & Doors -->
+          <article id="rule-exploration" class="rule-article">
+            <h3>4. Exploration &amp; Doors</h3>
+            
+            <div class="sub-rule">
+              <h4>Exploration Sequence</h4>
+              <p>When moving into an empty, undiscovered Room slot through an unexplored Corridor:</p>
+              <ol>
+                <li>Draw top card of the <strong>Exploration Deck</strong>.</li>
+                <li>Match Room type (A, B, C, or ?). Draw that Room tile and place face-up.</li>
+                <li>Place new Corridor tiles on indicated unoccupied edges, orienting door slots toward the new room.</li>
+                <li>Place markers indicated on the card (Malfunction, Fire, Noise, Doors).</li>
+                <li>Move Character into the room (add Secure token if moving cautiously).</li>
+                <li>Resolve the card's <strong>Entrance Effect</strong> (often a Noise roll or placing Adults).</li>
+                <li>Discard the Exploration card.</li>
+              </ol>
+            </div>
+
+            <div class="sub-rule">
+              <h4>Door Rules</h4>
+              <p>Doors can be in three states: <strong>Open</strong> (no token), <strong>Closed</strong> (standing token), or <strong>Destroyed</strong> (laid flat token; permanently open).</p>
+              <ul>
+                <li><strong>Blocking:</strong> Closed Doors block movement, line-of-sight, shooting, bursting, and fire spread.</li>
+                <li><strong>Noise:</strong> Noise markers <em>can</em> be placed across closed doors.</li>
+                <li><strong>Intruder Movement:</strong> If an Intruder attempts to move through a Closed Door, it destroys the door instead and stays in place.</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- 5. Combat & Weapons -->
+          <article id="rule-combat" class="rule-article">
+            <h3>5. Combat &amp; Weapons</h3>
+
+            <div class="sub-rule">
+              <h4>Shooting (Ranged Weapons)</h4>
+              <p>Costs <strong>1 Action Card</strong>. Target an Intruder in your Room.</p>
+              <ol>
+                <li>Weapon must be loaded (at least 1 Ammo token).</li>
+                <li>Deal <strong>1 Hit</strong> (place a Universal marker on target or advance Queen track).</li>
+                <li>Roll the <strong>8-sided Shoot Die</strong>:
+                  <ul>
+                    <li><strong>Skull (Critical):</strong> Intruder dies immediately.</li>
+                    <li><strong>Number (2–5):</strong> Intruder dies if total hits &ge; rolled number.</li>
+                    <li><strong>Ammo Loss:</strong> Spend 1 Ammo (flip full to half, or discard half). Target survives this hit.</li>
+                    <li><strong>Ineffective:</strong> Nothing happens; target survives.</li>
+                  </ul>
+                </li>
+              </ol>
+              <p class="highlight-box"><strong>KEY FACT:</strong> Shooting does NOT spend ammo unless you roll the Ammo-loss die face.</p>
+            </div>
+
+            <div class="sub-rule">
+              <h4>Burst (Suppressive Corridor Fire)</h4>
+              <p>Costs <strong>1 Action Card</strong>. Target an adjacent Corridor containing Intruders.</p>
+              <ol>
+                <li><em>Spend 1 Ammo immediately</em> from your loaded weapon.</li>
+                <li>Roll the <strong>6-sided Burst Die</strong>. Deal that many hits to intruders in the corridor:
+                  <ul>
+                    <li><strong>Larva:</strong> 1 hit kills.</li>
+                    <li><strong>Adult:</strong> 1 hit kills in corridor.</li>
+                    <li><strong>Drone:</strong> 2 hits kill in corridor.</li>
+                    <li><strong>Queen:</strong> Each hit advances Queen Hits track by 1.</li>
+                  </ul>
+                </li>
+                <li>On the special burst symbol (shared with 4), resolve any extra weapon effect.</li>
+              </ol>
+            </div>
+
+            <div class="sub-rule">
+              <h4>Melee Combat</h4>
+              <p>Costs 1 Action card. Highly dangerous. Gain <strong>1 Contamination card</strong>. Deal 1 Hit to target in room and roll Shoot die. If the Intruder survives, you must either break one of your weapons (place Malfunction marker) or take an immediate Intruder Attack.</p>
+            </div>
+          </article>
+
+          <!-- 6. Intruders & Noise -->
+          <article id="rule-intruders" class="rule-article">
+            <h3>6. Intruders &amp; Noise Mechanics</h3>
+            <p>Intruders come in four castes: <strong>Larva</strong>, <strong>Drone</strong>, <strong>Adult</strong>, and the dreaded <strong>Queen</strong>.</p>
+            
+            <div class="sub-rule">
+              <h4>Corridor vs. Room Durability</h4>
+              <ul>
+                <li><strong>In Corridors:</strong> Adults die in 1 hit. Drones require 2 hits. Intruders never carry lingering damage markers in corridors.</li>
+                <li><strong>In Rooms:</strong> Adults and Drones accumulate Hit markers until a Shoot/Melee roll equals or is less than their hit total, or rolls a Skull.</li>
+              </ul>
+            </div>
+
+            <div class="sub-rule">
+              <h4>Intruder Movement Rules</h4>
+              <ul>
+                <li>Intruders engaged in a Room with a Character <strong>do not move</strong> during normal Event movement.</li>
+                <li>Intruders move along corridors toward the nearest Character.</li>
+                <li>If moving through a Closed Door, they destroy the door and stop.</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- 7. Health, O2 & Wounds -->
+          <article id="rule-health" class="rule-article">
+            <h3>7. Health, Oxygen &amp; Serious Wounds</h3>
+
+            <div class="sub-rule">
+              <h4>Health Track</h4>
+              <p>The health track has three tiers: <strong>Healthy</strong>, <strong>Injured</strong>, and <strong>Heavily Injured</strong>. When taking damage, move marker to the right. Crossing into an Armor slot discards your Armor. Reaching the Skull slot means <strong>immediate death</strong>.</p>
+            </div>
+
+            <div class="sub-rule">
+              <h4>Oxygen System</h4>
+              <p>Oxygen ranges from 0 to 7. When taking an action or passing in a section with Inactive Life Support, lose 1 O₂. If O₂ reaches the red skull slot, gain a <strong>Suffocating Token</strong> and reset dial to 0. A suffocating operative dies the next time they lose oxygen.</p>
+            </div>
+          </article>
+
+          <!-- 8. Contamination & Eclosion -->
+          <article id="rule-contamination" class="rule-article">
+            <h3>8. Contamination &amp; Eclosion</h3>
+            
+            <div class="sub-rule">
+              <h4>Contamination Cards</h4>
+              <p>Drawn into your discard pile when bitten or infected. They clog your deck and cannot be spent to pay action costs.</p>
+            </div>
+
+            <div class="sub-rule">
+              <h4>Infection Procedure</h4>
+              <p>Scan all Contamination cards in hand using the red decoder foil. If any card says <strong>INFECTED</strong> and you don't already have a Larva on your character board, place <strong>1 Larva model</strong> on your board.</p>
+            </div>
+
+            <div class="sub-rule">
+              <h4>Eclosion Procedure (Alien Chest-Burst)</h4>
+              <p>Draw 4 cards from your Action deck into hand without scanning. If your hand contains <strong>at least 1 Contamination card</strong>: your character dies instantly. An Adult Intruder spawns from your corpse.</p>
+            </div>
+          </article>
+
+          <!-- 9. Facility Systems -->
+          <article id="rule-facility" class="rule-article">
+            <h3>9. Life Support &amp; Facility Systems</h3>
+            <ul>
+              <li><strong>Life Support (A, B, C):</strong> Controls atmospheric safety. Inactive sections drain oxygen every turn and make fire spread faster.</li>
+              <li><strong>Anti-Aircraft System:</strong> Located in Section B. If Active when the Lander arrives, the Lander is destroyed. Must be inspected/set to Inactive.</li>
+              <li><strong>Autodestruction:</strong> Can be armed in Cooling System. Placed 5 rounds ahead on the track. If it detonates, the facility explodes and everyone inside dies.</li>
+              <li><strong>The Reactor:</strong> Shuts down facility power completely, deactivating AA, Life Support, and Autodestruction permanently.</li>
+            </ul>
+          </article>
+
+          <!-- 10. Escape & Endgame -->
+          <article id="rule-escape" class="rule-article">
+            <h3>10. Escape &amp; Endgame Resolution</h3>
+            <p>The game ends when Round 14 expires, all players escape/die/hibernate, or the facility is destroyed.</p>
+            
+            <div class="step-card">
+              <h4>Endgame Verification Steps</h4>
+              <ol>
+                <li>Resolve Autodestruction if triggered.</li>
+                <li><strong>Infection Check:</strong> Escaped/Hibernated players without a Larva take all cards into hand and resolve Infection Procedure.</li>
+                <li><strong>Eclosion Check:</strong> Escaped/Hibernated players with a Larva gain 1 Contamination, shuffle deck, draw 4 cards for Eclosion. If Contaminated &rarr; Death.</li>
+                <li><strong>Objective Check:</strong> Survivors reveal their chosen Objective. If conditions are met &rarr; <strong>VICTORY.</strong></li>
+              </ol>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 3: FACILITY ROOMS DIRECTORY -->
+    <section id="tab-rooms-dir" class="tab-pane">
+      <div class="section-intro">
+        <h2>🗺️ Facility Rooms Directory (All 25 Rooms)</h2>
+        <p class="lead">Complete database of all official facility rooms, section markers, item icons, computer terminals, and room actions.</p>
+        
+        <div class="filter-controls">
+          <label>Filter by Section:</label>
+          <button class="filter-btn active" data-filter="all">All (25)</button>
+          <button class="filter-btn" data-filter="?">Random [?] (13)</button>
+          <button class="filter-btn" data-filter="A">Section A (4)</button>
+          <button class="filter-btn" data-filter="B">Section B (4)</button>
+          <button class="filter-btn" data-filter="C">Section C (4)</button>
+          <button class="filter-btn" data-filter="comp">💻 Computer Terminals</button>
+        </div>
+      </div>
+
+      <div id="rooms-grid" class="rooms-cards-grid">
+        <!-- Injected via JavaScript -->
+      </div>
+    </section>
+
+    <!-- TAB 4: OPERATIVES & GEAR -->
+    <section id="tab-operatives" class="tab-pane">
+      <div class="section-intro">
+        <h2>👥 Operatives &amp; Equipment</h2>
+        <p class="lead">The squad of 6 specialists deployed into the infested facility.</p>
+      </div>
+
+      <div class="operatives-grid">
+        <!-- Recon -->
+        <div class="operative-card">
+          <div class="op-header op-recon">
+            <div class="op-rank">RANK 1</div>
+            <h3>RECON</h3>
+            <div class="op-role">Scout / Vanguard</div>
+          </div>
+          <div class="op-body">
+            <p><strong>Starting Weapon:</strong> Assault Rifle (Ranged, 3 Ammo capacity)</p>
+            <p><strong>Key Cards:</strong> <em>Sprint</em> (Move, then spend 1 to Move again), <em>Scouting</em> (Move Cautiously to discovered room, or explore and search).</p>
+            <p><strong>Strengths:</strong> Highest mobility on the team, rapid map discovery, evasion.</p>
+          </div>
+        </div>
+
+        <!-- Combat Engineer -->
+        <div class="operative-card">
+          <div class="op-header op-engineer">
+            <div class="op-rank">RANK 2</div>
+            <h3>COMBAT ENGINEER</h3>
+            <div class="op-role">Demolition &amp; Fortifications</div>
+          </div>
+          <div class="op-body">
+            <p><strong>Starting Weapon:</strong> Automatic Shotgun (Ranged, 2 Ammo capacity)</p>
+            <p><strong>Key Cards:</strong> <em>Demolition</em> (destroy doors or place malfunction), <em>Fast Repairs</em>, <em>Tactical Retreat</em>.</p>
+            <p><strong>Strengths:</strong> Controlling door states, clearing malfunctions, reinforcing corridors for safe movement.</p>
+          </div>
+        </div>
+
+        <!-- Medical Support -->
+        <div class="operative-card">
+          <div class="op-header op-medic">
+            <div class="op-rank">RANK 2</div>
+            <h3>MEDICAL SUPPORT</h3>
+            <div class="op-role">Squad Physician / Biochemist</div>
+          </div>
+          <div class="op-body">
+            <p><strong>Starting Weapon:</strong> Carbine (Ranged, 2 Ammo capacity)</p>
+            <p><strong>Key Cards:</strong> <em>Field Surgery</em> (discard serious wounds from allies), <em>Combat Drugs</em>, <em>First Aid</em>.</p>
+            <p><strong>Strengths:</strong> Treating serious wounds, purging infection, keeping the squad alive.</p>
+          </div>
+        </div>
+
+        <!-- Heavy Gun Operator -->
+        <div class="operative-card">
+          <div class="op-header op-heavy">
+            <div class="op-rank">RANK 2</div>
+            <h3>HEAVY GUN OPERATOR</h3>
+            <div class="op-role">Heavy Fire Support</div>
+          </div>
+          <div class="op-body">
+            <p><strong>Starting Weapon:</strong> B.F.G. / Heavy Gun (Ranged, 3 Ammo capacity)</p>
+            <p><strong>Key Cards:</strong> <em>Breakthrough</em> (Burst through corridor, then advance), <em>Suppressive Fire</em>, <em>Reload &amp; Shoot</em>.</p>
+            <p><strong>Strengths:</strong> Massive crowd control in corridors, bonus hits on shooting, Queen hunting.</p>
+          </div>
+        </div>
+
+        <!-- Contractor -->
+        <div class="operative-card">
+          <div class="op-header op-contractor">
+            <div class="op-rank">RANK 3</div>
+            <h3>CONTRACTOR</h3>
+            <div class="op-role">Corporate Freelancer</div>
+          </div>
+          <div class="op-body">
+            <p><strong>Starting Weapon:</strong> Handgun (Ranged, 2 Ammo) + <strong>Bulletproof Vest</strong> (Armor)</p>
+            <p><strong>Key Cards:</strong> <em>Duck and Cover</em> (move &amp; prevent attack; reaction shifts attacks to other players.), <em>Consultant Tricks</em>.</p>
+            <p><strong>Strengths:</strong> Starts with Armor and 2 items, highly adaptable, self-serving survival reactions.</p>
+          </div>
+        </div>
+
+        <!-- Officer -->
+        <div class="operative-card">
+          <div class="op-header op-officer">
+            <div class="op-rank">RANK 4</div>
+            <h3>OFFICER</h3>
+            <div class="op-role">Field Commander</div>
+          </div>
+          <div class="op-body">
+            <p><strong>Starting Weapon:</strong> Sawed-Off Shotgun (Ranged, 2 Ammo)</p>
+            <p><strong>Key Cards:</strong> <em>Chain of Command</em> (command any lower-ranking operative to Move, Shoot, or Burst.), <em>Fire At Will</em>.</p>
+            <p><strong>Strengths:</strong> Coordinating squad fire, forcing other players into tactical actions, high rank authority.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tactical Gear Overview -->
+      <div class="gear-overview mt-4">
+        <h3>Tactical Gear Consumables</h3>
+        <div class="gear-tokens-grid">
+          <div class="gear-box bg-ammo">
+            <h4>🔴 AMMO TOKEN</h4>
+            <p>Two-sided (Full &rarr; Half &rarr; Depleted). Reloads weapons. Spent on Burst actions and Shoot Ammo-loss results.</p>
+          </div>
+          <div class="gear-box bg-medpack">
+            <h4>🟢 MEDPACK TOKEN</h4>
+            <p>One-time medical kit. Spend with Tactical Gear action to immediately heal <strong>2 Health Points</strong>.</p>
+          </div>
+          <div class="gear-box bg-grenade">
+            <h4>🟣 GRENADE TOKEN</h4>
+            <p>Explosive ordnance. Spend to target an adjacent corridor: roll Burst die + 2 bonus hits.</p>
+          </div>
+          <div class="gear-box bg-oxygen">
+            <h4>🟡 OXYGEN CANISTER</h4>
+            <p>Emergency air reserve. Spend with Tactical Gear action to restore <strong>+3 Oxygen</strong> on your dial (max 7).</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 5: INTRUDERS & COMBAT -->
+    <section id="tab-intruders" class="tab-pane">
+      <div class="section-intro">
+        <h2>👾 Intruders &amp; Alien Lifecycle</h2>
+        <p class="lead">Know your enemy: stats, spawn rules, damage thresholds, and Queen combat.</p>
+      </div>
+
+      <div class="intruder-castes-grid">
+        <div class="intruder-card caste-larva">
+          <h3>LARVA</h3>
+          <div class="caste-stats">Health: 1 Hit | Corridor: 1 Hit</div>
+          <p>Small facehugger parasites. When a Larva attacks an uninfected Character, it burrows onto their Character board as an <strong>Infection Larva</strong>. In corridors or rooms, 1 hit kills it instantly.</p>
+        </div>
+
+        <div class="intruder-card caste-drone">
+          <h3>DRONE</h3>
+          <div class="caste-stats">Health: Roll-to-Kill | Corridor: 2 Hits</div>
+          <p>Fast scouting xenomorphs. In rooms, accumulates damage until a Shoot die roll &le; hits. In corridors, takes <strong>2 Burst hits</strong> to kill.</p>
+        </div>
+
+        <div class="intruder-card caste-adult">
+          <h3>ADULT</h3>
+          <div class="caste-stats">Health: Roll-to-Kill | Corridor: 1 Hit</div>
+          <p>Full-grown deadly predators. In rooms, extremely durable. In corridors, vulnerable to suppressive fire (1 Burst hit kills.). Cause serious wounds and heavy bleed.</p>
+        </div>
+
+        <div class="intruder-card caste-queen">
+          <h3>👑 THE QUEEN</h3>
+          <div class="caste-stats">Health: Queen Health Deck | Armor Track</div>
+          <p>Massive biomechanical apex predator. Hits are tracked on the Queen Hits track. When the track fills, draw the top Queen Health card, discard bonus cards, and resolve bottom effects. When the deck empties, she dies.</p>
+        </div>
+      </div>
+
+      <!-- Attack Card Examples -->
+      <div class="combat-guide mt-4">
+        <h3>Intruder Attack Resolution</h3>
+        <p>When an Intruder attacks a Character (during the Event Phase, upon room entry, or during opportunity attacks):</p>
+        <ol class="step-list">
+          <li>Check for <strong>Secure Tokens</strong> in the room: If the attack is from an Intruder entering, discard 1 Secure token to cancel the attack completely.</li>
+          <li>If unprevented, draw 1 card from the <strong>Intruder Attack Deck</strong>.</li>
+          <li>Find the section matching the attacking caste (Larva, Drone, Adult, Queen).</li>
+          <li>Apply damage: Health loss, Contamination, or Serious Wounds as printed.</li>
+          <li>Discard the card.</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- TAB 6: OBJECTIVES & ESCAPE -->
+    <section id="tab-objectives" class="tab-pane">
+      <div class="section-intro">
+        <h2>🎯 Objectives, Escape &amp; Winning</h2>
+        <p class="lead">Nemesis is semi-cooperative: the squad has a mission, but private orders may demand sabotage or betrayal.</p>
+      </div>
+
+      <div class="objectives-layout">
+        <div class="obj-column">
+          <h3>How Objectives Work</h3>
+          <p>During setup, you receive 1 <strong>Mission Objective</strong> (aligned with the shared squad goal) and 1 <strong>Private Objective</strong> (personal orders). At any time during the game on your turn, choose one and banish the other.</p>
+          <div class="rule-callout">
+            <h4>Key Rule Terms (Official Glossary)</h4>
+            <ul>
+              <li><strong>SURVIVOR:</strong> A Character alive at the end of round 14 who escaped via Lander/Shuttle OR Hibernated, AND passed the endgame Eclosion test.</li>
+              <li><strong>ESCAPED:</strong> Left the facility aboard the Lander or Escape Shuttle (does NOT include Hibernation).</li>
+              <li><strong>FULFILLED:</strong> All conditions on your kept Objective card are satisfied when the game concludes.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="obj-column">
+          <h3>Escape Modes Comparison</h3>
+          <table class="quick-table">
+            <thead>
+              <tr>
+                <th>Mode</th>
+                <th>Capacity</th>
+                <th>Requirements &amp; Vulnerabilities</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Lander (Dropship)</strong></td>
+                <td>Unlimited</td>
+                <td>Arrives at Landing Zone when Round marker reaches Lander token. <strong>Anti-Aircraft must be Inactive</strong> or Lander explodes. Launches at start of Event Phase.</td>
+              </tr>
+              <tr>
+                <td><strong>Escape Shuttle</strong></td>
+                <td>1 Character</td>
+                <td>Located in Room 24 (Section C). One-use only. Requires Noise roll to enter. Immune to Anti-Aircraft.</td>
+              </tr>
+              <tr>
+                <td><strong>Hibernatorium</strong></td>
+                <td>Unlimited</td>
+                <td>Room 18 (Section B). Must be <em>Activated</em> in Life Support C. Requires Noise roll. Hibernating characters survive UNLESS the Facility explodes.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Sticky Footer Bar -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div>Nemesis: Retaliation Rules Layer &bull; Source-Faithful Implementation Reference &bull; Hosted on Tailscale</div>
+      <div class="footer-badge">TAILNET: smithers.coyote-piranha.ts.net</div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

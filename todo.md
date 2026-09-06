@@ -20,6 +20,7 @@ Current workspace, branch, and immediate next action: see `PROJECT_STATUS.md`.
 ---
 
 ## DONE (v2 + v3)
+- [x] Create source-faithful Player Manual & Quick Reference website (`public/manual/`) with 25-room directory, operative guides, action costs, and help card cheat sheets. Host on Tailscale and bundle into GitHub Pages at `/manual/`.
 - [x] Parse save → objects.json, lua_script.lua, lua_roles.json, gmnotes_taxonomy.json
 - [x] Classify base vs expansion (Lua-authoritative) → classification.json, url_verdicts.json
 - [x] Download base assets (444 files, 0.93 GB) → v2-dl/tree/
