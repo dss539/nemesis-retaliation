@@ -14,11 +14,11 @@
 
 ## Current Objective
 
-Implementation Phase 1 & 2 operational. Vitest test suite passes 73/73 tests. Playwright E2E suite passes 12/12 tests covering initial load, player HUD/cards, turn rotation, multi-viewport responsive framing (mobile/tablet/desktop), multi-touch pinch gesture stabilization, on-screen camera controls, diagnostics overlay, and two-client P2P action synchronization.
+Implementation Phase 1, 2, & 5 operational. Vitest test suite passes 73/73 tests. Playwright E2E suite passes 13/13 tests covering initial load, player HUD/cards, turn rotation, interactive room movement & exploration, multi-viewport responsive framing (mobile/tablet/desktop), multi-touch pinch gesture stabilization, on-screen camera controls, diagnostics overlay, and two-client P2P action synchronization.
 
 ## Immediate Next Deliverable
 
-Stage 3 & 4 full game loop expansion and additional interactive action flows (movement targeting, exploration card resolution, combat rolls) over live P2P network layer.
+Stage 3 & 4 full game loop expansion and additional interactive action flows (combat cards, crafting, bag development, objective scoring) over live P2P network layer.
 
 ## Resume Checkpoint
 

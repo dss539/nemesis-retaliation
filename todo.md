@@ -2160,3 +2160,30 @@ Do not add repair entries here.
 - [x] Push commits to `origin/main`.
 - [x] Monitor GitHub Actions pipeline run and verify green status.
 - [x] Verify live site on GitHub Pages (`https://dss539.github.io/nemesis-retaliation/`).
+
+---
+
+## IMPLEMENTATION PHASE 5: End-to-End Testing, Responsive Multi-Device UX & P2P Multiplayer (Complete)
+
+### Stage 5.1: Automated Playwright E2E Suite
+- [x] Integrate `@playwright/test` targeting `./tests/e2e` with automatic build and preview server lifecycle (`playwright.config.ts`).
+- [x] Initial load verification: HTTP 200, title, canvas mounting, overlay presence, round/phase indicators, room code formatting, and Life Support status (`initial-load.spec.ts`).
+- [x] Player HUD & Cards drawer: Active player, actions remaining, HP, O2, combat safety status, and hand action cards (`hud-and-cards.spec.ts`).
+- [x] Turn rotation & phase transition: Pass Turn dispatches, turns advance, both players passing enters Intruder Phase (`turn-flow.spec.ts`).
+- [x] Canvas & Viewport interactions: Mouse pan/zoom, dynamic window resize, and hit-testing (`canvas-interactions.spec.ts`).
+
+### Stage 5.2: Multi-Device Responsive Layout & Gestures
+- [x] Multi-viewport testing matrix (Mobile Compact 360×740, Mobile Portrait 390×844, Tablet Portrait 800×1180, Tablet Landscape 1180×800, Desktop FHD 1920×1080) (`responsive-viewports.spec.ts`).
+- [x] Inset-aware camera framing: calculate clear play area between top navigation (50px) and bottom HUD (140px) to prevent bottom row (`slot_*_4`) from being obscured.
+- [x] Fixed canvas container height to dynamic viewport units (`100dvh`) to avoid mobile address bar distortion.
+- [x] Multi-touch gesture stabilization: eliminate abrupt jump when lifting one finger from a 2-finger pinch by tracking pinch state and re-anchoring coordinates (`touch-interactions.spec.ts`).
+- [x] Floating on-screen camera controls (+ Zoom In, − Zoom Out, 🎯 Center Crew, ⟲ Reset Framing).
+- [x] On-screen diagnostics toggle (`🔍 VIEWPORT`) with live window, viewport, screen, canvas, DPR, and camera transform copy.
+
+### Stage 5.3: Interactive Gameplay Loop & Multi-Browser P2P
+- [x] BroadcastChannel P2P transport (`src/network/broadcast-transport.ts`) for zero-latency, cross-tab browser multiplayer.
+- [x] Multi-browser head-to-head automated testing: two concurrent browser instances synchronize actions, pass turns, and transition phases in real time (`multi-browser-p2p.spec.ts`).
+- [x] Interactive Action Dock: clicking adjacent green-highlighted rooms displays "MOVE (1 Card)" and "CAUTIOUS MOVE (2 Cards)"; clicking current room displays "SEARCH" and "MELEE" (`actions-and-movement.spec.ts`).
+- [x] Interactive Action Cards in hand: clicking a card selects it as cost for movement, search, or combat.
+- [x] Phase resolution banners: prominent action buttons for "RESOLVE INTRUDER PHASE", "DRAW EVENT CARD", and "START NEXT ROUND".
+
