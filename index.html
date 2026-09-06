@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Nemesis: Retaliation — Digital Implementation</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body, html {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background-color: #0b0f19;
+      color: #f8fafc;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+    #game-container {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+    }
+    #tactical-canvas {
+      width: 100%;
+      height: 100%;
+      display: block;
+      cursor: grab;
+    }
+    #tactical-canvas:active {
+      cursor: grabbing;
+    }
+  </style>
+</head>
+<body>
+  <div id="game-container">
+    <canvas id="tactical-canvas"></canvas>
+  </div>
+
+  <script type="module">
+    import { NemesisApp } from './src/ui/components/app.js';
+
+    window.addEventListener('DOMContentLoaded', () => {
+      const container = document.getElementById('game-container');
+      const canvas = document.getElementById('tactical-canvas');
+      
+      const resize = () => {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      };
+      resize();
+      window.addEventListener('resize', resize);
+
+      const app = new NemesisApp(container, canvas);
+      app.renderer.startAnimationLoop();
+    });
+  </script>
+</body>
+</html>
