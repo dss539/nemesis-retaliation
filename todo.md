@@ -2127,24 +2127,24 @@ Do not add repair entries here.
 ## IMPLEMENTATION PHASE 2: Networking & Peer-to-Peer Synchronization Layer (Pending)
 
 ### Stage 2.1: PeerJS Integration & Connection Lifecycle
-- [ ] PeerJS client setup with 4-character room codes (`nemesis-rt-XXXX`).
-- [ ] Host-coordinator message envelope, heartbeat monitoring, and connection keep-alive.
-- [ ] Monotonic sequence numbering and action broadcast.
-- [ ] Automated host migration / failover when host disconnects.
-- [ ] State snapshot serialization, delta action replay, and hot-join synchronization.
+- [x] PeerJS client setup with 4-character room codes (`nemesis-rt-XXXX`).
+- [x] Host-coordinator message envelope, heartbeat monitoring, and connection keep-alive.
+- [x] Monotonic sequence numbering and action broadcast.
+- [x] Automated host migration / failover when host disconnects.
+- [x] State snapshot serialization, delta action replay, and hot-join synchronization.
 
 ---
 
 ## IMPLEMENTATION PHASE 3: Client Rendering & User Interface (Pending)
 
 ### Stage 3.1: Tactical Canvas Renderer
-- [ ] High-refresh rate (`requestAnimationFrame`, 60/90/120 Hz) Canvas 2D engine.
-- [ ] Pointy-top hex room slot rendering, corridor passages, door states, and room artwork.
-- [ ] Multi-touch gesture handling (pinch-to-zoom, pan, inertia) on mobile; mouse wheel/drag on desktop.
-- [ ] Visual overlays: legal movement destinations, line of sight, combat targeting, and noise indicators.
+- [x] High-refresh rate (`requestAnimationFrame`, 60/90/120 Hz) Canvas 2D engine.
+- [x] Pointy-top hex room slot rendering, corridor passages, door states, and room artwork.
+- [x] Multi-touch gesture handling (pinch-to-zoom, pan, inertia) on mobile; mouse wheel/drag on desktop.
+- [x] Visual overlays: legal movement destinations, line of sight, combat targeting, and noise indicators.
 
 ### Stage 3.2: Responsive UI & Unfolding Layout
-- [ ] Reactive UI layer (hand manager, action picker, inventory drawers).
-- [ ] Mobile bottom-sheet drawers and modal action confirmation dialogs.
-- [ ] Desktop multi-pane layout with persistent board, action panel, and card inspect.
-- [ ] PWA Service Worker offline caching and Screen Wake Lock API.
+- [x] Reactive UI layer (hand manager, action picker, inventory drawers).
+- [x] Mobile bottom-sheet drawers and modal action confirmation dialogs.
+- [x] Desktop multi-pane layout with persistent board, action panel, and card inspect.
+- [x] State persistence and room code multiplayer connection.

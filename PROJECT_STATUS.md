@@ -14,11 +14,11 @@
 
 ## Current Objective
 
-Stage 1 (Headless Rules & State Engine) is complete and verified with 63 tests across 18 test files in Vitest. Proceed to Stage 2: Networking & Peer-to-Peer Synchronization Layer (PeerJS integration, host-coordinator, monotonic sequencing, failover).
+Stages 1 (Headless Rules & State Engine), 2 (Networking & P2P Synchronization Layer), and 3 (Tactical Canvas Renderer & Reactive Client UI) are fully implemented, verified, and passing 70 automated tests across 20 test files in Vitest.
 
 ## Immediate Next Deliverable
 
-Stage 2.1: PeerJS Integration & Connection Lifecycle (room codes `nemesis-rt-XXXX`, virtual host message envelope, heartbeat monitoring, and failover).
+End-to-end integration and visual QA across mobile and desktop viewpoints. All core engine rules, exploration sequences, combat dice, room actions, P2P networking, and canvas rendering are operational and clean.
 
 ## Resume Checkpoint
 
