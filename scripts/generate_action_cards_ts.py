@@ -69,7 +69,7 @@ for key, card in bga_cards.items():
     ts_lines.append(f"    key: {json.dumps(key)},")
     ts_lines.append(f"    title: {json.dumps(name)},")
     ts_lines.append(f"    characterId: {json.dumps(char_id)},")
-    ts_lines.append(f"    notInCombat: {json.dumps(no_intruders)},")
+    ts_lines.append(f"    combatRestricted: {json.dumps(no_intruders)},")
     ts_lines.append(f"    isReaction: {json.dumps(is_reaction)},")
     ts_lines.append(f"    rulesText: {json.dumps(effect_text)},")
     if is_command:

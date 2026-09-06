@@ -238,7 +238,7 @@ function handleDraftCharacter(
     id: c.id,
     title: c.title,
     characterId: c.characterId,
-    notInCombat: c.notInCombat,
+    combatRestricted: c.combatRestricted,
     isReaction: c.isReaction,
     rulesText: c.rulesText,
   }));
@@ -378,8 +378,8 @@ function handlePlayActionCard(
 
   const card = char.hand[cardIndex]!;
 
-  // RT-006: Check Not In Combat
-  if (card.notInCombat) {
+  // RT-006: Check Combat Restricted (formerly notInCombat)
+  if (card.combatRestricted) {
     const currentRoom = state.board.rooms[char.currentRoomId];
     if (currentRoom && currentRoom.intruderIds.length > 0) {
       throw new Error(`Cannot play ${card.title}: character is in combat in ${currentRoom.slotId}`);
