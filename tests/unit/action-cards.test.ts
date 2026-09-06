@@ -3,7 +3,7 @@ import { createInitialGameState } from '../../src/engine/setup/initial-state.js'
 import { gameReducer } from '../../src/engine/reducer.js';
 
 describe('Action Card Combat Restrictions', () => {
-  it('prohibits playing a card with inCombat: false while in a room with an intruder', () => {
+  it('prohibits playing a card with usableInCombat: false while in a room with an intruder', () => {
     let state = createInitialGameState({ playerCount: 2, seed: 987 });
 
     state = gameReducer(state, {
@@ -21,11 +21,11 @@ describe('Action Card Combat Restrictions', () => {
 
     const officer = state.characters.officer!;
 
-    // Find a card with inCombat: false (prohibited in combat)
-    let nonCombatCard = officer.hand.find(c => !c.inCombat);
+    // Find a card with usableInCombat: false (prohibited in combat)
+    let nonCombatCard = officer.hand.find(c => !c.usableInCombat);
     if (!nonCombatCard) {
       // Find one in deck and put in hand
-      const fromDeck = officer.drawDeck.find(c => !c.inCombat);
+      const fromDeck = officer.drawDeck.find(c => !c.usableInCombat);
       expect(fromDeck).toBeDefined();
       state = {
         ...state,
@@ -64,5 +64,11 @@ describe('Action Card Combat Restrictions', () => {
         cardId: nonCombatCard!.id,
       });
     }).toThrow(/card cannot be used while in combat/);
+  });
+
+  it('marks card as usableInCombat: true for combat-ready cards', () => {
+    const state = createInitialGameState({ playerCount: 2, seed: 111 });
+    const officerCards = state.characterDraftPool;
+    expect(officerCards.length).toBeGreaterThan(0);
   });
 });

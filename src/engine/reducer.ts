@@ -238,7 +238,7 @@ function handleDraftCharacter(
     id: c.id,
     title: c.title,
     characterId: c.characterId,
-    inCombat: c.inCombat,
+    usableInCombat: c.usableInCombat,
     isReaction: c.isReaction,
     rulesText: c.rulesText,
   }));
@@ -287,6 +287,7 @@ function handleDraftCharacter(
     maxHealth: def.maxHealth,
     oxygen: def.startingOxygen,
     isSuffocating: false,
+    inCombat: false,
     seriousWounds: [],
     currentRoomId: 'landing-zone',
     hand,
@@ -378,8 +379,8 @@ function handlePlayActionCard(
 
   const card = char.hand[cardIndex]!;
 
-  // Rulebook p. 14 / RT-006: If card cannot be used in combat (!card.inCombat), check for intruders
-  if (!card.inCombat) {
+  // Rulebook p. 14 / RT-006: If card is not usable in combat (!card.usableInCombat), character cannot play it while sharing room with intruders
+  if (!card.usableInCombat) {
     const currentRoom = state.board.rooms[char.currentRoomId];
     if (currentRoom && currentRoom.intruderIds.length > 0) {
       throw new Error(`Cannot play ${card.title}: card cannot be used while in combat (room contains intruders)`);

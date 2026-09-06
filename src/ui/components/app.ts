@@ -78,6 +78,11 @@ export class NemesisApp {
 
     const activePlayer = this.state.players[this.state.activePlayerIndex];
     const activeChar = activePlayer?.characterId ? this.state.characters[activePlayer.characterId] : null;
+    const playerInCombat = Boolean(
+      activeChar &&
+      this.state.board.rooms[activeChar.currentRoomId] &&
+      this.state.board.rooms[activeChar.currentRoomId]!.intruderIds.length > 0
+    );
 
     uiOverlay.innerHTML = `
       <div style="pointer-events: auto; background: rgba(15, 23, 42, 0.9); padding: 12px 20px; border-bottom: 1px solid #334155; display: flex; justify-content: space-between; align-items: center; color: #f8fafc; font-family: sans-serif;">
@@ -101,6 +106,7 @@ export class NemesisApp {
             <b>Active:</b> ${activePlayer?.name ?? 'None'} ${activeChar ? `(${activeChar.name})` : ''} — 
             <span>Actions Remaining: <b>${activeChar?.actionsRemaining ?? 0}</b></span>
             ${activeChar ? ` | HP: ${activeChar.health}/${activeChar.maxHealth} | O2: ${activeChar.oxygen}` : ''}
+            ${playerInCombat ? ' | <span style="background: #991b1b; color: #fee2e2; padding: 2px 6px; border-radius: 3px; font-weight: bold; font-size: 11px;">⚔️ IN COMBAT</span>' : ' | <span style="color: #4ade80; font-size: 11px;">🛡️ Safe</span>'}
           </div>
           <div>
             <button id="btn-pass" style="background: #e11d48; color: white; border: none; padding: 6px 14px; border-radius: 4px; cursor: pointer; font-weight: bold;">PASS TURN</button>
@@ -109,14 +115,19 @@ export class NemesisApp {
 
         ${activeChar ? `
         <div style="display: flex; gap: 8px; overflow-x: auto; padding: 4px 0;">
-          ${activeChar.hand.map(card => `
-            <div style="background: #1e293b; border: 1px solid #475569; border-radius: 6px; padding: 8px; min-width: 130px; font-size: 11px;">
-              <div style="font-weight: bold; margin-bottom: 4px; color: #38bdf8;">${card.title}</div>
-              <div style="color: ${card.inCombat ? '#4ade80' : '#f87171'}; font-size: 10px; font-weight: 500;">
-                ${card.inCombat ? '✓ Usable in Combat' : '✗ Safe Rooms Only'}
+          ${activeChar.hand.map(card => {
+            const isPlayable = !playerInCombat || card.usableInCombat;
+            return `
+            <div style="background: ${isPlayable ? '#1e293b' : '#1e1b24'}; border: 1px solid ${isPlayable ? '#475569' : '#7f1d1d'}; border-radius: 6px; padding: 8px; min-width: 140px; font-size: 11px; opacity: ${isPlayable ? '1.0' : '0.6'};">
+              <div style="font-weight: bold; margin-bottom: 4px; color: ${isPlayable ? '#38bdf8' : '#94a3b8'};">${card.title}</div>
+              <div style="font-size: 10px; margin-top: 4px;">
+                ${card.usableInCombat 
+                  ? '<span style="color: #4ade80;">⚔️ Playable in Combat</span>' 
+                  : '<span style="color: #f87171;">⚠️ Out-of-Combat Only</span>'}
               </div>
             </div>
-          `).join('')}
+            `;
+          }).join('')}
         </div>
         ` : ''}
       </div>

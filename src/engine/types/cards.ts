@@ -9,7 +9,7 @@ export interface ActionCard {
   id: CardId;
   title: string;
   characterId: CharacterId | 'support';
-  inCombat: boolean; // True if usable in combat; false if prohibited when intruders are present
+  usableInCombat: boolean; // True if usable in combat; false if prohibited when intruders are present in character's room
   isReaction: boolean;
   rulesText: string;
 }

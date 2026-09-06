@@ -33,6 +33,7 @@ export interface CharacterState {
   maxHealth: number;
   oxygen: number; // 0..5
   isSuffocating: boolean;
+  inCombat?: boolean | undefined; // True if an intruder is present in the character's room
   seriousWounds: SeriousWoundCard[];
   currentRoomId: RoomId;
   hand: ActionCard[];
