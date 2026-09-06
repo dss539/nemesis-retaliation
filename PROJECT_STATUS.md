@@ -1,9 +1,9 @@
 # Nemesis: Retaliation — Project Status
 
-**Status date:** 2026-09-05
-**Active phase:** Rules corpus closed with documented project interpretations; ready for rewrite architecture & implementation approval
+**Status date:** 2026-09-06
+**Active phase:** Implementation Phase 1 — Clean Rewrite Architecture (Stage 1: Headless Rules & State Engine)
 **Active branch:** `main`
-**Implementation status:** Frozen; pending owner approval to begin the clean rewrite architecture
+**Implementation status:** Active (Approved by owner on 2026-09-06: rewrite-architecture-proposal.md accepted)
 
 ## Active Workspace
 
@@ -14,11 +14,11 @@
 
 ## Current Objective
 
-The rules layer is verified and reconciled against official sources, BGG consensus, and documented project interpretations. Proceed to architectural design for the clean digital implementation rewrite.
+Execute Stage 1 of the accepted rewrite architecture proposal: Headless Rules & State Engine in TypeScript + Vitest, strictly driven by the 2,126 audited rules/facts and documented project interpretations.
 
 ## Immediate Next Deliverable
 
-Owner review and approval of the rewrite architecture proposal to begin the clean implementation from scratch.
+Stage 1.1: Core Types & Foundations (TypeScript setup, deterministic PRNG, core state schemas, basic turn/round loop).
 
 ## Resume Checkpoint
 
@@ -43,7 +43,7 @@ Owner review and approval of the rewrite architecture proposal to begin the clea
 
 ## Execution Boundaries
 
-- Follow the owner's fragment-coverage review in `docs/rules/implementation-readiness.md`. Review rules and source evidence only; do not rebuild audit machinery.
+- Follow the owner's fragment-coverage review in `docs/rules/implementation-readiness.md`. The former Stage 1 v2 blind correctness-audit methodology was scrapped by the owner: its harness, scripts, packets, and review evidence were deleted and must not be rebuilt. Review rules and source evidence only.
 - The owner decides worker count per wave.
 - Verifiers operate directly in the defined repository audit folders and self-claim one canonical manifest fragment at a time through `scripts/audit_work_steal.py`. The helper uses only a short per-fragment flock during an atomic same-filesystem move into `audit/claimed/<worker-id>/`; verifiers must not acquire, inspect, wait on, or touch `.workspace.lock`. Serialize only genuinely shared writes such as corpus repairs and status updates. Do not use `/tmp`, copied packets, ad hoc directories, or verifier worktrees.
 - Do not create Hermes profiles, expand semantics, touch the legacy implementation, open a PR, merge, deploy, or push unless separately authorized. A stop/status request preempts worker launches, integration, and autonomous successor handoff immediately.

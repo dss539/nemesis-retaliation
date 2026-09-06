@@ -2082,3 +2082,42 @@ Do not add repair entries here.
 - [x] Opened OQ-013 (Hibernatorium corpses) and OQ-014 (Objective N+ / player-number eligibility) from P2 cross-referencing gaps.
 - [x] Ran two isolated Ollama Cloud critics over the full repair diff; verified and fixed four findings (`02c003b`, `0e97617`), rejected one. Wrote `docs/qa/repair-review/OWNER-NOTES.md` and `docs/qa/repair-review/UNSURE-LEDGER.md`.
 - [x] Owner: read OWNER-NOTES; ruled on corpse scope (OQ-013: excluded as expansion/add-on); researched and documented BGG consensus project interpretations for key unsure questions (SEM-Q-002, SEM-Q-059, OQ-014, SEM-Q-027, SEM-Q-013, SEM-Q-014, SEM-Q-020, SEM-Q-021, OQ-003). Rules layer ready for rewrite architecture gate.
+- [x] Owner approved `rewrite-architecture-proposal.md` (2026-09-06): begin clean rewrite implementation from scratch.
+
+---
+
+## IMPLEMENTATION PHASE 1: Headless Rules & State Engine (Active)
+
+### Stage 1.1: Core Types & Foundations
+- [ ] Initialize project configuration (`package.json`, `tsconfig.json`, `vite.config.ts`, `vitest.config.ts`) with zero runtime server deps.
+- [ ] Port/derive TypeScript types from `docs/rules/vocabulary/` and `docs/rules/ontology/` (Rooms, Corridors, Characters, Items, Intruders, Actions).
+- [ ] Implement deterministic seeded PRNG (`Mulberry32`) with state export/hydration and test coverage.
+- [ ] Implement Game State interfaces: Players, Decks, Bag, Board, Objective assignments.
+- [ ] Implement pure Action-Reducer pattern: Action envelope, dispatch validation, monotonic sequence numbering.
+- [ ] Implement Game Setup reducer (Player count 1-5, Character drafting, Starting item distribution, Deck initialization, Bag initialization).
+
+### Stage 1.2: Spatial Engine & Exploration
+- [ ] Hex coordinate math (pointy-top 23 room slots, axial coordinates, neighbors, distance).
+- [ ] Corridor network graph, Door state machine (Open, Closed, Destroyed), Technical Corridors.
+- [ ] Movement action validation (Adjacency, Doors, in-combat movement rules, escaped characters).
+- [ ] Room exploration token reveals, Room tile assignment (Site 1 vs Site 2), Exploration effects.
+- [ ] Corridor Noise roll mechanics and Noise marker placement.
+
+### Stage 1.3: Character Actions & Item Systems
+- [ ] Action card data model & full base deck definitions (60 Action cards across 5 characters + Support).
+- [ ] Basic actions: Move, Search, Shoot, Burst, Melee, Trade, Room Action, Pass.
+- [ ] Action cost mechanics: Card discards, Oxygen/Energy costs, Ammo tracking.
+- [ ] Item decks (Red, Yellow, Green, Crafting/Quest items), Backpack limits, and Tactical Gear.
+- [ ] Room Action execution across all 20+ Room types.
+
+### Stage 1.4: Intruders, Bag Mechanics & Combat
+- [ ] Intruder bag development, token extraction, and spawn procedures.
+- [ ] Intruder AI movement, pathfinding, and target prioritization.
+- [ ] Combat mechanics: Surprise attacks, Attack card deck, Damage distribution, Serious Wounds.
+- [ ] Event phase sequencing: Round track advancement, Intruder attacks, Fire spread, Event card resolution.
+- [ ] Infection checks, Queen health, Autodestruction, and Endgame conditions.
+
+### Stage 1.5: Verification, Serialization & Fuzzing
+- [ ] Automated headless unit & scenario test suite in Vitest covering all core rules.
+- [ ] Fuzz tester / headless Monte Carlo runner simulating 1,000+ random full games without invariant violation or deadlock.
+- [ ] Snapshot serialization, IndexedDB persistence layer (`idb-keyval`), JSON export/import.
